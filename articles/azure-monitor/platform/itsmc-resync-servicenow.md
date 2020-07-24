@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3382f93990612b0ab34eb0848cbf3d6577c44ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81313678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087937"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>ServiceNow 동기화 문제를 수동으로 수정 하는 방법
 
@@ -38,7 +38,7 @@ Azure Monitor 타사 ITSM (IT Service Management) 공급자에 연결할 수 있
     1. 커넥터 이름을 클릭 하 여 구성 합니다.
     1. 더 이상 사용 하지 않는 모든 커넥터 삭제
 
-    1. 파트너 유형에 따라 [이러한 정의](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections) 에 따라 필드를 업데이트 합니다.
+    1. 파트너 유형에 따라 [이러한 정의](./itsmc-connections.md) 에 따라 필드를 업데이트 합니다.
 
     1. 동기화를 클릭 합니다.
 

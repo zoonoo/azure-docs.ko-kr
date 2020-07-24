@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186761"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088090"
 ---
 # <a name="application-gateway-components"></a>Application Gateway 구성 요소
 
@@ -69,13 +69,13 @@ Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 �
 
 - **기본**. 이 유형의 수신기는 단일 도메인 사이트를 수신 대기 합니다. 여기에는 응용 프로그램 게이트웨이의 IP 주소에 대 한 단일 DNS 매핑이 있습니다. 이 수신기 구성은 응용 프로그램 게이트웨이 뒤에 단일 사이트를 호스트 하는 경우에 필요 합니다.
 
-- **다중 사이트**. 이 수신기 구성은 동일한 application gateway 인스턴스에서 둘 이상의 웹 응용 프로그램을 구성할 때 필요 합니다. 이를 통해 응용 프로그램 게이트웨이에 최대 100 개의 웹 사이트를 추가 하 여 배포에 더 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 3 개의 하위 도메인 abc.contoso.com, xyz.contoso.com 및 pqr.contoso.com는 응용 프로그램 게이트웨이의 IP 주소를 가리킵니다. 3 개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각 수신기를 구성 합니다.
+- **다중 사이트**. 이 수신기 구성은 동일한 응용 프로그램 게이트웨이에서 둘 이상의 웹 응용 프로그램에 대 한 호스트 이름 또는 도메인 이름을 기반으로 하는 라우팅을 구성 하려는 경우에 필요 합니다. 이를 통해 하나의 응용 프로그램 게이트웨이에 최대 100 개 이상의 웹 사이트를 추가 하 여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어, contoso.com, fabrikam.com 및 adatum.com 라는 세 개의 도메인은 응용 프로그램 게이트웨이의 IP 주소를 가리킵니다. 3 개의 [다중 사이트 수신기](multiple-site-overview.md) 를 만들고 각 포트 및 프로토콜 설정에 대해 각 수신기를 구성 합니다. 
 
-    자세한 내용은 [다중 사이트 호스팅](application-gateway-web-app-overview.md)을 참조 하세요.
+    다중 사이트 수신기에서 와일드 카드 호스트 이름을 정의 하 고 수신기 당 최대 5 개의 호스트 이름을 정의할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름 (미리 보기)](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조 하세요.
 
-수신기를 만든 후에는 요청 라우팅 규칙과 연결 합니다. 이 규칙은 수신기에서 받은 요청을 백 엔드로 라우팅하는 방법을 결정 합니다.
+    다중 사이트 수신기를 구성 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Application Gateway에서 다중 사이트 호스팅](create-multiple-sites-portal.md)을 참조 하세요.
 
-Application Gateway는 [표시 된 순서](configuration-overview.md#order-of-processing-listeners)대로 수신기를 처리 합니다.
+수신기를 만든 후에는 요청 라우팅 규칙과 연결 합니다. 이 규칙은 수신기에서 받은 요청을 백 엔드로 라우팅하는 방법을 결정 합니다. 또한 요청 라우팅 규칙에는로 라우팅할 백 엔드 풀과 백 엔드 포트, 프로토콜 등이 언급 된 HTTP 설정이 포함 됩니다.
 
 ## <a name="request-routing-rules"></a>라우팅 규칙 요청
 
@@ -99,13 +99,13 @@ Application Gateway는 [표시 된 순서](configuration-overview.md#order-of-pr
 
 자세한 내용은 [응용 프로그램 게이트웨이에서 트래픽 리디렉션](redirect-overview.md)을 참조 하세요.
 
-### <a name="rewrite-http-headers"></a>HTTP 헤더 다시 쓰기
+### <a name="rewrite-http-headers-and-url"></a>HTTP 헤더 및 URL 다시 작성
 
-요청 라우팅 규칙을 사용 하 여 요청 및 응답 패킷이 응용 프로그램 게이트웨이를 통해 클라이언트와 백 엔드 풀 사이에서 이동할 때 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다.
+다시 쓰기 규칙을 사용 하 여 요청 및 응답 패킷이 응용 프로그램 게이트웨이를 통해 클라이언트와 백 엔드 풀 간에 이동할 때 URL 경로 및 쿼리 문자열 매개 변수 뿐만 아니라 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다.
 
-헤더는 정적 값 또는 다른 헤더 및 서버 변수로 설정할 수 있습니다. 클라이언트 IP 주소 추출, 백 엔드에 대 한 중요 한 정보 제거, 보안 추가 등의 중요 한 사용 사례에 도움이 됩니다.
+헤더 및 URL 매개 변수는 정적 값 또는 다른 헤더 및 서버 변수로 설정할 수 있습니다. 클라이언트 IP 주소 추출, 백 엔드에 대 한 중요 한 정보 제거, 보안 추가 등의 중요 한 사용 사례에 도움이 됩니다.
 
-자세한 내용은 [application gateway에서 HTTP 헤더 다시 작성](rewrite-http-headers.md)을 참조 하세요.
+자세한 내용은 [application gateway에서 HTTP 헤더 및 URL 다시 작성](rewrite-http-headers-url.md)을 참조 하세요.
 
 ## <a name="http-settings"></a>HTTP 설정
 
@@ -126,7 +126,7 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 백 엔드 풀은 요청을 처리 하는 백 엔드 서버에 요청을 라우팅합니다. 백 엔드 풀에는 다음이 포함 될 수 있습니다.
 
 - NIC
-- 가상 머신 확장 집합
+- 가상 머신 크기 집합
 - 공용 IP 주소
 - 내부 IP 주소
 - FQDN

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089552"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 
@@ -119,7 +119,7 @@ VM을 수동으로 추가하려면:
 
     f. **각 DR 드릴 기간(일)**
 
-    예: **OS 유형**
+    g. **OS 유형**
 
     h. **데이터 중복**
 
@@ -167,16 +167,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|Currency|Name||Currency|Name||Currency|Name|
+|Currency|Name|Currency|Name|Currency|Name|
 |---|---|---|---|---|---|---|---|
-|ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
-|CAD|캐나다 달러($)||CHF|스위스 프랑(chf)||DKK|덴마크 크로네(kr)|
-|EUR|유로(€)||GBP|영국 파운드(£)||HKD|홍콩 달러(HK$)|
-|IDR|인도네시아 루피아(Rp)||INR|인도 루피(₹)||JPY|일본 엔(¥)|
-|KRW|한국 원(₩)||MXN|멕시코 페소(MX$)||MYR|말레이시아 링깃(RM$)|
+|ARS|아르헨티나 페소($)|AUD|호주 달러($)|BRL|브라질 헤알(R$)|
+|CAD|캐나다 달러($)|CHF|스위스 프랑(chf)|DKK|덴마크 크로네(kr)|
+|EUR|유로(€)|GBP|영국 파운드(£)|HKD|홍콩 달러(HK$)|
+|IDR|인도네시아 루피아(Rp)|INR|인도 루피(₹)|JPY|일본 엔(¥)|
+|KRW|한국 원(₩)|MXN|멕시코 페소(MX$)|MYR|말레이시아 링깃(RM$)|
 |NOK|노르웨이 크로네(kr)||NZD|뉴질랜드 달러($)||RUB|러시아 루블(руб)|
-|SAR|사우디아라비아 리얄(SR)||SEK|스웨덴 크로나(kr)||TWD|대만 달러(NT$)|
-|TRY|터키 리라(TL)||USD| 미국 달러($)||ZAR|남아프리카공화국 랜드(R)|
+|SAR|사우디아라비아 리얄(SR)|SEK|스웨덴 크로나(kr)|TWD|대만 달러(NT$)|
+|TRY|터키 리라(TL)|USD| 미국 달러($)|ZAR|남아프리카공화국 랜드(R)|
 
 ## <a name="next-steps"></a>다음 단계
 [Site Recovery를 사용하여 Hyper-V VM을 Azure로 보호](hyper-v-azure-tutorial.md)하는 방법을 자세히 알아봅니다.

@@ -3,11 +3,12 @@ title: Azure Portal을 사용하여 서비스 상태 알림 보기
 description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 서비스 상태 메시지를 볼 수 있습니다.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 21416edc95d345eb183030a9b0cccb7529305d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f8297ae708d3f4e7921221f2c4bacee12a7a2b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75748642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089569"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
 
@@ -29,7 +30,7 @@ ms.locfileid: "75748642"
 
     ![경고를 선택한 활동 로그 모니터 스크린샷](./media/service-notifications/service-health-summary.png)
 
-1. **+활동 로그 경고 추가**를 선택하고 알림을 구성하여 향후 서비스 알림을 받을 수 있습니다. 자세한 내용은 [서비스 알림에 대한 활동 로그 경고 만들기](../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.
+1. **+활동 로그 경고 추가**를 선택하고 알림을 구성하여 향후 서비스 알림을 받을 수 있습니다. 자세한 내용은 [서비스 알림에 대한 활동 로그 경고 만들기](./alerts-activity-log-service-notifications-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

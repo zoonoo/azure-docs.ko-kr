@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: c60303d2306ca167a4d90b0cc27c1d265f2e2db8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53e70fbb1321f33849073bbd6b2176f5d88a1f8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204424"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089000"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>세션 호스트 가상 컴퓨터에 Windows 라이선스 적용
 
@@ -27,7 +27,7 @@ Windows 가상 데스크톱 라이선스를 사용 하는 몇 가지 방법이 �
 - 기존 세션 호스트 가상 머신에 라이선스를 적용할 수 있습니다. 이렇게 하려면 먼저 [PowerShell을 사용 하 여 호스트 풀 만들기](./create-host-pools-powershell.md) 의 지침에 따라 호스트 풀 및 연결 된 vm을 만든 다음이 문서로 돌아와서 라이선스를 적용 하는 방법을 알아보세요.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>세션 호스트 VM에 Windows 라이선스 적용
-먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azure/overview)했는지 확인합니다. 다음 PowerShell cmdlet을 실행 하 여 Windows 라이선스를 적용 합니다.
+먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azure/)했는지 확인합니다. 다음 PowerShell cmdlet을 실행 하 여 Windows 라이선스를 적용 합니다.
 
 ```powershell
 $vm = Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>

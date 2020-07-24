@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078020"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087965"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Always Encrypted 구성 
 
@@ -45,7 +45,7 @@ Always Encrypted은 클라이언트와 서버 간에 이동 하는 동안 및 �
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 버전 13.0.700.242 이상.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 이상(클라이언트 컴퓨터에서).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-- [Azure PowerShell](/powershell/azure/overview) 또는 [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure PowerShell](/powershell/azure/) 또는 [Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="enable-client-application-access"></a>클라이언트 응용 프로그램 액세스 사용
 

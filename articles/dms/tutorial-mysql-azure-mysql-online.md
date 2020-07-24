@@ -3,8 +3,8 @@ title: '자습서: Azure Database for MySQL에 MySQL online 마이그레이션'
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 MySQL 온-프레미스에서 Azure Database for MySQL로 온라인 마이그레이션하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ea351fb6b88a020a466849181fed0381baa7f04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609236"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087750"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 
@@ -38,7 +39,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > 최적의 마이그레이션 환경을 위해 Microsoft는 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것을 권장합니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
 
 > [!NOTE]
-> 바이어스-무료 통신
+> 바이어스 없는 통신
 >
 > Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
 >
@@ -99,7 +100,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -111,7 +112,7 @@ mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\emplo
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -138,6 +139,11 @@ SET group_concat_max_len = 8192;
  ```
 
 외래 키를 삭제하려면 쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
+
+> [!NOTE]
+> Azure DMS는 부모 테이블에서 행을 삭제 하거나 업데이트 하는 경우 자식 테이블에서 일치 하는 행을 자동으로 삭제 하거나 업데이트 하는 데 도움이 되는 CASCADE 참조 동작을 지원 하지 않습니다. 자세한 내용은 MySQL 설명서의 [FOREIGN KEY 제약 조건](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)문서에서 참조 작업 섹션을 참조 하세요.
+> Azure DMS를 사용 하려면 초기 데이터 로드 중에 대상 데이터베이스 서버에서 foreign key 제약 조건을 삭제 해야 하며 참조 동작을 사용할 수 없습니다. 워크 로드가이 참조 작업을 통해 관련 된 자식 테이블을 업데이트 하는 것에 의존 하는 경우 [덤프](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) 를 수행 하 고 대신 복원 하는 것이 좋습니다. 
+
 
 > [!IMPORTANT]
 > 백업을 사용하여 데이터를 가져오는 경우 mysqldump를 수행할 때 수동으로 또는 --skip-definer 명령을 사용하여 CREATE DEFINER 명령을 제거하세요. DEFINER는 Azure Database for MySQL에서 만들고 제한할 수 있는 슈퍼 권한이 필요합니다.

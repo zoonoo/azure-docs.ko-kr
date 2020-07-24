@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92b6d8c6cd59f82439beec24c003aac6673014e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84551978"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088328"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -31,7 +32,7 @@ ms.locfileid: "84551978"
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
+1. [Visual Studio](/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
 2. Visual Studio를 설치하고 시작한 후 **파일** > **신규** > **프로젝트**를 클릭합니다.
 3. **템플릿** > **Python** > **Python 애플리케이션**을 클릭하고, 프로젝트의 이름에 사용할 *myPythonProject*를 입력한 후, 프로젝트의 위치를 선택하고, **확인**을 클릭합니다.
 
@@ -565,6 +566,5 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../../resource-manager-troubleshoot-deployments-portal.md)
-- [Azure Python 라이브러리](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)에 대한 자세한 내용
-
+- 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../../azure-resource-manager/templates/deployment-history.md)
+- [Azure Python 라이브러리](/python/api/overview/azure/?view=azure-python)에 대한 자세한 내용

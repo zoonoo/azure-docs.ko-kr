@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088311"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -171,7 +172,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 
 테스트 시스템에 있는 **corosync.conf**의 내용은 예제입니다.
 
-첫 번째 섹션은 [클러스터 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11단계의 설명대로 **totem**입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **token** 및 **consensus**에 대한 항목은[Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정해야 합니다.
+첫 번째 섹션은 [클러스터 설치](./high-availability-guide-suse-pacemaker.md#cluster-installation), 11단계의 설명대로 **totem**입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **token** 및 **consensus**에 대한 항목은[Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정해야 합니다.
 
 <pre><code>
 totem {
@@ -278,7 +279,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD 디바이스
 
-Azure VM에서 SBD 디바이스를 설정하는 방법은 [SBD 펜싱](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)에 설명되어 있습니다.
+Azure VM에서 SBD 디바이스를 설정하는 방법은 [SBD 펜싱](./high-availability-guide-suse-pacemaker.md#sbd-fencing)에 설명되어 있습니다.
 
 먼저, 클러스터의 모든 노드에 대해 ACL 항목이 있는 경우 SBD 서버 VM을 확인합니다. SBD 서버 VM에서 다음 명령을 실행합니다.
 
@@ -421,7 +422,7 @@ sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-**/etc/sysconfig/sbd**에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf**의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
+**/etc/sysconfig/sbd**에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md#sbd-fencing)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf**의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
 
 다음 항목은 **/etc/sysconfig/sbd**에 중요합니다. 필요한 경우 **id** 값을 조정합니다.
 
@@ -978,4 +979,3 @@ https://&ltnode&gt:7630
 ## <a name="next-steps"></a>다음 단계
 
 이 문제 해결 가이드에서는 스케일 아웃 구성의 SAP HANA 고가용성에 대해 설명합니다. 데이터베이스 외에도 SAP 랜드스케이프의 또 다른 중요한 구성 요소는 SAP NetWeaver 스택입니다. [SUSE Enterprise Linux Server를 사용하는 Azure 가상 머신의 SAP NetWeaver 고가용성][sap-nw-ha-guide-sles]에 대해 알아보세요.
-

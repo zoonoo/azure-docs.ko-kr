@@ -3,8 +3,8 @@ title: '자습서: 온라인으로 SQL Server SQL Managed Instance 마이그레�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 SQL Server에서 Azure SQL Managed Instance로의 온라인 마이그레이션을 수행 하는 방법에 대해 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087665"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 온라인으로 Azure SQL Managed Instance SQL Server 마이그레이션
 
@@ -88,6 +88,9 @@ Azure Database Migration Service를 사용 하 여 가동 중지 시간을 최�
   > Azure Database Migration Service를 사용하려면 지정된 애플리케이션 ID용 구독에 대한 기여자 권한이 필요합니다. 또는 Azure Database Migration Service에 필요한 특정 권한을 부여하는 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할을 사용 하는 방법에 대 한 단계별 지침은 [SQL Managed Instance 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance)문서를 참조 하세요.
 
 * DMS 서비스가 데이터베이스 백업 파일을 업로드하여 데이터베이스를 마이그레이션하는 데 사용할 수 있는 **표준 성능 계층**, Azure Storage 계정을 만들거나 기록합니다.  Azure Database Migration Service 인스턴스와 동일한 지역에 Azure Storage 계정을 만들어야 합니다.
+
+  > [!NOTE]
+  > [투명한 데이터 암호화](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview) 로 보호 되는 데이터베이스를 온라인 마이그레이션을 사용 하 여 관리 되는 인스턴스로 마이그레이션하는 경우 온-프레미스 또는 Azure VM SQL Server 인스턴스의 해당 인증서를 데이터베이스 복원 전에 마이그레이션해야 합니다. 자세한 단계는 [TDE 인증서를 관리 되는 인스턴스로 마이그레이션](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview)을 참조 하세요.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 

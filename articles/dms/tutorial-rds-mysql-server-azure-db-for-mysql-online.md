@@ -3,8 +3,8 @@ title: '자습서: RDS MySQL online을 Azure Database for MySQL로 마이그레�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 RDS MySQL에서 Azure Database for MySQL로 온라인 마이그레이션하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/09/2020
-ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0c62cf28c9e9368e80982fa7c5badeb79d40ae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087733"
 ---
-# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure Database for MySQL 온라인으로 RDS MySQL 마이그레이션
+# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 RDS MySQL을 Azure Database for MySQL로 온라인 마이그레이션
 
 Azure Database Migration Service를 사용하면 마이그레이션 중에 원본 데이터베이스를 온라인 상태로 유지하면서 RDS MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 RDS MySQL 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
 
@@ -121,6 +122,10 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     ```
 
 4. 외래 키를 삭제하려면 쿼리 결과에서 drop foreign key(두 번째 열)를 실행합니다.
+
+> [!NOTE]
+> Azure DMS는 부모 테이블에서 행을 삭제 하거나 업데이트 하는 경우 자식 테이블에서 일치 하는 행을 자동으로 삭제 하거나 업데이트 하는 데 도움이 되는 CASCADE 참조 동작을 지원 하지 않습니다. 자세한 내용은 MySQL 설명서의 [FOREIGN KEY 제약 조건](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)문서에서 참조 작업 섹션을 참조 하세요.
+> Azure DMS를 사용 하려면 초기 데이터 로드 중에 대상 데이터베이스 서버에서 foreign key 제약 조건을 삭제 해야 하며 참조 동작을 사용할 수 없습니다. 워크 로드가이 참조 작업을 통해 관련 된 자식 테이블을 업데이트 하는 것에 의존 하는 경우 [덤프](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) 를 수행 하 고 대신 복원 하는 것이 좋습니다. 
 
 5. 데이터에 트리거(트리거 삽입 또는 업데이트)가 있으면 원본의 데이터를 복제하기 전에 대상에 데이터 무결성이 적용됩니다. 마이그레이션 중에 *대상의* 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
 

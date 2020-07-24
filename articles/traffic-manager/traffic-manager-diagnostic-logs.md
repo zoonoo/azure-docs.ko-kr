@@ -10,11 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089059"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 리소스 로깅 사용
 
@@ -67,11 +68,10 @@ Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 �
 
 다음 표에는 Azure Traffic Manager 프로필 리소스와 관련된 로그 스키마가 나와 있습니다.
 
-|||||
+|필드 이름|필드 형식|정의|예제|
 |----|----|---|---|
-|**필드 이름**|**필드 형식**|**정의**|**예제**|
 |EndpointName|String|상태가 기록되고 있는 Traffic Manager 엔드포인트의 이름입니다.|*myPrimaryEndpoint*|
-|상태|String|검색된 Traffic Manager 엔드포인트의 상태입니다. 상태는 **위로** 또는 **아래로**일 수 있습니다.|**위로**|
+|상태|String|검색된 Traffic Manager 엔드포인트의 상태입니다. 상태는 **위로** 또는 **아래로**일 수 있습니다.|**최대**|
 |||||
 
 ## <a name="next-steps"></a>다음 단계

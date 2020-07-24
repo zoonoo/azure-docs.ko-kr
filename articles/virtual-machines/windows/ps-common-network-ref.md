@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d1787b5bfc2939dca23c6898d89130aa3fcb170
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b4d6b20e63c42616aad0f8776fae159a0f2aa455
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525758"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088379"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Azure Virtual Networks에 대한 공통 PowerShell 명령
 
 가상 머신을 만들려는 경우, [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 를 만들거나 VM을 추가할 수 있는 기존 가상 네트워크에 대해 알아야 합니다. 일반적으로 VM을 만들 때 이 문서에 설명된 리소스를 만드는 것이 좋습니다.
 
-최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 
 이 문서에 나오는 둘 이상의 명령을 실행하는 경우 다음과 같은 일부 변수가 유용할 수 있습니다.
 

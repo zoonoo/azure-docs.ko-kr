@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1934470413ef1b0c757820e6539adcd43783acd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 649fcc270f8c8cc1f476e677d0886f2c34bc620f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088498"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows Vm에 대 한 Azure Disk Encryption 
 
@@ -81,7 +81,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli)는 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다.|
 | BitLocker |[BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) 는 windows vm에서 디스크 암호화를 사용 하도록 설정 하는 데 사용 되는 업계에서 인식 되는 windows 볼륨 암호화 기술입니다. |
 | KEK(키 암호화 키) | 비밀을 보호하거나 래핑하는 데 사용할 수 있는 비대칭 키(RSA 2048)입니다. HSM(하드웨어 보안 모듈) 보호 키 또는 소프트웨어 보호 키를 제공할 수 있습니다. 자세한 내용은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 설명서 및 [Azure Disk Encryption을 위한 Key Vault 만들기 및 구성](disk-encryption-key-vault.md)을 참조하세요. |
-| PowerShell cmdlet | 자세한 내용은 [Azure PowerShell cmdlet](/powershell/azure/overview)을 참조하세요. |
+| PowerShell cmdlet | 자세한 내용은 [Azure PowerShell cmdlet](/powershell/azure/)을 참조하세요. |
 
 
 ## <a name="next-steps"></a>다음 단계

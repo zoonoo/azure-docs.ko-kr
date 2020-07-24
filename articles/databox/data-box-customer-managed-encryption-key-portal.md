@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 4bcd8deef28f8e0123e6e2171b3ab24d6ac49292
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60e621b34250b036888b233b084ba1ddff939048
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087801"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용
 
@@ -22,7 +23,7 @@ Azure Data Box는 암호화 키를 통해 장치를 잠그는 데 사용 되는 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)의 Azure Data Box에서 고객이 관리 하는 키를 사용 하는 방법을 보여 줍니다. 이 문서는 Azure Data Box 장치와 Azure Data Box Heavy 장치에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -106,13 +107,13 @@ Azure Data Box에 대 한 고객 관리 키를 구성 하는 것은 선택 사�
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| 고객 관리 키가 사용 하지 않도록 설정 되어 있으므로 암호를 가져올 수 없습니다.| 예, 키 버전을 사용 하도록 설정 합니다.|
 | SsemUserErrorEncryptionKeyExpired| 고객 관리 키가 만료 되어 서 암호를 가져올 수 없습니다.| 예, 키 버전을 사용 하도록 설정 합니다.|
-| SsemUserErrorKeyDetailsNotFound| 고객 관리 키를 찾을 수 없으므로 암호를 가져올 수 없습니다.| 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
+| SsemUserErrorKeyDetailsNotFound| 고객 관리 키를 찾을 수 없으므로 암호를 가져올 수 없습니다.| 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../key-vault/general/move-subscription.md)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
 | SsemUserErrorKeyVaultBadRequestException| 고객 관리 키 액세스가 취소 되어 서 암호를 가져올 수 없습니다.| 예, 다음 사항을 확인하세요. <ol><li>키 자격 증명 모음의 액세스 정책에 여전히 MSI가 있습니다.</li><li>액세스 정책은 가져오기, 래핑, 래핑 해제에 대 한 권한을 제공 합니다.</li><li>키 자격 증명 모음이 방화벽 뒤에 있는 vNet에 있는 경우 **Microsoft 신뢰할 수 있는 서비스 허용** 이 사용 하도록 설정 되어 있는지 확인 합니다.</li></ol>|
-| SsemUserErrorKeyVaultDetailsNotFound| 고객 관리 키에 대 한 연결 된 키 자격 증명 모음을 찾을 수 없으므로 암호를 가져올 수 없습니다. | 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
+| SsemUserErrorKeyVaultDetailsNotFound| 고객 관리 키에 대 한 연결 된 키 자격 증명 모음을 찾을 수 없으므로 암호를 가져올 수 없습니다. | 키 자격 증명 모음을 삭제 한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테 넌 트로 마이그레이션한 경우 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../key-vault/general/move-subscription.md)을 참조 하세요. 키 자격 증명 모음을 삭제 한 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>키 자격 증명 모음에서 테 넌 트 마이그레이션을 클러스터가 거쳤다 하는 경우, 예, 아래 단계 중 하나를 사용 하 여 복구할 수 있습니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | 고객 관리 키를 찾을 수 없으므로 암호를 가져올 수 없습니다.| 예, 다음 사항을 확인하세요. <ol><li>키 자격 증명 모음의 액세스 정책에 여전히 MSI가 있습니다.</li><li>Id는 시스템 할당 유형입니다.</li><li>키 자격 증명 모음의 액세스 정책에서 id에 대 한 가져오기, 래핑 및 래핑 해제 권한을 사용 하도록 설정 합니다.</li></ol>|
 | 일반 오류  | 암호를 가져올 수 없습니다.| 일반 오류입니다. Microsoft 지원에 문의 하 여 오류를 해결 하 고 다음 단계를 확인 합니다.|
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [Azure Key Vault란](../key-vault/general/overview.md)?

@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807737"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087886"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -23,6 +23,7 @@ ms.locfileid: "84807737"
 > SFTP-SSH 커넥터는 현재 이러한 SFTP 서버를 지원 하지 않습니다.
 > 
 > * IBM DataPower
+> * MessageWay
 > * OpenText Secure MFT
 > * OpenText GXS
 
@@ -53,15 +54,15 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   |--------|------------------|-----------------------------|
   | **파일 복사** | 아니요 | 적용할 수 없음 |
   | **파일 만들기** | 예 | 예 |
-  | **폴더 만들기** | 해당 사항 없음 | 해당 사항 없음 |
-  | **파일 삭제** | 해당 사항 없음 | 해당 사항 없음 |
-  | **폴더에 보관 추출** | 해당 사항 없음 | 해당 사항 없음 |
+  | **폴더 만들기** | 해당 없음 | 해당 없음 |
+  | **파일 삭제** | 해당 없음 | 해당 없음 |
+  | **폴더에 보관 추출** | 해당 없음 | 해당 없음 |
   | **파일 콘텐츠 가져오기** | 예 | 예 |
   | **경로를 사용하여 파일 콘텐츠 가져오기** | 예 | 예 |
-  | **파일 메타데이터 가져오기** | 해당 사항 없음 | 해당 사항 없음 |
-  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 사항 없음 | 해당 사항 없음 |
-  | **폴더의 파일 나열** | 해당 사항 없음 | 해당 사항 없음 |
-  | **파일 이름 바꾸기** | 해당 사항 없음 | 해당 사항 없음 |
+  | **파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
+  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
+  | **폴더의 파일 나열** | 해당 없음 | 해당 없음 |
+  | **파일 이름 바꾸기** | 해당 없음 | 해당 없음 |
   | **파일 업데이트** | 아니요 | 적용할 수 없음 |
   ||||
 
@@ -85,7 +86,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 그러면 서버에 대한 연결에서 시도 수가 감소하며 성능이 개선됩니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 편집합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -136,7 +137,7 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 

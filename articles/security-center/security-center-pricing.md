@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 882f8ab7e4f55809759f3a94fd04fb2c410fe188
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089722"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>보안 강화를 위해 표준 계층으로 업그레이드
 
@@ -43,7 +43,7 @@ Security Center는 두 계층으로 제공됩니다.
 1. **Security Center** 주 메뉴에서 **가격 책정 & 설정** 을 선택 합니다.
 2. 표준으로 업그레이드 하려는 구독을 선택 합니다.
 3. **가격 책정 계층**을 선택합니다.
-4. **표준**을 선택하여 업그레이드합니다.
+4. 업그레이드할 **표준** 을 선택 합니다.
 5. **저장**을 클릭합니다.
 
 [![Security Center 가격 책정](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8b19b5bbb327c55b4f4103a133e77e73f0ae4bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77591356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088260"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 응용 프로그램용 SMB (Azure NetApp Files)를 사용 하는 Windows의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -56,9 +57,9 @@ ms.locfileid: "77591356"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-이 문서에서는 [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)에서 [SMB](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 를 사용 하 여 가상 머신을 배포 하 고 구성 하 고, 클러스터 프레임 워크를 설치 하 고, Windows vm에 항상 사용 가능한 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명 합니다.  
+이 문서에서는 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)에서 [SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 를 사용 하 여 가상 머신을 배포 하 고 구성 하 고, 클러스터 프레임 워크를 설치 하 고, Windows vm에 항상 사용 가능한 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명 합니다.  
 
-데이터베이스 레이어는 이 문서에서 자세히 다루지 않습니다. Azure [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 가 이미 만들어져 있다고 가정 합니다.  
+데이터베이스 레이어는 이 문서에서 자세히 다루지 않습니다. Azure [virtual network](../../../virtual-network/virtual-networks-overview.md) 가 이미 만들어져 있다고 가정 합니다.  
 
 다음 SAP Note 및 문서를 먼저 읽어 보세요.
 
@@ -75,17 +76,17 @@ ms.locfileid: "77591356"
 * SAP Note [2802770](https://launchpad.support.sap.com/#/notes/2802770) 에는 Windows 2012 및 2016에서 느리게 실행 되는 SAP transaction AL11에 대 한 문제 해결 정보가 포함 되어 있습니다.
 * SAP Note [1911507](https://launchpad.support.sap.com/#/notes/1911507) 에는 SMB 3.0 프로토콜을 사용 하는 Windows Server에서 파일 공유의 투명 한 장애 조치 (failover) 기능에 대 한 정보가 있습니다.
 * SAP Note [662452](https://launchpad.support.sap.com/#/notes/662452) 에는 데이터 액세스 중 잘못 된 파일 시스템 성능/오류를 해결 하기 위한 권장 사항 (8.3 이름 생성 비활성화)이 있습니다.
-* [Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share) 
-* [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+* [Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치](./sap-high-availability-installation-wsfc-file-share.md) 
+* [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오](./sap-high-availability-architecture-scenarios.md)
 * [ASCS 클러스터 구성에서 프로브 포트 추가](sap-high-availability-installation-wsfc-file-share.md)
 * [장애 조치 (Failover) 클러스터에 (A) SCS 인스턴스 설치](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Azure NetApp Files에 대한 SMB 볼륨 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
+* [Azure NetApp Files에 대한 SMB 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 
 ## <a name="overview"></a>개요
 
 SAP는 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스를 클러스터링하기 위한 새로운 접근 방법을 개발했습니다. 이것은 클러스터 공유 디스크의 대안이 됩니다. 클러스터 공유 디스크를 사용 하는 대신 SMB 파일 공유를 사용 하 여 SAP 글로벌 호스트 파일을 배포할 수 있습니다. Azure NetApp Files은 Active Directory를 사용 하 여 NTFS ACL이 있는 SMBv3 (NFS와 함께)를 지원 합니다. Azure NetApp Files는 PaaS 서비스 이므로 자동으로 항상 사용 가능 합니다. 이러한 기능은 SAP global 용 SMB 파일 공유를 호스트 하는 데 적합 한 옵션 Azure NetApp Files 합니다.  
-[AD (Azure Active Directory) 도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/overview) 와 [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 가상 머신으로 Azure에 있거나 Express 경로 또는 S2S VPN을 통해 온-프레미스에 있을 수 있습니다. 이 문서에서는 Azure VM에서 도메인 컨트롤러를 사용 합니다.  
+[AD (Azure Active Directory) 도메인 서비스](../../../active-directory-domain-services/overview.md) 와 [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 가상 머신으로 Azure에 있거나 Express 경로 또는 S2S VPN을 통해 온-프레미스에 있을 수 있습니다. 이 문서에서는 Azure VM에서 도메인 컨트롤러를 사용 합니다.  
 SAP Netweaver 중앙 서비스의 HA(고가용성)를 위해서는 공유 스토리지가 필요합니다. 지금까지 Windows에서이를 위해 SOFS 클러스터를 빌드하거나 SIOS와 같은 클러스터 공유 디스크 s/w를 사용 해야 했습니다. 이제 Azure NetApp Files에 배포된 공유 스토리지를 사용하여 SAP Netweaver HA를 실현할 수 있습니다. 공유 저장소에 Azure NetApp Files를 사용 하면 SOFS 또는 SIOS가 필요 하지 않습니다.  
 
 > [!NOTE]
@@ -106,16 +107,16 @@ SMB 파일 공유에 대 한 필수 구성 요소는 다음과 같습니다.
 
 Azure NetApp Files 사용 준비로 다음 단계를 수행 합니다.  
 
-1. [Azure NetApp Files에 등록](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register) 하는 단계를 따르세요.  
-2. [NetApp 계정 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account) 에 설명 된 단계에 따라 Azure netapp 계정을 만듭니다.  
-3. [용량 풀 설정의 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) 에 따라 용량 풀을 설정 합니다.
-4. Azure NetApp Files 리소스는 위임 된 서브넷에 상주해 야 합니다. 서브넷 위임의 지침에 따라 [Azure NetApp Files 하](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) 여 위임 된 서브넷을 만듭니다.  
+1. [Azure NetApp Files에 등록](../../../azure-netapp-files/azure-netapp-files-register.md) 하는 단계를 따르세요.  
+2. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) 에 설명 된 단계에 따라 Azure netapp 계정을 만듭니다.  
+3. [용량 풀 설정의 지침](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md) 에 따라 용량 풀을 설정 합니다.
+4. Azure NetApp Files 리소스는 위임 된 서브넷에 상주해 야 합니다. 서브넷 위임의 지침에 따라 [Azure NetApp Files 하](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) 여 위임 된 서브넷을 만듭니다.  
 
 > [!IMPORTANT]
-> SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다. [Active Directory 연결에 대 한 요구 사항을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)검토 합니다.  
+> SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다. [Active Directory 연결에 대 한 요구 사항을](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)검토 합니다.  
 
-5. [Active Directory 연결 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#create-an-active-directory-connection) 에 설명 된 대로 Active Directory 연결을 만듭니다.  
-6. Smb [볼륨 추가](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#add-an-smb-volume) 의 지침에 따라 smb Azure NetApp Files smb 볼륨을 만듭니다.  
+5. [Active Directory 연결 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) 에 설명 된 대로 Active Directory 연결을 만듭니다.  
+6. Smb [볼륨 추가](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) 의 지침에 따라 smb Azure NetApp Files smb 볼륨을 만듭니다.  
 7. Windows 가상 머신에 SMB 볼륨을 탑재 합니다.
 
 > [!TIP]
@@ -123,15 +124,15 @@ Azure NetApp Files 사용 준비로 다음 단계를 수행 합니다.
 
 ## <a name="prepare-the-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster"></a>Windows 장애 조치 (failover) 클러스터를 사용 하 여 SAP HA에 대 한 인프라 준비 
 
-1. [필요한 DNS IP 주소를 설정 합니다.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#b22d7b3b-4343-40ff-a319-097e13f62f9e)  
-2. [SAP 가상 컴퓨터에 대 한 고정 IP 주소를 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#84c019fe-8c58-4dac-9e54-173efd4b2c30)합니다.
-3. [Azure 내부 부하 분산 장치에 대 한 고정 IP 주소를 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#7a8f3e9b-0624-4051-9e41-b73fff816a9e)합니다.
-4. [Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#f19bd997-154d-4583-a46e-7f5a69d0153c)
-5. [Azure 내부 부하 분산 장치에 대 한 ASCS/SCS 기본 부하 분산 규칙을 변경](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#fe0bd8b5-2b43-45e3-8295-80bee5415716)합니다.
-6. [도메인에 Windows 가상 컴퓨터를 추가](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#e69e9a34-4601-47a3-a41c-d2e11c626c0c)합니다.
-7. [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대 한 레지스트리 항목 추가](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#661035b2-4d0f-4d31-86f8-dc0a50d78158)
-8. [SAP ASCS/SCS 인스턴스에 대 한 Windows Server 장애 조치 (failover) 클러스터 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#0d67f090-7928-43e0-8772-5ccbf8f59aab)
-9. Windows Server 2016를 사용 하는 경우 [Azure 클라우드 감시](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 구성 하는 것이 좋습니다.
+1. [필요한 DNS IP 주소를 설정 합니다.](./sap-high-availability-infrastructure-wsfc-shared-disk.md#b22d7b3b-4343-40ff-a319-097e13f62f9e)  
+2. [SAP 가상 컴퓨터에 대 한 고정 IP 주소를 설정](./sap-high-availability-infrastructure-wsfc-shared-disk.md#84c019fe-8c58-4dac-9e54-173efd4b2c30)합니다.
+3. [Azure 내부 부하 분산 장치에 대 한 고정 IP 주소를 설정](./sap-high-availability-infrastructure-wsfc-shared-disk.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e)합니다.
+4. [Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 설정](./sap-high-availability-infrastructure-wsfc-shared-disk.md#f19bd997-154d-4583-a46e-7f5a69d0153c)
+5. [Azure 내부 부하 분산 장치에 대 한 ASCS/SCS 기본 부하 분산 규칙을 변경](./sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716)합니다.
+6. [도메인에 Windows 가상 컴퓨터를 추가](./sap-high-availability-infrastructure-wsfc-shared-disk.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c)합니다.
+7. [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대 한 레지스트리 항목 추가](./sap-high-availability-infrastructure-wsfc-shared-disk.md#661035b2-4d0f-4d31-86f8-dc0a50d78158)
+8. [SAP ASCS/SCS 인스턴스에 대 한 Windows Server 장애 조치 (failover) 클러스터 설정](./sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
+9. Windows Server 2016를 사용 하는 경우 [Azure 클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness)를 구성 하는 것이 좋습니다.
 
 
 ## <a name="install-sap-ascs-instance-on-both-nodes"></a>두 노드에 SAP ASCS 인스턴스 설치
@@ -139,7 +140,7 @@ Azure NetApp Files 사용 준비로 다음 단계를 수행 합니다.
 SAP에서 다음 소프트웨어가 필요 합니다.
    * SAP 소프트웨어 프로 비전 관리자 (SWPM) 설치 도구 버전 SPS25 이상
    * SAP Kernel 7.49 이상
-   * 클러스터형 [SAP ASCS/scs 인스턴스의 가상 호스트 이름 만들기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#a97ad604-9094-44fe-a364-f89cb39bf097)에 설명 된 대로 클러스터형 SAP ASCS/scs 인스턴스의 가상 호스트 이름 (클러스터 네트워크 이름)을 만듭니다.
+   * 클러스터형 [SAP ASCS/scs 인스턴스의 가상 호스트 이름 만들기](./sap-high-availability-installation-wsfc-shared-disk.md#a97ad604-9094-44fe-a364-f89cb39bf097)에 설명 된 대로 클러스터형 SAP ASCS/scs 인스턴스의 가상 호스트 이름 (클러스터 네트워크 이름)을 만듭니다.
 
 > [!NOTE]
 > 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.  
@@ -157,7 +158,7 @@ SAP에서 다음 소프트웨어가 필요 합니다.
 > [!TIP]
 > SWPM에서 필수 구성 요소 검사기의 결과로 교환 크기 조건이 충족 되지 않는 것으로 표시 되는 경우 내 컴퓨터>시스템 속성>성능 설정> 고급> 가상 메모리> 변경으로 이동 하 여 스왑 크기를 조정할 수 있습니다.  
 
-4. PowerShell을 사용 하 여 SAP 클러스터 리소스, 프로브 포트를 구성 합니다 `SAP-SID-IP` . [프로브 포트 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761)에 설명 된 대로 SAP ASCS/SCS 클러스터 노드 중 하나에서이 구성을 실행 합니다.
+4. PowerShell을 사용 하 여 SAP 클러스터 리소스, 프로브 포트를 구성 합니다 `SAP-SID-IP` . [프로브 포트 구성](./sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)에 설명 된 대로 SAP ASCS/SCS 클러스터 노드 중 하나에서이 구성을 실행 합니다.
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>두 번째 ASCS/SCS 클러스터 노드에 ASCS/SCS 인스턴스를 설치 합니다.
 

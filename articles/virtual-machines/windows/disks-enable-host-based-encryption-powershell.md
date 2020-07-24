@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a13c17b2fcd6a42947b2f7d97f087735a5b18204
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 6cb6235c5c1a34cb3f48d315adee565591bb72c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235898"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088464"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-powershell"></a>호스트 Azure PowerShell에서 암호화를 사용 하 여 종단 간 암호화 사용
 
@@ -86,7 +86,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
 
 레거시 VM 크기는 지원 되지 않습니다. 다음 중 하나를 수행 하 여 지원 되는 VM 크기의 목록을 찾을 수 있습니다.
 
-[리소스 SKU API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) 를 호출 하 고 `EncryptionAtHostSupported` 기능이 **True**로 설정 되었는지 확인 합니다.
+[리소스 SKU API](/rest/api/compute/resourceskus/list) 를 호출 하 고 `EncryptionAtHostSupported` 기능이 **True**로 설정 되었는지 확인 합니다.
 
 ```json
     {
@@ -107,7 +107,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
     }
 ```
 
-또는 [AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet을 호출 합니다.
+또는 [AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet을 호출 합니다.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

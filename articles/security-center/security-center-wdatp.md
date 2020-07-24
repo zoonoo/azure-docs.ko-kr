@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089705"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -59,8 +59,9 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우 Mic
 
 Security Center에 서버를 등록 하려면 이동을 클릭 하 여 Microsoft Defender ATP 서버 온 보 딩 서버에서 등록 **Azure Security Center** 합니다.
 
-1. **온 보 딩** 영역에서 데이터를 저장할 작업 영역을 선택 하거나 만듭니다. <br>
-2. 모든 작업 영역을 볼 수 없는 경우 권한이 부족 하기 때문일 수 있습니다. 작업 영역이 Azure 보안 표준 계층으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [보안 강화를 위해 Security Center의 표준 계층으로 업그레이드](security-center-pricing.md)를 참조 하세요.
+1. **온 보 딩** 영역에서 데이터를 저장할 작업 영역을 선택 하거나 만듭니다.
+
+2. 모든 작업 영역을 볼 수 없는 경우 권한이 부족 하기 때문일 수 있습니다. 작업 영역이 Azure 보안 표준 가격 책정 계층으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [보안 강화를 위해 Security Center의 표준 계층으로 업그레이드](security-center-pricing.md)를 참조 하세요.
     
 3. Log Analytics 에이전트를 설치 하는 방법에 대 한 지침을 보려면 **서버 추가** 를 선택 합니다. 
 

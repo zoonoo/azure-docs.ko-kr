@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: af19586807bf676f1f449f7402b364a054721eec
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e9d995a69a4fc54d6f001ced7503a9138d737dbc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089042"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>PowerShell을 사용하여 Traffic Manager 관리
 
@@ -38,7 +38,7 @@ Azure Traffic Manager는 Traffic Manager 프로필을 호출하는 설정 모음
 
 이러한 지침은 Microsoft Azure PowerShell을 사용합니다. 다음 문서는 Azure PowerShell 설치 및 구성하는 방법을 설명합니다.
 
-* [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
+* [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/)
 
 이 문서의 예제에서는 기존 리소스 그룹이 있다고 가정합니다. 다음 명령을 사용하여 리소스 그룹을 만들 수 있습니다.
 
@@ -59,9 +59,9 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 다음 표는 매개 변수를 설명합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
-| 이름 |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
+| Name |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
 | ResourceGroupName |프로필 리소스가 포함된 리소스 그룹의 이름. |
 | TrafficRoutingMethod |DNS 쿼리에 대한 응답으로 반환되는 엔드포인트를 결정하는 데 사용되는 트래픽 라우팅 메서드를 지정합니다. 가능한 값은 '성능', '가중' 또는 '우선 순위'입니다. |
 | RelativeDnsName |이 Traffic Manager 프로필을 통해 제공되는 DNS 이름의 호스트 이름 부분을 지정합니다. 이 값은 프로필의 FQDN(정규화된 도메인 이름)을 형성하여 Azure Traffic Manager가 사용하는 DNS 도메인 이름과 결합됩니다. 예를 들어 'contoso'의 값이 'contoso.trafficmanager.net.'이 되도록 설정합니다. |

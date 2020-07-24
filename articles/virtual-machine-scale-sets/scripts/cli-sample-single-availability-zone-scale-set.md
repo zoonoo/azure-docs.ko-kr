@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8883bd099b684b5086554feded88e133764e614f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0b8cd79c464a101210d8ca56d09d9703abbc614
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701615"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088957"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 단일 영역 가상 머신 확장 집합 만들기
 이 스크립트는 단일 가용성 영역에서 Ubuntu를 실행하는 가상 머신 확장 집합을 만듭니다. 스크립트를 실행하면 RDP를 통해 가상 머신에 액세스할 수 있습니다.
@@ -43,4 +43,4 @@ az group delete --name myResourceGroup
 | [az group delete](/cli/azure/ad/group) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.

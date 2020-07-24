@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: ed4f2d769dbda3dec7b353fddfd1e5e0f3d00f9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089654"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Azure 센티널에 Infoblox NIOS 연결
+
+> [!IMPORTANT]
+> Azure 센티널의 Infobloxx NIOS data 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 Azure 센티널에 [Infoblox 네트워크 NIOS (Identity 운영 체제) 어플라이언스](https://www.infoblox.com/glossary/network-identity-operating-system-nios/) 를 연결 하는 방법을 설명 합니다. Infoblox NIOS data 커넥터를 사용 하면 Azure 센티널에 Infoblox 로그를 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Infoblox NIOS와 Azure 센티널 간의 통합은 Syslog를 사용 합니다.
 

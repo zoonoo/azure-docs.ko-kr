@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 사용자 지정 프로브 만들기-Azure 애플리케이션 게이트웨이
+title: 클래식 배포 모델을 사용 하 여 사용자 지정 프로브 만들기-Azure 애플리케이션 게이트웨이
 description: 클래식 배포 모델에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088073"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 

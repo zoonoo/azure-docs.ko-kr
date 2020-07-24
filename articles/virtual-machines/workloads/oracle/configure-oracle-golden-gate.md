@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 60d06fa4cf6d116f9c802cda544a356e469755b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088362"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -27,7 +27,7 @@ ms.locfileid: "86223077"
 
 이 문서에서는 Azure VM에서 Oracle Golden Gate를 만들고, 설치 및 구성하는 방법을 단계별로 보여 줍니다. 이 자습서에서는 단일 지역의 가용성 집합에서 두 개의 가상 머신을 설정 합니다. 동일한 자습서를 사용 하 여 단일 Azure 지역에서 다른 가용성 영역 Vm에 대 한 OracleGolden 게이트를 설정 하거나 두 개의 다른 지역에서 Vm을 설정할 수 있습니다.
 
-시작하기 전에 Azure CLI가 설치되었는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+시작하기 전에 Azure CLI가 설치되었는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
@@ -68,7 +68,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-다음 단계는 선택 사항이지만 권장됩니다. 자세한 내용은 [Windows VM에 대한 Azure 가용성 집합 지침](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)을 참조하세요.
+다음 단계는 선택 사항이지만 권장됩니다. 자세한 내용은 [Windows VM에 대한 Azure 가용성 집합 지침](../../windows/infrastructure-example.md)을 참조하세요.
 
 ```azurecli
 az vm availability-set create \
@@ -443,7 +443,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
    ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. **다음**을 선택하여 계속합니다.
+3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. 계속하려면 **다음**을 선택합니다.
 
    ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_02.png)
 

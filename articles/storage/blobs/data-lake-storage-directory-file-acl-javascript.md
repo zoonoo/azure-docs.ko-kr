@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: c774d3f56eaf666a31ff73f433a3b4a5a363ce2f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 506d9cd9581172d6eb1f36921ab96e8731ea3803
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089433"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>JavaScript를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "86142493"
 
 [패키지 (노드 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -218,6 +218,8 @@ async function ManageDirectoryACLs(fileSystemClient) {
   await directoryClient.setAccessControl(acl);
 }
 ```
+
+컨테이너의 루트 디렉터리에 대 한 ACL을 가져오고 설정할 수도 있습니다. 루트 디렉터리를 가져오려면 `/` **DataLakeFileSystemClient client** 메서드에 빈 문자열 ()을 전달 합니다.
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 

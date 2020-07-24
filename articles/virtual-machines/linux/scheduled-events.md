@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262109"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088736"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata 서비스: Linux VM의 예약된 이벤트
 
@@ -39,7 +39,7 @@ Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 �
 
 예약된 이벤트는 다음과 같은 경우에 이벤트를 제공합니다.
 
-- [플랫폼이 시작하는 유지 관리](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates)(예: VM 다시 부팅, 실시간 마이그레이션 또는 호스트의 메모리 보존 업데이트)
+- [플랫폼이 시작하는 유지 관리](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json)(예: VM 다시 부팅, 실시간 마이그레이션 또는 호스트의 메모리 보존 업데이트)
 - 가상 머신이 [저하된 호스트 하드웨어](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events)에서 실행 중이며, 여기서 장애가 발생할 것으로 예상되는 경우
 - 사용자가 시작하는 유지 관리(예: 사용자가 VM을 다시 시작하거나 다시 배포)
 - [스폿 VM](spot-vms.md) 및 [스폿 확장 집합](../../virtual-machine-scale-sets/use-spot.md) 인스턴스 제거
@@ -138,7 +138,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](manage-availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공되지 않았습니다. 이벤트가 완료되면 더 이상 반환되지 않습니다.
 | NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
-| 설명 | 이 이벤트에 대 한 설명입니다. <br><br> 예: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
+| Description | 이 이벤트에 대 한 설명입니다. <br><br> 예: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
 | EventSource | 이벤트의 개시자입니다. <br><br> 예: <br><ul><li> `Platform`:이 이벤트는 platfrom.details.heap.alignedallocate에 의해 시작 됩니다. <li>`User`:이 이벤트는 사용자가 시작 합니다. |
 
 ### <a name="event-scheduling"></a>이벤트 예약
@@ -189,7 +189,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -233,4 +233,4 @@ if __name__ == '__main__':
 - [Azure Friday에서 예약된 이벤트](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)를 보고 데모를 확인합니다. 
 - [Azure 인스턴스 메타데이터 예약된 이벤트 GitHub 리포지토리](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)에서 예약된 이벤트 코드 샘플을 검토합니다.
 - [인스턴스 메타데이터 서비스](instance-metadata-service.md)에서 사용 가능한 API에 대해 자세히 알아봅니다.
-- [Azure에서 Linux 가상 머신에 대한 계획된 유지 관리](planned-maintenance.md)에 대해 알아봅니다.
+- [Azure에서 Linux 가상 머신에 대한 계획된 유지 관리](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json)에 대해 알아봅니다.

@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: f5ef4c701cab8b9e94f89607bf643699e95ccad0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: d8da5bb32836ff50240bf6b781227fde8839be5c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088005"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL을 사용 하 여 Azure AD 인증 구성 및 관리
 
@@ -48,7 +48,7 @@ Azure AD 하이브리드 id, 설치 및 동기화에 대 한 자세한 내용은
 
 Azure AD 인스턴스를 만들고 사용자 및 그룹으로 채웁니다. Azure AD는 초기 Azure AD 관리되는 도메인일 수 있습니다. Azure AD는 Azure AD와 페더레이션된 온-프레미스 Active Directory Domain Services일 수도 있습니다.
 
-자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../../active-directory/hybrid/whatis-hybrid-identity.md), [Azure AD에 고유한 도메인 이름 추가](../../active-directory/fundamentals/add-custom-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](../../active-directory/fundamentals/active-directory-whatis.md), [Windows PowerShell을 사용한 Azure AD 관리](/powershell/azure/overview) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](../../active-directory/hybrid/reference-connect-ports.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../../active-directory/hybrid/whatis-hybrid-identity.md), [Azure AD에 고유한 도메인 이름 추가](../../active-directory/fundamentals/add-custom-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](../../active-directory/fundamentals/active-directory-whatis.md), [Windows PowerShell을 사용한 Azure AD 관리](/powershell/azure/) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](../../active-directory/hybrid/reference-connect-ports.md)를 참조하세요.
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory에 Azure 구독 연결 또는 추가
 
@@ -75,7 +75,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
 SQL Managed Instance는 보안 그룹 구성원 자격 또는 새 사용자 만들기를 통해 사용자 인증 등의 작업을 성공적으로 수행 하기 위해 Azure AD를 읽을 수 있는 권한이 필요 합니다. 이 작업을 수행 하려면 Azure AD를 읽을 수 있는 권한을 SQL Managed Instance 부여 해야 합니다. Azure Portal 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 Azure Portal를 사용 하 여 SQL Managed Instance Azure AD 읽기 권한을 부여 하려면 Azure AD에서 전역/회사 관리자로 로그인 하 고 다음 단계를 수행 합니다.
 
@@ -176,7 +176,7 @@ else {
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/)을 참조하세요.
 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager (RM) 모듈은 Azure SQL Managed Instance에서 계속 지원 되지만, 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
@@ -234,7 +234,7 @@ CLI 명령에 대 한 자세한 내용은 [az sql mi](/cli/azure/sql/mi)를 참�
 
 다음 두 절차에서는 Azure Portal 및 PowerShell을 사용 하 여 서버에 대 한 Azure Active Directory 관리자를 프로 비전 하는 방법을 보여 줍니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계에서는 구독과 관련 된 Active Directory를 서버와 연결 하 여 Azure AD와 서버 모두에 동일한 구독이 사용 되는지 확인 합니다.
 
@@ -272,7 +272,7 @@ CLI 명령에 대 한 자세한 내용은 [az sql mi](/cli/azure/sql/mi)를 참�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 실행합니다.
+PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/)을 참조하세요. Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 실행합니다.
 
 - 연결 AzAccount
 - Select-AzSubscription
@@ -293,7 +293,7 @@ PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 및 ``DisplayName="johns@contoso.com"``를 지정합니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
+**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 및 ``DisplayName="johns@contoso.com"``가 있습니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
 
 > [!NOTE]
 > Azure PowerShell 명령 ```Set-AzSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다.

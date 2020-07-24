@@ -11,12 +11,12 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 18d341db8538af12dbbabab4797459779a553e4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089210"
 ---
 # <a name="user-defined-restore-points"></a>사용자 정의 복원 지점이
 
@@ -26,7 +26,7 @@ ms.locfileid: "85205002"
 
 사용자 정의 복원 지점을 만들려면 [AzSqlDatabaseRestorePoint](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용 합니다.
 
-1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
+1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
 2. PowerShell을 엽니다.
 3. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
 4. 복원할 데이터베이스가 포함된 구독을 선택합니다.

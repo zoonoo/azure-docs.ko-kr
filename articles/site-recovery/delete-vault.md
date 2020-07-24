@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: e1254a2998a0acbf86b3689c66b83502c0334282
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8237888d46e1f1ad48e678234cf1edce3558876a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089586"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Site Recovery Services 자격 증명 모음 삭제
 
@@ -21,7 +21,7 @@ ms.locfileid: "86134485"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 자격 증명 모음을 삭제 하려면 먼저 등록 된 서버 및 자격 증명 모음에 있는 항목을 제거 해야 합니다. 제거 해야 하는 항목은 배포한 복제 시나리오에 따라 달라 집니다. 
 
@@ -64,12 +64,14 @@ ms.locfileid: "86134485"
 
 보호된 항목이 있더라도 Site Recovery 자격 증명 모음을 삭제하려면 다음 명령을 사용합니다.
 
-    Connect-AzAccount
+```azurepowershell
+Connect-AzAccount
 
-    Select-AzSubscription -SubscriptionName "XXXXX"
+Select-AzSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzRecoveryServicesVault -Name "vaultname"
+$vault = Get-AzRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzRecoveryServicesVault -Vault $vault
+Remove-AzRecoveryServicesVault -Vault $vault
+```
 
 [AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)및 [AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)에 대해 자세히 알아보세요.

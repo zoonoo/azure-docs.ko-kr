@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: ccb6bbcddaa5ce76e9dbb04d737830fbaf5c2d9f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 025d41724a88b4060d2dd22308641283992a68fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088889"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
@@ -82,7 +82,7 @@ Premium Storage 캐싱:  지원됨
 | Standard_E48s_v4 | 48 | 384 | 원격 저장소만 | 32 | 462000/2904 (1200) | 76800/1152 | 8/24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| 원격 저장소만 | 32 | 615000/3872 (1600) | 80000/1200 | 8/30000 |
 
-<sup>1</sup> [제한 된 코어 크기를 사용할 수](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu)있습니다.
+<sup>1</sup> [제한 된 코어 크기를 사용할 수](./windows/constrained-vcpu.md)있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

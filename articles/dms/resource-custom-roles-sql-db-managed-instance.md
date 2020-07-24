@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 479c5165c206ced9f387d7b4a475945173da8a16
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087682"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Azure SQL Managed Instance 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할
 
@@ -83,7 +83,7 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 
 위의 json은 3 개의 텍스트 파일에 저장 해야 하며, AzureRM, AZ PowerShell cmdlet 또는 Azure CLI를 사용 하 여 **get-azurermroledefinition (AzureRM)** 또는 **AzRoleDefinition (AZ)** 를 사용 하 여 역할을 만들 수 있습니다.
 
-자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)문서를 참조 하세요.
+자세한 내용은 [Azure 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)문서를 참조 하세요.
 
 이러한 사용자 지정 역할을 만든 후에는 사용자 및 앱 ID에 역할 할당을 적절 한 리소스 또는 리소스 그룹에 추가 해야 합니다.
 

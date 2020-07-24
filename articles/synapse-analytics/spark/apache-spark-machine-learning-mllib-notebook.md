@@ -1,5 +1,5 @@
 ---
-title: Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
+title: Apache Spark MLlib를 사용 하 여 machine learning 앱 빌드
 description: 로지스틱 회귀를 통한 분류를 사용하여 데이터 세트를 분석하는 기계 학습 앱을 만드는 데 Apache Spark MLlib을 사용하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: fd3637eed35fa4b9f40623612be9fc99703051e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cd189bf4037d42348d9a94c47cf0122e63af58f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368178"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089297"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
 

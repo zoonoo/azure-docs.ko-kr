@@ -6,14 +6,14 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82779045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087291"
 ---
-# <a name="localization"></a>지역화 #
+# <a name="azure-media-player-localization"></a>Azure Media Player 지역화 #
 
 다중 언어 지원을 사용 하면 영어가 아닌 로캘의 사용자가 기본적으로 플레이어와 상호 작용할 수 있습니다. Azure Media Player는 페이지 언어에 따라 오류 메시지를 지역화 하는 언어의 전역 사전을 사용 하 여 인스턴스화합니다. 개발자는 강제로 설정 된 언어로 플레이어 인스턴스를 만들 수도 있습니다. 기본 언어는 영어 (en)입니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "82779045"
 
 Azure Media Player 현재 해당 언어 코드를 사용 하 여 다음 언어를 지원 합니다.
 
-| 언어            | 코드 | 언어                | 코드   | 언어                | 코드         |
+| Language            | 코드 | Language                | 코드   | Language                | 코드         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
 | 영어 {default}   | en   | 크로아티아어                | hr     | 루마니아어                | ro           |
 | 아랍어              | ar   | 헝가리어               | hu     | 슬로바키아어                  | sk           |

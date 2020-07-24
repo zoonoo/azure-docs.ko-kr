@@ -3,8 +3,8 @@ title: '자습서: Azure Portal을 통해 PostgreSQL를 Azure DB for PostgreSQL 
 titleSuffix: Azure Database Migration Service
 description: Azure Portal를 통해 Azure Database Migration Service를 사용 하 여 PostgreSQL 온-프레미스에서 Azure Database for PostgreSQL로 온라인 마이그레이션을 수행 하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e01cc1c07d720c4743a03b5001e640f8b851dd5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ccbd22a44f0dfb05e425bff45cdc18803391812
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087648"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용 하 여 PostgreSQL online 용 Azure DB로 PostgreSQL 마이그레이션
 
@@ -103,7 +104,7 @@ Azure Database Migration Service를 사용 하 여 응용 프로그램의 가동
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental citus < dvdrentalSchema.sql

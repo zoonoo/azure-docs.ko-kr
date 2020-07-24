@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
-ms.openlocfilehash: 6f367f7fb6201a62c7fb47e0c593d04d41e0b378
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b0d1476a6386569a09ee4b14d31403408d741ef7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087461"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 애플리케이션 빌드
 
@@ -21,7 +21,7 @@ Java에서 [Apache HBase](https://hbase.apache.org/) 애플리케이션을 만�
 
 이 문서에 나온 단계에서는 [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 만들고 빌드합니다. Maven은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-tutorial-get-started-linux.md)참조 하세요.
 
@@ -31,7 +31,7 @@ Java에서 [Apache HBase](https://hbase.apache.org/) 애플리케이션을 만�
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
+* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/)이 필요 합니다.
 
 * 텍스트 편집기. 이 문서에서는 Microsoft 메모장을 사용 합니다.
 

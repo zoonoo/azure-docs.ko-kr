@@ -9,13 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6092395929f4990010e2212f28a5962cfe1c7e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087846"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -60,11 +61,11 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 * Azure Blob storage에서 Gzip CSV (압축 텍스트) 형식으로 데이터를 복사 하 여 Azure SQL Database에 기록 합니다.
 * Serialization/deserialization, 압축/압축 해제가 필요한 많은 작업이 있습니다.
 
-## <a name="supported-regions"></a>지원되는 지역
+## <a name="supported-regions"></a>지원되는 Azure 지역
 
 복사 작업을 사용 하도록 설정 하는 서비스는 [Azure integration runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 나열 된 지역 및 지역에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 특정 지역에서 Data Factory 및 데이터 이동의 가용성을 확인 하려면 [지역별 제품](https://azure.microsoft.com/regions/#services) 을 참조 하세요.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -74,7 +75,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 2. **원본 및 싱크에 대 한 데이터 집합을 만듭니다.** 구성 정보 및 지원 되는 속성은 원본 및 싱크 커넥터 문서의 "데이터 집합 속성" 섹션을 참조 하세요.
 3. **복사 작업을 사용 하 여 파이프라인을 만듭니다.** 다음 섹션에서 예제를 제공합니다.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>구문
 
 복사 작업의 다음 템플릿에는 지원 되는 속성의 전체 목록이 포함 되어 있습니다. 시나리오에 적합한 속성을 지정하세요.
 
@@ -126,7 +127,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 #### <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | 설명 | 필수 여부 |
+| 속성 | Description | 필수 여부 |
 |:--- |:--- |:--- |
 | 형식 | 복사 활동의 경우를로 설정 합니다.`Copy` | 예 |
 | 입력 | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
@@ -182,10 +183,10 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 ## <a name="add-additional-columns-during-copy"></a>복사 하는 동안 다른 열 추가
 
-원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예를 들어:
+원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 파일 기반 원본에서 복사 하는 경우 데이터를 가져온 파일에서 추적할 추가 열로 상대 파일 경로를 저장 합니다.
-- ADF 식으로 열을 추가 하 고, 파이프라인 이름/파이프라인 id와 같은 ADF 시스템 변수를 연결 하거나, 업스트림 활동의 출력에서 다른 동적 값을 저장 합니다.
+- ADF 식으로 열을 추가 하 고, 파이프라인 이름/파이프라인 ID와 같은 ADF 시스템 변수를 연결 하거나, 업스트림 활동의 출력에서 다른 동적 값을 저장 합니다.
 - 정적 값을 사용 하 여 다운스트림 소비 요구를 충족 하는 열을 추가 합니다.
 
 복사 작업 원본 탭에서 다음 구성을 찾을 수 있습니다. 
@@ -197,7 +198,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 프로그래밍 방식으로 구성 하려면 `additionalColumns` 복사 작업 원본에 속성을 추가 합니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`**-예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **식**<br>- **정적 값** | 아니요 |
 
@@ -239,6 +240,22 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
     }
 ]
 ```
+
+## <a name="auto-create-sink-tables"></a>싱크 테이블 자동 생성
+
+SQL database/Azure Synapse Analytics로 데이터를 복사 하는 경우 대상 테이블이 존재 하지 않는 경우 복사 작업은 원본 데이터를 기반으로 하 여 자동으로 생성을 지원 합니다. 데이터 로드를 빠르게 시작 하 고 SQL database/Azure Synapse Analytics를 평가 하는 데 도움이 됩니다. 데이터 수집 후에는 필요에 따라 싱크 테이블 스키마를 검토 하 고 조정할 수 있습니다.
+
+이 기능은 원본에서 다음 싱크 데이터 저장소로 데이터를 복사할 때 지원 됩니다. *ADF 제작 UI* – > *복사 작업 싱크* – > *테이블 옵션* – > *자동 생성 테이블*또는 `tableOption` 복사 작업 싱크 페이로드의 속성을 통해이 옵션을 찾을 수 있습니다.
+
+- [Azure SQL Database](connector-azure-sql-database.md)
+- [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![싱크 테이블 만들기](media/copy-activity-overview/create-sink-table.png)
+
+> [!NOTE]
+> [준비 된 복사](copy-activity-performance-features.md#staged-copy) 를 사용 하도록 설정한 경우에는 현재 자동 테이블 만들기가 지원 되지 않습니다.
 
 ## <a name="fault-tolerance"></a>내결함성
 

@@ -4,19 +4,20 @@ description: 게시자 네임 스페이스 내에서 지정 된 제품을 검색
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: a4bbe133d8b223bf717597467336eb486f432380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115539"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087410"
 ---
-<a name="retrieve-a-specific-offer"></a>특정 제안 검색
-=========================
+# <a name="retrieve-a-specific-offer"></a>특정 제안 검색
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 게시자 네임스페이스 내에서 지정된 제안을 검색합니다.  
 
@@ -34,10 +35,7 @@ ms.locfileid: "86115539"
 
 ```
 
-
-<a name="uri-parameters"></a>URI 매개 변수
---------------
-
+## <a name="uri-parameters"></a>URI 매개 변수
 
 | **이름**    | **설명**                                                                          | **데이터 형식** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
@@ -48,9 +46,7 @@ ms.locfileid: "86115539"
 | api-version | 최신 버전 API                                                                    | 날짜          |
 |  |  |  |
 
-
-<a name="header"></a>헤더
-------
+## <a name="header"></a>헤더
 
 |  **이름**          |   **값**            |
 |  ---------------   |  --------------        |
@@ -58,9 +54,7 @@ ms.locfileid: "86115539"
 |  권한 부여     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
-
-<a name="body-example"></a>본문 예제
-------------
+## <a name="body-example"></a>본문 예제
 
 ### <a name="response"></a>응답
 
@@ -175,7 +169,6 @@ ms.locfileid: "86115539"
 }
 ```
 
-
 ### <a name="response-body-properties"></a>응답 본문 속성
 
 |  **이름**       |   **설명**                                                                                                               |
@@ -189,7 +182,6 @@ ms.locfileid: "86115539"
 |  changedTime    | 제안을 마지막으로 수정한 UTC 날짜/시간입니다.                                                                                   |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>응답 상태 코드
 
 | **코드**  | **설명**                                                                                                                 |
@@ -199,7 +191,6 @@ ms.locfileid: "86115539"
 |  403      | `Forbidden` - 클라이언트는 지정된 네임스페이스에 액세스할 수 없습니다.                                                        |
 |  404      | `Not found` - 지정된 엔터티가 존재하지 않습니다. 클라이언트는 publisherId, offerId 및 version(지정된 경우)을 확인해야 합니다.      |
 |  |  |
-
 
 ### <a name="offer-status"></a>제안 상태
 

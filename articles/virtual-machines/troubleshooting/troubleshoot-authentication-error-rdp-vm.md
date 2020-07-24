@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088566"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결
 
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 DC와 VM 간의 통신이 양호하지만 DC가 RDP 세션을 열 수 있을 만큼 정상 상태가 아닌 경우 DC를 다시 시작해 볼 수 있습니다.
 
-위의 명령으로 도메인에 대한 통신 문제가 해결되지 않으면 이 VM을 도메인에 다시 조인할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
+위의 명령으로 도메인에 대한 통신 문제가 해결되지 않으면 이 VM을 도메인에 다시 조인할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. 다음 내용을 사용하여 Unjoin.ps1이라는 스크립트를 만든 다음, 이 스크립트를 사용자 지정 스크립트 확장으로 Azure Portal에 배포합니다.
 
@@ -276,8 +276,8 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP
 
 ## <a name="next-steps"></a>다음 단계
 
-[Win32_TSGeneralSetting 클래스의 SetEncryptionLevel 메서드](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
+[Win32_TSGeneralSetting 클래스의 SetEncryptionLevel 메서드](/windows/desktop/termserv/win32-tsgeneralsetting-setencryptionlevel)
 
-[서버 인증 및 암호화 수준 구성](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[서버 인증 및 암호화 수준 구성](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770833(v=ws.11))
 
-[Win32_TSGeneralSetting 클래스](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)
+[Win32_TSGeneralSetting 클래스](/windows/desktop/termserv/win32-tsgeneralsetting)

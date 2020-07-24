@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5fb992edea38c3dff9beffab1f131d3e7a6fdbf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087223"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>호스트 풀의 RDP (원격 데스크톱 프로토콜) 속성 사용자 지정
 
@@ -30,18 +30,6 @@ ms.locfileid: "86527764"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 PowerShell 모듈을 설정하고 Azure에 로그인하려면 [Windows Virtual Desktop PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
-
-## <a name="default-rdp-properties"></a>기본 RDP 속성
-
-기본적으로 게시 된 RDP 파일에는 다음 속성이 포함 됩니다.
-
-|RDP 속성 | 데스크톱 | RemoteApp |
-|---|---| --- |
-| 다중 모니터 모드 | 사용 | N/A |
-| 드라이브 리디렉션 사용 | 드라이브, 클립보드, 프린터, COM 포트, USB 장치 및 스마트 카드| 드라이브, 클립보드 및 프린터 |
-| 원격 오디오 모드 | 로컬로 재생 | 로컬로 재생 |
-
-호스트 풀에 대해 정의 하는 모든 사용자 지정 속성은 이러한 기본값을 재정의 합니다.
 
 ## <a name="configure-rdp-properties-in-the-azure-portal"></a>Azure Portal에서 RDP 속성 구성
 

@@ -5,31 +5,31 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb818627cb38c736804a0e88cd701fe08b23b678
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089076"
 ---
-# <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
+# <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Time Series Insights Gen 1 리소스 만들기
 
-이 문서에서는 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell 및 Time Series Insights 리소스 공급자를 사용하여 Time Series Insights 리소스를 만들고 배포하는 방법을 설명합니다.
+이 문서에서는 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell 및 Azure Time Series Insights 리소스 공급자를 사용 하 여 Azure Time Series Insights 리소스를 만들고 배포 하는 방법을 설명 합니다.
 
-Time Series Insights은 다음 리소스를 지원합니다.
+Azure Time Series Insights는 다음 리소스를 지원 합니다.
 
    | 리소스 | Description |
    | --- | --- |
-   | Environment | Time Series Insights 환경은 이벤트 broker에서 읽고, 저장되고, 쿼리에 대해 사용할 수 있는 이벤트의 논리적 그룹입니다. 자세한 내용은 [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md)을 참조하세요. |
-   | 이벤트 원본 | 이벤트 원본은 Time Series Insights가 이벤트를 읽고 환경에 수집하는 이벤트 broker에 대한 연결입니다. 현재 지원되는 이벤트 원본은 IoT Hub 및 Event Hub입니다. |
+   | Environment | Azure Time Series Insights 환경은 이벤트 브로커에서 읽고, 저장 하 고, 쿼리에 사용할 수 있는 이벤트의 논리적 그룹입니다. 자세한 내용은 [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md)을 참조하세요. |
+   | 이벤트 원본 | 이벤트 소스는 이벤트를 환경에 Azure Time Series Insights 읽고 수집 하는 이벤트 브로커에 대 한 연결입니다. 현재 지원되는 이벤트 원본은 IoT Hub 및 Event Hub입니다. |
    | 참조 데이터 집합 | 참조 데이터 집합은 환경에서 이벤트에 대한 메타데이터를 제공합니다. 참조 데이터 집합의 메타데이터는 수신 중에 이벤트와 함께 조인됩니다. 참조 데이터 집합은 해당 이벤트 키 속성에 의해 리소스로 정의됩니다. 참조 데이터 집합을 구성하는 실제 메타데이터는 데이터 평면 API를 통해 업로드되거나 수정됩니다. |
-   | 액세스 정책 | 액세스 정책은 데이터 쿼리를 실행하고 환경에서 참조 데이터를 조작하며 환경과 관련된 저장된 쿼리 및 관심 사항을 공유 할 수 있는 권한을 부여합니다. 자세한 내용은 [Azure Portal을 사용하여 Time Series Insights 환경에 대한 데이터 액세스 권한 부여](time-series-insights-data-access.md)를 참조하세요. |
+   | 액세스 정책 | 액세스 정책은 데이터 쿼리를 실행하고 환경에서 참조 데이터를 조작하며 환경과 관련된 저장된 쿼리 및 관심 사항을 공유 할 수 있는 권한을 부여합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure Time Series Insights 환경에 대 한 데이터 액세스 권한 부여](time-series-insights-data-access.md) 를 참조 하세요. |
 
 Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 구성을 정의하는 JSON 파일입니다. 다음 문서에서는 템플릿 파일에 대해 좀 더 자세히 설명합니다.
 
@@ -37,13 +37,13 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 - [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights 리소스 종류](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-[201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) 빠른 시작 템플릿은 GitHub에 게시됩니다. 이 템플릿은 Time Series Insights 환경, Event Hub의 이벤트를 사용하도록 구성된 자식 이벤트 원본 및 환경의 데이터에 대한 액세스 권한을 부여하는 액세스 정책을 만듭니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
+[201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) 빠른 시작 템플릿은 GitHub에 게시됩니다. 이 템플릿은 Azure Time Series Insights 환경, Event Hub의 이벤트를 사용 하도록 구성 된 자식 이벤트 원본 및 환경의 데이터에 대 한 액세스 권한을 부여 하는 액세스 정책을 만듭니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="specify-deployment-template-and-parameters"></a>배포 템플릿 및 매개 변수 지정
 
-다음 프로시저에서는 PowerShell을 사용하여 Time Series Insights 환경, Event Hub의 이벤트를 사용하도록 구성된 자식 이벤트 원본 및 환경의 데이터에 대한 액세스 권한을 부여하는 액세스 정책을 만드는 Azure Resource Manager 템플릿을 배포하는 방법을 설명합니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
+다음 절차에서는 PowerShell을 사용 하 여 Azure Time Series Insights 환경을 만드는 Azure Resource Manager 템플릿, Event Hub의 이벤트를 사용 하도록 구성 된 자식 이벤트 원본 및 환경의 데이터에 대 한 액세스 권한을 부여 하는 액세스 정책을 배포 하는 방법에 대해 설명 합니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
 
 1. [Azure PowerShell 시작하기](https://docs.microsoft.com/powershell/azure/get-started-azureps)의 지침을 따라서 Azure PowerShell을 설치합니다.
 
@@ -63,7 +63,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
      | --- | --- |
      | eventHubNamespaceName | 원본 Event Hub의 네임스페이스입니다. |
      | eventHubName | 원본 Event Hub의 이름입니다. |
-     | consumerGroupName | Time Series Insights 서비스가 Event Hub에서 데이터를 읽는 데 사용하는 소비자 그룹의 이름입니다. **참고:** 리소스 경합을 방지하려면 이 소비자 그룹이 Time Series Insights 서비스 전용이어야 하고, 다른 판독기와 공유되지 않아야 합니다. |
+     | consumerGroupName | Azure Time Series Insights 서비스가 이벤트 허브에서 데이터를 읽는 데 사용 하는 소비자 그룹의 이름입니다. **참고:** 리소스 경합을 방지 하려면이 소비자 그룹을 Azure Time Series Insights 서비스 전용으로 사용 하 고 다른 판독기와 공유 하지 않아야 합니다. |
      | environmentName | 환경의 이름입니다. 이름은 `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` 및 제어 문자를 포함할 수 없습니다. 다른 문자를 모두 허용합니다.|
      | eventSourceName | 이벤트 원본 자식 리소스의 이름입니다. 이름은 `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` 및 제어 문자를 포함할 수 없습니다. 다른 문자를 모두 허용합니다. |
 
@@ -73,14 +73,14 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
      | 매개 변수 | Description |
      | --- | --- |
-     | existingEventHubResourceId | 이벤트 원본을 통해 Time Series Insights 환경에 연결될 기존 Event Hub의 선택적 리소스 ID입니다. **참고:** 템플릿을 배포하는 사용자는 Event Hub에서 listkey 작업을 수행할 권한이 있어야 합니다. 값이 전달되지 않으면 새 Event Hub가 템플릿에 의해 만들어집니다. |
+     | existingEventHubResourceId | 이벤트 원본을 통해 Azure Time Series Insights 환경에 연결 될 기존 이벤트 허브의 선택적 리소스 ID입니다. **참고:** 템플릿을 배포하는 사용자는 Event Hub에서 listkey 작업을 수행할 권한이 있어야 합니다. 값이 전달되지 않으면 새 Event Hub가 템플릿에 의해 만들어집니다. |
      | environmentDisplayName | 환경 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
-     | environmentSkuName | SKU의 이름입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조하세요.  |
-     | environmentSkuCapacity | SKU의 단위 용량입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조하세요.|
+     | environmentSkuName | SKU의 이름입니다. 자세한 내용은 [Azure Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조 하세요.  |
+     | environmentSkuCapacity | SKU의 단위 용량입니다. 자세한 내용은 [Azure Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조 하세요.|
      | environmentDataRetentionTime | 환경의 이벤트를 쿼리에 사용할 수 있는 최소 시간 간격입니다. ISO 8601 형식으로 값을 지정해야 합니다(예: 30일이라는 보존 정책의 경우 `P30D`). |
      | eventSourceDisplayName | 이벤트 원본 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
      | eventSourceTimestampPropertyName | 이벤트 원본의 타임스탬프로 사용될 이벤트 속성입니다. timestampPropertyName에 대한 값을 지정하지 않은 경우 또는 null 또는 빈 문자열을 지정하는 경우 이벤트 생성 시간이 사용됩니다. |
-     | eventSourceKeyName | Time Series Insights 서비스가 Event Hub에 연결하는 데 사용하는 공유 액세스 키의 이름입니다. |
+     | eventSourceKeyName | Azure Time Series Insights 서비스에서 이벤트 허브에 연결 하는 데 사용 하는 공유 액세스 키의 이름입니다. |
      | accessPolicyReaderObjectIds | Azure AD에서 환경에 대한 판독기 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzADUser** 또는 **Get-AzADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
      | accessPolicyContributorObjectIds | Azure AD에서 환경에 대한 참가자 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzADUser** 또는 **Get-AzADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
 
@@ -124,7 +124,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>PowerShell을 사용하여 로컬로 빠른 시작 템플릿을 배포합니다
 
 > [!IMPORTANT]
-> 아래에 표시된 명령줄 작업은 [Az PowerShell module](https://docs.microsoft.com/powershell/azure/overview)에 대해 설명합니다.
+> 아래에 표시된 명령줄 작업은 [Az PowerShell module](https://docs.microsoft.com/powershell/azure/)에 대해 설명합니다.
 
 1. PowerShell에서 Azure 계정에 로그인합니다.
 
@@ -252,4 +252,4 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 ## <a name="next-steps"></a>다음 단계
 
-- REST API를 사용하여 프로그래밍 방식으로 Time Series Insights 리소스를 관리하는 방법에 대한 자세한 내용은 [Time Series Insights 관리](https://docs.microsoft.com/rest/api/time-series-insights-management/)를 참조하세요.
+- REST Api를 사용 하 여 Azure Time Series Insights 리소스를 프로그래밍 방식으로 관리 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights 관리](https://docs.microsoft.com/rest/api/time-series-insights-management/)

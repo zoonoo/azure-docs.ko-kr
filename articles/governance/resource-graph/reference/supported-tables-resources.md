@@ -1,15 +1,15 @@
 ---
 title: 지원 되는 Azure Resource Manager 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 Azure Resource Manager 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 06/04/2020
+ms.date: 07/16/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087529"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -19,6 +19,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
+- microsoft advisor/권장 사항/비 표시
 - microsoft.advisor/suppressions
 
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources

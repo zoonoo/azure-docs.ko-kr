@@ -70,6 +70,8 @@
           href: diagnostics-log-analytics-2019.md
     - name: 기본 제공 앱 게시
       href: publish-apps-2019.md
+    - name: Azure Multi-Factor Authentication 설정
+      href: ../set-up-mfa.md
 - name: 개념
   items:
     - name: Windows Virtual Desktop 환경

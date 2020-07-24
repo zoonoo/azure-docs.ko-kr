@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: daberry
-ms.openlocfilehash: cf2716ce5d24aa86e32f6f521134590c671d5011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 270029fa62f657af7a992ecb963108b448d310e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088821"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Azure CLI를 사용하여 Linux 가상 머신 크기 조정 
 
@@ -49,5 +50,5 @@ VM의 크기를 조정하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)�
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
+[scale-set]: ../../virtual-machine-scale-sets/tutorial-autoscale-cli.md 
 [vm-sizes]:sizes.md

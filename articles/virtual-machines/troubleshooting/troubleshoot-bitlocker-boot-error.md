@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088533"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -28,7 +28,7 @@ ms.locfileid: "86132957"
 
 ## <a name="symptom"></a>증상
 
- Windows VM이 시작되지 않습니다. [부트 진단](../windows/boot-diagnostics.md) 창의 스크린샷을 확인하면 다음 오류 메시지 중 하나가 표시됩니다.
+ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md) 창의 스크린샷을 확인하면 다음 오류 메시지 중 하나가 표시됩니다.
 
 - BitLocker 키가 있는 USB 드라이버 꽂기
 
@@ -48,7 +48,7 @@ ms.locfileid: "86132957"
 이 방법으로 문제가 해결되지 않으면 다음 단계에 따라 BEK 파일을 수동으로 복원합니다.
 
 1. 영향을 받는 VM의 시스템 디스크의 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md). 7 단계에서 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 명령을 실행 하려면 복구 VM에서 **BitLocker 드라이브 암호화** 기능을 사용 하도록 설정 해야 합니다.
+2. [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md). 7 단계에서 [manage-bde](/windows-server/administration/windows-commands/manage-bde) 명령을 실행 하려면 복구 VM에서 **BitLocker 드라이브 암호화** 기능을 사용 하도록 설정 해야 합니다.
 
     관리 디스크를 연결할 때 “암호화 설정이 포함되어 있으므로 데이터 디스크로 사용할 수 없습니다.” 오류 메시지가 표시될 수 있습니다. 이 경우 다음 스크립트를 실행하여 디스크를 다시 연결합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "86132957"
     ```
      관리 디스크를 Blob 이미지에서 복원된 VM에 연결할 수 없습니다.
 
-3. 디스크가 연결된 후에는 일부 Azure PowerShell 스크립트를 실행할 수 있도록 복구 VM에 대해 원격 데스크톱 연결을 설정합니다. 복구 VM에 [최신 버전의 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
+3. 디스크가 연결된 후에는 일부 Azure PowerShell 스크립트를 실행할 수 있도록 복구 VM에 대해 원격 데스크톱 연결을 설정합니다. 복구 VM에 [최신 버전의 Azure PowerShell](/powershell/azure/)을 설치했는지 확인합니다.
 
 4. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행하여 Azure 구독에 로그인합니다.
 

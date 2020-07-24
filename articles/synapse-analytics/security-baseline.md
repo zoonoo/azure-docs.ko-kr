@@ -1,19 +1,20 @@
 ---
-title: Azure 보안 벤치 마크에 대 한 Synapse Analytics 보안 기준
+title: Synapse Analytics에 대 한 Azure 보안 기준
 description: Synapse Analytics 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4b40bdeb6f60aafea760c6c6e3e0b0f99b419614
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040659"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089331"
 ---
-# <a name="synapse-analytics-security-baseline-for-azure-security-benchmark"></a>Azure 보안 벤치 마크에 대 한 Synapse Analytics 보안 기준
+# <a name="azure-security-baseline-for-synapse-analytics"></a>Synapse Analytics에 대 한 Azure 보안 기준
 
 Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
@@ -27,9 +28,9 @@ Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
-**지침**: 개인 링크를 통해 가상 네트워크에 대 한 보안 Azure SQL Database. Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다.
+**지침**: 개인 링크를 통해 가상 네트워크에 대 한 Azure SQL Server를 보호 합니다. Azure 개인 링크를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다.
 
-또는 Synapse SQL 풀에 연결 하는 경우 네트워크 보안 그룹을 사용 하 여 SQL Database에 대 한 나가는 연결의 범위를 좁힙니다. [Azure 서비스 허용]을 끄기로 설정하여 퍼블릭 엔드포인트를 통해 SQL Database로의 모든 Azure 서비스 트래픽을 사용하지 않도록 설정합니다. 방화벽 규칙에는 공용 IP 주소가 허용 되지 않아야 합니다.
+또는 Synapse SQL 풀에 연결 하는 경우 네트워크 보안 그룹을 사용 하 여 SQL database에 대 한 나가는 연결의 범위를 좁힙니다. Azure 서비스 허용을 OFF로 설정 하 여 공용 끝점을 통해 SQL database에 대 한 모든 Azure 서비스 트래픽을 사용 하지 않도록 설정 합니다. 방화벽 규칙에는 공용 IP 주소가 허용 되지 않아야 합니다.
 
 * [Azure 개인 링크 이해](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -43,7 +44,7 @@ Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 **책임**: Customer
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: 가상 네트워크, 서브넷 및 Nic의 구성과 트래픽을 모니터링 하 고 기록 합니다.
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2: 가상 네트워크, 서브넷 및 네트워크 인터페이스의 구성 및 트래픽을 모니터링 하 고 기록 합니다.
 
 **지침**: AZURE Synapse SQL 풀에 연결 하는 경우 nsg (네트워크 보안 그룹) 흐름 로그를 사용 하도록 설정 했으면 트래픽 감사에 대 한 Azure Storage 계정에 로그를 보냅니다.
 
@@ -123,7 +124,7 @@ Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 **지침**: 가상 네트워크 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 서비스 태그 이름(예: ApiManagement)을 규칙의 적절한 원본 또는 대상 필드에 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-Azure Synapse SQL 풀에 서비스 끝점을 사용 하는 경우 Azure SQL Database 공용 IP 주소에 대 한 아웃 바운드가 필요 합니다. Ip를 Azure SQL Database 하 여 연결을 허용 하려면 NSGs (네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대 한 NSG 서비스 태그를 사용 하 여이 작업을 수행할 수 있습니다.
+Azure Synapse SQL 풀에 서비스 끝점을 사용 하는 경우 Azure SQL database 공용 IP 주소에 대 한 아웃 바운드가 필요 합니다. 연결을 허용 하려면 Ip를 Azure SQL Database 하기 위해 NSGs (네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대 한 NSG 서비스 태그를 사용 하 여이 작업을 수행할 수 있습니다.
 
 * [Azure SQL Database에 대 한 서비스 끝점을 사용 하 여 서비스 태그 이해](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -135,7 +136,7 @@ Azure Synapse SQL 풀에 서비스 끝점을 사용 하는 경우 Azure SQL Data
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지 관리
 
-**지침**: Azure Policy을 사용 하 여 SQL 풀과 관련 된 리소스에 대 한 네트워크 보안 구성을 정의 하 고 구현 합니다. "Microsoft .Sql" 네임 스페이스를 사용 하 여 사용자 지정 정책 정의를 정의 하거나 Azure SQL Database/서버 네트워크 보호를 위해 설계 된 기본 제공 정책 정의를 사용할 수 있습니다. Azure SQL Database 서버에 대해 적용 가능한 기본 제공 네트워크 보안 정책의 예는 "SQL Server 가상 네트워크 서비스 끝점을 사용 해야 합니다."입니다.
+**지침**: Azure Policy을 사용 하 여 SQL 풀과 관련 된 리소스에 대 한 네트워크 보안 구성을 정의 하 고 구현 합니다. "Microsoft .Sql" 네임 스페이스를 사용 하 여 사용자 지정 정책 정의를 정의 하거나 Azure SQL 데이터베이스/서버 네트워크 보호를 위해 설계 된 기본 제공 정책 정의를 사용할 수 있습니다. Azure SQL Database 서버에 대해 적용 가능한 기본 제공 네트워크 보안 정책의 예는 "SQL Server 가상 네트워크 서비스 끝점을 사용 해야 합니다."입니다.
 
 Azure 청사진을 사용 하 여 Azure 리소스 관리 템플릿, RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화 합니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
@@ -243,7 +244,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **책임**: Customer
 
-### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
+### <a name="26-monitor-and-review-logs"></a>2.6: 로그를 모니터링 하 고 검토 합니다.
 
 **지침**: 비정상적인 동작에 대 한 로그를 분석 및 모니터링 하 고 정기적으로 결과를 검토 합니다. Azure Security Center와 함께 Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 SQL Database와 관련 된 비정상적인 활동을 경고 합니다. 또는 SQL database와 관련 된 Azure 활동 로그 항목 또는 메트릭 값을 기반으로 경고를 구성 합니다.
 
@@ -359,7 +360,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **책임**: Customer
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory에서 SSO(Single Sign-On) 사용
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: SSO (Azure Active Directory Single Sign-On)를 사용 하십시오.
 
 **지침**: Azure 앱 등록 (서비스 주체)을 사용 하 여 API 호출을 통해 제어 평면 (Azure Portal)에서 데이터 웨어하우스와 상호 작용 하는 데 사용할 수 있는 토큰을 검색 합니다.
 
@@ -373,7 +374,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **책임**: Customer
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: 모든 Azure Active Directory 기반 액세스에 다단계 인증 사용
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: 모든 Azure Active Directory 기반 액세스에 대해 multi-factor authentication을 사용 하십시오.
 
 **지침**: Azure AD(Active Directory) MFA(Multi-Factor Authentication)를 사용하도록 설정하고, Azure Security Center ID 및 액세스 관리 추천 사항을 따릅니다.
 
@@ -387,7 +388,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **책임**: Customer
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: 관리 작업에는 안전한 Azure 관리 워크스테이션 사용
 
 **지침**: PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure 리소스에 로그인 하 고 구성 하도록 구성 된 MFA (Multi-Factor Authentication)를 사용 합니다.
 
@@ -475,7 +476,7 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 **책임**: Customer
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: 계정 로그인 동작 편차에 대한 경고
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: 계정 로그인 동작 편차에 대 한 경고
 
 **지침**: 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 하려면 Azure AD (Azure Active Directory) id 보호 및 위험 검색 기능을 사용 합니다. 또한 추가 조사를 위해 온-보드에 데이터를 수집 하 고 Azure 센티널에 데이터를 수집할 수 있습니다.
 
@@ -583,7 +584,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
 
-**지침**: Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Synapse SQL 풀의 Azure SQL Database에 대 한 액세스를 관리 합니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Synapse sql 풀에서 azure sql database에 대 한 액세스를 관리 합니다.
 
 권한 부여는 사용자 계정의 데이터베이스 역할 구성원 자격 및 개체 수준 권한에 의해 제어됩니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다.
 
@@ -609,7 +610,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 중요한 저장 정보 암호화
 
-**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 AZURE Synapse SQL을 보호 하는 데 도움이 됩니다. 이 기능은 애플리케이션을 변경할 필요 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. Azure에서 TDE의 기본 설정은 DEK가 기본 제공 서버 인증서로 보호 되는 것입니다. 또는 TDE에 대 한 고객 관리 TDE (BYOK (Bring Your Own Key) 지원)를 사용할 수 있습니다. 이 시나리오에서 DEK를 암호화 하는 TDE 보호기는 고객이 관리 하는 비대칭 키로, 고객이 소유 하 고 관리 하는 Azure Key Vault (Azure의 클라우드 기반 외부 키 관리 시스템)에 저장 되 고 키 자격 증명 모음을 벗어날 수 없습니다.
+**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 AZURE Synapse SQL을 보호 하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. Azure에서 TDE의 기본 설정은 DEK가 기본 제공 서버 인증서로 보호 되는 것입니다. 또는 TDE에 대 한 고객 관리 TDE (BYOK (Bring Your Own Key) 지원)를 사용할 수 있습니다. 이 시나리오에서 DEK를 암호화 하는 TDE 보호기는 고객이 관리 하는 비대칭 키로, 고객이 소유 하 고 관리 하는 Azure Key Vault (Azure의 클라우드 기반 외부 키 관리 시스템)에 저장 되 고 키 자격 증명 모음을 벗어날 수 없습니다.
 
 * [서비스 관리 투명 한 데이터 암호화 이해](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
 
@@ -641,9 +642,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
-**지침**: 고급 데이터 보안을 사용 하도록 설정 하 고 SQL Database에서 취약점 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다.
+**지침**: 고급 데이터 보안을 사용 하도록 설정 하 고 Azure SQL 데이터베이스에서 취약성 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다.
 
-* [Azure SQL Database에서 취약성 평가를 실행 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Azure SQL 데이터베이스에서 취약성 평가를 실행 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [고급 데이터 보안을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -697,7 +698,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 *자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
 
-### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 Asset Discovery 솔루션 사용
+### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내에서 Synapse SQL 풀과 관련 된 모든 리소스를 쿼리하고 검색 합니다. 테넌트에서 적절한 권한(읽기)이 있는지 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거할 수 있습니다.
 
@@ -737,7 +738,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **책임**: Customer
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4: 승인 된 Azure 리소스의 인벤토리 정의 및 유지 관리
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4: 승인 된 Azure 리소스의 인벤토리 정의 및 유지 관리
 
 **지침**: Synapse SQL 풀과 관련 된 승인 된 Azure 리소스의 목록을 정의 합니다.
 
@@ -845,8 +846,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
-**지침**: "Synapse" 네임 스페이스의 별칭을 Azure Policy 사용 하 여 사용자 지정 정책을 만들어 Sql 풀과 관련 된 리소스의 구성을 감사 하거나 적용 합니다. Azure 데이터베이스에 대해 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
-
+**지침**: "Synapse" 네임 스페이스의 별칭을 Azure Policy 사용 하 여 사용자 지정 정책을 만들어 Sql 풀과 관련 된 리소스의 구성을 감사 하거나 적용 합니다. Azure 데이터베이스/서버에 대해 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
 - SQL 서버에 위협 탐지 배포
 - SQL Server는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
@@ -978,7 +978,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 *자세한 내용은 [보안 제어: 맬웨어 방어](/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리 맬웨어 방지 소프트웨어 사용
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙에서 관리 하는 맬웨어 방지 소프트웨어 사용
 
 **지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다. Microsoft는 기본 플랫폼용 맬웨어 방지를 처리 합니다.
 
@@ -1010,7 +1010,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 *자세한 내용은 [보안 제어: 데이터 복구](/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
+### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 정기 자동 백업 확인
 
 **지침**: Synapse SQL 풀의 스냅숏은 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 자동으로 수행 됩니다. 이 보존 기간은 변경할 수 없습니다. SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다. 필요한 경우 스냅숏을 수동으로 트리거할 수도 있습니다.
 

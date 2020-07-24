@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088192"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 Windows VM 만들기
 
@@ -63,7 +63,7 @@ Azure 갤러리에서 직접 지원 되는 배포는 다음과 같습니다.
 
 가속화 된 네트워킹은 둘 이상의 가상 Cpu (vCPUs)를 사용 하는 대부분의 범용 및 계산에 최적화 된 인스턴스 크기에서 지원 됩니다.  지원 되는 시리즈는 Dv2/DSv2 및 F/Fs입니다.
 
-하이퍼스레딩을 지 원하는 인스턴스에서는 4 개 이상의 vCPUs가 있는 VM 인스턴스에서 가속화 된 네트워킹을 지원 합니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
+하이퍼스레딩을 지 원하는 인스턴스에서는 4 개 이상의 vCPUs가 있는 VM 인스턴스에서 가속화 된 네트워킹을 지원 합니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
 
 VM 인스턴스에 대 한 자세한 내용은 [Azure에서 Windows 가상 머신에 대 한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
 

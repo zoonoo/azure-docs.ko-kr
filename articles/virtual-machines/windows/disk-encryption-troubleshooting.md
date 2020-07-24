@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11c1e0bf10725173a2a341addf4c3f845bbb7fba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4d16edae3b41bc9c3b4a849935fe8c6f94504ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088430"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -36,7 +36,7 @@ ms.locfileid: "82085691"
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault
 
-[Azure AD 자격 증명](disk-encryption-windows-aad.md#)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 엔드포인트는 [Office 365 URL 및 IP 주소 범위](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../../key-vault/general/access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
+[Azure AD 자격 증명](disk-encryption-windows-aad.md#)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 엔드포인트는 [Office 365 URL 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../../key-vault/general/access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`)를 사용하는 [Azure Instance Metadata 서비스](../windows/instance-metadata-service.md) 엔드포인트에 액세스할 수 있어야 합니다.  이 주소에 대한 로컬 HTTP 트래픽(예: X-Forwarded-For 헤더)을 변경하는 프록시 구성은 지원되지 않습니다.
@@ -88,5 +88,5 @@ CLI를 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려
 
 이 문서에서는 일반적인 Azure Disk Encryption 문제와 해당 문제 해결 방법에 대해 자세히 알아보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Security Center에서 디스크 암호화 적용](../../security-center/security-center-apply-disk-encryption.md)
+- [Azure Security Center에서 디스크 암호화 적용](../../security-center/security-center-virtual-machine-protection.md)
 - [휴지 상태의 Azure 데이터 암호화](../../security/fundamentals/encryption-atrest.md)

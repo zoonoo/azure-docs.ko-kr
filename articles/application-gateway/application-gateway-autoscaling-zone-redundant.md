@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088109"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -148,7 +148,7 @@ Azure Application Gateway는 고가용성이 유지되는 방식으로 배포됩
 
 다음 표는 각 SKU에서 사용할 수 있는 기능을 비교해서 보여 줍니다.
 
-|                                                   | v1 SKU   | v2 SKU   |
+| 기능                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | 자동 확장                                       |          | &#x2713; |
 | 영역 중복                                   |          | &#x2713; |

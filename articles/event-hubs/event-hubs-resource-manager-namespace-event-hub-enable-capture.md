@@ -3,16 +3,16 @@ title: 캡쳐를 사용하도록 설정된 이벤트 허브 만들기 - Azure Ev
 description: Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브가 있는 Azure Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 51b654635fa7e06901a257c930e04bff3ea86cf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7308d951cf48d8123df050bdf58772ec914aac3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315707"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087597"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 
-이 문서에서는 하나의 이벤트 허브 인스턴스를 사용 하 여 [Event Hubs](event-hubs-what-is-event-hubs.md) 네임 스페이스를 만들고 이벤트 허브에서 [캡처 기능](event-hubs-capture-overview.md) 을 사용 하도록 설정 하는 Azure Resource Manager 템플릿을 사용 하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 하나의 이벤트 허브 인스턴스를 사용 하 여 [Event Hubs](./event-hubs-about.md) 네임 스페이스를 만들고 이벤트 허브에서 [캡처 기능](event-hubs-capture-overview.md) 을 사용 하도록 설정 하는 Azure Resource Manager 템플릿을 사용 하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 이 문서에는 선택한 대상에 따라 이벤트가 Azure Storage Blobs에 캡처되는지, 아니면 Azure Data Lake Store에 캡쳐되는지를 지정하는 방법을 보여줍니다.
 
@@ -418,7 +418,7 @@ az group deployment create \<my-resource-group\> \<my-deployment-name\> --templa
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
+* [Event Hubs 개요](./event-hubs-about.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 

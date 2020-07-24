@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0270cebec21ca10327a86ea5efebef9a52455930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509849"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089348"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
 
 Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사용 하는 것입니다. 기본적으로 Azure Files SMB 3.0 에서만 지원 되는 전송 암호화가 필요 합니다. Azure Files은 전송 중인 암호화를 지원 하지 않는 SMB 2.1도 지원 하지만 보안상의 이유로 다른 Azure 지역 또는 온-프레미스에서 SMB 2.1을 사용 하 여 Azure 파일 공유를 탑재 하지 않을 수 있습니다. 응용 프로그램에서 특별히 SMB 2.1을 요구 하지 않는 한 가장 널리 사용 되는 Linux 배포판에서 SMB 3.0을 지원 하기 때문에 특별히 사용 해야 하는 이유가 거의 없습니다.  
 
-| | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
+| Linux 배포 | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
 | RHEL(Red Hat Enterprise Linux) | 7+ | 7.5+ |
@@ -34,7 +34,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 uname -r
 ```
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Cifs-유틸리티 패키지가 설치 되어 있는지 확인 합니다.**  
@@ -246,7 +246,7 @@ Linux에서 Azure 파일 공유를 탑재 하려면 포트 445에 액세스할 �
 
 Linux 커널 4.18부터 레거시 이유로 호출 되는 SMB 커널 모듈은 `cifs` 라는 새 모듈 매개 변수 (종종 다양 한 외부 설명서로 *parm* 라고도 함)를 노출 `disable_legacy_dialects` 합니다. Linux 커널 4.18에 도입 되었지만 일부 공급 업체는이 변경 내용을 지원 되는 이전 커널로 변경 했습니다. 편의를 위해 다음 표에서는 일반적인 Linux 배포판에서이 모듈 매개 변수의 가용성을 자세히 설명 합니다.
 
-| 분포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
+| 배포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | 아니요 |
 | Ubuntu 18.04 | 예 |

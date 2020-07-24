@@ -7,15 +7,15 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 502883a0c4eb36be9e89ba8693f4d32ba7f16ebd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503033"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088872"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>로컬 임시 디스크가 없는 Azure VM 크기 
-이 문서에서는 로컬 임시 디스크가 없는 (예: 로컬 임시 책상 없음) Azure VM 크기에 대 한 FAQ (질문과 대답)를 제공 합니다. 이러한 VM 크기에 대 한 자세한 내용은 [Dv4 및 Dsv4에 대 한 사양 (범용 워크 로드)](dv4-dsv4-series.md) 또는 [Ev4 및 Esv4 시리즈 사양 (메모리 액세스에 최적화 된 작업)](ev4-esv4-series.md)을 참조 하세요.
+이 문서에서는 로컬 임시 디스크가 없는 Azure VM 크기에 대 한 FAQ (질문과 대답)를 제공 합니다 (예: 로컬 임시 디스크 없음). 이러한 VM 크기에 대 한 자세한 내용은 [Dv4 및 Dsv4에 대 한 사양 (범용 워크 로드)](dv4-dsv4-series.md) 또는 [Ev4 및 Esv4 시리즈 사양 (메모리 액세스에 최적화 된 작업)](ev4-esv4-series.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > Dv4, Dsv4, Ev4 및 Esv4 시리즈 VM 크기가 이제 공개 미리 보기로 제공 됩니다. 공개 미리 보기에 등록 하려면이 [양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)작성 합니다. 

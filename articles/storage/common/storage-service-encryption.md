@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b6244b3ab72f7fa8ea375ff67a08e8d1d241df4a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 002eeaedf4ae479408cd1ba0c7a373d8a2661cdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089399"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
@@ -39,7 +39,7 @@ Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 W
 새 저장소 계정의 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. Microsoft에서 관리 하는 키를 사용 하 여 데이터를 암호화 하거나 자신의 키를 사용 하 여 암호화를 관리할 수 있습니다. 사용자 고유의 키를 사용 하 여 암호화를 관리 하도록 선택 하는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
 
 - Blob storage 및 Azure Files에서 데이터를 암호화 하 고 암호 해독 하는 데 사용할 Azure Key Vault를 사용 하 여 *고객 관리 키* 를 지정할 수 있습니다. <sup>1, 2</sup> 고객 관리 키에 대 한 자세한 내용은 Azure Key Vault에서 [고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리를](encryption-customer-managed-keys.md)참조 하세요.
-- Blob storage 작업에서 *고객이 제공한 키* 를 지정할 수 있습니다. Blob 저장소에 대 한 읽기 또는 쓰기 요청을 수행 하는 클라이언트에는 blob 데이터의 암호화 및 암호 해독 방법에 대 한 세부적인 제어를 요청 하는 암호화 키가 포함 될 수 있습니다. 고객 제공 키에 대 한 자세한 내용은 [Blob 저장소에 대 한 요청에 암호화 키 제공 (미리 보기)](encryption-customer-provided-keys.md)을 참조 하세요.
+- Blob storage 작업에서 *고객이 제공한 키* 를 지정할 수 있습니다. Blob 저장소에 대 한 읽기 또는 쓰기 요청을 수행 하는 클라이언트에는 blob 데이터의 암호화 및 암호 해독 방법에 대 한 세부적인 제어를 요청 하는 암호화 키가 포함 될 수 있습니다. 고객 제공 키에 대 한 자세한 내용은 [Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)을 참조 하세요.
 
 다음 표에서는 Azure Storage 암호화에 대 한 키 관리 옵션을 비교 합니다.
 

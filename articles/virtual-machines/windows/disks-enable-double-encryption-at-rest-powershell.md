@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0f386e4ba4a1835b88b753574bde23e93f7f8d17
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5e70d434fcb297ff39b32a83b89a86e85fe9564f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088447"
 ---
 # <a name="azure-powershell---enable-double-encryption-at-rest-on-your-managed-disks"></a>Azure PowerShell-managed disks에서 휴지 상태의 이중 암호화 사용
 
@@ -25,7 +25,7 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
 
 ## <a name="prerequisites"></a>필수 조건
 
-최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치 하 고 [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0)을 사용 하 여 Azure 계정에 로그인 합니다.
+최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치 하 고 [AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0)을 사용 하 여 Azure 계정에 로그인 합니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -35,7 +35,7 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
     
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
-    $LocationName="westcentralus"
+    $LocationName="westus2"
     $keyVaultName="yourKeyVaultName"
     $keyName="yourKeyName"
     $keyDestination="Software"
@@ -49,13 +49,13 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
 1.  EncryptionType를 EncryptionAtRestWithPlatformAndCustomerKeys로 설정 하 여 DiskEncryptionSet를 만듭니다. Azure Resource Manager (ARM) 템플릿에서 API 버전 **2020-05-01** 을 사용 합니다. 
     
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
+    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
     -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" `
-    -diskEncryptionSetName "yourDESForDoubleEncryption" `
-    -keyVaultId "subscriptions/dd80b94e-0463-4a65-8d04-c94f403879dc/resourceGroups/yourResourceGroupName/providers/Microsoft.KeyVault/vaults/yourKeyVaultName" `
-    -keyVaultKeyUrl "https://yourKeyVaultName.vault.azure.net/keys/yourKeyName/403445136dee4a57af7068cab08f7d42" `
+    -diskEncryptionSetName $diskEncryptionSetName `
+    -keyVaultId $keyVault.ResourceId `
+    -keyVaultKeyUrl $key.Key.Kid `
     -encryptionType "EncryptionAtRestWithPlatformAndCustomerKeys" `
-    -region "CentralUSEUAP"
+    -region $LocationName
     ```
 
 1. Key Vault에 대해 DiskEncryptionSet 리소스 액세스 권한을 부여합니다.
@@ -64,6 +64,7 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
     > Azure가 Azure Active Directory에서 DiskEncryptionSet의 ID를 만드는 데는 몇 분 정도 걸릴 수 있습니다. 다음 명령을 실행할 때 "Active Directory 개체를 찾을 수 없습니다"와 같은 오류가 발생하면 몇 분 정도 기다린 후 다시 시도하세요.
 
     ```powershell  
+    $des=Get-AzDiskEncryptionSet -name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
     ```
 
@@ -71,5 +72,5 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
 
 이러한 리소스를 만들고 구성 했으므로 이제 이러한 리소스를 사용 하 여 관리 디스크를 보호할 수 있습니다. 다음 링크에는 관리 디스크를 보호 하는 데 사용할 수 있는 각각의 시나리오를 포함 하는 예제 스크립트가 포함 되어 있습니다.
 
-[Azure PowerShell-서버 쪽 암호화 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정](disks-enable-customer-managed-keys-powershell.md) 
- 합니다. [Azure Resource Manager 템플릿 샘플](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [Azure PowerShell-서버 쪽 암호화 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정 합니다.](disks-enable-customer-managed-keys-powershell.md)
+- [Azure Resource Manager 템플릿 샘플](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)

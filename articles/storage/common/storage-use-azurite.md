@@ -1,22 +1,22 @@
 ---
 title: 로컬 Azure Storage 개발에 Azurite emulator 사용
-description: Azurite 오픈 소스 에뮬레이터 (미리 보기)는 Azure storage 응용 프로그램을 테스트 하기 위한 무료 로컬 환경을 제공 합니다.
+description: Azurite 오픈 소스 에뮬레이터는 Azure storage 응용 프로그램을 테스트 하기 위한 무료 로컬 환경을 제공 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089416"
 ---
-# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Azurite 에뮬레이터를 사용 하 여 로컬 Azure Storage 개발 및 테스트 (미리 보기)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 
-Azurite 버전 3.2 오픈 소스 에뮬레이터 (미리 보기)는 Azure blob 및 queue storage 응용 프로그램을 테스트 하기 위한 무료 로컬 환경을 제공 합니다. 응용 프로그램이 로컬에서 작동 하는 방식에 만족 하는 경우 클라우드에서 Azure Storage 계정을 사용 하도록 전환 합니다. 에뮬레이터는 Windows, Linux 및 macOS에서 플랫폼 간 지원을 제공 합니다. Azurite v3은 Azure Blob service에서 구현 하는 Api를 지원 합니다.
+Azurite 오픈 소스 에뮬레이터는 Azure blob 및 queue storage 응용 프로그램을 테스트 하기 위한 무료 로컬 환경을 제공 합니다. 응용 프로그램이 로컬에서 작동 하는 방식에 만족 하는 경우 클라우드에서 Azure Storage 계정을 사용 하도록 전환 합니다. 에뮬레이터는 Windows, Linux 및 macOS에서 플랫폼 간 지원을 제공 합니다.
 
 Azurite는 향후 저장소 에뮬레이터 플랫폼입니다. Azurite는 [Azure Storage 에뮬레이터](storage-use-emulator.md)를 대체 합니다. Azurite는 최신 버전의 Azure Storage Api를 지원 하도록 계속 업데이트 됩니다.
 
@@ -34,8 +34,6 @@ Visual Studio Code 내에서 **확장** 창을 선택 하 고 **확장: MARKETPL
 ![Visual Studio Code 확장 마켓플레이스](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 브라우저에서 [Visual Studio Code 확장 시장을](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) 탐색할 수도 있습니다. **설치** 단추를 선택 하 Visual Studio Code를 열고 Azurite 확장 페이지로 직접 이동 합니다.
-
-Visual Studio Code 상태 표시줄에서 빠르게 Azurite을 시작 하거나 닫을 수 있습니다. **[Azurite Blob service]** 또는 **[Azurite Queue service]** 를 클릭 합니다.
 
 확장 프로그램은 다음과 같은 Visual Studio Code 명령을 지원 합니다. 명령 팔레트를 열려면 Visual Studio Code에서 F1 키를 누릅니다. 
 
@@ -67,6 +65,7 @@ Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 �
    - **Azurite: Queue Host** -큐 서비스 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
    - **Azurite: Queue port** -큐 서비스 수신 포트입니다. 기본 포트는 10001입니다.
    - **Azurite: 자동** -자동 모드에서 액세스 로그를 사용 하지 않도록 설정 합니다. 기본 값은 **false**입니다.
+   - **Azurite: Api 버전 확인 건너뛰기** -요청 Api 버전 검사를 건너뜁니다. 기본 값은 **false**입니다.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>NPM를 사용 하 여 Azurite 설치 및 실행
 
@@ -310,6 +309,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > OAuth에는 HTTPS 끝점이 필요 합니다. 스위치와 함께 스위치를 제공 하 여 HTTPS를 사용 하도록 설정 해야 `--cert` `--oauth` 합니다.
 
 Azurite는 `basic` 스위치에 매개 변수를 지정 하 여 기본 인증을 지원 합니다 `--oauth` . Azurite는 들어오는 전달자 토큰의 유효성을 검사 하 고 발급자, 대상 그룹 및 만료를 확인 하는 등의 기본 인증을 수행 합니다. Azurite는 토큰 서명 또는 사용 권한을 확인 하지 않습니다.
+
+### <a name="skip-api-version-check"></a>API 버전 확인 건너뛰기
+
+**선택 사항** -시작할 때 Azurite는 요청 된 API 버전이 올바른지 확인 합니다. 다음 명령은 API 버전 검사를 건너뜁니다.
+
+```console
+azurite --skipApiVersionCheck
+```
+
 
 ## <a name="authorization-for-tools-and-sdks"></a>도구 및 Sdk에 대 한 권한 부여
 

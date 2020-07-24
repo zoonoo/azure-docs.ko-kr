@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087257"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
 
 연결 문자열에는 응용 프로그램이 공유 키 인증을 사용 하 여 런타임에 Azure Storage 계정의 데이터에 액세스 하는 데 필요한 인증 정보가 포함 됩니다. 다음과 같은 작업을 수행하도록 연결 문자열을 구성할 수 있습니다.
 
-* Azure Storage 에뮬레이터에 연결합니다.
+* Azurite 저장소 에뮬레이터에 연결 합니다.
 * Azure의 스토리지 계정에 액세스
 * SAS(공유 액세스 서명)를 통해 Azure의 지정된 리소스에 액세스
 
@@ -37,15 +37,15 @@ Azure Storage에 대해 만들어진 요청 권한을 부여하려면 런타임�
 * 데스크톱 또는 디바이스에서 실행 중인 애플리케이션의 경우 연결 문자열을 **app.config** 또는 **web.config** 파일에 저장할 수 있습니다. 이러한 파일의 **AppSettings** 섹션에 연결 문자열을 추가합니다.
 * Azure 클라우드 서비스에서 실행 중인 애플리케이션의 경우, 연결 문자열을 [Azure 서비스 구성 스키마(.cscfg) 파일](https://msdn.microsoft.com/library/ee758710.aspx)에 저장할 수 있습니다. 연결 문자열을 서비스 구성 파일의 **ConfigurationSettings** 섹션에 추가합니다.
 
-사용자의 연결 문자열을 구성 파일에 저장하면 연결 문자열을 업데이트하여 스토리지 에뮬레이터와 클라우드의 Azure Storage 계정 사이에 전환하기 쉽습니다. 대상 환경을 가리키도록 연결 문자열을 편집하기만 하면 됩니다.
+구성 파일에 연결 문자열을 저장 하면 연결 문자열을 업데이트 하 여 [Azurite 저장소 에뮬레이터](../common/storage-use-azurite.md) 와 클라우드의 Azure storage 계정 사이를 전환할 수 있습니다. 대상 환경을 가리키도록 연결 문자열을 편집하기만 하면 됩니다.
 
 [Microsoft Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)를 사용하여 애플리케이션이 실행 중인 위치와 상관없이 런타임에 사용자의 연결 문자열에 액세스할 수 있습니다.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>저장소 에뮬레이터에 대 한 연결 문자열 구성
+## <a name="configure-a-connection-string-for-azurite"></a>Azurite에 대 한 연결 문자열 구성
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-스토리지 에뮬레이터에 대한 자세한 내용은 [개발 및 테스트를 위한 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)을 참조하세요.
+Azurite에 대 한 자세한 내용은 [로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용](../common/storage-use-azurite.md)을 참조 하세요.
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Azure storage 계정에 대 한 연결 문자열 구성
 
@@ -140,6 +140,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)
+* [로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용](../common/storage-use-azurite.md)
 * [Azure Storage Explorer](storage-explorers.md)
 * [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)

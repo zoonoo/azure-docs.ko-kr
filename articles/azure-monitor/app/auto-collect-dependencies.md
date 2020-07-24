@@ -5,15 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891605"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087988"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 
-애플리케이션의 코드에 대한 추가 수정 없이 종속성으로 자동으로 검색되는 현재 지원되는 종속성 호출 목록은 아래와 같습니다. Application Insights [애플리케이션 맵](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) 및 [트랜잭션 진단](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) 보기에서 이러한 종속성을 시각화합니다. 종속성이 아래 목록에 없으면 [추적 종속성 호출](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용하여 수동으로 추적할 수 있습니다.
+애플리케이션의 코드에 대한 추가 수정 없이 종속성으로 자동으로 검색되는 현재 지원되는 종속성 호출 목록은 아래와 같습니다. Application Insights [애플리케이션 맵](./app-map.md) 및 [트랜잭션 진단](./transaction-diagnostics.md) 보기에서 이러한 종속성을 시각화합니다. 종속성이 아래 목록에 없으면 [추적 종속성 호출](./api-custom-events-metrics.md#trackdependency)을 사용하여 수동으로 추적할 수 있습니다.
 
 ## <a name="net"></a>.NET
 
@@ -61,7 +62,7 @@ ms.locfileid: "82891605"
 
 > [!NOTE]
 > *반응형 프로그래밍 지원을 제외합니다.
-> <br>†[JVM 에이전트](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java)를 설치해야 합니다.
+> <br>†[JVM 에이전트](./java-agent.md#install-the-application-insights-agent-for-java)를 설치해야 합니다.
 
 ## <a name="nodejs"></a>Node.js
 
@@ -77,7 +78,7 @@ ms.locfileid: "82891605"
 | <b>로깅 라이브러리</b> | |
 | [콘솔](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [윈스턴](https://www.npmjs.com/package/winston) | 2.x-에서처럼 |
+| [Winston](https://www.npmjs.com/package/winston) | 2.x-에서처럼 |
 
 ## <a name="javascript"></a>JavaScript
 

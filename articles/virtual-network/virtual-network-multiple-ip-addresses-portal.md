@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cec3e3ad4934ce368baa44984d252dc981d5d81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088209"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -29,7 +30,7 @@ ms.locfileid: "84687976"
 
 ## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
 
-여러 IP 주소 또는 고정 개인 IP 주소를 사용하여 VM을 만들려면 PowerShell 또는 Azure CLI를 사용하여 만들어야 합니다. 방법을 알아보려면 이 문서의 맨 위에 있는 PowerShell 또는 CLI 옵션을 클릭합니다. 단일 동적 개인 IP 주소 및 (선택 사항) 단일 공용 IP 주소를 사용하여 VM을 만들 수 있습니다. [Windows VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 또는 [Linux VM 만들기](../virtual-machines/linux/quick-create-portal.md) 문서의 단계에 따라 포털을 사용합니다. VM을 만든 후에 이 문서의 [VM에 IP 주소 추가](#add) 섹션에 나오는 단계에 따라 포털을 사용하여 IP 주소 형식을 동적에서 고정으로 변경하고 추가 IP 주소를 추가할 수 있습니다.
+여러 IP 주소 또는 고정 개인 IP 주소를 사용하여 VM을 만들려면 PowerShell 또는 Azure CLI를 사용하여 만들어야 합니다. 방법을 알아보려면 이 문서의 맨 위에 있는 PowerShell 또는 CLI 옵션을 클릭합니다. 단일 동적 개인 IP 주소 및 (선택 사항) 단일 공용 IP 주소를 사용하여 VM을 만들 수 있습니다. [Windows VM 만들기](../virtual-machines/windows/quick-create-portal.md) 또는 [Linux VM 만들기](../virtual-machines/linux/quick-create-portal.md) 문서의 단계에 따라 포털을 사용합니다. VM을 만든 후에 이 문서의 [VM에 IP 주소 추가](#add) 섹션에 나오는 단계에 따라 포털을 사용하여 IP 주소 형식을 동적에서 고정으로 변경하고 추가 IP 주소를 추가할 수 있습니다.
 
 ## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>VM에 IP 주소 추가
 

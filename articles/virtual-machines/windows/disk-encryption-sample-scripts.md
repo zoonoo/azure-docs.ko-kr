@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dce46fd5de4eb4584af32c24738ebbdc2282ef83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088481"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption 샘플 스크립트 
 
@@ -41,15 +41,15 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 
 다음 표는 PowerShell 스크립트에서 사용할 수 있는 매개 변수를 보여줍니다. 
 
-|매개 변수|설명|필수?|
+|매개 변수|Description|필수?|
 |------|------|------|
-|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| True|
-|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
-|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|True|
-|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|True|
-|$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 애플리케이션의 이름입니다. 이 이름을 가진 새 애플리케이션이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|False|
-|$aadClientSecret|이전에 만든 Azure AD 애플리케이션의 클라이언트 비밀입니다.|False|
-|$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|False|
+|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| 참|
+|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| 참|
+|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|참|
+|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|참|
+|$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 애플리케이션의 이름입니다. 이 이름을 가진 새 애플리케이션이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|거짓|
+|$aadClientSecret|이전에 만든 Azure AD 애플리케이션의 클라이언트 비밀입니다.|거짓|
+|$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|거짓|
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
@@ -87,14 +87,14 @@ ServerManagerCmd -install BitLockers
 ```
 
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>`bdehdcfg`를 사용하여 BitLocker에 대한 OS 볼륨 준비
-OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 경우 [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment)를 실행합니다.
+OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 경우 [bdehdcfg](/windows/security/information-protection/bitlocker/bitlocker-basic-deployment)를 실행합니다.
 
 ```console
 bdehdcfg -target c: shrink -quiet 
 ```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>BitLocker를 사용하여 OS 볼륨 보호
-명령을 사용 하 여 [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) 외부 키 보호기를 사용 하 여 부팅 볼륨에서 암호화를 사용 하도록 설정 합니다. 도한 외부 드라이브 또는 볼륨에 외부 키(.bek 파일)를 배치합니다. 암호화는 다음 재부팅 후 시스템/부팅 볼륨에 사용하도록 설정됩니다.
+명령을 사용 하 여 [`manage-bde`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff829849(v=ws.11)) 외부 키 보호기를 사용 하 여 부팅 볼륨에서 암호화를 사용 하도록 설정 합니다. 도한 외부 드라이브 또는 볼륨에 외부 키(.bek 파일)를 배치합니다. 암호화는 다음 재부팅 후 시스템/부팅 볼륨에 사용하도록 설정됩니다.
 
 ```console
 manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
@@ -150,7 +150,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -Permis
 [KEK를 사용하지 않고 OS 디스크를 연결](#without-using-a-kek)하기 위해 다음 단계에서 `$secretUrl`을 사용합니다.
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>KEK로 암호화된 디스크 암호화 암호
-비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](https://msdn.microsoft.com/library/azure/dn878066.aspx)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 wrap 작업의 출력은 base64 URL 인코딩 문자열로, cmdlet을 사용 하 여 암호로 업로드할 수 있습니다 [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) .
+비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](/rest/api/keyvault/wrapkey)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 wrap 작업의 출력은 base64 URL 인코딩 문자열로, cmdlet을 사용 하 여 암호로 업로드할 수 있습니다 [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) .
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

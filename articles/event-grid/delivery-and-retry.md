@@ -3,12 +3,12 @@ title: Azure Event Grid 배달 및 다시 시도
 description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e565bbc8592dc2818e3573672e6e3035c3c8983a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113839"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087614"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
@@ -78,8 +78,12 @@ Event Grid은 모든 재시도 단계에 작은 임의를 추가 하 고, 끝점
 지연 배달의 기능 목적은 비정상 끝점과 Event Grid 시스템을 보호 하는 것입니다. 백오프 및 비정상 끝점에 대 한 배달 지연 없이 Event Grid의 재시도 정책 및 볼륨 기능을 사용 하면 시스템에 쉽게 과부하가 발생할 수 있습니다.
 
 ## <a name="dead-letter-events"></a>배달 못한 편지 이벤트
+Event Grid 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다. **다음 조건 중 하나가** 충족 되는 경우 배달 못한 편지를 Event Grid 합니다. 
 
-Event Grid에서 이벤트를 전송할 수 없는 경우, 전송되지 않은 이벤트를 스토리지 계정으로 보낼 수 있습니다. 이 프로세스를 배달 못한 편지라고 합니다. 기본적으로 Event Grid에서는 배달 못한 편지를 켜지 않습니다. 이 기능을 사용하려면 이벤트 구독을 만들 때 전송되지 않은 이벤트를 보유할 스토리지 계정을 지정해야 합니다. 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
+- 이벤트는 ttl (time to live) 기간 내에 배달 되지 않습니다.
+- 이벤트 전달 시도 횟수가 제한을 초과 했습니다.
+
+조건 중 하나가 충족 되 면 이벤트가 삭제 되거나 배달 되지 않습니다.  기본적으로 Event Grid에서는 배달 못한 편지를 켜지 않습니다. 이 기능을 사용하려면 이벤트 구독을 만들 때 전송되지 않은 이벤트를 보유할 스토리지 계정을 지정해야 합니다. 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
 
 Event Grid가 모든 재시도 시도 횟수를 시도한 경우 이벤트를 배달 못한 편지로 보냅니다. Event Grid가 400(잘못된 요청) 또는 413(요청 엔터티가 너무 큼) 응답 코드를 수신하는 경우, 즉시 이벤트를 배달 못한 편지 엔드포인트로 보냅니다. 이 응답 코드는 이벤트 전달이 실패하지 않음을 나타냅니다.
 

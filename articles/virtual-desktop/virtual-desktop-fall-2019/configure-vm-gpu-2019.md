@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop용 GPU 구성 - Azure
+title: Windows 가상 데스크톱에 대 한 GPU 구성 2019-Azure
 description: Windows Virtual Desktop에서 GPU 가속 렌더링 및 인코딩을 사용하도록 설정하는 방법입니다.
 services: virtual-desktop
 author: gundarev
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: 33bc63887b73adaf570b385d2a289fcd97ff1632
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbb0985e309601562587f3f1b26427f46a4a8987
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206107"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087172"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-fall-2019"></a>Windows 가상 데스크톱에 대 한 GPU (그래픽 처리 장치) 가속 구성 2019
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../configure-vm-gpu.md)를 참조하세요.

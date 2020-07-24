@@ -3,12 +3,12 @@ title: Service Health 개요 | Microsoft Docs
 description: Azure 앱이 현재 및 향후 Azure 서비스 문제 및 유지 관리에 의해 어떤 영향을 받는지에 대한 개인 설정된 정보입니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089603"
 ---
 # <a name="service-health-overview"></a>Service Health 개요
 
@@ -68,7 +68,7 @@ Service Health를 필터링하여 업무상 중요한 구독, 지역 및 리소�
 
 ## <a name="configure-service-health-alerts"></a>Service Health 경고 구성
 
-Service Health는 Azure Monitor와 통합되어 업무상 중요한 리소스가 영향을 받는 경우 이일, 문자 메시지 및 웹후크 알림을 통해 경고합니다. 적절한 Service Health 이벤트에 대한 활동 로그 경고를 설정합니다. 작업 그룹을 사용하여 조직 내의 해당하는 사람들에게 해당 경고를 라우팅합니다. 자세한 내용은 [Service Health에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 참조하세요.
+Service Health는 Azure Monitor와 통합되어 업무상 중요한 리소스가 영향을 받는 경우 이일, 문자 메시지 및 웹후크 알림을 통해 경고합니다. 적절한 Service Health 이벤트에 대한 활동 로그 경고를 설정합니다. 작업 그룹을 사용하여 조직 내의 해당하는 사람들에게 해당 경고를 라우팅합니다. 자세한 내용은 [Service Health에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md)을 참조하세요.
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics용 Apache Spark 버전 지원
+title: Apache Spark 버전 지원
 description: 지원되는 Spark, Scala, Python 버전
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8914f081196c41dccf3acbed9cf87bd63df8b92c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eda93f64b503a1894f306be75dd5a3321d428eb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193960"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089229"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Apache Spark 및 종속 구성 요소에 대해 지원되는 언어 및 런타임 버전  
 

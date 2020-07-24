@@ -3,8 +3,8 @@ title: '자습서: Oracle online을 Azure Database for PostgreSQL로 마이그�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 Oracle 온-프레미스 또는 가상 머신에서 Azure Database for PostgreSQL로의 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087767"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS (미리 보기)를 사용 하 여 Azure Database for PostgreSQL 온라인으로 Oracle 마이그레이션
 
@@ -185,7 +186,7 @@ ora2pg를 실행하여 각 데이터베이스 개체를 .sql 파일로 내보낼
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -238,7 +239,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
     Oracle 원본의 스키마 이름과 Azure Database for PostgreSQL의 스키마 이름이 일치하면 Azure Database Migration Service는 *대상과 동일한 대/소문자를 사용하여 테이블 스키마를 생성*합니다.
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     | 원본 Oracle 스키마 | 대상 PostgreSQL Database.Schema | DMS 생성 schema.table.column |
     | ------------- | ------------- | ------------- |

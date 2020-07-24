@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 30b4386c223240217096550330c0920ad9ab6871
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088548"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows는 Azure VM을 부팅할 때 블루 스크린 오류를 표시
 이 문서에서는 Microsoft Azure에서 Windows VM(Virtual Machine)을 부팅할 때 발생할 수 있는 블루 스크린 오류에 대해 설명합니다. 지원 티켓에 대한 데이터를 수집할 수 있도록 하는 단계를 제공합니다. 
@@ -47,7 +47,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
 1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다. 
+2. [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)합니다. 
 3. 복구 VM에 원격 데스크톱을 연결합니다.
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>덤프 파일을 찾아서 지원 티켓을 제출
@@ -100,9 +100,6 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
     reg unload HKLM\BROKENSYSTEM
     ```
 
-3. [OS 디스크를 분리한 다음, OS 디스크를 영향을 받는 VM에 다시 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
+3. [OS 디스크를 분리한 다음, OS 디스크를 영향을 받는 VM에 다시 연결합니다](./troubleshoot-recovery-disks-portal-windows.md).
 4. 문제를 재현할 VM을 시작한 다음, 덤프 파일이 생성됩니다.
 5. OS 디스크를 복구 VM에 연결하고, 덤프 파일을 수집한 다음, 덤프 파일을 사용하여 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
-
-
-

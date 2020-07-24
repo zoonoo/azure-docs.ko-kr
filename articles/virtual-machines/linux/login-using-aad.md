@@ -1,18 +1,18 @@
 ---
 title: Azure Active Directory 자격 증명을 사용 하 여 Linux VM에 로그인 합니다.
 description: Azure Active Directory 인증을 사용 하 여 로그인 하는 Linux VM을 만들고 구성 하는 방법을 알아봅니다.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: 89b89d30de46727f4d5b52a236a4b0133e663bb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088770"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
@@ -113,7 +113,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>VM에 대한 역할 할당 구성
 
-Azure RBAC(역할 기반 액세스 제어) 정책은 VM에 로그인할 수 있는 사용자를 결정합니다. 두 개의 RBAC 역할을 사용하여 VM 로그인 권한을 부여합니다.
+Azure RBAC (역할 기반 액세스 제어) 정책은 VM에 로그인 할 수 있는 사용자를 결정 합니다. 두 개의 RBAC 역할을 사용하여 VM 로그인 권한을 부여합니다.
 
 - **가상 머신 관리자 로그인**: 이 역할이 할당된 사용자는 Windows 관리자 또는 Linux 루트 사용자 권한으로 Azure 가상 머신에 로그인할 수 있습니다.
 - **가상 머신 사용자 로그인**: 이 역할이 할당된 사용자는 일반 사용자 권한으로 Azure 가상 머신에 로그인할 수 있습니다.

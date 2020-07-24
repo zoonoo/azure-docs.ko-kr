@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088668"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Windows 부팅 관리자 오류 문제 해결 - 0xC0000225 "상태를 찾을 수 없음"
  
@@ -26,7 +27,7 @@ ms.locfileid: "83663731"
 
 ## <a name="symptoms"></a>증상
 
-[부팅 진단](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)을 사용하여 VM의 스크린샷을 보면 스크린샷에 상태 코드 *0xc0000225*와 함께 Widows를 시작할 수 없음 오류가 표시되는 것을 확인할 수 있습니다.
+[부팅 진단](./boot-diagnostics.md)을 사용하여 VM의 스크린샷을 보면 스크린샷에 상태 코드 *0xc0000225*와 함께 Widows를 시작할 수 없음 오류가 표시되는 것을 확인할 수 있습니다.
 
 이 오류 코드와 연결된 파일은 문제를 해결하기 위해 수행할 단계를 알려 줍니다. **파일:** 섹션의 텍스트를 찾아 적절한 작업 과정을 결정합니다.
 
@@ -89,7 +90,7 @@ ms.locfileid: "83663731"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1~3단계를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1~3단계를 사용하여 복구 VM을 준비합니다.
 1. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="select-a-solution"></a>솔루션 선택
@@ -177,7 +178,7 @@ ms.locfileid: "83663731"
          sel disk <DISK #>
          ```
 
-         다음 이미지는 디스크를 나열하고 선택했을 때의 결과를 보여 줍니다. 디스크 0(127GB | Online), 디스크 1(32GB | Online) 및 디스크 2(127GB | Online)가 나열되고 명령 `sel disk 2`를 사용하여 디스크 2가 선택되었다고 표시됩니다.
+         다음 이미지는 디스크를 나열하고 선택했을 때의 결과를 보여 줍니다. 디스크 0 (127 g b/온라인), 디스크 1 (32 g b/온라인) 및 디스크 2 (127 g b/온라인)가 표시 되 고 명령을 사용 하 여 디스크 2가 선택 됩니다 `sel disk 2` .
 
          ![디스크를 나열하고 선택했을 때의 결과 디스크 0(127GB | Online), 디스크 1(32GB | Online) 및 디스크 2(127GB | Online)가 나열되고 디스크 2가 선택되었다고 표시됩니다.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -188,7 +189,7 @@ ms.locfileid: "83663731"
          sel partition <PARTITION #>
          ```
 
-         다음 이미지는 파티션을 나열하고 선택했을 때의 결과를 보여 줍니다. 파티션 1(Reserved | 16MB), 파티션 2(System | 100MB) 및 파티션 3(Primary | 126GB)이 나열되고 파티션 2가 명령 `sel part 2`를 사용하여 선택되었다고 표시됩니다.
+         다음 이미지는 파티션을 나열하고 선택했을 때의 결과를 보여 줍니다. 파티션 1 (예약/16MB), 파티션 2 (시스템/m s) 및 파티션 3 (주/126 g b)이 나열 되 고,이 명령을 사용 하 여 파티션 2가 선택 됩니다 `sel part 2` .
 
          ![파티션을 나열하고 선택했을 때의 결과 파티션 1(Reserved | 16MB), 파티션 2(System | 100MB) 및 파티션 3(Primary | 126GB)이 나열되고 파티션 2가 선택되었다고 표시됩니다.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -302,4 +303,4 @@ ms.locfileid: "83663731"
    
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 빌드합니다.

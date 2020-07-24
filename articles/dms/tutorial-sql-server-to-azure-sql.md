@@ -3,8 +3,8 @@ title: '자습서: SQL 단일 데이터베이스에 SQL Server 오프 라인으�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 SQL Server에서 Azure SQL Database 오프 라인으로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 45a343fdbd41abf1388556131f1f53a675d8ab49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d2353364767dfb1fd73d517926d0fa63c11a1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087716"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -193,7 +193,7 @@ SQL Server 인스턴스에서 Azure SQL Database 단일 데이터베이스 또�
 
 서비스가 생성된 후 Azure Portal에서 서비스를 찾아 연 다음, 새로운 마이그레이션 프로젝트를 만듭니다.
 
-1. Azure Portal 메뉴에서 **모든 서비스**를 선택 합니다. **Azure Database Migration Services**를 검색 하 고 선택 합니다.
+1. Azure Portal 메뉴에서 **모든 서비스**를 선택합니다. **Azure Database Migration Services**를 검색 하 고 선택 합니다.
 
      ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
@@ -273,7 +273,7 @@ SQL Server 인스턴스에서 Azure SQL Database 단일 데이터베이스 또�
 
 3. 대상 Azure SQL Database에서 대상 데이터베이스를 확인 합니다.
 
-### <a name="additional-resources"></a>추가 자료
+### <a name="additional-resources"></a>추가 리소스
 
 - [Azure Data Migration Service를 사용하는 SQL 마이그레이션](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) 실습 랩.
 - Azure SQL Database로 온라인 마이그레이션을 수행할 때 발생하는 알려진 문제 및 제한 사항에 대한 자세한 내용은 [Azure SQL Database 온라인 마이그레이션의 알려진 문제 및 해결 방법](known-issues-azure-sql-online.md) 문서를 참조하세요.

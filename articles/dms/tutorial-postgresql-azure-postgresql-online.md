@@ -3,8 +3,8 @@ title: '자습서: Azure CLI를 통해 Azure Database for PostgreSQL 온라인�
 titleSuffix: Azure Database Migration Service
 description: CLI를 통해 Azure Database Migration Service를 사용 하 여 PostgreSQL 온-프레미스에서 Azure Database for PostgreSQL로 온라인 마이그레이션을 수행 하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087631"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>자습서: Azure CLI을 통해 DMS를 사용 하 여 PostgreSQL online 용 Azure DB로 PostgreSQL 마이그레이션
 
@@ -107,7 +108,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -229,7 +230,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -475,7 +476,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     az dms project task cutover -h
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory

@@ -7,13 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113444"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087546"
 ---
-# <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall 규칙 처리 논리
+# <a name="configure-azure-firewall-rules"></a>Azure 방화벽 규칙 구성
 Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙을 구성할 수 있습니다. 규칙 컬렉션은 우선 순위 순서 대로 규칙 형식에 따라 처리 되 고 더 낮은 숫자는 100에서 65000 사이입니다. 규칙 컬렉션 이름에는 문자, 숫자, 밑줄, 마침표 또는 하이픈만 사용할 수 있습니다. 문자 또는 숫자로 시작 하 고 문자, 숫자 또는 밑줄로 끝나야 합니다. 최대 이름 길이는 80 자입니다.
 
 처음에는 규칙 컬렉션 우선 순위 번호를 100 증가값 (100, 200, 300 등)으로 설정 하는 것이 가장 좋습니다. 따라서 필요한 경우 규칙 컬렉션을 추가할 수 있는 공간이 생깁니다.
@@ -39,7 +40,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 다음 예에서는 이러한 규칙 조합 중 일부에 대 한 결과를 보여 줍니다.
 
-### <a name="example-1"></a>예 1
+### <a name="example-1"></a>예제 1
 
 네트워크 규칙 일치 때문에 google.com에 대 한 연결이 허용 됩니다.
 
@@ -54,7 +55,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 **응용 프로그램 규칙**
 
-- 작업: 거부
+- 작업: Deny
 
 |name  |소스 형식  |원본  |프로토콜: 포트|대상 Fqdn|
 |---------|---------|---------|---------|----------|----------|
@@ -82,7 +83,7 @@ Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 �
 
 - 이름: Deny-컬렉션
 - 우선 순위: 100
-- 작업: 거부
+- 작업: Deny
 
 |name  |프로토콜  |소스 형식  |원본  |대상 형식  |대상 주소  |대상 포트|
 |---------|---------|---------|---------|----------|----------|--------|

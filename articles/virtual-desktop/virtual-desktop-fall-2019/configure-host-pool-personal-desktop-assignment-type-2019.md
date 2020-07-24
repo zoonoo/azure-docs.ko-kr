@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop 개인 데스크톱 할당 유형 - Azure
-description: Windows Virtual Desktop 개인 데스크톱 호스트 풀의 할당 유형을 구성하는 방법입니다.
+title: Windows 가상 데스크톱 개인 데스크톱 할당 (낙하 2019)-Azure
+description: Windows 가상 데스크톱 (낙하 2019 릴리스) 개인 데스크톱 호스트 풀의 할당 형식을 구성 하는 방법에 대해 알아봅니다.
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 036e144922fcb49c486813b8668d944dd771536e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087189"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-fall-2019-release"></a>개인 데스크톱 호스트 풀 할당 유형 구성 (낙하 2019 릴리스)
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../configure-host-pool-personal-desktop-assignment-type.md)를 참조하세요.

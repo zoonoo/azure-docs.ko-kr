@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 2228a9609b0e0325dc4e6f7ccbe88417c900b688
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8773f2f17ec632bbefee6b3bdfeb66e494ad7a54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088039"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대 한 Azure Cosmos DB 출력 바인딩
 
@@ -580,7 +580,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 기본적으로 함수에서 출력 매개 변수에 쓸 경우 데이터베이스에서 문서가 생성됩니다. 이 문서에는 자동으로 생성된 GUID가 문서 ID로 지정되어 있습니다. 출력 매개 변수에 전달되는 JSON 개체에 `id` 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다.
 
@@ -589,9 +589,9 @@ Python에서는 특성을 지원하지 않습니다.
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참고 |
+| 바인딩 | 참조 |
 |---|---|
-| CosmosDB | [CosmosDB 오류 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [CosmosDB 오류 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 <a name="host-json"></a>
 
