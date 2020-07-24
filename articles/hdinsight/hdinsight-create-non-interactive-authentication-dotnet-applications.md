@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 48a5c192051d8e715deb7e354827ff4cd4152bcd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5be217cd2afbb95c4c02a958c1299db599c349d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074770"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 애플리케이션 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "86077884"
 * Azure AD(Azure Active Directory) 애플리케이션 클라이언트 ID - [Azure Active Directory 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 및 [응용 프로그램 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조 하세요.
 * Azure AD 애플리케이션 비밀 키 - [응용 프로그램 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 HDInsight 클러스터. [시작 자습서](hadoop/apache-hadoop-linux-tutorial-get-started.md) 참조
 
@@ -51,7 +51,7 @@ Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-ro
     * `Install-Package Microsoft.Azure.Management.HDInsight -Pre`
     * `Install-Package Microsoft.Azure.Management.Resources -Pre`
 
-3. 다음 코드를 실행합니다.
+3. 다음 코드를 실행하세요.
 
     ```csharp
     using System;
@@ -123,4 +123,4 @@ Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-ro
 
 * [Azure Portal에서 Azure Active Directory 애플리케이션 및 서비스 주체를 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md).
 * [Azure Resource Manager를 사용하여 서비스 주체를 인증](../active-directory/develop/howto-authenticate-service-principal-powershell.md)하는 방법을 알아봅니다.
-* [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)에 대해 알아봅니다.
+* Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)에 대해 알아봅니다.

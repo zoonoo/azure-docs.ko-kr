@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 053ee85318d8ac9ccd5fb8b63fb44df966d34821
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855046"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075038"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 HDInsight 클러스터 만들기
 
@@ -31,14 +31,14 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
 
 PowerShell을 사용하여 Data Lake Storage Gen1을 사용하도록 HDInsight를 구성하려면 다음 5개 섹션의 지침을 따릅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 자습서를 시작하기 전에 다음 요구 사항을 충족하는지 확인합니다.
 
 * **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)로 이동하세요.
-* **Azure PowerShell 1.0 이상**: [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+* **Azure PowerShell 1.0 이상**: [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 * **Windows SDK(소프트웨어 개발 키트)**: Windows SDK를 설치하려면 [Windows 10용 도구 다운로드](https://dev.windows.com/downloads)로 이동합니다. 보안 인증서를 만드는 데 SDK가 사용됩니다.
 * **Azure Active Directory 서비스 주체**: 이 자습서에서는 Azure AD(Azure Active Directory)에서 서비스 주체를 만드는 방법을 설명합니다. 그러나 서비스 주체를 만들려면 Azure AD 관리자여야 합니다. 관리자인 경우 이 필수 요소를 건너뛰고 자습서를 진행할 수 있습니다.
 
@@ -77,7 +77,7 @@ Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    다음과 유사한 출력이 표시됩니다.
+    다음과 같은 출력이 표시됩니다.
 
     ```output
     ResourceGroupName : hdiadlgrp
@@ -281,7 +281,7 @@ hdfs dfs -ls adl:///
 
 `hdfs dfs -put` 명령을 사용하여 일부 파일을 Data Lake Storage Gen1에 업로드한 다음, `hdfs dfs -ls`를 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Azure Portal: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 

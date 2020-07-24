@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518592"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076055"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,10 +23,6 @@ ms.locfileid: "86518592"
 클라우드 환경에서 호스트된 분산 애플리케이션의 문제를 진단하고 해결하는 과정이 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 디바이스 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 일반적으로 애플리케이션의 네트워크 트래픽은 공용 네트워크와 프라이빗 네트워크를 트래버스할 수 있으며 애플리케이션은 Microsoft Azure Storage 테이블, Blob, 큐 또는 파일과 같은 여러 스토리지 기술뿐 아니라 관계형/문서 데이터베이스와 같은 기타 데이터 저장소도 사용할 수 있습니다.
 
 이러한 애플리케이션은 올바르게 관리하려면 미리 모니터링하여 애플리케이션과 종속 기술의 모든 측면을 진단하고 문제를 해결하는 방법을 파악해야 합니다. Azure Storage 서비스 사용자는 애플리케이션이 사용하는 Storage 서비스를 지속적으로 모니터링하여 정상적인 응답 시간보다 속도가 느려지는 등 예기치 않은 동작 변경을 파악해야 하며, 로깅을 사용하여 보다 자세한 데이터를 수집하고 문제를 자세하게 분석해야 합니다. 모니터링 및 로깅을 통해 얻은 진단 정로를 토대로 애플리케이션에 발생한 문제의 근본 원인을 확인할 수 있습니다. 그러면 문제를 해결하고 해당 문제를 완화하기 위해 수행할 수 있는 적절한 단계를 결정할 수 있습니다. Azure Storage는 핵심 Azure 서비스이며 고객이 Azure 인프라에 배포하는 대부분의 솔루션에서 중요한 역할을 합니다. Azure Storage에는 클라우드 기반 애플리케이션의 스토리지 문제 모니터링, 진단 및 해결 과정을 간소화하는 기능이 포함되어 있습니다.
-
-> [!NOTE]
-> 현재 Azure 파일은 로깅을 지원하지 않습니다.
->
 
 Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가이드는, [Azure Storage 및 로깅, AzCopy, 메시지 분석기를 사용한 엔드투엔드 문제 해결](../storage-e2e-troubleshooting.md)을 참조하세요.
 
@@ -103,7 +99,7 @@ Windows 성능 모니터링에 대해 잘 알고 있는 경우 Storage 메트릭
 
 [Azure Portal](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 [경고 알림 받기](/azure/monitoring-and-diagnostics/monitoring-overview-alerts)를 참조하세요.
 
-[스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로 Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
+[스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로, Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 
 스토리지 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 스토리지 작업을 기록하지는 못합니다.
 

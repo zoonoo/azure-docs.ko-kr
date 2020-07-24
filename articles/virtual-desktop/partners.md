@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075744"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -48,7 +48,22 @@ Windows 가상 데스크톱 승인 공급자 인 VMware는 통합 및 사용 하
 
 가상 데스크톱의 씬 및 제로 클라이언트 끝점 장치 및 관리 소프트웨어에 대 한 10ZiG's 세계 시장 리더십은 고객에 게 어떻게 작동 하는지 예시 합니다. 씬 클라이언트 하드웨어는 고객이 각자의 요구에 따라 적절 한 클라이언트 장치를 받을 수 있도록 설계 된 신중의 혜택 기능 및 옵션을 제공 합니다. 10ZiG는 Windows 기반 및 Linux 기반 클라이언트를 사용 하 여 고객 환경에 맞게 장치를 사용자 지정 하 여 클라우드 내부 및 외부 모두에서 가상 데스크톱에 최대한의 성능을 제공 합니다.
 
-- [파트너 웹 사이트로 이동](https://www.10zig.com/)합니다.
+- [파트너 웹 사이트로 이동](https://www.10zig.com/about/microsoft-wvd)합니다.
+
+## <a name="automai"></a>Automai
+
+![Automai 로고](./media/partners/automai.png)
+
+배포가 라이브 되기 전에 Automai의 로보틱 자동화 플랫폼을 사용 하 여 Windows 가상 데스크톱 환경에서 주요 비즈니스 프로세스를 테스트할 수 있습니다.
+
+Automai의 ScenarioBuilder 도구와 GUI 기반 워크플로 엔진을 사용 하 여 IT 팀은 실제 최종 사용자 워크플로를 기록 하 고이를 스크립트로 자동으로 변환할 수 있습니다. 그런 다음 Automai은 개별 데스크톱에서 봇 실행 프로세스를 사용 하 여 시뮬레이션에서 최종 사용자 활동을 에뮬레이트 하 고 결과를 보고 합니다. 이렇게 하면 IT 관리자가 가장 복잡 한 시나리오 에서도 스트레스 테스트를 수행할 수 있도록 테스트 프로세스가 간소화 됩니다.
+
+시작할 준비가 되 면 부하 테스트를 위해 만든 모든 워크플로 스크립트를 사용 하 여 프로덕션의 성능을 지속적으로 모니터링할 수 있습니다. Automai의 봇은 가용성 모니터링 이상의 작업을 수행할 수 있습니다. 또한 인공 지능은 주요 위치에서 최종 사용자 워크플로를 테스트 하 고, 스크린샷을 사용 하 고, 오류 보고서를 실시간으로 수집할 수 있습니다. 이로 인해 Windows 가상 데스크톱 응용 프로그램에 대 한 버그 수정 방법 보다 사전에 대처 하 게 됩니다.
+
+Automai를 사용 하면 단일 플랫폼에서 성능 테스트, 기능 테스트, 성능 모니터링 및 로보틱 프로세스 자동화에 동일한 스크립트를 사용할 수 있습니다.
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N)하세요.
+- [파트너 웹 사이트로 이동](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580)합니다.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ Ekran 시스템 클라이언트의 고유한 부동 끝점 라이선스는 동�
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8)하세요.
 - [파트너 페이지로 이동](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring)합니다.
+
+## <a name="fabulatech"></a>FabulaTech
+
+![FabulaTech 로고](./media/partners/fabulatech.png)
+
+FabulaTech는 Windows 가상 데스크톱 클라이언트와 원활 하 게 통합 됩니다. 설치 되 면 원격 데스크톱과의 연결을 설정할 때 FabulaTech 소프트웨어가 자동으로 작동을 시작 합니다.
+
+사용자가 가상 데스크톱에 로그인 하면 FabulaTech 소프트웨어가 가상 장치를 만듭니다. 예를 들어 가상 웹캠, 스캐너 또는 지문 판독기를 만들 수 있습니다. 원격 세션에서 실행 되는 모든 앱은 물리적 장치인 것 처럼 가상 장치에 액세스할 수 있습니다. 시스템 트레이 아이콘 메뉴를 사용 하 여 Windows 가상 데스크톱에서 가상 장치를 구성할 수 있습니다. 즉, 씬 클라이언트 에서도이 솔루션을 사용할 수 있습니다. 그 위에서 모든 통신은 기존 원격 데스크톱 연결을 통해 수행 됩니다. 즉, 방화벽이 설정 되어 있습니다. 모든 것이 즉시 작동 합니다.
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO)하세요.
+- [파트너 웹 사이트로 이동](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/)합니다.
 
 ## <a name="flexxible-it"></a>Flexxible IT
 

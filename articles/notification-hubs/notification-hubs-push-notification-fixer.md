@@ -16,11 +16,12 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bad65dbecd6e4a7d9bcb7fbdee6faafc31ead86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078030"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Azure Notification Hubs에서 삭제 된 알림 진단
 
@@ -103,7 +104,7 @@ Notification Hubs은 "최대 한 번" 메시지 배달 모델에 대해 최적�
 
 이 경우 오류가 발생 한 등록이 데이터베이스에서 제거 됩니다. 그런 다음 해당 일괄 처리의 나머지 디바이스에 알림을 다시 배달합니다.
 
-등록에 대 한 실패 한 배달 시도에 대 한 자세한 오류 정보를 얻으려면 메시지 원격 분석 당 Notification Hubs REST Api를 사용 하면 됩니다 [. 알림 메시지 원격 분석](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) 및 [PNS 피드백](https://msdn.microsoft.com/library/azure/mt705560.aspx)을 받습니다. 샘플 코드는 [REST 보내기 예제](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)를 참조하세요.
+등록에 대 한 실패 한 배달 시도에 대 한 자세한 오류 정보를 얻으려면 메시지 원격 분석 당 Notification Hubs REST Api를 사용 하면 됩니다 [. 알림 메시지 원격 분석](/rest/api/notificationhubs/get-notification-message-telemetry) 및 [PNS 피드백](/previous-versions/azure/reference/mt705560(v=azure.100))을 받습니다. 샘플 코드는 [REST 보내기 예제](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)를 참조하세요.
 
 ## <a name="push-notification-service-issues"></a>푸시 알림 서비스 문제
 
@@ -125,9 +126,9 @@ Notification Hubs에서 삭제 된 알림의 근본 원인을 진단 하는 경�
 
 #### <a name="push-notification-service-developer-portal"></a>푸시 알림 서비스 개발자 포털
 
-각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [자습서: Azure Notification Hubs를 사용 하 여 유니버설 Windows 플랫폼 앱에 알림 보내기](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)를 참조 하세요.
+각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [자습서: Azure Notification Hubs를 사용 하 여 유니버설 Windows 플랫폼 앱에 알림 보내기](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)를 참조 하세요.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure 포털
 
 푸시 알림 서비스 개발자 포털에서 얻은 자격 증명과 자격 증명을 검토 하 고 일치 시키려면 Azure Portal의 **액세스 정책** 탭으로 이동 합니다.
 
@@ -162,7 +163,7 @@ Visual Studio에서 서버 탐색기 통해 Azure에 연결 하 여 Notification
 ![Visual Studio: 테스트 보내기](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
-> Visual Studio를 사용 하 여 개발/테스트 중에만 등록 수를 제한 하 여 등록을 편집 합니다. 등록을 대량으로 편집 해야 하 [는 경우 방법: 대량 등록 내보내기 및 수정](https://msdn.microsoft.com/library/dn790624.aspx)에 설명 된 등록 내보내기 및 가져오기 기능을 사용 하는 것이 좋습니다.
+> Visual Studio를 사용 하 여 개발/테스트 중에만 등록 수를 제한 하 여 등록을 편집 합니다. 등록을 대량으로 편집 해야 하 [는 경우 방법: 대량 등록 내보내기 및 수정](/previous-versions/azure/azure-services/dn790624(v=azure.100))에 설명 된 등록 내보내기 및 가져오기 기능을 사용 하는 것이 좋습니다.
 
 #### <a name="service-bus-explorer"></a>Service Bus 탐색기
 
@@ -170,7 +171,7 @@ Visual Studio에서 서버 탐색기 통해 Azure에 연결 하 여 Notification
 
 ### <a name="verify-message-notifications"></a>알림 메시지 확인
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure 포털
 
 서비스 백 엔드를 실행하지 않고 클라이언트에 테스트 알림을 보내려면 **지원 + 문제 해결**에서 **테스트 보내기**를 선택합니다.
 
@@ -184,7 +185,7 @@ Visual Studio에서 테스트 알림을 보낼 수도 있습니다.
 
 Visual Studio 서버 탐색기에서 Notification Hubs를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Notification hubs에 대 한 장치 등록을 보는 방법](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
+* [Notification hubs에 대 한 장치 등록을 보는 방법](/previous-versions/windows/apps/dn792122(v=win.10))
 * [심층 분석: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]
 * [Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]
 
@@ -198,7 +199,7 @@ Notification Hubs를 통해 알림을 보낼 때 알림은 처음에 큐에 대�
 
 푸시 알림 서비스 오류에 대한 정보를 얻으려면 [EnableTestSend] 속성을 사용합니다. 이 속성은 포털 또는 Visual Studio 클라이언트에서 테스트 메시지를 보낼 때 자동으로 활성화됩니다. 이 속성을 사용 하 여 자세한 디버깅 정보 및 Api를 통해 볼 수도 있습니다. 현재 이 속성은 .NET SDK에서 사용할 수 있습니다. 결국 모든 클라이언트 Sdk에 추가 됩니다.
 
-REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test*라는 쿼리 문자열 매개 변수를 추가합니다. 예를 들어:
+REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test*라는 쿼리 문자열 매개 변수를 추가합니다. 예를 들면 다음과 같습니다.
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -247,7 +248,7 @@ The Token obtained from the Token Provider is wrong
 
 ### <a name="review-telemetry"></a>원격 분석 검토
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure 포털
 
 포털에서 알림 허브의 모든 활동에 대한 간략한 개요를 확인할 수 있습니다.
 
@@ -265,7 +266,7 @@ The Token obtained from the Token Provider is wrong
 
 #### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 
-프로그래밍 방식 액세스에 대 한 자세한 내용은 [프로그래밍 방식 액세스](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100))를 참조 하세요.
+프로그래밍 방식 액세스에 대 한 자세한 내용은 [프로그래밍 방식 액세스](/previous-versions/azure/azure-services/dn458823(v=azure.100))를 참조 하세요.
 
 > [!NOTE]
 > API를 통해 등록 및 원격 분석 액세스 내보내기 및 가져오기 같은 여러 원격 분석 관련 기능은 표준 서비스 계층에서만 사용할 수 있습니다. 무료 또는 기본 서비스 계층에서 이러한 기능을 사용 하려고 하면 SDK를 사용 하는 경우 예외 메시지가 표시 됩니다. REST Api에서 직접 기능을 사용 하는 경우 HTTP 403 (사용할 수 없음) 오류가 발생 합니다.
@@ -287,13 +288,13 @@ The Token obtained from the Token Provider is wrong
 <!-- LINKS -->
 [Notification Hubs 개요]: notification-hubs-push-notification-overview.md
 [Azure Notification Hubs 시작]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[템플릿]: https://msdn.microsoft.com/library/dn530748.aspx
+[템플릿]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APNs 개요]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [FCM 메시지 정보]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [심층 분석: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
-[EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Programmatic telemetry access]: https://msdn.microsoft.com/library/azure/dn458823.aspx
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

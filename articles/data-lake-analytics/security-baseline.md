@@ -1,20 +1,20 @@
 ---
-title: Azure 보안 벤치 마크에 대 한 Data Lake Analytics 보안 기준
+title: Data Lake Analytics에 대 한 Azure 보안 기준
 description: Data Lake Analytics 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5e6d5beaad5080bf3081d5f68722623fb62d6c8a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075077"
 ---
-# <a name="data-lake-analytics-security-baseline-for-azure-security-benchmark"></a>Azure 보안 벤치 마크에 대 한 Data Lake Analytics 보안 기준
+# <a name="azure-security-baseline-for-data-lake-analytics"></a>Data Lake Analytics에 대 한 Azure 보안 기준
 
 Data Lake Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 

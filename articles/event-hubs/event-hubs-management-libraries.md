@@ -3,12 +3,12 @@ title: 관리 라이브러리 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 .NET에서 Azure Event Hubs 네임스페이스 및 엔터티를 관리하는 데 사용할 수 있는 라이브러리에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79656d95cf925c21b0f0c5f2b3bafe6348e0b553
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074821"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs 관리 라이브러리
 
@@ -20,13 +20,13 @@ Azure Event Hubs 관리 라이브러리를 사용하여 Event Hubs 네임스페�
 * Event Hubs 만들기, 업데이트, 삭제
 * 소비자 그룹 만들기, 업데이트, 삭제
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Event Hubs 관리 라이브러리 사용을 시작하려면 AAD(Azure Active Directory)로 인증해야 합니다. AAD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 
 * [Azure Portal를 사용 하 여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체를 만듭니다.](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+* [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행하려는 리소스 그룹에 대한 **소유자** 권한이 있어야 합니다.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: fd83cd164415f45929049541a8731f80a4ba146d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 3eac3c9abda74f0414fc97512f011d235d3991f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076329"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 시설, 구역 및 물리적 보안
 이 문서에서는 Azure 인프라를 보호하기 위해 Microsoft가 수행하는 작업에 대해 설명합니다.

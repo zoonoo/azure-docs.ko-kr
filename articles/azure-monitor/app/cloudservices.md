@@ -3,18 +3,19 @@ title: Azure Cloud Services용 Application Insights | Microsoft Docs
 description: Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075422"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
-[Application Insights][start]는 Application Insights SDK의 데이터와 Cloud Services의 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터를 결합하여 [Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Application Insights][start]는 Application Insights SDK의 데이터와 Cloud Services의 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) 데이터를 결합하여 [Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 작업을 시작하려면 다음이 필요합니다.
 
 * [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
@@ -30,7 +31,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 이 옵션만 필요한 경우, 옵션 선택 후 게시를 완료하면 됩니다. 
 
-다음 단계는 분석을 사용 하 여 데이터를 [쿼리](../../azure-monitor/app/analytics.md)하는 [앱에서 메트릭을 보는](../../azure-monitor/platform/metrics-charts.md)것입니다. 
+다음 단계는 분석을 사용 하 여 데이터를 [쿼리](../log-query/log-query-overview.md)하는 [앱에서 메트릭을 보는](../../azure-monitor/platform/metrics-charts.md)것입니다. 
 
 브라우저에서 성능을 모니터링하려면 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정하고 [웹 페이지에 코드를 추가](../../azure-monitor/app/javascript.md)할 수도 있습니다.
 
@@ -131,7 +132,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 .NET Framework에서 전체 SQL 쿼리를 캡처하려면이 단계가 필요 합니다. 
 
-1. `\*.csdef`다음과 유사한 각 역할에 대 한 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
+1. `\*.csdef`다음과 유사한 각 역할에 대 한 [시작 작업](../../cloud-services/cloud-services-startup-tasks.md) 추가 
 
     ```xml
     <Startup>
@@ -177,7 +178,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 자세한 내용은 [문제 해결][qna]을 참조하세요.
 
 ## <a name="view-azure-diagnostics-events"></a>Azure Diagnostics 이벤트 보기
-다음 위치에서 Application Insights의 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 정보를 찾을 수 있습니다.
+다음 위치에서 Application Insights의 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) 정보를 찾을 수 있습니다.
 
 * 성능 카운터는 사용자 지정 메트릭으로 표시됩니다. 
 * Windows 이벤트 로그는 추적 및 사용자 지정 이벤트로 표시됩니다.
@@ -258,7 +259,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 
 시스템에서 Stream Analytics와 같은 다른 Azure 서비스를 사용하는 경우 해당 모니터링 차트도 포함합니다. 
 
-클라이언트 모바일 앱이 있는 경우 [App Center](../../azure-monitor/learn/mobile-center-quickstart.md)를 사용합니다. [분석](../../azure-monitor/app/analytics.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
+클라이언트 모바일 앱이 있는 경우 [App Center](../../azure-monitor/learn/mobile-center-quickstart.md)를 사용합니다. [분석](../log-query/log-query-overview.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
 
 ## <a name="example"></a>예제
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) 는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.
@@ -283,6 +284,6 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md

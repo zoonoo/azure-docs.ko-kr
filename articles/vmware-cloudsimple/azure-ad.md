@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077306"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Azure AD를 CloudSimple 사설 클라우드에서 vCenter에 대 한 id 공급자로 사용
 
@@ -45,7 +46,7 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 > [!NOTE]
 > Azure AD가 이미 있는 경우이 섹션을 건너뛸 수 있습니다.
 
-1. [AZURE ad 설명서](../active-directory/fundamentals/get-started-azure-ad.md)에 설명 된 대로 구독에서 azure ad를 설정 합니다.
+1. [AZURE ad 설명서](../active-directory/fundamentals/active-directory-whatis.md)에 설명 된 대로 구독에서 azure ad를 설정 합니다.
 2. [Azure Active Directory Premium 등록](../active-directory/fundamentals/active-directory-get-started-premium.md)에 설명 된 대로 구독에서 Azure Active Directory Premium를 사용 하도록 설정 합니다.
 3. [Azure Active Directory에](../active-directory/fundamentals/add-custom-domain.md)사용자 지정 도메인 이름 추가에 설명 된 대로 사용자 지정 도메인 이름을 설정 하 고 사용자 지정 도메인 이름을 확인 합니다.
     1. Azure에서 제공 하는 정보를 사용 하 여 도메인 등록 기관에서 DNS 레코드를 설정 합니다.
@@ -58,17 +59,17 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 > [!NOTE]
 > 이는 vCenter의 id 원본으로 Azure AD를 사용 하도록 설정 하는 중요 한 단계입니다.  문제를 방지 하려면 모든 단계가 제대로 수행 되었는지 확인 합니다.
 
-1. [Azure Portal를 사용 하 여 Azure Active Directory 도메인 서비스](../active-directory-domain-services/active-directory-ds-getting-started.md)사용에 설명 된 대로 Azure AD domain services를 사용 하도록 설정 합니다.
-2. [Azure Portal를 사용 하 여 Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-network.md)사용에 설명 된 대로 Azure AD domain services에서 사용할 네트워크를 설정 합니다.
-3. [Azure Portal를 사용 하 여 Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md)사용에 설명 된 대로 Azure AD Domain Services 관리를 위한 관리자 그룹을 구성 합니다.
-4. [Azure Active Directory Domain Services 사용](../active-directory-domain-services/active-directory-ds-getting-started-dns.md)에 설명 된 대로 Azure AD Domain Services에 대 한 DNS 설정을 업데이트 합니다.  인터넷을 통해 AD에 연결 하려는 경우 Azure AD 도메인 서비스의 공용 IP 주소에 대 한 DNS 레코드를 도메인 이름으로 설정 합니다.
-5. 사용자에 대 한 암호 해시 동기화를 사용 하도록 설정 합니다.  이 단계에서는 NTLM (NT LAN Manager) 및 Kerberos 인증에 필요한 암호 해시의 동기화를 Azure AD Domain Services 합니다. 암호 해시 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다. [Azure Active Directory Domain Services에 암호 해시 동기화 사용을](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)참조 하세요.
+1. [Azure Portal를 사용 하 여 Azure Active Directory 도메인 서비스](../active-directory-domain-services/tutorial-create-instance.md)사용에 설명 된 대로 Azure AD domain services를 사용 하도록 설정 합니다.
+2. [Azure Portal를 사용 하 여 Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)사용에 설명 된 대로 Azure AD domain services에서 사용할 네트워크를 설정 합니다.
+3. [Azure Portal를 사용 하 여 Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)사용에 설명 된 대로 Azure AD Domain Services 관리를 위한 관리자 그룹을 구성 합니다.
+4. [Azure Active Directory Domain Services 사용](../active-directory-domain-services/tutorial-create-instance.md)에 설명 된 대로 Azure AD Domain Services에 대 한 DNS 설정을 업데이트 합니다.  인터넷을 통해 AD에 연결 하려는 경우 Azure AD 도메인 서비스의 공용 IP 주소에 대 한 DNS 레코드를 도메인 이름으로 설정 합니다.
+5. 사용자에 대 한 암호 해시 동기화를 사용 하도록 설정 합니다.  이 단계에서는 NTLM (NT LAN Manager) 및 Kerberos 인증에 필요한 암호 해시의 동기화를 Azure AD Domain Services 합니다. 암호 해시 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다. [Azure Active Directory Domain Services에 암호 해시 동기화 사용을](../active-directory-domain-services/tutorial-create-instance.md)참조 하세요.
     1. 클라우드 전용 사용자가 있는 경우 암호 해시가 NTLM 또는 Kerberos에서 요구 하는 형식으로 저장 되도록 하려면 <a href="http://myapps.microsoft.com/" target="_blank">AZURE AD 액세스 패널</a> 을 사용 하 여 암호를 변경 해야 합니다.  [클라우드 전용 사용자 계정에 대 한 관리 되는 도메인에 대 한 암호 해시 동기화 사용](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)의 지침을 따릅니다.  Azure Portal 또는 Azure AD PowerShell cmdlet을 사용 하 여 Azure AD 디렉터리에서 만들어진 개별 사용자 및 새 사용자에 대해이 단계를 수행 해야 합니다. Azure AD 도메인 서비스에 액세스 해야 하는 사용자는 <a href="http://myapps.microsoft.com/" target="_blank">AZURE ad 액세스 패널</a> 을 사용 하 고 자신의 프로필에 액세스 하 여 암호를 변경 해야 합니다.
 
         > [!NOTE]
         > 조직에 클라우드 전용 사용자 계정이 있는 경우 Azure Active Directory Domain Services를 사용해야 하는 사용자는 모두 암호를 변경해야 합니다. 클라우드 전용 사용자 계정은 Azure Portal 또는 Azure AD PowerShell cmdlet을 사용하여 Azure AD 디렉터리에 만든 계정입니다. 이러한 사용자 계정은 온-프레미스 디렉터리에서 동기화되지 않습니다.
 
-    2. 온-프레미스 Active directory에서 암호를 동기화 하는 경우 [Active Directory 설명서](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)의 단계를 따르세요.
+    2. 온-프레미스 Active directory에서 암호를 동기화 하는 경우 [Active Directory 설명서](../active-directory-domain-services/tutorial-configure-password-hash-sync.md)의 단계를 따르세요.
 
 6.  [Azure AD Domain Services 관리 되는 도메인에 대해 보안 ldap (LDAPS) 구성](../active-directory-domain-services/tutorial-configure-ldaps.md)에 설명 된 대로 Azure Active Directory Domain Services에서 보안 ldap를 구성 합니다.
     1. Azure 토픽 [보안 ldap에 대 한 인증서 가져오기](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap)에 설명 된 대로 보안 ldap에서 사용할 인증서를 업로드 합니다.  CloudSimple은 vCenter가 인증서를 신뢰할 수 있도록 인증 기관에서 발급 한 서명 된 인증서를 사용 하는 것을 권장 합니다.

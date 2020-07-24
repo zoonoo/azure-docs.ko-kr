@@ -9,11 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960217"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077860"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Azure Storage 모니터링 데이터 참조
 
@@ -45,6 +46,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 | ------------------- | ----------------- |
 | BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
 | BlobCount    | 스토리지 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
+| BlobProvisionedSize | 저장소 계정에 프로 비전 된 저장소의 양입니다. 이 메트릭은 premium storage 계정에만 적용 됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
 | ContainerCount    | 스토리지 계정의 컨테이너 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | IndexCapacity     | ADLS Gen2 계층적 인덱스에 사용한 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
@@ -72,11 +74,12 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 다음 표에서는 [파일 저장소 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)보여 줍니다.
 
-| 메트릭 | 설명 |
+| 메트릭 | Description |
 | ------------------- | ----------------- |
 | FileCapacity | 스토리지 계정에 사용한 File Storage 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | FileCount   | 스토리지 계정의 파일 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | FileShareCount | 스토리지 계정의 파일 공유 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
+| FileShareProvisionedIOPS | 파일 공유의 프로 비전 된 IOPS 수입니다. 이 메트릭은 premium file storage에만 적용 됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
 
 ### <a name="transaction-metrics"></a>트랜잭션 메트릭
 
@@ -84,7 +87,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 Azure Storage는 Azure Monitor에서 다음과 같은 트랜잭션 메트릭을 제공합니다.
 
-| 메트릭 | Description |
+| 메트릭 | 설명 |
 | ------------------- | ----------------- |
 | 트랜잭션 | 스토리지 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 적용 가능한 차원: ResponseType, GeoType, ApiName, Authentication([정의](#metrics-dimensions))<br/> 값 예제: 1024 |
 | 수신 | 수신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 합계 <br/> 적용 가능한 차원: GeoType, ApiName, Authentication([정의](#metrics-dimensions)) <br/> 값 예제: 1024 |
@@ -139,20 +142,20 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 | 속성 | 설명 |
 |:--- |:---|
-|**time** | 스토리지에서 요청을 수신한 UTC(협정 세계시) 시간입니다. 예: `2018/11/08 21:09:36.6900118`|
-|**resourceId** | 스토리지 계정의 리소스 ID입니다. 예: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
+|**time** | 스토리지에서 요청을 수신한 UTC(협정 세계시) 시간입니다. 예: `2018/11/08 21:09:36.6900118`.|
+|**resourceId** | 스토리지 계정의 리소스 ID입니다. 예를 들면 다음과 같습니다. `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
 |**category** | 요청된 작업의 범주입니다. 예: `StorageRead`, `StorageWrite` 또는 `StorageDelete`.|
 |**operationName** | 수행된 REST 작업의 유형입니다. <br> 전체 작업 목록은 [스토리지 분석 기록 작업 및 상태 메시지 토픽](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)을 참조하세요. |
-|**operationVersion** | 요청 시 지정된 스토리지 서비스 버전입니다. 이는 **x-ms-version** 헤더의 값과 같습니다. 예: `2017-04-17`|
-|**schemaVersion** | 로그의 스키마 버전입니다. 예: `1.0`|
-|**statusCode** | 요청의 HTTP 상태 코드입니다. 요청이 중단되면 이 값이 `Unknown`으로 설정될 수 있습니다. <br> 예: `206` |
-|**statusText** | 요청된 작업의 상태입니다.  전체 상태 메시지 목록은 [스토리지 분석 기록 작업 및 상태 메시지 토픽](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)을 참조하세요. 버전 2017-04-17 이상에서는 상태 메시지 `ClientOtherError`가 사용되지 않습니다. 그 대신 이 필드가 오류 코드를 포함합니다. 예: `SASSuccess`  |
+|**operationVersion** | 요청 시 지정된 스토리지 서비스 버전입니다. 이는 **x-ms-version** 헤더의 값과 같습니다. 예: `2017-04-17`.|
+|**schemaVersion** | 로그의 스키마 버전입니다. 예: `1.0`.|
+|**statusCode** | 요청의 HTTP 상태 코드입니다. 요청이 중단되면 이 값이 `Unknown`으로 설정될 수 있습니다. <br> 예를 들면 다음과 같습니다. `206` |
+|**statusText** | 요청된 작업의 상태입니다.  전체 상태 메시지 목록은 [스토리지 분석 기록 작업 및 상태 메시지 토픽](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)을 참조하세요. 버전 2017-04-17 이상에서는 상태 메시지 `ClientOtherError`가 사용되지 않습니다. 그 대신 이 필드가 오류 코드를 포함합니다. 예를 들면 다음과 같습니다. `SASSuccess`  |
 |**durationMs** | 요청된 작업을 수행하는 데 걸린 총 시간으로 밀리초 단위입니다. 여기에는 수신 요청을 읽는 시간과 요청자에게 응답을 보내는 시간이 포함됩니다. 예: `12`|
-|**callerIpAddress** | 요청자의 IP 주소(포트 번호 포함)입니다. 예: `192.100.0.102:4362` |
-|**correlationId** | 여러 리소스에서 로그를 상호 연결하는 데 사용되는 ID입니다. 예: `b99ba45e-a01e-0042-4ea6-772bbb000000` |
-|**location** | 스토리지 계정의 위치입니다. 예: `North Europe` |
+|**callerIpAddress** | 요청자의 IP 주소(포트 번호 포함)입니다. 예: `192.100.0.102:4362`. |
+|**correlationId** | 여러 리소스에서 로그를 상호 연결하는 데 사용되는 ID입니다. 예: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
+|**location** | 스토리지 계정의 위치입니다. 예: `North Europe`. |
 |**protocol**|작업에 사용되는 프로토콜입니다. 예: `HTTP`, `HTTPS`, `SMB` 또는 `NFS`|
-| **uri** | 요청된 URI(Uniform Resource Identifier)입니다. 예: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10` |
+| **uri** | 요청된 URI(Uniform Resource Identifier)입니다. 예: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>작업이 인증된 방식을 설명하는 필드
 
@@ -191,15 +194,15 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 |**identity / tokenHash**|이 필드는 내부 전용으로 예약되어 있습니다. |
 |**authorization / action** | 요청에 할당된 작업입니다. 예: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 |**authorization / roleAssignmentId** | 역할 할당 ID입니다. 예: `4e2521b7-13be-4363-aeda-111111111111`|
-|**authorization / roleDefinitionId** | 역할 정의 ID입니다. 예: `ba92f5b4-2d11-453d-a403-111111111111"`|
-|**principals / id** | 보안 주체의 ID입니다. 예: `a4711f3a-254f-4cfb-8a2d-111111111111`|
-|**principals / type** | 보안 주체의 유형입니다. 예: `ServicePrincipal` |
-|**requester / appID** | 요청자로 사용되는 OAuth(Open Authorization) 애플리케이션 ID입니다. <br> 예: `d3f7d5fe-e64a-4e4e-871d-333333333333`|
-|**requester / audience** | 요청의 OAuth 대상 그룹입니다. 예: `https://storage.azure.com` |
-|**requester / objectId** | 요청자의 OAuth 개체 ID입니다. Kerberos 인증의 경우 Kerberos로 인증된 사용자의 개체 식별자를 나타냅니다. 예: `0e0bf547-55e5-465c-91b7-2873712b249c` |
+|**authorization / roleDefinitionId** | 역할 정의 ID입니다. 예: `ba92f5b4-2d11-453d-a403-111111111111"`.|
+|**principals / id** | 보안 주체의 ID입니다. 예: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
+|**principals / type** | 보안 주체의 유형입니다. 예: `ServicePrincipal`. |
+|**requester / appID** | 요청자로 사용되는 OAuth(Open Authorization) 애플리케이션 ID입니다. <br> 예: `d3f7d5fe-e64a-4e4e-871d-333333333333`.|
+|**requester / audience** | 요청의 OAuth 대상 그룹입니다. 예: `https://storage.azure.com`. |
+|**requester / objectId** | 요청자의 OAuth 개체 ID입니다. Kerberos 인증의 경우 Kerberos로 인증된 사용자의 개체 식별자를 나타냅니다. 예: `0e0bf547-55e5-465c-91b7-2873712b249c`. |
 |**requester / tenantId** | ID의 OAuth 테넌트 ID입니다. 예: `72f988bf-86f1-41af-91ab-222222222222`|
-|**requester / tokenIssuer** | OAuth 토큰 발급자입니다. 예: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`|
-|**requester / upn** | 요청자의 UPN(사용자 계정 이름)입니다. 예: `someone@contoso.com` |
+|**requester / tokenIssuer** | OAuth 토큰 발급자입니다. 예: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`.|
+|**requester / upn** | 요청자의 UPN(사용자 계정 이름)입니다. 예: `someone@contoso.com`. |
 |**requester / userName** | 이 필드는 내부 전용으로 예약되어 있습니다.|
 
 ### <a name="fields-that-describe-the-service"></a>서비스를 설명하는 필드
@@ -243,33 +246,33 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | 속성 | Description |
 |:--- |:---|
 |**accountName** | 스토리지 계정 이름입니다. 예: `mystorageaccount`  |
-|**requestUrl** | 요청된 URL입니다. 예: `http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10`|
-|**userAgentHeader** | **User-Agent 헤더** 값으로, 따옴표로 묶여 있습니다. 예: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`|
-|**referrerHeader** | **Referrer** 헤더 값입니다. 예: `http://contoso.com/about.html`|
-|**clientRequestId** | 요청의 **x-ms-client-request-id** 헤더 값입니다. 예: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6` |
-|**etag** | 반환된 개체의 ETag 식별자로, 따옴표로 묶여 있습니다. 예: `0x8D101F7E4B662C4`  |
-|**serverLatencyMs** | 요청된 작업을 수행하는 데 걸린 총 시간으로 밀리초 단위입니다. 이 값은 네트워크 대기 시간(수신 요청을 읽는 시간과 요청자에게 응답을 보내는 시간)은 포함하지 않습니다. 예: `22` |
+|**requestUrl** | 요청된 URL입니다. 예: `http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10`.|
+|**userAgentHeader** | **User-Agent 헤더** 값으로, 따옴표로 묶여 있습니다. 예: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`.|
+|**referrerHeader** | **Referrer** 헤더 값입니다. 예: `http://contoso.com/about.html`.|
+|**clientRequestId** | 요청의 **x-ms-client-request-id** 헤더 값입니다. 예: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
+|**etag** | 반환된 개체의 ETag 식별자로, 따옴표로 묶여 있습니다. 예: `0x8D101F7E4B662C4`.  |
+|**serverLatencyMs** | 요청된 작업을 수행하는 데 걸린 총 시간으로 밀리초 단위입니다. 이 값은 네트워크 대기 시간(수신 요청을 읽는 시간과 요청자에게 응답을 보내는 시간)은 포함하지 않습니다. 예: `22`. |
 |**serviceType** | 이 요청과 연관된 서비스입니다. 예: `blob`, `table`, `files` 또는 `queue`. |
-|**operationCount** | 요청에 관련된 각 로깅된 작업의 수입니다. 이 수는 인덱스 `0`에서 시작합니다. 일부 요청에는 둘 이상의 작업이 필요합니다(예: Blob 복사 요청). 대부분의 요청에서는 하나의 작업만 수행합니다. 예: `1` |
-|**requestHeaderSize** | 요청 헤더의 크기로, 바이트 단위입니다. 예: `578` <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다. |
-|**requestBodySize** | 스토리지 서비스에서 읽은 요청 패킷의 크기로, 바이트 단위입니다. <br> 예: `0` <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다.  |
-|**responseHeaderSize** | 응답 헤더의 크기로, 바이트 단위입니다. 예: `216` <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다.  |
-|**responseBodySize** | 스토리지 서비스가 쓴 응답 패킷의 크기로, 바이트 단위입니다. 요청이 실패할 경우 이 값은 비어 있을 수 있습니다. 예: `216`  |
-|**requestMd5** | 요청의 **Content-MD5** 헤더 또는 **x-ms-content-md5** 헤더의 값입니다. 이 필드에 지정된 MD5 해시 값은 요청의 콘텐츠를 나타냅니다. 예: `788815fd0198be0d275ad329cafd1830` <br>이 필드는 비어 있을 수 있습니다.  |
-|**serverMd5** | 스토리지 서비스에 의해 계산된 MD5 해시 값입니다. 예: `3228b3cf1069a5489b298446321f8521` <br>이 필드는 비어 있을 수 있습니다.  |
-|**lastModifiedTime** | 반환된 개체의 LMT(마지막 수정 시간)입니다.  예: `Tuesday, 09-Aug-11 21:13:26 GMT` <br>여러 개체를 반환할 수 있는 작업의 경우 이 필드가 비어 있습니다. |
-|**conditionsUsed** | 조건을 나타내는 키-값 쌍의 세미콜론으로 구분된 목록입니다. 조건은 다음 중 하나일 수 있습니다. <li> If-Modified-Since <li> If-Unmodified-Since <li> If-Match <li> If-None-Match  <br> 예: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT` |
+|**operationCount** | 요청에 관련된 각 로깅된 작업의 수입니다. 이 수는 인덱스 `0`에서 시작합니다. 일부 요청에는 둘 이상의 작업이 필요합니다(예: Blob 복사 요청). 대부분의 요청에서는 하나의 작업만 수행합니다. 예: `1`. |
+|**requestHeaderSize** | 요청 헤더의 크기로, 바이트 단위입니다. 예: `578`. <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다. |
+|**requestBodySize** | 스토리지 서비스에서 읽은 요청 패킷의 크기로, 바이트 단위입니다. <br> 예: `0`. <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다.  |
+|**responseHeaderSize** | 응답 헤더의 크기로, 바이트 단위입니다. 예: `216`. <br>요청이 실패할 경우 이 값은 비어 있을 수 있습니다.  |
+|**responseBodySize** | 스토리지 서비스가 쓴 응답 패킷의 크기로, 바이트 단위입니다. 요청이 실패할 경우 이 값은 비어 있을 수 있습니다. 예: `216`.  |
+|**requestMd5** | 요청의 **Content-MD5** 헤더 또는 **x-ms-content-md5** 헤더의 값입니다. 이 필드에 지정된 MD5 해시 값은 요청의 콘텐츠를 나타냅니다. 예: `788815fd0198be0d275ad329cafd1830`. <br>이 필드는 비어 있을 수 있습니다.  |
+|**serverMd5** | 스토리지 서비스에 의해 계산된 MD5 해시 값입니다. 예: `3228b3cf1069a5489b298446321f8521`. <br>이 필드는 비어 있을 수 있습니다.  |
+|**lastModifiedTime** | 반환된 개체의 LMT(마지막 수정 시간)입니다.  예: `Tuesday, 09-Aug-11 21:13:26 GMT`. <br>여러 개체를 반환할 수 있는 작업의 경우 이 필드가 비어 있습니다. |
+|**conditionsUsed** | 조건을 나타내는 키-값 쌍의 세미콜론으로 구분된 목록입니다. 조건은 다음 중 하나일 수 있습니다. <li> If-Modified-Since <li> If-Unmodified-Since <li> If-Match <li> If-None-Match  <br> 예: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
 |**contentLengthHeader** | 스토리지 서비스로 전송된 요청의 Content-Length 헤더 값입니다. 요청이 성공할 경우 이 값은 requestBodySize와 같습니다. 요청에 실패할 경우 이 값은 requestBodySize와 다르거나 비어 있을 수 있습니다. |
 |**tlsVersion** | 요청 연결에 사용되는 TLS 버전입니다. 예: `TLS 1.2` |
-|**smbTreeConnectID** | 트리 연결 시간에 설정된 SMB(서버 메시지 블록) **treeConnectId**입니다. 예: `0x3` |
-|**smbPersistentHandleID** | 네트워크 다시 연결 시에도 존속되는 SMB2 CREATE 요청의 영구 핸들 ID입니다.  [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1에서 **SMB2_FILEID.Persistent**로 참조됩니다. 예: `0x6003f` |
-|**smbVolatileHandleID** | 네트워크 다시 연결 시에 재활용되는 SMB2 CREATE 요청의 휘발성 핸들 ID입니다.  [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1에서 **SMB2_FILEID.Volatile**로 참조됩니다. 예: `0xFFFFFFFF00000065` |
+|**smbTreeConnectID** | 트리 연결 시간에 설정된 SMB(서버 메시지 블록) **treeConnectId**입니다. 예를 들면 다음과 같습니다. `0x3` |
+|**smbPersistentHandleID** | 네트워크 다시 연결 시에도 존속되는 SMB2 CREATE 요청의 영구 핸들 ID입니다.  [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1에서 **SMB2_FILEID.Persistent**로 참조됩니다. 예를 들면 다음과 같습니다. `0x6003f` |
+|**smbVolatileHandleID** | 네트워크 다시 연결 시에 재활용되는 SMB2 CREATE 요청의 휘발성 핸들 ID입니다.  [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1에서 **SMB2_FILEID.Volatile**로 참조됩니다. 예를 들면 다음과 같습니다. `0xFFFFFFFF00000065` |
 |**smbMessageID** | 연결에 상대적인 **MessageId**입니다. 예: `0x3b165` |
-|**smbCreditsConsumed** | 요청에서 사용하는 수신 또는 송신으로, 64k 단위입니다. 예: `0x3` |
-|**smbCommandDetail** | 일반적인 요청 유형이 아닌 이 특정 요청에 대한 자세한 정보입니다. 예: `0x2000 bytes at offset 0xf2000` |
-|**smbFileId** | 파일 또는 디렉터리와 연결된 **FileId**입니다.  NTFS FileId와 대략적으로 유사합니다. 예: `0x9223442405598953` |
-|**smbSessionID** | 세션 설정 시점에 설정된 SMB2 **SessionId**입니다. 예: `0x8530280128000049` |
-|**smbCommandMajor  uint32** | **SMB2_HEADER.Command**의 값입니다. 현재 이 값은 0과 18 사이의 숫자입니다(0과 18 포함). 예: `0x6` |
+|**smbCreditsConsumed** | 요청에서 사용하는 수신 또는 송신으로, 64k 단위입니다. 예를 들면 다음과 같습니다. `0x3` |
+|**smbCommandDetail** | 일반적인 요청 유형이 아닌 이 특정 요청에 대한 자세한 정보입니다. 예를 들면 다음과 같습니다. `0x2000 bytes at offset 0xf2000` |
+|**smbFileId** | 파일 또는 디렉터리와 연결된 **FileId**입니다.  NTFS FileId와 대략적으로 유사합니다. 예를 들면 다음과 같습니다. `0x9223442405598953` |
+|**smbSessionID** | 세션 설정 시점에 설정된 SMB2 **SessionId**입니다. 예를 들면 다음과 같습니다. `0x8530280128000049` |
+|**smbCommandMajor  uint32** | **SMB2_HEADER.Command**의 값입니다. 현재 이 값은 0과 18 사이의 숫자입니다(0과 18 포함). 예를 들면 다음과 같습니다. `0x6` |
 |**smbCommandMinor** | 해당하는 경우 **SmbCommandMajor**의 서브클래스입니다. 예: `DirectoryCloseAndDelete` |
 
 ## <a name="see-also"></a>참고 항목

@@ -7,17 +7,18 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: a0dcc53d84edb4dd697213106c02626df24acfd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bae6da2e299065bada3b4e8a9657f00ef07e138b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075557"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 VM의 포트 및 엔드포인트를 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>빠른 명령
-네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](nsg-quickstart-portal.md).
+네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](/powershell/azure/)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](nsg-quickstart-portal.md).
 
 Azure 계정에 로그인합니다.
 
@@ -27,7 +28,7 @@ Connect-AzAccount
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNetworkSecurityGroup* 및 *myVnet*이 포함됩니다.
 
-[New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 규칙을 만듭니다. 다음 예제에서는 포트 *80*의 *tcp* 트래픽을 허용하도록 *myNetworkSecurityGroupRule*이라는 규칙을 만듭니다.
+[New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 규칙을 만듭니다. 다음 예제에서는 포트 *80*의 *tcp* 트래픽을 허용하도록 *myNetworkSecurityGroupRule*이라는 규칙을 만듭니다.
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -43,7 +44,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-그런 다음, 다음과 같이 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만들고 방금 만든 HTTP 규칙을 할당합니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
+그런 다음, 다음과 같이 [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만들고 방금 만든 HTTP 규칙을 할당합니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -53,7 +54,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-이제 서브넷에 네트워크 보안 그룹을 할당합니다. 다음 예제에서는 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)를 사용하여 *myVnet*이라는 기존 가상 네트워크를 *$vnet* 변수에 할당합니다.
+이제 서브넷에 네트워크 보안 그룹을 할당합니다. 다음 예제에서는 [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)를 사용하여 *myVnet*이라는 기존 가상 네트워크를 *$vnet* 변수에 할당합니다.
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -61,7 +62,7 @@ $vnet = Get-AzVirtualNetwork `
     -Name "myVnet"
 ```
 
-[Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig)를 사용하여 네트워크 보안 그룹을 서브넷에 연결합니다. 다음 예제에서는 *mySubnet*이라는 서브넷을 네트워크 보안 그룹에 연결합니다.
+[Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)를 사용하여 네트워크 보안 그룹을 서브넷에 연결합니다. 다음 예제에서는 *mySubnet*이라는 서브넷을 네트워크 보안 그룹에 연결합니다.
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
@@ -73,7 +74,7 @@ Set-AzVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-마지막으로, 변경 내용이 적용되도록 [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)를 사용하여 가상 네트워크를 업데이트합니다.
+마지막으로, 변경 내용이 적용되도록 [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)를 사용하여 가상 네트워크를 업데이트합니다.
 
 ```powershell
 Set-AzVirtualNetwork -VirtualNetwork $vnet
@@ -91,4 +92,3 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 * [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
 * [네트워크 보안 그룹이란?](../../virtual-network/security-overview.md)
 * [Azure Load Balancer 개요](../../load-balancer/load-balancer-overview.md)
-

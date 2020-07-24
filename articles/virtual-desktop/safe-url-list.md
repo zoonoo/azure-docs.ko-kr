@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9b1bdfc326ff217e68785d823b4af046af3241b7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075605"
 ---
 # <a name="safe-url-list"></a>안전 URL 목록
 
@@ -33,6 +33,7 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows 정품 인증|인터넷|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal 지원|AzureCloud|
+| 169.254.169.254 | 80 | [Azure Instance Metadata service 끝점](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 
 >[!IMPORTANT]
 >이제 Windows Virtual Desktop에서 FQDN 태그를 지원합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](../firewall/protect-windows-virtual-desktop.md)를 참조하세요.
@@ -43,13 +44,13 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 
 |주소|아웃바운드 TCP 포트|목적|서비스 태그|
 |---|---|---|---|
-|*.microsoftonline.com|443|Microsoft Online Services에 대한 인증|없음|
-|*.events.data.microsoft.com|443|원격 분석 서비스|없음|
-|www.msftconnecttest.com|443|OS가 인터넷에 연결되어 있는지 검색합니다.|없음|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows 업데이트|없음|
+|*.microsoftonline.com|443|Microsoft Online Services에 대한 인증|None|
+|*.events.data.microsoft.com|443|원격 분석 서비스|None|
+|www.msftconnecttest.com|443|OS가 인터넷에 연결되어 있는지 검색합니다.|None|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows 업데이트|None|
 |login.windows.net|443|Microsoft Online Services, Microsoft 365에 로그인|None|
 |*.sfx.ms|443|OneDrive 클라이언트 소프트웨어에 대한 업데이트|None|
-|*.digicert.com|443|인증서 해지 확인|없음|
+|*.digicert.com|443|인증서 해지 확인|None|
 
 >[!NOTE]
 >현재 Windows 가상 데스크톱에는 네트워크 트래픽을 허용 하기 위해 차단 해제할 수 있는 IP 주소 범위 목록이 없습니다. 지금은 특정 Url의 차단 해제만 지원 합니다.
@@ -59,8 +60,8 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 >서비스 트래픽과 관련된 URL에는 와일드카드 문자(*)를 사용해야 합니다. 에이전트 관련 트래픽에 *를 사용하지 않으려는 경우 와일드 카드 없이 URL을 찾는 방법은 다음과 같습니다.
 >
 >1. Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
->2. **이벤트 뷰어**를 열고 **Windows 로그**  >  **응용 프로그램**  >  **wvd-에이전트로** 이동 하 여 이벤트 ID 3702을 찾습니다.
->3. 이벤트 ID 3702 아래에 있는 URL을 허용 목록으로 지정합니다. 이벤트 ID 3702 아래의 URL은 지역별로 다릅니다. 가상 컴퓨터를 배포 하려는 각 지역에 대 한 관련 Url을 사용 하 여 차단 해제 프로세스를 반복 해야 합니다.
+>2. **이벤트 뷰어**를 열고 **Windows 로그**  >  **응용 프로그램**  >  **wvd-에이전트로** 이동 하 여 이벤트 ID 3701을 찾습니다.
+>3. 허용 목록는 이벤트 ID 3701 아래에 있는 Url을 검색 합니다. 이벤트 ID 3701 아래의 Url은 지역에 따라 다릅니다. 가상 컴퓨터를 배포 하려는 각 지역에 대 한 관련 Url을 사용 하 여 차단 해제 프로세스를 반복 해야 합니다.
 
 ## <a name="remote-desktop-clients"></a>원격 데스크톱 클라이언트
 

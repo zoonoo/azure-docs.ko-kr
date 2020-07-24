@@ -5,20 +5,20 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976713"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075959"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Azure 정적 Web Apps 미리 보기를 사용 하 여 프런트 엔드 프레임 워크 및 라이브러리 구성
 
 Azure Static Web Apps을 사용 하려면 프런트 엔드 프레임 워크 또는 라이브러리의 [빌드 구성 파일](github-actions-workflow.md) 에 적절 한 구성 값이 있어야 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 일련의 프레임 워크 및 라이브러리<sup>1</sup>에 대 한 설정을 보여 줍니다.
 
@@ -55,7 +55,7 @@ Azure Static Web Apps을 사용 하려면 프런트 엔드 프레임 워크 또�
 | [Svelte](https://svelte.dev/) | `public` | 해당 없음 |
 | [Three.js](https://threejs.org/) | `/` | 해당 없음 |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | 해당 없음 |
-| [Vue](http://vuejs.com/) | `dist` | 해당 없음 |
+| [Vue.js](https://vuejs.org/) | `dist` | 해당 없음 |
 
 <sup>1</sup> 위의 표는 Azure Static Web Apps와 작동 하는 프레임 워크 및 라이브러리의 완전 한 목록이 아닙니다.
 

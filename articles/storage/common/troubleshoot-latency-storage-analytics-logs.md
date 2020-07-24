@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 28d7f6a9fa5d128783f2eb1dfcbcb75775cc499e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113108"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075943"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용하여 대기 시간 문제 해결
 
@@ -97,7 +97,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
    다음 표에서는 대기 시간이 긴 OperationType 및 RequestStatus 결과에 대 한 정보를 제공 합니다.
 
-   |   |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장|
+   | Blob 유형 |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장 사항|
    |---|---|---|---|
    |GetBlob|예|아니요|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
    |GetBlob|아니요|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|

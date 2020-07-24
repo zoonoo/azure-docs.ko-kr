@@ -3,12 +3,12 @@ title: GPU 사용 컨테이너 인스턴스 배포
 description: GPU 리소스를 사용 하 여 계산 집약적인 컨테이너 앱을 실행 하기 위해 Azure container instances를 배포 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076873"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -63,7 +63,7 @@ GPU 리소스를 배포할 때 앞의 표에 표시 된 최대 값까지 워크 
 
 * **CUDA 드라이버** - GPU 리소스가 있는 컨테이너 인스턴스는 NVIDIA CUDA 드라이버 및 컨테이너 런타임이 미리 프로비전되므로, CUDA 워크로드용으로 개발된 컨테이너 이미지를 사용할 수 있습니다.
 
-  이 단계에서는 KERDA 9.0를 지원 합니다. 예를 들어 Docker 파일에 대해 다음과 같은 기본 이미지를 사용할 수 있습니다.
+  이 단계에서는 KERDA 9.0만 지원 합니다. 예를 들어 Docker 파일에 대해 다음과 같은 기본 이미지를 사용할 수 있습니다.
   * [nvidia/hoda: 9.0-기본 ubuntu 16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0](https://hub.docker.com/r/tensorflow/tensorflow)
     
@@ -209,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예:
+GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: bd74caf391fcf1538bf920f41638b23672b47015
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca74e3aea8a847344c75ca7167c46675e1339459
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512217"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077815"
 ---
-# <a name="setting-up-the-azure-importexport-tool"></a>Azure Import/Export 도구 설정
+# <a name="setting-up-the-azure-importexport-tool-v1"></a>Azure Import/Export 도구 v1 설정
 Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스에서 사용할 수 있는 드라이브 준비 및 복구 도구입니다. 다음 기능을 위해 이 도구를 사용할 수 있습니다.  
 
 -   가져오기 작업을 만들기 전에 이 도구를 사용하여 Windows Azure 데이터 센터에 배송하려는 하드 드라이브에 데이터를 복사할 수 있습니다.  
@@ -24,7 +24,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 
 -   완료된 내보내기 작업에서 드라이브를 받은 후에는 이 도구를 사용하여 드라이브에서 손상되거나 누락된 파일을 복구할 수 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항  
+## <a name="prerequisites"></a>필수 구성 요소  
 가져오기 작업을 위해 드라이브를 준비하는 경우 다음과 같은 필수 조건을 충족해야 합니다.  
 
 -   활성 Azure 구독이 있어야 합니다.  

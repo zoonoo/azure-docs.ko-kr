@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱에 대 한 데이터 위치-Azure
+title: Windows 가상 데스크톱에 대 한 데이터 위치-2019-Azure
 description: Windows 가상 데스크톱의 데이터 및 메타 데이터가 저장 되는 위치에 대 한 간략 한 개요입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8cbee74a8f9639fc2c3838f38dabf2a62cf339e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa998ddf8225475bbcf657ed9feee951263d2743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614448"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077590"
 ---
 # <a name="data-locations-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 데이터 위치
 

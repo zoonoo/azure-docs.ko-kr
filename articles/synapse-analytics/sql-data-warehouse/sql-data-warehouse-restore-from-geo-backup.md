@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075817"
 ---
 # <a name="geo-restore-for-sql-pool"></a>SQL 풀의 지역 복원
 
@@ -36,7 +36,7 @@ ms.locfileid: "85205087"
 > 지역 복원을 Gen2로 수행할 수 있습니다! 이렇게 하려면 Gen2 ServiceObjectiveName(예: DW1000**c**)을 선택적 매개 변수로 지정하세요.
 >
 
-1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
+1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
 2. PowerShell을 엽니다.
 3. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
 4. 복원할 데이터 웨어하우스를 포함 하는 구독을 선택 합니다.
@@ -89,7 +89,7 @@ $GeoRestoredDatabase.status
 
    ![기본 사항](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. **기존 데이터** 매개 변수 사용에 대해 **백업** 을 선택 하 고 아래로 스크롤 옵션에서 적절 한 백업을 선택 합니다. **검토 + 만들기**를 클릭합니다.
+5. **기존 데이터** 매개 변수 사용에 대해 **백업** 을 선택 하 고 아래로 스크롤 옵션에서 적절 한 백업을 선택 합니다. **리뷰 + 만들기**를 클릭합니다.
 
    ![백업(backup)](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 

@@ -3,12 +3,12 @@ title: DevTest Labs 개념 | Microsoft 문서
 description: DevTest Lab의 기본 개념과 Azure 가상 머신을 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482754"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074965"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
 ## <a name="overview"></a>개요
@@ -56,7 +56,7 @@ VM이 프로비전된 후 애플리케이션을 배포하고 구성하기 위해
 캡은 랩에서 낭비를 최소화하는 메커니즘입니다. 예를 들어 캡을 설정하여 사용자당 또는 랩에서 만들 수 있는 VM의 수를 제한할 수 있습니다.
 
 ## <a name="security-levels"></a>보안 수준
-보안 액세스는 Azure 역할 기반 Access Control(RBAC)을 통해 결정됩니다. 액세스의 작동 방식을 이해하기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 이해하는 데 도움을 줍니다.
+보안 액세스는 azure RBAC (역할 기반 액세스 제어)에 의해 결정 됩니다. 액세스의 작동 방식을 이해하기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 이해하는 데 도움을 줍니다.
 
 * 사용 권한 - 특정 작업에 대해 정의된 액세스입니다(예: 모든 가상 머신에 대한 읽기 액세스).
 * 역할 - 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 집합입니다. 예를 들어 *구독 소유자* 역할은 구독 내의 모든 리소스에 대한 액세스를 보유합니다.

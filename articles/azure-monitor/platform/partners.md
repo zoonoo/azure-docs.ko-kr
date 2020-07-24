@@ -4,11 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077331"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -59,7 +60,7 @@ Circonus은 컴퓨터 데이터 인텔리전스 전문가 이며, 전례 없는 
 
 시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. CloudHealth는 클라우드 관리를 위한 탁월한 가시성, 직관적인 최적화 및 견고한 관리 사례를 제공합니다. CloudHealth 플랫폼을 사용 하면 기업 및 MSPs에서 클라우드 투자 수익을 최대화할 수 있습니다. 비용, 사용량, 성능, 보안에 대해 자신 있게 결정할 수 있습니다.
 
-[자세한 정보][cloudhealth-doc]
+[자세히 알아보기][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -133,7 +134,7 @@ NextGen SIEM의 선두 LogRhythm는 6 대륙의 조직이 신속 하 게 검색 
 
 마이크로 포커스 **Arcsight** 에는 Azure Monitor event hubs 용 스마트 커넥터가 있습니다.
 
-[자세한 정보](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 설명서.")
+[자세히 알아보기](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 설명서.")
 
 마이크로 포커스 **작업 브리지** 는 모든 하이브리드 it 리소스 (모든 장치, 운영 체제, 데이터베이스, 응용 프로그램 또는 서비스)를 실행 하는 위치와 관계 없이 모든 데이터 형식 (이벤트, 메트릭, 로그 및 종속성)에 적용 합니다. 심층 응용 프로그램 상태 분석과 결합 된 서비스 품질 모니터링의 고유한 조합을 제공 하며, Microsoft Azure 서비스에 대 한 포괄적인 성능 및 가용성 모니터링을 포함 합니다. 작업 브리지를 사용 하면 비즈니스 및 IT 관련자 모두가 이해할 수 있는 모든 장치에서 브라우저를 통해 사용할 수 있는 단일 창을 제공할 수 있습니다.
 
@@ -269,8 +270,8 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 
 - [Azure Monitor에 대 한 자세한 정보](../../azure-monitor/overview.md)
 - [REST API를 사용하여 메트릭 액세스](rest-api-walkthrough.md)
-- [타사 서비스에 활동 로그 스트림](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Microsoft 이외의 서비스로 리소스 로그 스트림](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [타사 서비스에 활동 로그 스트림](./activity-log.md#legacy-collection-methods)
+- [Microsoft 이외의 서비스로 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -301,4 +302,3 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 설명서."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
 [turbonomic-doc]: https://turbonomic.com/ "Turbonomic 소개."
-

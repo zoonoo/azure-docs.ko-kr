@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077188"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -69,6 +69,23 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 ![AMPLS A 토폴로지 다이어그램](./media/private-link-security/ampls-topology-a-1.png)
 
 ![AMPLS B 토폴로지 다이어그램](./media/private-link-security/ampls-topology-b-1.png)
+
+### <a name="consider-limits"></a>제한 고려
+
+개인 링크 설정을 계획할 때 고려해 야 할 몇 가지 제한이 있습니다.
+
+* VNet은 1 개의 AMPLS 개체에만 연결할 수 있습니다. 즉, AMPLS 개체는 VNet이 액세스할 수 있어야 하는 모든 Azure Monitor 리소스에 대 한 액세스를 제공 해야 합니다.
+* Azure Monitor 리소스 (작업 영역 또는 Application Insights 구성 요소)는 AMPLSs 5 개에 연결할 수 있습니다.
+* AMPLS 개체는 최대 20 개의 Azure Monitor 리소스에 연결할 수 있습니다.
+* AMPLS 개체는 최대 10 개의 개인 끝점에 연결할 수 있습니다.
+
+아래 토폴로지에서:
+* 각 VNet은 1 개의 AMPLS 개체에 연결 하므로 다른 AMPLSs에 연결할 수 없습니다.
+* AMPLS B는 2 Vnet: 2/10의 가능한 개인 끝점 연결을 사용 하 여 연결 합니다.
+* AMPLS A는 2 개의 작업 영역 및 1 개의 응용 프로그램 정보 구성 요소에 연결 합니다. 3/20의 가능한 Azure Monitor 리소스를 사용 합니다.
+* 작업 영역 2는 AMPLS A 및 AMPLS B: 2/5를 사용 하 여 가능한 AMPLS 연결을 연결 합니다.
+
+![AMPLS 제한 다이어그램](./media/private-link-security/ampls-limits.png)
 
 ## <a name="example-connection"></a>연결 예
 
@@ -137,13 +154,13 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 
 ## <a name="configure-log-analytics"></a>Log Analytics 구성
 
-Azure Portal로 이동합니다. Azure Monitor Log Analytics 작업 영역 리소스의 왼쪽에는 **네트워크 격리** 메뉴 항목이 있습니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다. 
+Azure Portal로 이동합니다. Log Analytics 작업 영역 리소스에는 왼쪽에 메뉴 항목 **네트워크 격리가** 있습니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다. 
 
 ![LA 네트워크 격리](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 먼저, 액세스할 수 있는 Azure Monitor Private Link 범위에 이 Log Analytics 리소스를 연결할 수 있습니다. **추가**를 클릭하고, Azure Monitor Private Link 범위를 선택합니다.  **적용**을 클릭하여 연결합니다. 이 화면에 연결된 모든 범위가 표시됩니다. 이 연결을 설정하면 연결된 가상 네트워크의 네트워크 트래픽이 이 작업 영역에 도달할 수 있습니다. 연결은 [Azure Monitor 리소스 연결](#connect-azure-monitor-resources)에서와 같이 범위에서 연결하는 것과 동일한 효과가 있습니다.  
 
-다음으로, 위에 나열된 프라이빗 링크 범위 외부에서 이 리소스에 연결하는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용**을 **아니요**로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용**을 **아니요**로 설정하면 범위 외부의 머신에서 이 작업 영역의 데이터에 액세스할 수 없습니다. 이 데이터에는 통합 문서, 대시보드, 쿼리 API 기반 클라이언트 환경, Azure Portal의 인사이트 등에 대한 액세스가 포함됩니다. Log Analytics 데이터를 사용하고 Azure Portal 외부에서 실행되는 환경도 프라이빗 연결 VNET 내에서 실행되어야 합니다.
+다음으로, 위에 나열된 프라이빗 링크 범위 외부에서 이 리소스에 연결하는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용**을 **아니요**로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용**을 **아니요**로 설정하면 범위 외부의 머신에서 이 작업 영역의 데이터에 액세스할 수 없습니다. 이 데이터에는 통합 문서, 대시보드, 쿼리 API 기반 클라이언트 환경, Azure Portal의 인사이트 등에 대한 액세스가 포함됩니다. Azure Portal 외부에서 실행 되는 환경 및 Log Analytics 데이터 쿼리도 개인 연결 VNET 내에서 실행 되어야 합니다.
 
 액세스를 이 방법으로 제한하는 경우 작업 영역의 데이터에만 적용됩니다. 이러한 액세스 설정의 켜기 또는 끄기를 포함한 구성 변경은 Azure Resource Manager에서 관리합니다. 적절한 역할, 권한, 네트워크 제어 및 감사를 사용하여 Resource Manager에 대한 액세스를 제한합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](roles-permissions-security.md)을 참조하세요.
 
@@ -162,26 +179,26 @@ Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요�
 
 포털이 아닌 사용 환경도 모니터링되는 워크로드를 포함하는 프라이빗 연결 VNET 내에서 실행되어야 합니다. 
 
-모니터링되는 워크로드를 호스팅하는 리소스를 프라이빗 링크에 추가해야 합니다. App Services에서 이 작업을 수행하는 방법을 보여 주는 [설명서](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)가 있습니다.
+모니터링되는 워크로드를 호스팅하는 리소스를 프라이빗 링크에 추가해야 합니다. App Services에서 이 작업을 수행하는 방법을 보여 주는 [설명서](../../app-service/networking/private-endpoint.md)가 있습니다.
 
 액세스를 이 방법으로 제한하는 경우 Application Insights 리소스의 데이터에만 적용됩니다. 이러한 액세스 설정의 켜기 또는 끄기를 포함한 구성 변경은 Azure Resource Manager에서 관리합니다. 대신 적절한 역할, 권한, 네트워크 제어 및 감사를 사용하여 Resource Manager에 대한 액세스를 제한합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](roles-permissions-security.md)을 참조하세요.
 
 > [!NOTE]
 > 작업 영역 기반 Application Insights를 완벽하게 보호하려면 Application Insights 리소스 및 기본 Log Analytics 작업 영역에 대한 액세스를 모두 잠가야 합니다.
 >
-> 코드 수준 진단 (프로파일러/디버거)에서는 개인 링크를 지원 하기 위해 고유한 저장소 계정을 제공 해야 합니다. 이 작업을 수행 하는 방법에 대 한 [설명서](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) 는 다음과 같습니다.
+> 코드 수준 진단 (프로파일러/디버거)에서는 개인 링크를 지원 하기 위해 고유한 저장소 계정을 제공 해야 합니다. 이 작업을 수행 하는 방법에 대 한 [설명서](../app/profiler-bring-your-own-storage.md) 는 다음과 같습니다.
 
 ## <a name="use-apis-and-command-line"></a>API 및 명령줄 사용
 
 Azure Resource Manager 템플릿과 명령줄 인터페이스를 사용하여 앞에서 설명한 프로세스를 자동화할 수 있습니다.
 
-프라이빗 링크 범위를 만들고 관리하려면 [az monitor private-link-scope](https://docs.microsoft.com/cli/azure/monitor/private-link-scope?view=azure-cli-latest)를 사용합니다. 이 명령을 사용하면 범위를 만들고, Log Analytics 작업 영역 및 Application Insights 구성 요소를 연결하며, 프라이빗 엔드포인트를 추가/제거/승인할 수 있습니다.
+프라이빗 링크 범위를 만들고 관리하려면 [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest)를 사용합니다. 이 명령을 사용하면 범위를 만들고, Log Analytics 작업 영역 및 Application Insights 구성 요소를 연결하며, 프라이빗 엔드포인트를 추가/제거/승인할 수 있습니다.
 
-네트워크 액세스를 관리하려면 [Log Analytics 작업 영역](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) 또는 [Application Insights 구성 요소](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest)에서 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
+네트워크 액세스를 관리하려면 [Log Analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) 또는 [Application Insights 구성 요소](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest)에서 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
 
 ## <a name="collect-custom-logs-over-private-link"></a>개인 링크를 통한 사용자 지정 로그 수집
 
-스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 수집하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다. [명령줄](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest)을 사용하여 이러한 계정을 설정하는 방법에 대한 자세한 내용을 참조하세요.
+스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 수집하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다. [명령줄](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest)을 사용하여 이러한 계정을 설정하는 방법에 대한 자세한 내용을 참조하세요.
 
 사용자 고유의 스토리지 계정을 가져오는 방법에 대한 자세한 내용은 [로그 수집에 고객이 소유한 스토리지 계정 사용](private-storage.md)을 참조하세요.
 
@@ -189,7 +206,7 @@ Azure Resource Manager 템플릿과 명령줄 인터페이스를 사용하여 �
 
 ### <a name="agents"></a>에이전트
 
-Log Analytics 작업 영역에 대한 보안 원격 분석 수집을 사용하도록 설정하려면 개인 네트워크에서 최신 버전의 Windows 및 Linux 에이전트를 사용해야 합니다. 이전 버전에서는 개인 네트워크에서 모니터링 데이터를 업로드할 수 없습니다.
+Windows 및 Linux 에이전트의 최신 버전은 Log Analytics 작업 영역에 안전 하 게 수집할 수 있도록 개인 네트워크에서 사용 해야 합니다. 이전 버전에서는 개인 네트워크에서 모니터링 데이터를 업로드할 수 없습니다.
 
 **Log Analytics Windows 에이전트**
 
@@ -210,7 +227,7 @@ Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 
 
 ### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 
-개인 네트워크의 Azure Monitor에서 REST API, [CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) 또는 PowerShell을 사용하려면 **AzureActiveDirectory** 및 **AzureResourceManager** [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)를 방화벽에 추가합니다.
+개인 네트워크의 Azure Monitor에서 REST API, [CLI](/cli/azure/monitor?view=azure-cli-latest) 또는 PowerShell을 사용하려면 **AzureActiveDirectory** 및 **AzureResourceManager** [서비스 태그](../../virtual-network/service-tags-overview.md)를 방화벽에 추가합니다.
 
 이러한 태그를 추가하면 로그 데이터 쿼리, Log Analytics 작업 영역과 AI 구성 요소의 만들기 및 관리와 같은 작업을 수행할 수 있습니다.
 

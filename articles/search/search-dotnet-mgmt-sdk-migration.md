@@ -8,13 +8,13 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 436c2620b83513a2b814e050b2ae6407930b082d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/08/2020
+ms.openlocfilehash: 5f6a198445f9c9bd8e02cd8b6df3405431263e0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076406"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Azure Search .NET Management SDK 버전 업그레이드
 
@@ -54,7 +54,7 @@ ms.locfileid: "86232052"
 | [개인 링크 리소스](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Private Link | 개인 끝점 연결이 있는 검색 서비스의 경우 동일한 가상 네트워크에서 사용 되는 모든 서비스 목록을 가져옵니다. Azure 데이터 원본 (Azure Storage, Cosmos DB, Azure SQL)에서 끌어오거나 Cognitive Services 또는 Key Vault를 사용 하는 인덱서를 검색 솔루션에 포함 하는 경우 해당 리소스는 모두 가상 네트워크에서 끝점을 가져야 하며,이 API는 목록을 반환 해야 합니다. |
 | [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | 이 속성은 서비스 만들기 또는 업데이트 요청에 대 한 속성입니다. 사용 하지 않도록 설정 된 경우 개인 링크는 유일한 액세스 모달입니다. |
 
-### <a name="breaking-changes"></a>주요 변경 내용
+### <a name="breaking-changes"></a>호환성이 손상되는 변경
 
 [목록 쿼리 키](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) 요청에서 GET을 더 이상 사용할 수 없습니다. 이전 릴리스에서는이 릴리스에서 GET 또는 POST를 사용할 수 있으며, 앞으로 이동 하는 모든 릴리스에서는 POST만 지원 됩니다. 
 

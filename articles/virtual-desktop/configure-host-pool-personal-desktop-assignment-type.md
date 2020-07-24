@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop 개인 데스크톱 할당 유형 - Azure
-description: Windows Virtual Desktop 개인 데스크톱 호스트 풀의 할당 유형을 구성하는 방법입니다.
+description: Windows 가상 데스크톱 개인 데스크톱 호스트 풀에 대해 자동 또는 직접 할당을 구성 하는 방법입니다.
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b000e9a83e6896266f0a6fc05195fc5599bc65f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260813"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077639"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
 

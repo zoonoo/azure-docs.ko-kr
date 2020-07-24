@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: dbe236cc4a407cca78f7f7ab64f3809797c02614
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4c2039db19d9d10150b7529e4f61b6928e4f64e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077495"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>가상 머신 수명 주기 및 상태
 
@@ -21,4 +21,4 @@ ms.locfileid: "82100603"
 
 ## <a name="next-steps"></a>다음 단계
 
-VM 모니터링에 대한 자세한 내용은 [Azure에서 가상 머신을 모니터하는 방법](monitor.md)을 참조하세요.
+VM 모니터링에 대 한 자세한 내용은 [Azure에서 virtual Machines 모니터링](../../azure-monitor/insights/monitor-vm-azure.md)을 참조 하세요.

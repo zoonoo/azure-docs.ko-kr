@@ -3,15 +3,15 @@ title: .NET 프로그래밍 가이드-Azure Event Hubs (레거시) | Microsoft D
 description: 이 문서에서는 Azure .NET SDK를 사용하여 Azure Event Hubs에 대한 코드를 작성하는 방법에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0186357ec7f0f8541acf33c524a57cdb8e8dc55c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314548"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074848"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Azure Event Hubs에 대 한 .NET 프로그래밍 가이드 (레거시 EventHubs 패키지)
-이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
+이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](./event-hubs-about.md)를 참조하세요.
 
 > [!WARNING]
 > 이 가이드는 이전 **EventHubs** 패키지에 대 한 것입니다. 최신 [EventHubs](get-started-dotnet-standard-send-v2.md) 패키지를 사용 하도록 코드를 [마이그레이션하](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) 는 것이 좋습니다.  
@@ -56,7 +56,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="event-serialization"></a>이벤트 직렬화
 
-[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예를 들어:
+[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -96,7 +96,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>비동기적으로 보내고 규모로 보내기
 
-비동기적으로 이벤트를 이벤트 허브로 보낼 수 있습니다. 비동기적으로 보내기는 클라이언트가 이벤트를 보낼 수 있는 속도를 증가시킵니다. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync)는 [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 개체를 반환합니다. 클라이언트에서 [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) 클래스를 사용하여 클라이언트 다시 시도 옵션을 제어할 수 있습니다.
+비동기적으로 이벤트를 이벤트 허브로 보낼 수 있습니다. 비동기적으로 보내기는 클라이언트가 이벤트를 보낼 수 있는 속도를 증가시킵니다. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync)는 [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) 개체를 반환합니다. 클라이언트에서 [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) 클래스를 사용하여 클라이언트 다시 시도 옵션을 제어할 수 있습니다.
 
 ## <a name="event-consumers"></a>이벤트 소비자
 [EventProcessorHost][] 클래스는 Event Hubs에서 데이터를 처리합니다. .NET 플랫폼에서 이벤트 판독기를 작성할 때 이 구현을 사용해야 합니다. [EventProcessorHost][] 는 검사점 및 파티션 임대 관리를 제공하는 이벤트 처리기 구현에 대한 스레드 안전, 다중 프로세스, 안전한 런타임 환경을 제공합니다.
@@ -108,7 +108,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 예를 들어:
+이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 예를 들면 다음과 같습니다.
 
 > [!NOTE]
 > EventProcessorHost 및 관련 클래스는 **EventHubs** 패키지에 제공 됩니다. [이 문서의](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 지침에 따라 또는 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 실행 하 여 Visual Studio 프로젝트에 패키지를 추가 `Install-Package Microsoft.Azure.EventHubs.Processor` 합니다.
@@ -149,8 +149,8 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
 Event Hubs 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
-* [Event Hubs API 개요](event-hubs-api-overview.md)
-* [Event Hubs 정의](event-hubs-what-is-event-hubs.md)
+* [Event Hubs API 개요](./event-hubs-samples.md)
+* [Event Hubs 정의](./event-hubs-about.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
 * [이벤트 프로세서 호스트 API 참조](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 

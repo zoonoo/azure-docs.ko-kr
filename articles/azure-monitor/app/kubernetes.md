@@ -5,17 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a5e73039db541023b1fd4a9b75e7c14030c8e219
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075283"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Istio를 사용하여 Kubernetes에서 호스트된 애플리케이션에 대한 제로 계측 애플리케이션 모니터링 - 사용되지 않음
 
 > [!IMPORTANT]
 > 이 기능은 현재 사용되지 않으며 2020년 8월 1일부터 더 이상 지원되지 않습니다.
-> 현재 코드리스 모니터링은 [독립 실행형 에이전트를 통해 Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)에 대해서만 사용하도록 설정할 수 있습니다. 다른 언어의 경우 SDK를 사용하여 AKS에서 [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript) 및 [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python) 등의 앱을 모니터링합니다.
+> 현재 코드리스 모니터링은 [독립 실행형 에이전트를 통해 Java](./java-in-process-agent.md)에 대해서만 사용하도록 설정할 수 있습니다. 다른 언어의 경우 SDK를 사용하여 AKS에서 [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md) 및 [Python](./opencensus-python.md) 등의 앱을 모니터링합니다.
 
 Azure Monitor는 Kubernetes 클러스터에서 서비스 메시 기술을 사용하여 Kubernetes에서 호스트된 모든 앱에 대한 애플리케이션 모니터링을 즉시 제공합니다. [애플리케이션 맵](../../azure-monitor/app/app-map.md)과 같은 기본 Application Insight 기능을 사용하여 종속성, 실시간 모니터링을 위한 [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md), [기본 대시보드](../../azure-monitor/app/overview-dashboard.md)를 이용한 강력한 시각화, [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md), [통합 문서](../../azure-monitor/platform/workbooks-overview.md) 등을 모델링할 수 있습니다. 사용자는 이 기능을 사용하여 선택한 Kubernetes 네임스페이스 내의 모든 Kubernetes 워크로드에서 성능 병목 상태 및 오류 다발 지점을 찾을 수 있습니다. Azure Monitor는 Istio와 같은 기술을 통해 기존의 서비스 메시 투자를 활용하여 애플리케이션 코드를 수정하지 않고도 자동 계측된 앱 모니터링을 사용하도록 설정할 수 있습니다.
 
@@ -24,10 +25,10 @@ Azure Monitor는 Kubernetes 클러스터에서 서비스 메시 기술을 사용
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Kubernetes 클러스터](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
+- [Kubernetes 클러스터](../../aks/concepts-clusters-workloads.md)
 - *kubectl*을 실행하는 클러스터에 대한 콘솔 액세스
 - [Application Insight 리소스](create-new-resource.md)
-- 서비스 메시. 배포된 Istio가 클러스터에 없는 경우 [Azure Kubernetes Service에서 Istio를 설치하고 사용](https://docs.microsoft.com/azure/aks/istio-install)하는 방법을 배울 수 있습니다.
+- 서비스 메시. 배포된 Istio가 클러스터에 없는 경우 [Azure Kubernetes Service에서 Istio를 설치하고 사용](../../aks/servicemesh-istio-install.md)하는 방법을 배울 수 있습니다.
 
 ## <a name="capabilities"></a>기능
 

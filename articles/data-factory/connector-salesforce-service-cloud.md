@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: d83dcc5c86f2dfed5f588738e7799dd708333da1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076791"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Salesforce 서비스 클라우드에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +39,7 @@ Salesforce 서비스 클라우드에서 지원 되는 모든 싱크 데이터 �
 
 Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. 기본적으로 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 여 salesforce에서 데이터를 복사 하 고 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 를 사용 하 여 salesforce에 데이터를 복사 합니다. 또한 연결 된 서비스의 [ `apiVersion` 속성](#linked-service-properties) 을 통해 데이터를 읽고 쓰는 데 사용 되는 API 버전을 명시적으로 설정할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Salesforce에서 API 권한을 사용하도록 설정해야 합니다. 자세한 내용은 [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)을 참조하세요.
 
@@ -50,9 +50,9 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 - 동시 요청 수가 이 제한을 초과하면 제한이 발생하며 임의 오류가 표시됩니다.
 - 총 요청 수가 이 제한을 초과하면 Salesforce 계정은 24시간 동안 차단됩니다.
 
-두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 "API 요청 제한" 섹션을 참조하세요.
+두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) 문서의 "API 요청 제한" 섹션을 참조하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -151,7 +151,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속
 
 ![데이터 팩터리 Salesforce 연결 API 이름](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -194,7 +194,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하기 위해 복사
 
 ![데이터 팩터리 Salesforce 연결 API 이름 목록](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -234,11 +234,11 @@ Salesforce 서비스 클라우드로 데이터를 복사 하기 위해 복사 �
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **SalesforceServiceCloudSink**로 설정 해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **Insert** 및 **Upsert**입니다. | 아니요(기본값: 삽입) |
-| externalIdFieldName | Upsert 작업의 외부 ID 필드 이름입니다. 지정 된 필드는 Salesforce 서비스 클라우드 개체에서 "외부 Id 필드"로 정의 되어야 합니다. 해당하는 입력 데이터에서 NULL 값을 가질 수 없습니다. | "Upsert"에서 예 |
+| externalIdFieldName | Upsert 작업의 외부 ID 필드 이름입니다. 지정 된 필드는 Salesforce 서비스 클라우드 개체에서 "외부 ID 필드"로 정의 되어야 합니다. 해당하는 입력 데이터에서 NULL 값을 가질 수 없습니다. | "Upsert"에서 예 |
 | writeBatchSize | 각 일괄 처리에서 Salesforce 서비스 클라우드에 기록 된 데이터의 행 수입니다. | 아니요(기본값: 5,000) |
 | ignoreNullValues | 쓰기 작업 중에 입력 데이터에서 NULL 값을 무시할지 여부를 나타냅니다.<br/>허용되는 값은 **true** 및 **false**입니다.<br>- **True**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.<br/>- **False**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 NULL로 업데이트합니다. 삽입 작업을 수행할 때 NULL 값을 삽입합니다. | 아니요(기본값: false) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -287,23 +287,23 @@ Salesforce 서비스 클라우드 휴지통에서 일시 삭제 된 레코드를
 
 Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 SOQL 쿼리 또는 SQL 쿼리를 사용할 수 있습니다. 이 두 가지 쿼리는 서로 다른 구문과 기능을 지원하므로 혼용하지 마세요. Salesforce 서비스 클라우드에서 기본적으로 지원 되는 SOQL 쿼리를 사용 하는 것이 좋습니다. 다음 표에는 주요 차이점이 나와 있습니다.
 
-| Syntax | SOQL 모드 | SQL 모드 |
+| 구문 | SOQL 모드 | SQL 모드 |
 |:--- |:--- |:--- |
 | 열 선택 | 쿼리에서 복사할 필드를 열거 해야 합니다 (예:).`SELECT field1, filed2 FROM objectname` | 열 선택 외에도 `SELECT *`이 지원됩니다. |
 | 따옴표 | 필드/개체 이름은 따옴표로 묶을 수 없습니다. | 필드/개체 이름은 따옴표로 묶을 수 있습니다. 예: `SELECT "id" FROM "Account"` |
 | 날짜/시간 형식 |  자세한 내용은 [여기](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) 및 다음 섹션의 샘플을 참조하세요. | 자세한 내용은 [여기](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) 및 다음 섹션의 샘플을 참조하세요. |
 | 부울 값 | `False` 및 `True`로 표시됩니다. 예: `SELECT … WHERE IsDeleted=True` | 0 또는 1로 표시됩니다. 예: `SELECT … WHERE IsDeleted=1` |
-| 열 이름 바꾸기 | 지원 안 됨 | 지원됨. 예: `SELECT a AS b FROM …` |
-| 관계 | 지원됨. 예: `Account_vod__r.nvs_Country__c` | 지원 안 됨 |
+| 열 이름 바꾸기 | 지원되지 않습니다. | 지원됨. 예: `SELECT a AS b FROM …` |
+| 관계 | 지원됨. 예: `Account_vod__r.nvs_Country__c` | 지원되지 않습니다. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>DateTime 열에서 Where 문을 사용하여 데이터를 검색합니다.
 
-SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예:
+SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예를 들면 다음과 같습니다.
 
 * **SOQL 샘플**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 샘플**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformed_querytruncated"></a>MALFORMED_QUERY 오류: 잘렸습니다.
+### <a name="error-of-malformed_query-truncated"></a>MALFORMED_QUERY 오류: 잘렸습니다.
 
 "MALFORMED_QUERY: 잘림" 오류가 발생 하는 경우 일반적으로 데이터에 JunctionIdList type 열이 있고 Salesforce에 많은 수의 행이 있는 이러한 데이터의 지원 제한이 있기 때문입니다. 완화 하려면 JunctionIdList 열을 제외 하거나 복사할 행 수를 제한 (여러 복사 작업 실행으로 분할할 수 있음)을 시도 합니다.
 
@@ -314,15 +314,15 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 Salesf
 | Salesforce 서비스 클라우드 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | 자동 번호 |String |
-| 확인란 |부울 |
+| 확인란 |Boolean |
 | Currency |Decimal |
 | 날짜 |DateTime |
 | 날짜/시간 |DateTime |
 | 메일 |String |
-| Id |String |
+| ID |String |
 | 관계 조회 |String |
 | 다중 선택 선택 목록 |String |
-| number |Decimal |
+| Number |Decimal |
 | 백분율 |Decimal |
 | Phone |String |
 | 선택 목록 |String |

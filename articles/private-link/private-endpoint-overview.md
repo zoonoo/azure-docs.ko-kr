@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d61527a7a57c82c0e1485ef249306618def9a57c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077943"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -78,6 +78,13 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | 도메인 |
 |**Azure WebApps** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | 작업 영역 |
+|**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
+|**Azure Monitor** | Microsoft Insights/privateLinkScopes    | azuremonitor |
+|**Cognitive Services** | (Cognitiveservices account/계정    | account |
+|**Azure 파일 동기화** | Microsoft.storagesync/storageSyncServices    | Afs |
+    
+  
+
   
  
 ## <a name="network-security-of-private-endpoints"></a>프라이빗 엔드포인트의 네트워크 보안 

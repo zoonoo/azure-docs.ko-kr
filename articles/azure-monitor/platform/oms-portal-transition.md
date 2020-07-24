@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 680cd9b44cc447f9bdea38cb9d04fc661fba9c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b33bd5ba20e21d757e412e9dac7c474308c4561d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659257"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077158"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -40,7 +41,7 @@ Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위�
 - [사용자 권한을 Azure Portal로 마이그레이션](#user-access-and-role-migration)해야 합니다.
 - 업데이트 관리 솔루션 전환에 대한 세부 정보는 [OMS 업데이트 배포를 Azure로 마이그레이션](../../automation/migrate-oms-update-deployments.md)을 참조하세요.
 
-Azure Portal로 전환하는 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](oms-portal-faq.md)을 참조하세요. 
+Azure Portal로 전환하는 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](../overview.md)을 참조하세요. 
 
 ## <a name="user-access-and-role-migration"></a>사용자 액세스 및 역할 마이그레이션
 Azure Portal 액세스 관리는 OMS 포털에서 액세스 관리보다 더욱 풍부하고 더욱 강력합니다. Log Analytics 액세스 관리에 대 한 자세한 내용은 [Azure Monitor 로그 작업 영역 디자인](design-logs-deployment.md) 을 참조 하세요.
@@ -69,7 +70,7 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 
 ### <a name="alert-extension"></a>경고 확장  
 
-경고는 기존 경고가 OMS 포털에 계속 나열 되 [Azure Portal으로 확장](alerts-extend.md) 되었지만 Azure Portal 에서만 관리할 수 있습니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
+경고는 기존 경고가 OMS 포털에 계속 나열 되 [Azure Portal으로 확장](./alerts-unified-log.md) 되었지만 Azure Portal 에서만 관리할 수 있습니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
 
 ### <a name="alert-management-solution"></a>경고 관리 솔루션
 이전 알림의 변경으로 [경고 관리 솔루션](alert-management-solution.md)은 계속 사용할 수 있으며 Azure Portal에서 완전히 지원됩니다. Azure Marketplace에서 솔루션을 계속 설치할 수 있습니다.
@@ -101,7 +102,7 @@ OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대
 Log Analytics에 NSG 로그를 보내려면 진단 설정에 계속 의존할 수 있으므로 기존 저장된 검색, 경고 및 대시보드는 계속 작동하게 됩니다. 이미 솔루션을 설치한 고객은 추가 공지가 있을 때까지 솔루션을 계속 사용할 수 있습니다. 9월 5일부터 네트워크 보안 그룹 분석 솔루션은 마켓플레이스에서 제거되고 커뮤니티를 통해 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights)으로 사용할 수 있게 됩니다.
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-[Log Analytics에 Operations Manager 관리 그룹을 연결](om-agents.md)한 경우 변경 없이 계속 작동합니다. 그러나 새 연결의 경우에는 [Operations Management Suite를 구성하기 위한 Microsoft System Center Operations Manager 관리 팩](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/)의 지침을 따릅니다.
+[Log Analytics에 Operations Manager 관리 그룹을 연결](om-agents.md)한 경우 변경 없이 계속 작동합니다. 그러나 새 연결의 경우에는 [Operations Management Suite를 구성하기 위한 Microsoft System Center Operations Manager 관리 팩](https://techcommunity.microsoft.com/t5/system-center-blog/bg-p/SystemCenterBlog)의 지침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
-- OMS 포털에서 Azure Portal로 이동에 대한 지침은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](oms-portal-faq.md)을 참조하세요.
+- OMS 포털에서 Azure Portal로 이동에 대한 지침은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](../overview.md)을 참조하세요.

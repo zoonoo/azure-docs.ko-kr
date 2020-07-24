@@ -11,11 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077680"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 사용률 및 쿼리 작업 모니터링
 
@@ -41,9 +42,6 @@ Synapse SQL용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다
 | 캐시 적중 비율    | (캐시 적중/캐시 누락) * 100, 여기서 캐시 적중은 로컬 SSD 캐시에서 적중된 모든 columnstore 세그먼트에 대한 합계이며, 캐시 누락은 모든 노드에 걸쳐 로컬 SSD 캐시에서 누락된 columnstore 세그먼트에 대한 합계입니다. | 평균, 최솟값, 최댓값    |
 | 캐시 사용 비율   | (사용된 캐시/캐시 용량) * 100, 여기서 사용된 캐시는 모든 노드에 걸친 로컬 SSD 캐시의 모든 바이트에 대한 합계이며, 캐시 용량은 모든 노드에 걸친 로컬 SSD 캐시의 스토리지 용량에 대한 합계입니다 | 평균, 최솟값, 최댓값    |
 | 로컬 tempdb 백분율 | 모든 컴퓨팅 노드의 로컬 tempdb 사용률 - 5분마다 값을 내보냅니다. | 평균, 최솟값, 최댓값    |
-| 데이터 스토리지 크기(GB) | 데이터베이스의 총 크기입니다. 여기에는 사용된 공간, 예약된 공간 및 할당되지 않은 공간이 포함됩니다. 데이터베이스의 할당되지 않은 공간은 쿼리 및 로드 성능을 최적화하기 위해 유지됩니다. | 합계 |
-| 재해 복구 크기(GB) | 24시간마다 수행된 지역 백업의 전체 크기 | 합계 |
-| 스냅샷 스토리지 크기(GB) | 데이터베이스 복원 지점이 제공되는 데 걸린 총 스냅샷 크기입니다. 여기에는 자동화된 사용자 정의 스냅샷이 포함됩니다. | 합계 |
 
 메트릭을 보고 경고를 설정할 때 고려해야 할 사항:
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40b5f4ee0c30e38c6cd5bd01c724ed783921670d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82101555"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077433"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
 Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
@@ -55,7 +55,7 @@ if($adminAccount.Disabled)
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Windows 10 배포
-먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azure/overview)했는지 확인합니다. VHD를 준비했으면 다음과 같이 `Add-AzVhd` cmdlet을 사용하여 Azure Storage 계정에 VHD를 업로드합니다.
+먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azure/)했는지 확인합니다. VHD를 준비했으면 다음과 같이 `Add-AzVhd` cmdlet을 사용하여 Azure Storage 계정에 VHD를 업로드합니다.
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -63,7 +63,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 ```
 
 
-**Azure Resource Manager 템플릿 배포를 사용하여 배포** Resource Manager 템플릿 내에서 `licenseType`에 대한 추가 매개 변수는 지정할 수 있습니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. Azure에 VHD를 업로드하고 나면 Resource Manager 템플릿을 편집하여 컴퓨팅 공급자의 일부로 라이선스 유형을 포함하고 정상적으로 템플릿을 배포합니다.
+**Azure Resource Manager 템플릿 배포를 사용하여 배포** Resource Manager 템플릿 내에서 `licenseType`에 대한 추가 매개 변수는 지정할 수 있습니다. [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)에 대해 자세히 알아볼 수 있습니다. Azure에 VHD를 업로드하고 나면 Resource Manager 템플릿을 편집하여 컴퓨팅 공급자의 일부로 라이선스 유형을 포함하고 정상적으로 템플릿을 배포합니다.
 ```json
 "properties": {
     "licenseType": "Windows_Client",
@@ -106,7 +106,5 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>다음 단계
-- [Windows 10용 VDA 구성](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)에 대해 자세히 알아봅니다.
+- [Windows 10용 VDA 구성](/windows/deployment/vda-subscription-activation)에 대해 자세히 알아봅니다.
 - [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)에 대해 자세히 알아봅니다.
-
-

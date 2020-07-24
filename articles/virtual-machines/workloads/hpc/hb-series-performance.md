@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: e064db5f67e6f8a7e82093bdae9fac7eaa4b6a55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4745fda5417ea937c367a116f999070bd62cf8cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79534204"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077408"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>HB-시리즈 가상 머신 크기
 
 몇 가지 성능 테스트가 HB 시리즈 크기에서 실행 되었습니다. 다음은 이러한 성능 테스트의 결과 중 일부입니다.
 
 
-| 작업                                        | HB                    |
+| 워크로드                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | 스트림 조로 묶어                                    | ~ 260 g b/초 (CCX 당 32-33 g b/초)  |
 | HPL (고성능 Linpack)                  | ~ 1000 GigaFLOPS (Rpeak), ~ 860 GigaFLOPS (Rpeak) |
@@ -119,8 +119,4 @@ OSU MPI 대역폭 테스트 v 5.4.3.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure에서 [고성능 컴퓨팅](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.
-
-
-
-
+Azure에서 [고성능 컴퓨팅](/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.

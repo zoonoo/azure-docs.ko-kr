@@ -14,18 +14,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fb2d2d33d380819a88da57a78c449e22256bf41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: daebf7c6a5fc9056e16b77a40ee9f90db598749f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076631"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>PHP에서 Notification Hubs를 사용하는 방법
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-MSDN 항목 [NOTIFICATION HUBS REST api](https://msdn.microsoft.com/library/dn223264.aspx)에 설명 된 대로 알림 허브 rest 인터페이스를 사용 하 여 JAVA/PHP/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
+MSDN 항목 [NOTIFICATION HUBS REST api](/previous-versions/azure/reference/dn223264(v=azure.100))에 설명 된 대로 알림 허브 rest 인터페이스를 사용 하 여 JAVA/PHP/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
 
 이 항목에서는 다음 방법을 보여 줍니다.
 
@@ -56,7 +56,7 @@ $hub->sendNotification($notification, null);
 아직 수행 하지 않은 경우 백 엔드를 구현 해야 하는 마지막 섹션까지 [시작 자습서]를 따르세요.
 필요하면 [PHP REST 래퍼 샘플]에서 코드를 사용하고 직접 [자습서 완료](#complete-tutorial) 섹션으로 이동할 수도 있습니다.
 
-전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](https://msdn.microsoft.com/library/dn530746.aspx)을 참조하세요. 이 섹션에서는 Notification Hubs REST 엔드포인트에 액세스하는 데 필요한 기본 단계의 PHP 구현에 대해 설명합니다.
+전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](/previous-versions/azure/reference/dn530746(v=azure.100))을 참조하세요. 이 섹션에서는 Notification Hubs REST 엔드포인트에 액세스하는 데 필요한 기본 단계의 PHP 구현에 대해 설명합니다.
 
 1. 연결 문자열 구문 분석
 2. 인증 토큰 생성
@@ -102,7 +102,7 @@ class NotificationHub {
 
 ### <a name="create-a-security-token"></a>보안 토큰 만들기
 
-[SAS 보안 토큰을 만드는](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token) 방법에 대한 정보는 Azure 설명서를 참조하세요.
+[SAS 보안 토큰을 만드는](/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token) 방법에 대한 정보는 Azure 설명서를 참조하세요.
 
 `NotificationHub` 클래스에 `generateSasToken` 메서드를 추가하여 현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만듭니다.
 
@@ -151,7 +151,7 @@ class Notification {
 
 이 클래스는 기본 알림 본문(또는 템플릿 알림의 경우 속성 집합) 및 형식(기본 플랫폼 또는 템플릿)과 플랫폼 특정 속성(예: Apple 만료 속성 및 WNS 헤더)이 포함된 헤더 집합에 대한 컨테이너입니다.
 
-모든 사용할 수 있는 옵션은 [Notification Hubs REST API 설명서](https://msdn.microsoft.com/library/dn495827.aspx) 및 특정 알림 플랫폼의 형식을 참조하세요.
+모든 사용할 수 있는 옵션은 [Notification Hubs REST API 설명서](/previous-versions/azure/reference/dn495827(v=azure.100)) 및 특정 알림 플랫폼의 형식을 참조하세요.
 
 이제 이 클래스를 사용하여 `NotificationHub` 클래스 내부에서 알림 보내기 메서드를 쓸 수 있습니다.
 
@@ -290,4 +290,3 @@ $hub->sendNotification($notification, null);
 
 [PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md))
-

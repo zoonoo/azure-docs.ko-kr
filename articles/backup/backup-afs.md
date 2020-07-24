@@ -3,16 +3,16 @@ title: Azure Portal의 Azure 파일 공유 백업
 description: Azure Portal를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58bcd7ecd7c6fac80f5b78fb2c8b568b63e3e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077141"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 
-이 문서에서는 Azure Portal를 사용 하 여 [Azure 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)를 백업 하는 방법을 설명 합니다.
+이 문서에서는 Azure Portal를 사용 하 여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 하는 방법을 설명 합니다.
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "85391159"
 * 파일 공유를 검색 하 고 백업을 구성 합니다.
 * 주문형 백업 작업을 실행 하 여 복원 지점을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 파일 공유를 호스트 하는 저장소 계정과 동일한 지역에서 [Recovery Services 자격 증명 모음](#create-a-recovery-services-vault) 을 식별 하거나 만듭니다.
 * 파일 공유가 지원 되는 [저장소 계정 유형](azure-file-share-support-matrix.md)중 하나에 있는지 확인 하세요.

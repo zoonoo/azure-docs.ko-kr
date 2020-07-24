@@ -4,15 +4,15 @@ description: Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소�
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84946962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077078"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
 Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
@@ -43,7 +43,7 @@ Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한
 
 AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.  
 
-| ResourceProvider    | 범주     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | 범주     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft Service1 | AuditLogs    | x | y1 | z1 |    |    |    |    |    |    |
 | Microsoft Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -60,7 +60,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
  
 - *Service1AuditLogs* 테이블은 다음과 같습니다.
 
-    | 리소스 공급자 | 범주 | A | B | C |
+    | 리소스 공급자 | 범주 | A | b | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -85,17 +85,15 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 
 
 ### <a name="select-the-collection-mode"></a>컬렉션 모드를 선택 합니다.
-대부분의 Azure 리소스는 사용자를 제공 하지 않고 **Azure 진단** 또는 **리소스 특정 모드** 에서 작업 영역에 데이터를 기록 합니다. 사용 모드에 대 한 자세한 내용은 [각 서비스에 대 한 설명서](diagnostic-logs-schema.md) 를 참조 하세요. 모든 Azure 서비스는 궁극적으로 리소스 특정 모드를 사용 합니다. 이러한 전환의 일부로 일부 리소스는 진단 설정에서 모드를 선택할 수 있습니다. 데이터를 더 쉽게 관리할 수 있도록 하 고 나중에 복잡 한 마이그레이션을 방지 하는 데 도움이 될 수 있으므로 모든 새 진단 설정에 대해 리소스 특정 모드를 지정 합니다.
+대부분의 Azure 리소스는 사용자를 제공 하지 않고 **Azure 진단** 또는 **리소스 특정 모드** 에서 작업 영역에 데이터를 기록 합니다. 사용 모드에 대 한 자세한 내용은 [각 서비스에 대 한 설명서](./resource-logs-schema.md) 를 참조 하세요. 모든 Azure 서비스는 궁극적으로 리소스 특정 모드를 사용 합니다. 이러한 전환의 일부로 일부 리소스는 진단 설정에서 모드를 선택할 수 있습니다. 데이터를 더 쉽게 관리할 수 있도록 하 고 나중에 복잡 한 마이그레이션을 방지 하는 데 도움이 될 수 있으므로 모든 새 진단 설정에 대해 리소스 특정 모드를 지정 합니다.
   
    ![진단 설정 모드 선택기](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> 현재는 Azure Portal에서 진단 설정을 구성 하는 경우에만 **Azure 진단** 및 **리소스 특정** 모드를 선택할 수 있습니다. CLI, PowerShell 또는 Rest API를 사용 하 여 설정을 구성 하는 경우 **Azure 진단**이 기본값으로 사용 됩니다.
+> Resource manager 템플릿을 사용 하 여 컬렉션 모드를 설정 하는 예제는 [Azure Monitor에서 진단 설정 리소스 관리자 템플릿 예제](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault)를 참조 하세요.
 
-기존 진단 설정을 리소스 특정 모드로 수정할 수 있습니다. 이 경우 이미 수집 된 데이터는 작업 영역의 보존 설정에 따라 제거 될 때까지 _Azurediagnostics_ 테이블에 남아 있습니다. 새 데이터는 전용 테이블에 수집 됩니다. [Union](https://docs.microsoft.com/azure/kusto/query/unionoperator) 연산자를 사용 하 여 두 테이블에서 데이터를 쿼리 합니다.
+
+기존 진단 설정을 리소스 특정 모드로 수정할 수 있습니다. 이 경우 이미 수집 된 데이터는 작업 영역의 보존 설정에 따라 제거 될 때까지 _Azurediagnostics_ 테이블에 남아 있습니다. 새 데이터는 전용 테이블에 수집 됩니다. [Union](/azure/kusto/query/unionoperator) 연산자를 사용 하 여 두 테이블에서 데이터를 쿼리 합니다.
 
 리소스 특정 모드를 지 원하는 Azure 서비스에 대 한 공지를 보려면 [Azure 업데이트](https://azure.microsoft.com/updates/) 블로그를 계속 시청 하세요.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 각 PT1H.json Blob은 Blob URL에 지정된 시간 내에서 발생한 이벤트의 JSON Blob을 포함합니다(예: h=12). 현재 시간 동안 이벤트는 발생하는 순서대로 PT1H.json 파일에 추가됩니다. 리소스 로그 이벤트는 시간당 개별 blob으로 분할 되므로 분 값 (m = 00)은 항상 00입니다.
 
-파일의 PT1H.js내에서 각 이벤트는 다음과 같은 형식으로 저장 됩니다. 이는 [리소스 로그 스키마](diagnostic-logs-schema.md)에 설명 된 대로 공통 최상위 스키마를 사용 하지만 각 Azure 서비스에 대해 고유 합니다.
+파일의 PT1H.js내에서 각 이벤트는 다음과 같은 형식으로 저장 됩니다. 이는 [리소스 로그 스키마](./resource-logs-schema.md)에 설명 된 대로 공통 최상위 스키마를 사용 하지만 각 Azure 서비스에 대해 고유 합니다.
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}

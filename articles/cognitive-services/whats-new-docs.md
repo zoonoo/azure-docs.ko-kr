@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 07/09/2020
-ms.openlocfilehash: da09cb8aa112cdf927c1a67401ab3f6a92e85ece
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 59d19bd2a1dca2a3bc3c6ec3aee9e63b8f12b5d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075183"
 ---
 # <a name="cognitive-services-docs-whats-new-for-june-1-2020---june-30-2020"></a>Cognitive Services docs: 2020-6 월 30 2020 일의 새로운 기능
 
@@ -69,16 +69,16 @@ ms.locfileid: "86225206"
 ### <a name="new-articles"></a>새 문서
 
 - [사용자 지정 명령 개념](/azure/cognitive-services/speech-service/custom-commands-references)
-- [명령에 확인 추가](/azure/cognitive-services/speech-service/how-to-custom-commands-add-confirmations)
-- [매개 변수를 외부 카탈로그 엔터티로 구성](/azure/cognitive-services/speech-service/how-to-custom-commands-add-external-catalog-string-entity)
+- [명령에 확인 추가](/azure/cognitive-services/speech-service/how-to-custom-commands-add-interaction-rules#add-confirmations-to-a-command)
+- [매개 변수를 외부 카탈로그 엔터티로 구성](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#configure-parameter-as-external-catalog-entity)
 - [음성 응답에 언어 생성 템플릿 사용](/azure/cognitive-services/speech-service/how-to-custom-commands-add-language-generation-templates)
-- [명령에서 수정 구현](/azure/cognitive-services/speech-service/how-to-custom-commands-add-one-step-correction)
+- [명령에서 수정 구현](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration)
 - [명령에 매개 변수 추가](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameters-to-commands)
-- [간단한 명령 추가](/azure/cognitive-services/speech-service/how-to-custom-commands-add-simple-commands)
-- [사용자 지정 명령 매개 변수에 유효성 검사 추가](/azure/cognitive-services/speech-service/how-to-custom-commands-add-validations)
-- [사용자 지정 명령 응용 프로그램 만들기](/azure/cognitive-services/speech-service/how-to-custom-commands-create-empty-project)
+- [간단한 명령 추가](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands)
+- [사용자 지정 명령 매개 변수에 유효성 검사 추가](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#add-validation-to-parameters)
+- [사용자 지정 명령 응용 프로그램 만들기](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands#create-empty-application)
 - [Custom Speech용 CI/CD](/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-- [사용자 지정 명령을 사용 하 여 종단 간 음성 도우미 만들기](/azure/cognitive-services/speech-service/quickstart-custom-commands-e2e-application)
+- [사용자 지정 명령을 사용 하 여 종단 간 음성 도우미 만들기](/azure/cognitive-services/speech-service/quickstart-custom-commands-application)
 - [빠른 시작: Speech Studio에서 오디오 파일을 사용하여 모델 테스트](/azure/cognitive-services/speech-service/quickstarts/speech-studio-test-model)
 - [Speaker Recognition의 기본 사항 알아보기](/azure/cognitive-services/speech-service/speaker-recognition-basics)
 - [Azure Speaker Recognition 서비스는 무엇 인가요?](/azure/cognitive-services/speech-service/speaker-recognition-overview)
@@ -89,7 +89,7 @@ ms.locfileid: "86225206"
 - [일괄 처리 기록 이란?](/azure/cognitive-services/speech-service/batch-transcription)
 - [Speech Service에 대한 언어 및 음성 지원](/azure/cognitive-services/speech-service/language-support)
 
-## <a name="text-analytics"></a>텍스트 분석
+## <a name="text-analytics"></a>Text Analytics
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
@@ -100,7 +100,7 @@ ms.locfileid: "86225206"
 - [빠른 시작: Python REST API를 사용하여 Text Analytics Cognitive Service 호출](/azure/cognitive-services/text-analytics/quickstarts/python)
 - [빠른 시작: Ruby를 사용하여 텍스트 분석 Cognitive Service 호출](/azure/cognitive-services/text-analytics/quickstarts/ruby)
 
-## <a name="translator"></a>변환기
+## <a name="translator"></a>Translator
 
 ### <a name="updated-articles"></a>업데이트된 문서
 

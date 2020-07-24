@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6af05a6c17253a2032f493a7d2cd6254dafd352c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075839"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 릴리스 정보
 
@@ -28,7 +28,6 @@ ms.locfileid: "85831423"
 새 기능이 모든 지역에 롤아웃되면 인스턴스에 배포된 버전과 기능 가용성에 대한 최신 릴리스 정보를 확인합니다. 버전을 확인하려면 SSMS(SQL Server Management Studio)를 통해 SQL 풀에 연결하고 `SELECT @@VERSION;`을 실행하여 현재 버전을 반환합니다. 이 버전을 사용하여 SQL 풀에 적용된 릴리스를 확인합니다. 출력의 날짜는 SQL 풀에 적용된 릴리스의 월을 식별합니다. 개선된 서비스 수준의 경우도 마찬가지입니다. 
 
 도구 개선을 위해 릴리스 정보에 지정된 올바른 버전을 설치했는지 확인합니다. 
-
 
 > [!NOTE]
 > SELECT @@VERSION에서 반환된 제품 이름은 Microsoft Azure SQL Data Warehouse에서 Microsoft Azure Synapse Analytics로 변경될 예정입니다. 변경을 수행하기 전에 자세한 공지를 보내 드립니다. 이 변경은 애플리케이션 코드의 SELECT @@VERSION 결과에서 제품 이름을 구문 분석하는 고객과 관련이 있습니다. 제품 재브랜딩으로 인한 애플리케이션 코드 변경을 방지하려면 다음 명령을 사용하여 SERVERPROPERTY에서 데이터베이스 제품 이름 및 버전을 쿼리합니다. 버전 번호 XX.X.XXXXX.X(제품 이름 제외)를 반환하려면 다음 명령을 사용합니다.
@@ -42,15 +41,17 @@ ms.locfileid: "85831423"
 > ```
 
 ## <a name="july-2020"></a>2020년 7월
+
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**열 수준 암호화 (공개 미리 보기)**|Transact-sql을 사용 하 여 데이터 열에 대칭 암호화를 적용 하 여 Synapse SQL data warehouse의 중요 한 정보를 보호 합니다. 열 수준 암호화에는 인증서, 암호, 대칭 키 또는 비대칭 키로 보호 되는 대칭 키를 사용 하 여 데이터를 암호화 하는 데 사용할 수 있는 기본 제공 함수가 있습니다. 자세한 내용은 [데이터 열 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest)를 참조 하세요.|
 |**GA (호환성 수준 지원)**|이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정하여 특정 버전의 Synapse SQL 엔진에 대한 Transact-SQL 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.|
 |**행 수준 보안**|이 릴리스에는 RLS를 적용 한 행에 대 한 업데이트 및 삭제 작업에 대 한 개선 사항이 포함 되어 있습니다. 이 릴리스에서는 내장 함수가 DML 대상 테이블의 열을 참조 하지 않는 경우 ' is_rolemember ' 같은 내장 함수를 사용 하 여 업데이트 및 삭제 작업이 성공 합니다. 이러한 향상 전에는 기본 DML 작업의 제한으로 인해 이러한 작업이 실패 했습니다.|
+|**GA (DBCC SHRINKDATABASE)**|이제 지정 된 데이터베이스에 있는 데이터 및 로그 파일의 크기를 축소할 수 있습니다. 자세한 내용은 [설명서](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)를 참조 하세요.|
 
 ## <a name="may-2020"></a>2020년 5월
 
-| 서비스 개선 사항 | 설명 |
+| 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**워크로드 격리(GA)**|[워크로드 격리](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation)가 이제 일반 공급됩니다.  [워크로드 그룹](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)을 통해 리소스를 예약하고 포함할 수 있습니다.  런어웨이 쿼리를 취소하도록 쿼리 제한 시간을 구성하는 기능을 사용할 수도 있습니다.|
 |**워크로드 관리 포털 환경(미리 보기)**| 사용자는 Azure Portal를 통해 워크로드 관리 설정을 구성하고 관리할 수 있습니다.  중요하게도 [워크로드 그룹](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) 및 [워크로드 분류자](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal)를 구성하는 기능도 사용할 수 있습니다.|
@@ -65,7 +66,7 @@ ms.locfileid: "85831423"
 
 ## <a name="april-2020"></a>2020년 4월
 
-| 서비스 개선 사항 | 설명 |
+| 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**데이터베이스 호환성 수준(미리 보기)**| 이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정하여 특정 버전의 Synapse SQL 엔진에 대한 Transact-SQL 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.|
 |**Sp_describe_undeclared_parameters**| 사용자가 Transact-SQL 일괄 처리에서 선언되지 않은 매개 변수에 대한 메타데이터를 볼 수 있도록 허용합니다. 자세한 내용은 [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.| <br/><br/><br/>
@@ -134,7 +135,7 @@ ms.locfileid: "85831423"
 
 ## <a name="march-2019"></a>2019년 3월
 
-| 서비스 개선 사항 | 설명 |
+| 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**데이터 검색 및 분류**|이제 Synapse SQL의 퍼블릭 미리 보기에서 데이터 검색 및 분류를 사용할 수 있습니다. 중요한 데이터를 보호하고 고객의 개인 정보를 보호하는 것이 중요합니다. 비즈니스 및 고객 데이터 자산이 증가하면서 데이터를 검색, 분류 및 보호하는 작업이 다루기 어려워 집니다. Synapse SQL에 기본적으로 도입된 데이터 검색 및 분류 기능은 데이터를 보다 효율적으로 보호하는 데 도움이 됩니다. 이 기능의 전체적인 이점은 다음과 같습니다.<br/>&bull; &nbsp; 데이터 프라이버시 표준 및 규정 준수 요구 사항 충족<br/>&bull; &nbsp; 매우 중요한 데이터가 들어 있는 데이터 웨어하우스에 대한 액세스 제어 및 보안 강화<br/>&bull; &nbsp; 중요한 데이터에 대한 비정상적인 액세스 모니터링 및 경고<br/>&bull; &nbsp; Azure Portal의 중앙 대시보드에서 중요한 데이터 시각화 </br></br>데이터 검색 및 분류는 모든 Azure 지역에서 사용할 수 있으며, 취약성 평가 및 위협 감지를 비롯한 고급 데이터 보안의 일부로 제공됩니다. 데이터 검색 및 분류에 대한 자세한 내용은 [블로그 게시물](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) 및 온라인 [설명서](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.|
 |**GROUP BY ROLLUP**|ROLLUP은 이제 지원되는 GROUP BY 옵션입니다.   GROUP BY ROLLUP은 열 식의 각 조합에 대한 그룹을 만듭니다. 또한 GROUP BY는 결과를 부분합 및 총합계로 "롤업"합니다. GROUP BY 함수는 오른쪽에서 왼쪽으로 이동하면서 그룹 및 집계를 만드는 열 식의 수를 줄입니다.  열 순서는 ROLLUP 출력에 영향을 주며, 결과 집합의 행 수에도 영향을 줄 수 있습니다.<br/><br/>GROUP BY ROLLUP에 대한 자세한 내용은 [GROUP BY(Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
@@ -154,7 +155,7 @@ ms.locfileid: "85831423"
 
 ### <a name="service-improvements"></a>서비스 개선 사항
 
-| 서비스 개선 사항 | 설명 |
+| 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**Return Order By Optimization**|SELECT…ORDER BY 쿼리는 이 릴리스에서 성능이 크게 개선되었습니다.   이제 모든 컴퓨팅 노드가 결과를 단일 컴퓨팅 노드로 보냅니다. 이 노드는 결과를 병합하고 정렬한 다음, 사용자에게 반환합니다.  쿼리 결과 세트에 많은 수의 행이 포함되어 있을 때 단일 컴퓨팅 노드를 통해 병합하면 성능이 크게 향상됩니다. 이전에는 쿼리 실행 엔진이 각 컴퓨팅 노드에서 결과를 정렬했습니다. 결과는 제어 노드로 스트리밍되었습니다. 그러면 제어 노드가 결과를 병합했습니다.|
 |**PartitionMove 및 BroadcastMove의 데이터 이동 기능 개선**|ShuffleMove 형식의 데이터 이동 단계는 인스턴트 데이터 이동 기법을 사용합니다.  자세한 내용은 [성능 향상 블로그](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/)를 참조하세요. 이번 릴리스에서는 동일한 인스턴트 데이터 이동 기술을 통해 PartitionMove 및 BroadcastMove가 지원됩니다. 이러한 유형의 데이터 이동 단계를 사용하는 사용자 쿼리의 성능이 개선됩니다. 이러한 성능 향상을 얻기 위해 코드를 변경할 필요는 없습니다.|

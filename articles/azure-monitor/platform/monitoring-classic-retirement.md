@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc603a890a112cf475e6ceafb79145dec5a56ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659478"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077221"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -27,7 +28,7 @@ Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나
 새 플랫폼에서 경고를 시작하고 다시 만드는 것이 좋습니다. 많은 수의 경고를 포함 하는 고객의 경우 기존 기존 경고를 중단 또는 추가 비용 없이 새 경고 시스템으로 이동 하는 [자발적 마이그레이션 도구인](alerts-using-migration-tool.md) [단계로 롤아웃](alerts-understand-migration.md#rollout-phases)됩니다.
 
 > [!IMPORTANT]
-> 활동 로그에서 생성된 클래식 경고 규칙은 더 이상 사용 또는 마이그레이션되지 않습니다. 활동 로그에서 생성된 모든 클래식 경고 규칙은 새로운 Azure Monitor - 경고에서 액세스하여 사용할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-activity-log.md)를 참조하세요. 마찬가지로, Service Health에 대한 경고는 새로운 Service Health 섹션에서 현재 상태로 액세스하여 사용할 수 있습니다. 자세한 내용은 [서비스 상태 알림에서 경고](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.
+> 활동 로그에서 생성된 클래식 경고 규칙은 더 이상 사용 또는 마이그레이션되지 않습니다. 활동 로그에서 생성된 모든 클래식 경고 규칙은 새로운 Azure Monitor - 경고에서 액세스하여 사용할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-activity-log.md)를 참조하세요. 마찬가지로, Service Health에 대한 경고는 새로운 Service Health 섹션에서 현재 상태로 액세스하여 사용할 수 있습니다. 자세한 내용은 [서비스 상태 알림에서 경고](../../service-health/alerts-activity-log-service-notifications-portal.md)를 참조하세요.
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Application Insights의 통합 메트릭 및 경고
 
@@ -38,7 +39,7 @@ Application Insights에 대한 새로운 통합 모니터링 및 경고에 포�
 - **Application Insights 플랫폼 메트릭** – Application Insights 제품에서 인기 있는 미리 작성된 메트릭을 제공합니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 플랫폼 메트릭 사용](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) 문서를 참조하세요.
 - **Application Insights 가용성 및 웹 테스트** - 웹 애플리케이션 또는 서버의 응답성과 가용성을 평가할 수 있는 기능을 제공합니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 가용성 테스트 및 알림 사용](../../azure-monitor/app/monitor-web-app-availability.md) 문서를 참조하세요.
 - **Application Insights 사용자 지정 메트릭** – 모니터링 및 경고에 대한 자체의 메트릭을 정의하고 내보낼 수 있습니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 사용자 지정 메트릭 사용](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) 문서를 참조하세요.
-- **Application Insights 오류 이상(스마트 검색의 일부)** – 웹 애플리케이션이 실패한 HTTP 요청 또는 종속성 호출의 속도가 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알려줍니다. 자세한 내용은 [스마트 검색 오류 비정상](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics)사용에 대 한 문서를 참조 하세요.
+- **Application Insights 오류 이상(스마트 검색의 일부)** – 웹 애플리케이션이 실패한 HTTP 요청 또는 종속성 호출의 속도가 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알려줍니다. 자세한 내용은 [스마트 검색 오류 비정상](../app/proactive-failure-diagnostics.md)사용에 대 한 문서를 참조 하세요.
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>다른 Azure 리소스에 대한 통합 메트릭 및 경고
 
@@ -53,11 +54,11 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 앞에서 설명한 대로, 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에서 사용할 수 있는 클래식 모니터링 및 경고 플랫폼은 새 시스템으로 교체됨에 따라 앞으로 몇 개월 내에 사용 중지됩니다.
 이전 클래식 모니터링 및 경고는 31 월 2019 일에 사용 중지 됩니다. 관련 Api, Azure Portal 인터페이스 및 서비스의 종료를 포함 합니다. 사용 중지되는 기능은 구체적으로 다음과 같습니다.
 
-- 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Azure 리소스에 대한 이전(클래식) 메트릭 및 경고이며, [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
-- 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
+- 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Azure 리소스에 대한 이전(클래식) 메트릭 및 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
+- 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
 - 현재 Azure Porta에서 [Application Insights 내 스마트 검색](../../azure-monitor/app/proactive-diagnostics.md)으로 사용할 수 있는 이전(클래식) 오류 이상 경고이며, Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에 표시된 경고 구성도 포함됩니다.
 
-해당 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure Portal 페이지](../../azure-monitor/platform/alerts-classic-portal.md)및 [리소스 템플릿을](../../azure-monitor/platform/alerts-enable-template.md) 포함 한 모든 클래식 모니터링 및 경고 시스템은 8 월 2019 일까 때까지 사용할 수 있습니다. 
+해당 [API](/rest/api/monitor/alertrules), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure Portal 페이지](../../azure-monitor/platform/alerts-classic-portal.md)및 [리소스 템플릿을](../../azure-monitor/platform/alerts-enable-template.md) 포함 한 모든 클래식 모니터링 및 경고 시스템은 8 월 2019 일까 때까지 사용할 수 있습니다. 
 
 8 월 2019 끝에 Azure Monitor:
 

@@ -4,18 +4,18 @@ description: Azure CLI를 사용 하 여 Azure Blockchain 서비스를 관리 �
 ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: fc00bedee5ff55033a1d65c6d5d6bfa766f0f01e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b41bc44c9efbf71621fcfba06e668f42caa0f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076929"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Blockchain 서비스 관리
 
 Azure Portal 외에도 Azure CLI를 사용 하 여 Azure Blockchain 서비스의 블록 체인 구성원 및 트랜잭션 노드를 관리할 수 있습니다.
 
-최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 를 설치 하 고를 사용 하 여의 Azure 계정에 로그인 했는지 확인 `az login` 합니다.
+최신 [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고를 사용 하 여의 Azure 계정에 로그인 했는지 확인 `az login` 합니다.
 
 다음 예제에서는 예제를 `<parameter names>` 사용자 고유의 값으로 바꿉니다.
 
@@ -226,10 +226,10 @@ az role assignment create \
 | 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
-| **assignee** | Azure AD 사용자 ID입니다. 예를 들면 `user@contoso.com`과 같습니다. |
+| **assignee** | Azure AD 사용자 ID입니다. 예를 들어 `user@contoso.com` |
 | **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
-**예제:**
+**예:**
 
 Azure AD 사용자에 대 한 노드 액세스를 blockchain **구성원**에 게 부여:
 
@@ -240,7 +240,7 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**예제:**
+**예:**
 
 Blockchain **트랜잭션 노드에**Azure AD 사용자에 대 한 노드 액세스를 부여 합니다.
 
@@ -265,7 +265,7 @@ az role assignment create \
 | **담당자-개체-id** | Azure AD 그룹 ID 또는 응용 프로그램 ID입니다. |
 | **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
-**예제:**
+**예:**
 
 **응용 프로그램 역할** 에 대 한 노드 액세스 권한 부여
 
@@ -288,7 +288,7 @@ az role assignment delete \
 | 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
-| **assignee** | Azure AD 사용자 ID입니다. 예를 들면 `user@contoso.com`과 같습니다. |
+| **assignee** | Azure AD 사용자 ID입니다. 예를 들어 `user@contoso.com` |
 | **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 78cdf1798d9176c9d3c7b3705a11dccde5e47e67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077104"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Azure Monitor의 로그 수집을 위한 고객 소유 스토리지 계정
 
@@ -54,7 +54,7 @@ BYOS를 필요로 하는 한 가지 시나리오는 Private Link를 통한 네�
 ## <a name="command-line-and-rest-api"></a>명령줄 및 REST API
 
 ### <a name="command-line"></a>명령 줄
-연결 된 저장소 계정을 만들고 관리 하려면 [az monitor log analytics 작업 영역 연결 된 저장소](/cli/azure/monitor/log-analytics/workspace/linked-storage)를 사용 합니다. 이 명령은 작업 영역에서 저장소 계정을 연결 하 고 연결을 해제 하 고 연결 된 저장소 계정을 나열할 수 있습니다.
+연결 된 저장소 계정을 만들고 관리 하려면 [az monitor log analytics 작업 영역 연결 된 저장소](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage)를 사용 합니다. 이 명령은 작업 영역에서 저장소 계정을 연결 하 고 연결을 해제 하 고 연결 된 저장소 계정을 나열할 수 있습니다.
 
 ### <a name="request-and-cli-values"></a>요청 및 CLI 값
 

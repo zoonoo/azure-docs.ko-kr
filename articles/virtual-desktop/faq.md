@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b7ab9e63bfe92967eca22b60dceec0de882768a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531865"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075632"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Windows 가상 데스크톱 FAQ
 
@@ -121,7 +121,7 @@ FSLogix의 제한 또는 할당량은 사용자 프로필 VHD (X) 파일을 저�
 | 리소스 | 요구 사항 |
 |---|---|
 | 안정적인 상태 IOPS | 10 |
-| 로그인/로그 아웃 IOPS | 5 |
+| 로그인/로그 아웃 IOPS | 50 |
 
 이 표의 예는 단일 사용자 이지만 사용자 환경의 총 사용자 수에 대 한 요구 사항을 예측 하는 데 사용할 수 있습니다. 예를 들어 100 사용자의 경우 1000 IOPS를, 로그인 및 로그 아웃 중에는 5000 IOPS를 기준으로 해야 합니다.
 

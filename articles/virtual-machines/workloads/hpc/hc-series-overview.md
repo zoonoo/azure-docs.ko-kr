@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7110f3417937b623260983a9d94e9e6834fc8fc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906752"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077384"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요
 
@@ -40,7 +41,7 @@ Intel Xeon Platinum, Gold 및 은색 Cpu는 또한 CPU 소켓 내부 및 외부�
 
 | 하드웨어 사양          | HC 시리즈 VM                     |
 |----------------------------------|----------------------------------|
-| 코어 수                            | 44 (HT 사용 안 함)                 |
+| 코어                            | 44 (HT 사용 안 함)                 |
 | CPU                              | Intel Xeon 플래티넘 8168 *        |
 | CPU 빈도 (비 AVX)          | 3.7 g h z (단일 코어), 2.7-3.4 GHz (모든 코어) |
 | 메모리                           | 8gb/코어 (총 352)            |
@@ -62,6 +63,6 @@ Intel Xeon Platinum, Gold 및 은색 Cpu는 또한 CPU 소켓 내부 및 외부�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure의 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) 및 [WINDOWS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) 용 HPC VM 크기에 대해 자세히 알아보세요.
+* Azure의 [Linux](../../sizes-hpc.md) 및 [WINDOWS](../../sizes-hpc.md) 용 HPC VM 크기에 대해 자세히 알아보세요.
 
-* Azure의 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.
+* Azure의 [HPC](/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.

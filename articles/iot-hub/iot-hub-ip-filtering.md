@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 742706f4daa518faf06e5c8b735e679f345f1279
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849871"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074722"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -124,7 +125,7 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-IoT Hub의 IP 필터는 [Azure PowerShell](/powershell/azure/overview)을 통해 검색 및 설정할 수 있습니다.
+IoT Hub의 IP 필터는 [Azure PowerShell](/powershell/azure/)을 통해 검색 및 설정할 수 있습니다.
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name

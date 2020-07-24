@@ -1,18 +1,20 @@
 ---
-title: GitHub 작업에서 Key Vault를 사용 하 여 Azure 스프링 클라우드 인증
+title: GitHub Actions에서 Key Vault를 사용하여 Azure Spring Cloud 인증
 description: GitHub 작업을 사용 하 여 Azure 스프링 클라우드의 CI/CD 워크플로와 함께 key vault를 사용 하는 방법
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076015"
 ---
-# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>GitHub 작업에서 Key Vault를 사용 하 여 Azure 스프링 클라우드 인증
+# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>GitHub Actions에서 Key Vault를 사용하여 Azure Spring Cloud 인증
 Key vault는 키를 저장할 수 있는 안전한 장소입니다. 기업 사용자는 CI/CD 환경의 자격 증명을 제어 하는 범위 내에 저장 해야 합니다. 키 자격 증명 모음에서 자격 증명을 가져오는 키는 리소스 범위로 제한 되어야 합니다.  전체 Azure 범위가 아니라 key vault 범위에만 액세스할 수 있습니다. 이는 건물의 모든 도어를 열 수 있는 마스터 키가 아닌 강력한 상자를 열 수 있는 키와 같습니다. CICD 워크플로에서 유용한 다른 키를 사용 하 여 키를 가져오는 방법입니다. 
 
 ## <a name="generate-credential"></a>자격 증명 생성

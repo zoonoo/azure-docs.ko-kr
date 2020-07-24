@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8f8a333c880850b239fbaba1ea405b94a1460e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508506"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076736"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리
 
@@ -48,12 +48,12 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
-- [주요 자격 증명 모음 만들기](quick-create-cli.md)
+- [키 자격 증명 모음 만들기](quick-create-cli.md)
 - [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md?tabs=azure-cli) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 ## <a name="manage-storage-account-keys"></a>저장소 계정 키 관리
@@ -90,7 +90,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 스토리지 계정에 대한 권한은 Azure Portal의 스토리지 계정 “액세스 정책” 페이지에서 제공되지 않습니다.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Key Vault 관리 저장소 계정 만들기
 
- Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) 명령을 사용 하 여 Key Vault 관리 저장소 계정을 만듭니다. 90 일의 다시 생성 기간을 설정 합니다. 90 일 후 Key Vault가 다시 생성 되 `key1` 고 활성 키를 `key2` 에서로 바꿉니다 `key1` . `key1`가 활성 키로 표시 됩니다. 다음 매개 변수 값에 명령을 제공 합니다.
+ Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) 명령을 사용 하 여 Key Vault 관리 저장소 계정을 만듭니다. 90 일의 다시 생성 기간을 설정 합니다. 회전할 시간이 면 KeyVault는 활성 상태가 아닌 키를 다시 생성 한 다음 새로 만든 키를 활성으로 설정 합니다. 한 번에 하나의 키만 SAS 토큰을 발급 하는 데 사용 됩니다 .이 키는 활성 키입니다. 다음 매개 변수 값에 명령을 제공 합니다.
 
 - `--vault-name`: Key vault의 이름을 전달 합니다. Key vault의 이름을 찾으려면 Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) 명령을 사용 합니다.
 - `-n`: 저장소 계정의 이름을 전달 합니다. 저장소 계정의 이름을 찾으려면 Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용 합니다.

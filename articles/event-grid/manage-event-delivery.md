@@ -2,19 +2,22 @@
 title: 배달 못한 편지 및 재시도 정책-Azure Event Grid
 description: Event Grid에 대한 이벤트 전송 옵션을 사용자 지정하는 방법을 설명합니다. 배달 못한 편지 대상을 설정하고 배달을 다시 시도하기 위한 기간을 지정합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074875"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
 
 이벤트 구독을 만들 때 이벤트 전송 설정을 사용자 지정할 수 있습니다. 이 문서에서는 배달 못한 편지 위치를 설정하고 재시도 설정을 사용자 지정하는 방법을 보여 줍니다. 이 기능에 대한 자세한 내용은 [Event Grid 메시지 전송 및 재시도](delivery-and-retry.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> 메시지 배달, 다시 시도 및 배달 못 한 편지에 대해 알아보려면 개념 문서 [Event Grid 메시지 배달 및 다시 시도]()를 참조 하세요.
 
 ## <a name="set-dead-letter-location"></a>배달 못한 편지 위치 설정
 
@@ -95,7 +98,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-`event-ttl` 및 `max-deliver-attempts`를 모두 설정하면 Event Grid는 먼저 만료되는 것을 사용하여 이벤트 전송을 중지할 시기를 결정합니다.
+> [!NOTE]
+> `event-ttl` 및 `max-deliver-attempts`를 모두 설정하면 Event Grid는 먼저 만료되는 것을 사용하여 이벤트 전송을 중지할 시기를 결정합니다. 예를 들어 30 분을 TTL (time to live) 및 10 개의 최대 배달 시도로 설정 하는 경우입니다. 10 번의 시도 후에도 30 분 (또는)이 전달 되지 않으면 이벤트는 배달 되지 않습니다.  
 
 ### <a name="powershell"></a>PowerShell
 
@@ -123,7 +127,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-`EventTtl` 및 `MaxDeliveryAttempt`를 모두 설정하면 Event Grid는 먼저 만료되는 것을 사용하여 이벤트 전송을 중지할 시기를 결정합니다.
+> [!NOTE]
+> `event-ttl` 및 `max-deliver-attempts`를 모두 설정하면 Event Grid는 먼저 만료되는 것을 사용하여 이벤트 전송을 중지할 시기를 결정합니다. 예를 들어 30 분을 TTL (time to live) 및 10 개의 최대 배달 시도로 설정 하는 경우입니다. 10 번의 시도 후에도 30 분 (또는)이 전달 되지 않으면 이벤트는 배달 되지 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

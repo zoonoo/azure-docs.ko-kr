@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077916"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 
@@ -138,7 +138,7 @@ Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>푸시 알림 배달 보안 모델이란?
 
-Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 기반 보안 모델을 사용합니다. 루트 네임스페이스 수준 또는 상세한 알림 허브 수준에서 공유 액세스 서명 토큰을 사용할 수 있습니다. 메시지 보내기 권한, 알림 수신 대기 권한 등의 여러 권한 부여 규칙에 따라 공유 액세스 서명 토큰을 설정할 수 있습니다. 자세한 내용은 [Notification Hubs 보안 모델] 문서를 참조하세요.
+Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/storage-sas-overview.md) 기반 보안 모델을 사용합니다. 루트 네임스페이스 수준 또는 상세한 알림 허브 수준에서 공유 액세스 서명 토큰을 사용할 수 있습니다. 메시지 보내기 권한, 알림 수신 대기 권한 등의 여러 권한 부여 규칙에 따라 공유 액세스 서명 토큰을 설정할 수 있습니다. 자세한 내용은 [Notification Hubs 보안 모델] 문서를 참조하세요.
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>푸시 알림의 중요한 페이로드를 어떻게 처리해야 하나요?
 
@@ -191,7 +191,7 @@ Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공
 
 Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
-프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [.Net을 사용 하 여 Azure Monitor 메트릭을 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면 [다음 예제](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)와 같이 FromServicePrincipal 메서드를 오버 로드 하 여 인증서를 제공 합니다. 
 - [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
@@ -203,15 +203,15 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Azure Portal]: https://portal.azure.com
 [Notification Hubs 가격 책정]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Notification Hubs REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[Notification Hubs REST API]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[백 엔드 등록 지침 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Notification Hubs 보안 모델]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs 보안 푸시 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs 문제 해결]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[백 엔드 등록 지침]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[백 엔드 등록 지침 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Notification Hubs 보안 모델]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Notification Hubs 보안 푸시 자습서]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Notification Hubs 문제 해결]: ./notification-hubs-push-notification-fixer.md
 [Notification Hubs 메트릭]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[등록 내보내기/가져오기]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[등록 내보내기/가져오기]: ./export-modify-registrations-bulk.md
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

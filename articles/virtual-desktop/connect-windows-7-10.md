@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73811aa58b09e394468596f42e0ff221b2bb240b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1f813d0ada516f6090b97e5858cefab110636f90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077596"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 
@@ -25,7 +25,7 @@ ms.locfileid: "86262041"
 > Windows Virtual Desktop 2020 봄 업데이트는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Windows 데스크톱 클라이언트를 사용 하 여 windows 7, Windows 10 및 Windows 10 IoT Enterprise를 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
+Windows 데스크톱 클라이언트를 사용 하 여 windows 7, Windows 10 및 Windows 10 IoT Enterprise를 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 클라이언트는 창 8 또는 Windows 8.1을 지원 하지 않습니다.
 
 >[!NOTE]
 >Windows 클라이언트는 Windows 가상 데스크톱 2019 릴리스를 자동으로 설정 합니다. 그러나 클라이언트가 사용자에 게 Azure Resource Manager 리소스가 있음을 감지 하면 리소스를 자동으로 추가 하거나 사용자에 게 사용 가능 여부를 알립니다.
@@ -69,7 +69,7 @@ Windows 버전과 일치하는 클라이언트를 선택합니다.
      - Windows 가상 데스크톱 2019년 가을: `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Windows 가상 데스크톱 2020년 봄: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - **전자 메일** 필드를 대신 사용 하는 경우 전자 메일 주소를 입력 합니다. 이렇게 하면 관리자가 [전자 메일 검색](/windows-server/remote/remote-desktop-services/rds-email-discovery)을 설정 하는 경우 전자 메일 주소와 연결 된 URL을 검색 하도록 클라이언트에 지시 합니다.
-3. **다음**을 선택합니다.
+3. **새로 만들기**를 선택합니다.
 4. 메시지가 표시되면 사용자 계정으로 로그인합니다.
 5. 리소스는 연결 센터에 작업 영역 별로 그룹화 되어 표시 됩니다.
 

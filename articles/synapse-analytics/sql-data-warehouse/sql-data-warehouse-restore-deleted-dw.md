@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f369be97c65c7d6704e61241c4455eb60166b2c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc21dc67dd6c686eedf307660a8d8b7afd60db71
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205155"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075853"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용 하 여 삭제 된 SQL 풀 복원
 
@@ -32,7 +32,7 @@ ms.locfileid: "85205155"
 
 삭제 된 SQL 풀을 복원 하려면 [AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용 합니다. 해당 서버도 삭제 된 경우 해당 데이터 웨어하우스를 복원할 수 없습니다.
 
-1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
+1. 시작 하기 전에 [Azure PowerShell을 설치](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
 2. PowerShell을 엽니다.
 3. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
 4. 복원할 삭제 된 SQL 풀을 포함 하는 구독을 선택 합니다.

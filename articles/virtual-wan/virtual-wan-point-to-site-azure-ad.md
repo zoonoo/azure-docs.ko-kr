@@ -2,23 +2,23 @@
 title: '사용자 VPN 연결에 대 한 Azure AD 인증 구성: 가상 WAN'
 description: 사용자 VPN에 대 한 Azure Active Directory 인증을 구성 하는 방법을 알아봅니다.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753954"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077480"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대 한 Azure Active Directory 인증 구성
 
 이 문서에서는 OpenVPN VPN 연결을 통해 Azure에서 리소스에 연결 하도록 가상 WAN의 사용자 VPN에 대 한 Azure AD 인증을 구성 하는 방법을 보여 줍니다. Azure Active Directory 인증은 OpenVPN 프로토콜을 사용하는 게이트웨이와 Windows를 실행하는 클라이언트에서만 사용할 수 있습니다.
 
-이 연결 유형은 클라이언트 컴퓨터에서 클라이언트를 구성해야 합니다. 가상 WAN에 대 한 자세한 내용은 [가상 Wan 개요](virtual-wan-about.md)를 참조 하세요.
+이 연결 유형은 클라이언트 컴퓨터에서 클라이언트를 구성해야 합니다. Virtual WAN에 대한 자세한 내용은 [Virtual WAN 개요](virtual-wan-about.md)를 참조하세요.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "84753954"
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
-* 연결하려는 가상 네트워크가 있습니다. 온-프레미스 네트워크의 어떤 서브넷도 연결하려는 가상 네트워크 서브넷과 중첩되지 않는지 확인합니다. Azure Portal에서 가상 네트워크를 만들려면 [빠른](../virtual-network/quick-create-portal.md)시작을 참조 하세요.
+* 연결하려는 가상 네트워크가 있습니다. 온-프레미스 네트워크의 어떤 서브넷도 연결하려는 가상 네트워크 서브넷과 중첩되지 않는지 확인합니다. Azure Portal에서 가상 네트워크를 만들려면 [빠른 시작](../virtual-network/quick-create-portal.md)을 참조하세요.
 
 * 가상 네트워크에 가상 네트워크 게이트웨이가 없습니다. 가상 네트워크에 게이트웨이(VPN 또는 ExpressRoute)가 있으면 모든 게이트웨이를 제거해야 합니다. 이 구성을 사용하려면 가상 네트워크가 Virtual WAN 허브 게이트웨이에 연결되어야 합니다.
 
@@ -158,11 +158,11 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제 진단
 

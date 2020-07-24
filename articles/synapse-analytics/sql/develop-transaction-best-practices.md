@@ -1,5 +1,5 @@
 ---
-title: SQL 풀 트랜잭션 최적화
+title: SQL 풀의 트랜잭션 최적화
 description: 긴 롤백에 대한 위험을 최소화하면서 SQL 풀(데이터 웨어하우스)의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0c55cc6e0fc15b663667a5131e2dd333106418cd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075718"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 최적화
 

@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076443"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -29,7 +30,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 ## <a name="add-a-co-administrator"></a>공동 관리자 추가
 
 > [!TIP]
-> 사용자가 [Azure 서비스 관리 PowerShell 모듈](https://docs.microsoft.com/powershell/module/servicemanagement/azure)을 사용하여 Azure 클래식 배포를 관리해야 하는 경우에만 공동 관리자를 추가하면 됩니다. 사용자가 Azure Portal을 통해서만 클래식 리소스를 관리하는 경우 사용자에 대한 클래식 관리자를 추가할 필요가 없습니다.
+> 사용자가 [Azure 서비스 관리 PowerShell 모듈](/powershell/module/servicemanagement/azure.service)을 사용하여 Azure 클래식 배포를 관리해야 하는 경우에만 공동 관리자를 추가하면 됩니다. 사용자가 Azure Portal을 통해서만 클래식 리소스를 관리하는 경우 사용자에 대한 클래식 관리자를 추가할 필요가 없습니다.
 
 1. 서비스 관리자 또는 공동 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 
@@ -61,7 +62,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
 ### <a name="differences-for-guest-users"></a>게스트 사용자의 차이점
 
-공동 관리자 역할이 할당 된 게스트 사용자는 공동 관리자 역할을 사용 하는 멤버 사용자에 비해 몇 가지 차이점을 확인할 수 있습니다. 다음 시나리오를 고려하세요.
+공동 관리자 역할이 할당 된 게스트 사용자는 공동 관리자 역할을 사용 하는 멤버 사용자에 비해 몇 가지 차이점을 확인할 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
 
 - Azure AD 계정 (회사 또는 학교 계정)을 사용 하는 사용자 A는 Azure 구독에 대 한 서비스 관리자입니다.
 - 사용자 B에게는 Microsoft 계정이 있습니다.

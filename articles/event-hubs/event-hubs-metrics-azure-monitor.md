@@ -3,18 +3,18 @@ title: Azure Monitor의 메트릭 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Monitoring을 사용하여 Azure Event Hubs를 모니터링하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 76df9920c517e8370409bca26e5a6533c7253c1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7841007fa1736c88c30108099f86b99d3dad0fb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074870"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Event Hubs 메트릭
 
 Event Hubs 메트릭은 Azure 구독에서 Event Hubs 리소스의 상태를 제공 합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준뿐만 아니라 엔터티 수준에서 Event Hubs의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Event Hubs의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
 
-Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../monitoring-and-diagnostics/monitoring-overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
+Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../azure-monitor/overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
@@ -103,7 +103,7 @@ Azure Event Hubs는 Azure Monitor의 메트릭에 대해 다음과 같은 차원
 Azure Monitor를 사용 하 여 모니터링 데이터 (활동 로그, 진단 로그 등)를 이벤트 허브로 라우팅하는 방법으로 SIEM (보안 정보 및 이벤트 관리) 도구와 쉽게 통합할 수 있습니다. 자세한 내용은 다음 문서/블로그 게시물을 참조 하세요.
 
 - [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
-- [Azure Log Integration 소개](../security/fundamentals/azure-log-integration-overview.md)
+- [Azure Log Integration 소개](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 - [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 SIEM 도구가 이벤트 허브에서 로그 데이터를 사용 하는 시나리오에서 들어오는 메시지가 표시 되지 않거나 메트릭 그래프에 들어오는 메시지가 있지만 나가는 메시지가 표시 되지 않으면 다음 단계를 수행 합니다.
@@ -114,7 +114,7 @@ SIEM 도구가 이벤트 허브에서 로그 데이터를 사용 하는 시나�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor 개요](../monitoring-and-diagnostics/monitoring-overview.md)를 참조하세요.
+* [Azure Monitor 개요](../azure-monitor/overview.md)를 참조하세요.
 * GitHub의 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플입니다. 
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
@@ -129,6 +129,3 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 
 [1]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor1.png
 [2]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor2.png
-
-
-

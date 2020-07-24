@@ -7,11 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0db618d63964c6f271f9a14b91849e704cfd7820
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656662"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077519"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
 
@@ -23,7 +24,7 @@ ms.locfileid: "83656662"
 
 Azure Image Builder는 sysprep를 자동으로 실행하여 이미지를 일반화합니다. 이 명령은 필요한 경우 [재정의](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully)할 수 있는 일반 sysprep 명령입니다. 
 
-사용자 지정 레이어링 횟수를 확인합니다. 단일 Windows 이미지에서 Sysprep 명령을 최대 8번 실행할 수 있습니다. Sysprep을 8번 실행한 후에는 Windows 이미지를 다시 만들어야 합니다. 자세한 내용은 [Sysprep을 실행할 수 있는 횟수 제한](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)을 참조하세요. 
+사용자 지정 레이어링 횟수를 확인합니다. 단일 Windows 이미지에서 Sysprep 명령을 최대 8번 실행할 수 있습니다. Sysprep을 8번 실행한 후에는 Windows 이미지를 다시 만들어야 합니다. 자세한 내용은 [Sysprep을 실행할 수 있는 횟수 제한](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)을 참조하세요. 
 
 > [!IMPORTANT]
 > Azure Image Builder는 현재 퍼블릭 미리 보기로 제공됩니다.
@@ -97,7 +98,7 @@ New-AzResourceGroup `
 
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-Image Builder는 제공된 [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell)를 사용하여 Azure SIG(공유 이미지 갤러리)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+Image Builder는 제공된 [user-identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 사용하여 Azure SIG(공유 이미지 갤러리)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```powershell
 # setup role def names, these need to be unique

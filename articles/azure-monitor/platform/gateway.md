@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077277"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -149,7 +149,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>명령줄을 사용 하 여 Log Analytics 게이트웨이 설치
 
-게이트웨이의 다운로드 된 파일은 명령줄 또는 다른 자동화 된 메서드에서 자동 설치를 지 원하는 Windows Installer 패키지입니다. Windows Installer에 대 한 표준 명령줄 옵션에 익숙하지 않은 경우 [명령줄 옵션](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)을 참조 하세요.
+게이트웨이의 다운로드 된 파일은 명령줄 또는 다른 자동화 된 메서드에서 자동 설치를 지 원하는 Windows Installer 패키지입니다. Windows Installer에 대 한 표준 명령줄 옵션에 익숙하지 않은 경우 [명령줄 옵션](/windows/desktop/msi/command-line-options)을 참조 하세요.
  
 다음 표에서는 설치 프로그램에서 지 원하는 매개 변수를 보여 줍니다.
 
@@ -185,11 +185,11 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 
 ## <a name="configure-network-load-balancing"></a>네트워크 부하 분산 구성
 
-Microsoft [nlb (네트워크 부하 분산)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)또는 하드웨어 기반 부하 분산 장치를 사용 하 여 nlb (네트워크 부하 분산)를 사용 하 여 고가용성을 위해 게이트웨이를 구성할 수 있습니다. 부하 분산 장치는 노드 전반에 걸쳐 Log Analytics 에이전트 또는 Operations Manager 관리 서버에서 요청된 연결을 리디렉션하여 트래픽을 관리합니다. 게이트웨이 서버가 하나 다운되면 트래픽은 다른 노드로 리디렉션됩니다.
+Microsoft [nlb (네트워크 부하 분산)](/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)또는 하드웨어 기반 부하 분산 장치를 사용 하 여 nlb (네트워크 부하 분산)를 사용 하 여 고가용성을 위해 게이트웨이를 구성할 수 있습니다. 부하 분산 장치는 노드 전반에 걸쳐 Log Analytics 에이전트 또는 Operations Manager 관리 서버에서 요청된 연결을 리디렉션하여 트래픽을 관리합니다. 게이트웨이 서버가 하나 다운되면 트래픽은 다른 노드로 리디렉션됩니다.
 
 ### <a name="microsoft-network-load-balancing"></a>Microsoft 네트워크 부하 분산
 
-Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배포하는 방법을 알아보려면 [네트워크 부하 분산](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)을 참조하세요. 다음 단계에서는 Microsoft 네트워크 부하 분산 클러스터를 구성하는 방법에 대해 설명합니다.  
+Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배포하는 방법을 알아보려면 [네트워크 부하 분산](/windows-server/networking/technologies/network-load-balancing)을 참조하세요. 다음 단계에서는 Microsoft 네트워크 부하 분산 클러스터를 구성하는 방법에 대해 설명합니다.  
 
 1. NLB 클러스터의 구성원인 Windows 서버에 관리 계정으로 로그인합니다.  
 2. [서버 관리자]에서 [네트워크 부하 분산 관리자]를 열고, **도구**를 클릭한 다음 **네트워크 부하 분산 관리자**를 클릭합니다.
@@ -248,7 +248,7 @@ OMS 게이트웨이를 사용 하 여 Operations Manager을 지원 하려면 다
 
 Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 등록 하는 경우 운영 콘솔에서 관리 그룹에 대 한 프록시 구성을 지정 하는 옵션이 표시 되지 않습니다. 이 옵션은 관리 그룹이 서비스에 등록 된 경우에만 사용할 수 있습니다.  
 
-통합을 구성 하려면 운영 콘솔과 관리 그룹의 모든 관리 서버를 실행 하는 시스템에서 Netsh를 사용 하 여 시스템 프록시 구성을 업데이트 합니다. 다음 단계를 수행하세요.
+통합을 구성 하려면 운영 콘솔과 관리 그룹의 모든 관리 서버를 실행 하는 시스템에서 Netsh를 사용 하 여 시스템 프록시 구성을 업데이트 합니다. 다음 단계를 수행합니다.
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
 
@@ -305,13 +305,13 @@ Log Analytics 게이트웨이 서버를 사용 하도록 특정 서버 또는 �
 
 컴퓨터가 Hybrid Runbook Worker으로 자동으로 등록 된 경우, 예를 들어 하나 이상의 Vm에 대해 업데이트 관리 솔루션을 사용 하도록 설정한 경우 다음 단계를 수행 합니다.
 
-1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예를 들면 다음과 같습니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. `Restart-Service OMSGatewayService` PowerShell cmdlet을 사용하여 Log Analytics 게이트웨이 서비스를 다시 시작합니다.
 
 Hybrid Runbook Worker 등록 cmdlet을 사용 하 여 Azure Automation에 컴퓨터를 연결 하는 경우 다음 단계를 수행 합니다.
 
-1. 에이전트 서비스 등록 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 에이전트 서비스 등록 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예를 들면 다음과 같습니다. `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예를 들면 다음과 같습니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Log Analytics 게이트웨이 서비스를 다시 시작합니다.
     `Restart-Service OMSGatewayService`
 
@@ -327,10 +327,10 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 
 3 단계의 오류는 모듈을 가져오지 못했음을 의미 합니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. OMS 게이트웨이 설치 경로: *C:\Program FILES\MICROSOFT oms Gateway\PowerShell\OmsGateway*에서 모듈을 찾을 수 있습니다.
 
-| **Cmdlet** | **매개 변수** | **설명** | **예제** |
+| **#A0** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Key |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |키(필수) <br> Value |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 (보안 문자열) |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시와 자격 증명을 설정 합니다.<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시를 설정 합니다.`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |현재 허용 된 호스트 가져오기 (로컬로 구성 된 허용 된 호스트만, 허용 된 호스트를 자동으로 다운로드 하지 않음) |`Get-OMSGatewayAllowedHost` | 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: d723e60afe543808c88b1ae040e2979412ff324c
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 4f3b4b5e26c8feab44a01d3714c194eee0fc98e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076294"
 ---
 # <a name="azure-customer-data-protection"></a>Azure 고객 데이터 보호   
 Microsoft 운영 및 지원 담당자의 고객 데이터 액세스는 기본적으로 거부됩니다. 지원 사례와 관련 된 데이터에 대 한 액세스 권한이 부여 되는 경우 준수 및 개인 정보 취급 방침에 대해 감사 되 고 점검 되었다는 정책을 사용 하는 JIT (just-in-time) 모델만 사용 하도록 허가 됩니다.  액세스 제어 요구 사항은 다음 Azure 보안 정책으로 설정됩니다.

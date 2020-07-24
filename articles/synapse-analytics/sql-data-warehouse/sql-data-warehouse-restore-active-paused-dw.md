@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fab00848f6541f6f6eb386168c5bae76e822856a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8dc7be63506e586b90d1e389d26ac591dce9c3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075879"
 ---
 # <a name="restore-an-existing-sql-pool"></a>기존 SQL 풀 복원
 
@@ -28,7 +28,7 @@ ms.locfileid: "85205223"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-1. [Azure PowerShell을 설치](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
+1. [Azure PowerShell을 설치](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)해야 합니다.
 2. 복원 하려는 기존 복원 지점이 있어야 합니다. 새 복원을 만들려면 자습서를 참조 [하 여 새 사용자 정의 복원 지점을 만듭니다](sql-data-warehouse-restore-points.md).
 
 ## <a name="restore-an-existing-sql-pool-through-powershell"></a>PowerShell을 통해 기존 SQL 풀 복원

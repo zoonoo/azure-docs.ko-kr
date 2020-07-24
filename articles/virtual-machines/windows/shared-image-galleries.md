@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225370f3aca3f1b9ff84bb677f3c125de73a99aa
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73ce7091cd012fd6ccfcc53779ce0dd42be65818
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077539"
 ---
 # <a name="shared-image-gallery-overview"></a>공유 이미지 갤러리 개요
 
@@ -24,4 +24,4 @@ ms.locfileid: "86224386"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure PowerShell을 사용하여 공유 이미지를 배포](shared-images.md)하는 방법을 알아봅니다.
+[Azure PowerShell을 사용하여 공유 이미지를 배포](../shared-images-powershell.md)하는 방법을 알아봅니다.

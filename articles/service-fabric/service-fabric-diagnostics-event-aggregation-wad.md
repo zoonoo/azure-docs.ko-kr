@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076136"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -26,11 +26,11 @@ Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 다음 도구가 사용됩니다.
 
-* [Azure 리소스 관리자](../azure-resource-manager/management/overview.md)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+* [Azure PowerShell](/powershell/azure/)
 * [Azure Resource Manager 템플릿](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Service Fabric 플랫폼 이벤트

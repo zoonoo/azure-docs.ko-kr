@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d611be27d8d576748019dee46022ca4cb70e966a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b917ef9234ef2e0d36526bc1688dfae2020d6b51
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075469"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업이 무기한 보존되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
@@ -159,7 +159,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
-[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 스크립트를 통해 백업 관리를 자동화할 수 있습니다.
+[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/)을 사용하여 스크립트를 통해 백업 관리를 자동화할 수 있습니다.
 
 샘플을 보려면 다음을 참조하세요.
 

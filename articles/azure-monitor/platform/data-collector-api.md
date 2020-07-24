@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/01/2019
-ms.openlocfilehash: bcce08285c7412644de22f19ddd9d821ad3adea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 80ad9475eb9b3724e09fb450787adfa079896bed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124395"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075317"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -49,7 +49,7 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 | API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
 ### <a name="request-headers"></a>요청 헤더
-| 헤더 | 설명 |
+| 헤더 | Description |
 |:--- |:--- |
 | 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
 | Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 는 문자, 숫자 및 밑줄 (_)만 포함할 수 있으며 100 자를 초과할 수 없습니다. |
@@ -66,7 +66,7 @@ Azure Monitor HTTP 데이터 수집기 API에 대한 모든 요청에는 인증 
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID*는 Log Analytics 작업 영역에 대한 고유 식별자입니다. *서명*은 요청에서 구성되고 [SHA256 알고리즘](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx)을 사용하여 계산된 [해시 기반 메시지 인증 코드(HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx)입니다. 그런 다음 Base64 인코딩을 사용하여 인코딩합니다.
+*WorkspaceID*는 Log Analytics 작업 영역에 대한 고유 식별자입니다. *서명*은 요청에서 구성되고 [SHA256 알고리즘](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1)을 사용하여 계산된 [해시 기반 메시지 인증 코드(HMAC)](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1)입니다. 그런 다음 Base64 인코딩을 사용하여 인코딩합니다.
 
 이 형식을 사용하여 **SharedKey** 서명 문자열을 인코딩합니다.
 
@@ -135,10 +135,13 @@ Azure Monitor HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 
 | 속성 데이터 형식 | 접미사 |
 |:--- |:--- |
 | String |_s |
-| 부울 |_b |
+| Boolean |_b |
 | Double |_d |
 | 날짜/시간 |_t |
 | GUID (문자열로 저장 됨) |_g |
+
+> [!NOTE]
+> Guid로 표시 되는 문자열 값에는 들어오는 값에 대시가 포함 되지 않은 경우에도 _g 접미사가 지정 되 고 GUID로 형식이 지정 됩니다. 예를 들어 "8145d822-13a7-44ad-859c-36f31a84f6dd" 및 "8145d82213a744ad859c36f31a84f6dd"는 "8145d822-13a7-44ad-859c-36f31a84f6dd"로 저장 됩니다. 이 문자열과 다른 문자열 간의 유일한 차이점은 이름에 _g이 고 입력에서 제공 되지 않은 경우에는 대시를 삽입 하는 것입니다. 
 
 Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의 레코드 종류가 이미 있는지 여부에 따라 달라집니다.
 
@@ -464,14 +467,99 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+
+### <a name="python-3-sample"></a>Python 3 샘플
+```python
+import json
+import requests
+import datetime
+import hashlib
+import hmac
+import base64
+
+# Update the customer ID to your Log Analytics workspace ID
+customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# The log type is the name of the event that is being submitted
+log_type = 'WebMonitorTest'
+
+# An example JSON web monitor object
+json_data = [{
+   "slot_ID": 12345,
+    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
+    "availability_Value": 100,
+    "performance_Value": 6.954,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "true"
+},
+{   
+    "slot_ID": 67890,
+    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
+    "availability_Value": 100,
+    "performance_Value": 3.379,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "false"
+}]
+body = json.dumps(json_data)
+
+#####################
+######Functions######  
+#####################
+
+# Build the API signature
+def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
+    x_headers = 'x-ms-date:' + date
+    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
+    bytes_to_hash = bytes(string_to_hash, encoding="utf-8")  
+    decoded_key = base64.b64decode(shared_key)
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest()).decode()
+    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
+    return authorization
+
+# Build and send a request to the POST API
+def post_data(customer_id, shared_key, body, log_type):
+    method = 'POST'
+    content_type = 'application/json'
+    resource = '/api/logs'
+    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    content_length = len(body)
+    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
+    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
+
+    headers = {
+        'content-type': content_type,
+        'Authorization': signature,
+        'Log-Type': log_type,
+        'x-ms-date': rfc1123date
+    }
+
+    response = requests.post(uri,data=body, headers=headers)
+    if (response.status_code >= 200 and response.status_code <= 299):
+        print('Accepted')
+    else:
+        print("Response code: {}".format(response.status_code))
+
+post_data(customer_id, shared_key, body, log_type)
+```
+
+
 ## <a name="alternatives-and-considerations"></a>대안 및 고려 사항
 데이터 수집기 API는 Azure 로그에 자유 형식 데이터를 수집 하는 데 필요한 대부분의 요구를 충족 해야 하지만, API의 몇 가지 제한 사항을 해결 하기 위해 대안이 필요한 경우도 있습니다. 모든 옵션은 다음과 같은 주요 고려 사항을 포함 합니다.
 
-| 대체 | 설명 | 가장 적합한 용도 |
+| 대체 | Description | 가장 적합한 용도 |
 |---|---|---|
-| [사용자 지정 이벤트](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Application Insights의 네이티브 SDK 기반 수집 | 일반적으로 응용 프로그램 내에서 SDK를 통해 계측 되는 Application Insights는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 보낼 수 있는 기능을 제공 합니다. | <ul><li> 응용 프로그램 내에서 생성 되었지만 기본 데이터 형식 (요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택 하지 않은 데이터입니다.</li><li> Application Insights의 다른 응용 프로그램 데이터와 가장 자주 상호 연결 되는 데이터 </li></ul> |
-| Azure Monitor 로그의 데이터 수집기 API | Azure Monitor 로그의 데이터 수집기 API는 완전히 열려 있는 방식으로 데이터를 수집 하는 방법입니다. JSON 개체에 형식이 지정 된 모든 데이터는 여기에서 보낼 수 있습니다. 전송 되 고 나면 로그의 다른 데이터와 상관 관계를 지정 하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있습니다. <br/><br/> 이러한 파일을 처리 하 고 Log Analytics 업로드 하는 위치에서 Azure Blob blob에 파일로 데이터를 업로드 하는 것이 매우 쉽습니다. 이러한 파이프라인의 샘플 구현에 대해서는 [이](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) 문서를 참조 하세요. | <ul><li> Application Insights 내에 계측 된 응용 프로그램 내에서 생성 될 필요가 없는 데이터입니다.</li><li> 예를 들면 조회 및 팩트 테이블, 참조 데이터, 미리 집계 된 통계 등이 있습니다. </li><li> 다른 Azure Monitor 데이터 (Application Insights, 기타 로그 데이터 형식, Security Center Azure Monitor, 컨테이너/v m/Vm의 경우)에 대해 상호 참조 되는 데이터를 위한 것입니다. </li></ul> |
-| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | ADX (Azure 데이터 탐색기)는 Application Insights 분석 및 Azure Monitor 로그를 지 원하는 데이터 플랫폼입니다. 이제 일반 공급 되는 ("GA"), 원시 형식으로 데이터 플랫폼을 사용 하면 클러스터 (RBAC, 보존 률, 스키마 등)를 통해 완전 한 유연성 (관리의 오버 헤드 필요)을 얻을 수 있습니다. ADX는 [CSV, TSV 및 JSON 파일을](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) 비롯 한 다양 한 수집 [옵션](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) 을 제공 합니다. | <ul><li> Application Insights 또는 로그의 다른 데이터와 상관 관계를 지정 하지 않을 데이터입니다. </li><li> 현재는 고급 수집 또는 처리 기능을 필요로 하는 데이터를 Azure Monitor 로그에서 사용할 수 없습니다. </li></ul> |
+| [사용자 지정 이벤트](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Application Insights의 네이티브 SDK 기반 수집 | 일반적으로 응용 프로그램 내에서 SDK를 통해 계측 되는 Application Insights는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 보낼 수 있는 기능을 제공 합니다. | <ul><li> 응용 프로그램 내에서 생성 되었지만 기본 데이터 형식 (요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택 하지 않은 데이터입니다.</li><li> Application Insights의 다른 응용 프로그램 데이터와 가장 자주 상호 연결 되는 데이터 </li></ul> |
+| Azure Monitor 로그의 데이터 수집기 API | Azure Monitor 로그의 데이터 수집기 API는 완전히 열려 있는 방식으로 데이터를 수집 하는 방법입니다. JSON 개체에 형식이 지정 된 모든 데이터는 여기에서 보낼 수 있습니다. 전송 되 고 나면 로그의 다른 데이터와 상관 관계를 지정 하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있습니다. <br/><br/> 이러한 파일을 처리 하 고 Log Analytics 업로드 하는 위치에서 Azure Blob blob에 파일로 데이터를 업로드 하는 것이 매우 쉽습니다. 이러한 파이프라인의 샘플 구현에 대해서는 [이](./create-pipeline-datacollector-api.md) 문서를 참조 하세요. | <ul><li> Application Insights 내에 계측 된 응용 프로그램 내에서 생성 될 필요가 없는 데이터입니다.</li><li> 예를 들면 조회 및 팩트 테이블, 참조 데이터, 미리 집계 된 통계 등이 있습니다. </li><li> 다른 Azure Monitor 데이터 (Application Insights, 기타 로그 데이터 형식, Security Center Azure Monitor, 컨테이너/v m/Vm의 경우)에 대해 상호 참조 되는 데이터를 위한 것입니다. </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | ADX (Azure 데이터 탐색기)는 Application Insights 분석 및 Azure Monitor 로그를 지 원하는 데이터 플랫폼입니다. 이제 일반 공급 되는 ("GA"), 원시 형식으로 데이터 플랫폼을 사용 하면 클러스터 (RBAC, 보존 률, 스키마 등)를 통해 완전 한 유연성 (관리의 오버 헤드 필요)을 얻을 수 있습니다. ADX는 [CSV, TSV 및 JSON 파일을](/azure/kusto/management/mappings?branch=master) 비롯 한 다양 한 수집 [옵션](/azure/data-explorer/ingest-data-overview#ingestion-methods) 을 제공 합니다. | <ul><li> Application Insights 또는 로그의 다른 데이터와 상관 관계를 지정 하지 않을 데이터입니다. </li><li> 현재는 고급 수집 또는 처리 기능을 필요로 하는 데이터를 Azure Monitor 로그에서 사용할 수 없습니다. </li></ul> |
 
 
 ## <a name="next-steps"></a>다음 단계

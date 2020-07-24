@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076064"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
 
@@ -45,7 +46,7 @@ ms.locfileid: "84710680"
 | **옵션** | **세부 정보** | |
 | --- | --- | --- |
 | **없음** | 복제본 VM이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않고 네트워크에 연결되지 않습니다.<br/><br/> 생성된 후에 컴퓨터를 VM 네트워크에 연결할 수 있습니다.| |
-| **기존 사용** | 복제본 VM이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않습니다.<br/><br/>프로덕션 네트워크에서 격리된 VM 네트워크를 만듭니다.<br/><br/>권장되는 VLAN 기반 네트워크를 사용하는 경우 이 목적을 위해 VMM에서 별도의 논리 네트워크(프로덕션에 사용되지 않음)를 만드는 것이 좋습니다. 이 논리 네트워크는 테스트 장애 조치(failover)에 대한 VM 네트워크를 만드는 데 사용됩니다.<br/><br/>논리 네트워크는 가상 머신을 호스트하는 모든 Hyper-V 서버에 있는 하나 이상의 네트워크 어댑터에 연결해야 합니다.<br/><br/>VLAN 논리 네트워크의 경우 논리 네트워크에 추가한 네트워크 사이트는 격리되어야 합니다.<br/><br/>Windows 네트워크 가상화 기반의 논리 네트워크를 사용한다면 Azure Site Recovery가 격리된 VM 네트워크를 자동으로 생성합니다. | |
+| **기존 항목 사용** | 복제본 VM이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않습니다.<br/><br/>프로덕션 네트워크에서 격리된 VM 네트워크를 만듭니다.<br/><br/>권장되는 VLAN 기반 네트워크를 사용하는 경우 이 목적을 위해 VMM에서 별도의 논리 네트워크(프로덕션에 사용되지 않음)를 만드는 것이 좋습니다. 이 논리 네트워크는 테스트 장애 조치(failover)에 대한 VM 네트워크를 만드는 데 사용됩니다.<br/><br/>논리 네트워크는 가상 머신을 호스트하는 모든 Hyper-V 서버에 있는 하나 이상의 네트워크 어댑터에 연결해야 합니다.<br/><br/>VLAN 논리 네트워크의 경우 논리 네트워크에 추가한 네트워크 사이트는 격리되어야 합니다.<br/><br/>Windows 네트워크 가상화 기반의 논리 네트워크를 사용한다면 Azure Site Recovery가 격리된 VM 네트워크를 자동으로 생성합니다. | |
 | **네트워크 만들기** | 임시 테스트 네트워크가 **논리 네트워크**에서 지정한 설정 및 관련 네트워크 사이트를 기반으로 자동 생성됩니다.<br/><br/> 장애 조치(failover)에서 VM이 생성되었는지 확인합니다.<br/><br/> 복구 계획에서 VM 네트워크를 두 개 이상 사용할 경우 이 옵션을 사용해야 합니다.<br/><br/> Windows 네트워크 가상화 네트워크를 사용하는 경우 이 옵션을 사용하여 복제 가상 머신의 네트워크에서 동일한 설정(서브넷 및 IP 주소 풀)으로 VM 네트워크를 자동으로 만들 수 있습니다. 테스트 장애 조치 완료 후 이러한 VM 네트워크는 자동으로 정리됩니다.<br/><br/> 복제본 가상 머신이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않습니다.|
 
 ### <a name="best-practices"></a>모범 사례
@@ -102,17 +103,17 @@ VM 네트워크가 Windows 네트워크 가상화를 사용하여 VMM에서 구�
 * **DHCP**: 가상 머신에서 DHCP를 사용하는 경우 테스트 DNS의 IP 주소를 테스트 DHCP 서버에서 업데이트해야 합니다. 네트워크 유형의 Windows 네트워크 가상화를 사용하는 경우 VMM 서버가 DHCP 서버로 작동합니다. 따라서 테스트 장애 조치(failover) 네트워크에서 DNS의 IP 주소가 업데이트되어야 합니다. 이 경우 가상 머신이 관련 DNS 서버에 자체 등록됩니다.
 * **고정 주소**: 가상 머신이 고정 IP 주소를 사용하는 경우 테스트 장애 조치(failover)에서 테스트 DNS 서버의 IP 주소를 업데이트해야 합니다. 테스트 가상 머신의 IP 주소로 DNS를 업데이트해야 할 수 있습니다. 이러한 용도로 다음 예제 스크립트를 사용할 수 있습니다.
 
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-
-
+  ```powershell
+  Param(
+  [string]$Zone,
+  [string]$name,
+  [string]$IP
+  )
+  $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+  $newrecord = $record.clone()
+  $newrecord.RecordData[0].IPv4Address  =  $IP
+  Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+  ```
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 

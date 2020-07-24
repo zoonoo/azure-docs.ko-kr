@@ -6,12 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80745548"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075934"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 
@@ -34,7 +35,8 @@ ms.locfileid: "80745548"
 ![Stream Analytics 도약 창](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>슬라이딩 윈도우
-연속 또는 도약 창과 달리 슬라이딩 윈도우 함수는 이벤트가 발생 한 경우에 **만** 출력을 생성 합니다. 모든 창에는 하나 이상의 이벤트가 있고 창은 ε (엡실론)로 계속 해 서 앞으로 이동 합니다. 도약 창과 마찬가지로 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
+
+연속 또는 도약 windows와 달리 슬라이딩 윈도우는 창의 내용이 실제로 변경 된 시점에 대 한 이벤트만 출력 합니다. 즉, 이벤트가 창에 들어가거나 종료 될 때 도약 windows의 경우와 같이 모든 창에는 하나 이상의 이벤트가 있습니다. 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
 
 ![Stream Analytics 슬라이딩 윈도우](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -49,6 +51,11 @@ ms.locfileid: "80745548"
 
 파티션 키가 제공되는 경우 이벤트는 키와 함께 그룹화되고 세션 창은 각 그룹에 독립적으로 적용됩니다. 이 분할은 다른 사용자 또는 디바이스에 다른 세션 창이 필요한 경우에 유용합니다.
 
+## <a name="snapshot-window"></a>스냅숏 창
+
+스냅숏 windows는 타임 스탬프를 포함 하는 이벤트를 그룹화 합니다. 특정 창 함수 (예: [Sessionwindow ())](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)를 필요로 하는 다른 창 함수 형식과 달리 group by 절에는 System. Timestamp ()를 추가 하 여 스냅숏 창을 적용할 수 있습니다.
+
+![Stream Analytics 스냅숏 창](media/stream-analytics-window-functions/snapshot.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

@@ -1,14 +1,14 @@
 ---
-title: 기능-LUIS
+title: LUIS를 사용 하는 기계 학습 기능
 description: 언어 모델에 기능을 추가하여 레이블을 지정하거나 분류하려는 입력을 인식하는 방법에 대한 힌트를 제공합니다.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: fbf39382e418bef9a7d39886076a4100a26ce3e7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075174"
 ---
 # <a name="machine-learning-features"></a>기계 학습 기능
 

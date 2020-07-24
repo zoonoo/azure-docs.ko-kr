@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77431488"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076368"
 ---
 # <a name="protect-your-network-resources"></a>네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
@@ -34,7 +35,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 **네트워킹** 페이지에서는 네트워크 리소스의 상태에 대한 자세한 정보를 볼 수 있는 섹션의 개요를 제공합니다.
 
-- 네트워크 맵(Azure Security Center 표준 계층만 해당)
+- 네트워크 맵 (Azure Security Center 표준 계층만 해당)
 - 적응형 네트워크 강화
 - 네트워킹 보안 권장 사항
 - 레거시 **네트워킹** 블레이드(이전 네트워킹 블레이드) 
@@ -115,7 +116,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 ## <a name="legacy-networking"></a>레거시 네트워킹 <a name ="legacy-networking"></a>
 
-이 섹션에서는 Security Center 표준 계층이 없는 경우 사용 가능한 네트워킹 권장 사항을 확인하는 방법을 설명합니다.
+표준 계층이 Security Center 되지 않은 경우이 섹션에서는 무료 네트워킹 권장 사항을 보는 방법에 대해 설명 합니다.
 
 이 정보에 액세스하려면 네트워킹 블레이드에서 **레거시 네트워킹 보기**를 클릭합니다. 
 

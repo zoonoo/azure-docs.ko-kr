@@ -4,11 +4,12 @@ description: Azure Monitor를 통해 Azure Blockchain 서비스 모니터링
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214046"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076927"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Azure Monitor를 통해 Azure Blockchain 서비스 모니터링  
 
@@ -16,20 +17,20 @@ ms.locfileid: "85214046"
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
 
-Azure Blockchain 서비스는 azure 리소스를 모니터링 하는 전체 기능 집합을 제공 하는 Azure의 전체 stack 모니터링 서비스인 Azure Monitor를 사용 하 여 모니터링 데이터를 만듭니다. Azure Monitor에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 Azure 리소스 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)을 참조 하세요.
+Azure Blockchain 서비스는 azure 리소스를 모니터링 하는 전체 기능 집합을 제공 하는 Azure의 전체 stack 모니터링 서비스인 Azure Monitor를 사용 하 여 모니터링 데이터를 만듭니다. Azure Monitor에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)을 참조 하세요.
  
 
 다음 섹션에서는 azure Blockchain 서비스에서 수집 된 특정 데이터를 설명 하 고 Azure tools를 사용 하 여 데이터 수집을 구성 하 고이 데이터를 분석 하기 위한 예제를 제공 하 여이 문서를 작성 합니다.
 
 ## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Azure Blockchain 서비스에서 수집 된 데이터 모니터링  
 
-Azure Blockchain 서비스는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, Azure 리소스의 [데이터 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data) 에 설명 되어 있습니다. Azure Blockchain 서비스에서 만든 로그 및 메트릭에 대 한 자세한 내용은 [Azure Blockchain 서비스 데이터 참조 모니터링](#monitor-azure-blockchain-service-data-reference) 을 참조 하세요.
+Azure Blockchain 서비스는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, Azure 리소스의 [데이터 모니터링](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data) 에 설명 되어 있습니다. Azure Blockchain 서비스에서 만든 로그 및 메트릭에 대 한 자세한 내용은 [Azure Blockchain 서비스 데이터 참조 모니터링](#monitor-azure-blockchain-service-data-reference) 을 참조 하세요.
 
 각 Azure Blockchain 서비스 멤버 리소스에 대 한 Azure Portal의 개요 페이지에는 처리 된 요청 및 처리 된 블록을 포함 하 여 트랜잭션의 간략 한 보기가 포함 되어 있습니다. Azure Blockchain 서비스 구성원 리소스를 만든 후에는이 데이터 중 일부가 자동으로 수집 되 고 분석에 사용할 수 있으며 추가 구성으로 추가 데이터 수집을 사용 하도록 설정할 수 있습니다.
 
 ## <a name="diagnostic-settings"></a>진단 설정  
 
-플랫폼 메트릭과 활동 로그는 자동으로 수집되지만, 리소스 로그를 수집하거나 Azure Monitor 외부로 전달하려면 진단 설정을 만들어야 합니다. Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기를](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 참조 하세요.
+플랫폼 메트릭과 활동 로그는 자동으로 수집되지만, 리소스 로그를 수집하거나 Azure Monitor 외부로 전달하려면 진단 설정을 만들어야 합니다. Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기를](../../azure-monitor/platform/diagnostic-settings.md) 참조 하세요.
 
 진단 설정을 만들 때 수집할 로그 범주를 지정 합니다. Azure Blockchain 서비스의 범주는 아래에 나열 되어 있습니다.
 
@@ -41,13 +42,13 @@ Azure Blockchain 서비스는 다른 Azure 리소스와 동일한 종류의 모�
 
 ## <a name="analyze-metric-data"></a>메트릭 데이터 분석  
 
-메트릭 탐색기를 사용 하 여 Azure Blockchain 서비스에 대 한 메트릭을 분석 하 고 ABS 리소스 블레이드의 모니터링 섹션 아래에 있는 메트릭 탭으로 이동할 수 있습니다. 도구 사용에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) 을 참조 하세요. Azure Blockchain 서비스에 대 한 전체 메트릭은 Azure Blockchain 서비스 표준 메트릭에 네임 스페이스에 있습니다.
+메트릭 탐색기를 사용 하 여 Azure Blockchain 서비스에 대 한 메트릭을 분석 하 고 ABS 리소스 블레이드의 모니터링 섹션 아래에 있는 메트릭 탭으로 이동할 수 있습니다. 도구 사용에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/platform/metrics-getting-started.md) 을 참조 하세요. Azure Blockchain 서비스에 대 한 전체 메트릭은 Azure Blockchain 서비스 표준 메트릭에 네임 스페이스에 있습니다.
 
 필터를 추가 하거나 메트릭을 분할할 때 **노드** 차원을 사용할 수 있습니다 .이는 기본적으로 트랜잭션 노드당 메트릭 값과 ABS 멤버의 유효성 검사기 노드를 제공 합니다.
 
 ## <a name="analyze-log-data"></a>로그 데이터 분석
 
-다음은 Azure Blockchain 서비스 구성원을 모니터링 하는 데 도움이 되도록 로그 검색 표시줄에 입력할 수 있는 몇 가지 쿼리입니다. 이러한 쿼리는 [새 언어](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)에서 작동합니다.
+다음은 Azure Blockchain 서비스 구성원을 모니터링 하는 데 도움이 되도록 로그 검색 표시줄에 입력할 수 있는 몇 가지 쿼리입니다. 이러한 쿼리는 [새 언어](../../azure-monitor/log-query/log-query-overview.md)에서 작동합니다.
 
 Blockchain 응용 프로그램 로그의 오류 조건을 쿼리하려면 아래 쿼리를 사용 합니다.
 
@@ -73,7 +74,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 
 ### <a name="resource-logs"></a>리소스 로그
 
-모든 리소스 로그는 블록 체인 서비스와 관련 된 몇 가지 고유한 속성을 포함 하는 최상위 수준의 공통 스키마를 공유 합니다. [최상위 리소스 로그 스키마](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema)문서를 참조할 수 있으며, Azure blockchain 서비스별 속성의 세부 정보는 아래에서 설명 합니다.  
+모든 리소스 로그는 블록 체인 서비스와 관련 된 몇 가지 고유한 속성을 포함 하는 최상위 수준의 공통 스키마를 공유 합니다. [최상위 리소스 로그 스키마](../../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema)문서를 참조할 수 있으며, Azure blockchain 서비스별 속성의 세부 정보는 아래에서 설명 합니다.  
 
 다음 표에서는 Azure Monitor 로그 나 Azure Storage에서 수집 되는 Azure Blockchain 프록시 로그의 속성을 나열 합니다.  
 
@@ -123,7 +124,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 
 다음 표에서는 Azure Blockchain 서비스에 대해 수집 된 플랫폼 메트릭을 보여 줍니다. 모든 메트릭은 **Azure Blockchain 서비스** 표준 메트릭에 네임 스페이스에 저장 됩니다.
 
-지원 되는 Azure Monitor 모든 메트릭 (Azure Blockchain 서비스 포함)의 목록은 [Azure Monitor 지원 되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)을 참조 하세요.
+지원 되는 Azure Monitor 모든 메트릭 (Azure Blockchain 서비스 포함)의 목록은 [Azure Monitor 지원 되는 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조 하세요.
 
 ### <a name="blockchain-metrics"></a>블록 체인 메트릭
 
@@ -157,7 +158,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 
 | 메트릭 이름 | 단위  |  집계 유형| 설명   |
 |---|---|---|---|
-| CPU 사용량 비율   | 백분율  |  최대값 | CPU 사용량의 백분율입니다.     |
+| CPU 사용량 비율   | 백분율  |  최대 | CPU 사용량의 백분율입니다.     |
 | IO 읽기 바이트   | 킬로바이트   | 합계  |  Blockchain 멤버 리소스의 모든 노드에 걸친 IO 읽기 바이트의 합계입니다.      |
 |IO 쓰기 바이트     | 킬로바이트   | 합계  | IO의 합계는 블록 체인 멤버 리소스의 모든 노드에 걸쳐 바이트를 씁니다.     |
 |메모리 제한       |  7.8gb   | 평균    | 노드당 blockchain 프로세스에 사용할 수 있는 최대 메모리입니다. |
@@ -168,4 +169,4 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 
 ## <a name="next-steps"></a>다음 단계
 
-Blockchain [Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) 에 대해 자세히 알아보고 Blockchain 데이터를 Azure Event Grid으로 캡처하고 변환 합니다.
+Blockchain [Data Manager](./data-manager.md) 에 대해 자세히 알아보고 Blockchain 데이터를 Azure Event Grid으로 캡처하고 변환 합니다.

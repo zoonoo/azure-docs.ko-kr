@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: de152a636d8751616744887a521b2f94bbd386a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077760"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 다른 Azure 스토리지 서비스와 마찬가지로, File Storage는 공유의 데이터에 액세스하기 위한 REST API를 제공합니다.
@@ -30,7 +30,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 
 * Visual Studio 2019 또는 2015를 설치합니다.
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
-* 구독에서 Azure 리소스 그룹을 만듭니다. 다음 예는 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.  
+* 구독에서 Azure 리소스 그룹을 만듭니다. 다음 예는 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.  
 
    ```powershell
    # Log in to your Azure account

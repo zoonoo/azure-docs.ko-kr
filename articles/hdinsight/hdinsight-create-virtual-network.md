@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: e8619bd7159bbbd418548a5e014dd92f7b9c9e84
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086384"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074768"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기
 
@@ -27,7 +27,7 @@ Azure HDInsight에서 가상 네트워크를 사용 하는 방법에 대 한 배
 
 이 문서의 샘플에 대 한 다른 필수 구성 요소에는 다음 항목이 포함 됩니다.
 
-* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/overview)을 설치 해야 합니다.
+* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/)을 설치 해야 합니다.
 * Azure CLI를 사용 하 고 아직 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
 > [!IMPORTANT]  

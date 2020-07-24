@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: f2a514b6f44df7be15f18aa8f7c42668c872ab4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05ee60986703096c004c4d15764028b73d04c0bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077896"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Veeam에서 백업 대상으로 StorSimple 구성
 
@@ -104,7 +104,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 | Backup 시나리오  | 로컬 스토리지 용량  | 클라우드 스토리지 용량  |
 |---|---|---|
 | 기본 백업  | RPO(복구 지점 목표)를 충족하기 위해 빠른 복구용 로컬 스토리지에 최근 백업 저장 | 클라우드 용량에 적합한 Backup 기록(RPO) |
-| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | 해당 없음  |
+| 보조 백업 | 클라우드 용량에 백업 데이터의 보조 복사본을 저장할 수 있습니다.  | N/A  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
 
@@ -468,7 +468,7 @@ StorSimple 클라우드 스냅샷은 StorSimple 디바이스에 있는 데이터
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>클라우드 스냅샷을 시작하거나 삭제하려면
 
-1. [Azure PowerShell 설치](/powershell/azure/overview)
+1. [Azure PowerShell 설치](/powershell/azure/)
 2. [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 스크립트를 다운로드 및 설치합니다.
 3. 스크립트를 실행하는 서버에서 관리자 권한으로 PowerShell을 실행합니다. `-WhatIf $true`를 포함하는 스크립트를 실행하여 스크립트가 어떻게 변경되는지 확인합니다. 유효성 검사가 완료되면 `-WhatIf $false`를 전달합니다. 아래 명령을 실행합니다.
    ```powershell
@@ -488,7 +488,7 @@ Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에�
 
 - [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)용
 - [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)용
-- [SQL Server](https://www.veeam.com/microsoft-sql-server-explorer.html)용
+- [SQL Server](https://www.veeam.com/microsoft-sql-server-explorer.html)
 - [SharePoint](https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html) 용
 - [Oracle](https://www.veeam.com/oracle-backup-recovery-explorer.html)용
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076252"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Syslog를 사용 하 여 외부 솔루션 연결
 
@@ -87,14 +87,16 @@ Azure 센티널은 syslog 데이터에 기계 학습 (ML)을 적용 하 여 비�
  
 이 검색에는 Syslog 데이터 커넥터의 특정 구성이 필요 합니다. 
 
-1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 예를 들어:
+1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
     > ![비정상적인 SSH 로그인 검색에 필요한 기능](./media/connect-syslog/facilities-ssh-detection.png)
 
 2. Syslog 정보를 수집할 수 있는 충분 한 시간을 허용 합니다. 그런 다음 **Azure 센티널-Logs**로 이동 하 여 다음 쿼리를 복사 하 여 붙여넣습니다.
     
-        Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```console
+    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```
     
     필요한 경우 **시간 범위** 를 변경 하 고 **실행**을 선택 합니다.
     

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075412"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Creator를 사용하여 실내 맵 만들기
 
@@ -31,7 +32,7 @@ ms.locfileid: "86027863"
 
 실내 맵을 만들려면 다음을 수행합니다.
 
-1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-account-with-azure-maps).
+1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 3. [Creator 리소스를 만듭니다](how-to-manage-creator.md).
 4. [그리기 패키지 샘플](https://github.com/Azure-Samples/am-creator-indoor-data-examples)을 다운로드합니다.
@@ -51,7 +52,7 @@ ms.locfileid: "86027863"
 
 2. 요청을 만들려면 **새로 만들기**를 다시 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. 요청에 대한 **요청 이름**을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장**을 선택합니다.
 
-3. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 그리기 패키지를 Azure Maps 서비스에 업로드합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `<Azure-Maps-Primary-Subscription-key>`를 기본 구독 키로 바꿉니다.
+3. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 그리기 패키지를 Azure Maps 서비스에 업로드합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -63,10 +64,10 @@ ms.locfileid: "86027863"
 
 5. 파란색 **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **위치** 키의 값(`status URL`)을 복사합니다.
 
-6. API 호출의 상태를 확인 하려면에 대 한 **GET** HTTP 요청을 만듭니다 `status URL` . 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 유사 합니다.
+6. API 호출의 상태를 확인 하려면에 대 한 **GET** HTTP 요청을 만듭니다 `status URL` . 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL 처럼 표시 됩니다.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. **GET** HTTP 요청이 성공적으로 완료 되 면이 반환 됩니다 `resourceLocation` . 에는 `resourceLocation` 업로드 된 `udid` 콘텐츠에 대 한 고유한가 포함 되어 있습니다. 필요에 따라 `resourceLocation` 다음 단계에서 URL을 사용 하 여이 리소스에서 메타 데이터를 검색할 수 있습니다.
@@ -169,7 +170,7 @@ ms.locfileid: "86027863"
 4. `datasetId`를 가져오는 **GET** 요청을 `statusURL`에서 수행합니다. 인증을 위해 Azure Maps 기본 구독 키를 추가합니다. 요청은 다음 URL과 같습니다.
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. **GET** HTTP 요청이 성공적으로 완료되면 만든 데이터 세트에 대한 `datasetId`가 응답 헤더에 포함됩니다. `datasetId`를 복사합니다. `datasetId`는 타일 세트를 만드는 데 사용해야 합니다.
@@ -198,7 +199,7 @@ ms.locfileid: "86027863"
 3. `statusURL`에서 타일 세트에 대한 **GET** 요청을 수행합니다. 인증을 위해 Azure Maps 기본 구독 키를 추가합니다. 요청은 다음 URL과 같습니다.
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. **GET** HTTP 요청이 성공적으로 완료되면 만든 타일 세트에 대한 `tilesetId`가 응답 헤더에 포함됩니다. `tilesetId`를 복사합니다.

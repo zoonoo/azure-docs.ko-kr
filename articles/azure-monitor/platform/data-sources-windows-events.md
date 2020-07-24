@@ -7,10 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79274685"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075252"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 이벤트 로그 데이터 원본
 많은 애플리케이션이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -39,7 +40,7 @@ Azure Monitor에서는 이벤트가 생성될 때 모니터링되는 이벤트 �
 ## <a name="windows-event-records-properties"></a>Windows 이벤트 레코드 속성
 Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 있는 속성이 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터의 이름입니다. |
 | EventCategory |이벤트의 범주. |

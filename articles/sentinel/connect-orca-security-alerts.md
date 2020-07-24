@@ -1,5 +1,5 @@
 ---
-title: Azure 센티널에 Orca.exe 경고 연결 | Microsoft Docs
+title: Orca.exe 보안 경고를 Azure 센티널에 연결 | Microsoft Docs
 description: Orca.exe 보안 경고 데이터를 Azure 센티널에 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076270"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Azure 센티널에 Orca.exe 경고 연결 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Orca.exe 보안 경고를 Azure 센티널에 연결 
+
+> [!IMPORTANT]
+> Azure 센티널의 Orca.exe 보안 경고 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Orca.exe 보안 경고 커넥터를 사용 하 여 [orca.exe 경고](https://orca.security/) 보안 솔루션 경고를 Azure 센티널로 쉽게 가져올 수 있습니다. 따라서 통합 문서에서 볼 수 있으며, 사용자 지정 경고를 만들고 사용 하 여 조사를 개선할 수 있습니다. Orca.exe 보안 경고와 Azure 센티널 간의 통합은 REST API를 사용 합니다.
 

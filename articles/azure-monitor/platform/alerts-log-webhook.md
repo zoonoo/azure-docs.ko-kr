@@ -7,11 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84323674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075271"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고가 생성 되](alerts-log.md)면 [작업 그룹을 사용](action-groups.md) 하 여 하나 이상의 작업을 수행 하는 옵션을 구성할 수 있습니다. 이 문서에서는 사용 가능한 다양 한 웹 후크 작업을 설명 하 고 사용자 지정 JSON 기반 webhook를 구성 하는 방법을 보여 줍니다.
@@ -25,7 +26,7 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 
 웹후크 작업에는 다음 표의 속성이 필요합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | **Webhook URL** |웹후크의 URL입니다. |
 | **사용자 지정 JSON 페이로드** |경고를 만드는 동안이 옵션을 선택 하면 웹 후크에 보낼 사용자 지정 페이로드입니다. 자세한 내용은 [로그 경고 관리](alerts-log.md)를 참조 하세요.|
@@ -52,7 +53,7 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 | *검색 간격 시작 시간* |#searchintervalstarttimeutc |UTC 형식의 쿼리 시작 시간 (mm/dd/yyyy HH: mm: ss AM/PM 형식)입니다. 
 | *SearchQuery* |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | *SearchResults* |"IncludeSearchResults": true|처음 1000 레코드로 제한 되는 JSON 테이블로 쿼리를 통해 반환 된 레코드입니다. "IncludeSearchResults": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
-| *차원만* |"IncludeDimensions": true|JSON 섹션으로 해당 경고를 트리거한 차원 값 조합입니다. "IncludeDimensions": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
+| *차원* |"IncludeDimensions": true|JSON 섹션으로 해당 경고를 트리거한 차원 값 조합입니다. "IncludeDimensions": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
 | *경고 유형*| #alerttype | [메트릭 측정](alerts-unified-log.md#metric-measurement-alert-rules) 또는 [결과 수](alerts-unified-log.md#number-of-results-alert-rules)로 구성 된 로그 경고 규칙의 유형입니다.|
 | *WorkspaceID* |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
 | *애플리케이션 ID* |#applicationid |Application Insights 앱의 ID입니다. |
@@ -264,6 +265,5 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 - [Azure alerts의 로그 경고](alerts-unified-log.md)에 대해 알아봅니다.
 - [Azure에서 로그 경고를 관리](alerts-log.md)하는 방법을 이해 합니다.
 - [Azure에서 작업 그룹](action-groups.md)을 만들고 관리 합니다.
-- [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아봅니다.
+- [Application Insights](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.
 - [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요. 
-

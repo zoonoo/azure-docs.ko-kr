@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45b18352d88877a5d611f203d87da83fd0d58c6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79096785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077122"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>저장소 계정에 보관 된 Azure Monitor 플랫폼 로그의 형식 변경 준비
 
 > [!WARNING]
-> [로그 프로필을 사용 하 여 저장소 계정에 대](resource-logs-collect-storage.md)한 진단 설정 또는 활동 로그를 [사용 하 여 저장소 계정에 Azure 리소스 로그 또는 메트릭을](resource-logs-collect-storage.md) 전송 하는 경우 저장소 계정의 데이터 형식이 11 월 1 일에 JSON 줄로 변경 됩니다. 1, 2018. 아래 지침에서는 새 형식을 처리하도록 도구를 업데이트하는 방법 및 영향에 대해 설명합니다.
+> [로그 프로필을 사용 하 여 저장소 계정에 대](./resource-logs.md#send-to-azure-storage)한 진단 설정 또는 활동 로그를 [사용 하 여 저장소 계정에 Azure 리소스 로그 또는 메트릭을](./resource-logs.md#send-to-azure-storage) 전송 하는 경우 저장소 계정의 데이터 형식이 11 월 1 일에 JSON 줄로 변경 됩니다. 1, 2018. 아래 지침에서는 새 형식을 처리하도록 도구를 업데이트하는 방법 및 영향에 대해 설명합니다.
 >
 
 ## <a name="what-changed"></a>변경 내용
@@ -28,9 +29,9 @@ Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azu
 * 11 월 1 일 이전에 진단 설정을 다시 설정 하 여 현재 형식으로 데이터를 내보냅니다.
 * 이 변경 내용은 모든 공용 클라우드 지역에서 한 번에 발생 합니다. 변경 내용은 아직 21Vianet, Azure 독일 또는 Azure Government 클라우드에서 운영 하는 Microsoft Azure에서 발생 하지 않습니다.
 * 이 변경은 다음 데이터 형식에 영향을 줍니다.
-  * [Azure 리소스 로그](archive-diagnostic-logs.md) ([여기에 리소스 목록 참조](diagnostic-logs-schema.md))
+  * [Azure 리소스 로그](./resource-logs.md#send-to-azure-storage) ([여기에 리소스 목록 참조](./resource-logs-schema.md))
   * [진단 설정을 통해 내보내지는 Azure 리소스 메트릭](diagnostic-settings.md)
-  * [로그 프로필을 통해 내보내지는 Azure 활동 로그 데이터](activity-log-collect.md)
+  * [로그 프로필을 통해 내보내지는 Azure 활동 로그 데이터](./activity-log.md)
 * 다음 경우에는 이 변경의 영향을 받지 않습니다.
   * 네트워크 흐름 로그
   * Azure 서비스 로그는 아직 Azure Monitor (예: Azure App Service 리소스 로그, 저장소 분석 로그)를 통해 사용할 수 없습니다.
@@ -122,7 +123,7 @@ Azure Blob Storage에 있는 PT1H.json 파일의 현재 형식은 레코드의 J
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-이 새로운 형식이 적용되면 Azure Monitor가 [추가 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)을 사용하여 로그 파일을 푸시할 수 있습니다. 이 방법이 새 이벤트 데이터를 지속적으로 추가하는 데 더 효율적입니다.
+이 새로운 형식이 적용되면 Azure Monitor가 [추가 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)을 사용하여 로그 파일을 푸시할 수 있습니다. 이 방법이 새 이벤트 데이터를 지속적으로 추가하는 데 더 효율적입니다.
 
 ## <a name="how-to-update"></a>업데이트 방법
 
@@ -132,6 +133,5 @@ Azure Blob Storage에 있는 PT1H.json 파일의 현재 형식은 레코드의 J
 
 ## <a name="next-steps"></a>다음 단계
 
-* [저장소 계정에 리소스 리소스 로그를 보관 하는](./../../azure-monitor/platform/archive-diagnostic-logs.md) 방법을 알아봅니다.
-* [활동 로그 데이터를 스토리지 계정에 보관](./../../azure-monitor/platform/archive-activity-log.md)하는 방법을 알아봅니다.
-
+* [저장소 계정에 리소스 리소스 로그를 보관 하는](./resource-logs.md#send-to-azure-storage) 방법을 알아봅니다.
+* [활동 로그 데이터를 스토리지 계정에 보관](./activity-log.md#legacy-collection-methods)하는 방법을 알아봅니다.

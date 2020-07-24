@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 77d8143743f899bcb9fd3927de223d84d406ed6f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0a20a120f72c70cb50cae37cece54d5efad31f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086792"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074810"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -47,7 +47,7 @@ HDInsight 클러스터는 [Mono https://mono-project.com) ](https://mono-project
 
 * 클러스터로 .exe 파일을 업로드하는 방법. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 클러스터의 기본 스토리지로 파일을 업로드합니다.
 
-* PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요합니다.
+* PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/)이 필요합니다.
 
 * HDInsight의 Apache Hadoop 클러스터. [Linux에서 HDInsight 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -218,7 +218,7 @@ namespace reducer
 
    다음 목록에서는 각 매개 변수 및 옵션이 나타내는 내용에 대해 설명 합니다.
 
-   |매개 변수 | 설명 |
+   |매개 변수 | Description |
    |---|---|
    |hadoop-streaming.jar|스트리밍 MapReduce 기능을 포함 하는 jar 파일을 지정 합니다.|
    |-파일|이 작업에 대 한 *mapper.exe* 및 *reducer.exe* 파일을 지정 합니다. `wasbs:///` `adl:///` `abfs:///` 각 파일 앞의, 또는 프로토콜 선언은 클러스터의 기본 저장소 루트에 대 한 경로입니다.|

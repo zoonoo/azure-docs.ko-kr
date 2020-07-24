@@ -1,6 +1,6 @@
 ---
-title: JSON 평면화 및 이스케이프 규칙-Azure Time Series Insights | Microsoft Docs
-description: Azure Time Series Insights의 JSON 평면화, 이스케이프 및 배열 처리에 대해 알아봅니다.
+title: JSON 평면화 및 이스케이프 규칙-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Azure Time Series Insights Gen2의 JSON 평면화, 이스케이프 및 배열 처리에 대해 알아봅니다.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,19 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
-ms.openlocfilehash: 45eeebcc092513a0344acaff52c31c2cebfb377c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049852"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075674"
 ---
 # <a name="ingestion-rules"></a>수집 규칙
 ### <a name="json-flattening-escaping-and-array-handling"></a>JSON 평면화, 이스케이프 및 배열 처리
 
-Azure Time Series Insights 환경에서는 특정 명명 규칙 집합에 따라 웜 및 콜드 상점의 열을 동적으로 만듭니다. 이벤트가 수집 되 면 규칙 집합이 JSON 페이로드 및 속성 이름에 적용 됩니다. 여기에는 특정 특수 문자를 이스케이프 하 고 중첩 JSON 개체를 평면화 하는 작업이 포함 됩니다. JSON 셰이프를 통해 이벤트를 저장 하 고 쿼리 하는 방법에 어떻게 영향을 미치는지 이해 하려면 이러한 규칙을 알고 있어야 합니다. 규칙의 전체 목록은 아래 표를 참조 하세요. 예 & B에서는 배열에서 여러 시계열을 효율적으로 일괄 처리할 수 있는 방법을 보여 줍니다.
+Azure Time Series Insights Gen2 환경에서는 특정 명명 규칙 집합에 따라 웜 및 콜드 저장소의 열을 동적으로 만듭니다. 이벤트가 수집 되 면 규칙 집합이 JSON 페이로드 및 속성 이름에 적용 됩니다. 여기에는 특정 특수 문자를 이스케이프 하 고 중첩 JSON 개체를 평면화 하는 작업이 포함 됩니다. JSON 셰이프를 통해 이벤트를 저장 하 고 쿼리 하는 방법에 어떻게 영향을 미치는지 이해 하려면 이러한 규칙을 알고 있어야 합니다. 규칙의 전체 목록은 아래 표를 참조 하세요. 예 & B에서는 배열에서 여러 시계열을 효율적으로 일괄 처리할 수 있는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
 >
@@ -28,8 +27,8 @@ Azure Time Series Insights 환경에서는 특정 명명 규칙 집합에 따라
 
 | 규칙 | 예제 JSON |저장소의 열 이름 |
 |---|---|---|
-| TSI 데이터 형식이 열 이름 끝에 "_"로 추가 됩니다. \<dataType\> | ```"type": "Accumulated Heat"``` | type_string |
-| 이벤트 원본 [타임 스탬프 속성](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) 은 tsi에서 저장소에 "timestamp"로 저장 되 고 값은 UTC로 저장 됩니다. 솔루션 요구 사항에 맞게 이벤트 원본 타임 스탬프 속성을 사용자 지정할 수 있지만 웜 및 콜드 저장소의 열 이름은 "timestamp"입니다. 이벤트 원본 타임 스탬프가 아닌 다른 datetime JSON 속성은 위의 규칙에 설명 된 대로 열 이름에 "_datetime"로 저장 됩니다.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
+| Azure Time Series Insights Gen2 데이터 형식이 열 이름 끝에 "_"로 추가 됩니다. \<dataType\> | ```"type": "Accumulated Heat"``` | type_string |
+| 이벤트 원본 [타임 스탬프 속성](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) 은 저장소에서 "timestamp"로 Azure Time Series Insights Gen2에 저장 되 고 UTC로 저장 됩니다. 솔루션 요구 사항에 맞게 이벤트 원본 타임 스탬프 속성을 사용자 지정할 수 있지만 웜 및 콜드 저장소의 열 이름은 "timestamp"입니다. 이벤트 원본 타임 스탬프가 아닌 다른 datetime JSON 속성은 위의 규칙에 설명 된 대로 열 이름에 "_datetime"로 저장 됩니다.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
 | 특수 문자를 포함 하는 JSON 속성 이름입니다. [\ 및 '는 [' 및 ']를 사용 하 여 이스케이프 됩니다.  |  ```"id.wasp": "6A3090FD337DE6B"``` | [' id. 말 '] _string |
 | [' 및 '] 내에서 작은따옴표와 백슬래시를 추가로 이스케이프 합니다. 작은따옴표는 \ '로 작성 되 고 백슬래시는로 작성 됩니다.\\\ | ```"Foo's Law Value": "17.139999389648"``` | [' Foo \' s 법률 값 '] _double |
 | 중첩 된 JSON 개체는 마침표를 사용 하 여 구분 기호로 평면화 됩니다. 최대 10 개 수준의 중첩이 지원 됩니다. |  ```"series": {"value" : 316 }``` | 시리즈. value_long |
@@ -186,4 +185,4 @@ Azure Time Series Insights 환경에서는 특정 명명 규칙 집합에 따라
 
 ## <a name="next-steps"></a>다음 단계
 
-* 사용자 환경의 [처리량 제한 사항](concepts-streaming-throughput-limitations.md) 이해
+* 사용자 환경의 [처리량 제한 사항](./concepts-streaming-ingress-throughput-limits.md) 이해

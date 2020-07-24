@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/25/2019
-ms.openlocfilehash: 1a5a2682198f9ce9f5cb39f21e244c723ca513d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 1f0fb1ee8580c0c7f6eb30228b65e0a3780ef0a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416657"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076807"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce Marketing Cloud에서 데이터 복사
 
@@ -34,7 +34,7 @@ ms.locfileid: "81416657"
 
 Salesforce Marketing Cloud에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-Salesforce 마케팅 클라우드 커넥터는 OAuth 2 인증을 지원 합니다. 이는 [Salesforce 마케팅 클라우드 REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm)기반으로 빌드됩니다.
+Salesforce 마케팅 클라우드 커넥터는 OAuth 2 인증을 지원 하 고 레거시 및 고급 패키지 유형을 모두 지원 합니다. 커넥터는 [Salesforce 마케팅 클라우드 REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm)위에 빌드됩니다.
 
 >[!NOTE]
 >이 커넥터는 사용자 지정 개체 또는 사용자 지정 데이터 확장의 검색을 지원하지 않습니다.
@@ -52,13 +52,17 @@ Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니�
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SalesforceMarketingCloud**로 설정되어야 합니다. | 예 |
+| connectionProperties | Salesforce Marketing Cloud에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
+| ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
+| authenticationType | 사용할 인증 방법을 지정합니다. 허용 되는 값은 `Enhanced sts OAuth 2.0` 또는 `OAuth_2.0` 입니다.<br><br>Salesforce Marketing Cloud 레거시 패키지 `OAuth_2.0` 는를 지원 하지만 향상 된 패키지 요구는 지원 `Enhanced sts OAuth 2.0` 합니다. <br>2019 년 8 월 1 일부 터는 Salesforce Marketing 클라우드가 레거시 패키지를 만드는 기능을 제거 했습니다. 모든 새 패키지는 향상 된 패키지입니다. | 예 |
+| host | 향상 된 패키지의 경우 호스트는 "mc" 문자로 시작 하는 28 자 문자열로 표시 되는 하위 [도메인](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) 이어야 합니다 (예: `mc563885gzs27c5t9-63k636ttgm` ). <br>레거시 패키지의 경우를 지정 `www.exacttargetapis.com` 합니다. | 예 |
 | clientId | Salesforce Marketing Cloud 애플리케이션과 관련된 클라이언트 ID입니다.  | 예 |
-| clientSecret | Salesforce Marketing Cloud 애플리케이션과 관련된 클라이언트 암호입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
+| clientSecret | Salesforce Marketing Cloud 애플리케이션과 관련된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시 하 여 ADF에 안전 하 게 저장 하거나, Azure Key Vault에 암호를 저장 하 고, 데이터 복사를 수행할 때 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
 
-**예제:**
+**예: 향상 된 패키지에 대해 향상 된 STS OAuth 2 인증 사용** 
 
 ```json
 {
@@ -66,14 +70,66 @@ Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니�
     "properties": {
         "type": "SalesforceMarketingCloud",
         "typeProperties": {
-            "clientId" : "<clientId>",
+            "connectionProperties": {
+                "host": "<subdomain e.g. mc563885gzs27c5t9-63k636ttgm>",
+                "authenticationType": "Enhanced sts OAuth 2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+**예: 레거시 패키지에 OAuth 2 인증 사용** 
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "www.exacttargetapis.com",
+                "authenticationType": "OAuth_2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+다음 페이로드를 사용 하 여 Salesforce Marketing Cloud 연결 된 서비스를 사용 하는 경우 계속 해 서 있는 그대로 지원 되지만, 앞으로는 향상 된 패키지 지원을 추가 하는 새로운 기능을 사용 하는 것이 좋습니다.
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "clientId": "<clientId>",
             "clientSecret": {
                  "type": "SecureString",
                  "value": "<clientSecret>"
             },
-            "useEncryptedEndpoints" : true,
-            "useHostVerification" : true,
-            "usePeerVerification" : true
+            "useEncryptedEndpoints": true,
+            "useHostVerification": true,
+            "usePeerVerification": true
         }
     }
 }

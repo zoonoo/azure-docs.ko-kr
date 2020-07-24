@@ -1,14 +1,15 @@
 ---
-title: Azure 리소스 로그에서 지원 되는 서비스 및 스키마
+title: Azure 리소스 로그 지원 서비스 및 스키마
 description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤트 스키마를 이해 합니다.
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: 37c4093e52caf091489c60a8cdf497cffeffe9ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a97afa3f960393637b8af63c56fba419f853465
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077055"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그의 공통 및 서비스별 스키마
 
@@ -24,12 +25,12 @@ ms.locfileid: "85413861"
 
 | 이름 | 필수/선택 | 설명 |
 |---|---|---|
-| time | 필요한 공간 | 이벤트의 타임스탬프(UTC)입니다. |
-| resourceId | 필요한 공간 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
+| time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
+| resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
 | tenantId | 테넌트 로그에 필요 | 이 이벤트가 연결된 Active Directory 테넌트의 테넌트 ID입니다. 이 속성은 테넌트 수준 로그에만 사용되며 리소스 수준 로그에는 나타나지 않습니다. |
-| operationName | 필요한 공간 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우 RBAC 작업 이름 (예: Microsoft Storage/storageAccounts/blobServices/blob/Read)입니다. 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
+| operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우 RBAC 작업 이름 (예: Microsoft Storage/storageAccounts/blobServices/blob/Read)입니다. 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
 | operationVersion | 선택 사항 | API (예:)를 사용 하 여 operationName을 수행한 경우 작업에 연결 된 api 버전 `http://myservice.windowsazure.net/object?api-version=2016-06-01` 입니다. 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
-| category | 필요한 공간 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 "감사" "작동" "실행" 및 "요청"입니다. |
+| category | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 "감사" "작동" "실행" 및 "요청"입니다. |
 | resultType | 선택 사항 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
 | resultSignature | 선택 사항 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당 하는 경우이 필드는 해당 REST 호출의 HTTP 상태 코드입니다. |
 | resultDescription | 선택 사항 | 이 작업에 대 한 정적 텍스트 설명입니다 (예: "저장소 파일 가져오기"). |
@@ -37,7 +38,7 @@ ms.locfileid: "85413861"
 | callerIpAddress | 선택 사항 | 작업이 공개적으로 사용 가능한 IP 주소를 가진 엔터티에서 가져온 API 호출에 해당 하는 경우 호출자 IP 주소입니다. |
 | correlationId | 선택 사항 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로 두 이벤트에 동일한 operationName이 있지만 두 개의 다른 상태 (예: "Started" 및 "Succeeded")가 있는 경우 동일한 상관 관계 ID를 공유 합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
 | identity | 선택 사항 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로이 필드에는 active directory의 권한 부여 및 클레임/JWT 토큰이 포함 됩니다. |
-| Level | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| 수준 | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
 | 위치 | 선택 사항 | 이벤트를 내보내는 리소스의 지역 (예: "미국 동부" 또는 "프랑스 남부") |
 | properties | 선택 사항 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 custom/unique 속성은 스키마의이 "파트 B" 안에 배치 해야 합니다. |
 
@@ -59,7 +60,7 @@ ms.locfileid: "85413861"
 | Cognitive Services | [Azure Cognitive Services에 대 한 로깅](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Azure Container Registry에 대 한 로깅](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [CDN에 대 한 Azure 로그](../../cdn/cdn-azure-diagnostic-logs.md) |
-| CosmosDB | [Azure Cosmos DB 로깅](../../cosmos-db/logging.md) |
+| CosmosDB | [Azure Cosmos DB 로깅](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Azure Monitor를 사용 하 여 데이터 팩터리 모니터링](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Azure Data Lake Analytics에 대 한 로그 액세스](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store에 대 한 로그 액세스](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
@@ -73,7 +74,7 @@ ms.locfileid: "85413861"
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | [Azure DDoS Protection 표준 관리](../../virtual-network/manage-ddos-protection.md) |
-| Power BI 전용 | [Azure의 Power BI Embedded에 대 한 로깅](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
+| Power BI 전용 | [Azure의 Power BI Embedded에 대 한 로깅](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Azure Backup에 대 한 데이터 모델](../../backup/backup-azure-reports-data-model.md)|
 | 검색 |[검색 트래픽 분석 설정 및 사용](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus 로그](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -88,6 +89,6 @@ ms.locfileid: "85413861"
 
 * [수집할 수 있는 리소스 로그 범주를 참조 하세요.](resource-logs-categories.md)
 * [리소스 로그에 대해 자세히 알아보기](../../azure-monitor/platform/platform-logs-overview.md)
-* [**Event Hubs** 에 대 한 리소스 리소스 로그 스트림](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Azure Monitor REST API를 사용 하 여 리소스 로그 진단 설정 변경](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [**Event Hubs** 에 대 한 리소스 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs)
+* [Azure Monitor REST API를 사용 하 여 리소스 로그 진단 설정 변경](/rest/api/monitor/diagnosticsettings)
+* [Azure Storage에서 Log Analytics를 사용하여 로그 분석](./resource-logs.md#send-to-log-analytics-workspace)
