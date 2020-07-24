@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1440bf2b8af85b81355dbc43b695a85994e4b8d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565896"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124139"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -28,7 +29,7 @@ ms.locfileid: "77565896"
  
 Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수행할 수 있습니다.
 
-* 하이브리드 엔터프라이즈에서 사용자, 그룹 및 디바이스의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리 
+* 하이브리드 엔터프라이즈에서 사용자, 그룹 및 디바이스의 동기화가 유지되도록 각 사용자에 대해 단일 ID를 만들고 관리합니다. 
 * 수천 개의 미리 통합된 SaaS 앱을 포함한 애플리케이션에 대한 SSO 액세스를 제공합니다.
 * 온-프레미스 및 클라우드 애플리케이션 모두에 대해 규칙 기반 Multi-Factor Authentication을 적용하여 애플리케이션 액세스 보안을 사용하도록 설정
 * Azure AD 애플리케이션 프록시를 통해 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스 프로비전
@@ -37,7 +38,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 
 문서는 다음과 같은 핵심 Azure ID 관리 기능에 중점을 둡니다.
 
-* SSO(Single sign-on)
+* Single Sign-On
 * 역방향 프록시
 * Multi-Factor Authentication
 * RBAC(역할 기반 액세스 제어)
@@ -49,7 +50,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 * 하이브리드 ID 관리/Azure AD Connect
 * Azure AD 액세스 검토
 
-## <a name="single-sign-on"></a>SSO(Single sign-on)
+## <a name="single-sign-on"></a>Single Sign-On
 
 SSO란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 애플리케이션 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
@@ -83,17 +84,22 @@ Azure Multi-Factor Authentication은 1 초과 인증 방법을 사용해야 하�
 자세한 정보:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Azure Multi-Factor Authentication 정의](/azure/active-directory/authentication/multi-factor-authentication)
+* [Azure Multi-Factor Authentication이란?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Azure Multi-Factor Authentication 작동 방법](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="rbac"></a>RBAC
 
-RBAC는 Azure의 리소스에 대한 액세스를 세밀하게 관리할 수 있는 Azure Resource Manager를 기반으로 하는 권한 부여 시스템입니다. RBAC를 사용하면 사용자의 액세스 수준을 세부적으로 제어할 수 있습니다. 예를 들어 어떤 사용자는 가상 네트워크만 관리하도록 제한하고 다른 사용자는 리소스 그룹의 모든 리소스를 관리하도록 제한할 수 있습니다. Azure에는 사용 가능한 기본 제공 역할이 여러 개 있습니다. 다음은 네 가지 기본 제공 역할입니다. 처음 세 개는 모든 리소스 종류에 적용됩니다.
+RBAC는 Azure의 리소스에 대한 액세스를 세밀하게 관리할 수 있는 Azure Resource Manager를 기반으로 하는 권한 부여 시스템입니다. RBAC를 사용하면 사용자의 액세스 수준을 세부적으로 제어할 수 있습니다. 예를 들어 어떤 사용자는 가상 네트워크만 관리하도록 제한하고 다른 사용자는 리소스 그룹의 모든 리소스를 관리하도록 제한할 수 있습니다. Azure에는 사용할 수 있는 기본 제공 역할이 여러 개 있습니다. 다음은 네 가지 기본 제공 역할입니다. 처음 세 개는 모든 리소스 종류에 적용됩니다.
+
+- [소유자](/azure/role-based-access-control/built-in-roles.md#owner) - 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다. 
+- [기여자](/azure/role-based-access-control/built-in-roles.md#contributor) - 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수 없습니다.
+- [읽기 권한자](/azure/role-based-access-control/built-in-roles.md#reader) - 기존 Azure 리소스를 볼 수 있습니다.
+- [사용자 액세스 관리자](/azure/role-based-access-control/built-in-roles.md#administrator) - Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 
 자세한 정보:
 
-* [RBAC(역할 기반 액세스 제어)란?](/azure/role-based-access-control/overview)
-* [Azure 리소스에 대한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)
+* [Azure RBAC(Azure 역할 기반 액세스 제어)란?](/azure/role-based-access-control/overview)
+* [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>보안 모니터링, 경고 및 기계 학습 기반 보고서
 

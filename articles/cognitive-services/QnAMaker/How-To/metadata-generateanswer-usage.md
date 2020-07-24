@@ -3,19 +3,17 @@ title: GenerateAnswer API와 메타데이터 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker를 사용 하면 키/값 쌍의 형태로 메타 데이터를 질문/답변 쌍에 추가할 수 있습니다. 사용자 쿼리를 사용 하 여 결과를 필터링 하 고 추가 정보를 저장할 수 있습니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: diberry
-ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.openlocfilehash: 863143cb2ec1085bf03b070c225f2be5e8e4393d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993510"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126179"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -146,7 +144,7 @@ var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnCont
 
 이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다.
 
-## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js에서 봇과 함께 QnA Maker 사용
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js에서 봇과 QnA Maker 사용
 
 Bot framework는 [Getanswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-)를 사용 하 여 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
 
@@ -184,13 +182,40 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 {
     "question": "When does this hotel close?",
     "top": 1,
-    "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
+
+### <a name="logical-and-by-default"></a>기본적으로 논리적 AND
+
+쿼리에서 여러 메타 데이터 필터를 결합 하려면 속성의 배열에 메타 데이터 필터를 추가 합니다 `strictFilters` . 기본적으로 값은 논리적으로 결합 되어 있습니다 (및). 논리 조합은 답에서 쌍이 반환 되려면 모든 필터가 QnA 쌍과 일치 해야 합니다.
+
+이는 `strictFiltersCompoundOperationType` 속성을의 값과 함께 사용 하는 것과 같습니다 `AND` .
+
+### <a name="logical-or-using-strictfilterscompoundoperationtype-property"></a>Logical 또는 using strictFiltersCompoundOperationType 속성
+
+여러 메타 데이터 필터를 결합할 때 일치 하는 필터 중 하나 또는 일부에만 관심이 있는 경우 `strictFiltersCompoundOperationType` 의 값으로 속성을 사용 `OR` 합니다.
+
+이렇게 하면 모든 필터가 일치 하지만 메타 데이터가 없는 대답은 반환 하지 않을 때 기술 자료에서 답을 반환할 수 있습니다.
+
+```json
+{
+    "question": "When do facilities in this hotel close?",
+    "top": 1,
+    "strictFilters": [
+      { "name": "type","value": "restaurant"},
+      { "name": "type", "value": "bar"},
+      { "name": "type", "value": "poolbar"}
+    ],
+    "strictFiltersCompoundOperationType": "OR"
+}
+```
+
+### <a name="metadata-examples-in-quickstarts"></a>퀵 스타트의 메타 데이터 예제
+
+메타 데이터에 대 한 QnA Maker 포털 빠른 시작에서 메타 데이터에 대해 자세히 알아보세요.
+* [제작-QnA 쌍에 메타 데이터 추가](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [쿼리 예측-메타 데이터에의 한 응답 필터링](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
 

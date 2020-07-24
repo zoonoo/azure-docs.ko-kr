@@ -2,19 +2,19 @@
 title: Azure AD 및 Azure Maps REST Api를 사용 하 여 입력 제한 장치를 보호 하는 방법
 titleSuffix: Azure Maps
 description: Azure AD에 대 한 로그인을 지원 하 고 REST Api를 Azure Maps 호출 하는 브라우저 없는 응용 프로그램을 구성 하는 방법입니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b9e75a25237a76c7fa6d300e01bb4d42db75fe08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d73ad14cac77e4b00e90ec11791ef141436b7e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988468"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126750"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Azure AD 및 Azure Maps REST Api를 사용 하 여 입력 제한 장치 보호
 

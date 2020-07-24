@@ -1,19 +1,19 @@
 ---
 title: 공간 데이터 읽기 및 쓰기 | Microsoft Azure 맵
 description: Azure Maps Web SDK에서 제공 하는 공간 IO 모듈을 사용 하 여 데이터를 읽고 쓰는 방법을 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4c47335689401ebce98224992c74c3396821a1dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 633af1475266e39e9c8dd278a018316c36e6491b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334148"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124411"
 ---
 # <a name="read-and-write-spatial-data"></a>공간 데이터 읽기 및 쓰기
 
@@ -40,7 +40,7 @@ Zip 또는 KMZ 압축 된 파일을 읽을 때 압축을 푼 후 첫 번째 유�
 
 Read 함수의 결과는 `SpatialDataSet` 개체입니다. 이 개체는 GeoJSON FeatureCollection 클래스를 확장 합니다. 이를 그대로에 쉽게 전달 `DataSource` 하 여 지도에 기능을 렌더링할 수 있습니다. 는 `SpatialDataSet` 기능 정보를 포함할 뿐만 아니라 다음 표에 설명 된 대로 KML 그라운드 오버레이, 처리 메트릭 및 기타 세부 정보를 포함할 수도 있습니다.
 
-| 속성 이름 | Type | Description | 
+| 속성 이름 | Type | 설명 | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | 데이터 집합에 있는 모든 데이터의 경계 상자입니다. |
 | `features` | `Feature[]` | 데이터 집합 내의 기능을 GeoJSON 합니다. |

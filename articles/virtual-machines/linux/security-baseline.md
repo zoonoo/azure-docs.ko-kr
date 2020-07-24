@@ -1,5 +1,5 @@
 ---
-title: Azure 보안 벤치 마크에 대 한 Linux Virtual Machines 보안 기준
+title: Linux Virtual Machines에 대 한 Azure 보안 기준
 description: Linux Virtual Machines 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d8c4d67ed9b268bae55711fae8c4def33b967fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531505"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124717"
 ---
-# <a name="linux-virtual-machines-security-baseline-for-azure-security-benchmark"></a>Azure 보안 벤치 마크에 대 한 Linux Virtual Machines 보안 기준
+# <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linux Virtual Machines에 대 한 Azure 보안 기준
 
 Linux Virtual Machines에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
@@ -568,7 +568,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
 
-* [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 

@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec98060a09a1fad4f851689daff3f4b578c164f5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514639"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124105"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
-이 문서에서는 StorSimple 디바이스에 RBAC(역할 기반 액세스 제어)를 사용하는 방법에 대해 간략히 설명합니다. RBAC는 Azure에 대한 정밀 액세스 관리를 제공합니다. RBAC를 사용하여 모든 사람들에게 무제한 액세스 권한을 주는 대신 StorSimple 사용자가 작업을 수행하는 데 필요한 만큼의 액세스 권한을 부여합니다. Azure에서 액세스 관리의 기초에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](../role-based-access-control/overview.md)을 참조하세요.
+이 문서에서는 StorSimple 장치에 azure RBAC (역할 기반 액세스 제어)를 사용 하는 방법에 대 한 간략 한 설명을 제공 합니다. RBAC는 Azure에 대한 정밀 액세스 관리를 제공합니다. RBAC를 사용하여 모든 사람들에게 무제한 액세스 권한을 주는 대신 StorSimple 사용자가 작업을 수행하는 데 필요한 만큼의 액세스 권한을 부여합니다. Azure에서 액세스 관리의 기초에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 이 문서는 Azure Portal에서 실행되는 업데이트 3.0 이상을 실행하는 StorSimple 8000 시리즈 디바이스에 적용됩니다.
 
@@ -34,7 +35,7 @@ RBAC는 역할을 기반으로 할당할 수 있습니다. 이 역할은 환경�
 
 * **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 Access Control의 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
-* **사용자 지정 역할** - 기본 제공 역할이 요구 사항에 맞지 않을 경우 StorSimple에 대해 사용자 지정 RBAC 역할을 만들 수 있습니다. 사용자 지정 RBAC 역할을 만들려면 기본 제공 역할을 시작하고 편집한 다음 환경에서 다시 가져옵니다. 역할의 다운로드 및 업로드는 Azure PowerShell 또는 Azure CLI를 사용하여 관리합니다. 자세한 내용은 [역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
+* **사용자 지정 역할** -기본 제공 역할이 요구 사항에 맞지 않는 경우 StorSimple 용 Azure 사용자 지정 역할을 만들 수 있습니다. Azure 사용자 지정 역할을 만들려면 기본 제공 역할을 사용 하 여 시작 하 고 편집한 다음 환경에서 다시 가져옵니다. 역할의 다운로드 및 업로드는 Azure PowerShell 또는 Azure CLI를 사용하여 관리합니다. 자세한 내용은 [역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
 Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있는 다른 역할을 보려면 StorSimple 디바이스 관리자 서비스로 이동한 다음 **액세스 제어(IAM) &gt; 역할**로 이동하십시오.
 
@@ -101,7 +102,7 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
     }
     ```
 
-6. 사용자 지정 RBAC 역할을 다시 환경으로 가져옵니다.
+6. Azure 사용자 지정 역할을 환경으로 다시 가져옵니다.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 

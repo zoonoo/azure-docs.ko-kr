@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609251"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125176"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,18 +25,18 @@ ms.locfileid: "85609251"
 
 ## <a name="default-roles"></a>기본 역할
 
-Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure 리소스와 마찬가지로 새 Azure Machine Learning 작업 영역을 만들 때 세 가지 기본 역할이 제공 됩니다. 사용자를 작업 영역에 추가 하 고 이러한 기본 제공 역할 중 하나에 할당할 수 있습니다.
+Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure 리소스와 마찬가지로 새 Azure Machine Learning 작업 영역을 만들 때 세 가지 기본 역할이 제공됩니다. 사용자를 작업 영역에 추가 하 고 이러한 기본 제공 역할 중 하나에 할당할 수 있습니다.
 
 | 역할 | 액세스 수준 |
 | --- | --- |
 | **판독기** | 작업 영역의 읽기 전용 작업입니다. 독자는 작업 영역에서 자산 ( [데이터 저장소](how-to-access-data.md) 자격 증명 포함)을 나열 하 고 볼 수 있지만 이러한 자산을 만들거나 업데이트할 수는 없습니다. |
-| **기여자** | 작업 영역에서 자산을 보거나, 만들거나, 편집 하거나, 삭제 합니다 (해당 하는 경우). 예를 들어 참가자는 실험을 만들고, 계산 클러스터를 만들고 연결 하 고, 실행을 제출 하 고, 웹 서비스를 배포할 수 있습니다. |
+| **기여자** | 작업 영역에서 자산을 보거나, 만들거나, 편집 하거나, 삭제 합니다 (해당 하는 경우). 예를 들어 기여자는 실험을 만들고, 컴퓨팅 클러스터를 만들거나 연결하고, 실행을 제출하고, 웹 서비스를 배포할 수 있습니다. |
 | **소유자** | 작업 영역에 대 한 모든 액세스 권한 (해당 하는 경우)을 확인, 생성, 편집 또는 삭제 (해당 하는 경우) 하는 기능을 포함 하 여 작업 영역에서. 또한 역할 할당을 변경할 수 있습니다. |
 
 > [!IMPORTANT]
 > Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. 예를 들어 작업 영역에 대 한 소유자 액세스 권한이 있는 사용자에 게는 작업 영역을 포함 하는 리소스 그룹에 대 한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [RBAC 작동 방식](/azure/role-based-access-control/overview#how-rbac-works)을 참조 하세요.
 
-특정 기본 제공 역할에 대 한 자세한 내용은 [Azure에 대 한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 참조 하세요.
+특정 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 참조 하세요.
 
 ## <a name="manage-workspace-access"></a>작업 영역 액세스 관리
 
@@ -69,7 +69,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="create-custom-role"></a>사용자 지정 역할 만들기
 
-기본 제공 역할이 충분 하지 않은 경우 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할에는 해당 작업 영역에 대 한 읽기, 쓰기, 삭제 및 계산 리소스 권한이 있을 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용 하도록 설정할 수 있습니다.
+기본 제공 역할이 충분하지 않은 경우 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할에는 해당 작업 영역에 대 한 읽기, 쓰기, 삭제 및 계산 리소스 권한이 있을 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용 하도록 설정할 수 있습니다.
 
 > [!NOTE]
 > 해당 리소스 내에서 사용자 지정 역할을 만들려면 해당 수준의 리소스 소유자 여야 합니다.
@@ -117,9 +117,9 @@ az role definition create --role-definition data_scientist_role.json
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-사용자 지정 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](/azure/role-based-access-control/custom-roles)을 참조 하세요.
+사용자 지정 역할에 대 한 자세한 내용은 [Azure 사용자 지정 역할](/azure/role-based-access-control/custom-roles)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>17. Azure Machine Learning 서비스에서 다양 한 작업을 수행 하는 데 필요한 권한은 무엇 인가요?

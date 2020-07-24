@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498969"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117208"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -65,6 +65,9 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 
 ## <a name="set-up-and-configure"></a>설정 및 구성
+
+> [!NOTE]
+> Log Analytics 에이전트를 Microsoft Monitoring Agent(MMA) 또는 OMS Linux 에이전트라고도 합니다.
 
 ### <a name="install-and-configure-agents"></a>에이전트 설치 및 구성 
 

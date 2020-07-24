@@ -3,13 +3,12 @@ title: 문제 해결-Personalizer
 description: 이 문서에는 Personalizer에 대 한 자주 묻는 질문에 대 한 답변이 포함 되어 있습니다.
 ms.topic: troubleshooting
 ms.date: 02/26/2020
-ms.author: diberry
-ms.openlocfilehash: ca19fbfc505e3e46338a0930773b1879dce788c1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 55b9068dbd7bfbb3ea3972c3381fda6d9cde5076
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586255"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126111"
 ---
 # <a name="personalizer-troubleshooting"></a>Personalizer 문제 해결
 
@@ -27,7 +26,7 @@ ms.locfileid: "83586255"
 
 ## <a name="transaction-errors"></a>트랜잭션 오류
 
-### <a name="i-get-an-http-429-too-many-requests-response-from-the-service-what-can-i-do"></a>서비스에서 HTTP 429 (너무 많은 요청) 응답을 받습니다. 어떻게 해야 합니까?
+### <a name="i-get-an-http-429-too-many-requests-response-from-the-service-what-can-i-do"></a>서비스에서 HTTP 429 (너무 많은 요청) 응답을 받습니다. 어떻게 해야 하나요?
 
 Personalizer 인스턴스를 만들 때 무료 가격 책정 계층을 선택한 경우 허용 되는 순위 요청 수에 대 한 할당량 한도가 있습니다. Personalizer 리소스에 대 한 Azure Portal의 메트릭 창에서 순위 API에 대 한 API 호출 요금을 검토 하 고, 통화 볼륨이 선택한 가격 책정 계층의 임계값을 초과 하 여 증가할 것으로 예상 되는 경우 가격 책정 계층 (가격 책정 계층 창에서)을 조정 합니다.
 
@@ -86,7 +85,7 @@ Azure Portal의 **모델 및 학습 설정** 페이지에서 모델이 마지막
 
 ## <a name="security"></a>보안
 
-### <a name="the-api-key-for-my-loop-has-been-compromised-what-can-i-do"></a>내 루프의 API 키가 손상 되었습니다. 어떻게 해야 합니까?
+### <a name="the-api-key-for-my-loop-has-been-compromised-what-can-i-do"></a>내 루프의 API 키가 손상 되었습니다. 어떻게 해야 하나요?
 
 다른 키를 사용 하도록 클라이언트를 바꾼 후 한 키를 다시 생성할 수 있습니다. 키가 두 개인 경우 가동 중지 시간이 없어도 지연 방식으로 키를 전파할 수 있습니다. 보안 조치로 정기적으로이 작업을 수행 하는 것이 좋습니다.
 

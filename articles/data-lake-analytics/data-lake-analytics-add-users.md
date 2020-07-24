@@ -3,18 +3,16 @@ title: Azure Data Lake Analytics 계정에 사용자 추가
 description: 사용자 추가 마법사 및 Azure PowerShell를 사용 하 여 Data Lake Analytics 계정에 사용자를 올바르게 추가 하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 16ec54bb2a41927a92d953586af59ae3653a29c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 09f866d7ed72e82770a7f3a0fe5da24bb864851f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117460"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126077"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
 
@@ -42,7 +40,7 @@ ms.locfileid: "86117460"
 
 ## <a name="adding-a-user-using-powershell"></a>PowerShell을 사용하여 사용자 추가
 
-1. [Azure PowerShell을 설치 및 구성하는 방법](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) 가이드의 지침을 따르세요.
+1. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/) 가이드의 지침을 따르세요.
 2. [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) PowerShell 스크립트를 다운로드합니다.
 3. PowerShell 스크립트를 실행합니다. 
 

@@ -1,19 +1,19 @@
 ---
 title: 코어 IO 작업 | Microsoft Azure 맵
 description: 공간 IO 모듈에서 핵심 라이브러리를 사용 하 여 XML 및 구분 된 데이터를 효율적으로 읽고 쓰는 방법에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e142fe348a339e4903d692cad569015edb69f75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371453"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124479"
 ---
 # <a name="core-io-operations"></a>코어 IO 작업
 
@@ -30,7 +30,7 @@ ms.locfileid: "80371453"
 
 기본적으로 판독기는 쉼표 문자를 구분 기호로 사용 합니다. 그러나 구분 기호를 단일 문자로 변경 하거나로 설정할 수 있습니다 `'auto'` . 로 설정 `'auto'` 된 경우 판독기는 문자열의 첫 번째 텍스트 줄을 분석 합니다. 그런 다음 아래 표에서 구분 기호로 사용할 가장 일반적인 문자를 선택 합니다.
 
-| | |
+| 구분 기호 | 문자 |
 | :-- | :-- |
 | 쉼표 | `,` |
 | 탭 | `\t` |

@@ -3,18 +3,16 @@ title: Azure Data Lake Tools for Visual Studio Code 사용
 description: Azure Data Lake Tools for Visual Studio Code를 사용하여 U-SQL 스크립트를 만들고, 테스트하고, 실행하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: Jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: 53e0628256ad37d87c260c762c2c5a5c824666b0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117664"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126485"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
@@ -225,7 +223,7 @@ U-SQL 로컬은 Data Lake Analytics에 코드가 게시되기 전에 로컬 데�
 
 로컬 실행 및 로컬 디버그에 대한 지침은 [Visual Studio Code로 U-SQL 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)를 참조하세요.
 
-## <a name="connect-to-azure"></a>Azure 연결
+## <a name="connect-to-azure"></a>Azure에 연결
 
 Data Lake Analytics에서 U-SQL 스크립트를 컴파일하고 실행하기 전에 먼저 Azure 계정에 연결해야 합니다.
 
@@ -355,7 +353,7 @@ Azure Data Lake Analytics 리소스에 액세스하여 계정을 나열하고, �
 ### <a name="upload-a-file-or-folder"></a>파일 또는 폴더 업로드
 
 1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **Upload File**(파일 업로드) 또는 **Upload Folder**(폴더 업로드)를 선택합니다.
-2. **Upload File**(파일 업로드)를 선택한 경우 하나 이상의 파일을 선택하고, **Upload Folder**(폴더 업로드)를 선택한 경우 전체 폴더를 선택합니다. 그런 다음, **Upload**(업로드)를 선택합니다.
+2. **Upload File**(파일 업로드)를 선택한 경우 하나 이상의 파일을 선택하고, **Upload Folder**(폴더 업로드)를 선택한 경우 전체 폴더를 선택합니다. 그런 다음, **업로드**를 선택합니다.
 3. 목록에서 스토리지 폴더를 선택하거나 **Enter a path**(경로 입력) 또는 **Browse from root path**(루트 경로에서 찾아보기)를 선택합니다. 예제에서는 **Enter a path**(경로 입력)를 사용합니다.
 4. Data Lake Analytics 계정을 선택합니다.
 5. 스토리지 폴더 경로를 찾거나 입력합니다(예: /output/).

@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258098"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125535"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
 Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](concepts-twins-graph.md) 입니다. 쌍 그래프는 **관계**를 통해 연결 되는 개별 디지털 쌍으로 구성 됩니다.
 
-작동 하는 [azure digital 쌍 인스턴스가](how-to-set-up-instance.md) 있고 클라이언트 앱에 대 한 [인증](how-to-authenticate-client.md) 을 설정한 후에는 [**DigitalTwins api**](how-to-use-apis-sdks.md) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
+[Azure digital 쌍 인스턴스가](how-to-set-up-instance-scripted.md) 작동 하 고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 [**DigitalTwins api**](how-to-use-apis-sdks.md) 를 사용 하 여 azure digital 쌍 인스턴스에서 디지털 쌍 및 해당 관계를 생성, 수정 및 삭제할 수 있습니다. [.Net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure DIGITAL twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
 
-이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [방법: 디지털 쌍 관리](how-to-manage-twin.md)를 참조 하세요.
+이 문서에서는 관계와 그래프를 전체적으로 관리 하는 방법을 집중적으로 설명 합니다. 개별 디지털 쌍으로 작업 하려면 [*방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -62,7 +62,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-도우미 클래스에 대 한 자세한 내용은 `BasicRelationship` [방법: Azure Digital Twins Api 및 sdk 사용](how-to-use-apis-sdks.md)을 참조 하세요.
+도우미 클래스에 대 한 자세한 내용은 `BasicRelationship` [*방법: Azure Digital Twins Api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
 ## <a name="list-relationships"></a>관계 목록
 
@@ -108,7 +108,7 @@ Azure Digital Twins에는 지정 된 쌍으로 들어오는 모든 관계를 찾
 
 이전 코드 샘플은 나가는 관계를 찾는 데 중점을 두었습니다. 다음 예는 유사 하지만 들어오는 관계를 대신 찾습니다. 또한 찾은 후 삭제 합니다.
 
-IncomingRelationship 호출은 full을 반환 하지 않습니다.
+`IncomingRelationship`호출은 관계의 전체 본문을 반환 하지 않습니다.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
@@ -301,10 +301,10 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## <a name="manage-relationships-with-cli"></a>CLI를 사용 하 여 관계 관리
 
-또한 Azure Digital Twins CLI를 사용 하 여 쌍 및 해당 관계를 관리할 수 있습니다. 명령은 [방법: Azure Digital Twins CLI 사용](how-to-use-cli.md)에서 찾을 수 있습니다.
+또한 Azure Digital Twins CLI를 사용 하 여 쌍 및 해당 관계를 관리할 수 있습니다. 명령은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins 쌍 그래프를 쿼리 하는 방법에 대해 알아봅니다.
-* [개념: 쿼리 언어](concepts-query-language.md)
-* [방법: 쌍 그래프 쿼리](how-to-query-graph.md)
+* [*개념: 쿼리 언어*](concepts-query-language.md)
+* [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)

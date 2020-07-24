@@ -5,22 +5,22 @@ services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: aa77ac3652d8646a3354cb137ba7cf4240e58e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9a8b44cc6e78eda4a3e0b18d59d2372e7129c05
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482890"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124183"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
-네트워크 서비스 중심 MSP, 통신업체 및 SI(시스템 통합업체)는 [Azure 네트워킹 MSP(관리형 서비스 공급자) 파트너 프로그램](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/)을 통해 Azure의 네트워킹 제품과 서비스 포트폴리오를 중심으로 클라우드 및 하이브리드 네트워킹 서비스를 제공할 수 있습니다.
+[Azure 네트워킹 MSP (관리 서비스 공급자) 파트너 프로그램](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) 을 사용 하면 네트워크 서비스 중심 Msps, 통신 및 SIs (시스템 통합자)가 azure의 네트워킹 제품과 서비스 포트폴리오를 중심으로 클라우드 및 하이브리드 네트워킹 서비스를 제공할 수 있습니다.
 
 Azure 네트워킹 MSP는 클라우드 및 하이브리드 네트워킹의 모든 측면에서 엔터프라이즈 클라우드 네트워킹 요구 사항과 과제를 해결하는 전문 관리형 서비스 공급자입니다. 관리형 네트워크 서비스에는 네트워크 아키텍처, 계획, 배포, 운영, 유지 관리 및 최적화와 같은 서비스가 하나 이상 포함되어 있습니다.
 
-![MSP][0]
+:::image type="content" source="./media/networking-partners-msp/msp.jpg" alt-text="귀사":::
 
 고객은 Azure Marketplace 또는 MSP를 통해 직접 MSP 관리 서비스 제품을 구매할 수 있습니다. MSP는 [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)를 사용하여 고객의 구독 및 리소스 그룹에서 Azure 네트워킹 리소스를 배포하고 관리할 수 있습니다.
 
@@ -32,6 +32,7 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 | ---| ---| ---| ---| ---|
 |[ANS Group UK](https://www.ans.co.uk/)|[Azure 관리형 서비스 + ANS Glass 10주 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|[Express 경로 & 연결: 2 주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.ans_er)|[Azure 가상 WAN + Fortinet: 2 주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.ans_vw)|||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Azure Virtual WAN](https://azuremarketplace.microsoft.com/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview) | | |
+|[AXESDN](https://www.axesdn.com/en/azure-msp.html)||[AXESDN 관리 Azure Express 경로](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_expressroute?tab=Overview)|[AXESDN 관리 Azure 가상 WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_virtualwan?tab=Overview) | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[네트워크 혁신 컨설팅: 1시간 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting);[BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
 |[CenturyLink](https://www.centurylink.com/business.html)||[Express 경로 컨설팅 Svcs: 8-wk 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/centurylink2362604-2362604.centurylink_consultingservicesforexpressroute)||||
 |[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|||[관리형 VMware SD-WAN Virtual Edge](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
@@ -53,7 +54,7 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure 상태 확인: 5일 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5일 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis 관리 ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Fortinet에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Palo Alto Networks에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-다음 Azure 네트워킹 MSP 파트너의 관리 되는 새 보안 서비스 및 관리 되는 MEC 서비스를 비롯 한 Azure Marketplace 제품은 로드맵에서 제공 [됩니다.](https://www.amdocs.com/) [Axesdn](https://www.axesdn.com/en/azure-msp.html); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX 도달](https://www.ixreach.com/services/sdn-cloud-connect/)  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/services/);  [Sejong 텔레콤](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [페더레이션된 무선](https://www.federatedwireless.com/caas/)
+다음 Azure 네트워킹 MSP 파트너의 관리 되는 Express 경로, 가상 WAN, 보안 서비스 및 개인에 지 영역 서비스에 대 한 Azure Marketplace 제품은 로드맵에 있습니다. [Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX 도달](https://www.ixreach.com/services/sdn-cloud-connect/)  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/);  [Sejong 텔레콤](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [페더레이션된 무선](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>ExpressRoute 파트너
 
@@ -62,6 +63,3 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 ## <a name="virtual-wan-partners"></a><a name="vwan"></a>Virtual WAN 파트너
 
 파트너에 대한 자세한 내용은 [Virtual WAN 파트너 및 공급자](../virtual-wan/virtual-wan-locations-partners.md)를 참조하세요.
-
-<!--Image References-->
-[0]: ./media/networking-partners-msp/msp.png "MSP 프로그램 설명"

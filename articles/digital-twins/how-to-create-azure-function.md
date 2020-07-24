@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725905"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124309"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -77,7 +78,7 @@ namespace FunctionSample
 
 이제 함수를 컴파일하고 실행할 수 있습니다. Azure 함수는 궁극적으로 클라우드에서 실행 하기 위한 것 이지만, Azure 함수를 로컬로 실행 하 고 디버그할 수도 있습니다.
 
-이에 대 한 자세한 내용은 [로컬에서 디버그 Event Grid 트리거](../azure-functions/functions-debug-event-grid-trigger-local.md)를 참조 하세요.
+이에 대 한 자세한 내용은 [*로컬에서 디버그 Event Grid 트리거*](../azure-functions/functions-debug-event-grid-trigger-local.md)를 참조 하세요.
 
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Azure 함수 앱에 Azure Digital Twins SDK 추가
 
@@ -162,9 +163,9 @@ az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(fu
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-관리 id에 대 한 자세한 내용은 [App Service 및 Azure Functions에 대해 관리 id를 사용 하는 방법](../app-service/overview-managed-identity.md)을 참조 하세요.
+관리 id에 대 한 자세한 내용은 [*App Service 및 Azure Functions에 대해 관리 id를 사용 하는 방법*](../app-service/overview-managed-identity.md)을 참조 하세요.
 
-마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [환경 변수](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables)를 참조 하세요.
+마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [*환경 변수*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables)를 참조 하세요.
 
 > [!TIP]
 > Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름*앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -208,7 +209,7 @@ Id 페이지에서 *상태* 전환을 *켜기*로 설정 합니다.
 
 ### <a name="assign-access-roles"></a>액세스 역할 할당
 
-Azure Digital Twins는 역할 기반 액세스 제어를 사용 하 여 액세스를 관리 하기 때문에 (이에 대 한 자세한 내용은 [개념: Azure Digital twins 솔루션에 대 한 보안](concepts-security.md) 참조) Azure Digital twins에 액세스 하도록 허용 하려는 각 함수 앱에 대 한 역할을 추가 해야 합니다.
+Azure Digital Twins는 역할 기반 액세스 제어를 사용 하 여 액세스를 관리 하기 때문에 (이에 대 한 자세한 내용은 [*개념: Azure Digital twins 솔루션에 대 한 보안*](concepts-security.md) 참조) Azure Digital twins에 액세스 하도록 허용 하려는 각 함수 앱에 대 한 역할을 추가 해야 합니다.
 
 역할을 할당 하려면 만든 Azure Digital Twins 인스턴스의 **리소스 ID가** 필요 합니다. 인스턴스를 만들 때 이전에 기록 하지 않은 경우 다음 명령을 사용 하 여 검색할 수 있습니다.
 
@@ -231,4 +232,4 @@ az role assignment create --role "Azure Digital Twins Owner (Preview)" --assigne
 * 다른 서비스에서 메시지를 수신 하는 Event Grid 끝점
 
 다음으로, Azure Digital Twins에 IoT Hub 데이터를 수집 하는 기본 Azure 함수를 빌드하는 방법을 참조 하세요.
-* [방법: IoT Hub에서 원격 분석 수집](how-to-ingest-iot-hub-data.md)
+* [*방법: IoT Hub에서 원격 분석 수집*](how-to-ingest-iot-hub-data.md)

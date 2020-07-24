@@ -3,14 +3,14 @@ title: Azure Automation |에서 사용 하는 Azure 데이터 센터 DNS 레코�
 description: 이 문서에서는 해당 Automation 계정을 호스팅하는 특정 Azure 지역에 대 한 통신을 제한할 때 Azure Automation 기능에 필요한 DNS 레코드를 제공 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44d70db195850b3f87806c69755095b521078b2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117189"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Azure Automation에서 사용 하는 Azure 지역에 대 한 DNS 레코드
 
@@ -83,6 +83,12 @@ Azure Automation에서 [개인 링크](../../private-link/private-link-overview.
 | US Gov 버지니아 |`https://<accountId>.webhook.usge.azure-automation.us`<br>`https://<accountId>.agentsvc.usge.azure-automation.us`<br>`https://<accountId>.jrds.usge.azure-automation.us` |
 | US Gov 텍사스 |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov 애리조나 |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
+
+`<accountId>`DNS 레코드의를 값 **URL**에서 Automation 계정 ID를 나타내는 GUID로 바꿉니다. Azure Portal의 **계정 설정** 아래에 있는 **키** 에서 필요한 ID를 가져올 수 있습니다.
+
+![Automation 계정 기본 키 페이지](./media/automation-region-dns-records/automation-account-keys.png)
+
+*계정/* > **URL** 필드에서 값을 복사 합니다.`https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
 
 [예외](../automation-runbook-execution.md#exceptions)를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. 지역 이름 대신 지역 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 다음 클라우드 환경에 대 한 JSON 파일을 다운로드 합니다.
 

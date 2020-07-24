@@ -3,20 +3,18 @@ title: QnA Maker 기술 자료에 잡담 추가
 titleSuffix: Azure Cognitive Services
 description: KB를 만들 때 봇에 사적인 잡담을 추가하면 실제로 대화하는 것 같은 느낌이 들고 몰입도가 높아집니다. QnA Maker를 사용하면 미리 채워진 최고의 잡담 집합을 KB로 손쉽게 추가할 수 있습니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e06cad8e8ca62330b09e173cf6058905b49f19e4
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 0aca072a9e659d242dec9dd45a12f9568d419599
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992911"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124428"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -29,7 +27,7 @@ ms.locfileid: "83992911"
 사용자 쿼리의 경우 각 사용자에 게 `When is your birthday?` 다음과 같은 스타일의 응답이 있습니다.
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|성격|예제|
+|개성|예제|
 |--|--|
 |Professional|나이는 전혀 적용 되지 않습니다.|
 |친숙한|나의 나이가 없습니다.|
@@ -43,7 +41,7 @@ ms.locfileid: "83992911"
 
 Chit-채팅 데이터 집합은 다음 언어로 지원 됩니다.
 
-|언어|
+|Language|
 |--|
 |중국어|
 |영어|

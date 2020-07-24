@@ -11,11 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8be4169a44b2ef57db8aa49b96f6c5fe85ded1c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430456"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125091"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 리소스에 대한 할당량 관리 및 늘리기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +72,7 @@ ms.locfileid: "84430456"
 | 단일 Azure Machine Learning 컴퓨팅(AmlCompute) 리소스의 최대 노드 수 | 100개 노드 |
 | 노드당 최대 GPU MPI 프로세스 | 1-4 |
 | 노드당 최대 GPU 작업자 수 | 1-4 |
-| 최대 작업 수명 | 90일<sup>1</sup> |
+| 최대 작업 수명 | 21 일<sup>1</sup> |
 | 우선 순위가 낮은 노드의 최대 작업 수명 | 7일<sup>2</sup> |
 | 노드당 최대 매개 변수 서버 수 | 1 |
 

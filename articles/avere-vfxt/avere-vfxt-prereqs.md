@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505344"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124734"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -38,7 +38,7 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 |----------|--------|-------|
 | 리소스 그룹 관리자가 vFXT를 만듭니다. | 가상 네트워크, 클러스터 컨트롤러 및 클러스터 노드는 리소스 그룹 내에 만들어야 합니다. | [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할은 모두 대상 리소스 그룹으로 범위가 지정 됩니다. |
 | 기존 외부 가상 네트워크 사용 | 클러스터 컨트롤러와 클러스터 노드는 vFXT의 리소스 그룹 내에 만들어지지만 다른 리소스 그룹의 기존 가상 네트워크를 사용 합니다. | (1) [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할이 vFXT 리소스 그룹으로 범위가 지정 됩니다. 그리고 (2) [가상 머신 참가자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator)및 [Avere 참여자](../role-based-access-control/built-in-roles.md#avere-contributor) 역할 범위는 가상 네트워크의 리소스 그룹으로 지정 됩니다. |
-| 클러스터 작성자를 위한 사용자 지정 역할 | 리소스 배치 제한이 없습니다. 이 메서드는 소유자가 아닌 중요 한 권한을 제공 합니다. | 구독 소유자는 [이 문서](avere-vfxt-non-owner.md)에 설명 된 대로 사용자 지정 RBAC 역할을 만듭니다. |
+| 클러스터 작성자를 위한 사용자 지정 역할 | 리소스 배치 제한이 없습니다. 이 메서드는 소유자가 아닌 중요 한 권한을 제공 합니다. | 구독 소유자는 [이 문서](avere-vfxt-non-owner.md)에 설명 된 대로 Azure 사용자 지정 역할을 만듭니다. |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>vFXT 클러스터에 대한 할당량
 
