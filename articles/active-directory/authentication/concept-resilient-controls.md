@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027617"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -220,7 +221,7 @@ NPS 확장 사용 안 함:
 -   VPN에 대 한 기본 인증의 성공 여부를 확인 합니다.
 
 서비스가 복구 되 고 사용자에 게 MFA를 다시 적용할 준비가 되 면 NPS 확장을 사용 하도록 설정 합니다. 
--   중요 백업 HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters의 레지스트리 키 
+-   백업 HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters에서 레지스트리 키를 가져옵니다. 
 -   네트워크 정책 서비스 (IAS) 서비스를 다시 시작 하 여 변경 내용을 적용 합니다. 
 -   기본 인증 및 VPN에 대 한 보조 인증의 성공 여부를 확인 합니다.
 -   NPS 서버 및 VPN 로그를 검토 하 여 응급 기간 중에 로그인 한 사용자를 확인 합니다.

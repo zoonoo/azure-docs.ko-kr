@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026461"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득
 
@@ -26,46 +27,38 @@ ms.locfileid: "80885143"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-API 컨트롤러의 작업에서 호출 되는 코드의 예는 다음과 같습니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
+다음은 API 컨트롤러의 작업에서 호출 된 Microsoft. Identity를 사용 하는 코드의 예입니다. *Todolist*이라는 다운스트림 API를 호출 합니다. 다운스트림 API를 호출 하는 토큰을 가져오려면 `ITokenAcquisition` 컨트롤러의 생성자 (또는 Blazor를 사용 하는 경우 페이지 생성자)에서 종속성 주입을 사용 하 여 서비스를 삽입 하 고, `GetAccessTokenForUserAsync` `GetAccessTokenForAppAsync` 디먼 시나리오의 경우 사용자 () 또는 응용 프로그램 자체 ()에 대 한 토큰을 가져오는 컨트롤러 작업에서 해당 서비스를 사용 합니다.
 
 ```csharp
-private async Task GetTodoList(bool isAppStarting)
+[Authorize]
+public class MyApiController : Controller
 {
- ...
- //
- // Get an access token to call the To Do service.
- //
- AuthenticationResult result = null;
- try
- {
-  app = BuildConfidentialClient(HttpContext, HttpContext.User);
-  result = await app.AcquireTokenSilent(Scopes, account)
-                     .ExecuteAsync()
-                     .ConfigureAwait(false);
- }
-...
+    /// <summary>
+    /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
+    /// this API.
+    /// </summary>
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+
+     static readonly string[] scopesToAccessDownstreamApi = new string[] { "api://MyTodolistService/access_as_user" };
+
+    private readonly ITokenAcquisition _tokenAcquisition;
+
+    public MyApiController(ITokenAcquisition tokenAcquisition)
+    {
+        _tokenAcquisition = tokenAcquisition;
+    }
+
+    public IActionResult Index()
+    {
+        HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+
+        string accessToken = _tokenAcquisition.GetAccessTokenForUserAsync(scopesToAccessDownstreamApi);
+        return await callTodoListService(accessToken);
+    }
 }
 ```
 
-`BuildConfidentialClient()`웹 api를 [호출 하는 웹 api](scenario-web-api-call-api-app-configuration.md)의 시나리오와 비슷합니다. 앱 구성. `BuildConfidentialClient()``IConfidentialClientApplication`는 한 계정에 대 한 정보만 포함 하는 캐시로 인스턴스화합니다. 계정은 메서드에서 제공 합니다 `GetAccountIdentifier` .
-
-`GetAccountIdentifier`메서드는 WEB API가 JSON Web Token (JWT)를 받은 사용자의 id와 연결 된 클레임을 사용 합니다.
-
-```csharp
-public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
-{
- string userObjectId = GetObjectId(claimsPrincipal);
- string tenantId = GetTenantId(claimsPrincipal);
-
- if (    !string.IsNullOrWhiteSpace(userObjectId)
-      && !string.IsNullOrWhiteSpace(tenantId))
- {
-  return $"{userObjectId}.{tenantId}";
- }
-
- return null;
-}
-```
+메서드에 대 한 자세한 `callTodoListService` 내용은 web api를 [호출 하는 web API: api 호출](scenario-web-api-call-api-call-api.md)을 참조 하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 API 컨트롤러의 작업에서 호출 되는 코드의 예는 다음과 같습니다. 다운스트림 API Microsoft Graph를 호출 합니다.

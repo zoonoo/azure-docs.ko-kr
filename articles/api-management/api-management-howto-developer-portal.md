@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025084"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -29,6 +29,9 @@ ms.locfileid: "85207892"
 ![API Management 개발자 포털](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a>새 개발자 포털은 레거시 개발자 포털과 호환 되지 않으며 자동화 된 마이그레이션은 가능 하지 않습니다. 콘텐츠 (페이지, 텍스트, 미디어 파일)를 수동으로 다시 만들고 새 포털의 모양을 사용자 지정 해야 합니다. 지침은 [개발자 포털 자습서](api-management-howto-developer-portal-customize.md) 를 참조 하십시오.
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>관리 및 자체 호스팅 버전
 
@@ -82,19 +85,13 @@ ms.locfileid: "85207892"
 
 일반 공급 발표 후에 포털을 프로 비전 한 경우 이미 새 기본 콘텐츠를 사용 해야 합니다. 사용자 측의 작업은 필요 하지 않습니다.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>이전 개발자 포털에서 개발자 포털로 마이그레이션하려면 어떻게 해야 하나요?
-
-포털이 호환 되지 않으므로 콘텐츠를 수동으로 마이그레이션해야 합니다.
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>포털에 이전 포털의 모든 기능이 있나요?
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>포털에 레거시 포털의 모든 기능이 있나요?
 
 개발자 포털은 더 이상 *응용 프로그램과* *문제*를 지원 하지 않습니다.
 
-대화형 개발자 콘솔에서 OAuth를 사용한 인증은 아직 지원 되지 않습니다. [GitHub 문제](https://github.com/Azure/api-management-developer-portal/issues/208)를 통해 진행률을 추적할 수 있습니다.
+### <a name="has-the-legacy-portal-been-deprecated"></a>레거시 포털은 더 이상 사용 되지 않습니다.
 
-### <a name="has-the-old-portal-been-deprecated"></a>이전 포털은 더 이상 사용 되지 않습니다.
-
-이전 개발자 및 게시자 포털은 이제 *레거시* 기능이 며 보안 업데이트만 받게 됩니다. 새 기능은 새 개발자 포털 에서만 구현 됩니다.
+레거시 개발자 및 게시자 포털은 이제 *레거시* 기능이 며 보안 업데이트만 받게 됩니다. 새 기능은 새 개발자 포털 에서만 구현 됩니다.
 
 레거시 포털의 사용 중단은 별도로 발표 될 예정입니다. 질문, 관심사 또는 의견이 있는 경우 [전용 GitHub 문제로](https://github.com/Azure/api-management-developer-portal/issues/121)제기 합니다.
 
@@ -203,7 +200,7 @@ API Management 서비스가 VNet에 있는 경우 위의 VNet 연결 질문을 �
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>포털에 대 한 브라우저 지원 이란?
 
-| 브라우저                     | 지원됨       |
+| 브라우저                     | 지원 여부       |
 |-----------------------------|-----------------|
 | Apple Safari                | 예<sup>1</sup> |
 | Google Chrome               | 예<sup>1</sup> |

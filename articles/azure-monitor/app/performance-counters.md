@@ -3,15 +3,16 @@ title: Application Insights의 성능 카운터 | Microsoft Docs
 description: Application Insights에서 시스템 및 사용자 지정 .NET 성능 카운터를 모니터링합니다.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024421"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
-Windows는 광범위한 [성능 카운터](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters)(예: CPU 점유율, 메모리, 디스크, 네트워크 사용량 등)를 제공합니다. 고유한 성능 카운터를 정의할 수도 있습니다. 성능 카운터 컬렉션은 관리 액세스 권한이 있는 온-프레미스 호스트 또는 가상 머신의 IIS에서 애플리케이션이 실행되는 한 지원됩니다. Azure Web Apps로 실행되는 애플리케이션은 성능 카운터에 직접 액세스할 수 없지만, 사용 가능한 카운터의 하위 집합이 Application Insights에 의해 수집됩니다.
+Windows는 광범위한 [성능 카운터](/windows/desktop/perfctrs/about-performance-counters)(예: CPU 점유율, 메모리, 디스크, 네트워크 사용량 등)를 제공합니다. 고유한 성능 카운터를 정의할 수도 있습니다. 성능 카운터 컬렉션은 관리 액세스 권한이 있는 온-프레미스 호스트 또는 가상 머신의 IIS에서 애플리케이션이 실행되는 한 지원됩니다. Azure Web Apps로 실행되는 애플리케이션은 성능 카운터에 직접 액세스할 수 없지만, 사용 가능한 카운터의 하위 집합이 Application Insights에 의해 수집됩니다.
 
 ## <a name="view-counters"></a>카운터 보기
 
@@ -39,7 +40,7 @@ ASP.NET/ASP.NET Core 웹 애플리케이션에 대해 수집되도록 구성된 
 
     `Get-Counter -ListSet *`
 
-    ([`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx) 참조)
+    ([`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 참조)
 2. ApplicationInsights.config를 엽니다.
 
    * 앱에 개발 중인 Application Insights를 추가한 경우 프로젝트에서 ApplicationInsights.config를 편집한 후 서버에 다시 배포합니다.
@@ -108,7 +109,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>분석에서의 성능 카운터
-[분석](../../azure-monitor/app/analytics.md)에서 성능 카운터 보고서를 검색하고 표시할 수 있습니다.
+[분석](../log-query/log-query-overview.md)에서 성능 카운터 보고서를 검색하고 표시할 수 있습니다.
 
 **performanceCounters** 스키마는 `category`, `counter` 이름 및 각 성능 카운터의 `instance` 이름을 노출합니다.  각 애플리케이션에 대한 원격 분석 데이터에는 해당 애플리케이션에 대한 카운터에만 표시됩니다. 예를 들면 어떤 카운터를 사용할 수 있는지 알아보기: 
 
@@ -152,4 +153,3 @@ ASP.NET Core의 성능 카운터에 대한 지원은 제한적입니다.
 
 * [종속성 추적](../../azure-monitor/app/asp-net-dependencies.md)
 * [예외 추적](../../azure-monitor/app/asp-net-exceptions.md)
-

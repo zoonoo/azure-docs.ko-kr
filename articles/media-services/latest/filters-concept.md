@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708300"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023231"
 ---
 # <a name="filters"></a>필터
 
@@ -37,8 +38,8 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 필터에는 다음과 같은 두 가지 유형이 있습니다. 
 
-* [계정 필터](https://docs.microsoft.com/rest/api/media/accountfilters)(전역) - Azure Media Services 계정의 모든 자산에 적용 가능하며 계정의 수명 동안 보유합니다.
-* [자산 필터](https://docs.microsoft.com/rest/api/media/assetfilters)(로컬) -필터를 만들 때 연결된 자산에만 적용 가능하며 자산의 수명 동안 보유합니다. 
+* [계정 필터](/rest/api/media/accountfilters)(전역) - Azure Media Services 계정의 모든 자산에 적용 가능하며 계정의 수명 동안 보유합니다.
+* [자산 필터](/rest/api/media/assetfilters)(로컬) -필터를 만들 때 연결된 자산에만 적용 가능하며 자산의 수명 동안 보유합니다. 
 
 **계정 필터** 및 **자산 필터** 유형에는 필터를 정의/설명 하는 것과 동일한 속성이 있습니다. **자산 필터**를 작성하는 경우 외에는 필터를 연결할 자산 이름을 지정해야 합니다.
 
@@ -46,7 +47,7 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 다음 속성을 사용하여 필터를 설명합니다. 
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |firstQuality|필터의 첫 번째 품질 비트 전송률입니다.|
 |presentationTimeRange|프레젠테이션 시간 범위입니다. 이 속성은 매니페스트 시작/종료 지점, 프레젠테이션 창 길이 및 라이브 시작 위치를 필터링하는 데 사용됩니다. <br/>자세한 내용은 [PresentationTimeRange](#presentationtimerange)를 참조하세요.|
@@ -56,7 +57,7 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 이 속성은 **자산 필터**와 함께 사용합니다. **계정 필터**를 사용하여 이 속성을 설정하지 않는 것이 좋습니다.
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |**endTimestamp**|VoD(주문형 비디오)에 적용됩니다.<br/>라이브 스트리밍 프레젠테이션의 경우 프레젠테이션이 종료 되 고 스트림이 VoD가 되 면 자동으로 무시 되 고 적용 됩니다.<br/>이 값은 프레젠테이션의 절대 끝점을 나타내며, 가장 가까운 다음 GOP 시작으로 반올림 된 long 값입니다. 단위는 시간 간격 이므로 18억의 endTimestamp는 3 분입니다.<br/>StartTimestamp 및 endTimestamp를 사용 하 여 재생 목록 (매니페스트)에 있는 조각을 자릅니다.<br/>예를 들어, 기본 날짜/시간을 사용 하는 startTimestamp = 40000000 및 endTimestamp = 100000000은 VoD 프레젠테이션 4 초에서 10 초 사이의 조각이 포함 된 재생 목록을 생성 합니다. 경계에 걸쳐 있는 조각인 경우 전체 조각이 매니페스트에 포함됩니다.|
 |**forceEndTimestamp**|라이브 스트리밍에만 적용 됩니다.<br/>EndTimestamp 속성이 있어야 하는지 여부를 나타냅니다. True 이면 endTimestamp를 지정 해야 합니다. 그렇지 않으면 잘못 된 요청 코드가 반환 됩니다.<br/>허용되는 값: true, false|
@@ -71,13 +72,13 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 필터 트랙 속성 조건은 트랙 유형, 값(다음 표에 설명) 및 연산(Equal, NotEqual)을 설명합니다. 
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |**Bitrate**|필터링을 위해 트랙의 비트 전송률을 사용합니다.<br/><br/>권장 값은 비트 전송률의 범위(초당 비트 수)입니다. 예를 들어 “0-2427000”입니다.<br/><br/>참고: 특정 비트 전송률 값을 예를 들어 250000(초당 비트 수)과 같이 사용할 수 있지만, 정확한 비트 전송률이 자산별로 변동될 수 있으므로 이 방법은 권장되지 않습니다.|
 |**FourCC**|필터링을 위해 트랙의 FourCC 값을 사용합니다.<br/><br/>값은 [RFC 6381](https://tools.ietf.org/html/rfc6381)에 지정된 코덱 형식의 첫 번째 요소입니다. 현재 지원되는 코덱은 다음과 같습니다. <br/>비디오: “avc1”, “hev1”, “hvc1”<br/>오디오: “mp4a”, “ec-3”<br/><br/>자산의 트랙에 대한 FourCC 값을 확인하려면 매니페스트 파일 가져오기 및 검사를 참조하세요.|
 |**언어**|필터링을 위해 트랙의 언어를 사용합니다.<br/><br/>값은 RFC 5646에 지정된, 포함할 언어의 태그입니다. 예: "en".|
 |**이름**|필터링을 위해 트랙의 이름을 사용합니다.|
-|**Type**|필터링을 위해 트랙의 유형을 사용합니다.<br/><br/>허용되는 값은 “video”, “audio” 또는 “text”입니다.|
+|**형식**|필터링을 위해 트랙의 유형을 사용합니다.<br/><br/>허용되는 값은 “video”, “audio” 또는 “text”입니다.|
 
 ### <a name="example"></a>예제
 
@@ -138,7 +139,7 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 
 ## <a name="associating-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 필터 연결
 
-[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)의 [자산 또는 계정 필터](filters-concept.md) 목록을 지정할 수 있습니다. [동적](dynamic-packaging-overview.md) 패키지 작성 도구는 클라이언트에서 URL에 지정 하는 필터 목록과 함께이 필터 목록을 적용 합니다. 이 조합은 URL + 스트리밍 로케이터에 지정 된 필터를 기반으로 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md)를 생성 합니다. 
+[스트리밍 로케이터](/rest/api/media/streaminglocators/create#request-body)의 [자산 또는 계정 필터](filters-concept.md) 목록을 지정할 수 있습니다. [동적](dynamic-packaging-overview.md) 패키지 작성 도구는 클라이언트에서 URL에 지정 하는 필터 목록과 함께이 필터 목록을 적용 합니다. 이 조합은 URL + 스트리밍 로케이터에 지정 된 필터를 기반으로 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md)를 생성 합니다. 
 
 다음 예제를 참조하세요.
 
@@ -160,4 +161,3 @@ Media Services를 사용 하 여 콘텐츠에 대 한 **계정 필터** 및 **�
 - [REST API를 사용하여 필터 만들기](filters-dynamic-manifest-rest-howto.md)
 - [.NET을 사용하여 필터 만들기](filters-dynamic-manifest-dotnet-howto.md)
 - [CLI를 사용하여 필터 만들기](filters-dynamic-manifest-cli-howto.md)
-

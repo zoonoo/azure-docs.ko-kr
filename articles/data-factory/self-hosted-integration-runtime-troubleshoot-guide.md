@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023866"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 자체 호스팅 Integration Runtime에 대한 일반적인 문제 해결 방법을 살펴봅니다.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 통합 런타임 로그 수집
+
+자체 호스팅 IR/공유 IR에서 실행 되는 실패 한 작업의 경우 Azure Data Factory에서 오류 로그 보기 및 업로드를 지원 합니다. 아래 단계에 따라 오류 보고서 ID를 가져온 다음 보고서 ID를 입력 하 여 관련 알려진 문제를 찾을 수 있습니다.
+
+1. **작업 실행** 페이지로 이동 합니다.
+
+1. **오류** 열 아래에서 아래 단추를 클릭 합니다.
+
+    ![작업 실행 페이지](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. 실패 한 작업 실행에 대 한 관련 로그가 표시 됩니다. 추가 지원이 필요 하면 **로그 보내기** 단추를 클릭 합니다.
+
+    ![로그 보내기](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. 보내려는 로그를 선택할 수 있습니다. *자체 호스팅 ir*의 경우 실패 한 작업 또는 자체 호스팅 ir 노드의 모든 로그와 관련 된 로그를 업로드할 수 있습니다. *공유 IR*의 경우 실패 한 작업에 관련 된 로그만 업로드할 수 있습니다.
+
+    ![로그 선택](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. 로그를 업로드 하는 경우 문제 해결을 위한 추가 지원이 필요한 경우에는 보고서 ID를 기록해 둡니다.
+
+    ![로그 업로드](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> 로그 보기 및 업로드 요청은 모든 온라인 자체 호스팅 IR 인스턴스에서 실행 됩니다. 로그가 누락 되는 경우 자체 호스팅 IR 인스턴스가 모두 온라인 상태 인지 확인 하세요. 
+
 
 ## <a name="common-errors-and-resolutions"></a>일반적인 오류 및 해결 방법
 

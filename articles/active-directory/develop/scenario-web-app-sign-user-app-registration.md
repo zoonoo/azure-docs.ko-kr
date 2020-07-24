@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881582"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026260"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -40,9 +41,9 @@ ms.locfileid: "80881582"
 > 사용할 포털은 응용 프로그램이 Microsoft Azure 공용 클라우드 또는 국가 또는 소 버린 클라우드에서 실행 되는지에 따라 달라 집니다. 자세한 내용은 [국가별 클라우드](./authentication-national-cloud.md#app-registration-endpoints)를 참조 하세요.
 
 
-1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다. 또는 국가별 클라우드의 선택 Azure Portal에 로그인 합니다.
-1. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 계정을 선택 합니다. 그런 다음 포털 세션을 원하는 Azure Active Directory (Azure AD) 테 넌 트로 설정 합니다.
-1. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택 하 고 **앱 등록**  >  **새 등록**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다. 또는 국가별 클라우드의 [선택 Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) 에 로그인 합니다.
+2. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 계정을 선택 합니다. 그런 다음 포털 세션을 원하는 Azure Active Directory (Azure AD) 테 넌 트로 설정 합니다.
+3. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택 하 고 **앱 등록**  >  **새 등록**을 선택 합니다.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -50,12 +51,14 @@ ms.locfileid: "80881582"
    1. 응용 프로그램에 대해 지원 되는 계정 유형을 선택 합니다. ( [지원 되는 계정 유형](./v2-supported-account-types.md)을 참조 하세요.)
    1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **AspNetCore-WebApp**를 입력 합니다.
    1. **리디렉션 uri**의 경우 인증에 성공한 후 반환 된 토큰 응답을 받을 응용 프로그램의 형식 및 URI 대상을 추가 합니다. 예를 들어을 입력 **https://localhost:44321** 합니다. 그런 다음 **등록**을 선택 합니다.
+   ![registration](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
    1. **회신 URL**의 경우 **https://localhost:44321/signin-oidc** **웹**형식의를 추가 합니다.
    1. **고급 설정** 섹션에서 **로그아웃 URL**을 **https://localhost:44321/signout-oidc** 으로 설정합니다.
    1. **암시적 허용**에서 **ID 토큰**을 선택합니다.
    1. **저장**을 선택합니다.
-
+  ![registration](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+ 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
@@ -116,7 +119,7 @@ ms.locfileid: "80881582"
 > - MyOrg (이 조직 디렉터리의 계정에만 해당)
 > - AnyOrg (모든 조직 디렉터리의 계정)
 >
-> 개인 Microsoft 계정 (예: Skype, Xbox 또는 Outlook.com)을 사용 하 여 사용자를 로그인 하는 응용 프로그램을 만들 수 있습니다. 먼저 다중 테 넌 트 응용 프로그램을 만듭니다. 지원 되는 계정 유형은 모든 조직 디렉터리의 계정입니다. 그런 다음 `signInAudience` Azure Portal에서 응용 프로그램 매니페스트의 속성을 변경 합니다. 자세한 내용은 ASP.NET Core 자습서에서 [1.3 단계](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) 를 참조 하세요. 모든 언어로 된 웹 앱에이 단계를 일반화할 수 있습니다.
+> 개인 Microsoft 계정 (예: Skype, Xbox 또는 Outlook.com)을 사용 하 여 사용자를 로그인 하는 응용 프로그램을 만들 수 있습니다. 먼저 다중 테 넌 트 응용 프로그램을 만듭니다. 지원 되는 계정 유형은 모든 조직 디렉터리의 계정입니다. 그런 다음 Azure Portal의 [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) **2** [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) `AzureADandPersonalMicrosoftAccount` [응용 프로그램 매니페스트에서](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 속성을 2로 변경 하 고 속성을로 변경 합니다. 자세한 내용은 ASP.NET Core 자습서에서 [1.3 단계](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) 를 참조 하세요. 모든 언어로 된 웹 앱에이 단계를 일반화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

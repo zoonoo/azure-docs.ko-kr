@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 915b6430378cfff2a847e31de26950fcb9de6ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029436"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
 **문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 과 같은 템플릿을 배포했습니다. 정의된 크기 조정 규칙이 있으며, VM에 적용되는 로드의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고는 원활하게 작동합니다.
@@ -73,7 +73,7 @@ ms.locfileid: "85374596"
     데이터가 없는 경우 VM에서 실행 중인 진단 확장에 문제가 있음을 의미합니다. 데이터가 있는 경우에는 크기 조정 규칙 또는 Insights 서비스에 문제가 있음을 의미합니다. [Azure 상태](https://azure.microsoft.com/status/)를 확인합니다.
     
     이러한 단계를 수행한 후에도 자동 크기 조정 문제가 여전히 있는 경우, 다음 리소스를 확인할 수 있습니다. 
-    * [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html) 또는 [스택 오버플로](https://stackoverflow.com/questions/tagged/azure)에서 포럼을 읽어보세요. 
+    * [Microsoft Q&A 질문 페이지](/answers/topics/azure-virtual-machines.html) 또는 [스택 오버플로](https://stackoverflow.com/questions/tagged/azure)에서 포럼을 읽어보세요. 
     * 지원 호출을 기록합니다. 템플릿 및 성능 데이터 보기를 공유하도록 준비합니다.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

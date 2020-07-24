@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 905a42c5a9bc297e2c27408a58a5b3019755fdef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029096"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -204,7 +204,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 | 오류 코드 | 의미 | 가능한 작업 |
 | :---: | --- | --- |
-| 9 | 조기 호출 사용 설정 | [Azure Linux 에이전트를 사용 가능한 최신 버전으로 업데이트](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)합니다. |
+| 9 | 조기 호출 사용 설정 | [Azure Linux 에이전트를 사용 가능한 최신 버전으로 업데이트](./update-linux-agent.md)합니다. |
 | 10 | VM이 Log Analytics 작업 영역에 이미 연결됨 | VM을 확장 스키마에 지정된 작업 영역에 연결하려면 공용 설정에서 stopOnMultipleConnections를 false로 설정하거나 이 속성을 제거합니다. 이 VM은 연결된 각 작업 영역에 대해 한 번만 비용이 청구됩니다. |
 | 11 | 확장에 잘못된 구성이 제공됨 | 이전 예제에 따라 배포에 필요한 모든 속성 값을 설정합니다. |
 | 17 | Log Analytics 패키지 설치 오류 | 

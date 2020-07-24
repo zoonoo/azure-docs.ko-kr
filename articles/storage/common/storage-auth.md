@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1db26e6e1308299325e15b4c856fc2ebbaed8326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029538"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Azure Storage 데이터에 대 한 액세스 권한 부여
 
@@ -23,8 +23,8 @@ ms.locfileid: "84807604"
 
 다음 표에서는 리소스에 대 한 액세스 권한을 부여 하기 위해 Azure Storage 제공 하는 옵션을 설명 합니다.
 
-|  |공유 키 (저장소 계정 키)  |공유 액세스 서명(SAS)  |Azure AD(Azure Active Directory)  |온-프레미스 Active Directory Domain Services (미리 보기) |익명 공용 읽기 액세스  |
-|---------|---------|---------|---------|---------|---------|
+| Azure 아티팩트 | 공유 키 (저장소 계정 키) | 공유 액세스 서명(SAS) | Azure AD(Azure Active Directory) | 온-프레미스 Active Directory Domain Services (미리 보기) | 익명 공용 읽기 액세스 |
+| -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
 |Azure Blob     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원되지 않음|[지원됨](../blobs/storage-manage-access-to-resources.md)         |
 |SMB (Azure Files)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |지원되지 않음         |[지원 됨, AAD 도메인 서비스에만 해당](../files/storage-files-active-directory-overview.md)         |[지원 됨, 자격 증명을 Azure AD에 동기화 해야 합니다.](../files/storage-files-active-directory-overview.md)|지원되지 않음         |
 |Azure Files (REST)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원되지 않음         |지원되지 않음 |지원되지 않음         |

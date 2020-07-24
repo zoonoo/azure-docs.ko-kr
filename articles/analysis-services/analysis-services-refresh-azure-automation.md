@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5314c933b01a1fb9c4ea9902a6fbb698c104d195
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389975"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025407"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
@@ -64,7 +64,10 @@ Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 
 
     ![Runbook 가져오기](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. **Refresh-Model.ps1** 파일을 찾고 **이름**과 **설명**을 입력한 다음, **만들기**를 클릭합니다.
+4. [Refresh-Model.ps1](#sample-powershell-runbook) 파일을 찾고 **이름**과 **설명**을 입력한 다음, **만들기**를 클릭합니다.
+
+    > [!NOTE]
+    > 이 문서의 맨 아래에 있는 [샘플 Powershell Runbook](#sample-powershell-runbook) 의 스크립트 섹션을 사용 하 여 Refresh-Model.ps1 라는 파일을 만들고 로컬 컴퓨터에 저장 하 여 Runbook으로 가져옵니다.
 
     ![Runbook 가져오기](./media/analysis-services-refresh-azure-automation/9.png)
 

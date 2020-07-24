@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 08e718739971283418d151bef9ad75333e313d85
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025118"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -35,13 +35,13 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 문서에 설명한 단계를 따르려면 다음 항목이 있어야 합니다.
 
-* 활성 Azure 구독
+* 활성화된 Azure 구독.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -88,6 +88,11 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 > [!WARNING]
 > Application Gateway WAF가 개발자 포털에서 OpenAPI 사양의 다운로드를 중단 하지 않도록 하려면 방화벽 규칙을 사용 하지 않도록 설정 해야 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` 합니다.
+> 
+> Application Gateway WAF 규칙: 포털의 기능을 중단 시킬 수 있음
+> 
+> - `920330``931130` `942100` `942110` `942180` `942200` `942260` `942370` `949110` `980130` 관리 모드의 경우,,,,,,,,
+> - `942200``942260` `942370` `942430` `942440` 게시 된 포털에 대 한,,,
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 

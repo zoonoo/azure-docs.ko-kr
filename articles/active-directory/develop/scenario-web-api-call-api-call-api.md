@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6bbd24978891efd147b0c317c1746d13961ce5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b756d7df03bd3c06b703617dbf84a194d716f1e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885092"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026376"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
 
@@ -30,23 +31,10 @@ ms.locfileid: "80885092"
 토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
 
 ```csharp
-private async Task GetTodoList(bool isAppStarting)
+private async Task CallTodoListService(string accessToken)
 {
- ...
- //
- // Get an access token to call the To Do service.
- //
- AuthenticationResult result = null;
- try
- {
-  app = BuildConfidentialClient(HttpContext, HttpContext.User);
-  result = await app.AcquireTokenSilent(Scopes, account)
-                     .ExecuteAsync()
-                     .ConfigureAwait(false);
- }
-...
 
-// After the token has been returned by Microsoft Authentication Library (MSAL), add it to the HTTP authorization header before making the call to access the To Do list service.
+// After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
 // Call the To Do list service.

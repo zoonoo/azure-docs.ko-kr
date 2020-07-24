@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 292ba1d52b107acd164408767747e5a33cb0c67d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252698"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025638"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -56,7 +57,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
     ![활동 타임스탬프](./media/manage-stale-devices/01.png)
 
-- [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
+- [AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
     ![활동 타임스탬프](./media/manage-stale-devices/02.png)
 
@@ -88,7 +89,7 @@ Azure AD에서 디바이스를 업데이트하려면 다음 역할 중 하나가
 
 ### <a name="system-managed-devices"></a>시스템 관리 디바이스
 
-시스템 관리 디바이스는 삭제하지 마세요. 일반적으로 Autopilot와 같은 장치입니다. 삭제 한 후에는 이러한 장치를 다시 프로 비전 할 수 없습니다. 새 `get-msoldevice` cmdlet은 기본적으로 시스템 관리 디바이스를 제외합니다. 
+시스템 관리 디바이스는 삭제하지 마세요. 일반적으로 Autopilot와 같은 장치입니다. 삭제 한 후에는 이러한 장치를 다시 프로 비전 할 수 없습니다. 새 `Get-AzureADDevice` cmdlet은 기본적으로 시스템 관리 디바이스를 제외합니다. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 가입 디바이스
 
@@ -128,26 +129,25 @@ Azure AD에서 Azure AD 등록 디바이스를 사용하지 않도록 설정하�
 
 일반적인 루틴은 다음 단계로 구성됩니다.
 
-1. [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet을 사용하여 Azure Active Directory에 연결합니다.
+1. [AzureAD](/powershell/module/azuread/connect-azuread) cmdlet을 사용 하 여 Azure Active Directory에 연결
 1. 디바이스 목록을 가져옵니다.
-1. [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 사용하지 않도록 설정합니다. 
+1. [AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) cmdlet (-accountenabled 옵션을 사용 하 여 사용 안 함)을 사용 하 여 장치를 사용 하지 않도록 설정 합니다. 
 1. 디바이스를 삭제하기 전에 선택한 며칠 동안의 유예 기간 동안 기다립니다.
-1. [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 제거합니다.
+1. [AzureADDevice](/powershell/module/azuread/Remove-AzureADDevice) cmdlet을 사용 하 여 장치를 제거 합니다.
 
 ### <a name="get-the-list-of-devices"></a>디바이스 목록을 가져옵니다.
 
 모든 디바이스를 가져오고 반환된 데이터를 CSV 파일에 저장하려면 다음을 수행합니다.
 
 ```PowerShell
-Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
-mateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
 디렉터리에 많은 수의 장치가 있는 경우 타임 스탬프 필터를 사용 하 여 반환 된 장치의 수를 좁힙니다. 특정 날짜보다 오래된 타임스탬프가 있는 모든 디바이스를 가져오고 반환된 데이터를 CSV 파일에 저장하려면 다음을 수행합니다. 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>알아야 할 사항

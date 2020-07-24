@@ -13,13 +13,14 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c4f3c4153e1404a5576427be7ef218f5a669387e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 633166f3bb46212991920d6720737f8268b3f401
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76695860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026857"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제(MSAL.js)
+# <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Internet Explorer 브라우저 (MSAL.js)의 알려진 문제
 
 Javascript 용 Microsoft Authentication Library (MSAL.js)가 Internet Explorer에서 실행 될 수 있도록 [JAVASCRIPT ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) 생성 됩니다. 그러나 알아야 할 몇 가지 사항이 있습니다.
 

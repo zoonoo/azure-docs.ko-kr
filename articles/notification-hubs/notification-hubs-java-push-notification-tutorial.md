@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ecfd6bf9d20309619155bf35c87bdb4c08665f73
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3b2684122e7de97282b1054fa9ad0390469b0f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030269"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "86169547"
 이 항목에서는 완전히 지원되는 새 공식 Azure 알림 허브 Java SDK의 주요 기능에 대해 설명합니다.
 이 프로젝트는 오픈 소스 프로젝트이며 [Java SDK]에서 전체 SDK 코드를 확인할 수 있습니다.
 
-일반적으로는 MSDN 항목 [Notification Hubs REST API](https://msdn.microsoft.com/library/dn223264.aspx)에서 설명하는 것처럼 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다. 이 Java SDK는 Java에서 이러한 REST 인터페이스에 대한 씬 래퍼를 제공합니다.
+일반적으로는 MSDN 항목 [Notification Hubs REST API](/previous-versions/azure/reference/dn223264(v=azure.100))에서 설명하는 것처럼 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다. 이 Java SDK는 Java에서 이러한 REST 인터페이스에 대한 씬 래퍼를 제공합니다.
 
 현재 SDK에서 지원하는 항목은 다음과 같습니다.
 
@@ -387,7 +387,7 @@ hub.sendNotification(n);
   * [인증된 사용자에게 플랫폼 간 알림 보내기]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get started tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Notification Hubs 시작]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [속보 보내기]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [지역화된 속보 보내기]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md

@@ -4,15 +4,15 @@ description: 포함 파일
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df78133f602466681da64d2666a311e1649c598f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028801"
 ---
 스폿 Vm을 사용 하면 비용을 크게 절약할 수 있는 사용 되지 않는 용량을 활용할 수 있습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 스폿 Vm을 제거 합니다. 따라서 지점 Vm은 일괄 처리 작업, 개발/테스트 환경, 대규모 계산 워크 로드 등의 중단을 처리할 수 있는 워크 로드에 적합 합니다.
 
@@ -26,10 +26,6 @@ Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수
 *할당* 취소 정책은 VM을 중지 된 할당 취소 상태로 전환 하 여 나중에 다시 배포할 수 있도록 합니다. 그러나 할당이 성공하리라는 보장은 없습니다. 할당 취소 된 Vm은 할당량에 따라 계산 되며 기본 디스크에 대 한 저장소 비용이 청구 됩니다. 
 
 제거 될 때 VM을 삭제 하려는 경우 *삭제*하도록 제거 정책을 설정할 수 있습니다. 제거 된 Vm은 기본 디스크와 함께 삭제 되므로 저장소에 대 한 요금이 계속 청구 되지 않습니다. 
-
-> [!NOTE]
->
-> 포털은 현재 제거 옵션으로를 지원 하지 않습니다 `Delete` `Delete` . POWERSHELL, CLI 및 템플릿만 사용 하 여 설정할 수 있습니다.
 
 [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md)를 통해 VM 내 알림을 받도록 옵트인 (opt in) 할 수 있습니다. 이렇게 하면 Vm을 제거 하는 경우에 알림이 표시 되며, 제거 되기 전에 작업을 완료 하 고 종료 작업을 수행 하는 데 30 초 정도 걸립니다. 
 
@@ -54,19 +50,14 @@ Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수
 
 Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 배포할 수 있습니다.
 
-일부 구독 채널은 지원 되지 않습니다.
-
 <a name="channel"></a>
 
-| Azure 채널               | Azure 스폿 Vm 가용성       |
-|------------------------------|-----------------------------------|
-| 기업 계약         | 예                               |
-| 종량제 통화 요금                | 예                               |
-| CSP(클라우드 서비스 공급자) | [파트너에 게 문의](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| 이점                     | 사용할 수 없음                     |
-| 후원                    | 예                               |
-| 평가판                   | 사용할 수 없음                     |
+현재 지원 되는 [제품 유형은](https://azure.microsoft.com/support/legal/offer-details/) 다음과 같습니다.
 
+-   기업 계약
+-   종량제
+-   후원
+- CSP (클라우드 서비스 공급자)의 경우 파트너에 게 문의 하세요.
 
 
 ## <a name="pricing"></a>가격 책정
@@ -77,7 +68,7 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 가변 가격 책정을 사용 하는 경우 최대 5 개의 소수 자릿수를 사용 하 여 미국 달러 (USD)로 최대 가격을 설정 하는 옵션을 사용할 수 있습니다. 예를 들어 값은 `0.98765` 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하는 경우 `-1` 가격에 따라 VM이 제거 되지 않습니다. VM의 가격은 사용 가능한 용량과 할당량을 초과 하는 경우 더 작은 표준 VM의 현재 가격 또는 가격입니다.
 
 
-##  <a name="frequently-asked-questions"></a>자주 묻는 질문
+##  <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q:** 만든 후에는 스폿 VM이 일반 표준 VM과 동일 합니까?
 

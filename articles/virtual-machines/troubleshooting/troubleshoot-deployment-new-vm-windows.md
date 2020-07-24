@@ -15,11 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2f21cab4740013eb2de1d69f558c95461c493e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028399"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -36,7 +37,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 [배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)
 
-[활동 로그를 보고 Azure 리소스 관리](../../resource-group-audit.md)
+[활동 로그를 보고 Azure 리소스 관리](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -52,7 +53,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 **해결 방법**
 
-이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzVhd를 사용하여 온-프레미스에 있는 원본 VHD를 업로드](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)합니다. 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
+이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzVhd를 사용하여 온-프레미스에 있는 원본 VHD를 업로드](/powershell/module/az.compute/add-azvhd)합니다. 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
 
 **캡처 오류:**
 
@@ -89,5 +90,3 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 ## <a name="next-steps"></a>다음 단계
 중지된 Windows VM을 시작하거나 Azure에서 기존 Windows VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Windows Virtual Machine 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](restart-resize-error-troubleshooting.md)을 참조하세요.
-
-

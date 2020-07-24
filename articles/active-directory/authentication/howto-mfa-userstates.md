@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476838"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027498"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>사용자별 Azure Multi-Factor Authentication을 사용하여 로그인 이벤트 보호
 
@@ -78,7 +78,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 ## <a name="change-state-using-powershell"></a>PowerShell을 사용하여 상태 변경
 
-[Azure AD PowerShell](/powershell/azure/overview)을 사용하여 사용자 상태를 변경하려면 사용자 계정에 대한 `$st.State` 매개 변수를 변경합니다. 사용자 계정에 대한 세 가지 가능한 상태가 있습니다.
+[Azure AD PowerShell](/powershell/azure/)을 사용하여 사용자 상태를 변경하려면 사용자 계정에 대한 `$st.State` 매개 변수를 변경합니다. 사용자 계정에 대한 세 가지 가능한 상태가 있습니다.
 
 * *Enabled*
 * *적용*
@@ -177,12 +177,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> 최근 동작 및 이 PowerShell 스크립트를 변경했습니다. 이전에는 스크립트에서 MFA 메서드를 저장하고, MFA를 사용하지 않도록 설정하고, 메서드를 복원했습니다. 비활성화에 대한 기본 동작이 메서드를 지우지 않으므로 이제는 이 작업이 필요하지 않습니다.
->
 > 전화 또는 이메일과 같이 등록 정보가 이미 있는 사용자 개체에서 MFA를 다시 사용하도록 설정하는 경우 관리자가 Azure Portal 또는 PowerShell을 통해 MFA를 다시 등록해야 합니다. 사용자가 다시 등록되지 않은 경우 MFA 상태는 MFA 관리 UI에서 *사용*에서 *적용*으로 전환되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-신뢰할 수 있는 IP, 사용자 지정 음성 메시지 및 사기 행위 경고와 같은 Azure Multi-Factor Authentication 설정을 구성하려면 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md)을 참조하세요. Azure Multi-Factor Authentication에 대한 사용자 설정을 관리하려면 [Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리](howto-mfa-userdevicesettings.md)를 참조하세요.
+Azure Multi-Factor Authentication 설정을 구성 하려면 [azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md)을 참조 하세요.
+
+Azure Multi-Factor Authentication에 대한 사용자 설정을 관리하려면 [Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리](howto-mfa-userdevicesettings.md)를 참조하세요.
 
 사용자에게 메시지가 표시되거나 MFA를 수행하라는 메시지가 표시되지 않는 이유를 이해하려면 [Azure Multi-Factor Authentication 보고서](howto-mfa-reporting.md)를 참조하세요.

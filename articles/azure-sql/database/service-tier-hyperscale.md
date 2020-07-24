@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023996"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -87,7 +87,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 Hyperscale 데이터베이스에는 다음과 같은 다양 한 유형의 구성 요소가 포함 됩니다.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>컴퓨팅
 
 컴퓨팅 노드는 관계형 엔진이 존재하는 위치이므로 모든 언어 요소, 쿼리 처리 등이 발생합니다. 하이퍼스케일 데이터베이스와의 모든 사용자 상호 작용은 이러한 컴퓨팅 노드를 통해 발생합니다. 컴퓨팅 노드에는 데이터 페이지를 가져오는 데 필요한 네트워크 왕복 횟수를 최소화하기 위해 SSD 기반 캐시[이전 다이어그램에 나오는 RBPEX(Resilient Buffer Pool Extension)]가 있습니다. 모든 읽기/쓰기 워크로드 및 트랜잭션이 처리되는 기본 컴퓨팅 노드가 1개 있습니다. 장애 조치(Failover)를 위해 핫 대기 노드의 역할을 할 뿐만 아니라 읽기 워크로드를 오프로드하기 위한 읽기 전용 컴퓨팅 노드(이 기능이 필요한 경우)의 역할을 하는 하나 이상의 보조 컴퓨팅 노드도 있습니다.
 
@@ -199,7 +199,7 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 - 노르웨이 서부
 - 남아프리카 북부
 - 미국 중남부
-- 동남아시아
+- 동남 아시아
 - 스위스 서부
 - 영국 남부
 - 영국 서부
@@ -216,9 +216,9 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 
 이는 GA를 기준으로 하는 Hyperscale 서비스 계층에 대 한 현재 제한 사항입니다.  가능한 한 많은 제한 사항을 제거 하기 위해 적극적으로 노력 하 고 있습니다.
 
-| 문제 | 설명 |
+| 문제 | Description |
 | :---- | :--------- |
-| 서버에 대 한 백업 관리 창에는 Hyperscale 데이터베이스가 표시 되지 않습니다. 이러한 필터는 뷰에서 필터링 됩니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있으므로 장기 보존 및 지정 시간 백업 보존 설정이 적용 되지 않습니다. 따라서 Hyperscale 데이터베이스는 백업 관리 창에 표시 되지 않습니다.|
+| 서버에 대 한 백업 관리 창에는 Hyperscale 데이터베이스가 표시 되지 않습니다. 이러한 필터는 뷰에서 필터링 됩니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있으므로 장기 보존 및 지정 시간 백업 보존 설정이 적용 되지 않습니다. 따라서 Hyperscale 데이터베이스는 백업 관리 창에 표시 되지 않습니다.<br><br>다른 Azure SQL Database 서비스 계층에서 Hyperscale으로 마이그레이션된 데이터베이스의 경우 마이그레이션 전 백업은 원본 데이터베이스의 [백업 보존](automated-backups-overview.md#backup-retention) 기간 동안 유지 됩니다. 이러한 백업은 마이그레이션 전 시점으로 원본 데이터베이스를 [복원](recovery-using-backups.md#programmatic-recovery-using-automated-backups) 하는 데 사용할 수 있습니다.|
 | 지정 시간 복원 | Hyperscale이 아닌 데이터베이스를 하이퍼 규모의 데이터베이스로 복원할 수 없으며 Hyperscale 데이터베이스를 비 Hyperscale 데이터베이스로 복원할 수 없습니다. 서비스 계층을 변경 하 여 Hyperscale으로 마이그레이션된 비 Hyperscale 데이터베이스의 경우 마이그레이션 전 지정 시간으로 복원 하 고 데이터베이스의 백업 보존 기간 내에서 [프로그래밍 방식으로](recovery-using-backups.md#programmatic-recovery-using-automated-backups)데이터베이스를 실행 합니다. 복원 된 데이터베이스는 Hyperscale이 아닙니다. |
 | 데이터베이스에 1TB 보다 큰 데이터 파일이 하나 이상 있으면 마이그레이션이 실패 합니다. | 경우에 따라이 문제를 해결 하려면 많은 파일을 1TB 미만으로 축소 해야 할 수 있습니다. 마이그레이션 프로세스 중에 사용 되는 데이터베이스를 마이그레이션하는 경우 1tb 보다 큰 파일이 없는지 확인 합니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 크기를 확인 합니다. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL Managed Instance | Azure SQL Managed Instance는 현재 Hyperscale 데이터베이스에서 지원 되지 않습니다. |

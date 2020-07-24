@@ -12,14 +12,14 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252898"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024863"
 ---
-# <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
+# <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Azure API Management 인스턴스에 대 한 사용자 지정 도메인 이름 구성
 
 Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도메인 `azure-api.net` (예:)을 할당 `apim-service-name.azure-api.net` 합니다. 그러나 사용자 지정 도메인 이름 (예: **contoso.com**)을 사용 하 여 API Management 끝점을 노출할 수 있습니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 API Management 인스턴스에 의해 노출 된 끝점에 매핑하는 방법을 보여 줍니다.
 
@@ -64,7 +64,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.
 
-    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 정의합니다(예: `api.contoso.com`).
+    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 예: `api.contoso.com`.
     - **인증서**의 Key Vault에서 인증서를 선택 합니다. 유효한를 업로드할 수도 있습니다. 인증서가 암호로 보호 되는 경우 PFX 파일 및 **암호**를 제공 합니다.
 
     > [!NOTE]

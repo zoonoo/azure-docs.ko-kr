@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d594f4d8019a7c23da79506cd702adbe9f25038d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028944"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -77,7 +78,7 @@ RHEL 7.4+ 또는 6.9+의 경우 GRUB 프롬프트에서 단일 사용자 모드�
 1. Ctrl + X를 눌러 끝낸 후 적용된 설정으로 다시 부팅합니다.
 1. 단일 사용자 모드로 들어가기 전에 관리자 암호를 묻는 메시지가 표시됩니다. 이것은 위 지침에서 만든 암호와 같습니다.    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![명령줄 인터페이스를 표시 하는 애니메이션 이미지입니다. 사용자가 서버를 선택 하 고, 커널 줄의 끝을 찾은 다음, 지정 된 텍스트를 입력 합니다.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>RHEL에서 루트 계정을 사용하지 않고 단일 사용자 모드로 전환
 루트 사용자를 활성화하기 위해 위의 단계를 거치지 않은 경우에도 루트 암호를 재설정할 수 있습니다. 다음 지침을 따르세요.
@@ -94,7 +95,7 @@ RHEL 7.4+ 또는 6.9+의 경우 GRUB 프롬프트에서 단일 사용자 모드�
 1. 단일 사용자 모드로 부팅되면 `chroot /sysroot`를 입력하여 `sysroot` jail로 전환합니다.
 1. 이제 루트입니다. `passwd`로 루트 암호를 재설정한 다음, 위의 지침을 사용하여 단일 사용자 모드로 전환합니다. `reboot -f`를 입력하여 완료되면 다시 부팅합니다.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![명령줄 인터페이스를 표시 하는 애니메이션 이미지입니다. 사용자가 서버를 선택 하 고 커널 줄의 끝을 찾은 다음 지정 된 명령을 입력 합니다.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > 참고: 위의 지침을 실행하면 비상 셸로 전환될 수 있으므로 `fstab` 편집과 같은 작업을 수행할 수도 있습니다. 그러나 일반적으로 허용되는 제안은 루트 암호를 재설정하고 이를 사용하여 단일 사용자 모드로 전환하는 것입니다. 
 
@@ -119,7 +120,7 @@ GRUB에 액세스하려면 VM이 부팅되는 동안 'Esc' 키를 길게 누릅�
 1. `GRUB_TIMEOUT` 값을 0이 아닌 값으로 변경합니다.
 1. 원하는 텍스트 편집기에서 `/etc/default/grub`를 엽니다.
 1. `GRUB_HIDDEN_TIMEOUT=1` 줄을 주석으로 처리합니다.
-1. `sudo update-grub`을 실행합니다.
+1. `sudo update-grub`를 실행합니다.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
 Ubuntu는 정상적으로 부팅할 수 없는 경우 단일 사용자 모드로 자동으로 전환됩니다. 단일 사용자 모드로 수동으로 전환하려면 다음 지침을 따르세요.
@@ -156,7 +157,7 @@ SLES에서 GRUB 액세스에는 YaST를 통한 부팅 로더 구성이 필요합
 1. GRUB으로 전환하려면 VM을 다시 부팅하고 부팅 시퀀스 중에 아무 키나 눌러 GRUB을 화면에 유지합니다.
     - GRUB에 대한 기본 시간 제한은 1초입니다. 이 설정은 `/etc/default/grub`에서 `GRUB_TIMEOUT` 변수를 변경하여 수정할 수 있습니다.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![명령줄 인터페이스를 표시 하는 애니메이션 이미지입니다. 사용자가 지정 된 텍스트를 입력 하 고 지정 된 옵션을 선택한 다음 설정을 저장 합니다.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>SUSE SLES의 단일 사용자 모드
 SLES가 정상적으로 부팅할 수 없는 경우 비상 셸로 자동으로 전환됩니다. 비상 셸로 수동으로 전환하려면 다음 지침을 따르세요.
@@ -177,7 +178,7 @@ Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB으
 위의 RHEL에 대한 지침에 따라 Oracle Linux에서 단일 사용자 모드를 사용하도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 주 직렬 콘솔 Linux 설명서 페이지는 [여기](serial-console.md)에 있습니다.
+* 주 직렬 콘솔 Linux 설명서 페이지는 [여기](../troubleshooting/serial-console-linux.md)에 있습니다.
 * [NMI 및 SysRq 호출](serial-console-nmi-sysrq.md)에 직렬 콘솔 사용
-* 직렬 콘솔은 [Windows](../windows/serial-console.md) vm 에서도 사용할 수 있습니다.
-* [부트 진단](boot-diagnostics.md) 에 대 한 자세한 정보
+* 직렬 콘솔은 [Windows](../troubleshooting/serial-console-windows.md) vm 에서도 사용할 수 있습니다.
+* [부트 진단](../troubleshooting/boot-diagnostics.md) 에 대 한 자세한 정보

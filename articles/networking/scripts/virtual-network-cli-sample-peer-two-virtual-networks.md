@@ -12,13 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c301c66c3b668ae48314c4d1eb06657d8573209c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73890237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030406"
 ---
-# <a name="peer-two-virtual-networks"></a>2개 가상 네트워크 피어링
+# <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Azure CLI 샘플 스크립트를 사용 하 여 두 가상 네트워크 연결
 
 이 스크립트는 Azure 네트워크를 통해 동일한 지역에서 두 가상 네트워크를 만들고 연결합니다. 스크립트를 실행한 후에 두 개의 가상 네트워크 간 피어링을 만듭니다.
 

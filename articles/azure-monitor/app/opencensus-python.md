@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: e1a866799a62c457c2734524c58bb848b8f067e6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024370"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -32,12 +32,12 @@ OpenCensus Azure Monitor 내보내기를 설치합니다.
 python -m pip install opencensus-ext-azure
 ```
 
-패키지 및 통합의 전체 목록은 [OpenCensus 패키지](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus)를 참조하세요.
+패키지 및 통합의 전체 목록은 [OpenCensus 패키지](./nuget.md#common-packages-for-python-using-opencensus)를 참조하세요.
 
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure` 명령은 Python 설치에 대해 `PATH` 환경 변수를 설정했다고 가정합니다. 이 변수를 구성하지 않은 경우 Python 실행 파일이 위치하는 전체 디렉터리 경로를 제공해야 합니다. 결과로 나온 명령은 다음과 같습니다. `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 다른 유형의 원격 분석을 보냅니다. 추적, 메트릭 및 로그입니다. 이러한 원격 분석 유형에 대한 자세한 내용은 [데이터 플랫폼 개요](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform)를 참조하세요. 다음 지침을 사용하여 세 가지 내보내기를 통해 이러한 원격 분석 유형을 전송합니다.
+SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 다른 유형의 원격 분석을 보냅니다. 추적, 메트릭 및 로그입니다. 이러한 원격 분석 유형에 대한 자세한 내용은 [데이터 플랫폼 개요](../platform/data-platform.md)를 참조하세요. 다음 지침을 사용하여 세 가지 내보내기를 통해 이러한 원격 분석 유형을 전송합니다.
 
 ## <a name="telemetry-type-mappings"></a>원격 분석 유형 매핑
 
@@ -111,7 +111,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
 1. 내보내기가 로그 데이터를 Azure Monitor 보냅니다. `traces`에서 데이터를 찾을 수 있습니다. 
 
     > [!NOTE]
-    > 이 컨텍스트에서 `traces` 은와 동일 하지 않습니다 `tracing` . 여기서는를 `traces` 활용할 때 Azure Monitor에 표시 되는 원격 분석의 유형을 나타냅니다 `AzureLogHandler` . 그러나 `tracing` OpenCensus에서 개념을 참조 하 고 [분산 추적](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)에 연결 합니다.
+    > 이 컨텍스트에서 `traces` 은와 동일 하지 않습니다 `tracing` . 여기서는를 `traces` 활용할 때 Azure Monitor에 표시 되는 원격 분석의 유형을 나타냅니다 `AzureLogHandler` . 그러나 `tracing` OpenCensus에서 개념을 참조 하 고 [분산 추적](./distributed-tracing.md)에 연결 합니다.
 
     > [!NOTE]
     > 루트 로거가 경고 수준으로 구성 됩니다. 즉, 심각도가 떨어지는 로그는 무시 되 고 다시 Azure Monitor 전송 되지 않습니다. 자세한 내용은 [설명서](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel)를 참조하세요.
@@ -216,11 +216,11 @@ OpenCensus의 샘플링에 대한 내용은 [OpenCensus의 샘플링](sampling.m
 
 #### <a name="log-correlation"></a>로그 상관 관계
 
-추적 컨텍스트 데이터를 통해 로그를 보강하는 방법에 대한 자세한 내용은 OpenCensus Python [로그 통합](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)을 참조하세요.
+추적 컨텍스트 데이터를 통해 로그를 보강하는 방법에 대한 자세한 내용은 OpenCensus Python [로그 통합](./correlation.md#log-correlation)을 참조하세요.
 
 #### <a name="modify-telemetry"></a>원격 분석 수정
 
-Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)를 참조 하세요.
+Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](./api-filtering-sampling.md#opencensus-python-telemetry-processors)를 참조 하세요.
 
 
 ### <a name="metrics"></a>메트릭
@@ -347,16 +347,16 @@ exporter = metrics_exporter.new_metrics_exporter(
 - 프로세스 CPU 사용량(백분율)
 - 프로세스 프라이빗 바이트(바이트)
 
-`performanceCounters`에서 이러한 메트릭을 볼 수 있어야 합니다. 자세한 내용은 [성능 카운터](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters)를 참조하세요.
+`performanceCounters`에서 이러한 메트릭을 볼 수 있어야 합니다. 자세한 내용은 [성능 카운터](./performance-counters.md)를 참조하세요.
 
 #### <a name="modify-telemetry"></a>원격 분석 수정
 
-Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)를 참조 하세요.
+Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](./api-filtering-sampling.md#opencensus-python-telemetry-processors)를 참조 하세요.
 
 ### <a name="tracing"></a>추적
 
 > [!NOTE]
-> OpenCensus에서는 `tracing` [분산 추적](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)을 나타냅니다. `AzureExporter`는 `requests` 및 `dependency` 원격 분석을 Azure Monitor로 전송합니다.
+> OpenCensus에서는 `tracing` [분산 추적](./distributed-tracing.md)을 나타냅니다. `AzureExporter`는 `requests` 및 `dependency` 원격 분석을 Azure Monitor로 전송합니다.
 
 1. 먼저 일부 추적 데이터를 로컬로 생성해 보겠습니다. Python IDLE에서 또는 원하는 편집기에서 다음 코드를 입력합니다.
 
@@ -420,8 +420,8 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
         main()
     ```
 
-1. 이제 Python 스크립트를 실행할 때 값을 입력하라는 메시지가 여전히 표시되지만 이제는 값만 셸에 인쇄됩니다. 만들어진 `SpanData` 가 Azure Monitor으로 전송 됩니다. `dependencies`에서 내보내진 범위 데이터를 찾을 수 있습니다. 보내는 요청에 대 한 자세한 내용은 OpenCensus Python [종속성](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency)을 참조 하세요.
-들어오는 요청에 대 한 자세한 내용은 OpenCensus Python [requests](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request)항목을 참조 하세요.
+1. 이제 Python 스크립트를 실행할 때 값을 입력하라는 메시지가 여전히 표시되지만 이제는 값만 셸에 인쇄됩니다. 만들어진 `SpanData` 가 Azure Monitor으로 전송 됩니다. `dependencies`에서 내보내진 범위 데이터를 찾을 수 있습니다. 보내는 요청에 대 한 자세한 내용은 OpenCensus Python [종속성](./opencensus-python-dependency.md)을 참조 하세요.
+들어오는 요청에 대 한 자세한 내용은 OpenCensus Python [requests](./opencensus-python-request.md)항목을 참조 하세요.
 
 #### <a name="sampling"></a>샘플링
 
@@ -429,11 +429,11 @@ OpenCensus의 샘플링에 대한 내용은 [OpenCensus의 샘플링](sampling.m
 
 #### <a name="trace-correlation"></a>추적 상관 관계
 
-추적 데이터의 원격 분석 상관 관계에 대 한 자세한 내용은 OpenCensus Python [원격 분석 상관 관계](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)를 참조 하세요.
+추적 데이터의 원격 분석 상관 관계에 대 한 자세한 내용은 OpenCensus Python [원격 분석 상관 관계](./correlation.md#telemetry-correlation-in-opencensus-python)를 참조 하세요.
 
 #### <a name="modify-telemetry"></a>원격 분석 수정
 
-Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)를 참조 하세요.
+Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](./api-filtering-sampling.md#opencensus-python-telemetry-processors)를 참조 하세요.
 
 ## <a name="configure-azure-monitor-exporters"></a>Azure Monitor 내보내기 구성
 
@@ -442,7 +442,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 각 내보내기는 생성자를 통해 전달 되는 구성에 대해 동일한 인수를 수락 합니다. 여기에서 각 항목에 대 한 세부 정보를 볼 수 있습니다.
 
 - `connection_string`: Azure Monitor 리소스에 연결 하는 데 사용 되는 연결 문자열입니다. 우선 순위를 사용 `instrumentation_key` 합니다.
-- `enable_standard_metrics`:에 사용 `AzureMetricsExporter` 됩니다. 자동으로 Azure Monitor 하기 위해 [성능 카운터](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) 메트릭을 보내도록 내보내기를 신호로 보냅니다. 기본값은 `True`입니다.
+- `enable_standard_metrics`:에 사용 `AzureMetricsExporter` 됩니다. 자동으로 Azure Monitor 하기 위해 [성능 카운터](../platform/app-insights-metrics.md#performance-counters) 메트릭을 보내도록 내보내기를 신호로 보냅니다. 기본값은 `True`입니다.
 - `export_interval`: 내보내는 빈도 (초)를 지정 하는 데 사용 됩니다.
 - `instrumentation_key`: Azure Monitor 리소스에 연결 하는 데 사용 되는 계측 키입니다.
 - `logging_sampling_rate`:에 사용 `AzureLogHandler` 됩니다. 로그를 내보내기 위한 샘플링 주기 [0, 1.0]을 제공 합니다. 기본값은 1.0입니다.
@@ -462,7 +462,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 - Azure Monitor 메트릭 내보내기로 전송된 원격 분석의 경우 전송된 메트릭은 `customMetrics`에 표시됩니다.
 - Azure Monitor 로그 내보내기를 사용하여 전송되는 원격 분석의 경우 로그는 `traces`에 표시됩니다. 예외는 `exceptions`에 표시됩니다.
 
-쿼리 및 로그를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs)를 참조하세요.
+쿼리 및 로그를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그](../platform/data-platform-logs.md)를 참조하세요.
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Python용 OpenCensus에 대해 자세히 알아보기
 

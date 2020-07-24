@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029317"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -91,7 +92,7 @@ az vmss create \
 
 ### <a name="zone-redundant-scale-set"></a>영역 중복 확장 집합
 
-영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md) 및 [표준 Load Balancer 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)을 참조하세요.
+영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-overview.md) 및 [표준 Load Balancer 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)을 참조하세요.
 
 영역 중복 확장 집합을 만들려면 여러 영역을 `--zones` 매개 변수로 지정합니다. 다음 예제에서는 *1,2,3* 영역에 *myScaleSet*라는 영역 중복 확장 집합을 만듭니다.
 
@@ -208,7 +209,7 @@ New-AzVmss `
 }
 ```
 
-공용 IP 주소 또는 부하 분산 장치를 만드는 경우 *"sku": { "name": "Standard" }"* 속성을 지정하여 영역 중복 네트워크 리소스를 만듭니다. 또한 모든 트래픽을 허용하는 네트워크 보안 그룹 및 규칙을 만들어야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md) 및 [표준 Load Balancer 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)을 참조하세요.
+공용 IP 주소 또는 부하 분산 장치를 만드는 경우 *"sku": { "name": "Standard" }"* 속성을 지정하여 영역 중복 네트워크 리소스를 만듭니다. 또한 모든 트래픽을 허용하는 네트워크 보안 그룹 및 규칙을 만들어야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-overview.md) 및 [표준 Load Balancer 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)을 참조하세요.
 
 영역 중복 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 Resource Manager 템플릿](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)을 참조하세요.
 

@@ -4,12 +4,12 @@ description: Azure CLI를 사용 하 여 Azure Blockchain 서비스에 대 한 B
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023741"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용하여 Blockchain Data Manager 구성
 
@@ -23,9 +23,9 @@ Blockchain Data Manager 인스턴스를 구성 하려면 다음을 수행 합니
 * 블록체인 애플리케이션 추가
 * 인스턴스 시작
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 를 설치 하 고를 사용 하 여 로그인 `az login` 합니다.
+* 최신 [Azure CLI](/cli/azure/install-azure-cli) 를 설치 하 고를 사용 하 여 로그인 `az login` 합니다.
 * 빠른 시작 완료 [: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)합니다. Blockchain Data Manager를 사용 하는 경우 Azure Blockchain 서비스 *표준* 계층을 사용 하는 것이 좋습니다.
 * [Event Grid 토픽](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
 * [Azure Event Grid의 이벤트 처리기](../../event-grid/event-handlers.md) 알아보기
@@ -36,11 +36,11 @@ Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용�
 
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
-CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에 Azure CLI 버전 2.0.51 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에 Azure CLI 버전 2.0.51 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -125,7 +125,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | 입력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 입력의 이름입니다. |
-| 네임스페이스 | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
+| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
 | 리소스 유형 | 블록 체인에 대 한 리소스 유형은 입력 Data Manager 입력 **입니다.** |
 | 부모(parent) | 입력이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
 | is-full-object | 속성에 입력 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
@@ -197,7 +197,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | 출력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 출력의 이름입니다. |
-| 네임스페이스 | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
+| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
 | 리소스 유형 | Blockchain Data Manager 출력에 대 한 리소스 유형은 **출력**입니다. |
 | 부모(parent) | 출력이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
 | is-full-object | 속성에 출력 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
@@ -274,7 +274,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | 응용 프로그램 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 애플리케이션의 이름입니다. |
-| 네임스페이스 | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
+| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
 | 리소스 유형 | Blockchain Data Manager 응용 프로그램에 대 한 리소스 형식이 **아티팩트**입니다. |
 | 부모(parent) | 응용 프로그램이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
 | is-full-object | 속성에 응용 프로그램 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
@@ -347,7 +347,7 @@ az resource invoke-action \
 
 | 매개 변수 | Description |
 |-----------|-------------|
-| action | **Start** 를 사용 하 여 감시자를 실행 합니다. |
+| 작업 | **Start** 를 사용 하 여 감시자를 실행 합니다. |
 | ids | 감시자 리소스 ID입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Watcher name\> 감시자 리소스의 값으로 바꿉니다.|
 
 ### <a name="start-instance-example"></a>시작 인스턴스 예제
@@ -372,7 +372,7 @@ az resource invoke-action \
 
 | 매개 변수 | Description |
 |-----------|-------------|
-| action | **중지** 를 사용 하 여 감시자를 중지 합니다. |
+| 작업 | **중지** 를 사용 하 여 감시자를 중지 합니다. |
 | ids | 감시자의 이름입니다. \<Subscription ID\>, \<Resource group\> 및를 \<Watcher name\> 감시자 리소스의 값으로 바꿉니다. |
 
 ### <a name="stop-watcher-example"></a>감시자 중지 예

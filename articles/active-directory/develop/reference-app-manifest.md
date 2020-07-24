@@ -1,5 +1,6 @@
 ---
 title: Azure Active Directory 앱 매니페스트 이해
+titleSuffix: Microsoft identity platform
 description: Azure AD 테넌트의 애플리케이션 ID 구성을 나타내고 OAuth 권한 부여, 승인 환경 등을 용이하게 하는 데 사용되는 Azure Active Directory 앱 매니페스트에 대한 자세한 정보를 다룹니다.
 services: active-directory
 author: rwike77
@@ -12,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479252"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026750"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
-애플리케이션 매니페스트는 Microsoft ID 플랫폼에 있는 애플리케이션 개체의 모든 특성 정의를 포함합니다. 또한 애플리케이션 개체를 업데이트하기 위한 메커니즘으로도 사용됩니다. 애플리케이션 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 애플리케이션 엔터티 설명서](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요.
+애플리케이션 매니페스트는 Microsoft ID 플랫폼에 있는 애플리케이션 개체의 모든 특성 정의를 포함합니다. 또한 애플리케이션 개체를 업데이트하기 위한 메커니즘으로도 사용됩니다. 애플리케이션 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 애플리케이션 엔터티 설명서](/graph/api/resources/application)를 참조하세요.
 
-Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications)을 사용하여 앱 특성을 구성할 수 있습니다. 그러나 앱 매니페스트를 편집하여 앱 특성을 구성해야 하는 경우도 있습니다. 이 시나리오에는 다음이 포함됩니다.
+Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](/graph/api/resources/application) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications)을 사용하여 앱 특성을 구성할 수 있습니다. 그러나 앱 매니페스트를 편집하여 앱 특성을 구성해야 하는 경우도 있습니다. 이 시나리오에는 다음이 포함됩니다.
 
 * Azure AD 다중 테넌트 및 개인 Microsoft 계정으로 앱을 등록한 경우 UI에서 지원되는 Microsoft 계정을 변경할 수 없습니다. 대신 애플리케이션 매니페스트 편집기를 사용하여 지원되는 계정 유형을 변경해야 합니다.
 * 앱이 지원하는 권한 및 역할을 정의해야 하는 경우 애플리케이션 매니페스트를 수정해야 합니다.
@@ -433,7 +434,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 | parentalControlSettings | String |
 
 - `countriesBlockedForMinors`는 미성년자가 사용할 수 없도록 앱이 차단되는 국가/지역을 지정합니다.
-- `legalAgeGroupRule`은 앱 사용자에게 적용되는 법적 연령 그룹 규칙을 지정합니다. 설정 가능한 값은 `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` 또는 `BlockMinors`입니다.  
+- `legalAgeGroupRule`은 앱 사용자에게 적용되는 법적 연령 그룹 규칙을 지정합니다. 설정 가능한 값은 `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` 또는 `BlockMinors`입니다.
 
 예제:
 
@@ -493,7 +494,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 | :--- | :--- |
 | publicClient | 부울|
 
-이 애플리케이션이 퍼블릭 클라이언트(예: 모바일 디바이스에서 실행되는 설치된 애플리케이션)인지 여부를 지정합니다. 
+이 애플리케이션이 퍼블릭 클라이언트(예: 모바일 디바이스에서 실행되는 설치된 애플리케이션)인지 여부를 지정합니다.
 
 이 속성은 **앱 등록(레거시)** 환경에서만 사용할 수 있습니다. [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 `allowPublicClient`로 대체되었습니다.
 
@@ -669,7 +670,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 이러한 오류 중 하나가 표시되면 다음 작업을 수행하는 것이 좋습니다.
 
-1. 이전에 다운로드한 매니페스트를 업로드하지 않고 매니페스트 편집기에서 특성을 개별적으로 편집합니다. [매니페스트 참조](#manifest-reference) 테이블을 통해 이전 및 새 특성의 구문 및 의미 체계를 이해하여 원하는 특성을 성공적으로 편집할 수 있습니다. 
+1. 이전에 다운로드한 매니페스트를 업로드하지 않고 매니페스트 편집기에서 특성을 개별적으로 편집합니다. [매니페스트 참조](#manifest-reference) 테이블을 통해 이전 및 새 특성의 구문 및 의미 체계를 이해하여 원하는 특성을 성공적으로 편집할 수 있습니다.
 1. 워크플로에 따라 나중에 사용할 수 있도록 매니페스트를 원본 리포지토리에 저장해야 하는 경우 리포지토리에 저장된 매니페스트를 **앱 등록** 환경에 표시되는 매니페스트로 다시 지정하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023469"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 
@@ -58,13 +58,13 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 VS Code에서 디바이스 및 Azure IoT Hub 관리에 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장입니다. IoT 개발자는 Azure IoT Tools를 사용하여 손쉽게 VS Code에서 IoT 프로젝트를 개발할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure 포털
 
 [Microsoft Azure portal](https://portal.azure.com) 은 Azure 리소스를 프로 비전 하 고 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
+[Azure PowerShell](/powershell/azure/)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -94,7 +94,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 IoT Hub에서 연결된 디바이스로 전송되는 메시지를 참조하세요. 대개 이러한 메시지는 디바이스에 작업을 수행하도록 하는 명령입니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 [자동 디바이스 구성](iot-hub-auto-device-config.md)의 컨텍스트에서 IoT Hub 내의 구성은 디바이스 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
 
@@ -194,7 +194,7 @@ IoT hub로 전송 되는 [장치-클라우드](#device-to-cloud) 메시지를 �
 
 필드 게이트웨이는 [IoT Hub](#iot-hub) 에 직접 연결할 수 없는 장치에 대 한 연결을 가능 하 게 하며 일반적으로 장치와 함께 로컬로 배포 됩니다. 자세한 내용은 [Azure IoT Hub 란?](about-iot-hub.md) 을 참조 하세요.
 
-## <a name="free-account"></a>무료 계정
+## <a name="free-account"></a>평가판 계정
 
 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들어 IoT Hub 자습서를 완료하고 IoT Hub 서비스(및 기타 Azure 서비스)를 연습해볼 수 있습니다
 
@@ -329,7 +329,7 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 시스템 속성은 읽기 전용이며 마지막 작업 시간 및 연결 상태와 같은 디바이스 사용에 대한 정보를 포함합니다.
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>태그
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 디바이스 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 

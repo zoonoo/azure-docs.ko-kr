@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029300"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -319,13 +320,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell에서 [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
+- Azure PowerShell에서 [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI에서 [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
+- Azure CLI에서 [az vmss reimage](/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -368,12 +369,12 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 애플리케이션을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.
 
 ### <a name="os-updates"></a>OS 업데이트
-Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
+Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
 >[!NOTE]
 > 플랫폼 이미지를 사용하는 경우 이미지 참조 버전으로 "최신"을 지정하는 것이 일반적입니다. VM을 만들고 규모를 확장하고 이미지로 다시 설치하는 동안 VM은 사용 가능한 최신 버전으로 만들어집니다. 하지만 시간이 지나면서 새 이미지 버전이 릴리스되면 OS 이미지가 자동으로 업데이트된다는 의미는 **아닙니다**. 자동 OS 업그레이드를 제공하는 별도의 기능이 현재 미리 보기 상태에 있습니다. 자세한 내용은 [자동 OS 업그레이드 설명서](virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
 
-사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
+사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
 ## <a name="examples"></a>예
 

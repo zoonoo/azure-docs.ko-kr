@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515444"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030082"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 백업 및 복원
 
@@ -32,7 +32,11 @@ Azure Database for PostgreSQL – Hyperscale (Citus)은 각 노드의 백업을 
 
 ## <a name="restore"></a>복원
 
-Azure Database for PostgreSQL에서 Citus (Hyperscale) 클러스터를 복원 하면 원래 노드의 백업에서 새 클러스터가 만들어집니다.
+Azure Database for PostgreSQL에서 Citus (Hyperscale) 클러스터를 복원 하면 원래 노드의 백업에서 새 클러스터가 만들어집니다. 
+
+> [!IMPORTANT]
+>동일한 구독 및 리소스 그룹 내에서 다른 클러스터 이름으로 대규모 클러스터를 복원할 수 있습니다.
+
 
 > [!IMPORTANT]
 > 삭제 된 Citus (Hyperscale) 클러스터는 복원할 수 없습니다. 클러스터를 삭제 하면 해당 클러스터에 속하는 모든 노드가 삭제 되며 복구할 수 없습니다. 클러스터 리소스를 보호 하기 위해 실수로 삭제 하거나 예기치 않은 변경에서 배포 후에는 관리자가 [관리 잠금을](/azure/azure-resource-manager/management/lock-resources)활용할 수 있습니다.

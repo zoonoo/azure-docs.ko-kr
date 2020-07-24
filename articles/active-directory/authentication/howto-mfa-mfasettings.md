@@ -12,19 +12,20 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3c16724dc3eb99549b692df93ee6cd5f1fc0bf30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027702"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
-Azure Multi-Factor Authentication에 대 한 최종 사용자 환경을 사용자 지정 하려면 계정 잠금 임계값, 사기 행위 경고 및 알림과 같은 설정에 대 한 옵션을 구성할 수 있습니다. 일부 설정은 Azure Active Directory (Azure AD)에 대 한 Azure Portal에 직접 있으며 일부 설정은 별도의 Azure Multi-Factor Authentication 포털에 있습니다.]
+Azure Multi-Factor Authentication에 대 한 최종 사용자 환경을 사용자 지정 하려면 계정 잠금 임계값, 사기 행위 경고 및 알림과 같은 설정에 대 한 옵션을 구성할 수 있습니다. 일부 설정은 Azure Active Directory (Azure AD)에 대 한 Azure Portal에 직접 있으며 일부 설정은 별도의 Azure Multi-Factor Authentication 포털에 있습니다.
 
 Azure Portal에서 사용할 수 있는 Azure Multi-Factor Authentication 설정은 다음과 같습니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 | ------- | ----------- |
 | [계정 잠금](#account-lockout) | 한 행에 거부 된 인증 시도가 너무 많으면 Azure Multi-Factor Authentication를 사용 하지 못하도록 일시적으로 계정을 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
 | [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 Azure Multi-Factor Authentication 요청을 받을 수 없도록 차단 합니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단 된 시간부터 90 일 동안 차단 된 상태로 유지 되거나 수동으로 차단 해제 됩니다. |

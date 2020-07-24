@@ -5,21 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027600"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장의 작동 방식
 
 Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통해 사용자는 클라우드에서 암호를 재설정할 수 있지만, 대부분의 회사에는 사용자가 존재하는 온-프레미스 Active Directory Domain Services(AD DS) 환경도 있습니다. 비밀번호 쓰기 저장은 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)를 통해 활성화되며 클라우드의 암호 변경 내용을 실시간으로 기존 온-프레미스 디렉터리에 다시 쓸 수 있는 기능입니다. 이 구성에서 사용자가 SSPR를 이용하여 클라우드에서 암호를 변경하거나 재설정하면 업데이트된 암호 또한 온-프레미스 AD DS 환경에 쓰기 저장됩니다.
+
+> [!IMPORTANT]
+> 이 개념 문서에서는 셀프 서비스 암호 재설정 쓰기 저장의 작동 원리를 관리자에 게 설명 합니다. 셀프 서비스 암호 재설정에 이미 등록된 최종 사용자가 계정으로 다시 이동해야 하는 경우 https://aka.ms/sspr 로 이동합니다.
+>
+> IT 팀이 자신의 암호를 재설정 하는 기능을 사용하도록 설정하지 않은 경우, 추가 지원이 필요 하면 기술 지원팀에 문의하세요.
 
 암호 쓰기 저장 기능은 다음과 같은 하이브리드 ID 모델을 사용하는 환경에서 지원됩니다.
 
@@ -36,7 +42,12 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통�
 * **인바운드 방화벽 규칙이 필요하지 않음**: 비밀번호 쓰기 저장은 Azure Service Bus Relay를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 
 > [!NOTE]
-> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수는 있지만, 암호 재설정을 사용하여 잊어버린 암호를 재설정할 수는 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
+> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수는 있지만, 암호 재설정을 사용하여 잊어버린 암호를 재설정할 수는 없습니다. 보호 된 그룹에 대 한 자세한 내용은 [AD DS 보호 된 계정 및 그룹](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조 하세요.
+
+SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
+
+> [!div class="nextstepaction"]
+> [자습서: 셀프 서비스 암호 재설정(SSPR) 쓰기 저장 사용](tutorial-enable-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>암호 쓰기 저장의 작동 원리
 
@@ -52,14 +63,14 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통�
 1. 메시지가 서비스 버스에 도달하면 암호 재설정 엔드포인트가 자동으로 절전 모드에서 해제되어 보류 중인 재설정 요청이 있는지 확인합니다.
 1. 그런 다음, 서비스에서 클라우드 앵커 특성을 사용하여 해당 사용자를 찾습니다. 이 조회에 성공하려면 다음 조건을 충족해야 합니다.
 
-   * 사용자 개체가 Active Directory 커넥터 공간에 있어야 합니다.
+   * 사용자 개체가 AD DS 커넥터 공간에 있어야 합니다.
    * 사용자 개체가 해당 MV(metaverse) 개체에 연결되어야 합니다.
-   * 사용자 개체가 해당 Azure Active Directory 커넥터 개체에 연결되어야 합니다.
-   * Active Directory 커넥터 개체에서 MV로의 링크에는 동기화 규칙 `Microsoft.InfromADUserAccountEnabled.xxx`이 있어야 합니다.
+   * 사용자 개체는 해당 하는 Azure AD 커넥터 개체에 연결 되어야 합니다.
+   * AD DS connector 개체에서 MV로의 링크에는 링크에 대 한 동기화 규칙이 있어야 합니다 `Microsoft.InfromADUserAccountEnabled.xxx` .
 
-   클라우드에서 호출이 들어오면 동기화 엔진은 **cloudAnchor** 특성을 사용하여 Azure Active Directory 커넥터 공간 개체를 조회합니다. 그런 후 다시 링크를 따라 MV 개체로 이동한 후 Active Directory 개체로 이동합니다. 동일한 사용자에 대해 여러 Active Directory 개체(다중 포리스트)가 있을 수 있기 때문에 동기화 엔진은 `Microsoft.InfromADUserAccountEnabled.xxx` 링크에 의존하여 정확한 개체를 선택합니다.
+   클라우드에서 호출이 들어오면 동기화 엔진이 **Cloudanchor** 특성을 사용 하 여 Azure AD 커넥터 공간 개체를 조회 합니다. 그런 다음, MV 개체에 대 한 링크를 팔 로우 한 다음 AD DS 개체로 다시 연결 합니다. 동일한 사용자에 대해 여러 개의 AD DS 개체 (다중 포리스트)가 있을 수 있기 때문에 동기화 엔진은 링크에 의존 하 여 올바른 개체를 `Microsoft.InfromADUserAccountEnabled.xxx` 선택 합니다.
 
-1. 사용자 계정을 찾은 후에는 적절한 Active Directory 포리스트에서 직접 암호를 재설정하려는 시도가 수행됩니다.
+1. 사용자 계정이 검색 되 면 적절 한 AD DS 포리스트에서 직접 암호를 다시 설정 하려고 시도 합니다.
 1. 암호 설정 작업이 성공하면 사용자에게 암호가 변경되었음을 알려줍니다.
 
    > [!NOTE]
@@ -68,7 +79,7 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통�
 1. 암호 설정 작업이 실패하면 다시 시도하라는 오류 메시지가 표시됩니다. 작업은 다음과 같은 이유로 실패할 수 있습니다.
     * 서비스가 종료되었습니다.
     * 선택한 암호가 조직 정책을 준수하지 않습니다.
-    * 로컬 Active Directory에서 사용자를 찾을 수 없습니다.
+    * 로컬 AD DS 환경에서 사용자를 찾을 수 없습니다.
 
    오류 메시지는 관리자 개입 없이 문제 해결을 시도할 수 있도록 사용자에게 지침을 제공합니다.
 
@@ -85,7 +96,7 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통�
    1. 암호화된 암호는 Microsoft TLS/SSL 인증서를 사용하여 암호화된 채널을 통해 Service Bus Relay로 전송되는 HTTPS 메시지에 배치됩니다.
    1. Service Bus에 메시지가 도착한 후에 온-프레미스 에이전트가 시작하고 이전에 생성된 강력한 암호를 사용하여 Service Bus에 인증합니다.
    1. 온-프레미스 에이전트는 암호화된 메시지를 선택하고 프라이빗 키를 사용하여 암호를 해독합니다.
-   1. 온-프레미스 에이전트는 AD DS SetPassword API를 통해 암호를 설정하려고 합니다. 이 단계에서는 클라우드에서 Active Directory 온-프레미스 암호 정책(예: 복잡성, 나이, 기록, 필터)을 적용할 수 있습니다.
+   1. 온-프레미스 에이전트는 AD DS SetPassword API를 통해 암호를 설정하려고 합니다. 이 단계에서는 클라우드에서 AD DS 온-프레미스 암호 정책 (예: 복잡성, 연령, 기록, 필터 등)을 적용할 수 있습니다.
 * **메시지 만료 정책**
    * 온-프레미스 서비스가 종료되었기 때문에 메시지가 Service Bus에 남아 있는 경우 시간이 초과되고 몇 분 후에 제거됩니다. 메시지의 시간 초과 및 제거를 통해 메시지 보안이 더욱 강화됩니다.
 
@@ -94,9 +105,9 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통�
 사용자가 암호 재설정을 제출한 후 재설정 요청은 여러 암호화 단계를 거친 후 온-프레미스 환경에 도달합니다. 이러한 암호화 단계는 최대의 서비스 안정성과 보안을 보장합니다. 다음과 같이 설명할 수 있습니다.
 
 1. **2048비트 RSA 키를 사용한 암호 암호화**: 사용자가 온-프레미스에 다시 작성된 암호를 제출하면 제출된 암호 자체를 2048비트 RSA 키로 암호화합니다.
-1. **AES-GCM을 사용한 패키지 수준 암호화**: AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 ServiceBus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조하는 것을 방지합니다.
-1. **모든 통신이 TLS/SSL을 통해 발생**: Service Bus와 모든 통신은 SSL/TLS 채널에서 발생합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
-1. **6개월마다 자동 키 롤오버**: 최상의 서비스 보안과 안전성을 보장하기 위해, 모든 키는 6개월마다 또는 Azure AD Connect에서 비밀번호 쓰기 저장이 해제되었다가 다시 설정될 때마다 롤오버됩니다.
+1. **AES-GCM을 사용한 패키지 수준 암호화**: AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 Service Bus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조 하는 것을 방지 합니다.
+1. **모든 통신은 TLS/SSL을 통해 발생**합니다. Service Bus와의 모든 통신은 SSL/TLS 채널에서 발생 합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
+1. **6 개월 마다 자동 키 롤오버**: 모든 키는 6 개월 마다 또는 비밀 번호 쓰기 저장을 사용 하지 않도록 설정한 후 Azure AD Connect에서 다시 사용 하도록 설정 하 여 최대 서비스 보안 및 안전을 보장 합니다.
 
 ### <a name="password-writeback-bandwidth-usage"></a>비밀번호 쓰기 저장 대역폭 사용
 

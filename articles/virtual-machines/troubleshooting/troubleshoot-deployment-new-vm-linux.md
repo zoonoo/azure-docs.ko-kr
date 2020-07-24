@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: daberry
-ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f48963a4d18e80cb67bfbbdc532d34f89b8b5d8a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83118229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028450"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure에서 새 Linux 가상 머신 생성 관련 Resource Manager 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -35,7 +36,7 @@ VM 배포 문제 및 질문은 [Azure에서 Linux 가상 머신 배포 문제 �
 
 [배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)
 
-[활동 로그를 보고 Azure 리소스 관리](../../resource-group-audit.md)
+[활동 로그를 보고 Azure 리소스 관리](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -87,5 +88,4 @@ VM 배포 문제 및 질문은 [Azure에서 Linux 가상 머신 배포 문제 �
   * 새 VM을 동일한 가상 네트워크에 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
-중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux Virtual Machine 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](../linux/restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
+중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux Virtual Machine 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](./troubleshoot-deploy-vm-linux.md?toc=/azure/virtual-machines/linux/toc.json)을 참조하세요.

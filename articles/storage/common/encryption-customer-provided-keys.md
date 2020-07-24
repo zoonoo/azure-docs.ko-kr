@@ -1,25 +1,25 @@
 ---
 title: Blob 저장소에 대 한 요청에 암호화 키 제공
 titleSuffix: Azure Storage
-description: Azure Blob 저장소에 대 한 요청을 수행 하는 클라이언트에는 요청 별로 암호화 키 (미리 보기)를 제공할 수 있는 옵션이 있습니다. 요청에 암호화 키를 포함 하면 Blob 저장소 작업의 암호화 설정에 대 한 세부적인 제어 기능을 제공 합니다.
+description: Azure Blob 저장소에 대 한 요청을 수행 하는 클라이언트에는 요청 별로 암호화 키를 제공 하는 옵션이 있습니다. 요청에 암호화 키를 포함 하면 Blob 저장소 작업의 암호화 설정에 대 한 세부적인 제어 기능을 제공 합니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec3d760450fb5cc20deed14dac03f58f23c2b4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029742"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Blob 저장소에 대 한 요청에 암호화 키 제공 (미리 보기)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Blob 저장소에 대 한 요청에 암호화 키 제공
 
-Azure Blob 저장소에 대 한 요청을 수행 하는 클라이언트에는 요청 별로 암호화 키 (미리 보기)를 제공할 수 있는 옵션이 있습니다. 요청에 암호화 키를 포함 하면 Blob 저장소 작업의 암호화 설정에 대 한 세부적인 제어 기능을 제공 합니다. 고객이 제공한 키는 Azure Key Vault 또는 다른 키 저장소에 저장할 수 있습니다.
+Azure Blob 저장소에 대 한 요청을 수행 하는 클라이언트에는 요청 별로 암호화 키를 제공 하는 옵션이 있습니다. 요청에 암호화 키를 포함 하면 Blob 저장소 작업의 암호화 설정에 대 한 세부적인 제어 기능을 제공 합니다. 고객이 제공한 키는 Azure Key Vault 또는 다른 키 저장소에 저장할 수 있습니다.
 
 ## <a name="encrypting-read-and-write-operations"></a>읽기 및 쓰기 작업 암호화
 

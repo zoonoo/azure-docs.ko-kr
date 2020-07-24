@@ -8,18 +8,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25d8dc467ce8f7e34faaeaa2c61fd0c5da1da4e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027957"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
 이 문서에서는 C#을 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 보여줍니다. 만든 템플릿은 단일 서브넷을 사용하는 새 가상 네트워크에서 Windows Server를 실행하는 단일 가상 머신을 배포합니다.
 
-가상 머신 리소스에 대한 자세한 설명은 [Azure Resource Manager 템플릿의 가상 머신](template-description.md)를 참조하세요. 템플릿에 있는 모든 리소스에 대한 자세한 내용은 [Azure Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
+가상 머신 리소스에 대한 자세한 설명은 [Azure Resource Manager 템플릿의 가상 머신](template-description.md)를 참조하세요. 템플릿에 있는 모든 리소스에 대한 자세한 내용은 [Azure Resource Manager 템플릿 연습](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 참조하세요.
 
 이러한 단계를 수행하려면 약 10분이 걸립니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "82082920"
 
 이 단계에서는 Visual Studio가 설치되어 있는지 확인하고 템플릿을 배포하는 데 사용하는 콘솔 애플리케이션을 만듭니다.
 
-1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **.NET 데스크톱 개발**을 선택한 다음 **설치**를 클릭합니다. 요약에서 **.NET Framework 4 - 4.6 개발 도구**가 자동으로 선택되는 것을 볼 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 .NET 작업을 추가할 수 있습니다.
+1. [Visual Studio](/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **.NET 데스크톱 개발**을 선택한 다음 **설치**를 클릭합니다. 요약에서 **.NET Framework 4 - 4.6 개발 도구**가 자동으로 선택되는 것을 볼 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 .NET 작업을 추가할 수 있습니다.
 2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
 3. **템플릿** > **Visual C#** 에서 **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트의 이름에 *myDotnetProject*를 입력하고 프로젝트의 위치를 선택한 다음 **확인**을 클릭합니다.
 
@@ -325,5 +325,5 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="next-steps"></a>다음 단계
 
-* 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../../resource-manager-common-deployment-errors.md)을 살펴봅니다.
+* 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../../azure-resource-manager/templates/common-deployment-errors.md)을 살펴봅니다.
 * [C#를 사용하여 Azure Virtual Machine 배포](csharp.md)를 검토하여 가상 머신 및 지원 리소스 배포 방법에 대해 알아 봅니다.

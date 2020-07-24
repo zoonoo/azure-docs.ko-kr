@@ -3,14 +3,14 @@ title: Azure Automation Hybrid Runbook Worker 개요
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 공급자의 머신에서 Runbook을 실행하는 데 사용할 수 있는 Hybrid Runbook Worker에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186251"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024829"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -77,6 +77,17 @@ Azure Automation 서비스에 대 한 서비스 태그는 다음 시나리오에
 >[!NOTE]
 >현재 서비스 태그 **GuestAndHybridManagement** 는 Azure 샌드박스에서 runbook 작업 실행을 지원 하지 않습니다 .이 작업은 Hybrid Runbook Worker 에서만 직접 지원 됩니다.
 
+## <a name="support-for-impact-level-5-il5"></a>영향 수준 5에 대 한 지원 (IL5)
+
+Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용 하 여 다음 두 가지 구성 중 하나에서 영향 수준 5 작업을 지원할 수 있습니다.
+
+* [격리 된 가상 컴퓨터](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). 배포 되 면 해당 VM에 대 한 전체 실제 호스트를 사용 하 여 IL5 워크 로드를 지 원하는 데 필요한 수준의 격리를 제공 합니다.
+
+* 하나 이상의 가상 컴퓨터를 호스트할 수 있는 물리적 서버를 제공 하는 [Azure 전용 호스트](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts)는 하나의 azure 구독 전용입니다.
+
+>[!NOTE]
+>Hybrid Runbook Worker 역할을 통한 계산 격리는 Azure 상용 및 미국 정부 클라우드에서 사용할 수 있습니다. 
+
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 업데이트 관리
 
 Azure Automation [업데이트 관리](automation-update-management.md) 를 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성 됩니다. 각 작업자는 업데이트 관리를 대상으로 하는 Runbook을 지원할 수 있습니다.
@@ -85,13 +96,7 @@ Azure Automation [업데이트 관리](automation-update-management.md) 를 사�
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 업데이트 관리 주소
 
-Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도, 업데이트 관리를 위해 다음 표에 나열된 주소가 필요합니다. 이러한 주소에 대한 통신에는 443 포트가 사용됩니다.
-
-|Azure 공용  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+Hybrid Runbook Worker에 필요한 표준 주소 및 포트를 기반으로 하 업데이트 관리에는 [네트워크 계획](automation-update-management.md#ports) 섹션에 설명 된 추가 네트워크 구성 요구 사항이 있습니다.
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 Azure Automation State Configuration
 
@@ -114,4 +119,5 @@ Hybrid Runbook Worker에서 실행하는 Runbook은 Azure에 없는 리소스에
 ## <a name="next-steps"></a>다음 단계
 
 * 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아보려면 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 참조하세요.
+
 * Hybrid Runbook Worker 문제를 해결하는 방법을 알아보려면 [Hybrid Runbook Worker 문제 해결](troubleshoot/hybrid-runbook-worker.md#general)을 참조하세요.

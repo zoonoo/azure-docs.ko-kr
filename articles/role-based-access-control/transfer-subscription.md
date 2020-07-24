@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230845"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029980"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Azure 구독을 다른 Azure AD 디렉터리 (미리 보기)에 전송
 
@@ -74,7 +74,7 @@ ms.locfileid: "86230845"
 | Azure AD 인증을 사용 하는 azure SQL database | 예 | 아니요 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-other-known-resources) |  |  |
 | Azure Storage 및 Azure Data Lake Storage Gen2 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure Data Lake Storage Gen1 | 예 |  |  | Acl을 다시 만들어야 합니다. |
-| Azure Files | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
+| Azure 파일 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 동기화 | 예 | 예 |  |  |
 | Azure Managed Disks | 예 | 해당 없음 |  |  |
 | Kubernetes 용 Azure Container Service | 예 | 예 |  |  |
@@ -145,7 +145,7 @@ ms.locfileid: "86230845"
 
 ### <a name="save-custom-roles"></a>사용자 지정 역할 저장
 
-1. [Az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) 를 사용 하 여 사용자 지정 역할을 나열 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
+1. [Az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) 를 사용 하 여 사용자 지정 역할을 나열 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ ms.locfileid: "86230845"
 
 ### <a name="list-key-vaults"></a>주요 자격 증명 모음 나열
 
-키 자격 증명 모음을 만들 때 생성된 해당 구독에 대한 기본 Azure Active Directory 테넌트 ID에 자동으로 연결됩니다. 모든 액세스 정책 항목은 이 테넌트 ID에 연결됩니다. 자세한 내용은 [다른 구독으로 Azure Key Vault 이동](../key-vault/general/keyvault-move-subscription.md)을 참조 하세요.
+키 자격 증명 모음을 만들 때 생성된 해당 구독에 대한 기본 Azure Active Directory 테넌트 ID에 자동으로 연결됩니다. 모든 액세스 정책 항목은 이 테넌트 ID에 연결됩니다. 자세한 내용은 [다른 구독으로 Azure Key Vault 이동](../key-vault/general/move-subscription.md)을 참조 하세요.
 
 > [!WARNING]
 > 전송 중인 동일한 구독에 없는 주요 자격 증명 모음에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
@@ -291,7 +291,7 @@ ms.locfileid: "86230845"
 
 ### <a name="create-custom-roles"></a>사용자 지정 역할 만들기
         
-- [Az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) 를 사용 하 여 이전에 만든 파일에서 각 사용자 지정 역할을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
+- [Az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) 를 사용 하 여 이전에 만든 파일에서 각 사용자 지정 역할을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-cli.md)를 참조 하세요.
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -339,7 +339,7 @@ ms.locfileid: "86230845"
 
 ### <a name="update-key-vaults"></a>주요 자격 증명 모음 업데이트
 
-이 섹션에서는 주요 자격 증명 모음을 업데이트 하는 기본 단계에 대해 설명 합니다. 자세한 내용은 [다른 구독으로 Azure Key Vault 이동](../key-vault/general/keyvault-move-subscription.md)을 참조 하세요.
+이 섹션에서는 주요 자격 증명 모음을 업데이트 하는 기본 단계에 대해 설명 합니다. 자세한 내용은 [다른 구독으로 Azure Key Vault 이동](../key-vault/general/move-subscription.md)을 참조 하세요.
 
 1. 구독의 모든 기존 키 자격 증명 모음과 연결 된 테 넌 트 ID를 대상 디렉터리에 업데이트 합니다.
 

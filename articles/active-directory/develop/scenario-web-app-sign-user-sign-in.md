@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7393b0f3d3004c28e0d6befe2fdbbeda7f9a592
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026155"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -334,7 +335,7 @@ Python 빠른 시작에서 로그 아웃 단추는 [templates/index.html # L10](
 - `Signout()`Openid connect 연결 미들웨어가 Microsoft id 플랫폼 끝점에 연결할 수 있도록 하는를 호출 합니다 `logout` . 그러면 끝점은 다음과 같습니다.
 
   - 브라우저에서 세션 쿠키를 지웁니다.
-  - 로그 아웃 URL을 다시 호출 합니다. 기본적으로 로그 아웃 URL은 [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml)로 로그 아웃 된 보기 페이지를 표시 합니다. 이 페이지는 또한 MIcrosoft. Identity. Web의 일부로 제공 됩니다.
+  - 로그 아웃 URL을 다시 호출 합니다. 기본적으로 로그 아웃 URL은 [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs)보기 페이지를 표시 합니다. 이 페이지는 또한 MIcrosoft. Identity. Web의 일부로 제공 됩니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

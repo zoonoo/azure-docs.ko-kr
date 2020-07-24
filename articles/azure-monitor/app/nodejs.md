@@ -3,11 +3,12 @@ title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링
 description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024387"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -23,14 +24,14 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
-[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Application Insights 리소스 설정
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Application Insights 리소스 설정
 
 1. [Azure Portal][portal]에 로그인합니다.
 2. [Application Insights 리소스 만들기](create-new-resource.md)
@@ -419,4 +420,4 @@ client.config.PROPERTYNAME = VALUE;
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
+[FAQ]: ../faq.md

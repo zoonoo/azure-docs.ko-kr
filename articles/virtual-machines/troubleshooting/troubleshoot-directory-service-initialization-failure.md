@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 909481964f8aa3272715e235fa011562225a9422
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028365"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Windows 중지 오류 문제 해결 – 디렉터리 서비스 초기화 오류
 
@@ -26,7 +27,7 @@ ms.locfileid: "83663941"
 
 ## <a name="symptom"></a>증상
 
-[부트 진단](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)을 사용하여 VM의 스크린샷을 보면 스크린샷에 오류로 인해 VM을 다시 시작해야 한다는 메시지와 Windows Server 2008 R2의 경우 중지 코드 **0xC00002E1**이, Windows Server 2012 이상의 경우 **0xC00002E2**가 표시되어 있습니다.
+[부트 진단](./boot-diagnostics.md)을 사용하여 VM의 스크린샷을 보면 스크린샷에 오류로 인해 VM을 다시 시작해야 한다는 메시지와 Windows Server 2008 R2의 경우 중지 코드 **0xC00002E1**이, Windows Server 2012 이상의 경우 **0xC00002E2**가 표시되어 있습니다.
 
 ![Windows Server 2012 시작 화면에 다음과 같은 메시지가 표시됩니다. “PC에 문제가 발생하여 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다.”](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -61,7 +62,7 @@ OS가 부팅되면 사용자 로그인을 인증하는 로컬 보안 인증 서�
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령의 1~3단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령의 1~3단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 복구 VM을 준비합니다.
 1. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="free-up-space-on-disk"></a>디스크에서 공간 확보
@@ -69,11 +70,11 @@ OS가 부팅되면 사용자 로그인을 인증하는 로컬 보안 인증 서�
 이제 디스크가 복구 VM에 연결되어 있으니 Active Directory 내부 데이터베이스를 포함하는 디스크에 작업을 올바르게 수행하기에 충분한 공간이 있는지 확인합니다.
 
 1. 드라이브를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택하여 디스크가 가득 차 있는지 확인합니다.
-1. 디스크의 사용 가능한 공간이 300Mb 미만인 경우 [PowerShell을 사용하여 최대 1Tb로 확장합니다](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. 디스크의 사용 가능한 공간이 300Mb 미만인 경우 [PowerShell을 사용하여 최대 1Tb로 확장합니다](../windows/expand-os-disk.md).
 1. 디스크의 사용 중인 공간이 1Tb에 도달한 경우 디스크 정리를 수행합니다.
 
-   1. PowerShell을 사용하여 손상된 VM에서 [데이터 디스크를 분리](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)합니다.
-   1. 손상된 VM에서 분리한 후에는 [데이터 디스크를 작동하는 VM에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)합니다.
+   1. PowerShell을 사용하여 손상된 VM에서 [데이터 디스크를 분리](../windows/detach-disk.md#detach-a-data-disk-using-powershell)합니다.
+   1. 손상된 VM에서 분리한 후에는 [데이터 디스크를 작동하는 VM에 연결](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm)합니다.
    1. [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup)를 사용하여 추가 공간을 확보합니다.
 
 1. **선택 사항** - 더 많은 공간이 필요한 경우 CMD 인스턴스를 열고 `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` 명령을 입력하여 드라이브 조각 모음을 수행합니다.
@@ -182,7 +183,7 @@ OS가 부팅되면 사용자 로그인을 인증하는 로컬 보안 인증 서�
 
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-1. [VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 조합합니다.
+1. [VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 조합합니다.
 
 ### <a name="reconfigure-the-storage-area-network-policy"></a>SAN(스토리지 영역 네트워크) 정책 다시 구성
 

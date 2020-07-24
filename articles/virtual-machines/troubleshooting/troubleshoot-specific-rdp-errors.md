@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028246"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 대한 특정 RDP 오류 메시지 문제 해결
 Azure에서 Windows 가상 머신(VM)에 원격 데스크톱 연결을 사용할 때 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 발생할 수 있는 일반적인 일부 오류 메시지와 이 문제를 해결하기 위한 문제 해결 단계에 대해 자세히 설명합니다. RDP를 사용하여 VM에 연결하는 데 문제가 있지만 특정 오류 메시지가 발생하지 않는다면 [원격 데스크톱에 대한 자세한 문제 해결 가이드](troubleshoot-rdp-connection.md)를 참조하세요.
@@ -46,7 +46,7 @@ mstsc <File name>.RDP /admin
 
 VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하지 않을 경우 서버 관리자를 사용하여 원격 데스크톱 서버 역할을 제거할 수 있습니다.
 
-자세한 내용은 ["사용 가능한 원격 데스크톱 라이선스 서버가 없음"과 함께 Azure VM이 실패하는 경우](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/)블로그 게시물을 참조하세요.
+자세한 내용은 ["사용 가능한 원격 데스크톱 라이선스 서버가 없음"과 함께 Azure VM이 실패하는 경우](/archive/blogs/mast/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available)블로그 게시물을 참조하세요.
 
 <a id="rdpname"></a>
 
@@ -111,6 +111,5 @@ VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 �
 ## <a name="next-steps"></a>다음 단계
 이러한 오류가 발생하지 않고 RDP를 사용한 연결에 대해 알려지지 않은 문제가 있는 경우 [원격 데스크톱에 대한 자세한 문제 해결 가이드](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-* VM에서 실행 중인 애플리케이션에 액세스하는 문제 해결 단계는 [Azure VM에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-* SSH(Secure Shell)를 사용하여 Azur에서 Linux VM에 연결하는 데 문제가 있는 경우 [Azure에서 Linux VM에 SSH 연결 문제 해결](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
+* VM에서 실행 중인 애플리케이션에 액세스하는 문제 해결 단계는 [Azure VM에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json)을 참조하세요.
+* SSH(Secure Shell)를 사용하여 Azur에서 Linux VM에 연결하는 데 문제가 있는 경우 [Azure에서 Linux VM에 SSH 연결 문제 해결](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)을 참조하세요.

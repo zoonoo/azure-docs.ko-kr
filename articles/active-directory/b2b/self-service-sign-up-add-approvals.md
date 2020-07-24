@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386779"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027464"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
 
@@ -61,11 +61,11 @@ Azure AD를 사용 하 여 인증 하 고 사용자를 만들 수 있는 권한�
 
 다음으로 셀프 서비스 등록 사용자 흐름에 대 한 [API 커넥터를 만듭니다](self-service-sign-up-add-api-connector.md#create-an-api-connector) . 승인 시스템 API에는 아래에 표시 된 예제와 같이 두 개의 커넥터와 해당 끝점이 필요 합니다. 이러한 API 커넥터는 다음을 수행 합니다.
 
-- **승인 상태를 확인**합니다. 사용자가 id 공급자를 사용 하 여 로그인 한 후 즉시 승인 시스템에 대 한 호출을 보내 사용자에 게 기존 승인 요청이 있는지 또는 이미 거부 되었는지 확인 합니다. 승인 시스템에서 자동 승인 결정만 수행 하는 경우에는이 API 커넥터가 필요 하지 않을 수 있습니다. 다음은 "승인 상태 확인" API 커넥터의 예입니다.
+- **승인 상태를 확인**합니다. 사용자가 id 공급자를 사용 하 여 로그인 한 후 즉시 승인 시스템에 대 한 호출을 보내 사용자에 게 기존 승인 요청이 있는지 또는 이미 거부 되었는지 확인 합니다. 승인 시스템에서 자동 승인 결정만 수행 하는 경우에는이 API 커넥터가 필요 하지 않을 수 있습니다. "승인 상태 확인" API 커넥터의 예입니다.
 
   ![승인 상태 API 커넥터 구성 확인](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **승인 요청** -사용자가 특성 컬렉션 페이지를 완료 한 후, 사용자 계정을 만들기 전에 승인을 요청 하기 전에 승인 시스템에 대 한 호출을 보냅니다. 승인 요청을 자동으로 부여 하거나 수동으로 검토할 수 있습니다. 다음은 "요청 승인" API 커넥터의 예입니다. 승인 시스템에서 승인 결정을 내리는 데 필요한 모든 **클레임** 을 선택 합니다.
+- **승인 요청** -사용자가 특성 컬렉션 페이지를 완료 한 후, 사용자 계정을 만들기 전에 승인을 요청 하기 전에 승인 시스템에 대 한 호출을 보냅니다. 승인 요청을 자동으로 부여 하거나 수동으로 검토할 수 있습니다. "요청 승인" API 커넥터의 예입니다. 승인 시스템에서 승인 결정을 내리는 데 필요한 모든 **클레임** 을 선택 합니다.
 
   ![요청 승인 API 커넥터 구성](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -94,14 +94,14 @@ Azure AD를 사용 하 여 인증 하 고 사용자를 만들 수 있는 권한�
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>"승인 상태 확인" API 커넥터에 대 한 요청 및 응답
 
-다음은 "승인 상태 확인" API 커넥터에서 API가 받은 요청의 예입니다.
+"승인 상태 확인" API 커넥터에서 API가 받은 요청의 예:
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -119,7 +119,7 @@ Content-type: application/json
 
 - 사용자가 이전에 승인을 요청 하지 않았습니다.
 
-다음은 연속 응답의 예입니다.
+연속 응답의 예:
 
 ```http
 HTTP/1.1 200 OK
@@ -166,14 +166,14 @@ Content-type: application/json
 
 ### <a name="request-and-responses-for-the-request-approval-api-connector"></a>"요청 승인" API 커넥터에 대 한 요청 및 응답
 
-다음은 "요청 승인" API 커넥터에서 API에 의해 수신 된 HTTP 요청의 예입니다.
+"요청 승인" API 커넥터에서 API가 받은 HTTP 요청의 예:
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -194,7 +194,7 @@ Content-type: application/json
 
 - 사용자가 **_자동으로 승인_** 될 수 있습니다.
 
-다음은 연속 응답의 예입니다.
+연속 응답의 예:
 
 ```http
 HTTP/1.1 200 OK
@@ -257,14 +257,14 @@ Content-type: application/json
 
 사용자가 Google 또는 Facebook 계정으로 로그인 한 경우 [사용자 만들기 API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http)를 사용할 수 있습니다.
 
-1. 승인 시스템은를 사용 하 여 사용자 흐름에서 HTTP 요청을 받습니다.
+1. 승인 시스템은 사용자 흐름에서 HTTP 요청을 수신 합니다.
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -303,11 +303,11 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                           | 필수 | 설명                                                                                                                                                            |
+| 매개 변수                                           | 필수 | Description                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | 예      | `email_address`API에 전송 된 클레임을 사용 하 여를 생성 하 고, `@` 문자를로 바꾸고 `_` ,을로 미리 보류할 수 있습니다 `#EXT@<tenant-name>.onmicrosoft.com` . |
+| userPrincipalName                                   | 예      | `email`API에 전송 된 클레임을 사용 하 여를 생성 하 고, `@` 문자를로 바꾸고 `_` ,을로 미리 보류할 수 있습니다 `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | 예      | `true`로 설정해야 합니다.                                                                                                                                                 |
-| mail                                                | 예      | `email_address`API로 전송 된 클레임에 해당 합니다.                                                                                                               |
+| mail                                                | 예      | `email`API로 전송 된 클레임에 해당 합니다.                                                                                                               |
 | userType                                            | 예      | `Guest`이어야 합니다. 이 사용자를 게스트 사용자로 지정 합니다.                                                                                                                 |
 | ID                                          | 예      | 페더레이션된 id 정보입니다.                                                                                                                                    |
 | \<otherBuiltInAttribute>                            | 아니요       | `displayName`, 및 기타와 같은 기타 기본 제공 특성 `city` 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                            |
@@ -324,7 +324,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
  "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
@@ -332,7 +332,7 @@ Content-type: application/json
 }
 ```
 
-2. 승인 시스템은 `email_address` API 커넥터에서 제공 된를 사용 하 여 초대를 만듭니다.
+2. 승인 시스템은 `email` API 커넥터에서 제공 된를 사용 하 여 초대를 만듭니다.
 
 ```http
 POST https://graph.microsoft.com/v1.0/invitations
@@ -344,7 +344,7 @@ Content-type: application/json
 }
 ```
 
-다음은 응답의 예입니다.
+응답의 예는 다음과 같습니다.
 
 ```http
 HTTP/1.1 201 OK

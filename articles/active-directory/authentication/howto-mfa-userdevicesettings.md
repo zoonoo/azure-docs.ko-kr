@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027532"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대 한 사용자 설정 관리
 
@@ -23,10 +24,10 @@ Azure Multi-Factor Authentication 사용자를 관리 하려면 사용자가 암
 
 ## <a name="manage-user-authentication-options"></a>사용자 인증 옵션 관리
 
-*인증 관리자* 역할이 할당 된 경우 사용자가 암호를 재설정 하 고 MFA를 다시 등록 하거나 사용자 개체에서 기존 MFA 세션을 취소 하도록 요구할 수 있습니다. 사용자 설정을 관리 하려면 다음 단계를 완료 합니다.
+*인증 관리자* 역할이 할당 된 경우 사용자에 게 암호를 재설정 하 고 MFA를 다시 등록 하거나 사용자 개체에서 기존 MFA 세션을 취소 하도록 요구할 수 있습니다. 사용자 설정을 관리 하려면 다음 단계를 완료 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽에서 **Azure Active Directory**  >  **사용자**  >  **모든 사용자**를 선택 합니다.
+1. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
 1. 작업을 수행 하려는 사용자를 선택 하 고 **인증 방법**을 선택 합니다. 창의 맨 위에서 사용자에 대 한 다음 옵션 중 하나를 선택 합니다.
    - **암호 다시 설정** 사용자의 암호를 다시 설정 하 고 다음 로그인 시 변경 해야 할 임시 암호를 할당 합니다.
    - **Mfa를 다시 등록 해야** 합니다. 그러면 사용자가 다음 번에 로그인 할 때 새 mfa 인증 방법을 설정 하도록 요청 됩니다.
@@ -53,6 +54,6 @@ Azure Multi-Factor Authentication 사용자를 관리 하려면 사용자가 암
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 개별 사용자 설정을 구성 하는 방법을 설명 했습니다. Azure Multi-Factor Authentication 서비스 설정을 구성 하려면 [azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md) 을 참조 하세요.
+이 문서에서는 개별 사용자 설정을 구성 하는 방법을 살펴보았습니다. 전체 Azure Multi-Factor Authentication 서비스 설정을 구성 하려면 [azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md)을 참조 하세요.
 
-사용자에 게 도움이 필요한 경우 [Azure Multi-Factor Authentication에 대 한 사용자 가이드](../user-help/multi-factor-authentication-end-user.md)를 참조 하세요.
+사용자에 게 도움이 필요한 경우 [Azure Multi-Factor Authentication에 대 한 사용자 가이드](../user-help/multi-factor-authentication-end-user-first-time.md)를 참조 하세요.

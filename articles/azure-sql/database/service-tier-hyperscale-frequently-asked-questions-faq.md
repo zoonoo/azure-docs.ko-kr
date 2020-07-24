@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231593"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024020"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,12 @@ VCore 기반 서비스 계층은 다음 표에 설명 된 것 처럼 데이터�
 | **적합한 대상** |모두|예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.|대부분의 비즈니스 워크로드. 저장소 크기를 최대 100 TB, 빠른 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원으로 자동 크기 조정 합니다.|트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류** ||SQL Database/SQL Managed Instance | 단일 데이터베이스 | SQL Database/SQL Managed Instance |
 | **컴퓨팅 크기**|SQL Database * | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
-| **컴퓨팅 크기**|SQL Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
+| **컴퓨팅 크기**|SQL Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | N/A | vCore 8, 16, 24, 32, 40, 64, 80개 |
 | **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **스토리지 크기** | SQL Database *| 5GB~4TB | 최대 100TB | 5GB~4TB |
-| **스토리지 크기** | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
+| **스토리지 크기** | SQL Managed Instance  | 32GB~8TB | N/A | 32GB~4TB |
 | **IOPS** | 단일 데이터베이스 | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
-| **IOPS** | SQL Managed Instance | 파일 크기에 따라 달라 집니다. | 해당 없음 | 1375 IOPS/vCore |
+| **IOPS** | SQL Managed Instance | 파일 크기에 따라 달라 집니다. | N/A | 1375 IOPS/vCore |
 |**가용성**|모두|복제본 1 개, 읽기 확장 없음, 로컬 캐시 없음 | 여러 복제본, 최대 4 개의 읽기 확장, 부분 로컬 캐시 | 복제본 3 개, 읽기 확장, 영역 중복 HA, 전체 로컬 저장소 |
 |**Backup**|모두|RA-GRS, 7-35 일 보존 (기본적으로 7 일)| RA-GRS, 7 일 보존, 일정 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35 일 보존 (기본적으로 7 일) |
 
@@ -204,7 +204,9 @@ Hyperscale 데이터베이스에서 데이터 복원 력이 저장소 수준에�
 
 ### <a name="can-i-move-my-existing-databases-in-azure-sql-database-to-the-hyperscale-service-tier"></a>Azure SQL Database의 기존 데이터베이스를 Hyperscale service 계층으로 이동할 수 있나요?
 
-예. Azure SQL Database에서 기존 데이터베이스를 Hyperscale으로 이동할 수 있습니다. 이는 단방향 마이그레이션입니다. 하이퍼스케일에서 또 다른 서비스 계층으로 데이터베이스를 이동할 수는 없습니다. POCs (개념 증명)의 경우 데이터베이스의 복사본을 만들고 복사본을 Hyperscale으로 마이그레이션하는 것이 좋습니다.
+예. Azure SQL Database에서 기존 데이터베이스를 Hyperscale으로 이동할 수 있습니다. 이는 단방향 마이그레이션입니다. 하이퍼스케일에서 또 다른 서비스 계층으로 데이터베이스를 이동할 수는 없습니다. POCs (개념 증명)의 경우 데이터베이스의 복사본을 만들고 복사본을 Hyperscale으로 마이그레이션하는 것이 좋습니다. 
+
+기존 데이터베이스를 Hyperscale으로 이동 하는 데 필요한 시간은 데이터를 복사 하는 시간 및 데이터를 복사 하는 동안 원본 데이터베이스에서 변경한 내용을 재생 하는 시간으로 구성 됩니다. 데이터 복사 시간은 데이터 크기에 비례 합니다. 쓰기 작업이 적은 기간에 이동이 수행 되 면 변경 내용을 재생 하는 시간이 짧아집니다.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Hyperscale 데이터베이스를 다른 서비스 계층으로 이동할 수 있나요?
 

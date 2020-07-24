@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be8863d86fd1525e6f64b46ddf5ca3c702ecdea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029232"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화 된 장치에서 LVM 및 RAID 구성
 
@@ -44,11 +45,11 @@ ms.locfileid: "80657438"
 
 LVM을 사용 하는 것이 좋습니다. RAID는 특정 응용 프로그램 또는 환경 제한으로 인해 LVM을 사용할 수 없는 경우에 사용할 수 있는 옵션입니다.
 
-**EncryptFormatAll** 옵션을 사용 합니다. 이 옵션에 대 한 자세한 내용은 [Linux vm에서 데이터 디스크에 EncryptFormatAll 기능 사용](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms)을 참조 하세요.
+**EncryptFormatAll** 옵션을 사용 합니다. 이 옵션에 대 한 자세한 내용은 [Linux vm에서 데이터 디스크에 EncryptFormatAll 기능 사용](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms)을 참조 하세요.
 
 OS를 암호화 하는 경우에도이 방법을 사용할 수 있지만 여기에서는 데이터 드라이브만 암호화 합니다.
 
-이 절차에서는 [Linux vm에서 Azure Disk Encryption 시나리오](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) 의 필수 구성 요소를 검토 하 고, [빠른 시작: Azure CLI를 사용 하 여 Linux vm을 만들고 암호화](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart)하는 것으로 가정 합니다.
+이 절차에서는 [Linux vm에서 Azure Disk Encryption 시나리오](./disk-encryption-linux.md) 의 필수 구성 요소를 검토 하 고, [빠른 시작: Azure CLI를 사용 하 여 Linux vm을 만들고 암호화](./disk-encryption-cli-quickstart.md)하는 것으로 가정 합니다.
 
 Azure Disk Encryption 이중 패스 버전은 사용 중단 경로에 있으므로 새 암호화에서 더 이상 사용 되지 않습니다.
 
@@ -459,4 +460,3 @@ df -h
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Disk Encryption 문제 해결](disk-encryption-troubleshooting.md)
-

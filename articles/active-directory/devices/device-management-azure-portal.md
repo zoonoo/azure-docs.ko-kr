@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf3f6455be992502182fb942f0e6db089051ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb9bc0adeaff8fa6e0f0298782d6f3fca35058cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025968"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
@@ -52,12 +53,12 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 
 - **사용자가 AZURE ad에 장치를 조인할 수 있습니다** .-이 설정을 사용 하면 장치를 azure ad 조인 장치로 등록할 수 있는 사용자를 선택할 수 있습니다. 기본값은 **All**입니다.
 
-> [!NOTE]
+> [!TIP]
 > **사용자가 AZURE ad에 장치를 조인할 수 있습니다** 설정은 Windows 10의 azure ad 조인에만 적용 됩니다.
 
 - **Azure AD 조인 디바이스의 추가 로컬 관리자** - 디바이스에서 로컬 관리자 권한이 부여된 사용자를 선택할 수 있습니다. 여기에 추가한 사용자는 Azure AD의 *디바이스 관리자* 역할에 추가됩니다. Azure AD의 전역 관리자 및 디바이스 소유자에게는 기본적으로 로컬 관리자 권한이 부여됩니다. 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 버전 기능입니다.
 - **사용자가 AZURE ad에 장치를 등록할 수 있음** -Windows 10 개인, IOS, Android 및 macos 장치를 azure ad에 등록할 수 있도록이 설정을 구성 해야 합니다. **없음**을 선택 하는 경우 장치는 Azure AD에 등록할 수 없습니다. Office 365용 Microsoft Intune 또는 MDM(모바일 디바이스 관리)에 등록하려면 먼저 디바이스를 등록해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음**은 사용할 수 없습니다.
-- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 
+- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 여러 Azure Multi-Factor Authentication 서비스에 대 한 자세한 내용은 [azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)하기를 참조 하세요. 
 
 > [!NOTE]
 > **장치에 연결 하기 위한 Multi-factor Auth 필요** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.
@@ -218,7 +219,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 - 활동 리소스 종류
 - 활동
 - 날짜 범위
-- 대상
+- Target
 - 초기자(작업자)
 
 필터 이외의 방법으로도 특정 항목을 검색할 수 있습니다.

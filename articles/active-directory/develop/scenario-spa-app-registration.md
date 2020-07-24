@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682404"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026512"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
@@ -37,7 +38,7 @@ MSAL.js 1.0 및 2.0 기반 애플리케이션의 경우 둘 다 먼저 다음 �
 - [인증 코드 흐름을 사용하는 MSAL.js 2.0](#redirect-uri-msaljs-20-with-auth-code-flow)(권장)
 - [암시적 흐름을 사용하는 MSAL.js 1.0](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>리디렉션 URI: 인증 코드 흐름을 사용하는 MSAL.js 2.0
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>리디렉션 URI: [인증 코드 흐름과MSAL.js 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 MSAL.js 2.0 이상을 사용하는 앱의 리디렉션 URI를 추가하려면 다음 단계를 따르세요. MSAL.js 2.0보다 높은 버전에서는 [브라우저의 타사 쿠키 제한](reference-third-party-cookies-spas.md)에 대한 대응으로 PKCE 및 CORS를 사용하여 인증 코드 흐름을 지원합니다. 암시적 허용 흐름은 MSAL.js 2.0보다 높은 버전에서 지원되지 않습니다.
 
@@ -49,7 +50,9 @@ MSAL.js 2.0 이상을 사용하는 앱의 리디렉션 URI를 추가하려면 �
 
 이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **플랫폼 추가** 창에서 **단일 페이지 애플리케이션** 타일을 사용하여 리디렉션 URI를 구성하면 애플리케이션 등록은 PKCE 및 CORS를 사용하여 인증 코드 흐름을 지원하도록 구성됩니다.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>리디렉션 URI: 암시적 흐름을 사용하는 MSAL.js 1.0
+추가 지침을 보려면 [자습서](tutorial-v2-javascript-auth-code.md) 를 따르세요.
+
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>리디렉션 URI: [암시적 흐름을 사용 하는MSAL.js 1.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 앱에 대한 리디렉션 URI를 추가하려면 다음 단계를 수행합니다. MSAL.js 1.3 이전 버전을 사용하는 애플리케이션은 인증 코드 흐름을 지원하지 않습니다.
 
@@ -63,6 +66,8 @@ MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 
 1. **구성**을 선택하여 리디렉션 URI 추가를 마칩니다.
 
 이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **ID 토큰** 및 **액세스 토큰** 중 하나 또는 둘 다를 선택하여 암시적 허용 흐름을 사용하도록 설정했습니다.
+
+추가 지침을 보려면 [자습서](tutorial-v2-javascript-spa.md) 를 따르세요. 
 
 ## <a name="note-about-authorization-flows"></a>권한 부여 흐름에 대한 참고 사항
 

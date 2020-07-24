@@ -3,11 +3,12 @@ title: 다단계 웹 테스트를 사용하여 모니터링 - Azure Application 
 description: Azure Application Insights를 사용하여 웹 애플리케이션을 모니터링하도록 다단계 웹 테스트 설정
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873340"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024779"
 ---
 # <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
@@ -16,7 +17,7 @@ ms.locfileid: "83873340"
 > [!NOTE]
 > 다단계 웹 테스트는 Visual Studio webtest 파일에 따라 달라집니다. Visual Studio 2019가 웹 테스트 기능을 사용하는 마지막 버전이 될 것이라고 [발표](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)했습니다. 새 기능이 추가되는 것은 아니지만 Visual Studio 2019의 웹 테스트 기능은 현재 지원되며 제품의 지원 수명 주기 동안 계속 지원된다는 점을 이해해야 합니다. Azure Monitor 제품 팀은 [여기](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)에서 다단계 단계 가용성 테스트의 미래와 관련된 질문을 해결했습니다.  
 > </br>
-> 다단계 웹 테스트는 [Azure Government](https://docs.microsoft.com/azure/azure-government/) 클라우드에서 **지원되지 않습니다**.
+> 다단계 웹 테스트는 [Azure Government](../../azure-government/index.yml) 클라우드에서 **지원되지 않습니다**.
 
 
 ## <a name="pre-requisites"></a>필수 구성 요소
@@ -36,7 +37,7 @@ ms.locfileid: "83873340"
 > [!WARNING]
 > 다단계 레코더를 사용하는 것이 더 이상 권장되지 않습니다. 이 레코더는 기본 상호 작용이 포함된 정적 HTML 페이지에 대해 개발되었으며, 최신 웹 페이지에 대한 기능 환경을 제공하지 않습니다.
 
-Visual Studio 웹 테스트를 만드는 방법에 대한 지침은 [공식 Visual Studio 2019 설명서](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)를 참조하세요.
+Visual Studio 웹 테스트를 만드는 방법에 대한 지침은 [공식 Visual Studio 2019 설명서](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)를 참조하세요.
 
 ## <a name="upload-the-web-test"></a>웹 테스트 업로드
 

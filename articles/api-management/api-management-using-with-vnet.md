@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025016"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -119,7 +119,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 | * / 5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK / EventHub            | [이벤트 허브에 로그 정책](api-management-howto-log-event-hubs.md) 및 모니터링 에이전트의 종속성 | 외부 및 내부  |
 | * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | [GIT](api-management-configuration-repository-git.md)의 Azure 파일 공유에 대한 종속성                      | 외부 및 내부  |
 | * / 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureCloud            | 상태 및 모니터링 확장         | 외부 및 내부  |
-| */1886, 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | [진단 로그 및 메트릭](api-management-howto-use-azure-monitor.md) 게시 및 [Resource Health](../service-health/resource-health-overview.md)                     | 외부 및 내부  |
+| */1886, 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | [진단 로그 및 메트릭](api-management-howto-use-azure-monitor.md)게시, [Resource Health](../service-health/resource-health-overview.md) 및 [Application Insights](api-management-howto-app-insights.md)                   | 외부 및 내부  |
 | */25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [캐시](api-management-caching-policies.md) 정책에 대 한 Redis 서비스 액세스         | 외부 및 내부  |
 | */4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [요율 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대 한 동기화 카운터         | 외부 및 내부  |
@@ -152,6 +152,8 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 + **Azure Portal 진단**: Virtual Network 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 포트 443에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 
 + **Azure Load Balancer**: `Developer` SKU의 경우 컴퓨팅 단위를 하나만 배포하기 때문에 서비스 태그 `AZURE_LOAD_BALANCER`의 인바운드 요청을 허용할 필요가 있는 것은 아닙니다. 그러나 Load Balancer의 상태 프로브 오류로 인해 배포가 실패하므로 `Premium`와 같은 상위 SKU로 크기를 조정하는 경우에는 [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)의 인바운드는 심각한 상태가 됩니다.
+
++ **Application Insights**: API Management에서 [Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링이 사용 되는 경우 Virtual Network에서 [원격 분석 끝점](/azure/azure-monitor/app/ip-addresses#outgoing-ports) 에 대 한 아웃 바운드 연결을 허용 해야 합니다. 
 
 + **Express 경로 또는 네트워크 가상 어플라이언스를 사용하여 온-프레미스 방화벽으로 트래픽을 강제로 터널링**: 일반적인 고객 구성은 강제로 API Management 위임 서브넷의 모든 트래픽을 온-프레미스 방화벽이나 네트워크 가상 어플라이언스를 통해 흐르게 하는 자체 기본 경로(0.0.0.0/0)를 정의하는 것입니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 이 솔루션을 사용하려면 다음과 같은 몇 가지 작업을 수행해야 합니다.
 
@@ -249,11 +251,11 @@ IP 주소는 **Azure 환경**으로 구분됩니다. 허용될 경우 **전역**
 | Azure 공용| 독일 북부| 51.116.0.0|
 | Azure 공용| 노르웨이 동부| 51.120.2.185|
 | Azure 공용| 노르웨이 서부| 51.120.130.134|
-| Azure China 21Vianet| 중국 북부(전역)| 139.217.51.16|
-| Azure China 21Vianet| 중국 동부(전역)| 139.217.171.176|
-| Azure China 21Vianet| 중국 북부| 40.125.137.220|
-| Azure China 21Vianet| 중국 동부| 40.126.120.30|
-| Azure China 21Vianet| 중국 북부 2| 40.73.41.178|
+| Azure 중국 21Vianet| 중국 북부(전역)| 139.217.51.16|
+| Azure 중국 21Vianet| 중국 동부(전역)| 139.217.171.176|
+| Azure 중국 21Vianet| 중국 북부| 40.125.137.220|
+| Azure 중국 21Vianet| 중국 동부| 40.126.120.30|
+| Azure 중국 21Vianet| 중국 북부 2| 40.73.41.178|
 | Azure China 21Vianet| 중국 동부 2| 40.73.104.4|
 | Azure Government| 미 정부 버지니아(전역)| 52.127.42.160|
 | Azure Government| 미 정부 텍사스(전역)| 52.127.34.192|

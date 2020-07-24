@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f56427dabdee715412596557fa075c5eb4df500
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478300"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027311"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -164,7 +164,7 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Azure
 
 1. **클레임 관리**에서 클레임 조건을 확장합니다.
 2. 사용자 유형을 선택합니다.
-3. 사용자가 속해야 하는 그룹을 선택합니다. 지정된 애플리케이션에 대한 모든 클레임에서 최대 10개의 고유 그룹을 선택할 수 있습니다. 
+3. 사용자가 속해야 하는 그룹을 선택합니다. 지정 된 응용 프로그램에 대 한 모든 클레임에서 최대 50 개의 고유 그룹을 선택할 수 있습니다. 
 4. 클레임에서 해당 값을 검색할 **원본**을 선택합니다. 원본 특성 드롭다운에서 사용자 특성을 선택하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
 
 조건을 추가하는 순서는 중요합니다. Azure AD는 클레임에서 내보낼 값을 결정하기 위해 하향식으로 조건을 평가합니다. 

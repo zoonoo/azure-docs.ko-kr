@@ -12,11 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026767"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -47,7 +48,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 }
 ```
 
-| 매개 변수         | 설명    |
+| 매개 변수         | Description    |
 |-------------------|----------------|
 | `error`       | 발생 한 오류 유형을 분류 하는 데 사용할 수 있고 오류에 대응 하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. 이 필드를 사용 하 여 코드의 오류에 대응 하지 마십시오. |
@@ -77,7 +78,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| Error | 설명 |
+| 오류 | 설명 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -93,7 +94,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError - 페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요. |
 | AADSTS50000 | TokenIssuanceError - 로그인 서비스에 문제가 있습니다. 이 문제를 해결하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50001 | InvalidResource - 리소스를 사용할 수 없거나 존재하지 않습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.  |
-| AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다. |
+| AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 문제를 해결할 수 있습니다. |
 | AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. 에 설명 된 해결 방법을 확인 하세요 [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
 | AADSTS50005 | DevicePolicyError-사용자가 현재 조건부 액세스 정책을 통해 지원 되지 않는 플랫폼에서 장치에 로그인 하려고 했습니다. |
 | AADSTS50006 | InvalidSignature - 잘못된 서명으로 인해 서명을 확인하지 못했습니다. |
@@ -120,7 +121,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50053 | IdsLocked - 잘못된 사용자 ID 또는 암호로 로그인을 너무 많이 시도하여 계정이 잠겨 있습니다. |
 | AADSTS50055 | InvalidPasswordExpiredPassword - 암호가 만료되었습니다. |
 | AADSTS50056 | 암호가 잘못되었거나 null입니다. 이 사용자에 대한 저장소에 암호가 없습니다. |
-| AADSTS50057 | UserDisabled - 사용자 계정이 비활성화됩니다. 관리자가 사용하지 못하도록 설정한 계정입니다. |
+| AADSTS50057 | UserDisabled - 사용자 계정이 비활성화됩니다. 관리자가 계정을 비활성화했습니다. |
 | AADSTS50058 | UserInformationNotProvided - 사용자가 로그인되지 않았습니다. 이는 사용자가 인증되지 않았고 아직 로그인하지 않은 경우에 발생하는 일반적인 오류입니다.</br>사용자가 이전에 로그인한 SSO 컨텍스트에서 이 오류가 발생하는 경우 SSO 세션을 찾을 수 없거나 SSO 세션이 잘못되었음을 의미합니다.</br>이 오류는 prompt=none이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다. 사용자는 문제를 해결하기 위해 테넌트 관리자에게 문의할 수 있습니다. |
 | AADSTS50061 | SignoutInvalidRequest - 로그아웃 요청이 잘못되었습니다. |
@@ -202,7 +203,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS70012 | MsaServerError - MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 계속 실패 하 [는 경우 지원 티켓을 엽니다](../fundamentals/active-directory-troubleshooting-support-howto.md) . |
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 디바이스 흐름 오류입니다. 권한 부여 보류 중입니다. 디바이스가 요청 폴링을 다시 시도합니다. |
 | AADSTS70018 | BadVerificationCode - 사용자가 디바이스 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다. |
-| AADSTS70019 | CodeExpired - 확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다. |
+| AADSTS70019 | CodeExpired - 확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도하도록 합니다. |
 | AADSTS75001 | BindingSerializationError - SAML 메시지를 바인딩하는 동안 오류가 발생했습니다. |
 | AADSTS75003 | UnsupportedBindingError - 앱에서 지원되지 않는 바인딩 관련 오류를 반환했습니다. SAML 프로토콜 응답은 HTTP POST 이외의 바인딩을 통해 보낼 수 없습니다. |
 | AADSTS75005 | Saml2MessageInvalid - Azure AD에서는 SSO의 앱에서 보낸 SAML 요청을 지원하지 않습니다. |
@@ -263,6 +264,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90093 | GraphUserUnauthorized - 요청에 대해 사용할 수 없는 오류 코드와 함께 반환된 그래프입니다. |
 | AADSTS90094 | AdminConsentRequired - 관리자 동의가 필요합니다. |
 | AADSTS900382 | 기밀 클라이언트는 클라우드 간 요청에서 지원 되지 않습니다. |
+| AADSTS90099 | ' {AppId} ' 응용 프로그램 ({appName})이 ' {tenant} ' 테 넌 트에서 권한이 부여 되지 않았습니다. 파트너 위임 된 관리자가 사용할 수 있으려면 먼저 응용 프로그램에 고객 테 넌 트에 액세스할 수 있는 권한이 있어야 합니다. 사전 동의를 제공 하거나 적절 한 파트너 센터 API를 실행 하 여 응용 프로그램에 권한을 부여 합니다. |
 | AADSTS90100 | InvalidRequestParameter - 매개 변수가 비어 있거나 잘못되었습니다. |
 | AADSTS901002 | AADSTS901002: ' resource ' 요청 매개 변수는 지원 되지 않습니다. |
 | AADSTS90101 | InvalidEmailAddress - 제공한 데이터가 유효한 메일 주소가 아닙니다. 메일 주소는 `someone@example.com` 형식이어야 합니다. |

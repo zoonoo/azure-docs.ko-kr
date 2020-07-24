@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553670"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026087"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -159,7 +159,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | required   | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id` | required  | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
 | `grant_type` | required   | 인증 코드 흐름에 대한 `authorization_code` 여야 합니다.   |
-| `scope`      | required   | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 첫 번째 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 범위는 OIDC 범위(`profile`, `openid`, `email`)와 마찬가지로 모두 단일 리소스에 속해야 합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |
+| `scope`      | 선택적   | 공백으로 구분된 범위 목록입니다. 이 범위는 OIDC 범위(`profile`, `openid`, `email`)와 마찬가지로 모두 단일 리소스에 속해야 합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. 이는 인증 코드 흐름에 대 한 Microsoft 확장으로, 앱이 토큰 상환 중에 토큰을 원하는 리소스를 선언할 수 있도록 하기 위한 것입니다.|
 | `code`          | required  | 흐름의 첫 번째 레그에서 얻은 authorization_code입니다. |
 | `redirect_uri`  | required  | authorization_code를 획득하는 데 사용된 값과 동일한 redirect_uri 값입니다. |
 | `client_secret` | 기밀 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스 또는 웹 페이지에 client_secrets를 안정적으로 저장할 수 없기 때문에 네이티브 앱 또는 단일 페이지 앱에서 애플리케이션 암호를 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다.  클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다. URI 인코딩에 대한 자세한 내용은 [URI 일반 구문 사양](https://tools.ietf.org/html/rfc3986#page-12)을 참조하세요. |

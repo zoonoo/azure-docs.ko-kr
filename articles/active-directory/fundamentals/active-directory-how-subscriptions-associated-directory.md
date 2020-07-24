@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc81cca10bacc581e72c7caa70a0b74b7ae99f9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604219"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025341"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -85,7 +85,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 구독을 다른 디렉터리에 연결한 후 작업을 다시 시작 하려면 다음 작업을 수행 해야 할 수 있습니다.
 
-- 키 자격 증명 모음이 있는 경우 주요 자격 증명 모음 테 넌 트 ID를 변경 해야 합니다. 자세한 내용은 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../../key-vault/general/subscription-move-fix.md)을 참조 하세요.
+- 키 자격 증명 모음이 있는 경우 주요 자격 증명 모음 테 넌 트 ID를 변경 해야 합니다. 자세한 내용은 [구독 이동 후에 주요 자격 증명 모음 테 넌 트 ID 변경](../../key-vault/general/move-subscription.md)을 참조 하세요.
 
 - 리소스에 대해 시스템 할당 관리 Id를 사용한 경우에는 이러한 id를 다시 사용 하도록 설정 해야 합니다. 사용자 할당 관리 Id를 사용한 경우에는 이러한 id를 다시 만들어야 합니다. 관리 되는 Id를 다시 사용 하도록 설정 하거나 다시 만든 후에는 해당 id에 할당 된 사용 권한을 다시 설정 해야 합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027515"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Content-type: application/json
 **Extension_ \<extensions-app-id> _AttributeName** 형식을 사용 하 여 사용자에 대 한 사용자 지정 특성을 만들 수 있습니다. API는 동일한 직렬화 된 형식으로 클레임을 수신 해야 합니다. API는를 사용 하거나 사용 하지 않고 클레임을 반환할 수 있습니다 `<extensions-app-id>` . 사용자 지정 특성에 대 한 자세한 내용은 [셀프 서비스 등록 흐름에 대 한 사용자 지정 특성 정의](user-flow-add-custom-attributes.md)를 참조 하세요.
 
 > [!TIP] 
-> [**id (' id ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) 및 **전자 메일 주소 (' email_address ')** 클레임을 사용 하 여 테 넌 트에 계정이 있기 전에 사용자를 식별할 수 있습니다. ' Id ' 클레임은 사용자가 Google 또는 Facebook으로 인증할 때 전송 되며 ' email_address '은 항상 전송 됩니다.
+> [**id (' id ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) 및 **전자 메일 주소 (' 메일 ')** 클레임을 사용 하 여 테 넌 트의 계정이 있기 전에 사용자를 식별할 수 있습니다. ' Id ' 클레임은 사용자가 Google 또는 Facebook으로 인증할 때 전송 되며 ' email '은 항상 전송 됩니다.
 
 ## <a name="expected-response-types-from-the-web-api"></a>웹 API의 예상 응답 형식
 
@@ -133,12 +133,12 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | 설명                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
-| action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
+| 작업                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는 선택적으로 포함 될 수 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
 
 ### <a name="blocking-response"></a>차단 응답
 
@@ -159,14 +159,14 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | Type   | 필수 | 설명                                                                |
+| 매개 변수   | Type   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
-| action      | String | 예      | 값은 이어야 합니다.`ShowBlockPage`                                              |
+| 작업      | String | 예      | 값은 이어야 합니다.`ShowBlockPage`                                              |
 | userMessage | String | 예      | 사용자에게 표시할 메시지입니다.                                            |
 | 코드        | String | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
 
-#### <a name="end-user-experience-with-a-blocking-response"></a>차단 응답으로 최종 사용자 환경
+#### <a name="end-user-experience-with-a-blocking-response"></a>차단 응답이 있는 최종 사용자 환경
 
 ![예제 블록 페이지](./media/api-connectors-overview/blocking-page-response.png)
 
@@ -189,10 +189,10 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | Type    | 필수 | 설명                                                                |
+| 매개 변수   | Type    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
-| action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
+| 작업      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
 | 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
 | 코드        | String  | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |

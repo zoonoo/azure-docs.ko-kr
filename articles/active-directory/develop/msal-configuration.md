@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3de252b22d7b33e45c3b45e2b6c05e4b33df663d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027056"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 인증 라이브러리 구성 파일
 
@@ -30,11 +30,11 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 ### <a name="general-settings"></a>일반 설정
 
-| 속성 | 데이터 형식 | 필요한 공간 | 메모 |
+| 속성 | 데이터 형식 | 필수 | 메모 |
 |-----------|------------|-------------|-------|
 | `client_id` | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 클라이언트 ID |
 | `redirect_uri`   | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 리디렉션 URI |
-| `authorities` | 은\<Authority> | 아니요 | 앱에 필요한 권한 목록 |
+| `authorities` | 목록\<Authority> | 아니요 | 앱에 필요한 권한 목록 |
 | `authorization_user_agent` | AuthorizationAgent (enum) | 아니요 | 가능한 값: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
 | `http` | HttpConfiguration | 아니요 | 구성 `HttpUrlConnection` `connect_timeout` 및`read_timeout` |
 | `logging` | LoggingConfiguration | 아니요 | 로깅 세부 정보 수준을 지정 합니다. 선택적 구성에는 `pii_enabled` 부울 값을 사용 하는 및,, `log_level` `ERROR` `WARNING` `INFO` 또는를 사용 `VERBOSE` 하는가 포함 됩니다. |
@@ -65,7 +65,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
     "type": "AAD",
     "audience": {
         "type": "AzureADMyOrg",
-        "tenantId": "contoso.com" // Provide your specific tenant ID here
+        "tenant_id": "contoso.com" // Provide your specific tenant ID here
     }
 },
 // Example AzureAD Multiple Organizations
@@ -101,7 +101,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 #### <a name="authority-properties"></a>인증 기관 속성
 
-| 속성 | 데이터 형식  | 필요한 공간 | 메모 |
+| 속성 | 데이터 형식  | 필수 | 메모 |
 |-----------|-------------|-----------|--------|
 | `type` | String | 예 | 앱이 대상으로 하는 대상 또는 계정 유형을 미러링합니다. 가능한 값: `AAD` ,`B2C` |
 | `audience` | Object | 아니요 | Type = 인 경우에만 적용 됩니다 `AAD` . 앱이 대상으로 하는 id를 지정 합니다. 앱 등록의 값 사용 |
@@ -110,7 +110,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 #### <a name="audience-properties"></a>대상 속성
 
-| 속성 | 데이터 형식  | 필요한 공간 | 메모 |
+| 속성 | 데이터 형식  | 필수 | 메모 |
 |-----------|-------------|------------|-------|
 | `type` | String | 예 | 앱이 대상으로 지정 하려는 대상 그룹을 지정 합니다. 가능한 값: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
 | `tenant_id` | String | 예 | 인 경우에만 필요 `"type":"AzureADMyOrg"` 합니다. 다른 값의 경우 선택 사항 `type` 입니다. 이 도메인은와 같은 테 넌 트 도메인 `contoso.com` 이거나와 같은 테 넌 트 ID 일 수 있습니다. `72f988bf-86f1-41af-91ab-2d7cd011db46` |
@@ -138,7 +138,7 @@ Microsoft Identity broker와 호환 되는 브로커 리디렉션 URI를 사용 
 
 HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
-| 속성 | 데이터 형식 | 필요한 공간 | 참고 |
+| 속성 | 데이터 형식 | 필수 | 참고 |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | Int | 아니요 | 시간 (밀리초) |
 | `read_timeout` | Int | 아니요 | 시간 (밀리초) |
@@ -147,7 +147,7 @@ HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
 로깅에 대 한 전역 설정은 다음과 같습니다.
 
-| 속성 | 데이터 형식  | 필요한 공간 | 참고 |
+| 속성 | 데이터 형식  | 필수 | 참고 |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | 아니요 | 개인 데이터를 내보낼지 여부 |
 | `log_level`   | 문자열 | No | 출력할 로그 메시지입니다. 지원 되는 로그 수준 `ERROR` 에는,, 및가 `WARNING` `INFO` `VERBOSE` 있습니다. |

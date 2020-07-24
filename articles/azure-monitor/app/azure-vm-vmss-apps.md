@@ -3,15 +3,16 @@ title: Azure Vm에서 성능 모니터링-Azure 애플리케이션 정보
 description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프로그램 성능 모니터링. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77661331"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024635"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
 
-이제 [azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) 및 [azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) 에서 실행 되는 .net 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 더 쉬워졌습니다. 코드를 수정 하지 않고 Application Insights를 사용 하는 모든 혜택을 받으세요.
+이제 [azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) 및 [azure 가상 머신 확장 집합](../../virtual-machine-scale-sets/index.yml) 에서 실행 되는 .net 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 더 쉬워졌습니다. 코드를 수정 하지 않고 Application Insights를 사용 하는 모든 혜택을 받으세요.
 
 이 문서에서는 Application Insights 에이전트를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
 
@@ -29,15 +30,15 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
 
     * Azure virtual machines 및 Azure virtual machine scale sets의 경우이 모니터링 수준을 최소한으로 설정 하는 것이 좋습니다. 그런 다음 특정 시나리오에 따라 수동 계측이 필요한 지 여부를 평가할 수 있습니다.
 
-    * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 자동으로 수집 합니다. 자세히 알아보려면 [종속성 자동 수집](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) 을 참조 하세요.
+    * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 자동으로 수집 합니다. 자세히 알아보려면 [종속성 자동 수집](./auto-collect-dependencies.md#net) 을 참조 하세요.
         > [!NOTE]
         > 현재 .Net IIS에서 호스트 되는 응용 프로그램만 지원 됩니다. SDK를 사용 하 여 Azure 가상 머신과 가상 머신 확장 집합에서 호스트 되는 ASP.NET Core, Java 및 Node.js 응용 프로그램을 계측할 수 있습니다.
 
 * SDK **를 통한 코드 기반**
 
-    * 이 방법은 훨씬 더 사용자 지정이 가능 하지만 [APPLICATION INSIGHTS SDK NuGet 패키지에 대 한 종속성을 추가](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)해야 합니다. 또한이 메서드는 최신 버전의 패키지에 대 한 업데이트를 직접 관리 해야 함을 의미 합니다.
+    * 이 방법은 훨씬 더 사용자 지정이 가능 하지만 [APPLICATION INSIGHTS SDK NuGet 패키지에 대 한 종속성을 추가](./asp-net.md)해야 합니다. 또한이 메서드는 최신 버전의 패키지에 대 한 업데이트를 직접 관리 해야 함을 의미 합니다.
 
-    * 에이전트 기반 모니터링을 사용 하 여 기본적으로 캡처되지 않는 이벤트/종속성을 추적 하기 위해 사용자 지정 API 호출을 수행 해야 하는 경우이 방법을 사용 해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭 용 API 문서](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) 를 확인 하세요.
+    * 에이전트 기반 모니터링을 사용 하 여 기본적으로 캡처되지 않는 이벤트/종속성을 추적 하기 위해 사용자 지정 API 호출을 수행 해야 하는 경우이 방법을 사용 해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭 용 API 문서](./api-custom-events-metrics.md) 를 확인 하세요.
 
 > [!NOTE]
 > 에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 검색 된 경우에는 수동 계측 설정만 검색 됩니다. 이는 중복 데이터가 전송 되지 않도록 방지 하기 위한 것입니다. 이에 대 한 자세한 내용은 아래의 [문제 해결 섹션](#troubleshooting) 을 확인 하세요.
@@ -45,10 +46,10 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>PowerShell을 사용 하 여 Azure virtual machines에서 .NET 응용 프로그램에 대 한 Application Insights 에이전트 관리
 
 > [!NOTE]
-> Application Insights 에이전트를 설치 하기 전에 연결 문자열이 필요 합니다. [새 Application Insights 리소스를 만들거나](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 기존 application Insights 리소스에서 연결 문자열을 복사 합니다.
+> Application Insights 에이전트를 설치 하기 전에 연결 문자열이 필요 합니다. [새 Application Insights 리소스를 만들거나](./create-new-resource.md) 기존 application Insights 리소스에서 연결 문자열을 복사 합니다.
 
 > [!NOTE]
-> Powershell을 처음 접하는 가요? [시작 가이드](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0)를 확인 하세요.
+> Powershell을 처음 접하는 가요? [시작 가이드](/powershell/azure/get-started-azureps?view=azps-2.5.0)를 확인 하세요.
 
 Azure 가상 컴퓨터에 대 한 확장으로 Application Insights 에이전트 설치 또는 업데이트
 ```powershell
@@ -98,7 +99,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-포털의 [Azure virtual machine 블레이드에서](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) 설치 된 확장을 볼 수도 있습니다.
+포털의 [Azure virtual machine 블레이드에서](../../virtual-machines/extensions/overview.md) 설치 된 확장을 볼 수도 있습니다.
 
 > [!NOTE]
 > Application Insights 에이전트 확장을 배포 하는 데 사용한 연결 문자열과 연결 된 Application Insights 리소스 내의 라이브 메트릭 스트림를 클릭 하 여 설치를 확인 합니다. 여러 Virtual Machines에서 데이터를 보내는 경우 서버 이름 아래에서 대상 Azure Virtual Machines를 선택 합니다. 데이터 흐름이 시작 되는 데 최대 1 분 정도 걸릴 수 있습니다.

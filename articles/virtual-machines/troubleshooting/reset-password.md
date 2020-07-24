@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bfd5b9ff3626593916533f27c5c2755cebcb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71153566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028484"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Azure VM에서 로컬 Linux 암호를 다시 설정하는 방법
 
@@ -109,4 +109,4 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
 
 * [OS 디스크를 다른 Azure VM에 연결하여 Azure VM 문제 해결](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI: VHD에서 VM을 삭제하고 다시 배포하는 방법](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: VHD에서 VM을 삭제하고 다시 배포하는 방법](/archive/blogs/linuxonazure/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd)

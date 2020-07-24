@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025849"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
-이제 조직에서는 **Windows Server 2019 Datacenter edition** 또는 **windows 10 1809** 이상을 실행 하는 Azure vm (가상 머신)에 대 한 AD (Azure Active Directory) 인증을 활용할 수 있습니다. Azure AD를 사용 하 여 Vm에 인증 하면 정책을 중앙에서 제어 하 고 적용할 수 있습니다. Azure RBAC (역할 기반 Access Control) 및 Azure AD 조건부 액세스와 같은 도구를 사용 하 여 VM에 액세스할 수 있는 사용자를 제어할 수 있습니다. 이 문서에서는 Azure AD 인증을 사용 하도록 Windows Server 2019 VM을 만들고 구성 하는 방법을 보여 줍니다.
+이제 조직에서는 **Windows Server 2019 Datacenter edition** 또는 **windows 10 1809** 이상을 실행 하는 Azure vm (가상 머신)에 대 한 AD (Azure Active Directory) 인증을 활용할 수 있습니다. Azure AD를 사용 하 여 Vm에 인증 하면 정책을 중앙에서 제어 하 고 적용할 수 있습니다. Azure RBAC (역할 기반 액세스 제어) 및 Azure AD 조건부 액세스와 같은 도구를 사용 하 여 VM에 액세스할 수 있는 사용자를 제어할 수 있습니다. 이 문서에서는 Azure AD 인증을 사용 하도록 Windows Server 2019 VM을 만들고 구성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
@@ -32,7 +32,7 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
 - 에서는 더 이상 로컬 관리자 계정을 관리할 필요가 없습니다.
 - Azure RBAC를 사용 하면 필요에 따라 Vm에 적절 한 액세스 권한을 부여 하 고 더 이상 필요 하지 않을 때 제거할 수 있습니다.
 - VM에 대 한 액세스를 허용 하기 전에 Azure AD 조건부 액세스에서 다음과 같은 추가 요구 사항을 적용할 수 있습니다. 
-   - Multi-Factor Authentication
+   - Multi-factor Authentication
    - 로그인 위험 검사
 - VDI 배포에 포함 되는 Azure Windows Vm의 Azure AD 조인을 자동화 하 고 크기를 조정 합니다.
 
@@ -125,7 +125,7 @@ az vm create \
 > [!NOTE]
 > Azure AD 로그인 VM 확장을 설치 하기 전에 가상 머신에서 시스템 할당 관리 id를 사용 하도록 설정 해야 합니다.
 
-VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다.
+VM과 지원 리소스를 만드는 데 몇 분이 걸립니다.
 
 마지막으로, Azure AD 로그인 VM 확장을 설치 하 여 Windows VM에 대 한 Azure AD 로그인을 사용 하도록 설정 합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. [Az vm extension](/cli/azure/vm/extension#az-vm-extension-set) set을 사용 하 여 myvm 리소스 그룹에서 myvm 이라는 Vm에 AADLoginForWindows 확장을 설치 합니다.
 
@@ -201,6 +201,9 @@ Azure AD 로그인을 사용 하도록 설정 된 Azure에서 Windows Vm에 대 
 
 > [!NOTE]
 > "Azure Windows VM 로그인" 앱에 대 한 액세스를 요청 하는 권한 부여 액세스 제어로 "multi-factor authentication 필요"를 사용 하는 경우 Azure에서 대상 Windows VM에 대 한 RDP 세션을 시작 하는 클라이언트의 일부로 multi-factor authentication 클레임을 제공 해야 합니다. Windows 10 클라이언트에서이를 수행 하는 유일한 방법은 비즈니스용 Windows Hello PIN 또는 RDP 클라이언트와의 생체 인식 인증을 사용 하는 것입니다. 생체 인식 인증에 대 한 지원이 Windows 10 버전 1809의 RDP 클라이언트에 추가 되었습니다. 비즈니스용 Windows Hello 인증을 사용 하는 원격 데스크톱은 인증서 신뢰 모델을 사용 하 고 현재 키 신뢰 모델에 사용할 수 없는 배포에 대해서만 사용할 수 있습니다.
+
+> [!WARNING]
+> 사용자 단위 사용/적용 Azure Multi-Factor Authentication은 VM 로그인에 대해 지원 되지 않습니다.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Azure AD 자격 증명을 사용 하 여 Windows VM에 로그인
 

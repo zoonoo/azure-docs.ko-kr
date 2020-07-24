@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029283"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
 
@@ -89,7 +89,7 @@ ms.locfileid: "86232664"
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>실행 기능을 사용하여 Azure Automation 계정 만들기
 가장 먼저 해야 할 일은 가상 머신 확장 집합 인스턴스의 크기를 조정하는 데 사용하는 Runbook을 호스트할 Azure Automation 계정을 만드는 것입니다. 최근 [Azure Automation](https://azure.microsoft.com/services/automation/)에서는 사용자 대신 Runbook을 자동으로 실행하기 위한 서비스 주체를 설정하는 “실행 계정” 기능을 도입했습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)
+* [Azure 실행 계정으로 Runbook 인증](../automation/manage-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>구독으로 Azure Automation 수직 규모 runbook 가져오기
 

@@ -1,5 +1,5 @@
 ---
-title: 조건부 액세스 정책 마이그레이션 - Azure Active Directory
+title: Multi-factor authentication을 사용 하 여 조건부 액세스 정책 마이그레이션-Azure Active Directory
 description: 이 문서에서는 Azure Portal에서 다단계 인증이 필요한 클래식 정책을 마이그레이션하는 방법을 보여 줍니다.
 services: active-directory
 ms.service: active-directory
@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027396"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Azure Portal에서 클래식 정책 마이그레이션
 
@@ -53,7 +54,7 @@ ms.locfileid: "83993731"
    1. **앱 선택**을 클릭합니다.
    1. **선택**을 클릭합니다.
    1. **선택** 페이지에서 클라우드 앱을 선택한 다음 **선택**을 클릭합니다.
-   1. **클라우드 앱** 페이지에서 **완료**를 클릭 합니다.
+   1. **클라우드 앱** 페이지에서 **완료**를 클릭합니다.
 1. **다단계 인증 필요**를 선택한 경우:
    1. **액세스 제어** 섹션에서 **허용**을 클릭합니다.
    1. **허용** 페이지에서 **액세스 허용**을 클릭하고 **다단계 인증 필요**를 클릭합니다.

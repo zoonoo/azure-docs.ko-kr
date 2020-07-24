@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 560ae8d837cf57e471a9f39d5ccdcf152a156b1e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029079"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -344,5 +344,4 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 * 프로비전 중에 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 스왑 공간을 구성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
   
   * [Ubuntu Wiki: Swap 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](../windows/classic/inject-custom-data.md)
-
+  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](../windows/tutorial-automate-vm-deployment.md)

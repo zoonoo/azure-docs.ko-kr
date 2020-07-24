@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 72168c54bd7968ce9c0315d3f3e47bae09e45004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cc846d8d330459587745795edf21c5ac04f2291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026342"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
@@ -28,7 +29,7 @@ ms.locfileid: "85052227"
 
 | 플랫폼 | 라이브러리 | Description |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_NET.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Model Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET 또는 ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스 (특히 일부 파트너 시나리오)를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다. |
+| ![.NET](media/sample-v2-code/logo_NET.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Model Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET 또는 ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스 (특히 일부 파트너 시나리오)를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다. 실제로 복잡성은 [Microsoft. Identity. 웹](https://aka.ms/ms-identity-web) 라이브러리에 캡슐화 됩니다. |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 웹 응용 프로그램에 대 한 지원 |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 웹 응용 프로그램 지원 |
 
@@ -62,7 +63,7 @@ ms.locfileid: "85052227"
 
 ## <a name="configuration-files"></a>구성 파일
 
-Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 응용 프로그램은 일반적으로 구성 파일을 통해 구성 됩니다. 입력 해야 하는 설정은 다음과 같습니다.
+Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 응용 프로그램은 구성 파일을 통해 구성 됩니다. 입력 해야 하는 설정은 다음과 같습니다.
 
 - 예를 들어 `Instance` 국가 클라우드에서 앱을 실행 하려는 경우 클라우드 인스턴스 ()
 - 테 넌 트 ID ()의 대상입니다. `TenantId`
@@ -210,13 +211,21 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려면 다음 코드를 추가 해야 합니다. 코드의 주석은 설명이 필요 하지 않습니다.
 
 > [!NOTE]
-> Visual Studio 내에서 또는 또는를 사용 하 여 기본 ASP.NET Core 웹 프로젝트를 사용 하 여 프로젝트를 시작 하는 경우 다음과 `dotnet new mvc --auth SingleAuth` `dotnet new webapp --auth SingleAuth` 같은 코드가 표시 됩니다 `services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options => Configuration.Bind("AzureAd", options));` .
-> 
+> Microsoft id 플랫폼용 새 ASP.NET Core 템플릿을 사용 하 여 직접 시작 하려는 경우에는 .NET Core 3.1 및 .NET 5.0 용 프로젝트 템플릿이 포함 된 preview NuGet 패키지를 다운로드할 수 있습니다. 그런 다음 설치 되 면 ASP.NET Core 웹 응용 프로그램 (MVC 또는 Blazor)을 직접 인스턴스화할 수 있습니다. 자세한 내용은 [Microsoft. Identity 웹 앱 프로젝트 템플릿](https://aka.ms/ms-id-web/webapp-project-templates) 을 참조 하세요. 이 방법은 아래의 모든 단계를 수행 하는 가장 간단한 방법입니다.
+>
+> Visual Studio 내에서 또는 또는를 사용 하 여 현재 기본 ASP.NET Core 웹 프로젝트를 사용 하 여 프로젝트를 시작 하려는 경우 `dotnet new mvc --auth SingleAuth` `dotnet new webapp --auth SingleAuth` 다음과 같은 코드가 표시 됩니다.
+>
+>```c#
+>  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
+>          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+> ```
+>
 > 이 코드는 Azure AD v1.0 응용 프로그램을 만드는 데 사용 되는 레거시 **AspNetCore AzureAD** NuGet 패키지를 사용 합니다. 이 문서에서는 해당 코드를 대체 하는 Microsoft id 플랫폼 (Azure AD v2.0) 응용 프로그램을 만드는 방법을 설명 합니다.
+>
 
-1. 프로젝트에 [Microsoft identity. system.web](https://www.nuget.org/packages/Microsoft.Identity.Web) 및 [microsoft. identity](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) . uiui&gt 패키지를 추가 합니다. AspNetCore AzureAD NuGet 패키지가 있는 경우이를 제거 합니다.
+1. 프로젝트에 [Microsoft identity. system.web](https://www.nuget.org/packages/Microsoft.Identity.Web) 및 [microsoft. identity](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) . uiui&gt 패키지를 추가 합니다. AzureAD NuGet 패키지 (있는 경우)를 제거 합니다.
 
-2. 에서 `ConfigureServices` 및 메서드를 사용 하도록 코드를 업데이트 `AddSignIn` `AddMicrosoftIdentityUI` 합니다.
+2. 에서 `ConfigureServices` 및 메서드를 사용 하도록 코드를 업데이트 `AddMicrosoftWebAppAuthentication` `AddMicrosoftIdentityUI` 합니다.
 
    ```c#
    public class Startup
@@ -225,7 +234,7 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddSignIn(Configuration, "AzureAd");
+     services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -250,18 +259,23 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
    ```
 
 위의 코드에서 다음을 수행 합니다.
-- `AddSignIn`확장 메서드는 **Microsoft. Identity. Web**에 정의 되어 있습니다. 메서드
+- `AddMicrosoftWebAppAuthentication`확장 메서드는 **Microsoft. Identity. Web**에 정의 되어 있습니다. 메서드
   - 인증 서비스를 추가 합니다.
   - 구성 파일을 읽는 옵션을 구성 합니다 (여기서는 "AzureAD" 섹션에서).
   - Openid connect Connect 옵션을 구성 하 여 권한이 Microsoft id 플랫폼 엔드포인트가 되도록 합니다.
   - 토큰 발급자의 유효성을 검사 합니다.
   - 이름에 해당 하는 클레임이 `preferred_username` ID 토큰의 클레임에서 매핑되는지 확인 합니다.
 
-- 구성 개체 외에도를 호출할 때 구성 섹션의 이름을 지정할 수 있습니다 `AddSignIn` . 기본적으로 `AzureAd` 입니다.
+- 구성 개체 외에도를 호출할 때 구성 섹션의 이름을 지정할 수 있습니다 `AddMicrosoftWebAppAuthentication` . 기본적으로 `AzureAd` 입니다.
 
-- `AddSignIn`고급 시나리오에 대 한 다른 매개 변수가 있습니다. 예를 들어 추적 Openid connect Connect 미들웨어 이벤트는 인증이 작동 하지 않는 경우 웹 응용 프로그램의 문제를 해결 하는 데 도움이 될 수 있습니다. 선택적 매개 변수 `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` 를로 설정 하면 `true` HTTP 응답에서 사용자 id로 진행 되는 ASP.NET Core 미들웨어 집합에서 정보를 처리 하는 방법을 보여 줍니다 `HttpContext.User` .
+- `AddMicrosoftWebAppAuthentication`고급 시나리오에 대 한 다른 매개 변수가 있습니다. 예를 들어 추적 Openid connect Connect 미들웨어 이벤트는 인증이 작동 하지 않는 경우 웹 응용 프로그램의 문제를 해결 하는 데 도움이 될 수 있습니다. 선택적 매개 변수 `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` 를로 설정 하면 `true` HTTP 응답에서 사용자 id로 진행 되는 ASP.NET Core 미들웨어 집합에서 정보를 처리 하는 방법을 보여 줍니다 `HttpContext.User` .
 
-- `AddMicrosoftIdentityUI`확장 메서드는 **Microsoft. Identity. system.web**. 로그 아웃을 처리 하는 기본 컨트롤러를 제공 합니다.
+- `AddMicrosoftIdentityUI`확장 메서드는 **Microsoft. Identity. system.web**. 로그인 및 로그 아웃을 처리 하는 기본 컨트롤러를 제공 합니다.
+
+웹 앱을 만들 수 있는 방법에 대 한 자세한 내용은<https://aka.ms/ms-id-web/webapp>
+
+> [!WARNING]
+> 현재는 Azure AD와 외부 로그인 공급자를 사용 하는 경우, 현재 Microsoft. Identity는 **개별 사용자 계정** (앱 내 사용자 계정 저장)의 시나리오를 지원 하지 않습니다. 자세한 내용은 다음을 참조 하세요. [AzureAD/microsoft-identity-web # 133](https://github.com/AzureAD/microsoft-identity-web/issues/133)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

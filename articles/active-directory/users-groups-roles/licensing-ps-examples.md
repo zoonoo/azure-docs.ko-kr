@@ -14,15 +14,16 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025220"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
-[Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스의 전체 기능을 사용할 수 있으며 현재 PowerShell 및 Microsoft Graph 지원은 읽기 전용 작업으로 제한 됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
+[Azure Portal](https://portal.azure.com)를 통해 그룹 기반 라이선스의 전체 기능을 사용할 수 있으며 현재 PowerShell 및 Microsoft Graph 지원은 읽기 전용 작업으로 제한 됩니다. 그러나 기존 [MSOnline PowerShell cmdlet](/powershell/module/msonline) 및 Microsoft Graph를 사용하여 수행할 수 있는 몇 가지 유용한 작업이 있습니다. 이 문서는 가능한 작업에 대한 예제를 제공합니다.
 
 > [!NOTE]
 > Cmdlet 실행을 시작 하기 전에 cmdlet을 실행 하 여 조직에 먼저 연결 해야 합니다 `Connect-MsolService`   .

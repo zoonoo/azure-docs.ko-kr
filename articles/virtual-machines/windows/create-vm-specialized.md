@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 49554c053af0ceecf2b7f0b1162b7212694239db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234544"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028093"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -32,7 +33,7 @@ Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-speci
 
 ## <a name="option-1-use-an-existing-disk"></a>옵션 1: 기존 디스크 사용
 
-삭제한 VM이 있고 OS 디스크를 다시 사용하여 새 VM을 만들려는 경우 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)를 사용합니다.
+삭제한 VM이 있고 OS 디스크를 다시 사용하여 새 VM을 만들려는 경우 [Get-AzDisk](/powershell/module/az.compute/get-azdisk)를 사용합니다.
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -67,7 +68,7 @@ VM의 스냅샷을 만든 다음, 이 스냅샷을 사용하여 새 관리 디�
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅샷 만들기
 
-전체 VM(모든 디스크 포함) 또는 단일 디스크의 스냅샷을 만들 수 있습니다. 다음 단계에서는 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VM의 OS 디스크에 대한 스냅샷을 만드는 방법을 보여 줍니다. 
+전체 VM(모든 디스크 포함) 또는 단일 디스크의 스냅샷을 만들 수 있습니다. 다음 단계에서는 [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VM의 OS 디스크에 대한 스냅샷을 만드는 방법을 보여 줍니다. 
 
 먼저 일부 매개 변수를 설정합니다. 
 
@@ -115,7 +116,7 @@ $snapShot = New-AzSnapshot `
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 
-[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 스냅샷에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
+[New-AzDisk](/powershell/module/az.compute/new-azdisk)를 사용하여 스냅샷에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 
@@ -235,7 +236,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="add-the-os-disk"></a>OS 디스크 추가 
 
-[Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)를 사용하여 OS 디스크를 구성에 추가합니다. 이 예에서는 디스크 크기를 *128GB*로 설정하고 Managed Disk를 *Windows* OS 디스크로 연결합니다.
+[Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk)를 사용하여 OS 디스크를 구성에 추가합니다. 이 예에서는 디스크 크기를 *128GB*로 설정하고 Managed Disk를 *Windows* OS 디스크로 연결합니다.
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -244,7 +245,7 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### <a name="complete-the-vm"></a>VM 완료 
 
-방금 만든 구성으로 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만듭니다.
+방금 만든 구성으로 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만듭니다.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -269,4 +270,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>다음 단계
 새 가상 머신에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](connect-logon.md)을 참조하세요.
-

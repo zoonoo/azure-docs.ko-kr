@@ -7,17 +7,18 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dcba7da09cff3b7123521a4daf1028ab17e199a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029147"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>사용자 지정 데이터와 Azure Virtual Machines에서의 Cloud-Int
 
 프로 비전 시 Microsoft Azure 가상 머신에 스크립트나 기타 메타 데이터를 삽입 해야 할 수 있습니다.  다른 클라우드에서는 이 개념을 사용자 데이터라고 하는 경우가 많습니다.  Microsoft Azure에는 사용자 지정 데이터라는 유사한 기능이 있습니다. 
 
-사용자 지정 데이터는 첫 부팅/최초 설정 시에만 VM에 제공되므로 이를 ‘프로비저닝’이라고 합니다. 프로비저닝은 VM Create 매개변수(예: 호스트 이름, 사용자 이름, 암호, 인증서, 사용자 지정 데이터, 키)를 VM에 제공하고 프로비저닝 에이전트(예: [Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 및 [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init))가 이를 처리하는 과정입니다. 
+사용자 지정 데이터는 첫 부팅/최초 설정 시에만 VM에 제공되므로 이를 ‘프로비저닝’이라고 합니다. 프로비저닝은 VM Create 매개변수(예: 호스트 이름, 사용자 이름, 암호, 인증서, 사용자 지정 데이터, 키)를 VM에 제공하고 프로비저닝 에이전트(예: [Linux Agent](./extensions/agent-linux.md) 및 [cloud-init](./linux/using-cloud-init.md#troubleshooting-cloud-init))가 이를 처리하는 과정입니다. 
 
 
 ## <a name="passing-custom-data-to-the-vm"></a>VM에 사용자 지정 데이터 전달
@@ -33,7 +34,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Azure Resource Manager(ARM)에는 [base64 함수](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64)가 있습니다.
+Azure Resource Manager(ARM)에는 [base64 함수](../azure-resource-manager/templates/template-functions-string.md#base64)가 있습니다.
 
 ```json
 "name": "[parameters('virtualMachineName')]",
@@ -73,21 +74,21 @@ Linux OS에서 사용자 지정 데이터는 ovf-env.xml 파일을 통해 VM에 
 
 사용자 지정 데이터 실행 문제를 해결하려면 */var/log/waagent.log*를 검토하세요.
 
-* cloud-init - 기본적으로 사용자 지정 데이터를 처리합니다. cloud-init는 사용자 지정 데이터의 [여러 가지 형식](https://cloudinit.readthedocs.io/en/latest/topics/format.html)(예: cloud-init 구성, 스크립트)을 지원합니다. Linux Agent와 마찬가지로 cloud-init는 사용자 지정 데이터를 처리합니다. 구성 처리 또는 스크립트 실행 중에 오류가 발생할 경우 치명적인 프로비저닝 실패로 간주되지 않으므로 스크립트의 완료 상태를 알려주는 알림 경로를 생성해야 합니다. 그러나 Linux Agent와 달리 cloud-init는 사용자 지정 데이터 구성이 완료되기를 기다리지 않고 플랫폼에 VM이 준비되었다고 보고합니다. Azure의 cloud-init에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)를 참조하세요.
+* cloud-init - 기본적으로 사용자 지정 데이터를 처리합니다. cloud-init는 사용자 지정 데이터의 [여러 가지 형식](https://cloudinit.readthedocs.io/en/latest/topics/format.html)(예: cloud-init 구성, 스크립트)을 지원합니다. Linux Agent와 마찬가지로 cloud-init는 사용자 지정 데이터를 처리합니다. 구성 처리 또는 스크립트 실행 중에 오류가 발생할 경우 치명적인 프로비저닝 실패로 간주되지 않으므로 스크립트의 완료 상태를 알려주는 알림 경로를 생성해야 합니다. 그러나 Linux Agent와 달리 cloud-init는 사용자 지정 데이터 구성이 완료되기를 기다리지 않고 플랫폼에 VM이 준비되었다고 보고합니다. Azure의 cloud-init에 대한 자세한 내용은 [설명서](./linux/using-cloud-init.md)를 참조하세요.
 
 
-사용자 지정 데이터 실행 문제를 해결하려면 문제 해결 [설명서](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)를 참조하세요.
+사용자 지정 데이터 실행 문제를 해결하려면 문제 해결 [설명서](./linux/using-cloud-init.md#troubleshooting-cloud-init)를 참조하세요.
 
 
 ## <a name="faq"></a>FAQ
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>VM이 생성된 후 사용자 지정 데이터를 업데이트할 수 있나요?
-단일 VM의 경우, VM 모델의 사용자 지정 데이터는 업데이트할 수 없지만 VMSS에서는 [REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update)를 통해 VMSS 사용자 지정 데이터를 업데이트할 수 있습니다(PS 또는 AZ CLI 클라이언트에는 적용되지 않음). VMSS 모델에서 사용자 지정 데이터 업데이트:
+단일 VM의 경우, VM 모델의 사용자 지정 데이터는 업데이트할 수 없지만 VMSS에서는 [REST API](/rest/api/compute/virtualmachinescalesets/update)를 통해 VMSS 사용자 지정 데이터를 업데이트할 수 있습니다(PS 또는 AZ CLI 클라이언트에는 적용되지 않음). VMSS 모델에서 사용자 지정 데이터 업데이트:
 * VMSS의 기존 인스턴스는 새로 이미지를 생성하지 않는 한 업데이트된 사용자 지정 데이터를 가져오지 않습니다.
 * 업그레이드된 VMSS의 기존 인스턴스는 업데이트된 사용자 지정 데이터를 가져오지 않습니다.
 * 새 인스턴스는 새 사용자 지정 데이터를 받게 됩니다.
 
 ### <a name="can-i-place-sensitive-values-in-custom-data"></a>사용자 지정 데이터에 중요한 값을 저장할 수 있나요?
-사용자 지정 데이터에는 중요한 데이터를 저장하지 **않는** 것이 좋습니다. 자세한 내용은 [Azure 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices)를 참조하세요.
+사용자 지정 데이터에는 중요한 데이터를 저장하지 **않는** 것이 좋습니다. 자세한 내용은 [Azure 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md)를 참조하세요.
 
 
 ### <a name="is-custom-data-made-available-in-imds"></a>사용자 지정 데이터가 IMDS에 제공되나요?

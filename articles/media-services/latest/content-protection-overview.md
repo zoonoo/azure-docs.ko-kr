@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023265"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -243,7 +244,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId`에는 요청 된 키의 값이 있습니다. `AlternativeMediaId`사용자 측의 엔터티에 요청을 매핑하려는 경우를 사용할 수 있습니다. 예를 들어를 `AlternativeMediaId` 사용 하 여 사용 권한을 조회할 수 있습니다.
 
-사용자 지정 라이선스/키 취득 Url을 사용 하는 REST 예제는 [스트리밍 정책-만들기](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)를 참조 하세요.
+사용자 지정 라이선스/키 취득 Url을 사용 하는 REST 예제는 [스트리밍 정책-만들기](/rest/api/media/streamingpolicies/create)를 참조 하세요.
 
 > [!NOTE]
 > Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
@@ -265,4 +266,4 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 * [액세스 제어를 사용 하 여 다중 DRM 콘텐츠 보호 시스템 디자인](design-multi-drm-system-with-access-control.md)
 * [스토리지 쪽 암호화](storage-account-concept.md#storage-side-encryption)
 * [질문과 대답](frequently-asked-questions.md)
-* [JSON 웹 토큰 처리기](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [JSON 웹 토큰 처리기](/dotnet/framework/security/json-web-token-handler)

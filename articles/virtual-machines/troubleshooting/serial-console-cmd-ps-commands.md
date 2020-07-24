@@ -13,17 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028467"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
 
 이 섹션에는 RDP 연결 오류 문제를 해결해야 할 때와 같이 Windows VM에 액세스하는 데 SAC를 사용할 수 있는 시나리오에서 일반적인 작업 수행에 대한 명령의 예를 포함합니다.
 
-SAC는 Windows Server 2003만 기본적으로 사용할 수 없게 된 이래 모든 버전의 Windows에 포함되었습니다. SAC는 `sacdrv.sys` 커널 드라이버, `Special Administration Console Helper` 서비스(`sacsvr`) 및 `sacsess.exe` 프로세스에 의존합니다. 자세한 내용은 [응급 관리 서비스 도구 및 설정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10))을 참조합니다.
+SAC는 Windows Server 2003만 기본적으로 사용할 수 없게 된 이래 모든 버전의 Windows에 포함되었습니다. SAC는 `sacdrv.sys` 커널 드라이버, `Special Administration Console Helper` 서비스(`sacsvr`) 및 `sacsess.exe` 프로세스에 의존합니다. 자세한 내용은 [응급 관리 서비스 도구 및 설정](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10))을 참조합니다.
 
 SAC는 직렬 포트를 통해 실행 중인 OS에 연결할 수 있습니다. SAC에서 CMD를 시작할 때 `sacsess.exe`은 실행 중인 OS 내에서 `cmd.exe`를 시작합니다. 작업 관리자에서 RDP가 VM에 연결된 경우 동시에 직렬 콘솔 기능을 통해 SAC에 연결돼 있음을 확인할 수 있습니다. RDP를 통해 연결된 경우 SAC를 통해 액세스하는 CMD는 사용하는 동일한 `cmd.exe`입니다. 해당 CMD 인스턴스에서 PowerShell을 시작하는 기능을 포함하여 모두 동일한 명령 및 도구를 사용할 수 있습니다. SAC와 WinRE(Windows 복구 환경) 사이의 주요 차이점은 WinRE가 다른 Minimal OS로 부팅하는 경우 SAC가 실행 중인 OS를 관리할 수 있게 한다는 것입니다. Azure VM은 직렬 콘솔 기능을 사용하여 WinRE에 액세스하는 기능을 지원하지 않지만 SAC를 통해 Azure VM을 관리할 수 있습니다.
 
@@ -90,7 +91,7 @@ SAC의 제한된 화면 버퍼 때문에 더 긴 명령은 로컬 텍스트 편�
 ### <a name="set-nic-to-use-dhcp"></a>NIC가 DHCP를 사용하도록 설정
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-`netsh`에 대한 자세한 내용은 [여기를 클릭](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts)하세요.
+`netsh`에 대한 자세한 내용은 [여기를 클릭](/windows-server/networking/technologies/netsh/netsh-contexts)하세요.
 
 Azure VM은 IP 주소를 얻는 데 DHCP를 사용하려면 항상 게스트 운영 체제에서 구성돼야 합니다. Azure 고정 IP 설정은 여전히 DHCP를 사용하여 고정 IP를 VM에 제공합니다.
 ### <a name="ping"></a>Ping
@@ -182,11 +183,11 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 ### <a name="scan-for-system-file-corruption"></a>시스템 파일 손상에 대한 검사
 `sfc /scannow`
 
-[Windows 이미지 복구](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
+[Windows 이미지 복구](/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
 ### <a name="scan-for-system-file-corruption"></a>시스템 파일 손상에 대한 검사
 `dism /online /cleanup-image /scanhealth`
 
-[Windows 이미지 복구](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
+[Windows 이미지 복구](/windows-hardware/manufacture/desktop/repair-a-windows-image)도 참조합니다.
 ### <a name="export-file-permissions-to-text-file"></a>텍스트 파일에 파일 사용 권한 내보내기
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 ### <a name="save-file-permissions-to-acl-file"></a>ACL 파일에 파일 사용 권한 저장하기
@@ -435,7 +436,7 @@ osType, Location, vmSize, vmId, name, resourceGroupName, subscriptionId, private
 
 인스턴스 메타데이터를 쿼리하려면 Azure 호스트를 통해 인스턴스 메타데이터 서비스로 REST 호출하기 때문에 정상 게스트 네트워크 연결이 필요합니다. 따라서 인스턴스 메타데이터를 쿼리할 수 있으면 게스트는 네트워크를 통해 Azure 호스팅 서비스와 통신할 수 있습니다.
 
-자세한 내용은 [Azure Instance Metadata 서비스](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)를 참조하세요.
+자세한 내용은 [Azure Instance Metadata 서비스](../windows/instance-metadata-service.md)를 참조하세요.
 
 ### <a name="instance-metadata"></a>인스턴스 메타데이터
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

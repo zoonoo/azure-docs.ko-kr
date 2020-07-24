@@ -9,16 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fbbf5f9d01ed4a469967dac87faa3b130905757
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82926717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027107"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
@@ -86,10 +87,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`ver` | 문자열, 1.0 또는 2.0 | id_token의 버전을 나타냅니다. |
 
 > [!NOTE]
-> V1 및 v2 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 버전은 기본적으로 발급 된 위치에서 Azure AD 플랫폼 끝점을 지정 합니다. [AZURE AD Oauth 구현은](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) 몇 년 동안 진화 했습니다. 현재 AzureAD 응용 프로그램에 대해 서로 다른 두 개의 oAuth 끝점이 있습니다. V 2로 분류 된 새 끝점 또는 v1 이라고 하는 기존 끝점 중 하나를 사용할 수 있습니다. 둘 다에 대 한 Oauth 끝점은 서로 다릅니다. V2 끝점은 v1 끝점의 모든 기능을 마이그레이션하려는 새로운 기능으로, 새 개발자에 게 v2 끝점을 사용 하는 것이 좋습니다.
+> V1.0 및 v 22.0 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 버전은 기본적으로 발급 된 위치에서 Azure AD 플랫폼 끝점을 지정 합니다. [AZURE AD OAuth 구현은](about-microsoft-identity-platform.md) 몇 년 동안 진화 했습니다. 현재 Azure AD 응용 프로그램에 대 한 두 가지 다른 끝점이 있습니다. V2.0 또는 v 1.0으로 분류 된 새 끝점을 사용할 수 있습니다. 이러한 두 가지 모두에 대 한 OAuth 끝점은 서로 다릅니다. V2.0 끝점은 더 최신 이며, v2.0 끝점의 기능은이 끝점으로 마이그레이션됩니다. 새 개발자는 v2.0 끝점을 사용 해야 합니다.
 >
-> - V1: Azure Active Directory 끝점:`https://login.microsoftonline.com/common/oauth2/authorize`
-> - V2: Microsoft Id 플랫폼 끝점:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v1.0: Azure AD 끝점:`https://login.microsoftonline.com/common/oauth2/authorize`
+> - v2.0: Microsoft identitypPlatform 끝점:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>id_token을 유효성 검사하는 중
 

@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 6fa1f6bcc6c91a493225726bc0df60d2d0b4a1e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119191"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027940"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
 
@@ -102,7 +102,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-이미지 작성기는 제공 된 [사용자 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+이미지 작성기는 제공 된 [사용자 id](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>사용자 할당 관리 id 만들기 및 사용 권한 부여 
 ```bash

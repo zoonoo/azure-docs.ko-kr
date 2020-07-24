@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025700"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -30,7 +30,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 온-프레미스 ad (Active Directory) 환경이 있고 AD 도메인에 가입 된 컴퓨터를 Azure AD에 가입 하려는 경우 하이브리드 Azure AD 조인을 수행 하 여이 작업을 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 [Azure Active Directory의 장치 id 관리 소개](../device-management-introduction.md)에 대해 잘 알고 있다고 가정 합니다.
 
@@ -92,14 +92,14 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Azure AD 등록 상태를 사용 하 여 장치 처리
 Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview.md#getting-devices-in-azure-ad) ad 인 경우 하이브리드 azure ad 조인 및 azure ad 등록 장치의 이중 상태가 될 수 있습니다. 이 시나리오를 자동으로 해결 하려면 Windows 10 1803 (KB4489894 적용 됨) 이상으로 업그레이드 하는 것이 좋습니다. 1803 이전 버전에서는 하이브리드 Azure AD 조인을 사용 하도록 설정 하기 전에 Azure AD 등록 상태를 수동으로 제거 해야 합니다. 1803 이상 릴리스에서는 이러한 이중 상태를 방지 하기 위해 다음과 같이 변경 되었습니다.
 
-- 사용자에 대 한 기존 Azure AD 등록 상태는 <i>장치가 하이브리드 AZURE ad에 조인 되 고 동일한 사용자가 로그인 한 후</i>자동으로 제거 됩니다. 예를 들어 사용자 A가 장치에 Azure AD 등록 상태를 갖는 경우 사용자 a가 장치에 로그인 할 때만 사용자 A에 대 한 이중 상태가 정리 됩니다. 동일한 장치에 여러 사용자가 있는 경우 해당 사용자가 로그인 하면 이중 상태가 개별적으로 정리 됩니다.
+- 사용자에 대 한 기존 Azure AD 등록 상태는 <i>장치가 하이브리드 AZURE ad에 조인 되 고 동일한 사용자가 로그인 한 후</i>자동으로 제거 됩니다. 예를 들어 사용자 A가 장치에 Azure AD 등록 상태를 갖는 경우 사용자 a가 장치에 로그인 할 때만 사용자 A에 대 한 이중 상태가 정리 됩니다. 동일한 장치에 여러 사용자가 있는 경우 해당 사용자가 로그인 하면 이중 상태가 개별적으로 정리 됩니다. Azure AD 등록 상태를 제거 하는 것 외에도, Windows 10은 Intune 또는 다른 MDM에서 장치 등록을 취소 합니다 .이는 자동 등록을 통해 Azure AD 등록의 일부로 등록을 수행 하는 경우에도 발생 합니다.
 - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = dword: 00000001에 다음 레지스트리 값을 추가 하 여 도메인 가입 장치가 Azure AD에 등록 되지 않도록 할 수 있습니다.
 - Windows 10 1803에서 비즈니스용 Windows Hello가 구성 된 경우 사용자는 이중 상태 정리 후 비즈니스용 Windows Hello를 다시 설정 해야 합니다. 이 문제는 KB4512509로 해결 되었습니다.
 
 > [!NOTE]
-> Azure AD 등록 장치는 Intune에서 관리 되는 경우 자동으로 제거 되지 않습니다.
+> Windows 10에서 Azure AD 등록 상태를 로컬로 자동으로 제거 하더라도 Azure AD의 장치 개체는 Intune에서 관리 되는 경우 즉시 삭제 되지 않습니다. Dsregcmd.exe/status를 실행 하 여 Azure AD에 등록 된 상태를 제거 하는 것을 확인 하 고 해당 장치에 따라 Azure AD가 등록 되지 않도록 할 수 있습니다.
 
-### <a name="additional-considerations"></a>추가 고려 사항
+### <a name="additional-considerations"></a>기타 고려 사항
 - 사용자 환경에서 VDI (가상 데스크톱 인프라)를 사용 하는 경우 [장치 id 및 데스크톱 가상화](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)를 참조 하세요.
 
 - 하이브리드 Azure AD 조인은 FIPS 규격 TPM 2.0에 대해 지원 되며 TPM 1.2에 대해 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2이 있는 경우 하이브리드 Azure AD 조인을 진행 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 tpm에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요. 
@@ -159,12 +159,12 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | 설명 |
+| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | Description |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
-| 라우팅 불가능 | 관리 | 지원되지 않음 | |
+| 라우팅 가능 | 관리 대상 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
+| 라우팅 불가능 | 관리 대상 | 지원되지 않음 | |
 
 ## <a name="next-steps"></a>다음 단계
 

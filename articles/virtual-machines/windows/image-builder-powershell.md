@@ -7,12 +7,12 @@ ms.date: 06/17/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: c8a5e1b1324ca49d8b540998a82ebf125b3c5364
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5be21eea9dbb9ea0925ac014fce6272ce8c32a0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028144"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
 
@@ -21,11 +21,11 @@ ms.locfileid: "84975863"
 > [!CAUTION]
 > Azure Image Builder는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공 됩니다. 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요.
+PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!IMPORTANT]
 > **Az builder** 및 **az. ManagedServiceIdentity** PowerShell 모듈은 미리 보기 상태 이지만 `Install-Module` 매개 변수와 함께 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `AllowPrerelease` . 이러한 PowerShell 모듈은 일반적으로 사용할 수 있게 되 면 이후 Az PowerShell module 릴리스의 일부가 되며 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
@@ -36,7 +36,7 @@ PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet을 사용 하 여 특정 구독을 선택 합니다.
+여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용 하 여 특정 구독을 선택 합니다.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -100,7 +100,7 @@ Write-Output $subscriptionID
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
 다음 예에서는 `$imageResourceGroup` 변수에 지정 된 지역에 있는 변수의 이름을 기반으로 하 여 리소스 그룹을 만듭니다 `$location` . 이 리소스 그룹은 이미지 구성 템플릿 아티팩트와 이미지를 저장 하는 데 사용 됩니다.
 
@@ -168,7 +168,7 @@ New-AzRoleAssignment @RoleAssignParams
 ```
 
 > [!NOTE]
-> "_AzRoleDefinition: 역할 정의 제한이 초과 되었습니다. 더 이상 역할 정의를 만들 수 없습니다._" [Azure RBAC 문제 해결](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)을 참조 하세요.
+> "_AzRoleDefinition: 역할 정의 제한이 초과 되었습니다. 더 이상 역할 정의를 만들 수 없습니다._" [Azure RBAC 문제 해결](../../role-based-access-control/troubleshooting.md)을 참조 하세요.
 
 ## <a name="create-a-shared-image-gallery"></a>Shared Image Gallery 만들기
 
@@ -200,7 +200,7 @@ New-AzGalleryImageDefinition @GalleryParams
 
 ## <a name="create-an-image"></a>이미지 만들기
 
-Azure 이미지 작성기 원본 개체를 만듭니다. 유효한 매개 변수 값 [은 Azure PowerShell를 사용 하 여 Azure Marketplace에서 WINDOWS VM 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 를 참조 하세요.
+Azure 이미지 작성기 원본 개체를 만듭니다. 유효한 매개 변수 값 [은 Azure PowerShell를 사용 하 여 Azure Marketplace에서 WINDOWS VM 이미지 찾기](./cli-ps-findimage.md) 를 참조 하세요.
 
 ```azurepowershell-interactive
 $SrcObjParams = @{

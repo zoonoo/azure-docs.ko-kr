@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a4ee2679da5065ab9e9b02d4ddb313fab75e78f7
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 218c0bebee6ed1e36da747802ea5e94bcebf9d62
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026529"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호된 웹 API: 범위 및 앱 역할 확인
 
@@ -26,10 +27,10 @@ ms.locfileid: "83845138"
 - 올바른 애플리케이션 역할이 있는 디먼 앱
 
 > [!NOTE]
-> 이 문서의 코드 조각은 완전히 작동하는 다음 샘플에서 추출됩니다.
+> 이 문서의 코드 조각은 GitHub의 다음 코드 샘플에서 추출 됩니다.
 >
-> - GitHub의 [ASP.NET Core 웹 API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37)
-> - [ASP.NET Web API 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
+> - [ASP.NET Core web API 증분 자습서](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
+> - [ASP.NET Web API 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
 
 ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 `[Authorize]` 특성을 다음 항목 중 하나에 추가해야 합니다.
 
@@ -53,6 +54,10 @@ ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 `[Authorize]` 특성을 �
 
 클라이언트 앱이 사용자를 대신하여 API를 호출하는 경우 API는 API에 대한 특정 범위를 가진 전달자 토큰을 요청해야 합니다. 자세한 내용은 [코드 구성 | 전달자 토큰](scenario-protected-web-api-app-configuration.md#bearer-token)을 참조하세요.
 
+### <a name="net-core"></a>.NET Core
+
+#### <a name="verify-the-scopes-on-each-controller-action"></a>각 컨트롤러 작업의 범위 확인
+
 ```csharp
 [Authorize]
 public class TodoListController : Controller
@@ -61,15 +66,15 @@ public class TodoListController : Controller
     /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
     /// this API.
     /// </summary>
-    const string scopeRequiredByAPI = "access_as_user";
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
     // GET: api/values
     [HttpGet]
     public IEnumerable<TodoItem> Get()
     {
-        VerifyUserHasAnyAcceptedScope(scopeRequiredByAPI);
+         HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi)
         // Do the work and return the result.
-        ...
+        // ...
     }
 ...
 }
@@ -80,41 +85,22 @@ public class TodoListController : Controller
 - `http://schemas.microsoft.com/identity/claims/scope` 또는 `scp`라는 클레임이 있는지 확인합니다.
 - 클레임에 API에서 예상하는 범위를 포함하는 값이 있는지 확인합니다.
 
-```csharp
-    /// <summary>
-    /// When applied to a <see cref="HttpContext"/>, verifies that the user authenticated in the
-    /// web API has any of the accepted scopes.
-    /// If the authenticated user doesn't have any of these <paramref name="acceptedScopes"/>, the
-    /// method throws an HTTP Unauthorized error with a message noting which scopes are expected in the token.
-    /// </summary>
-    /// <param name="acceptedScopes">Scopes accepted by this API</param>
-    /// <exception cref="HttpRequestException"/> with a <see cref="HttpResponse.StatusCode"/> set to
-    /// <see cref="HttpStatusCode.Unauthorized"/>
-    public static void VerifyUserHasAnyAcceptedScope(this HttpContext context,
-                                                     params string[] acceptedScopes)
-    {
-        if (acceptedScopes == null)
-        {
-            throw new ArgumentNullException(nameof(acceptedScopes));
-        }
-        Claim scopeClaim = HttpContext?.User
-                                      ?.FindFirst("http://schemas.microsoft.com/identity/claims/scope");
-        if (scopeClaim == null || !scopeClaim.Value.Split(' ').Intersect(acceptedScopes).Any())
-        {
-            context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-            string message = $"The 'scope' claim does not contain scopes '{string.Join(",", acceptedScopes)}' or was not found";
-            throw new HttpRequestException(message);
-        }
-    }
-```
 
-위의 [샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47)는 ASP.NET Core용입니다. ASP.NET의 경우 `HttpContext.User`를 `ClaimsPrincipal.Current`로 바꾸고 클레임 유형 `"http://schemas.microsoft.com/identity/claims/scope"`를 `"scp"`로 바꿉니다. 또한 이 문서의 뒷부분에 나오는 코드 조각을 참조하세요.
+#### <a name="verify-the-scopes-more-globally"></a>전체적으로 범위 확인
+
+웹 API에 대 한 세분화 된 범위를 정의 하 고 각 컨트롤러 작업의 범위를 확인 하는 것이 권장 되는 방법입니다. 그러나 ASP.NET Core를 사용 하 여 응용 프로그램 또는 컨트롤러 수준에서 범위를 확인할 수도 있습니다. 자세한 내용은 ASP.NET core 설명서에서 [클레임 기반 권한 부여](https://docs.microsoft.com/aspnet/core/security/authorization/claims) 를 참조 하세요.
+
+### <a name="net-mvc"></a>.NET MVC
+
+ASP.NET의 경우 `HttpContext.User`를 `ClaimsPrincipal.Current`로 바꾸고 클레임 유형 `"http://schemas.microsoft.com/identity/claims/scope"`를 `"scp"`로 바꿉니다. 또한 이 문서의 뒷부분에 나오는 코드 조각을 참조하세요.
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>디먼 앱에서 호출된 API의 앱 역할 확인
 
 웹 API가 [디먼 앱](scenario-daemon-overview.md)에 의해 호출되는 경우 해당 앱에서 웹 API에 대한 애플리케이션 권한을 요구해야 합니다. [애플리케이션 사용 권한(앱 역할) 노출](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles)에 나온 것처럼 API는 이러한 사용 권한을 노출합니다. 한 가지 예는 `access_as_application` 앱 역할입니다.
 
 이제 API에서 받은 토큰에 `roles` 클레임이 포함되어 있고 이 클레임에 예상한 값이 있는지 확인하도록 해야 합니다. 확인 코드는 컨트롤러 작업이 범위 대신 역할을 테스트한다는 것을 제외하면 위임된 권한을 확인하는 코드와 비슷합니다.
+
+### <a name="aspnet-core"></a>ASP.NET Core
 
 ```csharp
 [Authorize]
@@ -127,7 +113,9 @@ public class TodoListController : ApiController
     }
 ```
 
-`ValidateAppRole` 메서드는 다음과 비슷할 수 있습니다.
+`ValidateAppRole`메서드는 [RolesRequiredHttpContextExtensions.cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28)의 Microsoft Identity. Web에 정의 되어 있습니다.
+
+### <a name="aspnet-mvc"></a>ASP.NET MVC
 
 ```csharp
 private void ValidateAppRole(string appRole)
@@ -147,8 +135,6 @@ private void ValidateAppRole(string appRole)
 }
 }
 ```
-
-이번에는 ASP.NET에 대한 코드 조각입니다. ASP.NET Core의 경우 `ClaimsPrincipal.Current`를 `HttpContext.User`로 바꾸고 클레임 이름 `"roles"`를 `"http://schemas.microsoft.com/ws/2008/06/identity/claims/role"`로 바꿉니다. 또한 이 문서의 앞부분에 나오는 코드 조각을 참조하세요.
 
 ### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>웹 API가 디먼 앱에 의해서만 호출되어야 하는 경우 앱 전용 토큰 수락
 

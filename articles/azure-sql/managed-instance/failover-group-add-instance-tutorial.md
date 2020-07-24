@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024196"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Managed Instance 추가
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,19 +35,19 @@ Azure SQL Managed Instance의 관리 되는 인스턴스를 장애 조치 (failo
   > - 장애 조치 (failover) 그룹에 참여 하는 관리 되는 인스턴스에는 [Azure express](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 경로 또는 두 개의 연결 된 VPN 게이트웨이가 필요 합니다 이 자습서에서는 VPN 게이트웨이를 만들고 연결 하는 단계를 제공 합니다. 이미 Express 경로를 구성한 경우에는이 단계를 건너뜁니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
 
-- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- [Azure PowerShell](/powershell/azure/)
 
 ---
 

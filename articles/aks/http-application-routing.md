@@ -4,14 +4,14 @@ description: HTTP 응용 프로그램 라우팅 추가 기능을 사용 하 여 
 services: container-service
 author: lachie83
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 216705ef4ff7c235179c1f1be38a993ecd2fe782
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7349504b5a1ed5a67f3b34be2c4ff5dda29afbf3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025305"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
@@ -46,7 +46,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 
+클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다.
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -96,57 +96,53 @@ annotations:
 **samples-http-application-routing.yaml**이라는 파일을 만들고 다음 YAML을 복사합니다. 줄 43에서, 이 문서의 이전 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: party-clippy
+  name: aks-helloworld  
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld
   template:
     metadata:
       labels:
-        app: party-clippy
+        app: aks-helloworld
     spec:
       containers:
-      - image: r.j3ss.co/party-clippy
-        name: party-clippy
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        tty: true
-        command: ["party-clippy"]
+      - name: aks-helloworld
+        image: neilpeterson/aks-helloworld:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: party-clippy
+  name: aks-helloworld  
 spec:
+  type: ClusterIP
   ports:
   - port: 80
-    protocol: TCP
-    targetPort: 8080
   selector:
-    app: party-clippy
-  type: ClusterIP
+    app: aks-helloworld
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: party-clippy
+  name: aks-helloworld
   annotations:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: party-clippy.<CLUSTER_SPECIFIC_DNS_ZONE>
+  - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
     http:
       paths:
       - backend:
-          serviceName: party-clippy
+          serviceName: aks-helloworld
           servicePort: 80
         path: /
 ```
@@ -162,33 +158,12 @@ kubectl apply -f samples-http-application-routing.yaml
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
-deployment "party-clippy" created
-service "party-clippy" created
-ingress "party-clippy" created
+deployment.apps/aks-helloworld created
+service/aks-helloworld created
+ingress.networking.k8s.io/aks-helloworld created
 ```
 
-cURL 또는 브라우저를 사용하여 samples-http-application-routing.yaml 파일의 호스트 섹션에 지정된 호스트 이름으로 이동합니다. 인터넷을 통해 애플리케이션을 사용할 수 있기까지 최대 1분 정도 걸릴 수 있습니다.
-
-```bash
-$ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
-
- _________________________________
-/ It looks like you're building a \
-\ microservice.                   /
- ---------------------------------
- \
-  \
-     __
-    /  \
-    |  |
-    @  @
-    |  |
-    || |/
-    || ||
-    |\_/|
-    \___/
-
-```
+Aks (예: *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io* )에 대 한 웹 브라우저를 열고 데모 응용 프로그램이 표시 되는지 확인 *합니다. \<CLUSTER_SPECIFIC_DNS_ZONE\> * 응용 프로그램을 표시 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="remove-http-routing"></a>HTTP 라우팅 제거
 
@@ -235,8 +210,8 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
 
-time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'party-clippy' to '52.242.28.189' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
-time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-clippy' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
+time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'aks-helloworld' to '52.242.28.189' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
+time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'aks-helloworld' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 ```
 
 Azure Portal의 DNS 영역 리소스에서 이러한 레코드를 볼 수도 있습니다.
@@ -275,11 +250,11 @@ I0426 20:30:13.649800       9 stat_collector.go:34] changing prometheus collecto
 I0426 20:30:13.662191       9 leaderelection.go:184] successfully acquired lease kube-system/ingress-controller-leader-addon-http-application-routing
 I0426 20:30:13.662292       9 status.go:196] new leader elected: addon-http-application-routing-nginx-ingress-controller-5cxntd6
 I0426 20:30:13.763362       9 controller.go:179] ingress backend successfully reloaded...
-I0426 21:51:55.249327       9 event.go:218] Event(v1.ObjectReference{Kind:"Ingress", Namespace:"default", Name:"party-clippy", UID:"092c9599-499c-11e8-a5e1-0a58ac1f0ef2", APIVersion:"extensions", ResourceVersion:"7346", FieldPath:""}): type: 'Normal' reason: 'CREATE' Ingress default/party-clippy
-W0426 21:51:57.908771       9 controller.go:775] service default/party-clippy does not have any active endpoints
+I0426 21:51:55.249327       9 event.go:218] Event(v1.ObjectReference{Kind:"Ingress", Namespace:"default", Name:"aks-helloworld", UID:"092c9599-499c-11e8-a5e1-0a58ac1f0ef2", APIVersion:"extensions", ResourceVersion:"7346", FieldPath:""}): type: 'Normal' reason: 'CREATE' Ingress default/aks-helloworld
+W0426 21:51:57.908771       9 controller.go:775] service default/aks-helloworld does not have any active endpoints
 I0426 21:51:57.908951       9 controller.go:170] backend reload required
 I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully reloaded...
-167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
+167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-aks-helloworld-80] 10.244.0.13:8080 234 0.004 200
 ```
 
 ## <a name="clean-up"></a>정리
@@ -295,9 +270,9 @@ kubectl delete -f samples-http-application-routing.yaml
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
-deployment "party-clippy" deleted
-service "party-clippy" deleted
-ingress "party-clippy" deleted
+deployment "aks-helloworld" deleted
+service "aks-helloworld" deleted
+ingress "aks-helloworld" deleted
 ```
 
 ## <a name="next-steps"></a>다음 단계
