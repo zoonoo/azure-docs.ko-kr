@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115922"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "85505990"
 > 서비스 주체를 만드는 대신 애플리케이션 ID에 Azure 리소스에 대한 관리 ID를 사용하는 것이 좋습니다. 관리 id를 지원 하 고 Azure AD 인증을 지 원하는 리소스에 액세스 하는 서비스에서 코드를 실행 하는 경우 관리 되는 id가 더 나은 옵션입니다. Azure 리소스에 대한 관리 ID 및 이것이 지원되는 서비스를 알아보려면 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>앱 등록, 앱 개체 및 서비스 주체
-Azure Portal를 사용 하 여 서비스 주체를 직접 만들 수 있는 방법은 없습니다.  Azure Portal를 통해 응용 프로그램을 등록 하면 응용 프로그램 개체와 서비스 주체가 홈 디렉터리 또는 테 넌 트를 자동으로 만듭니다.  앱 등록, 응용 프로그램 개체 및 서비스 주체 간의 관계에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조 하세요.
+Azure Portal를 사용 하 여 서비스 주체를 직접 만들 수 있는 방법은 없습니다.  Azure Portal를 통해 응용 프로그램을 등록 하면 응용 프로그램 개체와 서비스 주체가 홈 디렉터리 또는 테 넌 트에서 자동으로 만들어집니다.  앱 등록, 응용 프로그램 개체 및 서비스 주체 간의 관계에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조 하세요.
 
 ## <a name="permissions-required-for-registering-an-app"></a>앱을 등록 하는 데 필요한 권한
 

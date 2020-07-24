@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 724178f71befbe4eace0d3d5615871c21253c1f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0c30d5c072c66e04b97cae2f88e4c8ef96b32779
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116210"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML id 공급자 기술 프로필 정의
 
@@ -164,11 +164,43 @@ SAML 어설션:
 
 **CryptographicKeys** 요소는 다음 특성을 포함 합니다.
 
-| attribute |필수 | 설명 |
+| 특성 |필수 | 설명 |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |예 | SAML 메시지에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용해 요청에 서명을 한 다음 ID 공급자에 요청을 전송합니다. |
 | SamlAssertionDecryption |예 | SAML 메시지의 암호를 해독하는 데 사용할 X509 인증서(RSA 키 집합)입니다. ID 공급자가 이 인증서를 제공해야 합니다. Azure AD B2C는 이 인증서를 사용하여 ID 공급자가 전송하는 데이터의 암호를 해독합니다. |
 | MetadataSigning |예 | SAML 메타데이터에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용하여 메타데이터에 서명을 합니다.  |
+
+## <a name="saml-entityid-customization"></a>SAML entityID 사용자 지정
+
+다른 entityID 값에 종속 된 여러 SAML 응용 프로그램이 있는 경우 `issueruri` 신뢰 당사자 파일의 값을 재정의할 수 있습니다. 이렇게 하려면 기본 파일에서 "Saml2AssertionIssuer" ID를 사용 하 여 기술 프로필을 복사 하 고 값을 재정의 `issueruri` 합니다.
+
+> [!TIP]
+> `<ClaimsProviders>`기본에서 섹션을 복사 하 고 클레임 공급자 (, 및) 내에서 이러한 요소 `<DisplayName>Token Issuer</DisplayName>` 를 유지 `<TechnicalProfile Id="Saml2AssertionIssuer">` `<DisplayName>Token Issuer</DisplayName>` 합니다.
+ 
+예:
+
+```xml
+   <ClaimsProviders>   
+    <ClaimsProvider>
+      <DisplayName>Token Issuer</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Saml2AssertionIssuer">
+          <DisplayName>Token Issuer</DisplayName>
+          <Metadata>
+            <Item Key="IssuerUri">customURI</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+  </ClaimsProviders>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpInSAML" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2" />
+      <Metadata>
+     …
+```
 
 ## <a name="next-steps"></a>다음 단계
 

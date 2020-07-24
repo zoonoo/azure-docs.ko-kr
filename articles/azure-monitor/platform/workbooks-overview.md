@@ -6,14 +6,14 @@ manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116959"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
@@ -28,7 +28,7 @@ ms.locfileid: "85560151"
 통합 문서는 현재 다음 데이터 원본과 호환 됩니다.
 
 * [로그](workbooks-data-sources.md#logs)
-* [Metrics](workbooks-data-sources.md#metrics)(메트릭)
+* [메트릭](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [경고(미리 보기)](workbooks-data-sources.md#alerts-preview)
 * [작업 상태](workbooks-data-sources.md#workload-health)
@@ -42,7 +42,7 @@ ms.locfileid: "85560151"
 * [텍스트](workbooks-visualizations.md#text)
 * [차트](workbooks-visualizations.md#charts)
 * [배경](workbooks-visualizations.md#grids)
-* [타일](workbooks-visualizations.md#tiles)
+* [패가](workbooks-visualizations.md#tiles)
 * [Trees](workbooks-visualizations.md#trees)
 * [그래프](workbooks-visualizations.md#graphs)
 
@@ -52,9 +52,9 @@ ms.locfileid: "85560151"
 
 통합 문서 환경을 탐색 하려면 먼저 Azure Monitor 서비스로 이동 합니다. 이 작업은 Azure Portal의 검색 상자에 **Monitor** 를 입력 하 여 수행할 수 있습니다.
 
-그런 다음 **통합 문서 (미리 보기)** 를 선택 합니다.
+그런 다음 **통합 문서**를 선택 합니다.
 
-![빨간색 상자에 강조 표시 된 통합 문서 미리 보기 단추의 스크린샷](./media/workbooks-overview/workbooks-preview.png)
+![빨간색 상자에 강조 표시 된 통합 문서 단추의 스크린샷](./media/workbooks-overview/workbooks.png)
 
 ### <a name="gallery"></a>갤러리
 

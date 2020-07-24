@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5b25c56591e64d66901dbcf79dc629f0beb2bbb0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248716"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117007"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
-Azure Logic Apps은 [Azure Storage](https://docs.microsoft.com/azure/storage/) 를 사용 하 여 [미사용 데이터](../security/fundamentals/encryption-atrest.md)를 저장 하 고 자동으로 암호화 합니다. 이 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. 기본적으로 Azure Storage는 Microsoft 관리 키를 사용 하 여 데이터를 암호화 합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
+Azure Logic Apps은 [Azure Storage](../storage/index.yml) 를 사용 하 여 [미사용 데이터](../security/fundamentals/encryption-atrest.md)를 저장 하 고 자동으로 암호화 합니다. 이 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. 기본적으로 Azure Storage는 Microsoft 관리 키를 사용 하 여 데이터를 암호화 합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
 
 Azure Logic Apps에서 중요 한 데이터 액세스 및 보호를 추가로 제어 하려면 다음 영역에서 추가 보안을 설정할 수 있습니다.
 
@@ -51,7 +51,7 @@ Azure의 보안에 대 한 자세한 내용은 다음 항목을 참조 하세요
 
 ### <a name="generate-shared-access-signatures-sas"></a>SAS(공유 액세스 서명) 생성
 
-논리 앱의 모든 요청 엔드포인트에는 엔드포인트 URL에 [SAS(공유 액세스 서명)](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas)가 있으며, 형식은 다음과 같습니다.
+논리 앱의 모든 요청 엔드포인트에는 엔드포인트 URL에 [SAS(공유 액세스 서명)](/rest/api/storageservices/constructing-a-service-sas)가 있으며, 형식은 다음과 같습니다.
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
@@ -86,7 +86,7 @@ SAS를 사용하여 액세스를 보호하는 방법에 대한 자세한 내용�
 
 #### <a name="create-expiring-callback-urls"></a>만료 콜백 URL 만들기
 
-요청 기반 트리거에 대한 엔드포인트 URL을 다른 상대방과 공유하는 경우 특정 키를 사용하고 만료 날짜가 있는 콜백 URL을 생성할 수 있습니다. 이렇게 하면 특정 시간 범위에 따라 키를 원활하게 롤링하거나 논리 앱을 트리거하는 액세스를 제한할 수 있습니다. URL의 만료 날짜를 지정하려면 [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers)를 사용합니다. 예:
+요청 기반 트리거에 대한 엔드포인트 URL을 다른 상대방과 공유하는 경우 특정 키를 사용하고 만료 날짜가 있는 콜백 URL을 생성할 수 있습니다. 이렇게 하면 특정 시간 범위에 따라 키를 원활하게 롤링하거나 논리 앱을 트리거하는 액세스를 제한할 수 있습니다. URL의 만료 날짜를 지정하려면 [Logic Apps REST API](/rest/api/logic/workflowtriggers)를 사용합니다. 예:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -98,7 +98,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 #### <a name="create-urls-with-primary-or-secondary-secret-key"></a>기본 또는 보조 비밀 키로 URL 만들기
 
-요청 기반 트리거의 콜백 URL을 생성하거나 나열하면, URL에 서명하는 데 사용할 키를 지정할 수 있습니다. 특정 키로 서명된 URL을 생성하려면 [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers)를 사용합니다. 예:
+요청 기반 트리거의 콜백 URL을 생성하거나 나열하면, URL에 서명하는 데 사용할 키를 지정할 수 있습니다. 특정 키로 서명된 URL을 생성하려면 [Logic Apps REST API](/rest/api/logic/workflowtriggers)를 사용합니다. 예:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -110,7 +110,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="enable-azure-active-directory-oauth"></a>Azure Active Directory OAuth 사용
 
-논리 앱이 [요청 트리거로](../connectors/connectors-native-reqres.md)시작 하는 경우 요청 트리거에 대 한 인바운드 호출에 대 한 권한 부여 정책을 만들어 [Azure Active Directory Open AUTHENTICATION](/azure/active-directory/develop/) (Azure AD OAuth)을 사용 하도록 설정할 수 있습니다. 이 인증을 사용하도록 설정하기 전에 다음 사항을 검토하십시오.
+논리 앱이 [요청 트리거로](../connectors/connectors-native-reqres.md)시작 하는 경우 요청 트리거에 대 한 인바운드 호출에 대 한 권한 부여 정책을 만들어 [Azure Active Directory Open AUTHENTICATION](../active-directory/develop/index.yml) (Azure AD OAuth)을 사용 하도록 설정할 수 있습니다. 이 인증을 사용하도록 설정하기 전에 다음 사항을 검토하십시오.
 
 * 논리 앱에 대한 인바운드 호출은 권한 부여 스키마를 Azure AD OAuth 또는 [SAS(공유 액세스 서명)](#sas) 중 하나만 사용할 수 있습니다. 요청 트리거에 대해서만 지원 되는 OAuth 토큰에는 [전달자 유형](../active-directory/develop/active-directory-v2-protocols.md#tokens) 인증 스키마만 지원 됩니다.
 
@@ -212,7 +212,7 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 논리 앱이 중첩된 논리 앱으로만 트리거되도록 하려면 **허용된 인바운드 IP 주소** 목록에서 **다른 Logic Apps 전용**을 선택합니다. 이 옵션은 논리 앱 리소스에 빈 배열을 씁니다. 이렇게 하면 Logic Apps 서비스(부모 논리 앱)의 호출만 중첩된 논리 앱을 트리거할 수 있습니다.
 
 > [!NOTE]
-> IP 주소에 관계 없이 [Logic Apps REST API: 워크플로 트리거-실행](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) 요청 또는 API Management를 사용 하 여 요청 기반 트리거를 포함 하는 논리 앱을 계속 실행할 수 있습니다. 하지만 이 시나리오에는 Azure REST API에 대한 [인증](../active-directory/develop/authentication-scenarios.md)이 여전히 필요합니다. 모든 이벤트는 Azure 감사 로그에 나타납니다. 그에 따라 액세스 제어 정책을 설정했는지 확인하십시오.
+> IP 주소에 관계 없이 [Logic Apps REST API: 워크플로 트리거-실행](/rest/api/logic/workflowtriggers/run) 요청 또는 API Management를 사용 하 여 요청 기반 트리거를 포함 하는 논리 앱을 계속 실행할 수 있습니다. 하지만 이 시나리오에는 Azure REST API에 대한 [인증](../active-directory/develop/authentication-vs-authorization.md)이 여전히 필요합니다. 모든 이벤트는 Azure 감사 로그에 나타납니다. 그에 따라 액세스 제어 정책을 설정했는지 확인하십시오.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 인바운드 IP 범위 제한
 
@@ -263,13 +263,13 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 ### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Add Azure Active Directory 공개 인증 또는 기타 보안 추가
 
-논리 앱에 [인증](../active-directory/develop/authentication-scenarios.md) 프로토콜을 더 추가하려면 [Azure API Management](../api-management/api-management-key-concepts.md) 서비스를 사용하는 것이 좋습니다. 이 서비스는 논리 앱을 API로 노출하는 데 유용하며 모든 엔드포인트에 대한 풍부한 모니터링, 보안, 정책 및 설명서를 제공합니다. API Management는 논리 앱의 퍼블릭 또는 프라이빗 엔드포인트를 노출할 수 있습니다. 이 엔드포인트에 대한 액세스 권한을 부여하려면 Azure AD OAuth([Azure Active Directory 공개 인증](#azure-active-directory-oauth-authentication)), [클라이언트 인증서](#client-certificate-authentication) 또는 기타 보안 표준을 사용하여 해당 엔드포인트에 대한 액세스 권한을 부여하면 됩니다. API Management는 요청을 받으면 논리 앱에 요청을 보내고 필요한 변환 또는 제한을 수행합니다. API Management에서만 논리 앱을 트리거하도록 하려면 논리 앱의 인바운드 IP 범위 설정을 사용하면 됩니다.
+논리 앱에 [인증](../active-directory/develop/authentication-vs-authorization.md) 프로토콜을 더 추가하려면 [Azure API Management](../api-management/api-management-key-concepts.md) 서비스를 사용하는 것이 좋습니다. 이 서비스는 논리 앱을 API로 노출하는 데 유용하며 모든 엔드포인트에 대한 풍부한 모니터링, 보안, 정책 및 설명서를 제공합니다. API Management는 논리 앱의 퍼블릭 또는 프라이빗 엔드포인트를 노출할 수 있습니다. 이 엔드포인트에 대한 액세스 권한을 부여하려면 Azure AD OAuth([Azure Active Directory 공개 인증](#azure-active-directory-oauth-authentication)), [클라이언트 인증서](#client-certificate-authentication) 또는 기타 보안 표준을 사용하여 해당 엔드포인트에 대한 액세스 권한을 부여하면 됩니다. API Management는 요청을 받으면 논리 앱에 요청을 보내고 필요한 변환 또는 제한을 수행합니다. API Management에서만 논리 앱을 트리거하도록 하려면 논리 앱의 인바운드 IP 범위 설정을 사용하면 됩니다.
 
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>논리 앱 작업에 대한 액세스
 
-특정 사용자나 그룹만 논리 앱 관리, 편집 및 보기와 같은 특정 작업을 실행하도록 허용할 수 있습니다. 이들의 권한을 제어하려면 [Azure RBAC(Role-Based Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다. 그러면 Azure 구독의 멤버에게 사용자 지정 또는 기본 제공 역할을 할당할 수 있습니다.
+특정 사용자나 그룹만 논리 앱 관리, 편집 및 보기와 같은 특정 작업을 실행하도록 허용할 수 있습니다. 사용자의 권한을 제어 하려면 azure 구독에서 구성원에 사용자 지정 또는 기본 제공 역할을 할당할 수 있도록 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 를 사용 합니다.
 
 * [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor): 논리 앱을 관리할 수 있지만 앱에 대한 액세스는 변경할 수 없습니다.
 
@@ -427,7 +427,7 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 * 트리거 또는 작업에서 입력 또는 출력을 가리면 Logic Apps는 보안 데이터를 Azure Log Analytics로 보내지 않습니다. 또한 모니터링을 위해 해당 트리거 또는 작업에 [추적된 속성](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data)을 추가할 수 없습니다.
 
-* [워크플로 기록을 처리하는 Logic Apps API](https://docs.microsoft.com/rest/api/logic/)는 보안 출력을 반환하지 않습니다.
+* [워크플로 기록을 처리하는 Logic Apps API](/rest/api/logic/)는 보안 출력을 반환하지 않습니다.
 
 * 입력을 가리는 동작에서 출력을 보호하거나 출력을 명시적으로 가리려면 해당 동작에서 **보안 출력**을 수동으로 켭니다.
 
@@ -613,7 +613,7 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
          "apiVersion": "2016-06-01",
          "properties": {
             "definition": {
-               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                "actions": {
                   "HTTP": {
                      "type": "Http",
@@ -783,7 +783,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | 사용할 인증 유형입니다. [Azure API Management](../api-management/api-management-howto-mutual-certificates.md)를 사용 하 여 인증서를 관리할 수 있습니다. <p></p>**참고**: 사용자 지정 커넥터는 인바운드 및 아웃 바운드 호출에 대해 인증서 기반 인증을 지원 하지 않습니다. |
 | **Pfx** | `pfx` | 예 | <*encoded-pfx-file-content*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계에 따라 PowerShell을 사용합니다. <p>1. 인증서 콘텐츠를 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 콘텐츠를 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **암호** | `password`| 아니요 | <*password-for-pfx-file*> | PFX 파일에 액세스하기 위한 암호 |
+| **암호** | `password`| 예 | <*password-for-pfx-file*> | PFX 파일에 액세스하기 위한 암호 |
 |||||
 
 [보안 매개 변수](#secure-action-parameters)를 사용하여 중요한 정보를 처리하고 보안을 유지하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)에서), 식을 사용하여 런타임 시 해당 매개 변수 값에 액세스할 수 있습니다. 다음 예제 HTTP 작업 정의는 인증 `type`을 `ClientCertificate`으로 지정하고 [parameters() 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters)를 사용하여 매개 변수 값을 가져옵니다.
@@ -816,7 +816,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory 공개 인증
 
-요청 트리거에서 논리 앱에 [Azure AD 권한 부여 정책을 설정](#enable-oauth)한 후 들어오는 호출을 인증하는 데 Azure AD OAuth([Azure Active Directory 공개 인증](/azure/active-directory/develop/))를 사용할 수 있습니다. 선택할 수 있는 **Active Directory OAuth** 인증 유형을 제공하는 다른 모든 트리거 및 작업의 경우 다음 속성 값을 지정합니다.
+요청 트리거에서 논리 앱에 [Azure AD 권한 부여 정책을 설정](#enable-oauth)한 후 들어오는 호출을 인증하는 데 Azure AD OAuth([Azure Active Directory 공개 인증](../active-directory/develop/index.yml))를 사용할 수 있습니다. 선택할 수 있는 **Active Directory OAuth** 인증 유형을 제공하는 다른 모든 트리거 및 작업의 경우 다음 속성 값을 지정합니다.
 
 | 속성(디자이너) | 속성(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -953,7 +953,7 @@ Azure Logic Apps를 사용 하 여 [Azure Government 영향 수준 5 격리 지�
   * [Azure App Service 계획](../app-service/overview-hosting-plans.md)
   * [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md)
   * [가상 컴퓨터용 Azure 전용 호스트](../virtual-machines/windows/dedicated-hosts.md)
-  * [Azure의 가상 머신 격리](../virtual-machines/windows/isolation.md)
+  * [Azure의 가상 머신 격리](../virtual-machines/isolation.md)
   * [가상 네트워크에 전용 Azure 서비스 배포](../virtual-network/virtual-network-for-azure-services.md)
 
 * 전용 리소스에서 실행 되 고 Azure 가상 네트워크로 보호 되는 리소스에 액세스할 수 있는 논리 앱을 만들려면 [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만들 수 있습니다.
@@ -965,7 +965,7 @@ Azure Logic Apps를 사용 하 여 [Azure Government 영향 수준 5 격리 지�
 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure 공용 클라우드에서 격리](../security/fundamentals/isolation-choices.md)
-* [Azure의 매우 중요 한 IaaS 앱에 대 한 보안](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+* [Azure의 매우 중요 한 IaaS 앱에 대 한 보안](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## <a name="next-steps"></a>다음 단계
 

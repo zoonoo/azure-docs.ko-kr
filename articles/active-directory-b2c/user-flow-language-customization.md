@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/13/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dd6e22052d2fab6d39382b21eec7a7bd379adb82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d378e1526d5b253853fd306c8a1b7a8982436b8d
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115901"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
@@ -218,8 +219,8 @@ Azure AD B2C에는 다음 언어에 대 한 지원이 포함 됩니다. 사용�
 | 핀란드어               | fi            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 프랑스어                | fr            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 갈리시아어              | gl            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
-| 구자라트어              | gu            | ![예](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
-| 히브리어                | he            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
+| 구자라트어              | gu            | ![예](./media/user-flow-language-customization/yes.png) | ![아니요](./media/user-flow-language-customization/no.png) |
+| 히브리어                | he            | ![아니요](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 힌디어                 | hi            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 크로아티아어              | hr            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 헝가리어             | hu            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
@@ -227,16 +228,16 @@ Azure AD B2C에는 다음 언어에 대 한 지원이 포함 됩니다. 사용�
 | 이탈리아어               | it            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 일본어              | ja            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 카자흐어                | kk            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
-| 칸나다어               | kn            | ![예](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
+| 칸나다어               | kn            | ![예](./media/user-flow-language-customization/yes.png) | ![아니요](./media/user-flow-language-customization/no.png) |
 | 한국어                | ko            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 리투아니아어            | lt            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 라트비아어               | lv            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
-| 말라얄람어             | ml            | ![예](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
-| 마라티어               | mr            | ![예](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
+| 말라얄람어             | ml            | ![예](./media/user-flow-language-customization/yes.png) | ![아니요](./media/user-flow-language-customization/no.png) |
+| 마라티어               | mr            | ![예](./media/user-flow-language-customization/yes.png) | ![아니요](./media/user-flow-language-customization/no.png) |
 | 말레이어                 | ms            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
-| 노르웨이어 복말      | nb            | ![예](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
+| 노르웨이어 복말      | nb            | ![예](./media/user-flow-language-customization/yes.png) | ![아니요](./media/user-flow-language-customization/no.png) |
 | 네덜란드어                 | nl            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
-| 노르웨이어             | no            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
+| 노르웨이어             | 아니요            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 펀잡어               | pa            | ![예](./media/user-flow-language-customization/yes.png) | ![아니요](./media/user-flow-language-customization/no.png) |
 | 폴란드어                | pl            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 포르투갈어 - 브라질   | pt-br         | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
@@ -246,13 +247,13 @@ Azure AD B2C에는 다음 언어에 대 한 지원이 포함 됩니다. 사용�
 | 슬로바키아어                | sk            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 슬로베니아어             | sl            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 세르비아어 - 키릴 자모    | sr-cryl-cs    | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
-| 세르비아어 - 라틴 문자       | sr-latn-cs    | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
+| 세르비아어 - 라틴 문자       | sr-latn-cs    | ![아니요](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 스웨덴어               | sv            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 타밀어                 | ta            | ![예](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
-| 텔루구어                | te            | ![예](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
+| 텔루구어                | te            | ![예](./media/user-flow-language-customization/yes.png) | ![아니요](./media/user-flow-language-customization/no.png) |
 | 태국어                  | th            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 터키어               | tr            | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 우크라이나어             | uk            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
-| 베트남어            | vi            | ![no](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
+| 베트남어            | vi            | ![아니요](./media/user-flow-language-customization/no.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 중국어 - 간체  | zh-hans       | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |
 | 중국어 - 번체 | zh-hant       | ![예](./media/user-flow-language-customization/yes.png) | ![예](./media/user-flow-language-customization/yes.png) |

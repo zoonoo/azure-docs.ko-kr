@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/04/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388904"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116436"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -154,8 +155,8 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 | 로컬 계정 등록 | 이메일 주소 또는 사용자 이름을 기준으로 하는 로컬 계정 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용 하 여 고객 으로부터 추가 정보를 수집 해야 하는 경우에 사용 됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
-| Multi-Factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
-| Error | 고객에게 오류 정보를 제공합니다. |
+| Multi-factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
+| 오류 | 고객에게 오류 정보를 제공합니다. |
 
 ## <a name="company-branding-preview"></a>회사 브랜딩 (미리 보기)
 
@@ -239,7 +240,7 @@ GitHub의 [B2C](https://github.com/azureadquickstarts/b2c-azureblobstorage-clien
 
 - **사용자 흐름**을 사용 하는 경우 자습서를 사용 하 여 UI 사용자 지정을 시작할 수 있습니다.
 
-    [Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md).
+    [Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스를 사용자 지정](tutorial-customize-ui.md)합니다.
 - **사용자 지정 정책을**사용 하는 경우 다음 문서를 사용 하 여 UI 사용자 지정을 시작할 수 있습니다.
 
     [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 응용 프로그램의 사용자 인터페이스를 사용자 지정](custom-policy-ui-customization.md)합니다.

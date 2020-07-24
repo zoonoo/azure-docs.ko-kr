@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37d2864fa272a2f5504c0274655b0f12abdd494e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388394"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116299"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "85388394"
 
 이 문서에서는 Azure AD B2C의 [사용자 지정 정책](custom-policy-overview.md)을 통해 Azure AD(Azure Active Directory)에 다중 테넌트 엔드포인트를 사용하여 사용자 로그인을 활성화하는 방법을 설명합니다. 이렇게 하면 여러 Azure AD 테 넌 트의 사용자가 각 테 넌 트에 대해 id 공급자를 구성 하지 않고도 Azure AD B2C를 사용 하 여 로그인 할 수 있습니다. 그러나 이러한 테넌트의 게스트 멤버는 로그인할 수 **없습니다**. 이렇게 하려면 [각 테넌트를 개별적으로 구성](identity-provider-azure-ad-single-tenant-custom.md)해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
@@ -147,7 +147,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 유효한 토큰 발급자 목록을 업데이트하고 로그인할 수 있는 특정 Azure AD 테넌트 사용자 목록으로 액세스를 제한해야 합니다.
 
-값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은와 유사 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` `your-tenant` 합니다. 여기서는 Azure AD 테 넌 트 이름입니다. 예를 들어:
+값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은와 유사 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` `your-tenant` 합니다. 여기서는 Azure AD 테 넌 트 이름입니다. 예를 들면 다음과 같습니다.
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
@@ -215,7 +215,7 @@ Azure AD B2C와의 통신은 B2C 테넌트에서 등록하는 애플리케이션
 1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. **Defaultuserjourney** 에서 **ReferenceId** 특성의 값을 이전에 만든 사용자 경험의 ID와 일치 하도록 업데이트 합니다. 예를 들면 *SignUpSignInContoso*입니다.
 1. 변경 내용을 저장하고 파일을 업로드합니다.
-1. **사용자 지정 정책**아래의 목록에서 새 정책을 선택 합니다.
+1. 업로드 된 **사용자 지정 정책**에서 목록에서 새로 만든 정책을 선택 합니다.
 1. **응용 프로그램 선택** 드롭다운에서 이전에 만든 Azure AD B2C 응용 프로그램을 선택 합니다. 예를 들면 *testapp1*과 같습니다.
 1. **지금 실행 끝점** 을 복사 하 여 개인 브라우저 창에서 엽니다 (예: Google Chrome의 Incognito 모드 또는 Microsoft Edge의 InPrivate 창). 개인 브라우저 창에서 열면 현재 캐시 된 Azure AD 자격 증명을 사용 하지 않고 전체 사용자 경험을 테스트할 수 있습니다.
 1. Azure AD 로그인 단추 (예: *Contoso Employee*)를 선택 하 고 azure ad 조직 테 넌 트 중 하나에 사용자에 대 한 자격 증명을 입력 합니다. 응용 프로그램에 권한을 부여 하 라는 메시지가 표시 되 면 프로필에 대 한 정보를 입력 합니다.

@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/16/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5b7eea37cbd926046c6b923b003cd47e0a0c2b0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54b4292c74f7737f1c392d601627eb3e0ff48812
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116198"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리
 
@@ -61,9 +62,9 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 `identities` [
 
 | 속성   | 형식 |설명|
 |:---------------|:--------|:----------|
-|signInType|string| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,, `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3` `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다 `federated` .|
-|발급자|string|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우 `federated` 값은 발급자의 이름입니다 (예:).`facebook.com`|
-|issuerAssignedId|string|발급자에 의해 사용자에 게 할당 된 고유 식별자를 지정 합니다. **발급자** 와 **issuerAssignedId** 의 조합은 테 넌 트 내에서 고유 해야 합니다. 로컬 계정의 경우 **signInType** 가 또는로 설정 되 `emailAddress` 면 `userName` 사용자의 로그인 이름을 나타냅니다.<br>**SignInType** 가로 설정 된 경우: <ul><li>`emailAddress`(또는 like로 `emailAddress` 시작 `emailAddress1` ) **issuerAssignedId** 는 유효한 전자 메일 주소 여야 합니다.</li><li>`userName`(또는 다른 값) **issuerAssignedId** 는 [전자 메일 주소의 유효한 로컬 부분](https://tools.ietf.org/html/rfc3696#section-3) 이어야 합니다.</li><li>`federated`, **issuerAssignedId** 는 페더레이션된 계정 고유 식별자를 나타냅니다.</li></ul>|
+|signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정:,,,, `emailAddress` `emailAddress1` 또는 원하는 `emailAddress2` `emailAddress3` `userName` 다른 모든 형식 소셜 계정은로 설정 되어야 합니다 `federated` .|
+|발급자|문자열|Id의 발급자를 지정 합니다. 로컬 계정 (여기서 **signInType** 가이 아닌 경우)의 경우 `federated` 이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예:) `contoso.onmicrosoft.com` . 소셜 id (여기서 **signInType** 는)의 경우 `federated` 값은 발급자의 이름입니다 (예:).`facebook.com`|
+|issuerAssignedId|문자열|발급자에 의해 사용자에 게 할당 된 고유 식별자를 지정 합니다. **발급자** 와 **issuerAssignedId** 의 조합은 테 넌 트 내에서 고유 해야 합니다. 로컬 계정의 경우 **signInType** 가 또는로 설정 되 `emailAddress` 면 `userName` 사용자의 로그인 이름을 나타냅니다.<br>**SignInType** 가로 설정 된 경우: <ul><li>`emailAddress`(또는 like로 `emailAddress` 시작 `emailAddress1` ) **issuerAssignedId** 는 유효한 전자 메일 주소 여야 합니다.</li><li>`userName`(또는 다른 값) **issuerAssignedId** 는 [전자 메일 주소의 유효한 로컬 부분](https://tools.ietf.org/html/rfc3696#section-3) 이어야 합니다.</li><li>`federated`, **issuerAssignedId** 는 페더레이션된 계정 고유 식별자를 나타냅니다.</li></ul>|
 
 로그인 이름이 있는 로컬 계정 id, 로그인으로 전자 메일 주소, 소셜 id를 사용 하는 다음 **id** 속성 
 

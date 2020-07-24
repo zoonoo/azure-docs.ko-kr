@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134571"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117046"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -138,7 +138,7 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 - **ID**: 배포 스크립트 서비스는 사용자가 할당한 관리 ID를 사용하여 스크립트를 실행합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다.
 - **kind**: 스크립트 유형을 지정합니다. 현재 Azure PowerShell 및 Azure CLI 스크립트가 지원됩니다. 값은 **AzurePowerShell** 및 **AzureCLI**입니다.
 - **forceUpdateTag**: 템플릿 배포 간에 이 값을 변경하면 배포 스크립트가 강제로 다시 실행됩니다. 매개 변수의 defaultValue로 설정해야 하는 newGuid() 또는 utcNow() 함수를 사용합니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
-- **containerSettings**: Azure Container Instance를 사용자 지정하려면 설정을 지정합니다.  **containerGroupName**은 컨테이너 그룹 이름을 지정하기 위한 것입니다.  지정하지 않으면 그룹 이름이 자동으로 생성됩니다.
+- **containerSettings**: Azure Container Instance를 사용자 지정하려면 설정을 지정합니다.  **containerGroupName**은 컨테이너 그룹 이름을 지정하기 위한 것입니다.  지정 하지 않으면 그룹 이름이 자동으로 생성 됩니다.
 - **storageAccountSettings**: 기존 스토리지 계정을 사용하려면 설정을 지정합니다. 지정하지 않으면 스토리지 계정이 자동으로 만들어집니다. [기존 스토리지 계정 사용](#use-existing-storage-account)을 참조하세요.
 - **azPowerShellVersion**/**azCliVersion**: 사용할 모듈 버전을 지정합니다. 지원되는 PowerShell 및 CLI 버전 목록은 [필수 구성 요소](#prerequisites)를 참조하세요.
 - **arguments**: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
@@ -600,6 +600,34 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
     ![Resource Manager 템플릿 배포 스크립트 Docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
 스크립트를 성공적으로 테스트 한 후에는이를 템플릿에서 배포 스크립트로 사용할 수 있습니다.
+
+## <a name="deployment-script-error-codes"></a>배포 스크립트 오류 코드
+
+| 오류 코드 | Description |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | 템플릿의 배포 스크립트 리소스 정의에 잘못 된 속성 이름이 있습니다. |
+| DeploymentScriptResourceConflict | 터미널 상태가 아닌 상태에 있는 배포 스크립트 리소스를 삭제할 수 없으며 실행이 1 시간을 초과 하지 않았습니다. 또는 동일한 리소스 식별자 (동일한 구독, 리소스 그룹 이름 및 리소스 이름)를 사용 하 여 동일한 배포 스크립트를 다시 실행할 수는 없으며, 동시에 다른 스크립트 본문 콘텐츠가 있습니다. |
+| DeploymentScriptOperationFailed | 배포 스크립트 작업이 내부적으로 실패 했습니다. Microsoft 지원에 문의 하세요. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | 기존 저장소 계정에 대 한 액세스 키를 지정 하지 않았습니다.|
+| DeploymentScriptContainerGroupContainsInvalidContainers | 배포 스크립트 서비스에서 만든 컨테이너 그룹은 외부에서 수정 되 고 잘못 된 컨테이너가 추가 되었습니다. |
+| DeploymentScriptContainerGroupInNonterminalState | 둘 이상의 배포 스크립트 리소스가 동일한 리소스 그룹에서 동일한 Azure container instance 이름을 사용 하 고 그 중 하나는 아직 실행을 완료 하지 않았습니다. |
+| DeploymentScriptStorageAccountInvalidKind | BlobBlobStorage 또는 BlobStorage 유형의 기존 저장소 계정은 파일 공유를 지원 하지 않으므로 사용할 수 없습니다. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | 기존 저장소 계정은 파일 공유를 지원 하지 않습니다. 지원 되는 저장소 계정 종류 목록은 [기존 저장소 계정 사용](#use-existing-storage-account)을 참조 하세요. |
+| DeploymentScriptStorageAccountNotFound | 저장소 계정이 존재 하지 않거나 외부 프로세스나 도구에 의해 삭제 되었습니다. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | 지정 된 저장소 계정에 서비스 끝점이 있습니다. 서비스 끝점이 포함 된 저장소 계정은 지원 되지 않습니다. |
+| DeploymentScriptStorageAccountInvalidAccessKey | 기존 저장소 계정에 지정 된 액세스 키가 잘못 되었습니다. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | 저장소 계정 키 형식이 잘못 되었습니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요. |
+| DeploymentScriptExceededMaxAllowedTime | 배포 스크립트 실행 시간이 배포 스크립트 리소스 정의에 지정 된 시간 제한 값을 초과 했습니다. |
+| DeploymentScriptInvalidOutputs | 배포 스크립트 출력이 유효한 JSON 개체가 아닙니다. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | 1 분 간격으로 10 번 시도 하면 사용자 할당 관리 id가 로그인 할 수 없습니다. |
+| DeploymentScriptContainerGroupNotFound | 배포 스크립트 서비스에서 만든 컨테이너 그룹은 외부 도구나 프로세스에 의해 삭제 되었습니다. |
+| DeploymentScriptDownloadFailure | 지원 스크립트를 다운로드 하지 못했습니다. [지원 스크립트 사용](#use-supporting-scripts)을 참조 하세요.|
+| DeploymentScriptError | 사용자 스크립트에서 오류가 발생 했습니다. |
+| DeploymentScriptBootstrapScriptExecutionFailed | 부트스트랩 스크립트에서 오류가 발생 했습니다. 부트스트랩 스크립트는 배포 스크립트 실행을 오케스트레이션 하는 시스템 스크립트입니다. |
+| DeploymentScriptExecutionFailed | 배포 스크립트를 실행 하는 동안 알 수 없는 오류가 발생 했습니다. |
+| DeploymentScriptContainerInstancesServiceUnavailable | Aci (Azure container instance)를 만들 때 ACI에서 서비스를 사용할 수 없음 오류가 발생 했습니다. |
+| DeploymentScriptContainerGroupInNonterminalState | ACI (Azure container instance)를 만들 때 다른 배포 스크립트는 동일한 범위 (동일한 구독, 리소스 그룹 이름 및 리소스 이름)에서 동일한 ACI 이름을 사용 합니다. |
+| DeploymentScriptContainerGroupNameInvalid | 지정 된 Azure container instance name (ACI)이 ACI 요구 사항을 충족 하지 않습니다. [Azure Container Instances 일반적인 문제 해결을](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment)참조 하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

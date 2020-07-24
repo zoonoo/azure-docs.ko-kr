@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516467"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116700"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -42,7 +42,7 @@ Azure Portal은 Azure Active Directory 클러스터에 대 한 로그인 자격 
 >클러스터에 대 한 권한 부여는 Kubernetes 및 구성 된 보안 모델을 통해 관리 됩니다. 이 기능에 액세스 하는 사용자는 실행과 비슷하게 Kubernetes 구성 (*kubeconfig*)을 다운로드할 수 있는 권한이 필요 `az aks get-credentials -n {your cluster name} -g {your resource group}` 합니다. 이 구성 파일에는 azure **Kubernetes Service 클러스터 사용자 역할**에 대 한 권한 부여 및 인증 토큰이 포함 되어 있으며, rbac 권한 부여를 사용 하도록 설정 하지 않은 azure rbac 사용 및 AKS 클러스터의 경우입니다. AKS가 AD (Azure Active Directory) SAML 기반 single sign-on을 사용 하도록 설정 된 경우 Azure AD 및 클라이언트 등록 세부 정보에 대 한 정보가 포함 되어 있습니다.
 
 >[!IMPORTANT]
->이 기능의 사용자는를 다운로드 하 고이 기능을 사용 하기 위해 클러스터에 대 한 [Azure Kubernetes 클러스터 사용자 역할이](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) 필요 합니다 `kubeconfig` . 사용자는이 기능을 활용 하기 위해 클러스터에 대 한 참가자 액세스 권한이 필요 **하지 않습니다** .
+>이 기능의 사용자는를 다운로드 하 고이 기능을 사용 하기 위해 클러스터에 대 한 [Azure Kubernetes 클러스터 사용자 역할이](../../role-based-access-control/built-in-roles.md) 필요 합니다 `kubeconfig` . 사용자는이 기능을 활용 하기 위해 클러스터에 대 한 참가자 액세스 권한이 필요 **하지 않습니다** .
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>RBAC 사용 클러스터에서 clusterMonitoringUser 사용
 

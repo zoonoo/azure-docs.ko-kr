@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/26/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 394af855b7968d38bf99afada246ae661dc0459a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5879d745de85fe702267dce109e26ebcb07195ce
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116272"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
@@ -46,8 +47,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Facebook 계정을 [id 공급자
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **Id 공급자**를 선택한 다음 **Facebook**을 선택 합니다.
-1. **이름**을 입력합니다. 예: *Facebook*.
-1. **Client ID**에 대해 이전에 만든 Facebook 애플리케이션의 앱 ID를 입력합니다.
-1. **클라이언트 암호**에는 기록한 앱 비밀을 입력합니다.
+1. **ID 공급자**를 선택한 다음, **Facebook**을 선택합니다.
+1. **이름**을 입력합니다. 예를 들어 *Facebook*입니다.
+1. **클라이언트 ID**에 대해 이전에 만든 Facebook 애플리케이션의 앱 ID를 입력합니다.
+1. **클라이언트 암호**에는 기록했던 앱 비밀을 입력합니다.
 1. **저장**을 선택합니다.

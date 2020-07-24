@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 338fdcb6ee2ebad98972bead7e16c9bc5944f2b3
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333517"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117057"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -37,8 +37,9 @@ ms.locfileid: "80333517"
 |*.ods.opinsights.azure.com |포트 443 |아웃바운드|예 |  
 |*.oms.opinsights.azure.com |포트 443 |아웃바운드|예 |  
 |\*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
+|*. agentsvc.azure-automation.net |포트 443 |아웃바운드|예 |  
 
-Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)를 참조하세요. Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook이나 관리 솔루션을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
+Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs)를 참조하세요. Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook이나 관리 솔루션을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
 
 에이전트가 Azure Monitor와 성공적으로 통신 하 고 있는지 확인할 수 있는 몇 가지 방법이 있습니다.
 
@@ -103,4 +104,3 @@ Heartbeat
     |8000 |HealthService |이 이벤트는 성능, 이벤트 또는 수집 된 다른 데이터 형식과 관련 된 워크플로가 작업 영역에 수집 하기 위해 서비스로 전달할 수 없는 경우를 지정 합니다. | 원본 Health service의 이벤트 ID 2136는이 이벤트와 함께 기록 되며, 에이전트에서 서비스와 통신할 수 없음을 나타낼 수 있습니다. 프록시 및 인증 설정의 잘못 된 구성, 네트워크 중단 또는 네트워크 방화벽/프록시가 컴퓨터에서 서비스로의 TCP 트래픽을 허용 하지 않을 수 있습니다.| 
     |10102 및 10103 |상태 관리 서비스 모듈 |워크플로에서 데이터 원본을 확인할 수 없습니다. |지정 된 성능 카운터 또는 인스턴스가 컴퓨터에 없거나 작업 영역 데이터 설정에 잘못 정의 된 경우이 문제가 발생할 수 있습니다. 사용자 지정 [성능 카운터](data-sources-performance-counters.md#configuring-performance-counters)인 경우 지정 된 정보가 올바른 형식을 사용 하 고 대상 컴퓨터에 존재 하는지 확인 합니다. |
     |26002 |상태 관리 서비스 모듈 |워크플로에서 데이터 원본을 확인할 수 없습니다. |이 문제는 지정 된 Windows 이벤트 로그가 컴퓨터에 없는 경우에 발생할 수 있습니다. 컴퓨터에이 이벤트 로그가 등록 되지 않은 경우이 오류를 안전 하 게 무시할 수 있습니다. 그렇지 않으면 사용자가 지정한 [이벤트 로그](data-sources-windows-events.md#configuring-windows-event-logs)이면 지정 된 정보가 올바른지 확인 하십시오. |
-

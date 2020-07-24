@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/25/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c89ed98d8100df270f09f1d2d1b621e71e326fe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9b493e862ed70bbeab9ac509c79003a535366d0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386303"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116542"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 새로운 앱 등록 환경
 
@@ -62,7 +63,7 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 > [!NOTE]
 > 이 옵션은 Azure AD B2C 사용자 흐름을 실행 하 여이 응용 프로그램에 대 한 사용자를 인증 하는 데 필요 합니다. [사용자 흐름에 사용할 응용 프로그램을 등록 하는 방법](tutorial-register-applications.md) 에 대해 알아봅니다.
 
-이 옵션을 사용 하 여 Azure AD B2C를 SAML 서비스 공급자로 사용할 수도 있습니다. [자세히 알아보기](identity-provider-adfs2016-custom.md).
+이 옵션을 사용 하 여 Azure AD B2C를 SAML 서비스 공급자로 사용할 수도 있습니다. [자세한 정보를 알아보세요](identity-provider-adfs2016-custom.md).
 
 ## <a name="applications-for-devops-scenarios"></a>DevOps 시나리오용 응용 프로그램
 다른 계정 유형을 사용 하 여 Id 경험 프레임 워크 정책을 업로드 하거나 사용자를 프로 비전 하는 Microsoft Graph 같은 DevOps 시나리오를 관리 하는 앱을 만들 수 있습니다. [Microsoft Graph 응용 프로그램을 등록 하 여 Azure AD B2C 리소스를 관리 하는 방법을](microsoft-graph-get-started.md)알아봅니다.

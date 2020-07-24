@@ -11,11 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dac1d66242dc88c1b2d96c7af1930e36f225ff4e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040506"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116225"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -102,6 +103,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 ROPC(리소스 소유자 암호 �
         <Item Key="response_types">id_token</Item>
         <Item Key="response_mode">query</Item>
         <Item Key="scope">email openid</Item>
+        <Item Key="grant_type">password</Item>
       </Metadata>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="logonIdentifier" PartnerClaimType="username" Required="true" DefaultValue="{OIDC:Username}"/>

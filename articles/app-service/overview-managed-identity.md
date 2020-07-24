@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985755"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116918"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -84,7 +84,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 
 #### <a name="using-azure-powershell-for-a-web-app"></a>웹 앱에 대 한 Azure PowerShell 사용
 
-1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
+1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
 
 2. Azure PowerShell을 사용하여 웹앱을 만듭니다. App Service에서 Azure PowerShell을 사용하는 방법에 대한 예제는 [App Service PowerShell 샘플](../app-service/samples-powershell.md)을 참조하세요.
 
@@ -107,7 +107,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 
 #### <a name="using-azure-powershell-for-a-function-app"></a>함수 앱에 대 한 Azure PowerShell 사용
 
-1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
+1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
 
 2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제를 보려면 [Az. 함수 참조](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
@@ -208,7 +208,7 @@ tenantId 속성은 ID가 속한 Azure AD 테넌트를 식별합니다. principal
 > [!NOTE]
 > Azure App Service Azure PowerShell commandlet의 현재 버전은 사용자 할당 id를 지원 하지 않습니다. 아래 지침은 Azure Functions에 대 한 것입니다.
 
-1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
+1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
 
 2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제는 [Az. 함수 참조](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions)를 참조 하세요. 또한 아래 스크립트는 `New-AzUserAssignedIdentity` [Azure PowerShell 사용 하 여 사용자 할당 관리 Id를 만들기, 나열 또는 삭제 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)으로 별도로 설치 해야 하는를 사용 합니다.
 
@@ -431,7 +431,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="using-the-microsoftazureservicesappauthentication-library-for-net"></a><a name="asal"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리 사용
 
-.NET 애플리케이션 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](/cli/azure) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+.NET 애플리케이션 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](/cli/azure) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 클라우드에서 호스트 되는 경우 기본적으로 시스템 할당 id를 사용 하지만 사용자 할당 id의 클라이언트 ID를 참조 하는 연결 문자열 환경 변수를 사용 하 여이 동작을 사용자 지정할 수 있습니다. 이 라이브러리를 사용 하는 개발 옵션에 대 한 자세한 내용은 [Microsoft. Azure]. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
 1. [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 기타 필요한 NuGet 패키지에 대한 참조를 애플리케이션에 추가합니다. 아래 예제에서는 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)도 사용합니다.
 
@@ -447,7 +447,17 @@ $accessToken = $tokenResponse.access_token
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조] 및 [MSI .NET이 포함된 App Service 및 KeyVault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)를 참조하세요.
+사용자 할당 관리 id를 사용 하려는 경우 `AzureServicesAuthConnectionString` 응용 프로그램 설정을로 설정할 수 있습니다 `RunAs=App;AppId=<clientId-guid>` . 을 `<clientId-guid>` 사용 하려는 id의 클라이언트 id로 바꿉니다. 사용자 지정 응용 프로그램 설정을 사용 하 고 해당 값을 AzureServiceTokenProvider 생성자에 전달 하 여 이러한 연결 문자열을 여러 개 정의할 수 있습니다.
+
+```csharp
+    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
+    
+    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
+```
+
+AzureServiceTokenProvider 및 노출 되는 작업을 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure. 인증 참조] 및 [MSI .net 샘플을 사용 하는 App Service 및 keyvault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)를 참조 하세요.
 
 ### <a name="using-the-azure-sdk-for-java"></a>Java용 Azure SDK 사용
 

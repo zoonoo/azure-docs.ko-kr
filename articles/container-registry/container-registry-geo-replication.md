@@ -3,14 +3,14 @@ title: 레지스트리 지역 복제
 description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다. 지역에서 복제는 프리미엄 서비스 계층의 기능입니다.
 author: stevelas
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116789"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -95,7 +95,7 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 * 지역 복제된 레지스트리에서 이미지를 푸시 또는 풀하면 백그라운드의 Azure Traffic Manager는 네트워크 지연 시간 측면에서 가장 가까운 지역에 있는 레지스트리로 요청을 보냅니다.
 * 가장 가까운 Azure 지역에 이미지 또는 태그 업데이트를 푸시한 후 Azure Container Registry가 매니페스트 및 레이어를 사용자가 옵트인한 나머지 Azure 지역에 복제할 때까지 어느 정도 시간이 걸립니다. 큰 이미지는 작은 이미지보다 복제 시간이 오래 걸립니다. 이미지 및 태그는 최종 일관성 모델을 사용하여 복제 지역에서 동기화됩니다.
 * 지역 복제 레지스트리에 푸시 업데이트를 사용하는 워크플로를 관리하려면 푸시 이벤트에 응답하는 [webhook](container-registry-webhook.md)를 구성하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
-* 콘텐츠 계층을 나타내는 blob을 제공 하기 위해 Azure Container Registry는 데이터 끝점을 사용 합니다. 각 레지스트리의 지역 복제된 지역에서 레지스트리에 대해 [전용 데이터 엔드포인트](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)를 사용하도록 설정할 수 있습니다. 이러한 엔드포인트를 사용하면 엄격하게 범위가 지정된 방화벽 액세스 규칙을 구성할 수 있습니다.
+* 콘텐츠 계층을 나타내는 blob을 제공 하기 위해 Azure Container Registry는 데이터 끝점을 사용 합니다. 각 레지스트리의 지역 복제된 지역에서 레지스트리에 대해 [전용 데이터 엔드포인트](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)를 사용하도록 설정할 수 있습니다. 이러한 엔드포인트를 사용하면 엄격하게 범위가 지정된 방화벽 액세스 규칙을 구성할 수 있습니다. 문제 해결을 위해 필요에 따라 복제 된 데이터를 유지 하는 동안 [복제에 대 한 라우팅을 사용 하지 않도록 설정할](#temporarily-disable-routing-to-replication) 수 있습니다.
 * 가상 네트워크의 프라이빗 엔드포인트를 사용하여 레지스트리에 [프라이빗 링크](container-registry-private-link.md)를 구성하는 경우 각 지역 복제된 지역에서 전용 데이터 엔드포인트가 기본적으로 사용되도록 설정됩니다. 
 
 ## <a name="delete-a-replica"></a>복제본 삭제
@@ -127,9 +127,36 @@ az acr replication delete --name eastus --registry myregistry
 
 이미지를 푸시할 때 가장 가까운 복제본에 대한 DNS 확인을 최적화하려면 Azure 외부에서 작업할 때 푸시 작업의 원본과 동일한 Azure 지역 또는 가장 가까운 지역의 지역 복제 레지스트리를 구성합니다.
 
+### <a name="temporarily-disable-routing-to-replication"></a>일시적으로 복제에 대 한 라우팅을 사용 하지 않도록 설정
+
+지역에서 복제 된 레지스트리를 사용 하 여 작업 문제를 해결 하려면 하나 이상의 복제에 대 한 Traffic Manager 라우팅을 일시적으로 사용 하지 않도록 설정 하는 것이 좋습니다. Azure CLI 버전 2.8부터 `--region-endpoint-enabled` 복제 된 지역을 만들거나 업데이트할 때 옵션 (미리 보기)을 구성할 수 있습니다. 복제의 옵션을로 설정 하는 경우에 `--region-endpoint-enabled` `false` 는 더 이상 docker 밀어넣기 또는 끌어오기 요청을 해당 지역으로 라우트 하지 Traffic Manager. 기본적으로 모든 복제에 대 한 라우팅은 사용 하도록 설정 되며, 모든 복제에 대 한 데이터 동기화는 라우팅이 사용 되는지 여부에 관계 없이 수행 됩니다.
+
+기존 복제에 대 한 라우팅을 사용 하지 않도록 설정 하려면 먼저 [az acr replication list][az-acr-replication-list] 를 실행 하 여 레지스트리의 복제를 나열 합니다. 그런 다음 [az acr replication update][az-acr-replication-update] 를 실행 하 고 `--region-endpoint-enabled false` 특정 복제에 대해를 설정 합니다. 예를 들어 *myregistry*의 *westus* 복제에 대 한 설정을 구성 하려면 다음을 수행 합니다.
+
+```azurecli
+# Show names of existing replications
+az acr replication list --registry --output table
+
+# Disable routing to replication
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled false
+```
+
+복제에 대 한 라우팅을 복원 하려면:
+
+```azurecli
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled true
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 총 3부로 구성된 자습서 시리즈 [Azure Container Registry의 지리적 복제](container-registry-tutorial-prepare-registry.md)를 확인하세요. 직접 지리적 복제된 레지스트리를 만들어 보고, 컨테이너를 빌드하고, `docker push` 명령 하나로 여러 지역별 Web Apps for Containers 인스턴스로 배포해 볼 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry의 지리적 복제](container-registry-tutorial-prepare-registry.md)
+
+[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
+[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
