@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bdb0ae813600f53df44ee1a61a4cbbb56bb0bfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77660260"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067498"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Azure Monitor의 간단한 로그 환경 (미리 보기)
 Azure Monitor KQL 언어를 사용 하 여 [로그 쿼리](log-query-overview.md) 를 만들기 위한 [다양 한 환경을](get-started-portal.md) 제공 합니다. KQL의 전체 성능이 필요 하지 않을 수 있으며 기본 쿼리 요구 사항에 대 한 간단한 환경을 선호 합니다. 간단한 로그 환경에서는 KQL와 직접 상호 작용 하지 않고도 기본 쿼리를 만들 수 있습니다. 보다 정교한 쿼리가 필요 하므로 간단한 로그를 KQL에 대 한 학습 도구로 사용할 수도 있습니다.
@@ -19,11 +20,11 @@ Azure Monitor KQL 언어를 사용 하 여 [로그 쿼리](log-query-overview.md
 > 단순 로그는 현재 Cosmos DB 및 키 자격 증명 모음에 대 한 테스트로만 구현 됩니다. [사용자](https://feedback.azure.com/forums/913690-azure-monitor) 의견을 통해 Microsoft와 경험을 공유 하 여이 기능을 확장 하 고 릴리스할 지 여부를 확인 하는 데 도움을 주세요.
 
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>범위
 단순 로그 환경은 선택한 리소스의 *Azurediagnostics*, *Azurediagnostics*및 *azurediagnostics* 테이블에서 데이터를 검색 합니다. 
 
 ## <a name="using-simple-logs"></a>단순 로그 사용
-[Log Analytics 작업 영역에서 로그를 수집 하도록 구성 된 진단 설정을](../platform/resource-logs-collect-storage.md)사용 하 여 Azure 구독에서 Cosmos DB 또는 Key Vault로 이동 합니다. **모니터링** 메뉴에서 **로그** 를 클릭 하 여 단순 로그 환경을 엽니다.
+[Log Analytics 작업 영역에서 로그를 수집 하도록 구성 된 진단 설정을](../platform/resource-logs.md#send-to-azure-storage)사용 하 여 Azure 구독에서 Cosmos DB 또는 Key Vault로 이동 합니다. **모니터링** 메뉴에서 **로그** 를 클릭 하 여 단순 로그 환경을 엽니다.
 
 ![메뉴](media/simple-logs/menu.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067568"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor 맵 기능과 System Center Operations Manager 통합
 
@@ -138,9 +138,9 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 서비스 주체 만들기에 대한 공식적인 Azure 설명서를 보려면 다음을 참조하세요.
 
-* [PowerShell을 사용하여 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Azure CLI를 사용하여 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Azure Portal을 사용하여 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [PowerShell을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Azure CLI를 사용하여 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>제안
 

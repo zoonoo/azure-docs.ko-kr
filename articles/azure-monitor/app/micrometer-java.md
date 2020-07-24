@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da75498d6e4616b287ddb11c69df2469baaf2655
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067641"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코드의 메트릭을 측정하며, 자주 사용하는 모니터링 시스템으로 데이터를 내보낼 수 있습니다. 이 문서에서는 Spring Boot 및 Spring Boot 이외 애플리케이션 모두에 대해 Application Insights에 Micrometer를 사용하는 방법을 안내합니다.
@@ -270,4 +271,4 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * 마이크로 측정기에 대해 자세히 알아보려면 공식 [마이크로 측정기 설명서](https://micrometer.io/docs)를 참조 하세요.
-* Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)를 참조 하세요.
+* Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](/java/azure/spring-framework/?view=azure-java-stable)를 참조 하세요.

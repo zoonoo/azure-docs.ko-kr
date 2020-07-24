@@ -9,21 +9,21 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067416"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에는 현재 공개 미리 보기로 제공 되는 Azure SQL Database 및 Azure SQL Managed Instance 기능이 나열 되어 있습니다. SQL Database 및 SQL Managed Instance 업데이트 및 개선 사항에 대해서는 [SQL Database & sql Managed Instance 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)를 참조 하세요. 다른 Azure 서비스에 대한 개선 사항 및 업데이트는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="whats-new"></a>새로운 기능
+## <a name="whats-new"></a>새로운 기능은 무엇입니까?
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 설명서는 개별 섹션으로 분할 되었습니다. 또한 관리 되는 인스턴스를 *Azure SQL Database 관리* 되는 인스턴스에서 *Azure SQL Managed Instance*로 참조 하는 방법도 업데이트 했습니다.
 
@@ -42,7 +42,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |**Azure SQL Database**|*단일 데이터베이스* Azure SQL Database| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다. |
 |**Azure SQL Database**|Azure SQL Database *탄력적 풀*| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다.  |
 |**Azure SQL Database** |Azure SQL Database | 용어는 동일 하 게 유지 되지만 이제는 단일 데이터베이스 및 탄력적 풀 배포에만 적용 되며 관리 되는 인스턴스는 포함 하지 않습니다. |
-| **Azure SQL**| 해당 없음 | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
+| **Azure SQL**| N/A | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
 
 ## <a name="features-in-public-preview"></a>공개 미리 보기의 기능
 
@@ -50,7 +50,6 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 | 기능 | 세부 정보 |
 | ---| --- |
-| 새로운 Fsv2 시리즈 및 M 시리즈 하드웨어 세대| 자세한 내용은 [하드웨어 세대](service-tiers-vcore.md#hardware-generations)를 참조하세요.|
 | 단일 데이터베이스와 탄력적 풀을 통한 데이터베이스 복구 가속화 | 자세한 내용은 [데이터베이스 복구 가속화](../accelerated-database-recovery.md)를 참조하세요.|
 | 데이터 검색 및 분류  |자세한 내용은 [Azure SQL Database 및 Azure Synapse Analytics 데이터 검색 & 분류](data-discovery-and-classification-overview.md)를 참조 하세요.|
 | 탄력적 데이터베이스 작업 | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
@@ -68,7 +67,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 | <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
 | <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 보안 주체(로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 인스턴스 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) | 테이블의 변경 내용을 SQL Managed Instance, SQL Database 또는 SQL Server의 다른 데이터베이스로 복제 합니다. 또는 SQL Managed Instance 또는 SQL Server의 다른 인스턴스에서 일부 행이 변경 될 때 테이블을 업데이트 합니다. 자세한 내용은 [AZURE SQL Managed Instance에서 복제 구성](../managed-instance/replication-between-two-instances-configure-tutorial.md)을 참조 하세요. |
-| 위협 감지 |자세한 내용은 [AZURE SQL Managed Instance에서 위협 감지 구성](../managed-instance/threat-detection-configure.md)을 참조 하세요.|
+| 위협 탐지 |자세한 내용은 [AZURE SQL Managed Instance에서 위협 감지 구성](../managed-instance/threat-detection-configure.md)을 참조 하세요.|
 | 장기 백업 보존 | 자세한 내용은 현재 제한 된 공개 미리 보기로 제공 되는 [AZURE SQL Managed Instance에서 장기 백업 보존 구성](../managed-instance/long-term-backup-retention-configure.md)을 참조 하세요. | 
 
 ---
@@ -98,8 +97,8 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
-|[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결 방법 있음| |
-|[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|자동으로 완화됨| |
+|[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
+|[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
 |[리소스 그룹에 대 한 사용 권한이 SQL Managed Instance에 적용 되지 않음](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020년 2월|해결 방법 있음||
 |[장애 조치(failover) 그룹용 포털을 통한 수동 장애 조치(failover)의 제한 사항](#limitation-of-manual-failover-via-portal-for-failover-groups)|2020년 1월|해결 방법 있음||
 |[SQL 에이전트 역할에는 non-sysadmin 로그인에 대한 명시적 EXECUTE 권한 필요](#in-memory-oltp-memory-limits-are-not-applied)|2019년 12월|해결 방법 있음||

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864252"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067479"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -156,7 +157,7 @@ Heartbeat
 > 이 지표는 즉각적인 클러스터의 CPU만 제공 합니다. 다중 지역 쿼리에서는 지역 중 하나만 표시 합니다. 다중 작업 영역 쿼리에서는 일부 작업 영역을 포함 하지 않을 수 있습니다.
 
 ### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>문자열 구문 분석이 작동할 때 전체 XML 및 JSON 구문 분석 방지
-XML 또는 JSON 개체의 전체 구문 분석에는 높은 CPU 및 메모리 리소스가 사용 될 수 있습니다. 대부분의 경우에는 매개 변수를 한 개 또는 두 개만 사용 하 고 XML 또는 JSON 개체를 간단 하 게 사용 하는 경우 [구문 분석 연산자나](/azure/kusto/query/parseoperator) 기타 [텍스트 구문 분석 기법](/azure/azure-monitor/log-query/parse-text)을 사용 하 여 문자열로 구문 분석 하는 것이 더 쉽습니다. XML 또는 JSON 개체의 레코드 수가 증가할수록 성능 향상이 더 중요 합니다. 레코드 수가 수십 억 개에 도달 하는 경우 반드시 필요 합니다.
+XML 또는 JSON 개체의 전체 구문 분석에는 높은 CPU 및 메모리 리소스가 사용 될 수 있습니다. 대부분의 경우에는 매개 변수를 한 개 또는 두 개만 사용 하 고 XML 또는 JSON 개체를 간단 하 게 사용 하는 경우 [구문 분석 연산자나](/azure/kusto/query/parseoperator) 기타 [텍스트 구문 분석 기법](./parse-text.md)을 사용 하 여 문자열로 구문 분석 하는 것이 더 쉽습니다. XML 또는 JSON 개체의 레코드 수가 증가할수록 성능 향상이 더 중요 합니다. 레코드 수가 수십 억 개에 도달 하는 경우 반드시 필요 합니다.
 
 예를 들어 다음 쿼리는 전체 XML 구문 분석을 수행 하지 않고 위의 쿼리와 정확히 동일한 결과를 반환 합니다. 이 파일은 FileHash 뒤에 오는 파일 경로와 같은 XML 파일 구조에 대해 몇 가지 가정을 하 고 특성을 포함 하지 않습니다. 
 
@@ -219,6 +220,64 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
+### <a name="avoid-multiple-scans-of-same-source-data-using-conditional-aggregation-functions-and-materialize-function"></a>조건부 집계 함수 및 구체화 함수를 사용 하 여 동일한 원본 데이터의 여러 검색 방지
+쿼리에 join 또는 union 연산자를 사용 하 여 병합 된 하위 쿼리가 여러 개 있는 경우 각 하위 쿼리는 전체 원본을 개별적으로 검색 한 다음 결과를 병합 합니다. 매우 큰 데이터 집합에서 데이터를 검사 하는 데 중요 한 요소 수를 곱한 값입니다.
+
+이를 방지 하는 방법은 조건부 집계 함수를 사용 하는 것입니다. 요약 연산자에 사용 되는 대부분의 [집계 함수](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) 에는 여러 조건에서 단일 요약 연산자를 사용할 수 있도록 하는 조건 화 된 버전이 있습니다. 
+
+예를 들어 다음 쿼리는 로그인 이벤트의 수와 각 계정에 대 한 프로세스 실행 이벤트의 수를 보여 줍니다. 동일한 결과를 반환 하지만 첫 번째는 데이터를 두 번 검색 하 고 두 번째는 한 번만 검색 하는 것입니다.
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+하위 쿼리를 불필요 하 게 사용 하는 또 다른 경우는 특정 패턴과 일치 하는 레코드만 처리 되도록 [구문 분석 연산자](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) 를 미리 필터링 합니다. 이는 구문 분석 연산자와 기타 유사한 연산자가 패턴이 일치 하지 않는 경우 빈 결과를 반환 하기 때문에 필요 하지 않습니다. 다음은 두 번째 쿼리가 데이터를 한 번만 검색 하는 동안 정확히 동일한 결과를 반환 하는 두 개의 쿼리입니다. 두 번째 쿼리에서는 각 구문 분석 명령만 해당 이벤트와 관련이 있습니다. 확장 연산자는 이후에 빈 데이터 상황을 참조 하는 방법을 보여 줍니다.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+위에서 하위 쿼리를 사용 하지 않도록 하는 것이 허용 되지 않는 경우 다른 방법은 [구체화 () 함수](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor)를 사용 하 여 각각의 원본 데이터를 사용 하는 쿼리 엔진에 대 한 힌트입니다. 이는 쿼리 내에서 여러 번 사용 되는 함수에서 원본 데이터를 가져오는 경우에 유용 합니다.
+
+
+
 ### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>검색 되는 열 수 줄이기
 
 Azure 데이터 탐색기은 칼럼 형식 데이터 저장소 이므로 모든 열을 검색 하는 것은 다른 열과는 별개입니다. 검색 되는 열 수는 전체 데이터 볼륨에 직접 영향을 미칩니다. 결과를 [요약](/azure/kusto/query/summarizeoperator) 하거나 특정 열을 [프로젝션](/azure/kusto/query/projectoperator) 하는 데 필요한 출력에만 열을 포함 해야 합니다. Azure 데이터 탐색기에는 검색 된 열 수를 줄이기 위한 여러 최적화 기능이 있습니다. 열이 필요 하지 않은 것으로 확인 된 경우 (예: [요약](/azure/kusto/query/summarizeoperator) 명령에서 참조 하지 않는 경우) 검색 하지 않습니다.
@@ -260,7 +319,7 @@ Perf
 ) on Computer
 ```
 
-이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들어:
+이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들면 다음과 같습니다.
 
 ```Kusto
 Perf

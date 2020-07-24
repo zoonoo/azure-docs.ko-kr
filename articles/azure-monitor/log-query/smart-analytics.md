@@ -6,16 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
-ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82960845e357579b82c493958287cb602d75182e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659835"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067393"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics 스마트 분석 예제
 이 문서에는 Log Analytics의 스마트 분석 기능을 사용하여 사용자 활동을 분석하는 예제가 포함되어 있습니다. 이 예제를 사용하여 Application Insights에서 모니터링되는 사용자 고유의 애플리케이션을 분석하거나, 다른 데이터에 대한 유사한 분석을 위해 이러한 쿼리의 개념을 사용할 수 있습니다. 
 
-이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](https://docs.microsoft.com/azure/kusto/query/)를 참조하세요. Log Analytics를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
+이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](/azure/kusto/query/)를 참조하세요. Log Analytics를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
 
 ## <a name="cohorts-analytics"></a>코호트 분석
 

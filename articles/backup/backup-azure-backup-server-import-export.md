@@ -3,12 +3,12 @@ title: DPM 및 Azure Backup Server를 위한 오프라인 백업
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로를 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067341"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (MABS)
 
@@ -49,7 +49,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
 * DPM 또는 MABS 서버에서 Microsoft Edge 또는 Internet Explorer 11이 설치 되어 있고 JavaScript가 사용 하도록 설정 되어 있는지 확인 합니다.
 * Recovery Services 자격 증명 모음과 동일한 구독에서 Azure Storage 계정을 만듭니다.
-* Azure Active Directory 애플리케이션을 만드는 데 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 애플리케이션을 만듭니다. 애플리케이션의 목표는 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대한 보안 및 범위 액세스를 Azure Backup에 제공하는 것입니다.
+* Azure Active Directory 애플리케이션을 만드는 데 [필요한 권한](../active-directory/develop/howto-create-service-principal-portal.md)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 애플리케이션을 만듭니다. 애플리케이션의 목표는 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대한 보안 및 범위 액세스를 Azure Backup에 제공하는 것입니다.
 * Azure Storage 계정이 포함된 구독에 Microsoft.ImportExport 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 다음 단계를 따릅니다.
     1. 주 메뉴에서 **구독**을 클릭합니다.
     2. 여러 구독을 구독 하는 경우 오프 라인 백업에 사용 중인 구독을 선택 합니다. 구독을 하나만 사용하는 경우 해당 구독이 표시됩니다.
@@ -64,7 +64,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
 ## <a name="workflow"></a>워크플로
 
-이 섹션의 정보는 오프라인 백업 워크플로를 완료하여 데이터를 Azure 데이터 센터로 제공하고 Azure Storage에 업로드할 수 있는 데 도움이 됩니다. Import 서비스 또는 이 프로세스의 특정 요소에 대해 궁금한 점이 있으면 앞서 나온 [Import 서비스 개요](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) 설명서를 참조하세요.
+이 섹션의 정보는 오프라인 백업 워크플로를 완료하여 데이터를 Azure 데이터 센터로 제공하고 Azure Storage에 업로드할 수 있는 데 도움이 됩니다. Import 서비스 또는 이 프로세스의 특정 요소에 대해 궁금한 점이 있으면 앞서 나온 [Import 서비스 개요](../storage/common/storage-import-export-service.md) 설명서를 참조하세요.
 
 ## <a name="initiate-offline-backup"></a>오프라인 백업 시작
 
@@ -188,7 +188,7 @@ Azure 가져오기 작업을 처리 하는 데 걸리는 시간은 다양 합니
 
 ### <a name="monitor-azure-import-job-status"></a>Azure 가져오기 작업 상태 모니터링
 
-**Import/Export 작업** 페이지로 이동하고 작업을 선택하여 Azure Portal에서 Import 작업의 상태를 모니터링할 수 있습니다. Import 작업의 상태에 대한 자세한 내용은 [Storage Import/Export 서비스](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) 문서를 참조하세요.
+**Import/Export 작업** 페이지로 이동하고 작업을 선택하여 Azure Portal에서 Import 작업의 상태를 모니터링할 수 있습니다. Import 작업의 상태에 대한 자세한 내용은 [Storage Import/Export 서비스](../storage/common/storage-import-export-service.md) 문서를 참조하세요.
 
 ### <a name="complete-the-workflow"></a>워크플로 완료
 

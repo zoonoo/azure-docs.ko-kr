@@ -3,12 +3,12 @@ title: Windows Server에 시스템 상태 복원
 description: Azure의 백업에서 Windows Server 시스템 상태를 복원 하는 방법에 대 한 단계별 설명입니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8ba4cb5d5617b6a051aec8c54a595e701f62fb87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067358"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -183,7 +183,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
         >[!NOTE]
         >모든 Active Directory 데이터를 복원 하는 경우 (포리스트에 남아 있는 작동 중인 도메인 컨트롤러가 없는 경우) 위의 9 단계에서 **Active Directory 파일의 신뢰할 수 있는 복원 수행**을 선택 해야 합니다.
 
-    * [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) 유틸리티를 사용 하 여 명령줄에서 복원을 수행 합니다.
+    * [Wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) 유틸리티를 사용 하 여 명령줄에서 복원을 수행 합니다.
 
         사용할 백업의 버전 식별자가 필요 합니다. 다음 명령을 실행 하 여 버전 식별자 목록을 가져올 수 있습니다.
 
@@ -193,7 +193,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
         그런 다음 해당 버전 식별자를 사용 하 여 복원을 실행 합니다.
 
-        예를 들어의 공유 리소스에 저장 된 04/30/2020에서 9:00의 백업을 사용 하 여 [AD DS 및 sysvol 폴더의 정식 복원을](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) 수행 하려면 `\\servername\share` `server01` 다음을 입력 합니다.
+        예를 들어의 공유 리소스에 저장 된 04/30/2020에서 9:00의 백업을 사용 하 여 [AD DS 및 sysvol 폴더의 정식 복원을](/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) 수행 하려면 `\\servername\share` `server01` 다음을 입력 합니다.
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103911"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067709"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -142,6 +142,9 @@ Azcmagent 도구(Azcmagent.exe)는 설치 도중 서버용 Azure Arc(미리 보�
 * **-v 또는 --verbose** - 자세한 정보 로깅을 사용합니다.
 
 대화형으로 로그온하는 동안 수동으로 **Connect**, **Disconnect** 및 **Reconnect**를 수행하거나 여러 에이전트를 온보딩할 때 사용한 동일한 서비스 주체를 사용하거나 Microsoft ID 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용하여 자동화합니다. 서비스 주체를 사용하여 서버용 Azure Arc(미리 보기)에 머신을 등록하지 않은 경우 서비스 주체를 만들려면 다음 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)를 참조하세요.
+
+>[!NOTE]
+>**Azcmagent**를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
 
 ### <a name="connect"></a>연결
 
