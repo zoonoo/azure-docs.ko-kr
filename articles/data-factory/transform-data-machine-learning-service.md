@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
 manager: anandsub
-ms.date: 10/10/2019
-ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 83a7f072af64b0fe8f7f3d7c982cf3466288f63e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81419003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007200"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Azure Data Factory에서 Azure Machine Learning 파이프라인 실행
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory 파이프라인의 단계로 Azure Machine Learning 파이프라인을 실행 합니다. Machine Learning 파이프라인 실행 작업을 사용 하면 가능한 대출 기본값 식별, 감정 확인 및 고객 동작 패턴 분석과 같은 일괄 처리 예측 시나리오를 사용할 수 있습니다.
 

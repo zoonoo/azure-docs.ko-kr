@@ -5,12 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: 8706ae12d45b9c6667ae99078d479f0e907840fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007558"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Azure Logic Apps 되풀이 트리거를 사용 하 여 되풀이 작업 및 워크플로를 만들고 예약 하 고 실행 합니다.
 
@@ -33,7 +34,7 @@ ms.locfileid: "85322573"
 > [!TIP]
 > 논리 앱을 트리거하고 나중에 한 번만 실행 하려는 경우 [한 번만 실행 작업](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -77,7 +78,7 @@ ms.locfileid: "85322573"
    | **시작 시간** | `startTime` | 예 | String | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2020 년 9 월 18 일을 원하는 경우 "2020-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 "2020-09-18T14:00:00Z"를 지정 합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **요일 선택** | `weekDays` | 아니요 | 문자열 또는 문자열 배열 | “주”를 선택하는 경우 워크플로를 실행하려는 요일을 하나 이상 선택할 수 있습니다.**월요일**, **화요일**, **수요일**, **목요일**, **금요일**, **토요일** 및 **일요일** |
    | **시간 선택** | `hours` | 아니요 | 정수 또는 정수 배열 | "일" 또는 "주"를 선택 하는 경우 워크플로를 실행 하려는 시간에 대해 0에서 23 사이의 정수를 하나 이상 선택할 수 있습니다. <p><p>예를 들어 "10", "12" 및 "14"를 지정 하면 하루 중 오전 10 시, 오후 12 시 및 오후 2 시가 되 고, 하루 중 분은 되풀이 시작 시간을 기준으로 계산 됩니다. 특정 시간 (분)을 설정 하려면 (예: 오전 10:00, 12:00 PM 및 2:00 PM **) 해당 분** 속성을 사용 하 여 해당 값을 지정 합니다. |
-   | **분 선택** | `minutes` | 아니요 | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. |
+   | **분 선택** | `minutes` | 아니요 | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. <p>**참고**: 경우에 따라 트리거된 실행에 대 한 타임 스탬프는 예약 된 시간에서 최대 1 분까지 달라질 수 있습니다. 후속 작업에 예약 된 대로 타임 스탬프를 전달 해야 하는 경우 템플릿 식을 사용 하 여 타임 스탬프를 적절 하 게 변경할 수 있습니다. 자세한 내용은 [식의 날짜 및 시간 함수](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions)를 참조 하세요. |
    |||||
 
    예를 들어 오늘은 2020 년 9 월 4 일 금요일 이라고 가정 합니다. 다음 되풀이 트리거는 시작 날짜 및 시간 보다 더 *일찍* 발생 하지 않습니다. 즉, 8:00 오전 9 시 2020 오전 9 시입니다. 반면 되풀이 일정이 월요일에 한해서만 10:30 AM, 12:30 PM 및 2:30 PM으로 설정되어 있습니다. 따라서 트리거를 처음 실행 하 고 논리 앱 워크플로 인스턴스를 만드는 경우 월요일 오전 10:30 시에 실행 됩니다. 시작 시간이 작동하는 방법에 대한 자세한 내용은 [시작 시간 예](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time)를 참조하세요.

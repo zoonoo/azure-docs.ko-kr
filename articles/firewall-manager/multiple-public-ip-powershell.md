@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 87af7f0f9b446fb3a54a600f61409c2cfc1a2494
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 652c7cbfbe63ef2ae9a0d54e05407152ea300f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007000"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>여러 공용 IP 주소를 사용 하 여 Azure 방화벽 배포
 
@@ -37,9 +37,9 @@ $fw = New-AzFirewall -Name <firewall name> -ResourceGroupName $rgName `
      -VirtualHubId $vHubId 
 ```
 
-### <a name="delete-a-public-ip-address"></a>공용 IP 주소 삭제
+### <a name="update-a-public-ip-address"></a>공용 IP 주소를 업데이트 합니다.
 
-Azure PowerShell를 사용 하 여 Azure 방화벽에서 공용 IP 주소를 삭제할 수 있습니다. 다음 예에서는 방화벽에서 하나의 공용 IP 주소를 삭제 합니다. 3 개의 공용 IP 주소로 시작 합니다.
+Azure PowerShell를 사용 하 여 Azure 방화벽에 대 한 공용 IP 주소를 업데이트할 수 있습니다. 다음 예에서는 방화벽에서 하나의 공용 IP 주소를 삭제 합니다. 3 개의 공용 IP 주소로 시작 합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <subscription ID>

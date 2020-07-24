@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f22b4bec17abe95be2a17d3e0e3c41fab3483fe0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224821"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007449"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure Data Factory 커넥터 개요
 
@@ -39,6 +39,7 @@ Azure Data Factory은 다음과 같은 파일 형식을 지원 합니다. 서식
 - [JSON 형식](format-json.md)
 - [ORC 형식](format-orc.md)
 - [Parquet 형식](format-parquet.md)
+- [XML 형식](format-xml.md)
 
 ## <a name="next-steps"></a>다음 단계
 

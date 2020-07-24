@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/27/2019
-ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/21/2020
+ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007744"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요-Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,13 +25,13 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용 하는 가상 코
 - 더 높은 계산, 메모리, i/o 및 저장소 제한
 - 워크 로드에 대 한 계산 및 메모리 요구 사항을 더 잘 맞추려면 하드웨어 생성을 제어 합니다.
 - [Azure 하이브리드 혜택 (AHB)](../azure-hybrid-benefit.md) 및 [예약 인스턴스 (RI)](reserved-capacity-overview.md)의 가격 할인.
-- 계산을 지 원하는 하드웨어 세부 정보의 투명도 향상 온-프레미스 배포에서의 마이그레이션 계획을 용이 하 게 합니다.
+- 계산을 지 원하는 하드웨어 세부 정보의 투명도를 향상 하 여 온-프레미스 배포에서의 마이그레이션 계획을 용이 하 게 합니다.
 
 ## <a name="service-tiers"></a>서비스 계층
 
 VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및 Hyperscale이 포함 됩니다. 서비스 계층은 일반적으로 가용성 및 재해 복구와 관련 된 저장소 아키텍처, 공간 및 i/o 제한 및 비즈니스 연속성 옵션을 정의 합니다.
 
-|-|**일반 용도**|**중요 비즈니스용**|**하이퍼스케일**|
+|-|**범용**|**중요 비즈니스용**|**하이퍼스케일**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 는 예산 지향적이 고 균형이 조정 되며 확장 가능한 계산 및 저장소 옵션을 제공 합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
 |스토리지|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**SQL Managed Instance**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
@@ -69,7 +69,7 @@ VCore 모델의 compute 계층 옵션에는 프로 비전 및 서버를 사용 �
 
 ## <a name="hardware-generations"></a>하드웨어 생성
 
-VCore 모델의 하드웨어 생성 옵션에는 Gen 4/5, M 시리즈 (미리 보기) 및 Fsv2 시리즈 (미리 보기)가 포함 됩니다. 하드웨어 생성은 일반적으로 계산 및 메모리 제한과 작업의 성능에 영향을 주는 기타 특성을 정의 합니다.
+VCore 모델의 하드웨어 생성 옵션에는 Gen 4/5, M 시리즈 및 Fsv2 시리즈가 포함 됩니다. 하드웨어 생성은 일반적으로 계산 및 메모리 제한과 작업의 성능에 영향을 주는 기타 특성을 정의 합니다.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -77,21 +77,21 @@ VCore 모델의 하드웨어 생성 옵션에는 Gen 4/5, M 시리즈 (미리 �
 
 Gen4/Gen5을 사용할 수 있는 지역의 경우 [Gen4/Gen5 availability](#gen4gen5-1)를 참조 하세요.
 
-### <a name="fsv2-seriespreview"></a>Fsv2 시리즈 (미리 보기)
+### <a name="fsv2-series"></a>Fsv2 시리즈
 
 - Fsv2 시리즈는 cpu 대기 시간이 낮고 CPU가 까다로운 워크 로드에 대해 높은 클록 속도를 제공 하는 계산에 최적화 된 하드웨어 옵션입니다.
 - 워크 로드에 따라 Fsv2 시리즈는 Gen5 보다 vCore 당 더 많은 CPU 성능을 제공할 수 있으며, 72 vCore 크기는 Gen5에서 80 Vcore 보다 적은 비용으로 더 많은 CPU 성능을 제공할 수 있습니다. 
 - Fsv2는 다른 하드웨어 보다 vCore의 메모리와 tempdb를 더 작게 제공 하므로 이러한 한도에 영향을 주는 워크 로드는 Gen5 또는 M 시리즈를 대신 고려 하는 것이 좋습니다.  
 
-Fsv2 시리즈는 일반적인 용도의 계층 에서만 지원 됩니다.  Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용성](#fsv2-series)을 참조 하세요.
+Fsv2 시리즈는 일반적인 용도의 계층 에서만 지원 됩니다. Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용성](#fsv2-series)을 참조 하세요.
 
 
-### <a name="m-seriespreview"></a>M 시리즈 (미리 보기)
+### <a name="m-series"></a>M 시리즈
 
 - M 시리즈는 Gen5에서 제공 하는 것 보다 더 많은 메모리를 필요로 하는 워크 로드에 대 한 메모리 액세스에 최적화 된 하드웨어 옵션입니다.
-- M 시리즈는 vCore 및 128 Vcore 당 30GB를 제공 하 여 Gen5 by 8x를 기준으로 약 4 TB까지 메모리 제한을 늘립니다.
+- M 시리즈는 vCore 당 30GB를 제공 하 고 최대 128 Vcore를 제공 하 여 Gen5 by 8x를 기준으로 약 4 TB까지 메모리 제한을 늘립니다.
 
-M 시리즈는 중요 비즈니스용 계층 에서만 지원 되며 영역 중복성은 지원 하지 않습니다.  구독은 종 량 제 또는 기업계약 (EA)를 포함 한 유료 제안 유형 이어야 합니다.  M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
+M 시리즈는 중요 비즈니스용 계층 에서만 지원 되며 영역 중복성은 지원 하지 않습니다.  구독은 종 량 제 또는 기업계약 (EA)를 포함 한 유료 제안 유형 이어야 합니다. M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -100,12 +100,12 @@ To enable M-series hardware for a subscription and region, a support request mus
 ### <a name="compute-and-memory-specifications"></a>계산 및 메모리 사양
 
 
-|하드웨어 세대  |Compute  |메모리  |
+|하드웨어 세대  |컴퓨팅  |메모리  |
 |:---------|:---------|:---------|
 |Gen4     |-Intel E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
 |5세대     |**프로비저닝된 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) * 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) * 프로세서<br>-최대 16 개의 Vcores 자동 확장 (1 개 Vcores = 1 개 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 48 GB까지 자동 확장|
-|Fsv2 시리즈     |-Intel Xeon Platinum 8168 (SkyLake) 프로세서<br>-3.4 GHz의 모든 코어 터보 클록 속도와 3.7 g h z의 싱글 코어 터보 클록 속도를 모두 유지 합니다.<br>-72 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 1.9 GB<br>-136 GB 프로 비전|
-|M 시리즈     |-Intel Xeon E7-8890 v3 2.5 g h z 및 Intel Xeon Platinum 8280M 2.7 GHz (캐스케이드 Lake) 프로세서<br>-128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-3.7 TB 프로 비전|
+|Fsv2 시리즈     |-Intel Xeon Platinum 8168 (Skylake) 프로세서<br>-3.4 GHz의 모든 코어 터보 클록 속도와 3.7 g h z의 싱글 코어 터보 클록 속도를 모두 유지 합니다.<br>-최대 72 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 1.9 GB<br>-최대 136 GB 프로 비전|
+|M 시리즈     |-Intel Xeon E7-8890 v3 2.5 g h z 및 Intel Xeon Platinum 8280M 2.7 GHz (캐스케이드 Lake) 프로세서<br>-최대 128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-최대 3.7 TB 프로 비전|
 
 \*Gen5 동적 관리 뷰에서 Intel SP-8160 (Skylake) 프로세서를 사용 하는 데이터베이스용 하드웨어 생성 [dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 은 Gen6로 표시 됩니다. 모든 Gen5 데이터베이스에 대 한 리소스 제한은 프로세서 유형 (Broadwell 또는 Skylake)에 관계 없이 동일 합니다.
 
@@ -154,7 +154,7 @@ SQL Managed Instance 페이지에서 설정 섹션 아래에 있는 **가격 책
 
 ![SQL Managed Instance 하드웨어 변경](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
-**가격 책정 계층** 페이지에서 이전 단계에 설명 된 대로 하드웨어 생성을 변경할 수 있습니다.
+가격 책정 계층 페이지에서 이전 단계에 설명 된 대로 하드웨어 생성을 변경할 수 있습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -164,7 +164,7 @@ SQL Managed Instance 페이지에서 설정 섹션 아래에 있는 **가격 책
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-자세한 내용은 [AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) 명령을 참조 하세요.
+자세한 내용은 [AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) 명령을 확인 하세요.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -174,7 +174,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-자세한 내용은 확인 [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) command를 참조 하십시오.
+자세한 내용은 [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) 명령을 확인 하세요.
 
 ---
 
