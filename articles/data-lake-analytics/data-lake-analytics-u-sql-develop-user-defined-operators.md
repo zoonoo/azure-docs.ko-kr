@@ -3,18 +3,16 @@ title: U-SQL 사용자 정의 연산자 개발-Azure Data Lake Analytics
 description: Azure Data Lake Analytics 작업에 사용 및 재사용되는 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 771590a145d4da0a3a81050e6bbe8a9a4d528b30
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71cb6e026c81b00e475ae3f4e7fc4958a8de82a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121217"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131806"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
 이 문서에서는 U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법을 설명합니다.
@@ -26,7 +24,7 @@ ms.locfileid: "86121217"
 1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > U-SQL 프로젝트**를 선택합니다.
 2. **확인**을 클릭합니다. Visual Studio는 Script.usql 파일로 솔루션을 만듭니다.
 3. **솔루션 탐색기**에서 Script.usql을 확장하고 **Script.usql.cs**를 두 번 클릭합니다.
-4. 다음 코드를 파일에 붙여 넣습니다.
+4. 다음 코드를 파일에 붙여넣습니다.
 
    ```usql
    using Microsoft.Analytics.Interfaces;

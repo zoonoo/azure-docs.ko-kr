@@ -1,19 +1,20 @@
 ---
 title: 맵에 경로 방향 표시 | Microsoft Azure Maps
 description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 두 위치 사이의 방향을 표시하는 방법에 대해 알아봅니다.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 1cde1aaa7c9dba3e28407439a46b0e0a3326e4fc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ac2a3afaf1697d03a9484e7055a10447bb05ea3b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123975"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130310"
 ---
 # <a name="show-directions-from-a-to-b"></a>A에서 B로의 방향 표시
 

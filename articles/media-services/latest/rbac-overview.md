@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1872d0dd56a0459988e65852340c36493ee53f9f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66236911"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132248"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Media Services 계정에 대 한 RBAC (역할 기반 액세스 제어)
 
@@ -36,14 +36,14 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 }
 ```
 
-[기본 제공 역할 정의](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 문서에서는 역할이 부여 하는 내용을 정확히 알려 줍니다. 
+[기본 제공 역할 정의](../../role-based-access-control/built-in-roles.md) 문서에서는 역할이 부여 하는 내용을 정확히 알려 줍니다. 
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
-- [Azure 리소스에 대 한 RBAC는 무엇 인가요?](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [RBAC를 사용 하 여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Media Services 리소스 공급자 작업](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
+- [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
+- [RBAC를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-rest.md)
+- [Media Services 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>다음 단계
 

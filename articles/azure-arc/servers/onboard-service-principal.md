@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7ac04b29853ce0d4f6ac4004bdfad4effd283170
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103792"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132996"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Azure에 하이브리드 머신을 대규모로 연결
 
@@ -76,7 +76,7 @@ PowerShell을 사용하여 서비스 주체를 만들려면 다음을 수행합�
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>에이전트를 설치하고 Azure에 연결
 
-다음 단계에서는 스크립트 템플릿을 사용하여 하이브리드 머신에 Connected Machine 에이전트를 설치하고 구성합니다. 이 템플릿은 [Azure Portal에서 Azure에 하이브리드 머신 연결](onboard-portal.md) 문서에 설명된 것과 비슷한 단계를 수행합니다. 차이점은 서비스 주체를 사용하여 `azcmagent` 명령으로 Azure Arc에 대한 연결을 설정하는 마지막 단계입니다. 
+다음 단계에서는 스크립트 템플릿을 사용하여 하이브리드 머신에 Connected Machine 에이전트를 설치하고 구성합니다. 이 템플릿은 [Azure Portal에서 Azure에 하이브리드 머신 연결](onboard-portal.md) 문서에 설명된 것과 비슷한 단계를 수행합니다. 차이점은 서비스 주체를 사용하여 `azcmagent` 명령으로 Azure Arc에 대한 연결을 설정하는 마지막 단계입니다.
 
 다음은 `azcmagent` 명령이 서비스 주체에 사용하도록 구성하는 설정입니다.
 
@@ -110,6 +110,10 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>이 스크립트는 64 비트 버전의 Windows PowerShell에서 실행 되는 것만 지원 합니다.
+>
+
 ### <a name="linux-installation-script"></a>Linux 설치 스크립트
 
 다음은 서비스 주체를 사용하여 완전 자동화된 비 대화형 에이전트 설치를 지원하도록 수정된 Linux용 Connected Machine 에이전트 설치 스크립트의 예입니다.
@@ -130,6 +134,9 @@ azcmagent connect \
   --location "{resourceLocation}" \
   --subscription-id "{subscriptionID}"
 ```
+
+>[!NOTE]
+>**Azcmagent**를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
 
 에이전트가 설치되고 서버용 Azure Arc(미리 보기)에 연결하도록 구성되면 Azure Portal로 이동하여 서버가 성공적으로 연결되었는지 확인합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
 

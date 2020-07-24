@@ -3,19 +3,17 @@ title: Batch 테스트 TSV 형식-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 일괄 테스트를 위한 TSV 형식 이해
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: dccf034b6497651db70b6cc09fff3f1b1d645a1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0ed948b4bf69fc672a59a7825279a12868d10521
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73501033"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132129"
 ---
 # <a name="batch-testing-tsv-format"></a>일괄 처리 테스트 TSV 형식
 
@@ -40,7 +38,7 @@ batchtesting.exe input.tsv https://YOUR-HOST.azurewebsites.net ENDPOINT-KEY out.
 |--|--|
 |KBID|게시 페이지에 KB ID가 있습니다.|
 |질문|사용자가 입력 하는 질문입니다.|
-|메타데이터 태그|선택적|
+|메타데이터 태그|선택 사항|
 |top(상위 항목) 매개 변수|선택 사항| 
 |예상 대답 ID|선택 사항|
 
@@ -48,13 +46,13 @@ batchtesting.exe input.tsv https://YOUR-HOST.azurewebsites.net ENDPOINT-KEY out.
 
 ## <a name="tsv-output-fields"></a>TSV 출력 필드 
 
-|TSV 출력 파일 매개 변수|메모|
+|TSV 출력 파일 매개 변수|참고|
 |--|--|
 |KBID|게시 페이지에 KB ID가 있습니다.|
 |질문|입력 파일에서 입력 한 질문입니다.|
-|Answer|기술 자료의 최고 답입니다.|
+|답변|기술 자료의 최고 답입니다.|
 |응답 ID|응답 ID|
-|점수 매기기|답변에 대 한 예측 점수입니다. |
+|점수|답변에 대 한 예측 점수입니다. |
 |메타데이터 태그|반환 된 대답과 연결 됨|
 |예상 대답 ID|선택 사항 (예상 답변 ID가 지정 된 경우에만)|
 |판단 레이블|선택 사항입니다. 값은 올바른 대답이 지정 된 경우에만 올바른 또는 잘못 된 것일 수 있습니다.|

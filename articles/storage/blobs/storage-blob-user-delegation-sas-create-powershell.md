@@ -10,11 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f245b1baddad52f18f66e99fa98d9ec5f73c8011
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803529"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130905"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -89,7 +90,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-**Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** action을 포함 하는 기본 제공 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+**Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** action을 포함 하는 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Azure AD 자격 증명을 사용 하 여 SAS 보안
 

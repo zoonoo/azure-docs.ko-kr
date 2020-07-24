@@ -1,19 +1,19 @@
 ---
 title: 맵의 셰이프에서 데이터 가져오기 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 그려진 셰이프 데이터를 가져오는 방법에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 88db018575f92e777223f383c65cd6db51ba515a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c333eb470b4093b1fa453f9a64d400bb9bc567
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334405"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130378"
 ---
 # <a name="get-shape-data"></a>도형 데이터 가져오기
 

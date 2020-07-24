@@ -3,19 +3,17 @@ title: '기능: 작업 및 컨텍스트-Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Personalizer는 작업 및 컨텍스트에 관한 정보인 기능을 사용하여 더 나은 순위를 추천합니다. 기능은 매우 일반적일 수도 있고 항목에 대해 구체적일 수도 있습니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77026152"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132775"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -25,7 +23,7 @@ Personalizer는 **현재 컨텍스트**에 관한 정보인 **기능**을 사용
 
 예를 들어 다음 사항에 관한 **기능**이 있을 수 있습니다.
 
-* _사용자 가상 사용자_ ( `Sports_Shopper`예:) 이 ID는 개별 사용자 ID가 되어서는 안 됩니다. 
+* _사용자 가상 사용자_ (예:) `Sports_Shopper` 이 ID는 개별 사용자 ID가 되어서는 안 됩니다. 
 * _콘텐츠_(예: 동영상이 `Documentary`, `Movie` 또는 `TV Series` 중 어느 유형인지, 또는 소매 항목이 점포에서 구입할 수 있는지 여부)
 * _현재_ 기간(예: 요일)
 
@@ -56,12 +54,12 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 다음은 애플리케이션에 사용하는 기능 네임스페이스의 예입니다.
 
 * User_Profile_from_CRM
-* 시간
+* Time
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Weather
+* 날씨
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -72,7 +70,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 다음 JSON에서 `user`, `state` 및 `device`는 기능 네임스페이스입니다. 
 
 > [!Note]
-> 현재는 u t f-8을 기반으로 하 고 다른 문자로 시작 하는 기능 네임 스페이스 이름을 사용 하는 것이 좋습니다. `state` `device` `u` `d`예를 들어, 및은, 및로 `s`시작 합니다. `user` 현재 동일한 첫 문자를 포함 하는 네임 스페이스가 있으면 기계 학습에 사용 되는 인덱스에서 충돌이 발생할 수 있습니다.
+> 현재는 u t f-8을 기반으로 하 고 다른 문자로 시작 하는 기능 네임 스페이스 이름을 사용 하는 것이 좋습니다. 예를 들어, 및은, `user` `state` `device` 및로 시작 `u` `s` `d` 합니다. 현재 동일한 첫 문자를 포함 하는 네임 스페이스가 있으면 기계 학습에 사용 되는 인덱스에서 충돌이 발생할 수 있습니다.
 
 JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 있습니다. 배열은 배열 항목이 숫자인 경우에만 포함 될 수 있습니다. 
 
@@ -146,7 +144,7 @@ AI 및 즉시 실행할 수 있는 Cognitive Services는 Personalizer에 매우 
 
 AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용할 가능성이 있는 정보를 자동으로 추출할 수 있습니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 * [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/)를 통해 동영상 파일을 실행하여 장면 요소, 텍스트, 감정 및 기타 많은 특성을 추출할 수 있습니다. 그런 다음, 원본 항목 메타데이터에 없었던 특성을 반영하도록 해당 특성을 더 정교하게 만들 수 있습니다. 
 * 개체 감지를 통해 이미지를 반영하고 감정을 통해 얼굴을 반영할 수 있는 식입니다.
@@ -156,7 +154,7 @@ AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용�
 
 * [엔터티 연결](../entitylinking/home.md)
 * [텍스트 분석](../text-analytics/overview.md)
-* [Emotion](../emotion/home.md)
+* [감정](../emotion/home.md)
 * [Computer Vision](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>작업은 옵션 목록을 나타냅니다.
@@ -179,7 +177,7 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-예를 들어 다음과 같은 노래를 선택할 수 있다.
+다음은 몇 가지 예입니다.
 
 |목적|작업|
 |--|--|

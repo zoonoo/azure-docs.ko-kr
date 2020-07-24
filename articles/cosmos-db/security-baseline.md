@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195250"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131823"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
 
@@ -78,7 +78,7 @@ NSG 흐름 로그를 사용하도록 설정하는 방법: https://docs.microsoft
 
 DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 연결 된 가상 네트워크에서 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
-How to configureAzure Cosmos DB Advanced Threat Protection:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Azure Cosmos DB Advanced Threat Protection을 구성 하는 방법:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 DDoS Protection을 구성하는 방법: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -121,7 +121,7 @@ Cosmos DB Advanced Threat Protection을 구성 하는 방법:https://docs.micros
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: 네트워크 보안 규칙의 복잡성 및 관리 오버헤드 최소화
 
-**지침**: azure Cosmos 계정에 액세스 해야 하는 리소스의 경우 Virtual Network 서비스 태그를 사용 하 여 네트워크 securitygGroups 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: Microsoft.azurecosmosdb)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
+**지침**: azure Cosmos 계정에 액세스 해야 하는 리소스의 경우 Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: Microsoft.azurecosmosdb)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
 서비스 태그를 사용하는 방법에 대한 자세한 내용: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 

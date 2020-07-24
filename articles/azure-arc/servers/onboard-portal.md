@@ -6,15 +6,15 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: cf09dd1521994f01e5f43b981d4bff540f3b1f40
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe26731a7f217d0f441a3dea1650f2652677a57f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506454"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133013"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
@@ -88,6 +88,10 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagen
 1. 서버에 로그인합니다.
 
 1. 관리자 권한 PowerShell 명령 프롬프트를 엽니다.
+
+    >[!NOTE]
+    >이 스크립트는 64 비트 버전의 Windows PowerShell에서 실행 되는 것만 지원 합니다.
+    >
 
 1. 스크립트를 복사한 폴더 또는 공유로 변경하고, `./OnboardingScript.ps1` 스크립트를 실행하여 서버에서 실행합니다.
 

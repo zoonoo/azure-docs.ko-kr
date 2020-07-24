@@ -4,14 +4,14 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250858"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133098"
 ---
-# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
 Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 이러한 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 초기 노드 수와 해당 크기 (SKU)는 [시스템 노드 풀][use-system-pool]을 만드는 AKS 클러스터를 만들 때 정의 됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원 하기 위해 추가 *사용자 노드 풀*을 만들 수 있습니다. 시스템 노드 풀은 CoreDNS 및 tunnelfront와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다. 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 사용자 노드 풀은 응용 프로그램 관련 pod를 저장 하는 위치입니다. 예를 들어 이러한 추가 사용자 노드 풀을 사용 하 여 계산 집약적인 응용 프로그램을 위한 Gpu를 제공 하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
 
@@ -502,6 +502,9 @@ az aks nodepool add \
     --node-taints sku=gpu:NoSchedule \
     --no-wait
 ```
+
+> [!NOTE]
+> 노드 풀을 만드는 동안에는 노드 풀에 대해서만 taint을 설정할 수 있습니다.
 
 [Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *taintnp* 가 지정 된 *nodeTaints*를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
 

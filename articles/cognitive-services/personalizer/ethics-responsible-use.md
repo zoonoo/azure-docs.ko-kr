@@ -3,19 +3,17 @@ title: 윤리 및 사용 책임 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이러한 지침은 회사와 서비스에서 신뢰를 구축하는 데 도움이 되는 방식으로 맞춤 설정을 구현하기 위한 것입니다. 사용자의 생활에 대 한 개인 설정의 영향을 연구 하 고 배우고 학습 하려면 일시 중지 해야 합니다. 의심스러우면 지침을 확인해 보세요.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: diberry
-ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478101"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132724"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
 
@@ -50,7 +48,7 @@ Personalizer 구현은 사용자와 비즈니스에 중요한 가치가 될 수 
 
 콘텐츠와 사용자 인터페이스를 맞춤 설정하기 위해 학습하는 서비스를 사용하는 것이 유용합니다. 또한 사용자가 콘텐츠 맞춤 설정을 알지 못하는 경우를 포함하여 맞춤 설정이 실제 세계에서 부정적인 부작용을 일으키는 경우 잘못 적용될 수도 있습니다.
 
-부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 항목은 "파생적" 선택 항목 또는 손상 위험이 있는 선택 항목으로 간주 될 수 있습니다. 다음은 그 예입니다.
+부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 항목은 "파생적" 선택 항목 또는 손상 위험이 있는 선택 항목으로 간주 될 수 있습니다. 예를 들면 다음과 같습니다.
 
 
 * **금융**: 위험 요소가 개인이 알지 못하는 데이터를 기반으로 하는 대출, 재무 및 보험 제품에 대 한 제품을 개인 설정 하 고, 얻을 수 없거나, 분쟁을 얻을 수 없습니다.
@@ -121,7 +119,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 
 ![미래 컴퓨팅에서의 AI 가치](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
-### <a name="accountability"></a>책임감
+### <a name="accountability"></a>책임성
 *AI 시스템을 설계하고 배포하는 사용자는 시스템의 작동 방법에 대해 책임을 져야 합니다*.
 
 * Personalizer를 구현하고, 문서화하고, 팀, 임원 및 공급업체에 전달하는 방법에 대한 내부 지침을 만듭니다.
@@ -162,7 +160,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 
 이러한 기능은 경우에 따라 법적으로 요구할 수 있습니다. 모델을 정기적으로 다시 학습시키는 경우 삭제된 데이터의 추적이 포함되지 않도록 장단점을 고려합니다.
 
-### <a name="inclusiveness"></a>포괄성
+### <a name="inclusiveness"></a>포용성
 *광범위한 사용자의 요구 사항과 환경을 처리합니다*.
 * *내게 필요한 옵션 지원 인터페이스에 대한 맞춤형 환경을 제공합니다*. 노력, 이동 및 상호 작용의 불필요한 반복을 줄이기 위해 적용되는 적절한 맞춤 설정의 효율성은 장애가 있는 사람에게 특히 유용할 수 있습니다.
 * *애플리케이션 동작을 상황에 맞게 조정합니다*. 예를 들어 올바른 해석은 상황과 관련되어 있을 수 있고 하나의 크기가 모두에 맞지 않을 수 있으므로 Personalizer를 사용하여 챗봇의 의도 간 차이를 명확하게 보여 줄 수 있습니다.

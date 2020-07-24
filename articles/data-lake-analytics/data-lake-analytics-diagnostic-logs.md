@@ -3,16 +3,14 @@ title: Azure Data Lake Analytics에 대한 진단 로그 사용 및 보기
 description: Azure Data Lake Analytics에 대한 진단 로그를 설정하고 액세스하는 방법 이해하기
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121438"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132605"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -128,7 +126,7 @@ ms.locfileid: "86121438"
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
 
-| Name | Type | Description |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -142,7 +140,7 @@ ms.locfileid: "86121438"
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
 
-| Name | Type | Description |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -178,7 +176,7 @@ ms.locfileid: "86121438"
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
 
-| Name | Type | Description |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -186,7 +184,7 @@ ms.locfileid: "86121438"
 | operationName |String |기록된 작업의 이름 예를 들어 JobSubmitted |
 | resultType |String |작업 상태(operationName)에 대한 하위 상태입니다. |
 | resultSignature |String |작업 상태(operationName)에 추가 세부 정보입니다. |
-| identity |String |작업을 요청한 사용자입니다. 예들 들어 susan@contoso.com입니다. |
+| identity |String |작업을 요청한 사용자입니다. 예: susan@contoso.com. |
 | properties |JSON |자세한 내용은 다음 섹션(감사 로그 속성 스키마)을 참조하세요. |
 
 > [!NOTE]
@@ -196,7 +194,7 @@ ms.locfileid: "86121438"
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
 
-| Name | Type | Description |
+| 이름 | 유형 | 설명 |
 | --- | --- | --- |
 | JobId |String |작업에 할당된 ID |
 | JobName |String |작업에 대해 제공된 이름 |

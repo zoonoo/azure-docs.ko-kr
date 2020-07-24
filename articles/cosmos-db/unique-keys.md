@@ -5,13 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74869836"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132656"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키 제약 조건
 
@@ -19,7 +20,7 @@ ms.locfileid: "74869836"
 
 고유 키 정책을 사용 하 여 컨테이너를 만든 후에는 unique key 제약 조건에 지정 된 대로 기존 항목의 새 또는 업데이트를 생성 하 여 논리적 파티션 내에서 중복이 발생 하지 않도록 방지 합니다. 파티션 키를 고유 키와 결합하면 컨테이너 범위 내에서 항목의 고유성이 보장됩니다.
 
-예를 들어 메일 주소를 고유 키 제약 조건으로, `CompanyID`를 파티션 키로 사용하는 Azure Cosmos 컨테이너가 있다고 가정합니다. 사용자의 메일 주소를 고유 키를 구성하면 지정된 `CompanyID` 내에서 각 항목이 고유한 메일 주소를 갖습니다. 이메일 주소가 중복되고 파티션 키가 동일한 두 항목을 만들 수 없습니다. 
+예를 들어 메일 주소를 고유 키 제약 조건으로, `CompanyID`를 파티션 키로 사용하는 Azure Cosmos 컨테이너가 있다고 가정합니다. 사용자의 메일 주소를 고유 키를 구성하면 지정된 `CompanyID` 내에서 각 항목이 고유한 메일 주소를 갖습니다. 이메일 주소가 중복되고 파티션 키가 동일한 두 항목을 만들 수 없습니다. Azure Cosmos DB의 SQL (Core) API에서 항목은 JSON 값으로 저장 됩니다. 이러한 JSON 값은 대/소문자를 구분 합니다. 고유한 키로 속성을 선택 하는 경우 해당 속성에 대/소문자를 구분 하는 값을 삽입할 수 있습니다. 예를 들어 name 속성에 고유 키가 정의 되어 있는 경우 "Gaby"는 "Gaby"과 다르며 둘 다를 컨테이너에 삽입할 수 있습니다.
 
 메일 주소는 같지만 이름, 성, 메일 주소는 다른 항목을 만들려면 고유 키 정책의 경로를 더 추가합니다. 전자 메일 주소를 기반으로 고유 키를 만드는 대신 이름, 성 및 전자 메일 주소를 조합 하 여 고유 키를 만들 수도 있습니다. 이 키를 복합 고유 키라고 합니다. 이 경우 지정된 `CompanyID` 내에서 세 값의 고유한 조합이 허용됩니다. 
 

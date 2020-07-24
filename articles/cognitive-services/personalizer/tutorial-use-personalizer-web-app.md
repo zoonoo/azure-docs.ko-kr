@@ -3,13 +3,12 @@ title: 웹앱 사용 - Personalizer
 description: Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작업(기능 포함) 및 컨텍스트 기능에 따라 사용자에게 올바른 콘텐츠를 제공합니다.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.author: diberry
-ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207602"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133132"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>자습서: .NET 웹앱에 Personalizer 추가
 

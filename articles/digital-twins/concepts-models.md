@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258274"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131636"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -24,12 +24,12 @@ Azure Digital Twins의 주요 특징은 고유한 어휘를 정의 하 고 자�
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>모델 작성을 위한 DTDL (디지털 쌍 정의 언어)
 
-Azure Digital Twins의 모델은 DTDL (디지털 Twins 정의 언어)를 사용 하 여 정의 됩니다. DTDL은 JSON을 기반으로 하며 프로그래밍 언어와 독립적입니다. DTDL은 Azure 디지털 쌍에만 국한 되는 것이 아니라 [iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)와 같은 다른 iot 서비스에서 장치 데이터를 표시 하는 데도 사용 됩니다. Azure Digital Twins는 DTDL *버전 2*를 사용 합니다.
+Azure Digital Twins의 모델은 DTDL (디지털 Twins 정의 언어)를 사용 하 여 정의 됩니다. DTDL은 JSON을 기반으로 하며 프로그래밍 언어와 독립적입니다. DTDL은 Azure 디지털 쌍에만 국한 되는 것이 아니라 [iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)와 같은 다른 iot 서비스에서 장치 데이터를 표시 하는 데도 사용 됩니다. 
+
+Azure Digital Twins는 DTDL *버전 2*를 사용 합니다. 이 DTDL 버전에 대 한 자세한 내용은 GitHub의 사양 설명서 [*(dtdl)-버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 참조 하세요.
 
 > [!TIP] 
 > DTDL을 사용 하는 모든 서비스는 동일한 DTDL 기능을 구현 하지 않습니다. 예를 들어 IoT 플러그 앤 플레이는 그래프에 해당 하는 DTDL 기능을 사용 하지 않지만 Azure Digital Twins는 현재 DTDL 명령을 구현 하지 않습니다. Azure Digital Twins와 관련 된 DTDL 기능에 대 한 자세한 내용은이 문서의 뒷부분에 나오는 [Azure Digital TWINS dtdl 구현 세부](#azure-digital-twins-dtdl-implementation-specifics)사항 섹션을 참조 하세요.
-
-일반적으로 DTDL에 대 한 자세한 내용은 GitHub의 spec 설명서 [(dtdl)-버전 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 참조 하세요.
 
 ## <a name="elements-of-a-model"></a>모델 요소
 
@@ -62,7 +62,9 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 
 쌍 형식 모델은 텍스트 편집기로 작성할 수 있습니다. DTDL 언어는 JSON 구문을 따릅니다. *따라서 확장 프로그램*을 사용 하 여 모델을 저장 해야 합니다. JSON 확장을 사용 하면 많은 프로그래밍 텍스트 편집기에서 DTDL 문서에 대 한 기본 구문 검사 및 강조 표시를 제공할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)에 사용할 수 있는 [dtdl 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) 도 있습니다.
 
-다음은 DTDL 인터페이스로 작성 된 일반적인 모델의 예입니다. 모델은 각각 이름, 질량 및 온도를 포함 하는 행성을 설명 합니다. 행성은 위성 moons 수 있으며 craters를 포함할 수 있습니다.
+이 섹션에는 DTDL 인터페이스로 작성 된 일반적인 모델의 예가 포함 되어 있습니다. 모델은 각각 이름, 질량 및 온도를 포함 하는 **행성**을 설명 합니다.
+ 
+행성은 위성 **moons** 상호 작용 하 고 **craters**를 포함할 수도 있습니다. 아래 예제에서 `Planet` 모델은 두 개의 외부 모델 (및)을 참조 하 여 이러한 다른 엔터티에 대 한 연결을 나타냅니다 `Moon` `Crater` . 이러한 모델은 아래 예제 코드에도 정의 되어 있지만 매우 간단 하 게 유지 되므로 기본 예제에서 저하 되지 않습니다 `Planet` .
 
 ```json
 [
@@ -101,6 +103,11 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
   },
   {
     "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2"
   }
@@ -204,13 +211,13 @@ DTDL이 정확한 지 확인 하기 위해 모델 문서의 유효성을 검사 
 
 DTDL 유효성 검사기 샘플은 클라이언트 쪽 라이브러리 ( [**DigitalTwins**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/))로 NuGet에서 사용할 수 있는 .NET dtdl 파서 라이브러리를 기반으로 합니다. 라이브러리를 직접 사용 하 여 고유한 유효성 검사 솔루션을 디자인할 수도 있습니다. 파서 라이브러리를 사용 하는 경우 Azure 디지털 Twins에서 실행 중인 버전과 호환 되는 버전을 사용 해야 합니다. 미리 보기 중에는 버전 *3.7.0*입니다.
 
-[방법: 모델 구문 분석 및 유효성 검사](how-to-use-parser.md)에서 사용 예제를 포함 하 여 파서 라이브러리에 대해 자세히 알아볼 수 있습니다.
+[*방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)에서 사용 예제를 포함 하 여 파서 라이브러리에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 DigitalTwinsModels Api를 사용 하 여 모델을 관리 하는 방법을 참조 하세요.
-* [방법: 사용자 지정 모델 관리](how-to-manage-model.md)
+* [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)
 
 또는 모델을 기반으로 디지털 쌍을 만드는 방법에 대해 알아봅니다.
-* [개념: 디지털 쌍 및 쌍 그래프](concepts-twins-graph.md)
+* [*개념: 디지털 쌍 및 쌍 그래프*](concepts-twins-graph.md)
 

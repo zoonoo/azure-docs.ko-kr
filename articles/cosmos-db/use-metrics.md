@@ -6,17 +6,17 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/18/2019
-ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/22/2020
+ms.openlocfilehash: b8cf0425a4a40c4692f4c0c7fcf11dbb23019b23
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027821"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132673"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 
-Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure Portal은 이러한 메트릭의 집계 보기를 제공합니다. Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수도 있습니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서를 참조 하세요. 
+Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure Portal은 이러한 메트릭의 집계 보기를 제공합니다. Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수도 있습니다. 컨테이너 이름과 같은 메트릭에 대 한 차원 값은 대/소문자를 구분 하지 않습니다. 따라서 이러한 차원 값에 대해 문자열 비교를 수행 하는 경우 대/소문자를 구분 하지 않는 비교를 사용 해야 합니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서를 참조 하세요.
 
 이 문서에서는 일반적인 사용 사례와 Azure Cosmos DB 메트릭을 사용하여 이러한 문제를 분석 및 디버그할 수 있는 방법을 안내합니다. 메트릭은 5분마다 수집되고 7일 동안 유지됩니다.
 

@@ -2,18 +2,16 @@
 title: Azure Data Lake Analytics에 대 한 재해 복구 지침
 description: Azure Data Lake Analytics 계정에 대 한 재해 복구를 계획 하는 방법을 알아봅니다.
 services: data-lake-analytics
-author: MikeRys
-ms.author: mrys
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: ba231c4a68d92b3f6f35542d739ad9daedd65776
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ab39ca8e71376fed681c049d338096ff992fed99
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121404"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132571"
 ---
 # <a name="disaster-recovery-guidance-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대 한 재해 복구 지침
 

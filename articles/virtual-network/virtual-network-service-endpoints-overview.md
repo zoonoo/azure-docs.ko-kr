@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444457"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132826"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -79,7 +80,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
 ![Virtual Network에 대한 Azure 서비스 보호](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 - 가상 네트워크의 서브넷에서 서비스 끝점을 구성 합니다. 엔드포인트는 해당 서브넷 내에서 실행되는 모든 컴퓨팅 인스턴스를 사용합니다.
 - 모든 지원 되는 Azure 서비스 (예: 서브넷에 대해 지원 되는 모든 Azure 서비스 Azure Storage 또는 Azure SQL Database)에 대해 여러 서비스 끝점을 구성할 수 있습니다.
@@ -118,11 +119,11 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 >[!NOTE]
 > 서비스 엔드포인트 경로는 Azure 서비스의 주소 접두사에 대한 BGP 또는 UDR 경로를 재정의합니다. 자세한 내용은 [유효 경로를 사용 하 여 문제 해결](diagnose-network-routing-problem.md)을 참조 하세요.
 
-## <a name="provisioning"></a>프로비전
+## <a name="provisioning"></a>프로비저닝
 
 가상 네트워크에서 가상 네트워크에 대 한 쓰기 권한이 있는 사용자가 독립적으로 서비스 끝점을 구성할 수 있습니다. VNet에 대 한 Azure 서비스 리소스를 보호 하려면 사용자는 추가 된 서브넷에 대해 *Microsoft. Network/virtualNetworks/서브넷/joinViaServiceEndpoint/action* 에 대 한 사용 권한이 있어야 합니다. 기본 제공 서비스 관리자 역할은 기본적으로이 권한을 포함 합니다. 사용자 지정 역할을 만들어 사용 권한을 수정할 수 있습니다.
 
-기본 제공 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요. 사용자 지정 역할에 특정 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요.
+기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요. 사용자 지정 역할에 특정 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요.
 
 가상 네트워크 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. 가상 네트워크 및 Azure 서비스 리소스가 다른 구독에 있는 경우 동일한 AD(Active Directory) 테넌트 아래에 있어야 합니다. 
 
@@ -151,4 +152,3 @@ Faq는 [Virtual Network 서비스 끝점 faq](https://docs.microsoft.com/azure/v
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)
 - [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
-

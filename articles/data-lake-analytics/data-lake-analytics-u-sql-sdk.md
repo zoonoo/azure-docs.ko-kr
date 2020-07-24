@@ -4,16 +4,15 @@ description: 로컬 워크스테이션에서 명령줄 및 프로그래밍 인�
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: 58521b16e0f4ff133fd032abd4451f785256bbee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110473"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132418"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 실행 및 테스트
 
@@ -65,7 +64,7 @@ U-SQL 스크립트의 상대 경로 및 로컬 절대 경로를 사용할 수 �
 
 U-SQL 스크립트를 로컬로 실행하면 컴파일 중에 현재 실행 중인 디렉터리 아래에 작업 디렉터리가 만들어집니다. 컴파일 결과 외에도 로컬 실행에 필요한 런타임 파일이 이 작업 디렉터리에 섀도 복사됩니다. 작업 디렉터리 루트 폴더를 "ScopeWorkDir"이라고 하고 작업 디렉터리 아래의 파일은 다음과 같습니다.
 
-|디렉터리/파일|디렉터리/파일|디렉터리/파일|정의|Description|
+|디렉터리/파일|디렉터리/파일|디렉터리/파일|정의|설명|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |런타임 버전의 해시 문자열|로컬 실행에 필요한 런타임 파일의 섀도 복사본|
 | |Script_66AE4909AA0ED06C| |스크립트 이름 + 스크립트 경로의 해시 문자열|컴파일 출력 및 실행 단계 로깅|
@@ -142,17 +141,17 @@ LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 
 다음은 **run**에 대한 선택적 인수입니다.
 
-|인수|기본값|Description|
+|인수|기본값|설명|
 |--------|-------------|-----------|
-|-CodeBehind|False|스크립트에는 .cs 코드 숨김이 있습니다.|
+|-CodeBehind|거짓|스크립트에는 .cs 코드 숨김이 있습니다.|
 |-CppSDK| |CppSDK 디렉터리입니다.|
 |-DataRoot| DataRoot 환경 변수|로컬 실행을 위한 데이터 루트이며, 기본값은 'LOCALRUN_DATAROOT' 환경 변수입니다.|
 |-MessageOut| |콘솔의 메시지를 파일에 덤프합니다.|
 |-Parallel|1|지정된 병렬 처리로 계획을 실행합니다.|
 |-References| |';'(세미콜론)으로 구분된 코드 참조의 추가 참조 어셈블리 또는 데이터 파일의 경로 목록입니다.|
-|-UdoRedirect|False|Udo 어셈블리 리디렉션 구성을 생성합니다.|
+|-UdoRedirect|거짓|Udo 어셈블리 리디렉션 구성을 생성합니다.|
 |-UseDatabase|master|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스입니다.|
-|-Verbose|False|런타임의 자세한 출력을 표시합니다.|
+|-Verbose|거짓|런타임의 자세한 출력을 표시합니다.|
 |-WorkDir|현재 디렉터리|컴파일러 사용 및 출력을 위한 디렉터리입니다.|
 |-RunScopeCEP|0|사용할 ScopeCEP 모드입니다.|
 |-ScopeCEPTempPath|temp|데이터 스트리밍에 사용할 임시 경로입니다.|
@@ -174,7 +173,7 @@ LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 
 다음은 **compile**에 대한 선택적 인수입니다.
 
-|인수|Description|
+|인수|설명|
 |--------|-----------|
 | -CodeBehind [기본값 'False']|스크립트에는 .cs 코드 숨김이 있습니다.|
 | -CppSDK [기본값 '']|CppSDK 디렉터리입니다.|
@@ -219,7 +218,7 @@ LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_argument
 
 다음은 **compile**에 대한 선택적 인수입니다.
 
-|인수|기본값|Description|
+|인수|기본값|설명|
 |--------|-------------|-----------|
 |-DataRoot | '' |메타데이터 실행을 위한 루트 데이터입니다. **LOCALRUN_DATAROOT** 환경 변수로 기본 설정합니다.|
 |-MessageOut | '' |콘솔의 메시지를 파일에 덤프합니다.|
@@ -332,13 +331,13 @@ LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래�
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|매개 변수|Type|Description|
+|매개 변수|Type|설명|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|출력 메시지의 경우 콘솔을 사용하도록 null로 설정|
 
 ### <a name="properties"></a>속성
 
-|속성|형식|Description|
+|속성|형식|설명|
 |--------|----|-----------|
 |AlgebraPath|문자열|대수 파일의 경로입니다(대수 파일은 컴파일 결과 중 하나임).|
 |CodeBehindReferences|문자열|스크립트에 추가 코드 숨김 참조가 있으면 경로를 ';'으로 구분합니다.|
@@ -363,7 +362,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 ### <a name="method"></a>메서드
 
-|메서드|Description|반환 값|매개 변수|
+|메서드|설명|반환 값|매개 변수|
 |------|-----------|------|---------|
 |public bool DoCompile()|U-SQL 스크립트를 컴파일합니다.|성공 시 True입니다.| |
 |public bool DoExec()|컴파일된 결과를 실행합니다.|성공 시 True입니다.| |

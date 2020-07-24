@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808187"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132044"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 ==================================================
@@ -176,7 +176,7 @@ BackendAddressPoolsText : [
 
 | **오류** | **actions** |
 | --- | --- |
-| 프로브 상태 코드 불일치: 401 수신됨 | 백 엔드 서버에서 인증이 필요한지 여부를 확인합니다. Application Gateway 프로브는 이 시점에서 인증을 위해 자격 증명을 전달할 수 없습니다. 프로브 상태 코드 일치에서 \"HTTP 401\"을 허용하거나 서버가 인증을 요구하지 않는 경로를 검색합니다. | |
+| 프로브 상태 코드 불일치: 401 수신됨 | 백 엔드 서버에서 인증이 필요한지 여부를 확인합니다. Application Gateway 프로브는 인증을 위해 자격 증명을 전달할 수 없습니다. 프로브 상태 코드 일치에서 \"HTTP 401\"을 허용하거나 서버가 인증을 요구하지 않는 경로를 검색합니다. | |
 | 프로브 상태 코드 불일치: 403 수신됨 | 액세스가 금지되었습니다. 백 엔드 서버에서 경로에 대한 액세스가 허용되는지 여부를 확인합니다. | |
 | 프로브 상태 코드 불일치: 404 수신됨 | 페이지를 찾을 수 없습니다. 백 엔드 서버에서 호스트 이름 경로에 액세스할 수 있는지 여부를 확인합니다. 호스트 이름 또는 경로 매개 변수를 액세스할 수 있는 값으로 변경합니다. | |
 | 프로브 상태 코드 불일치: 405 수신됨 | Application Gateway에 대한 프로브 요청은 HTTP GET 메서드를 사용합니다. 서버에서 이 메서드를 허용하는지 여부를 확인합니다. | |

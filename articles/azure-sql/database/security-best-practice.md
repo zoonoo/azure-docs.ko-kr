@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986784"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132945"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -228,10 +228,10 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - SQL 데이터베이스:
   - 세부적인 권한 및 사용자 정의 데이터베이스 역할 (또는 Managed Instance의 서버 역할)을 사용 합니다.
     1. 필요한 역할 만들기
-       - [역할 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. 필수 사용자 만들기
-       - [사용자 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+       - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. 사용자를 역할에 멤버로 추가
        - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -240,9 +240,9 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
   - 불필요 한 역할에 사용자를 할당 하지 않아야 합니다.
 
 - Azure Resource Manager:
-  - 기본 제공 역할 (사용 가능한 경우) 또는 사용자 지정 RBAC 역할을 사용 하 고 필요한 사용 권한을 할당 합니다.
-    - [Azure의 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
-    - [Azure 리소스에 대한 사용자 지정 역할](../../role-based-access-control/custom-roles.md)
+  - 기본 제공 역할 (사용 가능한 경우) 또는 Azure 사용자 지정 역할을 사용 하 고 필요한 사용 권한을 할당 합니다.
+    - [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
+    - [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)
 
 **모범 사례**:
 
@@ -283,7 +283,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 **구현 방법**:
 
-- 필요한 의무의 분리 수준을 식별 합니다. 예:
+- 필요한 의무의 분리 수준을 식별 합니다. 예제:
   - 개발/테스트 및 프로덕션 환경 간
   - 보안에 중요 한 작업은 DBA (데이터베이스 관리자) 관리 수준 작업과 개발자 작업을 비교 합니다.
     - 예: 감사자, RLS (역할 수준 보안)에 대 한 보안 정책 만들기, DDL 권한으로 개체 SQL Database 구현
@@ -291,7 +291,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 시스템에 액세스 하는 사용자 (및 자동화 된 프로세스)의 포괄적인 계층 구조를 식별 합니다.
 
 - 필요한 사용자 그룹에 따라 역할을 만들고 역할에 사용 권한을 할당 합니다.
-  - Azure Portal 또는 PowerShell-automation을 통해 관리 수준 태스크의 경우 RBAC 역할을 사용 합니다. 요구 사항과 일치 하는 기본 제공 역할을 찾거나 사용 가능한 권한을 사용 하 여 사용자 지정 RBAC 역할을 만듭니다.
+  - Azure Portal 또는 PowerShell-automation을 통해 관리 수준 태스크의 경우 RBAC 역할을 사용 합니다. 요구 사항과 일치 하는 기본 제공 역할을 찾거나 사용 가능한 권한을 사용 하 여 Azure 사용자 지정 역할을 만듭니다.
   - 관리 되는 인스턴스에서 서버 차원의 태스크 (새 로그인, 데이터베이스 만들기)에 대 한 서버 역할을 만듭니다.
   - 데이터베이스 수준 태스크에 대 한 데이터베이스 역할을 만듭니다.
 
@@ -342,8 +342,8 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
   - [저장 프로시저 서명](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - Azure 리소스 관리:
-  - [Azure의 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
-  - [Azure 리소스에 대한 사용자 지정 역할](../../role-based-access-control/custom-roles.md)
+  - [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
+  - [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)
   - [관리자 권한으로 Azure AD Privileged Identity Management 사용](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### <a name="perform-regular-code-reviews"></a>일반 코드 검토 수행
@@ -389,7 +389,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 클라이언트와 서버 간에 데이터가 이동 하는 동안 데이터를 보호 합니다. [네트워크 보안](#network-security)을 참조 하세요.
 
-### <a name="encrypt-data-at-rest"></a>미사용 암호화 데이터
+### <a name="encrypt-data-at-rest"></a>저장 데이터 암호화
 
 > 설명: OSA 사례 #6, ISO 컨트롤 제품군: 암호화
 

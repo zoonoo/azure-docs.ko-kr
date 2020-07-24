@@ -7,11 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 81a58657a4ab8f7403006ce02fb8f585feea86b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbf996a66bf76520002a22169903c7961080e38b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711275"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131534"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -23,7 +24,7 @@ DNS 영역 및 레코드는 중요한 리소스입니다. DNS 영역 또는 단�
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-Azure RBAC(Role-Based Access Control)는 Azure 사용자, 그룹, 리소스에 대해 정확한 액세스 관리를 지원합니다. RBAC를 사용 하면 사용자에 게 필요한 액세스 수준을 부여할 수 있습니다. RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 내용은 [역할 기반 Access Control이란](../role-based-access-control/overview.md)을 참조하세요.
+Azure RBAC (역할 기반 액세스 제어)를 사용 하면 Azure 사용자, 그룹 및 리소스에 대 한 세밀 한 액세스 관리를 지원 합니다. RBAC를 사용 하면 사용자에 게 필요한 액세스 수준을 부여할 수 있습니다. RBAC를 사용 하 여 액세스를 관리 하는 방법에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 란? (AZURE RBAC)](../role-based-access-control/overview.md)을 참조 하세요.
 
 ### <a name="the-dns-zone-contributor-role"></a>DNS 영역 기여자 역할
 
@@ -167,7 +168,7 @@ CNAMEs를 관리 하는 데 사용 되는 계정에는 CNAME 레코드만 관리
 나머지 작업은 [DNS 영역 참가자의 기본 역할](../role-based-access-control/built-in-roles.md#dns-zone-contributor)에서 복사됩니다.
 
 > [!NOTE]
-> 레코드 집합 삭제를 방지하기 위해 사용자 지정 RBAC 역할을 사용하면서 업데이트를 허용하는 것은 효과적인 관리가 아닙니다. 이 방식에서는 레코드 집합을 삭제할 수 없지만 수정은 방지할 수 없습니다.  허용되는 수정 작업에는 레코드 집합을 비우기 위해 레코드를 모두 제거하는 작업을 포함하여 레코드 집합에서 레코드를 추가 및 제거하는 작업이 포함됩니다. 이 경우 DNS 확인 관점에서 레코드 집합을 삭제하는 것과 같은 효과를 가집니다.
+> Azure 사용자 지정 역할을 사용 하 여 레코드 집합을 업데이트 하도록 허용 하는 동안 레코드 집합 삭제를 방지 하는 것은 효과적인 제어가 아닙니다. 이 방식에서는 레코드 집합을 삭제할 수 없지만 수정은 방지할 수 없습니다.  허용되는 수정 작업에는 레코드 집합을 비우기 위해 레코드를 모두 제거하는 작업을 포함하여 레코드 집합에서 레코드를 추가 및 제거하는 작업이 포함됩니다. 이 경우 DNS 확인 관점에서 레코드 집합을 삭제하는 것과 같은 효과를 가집니다.
 
 현재 Azure Portal를 통해 사용자 지정 역할 정의를 정의할 수 없습니다. 이 역할 정의를 기준으로 하는 사용자 지정 역할은 Azure PowerShell을 사용하여 만들 수 있습니다.
 

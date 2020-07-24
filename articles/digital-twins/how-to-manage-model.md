@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 01bb5f9ae6d8c7a6374a8b1392b061f31fdb63a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390587"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132282"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -66,7 +66,7 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 이 방법을 수행 하면 병원의 wards, 영역 또는 병원 자체에 대 한 모델을 정의할 수 있습니다.
 
 > [!TIP]
-> DTDL의 구문 분석 및 유효성 검사에 사용할 수 있는 클라이언트 쪽 라이브러리가 있습니다. UI 요소 생성과 같은 모델 기반 개발 시나리오에서 사용할 수 있는 DTDL 콘텐츠의 c # 개체 모델을 생성 합니다. 이 라이브러리를 사용 하 여 모델을 업로드 하기 전에 모델에 구문 오류가 없는지 확인할 수도 있습니다. 이 라이브러리에 대 한 자세한 내용 및 DTDL 유효성 검사기 용으로 빌드된 샘플에 대 한 액세스 [는 방법: 모델 구문 분석 및 유효성 검사](how-to-use-parser.md)를 참조 하세요.
+> DTDL의 구문 분석 및 유효성 검사에 사용할 수 있는 클라이언트 쪽 라이브러리가 있습니다. UI 요소 생성과 같은 모델 기반 개발 시나리오에서 사용할 수 있는 DTDL 콘텐츠의 c # 개체 모델을 생성 합니다. 이 라이브러리를 사용 하 여 모델을 업로드 하기 전에 모델에 구문 오류가 없는지 확인할 수도 있습니다. 이 라이브러리에 대 한 자세한 내용 및 DTDL 유효성 검사기 용으로 빌드된 샘플에 대 한 액세스 [*는 방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)를 참조 하세요.
 
 ## <a name="manage-models-with-apis"></a>Api를 사용 하 여 모델을 관리 합니다.
 
@@ -109,7 +109,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들어:
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 [
@@ -190,7 +190,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 인스턴스의 모든 모델을 한 번에 삭제 하거나 개별적으로 수행할 수 있습니다.
 
-모든 모델을 삭제 하는 방법에 대 한 예제는 [자습서: 샘플 클라이언트 앱을 사용 하 여 기본 사항 탐색](tutorial-command-line-app.md)에서 사용한 샘플 앱을 다운로드 합니다. *CommandLoop.cs* 파일은 함수에서이를 수행 `CommandDeleteAllModels` 합니다.
+모든 모델을 삭제 하는 방법에 대 한 예제는 [*자습서: 샘플 클라이언트 앱을 사용 하 여 기본 사항 탐색*](tutorial-command-line-app.md)에서 사용한 샘플 앱을 다운로드 합니다. *CommandLoop.cs* 파일은 함수에서이를 수행 `CommandDeleteAllModels` 합니다.
 
 이 섹션의 나머지 부분에서는 모델 삭제를 자세히 설명 하 고 개별 모델에 대해이 작업을 수행 하는 방법을 보여 줍니다.
 
@@ -247,9 +247,9 @@ Azure Digital 쌍는이 상태를 방지 하지 않으므로 모델 정의 스�
 
 ## <a name="manage-models-with-cli"></a>CLI를 사용 하 여 모델 관리
 
-Azure Digital Twins CLI를 사용 하 여 모델을 관리할 수도 있습니다. 명령은 [방법: Azure Digital Twins CLI 사용](how-to-use-cli.md)에서 찾을 수 있습니다.
+Azure Digital Twins CLI를 사용 하 여 모델을 관리할 수도 있습니다. 명령은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 모델을 기반으로 디지털 쌍을 만들고 관리 하는 방법을 참조 하세요.
-* [방법: digital 쌍 관리](how-to-manage-twin.md)
+* [*방법: digital 쌍 관리*](how-to-manage-twin.md)

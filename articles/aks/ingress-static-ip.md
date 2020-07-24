@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP 주소를 사용하여 NGINX 수신 컨트롤러를 설치하고 구성하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: a59bd1cfcc03b0a6c9af218cb7108a0ba094377d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: 89068210e0a2656c0a0642417532b28d8f10d93a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255288"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130854"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -48,6 +48,9 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
+
+> [!NOTE]
+> 위의 명령은 AKS 클러스터를 삭제 하는 경우 삭제 되는 IP 주소를 만듭니다. 또는 AKS 클러스터와 별도로 관리할 수 있는 다른 리소스 그룹에 IP 주소를 만들 수 있습니다. 다른 리소스 그룹에 IP 주소를 만드는 경우 AKS 클러스터에서 사용 하는 서비스 주체에 게 *네트워크 참가자*와 같은 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다.
 
 이제 Helm을 사용하여 *nginx-ingress* 차트를 배포합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
@@ -264,7 +267,7 @@ kubectl apply -f ingress-demo.yaml --namespace ingress-basic
 `hello-world-ingress.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress

@@ -3,18 +3,16 @@ title: Azure Data Lake Analytics에서 U-SQL 카탈로그 사용
 description: U-SQL 카탈로그를 사용하여 코드와 데이터를 공유하는 방법을 알아봅니다. 테이블 반환 함수를 만들고, 뷰를 만들고, 테이블을 만들고, 쿼리 합니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: how-to
 ms.date: 05/09/2017
-ms.openlocfilehash: 78bd7f446b7716031e3eef02639acc8bb729719e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0ef1bff996589d09326e80b770953bd6b34966c5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119568"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132435"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 카탈로그 시작
 

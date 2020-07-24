@@ -1,20 +1,20 @@
 ---
 title: 지도에 다각형 입체 면 계층 추가 | Microsoft Azure 맵
 description: 다각형 밀어내기 계층을 Microsoft Azure Maps 웹 SDK에 추가 하는 방법입니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7405098bd4924333aafcd1c285eb2f37bb1d4f75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11d4d9a6f9afee801b4f6bb4d764efe9365ae8e7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334554"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130429"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>지도에 다각형 입체 면 계층 추가
 
@@ -45,7 +45,7 @@ CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eYY
 
 ## <a name="add-a-circle-to-the-map"></a>맵에 원 추가
 
-Azure Maps에는 [여기](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터**단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 예:
+Azure Maps에는 [여기](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터**단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```Javascript
 {

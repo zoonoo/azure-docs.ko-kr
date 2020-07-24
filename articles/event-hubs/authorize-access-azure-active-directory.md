@@ -3,12 +3,12 @@ title: Azure Active Directory를 사용하여 액세스 권한 부여
 description: 이 문서에서는 Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 734c95f6f26dbb646f641e4446287df52c86be6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e529a1b72e364514d00c3b7ba84ba26490a9a0bb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317977"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131908"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여
 Azure Event Hubs는 Azure Active Directory (Azure AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여 합니다. Azure AD를 사용 하면 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
@@ -34,8 +34,8 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 액세스 권한을 부여 하는 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
 
 - [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 완전 한 액세스를 제공 합니다.
-- [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다.
-- [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 사용/수신 액세스를 제공 합니다.
+- [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다.
+- [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 사용/수신 액세스를 제공 합니다.
 
 ## <a name="resource-scope"></a>리소스 범위 
 보안 주체에 RBAC 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례는 항상 가장 좁은 범위를 부여 하는 것이 가장 좋습니다.
@@ -53,7 +53,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 > - 이 콘텐츠는 Apache Kafka에 대 한 Event Hubs 및 Event Hubs에 모두 적용 됩니다. Kafka 지원 Event Hubs에 대 한 자세한 내용은 [Kafka에 대 한 Event Hubs 보안 및 인증](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication)을 참조 하세요.
 
 
-기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 [역할 정의 이해](../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조 하세요. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 [Azure 역할 기반 Access Control에 대 한 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md)를 참조 하세요.
+기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 [역할 정의 이해](../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 
 

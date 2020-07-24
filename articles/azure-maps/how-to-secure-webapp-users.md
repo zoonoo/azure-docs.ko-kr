@@ -2,19 +2,19 @@
 title: 대화형 single sign-on을 사용 하 여 웹 응용 프로그램을 보호 하는 방법
 titleSuffix: Azure Maps
 description: Openid connect Connect 프로토콜을 사용 하 여 Azure Maps 웹 SDK에서 Azure AD single sign-on을 지 원하는 웹 응용 프로그램을 구성 하는 방법입니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1f591e52ba0c54dcf3242d11f7e81e8e73a570c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b21f487e2800a051b59bf94c038b3c1f40e658c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988453"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130820"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>사용자 로그인을 사용 하 여 웹 응용 프로그램 보호
 

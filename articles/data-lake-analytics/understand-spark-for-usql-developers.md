@@ -1,19 +1,17 @@
 ---
 title: Azure Data Lake Analytics U SQL 개발자를 위한 Apache Spark를 이해 합니다.
 description: 이 문서에서는 T-SQL 개발자 간의 차이점에 대 한 Apache Spark 개념을 설명 합니다.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-for-usql-developers
 ms.date: 10/15/2019
-ms.openlocfilehash: cb865ec4f5182a868450d1ff7c561a62f7ca3919
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 567574e65fcc1db3ef9e8aea73c6a59be0594f72
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106410"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132299"
 ---
 # <a name="understand-apache-spark-for-u-sql-developers"></a>U-SQL 개발자를 위한 Apache Spark 이해
 

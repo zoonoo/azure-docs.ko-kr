@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f3e670a4f2a49bcce48be1ba0452a36cbf96df1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aad6201136bb925d5e094de115cc7274cc7872a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392321"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131415"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트
 
@@ -25,11 +25,11 @@ ms.locfileid: "85392321"
 2. Azure Maps 실내 지도 기능 stateset을 업데이트 하는 Azure 함수를 만듭니다.
 3. Azure Digital Twins 그래프에서 지도 ID와 기능 stateset ID를 저장 하는 방법입니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
-* Azure Digital Twins [자습서: 종단 간 솔루션 연결](./tutorial-end-to-end.md)을 참조 하세요.
+* Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)을 참조 하세요.
     * 추가 끝점 및 경로를 사용 하 여이 쌍을 확장 합니다. 또한이 자습서의 함수 앱에 다른 함수를 추가 합니다. 
-* Azure Maps [자습서: Azure Maps Creator를 사용 하 여 실내 지도를 만들어](../azure-maps/tutorial-creator-indoor-maps.md) *기능 stateset*을 사용 하 여 Azure Maps 실내 지도를 만듭니다.
+* Azure Maps [*자습서: Azure Maps Creator를 사용 하 여 실내 지도를 만들어*](../azure-maps/tutorial-creator-indoor-maps.md) *기능 stateset*을 사용 하 여 Azure Maps 실내 지도를 만듭니다.
     * [기능 statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) 는 방 또는 장비와 같은 데이터 집합 기능에 할당 된 동적 속성 (상태)의 컬렉션입니다. 위의 Azure Maps 자습서에서 stateset 기능은 지도에 표시 되는 대화방 상태를 저장 합니다.
     * 기능 *stateset ID* 및 AZURE MAPS *구독 id*가 필요 합니다.
 
@@ -45,9 +45,9 @@ ms.locfileid: "85392321"
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>경로 만들기 및 쌍 업데이트 알림을 위한 필터
 
-Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 쌍 업데이트 이벤트를 내보낼 수 있습니다. [Azure Digital Twins 자습서:](./tutorial-end-to-end.md) 위에 연결 된 종단 간 솔루션 연결은 온도계를 사용 하 여 실내 쌍에 연결 된 온도 특성을 업데이트 하는 시나리오를 안내 합니다. 쌍에 대 한 업데이트 알림을 구독 하 고 해당 정보를 사용 하 여 지도를 업데이트 하면 해당 솔루션을 확장할 수 있습니다.
+Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 쌍 업데이트 이벤트를 내보낼 수 있습니다. Azure Digital Twins 자습서: 위에 연결 된 [*종단 간 솔루션 연결*](./tutorial-end-to-end.md) 은 온도계를 사용 하 여 실내 쌍에 연결 된 온도 특성을 업데이트 하는 시나리오를 안내 합니다. 쌍에 대 한 업데이트 알림을 구독 하 고 해당 정보를 사용 하 여 지도를 업데이트 하면 해당 솔루션을 확장할 수 있습니다.
 
-이 패턴은 매핑 논리를 업데이트할 필요 없이 온도에 대 한 기본 데이터 원본을 변경할 수 있는 유연성을 제공 하는 IoT 장치가 아닌 대화방 쌍에서 직접 읽습니다. 예를 들어 지도 논리를 업데이트할 필요 없이 여러 개의 온도계 모양를 추가 하거나이 공간을 설정 하 여 다른 방에 온도계를 공유할 수 있습니다.
+이 패턴은 매핑 논리를 업데이트할 필요 없이 온도에 대 한 기본 데이터 원본을 유연 하 게 변경할 수 있도록 하는 IoT 장치가 아닌 대화방 쌍에서 직접 읽습니다. 예를 들어 지도 논리를 업데이트할 필요 없이 여러 개의 온도계 모양를 추가 하거나이 공간을 설정 하 여 다른 방에 온도계를 공유할 수 있습니다.
 
 1. Azure Digital Twins 인스턴스에서 이벤트를 수신 하는 event grid 토픽을 만듭니다.
     ```azurecli
@@ -61,14 +61,14 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
 
 3. 엔드포인트 업데이트 이벤트를 끝점으로 보내기 위해 Azure Digital Twins에서 경로를 만듭니다.
     ```azurecli
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-an-azure-function-to-update-maps"></a>맵을 업데이트 하는 Azure function 만들기
 
-[종단 간 자습서](./tutorial-end-to-end.md)에서 함수 앱 내에 Event Grid 트리거 함수를 만듭니다. 이 함수는 이러한 알림의 압축을 풀고 Azure Maps 기능으로 업데이트를 전송 하 여 한 방에 대 한 온도를 업데이트 합니다. 
+종단 간 자습서에서 함수 앱 내에 Event Grid 트리거 함수를 만들려고 합니다 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)). 이 함수는 이러한 알림의 압축을 풀고 Azure Maps 기능으로 업데이트를 전송 하 여 한 방에 대 한 온도를 업데이트 합니다. 
 
-참조 정보는 [Azure Functions에 대 한 Azure Event Grid 트리거](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger)문서를 참조 하세요.
+참조 정보는 [*Azure Functions에 대 한 Azure Event Grid 트리거*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger)문서를 참조 하세요.
 
 함수 코드를 다음 코드로 바꿉니다. 이 파일은 공간 쌍에 대 한 업데이트만 필터링 하 고 업데이트 된 온도를 읽고 해당 정보를 Azure Maps으로 보냅니다.
 
@@ -100,7 +100,7 @@ namespace SampleFunctionsApp
 
             //Parse updates to "space" twins
             if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in our map. 
+            {   //Set the ID of the room to be updated in your map. 
                 //Replace this line with your logic for retrieving featureID. 
                 string featureID = "UNIT103";
 
@@ -138,9 +138,9 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 라이브 업데이트 온도를 보려면 다음 단계를 수행 합니다.
 
-1. Azure Digital Twins [자습서: 종단 간 솔루션 연결](tutorial-end-to-end.md)에서 **DeviceSimulator** 프로젝트를 실행 하 여 시뮬레이션 된 IoT 데이터 보내기를 시작 합니다. 이에 대 한 지침은 [*시뮬레이션 구성 및 실행*](././tutorial-end-to-end.md#configure-and-run-the-simulation) 섹션에 나와 있습니다.
+1. Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 **DeviceSimulator** 프로젝트를 실행 하 여 시뮬레이션 된 IoT 데이터 보내기를 시작 합니다. 이에 대 한 지침은 [*시뮬레이션 구성 및 실행*](././tutorial-end-to-end.md#configure-and-run-the-simulation) 섹션에 나와 있습니다.
 2. [ **Azure Maps 실내** 모듈](../azure-maps/how-to-use-indoor-module.md) 을 사용 하 여 Azure Maps 작성자에서 만든 실내 지도를 렌더링 합니다.
-    1. [*예:*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) 실내 지도 자습서: 로컬 파일에 [Azure Maps 실내 맵 모듈 사용](../azure-maps/how-to-use-indoor-module.md) 에서 HTML을 복사 합니다.
+    1. [*예:*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) 실내 지도 자습서: 로컬 파일에 [*Azure Maps 실내 맵 모듈 사용*](../azure-maps/how-to-use-indoor-module.md) 에서 HTML을 복사 합니다.
     1. 로컬 HTML 파일의 *tilesetId* 및 *statesetID* 를 사용자의 값으로 바꿉니다.
     1. 브라우저에서 해당 파일을 엽니다.
 
@@ -160,5 +160,5 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 쌍 그래프에서 정보를 관리, 업그레이드 및 검색 하는 방법에 대 한 자세한 내용은 다음 참조를 참조 하세요.
 
-* [방법: digital 쌍 관리](./how-to-manage-twin.md)
-* [방법: 쌍 그래프 쿼리](./how-to-query-graph.md)
+* [*방법: digital 쌍 관리*](./how-to-manage-twin.md)
+* [*방법: 쌍 그래프 쿼리*](./how-to-query-graph.md)

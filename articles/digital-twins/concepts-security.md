@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522264"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131619"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용 하 여 Azure Digital Twins 보호
 
@@ -35,7 +35,7 @@ Azure AD를 사용 하 여 액세스는 2 단계 프로세스로 진행 됩니�
 
 권한 부여 단계를 수행 하려면 보안 주체에 RBAC 역할을 할당 해야 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Digital Twins는 Azure Digital Twins 리소스에 대 한 권한 집합을 포함 하는 RBAC 역할을 제공 합니다. 이러한 역할에 대해서는이 문서의 뒷부분에서 설명 합니다.
 
-Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용은 Azure RBAC 설명서의 [여러 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md) 를 참조 하세요.
+Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용은 Azure RBAC 설명서의 [*여러 역할 이해*](../role-based-access-control/rbac-and-directory-admin-roles.md) 를 참조 하세요.
 
 ### <a name="authentication-with-managed-identities"></a>관리 ID를 사용하여 인증
 
@@ -46,19 +46,19 @@ Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용�
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins의 RBAC 역할
 
 Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
-* Azure 디지털 쌍 소유자 (미리 보기) –이 역할을 사용 하 여 Azure Digital Twins 리소스에 대 한 모든 권한을 부여 합니다.
-* Azure Digital Twins 판독기 (미리 보기) –이 역할을 사용 하 여 Azure Digital Twins 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
+* *Azure 디지털 쌍 소유자 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 모든 권한을 부여 합니다.
+* *Azure Digital Twins 판독기 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
 
 > [!TIP]
-> Azure Digital Twins 판독기 (미리 보기) 역할은 이제 검색 관계도 지원 합니다.
+> *Azure Digital Twins 판독기 (미리 보기)* 역할은 이제 검색 관계도 지원 합니다.
 
-기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [역할 정의 이해](../role-based-access-control/role-definitions.md) 를 참조 하세요. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
+기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md) 를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [*azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 다음 두 가지 방법으로 역할을 할당할 수 있습니다.
-* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [AZURE RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)참조)
+* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*AZURE RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)
 * CLI 명령을 통해 역할 추가 또는 제거
 
-이 작업을 수행 하는 방법에 대 한 자세한 단계는 [Azure Digital Twins 자습서: 종단 간 *솔루션 연결*](tutorial-end-to-end.md)에서 사용해 보세요.
+이 작업을 수행 하는 방법에 대 한 자세한 단계는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 사용해 보세요.
 
 ## <a name="permission-scopes"></a>사용 권한 범위
 
@@ -71,8 +71,14 @@ Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하
 * 디지털 쌍 관계:이 리소스에 대 한 작업은 쌍 그래프에서 디지털 쌍 간의 [관계](concepts-twins-graph.md) 에 대 한 CRUD 작업 제어를 정의 합니다.
 * 이벤트 경로:이 리소스에 대 한 작업은 Azure Digital Twins에서 [이벤트 허브](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)또는 [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)같은 끝점 서비스로 [이벤트를 라우팅하](concepts-route-events.md) 는 권한을 결정 합니다.
 
+## <a name="troubleshooting"></a>문제 해결
+
+사용자가 해당 역할에서 허용 하지 않는 작업을 수행 하려고 하면 서비스 요청 읽기에서 오류가 발생할 수 있습니다 `403 (Forbidden)` . 자세한 내용 및 문제 해결 단계는 [*문제 해결: Azure 디지털 Twins 요청 실패 상태: 403 (사용할 수 없음)*](troubleshoot-error-403.md)을 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-* [*방법: 클라이언트 응용 프로그램 인증*](how-to-authenticate-client.md)에서 샘플 클라이언트 응용 프로그램을 사용 하 여 이러한 단계를 수행 하는 방법을 참조 하세요.
+* [*방법: 인스턴스 및 인증 설정에서 수행 하는*](how-to-set-up-instance-scripted.md)이러한 개념을 참조 하세요.
+
+* [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)의 클라이언트 응용 프로그램 코드에서 이러한 개념과 상호 작용 하는 방법을 참조 하세요.
 
 * [Azure 용 RBAC](../role-based-access-control/overview.md)에 대해 자세히 알아보세요.

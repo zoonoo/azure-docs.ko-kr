@@ -3,12 +3,12 @@ title: Azure Event Hubs 리소스에 액세스 하는 응용 프로그램 인증
 description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하 Azure Active Directory 응용 프로그램 인증에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cf51daef7298ff0ad487d5a072b6126557578c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56c9033d5b44fde50ebac25bf194cbea486ad387
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537295"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131942"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용 하 여 응용 프로그램을 인증 Event Hubs 리소스에 액세스
 Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure Event Hubs에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은입니다 `https://eventhubs.azure.net/` . Kafka 클라이언트의 경우 토큰을 요청 하는 리소스가입니다 `https://<namespace>.servicebus.windows.net` . Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
@@ -107,7 +107,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
     이 샘플은 최신 **EventHubs** 라이브러리를 사용 하도록 업데이트 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- RBAC에 대해 자세히 알아보려면 [rbac (역할 기반 액세스 제어)](../role-based-access-control/overview.md)란?을 참조 하세요.
+- RBAC에 대해 자세히 알아보려면 [azure 역할 기반 액세스 제어 란? (AZURE RBAC)](../role-based-access-control/overview.md)을 참조 하세요.
 - Azure PowerShell, Azure CLI 또는 REST API를 사용하여 RBAC 역할 할당을 할당하고 관리하는 방법을 알아보려면 다음과 같은 아티클을 참조하세요.
     - [Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) 관리](../role-based-access-control/role-assignments-powershell.md)  
     - [Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어) 관리](../role-based-access-control/role-assignments-cli.md)

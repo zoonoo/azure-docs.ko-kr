@@ -3,20 +3,18 @@ title: 신뢰도 점수-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 기술 자료가 게시 되어야 합니다. 게시 된 후에는 generateAnswer API를 사용 하 여 런타임 예측 끝점에서 기술 자료가 쿼리 됩니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: d901a803311805825c22503af6098e805a67e8f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faf24f11763ca2bcd9bb872b09b5d1b69e78bd06
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76843455"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131160"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>답변의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
@@ -61,7 +59,7 @@ ms.locfileid: "76843455"
 
 이 임계값 점수를 [Generateanswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 설정 합니다. 즉, GenerateAnswer를 호출할 때마다이를 설정 합니다.
 
-Bot 프레임 워크에서 [c #](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 또는 [node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)를 사용 하 여 옵션 개체의 일부로 점수를 설정 합니다.
+Bot 프레임 워크에서 옵션 개체의 일부로 점수를 [c #](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 또는 [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)로 설정 합니다.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
 사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. 대/소문자를 구분하지 않는 [단어 변경](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.

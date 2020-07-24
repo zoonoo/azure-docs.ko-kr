@@ -1,18 +1,19 @@
 ---
 title: Route Service Azure Maps에 대 한 모범 사례 | Microsoft Azure 맵
 description: Microsoft Azure 맵에서 Route Service를 사용 하 여 차량을 라우팅하는 방법을 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266698"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132214"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
 
@@ -28,9 +29,9 @@ Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 �
 * 지원 점수를 사용 하 여 대체 경로를 최적화 합니다. 예를 들어, 전기 차량 청구 스테이션을 통과 하는 대체 경로를 제공 합니다.
 * Azure Maps 웹 SDK를 사용 하 여 [Route Service](https://docs.microsoft.com/rest/api/maps/route) 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Maps Api를 호출 하려면 Azure Maps 계정 및 키가 필요 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조하세요. 기본 키를 기본 구독 키 또는 구독 키 라고도 합니다.
+Azure Maps Api를 호출 하려면 Azure Maps 계정 및 키가 필요 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조하세요. 기본 키를 기본 구독 키 또는 구독 키 라고도 합니다.
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요. Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사](routing-coverage.md)를 참조 하십시오.
 

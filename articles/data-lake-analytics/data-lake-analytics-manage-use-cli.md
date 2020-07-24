@@ -2,18 +2,16 @@
 title: Azure CLI를 사용 하 여 Azure Data Lake Analytics 관리
 description: 이 문서에서는 Azure CLI를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 방법을 설명합니다.
 services: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: f2e77e31049e2643f1488eb3f6be906de735ad2b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d4b9a7be36bd4c0a4044f3e76b96b21a16eb80de
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121421"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132520"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -28,7 +26,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 
 * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* Azure CLI. [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 참조하세요.
+* Azure CLI [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 참조하세요.
 
   * 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases) 를 다운로드하여 설치합니다.
 

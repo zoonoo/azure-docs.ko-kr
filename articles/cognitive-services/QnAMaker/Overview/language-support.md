@@ -3,19 +3,17 @@ title: 언어 지원 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 기술 자료에 대한 QnA Maker에서 지원되는 자연 언어인 문화권의 목록입니다. 동일한 기술 자료에서 언어를 혼합하지 마세요.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
-ms.author: diberry
-ms.openlocfilehash: 2c1b98a72af3442b596a9fdde66d254e3e5c2c19
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: e5740992e6cde4f4f6e009394878f21e957381d4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678616"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132860"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대 한 언어 지원
 
@@ -29,7 +27,7 @@ ms.locfileid: "84678616"
 
 다음 목록에는 QnA Maker 리소스에 대해 지원 되는 언어가 나와 있습니다. 
 
-|언어|
+|Language|
 |--|
 |아랍어|
 |아르메니아어|

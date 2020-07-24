@@ -6,15 +6,15 @@ metadata:
   description: Azure Maps 및 이를 사용하여 웹 또는 모바일 애플리케이션에 지리 공간적 서비스를 제공하는 방법에 대해 알아봅니다.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: philmea
-  ms.author: philmea
+  author: anastasia-ms
+  ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: a48aa9c3c18784205f6780bf20d9790f24e56c90
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.openlocfilehash: 82f77b392dfaabd8528d482aa67a1311520936fa
+  ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86242392"
+  ms.lasthandoff: 07/24/2020
+  ms.locfileid: "87130636"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Azure Maps 소개
       url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
-- title: 시작
+- title: 시작하기
   linkLists:
   - linkListType: quickstart
     links:

@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850295"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130191"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 
@@ -23,7 +23,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 
 * **Azure Cosmos DB 포털에서 모니터링:** Azure Cosmos 계정의 **메트릭** 탭 내에서 사용 가능한 메트릭을 사용 하 여 모니터링할 수 있습니다. 이 탭의 메트릭에는 처리량, 저장소, 가용성, 대기 시간, 일관성 및 시스템 수준 메트릭이 포함 됩니다. 기본적으로 이러한 메트릭에는 7 일의 보존 기간이 있습니다. 자세히 알아보려면이 문서의 [Azure Cosmos DB에서 수집 된 데이터 모니터링](#monitoring-from-azure-cosmos-db) 섹션을 참조 하세요.
 
-* **Azure monitor에서 메트릭을 사용 하 여 모니터링:** Azure Cosmos 계정의 메트릭을 모니터링 하 고 Azure Monitor에서 대시보드를 만들 수 있습니다. Azure Monitor는 기본적으로 Azure Cosmos DB 메트릭을 수집 하며 명시적으로 구성 하지 않습니다. 이러한 메트릭은 1 분 세분성으로 수집 되며 세분성은 선택한 메트릭에 따라 달라질 수 있습니다. 기본적으로 이러한 메트릭에는 30 일의 보존 기간이 있습니다. 이전 옵션에서 사용할 수 있는 대부분의 메트릭은 이러한 메트릭에도 제공 됩니다. 자세히 알아보려면이 문서의 [메트릭 데이터 분석](#analyze-metric-data) 섹션을 참조 하세요.
+* **Azure monitor에서 메트릭을 사용 하 여 모니터링:** Azure Cosmos 계정의 메트릭을 모니터링 하 고 Azure Monitor에서 대시보드를 만들 수 있습니다. Azure Monitor는 기본적으로 Azure Cosmos DB 메트릭을 수집 하며 명시적으로 구성 하지 않습니다. 이러한 메트릭은 1 분 세분성으로 수집 되며 세분성은 선택한 메트릭에 따라 달라질 수 있습니다. 기본적으로 이러한 메트릭에는 30 일의 보존 기간이 있습니다. 이전 옵션에서 사용할 수 있는 대부분의 메트릭은 이러한 메트릭에도 제공 됩니다. 컨테이너 이름과 같은 메트릭에 대 한 차원 값은 대/소문자를 구분 하지 않습니다. 따라서 이러한 차원 값에 대해 문자열 비교를 수행 하는 경우 대/소문자를 구분 하지 않는 비교를 사용 해야 합니다. 자세히 알아보려면이 문서의 [메트릭 데이터 분석](#analyze-metric-data) 섹션을 참조 하세요.
 
 * **Azure Monitor에서 진단 로그를 사용 하 여 모니터링:** Azure Cosmos 계정의 로그를 모니터링 하 고 Azure Monitor에서 대시보드를 만들 수 있습니다. 이벤트 및 두 번째 세분성에서 발생 하는 추적과 같은 원격 분석은 로그로 저장 됩니다. 예를 들어 컨테이너 처리량이 변경 되는 경우 Cosmos 계정의 속성이 변경 되 고 이러한 이벤트는 로그 내에서 캡처됩니다. 수집 된 데이터에 대해 쿼리를 실행 하 여 이러한 로그를 분석할 수 있습니다. 자세히 알아보려면이 문서의 [로그 데이터 분석](#analyze-log-data) 섹션을 참조 하세요.
 

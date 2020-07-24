@@ -3,13 +3,12 @@ title: 문제 해결-QnA Maker
 description: QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이트 목록은 서비스를 더 빠르게 채택 하 고 더 나은 결과를 생성 하는 데 도움이 됩니다.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.author: diberry
-ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804353"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131993"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -20,7 +19,7 @@ QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이�
 ## <a name="manage-predictions"></a>예측 관리
 
 <details>
-<summary><b>쿼리 예측의 처리량 성능을 향상 하려면 어떻게 해야 하나요?</b></summary>
+<summary><b>쿼리 예측의 처리량 성능을 향상하려면 어떻게 해야 하나요?</b></summary>
 
 **답변**: 처리량 성능 문제는 App service와 Cognitive Search에 대해 모두 확장 해야 함을 의미 합니다. 성능을 향상 시키려면 Cognitive Search에 복제본을 추가 하는 것이 좋습니다.
 
@@ -30,7 +29,7 @@ QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이�
 <details>
 <summary><b>QnAMaker 서비스 끝점을 가져오는 방법</b></summary>
 
-**답변**: QnAMaker service 끝점은 QnAMaker 지원 또는 UserVoice에 문의할 때 디버깅 목적으로 유용 합니다. 끝점은 형식으로 된 URL입니다 `https://your-resource-name.azurewebsites.net`.
+**답변**: QnAMaker service 끝점은 QnAMaker 지원 또는 UserVoice에 문의할 때 디버깅 목적으로 유용 합니다. 끝점은 형식으로 된 URL입니다 `https://your-resource-name.azurewebsites.net` .
 
 1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스(리소스 그룹)로 이동
 
@@ -173,7 +172,7 @@ QnA 쌍이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 하
 </details>
 
 <details>
-<summary><b>검색 서비스에서 `testkb` 인덱스를 삭제 했습니다. 이 문제를 해결 하려면 어떻게 해야 하나요?</b></summary>
+<summary><b>`testkb`검색 서비스에서 인덱스를 삭제 했습니다. 이 문제를 해결 하려면 어떻게 해야 하나요?</b></summary>
 
 **답변**: 이전 데이터를 복구할 수 없습니다. 새 QnA Maker 리소스를 만들고 기술 자료를 다시 만듭니다.
 
@@ -209,12 +208,12 @@ QnA 쌍이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 하
 1. App service에서 **개발 도구**, **고급 도구**, **이동**을 차례로 선택 합니다. 그러면 새 브라우저 창이 열립니다.
 1. **디버그 콘솔**, **CMD** 를 차례로 선택 하 여 명령줄 도구를 엽니다.
 1. _Site/wwwroot/Data/QnAMaker/_ directory로 이동 합니다.
-1. 이름이로 시작 하 `rd`는 모든 폴더를 제거 합니다.
+1. 이름이로 시작 하는 모든 폴더를 제거 `rd` 합니다.
 
     다음을 **삭제 하지 마십시오** .
 
-    * KbIdToRankerMappings 파일
-    * EndpointSettings. json 파일
+    * KbIdToRankerMappings.txt 파일
+    * 파일에 EndpointSettings.js
     * EndpointKeys 폴더
 
 1. App service를 시작 합니다.
@@ -244,12 +243,12 @@ QnA 쌍이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 하
 **답변**: 기술 자료에 대 한 다음 정보가 필요 합니다.
 
 * 기술 자료 ID입니다.
-* 기술 자료의 게시 된 끝점 사용자 지정 하위 도메인 이름 `host`으로, 게시 후 **설정** 페이지에서 찾을 수 있습니다.
+* 기술 자료의 게시 된 끝점 사용자 지정 하위 도메인 이름으로 `host` , 게시 후 **설정** 페이지에서 찾을 수 있습니다.
 * 기술 자료의 게시 된 끝점 키-게시 후 **설정** 페이지에서 찾을 수 있습니다.
 
 이 정보를 사용 하 여 Azure Portal에서 봇의 app service로 이동 합니다. **설정-> 구성-> 응용 프로그램 설정**에서 해당 값을 변경 합니다.
 
-기술 자료의 끝점 키는 ABS 서비스에서 `QnAAuthkey` 레이블이 지정 됩니다.
+기술 자료의 끝점 키는 `QnAAuthkey` ABS 서비스에서 레이블이 지정 됩니다.
 
 </details>
 

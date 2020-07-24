@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0847f2360a3562f96454992470e3cc2000f66b11
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fba16f9245c8d438268338329ebadad7a57ef206
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502727"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131925"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
@@ -58,7 +58,7 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-#### <a name="supported-regions"></a>지원되는 지역
+#### <a name="supported-regions"></a>지원되는 Azure 지역
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
@@ -70,7 +70,7 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 공격 받는 특정 암호화 알고리즘, 구현 또는 키와 관련 된 위험을 염려 하는 높은 수준의 보안 민감한 고객은 이제 플랫폼 관리 암호화 키를 사용 하 여 인프라 계층에서 다른 암호화 알고리즘/모드를 사용 하 여 추가 암호화 계층을 선택할 수 있습니다. 이 새 계층은 디스크, 스냅숏 및 이미지에 적용할 수 있으며,이는 모두 이중 암호화를 사용 하 여 미사용에서 암호화 됩니다.
 
-### <a name="supported-regions"></a>지원되는 지역
+### <a name="supported-regions"></a>지원되는 Azure 지역
 
 [!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
@@ -80,8 +80,7 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 ## <a name="next-steps"></a>다음 단계
 
-- [호스트에서 암호화를 사용 하 여 종단 간 암호화 사용-CLI](disks-enable-host-based-encryption-cli.md)
-- [관리 디스크에 미사용 이중 암호화 사용-CLI](disks-enable-double-encryption-at-rest-cli.md)
-- [관리 디스크에 대해 고객이 관리 하는 키 사용-CLI](disks-enable-customer-managed-keys-cli.md)
-- [관리 디스크에 대해 고객이 관리 하는 키 사용-포털](disks-enable-customer-managed-keys-portal.md)
+- [CLI](disks-enable-host-based-encryption-cli.md) 또는 [Azure Portal](disks-enable-host-based-encryption-portal.md)를 사용 하 여 호스트에서 암호화를 사용 하 여 종단 간 암호화를 사용 하도록 설정 합니다.
+- [CLI](disks-enable-double-encryption-at-rest-cli.md) 또는 [Azure Portal](disks-enable-double-encryption-at-rest-portal.md)를 사용 하 여 관리 디스크에 대해 미사용에서 이중 암호화를 사용 하도록 설정 합니다.
+- [CLI](disks-enable-customer-managed-keys-cli.md) 또는 [Azure Portal](disks-enable-customer-managed-keys-portal.md)를 사용 하 여 관리 디스크에 대해 고객이 관리 하는 키를 사용 하도록 설정 합니다.
 - [Azure Key Vault란?](../../key-vault/general/overview.md)

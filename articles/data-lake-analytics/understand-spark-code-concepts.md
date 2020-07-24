@@ -1,19 +1,17 @@
 ---
 title: Azure Data Lake Analytics U SQL 개발자를 위한 Apache Spark 코드 개념을 이해 합니다.
 description: 이 문서에서는 SQL 개발자가 Spark 코드 개념을 이해 하는 데 도움이 되는 Apache Spark 개념을 설명 합니다.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: d7cdcd5a3b176b60bb7801b37a831f8feb08c21f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106495"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132350"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>U SQL 개발자를 위한 Apache Spark 코드 이해
 
@@ -131,7 +129,7 @@ U-SQL의 유형 시스템은 .NET 유형 시스템을 기반으로 하 고 Spark
 자세한 내용은 다음을 참조하세요.
 
 - [org .sql. types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Spark SQL 및 데이터 프레임 형식](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Spark SQL 및 데이터 프레임 형식](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Scala 값 형식](https://www.scala-lang.org/api/current/scala/AnyVal.html)
 - [pyspark](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 

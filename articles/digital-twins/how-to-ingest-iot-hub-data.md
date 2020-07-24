@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725854"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131568"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -37,11 +38,11 @@ Azure Digital Twins는 IoT 장치 및 기타 원본의 데이터를 기반으로
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="IoT Hub 장치는 IoT Hub, Event Grid 또는 시스템 항목을 통해 온도 원격 분석을 azure 함수에 전송 하며, azure 함수는 azure 디지털 쌍의 쌍에서 온도 속성을 업데이트 합니다." border="false":::
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 예를 계속 하기 전에 다음 필수 구성 요소를 완료 해야 합니다.
 1. IoT Hub를 만듭니다. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md) 시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
-2. IoT Hub에서 이벤트를 처리 하는 Azure 함수를 하나 이상 만듭니다. [방법: 데이터를 처리 하는 azure 함수를 설정](how-to-create-azure-function.md) 하 여 Azure Digital twins에 연결 하 고 Azure Digital TWINS API 함수를 호출 하는 기본 azure 함수를 작성 하는 방법을 참조 하세요. 이 방법의 나머지 부분에서는이 함수를 빌드합니다.
+2. IoT Hub에서 이벤트를 처리 하는 Azure 함수를 하나 이상 만듭니다. [*방법: 데이터를 처리 하는 azure 함수를 설정*](how-to-create-azure-function.md) 하 여 Azure Digital twins에 연결 하 고 Azure Digital TWINS API 함수를 호출 하는 기본 azure 함수를 작성 하는 방법을 참조 하세요. 이 방법의 나머지 부분에서는이 함수를 빌드합니다.
 3. 허브 데이터의 이벤트 대상을 설정 합니다. [Azure Portal](https://portal.azure.com/)에서 IoT Hub 인스턴스로 이동 합니다. *이벤트*아래에서 Azure function에 대 한 구독을 만듭니다. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure Portal: 이벤트 구독 추가":::
@@ -54,7 +55,7 @@ Azure Digital Twins는 IoT 장치 및 기타 원본의 데이터를 기반으로
 
 ## <a name="create-an-azure-function-in-visual-studio"></a>Visual Studio에서 Azure function 만들기
 
-이 섹션에서는 동일한 Visual Studio 시작 단계와 [방법: 데이터 처리를 위한 azure 함수 설정](how-to-create-azure-function.md)의 azure function 기초를 사용 합니다. 이 기초는 인증을 처리 하 고 서비스 클라이언트를 만들어 데이터를 처리 하 고 Azure Digital Twins Api를 응답으로 호출할 수 있도록 준비 했습니다. 
+이 섹션에서는 동일한 Visual Studio 시작 단계와 [*방법: 데이터 처리를 위한 azure 함수 설정*](how-to-create-azure-function.md)의 azure function 기초를 사용 합니다. 이 기초는 인증을 처리 하 고 서비스 클라이언트를 만들어 데이터를 처리 하 고 Azure Digital Twins Api를 응답으로 호출할 수 있도록 준비 했습니다. 
 
 해골 함수의 핵심은 다음과 같습니다.
 
@@ -267,9 +268,9 @@ public static async Task UpdateTwinProperty(DigitalTwinsClient client, string tw
 
 ## <a name="debug-azure-function-apps-locally"></a>로컬에서 Azure 함수 앱 디버그
 
-로컬에서 Event Grid 트리거를 사용 하 여 Azure 함수를 디버그할 수 있습니다. 이에 대 한 자세한 내용은 [로컬에서 디버그 Event Grid 트리거](../azure-functions/functions-debug-event-grid-trigger-local.md)를 참조 하세요.
+로컬에서 Event Grid 트리거를 사용 하 여 Azure 함수를 디버그할 수 있습니다. 이에 대 한 자세한 내용은 [*로컬에서 디버그 Event Grid 트리거*](../azure-functions/functions-debug-event-grid-trigger-local.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins를 사용 하 여 데이터 수신 및 송신에 대해 읽기:
-* [개념: 다른 서비스와 통합](concepts-integration.md)
+* [*개념: 다른 서비스와 통합*](concepts-integration.md)

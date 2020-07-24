@@ -1,19 +1,20 @@
 ---
 title: 맵에 좌표 관련 정보 표시 | Microsoft Azure Maps
 description: 사용자가 좌표를 선택할 경우 맵에서 주소에 대한 정보를 표시하는 방법을 알아봅니다.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 274d1102649dade1b3295bd02feba03f64a26ad5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 02ffbd9352b97fd0968aee89b0e8f41e3bc30713
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123992"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130412"
 ---
 # <a name="get-information-from-a-coordinate"></a>좌표에서 정보 가져오기
 

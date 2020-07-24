@@ -1,14 +1,14 @@
 ---
 title: 코드 제공 정책 워크플로 설계
 description: Azure Policy 정의를 코드로 배포하고 리소스의 유효성을 자동으로 검사하는 워크플로를 설계하는 방법을 알아봅니다.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970946"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131500"
 ---
 # <a name="design-policy-as-code-workflows"></a>코드 제공 정책 워크플로 설계
 
@@ -20,6 +20,24 @@ Cloud Governance 여정을 진행하면서 Azure Portal이나 다양한 SDK를 �
 이러한 아이디어의 조합이 바로 코드 제공 정책입니다. 기본적으로 정책 정의를 소스 제어에서 유지하고, 변경 내용이 적용될 때마다 해당 변경 내용을 테스트하고, 유효성을 검사합니다. 그러나 이는 코드 제공 인프라 또는 DevOps와 관련된 정책 범위에 있어서는 안 됩니다.
 
 또한 유효성 검사 단계는 다른 연속 통합 또는 지속적인 배포 워크플로의 구성 요소여야 합니다. 예를 들어 애플리케이션 환경 또는 가상 인프라 배포 등이 있습니다. 응용 프로그램 및 운영 팀은 빌드 및 배포 프로세스의 초기 구성 요소에 대 한 Azure Policy 유효성 검사를 수행 하 여 변경 내용이 비규격 인지 여부를 확인 합니다.
+
+## <a name="definitions-and-foundational-information"></a>정의 및 기본 정보
+
+정책 세부 정보를 코드 워크플로로 가져오기 전에 다음 정의 및 예제를 검토 합니다.
+
+- [정책 정의](./definition-structure.md)
+- [이니셔티브 정의](./initiative-definition-structure.md)
+
+파일 이름은 정책 또는 이니셔티브 정의의 일부에 맞게 정렬 됩니다.
+- `policy(set).json`-전체 정의
+- `policy(set).parameters.json`- `properties.parameters` 정의의 일부입니다.
+- `policy.rules.json`- `properties.policyRule` 정의의 일부입니다.
+- `policyset.definitions.json`- `properties.policyDefinitions` 정의의 일부입니다.
+
+이러한 파일 형식의 예는 [Azure Policy GitHub](https://github.com/Azure/azure-policy/)리포지토리에서 사용할 수 있습니다.
+
+- 정책 정의: [리소스에 태그 추가](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- 이니셔티브 정의: [청구 태그](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>워크플로 개요
 
@@ -129,5 +147,5 @@ Automation에서 새로 생성되거나 업데이트된 정책 또는 이니셔�
 - [정책 할당 구조](./assignment-structure.md)에 대해 알아봅니다.
 - [프로그래밍 방식으로 정책을 생성](../how-to/programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
-- [미준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
+- [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

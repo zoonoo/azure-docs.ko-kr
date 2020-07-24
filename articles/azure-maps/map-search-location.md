@@ -1,19 +1,20 @@
 ---
 title: 맵에 검색 결과 표시 | Microsoft Azure Maps
 description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 검색 요청을 수행하고 맵에 결과를 표시하는 방법을 알아봅니다.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: da67c27f590e60c7ae4eecbe8e139c5519e39e31
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 678781ff4bade7484f28cc9ab14d960f2b24c323
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123958"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130293"
 ---
 # <a name="show-search-results-on-the-map"></a>지도에 검색 결과 표시
 

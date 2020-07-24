@@ -2,19 +2,17 @@
 title: Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 description: Azure Data Lake Analytics를 사용 하 여 웹 사이트 로그를 분석 하 여 U-SQL 함수 및 쿼리를 실행 하는 방법을 알아봅니다.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 25b84646bd6a95f0409184cccd40c6b7c9a0ef7f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117443"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132639"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법, 특히 웹 사이트를 방문하려고 할 때 참조 페이지에 오류가 발생한 경우에 대해 알아봅니다.
@@ -32,7 +30,7 @@ ms.locfileid: "86117443"
 * **Data Lake Analytics 계정.**  [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md)를 참조하세요.
 * **샘플 데이터 설치.** Azure Portal에서 Data Lake Analytics를 열고 왼쪽 메뉴에서 **샘플 스크립트**를 클릭한 후에 **샘플 데이터 복사**를 클릭합니다. 
 
-## <a name="connect-to-azure"></a>Azure 연결
+## <a name="connect-to-azure"></a>Azure에 연결
 모든 U-SQL 스크립트를 빌드하거나 테스트하기 전에 먼저 Azure에 연결해야 합니다.
 
 ### <a name="to-connect-to-data-lake-analytics"></a>데이터 레이크 분석에 연결하려면

@@ -1,19 +1,19 @@
 ---
 title: 지 오 코딩 범위 | Microsoft Azure 맵
 description: 위치 주소를 위도 및 경도 좌표로 변환 하는 프로세스를 지 오 코딩 라고 합니다. 이 문서에서는 Microsoft Azure Maps에서 지 오 코딩 검사가 적용 되는 지역에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9836bd35b16c4c308b7c9d096b104c0cec68a34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52c6cda800b535109d906fd6e6ae1aa8c709f23f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335644"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132809"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 

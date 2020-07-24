@@ -4,11 +4,12 @@ description: Azure 배포 관리자를 사용하여 여러 지역에 서비스�
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057928"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130225"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
 
@@ -36,7 +37,7 @@ Azure 배포 관리자 미리 보기 상태입니다. [피드백](https://aka.ms
 
 ## <a name="identity-and-access"></a>ID 및 액세스
 
-배포 관리자를 사용할 경우 [사용자가 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)가 배포 작업을 수행합니다. 배포를 시작하기 전에 이 ID를 만듭니다. 이 ID에는 서비스를 배포할 구독에 대한 액세스 권한이 있어야 하며 배포를 수행하기 위한 충분한 권한이 있어야 합니다. 역할을 통해 부여되는 작업에 대한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+배포 관리자를 사용할 경우 [사용자가 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)가 배포 작업을 수행합니다. 배포를 시작하기 전에 이 ID를 만듭니다. 이 ID에는 서비스를 배포할 구독에 대한 액세스 권한이 있어야 하며 배포를 수행하기 위한 충분한 권한이 있어야 합니다. 역할을 통해 부여 되는 작업에 대 한 자세한 내용은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 Id는 롤아웃과 동일한 위치에 있어야 합니다.
 

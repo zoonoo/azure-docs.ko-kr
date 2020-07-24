@@ -3,19 +3,17 @@ title: 오프 라인 평가 방법 사용-Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 오프 라인 평가를 사용 하 여 앱의 효율성을 측정 하 고 학습 루프를 분석 하는 방법을 설명 합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.author: diberry
-ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623597"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132758"
 ---
 # <a name="offline-evaluation"></a>오프라인 평가
 
@@ -55,7 +53,7 @@ Personalizer는 오프라인 평가 프로세스를 사용하여 최적의 학�
 | 학습 설정 | 목적|
 |--|--|
 |**온라인 정책**| Personalizer에서 사용되는 현재 학습 정책입니다. |
-|**기초**|응용 프로그램의 기본 (순위 호출에서 보낸 첫 번째 작업에 의해 결정 됨)|
+|**기준**|응용 프로그램의 기본 (순위 호출에서 보낸 첫 번째 작업에 의해 결정 됨)|
 |**임의 정책**|제공된 작업 중에서 항상 임의의 작업을 선택하여 반환하는 가상 순위 동작입니다.|
 |**사용자 지정 정책**|평가를 시작할 때 업로드되는 추가 학습 정책입니다.|
 |**최적화 된 정책**|최적화된 정책을 검색하는 옵션을 사용하여 평가를 시작한 경우 최적화된 정책 비교가 수행되며, 최적화된 정책을 다운로드하거나 온라인 학습 정책으로 만들어서 현재 정책을 대체할 수 있습니다.|
@@ -108,5 +106,5 @@ Personalizer는 사용자의 동작(및 이에 따라 보상)을 소급하여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Personalizer](how-to-settings.md)
-[실행 오프 라인 평가](how-to-offline-evaluation.md) 구성 [Personalizer 작동 방법](how-personalizer-works.md) 이해
+[Personalizer 구성](how-to-settings.md) 
+ [오프 라인 평가 실행](how-to-offline-evaluation.md) [Personalizer 작동 방식](how-personalizer-works.md) 이해
