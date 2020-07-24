@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 06/23/2020
+ms.date: 07/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127a83bbe29a5e102a82cf169919a44f52532228
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 228a24fbc4fb68a72f2cb8abb7d4382127be2147
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185690"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064425"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -98,7 +98,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 |운영 체제  |메모  |
 |---------|---------|
-|Windows 클라이언트     | 클라이언트 운영 체제(예: Windows 7 및 Windows 10)는 지원되지 않습니다.<br> Azure WVD(Windows Virtual Desktop)의 경우<br> 권장되는 업데이트 관리 방법은 Windows 10 클라이언트 머신 패치 관리에 [비즈니스용 Windows 업데이트](/windows/deployment/update/waas-manage-updates-wufb)를 사용하는 것입니다. |
+|Windows 클라이언트     | 클라이언트 운영 체제(예: Windows 7 및 Windows 10)는 지원되지 않습니다.<br> Azure WVD(Windows Virtual Desktop)의 경우<br> 업데이트를 관리 하려면 Windows 10 클라이언트 컴퓨터 패치 관리를 위한 [Microsoft Endpoint Configuration Manager](../virtual-desktop/configure-automatic-updates.md) 입니다. |
 |Windows Server 2016 Nano Server     | 지원되지 않습니다.       |
 |Azure Kubernetes Service 노드 | 지원되지 않습니다. [AKS(Azure Kubernetes Service)에서 Linux 노드에 보안 및 커널 업데이트 적용](../aks/node-updates-kured.md)에서 설명하는 패치 프로세스를 사용합니다.|
 
@@ -166,7 +166,7 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 
 다음 표에서는 업데이트 관리에서 지원하는 연결된 원본에 대해 설명합니다.
 
-| 연결된 원본 | 지원됨 | 설명 |
+| 연결된 원본 | 지원됨 | Description |
 | --- | --- | --- |
 | Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
 | Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
@@ -193,15 +193,15 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
+Automation 서비스 및 Log Analytics 작업 영역에 대 한 트래픽을 허용 하도록 네트워크 그룹 보안 규칙을 만들거나 Azure 방화벽을 구성 하는 경우 [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** 및 **azuremonitor**를 사용 합니다. 네트워크 보안 규칙의 지속적인 관리를 간소화 합니다. Azure Vm에서 자동화 서비스에 안전 하 고 개인적으로 연결 하려면 [Azure 개인 링크 사용](how-to/private-link-security.md)을 검토 하세요. 온-프레미스 방화벽 구성의 일부로 포함할 현재 서비스 태그 및 범위 정보를 가져오려면 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 참조 하세요.
+
 Windows 머신의 경우 Windows 업데이트에 필요한 모든 엔드포인트로도 트래픽을 허용해야 합니다. 필요한 엔드포인트의 업데이트된 목록은 [HTTP/프록시 관련 문제](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)에서 확인할 수 있습니다. 로컬 [Windows 업데이트 서버](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)가 있는 경우 [WSUS 키](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)에 지정된 서버로도 트래픽을 허용해야 합니다.
 
 Red Hat Linux 머신의 경우 [RHUI 콘텐츠 배달 서버의 IP](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers)에서 필요한 엔드포인트를 확인하세요. 기타 Linux 배포판의 경우 공급자의 설명서를 확인하세요.
 
 Hybrid Runbook Worker에 필요한 포트에 대한 자세한 내용은 [Hybrid Runbook Worker의 업데이트 관리 주소](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker)를 참조하세요.
 
-예외를 정의할 때는 여기에 안내된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되며 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영합니다.
-
-[인터넷 액세스가 없는 컴퓨터 연결](../azure-monitor/platform/gateway.md)의 지침에 따라 인터넷 액세스가 없는 머신을 구성합니다.
+IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결 하는 것을 허용 하지 않는 경우 [Log Analytics 게이트웨이](../azure-monitor/platform/gateway.md) 를 설정한 다음 게이트웨이를 통해 연결 하 여 Azure Automation 및 Azure Monitor 하도록 컴퓨터를 구성할 수 있습니다.
 
 ## <a name="update-classifications"></a>업데이트 분류
 

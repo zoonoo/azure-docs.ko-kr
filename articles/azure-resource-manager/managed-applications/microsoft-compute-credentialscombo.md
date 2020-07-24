@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c88e08e5d2eac09fbcd5b60a8ccd73b46c9616
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652139"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063767"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI 요소
 
@@ -19,15 +20,15 @@ Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함�
 
 Windows의 경우 사용자에게 다음과 같이 표시됩니다.
 
-![Microsoft.Compute.CredentialsCombo 창](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft.Compute.CredentialsCombo 창](./media/managed-application-elements/microsoft-compute-credentialscombo-windows.png)
 
 암호가 선택된 Linux의 경우 사용자에게 다음과 같이 표시됩니다.
 
-![Microsoft.Compute.CredentialsCombo Linux 암호](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Microsoft.Compute.CredentialsCombo Linux 암호](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-password.png)
 
 SSH 공개 키가 선택된 Linux의 경우 사용자에게 다음과 같이 표시됩니다.
 
-![Microsoft.Compute.CredentialsCombo Linux 키](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Microsoft.Compute.CredentialsCombo Linux 키](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>스키마
 

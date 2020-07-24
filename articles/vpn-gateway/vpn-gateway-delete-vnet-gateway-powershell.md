@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: c9b6c915fe986e0a953a4e5c503e79f39f3d40ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54fe4486d43a40e54a0aeae36963c0271fae6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988001"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064519"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 삭제
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ VPN 게이트웨이 구성에 대한 가상 네트워크 게이트웨이 삭제�
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. 최신 Azure Resource Manager PowerShell cmdlet을 다운로드 합니다.
 
-최신 버전의 Azure Resource Manager PowerShell cmdlet을 다운로드하고 설치합니다. PowerShell cmdlet 다운로드 및 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+최신 버전의 Azure Resource Manager PowerShell cmdlet을 다운로드하고 설치합니다. PowerShell cmdlet 다운로드 및 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Azure 계정에 연결 합니다.
 

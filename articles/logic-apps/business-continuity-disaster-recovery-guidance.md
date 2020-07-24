@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437711"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066523"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 비즈니스 연속성 및 재해 복구
 
@@ -157,7 +157,7 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
 
 중단 된 진행 중인 워크플로 인스턴스의 수를 최소화 하기 위해 구현할 수 있는 다양 한 메시지 패턴 중에서 선택할 수 있습니다. 예를 들면 다음과 같습니다.
 
-* [고정 라우팅 쪽지 패턴](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [고정 라우팅 쪽지 패턴](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   이 엔터프라이즈 메시지 패턴은 비즈니스 프로세스를 더 작은 단계로 분할 합니다. 각 단계에 대해 해당 단계에 대 한 작업을 처리 하는 논리 앱을 설정 합니다. 서로 통신 하기 위해 논리 앱은 큐 또는 토픽 Azure Service Bus 같은 비동기 메시징 프로토콜을 사용 합니다. 프로세스를 더 작은 단계로 나누면 실패 한 논리 앱 인스턴스에서 중단 될 수 있는 비즈니스 프로세스의 수를 줄일 수 있습니다. 이 패턴에 대 한 일반적인 정보는 [엔터프라이즈 통합 패턴-라우팅 쪽지](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html)를 참조 하세요.
 
@@ -165,7 +165,7 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
 
   ![Azure Service Bus 큐를 사용 하 여 서로 통신 하는 논리 앱이 나타내는 단계로 비즈니스 프로세스 분할](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  기본 및 보조 논리 앱 인스턴스가 해당 위치에서 동일한 라우팅 쪽지 패턴을 따르는 경우 해당 인스턴스에 대 한 [활성-활성 역할](#roles) 을 설정 하 여 [경쟁 소비자 패턴](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) 을 구현할 수 있습니다.
+  기본 및 보조 논리 앱 인스턴스가 해당 위치에서 동일한 라우팅 쪽지 패턴을 따르는 경우 해당 인스턴스에 대 한 [활성-활성 역할](#roles) 을 설정 하 여 [경쟁 소비자 패턴](/azure/architecture/patterns/competing-consumers) 을 구현할 수 있습니다.
 
 * [프로세스 관리자 (broker) 패턴](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
   예를 들어, 큐 서비스는 메시지에 대 한 잠금을 유지 하 여 다른 클라이언트가 동일한 메시지를 읽지 못하도록 하기 때문에 Azure Service Bus 큐와 같은 메시지 큐에서 읽기는 서버측 상태를 사용 합니다.
 
   > [!NOTE]
-  > 논리 앱이 특정 순서로 메시지를 읽어야 하는 경우 (예: Service Bus 큐에서) 경쟁 하는 소비자 패턴을 사용할 수 있지만 Service Bus 세션 ( [ *순차 호위 (convoy* ) 패턴](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy)이 라고도 함)과 함께 사용할 수 있습니다. 그렇지 않으면 활성-수동 역할을 사용 하 여 논리 앱 인스턴스를 설정 해야 합니다.
+  > 논리 앱이 특정 순서로 메시지를 읽어야 하는 경우 (예: Service Bus 큐에서) 경쟁 하는 소비자 패턴을 사용할 수 있지만 Service Bus 세션 ( [ *순차 호위 (convoy* ) 패턴](/azure/architecture/patterns/sequential-convoy)이 라고도 함)과 함께 사용할 수 있습니다. 그렇지 않으면 활성-수동 역할을 사용 하 여 논리 앱 인스턴스를 설정 해야 합니다.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
 
 * [활성-수동](#roles): 주 인스턴스만 활성 상태 이며 모든 작업을 처리 하는 반면 보조 인스턴스는 주 복제본이 중단 또는 실패할 때까지 대기 합니다. 호출자 또는 라우터는 보조 인스턴스 호출 시기를 결정 합니다.
 
-권장 되는 아키텍처는 Azure API Management를 요청 트리거를 사용 하는 논리 앱에 대 한 프록시로 사용할 수 있습니다. API Management은 [기본 제공 지역 간 복원 력 및 여러 끝점 간에 트래픽을 라우팅하는 기능](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region)을 제공 합니다.
+권장 되는 아키텍처는 Azure API Management를 요청 트리거를 사용 하는 논리 앱에 대 한 프록시로 사용할 수 있습니다. API Management은 [기본 제공 지역 간 복원 력 및 여러 끝점 간에 트래픽을 라우팅하는 기능](../api-management/api-management-howto-deploy-multi-region.md)을 제공 합니다.
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
 
 ### <a name="activate-your-secondary-instance"></a>보조 인스턴스 활성화
 
-보조 인스턴스를 자동으로 활성화 하려면 [Azure Resource Manager 커넥터](https://docs.microsoft.com/connectors/arm/) 와 같은 관리 API를 호출 하 여 보조 위치에서 적절 한 논리 앱을 활성화 하는 논리 앱을 만들 수 있습니다. 특정 수의 실패가 발생 한 후에는이 활성화 논리 앱을 호출 하도록 watchdog 앱을 확장할 수 있습니다.
+보조 인스턴스를 자동으로 활성화 하려면 [Azure Resource Manager 커넥터](/connectors/arm/) 와 같은 관리 API를 호출 하 여 보조 위치에서 적절 한 논리 앱을 활성화 하는 논리 앱을 만들 수 있습니다. 특정 수의 실패가 발생 한 후에는이 활성화 논리 앱을 호출 하도록 watchdog 앱을 확장할 수 있습니다.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -348,9 +348,9 @@ Azure Logic Apps는 논리 앱이 다른 앱, 서비스, 시스템 및 기타 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure에 대 한 복원 력 개요](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [특정 Azure 서비스에 대한 복원력 검사 목록](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Azure의 복원 력을 위한 데이터 관리](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Azure 응용 프로그램에 대 한 백업 및 재해 복구](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [지역 전체의 서비스 중단으로부터 복구](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Azure에 대 한 복원 력 개요](/azure/architecture/framework/resiliency/overview)
+* [특정 Azure 서비스에 대한 복원력 검사 목록](/azure/architecture/checklist/resiliency-per-service)
+* [Azure의 복원 력을 위한 데이터 관리](/azure/architecture/framework/resiliency/data-management)
+* [Azure 응용 프로그램에 대 한 백업 및 재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [지역 전체의 서비스 중단으로부터 복구](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Azure 서비스에 대 한 Microsoft Sla (서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/)

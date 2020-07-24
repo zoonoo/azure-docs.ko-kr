@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065085"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포를 지원하는 SAP 소프트웨어
 이 문서에서는 Azure 배포에 대해 지원 되는 SAP 소프트웨어 및 필요한 운영 체제 릴리스 또는 DBMS 릴리스가 무엇 인지 확인 하는 방법을 설명 합니다.
@@ -87,12 +87,12 @@ Azure에서 지원 되는 운영 체제, Oracle DBMS 릴리스 및 Oracle 기능
 Azure에서 HANA 데이터베이스를 실행 하는 데 사용할 수 있는 두 가지 서비스가 있습니다.
 
 - Azure Virtual Machines
-- [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [HANA Large Instances](./hana-overview-architecture.md)
 
 SAP HANA를 실행 하기 위해 SAP는 NetWeaver 또는 다른 SAP 응용 프로그램 및 DBMS를 실행 하는 것 보다 더 강력 하 고 더 강력한 조건을 충족 해야 합니다. 따라서 SAP HANA DBMS를 실행 하는 데 적합 한 Azure Vm의 수가 적습니다. SAP HANA에 대해 지원 되는 지원 되는 Azure 인프라 목록은 [SAP HANA 하드웨어 디렉터리](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)라고 하는에서 찾을 수 있습니다. 
 
 > [!NOTE]
-> 문자 ' '로 시작 하는 단위는 [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 단위입니다. 
+> 문자 ' '로 시작 하는 단위는 [HANA Large Instances](./hana-overview-architecture.md) 단위입니다. 
 
 > [!NOTE]
 > SAP에는 SAP HANA 주 릴리스에 종속 된 특정 인증이 없습니다. [Hana 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)의 열 **인증 시나리오** 와는 달리,이 열은 **hana 주 또는 부 릴리스 인증에 대 한 문을 수행 하지 않습니다**. 특정 단위에 대 한 인증 된 운영 체제 릴리스가 HANA 1.0 릴리스부터도 지원 되는 한 HANA 1.0 및 HANA 2.0에 사용할 수 있는 모든 단위가 나열 되어 있다고 가정 해야 합니다. 
@@ -138,12 +138,11 @@ Sap BPC 10.1 SP08에 대 한 지원은 [sap support note](https://launchpad.supp
 Azure의 SAP Hybris Commerce Platform에 대 한 지원은 [Hybris 설명서](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html)에 자세히 설명 되어 있습니다. SAP Hybris Commerce Platform에 대해 지원 되는 DBMS에 따라 다음과 같이 나열 됩니다.
 
 - Windows 운영 체제 플랫폼의 SQL Server 및 Oracle 동일한 최소 릴리스가 SAP NetWeaver 적용 됩니다. 자세한 내용은 [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533) 를 참조 하세요.
-- Red Hat 및 SUSE Linux에서 SAP HANA 합니다. [이 문서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support)앞부분에서 설명한 대로 인증 된 VM 유형 SAP HANA 필요 합니다. SAP (Hybris) 상거래 플랫폼은 OLTP 작업으로 간주 됩니다.
+- Red Hat 및 SUSE Linux에서 SAP HANA 합니다. [이 문서](#sap-hana-support)앞부분에서 설명한 대로 인증 된 VM 유형 SAP HANA 필요 합니다. SAP (Hybris) 상거래 플랫폼은 OLTP 작업으로 간주 됩니다.
 - SQL Azure DB as SAP (Hybris) 상거래 플랫폼 버전 1811
 
 
 
 
 ## <a name="next-steps"></a>다음 단계
-[SAP NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 의 다음 단계를 참조 하십시오.
-
+[SAP NetWeaver에 대 한 Azure Virtual Machines 계획 및 구현](./planning-guide.md) 의 다음 단계를 참조 하십시오.

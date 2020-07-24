@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066122"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 X12 메시지 교환
 
@@ -86,7 +87,7 @@ Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하�
 
 ![인바운드 메시지의 스키마](./media/logic-apps-enterprise-integration-x12/x12-receive-settings-schemas.png)
 
-이 섹션에서는 각 트랜잭션 유형(ST01) 및 발신자 애플리케이션(GS02)의 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)에서 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 선택합니다. EDI 수신 파이프라인은 이 섹션에서 설정한 값과 스키마를 들어오는 메시지의 ST01 및 GS02 값 그리고 들어오는 메시지의 스키마와 매칭하여 들어오는 메시지를 디스어셈블합니다. 각 행을 완료하면 비어 있는 새 행이 자동으로 표시됩니다.
+이 섹션에서는 각 트랜잭션 유형(ST01) 및 발신자 애플리케이션(GS02)의 [통합 계정](./logic-apps-enterprise-integration-create-integration-account.md)에서 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 선택합니다. EDI 수신 파이프라인은 이 섹션에서 설정한 값과 스키마를 들어오는 메시지의 ST01 및 GS02 값 그리고 들어오는 메시지의 스키마와 매칭하여 들어오는 메시지를 디스어셈블합니다. 각 행을 완료하면 비어 있는 새 행이 자동으로 표시됩니다.
 
 | 속성 | Description |
 |----------|-------------|
@@ -209,7 +210,7 @@ Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하�
 
 ![아웃바운드 메시지의 스키마](./media/logic-apps-enterprise-integration-x12/x12-send-settings-schemas.png)
 
-이 섹션에서는 각 트랜잭션 유형(ST01)의 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)에서 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 선택합니다. 각 행을 완료하면 비어 있는 새 행이 자동으로 표시됩니다.
+이 섹션에서는 각 트랜잭션 유형(ST01)의 [통합 계정](./logic-apps-enterprise-integration-create-integration-account.md)에서 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 선택합니다. 각 행을 완료하면 비어 있는 새 행이 자동으로 표시됩니다.
 
 | 속성 | Description |
 |----------|-------------|
@@ -235,7 +236,7 @@ Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하�
 
 ![아웃바운드 메시지의 컨트롤 버전 번호](./media/logic-apps-enterprise-integration-x12/x12-send-settings-control-version-number.png)
 
-이 섹션에서는 각 교환의 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)에서 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 선택합니다. 각 행을 완료하면 비어 있는 새 행이 자동으로 표시됩니다.
+이 섹션에서는 각 교환의 [통합 계정](./logic-apps-enterprise-integration-create-integration-account.md)에서 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 선택합니다. 각 행을 완료하면 비어 있는 새 행이 자동으로 표시됩니다.
 
 | 속성 | Description |
 |----------|-------------|
@@ -380,7 +381,7 @@ HIPAA 스키마 및 277 또는 837 메시지 유형을 사용하는 경우 몇 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명된 작업 및 제한을 비롯하여 이 커넥터에 대한 추가 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/x12/)에서 확인할 수 있습니다.
+커넥터의 Swagger 파일에 설명된 작업 및 제한을 비롯하여 이 커넥터에 대한 추가 기술 정보는 [커넥터의 참조 페이지](/connectors/x12/)에서 확인할 수 있습니다.
 
 > [!NOTE]
 > 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.

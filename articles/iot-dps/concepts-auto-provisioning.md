@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c94fa6b851dfc9923628a738a15f7c245204f73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4755d3ac30a4f6fdc0568dd88fa0e362d7d140a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066569"
 ---
 # <a name="auto-provisioning-concepts"></a>자동 프로비전 개념
 
@@ -102,10 +103,10 @@ Azure IoT 자동 프로비전은 다음 세 단계로 구분할 수 있습니다
 
 그런 후 디바이스 증명 메커니즘 및 Device Provisioning Service SDK/언어 기본 설정에 맞는 "시뮬레이트된 디바이스 자동 프로비전" 빠른 시작을 계속 진행합니다. 이 빠른 시작에서는 "디바이스 등록" 및 "디바이스 등록 및 구성" 단계를 진행합니다. 
 
-|  | 시뮬레이트된 디바이스 증명 메커니즘 | 빠른 시작 SDK/언어 |  |
-|--|--|--|--|
-|  | TPM(신뢰할 수 있는 플랫폼 모듈) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | X.509 인증서 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.JS](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+| 시뮬레이트된 디바이스 증명 메커니즘 | 빠른 시작 SDK/언어 |
+| -------------------------------------- | ----------------------- |
+| TPM(신뢰할 수 있는 플랫폼 모듈) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
+| X.509 인증서 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.JS](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |
 
 
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207093"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064690"
 ---
 # <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
 
@@ -119,15 +119,15 @@ CodePen의 Azure Maps ()를 사용 하 여 <a href='https://codepen.io/azuremaps
 
 응용 프로그램에서 아이콘이 다른 아이콘을 사용 하거나 추가 이미지 템플릿을 추가 하는 모듈을 만드는 경우 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가 하 고 검색할 수 있습니다. 네임 스페이스에서 다음 정적 함수를 사용 합니다 `atlas` .
 
-| 이름 | 반환 형식 | 설명 | 
+| Name | 반환 형식 | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Atlas 네임 스페이스에 사용자 지정 SVG 이미지 템플릿을 추가 합니다. |
-|  `getImageTemplate(templateName: string, scale?: number)`| string | 이름으로 SVG 템플릿을 검색 합니다. |
+|  `getImageTemplate(templateName: string, scale?: number)`| 문자열 | 이름으로 SVG 템플릿을 검색 합니다. |
 | `getAllImageTemplateNames()` | string[] |  이름으로 SVG 템플릿을 검색 합니다. |
 
 SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 
-| 자리 표시자 | 설명 |
+| 자리표시자 | Description |
 |-|-|
 | `{color}` | 기본 색입니다. | 
 | `{secondaryColor}` | 보조 색입니다. | 
@@ -148,44 +148,337 @@ CodePen에서 Azure Maps ()를 통해 <a href='https://codepen.io/azuremaps/pen/
 
 **기호 아이콘 템플릿**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| marker | 표식-굵고 | 표식-원 | 표식-플랫 |
-|![표식 아이콘](./media/image-templates/marker.png)|![표식-굵은 아이콘](./media/image-templates/marker-thick.png)|![표식-원 아이콘](./media/image-templates/marker-circle.png)|![표식-플랫 아이콘](./media/image-templates/marker-flat.png)|
-||||
-| 표식-사각형 | 표식-제곱-클러스터 | 표식-화살표 | 표식-공 핀 | 
-|![표식-사각형 아이콘](./media/image-templates/marker-square.png)|![표식-사각형-클러스터 아이콘](./media/image-templates/marker-square-cluster.png)|![표식-화살표 아이콘](./media/image-templates/marker-arrow.png)|![표식-공 핀 아이콘](./media/image-templates/marker-ball-pin.png)|
-||||
-| 표식-둥근 사각형 | 표식-둥근 사각형-클러스터 | 플래그 | 플래그-삼각형 |
-| ![표식-둥근 사각형 아이콘](./media/image-templates/marker-square-rounded.png) | ![표식-둥근 모양-클러스터 아이콘](./media/image-templates/marker-square-rounded-cluster.png) | ![플래그 아이콘](./media/image-templates/flag.png) | ![플래그-삼각형 아이콘](./media/image-templates/flag-triangle.png) |
-||||
-| 삼각형 | 삼각형-굵은 | 삼각형-위쪽 화살표 | 삼각형-왼쪽 화살표 |
-| ![삼각형 아이콘](./media/image-templates/triangle.png) | ![삼각형-굵은 아이콘](./media/image-templates/triangle-thick.png) | ![삼각형-위쪽 화살표 아이콘](./media/image-templates/triangle-arrow-up.png) | ![삼각형-왼쪽 아이콘](./media/image-templates/triangle-arrow-left.png) |
-||||
-| 육각형 | 육각형-굵고 | 육각형-둥근 모양 | 육각형-굵고 |
-| ![육각형 아이콘](./media/image-templates/hexagon.png) | ![육각형-굵은 아이콘](./media/image-templates/hexagon-thick.png) | ![육각형 모양 아이콘](./media/image-templates/hexagon-rounded.png) | ![육각형-굵은 아이콘](./media/image-templates/hexagon-rounded-thick.png) |
-||||
-| 고정 | 핀 반올림 | 둥근 사각형 | 둥근 사각형-굵고 |
-| ![고정 아이콘](./media/image-templates/pin.png) | ![핀 둥근 모양 아이콘](./media/image-templates/pin-round.png) | ![둥근 사각형 아이콘](./media/image-templates/rounded-square.png) | ![둥근 사각형-굵은 아이콘](./media/image-templates/rounded-square-thick.png) |
-||||
-| 위쪽 화살표 | 화살표-위쪽-씬 | car ||
-| ![화살표 아이콘](./media/image-templates/arrow-up.png) | ![화살표-위쪽 화살표 아이콘](./media/image-templates/arrow-up-thin.png) | ![자동차 아이콘](./media/image-templates/car.png) | |
+:::row:::
+   :::column span="":::
+      marker
+   :::column-end:::
+   :::column span="":::
+      표식-굵고
+   :::column-end:::
+   :::column span="":::
+      표식-원
+   :::column-end:::
+   :::column span="":::
+      표식-플랫
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![표식 아이콘](./media/image-templates/marker.png)
+   :::column-end:::
+   :::column span="":::
+      ![표식-굵은 아이콘](./media/image-templates/marker-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![표식-원 아이콘](./media/image-templates/marker-circle.png)
+   :::column-end:::
+   :::column span="":::
+      ![표식-플랫 아이콘](./media/image-templates/marker-flat.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      표식-사각형
+   :::column-end:::
+   :::column span="":::
+      표식-제곱-클러스터
+   :::column-end:::
+   :::column span="":::
+      표식-화살표
+   :::column-end:::
+   :::column span="":::
+      표식-공 핀
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![표식-사각형 아이콘](./media/image-templates/marker-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![표식-사각형-클러스터 아이콘](./media/image-templates/marker-square-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![표식-화살표 아이콘](./media/image-templates/marker-arrow.png)
+   :::column-end:::
+   :::column span="":::
+      ![표식-공 핀 아이콘](./media/image-templates/marker-ball-pin.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      표식-둥근 사각형
+   :::column-end:::
+   :::column span="":::
+      표식-둥근 사각형-클러스터
+   :::column-end:::
+   :::column span="":::
+      flag
+   :::column-end:::
+   :::column span="":::
+      플래그-삼각형
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![표식-둥근 사각형 아이콘](./media/image-templates/marker-square-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![표식-둥근 모양-클러스터 아이콘](./media/image-templates/marker-square-rounded-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![플래그 아이콘](./media/image-templates/flag.png)
+   :::column-end:::
+   :::column span="":::
+      ![플래그-삼각형 아이콘](./media/image-templates/flag-triangle.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      삼각형
+   :::column-end:::
+   :::column span="":::
+      삼각형-굵은
+   :::column-end:::
+   :::column span="":::
+      삼각형-위쪽 화살표
+   :::column-end:::
+   :::column span="":::
+      삼각형-왼쪽 화살표
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![삼각형 아이콘](./media/image-templates/triangle.png)
+   :::column-end:::
+   :::column span="":::
+      ![삼각형-굵은 아이콘](./media/image-templates/triangle-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![삼각형-위쪽 화살표 아이콘](./media/image-templates/triangle-arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![삼각형-왼쪽 아이콘](./media/image-templates/triangle-arrow-left.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      육각형
+   :::column-end:::
+   :::column span="":::
+      육각형-굵고
+   :::column-end:::
+   :::column span="":::
+      육각형-둥근 모양
+   :::column-end:::
+   :::column span="":::
+      육각형-굵고
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![육각형 아이콘](./media/image-templates/hexagon.png)
+   :::column-end:::
+   :::column span="":::
+      ![육각형-굵은 아이콘](./media/image-templates/hexagon-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![육각형 모양 아이콘](./media/image-templates/hexagon-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![육각형-굵은 아이콘](./media/image-templates/hexagon-rounded-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      고정
+   :::column-end:::
+   :::column span="":::
+      핀 반올림
+   :::column-end:::
+   :::column span="":::
+      둥근 사각형
+   :::column-end:::
+   :::column span="":::
+      둥근 사각형-굵고
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![고정 아이콘](./media/image-templates/pin.png)
+   :::column-end:::
+   :::column span="":::
+      ![핀 둥근 모양 아이콘](./media/image-templates/pin-round.png)
+   :::column-end:::
+   :::column span="":::
+      ![둥근 사각형 아이콘](./media/image-templates/rounded-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![둥근 사각형-굵은 아이콘](./media/image-templates/rounded-square-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      위쪽 화살표
+   :::column-end:::
+   :::column span="":::
+      화살표-위쪽-씬
+   :::column-end:::
+   :::column span="":::
+      car
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![화살표 아이콘](./media/image-templates/arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![화살표-위쪽 화살표 아이콘](./media/image-templates/arrow-up-thin.png)
+   :::column-end:::
+   :::column span="":::
+      ![자동차 아이콘](./media/image-templates/car.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+
 
 **다각형 채우기 패턴 템플릿**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| 맞춤법 | 검사기 회전 | 원 | 원-간격 |
-| ![검사기 아이콘](./media/image-templates/checker.png) | ![검사기 회전 아이콘](./media/image-templates/checker-rotated.png) | ![원 아이콘](./media/image-templates/circles.png) | ![원-간격 아이콘](./media/image-templates/circles-spaced.png) |
-|||||
-| 대각선-위쪽 | 대각선 줄 다운 | 대각선-줄무늬-위쪽 | 대각선-아래쪽 줄무늬 |
-| ![대각선 줄 위로 아이콘](./media/image-templates/diagonal-lines-up.png) | ![대각선 줄 다운 아이콘](./media/image-templates/diagonal-lines-down.png) | ![대각선-줄무늬-위쪽 아이콘](./media/image-templates/diagonal-stripes-up.png) | ![대각선-아래쪽 줄무늬 아이콘](./media/image-templates/diagonal-stripes-down.png) |
-|||||
-| 그리드-줄 | 회전 된 모눈선 | 회전-표-줄무늬 | x-채우기 |
-| ![그리드-선 아이콘](./media/image-templates/grid-lines.png) | ![회전-눈금선 아이콘](./media/image-templates/rotated-grid-lines.png) | ![회전-표-줄무늬 아이콘](./media/image-templates/rotated-grid-stripes.png) | ![x-채우기 아이콘](./media/image-templates/x-fill.png) |
-|||||
-| 지그재그 | 지그재그-세로 | 점에 |  |
-| ![지그재그 아이콘](./media/image-templates/zig-zag.png) | ![지그재그-세로 아이콘](./media/image-templates/zig-zag-vertical.png) | ![점 아이콘](./media/image-templates/dots.png) | |
+:::row:::
+   :::column span="":::
+      맞춤법
+   :::column-end:::
+   :::column span="":::
+      검사기 회전
+   :::column-end:::
+   :::column span="":::
+      원
+   :::column-end:::
+   :::column span="":::
+      원-간격
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![검사기 아이콘](./media/image-templates/checker.png)
+   :::column-end:::
+   :::column span="":::
+      ![검사기 회전 아이콘](./media/image-templates/checker-rotated.png)
+   :::column-end:::
+   :::column span="":::
+      ![원 아이콘](./media/image-templates/circles.png)
+   :::column-end:::
+   :::column span="":::
+      ![원-간격 아이콘](./media/image-templates/circles-spaced.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      대각선-위쪽
+   :::column-end:::
+   :::column span="":::
+      대각선 줄 다운
+   :::column-end:::
+   :::column span="":::
+      대각선-줄무늬-위쪽
+   :::column-end:::
+   :::column span="":::
+      대각선-아래쪽 줄무늬
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![대각선 줄 위로 아이콘](./media/image-templates/diagonal-lines-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![대각선 줄 다운 아이콘](./media/image-templates/diagonal-lines-down.png)
+   :::column-end:::
+   :::column span="":::
+      ![대각선-줄무늬-위쪽 아이콘](./media/image-templates/diagonal-stripes-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![대각선-아래쪽 줄무늬 아이콘](./media/image-templates/diagonal-stripes-down.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      그리드-줄
+   :::column-end:::
+   :::column span="":::
+      회전 된 모눈선
+   :::column-end:::
+   :::column span="":::
+      회전-표-줄무늬
+   :::column-end:::
+   :::column span="":::
+      x-채우기
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![그리드-선 아이콘](./media/image-templates/grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![회전-눈금선 아이콘](./media/image-templates/rotated-grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![회전-표-줄무늬 아이콘](./media/image-templates/rotated-grid-stripes.png)
+   :::column-end:::
+   :::column span="":::
+      ![x-채우기 아이콘](./media/image-templates/x-fill.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      지그재그
+   :::column-end:::
+   :::column span="":::
+      지그재그-세로
+   :::column-end:::
+   :::column span="":::
+      점에
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![지그재그 아이콘](./media/image-templates/zig-zag.png)
+   :::column-end:::
+   :::column span="":::
+      ![지그재그-세로 아이콘](./media/image-templates/zig-zag-vertical.png)
+   :::column-end:::
+   :::column span="":::
+      ![점 아이콘](./media/image-templates/dots.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+<br>
 
 **미리 로드 한 이미지 아이콘**
 

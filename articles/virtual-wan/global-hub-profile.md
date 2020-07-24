@@ -2,17 +2,17 @@
 title: Azure 가상 WAN 글로벌 또는 허브 기반 VPN 프로필 다운로드 | Microsoft Docs
 description: Virtual WAN의 자동화된 확장성 있는 지점 간 연결, 사용 가능한 지역 및 파트너에 대해 알아봅니다.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 4/20/2020
 ms.author: alzam
-ms.openlocfilehash: be2ea92ddbcce7c1e0ab5ba7d172cda0e05984fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0fc2f608617ca00fea8b9ed5c4b874c65940263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064797"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>사용자 VPN 클라이언트용 글로벌 또는 허브 기반 프로필 다운로드
 

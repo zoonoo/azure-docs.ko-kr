@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259179"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064915"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
 
@@ -60,6 +60,9 @@ ms.locfileid: "86259179"
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="전파":::
 
+### <a name="labels"></a><a name="static"></a>레이블입니다.
+레이블은 경로 테이블을 논리적으로 그룹화 하는 메커니즘을 제공 합니다. 이는 연결에서 여러 경로 테이블로 경로를 전파 하는 동안 특히 유용 합니다. 예를 들어 기본 경로 테이블에는 ' Default ' 라는 기본 제공 레이블이 있습니다. 사용자가 연결 경로를 ' Default ' 레이블에 전파 하면 가상 WAN의 모든 허브에서 모든 기본 경로 테이블에 자동으로 적용 됩니다. 
+
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>가상 네트워크 연결에서 정적 경로 구성
 
 정적 경로를 구성 하면 가상 허브에 연결 된 스포크 VNet에 프로 비전 된 NVA (네트워크 가상 어플라이언스)가 될 수 있는 다음 홉 IP를 통해 트래픽을 유도 하는 메커니즘이 제공 됩니다. 고정 경로는 경로 이름, 대상 접두사 목록 및 다음 홉 IP로 구성 됩니다.
@@ -69,13 +72,13 @@ ms.locfileid: "86259179"
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>연결 및 전파 기능 집합 전에 기본 및 표준 가상 Wan의 테이블 경로
 
-이제 경로 테이블은 연결 및 전파 기능을 제공 합니다. 기존 경로 테이블은 이러한 기능이 없는 경로 테이블입니다. 허브 라우팅에서 기존 경로를 사용 하 고 새 기능을 사용 하려는 경우 다음 사항을 고려 하세요.
+이제 경로 테이블은 연결 및 전파 기능을 제공합니다. 기존 경로 테이블은 이러한 기능이 없는 경로 테이블입니다. 허브 라우팅에 기존 경로를 사용 중이고 새 기능을 사용하려는 경우 다음 사항을 고려하세요.
 
 * **가상 허브의 기존 경로를 사용 하는 표준 가상 WAN 고객**:
 
 새 경로 테이블 기능을 사용 하려면 Azure에서 롤아웃이 완료 될 때까지 1 월 1 일에 시작 될 때까지 기다려 주세요. Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치한 경우 먼저 해당 경로를 삭제 한 다음 새 경로 테이블을 만들어야 합니다 (Azure Portal의 허브에 대 한 경로 테이블 섹션에서 사용 가능).
 
-* **가상 허브의 기존 경로를 사용 하는 기본 가상 WAN 고객**: 새 경로 테이블 기능을 사용 하려면 Azure에서 롤아웃이 완료 될 때까지 1 월 1 일에 시작 될 때까지 기다려 주세요. Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치한 경우 먼저 해당 경로를 삭제 한 다음 기본 가상 WAN을 표준 가상 WAN으로 **업그레이드** 해야 합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조 하세요.
+* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 셋째 주까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

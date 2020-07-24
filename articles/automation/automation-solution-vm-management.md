@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064464"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
@@ -49,7 +49,7 @@ VM에서 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정하�
 
 ### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>기존 Automation 계정 및 Log Analytics 작업 영역에 대한 권한
 
-VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정하려면 리소스 그룹 범위에서 다음과 같은 권한이 필요합니다. 역할에 대한 자세한 내용은 [Azure 리소스에 대한 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
+VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정하려면 리소스 그룹 범위에서 다음과 같은 권한이 필요합니다. 역할에 대해 자세히 알아보려면 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 | 사용 권한 | 범위|
 | --- | --- |
@@ -82,10 +82,10 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 
 | 사용 권한 |범위|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | 구독|
-| Microsoft.Authorization/permissions/read |구독|
-| Microsoft.Authorization/roleAssignments/read | 구독 |
-| Microsoft.Authorization/roleAssignments/write | 구독 |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
 | Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/write | 리소스 그룹 |

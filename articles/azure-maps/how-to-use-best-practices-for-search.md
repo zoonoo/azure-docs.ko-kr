@@ -1,18 +1,19 @@
 ---
 title: Azure Maps 검색 서비스에 대한 모범 사례 | Microsoft Azure Maps
 description: Microsoft Azure Maps의 Search Service를 사용할 때 모범 사례를 적용하는 방법에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84264369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064275"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Azure Maps Search Service에 대한 모범 사례
 
@@ -27,7 +28,7 @@ Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) 에
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Maps 서비스 API를 호출하려면 Azure Maps 계정과 키가 필요합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조하세요. 
+Azure Maps 서비스 API를 호출하려면 Azure Maps 계정과 키가 필요합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조하세요. 
 
 Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
@@ -84,7 +85,7 @@ Azure Maps Search Service를 사용하여 전체 또는 부분 주소를 검색�
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>지리 엔터티 형식에 대한 역방향 지역 코드 및 필터
 
-[Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)에서 역방향 지역 코드 검색을 수행하면 서비스에서 관리 영역에 대한 다각형을 반환할 수 있습니다. 예를 들어 yoi는 도시에 대 한 영역 다각형을 페치할 수 있습니다. 특정 지리 엔터티 형식으로 검색 범위를 좁히려면 요청에 `entityType` 매개 변수를 포함합니다. 
+[Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)에서 역방향 지역 코드 검색을 수행하면 서비스에서 관리 영역에 대한 다각형을 반환할 수 있습니다. 예를 들어 구/군/시에 대 한 영역 다각형을 페치할 수 있습니다. 특정 지리 엔터티 형식으로 검색 범위를 좁히려면 요청에 `entityType` 매개 변수를 포함합니다. 
 
 결과 응답에는 지리 ID와 일치하는 엔터티 형식이 포함됩니다. 둘 이상의 엔티티를 제공하면 엔드포인트는 *사용 가능한 가장 작은 엔티티*를 반환합니다. 반환된 기하 도형 ID를 사용하여 [Search Polygon 서비스](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon)를 통해 지리의 기하 도형을 얻을 수 있습니다.
 
@@ -966,7 +967,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음을 참조하세요.
+자세히 알아보려면 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Maps Search Service 요청을 작성하는 방법](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)

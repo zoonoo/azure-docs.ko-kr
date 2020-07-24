@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066239"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>미리 빌드된 템플릿에서 논리 앱 워크플로 만들기
 
@@ -49,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    | **구독** | *your-Azure-subscription-name* | 사용할 Azure 구독을 선택합니다. | 
    | **리소스 그룹** | *your-Azure-resource-group-name* | 이 논리 앱에 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만들거나 선택하고 이 앱과 연결된 모든 리소스를 구성합니다. | 
    | **위치** | *your-Azure-datacenter-region* | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다(예: 미국 서부). | 
-   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)를 사용하여 논리 앱에 대한 [진단 로깅](../logic-apps/monitor-logic-apps-log-analytics.md)을 설정합니다. Log Analytics 작업 영역이 이미 있어야 합니다. | 
+   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)를 사용하여 논리 앱에 대한 [진단 로깅](../logic-apps/monitor-logic-apps-log-analytics.md)을 설정합니다. Log Analytics 작업 영역이 이미 있어야 합니다. | 
    |||| 
 
 4. 준비가 되면 **대시보드에 고정**을 선택합니다. 이런 방식으로 논리 앱은 자동으로 Azure 대시보드에 표시되고 배포 후에 열립니다. **만들기**를 선택합니다.
@@ -145,7 +146,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

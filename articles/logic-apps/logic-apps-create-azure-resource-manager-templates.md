@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07fb91f081719a2e51cff45be67bbe9f362123f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066074"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기
 
@@ -49,14 +49,14 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을
 
 다음 샘플에서는 Azure Resource Manager 템플릿, Azure DevOps Azure Pipelines 및 Azure PowerShell를 사용 하 여 논리 앱을 만들고 배포 하는 방법을 보여 줍니다.
 
-* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에 대 한 함수 앱 작업 설정](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에서 통합 계정에 연결](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에 대 한 함수 앱 작업 설정](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 통합 계정에 연결](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>PowerShell 모듈 설치
 
-1. 아직 설치 하지 않은 경우 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)를 설치 합니다.
+1. 아직 설치 하지 않은 경우 [Azure PowerShell](/powershell/azure/install-az-ps)를 설치 합니다.
 
 1. [PowerShell 갤러리](https://www.powershellgallery.com/packages/LogicAppTemplate)에서 LogicAppTemplate 모듈을 설치 하는 가장 쉬운 방법은 다음 명령을 실행 합니다.
 
@@ -80,7 +80,7 @@ LogicAppTemplate 모듈에서 모든 Azure 테 넌 트 및 구독 액세스 토�
 
 ### <a name="generate-template-with-powershell"></a>PowerShell을 사용 하 여 템플릿 생성
 
-LogicAppTemplate 모듈을 설치 하 고 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)하 여 템플릿을 생성 하려면 다음 PowerShell 명령을 실행 합니다.
+LogicAppTemplate 모듈을 설치 하 고 [Azure CLI](/cli/azure/?view=azure-cli-latest)하 여 템플릿을 생성 하려면 다음 PowerShell 명령을 실행 합니다.
 
 ```text
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -104,7 +104,7 @@ Azure Key Vault 참조 (정적 전용)를 사용 하 여 추출 하려면 다음
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| 매개 변수 | 필요한 공간 | 설명 |
+| 매개 변수 | 필수 | Description |
 |------------|----------|-------------|
 | TemplateFile | 예 | 템플릿 파일에 대 한 파일 경로입니다. |
 | KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |

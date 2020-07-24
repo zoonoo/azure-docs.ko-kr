@@ -3,17 +3,17 @@ title: Azure Maps Indoor Maps 모듈 사용
 description: Microsoft Azure Maps Indoor Maps 모듈을 사용하여 모듈의 JavaScript 라이브러리를 포함하여 맵을 렌더링하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f7bca363e22524546e7ee46bf44ddb18dacf00d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064232"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Azure Maps Indoor Maps 모듈 사용
 
@@ -42,16 +42,14 @@ Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다
 
  또는 *Azure Maps Indoor* 모듈을 다운로드할 수 있습니다. *Azure Maps Indoor* 모듈은 Azure Maps 서비스에 액세스하기 위한 클라이언트 라이브러리를 포함합니다. 아래 단계에 따라 *Indoor* 모듈을 웹 애플리케이션에 설치하고 로드합니다.  
   
-  1. [azure-maps-indoor 패키지](https://www.npmjs.com/package/azure-maps-indoor)를 다운로드합니다.
+  1. [Azure maps-실내 패키지](https://www.npmjs.com/package/azure-maps-indoor)를 설치 합니다.
   
-  2. NPM 패키지를 설치합니다. 콘솔에서 관리자 권한을 사용해야 합니다.
-
       ```powershell
       >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
-  3. HTML 파일의 `<head>` 요소에서 *Azure Maps Indoor* 모듈 JavaScript 및 스타일시트를 참조합니다.
+  2. HTML 파일의 `<head>` 요소에서 *Azure Maps Indoor* 모듈 JavaScript 및 스타일시트를 참조합니다.
 
       ```html
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
@@ -71,7 +69,7 @@ const map = new atlas.Map("map-id", {
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
-  authOptions: { 
+  authOptions: {
       authType: 'subscriptionKey',
       subscriptionKey: subscriptionKey
   },

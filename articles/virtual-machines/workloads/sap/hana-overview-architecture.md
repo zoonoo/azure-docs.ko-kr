@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616960"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065107"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure(대규모 인스턴스)란?
 
@@ -53,8 +54,8 @@ HANA 대규모 인스턴스 지침의 다른 문서는 다음 영역을 다룹�
 - [SAP HANA on Azure(대규모 인스턴스) 설치 및 구성](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure에서 SAP HANA (큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure에서 SAP HANA (규모가 많은 인스턴스) 문제 해결 및 모니터링](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [STONITH를 사용하여 SUSE에서 고가용성 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [STONITH를 사용하여 SUSE에서 고가용성 설정](./ha-setup-with-stonith.md)
+- [수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원](./os-backup-type-ii-skus.md)
 
 **다음 단계**
 - [Know the terms(용어 알아보기)](hana-know-terms.md) 참조

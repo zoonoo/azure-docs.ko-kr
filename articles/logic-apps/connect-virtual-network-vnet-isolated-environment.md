@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: b1290a17c93043ffbedb7a641e1a0afad6ae79d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298857"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066485"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -44,7 +44,7 @@ ISE는 [샘플 Azure Resource Manager 빠른 시작 템플릿](https://github.co
   > [!IMPORTANT]
   > ISE에서 실행되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 사용량 기반 가격 책정 플랜과 다른 가격 책정 플랜을 사용합니다. ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
 
-* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하기 위해 어떤 서비스에도 위임 되지 않은 *빈* 서브넷 4 개가 있어야 합니다. 각 서브넷은 ISE에서 사용되는 다른 Logic Apps 구성 요소를 지원합니다. 서브넷을 미리 만들 수도 있고, 한 번에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수도 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
+* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 있어야 하 고, 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. 서브넷을 미리 만들 수도 있고, 나중에 서브넷을 만들 수 있도록 ISE를 만들 때까지 기다릴 수도 있습니다. 그러나 서브넷을 만들기 전에 [서브넷 요구 사항을](#create-subnet)검토 합니다.
 
   > [!IMPORTANT]
   >
@@ -55,8 +55,6 @@ ISE는 [샘플 Azure Resource Manager 빠른 시작 템플릿](https://github.co
   > * 127.0.0.0/8
   > * 168.63.129.16/32
   > * 169.254.169.254/32
-  > 
-  > 서브넷 이름은 알파벳 문자 또는 밑줄로 시작해야 하며 다음 문자를 사용할 수 없습니다. `<`, `>`, `%`, `&`, `\\`, `?`, `/`. Azure Resource Manager 템플릿을 통해 ISE를 배포 하려면 먼저 빈 서브넷 하나를에 위임 해야 `Microsoft.Logic/integrationServiceEnvironment` 합니다. Azure Portal을 통해 배포할 때는 이런 위임을 수행할 필요가 없습니다.
 
   * ISE가 제대로 작동하고 액세스 가능한 상태를 유지할 수 있도록 가상 네트워크가 [ISE에 액세스할 수 있는지](#enable-access) 확인해야 합니다.
 
@@ -134,6 +132,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 | Azure Resource Health | **VirtualNetwork** | * | **AzureMonitor** | 1886 | 상태를 Resource Health에 게시하는 데 필요합니다. |
 | 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | **VirtualNetwork** | * | **EventHub** | 5672 ||
 | 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383 및 **메모** 참조| ISE가 Azure Cache for Redis와 작동하려면 [Azure Cache for Redis FAQ 설명에 있는 아웃바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)를 열어야 합니다. |
+| DNS 이름 확인 | **VirtualNetwork** | * | 가상 네트워크의 모든 사용자 지정 DNS (Domain Name System) 서버에 대 한 IP 주소 | 53 | 가상 네트워크에서 사용자 지정 DNS 서버를 사용 하는 경우에만 필요 합니다. |
 |||||||
 
 또한 [ASE (App Service Environment)](../app-service/environment/intro.md)에 대 한 아웃 바운드 규칙을 추가 해야 합니다.
@@ -168,18 +167,30 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    | **추가 용량** | 프리미엄: <br>예 <p><p>개발자: <br>해당 없음 | 프리미엄: <br>0~10 <p><p>개발자: <br>해당 없음 | 이 ISE 리소스에 사용할 추가 처리 단위 수입니다. 만든 후 용량을 추가하려면 [ISE 용량 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)를 참조하세요. |
    | **액세스 엔드포인트** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 엔드포인트의 유형입니다. 이러한 엔드포인트에 따라 ISE의 논리 앱에서 요청 또는 웹후크 트리거가 가상 네트워크 외부의 호출을 받을 수 있을지 여부가 결정됩니다. <p><p>선택한 사항은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방식에도 영향을 줍니다. 자세한 내용은 [ISE 엔드포인트 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조하세요. <p><p>**중요**: 액세스 엔드포인트는 ISE를 만드는 동안에만 선택할 수 있고 나중에 이 옵션을 변경할 수 없습니다. |
    | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없으면 [먼저 Azure 가상 네트워크를 만듭니다](../virtual-network/quick-create-portal.md). <p><p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. |
-   | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들고 배포하기 위한 빈 서브넷이 4개 필요합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet). |
+   | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 필요 하며 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. <p>**중요**: 서브넷을 [만들기 위해 이러한 단계를 계속 하기 전에 서브넷 요구 사항을 검토](#create-subnet)해야 합니다. |
    |||||
 
    <a name="create-subnet"></a>
 
    **서브넷 만들기**
 
-   환경에서 리소스를 만들고 배포하려면 서비스에 위임되지 않은 빈 서브넷 4개가 ISE에 필요합니다. 각 서브넷은 ISE에서 사용되는 다른 Logic Apps 구성 요소를 지원합니다. 환경을 만든 후 이러한 서브넷 주소를 변경할 수 없습니다. 각 서브넷은 다음 요구 사항을 충족해야 합니다.
+   Ise에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 필요 하며 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. 환경을 만든 후 이러한 서브넷 주소를 변경할 수 없습니다. Azure Portal를 통해 ISE를 만들어 배포 하는 경우 Azure 서비스에 이러한 서브넷을 위임 하지 않아야 합니다. 그러나 REST API, Azure PowerShell 또는 Azure Resource Manager 템플릿을 통해 ISE를 만들어 배포 하는 경우에는 빈 서브넷 하나를에 [위임](../virtual-network/manage-subnet-delegation.md) 해야 `Microsoft.integrationServiceEnvironment` 합니다. 자세한 내용은 [서브넷 위임 추가](../virtual-network/manage-subnet-delegation.md)를 참조 하세요.
 
-   * 알파벳 문자 또는 밑줄(숫자 없음)로 시작하며 다음 문자가 없는 이름이 있습니다. `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   각 서브넷은 다음 요구 사항을 충족해야 합니다.
+
+   * 는 알파벳 문자 또는 밑줄 (숫자 없음)로 시작 하는 이름을 사용 하 고,,,,, `<` `>` `%` `&` `\\` `?` , `/` 등의 문자는 사용 하지 않습니다.
 
    * [CIDR(Classless Inter-Domain Routing) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용합니다.
+   
+     > [!IMPORTANT]
+     >
+     > Azure Logic Apps에서 확인할 수 없기 때문에 가상 네트워크 또는 서브넷에 대해 다음 IP 주소 공간을 사용 하지 마세요.<p>
+     > 
+     > * 0.0.0.0/8
+     > * 100.64.0.0/10
+     > * 127.0.0.0/8
+     > * 168.63.129.16/32
+     > * 169.254.169.254/32
 
    * 각 서브넷에 주소 32개가 필요하기 때문에 주소 공간에 `/27`을 사용합니다. 예를 들어, `10.0.0.0/27`에는 주소가 32개 있습니다.2<sup>(32-27)</sup>은 2<sup>5</sup> 또는 32이기 때문입니다. 주소가 더 많아도 이점은 없습니다. 주소 계산에 대해 자세히 알아보려면 [IPv4 CIDR 블록](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)을 참조하세요.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065498"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android용 오프라인 Widevine 스트리밍  
 
@@ -29,7 +29,7 @@ ms.locfileid: "80294328"
 > * [버전 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 온라인 스트리밍을 위해 콘텐츠를 보호하는 것 외에도, 미디어 콘텐츠 구독 및 임대 서비스는 인터넷에 연결되지 않았을 때 작동하는 다운로드 가능한 콘텐츠를 제공합니다. 네트워크에서 연결이 끊긴 상태로 비행하는 비행기 모드에서 재생하려면 휴대폰이나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다. 콘텐츠를 다운로드하려는 추가적인 시나리오는 다음과 같습니다.
 
@@ -181,7 +181,7 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
 
 ### <a name="question"></a>질문
 
-Widevine 보안 수준에 대해 Google의 [WIDEVINE DRM 아키텍처 개요 문서](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) 에서는 세 가지 보안 수준을 정의 합니다. 그러나 [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)에는 5개의 보안 수준이 설명되어 있습니다. 두 가지 다른 보안 수준 집합 간에는 어떤 관계 또는 매핑이 있나요?
+Widevine 보안 수준에 대해 Google의 [WIDEVINE DRM 아키텍처 개요 문서](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) 에서는 세 가지 보안 수준을 정의 합니다. 그러나 [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](./media-services-widevine-license-template-overview.md)에는 5개의 보안 수준이 설명되어 있습니다. 두 가지 다른 보안 수준 집합 간에는 어떤 관계 또는 매핑이 있나요?
 
 ### <a name="answer"></a>답변
 
@@ -191,7 +191,7 @@ Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdo
 2.  보안 수준 2: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 애플리케이션 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.
 3.  보안 수준 3: 디바이스에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다.
 
-동시에, [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)에서 content_key_specs의 security_level 속성은 다음과 같은 5가지 값(재생을 위한 클라이언트 견고성 요구 사항)을 가질 수 있습니다.
+동시에, [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](./media-services-widevine-license-template-overview.md)에서 content_key_specs의 security_level 속성은 다음과 같은 5가지 값(재생을 위한 클라이언트 견고성 요구 사항)을 가질 수 있습니다.
 
 1.  소프트웨어 기반 화이트 박스 암호화가 필요합니다.
 2.  소프트웨어 암호화 및 난독 처리된 디코더가 필요합니다.

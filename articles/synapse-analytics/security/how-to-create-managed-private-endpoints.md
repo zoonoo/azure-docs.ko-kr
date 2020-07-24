@@ -1,5 +1,5 @@
 ---
-title: 관리 되는 개인 끝점을 만들어 데이터 원본 결과에 연결 합니다.
+title: 관리 되는 개인 끝점을 만들어 데이터 원본 결과에 연결
 description: 이 문서에서는 Azure Synapse 작업 영역에서 데이터 원본에 대 한 관리 되는 개인 끝점을 만드는 방법을 설명 합니다.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6f0054364e5bbfb80fc4c1b9db6a4c15f365a81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065481"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>데이터 원본에 대 한 관리 되는 개인 끝점 만들기 (미리 보기)
 

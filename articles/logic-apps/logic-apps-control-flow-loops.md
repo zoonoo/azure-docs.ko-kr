@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831622"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066338"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
@@ -161,7 +162,7 @@ ms.locfileid: "83831622"
 
 > [!NOTE]
 > 이러한 단계는 Office 365 Outlook을 사용하지만 Logic Apps에서 지원하는 이메일 공급자를 사용할 수 있습니다. 
-> [여기에 있는 커넥터 목록을 확인](https://docs.microsoft.com/connectors/)합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다. 
+> [여기에 있는 커넥터 목록을 확인](/connectors/)합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다. 
 
 1. 빈 논리 앱을 만듭니다. Logic Apps 디자이너의 검색 상자에서 **모두**를 선택합니다. "되풀이"를 검색합니다. 
    트리거 목록에서 다음 트리거를 선택합니다. **되풀이 - 일정**
@@ -231,34 +232,34 @@ ms.locfileid: "83831622"
 
       | 속성 | 값 | Description |
       | -------- | ----- | ----------- | 
-      | **수행할 작업** | *\<email-address\@domain>* | *\<email-address\@domain>* 받는 사람의 이메일 주소입니다. | 
-      | 테스트를 위해 자신의 이메일 주소를 사용합니다. | **Subject** | "제한"에 대한 현재 값은 **Limit**입니다. 이메일 제목을 지정합니다. | 
-      | 이 예에서는 **Limit** 변수를 포함해야 합니다. | **본문** | <*email-content*> 보내려는 이메일 메시지의 내용을 지정합니다. | 
+      | **수행할 작업** | *\<email-address\@domain>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
+      | **Subject** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
+      | **본문** | <*email-content*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
       |||| 
 
-1. 이 예에서는 텍스트를 원하는 대로 입력합니다. 논리 앱을 저장합니다.
+1. 논리 앱을 저장합니다. 논리 앱을 수동으로 테스트하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
 
-      논리 앱을 수동으로 테스트하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
+      논리 앱이 실행되기 시작하면 지정한 내용이 포함된 이메일을 받습니다.
 
-      ![논리 앱이 실행되기 시작하면 지정한 내용이 포함된 이메일을 받습니다.](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![받은 이메일](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
-## <a name="prevent-endless-loops"></a>받은 이메일
+## <a name="prevent-endless-loops"></a>무한 루프 방지
 
-무한 루프 방지
+"Until" 루프에는 다음 조건 중 하나가 발생하는 경우 실행을 중지하는 기본 제한이 있습니다.
 
-| "Until" 루프에는 다음 조건 중 하나가 발생하는 경우 실행을 중지하는 기본 제한이 있습니다. | 속성 | 기본값 | 
+| 속성 | 기본값 | Description | 
 | -------- | ------------- | ----------- | 
-| Description | **Count** | 60 루프가 종료되기 전에 실행되는 최대 루프 수입니다. | 
-| 기본값은 60회 주기입니다. | **Timeout** | PT1H 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. <p>기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. 시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. | 
+| **Count** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
+| **Timeout** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
 |||| 
 
-그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다.
+이러한 기본 제한을 변경하려면 루프 작업 셰이프에서 **고급 옵션 표시**를 선택합니다.
 
 <a name="until-json"></a>
 
-## <a name="until-definition-json"></a>이러한 기본 제한을 변경하려면 루프 작업 셰이프에서 **고급 옵션 표시**를 선택합니다.
+## <a name="until-definition-json"></a>"Until" 정의(JSON)
 
-"Until" 정의(JSON)
+논리 앱에 대한 코드 뷰에서 작업하는 경우 논리 앱의 JSON 정의에서 `Until` 루프를 대신 정의할 수 있습니다. 예를 들어 다음과 같습니다.
 
 ``` json
 "actions": {
@@ -296,11 +297,11 @@ ms.locfileid: "83831622"
 }
 ```
 
-논리 앱에 대한 코드 뷰에서 작업하는 경우 논리 앱의 JSON 정의에서 `Until` 루프를 대신 정의할 수 있습니다. 예를 들어 다음과 같습니다. 이 제 "Until" 루프는 리소스를 만드는 HTTP 엔드포인트를 호출합니다. HTTP 응답 본문이 `Completed` 상태로 반환되면 루프가 중지됩니다.
+이 제 "Until" 루프는 리소스를 만드는 HTTP 엔드포인트를 호출합니다. HTTP 응답 본문이 `Completed` 상태로 반환되면 루프가 중지됩니다. 또한 무한 루프를 방지하기 위해 다음 조건 중 하나라도 발생하면 루프가 중지됩니다.
 
-* 또한 무한 루프를 방지하기 위해 다음 조건 중 하나라도 발생하면 루프가 중지됩니다. 루프가 `count` 특성에 지정한 대로 10회 실행되었습니다. 
+* 루프가 `count` 특성에 지정한 대로 10회 실행되었습니다. 기본값은 60회입니다. 
 
-* 기본값은 60회입니다. 루프가 ISO 8601 형식의 `timeout` 특성에 지정한 대로 2시간 동안 실행되었습니다.
+* 루프가 ISO 8601 형식의 `timeout` 특성에 지정한 대로 2시간 동안 실행되었습니다. 기본값은 1시간입니다.
   
 ``` json
 "actions": {
@@ -332,14 +333,14 @@ ms.locfileid: "83831622"
 }
 ```
 
-## <a name="get-support"></a>기본값은 1시간입니다.
+## <a name="get-support"></a>지원 받기
 
-* 지원 받기
-* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
+* 질문이 있는 경우 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-logic-apps.html)를 방문하세요.
+* 기능 및 제안을 제출하거나 투표하려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
-## <a name="next-steps"></a>기능 및 제안을 제출하거나 투표하려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+## <a name="next-steps"></a>다음 단계
 
-* 다음 단계
 * [조건에 따라 단계 실행(조건문)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [다른 값에 따라 단계 실행(switch 문)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [병렬 단계 실행 및 병합(분기)](../logic-apps/logic-apps-control-flow-branches.md)
+* [그룹화된 작업 상태에 따라 단계 실행(범위)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
