@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: REST API로 의도 가져오기 - LUIS'
+title: '빠른 시작: cURL 및 REST를 사용하여 의도 가져오기 - LUIS'
 titleSuffix: Azure Cognitive Services
 description: 이 REST API 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
-ms.openlocfilehash: 714d76641dd22f566b2464e3470f6a3324f4d758
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab76bcdfc62ed0af52e6c99ef6c7b14ebeef25f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207173"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497865"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>빠른 시작: cURL 및 REST를 사용하여 의도 가져오기
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Monitor를 사용하여 Azure 리소스 모니터링
-description: Azure Monitor에서 Azure 리소스에 대한 데이터를 수집하고 분석하는 방법을 알아봅니다.
+title: Azure Monitor를 사용하여 Azure 가상 머신 모니터링
+description: Azure Monitor에서 Azure 가상 머신에 대한 데이터를 수집하고 분석하는 방법을 알아봅니다.
 ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805110"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516399"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 [Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 가상 머신에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 Azure VM에 대해 자동으로 수집되는 데이터의 종류와 이러한 데이터를 Azure Portal에서 살펴보는 방법을 간단하게 연습합니다. 그런 다음, VM에 [VM용 Azure Monitor](../insights/vminsights-overview.md)를 사용하도록 설정합니다. 그러면 VM의 에이전트는 프로세스 및 프로세스의 종속성을 포함하여 게스트 운영 체제에서 데이터를 수집하고 분석할 수 있습니다.
@@ -107,4 +107,4 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 이 빠른 시작에서는 가상 머신에 VM용 Azure Monitor를 사용하도록 설정하고, 게스트 운영 체제에 대한 이벤트를 수집 하도록 Log Analytics 작업 영역을 구성했습니다. 데이터를 보고 분석하는 방법을 알아보려면 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics에서 데이터 보기 또는 분석](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Log Analytics에서 데이터 보기 또는 분석](../log-query/get-started-portal.md)

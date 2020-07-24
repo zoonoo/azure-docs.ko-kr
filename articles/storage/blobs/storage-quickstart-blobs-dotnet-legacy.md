@@ -7,16 +7,19 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: d52877129fe256253410f1d38011fa0343dd433d
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 5205506e3e7a32423dd9b438b648ff4af5136caa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84455946"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528556"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v11
 
 .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v11 시작 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
+
+> [!NOTE]
+> 이 빠른 시작에서는 Azure Blob 스토리지 클라이언트 라이브러리의 레거시 버전을 사용합니다. 최신 버전을 시작하려면 [빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리](storage-quickstart-blobs-dotnet.md)를 참조하세요.
 
 .NET용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -27,11 +30,16 @@ ms.locfileid: "84455946"
 * 컨테이너의 모든 blob 나열
 * 컨테이너 삭제
 
-[API 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+추가 리소스:
+
+* [API 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [라이브러리 소스 코드](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+* [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

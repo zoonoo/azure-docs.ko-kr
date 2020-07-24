@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Azure Front Door 아키텍처 및 용어에 대한 규칙 엔진
 description: 이 문서는 Azure Front Door 규칙 엔진 기능의 개요를 제공합니다.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1332f4b21f971d23055c158c2aebdd3316f1bd39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322021"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512217"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Azure Front Door의 규칙 엔진은 무엇인가요? 
 

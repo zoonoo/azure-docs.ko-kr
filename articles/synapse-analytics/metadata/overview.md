@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics 공유 메타데이터 모델
+title: 공유 메타데이터 모델
 description: Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 Spark 풀(미리 보기), SQL 주문형 엔진(미리 보기), SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 services: synapse-analytics
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 26a65aef0d7524bf73c6dc2981bd71539e59ed76
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080162"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496063"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics 공유 메타데이터
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door
-description: 이 문서에서는 Azure Portal 및 CLI에서 규칙 엔진을 구성 하는 방법에 대 한 자습서를 제공 합니다.
+title: '자습서: 규칙 엔진 구성 - Azure Front Door'
+description: 이 문서에서는 Azure Portal 및 CLI에서 규칙 엔진을 구성하는 방법에 대한 자습서를 제공합니다.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: a931a12889cec67baf6ef2db09091c8ec581ef08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b40bb0e426571acc66d4f5f1b992fb4c6b67494a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321565"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536955"
 ---
 # <a name="configure-your-rules-engine"></a>규칙 엔진 구성
 
-이 문서에서는 Azure Portal 및 CLI에서 규칙 엔진 구성과 첫 번째 규칙을 만드는 단계를 제공 합니다. 
+이 문서에서는 Azure Portal 및 CLI에서 규칙 엔진 구성과 첫 번째 규칙을 만드는 단계를 제공합니다. 
 
 ## <a name="configure-rules-engine-in-azure-portal"></a>Azure Portal에서 규칙 엔진 구성
 1. 규칙 엔진 구성을 만들기 전에 [Front Door](quickstart-create-front-door.md)를 만듭니다.
@@ -35,7 +35,7 @@ ms.locfileid: "85321565"
     > [!NOTE]
     >- 규칙에서 조건 또는 작업을 삭제하려면 특정 조건 또는 작업의 오른쪽에 있는 휴지통을 사용합니다.
     > - 들어오는 모든 트래픽에 적용되는 규칙을 만들려면 조건을 지정하지 마세요.
-    > - 첫 번째 일치 조건이 충족 되 면 규칙 평가를 중지 하려면 **남은 규칙 평가 중지**를 선택 합니다. 이 확인란을 선택 하 고 특정 규칙의 일치 조건을 모두 충족 하는 경우 구성의 나머지 규칙은 실행 되지 않습니다.  
+    > - 첫 번째 일치 조건이 충족될 때 규칙 평가를 중지하려면 **남은 규칙 평가 중지**를 선택합니다. 이 확인란을 선택하고 특정 규칙의 일치 조건을 모두 충족하는 경우 구성의 나머지 규칙은 실행되지 않습니다.  
 
     ![규칙 엔진 찾기](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 

@@ -3,12 +3,12 @@ title: LUIS(Language Understanding)란?
 description: LUIS(Language Understanding)는 사용자 지정 기계 학습 인텔리전스를 사용자의 자연스러운 기존 언어 텍스트에 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 API 서비스입니다.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 231a6580a6776b82173865744e9e8757c2fa08f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675987"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538040"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -61,7 +61,7 @@ LUIS 모델은 **[의도](luis-concept-intent.md)** 라고 하는 사용자 의�
 
 ## <a name="query-prediction-endpoint"></a>예측 엔드포인트 쿼리
 
-앱을 학습하여 엔드포인트에 게시하면 클라이언트 애플리케이션은 예측 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) API에 발화를 보냅니다. API는 분석을 위해 발화에 앱을 적용하고 JSON 형식의 예측 결과로 응답합니다.
+앱을 학습하여 엔드포인트에 게시하면 클라이언트 애플리케이션은 예측 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) API에 발화를 보냅니다. API는 분석을 위해 발화에 모델을 적용하고 JSON 형식의 예측 결과로 응답합니다.
 
 최소 JSON 엔드포인트 응답에는 최소한 쿼리 발언 및 최상위 채점 의도가 포함됩니다. 다음 **연락처 유형** 엔터티와 전반적인 감정 등의 데이터를 추출할 수도 있습니다.
 

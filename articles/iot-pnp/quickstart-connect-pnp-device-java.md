@@ -1,5 +1,5 @@
 ---
-title: IoT 플러그 앤 플레이 미리 보기 샘플 디바이스 코드를 IoT Hub에 연결 | Microsoft Docs
+title: IoT 플러그 앤 플레이 미리 보기 코드를 IoT Hub에 연결 - Java | Microsoft Docs
 description: Java를 사용하여 IoT 허브에 연결하는 IoT 플러그 앤 플레이 미리 보기 샘플 디바이스 코드를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: aa676dd374eccf2a4b5c4622689ed402c8679e5a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c85763ffb12ac93f3aff667c4660afa22ca6a99f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76964828"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521244"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-java"></a>빠른 시작: 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub에 연결(Java)
 

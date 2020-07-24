@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics 공유 데이터베이스
+title: 공유 데이터베이스
 description: Azure Synapse Analytics는 Apache Spark에서 테이블을 만들면 SQL 주문형(미리 보기) 및 SQL 풀 엔진에서 액세스할 수 있는 공유 메타데이터 모델을 제공합니다.
 services: synapse-analytics
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 68919457cc045f50ebef249ced9c117fea8d6984
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079033"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496012"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 

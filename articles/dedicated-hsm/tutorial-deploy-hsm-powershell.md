@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/14/2020
+ms.author: johndaw
+ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474427"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512506"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -62,13 +62,7 @@ HSM을 프로비저닝하고 ExpressRoute 게이트웨이를 통해 기존의 �
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-다음 명령은 Dedicated HSM 서비스에 필요한 네트워킹 기능을 확인합니다.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
-```
-
-계속하기 전에 두 명령 모두 아래에 표시된 것처럼 “등록됨” 상태를 반환해야 합니다.  이 서비스에 등록해야 하는 경우 Microsoft 계정 담당자에게 문의하세요.
+계속하기 전에 명령은 아래에 표시된 것처럼 “등록됨” 상태를 반환해야 합니다.  이 서비스에 등록되지 않은 경우 Microsoft 계정 담당자에게 문의하세요.
 
 ![구독 상태](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
@@ -190,7 +184,7 @@ New-AzResourceGroupDeployment -ResourceGroupName myRG `
 
 ![프로비전 상태](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-성공적으로 완료되어 "provisioningState": "Succeededed"가 표시되면 기존 가상 머신에 로그인하고 SSH를 사용하여 HSM 디바이스의 가용성을 보장할 수 있습니다.
+성공적으로 완료되면 “provisioningState”: “Succeeded”가 표시되며, 기존 가상 머신에 로그인하고 SSH를 사용하여 HSM 디바이스의 가용성을 확인할 수 있습니다.
 
 ## <a name="verifying-the-deployment"></a>배포 확인
 
@@ -217,7 +211,7 @@ ssh 도구를 사용하여 가상 머신에 연결합니다. 이 명령은 다�
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 사용할 암호는 매개 변수 파일의 암호입니다.
-Linux VM에 로그온하면 포털에서 리소스 \<prefix&gt;hsm_vnic에 대해 확인된 개인 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
+Linux VM에 로그온하면 포털에서 리소스 \<prefix>hsm_vnic에 대해 확인된 개인 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
 
 ```powershell
 

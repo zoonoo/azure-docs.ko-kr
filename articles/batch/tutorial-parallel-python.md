@@ -1,16 +1,16 @@
 ---
-title: 병렬 워크로드 실행
+title: Python API를 사용하여 병렬 워크로드 실행
 description: 자습서 - Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 병렬 처리
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 63515012d10739bb018de34e040465fbe337aa02
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d9f84d90c8c06cd00999b0764419fdb1c4cbe95
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561269"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497899"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -60,7 +60,7 @@ Python 환경에서 `pip`를 사용하는 데 필요한 패키지를 설치합�
 pip install -r requirements.txt
 ```
 
-`config.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 다음은 그 예입니다. 
+`config.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 다음은 그 예입니다.
 
 
 ```Python

@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Azure Front Door 규칙 엔진 작업
 description: 이 문서에서는 Azure Front Door 규칙 엔진으로 수행할 수 있는 다양한 작업 목록을 제공합니다.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 74c0a2617a01e8c24cd93a015b667081250657ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313993"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521499"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Azure Front Door 규칙 엔진 작업
 

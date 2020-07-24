@@ -1,5 +1,5 @@
 ---
-title: 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사 - PowerShell 샘플
+title: 다른 지역의 계정(Linux)에 대한 관리 디스크 VHD - PowerShell
 description: Azure PowerShell 스크립트 샘플 - 같거나 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사
 services: virtual-machines-linux
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: ad143bd94e1a8a556ca8f08b8377ecffdbd8b017
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22ae5c86b6fa106bccfd436c362172a6e3c2245d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459736"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501265"
 ---
-# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사
+# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-linux"></a>PowerShell을 사용하여 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사(Linux)
 
 이 스크립트는 관리 디스크의 VHD를 다른 지역의 스토리지 계정으로 내보냅니다. 먼저 관리 디스크의 SAS URI를 생성한 다음, 이를 사용하여 다른 지역의 스토리지 계정으로 기본 VHD를 복사합니다. 이 스크립트를 사용하여 지역별 확장을 위해 관리 디스크를 다른 지역으로 복사합니다.  
 
@@ -41,9 +41,9 @@ ms.locfileid: "81459736"
 
 | 명령 | 메모 |
 |---|---|
-| [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | 스토리지 계정에 기본 VHD를 복사하는 데 사용되는 관리 디스크에 대한 SAS URI를 생성합니다. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 계정 이름과 키를 사용하여 스토리지 계정 컨텍스트를 만듭니다. 이 컨텍스트는 스토리지 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅샷의 기본 VHD를 스토리지 계정에 복사합니다. |
+| [Grant-AzDiskAccess](/powershell/module/az.compute/grant-azdiskaccess) | 스토리지 계정에 기본 VHD를 복사하는 데 사용되는 관리 디스크에 대한 SAS URI를 생성합니다. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext) | 계정 이름과 키를 사용하여 스토리지 계정 컨텍스트를 만듭니다. 이 컨텍스트는 스토리지 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
+| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) | 스냅샷의 기본 VHD를 스토리지 계정에 복사합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,18 +2,16 @@
 title: Azure Resource Manager 템플릿을 사용하여 Azure Blockchain Service 멤버 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Azure Blockchain Service 멤버를 만드는 방법을 알아봅니다.
 services: azure-resource-manager
-author: PatAltimore
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.author: patricka
-ms.date: 06/04/2020
-ms.openlocfilehash: 8eabb6806dee96871648ea419ba36d768d32a2ab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: subject-armqs, references_regions
+ms.date: 07/16/2020
+ms.openlocfilehash: fb7f91a0670d99170656c0c3a2c1b73d96095762
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078169"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513033"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Blockchain Service 멤버 만들기
 
@@ -51,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     --------|------------
     Subscription | 서비스에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
     Resource group | 새 리소스 그룹 이름을 만들거나, 구독에서 기존 이름을 선택합니다.
-    위치 | 멤버를 만들 위치를 선택합니다. 컨소시엄의 모든 멤버가 같은 위치에 있어야 합니다. 배포에 사용할 수 있는 위치는 *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* 및 *japaneast*입니다.
+    위치 | 멤버를 만들 위치를 선택합니다. 컨소시엄의 모든 멤버가 같은 위치에 있어야 합니다. 배포에 사용할 수 있는 위치는 *westeurope, eastus, southeastasia, westeurope, northeurope, westus2* 및 *japaneast*입니다. 기능은 일부 지역에서 사용하지 못할 수도 있습니다. Azure Blockchain Data Manager는 다음 Azure 지역에서 사용할 수 있습니다. 즉 미국 동부 및 서유럽에서 실행되는 기본 웹 사이트의 두 인스턴스
     멤버 이름 | Azure Blockchain Service 멤버의 고유한 이름을 선택합니다. 블록체인 멤버 이름에는 소문자와 숫자만 사용할 수 있습니다. 첫 번째 자리는 반드시 문자여야 합니다. 이름의 길이는 2-20자 사이여야 합니다.
     컨소시엄 이름 | 고유한 이름을 입력합니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요.
     멤버 암호 | 멤버 계정 암호는 멤버용으로 생성된 Ethereum 계정의 프라이빗 키를 암호화하는 데 사용됩니다. 컨소시엄 관리용 멤버 계정과 멤버 계정 암호를 사용합니다.

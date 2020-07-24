@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: d8e267467b052461e8e899de8c957b769a42a2e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e920a111e5a616866495ba53327ea797f55ec559
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75468865"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544328"
 ---
-바로 들어가려면 GitHub에서 모든 <a href="https://aka.ms/speech/github-python">Speech SDK Python 샘플</a>을 보거나 다운로드합니다. 그렇지 않으면 시작하겠습니다.
+GitHub에서 모든 <a href="https://aka.ms/speech/github-python">Speech SDK Python 샘플</a>을 보거나 다운로드할 수 있습니다. 

@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027890"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537424"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Azure Digital Twins API를 사용하여 코딩
 
@@ -47,7 +47,7 @@ dotnet new console
 다음으로, Azure Digital Twins를 사용하는 데 필요한 두 개의 종속성을 추가합니다.
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -174,7 +174,7 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 DTDL 파일에 �
 > 이 자습서의 진행을 위해 Visual Studio를 사용하는 경우, 새로 만든 JSON 파일을 선택하고 속성 검사기에서 *출력 디렉터리로 복사* 속성을 *변경된 내용만 복사* 또는 *항상 복사*로 설정합니다. 이렇게 하면 자습서의 나머지 부분에서 **F5**를 사용하여 프로그램을 실행할 때 Visual Studio에서 기본 경로를 사용하여 JSON 파일을 찾을 수 있습니다.
 
 > [!TIP] 
-> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [방법: 모델 구문 분석 및 유효성 검사](how-to-use-parser.md)를 참조하세요.
+> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [*방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)를 참조하세요.
 
 다음으로 *Program.cs*에 코드를 추가하여 방금 만든 모델을 Azure Digital Twins 인스턴스에 업로드합니다.
 
@@ -185,7 +185,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 다음으로 비동기 실행을 허용하도록 `Main` 메서드 시그니처를 변경하여 C# 서비스 SDK에서 비동기 메서드를 사용할 준비를 합니다. 
@@ -531,7 +530,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>리소스 정리
  
-이 자습서에서 사용한 인스턴스를 다음 자습서인 [자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기](tutorial-command-line-app.md)에서 다시 사용할 수 있습니다. 다음 자습서를 계속 진행하려는 경우 여기에서 설정한 Azure Digital Twins 인스턴스를 유지할 수 있습니다.
+이 자습서에서 사용한 인스턴스를 다음 자습서인 [*자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기*](tutorial-command-line-app.md)에서 다시 사용할 수 있습니다. 다음 자습서를 계속 진행하려는 경우 여기에서 설정한 Azure Digital Twins 인스턴스를 유지할 수 있습니다.
  
 이 자습서에서 만든 리소스가 더 이상 필요하지 않으면 다음 단계에 따라 삭제합니다.
 
@@ -561,8 +560,8 @@ az ad app delete --id <your-application-ID>
 다음 자습서를 계속 진행하여 이러한 샘플 클라이언트 앱으로 수행할 수 있는 작업을 살펴봅니다. 
 
 > [!div class="nextstepaction"]
-> [자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기](tutorial-command-line-app.md)
+> [*자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기*](tutorial-command-line-app.md)
 
 또한 방법 문서에서 추가 관리 작업을 학습하여 이 자습서에서 작성한 코드에 추가하거나, 개념 설명서를 검토하여 자습서에서 작업한 요소에 대한 자세한 정보를 알아볼 수 있습니다.
-* [방법: 사용자 지정 모델 관리](how-to-manage-model.md)
-* [개념: 사용자 지정 모델](concepts-models.md)
+* [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)
+* [*개념: 사용자 지정 모델*](concepts-models.md)

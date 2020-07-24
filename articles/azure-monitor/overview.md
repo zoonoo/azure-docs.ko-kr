@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457153"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505825"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -44,7 +44,7 @@ Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [�
 
 ![메트릭](media/overview/metrics.png)
 
-Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](log-query/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](log-query/portals.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
+Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](log-query/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](./log-query/log-query-overview.md)를 사용하여 쿼리를 만들고 테스트한 후, 다음 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
 Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
@@ -90,7 +90,7 @@ Azure Monitor는 [데이터 수집기 API](platform/data-collector-api.md)를 �
 ![VM 인사이트](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>모니터링 솔루션
-Azure Monitor의 [관리 솔루션](insights/solutions.md)은 특정 애플리케이션이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 여기에는 애플리케이션 또는 서비스에 대한 모니터링 데이터를 수집하기 위한 논리, 해당 데이터를 분석하기 위한 [쿼리](log-query/log-query-overview.md) 및 시각화를 위한 [뷰](../log-analytics/log-analytics-view-designer.md)가 포함됩니다. 모니터링 솔루션은 다양한 Azure 서비스 및 다른 애플리케이션에 대한 모니터링이 가능하도록 [Microsoft](insights/solutions-inventory.md) 및 파트너 업체에서 제공합니다.
+Azure Monitor의 [관리 솔루션](insights/solutions.md)은 특정 애플리케이션이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 여기에는 애플리케이션 또는 서비스에 대한 모니터링 데이터를 수집하기 위한 논리, 해당 데이터를 분석하기 위한 [쿼리](log-query/log-query-overview.md) 및 시각화를 위한 [뷰](./platform/view-designer.md)가 포함됩니다. 모니터링 솔루션은 다양한 Azure 서비스 및 다른 애플리케이션에 대한 모니터링이 가능하도록 [Microsoft](./monitor-reference.md) 및 파트너 업체에서 제공합니다.
 
 ![모니터링 솔루션](media/overview/solutions-overview.png)
 
@@ -119,12 +119,12 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 ![대시보드](media/overview/dashboard.png)
 
 ### <a name="views"></a>보기
-[보](../log-analytics/log-analytics-view-designer.md)기는 Azure Monitor의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 애플리케이션에 대한 데이터를 요약하는 보기를 포함하며, 로그 쿼리에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
+[보](./platform/view-designer.md)기는 Azure Monitor의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 애플리케이션에 대한 데이터를 요약하는 보기를 포함하며, 로그 쿼리에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
 
 ![보기](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com)는 다양한 데이터 원본에서 대화형 시각화를 제공하는 비즈니스 분석 서비스이며, 조직 내부 및 외부의 사람들에게 데이터를 제공하는 효과적인 수단입니다. [Azure Monitor에서 자동으로 로그 데이터를 가져오도록](../log-analytics/log-analytics-powerbi.md) Power BI를 구성하여 이러한 추가 시각화를 활용할 수 있습니다.
+[Power BI](https://powerbi.microsoft.com)는 다양한 데이터 원본에서 대화형 시각화를 제공하는 비즈니스 분석 서비스이며, 조직 내부 및 외부의 사람들에게 데이터를 제공하는 효과적인 수단입니다. [Azure Monitor에서 자동으로 로그 데이터를 가져오도록](./platform/powerbi.md) Power BI를 구성하여 이러한 추가 시각화를 활용할 수 있습니다.
 
 
 ![Power BI](media/overview/power-bi.png)
@@ -134,7 +134,7 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사용하는 사용자 지정 솔루션을 빌드해야 하는 요구 사항이 자주 있습니다. 다른 Azure 서비스는 Azure Monitor와 함께 작동하여 이러한 통합을 제공합니다.
 
 ### <a name="event-hub"></a>이벤트 허브
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 데이터를 변환하고 저장할 수 있는 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs를 통해 [Azure Monitor 데이터를 스트리밍](platform/stream-monitoring-data-event-hubs.md)하여 SIEM 및 모니터링 도구와 통합하세요.
+[Azure Event Hubs](../event-hubs/index.yml)는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 데이터를 변환하고 저장할 수 있는 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs를 통해 [Azure Monitor 데이터를 스트리밍](platform/stream-monitoring-data-event-hubs.md)하여 SIEM 및 모니터링 도구와 통합하세요.
 
 
 ### <a name="logic-apps"></a>Logic Apps
@@ -150,4 +150,4 @@ Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사�
 * Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](platform/data-platform.md).
 * 애플리케이션의 다양한 구성 요소가 원격 분석을 전송하는 방법에 대한 [데이터 원본](platform/data-sources.md).
 * 수집한 데이터를 분석하기 위한 [로그 쿼리](log-query/log-query-overview.md).
-* 클라우드 애플리케이션 및 서비스 모니터링에 대한 [모범 사례](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).
+* 클라우드 애플리케이션 및 서비스 모니터링에 대한 [모범 사례](/azure/architecture/best-practices/monitoring).

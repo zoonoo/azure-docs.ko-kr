@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: trbye, jmartens, larryfr
+ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 06/23/2020
+ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bf0aa51c64eea0aa58e679c4f9f44686ce7b9ffb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023366"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520632"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,6 +33,7 @@ ParallelRunStep을 사용하면 간단하게 오프라인 유추를 대규모 �
 > * 유추 스크립트를 작성합니다.
 > * ParallelRunStep을 포함하는 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 MNIST 테스트 이미지에서 일괄 처리 유추를 실행합니다. 
 > * 새로운 데이터 입력과 매개 변수를 사용하여 일괄 처리 유추 실행을 다시 전송합니다. 
+> * 결과를 확인합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -159,9 +160,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
 
-output_dir = PipelineData(name="inferences", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="mnist/results")
+output_dir = PipelineData(name="inferences", datastore=def_data_store)
 ```
 
 ## <a name="prepare-the-model"></a>모델 준비
@@ -266,17 +265,17 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ### <a name="prepare-the-environment"></a>환경 준비
 
-먼저 스크립트의 종속성을 지정합니다. 이렇게 하면 pip 패키지를 설치하고 환경을 구성할 수 있습니다. 항상 **azureml-core** 및 **azureml-dataprep[pandas, fuse]** 패키지를 포함합니다.
+먼저 스크립트의 종속성을 지정합니다. 이렇게 하면 pip 패키지를 설치하고 환경을 구성할 수 있습니다.
 
-사용자 지정 docker 이미지(user_managed_dependencies=True)를 사용하는 경우에도 conda가 설치되어 있어야 합니다.
+pip 패키지 목록에 항상 **azureml-core** 및 **azureml-dataset-runtime[pandas, fuse]** 를 포함합니다. 사용자 지정 docker 이미지(user_managed_dependencies=True)를 사용하는 경우에도 conda가 설치되어 있어야 합니다.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.15.2", "pillow", 
+                                                          "azureml-core", "azureml-dataset-runtime[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
@@ -286,7 +285,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="specify-the-parameters-using-parallelrunconfig"></a>ParallelRunConfig를 사용하여 매개 변수 지정
 
-`ParallelRunConfig`는 Azure Machine Learning 파이프라인 내에서 `ParallelRunStep` 인스턴스에 대한 주요 구성입니다. 스크립트를 래핑하고 다음을 포함하여 필요한 매개 변수를 구성하는 데 사용됩니다.
+`ParallelRunConfig`는 Azure Machine Learning 파이프라인 내에서 `ParallelRunStep` 인스턴스에 대한 주요 구성입니다. 스크립트를 래핑하고 다음 항목을 포함하여 필요한 매개 변수를 구성하는 데 사용됩니다.
 - `entry_script`: 여러 노드에서 병렬로 실행되는 로컬 파일 경로인 사용자 스크립트입니다. `source_directory`가 있으면 상대 경로를 사용합니다. 없으면 머신에서 액세스할 수 있는 아무 경로를 사용합니다.
 - `mini_batch_size`: 단일 `run()` 호출에 전달된 미니 일괄 처리의 크기입니다. (선택 사항입니다. 기본값은 FileDataset의 경우 `10` 파일이고, TabularDataset의 경우 `1MB`입니다.)
     - `FileDataset`의 경우 최솟값이 `1`인 파일 수입니다. 여러 파일을 한 미니 일괄 처리로 결합할 수 있습니다.
@@ -392,6 +391,28 @@ pipeline_run_2 = experiment.submit(pipeline,
 )
 
 pipeline_run_2.wait_for_completion(show_output=True)
+```
+## <a name="view-the-results"></a>결과 보기
+
+위의 실행 결과는 PipelineData 개체에 지정된 DataStore에 출력 데이터로 기록됩니다. 이 경우 *추론*이라고 합니다. 결과는 기본 Bob 컨테이너에 저장되며, 스토리지 계정으로 이동하여 Storage Explorer를 통해 볼 수 있습니다. 파일 경로는 azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*입니다.
+
+이 데이터를 다운로드하여 결과를 볼 수도 있습니다. 아래는 처음 10개 행을 표시하는 샘플 코드입니다.
+
+```python
+import pandas as pd
+import tempfile
+
+batch_run = pipeline_run.find_step_run(parallelrun_step.name)[0]
+batch_output = batch_run.get_output_data(output_dir.name)
+
+target_dir = tempfile.mkdtemp()
+batch_output.download(local_path=target_dir)
+result_file = os.path.join(target_dir, batch_output.path_on_datastore, parallel_run_config.append_row_file_name)
+
+df = pd.read_csv(result_file, delimiter=":", header=None)
+df.columns = ["Filename", "Prediction"]
+print("Prediction has ", df.shape[0], " rows")
+df.head(10) 
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b38562879fa67d7ee82e3251ea2fcaa57a2075d6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240221"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512455"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio Code 및 .NET Core - Azure Dev Spaces
 
@@ -102,7 +102,7 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 왼쪽에서 *디버그* 아이콘을 클릭하고 위쪽에서 *.NET Core 시작(AZDS)* 을 클릭합니다.
 
-![](media/get-started-netcore/debug-configuration.png)
+![스크린샷은 Visual Studio Code 창의 왼쪽 위 모서리에 있습니다. 디버그 아이콘이 강조 표시되고, 왼쪽 패널의 제목이 "DEBUG"이며, 제목 오른쪽에 있는 드롭다운 목록에는 "dot NET Core Launch(A Z D S)"가 표시됩니다.](media/get-started-netcore/debug-configuration.png)
 
 이 명령은 디버깅 모드에서 Azure Dev Spaces의 서비스를 빌드하고 실행합니다. 아래쪽에 있는 *터미널* 창에는 Azure Dev Spaces에서 실행 중인 서비스의 빌드 출력 및 URL이 표시됩니다. *디버그 콘솔*에 로그 출력이 표시됩니다.
 
@@ -118,7 +118,7 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 *.NET Core 시작(AZDS)* 을 다시 실행하면 됩니다. 다음은 그 예입니다.
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 *.NET Core 시작(AZDS)* 을 다시 실행하면 됩니다. 예를 들면 다음과 같습니다.
 
 1. 애플리케이션이 여전히 실행되는 경우 *디버그*를 클릭한 다음, *디버깅 중지*를 클릭하여 중지합니다.
 1. [`Controllers/HomeController.cs`의 22줄](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22)을 다음으로 업데이트합니다.
@@ -147,7 +147,7 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 ## <a name="update-code-from-visual-studio-code"></a>Visual Studio Code에서 코드 업데이트
 
-서비스가 디버깅 모드에서 실행 중인 경우 `Controllers/HomeController.cs`의 22줄을 업데이트합니다. 다음은 그 예입니다.
+서비스가 디버깅 모드에서 실행 중인 경우 `Controllers/HomeController.cs`의 22줄을 업데이트합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 파일을 저장합니다. *디버그*, *디버깅 다시 시작*을 차례로 클릭하거나 *디버그 도구 모음*에서 *디버깅 다시 시작* 단추를 클릭합니다.
 
-![](media/common/debug-action-refresh.png)
+![디버그 도구 모음은 페이지 위쪽 가운데(페이지 제목 바로 아래)에 있는 작은 창입니다. 다시 시작 단추는 원형 화살표를 표시하고 강조 표시됩니다. 단추의 호버 이미지는 "다시 시작(Ctrl+Shift+F5)"입니다.](media/common/debug-action-refresh.png)
 
 브라우저에서 서비스를 열고 업데이트된 메시지가 표시되는지 확인합니다.
 

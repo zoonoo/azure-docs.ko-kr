@@ -6,19 +6,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/10/2020
-ms.openlocfilehash: d2567a5a0374fd05f17e1153c3b2d7f3df50e0d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/15/2020
+ms.openlocfilehash: 238ede3e79b7d7c5a22d24dfc52530fe391b600b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246999"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519629"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
-## <a name="feature-announcements"></a>기능 공지
+## <a name="feature-announcements-in-2020"></a>2020년 기능 공지
+
+### <a name="july-2020"></a>2020년 7월
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
+|---------|------------------|-------------|---------------|
+| [ **.NET 클라이언트 라이브러리**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK | 다른 .NET 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 새 클라이언트 라이브러리입니다. 버전 11. | 일반 공급. </br> NuGet에서 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 설치합니다. |
+| [**Python 클라이언트 라이브러리**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK | 다른 Python 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 새 클라이언트 라이브러리입니다. 버전 11. | 일반 공급. </br> PyPI에서 [azure-search-documents 패키지](https://pypi.org/project/azure-search-documents/)를 설치합니다. |
+| [**JavaScript 클라이언트 라이브러리**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html)  | Azure SDK | 다른 JavaScript 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 새 클라이언트 라이브러리입니다. 버전 11. | 일반 공급. </br> npm에서 [@azure/search-documents 패키지](https://www.npmjs.com/package/@azure/search-documents)를 설치합니다. |
 
 ### <a name="june-2020"></a>2020년 6월
 

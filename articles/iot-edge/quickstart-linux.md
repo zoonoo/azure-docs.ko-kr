@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a5829057aed913ea824cbd2fd6b52369b5e70d88
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: fada393dcab61cf00a0a3befcf4af3660bf625dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801848"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536524"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -63,7 +63,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
 
 이 빠른 시작에는 무료 수준의 IoT Hub가 작동합니다. 이전에 IoT Hub를 사용했고 이미 만든 허브가 있으면 해당 IoT 허브를 사용할 수 있습니다.
 
-다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. `{hub_name}`을 IoT 허브의 고유한 이름으로 바꿉니다.
+다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. `{hub_name}`을 IoT 허브의 고유한 이름으로 바꿉니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
@@ -113,7 +113,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 다음 CLI 명령을 사용하여 미리 빌드된 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 템플릿을 기반으로 IoT Edge 디바이스를 만듭니다.
 
-* bash 또는 cloud shell 사용자의 경우 다음 명령을 텍스트 편집기에 복사하고, 자리 표시자 텍스트를 해당 정보로 바꾸고, bash 또는 cloud shell 창에 복사합니다.
+* bash 또는 Cloud Shell 사용자의 경우 다음 명령을 텍스트 편집기에 복사하고, 자리 표시자 텍스트를 해당 정보로 바꾸고, bash 또는 Cloud Shell 창에 복사합니다.
 
    ```azurecli-interactive
    az deployment group create \
@@ -233,10 +233,19 @@ IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하�
 
 새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 리소스 그룹의 콘텐츠를 한 번 더 확인하여 유지할 내용이 없는지 검토합니다. 전체 그룹을 삭제하지는 않으려는 경우 대신, 개별 리소스를 삭제할 수 있습니다.
 
-**IoTEdgeResources** 그룹을 제거합니다.
+> [!IMPORTANT]
+> 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다.
+
+**IoTEdgeResources** 그룹을 제거합니다. 리소스 그룹을 삭제하는 데 몇 분 정도 소요될 수 있습니다.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources
+```
+
+리소스 그룹 목록을 확인하여 리소스 그룹이 제거되었는지 확인할 수 있습니다.
+
+```azurecli-interactive
+az group list
 ```
 
 ## <a name="next-steps"></a>다음 단계

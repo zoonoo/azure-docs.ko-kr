@@ -3,24 +3,27 @@ title: Power BI 앱을 사용하여 Azure 비용 분석
 description: 이 문서에서는 Azure Cost Management Power BI 앱을 설치하고 사용하는 방법에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bd5e2c999df180c80c58711a6428678b2bb4fefa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888199"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537921"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Azure Cost Management Power BI 앱을 사용하여 EA(기업계약) 비용 분석
 
 이 문서에서는 Azure Cost Management Power BI 앱을 설치하고 사용하는 방법에 대해 설명합니다. 이 앱은 Power BI에서 Azure 비용을 분석하고 관리하는 데 도움이 됩니다. 이 앱을 사용하여 비용, 사용 추세를 모니터링하고 비용 최적화 옵션을 식별하여 비용을 줄일 수 있습니다.
 
-앱을 Power BI Desktop으로 다운로드합니다. 앱을 있는 그대로 사용하거나 기본 필터, 보기 및 시각화를 확장하여 요구 사항에 맞게 사용자 지정할 수 있습니다. 그런 다음, 추가 데이터를 조인하고 사용자 지정 보고서를 만들어 전반적인 비즈니스 비용을 전체적으로 파악할 수 있습니다.
+앱을 있는 그대로 사용하거나 기본 필터, 보기 및 시각화를 확장하여 요구 사항에 맞게 사용자 지정할 수 있습니다. 그런 다음, 추가 데이터를 조인하고 사용자 지정 보고서를 만들어 전반적인 비즈니스 비용을 전체적으로 파악할 수 있습니다.
 
 Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 체결한 고객만 지원합니다.
+
+> [!NOTE]
+> Power BI 템플릿 앱은 PBIX 파일 다운로드를 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

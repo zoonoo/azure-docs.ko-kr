@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad3e005f65b1660bd843bf2819f41eddbed44e9c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b6829f52cb8aaac6f243d3a4a1fa7f6bc1b150d7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035756"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544746"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -25,7 +25,7 @@ ms.locfileid: "86035756"
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>JavaScript용 Speech SDK를 해당 폴더에 압축 해제합니다.
 
-Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다운로드하여 새로 만든 폴더에 압축 해체합니다. 이로 인해 두 파일은 `microsoft.cognitiveservices.speech.sdk.bundle.js` 및 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`으로 압축 해제됩니다.
+Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다운로드하여 새로 만든 폴더에 압축 해체합니다. 이로 인해 `microsoft.cognitiveservices.speech.sdk.bundle.js` 및 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`을 포함하여 다섯 개의 파일이 압축 해제됩니다.
 후자의 파일은 선택 사항이며, SDK 코드로 디버깅하는 데 유용합니다.
 
 ## <a name="create-an-indexhtml-page"></a>Index.html 페이지 만들기

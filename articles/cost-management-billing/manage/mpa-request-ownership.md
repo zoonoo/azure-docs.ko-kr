@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 28080517a33f1bbf9bee3436493f178b60c0d161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601414"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523607"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -155,6 +155,12 @@ SaaS 제품은 구독과 함께 전송되지 않습니다. [Azure 지원에 문�
 전송되는 Azure 구독의 디렉터리는 CSP 관계를 설정하는 동안 선택한 고객의 디렉터리와 일치해야 합니다.
 
 이러한 두 디렉터리가 일치하지 않으면 구독을 전송할 수 없습니다. Azure 구독의 디렉터리를 선택하여 고객과 새 CSP 재판매인 관계를 설정하거나 고객 CSP 관계 디렉터리와 일치하도록 Azure 구독의 디렉터리를 변경해야 합니다. 자세한 내용은 [Azure AD 디렉터리에 기존 구독 연결](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>비조직 디렉터리의 EA 구독
+
+비조직 디렉터리의 EA 구독은 해당 디렉터리에 CSP와의 재판매인 관계가 있는 한 전송될 수 있습니다. 디렉터리에 재판매인 관계가 없는 경우 디렉터리에 파트너 관계를 수락할 수 있는 *전역 관리자*로서의 조직 사용자가 있어야 합니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 "[도메인 이름]이어야 합니다. onmicrosoft.com" 또는 "contoso.com"과 같이 확인되고 페더레이션되지 않은 사용자 지정 도메인 이름  
+
+디렉터리에 새 사용자를 추가하려면 [빠른 시작: Azure Active Directory에 새 사용자를 추가하여 AAD 디렉터리에 새 사용자 추가](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)를 참조하세요.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Microsoft 파트너 계약에 대한 액세스 확인
 

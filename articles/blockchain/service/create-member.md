@@ -1,15 +1,16 @@
 ---
 title: Azure Blockchain Service 멤버 만들기 - Azure Portal
 description: Azure Portal을 사용하여 블록체인 컨소시엄을 위한 Azure Blockchain Service 멤버를 만듭니다.
-ms.date: 03/30/2020
+ms.date: 07/16/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 9fb013960da5b7cb8ba44f129eab73565f5b5362
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: references_regions
+ms.openlocfilehash: 5632c8a17c5ac25c8b4b436297d0dd5a0071df26
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82115247"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503424"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
 
@@ -35,7 +36,7 @@ Azure Blockchain Service 멤버는 프라이빗 컨소시엄 블록체인 네트
     --------|------------
     Subscription | 서비스에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
     Resource group | 새 리소스 그룹 이름을 만들거나, 구독에서 기존 이름을 선택합니다.
-    지역 | 멤버를 만들 지역을 선택합니다. 컨소시엄의 모든 멤버가 같은 위치에 있어야 합니다.
+    지역 | 멤버를 만들 지역을 선택합니다. 컨소시엄의 모든 멤버가 같은 위치에 있어야 합니다. 기능은 일부 지역에서 사용하지 못할 수도 있습니다. Azure Blockchain Data Manager는 다음 Azure 지역에서 사용할 수 있습니다. 즉 미국 동부 및 서유럽에서 실행되는 기본 웹 사이트의 두 인스턴스
     프로토콜 | 현재 Azure Blockchain Service 미리 보기는 쿼럼 프로토콜을 지원합니다.
     컨소시엄 | 새 컨소시엄인 경우 고유한 이름을 입력합니다. 초대를 통해 컨소시엄에 참가하는 경우 참가하는 컨소시엄을 선택합니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요.
     속성 | Azure Blockchain Service 멤버의 고유한 이름을 선택합니다. 블록체인 멤버 이름에는 소문자와 숫자만 사용할 수 있습니다. 첫 번째 자리는 반드시 문자여야 합니다. 이름의 길이는 2-20자 사이여야 합니다.

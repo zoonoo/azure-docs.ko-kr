@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 16248cd276b63e9570221626ec32d1d4723c4ebd
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 2da208c7c85dd001502a88f00bc7c1e090bbc3ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125603"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536439"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 클라이언트 라이브러리
 
@@ -26,7 +26,12 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - TLS/SSL 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
-[소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [API 참조 설명서](https://azure.github.io/azure-sdk-for-java) | [제품 설명서](index.yml) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+추가 리소스:
+
+* [소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)
+* [API 참조 설명서](https://azure.github.io/azure-sdk-for-java)
+* [제품 설명서](index.yml)
+* [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: 마이크, Swift에서 음성 인식 - Speech Service'
+title: '빠른 시작: 음성 인식, Swift - Speech Service(iOS)'
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용하여 iOS의 Swift에서 음성을 인식하는 방법 알아보기
+description: Cognitive Services Speech SDK를 사용하여 iOS 디바이스의 Swift에서 음성을 인식하는 앱을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: 95c69aad24ff10b49bdc09411553e6ed43bfdccd
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c4a66b1581049b90a419a1b62ba837fc832fd748
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391437"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512731"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS의 Swift에서 음성 인식
 
@@ -23,7 +23,7 @@ ms.locfileid: "85391437"
 
 이 문서에서는 Azure Cognitive Services Speech SDK를 사용하여 Swift에서 마이크로 녹음한 음성을 텍스트로 변환하는 iOS 앱을 만드는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 필요합니다.
 

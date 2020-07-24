@@ -1,21 +1,22 @@
 ---
-title: Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩 만들기
-description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. 랩 관리자는 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다.
-ms.topic: tutorial
+title: Azure DevTest Labs 및 Azure Resource Manager 템플릿을 사용하여 랩 만들기
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. 랩 관리자는 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다.
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ba4ffeec22a45c07b096b0a754d08c8230dd8f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476209"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537550"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs-resource-manager-template"></a>자습서: Azure DevTest Labs(Resource Manager 템플릿)를 사용하여 랩 설정
-이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 Windows Server 2019 Datacenter VM에서 랩을 만듭니다. 
+# <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>빠른 시작: Azure DevTest Labs ARM 템플릿을 사용하여 랩 설정
+이 빠른 시작에서는 ARM(Azure Resource Manager) 템플릿을 사용하여 Windows Server 2019 Datacenter VM에서 랩을 만듭니다. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-이 자습서에서는 다음 작업을 수행합니다.
+이 빠른 시작에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 템플릿 검토 
@@ -23,15 +24,17 @@ ms.locfileid: "85476209"
 > * 템플릿 확인
 > * 리소스 정리
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json" range="1-97" highlight="51-85":::
 
@@ -46,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="deploy-the-template"></a>템플릿 배포
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다. 
 
-[![Azure에 배포](./media/create-lab-windows-vm-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 1. 나중에 쉽게 정리할 수 있도록 **새 리소스 그룹**을 만듭니다.
 1. 리소스 그룹의 **위치**를 선택합니다. 
@@ -59,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="템플릿 배포 페이지":::
 
-## <a name="verify-the-deployment"></a>배포 확인
+## <a name="validate-the-deployment"></a>배포 유효성 검사
 1. 배포 상태를 확인하려면 맨 위에 있는 **알림**을 선택하고 **배포 진행 중**을 클릭합니다.
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="배포 알림":::
@@ -76,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     > [!IMPORTANT] 
     > 이 페이지를 열어 두고 다음 섹션의 지침에 따라 Azure에서 랩 및 VM을 실행하는 데 드는 비용을 방지하기 위해 리소스를 정리합니다. 랩에서 VM에 대한 액세스를 테스트하기 위해 다음 자습서를 진행하려는 경우 해당 자습서를 진행한 후 리소스를 정리합니다. 
 
-## <a name="cleanup-resources"></a>리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 1. 먼저 리소스 그룹을 삭제할 수 있도록 랩을 삭제합니다. 랩이 포함된 리소스 그룹은 삭제할 수 없습니다. 랩을 삭제하려면 도구 모음에서 **삭제**를 선택합니다. 
 
@@ -90,8 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="리소스 그룹 삭제 단추":::
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 VM이 포함된 랩을 만들었습니다. 랩에 액세스하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+이 빠른 시작에서는 VM을 사용하여 랩을 만들었습니다. 랩에 액세스하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [자습서: 랩 액세스](tutorial-use-custom-lab.md)
-

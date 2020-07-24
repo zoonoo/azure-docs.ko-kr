@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435919"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519765"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Windows 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Log Analytics 에이전트를 프로비저닝하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -29,7 +29,7 @@ Azure 구독을 온보딩한 후 Log Analytics 에이전트를 프로비저닝�
 ## <a name="prerequisites"></a>사전 요구 사항
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
 
-이 빠른 시작을 수행하기 위해서는 Security Center의 가격 계층이 표준(Standard)이어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 비용 없이 Security Center의 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+이 빠른 시작을 수행하기 위해서는 Security Center의 가격 계층이 표준이어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 비용 없이 Security Center의 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## <a name="add-new-windows-computer"></a>새 Windows 컴퓨터 추가
 

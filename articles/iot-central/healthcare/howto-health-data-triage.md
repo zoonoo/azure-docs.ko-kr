@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021647"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497049"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>자습서: Power BI 공급자 대시보드 빌드
 
 
 
-지속적인 환자 모니터링 솔루션을 빌드할 때 병원 진료 팀에서 환자 데이터를 시각화할 수 있는 대시보드를 만들 수도 있습니다. 이 자습서에서는 IoT Central 지속적인 환자 모니터링 애플리케이션 템플릿에서 Power BI 실시간 스트리밍 대시보드를 만드는 방법을 알아봅니다.
+지속적인 환자 모니터링 솔루션을 빌드할 때 병원 진료 팀에서 환자 데이터를 시각화할 수 있는 대시보드를 만들 수도 있습니다. 이 자습서에서는 IoT Central 지속적인 환자 모니터링 애플리케이션 템플릿에서 Power BI 실시간 스트리밍 대시보드를 만드는 방법을 알아봅니다. 사용 사례가 실시간 데이터에 액세스하지 않아도 되는 경우 간소화된 배포 프로세스를 포함하는 [IoT Central Power BI 대시보드](../core/howto-connect-powerbi.md)를 사용할 수 있습니다. 
 
 >[!div class="mx-imgBorder"]
 >![대시보드 GIF](media/dashboard-gif-3.gif)
@@ -38,7 +38,7 @@ ms.locfileid: "77021647"
 > * 논리 앱에서 Power BI로 데이터 스트리밍
 > * 환자 바이탈에 대한 실시간 대시보드 빌드
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -143,7 +143,7 @@ Power BI의 스트리밍 데이터 세트에 대한 자세한 내용은 [Power B
 
     |매개 변수|값|
     |---|---|
-    |속성|인터페이스 이름|
+    |Name|인터페이스 이름|
     |Type|String|
 
     **저장**을 누릅니다. 

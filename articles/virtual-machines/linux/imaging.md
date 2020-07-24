@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 40d028ade5429c89ce40b718c90c601dfcb0e470
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307083"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502183"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "85307083"
 ## <a name="difference-between-managed-disks-and-images"></a>관리 디스크와 이미지의 차이점
 
 
-Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#managed-disks)로 사용하거나, 이미지의 원본으로 사용할 수 있습니다. 
+Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](../windows/faq-for-disks.md#managed-disks)로 사용하거나, 이미지의 원본으로 사용할 수 있습니다. 
 
 Azure 관리 디스크는 단일 VHD입니다. 기존 VHD를 가져와서 관리 디스크를 만들거나 처음부터 빈 관리 디스크를 만들 수 있습니다. 디스크를 VM에 연결하여 관리 디스크에서 VM을 만들 수 있지만 VHD는 하나의 VM에서만 사용할 수 있습니다. OS 속성은 수정할 수 없습니다. Azure는 VM을 켜고 해당 디스크를 사용하여 시작하려고 합니다. 
 
@@ -49,16 +49,16 @@ Azure는 일반화 및 특수화의 두 가지 기본 이미지 유형을 제공
 일반화된 이미지는 처음 부팅할 때 설치를 완료해야 하는 이미지입니다. 예를 들어 처음 부팅할 때 호스트 이름, 관리 사용자 및 기타 VM 특정 구성을 설정합니다. 이는 이미지를 여러 번 다시 사용하려는 경우와 만드는 중에 매개 변수를 전달하려는 경우에 유용합니다. Azure 에이전트가 일반화된 이미지에 포함되는 경우 에이전트에서 매개 변수를 처리하고 초기 구성이 완료되었다는 신호를 플랫폼에 다시 보냅니다. 이 프로세스를 **프로비저닝**이라고 합니다. 
 
 프로비저닝하려면 이미지에 구축 프로그램이 포함되어 있어야 합니다. 다음 두 가지 구축 프로그램이 있습니다.
-- [Azure Linux 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)
-- [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+- [Azure Linux 에이전트](../extensions/agent-linux.md)
+- [cloud-init](./using-cloud-init.md)
 
-이러한 프로그램은 이미지를 만들기 위한 [필수 구성 요소](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)입니다.
+이러한 프로그램은 이미지를 만들기 위한 [필수 구성 요소](./create-upload-generic.md)입니다.
 
 
 ### <a name="specialized-images"></a>특수화된 이미지
 완전히 구성되어 있으며 VM 및 특수 매개 변수가 필요하지 않은 이미지입니다. 플랫폼에서 VM을 켜기만 하면 됩니다. 동일한 VNET에서 DNS 충돌을 방지하기 위해 VM 내에서 고유성(예: 호스트 이름 설정)을 처리해야 합니다. 
 
-이러한 이미지에는 프로비저닝 에이전트가 필요하지 않지만, 확장 처리 기능을 사용할 수도 있습니다. Linux 에이전트는 설치할 수 있지만 프로비저닝 옵션을 사용하지 않도록 설정할 수 있습니다. 프로비저닝 에이전트가 필요하지 않더라도 이미지에서 Azure 이미지에 대한 [필수 구성 요소](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)를 충족해야 합니다.
+이러한 이미지에는 프로비저닝 에이전트가 필요하지 않지만, 확장 처리 기능을 사용할 수도 있습니다. Linux 에이전트는 설치할 수 있지만 프로비저닝 옵션을 사용하지 않도록 설정할 수 있습니다. 프로비저닝 에이전트가 필요하지 않더라도 이미지에서 Azure 이미지에 대한 [필수 구성 요소](./create-upload-generic.md)를 충족해야 합니다.
 
 
 ## <a name="image-storage-options"></a>이미지 스토리지 옵션
@@ -94,13 +94,14 @@ Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수
 
 ## <a name="hyper-v-generation"></a>Hyper-V 세대
 
-Azure는 Hyper-V Gen1(1세대) 및 Gen2(2세대)를 지원하고, Gen2는 최신 세대이며 Gen1을 통해 추가 기능을 제공합니다. 예를 들어 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리) 등이 있습니다. 온-프레미스에서 실행되는 2세대 VM에는 아직 Azure에서 지원되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 특징 및 기능 섹션을 참조하세요. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)를 참조하세요. 추가 기능이 필요한 경우 Gen2 이미지를 만듭니다.
+Azure는 Hyper-V Gen1(1세대) 및 Gen2(2세대)를 지원하고, Gen2는 최신 세대이며 Gen1을 통해 추가 기능을 제공합니다. 예를 들어 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리) 등이 있습니다. 온-프레미스에서 실행되는 2세대 VM에는 아직 Azure에서 지원되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 특징 및 기능 섹션을 참조하세요. 자세한 내용은 이 [문서](../windows/generation-2.md)를 참조하세요. 추가 기능이 필요한 경우 Gen2 이미지를 만듭니다.
 
-사용자 고유의 이미지를 만들어야 하는 경우에도 해당 이미지에서 [이미지 필수 구성 요소](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)를 충족하는지 확인하고 Azure에 업로드합니다. 배포 관련 요구 사항:
+사용자 고유의 이미지를 만들어야 하는 경우에도 해당 이미지에서 [이미지 필수 구성 요소](./create-upload-generic.md)를 충족하는지 확인하고 Azure에 업로드합니다. 배포 관련 요구 사항:
 
 
 - [CentOS 기반 배포](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar 컨테이너 Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES 및 openSUSE](suse-create-upload-vhd.md)
@@ -110,6 +111,3 @@ Azure는 Hyper-V Gen1(1세대) 및 Gen2(2세대)를 지원하고, Gen2는 최신
 ## <a name="next-steps"></a>다음 단계
 
 [Shared Image Gallery](tutorial-custom-images.md)를 만드는 방법에 대해 알아봅니다.
-
-
-

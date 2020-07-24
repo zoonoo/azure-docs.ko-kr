@@ -1,6 +1,6 @@
 ---
 title: Azure Private Link에서 프라이빗 링크 서비스 만들기
-description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 프라이빗 링크 서비스를 만듭니다.
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 프라이빗 링크 서비스를 만듭니다.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817630"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529610"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 프라이빗 링크 서비스 만들기
+# <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 링크 서비스 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 프라이빗 링크 서비스를 만듭니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 프라이빗 링크 서비스를 만듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 [Azure Portal](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md) 또는 [Azure CLI](create-private-link-service-cli.md)를 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
-## <a name="prerequisite"></a>필수 요소
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 활성 구독이 있는 Azure 계정이 필요합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-link-service"></a>Private Link 서비스 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 이 템플릿은 프라이빗 링크 서비스를 만듭니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-privatelink-service/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
@@ -48,13 +50,13 @@ ms.locfileid: "84817630"
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): 각 가상 머신에 대해 하나씩 두 개의 공용 IP 주소가 있습니다.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): 서비스에 액세스할 프라이빗 엔드포인트입니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 Azure에 배포하는 방법은 다음과 같습니다.
+Azure에 ARM 템플릿을 배포하는 방법은 다음과 같습니다.
 
 1. Azure에 로그인하고 템플릿을 열려면 **Azure에 배포**를 선택합니다. 템플릿은 가상 머신, 표준 부하 분산 장치, 프라이빗 링크 서비스, 프라이빗 엔드포인트, 네트워킹 및 유효성을 검사할 가상 머신을 만듭니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만듭니다.
 3. 가상 머신 관리자 사용자 이름과 암호를 입력합니다.
@@ -63,7 +65,7 @@ Azure Resource Manager 템플릿을 Azure에 배포하는 방법은 다음과 �
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
 > [!NOTE]
-> Azure Resource Manager 템플릿은 가상 머신 myConsumerVm<b>{uniqueid}</b> 리소스에 대한 고유한 이름을 생성합니다. **{uniqueid}** 에 대해 생성된 값으로 대체합니다.
+> ARM 템플릿은 가상 머신 myConsumerVm<b>{uniqueid}</b> 리소스에 대한 고유한 이름을 생성합니다. **{uniqueid}** 에 대해 생성된 값으로 대체합니다.
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
@@ -95,7 +97,7 @@ Azure Resource Manager 템플릿을 Azure에 배포하는 방법은 다음과 �
 프라이빗 엔드포인트를 사용하여 VM에서 http 서비스에 연결하는 방법은 다음과 같습니다.
 
 1.  _myConsumerVm{uniqueid}_ 의 원격 데스크톱으로 이동합니다.
-2.  브라우저를 열고 프라이빗 엔드포인트 주소를 입력합니다. http://10.0.0.5/
+2.  브라우저를 열고 프라이빗 엔드포인트 주소를 입력합니다. `http://10.0.0.5/`
 3.  기본 IIS 페이지가 나타납니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

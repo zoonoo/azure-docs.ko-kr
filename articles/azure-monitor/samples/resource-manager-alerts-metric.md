@@ -1,18 +1,18 @@
 ---
-title: Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
-description: Resource Manager 템플릿을 사용하여 메트릭 경고를 만드는 방법에 대해 알아봅니다.
+title: 메트릭 경고에 대한 Resource Manager 템플릿 샘플
+description: 이 문서에서는 Azure Monitor에서 메트릭 경고를 만드는 데 사용되는 Resource Manager 템플릿 샘플을 제공합니다.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853306"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515379"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Azure Monitor의 메트릭 경고 규칙에 대한 Resource Manager 템플릿 샘플
 
@@ -20,7 +20,7 @@ ms.locfileid: "83853306"
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-메트릭 경고 규칙에서 사용할 수 있는 리소스 목록은 [Azure Monitor에서 메트릭 경고에 지원되는 리소스](../platform/alerts-metric-near-real-time.md)를 참조하세요. 경고 규칙에 대한 스키마 및 속성에 대한 설명은 [메트릭 경고 - 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate)에서 사용할 수 있습니다.
+메트릭 경고 규칙에서 사용할 수 있는 리소스 목록은 [Azure Monitor에서 메트릭 경고에 지원되는 리소스](../platform/alerts-metric-near-real-time.md)를 참조하세요. 경고 규칙에 대한 스키마 및 속성에 대한 설명은 [메트릭 경고 - 만들기 또는 업데이트](/rest/api/monitor/metricalerts/createorupdate)에서 사용할 수 있습니다.
 
 > [!NOTE]
 > 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)을 참조하세요.
@@ -1094,7 +1094,7 @@ ms.locfileid: "83853306"
 
 다음 템플릿을 사용하여 사용자 지정 메트릭에 대한 고급 정적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
 
-Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview)을 참조하세요.
+Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](../platform/metrics-custom-overview.md)을 참조하세요.
 
 사용자 지정 메트릭에 대한 경고 규칙을 만드는 경우 메트릭 이름과 메트릭 네임스페이스를 모두 지정해야 합니다. 또한 아직 존재하지 않는 사용자 지정 메트릭에 대한 경고 규칙을 만들 수 없으므로 사용자 지정 메트릭이 이미 보고되고 있는지 확인해야 합니다.
 
@@ -1325,7 +1325,7 @@ Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure
 
 >[!NOTE]
 >
-> [Azure Portal을 통해 사용자 지정 메트릭을 검색](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)하여 특정 사용자 지정 메트릭의 메트릭 네임스페이스를 찾을 수 있습니다.
+> [Azure Portal을 통해 사용자 지정 메트릭을 검색](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)하여 특정 사용자 지정 메트릭의 메트릭 네임스페이스를 찾을 수 있습니다.
 
 
 ## <a name="multiple-resources"></a>여러 리소스

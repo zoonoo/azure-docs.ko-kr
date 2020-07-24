@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: aaa1a4423363255536db7d53a1f8f8fa9ba686ff
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8b54f216850b77473ea8c272311e3f135f256518
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76961190"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536507"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 IoT Hub에 시뮬레이션된 디바이스 프로비전
 
 이 빠른 시작에서는 Windows 개발 머신에서 디바이스 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. 대칭 키를 사용하여 DPS(Device Provisioning Service) 인스턴스로 인증하고 IoT 허브에 할당되도록 이 시뮬레이션된 디바이스를 구성합니다. [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java)의 샘플 코드는 프로비저닝을 시작하는 디바이스에 대한 부팅 시퀀스를 시뮬레이션하는 데 사용됩니다. 디바이스는 DPS 서비스 인스턴스의 개별 등록을 기반으로 인식되고 IoT 허브에 할당됩니다.
 

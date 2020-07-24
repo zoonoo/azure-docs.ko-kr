@@ -1,190 +1,497 @@
 ---
-title: Java를 사용하여 데이터베이스 쿼리
-description: Java를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스에 연결하고 T-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여줍니다.
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Azure SQL Database에서 Java 및 JDBC 사용
+description: Azure SQL Database에서 Java 및 JDBC를 사용하는 방법을 알아봅니다.
 services: sql-database
+author: jdubois
+ms.author: judubois
 ms.service: sql-database
 ms.subservice: development
-ms.devlang: java
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
-ms.date: 05/29/2020
-ms.custom: seo-java-july2019. seo-java-august2019, sqldbrb=2 
-ms.openlocfilehash: 6be52d2d3472888607bbd6276b4794184bb11273
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.devlang: java
+ms.date: 06/26/2020
+ms.openlocfilehash: 59124928e9bfb75265e3556e37d65a3b30c851d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267395"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515078"
 ---
-# <a name="quickstart-use-java-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Java를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+# <a name="use-java-and-jdbc-with--azure-sql-database"></a>Azure SQL Database에서 Java 및 JDBC 사용
 
-이 빠른 시작에서는 Java를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스에 연결하고 T-SQL 문을 사용하여 데이터를 쿼리합니다.
+이 항목에서는 Java 및 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity)를 사용하여 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)에 정보를 저장하고 검색하는 애플리케이션 샘플을 만드는 방법을 보여줍니다.
+
+JDBC는 기존 관계형 데이터베이스에 연결하는 표준 Java API입니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+- Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) 또는 [Azure CLI](/cli/azure/install-azure-cli). 자동으로 로그인되고 필요한 모든 도구에 액세스할 수 있는 Azure Cloud Shell을 권장합니다.
+- 지원되는 [Java Development Kit](https://aka.ms/azure-jdks) 버전 8(Azure Cloud Shell에 포함됨)입니다.
+- [Apache Maven](https://maven.apache.org/) 빌드 도구.
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+## <a name="prepare-the-working-environment"></a>작업 환경 준비
 
-  || SQL Database | SQL Managed Instance | Azure VM의 SQL Server |
-  |:--- |:--- |:---|:---|
-  | 생성| [포털](single-database-create-quickstart.md) | [포털](../managed-instance/instance-create-quickstart.md) | [포털](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | 구성 | [서버 수준 IP 방화벽 규칙](firewall-create-server-level-portal-quickstart.md)| [VM에서 연결](../managed-instance/connect-vm-instance-configure.md)|
-  |||[온-프레미스에서 연결](../managed-instance/point-to-site-p2s-configure.md) | [SQL Server 인스턴스에 연결](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](../managed-instance/restore-sample-database-quickstart.md) | [Wide World Importers 복원](../managed-instance/restore-sample-database-quickstart.md) |
-  |||[GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](database-import.md) 파일에서 Adventure Works 복원 또는 가져오기| [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
-  |||
+환경 변수를 사용하여 입력 실수를 제한하고 특정 요구 사항에 맞게 다음 구성을 보다 쉽게 사용자 지정할 수 있도록 합니다.
 
-- [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 관련 소프트웨어
+다음 명령을 사용하여 이러한 환경 변수를 설정합니다.
 
-  # <a name="macos"></a>[macOS](#tab/macos)
+```bash
+AZ_RESOURCE_GROUP=database-workshop
+AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+AZ_LOCATION=<YOUR_AZURE_REGION>
+AZ_SQL_SERVER_USERNAME=demo
+AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
+AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+```
 
-  Homebrew 및 Java를 설치한 다음, [macOS에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)의 **1.2** 및 **1.3** 단계를 사용하여 Maven을 설치합니다.
+자리 표시자를 이 문서 전체에서 사용되는 다음 값으로 바꿉니다.
 
-  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
+- `<YOUR_DATABASE_NAME>`: Azure SQL Database 서버의 이름입니다. Azure에서 고유해야 합니다.
+- `<YOUR_AZURE_REGION>`: 사용할 Azure 지역. 기본적으로 `eastus`를 사용할 수 있지만 거주지와 더 가까운 지역을 구성하는 것이 좋습니다. `az account list-locations`를 입력하면 사용 가능한 지역의 전체 목록을 나열할 수 있습니다.
+- `<AZ_SQL_SERVER_PASSWORD>`: Azure SQL Database 서버의 암호입니다. 암호의 길이는 8자 이상이어야 합니다. 다음 범주 중 세 가지 범주의 문자여야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
+- `<YOUR_LOCAL_IP_ADDRESS>`: Java 애플리케이션을 실행할 로컬 컴퓨터의 IP 주소. 이를 확인하는 간편한 방법 중 하나는 브라우저에서 [whatismyip.akamai.com](http://whatismyip.akamai.com/)으로 이동하는 것입니다.
 
-  Java, Java Development Kit를 차례로 설치한 다음, [Ubuntu에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)의 **1.2**, **1.3** 및 **1.4** 단계를 사용하여 Maven을 설치합니다.
+다음으로, 다음 명령을 사용하여 리소스 그룹을 만듭니다.
 
-  # <a name="windows"></a>[Windows](#tab/windows)
-
-  Java를 설치한 다음, [Windows에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/windows/)의 **1.2** 및 **1.3** 단계를 사용하여 Maven을 설치합니다.
-
-  ---
-
-> [!IMPORTANT]
-> 이 문서의 스크립트는 **Adventure Works** 데이터베이스를 사용하도록 작성되었습니다.
-
-> [!NOTE]
-> 필요에 따라 Azure SQL Managed Instance를 사용하도록 선택할 수 있습니다.
->
-> 만들고 구성하려면 [Azure Portal](../managed-instance/instance-create-quickstart.md), [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) 또는 [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)를 사용한 다음, [온-프레미스](../managed-instance/point-to-site-p2s-configure.md) 또는 [VM](../managed-instance/connect-vm-instance-configure.md) 연결을 설정합니다.
->
-> 데이터를 로드하려면 [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 파일을 사용하여 [BACPAC로 복원](database-import.md) 또는 [Wide World Importers 데이터베이스 복원](../managed-instance/restore-sample-database-quickstart.md)을 참조하세요.
-
-## <a name="get-server-connection-information"></a>서버 연결 정보 가져오기
-
-Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차를 수행하려면 정규화된 서버 이름이나 호스트 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-
-2. **SQL 데이터베이스**를 선택하거나 **SQL Managed Instances** 페이지를 엽니다.
-
-3. **개요** 페이지에서 Azure SQL Database의 데이터베이스에 대한 **서버 이름** 옆에 있는 정규화된 서버 이름 또는 Azure VM의 Azure SQL Managed Instance 또는 SQL Server에 대한 **호스트** 옆에 있는 정규화된 서버 이름(또는 IP 주소)을 검토합니다. 서버 이름이나 호스트 이름을 복사하려면 마우스로 해당 이름 위를 가리키고 **복사** 아이콘을 선택합니다.
+```azurecli
+az group create \
+    --name $AZ_RESOURCE_GROUP \
+    --location $AZ_LOCATION \
+  	| jq
+```
 
 > [!NOTE]
-> Azure VM의 SQL Server에 대한 연결 정보는 [SQL Server에 연결](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)을 참조하세요.
+> `jq` 유틸리티를 사용하여 JSON 데이터를 표시하고 더 읽기 쉽게 만듭니다. 이 유틸리티는 [Azure Cloud Shell](https://shell.azure.com/)에 기본적으로 설치됩니다. 이 유틸리티가 마음에 들지 않을 경우 여기서 사용하게 될 모든 명령의 `| jq` 부분을 안전하게 제거하면 됩니다.
 
-## <a name="create-the-project"></a>프로젝트 만들기
+## <a name="create-an-azure-sql-database-instance"></a>Azure SQL Database 인스턴스 만들기
 
-1. 명령 프롬프트에서 *sqltest*라는 새 Maven 프로젝트를 만듭니다.
+먼저 관리형 Azure SQL Database 서버를 만듭니다.
 
-    ```bash
-    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
-    ```
+> [!NOTE]
+> [빠른 시작: Azure SQL Database 단일 데이터베이스 만들기](/azure/sql-database/sql-database-single-database-get-started)에서 Azure SQL Database 서버를 만드는 방법에 대한 자세한 정보를 읽을 수 있습니다.
 
-1. 폴더를 *sqltest*로 변경하고, 원하는 텍스트 편집기에서 *pom.xml*을 엽니다. 다음 코드를 사용하여 프로젝트의 종속성에 **SQL Server용 Microsoft JDBC Driver**를 추가합니다.
+[Azure Cloud Shell](https://shell.azure.com/)에서 다음 명령을 실행합니다.
 
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.sqlserver</groupId>
-        <artifactId>mssql-jdbc</artifactId>
-        <version>7.0.0.jre8</version>
-    </dependency>
-    ```
+```azurecli
+az sql server create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME \
+    --location $AZ_LOCATION \
+    --admin-user $AZ_SQL_SERVER_USERNAME \
+    --admin-password $AZ_SQL_SERVER_PASSWORD \
+  	| jq
+```
 
-1. 또한 *pom.xml*에서 프로젝트에 다음 속성을 추가합니다. 속성 섹션이 없으면 종속성 뒤에 추가할 수 있습니다.
+이 명령은 Azure SQL Database 서버를 만듭니다.
 
-   ```xml
-   <properties>
-       <maven.compiler.source>1.8</maven.compiler.source>
-       <maven.compiler.target>1.8</maven.compiler.target>
-   </properties>
-   ```
+### <a name="configure-a-firewall-rule-for-your-azure-sql-database-server"></a>Azure SQL Database 서버용 방화벽 규칙 구성
 
-1. *pom.xml*을 저장하고 닫습니다.
+Azure SQL Database 인스턴스는 기본적으로 보호됩니다. 들어오는 연결을 허용하지 않는 방화벽이 있습니다. 데이터베이스를 사용하려면 로컬 IP 주소에서 데이터베이스 서버에 액세스할 수 있도록 하는 방화벽 규칙을 추가해야 합니다.
 
-## <a name="add-code-to-query-the-database"></a>데이터베이스를 쿼리하는 코드 추가
+이 문서의 시작 부분에서 로컬 IP 주소를 구성했으므로 다음 명령을 실행하여 서버의 방화벽을 열 수 있습니다.
 
-1. 다음 위치에 있는 Maven 프로젝트에 이미 *App.java*라는 파일이 있어야 합니다.
+```azurecli
+az sql server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS \
+  	| jq
+```
 
-   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
+### <a name="configure-a-azure-sql-database"></a>Azure SQL Database 구성
 
-1. 파일을 열고 콘텐츠를 다음 코드로 바꿉니다. 그런 다음, 서버, 데이터베이스, 사용자 및 암호에 적절한 값을 추가합니다.
+이전에 만든 Azure SQL Database 서버가 비어 있습니다. Java 애플리케이션에서 사용할 수 있는 데이터베이스가 없습니다. 다음 명령을 실행하여 `demo`라는 새 데이터베이스를 만듭니다.
 
-    ```java
-    package com.sqldbsamples;
+```azurecli
+az sql db create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name demo \
+    --server $AZ_DATABASE_NAME \
+  	| jq
+```
 
-    import java.sql.Connection;
-    import java.sql.Statement;
-    import java.sql.PreparedStatement;
-    import java.sql.ResultSet;
-    import java.sql.DriverManager;
+### <a name="create-a-new-java-project"></a>새 Java 프로젝트 만들기
 
-    public class App {
+선호하는 IDE를 사용하여 새 Java 프로젝트를 만들고 해당 루트 디렉터리에 `pom.xml` 파일을 추가합니다.
 
-        public static void main(String[] args) {
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
 
-            // Connect to database
-            String hostName = "your_server.database.windows.net"; // update me
-            String dbName = "your_database"; // update me
-            String user = "your_username"; // update me
-            String password = "your_password"; // update me
-            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
-                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-            Connection connection = null;
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
-            try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.4.1.jre8</version>
+        </dependency>
+    </dependencies>
+</project>
+```
 
-                System.out.println("Query data example:");
-                System.out.println("=========================================");
+이 파일은 다음을 사용하도록 프로젝트를 구성하는 [Apache Maven](https://maven.apache.org/)입니다.
 
-                // Create and execute a SELECT SQL statement.
-                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
-                    + "FROM [SalesLT].[ProductCategory] pc "  
-                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+- Java 8
+- Java용 최신 SQL Server 드라이버
 
-                try (Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(selectSql)) {
+### <a name="prepare-a-configuration-file-to-connect-to-azure-sql-database"></a>Azure SQL 데이터베이스에 연결할 구성 파일 준비
 
-                    // Print results from select statement
-                    System.out.println("Top 20 categories:");
-                    while (resultSet.next())
-                    {
-                        System.out.println(resultSet.getString(1) + " "
-                            + resultSet.getString(2));
-                    }
-                    connection.close();
-                }
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+*src/main/resources/application.properties* 파일을 만들고 다음을 추가합니다.
+
+```properties
+url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+user=demo@$AZ_DATABASE_NAME
+password=$AZ_SQL_SERVER_PASSWORD
+```
+
+- 두 개의 `$AZ_DATABASE_NAME` 변수를 이 문서의 시작 부분에서 구성한 값으로 바꿉니다.
+- `$AZ_SQL_SERVER_PASSWORD` 변수를 이 문서의 시작 부분에서 구성한 값으로 바꿉니다.
+
+### <a name="create-an-sql-file-to-generate-the-database-schema"></a>데이터베이스 스키마를 생성하는 SQL 파일 만들기
+
+데이터베이스 스키마를 만들기 위해 *src/main/resources/`schema.sql`* 파일을 사용합니다. 다음 내용이 포함된 해당 파일을 만듭니다.
+
+```sql
+DROP TABLE IF EXISTS todo;
+CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
+```
+
+## <a name="code-the-application"></a>애플리케이션 코딩
+
+### <a name="connect-to-the-database"></a>데이터베이스에 연결
+
+다음으로, JDBC를 사용하여 Azure SQL 데이터베이스에서 데이터를 저장하고 검색하는 Java 코드를 추가합니다.
+
+다음을 포함하는 *src/main/java/DemoApplication.java* 파일을 만듭니다.
+
+```java
+package com.example.demo;
+
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Logger;
+
+public class DemoApplication {
+
+    private static final Logger log;
+
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log =Logger.getLogger(DemoApplication.class.getName());
     }
-    ```
 
-   > [!NOTE]
-   > 이 코드 예제는 Azure SQL Database에서 **AdventureWorksLT** 샘플 데이터베이스를 사용합니다.
+    public static void main(String[] args) throws Exception {
+        log.info("Loading application properties");
+        Properties properties = new Properties();
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
 
-## <a name="run-the-code"></a>코드 실행
+        log.info("Connecting to the database");
+        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
+        log.info("Database connection test: " + connection.getCatalog());
 
-1. 명령 프롬프트에서 앱을 실행합니다.
+        log.info("Create database schema");
+        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
+        Statement statement = connection.createStatement();
+        while (scanner.hasNextLine()) {
+            statement.execute(scanner.nextLine());
+        }
 
-    ```bash
-    mvn package -DskipTests
-    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-    ```
+        /*
+        Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+        insertData(todo, connection);
+        todo = readData(connection);
+        todo.setDetails("congratulations, you have updated data!");
+        updateData(todo, connection);
+        deleteData(todo, connection);
+        */
 
-1. 상위 20개 행이 반환되는지 확인하고, 앱 창을 닫습니다.
+        log.info("Closing database connection");
+        connection.close();
+    }
+}
+```
+
+이 Java 코드는 SQL Server 데이터베이스에 연결하고 데이터를 저장하는 스키마를 만들기 위해 이전에 만든 *application.properties* 및 *schema.sql* 파일을 사용합니다.
+
+이 파일에서는 데이터를 삽입, 읽기, 업데이트 및 삭제하는 메서드를 주석으로 처리하는 것을 확인할 수 있습니다. 이 문서의 나머지 부분에서 이러한 메서드를 코딩하고 각 메서드를 주석으로 처리하지 않을 수 있습니다.
+
+> [!NOTE]
+> 데이터베이스 자격 증명은 *application.properties* 파일의 *사용자* 및 *암호* 속성에 저장됩니다. 이러한 자격 증명은 속성 파일이 인수로 전달되므로 `DriverManager.getConnection(properties.getProperty("url"), properties);`를 실행할 때 사용됩니다.
+
+이제 즐겨찾는 도구를 사용하여 이 기본 클래스를 실행할 수 있습니다.
+
+- IDE를 사용하면 *DemoApplication* 클래스를 마우스 오른쪽 단추로 클릭하여 실행할 수 있어야 합니다.
+- Maven을 통해 `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`을 실행하여 애플리케이션을 실행할 수 있습니다.
+
+애플리케이션은 콘솔 로그에 표시되는 대로 Azure SQL Database에 연결하여 데이터베이스 스키마를 만든 다음, 연결을 닫아야 합니다.
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Closing database connection 
+```
+
+### <a name="create-a-domain-class"></a>도메인 클래스 만들기
+
+`DemoApplication` 클래스 옆에 새 `Todo` Java 클래스를 만들고 다음 코드를 추가합니다.
+
+```java
+package com.example.demo;
+
+public class Todo {
+
+    private Long id;
+    private String description;
+    private String details;
+    private boolean done;
+
+    public Todo() {
+    }
+
+    public Todo(Long id, String description, String details, boolean done) {
+        this.id = id;
+        this.description = description;
+        this.details = details;
+        this.done = done;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", details='" + details + '\'' +
+                ", done=" + done +
+                '}';
+    }
+}
+```
+
+이 클래스는 *schema.sql* 스크립트를 실행할 때 만든 `todo` 테이블에 매핑된 도메인 모델입니다.
+
+### <a name="insert-data-into-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 삽입
+
+*src/main/java/DemoApplication.java* 파일에서 주 메서드 뒤에 다음 메서드를 추가하여 데이터를 데이터베이스에 삽입합니다.
+
+```java
+private static void insertData(Todo todo, Connection connection) throws SQLException {
+    log.info("Insert data");
+    PreparedStatement insertStatement = connection
+            .prepareStatement("INSERT INTO todo (id, description, details, done) VALUES (?, ?, ?, ?);");
+
+    insertStatement.setLong(1, todo.getId());
+    insertStatement.setString(2, todo.getDescription());
+    insertStatement.setString(3, todo.getDetails());
+    insertStatement.setBoolean(4, todo.isDone());
+    insertStatement.executeUpdate();
+}
+```
+
+이제 `main` 메서드에서 다음 두 줄의 주석 처리를 제거할 수 있습니다.
+
+```java
+Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+insertData(todo, connection);
+```
+
+이제 주 클래스를 실행하면 다음과 같은 출력이 생성됩니다.
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Closing database connection
+```
+
+### <a name="reading-data-from-azure-sql-database"></a>Azure SQL 데이터베이스에서 데이터 읽기
+
+코드가 제대로 작동하는지 확인하기 위해 이전에 삽입한 데이터를 읽어보겠습니다.
+
+*src/main/java/DemoApplication.java* 파일에서 `insertData` 메서드 뒤에 다음 메서드를 추가하여 데이터베이스에서 데이터를 읽습니다.
+
+```java
+private static Todo readData(Connection connection) throws SQLException {
+    log.info("Read data");
+    PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM todo;");
+    ResultSet resultSet = readStatement.executeQuery();
+    if (!resultSet.next()) {
+        log.info("There is no data in the database!");
+        return null;
+    }
+    Todo todo = new Todo();
+    todo.setId(resultSet.getLong("id"));
+    todo.setDescription(resultSet.getString("description"));
+    todo.setDetails(resultSet.getString("details"));
+    todo.setDone(resultSet.getBoolean("done"));
+    log.info("Data read from the database: " + todo.toString());
+    return todo;
+}
+```
+
+이제 `main` 메서드에서 다음 줄의 주석 처리를 제거할 수 있습니다.
+
+```java
+todo = readData(connection);
+```
+
+이제 주 클래스를 실행하면 다음과 같은 출력이 생성됩니다.
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Closing database connection 
+```
+
+### <a name="updating-data-in-azure-sql-database"></a>Azure SQL Database에서 데이터 업데이트
+
+이전에 삽입한 데이터를 업데이트해 보겠습니다.
+
+여전히 *src/main/java/DemoApplication.java* 파일에서 `readData` 메서드 뒤에 다음 메서드를 추가하여 데이터베이스 내의 데이터를 업데이트합니다.
+
+```java
+private static void updateData(Todo todo, Connection connection) throws SQLException {
+    log.info("Update data");
+    PreparedStatement updateStatement = connection
+            .prepareStatement("UPDATE todo SET description = ?, details = ?, done = ? WHERE id = ?;");
+
+    updateStatement.setString(1, todo.getDescription());
+    updateStatement.setString(2, todo.getDetails());
+    updateStatement.setBoolean(3, todo.isDone());
+    updateStatement.setLong(4, todo.getId());
+    updateStatement.executeUpdate();
+    readData(connection);
+}
+```
+
+이제 `main` 메서드에서 다음 두 줄의 주석 처리를 제거할 수 있습니다.
+
+```java
+todo.setDetails("congratulations, you have updated data!");
+updateData(todo, connection);
+```
+
+이제 주 클래스를 실행하면 다음과 같은 출력이 생성됩니다.
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Update data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
+[INFO   ] Closing database connection 
+```
+
+### <a name="deleting-data-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 데이터 삭제
+
+마지막으로 이전에 삽입한 데이터를 삭제해 보겠습니다.
+
+여전히 *src/main/java/DemoApplication.java* 파일에서 `updateData` 메서드 뒤에 다음 메서드를 추가하여 데이터베이스 내의 데이터를 삭제합니다.
+
+```java
+private static void deleteData(Todo todo, Connection connection) throws SQLException {
+    log.info("Delete data");
+    PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM todo WHERE id = ?;");
+    deleteStatement.setLong(1, todo.getId());
+    deleteStatement.executeUpdate();
+    readData(connection);
+}
+```
+
+이제 `main` 메서드에서 다음 줄의 주석 처리를 제거할 수 있습니다.
+
+```java
+deleteData(todo, connection);
+```
+
+이제 주 클래스를 실행하면 다음과 같은 출력이 생성됩니다.
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Update data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
+[INFO   ] Delete data 
+[INFO   ] Read data 
+[INFO   ] There is no data in the database! 
+[INFO   ] Closing database connection 
+```
+
+## <a name="conclusion-and-resources-clean-up"></a>결론 및 리소스 정리
+
+축하합니다! JDBC를 사용하여 Azure SQL 데이터베이스에서 데이터를 저장하고 검색하는 Java 애플리케이션을 만들었습니다.
+
+이 빠른 시작에서 사용된 모든 리소스를 정리하려면 다음 명령을 사용하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: 관리 디스크의 스냅샷을 구독에 복사 - PowerShell 샘플
+title: 구독에 대한 관리 디스크의 스냅샷(Windows) - PowerShell
 description: Azure PowerShell 스크립트 샘플 - 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: d5f110d8cf3324fa02a5b2e2500f743c57b1d229
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dadb4102a16d63b028e7202e2d7a94f135d06bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81452284"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501068"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크의 스냅샷 복사
+# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell-windows"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크의 스냅샷 복사(Windows)
 
 이 스크립트는 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사합니다. 다음 시나리오에서 이 스크립트를 사용하세요.
 
@@ -44,8 +44,8 @@ ms.locfileid: "81452284"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | 스냅샷 생성에 사용되는 스냅샷 구성을 만듭니다. 부모 스냅샷의 리소스 ID와 부모 스냅샷과 같은 위치를 포함합니다.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) | 매개 변수로 전달된 스냅샷 구성, 스냅샷 이름 및 리소스 그룹 이름을 사용하여 스냅샷을 만듭니다. |
+| [New-AzSnapshotConfig](/powershell/module/az.compute/new-azsnapshotconfig) | 스냅샷 생성에 사용되는 스냅샷 구성을 만듭니다. 부모 스냅샷의 리소스 ID와 부모 스냅샷과 같은 위치를 포함합니다.  |
+| [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) | 매개 변수로 전달된 스냅샷 구성, 스냅샷 이름 및 리소스 그룹 이름을 사용하여 스냅샷을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

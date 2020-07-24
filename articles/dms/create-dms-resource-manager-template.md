@@ -1,30 +1,34 @@
 ---
 title: DMS의 인스턴스 만들기(Azure Resource Manager 템플릿)
-description: Azure Resource Manager 템플릿을 사용하여 Database Migration Service를 만드는 방법을 알아봅니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Database Migration Service를 만드는 방법을 알아봅니다.
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 9e0d537a948e960c90737cc3f367940a0ffca74c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852481"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537448"
 ---
-# <a name="create-instance-of-azure-database-migration-service-azure-resource-manager-template"></a>Azure Database Migration Service의 인스턴스 만들기(Azure Resource Manager 템플릿)
+# <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database Migration Service의 인스턴스 만들기
 
-이 Azure Resource Manager 템플릿을 사용하여 Azure Database Migration Service의 인스턴스를 배포합니다. 
+이 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Database Migration Service의 인스턴스를 배포합니다. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Database Migration Service ARM 템플릿에는 다음이 필요합니다. 
 
-- 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 및/또는 [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli) 및/또는 [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 ## <a name="review-the-template"></a>템플릿 검토
@@ -39,7 +43,7 @@ Azure Database Migration Service ARM 템플릿에는 다음이 필요합니다.
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): 서브넷을 만듭니다. 
 - [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services): Azure Database Migration Service의 인스턴스를 배포합니다. 
 
-추가 Azure Database Migration Services 템플릿은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration)에서 찾을 수 있습니다.
+추가 Azure Database Migration Services 템플릿은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
 
 ## <a name="deploy-the-template"></a>템플릿 배포
@@ -105,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [ 자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ 자습서: 첫 번째 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Azure Database Migration Service를 배포하는 다른 방법은 다음을 참조하세요. 
 - [Azure Portal](quickstart-create-data-migration-service-portal.md)

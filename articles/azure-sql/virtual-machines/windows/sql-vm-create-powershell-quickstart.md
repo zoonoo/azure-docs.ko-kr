@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e821c650bae7694070624aeebe7fcc3482f7a3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: eafbf102c092b180a1f3c882f5ae626e60b80f30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667406"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514614"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Windows 가상 머신에서 SQL Server 만들기
 
@@ -147,13 +147,34 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    > [!TIP]
    > VM을 만드는 데 몇 분이 걸립니다.
 
-## <a name="install-the-sql-iaas-agent"></a>SQL IaaS 에이전트 설치
+## <a name="register-with-sql-vm-rp"></a>SQL VM RP에 등록 
 
-포털 통합 및 SQL VM 기능을 가져오려면 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 설치해야 합니다. 새 VM에 에이전트를 설치하려면 VM을 만든 후 다음 명령을 실행하세요.
+포털 통합 및 SQL VM 기능을 가져오려면 [SQL VM 리소스 공급자](sql-vm-resource-provider-register.md)에 등록해야 합니다.
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+전체 기능을 사용하려면 전체 모드에서 리소스 공급자에 등록해야 합니다. 그러나 이렇게 하면 SQL Server 서비스가 다시 시작되므로 경량 모드로 등록한 다음, 유지 관리 기간 동안 전체로 업그레이드하는 것이 좋습니다. 
+
+먼저 SQL Server VM을 경량 모드로 등록합니다. 
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType PAYG -SqlManagementType LightWeight
+```
+
+그런 다음, 유지 관리 기간 동안 전체 모드로 업그레이드합니다. 
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+      
+# Register with SQL VM resource provider in full mode
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+```
+
+
 
 ## <a name="remote-desktop-into-the-vm"></a>VM에 원격 데스크톱으로 연결합니다.
 

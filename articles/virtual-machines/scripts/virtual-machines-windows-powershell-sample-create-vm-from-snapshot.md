@@ -1,5 +1,5 @@
 ---
-title: 스냅샷에서 VM 만들기 - PowerShell 샘플
+title: 스냅샷에서 VM 만들기(Windows) - PowerShell 샘플
 description: Azure PowerShell 스크립트 샘플 - 스냅샷에서 VM 만들기
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: fb10f6c2d8109d240840faf5fa864176c89f24e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f8e7f5e758c916cf7e6b96ab38607ee722152b1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75368324"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509556"
 ---
-# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>PowerShell를 사용하여 스냅샷에서 가상 컴퓨터 만들기
+# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-windows"></a>PowerShell을 사용하여 스냅샷에서 가상 머신 만들기(Windows)
 
 이 스크립트는 OS 디스크의 스냅샷에서 가상 머신을 만듭니다. 
 
@@ -48,15 +48,15 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | 스냅샷 이름을 사용하여 스냅샷을 가져옵니다. |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | 디스크 구성을 만듭니다. 이 구성은 디스크 만들기 프로세스에서 사용됩니다. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) | 관리 디스크를 만듭니다. |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | 관리 디스크를 가상 머신에 OS 디스크로 연결합니다. |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | 네트워크 인터페이스를 만듭니다. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 가상 머신을 만듭니다. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | 스냅샷 이름을 사용하여 스냅샷을 가져옵니다. |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | 디스크 구성을 만듭니다. 이 구성은 디스크 만들기 프로세스에서 사용됩니다. |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | 관리 디스크를 만듭니다. |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | 관리 디스크를 가상 머신에 OS 디스크로 연결합니다. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | 네트워크 인터페이스를 만듭니다. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | 가상 머신을 만듭니다. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

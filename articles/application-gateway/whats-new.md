@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: ebb3e6ba777646d39e3732215aa6c8fdd12ca40a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517623"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway의 새로운 소식
 
@@ -27,7 +27,9 @@ Azure Application Gateway는 지속적으로 업데이트됩니다. 최신 개�
 
 |기능  |Description  |추가된 날짜  |
 |---------|---------|---------|
-| 상태 프로브용 사용자 지정 포트 | Application Gateway v2 SKU는 이제 상태 프로브 구성에서 사용자 지정 포트를 제공하는 기능을 제공합니다. 자세한 내용은 [상태 프로브 개요](application-gateway-probe-overview.md)를 참조하세요. | 2020년 7월
+| 수신기의 와일드카드 호스트 이름(미리 보기) | 이제 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 단계별 가이드에 대한 [수신기의 와일드카드 호스트 이름(미리 보기)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) 및 [Azure Portal을 사용하여 Application Gateway에서 여러 사이트 호스트](create-multiple-sites-portal.md)를 참조하세요. | 2020년 7월 |
+| URL 다시 쓰기(미리 보기) | 이제 URL 다시 쓰기를 사용하여 URL 경로 및 쿼리 문자열 매개 변수를 다시 쓸 수 있습니다. 자세한 내용은 [HTTP 헤더 및 URL 다시 쓰기](rewrite-http-headers-url.md)를 참조하고 단계별 가이드는 [Azure Portal을 사용하여 Application Gateway에서 URL 다시 쓰기](rewrite-url-portal.md)를 참조하세요. | 2020년 7월 |
+| 상태 프로브용 사용자 지정 포트 | Application Gateway v2 SKU는 이제 상태 프로브 구성에서 사용자 지정 포트를 제공하는 기능을 제공합니다. 자세한 내용은 [상태 프로브 개요](application-gateway-probe-overview.md)를 참조하세요. | 2020년 7월 |
 | AGIC(Application Gateway Ingress Controller) AKS 추가 기능(미리 보기) |이제 Azure CLI를 통해 Application Gateway Ingress Controller를 한 줄에 네이티브 AKS 추가 기능으로 배포할 수 있습니다. AKS 추가 기능이기 때문에 AGIC는 고객의 AKS 클러스터에서 계속 실행되는 동안 완전 관리형 서비스가 될 수 있습니다. 자세한 내용은 [AGIC 추가 기능 차이점](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)을 참조하세요. |2020년 6월 |
 | v2의 UDR(사용자 정의 경로)(미리 보기) |이제 Application Gateway v2 SKU의 일부 시나리오에서 사용자 정의 경로가 지원됩니다. 자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요. |2020년 3월 |
 |선호도 쿠키 변경 내용 |쿠키 기반 선호도를 사용하도록 설정하면 Application Gateway는 기존 ApplicationGatewayAffinity 쿠키 외에도 *ApplicationGatewayAffinityCORS*라는 다른 동일한 쿠키를 삽입합니다. *ApplicationGatewayAffinityCORS*에 추가된 두 개의 특성이 있으므로(*SameSite=None; Secure*) 원본 간 요청에 대해서도 고정 세션이 유지됩니다. 자세한 내용은 [Application Gateway 쿠키 기반 선호도](configuration-overview.md#cookie-based-affinity)를 참조하세요. |2020년 2월 |

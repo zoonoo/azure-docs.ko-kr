@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
-ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/14/2020
+ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562532"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529627"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
@@ -27,11 +27,11 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-다음 서비스 속성은 서비스의 수명 동안 고정되어 있으며, 이를 변경하려면 새로운 서비스가 필요합니다. 서비스를 만들 때 사용 방법을 고려합니다.
+다음 서비스 속성은 서비스의 수명 동안 고정되어 있습니다. 이 중 하나를 변경하려면 새로운 서비스가 필요합니다. 이러한 속성은 고정되어 있으므로 각 속성을 입력할 때 사용하는 영향을 고려합니다.
 
-* 이름(서비스 이름에 대해 [이러한 제안 사항](#name-the-service) 검토)
-* 계층(무료, 기본, 표준 [청구에 영향](search-sku-tier.md)을 주고 용량의 상향 제한을 설정)
-* 지역(관련 서비스가 있는 위치를 선택합니다. Cognitive Services 또는 Azure Machine Learning과의 통합을 위해서는 동일한 지역에 서비스를 공동 배치하는 것이 필요합니다.)
+* 서비스 이름은 URL 엔드포인트의 일부가 됩니다(유용한 서비스 이름에 대한 [검토 팁](#name-the-service)).
+* 서비스 계층은 [청구에 영향](search-sku-tier.md)을 주고 용량의 상향 제한을 설정합니다.
+* 서비스 지역은 특정 시나리오의 가용성을 확인할 수 있습니다. 지식 마이닝 및 AI 보강에 관심이 있는 경우 Azure Cognitive Search와 동일한 지역에서 Cognitive Services 및 Azure Machine Learning이 필요합니다.
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 

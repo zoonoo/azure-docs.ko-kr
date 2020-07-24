@@ -5,24 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202546"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518490"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
 Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사용하면 웹 브라우저를 사용하여 암호를 업데이트하거나 계정 잠금을 해제할 수 있습니다. Azure AD가 온-프레미스 AD DS(Active Directory Domain Services) 환경에 연결된 하이브리드 환경에서는 이 시나리오로 인해 두 디렉터리 간에 암호가 달라질 수 있습니다.
 
 비밀번호 쓰기 저장은 Azure AD의 암호 변경 내용을 온-프레미스 AD DS 환경으로 다시 동기화하는 데 사용할 수 있습니다. Azure AD Connect는 이러한 암호 변경 내용을 Azure AD에서 기존 온-프레미스 디렉터리로 다시 보내는 보안 메커니즘을 제공합니다.
+
+> [!IMPORTANT]
+> 이 자습서에서는 셀프 서비스 암호 재설정을 온-프레미스 환경으로 다시 사용하도록 설정하는 방법을 관리자에게 보여줍니다. 셀프 서비스 암호 재설정에 이미 등록된 최종 사용자가 계정으로 다시 이동해야 하는 경우 https://aka.ms/sspr 로 이동합니다.
+>
+> IT 팀이 자신의 암호를 재설정 하는 기능을 사용하도록 설정하지 않은 경우, 추가 지원이 필요 하면 기술 지원팀에 문의하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -35,7 +40,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* Azure AD Premium P1 또는 P2 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
+* Azure AD Premium P1 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * 자세한 내용은 [Azure AD SSPR에 대한 라이선스 요구 사항](concept-sspr-licensing.md)을 참조하세요.
 * *글로벌 관리자* 권한이 있는 계정
@@ -54,9 +59,7 @@ SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 �
 * **암호 다시 설정**
 * **쓰기 권한** 켜짐`lockoutTime`
 * **쓰기 권한** 켜짐`pwdLastSet`
-* 다음 중 하나의 "암호 만료"에 대한 **확장 권한**:
-   * 포리스트에 있는 *각 도메인*의 루트 개체
-   * SSPR 범위에 포함되도록 하려는 사용자 OU(조직 구성 단위)
+* 아직 설정하지 않은 경우 해당 포리스트에 있는 *각 도메인*의 루트 개체에 "암호 만료"에 대한 **확장 권한**이 있습니다.
 
 이러한 권한을 할당하지 않으면 쓰기 저장이 올바르게 구성된 것처럼 표시되지만 사용자가 클라우드에서 온-프레미스 암호를 관리할 때 오류가 발생합니다. "만료되지 않은 암호"가 표시되도록 하려면 **이 개체 및 모든 하위 개체**에 사용 권한을 적용해야 합니다.  
 
@@ -74,7 +77,7 @@ SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 �
 1. **적용 대상** 드롭다운 목록에서 **하위 사용자 개체**를 선택합니다.
 1. *권한* 아래에서 다음 옵션의 상자를 선택합니다.
     * **암호 다시 설정**
-1. *속성* 아래에서 다음 옵션의 확인란을 선택합니다. 이미 기본적으로 설정되어 있을 수 있는 옵션을 찾으려면 목록을 스크롤해야 합니다.
+1. *속성* 아래에서 다음 옵션의 확인란을 선택합니다. 목록을 스크롤하여 이미 기본적으로 설정되어 있을 수 있는 옵션을 찾습니다.
     * **lockoutTime 쓰기**
     * **pwdLastSet 쓰기**
 
@@ -89,13 +92,13 @@ SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 �
 그룹 정책을 업데이트하는 경우 업데이트된 정책이 복제될 때까지 기다리거나 `gpupdate /force` 명령을 사용합니다.
 
 > [!Note]
-> 암호를 즉시 변경하려면 비밀번호 쓰기 저장을 0으로 설정해야 합니다. 그러나 사용자가 온-프레미스 정책을 준수하고 *최소 암호 사용 기간*을 0보다 큰 값으로 설정한 경우 온-프레미스 정책을 평가한 후에도 비밀번호 쓰기 저장이 계속 작동합니다. 
+> 암호를 즉시 변경하려면 비밀번호 쓰기 저장을 0으로 설정해야 합니다. 그러나 사용자가 온-프레미스 정책을 준수하고 *최소 암호 사용 기간*을 0보다 큰 값으로 설정한 경우 온-프레미스 정책을 평가한 후에도 비밀번호 쓰기 저장이 계속 작동합니다.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Azure AD Connect에서 비밀번호 쓰기 저장 사용
 
 Azure AD Connect의 구성 옵션 중 하나가 비밀번호 쓰기 저장입니다. 이 옵션을 사용하도록 설정되면 암호 변경 이벤트로 인해 Azure AD Connect에서 업데이트된 자격 증명을 온-프레미스 AD DS 환경으로 다시 동기화합니다.
 
-셀프 서비스 암호 재설정 쓰기 저장을 사용하도록 설정하려면 먼저 Azure AD Connect에서 쓰기 저장 옵션을 사용하도록 설정해야 합니다. Azure AD Connect 서버에서 다음 단계를 완료합니다.
+SSPR 쓰기 저장을 사용하도록 설정하려면 먼저 Azure AD Connect에서 쓰기 저장 옵션을 사용하도록 설정합니다. Azure AD Connect 서버에서 다음 단계를 완료합니다.
 
 1. Azure AD Connect 서버에 로그인하고, **Azure AD Connect** 구성 마법사를 시작합니다.
 1. **시작** 페이지에서 **구성**을 선택합니다.

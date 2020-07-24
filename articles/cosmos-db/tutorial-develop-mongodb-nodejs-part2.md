@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119174"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523488"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Node.js Express 앱 만들기
 
@@ -147,11 +147,11 @@ ms.locfileid: "85119174"
 
 7. 수정한 모든 파일 저장 
 
-8. Visual Studio Code에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)을 클릭하고, 기어 단추 ![Visual Studio Code의 기어 단추](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png)를 클릭합니다. Visual Studio Code에서 새로운 launch.json 파일이 열립니다.
+8. Visual Studio Code에서 **디버그** 단추 :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png":::를 클릭하고 기어 단추 :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::를 클릭합니다. Visual Studio Code에서 새로운 launch.json 파일이 열립니다. 
 
 8. launch.json 파일의 11줄에서 `"${workspaceFolder}\\server"`을 `"program": "${workspaceRoot}/src/server/index.js"`로 변경하고 파일을 저장합니다.
 
-9. **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png)을 클릭하여 앱을 실행합니다.
+9. **디버깅 시작** 단추 :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png":::를 클릭하여 앱을 실행합니다.
 
     앱이 오류 없이 실행되어야 합니다.
 

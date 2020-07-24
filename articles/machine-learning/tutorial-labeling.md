@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628374"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536167"
 ---
-# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트(미리 보기) 만들기 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 자습서에서는 기계 학습 모델을 빌드하기 위한 데이터로 사용되는 이미지 레이블 지정(태그 지정이라고도 함) 프로세스를 관리하는 방법을 보여 줍니다. Azure Machine Learning의 데이터 레이블 지정은 공개 미리 보기에 있습니다.
@@ -130,7 +130,7 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
 
 1. **다음**을 선택합니다.
 
-1. **ML 지원 레이블 지정** 양식에서 확인란을 선택 취소한 상태로 둡니다. ML 지원 레이블 지정에는 이 자습서에서 사용하는 것보다 더 많은 데이터가 필요합니다.
+1. 엔터프라이즈 작업 영역을 사용하는 경우 **ML 지원 레이블 지정** 섹션이 표시됩니다.  확인란을 선택 취소된 상태로 둡니다. ML 지원 레이블 지정에는 이 자습서에서 사용하는 것보다 더 많은 데이터가 필요합니다.
 
 1. **프로젝트 만들기**를 선택합니다.
 

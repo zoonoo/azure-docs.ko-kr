@@ -1,5 +1,5 @@
 ---
-title: 스토리지 계정에 관리 디스크 복사 - CLI 샘플
+title: 스토리지 계정에 관리 디스크 복사 - Linux CLI 샘플
 description: Azure CLI 샘플 - 관리 디스크를 스토리지 계정에 내보내기 또는 복사
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: d841519aeedb4b85fb897b45fa09be6c62b1fa2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0939e452627cc9f624f7d96da1059b539fa5546
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459987"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509871"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Azure CLI를 사용하여 관리 디스크를 스토리지 계정에 내보내기/복사
 
@@ -42,8 +42,8 @@ ms.locfileid: "81459987"
 
 | 명령 | 메모 |
 |---|---|
-| [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | 기본 VHD 파일을 스토리지 계정으로 복사하거나 온-프레미스로 다운로드하는 데 사용되는 읽기 전용 SAS를 생성합니다.  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | 하나의 스토리지 계정에서 다른 스토리지 계정으로 Blob을 비동기적으로 복사 |
+| [az disk grant-access](/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | 기본 VHD 파일을 스토리지 계정으로 복사하거나 온-프레미스로 다운로드하는 데 사용되는 읽기 전용 SAS를 생성합니다.  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | 하나의 스토리지 계정에서 다른 스토리지 계정으로 Blob을 비동기적으로 복사 |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -51,6 +51,6 @@ ms.locfileid: "81459987"
 
 [관리 디스크에서 가상 머신 만들기](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 가상 머신 및 관리 디스크 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.
