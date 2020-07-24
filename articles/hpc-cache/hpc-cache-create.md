@@ -4,17 +4,18 @@ description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/10/2020
 ms.author: v-erkel
-ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434081"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092493"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
-Azure Portal을 사용하여 캐시를 만듭니다.
+Azure Portal 또는 Azure CLI를 사용 하 여 캐시를 만듭니다.
 
 ![맨 아래에 만들기 단추가 있는, Azure Portal의 캐시 개요 스크린샷](media/hpc-cache-home-page.png)
 
@@ -22,11 +23,13 @@ Azure Portal을 사용하여 캐시를 만듭니다.
 
 [![비디오 미리 보기: Azure HPC 캐시: 설치 (비디오 페이지를 방문 하려면 클릭)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
+## <a name="portal"></a>[포털](#tab/azure-portal)
+
 ## <a name="define-basic-details"></a>기본 세부 정보 정의
 
 ![Azure Portal의 프로젝트 세부 정보 페이지 스크린샷](media/hpc-cache-create-basics.png)
 
-**프로젝트 세부 정보**에서 캐시를 호스트할 구독 및 리소스 그룹을 선택합니다. 구독이 [액세스](hpc-cache-prereqs.md#azure-subscription) 목록에 있는지 확인합니다.
+**프로젝트 세부 정보**에서 캐시를 호스트할 구독 및 리소스 그룹을 선택합니다. 구독이 [액세스](hpc-cache-prerequisites.md#azure-subscription) 목록에 있는지 확인합니다.
 
 **서비스 세부 정보**에서 캐시 이름과 다음 기타 특성을 설정합니다.
 
@@ -56,7 +59,7 @@ Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미�
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Azure Key Vault 암호화 사용 (선택 사항)
 
-캐시가 고객이 관리 하는 암호화 키를 지 원하는 영역에 있는 경우 **디스크 암호화 키** 페이지가 **캐시** 및 **태그** 탭 사이에 표시 됩니다. 이 옵션은 게시 시 미국 동부, 미국 서 부 및 미국 서 부 2에서 지원 됩니다.
+캐시가 고객이 관리 하는 암호화 키를 지 원하는 영역에 있는 경우 **디스크 암호화 키** 페이지가 **캐시** 및 **태그** 탭 사이에 표시 됩니다. 지역 지원에 대 한 자세한 내용은 지역 [가용성](hpc-cache-overview.md#region-availability) 을 참조 하세요.
 
 캐시 저장소에 사용 되는 암호화 키를 관리 하려면 **디스크 암호화 키** 페이지에서 Azure Key Vault 정보를 제공 합니다. 키 자격 증명 모음은 캐시와 동일한 구독 및 동일한 지역에 있어야 합니다.
 
@@ -94,6 +97,99 @@ Customer **관리** 를 선택 하 여 고객 관리 키 암호화를 선택 합
 
 > [!NOTE]
 > 캐시에서 고객이 관리 하는 암호화 키를 사용 하는 경우 배포 상태가 완료로 변경 되기 전에 캐시가 리소스 목록에 표시 될 수 있습니다. 캐시의 상태가 **키를 기다리고** 있는 즉시 키 자격 증명 모음을 사용 하도록 [권한을 부여할](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) 수 있습니다.
+
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+## <a name="create-the-cache-with-azure-cli"></a>Azure CLI를 사용 하 여 캐시 만들기
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+> [!NOTE]
+> 현재 Azure CLI는 고객이 관리 하는 암호화 키를 사용 하 여 캐시를 만드는 것을 지원 하지 않습니다. Azure 포털을 사용합니다.
+
+[Az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) 명령을 사용 하 여 새 Azure hpc 캐시를 만듭니다.
+
+다음 값을 제공 합니다.
+
+* 캐시 리소스 그룹 이름
+* 캐시 이름
+* Azure 지역
+* 다음 형식으로 서브넷 캐시:
+
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"``
+
+  캐시 서브넷에는 최소 64 개의 IP 주소 (/24)가 필요 하며 다른 리소스를 저장할 수 없습니다.
+
+* 캐시 용량입니다. Azure HPC 캐시의 최대 처리량을 설정 하는 두 값은 다음과 같습니다.
+
+  * 캐시 크기 (GB)
+  * 캐시 인프라에서 사용 되는 가상 컴퓨터의 SKU
+
+  [az hpc-cache sku 목록](/cli/azure/ext/hpc-cache/hpc-cache/skus) 에는 사용할 수 있는 sku와 각각에 대 한 유효한 캐시 크기 옵션이 표시 됩니다. 캐시 크기 옵션의 범위는 3TB에서 48 TB 이지만 일부 값만 지원 됩니다.
+
+  이 차트는이 문서가 준비 되는 시점 (7 월 2020 일)에 유효한 캐시 크기 및 SKU 조합을 보여 줍니다.
+
+  | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072GB    | 예         | 아니요          | 아니요          |
+  | 6144 GB    | 예         | 예         | 아니요          |
+  | 12288 GB   | 예         | 예         | 예         |
+  | 24576 GB   | no          | 예         | 예         |
+  | 49152 GB   | 아니요          | no          | 예         |
+
+  가격 책정, 처리량 및 워크플로에 적절 한 캐시 크기를 조정 하는 방법에 대 한 중요 한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조 하세요.
+
+캐시 생성 예:
+
+```azurecli
+az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
+    --location "eastus" --cache-size-gb "3072" \
+    --subnet "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default" \
+    --sku-name "Standard_2G"
+```
+
+캐시 생성은 몇 분 정도 걸립니다. 성공할 경우 create 명령은 다음과 같은 출력을 반환 합니다.
+
+```azurecli
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+  "id": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619",
+  "location": "eastus",
+  "mountAddresses": [
+    "10.3.0.17",
+    "10.3.0.18",
+    "10.3.0.19"
+  ],
+  "name": "my-cache-0619",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "doc-demo-rg",
+  "sku": {
+    "name": "Standard_2G"
+  },
+  "subnet": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default",
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.42",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-04-01T15:19:54.068299+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+```
+
+메시지에는 다음 항목을 포함 하 여 몇 가지 유용한 정보가 포함 되어 있습니다.
+
+* 클라이언트 탑재 주소-캐시에 클라이언트를 연결할 준비가 되 면 이러한 IP 주소를 사용 합니다. 자세한 내용은 [AZURE HPC 캐시 탑재](hpc-cache-mount.md) 를 참조 하세요.
+* 업그레이드 상태-소프트웨어 업데이트가 릴리스되면이 메시지가 변경 됩니다. [캐시 소프트웨어](hpc-cache-manage.md#upgrade-cache-software) 를 편리 하 게 수동으로 업그레이드할 수도 있고, 며칠 후에도 자동으로 적용 됩니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

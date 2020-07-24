@@ -4,13 +4,14 @@ description: Azure Key Vault를 사용하여 Azure Cosmos DB 계정에 대한 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: thweiss
-ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027761"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092616"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 
@@ -227,7 +228,15 @@ Azure Cosmos 계정에서 사용 하는 고객 관리 키 회전은 두 가지 �
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="새로운 키 버전 만들기":::
 
-- 계정 속성을 업데이트 하 여 현재 사용 되는 키를 완전히 다른 키로 바꿉니다 `keyVaultKeyUri` . PowerShell에서이 작업을 수행 하는 방법은 다음과 같습니다.
+- 계정에 대 한 키 URI를 업데이트 하 여 현재 사용 되는 키를 완전히 다른 키로 바꿉니다. Azure Portal에서 Azure Cosmos 계정으로 이동 하 고 왼쪽 메뉴에서 **데이터 암호화** 를 선택 합니다.
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="데이터 암호화 메뉴 항목":::
+
+    그런 다음 **키 URI** 를 사용 하려는 새 키로 바꾸고 **저장**을 선택 합니다.
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="키 URI 업데이트":::
+
+    PowerShell에서 동일한 결과를 얻기 위해 수행 하는 방법은 다음과 같습니다.
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -286,7 +295,11 @@ Azure Cosmos 계정에 저장된 모든 데이터는 고객 관리형 키로 암
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>Azure Cosmos 계정에서 고객 관리형 키를 사용하도록 설정되어 있는지 어떻게 알 수 있나요?
 
-Azure Cosmos 계정에 대한 세부 정보를 프로그래밍 방식으로 가져와서 `keyVaultKeyUri` 속성이 있는지 확인할 수 있습니다. [PowerShell에서](#using-powershell) 그리고 [Azure CLI를 사용하여](#using-azure-cli) 수행하는 방법은 위를 참조하십시오.
+Azure Portal에서 Azure Cosmos 계정으로 이동 하 고 왼쪽 메뉴에서 **데이터 암호화** 항목을 시청 합니다. 이 항목이 있으면 계정에서 고객 관리 키를 사용할 수 있습니다.
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="데이터 암호화 메뉴 항목":::
+
+Azure Cosmos 계정에 대 한 세부 정보를 프로그래밍 방식으로 가져오고 속성이 있는지 확인할 수도 있습니다 `keyVaultKeyUri` . [PowerShell에서](#using-powershell) 그리고 [Azure CLI를 사용하여](#using-azure-cli) 수행하는 방법은 위를 참조하십시오.
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>고객 관리형 키는 백업에 어떤 영향을 주나요?
 

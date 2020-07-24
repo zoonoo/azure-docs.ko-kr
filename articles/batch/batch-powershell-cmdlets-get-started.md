@@ -4,11 +4,12 @@ description: Batch 리소스를 관리하는 데 사용할 수 있는 Azure Powe
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2c80da92c7acad5180c763d259357f5369f225f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779616"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092782"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -20,7 +21,7 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Azure PowerShell 모듈을 설치하고 구성합니다](/powershell/azure/overview). 시험판 모듈처럼 특정 Azure Batch 모듈을 설치하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.Batch/1.0.0)를 참조하세요.
+* [Azure PowerShell 모듈을 설치하고 구성합니다](/powershell/azure/). 시험판 모듈처럼 특정 Azure Batch 모듈을 설치하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.Batch/1.0.0)를 참조하세요.
 
 * **Connect-AzAccount** cmdlet을 실행하여 구독에 연결(Azure Batch cmdlet은 Azure Resource Manager 모듈에 탑재됨):
 

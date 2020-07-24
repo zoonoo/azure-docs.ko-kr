@@ -7,11 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 432ff655ef072d491227d297e620612203f73d3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092986"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -33,7 +34,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 ## <a name="example"></a>예제
 
-한 가지 예를 살펴보겠습니다. 주식 가격 이라는 응용 프로그램은 Stock 이라는 외부 API를 사용 하 여 재고의 현재 시장 가격을 보여 줍니다. 주식 가격 응용 프로그램에는를 사용 하 여 클라이언트 웹 브라우저에서 열리는 스톡 페이지 라는 페이지가 있습니다 `GET /Home/Stock` . 응용 프로그램은 HTTP 호출을 사용 하 여 스톡 API를 쿼리 합니다 `GET /api/stock/value` .
+예를 살펴보겠습니다. 주식 가격 이라는 응용 프로그램은 Stock 이라는 외부 API를 사용 하 여 재고의 현재 시장 가격을 보여 줍니다. 주식 가격 응용 프로그램에는를 사용 하 여 클라이언트 웹 브라우저에서 열리는 스톡 페이지 라는 페이지가 있습니다 `GET /Home/Stock` . 응용 프로그램은 HTTP 호출을 사용 하 여 스톡 API를 쿼리 합니다 `GET /api/stock/value` .
 
 쿼리를 실행하여 결과 원격 분석을 분석할 수 있습니다.
 
@@ -45,7 +46,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 결과에서 모든 원격 분석 항목은 루트 `operation_Id`를 공유합니다. 페이지에서 Ajax 호출이 수행 되 면 새 고유 ID ( `qJSXU` )가 종속성 원격 분석에 할당 되 고 페이지 보기의 id가로 사용 됩니다 `operation_ParentId` . 그러면 서버 요청에서 Ajax ID를 `operation_ParentId`로 사용합니다.
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
+| itemType   | 이름                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -301,15 +302,15 @@ logger.warning('After the span')
 ```
 `spanId`범위 내에 있는 로그 메시지에 대 한가 존재 합니다. 이는 `spanId` 이라는 범위에 속하는 것과 같습니다 `hello` .
 
-를 사용 하 여 로그 데이터를 내보낼 수 있습니다 `AzureLogHandler` . 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)를 참조하세요.
+를 사용 하 여 로그 데이터를 내보낼 수 있습니다 `AzureLogHandler` . 자세한 내용은 [이 문서](./opencensus-python.md#logs)를 참조하세요.
 
 ## <a name="telemetry-correlation-in-net"></a>.NET의 원격 분석 상관 관계
 
 시간이 지남에 따라 .NET은 원격 분석 및 진단 로그를 상호 연결 하는 여러 방법을 정의 했습니다.
 
-- `System.Diagnostics.CorrelationManager`[Logicaloperationstack 및 활동](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx)id를 추적할 수 있습니다.
-- `System.Diagnostics.Tracing.EventSource` 및 ETW(Windows용 이벤트 추적)는 [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) 메서드를 정의합니다.
-- `ILogger`[로그 범위](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes)를 사용 합니다.
+- `System.Diagnostics.CorrelationManager`[Logicaloperationstack 및 활동](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1)id를 추적할 수 있습니다.
+- `System.Diagnostics.Tracing.EventSource` 및 ETW(Windows용 이벤트 추적)는 [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) 메서드를 정의합니다.
+- `ILogger`[로그 범위](/aspnet/core/fundamentals/logging#log-scopes)를 사용 합니다.
 - WCF(Windows Communication Foundation) 및 HTTP는 "현재" 컨텍스트 전파를 연결합니다.
 
 그러나 이러한 메서드는 자동 분산 추적 지원을 사용 하지 않았습니다. `DiagnosticSource`자동 컴퓨터 간 상관 관계를 지원 합니다. .NET 라이브러리는 `DiagnosticSource` HTTP와 같은 전송을 통해 상관 관계 컨텍스트의 자동 크로스 컴퓨터 전파를 지원 하 고 허용 합니다.
@@ -327,7 +328,7 @@ Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Act
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Java의 원격 분석 상관 관계
 
-Java [에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 및 [java SDK](../../azure-monitor/app/java-get-started.md) 버전 2.0.0 이상에서는 원격 분석의 자동 상관 관계를 지원 합니다. `operation_id`요청 범위 내에서 실행 되는 모든 원격 분석 (예: 추적, 예외, 사용자 지정 이벤트)을 자동으로 채웁니다. 또한 [JAVA SDK 에이전트가](../../azure-monitor/app/java-agent.md) 구성 된 경우 HTTP를 통해 서비스 간 호출에 대 한 상관 관계 헤더 (앞에서 설명한)를 전파 합니다.
+Java [에이전트](./java-in-process-agent.md) 및 [java SDK](../../azure-monitor/app/java-get-started.md) 버전 2.0.0 이상에서는 원격 분석의 자동 상관 관계를 지원 합니다. `operation_id`요청 범위 내에서 실행 되는 모든 원격 분석 (예: 추적, 예외, 사용자 지정 이벤트)을 자동으로 채웁니다. 또한 [JAVA SDK 에이전트가](../../azure-monitor/app/java-agent.md) 구성 된 경우 HTTP를 통해 서비스 간 호출에 대 한 상관 관계 헤더 (앞에서 설명한)를 전파 합니다.
 
 > [!NOTE]
 > Application Insights Java 에이전트는 JMS, Kafka, Netty/Webflux 등에 대 한 요청 및 종속성을 자동으로 수집 합니다. Java SDK의 경우 Apache HttpClient를 통해 수행 된 호출만 상관 관계 기능에 대해 지원 됩니다. 메시징 기술 (예: Kafka, RabbitMQ 및 Azure Service Bus) 간 자동 컨텍스트 전파는 SDK에서 지원 되지 않습니다. 

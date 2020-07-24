@@ -2,19 +2,19 @@
 title: 컨테이너용 Azure Monitor 문제 해결 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor의 문제를 해결하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: bc4105dc23445c29364961501f93e42f8c3b683d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092833"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
 
 컨테이너용 Azure Monitor로 Azure Kubernetes Service(AKS) 클러스터 모니터링을 구성할 때 데이터 컬렉션 또는 상태 보고를 방지하는 문제가 발생할 수 있습니다. 이 문서에서는 몇 가지 일반적인 문제 및 문제 해결 단계를 자세히 설명합니다.
 
-## <a name="authorization-error-during-onboarding-or-update-operation"></a>등록 또는 업데이트 작업 중에 권한 부여 오류가 발생 했습니다.
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>온보딩 또는 업데이트 작업 중 권한 부여 오류
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하거나 메트릭을 수집 하도록 클러스터를 업데이트 하는 동안 다음과 유사한 오류가 발생할 수 있습니다. *개체 id가 ' <사용자의 objectId> ' 인 클라이언트 <사용자 id> '은 (는) 범위에 대해 ' Microsoft 권한 부여/roleAssignments/write ' 작업을 수행할 수 있는 권한이 없습니다* .
 
@@ -23,7 +23,7 @@ ms.locfileid: "85800446"
 다음 단계를 수행 하 여 Azure Portal에서이 역할을 수동으로 부여할 수도 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Kubernetes**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Azure Kubernetes**를 선택 합니다.
+2. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Kubernetes**을 입력 합니다. 입력을 시작하면 입력 내용에 따라 목록이 필터링됩니다. **Azure Kubernetes**를 선택 합니다.
 3. Kubernetes 클러스터 목록에서 목록 중 하나를 선택 합니다.
 2. 왼쪽 메뉴에서 **액세스 제어 (IAM)** 를 클릭 합니다.
 3. **+ 추가** 를 선택 하 여 역할 할당을 추가 하 고, **모니터링 메트릭 게시자** 역할을 선택 하 고, **선택** 상자에서 **AKS** 를 입력 하 여 구독에 정의 된 클러스터 서비스 사용자만 결과를 필터링 합니다. 해당 클러스터에 해당 하는 목록에서 하나를 선택 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "85800446"
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    출력은 다음과 유사해야 하며, 이 출력은 제대로 배포된 것을 나타냅니다.
+    출력은 다음 예제와 유사해야 하며, 이 출력은 제대로 배포된 것을 나타냅니다.
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
@@ -48,7 +48,7 @@ ms.locfileid: "85800446"
 
     `kubectl get ds omsagent-win --namespace=kube-system`
 
-    출력은 다음과 유사해야 하며, 이 출력은 제대로 배포된 것을 나타냅니다.
+    출력은 다음 예제와 유사해야 하며, 이 출력은 제대로 배포된 것을 나타냅니다.
 
     ```
     User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
@@ -82,33 +82,6 @@ ms.locfileid: "85800446"
     omsagent-win-6drwq                  1/1       Running   0          1d
     ```
 
-5. 에이전트 로그를 확인합니다. 컨테이너화된 에이전트가 배포되면 OMI 명령을 실행하여 빠른 검사가 실행되고 에이전트 및 공급자의 버전이 표시됩니다.
-
-6. 에이전트가 성공적으로 배포 되었는지 확인 하려면 명령을 실행 합니다.`kubectl logs omsagent-484hw --namespace=kube-system`
-
-    상태는 다음 예제와 유사합니다.
-
-    ```
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.2
-    omsagent 1.6.0.23
-    docker-cimprov 1.0.0.31
-    ```
-
 ## <a name="error-messages"></a>오류 메시지
 
 아래 표에서는 Azure Monitor를 컨테이너에 사용할 때 발생할 수 있는 알려진 오류를 요약하고 있습니다.
@@ -117,7 +90,7 @@ ms.locfileid: "85800446"
 | ---- | --- |
 | 오류 메시지: `No data for selected filters`  | 새로 만든 클러스터에 대한 모니터링 데이터 흐름을 설정하는 데는 약간의 시간이 걸릴 수 있습니다. 클러스터에 대 한 데이터가 표시 될 때까지 10 ~ 15 분 이상 허용 합니다. |
 | 오류 메시지: `Error retrieving data` | Azure Kubernetes Service 클러스터가 상태 및 성능 모니터링을 설정 하는 동안 클러스터와 Azure Log Analytics 작업 영역 간에 연결이 설정 됩니다. Log Analytics 작업 영역은 클러스터에 대한 모든 모니터링 데이터를 저장하는 데 사용됩니다. Log Analytics 작업 영역이 삭제 된 경우이 오류가 발생할 수 있습니다. 작업 영역을 삭제 했는지 확인 하 고, 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터의 모니터링을 다시 사용 하도록 설정 하 고 기존을 지정 하거나 새 작업 영역을 만들어야 합니다. 다시 사용 하도록 설정 하려면 클러스터에 대 한 모니터링을 [사용 하지 않도록](container-insights-optout.md) 설정 하 고 컨테이너에 대 한 Azure Monitor를 다시 [사용 하도록 설정](container-insights-enable-new-cluster.md) 해야 합니다. |
-| 오류 메시지: `Error retrieving data`(az aks cli를 통해 컨테이너용 Azure Monitor를 추가한 후) | 을 사용 하 여 모니터링을 사용 하도록 설정 하면 `az aks cli` 컨테이너에 대 한 Azure Monitor 제대로 배포 되지 않을 수 있습니다. 솔루션이 배포 되었는지 여부를 확인 합니다. 이렇게 하려면 Log Analytics 작업 영역으로 이동하여 왼쪽 창에서 **솔루션**을 선택하여 해당 솔루션을 사용할 수 있는지 확인합니다. 이 문제를 해결하려면 [컨테이너용 Azure Monitor를 배포하는 방법](container-insights-onboard.md)의 지침에 따라 솔루션을 다시 배포해야 합니다. |
+| 오류 메시지: `Error retrieving data`(az aks cli를 통해 컨테이너용 Azure Monitor를 추가한 후) | 을 사용 하 여 모니터링을 사용 하도록 설정 하면 `az aks cli` 컨테이너에 대 한 Azure Monitor 제대로 배포 되지 않을 수 있습니다. 솔루션이 배포 되었는지 여부를 확인 합니다. 확인 하려면 Log Analytics 작업 영역으로 이동 하 고 왼쪽 창에서 **솔루션** 을 선택 하 여 솔루션을 사용할 수 있는지 확인 합니다. 이 문제를 해결하려면 [컨테이너용 Azure Monitor를 배포하는 방법](container-insights-onboard.md)의 지침에 따라 솔루션을 다시 배포해야 합니다. |
 
 문제 진단을 지원하기 위해 [여기](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1)서 사용할 수 있는 문제 해결 스크립트를 제공했습니다.
 

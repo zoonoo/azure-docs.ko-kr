@@ -7,11 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 1db7937cb574ce62986f25e0bfa688dc54b5c606
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700602"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092510"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB Gremlin 호환성
 Azure Cosmos DB Graph 엔진은 [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) 트래버스 단계 사양을 매우 따르므로 Azure Cosmos DB에 한정 된 구현의 차이점이 있습니다. 지원 되는 Gremlin 단계 목록을 알아보려면 [GREMLIN API 유선 프로토콜 지원](gremlin-support.md) 문서를 참조 하세요.
@@ -44,7 +45,7 @@ Azure Cosmos DB Graph 엔진은 [Apache TinkerPop](https://tinkerpop.apache.org/
 
 * **중간 트래버스 `.V()` 단계를 포함 하는 Gremlin 쿼리의 인덱스 사용률**: 현재 `.V()` 순회의 첫 번째 호출만 인덱스를 사용 하 여 연결 된 필터 또는 조건자를 확인 합니다. 후속 호출에서는 인덱스를 참조 하지 않으므로 쿼리의 대기 시간 및 비용이 늘어날 수 있습니다.
     
-    기본 인덱싱을 사용 하는 경우 단계에서 시작 하는 일반적인 read Gremlin 쿼리는 `.V()` 또는와 같은 연결 된 필터링 단계에서 매개 변수를 사용 `.has()` `.where()` 하 여 쿼리의 비용과 성능을 최적화 합니다. 예를 들어:
+    기본 인덱싱을 사용 하는 경우 단계에서 시작 하는 일반적인 read Gremlin 쿼리는 `.V()` 또는와 같은 연결 된 필터링 단계에서 매개 변수를 사용 `.has()` `.where()` 하 여 쿼리의 비용과 성능을 최적화 합니다. 예를 들면 다음과 같습니다.
 
     ```java
     g.V().has('category', 'A')
@@ -68,7 +69,7 @@ Azure Cosmos DB Graph 엔진은 [Apache TinkerPop](https://tinkerpop.apache.org/
     g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
 
-    [Gremlin `executionProfile()` step] (profile.md를 사용 하 여 쿼리의 성능을 검토할 수 있습니다.
+    [Gremlin `executionProfile()` 단계](graph-execution-profile.md)를 사용 하 여 쿼리의 성능을 검토할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 사용자 의견을 공유 하려면 [Cosmos DB 사용자](https://feedback.azure.com/forums/263030-azure-cosmos-db) 의견 페이지를 방문 하 고 중요 한 기능에 대해 팀에 집중할 수 있도록 합니다.

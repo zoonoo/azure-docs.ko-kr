@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091983"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>스트리밍 끝점 (원본) 오류 
+# <a name="streaming-endpoint-origin-errors"></a>스트리밍 엔드포인트(원본) 오류 
 
 이 항목에서는 Azure Media Services [스트리밍 끝점 서비스](streaming-endpoint-concept.md)에서 받을 수 있는 오류에 대해 설명 합니다.
 
@@ -163,7 +163,7 @@ ms.locfileid: "80582693"
 - [개념: 라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)
 - [샘플: 라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)
 
-## <a name="416-range-not-satisfiable"></a>416 범위 충분 안 함
+## <a name="416-range-not-satisfiable"></a>416 범위가 충분하지 않음
 
 |오류 코드|16 진수 값 |오류 설명|
 |---|---|---|
@@ -200,7 +200,7 @@ ms.locfileid: "80582693"
 
 ## <a name="see-also"></a>참고 항목
 
-- [인코딩 오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+- [인코딩 오류 코드](/rest/api/media/jobs/get#joberrorcode)
 - [Azure Media Services 개념](concepts-overview.md)
 - [할당량 및 제한](limits-quotas-constraints.md)
 

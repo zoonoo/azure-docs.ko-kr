@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092731"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 `http://contoso.cloudapp.net`과 같은 URL에서 애플리케이션에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
@@ -62,7 +63,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
        ![사이트 URL을 표시하는 한눈에 보기 섹션][csurl]
 
        **OR**
-   * [Azure Powershell](/powershell/azure/overview)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azure/)을 설치 및 구성하고 다음 명령을 사용합니다.
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -95,7 +96,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
        ![VIP를 표시하는 한눈에 보기 섹션][vip]
 
        **OR**
-   * [Azure Powershell](/powershell/azure/overview)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azure/)을 설치 및 구성하고 다음 명령을 사용합니다.
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip

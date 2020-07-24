@@ -5,11 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 18d3460804528d736cfc74c1c2d358eb08013513
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092969"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>작업 영역 기반 Application Insights 리소스(미리 보기)
 
@@ -24,7 +25,7 @@ ms.locfileid: "83647901"
 
 ![작업 영역 기반 Application Insights 리소스](./media/create-workspace-resource/create-workspace-based.png)
 
-기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../learn/quick-create-workspace.md).
 
 공개 미리 보기 **작업 영역 기반 리소스는 현재 미국 서부 2, 미국 동부 및 미국 중남부로 제한됩니다.**
 
@@ -39,7 +40,7 @@ ms.locfileid: "83647901"
 
 ## <a name="copy-the-connection-string"></a>연결 문자열 복사
 
-[연결 문자열](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+[연결 문자열](./sdk-connection-string.md?tabs=net)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 ## <a name="monitoring-configuration"></a>모니터링 구성
 
@@ -51,14 +52,14 @@ ms.locfileid: "83647901"
 
 코드 기반 모니터링을 위해 Application Insights SDK를 설정하는 방법에 대한 자세한 내용은 언어/프레임워크 관련 설명서를 참조하세요.
 
-- [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-- [ASP.NET Core ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-- [백그라운드 작업 및 최신 콘솔 애플리케이션(.NET/.NET Core)](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)
-- [클래식 콘솔 애플리케이션(.NET)](https://docs.microsoft.com/azure/azure-monitor/app/console) 
-- [Java ](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
-- [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-- [Node.JS](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+- [ASP.NET](./asp-net.md)
+- [ASP.NET Core ](./asp-net-core.md)
+- [백그라운드 작업 및 최신 콘솔 애플리케이션(.NET/.NET Core)](./worker-service.md)
+- [클래식 콘솔 애플리케이션(.NET)](./console.md) 
+- [Java ](./java-get-started.md?tabs=maven)
+- [JavaScript](./javascript.md)
+- [Node.JS](./nodejs.md)
+- [Python](./opencensus-python.md)
 
 ### <a name="codeless-monitoring-and-visual-studio-resource-creation"></a>코드 없는 모니터링 및 Visual Studio 리소스 만들기
 
@@ -101,7 +102,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)를 참조하세요.
+이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)를 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -197,7 +198,7 @@ Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경
 ## <a name="next-steps"></a>다음 단계
 
 * [메트릭 탐색](../../azure-monitor/platform/metrics-charts.md)
-* [분석 쿼리 작성](../../azure-monitor/app/analytics.md)
+* [분석 쿼리 작성](../log-query/log-query-overview.md)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md

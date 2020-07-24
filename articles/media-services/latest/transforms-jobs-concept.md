@@ -12,15 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73571231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091932"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
 
-이 항목에서는 [변환](https://docs.microsoft.com/rest/api/media/transforms) 및 [작업](https://docs.microsoft.com/rest/api/media/jobs) 에 대 한 세부 정보를 제공 하 고 이러한 엔터티 간의 관계를 설명 합니다.
+이 항목에서는 [변환](/rest/api/media/transforms) 및 [작업](/rest/api/media/jobs) 에 대 한 세부 정보를 제공 하 고 이러한 엔터티 간의 관계를 설명 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -57,7 +58,7 @@ ms.locfileid: "73571231"
 
 ### <a name="viewing-schema"></a>스키마 보기
 
-Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 엔터티입니다. [OPEN API 사양 (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)에서 이러한 개체에 대 한 "스키마" 정의를 찾을 수 있습니다. [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)또는 기타 Media Services v3 sdk 참조 설명서에서 미리 설정 된 정의 (예: **StandardEncoderPreset**)를 볼 수도 있습니다.
+Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 엔터티입니다. [OPEN API 사양 (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)에서 이러한 개체에 대 한 "스키마" 정의를 찾을 수 있습니다. [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)또는 기타 Media Services v3 sdk 참조 설명서에서 미리 설정 된 정의 (예: **StandardEncoderPreset**)를 볼 수도 있습니다.
 
 ### <a name="creating-transforms"></a>변환 만들기
 
@@ -65,7 +66,7 @@ REST, CLI 또는 게시 된 Sdk를 사용 하 여 변환을 만들 수 있습니
 
 ### <a name="updating-transforms"></a>변환 업데이트
 
-[변환을](https://docs.microsoft.com/rest/api/media/transforms)업데이트 해야 하는 경우 **업데이트** 작업을 사용 합니다. 설명 또는 기본 TransformOutputs의 우선 순위를 변경 하기 위한 것입니다. 모든 진행 중인 작업이 완료 되 면 이러한 업데이트를 수행 하는 것이 좋습니다. 조리법을 다시 작성 하려는 경우 새 변환을 만들어야 합니다.
+[변환을](/rest/api/media/transforms)업데이트 해야 하는 경우 **업데이트** 작업을 사용 합니다. 설명 또는 기본 TransformOutputs의 우선 순위를 변경 하기 위한 것입니다. 모든 진행 중인 작업이 완료 되 면 이러한 업데이트를 수행 하는 것이 좋습니다. 조리법을 다시 작성 하려는 경우 새 변환을 만들어야 합니다.
 
 ### <a name="transform-object-diagram"></a>개체 변환 다이어그램
 
@@ -77,7 +78,7 @@ REST, CLI 또는 게시 된 Sdk를 사용 하 여 변환을 만들 수 있습니
 
 ## <a name="jobs"></a>작업
 
-**작업** 은 지정 된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. HTTPS Url, SAS Url 또는 [자산](https://docs.microsoft.com/rest/api/media/assets)을 사용 하 여 입력 비디오의 위치를 지정할 수 있습니다.  
+**작업** 은 지정 된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. HTTPS Url, SAS Url 또는 [자산](/rest/api/media/assets)을 사용 하 여 입력 비디오의 위치를 지정할 수 있습니다.  
 
 ### <a name="job-input-from-https"></a>HTTPS의 작업 입력
 
@@ -93,7 +94,7 @@ Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태
 
 ### <a name="updating-jobs"></a>작업 업데이트
 
-[작업 엔터티에 대](https://docs.microsoft.com/rest/api/media/jobs) 한 업데이트 작업을 사용 하 여 작업을 제출한 후 *설명* 및 *우선 순위* 속성을 수정할 수 있습니다. *우선 순위* 속성에 대한 변경은 작업이 아직 큐에 대기 중인 상태에만 유효합니다. 작업 처리가 시작되었거나 완료된 경우 우선 순위를 변경해도 아무 효과가 없습니다.
+[작업 엔터티에 대](/rest/api/media/jobs) 한 업데이트 작업을 사용 하 여 작업을 제출한 후 *설명* 및 *우선 순위* 속성을 수정할 수 있습니다. *우선 순위* 속성에 대한 변경은 작업이 아직 큐에 대기 중인 상태에만 유효합니다. 작업 처리가 시작되었거나 완료된 경우 우선 순위를 변경해도 아무 효과가 없습니다.
 
 ### <a name="job-object-diagram"></a>작업 개체 다이어그램
 
@@ -115,7 +116,7 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ## <a name="see-also"></a>참고 항목
 
-* [오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [오류 코드](/rest/api/media/jobs/get#joberrorcode)
 * [Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)
 
 ## <a name="next-steps"></a>다음 단계

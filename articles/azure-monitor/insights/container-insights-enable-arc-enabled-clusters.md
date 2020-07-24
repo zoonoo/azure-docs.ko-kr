@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Arc enabled
 description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하 여 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092884"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 사용 Kubernetes 클러스터 모니터링 사용
 
@@ -32,7 +32,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 
 - 지원 되는 마스터 및 작업자 노드에 대 한 Linux OS 릴리스는 Ubuntu (18.04 LTS 및 16.04 LTS)입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -63,7 +63,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
     >[!IMPORTANT]
     >Arc 사용 Kubernetes 클러스터 모니터링에 대해 지원 되는 최소 에이전트 버전은 ciprod04162020 이상입니다.
 
-- Powershell [Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) 는 powershell 스크립팅된 메서드를 사용 하 여 모니터링을 사용 하도록 설정 하는 경우에 필요 합니다.
+- Powershell [Core](/powershell/scripting/install/installing-powershell?view=powershell-6) 는 powershell 스크립팅된 메서드를 사용 하 여 모니터링을 사용 하도록 설정 하는 경우에 필요 합니다.
 
 - Bash 스크립팅된 메서드를 사용 하 여 모니터링을 사용 하도록 설정 하는 경우 [bash 버전 4](https://www.gnu.org/software/bash/) 가 필요 합니다.
 
@@ -212,13 +212,13 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-예: `http://user01:password@proxy01.contoso.com:3128`
+예를 들면 다음과 같습니다. `http://user01:password@proxy01.contoso.com:3128`
 
 프로토콜을 **http**로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
 ### <a name="configure-using-powershell"></a>PowerShell을 사용한 구성
 
-프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들어:
+프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>

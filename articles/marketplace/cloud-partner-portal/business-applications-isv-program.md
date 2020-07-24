@@ -3,15 +3,16 @@ title: Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) �
 description: Business Applications ISV Connect 프로그램에 등록 하는 방법은 다음과 같습니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 6/25/2020
+ms.topic: article
+author: qianw211
 ms.author: dsindona
-ms.openlocfilehash: 37d8c26bd41f06a39d4404c142aef5faa0bf199c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 7/14/2020
+ms.openlocfilehash: 65d18bca4f8f7b5d655d91ece1c9d966311b701b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092221"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 
@@ -38,7 +39,7 @@ ISV 연결 프로그램에 대 한 계정을 설정 하 고 관리 하려면 [�
 
 1.  [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
 2.  **설정** (기어 아이콘)을 선택 하 고 **개발자 설정**을 선택 합니다.
-3.  **계약**을 선택 합니다. 
+3.  **계약**을 선택 합니다.
 4.  버전 링크를 선택 하 고 규약을 확인 합니다.
 5.  동의 하 고 동의 하려면 **동의 함을 선택 합니다**.
 
@@ -69,15 +70,14 @@ Business Applications ISV Connect 프로그램에서 등록 하는 마지막 단
 - [금융 및 운영에 대 한 Dynamics 365](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> AppSource에 라이브 상태로 유지 하기 위해 6 개월 마다 앱을 다시 인증할 해야 합니다. 자세한 내용은 marketplace 정책 [상업적 Marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies)을 참조 하세요. 
+> 앱을 AppSource에 라이브 상태로 유지 하기 위해 6 개월 마다 다시 인증 해야 합니다. 자세한 내용은 marketplace 정책 [상업적 Marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies)을 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
 계정 관리자에 게 문의 하거나 [Microsoft 파트너 지원](https://aka.ms/marketplacepublishersupport) 에 문의 하 여 계정에 대 한 지원을 받으세요. Business Applications ISV 연결 프로그램에 대 한 일반 정보는 다음을 참조 하세요.
 
-- **[Isv Business Applications (온라인 문서)](https://aka.ms/bizappsisvweb)**
-
-- **[Business Applications Isv 용 새 프로그램 개요 (PDF)](https://aka.ms/bizappsisvprogram)**
-
-- **[ISV 연결 프로그램 정책](https://aka.ms/bizappsisvpolicies)**
-
+- [Isv Business Applications](https://partner.microsoft.com/solutions/business-applications/isv-overview) (온라인 문서)
+- [Business Applications isv 용 새 프로그램 개요](https://aka.ms/BizAppsISVProgram) (PDF)
+- [BUSINESS APPLICATIONS ISV 연결 프로그램 FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Business Applications isv 용 예정 된 프로그램](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (블로그 게시물)
+- [ISV 연결 프로그램 정책](https://aka.ms/bizappsisvpolicies) (PDF)

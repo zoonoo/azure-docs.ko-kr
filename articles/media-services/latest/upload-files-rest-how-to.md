@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57839c82af71f7cedfe1b3c77095210d273be4a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091847"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>REST를 사용 하 여 Media Services v3 계정에 파일 업로드
 
-Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일을 업로드합니다. [자산](https://docs.microsoft.com/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다. 자산의 컨테이너에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
+Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일을 업로드합니다. [자산](/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다. 자산의 컨테이너에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
 이 문서에서는 REST를 사용 하 여 로컬 파일을 업로드 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
@@ -62,4 +63,4 @@ Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/sto
 
 ## <a name="next-steps"></a>다음 단계
 
-[자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-REST](stream-files-tutorial-with-rest.md)
+[자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST](stream-files-tutorial-with-rest.md)

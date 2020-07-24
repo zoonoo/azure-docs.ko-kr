@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
-ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fa7fe6b16b7ba97b8ce5e6697f1aaaf88aa294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67304980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091898"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Media Services-.NET을 사용 하 여 인코딩할 경우 비디오 하위 클립
 
-[작업](https://docs.microsoft.com/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 이 기능은 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용하여 빌드된 모든 [변환](https://docs.microsoft.com/rest/api/media/transforms)과 함께 작동합니다.
+[작업](/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 이 기능은 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용하여 빌드된 모든 [변환](/rest/api/media/transforms)과 함께 작동합니다.
 
 다음 c # 예제에서는 인코딩 작업을 전송할 때 자산에 비디오를 트리밍하는 작업을 만듭니다. 
 
@@ -30,7 +30,7 @@ ms.locfileid: "67304980"
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
-- [Azure Media Services 계정 만들기](create-account-cli-how-to.md)
+- [Azure Media Services 계정 만들기](./create-account-howto.md)
 - 변환과 입력 및 출력 자산을 만듭니다. .NET 자습서를 [사용 하 여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md) 에서 변환 및 입력 및 출력 자산을 만드는 방법을 확인할 수 있습니다.
 - [인코딩 개념](encoding-concept.md) 항목을 검토 합니다.
 

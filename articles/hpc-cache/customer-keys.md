@@ -4,13 +4,14 @@ description: Azure HPC 캐시에서 Azure Key Vault를 사용 하 여 기본 Mic
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092527"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC 캐시에 대해 고객이 관리 하는 암호화 키 사용
 
@@ -18,6 +19,8 @@ Azure Key Vault를 사용 하 여 Azure HPC 캐시에서 데이터를 암호화 
 
 > [!NOTE]
 > 캐시 디스크를 포함 하 여 Azure에 저장 된 모든 데이터는 기본적으로 Microsoft 관리 키를 사용 하 여 미사용에 암호화 됩니다. 데이터를 암호화 하는 데 사용 되는 키를 관리 하려는 경우에만이 문서의 단계를 수행 해야 합니다.
+
+또한 Azure HPC 캐시는 캐시 디스크에 대 한 고객 키를 추가 하는 경우에도 캐시 된 데이터를 보관 하는 관리 디스크에서 [VM 호스트 암호화](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 를 통해 보호 됩니다. 이중 암호화를 위해 고객이 관리 하는 키를 추가 하면 보안 요구 사항이 높은 고객에 게 추가 보안 수준이 제공 됩니다. 자세한 내용은 [Azure disk storage의 서버 쪽 암호화](../virtual-machines/linux/disk-encryption.md) 를 참조 하세요.
 
 이 기능은 Azure HPC 캐시를 사용할 수 있는 일부 Azure 지역 에서만 사용할 수 있습니다. 자세한 내용은 [지역 가용성](hpc-cache-overview.md#region-availability) 목록을 참조 하세요.
 

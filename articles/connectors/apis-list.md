@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 48d9990115a0e786d12915acf1eaadc196a00b0b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c9ece4860f8babba110da8536e5028f337fbc772
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092952"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
@@ -50,7 +50,7 @@ Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)�
 
   이러한 범주를 사용 하 여 커넥터를 식별할 수도 있지만 일부 커넥터는 여러 범주를 교차할 수 있습니다. 예를 들어 SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터입니다.
 
-  | 커넥터 | 설명 |
+  | 커넥터 | Description |
   |---|---|
   | [**관리 되는 커넥터**](#managed-api-connectors) | Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online 등과 같은 서비스를 사용하는 논리 앱을 만듭니다. |
   | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]가 설치 및 설정되면, 이러한 커넥터를 통해 논리 앱에서 온-프레미스 시스템(예: SQL Server, SharePoint Server, Oracle DB, 파일 공유 등)에 액세스할 수 있습니다. |
@@ -235,7 +235,7 @@ Blob 콘텐츠를 만들고 관리할 수 있도록 저장소 계정에 연결 �
 
 파일, 첨부 파일, 폴더 등을 관리할 수 있도록 SharePoint Online에 연결 합니다.
 
-[![API 아이콘 ][dynamics-365-icon]<br> **Dynamics 365 <br> **][dynamics-365-doc]
+[! [API 아이콘] [dynamics-365]<br>**Dynamics 365 <br> **] [dynamics-365-doc]
 
 사용자의 Dynamics 365 계정에 연결 하 여 레코드, 항목 등을 만들고 관리할 수 있습니다.
 
@@ -259,14 +259,9 @@ Event Hub를 통해 이벤트를 사용하고 게시합니다. 예를 들어 Eve
 
 Azure 리소스 또는 타사 리소스가 변경되는 경우와 같이 Event Grid에서 게시한 이벤트를 모니터링합니다.
 
-
 [![API 아이콘 ][salesforce-icon]<br> **Salesforce**][salesforce-doc]
 
 레코드, 작업, 개체 등의 항목을 만들고 관리할 수 있도록 Salesforce 계정에 연결 합니다.
-
-[![API 아이콘 ][twitter-icon]<br> **Twitter**][twitter-doc]
-
-트 윗, 팔로 워, 타임 라인 등을 관리할 수 있도록 Twitter 계정에 연결 합니다. 트윗을 SQL, Excel 또는 SharePoint에 저장합니다.
 
 <a name="on-premises-connectors"></a>
 
@@ -400,7 +395,7 @@ Logic Apps는 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스
 
 ## <a name="triggers-and-action-types"></a>트리거 및 동작 형식
 
-커넥터는 *트리거*, *작업*또는 둘 다를 제공할 수 있습니다. *트리거* 는 논리 앱의 첫 번째 단계로, 일반적으로 트리거를 발생 시키고 논리 앱 실행을 시작 하는 이벤트를 지정 합니다. 예를 들어 FTP 커넥터에는 "파일이 추가 되거나 수정 될 때" 논리 앱을 시작 하는 트리거가 있습니다. 일부 트리거는 지정 된 이벤트 또는 데이터를 정기적으로 확인 한 다음 지정 된 이벤트 또는 데이터를 검색할 때 발생 합니다. 다른 트리거는 대기 하지만 특정 이벤트가 발생 하거나 새 데이터를 사용할 수 있는 경우 즉시 발생 합니다. 또한 트리거는 논리 앱에 필요한 데이터를 함께 전달 합니다. 논리 앱은 워크플로 전체에서 해당 데이터를 읽고 사용할 수 있습니다. 예를 들어 Twitter 커넥터에는 논리 앱의 워크플로에 트 윗의 콘텐츠를 전달 하는 "new 트 윗이 게시 될 때" 트리거가 있습니다.
+커넥터는 *트리거*, *작업*또는 둘 다를 제공할 수 있습니다. *트리거* 는 논리 앱의 첫 번째 단계로, 일반적으로 트리거를 발생 시키고 논리 앱 실행을 시작 하는 이벤트를 지정 합니다. 예를 들어 FTP 커넥터에는 "파일이 추가 되거나 수정 될 때" 논리 앱을 시작 하는 트리거가 있습니다. 일부 트리거는 지정 된 이벤트 또는 데이터를 정기적으로 확인 한 다음 지정 된 이벤트 또는 데이터를 검색할 때 발생 합니다. 다른 트리거는 대기 하지만 특정 이벤트가 발생 하거나 새 데이터를 사용할 수 있는 경우 즉시 발생 합니다. 또한 트리거는 논리 앱에 필요한 데이터를 함께 전달 합니다. 논리 앱은 워크플로 전체에서 해당 데이터를 읽고 사용할 수 있습니다. 예를 들어 Office 365 Outlook 커넥터에는 해당 전자 메일의 콘텐츠를 논리 앱의 워크플로로 전달할 수 있는 "새 전자 메일이 도착 하는 경우" 트리거가 있습니다.
 
 트리거를 실행 한 후에는 Azure Logic Apps 논리 앱의 인스턴스를 만들고 논리 앱의 워크플로에서 *작업* 을 실행 하기 시작 합니다. 작업은 트리거를 따르고 논리 앱의 워크플로에서 태스크를 수행 하는 단계입니다. 예를 들어 SQL 데이터베이스에서 고객 데이터를 가져오고 이후 작업에서 해당 데이터를 처리 하는 논리 앱을 만들 수 있습니다.
 
@@ -416,7 +411,7 @@ Azure Logic Apps에서 제공 하는 트리거의 일반적인 종류는 다음�
 
 ## <a name="connector-configuration"></a>커넥터 구성
 
-각 커넥터의 트리거 및 작업은 사용자가 구성할 수 있는 고유한 속성을 제공 합니다. 또한 대부분의 커넥터에서는 먼저 대상 서비스 또는 시스템에 대 한 *연결* 을 만들고 인증 자격 증명 또는 기타 구성 정보를 제공 해야 논리 앱에서 트리거 또는 동작을 사용할 수 있습니다. 예를 들어 데이터에 액세스 하거나 사용자 대신 게시 하기 위해 Twitter 계정에 대 한 연결에 권한을 부여 해야 합니다.
+각 커넥터의 트리거 및 작업은 사용자가 구성할 수 있는 고유한 속성을 제공 합니다. 또한 대부분의 커넥터에서는 먼저 대상 서비스 또는 시스템에 대 한 *연결* 을 만들고 인증 자격 증명 또는 기타 구성 정보를 제공 해야 논리 앱에서 트리거 또는 동작을 사용할 수 있습니다. 예를 들어 Office 365 Outlook 전자 메일 계정에 액세스 하 여 작업을 수행 하려면 먼저 해당 계정에 대 한 연결에 권한을 부여 해야 합니다.
 
 Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연결을 만들면 액세스 토큰이 [암호화](../security/fundamentals/encryption-overview.md) 되어 Azure 비밀 저장소에 안전 하 게 저장 되는 Office 365, Salesforce 또는 GitHub와 같은 서비스에 로그인 하는 것을 의미 합니다. FTP 및 SQL과 같은 다른 커넥터에는 서버 주소, 사용자 이름 및 암호와 같은 구성 세부 정보를 포함 하는 연결이 필요 합니다. 이러한 연결 구성 세부 정보 또한 암호화된 후 안전하게 저장됩니다. [Azure의 암호화](../security/fundamentals/encryption-overview.md)에 대해 자세히 알아보세요.
 
@@ -479,6 +474,7 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [azure-cognitive-services-text-analytics-icon]: ./media/apis-list/azure-cognitive-services-text-analytics.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-devops-icon]: ./media/apis-list/azure-devops.png
 [azure-document-db-icon]: ./media/apis-list/azure-document-db.png
 [azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
 [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
@@ -497,15 +493,11 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [bitly-icon]: ./media/apis-list/bitly.png
 [biztalk-server-icon]: ./media/apis-list/biztalk.png
 [blogger-icon]: ./media/apis-list/blogger.png
-[box-icon]: ./media/apis-list/box.png
 [campfire-icon]: ./media/apis-list/campfire.png
 [common-data-service-icon]: ./media/apis-list/common-data-service.png
-[dropbox-icon]: ./media/apis-list/dropbox.png
-[dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
 [dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
 [dynamics-365-operations-icon]: ./media/apis-list/dynamics-365-operations.png
 [easy-redmine-icon]: ./media/apis-list/easyredmine.png
-[facebook-icon]: ./media/apis-list/facebook.png
 [file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [github-icon]: ./media/apis-list/github.png
@@ -522,11 +514,9 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [instagram-icon]: ./media/apis-list/instagram.png
 [instapaper-icon]: ./media/apis-list/instapaper.png
 [jira-icon]: ./media/apis-list/jira.png
-[mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
 [mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office-365.png
-[office-365-users-icon]: ./media/apis-list/office-365-users.png
 [onedrive-icon]: ./media/apis-list/onedrive.png
 [onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
 [oracle-db-icon]: ./media/apis-list/oracle-db.png
@@ -536,7 +526,6 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [postgre-sql-icon]: ./media/apis-list/postgre-sql.png
 [project-online-icon]: ./media/apis-list/projecton-line.png
 [redmine-icon]: ./media/apis-list/redmine.png
-[rss-icon]: ./media/apis-list/rss.png
 [salesforce-icon]: ./media/apis-list/salesforce.png
 [sap-icon]: ./media/apis-list/sap.png
 [send-grid-icon]: ./media/apis-list/sendgrid.png
@@ -550,13 +539,9 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [sql-server-icon]: ./media/apis-list/sql.png
 [teradata-icon]: ./media/apis-list/teradata.png
 [todoist-icon]: ./media/apis-list/todoist.png
-[trello-icon]: ./media/apis-list/trello.png
 [twilio-icon]: ./media/apis-list/twilio.png
-[twitter-icon]: ./media/apis-list/twitter.png
 [vimeo-icon]: ./media/apis-list/vimeo.png
-[visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
 [wordpress-icon]: ./media/apis-list/wordpress.png
-[yammer-icon]: ./media/apis-list/yammer.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
 <!-- Enterprise Integration Pack icons -->
@@ -614,15 +599,10 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Azure SQL Data Warehouse에 연결 하 여 데이터를 볼 수 있도록 합니다."
 [azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "테이블을 만들고, 업데이트 하 고, 쿼리할 수 있도록 Azure Storage 계정에 연결"
 [biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "BizTalk Server에 연결 하 여 BizTalk 기반 응용 프로그램을 Azure Logic Apps와 나란히 실행할 수 있습니다."
-[box-doc]: ./connectors-create-api-box.md "Box에 연결 합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Dropbox에 연결 합니다. 파일 업로드, 가져오기, 삭제, 나열 등"
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "CRM Online 데이터로 작업할 수 있도록 Dynamics CRM Online에 연결"
-[facebook-doc]: ./connectors-create-api-facebook.md "Facebook에 연결 합니다. 타임 라인에 게시, 페이지 피드 가져오기 등"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "온-프레미스 파일 시스템에 연결"
 [ftp-doc]: ./connectors-create-api-ftp.md "파일 업로드, 가져오기, 삭제 등과 같은 FTP 태스크의 경우 FTP / FTPS 서버에 연결"
 [github-doc]: ./connectors-create-api-github.md "GitHub에 연결 및 문제 추적"
 [google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Google 캘린더에 연결 하 고 달력을 관리할 수 있음"
-[google-drive-doc]: ./connectors-create-api-googledrive.md "GoogleDrive에 연결 하 여 데이터 작업을 수행할 수 있습니다."
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "시트를 수정할 수 있도록 Google 시트에 연결"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Google 작업에 연결 하 여 작업을 관리할 수 있도록 합니다."
 [ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "IBM 메인프레임에서 3270 앱에 연결"
@@ -630,18 +610,14 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [ibm-informix-doc]: ./connectors-create-api-informix.md "클라우드 또는 온-프레미스에서 Informix에 연결 합니다. 행을 읽고 테이블을 나열 합니다."
 [ibm-mq-doc]: ./connectors-create-api-mq.md "온-프레미스 또는 Azure에서 IBM MQ에 연결하여 메시지 송수신"
 [instagram-doc]: ./connectors-create-api-instagram.md "명령이 있는 Agram에 연결 합니다. 이벤트 트리거 또는 동작"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "MailChimp 계정에 연결 합니다. 메일 관리 및 자동화"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "통신을 위해 Mandrill에 연결"
 [mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "데이터를 읽고 쓸 수 있도록 온-프레미스 MySQL 데이터베이스에 연결 합니다."
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "전자 메일을 보내고 받고, 일정 및 연락처를 관리 하는 등의 방법으로 Office 365 계정에 연결 합니다."
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
 [onedrive-doc]: ./connectors-create-api-onedrive.md "개인 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "비즈니스 Microsoft OneDrive에 연결 하 여 파일 업로드, 삭제, 나열 등을 수행할 수 있습니다."
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Oracle 데이터베이스에 연결 하 여 행을 추가 하 고 삽입 하 고 삭제할 수 있습니다."
 [outlook.com-doc]: ./connectors-create-api-outlook.md "전자 메일, 일정, 연락처 등을 관리할 수 있도록 Outlook 사서함에 연결"
 [postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "테이블에서 데이터를 읽을 수 있도록 PostgreSQL 데이터베이스에 연결 합니다."
-[project-online-doc]: ./connectors-create-api-projectonline.md "프로젝트, 작업, 리소스 등을 관리할 수 있도록 Microsoft Project Online에 연결"
-[rss-doc]: ./connectors-create-api-rss.md "피드 항목 게시 및 검색, RSS 피드에 새 항목이 게시 될 때 작업 트리거"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Salesforce 계정에 연결 합니다. 계정, 잠재 고객, 기회 등 관리"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "온-프레미스 SAP 시스템에 연결"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "SendGrid에 연결 합니다. 전자 메일을 보내고 받는 사람 목록을 관리 합니다."
@@ -653,10 +629,7 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "통신을 위해 SparkPost에 연결"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Azure SQL Database 또는 SQL Server에 연결 합니다. SQL 데이터베이스 테이블에서 항목 만들기, 업데이트, 가져오기 및 삭제"
 [teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Teradata 데이터베이스에 연결 하 여 테이블에서 데이터 읽기"
-[trello-doc]: ./connectors-create-api-trello.md "Trello에 연결 합니다. 프로젝트 관리 및 모든 항목 구성"
 [twilio-doc]: ./connectors-create-api-twilio.md "Twilio에 연결 합니다. 메시지 보내기 및 가져오기, 사용 가능한 번호 가져오기, 수신 전화 번호 관리 등"
-[twitter-doc]: ./connectors-create-api-twitter.md "Twitter에 연결 합니다. 타임 라인 가져오기, 트 윗 게시 등"
-[yammer-doc]: ./connectors-create-api-yammer.md "Yammer에 연결 합니다. 메시지 게시, 새 메시지 가져오기 등"
 [youtube-doc]: ./connectors-create-api-youtube.md "YouTube에 연결 합니다. 비디오 및 채널 관리"
 
 <!--Enterprise Intregation Pack doc links-->

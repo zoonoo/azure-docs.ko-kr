@@ -3,11 +3,12 @@ title: IoT Edge 할당량에 대 한 라이브 비디오 분석-Azure
 description: 이 문서에서는 IoT Edge 할당량 및 제한 사항에 대 한 라이브 비디오 분석을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260346"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091813"
 ---
 # <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 
@@ -46,11 +47,8 @@ GraphTopologySet를 통해 생성 된 모듈 당 최대 50 그래프 토폴로�
 * 신호 게이트 프로세서
    * RTSP 원본에서 즉시 다운스트림 이어야 합니다.
 * 자산 싱크 
-   * 그래프 토폴로지 당 노드는 최대 하나만 있을 수 있습니다.
-      * 자산 싱크를 사용 하는 경우 파일 싱크를 제공 하거나 그 반대의 경우도 가능 합니다.
    * RTSP 원본 또는 신호 게이트 프로세서에서 즉시 다운스트림 이어야 합니다.
 * 파일 싱크
-   * 그래프 토폴로지에는 이러한 노드가 최대 하나만 있을 수 있습니다 (위 정보는 자산 싱크에 관한 내용 참조).
    * 신호 게이트 프로세서에서 즉시 다운스트림 이어야 합니다.
    * HTTP 확장 프로세서 또는 동작 감지 프로세서의 바로 다운스트림 일 수 없습니다.
 * IoT Hub 싱크

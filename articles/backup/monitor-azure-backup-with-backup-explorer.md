@@ -4,11 +4,12 @@ description: 이 문서에서는 Backup 탐색기를 사용하여 자격 증명 
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092799"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Backup 탐색기를 사용하여 백업 모니터링
 
@@ -93,8 +94,8 @@ Backup 탐색기에는 여러 탭이 표시되며, 각 탭은 백업 아티팩�
 
 ## <a name="cross-tenant-views"></a>테넌트 간 보기
 
-여러 테넌트 환경에서 구독에 대한 액세스 권한을 위임받은 Azure Lighthouse 사용자인 경우 기본 구독 필터를 사용할 수 있습니다. Azure Portal의 오른쪽 위에 있는 "필터" 아이콘을 선택하여 데이터를 보려는 구독을 표시합니다. 이 기능을 사용하면 Backup 탐색기가 선택한 구독의 모든 자격 증명 모음에 대한 정보를 집계합니다. 자세히 알아보려면 [Azure Lighthouse란?](https://docs.microsoft.com/azure/lighthouse/overview)을 참조하세요.
+여러 테넌트 환경에서 구독에 대한 액세스 권한을 위임받은 Azure Lighthouse 사용자인 경우 기본 구독 필터를 사용할 수 있습니다. Azure Portal의 오른쪽 위에 있는 "필터" 아이콘을 선택하여 데이터를 보려는 구독을 표시합니다. 이 기능을 사용하면 Backup 탐색기가 선택한 구독의 모든 자격 증명 모음에 대한 정보를 집계합니다. 자세히 알아보려면 [Azure Lighthouse란?](../lighthouse/overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[백업 데이터에 대한 인사이트를 가져오기 위해 Azure Monitor를 사용하는 방법 알아보기](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[백업 데이터에 대한 인사이트를 가져오기 위해 Azure Monitor를 사용하는 방법 알아보기](./backup-azure-monitoring-use-azuremonitor.md)

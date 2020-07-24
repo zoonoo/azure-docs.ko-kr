@@ -12,18 +12,18 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49226ba703e8ade963b368616102db035b3c07ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80585986"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092068"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
 Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
 
-스트림에서 암호화 옵션을 지정 하려면 [스트리밍 정책을](streaming-policy-concept.md) 만들고 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 해야 합니다. 콘텐츠 키 [정책을](https://docs.microsoft.com/rest/api/media/contentkeypolicies) 만들어 [자산](assets-concept.md)에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 최종 클라이언트에 배달 하는 방법을 구성 합니다. 지정 된 구성을 사용 하는 키를 클라이언트에 배달 하기 위해 충족 해야 하는 콘텐츠 키 정책에 대 한 요구 사항 (제한 사항)을 설정 해야 합니다. 콘텐츠 키 정책은 투명한 스트리밍 또는 다운로드에 필요하지 않습니다. 
+스트림에서 암호화 옵션을 지정 하려면 [스트리밍 정책을](streaming-policy-concept.md) 만들고 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 해야 합니다. 콘텐츠 키 [정책을](/rest/api/media/contentkeypolicies) 만들어 [자산](assets-concept.md)에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 최종 클라이언트에 배달 하는 방법을 구성 합니다. 지정 된 구성을 사용 하는 키를 클라이언트에 배달 하기 위해 충족 해야 하는 콘텐츠 키 정책에 대 한 요구 사항 (제한 사항)을 설정 해야 합니다. 콘텐츠 키 정책은 투명한 스트리밍 또는 다운로드에 필요하지 않습니다. 
 
 일반적으로 콘텐츠 키 정책을 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 합니다. 또는 고급 시나리오에 대 한 사용자 지정 스트리밍 정책을 만들 때 [스트리밍 정책](streaming-policy-concept.md) 내에서 콘텐츠 키 정책을 지정할 수 있습니다. 
 
@@ -43,7 +43,7 @@ Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Micr
 * 새 정책을 만들어야 하는 경우 자산에 대 한 새 스트리밍 로케이터를 만들어야 합니다.
 * 콘텐츠 키를 자동으로 생성 하도록 Media Services 하는 것이 좋습니다. 
 
-   일반적으로 수명이 긴 키를 사용 하 고 [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get)을 사용 하 여 콘텐츠 키 정책이 있는지 확인 합니다. 키를 가져오려면 별도의 동작 메서드를 호출하여 비밀 또는 자격 증명을 가져와야 합니다. 아래 예제를 참조하세요.
+   일반적으로 수명이 긴 키를 사용 하 고 [Get](/rest/api/media/contentkeypolicies/get)을 사용 하 여 콘텐츠 키 정책이 있는지 확인 합니다. 키를 가져오려면 별도의 동작 메서드를 호출하여 비밀 또는 자격 증명을 가져와야 합니다. 아래 예제를 참조하세요.
 
 ## <a name="example"></a>예제
 

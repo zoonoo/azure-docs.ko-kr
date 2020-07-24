@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: aed35ec583af83e6ee6cb81c4e59e694cef493e1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 18ded2713ec89a9a0666cd00221d437c1c9ef090
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092425"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Database SQL Server 데이터베이스에서 데이터 이동
 
@@ -53,7 +53,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 * **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
 * **Azure SQL Database**에 대한 액세스. Azure SQL Database를 설정 해야 하는 경우 [Microsoft Azure SQL Database 시작](../../sql-database/sql-database-get-started.md) 항목에서 Azure SQL Database의 새 인스턴스를 프로 비전 하는 방법에 대 한 정보를 제공 합니다.
-* 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/overview)을 참조하세요.
+* 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/)을 참조하세요.
 
 > [!NOTE]
 > 이 절차에서는 [Azure 포털](https://portal.azure.com/)을 사용합니다.
@@ -87,7 +87,7 @@ Integration Runtime는 여러 네트워크 환경에서 데이터 통합 기능�
 다음 스크립트 기반 프로시저로 데이터 세트의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 세트](../../data-factory/concepts-datasets-linked-services.md)를 참조하세요.
 
 > [!NOTE]
-> [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0)를 참조하세요.
+> [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0)를 참조하세요.
 >
 >
 

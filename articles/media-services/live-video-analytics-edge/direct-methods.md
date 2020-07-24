@@ -3,15 +3,16 @@ title: IoT Edge의 Live Video Analytics에서 직접 메서드 사용-Azure
 description: IoT Edge의 Live Video Analytics는 여러 가지 직접 메서드를 노출 합니다. 직접 메서드는이 항목에 설명 된 규칙을 기반으로 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260806"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091830"
 ---
 # <a name="direct-methods"></a>직접 메서드
 
-IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가지 직접 메서드를 노출 합니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 디바이스의 응답 여부에 따라 달라지는 시나리오에서 유용합니다. 자세한 내용은 [IoT Hub에서 직접 메서드 이해 및 호출](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods)을 참조 하세요.
+IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가지 직접 메서드를 노출 합니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 디바이스의 응답 여부에 따라 달라지는 시나리오에서 유용합니다. 자세한 내용은 [IoT Hub에서 직접 메서드 이해 및 호출](../../iot-hub/iot-hub-devguide-direct-methods.md)을 참조 하세요.
 
 이 항목에서는 이러한 메서드 및 규칙에 대해 설명 합니다.
 
@@ -97,7 +98,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 }
 ```
 
-|상태|    자세한 코드   |설명|
+|상태|    자세한 코드   |Description|
 |---|---|---|
 |400|   GraphValidationError|   주기 또는 분할과 같은 일반적인 그래프 오류 등|
 |400|   ModuleValidationError|  모듈 특정 유효성 검사 오류입니다.|
@@ -105,7 +106,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |409|   OperationNotAllowedInState| 요청한 작업은 현재 상태에서 수행할 수 없습니다.|
 |409|   ResourceValidationError|    참조 된 리소스 (예: asset)가 올바른 상태가 아닙니다.|
 
-## <a name="details"></a>설명  
+## <a name="details"></a>세부 정보  
 
 ### <a name="graphtopologyget"></a>GraphTopologyGet
 
@@ -193,7 +194,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 기존 엔터티 업데이트 됨 |200|   해당 없음|
-새 엔터티 생성  |201|   해당 없음|
+새 엔터티 생성  |201|   N/A|
 일반 사용자 오류 |400 범위  ||
 그래프 유효성 검사 오류 |400    |GraphValidationError|
 모듈 유효성 검사 오류|   400 |ModuleValidationError|
@@ -229,7 +230,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |엔터티 삭제 됨|    200|    해당 없음|
-|엔터티를 찾을 수 없음|  204|    해당 없음|
+|엔터티를 찾을 수 없음|  204|    N/A|
 |일반 사용자 오류|   400 범위   ||
 |하나 이상의 graph 인스턴스에서 그래프 토폴로지를 참조 하 고 있습니다.| 409 |GraphTopologyInUse|
 |일반 서버 오류| 500 범위   ||
@@ -277,7 +278,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 
 #### <a name="filter-support"></a>필터 지원
 
-|연산      |개 필드   |연산자|
+|작업      |개 필드   |연산자|
 |---|---|---|
 |$orderby|name  |asc|
 
@@ -375,7 +376,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |기존 엔터티 업데이트 됨    |200    |해당 없음|
-|새 엔터티 생성|    201 |해당 없음|
+|새 엔터티 생성|    201 |N/A|
 |일반 사용자 오류|   400 범위   ||
 |그래프 유효성 검사 오류    |400|   GraphValidationError|
 |모듈 유효성 검사 오류|  400 |ModuleValidationError|
@@ -416,7 +417,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |그래프가 삭제 됨|    200|    해당 없음|
-|그래프를 찾을 수 없음|   204|    해당 없음|
+|그래프를 찾을 수 없음|   204|    N/A|
 |일반 사용자 오류    |400 범위  ||
 |그래프가 "중지 됨" 상태에 있지 않습니다.    |409    |OperationNotAllowedInState|
 |일반 서버 오류| 500 범위   ||
@@ -465,7 +466,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 
 #### <a name="filter-support"></a>필터 지원
 
-|연산  |   개 필드|   연산자|
+|작업  |   개 필드|   연산자|
 |---|---|---|
 |$orderby|  name|   asc|
 
@@ -518,7 +519,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |그래프가 활성화 되었습니다.   |200    |해당 없음|
-|새 엔터티 생성 |201|   해당 없음|
+|새 엔터티 생성 |201|   N/A|
 |일반 사용자 오류    |400 범위  ||
 |모듈 유효성 검사 오류   |400|   ModuleValidationError|
 |리소스 유효성 검사 오류|    409|    ResourceValidationError|
@@ -567,7 +568,7 @@ IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가�
 |조건  |상태 코드    |오류 코드 세부 정보|
 |---|---|---|
 |그래프가 활성화 되었습니다.   |200|   해당 없음|
-|새 엔터티 생성 |201|   해당 없음|
+|새 엔터티 생성 |201|   N/A|
 |일반 사용자 오류    |400 범위  ||
 |그래프가 활성화 상태입니다.   |409|   OperationNotAllowedInState|
 |일반 서버 오류  |500 범위  ||

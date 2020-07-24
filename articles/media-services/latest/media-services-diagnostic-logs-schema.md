@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092017"
 ---
 # <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
@@ -29,7 +30,7 @@ ms.locfileid: "75750879"
 
 ## <a name="top-level-diagnostic-logs-schema"></a>최상위 수준 진단 로그 스키마
 
-최상위 진단 로그 스키마에 대 한 자세한 설명은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](../../azure-monitor/platform/tutorial-dashboards.md)를 참조 하세요.
+최상위 진단 로그 스키마에 대 한 자세한 설명은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](../../azure-monitor/platform/resource-logs-schema.md)를 참조 하세요.
 
 ## <a name="key-delivery-log-schema"></a>키 배달 로그 스키마
 

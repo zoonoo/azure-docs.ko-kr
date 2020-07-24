@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092850"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor 사용
 
@@ -18,7 +19,7 @@ ms.locfileid: "79480745"
 
 이 문서에서는 데이터 센터 또는 다른 클라우드 환경에서 호스트 되는 가상 컴퓨터 또는 물리적 컴퓨터에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 프로세스가 끝나면 사용자 환경에서 가상 컴퓨터 모니터링을 시작 하 고 성능 또는 가용성 문제가 발생 하 고 있는지 확인 하 게 됩니다.
 
-시작하려면 먼저 [사전 요구 사항](vminsights-enable-overview.md)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다. [Log Analytics Linux 및 Windows 에이전트](../../log-analytics/log-analytics-agent-overview.md)에 대한 요구 사항 및 배포 방법을 검토합니다.
+시작하려면 먼저 [사전 요구 사항](vminsights-enable-overview.md)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다. [Log Analytics Linux 및 Windows 에이전트](../platform/log-analytics-agent.md)에 대한 요구 사항 및 배포 방법을 검토합니다.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -155,7 +156,7 @@ configuration VMInsights {
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
 ### <a name="create-and-execute-a-template"></a>템플릿 만들기 및 실행
 
@@ -234,7 +235,7 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 
     **Linux**: 실행 중인 프로세스 "microsoft-종속성-에이전트"를 찾습니다.
 
-2. [Log Analytics의 무료 가격 책정 계층](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에 있나요? 무료 요금제에서는 최대 5 개의 고유 컴퓨터를 사용할 수 있습니다. 이전 5 개에서 더 이상 데이터를 전송 하지 않는 경우에도 모든 후속 컴퓨터가 맵에 표시 되지 않습니다.
+2. [Log Analytics의 무료 가격 책정 계층](./solutions.md)에 있나요? 무료 요금제에서는 최대 5 개의 고유 컴퓨터를 사용할 수 있습니다. 이전 5 개에서 더 이상 데이터를 전송 하지 않는 경우에도 모든 후속 컴퓨터가 맵에 표시 되지 않습니다.
 
 3. 컴퓨터에서 로그 및 성능 데이터를 Azure Monitor 로그에 보내고 있나요? 컴퓨터에 대해 다음 쿼리를 수행 합니다.
 

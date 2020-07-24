@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: c418ed87bd74471ce8c2e8186bd6244eaf6f21de
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092748"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -112,7 +113,7 @@ Get-AzurePublishSettingsFile
 
 이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 - [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [일반적인 클라우드 서비스 시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -127,7 +128,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0)를 사용하여 각 위치 값을 설정할 수 있습니다.
+Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0)를 사용하여 각 위치 값을 설정할 수 있습니다.
 
 인스턴스 수준에서 메트릭을 모니터링할 수 있습니다. 추가 모니터링 기능은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 제공합니다.
 
@@ -296,7 +297,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 시작 작업에서 PowerShell 스크립트를 사용하여 맬웨어 방지 확장을 사용하도록 설정할 수 있습니다. 다음 문서에 나온 단계를 따라 구현합니다. 
  
 - [PowerShell 시작 작업 만들기](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 맬웨어 방지 배포 시나리오 및 포털에서 활성화하는 방법에 대한 자세한 내용은 [맬웨어 방지 배포 시나리오](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)를 참조하세요.
 

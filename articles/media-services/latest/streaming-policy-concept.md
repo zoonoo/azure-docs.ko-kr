@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091949"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
 
-Azure Media Services v3에서 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하여 [스트리밍 로케이터](streaming-locators-concept.md)의 스트리밍 프로토콜 및 암호화 옵션을 정의할 수 있습니다. Media Services v3은 미리 정의 된 스트리밍 정책을 제공 하므로이를 평가판 또는 프로덕션에 직접 사용할 수 있습니다. 
+Azure Media Services v3에서 [스트리밍 정책](/rest/api/media/streamingpolicies)을 사용하여 [스트리밍 로케이터](streaming-locators-concept.md)의 스트리밍 프로토콜 및 암호화 옵션을 정의할 수 있습니다. Media Services v3은 미리 정의 된 스트리밍 정책을 제공 하므로이를 평가판 또는 프로덕션에 직접 사용할 수 있습니다. 
 
 현재 사용 가능한 미리 정의 된 스트리밍 정책:<br/>
 * ' Predefined_DownloadOnly '
@@ -44,13 +44,13 @@ Azure Media Services v3에서 [스트리밍 정책](https://docs.microsoft.com/r
 
 콘텐츠를 암호화 하는 경우 콘텐츠 [키 정책을](content-key-policy-concept.md)만들어야 합니다. **콘텐츠 키 정책을** 제거 하려면 스트리밍 또는 다운로드를 수행 하는 데 필요 하지 않습니다. 
 
-특별 한 요구 사항이 있는 경우 (예: 다른 프로토콜을 지정 하려는 경우, 사용자 지정 키 배달 서비스를 사용 해야 하거나 일반 오디오 트랙을 사용 해야 하는 경우) 사용자 지정 스트리밍 정책을 [만들](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) 수 있습니다. 
+특별 한 요구 사항이 있는 경우 (예: 다른 프로토콜을 지정 하려는 경우, 사용자 지정 키 배달 서비스를 사용 해야 하거나 일반 오디오 트랙을 사용 해야 하는 경우) 사용자 지정 스트리밍 정책을 [만들](/rest/api/media/streamingpolicies/create) 수 있습니다. 
 
 ## <a name="get-a-streaming-policy-definition"></a>스트리밍 정책 정의 가져오기  
 
-스트리밍 정책의 정의를 확인 하려면 [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) 을 사용 하 여 정책 이름을 지정 합니다. 예:
+스트리밍 정책의 정의를 확인 하려면 [Get](/rest/api/media/streamingpolicies/get) 을 사용 하 여 정책 이름을 지정 합니다. 예를 들면 다음과 같습니다.
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 
 요청:
 

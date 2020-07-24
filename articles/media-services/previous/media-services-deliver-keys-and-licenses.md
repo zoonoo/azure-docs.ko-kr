@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b1f8b158c511919a72e72629d72b0e5ff73ff7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58657ca604e7bd0fc081d6a5bb6ef18a8b7b5b48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78268125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091711"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Media Services를 사용하여 DRM 라이선스 또는 AES 키 제공 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Azure Media Services를 사용하여 수집, 인코드, 콘텐츠 보호 추가 및 콘텐츠 스트림을 수행할 수 있습니다. 자세한 내용은 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)을 참조하세요. 일부 고객은 라이선스 및/또는 키를 제공하는 데만 Media Services를 사용하고 인코드, 암호화 및 스트림을 수행하는 데는 온-프레미스 서버를 사용하려고 합니다. 이 문서에서는 Media Services를 사용하여 PlayReady 및/또는 Widevine 라이선스를 제공하지만 나머지 작업에는 온-프레미스 서버를 사용하여 수행하는 방법을 설명합니다. 
 
@@ -354,6 +355,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)
 * [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)

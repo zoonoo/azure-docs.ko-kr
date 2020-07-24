@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 88c91558360f6be8343c955f8e6185366cd3279a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 211197ced52ca094d375d3ae212957fa25a523fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808925"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091643"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -41,8 +41,9 @@ ms.locfileid: "84808925"
 | 7.0.466.* | 6.5. * |버전 4.0 보다 작거나 같음|2020 년 8 월 1 일 |
 | 7.0.470.* | 7.0.466.* |버전 4.0 보다 작거나 같음 |2020 년 8 월 1 일  |
 | 7.0.472.* | 7.0.466.* |버전 4.0 보다 작거나 같음 |2020 년 8 월 1 일  |
-| 7.1.409.* | 7.0.466.* |버전 4.0 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
-| 7.1.417.* | 7.0.466.* |버전 4.0 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| 7.1.409.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| 7.1.417.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| 7.1.428.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -113,3 +114,4 @@ ms.locfileid: "84808925"
 | 7.0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
 | 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
+| 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |

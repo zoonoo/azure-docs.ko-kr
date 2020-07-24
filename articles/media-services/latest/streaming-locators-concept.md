@@ -11,22 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed58919c47da13a8a0707a344a389126c6feb6c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091966"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
-출력 자산의 비디오를 재생할 클라이언트에 사용할 수 있도록 하려면 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만든 다음, 스트리밍 URL을 빌드해야 합니다. URL을 빌드하려면 스트리밍 엔드포인트 호스트 이름과 스트리밍 로케이터 경로를 연결해야 합니다. .NET 샘플은 [스트리밍 로케이터 가져오기](stream-files-tutorial-with-api.md#get-a-streaming-locator)를 참조하세요.
+출력 자산의 비디오를 재생할 클라이언트에 사용할 수 있도록 하려면 [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만든 다음, 스트리밍 URL을 빌드해야 합니다. URL을 빌드하려면 스트리밍 엔드포인트 호스트 이름과 스트리밍 로케이터 경로를 연결해야 합니다. .NET 샘플은 [스트리밍 로케이터 가져오기](stream-files-tutorial-with-api.md#get-a-streaming-locator)를 참조하세요.
 
 **스트리밍 로케이터**를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터** 는 선택적 시작 및 종료 시간을 구성 하지 않는 한 API 호출을 수행한 직후에 유효 하며 삭제 될 때까지 지속 됩니다. 
 
-**스트리밍 로케이터**를 만들 때 **자산** 이름과 **스트리밍 정책** 이름을 지정 해야 합니다. 자세한 내용은 다음 항목을 참조하세요.
+**스트리밍 로케이터**를 만들 때 **자산** 이름과 **스트리밍 정책** 이름을 지정 해야 합니다. 자세한 내용은 아래 항목을 참조하세요.
 
-* [자산](assets-concept.md)
+* [Assets](assets-concept.md)
 * [스트리밍 정책](streaming-policy-concept.md)
 * [콘텐츠 키 정책](content-key-policy-concept.md)
 
@@ -90,17 +90,17 @@ CBCS (FairPlay)를 사용 하 여 HLS 스트림을 암호화 하려는 경우에
 
 연결 된 자산 이름에 따라 스트리밍 로케이터를 가져오려면 다음 작업을 사용 합니다.
 
-|언어|API|
+|Language|API|
 |---|---|
-|REST (영문)|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
-|CLI|[az ams asset list-streaming-locator](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
-|.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
-|Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
-|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
+|REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
+|CLI|[az ams asset list-streaming-locator](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
+|Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
 ## <a name="see-also"></a>참고 항목
 
-* [자산](assets-concept.md)
+* [Assets](assets-concept.md)
 * [스트리밍 정책](streaming-policy-concept.md)
 * [콘텐츠 키 정책](content-key-policy-concept.md)
 * [자습서: .NET을 사용 하 여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)

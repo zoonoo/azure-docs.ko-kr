@@ -13,23 +13,24 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b112b3844ddb3758b79a086b624a227127e65ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76514326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091881"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Media Services를 사용 하 여 인코딩할 때 비디오를 하위 클립-REST
 
-[작업](https://docs.microsoft.com/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 이 기능은 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용하여 빌드된 모든 [변환](https://docs.microsoft.com/rest/api/media/transforms)과 함께 작동합니다. 
+[작업](/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 이 기능은 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용하여 빌드된 모든 [변환](/rest/api/media/transforms)과 함께 작동합니다. 
 
 이 항목의 REST 예제에서는 인코딩 작업을 전송할 때 비디오를 트리밍하는 작업을 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
-- [Azure Media Services 계정을 만듭니다](create-account-cli-how-to.md).
+- [Azure Media Services 계정을 만듭니다](./create-account-howto.md).
 - [Azure Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md)
     
     [Azure AD 토큰 가져오기](media-rest-apis-with-postman.md#get-azure-ad-token) 항목의 마지막 단계를 수행해야 합니다. 

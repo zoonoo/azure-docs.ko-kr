@@ -6,11 +6,12 @@ author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 121e4699bd6a72f6865d3a6ffdef58c1b3806047
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17de697686485d695586ffa798196efb4a34c251
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79082764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092918"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
@@ -34,15 +35,15 @@ Application Insights가 강력한 Azure Monitor 로그 플랫폼에서 지원되
 
 Azure Monitor로 로그 데이터 보내기를 시작하려면 다음과 같은 여러 옵션이 있습니다.
 
-- 동기 메커니즘의 경우 직접 [데이터 수집기 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) 를 호출 하거나 논리 앱 커넥터를 사용할 수 있습니다. "Azure Log Analytics"을 찾아 "데이터 전송" 옵션을 선택 하면 됩니다.
+- 동기 메커니즘의 경우 직접 [데이터 수집기 API](../platform/data-collector-api.md) 를 호출 하거나 논리 앱 커넥터를 사용할 수 있습니다. "Azure Log Analytics"을 찾아 "데이터 전송" 옵션을 선택 하면 됩니다.
 
   ![스크린샷 선택 및 작업](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- 비동기 옵션의 경우 데이터 수집기 API를 사용하여 처리 파이프라인을 빌드합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) 를 참조 하세요.
+- 비동기 옵션의 경우 데이터 수집기 API를 사용하여 처리 파이프라인을 빌드합니다. 자세한 내용은 [이 문서](../platform/create-pipeline-datacollector-api.md) 를 참조 하세요.
 
 ## <a name="correlating-data"></a>데이터 상관 관계 설정
 
-Application Insights는 Azure Monitor 로그 플랫폼을 기반으로 합니다. 따라서 [교차 리소스 조인](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)을 사용하여 Application Insights 데이터와 Azure Monitor로 수집한 모든 데이터의 상관 관계를 만들 수 있습니다.
+Application Insights는 Azure Monitor 로그 플랫폼을 기반으로 합니다. 따라서 [교차 리소스 조인](../log-query/cross-workspace-query.md)을 사용하여 Application Insights 데이터와 Azure Monitor로 수집한 모든 데이터의 상관 관계를 만들 수 있습니다.
 
 예를 들어 "myLA" 라는 Log Analytics 작업 영역에서 "LabLocations_CL" 라는 테이블에 랩 인벤토리 및 위치를 수집할 수 있습니다. 그런 다음 "myAI" 라는 Application Insights 앱에서 추적 된 요청을 검토 하 고 요청을 제공 하는 컴퓨터 이름을 앞에서 설명한 사용자 지정 테이블에 저장 된 이러한 컴퓨터의 위치와 상관 관계를 지정 하려는 경우 Application Insights 또는 Azure Monitor 컨텍스트에서 다음 쿼리를 실행할 수 있습니다.
 
@@ -56,5 +57,5 @@ app('myAI').requests
 
 ## <a name="next-steps"></a>다음 단계
 
-- [데이터 수집기 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) 참조를 체크 아웃합니다.
-- [교차 리소스 조인](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)에 대한 자세한 정보입니다.
+- [데이터 수집기 API](../platform/data-collector-api.md) 참조를 체크 아웃합니다.
+- [교차 리소스 조인](../log-query/cross-workspace-query.md)에 대한 자세한 정보입니다.

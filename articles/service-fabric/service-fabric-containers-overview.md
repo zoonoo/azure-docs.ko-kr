@@ -2,13 +2,13 @@
 title: Service Fabric 및 컨테이너 개요
 description: Service Fabric 및 마이크로 서비스 애플리케이션 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다.
 ms.topic: conceptual
-ms.date: 8/8/2018
-ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/9/2020
+ms.openlocfilehash: cd0ec7dd2247fdd791df362fa34542178c17df4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091660"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
 
@@ -53,7 +53,7 @@ Linux 기반 자습서는 [Linux에서 첫 번째 Service Fabric 컨테이너 �
 
 #### <a name="windows-server-containers"></a>Windows Server 컨테이너
 
-Windows Server 2016은 격리 수준이 다른 두 가지 유형의 컨테이너를 제공합니다. Windows Server 컨테이너와 Docker 컨테이너는 둘 다 네임스페이스와 파일 시스템 격리가 있다는 점에서 유사하지만 이들 컨테이너가 실행되는 호스트와 커널을 공유합니다. Linux에서, 이러한 격리는 일반적으로 cgroups 및 네임스페이스에 의해 제공되었으며 Windows Server 컨테이너도 유사하게 작동합니다.
+Windows Server 2016 이상에서는 격리 수준에 따라 달라 지는 두 가지 유형의 컨테이너를 제공 합니다. Windows Server 컨테이너와 Docker 컨테이너는 둘 다 네임스페이스와 파일 시스템 격리가 있다는 점에서 유사하지만 이들 컨테이너가 실행되는 호스트와 커널을 공유합니다. Linux에서, 이러한 격리는 일반적으로 cgroups 및 네임스페이스에 의해 제공되었으며 Windows Server 컨테이너도 유사하게 작동합니다.
 
 Hyper-V 지원을 사용하는 Windows 컨테이너는 컨테이너가 다른 컨테이너 또는 호스트와 운영 체제 커널을 공유하지 않기 때문에 격리 및 보안이 강화됩니다. 이렇게 보안 격리 수준이 높은 Hyper-V 사용 컨테이너는 잠재적으로 적대적인 다중 테넌트 시나리오를 대상으로 합니다.
 Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers.md)를 참조하세요.
@@ -73,7 +73,10 @@ Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이�
 
 ## <a name="service-fabric-support-for-containers"></a>컨테이너에 대한 Service Fabric 지원
 
-Service Fabric은 Linux에서 Docker 컨테이너의 배포를 지원하고 Hyper-V 격리 모드에 대한 지원과 함께 Windows Server 2016에서 Windows Server 컨테이너의 배포를 지원합니다. 
+Service Fabric은 Linux에서 Docker 컨테이너 배포 및 Windows Server 2016 이상에서 Windows Server 컨테이너를 지원 하며 Hyper-v 격리 모드에 대 한 지원과 함께 지원 합니다.
+
+> [!NOTE]
+> 컨테이너는 로컬 단일 노드 Service Fabric 클러스터에서 지원 되지 않습니다 (OneBox의 Linux 클러스터와 로컬 Service Fabric 설치의 Windows 클러스터 모두).
 
 Service Fabric은 컨테이너가 다수의 서비스 복제본이 배치되는 애플리케이션 호스트를 나타내는 [애플리케이션 모델](service-fabric-application-model.md)을 제공합니다. 또한 Service Fabric은 기본 제공 Service Fabric 프로그래밍 모델을 사용하지 않고 대신 모든 언어 또는 프레임워크를 사용하여 컨테이너 내에서 작성된 기존 애플리케이션을 패키지하는 [게스트 실행 파일 시나리오](service-fabric-guest-executables-introduction.md)를 지원합니다. 이 시나리오는 컨테이너에 대한 일반 사용 사례입니다.
 

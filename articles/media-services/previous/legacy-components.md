@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: juliako
-ms.openlocfilehash: 94a70a1234d902787f248890f0cb538a4ba9c2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8d961ab58e900a6d619ec64297c783abdb7b6ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921082"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091694"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
 
@@ -34,13 +35,13 @@ WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프
  
 |미디어 프로세서 이름|사용 중지 날짜|추가적인 참고 사항|
 |---|---|
-|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)|2020 년 1 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 대체 되 고 있습니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.|
-|[Azure Media Indexer](media-services-index-content.md)|2023 년 3 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 대체 되 고 있습니다. 자세한 내용은 [Azure Media Indexer에서 Azure Media Services로 마이그레이션](migrate-indexer-v1-v2.md) 을 참조 하세요 Video Indexer|
+|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)|2020 년 1 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)으로 대체 되 고 있습니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.|
+|[Azure Media Indexer](media-services-index-content.md)|2023 년 3 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)으로 대체 되 고 있습니다. 자세한 내용은 [Azure Media Indexer에서 Azure Media Services로 마이그레이션](migrate-indexer-v1-v2.md) 을 참조 하세요 Video Indexer|
 |[동작 검색](media-services-motion-detection.md)|6 월 1 일, 2020|지금은 교체 계획이 없습니다.|
 |[비디오 요약](media-services-video-summarization.md)|6 월 1 일, 2020|지금은 교체 계획이 없습니다.|
-|[비디오 광학 문자 인식](media-services-video-optical-character-recognition.md)|6 월 1 일, 2020|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 대체 되 고 있습니다. 또한 [Azure Media Services V3 API](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 비교 및 Video Indexer를](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets) 참조 하세요.|
-|[얼굴 감지기](media-services-face-and-emotion-detection.md)|6 월 1 일, 2020|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 대체 되 고 있습니다. 또한 [Azure Media Services V3 API](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 비교 및 Video Indexer를](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets) 참조 하세요.|
-|[Content Moderator](media-services-content-moderation.md)|6 월 1 일, 2020|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 대체 되 고 있습니다. 또한 [Azure Media Services V3 API](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 비교 및 Video Indexer를](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets) 참조 하세요.|
+|[비디오 광학 문자 인식](media-services-video-optical-character-recognition.md)|6 월 1 일, 2020|이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)으로 대체 되 고 있습니다. 또한 [Azure Media Services V3 API](../latest/analyzing-video-audio-files-concept.md)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 비교 및 Video Indexer를](../video-indexer/compare-video-indexer-with-media-services-presets.md) 참조 하세요.|
+|[얼굴 감지기](media-services-face-and-emotion-detection.md)|6 월 1 일, 2020|이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)으로 대체 되 고 있습니다. 또한 [Azure Media Services V3 API](../latest/analyzing-video-audio-files-concept.md)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 비교 및 Video Indexer를](../video-indexer/compare-video-indexer-with-media-services-presets.md) 참조 하세요.|
+|[Content Moderator](media-services-content-moderation.md)|6 월 1 일, 2020|이 미디어 프로세서는 [Azure Media Services Video Indexer](../video-indexer/index.yml)으로 대체 되 고 있습니다. 또한 [Azure Media Services V3 API](../latest/analyzing-video-audio-files-concept.md)를 사용 하는 것이 좋습니다. <br/>[Azure Media Services v3 사전 설정 비교 및 Video Indexer를](../video-indexer/compare-video-indexer-with-media-services-presets.md) 참조 하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d6e60329f3c61811aa8a42528244b2883ff4b685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb1511736b993032df8ca52fac01243f1feafdf4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092391"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
-이 문서에서는 TPM (신뢰할 수 있는 플랫폼 모듈)을 사용 하 여 Linux IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다. [장치 프로 비전 서비스](../iot-dps/index.yml)에 Azure IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요.
+이 문서에서는 TPM (신뢰할 수 있는 플랫폼 모듈)을 사용 하 여 Linux IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다. [장치 프로 비전 서비스](../iot-dps/index.yml)를 사용 하 여 Azure IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요.
 
 작업은 다음과 같습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "85834100"
 >
 > 물리적 장치를 사용 하는 경우이 문서의 [물리적 장치에서 프로 비전 정보 검색](#retrieve-provisioning-information-from-a-physical-device) 섹션으로 건너뛸 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Hyper-V를 사용하도록 설정된](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
 * 활성 IoT Hub
@@ -55,7 +55,7 @@ ms.locfileid: "85834100"
 
 4. 새 가상 스위치에 이름을 지정합니다(예를 들어 **EdgeSwitch**). 연결 형식이 **외부 네트워크**에 설정되어 있는지 확인한 다음, **확인**을 선택합니다.
 
-5. 팝업은 네트워크 연결이 중단될 수 있다는 경고 메시지를 표시합니다. **예**를 선택하여 계속합니다.
+5. 팝업은 네트워크 연결이 중단될 수 있다는 경고 메시지를 표시합니다. 계속하려면 **예**를 선택합니다.
 
 새 가상 스위치를 만드는 동안 오류가 표시되는 경우 다른 스위치가 이더넷 어댑터를 사용하고 있지 않은지 그리고 동일한 이름을 사용하지 않는지 확인합니다.
 

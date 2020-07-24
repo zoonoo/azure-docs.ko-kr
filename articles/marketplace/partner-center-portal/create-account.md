@@ -3,21 +3,24 @@ title: 파트너 센터에서 상용 마켓플레이스 계정 만들기
 description: 파트너 센터에서 Microsoft 상업적 marketplace 계정을 만드는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: guide
-ms.date: 04/14/2020
-ms.openlocfilehash: 4a178feb4bdf0bc361185e21e47ccdceac3a7f21
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: 5a55d66bfed19f6d88d4ff13a9f59d7e791664cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092187"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 또는 [Microsoft AppSource](https://appsource.microsoft.com/)에 제품을 게시 하려면 파트너 센터의 상용 Marketplace 프로그램에서 계정을 만들어야 합니다. 이 문서에서는 파트너 센터 계정을 만드는 방법 및 새 게시자를 상업적 marketplace 프로그램에 추가 하는 방법을 설명 합니다.
 
 >[!IMPORTANT]
->파트너 센터로 이동 된 [Cloud 파트너 포털](https://cloudpartner.azure.com) 에 계정이 있는 경우 새 계정을 만들 필요가 없습니다. 자세한 내용은 [Cloud 파트너 포털에서 이동 하는 게시자의](#for-publishers-who-are-moving-from-the-cloud-partner-portal)경우를 참조 하세요.
+>상업적 marketplace에 제품을 게시 하려면 회사 또는 조직과 연결 된 회사 계정을 사용 해야 합니다. 개인 계정은 지원 되지 않습니다.
+
+>[!IMPORTANT]
+>Cloud 파트너 포털 (CPP)에 계정이 있는 경우 파트너 센터로 이동 했습니다. 새 계정을 만들 필요가 없습니다. 자세한 내용은 [Cloud 파트너 포털에서 이동한 게시자의](#for-publishers-who-moved-from-the-cloud-partner-portal)경우를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -43,7 +46,7 @@ ms.locfileid: "86110014"
 - [게시자 프로필 제공](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->파트너 센터로 이동 된 [Cloud 파트너 포털](https://cloudpartner.azure.com) 계정이 있으면 새 계정을 만들 필요가 없습니다. 자세한 내용은 [Cloud 파트너 포털에서 이동 하는 게시자의](#for-publishers-who-are-moving-from-the-cloud-partner-portal)경우를 참조 하세요.
+>Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습니다. 새 계정을 만들 필요가 없습니다. 자세한 내용은 [Cloud 파트너 포털에서 이동한 게시자의](#for-publishers-who-moved-from-the-cloud-partner-portal)경우를 참조 하세요.
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>파트너 센터 등록 페이지에 등록
 
@@ -94,7 +97,7 @@ Microsoft 파트너 센터에 이미 등록 되어 있는 경우이 섹션을 �
 계정 정보를 편리 하 게 사용할 수 있어야 합니다.
 
 >[!IMPORTANT]
->파트너 센터로 이동 된 [Cloud 파트너 포털](https://cloudpartner.azure.com/) 에 계정이 있는 경우 새 계정을 만들 필요가 없습니다. 자세한 내용은 [Cloud 파트너 포털에서 이동 하는 게시자의](#for-publishers-who-are-moving-from-the-cloud-partner-portal)경우를 참조 하세요.
+>Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습니다. 새 계정을 만들 필요가 없습니다. 자세한 내용은 [Cloud 파트너 포털에서 이동한 게시자의](#for-publishers-who-moved-from-the-cloud-partner-portal)경우를 참조 하세요.
 
 ### <a name="what-if-im-already-enrolled-in-the-microsoft-partner-network"></a>Microsoft 파트너 네트워크에 이미 등록 된 경우는 어떻게 되나요?
 
@@ -154,15 +157,13 @@ Microsoft 파트너 센터 계정으로 [파트너 센터](https://partner.micro
 
 이제 파트너 센터에서 상업적 marketplace 계정을 만들었습니다. 자세한 내용은 [상용 마켓플레이스 개요](./commercial-marketplace-overview.md)를 참조 하세요. 게시자를 추가 하는 방법에 대 한 도움말 [은 상업적 marketplace에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
 
-## <a name="for-publishers-who-are-moving-from-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 이동 하는 게시자의 경우
+## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 이동한 게시자의 경우
 
-계정이 [Cloud 파트너 포털](https://cloudpartner.azure.com)에서 마이그레이션된 경우 새 파트너 센터 계정을 만들 필요가 없습니다. 기존 Cloud 파트너 포털 계정에 로그인 한 후 새 파트너 센터 계정에 대 한 사용자 지정 링크를 전자 메일 및 배너 알림에 모두 받았습니다.
+Cloud 파트너 포털 계정이 있는 경우 파트너 센터로 이동 했습니다. 새 파트너 센터 계정을 만들 필요가 없습니다. 기존 Cloud 파트너 포털 계정에 로그인 한 후 새 파트너 센터 계정에 대 한 사용자 지정 링크를 전자 메일 및 배너 알림에 모두 받았습니다.
 
 사용자 지정 된 링크를 선택 하 고 새 파트너 센터 계정을 사용 하도록 설정한 후 파트너 센터의 [상용 마켓플레이스 대시보드로](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 이동 하 여 계정으로 돌아갈 수 있습니다.
 
-게시 계약과 회사 프로필 정보는 이전에 설정 된 계정 지급 프로필 정보, 사용자 계정 및 사용 권한, Cloud 파트너 포털 계정과 연결 된 활성 제품을 비롯 하 여 새 파트너 센터 계정으로 마이그레이션됩니다.
-
-계정 정보를 Cloud 파트너 포털에서 파트너 센터로 이동한 후에는 더 이상 Cloud 파트너 포털를 사용 하 여 계정 업데이트를 수행 하거나 사용자, 사용 권한 및 청구를 관리할 수 없습니다. 제한 된 시간 동안 파트너 센터에서 수행 하는 모든 계정 업데이트는 결국 사용이 중단 될 때까지 읽기 전용 Cloud 파트너 포털 계정에서 자동으로 업데이트 됩니다.
+게시 계약과 회사 프로필 정보는 이전에 설정 된 계정 지급 프로필 정보, 사용자 계정 및 사용 권한, Cloud 파트너 포털 계정과 연결 된 활성 제품을 비롯 하 여 새 파트너 센터 계정으로 전환 됩니다.
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>상용 marketplace 프로그램에 새 게시자 추가
 

@@ -3,11 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e04ef42971756cffe0906e1ddfb8406e876588bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 438a0513b6aceb876df4f9e3d0f4510c7cf8235e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092901"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성
 
@@ -20,7 +21,7 @@ ms.locfileid: "85800514"
 컨테이너에 대 한 Azure Monitor는 다음과 같은 지원 되는 메서드를 사용 하 여 새로운 또는 하나 이상의 기존 Azure Red Hat OpenShift 배포를 사용 하도록 설정할 수 있습니다.
 
 - Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 기존 클러스터의 경우
-- Azure Resource Manager 템플릿을 사용 하거나 [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create)를 사용 하 여 새 클러스터를 만드는 동안입니다.
+- Azure Resource Manager 템플릿을 사용 하거나 [Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create)를 사용 하 여 새 클러스터를 만드는 동안입니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원 되거나 지원 되지 않는 기능
 
@@ -29,7 +30,7 @@ ms.locfileid: "85800514"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
 
@@ -105,7 +106,7 @@ ms.locfileid: "85800514"
 
 - [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 1. 다음 명령을 사용 하 여 모니터링 추가 기능을 사용 하 여 클러스터를 만들려면 Azure Resource Manager 템플릿 및 매개 변수 파일을 다운로드 하 여 로컬 폴더에 저장 합니다.
 
@@ -192,7 +193,7 @@ Azure에 배포 된 Azure Red Hat OpenShift 클러스터의 모니터링을 사�
 
 - [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 1. 다음 명령을 사용 하 여 모니터링 추가 기능으로 클러스터를 업데이트 하려면 템플릿 및 매개 변수 파일을 다운로드 합니다.
 
@@ -242,4 +243,4 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 - 클러스터에서 프로메테우스 메트릭을 스크랩 하 고 분석 하려면 [프로메테우스 메트릭 구성](container-insights-prometheus-integration.md) 을 검토 하세요.
 
-- 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법](container-insights-optout-openshift.md)을 참조 하세요.
+- 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법](./container-insights-optout-openshift-v3.md)을 참조 하세요.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091796"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인 
 
@@ -95,15 +95,15 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 
 이전 섹션의 설명에 따라 다음과 같은 5 가지 하이브리드 시나리오에서는 각 **콘텐츠 키** - **자산 배달 정책** 구성 조합을 사용 합니다 (마지막 열에 언급 된 샘플은 테이블을 따름).
 
-|**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 배달 정책 구성**|**예제**|
+|**콘텐츠 호스팅 및 원본**|**DRM 암호화**|**DRM 라이선스 배달**|**콘텐츠 키 구성**|**자산 배달 정책 구성**|**샘플**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|예|예|샘플 1|
 |AMS|AMS|타사|예|예|샘플 2|
-|AMS|타사|AMS|예|아니요|샘플 3|
-|AMS|타사|외부|아니요|아니요|샘플 4|
-|타사|타사|AMS|예|아니요|    
+|AMS|타사|AMS|예|예|샘플 3|
+|AMS|타사|외부|예|예|샘플 4|
+|타사|타사|AMS|예|예|    
 
-샘플에서 PlayReady 보호는 DASH 및 부드러운 스트리밍 모두에서 작동합니다. 아래의 비디오 URL은 부드러운 스트리밍 URL입니다. 해당 DASH URL을 얻으려면 "(format=mpd-time-csf)"를 추가합니다. [azure media test player](https://aka.ms/amtest)를 사용하여 브라우저에서 테스트할 수 있습니다. 그러면 어떤 기술에서 사용할 스트리밍 프로토콜을 구성할 수 있습니다. Windows 10의 IE11 및 Microsoft Edge는 EME를 통해 PlayReady를 지원합니다. 자세한 내용은 [테스트 도구에 대한 세부 정보(영문)](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)를 참조하세요.
+샘플에서 PlayReady 보호는 DASH 및 부드러운 스트리밍 모두에서 작동합니다. 아래의 비디오 URL은 부드러운 스트리밍 URL입니다. 해당 DASH URL을 얻으려면 "(format=mpd-time-csf)"를 추가합니다. [azure media test player](https://aka.ms/amtest)를 사용하여 브라우저에서 테스트할 수 있습니다. 그러면 어떤 기술에서 사용할 스트리밍 프로토콜을 구성할 수 있습니다. Windows 10의 IE11 및 Microsoft Edge는 EME를 통해 PlayReady를 지원합니다. 자세한 내용은 [테스트 도구에 대한 세부 정보(영문)](/azure/media-services/previous/offline-playready-streaming-windows-10)를 참조하세요.
 
 ### <a name="sample-1"></a>샘플 1
 
@@ -142,4 +142,3 @@ Media Services 학습 경로 보기.
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

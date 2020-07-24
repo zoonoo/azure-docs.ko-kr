@@ -9,11 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f08352d4a79b8c27b2c163516f44edf578fbe3a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835634"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092646"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
 OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.
@@ -31,7 +32,7 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 2. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 osFamily의 값이 없습니다. 현재, 이 경우 시스템은 "1"의 기본값을 사용합니다.
 3. Azure Portal은 게스트 운영 체제 제품군 값을 "Windows Server 2008"로 표시합니다.
 
-어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azureps-cmdlets-docs) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)을 참조하세요.
+어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azure/) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)을 참조하세요.
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
