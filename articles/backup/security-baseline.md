@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a7d12a2be7f2e3d3556d6c8c3303b2ddb8b8738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 999c443a63ceb2ebb59fc0de72ecb09d1ccc3905
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503492"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062614"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -480,7 +480,7 @@ Microsoft는 Azure Backup에 대 한 기본 인프라를 관리 하 고, 고객 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: azure RBAC (역할 기반 Access Control)를 사용 하면 azure에 대 한 세밀 한 액세스 관리가 가능 합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)는 azure에 대 한 세밀 한 액세스 관리를 가능 하 게 합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
 Azure Backup 백업 관리 작업을 제어 하기 위한 세 가지 기본 제공 역할인 백업 참여자, 백업 운영자 및 백업 판독기를 제공 합니다. 백업 기본 제공 역할을 다양 한 백업 관리 작업에 매핑할 수 있습니다.
 

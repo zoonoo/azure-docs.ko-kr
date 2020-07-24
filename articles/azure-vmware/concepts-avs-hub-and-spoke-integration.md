@@ -3,16 +3,16 @@ title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 (AV
 description: Azure에서 기존 또는 새 허브 및 스포크 아키텍처에 Azure VMware 솔루션 (AVS) 배포를 통합 하기 위한 권장 사항에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 82937e04fc0a5101c353702b92b6b068d027d7ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d95ed81c5188eab0dc508f5320549c4a402e151
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85375005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062921"
 ---
 # <a name="integrate-azure-vmware-solution-avs-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 (AVS) 통합
 
-이 문서에서는 azure에서 기존 또는 새 [허브 및 스포크 아키텍처](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services) 의 Azure VMware 솔루션 (AVS) 배포를 통합 하기 위한 권장 사항을 제공 합니다. 
+이 문서에서는 azure에서 기존 또는 새 [허브 및 스포크 아키텍처](/azure/architecture/reference-architectures/hybrid-networking/shared-services) 의 Azure VMware 솔루션 (AVS) 배포를 통합 하기 위한 권장 사항을 제공 합니다. 
 
 허브 및 스포크 시나리오에서는 하이브리드 클라우드 환경에서 워크 로드를 사용 한다고 가정 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "85375005"
 
 *허브* 는 온-프레미스 및 AVS 사설 클라우드에 대 한 중앙 연결의 역할을 하는 Azure Virtual Network입니다. *스포크* 는 가상 네트워크를 허브와 피어 링 하 여 가상 네트워크 간 통신을 가능 하 게 합니다.
 
-온-프레미스 데이터 센터, AVS 사설 클라우드 및 허브 간의 트래픽은 Express 경로 연결을 통해 진행 됩니다. 스포크 가상 네트워크는 일반적으로 IaaS 기반 워크 로드를 포함 하지만 Virtual Network와 직접 통합 되거나 [Azure 개인 링크](https://docs.microsoft.com/azure/private-link/) 를 사용 하는 다른 paas 서비스를 사용 하는 [App Service Environment](../app-service/environment/intro.md)와 같은 paas 서비스를 사용할 수 있습니다. 
+온-프레미스 데이터 센터, AVS 사설 클라우드 및 허브 간의 트래픽은 Express 경로 연결을 통해 진행 됩니다. 스포크 가상 네트워크는 일반적으로 IaaS 기반 워크 로드를 포함 하지만 Virtual Network와 직접 통합 되거나 [Azure 개인 링크](../private-link/index.yml) 를 사용 하는 다른 paas 서비스를 사용 하는 [App Service Environment](../app-service/environment/intro.md)와 같은 paas 서비스를 사용할 수 있습니다. 
 
 이 다이어그램에서는 Azure에서 Express 경로를 통해 온-프레미스 및 AVS에 연결 된 허브 및 스포크 배포의 예를 보여 줍니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "85375005"
 
     -   **IaaS 스포크:** IaaS 스포크는 VM 가용성 집합, 가상 머신 확장 집합 및 해당 하는 네트워크 구성 요소를 포함 하 여 Azure IaaS 기반 워크 로드를 호스팅합니다.
 
-    -   **PaaS 스포크:** PaaS 스포크는 개인 [끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 및 개인 [링크](https://docs.microsoft.com/azure/private-link/private-link-overview)를 사용 하 여 개인 주소 지정을 통해 Azure PaaS 서비스를 호스팅합니다.
+    -   **PaaS 스포크:** PaaS 스포크는 개인 [끝점](../private-link/private-endpoint-overview.md) 및 개인 [링크](../private-link/private-link-overview.md)를 사용 하 여 개인 주소 지정을 통해 Azure PaaS 서비스를 호스팅합니다.
 
 -   **Azure 방화벽:** 스포크, 온-프레미스 및 AVS 간에 트래픽을 분할 하는 중심의 역할을 합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "85375005"
 
 ## <a name="network-and-security-considerations"></a>네트워크 및 보안 고려 사항
 
-Express 경로 연결을 사용 하면 온-프레미스, AVS 및 Azure 네트워크 패브릭 간에 트래픽을 전달할 수 있습니다. AVS는 [express 경로 Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 를 사용 하 여이 연결을 구현 합니다.
+Express 경로 연결을 사용 하면 온-프레미스, AVS 및 Azure 네트워크 패브릭 간에 트래픽을 전달할 수 있습니다. AVS는 [express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 를 사용 하 여이 연결을 구현 합니다.
 
 온-프레미스 연결은 Express 경로 Global Reach를 사용할 수 있지만 필수는 아닙니다.
 
@@ -72,11 +72,11 @@ Express 경로 연결을 사용 하면 온-프레미스, AVS 및 Azure 네트워
   :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="AVS에서 허브로의 가상 네트워크 트래픽 흐름":::
 
 
-Avs [제품 설명서](https://docs.microsoft.com/azure/azure-vmware/concepts-networking)에서 avs 네트워킹 및 상호 연결과 개념에 대 한 자세한 내용을 찾을 수 있습니다.
+Avs [제품 설명서](./concepts-networking.md)에서 avs 네트워킹 및 상호 연결과 개념에 대 한 자세한 내용을 찾을 수 있습니다.
 
 ### <a name="traffic-segmentation"></a>트래픽 조각화
 
-[Azure 방화벽](https://docs.microsoft.com/azure/firewall/) 은 허브 및 스포크 토폴로지의 중앙 조각으로, 허브 가상 네트워크에 배포 됩니다. Azure 방화벽 또는 다른 Azure 지원 네트워크 가상 어플라이언스를 사용 하 여 트래픽 규칙을 설정 하 고 여러 스포크, 온-프레미스 및 AVS 작업 간의 통신을 분할 합니다.
+[Azure 방화벽](../firewall/index.yml) 은 허브 및 스포크 토폴로지의 중앙 조각으로, 허브 가상 네트워크에 배포 됩니다. Azure 방화벽 또는 다른 Azure 지원 네트워크 가상 어플라이언스를 사용 하 여 트래픽 규칙을 설정 하 고 여러 스포크, 온-프레미스 및 AVS 작업 간의 통신을 분할 합니다.
 
 경로 테이블을 만들어 트래픽을 Azure 방화벽으로 보냅니다.  스포크 가상 네트워크의 경우에는 Azure 방화벽의 내부 인터페이스로 기본 경로를 설정 하는 경로를 만듭니다. 이렇게 하면 Virtual Network의 워크 로드가 해당 워크 로드에서 사용할 수 있는 AVS 주소 공간에 도달 하 여이를 허용 하거나 거부할 수 있습니다.  
 
@@ -104,7 +104,7 @@ Azure 애플리케이션 Gateway V1 및 V2는 백 엔드 풀로 AVS Vm에서 실
 
 허브 가상 네트워크 내의 공유 서비스 서브넷에 배포 된 Windows 10 또는 Windows Server VM 인 Jumpbox를 사용 하 여 AVS 환경에 액세스 합니다.
 
-보안 모범 사례에 따라 허브 가상 네트워크 내에 [Microsoft Azure 방호](https://docs.microsoft.com/azure/bastion/) 서비스를 배포 합니다. Azure 방호는 이러한 리소스에 공용 IP 주소를 프로 비전 할 필요 없이 Azure에 배포 된 Vm에 대 한 원활한 RDP 및 SSH 액세스를 제공 합니다. Azure 방호 서비스를 프로 비전 하 고 나면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정한 후 새 탭이 열리고 Jumpbox 데스크톱이 표시 되 고 해당 데스크톱에서 AVS 사설 클라우드 관리 평면에 액세스할 수 있습니다.
+보안 모범 사례에 따라 허브 가상 네트워크 내에 [Microsoft Azure 방호](../bastion/index.yml) 서비스를 배포 합니다. Azure 방호는 이러한 리소스에 공용 IP 주소를 프로 비전 할 필요 없이 Azure에 배포 된 Vm에 대 한 원활한 RDP 및 SSH 액세스를 제공 합니다. Azure 방호 서비스를 프로 비전 하 고 나면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정한 후 새 탭이 열리고 Jumpbox 데스크톱이 표시 되 고 해당 데스크톱에서 AVS 사설 클라우드 관리 평면에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
 > 공용 IP 주소를 Jumpbox VM에 제공 하거나 3389/TCP 포트를 공용 인터넷에 노출 하지 마십시오. 
@@ -137,21 +137,19 @@ Azure의 Azure 사설 DNS 영역에 대해 Azure의 확인자 Vm에 대 한 조�
 
 ## <a name="identity-considerations"></a>Id 고려 사항
 
-Id를 사용 하는 경우 가장 좋은 방법은 공유 서비스 서브넷을 사용 하 여 허브에 하나 이상의 AD 도메인 컨트롤러를 배포 하는 것입니다 .이 두 가지는 영역 분산 방식 또는 VM 가용성 집합입니다. 온-프레미스 AD 도메인을 Azure로 확장 [Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain) 를 참조 하세요.
+Id를 사용 하는 경우 가장 좋은 방법은 공유 서비스 서브넷을 사용 하 여 허브에 하나 이상의 AD 도메인 컨트롤러를 배포 하는 것입니다 .이 두 가지는 영역 분산 방식 또는 VM 가용성 집합입니다. 온-프레미스 AD 도메인을 Azure로 확장 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/identity/adds-extend-domain) 를 참조 하세요.
 
 또한 vSphere 환경 내에서 id 및 DNS 원본으로 작동 하도록 AVS 쪽의 다른 도메인 컨트롤러를 배포 합니다.
 
 VCenter 및 SSO의 경우 id id 원본 관리의 Azure Portal에서 id 소스를 설정 합니다 ** \> \> **.
 
-권장 되는 최선의 방법은 [AD 도메인을 Azure Active Directory와](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad)통합 하는 것입니다.
+권장 되는 최선의 방법은 [AD 도메인을 Azure Active Directory와](/azure/architecture/reference-architectures/identity/azure-ad)통합 하는 것입니다.
 
 <!-- LINKS - external -->
-[Azure Architecture Center]: https://docs.microsoft.com/azure/architecture/
+[Azure Architecture Center]: /azure/architecture/
 
-[Hub & Spoke topology]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Hub & Spoke topology]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 
-[Azure networking documentation]: https://docs.microsoft.com/azure/networking/
+[Azure networking documentation]: ../networking/index.yml
 
 <!-- LINKS - internal -->
-
-

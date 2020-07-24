@@ -2,13 +2,13 @@
 title: 새 구독 또는 리소스 그룹으로 Azure Vm 이동
 description: Azure Resource Manager를 사용 하 여 가상 컴퓨터를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/21/2020
+ms.openlocfilehash: e812f2cee44fc48dccbd8ab66a3343e087790803
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044552"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063095"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>가상 컴퓨터에 대 한 이동 지침
 
@@ -20,7 +20,7 @@ ms.locfileid: "86044552"
 
 * 가용성 영역 Managed Disks은 다른 구독으로 이동할 수 없습니다.
 * 표준 SKU Load Balancer 또는 표준 SKU 공용 IP를 사용 하는 Virtual Machine Scale Sets는 이동할 수 없습니다.
-* 연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독에서 가상 컴퓨터의 프로 비전을 해제 하 고 새 구독에 다시 배포 합니다.
+* 요금제가 연결 된 Marketplace 리소스에서 만든 가상 머신은 구독 간에 이동할 수 없습니다. 현재 구독에서 가상 컴퓨터의 프로 비전을 해제 하 고 새 구독에 다시 배포 합니다.
 * 가상 네트워크의 모든 리소스를 이동 하지 않는 경우 기존 가상 네트워크의 가상 컴퓨터를 새 구독으로 이동할 수 없습니다.
 * 낮은 우선 순위의 가상 컴퓨터 및 우선 순위가 낮은 가상 컴퓨터 크기 집합은 리소스 그룹 또는 구독 간에 이동할 수 없습니다.
 * 가용성 집합의 가상 머신은 개별적으로 이동할 수 없습니다.

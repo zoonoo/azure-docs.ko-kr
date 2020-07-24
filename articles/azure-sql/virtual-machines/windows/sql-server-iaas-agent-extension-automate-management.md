@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 67df782cf8044593859e7761278d93187d258d26
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 638a7fa96f4112f9805fd46618dc0acd1c2f382f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231945"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063238"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 Azure 가상 머신에서 관리 작업 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,7 +71,7 @@ SQL Server Iaas 에이전트 확장이 설치되고 실행되면 다음에서 �
 
 **Azure PowerShell**:
 
-* [최신 Azure PowerShell 명령 다운로드 및 구성](/powershell/azure/overview)
+* [최신 Azure PowerShell 명령 다운로드 및 구성](/powershell/azure/)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: d98ddbb09ac4f1f933237b3288db7a0cb78380b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6408f8c08694ae681d302ae35f5778894091733
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652048"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063625"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI 요소
 
@@ -19,11 +20,11 @@ ms.locfileid: "75652048"
 
 사용자에게는 요소 정의의 기본 값을 포함한 선택기가 표시됩니다.
 
-![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft-compute-sizeselector.png)
 
 컨트롤을 선택한 후에 사용자에게는 지원되는 크기의 확장된 보기가 표시됩니다.
 
-![Microsoft.Compute.SizeSelector expanded](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
+![Microsoft.Compute.SizeSelector expanded](./media/managed-application-elements/microsoft-compute-sizeselector-expanded.png)
 
 ## <a name="schema"></a>스키마
 

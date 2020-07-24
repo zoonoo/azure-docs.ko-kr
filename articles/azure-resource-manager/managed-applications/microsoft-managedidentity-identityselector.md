@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
-ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91e3cd0b99825fd72eb342ce7a8555b046455538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77087545"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063359"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.managedidentity IdentitySelector UI 요소
 
@@ -19,15 +20,15 @@ ms.locfileid: "77087545"
 
 컨트롤은 다음 요소로 구성 됩니다.
 
-![Microsoft.managedidentity. IdentitySelector first step](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Microsoft.managedidentity. IdentitySelector first step](./media/managed-application-elements/microsoft-managedidentity-identityselector-1.png)
 
 사용자가 **추가**를 선택 하면 다음 양식이 열립니다. 사용자는 리소스에 대해 사용자 할당 id를 하나 이상 선택할 수 있습니다.
 
-![Microsoft.managedidentity. IdentitySelector second 단계](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Microsoft.managedidentity. IdentitySelector second 단계](./media/managed-application-elements/microsoft-managedidentity-identityselector-2.png)
 
 선택한 id가 테이블에 표시 됩니다. 사용자는이 테이블에서 항목을 추가 하거나 삭제할 수 있습니다.
 
-![Microsoft.managedidentity. IdentitySelector 3 단계](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Microsoft.managedidentity. IdentitySelector 3 단계](./media/managed-application-elements/microsoft-managedidentity-identityselector-3.png)
 
 ## <a name="schema"></a>스키마
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258204"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062055"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -23,7 +23,7 @@ Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍**�
 
 ## <a name="digital-twins"></a>디지털 쌍
 
-Azure Digital Twins 인스턴스에서 디지털 쌍을 만들려면 먼저 서비스에 *모델* 을 업로드 해야 합니다. 모델은 특정 쌍에 포함 될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명 합니다. 모델에 정의 된 정보 유형은 [개념: 사용자 지정 모델](concepts-models.md)을 참조 하세요.
+Azure Digital Twins 인스턴스에서 디지털 쌍을 만들려면 먼저 서비스에 *모델* 을 업로드 해야 합니다. 모델은 특정 쌍에 포함 될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명 합니다. 모델에 정의 된 정보 유형은 [*개념: 사용자 지정 모델*](concepts-models.md)을 참조 하세요.
 
 모델을 만들고 업로드 한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 디지털 쌍입니다. 예를 들어 *바닥*의 모델을 만든 후이 유형을 사용 하는 하나 또는 여러 개의 디지털 쌍을 만들 수 있습니다 (예: *GroundFloor*이라는 *Floor*쌍, *Floor2*라는 다른 유형의 쌍). 
 
@@ -197,8 +197,8 @@ JSON 개체로 형식이 지정 된 관계의 예는 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 
 Azure 디지털 쌍 Api를 사용 하 여 그래프 요소를 관리 하는 방법을 참조 하세요.
-* [방법: digital 쌍 관리](how-to-manage-twin.md)
-* [방법: 관계로 쌍 그래프 관리](how-to-manage-graph.md)
+* [*방법: digital 쌍 관리*](how-to-manage-twin.md)
+* [*방법: 관계로 쌍 그래프 관리*](how-to-manage-graph.md)
 
 또는 정보에 대 한 Azure Digital Twins 쌍 그래프를 쿼리 하는 방법에 대해 알아봅니다.
-* [개념: 쿼리 언어](concepts-query-language.md)
+* [*개념: 쿼리 언어*](concepts-query-language.md)
