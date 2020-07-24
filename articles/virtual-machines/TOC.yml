@@ -1,29 +1,29 @@
 - name: Virtual Machines 설명서
   href: index.yml
 - name: Azure의 Linux Virtual Machines
-  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/'
+  href: ./linux/index.yml
 - name: Azure의 Windows Virtual Machines
-  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/'
+  href: ./windows/index.yml
 - name: VM 확장 설명서
   href: ./extensions/overview.md
 - name: 워크로드
   items:
     - name: Red Hat
-      href: ./workloads/redhat/redhat-overview.md
+      href: ./workloads/redhat/overview.md
     - name: 고성능 컴퓨팅
       href: ./workloads/hpc/overview.md
     - name: SAP
       href: ./workloads/sap/get-started.md
     - name: Oracle
-      href: ./workloads/oracle/oracle-considerations.md
+      href: ./workloads/oracle/oracle-overview.md
     - name: 메인프레임 재호스팅
       href: ./workloads/mainframe-rehosting/overview.md
 - name: 클래식 배포
   items:
     - name: 클래식 배포를 사용하는 Linux VM
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/'
+      href: /previous-versions/azure/virtual-machines/linux/classic/
     - name: 클래식 배포를 사용하는 Windows VM
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/'
+      href: /previous-versions/azure/virtual-machines/windows/classic/
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

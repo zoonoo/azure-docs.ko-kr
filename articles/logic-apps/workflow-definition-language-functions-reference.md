@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 998c286cb5faa9f29d8e4687260440c578b5622b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 1a5b5ff535b2a0ca84831e8d4c42e80a72395b02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048259"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1686,8 +1686,7 @@ decodeUriComponent('http%3A%2F%2Fcontoso.com')
 
 ### <a name="div"></a>div
 
-두 숫자를 나눈 정수 결과를 반환합니다.
-나머지 결과를 얻으려면 [mod()](#mod)를 참조하세요.
+두 숫자를 나눈 결과를 반환합니다. 나머지 결과를 얻으려면 [mod()](#mod)를 참조하세요.
 
 ```
 div(<dividend>, <divisor>)
@@ -1701,19 +1700,26 @@ div(<dividend>, <divisor>)
 
 | 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | 정수 | 첫 번째 숫자를 두 번째 숫자로 나눈 정수 결과 |
+| <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제 수가 Float 형식인 경우 결과에는 Float 형식이 있습니다. <p><p>**참고**: float 결과를 정수로 변환 하려면 논리 앱에서 [Azure 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요. |
 ||||
 
-*예제*
+*예제 1*
 
-두 예제 모두 첫 번째 숫자를 두 번째 숫자로 나눕니다.
+두 예제 모두 정수 형식으로이 값을 반환 합니다.`2`
 
 ```
-div(10, 5)
-div(11, 5)
+div(10,5)
+div(11,5)
 ```
 
-그리고 다음 결과를 반환합니다. `2`
+*예제 2*
+
+두 예제 모두 Float 형식으로이 값을 반환 합니다.`2.2`
+
+```
+div(11,5.0)
+div(11.0,5)
+```
 
 <a name="encodeUriComponent"></a>
 
@@ -2086,7 +2092,7 @@ formatNumber(17.36, 'C2', 'is-is')
 getFutureTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | Description |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | 예 | 정수 | 더할 지정한 시간 단위 수 |
 | <*timeUnit*> | 예 | String | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” |
@@ -3016,7 +3022,7 @@ not(<expression>)
 
 | 매개 변수 | 필수 | 형식 | 설명 |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | 예 | 부울 | 검사할 식 |
+| <*expression*> | 예 | Boolean | 검사할 식 |
 |||||
 
 | 반환 값 | Type | 설명 |
@@ -3065,7 +3071,7 @@ or(<expression1>, <expression2>, ...)
 
 | 매개 변수 | 필수 | 형식 | 설명 |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | 예 | 부울 | 검사할 식 |
+| <*expression1*>, <*expression2*>, ... | 예 | Boolean | 검사할 식 |
 |||||
 
 | 반환 값 | Type | 설명 |
@@ -3249,7 +3255,7 @@ range(<startIndex>, <count>)
 | <*count*> | 예 | 정수 | 배열에 있는 정수의 숫자 |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | [<*range-result*>] | Array | 지정한 인덱스에서 시작하는 정수를 포함하는 배열 |
 ||||
@@ -3403,7 +3409,7 @@ removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "A
 result('<scopedActionName>')
 ```
 
-| 매개 변수 | 필수 | 형식 | Description |
+| 매개 변수 | 필수 | 형식 | 설명 |
 | --------- | -------- | ---- | ----------- |
 | <*scopedActionName*> | 예 | String | 모든 내부 작업의 입력과 출력을 반환할 범위가 지정된 작업의 이름입니다. |
 ||||
@@ -3868,13 +3874,13 @@ string( { "name": "Sophie Owen" } )
 sub(<minuend>, <subtrahend>)
 ```
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | Description |
 | --------- | -------- | ---- | ----------- |
 | <*minuend*> | 예 | 정수 또는 부동 소수점 수 | *감수*를 뺄 수 |
 | <*subtrahend*> | 예 | 정수 또는 부동 소수점 수 | *피감수*에서 뺄 수 |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | <*result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자에서 두 번째 숫자를 뺀 결과 |
 ||||
@@ -4099,7 +4105,7 @@ toUpper('Hello World')
 trigger()
 ```
 
-| 반환 값 | Type | Description |
+| 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
 | <*trigger-output*> | String | 런타임 시 트리거의 출력 |
 ||||
@@ -4136,7 +4142,7 @@ triggerFormDataMultiValues('<key>')
 | <*key*> | 예 | String | 해당 값을 원하는 키의 이름 |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | [<*array-with-key-values*>] | Array | 지정한 키와 일치하는 모든 값을 가진 배열 |
 ||||
@@ -4197,7 +4203,7 @@ triggerMultipartBody(<index>)
 | <*index*> | 예 | 정수 | 원하는 부분에 대한 인덱스 값 |
 |||||
 
-| 반환 값 | Type | Description |
+| 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
 | <*body*> | String | 트리거의 다중 부분 출력에서 지정한 부분에 대한 본문 |
 ||||
@@ -4214,7 +4220,7 @@ triggerMultipartBody(<index>)
 triggerOutputs()
 ```
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | <*trigger-output*> | String | 런타임 시 트리거의 출력  |
 ||||
@@ -4328,7 +4334,7 @@ uriComponentToBinary('<value>')
 | <*value*> | 예 | String | 변환할 URI 인코딩된 문자열 |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | <*binary-for-encoded-uri*> | String | URI 인코딩된 문자열에 대한 이진 버전 이진 콘텐츠는 base64로 인코딩되며 `$content`에 의해 표시됩니다. |
 ||||
@@ -4363,7 +4369,7 @@ uriComponentToString('<value>')
 | <*value*> | 예 | String | 디코딩할 URI 인코딩된 문자열 |
 |||||
 
-| 반환 값 | Type | Description |
+| 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
 | <*decoded-uri*> | String | URI 인코딩된 문자열에 대한 디코딩된 버전 |
 ||||
@@ -4423,7 +4429,7 @@ uriPath('<uri>')
 | <*uri*> | 예 | String | 해당 `path` 값을 원하는 URI |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | <*path-value*> | String | 지정한 URI에 대한 `path` 값입니다. `path`가 값을 포함하지 않은 경우 "/" 문자를 반환합니다. |
 ||||
@@ -4453,7 +4459,7 @@ uriPathAndQuery('<uri>')
 | <*uri*> | 예 | String | 해당 `path` 및 `query` 값을 원하는 URI |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | <*path-query-value*> | String | 지정한 URI에 대한 `path` 및 `query` 값입니다. `path`에 값을 지정하지 않은 경우 "/" 문자를 반환합니다. |
 ||||
@@ -4483,7 +4489,7 @@ uriPort('<uri>')
 | <*uri*> | 예 | String | 해당 `port` 값을 원하는 URI |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | <*port-value*> | 정수 | 지정한 URI에 대한 `port` 값입니다. `port`에 값을 지정하지 않은 경우 프로토콜에 대한 기본 포트를 반환합니다. |
 ||||
@@ -4513,7 +4519,7 @@ uriQuery('<uri>')
 | <*uri*> | 예 | String | 해당 `query` 값을 원하는 URI |
 |||||
 
-| 반환 값 | Type | 설명 |
+| 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
 | <*query-value*> | String | 지정한 URI에 대한 `query` 값 |
 ||||
@@ -4613,7 +4619,7 @@ utcNow('D')
 variables('<variableName>')
 ```
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | Description |
 | --------- | -------- | ---- | ----------- |
 | <*variableName*> | 예 | String | 해당 값을 원하는 변수의 이름 |
 |||||

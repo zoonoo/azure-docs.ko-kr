@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 14ff1a00b40d956f369b1978f15f01f113c50270
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050143"
 ---
 # <a name="keys-and-values"></a>키 및 값
 
@@ -77,7 +77,7 @@ App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 �
 
 각 키 값은 해당 키와 `null`일 수 있는 레이블로 고유하게 식별됩니다. 패턴을 지정하여 App Configuration 저장소에 키 값을 쿼리합니다. App Configuration 저장소는 패턴, 해당 값 및 특성과 일치하는 모든 키 값을 반환합니다. App Configuration에 대한 REST API 호출에서 사용하는 키 패턴은 다음과 같습니다.
 
-| Key | |
+| 키 | 설명 |
 |---|---|
 | `key`은 생략 또는 `key=*` | 모든 키와 일치 |
 | `key=abc` | **abc** 키 이름과 정확하게 일치 |
@@ -86,7 +86,7 @@ App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 �
 
 또한 포함할 수 있는 레이블 패턴은 다음과 같습니다.
 
-| 레이블 | |
+| 레이블 | Description |
 |---|---|
 | `label`은 생략 또는 `label=*` | `null`을 포함하는 모든 레이블과 일치 |
 | `label=%00` | `null` 레이블과 일치 |

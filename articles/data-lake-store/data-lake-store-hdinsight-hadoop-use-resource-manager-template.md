@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 593edecd2cc1bbdd3627430af41c64be4d6a022b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c54738b1ab3c90118c86bbf78bdcc3348658e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048709"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **1.0 이상 Azure PowerShell**합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+* **1.0 이상 Azure PowerShell**합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 * **Azure Active Directory 서비스 주체**입니다. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
 
     **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1과 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.

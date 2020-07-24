@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987618"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048663"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Azure Service Bus에서 Azure Logic Apps 순차 호위 (convoy)를 사용 하 여 관련 메시지 보내기
 
-특정 순서로 상관 관계가 지정 된 메시지를 보내야 하는 경우 [Azure Service Bus 커넥터](../connectors/connectors-create-api-servicebus.md)를 사용 하 여 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용할 때 [ *순차 호위 (convoy* ) 패턴](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) 을 따를 수 있습니다. 상관 관계가 지정 된 메시지에는 Service Bus [세션](../service-bus-messaging/message-sessions.md) 의 ID와 같은 해당 메시지 간의 관계를 정의 하는 속성이 있습니다.
+특정 순서로 상관 관계가 지정 된 메시지를 보내야 하는 경우 [Azure Service Bus 커넥터](../connectors/connectors-create-api-servicebus.md)를 사용 하 여 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용할 때 [ *순차 호위 (convoy* ) 패턴](/azure/architecture/patterns/sequential-convoy) 을 따를 수 있습니다. 상관 관계가 지정 된 메시지에는 Service Bus [세션](../service-bus-messaging/message-sessions.md) 의 ID와 같은 해당 메시지 간의 관계를 정의 하는 속성이 있습니다.
 
 예를 들어 "Session 1" 이라는 세션에 대해 10 개의 메시지가 있고 모두 동일한 [Service Bus 큐](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)에 전송 되는 "session 2" 라는 세션에 대해 5 개의 메시지가 있다고 가정 합니다. 큐에서 메시지를 처리 하는 논리 앱을 만들어 "세션 1"의 모든 메시지가 단일 트리거 실행에 의해 처리 되 고 "Session 2"의 모든 메시지가 다음 트리거 실행에 의해 처리 되도록 할 수 있습니다.
 
@@ -28,9 +29,9 @@ ms.locfileid: "84987618"
 
 이 템플릿의 JSON 파일을 검토 하려면 [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json)을 참조 하세요.
 
-자세한 내용은 [순차 호위 (convoy) 패턴-Azure 아키텍처 클라우드 디자인 패턴](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy)을 참조 하세요.
+자세한 내용은 [순차 호위 (convoy) 패턴-Azure 아키텍처 클라우드 디자인 패턴](/azure/architecture/patterns/sequential-convoy)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -192,7 +193,7 @@ ms.locfileid: "84987618"
   > [!NOTE]
   > 처음에는 논리 앱이 예상 보다 더 자주 실행 되지 않고 예상치 못한 청구 요금이 발생 하도록 폴링 간격이 3 분으로 설정 됩니다. 메시지 도착 시 논리 앱이 즉시 트리거되는 간격 및 빈도를 30 초로 설정 하는 것이 가장 좋습니다.
 
-  | 속성 | 이 시나리오에 필요 합니다. | 값 | 설명 |
+  | 속성 | 이 시나리오에 필요 합니다. | Value | 설명 |
   |----------|----------------------------|-------|-------------|
   | **큐 이름** | 예 | <*큐 이름*> | 이전에 만든 Service Bus 큐의 이름입니다. 이 예에서는 "Fabrikam-Service-Bus-큐"를 사용 합니다. |
   | **큐 유형** | 예 | **기본** | 기본 Service Bus 큐 |
@@ -201,7 +202,7 @@ ms.locfileid: "84987618"
   | **빈도** | 예 | **초**, **분**, **시간**, **일**, **주** 또는 **월** | 메시지를 확인할 때 되풀이가 사용 되는 시간 단위입니다. <p>**팁**: **표준 시간대** 또는 **시작 시간**을 추가 하려면 **새 매개 변수 추가** 목록에서 이러한 속성을 선택 합니다. |
   |||||
 
-  자세한 트리거 정보는 [Service Bus-큐에 메시지가 수신 되는 경우 (보기-잠금)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock))를 참조 하세요. 트리거는 [Servicebusmessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage)를 출력 합니다.
+  자세한 트리거 정보는 [Service Bus-큐에 메시지가 수신 되는 경우 (보기-잠금)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock))를 참조 하세요. 트리거는 [Servicebusmessage](/connectors/servicebus/#servicebusmessage)를 출력 합니다.
 
 세션을 초기화 한 후 워크플로는 **변수 초기화** 작업을 사용 하 여 처음에로 설정 된 부울 변수를 만들고 `false` 다음 조건이 true 인 경우를 나타냅니다. 
 
@@ -421,4 +422,4 @@ ms.locfileid: "84987618"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Service Bus 커넥터의 트리거 및 작업](https://docs.microsoft.com/connectors/servicebus/) 에 대 한 자세한 정보
+* [Service Bus 커넥터의 트리거 및 작업](/connectors/servicebus/) 에 대 한 자세한 정보

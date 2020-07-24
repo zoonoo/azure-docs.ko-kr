@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111272"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050038"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Azure Policy를 사용하여 대규모로 클러스터 구성 대규모(미리 보기)
 
@@ -23,6 +23,10 @@ Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리�
 
 각 클러스터에 대한 진실 공급원으로 여러 Git 리포지토리를 사용하는 경우(예: 중앙 IT/클러스터 운영자용 리포지토리 하나, 그 외 애플리케이션 리포지토리), 여러 정책을 할당하여 이를 사용할 수 있습니다. 각 정책 할당은 다른 Git 리포지토리를 사용하도록 구성되었습니다.
 
+## <a name="prerequisite"></a>필수 조건
+
+`Microsoft.Authorization/policyAssignments/write`이 정책 할당을 만들려는 범위 (구독 또는 리소스 그룹)에 대 한 권한이 있는지 확인 합니다.
+
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
 1. Azure Portal에서 정책으로 이동하여 사이드바의 **제작** 섹션에서 **정의**를 선택합니다.
@@ -31,7 +35,7 @@ Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리�
 4. 정책 범위에서 리소스를 제외하려면 **제외**를 설정합니다.
 5. 정책 할당에 쉽게 식별할 수 있도록 **이름**과 **설명**을 지정합니다.
 6. **정책 적용**이 *사용됨*으로 설정되어 있는지 확인합니다.
-7. **다음**을 선택합니다.
+7. **새로 만들기**를 선택합니다.
 8. `sourceControlConfiguration`을 만드는 동안 사용할 매개 변수 값을 설정합니다.
 9. **다음**을 선택합니다.
 10. **수정 작업 만들기**를 사용합니다.
@@ -42,7 +46,7 @@ Azure Policy를 사용 하 여 각 `Microsoft.Kubernetes/connectedclusters` 리�
 
 ## <a name="verify-a-policy-assignment"></a>정책 할당 확인
 
-1. Azure Portal에서 `connectedCluster` 리소스 중 하나로 이동하여 사이드바의 **설정** 섹션에서 **정책**을 선택합니다. (AKS 관리 클러스터에 대한 UX가 아직 구현되지는 않았지만, 제공될 예정입니다.)
+1. Azure Portal에서 `connectedCluster` 리소스 중 하나로 이동하여 사이드바의 **설정** 섹션에서 **정책**을 선택합니다. AKS 클러스터에 대 한 UX는 아직 구현 되지 않지만 출시 됩니다.
 2. 목록에 위에서 만든 정책 할당이 표시되어야 하고, **준수 상태**는 *준수*여야 합니다.
 3. 사이드바의 **설정** 섹션에서 **구성**을 선택합니다.
 4. 목록에 정책 할당에서 만든 `sourceControlConfiguration`이 표시되어야 합니다.

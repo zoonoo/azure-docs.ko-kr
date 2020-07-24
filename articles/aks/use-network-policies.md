@@ -5,11 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 네트워크 정책�
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683198"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050487"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -157,13 +158,13 @@ kubectl label namespace/development purpose=development
 NGINX를 실행하는 예제 백 엔드 pod를 만듭니다. 이 백 엔드 pod를 사용하여 샘플 백 엔드 웹 기반 애플리케이션을 시뮬레이트할 수 있습니다. *development* 네임스페이스에서 이 pod를 만들고 포트 *80*을 열어 웹 트래픽을 처리합니다. 다음 섹션에서 네트워크 정책의 대상으로 지정할 수 있도록 pod에 *app=webapp,role=backend* 레이블을 지정합니다.
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
+kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 다른 pod를 만들고 터미널 세션을 연결하여 기본 NGINX 웹 페이지에 성공적으로 연결할 수 있는지 테스트합니다.
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다.
@@ -219,7 +220,7 @@ kubectl apply -f backend-policy.yaml
 백 엔드 pod에서 NGINX 웹 페이지를 사용할 수 있는지 다시 확인해 보겠습니다. 다음과 같이 다른 테스트 Pod를 만들고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다. 이번에는 제한 시간 값을 *2*초로 설정합니다. 이제 네트워크 정책은 모든 인바운드 트래픽을 차단하므로 다음 예제와 같이 페이지를 로드할 수 없습니다.
@@ -276,7 +277,7 @@ kubectl apply -f backend-policy.yaml
 *app=webapp,role=frontend*로 레이블이 지정된 pod를 예약하고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다.
@@ -306,7 +307,7 @@ exit
 네트워크 정책은 *app: webapp,role: frontend* 레이블이 지정된 pod의 트래픽을 허용하지만 다른 모든 트래픽을 거부합니다. 이러한 레이블이 없는 다른 pod가 백 엔드 NGINX pod에 액세스할 수 있는지 테스트해 보겠습니다. 다음과 같이 다른 테스트 Pod를 만들고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다. 네트워크 정책은 인바운드 트래픽을 차단하므로 다음 예제와 같이 페이지를 로드할 수 없습니다.
@@ -339,7 +340,7 @@ kubectl label namespace/production purpose=production
 *app=webapp,role=frontend* 레이블이 지정된 *production* 네임스페이스에서 테스트 pod를 예약합니다. 다음과 같이 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인합니다.
@@ -403,7 +404,7 @@ kubectl apply -f backend-policy.yaml
 *production* 네임스페이스에서 다른 pod를 예약하고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 네트워크 정책이 트래픽을 거부하는 것을 확인합니다.
@@ -425,7 +426,7 @@ exit
 *production* 네임스페이스의 트래픽이 거부되므로, *development* 네임스페이스에서 테스트 pod를 다시 예약하고 터미널 세션을 연결합니다.
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 셸 프롬프트에서 `wget`을 사용하여 네트워크 정책이 트래픽을 허용하는 것을 확인합니다.

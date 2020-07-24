@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef558b9339fe1d4525156cf58efe5056862de0a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052735"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
 
@@ -67,7 +68,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ### <a name="create-overlays"></a>오버레이 만들기
 자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-advanced-encoding-with-mes.md#overlay)을 참조하세요.
 
-### <a name="see-also"></a>참조
+### <a name="see-also"></a>참고 항목
 [Media Services 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로

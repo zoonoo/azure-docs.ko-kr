@@ -11,12 +11,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 10/23/2019
-  ms.openlocfilehash: 11c3c464de5efc9b38426fa7ea015f63b37a8b52
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: 123d84cc29c1dce85cccf8c1bbb089bfbbbf7bf3
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84235507"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87007666"
 productDirectory:
   items:
   - title: Azure Blockchain 서비스
@@ -93,7 +93,7 @@ additionalContent:
       url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
     - title: Ethereum Blockchain 커넥터
       summary: Azure Logic Apps, Microsoft Flow 및 Microsoft PowerApps를 사용하여 트랜잭션 제출, 계약 상태 읽기 및 계약 업데이트에 대한 흐름 트리거 등의 스마트 계약 작업을 수행합니다.
-      url: https://docs.microsoft.com/connectors/blockchainethereum/
+      url: /connectors/blockchainethereum/
     - title: 코드 샘플
       summary: 코드 샘플이 포함된 GitHub 리포지토리를 시작하는 방법을 알아봅니다.
       url: https://github.com/Azure-Samples/blockchain

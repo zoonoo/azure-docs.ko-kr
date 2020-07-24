@@ -4,12 +4,13 @@ description: AKS (Azure Kubernetes Service)에서 Azure Policy를 사용 하 여
 services: container-service
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8a5107b9ba3c05c92a06753b2cb30bcfc2896d91
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+author: jluk
+ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050459"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Azure Policy를 사용 하 여 pod 보호 (미리 보기)
 
@@ -63,7 +64,7 @@ AKS 클러스터는 Azure Policy 추가 기능을 사용 하 여 이전에 pod �
 
 Azure Policy 추가 기능을 설치한 후에는 기본적으로 정책이 적용 되지 않습니다.
 
-14 (14) 기본 제공 개별 Azure 정책 및 AKS 클러스터에서 특별히 pod를 보호 하는 두 개의 기본 제공 이니셔티브 (2)가 있습니다.
+11 개의 기본 제공 개별 Azure 정책 및 AKS 클러스터의 pod를 안전 하 게 보호 하는 2 개의 기본 제공 이니셔티브가 있습니다.
 각 정책은 효과를 사용 하 여 사용자 지정할 수 있습니다. AKS 정책의 전체 목록과 [지원 되는 영향은 여기에 나열 되어][policy-samples]있습니다. [Azure Policy 효과](../governance/policy/concepts/effects.md)에 대 한 자세한 내용을 참조 하세요.
 
 Azure 정책은 관리 그룹, 구독 또는 리소스 그룹 수준에서 적용할 수 있습니다. 리소스 그룹 수준에서 정책을 할당 하는 경우 대상 AKS 클러스터의 리소스 그룹이 정책 범위 내에서 선택 되었는지 확인 합니다. Azure Policy 추가 기능이 설치 된 할당 된 범위의 모든 클러스터는 정책 범위에 있습니다.
@@ -78,24 +79,41 @@ Kubernetes에 대 한 Azure Policy는 pod, [기준선](https://portal.azure.com/
 
 기본 제공 이니셔티브는 모두 [Kubernetes의 pod 보안 정책](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml)에 사용 된 정의를 기반으로 빌드됩니다.
 
-|[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy 정의 링크| 기준 이니셔티브 | 제한 된 이니셔티브 |
+|[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy 정의 링크| [기준 이니셔티브](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) | [제한 된 이니셔티브](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) |
 |---|---|---|---|
 |권한 있는 컨테이너의 실행 허용 안 함|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4)| 예 | 예
 |호스트 네임 스페이스의 공유 사용 허용 안 함|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8)| 예 | 예
-|호스트 네트워킹 및 포트의 사용을 알려진 목록으로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| 예 | 예
-|호스트 파일 시스템의 사용 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| 예 | 예
-|[기본 집합](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) 이외의 Linux 기능 추가|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | 예 | 예
-|정의 된 볼륨 유형의 사용 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Yes
-|루트에 대 한 권한 상승|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
-|컨테이너의 사용자 및 그룹 Id 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes |
-|Pod의 볼륨을 소유 하는 FSGroup 할당 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes |
-|Seccomp 프로필을 사용 해야 합니다.|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | - |
-|컨테이너에서 사용 하는 sysctl 프로필 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56d0a13f-712f-466b-8416-56fb354fb823) | - | - |
-|기본 프로시저 탑재 유형은 공격 노출 영역을 줄이도록 정의 됩니다.|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff85eb0dd-92ee-40e9-8a76-db25a507d6d3) | - | - |
-|특정 vervolume 드라이버로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | - | - |
-|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | - | - |
-|컨테이너의 사용자 지정 SELinux 컨텍스트를 정의 합니다.|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e6c427-07d9-46ab-9689-bfa85431e636) | - | - |
-|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | - | - |
+|호스트 네트워킹 및 포트의 모든 사용 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| 예 | 예
+|호스트 파일 시스템의 모든 사용 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| 예 | 예
+|Linux 기능을 [기본 집합](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) 으로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | 예 | 예
+|정의 된 볼륨 유형의 사용 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | 예-허용 되는 볼륨 유형은 `configMap` ,, `emptyDir` `projected` , `downwardAPI` ,입니다.`persistentVolumeClaim`|
+|루트에 대 한 권한 상승|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | 예 |
+|컨테이너의 사용자 및 그룹 Id 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | 예|
+|Pod의 볼륨을 소유 하는 FSGroup 할당 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | 예-허용 되는 규칙은 `runAsUser: mustRunAsNonRoot` ,, `supplementalGroup: mustRunAs 1:65536` `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` 입니다.  |
+|Seccomp profile 필요|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | 예, allowedProfiles는 * `docker/default` 또는입니다.`runtime/default` |
+
+\*v 1.11 이후 Kubernetes에서 docker/default는 사용 되지 않습니다.
+
+### <a name="additional-optional-policies"></a>추가 선택적 정책
+
+이니셔티브를 적용 하는 외부에서 단일 적용 될 수 있는 추가 Azure 정책이 있습니다. 기본 제공 이니셔티브에서 요구 사항을 충족 하지 않는 경우 이니셔티브 뿐만 아니라 이러한 정책을 추가 하는 것이 좋습니다.
+
+|[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy 정의 링크| 기준 이니셔티브 외에도 적용 | 제한 된 이니셔티브 외에도 적용 |
+|---|---|---|---|
+|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 옵션 | 옵션 |
+|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 옵션 | 옵션 |
+|특정 vervolume 드라이버로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | 선택 사항-상대 볼륨 드라이버만 제한 하 고 "정의 된 볼륨 유형의 사용 제한"으로 설정 하지 않은 경우에만 사용 합니다. | 해당 없음-제한 된 이니셔티브에는 모든 vervolume 드라이버를 허용 하지 않는 "정의 된 볼륨 유형의 사용 제한"이 포함 됩니다. |
+
+### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>관리 되는 AKS 클러스터에 대해 지원 되지 않는 기본 제공 정책
+
+> [!NOTE]
+> AKS에서 관리 하 고 관리 되는 서비스로 보호 되는 측면을 사용자 지정 하기 때문에 다음 3 가지 정책은 **AKS에서 지원 되지 않습니다** . 이러한 정책은 관리 되지 않는 제어 평면으로 Azure Arc 연결 된 클러스터에 대해 특별히 빌드됩니다.
+
+|[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)|
+|---|
+|컨테이너의 사용자 지정 SELinux 컨텍스트를 정의 합니다.|
+|컨테이너에서 사용 하는 sysctl 프로필 제한|
+|기본 프로시저 탑재 유형은 공격 노출 영역을 줄이도록 정의 됩니다.|
 
 <!---
 # Removing until custom initiatives are supported the week after preview

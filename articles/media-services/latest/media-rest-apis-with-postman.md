@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c74e10e88d3f8eacd8f59222adbdb19be813ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75779640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053198"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Media Services v3 REST API 호출에 대해 Postman 구성
 
@@ -27,8 +28,8 @@ ms.locfileid: "75779640"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
-- [API에 액세스](access-api-cli-how-to.md)하는 데 필요한 정보 가져오기
+- [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
+- [API에 액세스](./access-api-howto.md)하는 데 필요한 정보 가져오기
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
     지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 다른 대안은 REST 플러그 인 또는 **Telerik Fiddler**를 사용 하는 **Visual Studio Code** 입니다. 
@@ -96,7 +97,7 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 * 응용 프로그램이 "HTTP 504: 게이트웨이 시간 초과"로 인해 실패 하는 경우 위치 변수가 Media Services 계정의 예상 위치 이외의 값으로 명시적으로 설정 되지 않았는지 확인 합니다. 
 * "계정을 찾을 수 없음" 오류가 발생 하는 경우 본문 JSON 메시지의 location 속성이 Media Services 계정이 있는 위치로 설정 되었는지 확인 합니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Media Services 계정에 파일 업로드 - REST](upload-files-rest-how-to.md)
 - [Media Services로 필터 만들기 - REST](filters-dynamic-manifest-rest-howto.md)
@@ -105,4 +106,4 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 ## <a name="next-steps"></a>다음 단계
 
 - [REST를 사용하여 파일을 스트리밍](stream-files-tutorial-with-rest.md)합니다.  
-- [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-REST](stream-files-tutorial-with-rest.md)
+- [자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST](stream-files-tutorial-with-rest.md)

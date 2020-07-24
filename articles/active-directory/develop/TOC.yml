@@ -343,8 +343,6 @@
               href: msal-js-use-ie-browser.md
             - name: 알려진 문제 - IE와 Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
-            - name: 알려진 문제 - Safari
-              href: msal-js-known-issues-safari-browser.md
             - name: 오류 및 예외 처리
               href: msal-handling-exceptions.md?tabs=javascript
             - name: 로깅

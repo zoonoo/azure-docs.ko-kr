@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65761803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053321"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>사용자 지정 변환을 사용 하 여 인코딩하는 방법-REST
 
@@ -32,7 +32,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md) <br/>리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
+- [Media Services 계정 만들기](./create-account-howto.md) <br/>리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
 - [Azure Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md)<br/>[Azure AD 토큰 가져오기](media-rest-apis-with-postman.md#get-azure-ad-token) 항목의 마지막 단계를 수행해야 합니다. 
 
 ## <a name="define-a-custom-preset"></a>사용자 지정 사전 설정 정의
@@ -133,7 +133,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 
 ## <a name="create-a-new-transform"></a>새 변환 만들기  
 
-이 예제에서는 앞에서 정의한 사용자 지정 미리 설정을 기반으로 하는 **변환을** 만듭니다. 변환을 만들 때 먼저 [Get](https://docs.microsoft.com/rest/api/media/transforms/get) 을 사용 하 여 이미 존재 하는지 확인 해야 합니다. 변환이 있는 경우 다시 사용 합니다. 
+이 예제에서는 앞에서 정의한 사용자 지정 미리 설정을 기반으로 하는 **변환을** 만듭니다. 변환을 만들 때 먼저 [Get](/rest/api/media/transforms/get) 을 사용 하 여 이미 존재 하는지 확인 해야 합니다. 변환이 있는 경우 다시 사용 합니다. 
 
 다운로드 한 postman의 컬렉션에서 **변환 및 작업** -> **변환 만들기 또는 업데이트**를 선택 합니다.
 
@@ -151,4 +151,4 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 ## <a name="next-steps"></a>다음 단계
 
-[다른 REST 작업](https://docs.microsoft.com/rest/api/media/) 을 참조 하세요.
+[다른 REST 작업](/rest/api/media/) 을 참조 하세요.

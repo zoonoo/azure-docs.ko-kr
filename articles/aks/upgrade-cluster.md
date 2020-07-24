@@ -4,18 +4,18 @@ description: AKS (Azure Kubernetes Service) 클러스터를 업그레이드 하 
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 603a27f0ecffb762a18f58847110c4dd3de68425
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250994"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050623"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
 AKS 클러스터의 수명 주기의 일환으로, 최신 Kubernetes 버전으로 업그레이드해야 하는 경우가 많습니다. 최신 Kubernetes 보안 릴리스를 적용하거나 최신 기능으로 업그레이드하는 것은 중요합니다. 이 문서에서는 AKS 클러스터에서 마스터 구성 요소 또는 단일 기본 노드 풀을 업그레이드 하는 방법을 보여 줍니다.
 
-여러 노드 풀 또는 Windows Server 노드를 사용 하는 AKS 클러스터 (현재 AKS에서 미리 보기 상태)의 경우 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+여러 노드 풀 또는 Windows Server 노드를 사용 하는 AKS 클러스터의 경우 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -33,9 +33,11 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 *1.12*. x  ->  *1.13 x x* x x x x *x x*x x x x x x x x x x x x x x x x x x x x x. x를  ->  사용할 수 있지만*1.14* *1.12.x*  ->  *1.14.x*
+> 지원 되는 AKS 클러스터를 업그레이드 하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 *1.12*. x  ->  *1.13 x x* x x x x *x x*x x x x x x x x x x x x x x x x x x x x x. x를  ->  사용할 수 있지만*1.14* *1.12.x*  ->  *1.14.x*
 >
 > 1.14에서 업그레이드 하려면 *1.12.x*  ->  *1.14.x*먼저 *1.12*. x  ->  *1.13.* x에서 업그레이드 한 다음 *1.13.* x  ->  *1.14*에서 업그레이드 합니다.
+>
+> 지원 되지 않는 버전에서 지원 되는 버전으로 업그레이드 하는 경우에만 여러 버전을 건너뛸 수 있습니다. 예를 들어 *지원 되는* *1.10* . x >에서 업그레이드를 완료할 수 있습니다.
 
 다음 예제 출력에서는 *1.13.9* 및 *1.13.10*버전으로 클러스터를 업그레이드할 수 있음을 보여 줍니다.
 

@@ -4,11 +4,12 @@ description: 프로덕션 .NET 앱에서 예외가 throw되면 디버그 스냅�
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692022"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049684"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
 예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure 애플리케이션 Insights](../../azure-monitor/app/app-insights-overview.md) 의 스냅숏 디버거는 웹 앱에서 예외 원격 분석을 모니터링 합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 응용 프로그램에 [스냅숏 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 를 포함 하 고 필요에 따라 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성 합니다. 스냅숏은 Application Insights 포털의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 에 표시 됩니다.
@@ -88,7 +89,7 @@ ms.locfileid: "84692022"
 애플리케이션에서 [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions)을 호출할 때마다 스냅샷 수집기는 throw된 예외의 형식과 throw하는 메서드에서 문제 ID를 계산합니다.
 애플리케이션에서 TrackException을 호출할 때마다 해당 문제 ID에 대한 카운터가 증가합니다. 카운터가 `ThresholdForSnapshotting` 값에 도달하면 문제 ID가 수집 계획에 추가됩니다.
 
-또한 Snapshot Collector는 [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) 이벤트에 가입하여 예외가 throw되었을 때 이를 모니터링합니다. 해당 이벤트가 발생하면 예외의 문제 ID가 계산되어 수집 계획의 문제 ID와 비교됩니다.
+또한 Snapshot Collector는 [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) 이벤트에 가입하여 예외가 throw되었을 때 이를 모니터링합니다. 해당 이벤트가 발생하면 예외의 문제 ID가 계산되어 수집 계획의 문제 ID와 비교됩니다.
 일치하는 항목이 있으면 실행 중인 프로세스의 스냅샷이 만들어집니다. 스냅샷에는 고유 식별자가 할당되고, 예외는 해당 식별자로 스탬프 처리됩니다. FirstChanceException 처리기가 반환되면 throw된 예외는 정상으로 처리됩니다. 결국, 예외는 스냅샷 식별자와 함께 Application Insights에 보고되는 TrackException 메서드에 다시 도달합니다.
 
 주 프로세스는 계속 실행되고 매우 짧은 중단을 통해 사용자에게 트래픽을 제공합니다. 한편 스냅샷은 스냅샷 업로더 프로세스에 전달됩니다. 스냅샷 업로더는 미니덤프를 만들고, 관련된 모든 기호(.pdb) 파일과 함께 이를 Application Insights에 업로드합니다.
@@ -116,7 +117,7 @@ Visual Studio 2017의 15.2 버전 이상은 App Service에 게시할 때 기본�
 Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이션 .dll의 동일한 폴더(일반적으로 `wwwroot/bin`)에 있거나 현재 경로에서 사용할 수 있는지 확인합니다.
 
 > [!NOTE]
-> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 [Visual Studio 설명서](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 [Visual Studio 설명서](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
 )를 참조 하세요. 최상의 결과를 위해서는 "Full", "이식 가능" 또는 "포함"을 사용 하는 것이 좋습니다.
 
 ### <a name="optimized-builds"></a>최적화된 빌드
@@ -137,6 +138,6 @@ Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이�
 
 Application Insights 스냅숏 디버거 이상:
  
-* 예외를 기다리지 않고 스냅샷을 가져오기 위해 [코드에서 snappoint를 설정](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications)합니다.
+* 예외를 기다리지 않고 스냅샷을 가져오기 위해 [코드에서 snappoint를 설정](/visualstudio/debugger/debug-live-azure-applications)합니다.
 * [웹앱의 예외 진단](../../azure-monitor/app/asp-net-exceptions.md)에서는 Application Insights에서 추가 예외를 표시하는 방법을 설명합니다.
 * [스마트 검색](../../azure-monitor/app/proactive-diagnostics.md)은 성능 예외를 자동으로 검색합니다.

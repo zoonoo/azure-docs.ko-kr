@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e79248e16ca21ae84022f8ac7f280d93f489c6a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050350"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Azure API Management에서 자체 호스팅 게이트웨이 프로 비전
 
@@ -31,7 +31,7 @@ Azure API Management 인스턴스에서 게이트웨이 리소스를 프로 비�
 
 ## <a name="provision-a-self-hosted-gateway"></a>자체 호스팅 게이트웨이 프로비전
 
-1. **설정**에서 **게이트웨이** 를 선택 합니다.
+1. **배포 및 인프라**에서 **게이트웨이** 를 선택 합니다.
 2. **+ 추가**를 클릭합니다.
 3. 게이트웨이의 **이름** 및 **지역을** 입력 합니다.
 > [!TIP]

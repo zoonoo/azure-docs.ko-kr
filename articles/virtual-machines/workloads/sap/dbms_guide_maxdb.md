@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 842ab7a1562c731e790ba03b2fd5acdc3987a90d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022593"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051967"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
 
@@ -73,7 +74,7 @@ ms.locfileid: "84022593"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -308,7 +309,7 @@ ms.locfileid: "84022593"
 
 
 
-이 문서에서는 Azure IaaS에서 MaxDB, liveCache 및 Content Server를 배포할 때 고려해야 할 몇 가지 다른 영역에 대해 설명합니다. 이 문서의 전제 조건으로, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 참조해야 합니다. 
+이 문서에서는 Azure IaaS에서 MaxDB, liveCache 및 Content Server를 배포할 때 고려해야 할 몇 가지 다른 영역에 대해 설명합니다. 이 문서의 전제 조건으로, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](./get-started.md)의 다른 가이드를 참조해야 합니다. 
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Windows에서의 SAP MaxDB 배포에 대한 세부 정보
 ### <a name="sap-maxdb-version-support-on-azure"></a>Azure에서 SAP MaxDB 버전 지원
@@ -328,7 +329,7 @@ SAP Note [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP MaxDB 구성 지침
 #### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>스토리지 구성
-SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64) 챕터에서 설명한 일반 추천을 따릅니다.
+SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 VM의 스토리지 구조](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64) 챕터에서 설명한 일반 추천을 따릅니다.
 
 > [!IMPORTANT]
 > 다른 데이터베이스처럼 SAP MaxDB에도 데이터 및 로그 파일이 있습니다. 그러나 SAP MaxDB 용어에서 올바른 용어는 "볼륨"("파일" 아님)입니다. 예를 들어 SAP MaxDB 데이터 볼륨 및 로그 볼륨이 있습니다. 운영 체제 디스크 볼륨과 혼동하지 마세요. 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2f82d5d4dcb29504abbfa6881fa825b6d8efce0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200821"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049541"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
@@ -35,9 +35,9 @@ Azure Monitor의 메트릭은 경량이며 거의 실시간으로 시나리오�
 | **시각화** | 메트릭 탐색기에서 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 차트를 고정합니다.<br>대화형 보고서에서 여러 데이터 집합을 결합하는 [워크북](../platform/workbooks-overview.md)을 만듭니다. 쿼리 결과를 [Grafana](grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 소스와 결합합니다. |
 | **경고** | 메트릭 값이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](action-groups.md)을 수행하는 [메트릭 경고 규칙](alerts-metric.md)을 구성합니다. |
 | **자동화** |  [자동 크기 조정](autoscale-overview.md)을 사용하여 임계값을 초과하는 메트릭 값을 기준으로 리소스를 늘리거나 줄입니다. |
-| **내보내기** | [로그로 메트릭 라우팅](resource-logs-collect-storage.md)은 Azure Monitor 로그의 데이터와 함께 Azure Monitor 메트릭의 데이터를 분석하고 93일 이상 메트릭 값을 저장합니다.<br>메트릭을 [이벤트 허브](stream-monitoring-data-event-hubs.md)로 스트리밍하여 외부 시스템에 라우팅합니다. |
-| **장치** | [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)을 사용하여 명령줄에서 메트릭 값에 액세스<br>[REST API](rest-api-walkthrough.md)를 사용하여 사용자 지정 응용 프로그램에서 메트릭 값에 액세스<br>[CLI](/cli/azure/monitor/metrics)를 사용하여 명령줄에서 메트릭 값에 액세스 |
-| **보관** | 규정 준수, 감사 또는 오프라인 보고의 목적으로 리소스의 성능 또는 상태 기록을 [보관](..//learn/tutorial-archive-data.md)합니다. |
+| **내보내기** | [로그로 메트릭 라우팅](./resource-logs.md#send-to-azure-storage)은 Azure Monitor 로그의 데이터와 함께 Azure Monitor 메트릭의 데이터를 분석하고 93일 이상 메트릭 값을 저장합니다.<br>메트릭을 [이벤트 허브](stream-monitoring-data-event-hubs.md)로 스트리밍하여 외부 시스템에 라우팅합니다. |
+| **장치** | [PowerShell cmdlet](/powershell/module/az.applicationinsights)을 사용하여 명령줄에서 메트릭 값에 액세스<br>[REST API](rest-api-walkthrough.md)를 사용하여 사용자 지정 응용 프로그램에서 메트릭 값에 액세스<br>[CLI](/cli/azure/monitor/metrics)를 사용하여 명령줄에서 메트릭 값에 액세스 |
+| **보관** | 규정 준수, 감사 또는 오프라인 보고의 목적으로 리소스의 성능 또는 상태 기록을 [보관](./platform-logs-overview.md)합니다. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Azure Monitor 메트릭의 데이터는 어떻게 구성되나요?
 Azure Monitor 메트릭에서 수집한 데이터는 타임 스탬프 데이터 분석에 최적화된 시계열 데이터베이스에 저장됩니다. 각 메트릭 값 집합은 다음 속성을 포함하는 시계열입니다.
@@ -56,7 +56,7 @@ Azure Monitor 메트릭에서 수집한 데이터는 타임 스탬프 데이터 
 
 ### <a name="network-throughput"></a>네트워크 처리량
 
-| 타임스탬프     | 메트릭 값 |
+| Timestamp     | 메트릭 값 |
 | ------------- |:-------------|
 | 8/9/2017 8:14 | 1,331.8Kbps |
 | 8/9/2017 8:15 | 1,141.4Kbps |
@@ -108,7 +108,7 @@ Azure의 대다수 리소스의 경우 메트릭은 93일 동안 저장됩니다
 
 
 > [!NOTE]
-> 장기적인 추세의 경우 [Log Analytics 작업 영역에 Azure Monitor 리소스에 대한 플랫폼 메트릭을 보낼 수](resource-logs-collect-storage.md) 있습니다.
+> 장기적인 추세의 경우 [Log Analytics 작업 영역에 Azure Monitor 리소스에 대한 플랫폼 메트릭을 보낼 수](./resource-logs.md#send-to-azure-storage) 있습니다.
 
 
 

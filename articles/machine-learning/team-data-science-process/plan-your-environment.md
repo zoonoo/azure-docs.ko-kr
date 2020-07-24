@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29190cee748db17caee32497de5512bee736bae0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267935"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047715"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 
@@ -144,7 +145,7 @@ Azure Machine Learning Studio (클래식) 환경을 사용 합니다. 예를 들
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>데이터 분석에 사용해야 하는 도구는 무엇인가요?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview) -스크립트 언어로 Azure 리소스를 관리 하는 데 사용 되는 스크립트 언어입니다.
+* [Microsoft Azure PowerShell](/powershell/azure/) -스크립트 언어로 Azure 리소스를 관리 하는 데 사용 되는 스크립트 언어입니다.
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)

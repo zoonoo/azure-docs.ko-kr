@@ -3,17 +3,18 @@ title: Azure VM에서 백업된 SAP HANA 데이터베이스 관리
 description: 이 문서에서는 Azure 가상 머신에서 실행되는 SAP HANA 데이터베이스를 관리하고 모니터링하기 위한 일반적인 작업에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e3705750e32b8b34ed397b8f68f22b0728129266
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049467"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
 
-이 문서에서는 [Microsoft Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) 서비스를 통해 Microsoft Azure Backup Recovery Services 자격 증명 모음으로 백업되는 SAP HANA 데이터베이스와 Azure VM(가상 머신)에서 실행되는 SAP HANA 데이터베이스를 관리하고 모니터링하기 위한 일반적인 작업을 설명합니다. 작업과 경고를 모니터링하고, 주문형 백업을 트리거하고, 정책을 편집하고, 데이터베이스 보호를 중지했다가 다시 시작하고, 백업에서 VM을 등록 취소하는 방법을 알아봅니다.
+이 문서에서는 [Microsoft Azure Backup](./backup-overview.md) 서비스를 통해 Microsoft Azure Backup Recovery Services 자격 증명 모음으로 백업되는 SAP HANA 데이터베이스와 Azure VM(가상 머신)에서 실행되는 SAP HANA 데이터베이스를 관리하고 모니터링하기 위한 일반적인 작업을 설명합니다. 작업과 경고를 모니터링하고, 주문형 백업을 트리거하고, 정책을 편집하고, 데이터베이스 보호를 중지했다가 다시 시작하고, 백업에서 VM을 등록 취소하는 방법을 알아봅니다.
 
-SAP HANA 데이터베이스에 대해 백업을 아직 구성하지 않은 경우 [Azure VM에서 SAP HANA 데이터베이스 백업](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)을 참조하세요.
+SAP HANA 데이터베이스에 대해 백업을 아직 구성하지 않은 경우 [Azure VM에서 SAP HANA 데이터베이스 백업](./backup-azure-sap-hana-database.md)을 참조하세요.
 
 ## <a name="monitor-manual-backup-jobs-in-the-portal"></a>포털에서 수동 백업 작업 모니터링
 
@@ -25,7 +26,7 @@ Microsoft Azure Backup은 Microsoft Azure Portal의 **백업 작업** 섹션에 
 
 ![백업 작업 목록](./media/sap-hana-db-manage/backup-jobs-list.png)
 
-모니터링에 대해 자세히 알아보려면 [Microsoft Azure Portal에서 모니터링](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor)과 [Azure Monitor를 사용한 모니터링](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)으로 이동하세요.
+모니터링에 대해 자세히 알아보려면 [Microsoft Azure Portal에서 모니터링](./backup-azure-monitoring-built-in-monitor.md)과 [Azure Monitor를 사용한 모니터링](./backup-azure-monitoring-use-azuremonitor.md)으로 이동하세요.
 
 ## <a name="view-backup-alerts"></a>백업 경고 보기
 
@@ -50,7 +51,7 @@ Microsoft Azure Backup은 Microsoft Azure Portal의 **백업 작업** 섹션에 
 * 오류 코드별로 데이터베이스 수준에서 통합됩니다.
 * 데이터베이스의 첫 번째 백업 실패에 대해서만 전송 됩니다.
 
-모니터링에 대해 자세히 알아보려면 [Microsoft Azure Portal에서 모니터링](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor)과 [Azure Monitor를 사용한 모니터링](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)으로 이동하세요.
+모니터링에 대해 자세히 알아보려면 [Microsoft Azure Portal에서 모니터링](./backup-azure-monitoring-built-in-monitor.md)과 [Azure Monitor를 사용한 모니터링](./backup-azure-monitoring-use-azuremonitor.md)으로 이동하세요.
 
 ## <a name="management-operations"></a>관리 작업
 
@@ -62,7 +63,7 @@ Microsoft Azure Backup에서 지원하는 다양한 관리 작업으로 백업�
 
 1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
 2. **백업 항목**에서 SAP HANA 데이터베이스를 실행하는 VM을 선택하고 **지금 백업**을 클릭합니다.
-3. **지금 백업**에서 달력 컨트롤을 사용하여 복구 지점을 유지해야 하는 마지막 날을 선택합니다. 그런 후 **OK**를 클릭합니다.
+3. **지금 백업**에서 수행할 백업 유형을 선택 합니다. 그런 후 **OK**를 클릭합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 ### <a name="hana-native-client-integration"></a>HANA 네이티브 클라이언트 통합
@@ -73,7 +74,7 @@ HANA 네이티브 클라이언트에서 **Backint**로 트리거되는 주문형
 
 ![마지막 백업 실행](./media/sap-hana-db-manage/last-backups.png)
 
-**백업 작업** 페이지에서 [이러한 백업을 모니터링](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal)할 수도 있습니다.
+**백업 작업** 페이지에서 [이러한 백업을 모니터링](#monitor-manual-backup-jobs-in-the-portal)할 수도 있습니다.
 
 이러한 주문형 백업은 복원에 대한 복원 지점 목록에도 표시됩니다.
 
@@ -81,7 +82,7 @@ HANA 네이티브 클라이언트에서 **Backint**로 트리거되는 주문형
 
 #### <a name="restore"></a>복원
 
-동일한 머신으로 복원을 위해 **Backint**를 사용하여 HANA 네이티브 클라이언트에서 트리거된 복원을 **백업 작업** 페이지에서[모니터링](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal)할 수 있습니다.
+동일한 머신으로 복원을 위해 **Backint**를 사용하여 HANA 네이티브 클라이언트에서 트리거된 복원을 **백업 작업** 페이지에서[모니터링](#monitor-manual-backup-jobs-in-the-portal)할 수 있습니다.
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Azure 백업이 설정된 데이터베이스에서 SAP HANA 네이티브 클라이언트 백업 실행
 
@@ -115,11 +116,11 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
 
   ![기존 백업 정책 선택](./media/sap-hana-db-manage/existing-backup-policy.png)
 
-* 목록에서 선택하여 정책을 변경합니다. 필요한 경우 [새 백업 정책을 만듭니다](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy).
+* 목록에서 선택하여 정책을 변경합니다. 필요한 경우 [새 백업 정책을 만듭니다](./backup-azure-sap-hana-database.md#create-a-backup-policy).
 
   ![드롭다운 목록에서 정책](./media/sap-hana-db-manage/choose-backup-policy.png)
 
-* 변경 내용을 저장합니다.
+* 변경 내용 저장
 
   ![변경 내용 저장](./media/sap-hana-db-manage/save-changes.png)
 
@@ -132,7 +133,7 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
 
 ### <a name="modify-policy"></a>정책 수정
 
-정책을 수정하여 백업 유형, 빈도 및 보존 범위를 변경 합니다.
+정책을 수정 하 여 백업 유형, 빈도 및 보존 범위를 변경 합니다.
 
 >[!NOTE]
 >보존 기간의 변경 내용은 새 복구 지점과 모든 이전 복구 지점에 소급 적용됩니다.
@@ -197,7 +198,7 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
 
 ### <a name="resume-protection-for-an-sap-hana-database"></a>SAP HANA 데이터베이스에 대한 보호 다시 시작
 
-**백업 데이터 보존** 옵션을 선택하고 SAP HANA 데이터베이스에 대한 보호를 중지하는 경우 나중에 보호를 다시 시작할 수 있습니다. 백업된 데이터를 보관하지 않으면 보호를 다시 시작할 수 없습니다.
+**백업 데이터 보존** 옵션을 선택하고 SAP HANA 데이터베이스에 대한 보호를 중지하는 경우 나중에 보호를 다시 시작할 수 있습니다. 백업 된 데이터를 유지 하지 않는 경우 보호를 다시 시작할 수 없습니다.
 
 SAP HANA 데이터베이스에 대한 보호를 다시 시작하려면
 
@@ -213,7 +214,7 @@ SAP HANA 데이터베이스에 대한 보호를 다시 시작하려면
 
 ### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>SID 변경 없이 SDC에서 MDC로 업그레이드
 
-[SDC에서 MDC로 업그레이드 후 SID가 변경되지 않은](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid) SAP HANA 데이터베이스의 백업을 계속하는 방법에 대해 알아봅니다.
+[SDC에서 MDC로 업그레이드 한 후 SID가 변경](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid)되지 않은 SAP HANA 데이터베이스의 백업을 계속 하는 방법에 대해 알아봅니다.
 
 ### <a name="unregister-an-sap-hana-instance"></a>SAP HANA 인스턴스 등록 취소
 
@@ -241,4 +242,4 @@ VM의 워크로드 확장이 어떤 이유로 영향을 받는 경우가 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP HANA 데이터베이스를 백업할 때 발생하는 일반적인 문제를 해결하는 방법](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)을 알아봅니다.
+* [SAP HANA 데이터베이스를 백업할 때 발생하는 일반적인 문제를 해결하는 방법](./backup-azure-sap-hana-database-troubleshoot.md)을 알아봅니다.

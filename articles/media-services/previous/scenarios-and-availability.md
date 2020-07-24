@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eec42c0703e7158b478b8297848dc2ee6735cb8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985935"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047557"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Microsoft AMS(Azure Media Services)는 다양한 클라이언트(예: TV, PC 및 모바일 디바이스)로의 주문형 및 라이브 스트리밍 배달을 위해 비디오 또는 오디오 콘텐츠를 안전하게 업로드, 저장, 인코딩 및 패키지할 수 있습니다.
 
@@ -32,11 +33,11 @@ AMS는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데�
 
 ## <a name="overview"></a>개요
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
-* Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com)을 참조하세요.
+* Azure 계정 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com)을 참조하세요.
 * Azure Media Services 계정. 자세한 내용은 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다.
 
@@ -158,7 +159,7 @@ AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 �
     >RU는 Azure Media Indexer를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다. 그러나 인코딩과 달리 인덱싱 작업은 예약 단위가 더 빠르게 실행되어도 더 빨리 처리되지 않습니다.
 
     자세한 내용은 [미디어 처리 크기 조정](media-services-portal-scale-media-processing.md)을 참조 하세요.
-* 또한 스토리지 계정을 추가하여 Media Services 계정을 확장할 수 있습니다. 각 스토리지 계정은 500TB로 제한됩니다. 여러 스토리지 계정을 단일 Media Services 계정에 연결하여 기본 제한 이상으로 스토리지를 확장할 수 있습니다. 자세한 내용은 [스토리지 계정 관리](meda-services-managing-multiple-storage-accounts.md)를 참조하세요.
+* 또한 스토리지 계정을 추가하여 Media Services 계정을 확장할 수 있습니다. 각 스토리지 계정은 500TB로 제한됩니다. 여러 스토리지 계정을 단일 Media Services 계정에 연결하여 기본 제한 이상으로 스토리지를 확장할 수 있습니다. 자세한 내용은 [스토리지 계정 관리](./media-services-managing-multiple-storage-accounts.md)를 참조하세요.
 
 ## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a>데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -178,7 +179,7 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 |이름|상태|데이터 센터
 |---|---|---|
-|표준|GA|모두|
+|Standard|GA|모두|
 |Premium|GA|모두|
 
 ### <a name="live-encoding"></a>라이브 인코딩
@@ -266,4 +267,3 @@ Media Services 학습 경로를 검토합니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

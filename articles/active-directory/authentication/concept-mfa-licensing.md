@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9440e69a668b7f92977c3ed53b30f45bea8de2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e294aa2580dd9f0cceb539a2696e7ebbf08c4afe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84789789"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051007"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 기능 및 라이선스
 
@@ -33,8 +34,8 @@ Azure Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 방�
 | Microsoft 365 Business 프리미엄 및 EMS 또는 Microsoft 365 E3 및 E5 | EMS E3, Microsoft 365 E3 및 Microsoft 365 Business 프리미엄에는 Azure AD Premium P1이 포함 됩니다. EMS E5 또는 Microsoft 365 E5에는 Azure AD Premium P2가 포함됩니다. 다음 섹션에서 설명한 것과 동일한 조건부 액세스 기능을 사용하여 사용자에게 다단계 인증을 제공할 수 있습니다. |
 | Azure AD Premium P1 | [Azure AD 조건부 액세스](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)를 사용하여 비즈니스 요구 사항에 맞게 특정 시나리오 또는 이벤트 중에 사용자에게 다단계 인증을 사용할지 묻는 메시지를 표시할 수 있습니다. |
 | Azure AD Premium P2 | 가장 강력한 보안 위치 및 향상된 사용자 환경을 제공합니다. Azure AD Premium P1 기능에 사용자의 패턴에 맞게 조정되고 Multi-Factor Authentication 프롬프트를 최소화하는 [위험 기반 조건부 액세스](../conditional-access/howto-conditional-access-policy-risk.md)를 추가합니다. |
-| 모든 Microsoft 365 계획 | Azure Multi-Factor Authentication은 [사용자별로 사용하도록 설정](howto-mfa-userstates.md)하거나 보안 기본값을 사용하여 모든 사용자, 모든 로그인 이벤트에 대해 사용 또는 사용 안 함으로 설정할 수 있습니다. Azure Multi-Factor Authentication 관리는 Office 365 포털을 통해 수행됩니다. 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 [다단계 인증을 사용하여 Office 365 리소스 보호](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)를 참조하세요. |
-| Azure AD Free | [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용하여 모든 사용자에 대해 인증 요청을 수행할 때마다 다단계 인증을 사용하도록 설정할 수 있습니다. 설정된 사용자 또는 시나리오를 세부적으로 제어할 수는 없지만 추가 보안 단계를 제공합니다.<br /> 보안 기본값을 사용하여 모든 사용자에 대해 다단계 인증을 사용하도록 설정하지 않는 경우에도 Azure AD 전역 관리자 역할이 할당된 사용자는 다단계 인증을 사용하도록 구성할 수 있습니다. 무료 계층의 이 기능을 사용하면 중요한 관리자 계정이 다단계 인증에 의해 보호됩니다. |
+| 모든 Microsoft 365 계획 | Azure Multi-Factor Authentication는 [사용자 단위로 사용 하도록 설정](howto-mfa-userstates.md)하거나 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용 하는 모든 사용자에 대해 사용 하거나 사용 하지 않도록 설정할 수 있습니다. Azure Multi-Factor Authentication는 Microsoft 365 포털을 통해 관리할 수 있습니다. 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 [multi-factor authentication을 사용 하 여 리소스 Microsoft 365 보안](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication)을 참조 하세요. |
+| Azure AD Free | [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 을 사용 하 여 모든 사용자에 대해 multi-factor authentication을 사용 하도록 설정할 수 있습니다. 설정된 사용자 또는 시나리오를 세부적으로 제어할 수는 없지만 추가 보안 단계를 제공합니다.<br /> 보안 기본값을 사용하여 모든 사용자에 대해 다단계 인증을 사용하도록 설정하지 않는 경우에도 Azure AD 전역 관리자 역할이 할당된 사용자는 다단계 인증을 사용하도록 구성할 수 있습니다. 무료 계층의 이 기능을 사용하면 중요한 관리자 계정이 다단계 인증에 의해 보호됩니다. |
 
 ## <a name="feature-comparison-of-versions"></a>버전 기능 비교
 
@@ -67,12 +68,12 @@ Azure AD Premium 버전은 Microsoft 담당자, [오픈 볼륨 라이선스 프�
 
 ### <a name="azure-ad-free-tier"></a>Azure AD Free 계층
 
-Azure AD Free 테넌트의 모든 사용자는 보안 기본값을 사용하여 Azure Multi-Factor Authentication을 사용할 수 있습니다. 이러한 보안 기본값은 모든 사용자에 대해 로그인할 때마다 Azure Multi-Factor Authentication을 사용하도록 설정합니다. Azure AD Free 보안 기본값을 사용하는 경우 모바일 인증 앱이 Azure Multi-Factor Authentication에 사용할 수 있는 유일한 방법입니다.
+Azure AD Free 테넌트의 모든 사용자는 보안 기본값을 사용하여 Azure Multi-Factor Authentication을 사용할 수 있습니다. Azure AD Free 보안 기본값을 사용하는 경우 모바일 인증 앱이 Azure Multi-Factor Authentication에 사용할 수 있는 유일한 방법입니다.
 
 * [Azure AD 보안 기본값에 대한 자세한 정보](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Azure AD Free의 사용자에 대한 보안 기본값 사용](../fundamentals/concept-fundamentals-security-defaults.md#enabling-security-defaults)
 
-모든 사용자 및 모든 로그인 이벤트에 Azure Multi-Factor Authentication을 사용하지 않으려면 Azure AD 전역 관리자 역할이 있는 사용자 계정만 보호하도록 선택할 수 있습니다. 이 방법은 중요한 관리자 계정에 대한 추가 인증 프롬프트를 제공합니다. 사용하는 계정 유형에 따라 다음 방법 중 하나를 사용하여 Azure Multi-Factor Authentication을 사용하도록 설정합니다.
+모든 사용자에 대해 Azure Multi-Factor Authentication를 사용 하도록 설정 하지 않으려는 경우 *AZURE AD 전역 관리자* 역할을 사용 하 여 사용자 계정만 보호 하도록 선택할 수 있습니다. 이 방법은 중요한 관리자 계정에 대한 추가 인증 프롬프트를 제공합니다. 사용하는 계정 유형에 따라 다음 방법 중 하나를 사용하여 Azure Multi-Factor Authentication을 사용하도록 설정합니다.
 
 * Microsoft 계정을 사용하는 경우 [다단계 인증에 등록](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)합니다.
 * Microsoft 계정을 사용하지 않는 경우 [Azure AD에서 사용자 또는 그룹에 대한 다단계 인증을 설정](howto-mfa-userstates.md)합니다.

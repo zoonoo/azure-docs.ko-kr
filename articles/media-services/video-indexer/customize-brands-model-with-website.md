@@ -9,13 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
-ms.author: anzaman
-ms.openlocfilehash: 81df3897dff13823e4b97e10bc91d3a22b0e1b0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047277"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정
 
@@ -33,7 +33,7 @@ Video Indexer 웹 사이트를 사용하여 이 항목에 설명된 것처럼 �
 
 ## <a name="edit-brands-model-settings"></a>브랜드 모델 설정 편집
 
-Bing 브랜드 데이터베이스의 브랜드를 검색할지를 여부를 설정하는 옵션이 제공됩니다. 이 옵션을 설정 하려면 브랜드 모델의 설정을 편집 해야 합니다. 다음 단계를 수행하세요.
+Bing 브랜드 데이터베이스의 브랜드를 검색할지를 여부를 설정하는 옵션이 제공됩니다. 이 옵션을 설정 하려면 브랜드 모델의 설정을 편집 해야 합니다. 다음 단계를 수행합니다.
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동 하 여 로그인 합니다.
 2. 계정에서 모델을 사용자 지정 하려면 페이지의 오른쪽 위 모서리에서 **콘텐츠 모델 사용자 지정** 단추를 선택 합니다.

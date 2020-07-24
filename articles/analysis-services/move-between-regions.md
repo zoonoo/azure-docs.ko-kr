@@ -7,11 +7,13 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050370"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>다른 지역으로 Analysis Services 이동
 
@@ -46,7 +48,7 @@ ms.locfileid: "84699433"
 > [!NOTE]
 > 온-프레미스 데이터 게이트웨이를 사용 하 여 데이터 원본에 연결 하는 경우에도 게이트웨이 리소스를 대상 서버 지역으로 이동 해야 합니다. 자세히 알아보려면 [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure storage 계정**: .abf 백업 파일을 저장 하는 데 필요 합니다.
 - **SSMS (SQL Server Management Studio)**: model 데이터베이스를 백업 및 복원 하는 데 필요 합니다.
@@ -195,7 +197,7 @@ Azure 지역을 얻으려면 [azure 위치](https://azure.microsoft.com/global-i
 
 4. **만들기**를 선택합니다.
 
-5. **편집기에서 고유한 템플릿 빌드**를 선택 합니다.
+5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 
 6. **파일 로드**를 선택 하 고 지침에 따라 내보내고 수정한 파일 **에template.js** 를 로드 합니다.
 

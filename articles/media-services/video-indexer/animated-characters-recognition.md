@@ -10,13 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047490"
 ---
-# <a name="animated-character-detection-preview"></a>애니메이션 문자 검색 (미리 보기)
+# <a name="animated-character-detection-preview"></a>애니메이션 캐릭터 검색(미리 보기)
 
 Azure Media Services Video Indexer는 [Cognitive Services 사용자 지정 비전과](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)의 통합을 통해 애니메이션 내용에서 문자 검색, 그룹화 및 인식을 지원 합니다. 이 기능은 포털 및 API를 통해 사용할 수 있습니다.
 
@@ -39,7 +40,7 @@ Video Indexer 계정의 유형에 따라 다양 한 기능 집합을 사용할 �
 
 ### <a name="trial-vs-paid"></a>평가판 및 유료
 
-|기능|평가판|지급|
+|기능|평가판|유료|
 |---|---|---|
 |Custom Vision 계정|Video Indexer 하 여 백그라운드에서 관리 됩니다. |Custom Vision 계정이 Video Indexer에 연결 되어 있습니다.|
 |애니메이션 모델 수|하나|계정 당 최대 100 모델 (Custom Vision 제한).|
@@ -133,7 +134,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
         ![콘텐츠 모델 사용자 지정](./media/animated-characters-recognition/content-model-customization-tab.png)
 
      1. 학습 된 후에는 해당 모델을 사용 하 여 인덱싱하거나 인덱싱해야는 학습 된 문자를 인식 합니다. 
-    Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다. [Custom Vision에서 분류자를 개선 하](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)는 방법에 대해 자세히 알아보세요.
+    Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다. [Custom Vision에서 분류자를 개선 하](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)는 방법에 대해 자세히 알아보세요.
 
 1. 애니메이션 문자를 삭제 합니다.
 
@@ -159,7 +160,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 1. Custom Vision 계정을 연결 합니다.
 
     Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision 계정을 연결 해야 합니다. <br/>
-    Custom Vision 계정이 아직 없는 경우 새로 만드세요. 자세한 내용은 [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)를 참조 하세요.
+    Custom Vision 계정이 아직 없는 경우 새로 만드세요. 자세한 내용은 [Custom Vision](../../cognitive-services/custom-vision-service/home.md)를 참조 하세요.
 
     [API를 사용 하 여 Custom Vision 계정에 연결](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag)합니다.
 1. 애니메이션 문자 모델을 만듭니다.

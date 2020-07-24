@@ -38,48 +38,44 @@
       href: application-management-fundamentals.md
     - name: 앱 관리 공통 시나리오
       href: common-scenarios.md
-    - name: 클라우드 앱 및 Single Sign-On
+    - name: 클라우드 앱 통합 계획
       items:
-        - name: 클라우드 앱 통합 계획
-          items:
-            - name: 앱 통합 시작
-              href: plan-an-application-integration.md
-            - name: 액세스 패널 배포 계획
-              href: access-panel-deployment-plan.md
-            - name: 개발자를 위한 지침
-              href: developer-guidance-for-integrating-applications.md
-        - name: SSO(Single sign-on)
-          items:
-            - name: 다중 테넌트 애플리케이션용 SSO 사용
-              href: isv-sso-content.md
-            - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
-              href: isv-tenant-multi-tenant-app.md
-            - name: 다중 테넌트 페더레이션 선택
-              href: isv-choose-multi-tenant-federation.md
-            - name: 다중 테넌트 애플리케이션용 설명서 만들기
-              href: isv-create-sso-documentation.md
-            - name: Single Sign-On 배포 계획
-              href: plan-sso-deployment.md
+        - name: 앱 통합 시작
+          href: plan-an-application-integration.md
+        - name: 액세스 패널 배포 계획
+          href: access-panel-deployment-plan.md
+        - name: 개발자를 위한 지침
+          href: developer-guidance-for-integrating-applications.md
+    - name: SSO(Single sign-on)
+      items:
+        - name: 다중 테넌트 애플리케이션용 SSO 사용
+          href: isv-sso-content.md
+        - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
+          href: isv-tenant-multi-tenant-app.md
+        - name: 다중 테넌트 페더레이션 선택
+          href: isv-choose-multi-tenant-federation.md
+        - name: 다중 테넌트 애플리케이션용 설명서 만들기
+          href: isv-create-sso-documentation.md
+        - name: Single Sign-On 배포 계획
+          href: plan-sso-deployment.md
         - name: 한 번 클릭 SSO
-          items:
-            - name: 한 번 클릭 SSO란?
-              href: one-click-sso-tutorial.md
-        - name: 애플리케이션 보안
-          items:
-            - name: 앱 액세스 옵션
-              href: what-is-access-management.md
-            - name: 인증서 서명 옵션
-              href: certificate-signing-options.md
-            - name: 인증서 관리
-              href: manage-certificates-for-federated-single-sign-on.md
-            - name: 테넌트 제한 사항
-              href: tenant-restrictions.md
-            - name: SAML 토큰 암호화 구성
-              href: howto-saml-token-encryption.md
-            - name: 최종 사용자 포털
-              href: end-user-experiences.md
-    - name: 클라우드 앱 표시 유형 및 제어
-      href: cloud-app-security.md
+          href: one-click-sso-tutorial.md
+    - name: 애플리케이션 보안
+      items:
+        - name: 앱 액세스 옵션
+          href: what-is-access-management.md
+        - name: 인증서 서명 옵션
+          href: certificate-signing-options.md
+        - name: 인증서 관리
+          href: manage-certificates-for-federated-single-sign-on.md
+        - name: 테넌트 제한 사항
+          href: tenant-restrictions.md
+        - name: SAML 토큰 암호화 구성
+          href: howto-saml-token-encryption.md
+        - name: 최종 사용자 포털
+          href: end-user-experiences.md
+        - name: 클라우드 앱 표시 유형 및 제어
+          href: cloud-app-security.md
     - name: 온-프레미스 앱에 대한 애플리케이션 프록시
       items:
         - name: 애플리케이션 프록시

@@ -5,12 +5,13 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 20379f6a1e87c7553d6567be5b50f22bbadb8db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 13842512c7d983a70b32132b4a16be37ac0b2b54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84514671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050722"
 ---
 # <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Preview-AKS (Azure Kubernetes Service) 노드 이미지 업그레이드
 
@@ -36,7 +37,7 @@ az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUp
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
 ```
 
-미리 보기 중에 노드 이미지 업그레이드를 사용 하려면 *aks-preview* CLI 확장이 필요 합니다. [Az extension add] [az-extension-add] 명령을 사용 하 고 [az extension update] [az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+미리 보기 중에 노드 이미지 업그레이드를 사용 하려면 *aks-preview* CLI 확장이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
 
 ```azurecli
 # Install the aks-preview extension
@@ -45,6 +46,12 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
+상태가 등록됨으로 표시되면 [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>모든 노드 풀의 모든 노드 업그레이드
 
@@ -145,3 +152,5 @@ az aks nodepool show \
 [security-update]: node-updates-kured.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-preview
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

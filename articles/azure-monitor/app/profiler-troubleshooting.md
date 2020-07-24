@@ -6,19 +6,19 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84148347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049781"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
-## <a name="active-issues"></a>활성 문제
+> [!CAUTION]
+> Azure App Service에서 ASP.NET Core 앱에 대 한 프로파일러를 실행 하는 버그가 있습니다. 해결 방법이 있지만 전 세계에 배포 하는 데 몇 주가 걸립니다. [여기](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio)에 지침을 사용 하 여 응용 프로그램에 Application Insights SDK를 추가 하 여 버그를 해결할 수 있습니다.
 
-* ASP.NET Core 3.x 응용 프로그램에 대 한 프로 파일링은 이제 Azure 앱 서비스에서 지원 됩니다.
-
-## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>일반적인 문제 해결
+## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>일반 문제 해결
 
 ### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Profiler가 실행되는 동안 애플리케이션에 대한 요청이 있을 때만 프로필에 업로드됨
 
@@ -75,7 +75,7 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
 
 * **ApplicationInsightsProfiler3** 웹 작업이 실행되고 있어야 합니다. 웹 작업을 확인하려면 다음 단계를 수행합니다.
-   1. [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)로 이동합니다.
+   1. [Kudu](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret)로 이동합니다.
    1. **도구** 메뉴에서 **웹 작업 대시보드**를 선택합니다.  
       **웹 작업** 창이 열립니다. 
    
@@ -193,11 +193,3 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
-
-
-
-
-
-
-
-

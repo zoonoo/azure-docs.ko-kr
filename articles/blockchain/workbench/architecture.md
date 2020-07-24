@@ -4,12 +4,12 @@ description: Azure Blockchain 워크 벤치 미리 보기 아키텍처 및 해�
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
-ms.openlocfilehash: ef56d0fdac74bf447fce01e772abed8a2b07c27b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fff70ef2eeb1dc27d33769fd48fe5923f56717b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253429"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049180"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
@@ -116,4 +116,4 @@ Azure Monitor는 블록체인 네트워크의 상태에 대한 정보를 제공�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench 배포](../../blockchain-workbench/blockchain-workbench-deploy.md)
+> [Azure Blockchain Workbench 배포](./deploy.md)

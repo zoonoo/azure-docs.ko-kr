@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d27abfda789a9bb1bd5479b059355703388333f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e547cf3f08e49ce707cd079778588fb6be5acb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048421"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Logic Apps에 대 한 Azure 보안 기준
 
@@ -643,7 +643,7 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
 
-**지침**: 특정 사용자나 그룹만 논리 앱 관리, 편집 및 보기와 같은 특정 작업을 실행 하도록 허용할 수 있습니다. 이들의 권한을 제어하려면 Azure RBAC(Role-Based Access Control)를 사용합니다. 그러면 Azure 구독의 멤버에게 사용자 지정 또는 기본 제공 역할을 할당할 수 있습니다.
+**지침**: 특정 사용자나 그룹만 논리 앱 관리, 편집 및 보기와 같은 특정 작업을 실행 하도록 허용할 수 있습니다. 사용자의 권한을 제어 하려면 azure 구독에서 구성원에 사용자 지정 또는 기본 제공 역할을 할당할 수 있도록 azure RBAC (역할 기반 액세스 제어)를 사용 합니다.
 - 논리 앱 참가자: 논리 앱을 관리할 수 있지만 앱에 대한 액세스는 변경할 수 없습니다.
 - 논리 앱 운영자: 논리 앱을 읽고 사용하거나 사용하지 않도록 설정할 수는 있지만 편집하거나 업데이트할 수 없습니다.
 

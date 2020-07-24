@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
-ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e32a9053e4ab7cc3618f7b50b7291a660a14e1b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79478800"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053491"
 ---
 # <a name="create-a-media-services-account"></a>Media Services 계정 만들기
 
@@ -38,7 +39,7 @@ Azure Portal은 Azure Media Services 계정을 신속 하 게 만드는 방법�
 
 * Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)관리 
 * v3 [자산](assets-concept.md)보기 (관리 안 함) 
-* [api에 액세스 하는 방법에 대 한 정보를 가져옵니다](access-api-portal.md). 
+* [api에 액세스 하는 방법에 대 한 정보를 가져옵니다](./access-api-howto.md). 
 
 다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
@@ -89,9 +90,9 @@ az group create --name amsResourceGroup --location westus2
 
 Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름을 제공해야 합니다. 지정된 스토리지 계정은 Media Services 계정에 연결됩니다. Media Services에서 스토리지 계정을 사용하는 방법에 대한 자세한 내용은 [스토리지 계정](storage-account-concept.md)을 참조하세요.
 
-**기본** 스토리지 계정이 하나 있어야 하며 미디어 서비스 계정과 연결된 **보조** 스토리지 계정이 여러 개 있을 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. Blob 전용 계정은 **기본**으로 허용되지 않습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 옵션](../../storage/common/storage-account-options.md)을 참조하세요. 
+**기본** 스토리지 계정이 하나 있어야 하며 미디어 서비스 계정과 연결된 **보조** 스토리지 계정이 여러 개 있을 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. Blob 전용 계정은 **기본**으로 허용되지 않습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 옵션](../../storage/common/storage-account-overview.md)을 참조하세요. 
 
-다음 예제에서는 범용 v2, 표준 LRS 계정을 만듭니다. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요.
+다음 예제에서는 범용 v2, 표준 LRS 계정을 만듭니다. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 자세한 내용은 [스토리지 계정](/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요.
  
 다음 명령은 Media Services 계정과 연결될 스토리지 계정을 만듭니다. 아래 스크립트에서 `storageaccountforams`를 원하는 값으로 대체할 수 있습니다. `amsResourceGroup`이전 단계에서 리소스 그룹에 대해 지정한 값과 일치 해야 합니다. 저장소 계정 이름의 길이는 24 자 미만 이어야 합니다.
 
@@ -113,10 +114,10 @@ az ams account create --name amsaccount \
    -l westus2 
 ```
 
-### <a name="see-also"></a>참조
+### <a name="see-also"></a>참고 항목
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-* [Media Services 계정에 보조 저장소 연결](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)
+* [Media Services 계정에 보조 저장소 연결](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
 ---
 

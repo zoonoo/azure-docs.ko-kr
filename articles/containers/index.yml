@@ -6,12 +6,12 @@ metadata:
   title: Microsoft Azure 컨테이너 서비스 설명서 | Microsoft Docs
   description: Azure 컨테이너 서비스를 사용하여 클라우드 기반 컨테이너 애플리케이션을 관리 및 개발하는 방법을 알아봅니다.
   ms.topic: hub-page
-  ms.openlocfilehash: c83db23fda2fe5895a8d4400a26be463ec8d2d6a
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.openlocfilehash: 7618bedf711554fbd4428ceb6c88817477b82e6d
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86260705"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87031884"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -41,7 +41,7 @@ conceptualContent:
       text: 자세히 보기
   - title: AKS 애플리케이션 테스트 및 개발
     links:
-    - url: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
+    - url: /visualstudio/containers/overview-local-process-kubernetes
       itemType: concept
       text: Kubernetes를 사용하는 로컬 프로세스의 작동 방식
     - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md

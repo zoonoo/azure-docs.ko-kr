@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 4b5898629c373e31d94ad09ca4af66de0428a7a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047604"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -67,6 +67,11 @@ Microsoft Azure Database for MariaDB 서버 서비스에 대한 액세스가 예
    * 클라이언트 컴퓨터 대신 고정 IP 주소를 얻고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
 
 * **서버의 IP가 공개로 표시 됩니다.** Azure Database for MariaDB 서버에 대 한 연결은 공개적으로 액세스할 수 있는 Azure 게이트웨이를 통해 라우팅됩니다. 그러나 실제 서버 IP는 방화벽으로 보호됩니다. 자세한 내용은 [연결 아키텍처 문서](concepts-connectivity-architecture.md)를 참조하세요. 
+
+* **허용 되는 IP를 사용 하 여 Azure 리소스에서 연결할 수 없음:** 연결 하려는 서브넷에 대해 **Microsoft Sql** 서비스 끝점을 사용할 수 있는지 여부를 확인 합니다. **Microsoft .sql** 을 사용 하는 경우에는 해당 서브넷에서 [VNet 서비스 끝점 규칙만](concepts-data-access-security-vnet.md) 사용 합니다.
+
+   예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Portal을 사용한 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-portal.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053219"
 ---
 # <a name="scaling-media-processing"></a>미디어 처리 크기 조정
 
@@ -49,7 +49,7 @@ Azure Media Services를 사용하면 MRU(미디어 예약 단위)를 관리하�
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-[Media Services 계정 만들기](create-account-cli-how-to.md)
+[Media Services 계정 만들기](./create-account-howto.md)
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -57,7 +57,7 @@ Azure Media Services를 사용하면 MRU(미디어 예약 단위)를 관리하�
 
 `mru` 명령을 실행합니다.
 
-다음 [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) 명령은 **count** 및 **type** 매개 변수를 사용하여 "amsaccount" 계정에서 미디어 예약 단위를 설정합니다.
+다음 [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) 명령은 **count** 및 **type** 매개 변수를 사용하여 "amsaccount" 계정에서 미디어 예약 단위를 설정합니다.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -74,4 +74,4 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ## <a name="see-also"></a>참고 항목
 
 * [할당량 및 제한](limits-quotas-constraints.md)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)

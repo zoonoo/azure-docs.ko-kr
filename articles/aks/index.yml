@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: laurenhughes
   ms.author: lahugh
-  ms.date: 03/25/2020
-  ms.openlocfilehash: c3a5651df8ad1f07f3b9800abfe4b48e829ff27b
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.date: 07/21/2020
+  ms.openlocfilehash: 0a1efee059f0606248c5514dd37d1568e73897f6
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86251657"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87025203"
 landingContent:
 - title: AKS(Azure Kubernetes Service) 정보
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
     links:
     - text: AKS에 대한 Kubernetes 핵심 개념
       url: concepts-clusters-workloads.md
+    - text: AKS 클러스터를 위한 기본 아키텍처
+      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
     - text: 클러스터 및 워크로드
       url: concepts-clusters-workloads.md
     - text: 액세스 및 ID
@@ -55,7 +57,7 @@ landingContent:
     - text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)
       url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
     - text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)
-      url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
+      url: /visualstudio/containers/local-process-kubernetes
 - title: 애플리케이션 배포, 관리 및 업데이트
   linkLists:
   - linkListType: tutorial

@@ -1,5 +1,5 @@
 ---
-title: Azure Arc 사용 클러스터 구성(미리 보기)을 위한 Helm에서 GitOps 사용
+title: Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포 (미리 보기)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,14 +8,14 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 사용 클러스터 구성(미리 보기)을 위한 Helm에서 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 677c5f2b27794ebea9d38e470b5e1a5ba12bff7e
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f6a30dd66ccf476da0293bdebf9054b6781a6bf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049934"
 ---
-# <a name="use-gitops-with-helm-for-an-azure-arc-enabled-cluster-configuration-preview"></a>Azure Arc 사용 클러스터 구성(미리 보기)을 위한 Helm에서 GitOps 사용
+# <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포 (미리 보기)
 
 Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT 및 Yum 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
@@ -45,7 +45,7 @@ Name           Location    ResourceGroup
 arc-helm-demo  eastus      k8s-clusters
 ```
 
-## <a name="overview-of-using-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc 사용 Kubernetes에서 Helm 사용에 대한 개요
+## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc를 사용 하는 Kubernetes를 사용 하 여 GitOps 및 투구 사용에 대 한 개요
 
  Helm 연산자는 Helm 차트 릴리스를 자동화하는 Flux에 대한 확장을 제공합니다. 차트 릴리스는 HelmRelease라는 Kubernetes 사용자 지정 리소스를 통해 설명됩니다. Flux는 Git에서 클러스터로 이러한 리소스를 동기화하고, Helm 연산자는 리소스에 지정된 대로 Helm 차트가 릴리스되도록 합니다.
 
@@ -61,30 +61,25 @@ arc-helm-demo  eastus      k8s-clusters
 │       │   └── service.yaml
 │       └── values.yaml
 └── releases
-    └── prod
-        └── azure-vote-app.yaml
+    └── vote-app.yaml
 ```
 
-Git 리포지토리에는 두 개의 디렉터리가 있습니다. Helm 차트를 포함하는 디렉터리와 릴리스 구성을 포함하는 디렉터리입니다. `releases/prod` 디렉터리의 `azure-vote-app.yaml`에는 다음과 같은 HelmRelease 구성이 포함됩니다.
+Git 리포지토리에는 투구 차트를 포함 하는 디렉터리와 릴리스 구성을 포함 하는 두 개의 디렉터리가 있습니다. 디렉터리에서 `releases` 에는 `vote-app.yaml` 아래에 표시 된 HelmRelease 구성이 포함 되어 있습니다.
 
 ```bash
- apiVersion: helm.fluxcd.io/v1
- kind: HelmRelease
- metadata:
-   name: azure-vote-app
-   namespace: prod
-   annotations:
- spec:
-   releaseName: azure-vote-app
-   chart:
-     git: https://github.com/Azure/arc-helm-demo
-     path: charts/azure-vote
-     ref: master
-   values:
-     image:
-       repository: dstrebel/azurevote
-       tag: v1
-     replicaCount: 3
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: vote-app
+  namespace: arc-k8s-demo
+spec:
+  releaseName: arc-k8s-demo
+  chart:
+    git: https://github.com/Azure/arc-helm-demo
+    ref: master
+    path: charts/azure-vote
+  values:
+    frontendServiceName: arc-k8s-demo-vote-front
 ```
 
 Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
@@ -97,20 +92,26 @@ Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
 
 HelmRelease spec.values에 지정된 옵션은 차트 원본의 values.yaml에 지정된 옵션을 재정의합니다.
 
-HelmRelease에 대한 자세한 내용은 공식 [Helm 연산자 설명서](https://docs.fluxcd.io/projects/helm-operator/en/1.0.0-rc9/references/helmrelease-custom-resource.html)에서 확인할 수 있습니다.
+HelmRelease에 대한 자세한 내용은 공식 [Helm 연산자 설명서](https://docs.fluxcd.io/projects/helm-operator/en/stable/)에서 확인할 수 있습니다.
 
 ## <a name="create-a-configuration"></a>구성 만들기
 
-`k8sconfiguration`에 대한 Azure CLI 확장을 사용하여 연결된 클러스터를 예제 Git 리포지토리에 연결해 보겠습니다. 이 구성 이름을 `azure-voting-app`으로 지정하고 `prod` 네임스페이스에 Flux 연산자를 배포합니다.
+`k8sconfiguration`에 대한 Azure CLI 확장을 사용하여 연결된 클러스터를 예제 Git 리포지토리에 연결해 보겠습니다. 이 구성 이름을 `azure-voting-app`으로 지정하고 `arc-k8s-demo` 네임스페이스에 Flux 연산자를 배포합니다.
 
 ```bash
-az k8sconfiguration create --name azure-voting-app --resource-group  $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --operator-instance-name azure-voting-app --operator-namespace prod --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --operator-params='--git-readonly --git-path=releases/prod' --scope namespace --cluster-type connectedClusters
+az k8sconfiguration create --name azure-voting-app \
+  --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME \
+  --operator-instance-name flux --operator-namespace arc-k8s-demo \
+  --operator-params='--git-readonly --git-path=releases' \
+  --enable-helm-operator --helm-operator-version='0.6.0' \
+  --helm-operator-params='--set helm.versions=v3' \
+  --repository-url https://github.com/Azure/arc-helm-demo.git  \
+  --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>구성 매개 변수
 
 구성 만들기를 사용자 지정하려면 [사용할 수 있는 추가 매개 변수에 대해 자세히 알아보세요](./use-gitops-connected-cluster.md#additional-parameters).
-
 
 ## <a name="validate-the-configuration"></a>구성 유효성 검사
 
@@ -120,7 +121,7 @@ Azure CLI를 사용하여 `sourceControlConfiguration`이 성공적으로 만들
 az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-voting-app --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
 ```
 
-`sourceControlConfiguration` 리소스는 준수 상태, 메시지 및 디버깅 정보로 업데이트됩니다.
+`sourceControlConfiguration`리소스는 준수 상태, 메시지 및 디버깅 정보로 업데이트 됩니다.
 
 **출력:**
 
@@ -130,19 +131,24 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "complianceStatus": {
     "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
-    "message": "...",
+    "message": "{\"OperatorMessage\":null,\"ClusterState\":null}",
     "messageLevel": "3"
   },
-  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cluster-config",
-  "name": "azure-vote-app",
-  "operatorInstanceName": "cluster-config",
-  "operatorNamespace": "prod",
-  "operatorParams": "--git-readonly --git-path=releases/prod",
+  "enableHelmOperator": "True",
+  "helmOperatorProperties": {
+    "chartValues": "--set helm.versions=v3",
+    "chartVersion": "0.6.0"
+  },
+  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-voting-app",
+  "name": "azure-voting-app",
+  "operatorInstanceName": "flux",
+  "operatorNamespace": "arc-k8s-demo",
+  "operatorParams": "--git-readonly --git-path=releases",
   "operatorScope": "namespace",
   "operatorType": "Flux",
   "provisioningState": "Succeeded",
-  "repositoryPublicKey": "...",
-  "repositoryUrl": "git://github.com/Azure/arc-helm-demo.git",
+  "repositoryPublicKey": "",
+  "repositoryUrl": "https://github.com/Azure/arc-helm-demo.git",
   "resourceGroup": "AzureArcTest",
   "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
 }
@@ -150,20 +156,11 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="validate-application"></a>애플리케이션 유효성 검사
 
-이제 서비스 IP를 가져와 애플리케이션이 실행 중인지 확인합니다.
+다음 명령을 실행 하 고 브라우저에서 [localhost: 3000](http://localhost:3000) 으로 이동 하 여 응용 프로그램이 실행 중인지 확인 합니다.
 
 ```bash
-kubectl get svc/azure-vote-front -n prod
+kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo-vote-front 3000:80
 ```
-
-**출력:**
-
-```bash
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.14.161   52.186.160.216   80:30372/TCP   4d22h
-```
-
-위의 출력에서 외부 IP 주소를 찾아 브라우저에서 엽니다.
 
 ## <a name="next-steps"></a>다음 단계
 

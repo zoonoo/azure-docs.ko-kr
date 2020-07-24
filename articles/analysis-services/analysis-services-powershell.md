@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dfa9de94665c0ee98d0252be6de807f18e39b087
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050444"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -25,7 +26,7 @@ ms.locfileid: "83697962"
 
 대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정 또는 서비스 주체에게는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
 
-Azure PowerShell cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또는 스케줄러를 실행하는 계정이 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 리소스에 대한 소유자 역할에도 속해야 합니다. 
+Azure PowerShell cmdlet을 사용 하는 서버 작업의 경우 스케줄러를 실행 하는 계정이 나 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/overview.md)에서 리소스의 소유자 역할에도 속해야 합니다. 
 
 ## <a name="resource-and-server-operations"></a>리소스 및 서버 작업 
 

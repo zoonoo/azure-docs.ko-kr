@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 77fe4b4ffbf7c189a5bf64e662f395fc78e53944
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 021e5e8ee01745dd0b534e53dbb6d75b5b78c419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82581508"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049623"
 ---
 # <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor 사용
 
@@ -31,7 +31,7 @@ Log Analytics 작업 영역이 없는 경우 새로 만들어야 합니다. 구�
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
 1. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다.
 
@@ -122,7 +122,7 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
 ### <a name="download-templates"></a>템플릿 다운로드
 
@@ -178,7 +178,7 @@ provisioningState       : Succeeded
 
 각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장이 설치 된 경우 스크립트에서 다시 설치 하려고 시도 합니다. VM 확장이 설치 되지 않은 경우 스크립트는 Log Analytics 및 종속성 에이전트 VM 확장을 설치 합니다.
 
-호환성 별칭을 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 `Enable-AzureRM` 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+호환성 별칭을 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 `Enable-AzureRM` 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 스크립트의 인수 세부 정보 및 사용법 예제 목록을 가져오려면 `Get-Help`를 실행합니다.
 

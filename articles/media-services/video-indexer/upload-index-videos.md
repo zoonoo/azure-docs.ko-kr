@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77468765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052491"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -22,31 +23,31 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 * URL에서 비디오를 업로드합니다(기본 설정).
 * 비디오 파일을 요청 본문의 바이트 배열로 보냅니다.
-* [자산 ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (유료 계정 에서만 지원 됨)를 제공 하 여 기존 Azure Media Services 자산을 사용 합니다.
+* [자산 ID](../latest/assets-concept.md)를 제공하여 기존 Azure Media Services 자산을 사용합니다(유료 계정에서만 지원됨).
 
 비디오를 업로드 한 후에는 Video Indexer (선택 사항) 비디오를 인코딩합니다 (이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 이 문서에서는 다음 옵션으로 비디오를 업로드 하 고 인덱싱하는 방법을 보여 줍니다.
 
 * [Video Indexer 웹 사이트](#website) 
-* [Video Indexer Api](#apis)
+* [Video Indexer API](#apis)
 
 ## <a name="uploading-considerations-and-limitations"></a>고려 사항 및 제한 사항 업로드
  
 - 비디오 이름은 80자를 넘지 않아야 합니다.
-- URL (기본 설정)에 따라 비디오를 업로드 하는 경우에는 TLS 1.2 이상으로 끝점을 보호 해야 합니다.
-- URL 옵션을 사용 하는 업로드 크기는 30GB로 제한 됩니다.
-- 요청 URL 길이는 6144 자로 제한 됩니다. 쿼리 문자열 URL 길이는 4096 자로 제한 됩니다.
-- 바이트 배열이 포함 된 업로드 크기 옵션은 2GB로 제한 됩니다.
-- 바이트 배열 옵션은 30 분 후에 시간 초과 됩니다.
+- URL을 기반으로 하여 비디오를 업로드하는 경우(기본 설정) TLS 1.2 이상을 사용하여 엔드포인트를 보호해야 합니다.
+- URL 옵션을 사용하면 업로드 크기가 30GB로 제한됩니다.
+- 요청 URL 길이는 6144자로 제한되며 쿼리 문자열 URL 길이는 4096자로 제한됩니다.
+- 바이트 배열 옵션을 사용하면 업로드 크기가 2GB로 제한됩니다.
+- 바이트 배열 옵션은 30분 후 시간 초과됩니다.
 - Param에 제공 된 URL을 `videoURL` 인코딩해야 합니다.
-- 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
-- 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer 합니다.
-- URL에 액세스할 수 있어야 합니다 (예: 공용 URL). 
+- 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한 사항이 있습니다.
+- 단일 파일에 대한 Video Indexer의 최대 기간 제한은 4시간입니다.
+- URL에 액세스할 수 있어야 합니다(예: 공용 URL). 
 
-    개인 URL 인 경우 요청에서 액세스 토큰을 제공 해야 합니다.
+    개인 URL인 경우 요청에서 액세스 토큰을 제공해야 합니다.
 - URL은 페이지에 대 한 링크와 같은 웹 페이지가 아닌 유효한 미디어 파일을 가리켜야 합니다 `www.youtube.com` .
-- 유료 계정에서는 분당 최대 50 영화를 업로드할 수 있으며 평가판 계정에는 분당 최대 5 개의 영화를 업로드할 수 있습니다.
+- 유료 계정에서는 분당 최대 50개의 영화를 업로드할 수 있으며 평가판 계정에서는 분당 최대 5개의 영화를 업로드할 수 있습니다.
 
 > [!Tip]
 > 이전 .NET Framework는 기본적으로 TLS 1.2로 설정되지 않으므로 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.
@@ -57,7 +58,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨테이너/파일 형식](../latest/media-encoder-standard-formats.md#input-containerfile-formats) 문서를 참조하세요.
 
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Video Indexer 웹 사이트를 사용 하 여 비디오 업로드 및 인덱싱
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Video Indexer 웹 사이트를 사용 하 여 비디오 업로드 및 인덱싱
 
 > [!NOTE]
 > 비디오 이름은 80자를 넘지 않아야 합니다.
@@ -73,7 +74,7 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 
     Video Indexer가 분석을 완료하면 비디오에 대한 링크와 비디오 분석 결과에 관한 간단한 설명이 포함된 알림을 받게 됩니다. 예: 사람, 주제, OCR.
 
-## <a name="upload-and-index-with-api"></a><a id="apis"/>API를 사용 하 여 업로드 및 인덱싱
+## <a name="upload-and-index-with-api"></a><a name="apis"></a>API를 사용 하 여 업로드 및 인덱싱
 
 [비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API를 사용 하 여 URL을 기준으로 비디오를 업로드 하 고 인덱싱합니다. 다음 코드 샘플에는 바이트 배열을 업로드 하는 방법을 보여 주는 주석 처리 된 코드가 포함 되어 있습니다. 
 
@@ -141,7 +142,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 [비디오 업로드 ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 또는 [비디오 재인덱싱](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API를 사용하는 경우 선택적 매개 변수 중 하나는 `streamingPreset`입니다. `streamingPreset`을 `Default`, `SingleBitrate` 또는 `AdaptiveBitrate`로 설정하면 인코딩 프로세스가 트리거됩니다. 인덱싱 및 인코딩 작업이 완료되면 비디오를 스트림할 수 있도록 비디오가 게시됩니다. 비디오를 스트림하려는 스트리밍 엔드포인트는 **실행 중** 상태여야 합니다.
 
-인덱싱 및 인코딩 작업을 실행하려면 [Video Indexer 계정에 연결된 Azure Media Services 계정](connect-to-azure.md)에 예약 단위가 필요합니다. 자세한 내용은 [미디어 처리 크기 조정](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview)을 참조하세요. 이러한 작업은 컴퓨팅 집약적 작업이므로 S3 단위 유형을 사용하는 것이 좋습니다. RU의 수는 병렬로 실행할 수 있는 작업의 최대 수를 정의합니다. 기본 추천 사항은 10개의 S3 RU입니다. 
+인덱싱 및 인코딩 작업을 실행하려면 [Video Indexer 계정에 연결된 Azure Media Services 계정](connect-to-azure.md)에 예약 단위가 필요합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요. 이러한 작업은 컴퓨팅 집약적 작업이므로 S3 단위 유형을 사용하는 것이 좋습니다. RU의 수는 병렬로 실행할 수 있는 작업의 최대 수를 정의합니다. 기본 추천 사항은 10개의 S3 RU입니다. 
 
 비디오 인덱싱만 수행하고 인코딩은 수행하지 않으려면 `streamingPreset`을 `NoStreaming`으로 설정합니다.
 
@@ -343,7 +344,7 @@ public class AccountContractSlim
 }
 ```
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 

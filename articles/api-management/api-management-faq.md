@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243582"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050337"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -49,7 +49,7 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 기능이 미리 보기 상태인 경우 기능 작동 방법에 대한 피드백을 찾고 있음을 의미합니다. 기능이 미리 보기 상태인 경우 기능적으로 완전하지만 고객 피드백에 대한 응답으로 변경 내용을 만들 가능성이 있습니다. 프로덕션 환경에서 미리 보기에 있는 기능에 의존하지 않는 것이 좋습니다.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?
-API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
+API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 * HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 참조하세요.
 * [Azure API Management에서 클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스를 보호 하는 방법](api-management-howto-mutual-certificates.md)에 설명 된 대로 TLS 상호 인증을 사용 합니다.
@@ -57,7 +57,7 @@ API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호�
 * API Management 인스턴스를 Azure Virtual Network에 연결합니다.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?
-API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
+API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 * API Management의 백업 및 복원 기능을 사용할 수 있습니다. 자세한 내용은 [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조하세요.
 * 사용자 고유의 백업을 만들고 [API Management REST API](/rest/api/apimanagement/)를 사용하여 기능을 복원합니다. REST API를 사용하여 원하는 서비스 인스턴스에서 엔터티를 저장 및 복원합니다.
@@ -77,7 +77,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 2. 업데이트하려는 API Management 인스턴스가 있는 리소스 그룹으로 이동합니다.
 3. API Management에서 **API Management 서비스 참가자** 역할을 사용자에 게 할당 합니다.
 
-이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](/powershell/azure/overview)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
+이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](/powershell/azure/)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
 
 1. `Connect-AzAccount` cmdlet을 사용하여 로그인합니다.
 2. `Set-AzContext -SubscriptionID <subscriptionGUID>`를 사용하여 서비스가 있는 구독에 컨텍스트를 설정합니다.
@@ -88,7 +88,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 추가하려는 정책이 정책 편집기에서 흐리게 표시되거나 음영으로 표시되는 경우 정책에 대해 올바른 범위에 있는지 확인합니다. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [API Management 정책](./api-management-policies.md)에서 정책의 사용 섹션을 확인하세요.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?
-단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
+단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 * 동일한 테넌트에 다른 API를 호스팅할 수 있습니다.
 * 다른 테넌트에 동일한 API를 호스팅할 수 있습니다.

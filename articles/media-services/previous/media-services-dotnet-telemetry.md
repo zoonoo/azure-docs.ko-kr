@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c101f6f2007e9d772f03be5d69e56d5f52866d6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61464949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052784"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성 
 
@@ -30,7 +30,7 @@ ms.locfileid: "61464949"
 
 다음 방법 중 하나를 사용하여 원격 분석 데이터를 사용할 수 있습니다.
 
-- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 [이](https://msdn.microsoft.com/library/mt742089.aspx) 항목의 **원격 분석 정보 사용**을 참조하세요.
+- Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 [이](/previous-versions/azure/mt742089(v=azure.100)) 항목의 **원격 분석 정보 사용**을 참조하세요.
 
 또는
 

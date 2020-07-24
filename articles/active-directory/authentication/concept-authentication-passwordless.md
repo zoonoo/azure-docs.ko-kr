@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051282"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
-MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 이지만 사용자가 암호를 기억할 필요 없이 추가 보안 계층이 발생 하지 않는 경우가 많습니다. 암호를 제거 하 고 사용자가 보유 한 항목 및 사용자가 알고 있는 항목으로 대체 하기 때문에 암호 없는 인증 방법이 더 편리 합니다.
+MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 좋은 방법 이지만 사용자가 암호를 기억할 필요 없이 추가 보안 계층이 발생 하지 않는 경우가 많습니다. 암호를 제거 하 고 사용자가 보유 한 항목 및 사용자가 알고 있는 항목으로 대체 하기 때문에 암호 없는 인증 방법이 더 편리 합니다.
 
 | 인증  | 보유 한 항목 | 사용자 또는 알고 있는 항목 |
 | --- | --- | --- |
@@ -36,11 +36,11 @@ MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 �
 
 ## <a name="windows-hello-for-business"></a>비즈니스용 Windows Hello
 
-비즈니스용 windows Hello는 고유의 지정 된 Windows PC가 있는 정보 근로자에 게 적합 합니다. 생체 인식 및 PIN은 사용자 PC와 직접 연결 되어 소유자 이외의 사용자가 액세스할 수 없도록 합니다. 비즈니스용 Windows Hello는 PKI (공개 키 인프라) 통합 및 기본 제공 되는 SSO (Single Sign-On)를 사용 하 여 온-프레미스 및 클라우드에서 회사 리소스에 원활 하 게 액세스할 수 있는 편리한 방법을 제공 합니다.
+비즈니스용 windows Hello는 고유의 지정 된 Windows PC가 있는 정보 근로자에 게 적합 합니다. 생체 인식 및 PIN 자격 증명은 사용자 PC와 직접 연결 되어 소유자 이외의 사용자가 액세스 하지 못하도록 합니다. 비즈니스용 Windows Hello는 PKI (공개 키 인프라) 통합 및 기본 제공 되는 SSO (Single Sign-On)를 사용 하 여 온-프레미스 및 클라우드에서 회사 리소스에 원활 하 게 액세스할 수 있는 편리한 방법을 제공 합니다.
 
 ![비즈니스용 Windows Hello를 사용한 사용자 로그인 예](./media/concept-authentication-passwordless/windows-hellow-sign-in.jpeg)
 
-다음 단계는 Azure Active Directory에서 로그인 프로세스를 작동 하는 방법을 보여 줍니다.
+다음 단계는 Azure AD에서 로그인 프로세스를 작동 하는 방법을 보여 줍니다.
 
 ![비즈니스용 Windows Hello에서 사용자 로그인에 관련 된 단계를 간략하게 설명 하는 다이어그램입니다.](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
@@ -56,7 +56,7 @@ MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 �
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator 앱
 
-직원의 전화를 암호 없는 인증 방법으로 사용할 수 있습니다. 암호 외에도 편리한 다단계 인증 옵션으로 Microsoft Authenticator 앱을 이미 사용 하 고 있을 수 있습니다. 인증자 앱을 암호 없는 옵션으로 사용할 수도 있습니다.
+직원의 전화가 암호 없는 인증 방법이 되도록 허용할 수도 있습니다. 암호 외에도 편리한 다단계 인증 옵션으로 Microsoft Authenticator 앱을 이미 사용 하 고 있을 수 있습니다. 인증자 앱을 암호 없는 옵션으로 사용할 수도 있습니다.
 
 ![Microsoft Authenticator 앱을 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
@@ -75,11 +75,18 @@ Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windo
 1. Nonce는 개인 키로 서명 되 고 Azure AD로 다시 전송 됩니다.
 1. Azure AD는 공개/개인 키 유효성 검사를 수행 하 고 토큰을 반환 합니다.
 
+암호 없는 로그인을 시작 하려면 다음 방법을 완료 합니다.
+
+> [!div class="nextstepaction"]
+> [Authenticator 앱을 사용 하 여 암호 없는 sign 사용](howto-authentication-passwordless-phone.md)
+
 ## <a name="fido2-security-keys"></a>FIDO2 보안 키
 
 FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable 표준 기반 암호 없는 인증 방법입니다. Fast Identity Online (FIDO)은 암호 없는 인증을 위한 개방형 표준입니다. FIDO를 사용 하면 사용자와 조직이 외부 보안 키 또는 장치에 기본 제공 되는 플랫폼 키를 사용 하 여 사용자 이름 또는 암호 없이 해당 리소스에 로그인 할 수 있습니다.
 
-공개 미리 보기의 경우 직원은 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 사용할 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
+직원은 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 수행할 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
+
+Azure AD에 대 한 FIDO2 보안 키로 로그인은 현재 미리 보기로 제공 됩니다.
 
 ![보안 키를 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -127,7 +134,15 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 
 사용자가이 지원 되는 장치 목록에서 장치를 구입 하려는 경우에는에 문의 하세요 [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) .
 
+FIDO2 보안 키를 시작 하려면 다음 방법에 대 한 작업을 완료 하세요.
+
+> [!div class="nextstepaction"]
+> [FIDO2 보안 키를 사용 하 여 암호 없는 sign 사용](howto-authentication-passwordless-security-key.md)
+
+
 ## <a name="what-scenarios-work-with-the-preview"></a>어떤 시나리오가 미리 보기에서 작동 하나요?
+
+Azure AD 암호 없는 로그인 기능은 현재 미리 보기 상태입니다. 고려 사항은 다음과 같습니다.
 
 - 관리자는 테 넌 트에 대해 암호 없는 인증 방법을 사용할 수 있습니다.
 - 관리자는 모든 사용자를 대상으로 하거나 각 방법에 대해 테 넌 트 내에서 사용자/그룹을 선택할 수 있습니다.
@@ -162,12 +177,12 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[조직에서 FIDO2 보안 키 암호 없는 옵션을 사용 하도록 설정](howto-authentication-passwordless-security-key.md)
+Azure AD에서 암호 없는를 시작 하려면 다음 방법 중 하나를 수행 합니다.
 
-[조직에서 전화 기반 암호 없는 옵션 사용](howto-authentication-passwordless-phone.md)
+* [FIDO2 보안 키 암호 없는 로그인 사용](howto-authentication-passwordless-security-key.md)
+* [인증 앱으로 전화 기반 암호 없는 로그인 사용](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>외부 링크
 
-[FIDO 동맹](https://fidoalliance.org/)
-
-[FIDO2 CTAP 사양](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)
+* [FIDO 동맹](https://fidoalliance.org/)
+* [FIDO2 CTAP 사양](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)

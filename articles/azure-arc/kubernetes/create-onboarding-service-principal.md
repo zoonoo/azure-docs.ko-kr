@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Azure Arc 지원 온보딩 서비스 주체 만들기 '
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050076"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Azure Arc 지원 온보딩 서비스 주체 만들기(미리 보기)
 
@@ -44,7 +45,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>권한 할당
 
-새 서비스 주체를 만든 후 새로 만든 보안 주체에 "Kubernetes 온보딩용 Azure Arc" 역할을 할당합니다. 이 역할은 보안 주체가 Azure에 클러스터를 등록할 수만 있게 허용하는 제한된 권한을 가진 기본 제공 Azure 역할입니다. 보안 주체는 구독 내의 다른 클러스터 또는 리소스를 업데이트, 삭제, 수정할 수 없습니다.
+새 서비스 주체를 만든 후에는 새로 만든 주 서버에 "Kubernetes Cluster-Azure Arc 온 보 딩" 역할을 할당 합니다. 이 역할은 보안 주체가 Azure에 클러스터를 등록할 수만 있게 허용하는 제한된 권한을 가진 기본 제공 Azure 역할입니다. 보안 주체는 구독 내의 다른 클러스터 또는 리소스를 업데이트, 삭제, 수정할 수 없습니다.
 
 제한된 기능이 부여되어 있으므로 고객은 이 보안 주체를 쉽게 다시 사용하여 여러 클러스터를 등록할 수 있습니다.
 

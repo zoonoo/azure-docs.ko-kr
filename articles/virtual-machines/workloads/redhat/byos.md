@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052163"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -68,7 +69,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Azure CLI의 Red Hat 금색 이미지를 사용 합니다.
 
-다음 지침에서는 Azure CLI 사용 하 여 RHEL VM에 대 한 초기 배포 프로세스를 안내 합니다. 이 지침에서는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)되어 있다고 가정 합니다.
+다음 지침에서는 Azure CLI 사용 하 여 RHEL VM에 대 한 초기 배포 프로세스를 안내 합니다. 이 지침에서는 [Azure CLI 설치](/cli/azure/install-azure-cli)되어 있다고 가정 합니다.
 
 >[!IMPORTANT]
 >다음 모든 명령에 대 한 게시자, 제품, 계획 및 이미지 참조의 모든 소문자를 사용 해야 합니다.
@@ -199,7 +200,7 @@ Azure Disk Encryption를 적용 하는 단계는 [Linux vm에 대 한 Azure Disk
 
     이 경우 Microsoft 또는 Red Hat에 연락 하 여 구독을 사용 하도록 설정 합니다.
 
-- RHEL BYOS 이미지에서 스냅숏을 수정 하 고이 사용자 지정 이미지를 [공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)에 게시 하려는 경우 스냅숏의 원래 원본과 일치 하는 계획 정보를 제공 해야 합니다. 예를 들어 명령은 다음과 같습니다.
+- RHEL BYOS 이미지에서 스냅숏을 수정 하 고이 사용자 지정 이미지를 [공유 이미지 갤러리](../../linux/shared-image-galleries.md)에 게시 하려는 경우 스냅숏의 원래 원본과 일치 하는 계획 정보를 제공 해야 합니다. 예를 들어 명령은 다음과 같습니다.
 
     ```azurecli
     az vm create –image \

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 902210f0ba6fc195cd219dd5a24e7098ed484d8f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048856"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 (추가 스토리지로) 사용하는 HDInsight 클러스터 만들기
 
@@ -51,7 +51,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **1.0 이상 Azure PowerShell**합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+* **1.0 이상 Azure PowerShell**합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 * **Windows SDK**. [여기](https://dev.windows.com/en-us/downloads)에서 설치할 수 있습니다. 이를 사용하여 보안 인증서를 만듭니다.
 * **Azure Active Directory 서비스 주체**입니다. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
 
@@ -87,7 +87,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    다음과 유사한 출력이 표시됩니다.
+    다음과 같은 출력이 표시됩니다.
 
     ```output
     ResourceGroupName : hdiadlgrp

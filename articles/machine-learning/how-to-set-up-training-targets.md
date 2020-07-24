@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0f3682338c9373f3ba30c8b32ea5cf4132c18949
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048271"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,12 +98,11 @@ Azure Machine Learning 계산 클러스터는 단일 또는 다중 노드 계산
 
 Azure Machine Learning 컴퓨팅을 사용하여 클라우드의 CPU 또는 GPU 컴퓨팅 노드 클러스터에 학습 프로세스를 배포할 수 있습니다. GPU를 포함하는 VM 크기에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)를 참조하세요. 
 
-Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은 기본적인 제한이 있습니다. 자세한 내용은 [Azure 리소스에 대한 할당량 관리 및 요청](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)을 참조하세요.
+Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은 기본적인 제한이 있습니다. 자세한 내용은 [Azure 리소스에 대한 할당량 관리 및 요청](/how-to-manage-quotas.md)을 참조하세요.
 
-우선 순위가 낮은 VM을 사용하여 워크로드의 일부 또는 전체를 실행하도록 선택할 수도 있습니다. 이러한 VM은 가용성이 보장되지 않고 사용 중에 선점될 수 있습니다. 선점된 작업은 계속되지 않고 다시 시작됩니다.  우선 순위가 낮은 VM은 일반 VM에 비해 할인된 요금이 부과됩니다. [비용 계획 및 관리](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost)를 참조하세요.
 
 > [!TIP]
-> 필요한 코어 수만큼 할당량이 있는 경우 일반적으로 클러스터를 최대 100노드까지 스케일 업할 수 있습니다. 예를 들어 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용하도록 설정하여 MPI 작업을 지원합니다. 그러나 간단하게 [지원 티켓을 발행](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)하고, 노드 간 통신을 사용하지 않도록 구독, 작업 영역 또는 특정 클러스터를 허용 목록에 추가해 달라고 요청하여 클러스터를 노드 수천 개로 확장할 수 있습니다. 
+> 필요한 코어 수만큼 할당량이 있는 경우 일반적으로 클러스터를 최대 100노드까지 스케일 업할 수 있습니다. 예를 들어 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용하도록 설정하여 MPI 작업을 지원합니다. 그러나 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 수천 개의 클러스터의 크기를 조정 하 고, 구독 또는 작업 영역을 나열 하도록 요청 하거나, 노드 간 통신을 사용 하지 않도록 설정할 수 있습니다. 
 
 Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있습니다. 컴퓨팅은 작업 영역에 있는 다른 사용자와 공유할 수 있으며, 실행 간에 유지되고 제출된 실행 수와 클러스터에 설정된 max_nodes 수에 따라 노드를 자동으로 확장 또는 축소합니다. min_nodes 설정은 사용 가능한 최소 노드 수를 제어합니다.
 
@@ -118,14 +117,38 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
 
    Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할 수도 있습니다. 속성을 사용하면 고정 크기로 또는 구독의 기존 Azure Virtual Network 내에서 영구적 클러스터를 만들 수 있습니다.  자세한 내용은 [AmlCompute 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     )를 참조하세요.
-    
-   또는 [Azure Machine Learning 스튜디오](#portal-create)에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들고 연결할 수 있습니다.
 
+    또는 [Azure Machine Learning 스튜디오](#portal-create)에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들고 연결할 수 있습니다.
+
+   
 1. **구성**: 영구적 컴퓨팅 대상에 대한 실행 구성을 만듭니다.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
+
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>계산 클러스터 비용 낮추기
+
+[우선 순위가 낮은 vm](concept-plan-manage-cost.md#low-pri-vm) 을 사용 하 여 작업의 일부 또는 전체를 실행 하도록 선택할 수도 있습니다. 이러한 VM은 가용성이 보장되지 않고 사용 중에 선점될 수 있습니다. 선점된 작업은 계속되지 않고 다시 시작됩니다. 
+
+이러한 방법 중 하나를 사용 하 여 우선 순위가 낮은 VM을 지정 합니다.
+    
+* 스튜디오에서 VM을 만들 때 **낮은 우선 순위** 를 선택 합니다.
+    
+* Python SDK를 사용 하 여 `vm_priority` 프로 비전 구성에서 특성을 설정 합니다.  
+    
+    ```python
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                vm_priority='lowpriority',
+                                                                max_nodes=4)
+    ```
+    
+* CLI를 사용 하 여를 설정 합니다 `vm-priority` .
+    
+    ```azurecli-interactive
+    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
+    ```
+
 
 
 ### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Azure Machine Learning 컴퓨팅 인스턴스

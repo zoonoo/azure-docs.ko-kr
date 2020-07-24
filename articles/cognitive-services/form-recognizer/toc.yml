@@ -40,8 +40,6 @@
               href: quickstarts/python-layout.md
 - name: 자습서
   items:
-    - name: Logic Apps에서 Form Recognizer 사용
-      href: tutorial-form-recognizer-with-logic-apps.md
     - name: Cognitive Search와 함께 Form Recognizer 사용
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: 방법 가이드
@@ -66,8 +64,6 @@
   items:
     - name: Form Recognizer API v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
-    - name: Form Recognizer API v1.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDK
       items:
         - name: .NET
@@ -75,9 +71,9 @@
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre'
         - name: JavaScript
-          href: 'https://docs.microsoft.com/azure/cognitive-services/form-recognizer/'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre'
 - name: 리소스
   items:
     - name: 가격 책정 및 제한

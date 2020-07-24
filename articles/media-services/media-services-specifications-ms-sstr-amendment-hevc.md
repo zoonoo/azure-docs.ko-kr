@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053042"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 
 
@@ -64,7 +64,7 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 
 ### <a name="121-normative-references"></a>1.2.1 표준 참조 
 
->  [MS-SSTR] 부드러운 스트리밍 프로토콜 *v20140502*[https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>  [MS-SSTR] 부드러운 스트리밍 프로토콜 *v20140502*[https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] 국제 표준화 기구, "Information technology -- Coding of audio-visual objects -- Part 12: ISO Base Media File Format", ISO/IEC 14496-12:2014, Edition 4, Plus Corrigendum 1, Amendments 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -283,7 +283,7 @@ CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 > * **MajorVersion**
 > * **MinorVersion**
 > * **단위**
-> * **Duration**
+> * **기간**
 > * **IsLive**
 > * **LookaheadCount**
 > * **DVRWindowLength**

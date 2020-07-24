@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 085a186ffd98220257ad912ede93f43d339707f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956716"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052937"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Media Encoder Standard 사전 설정 사용자 지정  
 
@@ -30,7 +30,7 @@ ms.locfileid: "85956716"
 이 문서에서는 [H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 기본 설정을 사용하고 레이어 수를 줄여 기본 설정을 사용자 지정하는 방법을 살펴봅니다. [Media Encoder Standard 기본 설정 사용자 지정](media-services-advanced-encoding-with-mes.md) 문서에서는 고급 인코딩 작업을 수행하는 데 사용할 수 있는 사용자 지정 기본 설정을 보여 줍니다.
 
 > [!NOTE]
-> 이 문서에 설명 된 사용자 지정 기본 설정은 [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) 변환 또는 CLI 명령에서 사용할 수 없습니다. 자세한 내용은 v 2 [에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> 이 문서에 설명 된 사용자 지정 기본 설정은 [Media Services V3](../latest/index.yml) 변환 또는 CLI 명령에서 사용할 수 없습니다. 자세한 내용은 v 2 [에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> MES 사전 설정 사용자 지정
 
@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [CLI를 사용 하 여 사용자 지정 변환을 사용 하 여 인코딩하는 방법](../latest/custom-preset-cli-howto.md)
 - [Media Services v3를 사용하여 인코딩](../latest/encoding-concept.md)

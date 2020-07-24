@@ -9,11 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 774d2bb58fd7dd75825be8f433f078d70c13fe8c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 25cde21d72de49c5a4f51121f2aa4295319899ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049203"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
 
@@ -30,7 +31,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
 ![Hello World 웹 페이지를 표시하는 웹 브라우저][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 > [!NOTE]
 > 이 자습서는 Azure PowerShell을 사용하며,
 
@@ -85,7 +86,7 @@ http.createServer(function (req, res) {
 
 이 코드는 클라우드 환경에서 지정된 포트 번호를 사용한다는 점을 제외하고 기본적으로 [nodejs.org] 웹사이트의 "Hello World" 예제와 동일합니다.
 
-## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
+## <a name="deploy-the-application-to-azure"></a>애플리케이션을 Azure에 배포합니다.
 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 [무료 계정에 등록할](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)수 있습니다.
@@ -177,9 +178,9 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Laun
 
 [Azure Websites, Cloud Services 및 Virtual Machines 비교]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [간단한 웹앱 사용]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Azure PowerShell]: /powershell/azure/
 [Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
-[PowerShell을 연결]: /powershell/azureps-cmdlets-docs
+[PowerShell을 연결]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [Azure에 대한 호스티드 서비스 만들기 개요]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js 개발자 센터]: https://azure.microsoft.com/develop/nodejs/

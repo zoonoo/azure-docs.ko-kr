@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050289"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용하여 삭제된 App Service 앱 복원
 
@@ -58,7 +58,7 @@ Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_locatio
 복원하려는 앱이 식별되면 `Restore-AzDeletedWebApp`을 사용하여 복원할 수 있습니다.
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
 > 배포 슬롯은 앱의 일부로 복원되지 않습니다. 스테이징 슬롯을 복원해야 하는 경우 `-Slot <slot-name>` 플래그를 사용합니다.
@@ -66,7 +66,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 
 명령에 대한 입력은 다음과 같습니다.
 
-- **리소스 그룹**: 앱이 복원될 대상 리소스 그룹
+- **대상 리소스 그룹**: 앱이 복원 되는 대상 리소스 그룹
 - **Name**: 앱의 이름은 전역적으로 고유해야 합니다.
 - **TargetAppServicePlanName**: 앱에 연결된 App Service 플랜
 

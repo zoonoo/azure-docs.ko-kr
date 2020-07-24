@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053257"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Media Services 엔터티의 필터링, 순서 지정 및 페이징
 
@@ -64,13 +64,13 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>정렬 기준
 
-`$orderby`지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 합니다. 예:  
+`$orderby`지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 합니다. 예를 들면 다음과 같습니다.  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-결과를 오름차순 또는 내림차순으로 정렬 하려면 `asc` `desc` 필드 이름에 또는을 공백으로 구분 하 여 추가 합니다. 예: `$orderby properties/created desc`
+결과를 오름차순 또는 내림차순으로 정렬 하려면 `asc` `desc` 필드 이름에 또는을 공백으로 구분 하 여 추가 합니다. 예: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>토큰 건너뛰기
 
@@ -156,36 +156,36 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 다음 표에서는 필터링 및 순서 지정 옵션을 다른 엔터티에 적용할 수 있는 방법을 보여 줍니다.
 
-|엔터티 이름|속성 이름|필터|순서|
+|엔터티 이름|속성 이름|필터|주문|
 |---|---|---|---|
-|[자산](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
+|[Assets](/rest/api/media/assets/)|이름|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` 및 `desc`|
-|[콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[콘텐츠 키 정책](/rest/api/media/contentkeypolicies)|이름|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[작업](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` 및 `desc`|
+|[작업](/rest/api/media/jobs)| 이름  | `eq`            | `asc` 및 `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` 및 `desc`| 
-|[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[스트리밍 로케이터](/rest/api/media/streaminglocators)|이름|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` 및 `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
-|[스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[스트리밍 정책](/rest/api/media/streamingpolicies)|이름|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
-|[변환](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` 및 `desc`|
+|[변환](/rest/api/media/transforms)| 이름 | `eq`            | `asc` 및 `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자산 나열](https://docs.microsoft.com/rest/api/media/assets/list)
-* [콘텐츠 키 정책 나열](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [작업 나열](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [스트리밍 정책 나열](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [스트리밍 로케이터 나열](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [자산 나열](/rest/api/media/assets/list)
+* [콘텐츠 키 정책 나열](/rest/api/media/contentkeypolicies/list)
+* [작업 나열](/rest/api/media/jobs/list)
+* [스트리밍 정책 나열](/rest/api/media/streamingpolicies/list)
+* [스트리밍 로케이터 나열](/rest/api/media/streaminglocators/list)
 * [파일 스트리밍](stream-files-dotnet-quickstart.md)
 * [할당량 및 제한](limits-quotas-constraints.md)

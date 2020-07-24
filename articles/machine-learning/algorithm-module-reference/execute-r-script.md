@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3559ae5c246129aa369cb49e7749e499002f1dc6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751755"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048189"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -320,9 +320,8 @@ azureml_main <- function(dataframe1, dataframe2){
 
 현재 다음과 같은 사전 설치 된 R 패키지를 사용할 수 있습니다.
 
-|              |            | 
-|--------------|------------| 
 | 패키지      | 버전    | 
+|--------------|------------| 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 

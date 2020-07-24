@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse SQL 아키텍처
+title: Synapse SQL 아키텍처
 description: Azure Synapse SQL이 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure Storage를 결합하는 방법을 알아봅니다.
 services: synapse-analytics
 author: mlee3gsd
@@ -10,11 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046854"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL 아키텍처 
 

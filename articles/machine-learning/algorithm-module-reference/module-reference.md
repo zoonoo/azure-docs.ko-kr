@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048110"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)에 대한 알고리즘 및 모듈 참조
 
@@ -43,7 +43,7 @@ ms.locfileid: "85856906"
 
 | 기능 | Description | 모듈 |
 | --- |--- | --- |
-| 회귀 | 값을 예측합니다. | [향상된 의사 결정 트리 회귀](boosted-decision-tree-regression.md) <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md) <br/> [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> |
+| 회귀 | 값을 예측합니다. | [향상된 의사 결정 트리 회귀](boosted-decision-tree-regression.md) <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md) <br/> [고속 포리스트 변 위치 회귀](fast-forest-quantile-regression.md)  <br/> [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> [포아송 회귀](poisson-regression.md)  <br/>|
 | Clustering | 데이터를 그룹화합니다.| [K-Means 클러스터링](k-means-clustering.md)
 | 분류 | 클래스를 예측합니다.  이진 파일(2클래스) 또는 다중 클래스 알고리즘에서 선택합니다.| [다중 클래스 향상된 의사 결정 트리](multiclass-boosted-decision-tree.md) <br/> [다중 클래스 의사 결정 포리스트](multiclass-decision-forest.md) <br/> [다중 클래스 로지스틱 회귀](multiclass-logistic-regression.md)  <br/> [다중 클래스 신경망](multiclass-neural-network.md) <br/> [일대다 모든 다중 클래스](one-vs-all-multiclass.md) <br/> [2클래스 평균 퍼셉트론](two-class-averaged-perceptron.md) <br/>  [2클래스 향상된 의사 결정 트리](two-class-boosted-decision-tree.md)  <br/> [2클래스 의사 결정 포리스트](two-class-decision-forest.md) <br/>  [2클래스 로지스틱 회귀](two-class-logistic-regression.md) <br/> [2클래스 신경망](two-class-neural-network.md) <br/> [2클래스 Support Vector Machine](two-class-support-vector-machine.md) | 
 

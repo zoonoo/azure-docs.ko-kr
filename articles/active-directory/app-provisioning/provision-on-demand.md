@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7799e873afb117481cebafd982df59a3267f4405
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051567"
 ---
 # <a name="on-demand-provisioning"></a>주문형 프로 비전
 주문형 프로 비전을 사용 하면 몇 초 안에 응용 프로그램에 사용자를 프로 비전 할 수 있습니다. 이 기능을 사용 하 여 구성 문제를 신속 하 게 해결 하 고, 정의한 식의 유효성을 검사 하 고, 범위 지정 필터를 테스트할 수 있습니다. 
@@ -30,6 +30,8 @@ ms.locfileid: "85297531"
 5. **주문형 프로 비전**을 클릭 합니다.
 6. 이름, 성, 표시 이름, 사용자 계정 이름 또는 전자 메일을 사용 하 여 사용자를 검색 합니다.
 7. 페이지 맨 아래에서 프로 비전을 선택 합니다.
+
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="요청 시 사용자를 프로 비전 합니다.":::
 
 ## <a name="understanding-the-provisioning-steps"></a>프로 비전 단계 이해
 주문형 프로 비전 기능은 사용자를 프로 비전 할 때 프로 비전 서비스에서 수행 하는 단계를 표시 하려고 합니다. 일반적으로 사용자를 프로 비전 하는 데 5 단계가 있으며, 아래 단계 중 하나 이상이 주문형 프로 비전 환경에 표시 됩니다.
@@ -88,6 +90,8 @@ ms.locfileid: "85297531"
 ### <a name="step-5-perform-action"></a>5 단계: 작업 수행
 마지막으로 프로 비전 서비스는 사용자 만들기, 업데이트, 삭제 또는 건너뛰기를 같은 작업을 수행 합니다. 
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="사용자를 프로 비전 했습니다.":::
+
 **세부 정보 보기**
 
 세부 정보 보기 섹션에는 대상 응용 프로그램에서 수정 된 특성이 표시 됩니다. 이는 프로 비전 서비스 활동의 최종 출력과 내보낸 특성을 나타냅니다. 이 단계가 실패 하면 표시 되는 특성은 프로 비전 서비스에서 수정 하려고 시도 하는 특성을 나타냅니다.  
@@ -96,17 +100,17 @@ ms.locfileid: "85297531"
 * 변경 내용 내보내기에 대 한 오류는 크게 다를 수 있습니다. 일반적인 오류는 프로 비전 로그 [설명서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) 를 참조 하세요.
 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 **주문형 프로 비전을 사용 하려면 프로 비전을 해제 해야 하나요?** 권한 부여를 위해 수명이 긴 전달자 토큰 또는 사용자 이름 및 암호를 사용 하는 응용 프로그램의 경우 추가 단계가 필요 하지 않습니다. 권한 부여를 위해 OAuth를 사용 하는 응용 프로그램은 현재 주문형 프로 비전을 사용 하기 전에 프로 비전 작업이 중지 되어야 합니다. G Suite, Box, Facebook 별 작업 공간 및 여유 공간과 같은 응용 프로그램은이 범주에 속합니다. 프로 비전을 중지할 필요 없이 모든 응용 프로그램에 대해 주문형 프로 비전을 실행할 수 있도록 하는 작업이 진행 중입니다. 
 
 **주문형 프로 비전은 얼마나 걸립니까?** 일반적으로 30 초 이내에 수행 됩니다. 
 
 ## <a name="known-limitations"></a>알려진 제한 사항
-오늘 몇 가지 알려진 제한 사항이 있습니다. 향후 개선 사항에 대 한 우선 순위를 높일 수 있도록 [UserVoice](https://aka.ms/appprovisioningfeaturerequest) 에 게시 하세요. 이러한 제한 사항은 주문형 프로 비전 기능과 관련이 있습니다. 응용 프로그램에서 프로 비전 그룹, 삭제 등을 지원 하는지 여부에 대 한 자세한 내용은 응용 프로그램 자습서를 확인 하세요. 
+오늘 몇 가지 알려진 제한 사항이 있습니다. [사용자 의견](https://aka.ms/appprovisioningfeaturerequest) 을 게시 해 주시기 바랍니다. 이러한 제한 사항은 주문형 프로 비전 기능과 관련이 있습니다. 응용 프로그램에서 프로 비전 그룹, 삭제 등을 지원 하는지 여부에 대 한 자세한 내용은 응용 프로그램 자습서를 확인 하세요. 
 
 * Workday, AWS, SuccessFactors 응용 프로그램은 주문형 프로 비전을 지원 하지 않습니다.
 * 요청 시의 프로 비전 그룹과 역할은 지원 되지 않습니다.
-* 사용자 및 그룹의 비활성화 또는 삭제는 지원 되지 않습니다.
+* 주문형 프로 비전은 응용 프로그램에서 할당 되지 않은 사용자를 사용 하지 않도록 설정 하는 것을 지원 하지만, Azure Active Directory에서 사용 하지 않도록 설정 되거나 삭제 된 사용자를 사용 하지 않도록 설정 하거나 삭제 하는 것을 지원 하지 않습니다. 사용자를 검색할 때 해당 사용자가 나타나지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

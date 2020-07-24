@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046961"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer 질문과 대답
 
@@ -58,13 +59,13 @@ Video Indexer에는 웹 기반 인터페이스에서 600분, API를 통해 2,400
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Video Indexer에서 지원하는 미디어 형식은 무엇인가요?
 
-Video Indexer는 가장 일반적인 미디어 형식을 지원합니다. 자세한 내용은 [Azure Media Encoder Standard 형식](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) 목록을 참조하세요.
+Video Indexer는 가장 일반적인 미디어 형식을 지원합니다. 자세한 내용은 [Azure Media Encoder Standard 형식](../latest/media-encoder-standard-formats.md) 목록을 참조하세요.
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>미디어 파일을 Video Indexer에 어떻게 업로드하며 제한 사항은 무엇인가요?
 
 Video Indexer 웹 기반 포털에서 파일 업로드 대화 상자를 사용하거나 소스 파일을 직접 호스트하는 URL을 가리켜 미디어 파일을 업로드할 수 있습니다([예제](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4) 참조). iFrame 또는 embed 태그를 사용하여 미디어 콘텐츠를 호스트하는 URL은 작동하지 않습니다([예제](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11) 참조). 
 
-자세한 내용은 이 [방법 가이드](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos)를 참조하세요.
+자세한 내용은 이 [방법 가이드](./upload-index-videos.md)를 참조하세요.
 
 #### <a name="limitations"></a>제한 사항
 
@@ -75,7 +76,7 @@ Video Indexer 웹 기반 포털에서 파일 업로드 대화 상자를 사용�
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Video Indexer가 미디어에서 인사이트를 추출하는 데 얼마나 소요되나요?
 
-Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 비디오 또는 오디오 파일을 인덱스하는 데 소요되는 시간은 파일 길이 및 품질, 파일에서 발견된 인사이트 수, 사용 가능한 [예약된 단위](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) 수, [스트리밍 엔드포인트](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview)의 활성화 여부 등과 같은 여러 매개 변수에 따라 달라집니다. 고유한 콘텐츠를 사용하여 몇 가지 테스트 파일을 실행하고 평균을 파악하는 것이 좋습니다.
+Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 비디오 또는 오디오 파일을 인덱스하는 데 소요되는 시간은 파일 길이 및 품질, 파일에서 발견된 인사이트 수, 사용 가능한 [예약된 단위](../previous/media-services-scale-media-processing-overview.md) 수, [스트리밍 엔드포인트](../previous/media-services-streaming-endpoints-overview.md)의 활성화 여부 등과 같은 여러 매개 변수에 따라 달라집니다. 고유한 콘텐츠를 사용하여 몇 가지 테스트 파일을 실행하고 평균을 파악하는 것이 좋습니다.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>사용자 지정 워크플로를 만들어 Video Indexer를 사용한 프로세스를 자동화할 수 있나요?
 

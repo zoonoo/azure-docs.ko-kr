@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053115"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Azure Media Services v3 계정 관리
 
@@ -42,4 +43,4 @@ Media Services 계정을 새 구독으로 이동 해야 하는 경우 먼저 Med
 
 ## <a name="next-steps"></a>다음 단계
 
-[계정 만들기](create-account-cli-quickstart.md)
+[계정 만들기](./create-account-howto.md)

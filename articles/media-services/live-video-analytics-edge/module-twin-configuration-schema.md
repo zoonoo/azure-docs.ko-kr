@@ -3,15 +3,16 @@ title: 모듈 쌍 JSON 스키마-Azure
 description: 이 항목에서는 IoT Edge에서 라이브 비디오 분석의 모듈 쌍 JSON 스키마에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053062"
 ---
 # <a name="module-twin-json-schema"></a>모듈 쌍 JSON 스키마
 
-장치 쌍은 메타 데이터, 구성 및 조건을 포함 하 여 장치 상태 정보를 저장 하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 자세한 설명은 [IoT Hub에서 모듈 쌍 이해 및 사용](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) 을 참조 하세요.
+장치 쌍은 메타 데이터, 구성 및 조건을 포함 하 여 장치 상태 정보를 저장 하는 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 디바이스마다 하나의 디바이스 쌍을 유지합니다. 자세한 설명은 [IoT Hub에서 모듈 쌍 이해 및 사용](../../iot-hub/iot-hub-devguide-module-twins.md) 을 참조 하세요.
 
 이 항목에서는 IoT Edge에서 라이브 비디오 분석의 모듈 쌍 JSON 스키마에 대해 설명 합니다.
 
@@ -24,15 +25,15 @@ IoT Edge의 Live Video Analytics는 다음 모듈 쌍 속성을 노출 합니다
 
 |속성 |필수 |동적 |설명 |
 |---|---|---|---|
-|applicationDataDirectory |예 |아니요 |구성을 유지 하기 위한 탑재 된 볼륨의 경로입니다. |
-|azureMediaServicesArmId |예 |아니요 |Media Services 계정의 고유한 Azure 리소스 관리 식별자입니다.|
-|aadTenantId |예 |아니요 |고객 Azure AD 테 넌 트 ID입니다.|
+|applicationDataDirectory |예 |예 |구성을 유지 하기 위한 탑재 된 볼륨의 경로입니다. |
+|azureMediaServicesArmId |예 |예 |Media Services 계정의 고유한 Azure 리소스 관리 식별자입니다.|
+|aadTenantId |예 |예 |고객 Azure AD 테 넌 트 ID입니다.|
 |aadServicePrincipalAppId |예 |예 |고객이 Azure AD AppId를 만들었습니다.|
 |aadServicePrincipalCertificate |예로<sup>*</sup>  |예 |고객이 Azure AD AppId 인증서를 만들었습니다.|
 |aadServicePrincipalPassword |예로<sup>*</sup>  |예 |고객이 Azure AD AppId 암호를 만들었습니다.|
-|aadEndpoint |아니요 |아니요 |클라우드 별 Azure AD 끝점. <br/>기본값: `https://login.microsoftonline.com` |
-|aadResourceId |아니요 |아니요 |클라우드 별 Azure AD 사용자/리소스 ID <br/>기본값: `https://management.core.windows.net/` |
-|armEndpoint |아니요 |아니요 |클라우드 별 Azure 리소스 관리 끝점입니다. <br/>기본값: `https://management.azure.com/` |
+|aadEndpoint |아니요 |예 |클라우드 별 Azure AD 끝점. <br/>기본값: `https://login.microsoftonline.com` |
+|aadResourceId |아니요 |예 |클라우드 별 Azure AD 사용자/리소스 ID <br/>기본값: `https://management.core.windows.net/` |
+|armEndpoint |아니요 |예 |클라우드 별 Azure 리소스 관리 끝점입니다. <br/>기본값: `https://management.azure.com/` |
 |diagnosticsLevel |예 |예 |이벤트의 자세한 정도: <br/>정보 & # x02758; 경고 & # x02758; 오류 & # x02758; 중요 & # x02758; 없음을 |
 |diagnosticsEventsOutputName |예 |예 |진단 이벤트에 대 한 허브 출력입니다. <br/>(Empty는 진단이 게시 되지 않았음을 의미 함)|
 |operationalEventsOutputName|예|예|작업 이벤트에 대 한 허브 출력입니다.<br/>(Empty는 운영 이벤트가 게시 되지 않음을 의미 함)
@@ -42,7 +43,7 @@ IoT Edge의 Live Video Analytics는 다음 모듈 쌍 속성을 노출 합니다
 
 <sup>*</sup>서비스 사용자 인증서 또는 암호를 제공 해야 합니다. 
 
-모듈을 다시 시작 하지 않고도 동적 속성을 업데이트할 수 있습니다. [MEDIA SERVICES API에 대 한 액세스 권한](../latest/access-api-cli-how-to.md) 문서에 있는 지침에 따라 이러한 속성 중 일부에 대 한 값을 가져올 수 있습니다. 
+모듈을 다시 시작 하지 않고도 동적 속성을 업데이트할 수 있습니다. [MEDIA SERVICES API에 대 한 액세스 권한](../latest/access-api-howto.md) 문서에 있는 지침에 따라 이러한 속성 중 일부에 대 한 값을 가져올 수 있습니다. 
 
 선택적 진단 설정의 역할에 대 한 자세한 내용은 [모니터링 및 로깅](monitoring-logging.md) 문서를 참조 하세요.
 

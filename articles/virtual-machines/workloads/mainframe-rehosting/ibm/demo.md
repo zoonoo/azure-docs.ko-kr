@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135944"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052403"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>IBM zD&T v1에서 응용 프로그램 개발자 제어 배포 (ADCD)를 설정 합니다.
 
@@ -72,7 +72,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 
 2. **Ssh** 탭을 선택한 다음 ssh 명령을 클립보드에 복사 합니다.
 
-3. 선택한 자격 증명 및 [SSH 클라이언트](/azure/virtual-machines/linux/use-remote-desktop) 를 사용 하 여 VM에 로그온 합니다. 이 데모에서는 windows 명령 프롬프트에 bash 셸을 추가 하는 Windows 10 용 Linux 확장을 사용 합니다. PuTTY 마찬가지로 작동 합니다.
+3. 선택한 자격 증명 및 [SSH 클라이언트](../../../linux/use-remote-desktop.md) 를 사용 하 여 VM에 로그온 합니다. 이 데모에서는 windows 명령 프롬프트에 bash 셸을 추가 하는 Windows 10 용 Linux 확장을 사용 합니다. PuTTY 마찬가지로 작동 합니다.
 
 4. 로그온 하면 IBM 패키지를 업로드할 디렉터리를 만듭니다. Linux에서 대/소문자를 구분 한다는 점에 유의 하세요. 예를 들어이 데모에서는 패키지를에 업로드 했다고 가정 합니다.
 
@@ -184,13 +184,13 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 > [!NOTE]
 > 디스크 공간이 부족 하다는 오류 메시지가 표시 되 면 지역에 151 Gb가 필요 합니다.
 
-축하합니다! 이제 Azure에서 IBM 메인프레임 환경을 실행 하 고 있습니다.
+지금까지 이제 Azure에서 IBM 메인프레임 환경을 실행 하 고 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 
-- [메인프레임 마이그레이션: myths 및 팩트](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [Azure에서 IBM DB2 pureScale](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [메인프레임 마이그레이션: myths 및 팩트](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [Azure에서 IBM DB2 pureScale](../../../linux/ibm-db2-purescale-azure.md)
+- [문제 해결](../../../troubleshooting/index.yml)
 - [전문가가 제공 자세히 메인프레임에서 Azure로 마이그레이션](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

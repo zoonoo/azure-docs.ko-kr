@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116695"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047597"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>파트너 센터의 상업용 Marketplace 포털 개요
 
@@ -28,9 +28,9 @@ ms.locfileid: "86116695"
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 마이그레이션
 
-파트너 센터는 소프트웨어 게시자와의 관계를 모든 측면에서 보다 효율적으로 통합하기 위해 진화하고 있습니다. 이러한 진화의 일환으로 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 파트너 센터로 모든 상업용 Marketplace 제품 관리를 마이그레이션했습니다.
+파트너 센터는 소프트웨어 게시자와의 관계를 모든 측면에서 보다 효율적으로 통합하기 위해 진화하고 있습니다. 이 진화의 일환으로 Cloud 파트너 포털 (CPP)에서 파트너 센터로 모든 상용 marketplace 제품 관리를 마이그레이션 했습니다.
 
-이전에 Cloud 파트너 포털을 사용한 기존 게시자는 익숙하면서도 향상되고 직관적인 사용자 환경을 파트너 센터에서 찾을 것입니다. 사용자는 적절한 위치로 안내되어 원활하게 사용할 수 있습니다. 고객은 이 파트너 환경 업그레이드의 영향을 받지 않습니다.
+이전에 CPP를 사용 했던 기존 게시자는 파트너 센터에서 친숙 하지만 향상 된 직관적인 사용자 환경을 찾을 수 있습니다. 사용자는 적절한 위치로 안내되어 원활하게 사용할 수 있습니다. 고객은 이 파트너 환경 업그레이드의 영향을 받지 않습니다.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>게시 및 제품 관리 사용자 환경 개선
 

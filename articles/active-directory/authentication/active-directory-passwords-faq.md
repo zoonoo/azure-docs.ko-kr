@@ -5,21 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051306"
 ---
-# <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
+# <a name="self-service-password-reset-frequently-asked-questions"></a>셀프 서비스 암호 재설정 질문과 대답
 
-다음은 암호 재설정과 관련된 모든 항목에 대한 몇 가지 질문과 대답(FAQ)입니다.
+다음은 셀프 서비스 암호 재설정과 관련 된 모든 항목에 대 한 몇 가지 FAQ (질문과 대답)입니다.
 
 여기에서 답변되지 않은 Azure Active Directory(Azure AD) 및 셀프 서비스 암호 재설정(SSPR)에 대한 일반적인 질문이 있는 경우 [Azure Active Directory에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-active-directory.html)에서 다른 사용자들의 도움을 요청할 수 있습니다. 커뮤니티는 엔지니어, 제품 관리자, MVP 및 동료 IT 전문가들로 구성되어 있습니다.
 
@@ -37,7 +38,7 @@ ms.locfileid: "83826471"
 
   > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup) )로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널 ( https://myapps.microsoft.com) ) 을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
   >
-  >
+  > [결합 된 등록](concept-registration-mfa-sspr-combined.md)을 사용 하도록 설정 하는 경우 사용자는 동시에 SSPR 및 Azure Multi-Factor Authentication를 등록할 수 있습니다.
 * **Q:  그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**
 
   > **A:** 아니요. 인증 데이터를 채운 사용자는 다시 등록할 필요가 없습니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 363d26391c8ee40fb95a0b8fd92c4d94f1082b8d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052153"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure의 Oracle VM 이미지 및 배포
 
@@ -107,12 +107,12 @@ Azure NetApp Files는 클라우드의 데이터베이스 같은 고성능 워크
 - 중요 업무용 엔터프라이즈 워크로드(예: SAP 및 Oracle)에서 일반적으로 필요한 고가용성, 높은 내구성 및 대규모 관리 효율성
 - 빠르고 효율적인 백업 및 복구를 통해 가장 적극적인 RTO 및 RPO SLA 구현
 
-이러한 기능이 가능한 이유는 Azure NetApp Files가 Azure 데이터 센터 환경 내에서 Azure Native 서비스로 실행되는 NetApp® ONTAP® 올플래시 시스템에 기반을 두고 있기 때문입니다. 따라서 다른 Azure 스토리지 옵션과 마찬가지로 프로비저닝하고 사용할 수 있는 이상적인 데이터베이스 스토리지 기술입니다. Azure NetApp Files NFS 볼륨을 배포하고 액세스하는 방법에 대한 자세한 내용은 [Azure NetApp Files 설명서](https://docs.microsoft.com/azure/azure-netapp-files/)를 참조하세요. Azure NetApp Files에서 Oracle 데이터베이스를 사용하는 방법에 대한 모범 사례와 권장 사항은 [Azure NetApp Files를 사용하여 Azure에 Oracle 배포 모범 사례 가이드](https://www.netapp.com/us/media/tr-4780.pdf)를 참조하세요.
+이러한 기능이 가능한 이유는 Azure NetApp Files가 Azure 데이터 센터 환경 내에서 Azure Native 서비스로 실행되는 NetApp® ONTAP® 올플래시 시스템에 기반을 두고 있기 때문입니다. 따라서 다른 Azure 스토리지 옵션과 마찬가지로 프로비저닝하고 사용할 수 있는 이상적인 데이터베이스 스토리지 기술입니다. Azure NetApp Files NFS 볼륨을 배포하고 액세스하는 방법에 대한 자세한 내용은 [Azure NetApp Files 설명서](../../../azure-netapp-files/index.yml)를 참조하세요. Azure NetApp Files에서 Oracle 데이터베이스를 사용하는 방법에 대한 모범 사례와 권장 사항은 [Azure NetApp Files를 사용하여 Azure에 Oracle 배포 모범 사례 가이드](https://www.netapp.com/us/media/tr-4780.pdf)를 참조하세요.
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Azure의 Oracle Database 및 소프트웨어에 라이선스 부여
 
 Microsoft Azure는 Oracle Database를 실행할 권한이 있는 클라우드 환경입니다. 클라우드의 Oracle 데이터베이스에 라이선스를 부여할 경우 Oracle Core Factor 테이블이 적용되지 않습니다. 대신, Enterprise Edition 데이터베이스에 하이퍼 스레딩 기술을 사용하도록 설정된 VM을 사용하는 경우 정책 문서에 명시된 대로 vCPU 두 개를 하나의 Oracle Processor 라이선스로 계수합니다. 정책 세부 정보는 [여기](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)에서 확인할 수 있습니다.
-Oracle 데이터베이스에는 일반적으로 더 많은 메모리와 IO가 필요합니다. 따라서 이러한 워크로드에는 [메모리 최적화 VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)이 권장됩니다. 워크로드를 더 최적화하려면 많은 메모리, 스토리지 및 I/O 대역폭이 필요하지만 많은 코어 수는 필요하지 않은 Oracle Database 워크로드에 [제한된 코어 vCPU](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu)가 권장됩니다.
+Oracle 데이터베이스에는 일반적으로 더 많은 메모리와 IO가 필요합니다. 따라서 이러한 워크로드에는 [메모리 최적화 VM](../../sizes-memory.md)이 권장됩니다. 워크로드를 더 최적화하려면 많은 메모리, 스토리지 및 I/O 대역폭이 필요하지만 많은 코어 수는 필요하지 않은 Oracle Database 워크로드에 [제한된 코어 vCPU](../../linux/constrained-vcpu.md)가 권장됩니다.
 
 Oracle 소프트웨어와 워크로드를 온-프레미스에서 Microsoft Azure로 마이그레이션하는 경우 Oracle은 [Azure의 Oracle FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)에 명시된 대로 라이선스 이동을 제공합니다.
 
