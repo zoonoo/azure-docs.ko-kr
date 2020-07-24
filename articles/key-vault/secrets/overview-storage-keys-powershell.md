@@ -8,11 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090470"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell를 사용 하 여 저장소 계정 키 관리
 
@@ -48,12 +49,12 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-az-ps?view=azps-2.6.0)합니다.
-- [주요 자격 증명 모음 만들기](quick-create-powershell.md)
+- [키 자격 증명 모음 만들기](quick-create-powershell.md)
 - [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md?tabs=azure-powershell) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 
@@ -121,7 +122,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Key Vault가 이미 스토리지 계정의 역할에 추가되었다면 *"역할 할당이 이미 있습니다."* 오류가 발생합니다. 또한 Azure Portal에서 스토리지 계정 “액세스 제어(IAM)” 페이지를 사용하여 역할 할당을 확인할 수도 있습니다.  
+Key Vault가 이미 스토리지 계정의 역할에 추가되었다면 *"역할 할당이 이미 있습니다."* 오류로 인해 path\filename 파일을 삭제하지 못했습니다. 또한 Azure Portal에서 스토리지 계정 “액세스 제어(IAM)” 페이지를 사용하여 역할 할당을 확인할 수도 있습니다.  
 
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>관리 스토리지 계정에 사용자 계정 권한 부여
 
@@ -163,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>키 다시 생성 사용
 
-저장소 계정 키를 정기적으로 다시 생성 [Key Vault Azure PowerShell cmdlet](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) 을 사용 하 여 다시 생성 기간을 설정할 수 있습니다. 이 예에서는 3 일의 다시 생성 기간을 설정 합니다. 3 Key Vault 일 후에는 ' key2 '를 다시 생성 하 고 활성 키를 ' key2 '에서 ' key1 ' (클래식 저장소 계정에 대해서는 ' 주 '로, ' 보조 '로 대체)로 바꿉니다.
+저장소 계정 키를 정기적으로 다시 생성 [Key Vault Azure PowerShell cmdlet](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) 을 사용 하 여 다시 생성 기간을 설정할 수 있습니다. 이 예에서는 3 일의 다시 생성 기간을 설정 합니다. 회전할 시간이 면 활성 상태가 아닌 키를 다시 생성 한 다음 새로 만든 키를 활성으로 설정 Key Vault 합니다. 한 번에 하나의 키만 SAS 토큰을 발급 하는 데 사용 됩니다. 활성 키입니다.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

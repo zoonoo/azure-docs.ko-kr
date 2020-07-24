@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090096"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Azure Migrate를 사용하여 마이그레이션 계획 빌드
 
@@ -151,7 +151,7 @@ Azure VM 평가 보고서를 내보내고 다음 준비 범주를 기준으로 �
 
 - 필요한 경우 구현에 대 한 지원을 받으세요. 대부분의 조직에서는 클라우드 마이그레이션을 지원 하기 위해 외부 지원을 옵트인 합니다. 개인화 된 지원을 통해 신속 하 고 안전 하 게 Azure로 이동 하려면 [Azure 전문가 관리 서비스 공급자](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)   또는 [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF)을 고려 하세요.  
 
-마이그레이션하려는 응용 프로그램의 목록/그룹, 앱 및 데이터베이스 가용성과 가동 중지 시간 제약 조건, 원하는 마이그레이션 마일스 톤에 대 한 자세한 정보를 포함 하는 효과적인 클라우드 마이그레이션 계획을 만듭니다. 마이그레이션 계획에는 데이터 복사에 소요 되는 기간을 고려해 야 하며, 마이그레이션 후 테스트 및 간에 작업에 대 한 버퍼를 포함 해야 합니다. 마이그레이션 후 테스트에는 마이그레이션된 응용 프로그램이 예상 대로 작동 하 고 모든 데이터베이스 개체와 데이터 관계가 성공적으로 클라우드로 전송 되도록 하는 기능, 통합, 보안 및 성능 테스트 사용 사례가 포함 되어야 합니다. 마이그레이션 후 테스트에는 마이그레이션된 응용 프로그램이 예상 대로 작동 하 고 모든 데이터베이스 개체와 데이터 관계가 성공적으로 클라우드로 전송 되도록 하는 기능, 통합, 보안 및 성능 테스트 사용 사례가 포함 되어야 합니다.  
+마이그레이션하려는 응용 프로그램의 목록/그룹, 앱 및 데이터베이스 가용성과 가동 중지 시간 제약 조건, 원하는 마이그레이션 마일스 톤에 대 한 자세한 정보를 포함 하는 효과적인 클라우드 마이그레이션 계획을 만듭니다. 마이그레이션 계획에는 데이터 복사에 소요 되는 기간을 고려해 야 하며, 마이그레이션 후 테스트 및 간에 작업에 대 한 버퍼를 포함 해야 합니다. 마이그레이션 후 테스트에는 마이그레이션된 응용 프로그램이 예상 대로 작동 하 고 모든 데이터베이스 개체와 데이터 관계가 성공적으로 클라우드로 전송 되도록 하는 기능, 통합, 보안 및 성능 테스트 사용 사례가 포함 되어야 합니다.  
 
 이 분석을 사용 하 여 마이그레이션 로드맵을 작성 하 고 유지 관리 기간을 선언 하 여 가동 중지 시간을 최소화 하면서 응용 프로그램 및 데이터베이스를 마이그레이션하고 마이그레이션 중에 잠재적 운영/비즈니스 영향을 제한할 수 있습니다.  
 

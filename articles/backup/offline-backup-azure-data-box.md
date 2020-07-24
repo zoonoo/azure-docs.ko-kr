@@ -3,12 +3,12 @@ title: Azure Data Box를 사용 하 여 오프 라인 백업
 description: Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery Services 자격 증명 모음으로 대량 초기 백업 데이터를 오프 라인으로 설정 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091031"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
 
@@ -56,7 +56,7 @@ Azure Data Box를 사용 하 여 MARS 에이전트에서 데이터를 시드 하
 >[!IMPORTANT]
 >단일 서버에서 초기 백업 데이터는 단일 Azure Data Box 인스턴스 또는 Azure Data Box 디스크에 포함 되어야 하며, 동일한 또는 다른 Sku의 여러 장치 간에 공유할 수 없습니다. 그러나 Azure Data Box 장치는 여러 서버의 초기 백업을 포함할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure 구독 및 필요한 권한
 
@@ -153,7 +153,7 @@ MARS 에이전트는 로컬 시스템 컨텍스트에서 작동 하므로 Azure 
 NFS 프로토콜을 사용 하 여 Data Box 장치를 로컬 시스템으로 탑재할 수 있도록 하려면 다음을 수행 합니다.
 
 1. MARS 에이전트가 설치 된 Windows server에서 NFS 기능에 클라이언트를 사용 하도록 설정 합니다. 대체 원본 *WIM: D: \Source\install\install.wim: 4*를 지정 합니다.
-1. MARS 에이전트가 설치 된 서버에서 PSExec를 다운로드 <https://download.sysinternals.com/files/PSTools.zip> 합니다.
+1. PsExec을 [Sysinternals](/sysinternals/downloads/psexec) 페이지에서 MARS 에이전트가 설치 된 서버로 다운로드 합니다.
 1. 관리자 권한 명령 프롬프트를 열고 *PSExec.exe* 를 현재 디렉터리로 포함 하는 디렉터리를 사용 하 여 다음 명령을 실행 합니다.
 
     ```cmd
@@ -195,7 +195,7 @@ NFS 프로토콜을 사용 하 여 Data Box 장치를 로컬 시스템으로 탑
 
     ![구독 ID에 대 한 Data Box 작업 페치](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Data Box 디스크의 압축을 풀고 연결 하 고 잠금을 해제 한 올바른 Data Box 순서를 선택 합니다. **다음**을 선택합니다.
+1. Data Box 디스크의 압축을 풀고 연결 하 고 잠금을 해제 한 올바른 Data Box 순서를 선택 합니다. **새로 만들기**를 선택합니다.
 
     ![Data Box 주문 선택](./media/offline-backup-azure-data-box/select-databox-order.png)
 

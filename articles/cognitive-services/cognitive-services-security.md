@@ -1,21 +1,21 @@
 ---
-title: 보안
+title: Azure Cognitive Services 보안
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services 사용에 대 한 다양 한 보안 고려 사항에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 07/10/2020
+ms.author: erhopf
 ms.custom: tracking-python
-ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 51a9829a7ea19665e1081a48207f176b1a8e68c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611410"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090844"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -113,7 +113,7 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은을 참조 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```java
 import java.lang.*;
@@ -164,7 +164,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.JS](#tab/node-js)
 
-자세한 내용은을 참조 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은을 참조 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-자세한 내용은을 참조 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -203,9 +203,19 @@ NSString* value =
 
 * Translator
 
-Language Understanding의 경우 Microsoft 엔지니어가 E0 SKU의 고객 데이터에 액세스 하지 않습니다. E0 SKU를 사용 하는 기능을 요청 하려면 [LUIS 서비스 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS와 함께 E0 SKU를 사용 하도록 승인 되 면 Azure Portal에서 새 Language Understanding 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
+다음 서비스의 경우 Microsoft 엔지니어가 E0 계층의 고객 데이터에 액세스 하지 않습니다. 
 
-음성 서비스는 현재 고객 Lockbox을 지원 하지 않습니다. 그러나 BYOS ("사용자 고유의 저장소 가져오기")를 사용 하 여 고객 데이터를 저장할 수 있으므로 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)하는 비슷한 데이터 제어를 달성할 수 있습니다. 음성 서비스 데이터는 음성 리소스가 생성 된 지역에서 유지 되 고 처리 됩니다. 이는 미사용 데이터 및 전송 중인 데이터에 적용 됩니다. 사용자 지정 기능을 사용 하는 경우 (예: Custom Speech 및 사용자 지정 음성) 모든 고객 데이터는 BYOS (사용 되는 경우) 및 음성 서비스 리소스가 있는 동일한 지역에서 전송, 저장 및 처리 됩니다.
+* Language Understanding
+* Face
+* Content Moderator
+* Personalizer
+
+> [!IMPORTANT]
+> **양식 인식기**의 경우 Microsoft 엔지니어가 2020 년 7 월 10 일 이후에 생성 된 리소스에서 고객 데이터에 액세스 하지 않습니다.
+
+E0 SKU를 사용 하는 기능을 요청 하려면이 [요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS에서 E0 SKU를 사용 하도록 승인 되 면 Azure Portal에서 새 리소스를 만들고이를 가격 책정 계층으로 선택 해야 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
+
+음성 서비스는 현재 고객 Lockbox을 지원 하지 않습니다. 그러나 사용자 고유의 저장소 (BYOS)를 사용 하 여 고객 데이터를 저장할 수 있으므로 사용자는 비슷한 데이터 컨트롤을 사용 하 여 고객 Lockbox 수 있습니다. 음성 서비스 데이터는 음성 리소스가 생성 된 지역에서 유지 되 고 처리 됩니다. 이는 미사용 데이터 및 전송 중인 데이터에 적용 됩니다. 사용자 지정 기능을 사용 하는 경우 (예: Custom Speech 및 사용자 지정 음성) 모든 고객 데이터는 BYOS (사용 되는 경우) 및 음성 서비스 리소스가 있는 동일한 지역에서 전송, 저장 및 처리 됩니다.
 
 > [!IMPORTANT]
 > Microsoft **는** 고객 데이터를 사용 하 여 음성 모델을 개선 하지 않습니다. 또한 끝점 로깅을 사용 하지 않도록 설정 하 고 사용자 지정을 사용 하지 않은 경우에는 고객 데이터가 저장 되지 않습니다. 

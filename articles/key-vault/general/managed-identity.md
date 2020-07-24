@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2d4af5086e3cf4099013969cd359f8e11873c6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090623"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>관리 id를 사용 하 여 Key Vault 인증 제공
 
@@ -35,14 +35,14 @@ Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 
    - [Azure PowerShell을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-powershell.md)
    - [Azure Portal을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-portal.md)
 - Key vault 액세스 권한을 부여 하는 기존 App Service 응용 프로그램입니다. [App Service 설명서](../../app-service/overview.md)의 단계에 따라 신속 하 게 만들 수 있습니다.
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview). 또는 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다.
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/). 또는 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다.
 
 
 ## <a name="adding-a-system-assigned-identity"></a>시스템 할당 ID 추가 
 
 먼저 시스템에 할당 된 id를 응용 프로그램에 추가 해야 합니다. 
  
-### <a name="azure-portal"></a>Azure portal 
+### <a name="azure-portal"></a>Azure 포털 
 
 포털에서 관리 ID를 설정하려면 먼저 정상적으로 애플리케이션을 만든 다음, 기능을 사용하도록 설정합니다. 
 
@@ -52,7 +52,7 @@ Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 
 
 1. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **저장**을 클릭합니다. 
 
-    ![](../media/managed-identity-system-assigned.png)
+   ![시스템 할당 id를 저장 하는 방법을 보여 주는 스크린샷](../media/managed-identity-system-assigned.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -86,9 +86,9 @@ az functionapp identity assign --name myApp --resource-group myResourceGroup
   "type": "SystemAssigned"
 }
 ```
-## <a name="grant-your-app-access-to-key-vault"></a>앱에 대 한 액세스 권한 부여 Key Vault 
+## <a name="grant-your-app-access-to-key-vault"></a>Key Vault에 앱 액세스 권한 부여 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 1.  Key Vault 리소스로 이동 합니다. 
 
@@ -100,7 +100,7 @@ az functionapp identity assign --name myApp --resource-group myResourceGroup
 
 1.  **추가** 를 클릭 하 여 새 액세스 정책 추가를 마칩니다.
 
-    ![](../media/managed-identity-access-policy.png)
+    ![Azure Portal에서 새 액세스 정책을 추가 하는 방법을 보여 주는 스크린샷](../media/managed-identity-access-policy.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 

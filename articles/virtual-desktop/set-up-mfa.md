@@ -5,17 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 16abe8d155a0d7d7f65c69e6305da62bd8813ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091303"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대해 Azure Multi-Factor Authentication을 사용하도록 설정
+
+>[!IMPORTANT]
+> 가 중 2019 설명서에서이 페이지를 방문 하는 경우 완료 되 면 [낙하 2019 설명서로 돌아가야](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) 합니다.
 
 Windows 용 windows 클라이언트 가상 데스크톱은 로컬 컴퓨터와 Windows 가상 데스크톱을 통합 하는 데 유용한 옵션입니다. 그러나 windows 가상 데스크톱 계정을 Windows 클라이언트에 구성 하는 경우 사용자와 사용자를 안전 하 게 유지 하기 위해 수행 해야 하는 특정 측정값이 있습니다.
 
@@ -23,7 +26,7 @@ Windows 용 windows 클라이언트 가상 데스크톱은 로컬 컴퓨터와 W
 
 자격 증명을 기억 하는 것은 편리 하지만 엔터프라이즈 시나리오 또는 개인 장치에 대 한 배포는 보안 수준이 떨어질 수도 있습니다. 사용자를 보호 하려면 클라이언트가 MFA (Azure Multi-Factor Authentication) 자격 증명을 계속 요청 하는지 확인 해야 합니다. 이 문서에서는 Windows 가상 데스크톱에 대 한 조건부 액세스 정책을 구성 하 여이 설정을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하는 데 필요한 항목은 다음과 같습니다.
 
@@ -36,28 +39,39 @@ Windows 용 windows 클라이언트 가상 데스크톱은 로컬 컴퓨터와 W
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-이 섹션에서는 Windows 가상 데스크톱에 연결할 때 multi-factor authentication을 요구 하는 조건부 액세스 정책을 만드는 방법을 보여 줍니다.
+Windows 가상 데스크톱에 연결할 때 multi-factor authentication을 요구 하는 조건부 액세스 정책을 만드는 방법은 다음과 같습니다.
 
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 2. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 3. **새 정책**을 선택합니다.
 4. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
 5. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
-   - **포함**아래에서 **사용자 및 그룹 선택**  >  **사용자 및 그룹** 을 선택 하 > 필수 구성 요소 단계에서 만든 그룹을 선택 합니다.
-   - **완료** 를 선택합니다.
-6. **클라우드 앱 또는 작업**  >  **포함**아래에서 **앱 선택**을 선택 합니다.
-   - **Windows 가상 데스크톱** (앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07)을 선택 하 고를 선택한 다음 **완료**를 **선택**합니다.
+6. **포함**아래에서 **사용자 및 그룹 선택**  >  **사용자 및 그룹** 을 선택 하 > [필수 구성 요소](#prerequisites) 단계에서 만든 그룹을 선택 합니다.
+7. **완료**를 선택합니다.
+8. **클라우드 앱 또는 작업**  >  **포함**아래에서 **앱 선택**을 선택 합니다.
+9. 사용 중인 Windows 가상 데스크톱의 버전에 따라 다음 앱 그룹 중 하나를 선택 합니다.
+   - 낙하 2019 릴리스를 사용 하는 경우 다음 두 앱을 선택 합니다.
+       - **Windows 가상 데스크톱** (앱 ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Windows 가상 데스크톱 클라이언트** (앱 ID fa4345a4-a730-4230-84a8-7d9651b86739)
+   - 스프링 2020 릴리스를 사용 하는 경우 다음 두 앱을 대신 선택 합니다.
+       -  **Windows 가상 데스크톱** (앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       -  **Windows 가상 데스크톱 클라이언트** (앱 ID a85cf173-4192-42f8-81fa-777a763e6e2c)
 
-     > [!div class="mx-imgBorder"]
-     > ![클라우드 앱 또는 작업 페이지의 스크린샷 Windows 가상 데스크톱 및 Windows 가상 데스크톱 클라이언트 앱은 빨간색으로 강조 표시 됩니다.](media/cloud-apps-enterprise.png)
+   >[!IMPORTANT]
+   > Windows 가상 데스크톱 클라이언트 앱은 웹 클라이언트에 사용 됩니다. 그러나 Windows 가상 데스크톱 Azure Resource Manager 공급자 (50e95039-b200-4007-bc97-8d5790743a63) 라는 앱은 선택 하지 마십시오. 이 앱은 사용자 피드를 검색 하는 데만 사용 되며 MFA를 포함 해서는 안 됩니다.
+  
+1. 앱을 선택한 후 **선택**을 선택 하 고 **완료**를 선택 합니다.
 
-     >[!NOTE]
-     >선택 하려는 앱의 앱 ID를 찾으려면 **엔터프라이즈 응용** 프로그램으로 이동 하 고 응용 프로그램 유형 드롭다운 메뉴에서 **Microsoft 응용 프로그램** 을 선택 합니다.
+   > [!div class="mx-imgBorder"]
+   > ![클라우드 앱 또는 작업 페이지의 스크린샷 Windows 가상 데스크톱 및 Windows 가상 데스크톱 클라이언트 앱은 빨간색으로 강조 표시 됩니다.](media/cloud-apps-enterprise.png)
 
-7. **액세스 제어**  >  **권한 부여**에서 **액세스 허용**, **다단계 인증 필요**를 선택 하 고를 **선택**합니다.
-8. **액세스 제어**  >  **세션**에서 **로그인 빈도**를 선택 하 고, 값을 **1** 로, 단위를 **시간**으로 설정한 다음, **선택**을 선택 합니다.
-9. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
-10. **만들기** 를 선택 하 여 정책을 사용 하도록 설정 합니다.
+   >[!NOTE]
+   >선택 하려는 앱의 앱 ID를 찾으려면 **엔터프라이즈 응용** 프로그램으로 이동 하 고 응용 프로그램 유형 드롭다운 메뉴에서 **Microsoft 응용 프로그램** 을 선택 합니다.
+
+10. **액세스 제어**  >  **권한 부여**에서 **액세스 허용**, **다단계 인증 필요**를 선택 하 고를 **선택**합니다.
+11. **액세스 제어**  >  **세션**에서 **로그인 빈도**를 선택 하 고, 값을 **1** 로, 단위를 **시간**으로 설정한 다음, **선택**을 선택 합니다.
+12. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
+13. **만들기** 를 선택 하 여 정책을 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

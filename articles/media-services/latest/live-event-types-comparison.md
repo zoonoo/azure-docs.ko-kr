@@ -13,21 +13,22 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78244634"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090062"
 ---
 # <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교
 
-Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents) 는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 
+Azure Media Services에서 [라이브 이벤트](/rest/api/media/liveevents) 는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 
 
 이 문서에서는 라이브 이벤트 유형의 기능을 비교 합니다.
 
 ## <a name="types-comparison"></a>형식 비교 
 
-다음 표에서는 라이브 이벤트 유형의 기능을 비교 합니다. 형식은 [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
+다음 표에서는 라이브 이벤트 유형의 기능을 비교 합니다. 형식은 [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
 
 * **LiveEventEncodingType** -온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집 스트림은 추가 처리 없이 라이브 이벤트를 통과 합니다. 통과 라이브 이벤트 라고도 합니다.
 * **LiveEventEncodingType** -온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. 기여 피드가 720p 이상인 경우 **Default720p** 사전 설정은 6 개의 해상도/비트 전송률 쌍 집합을 인코딩합니다 (세부 정보는이 문서의 뒷부분 참조).
@@ -39,9 +40,9 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 | 기여 피드에 대한 최대 비디오 해상도 |4K(60프레임/초에서 4096x2160) |1080p(30프레임/초에서 1920x1088)|
 | 기여 피드에 권장되는 최대 계층|최대 12개|하나의 오디오|
 | 출력의 최대 계층| 입력과 같음|최대 6 (아래 시스템 사전 설정 참조)|
-| 기여 피드의 최대 집계 대역폭|60Mbps|해당 없음|
+| 기여 피드의 최대 집계 대역폭|60Mbps|N/A|
 | 기여에서 단일 계층의 최대 전송률 |20Mbps|20Mbps|
-| 여러 언어 오디오 트랙 지원|예|아니요|
+| 여러 언어 오디오 트랙 지원|예|예|
 | 지원되는 입력 비디오 코덱 |H.264/AVC 및 H.265/HEVC|H.264/AVC|
 | 지원되는 출력 비디오 코덱|입력과 같음|H.264/AVC|
 | 지원되는 비디오 비트 수준, 입력 및 출력|HDR 10/HLG를 포함하여 최대 10비트|8비트|
@@ -50,21 +51,21 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 | 출력 비디오의 최대 비디오 해상도|입력과 같음|표준-720p, Premium1080p-1080p|
 | 입력 비디오의 최대 프레임 전송률|60 프레임/초|Standard 또는 Premium1080p-30 프레임/초|
 | 입력 프로토콜|RTMP, fragmented-MP4(부드러운 스트리밍)|RTMP, fragmented-MP4(부드러운 스트리밍)|
-| Price|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|
+| 가격|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|
 | 최대 실행 시간| 연중무휴 라이브 선형 | 24 시간 x 365 일, 라이브 선형 (미리 보기)|
 | 포함된 CEA 608/708 캡션 데이터 전달 가능|예|예|
 | 실시간 기록을 켜는 기능|예|예|
-| 슬레이트 삽입 지원|아니요|아니요|
-| API를 통한 광고 신호 지원| 아니요|아니요|
+| 슬레이트 삽입 지원|아니요|예|
+| API를 통한 광고 신호 지원| 아니요|예|
 | SCTE-35 인밴드 메시지를 통한 광고 신호 지원|예|예|
 | 기여 피드의 일시 정지에서 복구하는 기능|예|부분|
 | 균일하지 않은 입력 GOP에 대한 지원|예|아니요 - 입력에 고정된 GOP 지속 기간이 있어야 함|
 | 변수 프레임 속도 입력에 대한 지원|예|아니요 - 입력은 고정된 프레임 속도여야 함. 예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 그러나 기여 피드가 프레임 주기를 삭제할 수 없습니다 (예: 15 프레임/초).|
-| 입력 피드가 손실될 경우 라이브 이벤트 자동 차단|아니요|12시간 동안 LiveOutput 실행이 없는 경우|
+| 입력 피드가 손실될 경우 라이브 이벤트 자동 차단|예|12시간 동안 LiveOutput 실행이 없는 경우|
 
 ## <a name="system-presets"></a>시스템 사전 설정
 
-라이브 인코더의 출력에 포함 된 해상도 및 비트 전송률은 [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding)에 의해 결정 됩니다. **표준** 라이브 인코더 (LiveEventEncodingType)를 사용 하는 경우 *Default720p* 사전 설정은 아래에 설명 된 6 개의 해상도/비트 전송률 쌍 집합을 지정 합니다. 그렇지 않고 **Premium1080p** 라이브 인코더 (LiveEventEncodingType)를 사용 하는 경우 *Default1080p* 사전 설정은 해상도/비트 전송률 쌍의 출력 집합을 지정 합니다.
+라이브 인코더의 출력에 포함 된 해상도 및 비트 전송률은 [presetName](/rest/api/media/liveevents/create#liveeventencoding)에 의해 결정 됩니다. **표준** 라이브 인코더 (LiveEventEncodingType)를 사용 하는 경우 *Default720p* 사전 설정은 아래에 설명 된 6 개의 해상도/비트 전송률 쌍 집합을 지정 합니다. 그렇지 않고 **Premium1080p** 라이브 인코더 (LiveEventEncodingType)를 사용 하는 경우 *Default1080p* 사전 설정은 해상도/비트 전송률 쌍의 출력 집합을 지정 합니다.
 
 > [!NOTE]
 > 표준 라이브 인코딩에 대해 설정 된 경우 Default1080p 사전 설정을 라이브 이벤트에 적용할 수 없습니다. 오류가 발생 합니다. 또한 Premium1080p 라이브 인코더에 Default720p 사전 설정을 적용 하려고 하면 오류가 발생 합니다.
@@ -75,12 +76,12 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 
 | Bitrate | 너비 | 높이 | MaxFPS | 프로필 |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |높은 |
-| 2200 |960 |540 |30 |높은 |
-| 1350 |704 |396 |30 |높은 |
-| 850 |512 |288 |30 |높은 |
-| 550 |384 |216 |30 |높은 |
-| 200 |340 |192 |30 |높은 |
+| 3500 |1280 |720 |30 |높음 |
+| 2200 |960 |540 |30 |높음 |
+| 1350 |704 |396 |30 |높음 |
+| 850 |512 |288 |30 |높음 |
+| 550 |384 |216 |30 |높음 |
+| 200 |340 |192 |30 |높음 |
 
 > [!NOTE]
 > 라이브 인코딩 사전 설정을 사용자 지정 해야 하는 경우 Azure Portal을 통해 지원 티켓을 여세요. 원하는 해상도 및 비트 전송률 표를 지정해야 합니다. 720p에서 레이어가 하나만 있고, 6레이어 이하인지 확인합니다. 또한 표준 라이브 인코더에 대 한 사전 설정을 요청 하도록 지정 합니다.
@@ -92,12 +93,12 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 
 | Bitrate | 너비 | 높이 | MaxFPS | 프로필 |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |높은 |
-| 3000 |1280 |720 |30 |높은 |
-| 1600 |960 |540 |30 |높은 |
-| 800 |640 |360 |30 |높은 |
-| 400 |480 |270 |30 |높은 |
-| 200 |320 |180 |30 |높은 |
+| 5500 |1920 |1080 |30 |높음 |
+| 3000 |1280 |720 |30 |높음 |
+| 1600 |960 |540 |30 |높음 |
+| 800 |640 |360 |30 |높음 |
+| 400 |480 |270 |30 |높음 |
+| 200 |320 |180 |30 |높음 |
 
 > [!NOTE]
 > 라이브 인코딩 사전 설정을 사용자 지정 해야 하는 경우 Azure Portal을 통해 지원 티켓을 여세요. 원하는 해상도 및 비트 전송률 표를 지정해야 합니다. 1080p에 레이어가 하나만 있고 최대 6 개 계층이 있는지 확인 합니다. 또한 Premium1080p 라이브 인코더에 대 한 사전 설정을 요청 하도록 지정 합니다.

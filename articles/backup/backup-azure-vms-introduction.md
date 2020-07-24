@@ -3,15 +3,16 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091048"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
-이 문서에서는 [Azure Backup 서비스](backup-introduction-to-azure-backup.md) 에서 Azure vm (가상 머신)을 백업 하는 방법을 설명 합니다.
+이 문서에서는 [Azure Backup 서비스](./backup-overview.md) 에서 Azure vm (가상 머신)을 백업 하는 방법을 설명 합니다.
 
 Azure Backup은 Vm에서 의도 하지 않은 데이터 소멸 으로부터 보호 하기 위해 독립적인 격리 된 백업을 제공 합니다. 백업은 복구 지점에 대한 기본 제공 관리를 사용하여 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 크기 조정은 간단 하 고 백업이 최적화 되며 필요에 따라 쉽게 복원할 수 있습니다.
 
@@ -25,8 +26,8 @@ Azure Backup은 Vm에서 의도 하지 않은 데이터 소멸 으로부터 보�
 
 1. 백업용으로 선택 된 Azure Vm의 경우 지정한 백업 일정에 따라 백업 작업이 시작 Azure Backup.
 1. 첫 번째 백업 중에 VM이 실행 되는 경우 백업 확장이 VM에 설치 됩니다.
-    - Windows Vm의 경우 [VMSnapshot 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows) 을 설치 합니다.
-    - Linux Vm의 경우 [VMSnapshotLinux 확장이](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux) 설치 됩니다.
+    - Windows Vm의 경우 [VMSnapshot 확장](../virtual-machines/extensions/vmsnapshot-windows.md) 을 설치 합니다.
+    - Linux Vm의 경우 [VMSnapshotLinux 확장이](../virtual-machines/extensions/vmsnapshot-linux.md) 설치 됩니다.
 1. 를 실행 하는 Windows Vm의 경우 VSS (Windows 볼륨 섀도 복사본 서비스)를 사용 하 여 백업 하 여 VM의 앱 일치 스냅숏을 사용 합니다.
     - 기본적으로 백업은 전체 VSS 백업을 수행 합니다.
     - 백업이 응용 프로그램에 일관 된 스냅숏을 만들 수 없는 경우 VM이 중지 된 동안에는 응용 프로그램 쓰기가 발생 하지 않기 때문에 기본 저장소의 파일 일치 스냅숏을 사용 합니다.
@@ -63,7 +64,7 @@ BEKs도 백업 됩니다. 따라서 BEKs가 손실 되 면 권한 있는 사용�
 
 Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 
-- **Windows vm:** Windows Vm의 경우 Backup 서비스는 VSS와 조정 하 여 VM 디스크의 앱 일치 스냅숏을 만듭니다.  기본적으로 Azure Backup는 전체 VSS 백업을 수행 합니다. 백업 시 SQL Server와 같은 응용 프로그램의 로그를 잘라서 응용 프로그램 수준 일치 백업을 가져옵니다.  Azure VM 백업에 SQL Server 데이터베이스를 사용 하는 경우 VSS 복사본 백업을 수행 하는 설정을 수정 하 여 로그를 보존할 수 있습니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues)를 참조하세요.
+- **Windows vm:** Windows Vm의 경우 Backup 서비스는 VSS와 조정 하 여 VM 디스크의 앱 일치 스냅숏을 만듭니다.  기본적으로 Azure Backup는 전체 VSS 백업을 수행 합니다. 백업 시 SQL Server와 같은 응용 프로그램의 로그를 잘라서 응용 프로그램 수준 일치 백업을 가져옵니다.  Azure VM 백업에 SQL Server 데이터베이스를 사용 하는 경우 VSS 복사본 백업을 수행 하는 설정을 수정 하 여 로그를 보존할 수 있습니다. 자세한 내용은 [이 문서](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues)를 참조하세요.
 
 - **Linux vm:** Linux Vm의 앱 일치 스냅숏을 사용 하려면 Linux 사전 스크립트 및 사후 스크립트 프레임 워크를 사용 하 여 일관성을 유지 하기 위해 고유한 사용자 지정 스크립트를 작성 합니다.
 
@@ -80,6 +81,9 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 **애플리케이션 일관성** | 앱 일관성이 있는 백업은 메모리 콘텐츠 및 보류 중인 I/O 작업을 캡처합니다. 앱 일치 스냅숏은 VSS 기록기 (또는 Linux 용 사전/사후 스크립트)를 사용 하 여 백업이 발생 하기 전에 앱 데이터의 일관성을 유지 합니다. | 앱 일치 스냅숏을 사용 하 여 VM을 복구 하는 경우 VM이 부팅 됩니다. 데이터 손상 또는 손실이 없습니다. 앱이 일관성 있는 상태로 시작됩니다. | Windows: 모든 VSS 기록기 성공<br/><br/> Linux: 사전/사후 스크립트를 구성 하 고 성공 했습니다.
 **파일 시스템 일치** | 파일 시스템 일치 백업은 모든 파일의 스냅숏을 동시에 가져와서 일관성을 제공 합니다.<br/><br/> | 파일 시스템 일치 스냅숏을 사용 하 여 VM을 복구 하는 경우 VM이 부팅 됩니다. 데이터 손상 또는 손실이 없습니다. 앱은 자체 “수정” 메커니즘을 구현하여 복원된 데이터가 일관성 있는지 확인해야 합니다. | Windows: 일부 VSS 기록기가 실패 했습니다. <br/><br/> Linux: 기본값 (사전/사후 스크립트가 구성 되지 않았거나 실패 한 경우)
 **크래시 일관성** | 크래시 일관성 스냅숏은 일반적으로 백업 시 Azure VM이 종료 되는 경우에 발생 합니다. 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. | 는 VM 부팅 프로세스에서 시작 하 여 디스크 검사 후에 손상 오류를 수정 합니다. 크래시 전에 디스크로 전송 되지 않은 모든 메모리 내 데이터 또는 쓰기 작업은 손실 됩니다. 앱이 고유한 데이터 확인을 구현합니다. 예를 들어 데이터베이스 앱은 확인을 위해 트랜잭션 로그를 사용할 수 있습니다. 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일치 될 때까지 트랜잭션을 롤백합니다. | VM이 종료 (중지 됨/할당 취소 됨) 상태입니다.
+
+>[!NOTE]
+> 프로 비전 상태가 **성공**인 경우 Azure Backup는 파일 시스템 일치 백업을 수행 합니다. 프로 비전 상태를 **사용할 수** 없거나 **실패**한 경우 크래시 일관성 백업이 수행 됩니다. 프로 비전 상태를 **만들거나** **삭제**하는 경우 Azure backup에서 작업을 다시 시도 하는 것을 의미 합니다.
 
 ## <a name="backup-and-restore-considerations"></a>백업 및 복원 고려 사항
 
@@ -107,8 +111,8 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 VM 백업을 구성할 때 다음 사례를 따르는 것이 좋습니다.
 
 - 정책에 설정된 기본 예약 시간을 수정합니다. 예를 들어 정책의 기본 시간이 오전 12시인 경우 리소스가 최적으로 사용되도록 몇 분 정도 시간을 늘립니다.
-- 단일 자격 증명 모음에서 Vm을 복원 하는 경우에는 다른 [범용 v2 저장소 계정을](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 사용 하 여 대상 저장소 계정이 제한 되지 않도록 하는 것이 좋습니다. 예를 들어 각 VM에는 다른 저장소 계정이 있어야 합니다. 예를 들어 10 개의 Vm을 복원 하는 경우 10 개의 서로 다른 저장소 계정을 사용 합니다.
-- 즉시 복원을 사용 하 여 premium storage를 사용 하는 Vm 백업의 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업 **에서만** 필요 합니다. 첫 번째 백업이 완료된 후에는 50%의 사용 가능한 공간이 백업에 필요하지 않습니다.
+- 단일 자격 증명 모음에서 Vm을 복원 하는 경우에는 다른 [범용 v2 저장소 계정을](../storage/common/storage-account-upgrade.md) 사용 하 여 대상 저장소 계정이 제한 되지 않도록 하는 것이 좋습니다. 예를 들어 각 VM에는 다른 저장소 계정이 있어야 합니다. 예를 들어 10 개의 Vm을 복원 하는 경우 10 개의 서로 다른 저장소 계정을 사용 합니다.
+- 즉시 복원에 premium storage를 사용 하는 Vm을 백업 하는 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업에 **만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
 - 스토리지 계정당 디스크 수 제한은 IaaS(서비스 제공 인프라) VM에서 실행되는 애플리케이션에서 디스크에 액세스하는 수준과 관련되어 있습니다. 일반적으로 단일 스토리지 계정에 디스크가 5~10개 이상 있으면 일부 디스크를 별도의 스토리지 계정으로 이동하여 부하를 분산합니다.
 
 ## <a name="backup-costs"></a>백업 비용

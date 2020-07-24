@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090538"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -40,7 +40,7 @@ Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문�
 
 - [CLI를 사용하여 Key Vault 만들기 및 관리](../secrets/quick-create-cli.md)
 - [PowerShell을 사용하여 Key Vault 만들기 및 관리](../secrets/quick-create-powershell.md)
-- [Azure 포트를 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-portal.md)
+- [Azure Portal를 사용 하 여 키 자격 증명 모음 만들기 및 관리](../secrets/quick-create-portal.md)
 - [Python을 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-python.md)
 - [Java를 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-java.md)
 - [Node.js를 사용 하 여 키 자격 증명 모음 만들기 및 관리](../secrets/quick-create-node.md)
@@ -55,7 +55,7 @@ Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문�
 
 ### <a name="supported-programming-and-scripting-languages"></a>지원되는 프로그래밍 및 스크립팅 언어
 
-#### <a name="rest"></a>REST (영문)
+#### <a name="rest"></a>REST
 
 REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯한 모든 Key Vault 리소스에 액세스할 수 있습니다. 
 
@@ -75,11 +75,11 @@ REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯�
 
 Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. 다음 개요 문서에서는 둘 다에 액세스할 수 있습니다. 
 
-[Node.js용 Azure Key Vault 모듈](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Node.js용 Azure Key Vault 모듈](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Python용 Azure Key Vault 라이브러리](/python/api/overview/azure/key-vault?view=azure-python)
+[Python용 Azure Key Vault 라이브러리](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### <a name="azure-cli"></a>Azure CLI
 
@@ -100,7 +100,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 다음 문서 및 시나리오에서는 Azure Key Vault 사용에 대한 작업별 지침을 제공합니다.
 
-- [구독 이동 후 Key Vault 테넌트 변경](subscription-move-fix.md) - Azure 구독을 테넌트 A에서 테넌트 B로 이동할 때 기존 주요 자격 증명 모음에는 테넌트 B의 주체(사용자 및 애플리케이션)가 액세스할 수 없게 됩니다. 이 가이드를 통해 이 문제를 해결합니다.
+- [구독 이동 후 Key Vault 테넌트 변경](move-subscription.md) - Azure 구독을 테넌트 A에서 테넌트 B로 이동할 때 기존 주요 자격 증명 모음에는 테넌트 B의 주체(사용자 및 애플리케이션)가 액세스할 수 없게 됩니다. 이 가이드를 통해 이 문제를 해결합니다.
 - [방화벽 뒤 Key Vault 액세스](access-behind-firewall.md) - 주요 자격 증명 모음에 액세스하려면 주요 자격 증명 모음 클라이언트 애플리케이션은 다양한 기능에 대한 여러 엔드포인트에 액세스할 수 있어야 합니다.
 - [Azure Key Vault용으로 HSM 보호 키를 생성하여 전송하는 방법](../keys/hsm-protected-keys.md) - 이 문서를 통해 Azure Key Vault에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다.
 - [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../../azure-resource-manager/templates/key-vault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 Resource Manager 템플릿에서 이 값을 참조할 수 있습니다.

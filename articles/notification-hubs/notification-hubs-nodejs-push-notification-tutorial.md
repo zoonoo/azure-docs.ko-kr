@@ -17,12 +17,12 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2921fb2895b8e42c0564c6e815a08da1d7e9d12d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82592012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089977"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -44,7 +44,7 @@ ms.locfileid: "82592012"
 
 ## <a name="notification-hubs"></a>Notification Hubs
 
-Azure Notification Hubs는 모바일 디바이스에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
+Azure Notification Hubs는 모바일 디바이스에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100)) 페이지를 참조하세요.
 
 ## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
@@ -89,7 +89,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 ![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> [Azure PowerShell](/powershell/azureps-cmdlets-docs)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../cli-install-nodejs.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
+> [Azure PowerShell](/powershell/azure/)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](/cli/azure/install-classic-cli)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
 
 ## <a name="general-architecture"></a>일반 아키텍처
 
@@ -155,11 +155,11 @@ notificationHubService.apns.send(null, payload, function(error){
 - **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 - **Payload** - 메시지의 XML 페이로드
 - **TargetName**  -  TargetName `toast` 알림 메시지의 경우 `token` - 타일 알림 메시지인 경우.
-- **NotificationClass** - 알림 우선 순위. 유효한 값은 **서버에서 푸시 알림** 문서의 [HTTP 헤더 요소](https://msdn.microsoft.com/library/hh221551.aspx) 섹션을 참조하세요.
+- **NotificationClass** - 알림 우선 순위. 유효한 값은 **서버에서 푸시 알림** 문서의 [HTTP 헤더 요소](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) 섹션을 참조하세요.
 - **Options** - 선택적 요청 헤더
 - **Callback** - 콜백 함수.
 
-유효한 `TargetName`, `NotificationClass` 및 헤더 옵션에 대한 목록은 [서버의 푸시 알림](https://msdn.microsoft.com/library/hh221551.aspx) 페이지를 확인하세요.
+유효한 `TargetName`, `NotificationClass` 및 헤더 옵션에 대한 목록은 [서버의 푸시 알림](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) 페이지를 확인하세요.
 
 다음 샘플 코드는 `NotificationHubService`에서 공개하는 `MpnsService` 인스턴스를 사용하여 알림 푸시 알림을 보냅니다.
 
@@ -182,7 +182,7 @@ notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
 - **Options** - 선택적 요청 헤더
 - **Callback** - 콜백 함수.
 
-유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx)를 참조하세요.
+유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](/previous-versions/windows/apps/hh465435(v=win.10))를 참조하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `WnsService` 인스턴스를 사용하여 UWP 앱에 알림 푸시 알림을 보냅니다.
 
@@ -199,7 +199,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 
 위의 샘플 코드 조각을 사용하면 다양한 디바이스에 푸시 알림을 전달하는 서비스 인프라를 쉽게 작성할 수 있습니다. 이제 node.js가 있는 Notification Hubs를 사용하는 기본 사항을 배웠으므로 다음 링크를 따라서 이러한 기능을 더욱 확장할 수 있는 방법에 대해 자세히 알아봅니다.
 
-- [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx)는 MSDN 참조를 참조하세요.
+- [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100))는 MSDN 참조를 참조하세요.
 - 추가 샘플 및 구현 세부 정보는 GitHub에서 [Node용 Azure SDK] 리포지토리를 방문합니다.
 
 [Node용 Azure SDK]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -222,14 +222,14 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter_sqlexpression
+[Azure Service Bus Notification Hubs]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-[nodejswebsite]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
-[webmatrix]: https://docs.microsoft.com/aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
+[nodejswebsite]: ../app-service/app-service-web-get-started-nodejs.md
+[webmatrix]: /aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [Azure Portal]: https://portal.azure.com

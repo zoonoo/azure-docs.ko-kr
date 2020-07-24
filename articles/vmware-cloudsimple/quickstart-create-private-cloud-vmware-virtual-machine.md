@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 000e30f2656b88c068654fd8099cdff0ce0a4b37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77566151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091269"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에서 VMware 가상 머신 만들기
 
@@ -101,7 +102,7 @@ CloudSimple은 사용자 이름으로 기본 vCenter 사용자 계정을 할당 
 
 사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하도록 vCenter의 가상 머신을 구성할 수 있습니다.
 
-사전 요구 사항
+필수 조건
 
 * VLAN이 구성 된 분산 포트 그룹
 
@@ -121,9 +122,9 @@ Linux에서는 DNS 서버를 설정 하기 위한 다양 한 패키지를 제공
 
 이 Microsoft 항목에서는 Windows server를 DNS 서버 및 DHCP 서버로 설정 하는 방법을 설명 합니다.
 
-[Windows Server를 DNS 서버로](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+[Windows Server를 DNS 서버로](/windows-server/networking/dns/dns-top)
 
-[DHCP 서버로 서의 Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+[DHCP 서버로 서의 Windows Server](/windows-server/networking/technologies/dhcp/dhcp-top)
 
 ## <a name="customize-networking-configuration-optional"></a>네트워킹 구성 사용자 지정 (선택 사항)
 

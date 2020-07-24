@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722021"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090300"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process 및 Azure DevOps Services를 통해 Azure에서 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 세트를 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
@@ -119,7 +120,7 @@ ms.locfileid: "76722021"
     
     ![원본, 이름, 리포지토리 및 분기 정보](./media/code-test/fill_in_build_info.PNG)
 
-    다. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스**를 선택하여 시작합니다. 
+    c. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스**를 선택하여 시작합니다. 
 
     ![템플릿 목록 및 “빈 프로세스” 단추](./media/code-test/start_empty_process_template.PNG)
 
@@ -137,11 +138,11 @@ ms.locfileid: "76722021"
     
     ![PowerShell 세부 정보](./media/code-test/powershell_scripts.PNG)
 
-    예: **큐 & 저장** 을 선택 하 여 빌드 파이프라인 프로세스를 완료 합니다.
+    g. **큐 & 저장** 을 선택 하 여 빌드 파이프라인 프로세스를 완료 합니다.
 
     ![“저장 및 큐” 단추](./media/code-test/save_and_queue_build_definition.PNG)
 
-이제 코드 리포지토리에 새 커밋이 푸시될 때마다 빌드 프로세스가 자동으로 시작됩니다. (여기서 master를 리포지토리로 사용 하지만 모든 분기를 정의할 수 있습니다.) 프로세스는 에이전트 컴퓨터에서 **test1.py** 파일을 실행 하 여 코드에 정의 된 모든 항목이 올바르게 실행 되는지 확인 합니다. 
+이제 코드 리포지토리에 새 커밋이 푸시될 때마다 빌드 프로세스가 자동으로 시작됩니다. 모든 분기를 정의할 수 있습니다. 프로세스는 코드에 정의된 모든 내용이 제대로 실행되도록 에이전트 컴퓨터에서 **test1.py** 파일을 실행합니다. 
 
 알림이 제대로 설정되어 있는 경우 빌드가 완료되면 사용자에게 이메일로 알립니다. 또한 Azure DevOps에서 빌드 상태를 확인할 수 있습니다. 실패한 경우 빌드의 세부 정보를 확인 수 있으며 끊어진 부분을 찾을 수 있습니다.
 

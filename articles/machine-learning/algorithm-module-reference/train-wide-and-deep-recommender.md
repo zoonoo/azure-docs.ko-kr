@@ -1,5 +1,5 @@
 ---
-title: 이미지 모델 채점
+title: 열차 Wide & Deep 추천 모듈 사용
 titleSuffix: Azure Machine Learning
 description: 전체 & 학습 추천 모듈을 사용 하 여 권장 사항 모델을 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090181"
 ---
 # <a name="train-wide--deep-recommender"></a>넓은 & 심층적 추천 학습
 이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 **전체 & 심층 추천** 모듈을 사용 하 여 권장 사항 모델을 학습 하는 방법을 설명 합니다. 이 모듈은 Google에서 제안 하는 넓은 & 심층 학습을 기반으로 합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "84739794"
 
 예를 들어 일반적인 사용자 기능 집합은 다음과 같습니다. 
 
-|UserId|Age|성별|Interest|위치|
+|UserId|나이|성별|Interest|위치|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|male| 드라마    |유럽|
 |223|40|female|테두리|아시아|
@@ -77,7 +77,7 @@ ms.locfileid: "84739794"
 
 예를 들어 일반적인 항목 기능 집합은 다음과 같습니다.  
 
-|MovieId|제목|원래 언어|장르|Year|
+|MovieId|제목|원래 언어|장르|년|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|Godfather|영어|드라마|1972|
 |31381|바람에 사라졌습니다.|영어|기록|1939|

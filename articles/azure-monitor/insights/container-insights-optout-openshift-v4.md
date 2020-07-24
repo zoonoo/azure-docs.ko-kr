@@ -3,12 +3,12 @@ title: Azure 및 Red Hat OpenShift v4 클러스터의 모니터링을 중지 하
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 768c4db8d72778b555a4f343cf2e23b8fa861991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf61457b9c8cff40eb3fee2c93c7184fbaae6db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091150"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Azure 및 Red Hat OpenShift v4 클러스터의 모니터링을 중지 하는 방법
 
@@ -35,7 +35,7 @@ Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x 클러스터의 모니�
 
     `helm delete <releaseName>`
 
-    예제:
+    예:
 
     `helm delete azmon-containers-release-1`
 
@@ -49,4 +49,4 @@ Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x 클러스터의 모니�
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 모니터링을 지원 하기 위해 Log Analytics 작업 영역을 만들었지만 더 이상 필요 하지 않은 경우 수동으로 삭제 해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../../log-analytics/log-analytics-manage-del-workspace.md)를 참조 하세요.
+클러스터 모니터링을 지원 하기 위해 Log Analytics 작업 영역을 만들었지만 더 이상 필요 하지 않은 경우 수동으로 삭제 해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../platform/delete-workspace.md)를 참조 하세요.

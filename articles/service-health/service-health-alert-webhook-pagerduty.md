@@ -3,11 +3,12 @@ title: PagerDuty를 사용 하 여 Azure 서비스 상태 경고 보내기
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 PagerDuty 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654072"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091541"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>웹 후크를 사용 하 여 PagerDuty로 Azure 서비스 상태 경고 보내기
 
@@ -38,7 +39,7 @@ ms.locfileid: "77654072"
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Azure Portal에서 PagerDuty를 사용하여 경고 만들기
 ### <a name="for-a-new-action-group"></a>새 작업 그룹의 경우:
-1. [Azure Portal을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기](../azure-monitor/platform/alerts-activity-log-service-notifications.md)에서 1단계부터 8단계까지 수행합니다.
+1. [Azure Portal을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기](./alerts-activity-log-service-notifications-portal.md)에서 1단계부터 8단계까지 수행합니다.
 
 1. **작업** 목록에서 다음을 정의합니다.
 
@@ -46,7 +47,7 @@ ms.locfileid: "77654072"
 
     b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -63,7 +64,7 @@ ms.locfileid: "77654072"
 
     b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
@@ -86,5 +87,5 @@ ms.locfileid: "77654072"
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대 한 webhook 알림을 구성](service-health-alert-webhook-guide.md)하는 방법을 알아봅니다.
 - [활동 로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토 합니다. 
-- [서비스 상태 알림](../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
+- [서비스 상태 알림](./service-notifications.md)에 대해 자세히 알아보세요.
 - [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

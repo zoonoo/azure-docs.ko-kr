@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090385"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 B2B AS2 메시지 받기 및 확인
 
@@ -20,9 +21,9 @@ ms.locfileid: "82792363"
 
 이 문서에서는 요청 트리거를 사용 하 여 HTTP 요청을 수신 하 고, AS2 및 X12 작업을 사용 하 여 메시지 콘텐츠를 디코딩하고, 응답 작업을 사용 하 여 응답을 반환 하는 논리 앱을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독 아직 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독. 아직 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 새 논리 앱: 다음 작업을 수행 하는 [요청](../connectors/connectors-native-reqres.md) 트리거를 사용 하 여 B2B 워크플로를 만들 수 있습니다.
 
@@ -34,7 +35,7 @@ ms.locfileid: "82792363"
 
   논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토 하세요.
 
-* Azure 구독과 연결 되 고 논리 앱에 연결 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md) 입니다. 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
+* Azure 구독과 연결 되 고 논리 앱에 연결 된 [통합 계정](./logic-apps-enterprise-integration-create-integration-account.md) 입니다. 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
 
 * 해당 파트너에 대 한 [AS2 및 X12 계약과](logic-apps-enterprise-integration-agreements.md) 함께 통합 계정에 이미 정의 된 두 개 이상의 [거래 업체](../logic-apps/logic-apps-enterprise-integration-partners.md) .
 
@@ -104,7 +105,7 @@ ms.locfileid: "82792363"
 
 1. **AS2 디코드** 작업에서 **새 단계**를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자 아래에서 **기본 제공**을 선택 합니다. 검색 상자에 `condition`를 입력합니다. **작업** 목록에서 **조건**을 선택 합니다.
+1. **작업 선택**아래의 검색 상자 아래에서 **기본 제공**을 선택 합니다. 검색 상자에 `condition`를 입력합니다. **작업** 목록에서 **조건**을 선택합니다.
 
    !["조건" 동작 추가](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 

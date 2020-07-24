@@ -24,7 +24,7 @@
 - name: 방법
   items:
     - name: 서비스 상태 이벤트에 대한 경고 구성
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Azure Portal을 사용하여 서비스 상태 알림 보기
       href: service-notifications.md
     - name: 웹후크를 통해 외부 시스템에 경고 보내기

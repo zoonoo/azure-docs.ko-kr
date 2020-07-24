@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 9788c4663908497b51fbaaf7f824125d857e7c81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774404"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090164"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Media Services API에 액세스할 수 있는 자격 증명 가져오기  
 
@@ -55,7 +56,7 @@ Azure AD(Azure Active Directory) 앱 및 비밀을 사용하여 서비스를 인
 
 **AAD 앱 및 비밀 관리** 섹션을 사용하여 새 Azure AD 앱을 선택하거나 만들고 비밀을 생성할 수 있습니다. 보안상의 이유로 블레이드가 닫힌 후에는 비밀을 표시할 수 없습니다. 애플리케이션은 인증에 애플리케이션 ID 및 비밀을 사용하여 미디어 서비스에 대한 유효한 토큰을 가져옵니다.
 
-Azure AD 테넌트로 애플리케이션을 등록하고 애플리케이션을 Azure 구독의 역할에 할당할 수 있는 충분한 권한이 있는지 확인하세요. 자세한 내용은 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)을 참조하세요.
+Azure AD 테넌트로 애플리케이션을 등록하고 애플리케이션을 Azure 구독의 역할에 할당할 수 있는 충분한 권한이 있는지 확인하세요. 자세한 내용은 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)을 참조하세요.
 
 #### <a name="connect-to-media-services-api"></a>Media Services API에 연결
 

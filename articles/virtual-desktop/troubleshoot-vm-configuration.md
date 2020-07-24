@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 세션 호스트 문제 해결-Azure
+title: Windows 가상 데스크톱 세션 호스트 스프링 2020-Azure 문제 해결
 description: Windows 가상 데스크톱 세션 호스트 가상 컴퓨터를 구성할 때 발생 하는 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1e155dc850143ee252effe5ec9d8ef2d716611
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091320"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 

@@ -3,8 +3,8 @@ title: '알려진 문제: Azure Database for MySQL에 대 한 온라인 마이�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service 사용 시 Azure Database for MySQL에 대 한 온라인 마이그레이션과의 알려진 문제 및 마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090708"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Azure Database Migration Service에서 MySQL 용 Azure DB에 대 한 제한 사항을 & 온라인 마이그레이션 문제
 
@@ -135,6 +135,8 @@ AWS RDS MySQL에서 Azure Database for MySQL로 온라인 마이그레이션을 
     ```
 
 - Azure Database Migration Service 하나의 단일 마이그레이션 작업에서 마이그레이션할 데이터베이스의 제한은 4 개입니다.
+
+- Azure DMS는 부모 테이블에서 행을 삭제 하거나 업데이트 하는 경우 자식 테이블에서 일치 하는 행을 자동으로 삭제 하거나 업데이트 하는 데 도움이 되는 CASCADE 참조 동작을 지원 하지 않습니다. 자세한 내용은 MySQL 설명서의 [FOREIGN KEY 제약 조건](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)문서에서 참조 작업 섹션을 참조 하세요. Azure DMS를 사용 하려면 초기 데이터 로드 중에 대상 데이터베이스 서버에서 foreign key 제약 조건을 삭제 해야 하며 참조 동작을 사용할 수 없습니다. 워크 로드가이 참조 작업을 통해 관련 된 자식 테이블을 업데이트 하는 것에 의존 하는 경우 [덤프](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) 를 수행 하 고 대신 복원 하는 것이 좋습니다. 
 
 - **오류:** 행 크기가 너무 깁니다 (> 8126). 일부 열을 텍스트 또는 BLOB으로 변경 하면 도움이 될 수 있습니다. 현재 행 형식에서 0 바이트의 BLOB 접두사는 인라인으로 저장 됩니다.
 

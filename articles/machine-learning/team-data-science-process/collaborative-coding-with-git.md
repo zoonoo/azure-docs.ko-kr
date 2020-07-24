@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090215"
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
 
@@ -28,7 +29,7 @@ Azure DevOps는 Azure Boards 사용자 스토리 또는 작업 작업 항목을 
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-**분기 만들기** 대화 상자에서 새 분기 이름과 기본 Azure Repos Git 리포지토리 및 분기를 제공 합니다. 기본 리포지토리는 작업 항목과 동일한 Azure DevOps 프로젝트에 있어야 합니다. 기본 분기는 마스터 분기 또는 다른 기존 분기가 될 수 있습니다. **분기 만들기**를 선택 합니다. 
+**분기 만들기** 대화 상자에서 새 분기 이름과 기본 Azure Repos Git 리포지토리 및 분기를 제공 합니다. 기본 리포지토리는 작업 항목과 동일한 Azure DevOps 프로젝트에 있어야 합니다. 기본 분기는 모든 기존 분기가 될 수 있습니다. **분기 만들기**를 선택 합니다. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -50,7 +51,7 @@ git checkout <working branch name>
 
 각 사용자 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 (Task) 작업 항목에 대해 사용자 스토리 분기를 기반으로 분기를 만들 수 있습니다. 동일한 프로젝트에 대해 여러 사용자 스토리를 작업 하거나 동일한 사용자 스토리에 대해 다른 작업을 수행 하는 사용자가 여러 명 있는 경우 사용자 스토리-작업 관계에 해당 하는 계층의 분기를 구성 합니다. 분기를 공유 하는 경우 각 팀 멤버가 다른 분기 또는 다른 코드 또는 다른 아티팩트에 대해 작업을 수행 하 여 충돌을 최소화할 수 있습니다. 
 
-다음 다이어그램은 TDSP에 권장 되는 분기 전략을 보여 줍니다. 여기에 표시 된 것과 같이 분기가 여러 개 필요 하지 않을 수 있습니다. 특히 한 명의 사용자만 프로젝트에서 작업 하거나 한 명의 사용자만이 사용자 스토리의 모든 작업에 대해 작업 하는 경우입니다. 그러나 개발 분기를 마스터 분기에서 분리 하는 것이 항상 좋은 방법 이며, 개발 작업으로 인해 릴리스 분기가 중단 되지 않도록 방지 하는 데 도움이 될 수 있습니다. Git 분기 모델에 대 한 전체 설명은 [성공적인 Git 분기 모델](https://nvie.com/posts/a-successful-git-branching-model/)을 참조 하세요.
+다음 다이어그램은 TDSP에 권장 되는 분기 전략을 보여 줍니다. 여기에 표시 된 것과 같이 분기가 여러 개 필요 하지 않을 수 있습니다. 특히 한 명의 사용자만 프로젝트에서 작업 하거나 한 명의 사용자만이 사용자 스토리의 모든 작업에 대해 작업 하는 경우입니다. 하지만 개발 분기를 기본 분기에서 분리 하는 것이 항상 좋은 방법 이며, 개발 작업으로 인해 릴리스 분기가 중단 되지 않도록 방지 하는 데 도움이 될 수 있습니다. Git 분기 모델에 대 한 전체 설명은 [성공적인 Git 분기 모델](https://nvie.com/posts/a-successful-git-branching-model/)을 참조 하세요.
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
@@ -97,7 +98,7 @@ Azure devops 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있�
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-왼쪽 탐색 영역에서 **리포지토리** 로 돌아가서 분기가 삭제 된 이후 마스터 분기로 전환 되었음을 알 수 있습니다 `script` .
+왼쪽 탐색 영역에서 **리포지토리** 로 돌아가서 분기가 삭제 된 이후 주 분기로 전환 되었음을 알 수 있습니다 `script` .
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

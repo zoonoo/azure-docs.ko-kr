@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ae1ec7eb566871402d44a0f24878b4ea92197f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536325"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090232"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
 
@@ -71,7 +71,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 ## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
 
-Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 관계 없이 데이터 수집을 사용 하도록 설정할 수 있습니다.
+Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 관계 없이 [데이터 수집](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) 을 사용 하도록 설정할 수 있습니다.
 
 데이터 수집을 사용 하도록 설정 하려면 다음을 수행 해야 합니다.
 

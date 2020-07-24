@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970487"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091082"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -111,13 +111,13 @@ Windows 8 이상 | 54,400GB
 Windows 7 |1700GB
 Windows Server 2012 이상 | 54,400GB
 Windows Server 2008, Windows Server 2008 R2 | 1700GB
-Azure VM | [AZURE VM 백업에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support) 를 참조 하세요.
+Azure VM | [AZURE VM 백업에 대 한 지원 매트릭스](./backup-support-matrix-iaas.md#vm-storage-support) 를 참조 하세요.
 
 ### <a name="how-is-the-data-source-size-determined"></a>데이터 원본 크기는 어떻게 결정하나요?
 
 다음 표에서는 각 데이터 원본 크기가 어떻게 결정되는지를 설명합니다.
 
-**데이터 소스** | **세부 정보**
+**데이터 원본** | **세부 정보**
 --- | ---
 볼륨 |백업되는 단일 볼륨 VM에서 백업되는 데이터 양
 SQL Server 데이터베이스 |백업 중인 단일 데이터베이스 크기의 크기입니다.
@@ -127,7 +127,7 @@ BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 사용하여 백업되는 데이터의 양에 제한이 있나요?
 
-Recovery Services 자격 증명 모음을 사용 하 여 백업할 수 있는 총 데이터 양에는 제한이 없습니다. Azure Vm 이외에 개별 데이터 원본 크기는 최대 54400 GB입니다. 제한에 대 한 자세한 내용은 [support matrix의 vault 제한 섹션](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)을 참조 하세요.
+Recovery Services 자격 증명 모음을 사용 하 여 백업할 수 있는 총 데이터 양에는 제한이 없습니다. Azure Vm 이외에 개별 데이터 원본 크기는 최대 54400 GB입니다. 제한에 대 한 자세한 내용은 [support matrix의 vault 제한 섹션](./backup-support-matrix.md#vault-support)을 참조 하세요.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Recovery Services 자격 증명 모음에 전송된 데이터가 백업을 위해 선택한 데이터의 크기보다 작은 이유는 무엇인가요?
 

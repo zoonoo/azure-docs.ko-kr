@@ -3,12 +3,12 @@ title: Event Grid 원본으로 Azure Machine Learning
 description: 를 사용 하 여 Machine Learning 작업 영역 이벤트에 제공 되는 속성을 설명 Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e72123a4f609b93e191c82f11443cbb1de7d012d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090674"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Machine Learning
 
@@ -20,7 +20,7 @@ ms.locfileid: "86522077"
 
 Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | MachineLearningServices가 등록 되었습니다. | 새 모델 또는 모델 버전이 성공적으로 등록 되 면 발생 합니다. |
 | MachineLearningServices 배포 | 모델이 끝점에 성공적으로 배포 되 면 발생 합니다. |
@@ -95,12 +95,12 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
-    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "ExperimentName": "automl-local-regression",
-    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "RunType": null,
-    "RunTags": {},
-    "RunProperties": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
         "runTemplate": "automl_child",
         "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
         "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
@@ -155,12 +155,12 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
-    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "ExperimentName": "automl-local-regression",
-    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "RunType": null,
-    "RunTags": {},
-    "RunProperties": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
         "runTemplate": "automl_child",
         "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
         "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
@@ -175,7 +175,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
         "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
         "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
     },
-   "RunStatus": "failed"
+   "runStatus": "failed"
    },
   "dataVersion": "",
   "metadataVersion": "1"
@@ -201,7 +201,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>MachineLearningServices가 등록 되었습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | ModelName | 문자열 | 등록 된 모델의 이름입니다. |
 | ModelVersion | 문자열 | 등록 된 모델의 버전입니다. |
@@ -210,7 +210,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>MachineLearningServices 배포
 
-| 속성 | 형식 | 설명 |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | ServiceName | 문자열 | 배포 된 서비스의 이름입니다. |
 | ServiceComputeType | 문자열 | 배포 된 서비스의 계산 형식 (예: ACI, AKS)입니다. |
@@ -222,12 +222,12 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| ExperimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
-| ExperimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
-| RunId | 문자열 | 완료 된 실행의 ID입니다. |
-| RunType | 문자열 | 완료 된 실행의 실행 형식입니다. |
-| RunTags | object | 완료 된 실행의 태그입니다. |
-| RunProperties | object | 완료 된 실행의 속성입니다. |
+| experimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
+| experimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
+| runId | 문자열 | 완료 된 실행의 ID입니다. |
+| runType | 문자열 | 완료 된 실행의 실행 형식입니다. |
+| runTags | object | 완료 된 실행의 태그입니다. |
+| runProperties | object | 완료 된 실행의 속성입니다. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>MachineLearningServices. DatasetDriftDetected
 
@@ -246,13 +246,13 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| ExperimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
-| ExperimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
-| RunId | 문자열 | 완료 된 실행의 ID입니다. |
-| RunType | 문자열 | 완료 된 실행의 실행 형식입니다. |
-| RunTags | object | 완료 된 실행의 태그입니다. |
-| RunProperties | object | 완료 된 실행의 속성입니다. |
-| RunStatus | 문자열 | 실행의 상태입니다. |
+| experimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
+| experimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
+| runId | 문자열 | 완료 된 실행의 ID입니다. |
+| runType | 문자열 | 완료 된 실행의 실행 형식입니다. |
+| runTags | object | 완료 된 실행의 태그입니다. |
+| runProperties | object | 완료 된 실행의 속성입니다. |
+| runStatus | 문자열 | 실행의 상태입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 | 제목 | Description |

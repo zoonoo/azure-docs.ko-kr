@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090606"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -47,6 +47,8 @@ ms.locfileid: "85918770"
 * 온-프레미스 네트워크에서 작동하는 디바이스의 경우, VNet에 [VPN(가상 사설망)](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 프라이빗 피어링을 설정합니다.
 
 ### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>IoT Hub 수신을 위한 프라이빗 엔드포인트 설정
+
+개인 끝점은 장치-클라우드 메시지와 같은 IoT Hub 장치 Api 및 서비스 Api (예: 장치 만들기 및 업데이트)에 대해 작동 합니다.
 
 1. Azure portal에서 **네트워킹**, **프라이빗 엔드포인트 연결**을 선택하고 **+ 프라이빗 엔드포인트**를 클릭합니다.
 

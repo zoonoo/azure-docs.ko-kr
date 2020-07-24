@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: eff74fca5ac21a7df431b55cd5c307d3e994010b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34e1b7e58a3ceb6c1c2d2b6bc4efd34ee93e9e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090487"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -39,7 +39,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 
 방화벽 및 가상 네트워크를 구성하는 데 필요한 단계는 다음과 같습니다. 이러한 단계는 PowerShell, Azure CLI 또는 Azure Portal을 사용하든 관계없이 적용됩니다.
 
-1. [Key Vault 로깅을](logging.md)사용 하도록 설정 하 여 자세한 액세스 로그를 확인 합니다. 이렇게 하면 방화벽 및 가상 네트워크 규칙이 키 자격 증명 모음에 대한 액세스를 막는 경우 진단하는 데 도움이 됩니다. (이 단계는 선택 사항이지만 강력 권장됩니다.)
+1. [Key Vault 로깅](logging.md)을 사용하도록 설정하여 자세한 액세스 로그를 확인합니다. 이렇게 하면 방화벽 및 가상 네트워크 규칙이 키 자격 증명 모음에 대한 액세스를 막는 경우 진단하는 데 도움이 됩니다. (이 단계는 선택 사항이지만 강력 권장됩니다.)
 2. 대상 가상 네트워크 및 서브넷에 대한 **키 자격 증명 모음의 서비스 엔드포인트**를 사용하도록 설정합니다.
 3. 특정 가상 네트워크, 서브넷 및 IPv4 주소 범위에서 해당 키 자격 증명 모음에 대한 액세스를 제한하려면 키 자격 증명 모음에 대한 방화벽 및 가상 네트워크 규칙을 설정합니다.
 4. 이 키 자격 증명 모음을 신뢰할 수 있는 모든 Microsoft 서비스에서 액세스할 수 있게 하려면 **신뢰할 수 있는 Azure 서비스**가 Key Vault에 연결하도록 허용하는 옵션을 설정합니다.
@@ -80,7 +80,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
-|Azure Container Registry|[고객 관리 키를 사용 하는 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)
+|Azure Container Registry|[고객 관리 키를 사용 하는 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[다른 레지스트리에 아티팩트 전송](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]
 > 해당 서비스가 Key Vault에 액세스할 수 있도록 하려면 관련 Key Vault 액세스 정책을 설정해야 합니다.

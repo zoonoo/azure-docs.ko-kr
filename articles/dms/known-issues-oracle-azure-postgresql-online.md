@@ -3,8 +3,8 @@ title: '알려진 문제: Oracle에서 Azure Database for PostgreSQL로 마이�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 Oracle에서 Azure Database for PostgreSQL-단일 서버로의 온라인 마이그레이션 시 알려진 문제와 마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/20/2020
-ms.openlocfilehash: 2cf8ff446fe3441fc039ef3c2afef6308224666f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 06e96e970705801203c0469d5b87d1304d67a4f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701211"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090691"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Oracle에서 Azure DB for PostgreSQL-단일 서버로의 온라인 마이그레이션 시 알려진 문제/마이그레이션 제한 사항
 

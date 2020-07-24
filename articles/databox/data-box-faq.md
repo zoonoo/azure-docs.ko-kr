@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e54b9add52e484a95cf5a8291dec90a6bb258b8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3024c79b6295762636518e3f77d506ad45f73682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090759"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -44,7 +44,9 @@ A. Azure Data Box를 사용하면 테라바이트 단위의 데이터를 빠르�
 A. Azure로 또는 Azure에서 전송 하려는 40-500 TB의 데이터가 있는 경우 Data Box를 사용 하는 것이 좋습니다. 데이터 크기가 40TB 미만이면 Data Box Disk를 사용하고, 500TB가 넘으면 [Data Box Heavy](data-box-heavy-overview.md)에 가입합니다.
 
 ### <a name="q-what-is-the-price-of-data-box"></a>17. Data Box 가격은 어떻게 되나요?
-A. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. Azure Portal에서 주문 중에 제품 모델을 선택하면 디바이스 요금이 표시됩니다. 또한 배송료는 무료이지만, Azure Storage에 대한 비용이 부과됩니다. 자세한 내용은 [Azure Data Box 가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)을 참조하세요. 
+A. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. Azure Portal에서 주문 중에 제품 모델을 선택하면 디바이스 요금이 표시됩니다. Azure storage에 대 한 표준 배송 요금 및 요금은 적용 됩니다. 내보내기 주문은 추가 송신 요금이 적용 될 수 있지만 가져오기 주문과 유사한 가격 책정 모델을 따릅니다. 
+
+자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/) 및 [송신 요금](https://azure.microsoft.com/pricing/details/bandwidth/)Azure Data Box을 참조 하세요. 
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>17. 한 인스턴스에서 Data Box를 통해 전송할 수 있는 최대 데이터 양은 어떻게 되나요?
 A. Data Box의 원시 용량은 100TB, 사용 가능한 용량은 80TB입니다. Data Box를 사용하여 최대 80TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디바이스를 더 주문해야 합니다.
@@ -250,7 +252,7 @@ A.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니�
 A.  이동 통신 사업자 추적 로그는 Data Box 주문 기록에 캡처됩니다. 이 보고서는 디바이스가 Azure 데이터 센터로 반환되고 디바이스 디스크의 데이터가 정리된 후 사용할 수 있습니다. 즉시 필요한 경우 배송업체 웹 사이트에서 직접 주문 추적 번호를 사용하여 추적 정보를 구할 수 있습니다.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Azure 데이터 센터에 Data Box를 직접 전달할 수 있나요? 
-A.  아니요. Microsoft에서 관리 하는 배송을 선택한 경우에는 날짜를 전송할 수 없습니다. 현재 Azure 데이터 센터는 고객 또는 UPS 이외의 운송업체에서 수행하는 Data Box 배달을 허용하지 않습니다.
+A.  아니요. Microsoft에서 관리 하는 배송을 선택한 경우 데이터를 전송할 수 없습니다. 현재 Azure 데이터 센터는 고객 또는 UPS 이외의 운송업체에서 수행하는 Data Box 배달을 허용하지 않습니다.
 
 자체 관리 배송을 선택한 경우 Azure 데이터 센터에서 Data Box를 선택 하거나 삭제할 수 있습니다.
 

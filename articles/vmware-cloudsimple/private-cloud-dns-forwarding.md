@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091252"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>CloudSimple 사설 클라우드 DNS 서버에서 온-프레미스 리소스의 DNS 조회를 DNS 서버로 전달 하도록 설정
 
@@ -31,7 +32,7 @@ ms.locfileid: "76961128"
 DNS 전달이 작동 하려면 사설 클라우드 네트워크에서 온-프레미스 네트워크로 네트워크 연결이 있어야 합니다.  다음을 사용 하 여 네트워크 연결을 설정할 수 있습니다.
 
 * [Express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결](on-premises-connection.md)
-* [사이트 간 VPN gateway 설정](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [사이트 간 VPN gateway 설정](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 DNS 전달이 작동 하려면이 연결에서 방화벽 포트를 열어야 합니다.  사용 되는 포트는 TCP 포트 53 또는 UDP 포트 53입니다.
 

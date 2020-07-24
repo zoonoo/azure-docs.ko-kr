@@ -3,16 +3,16 @@ title: 고객 관리 키를 사용 하 여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172621"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091099"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
-Azure Backup를 사용 하면 기본적으로 사용 하도록 설정 된 플랫폼 관리 키를 사용 하는 대신 CMK (고객 관리 키)를 사용 하 여 백업 데이터를 암호화할 수 있습니다. 백업 데이터를 암호화 하는 데 사용 되는 키는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)에 저장 되어야 합니다.
+Azure Backup를 사용 하면 기본적으로 사용 하도록 설정 된 플랫폼 관리 키를 사용 하는 대신 CMK (고객 관리 키)를 사용 하 여 백업 데이터를 암호화할 수 있습니다. 백업 데이터를 암호화 하는 데 사용 되는 키는 [Azure Key Vault](../key-vault/index.yml)에 저장 되어야 합니다.
 
 백업 암호화에 사용 되는 암호화 키는 원본에 사용 된 것과 다를 수 있습니다. 데이터는 AES 256 기반 DEK (데이터 암호화 키)를 사용 하 여 보호 되며, 키를 사용 하 여 보호 됩니다 (KEK). 이를 통해 데이터와 키에 대 한 모든 권한을 제공 합니다. 암호화를 허용 하려면 Recovery Services 자격 증명 모음에 Azure Key Vault 암호화 키에 대 한 액세스 권한을 부여 해야 합니다. 필요한 경우 키를 변경할 수 있습니다.
 
@@ -23,7 +23,7 @@ Azure Backup를 사용 하면 기본적으로 사용 하도록 설정 된 플랫
 - 고객 관리 키를 사용 하 여 암호화 된 자격 증명 모음에 백업 수행
 - 백업에서 데이터 복원
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 - 이 기능을 사용 하면 **새 Recovery Services 자격 증명 모음만**암호화할 수 있습니다. 등록 하거나 등록 하려고 시도 하는 기존 항목을 포함 하는 모든 자격 증명 모음은 지원 되지 않습니다.
 
@@ -31,7 +31,7 @@ Azure Backup를 사용 하면 기본적으로 사용 하도록 설정 된 플랫
 
 - 이 기능은 현재 **MARS 에이전트를 사용 하 여 백업을 지원 하지**않으며, 동일한 경우 cmk 암호화 자격 증명 모음을 사용 하지 못할 수 있습니다. MARS 에이전트는 사용자 암호 기반 암호화를 사용 합니다. 또한이 기능은 클래식 Vm의 백업을 지원 하지 않습니다.
 
-- 이 기능은 BitLocker (Windows 용) 및 DM (Linux)을 사용 하 여 VM 디스크의 게스트 기반 암호화를 사용 하는 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss)와 관련이 없습니다.
+- 이 기능은 BitLocker (Windows 용) 및 DM (Linux)을 사용 하 여 VM 디스크의 게스트 기반 암호화를 사용 하는 [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)와 관련이 없습니다.
 
 - Recovery Services 자격 증명 모음은 **동일한 지역**에 있는 Azure Key Vault에 저장 된 키로만 암호화할 수 있습니다. 또한 키는 **RSA 2048 키** 여야 하며 **사용** 상태 여야 합니다.
 
@@ -92,7 +92,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Azure Key Vault에서 일시 삭제 및 보호 제거 사용
 
-암호화 키를 저장 하는 Azure Key Vault에 대해 **일시 삭제 및 제거 보호를 사용 하도록 설정** 해야 합니다. 다음과 같이 Azure Key Vault UI에서이 작업을 수행할 수 있습니다. 또는 Key Vault를 만드는 동안 이러한 속성을 설정할 수 있습니다. 이러한 Key Vault 속성에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)를 참조 하세요.
+암호화 키를 저장 하는 Azure Key Vault에 대해 **일시 삭제 및 제거 보호를 사용 하도록 설정** 해야 합니다. 다음과 같이 Azure Key Vault UI에서이 작업을 수행할 수 있습니다. 또는 Key Vault를 만드는 동안 이러한 속성을 설정할 수 있습니다. 이러한 Key Vault 속성에 대 한 자세한 내용은 [여기](../key-vault/general/overview-soft-delete.md)를 참조 하세요.
 
 ![일시 삭제 및 보호 제거 사용](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -193,13 +193,13 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 >
 >위의 모든 단계를 확인 한 후에만 백업 구성을 진행 합니다.
 
-고객 관리 키를 사용 하 여 암호화 된 Recovery Services 자격 증명 모음에 대 한 백업을 구성 하 고 수행 하는 프로세스는 **환경을 변경 하지 않고**플랫폼 관리 키를 사용 하는 자격 증명 모음과 동일 합니다. 이는 VM 내에서 실행 되는 워크 로드 (예: [SAP HANA](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db), [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup) 데이터베이스)의 백업 뿐만 아니라 [Azure vm의 백업](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal) 에도 적용 됩니다.
+고객 관리 키를 사용 하 여 암호화 된 Recovery Services 자격 증명 모음에 대 한 백업을 구성 하 고 수행 하는 프로세스는 **환경을 변경 하지 않고**플랫폼 관리 키를 사용 하는 자격 증명 모음과 동일 합니다. 이는 VM 내에서 실행 되는 워크 로드 (예: [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) 데이터베이스)의 백업 뿐만 아니라 [Azure vm의 백업](./quick-backup-vm-portal.md) 에도 적용 됩니다.
 
 ## <a name="restoring-data-from-backup"></a>백업에서 데이터 복원
 
 ### <a name="vm-backup"></a>VM 백업
 
-Recovery Services 자격 증명 모음에 저장 된 데이터는 [여기](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms)에 설명 된 단계에 따라 복원할 수 있습니다. 고객 관리 키를 사용 하 여 암호화 된 Recovery Services 자격 증명 모음에서 복원 하는 경우 DES (디스크 암호화 집합)를 사용 하 여 복원 된 데이터를 암호화 하도록 선택할 수 있습니다.
+Recovery Services 자격 증명 모음에 저장 된 데이터는 [여기](./backup-azure-arm-restore-vms.md)에 설명 된 단계에 따라 복원할 수 있습니다. 고객 관리 키를 사용 하 여 암호화 된 Recovery Services 자격 증명 모음에서 복원 하는 경우 DES (디스크 암호화 집합)를 사용 하 여 복원 된 데이터를 암호화 하도록 선택할 수 있습니다.
 
 #### <a name="restoring-vm--disk"></a>V m/디스크 복원
 

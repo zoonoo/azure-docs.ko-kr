@@ -4,11 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248263"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090980"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -48,7 +49,7 @@ Defaultbackup업무 임계값의 기본값은 **20**입니다.
 
 3. 변경 내용을 저장하고 파일을 닫습니다.
 4. SQL Server 인스턴스에서 **작업 관리자**를 엽니다. **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작합니다.<br/> <br/>
- 이 방법을 사용 하면 백업 응용 프로그램이 많은 양의 리소스를 사용 하는 경우에는 SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) 는 들어오는 응용 프로그램 요청이 사용할 수 있는 CPU, 물리적 IO 및 메모리 양에 대 한 제한을 지정 하는 보다 일반적인 방법입니다.
+ 이 방법을 사용 하면 백업 응용 프로그램이 많은 양의 리소스를 사용 하는 경우에는 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) 는 들어오는 응용 프로그램 요청이 사용할 수 있는 CPU, 물리적 IO 및 메모리 양에 대 한 제한을 지정 하는 보다 일반적인 방법입니다.
 
 > [!NOTE]
 > UX에서 계속 진행 하 여 지정 된 시간에 많은 백업을 예약할 수 있지만 위의 예제에 따라 5 라는 슬라이딩 윈도우에서 처리 됩니다.

@@ -3,11 +3,13 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091014"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -31,10 +33,10 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 --- | ---
 **구독의 자격 증명 모음 수** | 단일 구독에서 최대 500개의 Recovery Services 자격 증명 모음입니다.
 **자격 증명 모음의 머신 수** | 단일 자격 증명 모음에서 최대 1,000개의 Azure VM입니다.<br/><br/> 최대 50대의 MABS 서버를 단일 자격 증명 모음에 등록할 수 있습니다.
-**데이터 원본** | 개별 [데이터 원본](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined)의 최대 크기는 54,400GB입니다. Azure VM 백업에는 이 제한이 적용되지 않습니다. 자격 증명 모음에 백업할 수 있는 총 데이터양에는 제한이 적용되지 않습니다.
+**데이터 원본** | 개별 [데이터 원본](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined)의 최대 크기는 54,400GB입니다. Azure VM 백업에는 이 제한이 적용되지 않습니다. 자격 증명 모음에 백업할 수 있는 총 데이터양에는 제한이 적용되지 않습니다.
 **자격 증명 모음에 대한 백업 횟수** | **Azure VM:** 하루 한 번.<br/><br/>**DPM/MABS로 보호된 머신:** 하루에 두 번.<br/><br/> **MARS 에이전트를 사용하여 직접 백업하는 머신:** 하루에 세 번.
 **자격 증명 모음 간 백업** | 백업은 한 지역 내에서 수행됩니다.<br/><br/> 백업할 VM이 포함된 각 Azure 지역에 자격 증명 모음이 있어야 합니다. 다른 지역으로 백업할 수 없습니다.
-**자격 증명 모음 이동** | 구독 간에 또는 동일한 구독의 리소스 그룹 간에 [자격 증명 모음을 이동](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)할 수 있습니다. 그러나 자격 증명 모음을 지역 간에 이동하는 것은 지원되지 않습니다.
+**자격 증명 모음 이동** | 구독 간에 또는 동일한 구독의 리소스 그룹 간에 [자격 증명 모음을 이동](./backup-azure-move-recovery-services-vault.md)할 수 있습니다. 그러나 자격 증명 모음을 지역 간에 이동하는 것은 지원되지 않습니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장하기 전에 자격 증명 모음에 대한 스토리지 복제 유형(지역 중복 스토리지 또는 로컬 중복 스토리지)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
 
@@ -55,7 +57,7 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 
 **제한** | **세부 정보**
 --- | ---
-**Azure VM 데이터 디스크 수** | [Azure VM 백업에 대한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)를 확인합니다.
+**Azure VM 데이터 디스크 수** | [Azure VM 백업에 대한 지원 매트릭스](./backup-support-matrix-iaas.md#vm-storage-support)를 확인합니다.
 **Azure VM 데이터 디스크 크기** | 개별 디스크 크기는 최대 32TB이며 VM의 모든 디스크에 대해 최대 256TB를 결합할 수 있습니다.
 
 ### <a name="azure-vm-backup-options"></a>Azure VM 백업 옵션

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089943"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Azure Security Center의 위협 방지에 대 한 경고 표시 안 함
 
@@ -23,9 +23,7 @@ ms.locfileid: "85849002"
 
 - 릴리스 상태: **미리 보기**
 - 필요한 역할: **보안 관리자** 및 **소유자**는 규칙을 만들거나 삭제할 수 있습니다. **보안 읽기 권한자** 및 **읽기 권한자**는 규칙을 볼 수 있습니다.
-- 클라우드: 
-    - ✔ 상용 클라우드
-    - ✔ 국가/소버린(미국 정부, 중국 정부, 기타 정부)
+- 클라우드: ✔ 상용 클라우드 ✔ 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)
 
 
 ## <a name="what-are-suppression-rules"></a>비 표시 규칙 이란?
@@ -34,7 +32,7 @@ Azure Security Center의 위협 방지 구성 요소는 사용자 환경의 모�
 
 관심 없거나 관련 없는 경고를 직접 해제할 수 있습니다. 또는 중복된 경고 제거 규칙 기능을 사용하여 나중에 유사한 경고를 자동으로 해제할 수 있습니다. 일반적으로 중복된 경고 제거 규칙은 다음과 같은 용도로 사용합니다.
 
-- 가양성으로 식별된 경고 표시 안 함
+- 거짓 긍정으로 식별한 경고를 표시 안 함
 
 - 너무 자주 트리거되는 경고 표시 안 함
 

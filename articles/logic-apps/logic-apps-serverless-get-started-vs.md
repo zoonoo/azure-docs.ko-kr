@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090249"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 및 Azure Functions를 사용 하 여 첫 번째 서버 리스 앱 빌드
 
 Azure에서 서버를 사용 하지 않는 도구 및 기능 (예: [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Azure Functions](../azure-functions/functions-overview.md))을 사용 하 여 클라우드 앱을 신속 하 게 개발 하 고 배포할 수 있습니다. 이 문서에서는 Visual Studio에서 Azure 함수를 호출하는 논리 앱을 사용하는 서버리스 앱의 빌드를 시작하는 방법을 보여 줍니다. Azure의 서버리스 솔루션에 대한 자세한 내용은 [Functions 및 Logic Apps가 있는 Azure Serverless](../logic-apps/logic-apps-serverless-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드하려면 다음이 필요 합니다.
 
@@ -31,7 +32,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
     > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
 
   * [MICROSOFT AZURE SDK for .net (버전 2.9.1 이상)](https://azure.microsoft.com/downloads/). 
-  [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet)에 대해 자세히 알아보세요.
+  [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet)에 대해 자세히 알아보세요.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -43,7 +44,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Visual Studio Marketplace에서 Azure Logic Apps 도구를 직접 다운로드 하 여 설치 하거나 [Visual Studio 내에서이 확장을 설치 하는 방법을](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions)배울 수 있습니다. 
+    Visual Studio Marketplace에서 Azure Logic Apps 도구를 직접 다운로드 하 여 설치 하거나 [Visual Studio 내에서이 확장을 설치 하는 방법을](/visualstudio/ide/finding-and-using-visual-studio-extensions)배울 수 있습니다. 
     설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
 
   * 로컬로 디버깅 하는 함수에 대 한 [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 입니다.
@@ -135,7 +136,7 @@ Visual Studio의 논리 앱 디자이너에서 논리 앱을 열려면 Azure에 
 
 ## <a name="create-your-azure-functions-project"></a>Azure Functions 프로젝트 만들기
 
-JavaScript, Python, F #, PowerShell, 일괄 처리 또는 Bash를 사용 하 여 함수 프로젝트 및 함수를 만들려면 [Azure Functions Core Tools 작업](../azure-functions/functions-run-local.md)의 단계를 따르세요. 솔루션 내에서 c #을 사용 하 여 Azure 함수를 개발 하려면 [.net 클래스 라이브러리를 함수 앱로 게시](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/)의 단계를 수행 하 여 c # 클래스 라이브러리를 사용 합니다.
+JavaScript, Python, F #, PowerShell, 일괄 처리 또는 Bash를 사용 하 여 함수 프로젝트 및 함수를 만들려면 [Azure Functions Core Tools 작업](../azure-functions/functions-run-local.md)의 단계를 따르세요. 솔루션 내에서 c #을 사용 하 여 Azure 함수를 개발 하려면 [.net 클래스 라이브러리를 함수 앱로 게시](https://azure.microsoft.com/blog/)의 단계를 수행 하 여 c # 클래스 라이브러리를 사용 합니다.
 
 ## <a name="deploy-functions-from-visual-studio"></a>Visual Studio에서 함수 배포
 

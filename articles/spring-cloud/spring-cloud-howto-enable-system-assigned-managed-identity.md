@@ -6,14 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: 2aadc5806f0c5c610dc28b32039ca944af87ab13
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-java
+ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091456"
 ---
-# <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Azure 스프링 클라우드 응용 프로그램에 대해 시스템 할당 관리 id를 사용 하도록 설정 하는 방법
+# <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법
 Azure 리소스에 대 한 관리 되는 id는 Azure 스프링 클라우드 응용 프로그램과 같은 Azure 리소스에 Azure Active Directory 자동으로 관리 되는 id를 제공 합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 이 문서에서는 Azure Portal 및 CLI (버전 0.2.4에서 사용 가능)를 사용 하 여 Azure 스프링 클라우드 앱에 대 한 시스템 할당 관리 id를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다.
@@ -82,5 +83,5 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ## <a name="next-steps"></a>다음 단계
 * [Java SDK에서 관리 되는 id를 사용 하는 방법](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 * [스프링 부팅 스타터에서 관리 id를 사용 하 여 Azure Key Vault 액세스](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
-* [Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 정보](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Azure 리소스의 관리 ID에 대해 자세히 알아보기](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 

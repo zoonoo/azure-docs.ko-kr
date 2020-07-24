@@ -1,20 +1,20 @@
 ---
 title: 미사용 데이터의 폼 인식기 서비스 암호화
 titleSuffix: Azure Cognitive Services
-description: 미사용 데이터의 폼 인식기 암호화입니다.
+description: Microsoft는 Microsoft에서 관리 하는 암호화 키를 제공 하며, CMK (고객이 관리 하는 키) 라고 하는 고유한 키를 사용 하 여 Cognitive Services 구독을 관리할 수도 있습니다. 이 문서에서는 양식 인식기에 대 한 미사용 데이터 암호화 및 CMK를 사용 하 고 관리 하는 방법을 설명 합니다.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 07/10/2020
 ms.author: egeaney
-ms.openlocfilehash: b897de94ad8cdb628520f9386b076f762a5cc230
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf2a6a96517d1c3d63989bc511957019f078cd42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090878"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>미사용 데이터의 폼 인식기 암호화
 
@@ -31,5 +31,3 @@ Azure 양식 인식기는 클라우드로 데이터를 보관할 때 데이터�
 
 * [양식 인식기 고객이 관리 하는 키 요청 양식](https://aka.ms/cogsvc-cmk)
 * [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-
-

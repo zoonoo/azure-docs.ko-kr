@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686633"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090946"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>LUIS 모델에서 문화권별 엔터티
 
 LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니다. 미리 빌드된 엔터티가 애플리케이션에 포함되어 있으면 LUIS의 엔드포인트 응답에는 해당 엔터티 예측이 포함됩니다. 또한 모든 예제 발언은 해당 엔터티로 레이블이 지정됩니다. 미리 빌드된 엔터티의 동작은 수정할 수 **없습니다**. 다른 설명이 없는 한, 미리 빌드된 엔터티는 모든 LUIS 애플리케이션 로캘(문화권)에서 사용할 수 있습니다. 다음 표에는 각 문화권에 대해 지원되는 미리 빌드된 엔터티가 나와 있습니다.
 
-|문화권|하위 문화권|메모|
+|문화권|하위 문화권|참고|
 |--|--|--|
 |중국어|[zh-CN](#chinese-entity-support)||
 |네덜란드어|[nl-NL](#dutch-entity-support)||
@@ -44,13 +44,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```zh-CN``` |
-------|:------:|
+| 미리 빌드된 엔터티 | zh-CN |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -66,13 +66,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```nl-NL``` |
-------|:------:|
+| 미리 빌드된 엔터티 | nl-NL |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -88,13 +88,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```en-US``` |
-------|:------:|
+| 미리 빌드된 엔터티 | ko-KR |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -110,13 +110,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```fr-FR``` |
-------|:------:|
+| 미리 빌드된 엔터티 | fr-FR |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -132,13 +132,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```fr-CA``` |
-------|:------:|
+| 미리 빌드된 엔터티 | fr-CA |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -154,13 +154,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```de-DE``` |
-------|:------:|
+|미리 빌드된 엔터티 | de-DE |
+| -------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -178,13 +178,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```it-IT``` |
-------|:------:|
+| 미리 빌드된 엔터티 | it-IT |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -200,13 +200,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```ja-JP``` |
-------|:------:|
+|미리 빌드된 엔터티 | ja-JP |
+| -------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2,-   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2,-   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2,-   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2,-   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2,-   |
@@ -222,13 +222,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```ko-KR``` |
-------|:------:|
+| 미리 빌드된 엔터티 | en-US |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    -   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    -   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    -   |
@@ -244,13 +244,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```pt-BR``` |
-------|:------:|
+| 미리 빌드된 엔터티 | pt-BR |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -266,13 +266,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```es-ES``` |
-------|:------:|
+| 미리 빌드된 엔터티 | es-ES |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -288,13 +288,13 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 다음과 같은 엔터티가 지원됩니다.
 
-|미리 빌드된 엔터티|```es-MX``` |
-------|:------:|
+| 미리 빌드된 엔터티 | es-MX |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    -   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
-[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   |
-[전자 메일](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[차원](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>체중<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [키 구](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -316,8 +316,8 @@ KeyPhrase를 포르투갈어(브라질) ```pt-BR```의 모든 하위 문화권�
 
 <!--
 
-|Prebuilt entity|```tr-tr``` |
-------|:------:|
+| Prebuilt entity | tr-tr |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |

@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb3b319c583422b32798fce9cef4c73a4aa1f8de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090045"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Media Services v3을 사용 하 여 스트리밍 끝점 관리
 
 Media Services 계정이 만들어지면 **기본** [스트리밍 끝점이](streaming-endpoint-concept.md) **중지** 됨 상태에서 계정에 추가 됩니다. 콘텐츠 스트리밍을 시작 하 고 [동적 패키징](dynamic-packaging-overview.md) 및 [동적 암호화](content-protection-overview.md)를 활용 하려면 콘텐츠를 스트리밍 하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다.
 
-이 문서에서는 다양 한 기술을 사용 하 여 스트리밍 끝점에서 [시작](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) 명령을 실행 하는 방법을 보여 줍니다. 
+이 문서에서는 다양 한 기술을 사용 하 여 스트리밍 끝점에서 [시작](/rest/api/media/streamingendpoints/start) 명령을 실행 하는 방법을 보여 줍니다. 
  
 > [!NOTE]
 > 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
     
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 검토: 
 
@@ -45,7 +46,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 자세한 내용은 다음을 참조하세요. 
 
-* [StreamingEndpoint 참조 시작](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) 설명서입니다.
+* [StreamingEndpoint 참조 시작](/rest/api/media/streamingendpoints/start) 설명서입니다.
 * 스트리밍 끝점을 시작 하는 작업은 비동기 작업입니다. 
 
     장기 실행 작업을 모니터링 하는 방법에 대 한 자세한 내용은 [장기 실행 작업](media-services-apis-overview.md)을 참조 하세요.
@@ -69,7 +70,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-자세한 내용은 [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start)를 참조 하세요.
+자세한 내용은 [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start)를 참조 하세요.
 
 ## <a name="use-sdks"></a>SDK 사용
 
@@ -105,4 +106,4 @@ if (streamingEndpoint != null)
 ## <a name="next-steps"></a>다음 단계
 
 * [Media Services v3 OpenAPI 사양 (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [스트리밍 끝점 작업](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [스트리밍 끝점 작업](/rest/api/media/streamingendpoints)

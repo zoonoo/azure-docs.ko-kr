@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 07/19/2020
 ms.author: memildin
-ms.openlocfilehash: f3ef633ff0271d74eea7320faadf17685976d3b6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089909"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Security Center와 Azure Container Registry 통합
 
@@ -30,6 +30,11 @@ Azure Security Center의 표준 계층에 있는 경우 컨테이너 레지스�
 
 - 릴리스 상태: **일반** 공급
 - 필요한 역할: **보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- 지원 되는 레지스트리:
+    - 공용 인터넷에서 액세스할 수 있는 Linux 호스트 ACR 레지스트리를 ✔ 하 고 셸 액세스를 제공 합니다.
+    - Windows에서 호스트 되는 ACR 레지스트리를 ✘.
+    - ✘ ' Private ' 레지스트리 Security Center를 사용 하려면 공용 인터넷에서 레지스트리를 액세스할 수 있어야 합니다. 방화벽이 나 서비스 끝점을 사용 하거나 개인 끝점 (예: Azure 개인 링크) Security Center을 사용 하 여 레지스트리에 대 한 액세스를 제한 한 경우 현재 사용자의 레지스트리에 연결 하거나 검색할 수 없습니다.
+    - ✘ Super 전적 이미지 (예: [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지) 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지
 - 클라우드: 
     - ✔ 상용 클라우드
     - 미국 ✘ 정부 클라우드
@@ -40,7 +45,7 @@ Azure Security Center의 표준 계층에 있는 경우 컨테이너 레지스�
 
 이미지를 레지스트리에 푸시할 때마다 Security Center에서 해당 이미지를 자동으로 검색 합니다. 이미지 검색을 트리거하려면 리포지토리에 푸시합니다.
 
-검색이 완료 될 때 (일반적으로 약 10 분 후에는 최대 40 분이 될 수 있음) 다음과 같은 Security Center 권장 사항을 사용할 수 있습니다.
+검색이 완료 될 때 (일반적으로 약 2 분 후에는 최대 15 분이 될 수 있음) 다음과 같은 Security Center 권장 사항으로 결과를 사용할 수 있습니다.
 
 [![ACR (Azure Container Registry) 호스트 이미지에서 발견 된 취약성에 대 한 샘플 Azure Security Center 권장 사항](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -58,11 +63,6 @@ Security Center는 구독에서 ARM 기반 ACR 레지스트리를 식별 하 고
 
 
 ## <a name="acr-with-security-center-faq"></a>Security Center FAQ로 ACR
-
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>스캔할 수 있는 이미지 종류는 무엇 Azure Security Center?
-Security Center 셸 액세스를 제공 하는 Linux OS 기반 이미지를 검색 합니다. 
-
-Qualys 스캐너는 [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지 등의 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지를 지원 하지 않습니다.
 
 ### <a name="how-does-azure-security-center-scan-an-image"></a>Azure Security Center에서 이미지를 검색 하는 방법은 무엇입니까?
 레지스트리에서 이미지를 가져옵니다. 그런 다음 알려진 취약점 목록을 추출 하는 Qualys 스캐너가 포함 된 격리 된 샌드박스에서 실행 됩니다.

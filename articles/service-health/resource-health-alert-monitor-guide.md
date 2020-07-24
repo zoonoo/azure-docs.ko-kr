@@ -3,12 +3,12 @@ title: Azure Portal을 사용 하 여 Resource Health 경고 만들기
 description: Azure 리소스를 사용할 수 없게 되 면 알리는 Azure Portal를 사용 하 여 경고를 만듭니다.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529219"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091575"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Azure Portal을 사용하여 리소스 상태 경고 구성
 
@@ -45,7 +45,7 @@ Azure Portal를 사용 하 여 경고 Resource Health
 1. Azure [portal](https://portal.azure.com/)에서 **Service Health**를 선택 합니다.
 
     ![Service Health 선택](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. **Resource Health** 섹션에서 **Resource Health**를 선택 합니다.
+2. **Resource Health** 섹션에서 **Service Health**를 선택 합니다.
 3. **리소스 상태 경고 추가** 를 선택 하 고 필드를 입력 합니다.
 4. 경고 대상에서 경고를 발생 시킬 **구독**, **리소스 유형**, **리소스 그룹** 및 **리소스** 를 선택 합니다.
 
