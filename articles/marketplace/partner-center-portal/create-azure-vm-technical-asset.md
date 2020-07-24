@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: dannyevers
 ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107158"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053584"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Azure Virtual Machine 기술 자산 만들기
 
@@ -43,7 +43,7 @@ VM 이미지는 하나의 운영 체제 디스크와 최대 16개의 데이터 �
 
 VM 및 VHD 관리를 위해 다음 스크립팅 환경 중 하나를 사용하는 것이 좋습니다.
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://code.visualstudio.com/)
 
 또한 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
