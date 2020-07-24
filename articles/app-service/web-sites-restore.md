@@ -5,11 +5,12 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74689241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084860"
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
 이 문서에서는 이전에 백업한 [Azure App Service](../app-service/overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](manage-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.
@@ -28,14 +29,14 @@ ms.locfileid: "74689241"
     ![지금 복원 선택][ChooseRestoreNow]
 2. **복원** 페이지에서 먼저 백업 원본을 선택합니다.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![백업 원본을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/web-sites-restore/021ChooseSource1.png)
    
     **앱 백업** 옵션에는 현재 앱의 모든 기존 백업을 표시하며 백업 중 하나를 쉽게 선택할 수 있습니다.
     **스토리지** 옵션을 사용하면 구독의 기존 Azure Storage 계정 및 컨테이너에서 백업 ZIP 파일을 선택할 수 있습니다.
     다른 앱의 백업을 복원하려는 경우 **스토리지** 옵션을 사용합니다.
 3. 그런 다음 **복원 대상**에서 앱 복원 대상을 지정합니다.
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![앱 복원 대상을 지정할 위치를 보여 주는 스크린샷](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > **덮어쓰기**를 선택하면 현재 앱의 기존 데이터를 모두 지우고 덮어씁니다. **확인**을 클릭하기 전에 수행하려는 작업이 정확히 맞는지 확인하세요.
@@ -76,7 +77,7 @@ ms.locfileid: "74689241"
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
-[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 스크립트를 통해 백업 관리를 자동화할 수 있습니다.
+[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/)을 사용하여 스크립트를 통해 백업 관리를 자동화할 수 있습니다.
 
 샘플을 보려면 다음을 참조하세요.
 

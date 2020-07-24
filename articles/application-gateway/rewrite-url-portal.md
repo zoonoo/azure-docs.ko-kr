@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2e2925723ee07ee2215bdd82bb730e31cdcdadc9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531673"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083160"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Azure 애플리케이션 게이트웨이로 URL 재작성-Azure Portal (미리 보기)
 
 이 문서에서는 Azure Portal를 사용 하 여 [Application Gateway V2 SKU](application-gateway-autoscaling-zone-redundant.md) 인스턴스를 구성 하 여 URL을 다시 작성 하는 방법을 설명 합니다.
+
+>[!NOTE]
+> URL 다시 쓰기 기능은 미리 보기 상태 이며 Application Gateway의 Standard_v2 및 WAF_v2 SKU에 대해서만 사용할 수 있습니다. 프로덕션 환경에서는 사용 하지 않는 것이 좋습니다. 미리 보기에 대 한 자세한 내용은 [여기의 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -66,7 +69,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
     
     b. 이 예제에서는 URL 경로에서 pattern */article* 을 확인 하 고 **확인할 변수 형식** 목록에서 **서버 변수**를 선택 합니다.
     
-    다. **서버 변수** 목록에서 uri_path을 선택 합니다.
+    c. **서버 변수** 목록에서 uri_path을 선택 합니다.
     
     d. **대/소문자 구분**에서 **아니요**를 선택 합니다.
     
@@ -88,7 +91,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
    b. **작업 유형** 목록에서 **설정**을 선택 합니다.
 
-   다. **구성 요소**에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
+   c. **구성 요소**에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
 
    d. **URL 경로 값**에 경로에 대 한 새 값을 입력 합니다. 이 예제에서는 **/article.aspx** 를 사용 합니다. 
 

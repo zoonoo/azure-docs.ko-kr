@@ -7,11 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082871"
 ---
 # <a name="what-are-wrangling-data-flows"></a>랭 글 링 데이터 흐름은 무엇 인가요?
 
@@ -27,7 +28,7 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 랭 글 링 데이터 흐름은 데이터 엔지니어 또는 ' 시민 데이터 통합자 '에 게 특히 유용 합니다.
 
 > [!NOTE]
-> 랭 글 링 데이터 흐름은 현재 공개 미리 보기로 제공 되는 가능한
+> 랭 글 링 데이터 흐름은 현재 공개 미리 보기로 제공 됩니다.
 
 ## <a name="use-cases"></a>사용 사례
 

@@ -3,11 +3,12 @@ title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 459162c277a9510297580a99acb8a88b0702a290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ccb93013b16fc919630251aa02edf48e30ce6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083126"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -37,7 +38,7 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Visual Studio Code 용 [Azure Functions 확장][Azure Functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
@@ -185,11 +186,11 @@ Visual Studio Code를 사용 하면 편리한 프롬프트를 따라 파일의 f
 
 다음은 새 저장소 출력 바인딩을 정의 하는 예제 프롬프트입니다.
 
-| prompt | 값 | 설명 |
+| 프롬프트 | 값 | Description |
 | -------- | ----- | ----------- |
 | **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
 | **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |
-| **코드에서 이 바인딩을 식별하는 데 사용하는 이름** | `msg` | 코드에서 참조되는 바인딩 매개 변수를 식별하는 이름입니다. |
+| **코드에서이 바인딩을 식별 하는 데 사용 되는 이름입니다.** | `msg` | 코드에서 참조되는 바인딩 매개 변수를 식별하는 이름입니다. |
 | **메시지가 전송될 큐** | `outqueue` | 바인딩이 데이터를 쓰는 큐의 이름입니다. 바인딩을 처음 사용할 때 *queueName*이 없으면 바인딩이 알아서 만듭니다. |
 | **"local.settings.js에서 설정"을 선택 합니다.** | `MyStorageConnection` | 저장소 계정에 대 한 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 이 `AzureWebJobsStorage` 설정에는 함수 앱을 사용 하 여 만든 저장소 계정에 대 한 연결 문자열이 포함 됩니다. |
 
@@ -249,7 +250,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 1. 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-    | prompt | 값 | 설명 |
+    | 프롬프트 | 값 | Description |
     | ------ | ----- | ----------- |
     | Azure에서 함수 앱 선택 | Azure에서 새 함수 앱 만들기 | 다음 프롬프트에서 새 함수 앱을 식별 하는 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | OS 선택 | Windows | 함수 앱은 Windows에서 실행 됩니다. |
@@ -292,9 +293,9 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
 
 * 선택한 언어에 대한 특정 요구 사항을 설치합니다.
 
-    | 언어 | 요구 사항 |
+    | Language | 요구 사항 |
     | -------- | --------- |
-    | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI 도구](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Java 용 디버거 확장](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 이상](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) 권장|
@@ -408,7 +409,7 @@ Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions: 원�
 
 Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 영역에서 유용한 그래픽 인터페이스를 제공 합니다. 명령 팔레트 (F1) 에서도 같은 기능을 명령으로 사용할 수 있습니다. 이러한 Azure Functions 명령을 사용할 수 있습니다.
 
-|Azure Functions 명령  | 설명  |
+|Azure Functions 명령  | Description  |
 |---------|---------|
 |**새 설정 추가**  |  Azure에서 새 응용 프로그램 설정을 만듭니다. 자세히 알아보려면 [응용 프로그램 설정 게시](#publish-application-settings)를 참조 하세요. [로컬 설정으로이 설정을 다운로드](#download-settings-from-azure)해야 할 수도 있습니다. |
 | **배포 원본 구성** | Azure의 함수 앱을 로컬 Git 리포지토리에 연결 합니다. 자세한 내용은 [Azure Functions에 대 한 연속 배포](functions-continuous-deployment.md)를 참조 하세요. |
@@ -447,5 +448,5 @@ Azure Functions Core Tools에 대해 자세히 알아보려면 [Azure Functions 
 
 .NET 클래스 라이브러리인 함수를 개발하는 방법에 대해 자세히 알아보려면 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참조하세요. 또한이 문서에서는 특성을 사용 하 여 Azure Functions에서 지 원하는 다양 한 유형의 바인딩을 선언 하는 방법에 대 한 링크를 제공 합니다.
 
-[Visual Studio Code Azure Functions 확장]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
-[Azure Functions 핵심 도구]: functions-run-local.md
+[Visual Studio Code용 Azure Functions 확장]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
+[Azure Functions Core Tools]: functions-run-local.md

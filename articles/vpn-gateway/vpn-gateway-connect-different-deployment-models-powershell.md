@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040755"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082055"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "86040755"
 
 가상 네트워크 게이트웨이가 아직 없으며 만들지 않으려면 VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
-## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
 
 다음 단계에서는 각 VNet에 대한 동적 또는 경로 기반 게이트웨이를 구성하고 게이트웨이 간에 VPN 연결을 만드는 데 필요한 설정을 안내합니다. 이 구성은 고정 또는 정책 기반 게이트웨이를 지원하지 않습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "86040755"
 
 * 두 VNet이 이미 생성되었습니다. Resource Manager 가상 네트워크를 만들어야 하는 경우 [리소스 그룹 및 가상 네트워크 만들기](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network)를 참조하세요. 클래식 가상 네트워크를 만들려면 [클래식 VNet 만들기](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)를 참조하세요.
 * VNet에 대한 주소 범위는 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않습니다.
-* 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
+* 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/) 을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>설정 예
 
@@ -97,7 +97,7 @@ Virtual Network Gateway name = RMGateway <br>
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-**예제:**
+**예:**
 
 ```xml
 <VirtualNetworkSites>

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084078"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정(미리 보기)
 
@@ -53,17 +53,19 @@ ms.locfileid: "86145391"
     ![역할 할당 추가](./media/search-managed-identities/add-role-assignment-storage.png "역할 할당 추가")
 
 4. 인덱싱할 스토리지 계정 유형에 따라 적절한 역할을 선택합니다.
-    1. Azure Blob Storage를 사용하려면 검색 서비스를 **읽기 권한자 및 데이터 액세스**와 **스토리지 Blob 데이터 읽기 권한자** 역할에 추가해야 합니다.
-    1. Azure Data Lake Storage Gen2를 사용하려면 검색 서비스를 **읽기 권한자 및 데이터 액세스**와 **스토리지 Blob 데이터 읽기 권한자** 역할에 추가해야 합니다.
-    1. Azure Table Storage를 사용하려면 **읽기 권한자 및 데이터 액세스** 역할에만 검색 서비스를 추가해야 합니다.
+    1. Azure Blob storage를 사용 하려면 **저장소 Blob 데이터 판독기** 역할에 검색 서비스를 추가 해야 합니다.
+    1. Azure Data Lake Storage Gen2 하려면 **저장소 Blob 데이터 판독기** 역할에 검색 서비스를 추가 해야 합니다.
+    1. Azure 테이블 저장소를 사용 하려면 검색 서비스를 **판독기 및 데이터 액세스** 역할에 추가 해야 합니다.
 5.  **액세스 할당**을 **Azure AD 사용자, 그룹 또는 서비스 사용자**로 둡니다.
 6.  검색 서비스를 검색하고 선택한 다음 **저장**을 선택합니다.
 
-    ![읽기 권한자 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 권한자 및 데이터 액세스 역할 할당 추가")
+    Azure Blob storage 및 Azure Data Lake Storage Gen2에 대 한 예제:
 
-Azure Blob Storage 및 Azure Data Lake Storage Gen2에 연결하는 경우 **스토리지 Blob 데이터 읽기 권한자** 역할 할당도 추가해야 합니다.
+    ![스토리지 Blob 데이터 읽기 권한자 역할 할당 추가](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "스토리지 Blob 데이터 읽기 권한자 역할 할당 추가")
 
-![스토리지 Blob 데이터 읽기 권한자 역할 할당 추가](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "스토리지 Blob 데이터 읽기 권한자 역할 할당 추가")
+    Azure 테이블 저장소에 대 한 예제:
+
+    ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
@@ -144,7 +146,7 @@ Blob 인덱서에 대한 인덱서 정의 예:
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
 
-인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서를 예약하는 방법](search-howto-schedule-indexers.md)을 참조하세요.
+인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서 일정 지정 방법](search-howto-schedule-indexers.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

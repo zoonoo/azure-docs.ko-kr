@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: e8dc2edf19279aff05e5d5be6096505acf1b3438
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083976"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -33,8 +33,8 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 
 7 월의 업데이트는 다음과 같습니다.
 - [Azure Files 및 Azure Data Lake Storage Gen2 (미리 보기)를 포함 하도록 위협 방지 Azure Storage 확장 됨](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [컨테이너 보안 개선-더 빠른 레지스트리 검색 및 새로 고침 설명서](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
 - [SQL 고급 데이터 보안에 대 한 6 가지 정책 사용 되지 않음](#six-policies-for-sql-advanced-data-security-deprecated)
-
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Azure Files 및 Azure Data Lake Storage Gen2 (미리 보기)를 포함 하도록 위협 방지 Azure Storage 확장 됨
@@ -44,6 +44,25 @@ Azure Storage에 대 한 위협 방지는 Azure Storage 계정에서 잠재적�
 Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는지에 관계 없이 데이터를 보호할 수 있습니다. 
 
 [Azure Storage에 대 한 위협 방지](threat-protection.md#threat-protection-for-azure-storage-)에 대해 자세히 알아보세요.
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>컨테이너 보안 개선-더 빠른 레지스트리 검색 및 새로 고침 설명서
+
+컨테이너 보안 도메인에 대 한 지속적인 투자의 일환으로 Azure Container Registry에 저장 된 컨테이너 이미지에 대 한 Security Center의 동적 검색에서 상당한 성능 향상을 공유 합니다. 검색은 이제 약 2 분 안에 완료 됩니다. 일부 경우에는 15 분 정도 걸릴 수 있습니다.
+
+Azure Security Center의 컨테이너 보안 기능과 관련 된 명확 성과 지침은 컨테이너 보안 설명서 페이지를 새로 고쳤습니다. 
+
+다음 문서에서 Security Center의 컨테이너 보안에 대해 자세히 알아보세요.
+
+- [Security Center 컨테이너 보안 기능 개요](https://docs.microsoft.com/azure/security-center/container-security)
+- [Azure Container Registry와의 통합에 대 한 세부 정보](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+- [Azure Kubernetes Service와의 통합에 대 한 세부 정보](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
+- [방법-레지스트리 검색 및 Docker 호스트 강화](https://docs.microsoft.com/azure/security-center/monitor-container-security)
+- [Azure Kubernetes Service 클러스터에 대 한 위협 방지 기능의 보안 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Azure Kubernetes 서비스 호스트에 대 한 위협 방지 기능의 보안 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
+- [컨테이너에 대 한 보안 권장 사항](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+
+
 
 
 ### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>SQL 고급 데이터 보안에 대 한 6 가지 정책 사용 되지 않음
@@ -132,7 +151,7 @@ Azure policy에서 정책을 찾을 수 있습니다.
 |Goal  |정책  |정책 ID  |
 |---------|---------|---------|
 |이벤트 허브로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Event Hub로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Log Analytics 작업 영역으로의 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Log Analytics 작업 영역으로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Log Analytics 작업 영역으로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Log Analytics 작업 영역으로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
 |보안 경고에 대 한 워크플로 자동화|[Azure Security Center 경고에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
 |보안 권장 사항에 대 한 워크플로 자동화|[Azure Security Center 권장 사항에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
 ||||
@@ -230,14 +249,14 @@ Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 �
 
 - VM에서 JIT를 사용하도록 설정하라는 권장 사항의 이름이 변경되었습니다. 이전의 "가상 머신에서 Just-In-Time 네트워크 액세스 제어를 적용해야 함"은 이제 다음과 같습니다. "가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함".
 
-- 권장 구성이 열려 있는 관리 포트가 있는 경우에만 트리거되도록 설정되었습니다.
+- 권장 사항은 열려 있는 관리 포트가 있는 경우에만 트리거됩니다.
 
 [JIT 액세스 기능](security-center-just-in-time.md)에 대해 자세히 알아보세요.
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>사용자 지정 권장 사항이 별도의 보안 컨트롤로 이동됨
 
-향상된 보안 점수를 사용하여 도입된 보안 컨트롤 중 하나는 "보안 모범 사례 구현"이었습니다. 구독에 대해 생성된 사용자 지정 권장 사항은 자동으로 해당 컨트롤에 배치되었습니다. 
+보안 점수가 향상 된 보안 제어 중 하나는 "보안 모범 사례 구현" 이었습니다. 구독에 대해 생성된 사용자 지정 권장 사항은 자동으로 해당 컨트롤에 배치되었습니다. 
 
 사용자 지정 권장 사항을 더 쉽게 찾을 수 있도록 이를 전용 보안 컨트롤인 "사용자 지정 권장 사항"으로 이동했습니다. 이 컨트롤은 보안 점수에 영향을 미치지 않습니다.
 
@@ -260,7 +279,7 @@ Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 �
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>확장된 보안 컨트롤 "보안 모범 사례 구현" 
 
-향상된 보안 점수를 사용하여 도입된 보안 컨트롤 중 하나는 "보안 모범 사례 구현"입니다. 이 컨트롤에 권장 사항이 있으면 보안 점수에 영향을 주지 않습니다. 
+향상 된 보안 점수를 사용 하 여 도입 된 보안 제어 중 하나는 "보안 모범 사례 구현"입니다. 이 컨트롤에 권장 사항이 있으면 보안 점수에 영향을 주지 않습니다. 
 
 이 업데이트를 사용하면 세 가지 권장 사항이 원래 배치된 컨트롤에서 이 모범 사례 제어로 이동했습니다. 이러한 세 가지 권장 사항에 대한 위험이 처음에 생각된 것보다 낮은 것으로 판단했기 때문에 이 단계를 수행했습니다.
 

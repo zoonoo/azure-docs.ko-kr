@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082140"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
 
@@ -31,11 +31,11 @@ ms.locfileid: "84907468"
 
 ## <a name="overview"></a>개요
 
-클러스터링을 통해 SAP 솔루션의 고가용성을 구현할 때 필요한 구성 요소 중 하나는 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)입니다. Azure는 표준 및 기본의 두 가지 부하 분산 장치 SKU를 제공합니다.
+클러스터링을 통해 SAP 솔루션의 고가용성을 구현할 때 필요한 구성 요소 중 하나는 [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md)입니다. Azure는 표준 및 기본의 두 가지 부하 분산 장치 SKU를 제공합니다.
 
 표준 Azure 부하 분산 장치는 기본 부하 분산 장치에 비해 몇 가지 장점이 있습니다. 예를 들어 Azure 가용성 영역에서 작동하며, 모니터링 및 로깅 기능이 더 강력하기 때문에 보다 쉽게 문제를 해결하고 대기 시간을 줄일 수 있습니다. "HA 포트" 기능은 모든 포트에 적용됩니다. 즉, 더 이상 개별 포트를 일일이 나열할 필요가 없습니다.  
 
-Azure 부하 분산 장치의 기본 SKU와 표준 SKU 간에는 몇 가지 중요한 차이점이 있습니다. 그 중 하나는 퍼블릭 엔드포인트에 대한 아웃바운드 트래픽 처리입니다. 기본과 표준 SKU 부하 분산 장치의 전체 비교는 [Load Balancer SKU 비교](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 참조하세요.  
+Azure 부하 분산 장치의 기본 SKU와 표준 SKU 간에는 몇 가지 중요한 차이점이 있습니다. 그 중 하나는 퍼블릭 엔드포인트에 대한 아웃바운드 트래픽 처리입니다. 기본과 표준 SKU 부하 분산 장치의 전체 비교는 [Load Balancer SKU 비교](../../../load-balancer/load-balancer-overview.md)를 참조하세요.  
  
 공용 IP 주소가 없는 VM을 내부(공용 IP 주소 없는) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치하면 추가로 구성하지 않는 한 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 없습니다.  
 
@@ -60,20 +60,20 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 다음 문서를 먼저 읽어보세요.
 
 * Azure 표준 Load Balancer
-  * [Azure 표준 Load Balancer 개요](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) - Azure 표준 Load Balancer, 중요한 원칙, 개념 및 자습서에 대한 포괄적인 개요 
-  * [Azure에서 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios) - Azure에서 아웃바운드 연결을 설정하는 방법에 대한 시나리오
-  * [부하 분산 장치 아웃바운드 규칙](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview) - 부하 분산 장치 아웃바운드 규칙의 개념과 아웃바운드 규칙을 만드는 방법을 설명
+  * [Azure 표준 Load Balancer 개요](../../../load-balancer/load-balancer-overview.md) - Azure 표준 Load Balancer, 중요한 원칙, 개념 및 자습서에 대한 포괄적인 개요 
+  * [Azure에서 아웃바운드 연결](../../../load-balancer/load-balancer-outbound-connections.md#scenarios) - Azure에서 아웃바운드 연결을 설정하는 방법에 대한 시나리오
+  * [부하 분산 장치 아웃바운드 규칙](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules) - 부하 분산 장치 아웃바운드 규칙의 개념과 아웃바운드 규칙을 만드는 방법을 설명
 * Azure Firewall
-  * [Azure Firewall 개요](https://docs.microsoft.com/azure/firewall/overview)- Azure Firewall의 개요
-  * [자습서: Azure Firewall 배포 및 구성](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) - Azure Portal을 통해 Azure Firewall을 구성하는 방법에 대한 지침
-* [가상 네트워크 - 사용자 정의 규칙](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) - Azure 라우팅 개념 및 규칙  
-* [보안 그룹 서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) - 서비스 태그를 사용하여 네트워크 보안 그룹 및 방화벽 구성을 간소화하는 방법
+  * [Azure Firewall 개요](../../../firewall/overview.md)- Azure Firewall의 개요
+  * [자습서: Azure Firewall 배포 및 구성](../../../firewall/tutorial-firewall-deploy-portal.md) - Azure Portal을 통해 Azure Firewall을 구성하는 방법에 대한 지침
+* [가상 네트워크 - 사용자 정의 규칙](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Azure 라우팅 개념 및 규칙  
+* [보안 그룹 서비스 태그](../../../virtual-network/security-overview.md#service-tags) - 서비스 태그를 사용하여 네트워크 보안 그룹 및 방화벽 구성을 간소화하는 방법
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>인터넷에 아웃바운드 연결을 설정할 수 있는 추가 외부 Azure 표준 Load Balancer
 
-퍼블릭 엔드포인트에서 VM으로의 인바운드 연결을 허용하지 않고 퍼블릭 엔드포인트에 아웃바운드 연결을 설정하는 한 가지 옵션은 공용 IP 주소를 사용하여 두 번째 부하 분산 장치를 만들고, 두 번째 부하 분산 장치의 백 엔드 풀에 VM을 추가하고 [아웃바운드 규칙](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)만 정의하는 것입니다.  
-[네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 사용하여 VM의 아웃바운드 호출에 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요.  
-자세한 내용은 [아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios) 문서의 시나리오 2를 참조하세요.  
+퍼블릭 엔드포인트에서 VM으로의 인바운드 연결을 허용하지 않고 퍼블릭 엔드포인트에 아웃바운드 연결을 설정하는 한 가지 옵션은 공용 IP 주소를 사용하여 두 번째 부하 분산 장치를 만들고, 두 번째 부하 분산 장치의 백 엔드 풀에 VM을 추가하고 [아웃바운드 규칙](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)만 정의하는 것입니다.  
+[네트워크 보안 그룹](../../../virtual-network/security-overview.md)을 사용하여 VM의 아웃바운드 호출에 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요.  
+자세한 내용은 [아웃바운드 연결](../../../load-balancer/load-balancer-outbound-connections.md#scenarios) 문서의 시나리오 2를 참조하세요.  
 구성은 다음과 같습니다.  
 
 ![네트워크 보안 그룹을 사용하여 퍼블릭 엔드포인트에 대한 연결 제어](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
@@ -81,11 +81,11 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 ### <a name="important-considerations"></a>중요 고려 사항
 
 - 같은 서브넷에 있는 여러 VM에 추가 퍼블릭 Load Balancer를 하나 사용하여 퍼블릭 엔드포인트에 대한 아웃바운드 연결을 설정하고 비용을 최적화할 수 있습니다.  
-- [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 사용하여 VM에서 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요. 서브넷 또는 각 VM에 네트워크 보안 그룹을 할당할 수 있습니다. 가능하다면 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 사용하여 보안 규칙의 복잡성을 줄이세요.  
+- [네트워크 보안 그룹](../../../virtual-network/security-overview.md)을 사용하여 VM에서 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요. 서브넷 또는 각 VM에 네트워크 보안 그룹을 할당할 수 있습니다. 가능하다면 [서비스 태그](../../../virtual-network/security-overview.md#service-tags)를 사용하여 보안 규칙의 복잡성을 줄이세요.  
 - 공용 IP 주소와 아웃바운드 규칙을 사용하는 Azure 표준 Load balancer는 퍼블릭 엔드포인트에 대한 직접 액세스를 허용합니다. 회사의 보안 요구 사항에 따라 감사 및 로깅이 가능하도록 모든 아웃바운드 트래픽을 중앙의 회사 솔루션을 통해 전달해야 하는 경우에는 이 시나리오로 요구 사항을 충족하지 못할 수 있습니다.  
 
 >[!TIP]
->가능하다면 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 사용하여 네트워크 보안 그룹의 복잡성을 줄이세요. 
+>가능하다면 [서비스 태그](../../../virtual-network/security-overview.md#service-tags)를 사용하여 네트워크 보안 그룹의 복잡성을 줄이세요. 
 
 ### <a name="deployment-steps"></a>배포 단계
 
@@ -100,7 +100,7 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 2. 백 엔드 풀 **MyBackendPoolOfPublicILB**를 만들고 VM을 추가합니다.  
    1. 가상 네트워크를 선택합니다.  
    1. VM과 IP 주소를 선택한 다음, VM을 백 엔드 풀에 추가합니다.  
-3. [아웃바운드 규칙을 만듭니다](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). 현재는 Azure Portal에서 아웃바운드 규칙을 만들 수 없습니다. [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)를 사용하여 아웃바운드 규칙을 만들 수 있습니다.  
+3. [아웃바운드 규칙을 만듭니다](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). 현재는 Azure Portal에서 아웃바운드 규칙을 만들 수 없습니다. [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest)를 사용하여 아웃바운드 규칙을 만들 수 있습니다.  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
@@ -117,13 +117,13 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 
    ![공용 IP를 사용하는 두 번째 Load Balancer에 대한 아웃바운드 연결](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Azure 네트워크 보안 그룹에 대한 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 참조하세요. 
+   Azure 네트워크 보안 그룹에 대한 자세한 내용은 [보안 그룹](../../../virtual-network/security-overview.md)을 참조하세요. 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>인터넷에 아웃바운드 연결을 위한 Azure Firewall
 
 VM에서 퍼블릭 엔드포인트로의 인바운드 연결을 허용하지 않고 퍼블릭 엔드포인트에 대한 아웃바운드 연결을 설정하는 또 다른 옵션은 Azure Firewall을 사용하는 것입니다. Azure Firewall은 기본 제공되는 고가용성 관리형 서비스이며 여러 가용성 영역으로 확장할 수 있습니다.  
-또한 VM과 Azure 부하 분산 장치가 배포된 서브넷과 연결되어 있고, Azure Firewall을 가리키고, Azure Firewall을 통해 트래픽을 라우팅하는 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)를 배포해야 합니다.  
-Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firewall 배포 및 구성](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)을 참조하세요.  
+또한 VM과 Azure 부하 분산 장치가 배포된 서브넷과 연결되어 있고, Azure Firewall을 가리키고, Azure Firewall을 통해 트래픽을 라우팅하는 [사용자 정의 경로](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 배포해야 합니다.  
+Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firewall 배포 및 구성](../../../firewall/tutorial-firewall-deploy-portal.md)을 참조하세요.  
 
 아키텍처는 다음과 같습니다.
 
@@ -137,7 +137,7 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
 - 회사 방화벽 솔루션이 Azure Firewall이 아니고, 중앙의 회사 솔루션을 통해 모든 아웃바운드 트래픽을 전달해야 하는 보안 요구 사항이 있는 경우에는 이 솔루션이 실용적이지 않을 수 있습니다.  
 
 >[!TIP]
->가능하다면 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 사용하여 Azure Firewall 규칙의 복잡성을 줄이세요.  
+>가능하다면 [서비스 태그](../../../virtual-network/security-overview.md#service-tags)를 사용하여 Azure Firewall 규칙의 복잡성을 줄이세요.  
 
 ### <a name="deployment-steps"></a>배포 단계
 
@@ -229,5 +229,5 @@ Pacemaker가 Azure 관리 API와 통신할 수 있도록 허용하려면 모든 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 기반의 SUSE에서 Pacemaker를 구성하는 방법 알아보기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-* [Azure 기반의 Red Hat에서 Pacemaker를 구성하는 방법 알아보기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)
+* [Azure 기반의 SUSE에서 Pacemaker를 구성하는 방법 알아보기](./high-availability-guide-suse-pacemaker.md)
+* [Azure 기반의 Red Hat에서 Pacemaker를 구성하는 방법 알아보기](./high-availability-guide-rhel-pacemaker.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084197"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Azure Cognitive Search에서 언어를 기준으로 필터링 하는 방법 
 
@@ -34,7 +34,7 @@ Azure Cognitive Search에서 쿼리는 단일 인덱스를 대상으로 합니�
 
 다음 예제는 여러 언어로 된 콘텐츠를 포함 하는 여러 문자열 필드가 있는 부동산 [샘플](search-get-started-portal.md) 에서 가져온 것입니다. 이 인덱스의 필드에 대 한 언어 분석기 할당을 확인 합니다. 문자열이 포함된 필드는 대상 언어의 언어 규칙을 처리하도록 엔지니어링된 분석기와 함께 사용할 때 전체 텍스트 검색이 더 잘 수행됩니다.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![부동산 샘플의 필드 화면을 보여 주는 스크린샷 언어 분석기 할당이 강조 표시 된 필드에 대 한 언어와 일치 하는 방식을 가리키기 위해 필드 그룹이 강조 표시 됩니다.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > 언어 분석기로 필드 정의를 보여 주는 코드 예제는 [인덱스 정의(.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) 및 [인덱스 정의(REST)](search-create-index-rest-api.md)를 참조하세요.

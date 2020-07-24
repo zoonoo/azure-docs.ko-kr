@@ -2,14 +2,14 @@
 title: Azure Site Recovery 서비스에 대한 일반적인 질문
 description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주요 질문에 대답합니다.
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133670"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083738"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -116,6 +116,19 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 ### <a name="how-can-i-enforce-tls-12-on-hyperv-to-azure-site-recovery-scenarios"></a>HyperV-Azure Site Recovery 시나리오에서 TLS 1.2를 적용하려면 어떻게 해야 하나요?
 Azure Site Recovery 마이크로서비스 간의 모든 통신은 TLS 1.2 프로토콜에서 발생합니다. Site Recovery는 시스템(OS)에 구성된 보안 공급자와, 사용 가능한 최신 TLS 프로토콜을 사용합니다. 레지스트리에서 TLS 1.2를 사용하도록 명시적으로 설정해야 합니다. 그러면 Site Recovery가 서비스와의 통신에 TLS 1.2를 사용합니다. 
 
+### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>복제 데이터를 읽고 쓰기 위해 Site Recovery 서비스에서 액세스 하는 내 저장소 계정에 대 한 제한 된 액세스를 적용 하려면 어떻게 해야 하나요?
+*Id* 설정으로 이동 하 여 recovery services 자격 증명 모음의 관리 id로 전환할 수 있습니다. 자격 증명 모음이 Azure Active Directory에 등록 되 면 저장소 계정으로 이동 하 여 자격 증명 모음에 다음과 같은 역할 할당을 제공할 수 있습니다.
+
+- 리소스 관리자 기반 저장소 계정 (표준 유형):
+  - [기여자](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob 데이터 기여자](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- 리소스 관리자 기반 저장소 계정 (프리미엄 유형):
+  - [기여자](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- 클래식 저장소 계정:
+  - [클래식 Storage 계정 기여자](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
+  - [클래식 스토리지 계정 키 운영자 서비스 역할](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
 ## <a name="disaster-recovery"></a>재해 복구
 
 ### <a name="what-can-site-recovery-protect"></a>Site Recovery로 무엇을 보호할 수 있습니까?
@@ -142,7 +155,7 @@ Site Recovery를 사용하여 지원되는 VM 또는 물리적 서버에서 실�
 ### <a name="is-disaster-recovery-supported-for-hyper-v-vms"></a>Hyper-V VM에 재해 복구가 지원되나요?
 예, Site Recovery는 온-프레미스 Hyper-V VM의 재해 복구를 지원합니다. Hyper-V VM 재해 복구에 대한 [일반적인 질문을 검토하세요](hyper-v-azure-common-questions.md).
 
-## <a name="is-disaster-recovery-supported-for-physical-servers"></a>물리적 서버에 대한 재해 복구가 지원되나요?
+### <a name="is-disaster-recovery-supported-for-physical-servers"></a>물리적 서버에 대한 재해 복구가 지원되나요?
 예, Site Recovery는 Windows 및 Linux를 실행하는 온-프레미스 물리적 서버에서 Azure 또는 보조 사이트로의 재해 복구를 지원합니다. [Azure](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [보조 사이트](vmware-physical-secondary-support-matrix.md#replicated-vm-support)로의 재해 복구를 위한 요구 사항에 대해 알아보세요.
 물리적 서버는 장애 조치(failover) 후 Azure에서 VM으로 실행됩니다. Azure에서 온-프레미스 물리적 서버로의 장애 복구(failback)는 현재 지원되지 않습니다. VMware 가상 머신으로만 장애 복구(failback)할 수 있습니다.
 
@@ -211,7 +224,7 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 4. 루트 사용자에 대 한 execute 권한이 있는 "customscript.sh" 라는 bash 셸 스크립트를 만듭니다.<br>
     a. 스크립트는 "--pre" 및 "--post"를 지원 해야 합니다 (이중 대시 참고) 명령줄 옵션<br>
     b. 사전 옵션을 사용 하 여 스크립트를 호출 하는 경우 응용 프로그램 입/출력을 고정 하 고 사후 옵션을 사용 하 여 호출 하면 응용 프로그램 입/출력을 재개 해야 합니다.<br>
-    다. 샘플 템플릿-<br>
+    c. 샘플 템플릿-<br>
 
     `# cat customscript.sh`<br>
 

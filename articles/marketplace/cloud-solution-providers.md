@@ -3,16 +3,16 @@ title: 클라우드 솔루션 공급자 - Microsoft 상업용 마켓플레이스
 description: 상업용 마켓 플레이스에서 Microsoft CSP(클라우드 솔루션 공급자) 프로그램 파트너 채널을 통해 제품을 판매하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
-ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082811"
 ---
 # <a name="cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램
 
@@ -30,31 +30,31 @@ ms.locfileid: "86104438"
 - 관리되는 애플리케이션
 
 > [!NOTE]
-> 컨테이너와 BYOL(사용자 라이선스 필요) VM SKU는 기본적으로 CSP 프로그램의 파트너가 판매하도록 옵트인됩니다.
+> 컨테이너 및 BYOL (사용자 라이선스) VM 계획은 기본적으로 CSP 프로그램에서 파트너에 의해 판매 되도록 옵트인 됩니다.
 
-## <a name="how-to-configure-an-offering"></a>제품 구성 방법
+## <a name="how-to-configure-an-offer"></a>제품을 구성 하는 방법
 
-CSP 프로그램 옵트인 설정은 파트너 센터 또는 Microsoft Cloud 파트너 포털 제품 만들기 환경에서 구성됩니다. [게시자 환경 변경에 대해 자세히 알아봅니다.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)
+파트너 센터에서 제품을 만들 때 CSP 프로그램 옵트인 설정을 구성 합니다. [게시자 환경 변경에 대해 자세히 알아봅니다.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)
 
 ### <a name="partner-center-opt-in"></a>파트너 센터 옵트인
 
-파트너 센터의 CSP 재판매인 대상 그룹 모듈에서 옵트인 환경을 찾을 수 있습니다.
+옵트인 환경은 CSP 대리점 대상 모듈 아래에 있습니다.
 
 ![CSP 재판매인 대상 그룹](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-CSP 재판매인 대상 그룹 모듈에서 세 가지 옵션 중 하나를 선택할 수 있습니다.
+다음 세 가지 옵션 중에서 선택 합니다.
 
-- 옵션 1: CSP 프로그램의 모든 파트너
-- 옵션 2: 선택한 CSP 프로그램의 특정 파트너
-- 옵션 3: CSP 프로그램에 파트너 없음
+1. CSP 프로그램의 모든 파트너
+2. 선택한 CSP 프로그램의 특정 파트너.
+3. CSP 프로그램에 파트너가 없습니다.
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>옵션 1: CSP 프로그램의 모든 파트너
+#### <a name="option-1-any-partner-in-the-csp-program"></a>옵션 1: CSP 프로그램의 모든 파트너
 
 ![CSP 프로그램의 모든 파트너](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  이 옵션을 선택하면 CSP 프로그램의 모든 파트너가 고객에게 제품을 재판매할 수 있습니다.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>옵션 2: 선택한 CSP 프로그램의 특정 파트너
+#### <a name="option-2-specific-partners-in-the-csp-program-i-select"></a>옵션 2: 선택한 CSP 프로그램의 특정 파트너
 
 ![선택한 CSP 프로그램의 특정 파트너](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
@@ -87,17 +87,11 @@ CSP 재판매인 대상 그룹 모듈에서 세 가지 옵션 중 하나를 선�
 
 이미 권한이 부여 된 파트너 목록이 있는 제품을 사용하고 다른 제품에 동일한 목록을 사용하려면 **가져오기/내보내기**를 사용합니다. CSP 목록이 있는 제품으로 이동하고 **CSP 내보내기**를 선택합니다. 다른 제품으로 가져올 수 있는 .csv 파일이 만들어집니다.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>옵션 3: CSP 프로그램에 파트너 없음
+#### <a name="option-3-no-partners-in-the-csp-program"></a>옵션 3: CSP 프로그램에서 파트너 없음
 
 ![CSP 프로그램에 파트너 없음](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 이 옵션을 선택하면 CSP 프로그램에서 제품이 옵트아웃됩니다. 언제든지 이 선택 사항을 변경할 수 있습니다.
-
-### <a name="cloud-partner-portal-opt-in"></a>Microsoft Cloud 파트너 포털 옵트인
-
-Microsoft Cloud 파트너 포털의 마켓플레이스 또는 상점 탭에서 옵트인을 설정합니다. CSP 프로그램에서 특정 파트너를 선택하는 기능은 파트너 센터에서만 사용할 수 있습니다.
-
-![CPP의 CSP 옵트인 환경](media/marketplace-publishers-guide/csp-opt-in.png)
 
 ## <a name="deauthorize-partners-in-the-csp-program"></a>CSP 프로그램의 파트너 권한 부여 취소
 
@@ -115,9 +109,6 @@ CSP 프로그램의 파트너가 고객에게 제품을 판매하지 않았으�
 4. **문제를 가장 잘 설명하는 항목 선택**에서 **기존 제품 업데이트**를 선택합니다.
 5. **다음**을 선택하여 문제에 대한 세부 정보를 입력할 수 있는 **문제 세부 정보 페이지**로 이동합니다.
 6. **CSP 권한 부여 취소**를 문제 제목으로 사용하고 나머지 필수 섹션을 입력합니다.
-
-
-
 
 ## <a name="navigate-between-options"></a>스크립트 간 이동
 
@@ -175,19 +166,13 @@ CSP 프로그램의 파트너가 고객에게 제품을 판매하지 않았으�
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>CSP 프로그램의 파트너와 판매 및 지원 자료 공유
 
-클라우드 솔루션 공급자 프로그램의 파트너가 가장 효과적으로 제품을 설명하고 조직에 참여할 수 있게 하려면 재판매인이 사용할 수 있는 판매 및 지원 자료를 제출해야 합니다. 이러한 리소스는 마켓플레이스 상점의 고객에게 노출되지 않습니다.
+클라우드 솔루션 공급자 프로그램의 파트너가 제품을 가장 효과적으로 표시 하 고 조직에 참여 하도록 지원 하려면 대리점에서 사용할 수 있는 판매 및 지원 자료를 제출 해야 합니다. 이러한 리소스는 마켓플레이스 상점의 고객에게 노출되지 않습니다.
 
 ### <a name="partner-center-csp-channel"></a>파트너 센터 CSP 채널
 
 파트너 센터에서 CSP 채널에 옵트인한 경우 게시자는 제품 목록 모듈 아래에 있는 CSP 채널에 관련 마케팅 자료를 호스팅하는 URL과 채널 연락처 정보를 입력해야 합니다.
 
 ![파트너 센터 CSP 참고 자료 정보](media/marketplace-publishers-guide/pc-csp-channel.png)
-
-### <a name="cloud-partner-portal-csp-channel"></a>Microsoft Cloud 파트너 포털 CSP 채널
-
-Microsoft Cloud 파트너 포털에서 CSP 채널에 옵트인한 경우 게시자는 CSP 채널에 관련 마케팅 자료를 호스팅하는 URL과 채널 연락처 정보를 입력해야 합니다.
-
-![Microsoft Cloud 파트너 포털 CSP 참고 자료 정보](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>다음 단계
 

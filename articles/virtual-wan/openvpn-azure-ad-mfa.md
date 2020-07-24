@@ -1,20 +1,20 @@
 ---
-title: 'VPN 사용자에 대해 MFA 사용: Azure AD 인증'
+title: Azure AD 인증을 사용 하 여 VPN 사용자에 대해 MFA 사용
 description: VPN 사용자에 대해 multi-factor authentication 사용
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.author: alzam
-ms.openlocfilehash: 4dcda4d553eba2829aba4626e1020a27d5215850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7adcdcf00f22020daf66192e777b1aca151349e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84752786"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082123"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>VPN 사용자에 대해 MFA (Azure Multi-Factor Authentication) 사용
+# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users-by-using-azure-ad-authentication"></a>Azure AD 인증을 사용 하 여 VPN 사용자에 대해 MFA (Azure Multi-Factor Authentication) 사용
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 

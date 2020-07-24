@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47fb242a82097a9fa5c9c41dac99f0a7f8ab2c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085438"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
 
@@ -127,11 +128,11 @@ ls /sys/class/ptp
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-**hyperv**를 반환해야 합니다.
+`hyperv`을 반환해야 합니다.
 
 ### <a name="chrony"></a>chrony
 
-Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS 8.x에서 [chrony](https://chrony.tuxfamily.org/) 는 PTP 원본 클록을 사용 하도록 구성 됩니다. Chrony 대신 이전 버전의 Linux 릴리스에서는 PTP (Network Time Protocol daemon)를 사용 합니다 .이 디먼은 PTP 원본을 지원 하지 않습니다. 이러한 릴리스에서 PTP를 사용 하도록 설정 하려면 다음 코드를 사용 하 여 chrony를 수동으로 설치 하 고 구성 해야 합니다 (chrony).
+Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS .x에서 [chrony](https://chrony.tuxfamily.org/) 는 PTP 원본 클록을 사용 하도록 구성 됩니다. Chrony 대신 이전 버전의 Linux 릴리스에서는 PTP (Network Time Protocol daemon)를 사용 합니다 .이 디먼은 PTP 원본을 지원 하지 않습니다. 이러한 릴리스에서 PTP를 사용 하도록 설정 하려면 다음 코드를 사용 하 여 chrony를 수동으로 설치 하 고 구성 해야 합니다 (chrony).
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
@@ -143,9 +144,9 @@ Red Hat 및 NTP에 대 한 자세한 내용은 [Ntp 구성](https://access.redha
 
 Chrony에 대 한 자세한 내용은 [Chrony 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony)을 참조 하세요.
 
-Chrony 및 TimeSync 원본을 동시에 사용 하도록 설정 하는 경우 다른 원본을 백업으로 설정 하는 것을 **선호**하는 것으로 표시할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
+Chrony 및 VMICTimeSync 원본을 동시에 사용 하도록 설정 하는 경우 다른 원본을 백업으로 설정 하는 것을 **선호**하는 것으로 표시할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
 
-기본적으로 chronyd는 시스템 클록을 가속화 하거나 느리게 하 여 시간 드리프트를 수정 합니다. 드리프트가 너무 커지면 chrony는 드리프트를 수정 하지 못합니다. 이를 해결 하기 위해 `makestep` **/etc/chrony.conf** 의 매개 변수를 변경 하 여 드리프트가 지정 된 임계값을 초과 하는 경우 timesync를 강제로 적용할 수 있습니다.
+기본적으로 chronyd는 시스템 클록을 가속화 하거나 느리게 하 여 시간 드리프트를 수정 합니다. 드리프트가 너무 커지면 chrony는 드리프트를 수정 하지 못합니다. 이를 해결 하기 위해 `makestep` **/etc/chrony.conf** 의 매개 변수를 변경 하 여 드리프트가 지정 된 임계값을 초과 하는 경우 시간 동기화를 강제로 수행할 수 있습니다.
 
  ```bash
 makestep 1.0 -1

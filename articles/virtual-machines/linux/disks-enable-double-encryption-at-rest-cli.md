@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 52a52f6f7bca99d662a68ae48276062969b194f0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082531"
 ---
 # <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>Azure CLI-managed disks에서 휴지 상태의 이중 암호화 사용
 
@@ -73,5 +73,5 @@ Azure 디스크 저장소는 관리 디스크에 대 한 미사용 암호화를 
 
 이러한 리소스를 만들고 구성 했으므로 이제 이러한 리소스를 사용 하 여 관리 디스크를 보호할 수 있습니다. 다음 링크에는 관리 디스크를 보호 하는 데 사용할 수 있는 각각의 시나리오를 포함 하는 예제 스크립트가 포함 되어 있습니다.
 
-[Azure Resource Manager 템플릿 샘플](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption) 
- [서버 쪽 암호화를 사용 하 여 고객이 관리 하는 키 사용-예](disks-enable-customer-managed-keys-cli.md#examples)
+- [Azure Resource Manager 템플릿 샘플](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [서버 쪽 암호화를 사용 하 여 고객이 관리 하는 키 사용-예](disks-enable-customer-managed-keys-cli.md#examples)

@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱에서 위임 된 액세스-Azure
+title: Windows 가상 데스크톱 스프링 2020-Azure에서 위임 된 액세스
 description: 예를 포함 하 여 Windows 가상 데스크톱 배포에서 관리 기능을 위임 하는 방법
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 16b4fca475f91a8cb5b7f9a20ea5aa74b6b674a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92de6011f85079e9207ab9f1a5bd8c3a045823d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082701"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 위임된 액세스
 
@@ -27,14 +27,14 @@ Windows 가상 데스크톱에는 특정 사용자에 게 역할을 할당 하 �
 
 Windows 가상 데스크톱 위임 된 액세스는 역할 할당의 각 요소에 대해 다음 값을 지원 합니다.
 
-* 보안 주체
+* 할당할 수 있습니다.
     * 사용자
     * 사용자 그룹
     * 서비스 주체
 * 역할 정의
     * 기본 제공 역할
     * 사용자 지정 역할
-* Scope
+* 범위
     * 호스트 풀
     * 앱 그룹
     * 작업 영역

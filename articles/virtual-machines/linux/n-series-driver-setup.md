@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 1d463242c923d766b500c1ede796e399e7af9c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a6bf0499eb9ed6700111918c416f118414ae895
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085465"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -21,7 +21,7 @@ NVIDIA GPU가 지원하는 Azure N 시리즈 VM의 GPU 기능을 활용하려면
 
 NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 배포판, 드라이버, 설치 및 확인 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
 
-N 시리즈 VM 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
+N 시리즈 VM 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json)를 참조하세요. 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
@@ -355,7 +355,7 @@ fi
 ## <a name="troubleshooting"></a>문제 해결
 
 * `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
-* NVIDIA CUDA 드라이버를 최신 버전으로 업데이트하고, RDMA 연결이 더 이상 작동하지 않는 경우 [RDMA 드라이버를 다시 설치](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity)하여 해당 연결을 다시 설정합니다. 
+* NVIDIA CUDA 드라이버를 최신 버전으로 업데이트하고, RDMA 연결이 더 이상 작동하지 않는 경우 [RDMA 드라이버를 다시 설치](#rdma-network-connectivity)하여 해당 연결을 다시 설정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

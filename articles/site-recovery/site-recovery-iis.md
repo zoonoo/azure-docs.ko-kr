@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083772"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "86131343"
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 IIS(인터넷 정보 서비스)를 기반으로 하는 웹 애플리케이션을 보호하는 방법에 대해 설명합니다. 그리고 3계층 IIS 기반 웹 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -60,9 +60,9 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 
 시나리오 | 보조 사이트 대상 | Azure 대상
 --- | --- | ---
-Hyper-V | 예 | Yes
-VMware | 예 | Yes
-물리적 서버 | 아니요 | Yes
+Hyper-V | 예 | 예
+VMware | 예 | 예
+물리적 서버 | 아니요 | 예
 Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
@@ -102,12 +102,14 @@ DNS가 동적 DNS 업데이트로 구성된 경우 가상 머신은 일반적으
 
 연결 문자열에서 IP 주소를 사용하여 데이터베이스 가상 머신을 참조하는 경우 장애 조치 후에 업데이트해야 합니다. 예를 들어 다음 연결 문자열은 IP 주소가 127.0.1.2인 데이터베이스를 가리킵니다.
 
-        <?xml version="1.0" encoding="utf-8"?>
-        <configuration>
-        <connectionStrings>
-        <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
-        </connectionStrings>
-        </configuration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+<connectionStrings>
+<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+</connectionStrings>
+</configuration>
+```
 
 웹 계층에서 연결 문자열을 업데이트하려면 복구 계획에서 그룹 3 뒤에 [IIS 연결 업데이트 스크립트](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc)를 추가합니다.
 

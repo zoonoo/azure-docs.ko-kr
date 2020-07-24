@@ -15,15 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3231241e2fbc6e02725b5611d05b9ee4f0f1a35a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74224721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082174"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure VM을 HANA 큰 인스턴스에 연결
 
-문서 [Azure의 SAP HANA(대규모 인스턴스)란?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) Azure에서 SAP 애플리케이션 레이어를 사용하는 HANA 대규모 인스턴스의 최소 배포가 다음과 같이 나타난다는 점을 언급합니다.
+문서 [Azure의 SAP HANA(대규모 인스턴스)란?](./hana-overview-architecture.md) Azure에서 SAP 애플리케이션 레이어를 사용하는 HANA 대규모 인스턴스의 최소 배포가 다음과 같이 나타난다는 점을 언급합니다.
 
 ![Azure(큰 인스턴스)에서 SAP HANA 및 온-프레미스로 연결된 Azure VNet](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -93,13 +94,13 @@ HANA Large Instances를 배포 하는 데 필요한 일부 IP 주소 범위가 �
 
 궁극적으로 Microsoft에 제출 해야 하는 IP 주소 범위 (선택 사항)입니다.
 
-- [Express 경로 Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 를 사용 하 여 온-프레미스에서 HANA 대량 인스턴스 단위로 직접 라우팅하는 기능을 사용 하도록 선택 하는 경우 다른/29 IP 주소 범위를 예약 해야 합니다. 이 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
-- [Express 경로 Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 를 사용 하 여 한 AZURE 지역의 HANA large instance 테 넌 트에서 다른 azure 지역의 다른 Hana large instance 테 넌 트로 직접 라우팅하는 기능을 사용 하도록 선택 하는 경우 다른/29 IP 주소 범위를 예약 해야 합니다. 이 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
+- [Express 경로 Global Reach](../../../expressroute/expressroute-global-reach.md) 를 사용 하 여 온-프레미스에서 HANA 대량 인스턴스 단위로 직접 라우팅하는 기능을 사용 하도록 선택 하는 경우 다른/29 IP 주소 범위를 예약 해야 합니다. 이 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
+- [Express 경로 Global Reach](../../../expressroute/expressroute-global-reach.md) 를 사용 하 여 한 AZURE 지역의 HANA large instance 테 넌 트에서 다른 azure 지역의 다른 Hana large instance 테 넌 트로 직접 라우팅하는 기능을 사용 하도록 선택 하는 경우 다른/29 IP 주소 범위를 예약 해야 합니다. 이 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
 
 Express 경로 Global Reach에 대 한 자세한 내용과 HANA large instances를 사용 하는 방법에 대 한 자세한 내용은 문서를 참조 하세요.
 
-- [SAP HANA(대규모 인스턴스) 네트워크 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [가상 네트워크를 HANA 대규모 인스턴스에 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [SAP HANA(대규모 인스턴스) 네트워크 아키텍처](./hana-network-architecture.md)
+- [가상 네트워크를 HANA 대규모 인스턴스에 연결](./hana-connect-vnet-express-route.md)
  
 앞서 설명한 IP 주소 범위를 정의하고 계획해야 합니다. 그러나 모든 IP 주소 범위를 Microsoft에 전송할 필요는 없습니다. Microsoft에 이름을 지정해야 하는 IP 주소 범위는 다음과 같습니다.
 

@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085489"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
@@ -62,7 +63,7 @@ STORAGEKEY=$(az storage account keys list \
 
 [az storage share create](/cli/azure/storage/share)를 사용하여 파일 스토리지 공유를 만듭니다. 
 
-공유 이름은 모두 소문자, 숫자 및 단일 하이픈이어야 하지만, 하이픈으로 시작할 수는 없습니다. 파일 공유 및 파일 이름 지정에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)를 참조하세요.
+공유 이름은 모두 소문자, 숫자 및 단일 하이픈이어야 하지만, 하이픈으로 시작할 수는 없습니다. 파일 공유 및 파일 이름 지정에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)를 참조하세요.
 
 다음 예제에서는 10GiB 할당량이 있는 *myshare*라는 공유를 만듭니다. 
 
@@ -110,4 +111,3 @@ Linux VM를 다시 부팅하면 탑재된 SMB 공유가 종료하는 동안 분�
 - [cloud-init를 사용하여 생성 중인 Linux VM 사용자 지정](using-cloud-init.md)
 - [Linux VM에 디스크 추가](add-disk.md)
 - [Linux VM용 Azure Disk Encryption](disk-encryption-overview.md)
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: 874e6f9b1c0bebedb5f50ca38d0703420be69de5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c4a4f641283a9a4771a236ba844cfe296b31c28c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082681"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 
@@ -38,7 +38,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 
 **Marketplace**의 이미지를 사용하여 가상 머신을 만드는 경우 [Azure Portal](https://portal.azure.com)에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 머신을 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 
-**Marketplace**의 항목을 사용하면 가상 머신 설치에 도움이 되는 마법사가 열립니다. 마법사의 세 번째 패널인 **설정** 블레이드를 사용하여 Trend Micro 보안 확장을 설치합니다.  일반적인 지침은 [Azure Portal에서 Windows를 실행하는 가상 머신 만들기](../windows/classic/tutorial.md)를 참조하세요.
+**Marketplace**의 항목을 사용하면 가상 머신 설치에 도움이 되는 마법사가 열립니다. 마법사의 세 번째 패널인 **설정** 블레이드를 사용하여 Trend Micro 보안 확장을 설치합니다.  일반적인 지침은 [Azure Portal에서 Windows를 실행하는 가상 머신 만들기](../windows/quick-create-portal.md)를 참조하세요.
 
 마법사의 **설정** 블레이드로 이동한 후 다음 단계를 수행합니다.
 
@@ -57,7 +57,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>기존 VM에 Deep Security Agent 설치
 기존 VM에 에이전트를 설치하려면 다음 항목이 필요합니다.
 
-* Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대 한 링크는 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
+* Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대 한 링크는 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/)을 참조 하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
 * VM 에이전트가 대상 가상 머신에 설치되어 있어야 합니다.
 
 먼저 VM 에이전트가 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 머신 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.

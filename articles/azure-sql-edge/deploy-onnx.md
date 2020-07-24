@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge(미리 보기)에서 ONNX를 통한 배포 및 예측 수행
-description: 모델을 학습하고, ONNX로 변환하고, Azure SQL Edge(미리 보기)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 기본 PREDICT를 실행하는 방법에 대해 알아봅니다.
+title: ONNX를 사용 하 여 배포 및 예측
+description: 모델을 학습 하 고, ONNX로 변환 하 고, Azure sql Edge (미리 보기) 또는 Azure SQL Managed Instance (미리 보기)에 배포 하 고, 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법에 대해 알아봅니다.
 keywords: SQL Edge 배포
 services: sql-edge
 ms.service: sql-edge
@@ -8,32 +8,40 @@ ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 05/19/2020
-ms.openlocfilehash: b5cd655aaf9992c6908a7f9287f691fd36d84871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: fe1e4a195903803d3103da5f350de30a016e614b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085016"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 ONNX 모델을 통한 배포 및 예측 수행
+# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>ONNX 모델을 사용 하 여 배포 및 예측
 
-이 빠른 시작에서는 모델을 학습하고, ONNX로 변환하고, Azure SQL Edge(미리 보기)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 기본 PREDICT를 실행하는 방법에 대해 알아봅니다. 자세한 내용은 [SQL Edge(미리 보기)에서 ONNX를 통한 기계 학습 및 AI](onnx-overview.md)를 참조하세요.
+이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, [azure Sql Edge (미리 보기](onnx-overview.md) ) 또는 [azure sql Managed Instance (미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포 하 고, 업로드 된 onnx 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
 
 이 빠른 시작은 **scikit-learn**을 기반으로 하며, [보스턴 하우징 데이터 세트](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)를 사용합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Azure SQL Edge 모듈을 배포하지 않은 경우 [Azure Portal을 사용하여 SQL Edge(미리 보기) 배포](deploy-portal.md)의 단계를 수행합니다.
+* Azure SQL Edge를 사용 하는 경우 Azure SQL Edge 모듈을 배포 하지 않은 경우 [Azure Portal를 사용 하 여 SQL edge 배포 (미리 보기)](deploy-portal.md)의 단계를 수행 합니다.
 
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download)를 설치합니다.
 
-* Azure Data Studio를 열고 다음 단계를 수행하여 이 빠른 시작에 필요한 패키지를 설치합니다.
+* 이 빠른 시작에 필요한 Python 패키지를 설치 합니다.
 
-    1. Python 3 커널에 연결된 [새 Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks)을 엽니다. 
-    1. **패키지 관리**를 클릭하고 **새로 추가**에서 **scikit-learn**을 검색하고 scikit-learn 패키지를 설치합니다. 
-    1. 또한 **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc** 및 **sqlalchemy** 패키지를 설치합니다.
-    
+  1. Python 3 커널에 연결된 [새 Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks)을 엽니다. 
+  1. **패키지 관리** 클릭
+  1. **설치 됨** 탭의 설치 된 패키지 목록에서 다음 Python 패키지를 찾습니다. 이러한 패키지 중 하나라도 설치 되지 않은 경우 **새로 추가** 탭을 선택 하 고 패키지를 검색 한 다음 **설치**를 클릭 합니다.
+     - **scikit-learn**
+     - **numpy**
+     - **onnxmltools**
+     - **onnxruntime**
+     - **pyodbc**
+     - **setuptools**
+     - **skl2onnx**
+     - **sqlalchemy**
+
 * 아래 각 스크립트 부분에 대해 Azure Data Studio Notebook의 셀에 입력하고 셀을 실행합니다.
 
 ## <a name="train-a-pipeline"></a>파이프라인 학습
@@ -219,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>ONNX 모델 삽입
 
-Azure SQL Edge의 모델을 데이터베이스 `onnx`의 `models` 테이블에 저장합니다. 연결 문자열에서 **서버 주소**, **사용자 이름**및 **암호**를 지정합니다.
+모델을 Azure SQL Edge 또는 Azure SQL Managed Instance 데이터베이스의 테이블에 저장 `models` `onnx` 합니다. 연결 문자열에서 **서버 주소**, **사용자 이름**및 **암호**를 지정합니다.
 
 ```python
 import pyodbc
@@ -277,7 +285,7 @@ conn.commit()
 
 ## <a name="load-the-data"></a>데이터 로드
 
-Azure SQL Edge에 데이터를 로드합니다.
+SQL에 데이터를 로드 합니다.
 
 먼저 **features** 및 **target**이란 두 개의 테이블을 만들어 보스턴 하우징 데이터 세트의 하위 집합을 저장합니다.
 
@@ -350,7 +358,7 @@ y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 
 ## <a name="run-predict-using-the-onnx-model"></a>ONNX 모델을 사용하여 PREDICT 실행
 
-Azure SQL Edge의 모델을 통해 업로드된 ONNX 모델을 사용하여 데이터에 대해 기본 PREDICT를 실행합니다.
+SQL의 모델을 사용 하 여 업로드 된 ONNX 모델을 사용 하 여 데이터에서 기본 PREDICT를 실행 합니다.
 
 > [!NOTE]
 > 나머지 셀을 실행하려면 Notebook 커널을 SQL로 변경합니다.
@@ -390,3 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>다음 단계
 
 * [SQL Edge에서 ONNX를 통한 Machine Learning 및 AI](onnx-overview.md)
+* [Azure SQL Managed Instance (미리 보기)의 Machine Learning Services](../azure-sql/managed-instance/machine-learning-services-overview.md)

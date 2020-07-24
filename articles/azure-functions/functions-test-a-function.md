@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832562"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085081"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -40,13 +40,13 @@ ms.locfileid: "85832562"
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 **myto trigger**로 이름을로 합니다.
 4. 솔루션에서 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 test.txt로 합니다 **.**
 5. NuGet을 사용 하 여 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 에 테스트 앱의 참조를 추가 합니다.
-6. [함수 앱에서 *함수* 앱을 참조](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) 합니다 *.*
+6. [함수 앱에서 *함수* 앱을 참조](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) 합니다 *.*
 
 ### <a name="create-test-classes"></a>테스트 클래스 만들기
 
 이제 프로젝트를 만들었으므로 자동화 된 테스트를 실행 하는 데 사용 되는 클래스를 만들 수 있습니다.
 
-각 함수는 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 인스턴스를 사용하여 메시지 로깅을 처리합니다. 일부 테스트는 메시지를 기록하지 않거나 로깅 구현 방법에 관여하지 않습니다. 기타 테스트는 테스트 통과 여부를 결정하기 위해 기록된 메시지를 평가해야 합니다.
+각 함수는 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 인스턴스를 사용하여 메시지 로깅을 처리합니다. 일부 테스트는 메시지를 기록하지 않거나 로깅 구현 방법에 관여하지 않습니다. 기타 테스트는 테스트 통과 여부를 결정하기 위해 기록된 메시지를 평가해야 합니다.
 
 `ListLogger`테스트 중에 평가할 메시지의 내부 목록을 보유 하는 라는 새 클래스를 만듭니다. 필요한 인터페이스를 구현 하려면 `ILogger` 클래스에 범위가 필요 합니다. 다음 클래스는 클래스에 전달할 테스트 사례에 대 한 범위를 모의으로 만듭니다 `ListLogger` .
 
@@ -192,7 +192,7 @@ namespace Functions.Tests
 
 `TestFactory` 클래스는 다음 멤버를 구현합니다.
 
-- **데이터**:이 속성은 예제 데이터의 [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) 컬렉션을 반환 합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
+- **데이터**:이 속성은 예제 데이터의 [IEnumerable](/dotnet/api/system.collections.ienumerable) 컬렉션을 반환 합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
 
 - **CreateDictionary**:이 메서드는 키/값 쌍을 인수로 수락 하 고 `Dictionary` `QueryCollection` 쿼리 문자열 값을 나타내기 위해 만드는 데 사용 되는 새을 반환 합니다.
 

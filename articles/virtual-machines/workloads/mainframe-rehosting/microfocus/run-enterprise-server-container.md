@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 3cc561a7f7f6f58c439a70315eba857e63def09d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d266dbd0ee908c41a7d29ddbb6d9c73fcfdc7c9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083466"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Azure의 Docker 컨테이너에서 마이크로 포커스 엔터프라이즈 서버 5.0 실행
 
@@ -27,7 +27,7 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
 
 이 자습서에서는 Azure Marketplace의 **컨테이너 VM을 사용 하 여 Windows 2016 Datacenter** 를 설치 합니다. 이 VM은 **Docker 18.09.0**를 포함 합니다. 다음 단계는 컨테이너를 배포 하 고 실행 한 다음 3270 에뮬레이터를 사용 하 여 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 다음 필수 구성 요소를 확인 하세요.
 
@@ -137,7 +137,7 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
     ~~~
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ~~~
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
@@ -171,6 +171,6 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
 
 ## <a name="next-steps"></a>다음 단계
 
--   [Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/set-up-micro-focus-azure)
+-   [Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치](./set-up-micro-focus-azure.md)
 
--   [메인프레임 애플리케이션 마이그레이션](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [메인프레임 애플리케이션 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

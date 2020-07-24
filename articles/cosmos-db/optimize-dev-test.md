@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 3fe5ea98f8db633eed7ce4e2c0ac0cafa56408ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5d975b73afcf03ad97bafd1c6f68f2b55263c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82194519"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084724"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 개발 및 테스트 비용 최적화
 
@@ -23,7 +23,9 @@ ms.locfileid: "82194519"
 
 ## <a name="azure-cosmos-db-free-tier"></a>Azure Cosmos DB 무료 계층
 
-Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프로그램을 개발 하 고 테스트 하거나, 소규모 프로덕션 워크 로드를 무료로 실행할 수 있습니다. 계정에서 무료 계층을 사용 하는 경우 계정에서 처음 400 r u/s 및 5gb의 저장소를 무료로 얻을 수 있습니다. 또한 데이터베이스 수준에서 400 o s/s를 공유 하는 25 개의 컨테이너를 사용 하 여 공유 처리량 데이터베이스를 만들 수 있습니다 .이는 무료 계층 (무료 계층 계정에서 5 개의 공유 처리량 데이터베이스 제한)을 포함 합니다. 무료 계층은 계정 수명 동안 무기한으로 지속 되며 무제한 저장소 및 처리량 (r u/초), Sla, 고가용성, 턴키 전역 배포를 비롯 하 여 모든 Azure 지역에서 일반 Azure Cosmos DB 계정의 모든 [이점과 기능](introduction.md#key-benefits) 을 제공 합니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](manage-sql-with-resource-manager.md#free-tier)사용 합니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
+Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프로그램을 개발 하 고 테스트 하거나, 소규모 프로덕션 워크 로드를 무료로 실행할 수 있습니다. 계정에서 무료 계층을 사용 하는 경우 계정에서 처음 400 r u/s 및 5gb의 저장소를 무료로 얻을 수 있습니다. 또한 데이터베이스 수준에서 400 o s/s를 공유 하는 25 개의 컨테이너를 사용 하 여 공유 처리량 데이터베이스를 만들 수 있습니다 .이는 무료 계층 (무료 계층 계정에서 5 개의 공유 처리량 데이터베이스 제한)을 포함 합니다. 무료 계층을 사용 하는 경우 최소 처리량이 400 r u/초 인 공유 데이터베이스를 프로 비전 하는 경우 해당 데이터베이스 내의 모든 컨테이너는 처리량을 공유할 수 있습니다. 공유 처리량을 포함 하는 모든 새 데이터베이스 또는 전용 처리량의 컨테이너는 정기적인 가격으로 청구 됩니다.
+
+무료 계층은 계정 수명 동안 무기한으로 지속 되며 무제한 저장소 및 처리량 (r u/초), Sla, 고가용성, 턴키 전역 배포를 비롯 하 여 모든 Azure 지역에서 일반 Azure Cosmos DB 계정의 모든 [이점과 기능](introduction.md#key-benefits) 을 제공 합니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](manage-sql-with-resource-manager.md#free-tier)사용 합니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 사용해 보기
 

@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ff4fb08b1e627184760bb0a33797b2a324d4c55
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082633"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
-Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. 예를 들어 가상 머신에서 소프트웨어 설치, 바이러스 백신 보호 또는 내부의 스크립트 실행을 요구하는 경우 VM 확장을 사용할 수 있습니다. Azure CLI, PowerShell, Azure Resource Manager 템플릿 및 Azure Portal을 사용하여 Azure VM 확장을 실행할 수 있습니다. 확장을 새 VM 배포와 번들로 제공하거나 기존 시스템에 대해 실행할 수 있습니다.
+Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화 태스크를 제공하는 작은 애플리케이션입니다. 예를 들어 가상 컴퓨터에 소프트웨어 설치, 바이러스 백신 보호가 필요한 경우, 또는 가상 컴퓨터 내부에서 스크립트를 실행하려면 VM 확장을 사용하면 됩니다. Azure VM 확장은 Azure CLI, PowerShell, Azure Resource Manager 템플릿 및 Azure Portal을 사용하여 실행할 수 있습니다. 확장을 새 VM 배포와 번들로 제공하거나, 기존 시스템에 대해 실행할 수 있습니다.
 
 이 아티클에서는 VM 확장의 개요, Azure VM 확장 사용을 위한 필수 구성 요소, VM 확장을 검색, 관리 및 제거하는 방법에 대한 지침을 제공합니다. 많은 VM 확장 각각을 고유한 구성으로 사용할 수 있으므로 여기서는 일반적인 정보를 제공합니다. 확장 관련 세부 정보는 개별 확장과 관련된 각 문서에서 찾을 수 있습니다.
 
@@ -35,14 +35,14 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
 
 - Windows용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](dsc-overview.md)을 참조하세요.
-- Log Analytics 에이전트 VM 확장을 사용 하 여 VM 모니터링을 구성 합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../log-analytics/log-analytics-azure-vm-extension.md)을 참조 하세요.
+- Log Analytics 에이전트 VM 확장을 사용 하 여 VM 모니터링을 구성 합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../azure-monitor/learn/quick-collect-azurevm.md)을 참조 하세요.
 - Chef를 사용하여 Azure VM을 구성합니다. 자세한 내용은 [Chef를 사용하여 Azure VM 배포 자동화](../../chef/chef-automation.md)를 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Windows용 사용자 지정 스크립트 확장을 사용하면 PowerShell 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Windows VM 사용자 지정 스크립트 확장](custom-script-windows.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 VM에서 확장을 처리하려면 Azure Windows 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -65,18 +65,18 @@ Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레�
 
 #### <a name="network-access"></a>네트워크 액세스
 
-확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. [지원 되](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 는 버전의 에이전트를 사용 하는 경우 VM 지역에서 Azure Storage에 대 한 액세스를 허용할 필요가 없습니다. 에이전트를 사용 하 여 에이전트 통신을 위해 Azure 패브릭 컨트롤러로 통신을 리디렉션할 수 있습니다 (개인 IP [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)의 권한 있는 채널을 통한 hostgaplugin 기능). 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
+확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. [지원 되](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 는 버전의 에이전트를 사용 하는 경우 VM 지역에서 Azure Storage에 대 한 액세스를 허용할 필요가 없습니다. 에이전트를 사용 하 여 에이전트 통신을 위해 Azure 패브릭 컨트롤러로 통신을 리디렉션할 수 있습니다 (개인 IP [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)의 권한 있는 채널을 통한 hostgaplugin 기능). 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
 > 게스트 방화벽 또는 프록시를 사용 하 여 *168.63.129.16* 에 대 한 액세스를 차단 하는 경우에는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526가 필요 합니다.
 
-에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage 또는 Azure Active Directory에 대 한 액세스가 필요한 확장의 경우 [Azure NSG 서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 를 사용 하 여 저장소 또는 AzureActiveDirectory에 대 한 액세스를 허용할 수 있습니다.
+에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage 또는 Azure Active Directory에 대 한 액세스가 필요한 확장의 경우 [Azure NSG 서비스 태그](../../virtual-network/security-overview.md#service-tags) 를 사용 하 여 저장소 또는 AzureActiveDirectory에 대 한 액세스를 허용할 수 있습니다.
 
 Windows 게스트 에이전트는를 통해 에이전트 트래픽 요청을 리디렉션할 수 있는 프록시 서버를 지원 하지 않습니다. 즉, Windows 게스트 에이전트는 사용자 지정 프록시 (있는 경우)를 사용 하 여 인터넷 또는 IP 168.63.129.16를 통해 호스트에 있는 리소스에 액세스 합니다.
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 
-Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage)를 사용합니다. 다음 예제에서는 *WestUS* 위치에서 모든 사용 가능한 확장을 나열합니다.
+Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage)를 사용합니다. 다음 예제에서는 *WestUS* 위치에서 모든 사용 가능한 확장을 나열합니다.
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +92,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="powershell"></a>PowerShell
 
-개별 확장을 실행하기 위한 몇 가지 PowerShell 명령이 존재합니다. 목록을 보려면 [Get-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command)를 사용하고 *확장*을 필터링합니다.
+개별 확장을 실행하기 위한 몇 가지 PowerShell 명령이 존재합니다. 목록을 보려면 [Get-command](/powershell/module/microsoft.powershell.core/get-command)를 사용하고 *확장*을 필터링합니다.
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -127,7 +127,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-다음 예제에서는VM 액세스 확장을 사용하여 Windows VM의 관리자 암호를 임시 암호로 다시 설정합니다. VM 액세스 확장에 대한 자세한 내용은 [Windows VM에서 원격 데스크톱 서비스 다시 설정](../windows/reset-rdp.md)을 참조하세요. 일단 실행하면 첫 번째 로그인 시 암호를 다시 설정해야 합니다.
+다음 예제에서는VM 액세스 확장을 사용하여 Windows VM의 관리자 암호를 임시 암호로 다시 설정합니다. VM 액세스 확장에 대한 자세한 내용은 [Windows VM에서 원격 데스크톱 서비스 다시 설정](../troubleshooting/reset-rdp.md)을 참조하세요. 일단 실행하면 첫 번째 로그인 시 암호를 다시 설정해야 합니다.
 
 ```powershell
 $cred=Get-Credential
@@ -137,10 +137,10 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzVMExtension 참조](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)를 참조하세요.
+`Set-AzVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzVMExtension 참조](/powershell/module/az.compute/set-azvmextension)를 참조하세요.
 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장**을 선택한 다음, **추가**를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
@@ -315,7 +315,7 @@ Windows 게스트 에이전트에는 *확장 처리 코드*만 포함됩니다. 
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>확장이 VM에서 autoUpgradeMinorVersion로 설정되었는지를 식별합니다.
 
-확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
+확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [Get-AzVm](/powershell/module/az.compute/get-azvm)을 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -371,7 +371,7 @@ AutoUpgradeMinorVersion     : True
 
 ### <a name="view-extension-status"></a>확장 상태 보기
 
-Vm에 대해 VM 확장을 실행 한 후 [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 를 사용 하 여 확장 상태를 반환 합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
+Vm에 대해 VM 확장을 실행 한 후 [new-azvm](/powershell/module/az.compute/get-azvm) 를 사용 하 여 확장 상태를 반환 합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -407,7 +407,7 @@ Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의
 
 ### <a name="rerun-vm-extensions"></a>VM 확장 다시 실행
 
-VM 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 다음과 같이 [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension)을 사용합니다.
+VM 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 다음과 같이 [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension)을 사용합니다.
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
@@ -421,7 +421,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. **제거**를 선택합니다.
 
 ## <a name="common-vm-extensions-reference"></a>일반 VM 확장 참조
-| 확장 이름 | 설명 | 추가 정보 |
+| 확장 이름 | Description | 추가 정보 |
 | --- | --- | --- |
 | Windows용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Windows용 사용자 지정 스크립트 확장](custom-script-windows.md) |
 | Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Windows용 DSC 확장](dsc-overview.md) |

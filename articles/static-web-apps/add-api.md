@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4df1aa53c09777ac2470581df07ac132255b005a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083670"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps 미리 보기에 API 추가
 
@@ -133,7 +133,7 @@ Visual Studio Code는 HTTP 트리거 함수를 사용 하 여 Azure Functions �
 
 ## <a name="run-the-api-locally"></a>로컬로 API 실행
 
-Visual Studio Code는 [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local)와 통합되어 Azure에 게시하기 전에 로컬 개발 컴퓨터에서 이 프로젝트를 실행할 수 있습니다.
+Visual Studio Code는 [Azure Functions Core Tools](../azure-functions/functions-run-local.md)와 통합되어 Azure에 게시하기 전에 로컬 개발 컴퓨터에서 이 프로젝트를 실행할 수 있습니다.
 
 > [!TIP]
 > 계속 하기 전에 [필수 구성 요소](#prerequisites) 섹션에 모든 리소스가 나열 되어 있는지 확인 합니다.
@@ -221,7 +221,7 @@ Visual Studio Code를 사용하여 변경 내용을 원격 git 리포지토리�
 1. **리소스 만들기**를 클릭합니다.
 1. **정적 웹 앱** 검색
 1. **정적 웹 앱 (미리 보기)을** 클릭 합니다.
-1. **만들기**
+1. **만들기**를 클릭합니다.
 
 다음으로, 앱 별 설정을 추가 합니다.
 

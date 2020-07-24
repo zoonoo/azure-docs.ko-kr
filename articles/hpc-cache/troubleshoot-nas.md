@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
-ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515451"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082769"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>NAS 구성 및 NFS 저장소 대상 문제 해결
 
@@ -20,7 +20,7 @@ ms.locfileid: "85515451"
 이 문서에는 포트를 확인 하는 방법과 NAS 시스템에 대 한 루트 액세스를 설정 하는 방법에 대 한 정보가 포함 되어 있습니다. 또한 NFS 저장소 대상 생성에 실패할 수 있는 보다 일반적인 문제에 대 한 자세한 정보도 포함 합니다.
 
 > [!TIP]
-> 이 가이드를 사용 하기 전에 [NFS 저장소 대상에 대 한 필수 구성 요소](hpc-cache-prereqs.md#nfs-storage-requirements)를 참조 하세요.
+> 이 가이드를 사용 하기 전에 [NFS 저장소 대상에 대 한 필수 구성 요소](hpc-cache-prerequisites.md#nfs-storage-requirements)를 참조 하세요.
 
 문제에 대 한 해결 방법이 여기에 포함 되지 않은 경우 Microsoft 서비스 및 지원 서비스에서 문제를 조사 하 고 해결 하는 데 도움이 되도록 [지원 티켓을 여세요](hpc-cache-support-ticket.md) .
 

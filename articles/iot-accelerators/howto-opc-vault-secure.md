@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75454202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082816"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 사용
 
 이 문서에서는 응용 프로그램을 등록 하는 방법과 OPC UA 장치에 대해 서명 된 응용 프로그램 인증서를 발급 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="deploy-the-certificate-management-service"></a>인증서 관리 서비스 배포
 
@@ -37,7 +38,7 @@ ms.locfileid: "75454202"
 
 1. 에서 인증서 서비스를 열고 `https://myResourceGroup-app.azurewebsites.net` 로그인 합니다.
 2. **등록 새로 만들기**로 이동 합니다. 응용 프로그램 등록의 경우 사용자에 게 적어도 작성자 역할을 할당 해야 합니다.
-2. 항목 양식은 OPC UA의 명명 규칙을 따릅니다. 예를 들어 다음 스크린샷에서 OPC UA .NET Standard 스택의 [OPC Ua 참조 서버](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) 샘플에 대 한 설정이 표시 됩니다.
+2. 항목 양식은 OPC UA의 명명 규칙을 따릅니다. 예를 들어 다음 스크린샷에서 OPC UA .NET Standard 스택의 [OPC Ua 참조 서버](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) 샘플에 대 한 설정이 표시 됩니다.
 
    ![UA 참조 서버 등록의 스크린샷](media/howto-opc-vault-secure/reference-server-registration.png "UA 참조 서버 등록")
 

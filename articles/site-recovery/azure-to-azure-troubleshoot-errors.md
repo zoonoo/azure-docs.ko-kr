@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083823"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -239,7 +239,7 @@ Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 
 > [!NOTE]
 > 모바일 서비스 에이전트는 **인증 되지 않은 프록시**만 지원 합니다.
 
-### <a name="more-information"></a>자세한 정보
+### <a name="more-information"></a>추가 정보
 
 [필수 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)를 지정 하려면 azure [에서 Azure로 복제에 대 한 정보](azure-to-azure-about-networking.md)를 참조 하세요.
 
@@ -534,6 +534,44 @@ Site Recovery 모바일 서비스에는 많은 구성 요소가 있으며,이 �
 ### <a name="fix-the-problem"></a>문제 해결
 
 오류 메시지에서 식별 된 복제본 디스크를 삭제 하 고 실패 한 보호 작업을 다시 시도 하십시오.
+
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>설치 관리자가 루트 디스크를 찾을 수 없어서 보호를 사용 하도록 설정 하지 못했습니다 (오류 코드 151137).
+
+이 오류는 Azure Disk Encryption (ADE)를 사용 하 여 OS 디스크가 암호화 된 Linux 컴퓨터에 대해 발생 합니다. 이 문제는 에이전트 버전 9.35 에서만 유효 합니다.
+
+### <a name="possible-causes"></a>가능한 원인
+
+설치 관리자가 루트 파일 시스템을 호스트 하는 루트 디스크를 찾을 수 없습니다.
+
+### <a name="fix-the-problem"></a>문제 해결
+
+이 문제를 해결 하려면 아래 단계를 따르세요.
+
+1. 다음 명령을 사용 하 여 RHEL 및 CentOS 컴퓨터의 디렉터리 _/var/sv/sveragent_ 에서 에이전트 비트를 찾습니다. <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   예상 출력:
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. 새 디렉터리를 만들고 디렉터리를이 새 디렉터리로 변경 합니다.
+3. 다음 명령을 사용 하 여 첫 번째 단계에서 찾은 에이전트 파일의 압축을 풉니다.
+
+    `tar -xf <Tar Ball File>`
+
+4. _prereq_check_installer.js_ 파일을 열고 다음 줄을 삭제 합니다. 그 다음에 파일을 저장 합니다.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. 명령을 사용 하 여 설치 관리자를 호출 합니다. <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. 설치 관리자가 성공 하면 복제 사용 작업을 다시 시도 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

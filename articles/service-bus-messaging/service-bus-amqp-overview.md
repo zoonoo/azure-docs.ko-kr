@@ -3,11 +3,12 @@ title: Azure Service Bus의 AMQP 1.0 개요
 description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083874"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스와 온-프레미스 [Windows Server용 Service Bus(Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 둘 다 AMQP(Advanced Message Queueing Protocol) 1.0을 지원합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다. 다른 언어 및 프레임워크로 빌드된 구성 요소를 사용하며 다른 운영 체제에서 실행되는 애플리케이션을 생성할 수 있습니다. 이러한 구성 요소는 모두 Service Bus에 연결할 수 있으며 구조화된 비즈니스 메시지를 효율적이고 완벽하며 원활하게 교환할 수 있습니다.
@@ -53,13 +54,13 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 다음 그림에서는 표준 JMS(Java Message Service) API를 사용하여 작성되었으며 Linux에서 실행되는 Java 클라이언트와 Windows에서 실행되는 .NET 클라이언트가 AMQP 1.0이 사용된 Service Bus를 통해 메시지를 교환하는 배포 예를 보여 줍니다.
 
-![][0]
+![두 개의 Linux 환경 및 두 개의 Windows 환경을 사용 하 여 메시지를 교환 하는 한 가지 Service Bus 보여 주는 다이어그램][0]
 
 **그림 1: Service Bus와 AMQP 1.0을 사용하는 플랫폼 간 메시징을 보여 주는 예제 배포 시나리오**
 
 현재 Service Bus에서 사용할 수 있는 클라이언트 라이브러리는 다음과 같습니다.
 
-| 언어 | 라이브러리 |
+| Language | 라이브러리 |
 | --- | --- |
 | Java |Apache Qpid JMS(Java Message Service) 클라이언트<br/>IIT Software SwiftMQ Java 클라이언트 |
 | C |Apache Qpid Proton-C |

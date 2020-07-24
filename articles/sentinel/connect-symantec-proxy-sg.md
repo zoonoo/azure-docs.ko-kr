@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 51a5c5de7bce07aa6a54b9ff81e957c38cfffdd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe49481357b542ce52de5fc9dab3059cb584c229
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083908"
 ---
 # <a name="connect-your-symantec-proxysg-to-azure-sentinel"></a>Azure 센티널에 Symantec ProxySG 연결
+
+> [!IMPORTANT]
+> Azure 센티널의 Symantec ProxySG data 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 [Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/gateway/proxy-sg-and-advanced-secure-gateway) 어플라이언스를 Azure 센티널에 연결 하는 방법을 설명 합니다. Symantec ProxySG data connector를 사용 하면 Symantec ProxySG 로그를 Azure 센티널에 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Symantec ProxySG와 Azure 센티널 간의 통합은 Syslog를 사용 합니다.
 

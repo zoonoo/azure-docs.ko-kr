@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9dffa4d32980a16377f33a4ddb23987b3c2f3dd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c9907555301c55cd5e55f421f27518fd4a9960d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678592"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085060"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -49,7 +50,7 @@ Azure App Service에 대한 앱 설정을 만들어 Application Insights Profile
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-[Azure Resource Manager 템플릿](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest)를 사용 하 여 이러한 값을 설정할 수 있습니다.
+[Azure Resource Manager 템플릿](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp) [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest)를 사용 하 여 이러한 값을 설정할 수 있습니다.
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>수동으로 다른 클라우드에 프로파일러를 사용하도록 설정
 
@@ -73,7 +74,7 @@ WebDeploy를 사용하여 웹 애플리케이션에 변경 내용을 배포하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Visual Studio에서 Application Insights로 작업](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+* [Visual Studio에서 Application Insights로 작업](./visual-studio.md)
 
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png

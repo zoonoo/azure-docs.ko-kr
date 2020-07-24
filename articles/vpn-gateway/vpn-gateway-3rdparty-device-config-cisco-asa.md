@@ -7,28 +7,26 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f693f6a40b87d024430c7626736fab0d0a032238
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082004"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
 이 문서에서는 Azure VPN Gateway에 Cisco ASA(적응 보안 어플라이언스) 디바이스를 연결하는 샘플 구성을 제공합니다. 이 예제는 BGP(경계 게이트웨이 프로토콜) 없이 IKEv2를 실행하는 Cisco ASA 디바이스에 적용됩니다. 
 
 ## <a name="device-at-a-glance"></a>디바이스 개요
 
-|                        |                                   |
-| ---                    | ---                               |
-| 디바이스 공급 업체          | 시스코                             |
-| 디바이스 모델           | ASA                               |
-| 대상 버전         | 8.4 이상                     |
-| 테스트 모델           | ASA 5505                          |
-| 테스트 버전         | 9.2                               |
-| IKE 버전            | IKEv2                             |
-| BGP                    | 아니요                                |
-| Azure VPN 게이트웨이 유형 | 경로 기반 VPN Gateway           |
-|                        |                                   |
+* 장치 공급 업체: **Cisco**
+* 장치 모델: **global.asa**           
+* 대상 버전: **8.4 이상**
+* 테스트 된 모델: **global.asa 5505**
+* 테스트 된 버전: **9.2**             
+* IKE 버전: **IKEv2**                  
+* BGP: **아니요**      
+* Azure VPN gateway 유형: **경로 기반 VPN gateway**
 
 > [!NOTE]
 > 샘플 구성은 Cisco ASA 디바이스를 Azure **경로 기반** VPN Gateway에 연결합니다. 연결은 [이 문서](vpn-gateway-connect-multiple-policybased-rm-ps.md)에 설명된 대로 **UsePolicyBasedTrafficSelectors** 옵션이 있는 사용자 지정 IPsec/IKE 정책을 사용합니다.

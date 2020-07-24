@@ -4,13 +4,14 @@ description: Azure Database for PostgreSQL-단일 서버를 사용 하 여 AKS (
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 5/6/2019
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4214b01f3f3651f8785f8644cf12326bf182bce7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74769883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084180"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Azure Kubernetes Service 및 Azure Database for PostgreSQL 단일 서버 연결
 
@@ -39,11 +40,6 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeRe
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
-
-## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
-OSBA([Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md))를 사용하면 Kubernetes 또는 Cloud Foundry에서 직접 Azure 서비스를 프로비전할 수 있습니다. OSBA는 Azure용으로 구현된 [Open Service Broker API](https://www.openservicebrokerapi.org/)입니다.
-
-OSBA를 사용하여 Azure Database for PostgreSQL 서버를 만들고 Kubernetes의 기본 언어를 사용하여 AKS 클러스터에 바인딩할 수 있습니다. [OSBA GitHub 페이지](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md)에서 OSBA 및 Azure Database for PostgreSQL을 함께 사용하는 방법을 알아봅니다. 
 
 
 ## <a name="connection-pooling"></a>연결 풀링

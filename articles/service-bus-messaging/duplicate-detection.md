@@ -3,11 +3,12 @@ title: Azure Service Bus 중복 메시지 검색 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 메시지에서 중복을 검색 하는 방법을 설명 합니다. 중복 된 메시지는 무시 하 고 삭제할 수 있습니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083891"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -32,7 +33,7 @@ ms.locfileid: "85337903"
 
 포털에서 **중복 검색 사용** 확인란을 사용하여 엔터티를 만드는 동안 이 기능은 켜져 있으며 기본적으로 해제되어 있습니다. 새 토픽을 만드는 설정은 동일합니다.
 
-![][1]
+![중복 검색 사용 옵션을 선택 하 고 빨간색으로 윤곽이 설정 된 큐 만들기 대화 상자의 스크린샷][1]
 
 > [!IMPORTANT]
 > 큐를 만든 후에 중복 검색을 사용하도록/사용하지 않도록 설정할 수 없습니다. 큐를 만들 때에만 수행할 수 있습니다. 
@@ -41,7 +42,7 @@ ms.locfileid: "85337903"
 
 중복 검색 시간 기록은 큐 및 토픽의 경우 기본값이 30초이며 최댓값은 7일입니다. 이 설정은 Azure Portal의 큐 및 토픽 속성 창에서 변경할 수 있습니다.
 
-![][2]
+![속성 설정이 강조 표시 되 고 중복 검색 기록 옵션이 빨간색으로 표시 된 Service Bus 기능의 스크린샷][2]
 
 프로그래밍 방식으로 전체 .NET Framework API에서 [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) 속성을 사용하여 메시지 ID가 유지되는 동안 중복 검색 기간의 크기를 구성할 수 있습니다. Azure Resource Manager API를 사용하면 값이 [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 속성으로 설정됩니다.
 

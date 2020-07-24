@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 36d74a8819285c5eb5fb0367a2b32ae299ae6c8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084316"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
 
@@ -35,7 +35,7 @@ ms.locfileid: "86223604"
 
 이는 일반 솔루션 아키텍처입니다(여러 모바일 앱으로 일반화되었지만 모바일 앱이 하나뿐일 경우 동일하게 적용할 수 있음).
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 ![이벤트, 구독 및 푸시 메시지를 통한 흐름을 보여 주는 엔터프라이즈 아키텍처 다이어그램][1]
 
@@ -51,21 +51,21 @@ ms.locfileid: "86223604"
 1. 모바일 애플리케이션
    * 알림 수신 및 표시
 
-### <a name="benefits"></a>혜택
+### <a name="benefits"></a>이점
 
 1. 수신자(알림 허브를 통한 모바일 앱/서비스)와 발신자(백엔드 시스템) 사이를 분리하면 최소한의 변경 내용을 가진 추가 백엔드 시스템을 통합할 수 있습니다.
 1. 이렇게 하면 하나 이상의 백 엔드 시스템에서 이벤트를 받을 수 있는 여러 모바일 앱 시나리오를 만들 수도 있습니다.  
 
-## <a name="sample"></a>샘플
+## <a name="sample"></a>예제
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 개념뿐만 아니라 일반적인 만들기 및 구성 단계에 익숙해지려면 다음 자습서를 완료합니다.
 
 1. [Service Bus Pub/Sub 프로그래밍] - 이 자습서는 Service Bus 항목/구독으로 작업하는 세부 사항, 항목/구독을 포함하는 네임스페이스를 만드는 방법 및 메시지를 송신 및 수신하는 방법에 대해 설명합니다.
 2. [Notification Hubs - Windows 범용 자습서] - 이 자습서는 Windows 스토어 앱을 설정하고 Notification Hubs를 사용하여 등록한 다음 알림을 수신하는 방법에 대해 설명합니다.
 
-### <a name="sample-code"></a>샘플 코드
+### <a name="sample-code"></a>예제 코드
 
 전체 샘플 코드는 [알림 허브 샘플]에서 사용 가능합니다. 세 가지 구성 요소로 구성되어 있습니다.
 
@@ -236,7 +236,7 @@ ms.locfileid: "86223604"
     Microsoft Azure Websites 옵션이 선택 된 상태에서 웹 게시 대화 상자의 스크린샷, 빨간색으로 표시 된 새 옵션을 사용 하 여 기존 웹 사이트 선택 대화 상자를 가리키는 녹색 화살표, 사이트 이름 및 만들기 옵션을 빨간색으로 표시 하 여 Microsoft Azure에서 사이트 만들기 대화 상자를 가리키는 녹색 화살표가 표시 됩니다.
     :::image-end:::
 
-    예: [Azure Portal]에 로그인할 때 다음과 같이 표시되어야 하므로 작업이 “계속 실행”되도록 구성합니다.
+    g. [Azure Portal]에 로그인할 때 다음과 같이 표시되어야 하므로 작업이 “계속 실행”되도록 구성합니다.
 
     ![Enterprise push 백엔드 webjobs 표시 되 고 이름, 일정 및 로그 값이 빨간색으로 표시 된 Azure Portal의 스크린샷][4]
 
@@ -289,8 +289,8 @@ ms.locfileid: "86223604"
 <!-- Links -->
 [알림 허브 샘플]: https://github.com/Azure/azure-notificationhubs-samples
 [Azure 모바일 서비스]: https://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/Sub 프로그래밍]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure Service Bus]: ../service-bus-messaging/service-bus-messaging-overview.md
+[Service Bus Pub/Sub 프로그래밍]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Azure WebJob]: ../app-service/webjobs-create.md
-[Notification Hubs - Windows 범용 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Notification Hubs - Windows 범용 자습서]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Azure Portal]: https://portal.azure.com/

@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084826"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -235,9 +236,9 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. Power BI desktop의 데이터를 시각화하려면 테이블 이름 앞의 확인란을 선택하고 **로드**를 클릭합니다.
 
-1. Power BI Desktop의 맨 왼쪽에 있는 데이터 탭을 선택하여 ![Power BI Desktop의 데이터 탭](./media/odbc-driver/odbc-driver-data-tab.png) 데이터를 가져왔는지 확인합니다.
+1. Power BI Desktop의 맨 왼쪽에서 데이터 탭을 선택 :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: 하 여 데이터를 가져왔는지 확인 합니다. 
 
-1. 이제 보고서 탭 ![Power BI Desktop의 보고서 탭](./media/odbc-driver/odbc-driver-report-tab.png)을 클릭한 다음 **새 시각적 개체**를 클릭하고 타일을 사용자 지정함으로써 Power BI를 통해 시각적 개체를 만들 수 있습니다. Power BI Desktop에서 시각화를 만드는 방법에 대한 자세한 내용은 [Power BI의 시각화 유형](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/)을 참조하세요.
+1. 이제 보고서 탭을 클릭 하 고 :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: **새 시각적 개체**를 클릭 한 다음 타일을 사용자 지정 하 여 Power BI를 사용 하 여 시각적 개체를 만들 수 있습니다. Power BI Desktop에서 시각화를 만드는 방법에 대한 자세한 내용은 [Power BI의 시각화 유형](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/)을 참조하세요. 
 
 ## <a name="troubleshooting"></a>문제 해결
 

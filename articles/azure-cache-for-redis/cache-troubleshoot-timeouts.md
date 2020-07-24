@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a5c5c80aaba083b0f65ac0dab41350765a8f5631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d9360a4b5c5f0ef080b3de2a9d425bcdf2b2e70
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081902"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Azure Cache for Redis 시간 제한 문제 해결
 
@@ -30,7 +30,7 @@ Redis 용 Azure Cache는 서버 소프트웨어를 제공 하는 관리 되는 �
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>StackExchange.Redis 시간 제한 예외 조사
 
-Redis는 `synctimeout` 기본 값이 1000 밀리초 인 동기 작업에 대해 이라는 구성 설정을 사용 합니다. 이 시간 내에 동기 호출이 완료 되지 않으면 Redis 클라이언트에서 다음 예제와 비슷한 시간 제한 오류를 throw 합니다.
+Redis는 `synctimeout` 기본 값이 5000 밀리초 인 동기 작업에 대해 이라는 구성 설정을 사용 합니다. 이 시간 내에 동기 호출이 완료 되지 않으면 Redis 클라이언트에서 다음 예제와 비슷한 시간 제한 오류를 throw 합니다.
 
 ```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
@@ -38,7 +38,7 @@ Redis는 `synctimeout` 기본 값이 1000 밀리초 인 동기 작업에 대해 
 
 이 오류 메시지에는 문제의 원인과 가능한 해결로 이끌 메트릭이 들어 있습니다. 다음 테이블에는 오류 메시지 메트릭에 대한 세부 정보가 있습니다.
 
-| 오류 메시지 메트릭 | 설명 |
+| 오류 메시지 메트릭 | 세부 정보 |
 | --- | --- |
 | inst |마지막 시간 조각에서: 0 명령이 발급되었습니다 |
 | mgr |소켓 관리자가 작업을 수행 하는 `socket.select` 중입니다. 즉, 어떤 작업을 수행 해야 하는 소켓을 나타내도록 OS에 요청 합니다. 판독기는 수행할 작업이 없다고 생각 하기 때문에 네트워크에서 적극적으로 읽지 않습니다. |
@@ -73,7 +73,7 @@ Redis는 `synctimeout` 기본 값이 1000 밀리초 인 동기 작업에 대해 
 
 1. 서버와 클라이언트 응용 프로그램이 Azure의 동일한 지역에 있는지 확인 합니다. 예를 들어 캐시가 미국 동부에 있지만 클라이언트는 미국 서 부에 있고 요청이 일정 시간 내에 완료 되지 않은 경우 `synctimeout` 또는 로컬 개발 컴퓨터에서 디버그할 때 시간 초과가 발생할 수 있습니다. 
 
-    동일한 Azure 지역에 캐시와 클라이언트를 두도록 하는 것이 좋습니다. 지역 간 호출을 포함하는 시나리오가 있다면, `synctimeout` 속성을 연결 문자열에 포함함으로써 `synctimeout` 간격을 기본값인 1000ms 간격보다 높은 값에 설정해야 합니다. 다음 예제에서는 `synctimeout` 2000 밀리초의 Redis에 대해 Azure Cache에서 제공 하는 Redis에 대 한 연결 문자열의 조각을 보여 줍니다.
+    동일한 Azure 지역에 캐시와 클라이언트를 두도록 하는 것이 좋습니다. 지역 간 호출을 포함 하는 시나리오가 있는 경우 `synctimeout` `synctimeout` 연결 문자열에 속성을 포함 하 여 간격을 기본 5000 밀리초 간격 보다 높은 값으로 설정 해야 합니다. 다음 예제에서는 `synctimeout` 2000 밀리초의 Redis에 대해 Azure Cache에서 제공 하는 Redis에 대 한 연결 문자열의 조각을 보여 줍니다.
 
     ```output
     synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...

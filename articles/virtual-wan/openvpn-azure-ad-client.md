@@ -2,17 +2,17 @@
 title: 'VPN Gateway: OpenVPN 프로토콜 P2S 연결에 대 한 VPN 클라이언트: Azure AD 인증'
 description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN을 사용할 수 있습니다.
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: alzam
-ms.openlocfilehash: bf507ff75d88ac4c549233e50a44ea60ab212886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf978f9551e5b2db885ca28d14f66586c029d913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082225"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성: Azure AD 인증
 
@@ -88,11 +88,11 @@ ms.locfileid: "85482992"
 
 1. 삭제할 클라이언트 프로필 옆에 있는 줄임표를 선택 합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![삭제](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![삭제](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>연결 만들기
 

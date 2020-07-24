@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2268c074480f99ca23117ca2ffd2c87c1dbb10a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84e4e34ab7b9f0250ae7bc94248fa98cbf23cd6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084384"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Media Indexer에서 Media Indexer 2에서 Video Indexer으로 마이그레이션
 
-[Azure Media Indexer](media-services-index-content.md) media 프로세서 및 [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)는 이러한 레거시 미디어 프로세서를 대체합니다.
+[Azure Media Indexer](media-services-index-content.md) media 프로세서 및 [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 Azure Media Services Video Indexer Azure 미디어 분석, Azure Cognitive Search, Cognitive Services (예: Face API, Microsoft Translator, Computer Vision API, Custom Speech Service)를 기반으로 합니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다. 에서 사용할 수 Video Indexer 시나리오, 제공 하는 기능 및 시작 하는 방법에 대 한 자세한 내용은 [비디오 및 오디오 모델 Video Indexer](../video-indexer/video-indexer-overview.md)을 참조 하세요. 
 
@@ -41,13 +42,13 @@ Azure Media Services Video Indexer Azure 미디어 분석, Azure Cognitive Searc
 
 ## <a name="getting-started-with-video-indexer"></a>Video Indexer 시작
 
-다음 섹션에서는 관련 링크를 제공 합니다. [Video Indexer 시작 하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+다음 섹션에서는 관련 링크를 제공 합니다. [Video Indexer 시작 하려면 어떻게 해야 하나요?](../video-indexer/video-indexer-overview.md#how-can-i-get-started-with-video-indexer) 
 
 ## <a name="getting-started-with-media-services-v3-apis"></a>Media Services v3 Api 시작
 
 Azure Media Services v3 API를 사용 하면 [Azure Media Services v3 분석기 사전 설정을](../latest/analyzing-video-audio-files-concept.md)통해 비디오 및 오디오 파일에서 통찰력을 추출할 수 있습니다. 
 
-**AudioAnalyzerPreset**를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 녹음/출력에 대 한 VTT 또는 TTML 파일과 JSON 파일 (추가 오디오 정보 모두 포함)이 포함 됩니다. 오디오 정보에는 키워드, 스피커 인덱싱 및 음성 감정 분석이 포함 됩니다. AudioAnalyzerPreset는 특정 언어에 대 한 언어 검색도 지원 합니다. 자세한 내용은 [변환](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)을 참조 하세요.
+**AudioAnalyzerPreset**를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 녹음/출력에 대 한 VTT 또는 TTML 파일과 JSON 파일 (추가 오디오 정보 모두 포함)이 포함 됩니다. 오디오 정보에는 키워드, 스피커 인덱싱 및 음성 감정 분석이 포함 됩니다. AudioAnalyzerPreset는 특정 언어에 대 한 언어 검색도 지원 합니다. 자세한 내용은 [변환](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)을 참조 하세요.
 
 ### <a name="get-started"></a>시작하기
 
@@ -59,12 +60,12 @@ Azure Media Services v3 API를 사용 하면 [Azure Media Services v3 분석기 
 
 ## <a name="getting-started-with-cognitive-services-speech-services"></a>Cognitive Services Speech Services 시작
 
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) 는 응용 프로그램, 도구 또는 장치가 사용 하거나 표시할 수 있는 실시간으로 오디오 스트림을 텍스트로 speech 하는 음성-텍스트 서비스를 제공 합니다. 음성 텍스트를 사용 하 여 [고유한 음향 모델, 언어 모델 또는 발음 모델을 사용자 지정할](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md)수 있습니다. 자세한 내용은 [Cognitive Services 음성 텍스트](../../cognitive-services/speech-service/speech-to-text.md)를 참조 하세요. 
+[Azure Cognitive Services](../../cognitive-services/index.yml) 는 응용 프로그램, 도구 또는 장치가 사용 하거나 표시할 수 있는 실시간으로 오디오 스트림을 텍스트로 speech 하는 음성-텍스트 서비스를 제공 합니다. 음성 텍스트를 사용 하 여 [고유한 음향 모델, 언어 모델 또는 발음 모델을 사용자 지정할](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md)수 있습니다. 자세한 내용은 [Cognitive Services 음성 텍스트](../../cognitive-services/speech-service/speech-to-text.md)를 참조 하세요. 
 
 > [!NOTE] 
-> 음성 텍스트 서비스는 비디오 파일 형식을 사용 하지 않으며 [특정 오디오 형식만](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats)사용 합니다. 
+> 음성 텍스트 서비스는 비디오 파일 형식을 사용 하지 않으며 [특정 오디오 형식만](../../cognitive-services/speech-service/rest-speech-to-text.md#audio-formats)사용 합니다. 
 
-텍스트 음성 변환 서비스 및 시작 하는 방법에 대 한 자세한 내용은 음성-텍스트 란 [?](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text) 을 참조 하세요.
+텍스트 음성 변환 서비스 및 시작 하는 방법에 대 한 자세한 내용은 음성-텍스트 란 [?](../../cognitive-services/speech-service/speech-to-text.md) 을 참조 하세요.
 
 ## <a name="known-differences-from-deprecated-services"></a>사용 되지 않는 서비스의 알려진 차이점 
 
@@ -82,5 +83,3 @@ Video Indexer, Azure Media Services v3 AudioAnalyzerPreset 및 Cognitive Service
 
 * [레거시 구성 요소](legacy-components.md)
 * [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/#encoding)
-
-

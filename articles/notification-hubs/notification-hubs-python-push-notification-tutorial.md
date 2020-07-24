@@ -17,18 +17,18 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5688caa16faf4a9d83b6d23b24676d43ad16697b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084299"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-MSDN 문서 [Notification Hubs REST API](https://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
+MSDN 문서 [Notification Hubs REST API](/previous-versions/azure/reference/dn223264(v=azure.100))에 설명된 대로 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다. 샘플은 Python 3.4를 사용하여 만들어졌습니다.
@@ -68,7 +68,7 @@ hub.send_windows_notification(wns_payload)
 
 아직 수행하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서]의 마지막 섹션까지 수행합니다.
 
-전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](https://msdn.microsoft.com/library/dn530746.aspx)을 참조하세요. 이 섹션에서는 Notification Hubs REST 엔드포인트에 액세스하고 알림을 보내는 데 필요한 기본 단계의 Python 구현에 대해 설명합니다.
+전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](/previous-versions/azure/reference/dn530746(v=azure.100))을 참조하세요. 이 섹션에서는 Notification Hubs REST 엔드포인트에 액세스하고 알림을 보내는 데 필요한 기본 단계의 Python 구현에 대해 설명합니다.
 
 1. 연결 문자열 구문 분석
 2. 인증 토큰 생성
@@ -103,7 +103,7 @@ class NotificationHub:
 
 ### <a name="create-security-token"></a>보안 토큰 만들기
 
-보안 토큰 만들기에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요.
+보안 토큰 만들기에 대한 자세한 내용은 [여기](/previous-versions/azure/reference/dn495627(v=azure.100))를 참조하세요.
 `NotificationHub` 클래스에 다음 메서드를 추가하여 현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만듭니다.
 
 ```python
@@ -164,7 +164,7 @@ class Notification:
 
 이 클래스는 기본 알림 본문(또는 템플릿 알림의 속성 집합), 형식(기본 플랫폼 또는 템플릿)이 포함된 헤더 집합 및 플랫폼 특정 속성(예: Apple 만료 속성 및 WNS 헤더)에 대한 컨테이너입니다.
 
-모든 사용할 수 있는 옵션은 [Notification Hubs REST API 설명서](https://msdn.microsoft.com/library/dn495827.aspx) 및 특정 알림 플랫폼의 형식을 참조하세요.
+모든 사용할 수 있는 옵션은 [Notification Hubs REST API 설명서](/previous-versions/azure/reference/dn495827(v=azure.100)) 및 특정 알림 플랫폼의 형식을 참조하세요.
 
 이제 이 클래스를 사용하여 `NotificationHub` 클래스 내부에 알림 보내기 메서드를 작성합니다.
 
@@ -293,7 +293,7 @@ def send_template_notification(self, properties, tags=""):
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>디버그 속성을 통해 자세한 로깅 사용
 
 알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다.
-[Notification Hubs TestSend 속성](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100))은 알림 보내기 결과에 대한 자세한 정보를 반환합니다.
+[Notification Hubs TestSend 속성](/previous-versions/azure/reference/dn495827(v=azure.100))은 알림 보내기 결과에 대한 자세한 정보를 반환합니다.
 이 속성을 사용하려면 다음 코드를 사용하여 초기화합니다.
 
 ```python
@@ -377,7 +377,7 @@ hub.send_baidu_notification(baidu_payload)
 
 Python 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성됩니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="enabling-the-debug-property"></a>`debug` 속성 사용
 
@@ -456,9 +456,9 @@ hub.send_template_notification(template_payload)
 
 <!-- URLs -->
 [Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[자습서 시작 하기]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[속보 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[지역화 뉴스 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[자습서 시작 하기]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[속보 자습서]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[지역화 뉴스 자습서]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

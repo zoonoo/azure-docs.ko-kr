@@ -2,12 +2,13 @@
 title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083857"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
@@ -17,7 +18,7 @@ ms.locfileid: "85341460"
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus에 대한 일반적인 질문
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
-[Azure Service Bus](service-bus-messaging-overview.md) 은 분리 된 시스템 간에 데이터를 보낼 수 있도록 하는 비동기 메시징 클라우드 플랫폼입니다. Microsoft에서 이 기능을 서비스로 제공하므로 이를 사용하기 위해 고유한 하드웨어를 호스트할 필요는 없습니다.
+[Azure Service Bus](service-bus-messaging-overview.md) 은 분리 된 시스템 간에 데이터를 보낼 수 있도록 하는 비동기 메시징 클라우드 플랫폼입니다. Microsoft는이 기능을 서비스로 제공 합니다. 즉,이 기능을 사용 하기 위해 자체 하드웨어를 호스트할 필요가 없습니다.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Service Bus 네임스페이스란?
 [네임 스페이스](service-bus-create-namespace-portal.md) 는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정 하기 위한 범위 지정 컨테이너를 제공 합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
@@ -29,9 +30,9 @@ ms.locfileid: "85341460"
 토픽은 큐로 시각화할 수 있고 여러 구독을 사용하는 경우 더 풍부한 메시징 모델이 되며 기본적으로는 일대다 통신 도구입니다. 이 게시/구독 모델(또는 *pub/sub*)을 사용하면 여러 애플리케이션에서 받은 메시지를 여러 구독을 사용하여 토픽에 메시지를 전송하는 애플리케이션을 활성화합니다.
 
 ### <a name="what-is-a-partitioned-entity"></a>분할된 엔터티란?
-일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. 기본 및 표준 메시징 계층에서만 지원되는 [분할된 큐 또는 토픽](service-bus-partitioning.md)은 여러 메시지 broker에 의해 처리되고 여러 메시징 저장소에 저장됩니다. 즉, 분할된 큐 또는 항목의 전체 처리량은 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않습니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 항목을 계속 렌더링할 수 없습니다.
+일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. 기본 및 표준 메시징 계층 에서만 지원 되며 [분할 된 큐 또는 토픽](service-bus-partitioning.md) 은 여러 메시지 브로커에 의해 처리 되 고 여러 메시징 저장소에 저장 됩니다. 즉, 분할된 큐 또는 항목의 전체 처리량은 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않습니다. 또한 메시징 저장소의 일시적인 중단은 분할 된 큐 또는 토픽을 사용할 수 없게 렌더링 하지 않습니다.
 
-분할된 엔터티를 사용하는 경우 순서는 보장할 수 없습니다. 파티션을 사용할 수 없는 이벤트에서도 여전히 메세지를 보내고 다른 파티션에서 메시지를 수신할 수 있습니다.
+분할 된 엔터티를 사용 하는 경우 순서가 보장 되지 않습니다. 파티션을 사용할 수 없는 이벤트에서도 여전히 메세지를 보내고 다른 파티션에서 메시지를 수신할 수 있습니다.
 
  분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
 
@@ -50,15 +51,15 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 | SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) 를 참조 하세요. |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>허용 목록에 추가할 IP 주소는 무엇인가요?
-연결의 허용 목록에 추가할 적절한 IP 주소를 찾으려면 다음 단계를 수행합니다.
+### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>허용 목록에 추가 해야 하는 IP 주소는 무엇 인가요?
+연결에 대 한 허용 목록에 추가할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행합니다. 
 
     ```
     nslookup <YourNamespaceName>.cloudapp.net
     ```
-2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 이 IP 주소는 정적입니다. 다른 클러스터에 네임 스페이스를 복원 하는 경우에만 변경 되는 유일한 시점입니다.
+2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 이 IP 주소는 정적입니다. 다른 클러스터로 네임스페이스를 복원하는 경우에만 변경될 수 있습니다.
 
 네임스페이스에 대해 영역 중복성을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. 
 
@@ -76,13 +77,17 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
     ```
 3. 접미사 s1, s2 및 s3를 포함하는 각 이름에 대해 nslookup을 실행하여 세 개의 가용성 영역에서 실행되는 세 인스턴스의 IP 주소를 모두 가져옵니다. 
 
+### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>네임 스페이스에서 메시지를 보내고 받는 클라이언트의 IP 주소는 어디에서 찾을 수 있나요? 
+네임 스페이스에서 메시지를 보내거나 받는 클라이언트의 IP 주소를 기록 하지 않습니다. 키를 다시 생성 하 여 모든 기존 클라이언트가 인증에 실패 하 고 허용 되는 사용자 또는 응용 프로그램만이 네임 스페이스에 액세스할 수 있도록[RBAC](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)(역할 기반 액세스 제어) 설정을 검토 합니다. 
+
+**프리미엄** 네임 스페이스를 사용 하는 경우 [IP 필터링](service-bus-ip-filtering.md), [가상 네트워크 서비스 끝점](service-bus-service-endpoints.md)및 [개인 끝점](private-link-service.md) 을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 합니다. 
 
 ## <a name="best-practices"></a>모범 사례
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure Service Bus 모범 사례는 무엇인가요?
 [Service Bus를 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus] 참조 - 이 문서에서는 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>엔터티를 만들기 전에 무엇을 알아야 하나요?
-큐 및 토픽에서 다음 속성을 변경할 수 없습니다. 엔터티를 프로비전할 때 이러한 제한 사항을 고려하세요. 새 대체 엔터티를 만들지 않은 경우 이러한 속성을 수정할 수 없기 때문입니다.
+큐 및 토픽에서 다음 속성을 변경할 수 없습니다. 엔터티를 프로 비전 할 때 이러한 제한 사항을 고려해 야 합니다. 이러한 속성은 새 대체 엔터티를 만들지 않고 수정할 수 없기 때문입니다.
 
 * 분할
 * 세션
@@ -99,25 +104,25 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 ### <a name="how-do-you-charge-for-service-bus"></a>Service Bus 요금을 어떻게 청구하나요?
 Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요. 언급된 가격 외에도 애플리케이션이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Service Bus를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-isnt"></a>Service Bus를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 무엇 인가요?
 지정된 Azure 지역 내에서 데이터 전송은 비용뿐만 아니라 인바운드 데이터 전송 없이 제공됩니다. 지역 외부의 데이터 전송은 [여기](https://azure.microsoft.com/pricing/details/bandwidth/)에서 찾을 수 있는 송신 요금이 청구됩니다.
 
 ### <a name="does-service-bus-charge-for-storage"></a>Service Bus는 스토리지에 대한 요금을 청구하나요?
-아니요, Service Bus는 스토리지에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
+아니요. Service Bus는 저장소에 대해 요금이 청구 되지 않습니다. 그러나 큐/토픽 마다 지속 될 수 있는 최대 데이터 양을 제한 하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Service Bus 표준 네임 스페이스가 있습니다. 리소스 그룹 ' $system '에 요금이 표시 되는 이유는 무엇 인가요?
-최근 청구 구성 요소를 업그레이드 Azure Service Bus. 이로 인해 Service Bus 표준 네임 스페이스가 있는 경우 리소스 그룹 ' $system ' 아래에 리소스 '/subscriptions/<azure_subscription_id>/Ssourceg/$system/providers/Microsoft.ServiceBus/namespaces/$system '에 대 한 줄 항목이 표시 될 수 있습니다.
+최근 청구 구성 요소를 업그레이드 Azure Service Bus. 이러한 변경으로 인해 Service Bus 표준 네임 스페이스가 있는 경우 리소스 그룹 ' $system ' 아래에 리소스 '/subscriptions/<azure_subscription_id>/Hsourceg/$system/providers/Microsoft.ServiceBus/namespaces/$system '에 대 한 줄 항목이 표시 될 수 있습니다.
 
 이러한 요금은 Service Bus 표준 네임 스페이스를 프로 비전 한 Azure 구독 당 기본 요금을 나타냅니다. 
 
-이러한 요금은 새로운 요금이 아니라 이전 청구 모델에도 존재 한다는 점에 유의 해야 합니다. 지금은 ' $system ' 아래에 나열 됩니다. 이는 ' $system ' 리소스 id의 특정 리소스와 연결 되지 않은 구독 수준 요금을 그룹화 하는 새로운 청구 시스템의 제약 조건 때문에 수행 됩니다.
+이러한 요금은 새로운 것이 아니라 이전 청구 모델에도 존재 한다는 것을 명심 해야 합니다. 지금은 ' $system ' 아래에 나열 됩니다. ' $System ' 리소스 ID의 특정 리소스에 연결 되지 않은 구독 수준 요금을 그룹화 하는 새로운 청구 시스템의 제약 조건으로 인해 수행 됩니다.
 
 ## <a name="quotas"></a>할당량
 
 Service Bus 제한 및 할당량 목록은 [Service Bus 할당량 개요][Quotas overview]를 참조하세요.
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>1MB를 초과하는 메시지 크기를 처리하는 방법
-Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리케이션이 최대 256KB(표준 계층) 또는 1MB(프리미엄 계층) 크기의 메시지를 보낼 수 있습니다. 1MB보다 큰 크기의 메시지를 처리하는 경우 [이 블로그 게시물](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)에 설명된 클레임 검사 패턴을 사용합니다.
+Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리케이션이 최대 256KB(표준 계층) 또는 1MB(프리미엄 계층) 크기의 메시지를 보낼 수 있습니다. 크기가 1mb를 초과 하는 메시지를 처리 하는 경우 [이 블로그 게시물](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)에 설명 된 클레임 검사 패턴을 사용 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>네임스페이스를 다른 구독에서 삭제한 후 만들 수 없는 이유는 무엇인가요? 
@@ -132,7 +137,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 ## <a name="subscription-and-namespace-management"></a>구독 및 네임스페이스 관리
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스를 마이그레이션하려면 어떻게 해야 하나요?
 
-[Azure Portal](https://portal.azure.com) 또는 PowerShell 명령을 사용하여 Azure 구독 간에 네임스페이스를 이동할 수 있습니다. 작업을 실행하기 위해 네임스페이스가 활성화되어야 합니다. 명령을 실행하는 사용자는 원본 및 대상 구독에 대한 관리자여야 합니다.
+[Azure Portal](https://portal.azure.com) 또는 PowerShell 명령을 사용하여 Azure 구독 간에 네임스페이스를 이동할 수 있습니다. 작업을 실행 하려면 네임 스페이스가 이미 활성화 되어 있어야 합니다. 명령을 실행하는 사용자는 원본 및 대상 구독에 대한 관리자여야 합니다.
 
 #### <a name="portal"></a>포털
 

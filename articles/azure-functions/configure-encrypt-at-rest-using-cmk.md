@@ -3,13 +3,14 @@ title: 미사용 응용 프로그램 원본 암호화
 description: Azure Storage에서 응용 프로그램 데이터를 암호화 하 고 패키지 파일로 배포 합니다.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 62179e900ace0d6d7b8b1f07e8f0ab685508f991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79408727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081885"
 ---
-# <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 암호화
+# <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 응용 프로그램 데이터 암호화
 
 휴지 상태의 함수 앱의 응용 프로그램 데이터를 암호화 하려면 Azure Storage 계정과 Azure Key Vault 필요 합니다. 이러한 서비스는 배포 패키지에서 앱을 실행할 때 사용 됩니다.
 

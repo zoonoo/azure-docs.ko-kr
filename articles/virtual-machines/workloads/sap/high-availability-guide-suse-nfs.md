@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d522d66642abf55e478cea7579e36bdc64a8cf79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348864"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085166"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -136,14 +136,14 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    SAP 애플리케이션 12 SP3용 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신의 각 SAP 시스템에 하나의 데이터 디스크를 추가합니다.
-1. Load Balancer (내부)를 만듭니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 만드는 것이 좋습니다.  
+1. Load Balancer (내부)를 만듭니다. [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.  
    1. 표준 부하 분산 장치를 만들려면 다음 지침을 따르세요.
       1. 프런트 엔드 IP 주소 만들기
          1. NW1의 경우 IP 주소 10.0.0.4
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
             1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-frontend**)
             1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.4**)
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 IP 주소 10.0.0.5
             * NW2에 대해 위 단계를 반복
       1. 백 엔드 풀 만들기
@@ -159,7 +159,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
             1. 새 상태 프로브의 이름 입력(예: **nw1-hp**)
             1. 프로토콜로 TCP를 선택하고 포트 610**00**을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
       1. 부하 분산 규칙
@@ -177,7 +177,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
             1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-frontend**)
             1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.4**)
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 IP 주소 10.0.0.5
             * NW2에 대해 위 단계를 반복
       1. 백 엔드 풀 만들기
@@ -193,7 +193,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
             1. 새 상태 프로브의 이름 입력(예: **nw1-hp**)
             1. 프로토콜로 TCP를 선택하고 포트 610**00**을 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-            1. 확인 클릭
+            1. 확인을 클릭합니다.
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
       1. 부하 분산 규칙
@@ -213,10 +213,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             * NW2의 UDP 및 포트 2049에 대하 위 단계 반복
 
 > [!Note]
-> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조하세요.  
+> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 

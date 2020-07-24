@@ -4,12 +4,12 @@ description: Azure Functions, 포털 개발을 위한 Durable Functions 확장�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 7eee3c36620d0cc9f5906e355b76e7418c61b477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081919"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -58,8 +58,6 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
    ![Kudu 실행 npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
    
-5. 마지막으로 값이 인 앱 설정을 추가 하 여 [호환성 모드를 사용 하도록 설정](https://docs.microsoft.com/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1) `FUNCTIONS_V2_COMPATIBILITY_MODE` `true` 합니다.
-
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
 1. 함수 앱의 왼쪽 창에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다. 

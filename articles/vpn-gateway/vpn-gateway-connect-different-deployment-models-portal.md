@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082106"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -28,13 +28,13 @@ ms.locfileid: "84987680"
 
 가상 네트워크 게이트웨이가 아직 없으며 만들지 않으려면 VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
-### <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
+### <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
 
 
 
 * 이 단계에서는 두 VNet이 이미 만들어졌다고 가정합니다. 이 문서를 사용하여 연습을 하는 경우 VNet이 없으면 단계 내에 VNet 만들기를 도와주는 링크가 있습니다.
 * VNet에 대한 주소 범위가 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않는지 확인합니다.
-* Resource Manager와 Service Management(클래식)에 대해 최신 PowerShell cmdlet을 설치합니다. 이 문서에서는 Azure Portal 및 PowerShell을 모두 사용합니다. PowerShell은 클래식 VNet에서 Resource Manager VNet에 연결을 만드는 데 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요. 
+* Resource Manager와 Service Management(클래식)에 대해 최신 PowerShell cmdlet을 설치합니다. 이 문서에서는 Azure Portal 및 PowerShell을 모두 사용합니다. PowerShell은 클래식 VNet에서 Resource Manager VNet에 연결을 만드는 데 필요합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/)을 참조하세요. 
 
 ### <a name="example-settings"></a><a name="values"></a>설정 예
 

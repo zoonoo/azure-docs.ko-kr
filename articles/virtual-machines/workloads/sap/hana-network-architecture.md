@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 585dfcd437357c638a3544a4cb74ad386f8cb218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085200"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -74,7 +75,7 @@ Azure에서 SAP 배포의 차이점은 다음과 같습니다.
 
 HANA 큰 인스턴스 스탬프의 수정 버전 3을 사용 하는 경우 vm과 HANA 큰 인스턴스 단위 간에 발생 하는 네트워크 대기 시간은 일반적인 VM 간 네트워크 왕복 대기 시간 보다 높을 수 있습니다. Azure 지역에 따라 측정값은 [SAP Note #1100926 - FAQ: 네트워크 성능](https://launchpad.support.sap.com/#/notes/1100926/E)에서 평균 미만으로 분류된 0.7ms 왕복 대기 시간을 초과할 수 있습니다. Azure VM 및 HANA 대규모 인스턴스 단위 간의 네트워크 왕복 대기 시간을 측정하는 Azure 지역 및 도구에 따라 측정된 대기 시간은 최대 약 2밀리초일 수 있습니다. 그럼에도 불구하고 고객은 SAP HANA 기반 프로덕션 SAP 애플리케이션을 SAP HANA 대규모 인스턴스에 성공적으로 배포합니다. Azure HANA 대규모 인스턴스에서 자신의 비즈니스 프로세스를 철저하게 테스트해야 합니다. Express 경로 빠른 경로 라는 새로운 기능을 통해 Azure의 HANA 큰 인스턴스 및 응용 프로그램 계층 Vm 간의 네트워크 대기 시간을 크게 줄일 수 있습니다 (아래 참조). 
 
-HANA Large Instance 스탬프의 수정 버전 4를 사용 하면 [SAP Note #1100926-FAQ:](https://launchpad.support.sap.com/#/notes/1100926/E) Azure Express 경로 빠른 경로가 구성 된 경우 네트워크 성능 (아래 참조)에 설명 된 대로 평균을 초과 하는 것과 같은 평균 분류를 만족 하는 것이 좋습니다. 수정 버전 4의 HANA Large Instance 장치에 근접 하 게 Azure Vm을 배포 하려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 활용 해야 합니다. [Sap 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하려면 Azure 근접 배치 그룹에서 Azure 근접 배치](sap-proximity-placement-scenarios.md)그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다.
+HANA Large Instance 스탬프의 수정 버전 4를 사용 하면 [SAP Note #1100926-FAQ:](https://launchpad.support.sap.com/#/notes/1100926/E) Azure Express 경로 빠른 경로가 구성 된 경우 네트워크 성능 (아래 참조)에 설명 된 대로 평균을 초과 하는 것과 같은 평균 분류를 만족 하는 것이 좋습니다. 수정 버전 4의 HANA Large Instance 장치에 근접 하 게 Azure Vm을 배포 하려면 [Azure 근접 배치 그룹](../../linux/co-location.md)을 활용 해야 합니다. [Sap 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하려면 Azure 근접 배치 그룹에서 Azure 근접 배치](sap-proximity-placement-scenarios.md)그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다.
 
 Vm과 HANA Large Instance 간에 결정적인 네트워크 대기 시간을 제공 하기 위해 Express 경로 게이트웨이 SKU를 선택 하는 것이 필수적입니다. 온-프레미스와 VM 간의 트래픽 패턴과는 달리, VM과 HANA 대규모 인스턴스 간의 트래픽 패턴은 작지만 높은 버스트의 요청 및 데이터 볼륨을 전송하도록 개발할 수 있습니다. 이러한 버스트를 잘 처리하려면 UltraPerformance 게이트웨이 SKU를 사용하는 것이 좋습니다. HANA Large Instance Sku의 Type II 클래스에서 UltraPerformance 게이트웨이 SKU를 Express 경로 게이트웨이로 사용 하는 것은 필수입니다.
 
@@ -85,10 +86,10 @@ Vm과 HANA Large Instance 간에 결정적인 네트워크 대기 시간을 제�
 대기 시간을 줄이려면 Express 경로 빠른 경로가 도입 되어 SAP 응용 프로그램 Vm을 호스트 하는 Azure virtual network에 대 한 HANA Large 인스턴스의 특정 연결에 대해 2019 년 5 월에 릴리스 되었습니다. 지금까지 출시 된 솔루션의 주요 차이점은 Vm과 HANA 큰 인스턴스 간의 데이터 흐름이 Express 경로 게이트웨이를 통해 더 이상 라우팅되지 않는다는 것입니다. 대신, Azure 가상 네트워크의 서브넷에 할당 된 Vm이 전용 엔터프라이즈에 지 라우터와 직접 통신 합니다. 
 
 > [!IMPORTANT] 
-> Express 경로 빠른 경로 기능을 사용 하려면 SAP 응용 프로그램 Vm을 실행 하는 서브넷이 HANA Large Instances에 연결 된 동일한 Azure 가상 네트워크에 있어야 합니다. HANA Large Instance 장치에 직접 연결 된 Azure virtual network로 피어 링 Azure virtual network에 있는 Vm은 Express 경로 빠른 경로에서 기능과 되지 않습니다. 결과적으로, Express 경로 회로는 허브 가상 네트워크에 연결 하 고, SAP 응용 프로그램 계층 (스포크)을 포함 하는 가상 네트워크는 피어 링 되는 일반적인 허브 및 스포크 가상 네트워크 디자인은 Express 경로 빠른 경로에의 한 최적화가 작동 하지 않습니다. 이외에서 Express 경로 빠른 경로는 현재 UDR (사용자 정의 라우팅 규칙)을 지원 하지 않습니다. 자세한 내용은 [Express 경로 가상 네트워크 게이트웨이 및 fastpath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways)를 참조 하세요. 
+> Express 경로 빠른 경로 기능을 사용 하려면 SAP 응용 프로그램 Vm을 실행 하는 서브넷이 HANA Large Instances에 연결 된 동일한 Azure 가상 네트워크에 있어야 합니다. HANA Large Instance 장치에 직접 연결 된 Azure virtual network로 피어 링 Azure virtual network에 있는 Vm은 Express 경로 빠른 경로에서 기능과 되지 않습니다. 결과적으로, Express 경로 회로는 허브 가상 네트워크에 연결 하 고, SAP 응용 프로그램 계층 (스포크)을 포함 하는 가상 네트워크는 피어 링 되는 일반적인 허브 및 스포크 가상 네트워크 디자인은 Express 경로 빠른 경로에의 한 최적화가 작동 하지 않습니다. 이외에서 Express 경로 빠른 경로는 현재 UDR (사용자 정의 라우팅 규칙)을 지원 하지 않습니다. 자세한 내용은 [Express 경로 가상 네트워크 게이트웨이 및 fastpath](../../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조 하세요. 
 
 
-Express 경로 빠른 경로를 구성 하는 방법에 대 한 자세한 내용은 [HANA large instances에 가상 네트워크 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)문서를 참조 하세요.    
+Express 경로 빠른 경로를 구성 하는 방법에 대 한 자세한 내용은 [HANA large instances에 가상 네트워크 연결](./hana-connect-vnet-express-route.md)문서를 참조 하세요.    
 
 > [!NOTE]
 > Express 경로 빠른 경로가 작동 하려면 UltraPerformance Express 경로 게이트웨이가 필요 합니다.
@@ -123,7 +124,7 @@ Azure (Large Instances)의 SAP HANA에 연결 하기 위해 여러 SAP 시스템
 
 ![여러 가상 네트워크를 통해 SAP 애플리케이션 계층 배포](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-규칙 및 제한 사항에 따라, 다른 SAP 시스템의 Vm을 호스트 하는 여러 가상 네트워크 간에 적용 하려는 경우 해당 가상 네트워크를 피어 링 해야 합니다. 가상 네트워크 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
+규칙 및 제한 사항에 따라, 다른 SAP 시스템의 Vm을 호스트 하는 여러 가상 네트워크 간에 적용 하려는 경우 해당 가상 네트워크를 피어 링 해야 합니다. 가상 네트워크 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](../../../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 
 ## <a name="routing-in-azure"></a>Azure에서 라우팅
@@ -147,7 +148,7 @@ Azure (Large Instances)의 SAP HANA에 연결 하기 위해 여러 SAP 시스템
 이러한 시나리오에서 전이적 라우팅을 사용 하도록 설정 하는 방법에는 세 가지가 있습니다.
 
 - 데이터를 라우팅하는 역방향 프록시를 사용합니다. 예를 들어, NGINX는 Azure 가상 네트워크에 배포 되 고 HANA 큰 인스턴스 및 온-프레미스에 가상 방화벽/트래픽 라우팅 솔루션으로 연결 되는 Azure 가상 네트워크에 배포 된 Traffic Manager.
-- Linux VM에서 [IPTables 규칙](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)을 사용하여 온-프레미스 위치와 HANA 대규모 인스턴스 장치 간 또는 다른 지역의 HANA 대규모 인스턴스 장치 간에 라우팅을 사용하도록 설정합니다. IPTables를 실행 하는 VM은 HANA Large Instances 및 온-프레미스에 연결 하는 Azure 가상 네트워크에 배포 해야 합니다. VM의 크기를 적절 하 게 조정 해야 하므로 VM의 네트워크 처리량이 예상 네트워크 트래픽에 충분 합니다. VM 네트워크 대역폭에 대 한 자세한 내용은 [Azure에서 Linux 가상 머신의 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)문서를 참조 하세요.
+- Linux VM에서 [IPTables 규칙](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)을 사용하여 온-프레미스 위치와 HANA 대규모 인스턴스 장치 간 또는 다른 지역의 HANA 대규모 인스턴스 장치 간에 라우팅을 사용하도록 설정합니다. IPTables를 실행 하는 VM은 HANA Large Instances 및 온-프레미스에 연결 하는 Azure 가상 네트워크에 배포 해야 합니다. VM의 크기를 적절 하 게 조정 해야 하므로 VM의 네트워크 처리량이 예상 네트워크 트래픽에 충분 합니다. VM 네트워크 대역폭에 대 한 자세한 내용은 [Azure에서 Linux 가상 머신의 크기](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)문서를 참조 하세요.
 - [Azure 방화벽](https://azure.microsoft.com/services/azure-firewall/) 은 온-프레미스와 HANA Large instance 단위 간의 직접 트래픽을 허용 하는 다른 솔루션입니다. 
 
 이러한 솔루션의 모든 트래픽은 Azure 가상 네트워크를 통해 라우팅됩니다. 따라서 사용 하는 소프트 어플라이언스 또는 Azure 네트워크 보안 그룹에 의해 트래픽을 추가로 제한할 수 있으므로 온-프레미스의 특정 IP 주소 또는 IP 주소 범위를 차단 하거나 명시적으로 HANA Large Instances에 액세스할 수 있습니다. 
@@ -156,7 +157,7 @@ Azure (Large Instances)의 SAP HANA에 연결 하기 위해 여러 SAP 시스템
 > Microsoft에서는 타사 네트워크 어플라이언스 또는 IPTables와 관련된 사용자 지정 솔루션에 대한 구현 및 지원을 제공하지 않습니다. 지원은 사용되는 구성 요소의 공급업체 또는 통합자에서 제공해야 합니다. 
 
 #### <a name="express-route-global-reach"></a>Express 경로 Global Reach
-Microsoft는 [express 경로 Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach)라는 새로운 기능을 도입 했습니다. Global Reach는 다음과 같은 두 가지 시나리오에서 HANA 대량 인스턴스에 사용할 수 있습니다.
+Microsoft는 [express 경로 Global Reach](../../../expressroute/expressroute-global-reach.md)라는 새로운 기능을 도입 했습니다. Global Reach는 다음과 같은 두 가지 시나리오에서 HANA 대량 인스턴스에 사용할 수 있습니다.
 
 - 다른 지역에 배포 된 HANA 대량 인스턴스 단위로 온-프레미스에서 직접 액세스를 사용 하도록 설정
 - 다른 지역에 배포 된 HANA 대량 인스턴스 단위 간의 직접 통신 사용
@@ -174,7 +175,7 @@ Global Reach 제공 되는 Azure 지역에서 HANA Large Instance 장치에 연�
 > [!IMPORTANT]  
 > 서로 다른 HANA Large instance 테 넌 트 간의 네트워크 트래픽 제어 흐름 및 데이터 흐름은 azure 네트워크를 통해 라우팅되지 않습니다. 따라서 Azure 기능 또는 Nva를 사용 하 여 두 HANA Large Instances 테 넌 트 간에 통신 제한을 적용할 수 없습니다. 
 
-Global Reach Express 경로를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 문서에서 [가상 네트워크를 HANA large instances에 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)문서를 참조 하세요.
+Global Reach Express 경로를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 문서에서 [가상 네트워크를 HANA large instances에 연결](./hana-connect-vnet-express-route.md)문서를 참조 하세요.
 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>HANA 대규모 인스턴스의 인터넷 연결
@@ -193,7 +194,7 @@ HANA 대규모 인스턴스 및 VM 간에 전송되는 데이터는 암호화되
 
 ![다른 Azure 지역의 Azure 대규모 인스턴스 스탬프에 연결된 가상 네트워크](./media/hana-overview-architecture/image8-multiple-regions.png)
 
-이 그림에서는 두 지역에 있는 서로 다른 가상 네트워크가 두 Azure 지역 (회색 선)의 Azure (Large Instances)에서 SAP HANA에 연결 하는 데 사용 되는 서로 다른 두 Express 경로 회로에 연결 되는 방법을 보여 줍니다. 이러한 두 개의 교차 연결에 대 한 이유는 한쪽에서 MSEEs 중단 으로부터 보호 하는 것입니다. 두 Azure 지역에 있는 두 가상 네트워크 간의 통신 흐름은 두 개의 서로 다른 지역에 있는 두 가상 네트워크의 [글로벌 피어 링](https://blogs.msdn.microsoft.com/azureedu/2018/04/24/how-to-setup-global-vnet-peering-in-azure/) (파란색 점선)을 통해 처리 되어야 합니다. 굵은 빨간색 선은 두 개의 서로 다른 지역에 있는 테 넌 트의 HANA Large Instance 단위가 서로 통신할 수 있도록 하는 Express 경로 Global Reach 연결을 설명 합니다. 
+이 그림에서는 두 지역에 있는 서로 다른 가상 네트워크가 두 Azure 지역 (회색 선)의 Azure (Large Instances)에서 SAP HANA에 연결 하는 데 사용 되는 서로 다른 두 Express 경로 회로에 연결 되는 방법을 보여 줍니다. 이러한 두 개의 교차 연결에 대 한 이유는 한쪽에서 MSEEs 중단 으로부터 보호 하는 것입니다. 두 Azure 지역에 있는 두 가상 네트워크 간의 통신 흐름은 두 개의 서로 다른 지역에 있는 두 가상 네트워크의 [글로벌 피어 링](/archive/blogs/azureedu/how-to-setup-global-vnet-peering-in-azure) (파란색 점선)을 통해 처리 되어야 합니다. 굵은 빨간색 선은 두 개의 서로 다른 지역에 있는 테 넌 트의 HANA Large Instance 단위가 서로 통신할 수 있도록 하는 Express 경로 Global Reach 연결을 설명 합니다. 
 
 > [!IMPORTANT] 
 > 여러 개의 ExpressRoute 회로를 사용한 경우 트래픽을 적절하게 라우팅할 수 있도록 선행 AS 경로 추가 및 로컬 기본 BGP 설정을 사용해야 합니다.

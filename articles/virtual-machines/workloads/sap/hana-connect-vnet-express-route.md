@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082157"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>가상 네트워크를 HANA 대규모 인스턴스에 연결
 
@@ -95,7 +96,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** 명령의 마지막 매개 변수는 Express 경로 빠른 경로를 사용 하는 새로운 매개 변수입니다. HANA Large Instance 단위와 Azure Vm 간의 네트워크 대기 시간을 줄이는 기능입니다. 이 기능은 5 월 2019에 추가 되었습니다. 자세한 내용은 [SAP HANA (Large Instances) 네트워크 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)문서를 참조 하세요. 명령을 실행 하기 전에 최신 버전의 PowerShell cmdlet을 실행 하 고 있는지 확인 합니다.
+> AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** 명령의 마지막 매개 변수는 Express 경로 빠른 경로를 사용 하는 새로운 매개 변수입니다. HANA Large Instance 단위와 Azure Vm 간의 네트워크 대기 시간을 줄이는 기능입니다. 이 기능은 5 월 2019에 추가 되었습니다. 자세한 내용은 [SAP HANA (Large Instances) 네트워크 아키텍처](./hana-network-architecture.md)문서를 참조 하세요. 명령을 실행 하기 전에 최신 버전의 PowerShell cmdlet을 실행 하 고 있는지 확인 합니다.
 
 게이트웨이를 구독과 연결된 두 개 이상의 ExpressRoute 회로에 연결하려면 이 단계를 두 번 이상 실행해야 할 수 있습니다. 예를 들어 가상 네트워크를 온-프레미스 네트워크에 연결하는 ExpressRoute 회로에 동일한 가상 네트워크 게이트웨이를 연결해야 할 가능성이 높습니다.
 
@@ -138,7 +139,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 - HANA 큰 인스턴스에 대 한 온-프레미스 경로를 보급 하는 데 사용할 수 있는 ASNs (자치 시스템 번호)에는 제한이 있습니다. 온-프레미스에서 65000 – 65020 또는 65515 범위의 개인 ASNs를 사용 하 여 경로를 알리지 않아야 합니다. 
 - HANA Large instances에 대 한 온-프레미스 직접 액세스를 연결 하는 시나리오의 경우 Azure에 연결 하는 회로에 대 한 요금을 계산 해야 합니다. 가격에 대해서는 [Global Reach 추가 기능](https://azure.microsoft.com/pricing/details/expressroute/)에 대 한 가격을 확인 하세요.
 
-배포에 적용 되는 시나리오 중 하나 또는 둘 다를 가져오려면 [HANA Large Instances에 대 한 지원 요청 열기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances) 에 설명 된 대로 Azure에서 지원 메시지를 엽니다.
+배포에 적용 되는 시나리오 중 하나 또는 둘 다를 가져오려면 [HANA Large Instances에 대 한 지원 요청 열기](./hana-li-portal.md#open-a-support-request-for-hana-large-instances) 에 설명 된 대로 Azure에서 지원 메시지를 엽니다.
 
 Microsoft에서 요청에 대 한 라우팅 및 실행을 위해 사용 해야 하는 필요한 데이터 및 키워드는 다음과 같습니다.
 

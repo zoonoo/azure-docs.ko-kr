@@ -3,12 +3,12 @@ title: 매개 변수 파일 만들기
 description: Azure Resource Manager 템플릿을 배포하는 동안 값을 전달하기 위한 매개 변수 파일 만들기
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117508"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082939"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Resource Manager 매개 변수 파일 만들기
 
@@ -184,10 +184,10 @@ ms.locfileid: "85117508"
 
 ## <a name="deploy-template-with-parameter-file"></a>매개 변수 파일을 사용 하 여 템플릿 배포
 
-참조
+다음을 참조하세요.
 
-- [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure CLI](./deploy-powershell.md#pass-parameter-values)
-- [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](./deploy-cli.md#parameters)
+- [ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포](./deploy-cli.md#parameters)
+- [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md#pass-parameter-values)
 
 ## <a name="file-name"></a>파일 이름
 

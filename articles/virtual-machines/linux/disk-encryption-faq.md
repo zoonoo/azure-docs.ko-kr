@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d28d7bd85326e8a4cf27dba1f3f605b64477c5aa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c0bdc5b9f3d43075cbeba664a5cfb4277c20de57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082548"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Linux 가상 머신용 Azure Disk Encryption FAQ
 
@@ -153,15 +154,15 @@ XFS 데이터 디스크의 암호화는 EncryptFormatAll 매개 변수를 사용
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>암호화된 VM을 백업 및 복원할 수 있나요? 
 
-Azure Backup은 동일한 구독 및 지역 내에서 암호화된 VM을 백업 및 복원하는 메커니즘을 제공합니다.  지침은 [Azure Backup을 사용하여 암호화된 가상 머신을 백업 및 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)을 참조하세요.  암호화된 VM을 다른 지역으로 복원하는 것은 현재 지원되지 않습니다.  
+Azure Backup은 동일한 구독 및 지역 내에서 암호화된 VM을 백업 및 복원하는 메커니즘을 제공합니다.  지침은 [Azure Backup을 사용하여 암호화된 가상 머신을 백업 및 복원](../../backup/backup-azure-vms-encryption.md)을 참조하세요.  암호화된 VM을 다른 지역으로 복원하는 것은 현재 지원되지 않습니다.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>질문을 하거나 의견을 제출할 수 있는 곳은 어디인가요?
 
-[Azure Disk Encryption의 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html)에서 질문하거나 피드백을 제출할 수 있습니다.
+[Azure Disk Encryption의 Microsoft Q&A 질문 페이지](/answers/topics/azure-disk-encryption.html)에서 질문하거나 피드백을 제출할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Disk Encryption와 관련하여 가장 자주 묻는 질문에 대해 자세히 알아 보았습니다. 이 서비스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Disk Encryption 개요](disk-encryption-overview.md)
-- [Azure Security Center에서 디스크 암호화 적용](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [휴지 상태의 Azure 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Azure Security Center에서 디스크 암호화 적용](../../security-center/security-center-virtual-machine-protection.md)
+- [휴지 상태의 Azure 데이터 암호화](../../security/fundamentals/encryption-atrest.md)

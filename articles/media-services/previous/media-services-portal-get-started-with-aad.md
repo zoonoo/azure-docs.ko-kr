@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208019bbc86b22443c7d012400d4e4324679aee9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78330671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084469"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 인증에 액세스하고 Azure Media Services API에 액세스하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 계정. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작하세요. 
 - Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
@@ -52,7 +53,7 @@ Azure AD(Azure Active Directory) 앱 및 비밀을 사용하여 서비스를 인
 
 **AAD 앱 및 비밀 관리** 섹션을 사용하여 새 Azure AD 앱을 선택하거나 만들고 비밀을 생성할 수 있습니다. 보안상의 이유로 블레이드가 닫힌 후에는 비밀을 표시할 수 없습니다. 애플리케이션은 인증에 애플리케이션 ID 및 비밀을 사용하여 미디어 서비스에 대한 유효한 토큰을 가져옵니다.
 
-Azure AD 테넌트로 애플리케이션을 등록하고 애플리케이션을 Azure 구독의 역할에 할당할 수 있는 충분한 권한이 있는지 확인하세요. 자세한 내용은 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)을 참조하세요.
+Azure AD 테넌트로 애플리케이션을 등록하고 애플리케이션을 Azure 구독의 역할에 할당할 수 있는 충분한 권한이 있는지 확인하세요. 자세한 내용은 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)을 참조하세요.
 
 ### <a name="connect-to-media-services-api"></a>Media Services API에 연결
 

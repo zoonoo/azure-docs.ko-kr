@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 971ab39ddf4b383f92f0cd81e5258ad357e76e99
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cf2437443350cf9b21b6abc0d0dd1dbd5d22e41f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083194"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -79,7 +79,7 @@ WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
 ![웹 프로젝트에 연결된 WebJob 프로젝트를 보여 주는 다이어그램](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 Visual Studio 2015를 사용하는 경우 [Azure SDK for .NET(Visual Studio 2015)](https://azure.microsoft.com/downloads/)을 설치합니다.
 
@@ -225,7 +225,7 @@ WebJobs는 *설정. 작업* 파일을 사용 하 여 WebJob이 실행 되는 시
 
 ### <a name="cron-expressions"></a>CRON 식
 
-WebJobs는 Azure Functions에서 타이머 트리거로 일정을 예약 하는 데 동일한 CRON 식을 사용 합니다. CRON 지원에 대 한 자세한 내용은 [타이머 트리거 참조 문서](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)를 참조 하세요.
+WebJobs는 Azure Functions에서 타이머 트리거로 일정을 예약 하는 데 동일한 CRON 식을 사용 합니다. CRON 지원에 대 한 자세한 내용은 [Azure Functions에 대 한 타이머 트리거](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)를 참조 하세요.
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
@@ -233,7 +233,7 @@ WebJobs는 Azure Functions에서 타이머 트리거로 일정을 예약 하는 
 
 WebJobs에서 지원 되는 설정은 다음과 같습니다.
 
-| **설정** | **Type**  | **설명** |
+| **설정** | **형식**  | **설명** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | 모두 | 임시 폴더에 먼저 복사 하지 않고 작업을 실행할 수 있습니다. 자세히 알아보려면 [WebJobs 작업 디렉터리](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)를 참조 하세요. |
 | `is_singleton` | 계속 | 확장 된 경우에만 단일 인스턴스에서 WebJobs를 실행 합니다. 자세히 알아보려면 [연속 작업을 singleton으로 설정](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)을 참조 하세요. |

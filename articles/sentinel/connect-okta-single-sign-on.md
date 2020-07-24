@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 37ade037b7f3c88f5ff33d7fc4640b19f366fe7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 05a9b8009d896a2ee87df3e1c4493d249a887566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083925"
 ---
 # <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Azure Function을 사용 하 여 Azure 센티널에 Okta Single Sign-on 연결
+
+> [!IMPORTANT]
+> Azure 센티널의 Okta Single Sign-on 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Okta SSO (Single Sign-on) 커넥터를 사용 하면 모든 [Okta sso (](https://www.okta.com/products/single-sign-on/) single sign-on) 보안 솔루션 로그를 Azure 센티널과 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Okta Single Sign-on과 Azure 센티널 간의 통합은 Azure Functions를 사용 하 여 REST API를 사용 하 여 로그 데이터를 끌어옵니다.
 

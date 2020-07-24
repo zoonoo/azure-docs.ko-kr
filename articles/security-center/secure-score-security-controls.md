@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ad817afd8f4e80e99055646dca34b9bb05d100f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1956090f1b927d9fd4e205eaa57bf1952cb1b070
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083993"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 향상
 
@@ -172,7 +172,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 모범 사례 구현(최대 점수 0)</p></strong>최신 보안 방침에서는 네트워크 경계의 "침해를 가정"합니다. 이러한 이유로 이 컨트롤의 많은 모범 사례는 ID 관리에 중점을 둡니다.<br>키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">Azure Key Vault</a>는 키, .pfx 파일 및 암호를 암호화하여 키와 암호를 보호합니다.<br>VPN(가상 사설망)은 가상 머신에 안전하게 액세스할 수 있는 방법입니다. VPN을 사용할 수 없는 경우 <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>과 같은 복잡한 암호 및 2단계 인증을 사용합니다. 2단계 인증은 사용자 이름 및 암호에만 의존하는 약점을 방지합니다.<br>강력한 인증 및 권한 부여 플랫폼을 사용하는 것이 또 다른 모범 사례입니다. 페더레이션된 ID를 사용하면 조직에서 권한 있는 ID의 관리를 위임할 수 있습니다. 직원의 채용을 끝내고 해당 액세스 권한을 취소해야 하는 경우에도 이러한 과정이 중요합니다.</td>
-    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>-SQL Database에 대 한 고급 데이터 보안 설정에는 보안 경고를 받을 수 있는 전자 메일 주소가 포함 되어야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>-모든 advanced threat protection 유형은 SQL Managed Instance 고급 데이터 보안 설정에서 사용 하도록 설정 해야 합니다.<br>- SQL 서버 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 메일 알림을 사용하도록 설정해야 합니다.<br>- SQL 서버의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>-서버에 대 한 고급 데이터 보안 설정 SQL Database 모든 advanced threat protection 유형을 사용 하도록 설정 해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.<br>-인터넷에 연결 되지 않은 가상 컴퓨터는 네트워크 보안 그룹을 사용 하 여 보호 해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.<br>-인터넷에 연결 되지 않은 가상 컴퓨터는 네트워크 보안 그룹을 사용 하 여 보호 해야 합니다.</td>
   </tr>
 </tbody>
 </table>

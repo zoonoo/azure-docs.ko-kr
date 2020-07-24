@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082565"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -20,7 +21,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 
 이 문서에서는 REST API를 사용하여 관리 디스크 및 SSH 인증을 통해 Ubuntu 18.04-LTS를 실행하는 Linux VM을 만드는 방법을 보여 줍니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
@@ -45,7 +46,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 | 요청 헤더   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | 필수 사항입니다. `application/json`로 설정합니다. |
-| *권한 부여* | 필수 요소. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
+| *권한 부여* | 필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
 REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성 요소](/rest/api/azure/#components-of-a-rest-api-requestresponse)를 참조하세요.
 
@@ -53,9 +54,9 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| 이름                       | 필수 | 형식                                                                                | 설명  |
+| Name                       | 필수 | 형식                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| 위치                   | True     | string                                                                              | 리소스 위치. |
+| 위치                   | True     | 문자열                                                                              | 리소스 위치. |
 | name                       |          | 문자열                                                                              | 가상 머신의 이름. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 가상 머신에 대한 하드웨어 설정을 지정합니다. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 스토리지 설정을 지정합니다. |
@@ -121,13 +122,13 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 ## <a name="sending-the-request"></a>요청 보내기
 
-이 HTTP 요청을 보내기 위해 원하는 클라이언트를 사용할 수 있습니다. **사용** 단추를 클릭하여 [브라우저 도구](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)를 사용할 수도 있습니다.
+이 HTTP 요청을 보내기 위해 원하는 클라이언트를 사용할 수 있습니다. **사용** 단추를 클릭하여 [브라우저 도구](/rest/api/compute/virtualmachines/createorupdate)를 사용할 수도 있습니다.
 
 ### <a name="responses"></a>응답
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | Type                                                                              | 설명 |
+| Name        | 유형                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 정상          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |
@@ -150,4 +151,4 @@ Azure REST API 또는 Azure CLI, Azure PowerShell 등의 다른 관리 도구에
 - [Azure Compute 공급자 REST API](/rest/api/compute/)
 - [Azure REST API 시작하기](/rest/api/azure/)
 - [Azure CLI](/cli/azure/)
-- [Azure PowerShell 모듈](/powershell/azure/overview)
+- [Azure PowerShell 모듈](/powershell/azure/)

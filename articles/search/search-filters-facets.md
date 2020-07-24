@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084214"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 필터를 작성 하는 방법 
 
@@ -28,7 +28,7 @@ ms.locfileid: "72792889"
 
 패싯은 동적이며 쿼리에서 반환됩니다. 검색 응답은 결과를 탐색하는 데 사용되는 패싯 범주를 가져옵니다. 패싯에 익숙하지 않은 경우 다음 예제는 패싯 탐색 구조를 보여줍니다.
 
-  ![](./media/search-filters-facets/facet-nav.png)
+  ![필터링 된 검색 결과가 비즈니스 제목별로 그룹화 된 검색 대화 상자를 표시 하는 이미지입니다. 화살표는 결과가 패싯 탐색 구조에 표시 되는 패싯 임을 나타냅니다.](./media/search-filters-facets/facet-nav.png)
 
 패싯 탐색이 생소하여 자세한 정보가 필요한가요? [Azure Cognitive Search에서 패싯 탐색을 구현 하는 방법을](search-faceted-navigation.md)참조 하세요.
 

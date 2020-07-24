@@ -13,10 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082837"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 PostgreSQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -31,7 +32,7 @@ ms.locfileid: "79281237"
 
 온-프레미스 PostgreSQL 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 PostgreSQL 데이터베이스로 데이터 이동이 아닌 PostgreSQL 데이터베이스에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 PostgreSQL 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
@@ -69,7 +70,7 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 PostgreSQL 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesPostgreSql** |예 |
 | 서버 |PostgreSQL 서버의 이름입니다. |예 |
@@ -98,12 +99,12 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from \"MySchema\".\"MyTable\""` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from \"MySchema\".\"MyTable\""`. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리에서 `""`(큰따옴표)로 묶습니다.
 
-**예제:**
+**예:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
@@ -308,7 +309,7 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| boolean |bool |부울 |
+| boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
 | character [(n)] |char [(n)] |String |
@@ -334,7 +335,7 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |String |
 | oid | |Int32 |
-| 경로 | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
 | point | |Byte[], String |
 | polygon | |Byte[], String |

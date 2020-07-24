@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: e59a985f59da1b6a40a6b583d5e2a490611a702c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084367"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -313,7 +313,7 @@ Nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-netw
 - [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [CLI](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST (영문)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
-- [Azure 리소스 관리자](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
+- [Azure Resource Manager](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
 
 ## <a name="updating-parameters"></a>매개 변수 업데이트
 
@@ -357,7 +357,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **흐름 로깅 비용**: nsg 흐름 로깅은 생성 된 로그의 양에 따라 청구 됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅에서 보존 정책 기능을 사용 하는 것은 오랜 시간 동안 별도의 저장소 비용을 발생 시킵니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격](https://azure.microsoft.com/pricing/details/network-watcher/) 책정 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조 하세요.
 
-**인바운드 흐름의 바이트 및 패킷 수가 잘못 되었습니다**. [nsgs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview) 는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현 됩니다. 그러나 플랫폼 제한으로 인해 인바운드 흐름을 제어 하는 규칙은 상태 비저장 방식으로 구현 됩니다. 이러한 흐름에 대해이 바이트와 패킷 수가 기록 되지 않습니다. 결과적으로 NSG 흐름 로그 (및 트래픽 분석)에서 보고 되는 바이트 수와 패킷은 실제 숫자와 다를 수 있습니다. 또한 인바운드 흐름은 이제 종료 되지 않습니다. 이 제한은 12 월 2020에 수정 될 예정입니다. 
+**사용자 정의 인바운드 TCP 규칙에**대 한 문제: [nsgs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview) 는 [상태 저장 방화벽](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)으로 구현 됩니다. 그러나 현재 플랫폼 제한으로 인해 인바운드 TCP 흐름에 영향을 주는 사용자 정의 규칙은 상태 비저장 방식으로 구현 됩니다. 이로 인해 사용자 정의 인바운드 규칙의 영향을 받는 흐름이 종료 되지 않습니다. 이러한 흐름에 대해서는 바이트 및 패킷 수가 추가로 기록 되지 않습니다. 결과적으로 NSG 흐름 로그 (및 트래픽 분석)에서 보고 되는 바이트 수와 패킷은 실제 숫자와 다를 수 있습니다. 이러한 문제를 해결 하는 옵트인 플래그는 12 월 2020 최신 버전에서 사용할 수 있도록 예약 되어 있습니다. 이 동작으로 인해 발생 하는 심각한 문제를 야기 하는 고객은 지원을 통해 옵트인을 요청할 수 있습니다. Network Watcher > NSG 흐름 로그에서 지원 요청을 발생 시킵니다.  
 
 **인터넷 ip에서 공용 ip가 없는 vm으로 로그온 하는 인바운드 흐름**: 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 ip 주소를 통해 할당 되거나 기본 부하 분산 장치 백 엔드 풀의 일부인 vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md) 를 사용 하 고 AZURE에서 할당 된 IP 주소를 사용 하 여 아웃 바운드 연결을 용이 하 게 합니다. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
 

@@ -3,11 +3,12 @@ title: Azure Functions에서 소비 계획 비용 예측
 description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확 하 게 예측 하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76963991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083041"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획 비용 예측
 
@@ -60,7 +61,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 ## <a name="view-execution-data"></a>실행 데이터 보기
 
-[청구서](/azure/billing/billing-download-azure-invoice)에서 실제 청구 된 비용과 함께 **총 실행** 수, 함수 및 **실행 시간 함수**에 대 한 비용 관련 데이터를 볼 수 있습니다. 그러나이 송장 데이터는 과거 송장 기간에 대 한 월별 집계입니다. 
+[청구서](../cost-management-billing/understand/download-azure-invoice.md)에서 실제 청구 된 비용과 함께 **총 실행** 수, 함수 및 **실행 시간 함수**에 대 한 비용 관련 데이터를 볼 수 있습니다. 그러나이 송장 데이터는 과거 송장 기간에 대 한 월별 집계입니다. 
 
 함수의 비용 영향을 보다 잘 이해 하기 위해 Azure Monitor를 사용 하 여 함수 앱에서 현재 생성 하 고 있는 비용 관련 메트릭을 볼 수 있습니다. [Azure Portal] 또는 REST api에서 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-getting-started.md) 를 사용 하 여이 데이터를 가져올 수 있습니다.
 
@@ -79,7 +80,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
     |---------|---------|---------|
     | Subscription    |  사용자의 구독  | 함수 앱을 사용 하는 구독입니다.  |
     | Resource group     | 리소스 그룹  | 함수 앱을 포함 하는 리소스 그룹입니다.   |
-    | 리소스 유형     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
+    | 리소스 종류     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
     | 리소스     |  함수 앱  | 모니터링할 함수 앱입니다.        |
 
 1. **적용** 을 선택 하 여 모니터링할 리소스로 함수 앱을 선택 합니다.

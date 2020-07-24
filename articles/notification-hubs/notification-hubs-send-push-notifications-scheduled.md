@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d91b7816ee05d4b5ef5266b4c2556abdc1175b87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71213010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084265"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>방법: 예약된 알림 보내기
 
@@ -30,7 +30,7 @@ ms.locfileid: "71213010"
 
 
 ## <a name="schedule-your-notifications"></a>알림 예약
-알림을 보낼 때 다음 예제와 같이 Notification Hubs SDK의 [ `ScheduledNotification` 클래스](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) 를 사용 하면 됩니다.
+알림을 보낼 때 다음 예제와 같이 Notification Hubs SDK의 [ `ScheduledNotification` 클래스](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification?view=azure-dotnet#microsoft_azure_notificationhubs_schedulednotification) 를 사용 하면 됩니다.
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
@@ -53,5 +53,5 @@ await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
  - [등록된 모든 디바이스에 알림 푸시](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
  - [특정 디바이스에 알림 푸시](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [지역화된 알림 푸시](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
- - [특정 사용자에게 푸시 알림](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
- - [위치 기반 푸시 알림](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+ - [특정 사용자에 알림 푸시](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
+ - [위치 기반 알림 푸시](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

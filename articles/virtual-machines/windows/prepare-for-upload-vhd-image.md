@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083517"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -62,7 +62,7 @@ Azure Vm에 대 한 지원 정책에 대 한 자세한 내용은 [Azure vm에 �
 
 ### <a name="use-powershell-to-convert-the-disk"></a>PowerShell을 사용 하 여 디스크 변환
 
-PowerShell의 [변환-VHD](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 가상 디스크를 변환할 수 있습니다. 이 cmdlet을 설치 하는 방법에 대 한 정보가 필요한 경우 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)를 클릭 하세요.
+PowerShell의 [변환-VHD](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 가상 디스크를 변환할 수 있습니다. 이 cmdlet을 설치 하는 방법에 대 한 정보가 필요한 경우 [여기](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)를 클릭 하세요.
 
 다음 예에서는 디스크를 VHDX에서 VHD로 변환 합니다. 또한 디스크를 동적 확장 디스크에서 고정 크기 디스크로 변환 합니다.
 
@@ -86,7 +86,7 @@ Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDTyp
 
 ### <a name="use-powershell-to-resize-the-disk"></a>PowerShell을 사용 하 여 디스크 크기 조정
 
-PowerShell에서 [VHD 크기 조정](/powershell/module/hyper-v/resize-vhd) cmdlet을 사용 하 여 가상 디스크의 크기를 조정할 수 있습니다. 이 cmdlet을 설치 하는 방법에 대 한 정보가 필요한 경우 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)를 클릭 하세요.
+PowerShell에서 [VHD 크기 조정](/powershell/module/hyper-v/resize-vhd) cmdlet을 사용 하 여 가상 디스크의 크기를 조정할 수 있습니다. 이 cmdlet을 설치 하는 방법에 대 한 정보가 필요한 경우 [여기](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)를 클릭 하세요.
 
 다음 예제에서는 Azure 맞춤 요구 사항을 충족 하기 위해 100.5 MiB에서 101 MiB로 디스크 크기를 조정 합니다.
 
@@ -138,7 +138,7 @@ SFC 검사가 완료 된 후 Windows 업데이트를 설치 하 고 컴퓨터를
    netsh.exe winhttp reset proxy
    ```
 
-    VM이 특정 프록시를 사용 해야 하는 경우 VM이 Azure에 연결할 수 있도록 Azure IP 주소 ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16))에 대 한 프록시 예외를 추가 합니다.
+    VM이 특정 프록시를 사용 해야 하는 경우 VM이 Azure에 연결할 수 있도록 Azure IP 주소 ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md))에 대 한 프록시 예외를 추가 합니다.
 
     ```
     $proxyAddress='<your proxy server>'
@@ -401,7 +401,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 
    정책에 다음 그룹이 나열 됩니다.
 
-   - Administrators
+   - 관리자
 
    - Backup Operators
 
@@ -445,7 +445,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 |                         | tcpip.sys      | 6.1.7601.23761 - KB4022722                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
 |                         | http.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726          | 10.0.14393.251 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
 |                         | vmswitch.sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.138             | -                                           | -                                           |
-| 코어                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
+| 핵심                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
 | 원격 데스크톱 서비스 | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
 |                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850          | 10.0.14393.0 - KB4022715                    | 10.0.15063.0               | -                                           | -                                           |
 |                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
@@ -472,7 +472,7 @@ Sysprep은 모든 개인 데이터를 제거 하 고 여러 구성 요소를 다
 하나의 디스크에서 하나의 VM만 만들려면 Sysprep을 사용할 필요가 없습니다. 대신 *특수 이미지*에서 VM을 만들 수 있습니다. 특수 한 디스크에서 VM을 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [특수화된 디스크에서 VM 만들기](create-vm-specialized.md)
-- [특수화된 VHD 디스크에서 VM 만들기](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [특수화된 VHD 디스크에서 VM 만들기](./create-vm-specialized-portal.md)
 
 일반화 된 이미지를 만들려면 Sysprep를 실행 해야 합니다. 자세한 내용은 [Sysprep 사용 방법: 소개](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10))를 참조 하세요.
 
@@ -519,4 +519,4 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
 ## <a name="next-steps"></a>다음 단계
 
 - [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)
-- [Azure Windows VM 정품 인증 문제 해결](troubleshoot-activation-problems.md)
+- [Azure Windows VM 정품 인증 문제 해결](../troubleshooting/troubleshoot-activation-problems.md)

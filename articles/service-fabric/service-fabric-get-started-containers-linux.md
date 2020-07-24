@@ -4,12 +4,12 @@ description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 애플리�
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 783f6a06d57a447998710e2c8ff349b23ef751c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 547030b983dd02e7b65d404188dccdcc24d53a22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256403"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083840"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -21,11 +21,13 @@ Service Fabric 클러스터의 Linux 컨테이너에서 기존 애플리케이�
 > [!NOTE]
 > 이 문서는 Linux 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Linux 컨테이너는 Windows 클러스터에서 실행할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * 다음을 실행하는 개발 컴퓨터
   * [SDK 및 도구를 Service Fabric](service-fabric-get-started-linux.md)합니다.
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
   * [Service Fabric CLI](service-fabric-cli.md)
+
+* 노드가 세 개 이상인 Linux 클러스터
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md). 
 
@@ -103,7 +105,7 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
+## <a name="run-the-application-locally"></a>애플리케이션을 로컬로 실행
 컨테이너화된 애플리케이션이 컨테이너 레지스트리에 푸시하기 전에 로컬로 실행되는지 확인합니다. 
 
 애플리케이션을 실행하고 컨테이너의 노출되는 포트 80에 컴퓨터의 포트 4000을 매핑합니다.
@@ -371,7 +373,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다. 예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
-2. `yo azuresfcontainer:AddService`을 실행합니다.
+2. `yo azuresfcontainer:AddService`를 실행합니다.
 
 <a id="manually"></a>
 

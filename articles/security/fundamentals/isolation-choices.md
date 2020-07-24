@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084054"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 
@@ -63,9 +64,9 @@ Azure Active Directory는 테넌트에서만 소유하고 관리하는 컨테이
 
 여러 Azure Active Directory 테넌트의 메타데이터가 동일한 물리적 디스크에 저장되어있는 경우에도 디렉터리 서비스에서 정의된 것 이외의 컨테이너 간에는 아무 관계가 없으므로 디렉터리 서비스에서 테넌트를 결정합니다.
 
-### <a name="azure-role-based-access-control-rbac"></a>RBAC(역할 기반 Access Control)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 access control (Azure RBAC)
 
-[RBAC(역할 기반 Access Control)](../../role-based-access-control/overview.md)는 Azure에 세분화된 액세스 관리를 제공하여 Azure 구독 내에서 사용할 수 있는 다양한 구성 요소를 공유할 수 있게 합니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 를 사용 하면 azure에 대 한 세분화 된 액세스 관리를 제공 하 여 azure 구독 내에서 사용 가능한 다양 한 구성 요소를 공유할 수 있습니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
 Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
 
@@ -144,7 +145,7 @@ Azure 패브릭 컨트롤러는 테넌트 워크로드에 대한 인프라 리�
 
 Azure 하이퍼바이저는 가상 머신 간의 메모리 및 프로세스 분리를 적용하고 네트워크 트래픽을 게스트 OS 테넌트로 안전하게 라우팅합니다. 이렇게 하면 VM 수준에서 측면 채널 공격의 가능성과 해당 공격을 제거합니다.
 
-Azure에서 루트 VM은 FA(패브릭 에이전트)를 호스팅하는 루트 OS라고 하는 확정된 운영 체제를 실행하기 때문에 특별합니다. 이에 따라 FA는 고객 VM의 게스트 OS 내에서 GA(게스트 에이전트)를 관리합니다. FA는 스토리지 노드도 관리합니다.
+Azure에서 루트 VM은 FA(패브릭 에이전트)를 호스팅하는 루트 OS라고 하는 확정된 운영 체제를 실행하기 때문에 특별합니다. FAs는 고객 Vm의 게스트 운영 체제 내에서 GA (게스트 에이전트)를 관리 하는 데 사용 됩니다. FA는 스토리지 노드도 관리합니다.
 
 Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 컴퓨팅 노드를 구성합니다. FA는 컴퓨팅 및 스토리지 노드 외부에 있는 FC(패브릭 컨트롤러)로 관리됩니다(컴퓨팅 및 스토리지 클러스터는 별도의 FC로 관리됨). 고객이 실행 중인 애플리케이션의 구성 파일을 업데이트하는 경우 FC는 FA와 통신한 다음, GA에 접속하여 애플리케이션에 구성 변경 내용을 알립니다. 하드웨어 장애가 발생하면 FC에서 자동으로 사용 가능한 하드웨어를 찾아 이 하드웨어에서 VM을 다시 시작합니다.
 
@@ -208,7 +209,7 @@ IP 스토리지 데이터는 IP 스토리지에 전용 트래픽 또는 전용 �
 Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보호합니다.
 
 - 전송 중 암호화
-- 휴지 상태의 암호화
+- 저장 데이터 암호화
 
 #### <a name="encryption-in-transit"></a>전송 중 암호화
 
@@ -312,10 +313,10 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 **트래픽 격리:** [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 는 Azure 플랫폼에서 트래픽 격리 경계입니다. 두 Virtual Network를 같은 고객이 만들었다 하더라도, 한 Virtual Network의 VM(가상 머신)은 다른 가상 네트워크의 VM과 직접 통신할 수 없습니다. 격리는 고객 VM과 통신이 가상 네트워크 안에서 프라이빗 상태를 유지하는 데 있어 중요한 속성입니다.
 
-[서브넷](../../virtual-network/virtual-networks-overview.md)은 IP 범위를 기반으로 하는 가상 네트워크에서 추가 격리 계층을 제공합니다. 가상 네트워크의 IP 주소를 사용하면 조직과 보안을 위해 가상 네트워크를 여러 서브넷으로 분할할 수 있습니다. VNet 내부의 서브넷(같은 또는 다른)에 배포된 VM 및 PaaS 역할 인스턴스는 추가 구성 없이 서로 통신할 수 있습니다. 또한 NSG의 ACL(액세스 제어 목록)에 구성된 규칙을 기반으로 하여 VM 인스턴스에 대한 네트워크 트래픽을 허용하거나 거부하도록 [NSG(네트워크 보안 그룹)](../../virtual-network/virtual-networks-overview.md)를 구성할 수도 있습니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다.
+[서브넷](../../virtual-network/virtual-networks-overview.md)은 IP 범위를 기반으로 하는 가상 네트워크에서 추가 격리 계층을 제공합니다. 가상 네트워크의 IP 주소를 사용하면 조직과 보안을 위해 가상 네트워크를 여러 서브넷으로 분할할 수 있습니다. VNet 내부의 서브넷(같은 또는 다른)에 배포된 VM 및 PaaS 역할 인스턴스는 추가 구성 없이 서로 통신할 수 있습니다. 또한 NSG의 ACL(액세스 제어 목록)에 구성된 규칙을 기반으로 하여 VM 인스턴스에 대한 네트워크 트래픽을 허용하거나 거부하도록 [NSG(네트워크 보안 그룹)](../../virtual-network/virtual-networks-overview.md)를 구성할 수도 있습니다. NSG는 서브넷 또는 서브넷 내의 개별 VM 인스턴스에 연결될 수 있습니다. NSG가 서브넷에 연결된 경우 ACL 규칙은 해당 서브넷의 모든 VM 인스턴스에 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft Azure 가상 네트워크의 컴퓨터에 대 한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)에 대해 알아봅니다. 여기에는 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용 되는 IP 주소 목록에 따라 특정 끝점에 연결 하는 특정 클라이언트 또는 다른 컴퓨터에만 허용할 수 있는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함 됩니다.
 
-- [Azure의 가상 머신 격리](../../virtual-machines/windows/isolation.md)에 대해 알아봅니다. Azure Compute는 특정 하드웨어 종류에 격리 되 고 단일 고객 전용으로 제공 되는 가상 머신 크기를 제공 합니다.
+- [Azure의 가상 머신 격리](../../virtual-machines/isolation.md)에 대해 알아봅니다. Azure Compute는 특정 하드웨어 종류에 격리 되 고 단일 고객 전용으로 제공 되는 가상 머신 크기를 제공 합니다.

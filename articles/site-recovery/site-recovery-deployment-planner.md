@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: 71f4209b4af9c5bb5f171cf3c8e35b0fbc05fac9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f930fbb9cad893363db2b1a6b9b6ea8acade5a54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083789"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -62,16 +62,16 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 ## <a name="support-matrix"></a>지원 매트릭스
 
-| | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
+| **범주** | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |Yes|예|아니요|예*|No
+지원되는 시나리오 |예|예|아니요|예*|아니요
 지원되는 버전 | vCenter 6.7, 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음
 
 *이 도구는 주로 Hyper-V에서 Azure로 재해 복구 시나리오용입니다. Hyper-V를 보조 사이트 재해 복구에 사용하는 경우, 원본 쪽 권장 사항(예: 필요한 네트워크 대역폭, 원본 Hyper-V 서버 각각에 필요한 사용 가능한 스토리지 공간 및 초기 복제 일괄 처리 번호/일괄 처리 정의)을 파악하는 데만 사용할 수 있습니다. 보고서의 Azure 권장 사항 및 비용은 무시하세요. 또한 Hyper-V에서 보조 사이트로의 재해 복구 시나리오에는 처리량 가져오기 작업을 적용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 도구에는 두 가지 주요 단계, 즉 프로파일링과 보고서 생성 단계가 있습니다. 또한 처리량만 계산하는 세 번째 옵션도 있습니다. 다음 표에는 프로파일링 및 처리량 측정이 시작되는 서버에 대한 요구 사항이 나와 있습니다.
 
 | 서버 요구 사항 | Description|

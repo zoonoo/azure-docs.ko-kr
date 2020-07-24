@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: bb9783b38185940f0e75e888c3bc69a1edcc6cbb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02cb862c5ec6f75d546aabcd6e8ac97a4de961a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249260"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082956"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
-Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion)를 구현하는 기법인 DI(종속성 주입) 소프트웨어 디자인 패턴을 지원합니다.
+Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion)를 구현하는 기법인 DI(종속성 주입) 소프트웨어 디자인 패턴을 지원합니다.
 
-- Azure Functions의 종속성 주입은 .NET Core 종속성 주입 기능을 기반으로 합니다. [.NET Core 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)에 대해 잘 알고 있는 것이 좋습니다. Azure Functions의 사용 계획에서 종속성을 재정의하는 방법과 관련 구성 값을 읽는 방법에는 차이가 있습니다.
+- Azure Functions의 종속성 주입은 .NET Core 종속성 주입 기능을 기반으로 합니다. [.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection)에 대해 잘 알고 있는 것이 좋습니다. Azure Functions의 사용 계획에서 종속성을 재정의하는 방법과 관련 구성 값을 읽는 방법에는 차이가 있습니다.
 
 - 종속성 주입에 대한 지원은 Azure Functions 2.x부터 제공됩니다.
 
@@ -115,7 +115,7 @@ namespace MyNamespace
 
 ## <a name="service-lifetimes"></a>서비스 수명
 
-Azure Functions 앱은 [ASP.NET 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)과 동일한 서비스 수명을 제공합니다. Functions 앱의 경우 서로 다른 서비스 수명이 다음과 같이 동작합니다.
+Azure Functions 앱은 [ASP.NET 종속성 주입](/aspnet/core/fundamentals/dependency-injection#service-lifetimes)과 동일한 서비스 수명을 제공합니다. Functions 앱의 경우 서로 다른 서비스 수명이 다음과 같이 동작합니다.
 
 - **임시**: 임시 서비스는 서비스가 요청될 때마다 생성됩니다.
 - **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위 서비스는 1회 실행당 한 번 생성됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
@@ -125,7 +125,7 @@ GitHub에서 [다양한 서비스 수명 샘플](https://aka.ms/functions/di-sam
 
 ## <a name="logging-services"></a>로깅 서비스
 
-사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
+사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
 
 Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 
@@ -250,7 +250,7 @@ public class HttpTrigger
 }
 ```
 
-옵션을 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)을 참조하세요.
+옵션을 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
 > [!WARNING]
 > 사용 계획의 *local.settings.json* 또는 *appsettings.{environment}.json* 같은 파일에서 값을 읽지 않도록 합니다. 트리거 연결과 관련 된 이러한 파일에서 읽은 값은 크기 조정 컨트롤러에서 앱의 새 인스턴스를 만들 때 구성 정보에 대 한 액세스 권한이 없기 때문에 앱 크기 조정에 사용할 수 없습니다.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3bf3086d255a6aacfe4001879b3a3f00df2ba219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466879daae65b8c7fa896b0ead417c8d5eb51e28
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738735"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084350"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>REST API를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -25,6 +25,9 @@ ms.locfileid: "84738735"
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
+
+> [!NOTE]
+> 보안 그룹 보기 API는 더 이상 유지 되지 않으며 곧 사용 되지 않을 예정입니다. 동일한 기능을 제공 하는 [효과적인 보안 규칙 기능](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) 을 사용 하세요. 
 
 보안 그룹 보기는 가상 컴퓨터에 적용되는 효과적으로 구성된 네트워크 보안 규칙을 반환합니다. 이 기능은 VM에 구성된 네트워크 보안 그룹 및 규칙을 감사하고 진단하여 트래픽을 올바르게 허용하거나 거부하는 데 유용합니다. 이 문서에서는 REST API를 사용하여 가상 머신에 효과적으로 적용된 보안 규칙을 검색하는 방법을 보여 줍니다.
 

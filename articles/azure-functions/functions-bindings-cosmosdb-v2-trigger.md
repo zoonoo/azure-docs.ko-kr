@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 1ff8281a420eb1e967cb9f1d4db620d8f816794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30096e84c31f9e73e0ce02daa5765e98bdcd192
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085098"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대 한 Azure Cosmos DB 트리거
 
@@ -209,7 +209,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Java 함수 런타임 라이브러리](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)에서 `@CosmosDBInput` Cosmos DB 데이터를 읽는 매개 변수에 대 한 주석을 사용 합니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 `@CosmosDBInput` Cosmos DB 데이터를 읽는 매개 변수에 대 한 주석을 사용 합니다.
 
 ---
 
@@ -242,7 +242,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 트리거에는 파티션에 _임대_를 저장하는 데 사용할 보조 컬렉션이 필요합니다. 트리거가 작동할 수 있도록 모니터링되는 컬렉션과 임대를 포함하고 있는 컬렉션을 모두 사용할 수 있어야 합니다.
 

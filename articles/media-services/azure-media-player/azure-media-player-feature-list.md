@@ -6,17 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082718"
 ---
 # <a name="feature-list"></a>기능 목록 #
 다음은 테스트 된 기능 및 지원 되지 않는 기능 목록입니다.
 
-|                                         | 테스트 | 부분적으로 테스트 됨 | 테스트 되지 않은 | 않음 | 참고                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| 기능 | 테스트 | 부분적으로 테스트 됨 | 테스트 되지 않은 | 않음 | 참고 |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | 재생                                |        |                  |          |             |                                                                                                                      |
 | 기본 주문형 재생                | X      |                  |          |             | Azure Media Services 에서만 스트림을 지원 합니다.                                                                      |
 | 기본 라이브 재생                     | X      |                  |          |             | Azure Media Services 에서만 스트림을 지원 합니다.                                                                      |

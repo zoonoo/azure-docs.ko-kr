@@ -3,23 +3,27 @@ title: Azure Functions에 대 한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: d71301ef73cd94c13b12e17c923ec73abb8e4aae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: c0e5dd7e1869accd309656b69bd2a07d21b1a3ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082973"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
-이 가이드에는 JavaScript로 Azure Functions를 작성하는 복잡성에 대한 정보가 포함되어 있습니다.
+이 가이드는 JavaScript를 사용 하 여 Azure Functions를 개발 하는 데 도움이 되는 자세한 정보를 포함 합니다.
 
-JavaScript 함수는 트리거될 때 실행되는 내보낸 `function`입니다([트리거는 function.json에서 구성됨](functions-triggers-bindings.md)). 모든 함수에 전달 되는 첫 번째 인수는 개체 이며,이 `context` 개체는 바인딩 데이터를 보내고 보내고 보내고, 로깅 하 고, 런타임과 통신 하는 데 사용 됩니다.
+Express.js, Node.js 또는 JavaScript developer로 Azure Functions를 처음 접하는 경우 먼저 다음 문서 중 하나를 읽어 보세요.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 함수 퀵 스타트를 완료 하 여 [Visual Studio Code](functions-create-first-function-vs-code.md) 또는 [포털에서](functions-create-first-azure-function.md)첫 번째 함수를 만듭니다.
+| 시작 | 개념| 단계별 학습 |
+| -- | -- | -- | 
+| <ul><li>[Visual Studio Code를 사용 하Node.js 함수](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)</li><li>[터미널/명령 프롬프트를 사용 하Node.js 함수](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-javascript)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[TypeScript 함수](#typescript)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[서버를 사용 하지 않는 Api에 Node.js 및 Express Api 리팩터링](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
-이 문서는 [TypeScript 앱 개발](#typescript)도 지원 합니다.
+## <a name="javascript-function-basics"></a>JavaScript 함수 기본 사항
+
+JavaScript (Node.js) 함수는 `function` 트리거될 때 실행 되는 내보낸입니다.[트리거는 function.js에서 구성](functions-triggers-bindings.md)됩니다. 모든 함수에 전달 되는 첫 번째 인수는 개체 이며,이 `context` 개체는 바인딩 데이터를 보내고 보내고 보내고, 로깅 하 고, 런타임과 통신 하는 데 사용 됩니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -118,7 +122,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
    
- - **입력으로 JavaScript[`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
+ - **입력으로 JavaScript[`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -128,7 +132,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>출력
 출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다 (이러한 메서드를 결합 하지 않음).
@@ -265,7 +269,7 @@ context.log(message)
 기본 추적 수준에서 스트리밍 함수 로그에 기록할 수 있습니다. `context.log`에 다른 추적 수준에서 함수 로그를 작성할 수 있는 추가 로깅 메서드가 제공됩니다.
 
 
-| 메서드                 | 설명                                |
+| 메서드                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **오류 (_메시지_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
 | **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
@@ -342,7 +346,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                    |
+| 속성      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -357,7 +361,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | 설명                                               |
+| 속성  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -459,7 +463,7 @@ module.exports = function(context) {
 
 
 ### <a name="using-kudu"></a>Kudu 사용
-1. `https://<function_app_name>.scm.azurewebsites.net`로 이동하세요.
+1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
 
 2. **디버그 콘솔**  >  **CMD**를 클릭 합니다.
 
@@ -559,11 +563,11 @@ module.exports = myObj;
 
 매개 변수를 사용 하 여 시작 하면 `--inspect` Node.js 프로세스가 지정 된 포트에서 디버깅 클라이언트를 수신 대기 합니다. Azure Functions 2.x에서는 환경 변수 또는 앱 설정을 추가 하 여 코드를 실행 하는 Node.js 프로세스에 전달할 인수를 지정할 수 있습니다 `languageWorkers:node:arguments = <args>` . 
 
-로컬로 디버그 하려면 `"languageWorkers:node:arguments": "--inspect=5858"` `Values` 파일 [의local.settings.js](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) 에를 추가 하 고 포트 5858에 디버거를 연결 합니다.
+로컬로 디버그 하려면 `"languageWorkers:node:arguments": "--inspect=5858"` `Values` 파일 [의local.settings.js](./functions-run-local.md#local-settings-file) 에를 추가 하 고 포트 5858에 디버거를 연결 합니다.
 
 VS Code를 사용 하 여 디버깅 하는 경우 `--inspect` `port` 파일의 프로젝트 launch.js에 있는 값을 사용 하 여 매개 변수가 자동으로 추가 됩니다.
 
-버전 1.x에서는 설정이 `languageWorkers:node:arguments` 작동 하지 않습니다. Azure Functions Core Tools에서 매개 변수를 사용 하 여 디버그 포트를 선택할 수 있습니다 [`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) .
+버전 1.x에서는 설정이 `languageWorkers:node:arguments` 작동 하지 않습니다. Azure Functions Core Tools에서 매개 변수를 사용 하 여 디버그 포트를 선택할 수 있습니다 [`--nodeDebugPort`](./functions-run-local.md#start) .
 
 ## <a name="typescript"></a>TypeScript
 
@@ -632,7 +636,7 @@ JavaScript 함수로 작업하는 경우 다음 섹션의 고려 사항에 유�
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>단일 vCPU App Service 계획 선택
 
-App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있는 계획보다는 단일 vCPU 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 vCPU VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용해도 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 vCPU VM 인스턴스를 추가 하 여 수동으로 확장 하거나 자동 크기 조정을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요.
+App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있는 계획보다는 단일 vCPU 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 vCPU VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용해도 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 vCPU VM 인스턴스를 추가 하 여 수동으로 확장 하거나 자동 크기 조정을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)을 참조하세요.
 
 ### <a name="cold-start"></a>콜드 부팅
 

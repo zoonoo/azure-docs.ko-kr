@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: be7ac4073bb332a7595dcf211feb7087d0734854
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082735"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
@@ -36,7 +36,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
     > [!NOTE]
     > **서비스 주체**는 Azure Media Services에 연결하는 대다수 애플리케이션에 사용하는 것이 좋은 모범 사례입니다. 
 
-이 자습서에서는 다음 방법에 관해 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 인증 정보 가져오기
@@ -62,7 +62,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 Media Services API에 액세스하려면 다음 데이터 요소를 수집해야 합니다.
 
-|설정|예제|설명|
+|설정|예제|Description|
 |---|-------|-----|
 |Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|<https://amshelloworld.restv2.westus.media.azure.net/api/>|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
@@ -167,7 +167,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 이 섹션에서는 **Postman**을 사용하여 **Assets** API에 액세스하는 방법을 설명합니다.
 
 1. **Postman**을 엽니다.
-2. **GET**을 선택합니다.
+2. **가져오기**를 선택 합니다.
 3. REST API 엔드포인트 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
 4. **Authorization** 탭을 선택합니다. 
 5. **Bearer Token**을 선택합니다.

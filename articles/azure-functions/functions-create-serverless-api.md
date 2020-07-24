@@ -6,17 +6,18 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122779"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083024"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions에서 HTTP 끝점 사용자 지정
 
 이 문서에서는 Azure Functions를 사용 하 여 확장성이 뛰어난 Api를 빌드하는 방법을 알아봅니다. Azure Functions는 Node.js, c # 등을 비롯 한 다양 한 언어로 끝점을 쉽게 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션과 함께 제공 됩니다. 이 문서에서는 API 디자인의 특정 작업을 처리 하도록 HTTP 트리거를 사용자 지정 합니다. 또한 Azure Functions 프록시와 통합 하 고 모의 Api를 설정 하 여 API를 확장할 준비를 합니다. 이러한 작업은 서버를 사용 하지 않는 계산 환경에서 수행 되므로 리소스 크기 조정에 대해 걱정할 필요가 없습니다. API 논리에만 집중할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -46,7 +47,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 1. **저장**을 선택합니다.
 
-HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [http 바인딩 Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)를 참조 하세요.
+HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [http 바인딩 Azure Functions](./functions-bindings-http-webhook.md)를 참조 하세요.
 
 ### <a name="test-your-api"></a>API 테스트
 
@@ -72,9 +73,9 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 다음 섹션에서는 프록시를 통해 API를 노출 합니다. Azure Functions 프록시를 사용하면 요청을 다른 리소스로 전달할 수 있습니다. Http 트리거를 사용 하는 것과 같은 방식으로 HTTP 끝점을 정의 합니다. 그러나 해당 끝점이 호출 될 때 실행할 코드를 작성 하는 대신 원격 구현에 대 한 URL을 제공 합니다. 이렇게 하면 여러 API 소스를 단일 API 화면으로 구성할 수 있습니다 .이는 클라이언트에서 사용 하기 쉬우며 마이크로 서비스로 API를 빌드 하려는 경우에 유용 합니다.
 
 프록시는 다음과 같은 HTTP 리소스를 가리킬 수 있습니다.
-- Azure 기능 
-- [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)의 API 앱
-- [Linux의 App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)에 있는 Docker 컨테이너
+- Azure Functions 
+- [Azure App Service](../app-service/overview.md)의 API 앱
+- [Linux의 App Service](../app-service/containers/app-service-linux-intro.md)에 있는 Docker 컨테이너
 - 기타 호스트된 API
 
 프록시에 대한 자세한 내용은 [Azure Functions 프록시 사용]을 참조하세요.
@@ -85,7 +86,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
 ### <a name="setting-up-the-frontend-environment"></a>프런트 엔드 환경 설정
 
-[함수 앱 만들기](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) 단계를 반복하여 프록시를 만들 새 함수 앱을 만듭니다. 이 새로운 앱의 URL은 API에 대 한 프런트 엔드로 사용 되 고 이전에 편집 하 던 함수 앱은 백 엔드로 사용 됩니다.
+[함수 앱 만들기](./functions-create-first-azure-function.md#create-a-function-app) 단계를 반복하여 프록시를 만들 새 함수 앱을 만듭니다. 이 새로운 앱의 URL은 API에 대 한 프런트 엔드로 사용 되 고 이전에 편집 하 던 함수 앱은 백 엔드로 사용 됩니다.
 
 1. 포털의 새 프런트 엔드 함수 앱으로 이동합니다.
 1. **플랫폼 기능**을 선택하고 **애플리케이션 설정**을 선택합니다.
@@ -106,7 +107,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
     | 필드 | 샘플 값 | Description |
     |---|---|---|
-    | 이름 | HelloProxy | 관리에 대해서만 사용되는 이름 |
+    | Name | HelloProxy | 관리에 대해서만 사용되는 이름 |
     | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |
     | 백 엔드 URL | https://%HELLO_HOST%/api/hello | 요청을 프록시 처리할 엔드포인트를 지정합니다. |
 
@@ -125,7 +126,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
 이 모의 API를 만들기 위해 [App Service 편집기](https://github.com/projectkudu/kudu/wiki/App-Service-Editor)를 사용 하 여 새 프록시를 만듭니다. 시작하려면 포털의 함수 앱으로 이동합니다. **플랫폼 기능**을 선택 하 고 **개발 도구** 에서 **App Service 편집기**를 찾습니다. App Service 편집기 새 탭에서 열립니다.
 
-왼쪽 탐색 영역에서 `proxies.json`을 선택합니다. 이 파일은 모든 프록시에 대 한 구성을 저장 합니다. [함수 배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)중 하나를 사용 하는 경우이 파일을 소스 제어에서 유지 관리 합니다. 이 파일에 대한 자세한 내용은 [프록시 고급 구성](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration)을 참조하세요.
+왼쪽 탐색 영역에서 `proxies.json`을 선택합니다. 이 파일은 모든 프록시에 대 한 구성을 저장 합니다. [함수 배포 방법](./functions-continuous-deployment.md)중 하나를 사용 하는 경우이 파일을 소스 제어에서 유지 관리 합니다. 이 파일에 대한 자세한 내용은 [프록시 고급 구성](./functions-proxies.md#advanced-configuration)을 참조하세요.
 
 지금까지 수행한 경우에는 proxies.js에 다음과 같이 표시 됩니다.
 
@@ -179,7 +180,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 }
 ```
 
-이 코드는 속성 없이 새 프록시를 추가 `GetUserByName` `backendUri` 합니다. 다른 리소스를 호출하지 않고 응답 재정의를 사용하여 프록시의 기본 응답을 수정합니다. 요청 및 응답 재정의를 백 엔드 URL과 함께 사용할 수도 있습니다. 이 기법은 기존 시스템에 프록시를 사용할 때 특히 유용 합니다 .이 경우 헤더, 쿼리 매개 변수 등을 수정 해야 할 수 있습니다. 요청 및 응답 재정의에 대한 자세한 내용은 [프록시에서 요청 및 응답 수정](https://docs.microsoft.com/azure/azure-functions/functions-proxies)을 참조하세요.
+이 코드는 속성 없이 새 프록시를 추가 `GetUserByName` `backendUri` 합니다. 다른 리소스를 호출하지 않고 응답 재정의를 사용하여 프록시의 기본 응답을 수정합니다. 요청 및 응답 재정의를 백 엔드 URL과 함께 사용할 수도 있습니다. 이 기법은 기존 시스템에 프록시를 사용할 때 특히 유용 합니다 .이 경우 헤더, 쿼리 매개 변수 등을 수정 해야 할 수 있습니다. 요청 및 응답 재정의에 대한 자세한 내용은 [프록시에서 요청 및 응답 수정](./functions-proxies.md)을 참조하세요.
 
 브라우저 또는 자주 사용하는 REST 클라이언트를 통해 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 엔드포인트를 호출하여 모의 API를 테스트합니다. _{username}_ 을 사용자 이름을 나타내는 문자열 값으로 바꿉니다.
 
@@ -189,10 +190,10 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
 다음 참조는 API를 추가로 개발하는 경우 유용할 수 있습니다.
 
-- [Azure Functions HTTP 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Azure Functions HTTP 바인딩](./functions-bindings-http-webhook.md)
 - [Azure Functions 프록시 사용]
-- [Azure Functions API 문서화(미리 보기)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
+- [Azure Functions API 문서화(미리 보기)](./functions-openapi-definition.md)
 
 
-[Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Azure Functions 프록시 사용]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Create your first function]: ./functions-create-first-azure-function.md
+[Azure Functions 프록시 사용]: ./functions-proxies.md

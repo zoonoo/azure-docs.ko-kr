@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc18c278754afd4bb08d564a2f82680fd94bf866
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082582"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 
@@ -24,17 +24,18 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 
 [Azure의 Linux 보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 중 하나로 시작하는 것이 좋습니다. 다음 문서에서는 Azure에서 지원되는 다양한 Linux 보증 배포판을 준비하는 방법을 보여 줍니다.
 
-* **[CentOS 기반 배포](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES 및 openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+- [CentOS 기반 배포](create-upload-centos.md)
+- [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [Oracle Linux](oracle-create-upload-vhd.md)
+- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+- [SLES 및 openSUSE](suse-create-upload-vhd.md)
+- [Ubuntu](create-upload-ubuntu.md)
 
 이 문서에서는 Azure에서 Linux 배포판을 실행하기 위한 일반 지침에 대해 중점적으로 설명합니다.
 
 ## <a name="general-linux-installation-notes"></a>일반 Linux 설치 참고 사항
-* Azure에서는 *고정 VHD*만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-v 관리자 또는 [변환-vhd](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기**를 선택합니다.
+* Azure에서는 *고정 VHD*만 지원하며, VHDX(Hyper-V 가상 하드 디스크) 형식은 지원하지 않습니다.  Hyper-v 관리자 또는 [변환-vhd](/powershell/module/hyper-v/convert-vhd) cmdlet을 사용 하 여 디스크를 VHD 형식으로 변환할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본값(동적 할당) 대신 **고정 크기**를 선택합니다.
 * Azure는 Gen1 (BIOS boot) & Gen2 (UEFI 부팅) 가상 머신을 지원 합니다.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
@@ -66,7 +67,7 @@ Azure의 VHD 이미지에는 1MB로 조정된 가상 크기가 있어야 합니�
 
 * VHD http: \/ / \<mystorageaccount> . blob.core.windows.net/vhds/MyLinuxVM.vhd의 가상 크기가 지원 되지 않는 21475270656 바이트입니다. 크기는 정수(MB 단위)여야 합니다.
 
-이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
+이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=win10-ps) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
 
 > [!NOTE]
 > [2.2.1 이상의 qemu-img 버전](https://bugs.launchpad.net/qemu/+bug/1490611)에는 VHD 형식이 잘못 지정되는 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. 2.2.0 이하 또는 2.6 이상의 `qemu-img`를 사용하는 것이 좋습니다.
@@ -189,4 +190,3 @@ Azure [Linux 에이전트](../extensions/agent-linux.md) 는 `waagent` azure에�
    > Virtualbox에서 `[Errno 5] Input/output error`라는 `waagent -force -deprovision`을 실행한 후에 다음 오류가 표시될 수 있습니다. 이 오류 메시지는 중요하지 않으므로 무시할 수 있습니다.
 
 * 가상 머신을 종료하고 Azure에 VHD를 업로드합니다.
-

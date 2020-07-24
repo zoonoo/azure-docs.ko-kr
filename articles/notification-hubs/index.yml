@@ -9,12 +9,12 @@ metadata:
   author: sethmanheim
   ms.author: sethm
   ms.date: 03/11/2020
-  ms.openlocfilehash: f531b33043dde14c9158a15276b4b829c95e5ca2
-  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+  ms.openlocfilehash: 7a1724428131cd47ed8bd5fffc779c07e077c2f0
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2020
-  ms.locfileid: "83834665"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87084282"
 landingContent:
 - title: Azure Notification Hubs 정보
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
     - text: 등록된 모든 Android 디바이스에 푸시 알림 보내기
       url: notification-hubs-android-push-notification-google-fcm-get-started.md
     - text: Swift iOS 앱에 푸시 알림 보내기
-      url: notification-hubs-ios-push-notifications-swift-apps-get-started.md
+      url: ./ios-sdk-get-started.md
   - linkListType: how-to-guide
     links:
     - text: 플랫폼 간 알림 보내기
@@ -83,4 +83,4 @@ landingContent:
     - text: 지원 옵션
       url: https://azure.microsoft.com/support/options/
     - text: Microsoft Q&A 질문 페이지
-      url: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html
+      url: /answers/topics/azure-notification-hubs.html

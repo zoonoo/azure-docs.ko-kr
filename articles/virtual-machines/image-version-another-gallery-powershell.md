@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 48f0a247ed023583c8489994439a790944b90fdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082599"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>PowerShell을 사용 하 여 다른 갤러리에서 이미지 복사
 
@@ -100,7 +100,7 @@ Get-AzGalleryImageDefinition `
 }
 ```
 
-대상 갤러리에서 [AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) cmdlet 및 위의 출력 정보를 사용 하 여 새 이미지 정의를 만듭니다.
+대상 갤러리에서 [AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) cmdlet 및 위의 출력 정보를 사용 하 여 새 이미지 정의를 만듭니다.
 
 
 이 *예제에서 이미지* 정의의 이름은 *mydestinationgallery*라는 갤러리에 있습니다.
@@ -123,9 +123,9 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. `--managed-image`대상 갤러리에서 이미지 버전을 만들기 위해 매개 변수에서 원본 이미지의 ID를 전달 해야 합니다. 
+[AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. `--managed-image`대상 갤러리에서 이미지 버전을 만들기 위해 매개 변수에서 원본 이미지의 ID를 전달 해야 합니다. 
 
-이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*입니다.
 
 이 예에서는 *Mydestinationgallery* 리소스 그룹 *West US* 의 *mydestinationgallery*로 대상 갤러리의 이름이 지정 됩니다. 이 이미지의 버전은 *1.0.0* *이며 미국* *서 부* 지역에 2 개의 복제본과 2 개의 복제본을 만듭니다. 
 
@@ -156,7 +156,7 @@ $job.State
 > [!NOTE]
 > 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 또한 이미지 버전을 만들 때 `-StorageAccountType Premium_LRS`를 추가하여 프리미엄 스토리지에 추가하거나 `-StorageAccountType Standard_ZRS`를 추가하여 [영역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)를 추가하여 이미지를 저장할 수도 있습니다.
+> 또한 이미지 버전을 만들 때 `-StorageAccountType Premium_LRS`를 추가하여 프리미엄 스토리지에 추가하거나 `-StorageAccountType Standard_ZRS`를 추가하여 [영역 중복 스토리지](../storage/common/storage-redundancy.md)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
 

@@ -3,13 +3,14 @@ title: 지속성 함수의 작업 허브 - Azure
 description: Azure Functions의 지속성 함수 확장에 있는 작업 허브 및 작업 허브를 구성 하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afee79aecaad97ec4b441df0758166073b2413cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81604607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083109"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
@@ -127,6 +128,19 @@ public static async Task<HttpResponseMessage> Run(
 > 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+`function.json` 파일의 작업 허브 속성은 앱 설정을 통해 설정됩니다.
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
 
 `function.json` 파일의 작업 허브 속성은 앱 설정을 통해 설정됩니다.
 

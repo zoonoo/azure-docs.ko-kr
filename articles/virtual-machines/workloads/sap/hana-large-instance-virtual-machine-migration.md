@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db51ec682f43366f5637c461e3fe4037dec8e364
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085217"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>Azure Virtual Machines에 대 한 Azure Large Instance 마이그레이션 SAP HANA
 이 문서에서는 가능한 Azure Large Instance 배포 시나리오를 설명 하 고 전환 가동 중지 시간을 최소화 하는 계획 및 마이그레이션 방식을 제공 합니다.
@@ -40,7 +41,7 @@ ms.locfileid: "77617034"
 - 고객은 디자인 및 마이그레이션 계획의 유효성을 검사 했습니다.
 - 기본 사이트와 함께 재해 복구 VM을 계획 합니다.  고객은 마이그레이션 후 Vm에서 실행 되는 기본 사이트의 DR 노드로 HLI를 사용할 수 없습니다.
 - 고객은 비즈니스 복구 및 규정 준수 요구 사항에 따라 필요한 백업 파일을 대상 Vm에 복사 했습니다. VM에 액세스할 수 있는 백업을 사용 하면 전환 기간 동안 지정 시간 복구를 수행할 수 있습니다.
-- HSR HA의 경우 고객은 [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 및 [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)에 대 한 SAP HANA HA 가이드에 따라 stonith 장치를 설정 하 고 구성 해야 합니다.  HLI 케이스와 같이 미리 구성 되지 않습니다.
+- HSR HA의 경우 고객은 [SLES](./high-availability-guide-suse-pacemaker.md) 및 [RHEL](./high-availability-guide-rhel-pacemaker.md)에 대 한 SAP HANA HA 가이드에 따라 stonith 장치를 설정 하 고 구성 해야 합니다.  HLI 케이스와 같이 미리 구성 되지 않습니다.
 - 이 마이그레이션 방식은 Optane 구성으로 HLI Sku에 포함 되지 않습니다.
 
 ## <a name="deployment-scenarios"></a>배포 시나리오
@@ -48,21 +49,21 @@ HLI 고객이 있는 일반적인 배포 모델은 다음 표에 요약 되어 �
 
 | 시나리오 ID | HLI 시나리오 | 축 자 축으로 마이그레이션 | 설명 |
 | --- | --- | --- | --- |
-| 1 | [SID가 1개인 단일 노드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-one-sid) | 예 | - |
-| 2 | [MCOS를 사용 하는 단일 노드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos) | 예 | - |
-| 3 | [저장소 복제를 사용 하는 DR이 있는 단일 노드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication) | 아니요 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
-| 4 | [저장소 복제를 사용 하는 DR (다목적)이 포함 된 단일 노드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication) | 아니요 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
-| 5 | [고가용성을 위한 STONITH가 있는 HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability) | 예 | 대상 Vm에 대 한 미리 구성 된 SBD 없습니다.  STONITH 솔루션을 선택 하 고 배포 합니다.  가능한 옵션: Azure 펜스 에이전트 ( [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker), [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)모두에 지원 됨), SBD |
-| 6 | [HSR, 저장소 복제를 사용 하는 DR을 사용한 HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication) | 아니요 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
-| 7 | [호스트 자동 장애 조치(Failover)(1+1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11) | 예 | Azure Vm에서 공유 저장소에 ANF 사용 |
-| 8 | [대기 상태로 스케일 아웃](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby) | 예 | M128s, M416s, M416ms Vm을 사용 하 여 저장소 전용으로 ANF를 사용 하는 BW/4HANA |
-| 9 | [대기 없이 스케일 아웃](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby) | 예 | M128s, M416s, M416ms Vm (저장소에 대해 ANF를 사용 하거나 사용 하지 않음)을 사용 하는 BW/4HANA |
-| 10 | [저장소 복제를 사용 하 여 DR 확장](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication) | 아니요 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
-| 11 | [HSR를 사용 하는 DR을 사용 하는 단일 노드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr) | 예 | - |
-| 12 | [단일 노드 HSR에서 DR으로 (비용 최적화)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized) | 예 | - |
-| 13 | [HSR에서 HA 및 DR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr) | 예 | - |
-| 14 | [HSR에서 HA 및 DR (비용 최적화)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | 예 | - |
-| 15 | [HSR를 사용 하 여 DR으로 확장](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr) | 예 | M128s를 사용 하는 BW/4HANA M416s, M416ms Vm (저장소에 ANF를 사용 하거나 사용 하지 않음) |
+| 1 | [SID가 1개인 단일 노드](./hana-supported-scenario.md#single-node-with-one-sid) | 예 | - |
+| 2 | [MCOS를 사용 하는 단일 노드](./hana-supported-scenario.md#single-node-mcos) | 예 | - |
+| 3 | [저장소 복제를 사용 하는 DR이 있는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | 예 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
+| 4 | [저장소 복제를 사용 하는 DR (다목적)이 포함 된 단일 노드](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | 예 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
+| 5 | [고가용성을 위한 STONITH가 있는 HSR](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | 예 | 대상 Vm에 대 한 미리 구성 된 SBD 없습니다.  STONITH 솔루션을 선택 하 고 배포 합니다.  가능한 옵션: Azure 펜스 에이전트 ( [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)모두에 지원 됨), SBD |
+| 6 | [HSR, 저장소 복제를 사용 하는 DR을 사용한 HA](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | 예 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
+| 7 | [호스트 자동 장애 조치(Failover)(1+1)](./hana-supported-scenario.md#host-auto-failover-11) | 예 | Azure Vm에서 공유 저장소에 ANF 사용 |
+| 8 | [대기 상태로 스케일 아웃](./hana-supported-scenario.md#scale-out-with-standby) | 예 | M128s, M416s, M416ms Vm을 사용 하 여 저장소 전용으로 ANF를 사용 하는 BW/4HANA |
+| 9 | [대기 없이 스케일 아웃](./hana-supported-scenario.md#scale-out-without-standby) | 예 | M128s, M416s, M416ms Vm (저장소에 대해 ANF를 사용 하거나 사용 하지 않음)을 사용 하는 BW/4HANA |
+| 10 | [저장소 복제를 사용 하 여 DR 확장](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | 예 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
+| 11 | [HSR를 사용 하는 DR을 사용 하는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | 예 | - |
+| 12 | [단일 노드 HSR에서 DR으로 (비용 최적화)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | 예 | - |
+| 13 | [HSR에서 HA 및 DR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | 예 | - |
+| 14 | [HSR에서 HA 및 DR (비용 최적화)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | 예 | - |
+| 15 | [HSR를 사용 하 여 DR으로 확장](./hana-supported-scenario.md#scale-out-with-dr-using-hsr) | 예 | M128s를 사용 하는 BW/4HANA M416s, M416ms Vm (저장소에 ANF를 사용 하거나 사용 하지 않음) |
 
 
 ## <a name="source-hli-planning"></a>원본 (HLI) 계획
@@ -72,7 +73,7 @@ HLI 서버를 등록 하는 경우 Microsoft Service Management와 고객은 모
 원치 않는 데이터, 오래 된 데이터 또는 오래 된 로그를 새 데이터베이스로 마이그레이션하지 않도록 데이터베이스 콘텐츠를 정리 하는 것이 좋습니다.  일반적으로는 이전, 만료 또는 비활성 데이터를 삭제 하거나 보관 해야 합니다.  이러한 ' 데이터 예방 ' 작업은 프로덕션 사용 전에 데이터 트리밍 유효성을 검사 하기 위해 비프로덕션 시스템에서 테스트 되어야 합니다.
 
 ### <a name="allow-network-connectivity-for-new-vms-and-or-virtual-network"></a>새 Vm 및 또는 가상 네트워크에 대 한 네트워크 연결 허용 
-고객의 HLI 배포에서 네트워크는 [SAP HANA (Large Instances) 네트워크 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)문서에 설명 된 정보에 따라 설정 되었습니다. 또한 네트워크 트래픽 라우팅은 ' Azure에서 라우팅 ' 섹션에 설명 된 방식으로 수행 됩니다.
+고객의 HLI 배포에서 네트워크는 [SAP HANA (Large Instances) 네트워크 아키텍처](./hana-network-architecture.md)문서에 설명 된 정보에 따라 설정 되었습니다. 또한 네트워크 트래픽 라우팅은 ' Azure에서 라우팅 ' 섹션에 설명 된 방식으로 수행 됩니다.
 - 새 VM을 마이그레이션 대상으로 설정 하는 경우 IP 주소 범위가 이미 HLI에 연결할 수 있는 기존 가상 네트워크에 배치 된 경우 추가 연결 업데이트가 필요 하지 않습니다.
 - 새 Azure VM이 새 Microsoft Azure Virtual Network에 배치 되 고 다른 지역에 있을 수 있으며 기존 가상 네트워크를 사용 하 여 피어 링 새 가상 네트워크 IP 범위에 대 한 액세스를 허용 하기 위해 원래 HLI 프로 비전에서의 Express 경로 서비스 키 및 리소스 ID를 사용할 수 있습니다.  Microsoft Service Management를 사용 하 여 가상 네트워크에서 HLI 연결을 사용 하도록 설정 합니다.  참고: 응용 프로그램과 데이터베이스 계층 간의 네트워크 대기 시간을 최소화 하려면 응용 프로그램과 데이터베이스 계층이 모두 동일한 가상 네트워크에 있어야 합니다.  
 
@@ -106,7 +107,7 @@ HLI 콘텐츠를 백업 하는 것 외에도 롤백이 필요한 경우 SAP 가�
 현재 SAP 응용 프로그램 서버의 배포 지역은 일반적으로 연결 된 HLIs 가까이에 있습니다.  그러나 HLIs는 사용 가능한 Azure 지역 보다 더 작은 위치로 제공 됩니다.  물리적 HLI를 Azure VM으로 마이그레이션하는 경우 성능 최적화를 위해 모든 관련 서비스의 근접 거리를 ' 미세 조정 ' 하는 것도 좋습니다.  이 작업을 수행 하는 동안 선택 된 영역에 필요한 모든 리소스가 있는지 확인 하는 것이 중요 한 고려 사항입니다.  예를 들어, 특정 VM 제품군의 가용성 또는 고가용성을 설정 하기 위해 Azure 영역을 제공 합니다.
 
 ### <a name="virtual-network"></a>가상 네트워크 
-고객은 기존 가상 네트워크에서 새 HANA 데이터베이스를 실행할지 아니면 새 HANA 데이터베이스를 만들지를 선택 해야 합니다.  기본 결정 요인은 SAP 환경에 대 한 현재 네트워킹 레이아웃입니다.  또한 인프라가 한 영역에서 두 영역으로의 배포로 이동 하 고 PPG를 사용 하는 경우 아키텍처 변경을 적용 합니다. 자세한 내용은 [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간에 대 한 Azure PPG](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios)문서를 참조 하세요.   
+고객은 기존 가상 네트워크에서 새 HANA 데이터베이스를 실행할지 아니면 새 HANA 데이터베이스를 만들지를 선택 해야 합니다.  기본 결정 요인은 SAP 환경에 대 한 현재 네트워킹 레이아웃입니다.  또한 인프라가 한 영역에서 두 영역으로의 배포로 이동 하 고 PPG를 사용 하는 경우 아키텍처 변경을 적용 합니다. 자세한 내용은 [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간에 대 한 Azure PPG](./sap-proximity-placement-scenarios.md)문서를 참조 하세요.   
 
 ### <a name="security"></a>보안
 새 SAP HANA VM이 신규 또는 기존 vnet/서브넷에서 발생 하는지 여부는 보호를 요구 하는 새로운 중요 업무용 서비스를 나타냅니다.  회사 정보 보안 정책을 준수 하는 액세스 제어는이 새로운 서비스 클래스에 대해 평가 되 고 배포 되어야 합니다.
@@ -115,7 +116,7 @@ HLI 콘텐츠를 백업 하는 것 외에도 롤백이 필요한 경우 SAP 가�
 또한이 마이그레이션은 HANA 계산 엔진을 적절 하 게 크기를 조정 하는 기회입니다.  Hana [시스템 뷰](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) 를 hana Studio와 함께 사용 하 여 시스템 리소스 사용을 이해할 수 있으며,이를 통해 올바른 크기 조정으로 지출 효율성을 높일 수 있습니다.
 
 ### <a name="storage"></a>스토리지 
-저장소 성능은 SAP 응용 프로그램 사용자 환경에 영향을 주는 요인 중 하나입니다.  지정 된 VM SKU에 기반 하 여 [Azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)게시 된 최소 저장소 레이아웃입니다. 새 HANA VM에 대 한 적절 한 IO 용량 및 성능을 보장 하기 위해 이러한 최소 사양과 기존 HLI 시스템 통계 비교를 검토 하는 것이 좋습니다.
+저장소 성능은 SAP 응용 프로그램 사용자 환경에 영향을 주는 요인 중 하나입니다.  지정 된 VM SKU에 기반 하 여 [Azure 가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md)게시 된 최소 저장소 레이아웃입니다. 새 HANA VM에 대 한 적절 한 IO 용량 및 성능을 보장 하기 위해 이러한 최소 사양과 기존 HLI 시스템 통계 비교를 검토 하는 것이 좋습니다.
 
 새 HANA VM 및 연결 된 서버에 대해 PPG를 구성 하는 경우 지원 티켓을 제출 하 여 저장소 및 VM의 공동 배치를 검사 하 고 확인 합니다. 백업 솔루션을 변경 해야 할 수 있으므로 운영 지출을 방지 하기 위해 저장소 비용도 검토 해야 합니다.
 
@@ -123,13 +124,13 @@ HLI 콘텐츠를 백업 하는 것 외에도 롤백이 필요한 경우 SAP 가�
 HLI를 사용 하면 저장소 복제가 재해 복구에 대 한 기본 옵션으로 제공 됩니다. 이 기능은 Azure VM의 SAP HANA에 대 한 기본 옵션이 아닙니다. HSR, 백업/복원 또는 비즈니스 요구 사항을 충족 하는 기타 지원 되는 솔루션을 고려 합니다.
 
 ### <a name="availability-sets-availability-zones-and-proximity-placement-groups"></a>가용성 집합, 가용성 영역 및 근접 배치 그룹 
-네트워크 대기 시간을 최소화 하기 위해 응용 프로그램 계층과 SAP HANA 간의 거리를 줄이려면 새 데이터베이스 VM 및 현재 SAP 응용 프로그램 서버를 PPG에 배치 해야 합니다. Azure 가용성 집합 및 가용성 영역 SAP 배포용 PPG를 사용 하는 방법에 대 한 자세한 내용은 [근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 을 참조 하세요.
+네트워크 대기 시간을 최소화 하기 위해 응용 프로그램 계층과 SAP HANA 간의 거리를 줄이려면 새 데이터베이스 VM 및 현재 SAP 응용 프로그램 서버를 PPG에 배치 해야 합니다. Azure 가용성 집합 및 가용성 영역 SAP 배포용 PPG를 사용 하는 방법에 대 한 자세한 내용은 [근접 배치 그룹](./sap-proximity-placement-scenarios.md) 을 참조 하세요.
 대상 HANA 시스템의 구성원이 둘 이상의 Azure 영역에 배포 된 경우 고객은 선택한 영역의 대기 시간 프로필을 명확 하 게 확인 해야 합니다. Sap 시스템 구성 요소의 배치는 SAP 응용 프로그램과 데이터베이스 간의 proximal 거리와 관련 하 여 가장 적합 합니다.  공용 도메인 [가용성 영역 대기 시간 테스트 도구](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) 를 사용 하면 측정을 보다 쉽게 수행할 수 있습니다.  
 
 
 ### <a name="backup-strategy"></a>Backup 전략
 많은 고객이 HLI에서 SAP HANA에 대 한 타사 백업 솔루션을 이미 사용 하 고 있습니다.  이 경우 보호 된 VM 및 HANA 데이터베이스를 추가로 구성 해야 합니다.  마이그레이션 후 컴퓨터를 서비스 해제 하는 경우 현재 진행 중인 HLI 백업 작업을 예약 하지 않을 수 있습니다.
-이제 VM의 SAP HANA에 대 한 Azure Backup 일반적으로 제공 됩니다.  Azure Vm에서 백업, 복원, SAP HANA [백업 백업,](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) [복원](https://docs.microsoft.com/azure/backup/sap-hana-db-restore), [관리](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) 에 대 한 자세한 내용은 다음 링크를 참조 하세요.
+이제 VM의 SAP HANA에 대 한 Azure Backup 일반적으로 제공 됩니다.  Azure Vm에서 백업, 복원, SAP HANA [백업 백업,](../../../backup/backup-azure-sap-hana-database.md) [복원](../../../backup/sap-hana-db-restore.md), [관리](../../../backup/sap-hana-db-manage.md) 에 대 한 자세한 내용은 다음 링크를 참조 하세요.
 
 ### <a name="dr-strategy"></a>DR 전략
 서비스 수준 목표가 더 긴 복구 시간을 수용 하는 경우 blob 저장소에 대 한 간단한 백업 및 새 VM에 대 한 복원 또는 복원은 가장 간단 하 고 비용이 적게 드는 DR 전략입니다.  
@@ -196,5 +197,5 @@ VM 서버가 구현 되 고 HLI 블레이드가 서비스 해제 되 면 os 라�
 
 ## <a name="next-steps"></a>다음 단계
 아래 문서를 참조하세요.
-- [Azure에서 인프라 구성 및 작업을 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)합니다.
-- [Azure의 SAP 워크 로드: 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
+- [Azure에서 인프라 구성 및 작업을 SAP HANA](./hana-vm-operations.md)합니다.
+- [Azure의 SAP 워크 로드: 계획 및 배포 검사 목록](./sap-deployment-checklist.md).

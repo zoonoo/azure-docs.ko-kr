@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78163763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082990"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>로컬로 PowerShell Azure Functions 디버그
 
@@ -37,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-이 함수 앱은 [PowerShell 빠른](functions-create-first-function-powershell.md)시작을 완료할 때 표시 되는 것과 비슷합니다.
+이 함수 앱은 [PowerShell 빠른](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)시작을 완료할 때 표시 되는 것과 비슷합니다.
 
 의 함수 코드는 `run.ps1` 다음 스크립트와 같습니다.
 
@@ -91,10 +92,10 @@ if($name) {
 Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 다음이 설치 되어 있어야 합니다.
 
 * [Visual Studio Code에 대 한 PowerShell 확장](/powershell/scripting/components/vscode/using-vscode)
-* [Visual Studio Code Azure Functions 확장](functions-create-first-function-vs-code.md)
+* [Visual Studio Code용 Azure Functions 확장](functions-create-first-function-vs-code.md)
 * [PowerShell Core 6.2 이상](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-이러한 종속성을 설치한 후 기존 PowerShell 함수 프로젝트를 로드 하거나 [첫 번째 Powershell 함수 프로젝트를 만듭니다](functions-create-first-function-powershell.md).
+이러한 종속성을 설치한 후 기존 PowerShell 함수 프로젝트를 로드 하거나 [첫 번째 Powershell 함수 프로젝트를 만듭니다](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 >[!NOTE]
 > 프로젝트에 필요한 구성 파일이 없는 경우 추가 하 라는 메시지가 표시 됩니다.
@@ -128,7 +129,7 @@ F5 키를 눌러 디버깅을 시작할 수도 있습니다.
 * Powershell 디버거를 함수 런타임 내의 PowerShell runspace에 연결 합니다.
 
 >[!NOTE]
-> Visual Studio Code에서 올바른 디버깅 환경을 보장 하려면 PSWorkerInProcConcurrencyUpperBound가 1로 설정 되어 있는지 확인 해야 합니다. 기본값입니다.
+> Visual Studio Code에서 올바른 디버깅 환경을 보장 하려면 PSWorkerInProcConcurrencyUpperBound가 1로 설정 되어 있는지 확인 해야 합니다. 이것이 기본값입니다.
 
 함수 앱을 실행 하는 경우 HTTP 트리거된 함수를 호출 하는 별도의 PowerShell 콘솔이 필요 합니다.
 

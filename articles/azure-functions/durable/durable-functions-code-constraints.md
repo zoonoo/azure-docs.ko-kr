@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562142"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081868"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Orchestrator 함수 코드 제약 조건
 
@@ -17,7 +18,7 @@ Durable Functions은 상태 저장 앱을 빌드할 수 있는 [Azure Functions]
 
 ## <a name="orchestrator-code-constraints"></a>오케스트레이터 코드 제약 조건
 
-Orchestrator 함수는 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) 을 사용 하 여 신뢰할 수 있는 실행을 보장 하 고 로컬 변수 상태를 유지 합니다. Orchestrator 코드의 [재생 동작은](durable-functions-orchestrations.md#reliability) orchestrator 함수에서 작성할 수 있는 코드 형식에 대 한 제약 조건을 만듭니다. 예를 들어 오 케 스트레이 터 함수는 *결정적*이어야 합니다. 오 케 스트레이 터 함수는 여러 번 재생 되며 매번 동일한 결과를 생성 해야 합니다.
+Orchestrator 함수는 [이벤트 소싱](/azure/architecture/patterns/event-sourcing) 을 사용 하 여 신뢰할 수 있는 실행을 보장 하 고 로컬 변수 상태를 유지 합니다. Orchestrator 코드의 [재생 동작은](durable-functions-orchestrations.md#reliability) orchestrator 함수에서 작성할 수 있는 코드 형식에 대 한 제약 조건을 만듭니다. 예를 들어 오 케 스트레이 터 함수는 *결정적*이어야 합니다. 오 케 스트레이 터 함수는 여러 번 재생 되며 매번 동일한 결과를 생성 해야 합니다.
 
 ### <a name="using-deterministic-apis"></a>결정적 Api 사용
 

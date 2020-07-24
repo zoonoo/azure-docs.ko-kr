@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07857feb2e5552429c445b22c4c4b2f121f29a93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1010f89057d83a11fb2e156f01509e909270b044
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976492"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083575"
 ---
-# <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
+# <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 문제 해결 개요, 피드백 및 지원
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 사용하여 2020년 봄 업데이트에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop 2019년 가을 릴리스를 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md)를 참조하세요.

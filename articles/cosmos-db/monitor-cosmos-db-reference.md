@@ -5,40 +5,41 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89dc81cdd06bedb6237cf48312ee7ed0510d93ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084741"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB 모니터링 데이터 참조
-이 문서에서는 Azure Cosmos DB의 성능 및 가용성을 분석하기 위해 수집된 로그 및 메트릭 데이터에 대한 참조를 제공합니다. Azure Cosmos DB 모니터링 데이터 수집 및 분석에 대 한 자세한 내용은 [Cosmos DB 모니터링](monitor-cosmos-db.md) 을 참조 하세요.
 
+이 문서에서는 Azure Cosmos DB의 성능 및 가용성을 분석하기 위해 수집된 로그 및 메트릭 데이터에 대한 참조를 제공합니다. Azure Cosmos DB에 대 한 모니터링 데이터를 수집 하 고 분석 하는 방법은 [모니터 Azure Cosmos DB](monitor-cosmos-db.md) 문서를 참조 하세요.
 
 ## <a name="resource-logs"></a>리소스 로그
-다음 표에서는 Azure Monitor 로그 또는 Azure Storage에서 수집 될 때 Azure Cosmos DB 리소스 로그의 속성을 나열 합니다. Azure Monitor 로그에는 *MICROSOFT.DOCUMENTDB*의 **ResourceProvider** 값을 사용 하 여 **azurediagnostics** 테이블에서 수집 됩니다. 
+
+다음 표에서는 Azure Cosmos DB에 있는 리소스 로그의 속성을 나열 합니다. 리소스 로그는 Azure Monitor 로그 나 Azure Storage 수집 됩니다. Azure Monitor에서 로그는 **Azurediagnostics** 테이블의 리소스 공급자 * * 이름 아래에 수집 됩니다 `MICROSOFT.DOCUMENTDB` .
 
 | Azure Storage 필드 또는 속성 | Azure Monitor Logs 속성 | Description |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
 | **resourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
-| **category** | **범주** | Azure Cosmos DB 로그, **DataPlaneRequests**, **MongoRequests**, **queryruntimestatistics**, **파티션**, 파티션, **파티션**, **ControlPlaneRequests** 는 사용 가능한 로그 형식입니다. |
-| **operationName** | **OperationName** | 작업의 이름입니다. 이 값은 Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed 또는 Upsert 작업 중 하나일 수 있습니다.   |
+| **category** | **범주** | Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **queryruntimestatistics**, **파티션**, 파티션, **파티션**, **ControlPlaneRequests** 는 사용 가능한 로그 형식입니다. |
+| **operationName** | **OperationName** | 작업의 이름입니다. 작업 이름은 `Create` ,, `Update` `Read` , `ReadFeed` ,, `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` ,,,, `Upsert` ,, 또는 일 수 있습니다.   |
 | **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
 | **activityId** | **activityId_g** | 기록된 작업의 고유 GUID입니다. |
-| **userAgent** | **userAgent_s** | 요청을 수행하는 클라이언트 사용자 에이전트를 지정하는 문자열입니다. 형식은 {사용자 에이전트 이름}/{버전}입니다.|
-| **requestResourceType** | **requestResourceType_s** | 액세스한 리소스 유형입니다. 이 값은 Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction 또는 Offer 같은 리소스 유형 중 하나일 수 있습니다. |
+| **userAgent** | **userAgent_s** | 요청을 보낸 클라이언트 사용자 에이전트를 지정 하는 문자열입니다. 사용자 에이전트의 형식은 `{user agent name}/{version}` 입니다.|
+| **requestResourceType** | **requestResourceType_s** | 액세스한 리소스 유형입니다. 이 값은 데이터베이스, 컨테이너, 문서, 첨부 파일, 사용자, 사용 권한, 저장 프로시저, 트리거, 사용자 정의 함수 또는 제안이 될 수 있습니다. |
 | **statusCode** | **statusCode_s** | 작업의 응답 상태입니다. |
-| **requestResourceId** | **ResourceId** | 요청에 관련된 리소스 ID입니다. 값은 수행된 작업에 따라 databaseRid, collectionRid 또는 documentRid를 가리킬 수 있습니다.|
+| **requestResourceId** | **ResourceId** | 요청에 관련된 리소스 ID입니다. 수행 된 작업에 따라이 값은, 또는를 가리킬 수 있습니다 `databaseRid` `collectionRid` `documentRid` .|
 | **clientIpAddress** | **clientIpAddress_s** | 클라이언트의 IP 주소입니다. |
-| **requestCharge** | **requestCharge_s** | 작업에서 사용된 RU 수입니다. |
+| **requestCharge** | **requestCharge_s** | 작업에서 사용 하는 o s/s의 수입니다. |
 | **collectionRid** | **collectionId_s** | 컬렉션의 고유 ID입니다.|
-| **duration** | **duration_s** | 작업의 기간 (밀리초)입니다. |
+| **duration** | **duration_d** | 작업의 기간 (밀리초)입니다. |
 | **requestLength** | **requestLength_s** | 요청 길이(바이트)입니다. |
 | **responseLength** | **responseLength_s** | 응답 길이(바이트)입니다.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 이 값은 인증에 [리소스 토큰](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)이 사용될 경우 비어 있지 않습니다. 값은 사용자의 리소스 ID를 가리킵니다. |
@@ -49,11 +50,11 @@ ms.locfileid: "85262738"
 ## <a name="metrics"></a>메트릭
 다음 표에서는 Azure CosmOS DB에 대해 수집 된 플랫폼 메트릭을 나열 합니다. 모든 메트릭은 **표준 메트릭에 Cosmos DB**네임 스페이스에 저장 됩니다.
 
-모든 Azure Monitor 지원 메트릭 (CosmosDB 포함)의 목록은 [지원 되는 메트릭 Azure Monitor](../azure-monitor/platform/metrics-supported.md)을 참조 하세요. 
+모든 Azure Monitor 지원 메트릭 (Azure Cosmos DB 포함)의 목록은 [지원 되는 메트릭 Azure Monitor](../azure-monitor/platform/metrics-supported.md)을 참조 하세요. 
 
 #### <a name="request-metrics"></a>요청 메트릭
             
-|메트릭 (메트릭 표시 이름)|Unit (집계 형식) |설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용량 |
+|메트릭 (메트릭 표시 이름)|Unit (집계 형식) |Description|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 |
 |---|---|---|---| ---| ---| ---|
 | TotalRequests (총 요청) | 개수 (개수) | 요청 수| DatabaseName, CollectionName, 지역, StatusCode| 모두 | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second | 상태 코드의 요청을 분 단위로 모니터링 하는 데 사용 됩니다. 초당 평균 요청 수를 가져오려면 개수 집계(분)를 사용한 후 60으로 나눕니다. |
 | MetadataRequests (메타 데이터 요청) |개수 (개수) | 메타데이터 요청 수. Azure Cosmos DB는 각 계정에 대 한 시스템 메타 데이터 컨테이너를 유지 관리 하며,이를 통해 컬렉션, 데이터베이스 등의 기능 및 해당 구성을 무료로 열거할 수 있습니다. | DatabaseName, CollectionName, 지역, StatusCode| 모두| |메타데이터 요청으로 인한 제한을 모니터링하는 데 사용합니다.|
@@ -61,7 +62,7 @@ ms.locfileid: "85262738"
 
 #### <a name="request-unit-metrics"></a>요청 단위 메트릭
 
-|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용량 |
+|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|Description|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 |
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (Mongo 요청 요금) | 개수 (합계) |사용된 Mongo 요청 단위| DatabaseName, CollectionName, 지역, CommandName, ErrorCode| 모두 |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Mongo 리소스 RU(분)를 모니터링하는 데 사용합니다.|
 | TotalRequestUnits (총 요청 단위)| 개수 (합계) | 사용된 요청 단위| DatabaseName, CollectionName, 지역, StatusCode |모두| TotalRequestUnits| 분 단위로 총 RU 사용량을 모니터링하는 데 사용합니다. 초당 사용한 평균 RU를 가져오려면 합계 집계(분)를 사용한 후 60으로 나눕니다.|
@@ -69,7 +70,7 @@ ms.locfileid: "85262738"
 
 #### <a name="storage-metrics"></a>Storage 메트릭
 
-|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용량 |
+|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|Description|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 |
 |---|---|---|---| ---| ---| ---|
 | 사용 가능한 저장소 (사용 가능한 저장소) |바이트 (합계) | 지역별 5 분 단위로 보고 된 총 사용 가능한 저장소| DatabaseName, CollectionName, Region| 5M| 사용 가능한 스토리지| 사용 가능한 스토리지 용량을 모니터링하는 데 사용합니다(고정 스토리지 컬렉션에만 해당). 최소 단위는 5분이어야 합니다.| 
 | DataUsage (데이터 사용) |바이트 (합계) |지역별 5 분 단위로 보고 된 총 데이터 사용량| DatabaseName, CollectionName, Region| 5M |데이터 크기 | 컨테이너 및 지역에서 총 데이터 사용량을 모니터링 하는 데 사용 되는 최소 세분성은 5 분입니다.|
@@ -79,7 +80,7 @@ ms.locfileid: "85262738"
 
 #### <a name="latency-metrics"></a>대기 시간 메트릭
 
-|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|설명|차원| 시간 단위| 사용량 |
+|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|Description|차원| 시간 단위| 사용 |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (복제 대기 시간)| 밀리초 (최소, 최대, 평균) | 지역 사용 계정에 대한 원본 및 대상 지역의 P99 복제 대기 시간| SourceRegion, TargetRegion| 모두 | 지역에서 복제된 계정에 대한 두 지역 간 P99 복제 대기 시간을 모니터링하는 데 사용합니다. |
 | 서버 쪽 대기 시간| 밀리초 (평균) | 서버에서 요청을 처리 하는 데 걸린 시간입니다. | CollectionName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Region | 모두 | Azure Cosmos DB 서버에서 요청 대기 시간을 모니터링 하는 데 사용 됩니다. |
@@ -88,17 +89,17 @@ ms.locfileid: "85262738"
 
 #### <a name="availability-metrics"></a>가용성 메트릭
 
-|메트릭 (메트릭 표시 이름) |Unit (집계 형식)|설명| 시간 단위| 레거시 메트릭 매핑 | 사용량 |
+|메트릭 (메트릭 표시 이름) |Unit (집계 형식)|Description| 시간 단위| 레거시 메트릭 매핑 | 사용 |
 |---|---|---|---| ---| ---|
 | ServiceAvailability (서비스 가용성)| 백분율 (최소, 최대) | 1시간 단위의 계정 요청 가용성| 1H | 서비스 가용성 | 전달 된 총 요청 비율을 나타냅니다. 요청은 상태 코드가 410, 500 또는 503인경 우 시스템 오류로 인해 실패한 것으로 간주됩니다. 시간 단위로 계정의 가용성을 모니터링하는 데 사용합니다. |
 
 
 #### <a name="cassandra-api-metrics"></a>Cassandra API 메트릭
 
-|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|설명|차원| 시간 단위| 사용량 |
+|메트릭 (메트릭 표시 이름)|Unit (집계 형식)|Description|차원| 시간 단위| 사용 |
 |---|---|---|---| ---| ---|
 | CassandraRequests (Cassandra 요청) | 개수 (개수) | 수행된 Cassandra API 요청 수| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| 모두| 분 단위로 Cassandra 요청을 모니터링하는 데 사용합니다. 초당 평균 요청 수를 가져오려면 개수 집계(분)를 사용한 후 60으로 나눕니다.|
-| CassandraRequestCharges (Cassandra 요청 요금) | 개수 (합계, 최소값, 최대값, 평균) | Cassandra API 요청에 사용된 요청 단위| DatabaseName, CollectionName, Region, OperationType, ResourceType| 모두| Cassandra API 계정에서 분당 사용된 RU를 모니터링하는 데 사용합니다.|
+| CassandraRequestCharges (Cassandra 요청 요금) | 개수 (합계, 최소값, 최대값, 평균) | Cassandra API에서 사용 하는 요청 단위 | DatabaseName, CollectionName, Region, OperationType, ResourceType| 모두| Cassandra API 계정에서 분당 사용된 RU를 모니터링하는 데 사용합니다.|
 | CassandraConnectionClosures (Cassandra 연결 클로저) |개수 (개수) |닫힌 Cassandra 연결 수| ClosureReason, Region| 모두 | 클라이언트와 Azure Cosmos DB Cassandra API 간 연결을 모니터링하는 데 사용합니다.|
 
 ## <a name="see-also"></a>참고 항목

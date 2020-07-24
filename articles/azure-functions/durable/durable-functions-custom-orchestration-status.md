@@ -2,13 +2,14 @@
 title: 지속성 함수의 사용자 지정 오케스트레이션 상태 - Azure
 description: 지속성 함수의 사용자 지정 오케스트레이션 상태를 구성하고 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/10/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb5c6ee15a5a445b4b762bd9eaf8919e1396f8ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76766265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081834"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
 
@@ -17,7 +18,7 @@ ms.locfileid: "76766265"
 ## <a name="sample-use-cases"></a>샘플 사용 사례
 
 > [!NOTE]
-> 다음 샘플에서는 c # 및 JavaScript에서 사용자 지정 상태 기능을 사용 하는 방법을 보여 줍니다. C # 예제는 Durable Functions 2.x 용으로 작성 되었으며 Durable Functions 1.x와 호환 되지 않습니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 다음 샘플에서는 c #, JavaScript 및 Python에서 사용자 지정 상태 기능을 사용 하는 방법을 보여 줍니다. C # 예제는 Durable Functions 2.x 용으로 작성 되었으며 Durable Functions 1.x와 호환 되지 않습니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="visualize-progress"></a>진행률 시각화
 
@@ -78,6 +79,34 @@ module.exports = df.orchestrator(function*(context){
 module.exports = async function(context, name) {
     return `Hello ${name}!`;
 };
+```
+# <a name="python"></a>[Python](#tab/python)
+
+### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence`Orchestrator 함수
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    
+    output1 = yield context.call_activity('E1_SayHello', 'Tokyo')
+    context.set_custom_status('Tokyo')
+    output2 = yield context.call_activity('E1_SayHello', 'Seattle')
+    context.set_custom_status('Seattle')
+    output3 = yield context.call_activity('E1_SayHello', 'London')
+    context.set_custom_status('London')
+    
+    return [output1, output2, output3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+### <a name="e1_sayhello-activity-function"></a>`E1_SayHello`작업 함수
+```python
+def main(name: str) -> str:
+    return f"Hello {name}!"
+
 ```
 
 ---
@@ -149,6 +178,31 @@ module.exports = async function(context, req) {
 > [!NOTE]
 > JavaScript에서 `customStatus` 필드는 다음 `yield` 또는 `return` 작업이 예약될 때 설정됩니다.
 
+# <a name="python"></a>[Python](#tab/python)
+```python
+import json
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+from time import sleep
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)    
+    instance_id = await client.start_new(req.params.functionName, None, None)
+
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+
+    durable_orchestration_status = await client.get_status(instance_id)
+    while durable_orchestration_status.custom_status != 'London':
+        sleep(0.2)
+        durable_orchestration_status = await client.get_status(instance_id)
+
+    return func.HttpResponse(body='Success', status_code=200, mimetype='application/json')
+```
+
+> [!NOTE]
+> Python에서 필드는 `custom_status` 다음 `yield` 또는 작업이 예약 될 때 설정 됩니다 `return` .
+
 ---
 
 ### <a name="output-customization"></a>출력 사용자 지정
@@ -195,6 +249,8 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`orchestrator
+
 ```javascript
 const df = require("durable-functions");
 
@@ -226,6 +282,39 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`orchestrator
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    userChoice = int(context.get_input())
+
+    if userChoice == 1:
+        context.set_custom_status({
+            'recommendedCities' : ['Tokyo', 'Seattle'], 
+            'recommendedSeasons' : ['Spring', 'Summer']
+        }))
+    if userChoice == 2:
+        context.set_custom_status({
+            'recommendedCities' : ['Seattle', 'London']
+            'recommendedSeasons' : ['Summer']
+        }))
+    if userChoice == 3:
+        context.set_custom_status({
+            'recommendedCities' : ['Tokyo', 'London'], 
+            'recommendedSeasons' : ['Spring', 'Summer']
+        }))
+
+
+
+    # Wait for user selection and refine the recommendation
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
 ### <a name="instruction-specification"></a>지침 사양
@@ -286,6 +375,30 @@ module.exports = df.orchestrator(function*(context) {
     return isBookingConfirmed;
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    userId = int(context.get_input())
+
+    discount = yield context.call_activity('CalculateDiscount', userId)
+
+    status = { 'discount' : discount,
+        'discountTimeout' : 60,
+        'bookingUrl' : "https://www.myawesomebookingweb.com",
+    }
+    context.set_custom_status(status)
+
+    is_booking_confirmed = yield context.wait_for_external_event('BookingConfirmed')
+    context.set_custom_status({'message': 'Thank you for confirming your booking.'} if is_booking_confirmed 
+        else {'message': 'The booking was not confirmed on time. Please try again.'})
+    return is_booking_confirmed
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 
 ---
 
@@ -324,6 +437,22 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # ...do work...
+
+    custom_status = {'nextActions': ['A','B','C'], 'foo':2}
+    context.set_custom_status(custom_status)
+
+    # ...do more work...
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
 오케스트레이션이 실행되는 동안 외부 클라이언트가 이 사용자 지정 상태를 가져올 수 있습니다.

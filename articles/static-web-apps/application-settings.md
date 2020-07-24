@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71748959f8b5350a4bd34349eefedbf9d99c76e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083619"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 애플리케이션 설정 구성 미리 보기
 
@@ -33,7 +33,7 @@ ms.locfileid: "85373671"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Static Web Apps 애플리케이션
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="types-of-application-settings"></a>애플리케이션 설정의 유형
 

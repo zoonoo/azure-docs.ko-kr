@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081987"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
 
@@ -21,8 +22,8 @@ ms.locfileid: "84984617"
 
 정책 기반 *및* 경로 기반 VPN 장치는 연결에서 IPsec 트래픽 선택기를 설정 하는 방법에 차이가 있습니다.
 
-* **정책 기반** VPN 디바이스는 두 네트워크의 접두사 조합을 사용하여 트래픽이 IPsec 터널을 통해 암호화/암호 해독되는 방법을 정의합니다. 이는 일반적으로 패킷 필터링을 수행하는 방화벽 디바이스에 구축됩니다. IPsec 터널 암호화 및 암호 해독이 패킷 필터링 및 처리 엔진에 추가됩니다.
-* **경로 기반** VPN 디바이스는 임의(와일드 카드) 트래픽 선택기를 사용하며, 라우팅/전달 테이블이 서로 다른 IPsec 터널로 트래픽을 전달하도록 합니다. 이는 일반적으로 각 IPsec 터널이 네트워크 인터페이스 또는 VTI(가상 터널 인터페이스)로 모델링되는 라우터 플랫폼에 구축됩니다.
+* **정책 기반** VPN 장치는 두 네트워크의 접두사 조합을 사용 하 여 IPsec 터널을 통해 트래픽을 암호화/암호 해독 하는 방법을 정의 합니다. 이는 일반적으로 패킷 필터링을 수행하는 방화벽 디바이스에 구축됩니다. IPsec 터널 암호화 및 암호 해독이 패킷 필터링 및 처리 엔진에 추가됩니다.
+* **경로 기반** VPN 장치는 임의의 (와일드 카드) 트래픽 선택기를 사용 하 고 라우팅/전달 테이블을 통해 트래픽을 다른 IPsec 터널로 직접 보냅니다. 이는 일반적으로 각 IPsec 터널이 네트워크 인터페이스 또는 VTI(가상 터널 인터페이스)로 모델링되는 라우터 플랫폼에 구축됩니다.
 
 다음 다이어그램은 두 모델을 강조 표시합니다.
 
@@ -35,8 +36,8 @@ ms.locfileid: "84984617"
 ### <a name="azure-support-for-policy-based-vpn"></a>정책 기반 VPN에 대한 Azure 지원
 현재 Azure에서는 VPN Gateway의 두 가지 모드(경로 기반 VPN Gateway 및 정책 기반 VPN Gateway)를 모두 지원합니다. 이러한 게이트웨이는 서로 다른 플랫폼에 구축되므로 사양이 서로 다릅니다.
 
-|                          | **PolicyBased VPN Gateway** | **경로 기반 VPN Gateway**       |**경로 기반 VPN Gateway**                          |
-| ---                      | ---                         | ---                              |---                                                 |
+| 범주 | PolicyBased VPN Gateway | 경로 기반 VPN Gateway | 경로 기반 VPN Gateway |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1 및 IKEv2                         |
 | **최대값. S2S 연결** | **1**                       | 10                               | 30                     |
@@ -204,6 +205,6 @@ ms.locfileid: "84984617"
       ```
 
 ## <a name="next-steps"></a>다음 단계
-연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 단계는 [Virtual Machine 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 단계는 [Virtual Machine 만들기](../virtual-machines/windows/quick-create-portal.md) 를 참조하세요.
 
 사용자 지정 IPsec/IKE 정책에 대한 자세한 내용은 [S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md)을 참조하세요.

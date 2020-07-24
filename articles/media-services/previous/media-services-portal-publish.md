@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b258b0b5dba902e94e8d221e0d8f0292fdec9f67
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: faf0db31b458ed6b8dd4961fffbf2a810990574d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084486"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure Portal에서 콘텐츠 게시  
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ MPEG-DASH 스트리밍 URL을 작성하려면 URL에 *(format=mpd-time-csf)* 를
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
+로케이터의 만료 날짜를 업데이트하려면 [REST API](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
 
 > [!NOTE]
 > 공유 액세스 서명 로케이터의 만료 날짜를 업데이트할 경우 URL이 변경됩니다.
@@ -97,4 +97,3 @@ Azure Portal의 콘텐츠 플레이어에서 비디오를 테스트할 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
-
