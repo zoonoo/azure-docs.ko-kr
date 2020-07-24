@@ -2,19 +2,19 @@
 title: 디먼 애플리케이션을 보호하는 방법
 titleSuffix: Azure Maps
 description: Azure Portal를 사용 하 여 신뢰할 수 있는 디먼 응용 프로그램을 구성 하는 인증을 관리 합니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fa3492b0cd71e61900dc4be150cd0f0169379ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988478"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126774"
 ---
 # <a name="secure-a-daemon-application"></a>디먼 응용 프로그램 보안
 
@@ -114,7 +114,7 @@ Azure 리소스에서 실행 하는 경우 Azure 관리 id를 구성 하 여 저
 > [!div class="mx-imgBorder"]
 > ![사용 가능한 역할 보기](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. **Azure Maps 계정**으로 이동 합니다. **액세스 제어 (IAM)**  >  **역할 할당**을 선택 합니다.
+1. **Azure Maps 계정**으로 이동 합니다. **액세스 제어(IAM)** > **역할 할당**을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![RBAC 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)

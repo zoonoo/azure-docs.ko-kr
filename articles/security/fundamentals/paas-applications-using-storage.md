@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da59c0d54fa08194f9d77fc79754cbfbaca1a1e8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70999160"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128406"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
 이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
@@ -36,7 +36,7 @@ Azure Storage는 Blob 스토리지, 테이블 스토리지, 큐 스토리지 및
 - SAS(공유 액세스 서명)
 - RBAC(역할 기반 액세스 제어)
 - 고가치 데이터에 대한 클라이언트 쪽 암호화
-- Storage 서비스 암호화
+- 스토리지 서비스 암호화
 
 
 ## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>스토리지 계정 키 대신 공유 액세스 서명 사용
@@ -65,7 +65,7 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 RBAC에 대한 자세한 내용은 다음을 참조하세요.
 
 - [RBAC 및 Azure Portal을 사용하여 액세스 관리](/azure/role-based-access-control/role-assignments-portal)
-- [Azure 리소스에 대한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)
+- [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles)
 - [Azure Storage 보안 가이드](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>고가치 데이터에 대해 클라이언트 쪽 암호화 사용

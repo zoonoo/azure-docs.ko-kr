@@ -1,19 +1,19 @@
 ---
 title: 지원 되는 데이터 형식 세부 정보 | Microsoft Azure 맵
 description: 공간 IO 모듈에서 구분 된 공간 데이터를 구문 분석 하는 방법에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b7c82e4650c7680709e809d9f563d79f068601f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334094"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127930"
 ---
 # <a name="supported-data-format-details"></a>지원되는 데이터 형식 세부 정보
 

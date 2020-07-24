@@ -1,21 +1,21 @@
 ---
 title: Azure CLI를 사용 하 여 데이터 액세스를 위한 RBAC 역할 할당
 titleSuffix: Azure Storage
-description: Azure CLI를 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 보안 주체에 사용 권한을 할당 하는 방법을 알아봅니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원 합니다.
+description: Azure CLI를 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 보안 주체에 사용 권한을 할당 하는 방법을 알아봅니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 Azure 사용자 지정 역할을 지원 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 25a38fc6f9607ef878ad3c5bf7074f5b63d5c121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7c74bc8bd92e2d210c8fe5deaff30d55a36bb5e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808870"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127216"
 ---
 # <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 RBAC 역할을 할당 합니다.
 
@@ -23,7 +23,7 @@ Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)]
 
 RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
-이 문서에서는 Azure CLI를 사용 하 여 기본 제공 RBAC 역할을 나열 하 고 사용자에 게 할당 하는 방법을 설명 합니다. Azure CLI 사용에 대 한 자세한 내용은 [Azure 명령줄 인터페이스 (CLI)](https://docs.microsoft.com/cli/azure)를 참조 하세요.
+이 문서에서는 Azure CLI를 사용 하 여 기본 제공 RBAC 역할을 나열 하 고 사용자에 게 할당 하는 방법을 설명 합니다. Azure CLI 사용에 대 한 자세한 내용은 [Azure 명령줄 인터페이스 (CLI)](/cli/azure)를 참조 하세요.
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Blob 및 큐의 RBAC 역할
 

@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023774"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128168"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기본
 - 보안 관리자
 
 > [!NOTE]
-> 소유자 또는 사용자 액세스 관리자 구독 역할에 할당 된 그룹의 사용자 또는 멤버와 Azure AD에서 구독 관리를 사용 하도록 설정 하는 Azure AD 전역 관리자는 기본적으로 리소스 관리자 권한을 가집니다. 이러한 관리자는 Azure 리소스에 대 한 Privileged Identity Management 사용 하 여 역할을 할당 하 고, 역할 설정을 구성 하 고, 액세스를 검토할 수 있습니다 사용자는 리소스 관리자 권한이 없는 리소스에 대 한 Privileged Identity Management를 관리할 수 없습니다. [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 목록을 참조하세요.
+> 소유자 또는 사용자 액세스 관리자 구독 역할에 할당 된 그룹의 사용자 또는 멤버와 Azure AD에서 구독 관리를 사용 하도록 설정 하는 Azure AD 전역 관리자는 기본적으로 리소스 관리자 권한을 가집니다. 이러한 관리자는 Azure 리소스에 대 한 Privileged Identity Management 사용 하 여 역할을 할당 하 고, 역할 설정을 구성 하 고, 액세스를 검토할 수 있습니다 사용자는 리소스 관리자 권한이 없는 리소스에 대 한 Privileged Identity Management를 관리할 수 없습니다. [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)목록을 봅니다.
 
 ## <a name="assign-a-role"></a>역할 할당
 

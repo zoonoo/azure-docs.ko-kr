@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9b2de4f320801b20de5bcc9687a723dadb182ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807716"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128729"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Azure Portal를 사용 하 여 blob 또는 큐 데이터에 액세스
 
@@ -25,7 +25,7 @@ Azure Portal에서 개별 blob 업로드 작업에 권한을 부여 하는 방�
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Blob 또는 큐 데이터에 액세스 하는 데 필요한 권한
 
-Azure Portal에서 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 방법에 따라 특정 권한이 필요 합니다. 대부분의 경우 이러한 권한은 RBAC (역할 기반 액세스 제어)를 통해 제공 됩니다. RBAC에 대 한 자세한 내용은 [rbac (역할 기반 액세스 제어) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
+Azure Portal에서 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 방법에 따라 특정 권한이 필요 합니다. 대부분의 경우 이러한 권한은 RBAC (역할 기반 액세스 제어)를 통해 제공 됩니다. RBAC에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
 ### <a name="use-the-account-access-key"></a>계정 액세스 키 사용
 
@@ -57,7 +57,7 @@ Blob 또는 큐 데이터에 대 한 액세스를 지 원하는 기본 제공 �
 - [저장소 큐 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): 큐에 대 한 읽기/쓰기/삭제 권한입니다.
 - [저장소 큐 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): 큐에 대 한 읽기 전용 권한입니다.
 
-사용자 지정 역할은 기본 제공 역할에서 제공 하는 것과 동일한 권한의 여러 조합을 지원할 수 있습니다. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 [azure 리소스에 대 한 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 및 [azure 리소스에 대 한 역할 정의 이해](../../role-based-access-control/role-definitions.md)를 참조 하세요.
+사용자 지정 역할은 기본 제공 역할에서 제공 하는 것과 동일한 권한의 여러 조합을 지원할 수 있습니다. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 azure [사용자 지정 역할](../../role-based-access-control/custom-roles.md) 및 [azure 리소스에 대 한 역할 정의 이해](../../role-based-access-control/role-definitions.md)를 참조 하세요.
 
 클래식 구독 관리자 역할을 사용 하 여 큐를 나열 하는 것은 지원 되지 않습니다. 큐를 나열 하려면 사용자가 Azure Resource Manager **읽기 권한자** 역할, **저장소 큐 데이터 판독기** 역할 또는 **저장소 큐 데이터 참가자** 역할에 할당 되어 있어야 합니다.
 

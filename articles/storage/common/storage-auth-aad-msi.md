@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 69e88aed1485d07bc4adc57abc0bda02a1def728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808880"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127182"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 id를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한 부여
 
@@ -61,7 +61,7 @@ Azure AD 보안 주체가 blob 또는 큐 데이터에 액세스 하려는 경�
 
 #### <a name="create-the-service-principal"></a>서비스 주체 만들기
 
-Azure CLI를 사용 하 여 서비스 주체를 만들고 RBAC 역할을 할당 하려면 [az ad sp create-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 호출 합니다. 새 서비스 사용자에 게 할당할 Azure Storage 데이터 액세스 역할을 제공 합니다. 또한 역할 할당에 대 한 범위를 제공 합니다. Azure Storage에 대해 제공 되는 기본 제공 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+Azure CLI를 사용 하 여 서비스 주체를 만들고 RBAC 역할을 할당 하려면 [az ad sp create-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 호출 합니다. 새 서비스 사용자에 게 할당할 Azure Storage 데이터 액세스 역할을 제공 합니다. 또한 역할 할당에 대 한 범위를 제공 합니다. Azure Storage에 대해 제공 되는 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 서비스 주체에 역할을 할당할 수 있는 권한이 없는 경우 계정 소유자 또는 관리자에 게 역할 할당을 수행 하도록 요청 해야 할 수 있습니다.
 
@@ -93,7 +93,7 @@ az ad sp create-for-rbac \
 
 Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변수에서 값을 읽어서 서비스 사용자를 인증 합니다. 다음 표에서는 각 환경 변수에 대해 설정할 값을 설명 합니다.
 
-|환경 변수|값
+|환경 변수|Value
 |-|-
 |`AZURE_CLIENT_ID`|서비스 사용자의 앱 ID
 |`AZURE_TENANT_ID`|서비스 주체의 Azure AD 테 넌 트 ID

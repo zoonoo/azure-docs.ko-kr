@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386286"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128933"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -52,6 +52,9 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>커넥터 서버에서 Azure로의 트래픽에 대 한 TLS 종료 (TLS/HTTPS 검사 또는 가속)가 지원 되나요?
 
 응용 프로그램 프록시 커넥터는 Azure에 대 한 인증서 기반 인증을 수행 합니다. Tls 종료 (TLS/HTTPS 검사 또는 가속)는이 인증 방법을 중단 하며 지원 되지 않습니다. 커넥터에서 Azure로의 트래픽은 TLS 종료를 수행 하는 모든 장치를 무시 해야 합니다.  
+
+### <a name="is-tls-12-required-for-all-connections"></a>모든 연결에 TLS 1.2이 필요 한가요?
+예. 고객에게 동급 최고의 암호화를 제공하기 위해 애플리케이션 프록시 서비스는 TLS 1.2 프로토콜에 대한 액세스만 제한합니다. 이러한 변경 내용은 2019년 8월 31일 이후에 점진적으로 롤아웃되고 유효합니다. TLS 1.2를 사용하여 애플리케이션 프록시 서비스에 대한 연결을 유지하도록 모든 클라이언트-서버 및 브라우저-서버 조합을 업데이트해야 합니다. 여기에는 사용자가 애플리케이션 프록시를 통해 게시된 애플리케이션에 액세스할 때 사용하는 클라이언트도 포함됩니다. [Office 365의 TLS 1.2](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365)에서 유용한 참고 자료 및 리소스를 확인하세요.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>커넥터 서버와 백 엔드 응용 프로그램 서버 간에 전달 프록시 장치를 놓을 수 있나요?
 예,이 시나리오는 커넥터 버전 1.5.1526.0부터 지원 됩니다. [기존 온-프레미스 프록시 서버 작업을](application-proxy-configure-connectors-with-proxy-servers.md)참조 하세요.
@@ -93,7 +96,10 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 아니요, 게시 된 응용 프로그램에 대 한 IIS 요구 사항은 없습니다. Windows Server가 아닌 서버에서 실행 되는 웹 응용 프로그램을 게시할 수 있습니다. 그러나 웹 서버에서 Negotiate (Kerberos 인증)를 지원 하는지 여부에 따라 비 Windows 서버에서 사전 인증을 사용 하지 못할 수도 있습니다. 커넥터가 설치 된 서버에는 IIS가 필요 하지 않습니다.
 
-## <a name="integrated-windows-authentication"></a>통합 Windows 인증
+### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>HSTS 헤더를 추가 하도록 응용 프로그램 프록시를 구성할 수 있나요?
+응용 프로그램 프록시는 HTTPS 응답에 HTTP Strict-Transport-보안 헤더를 자동으로 추가 하지 않지만 게시 된 응용 프로그램에서 보낸 원래 응답에 있으면 헤더를 유지 관리 합니다. 이 기능을 사용 하도록 설정 하는 설정을 증명 하는 것은 로드맵에 있습니다. 이를 응답에 추가할 수 있는 미리 보기에 관심이 있는 경우에는에 aadapfeedback@microsoft.com 대 한 자세한 내용을 확인 하세요.
+
+## <a name="integrated-windows-authentication"></a>Windows 통합 인증
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>KCD (Kerberos 제한 위임)를 설정할 때 PrincipalsAllowedToDelegateToAccount 메서드를 사용 해야 하는 경우는 언제 인가요?
 
@@ -133,7 +139,7 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ### <a name="is-the-remote-desktop-web-client-html5-supported"></a>HTML5 (원격 데스크톱 웹 클라이언트)가 지원 되나요?
 
-아니요,이 시나리오는 현재 지원 되지 않습니다. 이 기능에 대 한 업데이트는 [UserVoice](https://aka.ms/aadapuservoice) 피드백 포럼을 따르세요.
+예,이 시나리오는 현재 공개 미리 보기로 제공 됩니다. [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md)를 참조 하세요.
 
 ### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>사전 인증 시나리오를 구성한 후에는 먼저 Azure AD 로그인 양식에서 사용자를 두 번 인증 한 다음 RDWeb 로그인 양식으로 인증 해야 합니다. 이것은 예상된 동작인가요? 이를 한 번의 로그인으로 줄이려면 어떻게 해야 하나요?
 

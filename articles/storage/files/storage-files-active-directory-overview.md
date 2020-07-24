@@ -7,11 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263363"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127199"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -31,7 +32,7 @@ Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증�
 
     SMB는 산업 표준 네트워크 파일 공유 프로토콜입니다. SMB는 CIFS(Common Internet File System)라고도 합니다. SMB에 대한 자세한 내용은 [Microsoft SMB Protocol and CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview)(Microsoft SMB 프로토콜 및 CIFS 프로토콜 개요)를 참조하세요.
 
--   **Azure Active Directory (Azure AD)**
+-   **Azure AD(Azure Active Directory)**
 
     Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD에서는 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호가 하나의 솔루션으로 결합되어 있습니다. Azure AD에 가입 된 Windows Vm (가상 머신)은 azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory 란?](../../active-directory/fundamentals/active-directory-whatis.md) 을 참조 하세요.
 
@@ -45,7 +46,7 @@ Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증�
 
 -   **Azure RBAC(역할 기반 액세스 제어)**
 
-    Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 사용자에게 작업을 수행하는 데 필요한 최소한의 권한을 부여하여 리소스에 대한 액세스를 관리할 수 있습니다. RBAC에 대 한 자세한 내용은 [Azure의 rbac (역할 기반 액세스 제어) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
+    Azure RBAC (역할 기반 액세스 제어)를 통해 Azure에 대 한 세밀 한 액세스 관리가 가능 합니다. RBAC를 사용하면 사용자에게 작업을 수행하는 데 필요한 최소한의 권한을 부여하여 리소스에 대한 액세스를 관리할 수 있습니다. RBAC에 대 한 자세한 내용은 azure [의 AZURE RBAC (역할 기반 액세스 제어) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
 ## <a name="common-use-cases"></a>일반 사용 예
 
@@ -145,7 +146,7 @@ Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 �
 ## <a name="next-steps"></a>다음 단계
 SMB를 통한 Azure Files 및 id 기반 인증에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
-- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
+- [Azure Files 배포 계획](storage-files-planning.md)
 - [Azure 파일 공유를 위해 SMB를 통한 온-프레미스 Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-enable.md)
 - [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [FAQ](storage-files-faq.md)

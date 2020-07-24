@@ -3,18 +3,16 @@ title: Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드
 description: 클라우드 기반 빅 데이터 플랫폼을 만들 수 있는 Azure Data Lake Analytics의 서비스 집합에 대해 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 2fb54c821c50ff8e1364a125cc5db181aedf0437
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 80edafb9cffa43f7163c1b75c9faaaefbb97c616
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110592"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127420"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -494,7 +492,7 @@ using System.IO;
 
 * SqlUserDefinedType 특성을 사용하여 사용자 정의 형식을 정의합니다.
 
-**SqlUserDefinedType**은 어셈블리의 형식 정의를 U-SQL UDT로 표시하는 데 사용됩니다. 특성의 속성에는 UDT의 물리적 특성이 반영됩니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedType**은 어셈블리의 형식 정의를 U-SQL UDT로 표시하는 데 사용됩니다. 특성의 속성에는 UDT의 물리적 특성이 반영됩니다. 이 클래스는 상속될 수 없습니다.
 
 SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 
@@ -789,11 +787,7 @@ namespace USQL_Programmability
             }
 
             return new FiscalPeriod(FiscalQuarter, FiscalMonth);
-        }
-
-
-
-        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
+        }        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
         public struct FiscalPeriod
         {
             public int Quarter { get; private set; }
@@ -910,7 +904,7 @@ UDAGG(사용자 정의 집계) 기본 클래스 정의는 다음과 같습니다
     }
 ```
 
-**SqlUserDefinedAggregate**는 UDAGG로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedAggregate**는 UDAGG로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
 SqlUserDefinedType 특성은 UDAGG 정의의 **선택 사항** 입니다.
 
@@ -947,7 +941,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: 누적 시킬 두 번째 매개 변수
 * TResult: Terminate의 반환 형식
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```csharp
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1091,7 +1085,7 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-**SqlUserDefinedExtractor** 특성은 UDE(사용자 정의 추출기)로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedExtractor** 특성은 UDE(사용자 정의 추출기)로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
 SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 AtomicFileProcessing 속성을 정의하는 데 사용됩니다.
 
@@ -1269,7 +1263,7 @@ public class MyOutputter : IOutputter
 * 생성자 클래스는 사용자 정의 출력자에 매개 변수를 전달하는 데 사용됩니다.
 * `Close`는 비용이 높은 상태를 해제하거나 마지막 행이 기록된 시점을 판단하기 위해 선택적으로 재정의하는 데 사용됩니다.
 
-**SqlUserDefinedOutputter** 특성은 사용자 정의 출력자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedOutputter** 특성은 사용자 정의 출력자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
 SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성이며, AtomicFileProcessing 속성을 정의하는 데 사용됩니다.
 
@@ -1512,7 +1506,7 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-**SqlUserDefinedProcessor**는 UDP로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedProcessor**는 UDP로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
 SqlUserDefinedProcessor 특성은 UDP 정의의 **선택 사항**입니다.
 
@@ -1633,7 +1627,7 @@ public class ParserApplier : IApplier
 * Apply는 Outer 테이블의 각 행에 대해 호출되며, `IUpdatableRow` 출력 행 집합을 반환합니다.
 * 생성자 클래스는 사용자 정의 적용자에 매개 변수를 전달하는 데 사용됩니다.
 
-**SqlUserDefinedApplier**는 사용자 정의 적용자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedApplier**는 사용자 정의 적용자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
 **SqlUserDefinedApplier**는 사용자 정의 적용자 정의의 **선택 사항**입니다.
 
@@ -1847,7 +1841,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-**SqlUserDefinedCombiner** 특성은 사용자 정의 결합자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedCombiner** 특성은 사용자 정의 결합자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
 **SqlUserDefinedCombiner**는 결합자 모드 속성을 정의하는 데 사용됩니다. 사용자 정의 결합자 정의의 선택적 특성입니다.
 
@@ -2107,7 +2101,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-**SqlUserDefinedReducer** 특성은 사용자 정의 리듀서로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
+**SqlUserDefinedReducer** 특성은 사용자 정의 리듀서로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 **SqlUserDefinedReducer**는 UDR(사용자 정의 리듀서) 정의의 선택적 특성이며, IsRecursive 속성을 정의하는 데 사용됩니다.
 
 * bool IsRecursive    

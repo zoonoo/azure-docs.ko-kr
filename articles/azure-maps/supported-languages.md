@@ -1,18 +1,19 @@
 ---
 title: 지역화 지원 | Microsoft Azure Maps
 description: 이 문서에서는 Microsoft Azure Maps의 서비스에 대해 지원되는 언어를 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746011"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127896"
 ---
 # <a name="localization-support-in-azure-maps"></a>Azure Maps의 지역화 지원
 

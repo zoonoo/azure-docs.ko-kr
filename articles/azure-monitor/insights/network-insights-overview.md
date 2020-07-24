@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654871"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128678"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>네트워크에 대 한 Azure Monitor (미리 보기)
 네트워크에 대 한 Azure Monitor는 구성 없이 배포 된 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 합니다. 고급 검색 기능을 사용 하면 호스트 된 웹 사이트 이름을 간단히 검색 하 여 웹 사이트를 호스트 하는 리소스를 식별 하는 등의 시나리오를 통해 리소스 종속성을 식별할 수 있습니다.
@@ -47,7 +48,7 @@ ms.locfileid: "77654871"
 오른쪽의 **경고** 표에서는 모든 구독에서 선택한 리소스에 대해 생성 된 모든 경고의 보기를 제공 합니다. 경고 횟수를 클릭 하 여 자세한 경고 페이지로 이동 합니다.
 
 ## <a name="dependency-view"></a>종속성 보기
-**종속성** 뷰를 사용 하 여 리소스를 구성 하는 방법을 시각화할 수 있습니다. 현재 종속성 보기는 Application Gateway에만 지원 됩니다. 메트릭 그리드 보기에서 Application Gateway 리소스 이름을 클릭 하 여 종속성 보기에 액세스할 수 있습니다.
+**종속성** 뷰를 사용 하 여 리소스를 구성 하는 방법을 시각화할 수 있습니다. 현재 종속성 보기는 Application Gateway, 가상 WAN 및 Load Balancer에 대해 지원 됩니다. 예를 들어 Application Gateway의 경우 메트릭 그리드 보기에서 Application Gateway 리소스 이름을 클릭 하 여 종속성 보기에 액세스할 수 있습니다. 이는 가상 WAN 및 Load Balancer에도 적용 됩니다. 
 
 ![Application Gateway 뷰](media/network-insights-overview/application-gateway.png)
 
@@ -69,4 +70,4 @@ Application gateway에 대 한 자세한 메트릭, 모든 백 엔드 풀 리소
 
 ## <a name="next-steps"></a>다음 단계 
 
-- [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)의 네트워크 모니터링에 대해 자세히 알아보세요.
+- [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)의 네트워크 모니터링에 대해 자세히 알아보세요.

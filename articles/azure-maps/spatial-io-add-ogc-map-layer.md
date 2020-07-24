@@ -1,19 +1,19 @@
 ---
 title: Open Geospatial Consortium (OGC) 지도 계층 추가 | Microsoft Azure 맵
 description: OGC 지도 계층을 지도에 오버레이 하는 방법 및 OgcMapLayer 클래스에서 다른 옵션을 사용 하는 방법에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334293"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128559"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Open Geospatial Consortium에서 지도 계층 추가 (OGC)
 
@@ -28,7 +28,7 @@ ms.locfileid: "80334293"
 - GetFeatureInfo를 사용 하려면 서비스가 다시 `EPSG:4326` 프로젝션을 지원 하거나 처리 해야 합니다. 
 - 지원 되는 작업:
 
-    | | |
+    | 작업(Operation) | Description |
     | :-- | :-- |
     | GetCapabilities | 지원 되는 기능을 통해 서비스에 대 한 메타 데이터를 검색 합니다. |
     | GetMap | 지정 된 영역에 대 한 지도 이미지를 검색 합니다. |
@@ -42,7 +42,7 @@ ms.locfileid: "80334293"
 - TileMatrix identifier는 맵의 확대/축소 수준에 해당 하는 정수 값 이어야 합니다. Azure 맵에서 확대/축소 수준은 및 사이의 값입니다 `"0"` `"22"` . 따라서 `"0"` 는 지원 되지만 `"00"` 지원 되지 않습니다.
 - 지원 되는 작업:
 
-    | | |
+    | 작업(Operation) | Description |
     | :-- | :-- |
     | GetCapabilities | 지원 되는 작업 및 기능을 검색 합니다. |
     | GetTile | 특정 타일에 대 한 이미지를 검색 합니다. |

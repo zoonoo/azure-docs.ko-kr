@@ -1,19 +1,19 @@
 ---
 title: Android maps에 기호 계층 추가 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure 지도 Android SDK를 사용 하 여 기호 계층을 지도에 추가 하는 방법에 대해 설명 합니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b6b73fef368dc8dec5d8c042cdac1d3cea899450
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 528c5a5ba4314e44334548334e312d1111768cf5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242443"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127080"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 기호 계층 추가
 
@@ -23,7 +23,7 @@ ms.locfileid: "86242443"
 
 이 문서의 단계를 완전히 따르려면 지도를 로드 하는 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 해야 합니다.
 
-## <a name="add-a-symbol-layer"></a>기호 계층 추가
+## <a name="add-a-symbol-layer"></a>기호 레이어 추가
 
 기호 계층을 사용 하 여 지도에 표식을 추가 하려면 다음 단계를 수행 합니다.
 

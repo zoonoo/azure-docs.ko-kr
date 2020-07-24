@@ -3,14 +3,16 @@ title: Azure 애플리케이션 제품 만들기 - Microsoft 상업용 Marketpla
 description: 파트너 센터의 상업용 Marketplace 포털에서 새 Azure 애플리케이션 제품을 만들기 위한 단계 및 고려 사항을 알아봅니다. Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 Azure 애플리케이션 제품을 나열하거나 판매할 수 있습니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: qianw211
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121976"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127437"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -65,7 +67,7 @@ Azure 애플리케이션 제품을 디자인, 빌드 및 테스트하려면 Azur
 
 Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 하나 또는 둘 다를 선택합니다.
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
@@ -186,7 +188,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. Description
+8. 설명
 9. 스크린샷/비디오
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
@@ -308,7 +310,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 ## <a name="plan-overview"></a>플랜 개요
 
-이 탭에서 동일한 제품 내에서 여러 가지 플랜 옵션을 제공할 수 있습니다. 해당 플랜(Cloud 파트너 포털에서는 SKU라고 함)은 플랜 유형(솔루션 템플릿 및 관리형 애플리케이션), 수익 창출 또는 대상 그룹의 측면에서 다를 수 있습니다.  마켓플레이스에 제품을 나열하기 위해 하나 이상의 플랜을 구성합니다.
+이 탭에서 동일한 제품 내에서 여러 가지 플랜 옵션을 제공할 수 있습니다. 이러한 요금제 (이전의 Sku)는 계획 유형 (솔루션 템플릿 및 관리 되는 응용 프로그램), 수익 화 또는 대상의 측면에서 다를 수 있습니다. 마켓플레이스에 제품을 나열하기 위해 하나 이상의 플랜을 구성합니다.
 
 플랜이 만들어지면 이 탭에 플랜 이름, ID, 플랜 유형, 가용성(퍼블릭 또는 프라이빗), 현재 게시 상태 및 사용 가능한 작업이 표시됩니다.
 
@@ -510,7 +512,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 **권한 부여** – 관리되는 리소스 그룹에 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 Azure Active Directory 개체 ID를 추가합니다. 사용자를 해당 보안 주체 ID로 식별하며, 이 ID는 [Azure Portal의 Azure Active Directory 사용자 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)에서 찾을 수 있습니다.
 
-각 보안 주체의 Azure AD 기본 제공 역할(소유자 또는 기여자) 중 하나를 목록에서 선택합니다. 선택하는 역할은 보안 주체가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명합니다. 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. RBAC(역할 기반 액세스 제어)에 관한 자세한 내용은 [Azure Portal에서 RBAC 시작](../../role-based-access-control/overview.md)을 참조하세요.
+각 보안 주체의 Azure AD 기본 제공 역할(소유자 또는 기여자) 중 하나를 목록에서 선택합니다. 선택하는 역할은 보안 주체가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명합니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. RBAC(역할 기반 액세스 제어)에 관한 자세한 내용은 [Azure Portal에서 RBAC 시작](../../role-based-access-control/overview.md)을 참조하세요.
 
 >[!Note]
 >클라우드당 100개까지 권한 부여를 추가할 수 있지만 일반적으로 Active Directory 사용자 그룹을 만들고 “보안 주체 ID”에 해당 ID를 지정하는 것이 더 쉽습니다. 이렇게 하면 플랜이 배포된 후 관리 그룹에 더 많은 사용자를 추가하고 더 많은 권한 부여만을 추가하기 위해 플랜을 업데이트할 필요성을 줄일 수 있습니다.

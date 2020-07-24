@@ -3,15 +3,16 @@ title: 리소스 계층 구조를 보호하는 방법 - Azure 거버넌스
 description: 기본 관리 그룹 설정을 포함하는 계층 설정으로 리소스 계층 구조를 보호하는 방법에 대해 알아봅니다.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60c184d176ae62c1af525db656c56a83422cb94a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837352"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127999"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>리소스 계층 구조를 보호하는 방법
 
-리소스, 리소스 그룹, 구독, 관리 그룹 및 테넌트가 리소스 계층 구조를 집합적으로 구성합니다. 사용자 지정 RBAC 역할 또는 Azure Policy 정책 할당과 같은 루트 관리 그룹의 설정은 리소스 계층 구조의 각 리소스 및 모든 리소스에 영향을 줄 수 있습니다. 모든 리소스에 부정적인 영향을 줄 수 있는 변경으로부터 리소스 계층 구조를 보호하는 것이 중요합니다.
+리소스, 리소스 그룹, 구독, 관리 그룹 및 테넌트가 리소스 계층 구조를 집합적으로 구성합니다. Azure 사용자 지정 역할 또는 Azure Policy 정책 할당과 같은 루트 관리 그룹의 설정은 리소스 계층의 각 리소스 및 모든 리소스에 영향을 줄 수 있습니다. 모든 리소스에 부정적인 영향을 줄 수 있는 변경으로부터 리소스 계층 구조를 보호하는 것이 중요합니다.
 
 이제 관리 그룹에 테넌트 관리자가 이러한 동작을 제어할 수 있도록 하는 계층 설정이 있습니다. 이 문서에서는 사용 가능한 각 계층 설정과 이러한 계층 설정을 지정하는 방법을 설명합니다.
 

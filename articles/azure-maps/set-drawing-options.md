@@ -1,19 +1,19 @@
 ---
 title: 그리기 도구 모듈 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 그리기 옵션 데이터를 설정 하는 방법에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 261202173a0692c66a24091b2173f5d4fe271058
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334304"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129511"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 
@@ -30,7 +30,7 @@ Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈�
         <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
         ```
 
-    - 또는 [npm 패키지를 사용](https://www.npmjs.com/package/azure-maps-drawing-tools) 하 여 AZURE MAPS 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 명령 사용:
+    - 또는 [npm 패키지를 사용](https://www.npmjs.com/package/azure-maps-drawing-tools) 하 여 AZURE MAPS 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 실행합니다.
     
         > **npm 설치-맵-그리기-도구**
     

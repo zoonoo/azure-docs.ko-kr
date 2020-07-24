@@ -1,20 +1,20 @@
 ---
-title: Marketplace 인사이트 - Microsoft 상업용 마켓플레이스
+title: Marketplace 정보-Microsoft 상업적 marketplace, Microsoft AppSource 및 Azure Marketplace
 description: Microsoft AppSource 및 Azure Marketplace에서 고객 참여를 측정할 수 있게 해 주는 Marketplace 웹 분석의 요약에 액세스합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2019
+ms.openlocfilehash: c72f3c9cce19896557fa9f4114b935fcc5ca8dc2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120401"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128950"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>파트너 센터의 Marketplace 인사이트 대시보드
 
-이 문서에서는 파트너 센터의 Marketplace 인사이트 대시보드에 대한 정보를 제공합니다. 이 대시보드는 Marketplace 웹 분석의 요약을 표시합니다. 이를 통해 게시자는 Marketplace 상점에 나열된 해당 제품 세부 정보 페이지에 대한 고객 참여를 측정할 수 있습니다. Microsoft AppSource 및 Azure Marketplace.
+이 문서에서는 파트너 센터의 Marketplace 인사이트 대시보드에 대한 정보를 제공합니다. 이 대시보드에는 상업적 marketplace 상점: Microsoft AppSource 및 Azure Marketplace에 나열 된 각 제품 세부 정보 페이지에 대 한 고객 참여를 평가할 수 있는 marketplace 웹 분석 요약이 표시 됩니다.
 
 ## <a name="marketplace-insights-dashboard"></a>Marketplace 인사이트 대시보드
 
@@ -25,18 +25,20 @@ ms.locfileid: "86120401"
 - [Marketplace 인사이트 요약](#marketplace-insights-summary)
 - [지역별 페이지 방문 횟수](#page-visits-by-geography)  
 - [페이지 방문 횟수 대 고유 방문자 수 추세](#page-visits-versus-unique-visitors-trend)
-- [CTA를 사용한 작업에 대한 호출 대 고유 방문자 수](#call-to-action-versus-unique-visitors-with-ctas)
+- [CTA (작업 호출) 및 Cta의 고유 방문자 수](#call-to-action-versus-unique-visitors-with-ctas)
 - [제품별 페이지 방문 횟수 및 작업에 대한 호출](#page-visits-and-calls-to-action-by-offers)
 - [작업에 대한 호출 백분율 추세](#call-to-action-percentage-trend)
 - [조회 도메인별 페이지 방문 횟수 및 작업에 대한 호출](#page-visits-and-calls-to-action-by-referral-domains)
 - [Marketplace 인사이트 세부 정보 테이블](#marketplace-insights-details-table)
+
+Azure Marketplace 또는 AppSource에서 제품을 방문한 사용자와 파트너 센터의 보고 간 최대 대기 시간은 48 시간입니다.
 
 >[!NOTE]
 > 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](./faq-terminology.md)를 참조하세요.
 
 ### <a name="insights-dashboard-layout"></a>인사이트 대시보드 레이아웃
 
-다음과 같은 다양한 방법으로 Marketplace 메트릭을 볼 수 있습니다.
+다양 한 방법으로 상용 마켓플레이스 메트릭을 봅니다.
 
 - 상점 탭
 - 페이지 필터
@@ -74,7 +76,7 @@ Marketplace 인사이트 요약 섹션에는 선택한 날짜 범위에 대한 *
 
 ### <a name="call-to-action"></a>활용 방안
 
-이 숫자는 제품 페이지(제품 정보 페이지)에서 **작업에 대한 호출** 단추 클릭 완료 횟수를 나타냅니다. **작업에 대한 호출**은 **지금 받기**, **평가판**, **담당자** 및 **테스트 드라이브** 단추를 선택할 때 계산됩니다.
+이 숫자는 제품 페이지(제품 정보 페이지)에서 **작업에 대한 호출** 단추 클릭 완료 횟수를 나타냅니다. 사용자가 **지금 가져오기**, **무료 평가판**, **나에 게 연락**또는 **드라이브 테스트** 단추를 선택 하면 **작업에 대 한 호출이** 카운트 됩니다.
 
 ![파트너 센터 인사이트 작업에 대한 호출 요약](./media/insights-summary.png)
 
@@ -128,7 +130,7 @@ Marketplace 인사이트 요약 섹션에는 선택한 날짜 범위에 대한 *
 
 - 레코드 수가 1000보다 작은 경우 데이터를 CSV 파일로 추출할 수 있습니다.
 - 레코드 수가 1000을 초과하는 경우 내보낸 데이터는 다음 30일 동안 비동기적으로 다운로드 페이지에 배치됩니다.
-- 필터를 적용하여 관심 있는 데이터를 표시할 수 있습니다. 제품 이름 및 캠페인 이름을 기준으로 데이터를 필터링할 수 있습니다.  
+- 원하는 데이터를 표시 하기 위해 제품 이름 및 캠페인 이름을 기준으로 데이터를 필터링 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

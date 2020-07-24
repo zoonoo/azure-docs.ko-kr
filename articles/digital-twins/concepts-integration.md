@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ba4188445f9bdf791ef760936bd27ac0f507fb4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737175"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129732"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Azure Digital Twins를 다른 서비스와 통합
 
@@ -24,7 +24,7 @@ Azure Digital Twins는 IoT Hub의 데이터로 구동 될 수 있습니다. 이�
 
 Azure Digital Twins에는 기본 제공 되는 IoT Hub 없습니다. 현재 프로덕션에 있는 기존 IoT Hub를 사용 하거나 새 기존을 배포할 수 있습니다. 이는 IoT Hub의 모든 장치 관리 기능에 대 한 모든 권한을 제공 합니다.
 
-IoT Hub에서 Azure Digital Twins로 데이터를 수집 하려면 [azure 함수](../azure-functions/functions-overview.md)를 사용 합니다. 이 패턴에 대 한 자세한 내용은 [방법: IoT Hub에서 원격 분석 수집](how-to-ingest-iot-hub-data.md)또는 [Azure Digital twins 자습서: 종단 간 솔루션 연결](tutorial-end-to-end.md)에서 직접 사용해 보세요.
+IoT Hub에서 Azure Digital Twins로 데이터를 수집 하려면 [azure 함수](../azure-functions/functions-overview.md)를 사용 합니다. 이 패턴에 대 한 자세한 내용은 [*방법: IoT Hub에서 원격 분석 수집*](how-to-ingest-iot-hub-data.md)또는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 직접 사용해 보세요.
 
 ## <a name="data-egress-services"></a>데이터 송신 서비스
 
@@ -33,7 +33,7 @@ Azure Digital Twins는 연결 된 **끝점**에 데이터를 보낼 수 있습�
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-끝점은 관리 Api 또는 Azure Portal를 사용 하 여 Azure Digital Twins에 연결 됩니다. 끝점을 Azure Digital Twins에 연결 하는 방법에 대 한 자세한 내용은 [방법: 끝점과 경로 관리](how-to-manage-routes.md)를 확인 하세요.
+끝점은 관리 Api 또는 Azure Portal를 사용 하 여 Azure Digital Twins에 연결 됩니다. 끝점을 Azure Digital Twins에 연결 하는 방법에 대 한 자세한 내용은 [*방법: 끝점과 경로 관리*](how-to-manage-routes.md)를 확인 하세요.
 
 [Azure Storage](../storage/common/storage-introduction.md) 또는 [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md)와 같이 궁극적으로 데이터를 보낼 수 있는 다른 많은 서비스가 있습니다. 이러한 데이터를 이러한 서비스로 전송 하려면 대상 서비스를 끝점에 연결 합니다.
 
@@ -42,7 +42,7 @@ Azure Digital Twins는 연결 된 **끝점**에 데이터를 보낼 수 있습�
 ## <a name="next-steps"></a>다음 단계
 
 외부 서비스에 대 한 끝점 및 라우팅 이벤트에 대해 자세히 알아보세요.
-* [개념: Azure Digital Twins 이벤트 라우팅](concepts-route-events.md)
+* [*개념: Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)
 
 IoT Hub에서 데이터를 수집 하도록 Azure Digital Twins를 설정 하는 방법을 참조 하세요.
-* [방법: IoT Hub에서 원격 분석 수집](how-to-ingest-iot-hub-data.md)
+* [*방법: IoT Hub에서 원격 분석 수집*](how-to-ingest-iot-hub-data.md)

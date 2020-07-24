@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255662"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129307"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 Microsoft 팀 사용
 
@@ -54,6 +54,14 @@ Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다�
 ### <a name="install-the-teams-websocket-service"></a>팀 WebSocket 서비스 설치
 
 VM 이미지에 [WebSocket 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) 를 설치 합니다. 설치 오류가 발생 하는 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 를 설치 하 고 다시 시도 하세요.
+
+#### <a name="latest-websocket-service-versions"></a>최신 WebSocket 서비스 버전
+
+다음 표에는 각 사용자 그룹에 사용할 수 있는 현재 버전이 나와 있습니다.
+
+|버전    |릴리스 날짜  |
+|-----------|--------------|
+|0.11.0     |05/29/2020    |
 
 ### <a name="install-microsoft-teams"></a>Microsoft 팀 설치
 

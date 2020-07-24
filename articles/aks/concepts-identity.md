@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507161"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128661"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -105,7 +105,7 @@ Azure RBAC는 Azure 리소스에 대한 액세스를 세밀하게 관리할 수 
 
 Azure RBAC를 사용하여 적용할 권한을 설명하는 *역할 정의*를 만듭니다. 그런 다음 특정 *범위*에 대 한 역할 할당을 통해 사용자 또는 그룹에이 역할 정의가 할당 됩니다 .이 역할은 개별 리소스, 리소스 그룹 또는 구독에 대 한 *역할 할당* 을 통해 할당 됩니다.
 
-자세한 내용은 [Azure RBAC란?][azure-rbac]을 참조하세요.
+자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?][azure-rbac] 을 참조 하세요.
 
 AKS 클러스터를 완벽 하 게 운영 하는 데 필요한 액세스 수준에는 다음 두 가지가 있습니다. 
 1. [Azure 구독에서 AKS 리소스에 액세스](#azure-rbac-to-authorize-access-to-the-aks-resource)합니다. 이 프로세스를 통해 AKS Api를 사용 하 여 클러스터를 확장 하거나 업그레이드 하는 작업을 제어 하 고 kubeconfig를 끌어올 수 있습니다.
