@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 045c73e3efefb29aac6bb25a8661fd510e351926
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5eee96702a5efbddcc66c2a0e428640f0848442a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068624"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 
@@ -288,12 +289,12 @@ Windows의 경우와 달리 Linux용 sapinst 통합 SAP 고가용성 구성은 �
 
 
 ### <a name="azure-availability-zones"></a>Azure 가용성 영역
-Azure는 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 전체에서 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)의 개념을 롤아웃하는 중입니다. 가용성 영역이 제공되는 Azure 지역에서 Azure 지역에 전원, 냉각 및 네트워크 공급이 독립적인 여러 데이터 센터가 있습니다. 단일 Azure 지역 내 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에서 애플리케이션을 배포할 수 있도록 하기 위함입니다. 전원 및/또는 네트워크의 문제가 하나의 가용성 영역 인프라에만 영향을 준다고 가정하면, Azure 지역 내 애플리케이션 배포는 계속 완벽하게 작동합니다. 하나의 영역에서 일부 VM이 다소 손실될 수 있으므로 결과적으로 일부 용량이 감소합니다. 하지만 다른 두 영역의 VM은 여전히 작동하고 실행됩니다. 영역을 제공하는 Azure 지역은 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 나열됩니다.
+Azure는 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 전체에서 [Azure 가용성 영역](../../../availability-zones/az-overview.md)의 개념을 롤아웃하는 중입니다. 가용성 영역이 제공되는 Azure 지역에서 Azure 지역에 전원, 냉각 및 네트워크 공급이 독립적인 여러 데이터 센터가 있습니다. 단일 Azure 지역 내 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에서 애플리케이션을 배포할 수 있도록 하기 위함입니다. 전원 및/또는 네트워크의 문제가 하나의 가용성 영역 인프라에만 영향을 준다고 가정하면, Azure 지역 내 애플리케이션 배포는 계속 완벽하게 작동합니다. 하나의 영역에서 일부 VM이 다소 손실될 수 있으므로 결과적으로 일부 용량이 감소합니다. 하지만 다른 두 영역의 VM은 여전히 작동하고 실행됩니다. 영역을 제공하는 Azure 지역은 [Azure 가용성 영역](../../../availability-zones/az-overview.md)에 나열됩니다.
 
 가용성 영역을 사용하여 고려할 일부 사항이 있습니다. 고려 사항 목록은 다음과 같습니다.
 
 - 가용성 영역 내에서 Azure 가용성 집합을 배포할 수 없습니다. VM에 대한 배포 프레임으로 가용성 영역 또는 가용성 집합을 선택해야 합니다.
-- [기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 사용하여 Windows 장애 조치(failover) 클러스터 서비스 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다.
+- [기본 Load Balancer](../../../load-balancer/load-balancer-overview.md)를 사용하여 Windows 장애 조치(failover) 클러스터 서비스 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용해야 합니다.
 - Azure 가용성 영역은 한 지역 내의 다른 영역 간 특정 거리의 어떤 보증도 제공하지 않습니다.
 - 서로 다른 Azure 지역 내에서 다양한 Azure 가용성 영역 간의 네트워크 대기 시간은 Azure 지역에서 지역으로 달라질 수 있습니다. 하나의 영역에서 활성 DBMS VM으로의 네트워크 대기 시간은 비즈니스 프로세스 영향에서 여전히 허용 가능하므로 고객으로서 다른 영역에서 배포된 SAP 애플리케이션 계층을 합리적으로 실행할 수 있는 경우가 있습니다. 반면 하나의 영역에서 활성 DBMS VM과 다른 영역에서 VM의 SAP 애플리케이션 인스턴스 간의 대기 시간은 너무 방해가 되며 SAP 비즈니스 프로세스에 대해 허용되지 않을 수 있는 고객 시나리오가 있습니다. 결과적으로 배포 아키텍처는 대기 시간이 너무 높은 경우 애플리케이션에 대한 활성/활성 아키텍처 또는 능동/수동 아키텍처와 달라야 합니다.
 - [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/) 사용은 Azure 가용성 영역으로 배포에 필수 항목입니다. 
@@ -354,12 +355,12 @@ _**그림 1:** 고가용성 SAP 애플리케이션 서버_
 
 SAP 애플리케이션 서버 인스턴스를 호스트하는 모든 가상 머신을 동일한 Azure 가용성 집합에 배치해야 합니다. Azure 가용성 집합은 다음을 확인합니다.
 
-* 모든 가상 머신이 동일한 업데이트 도메인에 속하는지 여부.  
+* 모든 가상 머신은 동일한 업데이트 도메인에 속하지 않습니다.  
     업데이트 도메인은 가상 머신이 계획된 유지 관리 가동 중지 시간 동안 동시에 업데이트되지 않는지 확인합니다.
 
     Azure 배율 단위 내의 다른 업데이트 및 장애 도메인을 기반으로 하는 기본 기능은 이미 [업데이터 도메인][planning-guide-3.2.2] 섹션에서 살펴보았습니다.
 
-* 모든 가상 머신이 동일한 장애 도메인에 속하는지 여부.  
+* 모든 가상 머신은 동일한 장애 도메인에 속하지 않습니다.  
     장애 도메인은 어떤 단일 장애 지점도 모든 가상 머신의 가용성에 영향을 주지 않도록 가상 머신이 배포되어 있는지 확인합니다.
 
 Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 업데이트 도메인 및 장애 도메인 수는 제한되어 있습니다. 단일 가용성 집합에 VM을 계속 추가하는 경우 둘 이상의 VM이 결과적으로 동일한 장애 도메인 또는 업데이트 도메인에 추가됩니다.
@@ -390,7 +391,7 @@ WSFC 솔루션을 사용하여 SAP ASCS/SCS 인스턴스를 보호할 수 있습
 
 * **파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링**: 이 아키텍처에 대한 자세한 내용은 [Windows 장애 조치(failover) 클러스터에서 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]을 참조하세요.
 
-* **ANF SMB 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링**: 이 아키텍처에 대한 자세한 내용은 [Windows 장애 조치(failover) 클러스터에서 ANF SMB 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)을 참조하세요.
+* **ANF SMB 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링**: 이 아키텍처에 대한 자세한 내용은 [Windows 장애 조치(failover) 클러스터에서 ANF SMB 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링](./high-availability-guide-windows-netapp-files-smb.md)을 참조하세요.
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Linux의 SAP ASCS/SCS 인스턴스에 대한 고가용성 아키텍처
 
@@ -398,7 +399,7 @@ WSFC 솔루션을 사용하여 SAP ASCS/SCS 인스턴스를 보호할 수 있습
 > 
 > SLES 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클러스터링에 대한 자세한 내용은 [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성][sap-suse-ascs-ha]을 참조하세요. 고가용성 NFS가 필요하지 않은 SLES의 대체 HA 아키텍처의 경우, [SAP 애플리케이션을 위한 Azure NetAPP 파일을 포함한 SUSE Linux Enterprise Server에서 SAP NetWeaver 고가용성 가이드][sap-suse-ascs-ha-anf]를 참조하세요.
 
-Red Hat 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클러스터링에 대한 자세한 내용은 [Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)을 참조하세요.
+Red Hat 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클러스터링에 대한 자세한 내용은 [Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](./high-availability-guide-rhel.md)을 참조하세요.
 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>클러스터형 SAP ASCS/SCS 인스턴스에 대한 SAP NetWeaver 다중 SID 구성
@@ -418,8 +419,8 @@ Red Hat 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클�
 > 다중 SID 클러스터링은 SAP ASCS/ERS를 위한 Linux Pacemaker 클러스터에서 지원되며 동일한 클러스터에서 SAP SID는 **5개**로 제한됩니다.
 > Linux의 다중 SID 고가용성 아키텍처에 대한 자세한 내용은 다음을 참조하세요.
 
-* [SAP 애플리케이션 다중 SID에 대한 SLES의 Azure VM에서 HA 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [SAP 애플리케이션 다중 SID에 대한 RHEL의 Azure VM에서 HA 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [SAP 애플리케이션 다중 SID에 대한 SLES의 Azure VM에서 HA 가이드](./high-availability-guide-suse-multi-sid.md)
+* [SAP 애플리케이션 다중 SID에 대한 RHEL의 Azure VM에서 HA 가이드](./high-availability-guide-rhel-multi-sid.md)
 
 ### <a name="high-availability-dbms-instance"></a>고가용성 DBMS 인스턴스
 

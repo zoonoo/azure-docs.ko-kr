@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 054462834d2712b8db10b40f2d7befdf330eec48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069497"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -166,7 +167,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 }
 ```
 
-[*복사*를 사용하여 여러 인스턴스 만들기](../../resource-group-create-multiple.md)에 대해 자세히 읽어보세요. 
+[*복사*를 사용하여 여러 인스턴스 만들기](../../azure-resource-manager/templates/copy-resources.md)에 대해 자세히 읽어보세요. 
 
 또한를 사용 하 여 `copyIndex()` 리소스 이름에 번호를 추가 하 여, 등을 만들 수 있습니다 `myNic1` `myNic2` . 다음은 인덱스 값을 추가 하는 예를 보여 줍니다.
 

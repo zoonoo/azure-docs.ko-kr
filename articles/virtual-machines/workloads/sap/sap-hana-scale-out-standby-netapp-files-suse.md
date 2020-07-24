@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 549fd9851ffce4459e16b4d84f368234bfdf207d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: adc57b213a177e227fe446a4dd24e53dea1cd2fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275821"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068636"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -55,7 +55,7 @@ ms.locfileid: "86275821"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-이 문서에서는 공유 저장소 볼륨에 대 한 [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/) 를 사용 하 여 Azure vm (가상 머신)에서 대기 상태의 확장 구성에서 항상 사용 가능한 SAP HANA 시스템을 배포 하는 방법을 설명 합니다.  
+이 문서에서는 공유 저장소 볼륨에 대 한 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) 를 사용 하 여 Azure vm (가상 머신)에서 대기 상태의 확장 구성에서 항상 사용 가능한 SAP HANA 시스템을 배포 하는 방법을 설명 합니다.  
 
 예제 구성, 설치 명령 등에서 HANA 인스턴스는 **03** 이 고 HANA 시스템 ID는 **h n 1**입니다. 예제는 HANA 2.0 SP4 및 SAP 12 s p 4 용 SUSE Linux Enterprise Server를 기반으로 합니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "86275821"
 
 ## <a name="overview"></a>개요
 
-HANA 고가용성을 달성 하는 한 가지 방법은 호스트 자동 장애 조치 (failover)를 구성 하는 것입니다. 호스트 자동 장애 조치 (failover)를 구성 하려면 하나 이상의 가상 컴퓨터를 HANA 시스템에 추가 하 고이를 대기 노드로 구성 합니다. 활성 노드가 실패 하면 대기 노드가 자동으로 수행 됩니다. Azure virtual machines와 함께 제공 되는 구성에서는 [Azure NetApp Files에서 NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)를 사용 하 여 자동 장애 조치 (failover)를 수행 합니다.  
+HANA 고가용성을 달성 하는 한 가지 방법은 호스트 자동 장애 조치 (failover)를 구성 하는 것입니다. 호스트 자동 장애 조치 (failover)를 구성 하려면 하나 이상의 가상 컴퓨터를 HANA 시스템에 추가 하 고이를 대기 노드로 구성 합니다. 활성 노드가 실패 하면 대기 노드가 자동으로 수행 됩니다. Azure virtual machines와 함께 제공 되는 구성에서는 [Azure NetApp Files에서 NFS](../../../azure-netapp-files/azure-netapp-files-introduction.md)를 사용 하 여 자동 장애 조치 (failover)를 수행 합니다.  
 
 > [!NOTE]
 > 대기 노드는 모든 데이터베이스 볼륨에 액세스할 수 있어야 합니다. HANA 볼륨은 NFSv4 볼륨으로 탑재 되어야 합니다. NFSv4 프로토콜의 향상 된 파일 임대 기반 잠금 메커니즘은 펜스에 사용 됩니다 `I/O` . 
@@ -102,7 +102,7 @@ HANA 고가용성을 달성 하는 한 가지 방법은 호스트 자동 장애 
 * 저장소 시스템과 통신 하는 경우
 * 내부 HANA 노드 간 통신의 경우
 
-Azure NetApp 볼륨은 별도의 서브넷에 있으며 [Azure NetApp Files에 위임](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)됩니다.  
+Azure NetApp 볼륨은 별도의 서브넷에 있으며 [Azure NetApp Files에 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)됩니다.  
 
 이 구성 예제에서 서브넷은 다음과 같습니다.  
 
@@ -123,21 +123,21 @@ Azure NetApp Files를 배포 하기 전에 [Azure NetApp Files 지침에 등록]
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포  
 
-다음 지침에서는 이미 [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 배포 했다고 가정 합니다. Azure NetApp Files 리소스가 탑재 되는 Azure NetApp Files 리소스 및 Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual networks에 배포 되어야 합니다.  
+다음 지침에서는 이미 [Azure virtual network](../../../virtual-network/virtual-networks-overview.md)를 배포 했다고 가정 합니다. Azure NetApp Files 리소스가 탑재 되는 Azure NetApp Files 리소스 및 Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual networks에 배포 되어야 합니다.  
 
-1. 리소스를 아직 배포 하지 않은 경우 [Azure NetApp Files에 대 한 온 보 딩](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)을 요청 합니다.  
+1. 리소스를 아직 배포 하지 않은 경우 [Azure NetApp Files에 대 한 온 보 딩](../../../azure-netapp-files/azure-netapp-files-register.md)을 요청 합니다.  
 
-2. [Netapp 계정 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account)의 지침에 따라 선택한 Azure 지역에서 netapp 계정을 만듭니다.  
+2. [Netapp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 netapp 계정을 만듭니다.  
 
-3. [Azure NetApp Files 용량 풀 설정](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool)의 지침에 따라 Azure NetApp Files 용량 풀을 설정 합니다.  
+3. [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정 합니다.  
 
-   이 문서에 제공 된 HANA 아키텍처는 *Ultra Service* 수준에서 단일 Azure NetApp Files 용량 풀을 사용 합니다. Azure의 HANA 워크 로드의 경우 Azure NetApp Files *Ultra* 또는 *Premium* [서비스 수준을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)사용 하는 것이 좋습니다.  
+   이 문서에 제공 된 HANA 아키텍처는 *Ultra Service* 수준에서 단일 Azure NetApp Files 용량 풀을 사용 합니다. Azure의 HANA 워크 로드의 경우 Azure NetApp Files *Ultra* 또는 *Premium* [서비스 수준을](../../../azure-netapp-files/azure-netapp-files-service-levels.md)사용 하는 것이 좋습니다.  
 
-4. [Azure NetApp Files에 서브넷 위임](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)의 지침에 설명 된 대로 Azure NetApp Files에 서브넷을 위임 합니다.  
+4. [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 설명 된 대로 Azure NetApp Files에 서브넷을 위임 합니다.  
 
-5. [Azure NetApp Files에 대 한 NFS 볼륨 만들기](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)의 지침에 따라 Azure NetApp Files 볼륨을 배포 합니다.  
+5. [Azure NetApp Files에 대 한 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)의 지침에 따라 Azure NetApp Files 볼륨을 배포 합니다.  
 
-   볼륨을 배포할 때 **nfsv 4.1** 버전을 선택 해야 합니다. 현재 NFSv 4.1에 대 한 액세스를 허용 목록에 추가 해야 합니다. 지정된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. 
+   볼륨을 배포할 때 **nfsv 4.1** 버전을 선택 해야 합니다. 현재 NFSv 4.1에 대 한 액세스를 허용 목록에 추가 해야 합니다. 지정된 Azure NetApp Files [서브넷](/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. 
    
    Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual network에 있어야 합니다. 예를 들어 **h n 1**-Mnt00001, **h n 1**-mnt00001 등은 볼륨 이름**및 nfs://10.23.1.5/h n 1**, mnt00001**nfs://10.23.1.4/**-h n 1, mnt00001 등은 Azure NetApp Files 볼륨에 대 한 파일 경로입니다.  
 
@@ -155,10 +155,10 @@ SUSE 고가용성 아키텍처에서 SAP NetWeaver에 대 한 Azure NetApp Files
 
 - 최소 용량 풀은 4 tebibytes (TiB)입니다.  
 - 최소 볼륨 크기는 100 GiB (바이트)입니다.
-- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재 될 모든 가상 머신은 동일한 지역의 동일한 Azure 가상 네트워크 또는 [피어 링 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 에 있어야 합니다.  
+- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재 될 모든 가상 머신은 동일한 지역의 동일한 Azure 가상 네트워크 또는 [피어 링 가상 네트워크](../../../virtual-network/virtual-network-peering-overview.md) 에 있어야 합니다.  
 - 선택한 가상 네트워크에 Azure NetApp Files에 위임 된 서브넷이 있어야 합니다.
-- Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)에 설명 된 볼륨 할당량 및 서비스 수준의 기능입니다. HANA Azure NetApp 볼륨의 크기를 조정 하는 경우 결과 처리량이 HANA 시스템 요구 사항을 충족 하는지 확인 합니다.  
-- Azure NetApp Files [내보내기 정책을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)사용 하면 허용 되는 클라이언트, 액세스 유형 (읽기-쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
+- Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명 된 볼륨 할당량 및 서비스 수준의 기능입니다. HANA Azure NetApp 볼륨의 크기를 조정 하는 경우 결과 처리량이 HANA 시스템 요구 사항을 충족 하는지 확인 합니다.  
+- Azure NetApp Files [내보내기 정책을](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)사용 하면 허용 되는 클라이언트, 액세스 유형 (읽기-쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
 - Azure NetApp Files 기능은 아직 영역을 인식 하지 않습니다. 현재이 기능은 Azure 지역의 모든 가용성 영역에 배포 되지 않습니다. 일부 Azure 지역에서 잠재적 대기 시간 영향을 염두에 두어야 합니다.  
 -  
 
@@ -167,7 +167,7 @@ SUSE 고가용성 아키텍처에서 SAP NetWeaver에 대 한 Azure NetApp Files
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Azure NetApp Files에서 HANA 데이터베이스 크기 조정
 
-Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)에 설명 된 대로 볼륨 크기 및 서비스 수준의 기능입니다. 
+Azure NetApp Files 볼륨의 처리량은 [Azure NetApp Files 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명 된 대로 볼륨 크기 및 서비스 수준의 기능입니다. 
 
 Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변환 되는 SAP의 최소 저장소 요구 사항에 주의 해야 합니다.
 
@@ -175,7 +175,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 - 16mb 및 64 MB i/o 크기에 대해 최소 400 m b/s의 읽기 작업을 사용 하도록 설정 합니다.  
 - 16mb 및 64 MB i/o 크기를 사용 하는/hana/data에 대해 최소 250 m b/s의 쓰기 작업을 사용 하도록 설정 합니다. 
 
-볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)는 다음과 같습니다.
+볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](../../../azure-netapp-files/azure-netapp-files-service-levels.md)는 다음과 같습니다.
 - Premium Storage 계층-64 MiB/s  
 - Ultra Storage 계층-128 MiB/s  
 
@@ -206,13 +206,13 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 ## <a name="deploy-linux-virtual-machines-via-the-azure-portal"></a>Azure Portal을 통해 Linux 가상 컴퓨터 배포
 
 먼저 Azure NetApp Files 볼륨을 만들어야 합니다. 그런 후에 다음 단계를 수행 합니다.
-1. [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 [azure 가상 네트워크 서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) 을 만듭니다. 
+1. [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)에 [azure 가상 네트워크 서브넷](../../../virtual-network/virtual-network-manage-subnet.md) 을 만듭니다. 
 1. VM을 배포합니다. 
 1. 추가 네트워크 인터페이스를 만들고 네트워크 인터페이스를 해당 Vm에 연결 합니다.  
 
    각 가상 머신에는 세 개의 Azure virtual network 서브넷 (및)에 해당 하는 세 개의 네트워크 인터페이스가 있습니다 `client` `storage` `hana` . 
 
-   자세한 내용은 [여러 네트워크 인터페이스 카드를 사용 하 여 Azure에서 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics)를 참조 하세요.  
+   자세한 내용은 [여러 네트워크 인터페이스 카드를 사용 하 여 Azure에서 Linux 가상 머신 만들기](../../linux/multiple-nics.md)를 참조 하세요.  
 
 > [!IMPORTANT]
 > SAP HANA 워크로드의 경우 짧은 대기 시간이 매우 중요합니다. 짧은 대기 시간을 얻으려면 Microsoft 담당자와 협력 하 여 가상 머신 및 Azure NetApp Files 볼륨이 근접 하 게 배포 되었는지 확인 합니다. SAP HANA Azure NetApp Files를 사용 하는 [새 SAP HANA 시스템을 온 보 딩](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) 하는 경우 필요한 정보를 제출 합니다. 
@@ -230,7 +230,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
    b. SAP HANA에 대해 이전에 만든 가용성 집합을 선택 합니다.  
 
-   c. 클라이언트 Azure 가상 네트워크 서브넷을 선택 합니다. [가속화 네트워크](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)를 선택 합니다.  
+   c. 클라이언트 Azure 가상 네트워크 서브넷을 선택 합니다. [가속화 네트워크](../../../virtual-network/create-vm-accelerated-networking-cli.md)를 선택 합니다.  
 
    가상 컴퓨터를 배포 하는 경우 네트워크 인터페이스 이름이 자동으로 생성 됩니다. 이 지침에서는 **hanadb1**, **hanadb2**및 **Hanadb3**클라이언트와 같이 클라이언트 Azure 가상 네트워크 서브넷에 연결 된 자동으로 생성 된 네트워크 인터페이스를 참조 합니다. 
 
@@ -252,7 +252,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
  
     f. 나머지 가상 컴퓨터 (이 예제에서는 **hanadb2** 및 **hanadb3**)에 대해 b ~ e 단계를 반복 합니다.
  
-    예: 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 을 사용 하도록 설정 합니다.  
+    g. 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하도록 설정 합니다.  
 
 6. `storage`다음 단계를 수행 하 여 및 서브넷에 대 한 추가 네트워크 인터페이스에 대해 가속화 된 네트워킹을 사용 하도록 설정 합니다 `hana` .  
 
@@ -648,7 +648,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 7. Azure NetApp Files에서 사용 하는 저장소의 파일 크기 제한은 16tb입니다. SAP HANA는 저장소 제한을 암시적으로 인식 하지 못하므로 파일 크기 제한인 16TB에 도달 하면 자동으로 새 데이터 파일을 만들지 않습니다. SAP HANA는 16TB를 초과 하 여 파일을 확장 하려고 시도 하면 오류가 발생 하 고 결과적으로 인덱스 서버 작동이 중단 됩니다. 
 
    > [!IMPORTANT]
-   > 저장소 하위 시스템의 [16gb 제한을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) 초과 하 여 데이터 파일의 증가를 SAP HANA 방지 하려면에서 다음 매개 변수를 설정 `global.ini` 합니다.  
+   > 저장소 하위 시스템의 [16gb 제한을](../../../azure-netapp-files/azure-netapp-files-resource-limits.md) 초과 하 여 데이터 파일의 증가를 SAP HANA 방지 하려면에서 다음 매개 변수를 설정 `global.ini` 합니다.  
    > - datavolume_striping = true
    > - datavolume_striping_size_gb = 15000 자세한 내용은 SAP Note [2400005](https://launchpad.support.sap.com/#/notes/2400005)를 참조 하세요.
    > SAP Note [2631285](https://launchpad.support.sap.com/#/notes/2631285)에 주의 하세요. 

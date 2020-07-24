@@ -6,18 +6,14 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068205"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
-
-> [!NOTE]
-> 현재 ASP.NET Core는 현재 사용자를 인증/권한 부여 기능으로 채우는 기능을 지원 하지 않습니다.
->
 
 Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므로 웹앱, RESTful API 및 모바일 백 엔드에 코드를 최소한으로 작성하거나 코드를 작성하지 않고 사용자를 로그인시켜 데이터에 액세스할 수 있으며 [Azure Functions](../azure-functions/functions-overview.md)도 사용할 수 있습니다. 이 문서는 App Service가 앱의 인증 및 권한 부여를 단순화하는 방법에 대해 설명합니다.
 
@@ -29,9 +25,12 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 > App Service에서 호스팅하는 ASP.NET Core 2.1 이상 버전은이 주요 변경 내용에 대해 이미 패치 되었으며 Chrome 80 및 이전 브라우저를 적절 하 게 처리 합니다. 또한 ASP.NET Framework 4.7.2에 대 한 동일한 패치가 1 월 2020 전체에 App Service 인스턴스에 배포 됩니다. 앱이 패치를 받았는지 확인 하는 방법을 비롯 한 자세한 내용은 [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)를 참조 하십시오.
 >
 
+> [!NOTE]
+> 인증/권한 부여 기능을 "Easy Auth" 라고도 합니다.
+
 기본 모바일 응용 프로그램과 관련된 자세한 내용은 [Azure App Service를 사용하여 모바일 응용 프로그램에 대한 사용자 인증 및 권한 부여](../app-service-mobile/app-service-mobile-auth.md)를 참조하세요.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 인증 및 권한 부여 모듈은 애플리케이션 코드와 동일한 샌드박스에서 실행됩니다. 이 기능이 활성화되면 애플리케이션 코드에 의해 처리되기 전에 들어오는 모든 HTTP 요청이 여기를 통과합니다.
 
@@ -53,6 +52,10 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 [Azure Functions](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` .net 코드에 대해 채워지지 않지만 요청 헤더에서 사용자 클레임을 찾거나 `ClaimsPrincipal` 요청 컨텍스트에서 또는 바인딩 매개 변수를 통해 개체를 가져올 수 있습니다. 자세한 내용은 [클라이언트 id 작업](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) 을 참조 하세요.
 
 자세한 내용은 [사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims)를 참조하세요.
+
+> [!NOTE]
+> 현재 ASP.NET Core는 현재 사용자를 인증/권한 부여 기능으로 채우는 기능을 지원 하지 않습니다. 그러나 이러한 차이를 해결 하기 위해 일부 타사 [오픈 소스 미들웨어 구성 요소가](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 존재 합니다.
+>
 
 ### <a name="token-store"></a>토큰 저장소
 
@@ -135,11 +138,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 > [!CAUTION]
 > 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다.
 
-> [!NOTE]
-> 인증/권한 부여는 이전에 간편한 인증으로 알려져 있었습니다.
->
-
-## <a name="more-resources"></a>기타 참고 자료
+## <a name="more-resources"></a>추가 리소스
 
 [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)  
 [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)  

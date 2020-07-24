@@ -11,11 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 953e474eb5d160b38981d61fbfda051f1da9f968
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069579"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Linux VM에 MongoDB를 설치하고 구성하는 방법
 
@@ -213,5 +214,4 @@ az group deployment show \
 
 템플릿을 사용하여 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 
-Azure Resource Manager 템플릿은 사용자 지정 스크립트 확장을 사용하여 VM에 스크립트를 다운로드하고 실행합니다. 자세한 내용은 [Linux Virtual Machines에서 Azure 사용자 지정 스크립트 확장 사용](extensions-customscript.md)을 참조하세요.
-
+Azure Resource Manager 템플릿은 사용자 지정 스크립트 확장을 사용하여 VM에 스크립트를 다운로드하고 실행합니다. 자세한 내용은 [Linux Virtual Machines에서 Azure 사용자 지정 스크립트 확장 사용](../extensions/custom-script-linux.md)을 참조하세요.

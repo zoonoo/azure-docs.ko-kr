@@ -1,5 +1,5 @@
 ---
-title: Azure Policy를 사용 하 여 VM 확장 설치 제한
+title: Azure Policy를 사용 하 여 VM 확장 설치 제한 (Windows)
 description: Azure Policy를 사용하여 확장 배포 제한
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 96cd16c08421a4e365391c0db0b257f71a06551f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e4959c9dca909afde4bf6d351d79ecca1e4022a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069768"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy를 사용하여 Windows VM의 확장 설치 제한
 
@@ -98,7 +98,7 @@ nano $home/clouddrive/parameters.json
 
 ## <a name="create-the-policy"></a>정책 만들기
 
-정책 정의는 사용하려는 구성을 저장하는 데 사용되는 개체입니다. 정책 정의는 규칙 및 매개 변수 파일을 사용하여 정책을 정의합니다. [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) cmdlet을 사용하여 정책 정의를 만듭니다.
+정책 정의는 사용하려는 구성을 저장하는 데 사용되는 개체입니다. 정책 정의는 규칙 및 매개 변수 파일을 사용하여 정책을 정의합니다. [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition) cmdlet을 사용하여 정책 정의를 만듭니다.
 
  정책 규칙 및 매개 변수는 사용자가 만든 파일이며 Cloud Shell에 .json 파일로 저장됩니다.
 
@@ -117,9 +117,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>정책 할당
 
-이 예제에서는 [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment)를 사용하여 리소스 그룹에 정책을 할당합니다. **myResourceGroup** 리소스 그룹에 생성된 VM은 VM 액세스 에이전트 또는 사용자 지정 스크립트 확장을 설치할 수 없습니다. 
+이 예제에서는 [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment)를 사용하여 리소스 그룹에 정책을 할당합니다. **myResourceGroup** 리소스 그룹에 생성된 VM은 VM 액세스 에이전트 또는 사용자 지정 스크립트 확장을 설치할 수 없습니다. 
 
-[Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet을 사용하여 예제의 ID 대신 사용할 구독 ID를 가져옵니다.
+[Get-AzSubscription | Format-Table](/powershell/module/az.accounts/get-azsubscription) cmdlet을 사용하여 예제의 ID 대신 사용할 구독 ID를 가져옵니다.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"

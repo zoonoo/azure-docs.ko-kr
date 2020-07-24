@@ -7,11 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80810238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067968"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 애플리케이션 게이트웨이 기능
 
@@ -34,7 +35,7 @@ Application Gateway에는 다음과 같은 기능이 포함 되어 있습니다.
 - [Websocket 및 HTTP/2 트래픽](#websocket-and-http2-traffic)
 - [연결 드레이닝](#connection-draining)
 - [사용자 지정 오류 페이지](#custom-error-pages)
-- [HTTP 헤더 다시 쓰기](#rewrite-http-headers)
+- [HTTP 헤더 및 URL 다시 작성](#rewrite-http-headers-and-url)
 - [크기 조정](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>SSL(Secure Sockets Layer)/TLS 종료
@@ -82,13 +83,13 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 
 ## <a name="multiple-site-hosting"></a>다중 사이트 호스팅
 
-다중 사이트 호스팅을 통해 동일한 애플리케이션 게이트웨이 인스턴스에서 둘 이상의 웹 사이트를 구성할 수 있습니다. 이 기능을 사용 하면 최대 100 대의 웹 사이트를 하나의 Application Gateway (최적의 성능)에 추가 하 여 배포에 대 한 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 풀로 이동할 수 있습니다. 예를 들어 애플리케이션 게이트웨이는 ContosoServerPool 및 FabrikamServerPool이라는 두 개의 서버 풀에서 `contoso.com` 및 `fabrikam.com`에 대한 트래픽을 사용할 수 있습니다.
+Application Gateway를 사용 하면 동일한 응용 프로그램 게이트웨이에서 둘 이상의 웹 응용 프로그램에 대 한 호스트 이름 또는 도메인 이름을 기반으로 하는 라우팅을 구성할 수 있습니다. 이를 통해 하나의 응용 프로그램 게이트웨이에 최대 100 개 이상의 웹 사이트를 추가 하 여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어, contoso.com, fabrikam.com 및 adatum.com 라는 세 개의 도메인은 응용 프로그램 게이트웨이의 IP 주소를 가리킵니다. 3 개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각 수신기를 구성 합니다. 
 
-`http://contoso.com`에 대한 요청은 ContosoServerPool로 라우팅되고, `http://fabrikam.com`에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
+에 대 한 요청 `http://contoso.com` 은 ContosoServerPool로 라우팅되고 `http://fabrikam.com` FabrikamServerPool로 라우팅됩니다.
 
-마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 `http://blog.contoso.com` 및 `http://app.contoso.com`이 포함됩니다.
+마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 `http://blog.contoso.com` 및 `http://app.contoso.com`이 포함됩니다. 자세한 내용은 [여러 사이트 호스팅 Application Gateway](multiple-site-overview.md)를 참조 하세요.
 
-자세한 내용은 [여러 사이트 호스팅 Application Gateway](multiple-site-overview.md)를 참조 하세요.
+다중 사이트 수신기에서 와일드 카드 호스트 이름을 정의 하 고 수신기 당 최대 5 개의 호스트 이름을 정의할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름 (미리 보기)](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조 하세요.
 
 ## <a name="redirection"></a>리디렉션
 
@@ -126,11 +127,11 @@ WebSocket 및 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 �
 
 ## <a name="custom-error-pages"></a>사용자 지정 오류 페이지
 
-Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다.
+Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 사용자 고유의 브랜딩과 레이아웃을 사용할 수 있습니다.
 
 자세한 내용은 [사용자 지정 오류](custom-error.md)를 참조하세요.
 
-## <a name="rewrite-http-headers"></a>HTTP 헤더 다시 쓰기
+## <a name="rewrite-http-headers-and-url"></a>HTTP 헤더 및 URL 다시 작성
 
 HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사용하여 추가 정보를 전달할 수 있습니다. 이러한 HTTP 헤더 다시 쓰기는 다음과 같은 몇 가지 중요한 시나리오를 수행하는 데 유용합니다.
 
@@ -138,9 +139,11 @@ HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사�
 - 중요한 정보를 표시할 수 있는 응답 헤더 필드를 제거합니다.
 - X-Forwarded-For 헤더에서 포트 정보를 제거합니다.
 
-Application Gateway는 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트하는 기능을 지원합니다. 또한 특정 조건이 충족될 경우에만 지정된 헤더를 다시 쓸 수 있도록 조건을 추가하는 기능을 제공합니다.
+Application Gateway 및 WAF v2 SKU는 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 하는 기능을 지원 하지만, 요청 및 응답 패킷은 클라이언트와 백 엔드 풀 간에 이동 합니다. Url, 쿼리 문자열 매개 변수 및 호스트 이름을 다시 작성할 수도 있습니다. URL 다시 쓰기 및 URL 경로 기반 라우팅을 사용 하 여 경로 맵 다시 평가 옵션을 사용 하 여 원본 경로 또는 다시 작성 된 경로에 따라 백 엔드 풀 중 하나로 요청을 라우팅하도록 선택할 수 있습니다. 
 
-자세한 내용은 [HTTP 헤더 다시 쓰기](rewrite-http-headers.md)를 참조하세요.
+또한 특정 조건이 충족 되는 경우에만 지정 된 헤더 또는 URL이 다시 작성 되도록 조건을 추가 하는 기능을 제공 합니다. 이러한 조건은 요청 및 응답 정보를 기반으로 합니다.
+
+자세한 내용은 [HTTP 헤더 및 URL 다시 작성](rewrite-http-headers-url.md)을 참조 하세요.
 
 ## <a name="sizing"></a>크기 조정
 

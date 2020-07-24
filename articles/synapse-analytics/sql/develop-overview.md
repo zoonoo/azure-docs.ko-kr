@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070057"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 기능을 위한 디자인 결정 및 코딩 기술
 이 문서에서는 sql 풀 및 Synapse sql의 SQL 주문형 (미리 보기) 함수에 대 한 리소스 목록을 찾을 수 있습니다. 권장 되는 문서는 주요 디자인 결정 및 개발 및 코딩 기술의 두 섹션으로 나뉘어 있습니다.
@@ -25,8 +25,8 @@ ms.locfileid: "81429019"
 ## <a name="key-design-decisions"></a>주요 디자인 결정
 다음 문서에서는 Synapse SQL 개발에 대 한 개념 및 디자인 결정 사항을 강조 표시 합니다.
 
-|                                                          |   SQL 풀   | SQL 주문형 |
-| -----------------------------------------------------    | ---- | ---- |
+| 아티클 | SQL 풀 | SQL 주문형 |
+| ------- | -------- | ------------- |
 | [연결](connect-overview.md)                    | 예 | 예 |
 | [리소스 클래스 및 동시성](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예    | 아니요 |
 | [트랜잭션](develop-transactions.md)              | 예 | 아니요 |
@@ -44,8 +44,8 @@ ms.locfileid: "81429019"
 
 아래에는 개발을 위한 특정 코딩 기술, 팁 및 권장 사항을 강조 하는 필수 문서가 나와 있습니다.
 
-|                                            | SQL 풀 | SQL 주문형 |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| 아티클 | SQL 풀 | SQL 주문형 |
+| ------- | -------- | ------------- |
 | [저장 프로시저](develop-stored-procedures.md)  | 예                | 아니요                      |
 | [레이블](develop-label.md)                           | 예                | 아니요                      |
 | [뷰](develop-views.md)                             | 예                | 예                     |

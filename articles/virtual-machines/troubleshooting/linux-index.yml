@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: f19ce0f1e088d2360f4afb2925d2a5d67b4c0252
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b78ce7baf60431e0f9ee1b1218d2d57019b35359
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77920844"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87068974"
 landingContent:
 - title: 배포 오류 문제 해결
   linkLists:
@@ -24,39 +24,39 @@ landingContent:
     - text: Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
       url: allocation-failure.md
     - text: Azure에서 새 가상 머신 생성 시 배포 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm
+      url: ./troubleshoot-deployment-new-vm-linux.md
     - text: 잘못된 템플릿 오류 해결
       url: ../../azure-resource-manager/templates/error-invalid-template.md
     - text: SKU 사용할 수 없음 오류 해결
-      url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+      url: ../../azure-resource-manager/templates/error-sku-not-available.md
 - title: VM 배포 지침
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure에 대해 보증되지 않는 이미지 준비 및 업로드
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic
+      url: ../linux/create-upload-generic.md
     - text: Azure에서 일반화된 VM 이미지 만들기 또는 복제
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/capture-image
+      url: ../linux/capture-image.md
 - title: 내 VM에 연결할 수 없음
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 부팅 진단을 사용하여 Azure의 Linux 가상 머신 문제를 해결하는 방법
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+      url: ./boot-diagnostics.md
     - text: Azure VM에서 로컬 Linux 암호를 다시 설정하는 방법
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/reset-password
+      url: ./reset-password.md
     - text: PowerShell 또는 CLI를 사용하여 원격 서버 문제를 해결하도록 원격 액세스 다시 설정
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection
+      url: ./troubleshoot-ssh-connection.md
     - text: 일반적인 SSH 연결 문제 진단 및 해결을 위한 빠른 단계
-      url: https://azure.microsoft.com/documentation/articles/virtual-machines-troubleshoot-ssh-connections/
+      url: ./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json
 - title: 암호 재설정
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: VM 액세스 확장을 사용하여 SSH 키 또는 암호 재설정
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#ways-to-use-the-vmaccess-extension
+      url: ../extensions/vmaccess.md#ways-to-use-the-vmaccess-extension
     - text: 오프라인 메서드를 사용하여 Azure Linux VM의 로컬 암호 재설정
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/reset-password
+      url: ./reset-password.md
 - title: VM이 부팅되지 않음
   linkLists:
   - linkListType: how-to-guide
@@ -64,9 +64,9 @@ landingContent:
     - text: 특정 커널 변경 내용을 적용한 후 VM을 시작할 때 부팅 오류 해결
       url: https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues
     - text: 직렬 콘솔을 사용하여 부팅 구성 모드를 수정하는 GRUB에 액세스
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode
+      url: ./serial-console-grub-single-user-mode.md
     - text: 부팅 진단을 사용하여 Azure의 Linux 가상 머신 문제를 해결하는 방법
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+      url: ./boot-diagnostics.md
     - text: FSTAB 오류 및 완화 단계 이해
       url: https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors
 - title: VM을 시작하거나 중지할 수 없음
@@ -74,9 +74,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Azure에서 Windows 가상 머신 배포 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+      url: ./restart-resize-error-troubleshooting.md
     - text: 할당 오류 문제 해결(클래식 배포 모델)
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+      url: ./allocation-failure-classic.md
 - title: 예기치 않은 VM 다시 시작
   linkLists:
   - linkListType: how-to-guide
@@ -88,52 +88,52 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 가상 디스크 FAQ
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks
+      url: ../linux/faq-for-disks.md
     - text: VM 크기 조정 시 할당 오류 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+      url: ./allocation-failure.md
     - text: VM에서 임시 드라이브 이해
-      url: https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux#temporary-disk
+      url: ../linux/managed-disks-overview.md#temporary-disk
     - text: Azure Managed Disks 개요
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
+      url: ../linux/managed-disks-overview.md
     - text: Azure VM 디스크와 관리되지 않는 프리미엄 디스크에 대한 FAQ
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks
+      url: ../linux/convert-unmanaged-to-managed-disks.md
 - title: 디스크 암호화 문제
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Linux VM에 대한 Azure 디스크 암호화 시나리오
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux
+      url: ../linux/disk-encryption-linux.md
     - text: 디스크 암호화 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-troubleshooting
+      url: ../linux/disk-encryption-troubleshooting.md
     - text: Azure 디스크 암호화 FAQ
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-faq
+      url: ../linux/disk-encryption-faq.md
 - title: VM 성능 문제
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure VM 성능 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-performance-virtual-machine-linux-windows
+      url: ./troubleshoot-performance-virtual-machine-linux-windows.md
     - text: Azure VM에 대한 성능 진단
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics
+      url: ./performance-diagnostics.md
 - title: VM 확장 문제
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 확장에 대한 일반적인 문제 해결 단계
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
     - text: VM에 확장 설치
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#installing-the-extension-in-your-vm
+      url: ../extensions/diagnostics-linux.md#installing-the-extension-in-your-vm
     - text: Windows용 사용자 지정 스크립트 확장
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+      url: ../extensions/custom-script-windows.md#tips-and-tricks
 - title: 백업 및 복원
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure Portal에서 Azure VM 백업 문제 해결
-      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+      url: ../../backup/backup-azure-vms-troubleshoot.md
     - text: Azure Backup Server 문제 해결
-      url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
+      url: ../../backup/backup-azure-mabs-troubleshoot.md
     - text: Azure Backup의 기능 검토
-      url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup
+      url: ../../backup/backup-overview.md
     - text: Azure 가상 머신을 Recovery Services 자격 증명 모음에 백업하는 방법 이해
-      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm
+      url: ../../backup/backup-azure-vms-first-look-arm.md

@@ -3,12 +3,12 @@ title: Azure Application Insights의 종속성 추적 | Microsoft Docs
 description: Application Insights를 사용 하 여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램에서 종속성 호출을 모니터링 합니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 472d7d26c8a478f521159a44959d7e0a5d749e0d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9980db352e5d2c342131e0d6a2cd1248adb10810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067721"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -16,11 +16,11 @@ ms.locfileid: "86081352"
 
 ## <a name="automatically-tracked-dependencies"></a>자동으로 추적 되는 종속성
 
-.NET 및 .NET Core 용 Application Insights Sdk는 `DependencyTrackingTelemetryModule` 종속성을 자동으로 수집 하는 원격 분석 모듈인과 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다. `DependencyTrackingTelemetryModule`는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget 패키지로 제공 되며 nuget 패키지 또는 중 하나를 사용 하는 경우 자동으로 `Microsoft.ApplicationInsights.Web` 가져옵니다 `Microsoft.ApplicationInsights.AspNetCore` .
+.NET 및 .NET Core 용 Application Insights Sdk는 `DependencyTrackingTelemetryModule` 종속성을 자동으로 수집 하는 원격 분석 모듈인과 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](./asp-net.md) 및 [ASP.NET Core](./asp-net-core.md) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다. `DependencyTrackingTelemetryModule`는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget 패키지로 제공 되며 nuget 패키지 또는 중 하나를 사용 하는 경우 자동으로 `Microsoft.ApplicationInsights.Web` 가져옵니다 `Microsoft.ApplicationInsights.AspNetCore` .
 
  `DependencyTrackingTelemetryModule`는 현재 다음 종속성을 자동으로 추적 합니다.
 
-|종속성 |설명|
+|종속성 |세부 정보|
 |---------------|-------|
 |Http/Https | 로컬 또는 원격 http/https 호출 |
 |WCF 호출| Http 기반 바인딩을 사용 하는 경우에만 자동으로 추적 됩니다.|
@@ -30,7 +30,7 @@ ms.locfileid: "86081352"
 |[ServiceBus 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3.0.0 버전 이상. |
 |Azure Cosmos DB | HTTP/HTTPS를 사용 하는 경우에만 자동으로 추적 됩니다. Application Insights에서는 TCP 모드가 캡처되지 않습니다. |
 
-종속성이 누락 되었거나 다른 SDK를 사용 하는 경우 [자동 수집 된 종속성](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)목록에 있는지 확인 합니다. 종속성이 자동으로 수집 되지 않으면 [track 종속성 호출](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용 하 여 수동으로 추적할 수 있습니다.
+종속성이 누락 되었거나 다른 SDK를 사용 하는 경우 [자동 수집 된 종속성](./auto-collect-dependencies.md)목록에 있는지 확인 합니다. 종속성이 자동으로 수집 되지 않으면 [track 종속성 호출](./api-custom-events-metrics.md#trackdependency)을 사용 하 여 수동으로 추적할 수 있습니다.
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>콘솔 앱에서 자동 종속성 추적 설정
 
@@ -41,7 +41,7 @@ ms.locfileid: "86081352"
     depModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-.NET Core 콘솔 앱의 경우 TelemetryConfiguration가 사용 되지 않습니다. [Worker 서비스 설명서](https://docs.microsoft.com/azure/azure-monitor/app/worker-service) 및 [ASP.NET Core 모니터링 설명서](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 의 지침을 참조 하세요.
+.NET Core 콘솔 앱의 경우 TelemetryConfiguration가 사용 되지 않습니다. [Worker 서비스 설명서](./worker-service.md) 및 [ASP.NET Core 모니터링 설명서](./asp-net-core.md) 의 지침을 참조 하세요.
 
 ### <a name="how-automatic-dependency-monitoring-works"></a>자동 종속성 모니터링은 어떻게 작동 하나요?
 
@@ -101,7 +101,7 @@ ASP.NET 응용 프로그램의 경우, 계측 엔진을 사용 하거나 System.
 | --- | --- |
 | Azure 웹앱 |웹 앱 제어판에서 [Application Insights 블레이드를 열고](../../azure-monitor/app/azure-web-apps.md) .NET에서 SQL 명령을 사용 하도록 설정 합니다. |
 | IIS 서버 (Azure VM, 온-프레미스 등) | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 하거나 상태 모니터 PowerShell 모듈을 사용 하 여 [계측 엔진을 설치](../../azure-monitor/app/status-monitor-v2-api-reference.md) 하 고 IIS를 다시 시작 합니다. |
-| Azure 클라우드 서비스 | [StatusMonitor를 설치 하기 위한 시작 작업](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) 추가 <br> 응용 프로그램은 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 또는 [ASP.NET Core 응용 프로그램](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 에 대 한 NuGet 패키지를 설치 하 여 빌드 시에 applicationinsights SDK로 등록 됩니다. |
+| Azure 클라우드 서비스 | [StatusMonitor를 설치 하기 위한 시작 작업](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) 추가 <br> 응용 프로그램은 [ASP.NET](./asp-net.md) 또는 [ASP.NET Core 응용 프로그램](./asp-net-core.md) 에 대 한 NuGet 패키지를 설치 하 여 빌드 시에 applicationinsights SDK로 등록 됩니다. |
 | IIS Express | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 합니다.
 
 위의 플랫폼별 단계 외에도 applicationInsights.config 파일을 다음과 같이 수정 **하 여 SQL 명령 컬렉션을 사용 하도록 명시적으로 옵트인 해야 합니다** .
@@ -154,7 +154,7 @@ ASP.NET 응용 프로그램의 경우, 계측 엔진을 사용 하거나 System.
 
 ## <a name="logs-analytics"></a>로그(분석)
 
-[Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
+[Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 실패한 종속성 호출을 찾습니다.
 

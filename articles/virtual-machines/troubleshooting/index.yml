@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 4111df079f6e4c0d49ab1381add835d493b3540a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 1b70dfb508ef00f370f0a6fa1456ab7178ec0eae
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77519243"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87069039"
 landingContent:
 - title: 배포 오류 문제 해결
   linkLists:
@@ -28,65 +28,65 @@ landingContent:
     - text: 잘못된 템플릿 오류 해결
       url: ../../azure-resource-manager/templates/error-invalid-template.md
     - text: SKU 사용할 수 없음 오류 해결
-      url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+      url: ../../azure-resource-manager/templates/error-sku-not-available.md
 - title: VM 배포 지침
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure에 업로드할 Windows VHD 또는 VHDX 준비
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image
+      url: ../windows/prepare-for-upload-vhd-image.md
     - text: Azure에서 Windows 클라이언트 운영 체제 배포 또는 만들기
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/client-images
+      url: ../windows/client-images.md
     - text: 할당량과 관련된 오류 해결
-      url: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors
+      url: ../../azure-resource-manager/templates/error-resource-quota.md
 - title: 내 VM에 연결할 수 없음
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 일반적인 RDP 연결 문제를 해결하는 빠른 단계
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-rdp-connection
+      url: ./troubleshoot-rdp-connection.md
     - text: 이벤트 ID로 Azure VM RDP 연결 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/event-id-troubleshoot-vm-rdp-connecton
+      url: ./event-id-troubleshoot-vm-rdp-connecton.md
     - text: RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm
+      url: ./troubleshoot-authentication-error-rdp-vm.md
     - text: VM 게스트 네트워크 카드가 사용되지 않도록 설정됨
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-nic-disabled
+      url: ./troubleshoot-rdp-nic-disabled.md
 - title: 암호 재설정
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp
+      url: ./reset-rdp.md
     - text: 오프라인 메서드를 사용하여 Azure VM의 로컬 Windows 암호 재설정
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-local-password-without-agent
+      url: ./reset-local-password-without-agent.md
     - text: Azure에서 Windows VM에 대한 특정 RDP 오류 메시지 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors
+      url: ./troubleshoot-specific-rdp-errors.md
     - text: Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection
+      url: ./troubleshoot-rdp-connection.md
 - title: VM이 부팅되지 않음
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 디스크 부팅 오류 확인
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error
+      url: ./troubleshoot-check-disk-boot-error.md
     - text: BitLocker 부팅 오류
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-bitlocker-boot-error
+      url: ./troubleshoot-bitlocker-boot-error.md
     - text: 부팅 구성 업데이트 오류
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+      url: ./troubleshoot-vm-boot-configure-update.md
     - text: 일반적인 블루 스크린 오류
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-common-blue-screen-error
+      url: ./troubleshoot-common-blue-screen-error.md
 - title: VM을 시작하거나 중지할 수 없음
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: VM 배포 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+      url: ./restart-resize-error-troubleshooting.md
     - text: 할당 오류 문제 해결(클래식 배포 모델)
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+      url: ./allocation-failure-classic.md
     - text: 부팅 구성 업데이트 오류
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+      url: ./troubleshoot-vm-boot-configure-update.md
     - text: VM 수명 주기 및 상태
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle
+      url: ../windows/states-lifecycle.md
 - title: 예기치 않은 VM 다시 시작
   linkLists:
   - linkListType: how-to-guide
@@ -96,50 +96,50 @@ landingContent:
     - text: 다시 시작 후 부팅 장애 진단 및 복구
       url: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
     - text: Azure에서 가상 머신에 대한 계획된 유지 관리 이해
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates
+      url: ../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
     - text: Azure VM 시작이 Windows 업데이트에서 중단되는 경우
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-stuck-updating-boot-error
+      url: ./troubleshoot-stuck-updating-boot-error.md
 - title: 가상 디스크 관리 문제
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 가상 디스크 FAQ
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks
+      url: ../windows/faq-for-disks.md
     - text: VM 크기 조정 시 할당 오류 문제 해결
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+      url: ./allocation-failure.md
     - text: VM에서 임시 드라이브 이해
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk
+      url: ../windows/managed-disks-overview.md#temporary-disk
     - text: Azure Managed Disks 개요
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview
+      url: ../windows/managed-disks-overview.md
 - title: 디스크 암호화 문제
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure 디스크 암호화 문제 해결
-      url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg
+      url: ../../security/fundamentals/azure-disk-encryption-vms-vmss.md
     - text: Azure 디스크 암호화 FAQ
-      url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq
+      url: ../../security/fundamentals/azure-disk-encryption-vms-vmss.md
     - text: Azure 확장 문제를 해결하는 방법
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
 - title: VM 성능 문제
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 공유 이미지 갤러리 복제 속도가 느려지는 문제 해결
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/troubleshooting-shared-images#replication-is-slow
+      url: ../windows/troubleshooting-shared-images.md#replication-is-slow
 - title: VM 확장 문제
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 확장에 대한 일반적인 문제 해결 단계
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
     - text: VM에 확장 설치
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-windows
+      url: ../extensions/diagnostics-windows.md
     - text: Windows용 사용자 지정 스크립트 확장
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+      url: ../extensions/custom-script-windows.md#tips-and-tricks
 - title: 백업 및 복원
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure Portal에서 Azure 가상 머신 백업 문제 해결
-      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+      url: ../../backup/backup-azure-vms-troubleshoot.md

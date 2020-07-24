@@ -7,18 +7,19 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069794"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>지점 Vm 및 확장 집합에 대 한 오류 메시지
 
 다음은 스폿 Vm 및 확장 집합을 사용할 때 받을 수 있는 몇 가지 오류 코드입니다.
 
 
-| Key | 메시지 | Description |
+| 키 | 메시지 | Description |
 |-----|---------|-------------|
 | SkuNotAvailable | ' ' 리소스에 대해 요청 된 계층은 현재 ' ' \<resource\> \<location\> 구독에 대 한 ' ' 위치에서 사용할 수 없습니다 \<subscriptionID\> . 다른 계층을 시도 하거나 다른 위치에 배포 하세요. | 이 위치에는 VM 또는 확장 집합 인스턴스를 만들 수 있는 Azure 스폿 용량이 부족 합니다. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  제거 정책은 Azure 스폿 Virtual Machines에만 설정할 수 있습니다. | 이 VM은 스폿 VM이 아니므로 제거 정책을 설정할 수 없습니다. |
@@ -34,7 +35,6 @@ ms.locfileid: "84676576"
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  최대 가격은 Azure 스폿 Virtual Machines에만 지원 됩니다. | 자세한 내용은 [지점 Virtual Machines](./linux/spot-vms.md)를 참조 하세요. |
 | MoveResourcesWithAzureSpotVMNotSupported  |  리소스 이동 요청은 Azure 스폿 가상 머신을 포함 합니다. 현재는 지원되지 않습니다. 가상 컴퓨터 Id에 대 한 오류 정보를 확인 하세요. | 지점 Vm을 이동할 수 없습니다. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  리소스 이동 요청은 Azure 스폿 가상 머신 확장 집합을 포함 합니다. 현재는 지원되지 않습니다. 가상 머신 확장 집합 Id에 대 한 오류 세부 정보를 확인 하세요. | 별색 확장 집합 인스턴스를 이동할 수 없습니다. |
-| EphemeralOSDisksNotSupportedForSpotVMs | 임시 OS 디스크는 별색 Vm에 대해 지원 되지 않습니다. | 지점 VM에 대 한 일반 OS 디스크를 사용 합니다. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Azure 스폿 가상 머신은 VM 오케스트레이션 모드를 사용 하는 가상 머신 확장 집합에서 지원 되지 않습니다. | 스폿 인스턴스를 사용 하려면 오케스트레이션 모드를 가상 머신 확장 집합으로 설정 합니다. |
 
 

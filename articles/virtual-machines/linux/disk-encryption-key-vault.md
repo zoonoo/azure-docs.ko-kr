@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c3212ed201b5106b9c84e4e1add92508d42e675f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce52c73752691693ff42832d37c222f95edd0d51
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069726"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
 
@@ -39,7 +39,7 @@ Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은
 
 ## <a name="install-tools-and-connect-to-azure"></a>도구 설치 및 Azure에 연결
 
-이 문서의 단계는 [Azure CLI](/cli/azure/), [Azure PowerShell Az 모듈](/powershell/azure/overview) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 완료할 수 있습니다. 
+이 문서의 단계는 [Azure CLI](/cli/azure/), [Azure PowerShell Az 모듈](/powershell/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 완료할 수 있습니다. 
 
 브라우저를 통해 포털에 액세스할 수 있지만 Azure CLI 및 Azure PowerShell에는 로컬 설치가 필요합니다. 자세한 내용은 [Linux용 Azure Disk Encryption: 도구 설치](disk-encryption-linux.md#install-tools-and-connect-to-azure)를 참조하세요.
 

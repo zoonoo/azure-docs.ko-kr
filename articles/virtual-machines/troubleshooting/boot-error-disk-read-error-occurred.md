@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302605"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069152"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>부팅 오류 문제 해결 - 디스크 읽기 오류 발생
 
@@ -26,7 +27,7 @@ ms.locfileid: "84302605"
 
 ## <a name="symptoms"></a>증상
 
-[부팅 진단](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)을 사용하여 VM의 스크린샷을 보면 스크린샷에 다음 메시지와 함께 프롬프트가 표시됨을 확인할 수 있습니다. "디스크 읽기 오류가 발생했습니다. Ctrl+Alt+Del 키를 눌러 다시 시작하세요" 오류 코드를 반영합니다.
+[부팅 진단](./boot-diagnostics.md)을 사용하여 VM의 스크린샷을 보면 스크린샷에 다음 메시지와 함께 프롬프트가 표시됨을 확인할 수 있습니다. "디스크 읽기 오류가 발생했습니다. Ctrl+Alt+Del 키를 눌러 다시 시작하세요" 오류 코드를 반영합니다.
 
    ![오류 메시지: 디스크 읽기 오류가 발생했습니다. Ctrl+Alt+Del 키를 눌러 다시 시작하세요.](./media/disk-read-error-occurred/1.png)
 
@@ -50,7 +51,7 @@ ms.locfileid: "84302605"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
 1. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="set-partition-status-to-active"></a>파티션 상태를 Active(활성)로 설정
@@ -142,4 +143,4 @@ ms.locfileid: "84302605"
    
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 빌드합니다.

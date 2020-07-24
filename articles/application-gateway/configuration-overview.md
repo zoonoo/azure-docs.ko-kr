@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068026"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -25,7 +25,7 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
@@ -286,7 +286,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 헤더 및 URL 매개 변수는 정적 값 또는 다른 헤더 및 서버 변수로 설정할 수 있습니다. 클라이언트 IP 주소 추출, 백 엔드에 대 한 중요 한 정보 제거, 보안 추가 등의 중요 한 사용 사례에 도움이 됩니다.
 자세한 내용은 다음을 참조하세요.
 
- - [HTTP 헤더 재작성 개요](rewrite-http-headers-url.md)
+ - [HTTP 헤더 및 URL 다시 작성 개요](rewrite-http-headers-url.md)
  - [HTTP 헤더 재작성 구성](rewrite-http-headers-portal.md)
  - [URL 재작성 구성](rewrite-url-portal.md)
 

@@ -5,21 +5,22 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9604f0c6eeb9d0ac4b7d07f1ab1ba03285fd60fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a552f03c8a8fa05ed7d2c6eb87374d4e7e17838d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070091"
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights 환경의 크기를 조정하는 방법
+# <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경의 크기를 조정 하는 방법
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)를 사용 하 여 Time Series Insights 환경의 용량을 변경 하는 방법을 설명 합니다. 용량은 선택한 SKU와 관련된 입력 속도, 스토리지 용량 및 비용에 적용되는 승수입니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com)를 사용 하 여 Azure Time Series Insights 환경의 용량을 변경 하는 방법을 설명 합니다. 용량은 선택한 SKU와 관련된 입력 속도, 스토리지 용량 및 비용에 적용되는 승수입니다.
 
 Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘리거나 줄일 수 있습니다.
 
@@ -31,11 +32,11 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
 ## <a name="change-the-capacity-of-your-environment"></a>사용자 환경의 용량 변경
 
-1. Azure Portal에서 Time Series Insights 환경을 찾아 선택합니다.
+1. Azure Portal에서 Azure Time Series Insights 환경을 찾아서 선택 합니다.
 
-1. Time Series Insights 환경의 메뉴에서 **저장소 구성**을 선택 합니다.
+1. Azure Time Series Insights 환경의 메뉴에서 **저장소 구성**을 선택 합니다.
 
-   [![Time Series Insights 용량 구성](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
+   [![Azure Time Series Insights 용량 구성](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. **용량** 슬라이더를 조정하여 수신 속도 및 스토리지 용량에 대한 요구 사항을 충족하는 용량을 선택합니다. **수신 속도**, **스토리지 용량** 및 **예상 비용** 업데이트가 변경으로 인한 영향을 동적으로 보여줍니다.
 
@@ -49,8 +50,8 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 내용은 [Time Series Insights의 보존 기간 이해](time-series-insights-concepts-retention.md)를 참조하세요.
+- 자세한 내용은 [Azure Time Series Insights 보존 이해](time-series-insights-concepts-retention.md)를 참조 하세요.
 
-- [Azure Time Series Insights에서 데이터 보존을 구성](time-series-insights-how-to-configure-retention.md)하는 방법에 대해 알아봅니다.
+- [Azure Azure Time Series Insights에서 데이터 보존을 구성](time-series-insights-how-to-configure-retention.md)하는 방법에 대해 알아봅니다.
 
 - [환경 계획](time-series-insights-environment-planning.md)에 대해 알아봅니다.

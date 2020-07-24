@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 문제 해결 개요-Azure
+title: Windows 가상 데스크톱 문제 해결 개요-2019-Azure
 description: Windows 가상 데스크톱 테 넌 트 환경을 설정 하는 동안 발생 하는 문제 해결에 대 한 개요입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7fff21ec4fdb53483eea1a6c37ce9269081fe77e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82ac5a8178973396c4c1975cb1c84d23e61430f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069923"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
