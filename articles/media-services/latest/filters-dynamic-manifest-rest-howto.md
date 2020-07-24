@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ef342ecee9bb9e2f32400655db0cacc01835c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75780337"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023112"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API를 사용하여 필터 만들기
 
@@ -25,12 +26,12 @@ ms.locfileid: "75780337"
 
 이 기능과이 기능을 사용 하는 시나리오에 대 한 자세한 설명은 [동적 매니페스트](filters-dynamic-manifest-overview.md) 및 [필터](filters-concept.md)를 참조 하세요.
 
-이 항목에서는 주문형 비디오 자산에 대한 필터를 정의하고 REST API를 사용하여 [계정 필터](https://docs.microsoft.com/rest/api/media/accountfilters) 및 [자산 필터](https://docs.microsoft.com/rest/api/media/assetfilters)를 만드는 방법을 보여 줍니다. 
+이 항목에서는 주문형 비디오 자산에 대한 필터를 정의하고 REST API를 사용하여 [계정 필터](/rest/api/media/accountfilters) 및 [자산 필터](/rest/api/media/assetfilters)를 만드는 방법을 보여 줍니다. 
 
 > [!NOTE]
 > [PresentationTimeRange](filters-concept.md#presentationtimerange)를 검토 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
@@ -96,7 +97,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 필터를 만들었습니다.
 
-자세한 내용은 [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate)를 참조하세요. [필터에 대한 JSON 예제](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter)도 참조하세요.
+자세한 내용은 [만들기 또는 업데이트](/rest/api/media/accountfilters/createorupdate)를 참조하세요. [필터에 대한 JSON 예제](/rest/api/media/accountfilters/createorupdate#create-an-account-filter)도 참조하세요.
 
 ## <a name="create-asset-filters"></a>자산 필터 만들기  
 
@@ -114,13 +115,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 자산 필터를 만들었습니다.
 
-자산 필터 만들기 또는 업데이트 방법에 대한 자세한 내용은 [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate)를 참조하세요. [필터에 대한 JSON 예제](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter)도 참조하세요. 
+자산 필터 만들기 또는 업데이트 방법에 대한 자세한 내용은 [만들기 또는 업데이트](/rest/api/media/assetfilters/createorupdate)를 참조하세요. [필터에 대한 JSON 예제](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter)도 참조하세요. 
 
 ## <a name="associate-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 필터 연결
 
 스트리밍 로케이터에 적용 되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. 동적 패키지 작성 [(스트리밍 끝점)](dynamic-packaging-overview.md) 은 클라이언트에서 URL에 지정 하는 필터 목록과 함께이 필터 목록을 적용 합니다. 이 조합은 URL + 스트리밍 로케이터에 지정 하는 필터를 기반으로 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md)를 생성 합니다. 필터를 적용 하지만 URL에서 필터 이름을 표시 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
 
-REST를 사용 하 여 스트리밍 로케이터를 사용 하 여 필터를 만들고 연결 하려면 [스트리밍 로케이터-만들기](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API를 사용 하 고 `properties.filters` [요청 본문](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)에를 지정 합니다.
+REST를 사용 하 여 스트리밍 로케이터를 사용 하 여 필터를 만들고 연결 하려면 [스트리밍 로케이터-만들기](/rest/api/media/streaminglocators/create) API를 사용 하 고 `properties.filters` [요청 본문](/rest/api/media/streaminglocators/create#request-body)에를 지정 합니다.
                                 
 ## <a name="stream-using-filters"></a>필터를 사용 하 여 스트림
 

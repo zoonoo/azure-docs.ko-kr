@@ -11,11 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b6bda6d35391543e416c377557e34de317e293eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741579"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015973"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 비 Microsoft 계정 추가
 
@@ -49,7 +50,7 @@ ms.locfileid: "83741579"
 
 ### <a name="add-your-google-account-to-the-app"></a>앱에 Google 계정 추가
 
-1. 컴퓨터에 표시된 Google 페이지에서 **두 번째 대체 단계 설정** 섹션으로 이동하여 **Authenticator 앱** 섹션에서 **설정**을 선택합니다.
+1. 컴퓨터의 Google 계정 보안 페이지에서 https://myaccount.google.com/security) **추가 두 번째 단계 추가** 로 이동 하 여 확인 합니다. 섹션에서 **인증자 앱** 에서 **설정** 을 선택 합니다.
 
 2. **Authenticator 앱에서 코드 받기** 페이지에서 사용 중인 휴대폰 유형에 따라 **Android** 또는 **iPhone**을 선택하고, **다음**을 선택합니다.
 

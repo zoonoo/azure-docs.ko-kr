@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: 10549abfbdacf1fc1ae6b99f4cab20a290c32a2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 723419b97dc024a700d860dd3fe61ff48073a587
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020001"
 ---
 # <a name="optimization-for-linux"></a>Linux용 최적화
 
@@ -77,4 +77,4 @@ sudo systemctl disable cpupower
 
 * [InfiniBand를 사용 하도록 설정](enable-infiniband.md) 하 고 OS 이미지를 최적화 하는 방법에 대해 자세히 알아보세요.
 
-* Azure의 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.
+* Azure의 [HPC](/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.

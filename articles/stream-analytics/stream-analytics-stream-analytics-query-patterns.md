@@ -8,11 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c79d810979641d1dc128c741c2124d9b5887aa3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020749"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure Stream Analytics의 일반적인 쿼리 패턴
 
@@ -83,7 +84,7 @@ FROM Input
 ```
 ## <a name="data-aggregation-over-time"></a>시간별 데이터 집계
 
-시간대에 대한 정보를 계산하기 위해 데이터를 함께 집계할 수 있습니다. 다음 예제에서는 모든 특정 자동차 브랜드에 대해 지난 10분 동안의 개수를 계산합니다.
+시간대에 대한 정보를 계산하기 위해 데이터를 함께 집계할 수 있습니다. 이 예에서는 특정 자동차를 만들 때마다 지난 10 초 동안 카운트를 계산 합니다.
 
 **입력**:
 

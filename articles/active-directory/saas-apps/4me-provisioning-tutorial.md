@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77059169"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018692"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 4me 구성
 
@@ -30,7 +31,7 @@ ms.locfileid: "77059169"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -127,7 +128,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
     ![4me 사용자 매핑](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. **특성 매핑** 섹션에서 Azure AD에서 4me로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 4me의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 4me로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 4me의 사용자 계정을 일치 시키는 데 사용 됩니다. 사용자가 선택한 일치 특성에 대 한 [필터링이 지원](https://developer.4me.com/v1/scim/users/) 되는지 확인 하세요. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
     ![4me 사용자 매핑](media/4me-provisioning-tutorial/4me-user-attributes.png)
     

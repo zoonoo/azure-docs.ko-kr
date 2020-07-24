@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2a41dcf9c224e9e4a9a280078432e0b57e16c2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7992563bdfb318867e963ed4f371998bafbbbcdb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019916"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect 그룹 쓰기 저장
 
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Office 365 그룹을 구성 하는 방법에 대 한 자세한 내용은 [온-프레미스 Exchange 하이브리드를 사용 하 여 Microsoft 365 그룹 구성](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-office-365-groups#enable-group-writeback-in-azure-ad-connect)을 참조 하세요.
+Office 365 그룹을 구성 하는 방법에 대 한 자세한 내용은 [온-프레미스 Exchange 하이브리드를 사용 하 여 Microsoft 365 그룹 구성](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect)을 참조 하세요.
 
 ## <a name="disabling-group-writeback"></a>그룹 쓰기 저장 사용 안 함
 그룹 쓰기 저장을 사용 하지 않도록 설정 하려면 다음 단계를 사용 합니다. 

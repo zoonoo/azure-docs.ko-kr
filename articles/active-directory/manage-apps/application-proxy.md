@@ -8,29 +8,27 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: 84cd6f9d7612cc6cf5829c03c398dd65a6eec412
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ed9d5eb8d230b05a090424d6105865acae69e61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019355"
 ---
-# <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스
+# <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시을 통해 온-프레미스 응용 프로그램에 원격으로 액세스
 
 Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스를 제공합니다. Azure AD에 Single Sign-On 되면 사용자는 외부 URL 또는 내부 애플리케이션 포털을 통해 클라우드와 온-프레미스 애플리케이션에 모두 액세스할 수 있습니다. 예를 들어 애플리케이션 프록시는 원격 데스크톱, SharePoint, Teams, Tableau, Qlik 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 
-Azure AD 애플리케이션 프록시는:
+다음은 Azure AD 애플리케이션 프록시의 특징입니다.
 
 - **간편한 사용**. 사용자는 O365 및 Azure AD와 통합된 다른 SaaS 앱에 액세스할 때와 같은 방식으로 온-프레미스 애플리케이션에 액세스할 수 있습니다. 애플리케이션 프록시를 사용하도록 애플리케이션을 변경하거나 업데이트할 필요가 없습니다.
 
 - **보안**. 온-프레미스 애플리케이션은 Azure의 권한 부여 컨트롤 및 보안 분석을 사용할 수 있습니다. 예를 들어 온-프레미스 응용 프로그램은 조건부 액세스 및 2 단계 인증을 사용할 수 있습니다. 애플리케이션 프록시는 방화벽을 통해 인바운드 연결을 열 필요가 없습니다.
 
-- **비용 효율성**. 온-프레미스 솔루션을 사용하려면 일반적으로 DMZ(완충 영역), 에지 서버 또는 기타 복잡한 인프라를 설정하고 유지 관리해야 합니다. 애플리케이션 프록시는 클라우드에서 실행되므로 쉽게 사용할 수 있습니다. 애플리케이션 프록시를 사용하기 위해 네트워크 인프라를 변경하거나 온-프레미스 환경에 추가 어플라이언스를 설치할 필요가 없습니다.
+- **비용 효율적**입니다. 온-프레미스 솔루션을 사용하려면 일반적으로 DMZ(완충 영역), 에지 서버 또는 기타 복잡한 인프라를 설정하고 유지 관리해야 합니다. 애플리케이션 프록시는 클라우드에서 실행되므로 쉽게 사용할 수 있습니다. 애플리케이션 프록시를 사용하기 위해 네트워크 인프라를 변경하거나 온-프레미스 환경에 추가 어플라이언스를 설치할 필요가 없습니다.
 
 ## <a name="what-is-application-proxy"></a>애플리케이션 프록시란?
 애플리케이션 프록시는 사용자가 원격 클라이언트에서 온-프레미스 웹 애플리케이션에 액세스할 수 있게 해주는 Azure AD의 기능입니다. 애플리케이션 프록시는 클라우드에서 실행되는 애플리케이션 프록시 서비스와 온-프레미스 서버에서 실행되는 애플리케이션 프록시 커넥터를 모두 포함하고 있습니다. Azure AD, 애플리케이션 프록시 및 애플리케이션 프록시 커넥터가 함께 작동하여 Azure AD에서 웹 애플리케이션으로 사용자 로그온 토큰을 안전하게 전달합니다.

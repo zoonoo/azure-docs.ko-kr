@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 06/03/2020
+ms.date: 07/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 349ad3a1fbdf9340eb2b6c2ec92ba85b0357dd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e21edd662649238b16cf7e7df9d9904f3f17752
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432517"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015904"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
 
@@ -29,7 +30,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며, Azur
 | 질문 | Answer |
 | -------- | ------ |
 | 디바이스를 등록하면 회사 또는 서비스에서 디바이스에 액세스하도록 허용하게 되나요? | 디바이스를 등록하면 디바이스에서 조직의 서비스에 액세스할 수 있으며 조직에서는 디바이스에 액세스할 수 없습니다. |
-| Windows Mobile 장치를 사용 하는 경우 windows mobile의 Microsoft Authenticator는 사용 되지 않습니다. 앱을 사용 하 여 계속 인증할 수 있나요? | Windows Mobile에서 Microsoft Authenticator를 사용 하는 모든 인증은 2020 년 7 월 15 일 후에 사용이 중지 됩니다. 계정에서 잠기는 것을 방지 하려면 대체 인증 방법을 사용 하는 것이 좋습니다.<br>엔터프라이즈 사용자를 위한 대체 옵션은 다음과 같습니다.<br><ul><li>Android 또는 iOS에 대 한 Microsoft Authenticator 설정</li><li>확인 코드를 수신 하도록 SMS 설정</li><li>전화 통화를 수신 하는 전화 번호를 설정 하 여 id를 확인 합니다.</li></ul><br>개인 Microsoft 계정 사용자를 위한 대체 옵션은 다음과 같습니다.<br><ul><li>Android 또는 iOS에 대 한 Microsoft Authenticator 앱을 설정 합니다.</li><li>[Microsoft 계정 보안 페이지](https://account.microsoft.com/security/)에서 보안 정보를 업데이트 하 여 대체 로그인 방법 (SMS 또는 전자 메일)을 설정 합니다.</li></ul> |
+| Windows Mobile 장치를 사용 하는 경우 windows mobile의 Microsoft Authenticator는 사용 되지 않습니다. 앱을 사용 하 여 계속 인증할 수 있나요? | Windows Mobile에서 Microsoft Authenticator를 사용 하는 모든 인증은 2020 년 7 월 15 일 후에 사용이 중지 됩니다. 계정에서 잠기는 것을 방지 하려면 대체 인증 방법을 사용 하는 것이 좋습니다.<br>엔터프라이즈 사용자를 위한 대체 옵션은 다음과 같습니다.<br><ul><li>[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 또는 [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458)에 대 한 Microsoft Authenticator 설정</li><li>확인 코드를 수신 하도록 [SMS 설정](multi-factor-authentication-setup-phone-number.md)</li><li>전화 통화를 수신 하는 전화 번호를 설정 [하 여 id를 확인](multi-factor-authentication-setup-office-phone.md)합니다.</li></ul><br>개인 Microsoft 계정 사용자를 위한 대체 옵션은 다음과 같습니다.<br><ul><li>[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 또는 [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458)에 대 한 Microsoft Authenticator 설정</li><li>[Microsoft 계정 보안 페이지](https://account.microsoft.com/security/)에서 보안 정보를 업데이트 하 여 대체 로그인 방법 (SMS 또는 전자 메일)을 설정 합니다.</li></ul> |
 | Android Authenticator에서 OTP (일회성 암호) 코드의 스크린샷을 사용할 수 있나요? | Authenticator Android의 릴리스 6.2003.1704부터 인증자의 스크린샷 생성 될 때마다 기본적으로 모든 OTP 코드가 숨겨집니다. 스크린샷에서 OTP 코드를 보거나 다른 앱이 인증자 화면을 캡처하도록 허용 하려면를 사용 합니다. 인증자에서 **화면 캡처** 설정만 켜고 앱을 다시 시작 합니다. |
 | Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요? | Authenticator 앱은 다음과 같은 세 가지 유형의 정보를 수집 합니다.<ul><li>사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.</li><li>앱의 **도움말** 메뉴에서 **로그 보내기**를 선택하여 Microsoft에 로그를 보낼 때까지만 앱에 남아 있는 진단 로그 데이터. 이러한 로그에는 전자 메일 주소, 서버 주소, IP 주소 등의 개인 데이터가 포함 될 수 있습니다. 장치 이름 및 운영 체제 버전과 같은 장치 데이터를 포함할 수도 있습니다. 수집 된 모든 개인 데이터는 앱 문제를 해결 하는 데 필요한 정보로 제한 됩니다. 언제 든 지 앱에서 이러한 로그 파일을 탐색 하 여 수집 되는 정보를 확인할 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 고객이 보고 한 문제를 해결 하는 데만 사용 합니다.</li><li>"계정 흐름 추가 시작됨/성공적으로 계정을 추가함" 또는 "알림 승인됨"과 같은 비-개인 식별이 가능한 사용량 데이터. 이 데이터는 엔지니어링 결정의 필수적인 부분입니다. 사용량에 따라 사용자에 게 중요 한 방식으로 앱을 개선할 수 있는 위치를 결정 하는 데 도움이 됩니다. 앱을 처음 사용 하는 경우이 데이터 컬렉션에 대 한 알림이 표시 됩니다. 앱의 **설정** 페이지에서이 기능을 해제할 수 있음을 알려줍니다. 언제 든 지이 설정을 켜거나 끌 수 있습니다.</li></ul> |
 | 앱에서 코드란 무엇인가요? | Authenticator를 열면 추가 된 계정이 타일로 표시 됩니다. 회사 또는 학교 계정 및 개인 Microsoft 계정에는 계정의 전체 화면 보기에 6 자리 또는 8 자리 숫자가 표시 됩니다 (계정 타일을 눌러 액세스). 다른 계정의 경우 앱의 **계정** 페이지에 6 자리 또는 8 자리 숫자가 표시 됩니다.<br>이러한 코드를 단일 사용 암호로 사용 하 여 사용자의 신원을 확인 합니다. 사용자 이름 및 암호를 사용하여 로그인한 후 해당 계정과 연결된 확인 코드를 입력합니다. 예를 들어 Contoso 계정에 Katy 로그인 하는 경우 계정 타일을 탭 한 다음 확인 코드 895823를 사용 합니다. Outlook 계정의 경우 동일한 단계를 수행 합니다.<br>Contoso 계정 타일을 탭 합니다.<br>![Authenticator 앱의 계정 타일](media/user-help-auth-app-faq/katy-signin.png)<br>Contoso 계정 타일을 탭 하면 확인 코드가 전체 화면에 표시 됩니다.<br>![인증자의 계정 타일에 있는 확인 코드](media/user-help-auth-app-faq/verification-code.png) |

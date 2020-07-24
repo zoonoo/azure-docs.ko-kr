@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73961437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021667"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
 
@@ -60,7 +61,7 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 다음 그림은 장애 조치(failover) 전과 후의 서브넷을 보여 줍니다.
 
 
-**장애 조치 (failover) 전**
+**장애 조치(failover) 전**
 
 ![장애 조치(failover) 전](./media/hyper-v-vmm-networking/network-design2.png)
 
@@ -78,12 +79,12 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 
 VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용하여 VM에 할당된 주소를 확인할 수 있습니다. 이 IP 주소는 장애 조치(failover) IP 주소로 설정되고 장애 조치(failover) 시 VM에 할당됩니다.
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>다른 IP 주소 사용
 
@@ -92,7 +93,7 @@ VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용�
 - 인트라넷 애플리케이션의 경우 낮은 TTL 값을 사용합니다.
 - DNS 서버가 제때 업데이트되도록 Site Recovery 복구 계획에서 다음 스크립트를 사용합니다. 동적 DNS 등록을 사용하는 경우에는 이 스크립트를 사용할 필요가 없습니다.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,
@@ -115,7 +116,7 @@ VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용�
 - 이 시나리오에서는 전체 서브넷을 장애 조치(failover)할 필요가 없으며 VPN 또는 네트워크 경로를 다시 구성하기 위해 변경해야 하는 사항이 없습니다. 장애 조치(failover) 및 일부 DNS 업데이트를 수행하면 애플리케이션이 액세스 가능한 상태로 유지됩니다.
 - DNS가 동적 업데이트를 허용하도록 구성된 경우 장애 조치(failover) 후 시작되는 VM은 새 IP 주소를 사용하여 자체 등록됩니다.
 
-**장애 조치 (failover) 전**
+**장애 조치(failover) 전**
 
 ![다른 IP 주소 - 장애 조치(failover) 전](./media/hyper-v-vmm-networking/network-design10.png)
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a0a1a2ce0a5122a953b8cc9916e2bf56955feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020240"
 ---
 # <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
 
@@ -126,5 +126,4 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 확장성을 위해 여러 VM 인스턴스를 실행 하 고 규모를 확장 합니다. 자세한 내용은 [가상 머신 확장 집합에서 Windows 컴퓨터 자동 크기 조정](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)을 참조 하세요.
-
+추가 확장성을 위해 여러 VM 인스턴스를 실행 하 고 규모를 확장 합니다. 자세한 내용은 [가상 머신 확장 집합에서 Windows 컴퓨터 자동 크기 조정](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)을 참조 하세요.

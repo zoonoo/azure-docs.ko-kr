@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021463"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -23,6 +23,9 @@ BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 
 
 - [Azure Backup](../backup/backup-overview.md)은 온-프레미스 및 Azure VM 데이터를 백업합니다. 파일 및 폴더, 특정 워크로드 또는 전체 VM을 백업할 수 있습니다. 
 - [Azure Site Recovery](site-recovery-overview.md)는 온-프레미스 컴퓨터 또는 Azure IaaS VM에서 실행되는 앱 및 워크로드대에 해 복원력 및 재해 복구를 제공합니다. Site Recovery는 복제를 오케스트레이션하고 중단이 발생하면 Azure로 장애 조치(Failover)합니다. 또한 Azure에서 기본 사이트로의 복구를 처리합니다. 
+
+> [!NOTE]
+> Site Recovery은 원본 컴퓨터에 대 한 재해 복구를 설정 하는 대상 지역에서 고객 데이터를 이동 하거나 저장 하지 않습니다. 고객이 선택 하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음은 메타 데이터를 포함 하지만 실제 고객 데이터는 포함 하지 않습니다.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Site Recovery는 어떻게 재해 복구를 수행하나요?
 

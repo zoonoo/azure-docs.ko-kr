@@ -1,5 +1,5 @@
 ---
-title: 통계 생성 및 업데이트
+title: Azure Synapse SQL 리소스를 사용 하 여 통계 만들기 및 업데이트
 description: Synapse SQL에서 쿼리 최적화 통계를 만들고 업데이트하기 위한 권장 사항과 예제입니다.
 services: synapse-analytics
 author: filippopovic
@@ -11,11 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020602"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 

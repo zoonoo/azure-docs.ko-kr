@@ -14,11 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022126"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs 보안 푸시
 
@@ -121,7 +122,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 4. 이제 들어오는 알림을 처리하고 위의 메서드를 사용하여 표시할 콘텐츠를 검색해야 합니다. 먼저 푸시 알림을 받을 때 iOS 앱이 백그라운드에서 실행될 수 있도록 설정해야 합니다. **XCode**의 왼쪽 패널에서 앱 프로젝트를 선택하고 가운데 창의 **대상** 섹션에서 기본 앱 대상을 클릭합니다.
 5. 그리고 가운데 창의 맨 위에서 **기능** 탭을 클릭하고 **원격 알림** 확인란을 선택합니다.
 
-    ![][IOS1]
+    ![앱 프로젝트를 선택 하 고 기능 탭을 열어 놓은 XCode의 스크린샷 원격 알림 확인란이 선택 되어 있습니다.][IOS1]
 
 6. `AppDelegate.m`에서 다음 메서드를 추가하여 푸시 알림을 처리합니다.
 

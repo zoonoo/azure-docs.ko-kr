@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016323"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "85389866"
 
 Azure AD 응용 프로그램 갤러리에서 여유 시간을 추가 하 여 시간에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 여유를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
-## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>3단계: 프로비저닝 범위에 있는 사용자 정의 
+## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>3단계. 프로비저닝 범위에 있는 사용자 정의 
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
@@ -131,7 +131,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |timezone|String|
    |userType|String|
    |urn: scim: 스키마: 확장: enterprise: 1.0 학과|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 관리자|참고|
+   |urn: scim: 스키마: 확장: enterprise: 1.0. 관리자|참조|
    |urn: scim: 스키마: 확장: enterprise: 1.0. 예제|String|
    |urn: scim: 스키마: 확장: enterprise: 1.0. costCenter|String|
    |urn: scim: 스키마: 확장: enterprise: 1.0. 조직|String|
@@ -169,7 +169,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
-## <a name="connector-limitations"></a>커넥터 제한 사항
+## <a name="troubleshooting-tips"></a>문제 해결 팁
 
 * Slack의 **displayName** 특성을 구성할 때는 다음 동작에 유의하세요.
 
@@ -179,11 +179,15 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
   
   * 허용되는 문장 부호에는 마침표, 밑줄, 하이픈, 아포스트로피, 대괄호(예: **( [ { } ] )**) 및 구분 기호(예: **, / ;**)가 포함됩니다.
   
+  * displayName 속성에는 ' @ ' 문자를 사용할 수 없습니다. ' @ '가 포함 된 경우 프로 비전 로그에 "AttributeValidationFailed" 라는 설명이 포함 된 건너뛴 이벤트를 찾을 수 있습니다.
+
   * Slack의 작업 공간/조직에서 두 설정, 즉 **Profile syncing is enabled**(프로필 동기화 사용) 및 **Users cannot change their display name**(사용자가 표시 이름을 변경할 수 없음)이 구성된 경우에만 업데이트됩니다.
-  
+
 * Slack의 **userName** 특성은 21자 미만이어야 하며 고유한 값을 가져야 합니다.
 
 * 여유 시간에는 **사용자 이름** 및 **전자 메일과**특성만 사용할 수 있습니다.  
+  
+* 일반적인 오류 코드는 공식 여유 시간 설명서에 설명 되어 있습니다.https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>로그 변경
 

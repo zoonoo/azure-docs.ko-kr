@@ -5,27 +5,27 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170b90816535562d6740449157840cedb00f291d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416987"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020511"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
-Time Series Insights 탐색기에서 사용자 지정 보기를 공유 하려면 프로그래밍 방식으로 사용자 지정 보기의 매개 변수가 있는 URL을 만들 수 있습니다.
+Azure Time Series Insights 탐색기에서 사용자 지정 보기를 공유 하려면 프로그래밍 방식으로 사용자 지정 보기의 매개 변수가 있는 URL을 만들 수 있습니다.
 
-Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL에서 직접 환경에 보기를 지정 합니다. 예를 들어 URL만 사용하여 대상 환경, 검색 조건자 및 원하는 시간 범위를 지정할 수 있습니다. 사용자가 사용자 지정 URL을 선택 하는 경우 인터페이스는 Time Series Insights 포털에서 해당 자산에 직접 링크를 제공 합니다. 데이터 액세스 정책이 적용됩니다.
+Azure Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL에서 직접 환경에 보기를 지정 합니다. 예를 들어 URL만 사용하여 대상 환경, 검색 조건자 및 원하는 시간 범위를 지정할 수 있습니다. 사용자가 사용자 지정 URL을 선택 하는 경우 인터페이스는 Azure Time Series Insights 포털에서 해당 자산에 직접 링크를 제공 합니다. 데이터 액세스 정책이 적용됩니다.
 
 > [!TIP]
-> * 무료 [Time Series Insights 데모](https://insights.timeseries.azure.com/samples)를 확인 하세요.
-> * 함께 제공 되는 [Time Series Insights 탐색기](./time-series-insights-explorer.md) 설명서를 참조 하세요.
+> * 무료 [Azure Time Series Insights 데모](https://insights.timeseries.azure.com/samples)를 확인 하세요.
+> * 함께 제공 되는 [Azure Time Series Insights 탐색기](./time-series-insights-explorer.md) 설명서를 참조 하세요.
 
 ## <a name="environment-id"></a>환경 ID
 
@@ -33,7 +33,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 예를 들어 `?environmentId=10000000-0000-0000-0000-100000000108`은 환경 ID 매개 변수입니다.
 
-## <a name="time"></a>시간
+## <a name="time"></a>Time
 
 매개 변수가 있는 URL을 사용하여 절대 또는 상대 시간 값을 지정할 수 있습니다.
 
@@ -53,7 +53,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 예를 들어 `&relativeMillis=3600000`은 최근 60분의 데이터를 표시합니다.
 
-허용 되는 값은 Time Series Insights 탐색기 **빠른 시간** 메뉴에 해당 하며 다음을 포함 합니다.
+허용 되는 값은 Azure Time Series Insights 탐색기 **빠른 시간** 메뉴에 해당 하며 다음을 포함 합니다.
 
 * `1800000`(최근 30 분)
 * `3600000`(지난 60 분)
@@ -66,9 +66,9 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-`timeSeriesDefinitions=<collection of term objects>`매개 변수는 Time Series Insights 뷰에 표시 되는 조건자 용어를 지정 합니다.
+`timeSeriesDefinitions=<collection of term objects>`매개 변수는 Azure Time Series Insights 뷰에 표시 되는 조건자 용어를 지정 합니다.
 
-| 매개 변수 | URL 항목 | Description |
+| 매개 변수 | URL 항목 | 설명 |
 | --- | --- | --- |
 | **name** | `\<string>` | *조건*의 이름입니다. |
 | **splitBy** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
@@ -85,7 +85,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 * 를 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 사용 하면 간격 슬라이더를 조정 하 여 차트에 대 한 보다 세분화 되거나 더 정교 하 고 세분화 된 보기를 제공할 수 있습니다.  
 * `timezoneOffset=<integer>`매개 변수를 사용 하면 UTC에 대 한 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
 
-| 쌍 | Description |
+| 쌍 | 설명 |
 | --- | --- |
 | `multiChartStack=false` | `true`는 기본적으로 사용 하도록 설정 되므로 스택에 전달 됩니다 `false` . |
 | `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  `false`기본적으로를 전달 하면 `true` 이 기능을 사용할 수 있습니다. |
@@ -98,7 +98,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 ### <a name="examples"></a>예
 
-URL 매개 변수로 Time Series Insights 환경에 시계열 정의를 추가 하려면 다음을 추가 합니다.
+URL 매개 변수로 Azure Time Series Insights 환경에 시계열 정의를 추가 하려면 다음을 추가 합니다.
 
 ```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -117,16 +117,16 @@ URL 매개 변수로 Time Series Insights 환경에 시계열 정의를 추가 �
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-[![Time Series Insights 탐색기 매개 변수가 있는 URL](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+[![Azure Time Series Insights 탐색기 매개 변수가 있는 URL](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
 
 > [!TIP]
 > 위의 [URL 예제를 사용 하 여](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) 탐색기 라이브를 확인 합니다.
 
-위의 URL은 매개 변수가 있는 Time Series Insights 탐색기 뷰를 설명 하 고 표시 합니다. 
+위의 URL은 매개 변수가 있는 Azure Time Series Insights 탐색기 뷰를 설명 하 고 표시 합니다. 
 
 * 매개 변수가 있는 조건자입니다.
 
-  [![Time Series Insights 탐색기 매개 변수가 있는 조건자입니다.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
+  [![Azure Time Series Insights 탐색기 매개 변수가 있는 조건자입니다.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
 * 공유 된 전체 차트 뷰입니다.
 
@@ -136,4 +136,4 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 * [C #을 사용 하 여 데이터를 쿼리](time-series-insights-query-data-csharp.md)하는 방법을 알아봅니다.
 
-* [Time Series Insights 탐색기](./time-series-insights-explorer.md)에 대해 알아봅니다.
+* [Azure Time Series Insights 탐색기](./time-series-insights-explorer.md)에 대해 알아봅니다.

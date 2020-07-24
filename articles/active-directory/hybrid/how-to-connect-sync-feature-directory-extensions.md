@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019764"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [확장](https://docs.microsoft.com/graph/extensibility-overview
@@ -33,8 +33,8 @@ ms.locfileid: "85357463"
 
 설치 마법사의 사용자 지정 설정 경로에서 동기화할 추가 속성을 구성합니다.
 
->[!NOTE]
->사용 가능한 특성 상자에 입력을 할 때는 대/소문자를 구분해야 합니다.
+> [!NOTE]
+> 1.2.65.0 이전 버전의 Azure AD Connect **사용 가능한 특성** 에 대 한 검색 상자는 대/소문자를 구분 합니다.
 
 ![스키마 확장 마법사](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 

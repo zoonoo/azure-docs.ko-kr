@@ -6,11 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 009e8c7e1cb59d68f3d3aa15de32ec47083095f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b9a7bf243931443b8273253dee7618c0e594aaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513097"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020868"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 디바이스 관리
 
@@ -24,7 +25,7 @@ ms.locfileid: "85513097"
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Azure Resource Manager SDK 기반 예제 스크립트 표
 
-| Azure Resource Manager 스크립트                    | 설명                                                                                                                                                                                                       |
+| Azure Resource Manager 스크립트                    | Description                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | 이 스크립트를 사용하여 StorSimple 디바이스에 서비스 데이터 암호화 키를 변경할 권한을 부여합니다.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | 이 스크립트는 8010 또는 8020 StorSimple Cloud Appliance를 만듭니다. 이 클라우드 어플라이언스를 구성하고 StorSimple 데이터 관리자 서비스에 등록할 수 있습니다.                                                       |
@@ -48,13 +49,13 @@ ms.locfileid: "85513097"
 
 이 섹션은 예제 스크립트를 작성하고 스크립트를 실행하는 데 필요한 다양한 단계를 자세히 설명합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 항목이 있어야 합니다.
 
 *   Azure PowerShell을 설치되어 있습니다. Azure PowerShell 모듈을 설치하려면
-    * Windows 환경에서 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)의 단계를 따릅니다. StorSimple용 Windows Server 호스트를 사용하는 경우 여기에 Azure PowerShell을 설치할 수 있습니다.
-    * Linux 또는 MacOS 환경에서는 [MacOS 또는 Linux에서 Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux)의 단계를 따릅니다.
+    * Windows 환경에서 [Azure PowerShell 설치 및 구성](/powershell/azure/install-az-ps)의 단계를 따릅니다. StorSimple용 Windows Server 호스트를 사용하는 경우 여기에 Azure PowerShell을 설치할 수 있습니다.
+    * Linux 또는 MacOS 환경에서는 [MacOS 또는 Linux에서 Azure PowerShell 설치 및 구성](/powershell/azure/install-az-ps)의 단계를 따릅니다.
 
 Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 사용 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 

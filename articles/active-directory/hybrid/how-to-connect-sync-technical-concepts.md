@@ -16,19 +16,19 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251d156afbd367e83945397760a6afe98a1cfb98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01e53b30a4c27296e30e031ffb771697afa8e1e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019678"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
 이 문서에서는 [아키텍처 이해](how-to-connect-sync-technical-concepts.md)항목을 요약합니다.
 
 Azure AD Connect 동기화는 견고한 메타 디렉터리 동기화 플랫폼상에 빌드됩니다.
 다음 섹션에서는 메타 디렉터리 동기화에 대한 개념을 소개합니다.
-MIIS, ILM 및 FIM을 바탕으로 구성된 Azure Active Directory 동기화 서비스는 데이터 원본에 연결, 데이터 원본 사이에 데이터 동기화 및 ID의 프로비전 및 프로비전 해제를 위한 차세대 플랫폼을 제공합니다.
+MIIS (Microsoft Identity Integration Server), ILM (Id 수명 주기 관리자) 및 FIM (Forefront Identity Manager)을 기반으로 하는 Azure Active Directory 동기화 서비스는 데이터 원본에 연결 하 고, 데이터 원본 간에 데이터를 동기화 하 고, id의 프로 비전 및 프로 비전 해제를 위한 차세대 플랫폼을 제공 합니다.
 
 ![기술 개념](./media/how-to-connect-sync-technical-concepts/scenario.png)
 

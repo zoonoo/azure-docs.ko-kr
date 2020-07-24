@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384078"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016267"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 확대/축소 구성
 
@@ -70,7 +70,7 @@ ms.locfileid: "80384078"
 
     ![확대/축소 설치](media/zoom-provisioning-tutorial/zoom05.png)
 
-## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 확대/축소 추가
+## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 확대/축소 추가
 
 Azure AD 응용 프로그램 갤러리에서 확대/축소를 추가 하 여 확대/축소 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 확대/축소를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -153,6 +153,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 * 확대/축소는 현재 최대 9999 명의 기본 사용자만 허용 합니다.
+
+## <a name="change-log"></a>로그 변경
+* 05/14/2020-전자 메일 [type eq "work"] 특성에 대해 추가 된 업데이트 작업 지원
 
 ## <a name="additional-resources"></a>추가 리소스
 

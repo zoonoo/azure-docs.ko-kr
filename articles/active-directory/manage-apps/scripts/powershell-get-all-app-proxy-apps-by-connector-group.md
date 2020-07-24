@@ -1,5 +1,5 @@
 ---
-title: PowerShell 샘플-모든 응용 프로그램 프록시 커넥터 그룹 나열
+title: 앱에 대 한 Azure AD 응용 프로그램 프록시 커넥터 그룹 나열
 description: 할당 된 응용 프로그램을 사용 하는 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 커넥터 그룹을 나열 하는 PowerShell 예제입니다.
 services: active-directory
 author: msmimart
@@ -12,11 +12,12 @@ ms.date: 12/05/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dcf2eb6a1904e4a7223a19e598f0c06ddc36f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f381d64e06d8b7abf67b08297baa616397cc439
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019440"
 ---
 # <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>커넥터 그룹별로 모든 응용 프로그램 프록시 앱 및 목록 가져오기
 

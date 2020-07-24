@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6accd303ba11c4c1406c7a157fa8176972fc7a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022910"
 ---
 # <a name="manage-assets"></a>자산 관리
 
-Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media/assets) 
+Azure Media Services에서 [자산은](/rest/api/media/assets) 
 
 * 미디어 파일을 자산에 업로드 합니다.
 * 라이브 스트림을 자산에 수집 하 고 보관 합니다.
@@ -56,13 +56,13 @@ Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media
     ```
 2. 읽기-쓰기 권한을 사용하여 디지털 파일을 자산 컨테이너에 업로드하는 데 사용할 SAS URL을 가져옵니다.
 
-    Media Services API를 사용하여 [자산 컨테이너 URL을 나열](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)할 수 있습니다.
+    Media Services API를 사용하여 [자산 컨테이너 URL을 나열](/rest/api/media/assets/listcontainersas)할 수 있습니다.
 
-    **AssetContainerSas listContainerSas** 는를 설정 하는 [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) 매개 변수를 사용 `expiryTime` 합니다. 시간은 24 시간 < 설정 해야 합니다.
+    **AssetContainerSas listContainerSas** 는를 설정 하는 [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) 매개 변수를 사용 `expiryTime` 합니다. 시간은 24 시간 < 설정 해야 합니다.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) 는 각 저장소 계정에 대해 두 개의 저장소 계정 키가 있으므로 여러 SAS url을 반환 합니다. 저장소 계정에는 저장소 계정 키의 장애 조치 (failover)와 원활한 회전이 지원 되기 때문에 두 가지 키가 있습니다. 첫 번째 SAS URL은 첫 번째 저장소 계정 키를 나타내며 두 번째 SAS URL은 두 번째 키를 나타냅니다.
+    [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) 는 각 저장소 계정에 대해 두 개의 저장소 계정 키가 있으므로 여러 SAS url을 반환 합니다. 저장소 계정에는 저장소 계정 키의 장애 조치 (failover)와 원활한 회전이 지원 되기 때문에 두 가지 키가 있습니다. 첫 번째 SAS URL은 첫 번째 저장소 계정 키를 나타내며 두 번째 SAS URL은 두 번째 키를 나타냅니다.
 3. Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용 하 여 자산 컨테이너에 파일을 업로드 합니다.
-4. Media Services v3 API를 사용하여 "입력" 자산을 처리하는 Transform 및 Job을 만듭니다. 자세한 내용은 [Transform 및 Jobs](transform-concept.md)를 참조하세요.
+4. Media Services v3 API를 사용하여 "입력" 자산을 처리하는 Transform 및 Job을 만듭니다. 자세한 내용은 [Transform 및 Jobs](./transforms-jobs-concept.md)를 참조하세요.
 5. "출력" 자산의 콘텐츠를 스트리밍합니다.
 
 ### <a name="create-a-new-asset"></a>새 자산 만들기
@@ -70,13 +70,13 @@ Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media
 > [!NOTE]
 > Datetime 형식의 자산 속성은 항상 UTC 형식입니다.
 
-#### <a name="rest"></a>REST (영문)
+#### <a name="rest"></a>REST
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-REST 예제는 [REST를 사용하여 자산 만들기](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) 예제를 참조하세요.
+REST 예제는 [REST를 사용하여 자산 만들기](/rest/api/media/assets/createorupdate#examples) 예제를 참조하세요.
 
 이 예제에서는 설명, 컨테이너 이름, 저장소 계정 및 기타 유용한 정보를 지정할 수 있는 **요청 본문** 을 만드는 방법을 보여 줍니다.
 
@@ -107,7 +107,7 @@ curl -X PUT \
 
 ## <a name="ingest-and-archive-live-streams-into-an-asset"></a>라이브 스트림을 자산에 수집 및 보관
 
-Media Services [라이브 출력](https://docs.microsoft.com/rest/api/media/liveoutputs) 개체는 라이브 스트림을 catch 하 고 Media Services 계정의 자산으로 기록 하는 디지털 비디오 레코더와 비슷합니다. 기록 된 콘텐츠는 [자산](https://docs.microsoft.com/rest/api/media/assets) 리소스에 의해 정의 된 컨테이너에 유지 됩니다.
+Media Services [라이브 출력](/rest/api/media/liveoutputs) 개체는 라이브 스트림을 catch 하 고 Media Services 계정의 자산으로 기록 하는 디지털 비디오 레코더와 비슷합니다. 기록 된 콘텐츠는 [자산](/rest/api/media/assets) 리소스에 의해 정의 된 컨테이너에 유지 됩니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -129,7 +129,7 @@ Media Services에서 비디오를 처리 하는 경우 (예: 인코딩 또는 �
 
 자세한 내용은 다음을 참조하세요.
 
-[자습서: Media Services v3로 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
+[자습서: Media Services v3를 사용하여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>출력 자산에서 작업 결과 다운로드
 
@@ -145,6 +145,6 @@ Media Services에서 비디오를 처리 하는 경우 (예: 인코딩 또는 �
 
 업로드, 인코딩, 분석, 라이브 라이브 및 주문형 스트리밍 방법을 보여 주는 전체 코드 예제를 참조 하세요. 
 
-* [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.Net](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [REST](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [Java](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
+* [.Net](/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
+* [REST](/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).

@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: a3d4568dd237491f28ae2880bdd78dd236870c3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ff2bc6d4bb4f7b983787b287fbb27e1c33cc179
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74899819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022993"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>HTTPS URL에서 작업 입력 만들기
 
@@ -32,7 +33,7 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 
 ## <a name="job-error-codes"></a>작업 오류 코드
 
-[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
+[오류 코드](/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

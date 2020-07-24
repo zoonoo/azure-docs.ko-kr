@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6c329b7de3e18989e7dbfa35aa6e9303c129654
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019304"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>내 애플리케이션 목록에 예기치 않은 애플리케이션
 
@@ -28,7 +28,7 @@ ms.locfileid: "85317465"
 
 ## <a name="how-to-see-all-applications-in-your-tenant"></a>테넌트에서 모든 애플리케이션을 보는 방법
 
-테넌트에서 모든 애플리케이션을 보려면 **필터** 컨트롤을 사용하여 **모든 애플리케이션** 목록에 **모든 애플리케이션**을 표시해야 합니다. 아래 단계를 수행합니다.
+테넌트에서 모든 애플리케이션을 보려면 **필터** 컨트롤을 사용하여 **모든 애플리케이션** 목록에 **모든 애플리케이션**을 표시해야 합니다. 다음 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.**
 
@@ -68,7 +68,7 @@ ms.locfileid: "85317465"
 
 6. Visual Studio의 [ASP.net 인증 방법](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) 또는 [연결된 서비스](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)를 사용하여 개발 중인 애플리케이션을 추가하는 경우
 
-7. [Azure AD PowerShell 모듈](/powershell/azure/install-adv2?view=azureadps-2.0)을 사용하여 서비스 주체 개체를 만드는 경우
+7. [Azure AD PowerShell 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)을 사용하여 서비스 주체 개체를 만드는 경우
 
 8. 테넌트의 데이터를 사용하도록 관리자 권한으로 [애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)하는 경우
 

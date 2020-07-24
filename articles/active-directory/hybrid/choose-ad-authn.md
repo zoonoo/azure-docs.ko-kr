@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: d02800d39e918478243429971c0d48c4d0c59148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758132"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020110"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택
 
@@ -29,7 +30,7 @@ ms.locfileid: "83758132"
 ID는 IT 보안의 새 제어 평면이며, 따라서 인증은 새로운 클라우드 환경으로부터 조직의 액세스를 보호합니다. 조직에서는 보안을 강화하고 클라우드 앱을 침입자들로부터 안전하게 보호하는 ID 제어 평면을 필요로 합니다.
 
 > [!NOTE]
-> 인증 방법을 변경하려면 계획, 테스트, 경우에 따라 가동 중지 시간이 필요합니다. [단계별 롤아웃](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout)은 페더레이션에서 클라우드 인증으로 점진적으로 테스트하고 마이그레이션하는 좋은 방법입니다.
+> 인증 방법을 변경하려면 계획, 테스트, 경우에 따라 가동 중지 시간이 필요합니다. [단계적 출시](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) 는 페더레이션에서 클라우드 인증으로 사용자 마이그레이션을 테스트 하는 좋은 방법입니다.
 
 ### <a name="out-of-scope"></a>범위 외
 기존 온-프레미스 디렉터리 공간이 없는 조직은 이 문서의 대상이 아닙니다. 일반적으로 이러한 기업은 클라우드에서만 ID를 생성하므로 하이브리드 ID 솔루션이 필요하지 않습니다. 클라우드 전용 ID는 클라우드에서만 존재하며 해당 온-프레미스 ID와 연결되지 않습니다.

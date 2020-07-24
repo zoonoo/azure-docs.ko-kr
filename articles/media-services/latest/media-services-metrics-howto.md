@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5df104efb65152f5bcb71a86911e694611d8a742
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382939"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022874"
 ---
 # <a name="monitor-media-services-metrics"></a>Media Services 메트릭 모니터링
 
@@ -28,7 +28,7 @@ Azure Monitor는 포털에서 차트를 작성 하거나 REST API를 통해 액�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md)
+- [Media Services 계정 만들기](./create-account-howto.md)
 - [모니터 Media Services 메트릭 및 진단 로그](media-services-metrics-diagnostic-logs.md) 검토
 
 ## <a name="view-metrics-in-azure-portal"></a>Azure Portal에서 메트릭 보기

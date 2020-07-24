@@ -7,16 +7,16 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac2e94e9c0213f14999d730027e118df6584519
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020205"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
-이 문서에서는 가상 머신에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 머신을 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 스토리지 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
+이 문서에서는 가상 머신에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 머신을 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 스토리지 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 참조하세요.
 
 갤러리에 VM 리소스를 포함하는 [많은 템플릿](https://azure.microsoft.com/documentation/templates/?term=VM)이 있습니다. 템플릿에 포함될 수 있는 모든 요소가 여기에 설명되어 있지 않습니다.
 
@@ -156,14 +156,14 @@ ms.locfileid: "82100535"
 
 최신 API 버전을 가져오기 위해 이러한 기회를 사용합니다.
 
-- REST API - [모든 리소스 공급자 나열](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+- REST API - [모든 리소스 공급자 나열](/rest/api/resources/providers)
+- PowerShell - [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI - [az provider show](/cli/azure/provider)
 
 
 ## <a name="parameters-and-variables"></a>매개 변수 및 변수
 
-[매개 변수](../../resource-group-authoring-templates.md)를 통해 실행할 때 템플릿에 대한 값을 손쉽게 지정할 수 있습니다. 이 매개 변수 섹션은 예제에 사용됩니다.
+[매개 변수](../../azure-resource-manager/templates/template-syntax.md)를 통해 실행할 때 템플릿에 대한 값을 손쉽게 지정할 수 있습니다. 이 매개 변수 섹션은 예제에 사용됩니다.
 
 ```json
 "parameters": {
@@ -175,7 +175,7 @@ ms.locfileid: "82100535"
 
 예제 템플릿을 배포할 때 각 VM에서 관리자 계정의 이름 및 암호에 대한 값과 만들 VM의 수를 입력합니다. 템플릿을 사용하여 관리되는 별도 파일에서 매개 변수 값을 지정하거나 메시지가 표시되면 값을 제공하는 옵션이 있습니다.
 
-[변수](../../resource-group-authoring-templates.md)를 통해 전체에 걸쳐 반복해서 사용되거나 시간에 따라 달라질 수 있는 템플릿의 값을 쉽게 설정할 수 있습니다. 이 변수 섹션은 예제에 사용됩니다.
+[변수](../../azure-resource-manager/templates/template-syntax.md)를 통해 전체에 걸쳐 반복해서 사용되거나 시간에 따라 달라질 수 있는 템플릿의 값을 쉽게 설정할 수 있습니다. 이 변수 섹션은 예제에 사용됩니다.
 
 ```json
 "variables": { 
@@ -208,7 +208,7 @@ ms.locfileid: "82100535"
 }, 
 ```
 
-예제 템플릿을 배포할 때 이전에 만든 스토리지 계정의 이름 및 식별자에 대한 변수 값이 사용됩니다. 변수는 진단 확장에 대한 설정을 제공하는 데에도 사용됩니다. [Azure Resource Manager 템플릿 생성 모범 사례](../../resource-manager-template-best-practices.md)를 사용하여 템플릿에서 매개 변수 및 변수를 구성하는 방법을 결정할 수 있습니다.
+예제 템플릿을 배포할 때 이전에 만든 스토리지 계정의 이름 및 식별자에 대한 변수 값이 사용됩니다. 변수는 진단 확장에 대한 설정을 제공하는 데에도 사용됩니다. [Azure Resource Manager 템플릿 생성 모범 사례](../../azure-resource-manager/templates/template-best-practices.md)를 사용하여 템플릿에서 매개 변수 및 변수를 구성하는 방법을 결정할 수 있습니다.
 
 ## <a name="resource-loops"></a>리소스 루프
 
@@ -247,7 +247,7 @@ ms.locfileid: "82100535"
 
 ## <a name="dependencies"></a>종속성
 
-대부분의 리소스는 제대로 작동하기 위해 다른 리소스에 따라 달라집니다. 가상 머신은 가상 네트워크와 연결되어야 하며 이를 수행하기 위해 네트워크 인터페이스가 필요합니다. [dependsOn](../../resource-group-define-dependencies.md) 요소는 VM이 생성되기 전에 네트워크 인터페이스가 사용될 준비가 되었는지 확인하는 데 사용됩니다.
+대부분의 리소스는 제대로 작동하기 위해 다른 리소스에 따라 달라집니다. 가상 머신은 가상 네트워크와 연결되어야 하며 이를 수행하기 위해 네트워크 인터페이스가 필요합니다. [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) 요소는 VM이 생성되기 전에 네트워크 인터페이스가 사용될 준비가 되었는지 확인하는 데 사용됩니다.
 
 ```json
 "dependsOn": [
@@ -277,7 +277,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 - [size](sizes.md)
 - [이름](/azure/architecture/best-practices/resource-naming) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
-- [네트워크 인터페이스](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [네트워크 인터페이스](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - 부트 진단
 
 ## <a name="disks-and-images"></a>디스크 및 이미지
@@ -369,7 +369,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 
 ## <a name="extensions"></a>확장
 
-[확장](extensions-features.md)은 별도 리소스이지만 VM에 밀접하게 연결되어 있습니다. 확장은 VM의 자식 리소스 또는 별도 리소스로 추가될 수 있습니다. 예제는 VM에 추가되고 있는 [진단 확장](extensions-diagnostics-template.md)을 보여 줍니다.
+[확장](../extensions/features-windows.md)은 별도 리소스이지만 VM에 밀접하게 연결되어 있습니다. 확장은 VM의 자식 리소스 또는 별도 리소스로 추가될 수 있습니다. 예제는 VM에 추가되고 있는 [진단 확장](../extensions/diagnostics-template.md)을 보여 줍니다.
 
 ```json
 { 
@@ -404,7 +404,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 
 이 확장 리소스는 storageName 변수 및 진단 변수를 사용하여 값을 제공합니다. 이 확장에서 수집되는 데이터를 변경하려는 경우 wadperfcounters 변수에 더 많은 성능 카운터를 추가할 수 있습니다. VM 디스크가 저장되는 위치가 아닌 다른 스토리지 계정에 진단 데이터를 넣도록 선택할 수도 있습니다.
 
-VM에 설치할 수 있는 많은 확장이 있지만 가장 유용한 것은 [사용자 지정 스크립트 확장](extensions-customscript.md)입니다. 예제에서 start.ps1이라는 PowerShell 스크립트는 처음 시작할 때 각 VM에서 실행됩니다.
+VM에 설치할 수 있는 많은 확장이 있지만 가장 유용한 것은 [사용자 지정 스크립트 확장](../extensions/custom-script-windows.md)입니다. 예제에서 start.ps1이라는 PowerShell 스크립트는 처음 시작할 때 각 VM에서 실행됩니다.
 
 ```json
 {
@@ -447,11 +447,11 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ![배포 정보 가져오기](./media/template-description/virtual-machines-deployment-info.png)
     
-리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../resource-group-template-deploy.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체**로 설정하면 Resource Manager는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
+리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../azure-resource-manager/templates/deploy-powershell.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체**로 설정하면 Resource Manager는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)을 사용하여 고유의 템플릿을 만듭니다.
+- [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기](ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
 - [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.
 - 템플릿에서 리소스 종류의 JSON 구문 및 속성은 [Azure Resource Manager 템플릿 참조](/azure/templates/)에서 확인하세요.

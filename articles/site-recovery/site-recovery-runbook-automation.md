@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1df17ccb41c974c8939710850b5bb71ee3a5ef1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021582"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 
@@ -98,7 +98,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 - Azure Automation를 처음 접하는 경우 [등록](https://azure.microsoft.com/services/automation/) 하 고 [샘플 스크립트를 다운로드할](https://azure.microsoft.com/documentation/scripts/)수 있습니다.
 - Automation 계정에 다음 모듈이 있는지 확인합니다.
@@ -115,7 +115,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 ## <a name="customize-the-recovery-plan"></a>복구 계획 사용자 지정
 
 1. 자격 증명 모음에서 **복구 계획 (Site Recovery)** 을 선택 합니다.
-2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세히 알아보기](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
+2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세한 정보를 알아보세요](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
 3. 복구 계획 페이지에서 **사용자 지정**을 클릭 합니다.
 
     ![[사용자 지정] 단추 클릭](media/site-recovery-runbook-automation-new/custom-rp.png)
@@ -192,14 +192,14 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장
 
-일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의합니다.
+일부 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들지 못할 수 있습니다. 단일 스크립트를 통해 특정 Vm에 공용 IP 주소를 할당 하려는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 다음 사항에 유의하십시오.
 
 - 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다.
 - 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다.
 - 예를 들어 SharePoint 복구에는 두 개의 프런트 엔드가 있습니다. 기본 LOB(기간 업무) 애플리케이션에는 하나의 프런트 엔드만 있습니다.
 - 이 시나리오에서는 각 복구 계획에 대 한 별도의 변수를 만들 수 없습니다.
 
-다음 예제에서는 Azure Automation 계정에 [복잡 한 변수](/powershell/module/servicemanagement/azure/set-azureautomationvariable) 를 만듭니다.
+다음 예제에서는 Azure Automation 계정에 [복잡 한 변수](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) 를 만듭니다.
 
 Azure PowerShell를 사용 하 여 여러 값을 지정 하 여이 작업을 수행 합니다.
 

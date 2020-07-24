@@ -2,14 +2,14 @@
 title: Azure Migrate 지원 매트릭스
 description: Azure Migrate서비스의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022721"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -21,14 +21,16 @@ ms.locfileid: "86108756"
 
 **배포** | **세부 정보** 
 --- | --- 
-**앱별 검색** | VMware VM에서 실행되는 앱, 역할 및 기능을 검색할 수 있습니다. 현재 이 기능은 검색으로만 제한됩니다. 평가는 현재 머신 수준에서 지원됩니다. 앱, 역할 또는 기능별 평가는 아직 제공되지 않습니다. 
-**온-프레미스 평가** | VMware VM, Hyper-V VM 및 물리적 서버에서 실행되는 온-프레미스 워크로드와 데이터를 평가합니다. Azure Migrate Server Assessment 및 Microsoft DMA(Data Migration Assistant)와 그 밖의 도구 및 ISV 제품을 사용하여 평가합니다.
-**Azure로의 온-프레미스 마이그레이션** | 물리적 서버, VMware VM, Hyper-V VM, 물리적 서버 및 클라우드 기반 VMS에서 실행되는 워크로드와 데이터를 Azure로 마이그레이션합니다. Azure Migrate Server Assessment 및 Azure DMS(Database Migration Service)와 그 밖의 도구 및 ISV 제품을 사용하여 마이그레이션합니다.
+**검색** | 컴퓨터 메타 데이터와 동적 성능 데이터를 검색할 수 있습니다.
+**앱-검색** | VMware VM에서 실행되는 앱, 역할 및 기능을 검색할 수 있습니다. 현재 이 기능은 검색으로만 제한됩니다. 평가는 현재 머신 수준에서 지원됩니다. 앱, 역할 또는 기능 기반 평가는 아직 제공 되지 않습니다. 
+**평가** | VMware VM, Hyper-V VM 및 물리적 서버에서 실행되는 온-프레미스 워크로드와 데이터를 평가합니다. Azure Migrate 서버 평가, Microsoft Data Migration Assistant (DMA) 및 기타 도구 및 ISV 제품을 사용 하 여 평가 합니다.
+**마이그레이션** | 물리적 서버, VMware VM, Hyper-V VM, 물리적 서버 및 클라우드 기반 VMS에서 실행되는 워크로드와 데이터를 Azure로 마이그레이션합니다. Azure Migrate Server Assessment 및 Azure DMS(Database Migration Service)와 그 밖의 도구 및 ISV 제품을 사용하여 마이그레이션합니다.
 
 > [!NOTE]
 > 현재 ISV 도구를 사용하여 Azure Government에 있는 Azure Migrate로 데이터를 보낼 수 없습니다. 통합 Microsoft 도구를 사용하거나 개별적으로 파트너 도구를 사용할 수 있습니다.
 
 ## <a name="supported-tools"></a>지원되는 도구
+
 
 아래 표에 구체적인 도구 지원이 안내되어 있습니다.
 
@@ -73,7 +75,11 @@ VMware 에이전트 없는 마이그레이션을 위한 Key Vault 만들기 | �
 
 ## <a name="supported-geographies-public-cloud"></a>지원되는 지역(퍼블릭 클라우드)
 
-Azure Migrate 프로젝트는 퍼블릭 클라우드에 있는 여러 지역에서 만들 수 있습니다. 프로젝트를 만드는 것은 이들 지역으로 한정되지만, 다른 대상 위치에 있는 머신에 액세스하거나 다른 위치에 있는 머신을 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
+Azure Migrate 프로젝트는 퍼블릭 클라우드에 있는 여러 지역에서 만들 수 있습니다.
+
+- 프로젝트를 만드는 것은 이들 지역으로 한정되지만, 다른 대상 위치에 있는 머신에 액세스하거나 다른 위치에 있는 머신을 마이그레이션할 수 있습니다.
+- 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
+- 프로젝트를 만들 때 지리를 선택 합니다. 프로젝트 및 관련 리소스는 geography의 지역 중 하나에 생성 됩니다. 지역은 Azure Migrate 서비스에 의해 할당 됩니다.
 
 **지리** | **메타데이터 스토리지 위치**
 --- | ---

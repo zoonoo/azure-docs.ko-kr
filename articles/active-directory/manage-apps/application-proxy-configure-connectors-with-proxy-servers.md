@@ -12,11 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764930"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019542"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -116,7 +117,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
-방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대 한 액세스를 허용 해야 합니다. IP 범위는 매주 업데이트됩니다.
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
@@ -152,6 +153,9 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 4.  필요한 프록시 설정을 구성합니다. 
 
 이러한 설정은 커넥터에서 Azure 및 백 엔드 애플리케이션에 대한 통신에서 동일한 전달 프록시를 사용하도록 합니다. Azure와 커넥터 간 통신에 정방향 프록시가 필요하지 않거나 다른 정방향 프록시가 필요한 경우 아웃바운드 프록시 무시 또는 아웃바운드 프록시 서버 사용 섹션에 설명된 대로 ApplicationProxyConnectorService.exe.config 파일을 수정하여 설정할 수 있습니다.
+
+> [!NOTE]
+> 운영 체제에서 인터넷 프록시를 구성 하는 방법에는 여러 가지가 있습니다. NETSH WINHTTP를 통해 구성 된 프록시 설정 ( `NETSH WINHTTP SHOW PROXY` 확인 하기 위해 실행)은 2 단계에서 구성한 프록시 설정을 재정의 합니다. 
 
 커넥터 업데이트 프로그램 서비스는 컴퓨터 프록시도 사용합니다. ApplicationProxyConnectorUpdaterService.exe.config 파일을 수정하여 이 동작을 변경할 수 있습니다.
 

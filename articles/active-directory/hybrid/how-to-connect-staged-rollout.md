@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357854"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019831"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
-스테이징 된 롤아웃 방법을 사용 하 여 전체 도메인에 대 한 사용을 방지할 수 있습니다.  이를 통해 Azure Multi-Factor Authentication (MFA), 조건부 액세스, 누출 된 자격 증명에 대 한 Id 보호, Id 관리 등의 클라우드 인증 기능을 통해 사용자 그룹을 선택적으로 테스트할 수 있습니다.  이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
+단계적 롤아웃을 사용 하면 도메인을 자르기 전에 Azure Multi-Factor Authentication (MFA), 조건부 액세스, 누출 된 자격 증명에 대 한 Id 보호, Id 관리 등의 클라우드 인증 기능을 통해 사용자 그룹을 선택적으로 테스트할 수 있습니다.  이 문서에서는 전환 방법을 설명합니다. 단계적 롤아웃을 시작하기 전에, 다음 조건 중 하나 이상에 해당할 때 미치게 되는 영향을 고려해야 합니다.
     
 -  현재 온-프레미스 Multi-Factor Authentication 서버를 사용하고 있습니다. 
 -  인증에 스마트 카드를 사용하고 있습니다. 
@@ -45,7 +45,7 @@ ms.locfileid: "85357854"
 
 -   클라우드 인증으로 마이그레이션되는 사용자에게 필요한 모든 테넌트 브랜딩 및 조건부 액세스 정책을 적절하게 구성했습니다.
 
--   Azure Multi-Factor Authentication을 사용할 계획이라면 [SSPR(셀프 서비스 암호 재설정) 및 Multi-Factor Authentication에 융합형 등록](../authentication/concept-registration-mfa-sspr-combined.md)을 사용하여 사용자가 자신의 인증 방법을 한 번 등록하도록 하는 것이 좋습니다.
+-   Azure Multi-Factor Authentication를 사용 하려면 [SSPR (셀프 서비스 암호 재설정)에 대해 결합 된 등록](../authentication/concept-registration-mfa-sspr-combined.md) 을 사용 하 고 사용자가 인증 방법을 한 번 등록 하도록 Multi-Factor Authentication 하는 것이 좋습니다.
 
 -   단계적 롤아웃 기능을 사용하려면 테넌트의 전역 관리자여야 합니다.
 
@@ -81,6 +81,8 @@ ms.locfileid: "85357854"
 
 
 - 단계적 롤아웃에 대한 보안 그룹을 처음 추가하면 UX 시간 제한을 방지하기 위해 사용자 수가 200명으로 제한됩니다. 그룹을 추가한 후에는 필요한 만큼 사용자를 그룹에 추가할 수 있습니다.
+
+- 사용자가 단계적으로 롤아웃 되는 동안 암호 만료 정책은 사용자 지정 하는 옵션 없이 90 일로 설정 됩니다. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>단계적 롤아웃 시작
@@ -173,6 +175,7 @@ PowerShell을 사용하여 Active Directory 포리스트에서 *Seamless SSO* 
 
    >[!NOTE]
    >그룹의 멤버는 단계적 롤아웃을 사용하도록 자동으로 설정됩니다. 중첩 그룹 및 동적 그룹은 단계적 롤아웃을 지원하지 않습니다.
+   >새 그룹을 추가 하는 경우 그룹의 사용자 (새 그룹에 대 한 최대 200 명의 사용자)가 관리 되는 auth immidiatly를 사용 하도록 업데이트 됩니다. 사용자를 추가 하거나 제거 하는 그룹을 편집 하면 변경 내용이 적용 되는 데 최대 24 시간이 걸릴 수 있습니다.
 
 ## <a name="auditing"></a>감사
 

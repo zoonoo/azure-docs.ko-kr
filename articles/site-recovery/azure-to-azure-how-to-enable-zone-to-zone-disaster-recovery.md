@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021650"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Azure virtual machines에 대해 영역에 영역 재해 복구를 사용 하도록 설정
 
@@ -20,7 +20,6 @@ ms.locfileid: "86528981"
 
 >[!NOTE]
 >
->- 현재 Site Recovery는 포털을 통해 영역 간 재해 복구에 대 한 복구 계획을 지원 하지 않습니다. 영역 재해 복구 영역에 대 한 복구 계획을 활용 하려면 PowerShell 또는 REST API를 사용 하세요. 
 >- 영역 간 재해 복구에 대 한 지원은 현재 동남 아시아 및 영국 남부의 두 지역으로 제한 됩니다.  
 >- Site Recovery은 고객이 영역에 영역 재해 복구를 사용 하는 경우 고객 데이터를 배포 된 지역 외부로 이동 하거나 저장 하지 않습니다. 고객이 선택 하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음은 메타 데이터를 포함 하지만 실제 고객 데이터는 포함 하지 않습니다.
 
@@ -69,13 +68,13 @@ Vm에 대 한 영역 재해 복구 영역에 영역을 배포 하기 전에 VM�
 |기능  | 지원 정책  |
 |---------|---------|
 |클래식 VM   |     지원되지 않음    |
-|ARM Vm    |    지원됨    |
-|Azure Disk Encryption v1 (AAD를 사용 하는 이중 패스)     |     지원됨 |
-|Azure Disk Encryption v2 (AAD 없이 단일 패스)    |    지원됨    |
+|ARM Vm    |    지원 여부    |
+|Azure Disk Encryption v1 (AAD를 사용 하는 이중 패스)     |     지원 여부 |
+|Azure Disk Encryption v2 (AAD 없이 단일 패스)    |    지원 여부    |
 |비관리 디스크    |    지원되지 않음    |
-|관리 디스크    |    지원됨    |
-|고객 관리 키    |    지원됨    |
-|근접 배치 그룹    |    지원됨    |
+|관리 디스크    |    지원 여부    |
+|고객 관리 키    |    지원 여부    |
+|근접 배치 그룹    |    지원 여부    |
 |백업 상호 운용성    |    파일 수준 백업 및 복원이 지원 됩니다. 디스크 및 VM 수준 백업 및 복원이 지원 되지 않습니다.    |
 |핫 추가/제거    |    영역을 영역 복제를 사용 하도록 설정한 후 디스크를 추가할 수 있습니다. 영역에 영역 복제를 사용 하도록 설정한 후에는 디스크를 제거할 수 없습니다.    | 
 

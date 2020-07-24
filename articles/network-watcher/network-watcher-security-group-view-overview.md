@@ -1,6 +1,6 @@
 ---
-title: Azure Network Watcher에서 보안 그룹 보기 소개 | Microsoft Docs
-description: 이 페이지는 Network Watcher 보안 보기 기능에 대한 개요를 제공합니다.
+title: Azure Network Watcher의 효과적인 보안 규칙 보기 소개 | Microsoft Docs
+description: 이 페이지에서는 Network Watcher 적용 되는 보안 규칙 보기 기능에 대 한 개요를 제공 합니다.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -11,11 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
-ms.openlocfilehash: 18619cc0f7a21a39d0802575c484c68c5fa1a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4c601184a060c3dfc4f033bcf983bf773f7167f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76840760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022653"
 ---
 # <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Azure Network Watcher의 효과적인 보안 규칙 보기 소개
 
@@ -32,6 +33,11 @@ ms.locfileid: "76840760"
 ![드릴다운][2]
 
 ### <a name="next-steps"></a>다음 단계
+
+또한 아래에 나열 된 다른 방법을 통해 *유효한 보안 그룹* 기능을 사용할 수 있습니다.
+* [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
 
 [PowerShell을 사용하여 네트워크 보안 그룹 설정 감사](network-watcher-nsg-auditing-powershell.md)를 방문하여 네트워크 보안 그룹 설정을 감사하는 방법에 대해 알아보기
 

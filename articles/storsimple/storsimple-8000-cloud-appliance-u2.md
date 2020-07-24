@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711853"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021378"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
 
@@ -84,7 +84,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 * 클라우드 어플라이언스의 경우, [Azure에서 가상 네트워크를 구성](../virtual-network/manage-virtual-network.md#create-a-virtual-network)합니다. Premium Storage를 사용하는 경우 Premium Storage를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. Premium Storage 지역은 [지역별 Azure 서비스 목록](https://azure.microsoft.com/regions/services/)에서 디스크 저장소의 행에 해당 하는 지역입니다.
 * 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 유효하지 않거나 DNS 서버가 IP 주소를 제대로 확인할 수 없으면 클라우드 어플라이언스 만들기에 실패합니다.
 * 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
-* 클라우드 어플라이언스에 표시된 볼륨을 사용할 수 있는 [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
+* 클라우드 어플라이언스에 표시된 볼륨을 사용할 수 있는 [Azure Virtual Machines](../virtual-machines/windows/quick-create-portal.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
 
   * iSCSI 초기자 소프트웨어가 설치된 Windows 또는 Linux VM입니다.
   * 클라우드 어플라이언스와 동일한 가상 네트워크에서 실행 중입니다.
@@ -195,7 +195,7 @@ Windows PowerShell 인터페이스를 통한 클라우드 어플라이언스에 
 
      ![클라우드 어플라이언스에 대한 가상 머신 선택](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
 
-2. **설정 > 네트워킹**으로 이동합니다. 오른쪽 창에 클라우드 어플라이언스의 개인 IP 주소가 표시됩니다. 기록해 둡니다.
+2. **설정 > 네트워킹**으로 이동합니다. 오른쪽 창에 클라우드 어플라이언스의 개인 IP 주소가 표시됩니다. 이름을 기록해 두세요.
 
     ![클라우드 어플라이언스에 대한 개인 IP 주소 가져오기](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 

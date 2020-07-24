@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019066"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -55,9 +55,12 @@ ms.locfileid: "85855129"
 
 아니요. Azure 리소스에 대한 관리 ID는 Azure Cloud Services에서 지원될 예정이 없습니다.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Azure 리소스에 대한 관리 ID가 ADAL(Active Directory Authentication Library) 또는 MSAL(Microsoft Authentication Library)에서 작동하나요?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>관리 id와 연결 된 자격 증명은 무엇 인가요? 유효 기간은 얼마나 걸립니까? 얼마나 자주 회전 하나요?
 
-아니요. Azure 리소스에 대한 관리 ID는 ADAL 또는 MSAL에 아직 통합되어 있지 않습니다. REST 엔드포인트를 사용하여 Azure 리소스에 대한 관리 ID의 토큰을 획득하는 방법에 대한 자세한 내용은 [Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법](how-to-use-vm-token.md)을 참조하세요.
+> [!NOTE]
+> 관리 id를 인증 하는 방법은 예 고 없이 변경 될 수 있는 내부 구현 세부 정보입니다.
+
+관리 되는 id는 인증서 기반 인증을 사용 합니다. 관리 되는 각 id의 자격 증명은 90 일의 만료 이며 45 일 후에 롤업 됩니다.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID의 보안 경계란 무엇인가요?
 
@@ -133,7 +136,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
  - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
  - 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
 
-자세한 내용은 [azure 구독을 다른 AZURE AD 디렉터리에 전송 (미리 보기)](../../role-based-access-control/transfer-subscription.md)을 참조 하세요.
+자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도(미리 보기)](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>사용자가 할당한 관리 ID를 다른 리소스 그룹/구독으로 이동
 

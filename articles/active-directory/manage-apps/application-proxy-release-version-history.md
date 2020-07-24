@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2020
+ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019389"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 응용 프로그램 프록시: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 응용 프로그램 프록시를 정기적으로 업데이트 합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
@@ -30,11 +30,36 @@ ms.locfileid: "84760000"
 
 다음은 관련 된 리소스 목록입니다.
 
-리소스 |  설명
+리소스 |  세부 정보
 --------- | --------- |
 응용 프로그램 프록시를 사용 하도록 설정 하는 방법 | 응용 프로그램 프록시를 사용 하도록 설정 하 고 커넥터를 설치 및 등록 하기 위한 필수 구성 요소는이 [자습서](application-proxy-add-on-premises-application.md)에 설명 되어 있습니다.
 Azure AD 애플리케이션 프록시 커넥터 이해 | [커넥터 관리](application-proxy-connectors.md) 및 커넥터 [자동 업그레이드](application-proxy-connectors.md#automatic-updates)방법에 대해 자세히 알아보세요.
 Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥터를 다운로드](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)합니다.
+
+## <a name="1519750"></a>1.5.1975.0
+
+### <a name="release-status"></a>릴리스 상태
+
+2020 년 7 월 22 일: 다운로드를 위해 출시 된이 버전은 다운로드 페이지를 통해서만 설치할 수 있습니다. 이 버전의 자동 업그레이드 릴리스는 나중에 출시 될 예정입니다.
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+-   Azure Government 클라우드 환경에 대 한 지원이 향상 되었습니다. Azure Government 클라우드에 대해 커넥터를 적절히 설치 하는 방법에 대 한 단계는 [필수](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) 구성 요소 및 [설치 단계](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud)를 검토 합니다.
+- 응용 프로그램 프록시를 사용 하는 원격 데스크톱 서비스 웹 클라이언트 사용을 지원 합니다. 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md) 를 참조 하세요.
+- Websocket 확장 협상이 향상 되었습니다. 
+
+### <a name="fixed-issues"></a>해결된 문제
+- 소문자 문자열을 강제 적용 하는 websocket 문제를 수정 했습니다.
+- 커넥터를 경우 응답 하지 않는 문제를 해결 했습니다.
+
+## <a name="1516260"></a>1.5.1626.0
+
+### <a name="release-status"></a>릴리스 상태
+
+2020 년 7 월 17 일: 다운로드를 위해 릴리스 되었습니다. 이 버전은 다운로드 페이지를 통해서만 설치할 수 있습니다. 이 버전의 자동 업그레이드 릴리스는 나중에 출시 될 예정입니다.
+
+### <a name="fixed-issues"></a>해결된 문제
+- 해결 된 메모리 누수 문제 (이전 버전에 있음)
+- Websocket 지원에 대 한 일반적인 개선 사항
 
 ## <a name="1515260"></a>1.5.1526.0
 

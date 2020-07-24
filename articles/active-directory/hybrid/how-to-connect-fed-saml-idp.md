@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8559ba3bf78b6adc8e6ca3d3c628cd3c0b9fec0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 274f603fa0d7a48b99a7caed5d465d44bc68e9ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359707"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019967"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -250,7 +250,7 @@ Office 365에서 사용자를 인증하려면 먼저 SAML 2.0 클레임의 어�
 
 Azure AD Connect를 사용하여 온-프레미스 Active Directory에서 Azure AD 디렉터리의 도메인으로 계정을 프로비전할 수 있습니다. 자세한 내용은 [Azure Active Directory에 온-프레미스 디렉터리 통합](whatis-hybrid-identity.md)을 참조하세요.
 
-Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터리의 변경 내용을 동기화하는 데 Windows PowerShell은 사용할 수도 있습니다. Windows PowerShell cmdlet을 사용하려면 [Azure Active Directory 모듈](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)을 다운로드해야 합니다.
+Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터리의 변경 내용을 동기화하는 데 Windows PowerShell은 사용할 수도 있습니다. Windows PowerShell cmdlet을 사용하려면 [Azure Active Directory 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)을 다운로드해야 합니다.
 
 이 절차에서는 Azure AD에 단일 사용자를 추가하는 방법을 보여 줍니다.
 

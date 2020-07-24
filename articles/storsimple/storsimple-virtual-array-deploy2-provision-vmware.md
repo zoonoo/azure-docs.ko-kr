@@ -8,14 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76272089"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021480"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
-![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
+![가상 배열을 배포 하는 데 필요한 단계를 보여 주는 다이어그램두 번째 단계의 두 번째 부분은 VMware에서 프로 비전 이라고 하 고 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>개요
 
@@ -78,105 +79,105 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 
 2. vSphere 클라이언트를 사용하여 ESXi 서버에 로그인합니다. 가상 머신을 만들려면 관리자 권한이 필요합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
+   ![VSphere 클라이언트 로그인 페이지의 스크린샷 IP 주소, 사용자 이름 및 암호 상자에 값이 포함 되 고 로그인 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
 3. vSphere 클라이언트 왼쪽 창의 인벤토리 섹션에서 ESXi 서버를 선택합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image2.png)
+   ![VSphere 클라이언트 기본 페이지의 스크린샷 인벤토리 섹션에서 ESXi 서버가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image2.png)
 4. ESXi 서버에 VMDK를 업로드합니다. 오른쪽 창의 **구성** 탭으로 이동합니다. **하드웨어** 아래에서 **스토리지**를 선택합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image3.png)
+   ![VSphere 클라이언트의 구성 탭을 보여 주는 스크린샷 하드웨어 섹션에서 저장소가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image3.png)
 5. 오른쪽 창의 **데이터 저장소**아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간이 있어야 합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image4.png)
+   ![VSphere 클라이언트의 저장소 페이지를 보여 주는 스크린샷 Datastores 탭이 열려 있고 데이터 저장소 목록을 포함 합니다. 하나의 데이터 저장소를 선택 합니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image4.png)
 6. **데이터 저장소 찾아보기**를 마우스 오른쪽 단추를 클릭하고 선택합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image5.png)
+   ![선택한 데이터 저장소의 바로 가기 메뉴를 보여 주는 스크린샷 데이터 저장소 찾아보기 항목이 선택 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image5.png)
 7. **데이터 저장소 브라우저** 창이 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
-8. 도구 모음에서 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) 아이콘을 클릭하여 새 폴더를 만듭니다. 폴더 이름을 지정하고 해당 이름을 적어둡니다. 나중에 가상 머신을 만들 때 이 폴더 이름을 사용합니다(권장 모범 사례). **확인**을 클릭합니다.
+   ![데이터 저장소 브라우저의 스크린샷 데이터 저장소의 폴더가 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
+8. 도구 모음에서 :::image type="icon" source="./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png"::: 아이콘을 클릭하여 새 폴더를 만듭니다. 폴더 이름을 지정하고 해당 이름을 적어둡니다. 나중에 가상 머신을 만들 때 이 폴더 이름을 사용합니다(권장 모범 사례). **확인**을 클릭합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
+   ![새 폴더 아이콘이 강조 표시 된 데이터 저장소 브라우저의 스크린샷 대화 상자에는 입력 된 폴더 이름 및 확인 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
 9. 새 폴더가 **데이터 저장소 브라우저**의 왼쪽 창에 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. 업로드 아이콘을 클릭 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) 하 고 **파일 업로드**를 선택 합니다.
+   ![새 폴더가 폴더 계층 구조에 표시 되는 데이터 저장소 브라우저의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
+10. 업로드 아이콘을 클릭 :::image type="icon" source="./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png"::: 하 고 **파일 업로드**를 선택 합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
+    ![업로드 아이콘의 바로 가기 메뉴를 보여 주는 스크린샷 파일 업로드 항목이 선택 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. 다운로드한 VMDK 파일을 찾아서 가리킵니다. 두 가지 파일이 있습니다. 업로드할 파일을 선택합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image12m.png)
+    ![폴더와 두 개의 V M D 개의 파일이 표시 된 대화 상자의 스크린샷 파일 중 하나가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image12m.png)
 12. **열기**를 클릭합니다. VMDK 파일을 지정된 데이터 저장소에 업로드하는 작업이 시작됩니다. 파일 업로드에 몇 분 정도 걸릴 수 있습니다.
 13. 업로드가 완료되면 사용자가 만든 폴더의 데이터 저장소에 파일이 표시됩니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image14.png)
+    ![데이터 저장소 브라우저의 스크린샷 폴더 계층 구조에 새 폴더가 강조 표시 되 고 업로드 된 파일이 해당 폴더에 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image14.png)
 
     두 번째 VMDK 파일을 동일한 데이터 저장소에 업로드합니다.
 14. vSphere 클라이언트 창으로 돌아갑니다. ESXi 서버를 선택한 상태에서 마우스 오른쪽 단추를 클릭하고 **새 Virtual Machine**을 선택합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
+    ![ESXi 서버 바로 가기 메뉴의 스크린샷 새 가상 컴퓨터 항목이 선택 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
 15. **새 Virtual Machine 만들기** 창이 나타납니다. **구성** 페이지에서 **사용자 지정** 옵션을 선택합니다. **다음**을 클릭합니다.
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
+    ![새 가상 컴퓨터 만들기 창에 있는 구성 페이지의 스크린샷 사용자 지정 옵션이 선택 되 고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
 16. **이름 및 위치** 페이지에서 가상 머신의 이름을 지정합니다. 이 이름은 앞서 8단계에서 지정한 폴더 이름(권장 모범 사례)과 일치해야 합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image17.png)
+    ![새 가상 컴퓨터 만들기 창의 이름 및 위치 페이지 스크린샷 이름 상자가 채워지고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image17.png)
 17. **스토리지** 페이지에서 VM을 프로비전하는 데 사용할 데이터 스토리지를 선택합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
+    ![새 가상 컴퓨터 만들기 창의 저장소 페이지 스크린샷 데이터 저장소를 선택 하면 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
 18. **Virtual Machine 버전** 페이지에서 **Virtual Machine 버전: 8**을 선택합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
+    ![가상 컴퓨터 버전 페이지의 스크린샷 가상 컴퓨터 버전 8 옵션이 선택 되 고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. **게스트 운영 체제** 페이지에서 **게스트 운영 체제**를 **Windows**로 선택합니다. **버전**은 드롭다운 목록에서 **Microsoft Windows Server 2012(64비트)** 를 선택합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
+    ![Windows가 선택 된 게스트 운영 체제 페이지의 스크린샷, 버전은 Microsoft Windows Server 2012 (64 비트)로 설정 되 고 다음 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. **CPU** 페이지에서 **총 코어 수**가 4(또는 그 이상)가 되도록 **가상 소켓의 수** 및 **가상 소켓 당 코어의 수**를 조정합니다. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
+    ![하나의 가상 소켓, 가상 소켓 당 4 개의 코어 및 총 코어 4 개를 보여 주는 Cpu 페이지의 스크린샷 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
 21. **메모리** 페이지에서 RAM을 8GB(또는 그 이상)로 지정합니다. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
+    ![메모리 페이지의 스크린샷 메모리 크기에 대해 8gb의 값이 채워집니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
 22. **네트워크** 페이지에서 네트워크 인터페이스의 수를 지정합니다. 최소 요구 사항은 네트워크 인터페이스 하나입니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image23.png)
+    ![네트워크 페이지의 스크린샷 네트워크 인터페이스 수가 1로 설정 되 고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image23.png)
 23. **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS 컨트롤러**를 그대로 둡니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
+    ![SCSI 컨트롤러 페이지의 스크린샷 L S I 논리 S 옵션이 선택 되 고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
 24. **디스크 선택** 페이지에서 **기존 가상 디스크 사용**을 선택합니다. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
+    ![기존 가상 디스크 사용 옵션이 선택 되 고 다음 단추가 강조 표시 된 디스크 선택 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
 25. **기존 디스크 선택** 페이지의 **디스크 파일 경로** 아래에서 **찾아보기**를 클릭합니다. **Browse Datastores** (데이터 저장소 찾아보기) 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 이제 처음에 업로드한 두 개의 파일이 병합되었으므로 데이터 저장소에 하나의 파일만 표시됩니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
+    ![기존 디스크 선택 페이지의 스크린샷 찾아보기 단추가 강조 표시 되 고 대화 상자에는 하나의 파일 및 강조 표시 된 확인 단추가 포함 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. **고급 옵션** 페이지에서 기본값을 적용하고 **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
+    ![고급 옵션 페이지의 스크린샷 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
 27. **Ready to Complete** (완료 준비) 페이지에서 새 가상 머신과 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 머신 설정 편집)을 클릭합니다. **Continue(계속)** 를 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
+    ![강조 표시 된 계속 단추를 사용 하 여 완료 준비 페이지의 스크린샷 완료 전 가상 머신 설정 편집 옵션을 선택 합니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
 28. **Virtual Machines 속성** 페이지의 **하드웨어** 탭에서 디바이스 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
+    ![Virtual Machines 속성 페이지의 하드웨어 탭 스크린샷 하드웨어 목록에서 새 하드 디스크를 선택 합니다. 추가 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **추가할 장치 유형 선택**에서 **하드 디스크**를 선택 하 고 **다음**을 클릭 합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
+    ![하드웨어 추가 창의 장치 유형 페이지 스크린샷 하드 디스크 장치가 선택 되 고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
 30. **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
+    ![디스크 선택 페이지의 스크린샷 새 가상 디스크 만들기 옵션이 선택 되 고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
 31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로 비전 할 디스크의 크기에 대 한 자세한 내용은 [모범 사례 문서의](storsimple-ova-best-practices.md)크기 조정 섹션을 참조 하세요. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
+    ![디스크 만들기 페이지의 스크린샷 디스크 크기는 500 GB로 설정 되 고, 씬 프로 비전 옵션이 선택 되며, 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
+    ![고급 옵션 페이지의 스크린샷 가상 장치 노드가 SCSI (0:0)로 설정 되 고 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
 33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **Finish**를 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
+    ![완료 준비 페이지의 스크린샷 디스크 옵션에 대 한 요약이 표시 되 고 마침 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
 34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **Finish**를 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
+    ![가상 컴퓨터 속성 페이지의 스크린샷 하드웨어 목록에는 새 하드 디스크가 포함 되 고 마침 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
 35. 오른쪽 창에서 가상 컴퓨터를 선택한 상태에서 **요약** 탭으로 이동 합니다. 가상 컴퓨터에 대 한 설정을 검토 합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
+    ![VSphere 클라이언트 요약 탭의 스크린샷 새 가상 머신이 강조 표시 되 고 해당 리소스 및 일반 속성이 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 가상 머신이 프로비전되어 있습니다. 다음 단계는 이 컴퓨터의 전원을 켜고 IP 주소를 가져오는 것입니다.
 
@@ -189,35 +190,35 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 #### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
 1. 가상 디바이스를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 머신의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
+   ![장치의 바로 가기 메뉴 스크린샷 전원 항목이 선택 됩니다. 전원 켜기 항목을 선택 하 여 인접 메뉴가 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
 2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행 되 면 **콘솔** 탭으로 이동 합니다. 장치에 로그인 하려면 Ctrl + Alt + Delete를 보냅니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
+   ![VSphere 클라이언트 콘솔 탭의 스크린샷 암호 상자가 비어 있습니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. 보안상의 이유로 디바이스 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
+   ![VSphere 클라이언트 콘솔 탭의 스크린샷. 페이지의 텍스트에는 암호를 변경 해야 합니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
 4. 8자 이상을 포함하는 암호를 입력합니다. 암호는 4가지 요구 사항(대문자, 소문자, 숫자 및 특수 문자) 중 3가지를 포함해야 합니다. 확인을 위해 암호를 다시 입력합니다. 암호가 변경되었다는 메시지가 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
+   ![VSphere 클라이언트 콘솔 탭의 스크린샷. 페이지의 텍스트에는 암호가 변경 되었음을 나타내는 텍스트가 있습니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
 5. 암호 변경이 완료되면 가상 디바이스가 다시 부팅될 수 있습니다. 재부팅이 완료될 때가지 기다립니다. 디바이스의 Windows PowerShell 콘솔이 진행률 표시줄과 함께 표시될 수 있습니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
+   ![진행률 표시줄이 있는 콘솔 창을 보여 주는 스크린샷 창의 텍스트는 초기 설치가 진행 중 이라는 상태를 표시 하 고 사용자에 게 기다리도록 요청 합니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
 6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 디바이스를 부팅하는 경우에는 다음 화면이 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
+   ![장치를 설명 하는 텍스트를 포함 하는 콘솔 창을 보여 주는 스크린샷 명령 프롬프트에서 "컨트롤러"를 읽고 입력 준비가 된 것으로 나타납니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
 
    다음으로 네트워크를 구성합니다.
 7. `Get-HcsIpAddress` 명령을 사용하여 가상 디바이스에 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image43m.png)
+   ![Set-hcsipaddress 명령의 출력을 사용 하 여 콘솔 창을 보여 주는 스크린샷 "이더넷"이 장치 이름으로 나열 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image43m.png)
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 아래에 예가 나와 있습니다.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
+    ![Get-help Set-hcsipaddress 명령의 출력과 Set-hcsipaddress 명령의 올바른 사용법을 포함 하는 콘솔 창을 보여 주는 스크린샷](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
 9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 디바이스 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 디바이스의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image45.png)
+   ![장치 배너 텍스트가 있는 콘솔 창을 보여 주는 스크린샷 해당 텍스트에는 장치 IP 주소 및 URL이 포함 됩니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image45.png)
 10. (선택 사항) 이 단계는 정부 클라우드에서 디바이스를 배포하는 경우에만 수행합니다. 이제 디바이스에서 미국 FIPS(Federal Information Processing Standard) 모드를 사용할 수 있습니다. FIPS 140 표준은 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용할 수 있도록 승인된 암호화 알고리즘을 정의합니다.
 
     1. FIPS 모드를 사용하도록 설정하려면 다음 cmdlet을 실행합니다.
@@ -232,7 +233,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 
 디바이스가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [1단계: 호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
 
-![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
+![장치 배너 텍스트가 있는 콘솔 창을 보여 주는 스크린샷 이 텍스트에는 문제 해결을 위한 URL을 제공 하는 오류 메시지가 포함 되어 있습니다.](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 
 로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 다음 워크플로를 참조하세요.
 
