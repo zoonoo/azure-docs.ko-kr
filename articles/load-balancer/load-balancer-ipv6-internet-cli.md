@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 03bedba280fca4c051685eabdfa47eaaf00f05d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001576"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
@@ -268,7 +268,7 @@ NIC를 만들어 NAT 규칙, 부하 분산 장치 규칙 및 프로브와 연결
 
 ## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>백 엔드 VM 리소스를 만들고 각 NIC를 연결합니다.
 
-VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 하려면 VM이 가용성 집합의 구성원이어야 합니다. VM 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
+VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 하려면 VM이 가용성 집합의 구성원이어야 합니다. VM 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
 
 1. PowerShell 변수를 설정합니다.
 

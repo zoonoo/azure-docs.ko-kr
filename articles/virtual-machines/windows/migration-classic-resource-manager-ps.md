@@ -8,16 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 314d7a4725709f00ba5cdbf54595857502bc5805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b869556e1bd49018b2afce27e732a3109b9fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81865954"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999127"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>PowerShell을 사용 하 여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 
 > [!IMPORTANT]
-> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](../classic-vm-deprecation.md#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
 
 이러한 단계에서는 Azure PowerShell 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다.
 
@@ -48,7 +49,7 @@ ms.locfileid: "81865954"
 ## <a name="step-2-install-the-latest-version-of-powershell"></a>2 단계: 최신 버전의 PowerShell 설치
 Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/) 또는 [WebPI(웹 플랫폼 설치 관리자)](https://aka.ms/webpi-azps)가 있습니다. WebPI는 매월 업데이트를 수신합니다. PowerShell 갤러리는 지속적으로 업데이트를 수신합니다. 이 문서는 Azure PowerShell 버전 2.1.0을 기반으로 합니다.
 
-설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>3 단계: 사용자가 구독에 대 한 관리자 인지 확인
 이 마이그레이션을 수행 하려면 [Azure Portal](https://portal.azure.com)에 구독에 대 한 공동 관리자로 추가 해야 합니다.
@@ -220,7 +221,7 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
 
 가상 네트워크에서 가상 머신을 마이그레이션하려면 가상 네트워크를 마이그레이션합니다. 가상 머신은 가상 네트워크와 함께 자동으로 마이그레이션됩니다. 마이그레이션할 가상 네트워크를 선택합니다.
 > [!NOTE]
-> 가상 컴퓨터의 VHD (OS 및 데이터) 파일을 사용 하 여 Managed Disks를 사용 하 여 새 리소스 관리자 가상 컴퓨터를 만들어 클래식 배포 모델을 사용 하 여 만든 [단일 가상 컴퓨터를 마이그레이션합니다](migrate-single-classic-to-resource-manager.md) .
+> 가상 컴퓨터의 VHD (OS 및 데이터) 파일을 사용 하 여 Managed Disks를 사용 하 여 새 리소스 관리자 가상 컴퓨터를 만들어 클래식 배포 모델을 사용 하 여 만든 [단일 가상 컴퓨터를 마이그레이션합니다](./create-vm-specialized-portal.md) .
 <br>
 
 > [!NOTE]

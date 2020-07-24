@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: bb7b641a7169c6577320f07a964d278ac1727b1c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663311"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999108"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>OS 시작 - Windows 업데이트 설치 용량 문제 해결
 
@@ -48,7 +49,7 @@ ms.locfileid: "83663311"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1~3단계를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1~3단계를 사용하여 복구 VM을 준비합니다.
 1. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="free-up-space-on-the-disk"></a>디스크의 공간 확보
@@ -59,10 +60,10 @@ ms.locfileid: "83663311"
 - 디스크 정리를 수행합니다.
 - 드라이브의 조각화를 취소합니다.
 
-1. 디스크가 꽉 찼는지 확인합니다. 디스크 크기가 1TB 미만이면 [PowerShell을 사용](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk)하여 최대 1TB까지 확장합니다.
+1. 디스크가 꽉 찼는지 확인합니다. 디스크 크기가 1TB 미만이면 [PowerShell을 사용](../windows/expand-os-disk.md)하여 최대 1TB까지 확장합니다.
 1. 디스크가 이미 1TB인 경우 디스크 정리를 수행해야 합니다.
-   1. [손상된 VM](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk)에서 데이터 디스크를 분리합니다.
-   1. 데이터 디스크를 [작동하는 VM](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)에 연결합니다.
+   1. [손상된 VM](../windows/detach-disk.md)에서 데이터 디스크를 분리합니다.
+   1. 데이터 디스크를 [작동하는 VM](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm)에 연결합니다.
    1. [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup)를 사용하여 공간을 확보합니다.
 1. 크기 조정 및 정리가 완료되면 다음 명령을 사용하여 드라이브의 조각을 제거합니다.
 
@@ -122,4 +123,4 @@ ms.locfileid: "83663311"
    
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 빌드합니다.

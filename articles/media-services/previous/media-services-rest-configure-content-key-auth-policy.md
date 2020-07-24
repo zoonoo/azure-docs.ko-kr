@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8075de6690026a6d7ee08a581985744cf88ec6f4
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 71e336ffac557c33aa803cf0e9c123c3bae9427d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000604"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -31,11 +31,11 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 
 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하여 AES 또는 PlayReady 암호화를 통해 콘텐츠를 동적으로 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 개방형 제한 또는 토큰 제한을 사용하여 하나 이상의 권한 부여 제한이 있을 수 있습니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는[SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)(단순 웹 토큰) 및 JSON WEB TOKEN (JWT) 형식의 토큰을 지원 합니다.
+Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 개방형 제한 또는 토큰 제한을 사용하여 하나 이상의 권한 부여 제한이 있을 수 있습니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는[SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)(단순 웹 토큰) 및 JSON WEB TOKEN (JWT) 형식의 토큰을 지원 합니다.
 
 Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만들거나 Azure AD(Azure Active Directory)를 사용하여 토큰을 발급할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다(이 문서에서 설명). 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 Media Services 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 - [JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기준으로 콘텐츠 키 배달 제한](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
@@ -490,4 +490,3 @@ public enum ContentKeyDeliveryType
 
 ## <a name="next-steps"></a>다음 단계
 콘텐츠 키의 권한 부여 정책을 구성했으므로 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
-

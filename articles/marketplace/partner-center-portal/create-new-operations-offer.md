@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001437"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
 
@@ -295,7 +295,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
     - **시작되지 않음** – 섹션이 작업되지 않았으므로 완료되어야 합니다.
     - **완료되지 않음** – 섹션에 수정해야 하는 오류가 있거나 추가 정보를 입력해야 합니다. 섹션으로 돌아가서 업데이트합니다.
     - **완료됨** – 섹션이 완료되고 필요한 모든 데이터가 입력되었으며 오류가 없습니다. 제품을 제출하려면 먼저 제품의 모든 섹션이 완료됨 상태여야 합니다.
-- **인증 참고 사항** 섹션에서 앱을 이해하는 데 도움이 되는 추가 정보뿐만 아니라 앱이 올바르게 테스트되는지 확인하는 테스트 지침을 인증 팀에 제공합니다.
+- **인증 참고 사항** 섹션에서 앱을 이해하는 데 도움이 되는 추가 정보뿐만 아니라 앱이 올바르게 테스트되는지 확인하는 테스트 지침을 인증 팀에 제공합니다. 테스트 지침 및 첫 번째 게시를 완료 하는 방법에 대 한 자세한 내용은 [Appsource Dynamics 365 재무 및 작업 기능 유효성 검사](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation)를 참조 하세요.
 - **제출**을 선택하여 게시할 제품을 제출합니다. 제품의 미리 보기 버전을 검토하고 승인할 수 있는 시기를 알려주는 이메일을 보내 드립니다. 파트너 센터로 돌아가서 제품을 공개로 게시 하기 위해 **live live** 를 선택 합니다.
 
 ## <a name="next-step"></a>다음 단계

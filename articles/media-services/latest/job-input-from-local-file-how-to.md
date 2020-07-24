@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80345915"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001131"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>로컬 파일에서 작업 입력 만들기
 
@@ -24,7 +24,7 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-* [Media Services 계정 만들기](create-account-cli-how-to.md)
+* [Media Services 계정 만들기](./create-account-howto.md)
 * [자산 관리](manage-asset-concept.md)를 검토합니다.
 
 ## <a name="net-sample"></a>.NET 샘플
@@ -32,7 +32,7 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 다음 코드는 입력 자산을 만들어서 작업에 대한 입력으로 사용하는 방법을 보여줍니다. CreateInputAsset 함수는 다음 작업을 수행합니다.
 
 * 자산 만들기
-* [저장소에서 자산의 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) 에 쓸 수 있는 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 을 가져옵니다.
+* [저장소에서 자산의 컨테이너](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) 에 쓸 수 있는 [SAS URL](../../storage/common/storage-sas-overview.md) 을 가져옵니다.
 * SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -47,7 +47,7 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 
 ## <a name="job-error-codes"></a>작업 오류 코드
 
-[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
+[오류 코드](/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

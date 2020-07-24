@@ -7,11 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002355"
 ---
 # <a name="what-are-device-templates"></a>디바이스 템플릿이란?
 
@@ -28,7 +29,7 @@ Azure IoT Central의 장치 템플릿은 응용 프로그램에 연결 하는 �
 - _사용자 지정_. 이 장치 템플릿 부분에서는 솔루션 개발자가 DCM의 일부 정의를 재정의할 수 있습니다. 사용자 지정은 솔루션 개발자가 속성의 표시 이름 변경 또는 원격 분석 값을 표시 하는 데 사용 된 색과 같은 응용 프로그램에서 값을 처리 하는 방법을 조정 하려는 경우에 유용 합니다. 사용자 지정은 장치 개발자가 DCM을 구현 하기 위해 작성 하는 코드에 영향을 주지 않습니다.
 - _뷰입니다_. 이 장치 템플릿 파트를 통해 솔루션 개발자는 장치에서 데이터를 보는 시각화를 정의 하 고 장치를 관리 하 고 제어할 수 있습니다. 보기는 DCM, 클라우드 속성 및 사용자 지정을 사용 합니다. 보기는 장치 개발자가 DCM을 구현 하기 위해 작성 하는 코드에 영향을 주지 않습니다.
 
-## <a name="device-capability-models"></a>장치 기능 모델
+## <a name="device-capability-models"></a>디바이스 기능 모델
 
 DCM은 장치가 IoT Central 응용 프로그램과 상호 작용 하는 방식을 정의 합니다. 장치 개발자는 장치가 장치를 모니터링 하 고 관리할 수 IoT Central 있도록 DCM에 정의 된 동작을 구현 하는지 확인 해야 합니다. DCM은 하나 이상의 _인터페이스로_구성 되며 각 인터페이스는 _원격 분석_ 유형, _장치 속성_및 _명령의_컬렉션을 정의할 수 있습니다. 솔루션 개발자는 DCM을 정의 하는 JSON 파일을 장치 템플릿으로 가져오거나 IoT Central의 웹 UI를 사용 하 여 DCM을 만들거나 편집할 수 있습니다. 웹 UI를 사용 하 여 만든 DCM을 변경 하려면 [장치 템플릿 버전을](./howto-version-device-template.md)지정 해야 합니다.
 
@@ -205,7 +206,7 @@ IoT Central 데이터 내보내기 기능을 사용 하 여 저장소 또는 Eve
 
 사용자 지정은 장치 개발자가 DCM을 구현 하기 위해 작성 하는 코드에 영향을 줄 수 있습니다. 예를 들어 사용자 지정은 원격 분석을 위해 최소 및 최대 문자열 길이 또는 최소 및 최대 숫자 값을 설정할 수 있습니다.
 
-## <a name="views"></a>보기
+## <a name="views"></a>뷰
 
 솔루션 개발자는 운영자가 연결 된 장치를 모니터링 하 고 관리할 수 있는 뷰를 만듭니다. 보기는 장치 템플릿의 일부 이므로 뷰가 특정 장치 유형과 연결 됩니다. 보기에는 다음이 포함 될 수 있습니다.
 
@@ -220,6 +221,6 @@ IoT Central 데이터 내보내기 기능을 사용 하 여 저장소 또는 Eve
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 개발자로 서 이제 장치 템플릿에 대해 알아보았습니다. 다음 단계는 [Azure IoT Central에 연결](./concepts-get-connected.md) 하 여 IoT Central에 장치를 등록 하는 방법 및 장치 연결을 IoT Central 하는 방법에 대 한 자세한 정보를 참조 하세요.
+장치 개발자로 서 이제 장치 템플릿에 대해 알아보았습니다. 다음 단계는 [원격 분석, 속성 및 명령 페이로드](./concepts-telemetry-properties-commands.md) 를 읽어 장치가 IoT Central와 교환 하는 데이터에 대 한 자세한 내용을 확인 하는 것입니다.
 
 솔루션 개발자로 서 다음 단계는 [Azure IoT Central 응용 프로그램에서 새 IoT 장치 유형 정의](./howto-set-up-template.md) 를 읽어 장치 템플릿을 만드는 방법에 대 한 자세한 내용을 확인 하는 것입니다.

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 30c91b71b952bb68761015325a00ff6926c62dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001318"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API에 연결 - .NET
 
@@ -26,7 +27,7 @@ ms.locfileid: "83201125"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다.
+- [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다.
 - .NET 개발에 사용하려는 도구를 설치합니다. 이 문서의 단계에서는 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 사용하는 방법을 보여 줍니다. Visual Studio Code를 사용할 수 있습니다. [C# 작업](https://code.visualstudio.com/docs/languages/csharp)을 참조하세요. 또는 다른 코드 편집기를 사용할 수 있습니다.
 
 > [!IMPORTANT]
@@ -38,7 +39,7 @@ ms.locfileid: "83201125"
 1. **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 클릭합니다. 
 1. **.NET Core** 콘솔 애플리케이션을 만듭니다.
 
-이 항목의 샘플 앱은 `netcoreapp2.0`을 대상으로 합니다. 이 코드에서는 C# 7.1부터 사용할 수 있는 'async main'을 사용합니다. 자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/)를 참조하세요.
+이 항목의 샘플 앱은 `netcoreapp2.0`을 대상으로 합니다. 이 코드에서는 C# 7.1부터 사용할 수 있는 'async main'을 사용합니다. 자세한 내용은 [이 블로그](/archive/blogs/benwilli/async-main-is-available-but-hidden)를 참조하세요.
 
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
@@ -63,7 +64,7 @@ ms.locfileid: "83201125"
 
 ### <a name="set-values-in-appsettingsjson"></a>appsettings.json의 값 설정
 
-[액세스 API](access-api-cli-how-to.md)에 설명된 대로 `az ams account sp create` 명령을 실행합니다. 명령은 "appsettings.json"에 복사해야 하는 json을 반환합니다.
+[액세스 API](./access-api-howto.md)에 설명된 대로 `az ams account sp create` 명령을 실행합니다. 명령은 "appsettings.json"에 복사해야 하는 json을 반환합니다.
  
 ## <a name="add-configuration-file"></a>구성 파일 추가
 
@@ -242,5 +243,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>참고 항목
 
-* [.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET 참조](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * 더 많은 코드 예제는 [.NET SDK 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet) 리포지토리를 참조하세요.

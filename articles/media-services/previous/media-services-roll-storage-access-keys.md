@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 0ddf15ffad086bab5ed6c4e2508cd0874f6ee567
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d0a449a84bebcc0a296bde51234b0ceb128b2d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000128"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>스토리지 액세스 키 롤링 후 Media Services 업데이트 
 
 새 AMS(Azure Media Services) 계정을 만들 때 미디어 콘텐츠를 저장하는 데 사용되는 Azure Storage 계정을 선택하도록 요청받습니다. Media Services 계정에 스토리지 계정을 둘 이상 추가할 수 있습니다. 이 문서에서는 스토리지 키를 회전하는 방법을 보여 줍니다. 또한 미디어 계정에 스토리지 계정을 추가하는 방법도 보여 줍니다. 
 
-이 문서에서 설명하는 작업을 수행하려면 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](https://docs.microsoft.com/powershell/module/az.media)을 사용해야 합니다.  자세한 내용은 [PowerShell을 사용 하 여 Azure 리소스를 관리 하는 방법 및 리소스 관리자](../../azure-resource-manager/management/manage-resource-groups-powershell.md)을 참조 하세요.
+이 문서에서 설명하는 작업을 수행하려면 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](/powershell/module/az.media)을 사용해야 합니다.  자세한 내용은 [PowerShell을 사용 하 여 Azure 리소스를 관리 하는 방법 및 리소스 관리자](../../azure-resource-manager/management/manage-resource-groups-powershell.md)을 참조 하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -72,7 +72,7 @@ Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountNam
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS 계정에 스토리지 계정을 추가하는 단계
 
-[Media Services 계정에 여러 스토리지 계정 연결](meda-services-managing-multiple-storage-accounts.md) 문서에서는 AMS 계정에 스토리지 계정을 추가하는 방법을 보여 줍니다.
+[Media Services 계정에 여러 스토리지 계정 연결](./media-services-managing-multiple-storage-accounts.md) 문서에서는 AMS 계정에 스토리지 계정을 추가하는 방법을 보여 줍니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

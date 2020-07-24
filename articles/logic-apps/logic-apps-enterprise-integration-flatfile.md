@@ -8,23 +8,24 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
-ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83005323"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001488"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 플랫 파일 인코딩 및 디코딩
 
 B2B (기업 간) 시나리오에서 비즈니스 파트너에 게 XML 콘텐츠를 보내기 전에 먼저 해당 콘텐츠를 인코딩해야 할 수 있습니다. 논리 앱을 빌드하여 **플랫 파일** 커넥터를 사용 하 여 플랫 파일을 인코딩 및 디코딩할 수 있습니다. 논리 앱은 요청 트리거, 다른 앱 또는 [Azure Logic Apps에서 지 원하는 다른 커넥터](../connectors/apis-list.md)와 같은 다양 한 소스에서이 XML 콘텐츠를 가져올 수 있습니다. 자세한 내용은 [Azure Logic Apps](logic-apps-overview.md)란?을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 논리 앱 워크플로를 시작 하는 트리거 및 **플랫 파일** 커넥터를 사용 하려는 논리 앱입니다. **플랫 파일** 커넥터는 트리거가 아니라 동작만 제공 합니다. 트리거 또는 다른 작업을 사용 하 여 XML 콘텐츠를 인코딩 또는 디코딩을 위해 논리 앱에 제공할 수 있습니다. 논리 앱을 처음 접하는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
-* Azure 구독과 연결 되 고 **플랫 파일** 커넥터를 사용 하려는 [논리 앱에 연결](logic-apps-enterprise-integration-accounts.md#link-account) 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 입니다. 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
+* Azure 구독과 연결 되 고 **플랫 파일** 커넥터를 사용 하려는 [논리 앱에 연결](./logic-apps-enterprise-integration-create-integration-account.md#link-account) 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 입니다. 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
 
 * XML 콘텐츠를 인코딩 또는 디코딩하는 통합 계정에 업로드 한 플랫 파일 [스키마](logic-apps-enterprise-integration-schemas.md)
 

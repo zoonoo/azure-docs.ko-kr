@@ -3,11 +3,12 @@ title: Azure Lab Services의 클래스 유형 예제 | Microsoft Docs
 description: Azure Lab Services를 사용하여 랩을 설정할 수 있는 몇 가지 유형의 클래스를 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8564f5ece9d6df7db852c5ac16f00f1455d013ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21159aacfcd87bb929eaeaf9884b0275c7005e1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001626"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 
@@ -44,11 +45,6 @@ Linux에서 셸 스크립팅을 학습하도록 랩을 설정할 수 있습니�
 학생들에게 [Jupyter Notebook](http://jupyter-notebook.readthedocs.io)을 사용하는 방법을 가르치는 데 필요한 도구를 사용하여 Azure Lab Services에서 템플릿 머신을 설정할 수 있습니다. Jupyter Notebook은 서식 있는 텍스트와 실행 가능한 [Python](https://www.python.org/) 원본 코드를 노트북이라는 단일 캔버스에 쉽게 결합할 수 있는 오픈 소스 프로젝트입니다. 노트북을 실행하면 입력 및 출력의 선형 레코드가 생성됩니다.  이러한 출력에는 텍스트, 정보 테이블, 분산형 플롯 등이 포함될 수 있습니다.
 
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Python 및 Jupyter Notebook을 사용하여 데이터 과학을 가르치기 위한 랩 설정](class-type-jupyter-notebook.md)을 참조하세요.
-
-## <a name="mobile-app-development-with-android-studio"></a>Android Studio를 사용한 모바일 앱 개발
-Azure Lab Services에서 랩을 설정하여 소개 모바일 애플리케이션 개발 클래스에 대해 배울 수 있습니다. 이 클래스는 [Google Play 스토어](https://play.google.com/store/apps)에 게시할 수 있는 Android 모바일 애플리케이션을 중심으로 설명합니다.  학생들은 [Android Studio](https://developer.android.com/studio)를 사용하여 애플리케이션을 빌드하는 방법을 알아봅니다.  [Android용 Visual Studio 에뮬레이터](https://visualstudio.microsoft.com/vs/msft-android-emulator/)는 애플리케이션을 로컬로 테스트하는 데 사용됩니다.
-
-이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Android Studio를 사용하여 모바일 애플리케이션 개발을 가르치기 위한 랩 설정](class-type-mobile-dev-android-studio.md)을 참조하세요.
 
 ## <a name="big-data-analytics"></a>빅 데이터 분석
 빅 데이터 분석 클래스를 학습 하도록 GPU 랩을 설정할 수 있습니다. 이러한 종류의 클래스를 사용 하 여 많은 양의 데이터를 처리 하는 방법을 알아보고 기계 및 통계적 학습 알고리즘을 적용 하 여 데이터 정보를 도출 합니다. 학생의 핵심 목표는 빅 데이터를 저장, 관리 및 처리 하기 위한 도구를 제공 하는 Apache Hadoop의 오픈 소스 소프트웨어 패키지와 같은 데이터 분석 도구를 사용 하는 방법을 배우는 것입니다. 

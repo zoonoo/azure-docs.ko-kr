@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999023"
 ---
 # <a name="monitoring-scheduled-events"></a>예약된 이벤트 모니터링
 
@@ -25,7 +25,7 @@ ms.locfileid: "82099600"
 
 Scheduled Events는 [Azure Instance Metadata Service](instance-metadata-service.md)의 일부로 제공되며 모든 Azure 가상 머신에서 사용할 수 있습니다. 고객은 가상 머신의 엔드포인트를 쿼리하여 예약된 유지 관리 알림을 찾고, 상태 저장 및 순환에서 가상 머신 제외 등의 완화 작업을 수행하기 위한 자동화를 작성할 수 있습니다. Azure 유지 관리 이벤트의 감사 로그를 유지할 수 있도록 Scheduled Events를 기록하는 자동화를 작성하는 것이 좋습니다. 
 
-이 문서에서는 Log Analytics에 유지 관리 Scheduled Events를 캡처하는 방법을 안내합니다. 그런 다음, 팀에 메일을 보내고 가상 머신에 영향을 준 모든 이벤트의 기록 보기를 가져오는 등의 몇 가지 기본적인 알림 작업을 트리거합니다. 이벤트 집계 및 자동화를 위해 [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace)를 사용하지만 다른 모니터링 솔루션을 사용하여 이러한 로그를 수집하고 자동화를 트리거할 수도 있습니다.
+이 문서에서는 Log Analytics에 유지 관리 Scheduled Events를 캡처하는 방법을 안내합니다. 그런 다음, 팀에 메일을 보내고 가상 머신에 영향을 준 모든 이벤트의 기록 보기를 가져오는 등의 몇 가지 기본적인 알림 작업을 트리거합니다. 이벤트 집계 및 자동화를 위해 [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md)를 사용하지만 다른 모니터링 솔루션을 사용하여 이러한 로그를 수집하고 자동화를 트리거할 수도 있습니다.
 
 ![이벤트 수명 주기를 보여 주는 다이어그램](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Scheduled Events는 [Azure Instance Metadata Service](instance-metadata-service.
 
 자습서가 끝난 후에 그룹 리소스 그룹을 삭제하지 마세요.
 
-또한 가용성 집합의 VM에서 정보를 집계하는 데 사용할 [Log Analytics 작업 영역을 만들어야](/azure/azure-monitor/learn/quick-create-workspace) 합니다.
+또한 가용성 집합의 VM에서 정보를 집계하는 데 사용할 [Log Analytics 작업 영역을 만들어야](../../azure-monitor/learn/quick-create-workspace.md) 합니다.
 
 ## <a name="set-up-the-environment"></a>환경 설정
 
@@ -112,7 +112,7 @@ New-AzVm `
 1. **myCollectorVM**을 검색한 후 선택합니다. 
 1. **myCollectorVM**에 대한 새 페이지에서 **연결**을 선택합니다.
 
-그러면 가상 머신에 [Microsoft Monitoring Agent](/azure/virtual-machines/extensions/oms-windows)가 설치됩니다. VM을 작업 영역에 연결하고 확장을 설치하는 데 몇 분 정도 걸립니다. 
+그러면 가상 머신에 [Microsoft Monitoring Agent](../extensions/oms-windows.md)가 설치됩니다. VM을 작업 영역에 연결하고 확장을 설치하는 데 몇 분 정도 걸립니다. 
 
 ## <a name="configure-the-workspace"></a>작업 영역 구성
 
@@ -132,7 +132,7 @@ New-AzVm `
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Azure Monitor를 사용하여 경고 규칙 만들기 
 
 
-이벤트가 Log Analytics에 푸시되면 다음 [쿼리](/azure/azure-monitor/log-query/get-started-portal)를 실행하여 일정 이벤트를 찾을 수 있습니다.
+이벤트가 Log Analytics에 푸시되면 다음 [쿼리](../../azure-monitor/log-query/get-started-portal.md)를 실행하여 일정 이벤트를 찾을 수 있습니다.
 
 1. 페이지 위쪽에서 **로그**를 선택하고 텍스트 상자에 다음을 붙여 넣습니다.
 

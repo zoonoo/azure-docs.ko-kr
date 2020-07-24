@@ -9,17 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 628824a3d303184e199452b0974c7f99d99a4933
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998955"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>CloudSimple 포털에서 사설 클라우드 vCenter 권한 에스컬레이션
 
 사설 클라우드 vCenter에 대 한 관리 액세스를 위해 CloudSimple 권한을 일시적으로 에스컬레이션 할 수 있습니다.  상승 된 권한을 사용 하 여 VMware 솔루션을 설치 하 고, id 원본을 추가 하 고, 사용자를 관리할 수 있습니다.
 
-VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스 권한을 부여할 수 있습니다.  새 사용자를 만들 때는 vCenter 액세스를 위해 CloudSimple builtin 그룹에 추가 합니다.  자세한 내용은 [VMware vCenter의 Cloudsimple 사설 클라우드 권한 모델](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/)을 참조 하세요.
+VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스 권한을 부여할 수 있습니다.  새 사용자를 만들 때는 vCenter 액세스를 위해 CloudSimple builtin 그룹에 추가 합니다.  자세한 내용은 [VMware vCenter의 Cloudsimple 사설 클라우드 권한 모델](./learn-private-cloud-permissions.md)을 참조 하세요.
 
 > [!CAUTION]
 > 관리 구성 요소에 대 한 구성을 변경 하지 마세요. 에스컬레이션 된 권한 있는 상태에서 수행 되는 작업은 시스템에 부정적인 영향을 주거나 시스템을 사용할 수 없게 될 수 있습니다.
@@ -87,5 +88,5 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Active Directory 사용할 vCenter id 원본 설정](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
-* 백업 [워크 로드 가상 컴퓨터](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/) 에 백업 솔루션 설치
+* [Active Directory 사용할 vCenter id 원본 설정](./set-vcenter-identity.md)
+* 백업 [워크 로드 가상 컴퓨터](./backup-workloads-veeam.md) 에 백업 솔루션 설치

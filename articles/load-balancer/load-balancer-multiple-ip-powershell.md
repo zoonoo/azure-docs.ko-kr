@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 8f1273f1476ea7da03eb44b700519482deac3284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8fedad40c18818932bf37dfe93c1b236357c30b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001607"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell을 사용하여 여러 IP 구성의 부하 분산
 
@@ -38,7 +38,7 @@ ms.locfileid: "84809167"
 
 아래 단계에 따라 이 문서에 설명된 시나리오를 수행합니다.
 
-1. Azure PowerShell을 설치합니다. 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+1. Azure PowerShell을 설치합니다. 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 2. 다음 설정을 사용하여 리소스 그룹을 만듭니다.
 
     ```powershell
@@ -46,7 +46,7 @@ ms.locfileid: "84809167"
     $myResourceGroup = "contosofabrikam"
     ```
 
-    자세한 내용은 [리소스 그룹 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)의 2단계를 참조하세요.
+    자세한 내용은 [리소스 그룹 만들기](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json)의 2단계를 참조하세요.
 
 3. VM을 포함할 [가용성 집합을 만듭니다](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json). 이 시나리오에서는 다음 명령을 사용합니다.
 
@@ -54,14 +54,14 @@ ms.locfileid: "84809167"
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. NIC가 하나인 VM 만들기를 준비하려면 [Windows VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)에 있는 3 ~ 5단계의 지침을 수행합니다. 6.1단계를 실행하고 6.2단계 대신 다음을 사용합니다.
+4. NIC가 하나인 VM 만들기를 준비하려면 [Windows VM 만들기](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json)에 있는 3 ~ 5단계의 지침을 수행합니다. 6.1단계를 실행하고 6.2단계 대신 다음을 사용합니다.
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    그런 다음 [Windows VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)의 6.3 ~ 6.8단계를 완료합니다.
+    그런 다음 [Windows VM 만들기](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json)의 6.3 ~ 6.8단계를 완료합니다.
 
 5. 각각의 VM에 두 번째 IP 구성을 추가합니다. [가상 머신에 여러 IP 주소 할당](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) 문서의 지침을 따릅니다. 다음 구성 설정을 사용합니다.
 

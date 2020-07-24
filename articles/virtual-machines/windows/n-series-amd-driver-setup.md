@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 4693ad8b168ce1ddd7c07afe650a89fc1888ccd7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999006"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
 
@@ -23,7 +23,7 @@ AMD GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원
 
 Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 다른 원본에서 GPU 드라이버를 설치하지 마세요.
 
-기본 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Windows VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+기본 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Windows VM 크기](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json)를 참조하세요.
 
 
 
@@ -57,5 +57,3 @@ dxdiag를 사용하여 비디오 RAM을 비롯한 GPU 표시 속성을 확인할
 Windows 10 빌드 1903 이상을 실행하는 경우 dxdiag는 'Display' 탭에 정보를 표시하지 않습니다. 하단에 있는 '모든 정보 저장' 옵션을 사용하면 출력 파일에 AMD MI25 GPU와 관련된 정보가 표시됩니다.
 
 ![GPU 드라이버 속성](./media/n-series-amd-driver-setup/dxdiag-details.png)
-
-

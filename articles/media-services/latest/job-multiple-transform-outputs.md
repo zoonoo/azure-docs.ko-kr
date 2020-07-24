@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
-ms.openlocfilehash: dbbeeb33ee46b37ec920fe598483c332d3439689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c39b133773cbe35d78e04c4e40de9d62c4eba18
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77563142"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001114"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>여러 변환 출력을 사용 하 여 작업 만들기
 
@@ -130,7 +131,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 ```
 ## <a name="job-error-codes"></a>작업 오류 코드
 
-[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
+[오류 코드](/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

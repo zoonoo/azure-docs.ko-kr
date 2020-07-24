@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 278d976f044deb8a7387763306cf07f8b6b55d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 945f8896a844e7a73107df44d03abc7290f4e3fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999141"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP 클라이언트 서비스가 해제되어 Azure Virtual Machines에 RDP로 연결할 수 없음
 
@@ -204,7 +204,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
-1. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
+1. [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)합니다.
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다. 디스크 관리 콘솔에서 연결된 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 3.  관리자 권한 명령 프롬프트 인스턴스 (**관리자 권한으로 실행**)를 엽니다. 그런 다음, 다음 스크립트를 실행합니다. 이 스크립트는 연결 된 OS 디스크에 할당 된 드라이브 문자가 **F**인 것으로 가정 합니다. 해당 문자를 VM의 값으로 바꿉니다.
 
@@ -222,7 +222,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-4. [OS 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md). 그런 다음, 문제가 해결되었는지 확인합니다.
+4. [OS 디스크를 분리하고 VM을 다시 만듭니다](./troubleshoot-recovery-disks-portal-windows.md). 그런 다음, 문제가 해결되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

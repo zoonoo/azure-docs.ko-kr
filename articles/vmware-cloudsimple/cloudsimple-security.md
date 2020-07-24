@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7310c037511fdf1a7d6f3763fd61d292078ea83e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187480"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998898"
 ---
 # <a name="cloudsimple-security-overview"></a>CloudSimple 보안 개요
 
@@ -29,7 +29,7 @@ Azure 인프라 보안 고려 사항에는 데이터 센터 및 장비 위치가
 
 ### <a name="datacenter-security"></a>데이터 센터 보안
 
-Microsoft에는 Azure를 지 원하는 물리적 시설을 설계, 빌드 및 운영 하기 위한 전체 부서가 포함 되어 있습니다. 이 팀은 최첨단의 물리적 보안을 유지 관리하는 데 투입되었습니다. 물리적 보안에 대 한 자세한 내용은 [Azure 시설, 프레미스 및 물리적 보안](../security/azure-physical-security.md)을 참조 하세요.
+Microsoft에는 Azure를 지 원하는 물리적 시설을 설계, 빌드 및 운영 하기 위한 전체 부서가 포함 되어 있습니다. 이 팀은 최첨단의 물리적 보안을 유지 관리하는 데 투입되었습니다. 물리적 보안에 대 한 자세한 내용은 [Azure 시설, 프레미스 및 물리적 보안](../security/fundamentals/physical-security.md)을 참조 하세요.
 
 ### <a name="equipment-location"></a>장비 위치
 

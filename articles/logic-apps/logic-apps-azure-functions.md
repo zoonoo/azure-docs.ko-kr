@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0ac35fde59479ffc13c17f8e63d6fccf65c3be27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714579"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001709"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Azure Logic Apps에서 Azure Functions 호출
 
@@ -256,7 +257,7 @@ Azure 함수에서 논리 앱의 관리 ID를 사용하려면 함수의 인증 �
 
 * Azure AD(Azure Active Directory)에서 테넌트의 디렉터리 ID
 
-  테넌트의 디렉터리 ID를 가져오려면 PowerShell 명령 [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount)를 실행하면 됩니다. 또는 Azure Portal에서 다음 단계를 따릅니다.
+  테넌트의 디렉터리 ID를 가져오려면 PowerShell 명령 [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount)를 실행하면 됩니다. 또는 Azure Portal에서 다음 단계를 따릅니다.
 
   1. [Azure Portal](https://portal.azure.com)에서 함수 앱을 찾아 선택합니다.
 

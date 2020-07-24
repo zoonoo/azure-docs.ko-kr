@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 258d91e763bd8e1507492109f9c01010f95b94c0
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170839"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000145"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작  
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 이 자습서에서는 AMS(Azure Media Services) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 애플리케이션을 구현하는 단계를 안내합니다.
 
@@ -56,7 +56,7 @@ Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 
 >[!NOTE]
 >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 유지되는 로케이터에 대한 정책) 동일한 정책 ID를 사용합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
-이 문서에 사용된 AMS REST 엔터티에 대한 자세한 내용은 [Azure Media Services REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요. 참고 항목: [Azure Media Services 개념](media-services-concepts.md)
+이 문서에 사용된 AMS REST 엔터티에 대한 자세한 내용은 [Azure Media Services REST API 참조](/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요. 참고 항목: [Azure Media Services 개념](media-services-concepts.md)
 
 >[!NOTE]
 >Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
@@ -153,7 +153,7 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ```
 
 ### <a name="create-an-assetfile"></a>AssetFile 만들기
-[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 엔터티는 blob 컨테이너에 저장된 비디오 또는 오디오 파일을 나타냅니다. 자산 파일은 항상 자산에 연결되며 자산에는 하나 이상의 AssetFile이 포함될 수 있습니다. 자산 파일 개체가 blob 컨테이너의 디지털 파일과 연결되지 않은 경우 Media Services 인코더 작업을 하지 못합니다.
+[AssetFile](/rest/api/media/operations/assetfile) 엔터티는 blob 컨테이너에 저장된 비디오 또는 오디오 파일을 나타냅니다. 자산 파일은 항상 자산에 연결되며 자산에는 하나 이상의 AssetFile이 포함될 수 있습니다. 자산 파일 개체가 blob 컨테이너의 디지털 파일과 연결되지 않은 경우 Media Services 인코더 작업을 하지 못합니다.
 
 Blob 컨테이너에 디지털 미디어 파일을 업로드 한 후 **MERGE** HTTP 요청을 사용하여 미디어 파일에 대한 정보로 AssetFile을 업데이트합니다(이 항목의 뒷부분 참조).
 
@@ -217,7 +217,7 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ```
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>쓰기 권한으로 AccessPolicy 만들기
-년간 File Storage  유지 관리 비용 합계 이렇게 하려면 AccessPolicies 엔터티 집합에 HTTP 요청을 게시합니다. 작성 시 DurationInMinutes 값을 정의하지 않으면 응답에서 500 내부 서버 오류 메시지가 다시 나타납니다. AccessPolicies에 대한 자세한 내용은 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)를 참조하세요.
+년간 File Storage  유지 관리 비용 합계 이렇게 하려면 AccessPolicies 엔터티 집합에 HTTP 요청을 게시합니다. 작성 시 DurationInMinutes 값을 정의하지 않으면 응답에서 500 내부 서버 오류 메시지가 다시 나타납니다. AccessPolicies에 대한 자세한 내용은 [AccessPolicy](/rest/api/media/operations/accesspolicy)를 참조하세요.
 
 다음 예제에서는 AccessPolicy를 만드는 방법을 보여 줍니다.
 
@@ -270,7 +270,7 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 
 ### <a name="get-the-upload-url"></a>업로드 URL 가져오기
 
-실제 업로드 URL을 받으려면 SAS 로케이터를 만듭니다. 로케이터는 자산에 있는 파일에 액세스하려는 클라이언트에 대한 시작 시간과 연결 엔드포인트의 형식을 정의합니다. 다양한 클라이언트 요청 및 요구 사항을 처리하기 위해 지정된 AccessPolicy 및 자산 쌍에 대해 여러 로케이터 엔터티를 만들 수 있습니다. 이러한 각 로케이터는 AccessPolicy의 StartTime 값과 DurationInMinutes 값을 사용하여 URL이 사용될 수는 시간의 길이를 결정합니다. 자세한 내용은 [로케이터](https://docs.microsoft.com/rest/api/media/operations/locator)를 참조하세요.
+실제 업로드 URL을 받으려면 SAS 로케이터를 만듭니다. 로케이터는 자산에 있는 파일에 액세스하려는 클라이언트에 대한 시작 시간과 연결 엔드포인트의 형식을 정의합니다. 다양한 클라이언트 요청 및 요구 사항을 처리하기 위해 지정된 AccessPolicy 및 자산 쌍에 대해 여러 로케이터 엔터티를 만들 수 있습니다. 이러한 각 로케이터는 AccessPolicy의 StartTime 값과 DurationInMinutes 값을 사용하여 URL이 사용될 수는 시간의 길이를 결정합니다. 자세한 내용은 [로케이터](/rest/api/media/operations/locator)를 참조하세요.
 
 SAS URL의 형식은 다음과 같습니다.
 
@@ -280,7 +280,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 * 지정된 자산과 연관된 고유 로케이터는 한 번에 5개 이상 가질 수 없습니다. 
 * 파일을 즉시 업로드해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 클라이언트 컴퓨터와 Media Services 사이에 시간차가 있을 수 있기 때문입니다. 또한 StartTime 값은 다음 날짜/시간 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").    
-* 로케이터를 만든 후 사용할 수 있을 때까지 30-40초의 지연이 있을 수 있습니다. 이 문제는 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 및 원본 로케이터 모두에 적용됩니다.
+* 로케이터를 만든 후 사용할 수 있을 때까지 30-40초의 지연이 있을 수 있습니다. 이 문제는 [SAS URL](../../storage/common/storage-sas-overview.md) 및 원본 로케이터 모두에 적용됩니다.
 
 다음 예제에서는 요청 본문의 형식 속성에서 정의한 대로(SAS 로케이터의 경우 "1" 그리고 주문형 원본 로케이터의 경우 "2") SAS URL 로케이터를 만드는 방법을 보여 줍니다. 반환된 **경로** 속성은 파일 업로드 시 반드시 사용해야 하는 URL을 포함합니다.
 
@@ -348,7 +348,7 @@ AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure Storage R
 >
 >
 
-Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
+Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)를 참조하세요.
 
 ### <a name="update-the-assetfile"></a>AssetFile 업데이트
 이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 다음은 그 예입니다.
@@ -429,7 +429,7 @@ HTTP/1.1 204 No Content
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩
 
-Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다(자세한 내용은 [작업](https://docs.microsoft.com/rest/api/media/operations/job), [태스크](https://docs.microsoft.com/rest/api/media/operations/task) 설명 참조).
+Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다(자세한 내용은 [작업](/rest/api/media/operations/job), [태스크](/rest/api/media/operations/task) 설명 참조).
 
 앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 다음 형식 중 하나로 동적 패키징합니다. HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH
 
@@ -487,7 +487,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>작업 만들기
 각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 다음 두 가지 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업 엔터티에 대한 작업 탐색 속성 또는 OData 일괄 처리를 통해 작업을 인라인으로 정의할 수 있습니다. Media Services SDK는 일괄 처리를 사용합니다. 하지만 이 문서에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
 
-다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](https://msdn.microsoft.com/library/mt269960) 목록을 포함합니다.  
+다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](/azure/media-services/previous/media-services-mes-presets-overview) 목록을 포함합니다.  
 
 **HTTP 요청**
 
@@ -768,7 +768,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 * 콘텐츠 스트리밍을 위한 원본 URL 만들기
 
 ### <a name="creating-the-accesspolicy-with-read-permission"></a>읽기 권한이 포함된 AccessPolicy 만들기
-미디어 콘텐츠를 다운로드하거나 스트리밍하기 전에 먼저 읽기 권한이 포함된 AccessPolicy를 정의하고 클라이언트에 대해 사용하도록 설정하려는 배달 메커니즘 유형을 지정하는 적절한 로케이터 엔터티를 만듭니다. 사용할 수 있는 속성에 대한 자세한 내용은 [AccessPolicy 엔터티 속성](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties)을 참조하세요.
+미디어 콘텐츠를 다운로드하거나 스트리밍하기 전에 먼저 읽기 권한이 포함된 AccessPolicy를 정의하고 클라이언트에 대해 사용하도록 설정하려는 배달 메커니즘 유형을 지정하는 적절한 로케이터 엔터티를 만듭니다. 사용할 수 있는 속성에 대한 자세한 내용은 [AccessPolicy 엔터티 속성](/rest/api/media/operations/accesspolicy#accesspolicy_properties)을 참조하세요.
 
 다음 예제에서는 지정된 자산에 대한 읽기 권한의 AccessPolicy를 지정하는 방법을 보여 줍니다.
 
@@ -869,7 +869,7 @@ AccessPolicy와 로케이터를 설정했으면 Azure Storage REST API를 사용
 > [!NOTE]
 > 다운로드하려는 파일의 파일 이름을 이전 섹션에서 받은 로케이터 **경로** 값에 추가해야 합니다. 예를 들어 다음과 같습니다. `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4`? . . .
 
-Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
+Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)를 참조하세요.
 
 이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 다음은 그 예입니다.    
 

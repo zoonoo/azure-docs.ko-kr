@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2225633e5621c51067b64af2968a0dc0f5da87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75428716"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001420"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 호출 또는 트리거
 
 장기 실행 수신기 또는 작업을 배포 해야 하는 경우 [Azure Functions](../azure-functions/functions-overview.md) 를 사용 하 여 논리 앱을 트리거할 수 있습니다. 예를 들어 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 큐에서 수신 대기 하 고 즉시 논리 앱을 밀어넣기 트리거로 실행 하는 Azure 함수를 만들 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -118,11 +119,11 @@ ms.locfileid: "75428716"
 
    * 이 예제에서는 `application/json` 메시지 콘텐츠 형식을 사용하지만, 필요에 따라 형식을 변경할 수 있습니다.
    
-   * 가능 하면 동시에 실행 되는 함수, 높은 볼륨 또는 과도 한 로드로 인해 [httpclient 클래스](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) 를 `using` 문으로 인스턴스화하고 요청당 httpclient 인스턴스를 직접 만드는 것이 방지 됩니다. 자세한 내용은 [HttpClientFactory를 사용 하 여 복원 력 있는 HTTP 요청 구현](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core)을 참조 하세요.
+   * 가능 하면 동시에 실행 되는 함수, 높은 볼륨 또는 과도 한 로드로 인해 [httpclient 클래스](/dotnet/api/system.net.http.httpclient) 를 `using` 문으로 인스턴스화하고 요청당 httpclient 인스턴스를 직접 만드는 것이 방지 됩니다. 자세한 내용은 [HttpClientFactory를 사용 하 여 복원 력 있는 HTTP 요청 구현](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core)을 참조 하세요.
    
    * 가능 하면 HTTP 클라이언트의 인스턴스를 다시 사용 합니다. 자세한 내용은 [Azure Functions에서 연결 관리](../azure-functions/manage-connections.md)를 참조 하세요.
 
-   이 예제에서는 [비동기](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) 모드에서 [ `Task.Run` 메서드](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) 를 사용 합니다. 자세한 내용은 [async 및 wait를 사용한 비동기 프로그래밍](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)을 참조 하세요.
+   이 예제에서는 [비동기](/dotnet/csharp/language-reference/keywords/async) 모드에서 [ `Task.Run` 메서드](/dotnet/api/system.threading.tasks.task.run) 를 사용 합니다. 자세한 내용은 [async 및 wait를 사용한 비동기 프로그래밍](/dotnet/csharp/programming-guide/concepts/async/)을 참조 하세요.
 
    ```csharp
    using System;

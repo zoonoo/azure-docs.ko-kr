@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 780d3ab5047bff321d0c554880ba2995bcf25524
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d199271d20b9094ffaac0384863a404c7d0ed0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70102905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000009"
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요 
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 
@@ -59,13 +59,13 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [포털](media-services-portal-scale-media-processing.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [REST (영문)](/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 
 > [!NOTE]
-> 최신 버전의 Java SDK를 가져와서 Java를 사용하여 개발을 시작하려면 [Media Services용 Java 클라이언트 SDK 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)을 참조하세요. <br/>
+> 최신 버전의 Java SDK를 가져와서 Java를 사용하여 개발을 시작하려면 [Media Services용 Java 클라이언트 SDK 시작](./media-services-java-how-to-use.md)을 참조하세요. <br/>
 > Media Services용 최신 PHP SDK를 다운로드하려면 [Packagist 리포지토리](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)에서 Microsoft/WindowAzure 패키지 버전 0.5.7을 찾습니다.  
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
@@ -73,4 +73,3 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

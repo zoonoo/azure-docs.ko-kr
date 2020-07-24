@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b8a22ff36f85f25bb6a4b22617029fe3858660
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098325"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998870"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기
 
@@ -56,7 +56,7 @@ Azure Cloud shell 대신 PowerShell을 로컬로 설치 하 고 사용 하도록
 
 다음은 몇 가지 추가 리소스입니다.
 
-- Resource Manager 템플릿을 개발하는 방법을 알아보려면 [Azure Resource Manager 설명서](/azure/azure-resource-manager/)를 참조하세요.
+- Resource Manager 템플릿을 개발하는 방법을 알아보려면 [Azure Resource Manager 설명서](../../azure-resource-manager/index.yml)를 참조하세요.
 - Azure 가상 컴퓨터 스키마를 보려면 [azure 템플릿 참조](/azure/templates/microsoft.compute/allversions)를 참조 하세요.
 - 더 많은 가상 머신 템플릿 샘플을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular)을 참조 하세요.
 
@@ -66,7 +66,7 @@ Azure Cloud shell 대신 PowerShell을 로컬로 설치 하 고 사용 하도록
 
 ## <a name="next-steps"></a>다음 단계
 
-- 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../../resource-manager-common-deployment-errors.md)을 살펴봅니다.
+- 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../../azure-resource-manager/templates/common-deployment-errors.md)을 살펴봅니다.
 - [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 가상 머신을 만들고 관리하는 방법을 알아봅니다.
 
 템플릿 만들기에 대해 자세히 알아보려면 배포한 리소스 종류의 JSON 구문 및 속성을 확인하세요.

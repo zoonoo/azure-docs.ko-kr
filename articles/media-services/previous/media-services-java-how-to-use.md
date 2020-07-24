@@ -14,21 +14,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3adbb9471cc501861b65efd0321b3b4f72b07aea
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e5978cff8da4697cf130e499c8d9273d75118963
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000621"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작  
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 이 자습서에서는 Java 클라이언트 SDK를 사용하여 Azure Media Services에서 기본 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
@@ -65,7 +65,7 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
 * `clientKey`: Azure AD 애플리케이션의 클라이언트 키
 * `restApiEndpoint`: Azure Media Services 계정의 REST API 엔드포인트
 
-Azure AD 애플리케이션을 만들고 Azure Portal에서 위의 구성 값을 얻을 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)의 **서비스 주체 인증** 섹션을 참조하세요.
+Azure AD 애플리케이션을 만들고 Azure Portal에서 위의 구성 값을 얻을 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure AD 인증 시작](./media-services-portal-get-started-with-aad.md)의 **서비스 주체 인증** 섹션을 참조하세요.
 
 또한 이 코드는 로컬에 저장된 비디오 파일을 사용합니다. 업로드할 사용자 고유의 로컬 파일을 제공하도록 코드를 편집해야 합니다.
 
@@ -320,6 +320,5 @@ Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서]\(J
 
 [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Azure for Java developers]: https://docs.microsoft.com/java/azure/
-[Media Services Client Development]: https://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-
+[Azure for Java developers]: /java/azure/
+[Media Services Client Development]: /previous-versions/azure/dn223283(v=azure.100)

@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 24eb5f8691c94c1f319820f3133b66065504ace3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000894"
 ---
 # <a name="live-event-low-latency-settings"></a>라이브 이벤트 낮은 대기 시간 설정
 
-이 문서에서는 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)에서 짧은 대기 시간을 설정하는 방법을 보여줍니다. 또한 다양한 플레이어에서 짧은 대기 시간 설정을 사용하는 경우 표시되는 일반적인 결과에 대해 설명합니다. 그 결과는 CDN 및 네트워크 대기 시간에 따라 다릅니다.
+이 문서에서는 [라이브 이벤트](/rest/api/media/liveevents)에서 짧은 대기 시간을 설정하는 방법을 보여줍니다. 또한 다양한 플레이어에서 짧은 대기 시간 설정을 사용하는 경우 표시되는 일반적인 결과에 대해 설명합니다. 그 결과는 CDN 및 네트워크 대기 시간에 따라 다릅니다.
 
-새로운 **LowLatency** 기능을 사용하려면 **LiveEvent**에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. HLS 재생에 대한 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만들 때 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls)를 1로 설정합니다. 스트림이 실행 되 면 [Azure Media Player](https://ampdemo.azureedge.net/) (AMP 데모 페이지)를 사용 하 고 재생 옵션을 "짧은 대기 시간 추론 프로필"을 사용 하도록 설정할 수 있습니다.
+새로운 **LowLatency** 기능을 사용하려면 **LiveEvent**에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. HLS 재생에 대한 [LiveOutput](/rest/api/media/liveoutputs)을 만들 때 [LiveOutput.Hls.fragmentsPerTsSegment](/rest/api/media/liveoutputs/create#hls)를 1로 설정합니다. 스트림이 실행 되 면 [Azure Media Player](https://ampdemo.azureedge.net/) (AMP 데모 페이지)를 사용 하 고 재생 옵션을 "짧은 대기 시간 추론 프로필"을 사용 하도록 설정할 수 있습니다.
 
 > [!NOTE]
 > 현재 Azure Media Player의 LowLatency HeuristicProfile은 CSF 또는 CMAF 형식 (예: 또는)을 사용 하 여 MPEG-2 프로토콜의 스트림을 재생 하기 위한 것입니다 `format=mdp-time-csf` `format=mdp-time-cmaf` . 
@@ -79,4 +79,3 @@ LiveEvent liveEvent = new LiveEvent(
 
 - [라이브 스트리밍 개요](live-streaming-overview.md)
 - [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)
-

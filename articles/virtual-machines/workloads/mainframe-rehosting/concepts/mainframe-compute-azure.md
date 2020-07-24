@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998938"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>메인프레임 계산을 Azure로 이동
 
@@ -56,7 +57,7 @@ Azure Virtual Machines 다양 한 크기와 형식으로 계산 능력을 제공
 
 현재 Azure 가상 머신 크기 범위는 1 ~ 128 vCPUs를 제공 합니다. VM (가상 머신) 유형은 특정 워크 로드에 대해 최적화 됩니다. 예를 들어 다음 목록에는 VM 유형 (이 문서를 작성할 때 현재)과 권장 사용이 나와 있습니다.
 
-| 크기     | 유형 및 설명                                                                 |
+| Size     | 유형 및 설명                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | D 시리즈 | 64 vCPU 및 최대 3.5 GHz 클럭 속도를 사용 하는 일반적인 용도                           |
 | E 시리즈 | 최대 64 vCPUs로 최적화 된 메모리                                                 |
@@ -93,13 +94,13 @@ M 시리즈 Vm은 최대 128 vCPUs (이 문서가 작성 된 시간)까지 확�
 
 Azure 기반 솔루션의 장점 중 하나는 규모 확장 하는 기능입니다. 크기를 조정 하면 응용 프로그램에서 거의 무제한 계산 용량을 사용할 수 있습니다. Azure는 계산 능력을 확장 하는 여러 방법을 지원 합니다.
 
-- **클러스터 간 부하 분산.** 이 시나리오에서 응용 프로그램은 [부하 분산 장치](/azure/load-balancer/load-balancer-overview) 또는 리소스 관리자를 사용 하 여 클러스터의 여러 vm 간에 작업을 분산할 수 있습니다. 더 많은 계산 용량이 필요한 경우 추가 Vm이 클러스터에 추가 됩니다.
+- **클러스터 간 부하 분산.** 이 시나리오에서 응용 프로그램은 [부하 분산 장치](../../../../load-balancer/load-balancer-overview.md) 또는 리소스 관리자를 사용 하 여 클러스터의 여러 vm 간에 작업을 분산할 수 있습니다. 더 많은 계산 용량이 필요한 경우 추가 Vm이 클러스터에 추가 됩니다.
 
-- **가상 머신 확장 집합입니다.** 이 버스트 시나리오에서 응용 프로그램은 VM 사용량을 기준으로 추가 [계산 리소스로](/azure/virtual-machine-scale-sets/overview) 확장할 수 있습니다. 요구가 떨어지면 확장 집합의 Vm 수를 아래로 이동 하 여 계산 능력을 효율적으로 사용할 수도 있습니다.
+- **가상 머신 확장 집합입니다.** 이 버스트 시나리오에서 응용 프로그램은 VM 사용량을 기준으로 추가 [계산 리소스로](../../../../virtual-machine-scale-sets/overview.md) 확장할 수 있습니다. 요구가 떨어지면 확장 집합의 Vm 수를 아래로 이동 하 여 계산 능력을 효율적으로 사용할 수도 있습니다.
 
-- **PaaS 크기 조정.** Azure PaaS 서비스는 계산 리소스를 확장 합니다. 예를 들어 [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) 는 요청 볼륨의 증가량을 충족 하기 위해 계산 리소스를 할당 합니다.
+- **PaaS 크기 조정.** Azure PaaS 서비스는 계산 리소스를 확장 합니다. 예를 들어 [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) 는 요청 볼륨의 증가량을 충족 하기 위해 계산 리소스를 할당 합니다.
 
-- **Kubernetes 클러스터.** Azure의 응용 프로그램은 지정 된 리소스에 대해 계산 서비스에 [Kubernetes 클러스터](/azure/aks/concepts-clusters-workloads) 를 사용할 수 있습니다. AKS (azure Kubernetes Service)는 Azure에서 Kubernetes 노드, 풀 및 클러스터를 오케스트레이션 하는 관리 되는 서비스입니다.
+- **Kubernetes 클러스터.** Azure의 응용 프로그램은 지정 된 리소스에 대해 계산 서비스에 [Kubernetes 클러스터](../../../../aks/concepts-clusters-workloads.md) 를 사용할 수 있습니다. AKS (azure Kubernetes Service)는 Azure에서 Kubernetes 노드, 풀 및 클러스터를 오케스트레이션 하는 관리 되는 서비스입니다.
 
 계산 리소스를 확장 하는 올바른 방법을 선택 하려면 Azure와 메인프레임이 어떻게 다른 지 이해 하는 것이 중요 합니다. 키는 계산 리소스에서 데이터를 공유 하는 방법 (또는의 경우)입니다. Azure에서 기본적으로 데이터는 여러 Vm에서 공유 되지 않습니다. 스케일 아웃 계산 클러스터의 여러 Vm에서 데이터 공유를 필요로 하는 경우 공유 데이터는이 기능을 지 원하는 리소스에 있어야 합니다. Azure에서 데이터 공유는 다음 섹션에 설명 된 대로 저장소를 포함 합니다.
 
@@ -114,7 +115,7 @@ Azure 아키텍처에서 각 처리 계층을 최적화할 수 있습니다. 각
 ## <a name="next-steps"></a>다음 단계
 
 - [메인프레임 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Azure Virtual Machines의 메인프레임 재호스팅](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Azure Virtual Machines의 메인프레임 재호스팅](../overview.md)
 - [메인프레임 저장소를 Azure로 이동](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>IBM 리소스

@@ -7,13 +7,17 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 664819b209aeb09093ce8711456b86ff4d3e8949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d246adbf8e87d5503bc19bcd497dd00370c0a867
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84249478"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001920"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 모니터링 합니다.
+
+> [!NOTE]
+> 메트릭은 버전 3 IoT Central 응용 프로그램에만 사용할 수 있습니다. 응용 프로그램 버전을 확인 하는 방법에 [대 한 자세한 내용은 응용 프로그램 정보](./howto-get-app-info.md)를 참조 하세요.
 
 *이 문서는 운영자 및 관리자에 게 적용 됩니다.*
 
@@ -34,25 +38,15 @@ ms.locfileid: "84249478"
 1. 포털에서 IoT Central 응용 프로그램 리소스로 이동 합니다. 기본적으로 IoT Central 리소스는 **Iotc**라는 리소스 그룹에 있습니다.
 1. 응용 프로그램의 메트릭에 따라 차트를 만들려면 **모니터링** 섹션에서 **메트릭** 을 선택 합니다.
 
+![Azure Metrics](media/howto-monitor-application-health/metrics.png)
+
 ### <a name="azure-portal-permissions"></a>Azure Portal 권한
 
 Azure Portal의 메트릭에 대 한 액세스는 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 통해 관리 됩니다. Azure Portal를 사용 하 여 IoT Central 응용 프로그램/리소스 그룹/구독에 사용자를 추가 하 여 액세스 권한을 부여 합니다. 사용자가 이미 IoT Central 응용 프로그램에 추가 된 경우에도 포털에서 사용자를 추가 해야 합니다. 보다 세분화 된 액세스 제어를 위해 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 사용 합니다.
 
 ## <a name="iot-central-metrics"></a>IoT Central 메트릭
 
-다음 표에서는 현재 IoT Central에서 사용할 수 있는 메트릭에 대해 설명 합니다.
-
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형 | 설명 |
-|--------|---------------------|------|------------------|-------------|
-| connectedDeviceCount         | 연결 된 총 장치                              | 개수  | 합계             | IoT Central에 연결 된 장치 수                               |
-| c2d. 성공    | IoT Central에서 장치 속성 읽기가 성공 했습니다.    | 개수  | 합계             | IoT Central에서 시작 된 모든 성공한 속성 읽기 수    |
-| c2d.    | IoT Central에서 장치 속성 읽기가 실패 했습니다.        | 개수  | 합계             | IoT Central에서 시작 된 모든 실패 한 속성 읽기 수        |
-| d2c. 성공    | 장치에서 장치 속성 읽기가 성공 했습니다.        | 개수  | 합계             | 장치에서 시작 된 모든 성공한 속성 읽기 수        |
-| d2c.    | 장치에서 실패 한 장치 속성 읽기            | 개수  | 합계             | 장치에서 시작 된 모든 실패 한 속성 읽기 수            |
-| c2d. 성공  | IoT Central에서 장치 속성 업데이트 성공  | 개수  | 합계             | IoT Central에서 시작 된 모든 성공한 속성 업데이트 수  |
-| c2d.  | IoT Central에서 장치 속성을 업데이트 하지 못했습니다.      | 개수  | 합계             | IoT Central에서 시작 된 모든 실패 한 속성 업데이트 수      |
-| d2c. 성공  | 장치에서 장치 속성 업데이트 성공      | 개수  | 합계             | 장치에서 시작 된 모든 성공한 속성 업데이트 수      |
-| d2c.  | 장치에서 장치 속성 업데이트 실패          | 개수  | 합계             | 장치에서 시작 된 모든 실패 한 속성 업데이트 수          |
+현재 IoT Central 사용할 수 있는 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps)을 참조 하세요.
 
 ### <a name="metrics-and-invoices"></a>메트릭 및 송장
 

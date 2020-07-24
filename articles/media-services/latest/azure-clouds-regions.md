@@ -12,11 +12,12 @@ ms.topic: article
 ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001352"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Azure Media Services v3가 있는 클라우드 및 지역
 
@@ -37,7 +38,7 @@ Azure Media Services v3는 전 세계 Azure, Azure Government, Azure Germany, Az
 
 [LiveTranscription](live-transcription.md) 은 다음 지역에서 제공 됩니다.
 
-- 동남아시아
+- 동남 아시아
 - 서유럽
 - 북유럽
 - 미국 동부
@@ -52,7 +53,7 @@ Azure Media Services v3는 전 세계 Azure, Azure Government, Azure Germany, Az
 
 ### <a name="region-code-name"></a>Azure 지역 코드 이름
 
-**location** 매개 변수를 제공해야 하는 경우 지역 코드 이름을 **location** 값으로 제공해야 합니다. 계정이 속해 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오려면 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에서 다음 줄을 실행합니다.
+**location** 매개 변수를 제공해야 하는 경우 지역 코드 이름을 **location** 값으로 제공해야 합니다. 계정이 속해 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오려면 [Azure CLI](/cli/azure/?view=azure-cli-latest)에서 다음 줄을 실행합니다.
 
 ```azurecli-interactive
 az account list-locations
@@ -79,37 +80,37 @@ az account list-locations
 
 ### <a name="global-azure"></a>글로벌 Azure
 
-|엔드포인트||
-| --- | --- |
+| 서비스 | 엔드포인트 |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | 인증 | `https://login.microsoftonline.com/` |
 | 토큰 대상 그룹 | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
-|엔드포인트||
-| --- | --- |
+| 서비스 | 엔드포인트 |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | 인증 | `https://login.microsoftonline.us/` |
 | 토큰 대상 그룹 | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure 독일
 
-| 엔드포인트 ||
-| --- | --- |  
+| 서비스 | 엔드포인트 |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | 인증 | `https://login.microsoftonline.de/` |
 | 토큰 대상 그룹 | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure 중국 21Vianet
 
-|엔드포인트||
-| --- | --- |
+| 서비스 | 엔드포인트 |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | 인증 | `https://login.chinacloudapi.cn/` |
 | 토큰 대상 그룹 |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)

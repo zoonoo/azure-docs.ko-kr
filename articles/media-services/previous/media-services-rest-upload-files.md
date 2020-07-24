@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d776362b0447b148c0b2bdedba1287fa56058b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000196"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "86170788"
 > * [포털](media-services-portal-upload-files.md)
 > 
 
-Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](https://docs.microsoft.com/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  자산에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다. 
+Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  자산에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다. 
 
 이 자습서에서는 파일을 업로드하는 방법 및 파일과 관련된 기타 작업에 대해 알아보겠습니다.
 
@@ -45,7 +45,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. [자산](
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal를 사용 하 여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 - [AAD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
-- 또한 자세한 내용은 [AZURE AD 인증을 사용 하 여 REST를 사용 하 여 MEDIA SERVICES API에 액세스](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) 문서를 참조 하세요.
+- 또한 자세한 내용은 [AZURE AD 인증을 사용 하 여 REST를 사용 하 여 MEDIA SERVICES API에 액세스](./media-services-rest-connect-with-aad.md) 문서를 참조 하세요.
 - **Postman**을 구성합니다([Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 참조).
 
 ## <a name="considerations"></a>고려 사항
@@ -106,7 +106,7 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 >[!NOTE]
 >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
-년간 File Storage  유지 관리 비용 합계 이렇게 하려면 AccessPolicies 엔터티 집합에 HTTP 요청을 게시합니다. 작성 시 DurationInMinutes 값을 정의하지 않으면 응답에서 500 내부 서버 오류 메시지가 다시 나타납니다. AccessPolicies에 대한 자세한 내용은 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)를 참조하세요.
+년간 File Storage  유지 관리 비용 합계 이렇게 하려면 AccessPolicies 엔터티 집합에 HTTP 요청을 게시합니다. 작성 시 DurationInMinutes 값을 정의하지 않으면 응답에서 500 내부 서버 오류 메시지가 다시 나타납니다. AccessPolicies에 대한 자세한 내용은 [AccessPolicy](/rest/api/media/operations/accesspolicy)를 참조하세요.
 
 ### <a name="create-an-access-policy"></a>액세스 정책 만들기
 
@@ -121,7 +121,7 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
 ### <a name="overview"></a>개요
 
-[자산은](https://docs.microsoft.com/rest/api/media/operations/asset) 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일을 포함 하 여 Media Services의 여러 형식 또는 개체 집합에 대 한 컨테이너입니다. REST API에서 자산을 만들려면 Media Services에 POST 요청을 보내고 자산에 대한 속성 정보를 요청 본문에 배치해야 합니다.
+[자산은](/rest/api/media/operations/asset) 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일을 포함 하 여 Media Services의 여러 형식 또는 개체 집합에 대 한 컨테이너입니다. REST API에서 자산을 만들려면 Media Services에 POST 요청을 보내고 자산에 대한 속성 정보를 요청 본문에 배치해야 합니다.
 
 자산을 만들 때 추가할 수 있는 속성 중 하나는 **옵션**입니다. **없음**(기본적으로 암호화가 사용되지 않음), **StorageEncrypted**(클라이언트 쪽 스토리지 암호화를 사용하여 미리 암호화된 콘텐츠의 경우), **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션 중 하나를 지정할 수 있습니다. 암호화된 자산이 있는 경우 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조 하세요.
 
@@ -144,9 +144,9 @@ Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니
 
 AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure Storage REST API를 사용하여 Azure Blob Storage 컨테이너에 업로드됩니다. 블록 blob으로 파일을 업로드해야 합니다. 페이지 blob은 Azure Media Services에서 지원되지 않습니다.  
 
-Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
+Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)를 참조하세요.
 
-실제 업로드 URL을 받으려면 SAS 로케이터를 만듭니다(아래 참조). 로케이터는 자산에 있는 파일에 액세스하려는 클라이언트에 대한 시작 시간과 연결 엔드포인트의 형식을 정의합니다. 다양한 클라이언트 요청 및 요구 사항을 처리하기 위해 지정된 AccessPolicy 및 자산 쌍에 대해 여러 로케이터 엔터티를 만들 수 있습니다. 이러한 각 로케이터는 AccessPolicy의 StartTime 값과 DurationInMinutes 값을 사용하여 URL이 사용될 수는 시간의 길이를 결정합니다. 자세한 내용은 [로케이터](https://docs.microsoft.com/rest/api/media/operations/locator)를 참조하세요.
+실제 업로드 URL을 받으려면 SAS 로케이터를 만듭니다(아래 참조). 로케이터는 자산에 있는 파일에 액세스하려는 클라이언트에 대한 시작 시간과 연결 엔드포인트의 형식을 정의합니다. 다양한 클라이언트 요청 및 요구 사항을 처리하기 위해 지정된 AccessPolicy 및 자산 쌍에 대해 여러 로케이터 엔터티를 만들 수 있습니다. 이러한 각 로케이터는 AccessPolicy의 StartTime 값과 DurationInMinutes 값을 사용하여 URL이 사용될 수는 시간의 길이를 결정합니다. 자세한 내용은 [로케이터](/rest/api/media/operations/locator)를 참조하세요.
 
 SAS URL의 형식은 다음과 같습니다.
 
@@ -175,9 +175,9 @@ SAS URL의 형식은 다음과 같습니다.
 
 이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Storage REST API 사용](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Blob 배치](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Blob Storage에 Blob 업로드](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Azure Storage REST API 사용](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Blob 배치](/rest/api/storageservices/put-blob)
+- [Blob Storage에 Blob 업로드](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Postman을 사용하여 파일 업로드
 
@@ -209,7 +209,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 ## <a name="validate"></a>유효성 검사
 
-파일이 성공적으로 업로드되었는지 확인하려면 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile)을 쿼리하고 **ContentFileSize**(또는 기타 세부 정보)를 새 자산에 표시될 예상 값과 비교하는 것이 좋습니다. 
+파일이 성공적으로 업로드되었는지 확인하려면 [AssetFile](/rest/api/media/operations/assetfile)을 쿼리하고 **ContentFileSize**(또는 기타 세부 정보)를 새 자산에 표시될 예상 값과 비교하는 것이 좋습니다. 
 
 예를 들어 다음 **GET** 작업은 자산 파일(예제에서는 BigBuckBunny.mp4 파일)에 대한 파일 데이터를 가져옵니다. 쿼리는 앞에서 설정한 [환경 변수](postman-environment.md)를 사용하고 있습니다.
 
@@ -229,4 +229,3 @@ SAS URL의 형식은 다음과 같습니다.
 이제 업로드된 자산을 인코딩할 수 있습니다. 자세한 내용은 [자산 인코딩](media-services-portal-encode.md)을 참조하세요.
 
 또한 Azure Functions를 사용하여 구성된 컨테이너에 도착하는 파일에 따라 인코딩 작업을 트리거할 수도 있습니다. 자세한 내용은 [이 샘플](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )을 참조하세요.
-

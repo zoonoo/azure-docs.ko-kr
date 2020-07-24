@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999301"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics 솔루션 패턴
 
@@ -21,7 +22,7 @@ Azure의 다른 많은 서비스와 마찬가지로 Stream Analytics 다른 서�
 
 Azure Stream Analytics를 사용 하면 실시간 대시보드 및 경고를 신속 하 게 사용할 수 있습니다. 간단한 솔루션은 Event Hubs 또는 IoT Hub에서 이벤트를 수집 하 고 [스트리밍 데이터 집합을 사용 하 여 Power BI 대시보드를 피드](/power-bi/service-real-time-streaming)합니다. 자세한 내용은 자세한 자습서 [Stream Analytics 사용 하 여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화](stream-analytics-manage-job.md)를 참조 하세요.
 
-![GLOBAL.ASA Power BI 대시보드](media/stream-analytics-solution-patterns/pbidashboard.png)
+![GLOBAL.ASA Power BI 대시보드](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 
 Azure Portal에서 몇 분만에이 솔루션을 빌드할 수 있습니다. 포괄적인 코딩은 없으며, 비즈니스 논리를 표현 하는 데 SQL 언어가 사용 됩니다.
 
@@ -31,7 +32,7 @@ Azure Portal에서 몇 분만에이 솔루션을 빌드할 수 있습니다. 포
 
 Power BI 대시보드는 짧은 대기 시간을 제공 하지만 완전 한 Power BI 보고서를 생성 하는 데 사용할 수 없습니다. 일반적인 보고 패턴은 데이터를 먼저 SQL Database 출력 하는 것입니다. 그런 다음 Power BI의 SQL connector를 사용 하 여 SQL에서 최신 데이터를 쿼리 합니다.
 
-![GLOBAL.ASA SQL 대시보드](media/stream-analytics-solution-patterns/sqldashboard.png)
+![GLOBAL.ASA SQL 대시보드](media/stream-analytics-solution-patterns/sql-dashboard.png)
 
 SQL Database를 사용 하면 더 많은 유연성이 제공 되지만 약간 더 높은 대기 시간이 발생 합니다. 이 솔루션은 대기 시간이 1 초 보다 큰 작업에 적합 합니다. 이 방법을 사용 하면 보고서의 데이터를 추가로 조각화 및 분석 하 고 훨씬 더 많은 시각화 옵션을 위해 Power BI 기능을 최대화할 수 있습니다. 또한 Tableau와 같은 다른 대시보드 솔루션을 사용 하는 유연성을 얻을 수 있습니다.
 
@@ -43,7 +44,7 @@ SQL은 처리량이 높은 데이터 저장소가 아닙니다. Azure Stream Ana
 
 기존 비즈니스 워크플로에서 경고를 생성 하려면 다운스트림 이벤트 소비자 논리를 구현 해야 합니다. Azure Functions에서 사용자 지정 논리를 구현할 수 있으므로이 통합을 수행할 수 있는 가장 빠른 방법은 Azure Functions입니다. Stream Analytics 작업에 대 한 출력으로 Azure 함수를 사용 하는 방법에 대 한 자습서는 [Azure Stream Analytics 작업에서 실행 Azure Functions](stream-analytics-with-azure-functions.md)에서 찾을 수 있습니다. Azure Functions는 텍스트와 전자 메일을 비롯 한 다양 한 유형의 알림도 지원 합니다. 논리 앱은 Stream Analytics와 논리 앱 간의 Event Hubs와 함께 이러한 통합에도 사용할 수 있습니다.
 
-![GLOBAL.ASA 이벤트 메시징 앱](media/stream-analytics-solution-patterns/eventmessagingapp.png)
+![GLOBAL.ASA 이벤트 메시징 앱](media/stream-analytics-solution-patterns/event-messaging-app.png)
 
 반면 Event Hubs은 가장 유연한 통합 지점을 제공 합니다. Azure 데이터 탐색기 및 Time Series Insights와 같은 다른 많은 서비스에서는 Event Hubs의 이벤트를 사용할 수 있습니다. 서비스는 Azure Stream Analytics에서 Event Hubs 싱크로 직접 연결 하 여 솔루션을 완료할 수 있습니다. 이러한 통합 시나리오를 위해 Azure에서 제공 하는 최고 수준의 처리량 메시징 broker도 Event Hubs입니다.
 
@@ -51,7 +52,7 @@ SQL은 처리량이 높은 데이터 저장소가 아닙니다. Azure Stream Ana
 
 Azure Stream Analytics 및 Azure SignalR 서비스를 사용 하 여 대시보드 또는 지도 시각화와 같은 사용자 지정 실시간 시각화를 만들 수 있습니다. 웹 클라이언트는 SignalR를 사용 하 여 동적 콘텐츠를 실시간으로 업데이트 하 고 표시할 수 있습니다.
 
-![GLOBAL.ASA 동적 앱](media/stream-analytics-solution-patterns/dynamicapp.png)
+![GLOBAL.ASA 동적 앱](media/stream-analytics-solution-patterns/dynamic-app.png)
 
 ## <a name="incorporate-real-time-insights-into-your-application-through-data-stores"></a>데이터 저장소를 통해 응용 프로그램에 실시간 정보를 통합 합니다.
 
@@ -59,13 +60,13 @@ Azure Stream Analytics 및 Azure SignalR 서비스를 사용 하 여 대시보�
 
 데이터 볼륨이 높으면 CRUD 기반 시스템에서 성능 병목 현상이 종종 발생 합니다. [이벤트 소싱 솔루션 패턴](/azure/architecture/patterns/event-sourcing) 은 성능 병목 상태를 해결 하는 데 사용 됩니다. 임시 패턴 및 정보는 기존 데이터 저장소에서 추출 하는 것도 어렵고 비효율적입니다. 최신 대용량 데이터 기반 응용 프로그램은 종종 데이터 흐름 기반 아키텍처를 채택 합니다. 동작에서 데이터에 대 한 계산 엔진 Azure Stream Analytics 해당 아키텍처의 linchpin입니다.
 
-![GLOBAL.ASA 이벤트 소싱 앱](media/stream-analytics-solution-patterns/eventsourcingapp.png)
+![GLOBAL.ASA 이벤트 소싱 앱](media/stream-analytics-solution-patterns/event-sourcing-app.png)
 
 이 솔루션 패턴에서는 이벤트를 처리 하 고 Azure Stream Analytics 하 여 데이터 저장소에 집계 합니다. 응용 프로그램 계층은 일반적인 요청/응답 패턴을 사용 하 여 데이터 저장소와 상호 작용 합니다. 많은 수의 이벤트를 실시간으로 처리 하는 Stream Analytics 기능으로 인해 응용 프로그램은 데이터 저장소 계층을 대량으로 수행할 필요 없이 확장성이 매우 뛰어납니다. 데이터 저장소 계층은 기본적으로 시스템에서 구체화 된 뷰입니다. [Azure Cosmos DB 출력을 Azure Stream Analytics](stream-analytics-documentdb-output.md) Cosmos DB Stream Analytics 출력으로 사용 되는 방법을 설명 합니다.
 
 처리 논리가 복잡 하 고 논리의 특정 부분을 독립적으로 업그레이드 해야 하는 실제 응용 프로그램에서는 여러 Stream Analytics 작업을 Event Hubs와 함께 중간 이벤트 브로커로 구성할 수 있습니다.
 
-![GLOBAL.ASA 복합 이벤트 소싱 앱](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
+![GLOBAL.ASA 복합 이벤트 소싱 앱](media/stream-analytics-solution-patterns/event-sourcing-app-complex.png)
 
 이 패턴은 시스템의 복원 력 및 관리 효율성을 향상 시킵니다. 그러나 Stream Analytics는 정확히 한 번 처리를 보장 하는 경우에도 중복 이벤트가 중간 Event Hubs에 있을 수 있습니다. 다운스트림 Stream Analytics 작업이 lookback 창에서 논리 키를 사용 하 여 이벤트를 중복 제거 하는 것이 중요 합니다. 이벤트 배달에 대 한 자세한 내용은 [이벤트 배달 보장](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) 참조를 참조 하세요.
 
@@ -75,7 +76,7 @@ Azure Stream Analytics 참조 데이터 기능은 경고 임계값, 처리 규�
 
 이 패턴을 사용 하 여 규칙의 임계값이 참조 데이터에서 정의 되는 규칙 엔진을 구현할 수도 있습니다. 규칙에 대 한 자세한 내용은 [Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리](stream-analytics-threshold-based-rules.md)를 참조 하세요.
 
-![GLOBAL.ASA 참조 데이터 앱](media/stream-analytics-solution-patterns/refdataapp.png)
+![GLOBAL.ASA 참조 데이터 앱](media/stream-analytics-solution-patterns/reference-data-app.png)
 
 ## <a name="add-machine-learning-to-your-real-time-insights"></a>실시간 정보에 Machine Learning 추가
 
@@ -83,37 +84,39 @@ Azure Stream Analytics ' 기본 제공 [변칙 검색 모델](stream-analytics-m
 
 온라인 학습 및 점수 매기기를 동일한 Stream Analytics 파이프라인에 통합 하려는 고급 사용자의 경우 [선형 회귀](stream-analytics-high-frequency-trading.md)를 사용 하 여이 작업을 수행 하는 방법의 예제를 참조 하세요.
 
-![GLOBAL.ASA Machine Learning 앱](media/stream-analytics-solution-patterns/mlapp.png)
+![GLOBAL.ASA Machine Learning 앱](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
 ## <a name="near-real-time-data-warehousing"></a>거의 실시간 데이터 웨어하우징
 
 또 다른 일반적인 패턴은 스트리밍 데이터 웨어하우스 라고도 하는 실시간 데이터 웨어하우징입니다. 응용 프로그램에서 Event Hubs 및 IoT Hub에 도착 하는 이벤트 외에도 [IoT Edge에서 실행](stream-analytics-edge.md) 되는 Azure Stream Analytics를 사용 하 여 데이터 정리, 데이터 감소, 데이터 저장소 및 전달 요구 사항을 충족할 수 있습니다. IoT Edge에서 실행 되는 Stream Analytics 시스템에서 대역폭 제한 및 연결 문제를 정상적으로 처리할 수 있습니다. SQL 출력 어댑터를 사용 하 여 SQL Data Warehouse에 출력할 수 있습니다. 그러나 최대 처리량은 10mb/s로 제한 됩니다.
 
-![GLOBAL.ASA 데이터 웨어하우징](media/stream-analytics-solution-patterns/datawarehousing.png)
+![GLOBAL.ASA 데이터 웨어하우징](media/stream-analytics-solution-patterns/data-warehousing.png)
 
 약간의 대기 시간으로 처리량을 향상 시키는 한 가지 방법은 이벤트를 Azure Blob storage에 보관 한 다음 [Polybase를 사용 하 여 SQL Data Warehouse로 가져오는](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)것입니다. Stream Analytics의 출력을 blob 저장소에 수동으로 연결 하 고, [타임 스탬프를 통해 데이터를 보관](stream-analytics-custom-path-patterns-blob-storage-output.md) 하 고 주기적으로 가져와서 blob storage에서 SQL Data Warehouse로 입력 해야 합니다.
 
 이 사용 패턴에서 Azure Stream Analytics은 거의 실시간 ETL 엔진으로 사용 됩니다. 새로 도착 한 이벤트는 계속 변환 되어 다운스트림 분석 서비스 사용을 위해 저장 됩니다.
 
-![GLOBAL.ASA 높은 처리량 데이터 웨어하우징](media/stream-analytics-solution-patterns/datawarehousing2.png)
+![GLOBAL.ASA 높은 처리량 데이터 웨어하우징](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>분석에 대 한 실시간 데이터 보관
 
 대부분의 데이터 과학 및 분석 작업은 계속 오프 라인으로 수행 됩니다. Azure Data Lake Store Gen2 output 및 Parquet 출력 형식을 통해 Azure Stream Analytics 하 여 데이터를 보관할 수 있습니다. 이 기능은 Azure Data Lake Analytics, Azure Databricks 및 Azure HDInsight에 직접 데이터를 피드 하는 마찰을 제거 합니다. Azure Stream Analytics는이 솔루션에서 거의 실시간 ETL 엔진으로 사용 됩니다. 다양 한 계산 엔진을 사용 하 여 Data Lake에서 보관 된 데이터를 탐색할 수 있습니다.
 
-![GLOBAL.ASA 오프 라인 분석](media/stream-analytics-solution-patterns/offlineanalytics.png)
+> [!div class="mx-imgBorder"]
+> ![GLOBAL.ASA 오프 라인 분석](media/stream-analytics-solution-patterns/offline-analytics.png)
 
 ## <a name="use-reference-data-for-enrichment"></a>보강에 대 한 참조 데이터 사용
 
 데이터 보강은 종종 ETL 엔진을 위한 요구 사항입니다. Azure Stream Analytics는 SQL Database와 Azure Blob 저장소의 [참조 데이터](stream-analytics-use-reference-data.md) 를 사용 하 여 데이터 보강 지원 합니다. 데이터 보강 Azure Data Lake와 SQL Data Warehouse 모두에 데이터를 입력할 수 있습니다.
 
-![데이터 보강를 사용 하는 GLOBAL.ASA 오프 라인 분석](media/stream-analytics-solution-patterns/offlineanalytics.png)
+
+![데이터 보강를 사용 하는 GLOBAL.ASA 오프 라인 분석](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
 
 ## <a name="operationalize-insights-from-archived-data"></a>보관 된 데이터에서 통찰력 운영
 
 오프 라인 분석 패턴과 거의 실시간 응용 프로그램 패턴을 결합 하는 경우 피드백 루프를 만들 수 있습니다. 피드백 루프를 통해 응용 프로그램은 데이터의 패턴을 변경 하기 위해 자동으로 조정할 수 있습니다. 이 피드백 루프는 경고에 대 한 임계값을 변경 하는 것 처럼 간단할 수도 있고, Machine Learning 모델을 다시 학습 하는 것 처럼 복잡할 수도 있습니다. 동일한 솔루션 아키텍처를 클라우드 및 IoT Edge에서 실행 되는 모든 작업에 적용할 수 있습니다.
 
-![운영 화](media/stream-analytics-solution-patterns/insightsoperationalization.png)
+![운영 화](media/stream-analytics-solution-patterns/insights-operationalization.png)
 
 ## <a name="how-to-monitor-asa-jobs"></a>GLOBAL.ASA 작업을 모니터링 하는 방법
 
@@ -162,7 +165,7 @@ Azure Stream Analytics의 SLA 보증 및 종단 간 응용 프로그램을 실�
 
 다행히 이전 데이터 보관 패턴은 이러한 지연 이벤트를 정상적으로 처리 하는 데 사용할 수 있습니다. 보관 작업은 도착 시간에 들어오는 이벤트를 처리 하 고, Azure Blob의 적절 한 시간 버킷에 이벤트를 보관 하거나 이벤트 시간으로 Azure Data Lake Store 하는 것입니다. 이벤트가 발생 하는 빈도는 중요 하지 않습니다 .이는 삭제 되지 않습니다. 항상 올바른 시간 버킷에 배치 됩니다. 복구 중에는 보관 된 이벤트를 다시 처리 하 고 선택한 저장소에 결과를 백필 할 수 있습니다. 이는 람다 패턴을 구현 하는 방법과 비슷합니다.
 
-![GLOBAL.ASA 백필](media/stream-analytics-solution-patterns/backfill.png)
+![GLOBAL.ASA 백필](media/stream-analytics-solution-patterns/back-fill.png)
 
 백필 프로세스는 Azure Stream Analytics와 다른 프로그래밍 모델을 사용 하는 오프 라인 일괄 처리 시스템을 사용 하 여 수행 해야 합니다. 즉, 전체 처리 논리를 다시 구현 해야 합니다.
 

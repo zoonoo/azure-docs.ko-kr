@@ -4,13 +4,13 @@ description: 이 문서에서는 상업용 Marketplace 거래 옵션에 대한 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 29fa4126d8d0b4f3419c729ee3a73ae315b13122
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001369"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -134,7 +134,7 @@ Marketplace 서비스 요금 절감에 적격한 파트너는 2019년 5월부터
 |Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 90%의 라이선스 비용을 지급합니다.   |   매월 $80.00 <br> \* 매월 $90.00    |
 |Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 10%의 라이선스 비용을 유지합니다.  |  매월 $20.00 <br> \* $10.00     |
 
-상업적 marketplace에 게시 하는 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 **Marketplace 서비스 요금** 을 절감 합니다. 제품이 해당 자격을 획득하려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정해야 합니다. 이러한 Marketplace 서비스 요금 절감 혜택을 당월에 적용받으려면 전월 말로부터 영업일로 5일 이상 전에 자격을 충족해야 합니다. Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상업적 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다. 이러한 요금 절감은 2019년 5월 1일부터 2020년 6월 30일까지 Microsoft에서 수금한 라이선스 요금에 대해 적격 제품에 제공됩니다. 이 기간 후에는 요금이 정상으로 돌아옵니다.
+상업적 marketplace에 게시 하는 특정 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incetivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에 적용 됩니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 
@@ -180,7 +180,7 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 
 거래 게시 옵션은 다음과 같은 Marketplace 제품 유형에서만 사용할 수 있습니다.
 
-- **가상 머신** – 무료, 사용자 라이선스 보유 또는 종 량 제 모델을 선택 하 고 제품 수준에서 정의 된 sku로 제공 합니다. 고객의 Azure 청구서에서 Microsoft는 게시자 소프트웨어 라이선스 요금을 기본 Azure 인프라 요금과는 별도로 표시합니다. Azure 인프라 요금은 게시자 소프트웨어 사용으로 발생됩니다.
+- **가상 머신** – 무료, 사용자 라이선스 보유 또는 종 량 제 가격 책정 모델을 선택 하 고 제품 수준에서 정의 된 요금제로 제공 합니다. 고객의 Azure 청구서에서 Microsoft는 게시자 소프트웨어 라이선스 요금을 기본 Azure 인프라 요금과는 별도로 표시합니다. Azure 인프라 요금은 게시자 소프트웨어 사용으로 발생됩니다.
 
 - **Azure 응용 프로그램: 솔루션 템플릿 또는 관리 되는 앱** – 하나 이상의 가상 머신을 프로 비전 하 고 가상 머신 가격의 합계를 가져옵니다. 단일 플랜의 관리형 앱은 가격 책정 모델로 가상 머신 가격 책정 대신 고정 월간 구독을 선택할 수 있습니다. 일부 경우에 Azure 인프라 사용 요금은 동일한 청구서에 소프트웨어 라이선스 요금과는 별도로 표시되어 고객에게 전달됩니다. 그러나 ISV 인프라 요금에 대 한 관리 되는 앱을 구성 하는 경우 Azure 리소스는 게시자로 청구 되 고 고객은 인프라, 소프트웨어 라이선스 및 관리 서비스 비용을 포함 하는 정액 요금을 받습니다.
 

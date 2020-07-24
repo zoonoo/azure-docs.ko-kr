@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2f1f059f3abfd04ae78d9a2a19cff2929e84b8a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 72c012ba9ce28c0ca5dd5a315cf94b8895558a0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001692"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -41,13 +41,13 @@ MQTT 포트(8883)는 많은 회사 및 교육 네트워킹 환경에서 차단�
 
 ## <a name="using-the-device-sdks"></a>디바이스 SDK 사용
 
-MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/azure-iot-sdks)는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 클라이언트 프로토콜 매개 변수에서 웹 소켓을 통한 MQTT를 지정할 수도 있습니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
+MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/azure-iot-sdks)는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 클라이언트 프로토콜 매개 변수에서 웹 소켓을 통한 MQTT를 지정할 수도 있습니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다. 더 빠른 메시지 교환에 대해 **QoS 0** 을 구성할 수 있지만 배달이 보장 되거나 승인 되지 않는다는 점에 유의 해야 합니다. 이러한 이유로, **QoS 0** 을 종종 "화재 and 잊어버린" 이라고 합니다.
 
 디바이스가 IoT Hub에 연결되면 디바이스 SDK는 IoT Hub와 메시지를 교환할 수 있게 하는 메서드를 제공합니다.
 
 다음 표에는 지원되는 각 언어의 코드 샘플 링크가 있고 MQTT 또는 웹 소켓을 통한 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 데 사용할 매개 변수를 지정합니다.
 
-| 언어 | MQTT 프로토콜 매개 변수 | 웹 소켓을 통한 MQTT 프로토콜 매개 변수
+| Language | MQTT 프로토콜 매개 변수 | 웹 소켓을 통한 MQTT 프로토콜 매개 변수
 | --- | --- | --- |
 | [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
@@ -76,8 +76,8 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 |언어  |기본 keep-alive 간격  |구성 가능 여부  |
 |---------|---------|---------|
-|Node.js     |   180초      |     예    |
-|Java     |    230초     |     예    |
+|Node.js     |   180초      |     아니요    |
+|Java     |    230초     |     아니요    |
 |C     | 240초 |  [예](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300초 |  [예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
 |Python(V2)   | 60초 |  예   |
@@ -308,7 +308,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{devi
 
 클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
 
-| 속성 값 | 표현 | 설명 |
+| 속성 값 | 표현 | Description |
 |----|----|----|
 | `null` | `key` | 키만 속성 모음에 표시 됩니다. |
 | 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |
@@ -346,7 +346,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{devi
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -366,7 +366,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들면 다음과 같습니다.
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들어:
 
 ```json
 {
@@ -377,7 +377,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |

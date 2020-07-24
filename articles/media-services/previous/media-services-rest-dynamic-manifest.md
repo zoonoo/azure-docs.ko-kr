@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 8166a85d1c3421d95ac2b818e51b6b60e7663165
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9bc351f72f5dac38ebfc1983a7b918d46f5fc8ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170669"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000315"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure Media Services REST API로 필터 생성 
 > [!div class="op_single_selector"]
@@ -38,10 +38,10 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
 필터를 생성할 때는 다음 형식이 사용됩니다.  
 
-* [필터](https://docs.microsoft.com/rest/api/media/operations/filter)
-* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* [FilterTrackSelect 및 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* [Filter](/rest/api/media/operations/filter)
+* [AssetFilter](/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect 및 FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > 
@@ -217,7 +217,7 @@ x-ms-client-request-id: 00000000
 ```
 
 ## <a name="update-filters"></a>필터 업데이트
-PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이트합니다.  이 작업에 대한 자세한 내용은 [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx)를 참조하십시오.
+PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이트합니다.  이 작업에 대한 자세한 내용은 [PATCH, PUT, MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893)를 참조하십시오.
 
 필터를 업데이트하는 경우 스트리밍 엔드포인트가 규칙을 새로 고치는 데 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터를 업데이트한 후에 캐시를 지웁니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.  
 
@@ -371,4 +371,3 @@ Host: media.windows.net
 
 ## <a name="see-also"></a>참고 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
-

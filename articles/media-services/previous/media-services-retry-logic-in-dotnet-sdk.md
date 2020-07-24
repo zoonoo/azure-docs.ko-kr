@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 120b7e044452dc47126923449a3e1a6e55cfd6a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61094660"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000026"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리  
 
@@ -50,7 +50,7 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | IOException |예 |예 |아니요 |아니요 |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> WebException 상태 코드
-다음 테이블은 어떤 WebException 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다. [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 열거형은 상태 코드를 정의합니다.  
+다음 테이블은 어떤 WebException 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다. [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) 열거형은 상태 코드를 정의합니다.  
 
 | 상태 | 웹 요청 | 스토리지 | 쿼리 | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -88,4 +88,3 @@ Query 및 SaveChanges 작업에서 DataServiceClientException, DataServiceQueryE
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: f136fb666e93adc0fe92aee014e3da9a37bbd6aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82d5c605baf6f95df7fee62379772ce13d696ac6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70035807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000808"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Azure CLI를 사용하여 Azure AD 앱을 만들고 Media Services API에 액세스하도록 구성 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 이 항목에서는 Azure CLI를 사용하여 Azure Media Services 리소스에 액세스하기 위한 Azure AD(Active Directory) 애플리케이션과 서비스 사용자를 만드는 방법을 설명합니다. 
 
@@ -49,7 +49,7 @@ az ad sp create-for-rbac --name <appName>
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
-예:
+예를 들어:
 
 ```azurecli
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash
@@ -63,7 +63,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 * **리소스 그룹** 수준.
 * **리소스** 수준(예: 미디어 계정).
 
-자세한 내용은 [Azure CLI를 사용하여 Azure 서비스 사용자 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 참조하세요.
+자세한 내용은 [Azure CLI를 사용하여 Azure 서비스 사용자 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)를 참조하세요.
 
 또한 [Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리](../../role-based-access-control/role-assignments-cli.md)도 참조하세요. 
 

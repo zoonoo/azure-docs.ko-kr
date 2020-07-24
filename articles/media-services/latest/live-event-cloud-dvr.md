@@ -14,17 +14,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995815"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000995"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>시간 이동 및 라이브 출력을 사용 하 여 주문형 비디오 재생 만들기
 
-Azure Media Services [라이브 출력](https://docs.microsoft.com/rest/api/media/liveoutputs) 개체는 라이브 스트림을 catch 하 고 Media Services 계정의 자산으로 기록 하는 디지털 비디오 레코더와 비슷합니다. 기록 된 콘텐츠는 [자산](https://docs.microsoft.com/rest/api/media/assets) 리소스로 정의 된 컨테이너에 유지 됩니다. 컨테이너는 계정에 연결 된 Azure Storage 계정에 있습니다. 또한 라이브 출력을 사용 하면 보관 기록에 보관 되는 스트림 양 (예: 클라우드 DVR의 용량) 또는 뷰어가 라이브 스트림 감시를 시작할 수 있는 경우와 같이 나가는 라이브 스트림의 일부 속성을 제어할 수 있습니다. 디스크의 보관 파일은 실시간 출력의 **archiveWindowLength** 속성에 지정 된 양의 내용만 보유 하는 순환 보관 "창"입니다. 이 창 외부에 속하는 콘텐츠는 저장소 컨테이너에서 자동으로 삭제 되며 복구할 수 없습니다. ArchiveWindowLength 값은 DVR의 용량을 지정 하는 ISO-8601 timespan 기간 (예: PTHH: MM: SS)을 나타냅니다. 값은 최소 1 분에서 최대 25 시간까지 설정할 수 있습니다.
+Azure Media Services [라이브 출력](/rest/api/media/liveoutputs) 개체는 라이브 스트림을 catch 하 고 Media Services 계정의 자산으로 기록 하는 디지털 비디오 레코더와 비슷합니다. 기록 된 콘텐츠는 [자산](/rest/api/media/assets) 리소스로 정의 된 컨테이너에 유지 됩니다. 컨테이너는 계정에 연결 된 Azure Storage 계정에 있습니다. 또한 라이브 출력을 사용 하면 보관 기록에 보관 되는 스트림 양 (예: 클라우드 DVR의 용량) 또는 뷰어가 라이브 스트림 감시를 시작할 수 있는 경우와 같이 나가는 라이브 스트림의 일부 속성을 제어할 수 있습니다. 디스크의 보관 파일은 실시간 출력의 **archiveWindowLength** 속성에 지정 된 양의 내용만 보유 하는 순환 보관 "창"입니다. 이 창 외부에 속하는 콘텐츠는 저장소 컨테이너에서 자동으로 삭제 되며 복구할 수 없습니다. ArchiveWindowLength 값은 DVR의 용량을 지정 하는 ISO-8601 timespan 기간 (예: PTHH: MM: SS)을 나타냅니다. 값은 최소 1 분에서 최대 25 시간까지 설정할 수 있습니다.
 
-라이브 이벤트와 해당 라이브 출력 간의 관계는 기존 TV 브로드캐스트와 유사 합니다. 즉, 채널 (라이브 이벤트)은 비디오의 상수 스트림을 나타내고 기록 (실시간 출력)의 범위는 특정 시간 세그먼트로 제한 됩니다 (예: 오후 6 시 30 분 ~ 7:00PM). 스트림이 라이브 이벤트로 흐르는 경우 자산, 라이브 출력 및 스트리밍 로케이터를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관하고 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있도록 합니다. 라이브 이벤트에서 보관 기간 및 설정이 서로 다른 여러 개의 라이브 출력(최대 3개)을 만들 수 있습니다. 라이브 스트리밍 워크플로에 대 한 자세한 내용은 [일반 단계](live-streaming-overview.md#general-steps) 섹션을 참조 하세요.
+라이브 이벤트와 해당 라이브 출력 간의 관계는 기존 TV 브로드캐스트와 유사 합니다. 즉, 채널 (라이브 이벤트)은 비디오의 상수 스트림을 나타내고 기록 (실시간 출력)의 범위는 특정 시간 세그먼트로 제한 됩니다 (예: 오후 6 시 30 분 ~ 7:00PM). 스트림이 라이브 이벤트로 흐르는 경우 자산, 라이브 출력 및 스트리밍 로케이터를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관하고 [스트리밍 엔드포인트](/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있도록 합니다. 라이브 이벤트에서 보관 기간 및 설정이 서로 다른 여러 개의 라이브 출력(최대 3개)을 만들 수 있습니다. 라이브 스트리밍 워크플로에 대 한 자세한 내용은 [일반 단계](live-streaming-overview.md#general-steps) 섹션을 참조 하세요.
 
 ## <a name="using-a-dvr-during-an-event"></a>이벤트 중에 DVR 사용
 
@@ -38,7 +39,7 @@ Azure Media Services [라이브 출력](https://docs.microsoft.com/rest/api/medi
 
 ## <a name="creating-an-archive-for-on-demand-playback"></a>주문형 재생에 대 한 보관 파일 만들기
 
-라이브 출력이 보관 되는 자산은 자동으로 라이브 출력이 삭제 될 때 주문형 자산이 됩니다. 라이브 이벤트를 중지 하려면 먼저 모든 라이브 출력을 삭제 해야 합니다. 선택적 플래그 [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) 를 사용 하 여 중지 시 자동으로 라이브 출력을 제거할 수 있습니다.
+라이브 출력이 보관 되는 자산은 자동으로 라이브 출력이 삭제 될 때 주문형 자산이 됩니다. 라이브 이벤트를 중지 하려면 먼저 모든 라이브 출력을 삭제 해야 합니다. 선택적 플래그 [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) 를 사용 하 여 중지 시 자동으로 라이브 출력을 제거할 수 있습니다.
 
 이벤트를 중지 하 고 삭제 한 후에도 자산을 삭제 하지 않는 한 사용자는 주문형 비디오로 보관 된 콘텐츠를 스트리밍할 수 있습니다. 자산을 이벤트에서 사용 하는 경우 삭제 해서는 안 됩니다. 이벤트를 먼저 삭제 해야 합니다.
 

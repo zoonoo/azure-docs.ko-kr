@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 38168db9706bd168b3edc2e740eaea40b23d4b0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999618"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>3 부: SMB를 통한 디렉터리 및 파일 수준 권한 구성 
 
@@ -51,7 +51,16 @@ Azure Files은 기본 및 고급 Windows Acl의 전체 집합을 지원 합니�
 Windows 명령을 사용 `net use` 하 여 Azure 파일 공유를 탑재 합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 파일 공유 탑재에 대 한 자세한 내용은 [Windows에서 Azure 파일 공유 사용](storage-how-to-use-files-windows.md)을 참조 하세요. 
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+  net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+} 
+else 
+{
+  Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN,   Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 Azure Files 탑재 오류에 대해 게시 된 문제 해결 도구](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)를 참조 하세요. 또한 포트 445이 차단 될 때 시나리오를 해결 하기 위한 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) 을 제공 합니다. 

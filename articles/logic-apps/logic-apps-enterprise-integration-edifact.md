@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c9d80ccac311b02d8734663d99a37804f8280771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001539"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 
@@ -22,7 +22,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 > [!NOTE]
 > 이 페이지에서는 Azure Logic Apps의 EDIFACT 기능을 설명합니다. 자세한 내용은 [X12](logic-apps-enterprise-integration-x12.md)를 참조하세요.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 필요한 항목은 다음과 같습니다.
 
@@ -251,7 +251,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/edifact/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/edifact/)를 참조 하세요.
 
 > [!NOTE]
 > 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.

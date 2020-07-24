@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2337a7543f84d7eba5f565d875129cf22e8b27ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74888498"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001216"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Media Services v3 API에 연결-Java
 
@@ -25,7 +26,7 @@ ms.locfileid: "74888498"
 
 이 문서에서 Visual Studio Code는 샘플 앱을 개발 하는 데 사용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio Code를 사용 하 여 Java 작성](https://code.visualstudio.com/docs/java/java-tutorial) 다음을 설치 합니다.
 
@@ -33,8 +34,8 @@ ms.locfileid: "74888498"
    - Apache Maven
    - Java 확장 팩
 - `JAVA_HOME`및 환경 변수를 설정 해야 `PATH` 합니다.
-- [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
-- [Api 액세스](access-api-cli-how-to.md) 항목의 단계를 따릅니다. 이후 단계에서 필요한 구독 ID, 응용 프로그램 ID (클라이언트 ID), 인증 키 (비밀) 및 테 넌 트 ID를 기록 합니다.
+- [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
+- [Api 액세스](./access-api-howto.md) 항목의 단계를 따릅니다. 이후 단계에서 필요한 구독 ID, 응용 프로그램 ID (클라이언트 ID), 인증 키 (비밀) 및 테 넌 트 ID를 기록 합니다.
 
 또한 다음을 검토 합니다.
 
@@ -93,7 +94,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-1. 요청을 수행 하는 데 필요한 Active Directory 자격 증명을 만들려면 App 클래스의 main 메서드에 다음 코드를 추가 하 고 [액세스 api](access-api-cli-how-to.md)에서 얻은 값을 설정 합니다.
+1. 요청을 수행 하는 데 필요한 Active Directory 자격 증명을 만들려면 App 클래스의 main 메서드에 다음 코드를 추가 하 고 [액세스 api](./access-api-howto.md)에서 얻은 값을 설정 합니다.
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -118,7 +119,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
    ```
 1. 앱을 실행합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Media Services 개념](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
@@ -129,4 +130,4 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
 
 이제 `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` 엔터티 조작을 포함 하 고 시작할 수 있습니다.
 
-더 많은 코드 예제는 [JAVA SDK 샘플](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) 리포지토리를 참조 하세요.
+더 많은 코드 예제는 [JAVA SDK 샘플](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) 리포지토리를 참조 하세요.

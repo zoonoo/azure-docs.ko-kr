@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c1976adba0159b54bd64b2c8830c3aaad9959912
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999520"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
 
@@ -29,7 +29,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 
 > [!NOTE]
 > * StorSimple용 Windows PowerShell cmdlet을 사용하면 직렬 콘솔에서 또는 Windows PowerShell 원격을 통해 원격으로 StorSimple 디바이스를 관리할 수 있습니다. 이 인터페이스에서 사용할 수 있는 개별 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)를 참조하세요.
-> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure)를 참조하세요.
+> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure)를 참조하세요.
 
 
 다음 방법 중 하나를 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.

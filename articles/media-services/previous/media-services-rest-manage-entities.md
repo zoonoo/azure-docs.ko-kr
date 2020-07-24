@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f18885634503cc65a5bf78d93bd84afd018956bd
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0e79469aa0e405a0096d483ae290d10415fe74f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000060"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리  
 
@@ -149,7 +149,7 @@ Host: media.windows.net
 ```
 
 ## <a name="updating-entities"></a>엔터티 업데이트
-엔터티 형식 및 엔터티 상태에 따라 PATCH, PUT 또는 MERGE HTTP 요청을 통해 해당 엔터티의 속성을 업데이트할 수 있습니다. 이 작업에 대한 자세한 내용은 [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx)를 참조하세요.
+엔터티 형식 및 엔터티 상태에 따라 PATCH, PUT 또는 MERGE HTTP 요청을 통해 해당 엔터티의 속성을 업데이트할 수 있습니다. 이 작업에 대한 자세한 내용은 [PATCH/PUT/MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893)를 참조하세요.
 
 다음 코드 예제에서는 Asset 엔터티의 Name 속성을 업데이트하는 방법을 보여 줍니다.
 
@@ -190,4 +190,3 @@ Content-Length: 0
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

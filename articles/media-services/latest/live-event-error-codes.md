@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
-ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f86c157652f6219afdf1df1da9b8ad385f059aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000954"
 ---
 # <a name="media-services-live-event-error-codes"></a>Media Services 라이브 이벤트 오류 코드
 
@@ -26,7 +26,7 @@ ms.locfileid: "82791054"
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-라이브 이벤트에 대 한 [Event Grid](https://docs.microsoft.com/azure/event-grid/) 이벤트를 구독할 때 [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
+라이브 이벤트에 대 한 [Event Grid](../../event-grid/index.yml) 이벤트를 구독할 때 [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
 
 | 결과 코드 | Description |
 | ----------- | ----------- |

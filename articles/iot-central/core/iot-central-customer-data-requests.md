@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dabcadea96f4ced5bdf73a35ef533e6d290595c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77023755"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001879"
 ---
-# <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
+# <a name="azure-iot-central-customer-data-request-features"></a>Azure IoT Central 고객 데이터 요청 기능
 
 Azure IoT Central은 대규모 IoT 자산을 연결, 모니터링 및 관리하고, IoT 데이터에서 심층 정보를 만들고, 정보를 바탕으로 작업을 수행하도록 도와주는 완전히 관리되는 IoT(사물 인터넷) SaaS(Software-as-a-Service) 솔루션입니다.
 
