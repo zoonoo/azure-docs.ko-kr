@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041605"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
 
@@ -23,18 +24,18 @@ Azure Monitor는 네트워크를 모니터링하기 위해 다음과 같은 솔�
     * Azure Application Gateway 로그
     * Azure Application Gateway 메트릭
 * 클라우드 네트워크에서 네트워크 작업을 모니터링하고 감사하는 솔루션
-    * [트래픽 분석](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [트래픽 분석](../../networking/network-monitoring-overview.md#traffic-analytics) 
     * Azure 네트워크 보안 그룹 분석
 
 ## <a name="network-performance-monitor-npm"></a>NPM(네트워크 성능 모니터)
 
-[네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview) 관리 솔루션은 네트워크의 상태, 가용성 및 연결 가능성을 모니터링하는 네트워크 모니터링 솔루션입니다.  다음 항목 간의 연결을 모니터링하는 데 사용됩니다.
+[네트워크 성능 모니터](../../networking/network-monitoring-overview.md) 관리 솔루션은 네트워크의 상태, 가용성 및 연결 가능성을 모니터링하는 네트워크 모니터링 솔루션입니다.  다음 항목 간의 연결을 모니터링하는 데 사용됩니다.
 
 * 퍼블릭 클라우드 및 온-프레미스
 * 데이터 센터 및 사용자 위치(지점)
 * 다중 계층 애플리케이션의 다양한 계층을 호스팅하는 서브넷
 
-자세한 내용은 [네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview)를 참조하세요.
+자세한 내용은 [네트워크 성능 모니터](../../networking/network-monitoring-overview.md)를 참조하세요.
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway 및 네트워크 보안 그룹 분석
 솔루션을 사용하려면:

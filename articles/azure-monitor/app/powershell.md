@@ -3,11 +3,12 @@ title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft 
 description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성 및 관리를 자동화합니다.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: c4e7c4fe14d829338e98a4b7e73726b1e605707c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a0a3a5b186d57e8670201e601eee48ee858c976
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041629"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 
@@ -25,7 +26,7 @@ ms.locfileid: "84485415"
 1. [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](https://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
 2. 이를 사용하여 Microsoft Azure PowerShell을 설치합니다.
 
-Resource Manager 템플릿 외에도 다양한 [Application Insights PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)을 사용하여 프로그래밍 방식으로 Application Insights 리소스를 간편하게 구성할 수 있습니다. 이 cmdlet으로 설정할 수 있는 기능은 다음과 같습니다.
+Resource Manager 템플릿 외에도 다양한 [Application Insights PowerShell cmdlet](/powershell/module/az.applicationinsights)을 사용하여 프로그래밍 방식으로 Application Insights 리소스를 간편하게 구성할 수 있습니다. 이 cmdlet으로 설정할 수 있는 기능은 다음과 같습니다.
 
 * Application Insights 리소스 생성 및 업데이트
 * Application Insights 리소스 및 해당 속성의 목록 가져오기
@@ -36,7 +37,7 @@ Resource Manager 템플릿 외에도 다양한 [Application Insights PowerShell 
 
 ## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>PowerShell cmdlet을 사용하여 Application Insights 리소스 만들기
 
-[New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet을 사용하여 Azure 미국 동부 데이터 센터에 새 Application Insights 리소스를 만드는 방법은 다음과 같습니다.
+[New-AzApplicationInsights](/powershell/module/az.applicationinsights/new-azapplicationinsights) cmdlet을 사용하여 Azure 미국 동부 데이터 센터에 새 Application Insights 리소스를 만드는 방법은 다음과 같습니다.
 
 ```PS
 New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
@@ -226,7 +227,7 @@ cmdlet을 통해 추가 속성을 사용할 수 있습니다.
 * `Get-AzApplicationInsightsApiKey`
 * `Get-AzApplicationInsightsContinuousExport`
 
-이러한 cmdlet의 매개 변수에 대한 [자세한 설명서](https://docs.microsoft.com/powershell/module/az.applicationinsights)를 참조하세요.  
+이러한 cmdlet의 매개 변수에 대한 [자세한 설명서](/powershell/module/az.applicationinsights)를 참조하세요.  
 
 ## <a name="set-the-data-retention"></a>데이터 보존 기간 설정
 
@@ -329,7 +330,7 @@ Set-ApplicationInsightsRetention `
 
 ## <a name="set-the-daily-cap"></a>일일 상한 설정
 
-일일 상한 속성을 가져오려면 [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용합니다. 
+일일 상한 속성을 가져오려면 [Set-AzApplicationInsightsPricingPlan](/powershell/module/az.applicationinsights/set-azapplicationinsightspricingplan) cmdlet을 사용합니다. 
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -358,7 +359,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>요금제 설정 
 
-현재 요금제를 가져오려면 [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용합니다.
+현재 요금제를 가져오려면 [Set-AzApplicationInsightsPricingPlan](/powershell/module/az.applicationinsights/set-azapplicationinsightspricingplan) cmdlet을 사용합니다.
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -403,12 +404,12 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 
-메트릭 경고 만들기를 자동화하려면 [메트릭 경고 템플릿 문서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)를 참조하세요.
+메트릭 경고 만들기를 자동화하려면 [메트릭 경고 템플릿 문서](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)를 참조하세요.
 
 
 ## <a name="add-an-availability-test"></a>가용성 테스트 추가
 
-가용성 테스트를 자동화하려면 [메트릭 경고 템플릿 문서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert)를 참조하세요.
+가용성 테스트를 자동화하려면 [메트릭 경고 템플릿 문서](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert)를 참조하세요.
 
 ## <a name="add-more-resources"></a>리소스 추가
 
@@ -468,7 +469,7 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 ## <a name="next-steps"></a>다음 단계
 다른 자동화 문서:
 
-* [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) - 템플릿을 사용하지 않는 빠른 방법입니다.
+* [Application Insights 리소스 만들기](./create-new-resource.md#creating-a-resource-automatically) - 템플릿을 사용하지 않는 빠른 방법입니다.
 * [경고 설정](powershell-alerts.md)
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)

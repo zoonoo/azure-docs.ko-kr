@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: charwen
-ms.openlocfilehash: 5c4bbdde04176edf693fc58d172a7dcc250c495a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d094f614cbaf75158c38b86345fd5f925310d6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725004"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039313"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 
@@ -21,7 +22,7 @@ ms.locfileid: "84725004"
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* 클래식 및 Az Azure PowerShell 모듈을 모두 컴퓨터에 로컬로 설치 했는지 확인 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요.
+* 클래식 및 Az Azure PowerShell 모듈을 모두 컴퓨터에 로컬로 설치 했는지 확인 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/)을 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
 * [클래식에서 Resource Manager로 ExpressRoute 회로 이동](expressroute-move.md)에서 제공되는 정보를 검토합니다. 제한 및 제한 사항을 완전히 이해해야 합니다.
 * 클래식 배포 모델에서 회로가 완벽하게 작동되는지 확인합니다.

@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c41538acdb8ed94ee4995ad8d5f5e4cebb2e14d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010582"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043450"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services에서 라이브 이벤트 및 라이브 출력
 
@@ -29,11 +30,11 @@ Azure Media Services를 사용 하면 Azure 클라우드의 고객에 게 라이
 
 ## <a name="live-events"></a>라이브 이벤트
 
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. 라이브 이벤트를 만들 때 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 기본 및 보조 입력 끝점이 생성 됩니다. 원격 라이브 인코더는 [RTMP](https://www.adobe.com/devnet/rtmp.html) 또는 [부드러운 스트리밍](https://msdn.microsoft.com/library/ff469518.aspx) (조각화 된 MP4) 입력 프로토콜을 사용 하 여 해당 입력 끝점에 기여 피드를 보냅니다. RTMP 수집 프로토콜의 경우 콘텐츠를 일반 ()으로 전송 `rtmp://` 하거나 통신 ()에서 안전 하 게 암호화할 수 있습니다 `rtmps://` . 부드러운 스트리밍 수집 프로토콜의 경우 지원되는 URL 체계는 `http://` 또는 `https://`입니다.  
+[라이브 이벤트](/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. 라이브 이벤트를 만들 때 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 기본 및 보조 입력 끝점이 생성 됩니다. 원격 라이브 인코더는 [RTMP](https://www.adobe.com/devnet/rtmp.html) 또는 [부드러운 스트리밍](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (조각화 된 MP4) 입력 프로토콜을 사용 하 여 해당 입력 끝점에 기여 피드를 보냅니다. RTMP 수집 프로토콜의 경우 콘텐츠를 일반 ()으로 전송 `rtmp://` 하거나 통신 ()에서 안전 하 게 암호화할 수 있습니다 `rtmps://` . 부드러운 스트리밍 수집 프로토콜의 경우 지원되는 URL 체계는 `http://` 또는 `https://`입니다.  
 
 ## <a name="live-event-types"></a>라이브 이벤트 유형
 
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents) 는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 형식은 [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
+[라이브 이벤트](/rest/api/media/liveevents) 는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 형식은 [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
 
 * **LiveEventEncodingType**: 온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집 스트림은 추가 처리 없이 라이브 이벤트를 통과 합니다. 통과 모드 라고도 합니다.
 * **LiveEventEncodingType**: 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. 기여 피드가 720p 이상 해상도 인 경우 **Default720p** 사전 설정은 6 가지 해상도/비트 전송률 쌍 집합을 인코딩합니다.
@@ -86,7 +87,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 ### <a name="naming-rules"></a>이름 지정 규칙
 
 * 최대 라이브 이벤트 이름은 32 자입니다.
-* 이름은이 [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다. `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`
+* 이름은이 [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다. `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`
 
 또한 [스트리밍 끝점 명명 규칙](streaming-endpoint-concept.md#naming-convention)을 참조 하세요.
 
@@ -121,11 +122,11 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
     다음 Api를 사용 하 여 베 니 티 URL을 사용 하도록 설정 하 고 액세스 토큰을 유효한 GUID (예: `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` )로 설정 합니다.  
 
-    |언어|베 니 티 URL 사용|액세스 토큰 설정|
+    |Language|베 니 티 URL 사용|액세스 토큰 설정|
     |---|---|---|
-    |REST (영문)|[vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--베 니 티](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--액세스 토큰](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[라이브. VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--베 니 티](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--액세스 토큰](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
@@ -163,7 +164,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
 ## <a name="live-event-preview-url"></a>라이브 이벤트 미리 보기 URL
 
-라이브 이벤트가 기여 피드를 수신 하기 시작 하면 미리 보기 끝점을 사용 하 여 추가 게시 전에 라이브 스트림을 수신 중인지 미리 보고 유효성을 검사할 수 있습니다. 미리 보기 스트림이 양호 하다 고 확인 한 후 라이브 이벤트를 사용 하 여 하나 이상의 (미리 만든) 스트리밍 끝점을 통해 라이브 스트림을 배달할 수 있도록 설정할 수 있습니다. 이를 수행 하려면 라이브 이벤트에 새 [라이브 출력](https://docs.microsoft.com/rest/api/media/liveoutputs) 을 만듭니다.
+라이브 이벤트가 기여 피드를 수신 하기 시작 하면 미리 보기 끝점을 사용 하 여 추가 게시 전에 라이브 스트림을 수신 중인지 미리 보고 유효성을 검사할 수 있습니다. 미리 보기 스트림이 양호 하다 고 확인 한 후 라이브 이벤트를 사용 하 여 하나 이상의 (미리 만든) 스트리밍 끝점을 통해 라이브 스트림을 배달할 수 있도록 설정할 수 있습니다. 이를 수행 하려면 라이브 이벤트에 새 [라이브 출력](/rest/api/media/liveoutputs) 을 만듭니다.
 
 > [!IMPORTANT]
 > 계속하기 전에 비디오가 미리 보기 URL로 전달되고 있는지 확인합니다.
@@ -174,11 +175,11 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
 ## <a name="live-outputs"></a>라이브 출력
 
-라이브 이벤트로 들어오는 스트림이 있으면 [자산](https://docs.microsoft.com/rest/api/media/assets), [라이브 출력](https://docs.microsoft.com/rest/api/media/liveoutputs) 및 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관하고 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있도록 합니다.  
+라이브 이벤트로 들어오는 스트림이 있으면 [자산](/rest/api/media/assets), [라이브 출력](/rest/api/media/liveoutputs) 및 [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관하고 [스트리밍 엔드포인트](/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있도록 합니다.  
 
 라이브 출력에 대 한 자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr.md)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 질문과 [대답](frequently-asked-questions.md#live-streaming) 문서를 참조 하세요.
 

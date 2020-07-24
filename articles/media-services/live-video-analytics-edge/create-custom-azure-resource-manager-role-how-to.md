@@ -3,26 +3,27 @@ title: 사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주
 description: 이 문서에서는 사용자 지정 Azure Resource Manager 역할을 만들고 Azure CLI을 사용 하 여 IoT Edge에서 Live Video Analytics에 대 한 서비스 주체에 할당 하는 방법을 안내 합니다.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: be317ac1e86fd38c72b87734909004a64dc2938b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043179"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
 
-IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 하려면 활성 Azure Media Services 계정이 필요 합니다. IoT Edge 모듈의 라이브 비디오 분석과 Azure Media Service 계정의 관계는 모듈 쌍 속성 집합을 통해 설정 됩니다. 이러한 쌍 속성 중 하나는 모듈 인스턴스가 Media Services 계정과 통신 하 고 필요한 작업을 트리거할 수 있도록 하는 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) 입니다. 에 지 장치에서 오용 및/또는 실수로 인 한 데이터 노출을 최소화 하려면이 서비스 사용자에 게 최소한의 권한이 있어야 합니다.
+IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 하려면 활성 Azure Media Services 계정이 필요 합니다. IoT Edge 모듈의 라이브 비디오 분석과 Azure Media Service 계정의 관계는 모듈 쌍 속성 집합을 통해 설정 됩니다. 이러한 쌍 속성 중 하나는 모듈 인스턴스가 Media Services 계정과 통신 하 고 필요한 작업을 트리거할 수 있도록 하는 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 입니다. 에 지 장치에서 오용 및/또는 실수로 인 한 데이터 노출을 최소화 하려면이 서비스 사용자에 게 최소한의 권한이 있어야 합니다.
 
 이 문서에서는 Azure Cloud Shell를 사용 하 여 사용자 지정 Azure Resource Manager 역할을 만들고이를 사용 하 여 서비스 주체를 만드는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항  
+## <a name="prerequisites"></a>필수 조건  
 
 이 문서의 필수 구성 요소는 다음과 같습니다.
 
 * 소유자 구독을 사용 하는 Azure 구독입니다.
 * 앱을 만들고 역할에 서비스 주체를 할당할 수 있는 권한이 있는 Azure Active Directory입니다.
 
-계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [필요한 사용 권한 확인](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)을 참조하세요.
+계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [필요한 사용 권한 확인](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)을 참조하세요.
 
 ## <a name="overview"></a>개요  
 
@@ -48,7 +49,7 @@ IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 �
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. [리소스 그룹](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) 및 [저장소 계정을](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)만듭니다.
+1. [리소스 그룹](/cli/azure/group?view=azure-cli-latest#az-group-create) 및 [저장소 계정을](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)만듭니다.
 1. 이제 Cloud Shell에서 다음 명령 템플릿을 사용 하 여 Azure Media Services 계정을 만듭니다.
 
     ```
@@ -84,8 +85,8 @@ az ams account sp create --account-name < yourAMSAccountName > --resource-group 
 ```
 1. 암호 인증을 사용 하는 서비스 사용자에 대 한 출력에는 암호 키 (이 경우 "AadSecret" 매개 변수)가 포함 됩니다. 
 
-    이 값은 검색할 수 없으므로 복사해야 합니다. 암호를 잊어버린 경우 [서비스 주체 자격 증명을 다시 설정](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials)하세요.
-1. AppId 및 테 넌 트 키는 각각 "AadClientId" 및 "AadTenantId"로 출력에 표시 됩니다. 서비스 사용자 인증에 사용 됩니다. 해당 값은 기록하지만 언제든지 [az ad sp list](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list)를 사용하여 검색할 수 있습니다.
+    이 값은 검색할 수 없으므로 복사해야 합니다. 암호를 잊어버린 경우 [서비스 주체 자격 증명을 다시 설정](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials)하세요.
+1. AppId 및 테 넌 트 키는 각각 "AadClientId" 및 "AadTenantId"로 출력에 표시 됩니다. 서비스 사용자 인증에 사용 됩니다. 해당 값은 기록하지만 언제든지 [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list)를 사용하여 검색할 수 있습니다.
 
 ### <a name="create-a-custom-role-definition"></a>사용자 지정 역할 정의 만들기  
 
@@ -170,7 +171,7 @@ az ad sp show --id "<appId>" | Select-String "objectId"
 “objectId” : “<yourObjectId>”,
 ```
 
-[Az role 할당 create command](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) template을 사용 하 여 사용자 지정 역할을 서비스 사용자와 연결 합니다.
+[Az role 할당 create command](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) template을 사용 하 여 사용자 지정 역할을 서비스 사용자와 연결 합니다.
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 5e41f5d2189cce19dab3e0b48943ef0568ddedb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c3e872dee06ac4fa0c8c37ce8fb77bd34dc78bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041862"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대 한 Azure Cosmos DB 입력 바인딩
 
@@ -296,7 +296,7 @@ namespace CosmosDBSamplesV2
 다음 예제에서는 문서 목록을 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 코드를 Azure Cosmos DB 바인딩에 의해 제공된 `DocumentClient` 인스턴스를 사용하여 문서 목록을 읽습니다. `DocumentClient` 인스턴스는 쓰기 작업에 사용될 수도 있습니다.
 
 > [!NOTE]
-> 또한 [Idocumentclient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) 인터페이스를 사용 하 여 테스트를 더 쉽게 수행할 수 있습니다.
+> 또한 [Idocumentclient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) 인터페이스를 사용 하 여 테스트를 더 쉽게 수행할 수 있습니다.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1420,7 +1420,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Java 함수 런타임 라이브러리](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)에서 `@CosmosDBOutput` Cosmos DB에 쓰는 매개 변수에 대 한 주석을 사용 합니다. 주석 매개 변수 형식은 여야 합니다 `OutputBinding<T>` . 여기서 `T` 은 네이티브 Java 형식 또는 pojo입니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 `@CosmosDBOutput` Cosmos DB에 쓰는 매개 변수에 대 한 주석을 사용 합니다. 주석 매개 변수 형식은 여야 합니다 `OutputBinding<T>` . 여기서 `T` 은 네이티브 Java 형식 또는 pojo입니다.
 
 ---
 
@@ -1463,7 +1463,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Java 함수 런타임 라이브러리](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)에서 [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) 주석은 함수에 Cosmos DB 데이터를 노출 합니다. `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) 주석은 함수에 Cosmos DB 데이터를 노출 합니다. `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
 ---
 

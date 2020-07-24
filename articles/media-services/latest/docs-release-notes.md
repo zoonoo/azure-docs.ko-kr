@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c6b3732d0a77580c27f6cc8720b414e8e49d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038990"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Azure Media Services v3 설명서 업데이트
 
@@ -26,7 +26,7 @@ ms.locfileid: "84982172"
 
 ## <a name="june-2020"></a>2020년 6월
 
-* IoT Edge에서 라이브 비디오 분석의 미리 보기가 공개 되었습니다. IoT Edge 설명서의 [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) 에서 세부 정보를 참조 하세요.
+* IoT Edge에서 라이브 비디오 분석의 미리 보기가 공개 되었습니다. IoT Edge 설명서의 [Live Video Analytics](../live-video-analytics-edge/index.yml) 에서 세부 정보를 참조 하세요.
 * 새 빠른 시작:
 
     * [포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍](manage-assets-quickstart.md)

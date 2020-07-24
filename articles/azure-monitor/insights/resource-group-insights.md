@@ -7,11 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045773"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -45,10 +46,10 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
 
    |         |          |
    | ---------------- |:-----|
-   | [**경고**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  경고를 보고, 만들고, 관리합니다. |
-   | [**메트릭**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | 메트릭 기반 데이터를 시각화하고 탐색합니다.    |
-   | [**활동 로그**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Azure에서 발생한 구독 수준 이벤트입니다.  |
-   | [**애플리케이션 맵**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | 분산 애플리케이션 토폴로지를 탐색하여 성능 병목 상태 또는 실패 핫스폿을 찾습니다. |
+   | [**경고**](../platform/alerts-overview.md)      |  경고를 보고, 만들고, 관리합니다. |
+   | [**메트릭**](../platform/data-platform.md) | 메트릭 기반 데이터를 시각화하고 탐색합니다.    |
+   | [**활동 로그**](../platform/platform-logs-overview.md) | Azure에서 발생한 구독 수준 이벤트입니다.  |
+   | [**애플리케이션 맵**](../app/app-map.md) | 분산 애플리케이션 토폴로지를 탐색하여 성능 병목 상태 또는 실패 핫스폿을 찾습니다. |
 
 ## <a name="failures-and-performance"></a>오류 및 성능
 
@@ -116,6 +117,6 @@ Azure Monitor for Resource Groups는 Azure Monitor 경고 관리 시스템을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
-- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Azure Monitor 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor 통합 문서](../platform/workbooks-overview.md)
+- [Azure Resource Health](../../service-health/resource-health-overview.md)
+- [Azure Monitor 경고](../platform/alerts-overview.md)

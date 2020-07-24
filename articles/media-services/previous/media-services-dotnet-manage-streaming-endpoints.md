@@ -1,5 +1,5 @@
 ---
-title: .NET SDK를 사용하여 스트리밍 엔드포인트를 관리합니다. | Microsoft 문서
+title: .NET SDK를 사용하여 스트리밍 엔드포인트를 관리합니다. | Microsoft Docs
 description: 이 문서에서는 Azure Portal를 사용 하 여 스트리밍 끝점을 관리 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -15,16 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901269"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038735"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>.NET SDK를 사용하여 스트리밍 엔드포인트 관리  
 
 >[!NOTE]
->[개요](media-services-streaming-endpoints-overview.md) 문서를 검토해야 합니다. 또한 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)도 살펴보세요.
+>[개요](media-services-streaming-endpoints-overview.md) 문서를 검토해야 합니다. 또한 [StreamingEndpoint](/rest/api/media/operations/streamingendpoint)도 살펴보세요.
 
 이 문서의 코드는 Azure Media Services .NET SDK를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
@@ -149,4 +150,3 @@ Media Services 학습 경로를 검토합니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

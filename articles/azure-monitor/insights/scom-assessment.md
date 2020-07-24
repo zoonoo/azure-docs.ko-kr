@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045695"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -64,7 +64,7 @@ System Center Operations Manager 상태 검사 솔루션은 다음 원본에서 
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Log Analytics용 Operations Manager 실행 계정
 
-Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 빌드합니다. 도메인 사용자 계정과 같은 다른 보안 컨텍스트에서 관리 팩을 실행하려면 각 작업에 워크로드 관련 권한이 필요합니다. 권한이 있는 자격 증명을 통해 Operations Manager 실행 계정을 구성합니다. 자세한 내용은 Operations Manager 설명서의 [실행 계정을 만드는 방법](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx)을 참조하세요.
+Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 빌드합니다. 도메인 사용자 계정과 같은 다른 보안 컨텍스트에서 관리 팩을 실행하려면 각 작업에 워크로드 관련 권한이 필요합니다. 권한이 있는 자격 증명을 통해 Operations Manager 실행 계정을 구성합니다. 자세한 내용은 Operations Manager 설명서의 [실행 계정을 만드는 방법](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12))을 참조하세요.
 
 다음 정보를 사용하여 System Center Operations Manager Health Check를 위한 Operations Manager 실행 계정을 설정할 수 있습니다.
 
@@ -147,7 +147,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Microsoft System Center Operations Manager 상태 검사 규칙 실행*이라는 규칙이 포함 되어 있습니다. 이 규칙은 상태 검사의 실행을 담당합니다. 규칙을 사용하도록 설정하고 빈도를 구성하려면 아래 절차를 사용합니다.
 
-기본적으로 Microsoft System Center Operations Manager Run Health Check Rule은 사용 하지 않도록 설정 되어 있습니다. 상태 검사를 실행하려면 관리 서버에서 규칙을 사용하도록 설정해야 합니다. 다음 단계를 사용합니다.
+기본적으로 Microsoft System Center Operations Manager Run Health Check Rule은 사용 하지 않도록 설정 되어 있습니다. 상태 검사를 실행하려면 관리 서버에서 규칙을 사용하도록 설정해야 합니다. 다음 단계를 사용하세요.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>특정 관리 서버에 대한 규칙을 사용하도록 설정
 

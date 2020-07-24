@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041388"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -35,7 +35,7 @@ ms.locfileid: "82233961"
 |----|---------|
 |연결 된 파티가 일정 시간 후에 제대로 응답 하지 않아 연결 하지 못했습니다.  | 특정 위치의 테스트 에이전트가 방화벽에 의해 차단 되 고 있습니다.|
 |    |특정 IP 주소는 부하 분산 장치, 지역 트래픽 관리자, Azure Express 경로를 통해 다시 라우팅되지 않습니다. 
-|    |Azure Express 경로를 사용 하는 경우 [비대칭 라우팅이 발생](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing)하는 경우 패킷을 삭제할 수 있는 시나리오가 있습니다.|
+|    |Azure Express 경로를 사용 하는 경우 [비대칭 라우팅이 발생](../../expressroute/expressroute-asymmetric-routing.md)하는 경우 패킷을 삭제할 수 있는 시나리오가 있습니다.|
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>프로토콜 위반 오류로 인해 테스트 실패
 
@@ -66,11 +66,11 @@ ms.locfileid: "82233961"
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>webhook 알림을 받지 못했습니다.
 
-webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook 요청을 성공적으로 처리하는지 확인합니다. 자세한 내용은 [이것](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook)을 참조하세요.
+webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook 요청을 성공적으로 처리하는지 확인합니다. 자세한 내용은 [이것](../platform/alerts-log-webhook.md)을 참조하세요.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>403 금지 오류가 발생 합니다 .이는 무엇을 의미 하나요?
 
-이 오류는 가용성 에이전트가 대상 url을 테스트할 수 있도록 방화벽 예외를 추가 해야 함을 나타냅니다. 허용 되는 에이전트 IP 주소의 전체 목록은 [ip 예외 문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests)를 참조 하세요.
+이 오류는 가용성 에이전트가 대상 url을 테스트할 수 있도록 방화벽 예외를 추가 해야 함을 나타냅니다. 허용 되는 에이전트 IP 주소의 전체 목록은 [ip 예외 문서](./ip-addresses.md#availability-tests)를 참조 하세요.
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>프로토콜 위반 오류로 인한 일시적 테스트 오류인가요?
 
@@ -97,7 +97,7 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
    가능한 해결 방법으로 다음 두 가지가 있습니다.
 
    * [웹 테스트 에이전트의 IP 주소](../../azure-monitor/app/ip-addresses.md)에서 들어오는 요청을 허용하도록 방화벽을 구성합니다.
-   * 내부 서버를 정기적으로 테스트하는 사용자 고유의 코드를 작성합니다. 방화벽 뒤의 테스트 서버에서 코드를 백그라운드 프로세스로 실행합니다. 테스트 프로세스는 코어 SDK 패키지의 [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API를 사용하여 Application Insights에 결과를 보낼 수 있습니다. 이렇게 하려면 테스트 서버에 Application Insights 수집 엔드포인트에 대한 송신 액세스 권한이 있어야 하지만, 들어오는 요청을 허용하는 대체 방법보다 보안 위험이 훨씬 낮습니다. 포털을 통해 생성 된 테스트에 사용할 수 있는 환경에서 환경이 약간 간소화 되기는 하지만 가용성 웹 테스트 블레이드에서 결과가 표시 됩니다. 또한 사용자 지정 가용성 테스트는 분석, 검색 및 메트릭에 대 한 가용성 결과로 표시 됩니다.
+   * 내부 서버를 정기적으로 테스트하는 사용자 고유의 코드를 작성합니다. 방화벽 뒤의 테스트 서버에서 코드를 백그라운드 프로세스로 실행합니다. 테스트 프로세스는 코어 SDK 패키지의 [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API를 사용하여 Application Insights에 결과를 보낼 수 있습니다. 이렇게 하려면 테스트 서버에 Application Insights 수집 엔드포인트에 대한 송신 액세스 권한이 있어야 하지만, 들어오는 요청을 허용하는 대체 방법보다 보안 위험이 훨씬 낮습니다. 포털을 통해 생성 된 테스트에 사용할 수 있는 환경에서 환경이 약간 간소화 되기는 하지만 가용성 웹 테스트 블레이드에서 결과가 표시 됩니다. 또한 사용자 지정 가용성 테스트는 분석, 검색 및 메트릭에 대 한 가용성 결과로 표시 됩니다.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>다중 단계 웹 테스트 업로드 실패
 

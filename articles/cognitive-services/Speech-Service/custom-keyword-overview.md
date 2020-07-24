@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044867"
 ---
 # <a name="what-is-a-keyword"></a>키워드 란 무엇 인가요?
 
@@ -33,10 +33,13 @@ ms.locfileid: "83202042"
 
 ## <a name="get-started-with-custom-keywords"></a>사용자 지정 키워드 시작
 
-* 자습서: [Speech Studio를 사용 하 여 사용자 지정 키워드를 만드는](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 방법
-* 자습서: 음성 SDK를 사용 하 여 제품을 음성으로 활성화 하는 방법 [(c # 사용)](tutorial-voice-enable-your-bot-speech-sdk.md)
-* 빠른 시작: [c #을 사용 하는 유니버설 Windows 플랫폼에서 음성 SDK를](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) 사용 하 여 키워드 인식
-* 빠른 시작: [Java를 사용 하 여 Android에서 음성 SDK로 키워드 인식](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* 기본 사용 및 디자인 패턴은 [사용자 지정 키워드 기본 사항](custom-keyword-basics.md) 을 참조 하세요.
+* [C #을 사용 하 여 음성 SDK를 통해 제품을 음성으로 활성화](tutorial-voice-enable-your-bot-speech-sdk.md) 하는 방법
+
+## <a name="see-samples-on-github"></a>GitHub의 샘플을 참조 하세요.
+
+* [C를 사용 하는 유니버설 Windows 플랫폼에서 음성 SDK를 사용 하 여 키워드 인식 #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Java를 사용 하 여 Android에서 음성 SDK로 키워드 인식](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>다음 단계
 

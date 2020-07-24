@@ -6,16 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736daa8a09a8f08721c7b7d9c20f012f274b384a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045514"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
 이 문서에는 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
 
-이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](https://docs.microsoft.com/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
+이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
 
 ## <a name="events"></a>이벤트
 
@@ -36,7 +37,7 @@ Event
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>Heartbeat
+## <a name="heartbeat"></a>하트비트
 
 ### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>데이터를 전송하는 컴퓨터 수의 주 단위 보기 차트 작성
 
@@ -372,9 +373,9 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
-`Usage`데이터 형식은 솔루션 또는 데이터 형식에 따라 수집 데이터 볼륨을 추적 하는 데 사용할 수 있습니다. [컴퓨터](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) 또는 [Azure 구독, 리소스 그룹 또는 리소스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)별로 수집 데이터 볼륨을 연구 하는 다른 방법이 있습니다.
+`Usage`데이터 형식은 솔루션 또는 데이터 형식에 따라 수집 데이터 볼륨을 추적 하는 데 사용할 수 있습니다. [컴퓨터](../platform/manage-cost-storage.md#data-volume-by-computer) 또는 [Azure 구독, 리소스 그룹 또는 리소스](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription)별로 수집 데이터 볼륨을 연구 하는 다른 방법이 있습니다.
 
 #### <a name="data-volume-by-solution"></a>솔루션별 데이터 볼륨
 

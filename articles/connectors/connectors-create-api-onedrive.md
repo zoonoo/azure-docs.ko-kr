@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040251"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 OneDrive 커넥터에서 파일 액세스 및 관리
 
@@ -40,7 +40,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 1. 논리 앱 디자이너에서를 입력 `onedrive` 하 여 트리거 목록을 가져옵니다.  
 
-   !["Microsoft 관리 되는 Api 표시" 라는 대화 상자에 "onedrive"가 포함 된 상자가 있습니다. 다음은 4 개 트리거의 목록입니다. 그 중 첫 번째는 "OneDrive-파일이 생성 될 때"입니다. 두 번째 "OneDrive-파일이 수정 되는 경우"가 선택 되었습니다.](./media/connectors-create-api-onedrive/onedrive-1.png)
+   !["Microsoft에서 관리 하는 프로그램 표시" 라는 대화 상자에 "onedrive"가 포함 된 상자가 있습니다. 다음은 4 개 트리거의 목록입니다. 그 중 첫 번째는 "OneDrive-파일이 생성 될 때"입니다. 두 번째 "OneDrive-파일이 수정 되는 경우"가 선택 되었습니다.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. **파일을 수정할 때**를 선택합니다. 연결이 이미 있는 경우 선택 표시 단추를 선택하여 폴더를 선택합니다.
 
@@ -68,7 +68,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 3. 검색 상자에를 입력 `onedrive` 하 여 사용 가능한 모든 작업 목록을 가져옵니다.
 
-   !["Microsoft 관리 되는 Api 표시" 라는 대화 상자에 "onedrive"가 포함 된 상자가 있습니다. 다음은 8 개의 작업 목록입니다. 첫 번째는 "OneDrive-파일 만들기" 이며 선택 됩니다.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   !["Microsoft에서 관리 하는 프로그램 표시" 라는 대화 상자에 "onedrive"가 포함 된 상자가 있습니다. 다음은 8 개의 작업 목록입니다. 첫 번째는 "OneDrive-파일 만들기" 이며 선택 됩니다.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. 이 예제에서는 **OneDrive - 파일 만들기**를 선택합니다. 연결이 이미 존재하는 경우 **폴더 경로**를 선택하여 파일을 입력하고 **파일 이름**을 입력한 후 원하는 **파일 콘텐츠**를 선택합니다.  
 

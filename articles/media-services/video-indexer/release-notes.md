@@ -12,11 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042632"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -28,6 +29,18 @@ ms.locfileid: "84325068"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="june-2020"></a>2020년 6월
+
+### <a name="search-by-topics"></a>항목으로 검색
+
+이제 검색 API를 사용 하 여 특정 토픽으로 비디오를 검색할 수 있습니다 (API에만 해당).
+
+토픽은 `textScope` (선택적 매개 변수)의 일부로 추가 됩니다. 자세한 내용은 [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) 를 참조 하세요.  
+
+### <a name="labels-enhancement"></a>레이블 기능 향상
+
+레이블 태거가 업그레이드 되었으며 이제 식별할 수 있는 더 많은 시각적 레이블이 포함 되어 있습니다.
 
 ## <a name="may-2020"></a>2020년 5월
 

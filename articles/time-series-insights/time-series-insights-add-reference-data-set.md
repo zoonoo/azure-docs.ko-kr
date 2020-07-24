@@ -5,23 +5,24 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.custom: seodec18~~~~
-ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.custom: seodec18
+ms.openlocfilehash: 2503a58f7d5fe05240f374fabbe2bf88d34dcf6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046620"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
+# <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Time Series Insights Gen1 환경에 대 한 참조 데이터 집합 만들기
 
 이 문서에서는 Azure Time Series Insights 환경에 참조 데이터 집합을 추가하는 방법을 설명합니다. 참조 데이터는 값을 확장하기 위해 원본 데이터에 연결하는 데 유용합니다.
 
-참조 데이터 집합은 이벤트 원본의 이벤트로 확장된 항목의 컬렉션입니다. Time Series Insights 수신 엔진은 이벤트 원본의 각 이벤트와 참조 데이터 집합의 해당 데이터 행을 조인합니다. 이렇게 보강된 이벤트는 쿼리에 사용할 수 있습니다. 이 조인은 참조 데이터 집합에서 정의된 기본 키 열을 기준으로 합니다.
+참조 데이터 집합은 이벤트 원본의 이벤트로 확장된 항목의 컬렉션입니다. Azure Time Series Insights 수신 엔진은 이벤트 원본의 각 이벤트를 참조 데이터 집합의 해당 데이터 행과 조인 합니다. 이렇게 보강된 이벤트는 쿼리에 사용할 수 있습니다. 이 조인은 참조 데이터 집합에서 정의된 기본 키 열을 기준으로 합니다.
 
 참조 데이터는 소급되어 조인되지 않습니다. 따라서 데이터를 구성 하 고 업로드 한 후에는 현재 및 이후의 수신 데이터만 일치 하 고 참조 날짜 집합에 조인 합니다.
 
@@ -35,15 +36,15 @@ ms.locfileid: "82838521"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 기존 Azure Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
+1. 기존 Azure Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Azure Time Series Insights 환경을 선택 합니다.
 
-1. **개요** 페이지를 선택합니다. 페이지 맨 위 근처의 **Essentials** 섹션을 확장 하 여 **Time Series Insights 탐색기 URL** 을 찾고 링크를 엽니다.  
+1. **Overview** 페이지를 선택합니다. 페이지 맨 위 근처의 **Essentials** 섹션을 확장 하 여 **Time Series Insights 탐색기 URL** 을 찾고 링크를 엽니다.  
 
    [![Essentials 섹션 확장](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Time Series Insights 환경의 탐색기를 확인 합니다.
+   Azure Time Series Insights 환경의 탐색기를 확인 합니다.
 
-1. Time Series Insights 탐색기에서 환경 선택기를 확장 합니다. 활성 환경을 선택합니다. 탐색기 페이지에서 오른쪽 상단에 있는 참조 데이터 아이콘을 선택합니다.
+1. Azure Time Series Insights 탐색기에서 환경 선택기를 확장 합니다. 활성 환경을 선택합니다. 탐색기 페이지의 오른쪽 위에서 참조 데이터 아이콘을 선택 합니다.
 
    [![참조 데이터 추가](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 

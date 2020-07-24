@@ -6,11 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab79a60f55fad6a45fadb6bf8890d2879caac62
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727165"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043579"
 ---
 # <a name="options"></a>옵션 #
 
@@ -62,7 +63,7 @@ Width 특성은 비디오의 표시 너비를 설정 합니다.
 
 `<video width="640" ...>` 또는 `{ "width": 640 }`
 
-### <a name="height"></a>height ###
+### <a name="height"></a>키 ###
 
 Height 특성은 비디오의 표시 높이를 설정 합니다.
 
@@ -100,7 +101,7 @@ Height 특성은 비디오의 표시 높이를 설정 합니다.
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-이 설정의 다른 속성 `playbackSpeed` 은 [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) 개체에 의해 지정 됩니다.
+이 설정의 다른 속성 `playbackSpeed` 은 [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) 개체에 의해 지정 됩니다.
 
 JavaScript에서 재생 속도 옵션을 설정 하는 예제:
 

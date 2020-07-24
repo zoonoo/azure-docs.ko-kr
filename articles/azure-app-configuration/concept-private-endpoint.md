@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026987"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042122"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Azure 앱 구성에 전용 끝점 사용
 
@@ -22,9 +22,6 @@ Azure 앱 구성에 대해 [개인 끝점](../private-link/private-endpoint-over
 - 공용 끝점의 앱 구성에 대 한 모든 연결을 차단 하도록 방화벽을 구성 하 여 응용 프로그램 구성 세부 정보를 보호 합니다.
 - Vnet에서 데이터가 이스케이프 되지 않도록 VNet (가상 네트워크)에 대 한 보안을 강화 합니다.
 - 개인 피어 링을 사용 하 여 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [연결할 expressroutes](../expressroute/expressroute-locations.md) 를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 앱 구성 저장소에 안전 하 게 연결 합니다.
-
-> [!NOTE]
-> 이제 개인 끝점 기능이 중부 인도를 *제외한* 모든 지역에서 일반 공급 됩니다. **중앙 인도** 지역에서 Azure 앱 구성은 개인 끝점을 공개 미리 보기로 사용 하도록 제공 합니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.
 
 ## <a name="conceptual-overview"></a>개념적 개요
 

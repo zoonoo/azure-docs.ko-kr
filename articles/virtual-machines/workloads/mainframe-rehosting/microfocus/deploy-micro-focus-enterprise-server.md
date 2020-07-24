@@ -12,16 +12,16 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 900e76fff3e5ccf88fa1e25ebea97f26e406a358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042546"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>AKS에 마이크로 포커스 엔터프라이즈 서버 5.0 배포
 
-다른 [문서](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)에서는 Docker 컨테이너에서 마이크로 포커스 엔터프라이즈 서버 5.0를 실행 하는 단계에 대해 간략하게 설명 했습니다. 그에 대 한 후속 작업으로,이를 한 단계 더 수행 하 고 Azure Kubernetes Service (AKS)에 만든 Docker 이미지를 배포 하는 방법을 보여 드리겠습니다.
+다른 [문서](./run-enterprise-server-container.md)에서는 Docker 컨테이너에서 마이크로 포커스 엔터프라이즈 서버 5.0를 실행 하는 단계에 대해 간략하게 설명 했습니다. 그에 대 한 후속 작업으로,이를 한 단계 더 수행 하 고 Azure Kubernetes Service (AKS)에 만든 Docker 이미지를 배포 하는 방법을 보여 드리겠습니다.
 
 Azure Kubernetes Service는 Kubernetes를 기반으로 하는 관리 되는 오케스트레이션 서비스입니다. 컨테이너 호스트의 클러스터에서 Docker 컨테이너 (및 기타 컨테이너 기반 응용 프로그램)를 배포, 확장 및 관리할 수 있습니다.
 

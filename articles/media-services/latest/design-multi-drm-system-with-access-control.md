@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957378"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039194"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 
 
@@ -132,7 +133,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 
 | **구성 요소** | **기술** |
 | --- | --- |
-| **혼자서** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IDP (id 공급자)** |Azure AD(Azure Active Directory) |
 | **STS(보안 토큰 서비스)** |Azure AD |
 | **DRM 보호 워크플로** |Azure Media Services 동적 보호 |
@@ -213,7 +214,7 @@ ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한
 Azure AD에 대한 내용:
 
 * [Azure Active Directory 개발자 가이드](../../active-directory/develop/v2-overview.md)에서 개발자 정보를 찾을 수 있습니다.
-* [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
+* [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-whatis.md)에서 관리자 정보를 찾을 수 있습니다.
 
 ### <a name="some-issues-in-implementation"></a>구현에 대한 몇 가지 문제
 

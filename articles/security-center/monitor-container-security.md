@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038617"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>컨테이너의 보안 모니터링
 
@@ -35,13 +36,11 @@ ms.locfileid: "85801379"
 
 1. 이미지 검사를 트리거하려면 레지스트리에 푸시합니다. 
 
-    검색이 완료 되 면 (일반적으로 약 10 분 후) Security Center 권장 사항에서 검색 결과를 사용할 수 있습니다.
-    
+    검색이 완료 될 때 (일반적으로 약 2 분 후에는 최대 15 분이 될 수 있음) 다음과 같은 Security Center 권장 사항으로 결과를 사용할 수 있습니다.
 
 1. 결과를 보려면 **권장 사항** 페이지로 이동 합니다. 문제가 발견 되 면 다음과 같은 권장 사항이 표시 됩니다.
 
     ![문제를 해결 하기 위한 권장 사항 ](media/monitor-container-security/acr-finding.png)
-
 
 1. 권장 사항을 선택 합니다. 
     추가 정보를 포함 하는 권장 사항 세부 정보 페이지가 열립니다. 이 정보에는 취약 한 이미지를 포함 하는 레지스트리 목록 ("영향을 받는 리소스") 및 수정 단계가 포함 됩니다. 

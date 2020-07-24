@@ -11,16 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e76ccc83be8f269cb14826b5e3e8873d4c7c427a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324728"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045026"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>자습서: 지리적으로 분산 된 데이터베이스 (Azure SQL Database) 구현
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-원격 지역으로 장애 조치 (failover) 하도록 SQL Database 및 클라이언트 응용 프로그램에서 데이터베이스를 구성 하 고 장애 조치 (failover) 계획을 테스트 합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+원격 지역으로 장애 조치 (failover) 하도록 SQL Database 및 클라이언트 응용 프로그램에서 데이터베이스를 구성 하 고 장애 조치 (failover) 계획을 테스트 합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -30,7 +31,7 @@ ms.locfileid: "84324728"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 완료하려면 다음 항목을 설치했는지 확인하세요.
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - Azure SQL Database의 단일 데이터베이스. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
   - [Azure 포털](single-database-create-quickstart.md)
   - [Azure CLI](az-cli-script-samples-content-guide.md)

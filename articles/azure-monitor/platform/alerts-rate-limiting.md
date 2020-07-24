@@ -6,11 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: 61e6cc22171815b15b865dd6ed5670bd9c446ead
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39b9fd8396601d777aa802a147bee3acc4a22cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114324"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045291"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>음성, SMS, 이메일, Azure 앱 푸시 알림 및 웹후크 게시물에 대한 속도 제한
 속도 제한은 특정 전화 번호, 이메일 주소 또는 디바이스로 너무 많이 전송될 때 발생하는 알림의 일시 중단입니다. 속도를 제한하면 경고를 관리하고 실행할 수 있게 됩니다.
@@ -31,5 +32,4 @@ ms.locfileid: "81114324"
 ## <a name="next-steps"></a>다음 단계 ##
 * [SMS 경고 동작](alerts-sms-behavior.md)에 대해 자세히 알아보세요.
 * [활동 로그 경고의 개요](alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
-* [서비스 상태 알림이 게시될 때마다 경고를 구성](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)하는 방법을 알아보세요.
-
+* [서비스 상태 알림이 게시될 때마다 경고를 구성](../../service-health/alerts-activity-log-service-notifications-portal.md)하는 방법을 알아보세요.

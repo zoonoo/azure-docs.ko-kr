@@ -3,13 +3,14 @@ title: 지속성 함수의 단일 항목 - Azure
 description: Azure Functions의 Durable Functions 확장에서 싱글톤을 사용하는 방법을 설명합니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: deb64cf8128fd548cb74c064ab9fd6f169db5300
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041927"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>지속성 함수의 단일 항목 오케스트레이터(Azure Functions)
 
@@ -111,9 +112,65 @@ module.exports = async function(context, req) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+**__init__py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = req.route_params['instanceId']
+    function_name = req.route_params['functionName']
+
+    existing_instance = await client.get_status(instance_id)
+
+    if existing_instance != None:
+        event_data = req.get_body()
+        instance_id = await client.start_new(function_name, instance_id, event_data)
+        logging.info(f"Started orchestration with ID = '{instance_id}'.")
+        return client.create_check_status_response(req, instance_id)
+    else:
+        return {
+            'status': 409,
+            'body': f"An instance with ID '${instance_id}' already exists"
+        }
+
+```
+
 ---
 
-기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 그러나 이전 예제에서 인스턴스 ID는 URL의 경로 데이터로 전달 됩니다. 코드는 `GetStatusAsync` (c #) 또는 `getStatus` (JavaScript)를 호출 하 여 지정 된 ID를 가진 인스턴스가 이미 실행 중인지 확인 합니다. 이러한 인스턴스가 실행 되 고 있지 않으면 해당 ID를 사용 하 여 새 인스턴스를 만듭니다.
+기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 그러나 이전 예제에서 인스턴스 ID는 URL의 경로 데이터로 전달 됩니다. 코드는 `GetStatusAsync` (c #), `getStatus` (JavaScript) 또는 `get_status` (Python)를 호출 하 여 지정 된 ID를 가진 인스턴스가 이미 실행 중인지 확인 합니다. 이러한 인스턴스가 실행 되 고 있지 않으면 해당 ID를 사용 하 여 새 인스턴스를 만듭니다.
 
 > [!NOTE]
 > 이 샘플에는 잠재적 경합 상태가 있습니다. **HttpStartSingle**의 두 인스턴스가 동시에 실행되면 두 함수의 호출 모두에서 성공을 보고하지만 실제로는 하나의 오케스트레이션 인스턴스만 시작됩니다. 요구 사항에 따라 바람직하지 않은 부작용이 있을 수 있습니다. 이러한 이유로 두 요청이 이 트리거 함수를 동시에 실행할 수 없도록 하는 것이 중요합니다.

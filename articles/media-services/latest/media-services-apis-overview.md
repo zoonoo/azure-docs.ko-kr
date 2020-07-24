@@ -13,15 +13,16 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515064"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043411"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Microsoft Azure Media Services v3 API로 개발
 
-개발자인 경우 Media Services [REST API](https://docs.microsoft.com/rest/api/media/) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API는 OpenAPI 사양(이전 명칭 Swagger)에 기반을 두고 있습니다.
+개발자인 경우 Media Services [REST API](/rest/api/media/) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API는 OpenAPI 사양(이전 명칭 Swagger)에 기반을 두고 있습니다.
 
 이 문서에서는 Microsoft Azure Media Services v3로 개발할 때 엔터티와 API에 적용되는 규칙에 대해 설명합니다.
 
@@ -53,7 +54,7 @@ Microsoft Azure Active Directory 앱을 만들 수 있는 권한이 있는지 �
    * REST Media Services의 리소스 URI.
    * Microsoft Azure Active Directory 앱 값: 클라이언트 ID 및 클라이언트 암호.
 
-   필요한 값을 모두 가져오려면 [Azure Microsoft Azure Media Services API에 액세스](access-api-cli-how-to.md)를 참조하세요.
+   필요한 값을 모두 가져오려면 [Azure Microsoft Azure Media Services API에 액세스](./access-api-howto.md)를 참조하세요.
 
 2. Azure AD 액세스 토큰이 중간 계층으로 전송됩니다.
 4. 중간 계층은 Azure AD 토큰과 함께 Azure Media REST API로 요청을 보냅니다.
@@ -79,36 +80,36 @@ Azure Resource Manager의 이름을 지정하는 방법에 대한 자세한 내�
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>자산 내의 파일/BLOB 이름
 
-자산 내의 파일/BLOB 이름은 [BLOB 이름 요구 사항](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)과 [NTFS 이름 요구 사항](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)을 따라야 합니다. 이러한 요구 사항을 따라야 하는 이유는 파일이 처리를 위해 BLOB 스토리지에서 로컬 NTFS 디스크로 복사될 수 있기 때문입니다.
+자산 내의 파일/BLOB 이름은 [BLOB 이름 요구 사항](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)과 [NTFS 이름 요구 사항](/windows/win32/fileio/naming-a-file)을 따라야 합니다. 이러한 요구 사항을 따라야 하는 이유는 파일이 처리를 위해 BLOB 스토리지에서 로컬 NTFS 디스크로 복사될 수 있기 때문입니다.
 
 ## <a name="long-running-operations"></a>장기 실행 작업
 
 Azure Microsoft Azure Media Services [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)에 `x-ms-long-running-operation`으로 표시되는 작업은 장기 실행 작업입니다. 
 
-비동기 Azure 작업을 추적하는 방법에 대한 자세한 내용은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)을 참조하세요.
+비동기 Azure 작업을 추적하는 방법에 대한 자세한 내용은 [비동기 작업](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation)을 참조하세요.
 
 Microsoft Azure Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 
-* [라이브 이벤트 만들기](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [라이브 이벤트 업데이트](https://docs.microsoft.com/rest/api/media/liveevents/update)
-* [라이브 이벤트 삭제](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [라이브 이벤트 시작](https://docs.microsoft.com/rest/api/media/liveevents/start)
-* [LiveEvent 중지](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+* [라이브 이벤트 만들기](/rest/api/media/liveevents/create)
+* [라이브 이벤트 업데이트](/rest/api/media/liveevents/update)
+* [라이브 이벤트 삭제](/rest/api/media/liveevents/delete)
+* [라이브 이벤트 시작](/rest/api/media/liveevents/start)
+* [LiveEvent 중지](/rest/api/media/liveevents/stop)
 
   이벤트를 중지할 때 연결된 모든 라이브 출력을 삭제하려면 `removeOutputsOnStop` 매개 변수를 사용합니다.  
-* [LiveEvent 초기화](https://docs.microsoft.com/rest/api/media/liveevents/reset)
-* [LiveOutput 만들기](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [LiveOutput 삭제](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [StreamingEndpoint 만들기](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
-* [StreamingEndpoint 업데이트](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
-* [StreamingEndpoint 삭제](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
-* [StreamingEndpoint 시작](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* [StreamingEndpoint 중지](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
-* [StreamingEndpoint 스케일링](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+* [LiveEvent 초기화](/rest/api/media/liveevents/reset)
+* [LiveOutput 만들기](/rest/api/media/liveevents/create)
+* [LiveOutput 삭제](/rest/api/media/liveevents/delete)
+* [StreamingEndpoint 만들기](/rest/api/media/streamingendpoints/create)
+* [StreamingEndpoint 업데이트](/rest/api/media/streamingendpoints/update)
+* [StreamingEndpoint 삭제](/rest/api/media/streamingendpoints/delete)
+* [StreamingEndpoint 시작](/rest/api/media/streamingendpoints/start)
+* [StreamingEndpoint 중지](/rest/api/media/streamingendpoints/stop)
+* [StreamingEndpoint 스케일링](/rest/api/media/streamingendpoints/scale)
 
 장기 실행 작업 제출에 성공하면 '202 수락됨'이 수신되며 반환된 작업 ID를 사용하여 작업 완료를 폴링해야 합니다.
 
-[비동기 Azure 작업 추적](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) 문서에서는 응답에서 반환된 값을 통해 비동기 Azure 작업의 상태를 추적하는 방법에 대해 자세히 설명합니다.
+[비동기 Azure 작업 추적](../../azure-resource-manager/management/async-operations.md) 문서에서는 응답에서 반환된 값을 통해 비동기 Azure 작업의 상태를 추적하는 방법에 대해 자세히 설명합니다.
 
 지정된 라이브 이벤트 또는 이와 연결된 라이브 출력에는 하나의 장기 실행 작업만 지원됩니다. 일단 시작되면 동일한 LiveEvent 또는 연결된 라이브 출력에서 후속 장기 실행 작업을 시작하기 전에 먼저 시작된 장기 실행 작업을 완료해야 합니다. 라이브 출력이 여러 개 있는 라이브 이벤트의 경우 한 라이브 출력에서 장기 실행 작업이 완료될 때까지 기다렸다가 다른 라이브 출력에서 장기 실행 작업을 트리거해야 합니다. 
 
@@ -147,7 +148,7 @@ AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합
 
 ## <a name="see-also"></a>참고 항목
 
-필요한 값을 모두 가져오려면 [Azure Microsoft Azure Media Services API에 액세스](access-api-cli-how-to.md)를 참조하세요.
+필요한 값을 모두 가져오려면 [Azure Microsoft Azure Media Services API에 액세스](./access-api-howto.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

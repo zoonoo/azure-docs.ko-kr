@@ -6,15 +6,16 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 5d1fecddd2c82e4b0d2d67ad14d93d3459f57fb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c829f7e4dcca5aa731f505092739146c72bd293
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697579"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041729"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Hubs 출력 바인딩
 
-이 문서에서는 Azure Functions에 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 바인딩을 사용하는 방법에 대해 설명합니다. Azure Functions는 Event Hubs에 대한 트리거 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에 [Azure Event Hubs](../event-hubs/event-hubs-about.md) 바인딩을 사용하는 방법에 대해 설명합니다. Azure Functions는 Event Hubs에 대한 트리거 및 출력 바인딩을 지원합니다.
 
 설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-event-hubs.md)를 참조하세요.
 

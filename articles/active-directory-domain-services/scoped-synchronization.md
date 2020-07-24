@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5f2c823b0932db42876be6ab04ebcd82783729aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097c894594987e92038beeaf4b17a3e67538fdad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734424"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046066"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Azure AD에서 Azure Active Directory Domain Services로 범위 동기화 구성
 
@@ -39,8 +40,8 @@ ms.locfileid: "84734424"
 
 Azure Portal 또는 PowerShell을 사용 하 여 범위 지정 동기화 설정을 구성 합니다.
 
-| 작업 | | |
-|--|--|--|
+| 작업 | Windows Server Update Services와 함께<br>Azure 포털 | Windows Server Update Services와 함께<br>PowerShell |
+| ------ | ------------------- | ----------------- |
 | 관리 되는 도메인을 만들고 범위 동기화 구성 | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
 | 범위 동기화 수정 | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
 | 범위 동기화 사용 안 함 | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |

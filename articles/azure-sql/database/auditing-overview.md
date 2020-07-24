@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040591"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,7 +79,10 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드에 대해 4000 문자 데이터를 저장 합니다. 감사가 가능한 작업에서 반환된 **statement** 또는 **data_sensitivity_information** 값에 4000자가 넘게 포함되면 처음 4000자를 초과하는 문자는 **잘리고 감사되지 않습니다**.
 다음 섹션에서는 Azure Portal을 사용하여 감사 구성을 설명합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+  > [!NOTE]
+  > 일시 중지 된 Synapse SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 Synapse SQL 풀을 일시 중지 합니다. [SYNAPSE SQL 풀](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool)에 대해 자세히 알아보세요.
+
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용 됩니다.
 
@@ -119,10 +122,6 @@ Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log 
 Azure Monitor 로그 작업 영역에 대 한 자세한 내용은 [Azure Monitor 로그 배포 디자인](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment) 을 참조 하세요.
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>이벤트 허브 대상 감사
-
-> [!WARNING]
-> SQL Database 풀이 있는 서버에서 감사를 사용 하도록 설정 하면 **SQL Database 풀이 다시 시작 되 고 다시 일시 중지 되어** 청구 요금이 발생할 수 있습니다.
-> 일시 중지 된 SQL Database 풀에서 감사를 사용 하도록 설정할 수 없습니다. 이 기능을 사용 하도록 설정 하려면 SQL Database 풀을 일시 중지 합니다.
 
 이벤트 허브에 감사 로그 작성을 구성하려면 **이벤트 허브(미리 보기)** 를 선택하고 **이벤트 허브 세부 정보**를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인**을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 

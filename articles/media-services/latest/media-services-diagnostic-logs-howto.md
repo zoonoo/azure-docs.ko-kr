@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19acd39be11a33424008662eb27cd68ec0005f77
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038956"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -28,7 +28,7 @@ ms.locfileid: "80382922"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md)
+- [Media Services 계정 만들기](./create-account-howto.md)
 - [모니터 Media Services 메트릭 및 진단 로그를](media-services-metrics-diagnostic-logs.md)검토 합니다.
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>포털을 사용 하 여 저장소 계정에 데이터 라우팅
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-예:
+예를 들어:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \

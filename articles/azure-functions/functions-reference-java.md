@@ -3,20 +3,26 @@ title: Azure Functions에 대한 Java 개발자 참조
 description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f1c2c3a3b6c28813cc9ecd9eb794e26e1e60d5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057605"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041538"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
-Azure Functions 런타임은 [Java SE 8 LTS(zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)를 지원합니다. 이 가이드에는 Java로 Azure Functions를 작성하는 복잡성에 대한 정보가 포함되어 있습니다.
+이 가이드에는 Java를 사용 하 Azure Functions를 개발 하는 데 도움이 되는 자세한 정보가 포함 되어 있습니다.
 
-다른 언어와 마찬가지로 함수 앱에는 하나 이상의 함수가 포함될 수 있습니다. Java 함수는 주석 `@FunctionName`으로 데코레이트된 `public` 메서드입니다. 이 메서드는 Java 함수의 항목을 정의하며 특정 패키지에서 고유해야 합니다. Java로 작성된 하나의 함수 앱에는 `@FunctionName`으로 주석이 달린 여러 public 메서드가 포함된 여러 클래스가 있을 수 있습니다.
+Java 개발자로 서 Azure Functions를 처음 접하는 경우 먼저 다음 문서 중 하나를 읽어 보세요.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 다음 Functions 빠른 시작 중 하나를 완료해야 합니다. [Visual Studio Code를 사용하여 첫 번째 Java 함수를 만들거나](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) [명령줄에서 Maven을 사용하여 첫 번째 Java 함수를 만듭니다](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+| 시작 | 개념| 
+| -- | -- |  
+| <ul><li>[Visual Studio Code를 사용 하는 Java 함수](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[터미널/명령 프롬프트를 사용 하는 Java/Maven 함수](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Gradle를 사용 하는 Java 함수](functions-create-first-java-gradle.md)</li><li>[Eclipse를 사용 하는 Java 함수](functions-create-maven-eclipse.md)</li><li>[IntelliJ 아이디어를 사용 하는 Java 함수](functions-create-maven-intellij.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> |
+
+## <a name="java-function-basics"></a>Java 함수 기본 사항
+
+Java 함수는 주석 `@FunctionName`으로 데코레이트된 `public` 메서드입니다. 이 메서드는 Java 함수의 항목을 정의하며 특정 패키지에서 고유해야 합니다. 패키지에는 여러 public 메서드가로 주석 처리 된 여러 클래스가 있을 수 있습니다 `@FunctionName` . 단일 패키지가 Azure의 함수 앱에 배포 됩니다. Azure에서 실행 하는 경우 함수 앱은 개별 Java 함수에 대 한 배포, 실행 및 관리 컨텍스트를 제공 합니다.
 
 ## <a name="programming-model"></a>프로그래밍 모델 
 
@@ -48,7 +54,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-이 아키타입 사용을 시작하려면 [Java 빠른 시작](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)을 참조하세요. 
+이 아키타입 사용을 시작하려면 [Java 빠른 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)을 참조하세요. 
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -87,9 +93,9 @@ FunctionsProject
 [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 패키지에 포함된 Java 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다. 자세한 내용은 [Java 참조 문서](/java/api/com.microsoft.azure.functions.annotation)를 참조하세요.
 
 > [!IMPORTANT] 
-> Azure Blob Storage, Azure Queue Storage 또는 Azure Table 스토리지 트리거를 로컬로 실행하려면 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
+> Azure Blob Storage, Azure Queue Storage 또는 Azure Table 스토리지 트리거를 로컬로 실행하려면 [local.settings.json](./functions-run-local.md#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
 
-예:
+예제:
 
 ```java
 public class Function {
@@ -125,9 +131,58 @@ public class Function {
 
 ```
 
+## <a name="java-versions"></a>Java 버전
+
+_Java 11에 대 한 지원은 현재 미리 보기 상태입니다._
+
+Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 버전은 pom.xml 파일에 지정 되어 있습니다. Maven 원형는 현재 Java 8에 대 한 pom.xml를 생성 합니다 .이는 게시 하기 전에 변경할 수 있습니다. pom.xml의 Java 버전은 응용 프로그램을 로컬로 개발 하 고 테스트 한 버전과 일치 해야 합니다. 
+
+### <a name="supported-versions"></a>지원되는 버전
+
+다음 표에서는 운영 체제별로 함수 런타임의 각 주 버전에 대해 현재 지원 되는 Java 버전을 보여 줍니다.
+
+| Functions 버전 | Java 버전 (Windows) | Java 버전 (Linux) |
+| ----- | ----- | --- |
+| 3.x | 11 (미리 보기)<br/>20cm(8<sup>\*</sup> | 11 (미리 보기)<br/>8 |
+| 2.x | 8 | 해당 없음 |
+
+<sup>\*</sup>Maven 원형에서 생성 하는 pom.xml의 현재 기본값입니다.
+
+### <a name="specify-the-deployment-version"></a>배포 버전 지정
+
+현재 Maven 원형는 Java 8을 대상으로 하는 pom.xml를 생성 합니다. Java 11을 실행 하는 함수 앱을 만들려면 pom.xml의 다음 요소를 업데이트 해야 합니다.
+
+| 요소 |  Java 8 값 | Java 11 값 | Description |
+| ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | Maven-플러그 인에서 사용 하는 Java 버전입니다. |
+| **`JavaVersion`** | 8 | 11 | Azure의 함수 앱에서 호스트 하는 Java 버전입니다. |
+
+다음 예에서는 pom.xml 파일의 관련 섹션에서 Java 8의 설정을 보여 줍니다.
+
+#### `Java.version`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="12-19" highlight="14":::
+
+#### `JavaVersion`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="80":::
+
+> [!IMPORTANT]
+> Maven를 사용 하 여 코드를 컴파일하는 동안 사용 되는 JDK 디렉터리로 JAVA_HOME 환경 변수를 올바르게 설정 해야 합니다. JDK의 버전이 최소 설정 보다 높아야 합니다 `Java.version` . 
+
+### <a name="specify-the-deployment-os"></a>배포 OS 지정
+
+또한 Maven를 사용 하면 함수 앱이 Azure에서 실행 되는 운영 체제를 지정할 수 있습니다. 요소를 사용 `os` 하 여 운영 체제를 선택 합니다. 
+
+| 요소 |  Windows | Linux | Docker |
+| ---- | ---- | ---- | --- |
+| **`os`** | Windows | 용 | docker |
+
+다음 예에서는 `runtime` pom.xml 파일의 섹션에서 운영 체제 설정을 보여 줍니다.
+
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
+ 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK 런타임 사용 가능성 및 지원 
 
-Java 함수 앱을 로컬에서 개발하려면 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK를 다운로드하여 사용합니다. Azure Functions는 클라우드에 함수 앱을 배포할 때 Azul Java 8 JDK 런타임을 사용합니다.
+Java 함수 앱의 로컬 개발에 대 한 적절 한 [Azul 줄루어 Enterprise](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) 를 다운로드 하 여 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)에서 Azure Java jdks에 사용 합니다. Azure Functions는 함수 앱을 클라우드에 배포할 때 Azul Java JDK 런타임을 사용 합니다.
 
 JDK 및 함수 앱에 문제가 있는 경우 [정규화된 지원 플랜](https://azure.microsoft.com/support/plans/)을 통해 [Azure 지원](https://azure.microsoft.com/support/)을 사용할 수 있습니다.
 
@@ -334,7 +389,7 @@ HttpRequest에서 이 함수를 호출합니다. Queue Storage에 여러 값을 
 
 ## <a name="metadata"></a>메타데이터
 
-입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 트리거 메타데이터에 바인딩할 수 있습니다.
+입력 데이터와 함께 [트리거 메타데이터](./functions-triggers-bindings.md)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 트리거 메타데이터에 바인딩할 수 있습니다.
 
 
 ```Java

@@ -11,17 +11,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 53645b6ba9f1463eac14ea974a17c356c1791db6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4ef93b34639abffaf15c806fd86d550e03f0bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045266"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>자습서: autofailover 그룹에 Azure SQL Database 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[장애 조치 (failover) 그룹](auto-failover-group-overview.md) 은 여러 지역에서 복제 된 데이터베이스를 그룹화 하는 데 사용할 수 있는 선언적 추상화 계층입니다. Azure SQL Database에 대해 장애 조치 (failover) 그룹을 구성 하 고 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 장애 조치 (failover)를 테스트 하는 방법을 알아봅니다.  이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+[장애 조치 (failover) 그룹](auto-failover-group-overview.md) 은 여러 지역에서 복제 된 데이터베이스를 그룹화 하는 데 사용할 수 있는 선언적 추상화 계층입니다. Azure SQL Database에 대해 장애 조치 (failover) 그룹을 구성 하 고 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 장애 조치 (failover)를 테스트 하는 방법을 알아봅니다.  이 자습서에서 학습할 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
 >
@@ -29,26 +29,26 @@ ms.locfileid: "85255316"
 > - 두 서버 간에 데이터베이스의 장애 조치 (failover) 그룹을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 # <a name="the-portal"></a>[포털](#tab/azure-portal)
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
-- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- [Azure PowerShell](/powershell/azure/)
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)입니다.
 
 ---

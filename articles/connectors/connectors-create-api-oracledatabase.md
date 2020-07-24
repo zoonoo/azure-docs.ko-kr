@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039994"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
 
@@ -77,7 +77,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
     다음 예제에서는 인사 관리 데이터베이스에서 작업 데이터가 반환됩니다. 
 
-    !["행 가져오기 (미리 보기)" 라는 대화 상자에는 "HRJOBS"를 포함 하 고 드롭다운 목록을 포함 하는 "Table name" 이라는 두 개의 텍스트 상자와 "SA_REP"가 포함 된 "행 id"가 있습니다.](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    !["행 가져오기 (미리 보기)" 라는 대화 상자에는 "H R 작업"을 포함 하는 "Table name" 이라는 두 개의 입력란이 있습니다. 여기에는 "H R 작업"이 포함 되 고 드롭다운 목록은 "S A _ REP"를 포함 하는 "Row i d"가 포함 됩니다.](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. 다음 단계에서는 다른 커넥터를 사용하여 워크플로를 작성할 수 있습니다. Oracle에서 데이터 가져오기를 테스트 하려는 경우 Office 365 Outlook 등의 메일 보내기 커넥터 중 하나를 사용 하 여 Oracle 데이터가 포함 된 전자 메일을 보냅니다. Oracle 테이블의 동적 토큰을 사용하여 전자 메일의 `Subject` 및 `Body`을 작성합니다.
 

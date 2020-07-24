@@ -5,11 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97c1819d665e6964343e853249a0d22aa07c3588
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045584"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
@@ -51,7 +52,7 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 ## <a name="with-azure-cli"></a>Azure CLI 사용
 
-이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)입니다.
+이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest)입니다.
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>리소스 그룹의 모든 클래식 메트릭 경고 규칙 가져오기
 
@@ -87,7 +88,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 이 섹션에서는 PowerShell 명령을 사용하여 클래식 메트릭 경고를 만들고, 보고, 관리하는 방법을 보여 줍니다. 문서의 예제에서는 클래식 메트릭 경고에 대해 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다.
 
-1. 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
+1. 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/)을 참조하세요. [Azure Monitor(Insights) Cmdlet](/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
 
 2. 먼저 Azure 구독에 로그인합니다.
 

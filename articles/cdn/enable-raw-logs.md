@@ -2,23 +2,23 @@
 title: Azure CDN HTTP 원시 로그
 description: 이 문서에서는 Azure CDN HTTP 원시 로그를 설명합니다.
 services: cdn
-author: sohamnchatterjee
-manager: danielgi
+author: asudbring
+manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/23/2020
-ms.author: sohamnc
-ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.author: allensu
+ms.openlocfilehash: 3b36e528a013403a2ed664d3011338d92f37a3db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040160"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Azure CDN HTTP 원시 로그
-원시 로그는 감사 및 문제 해결에 중요한 작업 및 오류에 관한 풍부한 정보를 제공합니다. 원시 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 가시성을 제공합니다. 원시 로그는 리소스 작업의 레코드를 제공합니다.
+원시 로그는 감사 및 문제 해결에 중요한 작업 및 오류에 관한 풍부한 정보를 제공합니다. 원시 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 가시성을 제공합니다. 원시 로그는 리소스 작업의 레코드를 제공합니다. 원시 로그는 CDN이 받는 모든 요청에 대 한 다양 한 정보를 제공 합니다. 
 
 > [!IMPORTANT]
 > HTTP 원시 로그 기능은 Microsoft의 Azure CDN에서 사용할 수 있습니다.
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration---azure-portal"></a>구성-Azure Portal
 
 Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면: 
 
@@ -60,6 +60,88 @@ Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면:
 
 7. **저장**을 선택합니다.
 
+## <a name="configuration---azure-powershell"></a>구성-Azure PowerShell
+
+[AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest) 를 사용 하 여 원시 로그에 대 한 진단 설정을 구성 합니다.
+
+보존 데이터는 명령의-보존 **기간** 옵션에 의해 정의 됩니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+### <a name="enable-diagnostic-logs-in-a-storage-account"></a>저장소 계정에서 진단 로그 사용
+
+1. Azure PowerShell에 로그인 합니다.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+
+2. 저장소 계정에서 진단 로그를 사용 하도록 설정 하려면 다음 명령을 입력 합니다. 변수를 값으로 바꿉니다.
+
+    ```azurepowershell-interactive
+    ## Variables for the commands ##
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $storageacct = <your-storage-account-name>
+    $diagname = <your-diagnostic-setting-name>
+    $days = '30'
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $storage.id -Enabled $true -Category AzureCdnAccessLog -RetentionEnabled 1 -RetentionInDays $days
+    ```
+
+### <a name="enable-diagnostics-logs-for-log-analytics-workspace"></a>Log Analytics 작업 영역에 대 한 진단 로그 사용
+
+1. Azure PowerShell에 로그인 합니다.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. Log Analytics 작업 영역에 대 한 진단 로그를 사용 하도록 설정 하려면 다음 명령을 입력 합니다. 변수를 값으로 바꿉니다.
+
+    ```azurepowershell-interactive
+    ## Variables for the commands ##
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $workspacename = <your-log-analytics-workspace-name>
+    $diagname = <your-diagnostic-setting-name>
+    $days = '30'
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rsg -Name $workspacename
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -WorkspaceId $workspace.ResourceId -Enabled $true -Category AzureCdnAccessLog -RetentionEnabled 1 -RetentionInDays $days
+    ```
+### <a name="enable-diagnostics-logs-for-event-hub-namespace"></a>이벤트 허브 네임 스페이스에 대 한 진단 로그 사용
+
+1. Azure PowerShell에 로그인 합니다.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. 이벤트 허브 네임 스페이스에 대 한 진단 로그를 사용 하도록 설정 하려면 다음 명령을 입력 합니다. 변수를 값으로 바꿉니다.
+
+    ```azurepowershell-interactive
+    ## Variables for the commands ##
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $evthubnamespace = <your-event-hub-namespace-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $eventhub = Get-AzEventHubNamespace -ResourceGroupName $rsg -Name $eventhubname
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhub.id -Enabled $true -Category AzureCdnAccessLog -RetentionEnabled 1 -RetentionInDays $days
+    ```
+
 ## <a name="raw-logs-properties"></a>원시 로그 속성
 
 Microsoft 서비스의 Azure CDN은 현재 원시 로그를 제공합니다. 원시 로그는 각 항목에 다음 스키마가 포함된 개별 API 요청을 제공합니다. 
@@ -78,16 +160,41 @@ Microsoft 서비스의 Azure CDN은 현재 원시 로그를 제공합니다. 원
 | SecurityProtocol      | 요청에 사용되는 TLS/SSL 프로토콜 버전이거나, 암호화가 없는 경우 null입니다.                                                                                                                           |
 | 엔드포인트              | CDN 엔드포인트 호스트가 부모 CDN 프로필 아래에서 구성되었습니다.                                                                                                                                   |
 | 백 엔드 호스트 이름     | 요청이 전송되는 백 엔드 호스트 또는 원본의 이름입니다.                                                                                                                                |
-| 원본 보호로 전송됨 | True이면 요청이 에지 POP가 아닌 원본 보호 캐시에서 응답되었음을 의미합니다. 원본 보호는 캐시 적중률을 향상하는 데 사용되는 부모 캐시입니다.                                       |
+| 원본 보호로 전송됨 </br> (사용 되지 않음) * 아래의 사용 중단 **에 대 한 참고를 참조 하세요.** | True이면 요청이 에지 POP가 아닌 원본 보호 캐시에서 응답되었음을 의미합니다. 원본 보호는 캐시 적중률을 향상하는 데 사용되는 부모 캐시입니다.                                       |
+| isReceivedFromClient | True 이면 요청이 클라이언트에서 제공 되었음을 의미 합니다. False 이면 요청이에 지 (자식 POP)에서 누락 되 고 원본 방패 (부모 POP)에서 응답 합니다. 
 | HttpStatusCode        | 프록시에서 반환된 HTTP 상태 코드입니다.                                                                                                                                                        |
 | HttpStatusDetails     | 요청의 결과 상태입니다. 이 문자열 값의 의미는 상태 참조 테이블에서 찾을 수 있습니다.                                                                                              |
 | Pop                   | 사용자 요청에 응답한 에지 POP입니다. POP의 약어는 각 지하철의 공항 코드입니다.                                                                                   |
 | 캐시 상태          | 개체가 캐시에서 반환되거나 원본에서 가져왔는지 나타냅니다.                                                                                                             |
-> [!IMPORTANT]
-> HTTP 원시 로그 기능은 **2020년 2월 25일** 이후에 만들어지거나 업데이트된 모든 프로필에 자동으로 사용할 수 있습니다. 이전에 만든 CDN 프로필의 경우 로깅을 설정한 후 CDN 엔드포인트를 업데이트해야 합니다. 예를 들어 CDN 엔드포인트에서 지역 필터링으로 이동하고, 해당 워크로드와 관련이 없는 모든 국가/지역을 차단하고, 저장을 누를 수 있습니다. 
-
 > [!NOTE]
 > 쿼리를 실행하여 Log Analytics 프로필에서 로그를 볼 수 있습니다. 샘플 쿼리는 다음과 같이 표시됩니다.              AzureDiagnostics | where Category == "AzureCdnAccessLog"
+
+
+### <a name="sent-to-origin-shield-deprecation"></a>원본 방패 사용 중단으로 전송
+원시 로그 속성 **isSentToOriginShield** 는 더 이상 사용 되지 않으며 새 필드인 **isReceivedFromClient**로 바뀌었습니다. 사용 되지 않는 필드를 이미 사용 하 고 있는 경우 새 필드를 사용 합니다. 
+
+원시 로그는 CDN에 지 (자식 POP)와 원본 방패에서 생성 된 로그를 포함 합니다. 원본 방패는 전 세계에서 전략적으로 배치 되는 부모 노드를 나타냅니다. 이러한 노드는 원본 서버와 통신 하 여 원본에서의 트래픽 부하를 줄입니다. 
+
+원본 방패로 이동 하는 모든 요청에 대해 2 개의 로그 항목이 있습니다.
+
+* 에 지 노드에 대 한 하나
+* 원본 방패를 위한 것입니다. 
+
+에 지 노드 및 원본 방패의 송신 또는 응답을 구분 하기 위해 isReceivedFromClient 필드를 사용 하 여 올바른 데이터를 가져올 수 있습니다. 
+
+값이 false 이면 요청은 원본 방패에서에 지 노드로 응답 하는 것을 의미 합니다. 이 방법은 원시 로그를 청구 데이터와 비교 하는 데 효과적입니다. 원본 실드에서에 지 노드로의 송신에 대 한 요금이 발생 하지 않습니다. 에 지 노드에서 클라이언트로의 송신에 대 한 요금이 부과 됩니다. 
+
+**Log Analytics에서 원본 방패에 생성 된 로그를 제외 하는 kusto 쿼리 샘플입니다.**
+
+```kusto
+AzureDiagnostics 
+| where OperationName == "Microsoft.Cdn/Profiles/AccessLog/Write" and Category == "AzureCdnAccessLog"  
+| where isReceivedFromClient == true
+
+```
+
+> [!IMPORTANT]
+> HTTP 원시 로그 기능은 **2020년 2월 25일** 이후에 만들어지거나 업데이트된 모든 프로필에 자동으로 사용할 수 있습니다. 이전에 만든 CDN 프로필의 경우 로깅을 설정한 후 CDN 엔드포인트를 업데이트해야 합니다. 예를 들어 CDN 엔드포인트에서 지역 필터링으로 이동하고, 해당 워크로드와 관련이 없는 모든 국가/지역을 차단하고, 저장을 누를 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft CDN 서비스의 HTTP 원시 로그를 사용하도록 설정했습니다.

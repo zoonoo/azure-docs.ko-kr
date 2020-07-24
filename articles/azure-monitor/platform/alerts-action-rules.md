@@ -4,12 +4,12 @@ description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045723"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -21,14 +21,13 @@ ms.locfileid: "86112343"
 
 ### <a name="suppression-of-alerts"></a>경고 표시 안 함
 
-경고가 생성 하는 알림을 표시 하지 않는 것이 유용한 여러 시나리오가 있습니다. 이러한 시나리오는 업무 시간 외 시간에는 계획 된 유지 관리 기간 동안 억제에서 억제로의 범위입니다. 예를 들어 **ContosoVM** 를 담당 하는 팀은 **ContosoVM** 가 계획 된 유지 관리를 수행 하기 때문에 예정 된 주말에 대 한 경고 알림을 표시 하지 않습니다. 
+경고가 생성 하는 알림을 표시 하지 않는 것이 유용한 여러 시나리오가 있습니다. 이러한 시나리오는 업무 시간 외 시간에는 계획 된 유지 관리 기간 동안 억제에서 억제로의 범위입니다. 예를 들어 **ContosoVM** 를 담당 하는 팀은 **ContosoVM** 가 계획 된 유지 관리를 수행 하기 때문에 예정 된 주말에 대 한 경고 알림을 표시 하지 않습니다.
 
 팀은 **ContosoVM** 에서 수동으로 구성 된 각 경고 규칙을 사용 하지 않도록 설정할 수 있지만 (유지 관리 후 다시 사용 하도록 설정) 간단한 프로세스가 아닙니다. 작업 규칙은 제거 기간을 유연 하 게 구성할 수 있는 기능을 사용 하 여 대규모 경고 억제를 정의 하는 데 도움이 됩니다. 이전 예제에서 팀은 주말의 모든 경고 알림을 표시 하지 않는 **ContosoVM** 에 대 한 하나의 작업 규칙을 정의할 수 있습니다.
 
-
 ### <a name="actions-at-scale"></a>크기 조정 작업
 
-경고 규칙은 경고가 생성 될 때 트리거되는 작업 그룹을 정의 하는 데 도움이 되지만 고객은 종종 작업 범위에서 일반적인 작업 그룹을가지고 있습니다. 예를 들어 리소스 그룹 **ContosoRG** 을 담당 하는 팀은 **ContosoRG**내에 정의 된 모든 경고 규칙에 대해 동일한 작업 그룹을 정의할 수 있습니다. 
+경고 규칙은 경고가 생성 될 때 트리거되는 작업 그룹을 정의 하는 데 도움이 되지만 고객은 종종 작업 범위에서 일반적인 작업 그룹을가지고 있습니다. 예를 들어 리소스 그룹 **ContosoRG** 을 담당 하는 팀은 **ContosoRG**내에 정의 된 모든 경고 규칙에 대해 동일한 작업 그룹을 정의할 수 있습니다.
 
 작업 규칙은이 프로세스를 간소화 하는 데 도움이 됩니다. 규모에 따라 작업을 정의 하 여 구성 된 범위에서 생성 되는 모든 경고에 대해 작업 그룹을 트리거할 수 있습니다. 이전 예제에서 팀은 **ContosoRG** 에서 생성 된 모든 경고에 대해 동일한 작업 그룹을 트리거하는 하나의 작업 규칙을 정의할 수 있습니다.
 
@@ -37,11 +36,13 @@ ms.locfileid: "86112343"
 
 ## <a name="configuring-an-action-rule"></a>작업 규칙 구성
 
+### <a name="portal"></a>[포털](#tab/portal)
+
 Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 하 여 기능에 액세스할 수 있습니다. 그런 다음 **작업 규칙 (미리 보기)** 을 선택 합니다. 경고에 대 한 방문 페이지의 대시보드에서 **작업 규칙 (미리 보기)** 을 선택 하 여 규칙에 액세스할 수 있습니다.
 
 ![Azure Monitor 방문 페이지의 작업 규칙](media/alerts-action-rules/action-rules-landing-page.png)
 
-**+ 새 작업 규칙**을 선택 합니다. 
+**+ 새 작업 규칙**을 선택 합니다.
 
 ![새 작업 규칙 추가](media/alerts-action-rules/action-rules-new-rule.png)
 
@@ -49,11 +50,11 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ![새 작업 규칙 추가](media/alerts-action-rules/action-rules-alert-rule.png)
 
-이제 작업 규칙을 만들기 위한 흐름 페이지가 표시 됩니다. 다음 요소를 구성 합니다. 
+이제 작업 규칙을 만들기 위한 흐름 페이지가 표시 됩니다. 다음 요소를 구성 합니다.
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 
 먼저 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택 합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -61,9 +62,9 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ### <a name="filter-criteria"></a>필터 조건
 
-또한 필터를 정의 하 여 경고의 특정 하위 집합으로 범위를 좁힐 수 있습니다. 
+또한 필터를 정의 하 여 경고의 특정 하위 집합으로 범위를 좁힐 수 있습니다.
 
-사용 가능한 필터는 다음과 같습니다. 
+사용 가능한 필터는 다음과 같습니다.
 
 * **심각도**: 경고 심각도를 하나 이상 선택 하는 옵션입니다. **심각도 = Sev1** 은 작업 규칙이 Sev1로 설정 된 모든 경고에 적용 될 수 있음을 의미 합니다.
 * **모니터 서비스**: 원본 모니터링 서비스를 기반으로 하는 필터입니다. 이 필터는 다중 선택 이기도 합니다. 예를 들어 **Monitor Service = "Application Insights"** 는 모든 Application Insights 기반 경고에 대 한 작업 규칙이 적용 됨을 의미 합니다.
@@ -73,7 +74,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 * **Description**: 경고 규칙의 일부로 정의 된 설명과 일치 하는 문자열을 정의 하는 regex (정규식) 일치 항목입니다. 예를 **들어 설명에 ' r o s t '가 포함** 된 모든 경고는 설명에 "prod" 문자열이 포함 된 모든 경고와 일치 합니다.
 * **경고 컨텍스트 (페이로드)**: 경고 페이로드의 경고 컨텍스트 필드에 대 한 문자열 일치를 정의 하는 regex 일치 항목입니다. 예를 **들어, 경고 컨텍스트 (페이로드)는 '** 컴퓨터-01 '이 포함 된 페이로드가 포함 된 모든 경고와 일치 합니다.
 
-이러한 필터는 서로 함께 적용 됩니다. 예를 들어 **리소스 유형 ' = Virtual Machines** 및 **심각도 ' = Sev0**를 설정 하는 경우 vm의 모든 **Sev0** 경고에 대해 필터링 했습니다. 
+이러한 필터는 서로 함께 적용 됩니다. 예를 들어 **리소스 유형 ' = Virtual Machines** 및 **심각도 ' = Sev0**를 설정 하는 경우 vm의 모든 **Sev0** 경고에 대해 필터링 했습니다.
 
 ![작업 규칙 필터](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -92,7 +93,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 #### <a name="action-group"></a>작업 그룹
 
-설정/해제에서 **작업 그룹** 을 선택 하는 경우 기존 작업 그룹을 추가 하거나 새 작업 그룹을 만듭니다. 
+설정/해제에서 **작업 그룹** 을 선택 하는 경우 기존 작업 그룹을 추가 하거나 새 작업 그룹을 만듭니다.
 
 > [!NOTE]
 > 작업 규칙에 작업 그룹을 하나만 연결할 수 있습니다.
@@ -102,9 +103,85 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 ### <a name="action-rule-details"></a>작업 규칙 세부 정보
 
 마지막으로, 작업 규칙에 대 한 다음 세부 정보를 구성 합니다.
-* Name
+* 이름
 * 저장 된 리소스 그룹
-* Description 
+* 설명
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) 명령을 사용 하 여 Azure CLI 작업 규칙을 만들 수 있습니다.  `az monitor action-rule`참조는 [Azure Monitor에 대 한 많은 Azure CLI 참조](/cli/azure/azure-cli-reference-for-monitor)중 하나일 뿐입니다.
+
+### <a name="prepare-your-environment"></a>환경 준비
+
+1. [Azure CLI 설치](/cli/azure/install-azure-cli)
+
+   원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
+
+   - 다음으로 이동 하 여 Cloud Shell을 엽니다.[https://shell.azure.com](https://shell.azure.com)
+
+   - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
+
+1. 로그인합니다.
+
+   CLI의 로컬 설치를 사용 하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용 하 여 로그인 합니다.  터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
+
+    ```azurecli
+    az login
+    ```
+
+1. `alertsmanagement` 확장 설치
+
+   `az monitor action-rule`명령은 핵심 Azure CLI의 실험적 확장입니다. [Azure CLI 확장 사용](/cli/azure/azure-cli-extensions-overview?)의 확장 참조에 대해 자세히 알아보세요.
+
+   ```azurecli
+   az extension add --name alertsmanagement
+   ```
+
+   다음 경고가 예상 됩니다.
+
+   ```output
+   The installed extension `alertsmanagement` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### <a name="create-action-rules-with-the-azure-cli"></a>Azure CLI를 사용 하 여 작업 규칙 만들기
+
+필수 및 선택적 매개 변수에 대 한 자세한 내용은 [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) 에 대 한 Azure CLI 참조 콘텐츠를 참조 하세요.
+
+리소스 그룹에서 알림을 표시 하지 않는 작업 규칙을 만듭니다.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --scope-type ResourceGroup \
+                              --scope /subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourceGroups/MyResourceGroupName \
+                              --suppression-recurrence-type Always \
+                              --alert-context Contains Computer-01 \
+                               --monitor-service Equals "Log Analytics"
+```
+
+주말 마다 구독 내의 모든 Vm에 대 한 모든 Sev4 경고에 대 한 알림을 표시 하지 않는 작업 규칙을 만듭니다.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --severity Equals Sev4 \
+                              --target-resource-type Equals Microsoft.Compute/VirtualMachines \
+                              --suppression-recurrence-type Weekly \
+                              --suppression-recurrence 0 6 \
+                              --suppression-start-date 12/09/2018 \
+                              --suppression-end-date 12/18/2018 \
+                              --suppression-start-time 06:00:00 \
+                              --suppression-end-time 14:00:00
+
+```
+
+* * *
 
 ## <a name="example-scenarios"></a>예제 시나리오
 
@@ -132,7 +209,7 @@ Contoso는 유지 관리를 거치는 동안 **ContosoSub** 에서 **컴퓨터-0
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>시나리오 3: 리소스 그룹에 정의 된 작업 그룹
 
-Contoso는 [구독 수준에서 메트릭 경고를](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)정의 했습니다. 그러나 리소스 그룹 **ContosoRG**에서 생성 된 경고에 대해 특별히 트리거되는 작업을 정의 하려고 합니다.
+Contoso는 [구독 수준에서 메트릭 경고를](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor)정의 했습니다. 그러나 리소스 그룹 **ContosoRG**에서 생성 된 경고에 대해 특별히 트리거되는 작업을 정의 하려고 합니다.
 
 **해결 방법:** 다음을 사용 하 여 작업 규칙을 만듭니다.
 * 범위 = **ContosoRG**
@@ -140,9 +217,11 @@ Contoso는 [구독 수준에서 메트릭 경고를](https://docs.microsoft.com/
 * **ContosoActionGroup** 로 설정 되는 작업 그룹
 
 > [!NOTE]
-> *작업 규칙 및 경고 규칙 내에 정의 된 작업 그룹은 중복 제거 없이 독립적으로 작동 합니다.* 앞에서 설명한 시나리오에서 작업 그룹이 경고 규칙에 대해 정의 된 경우 작업 규칙에 정의 된 작업 그룹과 함께 트리거됩니다. 
+> *작업 규칙 및 경고 규칙 내에 정의 된 작업 그룹은 중복 제거 없이 독립적으로 작동 합니다.* 앞에서 설명한 시나리오에서 작업 그룹이 경고 규칙에 대해 정의 된 경우 작업 규칙에 정의 된 작업 그룹과 함께 트리거됩니다.
 
 ## <a name="managing-your-action-rules"></a>작업 규칙 관리
+
+### <a name="portal"></a>[포털](#tab/portal)
 
 목록 뷰에서 작업 규칙을 보고 관리할 수 있습니다.
 
@@ -150,7 +229,29 @@ Contoso는 [구독 수준에서 메트릭 경고를](https://docs.microsoft.com/
 
 여기에서 옆의 확인란을 선택 하 여 scale에서 작업 규칙을 사용 하거나 사용 하지 않도록 설정 하거나 삭제할 수 있습니다. 작업 규칙을 선택 하면 해당 구성 페이지가 열립니다. 이 페이지에서는 작업 규칙의 정의를 업데이트 하 고 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI에서 [az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) 명령을 사용 하 여 작업 규칙을 보고 관리할 수 있습니다.
+
+Azure CLI 사용 하 여 작업 규칙을 관리 하기 전에 [작업 규칙 구성](#configuring-an-action-rule)에서 제공 하는 지침을 사용 하 여 환경을 준비 합니다.
+
+```azurecli
+# List all action rules for a subscription
+az monitor action-rule list
+
+# Get details of an action rule
+az monitor action-rule show --resource-group MyResourceGroupName --name MyActionRuleName
+
+# Update an action rule.
+az monitor action-rule update --resource-group MyResourceGroupName --name MyActionRuleName --status Disabled
+
+# Delete an action rule.
+az monitor action-rule delete --resource-group MyResourceGroupName --name MyActionRuleName
+```
+
+* * *
+
+## <a name="best-practices"></a>모범 사례
 
 [결과 수](alerts-unified-log.md) 옵션을 사용 하 여 만든 로그 경고는 전체 검색 결과 (여러 컴퓨터에 걸쳐 있을 수 있음)를 사용 하 여 단일 경고 인스턴스를 생성 합니다. 이 시나리오에서 작업 규칙은 **경고 컨텍스트 (페이로드)** 필터를 사용 하는 경우 일치 하는 항목이 있는 한 경고 인스턴스에 대해 작동 합니다. 앞서 설명한 시나리오 2에서는 생성 된 로그 경고에 대 한 검색 결과에 **컴퓨터-01** 과 **컴퓨터-02**가 모두 포함 되어 있으면 전체 알림이 표시 되지 않습니다. **컴퓨터 02** 에 대해 전혀 생성 된 알림이 없습니다.
 
@@ -181,12 +282,12 @@ Contoso는 [구독 수준에서 메트릭 경고를](https://docs.microsoft.com/
 * 하위 집합: 예를 들어 정의 하는 경고 규칙은 구독에 있고 작업 규칙은 구독 내의 리소스 그룹에 있습니다.
 * 상위 집합: 예를 들어 정의 하는 경고 규칙은 리소스 그룹에 있고 작업 규칙은 리소스 그룹을 포함 하는 구독에 있습니다.
 * 교집합: 예를 들어 정의 하는 경고 규칙은 **VM1** 및 **v m 2**에 있고 작업 규칙은 **v m 2** 및 **v m 3**에 있습니다.
-    
+
 ![겹치는 작업 규칙](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>작업 규칙에 의해 억제 된 경고를 볼 수 있나요?
 
-[경고 목록 페이지](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances)에서 비 표시 ( **Suppression) 상태**라는 추가 열을 선택할 수 있습니다. 경고 인스턴스의 알림이 표시 되지 않으면 목록에 해당 상태가 표시 됩니다.
+[경고 목록 페이지](./alerts-managing-alert-instances.md)에서 비 표시 ( **Suppression) 상태**라는 추가 열을 선택할 수 있습니다. 경고 인스턴스의 알림이 표시 되지 않으면 목록에 해당 상태가 표시 됩니다.
 
 ![표시 되지 않는 경고 인스턴스](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -200,7 +301,7 @@ Contoso는 [구독 수준에서 메트릭 경고를](https://docs.microsoft.com/
 
    `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
-VM1 및 V M 3의 모든 경고에 대해 작업 그룹 AG1이 한 번 트리거됩니다. 작업 규칙은 중복 된 작업을 수행 하지 않으므로 **v m 2**의 모든 경고에 대해 작업 그룹 AG1가 두 번 트리거됩니다. 
+VM1 및 V M 3의 모든 경고에 대해 작업 그룹 AG1이 한 번 트리거됩니다. 작업 규칙은 중복 된 작업을 수행 하지 않으므로 **v m 2**의 모든 경고에 대해 작업 그룹 AG1가 두 번 트리거됩니다.
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>별도의 두 작업 규칙에서 리소스를 모니터링 하 고 작업에 대 한 호출을 제거 하는 데 다른 작업을 수행 하는 경우 어떻게 되나요? 예를 들어, 다음과 같은 시나리오에서는 **v m 2** 입니다.
 
@@ -208,7 +309,7 @@ VM1 및 V M 3의 모든 경고에 대해 작업 그룹 AG1이 한 번 트리거�
 
    `action rule AR2 defined for VM2 and VM3 with suppression`
 
-VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. V M 2 및 V M 3의 모든 경고에 대 한 작업 및 알림이 표시 되지 않습니다. 
+VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. V M 2 및 V M 3의 모든 경고에 대 한 작업 및 알림이 표시 되지 않습니다.
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>다른 작업 그룹을 호출 하는 동일한 리소스에 대해 정의 된 경고 규칙 및 작업 규칙이 있으면 어떻게 되나요? 예를 들어, 다음과 같은 시나리오에서는 **VM1** 입니다.
 
@@ -216,8 +317,8 @@ VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. 
 
    `action rule AR1 defined for VM1 with action group AG1`
 
-VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. 경고 규칙 "rule1"가 트리거될 때마다 AG2도 트리거합니다. 작업 규칙 및 경고 규칙 내에 정의 된 작업 그룹은 중복 제거 없이 독립적으로 작동 합니다. 
+VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. 경고 규칙 "rule1"가 트리거될 때마다 AG2도 트리거합니다. 작업 규칙 및 경고 규칙 내에 정의 된 작업 그룹은 중복 제거 없이 독립적으로 작동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 경고에 대해 자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
+- [Azure의 경고에 대해 자세히 알아보기](./alerts-overview.md)

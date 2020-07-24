@@ -4,16 +4,16 @@ description: IntelliJ IDEA를 사용하여 첫 번째 Azure Resource Manager 템
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057452"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040747"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>IntelliJ 아이디어를 사용 하 여 ARM 템플릿 만들기 및 배포
 
-IntelliJ 아이디어와 IDE에서 직접 템플릿을 편집 하 고 업데이트 하는 프로세스를 사용 하 여 ARM (Azure Resource Manager) 템플릿을 Azure에 배포 하는 방법에 대해 알아봅니다. ARM 템플릿은 솔루션에 배포 하는 데 필요한 리소스를 정의 하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [템플릿 배포 개요](overview.md)를 참조하세요.
+IntelliJ 아이디어와 IDE에서 직접 템플릿을 편집 하 고 업데이트 하는 프로세스를 사용 하 여 ARM (Azure Resource Manager) 템플릿을 Azure에 배포 하는 방법에 대해 알아봅니다. ARM 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [템플릿 배포 개요](overview.md)를 참조하세요.
 
 ![리소스 관리자 템플릿 포털 다이어그램](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -21,13 +21,13 @@ IntelliJ 아이디어와 IDE에서 직접 템플릿을 편집 하 고 업데이�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition 또는 Community Edition 설치
 * [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053)를 설치해야 합니다. 자세한 내용은 [IntelliJ의 플러그인 관리 가이드](https://www.jetbrains.com/help/idea/managing-plugins.html)를 참조하세요.
-* Azure Toolkit for IntelliJ를 사용하려면 Azure 계정에 [로그인](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions)해야 합니다.
+* Azure Toolkit for IntelliJ를 사용하려면 Azure 계정에 [로그인](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)해야 합니다.
 
 ## <a name="deploy-a-quickstart-template"></a>빠른 시작 템플릿 배포
 

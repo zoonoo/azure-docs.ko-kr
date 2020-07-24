@@ -12,15 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039145"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>콘텐츠 인식 인코딩 미리 설정을 사용 하 여 지정 된 해상도에 대 한 최적의 비트 전송률 값을 찾습니다.
 
-[적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)통해 콘텐츠를 준비할 수 있도록 하려면 비디오를 여러 비트 전송률 (높음-낮음)으로 인코딩해야 합니다. 이렇게 하면 비트 전송률이 감소 하므로 비디오의 해상도는 품질의 정상 저하를 보장할 수 있습니다. 이러한 다중 비트 전송률 인코딩은 해상도 및 비트 전송률의 테이블을 사용 하 여이에 대 한 인코딩 사다리를 사용 합니다. [기본 제공 인코딩 기본 설정](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)Media Services을 참조 하세요.
+[적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)통해 콘텐츠를 준비할 수 있도록 하려면 비디오를 여러 비트 전송률 (높음-낮음)으로 인코딩해야 합니다. 이렇게 하면 비트 전송률이 감소 하므로 비디오의 해상도는 품질의 정상 저하를 보장할 수 있습니다. 이러한 다중 비트 전송률 인코딩은 해상도 및 비트 전송률의 테이블을 사용 하 여이에 대 한 인코딩 사다리를 사용 합니다. [기본 제공 인코딩 기본 설정](/rest/api/media/transforms/createorupdate#encodernamedpreset)Media Services을 참조 하세요.
 
 처리 중인 콘텐츠를 파악 하 고 개별 비디오의 복잡도에 맞게 인코딩 사다리를 사용자 지정/조정 해야 합니다. 각 해상도에서 품질 증가는 perceptive 하지 않는 비트 전송률이 있습니다. 인코더는이 최적의 비트 전송률 값에서 작동 합니다. 다음 수준의 최적화는 콘텐츠를 기반으로 해상도를 선택 하는 것입니다. 예를 들어 PowerPoint 프레젠테이션 비디오에서는 720p를 사용 하는 것이 좋습니다. 더 나아가 인코더는 비디오 내에서 각 샷의 설정을 최적화 하는 일을 할 수 있습니다. 
 
@@ -81,7 +82,7 @@ TransformOutput[] output = new TransformOutput[]
 ## <a name="next-steps"></a>다음 단계
 
 * [자습서: Media Services v3로 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
-* [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-REST](stream-files-tutorial-with-rest.md)
+* [자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST](stream-files-tutorial-with-rest.md)
 * [자습서: URL을 기준으로 원격 파일 인코딩 및 비디오 스트림-CLI](stream-files-cli-quickstart.md)
 * [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-.NET](stream-files-dotnet-quickstart.md)
 * [자습서: URL을 기준으로 원격 파일 인코딩 및 비디오 스트림 Node.js](stream-files-nodejs-quickstart.md)

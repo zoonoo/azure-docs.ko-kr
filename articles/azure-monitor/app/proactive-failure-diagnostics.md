@@ -4,12 +4,12 @@ description: 웹앱에 요청 실패율의 비정상적인 변경 내용에 대�
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254789"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045805"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 경고합니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청의 일반적인 응답 코드는 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 애플리케이션 데이터의 특성에 대한 분석이 경고 정보에 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -61,13 +61,13 @@ ms.locfileid: "85254789"
 
 ## <a name="configure-alerts"></a>경고 구성
 
-포털에서 또는 Azure Resource Manager를 사용하여 스마트 검색 경고 규칙을 사용하지 않도록 설정할 수 있습니다([템플릿 예제 참조](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+포털에서 또는 Azure Resource Manager를 사용하여 스마트 검색 경고 규칙을 사용하지 않도록 설정할 수 있습니다([템플릿 예제 참조](./proactive-arm-config.md)).
 
-이 경고 규칙은 메일 및 webhook 작업을 포함하고 경고가 발생하면 추가 작업을 트리거하기 위해 확장할 수 있는 "Application Insights 스마트 검색"이라고 하는 연결된 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)을 사용하여 생성됩니다.
+이 경고 규칙은 메일 및 webhook 작업을 포함하고 경고가 발생하면 추가 작업을 트리거하기 위해 확장할 수 있는 "Application Insights 스마트 검색"이라고 하는 연결된 [작업 그룹](../platform/action-groups.md)을 사용하여 생성됩니다.
 
 > [!NOTE]
-> 이 경고 규칙에서 전송된 메일 알림은 이제 기본적으로 구독의 Monitoring Reader 및 Monitoring Contributor 역할과 연결된 사용자에게 전송됩니다. 이에 대한 자세한 정보는 [여기](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)에서 확인할 수 있습니다.
-> 이 경고 규칙에서 보낸 알림은 [일반 경고 스키마](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)를 따릅니다.
+> 이 경고 규칙에서 전송된 메일 알림은 이제 기본적으로 구독의 Monitoring Reader 및 Monitoring Contributor 역할과 연결된 사용자에게 전송됩니다. 이에 대한 자세한 정보는 [여기](./proactive-email-notification.md)에서 확인할 수 있습니다.
+> 이 경고 규칙에서 보낸 알림은 [일반 경고 스키마](../platform/alerts-common-schema.md)를 따릅니다.
 >
 
 경고 페이지를 엽니다. 오류 이상 경고 규칙은 수동으로 설정된 경고와 함께 포함되며 현재 경고 상태인지 여부를 볼 수 있습니다.
@@ -348,7 +348,7 @@ Application Insights 리소스 페이지에서 **경고**를 클릭하여 가장
 
 *경고의 일부가 알려진 문제이고 수신하고 싶지 않습니다.*
 
-* [경고 작업 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) 비표시 기능을 사용할 수 있습니다.
+* [경고 작업 규칙](../platform/alerts-action-rules.md) 비표시 기능을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이러한 진단 도구를 사용하면 앱에서 데이터를 검사할 수 있습니다.

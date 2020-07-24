@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d73c280e3f5639b11e0d07b9ef2f775f48cd3c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038491"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스  
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Azure Media Services API는 RESTful API입니다. 이 API와 REST API 또는 제공되는 클라이언트 SDK를 사용하여 미디어 리소스에 대한 작업을 수행할 수 있습니다. Azure Media Services는 Microsoft .NET용 Media Services 클라이언트 SDK를 제공합니다. Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 
 
@@ -148,12 +149,11 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 1단계에
 
 다음 문서는 Azure AD 인증 개념을 간략히 설명합니다. 
 
-- [Azure AD로 해결된 인증 시나리오](../../active-directory/develop/authentication-scenarios.md)
-- [Azure AD에서 애플리케이션 추가, 업데이트 또는 제거](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Azure AD로 해결된 인증 시나리오](../../active-directory/develop/authentication-vs-authorization.md)
+- [Azure AD에서 애플리케이션 추가, 업데이트 또는 제거](../../active-directory/develop/quickstart-register-app.md)
 - [PowerShell을 사용하여 역할 기반 Access Control 구성 및 관리](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Portal을 사용하여 [Azure AD 인증에 액세스하고 Azure Media Services API를 사용](media-services-portal-get-started-with-aad.md)합니다.
 * Azure AD 인증을 사용 하 여 [.net으로 AZURE MEDIA SERVICES API에 액세스](media-services-dotnet-get-started-with-aad.md)합니다.
-

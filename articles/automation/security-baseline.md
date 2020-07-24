@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187424"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045902"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -764,7 +764,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하는 경우 Azure Automation는 워크 로드 및 리소스의 배포, 운영 및 서비스 해제 중에 완전 한 제어를 제공 합니다. Azure Virtual Machine 인벤토리를 활용 하 여 Virtual Machines의 모든 소프트웨어에 대 한 정보 수집을 자동화할 수 있습니다. Azure Portal에서 소프트웨어 이름, 버전, 게시자 및 새로 고침 시간을 사용할 수 있습니다. 설치 날짜 및 기타 정보에 대 한 액세스 권한을 얻으려면 게스트 수준 진단을 사용 하도록 설정 하 고 Windows 이벤트 로그를 Log Analytics 작업 영역으로 가져와야 합니다.
 
-* [Azure Automation에 대한 소개](./automation-intro.md)
+* [Azure Automation 소개](./automation-intro.md)
 
 * [Azure VM 인벤토리를 사용 하도록 설정 하는 방법](./automation-tutorial-installed-software.md)
 
@@ -918,7 +918,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center 권�
 
 * [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
-* [Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 배포](./automation-create-account-template.md#deploy-the-template)
+* [Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 배포](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
 
@@ -1064,7 +1064,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 **지침**: 자격 증명 스캐너를 구현하여 코드 내에서 자격 증명을 식별합니다. 또한 자격 증명 스캐너는 검색된 자격 증명을 더 안전한 위치(예: Azure Key Vault)로 이동하도록 추천합니다.
 
-* [자격 증명 스캐너를 설정하는 방법](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [자격 증명 스캐너를 설정하는 방법](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1124,7 +1124,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 * [Azure Automation 리소스에 대 한 Azure Resource Manager 템플릿 참조](/azure/templates/microsoft.automation/allversions)
 
-* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](./automation-create-account-template.md)
+* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](./quickstart-create-automation-account-template.md)
 
 * [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 * [Azure Automation 리소스에 대 한 Azure Resource Manager 템플릿 참조](/azure/templates/microsoft.automation/allversions)
 
-* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](./automation-create-account-template.md)
+* [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](./quickstart-create-automation-account-template.md)
 
 * [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1232,7 +1232,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
-**지침**: Azure 리소스를 보호하는 데 도움이 되도록 시스템의 인시던트 대응 기능을 정기적으로 테스트합니다. 약점과 결함을 식별하고 필요에 따라 계획을 수정합니다.
+**지침**: 정기적으로 시스템의 인시던트 응답 기능을 테스트 하 여 Azure 리소스를 보호 하는 연습을 수행 합니다. 약점과 결함을 식별하고 필요에 따라 계획을 수정합니다.
 
 * [NIST 게시물 - IT 계획 및 기능에 대한 테스트, 학습 및 연습 프로그램에 대한 가이드](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 

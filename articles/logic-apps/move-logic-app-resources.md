@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e844934852f3eb45f665a67bbdb7087a8ba0202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564269"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039162"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>논리 앱 리소스를 다른 Azure 리소스 그룹, 지역 또는 구독으로 이동
 
@@ -27,7 +27,7 @@ ms.locfileid: "85564269"
 
 * [Integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) 는 동일한 azure 지역 또는 azure 구독에 있는 다른 리소스 그룹 으로만 이동할 수 있습니다. 다른 Azure 지역 또는 Azure 구독에 존재 하는 리소스 그룹으로 ISE를 이동할 수 없습니다. 또한 이러한 이동 후에는 논리 앱 워크플로, 통합 계정, 연결 등에서 ISE에 대 한 모든 참조를 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 이동 하려는 논리 앱 또는 통합 계정을 만드는 데 사용 된 것과 동일한 Azure 구독
 
@@ -94,7 +94,7 @@ Azure의 온-프레미스 데이터 게이트웨이 리소스와 같은 일부 A
 
 예를 들어 통합 계정에 논리 앱을 연결 하려면 두 리소스가 동일한 지역에 있어야 합니다. 재해 복구와 같은 시나리오에서는 일반적으로 동일한 구성 및 아티팩트가 있는 통합 계정을 원합니다. 다른 시나리오에서는 구성 및 아티팩트가 서로 다른 통합 계정이 필요할 수 있습니다.
 
-Azure Logic Apps의 사용자 지정 커넥터는 커넥터 작성자와 동일한 Azure 구독 및 동일한 Azure Active Directory 테 넌 트를 가진 사용자에 게 표시 됩니다. 이러한 커넥터는 논리 앱을 배포 하는 동일한 지역에서 사용할 수 있습니다. 자세한 내용은 [조직에서 사용자 지정 커넥터 공유](https://docs.microsoft.com/connectors/custom-connectors/share)를 참조하세요.
+Azure Logic Apps의 사용자 지정 커넥터는 커넥터 작성자와 동일한 Azure 구독 및 동일한 Azure Active Directory 테 넌 트를 가진 사용자에 게 표시 됩니다. 이러한 커넥터는 논리 앱을 배포 하는 동일한 지역에서 사용할 수 있습니다. 자세한 내용은 [조직에서 사용자 지정 커넥터 공유](/connectors/custom-connectors/share)를 참조하세요.
 
 Visual Studio에서 가져오는 템플릿에는 논리 앱 및 해당 연결에 대 한 리소스 정의만 포함 됩니다. 따라서 논리 앱에서 다른 리소스를 사용 하는 경우, 예를 들어 파트너, 규약, 스키마 등의 B2B 아티팩트와 통합 계정을 사용 하는 경우 Azure Portal를 사용 하 여 해당 통합 계정의 템플릿을 내보내야 합니다. 이 템플릿에는 통합 계정 및 아티팩트에 대 한 리소스 정의가 포함 되어 있습니다. 그러나 템플릿은 완전히 매개 변수화 되지 않습니다. 따라서 배포에 사용 하려는 값을 수동으로 매개 변수화 해야 합니다.
 

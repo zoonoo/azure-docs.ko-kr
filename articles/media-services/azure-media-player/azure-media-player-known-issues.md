@@ -6,11 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
-ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043614"
 ---
 # <a name="known-issues"></a>알려진 문제 #
 
@@ -49,7 +50,7 @@ ms.locfileid: "83124638"
 
 - 오디오 전용 자산은 AzureHtml5JS 기술을 통해 재생되지 않습니다.
   - 오디오 없이 자산을 재생하려는 경우 [Azure Media Services Explorer 도구](https://aka.ms/amse)를 사용하여 빈 오디오를 삽입하면 됩니다.
-  - 자동 오디오를 삽입하는 방법에 대한 지침은 [여기](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)에서 찾을 수 있습니다.
+  - 자동 오디오를 삽입하는 방법에 대한 지침은 [여기](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)에서 찾을 수 있습니다.
 
 ## <a name="flash"></a>깜박임 ##
 

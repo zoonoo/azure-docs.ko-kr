@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Studio (미리 보기) 연결 PowerShell 문제 해결
+title: PowerShell을 사용 하 여 Synapse Studio (미리 보기) 연결 문제 해결
 description: PowerShell을 사용 하 여 Azure Synapse Studio 연결 문제 해결
 author: julieMSFT
 ms.service: synapse-analytics
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: bbc985407a6cb56f4f1b539f514ab092b5f7d0de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046677"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>PowerShell 스크립트를 사용 하 여 Azure Synapse Studio (미리 보기) 연결 문제 진단
 

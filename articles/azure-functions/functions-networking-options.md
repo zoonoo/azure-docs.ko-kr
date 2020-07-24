@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a88570805a9fc23904bfe82f91813b3460d0b10
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045947"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -119,7 +119,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 
-[하이브리드 연결](../service-bus-relay/relay-hybrid-connections-protocol.md)은 다른 네트워크의 애플리케이션에 액세스하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 이를 사용하여 애플리케이션 액세스할 수 없습니다. 하이브리드 연결은 사용 계획을 제외한 Windows에서 실행되는 함수에서 사용할 수 있습니다.
+[하이브리드 연결](../azure-relay/relay-hybrid-connections-protocol.md)은 다른 네트워크의 애플리케이션에 액세스하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 이를 사용하여 애플리케이션 액세스할 수 없습니다. 하이브리드 연결은 사용 계획을 제외한 Windows에서 실행되는 함수에서 사용할 수 있습니다.
 
 Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 즉, TCP 수신 대기 포트에 액세스하는 한, 하이브리드 연결 엔드포인트는 모든 운영 체제 및 모든 애플리케이션에 있을 수 있습니다. 하이브리드 연결 기능은 애플리케이션 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 네트워크 액세스만 제공합니다.
 

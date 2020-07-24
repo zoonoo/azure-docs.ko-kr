@@ -13,19 +13,20 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9b04941a5799955097fbd54ad9bdf50eccb87541
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c9f69a39f725b082771b66959a219581c281ed5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043508"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Azure Media Services v3의 자산
 
-Azure Media Services에서 [자산은](https://docs.microsoft.com/rest/api/media/assets) 핵심 개념입니다. 미디어를 입력 하는 위치 (예: 업로드 또는 라이브 수집), 출력 미디어 (작업 출력에서) 및 미디어 게시 (스트리밍의 경우)입니다. 
+Azure Media Services에서 [자산은](/rest/api/media/assets) 핵심 개념입니다. 미디어를 입력 하는 위치 (예: 업로드 또는 라이브 수집), 출력 미디어 (작업 출력에서) 및 미디어 게시 (스트리밍의 경우)입니다. 
 
 자산은 [Azure Storage 계정의](storage-account-concept.md) blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 블록 blob으로 저장 됩니다. 자산에는 Azure Storage에 저장 된 디지털 파일 (비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 포함)에 대 한 정보가 포함 되어 있습니다.
 
-Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob 계층을 지원합니다. GPv2를 사용하는 경우 파일을 [쿨 또는 보관 스토리지](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)로 이동할 수 있습니다. **보관** 저장소는 인코딩된 후와 같이 더 이상 필요 하지 않은 경우 원본 파일을 보관 하는 데 적합 합니다.
+Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob 계층을 지원합니다. GPv2를 사용하는 경우 파일을 [쿨 또는 보관 스토리지](../../storage/blobs/storage-blob-storage-tiers.md)로 이동할 수 있습니다. **보관** 저장소는 인코딩된 후와 같이 더 이상 필요 하지 않은 경우 원본 파일을 보관 하는 데 적합 합니다.
 
 **보관** 스토리지 계층은 이미 인코딩되었고 인코딩 작업 출력이 출력 Blob 컨테이너에 배치된 대용량 원본 파일에만 사용할 것을 권장합니다. 자산에 연결 하 여 콘텐츠를 스트리밍 또는 분석 하는 데 사용 하려는 출력 컨테이너의 blob은 **핫** 또는 **쿨** 저장소 계층에 있어야 합니다.
 
@@ -37,12 +38,12 @@ Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob �
 
 ### <a name="blobs"></a>Blob
 
-자산 내의 파일/BLOB 이름은 [BLOB 이름 요구 사항](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)과 [NTFS 이름 요구 사항](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)을 따라야 합니다. 이러한 요구 사항을 따라야 하는 이유는 파일이 처리를 위해 BLOB 스토리지에서 로컬 NTFS 디스크로 복사될 수 있기 때문입니다.
+자산 내의 파일/BLOB 이름은 [BLOB 이름 요구 사항](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)과 [NTFS 이름 요구 사항](/windows/win32/fileio/naming-a-file)을 따라야 합니다. 이러한 요구 사항을 따라야 하는 이유는 파일이 처리를 위해 BLOB 스토리지에서 로컬 NTFS 디스크로 복사될 수 있기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Media Services에서 자산 관리](manage-asset-concept.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Media Services v2와 v3의 차이점](migrate-from-v2-to-v3.md)

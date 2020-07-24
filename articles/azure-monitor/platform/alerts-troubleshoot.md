@@ -6,11 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300776"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045247"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Azure Monitor 경고 문제 해결
 
@@ -240,13 +241,13 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **권한 오류가 수신 되었습니까?**  
 
-     [모니터링 참여자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)또는 작업 규칙 및 경고와 관련 된 특정 사용 권한이 있어야 합니다.
+     [모니터링 참여자 기본 제공 역할](../../role-based-access-control/built-in-roles.md#monitoring-contributor)또는 작업 규칙 및 경고와 관련 된 특정 사용 권한이 있어야 합니다.
 
 1. **작업 규칙 매개 변수를 확인 했나요?**  
 
-    [작업 규칙 설명서](alerts-action-rules.md)또는 [작업 규칙 PowerShell AzActionRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) 명령을 확인 합니다. 
+    [작업 규칙 설명서](alerts-action-rules.md)또는 [작업 규칙 PowerShell AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) 명령을 확인 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
-- 로그 경고를 사용 하는 경우 [로그 경고 문제 해결](alert-log-troubleshoot.md)도 참조 하세요.
+- 로그 경고를 사용 하는 경우 [로그 경고 문제 해결](./alerts-troubleshoot-log.md)도 참조 하세요.
 - [Azure Portal](https://portal.azure.com) 로 돌아가서 위의 지침에 따라 문제를 해결 했는지 확인 합니다. 

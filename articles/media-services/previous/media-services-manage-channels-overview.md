@@ -14,16 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b28e200cab2edb4c1f603e4c67264cdc1c46d7f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042849"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -76,7 +77,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 | 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |예 |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
-| Price |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조 하세요. |
+| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조 하세요. |
 | 최대 실행 시간 |연중 무휴 |8시간 |
 | 슬레이트 삽입 지원 |아니요 |예 |
 | 광고 신호 지원 |아니요 |예 |
@@ -105,7 +106,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 ### <a name="channel"></a>채널
 
-Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operations/channel)은 라이브 스트리밍 콘텐츠 처리를 담당합니다. 채널은 라이브 트랜스코더에 제공될 입력 엔드포인트(수집 URL)를 제공합니다. 채널은 라이브 트랜스코더에서 라이브 입력 스트림을 수신하여 하나 이상의 StreamingEndpoints를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 채널은 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다.
+Media Services에서, [채널](/rest/api/media/operations/channel)은 라이브 스트리밍 콘텐츠 처리를 담당합니다. 채널은 라이브 트랜스코더에 제공될 입력 엔드포인트(수집 URL)를 제공합니다. 채널은 라이브 트랜스코더에서 라이브 입력 스트림을 수신하여 하나 이상의 StreamingEndpoints를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 채널은 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다.
 
 채널을 만들 때 수집 URL 및 미리 보기 URL을 얻을 수 있습니다. 이러한 URL을 얻으려면 채널이 시작됨 상태로 있을 필요가 없습니다. 라이브 트랜스코더에서 채널로 데이터를 푸시할 준비가 되면 채널을 시작해야 합니다. 라이브 트랜스코더에서 데이터 수집을 시작하면 스트림을 미리 볼 수 있습니다.
 
@@ -114,7 +115,7 @@ Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operati
 채널을 만들 때 허용 되는 IP 주소를 4 개 숫자, CIDR 주소 범위의 IpV4 주소 형식 중 하나로 지정할 수 있습니다.
 
 ### <a name="program"></a>프로그램
-[프로그램](https://docs.microsoft.com/rest/api/media/operations/program) 을 사용 하면 라이브 스트림에서 세그먼트의 게시 및 저장을 제어할 수 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
+[프로그램](/rest/api/media/operations/program) 을 사용 하면 라이브 스트림에서 세그먼트의 게시 및 저장을 제어할 수 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 **ArchiveWindowLength** 속성을 설정 하 여 프로그램에 대해 기록 된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다.
 
 또한 ArchiveWindowLength는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.

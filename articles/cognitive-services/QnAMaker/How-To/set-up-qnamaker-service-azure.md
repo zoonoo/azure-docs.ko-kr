@@ -2,13 +2,13 @@
 title: QnA Maker 서비스 설정-QnA Maker
 description: QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 07/13/2020
+ms.openlocfilehash: 7ba8134f58a4f0e4e26a3246a44574df295e3c20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040376"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -62,7 +62,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
 
 ## <a name="find-authoring-keys-in-the-azure-portal"></a>Azure Portal에서 제작 키 찾기
 
-QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다. 
+QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다.
 
 1. Azure Portal의 QnA Maker 리소스로 이동 하 고 _Cognitive Services_ 형식의 리소스를 선택 합니다.
 
@@ -90,7 +90,11 @@ QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 �
     >[!NOTE]
     >키가 손상 되었다고 생각 되 면 키를 새로 고칩니다. 클라이언트 애플리케이션 또는 봇 코드에 해당 변경 내용을 적용해야 할 수도 있습니다.
 
-## <a name="upgrade-qna-maker-sku"></a>QnA Maker SKU 업그레이드
+### <a name="update-the-resources"></a>리소스 업데이트
+
+기술 자료에서 사용 하는 리소스를 업그레이드 하는 방법을 알아봅니다.
+
+### <a name="upgrade-qna-maker-sku"></a>QnA Maker SKU 업그레이드
 
 현재 계층을 벗어나 기술 자료에서 더 많은 질문과 대답을 원하는 경우 QnA Maker 서비스 가격 책정 계층을 업그레이드 하세요.
 
@@ -104,7 +108,7 @@ QnA Maker 관리 SKU를 업그레이드하려면
 
     ![QnA Maker 가격 책정](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-## <a name="upgrade-app-service"></a>업그레이드 App Service
+### <a name="upgrade-app-service"></a>업그레이드 App Service
 
  기술 자료가 클라이언트 앱에서 더 많은 요청을 처리 해야 하는 경우 App Service 가격 책정 계층을 업그레이드 합니다.
 
@@ -114,7 +118,7 @@ Azure Portal에서 App Service 리소스로 이동 하 고 필요에 따라 **�
 
 ![QnA Maker App Service 크기 조정](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-## <a name="upgrade-the-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스 업그레이드
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스 업그레이드
 
 많은 기술 자료를 사용할 계획인 경우 Azure Cognitive Search 서비스 가격 책정 계층을 업그레이드 하세요.
 
@@ -163,7 +167,11 @@ QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들](./set-up
 
     ![QnAMaker App Service 인스턴스 다시 시작](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용 하도록 QnA Maker 구성
+## <a name="cognitive-search-consideration"></a>Cognitive Search 고려 사항
+
+별도의 리소스로 Cognitive Search는 알아야 할 몇 가지 구성이 있습니다.
+
+### <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용 하도록 QnA Maker 구성
 
 포털을 통해 QnA 서비스 및 해당 종속성 (예: 검색)을 만드는 경우 검색 서비스가 만들어지고 QnA Maker 서비스에 연결 됩니다. 이러한 리소스를 만든 후 이전에 기존 검색 서비스를 사용 하도록 App Service 설정을 업데이트 하 고 방금 만든 검색 서비스를 제거할 수 있습니다.
 
@@ -192,9 +200,37 @@ Azure Resource Manager 템플릿을 통해 QnA 서비스를 만드는 경우 모
 
 App Service [응용 프로그램 설정을](../../../app-service/configure-common.md#configure-app-settings)구성 하는 방법에 대해 자세히 알아보세요.
 
+### <a name="configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet"></a>VNET 내의 개인 끝점으로 Cognitive Search 구성
+
+QnA Maker 리소스를 만드는 동안 검색 인스턴스가 생성 되는 경우 Cognitive Search을 강제 적용 하 여 고객의 VNet 내에서 완전히 생성 된 개인 끝점 구성을 지원할 수 있습니다.
+
+모든 리소스를 동일한 지역에 만들어 개인 끝점을 사용 해야 합니다.
+
+* QnA Maker 리소스
+* 새 Cognitive Search 리소스
+* 새 Virtual Network 리소스
+
+[Azure Portal](https://portal.azure.com)에서 다음 단계를 완료 합니다.
+
+1. [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)를 만듭니다.
+1. 끝점 연결 (데이터)을 _개인_으로 설정 하 여 새 Cognitive Search 리소스를 만듭니다. 1 단계에서 만든 QnA Maker 리소스와 동일한 지역에 리소스를 만듭니다. [Cognitive Search 리소스를 만드는](../../../search/search-create-service-portal.md)방법에 대해 자세히 알아보고이 링크를 사용 하 여 [리소스의 만들기 페이지로](https://ms.portal.azure.com/#create/Microsoft.Search)직접 이동 합니다.
+1. 새 [Virtual Network 리소스](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM)를 만듭니다.
+1. 이 절차의 1 단계에서 만든 App service 리소스에서 VNET을 구성 합니다.
+    1. 2 단계에서 만든 새 Cognitive Search 리소스에 대해 VNET에 새 DNS 항목을 만듭니다. Cognitive Search IP 주소입니다.
+1. 2 단계에서 만든 [새 Cognitive Search 리소스에 App service를 연결](#configure-qna-maker-to-use-different-cognitive-search-resource) 합니다. 그런 다음 1 단계에서 만든 원래 Cognitive Search 리소스를 삭제할 수 있습니다.
+
+[QnA Maker 포털](https://www.qnamaker.ai/)에서 첫 번째 기술 자료를 만듭니다.
+
+
+### <a name="inactivity-policy-for-free-search-resources"></a>무료 검색 리소스에 대 한 비활성 정책
+
+QnA maker 리소스를 사용 하지 않는 경우 모든 리소스를 제거 해야 합니다. 사용 하지 않는 리소스를 제거 하지 않으면 무료 검색 리소스를 만든 경우 기술 자료가 작동 하지 않습니다.
+
+무료 검색 리소스는 API 호출을 받지 않고 90 일 후에 삭제 됩니다.
+
 ## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>시간 초과를 방지 하도록 App service 유휴 설정 구성
 
-게시 된 기술 자료에 대 한 QnA Maker 예측 런타임에 사용 되는 app service는 유휴 시간 제한 구성을 포함 하며,이는 서비스가 유휴 상태인 경우 기본적으로 자동으로 시간 초과 됩니다. QnA Maker의 경우,이는 트래픽이 없는 기간 후에도 예측 런타임 generateAnswer API가 때때로 시간 초과 되는 것을 의미 합니다.
+게시 된 기술 자료에 대 한 QnA Maker 예측 런타임에 사용 되는 app service는 유휴 시간 제한 구성을 포함 하며,이는 서비스가 유휴 상태 이면 기본적으로 시간 초과 됩니다. QnA Maker의 경우,이는 트래픽이 없는 기간 후에도 예측 런타임 generateAnswer API가 때때로 시간 초과 되는 것을 의미 합니다.
 
 트래픽이 없는 경우에도 예측 끝점 앱이 로드 되도록 하려면 유휴 상태를 always on으로 설정 합니다.
 
@@ -210,11 +246,21 @@ App Service [응용 프로그램 설정을](../../../app-service/configure-commo
 1. 새 설정을 사용 하도록 앱을 다시 시작할지 묻는 메시지가 표시 됩니다. **계속**을 선택합니다.
 
 App Service [일반 설정을](../../../app-service/configure-common.md#configure-general-settings)구성 하는 방법에 대해 자세히 알아보세요.
-## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Qna Maker를 호스팅하도록 App Service Environment 구성 App Service
+
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>QnA Maker를 호스트 App Service Environment 구성 App Service
 App Service Environment를 사용 하 여 App Service QnA Maker를 호스트할 수 있습니다. 내부 App Service Environment 경우 다음 단계를 수행 해야 합니다.
-1. App service 및 azure search 서비스를 만듭니다.
-2. 공용 DNS 및 허용 목록 QnA Maker 서비스 태그 CognitiveServicesManagement에 app service를 표시 하거나 인터넷에 연결 하세요.
-3. QnA Maker 끝점을 App Service Environment로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다. 
+1. App service 및 Azure search 서비스를 만듭니다.
+2. App service를 노출 하 고 다음과 같은 QnA Maker 가용성을 허용 합니다.
+    * 공개적으로 사용 가능-기본값
+    * DNS 서비스 태그:
+        * `CognitiveServicesManagement`
+    * QnA Maker와 연결 된 Ip는 다음과 같습니다.
+        * 13.91.138.229
+        * 40.88.22.25
+        * 13.86.184.142
+        * 20.185.105.28
+        * 13.86.178.10
+1. QnA Maker 끝점을 App Service Environment로 설정 해야 하는 Azure Resource Manager를 사용 하 여 QnA Maker 인식 서비스 인스턴스 (Cognitiveservices account/accounts)를 만듭니다.
 
 ## <a name="business-continuity-with-traffic-manager"></a>Traffic manager를 통한 비즈니스 연속성
 

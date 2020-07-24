@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042811"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
@@ -203,10 +204,10 @@ IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 
 ### <a name="cea-708-closed-captions"></a>CEA 708 선택 캡션
 들어오는 비디오의 모든 CEA 708 캡션 데이터를 무시하도록 라이브 인코더에 지시하는 선택적 플래그입니다. 플래그를 false(기본값)로 설정하면 인코더가 CEA 708 데이터를 검색하고 출력 비디오 스트림에 다시 삽입합니다.
 
-#### <a name="index"></a>Index
+#### <a name="index"></a>인덱스
 SPTS(단일 프로그램 전송 스트림)로 보내는 것이 좋습니다. 입력 스트림에 여러 프로그램이 포함된 경우 채널 내의 라이브 인코더는 입력의 PMT(프로그램 맵 테이블)를 구문 분석하고 스트림 형식 이름이 MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 오디오, MPEG-2 오디오인 입력을 식별하여 PMT에 지정된 순서로 정렬합니다. 해당 정렬의 n번째 항목을 선택하기 위해 0부터 시작하는 인덱스가 사용됩니다.
 
-#### <a name="language"></a>언어
+#### <a name="language"></a>Language
 ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입니다. 없는 경우 기본값은 UND(정의되지 않음)입니다.
 
 ### <a name="system-preset"></a><a id="preset"></a>시스템 기본 설정
@@ -218,12 +219,12 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 | 비트 전송률 | 너비 | 높이 | MaxFPS | 프로필 | 출력 스트림 이름 |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |높은 |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |높은 |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |높은 |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |높은 |Video_512x288_850kbps |
-| 550 |384 |216 |30 |높은 |Video_384x216_550kbps |
-| 200 |340 |192 |30 |높은 |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |높음 |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |높음 |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |높음 |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |높음 |Video_512x288_850kbps |
+| 550 |384 |216 |30 |높음 |Video_384x216_550kbps |
+| 200 |340 |192 |30 |높음 |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>출력 오디오 스트림
 
@@ -239,14 +240,14 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 다음은 광고를 신호로 보낼 때 설정할 수 있는 속성입니다. 
 
-### <a name="duration"></a>기간
+### <a name="duration"></a>Duration
 중간 광고의 기간(초)입니다. 중간 광고를 시작하려면 이 값이 0이 아닌 양수여야 합니다. 중간 광고가 진행 중인 경우 기간이 0으로 설정되어 있고 CueId가 진행 중인 중간 광고와 일치하면 해당 중간 광고가 취소됩니다.
 
 ### <a name="cueid"></a>CueId
 적절한 작업을 수행하기 위해 다운스트림 애플리케이션에서 사용할 중간 광고의 고유 ID입니다. 양의 정수여야 합니다. 이 값을 임의의 양의 정수로 설정하거나 업스트림 시스템을 사용하여 큐 ID를 추적할 수 있습니다. API를 통해 제출하기 전에 모든 ID를 양의 정수로 정규화해야 합니다.
 
 ### <a name="show-slate"></a>슬레이트 표시
-선택 사항입니다. 중간 광고 중에 [기본 슬레이트](media-services-manage-live-encoder-enabled-channels.md#default_slate) 이미지로 전환하고 들어오는 비디오 피드를 숨기도록 라이브 인코더에 신호를 보냅니다. 슬레이트 중에는 오디오도 음소거됩니다. 기본값은 **false**입니다. 
+(선택 사항) 중간 광고 중에 [기본 슬레이트](media-services-manage-live-encoder-enabled-channels.md#default_slate) 이미지로 전환하고 들어오는 비디오 피드를 숨기도록 라이브 인코더에 신호를 보냅니다. 슬레이트 중에는 오디오도 음소거됩니다. 기본값은 **false**입니다. 
 
 사용되는 이미지는 채널을 만들 때 기본 슬레이트 자산 ID 속성을 통해 지정된 이미지입니다. 슬레이트는 표시 이미지 크기에 맞게 확장됩니다. 
 
@@ -255,7 +256,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 중간 광고 시간과 같은 특정한 상황에 슬레이트 이미지로 전환하고 들어오는 비디오 신호를 숨기도록 라이브 인코더를 구성할 수 있습니다. 이러한 슬레이트를 구성하지 않는 경우 입력 비디오가 해당 중간 광고 중에 마스킹되지 않습니다.
 
-### <a name="duration"></a>기간
+### <a name="duration"></a>Duration
 슬레이트의 기간(초)입니다. 슬레이트를 시작하려면 이 값이 0이 아닌 양수여야 합니다. 진행 중인 슬레이트가 있는 경우 기간을 0으로 지정하면 진행 중인 슬레이트가 종료됩니다.
 
 ### <a name="insert-slate-on-ad-marker"></a>광고 표식에서 슬레이트 삽입
@@ -263,7 +264,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 ### <a name="default-slate-asset-id"></a><a id="default_slate"></a>기본 슬레이트 자산 ID
 
-선택 사항입니다. 슬레이트 이미지를 포함하는 Media Services 자산의 자산 ID를 지정합니다. 기본값은 null입니다. 
+(선택 사항) 슬레이트 이미지를 포함하는 Media Services 자산의 자산 ID를 지정합니다. 기본값은 null입니다. 
 
 
 > [!NOTE] 
@@ -359,11 +360,10 @@ Media Services 학습 경로를 검토합니다.
 
 [.NET SDK를 사용하여 단일 비트 전송률에서 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 만들기](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[REST API를 사용하여 채널 관리](https://docs.microsoft.com/rest/api/media/operations/channel)
+[REST API를 사용하여 채널 관리](/rest/api/media/operations/channel)
 
 [Media Services 개념](media-services-concepts.md)
 
 [Azure Media Services 조각화 된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

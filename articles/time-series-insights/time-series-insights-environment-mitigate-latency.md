@@ -5,20 +5,21 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81263389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046434"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1의 대기 시간을 줄이기 위한 제한 모니터링 및 완화
 
 들어오는 데이터의 양이 사용자의 환경 구성을 초과하면 Azure Time Series Insights에서 대기 시간 또는 제한이 발생할 수 있습니다.
 
@@ -26,14 +27,14 @@ ms.locfileid: "81263389"
 
 다음과 같은 경우 대기 시간 및 제한이 발생할 수 있습니다.
 
-- 할당된 수신 속도를 초과할 수 있는 오래된 데이터가 포함된 이벤트 원본을 추가합니다. Time Series Insights를 확인해야 합니다.
+- 할당 된 수신 속도를 초과할 수 있는 이전 데이터를 포함 하는 이벤트 원본을 추가 합니다 (Azure Time Series Insights를 처리 해야 함).
 - 더 많은 이벤트 원본을 환경에 추가하면 추가 이벤트가 발생할 수 있습니다(환경 용량을 초과할 수 있음).
-- 많은 양의 기록 이벤트를 이벤트 원본으로 푸시하면 지연이 발생합니다. Time Series Insights를 확인해야 합니다.
+- 이벤트 원본에 많은 양의 기록 이벤트를 푸시합니다 .이로 인해 지연 시간이 발생 합니다 (Azure Time Series Insights을 처리 해야 하는 경우).
 - 원격 분석을 사용하여 참조 데이터를 결합하면 이벤트 크기가 더 커집니다. 허용 되는 최대 패킷 크기는 32 KB;입니다. 32 KB 보다 큰 데이터 패킷은 잘립니다.
 
 ## <a name="video"></a>동영상
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Time Series Insights 데이터 수신 동작 및 계획 방법에 대해 알아봅니다.</br>
+### <a name="learn-about-azure-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Azure Time Series Insights 데이터 수신 동작 및 계획 방법에 대해 알아봅니다.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -41,9 +42,9 @@ ms.locfileid: "81263389"
 
 경고를 통해 사용자 환경에서 발생 하는 대기 시간 문제를 진단 하 고 완화할 수 있습니다.
 
-1. Azure Portal에서 Time Series Insights 환경을 선택합니다. 그런 다음 **경고**를 선택 합니다.
+1. Azure Portal에서 Azure Time Series Insights 환경을 선택 합니다. 그런 다음 **경고**를 선택 합니다.
 
-   [![Time Series Insights 환경에 경고 추가](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Azure Time Series Insights 환경에 경고 추가](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. **+ 새 경고 규칙**을 선택합니다. 그러면 **규칙 만들기** 패널이 표시 됩니다. **조건**아래에서 **추가** 를 선택 합니다.
 
@@ -65,7 +66,7 @@ ms.locfileid: "81263389"
    |**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
    |**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
 
-   **완료** 를 선택합니다.
+   **완료**를 선택합니다.
 
 1. 원하는 신호 논리를 구성한 후에는 선택한 경고 규칙을 시각적으로 검토 합니다.
 
@@ -73,7 +74,7 @@ ms.locfileid: "81263389"
 
 ## <a name="throttling-and-ingress-management"></a>제한 및 수신 관리
 
-* 제한 되는 경우 *수신 메시지의 수신 시간 지연* 값이 등록 됩니다 .이 값은 Time Series Insights 환경에서 메시지가 이벤트 원본에 도달 하는 실제 시간 (appx의 인덱싱 시간 제외)에서 발생 한 초 수를 알려 줍니다. 30-60초의 인덱싱 시간 제외).  
+* 제한 되는 경우 *수신 메시지의 수신 시간 지연* 값이 등록 되 고, 메시지가 이벤트 원본에 도달 하는 실제 시간에서 발생 하는 시간 (초 Azure Time Series Insights)을 사용자에 게 알려 줍니다 (appx의 인덱싱 시간이 제외 됨). 30-60초의 인덱싱 시간 제외).  
 
   *수신된 메시지 수 지연*에도 값이 표시되므로 메시지가 뒤에 몇 개나 더 남아 있는지 알 수 있습니다.  이러한 차이를 해소하는 가장 쉬운 방법은 작업 환경의 용량을 차이가 극복될 수 있는 크기로 늘리는 것입니다.  
 
@@ -83,7 +84,7 @@ ms.locfileid: "81263389"
 
   예를 들어 3개의 S1 장치가 프로비전된 경우(또는 1분당 2100개의 이벤트를 수신하는 경우) **저장된 수신 이벤트** 경고를 2시간 동안 1900개 이벤트 이하로 설정할 수 있습니다. 이 임계값을 지속적으로 초과하여 경고를 발생시키는 경우 프로비전 부족 상태가 될 가능성이 큽니다.  
 
-* 제한 되는 것으로 의심 되는 경우 **수신 받은 메시지** 를 이벤트 원본의 egressed 메시지와 비교할 수 있습니다.  Event Hub로 수신된 메시지 수가 **수신된 메시지** 수보다 크면 Time Series Insights가 제한될 수 있습니다.
+* 제한 되는 것으로 의심 되는 경우 **수신 받은 메시지** 를 이벤트 원본의 egressed 메시지와 비교할 수 있습니다.  이벤트 허브로 수신 되는 **수신 메시지**보다 큰 경우 Azure Time Series Insights 제한 될 수 있습니다.
 
 ## <a name="improving-performance"></a>성능 향상
 
@@ -93,6 +94,6 @@ ms.locfileid: "81263389"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Time Series Insights 환경에서 문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)을 참조 하세요.
+- [Azure Time Series Insights 환경에서 문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)을 참조 하세요.
 
-- [Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.
+- [Azure Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.

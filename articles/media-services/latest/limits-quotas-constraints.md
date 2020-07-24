@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043503"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>할당량 및 한도 Azure Media Services
@@ -92,7 +93,7 @@ ms.locfileid: "82995888"
 | [스트리밍 정책](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | 한 번에 자산과 연결 된 고유한 [스트리밍 로케이터](streaming-locators-concept.md) | 100<sup>(7)</sup> (고정) |
 
-<sup>6</sup> 사용자 지정 [스트리밍 정책을](https://docs.microsoft.com/rest/api/media/streamingpolicies)사용 하는 경우 미디어 서비스 계정에 대해 제한 된 이러한 정책 집합을 디자인 하 고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 streaminglocators에 다시 사용 해야 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
+<sup>6</sup> 사용자 지정 [스트리밍 정책을](/rest/api/media/streamingpolicies)사용 하는 경우 미디어 서비스 계정에 대해 제한 된 이러한 정책 집합을 디자인 하 고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 streaminglocators에 다시 사용 해야 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
 
 <sup>7</sup> 스트리밍 로케이터는 사용자별 액세스 제어를 관리 하도록 설계 되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다.
 

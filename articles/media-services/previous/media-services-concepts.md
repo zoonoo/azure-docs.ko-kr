@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ca1b8b453be433f7db428f3b256677b9945ce40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038905"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 이 항목에서는 가장 중요한 Media Services 개념에 대한 개요를 제공합니다.
 
-## <a name="assets-and-storage"></a><a id="assets"/>자산 및 스토리지
+## <a name="assets-and-storage"></a><a name="assets"></a>자산 및 스토리지
 ### <a name="assets"></a>자산
-[자산](https://docs.microsoft.com/rest/api/media/operations/asset) 에는 디지털 파일(비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일 포함)과 이러한 파일에 대한 메타데이터가 포함됩니다. 디지털 파일은 자산에 업로드한 후 Media Services 인코딩 및 스트리밍 워크플로에서 사용할 수 있습니다.
+[자산](/rest/api/media/operations/asset) 에는 디지털 파일(비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일 포함)과 이러한 파일에 대한 메타데이터가 포함됩니다. 디지털 파일은 자산에 업로드한 후 Media Services 인코딩 및 스트리밍 워크플로에서 사용할 수 있습니다.
 
 자산은 Azure Storage 계정의 BLOB 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 블록 BLOB으로 저장됩니다. 페이지 blob은 Azure Media Services에서 지원되지 않습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "82160225"
 * 자산에는 시청각 파일의 변환이나 편집이 여러 개 포함되어서는 안 됩니다. 잘못된 자산 사용의 한 가지 예는 둘 이상의 TV 에피소드, 광고 또는 단일 프로덕션의 여러 카메라 각도를 자산 내에 저장하려고 하는 경우입니다. 시청각 파일의 여러 가지 변환 또는 편집을 자산에 저장하면 워크플로 뒷부분에서 인코딩 작업 제출, 자산 배달의 스트리밍 및 보안 설정에 문제가 발생할 수 있습니다.  
 
 ### <a name="asset-file"></a>자산 파일
-[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 은 Blob 컨테이너에 저장되는 실제 비디오 또는 오디오 파일을 나타냅니다. 자산 파일은 항상 자산과 연결되며 자산에는 하나 이상의 파일이 포함될 수 있습니다. 자산 파일 개체가 blob 컨테이너의 디지털 파일과 연결되지 않은 경우 Media Services 인코더 작업을 하지 못합니다.
+[AssetFile](/rest/api/media/operations/assetfile) 은 Blob 컨테이너에 저장되는 실제 비디오 또는 오디오 파일을 나타냅니다. 자산 파일은 항상 자산과 연결되며 자산에는 하나 이상의 파일이 포함될 수 있습니다. 자산 파일 개체가 blob 컨테이너의 디지털 파일과 연결되지 않은 경우 Media Services 인코더 작업을 하지 못합니다.
 
 **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
@@ -62,7 +62,7 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 **EnvelopeEncryptionProtected** – AES(Advanced Encryption Standard)로 암호화된 HLS(HTTP 라이브 스트리밍)를 보호하거나 이미 보호된 경우 업로드하려면 이 옵션을 사용합니다. AES로 이미 암호화된 HLS를 업로드하려는 경우 Transform Manager로 암호화되어 있어야 합니다.
 
 ### <a name="access-policy"></a>액세스 정책
-[AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 는 자산에 대한 액세스 권한(예: 읽기, 쓰기 및 목록) 및 기간을 정의합니다. 일반적으로 자산에 포함된 파일에 액세스하는 데 사용되는 로케이터로 AccessPolicy 개체를 전달합니다.
+[AccessPolicy](/rest/api/media/operations/accesspolicy) 는 자산에 대한 액세스 권한(예: 읽기, 쓰기 및 목록) 및 기간을 정의합니다. 일반적으로 자산에 포함된 파일에 액세스하는 데 사용되는 로케이터로 AccessPolicy 개체를 전달합니다.
 
 >[!NOTE]
 >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies)을 참조하세요.
@@ -75,8 +75,8 @@ Blob 컨테이너는 Blob 집합의 그룹화를 제공합니다. Blob 컨테이
 > 
 > 
 
-### <a name="locators"></a><a id="locators"/>로케이터
-[로케이터](https://docs.microsoft.com/rest/api/media/operations/locator)는 자산에 포함된 파일에 액세스할 수 있는 진입점을 제공합니다. 액세스 정책은 클라이언트가 지정된 자산에 액세스할 수 있는 권한 및 기간을 정의하는 데 사용됩니다. 로케이터는 액세스 정책과 다 대 일 관계가 있으므로 로케이터에 따라 여러 클라이언트에 다양한 시작 시간 및 연결 유형을 제공할 수 있지만 모두 동일한 권한 및 기간을 사용합니다. 그러나 Azure Storage 서비스에 의해 설정된 공유 액세스 정책 제한으로 인해 한 번에 5개 이상의 고유한 로케이터를 지정된 자산에 연결할 수 없습니다. 
+### <a name="locators"></a><a name="locators"></a>로케이터
+[로케이터](/rest/api/media/operations/locator)는 자산에 포함된 파일에 액세스할 수 있는 진입점을 제공합니다. 액세스 정책은 클라이언트가 지정된 자산에 액세스할 수 있는 권한 및 기간을 정의하는 데 사용됩니다. 로케이터는 액세스 정책과 다 대 일 관계가 있으므로 로케이터에 따라 여러 클라이언트에 다양한 시작 시간 및 연결 유형을 제공할 수 있지만 모두 동일한 권한 및 기간을 사용합니다. 그러나 Azure Storage 서비스에 의해 설정된 공유 액세스 정책 제한으로 인해 한 번에 5개 이상의 고유한 로케이터를 지정된 자산에 연결할 수 없습니다. 
 
 Media Services는 두 가지 유형의 로케이터를 지원합니다. 미디어를 스트리밍(예: MPEG DASH, HLS 또는 부드러운 스트리밍)하거나 미디어 및 SAS URL 로케이터를 점진적으로 다운로드하는 데 사용되는 OnDemandOrigin 로케이터는 Azure Storage에서 미디어 파일을 업로드하거나 다운로드하는 데 사용됩니다. 
 
@@ -84,12 +84,12 @@ Media Services는 두 가지 유형의 로케이터를 지원합니다. 미디�
 >OnDemandOrigin 로케이터를 만들 때는 목록 권한(AccessPermissions.List)을 사용할 수 없습니다. 
 
 ### <a name="storage-account"></a>스토리지 계정
-Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 미디어 서비스 계정은 하나 이상의 스토리지 계정에 연결될 수 있습니다. 전체 크기가 스토리지 계정당 500TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다.  Media Services는 SDK 수준 도구를 제공하여 여러 스토리지 계정을 관리하고 메트릭 또는 임의 분산에 따라 이러한 계정에 업로드하는 동안 자산 분산의 부하를 분산할 수 있습니다. 자세한 내용은 [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx)작업을 참조하세요. 
+Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 미디어 서비스 계정은 하나 이상의 스토리지 계정에 연결될 수 있습니다. 전체 크기가 스토리지 계정당 500TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다.  Media Services는 SDK 수준 도구를 제공하여 여러 스토리지 계정을 관리하고 메트릭 또는 임의 분산에 따라 이러한 계정에 업로드하는 동안 자산 분산의 부하를 분산할 수 있습니다. 자세한 내용은 [Azure Storage](/previous-versions/azure/dn767951(v=azure.100))작업을 참조하세요. 
 
 ## <a name="jobs-and-tasks"></a>작업 및 태스크
-[작업](https://docs.microsoft.com/rest/api/media/operations/job) 은 일반적으로 하나의 오디오/비디오 프레젠테이션을 처리(예: 인덱싱 또는 인코딩)하는 데 사용됩니다. 여러 비디오를 처리하려면 인코딩할 각 비디오에 대해 하나의 작업을 만듭니다.
+[작업](/rest/api/media/operations/job) 은 일반적으로 하나의 오디오/비디오 프레젠테이션을 처리(예: 인덱싱 또는 인코딩)하는 데 사용됩니다. 여러 비디오를 처리하려면 인코딩할 각 비디오에 대해 하나의 작업을 만듭니다.
 
-작업에는 수행할 처리에 대한 메타데이터가 포함됩니다. 각 작업에는 원자성 처리 태스크, 해당 입력 자산, 출력 자산, 미디어 프로세서 및 관련 설정을 지정하는 하나 이상의 [태스크](https://docs.microsoft.com/rest/api/media/operations/task)가 포함됩니다. 작업 내의 태스크는 함께 연결할 수 있으며, 이때 한 태스크의 출력 자산은 다음 태스크의 입력 자산으로 제공됩니다. 이러한 방식으로 한 작업에는 미디어 프레젠테이션에 필요한 모든 처리가 포함될 수 있습니다.
+작업에는 수행할 처리에 대한 메타데이터가 포함됩니다. 각 작업에는 원자성 처리 태스크, 해당 입력 자산, 출력 자산, 미디어 프로세서 및 관련 설정을 지정하는 하나 이상의 [태스크](/rest/api/media/operations/task)가 포함됩니다. 작업 내의 태스크는 함께 연결할 수 있으며, 이때 한 태스크의 출력 자산은 다음 태스크의 입력 자산으로 제공됩니다. 이러한 방식으로 한 작업에는 미디어 프레젠테이션에 필요한 모든 처리가 포함될 수 있습니다.
 
 ## <a name="encoding"></a><a id="encoding"></a>Encoding
 Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
@@ -115,14 +115,14 @@ Azure Media Services에서 채널은 라이브 스트리밍 콘텐츠를 처리�
 * 단일 비트 전송률 스트림(RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식 중 하나)은 Media Services를 사용하여 라이브 인코딩을 수행할 수 있는 채널에 전송됩니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 
 ### <a name="channel"></a>채널
-Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operations/channel)은 라이브 스트리밍 콘텐츠 처리를 담당합니다. 채널은 라이브 트랜스코더에 제공될 입력 엔드포인트(수집 URL)를 제공합니다. 채널은 라이브 트랜스코더에서 라이브 입력 스트림을 수신하여 하나 이상의 StreamingEndpoints를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 채널은 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다.
+Media Services에서, [채널](/rest/api/media/operations/channel)은 라이브 스트리밍 콘텐츠 처리를 담당합니다. 채널은 라이브 트랜스코더에 제공될 입력 엔드포인트(수집 URL)를 제공합니다. 채널은 라이브 트랜스코더에서 라이브 입력 스트림을 수신하여 하나 이상의 StreamingEndpoints를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 채널은 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다.
 
 채널을 만들 때 수집 URL 및 미리 보기 URL을 얻을 수 있습니다. 이러한 URL을 얻으려면 채널이 시작됨 상태로 있을 필요가 없습니다. 라이브 트랜스코더에서 채널로 데이터를 푸시할 준비가 되면 채널을 시작해야 합니다. 라이브 트랜스코더에서 데이터 수집을 시작하면 스트림을 미리 볼 수 있습니다.
 
 각 Media Services 계정에는 여러 채널, 여러 프로그램 및 여러 StreamingEndpoints가 포함될 수 있습니다. 대역폭 및 보안 요구 사항에 따라 하나 이상의 채널에 StreamingEndpoint 서비스를 전용으로 사용할 수 있습니다. 모든 StreamingEndpoint는 모든 채널에서 가져올 수 있습니다.
 
 ### <a name="program-event"></a>프로그램(이벤트)
-[프로그램(이벤트)](https://docs.microsoft.com/rest/api/media/operations/program)에서는 라이브 스트림의 세그먼트 게시 및 스토리지을 제어할 수 있습니다. 채널은 프로그램(이벤트)을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
+[프로그램(이벤트)](/rest/api/media/operations/program)에서는 라이브 스트림의 세그먼트 게시 및 스토리지을 제어할 수 있습니다. 채널은 프로그램(이벤트)을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 **ArchiveWindowLength** 속성을 설정 하 여 프로그램에 대해 기록 된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다.
 
 또한 ArchiveWindowLength는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
@@ -154,13 +154,13 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 
 토큰 제한 정책을 구성하는 경우 기본 확인 키, 발급자 및 대상 매개 변수를 지정해야 합니다. 기본 확인 키는 토큰이 서명된 키를 포함하며 발급자는 토큰을 발행하는 보안 토큰 서비스입니다. 청중(범위) 라고도 함)은 토큰의 의도 또는 토큰이 접근을 인증하는 대상 리소스를 설명합니다. Media Services 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 - [콘텐츠 보호 개요](media-services-content-protection-overview.md)
 - [AES-128로 보호](media-services-protect-with-aes128.md)
 - [PlayReady/Widevine으로 보호](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>배달
-### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>동적 패키징
+### <a name="dynamic-packaging"></a><a name="dynamic_packaging"></a>동적 패키징
 Media Services 사용 하는 경우에는 메자닌 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용 하 여 집합을 원하는 형식으로 변환 하는 것이 좋습니다.
 
 ### <a name="streaming-endpoint"></a>스트리밍 엔드포인트
@@ -180,7 +180,7 @@ StreamingEndpoint는 클라이언트 플레이어 응용 프로그램에 직접 
 스트리밍 엔드포인트이 실행 상태에 있을 때만 청구됩니다.
 
 ### <a name="asset-delivery-policy"></a>자산 배달 정책
-Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 스트리밍할 [자산의 배달 정책을](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)구성 하는 것입니다. 자산 배달 정책은 어떤 스트리밍 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)로 사용자의 자산을 동적으로 패키지할 지와 같은 사용자가 원하는 자산 배달 방법과 사용자의 자산을 동적으로 암호화할 지 여부 및 방법(봉투 또는 일반 암호화)를 Media Services에 알려줍니다.
+Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 스트리밍할 [자산의 배달 정책을](/rest/api/media/operations/assetdeliverypolicy)구성 하는 것입니다. 자산 배달 정책은 어떤 스트리밍 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)로 사용자의 자산을 동적으로 패키지할 지와 같은 사용자가 원하는 자산 배달 방법과 사용자의 자산을 동적으로 암호화할 지 여부 및 방법(봉투 또는 일반 암호화)를 Media Services에 알려줍니다.
 
 스토리지에서 암호화된 자산이 있는 경우 자산을 스트리밍하기 전에 스트리밍 서버에서 스토리지 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 AES(Advanced Encryption Standard) 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 DynamicEnvelopeEncryption으로 설정합니다. 스토리지 암호화를 제거하고 암호화 되지 않은 자산을 스트리밍하려면, 정책 유형을 NoDynamicEncryption로 설정하세요.
 
@@ -190,7 +190,7 @@ Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 스트리�
 >[!NOTE]
 >암호화된 자산을 점진적 다운로드에 사용할 수 있도록 하려면 해당 자산의 암호를 해독해야 합니다.
 
-사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예:
+사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예를 들어:
 
 `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
@@ -237,4 +237,3 @@ http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

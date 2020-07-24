@@ -2,13 +2,13 @@
 title: 컨테이너용 Azure Monitor 에이전트를 관리하는 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor에서 사용되는 컨테이너화된 Log Analytics 에이전트를 통해 가장 일반적인 유지 관리 작업을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: fc5bc0d60cb4ef1e375a997cbb3fe4bd2aed3235
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/21/2020
+ms.openlocfilehash: 1a397dbc5ebc4952b09c504b70df6ad99c00b216
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041259"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 관리하는 방법
 
@@ -30,31 +30,12 @@ AKS 클러스터에서 에이전트를 업그레이드하는 프로세스는 간
 
 새로운 버전의 에이전트를 설치하려면 [Azure CLI를 사용하여 모니터링 사용](container-insights-enable-new-cluster.md#enable-using-azure-cli)에 설명된 단계에 따라 이 프로세스를 완료합니다.  
 
-모니터링을 다시 사용하도록 설정한 후에 해당 클러스터의 업데이트된 상태 메트릭이 나타나기까지는 15분 정도 소요됩니다. 에이전트가 성공적으로 업그레이드되었는지 확인하려면 `kubectl logs omsagent-484hw --namespace=kube-system` 명령을 실행합니다.
+모니터링을 다시 사용하도록 설정한 후에 해당 클러스터의 업데이트된 상태 메트릭이 나타나기까지는 15분 정도 소요됩니다. 에이전트가 성공적으로 업그레이드 되었는지 확인 하려면 다음 중 하나를 수행 합니다.
 
-상태는 다음 예제와 유사하며, 여기서 *omi* 및 *omsagent*의 값은 [에이전트 릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)에 지정된 최신 버전과 일치해야 합니다.  
+* 명령을 실행 `kubectl get pod <omsagent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'` 합니다. 반환 된 상태에서 출력의 *컨테이너* 섹션에서 Omsagent의 **이미지** 아래에 있는 값을 확인 합니다.
+* **노드** 탭에서 클러스터 노드를 선택 하 고 오른쪽의 **속성** 창에서 **에이전트 이미지 태그**아래의 값을 확인 합니다.
 
-```console
-User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-:
-:
-instance of Container_HostInventory
-{
-    [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-    Computer=aks-nodepool1-39773055-0
-    DockerVersion=1.13.1
-    OperatingSystem=Ubuntu 16.04.3 LTS
-    Volume=local
-    Network=bridge host macvlan null overlay
-    NodeRole=Not Orchestrated
-    OrchestratorType=Kubernetes
-}
-Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc
-Status: Onboarded(OMSAgent Running)
-omi 1.4.2.5
-omsagent 1.6.0-163
-docker-cimprov 1.0.0.31
-```
+표시 된 에이전트 버전은 [릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) 페이지에 나열 된 최신 버전과 일치 해야 합니다.
 
 ### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>하이브리드 Kubernetes 클러스터에서 에이전트 업그레이드
 

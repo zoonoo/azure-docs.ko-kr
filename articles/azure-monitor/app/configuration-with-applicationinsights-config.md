@@ -4,11 +4,12 @@ description: 데이터 수집 모듈을 사용하거나 사용하지 않도록 �
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: dde2cbf227f085b751f6ad22e1f2fa95f38c5915
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c62ed09435c470df606b610a6ce127326d32fb1e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041505"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
@@ -85,7 +86,7 @@ HTTP 요청의 [응답 시간 및 결과 코드](../../azure-monitor/app/asp-net
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.microsoft.com/library/mt420197.aspx) 를 제공합니다. 다른 원격 분석 모듈은이를 사용 하 고 사용자 [고유의 원격 분석을 정의 하](../../azure-monitor/app/api-custom-events-metrics.md)는 데 사용할 수도 있습니다.
+Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](/dotnet/api/microsoft.applicationinsights?view=azure-dotnet) 를 제공합니다. 다른 원격 분석 모듈은이를 사용 하 고 사용자 [고유의 원격 분석을 정의 하](../../azure-monitor/app/api-custom-events-metrics.md)는 데 사용할 수도 있습니다.
 
 * ApplicationInsights.config에 항목이 없습니다.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 패키지. 이 NuGet을 설치하면 .config 파일이 생성되지 않습니다.

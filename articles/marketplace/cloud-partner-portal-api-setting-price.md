@@ -3,26 +3,25 @@ title: 가상 컴퓨터 제품에 대 한 가격-Azure Marketplace
 description: 가상 컴퓨터 제품의 가격 책정을 지정 하는 세 가지 방법에 대해 설명 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 8d6dcd7f3f86e111cfb17fb08c4faadac1552b94
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039122"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
-==================================
+# <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 가상 머신 제품의 가격은 사용자 지정 코어 가격, 코어당 가격, 스프레드시트 가격의 세 가지 방식으로 지정할 수 있습니다.
 
-
-<a name="customized-core-pricing"></a>사용자 지정 코어 가격
------------------------
+## <a name="customized-core-pricing"></a>사용자 지정 코어 가격
 
 각 지역과 코어의 조합별로 가격을 책정합니다. 판매 목록의 모든 지역은 정의의 **virtualmachinepricing**지역 / **가격** 섹션에 지정 해야 합니다.  각 [지역](#regions)의 현재 통화 코드를 요청에 사용합니다.  다음 예제에서는 이러한 요구 사항을 보여 줍니다.
 
@@ -66,9 +65,7 @@ ms.locfileid: "86115505"
      }
 ```
 
-
-<a name="per-core-pricing"></a>코어당 가격
-----------------
+## <a name="per-core-pricing"></a>코어당 가격
 
 이 방식의 경우 게시자가 SKU용 가격 하나를 USD 단위로 지정하며, 그러면 기타 모든 가격은 자동으로 생성됩니다. 요청의 **single** 매개 변수에서 코어당 가격을 지정합니다.
 
@@ -84,9 +81,7 @@ ms.locfileid: "86115505"
      }
 ```
 
-
-<a name="spreadsheet-pricing"></a>스프레드시트 가격
--------------------
+## <a name="spreadsheet-pricing"></a>스프레드시트 가격
 
 게시자는 임시 스토리지 위치에 가격 스프레드시트를 업로드한 후에 다른 파일 아티팩트와 같은 방식으로 요청에 URI를 포함할 수도 있습니다. 그러면 스프레드시트가 업로드된 후 변환되어 지정된 가격표를 평가하며, 마지막으로 가격 정보가 적용되어 제품이 업데이트됩니다. 제품에 대한 후속 GET 요청에서는 URI 스프레드시트와 해당 지역에 대해 평가된 가격이 반환됩니다.
 
@@ -101,14 +96,11 @@ ms.locfileid: "86115505"
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>7/2/2019에 추가 된 새 코어 크기
----------------------------
+## <a name="new-core-sizes-added-on-722019"></a>7/2/2019에 추가 된 새 코어 크기
 
 VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 수 기반)을 추가 하는 2019 년 7 월 2 일에 통보 받았습니다.  새 가격은 10, 44, 48, 60, 120, 208 및 416의 핵심 크기에 해당 합니다.  기존 VM의 경우 이러한 코어 크기에 대 한 새로운 가격은 현재 가격에 따라 자동으로 계산 됩니다.  게시자는 2019 년 8 월 1 일까 지 추가 가격을 검토 하 고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에는 아직 게시자가 다시 게시 하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산 된 가격이 적용 됩니다.
 
-
-<a name="regions"></a>영역
--------
+## <a name="regions"></a>영역
 
 다음 표에는 사용자 지정 코어 가격을 지정할 수 있는 지역 및 해당하는 통화 코드가 나와 있습니다.
 

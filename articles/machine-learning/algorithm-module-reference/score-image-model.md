@@ -1,5 +1,5 @@
 ---
-title: 이미지 모델 채점
+title: 이미지 모델 점수 매기기 모듈 사용
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 이미지 점수 매기기 모듈을 사용 하 여 학습 된 이미지 모델을 사용 하 여 예측을 생성 하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 021572aef673cf88f7744a0a210ef794c739448b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b949603b3e6ee51311f9c54f3e1326217f00c82d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039119"
 ---
 # <a name="score-image-model"></a>이미지 모델 채점
 

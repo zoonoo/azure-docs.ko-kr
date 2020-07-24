@@ -4,11 +4,12 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5152a3deb73c7069655ff016fbfc03f6b9cee16d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045792"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -48,7 +49,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 사용되도록 설정되며 Application Insights 리소스에 대해 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 액세스 권한이 있는 자들에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -69,12 +70,12 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *나만의 이상 감지 규칙을 만들거나 기존 규칙을 사용자 지정할 수 있나요?*
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
-    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](/azure/azure-monitor/platform/alerts-log)할 수 있습니다.
+    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../platform/alerts-log.md)할 수 있습니다.
     * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [Power BI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* 이것이 *메트릭 경고[를 대신하나요](/azure/azure-monitor/platform/alerts-log)?*
+* 이것이 *메트릭 경고[를 대신하나요](../platform/alerts-log.md)?*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -175,9 +176,9 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 * [프로파일러](profiler.md) 
 * [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)
 * [분석](../../azure-monitor/log-query/get-started-portal.md)
-* [분석 스마트 진단](../../azure-monitor/app/analytics.md)
+* [분석 스마트 진단](../log-query/log-query-overview.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](/azure/azure-monitor/platform/alerts-log)
+* [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
 * [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: cenkdin
-ms.openlocfilehash: b2099283bc3af19f7d23e5007377b8baac0066d8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: cd1272b6c49d247d58486193fcbc488d566ec1b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043035"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기 
 > [!div class="op_single_selector"]
@@ -40,10 +40,10 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
 필터를 생성할 때는 다음 형식이 사용됩니다. 
 
-* **IStreamingFilter**.  이 형식은 다음 REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* **IStreamingAssetFilter**. 이 형식은 다음 REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* **PresentationTimeRange**. 이 형식은 다음 REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* **FilterTrackSelectStatement** 및 **IFilterTrackPropertyCondition**. 이 형식은 다음 REST API [FilterTrackSelect 및 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* **IStreamingFilter**.  이 형식은 다음 REST API [Filter](/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. 이 형식은 다음 REST API [AssetFilter](/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. 이 형식은 다음 REST API [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** 및 **IFilterTrackPropertyCondition**. 이 형식은 다음 REST API [FilterTrackSelect 및 FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>전역 필터 생성/업데이트/읽기/삭제
 다음 코드에서는 .NET을 사용하여 자산 필더를 생성, 업데이트, 읽기 및 삭제하는 방법을 보여줍니다.
@@ -137,4 +137,3 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 ## <a name="see-also"></a>참고 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
-

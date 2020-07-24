@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125811"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042189"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -53,7 +54,7 @@ ASE에서 앱을 만들려면
 
     b. 구독을 선택합니다.
 
-    다. 리소스 그룹을 선택 하거나 만듭니다.
+    c. 리소스 그룹을 선택 하거나 만듭니다.
 
     d. 웹 앱의 이름을 입력 합니다.
 
@@ -61,7 +62,7 @@ ASE에서 앱을 만들려면
 
     f. 런타임 스택을 선택 합니다.
 
-    예: **Linux** 또는 **Windows**를 선택합니다. 
+    g. **Linux** 또는 **Windows**를 선택합니다. 
 
     h. **지역** 드롭다운 목록에서 ASE를 선택 합니다. 
 
@@ -250,6 +251,30 @@ ASE를 삭제하려면 다음을 수행합니다.
     ![ASE 삭제][3]
 
 1. **확인**을 선택합니다.
+
+## <a name="ase-cli"></a>ASE CLI
+
+ASE에 대 한 관리를 위한 명령줄 기능이 있습니다.  Az cli 명령은 아래에 나와 있습니다.
+
+```azurecli
+C:\>az appservice ase --help
+
+Group
+    az appservice ase : Manage App Service Environments v2.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    create         : Create app service environment.
+    delete         : Delete app service environment.
+    list           : List app service environments.
+    list-addresses : List VIPs associated with an app service environment.
+    list-plans     : List app service plans associated with an app service environment.
+    show           : Show details of an app service environment.
+    update         : Update app service environment.
+
+For more specific examples, use: az find "az appservice ase"
+```
+
+
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

@@ -3,11 +3,12 @@ title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19f5b6c07010c82ba6675e6db031e663ef7c5cdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044952"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -137,6 +138,7 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| BotService/botServices/채널 | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
@@ -397,7 +399,7 @@ listKeyValue 예제는 [빠른 시작: Azure App Configuration 및 Resource Mana
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | resourceName 또는 resourceIdentifier |예 |문자열 |리소스의 이름 또는 고유 식별자입니다. 현재 템플릿의 리소스를 참조할 경우 리소스 이름만 매개 변수로 지정합니다. 이전에 배포된 리소스를 참조하거나 리소스 이름이 모호한 경우 리소스 ID를 제공합니다. |
 | apiVersion |예 |문자열 |지정된 리소스의 API 버전입니다. **리소스가 동일한 템플릿 내에서 프로비저닝되지 않은 경우 이 매개 변수가 필요합니다.** 일반적으로 **yyyy-mm-dd** 형식입니다. 리소스에 대한 유효한 API 버전은 [템플릿 참조](/azure/templates/)를 참조하세요. |
@@ -724,9 +726,9 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 |:--- |:--- |:--- |:--- |
 | subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹 또는 구독의 범위에서 배포하는 경우에만 이 값을 제공합니다. |
 | resourceGroupName |예 |문자열 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹의 범위에 배포하는 경우에만 이 값을 제공합니다. |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
+| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 
@@ -860,7 +862,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -916,12 +918,12 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 종류 | 설명 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
+| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 
@@ -998,11 +1000,11 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | Description |
+| 매개 변수 | 필수 | 종류 | Description |
 |:--- |:--- |:--- |:--- |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
+| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 

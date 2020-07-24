@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045855"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis용 Azure Monitor(미리 보기) 살펴보기
 
@@ -120,7 +120,7 @@ Azure Cache for Redis 리소스 중 하나의 옆에 있는 드롭다운 목록 
 
 ### <a name="metric-definitions"></a>메트릭 정의
 
-이러한 통합 문서를 구성하는 메트릭 정의의 전체 목록은 [사용 가능한 메트릭 및 보고 간격에 대한 문서](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals)를 확인하세요.
+이러한 통합 문서를 구성하는 메트릭 정의의 전체 목록은 [사용 가능한 메트릭 및 보고 간격에 대한 문서](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals)를 확인하세요.
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Azure Cache for Redis 리소스에서 보기
 
@@ -156,7 +156,7 @@ Azure Redis Cache에 대한 **개요** 통합 문서에는 다음에 액세스�
 
 ## <a name="pin-export-and-expand"></a>고정, 내보내기 및 확장
 
-메트릭 섹션을 [Azure 대시보드](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)에 고정하려면 섹션의 오른쪽 위에 있는 압정 기호를 선택합니다.
+메트릭 섹션을 [Azure 대시보드](../../azure-portal/azure-portal-dashboards.md)에 고정하려면 섹션의 오른쪽 위에 있는 압정 기호를 선택합니다.
 
 ![압정 기호가 강조 표시된 메트릭 섹션](./media/cosmosdb-insights-overview/pin.png)
 
@@ -186,6 +186,6 @@ Azure Redis Cache에 대한 **개요** 통합 문서에는 다음에 액세스�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림](../../service-health/alerts-activity-log-service-notifications.md)을 구성하여 문제 발견에 도움이 되는 자동 경고를 설정합니다.
+* [메트릭 경고](../platform/alerts-metric.md) 및 [서비스 상태 알림](../../service-health/alerts-activity-log-service-notifications-portal.md)을 구성하여 문제 발견에 도움이 되는 자동 경고를 설정합니다.
 
 * [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하는 시나리오, 보고서를 작성하고 사용자 지정하는 방법 등을 알아보세요.

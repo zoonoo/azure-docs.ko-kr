@@ -5,15 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/09/2020
+ms.date: 07/20/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8edb36345de4516077b3c857cff33389062cc7f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022336"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044549"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -156,12 +157,28 @@ ms.locfileid: "84022336"
 - **메시지**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-### <a name="error-code--adlsgen2timeouterror"></a>오류 코드:  AdlsGen2TimeoutError
+### <a name="error-code-adlsgen2timeouterror"></a>오류 코드: AdlsGen2TimeoutError
 
 - **메시지**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+
+### <a name="error-message-the-underlying-connection-was-closed-could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>오류 메시지: 기본 연결이 닫혔습니다. SSL/TLS 보안 채널에 대 한 트러스트 관계를 설정할 수 없습니다.
+
+- **증상**: 복사 작업이 실패 하 고 다음 오류가 발생 합니다. 
+
+    ```
+    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    ```
+
+- **원인**: TLS 핸드셰이크 중 인증서 유효성 검사에 실패 했습니다.
+
+- **해결**방법: 해결 방법: 준비 된 복사를 사용 하 여 ADLS Gen1에 대 한 TLS 유효성 검사를 건너뜁니다. 이 문제를 재현 하 고 netmon 추적을 수집한 다음 네트워크 팀과 협력 하 여 [이 문서](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace)다음에 나오는 로컬 네트워크 구성을 확인 해야 합니다.
+
+
+    ![문제 해결 ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>오류 메시지: 원격 서버에서 다음과 같은 오류를 반환했습니다. (403) 사용할 수 없음
 
@@ -221,6 +238,7 @@ ms.locfileid: "84022336"
 - **원인**: 오류 메시지에 "InvalidOperationException"이 포함된 경우 일반적으로 잘못된 입력 데이터로 인해 발생합니다.
 
 - **권장 사항**:  문제가 발생하는 행을 식별하려면 복사 작업에서 내결함성 기능을 사용하도록 설정하세요. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 스토리지로 리디렉션할 수 있습니다. 참조 문서: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance
+
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>오류 코드:  SqlUnauthorizedAccess
@@ -371,7 +389,7 @@ ms.locfileid: "84022336"
 
 - **해결 방법**: 복사 작업 싱크의 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정합니다.
 
-### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>오류 메시지: Java 예외 메시지:HdfsBridge::CreateRecordReader
+### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>오류 메시지: Java 예외 메시지: HdfsBridge:: CreateRecordReader
 
 - **증상**: PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터를 복사하면 다음 오류가 발생합니다.
 
@@ -423,7 +441,7 @@ ms.locfileid: "84022336"
 
 - **메시지**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **원인**: 작업에서 'firstRowAsHeader'를 설정하는 경우 첫 번째 행이 열 이름으로 사용됩니다. 이 오류는 첫 번째 행에 빈 값이 포함되어 있음을 의미합니다. 다음은 그 예입니다.  'ColumnA,,ColumnB'.
+- **원인**: 작업에서 'firstRowAsHeader'를 설정하는 경우 첫 번째 행이 열 이름으로 사용됩니다. 이 오류는 첫 번째 행에 빈 값이 포함되어 있음을 의미합니다. 예: ' ColumnA,, Columna '.
 
 - **권장 사항**:  첫 번째 행을 확인하고 빈 값이 있으면 값을 수정합니다.
 

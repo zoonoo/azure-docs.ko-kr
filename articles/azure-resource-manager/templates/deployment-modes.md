@@ -2,12 +2,13 @@
 title: 배포 모드
 description: Azure Resource Manager를 사용하여 전체 또는 증분 배포 모드를 사용할지 여부를 지정하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040435"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -20,6 +21,9 @@ ms.locfileid: "79460248"
 ## <a name="complete-mode"></a>전체 모드
 
 전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다.
+
+> [!NOTE]
+> 템플릿을 전체 모드로 배포 하기 전에 항상 [가상 작업](template-deploy-what-if.md) 을 사용 합니다. 대상-생성, 삭제 또는 수정 되는 리소스를 표시 합니다. 리소스를 실수로 삭제 하지 않도록 하려면 가상-if를 사용 합니다.
 
 [조건이](conditional-resource-deployment.md) false로 평가 되므로 템플릿에 배포 되지 않은 리소스가 포함 된 경우에는 템플릿을 배포 하는 데 사용 하는 REST API 버전에 따라 결과가 달라 집니다. 2019-05-10 이전 버전을 사용 하는 경우 리소스는 **삭제 되지 않습니다**. 2019-05-10 이상에서는 리소스가 **삭제 됩니다**. 최신 버전의 Azure PowerShell 및 Azure CLI 리소스를 삭제 합니다.
 
@@ -49,6 +53,8 @@ ms.locfileid: "79460248"
 
 > [!NOTE]
 > 증분 모드에서 기존 리소스를 다시 배포 하는 경우 모든 속성이 다시 적용 됩니다. **속성은 증분 추가 되지 않습니다**. 일반적인 있다면 오해 템플릿에 지정 되지 않은 속성은 변경 되지 않은 상태로 유지 하는 것입니다. 특정 속성을 지정 하지 않을 경우 리소스 관리자는 배포를 해당 값을 덮어쓰는 것으로 해석 합니다. 템플릿에 포함 되지 않은 속성은 기본값으로 다시 설정 됩니다. 업데이트 하는 것 뿐만 아니라 리소스에 대해 기본값이 아닌 값을 모두 지정 합니다. 템플릿의 리소스 정의는 항상 리소스의 최종 상태를 포함 합니다. 기존 리소스에 대 한 부분 업데이트를 나타낼 수 없습니다.
+>
+> 드문 경우 지만 리소스에 대해 지정 하는 속성은 실제로 자식 리소스로 구현 됩니다. 예를 들어 웹 앱에 대 한 사이트 구성 값을 제공 하는 경우 해당 값은 자식 리소스 유형에 서 구현 됩니다 `Microsoft.Web/sites/config` . 웹 앱을 다시 배포 하 고 사이트 구성 값에 대해 빈 개체를 지정 하면 자식 리소스가 업데이트 되지 않습니다. 그러나 새 사이트 구성 값을 제공 하는 경우 자식 리소스 종류가 업데이트 됩니다.
 
 ## <a name="example-result"></a>결과 예제
 

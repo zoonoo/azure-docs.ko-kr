@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6911b16c3fdf5bb94d42a40198943c3b1baa00da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042830"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services 오류 코드
 Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원되지 않는 작업에 대한 인증 토큰 만료와 같은 문제에 따라 서비스에서 HTTP 오류 코드를 받을 수도 있습니다. 다음은 Media Services에서 반환되는 **HTTP 오류 코드** 및 가능한 원인의 목록입니다.  
@@ -27,19 +28,19 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 요청에 잘못된 정보가 들어 있으며 다음 이유 중 하나 때문에 요청이 거부됩니다.
 
 * 지원되지 않는 API 버전이 지정되었습니다. 가장 최신 버전은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-* Media Services의 API 버전이 지정되지 않았습니다. API 버전을 지정하는 방법에 대한 정보는 [Media Services Operations REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)을 참조하세요.
+* Media Services의 API 버전이 지정되지 않았습니다. API 버전을 지정하는 방법에 대한 정보는 [Media Services Operations REST API 참조](/rest/api/media/operations/azure-media-services-rest-api-reference)을 참조하세요.
   
   > [!NOTE]
   > .NET 또는 Java SDK를 사용하여 Media Services에 연결하는 경우, Media Services에 대해 작업을 수행하려고 할 때마다 API 버전이 지정됩니다.
   > 
   > 
-* 정의되지 않은 속성이 지정되었습니다. 속성 이름이 오류 메시지에 있습니다. 지정된 엔터티의 구성 요소인 속성 만이 지정될 수 있습니다. 엔터티 및 해당 속성의 목록은 [Azure Media Services REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요.
+* 정의되지 않은 속성이 지정되었습니다. 속성 이름이 오류 메시지에 있습니다. 지정된 엔터티의 구성 요소인 속성 만이 지정될 수 있습니다. 엔터티 및 해당 속성의 목록은 [Azure Media Services REST API 참조](/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요.
 * 잘못된 속성 값이 지정되었습니다. 속성 이름이 오류 메시지에 있습니다. 유효한 속성 유형 및 해당 값에 대한 이전 링크를 참조하세요.
 * 필수 속성 값이 누락되었습니다.
 * 지정된 URL 일부에 잘못된 값을 들어 있습니다.
 * WriteOnce 속성을 업데이트하려는 시도가 있었습니다.
 * 지정되지 않았거나 확인할 수 없는 기본 AssetFile을 사용해 입력 자신이 있는 작업을 만들려는 시도가 있었습니다.
-* SAS Locator를 업데이트하려는 시도가 있었습니다. SAS Locator는 생성 또는 삭제만 될 수 있습니다. 스트리밍 로케이터는 업데이트될 수 있습니다. 자세한 내용은 [Locators](https://docs.microsoft.com/rest/api/media/operations/locator)를 참조하세요.
+* SAS Locator를 업데이트하려는 시도가 있었습니다. SAS Locator는 생성 또는 삭제만 될 수 있습니다. 스트리밍 로케이터는 업데이트될 수 있습니다. 자세한 내용은 [Locators](/rest/api/media/operations/locator)를 참조하세요.
 * 지원되지 않는 작업 또는 쿼리가 제출되었습니다.
 
 ## <a name="401-unauthorized"></a>401 권한 없음
@@ -108,7 +109,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * "서버가 사용 중입니다. 초당 요청이 {0}개보다 많을 경우 제한될 수 있습니다."
 * "서버가 사용 중입니다. {1}초 내에 요청이 {0}개보다 많을 경우 제한될 수 있습니다."
 
-이 오류를 처리하려면 지수적 백오프 재시도 논리를 사용 하는 것이 좋습니다. 연속된 오류 응답에 대해 재시도 간에 점진적으로 더 긴 대기 시간을 두는 것을 의미합니다.  자세한 내용은 [일시적인 오류 처리 애플리케이션 블록(영문)](https://msdn.microsoft.com/library/hh680905.aspx)을 참조하세요.
+이 오류를 처리하려면 지수적 백오프 재시도 논리를 사용 하는 것이 좋습니다. 연속된 오류 응답에 대해 재시도 간에 점진적으로 더 긴 대기 시간을 두는 것을 의미합니다.  자세한 내용은 [일시적인 오류 처리 애플리케이션 블록(영문)](/previous-versions/msp-n-p/hh680905(v=pandp.50))을 참조하세요.
 
 > [!NOTE]
 > [.Net용 Azure Media Services SDK](https://github.com/Azure/azure-sdk-for-media-services/tree/master)를 사용 중인 경우 503 오류에 대한 재시도 논리는 SDK로 구현되었습니다.  
@@ -116,11 +117,10 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 > 
 
 ## <a name="see-also"></a>참고 항목
-[Media Services 관리 오류 코드](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Media Services 관리 오류 코드](/rest/api/media/)
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

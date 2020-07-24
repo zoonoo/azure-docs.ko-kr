@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76f73df01b34cb20be48aefa3b5b3a6392a35b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045195"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -25,9 +26,9 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
+- 구독이 [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md)에 등록되어야 합니다. 
 
-- [Azure PowerShell](/powershell/azure)이 설치되어 있어야 하거나, [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. 
+- [Azure PowerShell](/powershell/azure)이 설치되어 있어야 하거나, [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용할 수 있습니다. 
 
 - VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
@@ -292,5 +293,3 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
 
 ## <a name="next-steps"></a>다음 단계
 - [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
-
-

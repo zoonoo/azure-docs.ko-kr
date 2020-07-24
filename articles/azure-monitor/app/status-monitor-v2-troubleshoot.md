@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041394"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
@@ -54,7 +55,7 @@ ms.locfileid: "81732946"
 
 ### <a name="conflict-with-iis-shared-configuration"></a>IIS 공유 구성과 충돌 합니다.
 
-웹 서버 클러스터가 있는 경우 [공유 구성을](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용할 수 있습니다.
+웹 서버 클러스터가 있는 경우 [공유 구성을](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용할 수 있습니다.
 HttpModule은이 공유 구성에 삽입할 수 없습니다.
 각 웹 서버에서 Enable 명령을 실행 하 여 각 서버의 GAC에 DLL을 설치 합니다.
 

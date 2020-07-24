@@ -4,14 +4,14 @@ description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 �
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/15/2020
+ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0d569facb6c2b58222980cfa1488de3b1f5fb60f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045221"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -32,7 +32,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 2. 발생 **했지만 알림 없음** -발생 한 경고를 찾을 수 있는지 확인 하기 위해 [발생 한 경고 목록을](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) 검토 합니다. 목록에서 경고를 볼 수 있지만 일부 작업 또는 알림에 문제가 있는 경우 [여기](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)에서 자세한 정보를 참조 하세요.
 
-3. **이미 활성** -경고를 발생 시킬 것으로 예상 되는 메트릭 시계열에 이미 경고가 발생 했는지 확인 합니다. 메트릭 경고는 상태 저장입니다. 즉, 특정 메트릭 시계열에서 경고가 발생 한 후에는 문제가 더 이상 관찰 될 때까지 해당 시계열에 대 한 추가 경고가 발생 하지 않습니다. 이 디자인 선택에서는 노이즈가 줄어듭니다. 세 번의 연속 평가에 대해 경고 조건이 충족 되지 않으면 경고가 자동으로 해결 됩니다.
+3. **이미 활성** -경고를 발생 시킬 것으로 예상 되는 메트릭 시계열에 이미 경고가 발생 했는지 확인 합니다. 메트릭 경고는 상태 저장 경고입니다. 즉, 특정 메트릭 시계열에서 경고가 발생하면 문제가 더 이상 관찰되지 않을 때까지 해당 시계열에 대한 추가 경고가 발생하지 않습니다. 이 디자인 선택에서는 노이즈가 줄어듭니다. 세 번의 연속 평가에 대해 경고 조건이 충족 되지 않으면 경고가 자동으로 해결 됩니다.
 
 4. **사용 된 차원** - [메트릭에 대해 일부 차원 값](./alerts-metric-overview.md#using-dimensions)을 선택한 경우 경고 규칙은 임계값 위반에 대해 각 개별 메트릭 시계열 시계열 (차원 값의 조합에 의해 정의 됨)을 모니터링 합니다. 또한 차원이 선택 되지 않은 집계 메트릭 시계열을 모니터링 하려면 차원을 선택 하지 않고 메트릭에 대 한 경고 규칙을 추가로 구성 합니다.
 
@@ -47,7 +47,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 1. 발생 한 경고 [목록을](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) 검토 하 여 발생 한 경고를 찾은 후 클릭 하 여 세부 정보를 확인 합니다. **이 경고가 발생 한 이유** 에서 제공 된 정보를 검토 하 여 경고가 트리거된 시점의 메트릭 차트, **메트릭 값**및 **임계값** 을 확인 하십시오.
 
     > [!NOTE] 
-    > 동적 임계값 조건 유형을 사용 중이며 사용된 임계값이 올바르지 않다고 생각될 경우, 찡그린 아이콘을 사용하여 피드백을 보내주세요. 이 피드백은 기계 학습 알고리즘 연구에 영향을 주므로 향후 검색을 개선 하는 데 도움이 됩니다.
+    > 동적 임계값 조건 유형을 사용 하 고 사용 된 임계값이 올바르지 않은 것으로 생각 되는 경우 찡그린 얼굴 보내기 아이콘을 사용 하 여 피드백을 제공 하세요. 이 피드백은 기계 학습 알고리즘 연구에 영향을 주므로 향후 검색을 개선 하는 데 도움이 됩니다.
 
 2. 메트릭에 대해 여러 차원 값을 선택한 경우 차원 값의 조합으로 정의 된 메트릭 시계열 중 **하나라도** 임계값을 위반 하면 경고가 트리거됩니다. 메트릭 경고의 차원 사용에 대한 자세한 내용은 [여기](./alerts-metric-overview.md#using-dimensions)를 참조하세요.
 
@@ -67,7 +67,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>가상 컴퓨터 게스트 메트릭에 대해 경고 하는 메트릭을 찾을 수 없습니다.
 
-가상 컴퓨터 (예: 메모리, 디스크 공간)의 게스트 운영 체제 메트릭에 대해 경고 하려면 메트릭을 Azure Monitor 하기 위해이 데이터를 수집 하는 데 필요한 에이전트를 설치 했는지 확인 합니다.
+가상 컴퓨터의 게스트 운영 체제 메트릭에 대해 경고 하려면 (예: 메모리, 디스크 공간) 메트릭을 Azure Monitor 하기 위해이 데이터를 수집 하는 데 필요한 에이전트를 설치 했는지 확인 합니다.
 - [Windows VM의 경우](./collect-custom-metrics-guestos-resource-manager-vm.md)
 - [Linux VM의 경우](./collect-custom-metrics-linux-telegraf.md)
 
@@ -83,7 +83,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>경고에 대 한 메트릭 차원을 찾을 수 없습니다.
 
-[메트릭의 특정 차원 값](./alerts-metric-overview.md#using-dimensions)에 대 한 경고를 표시 하지만 이러한 값을 찾을 수 없는 경우 다음을 참고 하십시오.
+[메트릭의 특정 차원 값](./alerts-metric-overview.md#using-dimensions)에 대 한 경고를 표시 하지만 이러한 값을 찾을 수 없는 경우 다음을 참고 하세요.
 
 1. **차원 값** 목록에 차원 값이 표시되는 데 몇 분 정도 걸릴 수 있습니다.
 1. 표시되는 차원 값은 지난 3일 동안 수집된 메트릭 데이터를 기반으로 합니다.
@@ -106,12 +106,35 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 > [!NOTE] 
 > 메트릭 경고 규칙 상태 비저장을 설정 하면 발생 한 경고가 해결 되지 않습니다. 따라서 조건이 더 이상 충족 되지 않은 경우에도 발생 한 경고는 30 일의 보존 기간까지 발생 한 상태로 유지 됩니다.
 
+## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>아직 내보내지 않은 사용자 지정 메트릭에 대 한 경고 규칙을 정의 합니다.
+
+메트릭 경고 규칙을 만들 때 메트릭 [정의 API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) 에 대 한 메트릭 이름 유효성을 검사 하 여 존재 하는지 확인 합니다. 경우에 따라 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수도 있습니다. 예를 들어 (ARM 템플릿을 사용 하 여), 해당 메트릭을 모니터링 하는 경고 규칙과 함께 사용자 지정 메트릭을 내보내는 Application Insights 리소스를 만들 수 있습니다.
+
+사용자 지정 메트릭의 정의 유효성을 검사 하는 동안 배포가 실패 하지 않도록 하려면 경고 규칙의 조건 섹션에서 *skipMetricValidation* 매개 변수를 사용할 수 있습니다. 그러면 메트릭 유효성 검사가 생략 됩니다. ARM 템플릿에서이 매개 변수를 사용 하는 방법은 아래 예제를 참조 하세요. 메트릭 경고 규칙을 만들기 위한 전체 ARM 템플릿 샘플은 [여기]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)를 참조 하세요.
+
+```json
+"criteria": {
+    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+        "allOf": [
+            {
+                    "name" : "condition1",
+                        "metricName": "myCustomMetric",
+                "metricNamespace": "myCustomMetricNamespace",
+                        "dimensions":[],
+                        "operator": "GreaterThan",
+                        "threshold" : 10,
+                        "timeAggregation": "Average",
+                    "skipMetricValidation": true
+        }
+              ]
+        }
+```
 
 ## <a name="metric-alert-rules-quota-too-small"></a>메트릭 경고 규칙 할당량이 너무 작음
 
 구독 당 허용 되는 메트릭 경고 규칙 수는 할당량 한 [도](../service-limits.md)에 따라 결정 됩니다.
 
-할당량 한도에 도달하면 다음 단계를 통해 문제를 해결할 수 있습니다.
+할당량 한도에 도달 하면 다음 단계를 통해 문제를 해결할 수 있습니다.
 1. 더 이상 사용 되지 않는 메트릭 경고 규칙을 삭제 하거나 사용 하지 않도록 설정 하세요.
 
 2. 여러 리소스를 모니터링하는 메트릭 경고 규칙을 사용하도록 전환합니다. 이 기능을 사용 하면 단일 경고 규칙이 할당량에 대해 계산 된 하나의 경고 규칙만 사용 하 여 여러 리소스를 모니터링할 수 있습니다. 이 기능과 지원되는 리소스 유형에 대한 자세한 내용은 [여기](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor)를 참조하세요.
@@ -133,7 +156,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 3. 특정 리소스 그룹, 리소스 유형 또는 리소스로 필터링 하지 않도록 합니다.
 4. **신호 형식** 드롭다운 컨트롤에서 **메트릭** 을 선택 합니다.
 5. **상태** 드롭다운 컨트롤이 **사용** 으로 설정 되어 있는지 확인 합니다.
-6. 메트릭 경고 규칙의 총 수가 규칙 목록 위에 표시 됩니다.
+6. 메트릭 경고 규칙의 총 수가 경고 규칙 목록 위에 표시 됩니다.
 
 ### <a name="from-api"></a>API에서
 
@@ -145,14 +168,14 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 리소스 관리자 템플릿, REST API, PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 메트릭 경고를 생성, 업데이트, 검색 또는 삭제 하는 데 문제가 발생 하는 경우 다음 단계를 사용 하 여 문제를 해결할 수 있습니다.
 
-### <a name="resource-manager-templates"></a>Resource Manager 템플릿
+### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
 - [일반적인 Azure 배포 오류](../../azure-resource-manager/templates/common-deployment-errors.md) 목록을 검토하고 그에 따라 문제를 해결합니다.
-- 모든 매개 변수를 올바르게 전달 하는지 확인 하려면 [메트릭 경고 Azure Resource Manager 템플릿 예제](./alerts-metric-create-templates.md) 를 참조 하세요.
+- 모든 매개 변수를 올바르게 전달 하 고 있는지 확인 하려면 [메트릭 경고 Azure Resource Manager 템플릿 예제](./alerts-metric-create-templates.md) 를 참조 하세요.
 
 ### <a name="rest-api"></a>REST API
 
-[REST API 가이드](/rest/api/monitor/metricalerts/)를 검토하여 모든 매개 변수를 올바르게 전달하고 있는지 확인합니다.
+[REST API 가이드](/rest/api/monitor/metricalerts/) 를 검토 하 여 모든 매개 변수를 올바르게 전달 하 고 있는지 확인 합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -171,13 +194,13 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ### <a name="general"></a>일반
 
-- `Metric not found` 오류가 발생하는 경우:
+- 오류를 수신 하는 경우 `Metric not found` :
 
-   - 플랫폼 메트릭의 경우: **메트릭 표시 이름이** 아니라 [지원 되는 Azure Monitor 메트릭 페이지](./metrics-supported.md)의 **메트릭** 이름을 사용 하 고 있는지 확인 합니다.
+   - 플랫폼 메트릭의 경우: **메트릭 표시 이름이** 아니라 [지원 되는 Azure Monitor 메트릭 페이지](./metrics-supported.md)의 **메트릭** 이름을 사용 하 고 있는지 확인 하세요.
 
    - 사용자 지정 메트릭의 경우: 메트릭이 이미 내보내지고 있는지 확인 하 고 (아직 존재 하지 않는 사용자 지정 메트릭에는 경고 규칙을 만들 수 없음) 사용자 지정 메트릭의 네임 스페이스를 제공 하 고 있는지 확인 합니다 (ARM [템플릿 예제 참조](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)).
 
-- [로그에 대한 메트릭 경고](./alerts-metric-logs.md)를 만드는 경우 적절한 종속성이 포함되었는지 확인합니다. [샘플 템플릿](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)을 참조하세요.
+- [로그에 대 한 메트릭 경고](./alerts-metric-logs.md)를 만드는 경우 적절 한 종속성이 포함 되어 있는지 확인 합니다. [샘플 템플릿](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)을 참조하세요.
 
 - 여러 조건을 포함 하는 경고 규칙을 만드는 경우 다음 제약 조건을 확인 합니다.
 
@@ -197,7 +220,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="naming-restrictions-for-metric-alert-rules"></a>메트릭 경고 규칙에 대 한 명명 제한
 
-메트릭 경고 규칙 이름에 대 한 다음 제한 사항에 유의 하세요.
+메트릭 경고 규칙 이름에 대 한 다음 제한 사항을 고려 하세요.
 
 - 메트릭 경고 규칙 이름을 만든 후에는 변경 (이름 변경) 할 수 없습니다.
 - 메트릭 경고 규칙 이름은 리소스 그룹 내에서 고유 해야 합니다.
@@ -209,10 +232,10 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 메트릭 경고는 다중 차원 메트릭에 대 한 경고를 지원 하 고 여러 조건을 정의 하는 것을 지원 합니다 (경고 규칙 당 최대 5 개 조건).
 
-여러 조건을 포함 하는 경고 규칙에서 차원을 사용 하는 경우 다음 제약 조건을 유의 하세요.
-1. 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
-2. "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
-3. 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
+여러 조건을 포함 하는 경고 규칙에서 차원을 사용 하는 경우 다음 제약 조건을 고려해 야 합니다.
+- 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
+- "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
+- 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
 예를 들면 다음과 같습니다.
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5

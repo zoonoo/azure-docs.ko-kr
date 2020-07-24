@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: ca17ffdc2a54b25bbfd855834a366ed381a54678
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f42361df438a434548b3bc9394c007ef8d4c6eb0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038973"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 비교  
 
@@ -35,7 +35,7 @@ ms.locfileid: "86530391"
 |인코딩 중에 조건부 논리 적용<br/>(예를 들어, 입력이 HD인 경우 인코드 5.1 오디오)|예|예|
 |선택 자막|아니요|[예](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
 |[돌비 &reg; 전문가의 소음 수정](https://professional.dolby.com/product/broadcast/vm600/)<br/> 대화 인텔리전스 사용&trade;|예|예|
-|디-인터레이스, 역텔레시네|기본|브로드캐스트 품질|
+|디-인터레이스, 역텔레시네|Basic|브로드캐스트 품질|
 |검은색 테두리 감지 및 제거 <br/>(필러박스, 레터박스)|예|예|
 |썸네일 생성|[예](media-services-dotnet-generate-thumbnail-with-mes.md)|[예](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
 |비디오 클리핑/잘라내기 및 붙이기|[예](media-services-advanced-encoding-with-mes.md#trim_video)|예|
@@ -62,7 +62,7 @@ ms.locfileid: "86530391"
 | AVI(압축되지 않은 8비트/10비트) |예 |예 |
 | 3GPP/3GPP2 |예 |아니요 |
 | 부드러운 스트리밍 파일 형식(PIFF 1.3) |예 |아니요 |
-| [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |예 |아니요 |
+| [DVR-MS(Microsoft Digital Video Recording)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) |예 |아니요 |
 | Matroska/WebM |예 |아니요 |
 | QuickTime(.mov) |예 |아니요 |
 

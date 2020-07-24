@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 09eba483a258c1e88b15a5795d32b3b4a029a175
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 68f7ec9aaffa2bad73d77d730749642a1b57f50b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044851"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -25,20 +25,19 @@ ms.locfileid: "86232715"
 
 ## <a name="july-2020"></a>2020년 7월
 
-### <a name="new-features"></a>새로운 기능
-* v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre), [Python](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer), [JAVA](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)및 [JavaScript](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
+### <a name="new-features"></a>새 기능
+* v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [JAVA](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)및 [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
 * 향상 된 **테이블 향상** 기능 및 향상 된 기능으로는 향상 된 기능 및 테이블 추출 향상 된 기능, 특히 레이블 없이 사용자 지정 학습에서 테이블 헤더와 구조를 학습 하는 기능이 있습니다. 
 * **통화 지원** 전역 통화 기호의 검색 및 추출
 * **Azure .gov** 이제 Azure .Gov 에서도 폼 인식기를 사용할 수 있습니다.
-*    **향상 된 보안 기능**: 
-    *    사용자 **고유의 키 가져오기**  양식 인식기는 클라우드로 지속 될 때 데이터를 자동으로 암호화 하 여 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다. 기본적으로 구독은 Microsoft에서 관리 하는 암호화 키를 사용 합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
-)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.  
-    *    **개인 끝점** – 가상 네트워크 (VNet)에서 [개인 링크를 통해 안전](https://docs.microsoft.com/azure/private-link/private-link-overview) 하 게 데이터에 액세스할 수 있습니다.
+* **향상 된 보안 기능**: 
+   * 사용자 **고유의 키 가져오기**  양식 인식기는 클라우드로 지속 될 때 데이터를 자동으로 암호화 하 여 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다. 기본적으로 구독은 Microsoft에서 관리 하는 암호화 키를 사용 합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.  
+   * **개인 끝점** – 가상 네트워크 (VNet)에서 [개인 링크를 통해 안전](https://docs.microsoft.com/azure/private-link/private-link-overview) 하 게 데이터에 액세스할 수 있습니다.
 
 
 ## <a name="june-2020"></a>2020년 6월
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 * **클라이언트 sdk에 추가 된 Copymodel API** 이제 클라이언트 Sdk를 사용 하 여 한 구독에서 다른 구독으로 모델을 복사할 수 있습니다. 이 기능에 대 한 일반 정보는 [모델 백업 및 복구](./disaster-recovery.md) 를 참조 하세요.
 * **Azure Active Directory 통합** 이제 AAD 자격 증명을 사용 하 여 Sdk에서 양식 인식기 클라이언트 개체를 인증할 수 있습니다.
 * **SDK 관련 변경 내용** 여기에는 보조 기능 추가 및 주요 변경 내용이 모두 포함 됩니다. 자세한 내용은 SDK changelogs를 참조 하십시오.
@@ -49,12 +48,12 @@ ms.locfileid: "86232715"
 
 ## <a name="april-2020"></a>2020년 4월
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 * **양식 인식기 API v 2.0 공개 미리 보기에 대 한 SDK 지원** 이번 달에는 폼 인식기 v2.0 (미리 보기) 릴리스에 대 한 미리 보기 SDK를 포함 하도록 서비스 지원을 확장 했습니다. 아래 링크를 사용 하 여 원하는 언어로 시작 하세요. 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
-   * [Python SDK](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer)
-   * [JavaScript SDK](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
 
   새 SDK는 폼 인식기에 대 한 v2.0 REST API의 모든 기능을 지원 합니다. 예를 들어 레이블을 사용 하거나 사용 하지 않고 모델을 학습 하 고, 폼에서 텍스트, 키 값 쌍 및 테이블을 추출 하 고, 미리 작성 된 수신 서비스를 사용 하 여 수신 확인에서 데이터를 추출 하 고, 문서의 레이아웃 서비스를 사용 하 여 텍스트와 테이블을 추출할 수 있습니다. [Sdk 피드백 양식](https://aka.ms/FR_SDK_v1_feedback)을 통해 sdk에서 사용자 의견을 공유할 수 있습니다.
  
@@ -69,7 +68,7 @@ ms.locfileid: "86232715"
 
 ## <a name="march-2020"></a>2020년 3월 
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **레이블 지정을 위한 값 형식** 이제 폼 인식기 샘플 레이블 지정 도구를 사용 하 여 레이블을 지정 하는 값의 형식을 지정할 수 있습니다. 현재 지원되는 값 형식 및 변형은 다음과 같습니다.
   * `string`
@@ -114,7 +113,7 @@ ms.locfileid: "86232715"
 
 이 릴리스에는 폼 인식기 2.0 (미리 보기)가 도입 되었습니다. 아래 섹션에는 새로운 기능, 향상 된 기능 및 변경 내용에 대 한 자세한 내용이 나와 있습니다. 
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **사용자 지정 모델**
   * **레이블로 학습** 이제 수동으로 레이블이 지정 된 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다. 이 방법은 모델 성능이 향상되며, 복잡한 양식 또는 키 없는 값을 포함하는 양식과 함께 작동하는 모델을 생성할 수 있습니다.

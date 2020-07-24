@@ -1,5 +1,5 @@
 ---
-title: ETL 대신 Synapse SQL 풀에 대해 ELT 디자인 | Microsoft Docs
+title: SQL 풀의 PolyBase 데이터 로드 전략 디자인
 description: ETL 대신 데이터 또는 SQL 풀을 로드 하기 위한 추출, 로드 및 변환 (ELT) 프로세스를 설계 합니다.
 services: synapse-analytics
 author: kevinvngo
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046780"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
 
-기존의 SMPT 데이터 웨어하우스는 데이터를 로드할 때 ETL(추출, 변환 및 로드) 프로세스를 사용합니다. Azure SQL 풀은 계산 및 저장소 리소스의 확장성과 유연성을 활용 하는 MPP (대규모 parallel processing) 아키텍처입니다. 이 아키텍처에서는 ELT(추출, 로드 및 변환) 프로세스를 통해 MPP를 활용할 수 있으며, 데이터를 로드하기 전에 리소스를 사용하여 변환할 필요가 없습니다.
+기존 SMP 데이터 웨어하우스는 데이터를 로드 하기 위한 ETL (추출, 변환 및 로드) 프로세스를 사용 합니다. Azure SQL 풀은 계산 및 저장소 리소스의 확장성과 유연성을 활용 하는 MPP (대규모 parallel processing) 아키텍처입니다. ELT (추출, 로드 및 변환) 프로세스를 사용 하면 MPP를 활용 하 여 로드 전에 데이터를 변환 하는 데 필요한 리소스를 제거할 수 있습니다.
 
 SQL 풀은 BCP 및 SQL 대량 복사 API와 같은 비 Polybase 옵션을 비롯 한 여러 로드 메서드를 지원 하지만, 가장 빠르고 확장성이 뛰어난 데이터 로드 방법은 PolyBase를 통한 것입니다.  PolyBase는 T-SQL 언어를 통해 Azure Blob Storage 또는 Azure Data Lake Store에 저장된 외부 데이터에 액세스하는 기술입니다.
 
@@ -27,7 +27,7 @@ SQL 풀은 BCP 및 SQL 대량 복사 API와 같은 비 Polybase 옵션을 비롯
 
 ## <a name="what-is-elt"></a>ELT란 무엇인가요?
 
-ELT(추출, 로드 및 변환)는 데이터를 원본 시스템에서 추출하여 데이터 웨어하우스로 로드한 다음 변환하는 프로세스입니다.
+ELT (추출, 로드 및 변환)는 데이터를 원본 시스템에서 추출 하 여 데이터 웨어하우스로 로드 한 다음 변환 하는 프로세스입니다.
 
 SQL 풀 용 PolyBase ELT를 구현 하는 기본 단계는 다음과 같습니다.
 
@@ -63,10 +63,10 @@ SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp
 |         float         |                             real                             |
 |        double         |                            money                             |
 |        double         |                          smallmoney                          |
-|        string         |                            nchar                             |
-|        string         |                           nvarchar                           |
-|        string         |                             char                             |
-|        string         |                           varchar                            |
+|        문자열         |                            nchar                             |
+|        문자열         |                           nvarchar                           |
+|        문자열         |                             char                             |
+|        문자열         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
 |       timestamp       |                             date                             |
@@ -95,7 +95,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 데이터를 로드하려면 먼저 데이터 웨어하우스에서 외부 테이블을 정의해야 합니다. PolyBase는 외부 테이블을 사용하여 Azure Storage의 데이터를 정의하고 액세스합니다. 데이터베이스 뷰와 비슷한 외부 테이블은 테이블 스키마를 포함하며 데이터 웨어하우스 외부에 저장된 데이터를 가리킵니다.
 
-외부 테이블 정의에는 데이터 원본, 텍스트 파일 형식 및 테이블 정의를 지정하는 것이 포함됩니다. 다음은 필요한 T-SQL 구문 항목입니다.
+외부 테이블 정의에는 데이터 원본, 텍스트 파일 형식 및 테이블 정의를 지정하는 것이 포함됩니다. 다음은 필요한 T-sql 구문 항목입니다.
 
 - [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
