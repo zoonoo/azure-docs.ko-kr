@@ -3,12 +3,12 @@ title: 모든 환경에서 실행 중인 Java 응용 프로그램 모니터링-A
 description: 앱을 계측 하지 않고 Java 독립 실행형 에이전트가 있는 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6499fbc62a78cb333c623dbea8269144e623921c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82508040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014244"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Azure Monitor Application Insights에 대 한 JVM args Java 독립 실행형 에이전트 구성
 
@@ -16,7 +16,7 @@ ms.locfileid: "82508040"
 
 ## <a name="azure-environments"></a>Azure 환경
 
-[App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options)를 구성 합니다.
+[App Services](../../app-service/configure-language-java.md#set-java-runtime-options)를 구성 합니다.
 
 ## <a name="spring-boot"></a>Spring Boot
 

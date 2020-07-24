@@ -3,12 +3,12 @@ title: Application Insights SDK에서 필터링 및 전처리 | Microsoft Docs
 description: SDK에 대 한 원격 분석 프로세서 및 원격 분석 이니셜라이저를 작성 하 여 원격 분석을 Application Insights 포털로 보내기 전에 데이터에 속성을 필터링 하거나 추가 합니다.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014629"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -498,7 +498,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>HttpContext에서 정보 추가
 
-다음 샘플 이니셜라이저는에서 데이터를 읽고 [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) 이를 인스턴스에 추가 합니다 `RequestTelemetry` . 는 `IHttpContextAccessor` 생성자 종속성 주입을 통해 자동으로 제공 됩니다.
+다음 샘플 이니셜라이저는에서 데이터를 읽고 [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) 이를 인스턴스에 추가 합니다 `RequestTelemetry` . 는 `IHttpContextAccessor` 생성자 종속성 주입을 통해 자동으로 제공 됩니다.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -543,7 +543,7 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 ## <a name="reference-docs"></a>참조 문서
 
 * [API 개요](../../azure-monitor/app/api-custom-events-metrics.md)
-* [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
+* [ASP.NET 참조](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>SDK 코드
 
@@ -554,4 +554,4 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 * [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md)
 * [샘플링](../../azure-monitor/app/sampling.md)
-* [문제 해결](../../azure-monitor/app/troubleshoot-faq.md)
+* [문제 해결](../faq.md)

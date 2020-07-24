@@ -3,12 +3,12 @@ title: 어디서 나 Java 응용 프로그램 모니터링 Azure Monitor Applica
 description: 앱을 계측 하지 않고 모든 환경에서 실행 중인 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링을 코드 없는. 분산 추적 및 응용 프로그램 맵을 사용 하 여 문제 d의 근본 원인을 찾습니다.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a01f2e9339f3ba4f8f50fc41617fabf9da9d8cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319689"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014204"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>구성 옵션-Azure Monitor Application Insights 용 Java 독립 실행형 에이전트
 
@@ -172,7 +172,7 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 }
 ```
 
-## <a name="heartbeat"></a>Heartbeat
+## <a name="heartbeat"></a>하트비트
 
 기본적으로 Application Insights Java 3.0 미리 보기는 30 분 마다 한 번씩 하트 비트 메트릭을 보냅니다. 하트 비트 메트릭을 사용 하 여 경고를 트리거하는 경우이 하트 비트의 빈도를 늘릴 수 있습니다.
 
@@ -216,7 +216,7 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 
 ## <a name="http-proxy"></a>HTTP 프록시
 
-응용 프로그램이 방화벽 뒤에 있고 Application Insights에 직접 연결할 수 없는 경우 ( [Application Insights에서 사용 하는 IP 주소](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)참조), HTTP 프록시를 사용 하도록 Application Insights Java 3.0 미리 보기를 구성할 수 있습니다.
+응용 프로그램이 방화벽 뒤에 있고 Application Insights에 직접 연결할 수 없는 경우 ( [Application Insights에서 사용 하는 IP 주소](./ip-addresses.md)참조), HTTP 프록시를 사용 하도록 Application Insights Java 3.0 미리 보기를 구성할 수 있습니다.
 
 ```json
 {

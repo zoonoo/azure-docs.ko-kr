@@ -10,18 +10,18 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015224"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
 이 문서에서는 azure API Management의 자체 호스팅 게이트웨이 구성 요소를 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포 하는 단계를 제공 합니다. Kubernetes 클러스터에 자체 호스팅 게이트웨이를 배포 하려면이[문서](how-to-deploy-self-hosted-gateway-kubernetes.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - [Azure Kubernetes 클러스터 만들기](../aks/kubernetes-walkthrough-portal.md)
@@ -29,7 +29,7 @@ ms.locfileid: "86254387"
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>AKS에 자체 호스팅 게이트웨이 배포
 
-1. **설정**아래에서 **게이트웨이** 를 선택 합니다.
+1. **배포 및 인프라**에서 **게이트웨이** 를 선택 합니다.
 2. 배포 하려는 자체 호스팅 게이트웨이 리소스를 선택 합니다.
 3. **배포**를 선택 합니다.
 4. **토큰** 텍스트 상자의 새 토큰은 기본 **만료** 및 **비밀 키** 값을 사용 하 여 자동으로 자동 생성 되었습니다. 원하는 경우 둘 중 하나 또는 둘 다를 조정 하 고 **생성** 을 선택 하 여 새 토큰을 만듭니다.

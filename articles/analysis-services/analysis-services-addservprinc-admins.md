@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077561"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015411"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
@@ -44,7 +44,7 @@ SSMS(SQL Server Management Studio)를 사용하여 서버 관리자를 구성할
 
 ## <a name="using-a-resource-manager-template"></a>Resource Manager 템플릿 사용
 
-Azure Resource Manager 템플릿을 사용하여 Analysis Services 서버를 배포하여 서버 관리자를 구성할 수도 있습니다. 배포를 실행하는 ID는 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 리소스에 대한 **기여자** 역할에 속해야 합니다.
+Azure Resource Manager 템플릿을 사용하여 Analysis Services 서버를 배포하여 서버 관리자를 구성할 수도 있습니다. 배포를 실행 하는 id는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)에서 리소스에 대 한 **참가자** 역할에 속해야 합니다.
 
 > [!IMPORTANT]
 > `app:{service-principal-client-id}@{azure-ad-tenant-id}` 형식을 사용하여 서비스 사용자를 추가해야 합니다.
@@ -119,5 +119,3 @@ az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o ts
 
 * [SQL Server PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [SSMS 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-

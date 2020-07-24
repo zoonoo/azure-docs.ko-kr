@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014493"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
@@ -17,7 +18,7 @@ ms.locfileid: "81537511"
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * 작동 하는 Java 응용 프로그램입니다.
@@ -171,7 +172,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ![특정 샘플 뷰로 드릴](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>분석: 강력한 쿼리 언어
-더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](../../azure-monitor/app/analytics.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
+더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](../log-query/log-query-overview.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
 
 ![분석 예제](./media/java-get-started/0025.png)
 
@@ -263,7 +264,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
   * `tabular`: 성능 카운터 데이터는 표 행 형식입니다.
 
 #### <a name="windows-performance-counters"></a>Windows 성능 카운터
-각 [Windows 성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) 는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
+각 [Windows 성능 카운터](/windows/win32/perfctrs/performance-counters-portal) 는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
 
 ```XML
     <PerformanceCounters>
@@ -299,7 +300,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계
@@ -307,7 +308,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 * [Unix 성능 카운터 모니터링](java-collectd.md)
 * [웹 페이지에 모니터링](javascript.md)을 추가하여 페이지 로드 시간, AJAX 호출, 브라우저 예외를 모니터링합니다.
 * [사용자 지정 원격 분석](../../azure-monitor/app/api-custom-events-metrics.md)을 작성하여 브라우저 또는 서버에서 사용량을 추적합니다.
-* 앱의 원격 분석을 통해 강력한 쿼리를 수행하려면 [분석](../../azure-monitor/app/analytics.md)을 사용합니다.
+* 앱의 원격 분석을 통해 강력한 쿼리를 수행하려면 [분석](../log-query/log-query-overview.md)을 사용합니다.
 * 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 방문하세요.
 
 <!--Link references-->

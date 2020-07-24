@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 94724ea44b52ae885594fe55b67d74a03e339dab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012935"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -34,7 +34,7 @@ ms.locfileid: "86259440"
 1. 클라이언트가 Azure Resource Manager와 모든 Azure Machine Learning에 토큰을 제공합니다.
 1. Machine Learning Service가 사용자 컴퓨팅 대상(예: Machine Learning 컴퓨팅)에 Machine Learning Service 토큰을 제공합니다. 이 토큰은 실행이 완료된 후 사용자 컴퓨팅 대상이 Machine Learning Service로 콜백되는 데 사용됩니다. 범위는 작업 영역으로 제한됩니다.
 
-[![Azure Machine Learning 인증](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
+[![Azure Machine Learning 인증](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
 자세한 내용은 [Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](how-to-setup-authentication.md)을 참조하세요. 이 문서는 서비스 주체 및 자동화된 워크플로 사용을 비롯한 인증에 대한 정보와 예제를 제공합니다.
 
@@ -128,6 +128,8 @@ Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리�
 * 키 자격 증명 모음을 사용 하 여 저장소 계정, 컨테이너 레지스트리 및 SSH 계정에 대 한 자격 증명을 실행 계층에서 계산 클러스터로 안전 하 게 전달 합니다.
 * IP 필터링이 가능하도록 설정하여 AzureMachineLearningService 이외의 외부 서비스에서 기본 배치 풀을 호출할 수 없도록 합니다.
 
+> [!WARNING]
+> `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
 
 Azure에서 저장 데이터 암호화가 작동하는 방식에 대한 자세한 내용은 [Azure 저장 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)를 참조하세요.
 
@@ -317,7 +319,7 @@ Azure Monitor 메트릭을 사용하여 Azure Machine Learning 작업 영역에 
 
 사용자는 필요에 따라 작업 영역(예: Azure Kubernetes Service 또는 VM)에 연결된 다른 컴퓨팅 대상을 프로비저닝할 수도 있습니다.
 
-[![작업 영역 생성 워크플로](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace-expanded.png#lightbox)
+[![작업 영역 생성 워크플로](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace.png#lightbox)
 
 ### <a name="save-source-code-training-scripts"></a>소스 코드 저장(학습 스크립트)
 
@@ -325,7 +327,7 @@ Azure Monitor 메트릭을 사용하여 Azure Machine Learning 작업 영역에 
 
 Azure Machine Learning과 연결된 작업 영역은 소스 코드(학습 스크립트)를 포함하는 디렉터리(실험)입니다. 스크립트는 로컬 머신과 클라우드(구독의 Azure Blob Storage)에 저장됩니다. 코드 스냅샷은 기록 감사를 위한 실행 또는 검사에 사용됩니다.
 
-[![코드 스냅샷 워크플로](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
+[![코드 스냅샷 워크플로](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot.png#lightbox)
 
 ### <a name="training"></a>학습
 
@@ -352,7 +354,7 @@ Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서
 
 이 단계는 아래 흐름 다이어그램에서 학습 컴퓨팅 대상이 실행 메트릭을 Cosmos DB 데이터베이스의 스토리지에서 Azure Machine Learning에 다시 쓸 때 발생합니다. 클라이언트는 Azure Machine Learning을 호출할 수 있습니다. Machine Learning은 Cosmos DB 데이터베이스에서 메트릭을 차례로 끌어와서 클라이언트에 다시 반환합니다.
 
-[![학습 워크플로](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics-expanded.png#lightbox)
+[![학습 워크플로](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics.png#lightbox)
 
 ### <a name="creating-web-services"></a>웹 서비스 만들기
 
@@ -367,7 +369,7 @@ Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서
 * 채점 요청 정보가 사용자의 구독에 있는 Application Insights에 저장됩니다.
 * 원격 분석도 Microsoft/Azure 구독으로 푸시됩니다.
 
-[![유추 워크플로](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
+[![유추 워크플로](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

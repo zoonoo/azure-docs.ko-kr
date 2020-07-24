@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/18/2020
-ms.openlocfilehash: ae3179f388fa6aa2cc8f98899f525a3b3e7251ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc1aef1f25be8d65dbd4f34bfc728335dc7a90f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079165"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014459"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -18,8 +19,7 @@ ms.locfileid: "85079165"
 > 이러한 주소는 고정이지만 경우에 따라 변경해야 할 수 있습니다. 모든 Application Insights 트래픽은 인바운드 방화벽 규칙을 필요로 하는 가용성 모니터링 및 웹후크를 제외하고 아웃바운드 트래픽을 나타냅니다.
 
 > [!TIP]
-> Azure 네트워크 보안 그룹을 사용하는 경우 Azure [네트워크 서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
-)를 사용하여 액세스를 관리할 수 있습니다. 하이브리드/온-프레미스 리소스에 대한 액세스를 관리하는 경우 매주 업데이트되는 [JSON 파일](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)과 동일한 IP 주소 목록을 다운로드할 수 있습니다. 이 문서의 모든 예외를 처리하려면 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor' 서비스 태그를 사용해야 합니다.
+> Azure 네트워크 보안 그룹을 사용하는 경우 Azure [네트워크 서비스 태그](../../virtual-network/service-tags-overview.md)를 사용하여 액세스를 관리할 수 있습니다. 하이브리드/온-프레미스 리소스에 대한 액세스를 관리하는 경우 매주 업데이트되는 [JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)과 동일한 IP 주소 목록을 다운로드할 수 있습니다. 이 문서의 모든 예외를 처리하려면 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor' 서비스 태그를 사용해야 합니다.
 
 또는 즐겨 찾는 RSS/ATOM 판독기에 https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom 을 추가하여 최신 변경의 알림을 받을 수 있게 이 페이지를 RSS 피드로 구독할 수 있습니다.
 
@@ -32,15 +32,11 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 | 원격 분석 |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64  | 443 |
 | 라이브 메트릭 스트림(미국 동부) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
 | 라이브 메트릭 스트림(미국 중남부) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
-| 라이브 메트릭 스트림(북유럽) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
-| 라이브 메트릭 스트림(서유럽) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| 라이브 메트릭 스트림(동아시아) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| 라이브 메트릭 스트림(동남 아시아) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>상태 모니터
 상태 모니터 구성 - 변경하는 경우에만 필요합니다.
 
-| 용도 | URL | IP | 포트 |
+| 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
 | 구성 |`management.core.windows.net` | |`443` |
 | 구성 |`management.azure.com` | |`443` |
@@ -195,7 +191,7 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="application-insights-analytics"></a>Application Insights 분석
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | 분석 포털 | analytics.applicationinsights.io | 동적 | 80,443 |
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
@@ -205,7 +201,7 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="log-analytics-portal"></a>Log Analytics 포털
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | 포털 | portal.loganalytics.io | 동적 | 80,443 |
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
@@ -214,17 +210,16 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure Portal 확장
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | Application Insights 확장 | stamp2.app.insightsportal.visualstudio.com | 동적 | 80,443 |
 | Application Insights 확장 CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | 동적 | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Application Insights SDK
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | 동적 | 80,443 |
-| Application Insights Java SDK | aijavasdk.blob.core.windows.net | 동적 | 80,443 |
 
 ## <a name="action-group-webhooks"></a>작업 그룹 웹후크
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185622"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015020"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -173,7 +173,7 @@ Heartbeat
 
 2. Hybrid Runbook Worker 버전을 확인 하려면로 이동 하 여 `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` **버전** 하위 폴더를 확인 합니다.
 
-### <a name="step-3---install-the-runbook-environment-and-connect-to-azure-automation"></a>3 단계-runbook 환경 설치 및 Azure Automation에 연결
+### <a name="step-2---install-the-runbook-environment-and-connect-to-azure-automation"></a>2 단계-runbook 환경 설치 및 Azure Automation에 연결
 
 Log Analytics 작업 영역에 보고하도록 에이전트를 구성하면 Azure Automation 기능은 `Add-HybridRunbookWorker` cmdlet이 포함된 `HybridRegistration` PowerShell 모듈을 푸시다운합니다. 이 cmdlet을 사용 하 여 컴퓨터에 runbook 환경을 설치 하 고 Azure Automation에 등록 합니다.
 
@@ -202,7 +202,7 @@ Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 
 * 필요한 경우 설치에 대한 세부 정보를 수신하려면 `Verbose` 매개 변수를 설정합니다.
 
-### <a name="step-4----install-powershell-modules"></a>4 단계-PowerShell 모듈 설치
+### <a name="step-3----install-powershell-modules"></a>3 단계-PowerShell 모듈 설치
 
 Runbook은 Azure Automation 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포 되지 않으므로 수동으로 설치 해야 합니다. Azure 모듈은 예외입니다. 이 모듈은 기본적으로 설치되며 Azure Automation의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공합니다.
 

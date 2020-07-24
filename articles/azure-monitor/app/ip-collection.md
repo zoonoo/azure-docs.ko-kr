@@ -3,11 +3,12 @@ title: Azure 애플리케이션 Insights IP 주소 컬렉션 | Microsoft Docs
 description: Azure 애플리케이션 정보를 사용 하 여 IP 주소 및 지리적 위치를 처리 하는 방법 이해
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1576207eb267166a33b84009407ec119de471e6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014442"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -26,7 +27,7 @@ IP 주소는 원격 분석 데이터의 일부로 Application Insights 전송 �
 
 ## <a name="overriding-default-behavior"></a>기본 동작 재정의
 
-기본 동작은 개인 데이터의 수집을 최소화 하는 것 이지만 여전히 IP 주소 데이터를 수집 하 고 저장할 수 있는 유연성을 제공 합니다. IP 주소와 같은 개인 데이터를 저장 하도록 선택 하기 전에 적용 되는 규정 준수 요구 사항 또는 규정을 위반 하지 않는지 확인 하는 것이 좋습니다. Application Insights에서 개인 데이터를 처리 하는 방법에 대 한 자세한 내용은 [개인 데이터에 대 한 지침](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt)을 참조 하세요.
+기본 동작은 개인 데이터의 수집을 최소화 하는 것 이지만 여전히 IP 주소 데이터를 수집 하 고 저장할 수 있는 유연성을 제공 합니다. IP 주소와 같은 개인 데이터를 저장 하도록 선택 하기 전에 적용 되는 규정 준수 요구 사항 또는 규정을 위반 하지 않는지 확인 하는 것이 좋습니다. Application Insights에서 개인 데이터를 처리 하는 방법에 대 한 자세한 내용은 [개인 데이터에 대 한 지침](../platform/personal-data-mgmt.md)을 참조 하세요.
 
 ## <a name="storing-ip-address-data"></a>IP 주소 데이터 저장
 
@@ -98,7 +99,7 @@ IP 컬렉션과 저장소를 사용 하도록 설정 하려면 `DisableIpMasking
 
 ### <a name="rest-api"></a>Rest API
 
-동일한 수정 작업을 수행 하는 [REST API](https://docs.microsoft.com/rest/api/azure/) 페이로드는 다음과 같습니다.
+동일한 수정 작업을 수행 하는 [REST API](/rest/api/azure/) 페이로드는 다음과 같습니다.
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -119,7 +120,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>원격 분석 이니셜라이저
 
-전체 또는 일부 IP 주소를 기록 하는 것 보다 더 유연한 대안이 필요한 경우 `DisableIpMasking` [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) 를 사용 하 여 ip 전체 또는 일부를 사용자 지정 필드에 복사할 수 있습니다. 
+전체 또는 일부 IP 주소를 기록 하는 것 보다 더 유연한 대안이 필요한 경우 `DisableIpMasking` [원격 분석 이니셜라이저](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) 를 사용 하 여 ip 전체 또는 일부를 사용자 지정 필드에 복사할 수 있습니다. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -232,6 +233,6 @@ requests
 
 ## <a name="next-steps"></a>다음 단계
 
-* Application Insights의 [개인 데이터 수집](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) 에 대해 자세히 알아보세요.
+* Application Insights의 [개인 데이터 수집](../platform/personal-data-mgmt.md) 에 대해 자세히 알아보세요.
 
 * Application Insights에서 [IP 주소 수집이](https://apmtips.com/posts/2016-07-05-client-ip-address/) 작동 하는 방식에 대해 자세히 알아보세요. (이는 엔지니어 중 한 명에 의해 작성 된 이전 외부 블로그 게시물입니다. IP 주소는으로 기록 되는 현재 기본 동작을 이전의 `0.0.0.0` 기본 제공의 메커니즘에는 더 높은 수준으로 이동 `ClientIpHeaderTelemetryInitializer` 합니다.

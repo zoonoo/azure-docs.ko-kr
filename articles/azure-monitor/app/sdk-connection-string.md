@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014141"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -31,12 +31,12 @@ ms.locfileid: "85482125"
 
 - 방화벽 예외 또는 프록시 리디렉션 
 
-    인트라넷 웹 서버에 대 한 모니터링이 필요한 경우에는 이전 솔루션에서 고객이 구성에 개별 서비스 끝점을 추가 하도록 요청 했습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server)를 참조하세요. 
+    인트라넷 웹 서버에 대 한 모니터링이 필요한 경우에는 이전 솔루션에서 고객이 구성에 개별 서비스 끝점을 추가 하도록 요청 했습니다. 자세한 내용은 [여기](../faq.md#can-i-monitor-an-intranet-web-server)를 참조하세요. 
     연결 문자열은이 작업을 단일 설정으로 줄여 더 나은 대안을 제공 합니다. 간단한 접두사 접미사 수정은 모든 끝점을 올바른 서비스로 자동 채우기 및 리디렉션할 수 있습니다. 
 
 - 소 버린 또는 하이브리드 클라우드 환경
 
-    사용자는 정의 된 [Azure Government 영역](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)으로 데이터를 보낼 수 있습니다.
+    사용자는 정의 된 [Azure Government 영역](../../azure-government/compare-azure-government-global-azure.md#application-insights)으로 데이터를 보낼 수 있습니다.
     연결 문자열을 사용 하 여 인트라넷 서버 또는 하이브리드 클라우드 설정에 대 한 끝점 설정을 정의할 수 있습니다. 
 
 ## <a name="getting-started"></a>시작
@@ -57,7 +57,7 @@ ms.locfileid: "85482125"
 
 연결 문자열은 세미콜론으로 구분 된 키-값 쌍으로 표시 되는 설정 목록으로 구성 됩니다.`key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>Syntax
+#### <a name="syntax"></a>구문
 
 - `InstrumentationKey`(예: 00000000-0000-0000-0000-000000000000)  연결 문자열은 **필수** 필드입니다.
 - `Authorization`(예: ikey) 이 설정은 현재 ikey 권한 부여만 지원 하기 때문에 선택 사항입니다.

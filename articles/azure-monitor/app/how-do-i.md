@@ -3,12 +3,12 @@ title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: bda0091fe06c93150d5b3cae27f278f3fd9a91ea
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 63a958e1d3fb784651043181bff0428666fad6db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014596"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -74,7 +74,7 @@ telemetry.TrackMetric("Alarm", 0.5);
 [PowerShell을 사용하여 새 경고 만들기](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>PowerShell을 사용하여 Application Insights 관리
-* [새 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [새 리소스 만들기](./create-new-resource.md#creating-a-resource-automatically)
 * [새 경고 만들기](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석

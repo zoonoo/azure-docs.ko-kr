@@ -3,13 +3,14 @@ title: Durable Functions의 HTTP 기능-Azure Functions
 description: Azure Functions Durable Functions 확장의 통합 HTTP 기능에 대해 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16a133205b13a3d0a4aa76f75c8ce316f6c09199
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800722"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014901"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -53,6 +54,57 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 **function.json**
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+**__init__py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    function_name = req.route_params['functionName']
+    event_data = req.get_body()
+
+    instance_id = await client.start_new(function_name, instance_id, event_data)
+    
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+    return client.create_check_status_response(req, instance_id)
+```
+
+**function.json**
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    }
+  ]
+}
+```
 
 ---
 
@@ -147,6 +199,22 @@ module.exports = df.orchestrator(function*(context){
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    response = yield context.call_http('GET', url)
+    
+    if response["statusCode"] >= 400:
+        # handling of error codes goes here
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 
 ---
 
@@ -169,7 +237,7 @@ Orchestrator 함수에서 직접 HTTP Api를 사용 하는 기능은 특정 한 
 
 Durable Functions은 권한 부여를 위해 Azure Active Directory (Azure AD) 토큰을 허용 하는 Api에 대 한 호출을 기본적으로 지원 합니다. 이 지원에서는 [Azure 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 이러한 토큰을 가져옵니다.
 
-다음 코드는 .NET orchestrator 함수의 예제입니다. 이 함수는 [REST API Azure Resource Manager 가상](https://docs.microsoft.com/rest/api/compute/virtualmachines)컴퓨터를 사용 하 여 가상 컴퓨터를 다시 시작 하도록 인증 된 호출을 수행 합니다.
+다음 코드는 .NET orchestrator 함수의 예제입니다. 이 함수는 [REST API Azure Resource Manager 가상](/rest/api/compute/virtualmachines)컴퓨터를 사용 하 여 가상 컴퓨터를 다시 시작 하도록 인증 된 호출을 수행 합니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -221,6 +289,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    subscription_id = "mySubId"
+    resource_group = "myRg"
+    vm_name = "myVM"
+    api_version = "2019-03-01"
+    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net")
+
+    # get a list of the Azure subscriptions that I have access to
+    restart_response = yield context.call_http("POST", 
+        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        None,
+        None,
+        token_source)
+    return restart_response
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대 한 Azure AD 토큰을 얻도록 구성 됩니다. 토큰은 리소스 URI로 식별 됩니다 `https://management.core.windows.net` . 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에는 지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한이 있다고 가정 합니다 `myRG` .
@@ -255,7 +347,7 @@ HTTP Api 호출에 대 한 기본 제공 지원은 편리한 기능입니다. �
 
 ### <a name="extensibility-net-only"></a>확장성 (.NET만 해당)
 
-[Azure Functions .net 종속성 주입](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection)을 사용 하 여 오케스트레이션의 내부 HTTP 클라이언트 동작을 사용자 지정할 수 있습니다. 이 기능은 작은 동작 변경을 수행 하는 데 유용할 수 있습니다. 모의 개체를 삽입 하 여 HTTP 클라이언트를 단위 테스트 하는 데에도 유용할 수 있습니다.
+[Azure Functions .net 종속성 주입](../functions-dotnet-dependency-injection.md)을 사용 하 여 오케스트레이션의 내부 HTTP 클라이언트 동작을 사용자 지정할 수 있습니다. 이 기능은 작은 동작 변경을 수행 하는 데 유용할 수 있습니다. 모의 개체를 삽입 하 여 HTTP 클라이언트를 단위 테스트 하는 데에도 유용할 수 있습니다.
 
 다음 예에서는 종속성 주입을 사용 하 여 외부 HTTP 끝점을 호출 하는 오 케 스트레이 터 함수에 대 한 TLS/SSL 인증서 유효성 검사를 사용 하지 않도록
 

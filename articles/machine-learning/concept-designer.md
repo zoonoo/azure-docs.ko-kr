@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012946"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)란 무엇인가요? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -115,25 +115,6 @@ Azure Machine Learning 디자이너를 통해 대화형 캔버스에서 [데이�
 게시된 파이프라인은 각 모듈의 파이프라인 초안에서 정의한 컴퓨팅 리소스에서 실행됩니다.
 
 디자이너는 SDK와 동일한 [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) 개체를 만듭니다.
-
-
-## <a name="moving-from-the-visual-interface-to-the-designer"></a>시각적 인터페이스에서 디자이너로 이동
-
-시각적 인터페이스(미리 보기)가 업데이트되었으며 이제 Azure Machine Learning 디자이너(미리 보기)입니다. 디자이너는 Azure Machine Learning의 다른 기능과 완벽하게 통합되는 파이프라인 기반 백 엔드를 사용하도록 다시 설계되었습니다. 
-
-해당 업데이트의 결과로 시각적 인터페이스의 일부 개념과 용어는 변경되거나 이름이 변경되었습니다. 가장 중요한 개념 변경 내용은 아래 표를 참조하세요. 
-
-| 디자이너의 개념 | 시각적 인터페이스의 이전 개념 |
-| ---- |:----:|
-| 파이프라인 초안 | 실험 |
-| 실시간 엔드포인트 | 웹 서비스 |
-
-### <a name="migrating-to-the-designer"></a>디자이너로 마이그레이션
-
-디자이너에서 기존 시각적 인터페이스 실험과 웹 서비스를 파이프라인과 실시간 엔드포인트로 변환할 수 있습니다. 다음 단계를 사용하여 시각적 인터페이스 자산을 마이그레이션합니다.
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
 
 ## <a name="next-steps"></a>다음 단계
 

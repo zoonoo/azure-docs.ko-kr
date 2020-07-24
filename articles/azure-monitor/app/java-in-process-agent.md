@@ -3,12 +3,12 @@ title: 모든 환경에서 Java 응용 프로그램 모니터링-Azure Monitor A
 description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319706"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014340"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기
 
@@ -32,11 +32,11 @@ Java 코드리스 애플리케이션 모니터링은 단순성에 관한 것입�
 
 일반적인 JVM 인수에는 및가 포함 됩니다 `-Xmx512m` `-XX:+UseG1GC` . 따라서이를 추가할 위치를 알고 있으면이를 추가할 위치를 이미 알고 있는 것입니다.
 
-응용 프로그램의 JVM 인수를 구성 하는 방법에 대 한 추가 도움말은 [3.0 미리 보기: JVM 인수 업데이트에 대 한 팁](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments)을 참조 하세요.
+응용 프로그램의 JVM 인수를 구성 하는 방법에 대 한 추가 도움말은 [3.0 미리 보기: JVM 인수 업데이트에 대 한 팁](./java-standalone-arguments.md)을 참조 하세요.
 
 **3. 에이전트가 Application Insights 리소스를 가리키도록 합니다.**
 
-Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가이드](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)의 단계에 따라 새 리소스를 만들 수 있습니다.
+Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가이드](./create-new-resource.md)의 단계에 따라 새 리소스를 만들 수 있습니다.
 
 환경 변수를 설정 하 여 에이전트가 Application Insights 리소스를 가리키도록 합니다.
 
@@ -75,12 +75,12 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 * 응용 프로그램 로그 캡처
 * JMX 메트릭
 * 마이크로미터
-* Heartbeat
+* 하트비트
 * 샘플링
 * HTTP 프록시
 * 자체 진단
 
-[3.0 공개 미리 보기: 구성 옵션](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config)에서 세부 정보를 참조 하세요.
+[3.0 공개 미리 보기: 구성 옵션](./java-standalone-config.md)에서 세부 정보를 참조 하세요.
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Autocollected 된 요청, 종속성, 로그 및 메트릭
 

@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩에 아티팩트 리포지토리 추가 Micro
 description: Azure DevTest labs에서 랩에 아티팩트 리포지토리를 추가 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d823f437cddef0a33c7d7ea3b4c4fbdaad90fb8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013462"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs에서 랩에 아티팩트 리포지토리 추가
 DevTest Labs를 사용 하면 vm을 만들 때 또는 VM이 만들어진 후 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트는 VM에 설치 하려는 도구 또는 응용 프로그램 일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드 된 JSON 파일에 정의 됩니다.
@@ -19,7 +19,7 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 **GitHub** 또는 **Azure devops**에서 호스트 되는 리포지토리에 필요한 정보를 가져오는 방법을 설명 합니다.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
@@ -64,7 +64,7 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 
     ![리포지토리 추가 버튼](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. **리포지토리** 페이지에서 다음 정보를 지정 합니다.
-   1. **이름** - 리포지토리의 이름을 입력합니다.
+   1. **이름**. 리포지토리의 이름을 입력합니다.
    2. **Git Clone Url**. 이전에 GitHub 또는 Azure DevOps Services에서 복사한 Git HTTPS 복제 URL을 입력합니다.
    3. **분기**. 정의를 가져오려면 분기를 입력합니다.
    4. **개인 액세스 토큰**. 이전에 GitHub 또는 Azure DevOps Services에서 가져온 개인 액세스 토큰을 입력합니다.
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 AzResourceGroupDeployment를 성공적으로 실행 한 후 명령은 프로 비전 상태 (성공 해야 함) 및 템플릿에 대 한 모든 출력 같은 중요 한 정보를 출력 합니다.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
-이 섹션에서는 랩에 아티팩트 리포지토리를 추가 하는 데 사용할 수 있는 샘플 PowerShell 스크립트를 제공 합니다. Azure PowerShell 없는 경우 설치 하는 방법에 대 한 자세한 지침은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview?view=azps-1.2.0) 을 참조 하세요.
+이 섹션에서는 랩에 아티팩트 리포지토리를 추가 하는 데 사용할 수 있는 샘플 PowerShell 스크립트를 제공 합니다. Azure PowerShell 없는 경우 설치 하는 방법에 대 한 자세한 지침은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/?view=azps-1.2.0) 을 참조 하세요.
 
 ### <a name="full-script"></a>전체 스크립트
 다음은 몇 가지 자세한 메시지와 주석을 포함 하는 전체 스크립트입니다.
@@ -338,7 +338,7 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>매개 변수
 이 문서의 샘플 PowerShell 스크립트는 다음 매개 변수를 사용 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
 | 랩 이름 | 랩의 이름입니다. |
 | ArtifactRepositoryName | 새 아티팩트 리포지토리의 이름입니다. 스크립트가 지정 되지 않은 경우 해당 리포지토리의 임의 이름을 만듭니다. |

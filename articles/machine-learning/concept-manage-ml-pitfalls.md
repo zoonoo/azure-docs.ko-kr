@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012725"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>자동화된 기계 학습으로 과잉 맞춤 및 불균형 데이터 방지
 
@@ -101,7 +101,7 @@ ms.locfileid: "86147094"
 
 - 더 작은 클래스를 업샘플링하거나 더 큰 클래스를 다운샘플링하여 클래스 불균형을 균일화하는 재샘플링. 이러한 방법을 사용하려면 처리 및 분석을 위한 전문 기술이 필요합니다.
 
-- 불균형 데이터의 성능 메트릭을 검토 합니다. 예를 들어, F1 점수는 정밀도 및 재현률의 가중 평균입니다. 정밀도는 분류자의 정확도를 측정하며 낮은 정밀도는 가양성 수가 높음을 나타냅니다. 재현율은 분류자의 완전성을 측정하며 낮은 재현율은 가음성 수가 높음을 나타냅니다.
+- 불균형 데이터의 성능 메트릭을 검토 합니다. 예를 들어 F1 점수는 전체 자릿수 및 회수의 조화 평균입니다. 전체 자릿수는 분류자의 exactness을 측정 하며,이는 더 높은 정밀도는 가양성을 나타내므로 분류자의 완전성을 측정 하는 반면, 회수는 거짓 부정의 감소를 나타냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,11 +4,12 @@ description: App Service에 호스트되는 API를 PowerApps 및 Microsoft Flow�
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015088"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
@@ -57,7 +58,7 @@ API 정의를 내보내려면 다음 단계를 수행합니다.
 
 2. 표에 지정된 대로 설정을 사용합니다.
 
-    |Setting|설명|
+    |설정|Description|
     |--------|------------|
     |**환경**|사용자 지정 커넥터를 저장해야 하는 환경을 선택합니다. 자세한 내용은 [환경 개요](https://powerapps.microsoft.com/tutorials/environments-overview/)를 참조하세요.|
     |**사용자 지정 API 이름**|PowerApps 및 Microsoft Flow 빌더의 커넥터 목록에 표시될 이름을 입력합니다.|
@@ -145,9 +146,9 @@ Azure AD를 사용하는 경우 두 개의 Azure AD 애플리케이션 등록이
 
 - API에 대한 등록을 구성하려면 [App Service 인증/권한 부여](../app-service/configure-authentication-provider-aad.md) 기능을 사용합니다.
 
-- 커넥터에 대한 등록을 구성하려면 [Azure AD 애플리케이션 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
+- 커넥터에 대한 등록을 구성하려면 [Azure AD 애플리케이션 추가](../active-directory/develop/quickstart-register-app.md)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
 
-자세한 내용은 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 및 [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication)에 대한 Azure AD 등록 예제를 참조하세요. 이러한 예제에서는 Azure Resource Manager를 API로 사용합니다. 다음 단계를 수행하는 경우 API를 대체하세요.
+자세한 내용은 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 및 [Microsoft Flow](/connectors/custom-connectors/azure-active-directory-authentication)에 대한 Azure AD 등록 예제를 참조하세요. 이러한 예제에서는 Azure Resource Manager를 API로 사용합니다. 다음 단계를 수행하는 경우 API를 대체하세요.
 
 다음과 같은 구성 값이 필요합니다.
 - **클라이언트 ID** - 커넥터 Azure AD 등록의 클라이언트 ID
@@ -168,5 +169,3 @@ Azure AD를 사용하는 경우 두 개의 Azure AD 애플리케이션 등록이
 - **권한 부여 URL** - OAuth 2.0 권한 부여 URL
 - **토큰 URL** - OAuth 2.0 토큰 URL
 - **새로 고침 URL** - OAuth 2.0 새로 고침 URL
-
-

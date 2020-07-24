@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0560d9a5156f06f7ae7473f63359d9d17926b7ab
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186455"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015156"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Azure Monitor 로그와 통합
 
@@ -34,7 +34,7 @@ Azure Monitor 로그는 Automation State Configuration 데이터의 작동을 �
 
 Automation State Configuration 보고서를 Azure Monitor 로그로 보내려면 다음이 필요합니다.
 
-- [Azure PowerShell](/powershell/azure/overview)의 2016년 11월(v2.3.0) 이후 릴리스
+- [Azure PowerShell](/powershell/azure/)의 2016년 11월(v2.3.0) 이후 릴리스
 - Azure Automation 계정. 자세한 내용은 [Azure Automation에 대한 소개](automation-intro.md)를 참조하세요.
 - Automation & Control 서비스를 제공하는 Log Analytics 작업 영역 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조하세요.
 - 적어도 하나 이상의 Azure Automation 상태 구성 노드 자세한 내용은 [Azure Automation State Configuration을 통해 관리를 위한 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.

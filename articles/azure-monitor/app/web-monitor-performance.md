@@ -4,11 +4,12 @@ description: Application Insights를 시작합니다. 온-프레미스 또는 Mi
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014168"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
@@ -25,7 +26,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 * [ASP.NET 웹 앱](../../azure-monitor/app/asp-net.md)
   * [예외 모니터링 추가](../../azure-monitor/app/asp-net-exceptions.md)
   * [종속성 모니터링 추가](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE 웹앱](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Java EE 웹앱](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>성능 메트릭 탐색
 [Azure 포털](https://portal.azure.com)에서 애플리케이션에 대해 설정한 Application Insights 리소스를 찾습니다. 개요 블레이드에 기본 성능 데이터가 표시됩니다.
@@ -60,15 +61,15 @@ HTTP 요청에는 페이지, 데이터 및 이미지에 대한 모든 GET 또는
 
 특정 URL에 대한 요청 시간을 가져오려면 타일을 클릭합니다.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![요청 및 응답 시간 이동 평균 시간에 대 한 선 그래프를 표시 하는 응용 프로그램 상태 창의 스크린샷](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>가장 느린 요청
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![가장 느린 요청 목록의 스크린샷 및 해당 응답 시간입니다.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 성능 튜닝이 필요할 수 있는 요청을 표시합니다.
 
 ### <a name="failed-requests"></a>실패한 요청
-![](./media/web-monitor-performance/appinsights-46failed.png)
+![실패 한 요청 수를 시간에 따른 선 그래프의 스크린샷 즉, catch 되지 않은 예외를 throw 한 요청입니다.](./media/web-monitor-performance/appinsights-46failed.png)
 
 catch되지 않은 예외를 throw한 요청의 수입니다.
 
@@ -86,7 +87,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 ## <a name="set-alerts"></a>경고 설정
 메트릭의 비정상적인 값에 대한 알림을 메일로 받으려면 경고를 추가합니다. 계정 관리자나 특정 메일 주소로 메일을 보내도록 선택할 수 있습니다.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![메트릭 탐색기에서 대화 상자에 연결 하는 방법을 보여 주는 화살표로 연결 된 스크린샷과 함께 경고 규칙 추가 대화 상자의 스크린샷](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 다른 속성에 앞서 리소스를 설정합니다. 성능 또는 사용 메트릭에 대한 경고를 설정하려면 webtest 리소스를 선택하지 마세요.
 
@@ -144,12 +145,9 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
 [usage]: usage-overview.md
 [livestream]: ../../azure-monitor/app/live-stream.md
 [snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
-

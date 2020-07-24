@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013966"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
@@ -149,7 +149,7 @@ ms.locfileid: "85445375"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get)와 함께 검색 쿼리를 사용해야 합니다. 
+> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)와 함께 검색 쿼리를 사용해야 합니다. 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -220,7 +220,7 @@ ms.locfileid: "85445375"
                     "Heartbeat"
                 ]
             }
-        ]
+        ],
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
     }
@@ -500,5 +500,4 @@ ms.locfileid: "85445375"
 ## <a name="next-steps"></a>다음 단계
 
 - [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)에 대해 자세히 알아봅니다.
-- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations)을 알아봅니다. 
-
+- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](./alerts-common-schema-integrations.md)을 알아봅니다. 

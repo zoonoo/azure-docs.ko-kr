@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8a951a4920f2f80a4b9738317bdb2da96c613d53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199880"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013048"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -289,7 +289,7 @@ AutoML을 사용 하 여 시작 및 실행 하기 위한 여러 리소스가 있
 
 ### <a name="jupyter-notebook-samples"></a>Jupyter 노트북 샘플 
 
-[자동화 된 기계 학습 샘플에 대 한 Github 노트북 리포지토리에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)자세한 코드 예제 및 사용 사례를 검토 합니다.
+[자동화 된 기계 학습 샘플에 대 한 GitHub 노트북 리포지토리에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)자세한 코드 예제 및 사용 사례를 검토 합니다.
 
 ### <a name="python-sdk-reference"></a>Python SDK 참조 
 

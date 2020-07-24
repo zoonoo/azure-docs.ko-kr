@@ -3,12 +3,12 @@ title: Application Insights에서 .NET 추적 로그 탐색
 description: 추적, NLog 또는 Log4Net에서 생성된 로그를 검색합니다.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014578"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 검색
 
@@ -84,7 +84,7 @@ log4net 또는 NLog를 원하는 경우 다음을 사용합니다.
 ```
 
 ## <a name="use-eventsource-events"></a>EventSource 이벤트 사용
-Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -190,7 +190,7 @@ logger.warning('Hello, World!')
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="how-do-i-do-this-for-java"></a>Java의 경우 이 작업을 어떻게 수행하나요?
-Java 코드리스 계측(권장)에서 로그는 기본적으로 수집되고 [Java 3.0 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)를 사용합니다.
+Java 코드리스 계측(권장)에서 로그는 기본적으로 수집되고 [Java 3.0 에이전트](./java-in-process-agent.md)를 사용합니다.
 
 Java SDK를 사용하는 경우 [Java 로그 어댑터](../../azure-monitor/app/java-trace-logs.md)를 사용합니다.
 
@@ -200,7 +200,7 @@ Java SDK를 사용하는 경우 [Java 로그 어댑터](../../azure-monitor/app/
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>구성 도구에 로그 어댑터 옵션이 없습니다.
 * 먼저 로깅 프레임워크를 설치합니다.
-* System.Diagnostics.Trace를 사용하는 경우 [*web.config*에서 구성](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx)했는지 확인합니다.
+* System.Diagnostics.Trace를 사용하는 경우 [*web.config*에서 구성](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1)했는지 확인합니다.
 * 최신 버전의 Application Insights가 설치되어 있는지 확인합니다. Visual Studio에서 **도구** > **확장 및 업데이트**로 이동하고, **업데이트** 탭을 엽니다. **Developer Analytics Tools**가 있으면 선택하여 업데이트합니다.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류 메시지가 표시됨
@@ -228,5 +228,5 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

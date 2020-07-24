@@ -3,28 +3,28 @@ title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft 
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110218"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014527"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
 
 > [!NOTE]
-> 연속 내보내기는 클래식 Application Insights 리소스에 대해서만 지원됩니다. [작업 영역 기반 Application Insights 리소스](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource)는 [진단 설정](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry)을 사용해야 합니다.
+> 연속 내보내기는 클래식 Application Insights 리소스에 대해서만 지원됩니다. [작업 영역 기반 Application Insights 리소스](./create-workspace-resource.md)는 [진단 설정](./create-workspace-resource.md#export-telemetry)을 사용해야 합니다.
 >
 
 연속 내보내기를 설정하기 전에 고려하려는 일부 대안이 있습니다.
 
 * 메트릭 또는 검색 탭 맨 위에 있는 내보내기 단추를 사용하면 테이블 및 차트를 Excel 스프레드시트로 전송할 수 있습니다.
 
-* [분석](../../azure-monitor/app/analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
+* [분석](../log-query/log-query-overview.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
 * [Power BI에서 데이터를 탐색](../../azure-monitor/app/export-power-bi.md )하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
-* [PowerShell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)설정에 액세스할 수도 있습니다.
+* [PowerShell을 통해 연속 내보내기](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)설정에 액세스할 수도 있습니다.
 
 연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](../../azure-monitor/app/data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
 
@@ -32,9 +32,9 @@ ms.locfileid: "86110218"
 
 연속 내보내기는 다음 Azure 스토리지 기능/구성을 **지원하지 않습니다**.
 
-* Azure Blob 스토리지와 함께 [VNET/Azure Storage 방화벽](https://docs.microsoft.com/azure/storage/common/storage-network-security) 사용.
+* Azure Blob 스토리지와 함께 [VNET/Azure Storage 방화벽](../../storage/common/storage-network-security.md) 사용.
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> 연속 내보내기 만들기
 
