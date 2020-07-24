@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c659bbe3e5f5645bb42b3a9c94a5e5fb7ebe75f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109673"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086475"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure container 제품을 만듭니다.
 
@@ -250,13 +250,13 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 ### <a name="plan-overview"></a>플랜 개요
 
-이 탭에서 동일한 제품 내에서 다른 플랜 옵션을 제공할 수 있습니다. 이러한 플랜을 이전에는 SKU(Stock Keeping Unit)라고 했습니다. 글로벌 클라우드, 정부 클라우드 및 플랜에서 참조하는 이미지와 같은 사용 가능한 클라우드를 기준으로 플랜이 다를 수 있습니다. 상업용 Marketplace에서 제품을 나열하려면 하나 이상의 플랜을 설정해야 합니다.
+이 탭에서 동일한 제품 내에서 다른 플랜 옵션을 제공할 수 있습니다. 요금제 (이전의 Sku)는 글로벌 클라우드, 정부 클라우드 및 계획에서 참조 하는 이미지와 같은 사용 가능한 클라우드 측면에서 다를 수 있습니다. 상업용 Marketplace에서 제품을 나열하려면 하나 이상의 플랜을 설정해야 합니다.
 
 플랜을 만들면 **플랜 개요** 탭에 다음과 같은 항목이 표시됩니다.
 
 - 플랜 이름
 - 가격 책정 모델
-- 클라우드 가용성(글로벌 또는 정부)
+- Azure 지역 (글로벌 또는 정부)
 - 현재 게시 상태
 - 모든 사용 가능한 작업
 
@@ -293,7 +293,7 @@ Azure Container 제품에 대 한 모든 계획은 **Azure Global**에서 자동
 
 #### <a name="azure-government-certifications"></a>Azure Government 인증
 
-이 옵션은 **클라우드 가용성**에서 **Azure Government** 선택 된 경우에만 볼 수 있습니다.
+이 옵션은 **Azure 지역**에서 **Azure Government** 선택 된 경우에만 볼 수 있습니다.
 
 Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리합니다. 예를 들어 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및 CJIS가 있습니다.
 

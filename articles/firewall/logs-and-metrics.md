@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
-ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76315034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086594"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭
 
@@ -98,9 +99,13 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
 
     단위: 개수
 
-- **처리 된 데이터** -방화벽을 통과 하는 데이터의 양입니다.
+- **처리 된 데이터** -지정 된 기간에 방화벽을 통과 하는 데이터의 합계입니다.
 
     단위: 바이트
+
+- **처리량** -초당 방화벽을 통과 하는 데이터의 속도입니다.
+
+    단위: 비트/초
 
 - **방화벽 상태** -SNAT 포트 가용성을 기반으로 하는 방화벽의 상태를 나타냅니다.
 

@@ -3,17 +3,17 @@ title: Azure Image Builder 템플릿 만들기(미리 보기)
 description: Azure Image Builder에서 사용할 템플릿을 만드는 방법을 알아봅니다.
 author: danielsollondon
 ms.author: danis
-ms.date: 06/23/2020
+ms.date: 07/09/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d48153fa747ed9757eb8467eaf1d7c17cde3630e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085591"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -24,7 +24,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 ```json
  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
-    "apiVersion": "2019-05-01-preview", 
+    "apiVersion": "2020-02-14", 
     "location": "<region>", 
     "tags": {
         "<name": "<value>",
@@ -39,9 +39,8 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
             "vmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
-                "name": "<vnetName>",
-                "subnetName": "<subnetName>",
-                "resourceGroupName": "<vnetRgName>"
+                "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+                }
             },
         "source": {}, 
         "customize": {}, 
@@ -54,11 +53,11 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 
 ## <a name="type-and-api-version"></a>종류 및 API 버전
 
-`type`는 리소스 종류로, `"Microsoft.VirtualMachineImages/imageTemplates"`이어야 합니다. `apiVersion`은 시간이 경과하면서 API 변경에 따라 달라지지만, 미리 보기에서는 `"2019-05-01-preview"`여야 합니다.
+`type`는 리소스 종류로, `"Microsoft.VirtualMachineImages/imageTemplates"`이어야 합니다. `apiVersion`은 시간이 경과하면서 API 변경에 따라 달라지지만, 미리 보기에서는 `"2020-02-14"`여야 합니다.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2019-05-01-preview",
+    "apiVersion": "2020-02-14",
 ```
 
 ## <a name="location"></a>위치
@@ -101,9 +100,8 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 
 ```json
     "vnetConfig": {
-        "name": "<vnetName>",
-        "subnetName": "<subnetName>",
-        "resourceGroupName": "<vnetRgName>"
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        }
     }
 ```
 ## <a name="tags"></a>태그들
@@ -121,9 +119,8 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 자세한 내용은 [리소스 종속성 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson)를 참조하세요.
 
 ## <a name="identity"></a>ID
-기본적으로 Image Builder는 스크립트 사용 또는 GitHub 및 Azure 스토리지와 같은 여러 위치로부터 파일 복사를 지원합니다. 이들을 사용하려면 공개적으로 액세스할 수 있어야 합니다.
 
-또한 사용자가 정의한 Azure 사용자 할당 관리 ID를 사용하여 Azure Storage 계정에 대한 최소 '스토리지 Blob 데이터 읽기 권한자'가 ID에 부여된 경우에만 Image Builder가 Azure 스토리지에 액세스하도록 허용할 수 있습니다. 즉, 스토리지 Blob을 외부에서 액세스할 수 없도록 하거나 SAS 토큰을 설정할 필요가 없습니다.
+필수-이미지 작성기에서 이미지를 읽고 쓸 수 있는 권한이 있어야 합니다. Azure Storage의 스크립트에서 읽기는 개별 리소스에 대 한 권한이 있는 Azure 사용자 할당 Id를 만들어야 합니다. 이미지 작성기 권한이 작동 하는 방법 및 관련 단계에 대 한 자세한 내용은 [설명서](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)를 참조 하세요.
 
 
 ```json
@@ -135,9 +132,10 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
         },
 ```
 
-전체 예제는 [Azure 사용자 할당 관리 ID를 사용하여 Azure 스토리지의 파일에 액세스](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)를 참조하세요.
 
-Image Builder의 사용자 할당 ID 지원: •   단일 ID만 지원 •   사용자 지정 도메인 이름은 지원하지 않음
+사용자 할당 Id에 대 한 이미지 작성기 지원:
+* 단일 id만 지원 합니다.
+* 사용자 지정 도메인 이름을 지원 하지 않습니다.
 
 자세히 알아보려면 [Azure 리소스에 대한 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
 이 기능을 배포하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)을 참조하세요.
@@ -153,11 +151,6 @@ API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필�
 
 > [!NOTE]
 > 기존 Windows 사용자 지정 이미지를 사용 하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. 자세한 내용은 [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조 하십시오.
-
-### <a name="iso-source"></a>ISO 원본
-이제 [RHEL Bring Your Own Subscription 이미지](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos)가 있으므로 Image Builder에서 이 기능을 사용 중단하는 중입니다. 아래 타임라인을 검토하세요.
-    * 2020년 3월 31일 - 이제 리소스 공급자가 RHEL ISO 원본이 포함된 이미지 템플릿을 더 이상 수락하지 않습니다.
-    * 2020 4월 30일 - RHEL ISO 원본이 포함된 이미지 템플릿이 더 이상 처리되지 않습니다.
 
 ### <a name="platformimage-source"></a>PlatformImage 원본 
 Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support)를 참조하세요. 
@@ -181,6 +174,21 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 버전에서 '최신'을 사용할 수 있습니다. 버전은 템플릿이 제출될 때가 아니라 이미지 빌드가 수행될 때 평가됩니다. Shared Image Gallery 대상과 함께 이 기능을 사용하는 경우 템플릿을 다시 전송하지 않고 주기적으로 이미지 빌드를 다시 실행하여 가장 최근 이미지에서 이미지를 다시 만들 수 있습니다.
 
+#### <a name="support-for-market-place-plan-information"></a>시장 출시 계획 정보 지원
+계획 정보를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
+```json
+    "source": {
+        "type": "PlatformImage",
+        "publisher": "RedHat",
+        "offer": "rhel-byos",
+        "sku": "rhel-lvm75",
+        "version": "latest",
+        "planInfo": {
+            "planName": "rhel-lvm75",
+            "planProduct": "rhel-byos",
+            "planPublisher": "redhat"
+       }
+```
 ### <a name="managedimage-source"></a>ManagedImage 원본
 
 원본 이미지를 일반화된 VHD 또는 VM의 기존 관리형 이미지로 설정합니다. 원본 관리형 이미지는 지원되는 OS여야 하며 Azure Image Builder 템플릿과 동일한 지역에 있어야 합니다. 
@@ -206,6 +214,7 @@ Shared Image Gallery에서 원본 이미지를 기존 이미지 버전으로 설
 ```
 
 `imageVersionId`는 이미지 버전의 ResourceId여야 합니다. [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list)를 사용하여 이미지 버전을 나열합니다.
+
 
 ## <a name="properties-buildtimeoutinminutes"></a>속성: buildTimeoutInMinutes
 
@@ -254,7 +263,9 @@ Image Builder는 여러 '사용자 지정자'를 지원합니다. 사용자 지�
 
  
 사용자 지정 섹션은 배열입니다. Azure Image Builder는 이를 정렬된 순서로 실행합니다. 한 사용자 지정자라도 오류가 발생하면 빌드 프로세스가 실패합니다. 
- 
+
+> [!NOTE]
+> 인라인 명령은 이미지 템플릿 정의와 지원 사례를 지원할 때 Microsoft 지원에서 볼 수 있습니다. 중요 한 정보가 있는 경우 액세스를 요구 하는 Azure Storage의 스크립트로 이동 해야 합니다.
  
 ### <a name="shell-customizer"></a>셸 사용자 지정자
 
@@ -293,7 +304,7 @@ OS 지원: Linux
 슈퍼 사용자 권한으로 명령을 실행하려면 `sudo`를 접두사로 사용해야 합니다.
 
 > [!NOTE]
-> RHEL ISO 원본을 사용하여 셸 사용자 지정자를 실행하는 경우 사용자 지정이 발생하기 전에 첫 번째 사용자 지정 셸에서 Red Hat 자격 서버 등록을 처리하도록 해야 합니다. 사용자 지정이 완료되면 스크립트가 자격 서버에서 등록을 취소해야 합니다.
+> 인라인 명령은 이미지 템플릿 정의의 일부로 저장 되며, 이미지 정의를 덤프할 때 볼 수 있으며, 문제 해결을 위한 지원 사례의 경우 Microsoft 지원에도 표시 됩니다. 중요 한 명령 또는 값이 있는 경우 스크립트로 이동 하 고 사용자 id를 사용 하 여 Azure Storage에 인증 하는 것이 좋습니다.
 
 ### <a name="windows-restart-customizer"></a>Windows 다시 시작 사용자 지정자 
 다시 시작 사용자 지정자를 사용하여 Windows VM을 다시 시작하고 다시 온라인 상태가 될 때까지 기다릴 수 있습니다. 그러면 다시 부팅해야 하는 소프트웨어를 설치할 수 있습니다.  
@@ -485,7 +496,7 @@ runOutputName=<runOutputName>
 
 az resource show \
         --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-        --api-version=2019-05-01-preview
+        --api-version=2020-02-14
 ```
 
 출력:
@@ -569,13 +580,22 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 공유 이미지 갤러리의 배포 속성은 다음과 같습니다.
 
 - **type** - sharedImage  
-- **galleryImageId** – Shared Image Gallery의 ID입니다. 형식은 다음과 같습니다./subscriptions/ \<subscriptionId> /Resourcegroups/ \<resourceGroupName> /providers/Microsoft.Compute/galleries/ \<sharedImageGalleryName> /images/ \<imageGalleryName> .
+- **galleryImageId** – 공유 이미지 갤러리의 ID 이며, 다음 두 가지 형식으로 지정할 수 있습니다.
+    * 자동 버전 관리-이미지 빌더는 단조 버전 번호를 생성 합니다 .이는 동일한 템플릿에서 이미지를 다시 작성 하려는 경우에 유용 합니다. 형식: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`
+    * 명시적 버전 관리-이미지 작성기에서 사용 하려는 버전 번호를 전달할 수 있습니다. 형식은 다음과 같습니다.`/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+
 - **runOutputName** – 분포를 식별하는 고유 이름입니다.  
 - **artifactTags** - 선택 사항. 사용자 지정 키 값 쌍 태그입니다.
-- **replicationRegions** - 복제용 지역의 배열입니다. 지역 중 하나는 갤러리가 배포된 지역이어야 합니다.
- 
+- **replicationRegions** - 복제용 지역의 배열입니다. 지역 중 하나는 갤러리가 배포된 지역이어야 합니다. 영역을 추가 하는 것은 복제가 완료 될 때까지 빌드가 완료 되지 않으므로 빌드 시간이 증가 한다는 것을 의미 합니다.
+- **excludeFromLatest** (선택 사항)이 옵션을 사용 하면 사용자가 만든 이미지 버전을 SIG 정의에서 최신 버전으로 표시할 수 있습니다. 기본값은 ' f a l s e '입니다.
+- **Storageaccounttype** (옵션) AIB는 만들 이미지 버전에 대해 다음과 같은 유형의 저장소를 지정할 수 있도록 지원 합니다.
+    * "Standard_LRS"
+    * "Standard_ZRS"
+
+
 > [!NOTE]
-> 갤러리와 다른 지역에서 Azure Image Builder를 사용할 수 있지만 Azure Image Builder 서비스가 데이터 센터 간에 이미지를 전송해야 하므로 더 오래 걸립니다. Image Builder는 단조 정수를 기반으로 이미지의 버전을 자동 지정하므로 현재는 사용자가 버전을 지정할 수 없습니다. 
+> 이미지 템플릿이 `image definition` 동일한 위치에 있지 않으면 이미지를 만드는 데 추가 시간이 표시 됩니다. 이미지 작성기에는 현재 `location` 이미지 버전 리소스에 대 한 매개 변수가 없으므로 부모에서 가져옵니다 `image definition` . 예를 들어 이미지 정의가 westus에 있고 이미지 버전이 eastus에 복제 되 게 하려면 blob을 westus에 복사 하 고,이에서 westus의 이미지 버전 리소스를 만든 다음 eastus에 복제 합니다. 추가 복제 시간을 방지 하려면 `image definition` 및 이미지 템플릿이 동일한 위치에 있어야 합니다.
+
 
 ### <a name="distribute-vhd"></a>배포: VHD  
 VHD로 출력할 수 있습니다. 그런 다음 VHD를 복사하여 Azure MarketPlace에 게시하거나 Azure Stack과 함께 사용할 수 있습니다.  
@@ -608,8 +628,45 @@ az resource show \
 
 > [!NOTE]
 > VHD를 만든 후에는 가능한 한 빨리 다른 위치로 복사합니다. VHD는 이미지 템플릿이 Azure Image Builder 서비스로 제출될 때 생성된 임시 리소스 그룹에서 스토리지 계정에 저장됩니다. 이미지 템플릿을 삭제하면 VHD가 손실됩니다. 
- 
+
+## <a name="image-template-operations"></a>이미지 템플릿 작업
+
+### <a name="starting-an-image-build"></a>이미지 빌드 시작
+빌드를 시작 하려면 이미지 템플릿 리소스에서 ' 실행 '을 호출 해야 합니다 `run` . 명령의 예는 다음과 같습니다.
+
+```PowerShell
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
+```
+
+
+```bash
+az resource invoke-action \
+     --resource-group $imageResourceGroup \
+     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+     -n helloImageTemplateLinux01 \
+     --action Run 
+```
+
+### <a name="cancelling-an-image-build"></a>이미지 빌드 취소
+잘못 된 것으로 생각 되는 이미지 빌드를 실행 하 고 사용자 입력을 기다리거나 성공적으로 완료 되지 않을 경우 빌드를 취소할 수 있습니다.
+
+언제 든 지 빌드를 취소할 수 있습니다. 배포 단계가 시작 된 경우에도 취소할 수 있지만 완료 하지 못할 수 있는 이미지를 모두 정리 해야 합니다. 취소 명령이 취소를 완료할 때까지 기다리지 않습니다 `lastrunstatus.runstate` . 다음 상태 [명령을](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status)사용 하 여 진행률 취소를 모니터링 하세요.
+
+
+명령의 예는 `cancel` 다음과 같습니다.
+
+```powerShell
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Cancel -Force
+```
+
+```bash
+az resource invoke-action \
+     --resource-group $imageResourceGroup \
+     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+     -n helloImageTemplateLinux01 \
+     --action Cancel 
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder)에 다양한 시나리오에 대한 샘플 .json 파일이 있습니다.
- 

@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7dbc1f111225ecbe40329594479a8469f8bd8418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c6246af59172b303cebd2d3344469f88ce1966
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694711"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085744"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>메모리 액세스에 최적화 된 Dv2 및 Dsv2 시리즈
 
@@ -26,6 +27,10 @@ ACU: 210-250
 Premium Storage: 지원 되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
+
+실시간 마이그레이션: 지원됨
+
+메모리 보존 업데이트: 지원됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
@@ -47,6 +52,10 @@ ACU: 210 - 250 <sup>1</sup>
 Premium Storage:  지원됨
 
 Premium Storage 캐싱:  지원됨
+
+실시간 마이그레이션: 지원됨
+
+메모리 보존 업데이트: 지원됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

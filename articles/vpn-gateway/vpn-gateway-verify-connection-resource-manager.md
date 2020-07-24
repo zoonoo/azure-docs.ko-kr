@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: 93a7c0bb15c17b6939d6d53018e4fed84b1ae020
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38015d62077350e0e6f6ed8e7a43f748db58d213
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086989"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>VPN Gateway 연결 확인
 
@@ -24,7 +24,7 @@ ms.locfileid: "84984572"
 
 ## <a name="powershell"></a>PowerShell
 
-PowerShell을 사용하여 Resource Manager 배포 모델에 대한 VPN Gateway 연결을 확인하려면 최신 버전의 [Azure Resource Manager PowerShell cmdlet](/powershell/azure/overview)을 설치합니다.
+PowerShell을 사용하여 Resource Manager 배포 모델에 대한 VPN Gateway 연결을 확인하려면 최신 버전의 [Azure Resource Manager PowerShell cmdlet](/powershell/azure/)을 설치합니다.
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
@@ -47,4 +47,4 @@ PowerShell을 사용하여 클래식 배포 모델에 대한 VPN Gateway 연결�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 네트워크에 가상 머신을 추가할 수 있습니다. 단계는 [Virtual Machine 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
+* 가상 네트워크에 가상 머신을 추가할 수 있습니다. 단계는 [Virtual Machine 만들기](../virtual-machines/windows/quick-create-portal.md) 를 참조하세요.

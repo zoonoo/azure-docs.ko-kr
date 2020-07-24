@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c1ba173f97353a5ffdd4a9b58f99f6f817f963ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67b6d77afc431e7e79cd1d4c7ad4d50c0e9eecab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74895901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086254"
 ---
 # <a name="h264-single-bitrate-4k"></a>H264 단일 비트 전송률 4K
 `Media Encoder Standard`는 인코딩 작업을 만들 때 사용할 수 있는 인코딩 미리 설정을 정의합니다. `preset name`을 사용하여 미디어 파일을 인코딩할 형식을 지정할 수 있습니다. 또는 자신만의 JSON 또는 XML 기반 미리 설정(UTF-8 또는 UTF-16 인코딩을 사용하여)을 만들 수 있습니다. 그런 다음 사용자 지정 미리 설정을 인코더에 전달합니다. `Media Encoder Standard` 인코더에서 지원되는 모든 미리 설정 이름의 목록을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](media-services-mes-presets-overview.md)을 참조하세요.  
@@ -28,7 +29,7 @@ ms.locfileid: "74895901"
  이 미리 설정은 스테레오 AAC 오디오 및 비트 전송률 18000kbps의 단일 MP4 파일을 생성합니다. 미리 설정의 프로필, 비트 전송률, 샘플링 주기 등에 대한 자세한 내용을 보려면 아래 정의된 XML 또는 JSON을 검토하세요. 미리 설정에 포함된 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md) 항목을 참조하세요.  
   
 > [!NOTE]
->  4K 인코딩으로 프리미엄 예약 단위 유형을 가져와야 합니다. 자세한 내용은 [Encoding 크기를 조정하는 방법](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)을 참조하세요.  
+>  4K 인코딩으로 프리미엄 예약 단위 유형을 가져와야 합니다. 자세한 내용은 [Encoding 크기를 조정하는 방법](./media-services-scale-media-processing-overview.md)을 참조하세요.  
   
  XML  
   

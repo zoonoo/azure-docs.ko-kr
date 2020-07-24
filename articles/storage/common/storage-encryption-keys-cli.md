@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506205"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086016"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
@@ -30,6 +30,7 @@ ms.locfileid: "85506205"
 Azure CLI를 사용 하 여 관리 되는 id를 할당 하려면 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```azurecli-interactive
+az login
 az account set --subscription <subscription-id>
 
 az storage account update \
@@ -90,9 +91,33 @@ Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 구성
 
-기본적으로 Azure Storage 암호화는 Microsoft 관리 키를 사용 합니다. 고객 관리 키에 대 한 Azure Storage 계정을 구성 하 고 저장소 계정과 연결할 키를 지정 합니다.
+기본적으로 Azure Storage 암호화는 Microsoft 관리 키를 사용 합니다. 이 단계에서는 Azure Key Vault에서 고객 관리 키를 사용 하도록 Azure Storage 계정을 구성 하 고 저장소 계정과 연결할 키를 지정 합니다.
 
-저장소 계정의 암호화 설정을 업데이트 하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출 합니다. 매개 변수를 포함 하 `--encryption-key-source` 고로 설정 하 여 `Microsoft.Keyvault` 저장소 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 합니다. 또한이 예제에서는 키 자격 증명 모음 URI와 최신 키 버전을 쿼리 합니다 .이 두 값은 모두 저장소 계정에 키를 연결 하는 데 필요 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+고객 관리 키를 사용 하 여 암호화를 구성 하는 경우 연결 된 키 자격 증명 모음에서 버전이 변경 되 면 암호화에 사용 되는 키를 자동으로 회전 하도록 선택할 수 있습니다. 또는 키 버전이 수동으로 업데이트 될 때까지 암호화에 사용할 키 버전을 명시적으로 지정할 수 있습니다.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>고객 관리 키의 자동 회전을 위한 암호화 구성
+
+고객 관리 키의 자동 회전에 대 한 암호화를 구성 하려면 [Azure CLI 버전 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](/azure/install-azure-cli)를 참조하세요.
+
+고객 관리 키를 자동으로 회전 하려면 저장소 계정에 대 한 고객 관리 키를 구성할 때 키 버전을 생략 합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 여 저장소 계정의 암호화 설정을 업데이트 합니다. 매개 변수를 포함 하 `--encryption-key-source` 고로 설정 하 여 `Microsoft.Keyvault` 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+
+```azurecli-interactive
+key_vault_uri=$(az keyvault show \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --query properties.vaultUri \
+    --output tsv)
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-name <key> \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $key_vault_uri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>키 버전의 수동 회전을 위한 암호화 구성
+
+암호화에 사용할 키 버전을 명시적으로 지정 하려면 저장소 계정에 대 한 고객 관리 키를 사용 하 여 암호화를 구성할 때 키 버전을 제공 합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 여 저장소 계정의 암호화 설정을 업데이트 합니다. 매개 변수를 포함 하 `--encryption-key-source` 고로 설정 하 여 `Microsoft.Keyvault` 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -114,9 +139,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## <a name="update-the-key-version"></a>키 버전 업데이트
-
-새 버전의 키를 만드는 경우 새 버전을 사용 하도록 저장소 계정을 업데이트 해야 합니다. 먼저 az [keyvault show](/cli/azure/keyvault#az-keyvault-show)를 호출 하 여 KEY vault URI를 쿼리하고, [az keyvault 키 목록 버전](/cli/azure/keyvault/key#az-keyvault-key-list-versions)을 호출 하 여 키 버전을 쿼리 합니다. 그런 다음 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 여 이전 섹션에 표시 된 대로 새 버전의 키를 사용 하도록 저장소 계정의 암호화 설정을 업데이트 합니다.
+키 버전을 수동으로 회전 하는 경우 새 버전을 사용 하도록 저장소 계정의 암호화 설정을 업데이트 해야 합니다. 먼저 az [keyvault show](/cli/azure/keyvault#az-keyvault-show)를 호출 하 여 KEY vault URI를 쿼리하고, [az keyvault 키 목록 버전](/cli/azure/keyvault/key#az-keyvault-key-list-versions)을 호출 하 여 키 버전을 쿼리 합니다. 그런 다음 이전 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 여 새 버전의 키를 사용 하도록 저장소 계정의 암호화 설정을 업데이트 합니다.
 
 ## <a name="use-a-different-key"></a>다른 키 사용
 
@@ -124,7 +147,7 @@ Azure Storage 암호화에 사용 되는 키를 변경 하려면 [고객이 관�
 
 ## <a name="revoke-customer-managed-keys"></a>고객 관리 키 철회
 
-키가 손상 된 것으로 판단 되 면 키 자격 증명 모음 액세스 정책을 제거 하 여 고객 관리 키를 해지할 수 있습니다. 고객 관리 키를 해지 하려면 다음 예제와 같이 [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) 명령을 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+키 자격 증명 모음 액세스 정책을 제거 하 여 고객 관리 키를 해지할 수 있습니다. 고객 관리 키를 해지 하려면 다음 예제와 같이 [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) 명령을 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
 
 ```azurecli-interactive
 az keyvault delete-policy \

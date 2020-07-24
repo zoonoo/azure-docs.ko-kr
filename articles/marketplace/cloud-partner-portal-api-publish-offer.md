@@ -4,18 +4,20 @@ description: 지정한 제품을 게시하는 API를 소개합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: e3bc420a60c514e704a6caa38acee155b4981552
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 1dede788242f858468c00e9f30f70ebdbe60cd1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115590"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086407"
 ---
 # <a name="publish-an-offer"></a>제안 게시
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 지정한 제품의 게시 프로세스를 시작합니다. 이 호출은 장기 실행 작업입니다.
 
@@ -62,7 +64,6 @@ ms.locfileid: "86115590"
 |  notification-emails    | 게시 작업의 진행률 알림을 받을 전자 메일 주소의 쉼표로 구분된 목록입니다. |
 |  |  |
 
-
 ### <a name="response"></a>응답
 
 #### <a name="migrated-offers"></a>마이그레이션된 제품
@@ -73,14 +74,12 @@ ms.locfileid: "86115590"
 
 `Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
-
 ### <a name="response-header"></a>응답 헤더
 
 |  **이름**             |    **값**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | 위치    | 이 작업의 상태를 검색 하기 위한 상대 경로입니다.     |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 

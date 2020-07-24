@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JnHs
 ms.author: jenhayes
 ms.date: 07/07/2020
-ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3bb663dcdf007bf77d1b9f2b46af532774af22e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086390"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
@@ -177,7 +177,7 @@ ms.locfileid: "86121795"
 
 ## <a name="plan-overview"></a>플랜 개요
 
-각 제품에는 하나 이상의 플랜(SKU라고도 함)이 있어야 합니다. 여러 플랜을 추가하여 다양한 가격으로 다양한 기능 세트를 지원하거나, 제한된 특정 고객 대상 그룹을 위한 특정 플랜을 사용자 지정할 수 있습니다. 고객은 상위 제품 아래에서 사용할 수 있는 플랜을 볼 수 있습니다.
+각 제품에는 하나 이상의 계획 (이전의 Sku)이 있어야 합니다. 여러 플랜을 추가하여 다양한 가격으로 다양한 기능 세트를 지원하거나, 제한된 특정 고객 대상 그룹을 위한 특정 플랜을 사용자 지정할 수 있습니다. 고객은 상위 제품 아래에서 사용할 수 있는 플랜을 볼 수 있습니다.
 
 **플랜 개요** 페이지에서 **+ 새 플랜 만들기**를 선택합니다. 그런 다음, **플랜 ID**와 **플랜 이름**을 입력합니다. 이 값은 모두 소문자 영숫자, 대시 및 밑줄만 포함할 수 있으며 최대 50자로 제한됩니다. 이 값은 고객에게 표시될 수 있으며 제품을 게시한 후에는 변경할 수 없습니다.
 

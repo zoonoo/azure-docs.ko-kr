@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086118"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
@@ -27,7 +29,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 
 ## <a name="logs"></a>로그
 
-|로그 | 설명 |
+|로그 | Description |
 |----|----|
 | **ApplicationConsole** | 모든 고객 응용 프로그램의 콘솔 로그입니다. |
 | **SystemLogs** | 현재이 범주에는 [스프링 클라우드 구성 서버](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) 로그만 있습니다. |

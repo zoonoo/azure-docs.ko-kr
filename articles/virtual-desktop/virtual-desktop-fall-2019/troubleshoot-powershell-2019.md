@@ -1,6 +1,6 @@
 ---
-title: Windows 가상 데스크톱 PowerShell-Azure
-description: Windows 가상 데스크톱 테 넌 트 환경을 설정할 때 PowerShell 관련 문제를 해결 하는 방법입니다.
+title: Windows 가상 데스크톱 PowerShell (낙하 2019)-Azure
+description: Windows 가상 데스크톱 (낙하 2019 릴리스) 테 넌 트 환경을 설정 하는 경우 PowerShell을 사용 하 여 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de3933b1686b433a720e78d89bd3e50c0ce5e5dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3171cc54de57b70a18a3f1b9ee3317cf29f79d4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615501"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085812"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
+# <a name="windows-virtual-desktop-powershell-fall-2019-release"></a>Windows 가상 데스크톱 PowerShell (낙하 2019 릴리스)
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-powershell.md)를 참조하세요.

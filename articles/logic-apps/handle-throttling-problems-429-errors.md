@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086442"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Azure Logic Apps에서 제한 문제 (429-"요청이 너무 많음" 오류)를 처리 합니다.
 
@@ -76,7 +77,7 @@ Azure Logic Apps 서비스에는 고유한 [처리량 제한이](../logic-apps/l
 
 ## <a name="connector-throttling"></a>커넥터 제한
 
-각 커넥터에는 커넥터의 기술 참조 페이지에서 찾을 수 있는 고유한 제한 제한이 있습니다. 예를 들어 [Azure Service Bus 커넥터](https://docs.microsoft.com/connectors/servicebus/) 에는 분당 최대 6000 호출을 허용 하는 제한 한도가 있으며 SQL Server 커넥터에는 [작업 유형에 따라 달라 지는](https://docs.microsoft.com/connectors/sql/)제한 제한이 있습니다.
+각 커넥터에는 커넥터의 기술 참조 페이지에서 찾을 수 있는 고유한 제한 제한이 있습니다. 예를 들어 [Azure Service Bus 커넥터](/connectors/servicebus/) 에는 분당 최대 6000 호출을 허용 하는 제한 한도가 있으며 SQL Server 커넥터에는 [작업 유형에 따라 달라 지는](/connectors/sql/)제한 제한이 있습니다.
 
 HTTP와 같은 일부 트리거 및 작업에는 예외 처리를 구현 하기 위해 [재시도 정책 제한을](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) 기반으로 사용자 지정할 수 있는 ["재시도 정책"](../logic-apps/logic-apps-exception-handling.md#retry-policies) 이 있습니다. 이 정책은 원래 요청이 실패 하거나 시간이 초과 되 고 408, 429 또는 5xx 응답이 발생 하는 경우 트리거 또는 작업에서 요청을 다시 시도할지 여부와 빈도를 지정 합니다. 따라서 조정이 시작 되 고 429 오류가 반환 되 면 지원 되는 경우 다시 시도 정책을 따르는 Logic Apps 합니다.
 

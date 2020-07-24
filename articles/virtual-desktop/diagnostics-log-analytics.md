@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a138308b48a24a78c55bdc0105379e31482456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ceb58182b34a4eccbed0dc1cdd1c351ae7868da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085914"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
 
@@ -133,52 +133,16 @@ Azure Portal 또는 Azure Monitor에서 Log Analytics 작업 영역에 액세스
 
 ## <a name="example-queries"></a>쿼리 예
 
-다음 예제 쿼리는 진단 기능이 시스템에서 가장 자주 수행 되는 작업에 대 한 보고서를 생성 하는 방법을 보여 줍니다.
+Azure Monitor Log Analytics UI를 통해 쿼리 예제에 액세스 합니다.
+1. Log Analytics 작업 영역으로 이동한 다음 **로그**를 선택 합니다. 예제 쿼리 UI가 자동으로 표시 됩니다.
+1. 필터를 **Category**로 변경 합니다.
+1. **Windows 가상 데스크톱** 을 선택 하 여 사용 가능한 쿼리를 검토 합니다.
+1. **실행** 을 선택 하 여 선택한 쿼리를 실행 합니다. 
 
-사용자가 만든 연결 목록을 가져오려면 다음 cmdlet을 실행 합니다.
+[Azure Monitor Log Analytics에서 저장 된 쿼리의](../azure-monitor/log-query/saved-queries.md)샘플 쿼리 인터페이스에 대해 자세히 알아보세요.
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+다음 쿼리 목록에서는 단일 사용자에 대 한 연결 정보 또는 문제를 검토할 수 있습니다. 이러한 쿼리는 [Log Analytics 쿼리 편집기](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries)에서 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
 
-사용자의 피드 활동을 보려면 다음을 수행 합니다.
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 단일 사용자에 대 한 모든 연결을 찾으려면 다음을 수행 합니다.
 
@@ -199,7 +163,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 사용자가 세션 기간을 찾으려면:
 
@@ -224,7 +187,7 @@ WVDErrors
 |take 100
 ```
 
-특정 오류가 발생 했는지 여부를 확인 하려면 다음을 수행 합니다.
+다른 사용자에 대 한 특정 오류가 발생 했는지 확인 하려면:
 
 ```kusto
 WVDErrors
@@ -232,27 +195,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-모든 사용자에 게 오류 발생을 찾으려면:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-사용자가 연 앱을 쿼리하려면 다음 쿼리를 실행 합니다.
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- 사용자가 전체 데스크톱을 여는 경우 세션의 해당 앱 사용은 WVDCheckpoints 테이블의 검사점으로 추적 되지 않습니다.
 >- WVDConnections 테이블의 Sourcealias 열에는 사용자가 전체 데스크톱 또는 게시 된 앱에 연결 되어 있는지 여부가 표시 됩니다. 열은 연결 중에 처음으로 연 앱만 표시 합니다. 사용자가 여는 게시 된 앱은 WVDCheckpoints에서 추적 됩니다.

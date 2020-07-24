@@ -9,19 +9,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085693"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
 이 문서에서는 3.0 이상 버전의 Linux 진단 확장에 대해 설명합니다.
 
 > [!IMPORTANT]
-> 2\.3 이하 버전에 대한 내용은 [이 문서](../linux/classic/diagnostic-extension-v2.md)를 참조하세요.
+> 2\.3 이하 버전에 대한 내용은 [이 문서](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2)를 참조하세요.
 
 ## <a name="introduction"></a>소개
 
@@ -67,8 +67,8 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
-* **Azure CLI** 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+* **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](./update-linux-agent.md)에 따라 업데이트합니다.
+* **Azure CLI** 머신에 [Azure CLI 환경을 설치](/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 데이터를 저장할 기존 Azure 구독 및 기존 스토리지 계정
 
@@ -243,7 +243,7 @@ Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형 EventHub 및 Js
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Event Hubs에 대한 SAS 토큰을 생성하고 검색하는 방법에 대한 자세한 내용은 [이 웹 페이지](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell)를 참조하세요.
+Event Hubs에 대한 SAS 토큰을 생성하고 검색하는 방법에 대한 자세한 내용은 [이 웹 페이지](/rest/api/eventhub/generate-sas-token#powershell)를 참조하세요.
 
 #### <a name="the-jsonblob-sink"></a>JsonBlob 싱크
 
@@ -580,7 +580,7 @@ WriteBytesPerSecond | 초당 쓴 바이트 수
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-이 명령은 Azure CLI의 ARM (Azure 리소스 관리) 모드를 사용 하 고 있다고 가정 합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](https://docs.microsoft.com/azure/xplat-cli-connect)를 참조하세요.
+이 명령은 Azure CLI의 ARM (Azure 리소스 관리) 모드를 사용 하 고 있다고 가정 합니다. 클래식 배포 모델(ASM) VM에 대한 LAD를 구성하려면 "asm" 모드(`azure config mode asm`)로 전환하고 명령에서 리소스 그룹 이름을 생략합니다. 자세한 내용은 [플랫폼 간 CLI 설명서](/azure/xplat-cli-connect)를 참조하세요.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -763,10 +763,10 @@ Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 �
 
 ![이미지](./media/diagnostics-linux/stg_explorer.png)
 
-EventHubs 엔드포인트에 게시된 메시지를 사용하는 방법에 대해 알아보려면 관련 [EventHubs 설명서](../../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
+EventHubs 엔드포인트에 게시된 메시지를 사용하는 방법에 대해 알아보려면 관련 [EventHubs 설명서](../../event-hubs/event-hubs-about.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md)에 수집하는 메트릭에 대한 메트릭 경고를 만듭니다.
-* 메트릭에 대한 [모니터링 차트](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)를 만듭니다.
+* [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md)에 수집하는 메트릭에 대한 메트릭 경고를 만듭니다.
+* 메트릭에 대한 [모니터링 차트](../../azure-monitor/platform/data-platform.md)를 만듭니다.
 * 메트릭을 사용해 [가상 머신 확장 집합 만들기](../linux/tutorial-create-vmss.md)를 수행하여 자동 크기 조정을 제어하는 방법에 대해 알아봅니다.

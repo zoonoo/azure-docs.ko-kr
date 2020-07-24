@@ -3,8 +3,8 @@ title: '자습서: SQL Managed Instance SQL Server 마이그레이션'
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 SQL Server에서 Azure SQL Managed Instance로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 79bfb0510aba3a77b720748aaafd83e837500e87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086730"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>자습서: DMS를 사용 하 여 Azure SQL Managed Instance 오프 라인으로 SQL Server 마이그레이션
 

@@ -7,17 +7,18 @@ ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79349f9da45a623581c40276c8e69d490c1dd253
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085557"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리 id를 사용 하 여 Azure Storage의 파일에 액세스 
 
 Azure 이미지 작성기는 스크립트를 사용 하거나 GitHub, Azure storage 등의 여러 위치에서 파일을 복사 하도록 지원 합니다. 이를 사용 하려면 Azure 이미지 작성기에서 외부에 액세스할 수 있어야 하지만 SAS 토큰을 사용 하 여 Azure Storage blob을 보호할 수 있습니다.
 
-이 문서에서는 Azure VM 이미지 작성기를 사용 하 여 사용자 지정 이미지를 만드는 방법을 보여 줍니다. 여기서 서비스는 [사용자 할당 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하 여 파일을 공개적으로 액세스할 수 있도록 하거나 SAS 토큰을 설정 하지 않고도 이미지 사용자 지정을 위해 azure storage의 파일에 액세스 합니다.
+이 문서에서는 Azure VM 이미지 작성기를 사용 하 여 사용자 지정 이미지를 만드는 방법을 보여 줍니다. 여기서 서비스는 [사용자 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 파일을 공개적으로 액세스할 수 있도록 하거나 SAS 토큰을 설정 하지 않고도 이미지 사용자 지정을 위해 azure storage의 파일에 액세스 합니다.
 
 아래 예제에서는 두 개의 리소스 그룹을 만들고, 하나는 사용자 지정 이미지에 사용 되 고, 다른 하나는 스크립트 파일을 포함 하는 Azure Storage 계정을 호스팅합니다. 이는 이미지 작성기 외부의 다른 저장소 계정에 빌드 아티팩트 또는 이미지 파일이 있을 수 있는 실제 시나리오를 시뮬레이션 합니다. 사용자 할당 id를 만든 다음 스크립트 파일에 대 한 읽기 권한을 부여 합니다. 하지만 해당 파일에 대 한 공용 액세스는 설정 하지 않습니다. 그런 다음 셸 사용자 지정자를 사용 하 여 저장소 계정에서 해당 스크립트를 다운로드 하 고 실행 합니다.
 
@@ -94,7 +95,7 @@ az group create -n $strResourceGroup -l $location
 
 사용자 할당 id를 만들고 리소스 그룹에 대 한 사용 권한을 설정 합니다.
 
-이미지 작성기는 제공 된 [사용자 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+이미지 작성기는 제공 된 [사용자 id](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) 를 사용 하 여 리소스 그룹에 이미지를 삽입 합니다. 이 예제에서는 이미지 배포를 수행 하는 세분화 된 작업을 포함 하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located

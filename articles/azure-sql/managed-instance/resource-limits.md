@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086832"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 > [!Important]
 > 중요 비즈니스용 서비스 계층은 읽기 전용 작업에 사용할 수 있는 SQL Managed Instance (보조 복제본)의 추가 기본 복사본을 제공 합니다. 읽기/쓰기 쿼리와 읽기 전용/분석/보고 쿼리를 구분할 수 있는 경우 동일한 가격에 대 한 vCores와 메모리의 두 배를 얻을 수 있습니다. 보조 복제본은 주 인스턴스에서 몇 초 정도 지연 될 수 있으므로 데이터의 정확한 현재 상태를 필요로 하지 않는 보고/분석 워크 로드를 오프 로드 하도록 설계 되었습니다. 아래 표에서 **읽기 전용 쿼리** 는 보조 복제본에서 실행 되는 쿼리입니다.
 
-| **기능** | **일반 용도** | **중요 비즈니스용** |
+| **기능** | **범용** | **중요 비즈니스용** |
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*동일한 수의 vCores는 읽기 전용 쿼리에 전용으로 사용할 수 있습니다. |
 | 최대 메모리 | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5:20.4 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5: 읽기-쓰기 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)<br/>+ 읽기 전용 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)가 추가 되었습니다.<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
@@ -119,7 +119,7 @@ SQL Managed Instance은 [지원 되는 지역](https://azure.microsoft.com/globa
 SQL Managed Instance는 현재 다음 유형의 구독에 대 한 배포만 지원 합니다.
 
 - [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [종 량 제](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [CSP(클라우드 서비스 공급자)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/)
@@ -128,7 +128,7 @@ SQL Managed Instance는 현재 다음 유형의 구독에 대 한 배포만 지�
 ## <a name="regional-resource-limitations"></a>지역별 리소스 제한
 
 > [!Note]
-> 구독에 대 한 지역 가용성에 대 한 최신 정보는 먼저 [공식 COVID-19 블로그 게시물](https://aka.ms/sqlcapacity)을 확인 하세요.
+> 구독에 대 한 지역 가용성에 대 한 최신 정보를 보려면 먼저 [지역을 선택](https://aka.ms/sqlcapacity)하세요.
 
 지원되는 구독 유형에는 지역당 제한된 수의 리소스가 포함될 수 있습니다. SQL Managed Instance에는 Azure 지역 당 두 가지 기본 제한이 있습니다. 즉, 구독 유형의 유형에 따라 [Azure Portal에서 특수 지원 요청](../database/quota-increase-request.md) 을 만들어 요청 시 증가 시킬 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop 진단 문제 - Azure
+title: Windows 가상 데스크톱 문제 진단-2019-Azure
 description: Windows Virtual Desktop 진단 기능을 사용하여 문제를 진단하는 방법.
 services: virtual-desktop
 author: Heidilohr
@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0aad1c780c6695c771d3cfea04509acde65c051e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235559"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085863"
 ---
 # <a name="identify-and-diagnose-issues"></a>문제 식별 및 진단
 

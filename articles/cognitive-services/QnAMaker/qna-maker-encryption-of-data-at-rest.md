@@ -1,20 +1,20 @@
 ---
 title: 휴지 상태의 데이터 암호화 QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 미사용 데이터의 암호화를 QnA Maker 합니다.
+description: Microsoft는 Microsoft에서 관리 하는 암호화 키를 제공 하며, CMK (고객이 관리 하는 키) 라고 하는 고유한 키를 사용 하 여 Cognitive Services 구독을 관리할 수도 있습니다. 이 문서에서는 QnA Maker에 대 한 미사용 데이터 암호화 및 CMK를 사용 하 고 관리 하는 방법을 설명 합니다.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 07/10/2020
 ms.author: egeaney
-ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1ca0dda046329e95c649540fd42f96ca43838c85
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653654"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086708"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>휴지 상태의 데이터 암호화 QnA Maker
 
@@ -29,7 +29,7 @@ QnA Maker는 Azure search에서 CMK 지원을 사용 합니다. [Azure Search에
 > [!IMPORTANT]
 > Azure Search 서비스 리소스는 2019 년 1 월 일 후에 생성 되어야 하며 무료 (공유) 계층에 있을 수 없습니다. Azure Portal에서 고객이 관리 하는 키를 구성 하는 것은 지원 되지 않습니다.
 
-## <a name="enable-customer-managed-keys"></a>고객이 관리 하는 키 사용
+## <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
 
 QnA Maker 서비스는 Azure Search 서비스의 CMK를 사용 합니다. CMKs를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
@@ -61,5 +61,5 @@ QnA Maker 포털은 사용자의 브라우저에서 실행 됩니다. 모든 작
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Key Vault에서 CMKs를 사용 하 Azure Search의 암호화](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
-* [휴지 상태의 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+* [저장 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

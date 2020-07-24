@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Linux Vm에 대 한 사용자 지정 스크립트 실행
+title: Azure에서 Linux Vm에 대 한 사용자 지정 스크립트 확장 실행
 description: 사용자 지정 스크립트 확장 v2를 사용하여 Linux VM 구성 작업 자동화
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085727"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -38,14 +38,14 @@ ms.locfileid: "82594732"
 
 ### <a name="operating-system"></a>운영 체제
 
-Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장 OS에서 실행 됩니다. 자세한 내용은이 [문서](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)를 참조 하세요.
+Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장 OS에서 실행 됩니다. 자세한 내용은이 [문서](../linux/endorsed-distros.md)를 참조 하세요.
 
 ### <a name="script-location"></a>스크립트 위치
 
 확장은 Azure Blob Storage 자격 증명을 사용하여 Azure Blob Storage에 액세스하는 데 사용할 수 있습니다. 또는 스크립트 위치가 VM에서 해당 엔드포인트(예: GitHub, 내부 파일 서버 등)로 라우팅할 수 있는 모든 위치가 될 수 있습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
-외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있는 경우 [저장소](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 대 한 AZURE Nsg 서비스 태그를 사용 하 여 액세스를 허용할 수 있습니다.
+외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있는 경우 [저장소](../../virtual-network/security-overview.md#service-tags)에 대 한 AZURE Nsg 서비스 태그를 사용 하 여 액세스를 허용할 수 있습니다.
 
 스크립트가 로컬 서버에 있으면 추가 방화벽/네트워크 보안 그룹 포트도 열어야 합니다.
 
@@ -56,7 +56,8 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 * 스크립트를 실행하는 데 허용되는 시간은 90분입니다. 더 오래 걸리면 확장을 프로비전하는 데 실패합니다.
 * 스크립트 내에 재부팅을 배치하지 않습니다. 그렇지 않으면 설치되는 다른 확장에 문제가 발생하고 재부팅 후 다시 시작하면 확장이 계속 실행되지 않습니다. 
 * 다시 부팅 해야 하는 스크립트가 있는 경우 응용 프로그램을 설치 하 고 스크립트를 실행 합니다. Cron 작업을 사용 하거나 DSC, Chef, 퍼핏 확장 등의 도구를 사용 하 여 다시 부팅을 예약 해야 합니다.
-* 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 스크립트를 사용 하 여 SystemD 서비스 단위를 만들 수 있습니다.
+* 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](../linux/using-cloud-init.md)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 스크립트를 사용 하 여 SystemD 서비스 단위를 만들 수 있습니다.
+* VM에는 하나의 확장 버전만 적용할 수 있습니다. 두 번째 사용자 지정 스크립트를 실행 하려면 사용자 지정 스크립트 확장을 제거 하 고 업데이트 된 스크립트를 사용 하 여 다시 적용 해야 합니다. 
 * 스크립트가 실행될 시기를 예약하려면 Cron 작업을 만드는 확장을 사용해야 합니다. 
 * 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
 * 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원 하지 않지만 스크립트 내의 프록시 서버를 지 원하는 파일 전송 도구 (예: *말아 넘기기*)를 사용할 수 있습니다. 
@@ -134,7 +135,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
 * `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
-* `managedIdentity`: (선택 사항, json 개체) 파일을 다운로드하기 위한 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* `managedIdentity`: (선택 사항, json 개체) 파일을 다운로드하기 위한 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)
   * `clientId`: (선택 사항, 문자열) 관리 ID의 클라이언트 ID
   * `objectId`: (선택 사항, 문자열) 관리 ID의 개체 ID
 
@@ -212,9 +213,9 @@ CustomScript는 다음 알고리즘을 사용하여 스크립트를 실행합니
 > [!NOTE]
 > 이 속성은 보호 설정에서만 지정**해야 합니다**.
 
-CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 지원 합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
+CustomScript (버전 2.1 이상)는 "fileUris" 설정에 제공 된 Url에서 파일을 다운로드 하 [는 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 지원 합니다. 사용자가 SAS 토큰 또는 스토리지 계정 키와 같은 비밀을 전달하지 않아도 CustomScript가 Azure Storage 프라이빗 Blob 또는 컨테이너에 액세스할 수 있습니다.
 
-이 기능을 사용하려면 사용자는 CustomScript를 실행해야 하는 VM 또는 VMSS에 [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) 또는 [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) ID를 추가하고 [Azure Storage 컨테이너 또는 Blob에 대한 관리 ID 액세스 권한을 부여](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)해야 합니다.
+이 기능을 사용하려면 사용자는 CustomScript를 실행해야 하는 VM 또는 VMSS에 [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) 또는 [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) ID를 추가하고 [Azure Storage 컨테이너 또는 Blob에 대한 관리 ID 액세스 권한을 부여](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access)해야 합니다.
 
 대상 VM/VMSS에서 시스템 할당 ID를 사용하려면 “managedidentity” 필드를 빈 json 개체로 설정합니다. 
 

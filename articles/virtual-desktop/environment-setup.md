@@ -1,6 +1,6 @@
 ---
 title: Windows 가상 데스크톱 환경-Azure
-description: Windows 가상 데스크톱 환경의 기본 요소
+description: 호스트 풀 및 앱 그룹과 같은 Windows 가상 데스크톱 환경의 기본 요소에 대해 알아봅니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d189d5febe54a83cde4fe6cd6aa51e728aa882e6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 802369112d99d5828024a16936dc7458795f22e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085897"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop 환경
 

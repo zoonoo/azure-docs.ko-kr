@@ -2,13 +2,13 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/21/2020
+ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170652"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086815"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -315,6 +315,11 @@ ms.locfileid: "86170652"
 > 예를 들어 다음과 같이 매개 변수를 사용 하 여 **http** 또는 **https**를 사용 하는 것으로 확인 되는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다 `_artifactsLocation` .`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
+
+[템플릿 사양](./template-specs.md) (현재 비공개 미리 보기)을 사용 하 여 ARM 템플릿을 조직의 다른 사용자와 공유할 수 있습니다. 템플릿 사양을 사용 하 여 주 템플릿과 연결 된 템플릿을 패키지할 수도 있습니다. 자세한 내용은 다음을 참조하세요.
+
+- [자습서: 연결 된 템플릿으로 템플릿 사양을 만듭니다](./template-specs-create-linked.md).
+- [자습서: 템플릿 사양을 연결 된 템플릿으로 배포](./template-specs-deploy-linked-template.md)합니다.
 
 ### <a name="parameters-for-linked-template"></a>연결 된 템플릿의 매개 변수
 
@@ -785,7 +790,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 다음 예제에서는 연결된 템플릿의 일반적인 사용 방법을 보여 줍니다.
 
-|기본 템플릿  |연결된 템플릿 |설명  |
+|기본 템플릿  |연결된 템플릿 |Description  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
 |[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |

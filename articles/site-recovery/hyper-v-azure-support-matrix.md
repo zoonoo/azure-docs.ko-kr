@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 465b0ca3fdc5dd96b03ec7ab53bf453c4cdc083d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086169"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
-
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 Hyper-V VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.
 
-
+>[!NOTE]
+> Site Recovery은 원본 컴퓨터에 대 한 재해 복구를 설정 하는 대상 지역에서 고객 데이터를 이동 하거나 저장 하지 않습니다. 고객이 선택 하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음은 메타 데이터를 포함 하지만 실제 고객 데이터는 포함 하지 않습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -30,7 +30,7 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 
-**서버** | **요구 사항** | **세부 정보**
+**Server** | **Requirements** | **세부 정보**
 --- | --- | ---
 Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016, 최신 업데이트가 포함 된 Windows Server 2012 R2 (Windows Server 2019를 제외 하 고 이러한 운영 체제의 Server core 설치 포함) | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요.
 Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (Virtual Machine Manager 2019를 제외 하 고 이러한 운영 체제의 server core 설치 포함) | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.
@@ -73,6 +73,7 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 게스트 VM 네트워크: 고정 IP(Linux) | 아니요 | 아니요
 게스트 VM 네트워크: 다중 NIC | 예 | 예
 Https 프록시 | 아니요 | 아니요
+Site Recovery 서비스에 대 한 개인 링크 액세스 | 예. [자세한 정보를 알아보세요](hybrid-how-to-enable-replication-private-endpoints.md). | 예. [자세한 정보를 알아보세요](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
@@ -158,7 +159,7 @@ HUB | 예 | 예
 
 Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azure VM 요구 사항을 충족해야 합니다.
 
-**구성 요소** | **요구 사항** | **세부 정보**
+**구성 요소** | **Requirements** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | Site Recovery은 [Azure에서 지원](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))되는 모든 운영 체제를 지원 합니다.  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 게스트 운영 체제 아키텍처 | 32 비트 (Windows Server 2008)/64-bit | 지원되지 않는 경우 필수 구성 요소 확인이 실패함

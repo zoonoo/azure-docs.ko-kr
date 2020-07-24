@@ -6,12 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 07/17/2020
+ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086662"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 피벗 변환
 
@@ -19,6 +20,8 @@ ms.locfileid: "83683307"
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 피벗 변환을 사용하여 단일 열의 고유한 행 값에서 여러 열을 만들 수 있습니다. Pivot은 열별 그룹화를 선택하고 [집계 함수](data-flow-expression-functions.md#aggregate-functions)를 사용하여 피벗 열을 생성하는 집계 변환입니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
 
 ## <a name="configuration"></a>구성
 

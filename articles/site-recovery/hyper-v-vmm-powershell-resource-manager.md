@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130211"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086220"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
 
@@ -20,7 +20,7 @@ ms.locfileid: "86130211"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [시나리오 아키텍처 및 구성 요소](hyper-v-vmm-architecture.md)를 검토합니다.
 - 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-secondary-support-matrix.md) 검토 합니다.
@@ -47,8 +47,8 @@ Virtual Machine Manager를 다음과 같이 준비합니다.
 
 Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
 
-- PowerShell을 이미 사용하는 경우 0.8.10 이상의 버전으로 업그레이드합니다. PowerShell 설정에 대해 [자세히 알아봅니다](/powershell/azureps-cmdlets-docs).
-- PowerShell을 설정 및 구성한 후 [서비스 cmdlet](/powershell/azure/overview)을 검토합니다.
+- PowerShell을 이미 사용하는 경우 0.8.10 이상의 버전으로 업그레이드합니다. PowerShell 설정에 대해 [자세히 알아봅니다](/powershell/azure/).
+- PowerShell을 설정 및 구성한 후 [서비스 cmdlet](/powershell/azure/)을 검토합니다.
 - PowerShell에서 매개 변수 값, 입력 및 출력을 사용하는 방법에 대해 자세히 알아보려면 [시작](/powershell/azure/get-started-azureps) 가이드를 읽어보세요.
 
 ## <a name="set-up-a-subscription"></a>구독 설정

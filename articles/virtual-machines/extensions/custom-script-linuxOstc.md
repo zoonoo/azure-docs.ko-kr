@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Linux Vm에 대 한 사용자 지정 스크립트 실행
+title: Azure에서 Linux Vm의 사용자 지정 스크립트 확장 버전 1 (사용 되지 않음) 실행
 description: 사용자 지정 스크립트 확장 v1을 사용하여 Linux VM 구성 작업 자동화
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085710"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 

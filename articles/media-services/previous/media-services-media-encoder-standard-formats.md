@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34e3a3d1e0245180ce923fc3ec7353ab1a176be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712295"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086356"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 
@@ -29,7 +30,7 @@ ms.locfileid: "84712295"
 이 문서에는 미디어 인코더 표준에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다.
 
 ## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
-| 파일 형식(파일 확장명) | 지원됨 |
+| 파일 형식(파일 확장명) | 지원 여부 |
 | --- | --- |
 | FLV(H.264 및 AAC 코덱 포함)(.flv) |예 |
 | MXF(.mxf) |예 |
@@ -38,7 +39,7 @@ ms.locfileid: "84712295"
 | WMV(Windows Media Video)/ASF(.wmv, .asf) |예 |
 | AVI(압축되지 않은 8비트/10비트)(.avi) |예 |
 | MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv) |예 |
-| [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |예 |
+| [DVR-MS(Microsoft Digital Video Recording)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |예 |
 | Matroska/WebM(.mkv) |예 |
 | WAVE/WAV(.wav) |예 |
 | QuickTime(.mov) |예 |
@@ -58,7 +59,7 @@ ms.locfileid: "84712295"
 * 별도의 PCM 트랙으로 오디오가 전달되지만 파일 메타데이터에서 스테레오 또는 5.1에 대한 채널 매핑을 추론할 수 MXF, GXF 및 QuickTime 파일
 
 ## <a name="input-video-codecs"></a>입력 비디오 코덱
-| 입력 비디오 코덱 | 지원됨 |
+| 입력 비디오 코덱 | 지원 여부 |
 | --- | --- |
 | AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |
 | Avid DNxHD(MXF) |예 |
@@ -81,7 +82,7 @@ ms.locfileid: "84712295"
 | HEVC/H.265| 기본 및 기본 10(&#42;) 프로필<br/>기본 10 프로필 지원은 8비트 4:2:0 콘텐츠를 위해 고안되었습니다. |
 
 ## <a name="input-audio-codecs"></a>입력 오디오 코덱
-| 입력 오디오 코덱 | 지원됨 |
+| 입력 오디오 코덱 | 지원 여부 |
 | --- | --- |
 | AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예 |
 | MPEG Layer 2 |예 |
@@ -111,8 +112,7 @@ ms.locfileid: "84712295"
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md)
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
-

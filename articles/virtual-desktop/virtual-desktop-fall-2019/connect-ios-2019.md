@@ -1,5 +1,5 @@
 ---
-title: IOS에서 Windows 가상 데스크톱에 연결-Azure
+title: IOS에서 Windows 가상 데스크톱에 연결 2019-Azure
 description: IOS 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
 services: virtual-desktop
 author: heidilohr
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 10ad1e3fdcccce4eb0ce97806f67486ce5cc391b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26c031710c96c42b1d5236332e445992de87616e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087138"
 ---
 # <a name="connect-with-the-ios-client"></a>iOS 클라이언트와 연결
 

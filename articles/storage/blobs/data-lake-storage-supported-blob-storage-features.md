@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 15e6cf7adfda995148a75ec21b8d8e5d8a5cab2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c79bca86ba253217012abd24d509d365a076b183
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086033"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능
 
@@ -41,18 +41,22 @@ ms.locfileid: "85559065"
 |진단 로그|일반 공급|미리 보기 <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Azure Storage 분석 로깅](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |보관 액세스 계층|일반 공급|지원되지 않음|[Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)|
 |Azure Monitor 로그인|미리 보기 |아직 지원되지 않음|[Azure Storage 모니터링](../common/monitor-storage.md)|
-|스냅샷|미리 보기|아직 지원되지 않음|[Blob 스냅숏](snapshots-overview.md)|
-|정적 웹 사이트|미리 보기|아직 지원되지 않음|[Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)|
-|변경 불가능한 스토리지|미리 보기|아직 지원되지 않음|[비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](storage-blob-immutable-storage.md)|
+|스냅샷|미리 보기<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|아직 지원되지 않음|[Blob 스냅숏](snapshots-overview.md)|
+|정적 웹 사이트|미리 보기<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|아직 지원되지 않음|[Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)|
+|변경 불가능한 스토리지|미리 보기<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|아직 지원되지 않음|[비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](storage-blob-immutable-storage.md)|
 |수명 주기 관리 정책|미리 보기|아직 지원되지 않음|[Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)|
 |Blobfuse|미리 보기|아직 지원되지 않음|[blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)|
 |변경 피드|아직 지원되지 않음|아직 지원되지 않음|[Azure Blob Storage의 변경 피드 지원](storage-blob-change-feed.md)|
 |계정 장애 조치(failover)|아직 지원되지 않음|아직 지원되지 않음|[재해 복구 및 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Blob 컨테이너 ACL|아직 지원되지 않음|아직 지원되지 않음|[컨테이너 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|Blob 컨테이너 ACL|아직 지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|아직 지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[컨테이너 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |사용자 지정 도메인|아직 지원되지 않음|아직 지원되지 않음|[Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)|
 |일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Azure Storage Blob에 대한 일시 삭제](storage-blob-soft-delete.md)|
 
-<div id="diagnostic-logging"><sup>1</sup> 프리미엄 블록 blob 저장소 계정의 경우 Azure Portal를 사용 하 여 진단 로그 (클래식)를 사용 하도록 설정할 수 없습니다. PowerShell을 사용하여 활성화합니다.</div>
+<div id="diagnostic-logging"><sup>1</sup> 프리미엄 블록 blob 저장소 계정의 경우 Azure Portal를 사용 하 여 진단 로그 (클래식)를 사용 하도록 설정할 수 없습니다. PowerShell을 사용하여 활성화합니다.</div><br>
+
+<div id="blob-container-ACL"><sup>2</sup> 컨테이너의 루트 폴더에 대 한 acl을 설정할 수 있지만 컨테이너 자체는 설정할 수 없습니다.</div><br>
+
+<div id="preview-form"><sup>3</sup> Data Lake Storage Gen2를 사용 하 여 스냅숏, 변경할 수 없는 저장소 또는 정적 웹 사이트를 사용 하려면이 <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>양식을</a>완료 하 여 미리 보기에 등록 해야 합니다.  </div>
 
 ## <a name="see-also"></a>참고 항목
 

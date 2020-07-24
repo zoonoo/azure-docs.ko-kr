@@ -6,14 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884346"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086050"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
 
@@ -67,7 +68,7 @@ Azure Portal 템플릿을 사용 하 여 리소스를 배포 하는 방법에 �
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>새 버전을 트리거하기 위해 blob 수정
 
-다음 코드 예제에서는 .NET 버전 12 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 새 버전 만들기를 트리거하는 방법을 보여 줍니다. 이 예를 실행 하기 전에 저장소 계정에 대 한 버전 관리를 사용 하도록 설정 했는지 확인 합니다.
+다음 코드 예제에서는 .NET 용 Azure Storage 클라이언트 라이브러리 버전 [12.5.0-preview. 5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) 이상을 사용 하 여 새 버전 만들기를 트리거하는 방법을 보여 줍니다. 이 예를 실행 하기 전에 저장소 계정에 대 한 버전 관리를 사용 하도록 설정 했는지 확인 합니다.
 
 이 예에서는 블록 blob을 만든 다음 blob의 메타 데이터를 업데이트 합니다. Blob의 메타 데이터를 업데이트 하면 새 버전이 생성 됩니다. 이 예에서는 초기 버전 및 현재 버전을 검색 하 고 현재 버전에만 메타 데이터가 포함 되어 있음을 보여 줍니다.
 

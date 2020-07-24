@@ -7,13 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: 01c1a2b3f9455f19877f1b16b7fff5a7c2e77c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85323167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086611"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -38,7 +39,7 @@ Sap 커넥터는 [NCo (sap .Net connector) 라이브러리](https://support.sap.
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 따르려면 다음 항목이 필요합니다.
 
@@ -133,7 +134,7 @@ Sap 커넥터는 [NCo (sap .Net connector) 라이브러리](https://support.sap.
 
   * "계정 정보 및/또는 사용 권한을 확인 하 고 다시 시도 하십시오." 라는 오류 메시지와 함께 SAP 연결이 실패 하는 경우 어셈블리 파일이 잘못 된 위치에 있을 수 있습니다. 데이터 게이트웨이 설치 폴더에 어셈블리 파일을 복사 했는지 확인 합니다.
 
-    문제를 해결 하는 데 도움이 되도록 [.net 어셈블리 바인딩 로그 뷰어를 사용](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer)하 여 어셈블리 파일이 올바른 위치에 있는지 확인할 수 있습니다. 필요에 따라 SAP 클라이언트 라이브러리를 설치할 때 **전역 어셈블리 캐시 등록** 옵션을 선택할 수 있습니다.
+    문제를 해결 하는 데 도움이 되도록 [.net 어셈블리 바인딩 로그 뷰어를 사용](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer)하 여 어셈블리 파일이 올바른 위치에 있는지 확인할 수 있습니다. 필요에 따라 SAP 클라이언트 라이브러리를 설치할 때 **전역 어셈블리 캐시 등록** 옵션을 선택할 수 있습니다.
 
 <a name="sap-library-versions"></a>
 
@@ -186,7 +187,7 @@ SAP 클라이언트 라이브러리, .NET Framework, .NET 런타임 및 게이�
 Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 통해 시작되어야 합니다. 트리거가 실행될 때마다 Logic Apps 엔진에서 논리 앱 인스턴스를 만들고 앱의 워크플로를 실행하기 시작합니다.
 
 > [!NOTE]
-> 논리 앱이 SAP에서 IDoc 패킷을 수신 하는 경우 [요청 트리거](https://docs.microsoft.com/azure/connectors/connectors-native-reqres) 는 SAP의 WE60 idoc 설명서에 의해 생성 되는 "일반" XML 스키마를 지원 하지 않습니다. 그러나 논리 앱에서 SAP *로* 메시지를 보내는 시나리오에는 "일반" XML 스키마가 지원 됩니다. SAP의 IDoc XML에서 요청 트리거를 사용할 수 있지만, RFC를 통해 IDoc와는 함께 사용할 수 없습니다. 또는 XML을 필요한 형식으로 변환할 수 있습니다. 
+> 논리 앱이 SAP에서 IDoc 패킷을 수신 하는 경우 [요청 트리거](../connectors/connectors-native-reqres.md) 는 SAP의 WE60 idoc 설명서에 의해 생성 되는 "일반" XML 스키마를 지원 하지 않습니다. 그러나 논리 앱에서 SAP *로* 메시지를 보내는 시나리오에는 "일반" XML 스키마가 지원 됩니다. SAP의 IDoc XML에서 요청 트리거를 사용할 수 있지만, RFC를 통해 IDoc와는 함께 사용할 수 없습니다. 또는 XML을 필요한 형식으로 변환할 수 있습니다. 
 
 이 예제에서는 논리 앱에 *HTTP POST 요청*을 보낼 수 있도록 Azure의 엔드포인트를 사용하여 논리 앱을 만듭니다. 논리 앱이 이러한 HTTP 요청을 받으면 트리거가 실행되고 워크플로의 다음 단계를 실행합니다.
 
@@ -261,7 +262,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
       > [!TIP]
       > 식 편집기를 통해 **SAP 동작** 에 대 한 값을 제공 합니다. 이렇게 하면 여러 메시지 유형에 동일한 작업을 사용할 수 있습니다.
 
-      IDoc 작업에 대 한 자세한 내용은 [idoc 작업에 대 한 메시지 스키마](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조 하세요.
+      IDoc 작업에 대 한 자세한 내용은 [idoc 작업에 대 한 메시지 스키마](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조 하세요.
 
    1. **입력 메시지** 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시합니다. 해당 목록의 **HTTP 요청을 수신하는 경우** 아래에서 **본문** 필드를 선택합니다.
 
@@ -290,6 +291,29 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    ![SAP 작업 완료](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
 1. 논리 앱을 저장합니다.
+
+#### <a name="add-rfc-request-response"></a>RFC 요청 추가-응답
+
+> [!NOTE]
+> SAP 트리거는 tRFC를 통해 IDocs를 수신 하며,이는 응답 매개 변수가 디자인에 포함 되지 않습니다. 
+
+SAP ABAP에서 Logic Apps 하는 데 RFC (원격 함수 호출)를 사용 하 여 응답을 수신 해야 하는 경우 요청 및 응답 패턴을 만들어야 합니다. 논리 앱에서 IDocs를 수신 하려면 첫 번째 작업을 상태 코드 및 콘텐츠가 없는 [HTTP 요청](../connectors/connectors-native-reqres.md#add-a-response-action) 으로 설정 해야 합니다 `200 OK` . 이 권장 단계에서는 tRFC를 통해 SAP LUW 비동기 전송을 완료 합니다 .이를 통해 SAP CPIC 대화를 다시 사용할 수 있습니다. 그런 다음 추가 전송을 차단 하지 않고 수신 된 IDoc를 처리 하도록 논리 앱에 추가 작업을 추가할 수 있습니다.
+
+요청 및 응답 패턴을 구현 하려면 먼저 [ `generate schema` 명령을](#generate-schemas-for-artifacts-in-sap)사용 하 여 RFC 스키마를 검색 해야 합니다. 생성 된 스키마에는 두 개의 가능한 루트 노드가 있습니다. 
+
+1. SAP에서 수신 하는 호출인 요청 노드입니다.
+1. SAP에 회신 하는 응답 노드입니다.
+
+다음 예제에서는 RFC 모듈에서 요청 및 응답 패턴이 생성 됩니다 `STFC_CONNECTION` . 요청 XML이 구문 분석 되어 SAP 요청이 있는 노드 값을 추출 `<ECHOTEXT>` 합니다. 응답은 현재 타임 스탬프를 동적 값으로 삽입 합니다. 논리 앱에서 SAP로 RFC를 보낼 때 비슷한 응답을 받게 `STFC_CONNECTION` 됩니다.
+
+```http
+
+<STFC_CONNECTIONResponse xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <ECHOTEXT>@{first(xpath(xml(triggerBody()?['Content']), '/*[local-name()="STFC_CONNECTION"]/*[local-name()="REQUTEXT"]/text()'))}</ECHOTEXT>
+  <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
+
+
+```
 
 ### <a name="test-your-logic-app"></a>논리 앱 테스트
 
@@ -378,7 +402,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![여러 메시지를 받는 트리거 예제](media/logic-apps-using-sap-connector/example-trigger.png)
 
-   SAP 동작에 대 한 자세한 내용은 [IDoc 작업에 대 한 메시지 스키마](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations) 를 참조 하세요.
+   SAP 동작에 대 한 자세한 내용은 [IDoc 작업에 대 한 메시지 스키마](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations) 를 참조 하세요.
 
 1. 이제 SAP 시스템에서 메시지 수신을 시작할 수 있도록 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -421,11 +445,11 @@ SAP에서 논리 앱의 트리거로 IDoc 패킷을 보낼 수 없는 경우 SAP
 
 <a name="find-extended-error-logs"></a>
 
-#### <a name="find-extended-error-logs"></a>확장 오류 로그 찾기
+## <a name="find-extended-error-logs"></a>확장 오류 로그 찾기
 
 전체 오류 메시지의 경우 SAP 어댑터의 확장 로그를 확인 합니다. 
 
-6 월 2020 이상에서 온-프레미스 데이터 게이트웨이 릴리스의 경우 [앱 설정에서 게이트웨이 로그를 사용 하도록 설정할](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app)수 있습니다.
+6 월 2020 이상에서 온-프레미스 데이터 게이트웨이 릴리스의 경우 [앱 설정에서 게이트웨이 로그를 사용 하도록 설정할](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app)수 있습니다.
 
 4 월 2020 일 이전 버전의 온-프레미스 데이터 게이트웨이 릴리스에서는 기본적으로 로그가 사용 하지 않도록 설정 됩니다. 확장 로그를 검색 하려면 다음 단계를 수행 합니다.
 
@@ -480,7 +504,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 #### <a name="create-rfc-destination"></a>RFC 대상 만들기
 
-1. **RFC 연결 설정의 구성을** 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **S m 59** 트랜잭션 코드 (T 코드)를 사용 합니다.
+1. SAP 인터페이스에서 **RFC 연결 설정의 구성을** 열려면 **/n** 접두사와 함께 **s m 59** 트랜잭션 코드 (t-sql)를 사용 합니다.
 
 1. **Tcp/ip 연결**  >  **만들기**를 선택 합니다.
 
@@ -500,7 +524,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 #### <a name="create-abap-connection"></a>ABAP 연결 만들기
 
-1. **RFC 연결 설정의 구성을** 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **S m 59*** 트랜잭션 코드 (T 코드)를 사용 합니다.
+1. **RFC 연결 설정의 구성을** 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **S m 59*** 트랜잭션 코드 (t-sql)를 사용 합니다.
 
 1. **Abap 연결**  >  **만들기**를 선택 합니다.
 
@@ -512,7 +536,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 #### <a name="create-receiver-port"></a>받는 사람 포트 만들기
 
-1. **IDOC 처리 설정의 포트** 를 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **We21** 트랜잭션 코드 (T 코드)를 사용 합니다.
+1. **IDOC 처리 설정의 포트** 를 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **we21** 트랜잭션 코드 (t-sql)를 사용 합니다.
 
 1. **Ports**  >  **트랜잭션 RFC**  >  **만들기**포트를 선택 합니다.
 
@@ -524,7 +548,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 #### <a name="create-sender-port"></a>보낸 사람 포트 만들기
 
-1.  **IDOC 처리 설정의 포트** 를 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **We21** 트랜잭션 코드 (T 코드)를 사용 합니다.
+1.  **IDOC 처리 설정의 포트** 를 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **we21** 트랜잭션 코드 (t-sql)를 사용 합니다.
 
 1. **Ports**  >  **트랜잭션 RFC**  >  **만들기**포트를 선택 합니다.
 
@@ -552,7 +576,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 프로덕션 환경에서는 두 개의 파트너 프로필을 만들어야 합니다. 첫 번째 프로필은 조직 및 SAP 시스템용 발신자를 위한 것입니다. 두 번째 프로필은 논리 앱 인 받는 사람에 대 한 것입니다.
 
-1. **파트너 프로필** 설정을 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **We20** 트랜잭션 코드 (T 코드)를 사용 합니다.
+1. **파트너 프로필** 설정을 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **we20** 트랜잭션 코드 (t-sql)를 사용 합니다.
 
 1. **파트너 프로필**에서 **파트너 유형 LS**  >  **만들기**를 선택 합니다.
 
@@ -580,7 +604,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 #### <a name="test-sending-messages"></a>메시지 보내기 테스트
 
-1. **IDoc 처리 설정에 대 한 테스트 도구** 를 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **We19** 트랜잭션 코드 (T 코드)를 사용 합니다.
+1. **IDoc 처리 설정에 대 한 테스트 도구** 를 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **we19** 트랜잭션 코드 (t-sql)를 사용 합니다.
 
 1. **테스트용 템플릿**에서 **Via 메시지 유형**을 선택 하 고 메시지 유형 (예: **cremas**)을 입력 합니다. **만들기**를 선택합니다.
 
@@ -592,7 +616,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 1. 아웃 바운드 IDoc 처리를 시작 하려면 **계속**을 선택 합니다. 처리가 완료 되 면 **SAP 시스템 또는 외부 프로그램으로 전송 된 Idoc** 메시지가 표시 됩니다.
 
-1.  처리 오류를 확인 하려면 **/n** 접두사와 함께 **sm58** 트랜잭션 코드 (T 코드)를 사용 합니다.
+1.  처리 오류를 확인 하려면 **/n** 접두사와 함께 **sm58** 트랜잭션 코드 (t-sql)를 사용 합니다.
 
 ## <a name="receive-idoc-packets-from-sap"></a>SAP에서 IDoc 패킷 수신
 
@@ -602,7 +626,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-from-sap)합니다.
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ![논리 앱에 SAP 트리거 추가](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -632,12 +656,262 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 이 예제에서는 HTTP 요청으로 트리거할 수 있는 논리 앱을 사용합니다. 지정 된 IDoc 및 BAPI에 대 한 스키마를 생성 하기 위해 SAP action **스키마 생성** 은 sap 시스템으로 요청을 보냅니다.
 
-이 SAP 작업은 xml 문서 자체의 내용이 나 데이터가 아니라 XML 스키마를 반환 합니다. 응답에서 반환 된 스키마는 Azure Resource Manager 커넥터를 사용 하 여 통합 계정에 업로드 됩니다. 스키마에는 다음과 같은 부분이 포함 됩니다.
+이 SAP 작업은 xml 문서 자체의 내용이 나 데이터가 아니라 [xml 스키마](#sample-xml-schemas)를 반환 합니다. 응답에서 반환 된 스키마는 Azure Resource Manager 커넥터를 사용 하 여 통합 계정에 업로드 됩니다. 스키마에는 다음과 같은 부분이 포함 됩니다.
 
 * 요청 메시지의 구조입니다. 이 정보를 사용 하 여 BAPI `get` 목록을 구성할 수 있습니다.
 * 응답 메시지의 구조입니다. 이 정보를 사용 하 여 응답을 구문 분석 합니다. 
 
 요청 메시지를 보내려면 일반 SAP 작업에서 **sap로 메시지 보내기**또는 대상 **호출 bapi** 작업을 사용 합니다.
+
+### <a name="sample-xml-schemas"></a>샘플 XML 스키마
+
+샘플 문서를 만드는 데 사용할 XML 스키마를 생성 하는 방법에 대 한 자세한 내용은 다음 샘플을 참조 하세요. 다음 예에서는 다음을 포함 하 여 여러 유형의 페이로드를 사용 하는 방법을 보여 줍니다.
+
+* [RFC 요청](#xml-samples-for-rfc-requests)
+* [BAPI 요청](#xml-samples-for-bapi-requests)
+* [IDoc 요청](#xml-samples-for-idoc-requests)
+* 단순 또는 복잡 한 XML 스키마 데이터 형식
+* 테이블 매개 변수
+* 선택적 XML 동작
+
+선택적 XML 프롤로그를 사용 하 여 XML 스키마를 시작할 수 있습니다. SAP 커넥터는 XML 프롤로그를 사용 하거나 사용 하지 않고 작동 합니다.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8">
+
+```
+
+#### <a name="xml-samples-for-rfc-requests"></a>RFC 요청에 대 한 XML 샘플
+
+다음 예제는 기본적인 RFC 호출입니다. RFC 이름은 `STFC_CONNECTION` 입니다. 이 요청은 기본 네임 스페이스 `xmlns=` 를 사용 하지만와 같이 네임 스페이스 별칭을 할당 하 고 사용할 수 있습니다 `xmmlns:exampleAlias=` . 네임 스페이스 값은 Microsoft 서비스에 대 한 SAP의 모든 Rfc에 대 한 네임 스페이스입니다. 요청에는 간단한 입력 매개 변수가 `<REQUTEXT>` 있습니다.
+
+```xml
+
+<STFC_CONNECTION xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <REQUTEXT>exampleInput</REQUTEXT>
+</STFC_CONNECTION>
+
+```
+
+다음 예는 테이블 매개 변수가 있는 RFC 호출입니다. 이 예제 호출과 테스트 Rfc 그룹은 모든 SAP 시스템의 일부로 사용할 수 있습니다. 테이블 매개 변수의 이름은 `TCPICDAT` 입니다. 테이블 선 유형은 이며 `ABAPTEXT` 이 요소는 테이블의 각 행에 대해 반복 됩니다. 이 예제에는 라는 단일 줄이 포함 되어 있습니다 `LINE` . 테이블 매개 변수가 있는 요청에는 임의의 수의 필드가 포함 될 수 있습니다. 여기서 숫자는 양의 정수 (*n*)입니다. 
+
+```xml
+
+<STFC_WRITE_TO_TCPIC xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <RESTART_QNAME>exampleQName</RESTART_QNAME>
+    <TCPICDAT>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput1</LINE>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput2</LINE>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput3</LINE>
+      </ABAPTEXT>
+    </TCPICDAT>
+</STFC_WRITE_TO_TCPIC>
+
+```
+
+다음 예는 익명 필드가 있는 테이블 매개 변수가 있는 RFC 호출입니다. 익명 필드는 필드에 이름이 할당 되지 않은 경우입니다. 복합 형식은 선언에서 현재 노드와 모든 자식 요소에 대 한 새 기본값을 설정 하는 별도의 네임 스페이스에서 선언 됩니다. `x002F` */* 이 기호는 SAP 필드 이름에 예약 되어 있으므로이 예제에서는 16 진수 코드를 기호에 대 한 이스케이프 문자로 사용 합니다.
+
+```xml
+
+<RFC_XML_TEST_1 xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <IM_XML_TABLE>
+    <RFC_XMLCNT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+      <_x002F_AnonymousField>exampleFieldInput</_x002F_AnonymousField>
+    </RFC_XMLCNT>
+  </IM_XML_TABLE>
+</RFC_XML_TEST_1>
+
+```
+
+다음 예제에서는 네임 스페이스에 대 한 접두사를 포함 합니다. 모든 접두사를 한 번에 선언 하거나 모든 접두사를 노드의 특성으로 선언할 수 있습니다. RFC 네임 스페이스 별칭은 `ns0` 기본 형식에 대 한 루트 및 매개 변수로 사용 됩니다. 복합 형식은 별칭을 사용 하 여 `ns3` 일반 rfc 네임 스페이스 대신 별칭을 사용 하는 rfc 형식의 다른 네임 스페이스에 선언 됩니다 `ns0` .
+
+```xml
+
+<ns0:BBP_RFC_READ_TABLE xmlns:ns0="http://Microsoft.LobServices.Sap/2007/03/Rfc/" xmlns:ns3="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/">
+  <ns0:DELIMITER>0</ns0:DELIMITER>
+  <ns0:QUERY_TABLE>KNA1</ns0:QUERY_TABLE>
+  <ns0:ROWCOUNT>250</ns0:ROWCOUNT>
+  <ns0:ROWSKIPS>0</ns0:ROWSKIPS>
+  <ns0:FIELDS>
+    <ns3:RFC_DB_FLD>
+      <ns3:FIELDNAME>KUNNR</ns3:FIELDNAME>
+    </ns3:RFC_DB_FLD>
+  </ns0:FIELDS>
+</ns0:BBP_RFC_READ_TABLE>
+
+```
+
+#### <a name="xml-samples-for-bapi-requests"></a>BAPI 요청에 대 한 XML 샘플
+
+> [!TIP]
+> Logic Apps designer를 사용 하 여 BAPI 요청을 편집 하는 경우 다음 검색 함수를 사용할 수 있습니다. 
+> 
+> * 디자이너에서 개체를 선택 하 여 사용 가능한 메서드의 드롭다운 메뉴를 표시 합니다.
+> * BAPI API 호출에서 제공 되는 검색 가능 목록을 사용 하 여 키워드별로 비즈니스 개체 유형을 필터링 합니다.
+
+> [!NOTE]
+> SAP `RPY_BOR_TREE_INIT` 는 입력 필터가 없는 문제를 Logic Apps 하는 RFC에 대 한 응답으로 비즈니스 개체를 외부 시스템에서 사용할 수 있도록 합니다. Logic Apps 출력 테이블을 검사 `BOR_TREE` 합니다. `SHORT_TEXT`필드는 비즈니스 개체의 이름에 사용 됩니다. 출력 테이블에서 SAP에 의해 반환 되지 않은 비즈니스 개체는 Logic Apps에서 액세스할 수 없습니다.
+> 사용자 지정 비즈니스 개체를 사용 하는 경우 SAP에서 이러한 비즈니스 개체를 게시 하 고 릴리스 해야 합니다. 그렇지 않으면 SAP는 출력 테이블에 사용자 지정 비즈니스 개체를 나열 하지 않습니다 `BOR_TREE` . SAP에서 비즈니스 개체를 노출할 때까지 Logic Apps에서 사용자 지정 비즈니스 개체에 액세스할 수 없습니다. 
+
+다음 예제에서는 BAPI 메서드를 사용 하 여 뱅크 목록을 가져옵니다 `GETLIST` . 이 샘플에는 bank의 비즈니스 개체가 포함 되어 `BUS1011` 있습니다. 
+
+```xml
+
+<GETLIST xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_CTRY>US</BANK_CTRY>
+  <MAX_ROWS>10</MAX_ROWS>
+</GETLIST>
+
+```
+
+다음 예제에서는 메서드를 사용 하 여 bank 개체를 만듭니다 `CREATE` . 이 예제에서는 이전 예제와 동일한 비즈니스 개체를 사용 `BUS1011` 합니다. 메서드를 사용 하 여 `CREATE` bank를 만드는 경우이 메서드는 기본적으로 커밋되지 않으므로 변경 내용을 커밋해야 합니다.
+
+> [!TIP]
+> XML 문서가 SAP 시스템에서 구성 된 유효성 검사 규칙을 따르는지 확인 합니다. 예를 들어이 샘플 문서에서 bank 키 ()는 `<BANK_KEY>` 미국의 ABA 수 라고도 하는 은행 라우팅 번호 여야 합니다.
+
+```xml
+
+<CREATE xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_ADDRESS>
+    <BANK_NAME xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleBankName</BANK_NAME>
+    <REGION xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleRegionName</REGION>
+    <STREET xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleStreetAddress</STREET>
+    <CITY xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">Redmond</CITY>
+  </BANK_ADDRESS>
+  <BANK_COUNTRY>US</BANK_COUNTRY>
+  <BANK_KEY>123456789</BANK_KEY>
+</CREATE>
+
+```
+
+다음 예에서는에 대 한 값을 사용 하 여 은행 라우팅 번호를 사용 하는 은행에 대 한 세부 정보를 가져옵니다 `<BANK_KEY>` . 
+
+```xml
+
+<GETDETAIL xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_COUNTRY>US</BANK_COUNTRY>
+  <BANK_KEY>123456789</BANK_KEY>
+</GETDETAIL>
+
+```
+
+#### <a name="xml-samples-for-idoc-requests"></a>IDoc 요청에 대 한 XML 샘플
+
+일반 SAP IDoc XML 스키마를 생성 하려면 **Sap Logon** 응용 프로그램 및 T-코드를 사용 `WE-60` 합니다. GUI를 통해 SAP 설명서에 액세스 하 고 IDoc 유형 및 확장을 위해 XSD 형식으로 XML 스키마를 생성 합니다. 일반적인 SAP 형식 및 페이로드 및 기본 제공 대화 상자에 대 한 설명은 [sap 설명서](https://help.sap.com/viewer/index)를 참조 하세요.
+
+이 예제에서는 루트 노드 및 네임 스페이스를 선언 합니다. 샘플 코드의 URI는 `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send` 다음 구성을 선언 합니다.
+
+* `/IDoc`모든 IDocs에 대 한 루트 메모입니다.
+* `/3`공통 세그먼트 정의의 레코드 형식 버전입니다.
+* `/ORDERS05`은 (는) IDoc 유형입니다.
+* `//`는 IDoc 확장이 없기 때문에 빈 세그먼트입니다.
+* `/700`SAP 버전
+* `/Send`SAP로 정보를 보내는 작업입니다.
+
+```xml
+
+<ns0:Send xmlns:ns0="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send" xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization" xmlns:ns1="http://Microsoft.LobServices.Sap/2007/03/Types/Idoc/Common/" xmlns:ns2="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700">
+  <ns0:idocData>
+
+```
+
+노드를 반복 `idocData` 하 여 단일 호출로 IDocs 일괄 처리를 보낼 수 있습니다. 아래 예제에는 하나의 컨트롤 레코드, `EDI_DC40` 및 여러 데이터 레코드가 있습니다.
+
+```xml
+
+<...>
+  <ns0:idocData>
+    <ns2:EDI_DC40>
+      <ns1:TABNAM>EDI_DC40</ns1:TABNAM>
+<...>
+      <ns1:ARCKEY>Cor1908207-5</ns1:ARCKEY>
+    </ns2:EDI_DC40>
+    <ns2:E2EDK01005>
+      <ns2:DATAHEADERCOLUMN_SEGNAM>E23DK01005</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:CURCY>USD</ns2:CURCY>
+    </ns2:E2EDK01005>
+    <ns2:E2EDK03>
+<...>
+  </ns0:idocData>
+
+```
+
+다음 예제는 접두사를 사용 하는 샘플 IDoc 컨트롤 레코드입니다 `EDI_DC` . SAP 설치 및 IDoc 유형과 일치 하도록 값을 업데이트 해야 합니다. 예를 들어 IDoc 클라이언트 코드는이 아닐 수 있습니다 `800` . Sap 팀에 문의 하 여 SAP 설치에 올바른 값을 사용 하 고 있는지 확인 합니다.
+
+```xml
+
+<ns2:EDI_DC40>
+  <ns:TABNAM>EDI_DC40</ns1:TABNAM>
+  <ns:MANDT>800</ns1:MANDT>
+  <ns:DIRECT>2</ns1:DIRECT>
+  <ns:IDOCTYP>ORDERS05</ns1:IDOCTYP>
+  <ns:CIMTYP></ns1:CIMTYP>
+  <ns:MESTYP>ORDERS</ns1:MESTYP>
+  <ns:STD>X</ns1:STD>
+  <ns:STDVRS>004010</ns1:STDVRS>
+  <ns:STDMES></ns1:STDMES>
+  <ns:SNDPOR>SAPENI</ns1:SNDPOR>
+  <ns:SNDPRT>LS</ns1:SNDPRT>
+  <ns:SNDPFC>AG</ns1:SNDPFC>
+  <ns:SNDPRN>ABAP1PXP1</ns1:SNDPRN>
+  <ns:SNDLAD></ns1:SNDLAD>
+  <ns:RCVPOR>BTSFILE</ns1:RCVPOR>
+  <ns:RCVPRT>LI</ns1:RCVPRT>
+
+```
+
+다음 예제는 일반 세그먼트가 있는 샘플 데이터 레코드입니다. 이 예에서는 SAP 날짜 형식을 사용 합니다. 강력한 형식의 문서는와 같은 네이티브 XML 날짜 형식을 사용할 수 있습니다 `2020-12-31 23:59:59` .
+
+```xml
+
+<ns2:E2EDK01005>
+  <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDK01005</ns2:DATAHEADERCOLUMN_SEGNAM>
+    <ns2:CURCY>USD</ns2:CURCY>
+    <ns2:BSART>OR</ns2:BSART>
+    <ns2:BELNR>1908207-5</ns2:BELNR>
+    <ns2:ABLAD>CC</ns2:ABLAD>
+  </ns2>
+  <ns2:E2EDK03>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDK03</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:IDDAT>002</ns2:IDDAT>
+      <ns2:DATUM>20160611</ns2:DATUM>
+  </ns2:E2EDK03>
+
+```
+
+다음 예는 그룹화 된 세그먼트가 있는 데이터 레코드입니다. 여기에는 그룹 부모 노드 및 `E2EDKT1002GRP` 및를 포함 한 여러 자식 노드가 포함 됩니다 `E2EDKT1002` `E2EDKT2001` . 
+
+```xml
+
+<ns2:E2EDKT1002GRP>
+  <ns2:E2EDKT1002>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <NS2:TDID>ZONE</ns2:TDID>
+  </ns2:E2EDKT1002>
+  <ns2:E2EDKT2001>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:TDLINE>CRSD</ns2:TDLINE>
+  </ns2:E2EDKT2001>
+</ns2:E2EDKT1002GRP>
+
+```
+
+TRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. `tid`SAP CONNECTOR API에서 [Send idoc 작업](https://docs.microsoft.com/connectors/sap/#send-idoc) 을 사용 하 여이 트랜잭션 식별자를 설정할 수 있습니다.
+
+다음 예는 트랜잭션 식별자 또는를 설정 하는 다른 방법입니다 `tid` . 이 예에서는 마지막 데이터 레코드 세그먼트 노드와 IDoc 데이터 노드가 닫혀 있습니다. 그런 다음 GUID를 `guid` tRFC 식별자로 사용 하 여 중복 항목을 검색 합니다. 
+
+```xml
+
+    </E2STZUM002GRP>
+  </idocData>
+  <guid>8820ea40-5825-4b2f-ac3c-b83adc34321c</guid>
+</Send>
+
+```
 
 ### <a name="add-an-http-request-trigger"></a>HTTP 요청 트리거 추가
 
@@ -708,7 +982,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
    ![두 개의 항목 표시](media/logic-apps-using-sap-connector/schema-generator-example.png)
 
-   SAP 동작에 대 한 자세한 내용은 [IDoc 작업에 대 한 메시지 스키마](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조 하세요.
+   SAP 동작에 대 한 자세한 내용은 [IDoc 작업에 대 한 메시지 스키마](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)를 참조 하세요.
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -777,7 +1051,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 들면 `sapsnc.dll` 또는 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll` 입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |
@@ -867,11 +1141,36 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
    ![IDOC 동작 속성 보내기](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
 
-1. 트랜잭션 ID를 명시적으로 확인 하려면 **트랜잭션 Id 확인** 작업을 추가 합니다. 동적 콘텐츠 목록이 표시 되도록 **트랜잭션 ID** 상자 내부를 클릭 합니다. 해당 목록에서 **SEND IDOC** 동작에서 반환 된 **트랜잭션 ID** 값을 선택 합니다.
+1. 트랜잭션 ID를 명시적으로 확인 하려면 **트랜잭션 Id 확인** 작업을 추가 하 여 중복 된 [IDOCS를 SAP로 보내지 않도록](#avoid-sending-duplicate-idocs)합니다. 동적 콘텐츠 목록이 표시 되도록 **트랜잭션 ID** 상자 내부를 클릭 합니다. 해당 목록에서 **SEND IDOC** 동작에서 반환 된 **트랜잭션 ID** 값을 선택 합니다.
 
    ![트랜잭션 ID 작업 확인](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
 
    이 단계가 실행 된 후에는 SAP 커넥터 쪽 및 SAP 시스템 쪽에서 현재 트랜잭션이 완료로 표시 됩니다.
+
+#### <a name="avoid-sending-duplicate-idocs"></a>중복 된 IDocs를 보내지 않습니다.
+
+논리 앱에서 SAP로 중복 된 IDocs를 전송 하는 데 문제가 발생 하는 경우 다음 단계를 수행 하 여 Idocs 트랜잭션 식별자로 사용할 문자열 변수를 만듭니다. 이 트랜잭션 식별자를 만들면 일시적인 중단, 네트워크 문제 또는 승인 손실 등의 문제가 발생 하는 경우 네트워크 전송이 중복 되지 않습니다.
+
+> [!NOTE]
+> SAP 시스템은 지정 된 시간 이후 트랜잭션 식별자를 잊어버리거나 기본적으로 24 시간을 제거 합니다. 따라서 ID 또는 GUID를 알 수 없는 경우 SAP는 트랜잭션 식별자를 확인 하지 못합니다.
+> 트랜잭션 식별자에 대 한 확인이 실패 하는 경우이 오류는 sap 시스템의 통신가 확인을 승인 하기 전에 실패 했음을 나타냅니다.
+
+1. Logic Apps 디자이너에서 작업 **Initialize 변수** 를 논리 앱에 추가 합니다. 
+1. Action **Initialize 변수에**대 한 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
+    1. **이름**에 변수의 이름을 입력 합니다. 예: `IDOCtransferID`.
+    2. **유형**에 대해 **문자열** 을 변수 유형으로 선택 합니다.
+    3. **값**에 대해 텍스트 상자에 **초기 값 입력** 을 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **식** 탭을 선택 합니다. 함수 목록에서 함수를 입력 합니다 `guid()` . 그런 다음 **확인** 을 선택 하 여 변경 내용을 저장 합니다. 이제 **값** 필드가 GUID를 생성 하는 `guid()` 함수로 설정 됩니다.
+1. **변수 초기화** 작업 후에 **Send idoc**작업을 추가 합니다.
+1. 작업 **송신 IDOC**에 대 한 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
+    1. **Idoc 유형에** 서 메시지 유형을 선택 하 고, **입력 idoc 메시지**에 대해 메시지를 지정 합니다.
+    1. **Sap 릴리스 버전**의 경우 sap 구성 값을 선택 합니다.
+    1. **레코드 종류 버전**에서 SAP 구성 값을 선택 합니다.
+    1. **TID 확인**에 대해 **아니요**를 선택 합니다.
+    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID**추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예: `IDOCtransferID`.
+1. Action **SEND IDOC**의 제목 표시줄에서 **...**  >  를 선택 합니다. **설정**. **다시 시도 정책**에서 **없음**  >  **완료**를 선택 합니다.
+1. **IDOC**작업을 보낸 후 **트랜잭션 ID 확인**작업을 추가 합니다.
+1. **트랜잭션 ID 확인**작업의 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
+    1. **트랜잭션 ID**에 변수 이름을 다시 입력 합니다. 예: `IDOCtransferID`.
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
@@ -883,7 +1182,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sap/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/sap/)를 참조 하세요.
 
 > [!NOTE]
 > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.

@@ -1,5 +1,5 @@
 ---
-title: 서비스 연결 문제 해결 Windows Virtual Desktop - Azure
+title: 서비스 연결 문제 해결 Windows 가상 데스크톱 연결 2019-Azure
 description: Windows Virtual Desktop 테넌트 환경에서 클라이언트 연결을 설정할 때 발생하는 문제를 해결하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 356506224a0273eeea65f0f901fbc79c338498d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ad5e740a2874d398f3947fe755024bedc897ec73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085795"
 ---
-# <a name="windows-virtual-desktop-service-connections"></a>Windows Virtual Desktop 서비스 연결
+# <a name="troubleshoot-windows-virtual-desktop-service-connections"></a>Windows 가상 데스크톱 서비스 연결 문제 해결
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-service-connection.md)를 참조하세요.

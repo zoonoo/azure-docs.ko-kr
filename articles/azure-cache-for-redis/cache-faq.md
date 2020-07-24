@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 89a87e1658f413b0a8cd757525450de30277d943
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086883"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -19,7 +19,6 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다.
 
-* 이 FAQ의 끝에 있는 의견란에 질문을 게시하면 Azure 캐시 팀 및 다른 커뮤니티 구성원과 이 문서에 대해 의견을 교환할 수 있습니다.
 * [Azure 캐시에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-cache-redis.html)에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원이 참여할 수 있습니다.
 * 기능을 요청하려면 [Azure Cache for Redis 사용자 의견](https://feedback.azure.com/forums/169382-cache)에 요청 및 아이디어를 제출하면 됩니다.
 * [Azure 캐시 외부 피드백](mailto:azurecache@microsoft.com)에서 전자 메일을 보낼 수도 있습니다.
@@ -43,7 +42,7 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 * [어떤 영역에 내 캐시를 배치해야 하나요?](#in-what-region-should-i-locate-my-cache)
 * [내 캐시 된 데이터는 어디에 있습니까?](#where-do-my-cached-data-reside)
 * [Azure Cache for Redis에 대한 요금은 어떻게 청구되나요?](#how-am-i-billed-for-azure-cache-for-redis)
-* [Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure 독일에서 Azure Cache for Redis를 사용할 수 있나요?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+* [Azure Government 클라우드, Azure 중국 21Vianet 클라우드 또는 Microsoft Azure 독일와 함께 Redis 용 Azure Cache를 사용할 수 있나요?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-21vianet-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>개발 FAQ
 * [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -73,10 +72,10 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 * [내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?](#why-was-my-client-disconnected-from-the-cache)
 
 ## <a name="prior-cache-offering-faqs"></a>이전 캐시 제공 FAQ
-* [내게 적합한 Azure 캐시 기능](#which-azure-cache-offering-is-right-for-me)
+* [내게 적합 한 Azure 캐시 제품은 무엇 인가요?](#which-azure-cache-offerings-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>Azure Cache for Redis란?
-Azure Cache for Redis는 널리 사용되는 오픈 소스 소프트웨어 [Redis](https://redis.io/)를 기반으로 합니다. Microsoft에서 관리하여 Azure 내의 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 Azure Cache for Redis에 대한 액세스를 제공합니다. 자세한 개요는 Azure.com의 [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) 제품 페이지를 참조하세요.
+[Redis 용 Azure Cache](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) 는 인기 있는 오픈 소스 software [Redis](https://redis.io/)를 기반으로 합니다. Microsoft에서 관리하여 Azure 내의 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 Azure Cache for Redis에 대한 액세스를 제공합니다. 자세한 개요는 [Redis 용 Azure 캐시](https://azure.microsoft.com/services/cache/) 제품 페이지를 참조 하세요.
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Azure Cache for Redis를 시작하려면 어떻게 해야 하나요?
 Azure Cache for Redis는 몇 가지 방법으로 시작할 수 있습니다.
@@ -160,9 +159,9 @@ Redis 용 Azure Cache는 캐시를 호스팅하는 계층에 따라 VM 또는 vm
 <a name="cache-billing"></a>
 
 ### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 요금은 어떻게 청구되나요?
-Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/details/cache/)서 책정합니다. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
+Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/details/cache/)서 책정합니다. 가격 책정 페이지에는 시간별 및 월별 요금이 표시 됩니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
 
-### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure 독일에서 Azure Cache for Redis를 사용할 수 있나요?
+### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-21vianet-cloud-or-microsoft-azure-germany"></a>Azure Government 클라우드, Azure 중국 21Vianet 클라우드 또는 Microsoft Azure 독일와 함께 Redis 용 Azure Cache를 사용할 수 있나요?
 예, Azure Cache for Redis는 Azure Government 클라우드, Azure 중국 21Vianet 클라우드 및 Microsoft Azure 독일에서 사용할 수 있습니다. Azure 퍼블릭 클라우드와 비교할 때 이러한 클라우드에서 Azure Cache for Redis에 액세스하고 관리하기 위한 URL은 다릅니다.
 
 | 클라우드   | Redis에 대한 Dns 접미사            |
@@ -260,7 +259,7 @@ public static ConnectionMultiplexer Connection
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>다른 일부 Azure 서비스와 달리 Azure Cache for Redis에는 MSDN 클래스 라이브러리 참조가 왜 없나요?
-Microsoft Azure Cache for Redis는 많이 사용되는 오픈 소스 Azure Cache for Redis를 기반으로 합니다. 여러 프로그래밍 언어를 위한 다양한 [Redis 클라이언트](https://redis.io/clients)에서 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](https://redis.io/commands)을 사용하여 Azure Cache for Redis 인스턴스를 호출하는 자체 API가 있습니다.
+Redis에 대 한 캐시 Microsoft Azure는 인기 있는 오픈 소스 메모리 내 데이터 저장소 Redis를 기반으로 합니다. 여러 프로그래밍 언어를 위한 다양한 [Redis 클라이언트](https://redis.io/clients)에서 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](https://redis.io/commands)을 사용하여 Azure Cache for Redis 인스턴스를 호출하는 자체 API가 있습니다.
 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없고, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어와 캐시 클라이언트를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 주는 몇 가지 자습서가 있습니다. 이 자습서에 액세스하려면 [Azure Cache for Redis 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)과 목차에 포함된 관련 문서를 참조하세요.
 
@@ -467,9 +466,9 @@ Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.az
   * Azure에서 캐시가 배포된 인스턴스에 패치를 적용하고 있었습니다.
     * 이 작업은 Redis 서버 업데이트 또는 일반적인 VM 유지 관리를 위한 것일 수 있습니다.
 
-### <a name="which-azure-cache-offering-is-right-for-me"></a>내게 적합한 Azure 캐시 기능은?
+### <a name="which-azure-cache-offerings-is-right-for-me"></a>내게 적합 한 Azure 캐시 제품은 무엇 인가요?
 > [!IMPORTANT]
-> 작년 [공지](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure Managed Cache Service 및 Azure In-Role Cache Service가 2016년 11월 30일에 **중지되었습니다**. [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)를 사용하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Managed Cache Service에서 Azure Cache for Redis로 마이그레이션](cache-migrate-to-redis.md)을 참조하세요.
+> 2016 [공지 사항](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 azure Managed Cache Service 및 azure In-Role Cache 서비스는 2016 30 년 11 월 30 일에 사용이 **중지 되었습니다** . [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)를 사용하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Managed Cache Service에서 Azure Cache for Redis로 마이그레이션](cache-migrate-to-redis.md)을 참조하세요.
 >
 >
 
