@@ -1,19 +1,19 @@
 ---
 title: 적절 한 가격 책정 계층 선택 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure 맵에서 제공 되는 가격 책정 계층에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: a8bf7ff9bacd4fe84ee5b64d0aed5cb271ce06f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b32706822ff16780388f4acb5d59bf3d91e6d91
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335671"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133336"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Azure Maps에서 적절한 가격 책정 계층 선택
 
@@ -33,7 +33,7 @@ S0 및 S1 가격 책정 계층이 처리할 수 있는 데이터 처리량은 �
 | 위성 이미지                       |                     | ✓        |
 | 검색                                  | ✓                    | ✓        |
 | 일괄 검색                            |                     | ✓        |
-| 경로                                   | ✓                    |✓        |
+| 라우팅                                   | ✓                    |✓        |
 | 일괄 처리 라우팅                            |                    | ✓        |
 | 행렬 라우팅                          |                     | ✓        |
 | 경로 범위 (등시성)                |                     | ✓        |

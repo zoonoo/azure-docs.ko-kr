@@ -2,19 +2,20 @@
 title: 인증 방법
 titleSuffix: Azure Maps
 description: 이 문서에서는 Azure Active Directory 및 공유 키 인증에 대해 알아봅니다. 둘 다 Microsoft Azure Maps 서비스에 사용 됩니다. Azure Maps 구독 키를 가져오는 방법에 대해 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e270a9a1a773442a4d1d28d9bbfe37639cac7c65
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987547"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133387"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -58,7 +59,7 @@ Azure [리소스에 대 한 관리 id](https://docs.microsoft.com/azure/active-d
 
 응용 프로그램이 액세스 토큰을 받은 후 SDK 및/또는 응용 프로그램은 다른 REST API HTTP 헤더 외에도 다음과 같은 필수 HTTP 헤더 집합을 사용 하 여 HTTPS 요청을 보냅니다.
 
-| 헤더 이름    | 값               |
+| 헤더 이름    | Value               |
 | :------------- | :------------------ |
 | x-ms-client-id | 30d7cc….9f55        |
 | 권한 부여  | Bearer eyJ0e….HNIVN |

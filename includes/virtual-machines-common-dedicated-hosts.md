@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902648"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133875"
 ---
 ## <a name="limitations"></a>제한 사항
 
@@ -79,7 +79,15 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 
 ## <a name="quotas"></a>할당량
 
-전용 호스트는 지역 당 기본 할당량 제한인 3000 vCPUs가 있습니다. 그러나 배포할 수 있는 호스트 수는 호스트에 사용 되는 VM 크기 제품군의 할당량에 의해 제한 됩니다. 예를 들어 **종 량** 제 구독은 미국 동부 지역에서 Dsv3 크기 계열에 대해 10 개의 vcpus 할당량을 사용할 수 있습니다. 이 경우 전용 호스트를 배포 하기 전에 최소 64 vCPUs로 할당량 증가를 요청 해야 합니다. 필요한 경우 요청을 파일 하려면 오른쪽 위 모서리에서 **증가 요청** 단추를 선택 합니다.
+전용 호스트를 배포할 때 사용 되는 할당량에는 두 가지 유형이 있습니다.
+
+1. 전용 호스트 vCPU 할당량입니다. 기본 할당량 제한은 지역 당 3000 vCPUs입니다.
+1. VM 크기 패밀리 할당량입니다. 예를 들어 **종 량** 제 구독은 미국 동부 지역에서 Dsv3 크기 계열에 대해 10 개의 vcpus 할당량을 사용할 수 있습니다. Dsv3 전용 호스트를 배포 하려면 전용 호스트를 배포 하기 전에 최소 64 vCPUs에 대 한 할당량 증가를 요청 해야 합니다. 
+
+할당량 증가를 요청 하려면 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 요청을 만듭니다.
+
+전용 호스트를 프로 비전 하면 전용 호스트 vCPU와 VM 패밀리 vCPU 할당량이 모두 사용 되지만 지역 vCPU는 사용 되지 않습니다.
+
 
 ![포털에서 사용 및 할당량 페이지의 스크린샷](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
@@ -113,7 +121,7 @@ SKU는 호스트에 대해 정의 되며 VM 크기 계열과 유형을 나타냅
 
 Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트를 쿼리할 때 반환 되는 상태는 다음과 같습니다.
 
-| 성능 상태   | Description       |
+| 성능 상태   | 설명       |
 |----------|----------------|
 | 호스트 사용 가능     | 호스트와 관련 하 여 알려진 문제가 없습니다.   |
 | 확인 중인 호스트  | Microsoft에서 찾고 있는 호스트에 몇 가지 문제가 있습니다. 이는 Azure에서 식별 된 문제의 범위 및 근본 원인을 파악 하는 데 필요한 전환 상태입니다. 호스트에서 실행 중인 가상 컴퓨터에 영향을 줄 수 있습니다. |

@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833258"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133115"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스
 
@@ -26,7 +26,7 @@ Azure Storage 리소스 공급자를 사용 하 여 저장소 계정 만들기 �
 
 Microsoft는 Azure Storage 리소스를 사용 하기 위한 두 가지 REST Api를 제공 합니다. 이러한 Api는 Azure Storage에 대해 수행할 수 있는 모든 작업의 기본을 형성 합니다. Azure Storage REST API를 사용 하 여 blob, 큐, 파일 및 테이블 데이터를 비롯 하 여 저장소 계정에서 데이터를 사용할 수 있습니다. Azure Storage 리소스 공급자 REST API를 사용 하 여 저장소 계정 및 관련 리소스를 사용할 수 있습니다.
 
-Blob 데이터를 읽거나 쓰는 요청에는 관리 작업을 수행 하는 요청과 다른 권한이 필요 합니다. RBAC는 두 종류의 리소스에 대 한 권한을 보다 세부적으로 제어할 수 있도록 합니다. 보안 주체에 RBAC 역할을 할당 하는 경우 해당 보안 주체에 부여 되는 사용 권한을 알고 있어야 합니다. 각 기본 제공 RBAC 역할에 연결 된 작업을 설명 하는 자세한 내용은 [Azure 리소스에 대 한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+Blob 데이터를 읽거나 쓰는 요청에는 관리 작업을 수행 하는 요청과 다른 권한이 필요 합니다. RBAC는 두 종류의 리소스에 대 한 권한을 보다 세부적으로 제어할 수 있도록 합니다. 보안 주체에 RBAC 역할을 할당 하는 경우 해당 보안 주체에 부여 되는 사용 권한을 알고 있어야 합니다. 각 기본 제공 RBAC 역할에 연결 된 작업을 설명 하는 자세한 참조는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 Azure Storage는 Azure AD를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여 합니다. Blob 및 큐 데이터 작업의 RBAC 역할에 대 한 자세한 내용은 [Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
 
@@ -34,7 +34,7 @@ Azure Storage는 Azure AD를 사용 하 여 Blob 및 큐 저장소에 대 한 �
 
 모든 Azure 구독에는 사용자, 그룹 및 응용 프로그램을 관리 하는 Azure Active Directory 연결 되어 있습니다. 사용자, 그룹 또는 응용 프로그램을 [Microsoft id 플랫폼](/azure/active-directory/develop/)의 컨텍스트에서 보안 주체 라고도 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Active Directory에 정의 된 보안 주체에 대 한 구독의 리소스에 대 한 액세스 권한을 부여할 수 있습니다.
 
-보안 주체에 RBAC 역할을 할당 하는 경우에는 해당 역할에서 부여 된 사용 권한이 적용 되는 범위도 표시 됩니다. 관리 작업의 경우 구독, 리소스 그룹 또는 저장소 계정의 수준에서 역할을 할당할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs)또는 [Azure Storage 리소스 공급자 REST API](/rest/api/storagerp)를 사용 하 여 보안 주체에 RBAC 역할을 할당할 수 있습니다.
+보안 주체에 RBAC 역할을 할당 하는 경우에는 해당 역할에서 부여 된 사용 권한이 적용 되는 범위도 표시 됩니다. 관리 작업의 경우 구독, 리소스 그룹 또는 저장소 계정의 수준에서 역할을 할당할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/)또는 [Azure Storage 리소스 공급자 REST API](/rest/api/storagerp)를 사용 하 여 보안 주체에 RBAC 역할을 할당할 수 있습니다.
 
 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md) 을 참조 하세요. [클래식 구독 관리자 역할, AZURE RBAC 역할 및 AZURE AD 관리자 역할이](../../role-based-access-control/rbac-and-directory-admin-roles.md)있습니다.
 
@@ -57,7 +57,7 @@ Azure는 관리 작업을 호출 하는 권한을 부여 하는 기본 제공 �
 
 ### <a name="custom-roles-for-management-operations"></a>관리 작업에 대 한 사용자 지정 역할
 
-또한 Azure는 관리 리소스에 액세스 하기 위한 사용자 지정 RBAC 역할을 정의할 수 있도록 지원 합니다. 사용자 지정 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조 하세요.
+또한 azure는 관리 리소스에 액세스 하기 위해 Azure 사용자 지정 역할을 정의 하도록 지원 합니다. 사용자 지정 역할에 대 한 자세한 내용은 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 ## <a name="code-samples"></a>코드 샘플
 

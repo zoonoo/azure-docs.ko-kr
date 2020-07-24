@@ -2,19 +2,17 @@
 title: 파일 포함
 description: 포함 파일
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.author: diberry
-ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673444"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133876"
 ---
 Cognitive Services는 두 가지 자연어 처리 서비스, [Language Understanding](../luis/what-is-luis.md) 및 [QnA Maker](../qnamaker/overview/overview.md)를 제공 하며 각각 다른 용도로 사용 됩니다. 각 서비스를 사용 해야 하는 시기와 각 서비스를 어떻게 서로 어떻게 보완 하는지 이해 합니다.
 
@@ -43,7 +41,7 @@ Language Understanding (LUIS) 및 QnA Maker는 다른 문제를 해결 합니다
 
 ## <a name="when-do-you-use-luis"></a>LUIS를 사용 하는 경우
 
-채팅 봇에서 프로세스의 일부로 utterance의 의도를 알고 있어야 하는 경우 LUIS를 사용 합니다. 예제 텍스트를 계속 사용 하 여 `How do I get to the Human Resources building on the Seattle North campus?` 사용자가 위치를 찾는 것이 확인 되 면 utterance에 대 한 세부 정보 (엔터티 포함)를 교통 서버와 같은 다른 서비스에 전달 하 여 답변을 얻을 수 있습니다.
+채팅 봇에서 프로세스의 일부로 발화의 의도를 알아야 할 때 LUIS를 사용합니다. 예제 텍스트를 계속 사용 하 여 `How do I get to the Human Resources building on the Seattle North campus?` 사용자가 위치를 찾는 것이 확인 되 면 utterance에 대 한 세부 정보 (엔터티 포함)를 교통 서버와 같은 다른 서비스에 전달 하 여 답변을 얻을 수 있습니다.
 
 LUIS와 QnA Maker를 결합 하 여 의도를 확인할 필요가 없습니다.
 
@@ -51,7 +49,7 @@ LUIS와 QnA Maker를 결합 하 여 의도를 확인할 필요가 없습니다.
 
 ## <a name="when-do-you-use-qna-maker"></a>QnA Maker를 사용 하는 경우
 
-답변에 대 한 정적 기술 자료가 있는 경우 QnA Maker를 사용 합니다. 이 기술 자료는 사용자의 요구에 맞게 사용자 지정되며, PDF 및 URL과 같은 문서를 사용하여 작성되었습니다.
+답변에 대한 정적 기술 자료가 있는 경우 QnA Maker를 사용합니다. 이 기술 자료는 사용자의 요구에 맞게 사용자 지정되며, PDF 및 URL과 같은 문서를 사용하여 작성되었습니다.
 
 예제 utterance를 계속 진행 하면서 `How do I get to the Human Resources building on the Seattle North campus?` 게시 된 QnA Maker 서비스에 대 한 텍스트를 쿼리로 보내고 최상의 답을 받습니다.
 
@@ -75,7 +73,7 @@ QnA Maker 기술 자료를 구축 하 고 있지만 주체 도메인이 변경 �
 
 Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용 하 여 두 서비스를 모두 사용 하는 프로세스를 빌드할 수 있습니다. 이 도구는 LUIS와 QnA Maker를 자식 앱으로 디스패치할 상위 LUIS 앱을 작성 합니다. LUIS, QnA Maker 및 봇 프레임 워크와의 통합에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) .
 
-**NLP와 함께**봇 작성기 샘플, [c #](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 사용 하 여 이러한 유형의 채팅 봇을 구현 합니다.
+**NLP와 함께**봇 작성기 샘플, [c #](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 사용 하 여 이러한 유형의 채팅 봇을 구현 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 
@@ -84,9 +82,9 @@ Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools
 * [LUIS](../luis/luis-concept-best-practices.md) 모범 사례
 * [QnA Maker](../qnamaker/concepts/best-practices.md) 모범 사례
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-* [언어 이해(LUIS)](../luis/what-is-luis.md)
+* [Language Understanding (LUIS)](../luis/what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [CLI 디스패치](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework 샘플](https://github.com/Microsoft/BotBuilder-Samples)
