@@ -4,16 +4,17 @@ description: Azure에서 리소스의 크기를 자동으로 조정하는 일반
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: a77cf1704c20abb77d432eab16569071208f6da8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adbfecd05bfd4330e7c7c972cfdb9fe7021eec31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75396101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073500"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>일반적인 자동 크기 조정 패턴 개요
 이 문서에서는 Azure에서 리소스의 크기를 조정하는 몇 가지 일반적인 패턴에 대해 설명합니다.
 
-Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다.
+Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](../../api-management/api-management-key-concepts.md)에만 적용됩니다.
 
 ## <a name="lets-get-started"></a>시작
 
@@ -61,4 +62,3 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 [3]: ./media/autoscale-common-scale-patterns/weekday-weekend-scale.png
 [4]: ./media/autoscale-common-scale-patterns/holidays-scale.png
 [5]: ./media/autoscale-common-scale-patterns/custom-metric-scale.png
-

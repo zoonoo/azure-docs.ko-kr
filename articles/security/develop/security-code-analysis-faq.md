@@ -12,14 +12,14 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df995f60867cb2062330e19a2ccfb8c29f173653
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071441"
 ---
-# <a name="frequently-asked-questions"></a>자주 묻는 질문
+# <a name="frequently-asked-questions"></a>질문과 대답
 질문이 있으신가요? 자세한 내용은 다음 FAQ를 확인 하세요.
 
 ## <a name="general-faq"></a>일반 FAQ
@@ -106,15 +106,17 @@ ms.locfileid: "85362077"
 
 다음 샘플에 표시 된 것 처럼 CredScan 출력 파일의 암호 해시 키가 필요 합니다.
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
-                "_justification": "Secret used by MSDN sample, it is fake."
-            }
-          ]
-        }
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
+        "_justification": "Secret used by MSDN sample, it is fake."
+    }
+  ]
+}
+```
 
 >[!WARNING]
 > 해시 키는 일치 하는 값 또는 파일 콘텐츠의 일부에 의해 생성 됩니다. 모든 소스 코드 수정 버전은 해시 키를 변경 하 고 비 표시 규칙을 사용 하지 않도록 설정할 수 있습니다.
@@ -133,19 +135,21 @@ ms.locfileid: "85362077"
 - \lib\angular.js
 - angular.js-이름이 같은 파일을 표시 하지 않습니다.
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "file": "\\files\\AdditonalSearcher.xml", 
-                "_justification": "Additional CredScan searcher specific to my team"
-            },
-            {
-                "file": "\\files\\unittest.pfx", 
-                "_justification": "Legitimate UT certificate file with private key"
-            }
-          ]
-        }      
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "file": "\\files\\AdditonalSearcher.xml", 
+        "_justification": "Additional CredScan searcher specific to my team"
+    },
+    {
+        "file": "\\files\\unittest.pfx", 
+        "_justification": "Legitimate UT certificate file with private key"
+    }
+  ]
+}
+```
 
 >[!WARNING] 
 > 또한 파일에 추가 된 모든 향후 암호는 자동으로 표시 되지 않습니다.
@@ -155,7 +159,7 @@ ms.locfileid: "85362077"
 다음 리소스를 통해 안전 하 게 암호를 관리 하 고 응용 프로그램 내에서 중요 한 정보에 액세스할 수 있습니다.
 
  - [Azure Key Vault](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
+ - [Azure AD(Azure Active Directory)](../../azure-sql/database/authentication-aad-overview.md)
  - [Azure AD 관리 서비스 ID (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Azure App Service 및 Azure Functions에서 관리 되는 id](../../app-service/overview-managed-identity.md)

@@ -6,11 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073617"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 방식 이해
 
@@ -63,7 +64,7 @@ ms.locfileid: "81114317"
 - SASThrottlingError
 - ThrottlingError
 
-% 메트릭에 대 한 클래식 경고 규칙은 [이전 및 새 저장소 메트릭 간의 매핑에](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics)따라 마이그레이션해야 합니다. 사용할 수 있는 새 메트릭은 절대 uri 이므로 임계값을 적절 하 게 수정 해야 합니다.
+% 메트릭에 대 한 클래식 경고 규칙은 [이전 및 새 저장소 메트릭 간의 매핑에](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics)따라 마이그레이션해야 합니다. 사용할 수 있는 새 메트릭은 절대 uri 이므로 임계값을 적절 하 게 수정 해야 합니다.
 
 동일한 기능을 제공 하는 결합 된 메트릭이 없기 때문에 AnonymousThrottlingError, SASThrottlingError 및 ThrottlingError의 클래식 경고 규칙은 두 개의 새로운 경고로 분할 되어야 합니다. 임계값을 적절 하 게 조정 해야 합니다.
 
@@ -109,7 +110,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 이러한 규칙은 이전에 지원 되었지만 결국 사용 되지 않았던 메트릭에 대 한 클래식 경고 규칙입니다. 일부 고객에 게는 이러한 메트릭에 대 한 잘못 된 클래식 경고 규칙이 있을 수 있습니다. 이러한 경고 규칙은 유효 하지 않으므로 마이그레이션되지 않습니다.
 
-| 리소스 유형| 사용 되지 않는 메트릭 |
+| 리소스 종류| 사용 되지 않는 메트릭 |
 |-------------|----------------- |
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
@@ -133,7 +134,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 다음과 같은 메트릭이 다음과 같이 동등한 메트릭에 매핑됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| "ResponseType" = "AuthorizationError" 및 "Authentication" = "Anonymous" 차원이 포함 된 트랜잭션 메트릭| |
 | AnonymousClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 및 "Authentication" = "Anonymous" 인 트랜잭션 메트릭 | |
@@ -170,7 +171,7 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 
 Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
 |--------------------------|---------------------------------|---------|
 | availabilityMetric | availabilityResults/availabilityPercentage|   |
 | Durationmetric.value | availabilityResults/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
@@ -200,7 +201,7 @@ Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
 Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
 | 데이터 크기 | DataUsage| |

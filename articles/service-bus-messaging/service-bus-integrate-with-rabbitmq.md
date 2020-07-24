@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: df0541802dfc331ffc94e95be112ea7e005960b5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071626"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>RabbitMQ와 Azure Service Bus를 통합 하는 방법
 
@@ -90,7 +90,7 @@ RabbitMQ에서 메시지를 게시할 수 있도록 큐에 대 한 SAS ( [공유
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="연결 문자열 변환":::
 
-이제 브라우저에서 RabbitMQ 관리 플러그 인을 열고 [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) 로 이동 `Admin -> Shovel Management` 합니다. 여기서 RabbitMQ 큐의 메시지를 Azure Service Bus 큐로 보내는 새 shovel을 추가할 수 있습니다.
+이제 브라우저에서 RabbitMQ 관리 플러그 인을 열고 `http://localhost:15672/#/dynamic-shovels` 로 이동 `Admin -> Shovel Management` 합니다. 여기서 RabbitMQ 큐의 메시지를 Azure Service Bus 큐로 보내는 새 shovel을 추가할 수 있습니다.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="RabbitMQ Shovel 추가":::
 
@@ -122,7 +122,7 @@ Azure로 돌아가서 큐를 검사 합니다. `Service Bus Explorer`왼쪽 패�
 
 ## <a name="lets-recap"></a>요약 하겠습니다.
 
-축하합니다! 많은 것을 달성 했습니다. RabbitMQ에서 Azure Service Bus로 메시지를 가져오기 위해 관리 하는 단계를 살펴보겠습니다.
+축하합니다. 많은 것을 달성 했습니다. RabbitMQ에서 Azure Service Bus로 메시지를 가져오기 위해 관리 하는 단계를 살펴보겠습니다.
 
 1. Azure Service Bus 네임 스페이스 만들기
 2. 네임 스페이스에 큐 추가

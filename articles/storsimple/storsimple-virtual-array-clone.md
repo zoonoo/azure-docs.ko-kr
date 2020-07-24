@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513634"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070700"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>StorSimple 가상 배열의 백업에서 복제
 
@@ -42,7 +42,7 @@ ms.locfileid: "85513634"
    
    b.    표시되는 필터링된 백업 목록에서 복제할 백업을 선택합니다.
    
-   다.    **확인**을 클릭합니다.
+   c.    **확인**을 클릭합니다.
    
    ![백업 복제](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. **복제** 블레이드에서 **대상 설정**을 클릭하고 다음을 수행합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "85513634"
    
    b.    필요에 따라 복제된 공유에 대한 설명을 제공합니다.
    
-   다.    복원 중인 공유의 유형을 변경할 수 없습니다. 계층화된 공유는 계층화된 공유로 복제되고 로컬로 고정된 공유는 로컬로 고정된 공유로 복제됩니다.
+   c.    복원 중인 공유의 유형을 변경할 수 없습니다. 계층화된 공유는 계층화된 공유로 복제되고 로컬로 고정된 공유는 로컬로 고정된 공유로 복제됩니다.
    
    d.    용량은 복제 중인 공유의 크기와 동일한 값으로 설정됩니다.
    
@@ -82,7 +82,7 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    
    b.    표시되는 필터링된 백업 목록에서 복제할 백업을 선택합니다.
    
-   다.    **확인**을 클릭합니다.
+   c.    **확인**을 클릭합니다.
    
    ![백업 복제](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. **복제** 블레이드에서 **대상 볼륨 설정**을 클릭하고 다음을 수행합니다.
@@ -91,7 +91,7 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    
    b. **복제된 볼륨**의 볼륨 이름을 제공합니다. 볼륨 이름은 3자에서 127자 사이여야 합니다.
    
-   다. 볼륨 유형은 원래 볼륨으로 자동으로 설정됩니다. 계층화된 볼륨은 계층화된 볼륨으로 복제되고 로컬로 고정된 볼륨은 로컬로 고정된 볼륨으로 복제됩니다.
+   c. 볼륨 유형은 원래 볼륨으로 자동으로 설정됩니다. 계층화된 볼륨은 계층화된 볼륨으로 복제되고 로컬로 고정된 볼륨은 로컬로 고정된 볼륨으로 복제됩니다.
    
    d. **연결된 호스트**에서 **선택**을 클릭합니다.
    
@@ -127,7 +127,7 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    * **예약된 백업**의 이름은 &lt;디바이스 이름&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC로 지정됩니다.
    * **수동 백업** 의 이름은 Ad-hoc-YYYYMMDD-HHMMSS-UTC로 지정됩니다.
      
-     ![](./media/storsimple-virtual-array-clone/image14.png)
+     ![. 백업 폴더를 보여 주는 파일 탐색기의 스크린샷 해당 폴더 안에 수동 백업 폴더가 선택 됩니다.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. 삭제된 파일의 최신 버전을 포함하는 백업을 확인합니다. 앞서 모든 경우에서 폴더 이름에 UTC 타임스탬프가 포함되며, 폴더가 만들어진 시간은 백업이 시작될 당시 디바이스의 실제 시간입니다. 폴더 타임스탬프를 사용하여 백업을 찾고 확인합니다.
 

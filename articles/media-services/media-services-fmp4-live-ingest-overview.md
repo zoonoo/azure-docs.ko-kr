@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072035"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양 
 
@@ -48,7 +48,7 @@ ms.locfileid: "85958568"
 1. [1]의 3.3.2 섹션은 live 수집에 대해 **라이브 수집용 streammanifestbox** 라는 선택적 상자를 정의 합니다. Azure Load Balancer의 라우팅 논리로 인해 이 상자는 사용되지 않습니다. Media Services로 수집하는 경우 상자가 표시되어서는 안 됩니다. 이 상자가 표시되는 경우 Media Services는 자동으로 이를 무시합니다.
 1. [1]의 3.2.3.2에서 설명된 **TrackFragmentExtendedHeaderBox** 상자는 반드시 조각마다 있어야 합니다.
 1. **TrackFragmentExtendedHeaderBox** 상자의 버전 2를 여러 데이터 센터에서 동일한 URL로 미디어 세그먼트를 생성하는 데 사용해야 합니다. 조각 인덱스 필드는 Apple HLS 및 인덱스 기반 MPEG-DASH와 같은 인덱스 기반 스트리밍 형식의 데이터 센터 간 장애 조치(failover)에 필요합니다. 데이터 센터 간 장애 조치(failover)를 사용하려면 조각 인덱스가 반드시 여러 인코더에 걸쳐 동기화되고, 인코더 재시작 또는 오류 중에도 연속되는 각 미디어 조각에 대해 1씩 증가되어야 합니다.
-1. [1]의 섹션 3.3.6은 라이브 수집의 끝에 전송되어 채널에 EOS(스트림 끝)를 나타낼 수 있는 **MovieFragmentRandomAccessBox**(**mfra**)를 정의합니다. Media Services의 수집 논리에 따라 EOS는 사용되지 않으며, 라이브 수집용 **mfra** 상자를 전송하지 않아야 합니다. 전송한 경우 Media Services는 자동으로 이를 무시합니다. 수집 지점의 상태를 다시 설정하려면 [채널 재설정](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels)을 사용하는 것이 좋습니다. 프레젠테이션 및 스트림을 종료하려면 [프로그램 중지](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs)를 사용하는 것이 좋습니다.
+1. [1]의 섹션 3.3.6은 라이브 수집의 끝에 전송되어 채널에 EOS(스트림 끝)를 나타낼 수 있는 **MovieFragmentRandomAccessBox**(**mfra**)를 정의합니다. Media Services의 수집 논리에 따라 EOS는 사용되지 않으며, 라이브 수집용 **mfra** 상자를 전송하지 않아야 합니다. 전송한 경우 Media Services는 자동으로 이를 무시합니다. 수집 지점의 상태를 다시 설정하려면 [채널 재설정](/rest/api/media/operations/channel#reset_channels)을 사용하는 것이 좋습니다. 프레젠테이션 및 스트림을 종료하려면 [프로그램 중지](/rest/api/media/operations/program#stop_programs)를 사용하는 것이 좋습니다.
 1. MP4 조각 기간은 클라이언트 매니페스트의 크기를 줄이도록 일정해야 합니다. 또한 일정한 MP4 조각 기간은 반복 태그를 사용함으로써 클라이언트 다운로드 추론을 향상시킵니다. 이 기간은 정수가 아닌 프레임 속도에 대한 보정을 위해 변동될 수도 있습니다.
 1. MP4 조각 기간은 약 2~6초 사이여야 합니다.
 1. MP4 조각 타임스탬프 및 인덱스(**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` 및 `fragment_index`)는 오름차순으로 도착해야 합니다. Media Services는 중복 조각에 대한 복원력이 뛰어나지만 미디어 타임라인에 따라 조각의 순서를 다시 지정하는 기능은 한정적입니다.
@@ -70,12 +70,12 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 1. HTTP POST 요청이 스트림의 끝 이전에 TCP 오류로 종료되거나 시간 초과된 경우, 인코더는 반드시 새 연결을 사용하여 새 POST 요청을 발행하고 이전 요구 사항을 따라야 합니다. 또한 인코더는 반드시 스트림에 각 추적에 대한 이전 두 MP4 조각을 다시 전송하고, 미디어 타임라인에서 불연속성을 발생시키지 않고 다시 시작해야 합니다. 각 트랙에 대해 마지막 2개의 MP4 조각을 다시 전송하여 데이터 손실이 없음을 보증합니다. 즉, 하나의 스트림이 오디오 및 비디오 트랙을 모두 포함하고 현재의 POST 요청이 실패한 경우, 데이터 손실이 없도록 인코더는 반드시 다시 연결하고 이전에 성공적으로 전송된 오디오 트랙에 대해 마지막 2개의 조각 및 이전에 성공적으로 전송된 비디오 트랙에 대해 마지막 2개의 조각을 다시 전송해야 합니다. 인코더는 반드시 다시 연결될 때 다시 전송되는 미디어 조각의 “정방향” 버퍼를 유지해야 합니다.
 
 ## <a name="5-timescale"></a>5. 날짜 표시줄
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)은 **SmoothStreamingMedia**(섹션 2.2.2.1), **StreamElement**(섹션 2.2.2.3), **StreamFragmentElement**(섹션 2.2.2.6) 및 **LiveSMIL**(섹션 2.2.7.3.1)에 대한 시간 간격의 사용법에 대해 설명합니다. 시간 간격 값이 없는 경우 사용되는 기본값은 10,000,000(10MHz)입니다. 부드러운 스트리밍 형식 사양이 다른 시간 간격 값을 차단하지 않더라도 대부분의 인코더 구현은 이 기본값(10MHz)을 사용하여 부드러운 스트리밍 수집 데이터를 생성합니다. [Azure 미디어 동적 패키징](media-services-dynamic-packaging-overview.md) 기능에 따라 비디오 스트림에는 90KHz 시간 간격을, 오디오 스트림에는 44.1KHz 또는 48.1KHz를 사용하는 것이 좋습니다. 다른 스트림에 다른 시간 간격 값이 사용되는 경우 스트림 수준 시간 간격은 반드시 전송되어야 합니다. 자세한 내용은 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)을 참조하세요.     
+[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)은 **SmoothStreamingMedia**(섹션 2.2.2.1), **StreamElement**(섹션 2.2.2.3), **StreamFragmentElement**(섹션 2.2.2.6) 및 **LiveSMIL**(섹션 2.2.7.3.1)에 대한 시간 간격의 사용법에 대해 설명합니다. 시간 간격 값이 없는 경우 사용되는 기본값은 10,000,000(10MHz)입니다. 부드러운 스트리밍 형식 사양이 다른 시간 간격 값을 차단하지 않더라도 대부분의 인코더 구현은 이 기본값(10MHz)을 사용하여 부드러운 스트리밍 수집 데이터를 생성합니다. [Azure 미디어 동적 패키징](./previous/media-services-dynamic-packaging-overview.md) 기능에 따라 비디오 스트림에는 90KHz 시간 간격을, 오디오 스트림에는 44.1KHz 또는 48.1KHz를 사용하는 것이 좋습니다. 다른 스트림에 다른 시간 간격 값이 사용되는 경우 스트림 수준 시간 간격은 반드시 전송되어야 합니다. 자세한 내용은 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)을 참조하세요.     
 
 ## <a name="6-definition-of-stream"></a>6. "스트림"의 정의
 스트림은 라이브 프레젠테이션 작성, 스트리밍 장애 조치(failover) 및 중복성 시나리오 처리를 위한 라이브 수집의 기본 작업 단위입니다. 스트림은 단일 트랙 또는 여러 트랙을 포함할 수 있는 하나의 고유한 조각화된 MP4 비트스트림으로 정의됩니다. 전체 라이브 프레젠테이션은 라이브 인코더의 구성에 따라 하나 이상의 스트림을 포함할 수 있습니다. 다음 예에서는 스트림을 사용하여 전체 라이브 프레젠테이션을 작성하는 다양한 옵션을 설명합니다.
 
-**예제:** 
+**예:** 
 
 고객은 다음 오디오/비디오 비트 전송률을 포함하는 라이브 스트리밍 프레젠테이션을 생성하고자 합니다.
 
@@ -116,7 +116,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
     b. 새 HTTP POST URL은 초기 POST URL과 반드시 동일해야 합니다.
   
-    다. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
+    c. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
   
     d. 반드시 각 트랙에 전송된 마지막 두 조각이 다시 전송되고, 미디어 타임라인에서 불연속성을 발생시키지 않고 스트리밍이 계속되어야 합니다. MP4 조각 타임 스탬프는 HTTP POST 요청 간에도 반드시 지속적으로 증가해야 합니다.
 1. MP4 조각 기간에 상응하는 속도로 데이터가 전송되고 있지 않은 경우 인코더는 HTTP POST 요청을 종료해야 합니다.  데이터를 전송하지 않는 HTTP POST 요청은 Media Services가 서비스 업데이트 발생 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 따라서 스파스 조각이 전송되면 즉시 종료되는 스파스(광고 신호) 트랙용 HTTP POST는 수명이 짧아야 합니다.
@@ -166,7 +166,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
    
     b. 인코더는 데이터가 전송되지 않을 때 HTTP POST 요청을 종료해야 합니다. 데이터를 전송하지 않는 HTTP POST는 Media Services가 서비스 업데이트 또는 서버 다시 시작 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 이러한 경우에 미디어 서버는 소켓의 수신 작업에서 일시적으로 차단됩니다.
    
-    다. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
+    c. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
 
     d. 스파스 조각을 전송하는 경우 인코더는 명시적 콘텐츠-길이 헤더를 사용할 수 있는 경우 이를 설정할 수 있습니다.
 
@@ -174,7 +174,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
     f. 스파스 트랙 조각은 이와 동등하거나 더 큰 타임스탬프 값을 갖는 해당 부모 트랙 조각이 클라이언트에게 제공될 때 클라이언트에게 제공됩니다. 예를 들어, 스파스 조각의 타임스탬프가 t=1000인 경우, 타임스탬프가 1000 이상인 “비디오”(부모 트랙 이름이 “비디오”인 것으로 간주함) 조각을 클라이언트가 본 후 t=1000인 스파스 조각을 다운로드할 수 있을 것으로 예상됩니다. 실제 신호는 지정된 용도에 맞는 프레젠테이션 타임라인에서 서로 다른 위치에 사용될 수 있음에 주의하세요. 이 예제에서, t=1000인 스파스 조각은 몇 초 늦은 위치에 광고를 삽입하는 XML 페이로드를 가질 수 있습니다.
 
-    예: 스파스 트랙 조각의 페이로드는 시나리오에 따라 서로 다른 형식(예: XML, 텍스트 또는 이진)이 될 수 있습니다.
+    g. 스파스 트랙 조각의 페이로드는 시나리오에 따라 서로 다른 형식(예: XML, 텍스트 또는 이진)이 될 수 있습니다.
 
 ### <a name="redundant-audio-track"></a>중복 오디오 트랙
 일반적인 HTTP 적응 스트리밍 시나리오(예: 부드러운 스트리밍 또는 DASH)는 전체 프레젠테이션에 오디오 트랙이 하나만 있는 경우가 많습니다. 클라이언트에 대해 여러 개의 품질 수준을 가져서 오류 조건에서 선택할 수 있는 비디오 트랙과는 달리, 오디오 트랙은 손상된 오디오 트랙을 포함하는 스트림을 수집한 경우 단일 실패 지점이 될 수 있습니다. 

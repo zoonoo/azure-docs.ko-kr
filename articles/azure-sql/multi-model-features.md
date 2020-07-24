@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d50a9a064e6fa279d65f196c0f031e60081d86bf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980001"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073319"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Azure SQL Database & SQL Managed Instance의 다중 모델 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -96,10 +96,7 @@ JSON 텍스트가 있는 경우 JSON에서 데이터를 추출하거나 기본 �
 
 공간 데이터는 기하학적 개체의 물리적 위치 및 모양 정보를 나타냅니다. 이러한 개체는 지점 위치 또는 국가/지역,도로 또는 레이크와 같은 복잡 한 개체 일 수 있습니다.
 
-Azure SQL 제품 제품군을 사용 하 여 JavaScript Object Notation [(json)](https://www.json.org/) 형식으로 표현 된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 json 텍스트로 내보낼 수 있습니다.
-
-
- 다음 두 가지 공간 데이터 형식이 지원 됩니다. 
+ 지원 되는 두 가지 공간 데이터 형식은 다음과 같습니다. 
 
 - 기하 도형 형식은 유클리드(평면) 좌표계의 데이터를 나타냅니다.
 - 지리 형식은 둥근 표면 좌표계의 데이터를 나타냅니다.

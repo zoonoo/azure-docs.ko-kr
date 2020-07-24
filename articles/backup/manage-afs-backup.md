@@ -3,15 +3,16 @@ title: Azure 파일 공유 백업 관리
 description: 이 문서에서는 Azure Backup에 의해 백업 되는 Azure 파일 공유를 관리 하 고 모니터링 하는 일반적인 작업에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712091"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073296"
 ---
 # <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리
 
-이 문서에서는 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)에 의해 백업 되는 Azure 파일 공유를 관리 하 고 모니터링 하는 일반적인 작업에 대해 설명 합니다. Recovery Services 자격 증명 모음에서 관리 작업을 수행 하는 방법을 알아봅니다.
+이 문서에서는 [Azure Backup](./backup-overview.md)에 의해 백업 되는 Azure 파일 공유를 관리 하 고 모니터링 하는 일반적인 작업에 대해 설명 합니다. Recovery Services 자격 증명 모음에서 관리 작업을 수행 하는 방법을 알아봅니다.
 
 ## <a name="monitor-jobs"></a>작업 모니터링
 
@@ -164,4 +165,4 @@ Azure 파일 공유에 대 한 백업 데이터를 삭제 하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure 파일 공유 백업 문제 해결](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files)을 참조 하세요.
+자세한 내용은 [Azure 파일 공유 백업 문제 해결](./troubleshoot-azure-files.md)을 참조 하세요.

@@ -1,21 +1,25 @@
 ---
-title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs
+title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용
 description: Azure Storage 에뮬레이터는 Azure Storage 애플리케이션에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070562"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
 Microsoft Azure 저장소 에뮬레이터는 로컬 개발 목적으로 Azure Blob, 큐 및 테이블 서비스를 에뮬레이트하는 도구입니다. Azure 구독을 만들거나 비용을 발생 시 키 지 않고 저장소 서비스에 대해 로컬로 응용 프로그램을 테스트할 수 있습니다. 에뮬레이터에서 응용 프로그램이 작동 하는 방식에 만족 하는 경우 클라우드에서 Azure storage 계정을 사용 하도록 전환 합니다.
+
+> [!IMPORTANT]
+> Azure Storage 에뮬레이터가 더 이상 적극적으로 개발 되 고 있지 않습니다. [**Azurite**](storage-use-azurite.md) 는 향후 저장소 에뮬레이터 플랫폼입니다. Azurite는 Azure Storage 에뮬레이터를 대체 합니다. Azurite는 최신 버전의 Azure Storage Api를 지원 하도록 계속 업데이트 됩니다. 자세한 내용은 [**Azurite 에뮬레이터를 사용 하 여 로컬 Azure Storage 개발**](storage-use-azurite.md)을 참조 하세요.
 
 ## <a name="get-the-storage-emulator"></a>스토리지 에뮬레이터 가져오기
 
@@ -74,7 +78,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 
    `AzureStorageEmulator.exe init /server .`
 
-   또는 LocalDB 인스턴스를 다시 초기화하는 다음 명령을 사용할 수도 있습니다.
+   또는 데이터베이스를 기본 LocalDB 인스턴스로 초기화 하는 다음 명령을 사용할 수 있습니다.
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -178,11 +182,11 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | 설명 | 명령 | 인수 |
+| 옵션 | Description | 명령 | 인수 |
 | --- | --- | --- | --- |
 | **Start** |스토리지 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
 | **중지** |스토리지 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |
-| **Status** |스토리지 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator.exe status` | |
+| **상태** |스토리지 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator.exe status` | |
 | **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
 | **Init** |에뮬레이터를 설정 하기 위해 일회성 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL Database를 강제로 생성합니다. <br/>*-skipcreate*: SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports*: 서비스와 연결된 HTTP 포트를 예약하려고 합니다.<br/>*-unreserveports*: 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
 
@@ -327,3 +331,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 * 커뮤니티에서 유지 관리 되는 플랫폼 간 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/azure/azurite)를 평가 합니다. 
 * [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)에는 애플리케이션을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
 * [Microsoft Azure Storage Explorer](https://storageexplorer.com)를 사용하여 클라우드 스토리지 계정 및 스토리지 에뮬레이터의 리소스를 사용할 수 있습니다.
+
+## <a name="see-also"></a>참고 항목
+
+* [Azurite, Azure Sdk 및 Azure Storage 탐색기를 사용 하 여 로컬 Azure Storage 개발](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

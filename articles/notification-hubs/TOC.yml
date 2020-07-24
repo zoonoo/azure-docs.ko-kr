@@ -54,8 +54,6 @@
               href: ios-sdk-300.md
             - name: Objective-C(버전 2.0.4)
               href: ios-sdk-204.md
-            - name: Swift
-              href: ios-sdk-swift-rest.md
         - name: 특정 디바이스에 푸시 알림 보내기
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: 특정 사용자에게 푸시 알림 보내기
@@ -64,16 +62,6 @@
           href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
         - name: iOS 디바이스에 지역화된 푸시 알림 보내기
           href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: 플랫폼 간
-      items:
-        - name: 백 엔드 서비스를 통해 푸시 알림 보내기
-          items:
-            - name: Xamarin.Forms
-              href: notification-hubs-backend-service-xamarin-forms.md
-            - name: Flutter
-              href: notification-hubs-backend-service-flutter.md
-            - name: React Native
-              href: notification-hubs-backend-service-react-native.md
     - name: Windows Phone
       items:
         - name: 앱에 푸시 알림 보내기
@@ -171,7 +159,7 @@
       href: /cli/azure/ext/notification-hub/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/notificationhubs/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.notificationhubs/allversions
@@ -188,7 +176,7 @@
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/notification-hubs/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-notification-hubs.html'
+      href: /answers/topics/azure-notification-hubs.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-notificationhub'
     - name: 기능 요청

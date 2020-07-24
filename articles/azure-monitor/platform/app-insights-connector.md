@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073632"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
@@ -43,18 +44,18 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure storage 계정](collect-azure-metrics-logs.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 예 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Azure storage 계정](./resource-logs.md#send-to-log-analytics-workspace) | 예 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Application Insights 커넥터 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 - 구성된 Application Insights 리소스가 하나 이상 있어야 합니다.
 - Application Insights 리소스 소유자 또는 참가자여야 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
@@ -155,7 +156,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 샘플링은 애플리케이션에서 생성하는 총 항목 수에만 영향을 줍니다. **RequestDuration** 또는 **AvailabilityDuration** 같은 메트릭 필드는 표시된 항목의 평균을 보여 주므로 해당 필드에 대한 샘플링은 수정할 필요가 없습니다.
 
-## <a name="input-data"></a>데이터 입력
+## <a name="input-data"></a>입력 데이터
 
 솔루션은 연결된 Application Insights 앱에서 다음과 같은 원격 분석 유형의 데이터를 수신합니다.
 
@@ -186,7 +187,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | Continent | 요청이 시작된 대륙 |
 | 국가 | 요청이 시작 된 국가/지역 |
 | Province | 요청이 시작된 시/도 또는 로캘 |
-| City | 요청이 시작된 구/군/시 또는 동/면 |
+| 도시 | 요청이 시작된 구/군/시 또는 동/면 |
 | isSynthetic | 요청이 사용자에 의해 만들어졌는지 자동화된 방법을 통해 만들어졌는지 나타냅니다. True = 자동화 된 방법 또는 false = 사용자 생성 |
 | SamplingRate | 포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
 | SampledCount | 100/(SamplingRate)입니다. 예를 들어 4 =&gt; 25%입니다. |
@@ -303,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-이 스크립트가 Azure Active Directory에 인증하려면 전달자 인증 토큰이 필요합니다. 이 토큰을 검색하는 한 가지 방법은 [REST API 문서 사이트](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate)의 문서를 사용하는 것입니다. **사용해 보기**를 클릭하고 Azure 구독에 로그인합니다. 다음 이미지와 같이 **요청 미리 보기**에서 전달자 토큰을 복사할 수 있습니다.
+이 스크립트가 Azure Active Directory에 인증하려면 전달자 인증 토큰이 필요합니다. 이 토큰을 검색하는 한 가지 방법은 [REST API 문서 사이트](/rest/api/loganalytics/datasources/createorupdate)의 문서를 사용하는 것입니다. **사용해 보기**를 클릭하고 Azure 구독에 로그인합니다. 다음 이미지와 같이 **요청 미리 보기**에서 전달자 토큰을 복사할 수 있습니다.
 
 
 ![전달자 토큰](media/app-insights-connector/bearer-token.png)

@@ -14,11 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3c7009e5ecb43a809b9a3f703fc5ba289a2fd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073288"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 소개
 
@@ -40,10 +41,9 @@ Azure Virtual Machines의 가용성 그룹에 대 한 주요 차이점은 이러
 
 |  | Windows Server 버전 | SQL Server 버전 | SQL Server 버전 | WSFC 쿼럼 구성 | 다중 지역 DR | 다중 서브넷 지원 | 기존 AD 지원 | 다중 영역 동일 지역 DR | AD 도메인 없는 배포 AG 지원 | 클러스터 없는 배포 AG 지원 |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [SQL VM CLI](availability-group-az-cli-configure.md) | 2016 | 2017 </br>2016   | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
-| [빠른 시작 템플릿](availability-group-quickstart-template-configure.md) | 2016 | 2017</br>2016  | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
-| [수동](availability-group-manually-configure-prerequisites-tutorial.md) | 모두 | 모두 | 모두 | 모두 | 예 | 예 | 예 | 예 | 예 | 예 |
-| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
+| **[빠른 시작 템플릿](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
+| **[수동](availability-group-manually-configure-prerequisites-tutorial.md)** | 모두 | 모두 | 모두 | 모두 | 예 | 예 | 예 | 예 | 예 | 예 |
 
 **SQL Server AlwaysOn 클러스터 (미리 보기)** 템플릿이 Azure Marketplace에서 제거 되었으며 더 이상 사용할 수 없습니다. 
 

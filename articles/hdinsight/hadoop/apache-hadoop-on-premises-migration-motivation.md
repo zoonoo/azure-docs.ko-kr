@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: b975ee8cebdac3855c3fca88b20c01145d11baeb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080196"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072786"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -101,7 +101,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |마스터 노드 구성|m/y, cpu, 디스크 등|
 |데이터 노드 구성|m/y, cpu, 디스크 등|
 |에지 노드 구성|m/y, cpu, 디스크 등|
-|HDFS 암호화를 사용합니까?|Yes|
+|HDFS 암호화를 사용합니까?|예|
 |고가용성|HDFS HA, Metastore HA|
 |재해 복구/백업|백업 클러스터 지원 여부|  
 |클러스터에 종속된 시스템|SQL Server, Teradata, Power BI, MongoDB|
@@ -163,12 +163,12 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 ### <a name="azure-requirements-questionnaire"></a>Azure 요구 사항 설문지
 
-|**토픽**: **인프라** |||
-|---|---|---|
 |**질문**|**예제**|**답변**|
+|---|---|---|
+|**토픽**: **인프라** |||
 | 기본 지역|미국 동부||
-|VNet이 기본 설정입니까?|Yes||
-|HA/DR이 필요합니까?|Yes||
+|VNet이 기본 설정입니까?|예||
+|HA/DR이 필요합니까?|예||
 |다른 클라우드 서비스와의 통합 여부|ADF, CosmosDB||
 |**토픽**: **데이터 이동**  |||
 |초기 로드 기본 설정|DistCp, Data box, ADF, WANDisco||
@@ -177,25 +177,25 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |**토픽**: **모니터링 및 경고** |||
 |Azure와 타사의 모니터링 및 경고 사용 비교|Azure 모니터링 및 경고 사용||
 |**토픽**: **보인 기본 설정** |||
-|보호되는 프라이빗 데이터 파이프라인인가요?|Yes||
-|도메인 가입 클러스터(ESP)입니까?|     Yes||
-|온-프레미스 AD가 클라우드와 동기화됩니까?|     Yes||
+|보호되는 프라이빗 데이터 파이프라인인가요?|예||
+|도메인 가입 클러스터(ESP)입니까?|     예||
+|온-프레미스 AD가 클라우드와 동기화됩니까?|     예||
 |동기화 할 AD 사용자의 수|          100||
-|암호를 클라우드와 동기화해도 괜찮습니까?|    Yes||
-|클라우드 전용 사용자입니까?|                 Yes||
-|MFA가 필요합니까?|                       No|| 
-|데이터 권한 부여 요구 사항이 있습니까?|  Yes||
-|역할 기반 액세스 제어를 사용합니까?|        Yes||
-|감사가 필요합니까?|                  Yes||
-|저장 데이터 암호화를 사용합니까?|          Yes||
-|전송 중 데이터 암호화를 사용합니까?|       Yes||
+|암호를 클라우드와 동기화해도 괜찮습니까?|    예||
+|클라우드 전용 사용자입니까?|                 예||
+|MFA가 필요합니까?|                       아니요|| 
+|데이터 권한 부여 요구 사항이 있습니까?|  예||
+|역할 기반 액세스 제어를 사용합니까?|        예||
+|감사가 필요합니까?|                  예||
+|저장 데이터 암호화를 사용합니까?|          예||
+|전송 중 데이터 암호화를 사용합니까?|       예||
 |**토픽**: **재설계 기본 설정** |||
 |단일 클러스터 vs 특정 클러스터 형식|특정 클러스터 형식||
 |공동 배치된 스토리지 Vs 원격 스토리지|원격 스토리지||
 |데이터로 더 작은 클러스터 크기는 원격으로 저장되나요?|더 작은 클러스터 크기||
 |하나의 큰 클러스터 대신 작은 클러스터 여러 개를 사용합니까?|작은 클러스터 여러 개 사용||
-|원격 metastore를 사용합니까?|Yes||
-|서로 다른 클러스터 간에 metastore를 공유합니까?|Yes||
+|원격 metastore를 사용합니까?|예||
+|서로 다른 클러스터 간에 metastore를 공유합니까?|예||
 |워크로드를 분해합니까?|Hive 작업을 Spark 작업으로 대체||
 |데이터 오케스트레이션에 ADF를 사용합니까?|아니요||
 

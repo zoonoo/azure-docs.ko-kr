@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99e0a78ea1aed0ecf08618c919e7949c5645de5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72392190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072075"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호
 
@@ -27,14 +27,14 @@ ms.locfileid: "72392190"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md)
-- [Azure CLI를 사용하여 Azure Media Services API 액세스](access-api-cli-how-to.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
+- [Media Services 계정 만들기](./create-account-howto.md)
+- [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 - [동적 패키징](dynamic-packaging-overview.md)을 검토 합니다.
 - [비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md) 자습서를 검토 합니다.
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>입력 자산을 만들고 여기에 로컬 파일 업로드 
 
-**CreateInputAsset** 함수는 새로운 입력 [Asset](https://docs.microsoft.com/rest/api/media/assets)을 만들고 이 자산에 지정된 로컬 비디오 파일을 업로드합니다. 이 **자산은** 인코딩 작업에 대 한 입력으로 사용 됩니다. Media Services v 3에서 **작업** 에 대 한 입력은 **자산**이거나 HTTPS url을 통해 Media Services 계정에 제공 되는 콘텐츠 일 수 있습니다. 
+**CreateInputAsset** 함수는 새로운 입력 [Asset](/rest/api/media/assets)을 만들고 이 자산에 지정된 로컬 비디오 파일을 업로드합니다. 이 **자산은** 인코딩 작업에 대 한 입력으로 사용 됩니다. Media Services v 3에서 **작업** 에 대 한 입력은 **자산**이거나 HTTPS url을 통해 Media Services 계정에 제공 되는 콘텐츠 일 수 있습니다. 
 
 HTTPS URL에서 인코딩하는 방법에 대 한 자세한 내용은 [이 문서](job-input-from-http-how-to.md) 를 참조 하세요.  
 
@@ -43,7 +43,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 다음 함수는 아래와 같은 작업을 수행합니다.
 
 * **자산** 을 만듭니다. 
-* [저장소에서 자산의 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) 에 쓸 수 있는 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 을 가져옵니다.
+* [저장소에서 자산의 컨테이너](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) 에 쓸 수 있는 [SAS URL](../../storage/common/storage-sas-overview.md) 을 가져옵니다.
 * SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -52,7 +52,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>인코딩 작업의 결과를 저장할 출력 자산 만들기
 
-출력 [Asset](https://docs.microsoft.com/rest/api/media/assets)은 인코딩 작업의 결과를 저장합니다. 다음 함수는 출력 자산을 만드는 방법을 보여 줍니다.
+출력 [Asset](/rest/api/media/assets)은 인코딩 작업의 결과를 저장합니다. 다음 함수는 출력 자산을 만드는 방법을 보여 줍니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
@@ -62,7 +62,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>업로드 된 파일을 인코딩하는 변환 및 작업 만들기
 
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Jobs](transform-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Jobs](./transforms-jobs-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
 
 다음 예에서는 변환을 만듭니다 (없는 경우).
 
@@ -202,14 +202,14 @@ await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName
 
 ## <a name="get-a-streaming-locator"></a>스트리밍 로케이터 가져오기
 
-인코딩이 완료되면 다음 단계는 출력 자산의 비디오를 클라이언트가 재생할 수 있도록 만드는 것입니다. 이 작업은 두 단계로 수행할 수 있습니다. 첫째, [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들고 둘째, 클라이언트가 사용할 수 있는 스트리밍 URL을 작성합니다. 
+인코딩이 완료되면 다음 단계는 출력 자산의 비디오를 클라이언트가 재생할 수 있도록 만드는 것입니다. 이 작업은 두 단계로 수행할 수 있습니다. 첫째, [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들고 둘째, 클라이언트가 사용할 수 있는 스트리밍 URL을 작성합니다. 
 
 **스트리밍 로케이터**를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터** 는 선택적 시작 및 종료 시간을 구성 하지 않는 한 API 호출을 수행한 직후에 유효 하며 삭제 될 때까지 지속 됩니다. 
 
-[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 예제에서는 미리 정의 된 암호화 되지 않은 스트리밍 정책 (**PredefinedStreamingPolicy**)이 사용 되도록 명확 하 게 (또는 암호화 되지 않은 콘텐츠) 스트리밍할 예정입니다.
+[StreamingLocator](/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 예제에서는 미리 정의 된 암호화 되지 않은 스트리밍 정책 (**PredefinedStreamingPolicy**)이 사용 되도록 명확 하 게 (또는 암호화 되지 않은 콘텐츠) 스트리밍할 예정입니다.
 
 > [!IMPORTANT]
-> 사용자 지정 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. Media Service 계정에는 Streaming Policy 항목의 수에 대한 할당량이 있습니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
+> 사용자 지정 [스트리밍 정책](/rest/api/media/streamingpolicies)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. Media Service 계정에는 Streaming Policy 항목의 수에 대한 할당량이 있습니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
 
 다음 코드에서는 고유한 locatorName을 사용하여 함수를 호출한다고 가정합니다.
 
@@ -219,7 +219,7 @@ await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName
 
 ### <a name="get-streaming-urls"></a>스트리밍 URL 얻기
 
-[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)가 생성되었으므로 **GetStreamingURLs**에 표시된 것처럼 스트리밍 URL을 가져올 수 있습니다. URL을 빌드하려면 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트**가 중지된 상태이므로 **Start**를 호출해야 합니다.
+[스트리밍 로케이터](/rest/api/media/streaminglocators)가 생성되었으므로 **GetStreamingURLs**에 표시된 것처럼 스트리밍 URL을 가져올 수 있습니다. URL을 빌드하려면 [스트리밍 엔드포인트](/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트**가 중지된 상태이므로 **Start**를 호출해야 합니다.
 
 > [!NOTE]
 > 이 메서드에서는 출력 자산에 대한 **스트리밍 로케이터**를 만들 때 사용된 locatorName이 필요합니다.

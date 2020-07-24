@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 2193584996ed9f2c4cf5e858b8855c6878159a84
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520701"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072621"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -126,7 +126,7 @@ __Azure blob storage__의 경우 blob storage에서 데이터를 읽을 수 있�
 1. **출력 설정** 섹션을 확장 합니다.
 1. **기본 출력 설정 재정의**를 선택 합니다.
 1. **출력 설정 설정**을 선택 합니다.
-1. 새 datstore를 지정 합니다.
+1. 새 데이터 저장소를 지정 합니다.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 access control
 
@@ -203,7 +203,7 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](https://doc
 
  Azure Data Lake Store Gen1 및 Azure Data Lake Store Gen2는 기본적으로 유효성 검사를 건너뛰고 추가 작업이 필요 하지 않습니다. 그러나 다음 서비스의 경우 유사한 구문을 사용 하 여 데이터 저장소 유효성 검사를 건너뛸 수 있습니다.
 
-- Azure Blob Storage
+- Azure Blob 스토리지
 - Azure 파일 공유
 - PostgreSQL
 - Azure SQL Database
@@ -429,6 +429,8 @@ except ComputeTargetException:
 ```
 
 만들기 프로세스가 완료되면 실험에서 클러스터를 사용하여 모델을 학습시킵니다. 자세한 내용은 [학습의 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="access-data-in-a-compute-instance-notebook"></a>계산 인스턴스 노트북에서 데이터 액세스
 

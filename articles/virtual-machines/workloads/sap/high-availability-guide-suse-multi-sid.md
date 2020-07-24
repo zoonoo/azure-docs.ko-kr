@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d7ca3e37b107dce3f832499db45e0506c3fa64
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80350068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074013"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -91,7 +91,7 @@ ms.locfileid: "80350068"
 
 장애 조치 (failover)가 발생 하는 경우 클러스터에 참여 하는 가상 머신은 모든 리소스를 실행할 수 있도록 크기를 조정 해야 합니다. 각 SAP SID는 다중 SID 고가용성 클러스터에서 서로 독립적인 장애 조치 (failover) 될 수 있습니다.  SBD fence를 사용 하는 경우 여러 클러스터 간에 SBD 장치를 공유할 수 있습니다.  
 
-고가용성을 위해 SAP NetWeaver에는 항상 사용 가능한 NFS 공유가 필요 합니다. 이 예에서는 SAP NFS 공유가 항상 사용 가능한 [NFS 파일 서버](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)에 호스트 되는 것으로 가정 합니다 .이 서버는 여러 sap 시스템에서 사용할 수 있습니다. 또는 공유가 [AZURE NETAPP FILES NFS 볼륨](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 배포 됩니다.  
+고가용성을 위해 SAP NetWeaver에는 항상 사용 가능한 NFS 공유가 필요 합니다. 이 예에서는 SAP NFS 공유가 항상 사용 가능한 [NFS 파일 서버](./high-availability-guide-suse-nfs.md)에 호스트 되는 것으로 가정 합니다 .이 서버는 여러 sap 시스템에서 사용할 수 있습니다. 또는 공유가 [AZURE NETAPP FILES NFS 볼륨](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 배포 됩니다.  
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "80350068"
 > [!TIP]
 > SAP ASCS/ERS의 다중 SID 클러스터링은 더 복잡 한 솔루션입니다. 구현 하는 것이 더 복잡 합니다. 또한 유지 관리 작업 (예: OS 패치)을 실행할 때 더 높은 관리 노력이 수반 됩니다. 실제 구현을 시작 하기 전에 배포 및 Vm, NFS 탑재, Vip, 부하 분산 장치 구성 등의 관련 된 모든 구성 요소를 신중 하 게 계획 해야 합니다.  
 
-NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용하는 것이 좋습니다.  
+NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다.  
 
 다음 목록에서는 세 가지 SAP 시스템을 사용 하는이 다중 SID 클러스터 예제에 대 한 (A) SCS 및 ERS 부하 분산 장치 구성을 보여 줍니다. 각 Sid에 대 한 각 ASCS 및 ERS 인스턴스에 대해 별도의 프런트 엔드 IP, 상태 프로브 및 부하 분산 규칙이 필요 합니다. ASCS/ASCS 클러스터의 일부인 모든 Vm을 하나의 백 엔드 풀에 할당 합니다.  
 
@@ -147,23 +147,23 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
 
 
 > [!Note]
-> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조하세요.  
+> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조하세요.
+> Azure Load Balancer 뒤에 배치되는 Azure VM에서 TCP 타임스탬프를 사용하도록 설정하면 안 됩니다. TCP 타임스탬프를 사용하도록 설정하면 상태 프로브에 오류가 발생합니다. 매개 변수 **net.ipv4.tcp_timestamps**를 **0**으로 설정합니다. 자세한 내용은 [Load Balancer 상태 프로브](../../../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ## <a name="sap-nfs-shares"></a>SAP NFS 공유
 
 SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장소가 필요 합니다. 항상 사용 가능한 SAP 시스템의 경우 항상 사용 가능한 NFS 공유를 사용 하는 것이 중요 합니다. SAP NFS 공유에 대 한 아키텍처를 결정 해야 합니다. 한 가지 옵션은 여러 SAP 시스템 간에 공유 될 수 있는 [SUSE Linux Enterprise Server의 Azure vm에서 항상 사용 가능한 NFS 클러스터][nfs-ha]를 빌드하는 것입니다. 
 
-또 다른 옵션은 [AZURE NETAPP FILES NFS 볼륨](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 공유를 배포 하는 것입니다.  Azure NetApp Files를 사용 하 여 SAP NFS 공유에 대 한 고가용성을 제공 합니다.
+또 다른 옵션은 [AZURE NETAPP FILES NFS 볼륨](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 공유를 배포 하는 것입니다.  Azure NetApp Files를 사용 하 여 SAP NFS 공유에 대 한 고가용성을 제공 합니다.
 
 ## <a name="deploy-the-first-sap-system-in-the-cluster"></a>클러스터에 첫 번째 SAP 시스템 배포
 
 이제 SAP NFS 공유에 대 한 아키텍처를 결정 했으므로 해당 설명서에 따라 클러스터에 첫 번째 SAP 시스템을 배포 합니다.
 
-* 항상 사용 가능한 NFS 서버를 사용 하는 경우 [sap 응용 프로그램 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)을 따릅니다.  
-* NFS 볼륨 Azure NetApp Files 사용 하는 경우 [sap 응용 프로그램에 대 한 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) 을 따릅니다.
+* 항상 사용 가능한 NFS 서버를 사용 하는 경우 [sap 응용 프로그램 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse.md)을 따릅니다.  
+* NFS 볼륨 Azure NetApp Files 사용 하는 경우 [sap 응용 프로그램에 대 한 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md) 을 따릅니다.
 
 위에 나열 된 문서에서는 필요한 인프라를 준비 하 고, 클러스터를 빌드하고, SAP 응용 프로그램을 실행 하기 위해 OS를 준비 하는 단계를 안내 합니다.  
 
@@ -189,7 +189,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>SAP NetWeaver 설치 준비
 
-1. 새로 배포한 시스템 (즉, **n w 2**, **NW3**)에 대 한 구성을 기존 Azure Load Balancer에 추가 합니다. 지침에 따라 [Azure Portal를 통해 수동으로 배포 Azure Load Balancer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#deploy-azure-load-balancer-manually-via-azure-portal)합니다. 구성에 대 한 IP 주소, 상태 프로브 포트, 부하 분산 규칙을 조정 합니다.  
+1. 새로 배포한 시스템 (즉, **n w 2**, **NW3**)에 대 한 구성을 기존 Azure Load Balancer에 추가 합니다. 지침에 따라 [Azure Portal를 통해 수동으로 배포 Azure Load Balancer](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal)합니다. 구성에 대 한 IP 주소, 상태 프로브 포트, 부하 분산 규칙을 조정 합니다.  
 
 2. **[A]** 추가 SAP 시스템에 대 한 이름 확인을 설정 합니다. DNS 서버를 사용 하거나 모든 노드에서를 수정할 수 있습니다 `/etc/hosts` . 이 예제에서는 파일을 사용 하는 방법을 보여 줍니다 `/etc/hosts` .  사용자 환경에 대 한 IP 주소 및 호스트 이름을 조정 합니다. 
 
@@ -236,8 +236,8 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
    `/etc/auto.direct`클러스터에 배포 하는 추가 SAP 시스템의 파일 시스템을 사용 하 여 파일을 업데이트 합니다.  
 
-   * NFS 파일 서버를 사용 하는 경우 [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요.
-   * Azure NetApp Files 사용 하는 경우 [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요. 
+   * NFS 파일 서버를 사용 하는 경우 [여기](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요.
+   * Azure NetApp Files 사용 하는 경우 [여기](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요. 
 
    `autofs`새로 추가 된 공유를 탑재 하려면 서비스를 다시 시작 해야 합니다.  
 
@@ -561,17 +561,17 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 다음을 수행 하 여 SAP 설치를 완료 합니다.
 
-* [SAP NetWeaver 응용 프로그램 서버 준비](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#2d6008b0-685d-426c-b59e-6cd281fd45d7)
-* [DBMS 인스턴스 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#install-database)
-* [기본 SAP 응용 프로그램 서버 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#sap-netweaver-application-server-installation)
+* [SAP NetWeaver 응용 프로그램 서버 준비](./high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)
+* [DBMS 인스턴스 설치](./high-availability-guide-suse.md#install-database)
+* [기본 SAP 응용 프로그램 서버 설치](./high-availability-guide-suse.md#sap-netweaver-application-server-installation)
 * 하나 이상의 추가 SAP 응용 프로그램 인스턴스 설치
 
 ## <a name="test-the-multi-sid-cluster-setup"></a>다중 SID 클러스터 설정 테스트
 
 다음 테스트는 SUSE의 모범 사례 가이드에서 테스트 사례의 하위 집합입니다. 사용자 편의를 위해 포함 되었습니다. 클러스터 테스트의 전체 목록은 다음 설명서를 참조 하세요.
 
-* 항상 사용 가능한 NFS 서버를 사용 하는 경우 [sap 응용 프로그램 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)을 따릅니다.  
-* NFS 볼륨 Azure NetApp Files 사용 하는 경우 [sap 응용 프로그램에 대 한 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) 을 따릅니다.
+* 항상 사용 가능한 NFS 서버를 사용 하는 경우 [sap 응용 프로그램 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse.md)을 따릅니다.  
+* NFS 볼륨 Azure NetApp Files 사용 하는 경우 [sap 응용 프로그램에 대 한 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md) 을 따릅니다.
 
 항상 SUSE 모범 사례 가이드를 읽고 추가 될 수 있는 모든 추가 테스트를 수행 합니다.  
 표시 되는 테스트는 3 개의 SAP 시스템이 설치 된 다중 SID 클러스터의 두 노드에 있습니다.  

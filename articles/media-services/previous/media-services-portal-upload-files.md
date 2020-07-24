@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73e92fa505a994cc5cc2fdb3a297dfd653a596a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071812"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Azure Portal에서 Media Services 계정에 파일 업로드 
 
@@ -30,7 +30,7 @@ ms.locfileid: "84982563"
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 포털을 사용 하 여 최신 파일을 업로드 [하려면 포털을 사용 하 여 콘텐츠 업로드, 인코딩 및 스트리밍](../latest/manage-assets-quickstart.md)을 참조 하세요.<br/>또한 [v3 Media Services](https://docs.microsoft.com/azure/media-services/latest/)확인 합니다. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 포털을 사용 하 여 최신 파일을 업로드 [하려면 포털을 사용 하 여 콘텐츠 업로드, 인코딩 및 스트리밍](../latest/manage-assets-quickstart.md)을 참조 하세요.<br/>또한 [v3 Media Services](../latest/index.yml)확인 합니다. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Azure Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
@@ -65,5 +65,3 @@ Media Services는 파일 처리를 위해 최대 파일 크기를 포함합니�
 * [업로드된 자산을 인코딩](media-services-portal-encode.md)하는 방법에 대해 알아보세요.
 
 * 또한 Azure Functions를 사용하여 파일이 구성된 컨테이너에 도착할 때 인코딩 작업을 트리거할 수도 있습니다. 자세한 내용은 [Media Services: Azure Media Services를 Azure Functions 및 Logic Apps와 통합](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/)에서 샘플을 참조하세요.
-
-

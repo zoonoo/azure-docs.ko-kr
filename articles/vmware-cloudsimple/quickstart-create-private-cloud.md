@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81867974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073908"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
@@ -113,7 +114,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 1. CloudSimple 포털을 시작 하 고 **네트워크**를 선택 합니다.
 2. **VPN Gateway**를 선택 합니다.
 3. VPN gateway 목록에서 지점 및 사이트 간 VPN gateway를 클릭 합니다.
-4. **사용자**를 선택 합니다.
+4. **사용자**를 선택합니다.
 5. **내 VPN 구성 다운로드**를 클릭 합니다.
 
     ![VPN 구성 다운로드](media/download-p2s-vpn-configuration.png)
@@ -147,7 +148,7 @@ V m/서브넷이 생성 됩니다.  이제이 VLAN ID를 사용 하 여 사설 �
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Azure virtual network에 환경 연결
 
-CloudSimple은 사설 클라우드에 대 한 Express 경로 회로를 제공 합니다. Azure의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 연결 설정에 대 한 자세한 내용은 Express 경로를 [사용 하 여 Azure Virtual Network 연결](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection)의 단계를 따르세요.
+CloudSimple은 사설 클라우드에 대 한 Express 경로 회로를 제공 합니다. Azure의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 연결 설정에 대 한 자세한 내용은 Express 경로를 [사용 하 여 Azure Virtual Network 연결](./cloudsimple-azure-network-connection.md)의 단계를 따르세요.
 
 ## <a name="sign-in-to-vcenter"></a>VCenter에 로그인
 

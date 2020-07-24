@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960370"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071908"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
@@ -32,7 +32,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 3. 부드러운 스트리밍 스트림 선택
 4. 부드러운 스트리밍 트랙 선택
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 > [!NOTE]
 > Windows 스토어 프로젝트 버전 8.1 및 이전 버전은 Visual Studio 2017에서 지원되지 않습니다.  자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요.
 
@@ -53,7 +53,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 
 ![부드러운 스트리밍 Windows 스토어 애플리케이션 예][PlayerApplication]
 
-Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](https://msdn.microsoft.com/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
+Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](https://developer.microsoft.com/en-us/windows/)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
 
 1. Windows 스토어 프로젝트 만들기
 2. 사용자 인터페이스 디자인(XAML)
@@ -66,11 +66,11 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 1. **파일** 메뉴에서 **새로 만들기**를 클릭 한 다음 **프로젝트**를 클릭 합니다.
 1. [새 프로젝트] 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     | --- | --- |
     | 템플릿 그룹 |Installed/Templates/Visual C#/Windows Store |
     | 템플릿 |새 응용 프로그램(XAML) |
-    | 이름 |SSPlayer |
+    | Name |SSPlayer |
     | 위치 |C:\SSTutorials |
     | 솔루션 이름 |SSPlayer |
     | 솔루션에 대한 디렉터리 만들기 |(선택됨) |
@@ -82,10 +82,10 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 1. [솔루션 탐색기]에서 **SSPlayer**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
 1. 다음 값을 입력하거나 선택합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     | --- | --- |
     | 참조 그룹 |Windows/Extensions |
-    | 참고 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
+    | 참조 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
 
 1. **확인**을 클릭합니다. 
 
@@ -141,7 +141,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
          </StackPanel>
    ```
    MediaElement 컨트롤은 미디어를 재생하는 데 사용됩니다. sliderProgress라는 슬라이더 컨트롤은 다음 단원에서 미디어 진행을 제어하는 데 사용됩니다.
-3. **Ctrl+S** 를 눌러 파일을 저장합니다.
+3. **Ctrl + S** 를 눌러 파일을 저장 합니다.
 
 MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를 지원하지 않습니다. 부드러운 스트리밍 지원을 사용하도록 설정하려면 파일 이름 확장명과 MIME 형식으로 부드러운 스트리밍 바이트 스트림 처리기를 등록해야 합니다.  등록하려면 Windows.Media 네임스페이스의 MediaExtensionManager.RegisterByteStreamHandler 메서드를 사용합니다.
 
@@ -214,7 +214,7 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
          # endregion
    ```
    여기에는 sliderProgress_PointerPressed 이벤트 처리기가 정의되어 있습니다.  작동하는 데 필요한 추가 작업이 있으며, 이 자습서의 다음 단원에서 설명합니다.
-6. **Ctrl+S** 를 눌러 파일을 저장합니다.
+6. **Ctrl + S** 를 눌러 파일을 저장 합니다.
 
 완성된 코드 숨김 파일은 다음과 같이 표시됩니다.
 
@@ -291,7 +291,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             "application/vnd.ms-sstr+xml", 
          propertySet);
    ```
-6. **Ctrl+S** 를 눌러 파일을 저장합니다.
+6. **Ctrl + S** 를 눌러 파일을 저장 합니다.
 
 ### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>적응 원본 관리자 수준 이벤트 처리기를 추가하려면
 
@@ -319,7 +319,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
    ```
-5. **Ctrl+S** 를 눌러 파일을 저장합니다.
+5. **Ctrl + S** 를 눌러 파일을 저장 합니다.
 
 ### <a name="to-add-adaptive-source-level-event-handlers"></a>적응 원본 수준 이벤트 처리기를 추가하려면
 
@@ -368,7 +368,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 
             mediaElement_AdaptiveSourceFailed;
    ```
-5. **Ctrl+S** 를 눌러 파일을 저장합니다.
+5. **Ctrl + S** 를 눌러 파일을 저장 합니다.
 
 앱의 모든 미디어 요소에 공통된 기능을 처리하는 데 사용할 수 있는 적응 원본 관리자 수준에서도 동일한 이벤트를 사용할 수 있습니다. 각 AdaptiveSource에는 고유한 이벤트가 포함되어 있으며 모든 AdaptiveSource 이벤트가 AdaptiveSourceManager 아래에 계단식으로 표시됩니다.
 
@@ -406,7 +406,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
    ```
-4. **Ctrl+S** 를 눌러 파일을 저장합니다.
+4. **Ctrl + S** 를 눌러 파일을 저장 합니다.
 
 ### <a name="to-add-slider-bar-related-code"></a>슬라이더 막대 관련 코드를 추가하려면
 
@@ -516,7 +516,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 
    > [!NOTE]
-   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에 병목 현상이 발생 하는 경우 개발자는 업데이트 하려는 UI 요소에서 제공 하는 디스패처를 사용 하도록 선택할 수 있습니다.  예를 들어:
+   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에 병목 현상이 발생 하는 경우 개발자는 업데이트 하려는 UI 요소에서 제공 하는 디스패처를 사용 하도록 선택할 수 있습니다.  예를 들면 다음과 같습니다.
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -539,7 +539,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
    ```
-8. **Ctrl+S** 를 눌러 파일을 저장합니다.
+8. **Ctrl + S** 를 눌러 파일을 저장 합니다.
 
 ### <a name="to-compile-and-test-the-application"></a>애플리케이션을 컴파일 및 테스트하려면
 
@@ -1045,4 +1045,3 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

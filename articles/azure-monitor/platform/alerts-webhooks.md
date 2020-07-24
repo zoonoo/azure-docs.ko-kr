@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826913"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073595"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
 
@@ -25,7 +26,7 @@ Azure 경고는 HTTP POST를 사용하여 JSON 형식의 경고 콘텐츠를 이
 
 ![경고 규칙 추가 창](./media/alerts-webhooks/Alertwebhook.png)
 
-또한 [Azure PowerShell cmdlet](../samples/powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](../samples/cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
+또한 [Azure PowerShell cmdlet](../samples/powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](../samples/cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](/rest/api/monitor/alertrules)를 사용하여 웹후크 URI에 게시할 경고를 구성할 수 있습니다.
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
 웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 웹후크 URI는 토큰 ID를 사용하여 저장됩니다. 예: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -78,11 +79,11 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | conditionType |Y |Metric, Event |metric과 event라는 두 형식의 경고가 지원됩니다. 메트릭 경고는 메트릭 조건을 기반으로 합니다. 이벤트 경고는 활동 로그의 이벤트를 기반으로 합니다. 이 값을 사용하여 경고가 메트릭 또는 이벤트를 기반으로 하는지 확인하세요. |
 | condition(조건) |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
 | metricName |메트릭 경고의 경우 | |규칙은 모니터링을 정의하는 메트릭의 이름입니다. |
-| metricUnit |메트릭 경고의 경우 |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |메트릭에 사용되는 단위입니다. [허용되는 값](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx)을 참조하세요. |
+| metricUnit |메트릭 경고의 경우 |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |메트릭에 사용되는 단위입니다. [허용되는 값](/previous-versions/azure/reference/dn802430(v=azure.100))을 참조하세요. |
 | metricValue |메트릭 경고의 경우 | |경고를 발생시킨 메트릭의 실제 값입니다. |
 | threshold |메트릭 경고의 경우 | |경고가 활성화되는 임계값입니다. |
 | windowSize |메트릭 경고의 경우 | |임계값에 기반하여 경보 활동을 모니터링하는 데 사용되는 기간입니다. 값은 5분에서 1일 사이여야 합니다. 값은 ISO 8601 기간 형식이어야 합니다. |
-| timeAggregation |메트릭 경고의 경우 |Average, Last, Maximum, Minimum, None, Total |데이터가 수집되는 방법은 시간이 지남에 따라 결합되어야 합니다. 기본값은 평균입니다. [허용되는 값](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx)을 참조하세요. |
+| timeAggregation |메트릭 경고의 경우 |Average, Last, Maximum, Minimum, None, Total |데이터가 수집되는 방법은 시간이 지남에 따라 결합되어야 합니다. 기본값은 평균입니다. [허용되는 값](/previous-versions/azure/reference/dn802410(v=azure.100))을 참조하세요. |
 | operator |메트릭 경고의 경우 | |현재 메트릭 데이터를 설정한 임계값과 비교하는 데 사용되는 연산자입니다. |
 | subscriptionId |Y | |Azure 구독 ID입니다. |
 | resourceGroupName |Y | |영향을 받는 리소스의 리소스 그룹 이름입니다. |
@@ -94,7 +95,7 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. `Dictionary<String, String>`)을 입력합니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
 
 > [!NOTE]
-> [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 **properties** 필드만 설정할 수 있습니다.
+> [Azure Monitor REST API](/rest/api/monitor/alertrules)를 사용하여 **properties** 필드만 설정할 수 있습니다.
 >
 >
 
@@ -104,4 +105,3 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 * [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) 방법을 알아봅니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) 방법을 알아봅니다.
 * [논리 앱을 사용하여 Azure 경고에서 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) 방법을 알아봅니다.
-

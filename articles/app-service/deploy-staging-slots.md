@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073860"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -170,7 +170,7 @@ Preview를 사용 하 여 교환 하려면:
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>자동 교환 구성
+## <a name="configure-auto-swap"></a>자동 전환 구성
 
 > [!NOTE]
 > 자동 교환은 Linux의 웹 앱에서 지원 되지 않습니다.
@@ -288,7 +288,7 @@ Preview를 사용 하 여 교환 하려면:
 
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈로, Azure App Service에서 배포 슬롯을 관리하는 기능도 지원합니다.
 
-Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.  
+Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.  
 
 ---
 ### <a name="create-a-web-app"></a>웹앱 만들기

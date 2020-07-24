@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072141"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -36,6 +36,20 @@ ms.locfileid: "86075436"
 >
 > 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
 
+## <a name="july-2020"></a>2020년 7월
+
+### <a name="live-transcriptions"></a>라이브
+
+이제 Live a는 19 개의 언어와 8 개 지역을 지원 합니다.
+
+## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Media Services 및 Azure AD를 사용 하 여 콘텐츠 보호
+
+[AZURE AD를 사용 하 여 종단 간 콘텐츠 보호](./azure-ad-content-protection.md)라는 자습서를 게시 했습니다.
+
+### <a name="high-availablity"></a>높은 가용성
+
+Media Services 및 VOD (주문형 비디오) [개요](./media-services-high-availability-encoding.md) 및 [샘플](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)을 사용 하 여 고가용성을 게시 했습니다.
+
 ## <a name="june-2020"></a>2020년 6월
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>IoT Edge preview 릴리스의 라이브 비디오 분석
@@ -43,16 +57,6 @@ ms.locfileid: "86075436"
 IoT Edge에서 라이브 비디오 분석의 미리 보기가 공개 되었습니다. 자세한 내용은 [릴리스 정보](../live-video-analytics-edge/release-notes.md)를 참조 하세요.
 
 IoT Edge의 Live Video Analytics는 미디어 서비스 제품군에 대 한 확장입니다. 사용자의에 지 장치에서 선택한 AI 모델을 사용 하 여 라이브 비디오를 분석 하 고 필요에 따라 해당 비디오를 캡처 및 기록할 수 있습니다. 이제 라이브 비디오 파이프라인을 구축 하 고 작동 하는 복잡성을 걱정 하지 않고에 지에서 실시간 비디오 분석으로 앱을 빌드할 수 있습니다.
-
-### <a name="search-by-topics"></a>항목으로 검색
-
-이제 검색 API를 사용 하 여 특정 토픽으로 비디오를 검색할 수 있습니다 (API에만 해당).
-
-토픽은 `textScope` (선택적 매개 변수)의 일부로 추가 됩니다. 자세한 내용은 [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) 를 참조 하세요.  
-
-### <a name="labels-enhancement"></a>레이블 기능 향상
-
-레이블 태거가 업그레이드 되었으며 이제 식별할 수 있는 더 많은 시각적 레이블이 포함 되어 있습니다.
 
 ## <a name="may-2020"></a>2020년 5월
 
@@ -137,7 +141,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기*의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](../previous/legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)는 이러한 레거시 미디어 프로세서를 대체합니다.
+*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기*의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](../previous/legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조하세요.
 
@@ -171,9 +175,9 @@ WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프
 
 ### <a name="video-subclipping"></a>비디오 서브클리핑
 
-이제 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 사용하여 인코딩할 때 비디오를 자르거나 서브클리핑할 수 있습니다. 
+이제 [작업](/rest/api/media/jobs)을 사용하여 인코딩할 때 비디오를 자르거나 서브클리핑할 수 있습니다. 
 
-이 기능은 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용하여 빌드된 모든 [변환](https://docs.microsoft.com/rest/api/media/transforms)과 함께 작동합니다. 
+이 기능은 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용하여 빌드된 모든 [변환](/rest/api/media/transforms)과 함께 작동합니다. 
 
 예제 참조:
 
@@ -212,8 +216,8 @@ Media Services 성능 개선을 포함하는 업데이트가 추가되었습니�
 
 ### <a name="new-presets"></a>새로운 사전 설정
 
-* 기본 제공 분석기 사전 설정에 [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)이 추가되었습니다.
-* 기본 제공 인코더 사전 설정에 [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)이 추가되었습니다. 자세한 내용은 [콘텐츠 인식 인코딩](content-aware-encoding.md)을 참조하세요. 
+* 기본 제공 분석기 사전 설정에 [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)이 추가되었습니다.
+* 기본 제공 인코더 사전 설정에 [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset)이 추가되었습니다. 자세한 내용은 [콘텐츠 인식 인코딩](content-aware-encoding.md)을 참조하세요. 
 
 ## <a name="march-2019"></a>2019년 3월
 
@@ -246,21 +250,21 @@ V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
 
 ## <a name="november-2018"></a>2018년 11월
 
-현재 CLI 2.0 모듈이 [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50에 제공됩니다.
+현재 CLI 2.0 모듈이 [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50에 제공됩니다.
 
 ### <a name="new-commands"></a>새 명령
 
-- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 미디어 예약 단위를 관리할 수 있습니다. 자세한 내용은 [미디어 예약 단위 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
+- [az ams account](/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) - 미디어 예약 단위를 관리할 수 있습니다. 자세한 내용은 [미디어 예약 단위 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
 
 ### <a name="new-features-and-breaking-changes"></a>새 기능과 주요 변경 내용
 
@@ -351,7 +355,7 @@ CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMA
 
 ### <a name="video-indexer"></a>비디오 인덱서
 
-Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)을 참조하세요. 
+Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json)을 참조하세요. 
 
 ### <a name="plans-for-changes"></a>변경 계획
 

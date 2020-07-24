@@ -2,13 +2,13 @@
 title: Azure Migrate 프로젝트 만들기 및 관리
 description: Azure Migrate에서 프로젝트를 찾고 만들고 관리 하 고 삭제 합니다.
 ms.topic: how-to
-ms.date: 04/19/2020
-ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113431"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071799"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 
@@ -65,14 +65,14 @@ Azure Migrate 프로젝트가 이미 있고 추가 프로젝트를 만들려는 
     - 리소스 유형은 **Microsoft. 마이그레이션/migrateprojects**입니다.
     - 리소스 그룹이 Azure Migrate 프로젝트에 독점적으로 사용 되는 경우 전체 리소스 그룹을 삭제할 수 있습니다.
 
-
-다음 사항에 유의합니다.
+다음 사항에 유의하십시오.
 
 - 를 삭제 하면 검색 된 컴퓨터에 대 한 프로젝트와 메타 데이터가 모두 삭제 됩니다.
 - 이전 버전의 Azure Migrate을 사용 하는 경우 프로젝트를 만든 Azure 리소스 그룹을 엽니다. 삭제할 마이그레이션 프로젝트를 선택 합니다 (리소스 종류는 **마이그레이션 프로젝트**).
 - Azure Log Analytics 작업 영역에서 종속성 분석을 사용 하는 경우:
     - 서버 평가 도구에 Log Analytics 작업 영역을 연결한 경우 작업 영역이 자동으로 삭제 되지 않습니다. 여러 시나리오에 동일한 Log Analytics 작업 영역을 사용할 수 있습니다.
     - Log Analytics 작업 영역을 삭제 하려면 수동으로 작업을 수행 합니다.
+- 프로젝트 삭제는 취소할 수 없습니다. 삭제 된 개체는 복구할 수 없습니다.
 
 ### <a name="delete-a-workspace-manually"></a>수동으로 작업 영역 삭제
 

@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072437"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 간에 변환하는 맵 만들기
 
@@ -29,7 +30,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 **변환을 사용하는 단계는 다음과 같습니다**.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 * 통합 계정을 만든 후 맵 추가  
 
@@ -37,11 +38,11 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 1. 논리 앱을 만들고 맵을 포함 하는 [통합 계정에 연결](../logic-apps/logic-apps-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결 하는 방법 알아보기") 합니다.
 2. 논리 앱에 **요청** 트리거 추가  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
+   ![요청 트리거가 선택 된 "Microsoft 관리 Api 표시" 드롭다운의 스크린샷 드롭다운은 Visual Studio Enterprise Integration SDK를 사용 하 여 만든 논리 앱에 있습니다.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. 먼저 **작업 추가** 를 선택하여 **변환 XML** 작업을 추가합니다.  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
+   ![요청 트리거 화면에서 선택한 "작업 추가" 단추를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. 사용하려는 작업에 대해 모든 작업을 필터링하기 위해 검색 상자에 *변환*이라는 단어를 입력합니다.  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
+   ![요청 트리거에 추가할 수 있도록 "Microsoft 관리 되는 Api 표시" 드롭다운에서 XML 변환 작업을 검색 하는 방법을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. **변환 XML** 작업을 선택합니다.   
 6. 변환할 XML **콘텐츠** 를 추가합니다. HTTP 요청에서 수신한 XML 데이터를 **콘텐츠**로 사용할 수 있습니다. 이 예제에서는 논리 앱을 트리거한 HTTP 요청의 본문을 선택합니다.
 
@@ -50,9 +51,9 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
  
 
 7. 변환을 수행하는 데 사용하려는 **맵** 의 이름을 선택합니다. 맵이 이미 통합 계정에 있어야 합니다. 이전 단계에서 맵을 포함한 통합 계정에 논리 앱 액세스 권한을 이미 제공했습니다.      
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
+   ![요청 트리거에 대 한 변환 XML 화면의 내용과 맵 필드를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. 작업을 저장합니다.  
-    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+    ![Logic Apps 디자이너의 저장 단추를 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 이 시점에서 맵의 설정이 완료됩니다. 실제 애플리케이션에서는 SalesForce와 같은 LOB 애플리케이션에 변환한 데이터를 저장할 수 있습니다. Salesforce에 변환의 출력을 보내는 작업을 쉽게 수행할 수 있습니다. 
 

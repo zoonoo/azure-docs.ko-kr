@@ -3,17 +3,19 @@ title: Azure Service Bus에 대 한 가상 네트워크 서비스 끝점 구성
 description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071318"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Azure Service Bus에 대 한 가상 네트워크 서비스 끝점 구성
 
 Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 머신과 같은 워크 로드에서 메시지 기능에 안전 하 게 액세스할 수 있으며, 두 쪽 모두에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다.
 
-적어도 하나의 가상 네트워크 서브넷 서비스 엔드포인트에 바인딩되도록 구성하면 해당하는 Service Bus 네임스페이스는 권한이 부여된 가상 네트워크를 제외한 곳의 트래픽을 더 이상 허용하지 않습니다. 가상 네트워크 큐브 뷰에서 Service Bus 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
+하나 이상의 가상 네트워크 서브넷 서비스 끝점에 바인딩되도록 구성 된 경우 해당 Service Bus 네임 스페이스는 더 이상 권한이 있는 가상 네트워크 및 선택적으로 특정 인터넷 IP 주소 로부터의 트래픽을 허용 하지 않습니다. 가상 네트워크 큐브 뷰에서 Service Bus 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
 
 메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Service Bus 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다.
 

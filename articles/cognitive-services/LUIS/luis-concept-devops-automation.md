@@ -1,14 +1,14 @@
 ---
-title: DevOps 테스트-LUIS
+title: LUIS apps에 대 한 연속 워크플로
 description: Language Understanding 용 DevOps에 대 한 CI/CD 워크플로를 구현 하는 방법 (LUIS)
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 87b922d176f3ef11f25e46c8e076c88d5f3854c3
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 4cedf0cbe3f9ab675c191f8e4639688bb7916ee0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072988"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>LUIS DevOps에 대 한 지속적인 통합 및 지속적인 업데이트 워크플로
 

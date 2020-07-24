@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 847de2c2c8916558d542473d9b7c80fd5552dbf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b6be8b4deffd81da6c0b714bc6afeff4b06ab2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073936"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
@@ -177,7 +177,7 @@ Windows 앱의 경우 포털이 직접 지원 하지 않는 클라우드 Git 또
 ## <a name="additional-resources"></a>추가 리소스
 
 * [연속 배포에 대 한 일반적인 문제 조사](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
-* [Azure PowerShell 사용](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell 사용](/powershell/azure/)
 * [Git 설명서](https://git-scm.com/documentation)
 * [프로젝트 Kudu](https://github.com/projectkudu/kudu/wiki)
 

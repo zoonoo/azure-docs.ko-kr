@@ -7,17 +7,18 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073571"
 ---
 # <a name="application-insights-log-based-metrics"></a>로그 기반 메트릭 Application Insights
 
 Application Insights 로그 기반 메트릭을 사용 하 여 모니터링 되는 앱의 상태를 분석 하 고, 강력한 대시보드를 만들고, 경고를 구성할 수 있습니다. 메트릭에는 다음과 같은 두 종류가 있습니다.
 
-* 장면 뒤의 [로그 기반 메트릭은](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) 저장 된 이벤트에서 [kusto 쿼리로](https://docs.microsoft.com/azure/kusto/query/) 변환 됩니다.
+* 장면 뒤의 [로그 기반 메트릭은](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) 저장 된 이벤트에서 [kusto 쿼리로](/azure/kusto/query/) 변환 됩니다.
 * [표준 메트릭은](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) 미리 집계 된 시계열으로 저장 됩니다.
 
 *표준 메트릭은* 수집 중에 미리 집계 되므로 쿼리 시 성능이 향상 됩니다. 이렇게 하면 대시보드를 보다 효과적으로 선택 하 고 실시간 경고를 만들 수 있습니다. *로그 기반 메트릭에* 는 더 많은 차원이 있습니다 .이를 통해 데이터 분석 및 임시 진단에 대 한 상위 옵션을 사용할 수 있습니다. [메트릭 탐색기](metrics-getting-started.md)에서 로그 기반 및 표준 메트릭 간을 전환 하려면 [네임 스페이스 선택기](metrics-getting-started.md#create-your-first-metric-chart) 를 사용 합니다.
@@ -97,7 +98,7 @@ availabilityResults
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -113,7 +114,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -129,7 +130,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -145,7 +146,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -161,7 +162,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -183,7 +184,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
-|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 exceptions
@@ -198,7 +199,7 @@ exceptions
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
-|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 dependencies

@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: 5d462be1caa3787cb7ff9a455be595ec5784eefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 38edbfcb8800843b43678e99d6817595ccba3235
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76157273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071544"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 방화벽 규칙-단일 서버
 Azure Database for PostgreSQL 서버 방화벽은 사용 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대 한 모든 액세스를 차단 합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -64,10 +65,13 @@ PostgreSQL용 Microsoft Azure 데이터베이스 서버 서비스로의 연결�
 
    * 클라이언트 컴퓨터 대신 고정 IP 지정을 가져온 다음 고정 IP 주소를 방화벽 규칙으로 추가합니다.
 
-* **서버의 IP가 공개로 표시 됩니다.** Azure Database for PostgreSQL 서버에 대 한 연결은 공개적으로 액세스할 수 있는 Azure 게이트웨이를 통해 라우팅됩니다. 그러나 실제 서버 IP는 방화벽으로 보호됩니다. 자세한 내용은 [연결 아키텍처 문서](concepts-connectivity-architecture.md)를 참조하세요. 
+* **서버의 IP가 공개로 표시 됩니다.** Azure Database for PostgreSQL 서버에 대 한 연결은 공개적으로 액세스할 수 있는 Azure 게이트웨이를 통해 라우팅됩니다. 그러나 실제 서버 IP는 방화벽으로 보호됩니다. 자세한 내용은 [연결 아키텍처 문서](concepts-connectivity-architecture.md)를 참조하세요.
+
+* **허용 되는 IP를 사용 하 여 Azure 리소스에서 연결할 수 없음:** 연결 하려는 서브넷에 대해 **Microsoft Sql** 서비스 끝점을 사용할 수 있는지 여부를 확인 합니다. **Microsoft .sql** 을 사용 하는 경우에는 해당 서브넷에서 [VNet 서비스 끝점 규칙만](concepts-data-access-and-security-vnet.md) 사용 합니다.
+
+   예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 ## <a name="next-steps"></a>다음 단계
-서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기에 대한 문서를 보려면 다음을 참조하세요.
 * [Azure Portal을 사용한 PostgreSQL용 Azure 데이터베이스 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-portal.md)
 * [Azure CLI를 사용한 PostgreSQL용 Azure 데이터베이스 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-cli.md)
-- [Azure Database for PostgreSQL의 VNet 서비스 끝점](./concepts-data-access-and-security-vnet.md)
+* [Azure Database for PostgreSQL의 VNet 서비스 끝점](./concepts-data-access-and-security-vnet.md)

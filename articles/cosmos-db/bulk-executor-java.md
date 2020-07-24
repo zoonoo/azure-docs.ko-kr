@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5158bbb32635ebf030879f4d0290a1feba0ec93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072923"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 
@@ -22,7 +22,7 @@ ms.locfileid: "85260596"
 
 현재 대량 실행자 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정 에서만 지원 됩니다. 이 문서에서는 SQL API 계정에서 대량 실행 기 Java 라이브러리를 사용 하는 방법을 설명 합니다. Bulk Executor .NET 라이브러리 사용에 대해 알아보려면 [Azure Cosmos DB Gremlin API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조하세요. 설명 된 대량 실행자 라이브러리는 [Azure Cosmos DB java SYNC SDK](sql-api-sdk-java.md) v 2에만 사용할 수 있으며 java 대량 지원을 위한 현재 권장 솔루션입니다. 이 버전은 현재 2.x, 4.x 또는 기타 상위 SDK 버전에서 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.  
 
@@ -43,7 +43,7 @@ ms.locfileid: "85260596"
 
 이제 GitHub에서 샘플 Java 애플리케이션을 다운로드하여 코드 작업으로 전환해 보겠습니다. 이 애플리케이션은 Azure Cosmos DB 데이터에서 대량 작업을 수행합니다. 애플리케이션을 복제하려면 명령 프롬프트를 열고, 애플리케이션을 복사할 디렉터리로 이동한 후, 다음 명령을 실행합니다.
 
-```
+```bash
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
@@ -123,13 +123,13 @@ ms.locfileid: "85260596"
 
 5. 대량 가져오기 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
-   ```java
+   ```bash
    mvn clean package
    ```
 
 6. 대상 종속성이 생성된 후 다음 명령을 사용하여 대량 가져오기 애플리케이션을 호출할 수 있습니다.  
 
-   ```java
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
@@ -186,13 +186,13 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
 
 3. 대량 업데이트 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 4. 대상 종속성이 생성된 후 다음 명령을 사용하여 대량 업데이트 애플리케이션을 호출할 수 있습니다.
 
-   ```
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 

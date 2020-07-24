@@ -4,16 +4,17 @@ description: Microsoft Azure의 자동 크기 조정
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4403c2957cb2d2d9d4af98d64cdb5177ae3d0726
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828987"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073486"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Microsoft Azure의 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
 
-Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) 및 [Azure Data Explorer 클러스터](https://docs.microsoft.com/azure/data-explorer/)에만 적용됩니다.
+Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management 서비스](../../api-management/api-management-key-concepts.md) 및 [Azure Data Explorer 클러스터](/azure/data-explorer/)에만 적용됩니다.
 
 > [!NOTE]
 > Azure에는 두 개의 자동 크기 조정 메서드가 있습니다. 이전 버전의 자동 크기 조정은 Virtual Machines(가용성 집합)에 적용됩니다. 이 기능은 제한적으로 지원하므로 빠르고 안정적인 자동 크기 조정 지원을 위해 가상 머신 확장 집합으로 마이그레이션하는 것이 좋습니다. 이전 기술을 사용하는 방법에 대한 링크는 이 문서에 포함됩니다.  
@@ -73,12 +74,12 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 
 ![Azure 자동 크기 조정 설정, 프로필 및 규칙 구조](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-구성 가능한 필드 및 설명의 전체 목록은 [자동 크기 조정 REST API](https://msdn.microsoft.com/library/dn931928.aspx)에서 사용할 수 있습니다.
+구성 가능한 필드 및 설명의 전체 목록은 [자동 크기 조정 REST API](/rest/api/monitor/autoscalesettings)에서 사용할 수 있습니다.
 
 코드 예제는 다음을 참조하세요.
 
 * [Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](autoscale-virtual-machine-scale-sets.md)  
-* [자동 크기 조정 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [자동 크기 조정 REST API](/rest/api/monitor/autoscalesettings)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>수평 및 수직적 크기 조정
 자동 규모 조정은 수평적으로만 규모를 조정하며 이는 VM 인스턴스 수의 증가("규모 확장") 또는 감소("규모 축소")입니다.  수평적 규모 조정은 부하를 처리하기 위해 잠재적으로 수천 개의 VM을 실행할 수 있으므로 클라우드 상황에서 더 유연합니다.
@@ -89,29 +90,28 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 자동 크기 조정은 다음을 통해 설정할 수 있습니다.
 
 * [Azure Portal](autoscale-get-started.md)
-* [PowerShell](powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 * [CLI(플랫폼 간 명령줄 인터페이스)](../samples/cli-samples.md#autoscale)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [Azure Monitor REST API](/rest/api/monitor/autoscalesettings)
 
 ## <a name="supported-services-for-autoscale"></a>자동 크기 조정이 지원되는 서비스
 | 서비스 | 스키마 및 문서 |
 | --- | --- |
 | Web Apps |[Web Apps 크기 조정](autoscale-get-started.md) |
 | Cloud Services |[클라우드 서비스 자동 크기 조정](../../cloud-services/cloud-services-how-to-scale-portal.md) |
-| 가상 머신: 클래식 |[클래식 Virtual Machine 가용성 집합 크기 조정](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| 가상 머신: 클래식 |[클래식 Virtual Machine 가용성 집합 크기 조정](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | 가상 머신: Windows 확장 세트 |[Windows에서 가상 머신 확장 집합 크기 조정](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | 가상 머신: Linux 확장 세트 |[Linux에서 가상 머신 확장 집합 크기 조정](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | 가상 머신: Windows 예제 |[Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](autoscale-virtual-machine-scale-sets.md) |
-| API Management 서비스|[Azure API Management 인스턴스 자동 크기 조정](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
-| Azure Data Explorer 클러스터|[변화하는 요구를 수용하기 위해 Azure Data Explorer 클러스터 크기 조정 관리](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Azure App Service에서 앱 확대](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
-| Logic Apps |[ISE(통합 서비스 환경) 용량 추가](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
+| API Management 서비스|[Azure API Management 인스턴스 자동 크기 조정](../../api-management/api-management-howto-autoscale.md)
+| Azure Data Explorer 클러스터|[변화하는 요구를 수용하기 위해 Azure Data Explorer 클러스터 크기 조정 관리](/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Azure App Service |[Azure App Service에서 앱 확대](../../app-service/manage-scale-up.md)|
+| Logic Apps |[ISE(통합 서비스 환경) 용량 추가](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
 ## <a name="next-steps"></a>다음 단계
 자동 크기 조정에 대한 자세한 내용은 앞에 나열된 자동 크기 조정 연습을 사용하거나 다음 리소스를 참조하세요.
 
 * [Azure Monitor 자동 크기 조정 공용 메트릭](autoscale-common-metrics.md)
 * [Azure Monitor 자동 크기 조정에 대한 모범 사례](autoscale-best-practices.md)
 * [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](autoscale-webhook-email.md)
-* [자동 크기 조정 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [자동 크기 조정 REST API](/rest/api/monitor/autoscalesettings)
 * [Virtual Machine Scale Sets 자동 크기 조정 문제 해결](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

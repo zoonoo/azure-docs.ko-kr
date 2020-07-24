@@ -3,16 +3,16 @@ title: Rest API를 사용 하 여 Azure 파일 공유 백업 관리
 description: REST API를 사용 하 여 Azure Backup에서 백업 된 Azure 파일 공유를 관리 하 고 모니터링 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073250"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>REST API를 사용 하 여 Azure 파일 공유 백업 관리
 
-이 문서에서는 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)에 의해 백업 되는 Azure 파일 공유를 관리 하 고 모니터링 하기 위한 작업을 수행 하는 방법을 설명 합니다.
+이 문서에서는 [Azure Backup](./backup-overview.md)에 의해 백업 되는 Azure 파일 공유를 관리 하 고 모니터링 하기 위한 작업을 수행 하는 방법을 설명 합니다.
 
 ## <a name="monitor-jobs"></a>작업 모니터링
 
@@ -38,7 +38,7 @@ Azure Backup 서비스는 백그라운드에서 실행 되는 작업을 트리�
 }
 ```
 
-Azure 파일 공유 백업 작업은 **jobId** 필드로 식별 되며 GET 요청을 사용 하 여 [여기](https://docs.microsoft.com/rest/api/backup/jobdetails/) 에 설명 된 대로 추적할 수 있습니다.
+Azure 파일 공유 백업 작업은 **jobId** 필드로 식별 되며 GET 요청을 사용 하 여 [여기](/rest/api/backup/jobdetails/) 에 설명 된 대로 추적할 수 있습니다.
 
 ### <a name="tracking-the-job"></a>작업 추적
 
@@ -54,7 +54,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>응답
 
-Name  | Type  |  Description
+Name  | 유형  |  Description
 --- | --- | ----
 200 정상 |  JobResource  | 정상
 
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>보호 중지 및 데이터 삭제
 
-보호 된 파일 공유에 대 한 보호를 제거 하 고 백업 데이터도 삭제 하려면 [여기](https://docs.microsoft.com/rest/api/backup/protecteditems/delete)에 설명 된 대로 삭제 작업을 수행 합니다.
+보호 된 파일 공유에 대 한 보호를 제거 하 고 백업 데이터도 삭제 하려면 [여기](/rest/api/backup/protecteditems/delete)에 설명 된 대로 삭제 작업을 수행 합니다.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

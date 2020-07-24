@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 39a92dbdc0bdcd0fdd2bb06efe3fbd4bfe33069d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071207"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -54,9 +54,11 @@ Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상�
 
     하이드레이션 필요한 경우 다음 결과가 표시됩니다.
 
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system doesn't meet no-hydration requirement.
+    This system doesn't meet no-hydration requirement.
+    ```
 
     VM이 비하이드레이션 요구 사항을 충족하는 경우 이 스크립트에는 "이 시스템은 비하이드레이션 요구 사항을 충족합니다"라는 결과가 표시됩니다. 이 경우 모든 드라이버 및 서비스는 Azure에서 필요한 상태에 있으며 VM에서 하이드레이션은 필요 없습니다.
 
@@ -65,12 +67,14 @@ Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상�
     `.\Script-no-hydration.ps1 -set`
     
     그러면 드라이버의 시작 유형이 변환되고 다음과 같은 결과가 표시됩니다.
-    
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
-        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system is now no-hydration compatible. 
+    Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0
+
+    This system is now no-hydration compatible.
+    ```
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>가상 머신의 연결 단추가 회색으로 표시되어 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
 
@@ -116,11 +120,15 @@ RDP를 사용하여 컴퓨터에 연결할 수 있지만 직렬 콘솔을 열 �
 
 * 컴퓨터 OS가 Red Hat 또는 Oracle Linux 7.*/8.0인 경우, 루트 권한으로 장애 조치 Azure VM에서 다음 명령을 실행합니다. 명령이 완료된 후 VM을 다시 부팅합니다.
 
-        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```
 
 * 컴퓨터 OS가 CentOS 7.*인 경우, 루트 권한으로 장애 조치 Azure VM에서 다음 명령을 실행합니다. 명령이 완료된 후 VM을 다시 부팅합니다.
 
-        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```
 
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>예기치 않은 시스템 종료 메시지(이벤트 ID 6008)
 

@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79267535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070592"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
-![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
+![가상 배열을 배포 하는 데 필요한 단계를 보여 주는 다이어그램 두 번째 단계의 첫 번째 부분에는 Hyper-v에서 프로 비전 이라는 레이블이 지정 되 고 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>개요
 
@@ -89,68 +90,68 @@ ms.locfileid: "79267535"
 1. Windows Server 호스트에서 로컬 드라이브에 가상 배열 이미지를 복사합니다. 이 이미지(VHD 또는 VHDX)를 Azure Portal을 통해 다운로드합니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
 2. **서버 관리자**를 엽니다. 오른쪽 위 모서리에서 **도구**를 클릭하고 **Hyper-V 관리자**를 선택합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
+   ![Hyper-v 관리자 항목이 강조 표시 된 확장 된 도구 메뉴를 보여 주는 서버 관리자의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
    Windows Server 2008 R2를 실행하는 경우에는 Hyper-V 관리자를 엽니다. 서버 관리자에서 **역할 > Hyper-V > Hyper-V 관리자**를 클릭합니다.
 3. **Hyper-V 관리자**의 범위 창에서 시스템 노드를 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 연 다음 **새로 만들기** > **Virtual Machine**을 클릭합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
+   ![새 및 가상 컴퓨터 항목이 강조 표시 된 시스템 노드의 바로 가기 메뉴를 보여 주는 Hyper-v 관리자의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. 새 Virtual Machine 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 5. **이름 및 위치 지정** 페이지에서 가상 배열의 **이름**을 입력합니다. **다음**을 클릭합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
+   ![이름 상자를 입력 하 고 다음 단추가 강조 표시 된 이름 및 위치 지정 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
 6. **세대 지정** 페이지에서 디바이스 이미지 유형을 선택하고 **다음**을 클릭합니다. Windows Server 2008 R2를 사용하는 경우에는 이 페이지가 표시되지 않습니다.
 
    * Windows Server 2012 이상에 대한 .vhdx 이미지를 다운로드한 경우 **2세대** 를 선택합니다.
    * Windows Server 2008 R2 이상에 대한 .vhd 이미지를 다운로드한 경우 **1세대** 를 선택합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
+   ![2 세대 옵션이 선택 되 고 다음 단추가 강조 표시 된 세대 지정 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
 7. **메모리 할당** 페이지에서 **시작 메모리**를 **8192MB** 이상으로 지정하고, 동적 메모리는 사용하도록 설정하지 않은 후 **다음**을 클릭합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image6.png)  
+   ![시작 메모리 상자에 8192 값을 보여 주는 메모리 할당 페이지의 스크린샷 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image6.png)  
 8. **네트워킹 구성** 페이지에서 인터넷에 연결된 가상 스위치를 지정하고 **다음**을 클릭합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
+   ![연결 상자에서 선택한 하이퍼 V 가상 스위치 항목과 다음 단추가 강조 표시 된 네트워킹 구성 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
 9. **가상 하드 디스크 연결** 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 가상 배열 이미지(.vhdx 또는 .vhd)의 위치를 지정한 후 **다음**을 클릭합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
+   ![선택한 기존 가상 하드 디스크를 사용 하는 가상 하드 디스크 연결 페이지의 스크린샷, 입력 한 위치 및 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
 10. **요약**을 검토하고 **마침**을 클릭하여 가상 머신을 만듭니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image9.png)
+    ![가상 컴퓨터에 대 한 설명을 보여 주는 새 가상 컴퓨터 마법사 완료 페이지의 스크린샷 마침 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image9.png)
 11. 최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 4개의 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에서 호스트 시스템을 선택합니다. **Virtual Machines** 목록의 오른쪽 창에서 방금 만든 Virtual Machines를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
+    ![Hyper-v 관리자 창의 스크린샷 목록에서 한 컴퓨터를 선택 하면 해당 컴퓨터의 바로 가기 메뉴에 설정 항목이 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
 12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수**를 4(또는 그 이상)로 설정합니다. **적용**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
+    ![프로세서 항목이 강조 표시 된 설정 페이지의 스크린샷, 4로 설정 된 가상 프로세서 수, 적용 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
 13. 최소 요구 사항을 충족하려면 가상 데이터 디스크를 500GB 추가해야 합니다. **설정** 페이지에서:
 
     1. 왼쪽 창의 **SCSI 컨트롤러**를 선택합니다.
     2. 오른쪽 창의 **하드 드라이브**를 선택하고 **추가**를 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image12.png)
+    ![SCSI 컨트롤러 항목을 선택 하 고, 하드 드라이브 항목을 선택 하 고, 추가 단추가 강조 표시 된 설정 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image12.png)
 14. **하드 드라이브** 페이지에서 **가상 하드 디스크** 옵션을 선택하고 **새로 만들기**를 클릭합니다. **새 가상 하드 디스크 마법사**가 시작됩니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
+    ![하드 드라이브 항목을 선택 하 고, 가상 하드 디스크 옵션을 선택 하 고, 새 단추가 강조 표시 된 설정 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
 15. 새 가상 하드 디스크 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 16. **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다. Windows Server 2008 R2를 실행하는 경우에는 이 화면이 표시되지 않습니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
+    ![VHDX 옵션이 선택 되 고 다음 단추가 강조 표시 된 디스크 형식 선택 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
 17. **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크는 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다. Windows Server 2012 R2 및 Windows Server 2012에서는 **동적 확장**이 기본 옵션이지만 Windows Server 2008 R2에서는 **고정 크기**가 기본값입니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
+    ![동적 확장 옵션이 선택 되 고 다음 단추가 강조 표시 된 디스크 유형 선택 페이지의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
+    ![이름 및 위치 상자에 값을 표시 하는 이름 및 위치 지정 페이지의 스크린샷 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
 19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로 비전 할 디스크의 크기에 대 한 자세한 내용은 [모범 사례 문서의](storsimple-ova-best-practices.md)크기 조정 섹션을 참조 하세요. **다음**을 클릭합니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
+    ![새로 만들기 빈 가상 하드 디스크 만들기를 사용 하 여 디스크 구성 페이지의 스크린샷, 500로 설정 된 크기 및 다음 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image19.png)
+    ![가상 하드 디스크에 대 한 설명을 보여 주는 새 가상 하드 디스크 마법사 완료 페이지의 스크린샷 마침 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image19.png)
 21. **설정** 페이지로 돌아갑니다. **확인**을 클릭하여 **설정** 페이지를 닫고 Hyper-V 관리자 창으로 돌아갑니다.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
+    ![설정 페이지의 스크린샷 확인 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
 
 ## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>3단계: 가상 배열 시작 및 IP 가져오기
 가상 배열을 시작하여 연결하려면 다음 단계를 수행합니다.
@@ -158,43 +159,43 @@ ms.locfileid: "79267535"
 #### <a name="to-start-the-virtual-array"></a>가상 배열을 시작하려면
 1. 가상 배열을 시작합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image21.png)
+   ![Hyper-v 관리자 창의 스크린샷 목록에서 새 배열이 선택 되 고 해당 배열의 바로 가기 메뉴에 시작 항목이 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image21.png)
 2. 디바이스가 실행된 후에 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 **연결**을 선택합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image22.png)
+   ![Hyper-v 관리자 창의 스크린샷 새 배열이 선택 되 고 해당 상태가 실행 중 이며 연결 항목이 바로 가기 메뉴에 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image22.png)
 3. 디바이스가 준비되기까지 5-10분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 디바이스가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete` 키를 눌러서 가상 배열에 로그인합니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
+   ![로그인 상자에서 불특정 문자를 표시 하는 vSphere 클라이언트 콘솔 탭의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. 보안상의 이유로 디바이스 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![VSphere 클라이언트 콘솔 탭의 스크린샷. 페이지의 텍스트에는 암호를 변경 해야 합니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    8자 이상을 포함하는 암호를 입력합니다. 암호는 4가지 요구 사항(소문자, 대문자, 숫자 및 특수 문자) 중 3가지 이상을 충족해야 합니다. 확인을 위해 암호를 다시 입력합니다. 암호가 변경되었다는 메시지가 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![VSphere 클라이언트 콘솔 탭의 스크린샷. 페이지의 텍스트에는 암호가 변경 되었음을 알리는 텍스트가 있습니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. 암호 변경이 완료되면 가상 배열이 다시 시작됩니다. 디바이스가 시작할 때까지 기다립니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
+   ![주 Storsimpleadmin으로 로그인 페이지의 스크린샷 페이지의 텍스트는 사용자에 게 시스템 이벤트 알림 서비스를 기다리도록 요청 합니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
 
     디바이스의 Windows PowerShell 콘솔이 진행률 표시줄과 함께 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image27.png)
+   ![진행률 표시줄이 있는 콘솔 창을 보여 주는 스크린샷 창의 텍스트는 초기 설치가 진행 중 이라는 상태를 표시 하 고 사용자에 게 기다리도록 요청 합니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image27.png)
 6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 디바이스를 부팅하는 경우에는 다음 화면이 표시됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
+   ![장치를 설명 하는 텍스트를 포함 하는 콘솔 창을 보여 주는 스크린샷 명령 프롬프트에서 "컨트롤러"를 읽고 입력 준비가 된 것으로 나타납니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
 
     다음으로 네트워크를 구성합니다.
 7. `Get-HcsIpAddress` 명령을 사용하여 가상 배열에 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
+   ![Set-hcsipaddress 명령의 출력을 사용 하 여 콘솔 창을 보여 주는 스크린샷 "이더넷"이 장치 이름으로 나열 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하십시오.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
+    ![Get-help Set-hcsipaddress 명령의 출력과 Set-hcsipaddress 명령의 올바른 사용법을 포함 하는 콘솔 창을 보여 주는 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
 9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 디바이스 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 배열의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)
+   ![장치 배너 텍스트가 있는 콘솔 창을 보여 주는 스크린샷 해당 텍스트에는 장치 IP 주소 및 URL이 포함 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)
 10. (선택 사항) 이 단계는 정부 클라우드에서 디바이스를 배포하는 경우에만 수행합니다. 이제 디바이스에서 미국 FIPS(Federal Information Processing Standard) 모드를 사용할 수 있습니다. FIPS 140 표준은 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용할 수 있도록 승인된 암호화 알고리즘을 정의합니다.
 
     1. FIPS 모드를 사용하도록 설정하려면 다음 cmdlet을 실행합니다.
@@ -209,7 +210,7 @@ ms.locfileid: "79267535"
 
 디바이스가 최소 구성 요구 사항을 충족하지 못하면 아래 표시된 배너 텍스트에 다음 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. 1단계: 호스트 시스템이 최소 가상 배열 요구 사항을 충족하는지 확인에서 최소 구성 요구 사항을 참조하세요.
 
-![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
+![장치 배너 텍스트가 있는 콘솔 창을 보여 주는 스크린샷 이 텍스트에는 문제 해결을 위한 URL을 제공 하는 오류 메시지가 포함 되어 있습니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 
 로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 다음 워크플로를 참조하세요.
 

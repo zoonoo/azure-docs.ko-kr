@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cfd428e1bd380d17049cbc229bb8850793056e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073022"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 액세스할 수 있는 인증된 대화형 셸입니다.
@@ -26,7 +27,7 @@ Bash 또는 PowerShell 중에서 작업 방식에 가장 적합한 셸 환경을
 
 아래를 클릭하여 shell.azure.com에서 시도하세요.
 
-[![시작 포함](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 Cloud Shell 아이콘을 사용하여 Azure Portal에서 시도하세요.
 
@@ -60,14 +61,14 @@ Cloud Shell은 오픈 소스 Monaco 편집기에 따라 통합된 그래픽 텍�
 
 ### <a name="integrated-with-docsmicrosoftcom"></a>docs.microsoft.com과 통합
 
-[docs.microsoft.com](https://docs.microsoft.com)에서 호스트되는 설명서에서 직접 Cloud Shell을 사용할 수 있습니다. [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 및 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)에 통합됩니다. 몰입형 셸 환경을 열려면 코드 조각에서 “사용해보기” 단추를 클릭합니다. 
+[docs.microsoft.com](https://docs.microsoft.com)에서 호스트되는 설명서에서 직접 Cloud Shell을 사용할 수 있습니다. [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 및 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)에 통합됩니다. 몰입형 셸 환경을 열려면 코드 조각에서 “사용해보기” 단추를 클릭합니다. 
 
-### <a name="multiple-access-points"></a>여러 액세스 포인트
+### <a name="multiple-access-points"></a>다중 액세스 포인트
 Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)
-* [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/)
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

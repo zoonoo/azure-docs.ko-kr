@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mihansen
-ms.openlocfilehash: 4eb4c10a6c98aa847c9fa6c239aacde891db5aae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdecf0dafa80f72eb528b4771c00befff8355e83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072849"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure API 용 Azure API에 대 한 액세스 토큰 가져오기
 
@@ -34,7 +34,7 @@ az login
 FHIR 용 Azure API는 `resource` `Audience` fhir 서버의 uri와 동일한 uri를 사용 하 여 또는를 사용 합니다 `https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com` . 다음 명령을 사용 하 여 토큰을 가져와 변수에 저장할 수 있습니다 `$token` .
 
 ```azurecli-interactive
-token=$(az account get-access-token --resource=https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com | jq -r .accessToken)
+token=$(az account get-access-token --resource=https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com --query accessToken --output tsv)
 ```
 
 ## <a name="use-with-azure-api-for-fhir"></a>FHIR 용 Azure API와 함께 사용

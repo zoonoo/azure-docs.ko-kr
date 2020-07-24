@@ -1,5 +1,5 @@
 ---
-title: Azure Storage 계정
+title: Azure 스토리지 계정
 titleSuffix: Azure Media Services
 description: Azure Media Services와 함께 사용할 Azure 저장소 계정을 만드는 방법에 대해 알아봅니다.
 services: media-services
@@ -12,11 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071997"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage 계정
 
@@ -31,7 +32,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 > [!NOTE]
 > 핫 액세스 계층만 Azure Media Services와 함께 사용할 수 있지만, 다른 액세스 계층을 사용 하 여 적극적으로 사용 되지 않는 콘텐츠의 저장소 비용을 줄일 수 있습니다.
 
-저장소 계정에 대해 선택할 수 있는 다양 한 Sku가 있습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션을 위해 SKU를 선택할 때 `--sku Standard_RAGRS` 비즈니스 연속성을 위한 지리적 복제를 제공 하는을 고려해 야 합니다.
+저장소 계정에 대해 선택할 수 있는 다양 한 Sku가 있습니다. 자세한 내용은 [스토리지 계정](/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션을 위해 SKU를 선택할 때 `--sku Standard_RAGRS` 비즈니스 연속성을 위한 지리적 복제를 제공 하는을 고려해 야 합니다.
 
 ## <a name="assets-in-a-storage-account"></a>스토리지 계정의 자산
 
@@ -44,11 +45,11 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 
 미사용 자산을 보호 하기 위해 자산을 저장소 쪽 암호화로 암호화 해야 합니다. 다음 표는 Media Services v3에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v3|
+|암호화 옵션|Description|Media Services v3|
 |---|---|---|
 |저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>(1)</sup>|
-|[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|
-|[저장소 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않습니다.|
+|[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|
+|[저장소 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않습니다.|
 
 <sup>1</sup> Media Services v3에서 저장소 암호화 (AES-256 암호화)는 이전 버전과의 호환성을 위해서만 지원 됩니다. 즉, v 2를 Media Services 사용 하 여 자산을 만든 경우에만 v3에서 기존 저장소 암호화 된 자산을 사용할 수 있지만 새로 만들 수는 없습니다.
 
@@ -58,15 +59,15 @@ Media Services 계정의 "연결 끊김" 상태는 스토리지 액세스 키가
 
 다음은 연결된 스토리지 계정에 대한 액세스 권한이 Media Services 계정에서 없어지는 주요 시나리오입니다.
 
-|문제점|솔루션|
+|문제|솔루션|
 |---|---|
 |Media Services 계정이나 연결된 스토리지 계정이 별도의 구독으로 마이그레이션되었습니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션합니다. |
 |이것이 지원되던 초기 Media Services 계정이기 때문에, Media Services 계정이 다른 구독에 속하는 연결된 스토리지 계정을 사용합니다. 모든 초기 Media Services 계정은 최신 Azure 리소스 관리자 기반 계정으로 변환 되 고 연결 끊김 상태가 됩니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션하십시오.|
 
 ## <a name="azure-storage-firewall"></a>Azure Storage 방화벽
 
-Azure Media Services는 Azure Storage 방화벽이 나 [개인 끝점](https://docs.microsoft.com/azure/storage/common/storage-network-security) 을 사용 하는 저장소 계정을 지원 하지 않습니다.
+Azure Media Services는 Azure Storage 방화벽이 나 [개인 끝점](../../storage/common/storage-network-security.md) 을 사용 하는 저장소 계정을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Media Services 계정에 스토리지 계정을 연결하는 방법을 알아보려면 [계정 만들기](create-account-cli-quickstart.md)를 참조하세요.
+Media Services 계정에 스토리지 계정을 연결하는 방법을 알아보려면 [계정 만들기](./create-account-howto.md)를 참조하세요.

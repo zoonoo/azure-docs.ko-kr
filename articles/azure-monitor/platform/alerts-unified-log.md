@@ -6,20 +6,21 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0e81d48f4e709a9a0bb8ebb33c7029d3841167b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d080c18a1af9549373750b787093fec03b32006
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609049"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073603"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
 로그 경고는 [Azure 경고](../../azure-monitor/platform/alerts-overview.md)에서 지원 되는 경고 유형 중 하나입니다. 로그 경고를 통해 사용자는 경고의 기반으로 Azure 분석 플랫폼을 사용할 수 있습니다.
 
-로그 경고는 [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 대해 만든 로그 검색 규칙으로 이루어집니다. 로그 경고의 사용법에 대한 자세한 내용은 [Azure에서 로그 경고 만들기](../../azure-monitor/platform/alerts-log.md)를 참조
+로그 경고는 [Azure Monitor Logs](../log-query/get-started-portal.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 대해 만든 로그 검색 규칙으로 이루어집니다. 로그 경고의 사용법에 대한 자세한 내용은 [Azure에서 로그 경고 만들기](../../azure-monitor/platform/alerts-log.md)를 참조
 
 > [!NOTE]
-> [Azure Monitor 로그](../../azure-monitor/learn/tutorial-viewdata.md)에서 인기 있는 로그 데이터를 이제 Azure Monitor의 메트릭 플랫폼에서도 사용할 수 있습니다. 세부 정보 보기는 [로그에 대한 메트릭 경고](../../azure-monitor/platform/alerts-metric-logs.md)를 참조하세요.
+> [Azure Monitor 로그](../log-query/get-started-portal.md)에서 인기 있는 로그 데이터를 이제 Azure Monitor의 메트릭 플랫폼에서도 사용할 수 있습니다. 세부 정보 보기는 [로그에 대한 메트릭 경고](../../azure-monitor/platform/alerts-metric-logs.md)를 참조하세요.
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>로그 검색 경고 규칙 - 정의 및 형식
@@ -40,10 +41,10 @@ ms.locfileid: "84609049"
 
 - **임계값**.  로그 검색 결과를 평가하여 경고를 만들어야 하는지 여부를 결정합니다.  임계값은 다양한 유형의 로그 검색 경고 규칙에 따라 다릅니다.
 
-로그 검색 규칙은 [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 적용되고 두 가지 형식일 수 있습니다. 이러한 각 유형에 대해서는 다음 섹션에서 자세히 설명합니다.
+로그 검색 규칙은 [Azure Monitor Logs](../log-query/get-started-portal.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 적용되고 두 가지 형식일 수 있습니다. 이러한 각 유형에 대해서는 다음 섹션에서 자세히 설명합니다.
 
 - **[결과의 수](#number-of-results-alert-rules)** 입니다. 로그 검색에서 반환되는 레코드 수가 지정된 수를 초과할 때 만들어지는 단일 경고입니다.
-- **[미터법](#metric-measurement-alert-rules)** -  로그 검색 결과에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 만들어지는 경고입니다.
+- **[메트릭 측정](#metric-measurement-alert-rules)**.  로그 검색 결과에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 만들어지는 경고입니다.
 
 경고 규칙 유형 간의 차이점은 다음과 같습니다.
 
@@ -89,7 +90,7 @@ ms.locfileid: "84609049"
     
 - **임계값**: 미터법 경고 규칙의 임계값은 집계 값 및 위반 횟수로 정의됩니다.  로그 검색에서 데이터 요소가 이 값을 초과하면 위반으로 간주됩니다.  결과의 개체에서 위반 횟수가 지정된 값을 초과하면 해당 개체에 대한 경고가 만들어집니다.
 
-*Aggregate On* 또는 *metricColumn* 옵션이 제대로 구성되지 않으면 경고 규칙이 잘못 실행될 수 있습니다. 자세한 내용은 [메트릭 측정 경고 규칙이 잘못된 경우의 문제 해결](alert-log-troubleshoot.md#metric-measurement-alert-rule-is-incorrect)을 참조하세요.
+*Aggregate On* 또는 *metricColumn* 옵션이 제대로 구성되지 않으면 경고 규칙이 잘못 실행될 수 있습니다. 자세한 내용은 [메트릭 측정 경고 규칙이 잘못된 경우의 문제 해결](./alerts-troubleshoot-log.md#metric-measurement-alert-rule-is-incorrect)을 참조하세요.
 
 #### <a name="example-of-metric-measurement-type-log-alert"></a>미터법 형식 로그 경고의 예제
 
@@ -131,7 +132,7 @@ ms.locfileid: "84609049"
 아래 간격 마다 Azure alerts 시스템은 *Contoso-로그 경고*의 조건을 평가 합니다.
 
 
-| 시간    | 로그 검색 쿼리에서 반환 된 레코드의 개수 | 로그 조건 평가 | 결과 
+| Time    | 로그 검색 쿼리에서 반환 된 레코드의 개수 | 로그 조건 평가 | 결과 
 | ------- | ----------| ----------| ------- 
 | 오후 1:05 | 0 개 레코드 | 0은 0 > 하지 않으므로 FALSE입니다. |  경고가 발생 하지 않습니다. 작업은 호출 되지 않습니다.
 | 오후 1:10 | 2 개 레코드 | 2 > 0)  | 경고가 발생 하 고 라는 동작 그룹이 있습니다. 경고 상태가 활성입니다.
@@ -149,7 +150,7 @@ ms.locfileid: "84609049"
 로그 경고에 적용할 수 있는 가격 책정은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 나와 있습니다. Azure 청구서에서 로그 경고는 다음을 사용하여 `microsoft.insights/scheduledqueryrules` 형식으로 표현됩니다.
 
 - 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Application Insights의 로그 경고
-- 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Log Analytics의 경고 로그([scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하여 만든 경우)
+- 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Log Analytics의 경고 로그([scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)를 사용하여 만든 경우)
 
 [레거시 Log Analytics API](../../azure-monitor/platform/api-alerts.md)에는 적절한 [Azure 리소스](../../azure-resource-manager/management/overview.md)가 아닌 Log Analytics 저장된 검색의 일부로 경고 작업 및 일정이 있습니다. 따라서 [새 api로 전환](../../azure-monitor/platform/alerts-log-api-switch.md) 하거나 [레거시 Log Analytics api](../../azure-monitor/platform/api-alerts.md) 를 사용 **하지 않고** Azure Portal를 사용 하 여 Log Analytics에 대해 만들어진 이러한 레거시 로그 경고에 대 한 청구를 사용 하도록 설정 하려면 `microsoft.insights/scheduledqueryrules` Azure에서 청구 하기 위해에서 숨겨진 의사 경고 규칙을 만듭니다. `microsoft.insights/scheduledqueryrules`에서 청구를 위해 생성된 숨겨진 의사 경고 규칙은 리소스 그룹 및 경고 속성과 함께 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`로 표시됩니다.
 
@@ -158,15 +159,15 @@ ms.locfileid: "84609049"
 
 [레거시 Log Analytics API](api-alerts.md)를 사용하여 경고 규칙에 대한 청구를 위해 생성된 숨겨진 scheduleQueryRules 리소스를 제거하려면 사용자가 다음 중 하나를 수행하면 됩니다.
 
-- 사용자가 [Log Analytics 작업 영역에서 경고 규칙에 대한 API 기본 설정을 전환](../../azure-monitor/platform/alerts-log-api-switch.md)할 수 있으며 경고 규칙이 손실되거나 Azure Resource Manager 호환 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)로 모니터링이 이동하지 않습니다. 따라서 청구를 위해 숨겨진 의사 경고 규칙을 만들 필요가 없습니다.
+- 사용자가 [Log Analytics 작업 영역에서 경고 규칙에 대한 API 기본 설정을 전환](../../azure-monitor/platform/alerts-log-api-switch.md)할 수 있으며 경고 규칙이 손실되거나 Azure Resource Manager 호환 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)로 모니터링이 이동하지 않습니다. 따라서 청구를 위해 숨겨진 의사 경고 규칙을 만들 필요가 없습니다.
 - API 기본 설정을 전환하지 않으려면 사용자가 [레거시 Log Analytics API](api-alerts.md)를 사용하여 원래 일정과 경고 작업을 **삭제**하거나 [Azure Portal에서 원래 로그 경고 규칙](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)을 제거해야 합니다.
 
-또한 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 경고 규칙을 청구 하기 위해 만든 숨겨진 scheduleQueryRules 리소스의 경우 PUT과 같은 수정 작업은 실패 합니다. `microsoft.insights/scheduledqueryrules`형식 의사 규칙은 [레거시 Log Analytics API](api-alerts.md)를 사용 하 여 만든 경고 규칙의 요금을 청구 하기 위한 것입니다. 모든 경고 규칙 수정은 [레거시 LOG ANALYTICS api](api-alerts.md) 를 사용 하 여 수행 해야 합니다. 또는 사용자가 대신 [scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 를 사용 하도록 [경고 규칙에 대 한 API 기본 설정을 전환할](../../azure-monitor/platform/alerts-log-api-switch.md) 수 있습니다.
+또한 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 경고 규칙을 청구 하기 위해 만든 숨겨진 scheduleQueryRules 리소스의 경우 PUT과 같은 수정 작업은 실패 합니다. `microsoft.insights/scheduledqueryrules`형식 의사 규칙은 [레거시 Log Analytics API](api-alerts.md)를 사용 하 여 만든 경고 규칙의 요금을 청구 하기 위한 것입니다. 모든 경고 규칙 수정은 [레거시 LOG ANALYTICS api](api-alerts.md) 를 사용 하 여 수행 해야 합니다. 또는 사용자가 대신 [scheduledQueryRules api](/rest/api/monitor/scheduledqueryrules) 를 사용 하도록 [경고 규칙에 대 한 API 기본 설정을 전환할](../../azure-monitor/platform/alerts-log-api-switch.md) 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure의 로그 경고에서 만들기](../../azure-monitor/platform/alerts-log.md)에 대해 알아봅니다.
 * [Azure의 로그 경고에서 웹후크](alerts-log-webhook.md)를 이해합니다.
 * [Azure Alerts](../../azure-monitor/platform/alerts-overview.md)에 대해 알아봅니다.
-* [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아봅니다.
+* [Application Insights](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.
 * [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보세요.

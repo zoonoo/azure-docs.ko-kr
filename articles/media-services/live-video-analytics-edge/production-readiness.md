@@ -3,15 +3,16 @@ title: 프로덕션 준비 및 모범 사례-Azure
 description: 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 라이브 비디오 분석을 구성 하 고 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071941"
 ---
 # <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
 
-이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 라이브 비디오 분석을 구성 하 고 배포 하는 방법에 대 한 지침을 제공 합니다. IoT Edge 솔루션 준비에 대 한 [프로덕션 문서에서 IoT Edge 솔루션 배포 준비](https://docs.microsoft.com/azure/iot-edge/production-checklist) 도 검토 해야 합니다. 
+이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 라이브 비디오 분석을 구성 하 고 배포 하는 방법에 대 한 지침을 제공 합니다. IoT Edge 솔루션 준비에 대 한 [프로덕션 문서에서 IoT Edge 솔루션 배포 준비](../../iot-edge/production-checklist.md) 도 검토 해야 합니다. 
 
 > [!NOTE]
 > 조직의 IT 부서에 보안과 관련 된 측면을 참조 해야 합니다.

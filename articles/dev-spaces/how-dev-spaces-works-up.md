@@ -5,11 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Azure Dev Spaces 사용 하 여 Azure Kubernetes Service에서 코드를 실행 하는 프로세스를 설명 합니다.
 keywords: azds, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 02b928009b1f82e2b6a193a41376265f8bfb9ea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c343c32f0817cc922784bb25283290dc9ed88d29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072965"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Azure Dev Spaces 작업을 사용 하 여 코드를 실행 하는 방법
 
@@ -211,7 +212,7 @@ Azure Dev Spaces를 사용 하 여 프로젝트를 실행 하려면 다음 빠�
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
+[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

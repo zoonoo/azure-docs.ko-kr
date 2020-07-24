@@ -15,22 +15,22 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c553b3508b56245be166afcdb4cb5a6c7520b271
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074028"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
 Azure에서는 SAP HANA를 실행하는 Azure VM에 적합한 다양한 스토리지 유형을 제공합니다. SAP HANA 배포에 고려할 수 있는 **SAP HANA 인증 Azure 스토리지 유형**은 다음과 같습니다. 
 
 - Azure premium SSD 또는 premium storage 
-- [Ultra Disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
+- [Ultra Disk](../../linux/disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-이러한 디스크 유형에 대 한 자세한 내용은 [SAP 워크 로드에 대 한 유형 Azure Storage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 및 [디스크 유형 선택](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types) 문서를 참조 하세요.
+이러한 디스크 유형에 대 한 자세한 내용은 [SAP 워크 로드에 대 한 유형 Azure Storage](./planning-guide-storage.md) 및 [디스크 유형 선택](../../linux/disks-types.md) 문서를 참조 하세요.
 
 Azure는 Azure Standard 및 premium storage에서 Vhd에 대 한 두 가지 배포 방법을 제공 합니다. Azure 블록 저장소 배포에 [azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/) 를 활용 하는 것이 좋습니다. 
 
@@ -42,7 +42,7 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 
 다양한 스토리지 유형에 대한 최소 SAP HANA 인증 조건은 다음과 같습니다. 
 
-- Azure [쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)에서 지원 되려면 azure premium storage- **/hana/log** 가 필요 합니다. **/Hana/data** 볼륨은 Azure 쓰기 가속기 또는 Ultra disk 없이 premium storage에 배치 될 수 있습니다.
+- Azure [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)에서 지원 되려면 azure premium storage- **/hana/log** 가 필요 합니다. **/Hana/data** 볼륨은 Azure 쓰기 가속기 또는 Ultra disk 없이 premium storage에 배치 될 수 있습니다.
 - 최소 **/hana/log** 볼륨에 대 한 Azure Ultra disk. **/Hana/data** 볼륨은 Azure 쓰기 가속기 없는 premium storage에 배치 하거나 Ultra disk를 더 빠르게 다시 시작 하는 데 사용할 수 있습니다.
 - **/Hana/log 및/hana/data**에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨 /Hana/shared 볼륨은 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다.
 
@@ -59,8 +59,8 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 
 HANA에 대 한 저장소 구성을 선택 하는 몇 가지 지침 원칙을 다음과 같이 나열할 수 있습니다.
 
-- [SAP 워크 로드에 대 한 Azure Storage 유형을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 기반으로 저장소 유형을 결정 하 고 [디스크 유형을 선택](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types) 합니다.
-- VM의 크기를 조정 하거나 결정할 때 전체 VM i/o 처리량 및 IOPS 제한에 유의 합니다. 전체 VM 저장소 처리량은 [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) 문서에 설명 되어 있습니다.
+- [SAP 워크 로드에 대 한 Azure Storage 유형을](./planning-guide-storage.md) 기반으로 저장소 유형을 결정 하 고 [디스크 유형을 선택](../../linux/disks-types.md) 합니다.
+- VM의 크기를 조정 하거나 결정할 때 전체 VM i/o 처리량 및 IOPS 제한에 유의 합니다. 전체 VM 저장소 처리량은 [메모리 최적화 가상 머신 크기](../../sizes-memory.md) 문서에 설명 되어 있습니다.
 - 저장소 구성을 결정할 때 **/hana/data** 볼륨 구성을 사용 하 여 VM의 전체 처리량을 미만으로 유지 해 보세요. 저장점을 작성 하는 SAP HANA는 i/o가 적극적으로 실행 될 수 있습니다. 저장 점을 쓸 때 **/hana/data** 볼륨의 최대 처리량 제한을 푸시할 수 있습니다. **/Hana/data** 볼륨을 작성 하는 디스크의 처리량이 VM에서 허용 하는 것 보다 높은 경우 저장점 쓰기에서 사용 된 처리량이 다시 실행 로그 쓰기의 처리량 요구를 방해 하는 상황이 발생할 수 있습니다. 응용 프로그램 처리량에 영향을 줄 수 있는 상황
 - Azure premium storage를 사용 하는 경우 가장 저렴 한 구성은 논리 볼륨 관리자를 사용 하 여 **/hana/data** 및 **/hana/log** 볼륨을 빌드하는 스트라이프 집합을 빌드하는 것입니다.
 
@@ -75,7 +75,7 @@ Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux �
 Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에 따라 기능의 목적은 Azure premium storage에 대 한 쓰기의 i/o 대기 시간을 개선 하는 것입니다. SAP HANA의 경우 Write Accelerator는 **/hana/log** 볼륨에 대해서만 사용해야 합니다. 따라서 **/hana/data**와 **/hana/log**는 별개의 볼륨입니다(Azure 쓰기 가속기가 **/hana/log** 볼륨만 지원하기 때문). 
 
 > [!IMPORTANT]
-> Azure premium storage를 사용 하는 경우 **/hana/log** 볼륨에 대 한 azure [쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) 를 사용 하는 것은 필수입니다. 쓰기 가속기는 premium storage 및 M 시리즈 및 Mv2 시리즈 Vm에만 사용할 수 있습니다. 쓰기 가속기 Esv3 또는 Edsv4와 같은 다른 Azure VM 제품군과 함께 작동 하지 않습니다.
+> Azure premium storage를 사용 하는 경우 **/hana/log** 볼륨에 대 한 azure [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md) 를 사용 하는 것은 필수입니다. 쓰기 가속기는 premium storage 및 M 시리즈 및 Mv2 시리즈 Vm에만 사용할 수 있습니다. 쓰기 가속기 Esv3 또는 Edsv4와 같은 다른 Azure VM 제품군과 함께 작동 하지 않습니다.
 
 아래의 Azure premium 디스크에 대 한 캐싱 권장 사항은 다음과 같이 SAP HANA에 대 한 i/o 특성을 가정 합니다.
 
@@ -111,7 +111,7 @@ LVM 또는 mdadm을 사용 하 여 여러 Azure premium 디스크에 스트라�
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Premium storage에 대 한 Azure 버스트 기능
-Azure premium storage 디스크의 용량을 512 GiB 하는 경우 버스트 기능이 제공 됩니다. 디스크 버스트 작동 방식에 대 한 정확한 방법은 [디스크 버스트](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting)문서에 설명 되어 있습니다. 이 문서를 읽으면 i/o 워크 로드가 디스크의 공칭 IOPS 및 처리량 보다 낮은 시간에 발생 IOPS 및 처리량의 개념을 이해 하 게 됩니다 (명목상 처리량에 대 한 자세한 내용은 [관리 되는 디스크 가격](https://azure.microsoft.com/pricing/details/managed-disks/)참조). 현재 사용량과 디스크의 명목상 값 사이에 IOPS 및 처리량의 변화량을 계산 하려고 합니다. 버스트는 최대 30 분으로 제한 됩니다.
+Azure premium storage 디스크의 용량을 512 GiB 하는 경우 버스트 기능이 제공 됩니다. 디스크 버스트 작동 방식에 대 한 정확한 방법은 [디스크 버스트](../../linux/disk-bursting.md)문서에 설명 되어 있습니다. 이 문서를 읽으면 i/o 워크 로드가 디스크의 공칭 IOPS 및 처리량 보다 낮은 시간에 발생 IOPS 및 처리량의 개념을 이해 하 게 됩니다 (명목상 처리량에 대 한 자세한 내용은 [관리 되는 디스크 가격](https://azure.microsoft.com/pricing/details/managed-disks/)참조). 현재 사용량과 디스크의 명목상 값 사이에 IOPS 및 처리량의 변화량을 계산 하려고 합니다. 버스트는 최대 30 분으로 제한 됩니다.
 
 이 버스트 기능이 계획 될 수 있는 이상적인 사례는 다른 DBMS에 대 한 데이터 파일을 포함 하는 볼륨이 나 디스크가 될 가능성이 높습니다. 이러한 볼륨에 대해 예상 되는 i/o 워크 로드, 특히 중소 규모의 시스템은 다음과 같습니다.
 
@@ -133,7 +133,7 @@ Azure premium storage 디스크의 용량을 512 GiB 하는 경우 버스트 기
 > Azure M 시리즈 가상 머신에 대한 SAP HANA 인증은 **/hana/log** 볼륨에 대해 Azure Write Accelerator를 독점적으로 사용하는 것입니다. 결과적으로, Azure M 시리즈 가상 머신에 프로덕션 시나리오 SAP HANA 배포는 **/hana/log** 볼륨에 대해 Azure Write Accelerator를 사용하여 구성되어야 합니다.  
 
 > [!NOTE]
-> Azure premium storage를 포함 하는 시나리오에서는 구성에 버스트 기능을 구현 합니다. 어떤 모양이 나 폼의 저장소 테스트 도구를 사용 하 든 관계 없이 [Azure premium disk 버스트](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting) 작동 방식을 염두에 두십시오. SAP HWCCT 또는 HCMT 도구를 통해 전달 된 저장소 테스트를 실행 하는 경우 일부 테스트는 축적 된 버스트 크레딧을 초과 하므로 모든 테스트에서 조건을 전달 하는 것은 아닙니다. 특히 모든 테스트가 중단 없이 순차적으로 실행 되는 경우입니다.
+> Azure premium storage를 포함 하는 시나리오에서는 구성에 버스트 기능을 구현 합니다. 어떤 모양이 나 폼의 저장소 테스트 도구를 사용 하 든 관계 없이 [Azure premium disk 버스트](../../linux/disk-bursting.md) 작동 방식을 염두에 두십시오. SAP HWCCT 또는 HCMT 도구를 통해 전달 된 저장소 테스트를 실행 하는 경우 일부 테스트는 축적 된 버스트 크레딧을 초과 하므로 모든 테스트에서 조건을 전달 하는 것은 아닙니다. 특히 모든 테스트가 중단 없이 순차적으로 실행 되는 경우입니다.
 
 
 > [!NOTE]
@@ -194,9 +194,9 @@ SAP **/hana/data** 볼륨에 대 한 구성:
 
 제안된 다른 볼륨에 대한 스토리지 처리량이 실행하려는 워크로드를 충족하는지 여부를 확인합니다. 워크 로드에 **/hana/data** 및 **/hana/log**에 대 한 더 높은 볼륨이 필요한 경우 Azure premium storage vhd의 수를 늘려야 합니다. 나열된 것보다 더 많은 VHD로 볼륨을 크기 조정하면 Azure 가상 머신 유형의 한도 내 IOPS 및 I/O 처리량이 증가합니다.
 
-Azure Write Accelerator는 [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/)와만 함께 작동합니다. 따라서 최소한 **/hana/log** 볼륨을 형성 하는 Azure premium storage 디스크를 관리 디스크로 배포 해야 합니다. Azure 쓰기 가속기에 대 한 자세한 지침 및 제한은 [쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)문서에서 찾을 수 있습니다.
+Azure Write Accelerator는 [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/)와만 함께 작동합니다. 따라서 최소한 **/hana/log** 볼륨을 형성 하는 Azure premium storage 디스크를 관리 디스크로 배포 해야 합니다. Azure 쓰기 가속기에 대 한 자세한 지침 및 제한은 [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)문서에서 찾을 수 있습니다.
 
-Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) 제품군 및 [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)의 HANA 인증 vm에 대해 **/hana/data** 및 **/hana/log** 볼륨에 대해 anf를 수행 해야 합니다. 또는 **/hana/log** 볼륨에 대해서만 azure premium Storage 대신 azure Ultra disk storage를 활용 해야 합니다. 결과적으로, Azure premium storage의 **/hana/data** 볼륨에 대 한 구성은 다음과 같습니다.
+Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) 제품군 및 [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)의 HANA 인증 vm에 대해 **/hana/data** 및 **/hana/log** 볼륨에 대해 anf를 수행 해야 합니다. 또는 **/hana/log** 볼륨에 대해서만 azure premium Storage 대신 azure Ultra disk storage를 활용 해야 합니다. 결과적으로, Azure premium storage의 **/hana/data** 볼륨에 대 한 구성은 다음과 같습니다.
 
 | VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data | 최대 버스트 처리량 | IOPS | 버스트 IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -218,7 +218,7 @@ Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?t
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>SAP HANA용 Azure Ultra Disk 스토리지 구성
-다른 Azure storage 유형을 [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk)라고 합니다. 이제까지 제공된 Azure 스토리지와 Ultra Disk의 중요한 차이점은 디스크 기능이 더 이상 디스크 크기에 구속되지 않는다는 것입니다. 고객은 Ultra Disk에 대해 다음과 같은 기능을 정의할 수 있습니다.
+다른 Azure storage 유형을 [Azure Ultra disk](../../windows/disks-types.md#ultra-disk)라고 합니다. 이제까지 제공된 Azure 스토리지와 Ultra Disk의 중요한 차이점은 디스크 기능이 더 이상 디스크 크기에 구속되지 않는다는 것입니다. 고객은 Ultra Disk에 대해 다음과 같은 기능을 정의할 수 있습니다.
 
 - 4GiB에서 65,536GiB까지의 디스크 크기
 - 100IOPS에서 160,000IOPS까지의 IOPS 범위(최대값은 VM 유형에 따라 다름)
@@ -229,7 +229,7 @@ Ultra Disk를 사용하면 원하는 크기, IOPS 및 디스크 처리량 범위
 울트라 디스크의 다른 이점은 premium storage와 비교할 때 읽기 대기 시간이 더 좋을 수 있습니다. 더 빠른 읽기 대기 시간은 HANA 시작 시간과 이후 데이터를 메모리로 로드하는 시간을 단축하려는 경우에 이점이 될 수 있습니다. HANA가 저장점을 작성하는 경우에도 Ultra Disk 스토리지의 이점을 느낄 수 있습니다. 
 
 > [!NOTE]
-> Ultra Disk는 아직 모든 Azure 지역에 출시되지 않았고 아직 아래 나열된 모든 VM 유형을 지원하지 않습니다. Ultra Disk를 사용할 수 있는 지역 및 지원되는 VM 제품군에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) 문서를 참조하세요.
+> Ultra Disk는 아직 모든 Azure 지역에 출시되지 않았고 아직 아래 나열된 모든 VM 유형을 지원하지 않습니다. Ultra Disk를 사용할 수 있는 지역 및 지원되는 VM 제품군에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](../../windows/disks-types.md#ultra-disk) 문서를 참조하세요.
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>순수 Ultra Disk 구성을 사용하는 프로덕션 권장 스토리지 솔루션
 이 구성에서는 **/hana/data** 및 **/hana/log** 볼륨을 별도로 유지 합니다. 제안된 값은 SAP가 [SAP TDI 스토리지 백서](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)에서 권장하는 대로 SAP HANA 및 스토리지 구성에 대한 VM 유형을 인증하는 KPI에서 도출된 것입니다.
@@ -272,10 +272,10 @@ SAP Netweaver 및 SAP HANA에 Azure NetApp Files를 고려하는 경우 다음�
 
 - 최소 용량 풀은 4TiB입니다.  
 - 최소 볼륨 크기는 100GiB입니다.
-- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재되는 모든 가상 머신은 동일한 Azure Virtual Network 또는 동일한 지역의 [피어링된 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)에 있어야 합니다.  
+- Azure NetApp Files 및 Azure NetApp Files 볼륨이 탑재되는 모든 가상 머신은 동일한 Azure Virtual Network 또는 동일한 지역의 [피어링된 가상 네트워크](../../../virtual-network/virtual-network-peering-overview.md)에 있어야 합니다.  
 - 선택한 가상 네트워크에는 Azure NetApp Files로 위임된 서브넷이 있어야 합니다.
-- Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)에 설명된 대로 볼륨 할당량과 서비스 수준의 함수입니다. HANA Azure NetApp 볼륨을 크기 조정할 때 결과 처리량이 HANA 시스템 요구 사항을 충족해야 합니다.  
-- Azure NetApp Files는 [내보내기 정책](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)을 제공합니다. 사용자는 허용되는 클라이언트, 액세스 유형(읽기 및 쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
+- Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명된 대로 볼륨 할당량과 서비스 수준의 함수입니다. HANA Azure NetApp 볼륨을 크기 조정할 때 결과 처리량이 HANA 시스템 요구 사항을 충족해야 합니다.  
+- Azure NetApp Files는 [내보내기 정책](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)을 제공합니다. 사용자는 허용되는 클라이언트, 액세스 유형(읽기 및 쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
 - Azure NetApp Files 기능은 아직 영역을 인식하지 않습니다. 현재 Azure NetApp Files 기능은 Azure 지역의 모든 가용성 영역에 배포되지 않습니다. 일부 Azure 지역에서 대기 시간이 미칠지도 모르는 영향을 염두에 두어야 합니다.  
 - 짧은 대기 시간을 위해 Azure NetApp 스토리지와 근접하게 가상 머신을 배포하는 것이 중요합니다. 
 - 가상 머신의 <b>sid</b>adm 사용자 ID 및 `sapsys` 그룹 ID는 Azure NetApp Files의 구성과 일치해야 합니다. 
@@ -288,7 +288,7 @@ SAP Netweaver 및 SAP HANA에 Azure NetApp Files를 고려하는 경우 다음�
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Azure NetApp Files에서 HANA 데이터베이스 크기 조정
 
-Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)에 설명된 대로 볼륨 크기와 서비스 수준의 함수입니다. 
+Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명된 대로 볼륨 크기와 서비스 수준의 함수입니다. 
 
 Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성으로 변환되는 SAP의 최소 스토리지 처리량 요구 사항에 대해 알고 있어야 합니다.
 
@@ -296,16 +296,16 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 - 16MB 및 64MB I/O 크기의 **/hana/data**에 대해 최소 400MB/초의 읽기 작업을 사용하도록 설정합니다.  
 - 16MB 및 64MB I/O 크기의 **/hana/data**에 대해 최소 250MB/초의 쓰기 작업을 사용하도록 설정합니다.  
 
-볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)는 다음과 같습니다.
+볼륨 할당량 1TiB당 [Azure NetApp Files 처리량 한도](../../../azure-netapp-files/azure-netapp-files-service-levels.md)는 다음과 같습니다.
 - Premium storage 계층-64 MiB/s  
 - Ultra Storage 계층 - 128MiB/s  
 
 > [!IMPORTANT]
-> 단일 NFS 볼륨에 배포하는 용량에 관계없이 처리량은 가상 머신의 소비자가 활용하는 1.2~1.4GB/초 대역폭의 범위에서 안정될 것으로 예상됩니다. 이는 ANF 제품의 기본 아키텍처와 NFS 관련 Linux 세션 제한과 관련이 있습니다. [Azure NetApp Files에 대한 성능 벤치 마크 테스트 결과](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) 문서에 설명된 성능 및 처리량 수치는 여러 클라이언트 VM이 있는 한 공유 NFS 볼륨에서 여러 세션에 걸쳐 테스트한 결과입니다. 이 시나리오는 SAP에서 측정하는 시나리오와 다릅니다. 즉, ANF에서 호스트되는 단일 NFS 볼륨에 대해 단일 VM에서 처리량을 측정합니다.
+> 단일 NFS 볼륨에 배포하는 용량에 관계없이 처리량은 가상 머신의 소비자가 활용하는 1.2~1.4GB/초 대역폭의 범위에서 안정될 것으로 예상됩니다. 이는 ANF 제품의 기본 아키텍처와 NFS 관련 Linux 세션 제한과 관련이 있습니다. [Azure NetApp Files에 대한 성능 벤치 마크 테스트 결과](../../../azure-netapp-files/performance-benchmarks-linux.md) 문서에 설명된 성능 및 처리량 수치는 여러 클라이언트 VM이 있는 한 공유 NFS 볼륨에서 여러 세션에 걸쳐 테스트한 결과입니다. 이 시나리오는 SAP에서 측정하는 시나리오와 다릅니다. 즉, ANF에서 호스트되는 단일 NFS 볼륨에 대해 단일 VM에서 처리량을 측정합니다.
 
 데이터 및 로그에 대한 SAP 최소 처리량 요구 사항을 충족하기 위해 또한 `/hana/shared`에 대한 지침에 따라 권장 크기는 다음과 같습니다.
 
-| 볼륨 | 크기<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
+| 볼륨 | Size<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
 | --- | --- | --- |
 | /hana/log/ | 4TiB | 2TiB | v4.1 |
 | /hana/data | 6.3TiB | 3.2TiB | v4.1 |
@@ -320,10 +320,10 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 > [!TIP]
 > 볼륨을 `unmount`하거나 가상 머신을 중지하거나 SAP HANA를 중지하지 않고도 Azure NetApp Files 볼륨의 크기를 동적으로 조정할 수 있습니다. 그러므로 애플리케이션이 예상된 처리량 수요와 예측하지 못한 처리량 수요를 모두 충족할 수 있습니다.
 
-ANF에서 호스트되는 NFS v4.1 볼륨을 사용하는 대기 노드로 SAP HANA 스케일 아웃 구성을 배포하는 방법에 대한 설명서는 [SUSE Linux Enterprise Server의 Azure NetApp Files를 사용하여 Azure VM의 대기 노드로 SAP HANA 스케일 아웃](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)에 게시되어 있습니다.
+ANF에서 호스트되는 NFS v4.1 볼륨을 사용하는 대기 노드로 SAP HANA 스케일 아웃 구성을 배포하는 방법에 대한 설명서는 [SUSE Linux Enterprise Server의 Azure NetApp Files를 사용하여 Azure VM의 대기 노드로 SAP HANA 스케일 아웃](./sap-hana-scale-out-standby-netapp-files-suse.md)에 게시되어 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Virtual Machines의 SAP HANA 고가용성 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [Azure Virtual Machines의 SAP HANA 고가용성 가이드](./sap-hana-availability-overview.md)

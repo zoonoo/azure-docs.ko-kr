@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 1d1ac838befc905c3c2b860551b26928f5114e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8142ef5e2aaaf5831c01215d28eecf8d06e1d8ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071916"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
 
@@ -29,7 +30,7 @@ ms.locfileid: "85955177"
 XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처럼 요소 순서를 유지해야 합니다(예를 들어, KeyFrameInterval은 SceneChangeDetection 앞에 와야 함).
 
 > [!NOTE] 
-> Media Encoder Standard의 advanced Media Services v2 기능 중 상당수는 현재 v3에서 사용할 수 없습니다. 자세한 내용은 [기능 간격](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
+> Media Encoder Standard의 advanced Media Services v2 기능 중 상당수는 현재 v3에서 사용할 수 없습니다. 자세한 내용은 [기능 간격](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
 
 ## <a name="support-for-relative-sizes"></a>상대적 크기에 대한 지원
 

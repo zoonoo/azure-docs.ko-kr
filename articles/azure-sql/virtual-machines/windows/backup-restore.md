@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a19bf26418d6a61d3aa2421957614abe6dd04e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27438b0729aa309878eb54a346f04754cb983af1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669204"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073261"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server의 백업 및 복원
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -126,7 +127,7 @@ SQL Server 2016부터 Managed Backup은 예약, 시스템 데이터베이스 백
 
 다음 표에서는 Azure의 SQL Server 가상 머신에 대한 각 백업 및 복원 옵션의 기능을 요약합니다.
 
-|| **자동화된 Backup** | **SQL에 대한 Azure Backup** | **수동 백업** |
+| 옵션 | 자동화된 백업 | SQL에 대한 Azure Backup | 수동 백업 |
 |---|---|---|---|
 | 추가 Azure 서비스 필요 |   | ![예](./media/backup-restore/yes.png) |   |
 | Azure Portal에서 백업 정책 구성 | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) |   |

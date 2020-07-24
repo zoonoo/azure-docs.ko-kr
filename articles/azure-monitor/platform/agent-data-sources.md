@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073697"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor의 에이전트 데이터 원본
 Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  에이전트의 데이터는 레코드 세트를 사용하여 [로그 데이터](data-platform-logs.md)로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -46,7 +47,7 @@ Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이�
 ## <a name="data-collection"></a>데이터 수집
 데이터 원본 구성은 몇 분 이내에 Azure Monitor에 직접 연결된 에이전트로 전달됩니다.  지정된 데이터는 에이전트에서 수집되어 각 데이터 원본에 특정한 간격으로 Azure Monitor에 직접 전달됩니다.  이러한 세부 사항은 각 데이터 원본에 대한 설명서를 참조하세요.
 
-연결된 관리 그룹 내 System Center Operations Manager 에이전트의 경우 데이터 원본 구성은 관리 팩으로 변환되어 기본적으로 5분마다 관리 그룹에 전달됩니다.  에이전트는 일반적인 방식으로 관리 팩을 다운로드하고 지정된 데이터를 수집합니다. 데이터 원본에 따라, 데이터가 관리 서버로 전송된 다음 관리 서버가 Azure Monitor로 데이터를 전달하거나 에이전트가 관리 서버를 통하지 않고 Azure Monitor로 데이터를 전송합니다. 자세한 내용은 [Azure의 모니터링 솔루션에 대한 데이터 수집 세부 정보](../insights/solutions-inventory.md)를 참조하세요.  Operations Manager와 Azure Monitor의 연결 및 구성 전달 주기 수정에 대한 자세한 내용은 [System Center Operations Manager와의 통합 구성](om-agents.md)에서 확인할 수 있습니다.
+연결된 관리 그룹 내 System Center Operations Manager 에이전트의 경우 데이터 원본 구성은 관리 팩으로 변환되어 기본적으로 5분마다 관리 그룹에 전달됩니다.  에이전트는 일반적인 방식으로 관리 팩을 다운로드하고 지정된 데이터를 수집합니다. 데이터 원본에 따라, 데이터가 관리 서버로 전송된 다음 관리 서버가 Azure Monitor로 데이터를 전달하거나 에이전트가 관리 서버를 통하지 않고 Azure Monitor로 데이터를 전송합니다. 자세한 내용은 [Azure의 모니터링 솔루션에 대한 데이터 수집 세부 정보](../monitor-reference.md)를 참조하세요.  Operations Manager와 Azure Monitor의 연결 및 구성 전달 주기 수정에 대한 자세한 내용은 [System Center Operations Manager와의 통합 구성](om-agents.md)에서 확인할 수 있습니다.
 
 에이전트는 Azure Monitor 또는 Operations Manager에 연결할 수 없으면 데이터를 계속 수집하다가 연결이 설정되면 데이터를 전달합니다.  데이터 양이 클라이언트의 최대 캐시 크기에 도달하거나 에이전트가 24시간 내에 연결을 설정할 수 없는 경우 데이터가 손실될 수 있습니다.
 

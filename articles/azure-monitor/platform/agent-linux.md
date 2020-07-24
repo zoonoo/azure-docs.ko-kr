@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637515"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073661"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Azure Monitor에 Linux 컴퓨터 연결
 
@@ -30,7 +31,7 @@ Azure Monitor를 사용 하 여 로컬 데이터 센터 또는 다른 클라우�
 
 Linux 용 Log Analytics 에이전트는 여러 패키지로 구성 됩니다. 릴리스 파일에는 매개 변수와 함께 셸 번들을 실행 하 여 사용할 수 있는 다음과 같은 패키지가 포함 되어 있습니다 `--extract` .
 
-**Package** | **Version** | **설명**
+**패키지** | **Version** | **설명**
 ----------- | ----------- | --------------
 omsagent | 1.12.15 | Linux 용 Log Analytics 에이전트
 omsconfig | 1.1.1 | Log Analytics 에이전트에 대 한 구성 에이전트
@@ -92,7 +93,7 @@ Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능�
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들어: 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들면 다음과 같습니다. 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -122,9 +123,9 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-예: `https://proxy01.contoso.com:30443`
+예를 들면 다음과 같습니다. `https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들면 다음과 같습니다. `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     
@@ -154,6 +155,18 @@ Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
+
+## <a name="supported-linux-hardening"></a>지원 되는 Linux 강화
+OMS 에이전트는 Linux에 대해 제한 된 사용자 지정 지원을 제공 합니다. 
+
+현재 지원 되는 기능은 다음과 같습니다. 
+- 서명에
+
+다음은 계획 되었지만 아직 지원 되지 않습니다.
+- CIS-SELINUX
+
+기타 강화 및 사용자 지정 방법은 지원 되지 않으며 OMS 에이전트에 대해 계획 되지 않았습니다.  
+
 
 ## <a name="upgrade-from-a-previous-release"></a>이전 릴리스에서 업그레이드
 

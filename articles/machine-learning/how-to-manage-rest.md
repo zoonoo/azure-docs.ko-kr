@@ -10,11 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560169"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072207"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용 하 여 Azure ML 리소스 만들기, 실행 및 삭제
 
@@ -32,7 +33,7 @@ Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. 
 > * DELETE 요청을 사용 하 여 리소스 정리 
 > * 키 기반 권한 부여를 사용 하 여 배포 된 모델 점수 매기기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 관리 권한이 있는 **Azure 구독** . 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -47,7 +48,7 @@ Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. 
 - 클라이언트 ID (생성 된 토큰과 연결 됨)
 - 클라이언트 암호 (보호 해야 함)
 
-[Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication)에 설명 된 대로 서비스 사용자 만들기에 대 한 응답의 값이 있어야 합니다. 회사 구독을 사용 하는 경우 서비스 주체를 만들 수 있는 권한이 없는 것일 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree)중 하나를 사용 해야 합니다.
+서비스 사용자를 만들기 위한 응답에서 이러한 값이 있어야 합니다. 이러한 값을 가져오는 방법에 [대 한 자세한 내용은 Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication)에 설명 되어 있습니다. 회사 구독을 사용 하는 경우 서비스 주체를 만들 수 있는 권한이 없는 것일 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree)중 하나를 사용 해야 합니다.
 
 토큰을 검색 하려면:
 
@@ -199,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-모델을 나열 하는 동안 경로가로 시작 하는 실험을 나열 `history/v1.0` 합니다. 경로는로 시작 `modelmanagement/v1.0` 합니다. REST API는 각각 고유한 경로를 가진 여러 작업 그룹으로 구분 됩니다. 아래 링크의 API 참조 문서에는 다양 한 작업에 대 한 작업, 매개 변수 및 응답 코드가 나열 되어 있습니다.
+모델을 나열 하는 동안 경로가로 시작 하는 실험을 나열 `history/v1.0` 합니다. 경로는로 시작 `modelmanagement/v1.0` 합니다. REST API는 각각 고유한 경로를 가진 여러 작업 그룹으로 구분 됩니다. 
 
-|Area|경로|참고|
-|-|-|-|
-|Artifacts|아티팩트/v 2.0/|[REST API 참조](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|데이터 저장소|데이터 저장소/v 1.0/|[REST API 참조](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|하이퍼 매개 변수 조정|hyperdrive/v 1.0/|[REST API 참조](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|모델|modelmanagement/v 1.0/|[REST API 참조](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|실행 기록|실행/v 1.0/및 기록/v 1.0/|[REST API 참조](https://docs.microsoft.com/rest/api/azureml/runs)|
+|영역|경로|
+|-|-|
+|Artifacts|아티팩트/v 2.0/|
+|데이터 저장소|데이터 저장소/v 1.0/|
+|하이퍼 매개 변수 조정|hyperdrive/v 1.0/|
+|모델|modelmanagement/v 1.0/|
+|실행 기록|실행/v 1.0/및 기록/v 1.0/|
 
 의 일반적인 패턴을 사용 하 여 REST API를 탐색할 수 있습니다.
 

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072024"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계 
 
@@ -147,7 +148,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 
 | **구성 요소** | **기술** |
 | --- | --- |
-| **혼자서** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IDP(ID 공급자)** |Azure AD(Azure Active Directory) |
 | **STS(보안 토큰 서비스)** |Azure AD |
 | **DRM 보호 워크플로** |Media Services 동적 보호 |
@@ -226,7 +227,7 @@ ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한
 Azure AD에 대한 내용:
 
 * [Azure Active Directory 개발자 가이드](../../active-directory/azuread-dev/v1-overview.md)에서 개발자 정보를 찾을 수 있습니다.
-* [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
+* [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-whatis.md)에서 관리자 정보를 찾을 수 있습니다.
 
 ### <a name="some-issues-in-implementation"></a>구현에 대한 몇 가지 문제
 구현 문제에 대한 도움을 얻으려면 다음 문제 해결 정보를 참조하세요.
@@ -295,7 +296,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 Azure AD에서는 업계 표준을 사용하여 Azure AD 자체와 Azure AD를 사용하는 애플리케이션 간에 신뢰를 설정합니다. 특히, Azure AD는 공개 및 프라이빗 키 쌍으로 구성된 서명 키를 사용합니다. Azure AD에서 사용자에 대한 정보가 포함된 보안 토큰을 만드는 경우 애플리케이션으로 다시 전송되기 전에 Azure AD에 의해 프라이빗 키를 사용하여 서명됩니다. 해당 토큰이 유효하고 Azure AD에서 발생한 것인지 확인하기 위해 애플리케이션은 토큰 서명이 유효한지 검사해야 합니다. 애플리케이션은 테넌트의 페더레이션 메타데이터 문서에 포함된 Azure AD에 의해 노출되는 공개 키를 사용합니다. 이 공개 키와 이로부터 파생된 서명 키는 Azure AD의 모든 테넌트에 사용된 것과 같습니다.
 
-Azure AD 키 롤오버에 대한 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](../../active-directory/active-directory-signing-key-rollover.md)를 참조하세요.
+Azure AD 키 롤오버에 대한 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](../../active-directory/develop/active-directory-signing-key-rollover.md)를 참조하세요.
 
 [퍼블릭-프라이빗 키 쌍](https://login.microsoftonline.com/common/discovery/keys/)중에서,
 
@@ -328,7 +329,7 @@ Azure AD가 JWT를 생성한 후, 플레이어가 확인을 위해 JWT를 Media 
 * Azure AD가 애플리케이션을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
 * HTTPS를 통해 웹 애플리케이션이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 “권한 부여” 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그런 후 웹 API에는 JWT의 유효성을 검사합니다. 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
-이 애플리케이션 ID 흐름에서 웹 API는 웹 애플리케이션이 해당 사용자를 인증했음을 신뢰합니다. 이런 이유로, 이 패턴을 신뢰할 수 있는 하위 시스템이라고 합니다. [권한 부여 흐름 다이어그램](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code)은 인증 코드 부여 흐름이 작동하는 방식을 설명합니다.
+이 애플리케이션 ID 흐름에서 웹 API는 웹 애플리케이션이 해당 사용자를 인증했음을 신뢰합니다. 이런 이유로, 이 패턴을 신뢰할 수 있는 하위 시스템이라고 합니다. [권한 부여 흐름 다이어그램](../../active-directory/azuread-dev/v1-protocols-oauth-code.md)은 인증 코드 부여 흐름이 작동하는 방식을 설명합니다.
 
 토큰 제한으로 라이선스 획득 시 동일한 신뢰할 수 있는 하위 시스템 패턴을 따릅니다. Media Services의 라이선스 배달 서비스가 웹 API 리소스이거나 웹 애플리케이션이 액세스해야 하는 &quot;백 엔드 리소스&quot;입니다. 그렇다면 액세스 토큰은 어디에 있을까요?
 
