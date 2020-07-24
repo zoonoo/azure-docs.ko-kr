@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 6705d4d1edebe88a577c71b3e48cd837fa7882c6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ca40fcb6a2e483e656058835f187dc50bf7bc9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074057"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
@@ -325,6 +325,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure의 다른 Oracle 솔루션](oracle-considerations.md)에 대해 알아봅니다. 
+[Azure의 다른 Oracle 솔루션](./oracle-overview.md)에 대해 알아봅니다. 
 
 [Oracle Automated Storage Management 설치 및 구성](configure-oracle-asm.md) 자습서를 사용해 봅니다.

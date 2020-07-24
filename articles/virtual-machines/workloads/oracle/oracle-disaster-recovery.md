@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: e519010f902e99a3118485b3c8bc57cd47188a1f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6d1c7a48332aa49bc5c506ceeae287bc3affef16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224556"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074077"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
 
@@ -78,7 +78,7 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 ![DR 토폴로지 페이지의 스크린샷](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>방법 2: 사이트 간 VPN
-사이트 간 VPN이 더 나은 방법입니다. VPN 설정에 대한 자세한 내용은 [CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)를 참조하세요.
+사이트 간 VPN이 더 나은 방법입니다. VPN 설정에 대한 자세한 내용은 [CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)를 참조하세요.
 
 #### <a name="topology"></a>토폴로지
 
@@ -95,7 +95,7 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 
 ![DR 토폴로지 페이지의 스크린샷](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>추가 참조 항목
+## <a name="additional-reading"></a>추가 자료
 
 - [Azure에서 Oracle 데이터베이스 설계 및 구현](oracle-design.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

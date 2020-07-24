@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cd9a196e5f957782de91cff69c01fbfa5716369a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1717ebd5709c05e33e658d3798494324a702b1d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100501"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074051"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 시간 동기화
 
@@ -24,7 +24,7 @@ Azure는 이제 Windows Server 2016을 실행하는 인프라의 지원을 받�
 >[!NOTE]
 >Windows 시간 서비스에 대한 간략한 개요는 이 [고급 개요 비디오](https://aka.ms/WS2016TimeVideo)를 살펴보세요.
 >
-> 자세한 내용은 [Windows Server 2016의 정확한 시간](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)을 참조하세요. 
+> 자세한 내용은 [Windows Server 2016의 정확한 시간](/windows-server/networking/windows-time-service/accurate-time)을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
@@ -172,9 +172,7 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 시간 동기화에 대한 자세한 세부 정보에 대한 링크는 다음과 같습니다.
 
-- [Windows 시간 서비스 도구 및 설정](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Windows Server 2016 개선 사항](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Windows Server 2016에 대 한 정확한 시간](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [정확도가 높은 환경에 맞게 Windows 시간 서비스를 구성할 수 있는 지원 범위](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
-
-
+- [Windows 시간 서비스 도구 및 설정](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
+- [Windows Server 2016 개선 사항](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Windows Server 2016에 대 한 정확한 시간](/windows-server/networking/windows-time-service/accurate-time)
+- [정확도가 높은 환경에 맞게 Windows 시간 서비스를 구성할 수 있는 지원 범위](/windows-server/networking/windows-time-service/support-boundary)
