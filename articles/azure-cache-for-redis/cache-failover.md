@@ -1,17 +1,17 @@
 ---
 title: 장애 조치(failover) 및 패치 - Azure Cache for Redis
 description: Redis 용 Azure Cache의 장애 조치 (failover), 패치 및 업데이트 프로세스에 대해 알아봅니다.
-author: asasine
+author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: adsasine
-ms.openlocfilehash: d14e030898db364d6621933d0032fa9ce0cab676
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185027"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093088"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 장애 조치 (Failover) 및 패치
 

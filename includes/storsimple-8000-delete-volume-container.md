@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102828"
 ---
 볼륨 컨테이너를 삭제하려면
  - 볼륨 컨테이너에서 볼륨을 삭제해야 합니다. 볼륨 컨테이너가 볼륨에 연결된 경우 해당 볼륨을 먼저 오프라인으로 전환합니다. [볼륨을 오프라인으로 전환](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline)단계를 따릅니다. 볼륨이 오프라인이 되면 삭제할 수 있습니다. 
@@ -36,6 +36,6 @@ ms.locfileid: "67182250"
 
 삭제된 볼륨 컨테이너를 반영하도록 볼륨 컨테이너 목록이 업데이트됩니다.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![볼륨 컨테이너 페이지의 스크린샷 볼륨 컨테이너의 테이블 형식 목록에 삭제 된 컨테이너가 더 이상 포함 되지 않습니다.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 

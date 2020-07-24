@@ -3,15 +3,16 @@ title: Application Insights에 대한 릴리스 주석 | Microsoft Docs
 description: Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093037"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
-주석은 새 빌드를 배포한 위치 또는 기타 중요 한 이벤트를 표시 합니다. 주석을 사용 하면 변경 내용이 응용 프로그램의 성능에 어떤 영향을 미칠 수 있는지 쉽게 확인할 수 있습니다. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) 빌드 시스템에서 자동으로 만들 수 있습니다. PowerShell에서 주석을 만들어 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
+주석은 새 빌드를 배포한 위치 또는 기타 중요 한 이벤트를 표시 합니다. 주석을 사용 하면 변경 내용이 응용 프로그램의 성능에 어떤 영향을 미칠 수 있는지 쉽게 확인할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/tasks/) 빌드 시스템에서 자동으로 만들 수 있습니다. PowerShell에서 주석을 만들어 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Azure Pipelines 빌드를 사용 하 여 주석 릴리스
 

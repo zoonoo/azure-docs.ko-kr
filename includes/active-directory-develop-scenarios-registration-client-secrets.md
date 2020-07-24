@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102837"
 ---
 ## <a name="register-secrets-or-certificates"></a>비밀 또는 인증서 등록
 
@@ -31,12 +31,10 @@ ms.locfileid: "76773372"
 
 ![인증서 & 암호 페이지](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
-- 비밀 클라이언트 응용 프로그램을 등록 하는 동안 Azure AD에서 응용 프로그램 암호 (클라이언트 암호 라고도 하는)가 생성 됩니다. 이 생성은 **새 클라이언트 암호**를 선택할 때 발생 합니다. 이 시점에서 **저장**을 선택 하기 전에 앱에서 사용 하기 위해 비밀 문자열을 클립보드에 복사 해야 합니다. 이 문자열은 더 이상 표시 되지 않습니다.
+- Azure Portal의 앱 등록에서 **새 클라이언트 암호** 를 선택 하 여 *클라이언트 암호* 를 만듭니다. 클라이언트 암호를 만들 때 **인증서 & 암호** 창에서 이동 하기 전에 암호의 문자열을 기록해 _야_ 합니다. 비밀의 문자열은 다시 표시 되지 않습니다.
 - 응용 프로그램을 등록 하는 동안 **인증서 업로드** 단추를 사용 하 여 인증서를 업로드 합니다. Azure AD는 응용 프로그램에 직접 등록 된 인증서만 지원 하며 인증서 체인을 따르지 않습니다.
 
 자세한 내용은 빠른 시작 [: 웹 api에 액세스 하는 클라이언트 응용 프로그램 구성 | 응용 프로그램에 자격 증명을 추가](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)합니다.
-
-
 
 ### <a name="register-client-secrets-by-using-powershell"></a>PowerShell을 사용 하 여 클라이언트 암호 등록
 
