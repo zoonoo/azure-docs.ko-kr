@@ -3,13 +3,13 @@ title: Azure Kubernetes Service에서 pod 보안 정책 사용 (AKS)
 description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 하 여 pod 입학을 제어 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 06/30/2020
-ms.openlocfilehash: dd526b7825279d886c60fbb1820222a75abab03e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/21/2020
+ms.openlocfilehash: b5e9ec19392056115ae739d40c429d93d6ac810e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507083"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015581"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
@@ -348,7 +348,7 @@ kubectl apply -f psp-deny-privileged-clusterrole.yaml
 이제 이전 단계에서 만든 ClusterRole를 사용 하는 ClusterRoleBinding을 만듭니다. 이라는 파일을 만들고 `psp-deny-privileged-clusterrolebinding.yaml` 다음 YAML 매니페스트를 붙여넣습니다.
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: psp-deny-privileged-clusterrolebinding

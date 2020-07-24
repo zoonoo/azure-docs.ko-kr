@@ -1,15 +1,15 @@
 ---
-title: AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
+title: Azure CLI를 사용 하 여 AKS 클러스터에서 Windows Server 컨테이너 만들기
 description: Azure CLI를 사용 하 여 Kubernetes 클러스터를 신속 하 게 만들고 AKS (Azure Kubernetes Service)의 Windows Server 컨테이너에 응용 프로그램을 배포 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015632"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -70,7 +70,7 @@ az group create --name myResourceGroup --location eastus
 Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster*라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
 
 * 클러스터는 두 개의 노드로 구성 됩니다.
-* *Windows-admin-password* 및 *windows-admin* 매개 변수는 클러스터에 생성 된 모든 windows Server 컨테이너에 대 한 관리자 자격 증명을 설정 합니다.
+* *Windows-admin-password* 및 *windows-admin* 매개 변수는 클러스터에 생성 된 모든 windows server 컨테이너에 대 한 관리자 자격 증명을 설정 하며 [windows server 암호 요구 사항을][windows-server-password]충족 해야 합니다.
 * 노드 풀은 다음을 사용 합니다.`VirtualMachineScaleSets`
 
 > [!NOTE]
@@ -294,3 +294,4 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
