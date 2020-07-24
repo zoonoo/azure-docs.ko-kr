@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006453"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
 HDInsight는 클러스터의 작업자 노드 수를 확장 및 축소 하는 옵션과 함께 탄력성을 제공 합니다. 이 탄력성를 사용 하면 몇 시간 또는 주말에 클러스터를 축소할 수 있습니다. 그리고 최고 비즈니스 수요에서 확장 합니다.
 
-클러스터에 적절 한 리소스가 있도록 주기적 일괄 처리를 수행 하기 전에 클러스터를 확장 합니다. 처리가 완료 되 고 사용량이 중단 되 면 HDInsight 클러스터를 축소 하 여 작업자 노드 수를 줄입니다.
+클러스터에 적절 한 리소스가 있도록 주기적 일괄 처리를 수행 하기 전에 클러스터를 확장 합니다.  처리가 완료 되 고 사용량이 중단 되 면 HDInsight 클러스터를 축소 하 여 작업자 노드 수를 줄입니다.
 
 아래에 설명 된 방법 중 하나를 사용 하 여 클러스터를 수동으로 확장할 수 있습니다. 자동 [크기 조정](hdinsight-autoscale-clusters.md) 옵션을 사용 하 여 특정 메트릭에 대 한 응답으로 자동으로 확장 및 축소할 수도 있습니다.
 
@@ -107,6 +107,14 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 
     크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka를 사용한 데이터의 고가용성](./kafka/apache-kafka-high-availability.md) 문서를 참조하세요.
 
+* Apache Hive LLAP
+
+    작업자 노드로 크기를 조정한 후 `N` HDInsight는 다음 구성을 자동으로 설정 하 고 Hive를 다시 시작 합니다.
+
+  * 최대 총 동시 쿼리:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Hive의 LLAP에서 사용 하는 노드 수:`num_llap_nodes  = N`
+  * Hive LLAP 디먼을 실행 하는 노드 수:`num_llap_nodes_for_llap_daemons = N`
+
 ## <a name="how-to-safely-scale-down-a-cluster"></a>클러스터를 안전 하 게 확장 하는 방법
 
 ### <a name="scale-down-a-cluster-with-running-jobs"></a>실행 중인 작업을 사용 하 여 클러스터 규모 축소
@@ -138,7 +146,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

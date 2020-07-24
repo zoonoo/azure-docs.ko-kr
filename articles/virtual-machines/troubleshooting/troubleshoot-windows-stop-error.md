@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 67064cf694445acf8472b958660133c2f2d31db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660950"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005908"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Windows 중지 오류 - 메모리 없음 상태
 
@@ -26,7 +27,7 @@ ms.locfileid: "85660950"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM (가상 머신)의 스크린샷을 볼 때 스크린 샷에 오류 코드가 표시 됩니다 `0xC0000017` . 실행 중인 Windows 버전에 따라 **Windows 부팅 관리자나** **복구 화면**에이 코드가 표시 될 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM (가상 머신)의 스크린샷을 볼 때 스크린 샷에 오류 코드가 표시 됩니다 `0xC0000017` . 실행 중인 Windows 버전에 따라 **Windows 부팅 관리자나** **복구 화면**에이 코드가 표시 될 수 있습니다.
 
    **Windows 부팅 관리자**
 
@@ -56,7 +57,7 @@ ms.locfileid: "85660950"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령의 1~3단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령의 1~3단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)를 사용하여 복구 VM을 준비합니다.
 1. 원격 데스크톱 연결을 사용하여 복구 VM에 연결합니다.
 
 ### <a name="for-generation-2-vms-assign-a-letter-to-the-extensible-firmware-interface-efi-partition"></a>2 세대 Vm의 경우 EFI (Extensible 펌웨어 인터페이스) 파티션에 문자를 할당 합니다.
@@ -93,7 +94,7 @@ ms.locfileid: "85660950"
 이제 손상 된 디스크가 복구 VM에 연결 되었으므로 해당 디스크의 OS에 제대로 작동 하는 데 충분 한 공간이 있는지 확인 해야 합니다. 
 
 1. 연결 된 디스크의 드라이브를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 하 여 디스크가 꽉 찬 경우를 확인 합니다.
-1. 디스크의 **사용 가능한 공간이 300 Mb 미만인**경우 [PowerShell을 사용 하 여 최대 1tb까지 확장](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk)합니다.
+1. 디스크의 **사용 가능한 공간이 300 Mb 미만인**경우 [PowerShell을 사용 하 여 최대 1tb까지 확장](../windows/expand-os-disk.md)합니다.
 1. 디스크 크기가 **1tb**이면 디스크 정리를 수행 해야 합니다. [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) 를 사용 하 여 공간을 확보할 수 있습니다.
 1. 관리자 권한 명령 프롬프트 (관리자 권한으로 실행) 인스턴스를 열고 드라이브에서 조각화를 취소 합니다.
 
@@ -222,4 +223,4 @@ ms.locfileid: "85660950"
    
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 빌드합니다.

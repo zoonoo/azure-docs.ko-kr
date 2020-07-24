@@ -2,13 +2,13 @@
 title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 733623895176bb3b573c2efcbda8a40b9e2d87c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002481"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 기존 Kafka 기반 애플리케이션이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 엔드포인트을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 애플리케이션과 작동합니다.  
@@ -26,7 +26,7 @@ Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 �
 | Kafka 개념 | Event Hubs 클러스터|
 | --- | --- |
 | 클러스터 | 네임스페이스 |
-| 항목 | 이벤트 허브 |
+| 토픽 | 이벤트 허브 |
 | 파티션 | 파티션|
 | 소비자 그룹 | 소비자 그룹 |
 | Offset | Offset|
@@ -79,12 +79,10 @@ Kafka용 Event Hubs 기능을 사용하면 한 프로토콜로 읽고 다른 프
 
 다음은 아직 지원되지 않는 Kafka 기능 목록입니다.
 
-*   Idempotent 생산자
 *   트랜잭션
 *   압축
 *   크기 기반 보존
 *   로그 압축
-*   파티션을 기존 항목에 추가
 *   HTTP Kafka API 지원
 *   Kafka 스트림
 

@@ -3,12 +3,12 @@ title: 이벤트 프로세서 호스트를 사용하여 이벤트 수신 - Azure
 description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트의 관리를 간소화하는 Azure Event Hubs의 이벤트 프로세서 호스트에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002525"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
@@ -22,7 +22,7 @@ ms.locfileid: "85320641"
 
 Azure Event Hubs는 저렴한 비용으로 수백만 개의 이벤트를 스트리밍하는 데 사용할 수 있는 강력한 원격 분석 수집 서비스입니다. 이 아티클에서는 검사점, 임대 및 병렬 이벤트 판독기의 관리를 간소화하는 지능형 소비자 에이전트인 EPH(*이벤트 프로세서 호스트*)를 사용하여 수집된 이벤트를 사용하는 방법을 설명합니다.  
 
-Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](https://msdn.microsoft.com/library/dn568101.aspx) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
+Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](/previous-versions/msp-n-p/dn568101(v=pandp.10)) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
 
 ## <a name="home-security-scenario"></a>홈 보안 시나리오
 
@@ -162,7 +162,7 @@ EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하
 Receive epoch의 작동 방식은 다음과 같습니다.
 
 ### <a name="with-epoch"></a>Epoch 사용
-Epoch는 파티션/임대 소유권을 적용 하기 위해 서비스에서 사용 하는 고유 식별자 (epoch 값)입니다. [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) 메서드를 사용 하 여 Epoch 기반 수신기를 만듭니다. 이 메서드는 Epoch 기반 수신기를 만듭니다. 지정 된 소비자 그룹의 특정 이벤트 허브 파티션에 대해 수신기가 생성 됩니다.
+Epoch는 파티션/임대 소유권을 적용 하기 위해 서비스에서 사용 하는 고유 식별자 (epoch 값)입니다. [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) 메서드를 사용 하 여 Epoch 기반 수신기를 만듭니다. 이 메서드는 Epoch 기반 수신기를 만듭니다. 지정 된 소비자 그룹의 특정 이벤트 허브 파티션에 대해 수신기가 생성 됩니다.
 
 Epoch 기능을 사용 하면 다음 규칙을 사용 하 여 소비자 그룹에 수신기가 하나만 있는지 확인할 수 있습니다.
 
@@ -171,7 +171,7 @@ Epoch 기능을 사용 하면 다음 규칙을 사용 하 여 소비자 그룹�
 - Epoch 값이 e1 인 수신기가 있고, e1 > e2 인 epoch 값 e2를 사용 하 여 새 수신자를 만든 후에 e2를 만들지 못했습니다.
 
 ### <a name="no-epoch"></a>Epoch 없음
-[CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) 메서드를 사용 하 여 Epoch 기반이 아닌 수신기를 만듭니다. 
+[CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) 메서드를 사용 하 여 Epoch 기반이 아닌 수신기를 만듭니다. 
 
 사용자가 단일 소비자 그룹에 여러 개의 수신기를 만들려는 스트림 처리에는 몇 가지 시나리오가 있습니다. 이러한 시나리오를 지원 하기 위해 epoch 없이 수신기를 만들 수 있으며,이 경우 소비자 그룹에서 최대 5 개의 동시 수신기를 사용할 수 있습니다.
 

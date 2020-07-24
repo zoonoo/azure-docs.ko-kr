@@ -3,45 +3,74 @@ title: DropDown UI 요소
 description: Azure Portal의 Microsoft.Common.DropDown UI 요소에 대해 설명합니다. 관리 되는 응용 프로그램을 배포할 때 사용 가능한 옵션 중에서 선택 하는 데 사용 합니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5eac1d331bd439ad4066d1dea1b9aa950fcce60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004496"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 요소
 
-드롭다운 목록을 포함하는 선택 컨트롤입니다.
+드롭다운 목록을 포함하는 선택 컨트롤입니다. 단일 항목 또는 여러 항목을 선택할 수 있습니다. 항목에 대 한 설명을 선택적으로 포함할 수도 있습니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
+DropDown 요소는 포털에서 모양을 결정 하는 다양 한 옵션을 포함 합니다.
+
+단일 항목만 선택할 수 있는 경우 컨트롤은 다음과 같이 표시 됩니다.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-1.png" alt-text="Microsoft 단일 항목 선택":::
+
+설명이 포함 되 면 컨트롤은 다음과 같이 표시 됩니다.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="설명으로 단일 선택 드롭다운":::
+
+다중 선택을 사용 하도록 설정 하는 경우 컨트롤은 둘 이상의 항목을 선택할 수 있는 **모두 선택** 옵션과 확인란을 추가 합니다.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft 일반. 드롭다운 다중 선택":::
+
+다중 선택 사용에 대 한 설명을 포함할 수 있습니다.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft 일반. 드롭다운 다중 선택 설명":::
+
+필터링을 사용 하는 경우 컨트롤에 필터링 값을 추가 하기 위한 입력란이 포함 됩니다.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft 일반. 드롭다운 다중 선택 설명":::
 
 ## <a name="schema"></a>스키마
 
 ```json
 {
-  "name": "element1",
-  "type": "Microsoft.Common.DropDown",
-  "label": "Example drop down",
-  "defaultValue": "Value two",
-  "toolTip": "",
-  "constraints": {
-    "allowedValues": [
-      {
-        "label": "Value one",
-        "value": "one"
-      },
-      {
-        "label": "Value two",
-        "value": "two"
-      }
-    ],
-    "required": true
-  },
-  "visible": true
+    "name": "element1",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Example drop down",
+    "defaultValue": "Value two",
+    "toolTip": "",
+    "multiselect": true,  
+    "selectAll": true,  
+    "filter": true,  
+    "filterPlaceholder": "Filter items ...",  
+    "multiLine": true,  
+    "defaultDescription": "A value for selection",  
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Value one",
+                "description": "The value to select for option 1.",
+                "value": "one"
+            },
+            {
+                "label": "Value two",
+                "description": "The value to select for option 2.",
+                "value": "two"
+            }
+        ],
+        "required": true
+    },
+    "visible": true
 }
 ```
 
@@ -53,10 +82,14 @@ ms.locfileid: "75652386"
 
 ## <a name="remarks"></a>설명
 
+- `multiselect`사용자가 둘 이상의 항목을 선택할 수 있는지 여부를 지정 하는 데 사용 합니다.
+- `selectAll` `true` 다중 선택을 사용 하도록 설정 하면 기본적으로가 사용 됩니다.
+- `filter`사용자는 속성을 사용 하 여 긴 옵션 목록에서 검색할 수 있습니다.
 - `constraints.allowedValues`의 레이블은 항목에 대한 표시 텍스트이며, 해당 값은 선택한 요소의 출력 값입니다.
 - 이 값을 지정하면 기본값은 `constraints.allowedValues`에 있는 레이블이어야 합니다. 지정하지 않으면 `constraints.allowedValues`의 첫 번째 항목이 선택됩니다. 기본값은 **null**입니다.
 - `constraints.allowedValues`에는 적어도 하나의 항목이 합니다.
 - 필요하지 않은 값을 에뮬레이트하려면 레이블과 값이 `""`(빈 문자열)인 항목을 `constraints.allowedValues`에 추가합니다.
+- `defaultDescription`속성은 설명이 없는 항목에 사용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

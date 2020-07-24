@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186200"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004752"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 
@@ -28,7 +28,7 @@ Azure Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상�
 
 Automation 로그를 Azure Monitor 로그로 보내려면 다음이 필요합니다.
 
-* 최신 버전의 [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* 최신 버전의 [Azure PowerShell](/powershell/azure/).
 * Log Analytics 작업 영역. 자세한 내용은 [Azure Monitor 로그 시작](../azure-monitor/overview.md)을 참조하세요.
 * Azure Automation 계정에 대한 리소스 ID
 

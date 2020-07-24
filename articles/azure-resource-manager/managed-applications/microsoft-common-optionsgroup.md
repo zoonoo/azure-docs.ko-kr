@@ -3,21 +3,25 @@ title: 기타 그룹 UI 요소
 description: Azure Portal의 Microsoft.Common.OptionsGroup UI 요소에 대해 설명합니다. 사용자가 관리 되는 응용 프로그램을 배포할 때 사용 가능한 옵션 중에서 선택할 수 있습니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
-ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004196"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI 요소
 
-사용 가능한 옵션 행을 포함하는 선택 컨트롤입니다.
+옵션 그룹 컨트롤을 사용 하면 사용자가 둘 이상의 선택 항목에서 옵션을 선택할 수 있습니다. 사용자는 옵션을 하나만 선택할 수 있습니다.
+
+> [!NOTE]
+> 이전에이 컨트롤은 옵션을 가로로 렌더링 했습니다. 이제 컨트롤은 옵션을 라디오 단추로 세로로 표시 합니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## <a name="schema"></a>스키마
 

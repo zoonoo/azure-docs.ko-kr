@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 69368ecd7234912bcaf5eb606545f62ddb7b30a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204186"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005381"
 ---
-# <a name="localization"></a>지역화
+# <a name="localization-element"></a>Localization 요소
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "85204186"
 
 **Localization** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 사용 | 아니요 | 가능한 값은 `true` 또는 `false`입니다. |
 
@@ -54,7 +54,7 @@ ms.locfileid: "85204186"
 
 **SupportedLanguages** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | DefaultLanguage | 예 | 지역화된 리소스의 기본값으로 사용할 언어입니다. |
 | MergeBehavior | 아니요 | 동일한 식별자를 가진, 부모 정책에 있는 모든 ClaimType과 함께 병합되는 값의 열거형 값입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 부모 정책에 지정된 컬렉션의 끝에 데이터 컬렉션을 추가하도록 지정합니다. `Prepend` 값은 부모 정책에 지정된 컬렉션 앞에 데이터 컬렉션을 추가하도록 지정합니다. `ReplaceAll` 값은 부모 정책에 정의된 데이터 컬렉션을 무시하고 현재 정책에 정의된 데이터를 대신 사용하도록 지정합니다. |
@@ -71,7 +71,7 @@ ms.locfileid: "85204186"
 
 **LocalizedResources** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 지역화된 리소스를 고유하게 식별하는 데 사용되는 식별자입니다. |
 
@@ -94,7 +94,7 @@ ms.locfileid: "85204186"
 
 **LocalizedCollection** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ElementType | 예 | 정책 파일의 ClaimType 요소 또는 사용자 인터페이스 요소를 참조합니다. |
 | ElementId | 예 | **ElementType**이 ClaimType으로 설정된 경우 사용하는 ClaimsSchema 섹션에 이미 정의된 클레임 유형에 대한 참조를 포함하는 문자열입니다. |
@@ -108,7 +108,7 @@ ms.locfileid: "85204186"
 
 **Item** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 텍스트 | 예 | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
 | 값 | 예 | 이 옵션 선택과 연결된 문자열 클레임 값입니다. |
@@ -144,7 +144,7 @@ ms.locfileid: "85204186"
 
 **LocalizedString** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ElementType | 예 | 가능한 값: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [inputvalidation](#inputvalidation)또는 [UxElement](#uxelement).   | 
 | ElementId | 예 | **ElementType** 을, 또는로 설정 하면 `ClaimType` `Predicate` `InputValidation` 이 요소는 ClaimsSchema 섹션에 이미 정의 된 클레임 형식에 대 한 참조를 포함 합니다. |

@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80297639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006299"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
-![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
+![가상 배열을 배포 하는 데 필요한 단계를 보여 주는 다이어그램 세 번째 단계의 첫 번째 부분에는 파일 서버로 설정 된 레이블이 지정 되 고 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>소개
 
@@ -51,16 +51,16 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
    이전 단계에서 언급한 연결 URL을 사용합니다. 웹 사이트의 보안 인증서에 문제가 있음을 나타내는 오류가 표시됩니다. **이 웹 페이지에서 계속 진행**을 클릭합니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
+   ![보안 인증서 문제를 보고 하는 브라우저 창의 스크린샷. 웹 사이트에 대 한 링크와 사용자 홈페이지에 대 한 링크가 두 개 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
 2. 가상 배열의 웹 UI에 **StorSimpleAdmin**으로 로그인합니다. [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md) 또는 [VMware에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md)의 3단계: 가상 배열 시작에서 변경한 디바이스 관리자 암호를 입력합니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
+   ![StorSimple 로그인 페이지의 스크린샷 Storsimpleadmin으로 로그인 사용자 이름이 표시 되 고 암호 상자가 비활성화 된 문자로 채워집니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. **홈** 페이지로 이동합니다. 이 페이지는 StorSimple 디바이스 관리자 서비스에 가상 배열을 구성하고 등록하는 데 필요한 다양한 설정을 설명합니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 필요한 설정은 **디바이스 설정** 및 **클라우드 설정**입니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
+   ![홈 페이지의 스크린샷 텍스트는 장치가 구성 되지 않았음을 명시 합니다. 여러 가지 유형의 설정에 대 한 링크가 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
 4. **네트워크 설정** 페이지의 **네트워크 인터페이스**에서 DATA 0이 자동으로 구성됩니다. 각 네트워크 인터페이스는 IP 주소를 자동으로 가져오도록(DHCP) 기본 설정됩니다. 따라서 IP 주소, 서브넷 및 게이트웨이가 자동으로 할당됩니다(IPv4 및 IPv6 모두에 대해).
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
+   ![여러 버전의 인터넷 프로토콜에 대해 구성 된 IP 주소를 보여 주는 네트워크 설정 페이지의 스크린샷](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
    
    디바이스를 프로비전하는 동안 네트워크 인터페이스를 둘 이상 추가한 경우에는 여기에서 구성할 수 있습니다. 네트워크 인터페이스를 IPv4로만 구성하거나 IPv4와 IPv6 둘 다로 구성할 수 있습니다. IPv6 전용 구성은 지원되지 않습니다.
 5. 디바이스가 클라우드 스토리지 서비스 공급자와 통신하려고 시도하거나 파일 서버로 구성된 경우 이름으로 디바이스를 확인하려고 시도하는 경우에 DNS 서버가 사용되기 때문에 DNS 서버가 필요합니다. **네트워크 설정** 페이지의 **DNS 서버** 아래에:
@@ -70,15 +70,15 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 6. **디바이스 설정** 페이지에서:
    
    1. 디바이스에 고유한 **이름** 을 할당합니다. 이름에는 1-15자를 사용할 수 있으며 문자, 숫자 및 하이픈을 포함할 수 있습니다.
-   2. 만드는 디바이스의 **유형**에 대해 **파일 서버** 아이콘 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png)을 클릭합니다. 파일 서버를 사용하여 공유 폴더를 만들 수 있습니다.
+   2. 만드는 디바이스의 **유형**에 대해 **파일 서버** 아이콘 :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image6.png":::을 클릭합니다. 파일 서버를 사용하여 공유 폴더를 만들 수 있습니다.
    3. 디바이스가 파일 서버이므로 디바이스를 도메인에 가입해야 합니다. **도메인 이름을**입력 합니다.
    4. **적용**을 클릭합니다.
 7. 대화 상자가 나타납니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 확인 아이콘을 클릭합니다. 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
+   ![사용자 이름 및 암호가 채워진 대화 상자를 보여 주는 스크린샷](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
 8. **적용**을 클릭합니다. 디바이스 설정이 적용되고 유효성 검사가 수행됩니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
+   ![장치 설정 페이지의 스크린샷 장치 이름 및 도메인 이름이 채워집니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
    > [!NOTE]
    > 가상 배열이 Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되었거나 상속되지 않았는지 확인합니다. 그룹 정책은 StorSimple 가상 배열에 바이러스 백신 소프트웨어와 같은 애플리케이션을 설치할 수 있습니다. 추가 소프트웨어를 설치하는 것은 지원되지 않으며 데이터 손상을 초래할 수 있습니다. 
@@ -86,7 +86,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    > 
 9. 선택적으로 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용하면 여기서만 구성할 수 있습니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
+   ![웹 프록시 설정 페이지의 스크린샷 웹 프록시 사용 옵션이 꺼져 있고 인증이 없음으로 설정 되어 있습니다. 다른 값은 설정 되지 않습니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
    
    **웹 프록시** 페이지에서:
    
@@ -96,7 +96,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
 10. (선택 사항) 디바이스에 대한 시간 설정(예: 표준 시간대 및 기본 및 보조 NTP 서버)을 구성합니다. 클라우드 서비스 공급자와 인증할 수 있도록 디바이스 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
+    ![시간 설정 페이지의 스크린샷 표준 시간대와 기본 N T P 서버는 채워져 있습니다. 보조 N T P 서버가 비어 있습니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
     
     **시간 설정** 페이지에서:
     
@@ -112,10 +112,10 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
        서비스에 디바이스를 처음으로 등록하는 경우가 아니라면 서비스 데이터 암호화 키를 제공해야 합니다. 자세한 내용은 로컬 웹 UI에서 [서비스 데이터 암호화 키](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 가져오기를 참조 하세요.
     3. **등록**을 클릭합니다. 디바이스가 다시 시작됩니다. 디바이스 등록이 완료되기까지 2-3분 정도 기다려야 할 수 있습니다. 디바이스가 다시 시작된 후 로그인 페이지가 열립니다.
        
-       ![](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
+       ![클라우드 설정 페이지의 스크린샷 등록 키 및 암호화 키 상자가 채워져 있지만 값은 교정 된입니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
 12. Azure Portal로 돌아갑니다. **모든 리소스**로 이동하여 StorSimple 디바이스 관리자 서비스를 검색합니다.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
+    ![Azure Portal의 모든 리소스 페이지 스크린샷 Device Manager 서비스가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. 필터링된 목록에서 StorSimple 디바이스 관리자 서비스를 선택한 다음 **관리 &gt; 디바이스**로 이동합니다. **디바이스** 블레이드에서 디바이스가 서비스에 성공적으로 연결되었는지와 **설정할 준비 완료** 상태인지 확인합니다.
     
     ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
@@ -203,12 +203,12 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 이전 단계에서 만든 하나 이상의 공유에 연결해야 합니다. StorSimple 가상 배열에 연결된 Windows Server 호스트에서 이러한 단계를 수행합니다.
 
 #### <a name="to-connect-to-the-share"></a>공유에 연결하려면
-1. ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 키를 누릅니다. 실행 창에서 *&#92;&#92;&lt;파일 서버 이름&gt;* 으로 경로를 지정하고, *파일 서버 이름*을 파일 서버에 할당한 디바이스 이름으로 변경합니다. **확인**을 클릭합니다.
+1. :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image22.png"::: + R 키를 누릅니다. 실행 창에서 *&#92;&#92;&lt;파일 서버 이름&gt;* 으로 경로를 지정하고, *파일 서버 이름*을 파일 서버에 할당한 디바이스 이름으로 변경합니다. **확인**을 클릭합니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
+   ![실행 대화 상자의 스크린샷 열기 상자는 파일 서버로 이어지는 경로로 채워집니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. 그러면 파일 탐색기가 열립니다. 폴더로 만든 공유가 표시됩니다. 공유(폴더)를 선택하고 두 번 클릭하여 콘텐츠를 봅니다.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
+   ![파일 탐색기의 스크린샷 새로 만든 공유를 나타내는 여러 폴더가 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
 3. 이제 공유에 파일을 추가하고 백업을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

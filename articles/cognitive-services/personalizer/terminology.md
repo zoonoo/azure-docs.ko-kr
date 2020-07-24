@@ -3,14 +3,14 @@ title: 용어-Personalizer
 description: Personalizer는 보충 learning의 용어를 사용 합니다. 이러한 용어는 Azure Portal 및 Api에서 사용 됩니다.
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 3f819ff3305a7c7302eb56c83b98340946613a92
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8177606ac6e968bd287a23554be7b9dd06d880a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002865"
 ---
-# <a name="terminology"></a>용어
+# <a name="personalizer-terminology"></a>Personalizer 용어
 
 Personalizer는 보충 learning의 용어를 사용 합니다. 이러한 용어는 Azure Portal 및 Api에서 사용 됩니다.
 

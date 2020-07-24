@@ -3,13 +3,14 @@ title: UI 정의 요소 만들기
 description: Azure Portal의 UI 정의를 생성할 때 사용하는 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 07/13/2020
 ms.author: tomfitz
-ms.openlocfilehash: 12bf5d131001d95a3f4327f95c24125dbf3fb510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221e4dc2e909561c70b1cd1b86df026619c2b31f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004310"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 요소
 
@@ -47,12 +48,14 @@ ms.locfileid: "77086715"
 
 각 요소에 대한 설명서에는 UI 샘플, 스키마, 요소의 동작에 대한 설명(일반적으로 유효성 검사 및 지원되는 사용자 지정과 관련됨) 및 샘플 출력이 포함되어 있습니다.
 
+- [Microsoft. 일반. 확인란](microsoft-common-checkbox.md)
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
 - [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft. 일반 슬라이더](microsoft-common-slider.md)
 - [TagsByResource](microsoft-common-tagsbyresource.md)
 - [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
 - [Microsoft.Common.TextBox](microsoft-common-textbox.md)
@@ -62,6 +65,8 @@ ms.locfileid: "77086715"
 - [Microsoft.managedidentity. IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
+- [ArmApiControl](microsoft-solutions-armapicontrol.md)
+- [Microsoft Solutions. ResourceSelector](microsoft-solutions-resourceselector.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 

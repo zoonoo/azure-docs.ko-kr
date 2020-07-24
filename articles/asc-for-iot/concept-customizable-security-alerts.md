@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f676c4129b79499eb9ed524821a336b3859dbb3c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311630"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004854"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>IoT용 Azure Security Center 보안 경고
+# <a name="azure-security-center-for-iot-customizable-security-alerts"></a>IoT를 사용자 지정할 수 있는 보안 경고에 대 한 Azure Security Center
 
 IoT에 대 한 Azure Security Center는 고급 분석 및 위협 인텔리전스를 사용 하 여 IoT 솔루션을 지속적으로 분석 하 여 악의적인 활동을 경고 합니다.
 
@@ -31,7 +31,7 @@ IoT 경고에 대 한 다음 Azure Security Center 목록은 예상 IoT Hub 및/
 
 ## <a name="iot-hub-alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 IoT Hub 경고
 
-| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항|
+| 심각도 | 경고 이름 | 데이터 원본 | 설명 | 제안된 수정 사항|
 |---|---|---|---|---|
 | 낮음      | 사용자 지정 경고 - AMQP 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다.          | IoT Hub     | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다.||
 | 낮음      | 사용자 지정 경고 - AMQP 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub     | 디바이스에서 거부한 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다.||
@@ -51,7 +51,7 @@ IoT 경고에 대 한 다음 Azure Security Center 목록은 예상 IoT Hub 및/
 
 ## <a name="agent-alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 에이전트 경고
 
-| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항|
+| 심각도 | 경고 이름 | 데이터 원본 | 설명 | 제안된 수정 사항|
 |---|---|---|---|---|
 | 낮음      | 사용자 지정 경고 - 활성 연결 수가 허용 범위를 벗어납니다.  | 에이전트       | 특정 시간 범위 내의 활성 연결 수가 현재 구성된 허용 범위를 벗어납니다.|  디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 연결 허용 목록에 추가합니다.  |
 | 낮음      | 사용자 지정 경고 - 아웃바운드 연결이 허용되지 않는 IP에 만들어졌습니다.                             | 에이전트       | 아웃바운드 연결이 IP 허용 목록을 벗어난 IP에 만들어졌습니다. |디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 IP 허용 목록에 추가합니다.                        |

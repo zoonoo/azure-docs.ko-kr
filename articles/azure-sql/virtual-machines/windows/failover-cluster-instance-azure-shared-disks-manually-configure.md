@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 4e704a25e0c9700afbe4fa85031d7ff4d6a8d0c1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1a4a366b3e4fa045df69683d6e72b157ccf0a1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003630"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,11 +28,11 @@ ms.locfileid: "85965574"
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
-- Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
+- Azure 구독. [무료로](https://azure.microsoft.com/free/)시작 하세요. 
 - 장애 도메인 및 업데이트 도메인을 **1**로 설정 하 여 만든 가용성 집합을 사용 하는 동일한 [가용성 집합](../../../virtual-machines/linux/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups)에서 두 개 이상의 [미국 중부-준비 된 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md) 
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0)입니다. 
@@ -157,7 +157,7 @@ UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신
 1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
 1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. 
 1. **다음**을 선택합니다.
-1. **테스트 선택**에서 **스토리지 공간 다이렉트** *제외한* 모든 테스트를 선택 합니다.
+1. **테스트 선택**에서 **저장소** 를 *제외한* 모든 테스트를 선택 합니다.
 
 ## <a name="test-cluster-failover"></a>클러스터 장애 조치 테스트
 
@@ -181,9 +181,7 @@ UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신
 
 1. **SQL Server 장애 조치(failover) 클러스터 새로 설치**를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
-   FCI 데이터 디렉터리는 클러스터형 스토리지에 있어야 합니다. 스토리지 공간 다이렉트를 사용하는 경우 공유 디스크가 아니라 각 서버의 볼륨에 대한 탑재 지점입니다. 스토리지 공간 다이렉트는 두 노드 간에 볼륨을 동기화합니다. 볼륨은 CSV (클러스터 공유 볼륨)로 클러스터에 표시 됩니다. 데이터 디렉터리에 CSV 탑재 지점을 사용합니다.
-
-   ![데이터 디렉터리](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+FCI 데이터 디렉터리는 Azure 공유 디스크에 있어야 합니다. 
 
 1. 마법사의 지침을 완료하면 설치 프로그램이 첫 번째 노드에 SQL Server FCI를 설치합니다.
 

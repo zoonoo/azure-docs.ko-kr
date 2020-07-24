@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005619"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Azure Front 도어 용 웹 응용 프로그램 방화벽을 사용 하 여 IP 제한 규칙 구성
 
@@ -24,7 +24,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 
 ## <a name="configure-a-waf-policy-with-the-azure-portal"></a>Azure Portal를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 [빠른 시작: 항상 사용 가능한 글로벌 웹 응용 프로그램에 대 한 프런트 도어 만들기](../../frontdoor/quickstart-create-front-door.md)에 설명 된 지침에 따라 Azure Front 도어 프로필을 만듭니다.
 
@@ -34,11 +34,11 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 2. **만들기**를 선택합니다.
 3. **WAF 정책 만들기** 페이지에서 다음 값을 사용 하 여 **기본** 탭을 완료 합니다.
    
-   |Setting  |값  |
+   |설정  |값  |
    |---------|---------|
    |정책     |전역 WAF (전방 도어)|
-   |Subscription     |구독을 선택합니다.|
-   |Resource group     |프런트 도어가 있는 리소스 그룹을 선택 합니다.|
+   |구독     |구독 선택|
+   |리소스 그룹     |프런트 도어가 있는 리소스 그룹을 선택 합니다.|
    |정책 이름     |정책 이름 입력|
    |정책 상태     |사용|
 
@@ -50,7 +50,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 4. **사용자 지정 규칙 추가**를 선택 합니다.
 5. **사용자 지정 규칙 추가** 페이지에서 다음 테스트 값을 사용 하 여 사용자 지정 규칙을 만듭니다.
 
-   |Setting  |값  |
+   |설정  |값  |
    |---------|---------|
    |사용자 지정 규칙 이름     |FdWafCustRule|
    |상태     |사용|
@@ -83,7 +83,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 응용 프로그램에 대 한 �
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Azure CLI를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 IP 제한 정책 구성을 시작 하기 전에 CLI 환경을 설정 하 고 Azure Front 도어 프로필을 만듭니다.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Azure CLI 환경 설정
@@ -162,13 +162,13 @@ az network front-door waf-policy rule match-condition add \
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 WAF 정책 구성
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 IP 제한 정책 구성을 시작 하기 전에 PowerShell 환경을 설정 하 고 Azure Front 도어 프로필을 만듭니다.
 
 #### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
 Azure PowerShell은 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 모델을 사용 하 여 Azure 리소스를 관리 하는 cmdlet 집합을 제공 합니다.
 
-로컬 머신에 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 설치하고 모든 PowerShell 세션에서 사용할 수 있습니다. 페이지의 지침에 따라 Azure 자격 증명을 사용 하 여 PowerShell에 로그인 한 다음 Az module을 설치 합니다.
+로컬 머신에 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 설치하고 모든 PowerShell 세션에서 사용할 수 있습니다. 페이지의 지침에 따라 Azure 자격 증명을 사용 하 여 PowerShell에 로그인 한 다음 Az module을 설치 합니다.
 
 1. 다음 명령을 사용 하 여 Azure에 연결한 다음 대화형 대화 상자를 사용 하 여 로그인 합니다.
     ```

@@ -13,13 +13,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 172a2ae863714b54e052819df93f872385b9c77a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 07/20/2020
+ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183344"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003220"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "86183344"
 
 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -57,7 +57,7 @@ ms.locfileid: "86183344"
 
 SSIS 패키지 실행 작업의 **일반** 탭에서 다음 단계를 완료 합니다.
 
-   ![일반 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+![일반 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
    1. **이름**에 SSIS 패키지 실행 작업의 이름을 입력 합니다.
 
@@ -77,7 +77,7 @@ SSIS 패키지 실행 작업의 **일반** 탭에서 다음 단계를 완료 합
 
 SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료 합니다.
 
-   ![설정 탭의 속성 설정 - 자동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+![설정 탭의 속성 설정 - 자동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
    1. **Azure-SSIS IR**에 대해 지정 된 Azure-SSIS IR를 선택 하 여 SSIS 패키지 실행 작업을 실행 합니다.
 
@@ -103,13 +103,13 @@ SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료 합
 
    1. Azure-SSIS IR 실행 되 고 있지 않거나 **수동 항목** 확인란이 선택 되어 있는 경우 SSISDB의 패키지 및 환경 경로를 및 형식으로 직접 입력 `<folder name>/<project name>/<package name>.dtsx` `<folder name>/<environment name>` 합니다.
 
-   ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
 ##### <a name="package-location-file-system-package"></a>패키지 위치: 파일 시스템 (패키지)
 
 패키지 위치가 SSISDB 없이 프로 비전 되었거나 직접 선택할 수 있는 Azure-SSIS IR 경우 패키지 위치가 자동으로 선택 되므로 **파일 시스템 (패키지)** 이 자동으로 선택 됩니다. 선택 된 경우 다음 단계를 완료 합니다.
 
-   ![설정 탭-파일 시스템 (패키지)의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+![설정 탭-파일 시스템 (패키지)의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
    
    1. 패키지 경로 상자에서 패키지 파일 ()에 대 한 UNC (범용 명명 규칙) 경로를 제공 하 여 실행할 패키지를 지정 `.dtsx` 합니다. **Package path** **파일 저장소 찾아보기** 를 선택 하거나 경로를 수동으로 입력 하 여 패키지를 찾아보고 선택할 수 있습니다. 예를 들어 Azure Files에 패키지를 저장 하는 경우 해당 경로는 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx` 입니다. 
    
@@ -133,13 +133,13 @@ SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료 합
    
    1. 로그 폴더에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 액세스 자격 증명 (위 참조)에 대 한 값을 입력 한 경우 **패키지 액세스 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 로깅 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 도메인은이 고 `Azure` 사용자 이름은 이며 `<storage account name>` 암호는 `<storage account key>` 입니다. 또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조).
    
-   앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
+앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
 
 ##### <a name="package-location-file-system-project"></a>패키지 위치: 파일 시스템 (프로젝트)
 
 패키지 위치로 **파일 시스템 (프로젝트)** 을 선택 하는 경우 다음 단계를 완료 합니다.
 
-   ![설정 탭-파일 시스템 (프로젝트)의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+![설정 탭-파일 시스템 (프로젝트)의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
    1. 프로젝트 경로 상자에 프로젝트 파일에 대 한 UNC 경로를 제공 하 고 패키지 `.ispac` **Project path** `.dtsx` **이름** 상자에 프로젝트의 패키지 파일 ()을 제공 하 여 실행할 패키지를 지정 합니다. **찾아보기 파일 저장소** 를 선택 하거나 경로를 수동으로 입력 하 여 프로젝트를 찾아보고 선택할 수 있습니다. 예를 들어 Azure Files에 프로젝트를 저장 하는 경우 해당 경로는 `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac` 입니다.
 
@@ -161,19 +161,19 @@ SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료 합
    
    1. 로그 폴더에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 액세스 자격 증명 (위 참조)에 대 한 값을 입력 한 경우 **패키지 액세스 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 로깅 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 도메인은이 고 `Azure` 사용자 이름은 이며 `<storage account name>` 암호는 `<storage account key>` 입니다. 또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조).
    
-   앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
+앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
 
 ##### <a name="package-location-embedded-package"></a>패키지 위치: 포함 된 패키지
 
 패키지 위치로 **포함 된 패키지** 를 선택 하는 경우 다음 단계를 완료 합니다.
 
-   ![설정 탭에 포함 된 패키지의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+![설정 탭에 포함 된 패키지의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
 
-   1. 패키지를 끌어서 놓아 파일 폴더에서 제공 된 상자에 패키지를 실행 하거나 **업로드** 합니다. 패키지가 자동으로 압축 되 고 활동 페이로드에 포함 됩니다. 포함 된 후 나중에 편집을 위해 패키지를 **다운로드할** 수 있습니다. 또한 여러 작업에서 사용할 수 있는 파이프라인 매개 변수에 할당 하 여 포함 된 패키지를 **매개 변수화** 할 수 있습니다. 따라서 파이프라인 페이로드의 크기를 최적화 합니다. 
+   1. 패키지 파일 ()을 끌어 놓거나 `.dtsx` 파일 폴더의 제공 된 상자에 **업로드** 합니다. 패키지가 자동으로 압축 되 고 활동 페이로드에 포함 됩니다. 포함 된 후 나중에 편집을 위해 패키지를 **다운로드할** 수 있습니다. 또한 여러 작업에서 사용할 수 있는 파이프라인 매개 변수에 할당 하 여 포함 된 패키지를 **매개 변수화** 할 수 있습니다. 따라서 파이프라인 페이로드의 크기를 최적화 합니다. 프로젝트 파일 (포함)을 포함 하 `.ispac` 는 기능은 현재 지원 되지 않으므로 포함 된 패키지의 프로젝트 수준 범위에서 SSIS 매개 변수/연결 관리자를 사용할 수 없습니다.
    
-   1. 포함 된 패키지를 모두 암호화 하지 않고 패키지 실행 태스크를 사용 하는 경우 **패키지 실행 태스크** 확인란이 자동으로 선택 되 고 해당 파일 시스템 참조가 포함 된 관련 자식 패키지도 자동으로 추가 됩니다. 
+   1. 포함 된 패키지가 모두 암호화 되지 않은 경우 패키지 실행 태스크 (EPT) 사용을 감지 하면 **패키지 실행 태스크** 확인란이 자동으로 선택 되 고 파일 시스템 경로에서 참조 하는 자식 패키지가 자동으로 추가 되므로 이러한 항목을 포함할 수도 있습니다.
    
-      패키지 실행 태스크의 사용을 검색할 수 없는 경우 수동으로 **패키지 실행 태스크** 확인란을 선택 하 고 해당 자식 패키지를 포함 하는 파일 시스템 참조를 사용 하 여 관련 자식 패키지를 추가 해야 합니다. 자식 패키지가 SQL Server 참조를 사용 하는 경우 Azure-SSIS IR에서 SQL Server에 액세스할 수 있는지 확인 하세요.  자식 패키지에 대 한 프로젝트 참조 사용은 현재 지원 되지 않습니다.
+      EPT 사용을 검색할 수 없는 경우 수동으로 **패키지 실행 태스크** 확인란을 선택 하 고 파일 시스템 경로에서 참조 하는 자식 패키지를 하나씩 추가 해야 합니다. 자식 패키지가 MSDB (SQL Server 데이터베이스)에 저장 되어 있는 경우에는 해당 패키지를 포함할 수 없으므로 Azure-SSIS IR에서 SQL Server 참조를 사용 하 여 해당 패키지를 인출 하기 위해 MSDB에 액세스할 수 있는지 확인 해야 합니다. 프로젝트 파일 (포함 `.ispac` )은 현재 지원 되지 않으므로 자식 패키지에 대 한 프로젝트 기반 참조를 사용할 수 없습니다.
    
    1. SSDT를 통해 패키지를 만들 때 **EncryptAllWithPassword** 또는 **EncryptSensitiveWithPassword** 보호 수준을 사용한 경우 **암호화 암호** 상자에 암호 값을 입력 합니다. 
    
@@ -189,13 +189,13 @@ SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료 합
    
    1. **도메인**, **사용자 이름**및 **암호** 상자에 해당 값을 입력 하 여 로그 폴더에 액세스 하기 위한 자격 증명을 지정 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 도메인은이 고 `Azure` 사용자 이름은 이며 `<storage account name>` 암호는 `<storage account key>` 입니다. 또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조).
    
-   앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
+앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
 
 ##### <a name="package-location-package-store"></a>패키지 위치: 패키지 저장소
 
 패키지 **저장소** 를 패키지 위치로 선택 하는 경우 다음 단계를 완료 합니다.
 
-   ![설정 탭-패키지 저장소에서 속성을 설정 합니다.](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+![설정 탭-패키지 저장소에서 속성을 설정 합니다.](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
    
    1. **패키지 저장소 이름**에서 Azure-SSIS IR에 연결 된 기존 패키지 저장소를 선택 합니다.
 
@@ -221,49 +221,73 @@ SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료 합
    
    1. **도메인**, **사용자 이름**및 **암호** 상자에 해당 값을 입력 하 여 로그 폴더에 액세스 하기 위한 자격 증명을 지정 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 도메인은이 고 `Azure` 사용자 이름은 이며 `<storage account name>` 암호는 `<storage account key>` 입니다. 또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조).
    
-   앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
+앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
 
 #### <a name="ssis-parameters-tab"></a>SSIS 매개 변수 탭
 
 SSIS 패키지 실행 작업의 **Ssis 매개 변수** 탭에서 다음 단계를 완료 합니다.
 
-   ![SSIS 매개 변수 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+![SSIS 매개 변수 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
    1. Azure-SSIS IR 실행 중인 경우 패키지 위치로 **SSISDB** 를 선택 하 고 **설정** 탭의 **수동 항목** 확인란의 선택을 취소 한 후 선택한 프로젝트의 기존 SSIS 매개 변수와 SSISDB의 패키지를 표시 하 여 값을 할당할 수 있습니다. 그렇지 않으면 값을 하나씩 입력 하 여 수동으로 값을 할당할 수 있습니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 
    
    1. SSDT 및 **파일 시스템 (패키지)** 을 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 **파일 시스템 (프로젝트)**, **포함 된 패키지**또는 **패키지 저장소** 를 패키지 위치로 선택한 경우이 탭에서 값을 할당 하기 위해 중요 한 매개 변수를 다시 입력 해야 합니다. 
    
-   매개 변수에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다.
+매개 변수에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다.
 
-   또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다. 이렇게 하려면 옆에 있는 **AZURE KEY VAULT** 확인란을 선택 합니다. 기존 key vault 연결 된 서비스를 선택 하거나 편집 하거나 새로 만듭니다. 그런 다음 값에 대 한 암호 이름 및 버전을 선택 합니다. Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. 다음과 같은 형식으로 암호를 직접 입력할 수도 있습니다 `<key vault linked service name>/<secret name>/<secret version>` . 
+또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다. 이렇게 하려면 옆에 있는 **AZURE KEY VAULT** 확인란을 선택 합니다. 기존 key vault 연결 된 서비스를 선택 하거나 편집 하거나 새로 만듭니다. 그런 다음 값에 대 한 암호 이름 및 버전을 선택 합니다. Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. 다음과 같은 형식으로 암호를 직접 입력할 수도 있습니다 `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="connection-managers-tab"></a>연결 관리자 탭
 
 SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 다음 단계를 완료 합니다.
 
-   ![연결 관리자 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+![연결 관리자 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
    1. Azure-SSIS IR 실행 중인 경우 패키지 위치로 **SSISDB** 를 선택 하 고 **설정** 탭의 **수동 항목** 확인란의 선택을 취소 한 후 선택한 프로젝트의 기존 연결 관리자와 ssisdb의 패키지를 표시 하 여 해당 속성에 값을 할당할 수 있습니다. 그렇지 않으면 값을 하나씩 입력 하 여 속성에 수동으로 값을 할당할 수 있습니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 
    
-   1. SSDT 및 **파일 시스템 (패키지)** 을 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 **파일 시스템 (프로젝트)**, **포함 된 패키지**또는 **패키지 저장소** 를 패키지 위치로 선택한 경우이 탭에서 값을 할당 하려면 중요 한 연결 관리자 속성을 다시 입력 해야 합니다. 
-   
-   연결 관리자 속성에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다. 
+      SSDT에서 해당 파일을 포함 하는 패키지를 열어 모든 연결 관리자에 대 한 올바른 **범위**, **이름**및 **속성** 이름을 가져올 수 있습니다. 패키지를 연 후에는 SSDT의 **속성** 창에 있는 모든 속성의 이름과 값을 표시 하는 관련 연결 관리자를 선택 합니다. 이 정보를 사용 하 여 런타임에 연결 관리자 속성의 값을 재정의할 수 있습니다. 
 
-   또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다. 이렇게 하려면 옆에 있는 **AZURE KEY VAULT** 확인란을 선택 합니다. 기존 key vault 연결 된 서비스를 선택 하거나 편집 하거나 새로 만듭니다. 그런 다음 값에 대 한 암호 이름 및 버전을 선택 합니다. Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. 다음과 같은 형식으로 암호를 직접 입력할 수도 있습니다 `<key vault linked service name>/<secret name>/<secret version>` . 
+      ![SSDT에서 연결 관리자 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+
+      예를 들어 SSDT에서 원래 패키지를 수정 하지 않으면 런타임에 기존 연결 관리자에서 **Connectbyproxy**, **ConnectionString**및 **ConnectUsingManagedIdentity** 속성의 값을 재정의 하 여 SQL Server에서 실행 되는 온-프레미스-온-프레미스 데이터 흐름을 ADF의 SSIS IR에서 실행 되는 온-프레미스-클라우드 데이터 흐름으로 변환할 수 있습니다.
+      
+      이러한 런타임 재정의는 온-프레미스 데이터에 액세스할 때 SSIS IR에 대 한 프록시로 SHIR (자체 호스팅 IR)을 사용 하도록 설정할 수 있습니다. MSOLEDBSQL 드라이버를 사용 하 여 [SSIS ir에 대 한 프록시로 Shir 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)Managed Instance AZURE SQL DATABASE 및 adf 관리 id를 사용 하 여 aad (Azure Active Directory) 인증을 사용 하는 [aad 인증 구성](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)을 참조 하세요.
+
+      ![연결 관리자 탭에서 SSDT의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+   
+   1. SSDT 및 **파일 시스템 (패키지)** 을 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 **파일 시스템 (프로젝트)**, **포함 된 패키지**또는 **패키지 저장소** 를 패키지 위치로 선택한 경우이 탭에서 값을 할당 하려면 중요 한 연결 관리자 속성을 다시 입력 해야 합니다. 
+
+연결 관리자 속성에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다. 
+
+또는 Azure Key Vault에 저장 된 암호를 해당 값으로 사용할 수 있습니다. 이렇게 하려면 옆에 있는 **AZURE KEY VAULT** 확인란을 선택 합니다. 기존 key vault 연결 된 서비스를 선택 하거나 편집 하거나 새로 만듭니다. 그런 다음 값에 대 한 암호 이름 및 버전을 선택 합니다. Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. 다음과 같은 형식으로 암호를 직접 입력할 수도 있습니다 `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="property-overrides-tab"></a>속성 재정의 탭
 
 SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 다음 단계를 완료 합니다.
 
-   ![속성 재정의 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+![속성 재정의 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
    1. 선택한 패키지의 기존 속성 경로를 하나씩 입력 하 여 수동으로 값을 할당 합니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 예를 들어 사용자 변수의 값을 재정의 하려면 다음 형식으로 해당 경로를 입력 `\Package.Variables[User::<variable name>].Value` 합니다. 
+
+      SSDT에 해당 패키지를 포함 하는 패키지를 열어 패키지 속성에 대 한 올바른 **속성 경로** 를 가져올 수 있습니다. 패키지를 연 후 SSDT의 **속성** 창에서 해당 제어 흐름 및 **구성** 속성을 선택 합니다. 그런 다음 **구성** 속성 옆에 있는 줄임표 (**...**) 단추를 선택 하 여 패키지 [배포 모델에서 패키지 구성을 만드는](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014)데 일반적으로 사용 되는 **패키지 구성 도우미** 를 엽니다. 
+
+      ![SSDT 속성에서 패키지 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+
+      패키지 구성 **도우미**에서 패키지 구성 **사용** 확인란을 선택 하 고 **추가 ...** 단추를 선택 하 여 **패키지 구성 마법사**를 엽니다. 
+      
+      **패키지 구성 마법사**의 **구성 유형** 드롭다운 메뉴에서 **XML 구성 파일** 항목을 선택 하 고 구성 **설정 직접 지정** 단추를 입력 한 다음 구성 파일 이름을 입력 하 고 **다음 >** 단추를 선택 합니다. 
+
+      ![SSDT 구성 도우미에서 패키지 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+
+      마지막으로 원하는 경로를 가진 패키지 속성을 선택 하 고 **다음 >** 단추를 선택 합니다.  이제 원하는 패키지 속성 경로를 복사 & 붙여넣고 구성 파일에 저장할 수 있습니다. 이 정보를 사용 하 여 런타임 시 패키지 속성의 값을 재정의할 수 있습니다. 
+
+      ![SSDT에서 패키지 속성 가져오기-구성 마법사](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
    1. SSDT 및 **파일 시스템 (패키지)** 을 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 **파일 시스템 (프로젝트)**, **포함 된 패키지**또는 **패키지 저장소** 를 패키지 위치로 선택한 경우이 탭에서 값을 할당 하려면 중요 패키지 속성을 다시 입력 해야 합니다. 
    
-   패키지 속성에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다.
+패키지 속성에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다.
 
-   구성 파일 및 **SSIS 매개 변수** 탭에서 할당 된 값은 **연결 관리자** 또는 **속성 재정의** 탭을 사용 하 여 재정의할 수 있습니다. **속성 재정의** 탭을 사용 하 여 **연결 관리자** 탭에서 할당 된 값을 재정의할 수도 있습니다.
+구성 파일 및 **SSIS 매개 변수** 탭에서 할당 된 값은 **연결 관리자** 또는 **속성 재정의** 탭을 사용 하 여 재정의할 수 있습니다. **속성 재정의** 탭을 사용 하 여 **연결 관리자** 탭에서 할당 된 값을 재정의할 수도 있습니다.
 
 파이프라인 구성의 유효성을 검사 하려면 도구 모음에서 **유효성 검사** 를 선택 합니다. **파이프라인 유효성 검사 보고서**를 닫으려면를 선택 **>>** 합니다.
 

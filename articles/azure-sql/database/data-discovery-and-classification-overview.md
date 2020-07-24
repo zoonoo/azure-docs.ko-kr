@@ -13,19 +13,19 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004106"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 고급 기능을 제공 합니다.
 
-가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
+가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라 역할을 할 수 있습니다.
 
 - 규정 준수를 위한 데이터 개인 정보 및 요구 사항에 대 한 표준을 충족 하는 데 도움이 됩니다.
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
@@ -126,7 +126,7 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 이러한 기본 제공 역할은 데이터베이스의 데이터 분류를 읽을 수 있습니다.
 
 - 소유자
-- 판독기
+- 읽기 권한자
 - 참가자
 - SQL 보안 관리자
 - 사용자 액세스 관리자
@@ -137,7 +137,7 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 - 참가자
 - SQL 보안 관리자
 
-[Azure 리소스에 대 한 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)의 역할 기반 권한에 대해 자세히 알아보세요.
+[AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)의 역할 기반 권한에 대해 자세히 알아보세요.
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>분류 관리
 

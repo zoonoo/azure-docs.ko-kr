@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005942"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows의 Azure 직렬 콘솔
 
@@ -38,7 +38,7 @@ Linux에 대한 직렬 콘솔 설명서는 [Linux용 Azure 직렬 콘솔](serial
 
 - 직렬 콘솔을 사용하는 계정에는 VM에 대한 [Virtual Machine Contributor 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)과 [부트 진단](boot-diagnostics.md) 스토리지 계정이 있어야 합니다.
 
-- VM 또는 가상 머신 확장 집합 인스턴스에 암호 기반 사용자가 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
+- VM 또는 가상 머신 확장 집합 인스턴스에 암호 기반 사용자가 있어야 합니다. VM 액세스 확장의 [암호 재설정](../extensions/vmaccess.md#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
 
 * 가상 머신 확장 집합 인스턴스의 VM에 [부트 진단](boot-diagnostics.md)을 사용하도록 설정되어 있어야 합니다.
 
@@ -50,7 +50,7 @@ Linux에 대한 직렬 콘솔 설명서는 [Linux용 Azure 직렬 콘솔](serial
 > 직렬 콘솔에 아무 것도 표시되지 않으면 VM 또는 가상 머신 확장 집합에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용
-Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administration Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다.
+Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administration Console](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다.
 
 2018년 2월 전에 만든 이전 Windows Server 이미지의 경우 Azure Portal의 실행 명령 기능을 통해 직렬 콘솔을 자동으로 사용하도록 설정할 수 있습니다. Azure Portal에서 **명령 실행**을 선택한 다음, 목록에서 **EnableEMS**라는 명령을 선택합니다.
 
@@ -76,11 +76,11 @@ Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Admi
 
 #### <a name="how-do-i-know-if-sac-is-enabled"></a>SAC이 사용되도록 설정되어 있는지를 확인하는 방법
 
-[SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)가 사용되도록 설정되어 있지 않으면 직렬 콘솔에 SAC 프롬프트가 표시되지 않습니다. VM 상태 정보가 표시될 때도 있고 비어 있을 때도 있습니다. 2018년 2월 이전에 만든 Windows Server 이미지를 사용하는 경우 SAC가 사용되지 않을 것입니다.
+[SAC](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10))가 사용되도록 설정되어 있지 않으면 직렬 콘솔에 SAC 프롬프트가 표시되지 않습니다. VM 상태 정보가 표시될 때도 있고 비어 있을 때도 있습니다. 2018년 2월 이전에 만든 Windows Server 이미지를 사용하는 경우 SAC가 사용되지 않을 것입니다.
 
 ### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>직렬 콘솔에서 Windows 부팅 메뉴 사용
 
-Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔에 표시해야 할 경우 부팅 구성 데이터에 다음과 같은 추가 옵션을 추가할 수 있습니다. 자세한 내용은 [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)를 참조하세요.
+Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔에 표시해야 할 경우 부팅 구성 데이터에 다음과 같은 추가 옵션을 추가할 수 있습니다. 자세한 내용은 [bcdedit](/windows-hardware/drivers/devtest/bcdedit--set)를 참조하세요.
 
 1. 원격 데스크톱을 사용하여 Windows VM 또는 가상 머신 확장 집합 인스턴스에 연결합니다.
 
@@ -126,7 +126,7 @@ NMI를 받을 때 크래시 덤프 파일을 만들도록 Windows 구성에 대�
 기능 키는 Windows VM의 직렬 콘솔의 사용량에 대해 사용하도록 설정됩니다. 직렬 콘솔 드롭다운의 F8은 고급 부팅 설정 메뉴를 쉽게 입력하는 편리함을 제공하지만 직렬 콘솔은 다른 모든 기능 키와 호환됩니다. 직렬 콘솔을 사용 중인 컴퓨터에 따라 키보드에서 **Fn** + **F1**(또는 F3, F2 등) 키를 눌러야 할 수 있습니다.
 
 ### <a name="use-wsl-in-serial-console"></a>직렬 콘솔에서 WSL 사용
-Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사용하도록 설정됐으므로 Windows Server 2019 이상을 실행하는 경우 직렬 콘솔 내에서 사용을 위해 WSL을 사용하도록 설정할 수 있습니다. 이 기능은 또한 Linux 명령에 익숙한 사용자에게 유용할 수 있습니다. Windows Server용 WSL를 사용하도록 설정하는 지침은 [설치 가이드](https://docs.microsoft.com/windows/wsl/install-on-server)를 참조하세요.
+Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사용하도록 설정됐으므로 Windows Server 2019 이상을 실행하는 경우 직렬 콘솔 내에서 사용을 위해 WSL을 사용하도록 설정할 수 있습니다. 이 기능은 또한 Linux 명령에 익숙한 사용자에게 유용할 수 있습니다. Windows Server용 WSL를 사용하도록 설정하는 지침은 [설치 가이드](/windows/wsl/install-on-server)를 참조하세요.
 
 ### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>직렬 콘솔 내에서 Windows VM/가상 머신 확장 집합 인스턴스를 다시 시작합니다.
 전원 단추로 이동하고 "VM 다시 시작"을 클릭하여 직렬 콘솔 내에서 재시작을 시작할 수 있습니다. 그러면 VM 다시 시작을 시작하고, 다시 시작에 대해 Azure Portal 내에 알림이 표시됩니다.
@@ -147,7 +147,7 @@ Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사�
 주고받는 모든 데이터는 전송 중에 암호화됩니다.
 
 ### <a name="audit-logs"></a>감사 로그
-직렬 콘솔에 대한 모든 액세스는 현재 가상 머신의 [부트 진단](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) 로그에 기록됩니다. 이러한 로그에 대한 액세스 권한은 Azure 가상 머신 관리자가 소유하며 제어합니다.
+직렬 콘솔에 대한 모든 액세스는 현재 가상 머신의 [부트 진단](./boot-diagnostics.md) 로그에 기록됩니다. 이러한 로그에 대한 액세스 권한은 Azure 가상 머신 관리자가 소유하며 제어합니다.
 
 > [!CAUTION]
 > 콘솔에 대한 액세스 암호는 기록되지 않습니다. 그러나 콘솔 내에서 실행되는 명령이 암호, 비밀, 사용자 이름 또는 기타 형태의 PII(개인 식별 정보)를 포함하거나 출력하는 경우 해당 정보는 VM 부트 진단 로그에 작성됩니다. 또한 직렬 콘솔의 스크롤 백 기능을 구현하는 일부로 모든 다른 표시되는 텍스트와 함께 작성됩니다. 이러한 로그는 순환되며 진단 스토리지 계정에 대한 읽기 권한이 있는 사용자만 액세스할 수 있습니다. 그러나 비밀 및/또는 PII가 포함될 수 있는 항목에 대해 원격 데스크톱을 사용하는 모범 사례를 따르는 것이 좋습니다.
@@ -173,7 +173,7 @@ Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사�
 :------------------|:-----------------------------------------
 잘못된 방화벽 규칙 | 직렬 콘솔에 액세스하여 Windows 방화벽 규칙을 수정합니다.
 파일 시스템 손상/검사 | 직렬 콘솔에 액세스하여 파일 시스템을 복구합니다.
-RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 자세한 내용은 [RDP 설명서](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)를 참조하세요.
+RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 자세한 내용은 [RDP 설명서](/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)를 참조하세요.
 네트워크 시스템 잠금 | 시스템을 관리하려면 Azure Portal에서 직렬 콘솔에 액세스합니다. 일부 네트워크 명령이 [Windows 명령: CMD 및 PowerShell](serial-console-cmd-ps-commands.md)을 참조하세요.
 부팅 로더와 상호 작용 | 직렬 콘솔을 통해 BCD에 액세스합니다. 자세한 내용은 [직렬 콘솔에서 Windows 부팅 메뉴 사용](#enable-the-windows-boot-menu-in-the-serial-console)을 참조하세요.
 

@@ -4,12 +4,12 @@ description: Azure Blockchain 워크 벤치 미리 보기를 사용 하는 방�
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 7c96e45c8bcc9834df7ef2a0b2a59f53fd8315cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003069"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Azure Blockchain 워크 벤치 미리 보기 사용 REST API
 
@@ -32,7 +32,7 @@ Blockchain 워크 벤치 Api는 배포에 대 한 끝점을 통해 액세스 됩
 
 Blockchain 워크 벤치 REST API에 대 한 요청은 Azure Active Directory (Azure AD)로 보호 됩니다.
 
-REST Api에 대해 인증 된 요청을 수행 하려면 API를 호출 하기 전에 클라이언트 코드에 유효한 자격 증명으로 인증 해야 합니다. 인증은 Azure AD의 다양 한 행위자 간에 조정 되며 인증 증명으로 클라이언트에 [액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#access-token) 을 제공 합니다. 토큰은 REST API 요청의 HTTP 인증 헤더에 전송 됩니다. Azure AD 인증에 대해 자세히 알아보려면 개발자를 [위한 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)를 참조 하세요.
+REST Api에 대해 인증 된 요청을 수행 하려면 API를 호출 하기 전에 클라이언트 코드에 유효한 자격 증명으로 인증 해야 합니다. 인증은 Azure AD의 다양 한 행위자 간에 조정 되며 인증 증명으로 클라이언트에 [액세스 토큰](../../active-directory/develop/developer-glossary.md#access-token) 을 제공 합니다. 토큰은 REST API 요청의 HTTP 인증 헤더에 전송 됩니다. Azure AD 인증에 대해 자세히 알아보려면 개발자를 [위한 Azure Active Directory](../../active-directory/develop/index.yml)를 참조 하세요.
 
 인증 방법에 대 한 예제는 [REST API 샘플](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples) 을 참조 하세요.
 
@@ -44,7 +44,7 @@ REST Api에 대해 인증 된 요청을 수행 하려면 API를 호출 하기 �
 
 두 개의 API 호출을 사용 하 여 블록 체인 워크 벤치 응용 프로그램을 만듭니다. 이 방법은 워크 벤치 관리자 인 사용자만 수행할 수 있습니다.
 
-응용 프로그램 [게시 API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationspost) 를 사용 하 여 응용 프로그램의 JSON 파일을 업로드 하 고 응용 프로그램 ID를 가져옵니다.
+응용 프로그램 [게시 API](/rest/api/azure-blockchain-workbench/applications/applicationspost) 를 사용 하 여 응용 프로그램의 JSON 파일을 업로드 하 고 응용 프로그램 ID를 가져옵니다.
 
 ### <a name="applications-post-request"></a>응용 프로그램 게시 요청
 
@@ -70,7 +70,7 @@ Content-Type: "application/json"
 
 ### <a name="contract-code-post-request"></a>계약 코드 게시 요청
 
-응용 프로그램 ID를 전달 하 여 응용 프로그램 [계약 코드 게시 API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/contractcodepost) 를 사용 하 여 응용 프로그램의 농담 코드 파일을 업로드 합니다. 페이로드는 단일로 된 파일 이거나 색이 있는 파일이 포함 된 압축 파일 일 수 있습니다.
+응용 프로그램 ID를 전달 하 여 응용 프로그램 [계약 코드 게시 API](/rest/api/azure-blockchain-workbench/applications/contractcodepost) 를 사용 하 여 응용 프로그램의 농담 코드 파일을 업로드 합니다. 페이로드는 단일로 된 파일 이거나 색이 있는 파일이 포함 된 압축 파일 일 수 있습니다.
 
 다음 값을 바꿉니다.
 
@@ -98,7 +98,7 @@ Content-Type: "application/json"
 
 ## <a name="assign-roles-to-users"></a>사용자에게 역할 할당
 
-응용 프로그램 [역할 할당 게시 API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) 를 사용 하 여 응용 프로그램 id, 사용자 ID 및 응용 프로그램 역할 id를 전달 하 여 지정 된 blockchain 응용 프로그램에서 사용자-역할 매핑을 만듭니다. 이 방법은 워크 벤치 관리자 인 사용자만 수행할 수 있습니다.
+응용 프로그램 [역할 할당 게시 API](/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) 를 사용 하 여 응용 프로그램 id, 사용자 ID 및 응용 프로그램 역할 id를 전달 하 여 지정 된 blockchain 응용 프로그램에서 사용자-역할 매핑을 만듭니다. 이 방법은 워크 벤치 관리자 인 사용자만 수행할 수 있습니다.
 
 ### <a name="role-assignments-post-request"></a>역할 할당 게시 요청
 
@@ -132,7 +132,7 @@ HTTP/1.1 200
 
 ## <a name="list-applications"></a>애플리케이션 나열
 
-[응용 프로그램 GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) 를 사용 하 여 사용자에 대 한 모든 Blockchain 워크 벤치 응용 프로그램을 검색 합니다. 이 예제에서는 로그인 한 사용자에 게 두 가지 응용 프로그램에 대 한 액세스 권한이 있습니다.
+[응용 프로그램 GET API](/rest/api/azure-blockchain-workbench/applications/applicationsget) 를 사용 하 여 사용자에 대 한 모든 Blockchain 워크 벤치 응용 프로그램을 검색 합니다. 이 예제에서는 로그인 한 사용자에 게 두 가지 응용 프로그램에 대 한 액세스 권한이 있습니다.
 
 - [자산 전송](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
 - [Refrigerated 교통](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
@@ -180,7 +180,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>애플리케이션에 대한 워크플로 나열
 
-[응용 프로그램 워크플로 사용 API 가져오기](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) 를 사용 하 여 사용자가 블록 체인 워크 벤치에서 액세스할 수 있는 지정 된 blockchain 응용 프로그램의 모든 워크플로를 나열할 수 있습니다. 각 블록체인 애플리케이션에는 하나 이상의 워크플로가 있고 각 워크플로에는 제로 또는 스마트 계약 인스턴스가 있습니다. 하나의 워크플로만 있는 블록체인 클라이언트 애플리케이션의 경우 사용자가 적절한 워크플로 선택할 수 있도록 하는 사용자 경험 흐름을 건너뛰는 것이 좋습니다.
+[응용 프로그램 워크플로 사용 API 가져오기](/rest/api/azure-blockchain-workbench/applications/workflowsget) 를 사용 하 여 사용자가 블록 체인 워크 벤치에서 액세스할 수 있는 지정 된 blockchain 응용 프로그램의 모든 워크플로를 나열할 수 있습니다. 각 블록체인 애플리케이션에는 하나 이상의 워크플로가 있고 각 워크플로에는 제로 또는 스마트 계약 인스턴스가 있습니다. 하나의 워크플로만 있는 블록체인 클라이언트 애플리케이션의 경우 사용자가 적절한 워크플로 선택할 수 있도록 하는 사용자 경험 흐름을 건너뛰는 것이 좋습니다.
 
 ### <a name="application-workflows-request"></a>응용 프로그램 워크플로 요청
 
@@ -214,7 +214,7 @@ Content-type: application/json
 
 ## <a name="create-a-contract-instance"></a>계약 인스턴스 만들기
 
-[계약 V2 사후 API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contractsv2/contractpost) 를 사용 하 여 워크플로에 대 한 새 스마트 계약 인스턴스를 만듭니다. 사용자는 워크플로에 대 한 스마트 계약 인스턴스를 시작할 수 있는 응용 프로그램 역할에 연결 되어 있는 경우에만 새 스마트 계약 인스턴스를 만들 수 있습니다.
+[계약 V2 사후 API](/rest/api/azure-blockchain-workbench/contractsv2/contractpost) 를 사용 하 여 워크플로에 대 한 새 스마트 계약 인스턴스를 만듭니다. 사용자는 워크플로에 대 한 스마트 계약 인스턴스를 시작할 수 있는 응용 프로그램 역할에 연결 되어 있는 경우에만 새 스마트 계약 인스턴스를 만들 수 있습니다.
 
 > [!NOTE]
 > 이 예제에서는 API의 버전 2가 사용 됩니다. 버전 2 계약 Api는 연결 된 ProvisioningStatus 필드에 대 한 더 많은 세분성을 제공 합니다.
@@ -477,4 +477,4 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>다음 단계
 
-Blockchain 워크 벤치 Api에 대 한 참조 정보는 [Azure 블록 체인 워크 벤치 REST API 참조](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)를 참조 하세요.
+Blockchain 워크 벤치 Api에 대 한 참조 정보는 [Azure 블록 체인 워크 벤치 REST API 참조](/rest/api/azure-blockchain-workbench)를 참조 하세요.

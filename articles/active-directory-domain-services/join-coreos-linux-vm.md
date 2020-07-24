@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 845b48d84040343f829648f9c7fda2372e3413dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f16629b74ab76d7b46603d84d52cff4bf1ca13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734744"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005109"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>CoreOS 가상 컴퓨터를 관리 되는 Azure Active Directory Domain Services 도메인에 가입
 
@@ -24,7 +24,7 @@ ms.locfileid: "84734744"
 
 이 문서에서는 관리 되는 도메인에 CoreOS VM을 조인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -85,7 +85,7 @@ sudo vi /etc/sssd/sssd.conf
 다음 매개 변수에 대 한 사용자 고유의 관리 되는 도메인 이름을 지정 합니다.
 
 * 모든 사례의 *도메인*
-* *[domain/aadds]* 여기에서 aadds가 모두 대문자 인 경우
+* *[domain/aaddscontoso]* 여기서 AADDSCONTOSO는 모두 대문자입니다.
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -97,7 +97,7 @@ config_file_version = 2
 services = nss, pam
 domains = AADDSCONTOSO.COM
 
-[domain/AADDSCONTOSO.COM]
+[domain/AADDSCONTOSO]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad

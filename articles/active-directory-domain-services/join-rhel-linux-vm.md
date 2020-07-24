@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: d43c12681c7230dc4959261ffd6d96f74ea095d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005092"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에 Red Hat Enterprise Linux 가상 컴퓨터 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "84734727"
 
 이 문서에서는 관리 되는 도메인에 Red Hat Enterprise Linux (RHEL) VM을 조인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -116,7 +116,7 @@ sudo yum install adcli sssd authconfig krb5-workstation
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. 마지막으로 명령을 사용 하 여 컴퓨터를 관리 되는 도메인에 가입 시킵니다 `realm join` . 이전 명령에서 지정한 관리 되는 도메인의 일부인 동일한 사용자 계정 (예:)을 사용 합니다 `kinit` `contosoadmin@AADDSCONTOSO.COM` .
+1. 마지막으로 명령을 사용 하 여 VM을 관리 되는 도메인에 가입 시킵니다 `realm join` . 이전 명령에서 지정한 관리 되는 도메인의 일부인 동일한 사용자 계정 (예:)을 사용 합니다 `kinit` `contosoadmin@AADDSCONTOSO.COM` .
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'

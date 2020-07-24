@@ -4,11 +4,12 @@ description: AVS(Azure VMware Solution)에 대한 일반적인 질문에 대한 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003426"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>AVS(Azure VMware Solution) 미리 보기에 대한 질문과 대답
 
@@ -84,15 +85,15 @@ AVS 솔루션 고객은 모든 Azure 서비스를 사용할 수 있습니다. �
 
 **각 호스트의 스토리지 용량은 얼마인가요?**
 
-각 ESXi 호스트에는 15.2TB 용량 계층과 3.2TB(디스크 그룹마다 1.6 TB) NVMe 캐시 계층을 사용하는 VSAN 디스크 그룹이 2개 있습니다.
+각 ESXi 호스트에는 15.2 TB의 용량 계층을 포함 하는 두 개의 vSAN diskgroups와 3.2 TB NVMe 캐시 계층 (각 diskgroups의 1.6 TB)이 있습니다.
 
 **각 ESXi 호스트에서 사용할 수 있는 네트워크 대역폭은 얼마나 되나요?**
 
 ESXi 호스트는 최대 25Gbps의 연결 대역폭을 지원합니다.
 
-**VSAN 데이터 저장소에 저장된 데이터는 암호화되나요?**
+**미사용 암호화 된 vSAN 데이터 저장소에 저장 된 데이터 입니까?**
 
-예, 모든 VSAN 데이터는 기본적으로 Azure Key Vault에 저장된 키를 사용하여 암호화됩니다.
+예, 모든 vSAN 데이터는 Azure Key Vault에 저장 된 키를 사용 하 여 기본적으로 암호화 됩니다.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>호스트, 클러스터 및 프라이빗 클라우드
 
@@ -136,7 +137,7 @@ ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습�
 
 **프라이빗 클라우드에서 VMware 소프트웨어를 업그레이드 및 업데이트하는 일정이 어떻게 되나요?**
 
-사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 소프트웨어 번들의 최신 릴리스 중 한 버전의 소프트웨어를 유지 하기 위해 수행 됩니다. 프라이빗 클라우드 소프트웨어 버전이 개별 소프트웨어 구성 요소(ESXi, NSX-T, vCenter, VSAN)의 최신 버전과 다를 수 있습니다.
+사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 소프트웨어 번들의 최신 릴리스 중 한 버전의 소프트웨어를 유지 하기 위해 수행 됩니다. 사설 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소의 최신 버전 (ESXi, NSX, vCenter, vSAN)과 다를 수 있습니다.
 
 **프라이빗 클라우드 소프트웨어 스택은 얼마나 자주 업데이트되나요?**
 
@@ -215,7 +216,7 @@ Azure 구독의 Azure 계정이 필요합니다.
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> 리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조하세요.
+> 리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
 
 1. Azure Portal의 **도움말 + 지원**에서 **새 지원 요청**을 작성하고, 티켓에 대한 다음 정보를 제공합니다.
    - **문제 유형:** 기술
