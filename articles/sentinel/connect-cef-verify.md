@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 07a6b84569fe0356267440e38b31ac738b2659d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6892f4ebb250290a0faad546fd000530baf4479
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038174"
 ---
 # <a name="step-3-validate-connectivity"></a>3 단계: 연결 유효성 검사
 
 로그 전달자 (1 단계)를 배포 하 고 보안 솔루션을 구성 하 여 (2 단계)이 지침에 따라 보안 솔루션과 Azure 센티널 간의 연결을 확인 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 로그 전달자 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 
@@ -54,21 +54,23 @@ ms.locfileid: "85260834"
 
 1. 파일에 다음 텍스트가 포함 되어 있는지 확인 합니다.
 
-        <source>
-            type syslog
-            port 25226
-            bind 127.0.0.1
-            protocol_type tcp
-            tag oms.security
-            format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
-            <parse>
-                message_format auto
-            </parse>
-        </source>
+    ```console
+    <source>
+        type syslog
+        port 25226
+        bind 127.0.0.1
+        protocol_type tcp
+        tag oms.security
+        format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
+        <parse>
+            message_format auto
+        </parse>
+    </source>
 
-        <filter oms.security.**>
-            type filter_syslog_security
-        </filter>
+    <filter oms.security.**>
+        type filter_syslog_security
+    </filter>
+    ```
 
 1. 네트워크 트래픽 (예: 호스트 방화벽)을 차단할 수 있는 보안 강화 기능이 컴퓨터에 있는지 확인 합니다.
 
@@ -76,17 +78,21 @@ ms.locfileid: "85260834"
 
     - 구성 파일:`/etc/rsyslog.d/security-config-omsagent.conf`
 
-            :rawmsg, regex, "CEF"|"ASA"
-            *.* @@127.0.0.1:25226
-
+        ```console
+        :rawmsg, regex, "CEF"|"ASA"
+        *.* @@127.0.0.1:25226
+        ```
+  
 1. Syslog 데몬이 포트 514에서 데이터를 수신 하는지 확인 합니다.
 
 1. 필요한 연결이 설정 되어 있는지 확인 합니다. 즉, 데이터를 받기 위한 tcp 514, syslog 디먼과 Log Analytics 에이전트 간의 내부 통신을 위한 tcp 25226
 
 1. 호스트 \에서 모의 데이터를 514 포트에 보냅니다. 이 데이터는 다음 쿼리를 실행 하 여 Azure 센티널 작업 영역에서 관찰 가능 해야 합니다.
 
-        CommonSecurityLog
-        | where DeviceProduct == "MOCK"
+    ```console
+    CommonSecurityLog
+    | where DeviceProduct == "MOCK"
+    ```
 
 # <a name="syslog-ng-daemon"></a>[syslog-기능 데몬](#tab/syslogng)
 
@@ -96,21 +102,23 @@ ms.locfileid: "85260834"
 
 1. 파일에 다음 텍스트가 포함 되어 있는지 확인 합니다.
 
-        <source>
-            type syslog
-            port 25226
-            bind 127.0.0.1
-            protocol_type tcp
-            tag oms.security
-            format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
-            <parse>
-                message_format auto
-            </parse>
-        </source>
+    ```console
+    <source>
+        type syslog
+        port 25226
+        bind 127.0.0.1
+        protocol_type tcp
+        tag oms.security
+        format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
+        <parse>
+            message_format auto
+        </parse>
+    </source>
 
-        <filter oms.security.**>
-            type filter_syslog_security
-        </filter>
+    <filter oms.security.**>
+        type filter_syslog_security
+    </filter>
+    ```
 
 1. 네트워크 트래픽 (예: 호스트 방화벽)을 차단할 수 있는 보안 강화 기능이 컴퓨터에 있는지 확인 합니다.
 
@@ -118,9 +126,11 @@ ms.locfileid: "85260834"
 
     - 구성 파일:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
-            filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-            destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
-            log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```console
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
 
 1. Syslog 데몬이 포트 514에서 데이터를 수신 하는지 확인 합니다.
 
@@ -128,9 +138,10 @@ ms.locfileid: "85260834"
 
 1. 호스트 \에서 모의 데이터를 514 포트에 보냅니다. 이 데이터는 다음 쿼리를 실행 하 여 Azure 센티널 작업 영역에서 관찰 가능 해야 합니다.
 
-        CommonSecurityLog
-        | where DeviceProduct == "MOCK"
-
+    ```console
+    CommonSecurityLog
+    | where DeviceProduct == "MOCK"
+    ```
 ---
 
 ## <a name="next-steps"></a>다음 단계

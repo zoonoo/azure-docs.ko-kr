@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033567"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -59,7 +60,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 모든 JavaScript 오케스트레이션 함수는 [ `durable-functions` 모듈](https://www.npmjs.com/package/durable-functions)을 포함 해야 합니다. JavaScript에 Durable Functions를 쓸 수 있도록 하는 라이브러리입니다. 오케스트레이션 함수 및 다른 JavaScript 함수 사이에는 다음과 같은 세 가지 중요한 차이점이 있습니다.
 
-1. 함수는 [생성기 함수입니다.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. 함수는 [생성기 함수입니다.](/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. 함수가 `durable-functions` 모듈의 `orchestrator` 호출에 래핑됩니다(여기서는 `df`).
 3. 동기 함수여야 합니다. '오케스트레이터' 메서드가 'context.done' 호출을 처리하므로 함수는 단순히 '반환'만 하면 됩니다.
 

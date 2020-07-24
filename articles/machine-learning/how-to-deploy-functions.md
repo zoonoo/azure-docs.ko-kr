@@ -11,11 +11,12 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f42729b97f4a02e549766dc816db8361b3b8e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560404"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030932"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,6 +56,7 @@ Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker �
     >
     > 기본적으로 함수를 패키징하는 경우 입력은 텍스트로 처리 됩니다. Blob 트리거의 경우와 같이 입력의 원시 바이트를 사용 하는 데 관심이 있는 경우에는 [Amlrequest를 사용 하 여 원시 데이터를 수락](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data)해야 합니다.
 
+항목 스크립트에 대 한 자세한 내용은 [점수 매기기 코드 정의](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script) 를 참조 하세요.
 
 * 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**
 

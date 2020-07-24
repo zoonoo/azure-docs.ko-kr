@@ -9,16 +9,16 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749940"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030668"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>확인 된 온-프레미스 라이브 스트리밍 인코더
 
-Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)(채널)는 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 라이브 이벤트는 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
+Azure Media Services에서 [라이브 이벤트](/rest/api/media/liveevents)(채널)는 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 라이브 이벤트는 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
 * 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각난 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 라이브 이벤트로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 라이브 이벤트를 통과합니다. 이 방법을 **통과**라고 합니다. 라이브 인코더는 클라이언트에 적응 비트 전송률 스트리밍을 허용 하기 위해 단일 비트 전송률 스트림 대신 다중 비트 전송률 스트림을 통과 라이브 이벤트로 보내는 것이 좋습니다. 
 
@@ -114,7 +114,7 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 > [!IMPORTANT]
 > 클라우드로의 업로드에는 CPU 및 IO 작업이 포함 되므로 컴퓨터의 물리적 상태 (CPU/메모리/등)를 시청 하세요. 인코더에서 설정을 변경 하는 경우 변경 내용을 적용 하려면 특정 채널/라이브 이벤트를 다시 설정 해야 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Media Services v3을 통한 라이브 스트리밍](live-streaming-overview.md)
 

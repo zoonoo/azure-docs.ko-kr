@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82103da3f2547baab62d0d95cf9a6084ef099cba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033770"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>IoT 장치에서 보안 에이전트 선택 및 배포
 
@@ -43,19 +44,18 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 
 |     | C 기반 보안 에이전트 | C # 기반 보안 에이전트 |
 | --- | ----------- | --------- |
-| 오픈 소스 | [GitHub](https://aka.ms/iot-security-github-c) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 | [GitHub](https://aka.ms/iot-security-github-cs) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 |
-| 개발 언어    | C | C# |
-| 지원 되는 Windows 플랫폼 | 아니요 | 예 |
-| Windows 필수 조건 | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
-| 지원 되는 Linux 플랫폼 인가요? | 예, x64 및 x86 | 예, x64만 |
-| Linux 필수 구성 요소 | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인 | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인, sudo, netstat, iptables |
-| 디스크 공간 | 10.5 M B | 90 M B |
-| 메모리 사용 공간 (평균) | 5.5 M B | 33 M B |
-| IoT Hub에 대 한 [인증](concept-security-agent-authentication-methods.md) | 예 | 예 |
-| 보안 데이터 [수집](how-to-agent-configuration.md#supported-security-events) | 예 | 예 |
-| 이벤트 집계 | 예 | 예 |
-| [보안 모듈](concept-security-module.md) 쌍을 통한 원격 구성 | 예 | 예 |
-|
+| **오픈 소스** | [GitHub](https://aka.ms/iot-security-github-c) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 | [GitHub](https://aka.ms/iot-security-github-cs) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 |
+| **개발 언어**    | C | C# |
+| **지원 되는 Windows 플랫폼** | 아니요 | 예 |
+| **Windows 필수 조건** | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| **지원 되는 Linux 플랫폼 인가요?** | 예, x64 및 x86 | 예, x64만 |
+| **Linux 필수 구성 요소** | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인 | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인, sudo, netstat, iptables |
+| **디스크 공간** | 10.5 M B | 90 M B |
+| **메모리 사용 공간 (평균)** | 5.5 M B | 33 M B |
+| **IoT Hub에 대 한 [인증](concept-security-agent-authentication-methods.md)** | 예 | 예 |
+| **보안 데이터 [수집](how-to-agent-configuration.md#supported-security-events)** | 예 | 예 |
+| **이벤트 집계** | 예 | 예 |
+| **[보안 모듈](concept-security-module.md) 쌍을 통한 원격 구성** | 예 | 예 |
 
 ## <a name="security-agent-installation-guidelines"></a>보안 에이전트 설치 지침
 

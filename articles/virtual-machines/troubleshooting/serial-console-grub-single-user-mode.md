@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70883934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036474"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스
 주 통합 부팅 로더 (GRUB)는 VM (가상 머신)을 부팅할 때 가장 먼저 표시 될 것입니다. 운영 체제를 시작 하기 전에 표시 되기 때문에 GRUB는 SSH를 통해 액세스할 수 없습니다. GRUB에서 부팅 구성이 단일 사용자 모드로 부팅 되도록 수정할 수 있습니다.
@@ -36,7 +37,7 @@ ms.locfileid: "70883934"
 ## <a name="general-grub-access"></a>일반 GRUB 액세스
 GRUB에 액세스 하려면 직렬 콘솔 창이 열려 있는 동안 VM을 다시 부팅 합니다. 일부 배포판에는 GRUB를 표시 하기 위해 키보드 입력이 필요 하 고, 다른 배포에서는 몇 초 동안 자동으로 GRUB를 표시 하 여 사용자 키보드 입력이 시간 제한을 취소할 수 있습니다.
 
-단일 사용자 모드에 액세스할 수 있으려면 GRUB를 VM에서 사용 하도록 설정 해야 합니다. 배포에 따라 GRUB를 사용 하도록 설정 하기 위해 몇 가지 설정 작업이 필요할 수 있습니다. 배포 관련 정보는 다음 섹션 및 [Azure에서 Linux에 대 한 지원](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/) 페이지를 참조 하세요.
+단일 사용자 모드에 액세스할 수 있으려면 GRUB를 VM에서 사용 하도록 설정 해야 합니다. 배포에 따라 GRUB를 사용 하도록 설정 하기 위해 몇 가지 설정 작업이 필요할 수 있습니다. 배포 관련 정보는 다음 섹션을 참조 하세요.
 
 ### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>VM을 다시 시작하여 직렬 콘솔에서 GRUB에 액세스
 직렬 콘솔 내에서 **다시 시작** 단추를 마우스로 가리킨 다음 **vm 다시 시작**을 선택 하 여 vm을 다시 시작할 수 있습니다. 다시 시작에 대 한 알림이 창의 아래쪽에 표시 됩니다.
@@ -112,7 +113,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200
 
    단일 사용자 모드를 시작 하기 전에 관리자 암호를 입력 하 라는 메시지가 표시 됩니다. 이 암호는 이전 지침에서 만든 암호입니다.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![명령줄 인터페이스를 표시 하는 애니메이션 이미지입니다. 사용자가 서버를 선택 하 고, 커널 줄의 끝을 찾은 다음, 지정 된 텍스트를 입력 합니다.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>RHEL에서 루트 계정이 사용 하도록 설정 되지 않은 단일 사용자 모드로 전환 합니다.
 이전 지침에 따라 루트 사용자를 사용 하도록 설정 하지 않은 경우에도 다음을 수행 하 여 루트 암호를 다시 설정할 수 있습니다.
@@ -136,7 +137,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200
 1. 이제 루트에 있습니다. 를 입력 하 `passwd` 고 위의 지침에 따라 단일 사용자 모드로 전환 하 여 루트 암호를 다시 설정할 수 있습니다. 
 1. 완료 되 면 `reboot -f` 를 입력 하 여 다시 부팅 합니다.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![명령줄 인터페이스를 표시 하는 애니메이션 이미지입니다. 사용자가 서버를 선택 하 고 커널 줄의 끝을 찾은 다음 지정 된 명령을 입력 합니다.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > 이전 지침을 통해를 실행 하면 응급 셸로 이동 하 여 편집과 같은 작업을 수행할 수도 있습니다 `fstab` . 그러나 일반적으로 루트 암호를 다시 설정 하 고이를 사용 하 여 단일 사용자 모드로 전환 하는 것이 좋습니다.
@@ -163,7 +164,7 @@ GRUB에 액세스 하려면 VM이 부팅 되는 동안 Esc 키를 누릅니다.
 1. 텍스트 편집기에서 */etc/default/grub*을 엽니다.
 1. 줄을 주석으로 처리 `GRUB_HIDDEN_TIMEOUT=1` 합니다.
 1. 줄이 있는지 확인 `GRUB_TIMEOUT_STYLE=menu` 합니다.
-1. `sudo update-grub`을 실행합니다.
+1. `sudo update-grub`를 실행합니다.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
 Ubuntu를 정상적으로 부팅할 수 없는 경우 사용자를 단일 사용자 모드로 자동으로 삭제 합니다. 단일 사용자 모드를 수동으로 입력 하려면 다음을 수행 합니다.
@@ -240,7 +241,7 @@ Oracle Linux에서 단일 사용자 모드를 사용 하도록 설정 하려면 
 ## <a name="next-steps"></a>다음 단계
 직렬 콘솔에 대 한 자세한 내용은 다음을 참조 하세요.
 * [Linux 직렬 콘솔 설명서](serial-console-linux.md)
-* [직렬 콘솔을 사용 하 여 다양 한 배포에서 GRUB 사용](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [직렬 콘솔을 사용 하 여 다양 한 배포에서 GRUB 사용](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
 * [NMI 및 SysRq 호출에 직렬 콘솔 사용](serial-console-nmi-sysrq.md)
 * [Windows Vm 용 직렬 콘솔](serial-console-windows.md)
 * [부트 진단](boot-diagnostics.md)

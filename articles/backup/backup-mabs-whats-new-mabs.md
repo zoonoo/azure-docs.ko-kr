@@ -3,11 +3,12 @@ title: Microsoft Azure Backup Server의 새로운 기능
 description: Microsoft Azure Backup Server에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 5f8d0aa83f6d54575b76847efa892864b32c456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629082"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032445"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>MABS (Microsoft Azure Backup Server)의 새로운 기능
 
@@ -22,40 +23,40 @@ MABS (Microsoft Azure Backup 서버) 버전 3 UR1은 최신 업데이트 이며 
 
 MABS V2는 저장소 사용률 및 성능을 개선 하는 [Modern Backup Storage](backup-mabs-add-storage.md) (mb)를 도입 했습니다. MBS는 ReFS를 기본 파일 시스템으로 사용하며 계층형 스토리지와 같은 하이브리드 스토리지를 사용하도록 설계되었습니다.
 
-MB로 크기 조정 및 성능을 얻으려면 MABS V3 UR1를 사용 하는 플래시 저장소 (SSD)의 작은 백분율 (전체 저장소의 4%)을 DPM HDD 저장소와 함께 계층화 된 볼륨으로 사용 하는 것이 좋습니다. 계층화 된 저장소를 사용 하는 MABS V3 UR1는 50-70% 더 빠른 백업을 제공 합니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 [TIERED STORAGE](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) DPM 문서를 참조 하세요.
+MB로 크기 조정 및 성능을 얻으려면 MABS V3 UR1를 사용 하는 플래시 저장소 (SSD)의 작은 백분율 (전체 저장소의 4%)을 DPM HDD 저장소와 함께 계층화 된 볼륨으로 사용 하는 것이 좋습니다. 계층화 된 저장소를 사용 하는 MABS V3 UR1는 50-70% 더 빠른 백업을 제공 합니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 [TIERED STORAGE](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) DPM 문서를 참조 하세요.
 
 ### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>중복 제거를 사용 하는 ReFS 볼륨 및 ReFS 볼륨에 대 한 지원
 
 MABS V3 UR1를 사용 하 여 refs 볼륨에 배포 된 ReFS 볼륨 및 워크 로드를 백업할 수 있습니다. ReFS 볼륨에 배포 된 다음 워크 로드를 백업할 수 있습니다.
 
-* 운영 체제 (64 비트): Windows Server 2019, 2016, 2012 R2, 2012.
+* 운영 체제(64비트) : Windows Server 2019, 2016, 2012 R2, 2012.
 * SQL Server: SQL Server 2019, SQL Server 2017, 2016.
 * Exchange: Exchange 2019, 2016.
-* SharePoint: SharePoint 2019, 2016 (최신 SP 포함)
+* SharePoint: 최신 SP가 있는 SharePoint 2019, 2016.
 
 >[!NOTE]
 > ReFS 볼륨에 저장 된 Hyper-v Vm의 백업은 MABS V3에서 지원 됩니다.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Azure VMware 솔루션 보호 지원
 
-MABS v3 UR1를 사용 하 여 이제 [Azure VMware 솔루션](https://docs.microsoft.com/azure/azure-vmware/)에 배포 된 가상 머신을 보호할 수 있습니다.
+MABS v3 UR1를 사용 하 여 이제 [Azure VMware 솔루션](../azure-vmware/index.yml)에 배포 된 가상 머신을 보호할 수 있습니다.
 
 ### <a name="vmware-parallel-backups"></a>VMware 병렬 백업
 
 MABS V3 UR1를 사용 하면 단일 보호 그룹 내의 모든 VMware Vm 백업이 병렬로 수행 되어 25% 더 빠른 VM 백업이 가능 합니다.
 이전 버전의 MABS에서는 보호 그룹 간에만 병렬 백업이 수행 되었습니다. MABS V3 UR1을 사용 하 여 VMware 델타 복제 작업을 병렬로 실행 합니다. 기본적으로 병렬로 실행할 작업 수는 8로 설정 됩니다. [VMware 병렬 백업](backup-azure-backup-server-vmware.md#vmware-parallel-backups)에 대해 자세히 알아보세요.
 
-### <a name="disk-exclusion-for-vmware-vm-backup"></a>VMware VM 백업에 대 한 디스크 제외
+### <a name="disk-exclusion-for-vmware-vm-backup"></a>VMware VM 백업에 대한 디스크 제외
 
 MABS V3 UR1를 사용 하 여 VMware VM 백업에서 특정 디스크를 제외할 수 있습니다. [VMWARE VM 백업에서 디스크 제외](backup-azure-backup-server-vmware.md#exclude-disk-from-vmware-vm-backup)에 대해 자세히 알아보세요.  
 
-### <a name="support-for-additional-layer-of-authentication-to-delete-online-backup"></a>온라인 백업을 삭제 하기 위한 추가 인증 계층 지원
+### <a name="support-for-additional-layer-of-authentication-to-delete-online-backup"></a>온라인 백업을 삭제하기 위한 추가 인증 계층 지원
 
 MABS V3 UR1를 사용 하면 중요 한 작업에 대 한 추가 인증 계층이 추가 됩니다. **데이터 삭제 작업으로 보호 중지** 를 수행할 때 보안 PIN을 입력 하 라는 메시지가 표시 됩니다.
 
 ### <a name="offline-backup-improvements"></a>오프 라인 백업 개선 사항
 
-MABS v3 UR1는 Azure Import/Export 서비스를 사용 하 여 오프 라인 백업 환경을 개선 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export)에서 업데이트 된 단계를 참조 하세요.
+MABS v3 UR1는 Azure Import/Export 서비스를 사용 하 여 오프 라인 백업 환경을 개선 합니다. 자세한 내용은 [여기](./backup-azure-backup-server-import-export.md)에서 업데이트 된 단계를 참조 하세요.
 
 >[!NOTE]
 >업데이트는 MABS의 Azure Data Box을 사용 하 여 오프 라인 백업에 대 한 미리 보기도 제공 합니다. [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com)자세한 내용은을 (를) 확인 하세요.
@@ -69,7 +70,7 @@ MABS V3 UR1에는 새 매개 변수 **[-CheckReplicaFragmentation]** 가 포함 
 MABS v3 UR1를 사용 하는 경우 32 비트 보호 에이전트에 대 한 지원은 더 이상 지원 되지 않습니다. MABS v3 서버를 UR1로 업그레이드 한 후에는 32 비트 워크 로드를 보호할 수 없습니다. 기존의 모든 32 비트 보호 에이전트는 사용 안 함 상태가 되며, 예약 된 백업은 **에이전트를 사용할 수 없습니다** . 오류와 함께 실패 합니다. 이러한 에이전트에 대 한 백업 데이터를 보존 하려면 데이터 보존 옵션을 사용 하 여 보호를 중지할 수 있습니다. 그렇지 않으면 보호 에이전트를 제거할 수 있습니다.
 
 >[!NOTE]
->업데이트 된 [보호 매트릭스](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) 를 검토 하 여 MABS UR 1에서 보호 하는 데 지원 되는 워크 로드를 알아보세요.
+>업데이트 된 [보호 매트릭스](./backup-mabs-protection-matrix.md) 를 검토 하 여 MABS UR 1에서 보호 하는 데 지원 되는 워크 로드를 알아보세요.
 
 ## <a name="whats-new-in-mabs-v3-rtm"></a>MABS V3 RTM의 새로운 기능
 
@@ -83,7 +84,7 @@ MABS V2에서 MBS(Modern Backup Storage)를 사용하여 워크로드 인식 스
 
 ### <a name="prevent-unexpected-data-loss"></a>예기치 않은 데이터 손실 방지
 
-기업에서 MABS는 관리자 팀에서 관리됩니다. 백업에 사용해야 하는 스토리지에 대한 지침이 있지만 백업 스토리지로 MABS에 지정된 올바르지 않은 볼륨은 중요한 데이터 손실을 발생시킬 수 있습니다. MABS V3에서는 [이러한 PowerShell cmdlet](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage)을 사용 하 여 저장소에 사용할 수 없는 볼륨으로 해당 볼륨을 구성 하 여 이러한 시나리오를 방지할 수 있습니다.
+기업에서 MABS는 관리자 팀에서 관리됩니다. 백업에 사용해야 하는 스토리지에 대한 지침이 있지만 백업 스토리지로 MABS에 지정된 올바르지 않은 볼륨은 중요한 데이터 손실을 발생시킬 수 있습니다. MABS V3에서는 [이러한 PowerShell cmdlet](./backup-mabs-add-storage.md)을 사용 하 여 저장소에 사용할 수 없는 볼륨으로 해당 볼륨을 구성 하 여 이러한 시나리오를 방지할 수 있습니다.
 
 ### <a name="custom-size-allocation"></a>사용자 지정 크기 할당
 
@@ -91,7 +92,7 @@ MBS(Modern Backup Storage)는 필요한 경우 스토리지를 얇게 소비합�
 
 ### <a name="optimized-cc-for-rct-vms"></a>RCT VM에 최적화된 참조
 
-MABS는 VM이 충돌할 때 시간이 오래 걸리는 일관성 검사에 대한 필요성을 줄이는 RCT(Hyper-V의 기본 변경 내용 추적)를 사용합니다. RCT는 VSS 스냅샷 기반 백업에서 제공하는 변경 내용 추적보다 더 나은 복원력을 제공합니다. MABS V3은 모든 일관성 검사 중 변경된 데이터만을 전송하여 네트워크 및 스토리지 사용을 더욱 최적화합니다.
+MABS는 VM이 충돌할 때 시간이 오래 걸리는 일관성 검사에 대한 필요성을 줄이는 RCT(Hyper-V의 기본 변경 내용 추적)를 사용합니다. RCT는 VSS 스냅샷 기반 백업에서 제공된 변경 내용 추적보다 더 나은 복원력을 제공합니다. MABS V3은 모든 일관성 검사 중 변경된 데이터만을 전송하여 네트워크 및 스토리지 사용을 더욱 최적화합니다.
 
 ### <a name="support-to-tls-12"></a>TLS 1.2에 대한 지원
 
@@ -114,7 +115,7 @@ MABS 데이터베이스로 SQL 2017과 함께 MABS V3을 설치할 수 있습니
 Windows Server 2019에 MABS V3을 설치할 수 있습니다. WS2019와 함께 MABS V3을 사용하기 위해 MABS V3으로 설치/업그레이드하기 전에 OS를 WS2019로 업그레이드하거나 WS2016에서 V3 설치/업그레이드 후에 OS를 업그레이드할 수 있습니다.
 
 MABS V3은 정식 릴리스이며, Windows Server 2016, Windows Server 2019에 직접 설치하거나 MABS V2에서 업그레이드할 수 있습니다. Backup Server V3으로 업그레이드하거나 이 버전을 설치하기 전에 설치 필수 구성 요소를 읽어 보세요.
-[여기](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package)에서 MABS에 대한 설치/업그레이드 단계에 대한 자세한 내용을 참조하세요.
+[여기](./backup-azure-microsoft-azure-backup.md#software-package)에서 MABS에 대한 설치/업그레이드 단계에 대한 자세한 내용을 참조하세요.
 
 > [!NOTE]
 >

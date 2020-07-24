@@ -3,12 +3,12 @@ title: MABS (Azure Backup Server) V3 UR1 protection 매트릭스
 description: 이 문서에서는 Azure Backup Server에서 보호하는 모든 워크로드, 데이터 형식 및 설치 프로그램을 나열하는 지원 매트릭스를 제공합니다.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: cfcb8fbf9f793cfbe11d2c25b3d2caa7018d0fd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 974820389e84f727a9aab284716b3be9020c6dd8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538737"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032598"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>MABS (Azure Backup Server) V3 UR1 protection 매트릭스
 
@@ -54,7 +54,7 @@ MABS v3 UR1에 대해 다음 행렬을 사용 합니다.
 
 | **워크로드** | **Version**                               | **Azure Backup Server 설치**                      | **지원 되는 Azure Backup Server** | **보호 및 복구**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Hyper-v 또는 VMware 게스트로 실행 되는 Linux | 실제 서버, 온-프레미스 Hyper-v VM, VMWare의 Windows VM | V3 UR1                             | Hyper-v가 Windows Server 2012 R2 또는 Windows Server 2016에서 실행 되어야 합니다. 보호: 전체 가상 머신   <br><br>   복구: 전체 가상 머신   <br><br>    파일에 일관적인 스냅샷만 지원됩니다.    <br><br>   지원 되는 Linux 배포 및 버전의 전체 목록은 [Azure에서 보증 배포의 Linux](../virtual-machines/linux/endorsed-distros.md)문서를 참조 하세요. |
+| Linux        | Hyper-v 또는 VMware 게스트로 실행 되는 Linux | 실제 서버, 온-프레미스 Hyper-v VM, VMWare의 Windows VM | V3 UR1                             | Hyper-v는 Windows Server 2012 R2, Windows Server 2016 또는 Windows Server 2019에서 실행 되어야 합니다. 보호: 전체 가상 머신   <br><br>   복구: 전체 가상 머신   <br><br>    파일에 일관적인 스냅샷만 지원됩니다.    <br><br>   지원 되는 Linux 배포 및 버전의 전체 목록은 [Azure에서 보증 배포의 Linux](../virtual-machines/linux/endorsed-distros.md)문서를 참조 하세요. |
 
 ## <a name="azure-expressroute-support"></a>Azure Express 경로 지원
 

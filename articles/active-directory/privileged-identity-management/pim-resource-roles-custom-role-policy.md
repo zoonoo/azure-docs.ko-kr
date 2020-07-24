@@ -1,6 +1,6 @@
 ---
-title: PIM에서 Azure 리소스에 대 한 사용자 지정 역할 사용-Azure AD | Microsoft Docs
-description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스에 사용자 지정 역할을 사용하는 방법을 알아봅니다.
+title: PIM에서 Azure 사용자 지정 역할 사용-Azure AD | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure 사용자 지정 역할을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,14 +14,14 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa51508746d0024be0a5acfaeeac62e86db67d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743748"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034102"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스에 대 한 사용자 지정 역할 사용
+# <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 사용자 지정 역할 사용
 
 Azure Active Directory (Azure AD) 조직에서 권한 있는 역할의 일부 사용자에 게 PIM (strict Privileged Identity Management) 설정을 적용 하 고 다른 사용자에 게 더 많은 자율성을 제공 해야 할 수 있습니다. 예를 들어 조직에서 여러 계약을 고용 하 여 Azure 구독에서 실행 되는 응용 프로그램을 개발 하는 데 도움이 되는 시나리오를 고려해 보세요.
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) 조직에서 권한 있는 역할의 일부 �
 
 ## <a name="create-the-custom-role"></a>사용자 지정 역할 만들기
 
-리소스에 대한 사용자 지정 역할을 만들려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../role-based-access-control-custom-roles.md)에 설명된 단계를 따릅니다.
+리소스에 대 한 사용자 지정 역할을 만들려면 [Azure 사용자 지정 역할](../role-based-access-control-custom-roles.md)에 설명 된 단계를 수행 합니다.
 
 사용자 지정 역할을 만들 때 복제하려는 기본 제공 역할을 쉽게 기억할 수 있도록 설명이 포함된 이름을 사용합니다.
 

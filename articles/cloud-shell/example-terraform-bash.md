@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-terraform
+ms.openlocfilehash: e13e6d9ac2f4600e41f221efd23997f712dffc54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79458157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032088"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
 이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다.

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e40b74cc5bf995e943b20ddcd21127ed4f7d7ead
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5393ba1b7c604ef49cee83f759ed798cfc473417
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032836"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -21,13 +21,13 @@ ms.locfileid: "86184194"
 
 ### <a name="basic-troubleshooting"></a>기본 문제 해결
 
-* VM 에이전트(WA 에이전트)가 [최신 버전](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)인지 확인합니다.
-* Windows 또는 Linux VM OS 버전이 지원되는지 확인합니다. [IaaS VM Backup 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)를 참조하세요.
+* VM 에이전트(WA 에이전트)가 [최신 버전](./backup-azure-arm-vms-prepare.md#install-the-vm-agent)인지 확인합니다.
+* Windows 또는 Linux VM OS 버전이 지원되는지 확인합니다. [IaaS VM Backup 지원 매트릭스](./backup-support-matrix-iaas.md)를 참조하세요.
 * 다른 백업 서비스가 실행되고 있지 않은지 확인합니다.
-  * 스냅샷 확장 문제가 없는지 확인하려면 [확장 프로그램을 제거하여 강제로 다시 로드한 다음, 백업을 다시 시도해보세요](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
+  * 스냅샷 확장 문제가 없는지 확인하려면 [확장 프로그램을 제거하여 강제로 다시 로드한 다음, 백업을 다시 시도해보세요](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * VM이 인터넷에 연결되어 있는지 확인합니다.
   * 다른 백업 서비스가 실행되고 있지 않은지 확인합니다.
-* `Services.msc`에서 **Windows Azure 게스트 에이전트** 서비스가 **실행 중**인지 확인합니다. **Windows Azure 게스트 에이전트** 서비스가 없는 경우 [Recovery Services 자격 증명 모음에 Azure VM 백업](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)에서 설치합니다.
+* `Services.msc`에서 **Windows Azure 게스트 에이전트** 서비스가 **실행 중**인지 확인합니다. **Windows Azure 게스트 에이전트** 서비스가 없는 경우 [Recovery Services 자격 증명 모음에 Azure VM 백업](./backup-azure-arm-vms-prepare.md#install-the-vm-agent)에서 설치합니다.
 * **이벤트 로그**에는 다른 백업 제품의 백업 오류(예: Windows Server 백업)가 표시될 수 있으며, Azure 백업으로 인한 것이 아닙니다. 다음 단계를 사용하여 문제가 Azure Backup에 있는지 여부를 확인합니다.
   * 이벤트 원본 또는 메시지에 항목 **Backup**에 대한 오류가 있는 경우 Azure IaaS VM Backup 백업이 성공했는지 확인하고, 원하는 스냅샷 유형으로 복원 지점을 만들었는지 여부를 확인합니다.
   * Azure Backup이 작동하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
@@ -133,7 +133,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
    * 읽기 권한
 2. **발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.
 
-   * [로컬 머신 콘솔에서 인증서를 엽니다](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
+   * [로컬 머신 콘솔에서 인증서를 엽니다](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * **개인** > **인증서**에서 **발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.
 3. VM 백업 작업을 트리거합니다.
 
@@ -237,7 +237,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 ## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy-VM에 스냅숏 작업을 방해 하는 잘못 된 정책이 구성 되어 있습니다.
 오류 코드:  UserErrorRequestDisallowedByPolicy <BR> 오류 메시지: 스냅샷 작업을 차단하는 VM에서 잘못된 정책이 구성되었습니다.
 
-[환경 내에서 태그를 제어](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)하는 Azure Policy가 있는 경우 [거부 효과](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny)에서 [수정 효과](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)로 정책을 변경하거나 [Azure Backup에 필요한 명명 스키마](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines)에 따라 리소스 그룹을 수동으로 만드는 것이 좋습니다.
+[환경 내에서 태그를 제어](../governance/policy/tutorials/govern-tags.md)하는 Azure Policy가 있는 경우 [거부 효과](../governance/policy/concepts/effects.md#deny)에서 [수정 효과](../governance/policy/concepts/effects.md#modify)로 정책을 변경하거나 [Azure Backup에 필요한 명명 스키마](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines)에 따라 리소스 그룹을 수동으로 만드는 것이 좋습니다.
 
 ## <a name="jobs"></a>작업
 
@@ -254,13 +254,13 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 | --- | --- |
 | 클라우드 내부 오류로 인해 복원이 실패했습니다. |<ol><li>복원하려는 클라우드 서비스가 DNS 설정을 사용하여 구성되었습니다. 다음을 확인할 수 있습니다. <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>**주소**가 구성된 경우 DNS 설정이 구성되었습니다.<br> <li>복원하려는 클라우드 서비스가 **ReservedIP**를 사용하여 구성되고, 클라우드 서비스의 기존 VM이 중단된 상태에 있습니다. 다음 PowerShell cmdlet: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**을 사용하여 클라우드 서비스가 IP를 예약했는지 확인합니다. <br><li>동일한 클라우드 서비스에 다음과 같이 특수한 네트워크 구성을 사용하여 가상 머신을 복원하려고 시도하고 있습니다. <ul><li>부하 분산 장치 구성의 가상 머신, 내부 및 외부<li>여러 개의 예약된 IP를 사용하는 가상 머신 <li>여러 NIC가 있는 가상 머신 </ul><li>특수한 네트워크 구성을 가진 VM의 경우 [복원 고려 사항](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)을 참조하거나 UI에서 새 클라우드 서비스를 선택하세요</ol> |
 | 선택된 DNS 이름이 이미 사용 중입니다. <br>다른 DNS 이름을 지정하고 다시 시도합니다. |이 DNS 이름은 클라우드 서비스 이름을 가리킵니다. 일반적으로 **.cloudapp.net**으로 끝납니다. 이 이름은 고유해야 합니다. 이 오류가 발생하는 경우 복원하는 동안 다른 VM 이름을 선택해야 합니다. <br><br> 이 오류는 Azure 포털의 사용자에게만 표시됩니다. PowerShell 통한 복원 작업은 디스크만 복원하고 VM을 만들지 않기 때문에 성공합니다. 디스크 복원 작업 후 사용자가 명시적으로 VM를 만들 경우 오류가 발생합니다. |
-| 지정된 가상 네트워크 구성이 올바르지 않습니다. <br>다른 가상 네트워크 구성을 지정하고 다시 시도합니다. |없음 |
-| 지정된 클라우드 서비스에서 복원 중인 가상 머신의 구성과 일치하지 않는 예약된 IP를 사용하고 있습니다. <br>예약된 IP를 사용하지 않는 다른 클라우드 서비스를 지정합니다. 또는 복원할 다른 복구 지점을 선택합니다. |없음 |
-| 클라우드 서비스가 입력 엔드포인트 수의 한계에 도달했습니다. <br>다른 클라우드 서비스를 지정하거나 기존 엔드포인트를 사용하여 작업을 다시 시도합니다. |없음 |
-| Recovery Services 자격 증명 모음 및 대상 스토리지 계정이 서로 다른 두 지역에 있습니다. <br>복원 작업에서 지정된 스토리지 계정이 Recovery Services 자격 증명 모음과 동일한 Azure 지역에 있는지 확인합니다. |없음 |
-| 복원 작업에 지정된 스토리지 계정이 지원되지 않습니다. <br>로컬 중복 또는 지역 중복 복제 설정이 있는 기본 또는 표준 스토리지 계정만 지원됩니다. 지원되는 스토리지 계정을 선택합니다. |없음 |
+| 지정된 가상 네트워크 구성이 올바르지 않습니다. <br>다른 가상 네트워크 구성을 지정하고 다시 시도합니다. |None |
+| 지정된 클라우드 서비스에서 복원 중인 가상 머신의 구성과 일치하지 않는 예약된 IP를 사용하고 있습니다. <br>예약된 IP를 사용하지 않는 다른 클라우드 서비스를 지정합니다. 또는 복원할 다른 복구 지점을 선택합니다. |None |
+| 클라우드 서비스가 입력 엔드포인트 수의 한계에 도달했습니다. <br>다른 클라우드 서비스를 지정하거나 기존 엔드포인트를 사용하여 작업을 다시 시도합니다. |None |
+| Recovery Services 자격 증명 모음 및 대상 스토리지 계정이 서로 다른 두 지역에 있습니다. <br>복원 작업에서 지정된 스토리지 계정이 Recovery Services 자격 증명 모음과 동일한 Azure 지역에 있는지 확인합니다. |None |
+| 복원 작업에 지정된 스토리지 계정이 지원되지 않습니다. <br>로컬 중복 또는 지역 중복 복제 설정이 있는 기본 또는 표준 스토리지 계정만 지원됩니다. 지원되는 스토리지 계정을 선택합니다. |None |
 | 복원 작업에 지정된 스토리지 계정의 유형이 온라인 상태에 있지 않습니다. <br>복원 작업에 지정된 스토리지 계정이 온라인 상태에 있는지 확인합니다. |이 오류는 Azure Storage의 일시적인 오류 또는 가동 중지로 인해 발생할 수 있습니다. 다른 스토리지 계정을 선택하세요. |
-| 리소스 그룹 할당량에 도달했습니다. <br>Azure Portal의 일부 리소스 그룹을 삭제하거나 Azure 지원에 문의하여 제한을 늘립니다. |없음 |
+| 리소스 그룹 할당량에 도달했습니다. <br>Azure Portal의 일부 리소스 그룹을 삭제하거나 Azure 지원에 문의하여 제한을 늘립니다. |None |
 | 선택한 서브넷이 존재하지 않습니다. <br>존재하는 서브넷을 선택합니다. |None |
 | Backup 서비스에 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |이 오류를 해결하려면 먼저 [백업된 디스크 복원](backup-azure-arm-restore-vms.md#restore-disks)의 단계를 사용하여 디스크를 복원합니다. 그런 다음, [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#restore-an-azure-vm)의 PowerShell 단계를 사용합니다. |
 
@@ -277,12 +277,12 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 #### <a name="windows-vms"></a>Windows VM
 
 * [에이전트 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다.
-* 클래식 배포 모델을 사용하여 생성된 가상 머신의 경우 [VM 속성을 업데이트](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms)하여 에이전트가 설치되었다고 표시합니다. Azure Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
+* 클래식 배포 모델을 사용하여 생성된 가상 머신의 경우 [VM 속성을 업데이트](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms)하여 에이전트가 설치되었다고 표시합니다. Azure Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
 
 #### <a name="linux-vms"></a>Linux VM
 
 * 배포 리포지토리에서 최신 버전의 에이전트를 설치합니다. 패키지 이름에 대한 자세한 내용은 [Linux 에이전트 리포지토리](https://github.com/Azure/WALinuxAgent)를 참조하세요.
-* 클래식 배포 모델을 사용하여 생성된 VM의 경우 [VM 속성을 업데이트](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms)하고 에이전트가 설치되어 있는지 확인합니다. Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
+* 클래식 배포 모델을 사용하여 생성된 VM의 경우 [VM 속성을 업데이트](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms)하고 에이전트가 설치되어 있는지 확인합니다. Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
 
 ### <a name="update-the-vm-agent"></a>VM 에이전트 업데이트
 
@@ -292,7 +292,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 
 #### <a name="linux-vms"></a>Linux VM
 
-* Linux VM 에이전트를 업데이트하려면 [Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따릅니다.
+* Linux VM 에이전트를 업데이트하려면 [Linux VM 에이전트 업데이트](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json) 문서의 지침을 따릅니다.
 
     > [!NOTE]
     > 항상 배포 리포지토리를 사용하여 에이전트를 업데이트합니다.
@@ -326,5 +326,5 @@ VM 백업은 기본 스토리지에 대한 스냅샷 명령 실행을 사용합�
 IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. 고정 프라이빗 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성합니다. VM 내 DHCP 옵션이 활성화되었는지 확인합니다.
 PowerShell을 통해 고정 IP를 설정하는 방법에 대한 자세한 정보를 가져옵니다.
 
-* [기존 VM에 고정 내부 IP를 추가하는 방법](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
+* [기존 VM에 고정 내부 IP를 추가하는 방법](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)

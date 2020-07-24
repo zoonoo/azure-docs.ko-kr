@@ -4,11 +4,12 @@ description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) v3의 알�
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032564"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 
@@ -53,13 +54,13 @@ ms.locfileid: "84629152"
 
 **해결 방법:** 다음 단계에 따라 러시아어 설치 패키지를 사용하여 MABS V3으로 업그레이드합니다.
 
-1. SQL 데이터베이스를 [백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure)하고, MABS V2를 제거합니다(제거하는 동안 보호된 데이터를 유지하도록 선택함).
+1. SQL 데이터베이스를 [백업](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server#SSMSProcedure)하고, MABS V2를 제거합니다(제거하는 동안 보호된 데이터를 유지하도록 선택함).
 2. SQL 2017(Enterprise)로 업그레이드하고, 업그레이드의 일환으로 보고를 제거합니다.
-3. SSRS(SQL Server Reporting Services)를 [설치](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server)합니다.
-4. SSMS(SQL Server Management Studio)를 [설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
-5. [SQL 2017에서 SSRS 구성](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs)에서 설명한 대로 매개 변수를 사용하여 보고를 구성합니다.
+3. [설치](/sql/reporting-services/install-windows/install-reporting-services#install-your-report-server) SQL Server Reporting Services (SSRS).
+4. SSMS(SQL Server Management Studio)를 [설치](/sql/ssms/download-sql-server-management-studio-ssms)합니다.
+5. [SQL 2017에서 SSRS 구성](./backup-azure-microsoft-azure-backup.md#upgrade-mabs)에서 설명한 대로 매개 변수를 사용하여 보고를 구성합니다.
 6. MABS V3을 [설치](backup-azure-microsoft-azure-backup.md)합니다.
-7. SSMS를 사용하여 SQL을 [복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017)하고, [여기](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync)서 설명한 대로 DPM 동기화 도구를 실행합니다.
+7. SSMS를 사용하여 SQL을 [복원](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)하고, [여기](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync)서 설명한 대로 DPM 동기화 도구를 실행합니다.
 8. 다음 명령을 사용하여 dbo.tbl_DLS_GlobalSetting 테이블의 'DataBaseVersion' 속성을 업데이트합니다.
 
     ```sql
@@ -96,7 +97,7 @@ ms.locfileid: "84629152"
 
     최신 보고서 파일은 경로에서 찾을 수 있습니다.`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
-    예: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    예를 들면 다음과 같습니다. `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     ![최신 보고서 파일로 파일 바꾸기](./media/backup-mabs-release-notes-v3/replace-files.png)
 

@@ -9,11 +9,12 @@ ms.topic: how-to
 author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
-ms.openlocfilehash: 317c771daca146660c62eb0cba14facc701b1b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 907347b2e594b93cd74dd3d2594a6557f123e350
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430161"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030915"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning을 사용한 실험 실행 및 메트릭 시각화
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +114,7 @@ os.environ["TEST_TMPDIR"] = data_dir
 
 # Writing logs to ./logs results in their being uploaded to Artifact Service,
 # and thus, made accessible to our TensorBoard instance.
-arguments_list = ["--log_dir", logs_dir]
+script_params = ["--log_dir", logs_dir]
 
 # Create an experiment
 exp = Experiment(ws, experiment_name)
@@ -147,13 +148,14 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ### <a name="submit-run-with-tensorflow-estimator"></a>TensorFlow 예측 도구로 실행 제출
 
 TensorFlow 예측 도구는 컴퓨팅 대상에서 TensorFlow 학습 작업을 시작하는 간단한 방법을 제공합니다. 모든 프레임워크를 지원하는 데 사용할 수 있는 제네릭 [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 클래스를 통해 구현됩니다. 일반 예측 도구를 사용하는 학습 모델에 대한 자세한 내용은 [예측 도구를 사용하여 Azure Machine Learning에서 모델 학습](how-to-train-ml-models.md)을 참조하세요.
 
 ```Python
 from azureml.train.dnn import TensorFlow
-script_params = {"--log_dir": "./logs"}
 
 tf_estimator = TensorFlow(source_directory=exp_dir,
                           compute_target=compute_target,

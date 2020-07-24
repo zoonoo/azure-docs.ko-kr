@@ -6,17 +6,19 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 6c7ed01cb0af164531fbee99fe0d71246c47d6f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471033"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037239"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 스테이징 환경 설정
 
 이 문서에서는 Azure 스프링 클라우드의 파랑-녹색 배포 패턴을 사용 하 여 스테이징 배포를 설정 하는 방법을 설명 합니다. 파란색/녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps 지속적인 업데이트 패턴입니다. 이 문서에서는 프로덕션 배포를 직접 변경 하지 않고 스테이징 배포를 프로덕션 환경에 배치 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 [Azure 스프링 클라우드 응용 프로그램을 시작 하는 방법에 대 한 자습서](spring-cloud-quickstart-launch-app-portal.md)에서 PiggyMetrics 응용 프로그램을 이미 배포 했다고 가정 합니다. PiggyMetrics는 "게이트웨이", "계정-서비스" 및 "인증 서비스"의 세 가지 응용 프로그램으로 구성 됩니다.  
 

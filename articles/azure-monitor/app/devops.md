@@ -3,11 +3,12 @@ title: 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: devOps 주기에 Application Insights를 적용하는 방법
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669695"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033685"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -109,7 +110,7 @@ Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 �
 ![애플리케이션 맵](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights 분석
-[Analytics](../../azure-monitor/app/analytics.md)를 사용하면 SQL과 유사한 강력한 언어로 임의의 쿼리를 작성할 수 있습니다.  다양한 관점을 연결하고 서비스 성능과 비즈니스 메트릭, 고객 경험을 연관시킬 수 있는 올바른 질문을 던질 수 있으므로 전체 앱 스택 진단이 손쉬워집니다. 
+[Analytics](../log-query/log-query-overview.md)를 사용하면 SQL과 유사한 강력한 언어로 임의의 쿼리를 작성할 수 있습니다.  다양한 관점을 연결하고 서비스 성능과 비즈니스 메트릭, 고객 경험을 연관시킬 수 있는 올바른 질문을 던질 수 있으므로 전체 앱 스택 진단이 손쉬워집니다. 
 
 포털에 저장된 모든 원격 분석 인스턴스와 메트릭 원시 데이터를 쿼리할 수 있습니다. 언어에는 필터, 조인, 집계 및 기타 연산자가 포함됩니다. 필드 계산과 통계 분석도 수행할 수 있습니다. 테이블 형식 및 그래픽 시각화가 모두 들어 있습니다.
 
@@ -159,4 +160,3 @@ Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 * [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)및 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)에 대 한도 있습니다.
 * 개발 중에 프로젝트를 계측합니다. [ASP.NET](../../azure-monitor/app/asp-net.md) 또는 [Java](../../azure-monitor/app/java-get-started.md) 앱, [Node.js](../../azure-monitor/app/nodejs.md), 여러 가지 [기타 유형](../../azure-monitor/app/platforms.md) 호스트에 적용할 수 있습니다. 
 * 짧은 코드 조각을 추가하여 [아무 웹 페이지](../../azure-monitor/app/javascript.md) 나 계측합니다.
-

@@ -3,12 +3,12 @@ title: Azure Service Bus-메시징 엔터티 일시 중단
 description: 이 문서에서는 Azure Service Bus 메시지 엔터티 (큐, 토픽 및 구독)를 일시적으로 일시 중단 하 고 다시 활성화 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038140"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
 
@@ -20,7 +20,7 @@ ms.locfileid: "85340006"
 
 포털에서 해당 엔터티에 대 한 **속성** 섹션을 통해 상태를 변경할 수 있습니다. 다음 스크린샷은 큐에 대 한 토글을 보여 줍니다.
 
-![][1]
+![속성 설정이 강조 표시 되 고 큐 상태 옵션이 활성으로 설정 되 고 빨간색으로 표시 된 Service Bus 기능의 스크린샷][1]
 
 포털에서는 큐를 완전히 사용하지 않도록 설정하는 것만 허용합니다. .NET Framework SDK의 Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API를 사용하거나 Azure CLI 또는 Azure PowerShell을 통해 Azure Resource Manager 템플릿을 사용하여 송신 및 수신 작업을 별도로 사용하지 않도록 설정할 수도 있습니다.
 

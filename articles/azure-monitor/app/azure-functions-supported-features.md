@@ -6,11 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033516"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
@@ -22,7 +23,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure 기능                       | V1                | V2 & V3   | 
+| Azure Functions                       | V1                | V2 & V3   | 
 |-----------------------------------    |---------------    |------------------ |
 | | | | 
 | **자동 컬렉션**        |                 |                   |               
@@ -41,11 +42,11 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 | &bull; 샘플링                     | 예             | 예               | 
 | &bull; 하트비트                   |                 | 예               | 
 | | | | 
-| **Correlation**                       |                   |                   |               
+| **Correlation**(상관 관계)                       |                   |                   |               
 | &bull; ServiceBus                     |                   | 예               | 
 | &bull; EventHub                       |                   | 예               | 
 | | | | 
-| **구성 가능 여부**                      |                   |                   |           
+| **구성 가능**                      |                   |                   |           
 | &bull;완전히 구성 가능합니다.<br/>지침을 보려면 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)를 참조하세요.<br/>모든 옵션에 대해서는 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)를 참조하세요.               |                   | 예                   | 
 
 
@@ -56,11 +57,11 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="live-metrics--secure-control-channel"></a>라이브 메트릭 및 컨트롤 채널 보호
 
-지정한 사용자 지정 필터 조건이 Application Insights SDK의 라이브 메트릭 구성 요소에 다시 전송됩니다. 필터는 customerid와 같은 잠재적으로 중요한 정보를 포함할 수 있습니다. 비밀 API 키를 사용해 채널 보안을 유지할 수 있습니다. 해당 지침은 [컨트롤 채널 보호](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel)를 참조하세요.
+지정한 사용자 지정 필터 조건이 Application Insights SDK의 라이브 메트릭 구성 요소에 다시 전송됩니다. 필터는 customerid와 같은 잠재적으로 중요한 정보를 포함할 수 있습니다. 비밀 API 키를 사용해 채널 보안을 유지할 수 있습니다. 해당 지침은 [컨트롤 채널 보호](./live-stream.md#secure-the-control-channel)를 참조하세요.
 
 ## <a name="sampling"></a>샘플링
 
-Azure Functions를 사용하면 기본적으로 구성에서 샘플링을 사용하도록 설정할 수 있습니다. 자세한 내용은 [샘플링 구성](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling)을 참조하세요.
+Azure Functions를 사용하면 기본적으로 구성에서 샘플링을 사용하도록 설정할 수 있습니다. 자세한 내용은 [샘플링 구성](../../azure-functions/functions-monitoring.md#configure-sampling)을 참조하세요.
 
 프로젝트에서 Application Insights SDK에 대 한 종속성을 사용 하 여 수동 원격 분석 추적을 수행 하는 경우 샘플링 구성이 함수의 샘플링 구성과 다를 경우 이상한 동작이 발생할 수 있습니다. 
 

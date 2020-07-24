@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/27/2020
+ms.date: 07/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10b9e055ce5b1e2ba27d942a987bf6b38291f094
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031425"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Azure Machine Learning 용 Azure 방화벽 뒤에 작업 영역 사용
 
@@ -61,6 +62,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 | ---- | ---- |
 | **anaconda.com** | Conda 패키지를 설치할 때 사용 됩니다. |
 | **pypi.org** | Pip 패키지를 설치할 때 사용 됩니다. |
+
 
 ## <a name="r-hosts"></a>R 호스트
 

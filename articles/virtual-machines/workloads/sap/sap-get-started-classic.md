@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: 9525f339861b5de8dc22da753f7c36dcc6eede8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ceeb20b138307b40fcd6f8c03d614fc3e811473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70078984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035777"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에서 SAP 사용
 클라우드 컴퓨팅은 중소 기업에서 대기업 및 다국적 기업까지 IT 업계 내에서 점점 더 중요해지는 널리 사용되는 용어입니다. Microsoft Azure는 다양한 새로운 가능성을 제공하는 Microsoft의 Cloud Services 플랫폼입니다. 이제 고객은 클라우드 서비스로 애플리케이션을 신속하게 프로비전 및 프로비전 해제할 수 있으므로 기술 또는 예산 제한에 제한되지 않습니다. 하드웨어 인프라에 시간과 예산을 투자하는 대신 기업은 고객 및 사용자를 위한 애플리케이션, 비즈니스 프로세스 및 그 이점에 집중할 수 있습니다.
 
-Microsoft는 Microsoft Azure 가상 머신과 함께 포괄적인 IaaS(Infrastructure as a Service) 플랫폼을 제공합니다. SAP NetWeaver 기반 애플리케이션은 Azure Virtual Machines(IaaS)에서 지원됩니다. 아래 백서는 Azure의 Windows 가상 머신에서 SAP NetWeaver 기반 애플리케이션을 계획하고 구현하는 방법에 대해 설명합니다. [Windows 가상 머신](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에서 SAP NetWeaver 기반 애플리케이션을 구현할 수도 있습니다.
+Microsoft는 Microsoft Azure 가상 머신과 함께 포괄적인 IaaS(Infrastructure as a Service) 플랫폼을 제공합니다. SAP NetWeaver 기반 애플리케이션은 Azure Virtual Machines(IaaS)에서 지원됩니다. 아래 백서는 Azure의 Windows 가상 머신에서 SAP NetWeaver 기반 애플리케이션을 계획하고 구현하는 방법에 대해 설명합니다. [Windows 가상 머신](./get-started.md?toc=/azure/virtual-machines/windows/classic/toc.json)에서 SAP NetWeaver 기반 애플리케이션을 구현할 수도 있습니다.
 
 [!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
@@ -36,5 +36,4 @@ Microsoft는 Microsoft Azure 가상 머신과 함께 포괄적인 IaaS(Infrastru
 
 업데이트한 날짜: 2015년 12월
 
-[이 문서는 여기서 확인할 수 있습니다.](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+[이 문서는 여기서 확인할 수 있습니다.](./sap-deployment-checklist.md?toc=/azure/virtual-machines/linux/toc.json)

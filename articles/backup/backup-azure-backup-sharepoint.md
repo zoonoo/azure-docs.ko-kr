@@ -3,12 +3,12 @@ title: DPM을 사용 하 여 Azure에 SharePoint 팜 백업
 description: 이 문서는 Azure에 대한 SharePoint 팜 DPM/Azure Backup 서버 보호에 관한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032887"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>DPM을 사용 하 여 Azure에 SharePoint 팜 백업
 
@@ -24,7 +24,7 @@ DPM을 사용 하 여 SharePoint를 Azure에 백업 하는 작업은 SharePoint�
 
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
-### <a name="prerequisites"></a>사전 준비 사항
+### <a name="prerequisites"></a>필수 조건
 
 진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
 
@@ -32,7 +32,7 @@ SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니
 
 ## <a name="configure-backup"></a>백업 구성
 
-SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 SharePoint 보호를 구성한 다음 DPM에서 보호 그룹을 만듭니다. 지침은 DPM 설명서의 [백업 구성](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) 을 참조 하세요.
+SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 SharePoint 보호를 구성한 다음 DPM에서 보호 그룹을 만듭니다. 지침은 DPM 설명서의 [백업 구성](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) 을 참조 하세요.
 
 ## <a name="monitoring"></a>모니터링
 

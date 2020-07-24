@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: df80113b85153f4e52bcbefa7b33dab9da296173
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f78d5f839c5dd7816ae28eeed175503427abb43c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035845"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
 
-SAP와 Microsoft는 고객에게 상호 혜택을 주는 강력한 파트너 관계 속에서 장기간 함께 협력해 왔습니다. Microsoft는 Microsoft Azure가 SAP 작업을 실행할 최상의 플랫폼이 되도록 하기 위해 지속적으로 플랫폼을 업데이트하고 SAP에 새로운 인증 세부 정보를 제출하고 있습니다. 다음 표에서는 지원되는 Azure 구성 및 증가하는 SAP 인증 목록을 간략히 설명합니다. 이 목록은 여기에서 확인할 수 있는 개요 목록과 공식 SAP 목록에서 확인할 수 있습니다. 자세한 데이터를 가져오는 방법은 [Azure 배포에 대해 지원 되는 SAP 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) 문서에 설명 되어 있습니다.
+SAP와 Microsoft는 고객에게 상호 혜택을 주는 강력한 파트너 관계 속에서 장기간 함께 협력해 왔습니다. Microsoft는 Microsoft Azure가 SAP 작업을 실행할 최상의 플랫폼이 되도록 하기 위해 지속적으로 플랫폼을 업데이트하고 SAP에 새로운 인증 세부 정보를 제출하고 있습니다. 다음 표에서는 지원되는 Azure 구성 및 증가하는 SAP 인증 목록을 간략히 설명합니다. 이 목록은 여기에서 확인할 수 있는 개요 목록과 공식 SAP 목록에서 확인할 수 있습니다. 자세한 데이터를 가져오는 방법은 [Azure 배포에 대해 지원 되는 SAP 소프트웨어](./sap-supported-product-on-azure.md) 문서에 설명 되어 있습니다.
 
 ## <a name="sap-hana-certifications"></a>SAP HANA 인증
 참조:
@@ -54,7 +54,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 | --- | --- | --- | --- |
 | SAP Business Suite 소프트웨어 | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
 | SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
-| SAP BusinessObjects BI | Windows |해당 없음 |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
+| SAP BusinessObjects BI | Windows |N/A |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
 | SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5에서 A11, D14, DS11, DS14, DS11_v2 DS15_v2, GS1 to GS5, D64s_v3 D2s_v3 D2as_v4 D64as_v4, E2s_v3 E64s_v3 E2as_v4, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, E64as_v4, M208s_v2, M208ms_v2, M416s_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Azure에서 지원되는 다른 SAP 워크로드

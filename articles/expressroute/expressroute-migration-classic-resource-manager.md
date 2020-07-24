@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 85b0fdd56b51a89cfbf88fac58aec4cb2f110142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7be7ce55e527d76abee0118a762c0ca666f9bdb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031697"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute에 연결된 가상 네트워크를 클래식에서 Resource Manager로 마이그레이션
 
@@ -22,16 +22,16 @@ ms.locfileid: "84738892"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* 최신 버전의 Azure PowerShell 모듈이 있는지 확인 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/overview)을 참조 하세요. PowerShell 서비스 관리 모듈 (클래식 배포 모델에 필요 함)을 설치 하려면 [Azure PowerShell 서비스 관리 모듈 설치](/powershell/azure/servicemanagement/install-azure-ps)를 참조 하세요.
+* 최신 버전의 Azure PowerShell 모듈이 있는지 확인 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/)을 참조하세요. PowerShell 서비스 관리 모듈 (클래식 배포 모델에 필요 함)을 설치 하려면 [Azure PowerShell 서비스 관리 모듈 설치](/powershell/azure/servicemanagement/install-azure-ps)를 참조 하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
 * [클래식에서 Resource Manager로 ExpressRoute 회로 이동](expressroute-move.md)에서 제공되는 정보를 검토합니다. 제한 및 제한 사항을 완전히 이해해야 합니다.
 * 클래식 배포 모델에서 회로가 완벽하게 작동되는지 확인합니다.
 * 리소스 관리자 배포 모델에 만든 리소스 그룹이 있는지 확인합니다.
 * 다음 리소스 마이그레이션 설명서를 검토합니다.
 
-    * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-    * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-    * [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+    * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+    * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+    * [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-faq.md)
     * [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>지원되는 및 지원되지 않는 시나리오
@@ -82,7 +82,7 @@ ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 Ex
    ```
 
 ## <a name="next-steps"></a>다음 단계
-* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-* [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-* [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+* [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+* [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-faq.md)
 * [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

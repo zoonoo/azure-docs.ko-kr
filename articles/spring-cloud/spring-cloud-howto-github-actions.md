@@ -6,18 +6,19 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: e17fa3e99de9f429fa279ba2e5413b60e9084de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 960e480bc3271a24f1fa898e1af6c55bcaaada7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125705"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037562"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
 
 GitHub 작업은 자동화 된 소프트웨어 개발 수명 주기 워크플로를 지원 합니다. Azure 스프링 클라우드의 GitHub 작업을 사용 하 여 Azure에 빌드, 테스트, 패키지, 릴리스 및 배포를 위해 리포지토리에 워크플로를 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 예에서는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)필요 합니다.
 
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증

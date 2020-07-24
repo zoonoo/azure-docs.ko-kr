@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4815e51d22501d6110f3bc26a878513d6d700ce7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202609"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031289"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -212,26 +212,26 @@ autoML이 교차 유효성 검사를 적용하여 [과잉 맞춤 모델을 방�
 시계열 `forecasting` 작업에는 다음과 같은 구성 개체의 추가 매개 변수가 필요합니다.
 
 1. `time_column_name`: 유효한 시계열을 포함하는 학습 데이터의 열 이름을 정의하는 필수 매개 변수입니다.
-1. `max_horizon`: 학습 데이터의 주기를 기준으로 예측하려는 시간의 길이를 정의합니다. 예를 들어 하루 시간 세분화가 적용된 학습 데이터가 있는 경우 모델을 하루 중 몇 시까지 학습시킬 것인지 정의합니다.
-1. `grain_column_names`: 학습 데이터의 개별 시계열 데이터를 포함하는 열 이름을 정의합니다. 예를 들어 특정 브랜드의 매장별 판매량을 예측하려는 경우 매장 및 브랜드 열을 세분화 열로 정의합니다. 각 세분화/그룹화에 대한 별도의 시계열 및 예측이 생성됩니다. 
+1. `forecast_horizon`: 예측 하려는 기간을 정의 합니다. 정수 가로선은 시계열 frequency의 단위입니다. 예를 들어 일별 빈도로 학습 데이터가 있는 경우 모델을 학습 하는 데 사용할 일 수를 정의 합니다.
+1. `time_series_id_column_names`: 타임 스탬프를 사용 하는 여러 행이 있는 데이터의 시계열을 고유 하 게 식별 하는 열을 정의 합니다. 예를 들어 매장에서 특정 브랜드의 판매를 예측 하는 경우 매장 및 브랜드 열을 시계열 식별자로 정의 합니다. 각 그룹화에 대해 별도의 예측이 생성 됩니다. 시계열 식별자가 정의 되지 않은 경우 데이터 집합은 하나의 시계열으로 간주 됩니다.
 
 아래에 사용되는 설정의 예제는 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)을 참조하세요.
 
 ```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
+# Setting Store and Brand as time series identifiers for training.
+time_series_id_column_names = ['Store', 'Brand']
+nseries = data.groupby(time_series_id_column_names).ngroups
 
-# View the number of time series data with defined grains
+# View the number of time series data with defined time series identifiers
 print('Data contains {0} individual time-series.'.format(nseries))
 ```
 
 ```python
 time_series_settings = {
     'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
+    'time_series_id_column_names': time_series_id_column_names,
     'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
+    'forecast_horizon': n_test_periods
 }
 
 automl_config = AutoMLConfig(task = 'forecasting',

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04fcae1ba218949019637e9a101492a487b430f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27adde84f62f8c8d79389e1de4e867439d5a3be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034740"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -3323,7 +3323,7 @@ Azure AD 디렉터리 역할의 승인 워크플로가 일반 공급됩니다.
 
 **유형:** 변경된 기능 **서비스 범주:** Privileged Identity Management **제품 기능:** Privileged Identity Management
 
-Azure RBAC(Role-Based Access Control)에 대한 Azure AD PIM(Privileged Identity Management)의 공개 미리 보기 새로 고침으로 다음을 수행할 수 있습니다.
+Azure RBAC (역할 기반 액세스 제어)에 대 한 PIM (Azure AD Privileged Identity Management)의 공개 미리 보기 새로 고침을 사용 하 여 이제 다음을 수행할 수 있습니다.
 
 * Just Enough Administration을 사용할 수 있습니다.
 * 리소스 역할을 활성화하기 위한 승인을 요청할 수 있습니다.

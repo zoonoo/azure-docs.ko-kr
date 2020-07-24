@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038446"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>MES(Media Encoder Standard)에 대한 샘플 미리 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "61463406"
 Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. 인코딩 미리 설정을 사용자 지정해야 하는 경우 이 섹션에 제공된 시스템 미리 설정 중 하나를 사용자 지정 구성에 대한 템플릿으로 사용해야 합니다. 미리 설정에 포함된 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md) 항목을 참조하세요.  
   
 > [!NOTE]
->  4k 인코드에 대한 미리 설정을 사용하는 경우 `S3` 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [Encoding 크기를 조정하는 방법](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)을 참조하세요.  
+>  4k 인코드에 대한 미리 설정을 사용하는 경우 `S3` 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [Encoding 크기를 조정하는 방법](./media-services-scale-media-processing-overview.md)을 참조하세요.  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>미리 설정의 비디오 회전 기본 설정:
 Media Encoder Standard로 작업할 때 기본적으로 비디오 회전이 사용됩니다. 비디오를 세로 모드의 모바일 디바이스로 녹화한 경우 이러한 미리 설정에 따라 인코딩 전에 비디오가 가로 모드로 회전됩니다.
@@ -86,4 +86,4 @@ Media Encoder Standard로 작업할 때 기본적으로 비디오 회전이 사�
   
  [Android용 H264 단일 비트 전송 저품질 SD](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)는 스테레오 AAC 오디오 및 비트 전송률이 56kbps인 단일 MP4 파일을 생성합니다.  
   
- Media Services 인코더와 관련된 자세한 내용은 [Azure Media Services를 사용하여 주문형 Encoding](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/)을 참조하세요.
+ Media Services 인코더와 관련된 자세한 내용은 [Azure Media Services를 사용하여 주문형 Encoding](./media-services-encode-asset.md)을 참조하세요.

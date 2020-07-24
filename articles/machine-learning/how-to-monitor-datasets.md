@@ -10,15 +10,19 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e0f1765f9f91824f716cb70f591ce6b178c4563
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7ee9d37b19d4796f826fbd9831f6e84a92a12e7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031187"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>데이터 집합에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!IMPORTANT]
+> 데이터 집합에서 데이터 드리프트를 검색 하는 것은 현재 공개 미리 보기 상태입니다.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 드리프트가 높을 때 데이터 드리프트를 모니터링 하 고 경고를 설정 하는 방법을 알아봅니다.  
 
@@ -36,7 +40,7 @@ Python SDK 또는 Azure Machine Learning studio를 사용 하 여 데이터 드�
 > [!Important]
 > SDK를 사용 하 여 데이터 드리프트 모니터링은 모든 버전에서 사용할 수 있습니다. 그러나 웹에서 스튜디오를 통한 데이터 드리프트 모니터링은 Enterprise edition에 불과합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 데이터 집합 모니터를 만들고 사용 하려면 다음이 필요 합니다.
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
@@ -75,7 +79,7 @@ Azure Machine Learning 데이터 집합 모니터를 사용 하 여 데이터 �
 
 개념적으로 Azure Machine Learning 데이터 집합 모니터를 설정 하는 세 가지 기본 시나리오가 있습니다.
 
-시나리오 | 설명
+시나리오 | Description
 ---|---
 학습 데이터에서 드리프트에 대 한 모델의 처리 데이터 모니터링 | 이 시나리오의 결과는 서비스 하는 데이터가 학습 데이터에서 상태가 때 모델 정확성이 저하 되므로 모델 정확도에 대 한 프록시 모니터링으로 해석 될 수 있습니다.
 이전 기간에서 드리프트에 대 한 시계열 데이터 집합을 모니터링 합니다. | 이 시나리오는 보다 일반적 이며, 업스트림 또는 모델 빌드 다운스트림과 관련 된 데이터 집합을 모니터링 하는 데 사용할 수 있습니다.  대상 데이터 집합에는 타임 스탬프 열이 있어야 합니다. 기준 데이터 집합은 대상 데이터 집합에 공통 된 기능이 포함 된 모든 테이블 형식 데이터 집합이 될 수 있습니다.
@@ -83,11 +87,11 @@ Azure Machine Learning 데이터 집합 모니터를 사용 하 여 데이터 �
 
 데이터 집합 모니터는 다음 Azure 서비스에 따라 달라 집니다.
 
-|Azure 서비스  |설명  |
+|Azure 서비스  |Description  |
 |---------|---------|
 | *데이터 세트* | 드리프트는 Machine Learning 데이터 집합을 사용 하 여 학습 데이터를 검색 하 고 모델 학습을 위해 데이터를 비교 합니다.  데이터의 프로필 생성은 최소, 최대, 고유 값, 고유 값 수와 같은 보고 된 메트릭 중 일부를 생성 하는 데 사용 됩니다. |
 | *Azureml 파이프라인 및 계산* | 드리프트 계산 작업은 azureml 파이프라인에서 호스팅됩니다.  작업은 요청 시 또는 드리프트 모니터 생성 시간에 구성 된 계산에서 실행 되도록 일정에 따라 트리거됩니다.
-| *Application insights*| 드리프트는 machine learning 작업 영역에 속하는 Application Insights 메트릭을 내보냅니다.
+| *애플리케이션 인사이트*| 드리프트는 machine learning 작업 영역에 속하는 Application Insights 메트릭을 내보냅니다.
 | *Azure Blob 스토리지*| 드리프트는 json 형식의 메트릭을 Azure blob storage로 내보냅니다.
 
 ## <a name="how-dataset-monitors-data"></a>데이터 집합에서 데이터를 모니터링 하는 방법
@@ -222,9 +226,9 @@ monitor = monitor.enable_schedule()
 
 * **모니터 설정**  이러한 설정은 예약 된 데이터 집합 모니터 파이프라인에 대 한 것으로, 생성 됩니다. 
 
-    | Setting | 설명 | 팁 | 변경 가능 | 
+    | 설정 | Description | 팁 | 변경 가능 | 
     | ------- | ----------- | ---- | ------- |
-    | 이름 | 데이터 집합 모니터의 이름입니다. | | 아니요 |
+    | Name | 데이터 집합 모니터의 이름입니다. | | 아니요 |
     | 기능 | 시간에 따른 데이터 드리프트를 분석 하는 기능 목록입니다. | 개념 드리프트를 측정 하는 모델의 출력 기능으로 설정 합니다. 시간이 지남에 따라 자연스럽 게 드리프트 하는 기능 (월, 연도, 인덱스 등)은 포함 되지 않습니다. 기능 목록을 조정한 후에는 백필 및 기존 데이터 드리프트 모니터를 사용할 수 있습니다. | 예 | 
     | 컴퓨팅 대상 | 계산 대상을 Azure Machine Learning 하 여 데이터 집합 모니터 작업을 실행 합니다. | | 예 | 
     | 사용 | 데이터 집합 모니터 파이프라인에서 일정을 사용 하거나 사용 하지 않도록 설정 | 백필 설정을 사용 하 여 기록 데이터를 분석 하는 일정을 사용 하지 않도록 설정 합니다. 데이터 집합 모니터를 만든 후에 사용할 수 있습니다. | 예 | 
@@ -244,7 +248,7 @@ monitor = monitor.enable_schedule()
 :::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="드리프트 개요":::
 
 
-| 메트릭 | 설명 | 
+| 메트릭 | Description | 
 | ------ | ----------- | 
 | 데이터 드리프트 크기 | 시간에 따른 기준선 및 대상 데이터 집합 간의 드리프트 비율입니다. 0에서 100 사이의 범위에서 0은 동일한 데이터 집합을 나타내고 100은 Azure Machine Learning 데이터 드리프트 모델이 두 데이터 집합을 완전히 구분할 수 있음을 나타냅니다. 이 크기를 생성 하는 데 사용 되는 기계 학습 기술로 인해 측정 된 정확한 비율의 노이즈가 예상 됩니다. | 
 | Top 유동 기능 | 데이터베이스가 드리프트 가장 많이 영향을 주는 데이터 집합의 기능을 보여 줍니다. 따라서 최대 드리프트 크기 메트릭에 영향을 줍니다. Shift 키로 인해 기능의 기본 분포는 상대적으로 높은 기능 중요도를 갖도록 변경 해야 하는 것은 아닙니다. |
@@ -278,7 +282,7 @@ Azure Machine Learning studio에서 그래프의 막대를 클릭 하 여 해당
 
 * 숫자 기능
 
-    | 메트릭 | 설명 |  
+    | 메트릭 | Description |  
     | ------ | ----------- |  
     | Wasserstein 거리 | 기준 배포를 대상 배포로 변환 하기 위한 최소 작업 양입니다. |
     | 평균값 | 기능의 평균 값입니다. |
@@ -287,7 +291,7 @@ Azure Machine Learning studio에서 그래프의 막대를 클릭 하 여 해당
 
 * 범주 기능
     
-    | 메트릭 | 설명 |  
+    | 메트릭 | Description |  
     | ------ | ----------- |  
     | 유클리드 기하학과 거리     |  범주 열에 대해 계산 됩니다.유클리드 distance는 두 데이터 집합에서 동일한 범주 열의 경험적 배포에서 생성 된 두 벡터에 대해 계산 됩니다.0은 경험적 분포의 차이가 없음을 나타냅니다.더 많은 것이 0에서 데이터베이스가 드리프트이 열에는 더 많은 열이 있습니다.이 메트릭의 시계열 그림에서 추세를 관찰 하 여 유동 기능을 발견할 수 있습니다.  |
     | 고유한 값 | 기능의 고유 값 (카디널리티) 수입니다. |
@@ -306,7 +310,7 @@ Azure Machine Learning studio에서 그래프의 막대를 클릭 하 여 해당
 
 왼쪽 창의 모니터링 아래에서 로그 (분석)를 선택 합니다.
 
-![Application insights 개요](./media/how-to-monitor-datasets/ai-overview.png)
+![Application Insights 개요](./media/how-to-monitor-datasets/ai-overview.png)
 
 데이터 집합 모니터 메트릭은로 저장 됩니다 `customMetrics` . 데이터 집합 모니터를 설정한 후 쿼리를 작성 하 고 실행 하 여 해당 쿼리를 볼 수 있습니다.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/14/2020
+ms.date: 07/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a45602b80db965e3cc79d188dd40034a320b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8690b1a4b8527a397fcf4c04892e167b5332358d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394255"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035403"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>셀프 서비스 암호 재설정 Azure Active Directory 사용자 환경 사용자 지정
 

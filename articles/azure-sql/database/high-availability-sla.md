@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033045"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -104,7 +104,7 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
 ## <a name="conclusion"></a>결론
 
-Azure SQL Database 및 Azure SQL Managed Instance 기능은 Azure 플랫폼과 긴밀 하 게 통합 되는 기본 제공 고가용성 솔루션입니다. 이는 장애 검색 및 복구, 데이터 보호를 위한 Azure Blob storage, 높은 내결함성에 대 한 가용성 영역에 대 한 Service Fabric에 따라 달라 집니다. 또한 SQL Database 및 SQL Managed Instance는 복제 및 장애 조치 (failover)를 위해 SQL Server 인스턴스에서 Always On 가용성 그룹 기술을 활용 합니다. 이러한 기술을 조합 하 여 응용 프로그램에서 혼합 된 저장소 모델의 이점을 완전히 실현 하 고 가장 까다로운 Sla를 지원할 수 있습니다.
+Azure SQL Database 및 Azure SQL Managed Instance 기능은 Azure 플랫폼과 긴밀 하 게 통합 되는 기본 제공 고가용성 솔루션입니다. 이는 장애 검색 및 복구에 대 한 Service Fabric, 데이터 가용성 영역 보호를 위한 Azure Blob storage, 높은 내결함성 (Azure SQL Managed Instance 아직 적용 되지 않은 문서에서 설명한 대로)에 따라 달라 집니다. 또한 SQL Database 및 SQL Managed Instance는 복제 및 장애 조치 (failover)를 위해 SQL Server 인스턴스에서 Always On 가용성 그룹 기술을 활용 합니다. 이러한 기술을 조합 하 여 응용 프로그램에서 혼합 된 저장소 모델의 이점을 완전히 실현 하 고 가장 까다로운 Sla를 지원할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

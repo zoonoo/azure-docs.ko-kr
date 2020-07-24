@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abec9811cd407c1fab91cfb60412aabdd969690d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888060"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036984"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>블록 Blob에 대한 개체 복제(미리 보기)
 
@@ -63,6 +63,8 @@ ms.locfileid: "84888060"
 - 프랑스 중부
 - 캐나다 동부
 - 캐나다 중부
+- 미국 동부 2
+- 미국 중부
 
 개체 복제를 사용하려면 원본 및 대상 계정이 둘 다 이러한 지역 중 하나에 있어야 합니다. 계정은 두 개의 다른 지역에 있을 수 있습니다.
 

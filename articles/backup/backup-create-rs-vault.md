@@ -3,12 +3,13 @@ title: Recovery Services 자격 증명 모음 만들기 및 구성
 description: 이 문서에서는 백업과 복구 지점이 저장 되는 Recovery Services 자격 증명 모음을 만들고 구성 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 65f7265dccc5fe28d3503e72bdd6e49123871594
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.custom: references_regions
+ms.openlocfilehash: 244562efdc4c274a79ea27cdfa00dd51ae671fa4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032955"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -21,7 +22,7 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 > [!NOTE]
 > Recovery services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복) 변경은 자격 증명 모음에서 백업을 구성 하기 전에 수행 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다.
 >
->- 백업을 아직 구성 하지 않은 경우 다음 단계를 [수행](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 하 여 설정을 검토 하 고 수정 합니다.
+>- 백업을 아직 구성 하지 않은 경우 다음 단계를 [수행](#set-storage-redundancy) 하 여 설정을 검토 하 고 수정 합니다.
 >- 백업을 이미 구성 했 고 GRS에서 LRS로 이동 해야 하는 경우 [이러한 해결 방법을 검토](#how-to-change-from-grs-to-lrs-after-configuring-backup)합니다.
 
 1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다. **설정** 섹션에서 **속성**을 클릭합니다.
@@ -33,14 +34,14 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 
    - Azure를 기본 백업 저장소 끝점으로 사용 하는 경우 기본 **지역 중복** 설정을 계속 사용 하는 것이 좋습니다.
    - Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다.
-   - [지역](../storage/common/storage-redundancy-grs.md) 및 [로컬](../storage/common/storage-redundancy-lrs.md) 중복성에 대해 자세히 알아보세요.
+   - [지역](../storage/common/storage-redundancy.md) 및 [로컬](../storage/common/storage-redundancy.md) 중복성에 대해 자세히 알아보세요.
 
 >[!NOTE]
 >현재 솔루션이 스냅숏 기반 이며 자격 증명 모음으로 전송 된 데이터가 없으므로 자격 증명 모음에 대 한 저장소 복제 설정은 Azure 파일 공유 백업과 관련이 없습니다. 스냅숏은 백업 된 파일 공유와 동일한 저장소 계정에 저장 됩니다.
 
 ## <a name="set-cross-region-restore"></a>지역 간 복원 설정
 
-복원 옵션 중 하나로, CRR (교차 지역 복원)을 사용 하면 azure [쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. 이 옵션을 사용 하면 다음을 수행할 수 있습니다.
+복원 옵션 중 하나로, CRR (교차 지역 복원)을 사용 하면 azure [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. 이 옵션을 사용 하면 다음을 수행할 수 있습니다.
 
 - 감사 또는 규정 준수 요구 사항이 있는 경우 드릴 수행
 - 주 지역에 재해가 발생 한 경우 VM 또는 해당 디스크를 복원 합니다.
@@ -83,10 +84,10 @@ GRS 중복성으로 만든 자격 증명 모음에는 지역 간 복원 기능�
 **저장소 복제 유형** 및 **보안 설정** 에 대 한 기본 설정은 자격 증명 모음에서 백업을 구성 하기 전에 검토 하는 것이 좋습니다.
 
 - 기본적으로 **저장소 복제 유형은** **지역 중복** (GRS)으로 설정 됩니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다.
-  - 백업을 아직 구성 하지 않은 경우 다음 단계를 [수행](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 하 여 설정을 검토 하 고 수정 합니다.
+  - 백업을 아직 구성 하지 않은 경우 다음 단계를 [수행](#set-storage-redundancy) 하 여 설정을 검토 하 고 수정 합니다.
   - 백업을 이미 구성 했 고 GRS에서 LRS로 이동 해야 하는 경우 [이러한 해결 방법을 검토](#how-to-change-from-grs-to-lrs-after-configuring-backup)합니다.
 
-- 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 [다음 단계를 수행](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) 합니다.
+- 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 [다음 단계를 수행](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) 합니다.
 
 ### <a name="how-to-change-from-grs-to-lrs-after-configuring-backup"></a>백업 구성 후 GRS에서 LRS로 변경 하는 방법
 
@@ -123,7 +124,7 @@ GRS 자격 증명 모음에서 현재 보호 된 데이터를 유지 하 고 새
   - GRS 자격 증명 모음의 만료 되지 않은 복구 지점만 백업 된 데이터를 복원할 수 있습니다.
   - LRS 자격 증명 모음에 새 초기 데이터 복제본을 만들어야 합니다.
 
-- Azure VM의 경우 GRS 자격 증명 모음에서 VM에 대 한 [데이터 보관을 사용 하 여 보호를 중지](backup-azure-manage-vms.md#stop-protecting-a-vm) 하 고 vm을 다른 리소스 그룹으로 이동한 다음 LRS 자격 증명 모음에서 vm을 보호할 수 있습니다. 다른 리소스 그룹으로 VM을 이동 하는 방법에 대 한 [지침 및 제한 사항](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) 을 참조 하세요.
+- Azure VM의 경우 GRS 자격 증명 모음에서 VM에 대 한 [데이터 보관을 사용 하 여 보호를 중지](backup-azure-manage-vms.md#stop-protecting-a-vm) 하 고 vm을 다른 리소스 그룹으로 이동한 다음 LRS 자격 증명 모음에서 vm을 보호할 수 있습니다. 다른 리소스 그룹으로 VM을 이동 하는 방법에 대 한 [지침 및 제한 사항](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) 을 참조 하세요.
 
   VM은 한 번에 하나의 자격 증명 모음 에서만 보호할 수 있습니다. 그러나 새 리소스 그룹의 VM은 다른 VM으로 간주 되므로 LRS 자격 증명 모음에서 보호할 수 있습니다.
 

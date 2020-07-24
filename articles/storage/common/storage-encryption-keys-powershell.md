@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506204"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036831"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>PowerShell을 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
@@ -39,15 +39,16 @@ PowerShell을 사용 하 여 시스템 할당 관리 id를 구성 하는 방법�
 
 ## <a name="create-a-new-key-vault"></a>새 key vault 만들기
 
-PowerShell을 사용 하 여 새 키 자격 증명 모음을 만들려면 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)를 호출 합니다. Azure Storage 암호화를 위해 고객이 관리 하는 키를 저장 하는 데 사용 하는 key vault에는 두 가지 키 보호 설정, **일시 삭제** 및 **제거 안 함**이 있어야 합니다.
+PowerShell을 사용 하 여 새 키 자격 증명 모음을 만들려면 [Az. KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell 모듈의 버전 2.0.0 이상을 설치 합니다. 그런 다음 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) 를 호출 하 여 새 키 자격 증명 모음을 만듭니다.
 
-대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+Azure Storage 암호화를 위해 고객이 관리 하는 키를 저장 하는 데 사용 하는 key vault에는 두 가지 키 보호 설정, **일시 삭제** 및 **제거 안 함**이 있어야 합니다. 2.0.0 버전 이상에서 새 키 자격 증명 모음을 만들 때 일시 삭제는 기본적으로 사용 하도록 설정 되어 있습니다.
+
+다음 예에서는 **일시 삭제** 및 **제거 안 함** 속성을 사용 하 여 새 key vault를 만듭니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
@@ -78,9 +79,27 @@ Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>고객 관리 키를 사용 하 여 암호화 구성
 
-기본적으로 Azure Storage 암호화는 Microsoft 관리 키를 사용 합니다. 이 단계에서는 고객이 관리 하는 키를 사용 하도록 Azure Storage 계정을 구성 하 고 저장소 계정과 연결할 키를 지정 합니다.
+기본적으로 Azure Storage 암호화는 Microsoft 관리 키를 사용 합니다. 이 단계에서는 Azure Key Vault에서 고객 관리 키를 사용 하도록 Azure Storage 계정을 구성 하 고 저장소 계정과 연결할 키를 지정 합니다.
 
-다음 예제와 같이 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 하 여 저장소 계정의 암호화 설정을 업데이트 합니다. 저장소 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 하려면 **-KeyvaultEncryption** 옵션을 포함 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+고객 관리 키를 사용 하 여 암호화를 구성 하는 경우 연결 된 키 자격 증명 모음에서 버전이 변경 되 면 암호화에 사용 되는 키를 자동으로 회전 하도록 선택할 수 있습니다. 또는 키 버전이 수동으로 업데이트 될 때까지 암호화에 사용할 키 버전을 명시적으로 지정할 수 있습니다.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>고객 관리 키의 자동 회전을 위한 암호화 구성
+
+고객 관리 키의 자동 회전에 대 한 암호화를 구성 하려면 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈, version 2.0.0 이상을 설치 합니다.
+
+고객 관리 키를 자동으로 회전 하려면 저장소 계정에 대 한 고객 관리 키를 구성할 때 키 버전을 생략 합니다. 다음 예제와 같이 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 하 여 저장소 계정의 암호화 설정을 업데이트 하 고 **-KeyvaultEncryption** 옵션을 포함 하 여 저장소 계정에 대 한 고객 관리 키를 사용 하도록 설정 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>키 버전의 수동 회전을 위한 암호화 구성
+
+암호화에 사용할 키 버전을 명시적으로 지정 하려면 저장소 계정에 대 한 고객 관리 키를 사용 하 여 암호화를 구성할 때 키 버전을 제공 합니다. 다음 예제와 같이 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 하 여 저장소 계정의 암호화 설정을 업데이트 하 고 **-KeyvaultEncryption** 옵션을 포함 하 여 저장소 계정에 대 한 고객 관리 키를 사용 하도록 설정 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -91,9 +110,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>키 버전 업데이트
-
-새 버전의 키를 만드는 경우 새 버전을 사용 하도록 저장소 계정을 업데이트 해야 합니다. 먼저 [AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) 를 호출 하 여 최신 버전의 키를 가져옵니다. 그런 다음 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 하 여 이전 섹션에 표시 된 대로 새 버전의 키를 사용 하도록 저장소 계정의 암호화 설정을 업데이트 합니다.
+키 버전을 수동으로 회전 하는 경우 새 버전을 사용 하도록 저장소 계정의 암호화 설정을 업데이트 해야 합니다. 먼저 [AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) 를 호출 하 여 최신 버전의 키를 가져옵니다. 그런 다음 이전 예제와 같이 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 를 호출 하 여 새 버전의 키를 사용 하도록 저장소 계정의 암호화 설정을 업데이트 합니다.
 
 ## <a name="use-a-different-key"></a>다른 키 사용
 
@@ -101,7 +118,7 @@ Azure Storage 암호화에 사용 되는 키를 변경 하려면 [고객이 관�
 
 ## <a name="revoke-customer-managed-keys"></a>고객 관리 키 철회
 
-키가 손상 된 것으로 판단 되 면 키 자격 증명 모음 액세스 정책을 제거 하 여 고객 관리 키를 해지할 수 있습니다. 고객이 관리 하는 키를 해지 하려면 다음 예제와 같이 [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) 명령을 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
+키 자격 증명 모음 액세스 정책을 제거 하 여 고객 관리 키를 해지할 수 있습니다. 고객이 관리 하는 키를 해지 하려면 다음 예제와 같이 [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) 명령을 호출 합니다. 괄호 안의 자리 표시자 값을 고유한 값으로 바꾸고 앞의 예제에 정의 된 변수를 사용 해야 합니다.
 
 ```powershell
 Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `

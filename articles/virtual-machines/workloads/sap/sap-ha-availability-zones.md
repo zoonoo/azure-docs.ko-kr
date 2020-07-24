@@ -16,25 +16,26 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a4a22771f7880c48722f410f3a2fae0c66e9c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78675602"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035794"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
-[Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
+[Azure 가용성 영역](../../../availability-zones/az-overview.md)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
 
 다음 그래픽은 SAP 고가용성의 기본 아키텍처를 보여 줍니다.
 
 ![표준 고가용성 구성](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-SAP 응용 프로그램 계층은 하나의 Azure [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)에 배포 됩니다. SAP Central Services의 고가용성을 위해 별도의 가용성 집합에 두 개의 VM을 배포할 수 있습니다. 인프라 또는 소프트웨어 문제 발생 시, 자동 장애 조치(Failover)를 제공하는 고가용성 프레임워크로서 Windows Server 장애 조치(failover) 클러스터링 또는 Pacemaker(Linux)를 사용합니다. 이러한 배포에 대한 자세한 내용은 다음을 참조하세요.
+SAP 응용 프로그램 계층은 하나의 Azure [가용성 집합](../../windows/manage-availability.md)에 배포 됩니다. SAP Central Services의 고가용성을 위해 별도의 가용성 집합에 두 개의 VM을 배포할 수 있습니다. 인프라 또는 소프트웨어 문제 발생 시, 자동 장애 조치(Failover)를 제공하는 고가용성 프레임워크로서 Windows Server 장애 조치(failover) 클러스터링 또는 Pacemaker(Linux)를 사용합니다. 이러한 배포에 대한 자세한 내용은 다음을 참조하세요.
 
-- [클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-- [파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
-- [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-- [Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+- [클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)
+- [파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](./sap-high-availability-guide-wsfc-file-share.md)
+- [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse.md)
+- [Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](./high-availability-guide-rhel.md)
 
 비슷한 아키텍처가 SAP NetWeaver, S/4HANA 또는 Hybris 시스템의 DBMS 계층에 적용됩니다. 인프라 또는 소프트웨어가 오류로부터 보호하기 위해 DBMS 계층을 장애 조치(failover) 클러스터 솔루션을 사용하여 액티브/패시브 모드로 배포합니다. 장애 조치(Failover) 클러스터 솔루션은 DBMS 특정 장애 조치(Failover) 프레임워크, Windows Server 장애 조치(Failover) 클러스터링 또는 Pacemaker일 수 있습니다.
 
@@ -56,8 +57,8 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 
 - Azure 가용성 영역을 배포하는 경우 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용해야 합니다. 
 - 물리적 영역에 대한 영역 열거형 매핑은 Azure 구독을 기준으로 고정됩니다. 다른 구독을 사용하여 SAP 시스템을 배포하는 경우 구독마다 적절한 영역을 정의해야 합니다.
-- Azure [근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하지 않는 한 azure 가용성 집합을 Azure 가용성 영역 내에 배포할 수 없습니다. 여러 영역에 걸쳐 SAP DBMS 계층과 중앙 서비스를 배포 하는 방법 및 동시에 가용성 집합을 사용 하 여 SAP 응용 프로그램 계층을 배포 하 고 Vm에 대 한 근접 하 게 유지 하는 방법은 [sap 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)문서에 설명 되어 있습니다. Azure 근접 배치 그룹을 활용 하지 않는 경우 가상 컴퓨터에 대 한 배포 프레임 워크로 하나를 선택 해야 합니다.
-- [Azure 기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 사용하여 Windows Server 장애 조치(failover) 클러스터링 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터 솔루션을 만들 수 없습니다. 대신 [Azure 표준 LOAD BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용 해야 합니다.
+- Azure [근접 배치 그룹](../../linux/co-location.md)을 사용 하지 않는 한 azure 가용성 집합을 Azure 가용성 영역 내에 배포할 수 없습니다. 여러 영역에 걸쳐 SAP DBMS 계층과 중앙 서비스를 배포 하는 방법 및 동시에 가용성 집합을 사용 하 여 SAP 응용 프로그램 계층을 배포 하 고 Vm에 대 한 근접 하 게 유지 하는 방법은 [sap 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)문서에 설명 되어 있습니다. Azure 근접 배치 그룹을 활용 하지 않는 경우 가상 컴퓨터에 대 한 배포 프레임 워크로 하나를 선택 해야 합니다.
+- [Azure 기본 Load Balancer](../../../load-balancer/load-balancer-overview.md)를 사용하여 Windows Server 장애 조치(failover) 클러스터링 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터 솔루션을 만들 수 없습니다. 대신 [Azure 표준 LOAD BALANCER SKU](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용 해야 합니다.
 
 
 
@@ -90,7 +91,7 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 
 
 > [!IMPORTANT]
-> 앞서 설명한 측정이 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 지원하는 모든 Azure 지역에서 다른 결과를 제공할 수 있습니다. 네트워크 대기 시간에 대한 요구 사항은 같더라도, 영역 간 네트워크 대기 시간이 다를 수 있으므로 Azure 지역마다 다른 배포 전략을 채택해야 할 수 있습니다. 일부 Azure 지역에서는 3개의 다른 영역 간 네트워크 대기 시간이 크게 다를 수 있습니다. 반면에 다른 지역에서는 3개의 다른 영역 간 네트워크 대기 시간이 좀 더 균일할 수 있습니다. 항상 1~2밀리초 사이의 네트워크 대기 시간이 나타난다는 주장은 맞지 않습니다. Azure 지역의 가용성 영역 간 네트워크 대기 시간은 일반화할 수 없습니다.
+> 앞서 설명한 측정이 [가용성 영역](../../../availability-zones/az-overview.md)을 지원하는 모든 Azure 지역에서 다른 결과를 제공할 수 있습니다. 네트워크 대기 시간에 대한 요구 사항은 같더라도, 영역 간 네트워크 대기 시간이 다를 수 있으므로 Azure 지역마다 다른 배포 전략을 채택해야 할 수 있습니다. 일부 Azure 지역에서는 3개의 다른 영역 간 네트워크 대기 시간이 크게 다를 수 있습니다. 반면에 다른 지역에서는 3개의 다른 영역 간 네트워크 대기 시간이 좀 더 균일할 수 있습니다. 항상 1~2밀리초 사이의 네트워크 대기 시간이 나타난다는 주장은 맞지 않습니다. Azure 지역의 가용성 영역 간 네트워크 대기 시간은 일반화할 수 없습니다.
 
 ## <a name="activeactive-deployment"></a>액티브/액티브 배포
 두 개 또는 세 개의 영역에 활성 SAP 응용 프로그램 서버를 배포 하기 때문에이 배포 아키텍처는 능동/능동 이라고 합니다. 큐에 넣기 복제를 사용하는 SAP Central Services 인스턴스는 두 영역 간에 배포됩니다. SAP Central Services와 동일한 영역 간에 배포되는 DBMS 계층의 경우도 마찬가지입니다.
@@ -103,18 +104,18 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 
 이 구성에 대해 다음과 같은 고려 사항이 적용됩니다.
 
-- [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 사용 하지 않는 경우에는 가용성 집합을 Azure 가용성 영역에 배포할 수 없기 때문에 모든 vm에 대해 Azure 가용성 영역를 장애 및 업데이트 도메인으로 처리 합니다.
+- [Azure 근접 배치 그룹](../../linux/co-location.md)을 사용 하지 않는 경우에는 가용성 집합을 Azure 가용성 영역에 배포할 수 없기 때문에 모든 vm에 대해 Azure 가용성 영역를 장애 및 업데이트 도메인으로 처리 합니다.
 - DBMS 계층과 중앙 서비스에 대해 영역 배포를 결합 하지만 응용 프로그램 계층에 대 한 Azure 가용성 집합을 사용 하려는 경우 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)문서에 설명 된 대로 azure 근접 그룹을 사용 해야 합니다.
-- SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
+- SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
 - SAP 시스템을 호스트하기 위해 배포한 Azure Virtual Network 및 해당 서브넷은 영역에 걸쳐 확장됩니다. 각 영역에 대해 별도의 가상 네트워크가 필요하지 않습니다.
 - 배포 하는 모든 가상 컴퓨터에 대해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용 해야 합니다. 영역 배포에서 관리되지 않는 디스크는 사용할 수 없습니다.
-- Azure Premium Storage 또는 [울트라 SSD 스토리지](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
+- Azure Premium Storage 또는 [울트라 SSD 스토리지](../../windows/disks-types.md#ultra-disk)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
 - 공유 디스크(Windows), CIFS 공유(Windows) 또는 NFS 공유(Linux)에 해당하는 공유 sapmnt 디렉터리의 경우도 마찬가지입니다. 영역 간에 이러한 공유 디스크 또는 공유를 복제하는 기술을 사용해야 합니다. 다음과 같은 기술이 지원됩니다.
-  - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
-  - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)에 설명된 대로 빌드한 NFS 공유
+  - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
+  - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](./high-availability-guide-suse-nfs.md)에 설명된 대로 빌드한 NFS 공유
     
-    현재, [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)에 설명된 대로 Microsoft SOFS(스케일 아웃 파일 서비스)를 사용하는 솔루션은 영역 간에 지원되지 않습니다.
-- 세 번째 영역은 [SUSE Linux Pacemaker 클러스터](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 또는 추가 응용 프로그램 인스턴스를 빌드하는 경우에 SBD 장치를 호스트 하는 데 사용 됩니다.
+    현재, [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](./sap-high-availability-infrastructure-wsfc-file-share.md)에 설명된 대로 Microsoft SOFS(스케일 아웃 파일 서비스)를 사용하는 솔루션은 영역 간에 지원되지 않습니다.
+- 세 번째 영역은 [SUSE Linux Pacemaker 클러스터](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) 또는 추가 응용 프로그램 인스턴스를 빌드하는 경우에 SBD 장치를 호스트 하는 데 사용 됩니다.
 - 중요 한 비즈니스 프로세스에 대 한 런타임 일관성을 얻기 위해 SAP batch 서버 그룹, SAP 로그온 그룹 또는 RFC 그룹을 사용 하 여 특정 batch 작업 및 사용자를 활성 DBMS 인스턴스와 영역 내 응용 프로그램 인스턴스로 안내할 수 있습니다. 그러나 영역 장애 조치(failover)의 경우 이러한 그룹을 활성 DB VM이 있는 영역 내 VM에서 실행되는 인스턴스로 수동으로 이동해야 합니다.  
 - 각 영역에서 유휴 대화 상자 인스턴스를 배포할 수 있습니다. 이렇게 하면 애플리케이션 인스턴스의 일부에서 사용하는 영역의 서비스가 중단될 경우 이전 리소스 용량을 즉시 되돌아갈 수 있습니다.
 
@@ -133,16 +134,16 @@ Azure 가용성 영역을 사용하여 동일한 아키텍처를 배포하려면
 
 - Azure 가용성 영역에서 가용성 집합을 배포할 수 없습니다. 이를 보완 하기 위해 [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)문서에 설명 된 대로 azure 근접 배치 그룹을 사용할 수 있습니다.
 - 이러한 아키텍처를 사용할 때는 상태를 면밀히 모니터링하고, 배포한 애플리케이션 계층과 동일한 영역에 활성 DBMS 및 SAP Central Services 인스턴스를 유지해야 합니다. SAP Central Service 또는 DBMS 인스턴스의 장애 조치(failover)가 수행될 경우 가능한 한 빨리, SAP 애플리케이션 계층이 배포된 영역으로 수동으로 장애 복구(failback)할 수 있습니다.
-- SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
+- SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
 - SAP 시스템을 호스트하기 위해 배포한 Azure Virtual Network 및 해당 서브넷은 영역에 걸쳐 확장됩니다. 각 영역에 대해 별도의 가상 네트워크가 필요하지 않습니다.
 - 배포 하는 모든 가상 컴퓨터에 대해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용 해야 합니다. 영역 배포에서 관리되지 않는 디스크는 사용할 수 없습니다.
-- Azure Premium Storage 또는 [울트라 SSD 스토리지](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
+- Azure Premium Storage 또는 [울트라 SSD 스토리지](../../windows/disks-types.md#ultra-disk)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
 - 공유 디스크(Windows), CIFS 공유(Windows) 또는 NFS 공유(Linux)에 해당하는 공유 sapmnt 디렉터리의 경우도 마찬가지입니다. 영역 간에 이러한 공유 디스크 또는 공유를 복제하는 기술을 사용해야 합니다. 다음과 같은 기술이 지원됩니다.
-    - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
-    - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)에 설명된 대로 빌드한 NFS 공유
+    - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
+    - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](./high-availability-guide-suse-nfs.md)에 설명된 대로 빌드한 NFS 공유
     
-  현재, [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)에 설명된 대로 Microsoft SOFS(스케일 아웃 파일 서비스)를 사용하는 솔루션은 영역 간에 지원되지 않습니다.
-- 세 번째 영역은 [SUSE Linux Pacemaker 클러스터](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 또는 추가 응용 프로그램 인스턴스를 빌드하는 경우에 SBD 장치를 호스트 하는 데 사용 됩니다.
+  현재, [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](./sap-high-availability-infrastructure-wsfc-file-share.md)에 설명된 대로 Microsoft SOFS(스케일 아웃 파일 서비스)를 사용하는 솔루션은 영역 간에 지원되지 않습니다.
+- 세 번째 영역은 [SUSE Linux Pacemaker 클러스터](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) 또는 추가 응용 프로그램 인스턴스를 빌드하는 경우에 SBD 장치를 호스트 하는 데 사용 됩니다.
 - 영역 오류 발생 시 애플리케이션 리소스를 시작할 수 있도록 유휴 VM을 패시브 영역(DBMS의 관점에서)에 배포해야 합니다.
     - 현재는 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 사용하여 영역 간 유휴 VM에 활성 VM을 복제할 수 없습니다. 
 - 영역 오류가 발생할 경우 두 번째 영역에서 SAP 애플리케이션 계층을 자동으로 시작하도록 하는 자동화 기능에 투자해야 합니다.
@@ -163,16 +164,16 @@ Microsoft는 Azure 지역의 다른 Azure 가용성 영역을 호스트하는 �
 - 이러한 아키텍처를 사용할 때는 상태를 면밀히 모니터링하고, 배포한 애플리케이션 계층과 동일한 영역에 활성 DBMS 및 SAP Central Services 인스턴스를 유지해야 합니다. SAP Central Service 또는 DBMS 인스턴스의 장애 조치(failover)가 수행될 경우 가능한 한 빨리, SAP 애플리케이션 계층이 배포된 영역으로 수동으로 장애 복구(failback)할 수 있습니다.
 - 프로덕션 애플리케이션 인스턴스를 활성 QA 애플리케이션 인스턴스를 실행하는 VM에 미리 설치해야 합니다.
 - 영역 오류 발생 시 QA 애플리케이션 인스턴스를 종료하고, 대신 프로덕션 인스턴스를 시작합니다. 이렇게 하려면 반드시 애플리케이션 인스턴스의 가상 이름을 사용해야 합니다.
-- SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
+- SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
 - SAP 시스템을 호스트하기 위해 배포한 Azure Virtual Network 및 해당 서브넷은 영역에 걸쳐 확장됩니다. 각 영역에 대해 별도의 가상 네트워크가 필요하지 않습니다.
 - 배포 하는 모든 가상 컴퓨터에 대해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용 해야 합니다. 영역 배포에서 관리되지 않는 디스크는 사용할 수 없습니다.
-- Azure Premium Storage 또는 [울트라 SSD 스토리지](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
+- Azure Premium Storage 또는 [울트라 SSD 스토리지](../../windows/disks-types.md#ultra-disk)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
 - 공유 디스크(Windows), CIFS 공유(Windows) 또는 NFS 공유(Linux)에 해당하는 공유 sapmnt 디렉터리의 경우도 마찬가지입니다. 영역 간에 이러한 공유 디스크 또는 공유를 복제하는 기술을 사용해야 합니다. 다음과 같은 기술이 지원됩니다.
-    - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
-    - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)에 설명된 대로 빌드한 NFS 공유
+    - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
+    - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](./high-availability-guide-suse-nfs.md)에 설명된 대로 빌드한 NFS 공유
 
-  현재, [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)에 설명된 대로 Microsoft SOFS(스케일 아웃 파일 서비스)를 사용하는 솔루션은 영역 간에 지원되지 않습니다.
-- 세 번째 영역은 [SUSE Linux Pacemaker 클러스터](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 또는 추가 응용 프로그램 인스턴스를 빌드하는 경우에 SBD 장치를 호스트 하는 데 사용 됩니다.
+  현재, [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](./sap-high-availability-infrastructure-wsfc-file-share.md)에 설명된 대로 Microsoft SOFS(스케일 아웃 파일 서비스)를 사용하는 솔루션은 영역 간에 지원되지 않습니다.
+- 세 번째 영역은 [SUSE Linux Pacemaker 클러스터](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) 또는 추가 응용 프로그램 인스턴스를 빌드하는 경우에 SBD 장치를 호스트 하는 데 사용 됩니다.
 
 
 
@@ -181,11 +182,5 @@ Microsoft는 Azure 지역의 다른 Azure 가용성 영역을 호스트하는 �
 ## <a name="next-steps"></a>다음 단계
 Azure 가용성 영역에 걸쳐 배포하기 위한 다음 단계는 다음과 같습니다.
 
-- [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-- [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-
-
-
-
-
-
+- [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)
+- [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비](./sap-high-availability-infrastructure-wsfc-file-share.md)

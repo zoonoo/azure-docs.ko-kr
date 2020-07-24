@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034910"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Microsoft ID 플랫폼(v2.0)으로 업데이트하는 이유
 
@@ -141,34 +141,7 @@ Microsoft id 플랫폼 끝점과 통합 하려는 각 앱에 대해 Azure Portal
 
 ### <a name="restrictions-on-redirect-urls"></a>리디렉션 URI에 대한 제한
 
-Microsoft id 플랫폼용으로 등록 된 앱은 제한 된 리디렉션 URL 값 집합으로 제한 됩니다. 웹앱 및 서비스에 대한 리디렉션 URL은 스키마 `https`로 시작해야 하고 모든 리디렉션 URL 값은 단일 DNS 도메인을 공유해야 합니다.  등록 시스템은 기존 리디렉션 URL의 전체 DNS 이름을 추가하려는 리디렉션 URL의 DNS 이름과 비교합니다. `http://localhost`도 리디렉션 URL로 지원됩니다.  
-
-다음 조건 중 하나라도 충족되는 경우 DNS 이름을 추가하는 요청이 실패하게 됩니다.  
-
-* 새 리디렉션 URL의 전체 DNS 이름이 기존 리디렉션 URL의 DNS 이름과 일치하지 않는 경우
-* 새 리디렉션 URL의 전체 DNS 이름이 기존 리디렉션 URL의 하위 도메인이 아닌 경우
-
-#### <a name="example-1"></a>예 1
-
-앱에 `https://login.contoso.com`의 리디렉션 URL이 있는 경우 다음 예제와 같이 DNS 이름이 정확히 일치하는 리디렉션 URL을 추가할 수 있습니다.
-
-`https://login.contoso.com/new`
-
-또는 다음 예제와 같이 login.contoso.com의 DNS 하위 도메인을 참조할 수 있습니다.
-
-`https://new.login.contoso.com`
-
-#### <a name="example-2"></a>예제 2
-
-`login-east.contoso.com` 및 `login-west.contoso.com`을 리디렉션 URL로 사용하는 앱이 필요하면 리디렉션 URL을 다음 순서로 추가해야 합니다.
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-후자는 첫 번째 리디렉션 URL 인 contoso.com의 하위 도메인 이므로 추가할 수 있습니다.
-
-특정 응용 프로그램에 대해 회신 Url을 20 개만 포함할 수 있습니다 .이 제한은 등록이 지 원하는 모든 앱 유형 (SPA (단일 페이지 응용 프로그램), native client, 웹 앱 및 서비스)에 적용 됩니다.  
+Microsoft id 플랫폼용으로 등록 된 앱에 대 한 리디렉션 Url의 제한 사항에 대 한 최신 정보는 Microsoft id 플랫폼 설명서의 [리디렉션 URI/회신 URL 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/develop/reply-url) 을 참조 하세요.
 
 Microsoft id 플랫폼에서 사용 하기 위해 앱을 등록 하는 방법을 알아보려면 [새로운 앱 등록 환경을 사용 하 여 앱 등록](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조 하세요.
 

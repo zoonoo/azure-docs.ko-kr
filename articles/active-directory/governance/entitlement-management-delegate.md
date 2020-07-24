@@ -3,7 +3,7 @@ title: 자격 관리의 위임 및 역할-Azure AD
 description: IT 관리자의 액세스 관리 권한을 부서 관리자와 프로젝트 관리자에 게 위임 하 여 액세스를 관리 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa18b55884a22f6c64f1c08bd5be8a71b265029a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034386"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
 
@@ -90,7 +91,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| Task | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 |
+| 작업 | Admin | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 |
 | --- | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
@@ -127,8 +128,8 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | [Exchange 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [팀 서비스 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [SharePoint 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
-| [클라우드 애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [클라우드 응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
 
 태스크에 대 한 최소 권한 있는 역할을 확인 하려면 [Azure Active Directory에서 관리자 작업을 통해 관리자 역할](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)을 참조할 수도 있습니다.

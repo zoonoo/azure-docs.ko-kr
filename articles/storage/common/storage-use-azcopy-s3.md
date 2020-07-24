@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e917c261392da6044391efc98a81c8f90b619514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513751"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036712"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3에서 Azure Storage로 데이터 복사
 
@@ -34,7 +34,7 @@ AzCopy를 다운로드 하려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문�
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`
+> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3 인증
 
@@ -127,7 +127,7 @@ AzCopy는 발생할 수 있는 가장 일반적인 문제 중 두 가지를 처�
 
 AWS S3 및 Azure는 개체 키 이름에 다른 문자 집합을 허용 합니다. AWS s 3에서 사용 하는 문자에 대 한 자세한 내용을 확인할 [수 있습니다.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) Azure 쪽에서 blob 개체 키는 [c # 식별자](https://docs.microsoft.com/dotnet/csharp/language-reference/)에 대 한 명명 규칙을 따릅니다.
 
-AzCopy `copy` 명령의 일부로 `s2s-invalid-metadata-handle` 파일의 메타 데이터에 호환 되지 않는 키 이름이 포함 된 파일을 처리 하는 방법을 지정 하는 플래그 (옵션)에 대 한 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값에 대해 설명 합니다.
+AzCopy `copy` 명령의 일부로 `s2s-handle-invalid-metadata` 파일의 메타 데이터에 호환 되지 않는 키 이름이 포함 된 파일을 처리 하는 방법을 지정 하는 플래그 (옵션)에 대 한 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값에 대해 설명 합니다.
 
 | 플래그 값 | 설명  |
 |--------|-----------|
@@ -159,6 +159,6 @@ AzCopy는 다음 단계를 수행 합니다.
 
 - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
 
-- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)

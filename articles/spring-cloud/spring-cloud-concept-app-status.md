@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
-ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037766"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Azure Spring Cloud의 앱 상태 이해
 

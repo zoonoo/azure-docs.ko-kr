@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
-ms.openlocfilehash: 957931407987e116924677341df4effe5347590e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-java
+ms.openlocfilehash: 07e7b8db3bf7e1131ec8892a69223eaf4505e8de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037749"
 ---
 # <a name="az-spring-cloud"></a>az 스프링-cloud
 
@@ -89,12 +90,12 @@ az spring-cloud create  --name -n
                         --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 이 Azure 스프링 클라우드 인스턴스의 이름입니다. |
 | --resource-group -g | 이 앱에 대 한 리소스 그룹을 지정 합니다.  다음을 사용 하 여 기본 그룹 구성`az configure --defaults group=<name>` |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --location -l | 이 앱의 서버 위치를 지정 합니다.  다음을 사용 하 여 유효한 위치 찾기`az account list-locations` |
 | --no-wait | 장기 실행 작업이 완료 되는 것은 아닙니다.
@@ -117,12 +118,12 @@ az spring cloud --name -n
                 --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 삭제할 Azure 스프링 클라우드 인스턴스의 이름입니다. |
 | --resource-group -g | Azure 스프링 클라우드가 속한 리소스 그룹의 이름입니다. |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | -대기 안 함 | 장기 실행 작업이 완료 될 때까지 기다리지 마세요. |
 
@@ -142,7 +143,7 @@ az spring-cloud delete -n MyService -g MyResourceGroup
 az spring-cloud list --resource-group -g
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --resource-group -g | 리소스 그룹의 이름입니다. |
 
@@ -155,7 +156,7 @@ az spring-cloud show --name -n
                      -- resource-group -g
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | Azure 스프링 클라우드 인스턴스의 이름입니다. |
 | --resource-group -g | Azure 스프링 클라우드 인스턴스가 속한 리소스 그룹의 이름입니다.
@@ -175,13 +176,13 @@ az spring-cloud app create --name -n
                             --memory
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --cpu | 인스턴스당 가상 코어 수입니다.  기본값: 1. |
 | --사용-영구적-저장소 | 부울 값을 지정합니다.  True 이면 기본 경로를 사용 하 여 50GB 디스크를 탑재 합니다. |
@@ -213,7 +214,7 @@ az spring cloud app delete  --name -n
                             --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -240,13 +241,13 @@ az spring cloud app deploy  --name -n
                             --version
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --cpu | 인스턴스당 가상 CPI 코어 수입니다. |
 | --배포-d | 기존 앱 배포의 이름입니다.  지정 하지 않으면 프로덕션 배포가 기본값으로 지정 됩니다. |
@@ -289,7 +290,7 @@ az spring-cloud app list --resource-group -g
                          --service -s
 ```
 
-|필수 매개 변수 | 설명 |
+|필수 매개 변수 | Description |
 | --- | :--- |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
@@ -306,13 +307,13 @@ az spring-cloud app restart --name -n
                             --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --배포-d | 응용 프로그램의 기존 배포 이름입니다.  지정 하지 않으면 프로덕션 배포가 기본값으로 지정 됩니다. |
 | --no-wait | 장기 실행 작업이 완료 될 때까지 기다리지 마세요. |
@@ -332,13 +333,13 @@ az spring-cloud app scale --name -n
                           --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --cpu | 앱 인스턴스당 가상 CPU 코어 수입니다. |
 | --배포-d | 응용 프로그램의 기존 배포 이름입니다.  지정 하지 않으면 프로덕션 배포가 기본값으로 지정 됩니다. |
@@ -372,14 +373,14 @@ az spring-cloud app set-deployment --deployment -d
                                    --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --배포-d | 기존 앱 배포의 이름입니다. |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --no-wait | 장기 실행 작업이 완료 될 때까지 기다리지 마세요. |
 
@@ -401,7 +402,7 @@ az spring-cloud app show --name -n
                          --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -418,13 +419,13 @@ az spring-cloud app show-deploy-log --name -n
                                     --deployment -d
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --배포-d | 기존 앱 배포의 이름입니다.  프로덕션 환경에 대 한 기본값입니다. |
 
@@ -440,13 +441,13 @@ az spring-cloud app start --name -n
                           --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --배포-d | 기존 앱 배포의 이름입니다.  프로덕션 환경에 대 한 기본값입니다. |
 | --no-wait | 장기 실행 작업이 완료 될 때까지 기다리지 마세요. |
@@ -463,13 +464,13 @@ az spring-cloud app stop --name -n
                          --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --배포-d | 기존 앱 배포의 이름입니다.  프로덕션 환경에 대 한 기본값입니다. |
 | --no-wait | 장기 실행 작업이 완료 될 때까지 기다리지 마세요. |
@@ -491,18 +492,18 @@ az spring-cloud app update --name -n
                            --runtime-version
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name-n | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --배포-d | 기존 앱 배포의 이름입니다.  프로덕션 환경에 대 한 기본값입니다. |
-| --사용-영구적-저장소 | Boolean입니다.  True 이면 기본 경로를 사용 하 여 50GB 디스크를 탑재 합니다. |
+| --사용-영구적-저장소 | 부울입니다.  True 이면 기본 경로를 사용 하 여 50GB 디스크를 탑재 합니다. |
 | --env | ' Key [= value] ' 형식의 공백으로 구분 된 환경 변수입니다. |
-| --is-public | Boolean입니다.  True 이면 앱에 공용 도메인을 할당 합니다. |
+| --is-public | 부울입니다.  True 이면 앱에 공용 도메인을 할당 합니다. |
 | --jvm-옵션 | JVM 옵션을 포함 하는 문자열입니다.  셸 구문 분석 오류를 방지 하려면 ' ' 대신 ' = '를 사용 하세요. `--jvm-options='-Xms1024m -Xmx2048m`예:,. |
 | --no-wait | 장기 실행 작업이 완료 될 때까지 기다리지 마세요. |
 | --runtime-버전 | 앱에서 사용 되는 언어의 런타임 버전입니다.  허용 되는 값은 `Java_11` , `Java_8` 입니다. |
@@ -525,7 +526,7 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -542,7 +543,7 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 제거할 서비스 바인딩의 이름입니다. |
@@ -560,7 +561,7 @@ az spring-cloud app binding show --app
                                  --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 서비스 바인딩의 이름입니다. |
@@ -590,7 +591,7 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --api-version | 다음 값 중 하나를 사용 하 여 API 유형을 지정 합니다. cassandra, gremlin, mongo, sql, table |
 | --앱 | 응용 프로그램의 이름입니다. |
@@ -598,7 +599,7 @@ az spring-cloud app binding list --app
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-|선택적 매개 변수 | 설명 |
+|선택적 매개 변수 | Description |
 | --- | :--- |
 | --컬렉션 이름 | 컬렉션의 이름입니다.  Gremlin를 사용할 때 필요 합니다. |
 | --데이터베이스 이름 | 데이터베이스의 이름입니다.  Mongo, SQL 및 Gremlin를 사용할 때 필요 합니다. |
@@ -616,14 +617,14 @@ az spring-cloud app binding cosmos update --app
                                           --key-space
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 서비스 바인딩의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-|선택적 매개 변수 | 설명 |
+|선택적 매개 변수 | Description |
 | --- | :--- |
 | --컬렉션 이름 | 컬렉션의 이름입니다.  Gremlin를 사용할 때 필요 합니다. |
 | --데이터베이스 이름 | 데이터베이스의 이름입니다.  Mongo, SQL 및 Gremlin를 사용할 때 필요 합니다. |
@@ -641,7 +642,7 @@ az spring-cloud app binding mysql add --app
                                       --username
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --데이터베이스 이름 | 데이터베이스의 이름입니다. |
@@ -666,14 +667,14 @@ az spring-cloud app binding mysql update --add
                                          --username
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 서비스 바인딩의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --데이터베이스 이름 | 데이터베이스의 이름입니다. |
 | --key | 서비스의 API 키입니다. |
@@ -692,7 +693,7 @@ az spring-cloud app binding redis add --app
                                       --disable-ssl
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 서비스 바인딩의 이름입니다. |
@@ -700,7 +701,7 @@ az spring-cloud app binding redis add --app
 | --리소스 id | 바인딩하려는 서비스의 Azure 리소스 ID입니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --사용 안 함-ssl | TLS를 사용 하지 않습니다. |
 
@@ -708,14 +709,14 @@ az spring-cloud app binding redis add --app
 
 Redis 용 Azure 캐시에 대 한 서비스 바인딩을 업데이트 합니다.
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 서비스 바인딩의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --사용 안 함-ssl | TLS를 사용 하지 않습니다. |
 
@@ -725,14 +726,14 @@ Redis 용 Azure 캐시에 대 한 서비스 바인딩을 업데이트 합니다.
 
 코드를 배포 하거나 기존 배포에 대 한 설정을 업데이트 하려면 `az spring-cloud app deploy --deployment <staging-deployment>` 또는 ' az 스프링-cloud app update--deployment '를 사용 <staging deployment> 합니다.
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 서비스 바인딩의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --서비스-s | Azure 스프링 클라우드의 이름입니다.  를 사용 하 여 기본 서비스를 구성할 수 있습니다 `az configure --defaults spring-cloud=<name>` . |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --cpu | 인스턴스당 가상 CPU 코어 수입니다.  기본값: 1 |
 | --env | ' Key [= value] ' 형식의 공백으로 구분 된 환경 변수입니다. |
@@ -771,7 +772,7 @@ az spring-cloud app deployment delete --app
                                       --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 배포의 이름입니다. |
@@ -788,7 +789,7 @@ az spring-cloud app deployment list --app
                                     --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -805,7 +806,7 @@ az spring-cloud app deployment show --app
                                     --service -s
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --name | 배포의 이름입니다. |
@@ -821,7 +822,7 @@ az spring-cloud config-server clear --name
                                         --resource-group -g
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -837,13 +838,13 @@ az spring-cloud config-server set --config-file
                                   --no-wait
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --config-file | 구성 서버 구성에 대 한 YAML 매니페스트의 파일 경로입니다. |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --no-wait | 장기 실행 작업이 완료 되는 것은 아닙니다.
 
@@ -856,7 +857,7 @@ az spring-cloud config-server show --name -n
                                    --resource-group -g
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -880,13 +881,13 @@ az spring-cloud config-server git set --name -n
                                       --username
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --uri | 추가 된 구성의 URI입니다. |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --지연 | Azure에 전송 하는 대신 로컬 캐시에 개체를 임시로 저장 합니다.  `az cache`를 사용 하 여 보거나 지울 수 있습니다. |
 | --호스트 키 | 추가 된 구성의 호스트 키입니다. |
@@ -917,14 +918,14 @@ az spring-cloud config-server git repo add --name -n
                                            --username
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --리포지토리-이름 | 리포지토리의 URI입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 | --uri | 추가 된 구성의 URI입니다. |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --지연 | Azure에 전송 하는 대신 로컬 캐시에 개체를 임시로 저장 합니다.  `az cache`를 사용 하 여 보거나 지울 수 있습니다. |
 | --호스트 키 | 추가 된 구성의 호스트 키입니다. |
@@ -947,12 +948,12 @@ az spring-cloud config-server git repo list --name -n
                                        --defer
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --지연 | Azure에 전송 하는 대신 로컬 캐시에 개체를 임시로 저장 합니다.  `az cache`를 사용 하 여 보거나 지울 수 있습니다. |
 
@@ -967,13 +968,13 @@ az spring-cloud config-server git repo remove --name -n
                                          --defer
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --리포지토리-이름 | 리포지토리의 URI입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --지연 | Azure에 전송 하는 대신 로컬 캐시에 개체를 임시로 저장 합니다.  `az cache`를 사용 하 여 보거나 지울 수 있습니다. |
 
@@ -986,7 +987,7 @@ az spring-cloud test-endpoint disable --name -n
                                       --resource-group -g
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -1000,7 +1001,7 @@ az spring-cloud test-endpoint enable --name -n
                                      --resource-group -g
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
@@ -1016,12 +1017,12 @@ az spring-cloud test-endpoint list --name -n
                                    --deployment -d
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |
 
-| 선택적 매개 변수 | 설명 |
+| 선택적 매개 변수 | Description |
 | --- | :--- |
 | --앱 | 응용 프로그램의 이름입니다. |
 | --배포-d | 기존 앱 배포의 이름입니다.  지정 되지 않은 경우 기본적으로 production로 설정 됩니다. |
@@ -1036,7 +1037,7 @@ az spring-cloud test-endpoint renew-key --name -n
                                         --type
 ```
 
-| 필수 매개 변수 | 설명 |
+| 필수 매개 변수 | Description |
 | --- | :--- |
 | --name | Azure 스프링 클라우드의 이름입니다. |
 | --resource-group -g | 리소스 그룹의 이름입니다.  `az configure --defaults group=<name>`을 사용하여 기본 그룹을 구성할 수 있습니다. |

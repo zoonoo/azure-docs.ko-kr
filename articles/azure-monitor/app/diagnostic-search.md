@@ -3,11 +3,12 @@ title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a264f25f92bed1b93848c323fd59eafd7b09215
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695660"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033618"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
@@ -17,7 +18,7 @@ Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원
 
 ## <a name="where-do-you-see-search"></a>Search 기능은 어디에 있나요?
 
-### <a name="in-the-azure-portal"></a>Azure 포털에서 다음을 수행합니다.
+### <a name="in-the-azure-portal"></a>Azure Portal에서
 
 응용 프로그램의 Application Insights 개요 탭 (위쪽 표시줄에 있음) 이나 왼쪽의 조사에서 진단 검색을 열 수 있습니다.
 
@@ -147,4 +148,4 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 * [분석에서 복잡한 쿼리 작성](../../azure-monitor/log-query/get-started-portal.md)
 * [Application Insights에 로그 및 사용자 지정 원격 분석 전송](../../azure-monitor/app/asp-net-trace-logs.md)
 * [가용성 및 응답성 테스트 설정](../../azure-monitor/app/monitor-web-app-availability.md)
-* [문제 해결](../../azure-monitor/app/troubleshoot-faq.md)
+* [문제 해결](../faq.md)

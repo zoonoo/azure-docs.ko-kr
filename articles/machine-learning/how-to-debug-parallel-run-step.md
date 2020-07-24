@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
+ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/06/2020
-ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/16/2020
+ms.openlocfilehash: a6a3e9a7a914711f6b7c923ac2249ebf3285c877
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027004"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031017"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>ParallelRunStep 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ ParallelRunStep 작업의 분산 특성으로 인해 여러 원본의 로그가 
 
 - `~/logs/overview.txt`: 이 파일은 지금까지 생성된 미니 일괄 처리(작업)의 수와 지금까지 처리된 미니 일괄 처리 수에 대한 높은 수준의 정보를 제공합니다. 이 끝에서는 작업의 결과를 보여 줍니다. 작업이 실패할 경우 오류 메시지와, 문제 해결을 시작할 지점이 표시됩니다.
 
-- `~/logs/sys/master.txt`: 이 파일은 실행 중인 작업의 마스터 노드(오케스트레이터라고도 함) 보기를 제공합니다. 작업 만들기, 진행률 모니터링, 실행 결과가 포함됩니다.
+- `~/logs/sys/master.txt`:이 파일은 실행 중인 작업의 주 노드 (orchestrator 라고도 함)를 제공 합니다. 작업 만들기, 진행률 모니터링, 실행 결과가 포함됩니다.
 
 EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 생성된 로그는 다음 파일에 있습니다.
 
@@ -61,11 +61,11 @@ EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 �
 각 작업자에 대한 프로세스의 리소스 사용 정보도 확인할 수 있습니다. 이 정보는 CSV 형식이며 `~/logs/sys/perf/overview.csv`에 있습니다. 각 프로세스에 대 한 정보는에서 확인할 수 있습니다 `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>원격 컨텍스트의 내 사용자 스크립트는 어떻게 기록하나요?
-아래 샘플 코드에 표시된 것처럼 EntryScript에서 로거를 가져와 포털의 **logs/user** 폴더에 로그가 표시되게 할 수 있습니다.
+ParallelRunStep는 process_count_per_node 기반으로 한 노드에서 여러 프로세스를 실행할 수 있습니다. 노드의 각 프로세스에서 로그를 구성 하 고 print 및 log 문을 결합 하려면 아래와 같이 ParallelRunStep로 거를 사용 하는 것이 좋습니다. EntryScript에서로 거를 가져오고 로그가 포털의 **로그/사용자** 폴더에 표시 되도록 합니다.
 
 **로거를 사용 하는 샘플 항목 스크립트:**
 ```python
-from entry_script import EntryScript
+from azureml_user.parallel_run import EntryScript
 
 def init():
     """ Initialize the node."""
@@ -87,7 +87,9 @@ def run(mini_batch):
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>조회 테이블을 포함하는 하나 이상의 파일 등, 측면 입력을 모든 작업자에게 전달하려면 어떻게 해야 하나요?
 
-측면 입력을 포함하는 [데이터 세트](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)를 생성하고 작업 영역에 등록합니다. `ParallelRunStep`의 `side_input` 매개 변수에 전달합니다. 또한 섹션에 해당 경로를 추가 하 여 `arguments` 탑재 된 경로에 쉽게 액세스할 수 있습니다.
+사용자는 ParalleRunStep의 side_inputs 매개 변수를 사용 하 여 스크립트에 참조 데이터를 전달할 수 있습니다. Side_inputs로 제공 되는 모든 데이터 집합은 각 작업자 노드에 탑재 됩니다. 사용자는 인수를 전달 하 여 탑재 위치를 가져올 수 있습니다.
+
+참조 데이터를 포함 하는 데이터 [집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 을 생성 하 고 작업 영역에 등록 합니다. `ParallelRunStep`의 `side_inputs` 매개 변수에 전달합니다. 또한 섹션에 해당 경로를 추가 하 여 `arguments` 탑재 된 경로에 쉽게 액세스할 수 있습니다.
 
 ```python
 label_config = label_ds.as_named_input("labels_input")

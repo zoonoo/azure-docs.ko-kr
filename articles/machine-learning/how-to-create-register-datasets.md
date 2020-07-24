@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: baa238f36c41b5f494e8748cd5cd563bd212f483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610713"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031170"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -32,23 +32,24 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-' 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독 구독이 없으면 시작하기 전에 계정을 만드세요. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
+
+* Azure 구독. 구독이 없으면 시작하기 전에 계정을 만드세요. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
 * Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
 
 > [!NOTE]
-> 일부 데이터 집합 클래스에는 64 비트 Python과만 호환 되는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
+> 일부 데이터 집합 클래스에는 64 비트 Python과만 호환 되는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) 및 CentOS (7) 배포판 에서만 지원 됩니다.
 
 ## <a name="compute-size-guidance"></a>계산 크기 지침
 
 데이터 집합을 만들 때 계산 처리 능력과 메모리의 데이터 크기를 검토 합니다. 저장소에 있는 데이터의 크기는 데이터 프레임의 데이터 크기와 동일 하지 않습니다. 예를 들어 CSV 파일의 데이터는 데이터 프레임에서 최대 10 배까지 확장할 수 있으므로 1gb CSV 파일은 데이터 프레임에서 10gb가 될 수 있습니다. 
 
-주 요소는 데이터 집합이 메모리 내 크기 (예: 데이터 프레임)입니다. 계산 크기와 처리 능력에는 2 배 RAM 크기를 포함 하는 것이 좋습니다. 따라서 데이터 프레임가 10GB 인 경우 20 개 이상의 RAM이 있는 계산 대상을 사용 하 여 데이터 프레임가 메모리에 편안 하 게 일치 하 고 처리할 수 있도록 합니다. 데이터가 압축 되 면 추가로 확장할 수 있습니다. 압축 된 parquet 형식으로 저장 된 20gb의 비교적 스파스 데이터는 메모리에서 800 GB로 확장 될 수 있습니다. Parquet 파일은 데이터를 열 형식으로 저장 하기 때문에 열 절반이 필요한 경우에는 메모리에서 400 ~ GB를 로드 하기만 하면 됩니다.
+주 요소는 데이터 집합이 메모리 내 크기 (예: 데이터 프레임)입니다. 계산 크기와 처리 능력에는 2 배 RAM 크기를 포함 하는 것이 좋습니다. 따라서 데이터 프레임가 10GB 인 경우 20 개 이상의 RAM이 있는 계산 대상에서 데이터 프레임가 메모리에 맞고 처리 될 수 있도록 합니다. 데이터가 압축 되 면 추가로 확장할 수 있습니다. 압축 된 parquet 형식으로 저장 된 20gb의 비교적 스파스 데이터는 메모리에서 800 GB로 확장 될 수 있습니다. Parquet 파일은 데이터를 열 형식으로 저장 하기 때문에 열 절반이 필요한 경우에는 메모리에서 400 ~ GB를 로드 하기만 하면 됩니다.
  
 Pandas를 사용 하는 경우 두 개 이상의 vCPU가 사용 되는 이유가 없습니다. 를로 변경 하기만 하면 단일 Azure Machine Learning 계산 인스턴스/노드의 여러 vCPUs로 쉽게 병렬 처리 하 고, 필요한 경우 대규모 클러스터로 확장할 수 있습니다 `import pandas as pd` `import modin.pandas as pd` . 
  
@@ -121,11 +122,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Survived|Pclass|이름|성|Age|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|Name|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+0|1|거짓|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|참|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 In memory pandas 데이터 프레임에서 데이터 집합을 만들려면 csv와 같은 로컬 파일에 데이터를 작성 하 고 해당 파일에서 데이터 집합을 만듭니다. 다음 코드에서는이 워크플로를 보여 줍니다.
 
@@ -158,7 +159,7 @@ dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv
 
 from azureml.core import Dataset, Datastore
 
-# create tabular dataset from a SQL database in datastore
+# create tabular dataset from a SQL database in datastore. Take note of double parenthesis.
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
@@ -186,7 +187,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-a-filedataset"></a>FileDataset 만들기
 
-[`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)클래스의 메서드를 사용 `FileDatasetFactory` 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다. 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 메서드에서 매개 변수를 설정 `validate =False` `from_files()` 합니다. 이렇게 하면 초기 유효성 검사 단계가 무시 되 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다.
+[`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)클래스의 메서드를 사용 `FileDatasetFactory` 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다. 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 메서드에서 매개 변수를 설정 `validate=False` `from_files()` 합니다. 이렇게 하면 초기 유효성 검사 단계가 무시 되 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -210,6 +211,7 @@ Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
 1. 데이터 집합 **만들기** 를 선택 하 여 데이터 집합의 원본을 선택 합니다. 이 원본은 로컬 파일, 데이터 저장소 또는 공용 Url 일 수 있습니다.
 1. 데이터 집합 형식으로 **테이블** 형식 또는 **파일** 을 선택 합니다.
 1. **다음** 을 선택 하 여 **데이터 저장소 및 파일 선택** 양식을 엽니다. 이 폼에서 데이터 집합을 만든 후 데이터 집합에 사용할 데이터 파일을 선택할 뿐만 아니라 데이터 집합을 보관할 위치를 선택할 수 있습니다. 
+    1. 데이터가 가상 네트워크에 있는 경우 유효성 검사 건너뛰기를 사용 하도록 설정 합니다. [가상 네트워크 격리 및 개인 정보](how-to-enable-virtual-network.md#machine-learning-studio)에 대해 자세히 알아보세요.
 1. **다음** 을 선택 하 여 **설정 및 미리 보기** 및 **스키마** 폼을 채웁니다. 이러한 형식은 파일 형식에 따라 지능적으로 채워지며 이러한 폼에서 만들기 전에 데이터 집합을 추가로 구성할 수 있습니다. 
 1. **다음** 을 선택 하 여 **확인 세부 정보** 양식을 검토 합니다. 선택 항목을 확인 하 고 데이터 집합에 대 한 선택적 데이터 프로필을 만듭니다. [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보 
 1. **만들기** 를 선택 하 여 데이터 집합 만들기를 완료 합니다.

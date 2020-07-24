@@ -14,21 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 121c9258353505b6147aa059d327bc711e9fede4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf8da1d88529a823ff4399fb955c8a5e0abbd20e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368396"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038242"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Azure 센티널에 Alcide kAudit 연결
+
+> [!IMPORTANT]
+> Azure 센티널의 Alcide kAudit 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) 를 사용 하 여 비정상적인 Kubernetes 동작을 식별 하 고, 검색 시간을 줄이면서 Kubernetes 위반 및 인시던트에 집중할 수 있습니다. 이 문서에서는 Alcide kAudit 솔루션을 Azure 센티널에 연결 하는 방법을 설명 합니다. Alcide kAudit 데이터 커넥터를 사용 하면 kAudit 로그 데이터를 Azure 센티널로 쉽게 가져올 수 있습니다. 그러면 통합 문서에서이를 보고,이를 사용 하 여 사용자 지정 경고를 만들고, 조사를 개선 하는 데 통합할 수 있습니다. Alcide kAudit와 Azure 센티널 간의 통합은 REST API를 사용 합니다.
 
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

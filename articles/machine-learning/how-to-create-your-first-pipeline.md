@@ -11,12 +11,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f5c4bfbe955c2989f420d7a6f325f8101556dddd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 069f18d6ef94dd7570cdd506823ef22a17594795
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201312"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031136"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -38,7 +38,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
-* Azure Machine Learning SDK를 설치 하도록 [개발 환경을 구성](how-to-configure-environment.md) 하거나 sdk가 이미 설치 된 [Azure Machine Learning 계산 인스턴스 (미리 보기)](concept-compute-instance.md) 를 사용 합니다.
+* Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 를 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다.
 
 작업 영역을 연결 하 여 시작 합니다.
 
@@ -129,6 +129,8 @@ Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__�
 * Azure Machine Learning 컴퓨팅
 * Azure Databricks 
 * Azure 데이터 레이크 분석
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
 

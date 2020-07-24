@@ -3,11 +3,12 @@ title: Azure VM을 만들 때 백업 사용
 description: Azure Backup를 사용 하 여 Azure VM을 만들 때 백업을 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032853"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
@@ -15,7 +16,7 @@ Azure Backup 서비스를 사용 하 여 Azure Vm (가상 머신)을 백업 합�
 
 이 문서에서는 Azure Portal에서 VM (가상 머신)을 만들 때 백업을 사용 하도록 설정 하는 방법에 대해 자세히 설명 합니다.  
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 - VM을 만들 때 백업을 사용 하도록 설정 하는 경우 지원 되는 운영 체제를 [확인](backup-support-matrix-iaas.md#supported-backup-actions) 합니다.
 
@@ -29,7 +30,7 @@ Azure Backup 서비스를 사용 하 여 Azure Vm (가상 머신)을 백업 합�
 
 2. Azure Marketplace에서 **Compute**를 클릭 한 다음 VM 이미지를 선택 합니다.
 
-3. [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) 지침에 따라 VM을 설정 합니다.
+3. [Windows](../virtual-machines/windows/quick-create-portal.md) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md) 지침에 따라 VM을 설정 합니다.
 
 4. **관리** 탭의 **백업 사용**에서 **켜기**를 클릭 합니다.
 5. Recovery Services 자격 증명 모음에 백업을 Azure Backup 합니다. 기존 자격 증명 모음이 없는 경우 **새로 만들기** 를 클릭 합니다.

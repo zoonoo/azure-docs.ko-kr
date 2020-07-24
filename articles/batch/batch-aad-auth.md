@@ -4,12 +4,12 @@ description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170312"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032462"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -193,7 +193,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 }
 ```
 
-사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure 리소스에 대한 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
+사용자 지정 역할을 만드는 방법에 대 한 일반적인 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Azure Active Directory에 대한 테넌트 ID 가져오기
 

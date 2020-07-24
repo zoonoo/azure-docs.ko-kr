@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7e12b750f569a81f6931333a05f884e16ac4d9e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5cd335d34a67cc5a102bde11366813c53770266e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508016"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036338"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -73,7 +73,7 @@ ms.locfileid: "86508016"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -686,7 +686,7 @@ SAP 시스템이 Azure Virtual Machine 서비스 및 해당 기능에 적합한�
 
 ![Azure에서 SAP를 배포하는 기능을 결정하는 의사 결정 트리][planning-guide-figure-700]
 
-1. 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 애플리케이션 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. 결과는 [여기](https://sap.com/about/benchmark.html)에서 찾을 수 있습니다. 새로 배포된 SAP 시스템의 경우 시스템의 SAPS 요구 사항을 결정해야 하는 크기 조정 연습 과정을 거쳐야 합니다. [Azure에서 SAP 크기 조정](https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx) 에 대 한이 블로그 및 첨부 된 문서도 참조 하세요.
+1. 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 애플리케이션 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. 결과는 [여기](https://sap.com/about/benchmark.html)에서 찾을 수 있습니다. 새로 배포된 SAP 시스템의 경우 시스템의 SAPS 요구 사항을 결정해야 하는 크기 조정 연습 과정을 거쳐야 합니다. 
 1. 기존 시스템의 경우 DBMS 서버의 I/O 볼륨 및 초당 I/O 작업 수를 측정해야 합니다. 새로 예정된 시스템의 경우는 새 시스템에 대한 크기 조정 연습 과정을 진행하면서 DBMS에 대한 I/O 요구 사항을 대략적으로 알 수 있습니다. 확실하지 않은 경우 결국 개념 증명을 수행해야 합니다.
 1. DBMS 서버의 SAPS 요구 사항과 여러 다른 VM 형식의 Azure가 제공할 수 있는 SAPS를 비교합니다. 다른 Azure VM 형식의 SAPS 관련 정보는 SAP 정보 [1928533]에 나와 있습니다. 데이터베이스 계층이 대부분의 배포에서는 확장되지 않는 SAP NetWeaver 시스템의 계층이므로 먼저 DBMS VM을 중점적으로 설명합니다. 반면 SAP 애플리케이션 계층은 확장될 수 있습니다. SAP 지원 Azure VM 유형 중 어떤 유형도 필요한 SAPS를 제공할 수 없는 경우 계획된 SAP 시스템의 작업을 Azure에서 실행할 수 없습니다. 따라서 온-프레미스에 시스템을 배포해야 하거나 시스템에 대한 작업 볼륨을 변경해야 합니다.
 1. [여기(Linux)][virtual-machines-sizes-linux]와 [여기(Windows)][virtual-machines-sizes-windows]서 설명하는 대로 Azure에서는 사용자가 Standard Storage 또는 Premium Storage 중 어느 것을 사용하든지 간에 디스크당 IOPS 할당량을 적용합니다. VM 유형에 따라 탑재 가능한 데이터 디스크 수가 달라집니다. 따라서 각 VM 유형에서 얻을 수 있는 최대 IOPS 수를 계산할 수 있습니다. 데이터베이스 파일 레이아웃에 따라 게스트 OS에서 단일 볼륨이 되도록 디스크를 스트라이프할 수 있습니다. 그러나 배포된 SAP 시스템의 현재 IOPS 볼륨이 Azure의 가장 큰 VM 유형에 대해 계산된 제한을 초과하고 더 많은 메모리로 보상할 수 없으면 SAP 시스템의 작업은 심각한 영향을 받을 수 있습니다. 이러한 경우 Azure에 시스템을 배포하지 않아야 하는 상황이 올 수 있습니다.
@@ -734,7 +734,7 @@ Azure Extension for SAP(이 문서의 [Azure Extension for SAP][planning-guide-9
 
 Azure에서는 더 많은 기능을 제공하므로 cmdlet 업데이트를 요구하는 새로운 PS cmdlet이 추가될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
 
-Azure 관련 PowerShell 명령의 일반 목록은 <https://docs.microsoft.com/powershell/azure/overview>에서 확인하세요.
+Azure 관련 PowerShell 명령의 일반 목록은 <https://docs.microsoft.com/powershell/azure/>에서 확인하세요.
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Microsoft Azure CLI 명령을 통한 관리
 

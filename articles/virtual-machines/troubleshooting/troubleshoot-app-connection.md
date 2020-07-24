@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036440"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure의 가상 머신에서 애플리케이션 연결 문제해결
 
@@ -117,7 +117,7 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
   
   * VM의 엔드포인트 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 프라이빗 포트 번호를 허용하는지 확인합니다.
   * 엔드포인트의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 차단하지 않는지 확인합니다.
-  * 자세한 내용은 [Virtual Machine으로 엔드포인트를 설정하는 방법](../windows/classic/setup-endpoints.md)을 참조하세요.
+  * 자세한 내용은 [Virtual Machine으로 엔드포인트를 설정하는 방법](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints)을 참조하세요.
 * Resource Manager 배포 모델을 사용하여 만든 VM
   
   * VM의 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 프라이빗 포트 번호를 허용하는지 확인합니다.
@@ -138,11 +138,9 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>4단계: 애플리케이션에 액세스할 수 없는 경우 IP 확인을 사용하여 설정을 확인합니다. 
 
-자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
+자세한 내용은 [Azure 네트워크 모니터링 개요](../../network-watcher/network-watcher-monitoring-overview.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 [Windows 기반 Azure 가상 머신에 대 한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
 
 [Linux 기반 Azure 가상 머신에 SSH(보안 셸) 연결 문제 해결](troubleshoot-ssh-connection.md)
-
-

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3505427ab88a2241aa2781366c3d15179b03f050
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 72408b4f17aa5e8601095b27478806883739a7a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031629"
 ---
-# <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
+# <a name="expressroute-connectivity-partners-and-peering-locations"></a>Express 경로 연결 파트너 및 피어 링 위치
 
 > [!div class="op_single_selector"]
 > * [공급자별 위치](expressroute-locations.md)
@@ -133,6 +133,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |지원됨 |지원됨 |댈러스, 로스앤젤레스, 마이애미, 상파울루, 워싱턴 DC |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |지원됨 |지원됨 |뉴포트(웨일스) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |지원됨 |지원됨 |멜버른, 퍼스, 시드니, 시드니2 |
+| **[NOS](https://www.nos.pt/empresas/corporate/cloud/cloud/Pages/nos-cloud-connect.aspx)** |지원됨 |지원됨 |암스테르담2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |지원됨 |지원됨 |암스테르담, 홍콩 특별 행정구, 런던, 로스앤젤레스, 오사카, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |지원됨 |지원됨 |도쿄 |
 | **[NTT Global DataCenters EMEA](https://www.ntt.com/en/services/data-center.html)** |지원됨 |지원됨 |베를린 |
@@ -167,9 +168,9 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | 지원됨 | 지원됨 | 방콕 |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 홍콩 특별 행정구, 런던, 뭄바이, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | 지원됨 | 지원됨 | 워싱턴 DC2 |
-| **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | 지원됨 | 지원됨 | 오클랜드, 시드니 |
-| **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |지원 여부 |지원됨 |암스테르담2, 런던, 싱가포르 |
-| **[Vodafone Idea](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | 지원 여부 | 지원 여부 | 뭄바이2 |
+| **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | 지원 여부 | 지원 여부 | 오클랜드, 시드니 |
+| **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |지원 여부 |지원 여부 |암스테르담2, 런던, 싱가포르 |
+| **[Vodafone Idea](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | 지원 여부 | 지원됨 | 뭄바이2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |지원 여부 |지원됨 |암스테르담, 시카고, 댈러스, 덴버, 런던, 로스앤젤레스, 몬트리올, 뉴욕, 파리, 시애틀, 실리콘밸리, 토론토, 워싱턴 DC, 워싱턴 DC2 |
 
  **+** 는 서비스 예정을 나타냄
@@ -184,8 +185,8 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |시카고, Phoenix, 실리콘밸리, 워싱턴 DC |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |뉴욕, Phoenix, 샌안토니오, 워싱턴 DC |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원됨 |애틀란타, 시카고, 댈러스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원 여부 |지원 여부 |시카고, 실리콘밸리, 워싱턴 DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원 여부 |지원 여부 |애틀란타, 시카고, 댈러스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원 여부 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원 여부 | 지원됨 | 시카고, 댈러스, 샌안토니오, 시애틀, 워싱턴 DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |지원 여부 |지원됨 |시카고, 댈러스, 뉴욕, 실리콘밸리, 워싱턴 DC |
 
@@ -193,9 +194,9 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 
 | **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
-| **China Telecom** |지원됨 |지원되지 않음 |베이징, 베이징2, 상하이, 상하이2 |
-| **China Unicom** | 지원됨 | 지원되지 않음 | 베이징2, 상하이2 |
-| **[GDS](http://www.gds-services.com/en/about_2.html)** |지원됨 |지원되지 않음 |베이징2, 상하이2 |
+| **China Telecom** |지원 여부 |지원되지 않음 |베이징, 베이징2, 상하이, 상하이2 |
+| **China Unicom** | 지원 여부 | 지원되지 않음 | 베이징2, 상하이2 |
+| **[GDS](http://www.gds-services.com/en/about_2.html)** |지원 여부 |지원되지 않음 |베이징2, 상하이2 |
 
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)를 참조하세요.
 
@@ -205,7 +206,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |지원됨 |지원되지 않음 |베를린 |
+| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |지원 여부 |지원되지 않음 |베를린 |
 | **Interxion** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨  | 지원되지 않음 | 베를린 |
 | **T 시스템** |지원됨 |지원되지 않음 |베를린 |
@@ -355,7 +356,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | 아시아 |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | 유럽 |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 북아메리카 |
-| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | 북아메리카 |
+| **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | 북아메리카 |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | 유럽 |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | 남아메리카 |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | 오스트레일리아 |

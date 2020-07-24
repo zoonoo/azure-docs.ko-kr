@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 253cd8174ec523f6c8a6aae2b94f7ed367701fec
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: d73782d9de7da2c5daacbff5397d9a365ff9ae03
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146776"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038412"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -36,7 +36,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 처음에 새 인덱서는 미리 보기 기능으로 발표됩니다. 미리 보기 기능은 API(REST 및 .NET)에 도입된 다음 일반 공급으로 조정 후 포털로 통합됩니다. 새 인덱서를 평가하고 있다면 코드 작성을 계획해야 합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 상태 또는 정의에 대 한 GET 요청을 포함 하 여 인덱서와 관련 된 모든 작업에는 [관리 api 키](search-security-api-keys.md)가 필요 합니다. 
 

@@ -3,12 +3,12 @@ title: Resource Health 경고를 만들기 위한 템플릿
 description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고를 프로그래밍 방식으로 작성합니다.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 18a3b2df2d159d2903c69debd79cccfc6d0af63e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 399c37f123d06e251514d0cafc3c1c4918ce3edd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037936"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
@@ -21,11 +21,11 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
-1. [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-Az-ps) 을 설치 해야 합니다.
+1. [Azure PowerShell 모듈](/powershell/azure/install-az-ps) 을 설치 해야 합니다.
 2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../azure-monitor/platform/action-groups.md)해야 합니다.
 
 ## <a name="instructions"></a>지침
@@ -171,7 +171,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 ],
 ```
 
-`"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+예를 들면 다음과 같습니다. `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Azure Portal로 이동하여 Azure 리소스를 볼 때 URL을 살펴보면 이 문자열을 얻을 수 있습니다.
 
@@ -454,5 +454,5 @@ Resource Health에 대해 알아봅니다.
 
 
 Service Health 경고 만들기:
--  [Service Health에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Service Health에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md) 
 -  [Azure 활동 로그 이벤트 스키마](../azure-monitor/platform/activity-log-schema.md)

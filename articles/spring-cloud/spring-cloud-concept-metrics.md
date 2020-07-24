@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: 7ef7614b32dd88e804b1a74749ee87504f9cea40
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-java
+ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037732"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 메트릭 이해
 
@@ -88,13 +89,13 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 
 ### <a name="error"></a>오류
 >[!div class="mx-tdCol2BreakAll"]
->| 이름 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| tomcat | tomcat | 개수 | 처리 된 요청에서 발생 한 오류 수 |
 
 ### <a name="performance"></a>성능
 >[!div class="mx-tdCol2BreakAll"]
->| 이름 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| 시스템 cpu 사용량 | 시스템 cpu 사용량 | 백분율 | 전체 시스템에 대 한 최근 CPU 사용량입니다. 이 값은 [0.0, 1.0] 간격의 double입니다. 0.0 값은 최근 관찰 된 기간 동안 모든 Cpu가 유휴 상태임을 의미 하 고, 값 1.0은 모든 Cpu가 최근 관찰 되는 기간 동안 100%를 적극적으로 실행 하 고 있음을 의미 합니다.|
 >| 프로세스. cpu 사용량 | 앱 CPU 사용 백분율 | 백분율 | Java Virtual Machine 프로세스에 대 한 최근 CPU 사용량입니다. 이 값은 [0.0, 1.0] 간격의 double입니다. 0.0 값은 최근 관찰 된 기간 동안 JVM 프로세스에서 스레드를 실행 하 고 있던 Cpu가 없음을 의미 하 고, 값 1.0은 모든 Cpu가 최근 관찰 되는 시간 동안 JVM 100%에서 적극적으로 스레드를 실행 하 고 있음을 의미 합니다. JVM의 스레드는 응용 프로그램 스레드와 JVM 내부 스레드를 포함 합니다.|
@@ -110,7 +111,7 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 
 ### <a name="request"></a>요청
 >[!div class="mx-tdCol2BreakAll"]
->| 이름 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| tomcat | tomcat | 바이트 | Tomcat 웹 서버에서 보낸 데이터의 양 |
 >| tomcat | tomcat | 바이트 | Tomcat 웹 서버에서 받은 데이터의 양 |
@@ -119,7 +120,7 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 
 ### <a name="session"></a>세션
 >[!div class="mx-tdCol2BreakAll"]
->| 이름 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| tomcat. | tomcat. | 개수 | 동시에 활성화 된 최대 세션 수 |
 >| tomcat. | tomcat. | 밀리초 | 만료 된 세션이 활성 이었던 가장 긴 시간 (초) |

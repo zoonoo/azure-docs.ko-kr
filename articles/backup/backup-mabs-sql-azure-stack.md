@@ -3,11 +3,12 @@ title: Azure Stack에 SQL Server 워크로드 백업
 description: 이 문서에서는 Azure Stack에서 SQL Server 데이터베이스를 보호 하도록 MABS (Microsoft Azure Backup Server)를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84192976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032649"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
 
@@ -19,7 +20,35 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 2. 주문형 백업 복사본을 만들기
 3. Azure 및 디스크에서 데이터베이스 복구
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
+
+* 데이터베이스에 원격 파일 공유의 파일이 포함되어 있으면 오류 ID 104를 나타내며 보호가 실패합니다. MABS는 원격 파일 공유의 SQL Server 데이터에 대 한 보호를 지원 하지 않습니다.
+* MABS는 원격 SMB 공유에 저장 된 데이터베이스를 보호할 수 없습니다.
+* [가용성 그룹 복제본이 읽기 전용으로 구성](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15)되어 있는지 확인 합니다.
+* SQL Server의 Sysadmin 그룹에 **Ntauthority\system** 시스템 계정을 명시적으로 추가 해야 합니다.
+* 부분적으로 포함 된 데이터베이스에 대해 대체 위치 복구를 수행 하는 경우 대상 SQL 인스턴스에서 [포함 된 데이터베이스](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) 기능을 사용 하도록 설정 했는지 확인 해야 합니다.
+* 파일 스트림 데이터베이스에 대해 대체 위치 복구를 수행 하는 경우 대상 SQL 인스턴스에서 [파일 스트림 데이터베이스](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) 기능을 사용 하도록 설정 했는지 확인 해야 합니다.
+* SQL Server AlwaysOn 보호:
+  * MABS는 보호 그룹을 만들 때 조회를 실행할 때 가용성 그룹을 검색 합니다.
+  * MABS는 장애 조치 (failover)를 감지 하 고 데이터베이스 보호를 계속 합니다.
+  * MABS는 SQL Server 인스턴스에 대 한 다중 사이트 클러스터 구성을 지원 합니다.
+* AlwaysOn 기능을 사용 하는 데이터베이스를 보호 하는 경우 MABS에는 다음과 같은 제한 사항이 있습니다.
+  * MABS는 다음과 같이 백업 기본 설정에 따라 SQL Server에 설정 된 가용성 그룹에 대 한 백업 정책을 적용 합니다.
+    * 보조 사용 - 주 복제본이 유일한 온라인 복제본인 경우를 제외하고는 보조 복제본에 대한 백업이 수행됩니다. 보조 복제본을 여러 개 사용할 수 있는 경우 백업 우선 순위가 가장 높은 노드가 백업 되도록 선택 됩니다. 주 복제본만 사용할 수 있는 경우에는 백업이 주 복제본에서 수행 되어야 합니다.
+    * 보조만 - 주 복제본에 대해서는 백업이 수행되지 않습니다. 주 복제본이 유일한 온라인 복제본인 경우 백업이 수행되지 않습니다.
+    * 주 - 항상 주 복제본 백업이 수행됩니다.
+    * 임의의 복제본 - 가용성 그룹의 모든 가용성 복제본에 대해 백업을 수행할 수 있습니다. 백업할 노드는 각 노드의 백업 우선 순위에 따라 결정됩니다.
+  * 다음 사항에 유의하세요.
+    * 백업은 모든 읽기 가능한 복제본 (즉, 주, 동기 보조 복제본, 비동기 보조 복제본)에서 발생할 수 있습니다.
+    * 백업에서 복제본이 제외 된 경우 (예: **복제본 제외** 가 사용 되도록 설정 되었거나 읽을 수 없음으로 표시 된 경우) 옵션을 사용 하 여 해당 복제본이 백업 되도록 선택 되지 않습니다.
+    * 여러 복제본을 사용할 수 있고 읽을 수 있는 경우 백업 우선 순위가 가장 높은 노드가 백업 되도록 선택 됩니다.
+    * 선택한 노드에서 백업이 실패 하면 백업 작업이 실패 합니다.
+    * 원래 위치로의 복구는 지원 되지 않습니다.
+* SQL Server 2014 이상 백업 문제:
+  * SQL server 2014에는 [Windows Azure Blob 저장소에서 온-프레미스 SQL Server에 대 한 데이터베이스](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15)를 만드는 새로운 기능이 추가 되었습니다. 이 구성을 보호 하는 데 MABS를 사용할 수 없습니다.
+  * SQL AlwaysOn 옵션에 대 한 "보조" 백업 기본 설정에 대 한 몇 가지 알려진 문제가 있습니다. MABS는 항상 보조 복제본에서 백업을 수행 합니다. 보조 데이터베이스를 찾을 수 없는 경우 백업이 실패 합니다.
+
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 [Azure Backup Server를 설치하고 준비](backup-mabs-install-azure-stack.md)합니다.
 
@@ -95,7 +124,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![보존 정책](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    이 예제에서:
+    이 예제에 대한 설명:
 
     * Backup은 매일 한 번 오후 12시 및 오후 8시에 수행되며(화면의 아래쪽 부분) 180일 동안 유지됩니다.
     * 토요일 오후 12시에 수행되는 백업은 104주 동안 유지됩니다.

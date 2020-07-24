@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80548667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038276"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Marketplace의 보안 권장 사항 이미지
 
@@ -27,9 +27,8 @@ ms.locfileid: "80548667"
 
 ## <a name="open-source-based-images"></a>소스 기반 이미지 열기
 
-|||
-|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **범주**                                                 | **확인**                                                                                                                                                                                                                                                                              |
+| 범주 | 확인 |
+| -------- | ----- |
 | 보안                                                     | Linux 배포에 대 한 최신 보안 패치를 모두 설치 합니다.                                                                                                                                                                                                              |
 | 보안                                                     | 산업 지침에 따라 특정 Linux 배포에 대 한 VM 이미지를 보호 합니다.                                                                                                                                                                                     |
 | 보안                                                     | 필요한 Windows Server 역할, 기능, 서비스 및 네트워킹 포트만 포함하도록 공간을 최소화하여 공격 표면을 제한합니다.                                                                                                                                               |
@@ -50,9 +49,8 @@ ms.locfileid: "80548667"
 
 ## <a name="windows-server-based-images"></a>Windows Server 기반 이미지
 
-|||
-|-------------| -------------------------|
-| **범주**                                                     | **확인**                                                                                                                                                                |
+| 범주 | 확인 |
+|--------- | ----- |
 | 보안                                                         | 보안 OS 기본 이미지를 사용합니다. Windows Server를 기반으로 하는 모든 이미지의 원본에 사용된 VHD는 Microsoft Azure를 통해 제공되는 Windows Server OS 이미지에서 가져와야 합니다. |
 | 보안                                                         | 모든 최신 보안 업데이트를 설치합니다.                                                                                                                                     |
 | 보안                                                         | 응용 프로그램은 관리자, 루트 또는 관리자와 같은 제한 된 사용자 이름을 사용 하면 안 됩니다.                                                                |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16452337eeda86a9b019897954179bfe6db6e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031995"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>데이터 작업에 대해서만 사용자 액세스 제한
 
@@ -35,10 +35,10 @@ Azure Cosmos DB에서는 데이터베이스 서비스와의 상호 작용을 인
 > 다음 섹션에서 명령을 실행 하려면 수정 하려는 구독에 대 한 [Azure 소유자 역할](../role-based-access-control/built-in-roles.md#owner) 뿐만 아니라 Azure PowerShell Module 3.0.0 이상을 설치 해야 합니다.
 
 다음 섹션의 PowerShell 스크립트에서 다음 자리 표시자를 사용자 환경에 해당 하는 값으로 대체 합니다.
-- `$MySubscriptionId`-사용 권한을 제한 하려는 Azure Cosmos 계정을 포함 하는 구독 ID입니다. 예: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`
-- `$MyResourceGroupName`-Azure Cosmos 계정이 포함 된 리소스 그룹입니다. 예: `myresourcegroup`
-- `$MyAzureCosmosDBAccountName`-Azure Cosmos 계정의 이름입니다. 예: `mycosmosdbsaccount`
-- `$MyUserName`- username@domain 액세스를 제한 하려는 사용자의 로그인 ()입니다. 예: `cosmosdbuser@contoso.com`
+- `$MySubscriptionId`-사용 권한을 제한 하려는 Azure Cosmos 계정을 포함 하는 구독 ID입니다. 예: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName`-Azure Cosmos 계정이 포함 된 리소스 그룹입니다. 예: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName`-Azure Cosmos 계정의 이름입니다. 예: `mycosmosdbsaccount`.
+- `$MyUserName`- username@domain 액세스를 제한 하려는 사용자의 로그인 ()입니다. 예: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Azure 구독 선택
 
@@ -51,7 +51,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## <a name="create-the-custom-azure-active-directory-role"></a>사용자 지정 Azure Active Directory 역할 만들기
 
-다음 스크립트는 Azure Cosmos 계정에 대 한 "키 전용" 액세스 권한이 있는 Azure Active Directory 역할 할당을 만듭니다. 이 역할은 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md) 및 [Azure Cosmos DB에 대 한 세부적인 작업](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)을 기반으로 합니다. 이러한 역할 및 작업은 `Microsoft.DocumentDB` Azure Active Directory 네임 스페이스의 일부입니다.
+다음 스크립트는 Azure Cosmos 계정에 대 한 "키 전용" 액세스 권한이 있는 Azure Active Directory 역할 할당을 만듭니다. 이 역할은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md) 및 [Azure Cosmos DB에 대 한 세부적인 작업](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)을 기반으로 합니다. 이러한 역할 및 작업은 `Microsoft.DocumentDB` Azure Active Directory 네임 스페이스의 일부입니다.
 
 1. 먼저 `AzureCosmosKeyOnlyAccess.json` 다음과 같은 콘텐츠를 사용 하 여 라는 JSON 문서를 만듭니다.
 

@@ -3,11 +3,12 @@ title: Azure Stack Vm의 파일 백업
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a64e5457963ea4a6d3b39b3f2326dbcfc5e63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032768"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업
 
@@ -43,7 +44,7 @@ Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를
 
     ![새 보호 그룹 마법사가 열립니다.](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    보호 정책을 공유할 모든 데이터를 한 보호 그룹에 배치하는 것이 좋습니다. 보호 그룹 계획 및 배포에 대한 자세한 내용은 System Center DPM 문서 [배포 보호 그룹](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)을 참조하세요.
+    보호 정책을 공유할 모든 데이터를 한 보호 그룹에 배치하는 것이 좋습니다. 보호 그룹 계획 및 배포에 대한 자세한 내용은 System Center DPM 문서 [배포 보호 그룹](/system-center/dpm/create-dpm-protection-groups)을 참조하세요.
 
 4. **데이터 보호 방법 선택** 화면에서 보호 그룹에 사용할 이름을 입력합니다. **다음 방법을 사용하여 단기 보호:** 및 **온라인 보호를 사용하려고 합니다**의 확인란을 선택합니다. **다음**을 클릭합니다.
 
@@ -132,5 +133,5 @@ Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 �
 
 Azure Backup Server를 사용하여 다른 워크로드를 보호하는 방법에 대한 내용은 다음 아티클 중 하나를 참조하세요.
 
-* [SharePoint 팜 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-* [SQL Server 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+* [SharePoint 팜 백업](./backup-mabs-sharepoint-azure-stack.md)
+* [SQL Server 백업](./backup-mabs-sql-azure-stack.md)

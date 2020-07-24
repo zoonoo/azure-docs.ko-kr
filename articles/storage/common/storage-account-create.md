@@ -9,21 +9,22 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219638f70797fc5ea413e4db72e528262df2fa87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82853488"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037052"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 HTTP 또는 HTTPS를 통해 전 세계 어디에서 나 액세스할 수 있는 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는 지속적이 고 항상 사용 가능 하며 안전 하며 대규모 확장 가능 합니다.
 
-이 방법 문서에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)또는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/management/overview.md)사용 하 여 저장소 계정을 만드는 방법에 대해 알아봅니다.  
+이 방법 문서에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)또는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/management/overview.md)사용 하 여 저장소 계정을 만드는 방법에 대해 알아봅니다.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -47,12 +48,12 @@ Azure PowerShell을 설치 하거나 업그레이드 하려면 [Azure PowerShell
 
 Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
 
-- Azure Portal에서 Azure Cloud Shell의 CLI 명령을 실행할 수 있습니다.
-- CLI를 설치 하 고 CLI 명령을 로컬로 실행할 수 있습니다.
+- Azure Portal 내에서 Azure Cloud Shell을 사용하여 CLI 명령을 실행합니다.
+- CLI를 설치하고 로컬로 CLI를 실행합니다.
 
 ### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
-Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI는 사전 설치 되며 계정에 사용 하도록 구성 됩니다. Azure Portal의 오른쪽 위 섹션에 있는 메뉴에서 **Cloud Shell** 단추를 클릭 합니다.
+Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성됩니다. Azure Portal의 오른쪽 위 섹션에 있는 메뉴에서 **Cloud Shell** 단추를 클릭 합니다.
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -96,7 +97,7 @@ az login
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 

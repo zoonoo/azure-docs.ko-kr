@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652149"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035301"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -50,9 +51,9 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 6. 창 위쪽의 **필터** 메뉴에서 **서비스** 드롭다운 목록을 선택 하 고 **셀프 서비스 암호 관리** 서비스 유형으로 변경 합니다.
 7. 필요에 따라 관심 있는 특정 **활동**을 선택하여 목록을 추가로 필터링합니다.
 
-### <a name="converged-registration-preview"></a>등록 수렴(미리 보기)
+### <a name="combined-registration"></a>결합 등록
 
-수렴 형 등록의 공개 미리 보기에 참여 하는 경우 감사 로그의 사용자 활동에 대 한 정보는 **보안**  >  **인증 방법**에서 찾을 수 있습니다.
+[결합 된 등록](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)을 사용 하도록 설정한 경우 감사 로그의 사용자 활동에 대 한 정보는 **보안**  >  **인증 방법**에서 찾을 수 있습니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 
@@ -67,7 +68,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 다음 표에서는 Azure Portal의 각 열에 대해 설정할 수 있는 다양한 값을 보여 줍니다.
 
-| Column | 허용되는 값과 해당 의미 |
+| 열 | 허용되는 값과 해당 의미 |
 | --- | --- |
 | 등록된 데이터 |**대체 전자 메일**: 인증하는 데 사용자가 사용한 대체 전자 메일 또는 인증 전자 메일입니다.<p><p>**사무실 전화**: 인증하는 데 사용자가 사용한 사무실 전화입니다.<p>**휴대폰**: 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화입니다.<p>**보안 질문**: 인증하는 데 사용자가 사용한 보안 질문입니다.<p>**이전 방법 조합(예: 대체 전자 메일 + 휴대폰)**: 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 방법을 표시합니다. |
 

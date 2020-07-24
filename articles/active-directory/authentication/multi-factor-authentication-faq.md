@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84483794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035080"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -55,6 +56,8 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 인증 결과(성공 또는 거부) 및 거부 사유는 인증 데이터와 함께 저장됩니다. 이 데이터는 인증 및 사용 보고서에서 사용할 수 있습니다.
 
+자세한 내용은 [Data 상주 and customer data For Azure Multi-Factor Authentication](concept-mfa-data-residency.md)를 참조 하세요.
+
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>사용자에게 SMS 메시지를 보낼 때 사용되는 SMS 짧은 코드는 무엇인가요?
 
 미국에서는 다음과 같은 SMS 짧은 코드를 사용 합니다.
@@ -69,7 +72,9 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 * *759731*
 * *673801*
 
-동일한 번호를 사용 하 여 일관 된 SMS 또는 음성 기반 Multi-Factor Authentication 프롬프트를 전달 하는 것은 보장 되지 않습니다. 사용자를 위해 SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하면서 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. 미국 및 캐나다 외의 국가 또는 지역에 대해서는 짧은 코드를 지원 하지 않습니다.
+동일한 번호를 사용 하 여 일관 된 SMS 또는 음성 기반 Multi-Factor Authentication 프롬프트를 전달 하는 것은 보장 되지 않습니다. 사용자를 위해 SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하면서 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다.
+
+미국 및 캐나다 외의 국가 또는 지역에 대해서는 짧은 코드를 지원 하지 않습니다.
 
 ## <a name="billing"></a>결제
 
@@ -185,7 +190,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 Azure MFA 서버 v7.0 이상을 사용하는 단방향 SMS의 경우 레지스트리 키를 설정하여 시간 제한 설정을 구성할 수 있습니다. MFA 클라우드 서비스가 텍스트 메시지를 보내면 확인 코드(또는 일회용 암호)가 MFA 서버에 반환됩니다. MFA 서버는 코드를 기본적으로 300초 동안 메모리에 저장합니다. 300초가 경과하기 전에 사용자가 코드를 입력하지 않으면 인증이 거부됩니다. 기본 시간 제한 설정을 변경하려면 다음 단계를 사용합니다.
 
-1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor` 로 이동합니다.
+1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`로 이동합니다.
 2. *Pfsvc_pendingSmsTimeoutSeconds* 라는 **DWORD** 레지스트리 키를 만들고 Azure MFA 서버에서 일회성 암호을 저장 하는 시간 (초)을 설정 합니다.
 
 >[!TIP]

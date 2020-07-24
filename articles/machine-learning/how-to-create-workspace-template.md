@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031119"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "86232154"
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
+* CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
 
 ## <a name="workspace-resource-manager-template"></a>작업 영역 리소스 관리자 템플릿
 
@@ -154,6 +154,9 @@ New-AzResourceGroupDeployment `
 * 작업 영역에 대해 높은 기밀성 설정 사용
 * 작업 영역에 대한 암호화 사용
 * 기존 Azure Key Vault를 사용하여 고객 관리형 키 검색
+
+> [!IMPORTANT]
+> 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
 자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조하세요.
 
@@ -353,6 +356,9 @@ New-AzResourceGroupDeployment `
 * 실행 간에 로컬 스크래치 디스크를 정리 합니다.
 * 는 key vault를 사용 하 여 저장소 계정, 컨테이너 레지스트리 및 SSH 계정에 대 한 자격 증명을 실행 계층에서 계산 클러스터로 안전 하 게 전달 합니다.
 * IP 필터링을 사용 하 여 기본 배치 풀을 AzureMachineLearningService 이외의 외부 서비스에서 호출할 수 없도록 합니다.
+
+    > [!IMPORTANT]
+    > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
   자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
 

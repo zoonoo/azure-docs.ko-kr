@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036797"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -360,7 +360,7 @@ Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역�
 고객이 데이터를 새 Azure 파일 동기화 배포로 마이그레이션할 때 일반적으로 저지르는 실수는 데이터를 Windows 파일 서버가 아닌 Azure 파일 공유에 직접 복사하는 것입니다. Azure 파일 동기화는 Azure 파일 공유에서 모든 새 파일을 식별하고 이를 Windows 파일 공유에 다시 동기화하지만, 일반적으로 Windows 파일 서버를 통해 데이터를 로드하는 것보다 훨씬 느립니다. AzCopy와 같은 Azure 복사 도구를 사용 하는 경우 최신 버전을 사용 하는 것이 중요 합니다. [파일 복사 도구 표](storage-files-migration-overview.md#file-copy-tools) 를 확인 하 여 타임 스탬프 및 acl과 같은 파일의 모든 중요 한 메타 데이터를 복사할 수 있도록 Azure copy tools의 개요를 확인 하세요.
 
 ## <a name="antivirus"></a>바이러스 백신
-바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신 제품은 계층화된 파일의 회수를 발생할 수 있습니다. Azure 파일 동기화 에이전트의 버전 4.0 이상에서 계층화된 파일에는 보안 Windows 특성 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS가 설정되어 있습니다. 이 특성이 설정된 파일 읽기를 건너뛰도록(대부분 자동으로 수행) 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 
+바이러스 백신은 알려진 악성 코드에 대 한 파일을 검사 하는 방식으로 작동 하기 때문에 바이러스 백신 제품으로 인해 계층화 된 파일의 회수로 인해 송신 비용이 높아질 수 있습니다. Azure 파일 동기화 에이전트의 버전 4.0 이상에서 계층화된 파일에는 보안 Windows 특성 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS가 설정되어 있습니다. 이 특성이 설정된 파일 읽기를 건너뛰도록(대부분 자동으로 수행) 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 
 
 Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(System Center Endpoint Protection) 모두는 이 특성이 설정된 파일 읽기를 자동으로 건너뜁니다. 이러한 솔루션을 테스트하여 하나의 사소한 문제를 확인했습니다. 즉 기존 동기화 그룹에 서버를 추가하면 800바이트보다 작은 파일이 새 서버에서 회수(다운로드)됩니다. 이러한 파일은 새 서버에 남아 있지만 계층화 크기 요구 사항(64kb 초과)을 충족하지 않으므로 계층화되지 않습니다.
 
@@ -368,9 +368,9 @@ Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(Sys
 > 바이러스 백신 공급업체는 Microsoft 다운로드 센터에서 다운로드할 수 있는 [Azure 파일 동기화 바이러스 백신 호환성 테스트 도구 모음](https://www.microsoft.com/download/details.aspx?id=58322)을 사용하여 제품과 Azure 파일 동기화 간의 호환성을 확인할 수 있습니다.
 
 ## <a name="backup"></a>Backup 
-바이러스 백신 솔루션과 같은 백업 솔루션은 계층화된 파일이 회수되도록 할 수 있습니다. 온-프레미스 백업 제품을 사용하지 않고 클라우드 백업 솔루션을 사용하여 Azure 파일 공유를 백업하는 것이 좋습니다.
+클라우드 계층화를 사용 하는 경우 서버 끝점을 직접 백업 하는 솔루션이 나 서버 끝점이 있는 VM을 사용 하면 안 됩니다. 클라우드 계층화를 사용 하면 데이터의 하위 집합만 서버 끝점에 저장 되며 전체 데이터 집합은 Azure 파일 공유에 상주 합니다. 사용 되는 백업 솔루션에 따라 계층화 된 파일은 무시 되 고 백업 되지 않습니다 (FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성이 설정 되어 있기 때문에). 또는 디스크로 회수 되어 송신 요금이 높아집니다. 클라우드 백업 솔루션을 사용 하 여 Azure 파일 공유를 직접 백업 하는 것이 좋습니다. 자세한 내용은 [azure 파일 공유 백업 정보](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) 또는 백업 공급자에 게 문의 하 여 azure 파일 공유 백업 지원을 참조 하세요.
 
-온-프레미스 백업 솔루션을 사용하는 경우 클라우드 계층화를 사용하지 않도록 설정된 동기화 그룹의 서버에서 백업을 수행해야 합니다. 복원을 수행할 때 볼륨 수준 또는 파일 수준 복원 옵션을 사용합니다. 파일 수준 복원 옵션을 사용하여 복원된 파일은 동기화 그룹의 모든 엔드포인트에 동기화되고 기존 파일은 백업에서 복원된 버전으로 대체됩니다.  볼륨 수준 복원은 Azure 파일 공유 또는 기타 서버 엔드포인트의 최신 파일 버전을 대체하지 않습니다.
+온-프레미스 백업 솔루션을 사용 하려는 경우 클라우드 계층화를 사용 하지 않는 동기화 그룹의 서버에서 백업을 수행 해야 합니다. 복원을 수행할 때 볼륨 수준 또는 파일 수준 복원 옵션을 사용합니다. 파일 수준 복원 옵션을 사용하여 복원된 파일은 동기화 그룹의 모든 엔드포인트에 동기화되고 기존 파일은 백업에서 복원된 버전으로 대체됩니다.  볼륨 수준 복원은 Azure 파일 공유 또는 기타 서버 엔드포인트의 최신 파일 버전을 대체하지 않습니다.
 
 > [!Note]  
 > BMR(완전 복구) 복원은 예기치 않은 결과가 발생할 수 있으며 현재 지원되지 않습니다.

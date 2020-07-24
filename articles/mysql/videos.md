@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: c18604a9f4b95f4b586efaf3201dd0a679d8d316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b306bc55c97b977d0f06fa3e7a56f734f2f9db9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60342613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030643"
 ---
 # <a name="azure-database-for-mysql-videos"></a>MySQL용 Azure Database 비디오
 
@@ -19,7 +19,7 @@ ms.locfileid: "60342613"
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 
-Azure Database for PostgreSQL 및 Azure Database for MySQL을 함께 사용하면 완전히 관리되는 장치의 커뮤니티 버전 데이터베이스 엔진 및 기능이 제공되므로 데이터베이스를 관리할 필요 없이 앱에 주력할 수 있습니다. 서비스 사용에 따른 이점을 빠르게 살펴보고 사용되는 몇 가지 기능에 대해 알아보세요.
+Azure Database for PostgreSQL 및 Azure Database for MySQL을 함께 사용하면 완전히 관리되는 장치의 커뮤니티 버전 데이터베이스 엔진 및 기능이 제공되므로 데이터베이스를 관리할 필요 없이 앱에 주력할 수 있습니다. 서비스 사용에 따른 이점을 빠르게 살펴보고 사용되는 몇 가지 기능에 대해 알아보세요. [Azure Database for PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal) 를 만들고 [Azure Database for MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal)하는 방법을 참조 하세요.
 
 [MySQL 및 PostgreSQL의 관리되는 서비스 기능 심층 분석](https://channel9.msdn.com/Events/Connect/2017/T148)
 

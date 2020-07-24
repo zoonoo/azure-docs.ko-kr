@@ -8,10 +8,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79257174"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037851"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Azure에서 온-프레미스로 다시 보호
 
@@ -46,7 +47,7 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 - 복구 계획을 다시 보호 하는 경우 보호 된 모든 컴퓨터에 대 한 값을 제공 해야 합니다.
 - Vm이 다중 VM 일관성을 위해 복제 그룹에 속하는 경우 복구 계획을 사용 하 여 다시 보호 수 있습니다. 복제 그룹의 Vm은 동일한 마스터 대상 서버를 사용 해야 합니다.
 
-### <a name="before-you-start"></a>시작하기 전에
+### <a name="before-you-start"></a>시작하기 전 확인 사항
 
 - 장애 조치 (failover) 후 Azure에서 VM을 부팅 한 후 에이전트에서 구성 서버에 다시 등록 하는 데 약간의 시간이 걸립니다 (최대 15 분). 이 시간 동안 다시 보호를 사용할 수 없으며 에이전트가 설치되지 않았다는 오류 메시지가 표시됩니다. 이 문제가 발생 하는 경우 몇 분 정도 기다린 후 다시 보호 합니다.
 - Azure VM을 기존 온-프레미스 VM으로 장애 복구 (failback) 하려는 경우 마스터 대상 서버의 ESXi 호스트에 대 한 읽기/쓰기 액세스 권한으로 온-프레미스 VM 데이터 저장소를 탑재 합니다.

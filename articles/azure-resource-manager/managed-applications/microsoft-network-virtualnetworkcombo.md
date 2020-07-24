@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033213"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI 요소
 
@@ -19,11 +20,11 @@ ms.locfileid: "75651970"
 
 사용자는 새 가상 네트워크를 선택할 때 각 서브넷의 이름과 주소 접두사를 사용자 지정할 수 있습니다. 서브넷을 구성하는 것은 선택 사항입니다.
 
-![Microsoft.Network.VirtualNetworkCombo new](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+![Microsoft.Network.VirtualNetworkCombo new](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-new.png)
 
 사용자는 기존 가상 네트워크를 선택할 때 배포 템플릿에 필요한 각 서브넷을 기존 서브넷에 매핑해야 합니다. 이 경우 서브넷을 구성해야 합니다.
 
-![Microsoft.Network.VirtualNetworkCombo existing](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
+![Microsoft.Network.VirtualNetworkCombo existing](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>스키마
 

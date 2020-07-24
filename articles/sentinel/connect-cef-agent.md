@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 502fbe3bc7b1de2038bc444ae5daf180cfc80203
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 832bf1dd06d550f82090a336bc4cceac8cd8a9be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298993"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038191"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "85298993"
     - TCP 포트 514의 보안 솔루션에서 Syslog 메시지 수신 대기
     - TCP 포트 25226를 사용 하 여 로컬 호스트의 Log Analytics 에이전트에 대 한 CEF로 식별 되는 메시지만 전달
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 지정 된 Linux 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 - Linux 컴퓨터에 python이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
@@ -75,8 +75,10 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
 
         파일의 내용 `security-config-omsagent.conf` :
 
-            :rawmsg, regex, "CEF"|"ASA"
-            *.* @@127.0.0.1:25226
+        ```console
+        :rawmsg, regex, "CEF"|"ASA"
+        *.* @@127.0.0.1:25226
+        ```
 
 1. **Syslog 데몬 다시 시작**
 
@@ -107,9 +109,11 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
 
         파일의 내용 `security-config-omsagent.conf` :
 
-            filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-            destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
-            log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```console
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
 
 1. **Syslog 데몬 다시 시작**
 

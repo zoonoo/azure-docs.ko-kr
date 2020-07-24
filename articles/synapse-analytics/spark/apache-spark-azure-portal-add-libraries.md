@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 추가 및 관리
+title: Apache Spark에 대 한 라이브러리 추가 및 관리
 description: Azure Synapse Analytics에서 Apache Spark에 사용 되는 라이브러리를 추가 하 고 관리 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: euangMS
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 85635ff3a52236d0c53b72c68eda0d71debe1f61
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b0231b28894ea7233e5f6e588300f03cb8784e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036457"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 추가 및 관리
 

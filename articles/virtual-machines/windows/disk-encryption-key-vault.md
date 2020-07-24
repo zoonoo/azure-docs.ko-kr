@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa87fc874be5e60d018b5663b4655d069930ab88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500755"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036151"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
 
@@ -25,7 +25,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은 다음과 같이 세 단계로 이루어져 있습니다.
 
 > [!Note]
-> Azure Key Vault 액세스 정책 설정에서 옵션을 선택 하 여 볼륨 암호화를 위한 Azure Disk Encryption에 대 한 액세스를 사용 하도록 설정 해야 합니다.
+> Azure Key Vault 액세스 정책 설정에서 옵션을 선택 하 여 볼륨 암호화를 위한 Azure Disk Encryption에 대 한 액세스를 사용 하도록 설정 해야 합니다. 키 자격 증명 모음에서 방화벽을 사용 하도록 설정한 경우 주요 자격 증명 모음에서 네트워킹 탭으로 이동 하 여 Microsoft 신뢰할 수 있는 서비스에 대 한 액세스를 사용 하도록 설정 해야 합니다. 
 
 1. 필요한 경우 리소스 그룹 만들기.
 2. 키 자격 증명 모음 만들기. 
@@ -43,7 +43,7 @@ Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성은
 
 ## <a name="install-tools-and-connect-to-azure"></a>도구 설치 및 Azure에 연결
 
-이 문서의 단계는 [Azure CLI](/cli/azure/), [Azure PowerShell Az 모듈](/powershell/azure/overview) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 완료할 수 있습니다.
+이 문서의 단계는 [Azure CLI](/cli/azure/), [Azure PowerShell Az 모듈](/powershell/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 완료할 수 있습니다.
 
 브라우저를 통해 포털에 액세스할 수 있지만 Azure CLI 및 Azure PowerShell에는 로컬 설치가 필요합니다. 자세한 내용은 [Windows용 Azure Disk Encryption: 도구 설치](disk-encryption-windows.md#install-tools-and-connect-to-azure)를 참조하세요.
 

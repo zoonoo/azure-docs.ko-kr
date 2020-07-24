@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 194864d223d908cc2d8b1d7f14efe81e16bbd058
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031510"
 ---
 # <a name="connect-to-azure-storage-services"></a>Azure 스토리지 서비스에 연결
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,8 +92,9 @@ Azure 스토리지 솔루션을 데이터 저장소로 등록하면 해당 데�
 ### <a name="python-sdk"></a>Python SDK
 
 모든 등록 메서드는 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스에 있으며 `register_azure_*` 형식입니다.
+
 > [!IMPORTANT]
-> 가상 네트워크에 있는 저장소 계정에 대 한 데이터 저장소를 만들려는 경우 가상 네트워크의 데이터 액세스 섹션을 참조 하세요.
+> 가상 네트워크에 있는 저장소 계정에 대 한 데이터 저장소를 만들려는 경우 [가상 네트워크의 데이터 액세스](#access-data-in-a-virtual-network) 섹션을 참조 하세요.
 
 `register_azure_*()` 메서드를 채우는 데 필요한 정보는 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
 
@@ -185,7 +186,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Azure Machine Learning 스튜디오에서 다음 단계를 수행하여 새 데이터 저장소를 만듭니다.
 
 > [!IMPORTANT]
-> 데이터 저장소 계정이 가상 네트워크에 있는 경우 스튜디오에서 데이터에 액세스할 수 있도록 하려면 추가 구성 단계가 필요 합니다. 적절 한 구성 단계가 적용 되도록 [네트워크 격리 & 개인 정보] (사용 가능-가상-네트워크)를 참조 하세요. 
+> 데이터 저장소 계정이 가상 네트워크에 있는 경우 스튜디오에서 데이터에 액세스할 수 있도록 하려면 추가 구성 단계가 필요 합니다. 적절 한 구성 단계가 적용 되도록 하려면 [네트워크 격리 & 개인 정보](how-to-enable-virtual-network.md#machine-learning-studio) 를 참조 하세요. 
 
 1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
 1. 왼쪽 창의 **관리**에서 **데이터 저장소**를 선택합니다.
