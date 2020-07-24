@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault에 HSM 보호 키를 생성하고 전송하는 방법 - Azure Key Vault | Microsoft Docs
+title: HSM 보호 키를 생성 & 전송 하는 방법 – BYOK – Azure Key Vault
 description: 이 문서를 사용 하 여 Azure Key Vault와 함께 사용할 사용자 고유의 HSM 보호 키를 계획, 생성 및 전송 하는 데 도움을 줍니다. BYOK (사용자 고유의 키로 가져오기) 라고도 합니다.
 services: key-vault
 author: amitbapat
@@ -10,11 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 52214d42467dfa86b5e085a660a9416904b7de59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4df934f38a8fb657fa4a8de5922d96197a3d02cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416701"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061111"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>HSM으로 보호 되는 키를 Key Vault (BYOK)로 가져오기
 
@@ -42,7 +43,7 @@ Azure Key Vault 사용 하는 경우 보증을 추가 하기 위해 HSM (하드�
 * KEK는 대상 키를 가져올 동일한 키 자격 증명 모음에 있어야 합니다.
 * BYOK 파일이 Key Vault에 업로드 되 면 Key Vault HSM은 KEK 개인 키를 사용 하 여 대상 키 자료를 해독 하 고 HSM 키로 가져옵니다. 이 작업은 Key Vault HSM 내에서 완전히 발생 합니다. 대상 키는 항상 HSM 보호 경계에 남아 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 다음 표에서는 Azure Key Vault BYOK를 사용 하기 위한 필수 구성 요소를 나열 합니다.
 
@@ -65,9 +66,9 @@ Azure Key Vault 사용 하는 경우 보증을 추가 하기 위해 HSM (하드�
 
 
 
-## <a name="supported-key-types"></a>지원 되는 키 유형
+## <a name="supported-key-types"></a>지원되는 키 유형
 
-|키 이름|키 유형|키 크기|원본|설명|
+|키 이름|키 유형|키 크기|원본|Description|
 |---|---|---|---|---|
 |키 교환 키 (KEK)|RSA| 2048 비트<br />3072 비트<br />4096 비트|Azure Key Vault HSM|Azure Key Vault에서 생성 된 HSM 지원 RSA 키 쌍|
 |대상 키|RSA|2048 비트<br />3072 비트<br />4096 비트|공급 업체 HSM|Azure Key Vault HSM으로 전송할 키입니다.|

@@ -4,11 +4,12 @@ description: Azure Backup 워크로드를 모니터하고 Azure Monitor를 사�
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054621"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용하여 대규모 모니터링
 
@@ -55,7 +56,7 @@ Log Analytics 작업 영역의 **로그** 섹션을 열고 고유 로그에 대�
 
 Log Analytics 단독으로만 모든 경고 및 모니터링 요구 사항을 충족하거나 Log Analytics를 사용하여 기본 제공되는 알림을 보완할 수 있습니다.
 
-자세한 내용은 [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 및 [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)를 참조하세요.
+자세한 내용은 [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-log.md) 및 [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
 ### <a name="sample-kusto-queries"></a>샘플 Kusto 쿼리
 
@@ -179,7 +180,7 @@ Log Analytics 단독으로만 모든 경고 및 모니터링 요구 사항을 �
 
 2. 작업 이름을 선택하여 관련 세부 정보를 확인합니다.
 3. **새 경고 규칙**을 선택하여 **규칙 만들기** 페이지를 엽니다.
-4. [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)의 단계에 따라 경고를 만듭니다.
+4. [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-activity-log.md)의 단계에 따라 경고를 만듭니다.
 
    ![새 경고 규칙](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -192,8 +193,8 @@ Azure Monitor의 활동 로그 및 Log Analytics 작업 영역에서 생성된 �
 활동 로그를 통해 알림을 받을 수 있지만, 대규모 모니터링을 위해서는 활동 로그 대신 Log Analytics를 사용하는 것이 좋습니다. 이유는 다음과 같습니다.
 
 - **제한된 시나리오**: 활동 로그를 통한 알림은 Azure VM 백업에만 적용됩니다. 모든 Recovery Services 자격 증명 모음에 대해 알림을 설정해야 합니다.
-- **정의 적합성**: 예약된 백업 활동이 활동 로그의 최신 정의와 맞지 않습니다. 대신 [리소스 로그](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace)에 맞게 정렬됩니다. 이러한 정렬로 인해 활동 로그 채널을 통과하는 데이터가 변경될 때 예상치 않은 효과가 발생합니다.
-- **활동 로그 채널 문제**: Recovery Services 자격 증명 모음에서 Azure Backup에서 제공되는 활동 로그는 새 모델을 따릅니다. 안타깝게도 이 변경 사항은 Azure Government, Azure 독일 및 Azure 중국 21Vianet에서 활동 로그 생성에 영향을 줍니다. 이러한 클라우드 서비스 사용자가 Azure Monitor의 활동 로그에서 경고를 만들거나 구성할 때는 경고가 트리거되지 않습니다. 또한 모든 Azure 공용 지역에서 사용자가 [Recovery Services 활동 로그를 Log Analytics 작업 영역에 수집](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)하는 경우, 이러한 로그가 표시되지 않습니다.
+- **정의 적합성**: 예약된 백업 활동이 활동 로그의 최신 정의와 맞지 않습니다. 대신 [리소스 로그](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)에 맞게 정렬됩니다. 이러한 정렬로 인해 활동 로그 채널을 통과하는 데이터가 변경될 때 예상치 않은 효과가 발생합니다.
+- **활동 로그 채널 문제**: Recovery Services 자격 증명 모음에서 Azure Backup에서 제공되는 활동 로그는 새 모델을 따릅니다. 안타깝게도 이 변경 사항은 Azure Government, Azure 독일 및 Azure 중국 21Vianet에서 활동 로그 생성에 영향을 줍니다. 이러한 클라우드 서비스 사용자가 Azure Monitor의 활동 로그에서 경고를 만들거나 구성할 때는 경고가 트리거되지 않습니다. 또한 모든 Azure 공용 지역에서 사용자가 [Recovery Services 활동 로그를 Log Analytics 작업 영역에 수집](../azure-monitor/platform/activity-log.md)하는 경우, 이러한 로그가 표시되지 않습니다.
 
 Azure Backup으로 보호되는 모든 워크로드에 대한 대규모 모니터링 및 경고를 위해서는 Log Analytics 작업 영역을 사용하세요.
 

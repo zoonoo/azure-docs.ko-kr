@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1141186a262676fc47b0727c47e682dfe95ba6fb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055924"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
 
@@ -368,25 +369,25 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 - **반환 값**:function.js의 `name` 속성을 *function.json* 로 설정 `$return` 합니다. 이 구성을 사용 하면 함수의 반환 값이 큐 저장소 메시지로 유지 됩니다.
 
-- **명령적**: [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 형식으로 선언 된 매개 변수의 [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 전달 합니다. 에 전달 된 값은 `set` 큐 저장소 메시지로 유지 됩니다.
+- **명령적**: [Out](/python/api/azure-functions/azure.functions.out?view=azure-python) 형식으로 선언 된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 전달 합니다. 에 전달 된 값은 `set` 큐 저장소 메시지로 유지 됩니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Queueoutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) 주석을 사용 하 여 함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션이 있습니다.
+[Queueoutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) 주석을 사용 하 여 함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션이 있습니다.
 
 - **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 이벤트 허브 메시지로 유지 됩니다.
 
-- **명령적**: 메시지 값을 명시적으로 설정 하려면 형식의 특정 매개 변수에 주석을 적용 합니다 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) `T` . 여기서은 Pojo 또는 네이티브 Java 유형입니다. 이 구성을 사용 하 여 메서드에 값을 전달 하면 `setValue` 값이 이벤트 허브 메시지로 유지 됩니다.
+- **명령적**: 메시지 값을 명시적으로 설정 하려면 형식의 특정 매개 변수에 주석을 적용 합니다 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) `T` . 여기서은 Pojo 또는 네이티브 Java 유형입니다. 이 구성을 사용 하 여 메서드에 값을 전달 하면 `setValue` 값이 이벤트 허브 메시지로 유지 됩니다.
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 |  참고 |
+| 바인딩 |  참조 |
 |---|---|
-| 큐 | [큐 오류 코드](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
-| Blob, 테이블, 큐 | [스토리지 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, 테이블, 큐 |  [문제 해결](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| 큐 | [큐 오류 코드](/rest/api/storageservices/queue-service-error-codes) |
+| Blob, 테이블, 큐 | [스토리지 오류 코드](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, 테이블, 큐 |  [문제 해결](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 <a name="host-json"></a>  
 

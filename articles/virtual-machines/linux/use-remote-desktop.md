@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc442886c4c4c26db5f5cde908ea647e2ee2f1bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059024"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결
 Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Resource Manager 배포 모델을 사용하여 Linux VM에 대해 데스크톱 환경([xfce](https://www.xfce.org)) 및 원격 데스크톱([xrdp](http://xrdp.org))을 설치하고 구성하는 방법에 대해 자세히 설명합니다.
@@ -132,11 +133,10 @@ tail -f /var/log/syslog
 
 Red Hat Enterprise Linux 및 SUSE와 같은 기타 Linux 배포에는 검토할 서비스 및 다른 로그 파일 위치를 다시 시작하는 다른 방법이 있을 수 있습니다.
 
-원격 데스크톱 클라이언트에서 응답을 수신하지 않고 시스템 로그에 이벤트가 표시되지 않는 경우 이 동작은 원격 데스크톱 트래픽이 VM에 도달할 수 없다는 것을 나타냅니다. 네트워크 보안 그룹 규칙을 검토하여 포트 3389에서 TCP를 허용하는 규칙이 있는지 확인합니다. 자세한 내용은 [애플리케이션 연결 문제 해결](../windows/troubleshoot-app-connection.md)을 참조하세요.
+원격 데스크톱 클라이언트에서 응답을 수신하지 않고 시스템 로그에 이벤트가 표시되지 않는 경우 이 동작은 원격 데스크톱 트래픽이 VM에 도달할 수 없다는 것을 나타냅니다. 네트워크 보안 그룹 규칙을 검토하여 포트 3389에서 TCP를 허용하는 규칙이 있는지 확인합니다. 자세한 내용은 [애플리케이션 연결 문제 해결](../troubleshooting/troubleshoot-app-connection.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 Linux VM에서 SSH 키를 만들고 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux VM의 SSH 키 만들기](mac-create-ssh-keys.md)를 참조하세요.
 
 Windows에서 SSH를 사용하는 방법에 대한 자세한 내용은 [Windows에서 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요.
-

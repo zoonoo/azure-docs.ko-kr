@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060604"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Media Services v3를 사용 하는 Windows 10 용 오프 라인 PlayReady 스트리밍
 
@@ -44,7 +44,7 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
 * MP4는 다양한 플레이어와 인코더 도구를 지원하지만 MP4 컨테이너와 DRM 사이에 바인딩이 되어 있지 않습니다.
 * 장기적으로는, CENC 지원 CFF가 바람직합니다. 하지만 현재 에코시스템을 지원하는 도구/플레이어가 아직 없습니다. 솔루션이 필요합니다.
  
-H264/AAC를 사용하는 부드러운 스트리밍([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) 파일 형식은 PlayReady(AES-128 CTR)와 바인딩되어 있습니다. 개별 부드러운 스트리밍 .ismv 파일(비디오에 오디오를 담은)은 그 자체가 fMP4이며 재생에 사용할 수 있습니다. 부드러운 스트리밍 콘텐츠가 PlayReady 암호화를 거칠 경우 각 .ismv 파일은 PlayReady 보호 조각난 MP4가 됩니다. 기본 비트 전송률을 사용하는 .ismv 파일을 선택하여 .mp4로 이름을 바꾸어 다운로드할 수 있습니다.
+H264/AAC를 사용하는 부드러운 스트리밍([PIFF](/iis/media/smooth-streaming/protected-interoperable-file-format)) 파일 형식은 PlayReady(AES-128 CTR)와 바인딩되어 있습니다. 개별 부드러운 스트리밍 .ismv 파일(비디오에 오디오를 담은)은 그 자체가 fMP4이며 재생에 사용할 수 있습니다. 부드러운 스트리밍 콘텐츠가 PlayReady 암호화를 거칠 경우 각 .ismv 파일은 PlayReady 보호 조각난 MP4가 됩니다. 기본 비트 전송률을 사용하는 .ismv 파일을 선택하여 .mp4로 이름을 바꾸어 다운로드할 수 있습니다.
 
 점진적 다운로드 시 PlayReady 보호 MP4를 호스트하는 데 두 가지 옵션이 있습니다.
 

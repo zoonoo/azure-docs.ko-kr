@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060659"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 워크플로 정의를 위한 JSON 만들기, 편집 또는 확장
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 자동화된 워크플로를 사용하여 엔터프라이즈 통합 솔루션을 만들 때 기본 논리 앱 정의는 해당 설명 및 유효성 검사에 대해 간단하고 선언적 JSON(JavaScript Object Notation)과 함께 [WDL(워크플로 정의 언어) 스키마](../logic-apps/logic-apps-workflow-definition-language.md)를 사용합니다. 이러한 형식 덕분에 코드에 대해 잘 몰라도 논리 앱 정의를 더 쉽게 읽고 이해할 수 있습니다.
 논리 앱의 만들기 및 배포를 자동화하려는 경우 논리 앱 정의를 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 내 [Azure 리소스](../azure-resource-manager/management/overview.md)로 포함할 수 있습니다.
-그런 다음, [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 또는 [Azure Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)를 사용하여 논리 앱을 생성, 관리 및 배포할 수 있습니다.
+그런 다음, [Azure PowerShell](/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 또는 [Azure Logic Apps REST API](/rest/api/logic/)를 사용하여 논리 앱을 생성, 관리 및 배포할 수 있습니다.
 
 JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studio에서 작업하는 경우 코드 보기 편집기를 열거나 원하는 편집기에로 정의를 복사합니다.
 논리 앱을 처음 사용하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 검토하세요.

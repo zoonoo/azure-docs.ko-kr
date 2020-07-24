@@ -4,18 +4,18 @@ description: Microsoft id 플랫폼에 앱을 등록할 때 지원 되는 다른
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/12/2019
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82b721d14d114b358939bebecff00bc762b075a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128869"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058338"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>지원 되는 계정 유형 별 유효성 검사 차이 (signInAudience)
 
@@ -39,10 +39,10 @@ ms.locfileid: "80128869"
 | 인증서 ( `keyCredentials` ) | 대칭 서명 키 | 대칭 서명 키 | 암호화 및 비대칭 서명 키 | 
 | 클라이언트 암호 ( `passwordCredentials` ) | 제한 없음 * | 제한 없음 * | LiveSDK를 사용 하는 경우: 최대 2 개의 클라이언트 암호 | 
 | 리디렉션 Uri ( `replyURLs` ) | 자세한 정보는 [리디렉션 URI/회신 URL 제한 및 제한 사항](reply-url.md) 을 참조 하세요. | | | 
-| API 권한 ( `requiredResourceAccess` ) | 제한 없음 * | 제한 없음 * | 허용 되는 리소스 당 최대 30 개의 사용 권한 (예: Microsoft Graph) | 
+| API 권한 ( `requiredResourceAccess` ) | 제한 없음 * | 제한 없음 * | 응용 프로그램당 최대 50 리소스 및 리소스 당 30 개 권한 (예: Microsoft Graph). 응용 프로그램당 200의 총 제한 (리소스 x 권한)입니다. | 
 | 이 API로 정의 된 범위 ( `oauth2Permissions` ) | 최대 범위 이름 길이 120 문자 <br><br> 정의 된 범위 수에 제한 없음 * | 최대 범위 이름 길이 120 문자 <br><br> 정의 된 범위 수에 제한 없음 * |  최대 범위 이름 길이 40 문자 <br><br> 최대 100 범위가 정의 되었습니다. | 
 | 권한 있는 클라이언트 응용 프로그램 ( `preautorizedApplications` ) | 제한 없음 * | 제한 없음 * | 총 500 <br><br> 정의 된 최대 100 클라이언트 앱 <br><br> 클라이언트 당 최대 30 개 범위 정의 | 
-| appRoles | 지원됨 <br> 제한 없음 * | 지원됨 <br> 제한 없음 * | 지원되지 않음 | 
+| appRoles | 지원 여부 <br> 제한 없음 * | 지원 여부 <br> 제한 없음 * | 지원되지 않음 | 
 | 로그아웃 URL | http://localhost허용 됨 <br><br> 최대 255 문자 길이 | http://localhost허용 됨 <br><br> 최대 255 문자 길이 | <br><br> https://localhost허용 됨, http://localhost MSA 실패 <br><br> 최대 255 문자 길이 <br><br> HTTP 체계가 허용 되지 않습니다. <br><br> 와일드 카드는 지원 되지 않습니다. | 
 
 * 앱 개체의 모든 컬렉션 속성에서 약 1000 항목의 전역 제한이 있습니다.

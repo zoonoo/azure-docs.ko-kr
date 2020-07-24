@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056382"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Kubernetes에 자체 호스팅 게이트웨이 배포
 
@@ -33,9 +33,9 @@ ms.locfileid: "86254285"
 1. **배포 및 인프라**에서 **게이트웨이** 를 선택 합니다.
 2. 배포 하려는 자체 호스팅 게이트웨이 리소스를 선택 합니다.
 3. **배포**를 선택 합니다.
-4. **토큰** 텍스트 상자의 액세스 토큰은 기본 **만료** 및 **비밀 키** 값에 따라 자동으로 자동 생성 되었습니다. 필요한 경우 또는 두 컨트롤 모두에서 값을 선택 하 여 새 토큰을 생성 합니다.
+4. **토큰** 텍스트 상자의 액세스 토큰은 기본 **만료** 및 **비밀 키** 값에 따라 자동으로 생성 되었습니다. 필요한 경우 또는 두 컨트롤 모두에서 값을 선택 하 여 새 토큰을 생성 합니다.
 5. **배포 스크립트**아래에서 **Kubernetes** 탭을 선택 합니다.
-6. **<게이트웨이 이름> .yml** 파일 링크를 선택 하 고 yml 파일을 다운로드 합니다.
+6. ** \<gateway-name\> .Yml** 파일 링크를 선택 하 고 yml 파일을 다운로드 합니다.
 7. **배포** 텍스트 상자의 오른쪽 아래 모서리에 있는 **복사** 아이콘을 선택 하 여 `kubectl` 명령을 클립보드에 저장 합니다.
 8. 명령을 터미널 (또는 명령) 창에 붙여 넣습니다. 첫 번째 명령은 4 단계에서 생성 된 액세스 토큰을 포함 하는 Kubernetes secret을 만듭니다. 두 번째 명령은 6 단계에서 다운로드 한 구성 파일을 Kubernetes 클러스터에 적용 하 고 파일이 현재 디렉터리에 있는 것으로 예상 합니다.
 9. 명령을 실행 하 여 [기본 네임 스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 에 필요한 Kubernetes 개체를 만들고 Microsoft Container Registry에서 다운로드 한 [컨테이너 이미지](https://aka.ms/apim/sputnik/dhub) 에서 자체 호스팅 게이트웨이 pod를 시작 합니다.
@@ -106,6 +106,12 @@ DNS 이름 확인은 Azure에서 종속성에 연결 하 고 백 엔드 서비�
 Azure Portal에 제공 된 YAML 파일은 기본 [Clusterfirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) 정책을 적용 합니다. 이 정책을 통해 클러스터 DNS에서 확인 하지 못한 이름 확인 요청이 노드에서 상속 된 업스트림 DNS 서버로 전달 됩니다.
 
 Kubernetes의 이름 확인에 대 한 자세한 내용은 [Kubernetes 웹 사이트](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service)를 참조 하세요. 설치에 적합 한 [dns 정책](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) 또는 [dns 구성을](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) 사용자 지정 하는 것이 좋습니다.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>사용자 지정 도메인 이름 및 SSL 인증서
+
+API Management 끝점에 사용자 지정 도메인 이름을 사용 하는 경우, 특히 관리 끝점에 사용자 지정 도메인 이름을 사용 하는 경우 `config.service.endpoint` ** \<gateway-name\> .yaml** 파일에서의 값을 업데이트 하 여 기본 도메인 이름을 사용자 지정 도메인 이름으로 바꾸어야 할 수 있습니다. Kubernetes 클러스터에 있는 자체 호스팅 게이트웨이의 pod에서 관리 끝점에 액세스할 수 있는지 확인 합니다.
+
+이 시나리오에서 관리 끝점에서 사용 하는 SSL 인증서가 잘 알려진 CA 인증서로 서명 되지 않은 경우에는 자체 호스팅 게이트웨이의 pod에서 CA 인증서를 신뢰할 수 있는지 확인 해야 합니다.
 
 ### <a name="configuration-backup"></a>구성 백업
 임시 Azure 연결이 중단 된 상태에서 자체 호스팅 게이트웨이 동작에 대 한 자세한 내용은 [자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md#connectivity-to-azure)를 참조 하세요.

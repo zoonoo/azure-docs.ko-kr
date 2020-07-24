@@ -1,25 +1,21 @@
 ---
-title: 고객에게 콘텐츠 배달 | Microsoft 문서
+title: 고객에 게 콘텐츠 제공
 description: 이 항목에서는 Azure Media Services를 사용하여 콘텐츠를 배달하는데 필요한 항목을 간략히 설명합니다.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 60d75a23609e962547c8c753086e9bef1d4c84eb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060355"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 고객에게 스트리밍 또는 주문형 비디오 콘텐츠를 전달할 때는 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다.
@@ -55,7 +51,7 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 
 자세한 내용은 [필터 및 동적 매니페스트](media-services-dynamic-manifest-overview.md)를 참조하세요.
 
-## <a name="locators"></a><a id="locators"/>로케이터
+## <a name="locators"></a><a name="locators"></a>로케이터
 콘텐츠 스트림 또는 다운로드에 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 게시해야 합니다. 로케이터는 자산에 포함된 파일에 액세스할 수 있는 진입점을 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다.
 
 * OnDemandOrigin 로케이터. 미디어를 스트리밍(예: MPEG-DASH, HLS 또는 부드러운 스트리밍)하거나 점진적으로 파일을 다운로드하는 데 사용합니다.
@@ -70,9 +66,9 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
+로케이터의 만료 날짜를 업데이트하려면 [REST](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
 
-로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. DRM(Digital Rights Management) 솔루션을 사용하여 개별 사용자에게 서로 다른 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [미디어 보안 설정](https://msdn.microsoft.com/library/azure/dn282272.aspx)을 참조하세요.
+로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. DRM(Digital Rights Management) 솔루션을 사용하여 개별 사용자에게 서로 다른 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [미디어 보안 설정](/previous-versions/azure/dn282272(v=azure.100))을 참조하세요.
 
 로케이터를 만들 때 Azure Storage의 필수 스토리지 및 전파 프로세스로 인해 30초간 지연될 수 있습니다.
 
@@ -87,7 +83,7 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 
 콘텐츠를 배달 하는 스트리밍 끝점이 2014 년 9 월 10 일 이후에 만들어진 경우에만 TLS를 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 엔드포인트를 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"이 포함됩니다. "Origin.mediaservices.windows.net" (이전 형식)이 포함 된 스트리밍 Url은 TLS를 지원 하지 않습니다. URL이 이전 형식인 경우 TLS를 통해 스트리밍할 수 있도록 하려면 새 스트리밍 끝점을 만듭니다. 새 스트리밍 끝점을 기반으로 하는 Url을 사용 하 여 TLS를 통해 콘텐츠를 스트리밍합니다.
 
-## <a name="streaming-url-formats"></a><a id="URLs"/>스트리밍 URL 형식
+## <a name="streaming-url-formats"></a><a name="URLs"></a>스트리밍 URL 형식
 
 ### <a name="mpeg-dash-format"></a>MPEG-DASH 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
@@ -192,4 +188,3 @@ http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-
 
 ## <a name="related-topics"></a>관련 항목
 [스토리지 키를 롤링 후 Media Services 로케이터를 업데이트합니다.](media-services-roll-storage-access-keys.md)
-

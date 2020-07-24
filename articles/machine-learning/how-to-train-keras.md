@@ -11,11 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14649d3e7bc12205283863f725a902a3cef20290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61e92d33cf4ec54881ab7794e503cfaeb6397e8d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433870"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060749"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 Keras 분류 모델 학습 및 등록
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +29,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 
 기계 학습 및 심층 학습 간의 차이점에 대 한 자세한 내용은 [개념 문서](concept-deep-learning-vs-machine-learning.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -125,6 +126,8 @@ except ComputeTargetException:
 
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 계산 대상에 대 한 자세한 내용은 [계산 대상 이란?](concept-compute-target.md) 문서를 참조 하세요.
 

@@ -3,15 +3,16 @@ title: Azure Advisor의 사용 권한
 description: Advisor 권한 및 구독을 구성 하는 기능을 차단 하는 방법 및 권장 사항을 연기 또는 해제할 수 있습니다.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422310"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057588"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure Advisor의 사용 권한
 
-Azure Advisor은 Azure 리소스 및 구독의 사용량 및 구성에 따라 권장 사항을 제공 합니다. Advisor는 RBAC ( [역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) )에서 제공 하는 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 을 사용 하 여 권장 사항 및 Advisor 기능에 대 한 액세스를 관리 합니다. 
+Azure Advisor은 Azure 리소스 및 구독의 사용량 및 구성에 따라 권장 사항을 제공 합니다. Advisor는 RBAC ( [역할 기반 Access Control](../role-based-access-control/overview.md) )에서 제공 하는 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 사용 하 여 권장 사항 및 Advisor 기능에 대 한 액세스를 관리 합니다. 
 
 ## <a name="roles-and-their-access"></a>역할 및 해당 액세스
 
@@ -38,15 +39,15 @@ Azure Advisor은 Azure 리소스 및 구독의 사용량 및 구성에 따라 �
 
 ### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>구독 또는 리소스 그룹을 구성할 수 없습니다.
 
-Advisor에서 구독 또는 리소스 그룹을 구성 하려고 하면 포함 하거나 제외 하는 옵션이 사용 하지 않도록 설정 된 것을 볼 수 있습니다. 이 상태는 해당 리소스 그룹 또는 구독에 대 한 충분 한 수준의 권한이 없음을 나타냅니다. 이 문제를 해결 하려면 사용자에 게 [액세스 권한을 부여](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)하는 방법을 알아보세요.
+Advisor에서 구독 또는 리소스 그룹을 구성 하려고 하면 포함 하거나 제외 하는 옵션이 사용 하지 않도록 설정 된 것을 볼 수 있습니다. 이 상태는 해당 리소스 그룹 또는 구독에 대 한 충분 한 수준의 권한이 없음을 나타냅니다. 이 문제를 해결 하려면 사용자에 게 [액세스 권한을 부여](../role-based-access-control/quickstart-assign-role-user-portal.md)하는 방법을 알아보세요.
 
 ### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기 하거나 해제할 수 없습니다.
 
-권장 사항을 연기 하거나 해제 하려고 할 때 오류가 표시 되 면 충분 한 권한이 없을 수 있습니다. 연기 하거나 해제 하려는 권장 구성의 영향을 받는 리소스에 대 한 참가자 이상의 액세스 권한이 있는지 확인 합니다. 이 문제를 해결 하려면 사용자에 게 [액세스 권한을 부여](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)하는 방법을 알아보세요.
+권장 사항을 연기 하거나 해제 하려고 할 때 오류가 표시 되 면 충분 한 권한이 없을 수 있습니다. 연기 하거나 해제 하려는 권장 구성의 영향을 받는 리소스에 대 한 참가자 이상의 액세스 권한이 있는지 확인 합니다. 이 문제를 해결 하려면 사용자에 게 [액세스 권한을 부여](../role-based-access-control/quickstart-assign-role-user-portal.md)하는 방법을 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Advisor를 사용 하 여 사용자 권한을 제어 하는 방법 및 일반적인 문제를 해결 하는 방법에 대 한 개요를 제공 했습니다. Advisor에 대해 자세히 알아보려면 다음을 참조하세요.
 
-- [Azure Advisor란?](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Azure Advisor 시작](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Azure Advisor란?](./advisor-overview.md)
+- [Azure Advisor 시작](./advisor-get-started.md)

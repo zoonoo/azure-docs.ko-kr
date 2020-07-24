@@ -5,26 +5,26 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81380682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059431"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure Time Series Insights의 데이터 보존 이해
+# <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1의 데이터 보존 이해
 
 이 문서에서는 Azure Time Series Insights 환경의 데이터 보존에 영향을 주는 두 가지 기본 설정을 설명 합니다.
 
 ## <a name="video"></a>동영상
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>다음 비디오는 Time Series Insights 데이터 보존 및이를 계획 하는 방법을 요약 합니다.</br>
+### <a name="the-following-video-summarizes-azure-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>다음 비디오는 Azure Time Series Insights 데이터 보존 및이를 계획 하는 방법을 요약 합니다.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -36,15 +36,15 @@ ms.locfileid: "81380682"
 - **수신 일시 중지**
 
 > [!NOTE]
-> 기본적으로 새 환경을 만들면 보존 기간이 **이전 데이터 삭제**로 구성됩니다. Time Series Insights 환경의 **구성** 페이지에서 Azure Portal를 사용 하 여 만든 후 필요에 따라이 설정을 전환할 수 있습니다.
-> * 보존 정책을 구성 하는 방법에 대 한 자세한 내용은 [Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
+> 기본적으로 새 환경을 만들면 보존 기간이 **이전 데이터 삭제**로 구성됩니다. Azure Time Series Insights 환경의 **구성** 페이지에서 Azure Portal를 사용 하 여 만든 후 필요에 따라이 설정을 전환할 수 있습니다.
+> * 보존 정책을 구성 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
 
 데이터 보존 정책에 대 한 자세한 내용은 아래에 자세히 설명 되어 있습니다.
 
 ## <a name="purge-old-data"></a>이전 데이터 삭제
 
 - **이전 데이터 제거** 는 Azure Time Series Insights 환경의 기본 설정입니다.  
-- 사용자가 항상 *최신 데이터* 를 Time Series Insights 환경에 포함 하려는 경우에는 **오래 된 데이터를 제거** 하는 것이 좋습니다.
+- 사용자가 항상 *최신 데이터* 를 Azure Time Series Insights 환경에 포함 하려는 경우에는 **오래 된 데이터를 제거** 하는 것이 좋습니다.
 - **이전 데이터 제거** 설정은 환경의 제한 (보존 시간, 크기 또는 개수 중 먼저 도달 하는 경우)에 도달 하면 데이터를 *제거* 합니다. 기본적으로 보존 기간은 30일로 설정됩니다.
 - 가장 오래 된 수집 데이터가 먼저 제거 됩니다 ("처음부터 시작" 접근 방식).
 
@@ -69,7 +69,7 @@ ms.locfileid: "81380682"
 - 데이터 손실 로부터 보호 하는 데 도움이 되지만 이벤트 원본의 보존 기간을 초과 하 여 수신이 일시 중지 된 경우 가장 최근의 데이터가 손실 될 기회가 발생할 수 있습니다.
 - 그러나 환경의 최대 용량에 도달 하면 다음 추가 작업이 발생할 때까지 환경이 데이터 수신을 일시 중지 합니다.
 
-   - [Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md)에 설명 된 대로 환경의 최대 용량을 늘려 배율 단위를 추가 합니다.
+   - [Azure Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md)에 설명 된 대로 환경의 최대 용량을 늘려 배율 단위를 추가 합니다.
    - 데이터 보존 기간에 도달 하 고 데이터를 제거 하 여 환경을 최대 용량 아래로 전환 합니다.
 
 ### <a name="example-three"></a>예 3
@@ -86,16 +86,16 @@ ms.locfileid: "81380682"
 > [!IMPORTANT]
 > 수신이 일시 중지되는 것을 방지하는 데 도움이 되는 통지를 제공하도록 경고를 설정해야 합니다. Azure 이벤트 원본의 기본 보존 기간은 1일이므로 데이터가 손실될 수 있습니다. 따라서 수신이 일시 중지된 후 추가 조치를 취하지 않을 경우 가장 최근의 데이터가 손실될 수 있습니다. 데이터 손실 가능성을 피하려면 용량을 늘리거나 **이전 데이터 삭제**로 동작을 전환해야 합니다.
 
-Time Series Insights에서 수신 일시 중지가 발생할 경우 데이터 손실을 최소화하기 위해 영향을 받는 Event Hubs에서 **메시지 보존** 속성을 조정하는 것이 좋습니다.
+영향을 받는 Event Hubs에서 수신 일시 중지가 Azure Time Series Insights에서 발생 하는 경우 데이터 손실을 최소화 하도록 **메시지 보존** 속성을 조정 하는 것이 좋습니다.
 
 [![이벤트 허브 메시지 보존.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-이벤트 원본에 구성 된 속성이 없는 경우 ( `timeStampPropertyName` ) Time Series Insights 기본값은 X 축으로 이벤트 허브에 도착 하는 타임 스탬프입니다. `timeStampPropertyName`가 다른 항목으로 구성 된 경우에는 `timeStampPropertyName` 이벤트가 구문 분석 될 때 환경에서 데이터 패킷에 구성 된를 찾습니다.
+이벤트 원본에 구성 된 속성이 없는 경우 ( `timeStampPropertyName` ) Azure Time Series Insights 기본값은 X 축으로 이벤트 허브에 도착 하는 타임 스탬프입니다. `timeStampPropertyName`가 다른 항목으로 구성 된 경우에는 `timeStampPropertyName` 이벤트가 구문 분석 될 때 환경에서 데이터 패킷에 구성 된를 찾습니다.
 
-[Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md) 을 참조 하 여 추가 용량을 수용할 수 있도록 환경을 확장 하거나 보존 기간을 늘립니다.
+[Azure Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md) 을 참조 하 여 추가 용량을 수용할 수 있도록 환경을 확장 하거나 보존 기간을 늘립니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 데이터 보존 설정을 구성 하거나 변경 하는 방법에 대 한 자세한 내용은 [Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
+- 데이터 보존 설정을 구성 하거나 변경 하는 방법에 대 한 자세한 내용은 [Azure Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
 
 - [Azure Time Series Insights의 대기 시간 완화](time-series-insights-environment-mitigate-latency.md)에 대해 알아봅니다.

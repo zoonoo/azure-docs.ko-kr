@@ -3,20 +3,22 @@ title: API 필수 조건-Azure Marketplace
 description: Cloud 파트너 포털 Api를 사용 하기 위한 필수 구성 요소입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: c932db1b86cecae4d90b0d6acffc4a0cde49e369
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: b672afcd8f52d8293b1bb81e30097062e2ee49c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053595"
 ---
 <a name="api-prerequisites"></a>API 필수 구성 요소
 ================
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되며 제품을 파트너 센터로 마이그레이션한 후에도 계속 작동합니다. 통합에는 작은 변경 사항이 도입되었습니다. 파트너 센터로 마이그레이션한 후 코드가 계속 작동 하는지 확인 하려면 [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 합니다.
+> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
 클라우드 파트너 포털 API를 사용하려면 필요한 두 가지 필수 프로그래밍 자산은 서비스 주체와 Azure AD(Active Directory) 액세스 토큰입니다.
 

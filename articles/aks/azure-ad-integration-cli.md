@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: dfc3a546f4845d5eb2e4e144b66b5d97e4a68829
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f99b304d2e238d72b47b09261ede19b44827264a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057362"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Azure CLI (레거시)를 사용 하 여 Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -79,7 +79,7 @@ serverApplicationSecret=$(az ad sp credential reset \
     --query password -o tsv)
 ```
 
-Azure AD에는 다음 작업을 수행할 수 있는 권한이 필요 합니다.
+Azure AD 서비스 주체에는 다음 작업을 수행할 수 있는 권한이 필요 합니다.
 
 * 디렉터리 데이터 읽기
 * 로그인 및 사용자 프로필 읽기

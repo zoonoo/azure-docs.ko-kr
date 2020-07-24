@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터에서 고유한 인증서를 사용하는 NGINX 수신 컨트롤러를 설치하고 구성하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: b3e844c0c4d4861f7a0a0e12c4ae9d59e23c24e2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: 7588614f615e7aa7dee00fa7553ad986f2e26b37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251515"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056963"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -211,7 +211,7 @@ kubectl apply -f ingress-demo.yaml --namespace ingress-basic
 `hello-world-ingress.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -257,13 +257,13 @@ ingress.extensions/hello-world-ingress created
 가짜 *demo.azure.com* 호스트로 인증서를 테스트하고 `curl`을 사용하여 *--resolve* 매개 변수를 지정합니다. 이 매개 변수를 사용하여 *demo.azure.com* 이름을 수신 컨트롤러의 공용 IP 주소 이름에 매핑할 수 있습니다. 다음 예제에서와 같이 고유한 수신 컨트롤러의 공용 IP 주소를 지정합니다.
 
 ```
-curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 ```
 
 주소와 함께 추가 경로를 제공 하지 않았으므로 수신 컨트롤러의 기본값은 */* 경로입니다. 첫 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 
 [...]
 <!DOCTYPE html>
@@ -290,7 +290,7 @@ $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 이제 `https://demo.azure.com/hello-world-two`와 같은 주소에 */hello-world-two* 경로를 추가합니다. 사용자 지정 제목이 있는 두 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hello-world-two
 
 [...]
 <!DOCTYPE html>

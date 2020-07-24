@@ -2,13 +2,13 @@
 title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/21/2020
+ms.openlocfilehash: 4d93a4f3b58fc38710184f345fd467b2beb32b1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275719"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057202"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -79,7 +79,7 @@ AKS는 가상 머신 확장 집합, 가상 네트워크 및 Managed Disks를 포
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>노드 리소스 그룹에서 태그 및 AKS 리소스의 다른 속성을 수정할 수 있나요?
 
-노드 리소스 그룹에서 Azure에서 만든 태그 및 기타 리소스 속성을 수정하거나 삭제하는 경우 크기 조정 및 업그레이드 오류와 같은 예기치 않은 결과가 발생할 수 있습니다. AKS를 사용 하면 최종 사용자가 만든 사용자 지정 태그를 만들고 수정할 수 있습니다. 예를 들어 사업부 또는 비용 센터를 할당하기 위해 사용자 지정 태그를 만들거나 수정할 수 있습니다. 이는 관리 되는 리소스 그룹의 범위를 사용 하 여 Azure 정책을 만들어 달성할 수 있습니다.
+노드 리소스 그룹에서 Azure에서 만든 태그 및 기타 리소스 속성을 수정하거나 삭제하는 경우 크기 조정 및 업그레이드 오류와 같은 예기치 않은 결과가 발생할 수 있습니다. AKS를 사용 하면 최종 사용자가 만든 사용자 지정 태그를 만들고 수정할 수 있으며 [노드 풀을 만들](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)때 이러한 태그를 추가할 수 있습니다. 예를 들어 사업부 또는 비용 센터를 할당하기 위해 사용자 지정 태그를 만들거나 수정할 수 있습니다. 이는 관리 되는 리소스 그룹의 범위를 사용 하 여 Azure 정책을 만들어 수행할 수도 있습니다.
 
 그러나 AKS 클러스터에서 노드 리소스 그룹의 리소스에 대해 **Azure에서 만든 태그** 를 수정 하는 작업은 SLO (서비스 수준 목표)를 중단 하는 지원 되지 않는 작업입니다. 자세한 내용은 [AKS는 서비스 수준 계약을 제공합니까?](#does-aks-offer-a-service-level-agreement)를 참조하세요.
 
@@ -137,7 +137,7 @@ AKS 에이전트 노드는 표준 Azure Virtual Machines로 청구되므로 AKS�
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Azure 테넌트 간에 클러스터를 이동/마이그레이션할 수 있나요?
 
-`az aks update-credentials` 명령을 사용하여 Azure 테넌트 간에 AKS 클러스터를 이동할 수 있습니다. [서비스 주체를 업데이트하거나 만들도록 선택](./update-credentials.md)의 지침을 따른 후 [새 자격 증명으로 AKS 클러스터 업데이트](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials)의 작업을 수행합니다.
+테 넌 트 간에 AKS 클러스터를 이동 하는 것은 현재 지원 되지 않습니다.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>내 클러스터를 구독 간에 이동/마이그레이션할 수 있나요?
 

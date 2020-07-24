@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS (Azure Kubernetes Service) 클러스터에서 자동 TLS 인증서 생성을 위해 암호화를 사용 하는 NGINX 수신 컨트롤러를 설치 하 고 구성 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: 9536d8ee6c1cab0d3ebd2648200683d454843760
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: b25c431c7771e3c72280e936b2275f2fd10165b0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251355"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056848"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -268,7 +268,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 `hello-world-ingress.yaml`아래 예제 YAML을 사용 하 여 라는 파일을 만듭니다. *hosts* 및 *host*를 이전 단계에서 만든 DNS 이름으로 업데이트합니다.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -294,7 +294,7 @@ spec:
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static

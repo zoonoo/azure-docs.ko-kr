@@ -3,20 +3,17 @@ title: 고객 관리 키를 사용 하 여 Azure Kubernetes 서비스에서 Azur
 description: 사용자 고유의 키 (BYOK)를 가져와서 AKS OS 및 데이터 디스크를 암호화 합니다.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
-ms.openlocfilehash: 6452facc999456c35aa5d1c3bfe6b2f59141b7c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252048"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057297"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
 Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 AKS 클러스터에 대 한 OS 및 데이터 디스크 모두에 대 한 미사용 암호화에 사용할 [고객 관리 키][customer-managed-keys] 를 제공할 수 있습니다.
-
-> [!NOTE]
-> BYOK Linux 및 Windows 기반 AKS 클러스터는 azure 관리 디스크의 서버 쪽 암호화를 지 원하는 [azure 지역][supported-regions] 에서 사용할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -164,7 +161,6 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>제한 사항
 
-* BYOK는 현재 GA 및 특정 [Azure 지역의][supported-regions] 미리 보기 에서만 사용할 수 있습니다.
 * Kubernetes 버전 1.17 이상에서 지원 되는 데이터 디스크 암호화   
 * BYOK가 지원 되는 지역 에서만 사용할 수 있습니다.
 * 고객 관리 키를 사용 하는 암호화는 현재 새로운 AKS 클러스터에만 사용 되며 기존 클러스터는 업그레이드할 수 없습니다.

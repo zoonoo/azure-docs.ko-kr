@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005997"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059134"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -61,7 +62,7 @@ Windows 7 또는 Windows 10용 원격 데스크톱 클라이언트와 같은 다
 
 ## <a name="web-client-does-not-show-my-resources"></a>웹 클라이언트는 내 리소스를 표시하지 않습니다.
 
-먼저 사용 중인 Azure Active Directory 계정을 확인합니다. Windows 가상 데스크톱에 사용하려는 계정이 아닌 Azure Active Directory 계정으로 이미 로그인한 경우에는 로그아웃하거나 프라이빗 브라우저 창을 사용해야 합니다.
+먼저 사용 중인 Azure Active Directory 계정을 확인합니다. Windows 가상 데스크톱에 사용할 것과 다른 Azure Active Directory 계정으로 이미 로그인 한 경우에는 서명 하거나 개인 브라우저 창을 사용 해야 합니다.
 
 Windows Virtual Desktop 가을 2019 릴리스를 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-web-2019.md)에서 웹 클라이언트 링크를 사용하여 리소스에 연결하십시오.
 

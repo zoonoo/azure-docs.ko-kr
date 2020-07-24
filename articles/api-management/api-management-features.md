@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ec89d985c025814d903ae9a16f9b0f5123b3571
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056432"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
 
@@ -42,7 +42,7 @@ ms.locfileid: "82203171"
 | [Backup and Restore (백업 및 복원)](api-management-howto-disaster-recovery-backup-restore.md)               | 예          | 예       | 예   | 예      | 예     |
 | [Git을 통한 관리](api-management-configuration-repository-git.md)                        | 예          | 예       | 예   | 예      | 예     |
 | 직접 관리 API                                                                        | 예          | 예       | 예   | 예      | 예     |
-| Azure Monitor 로그 및 메트릭                                                               | 아니요          | 예       | 예   | 예      | 예     |
+| Azure Monitor 로그 및 메트릭                                                               | 예         | 예       | 예   | 예      | 예     |
 | 고정 IP                                                                                    | 아니요          | 예       | 예   | 예      | 예     |
 
 <sup>1</sup> 에서는 개발자 포털에서 사용자 로그인에 대 한 Id 공급자로 Azure AD (및 Azure AD B2C)를 사용할 수 있습니다.<br/>

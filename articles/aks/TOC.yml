@@ -66,6 +66,9 @@
       items:
         - name: 개요
           href: best-practices.md
+        - name: AKS 클러스터를 위한 기본 아키텍처
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          maintainContext: true
         - name: 클러스터 운영자의 경우
           items:
             - name: 다중 테넌트 지원 및 클러스터 격리
@@ -361,7 +364,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

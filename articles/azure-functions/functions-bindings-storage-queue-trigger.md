@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f53fa962cc30f2068d78c9d1907b93019fe34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055854"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -350,17 +351,17 @@ public class QueueTriggerDemo {
 
 # <a name="python"></a>[Python](#tab/python)
 
-[QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python)로 형식화 된 매개 변수를 통해 큐 메시지에 액세스 합니다.
+[QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python)로 형식화 된 매개 변수를 통해 큐 메시지에 액세스 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) 주석은 함수를 트리거한 큐 메시지에 대 한 액세스를 제공 합니다.
+[QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) 주석은 함수를 트리거한 큐 메시지에 대 한 액세스를 제공 합니다.
 
 ---
 
 ## <a name="message-metadata"></a>메시지 메타 데이터
 
-큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
+큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
 |속성|형식|설명|
 |--------|----|-----------|

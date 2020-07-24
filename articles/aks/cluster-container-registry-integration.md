@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: a60f0e2f40fa1a4945198a4b5738b4f7b65b05ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e1ddff9a416b55c22fcd2bfaedff32666414e4bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057248"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -44,7 +44,10 @@ az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-ac
 
 또는 다음 형식의 ACR 리소스 ID를 사용 하 여 ACR 이름을 지정할 수 있습니다.
 
-`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
+`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>`
+
+> [!NOTE]
+> AKS 클러스터와 다른 구독에 있는 ACR을 사용 하는 경우 AKS 클러스터에서 연결 하거나 분리할 때 ACR 리소스 ID를 사용 합니다.
 
 ```azurecli
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry

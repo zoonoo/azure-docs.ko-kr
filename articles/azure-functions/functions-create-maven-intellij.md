@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1eb430f94ef545fa74ed225c427a121a47f7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055788"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
 
@@ -44,7 +44,7 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
 2. Azure 계정에 로그인하려면 사이드바 **Azure Explorer**를 연 다음, 위쪽 막대에서(또는 IDEA 메뉴 **도구/Azure/Azure 로그인**에서) **Azure 로그인** 아이콘을 클릭합니다.
     ![IntelliJ Azure 로그인 명령][intellij-azure-login]
 
-3. **Azure 로그인** 창에서 **디바이스 로그인**을 선택하고 **로그인**([다른 로그인 옵션](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions))을 클릭합니다.
+3. **Azure 로그인** 창에서 **디바이스 로그인**을 선택하고 **로그인**([다른 로그인 옵션](/azure/developer/java/toolkit-for-intellij/sign-in-instructions))을 클릭합니다.
 
    ![디바이스 로그인을 선택한 Azure 로그인 창][intellij-azure-popup]
 
@@ -156,7 +156,7 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
 HTTP 트리거 함수를 사용하여 Java 함수 프로젝트를 만들고, 로컬 머신에서 실행하고, Azure에 배포했습니다. 이제 아래 방법으로 함수를 확장하겠습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Storage 큐 출력 바인딩 추가](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Azure Storage 큐 출력 바인딩 추가](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

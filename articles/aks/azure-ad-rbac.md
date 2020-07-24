@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Azure Kubernetes 서비스에서 RBAC (역할 기반 액세스 제어)를 사용 하 여 클러스터 리소스에 대 한 액세스를 제한 하기 위해 Azure Active Directory 그룹 구성원 자격을 사용 하는 방법에 대해 알아봅니다 (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: bb48e4f72506a69969cae39810640d23d771bde3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/21/2020
+ms.openlocfilehash: 646b1b5fb5079f0b959aaa2337c1dbab09ff4134
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057332"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어
 
@@ -28,7 +28,7 @@ Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다.
 
 이 문서에서는 Kubernetes RBAC 및 Azure AD에서 클러스터 리소스에 대 한 액세스를 제어 하는 방법을 보여 주는 데 사용할 수 있는 두 개의 사용자 역할을 만들어 보겠습니다. 다음 두 가지 예제 역할이 사용 됩니다.
 
-* **애플리케이션 개발자**
+* **응용 프로그램 개발자**
     * *Appdev* 그룹의 일부인 *aksdev* 이라는 사용자입니다.
 * **사이트 안정성 엔지니어**
     * *Opssre* 그룹의 일부인 *akssre* 이라는 사용자입니다.
@@ -137,7 +137,7 @@ Kubernetes에서 *역할* 은 부여할 사용 권한을 정의 하 고 *rolebin
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-full-access
   namespace: dev
@@ -168,7 +168,7 @@ az ad group show --group appdev --query objectId -o tsv
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-access
   namespace: dev
@@ -202,7 +202,7 @@ kubectl create namespace sre
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-full-access
   namespace: sre
@@ -233,7 +233,7 @@ az ad group show --group opssre --query objectId -o tsv
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-access
   namespace: sre
@@ -266,13 +266,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 *Dev* 네임 스페이스의 [kubectl run][kubectl-run] 명령을 사용 하 여 기본 NGINX pod를 예약 합니다.
 
 ```console
-kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
+kubectl run nginx-dev --image=nginx --namespace dev
 ```
 
 로그인 프롬프트로, `appdev@contoso.com` 문서의 시작 부분에서 만든 사용자 계정에 대 한 자격 증명을 입력 합니다. 성공적으로 로그인 되 면 이후 명령에 대해 계정 토큰이 캐시 됩니다 `kubectl` . 다음 예제 출력과 같이 NGINX이 성공적으로 예약 됩니다.
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
+$ kubectl run nginx-dev --image=nginx --namespace dev
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B24ZD6FP8 to authenticate.
 
@@ -313,7 +313,7 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 동일한 방식으로 *sre* 네임 스페이스와 같은 다른 네임 스페이스의 pod를 예약 하려고 합니다. 다음 예제 출력과 같이 사용자의 그룹 멤버 자격은 Kubernetes 역할 및 RoleBinding과 일치 하 여 이러한 권한을 부여 하지 않습니다.
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace sre
+$ kubectl run nginx-dev --image=nginx --namespace sre
 
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot create resource "pods" in API group "" in the namespace "sre"
 ```
@@ -331,14 +331,14 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 할당 된 *sre* 네임 스페이스에서 pod을 예약 하 고 봅니다. 메시지가 표시 되 면 `opssre@contoso.com` 문서의 시작 부분에서 만든 자격 증명을 사용 하 여 로그인 합니다.
 
 ```console
-kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
+kubectl run nginx-sre --image=nginx --namespace sre
 kubectl get pods --namespace sre
 ```
 
 다음 예제 출력과 같이 성공적으로 pod을 만들고 볼 수 있습니다.
 
 ```console
-$ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
+$ kubectl run nginx-sre --image=nginx --namespace sre
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BM4RHP3FD to authenticate.
 
@@ -354,7 +354,7 @@ nginx-sre   1/1     Running   0
 
 ```console
 kubectl get pods --all-namespaces
-kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
+kubectl run nginx-sre --image=nginx --namespace dev
 ```
 
 `kubectl`다음 예제 출력에 표시 된 것 처럼 이러한 명령은 실패 합니다. 사용자의 그룹 멤버 자격 및 Kubernetes 역할 및 RoleBindings는 다른 네임 스페이스에서 리소스를 만들거나 관리자는 권한을 부여 하지 않습니다.
@@ -363,7 +363,7 @@ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 $ kubectl get pods --all-namespaces
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot list pods at the cluster scope
 
-$ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
+$ kubectl run nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 

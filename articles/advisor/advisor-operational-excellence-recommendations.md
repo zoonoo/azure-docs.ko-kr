@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 운영 excellency 개선
 description: Azure Advisor를 사용 하 여 Azure 구독에 대 한 운영 뛰어난 작업을 최적화 하 고 완성 합니다.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c4726400134e4eec3868e155da47cb8c515b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057637"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 뛰어난 운영 효율성 얻기
 
@@ -63,4 +63,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

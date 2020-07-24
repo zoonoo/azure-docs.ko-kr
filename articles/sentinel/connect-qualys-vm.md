@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 44002a8f4ab3b644e3530ee2d2fc06a7af271fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059849"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Azure 함수를 사용 하 여 Qualys VM을 Azure 센티널에 연결
+
+> [!IMPORTANT]
+> Azure 센티널의 Qualys VM 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Qualys 취약성 관리 (VM) 커넥터를 사용 하 여 모든 [QUALYS vm](https://www.qualys.com/apps/vulnerability-management/) 보안 솔루션 로그를 Azure 센티널에 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Qualys VM과 Azure 센티널 간의 통합은 REST API를 사용 하 여 로그 데이터를 끌어오는 Azure Functions를 사용 합니다.
 

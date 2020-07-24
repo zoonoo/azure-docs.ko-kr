@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 description: Azure Advisor를 사용 하 여 업무상 중요 한 Azure 배포에서 안정성을 보장 하 고 향상 시킵니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124625"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057678"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 
@@ -59,7 +59,7 @@ Azure 서비스 문제가 사용자에 게 영향을 줄 때 알림을 받도록
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>실수로 덮어쓰거나 삭제 한 후 Azure storage 계정에서 일시 삭제를 사용 하 여 데이터 저장 및 복구
 
-삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 스토리지 계정에 대해 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅샷이 생성됩니다. 일시 삭제를 사용 하면 실수로 삭제 하거나 덮어쓰는 복구를 수행할 수 있습니다. Advisor는 일시 삭제를 사용 하도록 설정 하지 않은 Azure storage 계정을 식별 하 고 사용 하도록 설정 하는 것을 제안 합니다.
+삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 스토리지 계정에 대해 [일시 삭제](../storage/blobs/soft-delete-overview.md)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅샷이 생성됩니다. 일시 삭제를 사용 하면 실수로 삭제 하거나 덮어쓰는 복구를 수행할 수 있습니다. Advisor는 일시 삭제를 사용 하도록 설정 하지 않은 Azure storage 계정을 식별 하 고 사용 하도록 설정 하는 것을 제안 합니다.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>연결 복원을 위해 VPN 게이트웨이를 활성-활성으로 구성
 
@@ -107,7 +107,7 @@ Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용 하�
 2020 년 7 월 1 일부 터 HDInsight 3.6에서 Spark 2.1 또는 2.2을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. HDInsight 4.0에서 Spark 2.3를 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 
 
 ## <a name="enable-virtual-machine-replication"></a>가상 머신 복제 사용
-다른 지역에 복제를 사용 하도록 설정 하지 않은 가상 머신은 지역 가동 중단으로 복원 되지 않습니다. 가상 컴퓨터를 복제 하면 Azure 지역 가동 중단 시 부정적인 비즈니스 영향이 줄어듭니다. Advisor는 복제를 사용 하도록 설정 하지 않은 Vm을 검색 하 고 사용 하도록 권장 합니다. 복제를 사용 하도록 설정 하는 경우 가동 중단이 발생 하면 원격 Azure 지역에서 가상 머신을 신속 하 게 가져올 수 있습니다. [가상 컴퓨터 복제에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+다른 지역에 복제를 사용 하도록 설정 하지 않은 가상 머신은 지역 가동 중단으로 복원 되지 않습니다. 가상 컴퓨터를 복제 하면 Azure 지역 가동 중단 시 부정적인 비즈니스 영향이 줄어듭니다. Advisor는 복제를 사용 하도록 설정 하지 않은 Vm을 검색 하 고 사용 하도록 권장 합니다. 복제를 사용 하도록 설정 하는 경우 가동 중단이 발생 하면 원격 Azure 지역에서 가상 머신을 신속 하 게 가져올 수 있습니다. [가상 컴퓨터 복제에 대해 자세히 알아보세요.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스 하는 방법
 

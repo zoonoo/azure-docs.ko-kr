@@ -3,15 +3,16 @@ title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: 이 문서에서는 Recovery Services 자격 증명 모음 개요 대시보드를 사용 하 여 Recovery Services 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b3cc317b8a26b16bbeda9793f87d089f2fbc59f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054907"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
-이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 위험 및 경고 알림 상태, 진행 중인 백업 및 실패 한 백업 작업, 사용 된 LRS (로컬 중복 저장소) 및 GRS (지역 중복 저장소)의 양에 표시 되는 *타일이* 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
+이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 위험 및 경고 알림 상태, 진행 중인 백업 및 실패 한 백업 작업, 사용 된 LRS (로컬 중복 저장소) 및 GRS (지역 중복 저장소)의 양에 표시 되는 *타일이* 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](#backup-pre-check-status)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
 
 ![복구 서비스 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -29,7 +30,7 @@ ms.locfileid: "84234600"
 
    ![Recovery Services Vault 목록 열기 1단계](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
 
-3. **모든 서비스** 대화 상자에서 **Recovery Services**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음** 옵션이 표시되면 이 옵션을 클릭하여 구독의 Recovery Services 자격 증명 모음 목록을 엽니다.
+3. **모든 서비스** 대화 상자에서 **Recovery Services**를 입력합니다. 입력을 시작하면 입력 내용에 따라 목록이 필터링됩니다. **Recovery Services 자격 증명 모음** 옵션이 표시되면 이 옵션을 클릭하여 구독의 Recovery Services 자격 증명 모음 목록을 엽니다.
 
     ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
@@ -96,7 +97,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 | ----------- | ----------- |
 | 위험 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
 | 경고 | 백업 작업이 경고와 함께 완료되었거나(예: 손상 문제로 인해 100개 미만의 파일이 백업되지 않은 경우), 1,000,000개가 넘는 파일이 성공적으로 백업된 경우에는 경고 알림을 받습니다. |
-| 정보 | 현재는 사용되는 정보 알림이 없습니다. |
+| 정보 제공 | 현재는 사용되는 정보 알림이 없습니다. |
 
 ### <a name="viewing-alert-details"></a>알림 세부 정보 보기
 
@@ -110,7 +111,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 * Backup 항목
 * 보호된 서버
 * 심각도
-* 기간
+* Duration
 * 만든 시간
 * 상태
 * 최근 발생 시간
@@ -177,7 +178,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 ![백업 유형 목록](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-가상 머신 목록에는 연결된 리소스 그룹, 이전 [백업 사전 검사](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status), 마지막 백업 상태 및 최근 복원 지점 날짜 등 유용한 데이터가 있습니다. 마지막 열의 줄임표를 사용하면 일반적인 작업을 트리거하는 메뉴를 엽니다. 열에 제공된 유용한 데이터는 각 백업 유형마다 다릅니다.
+가상 머신 목록에는 연결된 리소스 그룹, 이전 [백업 사전 검사](#backup-pre-check-status), 마지막 백업 상태 및 최근 복원 지점 날짜 등 유용한 데이터가 있습니다. 마지막 열의 줄임표를 사용하면 일반적인 작업을 트리거하는 메뉴를 엽니다. 열에 제공된 유용한 데이터는 각 백업 유형마다 다릅니다.
 
 ![백업 유형 목록](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -225,7 +226,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 * Azure Storage
 * Azure 워크로드
 
-#### <a name="operation"></a>연산
+#### <a name="operation"></a>작업
 
 하나 또는 모든 작업을 볼 수 있습니다. 둘 또는 세 개의 작업은 선택할 수 없습니다. 사용 가능한 작업은 다음과 같습니다.
 
@@ -286,4 +287,4 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
-* Azure Backup에 대한 자세한 내용은 [Azure Backup 개요](backup-introduction-to-azure-backup.md)
+* Azure Backup에 대한 자세한 내용은 [Azure Backup 개요](./backup-overview.md)

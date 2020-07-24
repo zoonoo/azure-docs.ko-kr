@@ -4,12 +4,12 @@ description: Azure 리소스 그래프에서 관리자 데이터에 대 한 쿼�
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117837"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057771"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>리소스 그래프 탐색기에서 관리자 데이터에 대 한 쿼리 (Azure 리소스 그래프)
 
@@ -24,7 +24,7 @@ Advisor 리소스는 이제 [Azure 리소스 그래프로](https://azure.microso
 
 ## <a name="advisor-resource-types-in-azure-graph"></a>Azure Graph의 Advisor 리소스 유형
 
-[리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/)에서 사용 가능한 Advisor 리소스 유형: advisor 리소스에서 쿼리 하는 데 사용할 수 있는 리소스 유형으로는 3 가지가 있습니다. 다음은 리소스 그래프에서 쿼리할 수 있는 리소스 목록입니다.
+[리소스 그래프](../governance/resource-graph/index.yml)에서 사용 가능한 Advisor 리소스 유형: advisor 리소스에서 쿼리 하는 데 사용할 수 있는 리소스 유형으로는 3 가지가 있습니다. 다음은 리소스 그래프에서 쿼리할 수 있는 리소스 목록입니다.
 * Microsoft Advisor/구성
 * Microsoft Advisor/권장 사항
 * Microsoft Advisor/비 표시 오류
@@ -42,4 +42,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 * [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

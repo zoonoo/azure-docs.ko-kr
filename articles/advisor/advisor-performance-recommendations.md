@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 45fb1f8844067cb34b415c3897db3b1233ab5c7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057572"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -16,7 +16,7 @@ Azure Advisor의 성능 권장 사항은 업무상 중요 한 응용 프로그�
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Traffic Manager 프로필에 대 한 DNS ttl (time to live)을 줄여 정상 끝점으로 빠르게 장애 조치 (failover)
 
-Azure Traffic Manager 프로필에 대 한 [ttl (time-to-live) 설정을](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) 사용 하 여 지정 된 끝점이 쿼리에 응답 하지 않는 경우 끝점을 전환 하는 속도를 지정할 수 있습니다. TTL 값을 줄이면 클라이언트는 작동 하는 끝점에 더 빠르게 라우팅됩니다.
+Azure Traffic Manager 프로필에 대 한 [ttl (time-to-live) 설정을](../traffic-manager/traffic-manager-performance-considerations.md) 사용 하 여 지정 된 끝점이 쿼리에 응답 하지 않는 경우 끝점을 전환 하는 속도를 지정할 수 있습니다. TTL 값을 줄이면 클라이언트는 작동 하는 끝점에 더 빠르게 라우팅됩니다.
 
 Azure Advisor는 더 긴 TTL이 구성 된 Traffic Manager 프로필을 식별 합니다. [빠른 장애 조치(Failover)](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/)에 대해 프로필이 구성 되었는지 여부에 따라 TTL을 20 초 또는 60 초로 구성 하는 것이 좋습니다.
 
@@ -27,7 +27,7 @@ Azure Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 
 > [!NOTE]
 > 권장 사항을 얻기 전에 데이터베이스를 일주일 동안 사용 해야 하며, 해당 주 내에는 일정 한 작업을 수행 해야 합니다. SQL Database Advisor는 일관성 있는 쿼리 패턴을 임의 활동 버스트보다 더욱 쉽게 최적화할 수 있습니다.
 
-자세한 내용은 [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)를 참조 하세요.
+자세한 내용은 [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md)를 참조 하세요.
 
 ## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>안정성 및 성능 향상을 위해 저장소 클라이언트 라이브러리를 최신 버전으로 업그레이드
 
@@ -39,7 +39,7 @@ Azure Advisor는 App Service 환경을 개선 하 고 관련 플랫폼 기능을
 * 완화 옵션을 사용 하 여 메모리 또는 CPU 리소스가 앱 런타임에서 소모 되는 인스턴스를 검색 합니다.
 * 웹 앱 및 데이터베이스와 같은 리소스를 공동 배치 하 여 성능을 향상 시키고 비용을 절감할 수 있는 인스턴스를 검색 합니다.
 
-자세한 내용은 [Azure App Service에 대 한 모범 사례](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)를 참조 하세요.
+자세한 내용은 [Azure App Service에 대 한 모범 사례](../app-service/app-service-best-practices.md)를 참조 하세요.
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>관리 디스크를 사용 하 여 디스크 i/o 제한 방지
 
@@ -53,11 +53,11 @@ Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 �
 
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블의 데이터 오차를 제거 하 여 쿼리 성능 향상
 
-데이터 오차는 작업을 실행할 때 불필요 한 데이터 이동 또는 리소스 병목 현상을 유발할 수 있습니다. Advisor가 15% 이상의 배포 데이터 오차를 검색 합니다. 데이터를 재배포 하 고 테이블 배포 키 선택 항목을 다시 방문 하는 것이 좋습니다. 기울이기 식별 및 제거에 대한 자세한 정보는 [기울이기 문제 해결](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)을 참조합니다.
+데이터 오차는 작업을 실행할 때 불필요 한 데이터 이동 또는 리소스 병목 현상을 유발할 수 있습니다. Advisor가 15% 이상의 배포 데이터 오차를 검색 합니다. 데이터를 재배포 하 고 테이블 배포 키 선택 항목을 다시 방문 하는 것이 좋습니다. 기울이기 식별 및 제거에 대한 자세한 정보는 [기울이기 문제 해결](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice)을 참조합니다.
 
 ## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블에서 오래 된 테이블 통계를 만들거나 업데이트 하 여 쿼리 성능을 향상 시킵니다.
 
-Advisor는 최신 [테이블 통계가](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) 없는 테이블을 식별 하 고 통계를 만들거나 업데이트 하는 것을 권장 합니다. Azure SQL Data Warehouse의 쿼리 최적화 프로그램은 최신 통계를 사용 하 여 쿼리 결과에서 카디널리티 또는 행 수를 추정 합니다. 이러한 예상치를 통해 쿼리 최적화 프로그램은 가장 빠른 성능을 제공 하는 쿼리 계획을 만들 수 있습니다.
+Advisor는 최신 [테이블 통계가](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) 없는 테이블을 식별 하 고 통계를 만들거나 업데이트 하는 것을 권장 합니다. Azure SQL Data Warehouse의 쿼리 최적화 프로그램은 최신 통계를 사용 하 여 쿼리 결과에서 카디널리티 또는 행 수를 추정 합니다. 이러한 예상치를 통해 쿼리 최적화 프로그램은 가장 빠른 성능을 제공 하는 쿼리 계획을 만들 수 있습니다.
 
 ## <a name="improve-mysql-connection-management"></a>MySQL 연결 관리 개선
 
@@ -76,7 +76,7 @@ Advisor는 복제 된 테이블이 아닌 변환을 통해 이점을 누릴 수 
 - 테이블 배포 유형입니다. 
 - SQL Data Warehouse 테이블의 파티션 수입니다. 
 
-컨텍스트 권장 사항에 추가 추론을 제공할 수 있습니다. 이 권장 사항을 결정 하는 방법에 대 한 자세한 내용은 [SQL Data Warehouse 권장 사항](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables)을 참조 하세요. 
+컨텍스트 권장 사항에 추가 추론을 제공할 수 있습니다. 이 권장 사항을 결정 하는 방법에 대 한 자세한 내용은 [SQL Data Warehouse 권장 사항](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables)을 참조 하세요. 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>저장소 계정을 Azure Resource Manager로 마이그레이션하여 최신 Azure 기능을 받으세요.
 
@@ -88,7 +88,7 @@ Advisor는 복제 된 테이블이 아닌 변환을 통해 이점을 누릴 수 
 Advisor는 클래식 배포 모델을 사용 하는 독립 실행형 저장소 계정을 식별 하 고 리소스 관리자 배포 모델로 마이그레이션하는 것을 권장 합니다.
 
 > [!NOTE]
-> Azure Monitor의 클래식 경고는 2019 년 8 월에 사용이 중지 되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)사용 중지를 참조 하세요.
+> Azure Monitor의 클래식 경고는 2019 년 8 월에 사용이 중지 되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)사용 중지를 참조 하세요.
 
 ## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>최대 구독 제한에 도달 하지 않도록 저장소 계정 디자인
 
@@ -120,17 +120,17 @@ Advisor가 지원 되지 않는 버전의 Kubernetes를 검색 합니다.
 장기간 CPU 사용률이 높으면 작업에 쿼리 성능이 저하 될 수 있습니다. CPU 크기를 높이면 데이터베이스 쿼리의 런타임 최적화 및 전반적인 성능 향상에 도움이 됩니다. Advisor는 CPU 제한 작업을 실행할 가능성이 높은 CPU 사용률이 높은 서버를 식별 하 고 계산 크기를 조정 하는 것이 좋습니다.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure Database for MariaDB 서버에서 메모리 제약 조건을 줄이거나 메모리 액세스에 최적화 된 SKU로 이동 합니다.
-낮은 캐시 적중률으로 인해 쿼리 성능이 느려지고 IOPS가 증가할 수 있습니다. 이 문제는 잘못 된 쿼리 계획 또는 메모리 집약적 작업으로 인해 발생할 수 있습니다. 쿼리 계획을 수정 하거나 Azure Database for PostgreSQL, Azure Database for MySQL 또는 Azure Database for MariaDB 서버의 [메모리를 늘려서](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) 데이터베이스 작업의 실행을 최적화 하는 데 도움이 됩니다. Azure Advisor는이 높은 버퍼 풀 변동의 영향을 받는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하는 것이 좋습니다. 
+낮은 캐시 적중률으로 인해 쿼리 성능이 느려지고 IOPS가 증가할 수 있습니다. 이 문제는 잘못 된 쿼리 계획 또는 메모리 집약적 작업으로 인해 발생할 수 있습니다. 쿼리 계획을 수정 하거나 Azure Database for PostgreSQL, Azure Database for MySQL 또는 Azure Database for MariaDB 서버의 [메모리를 늘려서](../postgresql/concepts-pricing-tiers.md) 데이터베이스 작업의 실행을 최적화 하는 데 도움이 됩니다. Azure Advisor는이 높은 버퍼 풀 변동의 영향을 받는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하는 것이 좋습니다. 
 - 쿼리 계획 수정
 - 더 많은 메모리가 있는 SKU로 이동 
 - 더 많은 IOPS를 얻기 위해 저장소 크기를 늘립니다.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>읽기/쓰기 작업에 대 한 읽기를 확장 하려면 Azure Database for MySQL 또는 Azure Database for PostgreSQL 복제본 읽기를 사용 합니다.
-Advisor는 지난 7 일간 서버에서 쓰기에 대 한 읽기 비율 같은 작업 기반 추론을 사용 하 여 읽기 집약적인 작업을 식별 합니다. 읽기/쓰기 비율이 높은 Azure Database for PostgreSQL 또는 Azure Database for MySQL 리소스는 CPU 또는 메모리 경합이 발생할 수 있으며 쿼리 성능이 느려질 수 있습니다.  [복제본](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 을 추가 하면 복제본 서버에 대 한 읽기를 확장 하 고 주 서버에서 CPU 또는 메모리 제약 조건을 방지할 수 있습니다. Advisor는 읽기 집약적인 작업을 사용 하는 서버를 식별 하 고 읽기 [복제본](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)을 추가 하 여 읽기   작업의 일부를 오프 로드 하는 것을 권장 합니다.
+Advisor는 지난 7 일간 서버에서 쓰기에 대 한 읽기 비율 같은 작업 기반 추론을 사용 하 여 읽기 집약적인 작업을 식별 합니다. 읽기/쓰기 비율이 높은 Azure Database for PostgreSQL 또는 Azure Database for MySQL 리소스는 CPU 또는 메모리 경합이 발생할 수 있으며 쿼리 성능이 느려질 수 있습니다.  [복제본](../postgresql/howto-read-replicas-portal.md) 을 추가 하면 복제본 서버에 대 한 읽기를 확장 하 고 주 서버에서 CPU 또는 메모리 제약 조건을 방지할 수 있습니다. Advisor는 읽기 집약적인 작업을 사용 하는 서버를 식별 하 고 읽기 [복제본](../postgresql/concepts-read-replicas.md)을 추가 하 여 읽기   작업의 일부를 오프 로드 하는 것을 권장 합니다.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>연결 제약 조건을 방지 하기 위해 Azure Database for MySQL, Azure Database for PostgreSQL 또는 Azure Database for MariaDB 서버를 상위 SKU로 크기 조정
-데이터베이스 서버에 대 한 새 연결은 메모리를 차지 합니다. 서버에 대 한 연결이 메모리의 [상한](https://docs.microsoft.com/azure/postgresql/concepts-limits) 으로 인해 실패 하는 경우 데이터베이스 서버의 성능이 저하 됩니다. Azure Advisor는 여러 연결 오류가 발생 하 여 실행 되는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하 여 서버에 더 많은 메모리를 제공 하도록 서버 연결 제한을 업그레이드 하는 것이 좋습니다.
+데이터베이스 서버에 대 한 새 연결은 메모리를 차지 합니다. 서버에 대 한 연결이 메모리의 [상한](../postgresql/concepts-limits.md) 으로 인해 실패 하는 경우 데이터베이스 서버의 성능이 저하 됩니다. Azure Advisor는 여러 연결 오류가 발생 하 여 실행 되는 서버를 식별 합니다. 다음 작업 중 하나를 수행 하 여 서버에 더 많은 메모리를 제공 하도록 서버 연결 제한을 업그레이드 하는 것이 좋습니다.
 - 계산을 확장 합니다. 
 - 코어 당 계산을 많이 사용 하는 메모리 액세스에 최적화 된 Sku를 사용 합니다.
 
@@ -168,4 +168,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 * [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

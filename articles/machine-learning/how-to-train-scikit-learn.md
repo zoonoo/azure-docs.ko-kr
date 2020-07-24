@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 03/09/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 525dd90f37175dc5b2b50bc577a5a4f04649555b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 3669bfb10a990f042d1470fbabee19809a6785cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060700"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "86146379"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
@@ -121,6 +121,8 @@ except ComputeTargetException:
 
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 계산 대상에 대 한 자세한 내용은 [계산 대상 이란?](concept-compute-target.md) 문서를 참조 하세요.
 

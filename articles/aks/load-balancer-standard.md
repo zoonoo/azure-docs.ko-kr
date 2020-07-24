@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 11f8442f188ea6ce7ee1de5a093362279da4594c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056809"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 공용 표준 Load Balancer 사용 (AKS)
 
@@ -167,7 +167,7 @@ az aks update \
 
 #### <a name="create-the-cluster-with-your-own-public-ip-or-prefixes"></a>사용자 고유의 공용 IP 또는 접두사를 사용 하 여 클러스터 만들기
 
-허용 목록 송신 엔드포인트와 같은 시나리오를 지원하기 위해 클러스터를 만들 때 송신을 위한 고유 IP 주소 또는 IP 접두사를 가져오고 싶을 수 있습니다. 클러스터 생성 단계에 위에 표시된 것과 동일한 매개 변수를 추가하여 클러스터의 수명 주기 시작 부분에 고유한 공용 IP 및 IP 접두사를 정의합니다.
+송신 끝점을 허용 목록에 추가 하는 등의 시나리오를 지원 하기 위해 클러스터를 만들 때 송신 하기 위해 사용자 고유의 IP 주소 또는 IP 접두사를 가져올 수 있습니다. 클러스터 생성 단계에 위에 표시된 것과 동일한 매개 변수를 추가하여 클러스터의 수명 주기 시작 부분에 고유한 공용 IP 및 IP 접두사를 정의합니다.
 
 *az aks create* 명령을 *load-balancer-outbound-ips* 매개 변수를 사용하여 시작 시 공용 IP로 새 클러스터를 만듭니다.
 
@@ -229,7 +229,7 @@ az aks update \
 > [!IMPORTANT]
 > 연결 또는 크기 조정 문제를 방지 하려면 필요한 할당량을 계산 하 고 *allocatedOutboundPorts* 을 사용자 지정 하기 전에 [요구 사항을 확인][requirements] 해야 합니다.
 
-**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예:
+**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예를 들어:
 
 ```azurecli-interactive
 az aks create \
@@ -291,6 +291,24 @@ spec:
     app: azure-vote-front
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
+```
+
+## <a name="maintain-the-clients-ip-on-inbound-connections"></a>인바운드 연결에서 클라이언트의 IP 유지 관리
+
+기본적으로 `LoadBalancer` [KUBERNETES 및 AKS에 있는](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) 형식의 서비스는 pod에 대 한 연결에서 클라이언트의 IP 주소를 유지 하지 않습니다. Pod에 전달 되는 패킷의 원본 IP는 노드의 개인 IP가 됩니다. 클라이언트의 IP 주소를 유지 하려면 `service.spec.externalTrafficPolicy` 서비스 정의에서를로 설정 해야 합니다 `local` . 다음 매니페스트는 예제를 보여 줍니다.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
 ```
 
 ## <a name="additional-customizations-via-kubernetes-annotations"></a>Kubernetes 주석을 통한 추가 사용자 지정

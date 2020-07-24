@@ -1,5 +1,5 @@
 ---
-title: Linux VM용 이미지 갤러리에서 Azure Image Builder 사용(미리 보기)
+title: Linux Vm에 대 한 Azure 이미지 빌더 & 공유 이미지 갤러리 사용 (미리 보기)
 description: Azure Image Builder 및 Shared Image Gallery를 사용하여 Linux VM 이미지를 만듭니다.
 author: cynthn
 ms.author: cynthn
@@ -8,15 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: ccb622f786e6df5271684cf2aabba36cd2f5184f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918bb02de9a8003dfab76c436b3ec22cb540244
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930695"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059040"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Linux 이미지를 만들어 Shared Image Gallery에 배포 
 
-이 문서에서는 Azure Image Builder 및 Azure CLI를 사용하여 [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)에서 이미지 버전을 만든 다음, 전 세계에 이미지를 배포하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
+이 문서에서는 Azure Image Builder 및 Azure CLI를 사용하여 [Shared Image Gallery](../windows/shared-image-galleries.md)에서 이미지 버전을 만든 다음, 전 세계에 이미지를 배포하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
 
 
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json)입니다. 
@@ -92,7 +93,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-Image Builder는 제공된 [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)를 사용하여 Azure SIG(Shared Image Gallery)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+Image Builder는 제공된 [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용하여 Azure SIG(Shared Image Gallery)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located

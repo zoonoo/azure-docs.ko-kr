@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 5d7fc52aaaca0bf99955919c954cc22ab0d9d3d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054576"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -23,7 +23,7 @@ ms.locfileid: "86538460"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -127,7 +127,7 @@ ms.locfileid: "86538460"
     >   - `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>` 실행
     >   - 액세스 권한 확인`dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- 백업 자격 증명 모음에서 경로로 복원 파일을 시작 합니다. `\\<storageacct>.file.core.windows.net\<filesharename>`<BR>
-    Psexec를 통해 다운로드할 수 있습니다.<https://docs.microsoft.com/sysinternals/downloads/psexec>
+    [Sysinternals](/sysinternals/downloads/psexec) 페이지에서 PsExec를 다운로드할 수 있습니다.
 
 1. **확인**을 선택합니다.
 

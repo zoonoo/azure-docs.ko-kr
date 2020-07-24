@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 56c11c2ae867769eb5eab00a2a6a3ecb616449b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7ba52c34c376139538a5d0bf7747cceb6b46cb2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056130"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 출력 바인딩
 
@@ -391,11 +392,11 @@ JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 |  참고 |
+| 바인딩 |  참조 |
 |---|---|
-| Blob | [Blob 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
-| Blob, 테이블, 큐 |  [스토리지 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, 테이블, 큐 |  [문제 해결](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Blob | [Blob 오류 코드](/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob, 테이블, 큐 |  [스토리지 오류 코드](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, 테이블, 큐 |  [문제 해결](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>다음 단계
 

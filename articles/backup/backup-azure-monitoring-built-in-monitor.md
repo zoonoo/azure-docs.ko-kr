@@ -4,11 +4,12 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054541"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -27,7 +28,7 @@ Azure Backup은 Azure Backup으로 보호 되는 워크 로드에 대 한 기본
 - Azure VM 백업
 - Azure 파일 백업
 - Azure 워크 로드 백업 (예: SQL 및 SAP HANA)
-- Azure Backup 에이전트(MAB)
+- MARS(Microsoft Azure Recovery Services) 에이전트
 
 System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 작업은 표시 되지 않습니다.
 
@@ -43,7 +44,7 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 다음 시나리오는 했어야 시나리오로 서비스에 의해 정의 됩니다.
 
 - 백업/복원 실패
-- Azure Backup 에이전트(MAB)에 대한 경고와 함께 백업 성공
+- Microsoft Azure Recovery Services (MARS) 에이전트에 대해 백업 했습니다.
 - 데이터 삭제로 보호 중지/데이터 삭제로 보호 중지
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>다음 Azure Backup 솔루션의 경고가 여기에 표시 됩니다.
@@ -51,7 +52,7 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 - Azure VM 백업
 - Azure 파일 백업
 - SQL, SAP HANA 등의 Azure 워크 로드 백업
-- Azure Backup 에이전트(MAB)
+- MARS(Microsoft Azure Recovery Services) 에이전트 
 
 > [!NOTE]
 > System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 경고는 여기에 표시 되지 않습니다.

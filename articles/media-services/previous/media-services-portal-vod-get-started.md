@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 5a09d672f44ce8835571277ab35f7545c7f5f33e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 62754c455ec6aad4a3990bf4af749dcdcd425e55
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060228"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal을 사용한 주문형 콘텐츠 제공 시작
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 이 자습서에서는 Azure Portal을 사용한 Azure Media Services 애플리케이션으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.
 
-* Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요. 
+* Azure 계정 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요. 
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조 하세요.
 
 이 자습서에는 다음 작업이 포함되어 있습니다.
@@ -125,7 +125,7 @@ MPEG-DASH 스트리밍 URL을 작성하려면 URL에 *(format=mpd-time-csf)* 를
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
+로케이터의 만료 날짜를 업데이트하려면 [REST API](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
 
 > [!NOTE]
 > 공유 액세스 서명 로케이터의 만료 날짜를 업데이트할 경우 URL이 변경됩니다.

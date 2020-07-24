@@ -4,11 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 API 서버에 액세스 하�
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 4d9030e21c3b8f31c18c26fc54dc76d5b8d84a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c92d4e00da1cc3d372cca0bf4efbe648ae522608
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100056"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057469"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 대 한 액세스 보호
 
@@ -17,7 +18,7 @@ Kubernetes에서 API 서버는 리소스를 만들거나 노드 수를 조정 �
 이 문서에서는 API server 권한이 부여 된 IP 주소 범위를 사용 하 여 제어 평면에 액세스할 수 있는 IP 주소 및 CIDRs를 제한 하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
-> 새 클러스터에서 API 서버 권한이 부여 된 IP 주소 범위는 *표준* SKU 부하 분산 장치 에서만 지원 됩니다. *기본* sku 부하 분산 장치 및 API 서버 권한이 부여 된 IP 주소 범위를 포함 하는 기존 클러스터는 계속 작동 하지만 *표준* SKU 부하 분산 장치로 마이그레이션될 수 없습니다. 이러한 기존 클러스터는 Kubernetes 버전이 나 제어 평면이 업그레이드 된 경우에도 계속 작동 합니다.
+> API 서버 권한이 부여 된 IP 주소 범위를 10 월 2019에 미리 보기로 이동한 후에 생성 된 클러스터에서 API 서버 권한이 부여 된 IP 주소 범위는 *표준* SKU 부하 분산 장치 에서만 지원 됩니다. *기본* sku 부하 분산 장치 및 API 서버 권한이 부여 된 IP 주소 범위를 포함 하는 기존 클러스터는 계속 작동 하지만 *표준* SKU 부하 분산 장치로 마이그레이션될 수 없습니다. 이러한 기존 클러스터는 Kubernetes 버전이 나 제어 평면이 업그레이드 된 경우에도 계속 작동 합니다. API 서버에 권한이 부여 된 IP 주소 범위는 개인 클러스터에 대해 지원 되지 않습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -35,7 +36,7 @@ API 서버 및 기타 클러스터 구성 요소에 대 한 자세한 내용은 
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>API server 권한 부여 된 IP 범위를 사용 하 여 AKS 클러스터 만들기
 
-API 서버 권한 있는 IP 범위는 새 AKS 클러스터에 대해서만 작동 하며 개인 AKS 클러스터에 대해 지원 되지 않습니다. [Az aks create][az-aks-create] 를 사용 하 여 클러스터를 만들고 *`--api-server-authorized-ip-ranges`* 매개 변수를 지정 하 여 권한이 부여 된 IP 주소 범위 목록을 제공 합니다. 이러한 IP 주소 범위는 일반적으로 온-프레미스 네트워크 또는 공용 Ip에서 사용 되는 주소 범위입니다. CIDR 범위를 지정 하는 경우 범위의 첫 번째 IP 주소부터 시작 합니다. 예를 들어 *137.117.106.90/29* 는 유효한 범위 이지만 *137.117.106.88/29*와 같이 범위의 첫 번째 IP 주소를 지정 해야 합니다.
+[Az aks create][az-aks-create] 를 사용 하 여 클러스터를 만들고 *`--api-server-authorized-ip-ranges`* 매개 변수를 지정 하 여 권한이 부여 된 IP 주소 범위 목록을 제공 합니다. 이러한 IP 주소 범위는 일반적으로 온-프레미스 네트워크 또는 공용 Ip에서 사용 되는 주소 범위입니다. CIDR 범위를 지정 하는 경우 범위의 첫 번째 IP 주소부터 시작 합니다. 예를 들어 *137.117.106.90/29* 는 유효한 범위 이지만 *137.117.106.88/29*와 같이 범위의 첫 번째 IP 주소를 지정 해야 합니다.
 
 > [!IMPORTANT]
 > 기본적으로 클러스터는 아웃 바운드 게이트웨이를 구성 하는 데 사용할 수 있는 [표준 SKU 부하 분산 장치][standard-sku-lb] 를 사용 합니다. 클러스터를 만드는 동안 API server 권한 있는 IP 범위를 사용 하도록 설정 하면 지정 된 범위 외에도 기본적으로 클러스터에 대 한 공용 IP가 허용 됩니다. *""* 를 지정 하거나 값을 지정 하지 않으면 *`--api-server-authorized-ip-ranges`* API 서버에 권한이 부여 된 IP 범위가 사용 하지 않도록 설정 됩니다. PowerShell을 사용 하는 경우 *`--api-server-authorized-ip-ranges=""`* 구문 분석 문제를 방지 하기 위해 (등호 포함)를 사용 합니다.
@@ -58,12 +59,14 @@ az aks create \
 > - 방화벽 공용 IP 주소
 > - 클러스터를 관리할 네트워크를 나타내는 모든 범위
 > - AKS 클러스터에서 Azure Dev Spaces를 사용 하는 경우 [해당 지역에 따라 추가 범위][dev-spaces-ranges]를 허용 해야 합니다.
-
-> 지정할 수 있는 IP 범위 수에 대 한 상한 값은 3500입니다. 
+>
+> 지정할 수 있는 IP 범위 수에 대 한 상한 값은 200입니다.
+>
+> 규칙을 전파 하는 데 최대 2 분이 걸릴 수 있습니다. 연결을 테스트할 때 해당 시간까지 허용 하세요.
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>표준 SKU 부하 분산 장치에 대 한 아웃 바운드 Ip를 지정 합니다.
 
-AKS 클러스터를 만들 때 클러스터에 대 한 아웃 바운드 IP 주소 또는 접두사를 지정 하면 해당 주소 또는 접두사도 허용 됩니다. 예를 들어:
+AKS 클러스터를 만들 때 클러스터에 대 한 아웃 바운드 IP 주소 또는 접두사를 지정 하면 해당 주소 또는 접두사도 허용 됩니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az aks create \

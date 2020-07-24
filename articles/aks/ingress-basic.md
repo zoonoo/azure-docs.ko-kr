@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 컨트롤러를 설치하고 구성하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: bb7ac1d76e93a95fedc1dfdbfd67d2b057db60e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: d96118e8f9de37432874a9864fc5c35faeb95a5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499820"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057217"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -163,10 +163,10 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 다음 예제에서 *EXTERNAL_IP* 에 대 한 트래픽은 이라는 서비스로 라우팅됩니다 `aks-helloworld-one` . *EXTERNAL_IP/hello-world-two* 에 대 한 트래픽은 서비스로 라우팅됩니다 `aks-helloworld-two` . *EXTERNAL_IP/정적* 으로의 트래픽은 정적 자산의 이라는 서비스로 라우팅됩니다 `aks-helloworld-one` .
 
-`hello-world-ingress.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
+*Hello-wwpn. yaml* 이라는 파일을 만들고 다음 예제 yaml에 복사 합니다.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -188,7 +188,7 @@ spec:
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static

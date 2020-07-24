@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6f521cccdc8814fad8605460bf87c0d0fca20378
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055620"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Java 및 Eclipse를 사용 하 여 첫 번째 함수 만들기 
 
@@ -28,7 +28,7 @@ Java 및 Eclipse를 통해 함수 앱을 개발하려면 다음을 설치해야 
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/)버전 8.
 -  [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 -  [Eclipse](https://www.eclipse.org/downloads/packages/)(Java 및 Maven 지원 포함)
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+-  [Azure CLI](/cli/azure)
 
 > [!IMPORTANT] 
 > 이 퀵 스타트를 완료하려면 JAVA_HOME 환경 변수를 JDK 설치 위치로 설정해야 합니다.
@@ -43,7 +43,7 @@ Azure Functions를 실행 및 디버그하기 위한 로컬 환경을 제공하�
 1. , 및를 포함 하 여 모든 필드에 대 한 값을 입력 해야 합니다 `resourceGroup` `appName` `appRegion` . ( **fabrikam-함수-20170920120101928**이외의 다른 appName을 사용 하세요.) 결국 **완료**됩니다.
     ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
+Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](./functions-bindings-http-webhook.md) 함수입니다.
 
 ## <a name="run-functions-locally-in-the-ide"></a>IDE에서 로컬로 함수 실행
 

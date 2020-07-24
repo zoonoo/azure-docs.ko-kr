@@ -5,30 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554904"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058094"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
 Azure AD 조인은 클라우드 우선 또는 클라우드 전용으로 사용하려는 조직을 위한 것입니다. 모든 조직에서 규모 또는 업계에 관계없이 Azure AD 조인 디바이스를 배포할 수 있습니다. Azure AD 조인은 하이브리드 환경에서도 작동하므로 클라우드 및 온-프레미스 앱과 리소스 모두에 액세스할 수 있습니다.
 
-| Azure AD 조인 | 설명 |
+| Azure AD 조인 | Description |
 | --- | --- |
 | **정의** | 조직 계정에서 디바이스에 로그인하는 데 필요한 Azure AD에만 조인됩니다. |
 | **기본 대상 그룹** | 클라우드 전용 및 하이브리드 조직 모두에 적합합니다. |
 |   | 조직의 모든 사용자에게 적용됩니다. |
 | **디바이스 소유권** | 조직 |
 | **운영 체제** | 모든 Windows 10 디바이스 |
+|   | [Azure에서 실행 되는 Windows server 2019 Virtual Machines](howto-vm-sign-in-azure-ad-windows.md) (Server core는 지원 되지 않음) |
 | **프로비전** | 셀프 서비스: Windows OOBE 또는 설정 |
 |   | 대량 등록 |
 |   | Windows Autopilot |

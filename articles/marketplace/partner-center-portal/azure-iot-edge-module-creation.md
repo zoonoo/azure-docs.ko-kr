@@ -1,20 +1,20 @@
 ---
 title: Azure Marketplace에서 파트너 센터를 사용하여 Azure IoT Edge 모듈 제품 만들기
-description: Azure Marketplace에서 파트너 센터를 사용하여 IoT Edge 모듈 제품을 만들고 구성하고 게시하는 방법을 알아봅니다.
+description: 파트너 센터를 사용 하 여 Azure Marketplace에서 IoT Edge 모듈 제품을 만들고 구성 하 고 게시 하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: b2a1e523e2af8c0be9c4211dfc8a0ffd2a889ca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053658"
 ---
-# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Azure Marketplace에서 IoT Edge 모듈 제품 만들기, 구성 및 게시
+# <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
 이 문서에서는 Azure Marketplace에 IoT(사물 인터넷) Edge 모듈 제품을 만들어 게시하는 방법을 설명합니다. 시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만듭니다](create-account.md)(아직 만들지 않은 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
 
@@ -229,7 +229,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 3. 지원 주소 (링크)
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
-6. Name
+6. 이름
 7. 요약
 8. 설명
 9. 유용한 링크
@@ -251,7 +251,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. Name
+1. 이름
 2. 설명
 3. 유용한 링크
 4. 스크린샷

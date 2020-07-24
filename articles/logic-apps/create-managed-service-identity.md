@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06c10cffcfa5c68b1da8ba366ca270f1c2fa6ea4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565030"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060976"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -306,8 +306,8 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 * [Azure Portal](#azure-portal-assign-access)
 * [Azure Resource Manager 템플릿](../role-based-access-control/role-assignments-template.md)
-* Azure PowerShell([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)) - 자세한 내용은 [Azure RBAC 및 Azure PowerShell을 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
-* Azure CLI([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
+* Azure PowerShell([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) - 자세한 내용은 [Azure RBAC 및 Azure PowerShell을 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
+* Azure CLI([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - 자세한 내용은 [Azure RBAC 및 Azure CLI를 사용하여 역할 할당 추가](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -387,18 +387,18 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
    | **인증** | 예 | 대상 리소스 또는 엔터티에 대한 액세스를 인증하는 데 사용할 인증 유형 |
    ||||
 
-   특정한 예로, 이전에 ID에 대한 액세스를 설정한 Azure Storage 계정의 Blob에서 [Blob 스냅샷 작업](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)을 실행하려고 한다고 가정합니다. 그러나 [Azure Blob Storage 커넥터](https://docs.microsoft.com/connectors/azureblob/)는 현재 이 작업을 제공하지 않습니다. 대신 이 작업은 [HTTP 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) 또는 다른 [Blob Service REST API 작업](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs)을 사용하여 실행할 수 있습니다.
+   특정한 예로, 이전에 ID에 대한 액세스를 설정한 Azure Storage 계정의 Blob에서 [Blob 스냅샷 작업](/rest/api/storageservices/snapshot-blob)을 실행하려고 한다고 가정합니다. 그러나 [Azure Blob Storage 커넥터](/connectors/azureblob/)는 현재 이 작업을 제공하지 않습니다. 대신 이 작업은 [HTTP 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) 또는 다른 [Blob Service REST API 작업](/rest/api/storageservices/operations-on-blobs)을 사용하여 실행할 수 있습니다.
 
    > [!IMPORTANT]
    > HTTP 요청 및 관리 ID를 사용하여 방화벽 내에서 Azure 스토리지 계정에 액세스하려면 [신뢰할 수 있는 Microsoft 서비스의 액세스를 허용하는 예외](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service)를 사용하는 스토리지 계정도 설정해야 합니다.
 
-   [Blob 스냅샷 작업](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)을 실행하기 위해 HTTP 작업에서 지정하는 속성은 다음과 같습니다.
+   [Blob 스냅샷 작업](/rest/api/storageservices/snapshot-blob)을 실행하기 위해 HTTP 작업에서 지정하는 속성은 다음과 같습니다.
 
    | 속성 | 필수 | 예제 값 | Description |
    |----------|----------|---------------|-------------|
    | **메서드** | 예 | `PUT`| Blob 스냅샷 작업에서 사용하는 HTTP 메서드 |
    | **URI** | 예 | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | 이 구문을 사용하는 Azure 글로벌(퍼블릭) 환경의 Azure Blob Storage 파일에 대한 리소스 ID |
-   | **헤더** | 예(Azure Storage의 경우) | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Azure Storage 작업에 필요한 `x-ms-blob-type` 및 `x-ms-version` 헤더 값 <p><p>**중요**: Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **헤더** | 예(Azure Storage의 경우) | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Azure Storage 작업에 필요한 `x-ms-blob-type` 및 `x-ms-version` 헤더 값 <p><p>**중요**: Azure Storage에 대한 나가는 HTTP 트리거 및 작업 요청에서 헤더에는 실행하려는 작업에 대한 `x-ms-version` 속성 및 API 버전이 필요합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더 - Blob 스냅샷 ](/rest/api/storageservices/snapshot-blob#request) <br>- [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **쿼리** | 예(이 작업의 경우) | `comp` = `snapshot` | Blob 스냅샷 작업에 대한 쿼리 매개 변수 이름 및 값 |
    |||||
 
@@ -441,7 +441,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
    Azure Storage용 Azure AD를 사용하여 액세스 권한을 부여하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
    * [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 권한 부여](../storage/common/storage-auth-aad.md)
-   * [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 권한 부여](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 권한 부여](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. 논리 앱을 원하는 방식으로 계속 빌드합니다.
 

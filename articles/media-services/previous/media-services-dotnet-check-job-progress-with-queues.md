@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 533990ef0ea88be7f1f06021d7aa398e89f6390b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060329"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue Storage를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
-인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. Queue Storage에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
+인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure Queue Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. Queue Storage에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
 
 세계 어디에서나 Queue Storage에 배달된 메시지에 액세스할 수 있습니다. Queue Storage 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 방법을 사용하는 것보다 메시지에 대한 Queue Storage를 폴링하는 것이 좋습니다.
 
@@ -37,10 +37,10 @@ Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 �
 ## <a name="considerations"></a>고려 사항
 Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때 다음 사항을 고려합니다.
 
-* Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure Service Bus 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
+* Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure Service Bus 큐 비교 및 대조](/previous-versions/azure/hh767287(v=azure.100))를 참조하세요.
 * Queue Storage는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.
-* 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)를 참조하세요.
-* Queue Storage에는 알아야 할 몇 가지 제한 사항 및 주의 사항이 있습니다. 이러한 내용은 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)에 설명되어 있습니다.
+* 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](/rest/api/storageservices/queue-service-rest-api)를 참조하세요.
+* Queue Storage에는 알아야 할 몇 가지 제한 사항 및 주의 사항이 있습니다. 이러한 내용은 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)에 설명되어 있습니다.
 
 ## <a name="net-code-example"></a>.NET 코드 예제
 

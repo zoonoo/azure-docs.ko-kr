@@ -3,11 +3,12 @@ title: 모니터링 및 로깅-Azure
 description: 이 문서에서는 IoT Edge 모니터링 및 로깅에 대 한 라이브 비디오 분석의 개요를 제공 합니다.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060452"
 ---
 # <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
@@ -24,7 +25,7 @@ IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 �
 * 작업: 사용자가 수행한 작업의 일부로 생성 되거나 [미디어 그래프](media-graph-concept.md)를 실행 하는 동안 생성 되는 이벤트입니다.
    
    * 볼륨: 낮을 것으로 예상 됩니다 (몇 분 정도 또는 더 낮은 속도).
-   * 예:
+   * 예제:
 
       기록 시작 (아래), 기록 중지 됨
       
@@ -46,7 +47,7 @@ IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 �
 * 진단: 문제 및/또는 성능 문제를 진단 하는 데 도움이 되는 이벤트입니다.
 
    * 볼륨: 높을 수 있습니다 (1 분에 여러 번).
-   * 예:
+   * 예제:
    
       들어오는 비디오 피드의 RTSP [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) 정보 (아래) 또는 간격입니다.
 
@@ -67,7 +68,7 @@ IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 �
 * 분석: 비디오 분석의 일부로 생성 되는 이벤트입니다.
 
    * 볼륨: 높을 수 있습니다 (1 분 이상 여러 번).
-   * 예:
+   * 예제:
       
       동작이 검색 되었습니다 (아래). 유추 결과.
    ```      
@@ -97,7 +98,7 @@ IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 �
      }
    }
    ```
-모듈에서 내보낸 이벤트는 [IoT Edge 허브](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)로 전송 되며 여기에서 다른 대상으로 라우팅될 수 있습니다. 
+모듈에서 내보낸 이벤트는 [IoT Edge 허브](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)로 전송 되며 여기에서 다른 대상으로 라우팅될 수 있습니다. 
 
 ## <a name="controlling-events"></a>이벤트 제어
 
@@ -109,7 +110,7 @@ IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 �
    
 분석 이벤트는 동작 검색 프로세서 또는 HTTP 확장 프로세서와 같은 노드에 의해 생성 되며, IoT hub 싱크는 IoT Edge 허브로 전송 하는 데 사용 됩니다. 
 
-배포 매니페스트에서 $edgeHub 모듈 쌍의 desired 속성을 통해 [위의 모든 이벤트 라우팅을](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) 제어할 수 있습니다.
+배포 매니페스트에서 $edgeHub 모듈 쌍의 desired 속성을 통해 [위의 모든 이벤트 라우팅을](../../iot-edge/module-composition.md#declare-routes) 제어할 수 있습니다.
 
 ```
  "$edgeHub": {
@@ -125,14 +126,14 @@ IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 �
  }
 ```
 
-위의 경우 lvaEdge는 IoT Edge 모듈에서 라이브 비디오 분석의 이름이 고, 라우팅 규칙은 [declare 경로](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)에 정의 된 스키마를 따릅니다.
+위의 경우 lvaEdge는 IoT Edge 모듈에서 라이브 비디오 분석의 이름이 고, 라우팅 규칙은 [declare 경로](../../iot-edge/module-composition.md#declare-routes)에 정의 된 스키마를 따릅니다.
 
 > [!NOTE]
 > 분석 이벤트가 IoT Edge 허브에 도달 하 게 하려면 모든 동작 감지 프로세서 노드 및/또는 모든 HTTP 확장 프로세서 노드에 대 한 IoT Hub 싱크 노드 다운스트림이 있어야 합니다.
 
 ## <a name="event-schema"></a>이벤트 스키마
 
-이벤트는에 지 장치에서 시작 되며 Edge 또는 클라우드에서 사용할 수 있습니다. IoT Edge에서 라이브 비디오 분석에 의해 생성 된 이벤트는 시스템 속성, 응용 프로그램 속성 및 본문을 사용 하 여 Azure IoT Hub에 의해 설정 된 [스트리밍 메시징 패턴](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) 을 따릅니다.
+이벤트는에 지 장치에서 시작 되며 Edge 또는 클라우드에서 사용할 수 있습니다. IoT Edge에서 라이브 비디오 분석에 의해 생성 된 이벤트는 시스템 속성, 응용 프로그램 속성 및 본문을 사용 하 여 Azure IoT Hub에 의해 설정 된 [스트리밍 메시징 패턴](../../iot-hub/iot-hub-devguide-messages-construct.md) 을 따릅니다.
 
 ### <a name="summary"></a>요약
 
@@ -141,12 +142,12 @@ IoT Hub를 통해 관찰 된 모든 이벤트에는 아래에 설명 된 대로 
 |속성   |속성 유형| 데이터 형식   |Description|
 |---|---|---|---|
 |message-id |시스템 |guid|  고유한 이벤트 ID입니다.|
-|토픽| applicationProperty |string|    Media Services 계정의 Azure Resource Manager 경로입니다.|
-|subject|   applicationProperty |string|    이벤트를 내보내는 엔터티에 대 한 하위 경로입니다.|
-|eventTime| applicationProperty|    string| 이벤트가 생성 된 시간입니다.|
-|eventType| applicationProperty |string|    이벤트 유형 식별자 (아래 참조)|
+|토픽| applicationProperty |문자열|    Media Services 계정의 Azure Resource Manager 경로입니다.|
+|subject|   applicationProperty |문자열|    이벤트를 내보내는 엔터티에 대 한 하위 경로입니다.|
+|eventTime| applicationProperty|    문자열| 이벤트가 생성 된 시간입니다.|
+|eventType| applicationProperty |문자열|    이벤트 유형 식별자 (아래 참조)|
 |본문|본문  |object|    특정 이벤트 데이터입니다.|
-|dataVersion    |applicationProperty|   string  |{Major}. 주|
+|dataVersion    |applicationProperty|   문자열  |{Major}. 주|
 
 ### <a name="properties"></a>속성
 
@@ -179,7 +180,7 @@ Subject 속성을 사용 하면 제네릭 이벤트를 생성 하는 모듈에 �
 
 #### <a name="event-classes"></a>이벤트 클래스
 
-|클래스 이름|설명|
+|클래스 이름|Description|
 |---|---|
 |분석  |콘텐츠 분석의 일부로 생성 되는 이벤트입니다.|
 |진단    |문제 및 성능 진단에 도움이 되는 이벤트입니다.|
@@ -187,7 +188,7 @@ Subject 속성을 사용 하면 제네릭 이벤트를 생성 하는 모듈에 �
 
 이벤트 유형은 각 이벤트 클래스에 대해 고유 합니다.
 
-예:
+예제:
 
 * Microsoft..
 * . Diagnostics..
@@ -199,7 +200,7 @@ Subject 속성을 사용 하면 제네릭 이벤트를 생성 하는 모듈에 �
 
 ## <a name="logging"></a>로깅
 
-다른 IoT Edge 모듈과 마찬가지로 Edge 장치에서 [컨테이너 로그를 검사할](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) 수도 있습니다. 로그에 기록 되는 정보는 [다음 모듈](module-twin-configuration-schema.md) 쌍 속성에 의해 제어 될 수 있습니다.
+다른 IoT Edge 모듈과 마찬가지로 Edge 장치에서 [컨테이너 로그를 검사할](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) 수도 있습니다. 로그에 기록 되는 정보는 [다음 모듈](module-twin-configuration-schema.md) 쌍 속성에 의해 제어 될 수 있습니다.
 
 * logLevel
 
@@ -221,7 +222,7 @@ Subject 속성을 사용 하면 제네릭 이벤트를 생성 하는 모듈에 �
 
 특정 한 경우에는 Azure 지원에서 문제를 해결 하는 데 도움이 되도록 위에 설명 된 것 보다 더 자세한 로그를 생성 해야 할 수 있습니다. 이 작업을 수행 하는 두 가지 단계가 있습니다.
 
-먼저 createOptions를 통해 [장치 저장소에 모듈 저장소를 연결](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) 합니다. 빠른 시작에서 [배포 매니페스트 템플릿을](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) 검사 하면 다음이 표시 됩니다.
+먼저 createOptions를 통해 [장치 저장소에 모듈 저장소를 연결](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) 합니다. 빠른 시작에서 [배포 매니페스트 템플릿을](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) 검사 하면 다음이 표시 됩니다.
 
 ```
 "createOptions": {

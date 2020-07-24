@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab8a3ce0718cac3135bfdac67088d36fcd4f184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060619"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>자습서: DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
 > [!NOTE]
-> 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하지만, 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
+> 이 자습서에서 [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하지만, 일반적인 단계는 [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
 
 Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는 Apple FairPlay 라이선스로 암호화된 스트림을 배달할 수 있습니다. 자세한 설명은 [동적 암호화를 사용한 콘텐츠 보호](content-protection-overview.md)를 참조 하세요.
 
@@ -55,8 +55,8 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 * [콘텐츠 보호 개요](content-protection-overview.md) 문서를 검토합니다.
 * [액세스 제어를 사용 하 여 다중 DRM 콘텐츠 보호 시스템 디자인](design-multi-drm-system-with-access-control.md)을 검토 합니다.
 * Visual Studio Code 또는 Visual Studio 설치
-* [이 빠른 시작](create-account-cli-quickstart.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
-* [액세스 API](access-api-cli-how-to.md)를 수행하여 Media Services API를 사용하는 데 필요한 자격 증명 가져오기
+* [이 빠른 시작](./create-account-howto.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
+* [액세스 API](./access-api-howto.md)를 수행하여 Media Services API를 사용하는 데 필요한 자격 증명 가져오기
 * 앱 구성 파일 (appsettings.js)에서 적절 한 값을 설정 합니다.
 
 ## <a name="download-code"></a>코드 다운로드
@@ -144,7 +144,7 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 ## <a name="get-a-test-token"></a>테스트 토큰 가져오기
 
-이 자습서에서는 콘텐츠 키 정책이 토큰을 제한하도록 지정합니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) 형식의 토큰을 지원 하며이는 샘플에서 구성 합니다.
+이 자습서에서는 콘텐츠 키 정책이 토큰을 제한하도록 지정합니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) 형식의 토큰을 지원 하며이는 샘플에서 구성 합니다.
 
 ContentKeyPolicy에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 배달 서비스에 제공된 토큰에는 ContentKey의 식별자가 있어야 한다는 의미입니다. 이 샘플에서는 스트리밍 로케이터를 만들 때 콘텐츠 키를 지정 하지 않습니다. 시스템에서 해당 콘텐츠 키를 만듭니다. 테스트 토큰을 생성 하려면 ContentKeyId를 가져와서 ContentKeyIdentifierClaim 클레임에 배치 해야 합니다.
 
@@ -152,7 +152,7 @@ ContentKeyPolicy에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 �
 
 ## <a name="build-a-streaming-url"></a>스트리밍 URL 작성
 
-[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)가 만들어졌으므로 스트리밍 URL을 가져올 수 있습니다. URL을 작성 하려면 [Streamingendpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 호스트 이름 및 **스트리밍 로케이터** 경로를 연결 해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트**가 중지된 상태이므로 **Start**를 호출해야 합니다.
+[StreamingLocator](/rest/api/media/streaminglocators)가 만들어졌으므로 스트리밍 URL을 가져올 수 있습니다. URL을 작성 하려면 [Streamingendpoint](/rest/api/media/streamingendpoints) 호스트 이름 및 **스트리밍 로케이터** 경로를 연결 해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트**가 중지된 상태이므로 **Start**를 호출해야 합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -164,7 +164,7 @@ ContentKeyPolicy에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 �
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Media Services 계정의 리소스 정리
 
-일반적으로 다시 사용 하려는 개체를 제외한 모든 항목을 정리 해야 합니다. 일반적으로 변형, StreamingLocators 등을 다시 사용 합니다. 실험 후 계정을 정리하려면 재사용하지 않을 리소스를 삭제해야 합니다. 예를 들어, 다음 코드는 작업, 만든 자산 및 콘텐츠 키 정책을 삭제 합니다.
+일반적으로 다시 사용 하려는 개체를 제외한 모든 항목을 정리 해야 합니다. 일반적으로 변형, StreamingLocators 등을 다시 사용 합니다. 실험 후 계정을 정리하려면 재사용하지 않을 리소스를 삭제해야 합니다. 예를 들어 다음 코드는 작업, 만든 자산 및 콘텐츠 키 정책을 삭제합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 

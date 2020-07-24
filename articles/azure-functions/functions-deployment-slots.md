@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: f8abc670535f240d436e90c34f7245a3d176f517
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f84dc17c6c074fc4dbda8a13fad3586a397fdf10
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055427"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
 
@@ -96,7 +96,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 ## <a name="add-a-slot"></a>슬롯 추가
 
-[CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) 또는 포털을 통해 슬롯을 추가할 수 있습니다. 다음 단계에서는 포털에서 새 슬롯을 만드는 방법을 보여 줍니다.
+[CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) 또는 포털을 통해 슬롯을 추가할 수 있습니다. 다음 단계에서는 포털에서 새 슬롯을 만드는 방법을 보여 줍니다.
 
 1. 함수 앱으로 이동 합니다.
 
@@ -110,7 +110,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 ## <a name="swap-slots"></a>슬롯 교환
 
-[CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) 또는 포털을 통해 슬롯을 교환할 수 있습니다. 다음 단계에서는 포털에서 슬롯을 교환 하는 방법을 보여 줍니다.
+[CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) 또는 포털을 통해 슬롯을 교환할 수 있습니다. 다음 단계에서는 포털에서 슬롯을 교환 하는 방법을 보여 줍니다.
 
 1. 함수 앱으로 이동합니다.
 1. **배포 슬롯**을 선택 하 고 **교환**을 선택 합니다.
@@ -129,7 +129,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 ## <a name="remove-a-slot"></a>슬롯 제거
 
-[CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) 또는 포털을 통해 슬롯을 제거할 수 있습니다. 다음 단계에서는 포털에서 슬롯을 제거 하는 방법을 보여 줍니다.
+[CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) 또는 포털을 통해 슬롯을 제거할 수 있습니다. 다음 단계에서는 포털에서 슬롯을 제거 하는 방법을 보여 줍니다.
 
 1. 함수 앱의 **배포 슬롯** 으로 이동한 다음 슬롯 이름을 선택 합니다.
 
@@ -149,13 +149,13 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 ## <a name="automate-slot-management"></a>슬롯 관리 자동화
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)를 사용 하 여 슬롯에 대해 다음 작업을 자동화할 수 있습니다.
+[Azure CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)를 사용 하 여 슬롯에 대해 다음 작업을 자동화할 수 있습니다.
 
-- [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [스왑을](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [자동 교환](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [create](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
+- [delete](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
+- [list](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
+- [스왑을](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [자동 교환](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>App Service 계획 변경
 

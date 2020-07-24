@@ -3,18 +3,18 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 Azure Backup Recovery Services 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055206"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
 이 문서에서는 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음을 삭제 하는 방법을 설명 합니다. 종속성을 제거한 후 자격 증명 모음을 삭제 하는 방법에 대 한 지침이 포함 되어 있습니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 다음과 같은 종속성이 있는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "85563123"
 
 - 자격 증명 모음 내에 기존 리소스가 있으므로 자격 증명 모음을 삭제할 수 없습니다. 이 자격 증명 모음과 연결 된 백업 항목, 보호 된 서버 또는 백업 관리 서버가 없는지 확인 하세요. 삭제를 계속 하기 전에이 자격 증명 모음과 연결 된 다음 컨테이너의 등록을 취소 합니다.
 
-- 자격 증명 모음에 일시 삭제된 상태의 백업 항목이 있으므로 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 백업 항목이 영구적으로 삭제 되 고 자격 증명 모음에 일시 삭제 됨 상태의 항목이 없는 경우 자격 증명 모음 삭제를 시도해 보세요. 자세한 내용은 [Azure Backup에 대 한 일시 삭제](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)를 참조 하세요.
+- 자격 증명 모음에 일시 삭제된 상태의 백업 항목이 있으므로 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 백업 항목이 영구적으로 삭제 되 고 자격 증명 모음에 일시 삭제 됨 상태의 항목이 없는 경우 자격 증명 모음 삭제를 시도해 보세요. 자세한 내용은 [Azure Backup에 대 한 일시 삭제](./backup-azure-security-feature-cloud.md)를 참조 하세요.
 
 ## <a name="proper-way-to-delete-a-vault"></a>자격 증명 모음을 삭제 하는 적절 한 방법
 
@@ -36,9 +36,9 @@ ms.locfileid: "85563123"
 
 자격 증명 모음을 제대로 삭제 하려면 다음 순서 대로 단계를 수행 해야 합니다.
 
-- **1 단계**: 일시 삭제 기능을 사용 하지 않도록 설정 합니다. 일시 삭제를 사용 하지 않도록 설정 하는 단계는 [여기를 참조](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) 하세요.
+- **1 단계**: 일시 삭제 기능을 사용 하지 않도록 설정 합니다. 일시 삭제를 사용 하지 않도록 설정 하는 단계는 [여기를 참조](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) 하세요.
 
-- **2 단계**: 일시 삭제를 사용 하지 않도록 설정한 후 이전에 일시 삭제 된 상태로 남아 있는 항목이 있는지 확인 합니다. 일시 삭제 됨 상태의 항목이 있는 경우 삭제를 *취소* 하 고 다시 *삭제* 해야 합니다. 일시 삭제 항목을 찾아 영구적으로 삭제 하려면 [다음 단계를 수행](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) 합니다.
+- **2 단계**: 일시 삭제를 사용 하지 않도록 설정한 후 이전에 일시 삭제 된 상태로 남아 있는 항목이 있는지 확인 합니다. 일시 삭제 됨 상태의 항목이 있는 경우 삭제를 *취소* 하 고 다시 *삭제* 해야 합니다. 일시 삭제 항목을 찾아 영구적으로 삭제 하려면 [다음 단계를 수행](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) 합니다.
 
 - **3 단계**: 다음 세 위치를 모두 확인 하 여 보호 된 항목이 있는지 확인 해야 합니다.
 
@@ -209,7 +209,7 @@ MABS 또는 DPM 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할
            [<CommonParameters>]
     ```
 
-  Azure Backup 보호 된 항목에 대해 보호를 사용 하지 않도록 설정 하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) .
+  Azure Backup 보호 된 항목에 대해 보호를 사용 하지 않도록 설정 하는 방법에 대해 [자세히 알아보세요](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) .
 
 - 클라우드의 모든 백업 보호 항목에 대 한 보호를 중지 하 고 데이터를 삭제 합니다 (예: IaaS VM, Azure 파일 공유 등).
 
@@ -225,7 +225,7 @@ MABS 또는 DPM 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할
        [<CommonParameters>]
     ```
 
-    [자세히 알아보기](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)   정보는 백업으로 보호 된 항목에 대 한 보호를 사용 하지 않도록 설정 합니다.
+    [자세히 알아보기](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection)   정보는 백업으로 보호 된 항목에 대 한 보호를 사용 하지 않도록 설정 합니다.
 
 - Azure에 백업 하는 MARS (Azure Backup 에이전트)를 사용 하 여 보호 되는 온-프레미스 파일 및 폴더의 경우 다음 PowerShell 명령을 사용 하 여 각 MARS PowerShell 모듈에서 백업 된 데이터를 삭제 합니다.
 
@@ -263,7 +263,7 @@ MABS 또는 DPM 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할
               [<CommonParameters>]
     ```
 
-    자격 증명 모음에서 Windows Server 또는 기타 컨테이너를 등록 취소 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) .
+    자격 증명 모음에서 Windows Server 또는 기타 컨테이너를 등록 취소 하는 방법에 [대해 자세히 알아보세요](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) .
 
 - MABS (Microsoft Azure Backup 서버) 또는 DPM을 사용 하 여 보호 되는 온-프레미스 컴퓨터 (System Center Data Protection 관리:
 
@@ -278,7 +278,7 @@ MABS 또는 DPM 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할
           [<CommonParameters>]
     ```
 
-    자격 증명 모음에서 백업 관리 컨테이너를 등록 취소 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) .
+    자격 증명 모음에서 백업 관리 컨테이너를 등록 취소 하는 방법에 [대해 자세히 알아보세요](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) .
 
 백업 된 데이터를 영구적으로 삭제 하 고 모든 컨테이너의 등록을 취소 한 후 자격 증명 모음 삭제를 계속 합니다.
 
@@ -293,7 +293,7 @@ Recovery Services 자격 증명 모음 삭제하려면
       [<CommonParameters>]
    ```
 
-Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세요](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) .
+Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세요](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) .
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>CLI를 사용 하 여 Recovery Services 자격 증명 모음 삭제
 
@@ -330,7 +330,7 @@ Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세�
                        [--yes]
     ```
 
-    자세한 내용은이 [문서](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest) 를 참조 하세요.
+    자세한 내용은이 [문서](/cli/azure/backup/vault?view=azure-cli-latest) 를 참조 하세요.
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Azure Resource Manager을 사용 하 여 Recovery Services 자격 증명 모음을 삭제 합니다.
 

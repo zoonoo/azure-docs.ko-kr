@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92a97ddbd9497954b35efa33de7c2f843d4dd934
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76509226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060674"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Grid에서 Media Services 이벤트 만들기 및 모니터링
 
@@ -29,10 +30,10 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서
 
 작업을 완료하면 이벤트 데이터가 웹앱에 보내진 것을 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 
 * 활성 Azure 구독
-* [이 빠른 시작](create-account-cli-quickstart.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
+* [이 빠른 시작](./create-account-howto.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 

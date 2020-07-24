@@ -4,11 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Reco
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054995"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -48,7 +49,7 @@ ms.locfileid: "86057826"
 
     ![항목 선택](./media/backup-azure-manage-mars/select-item.png)
 
-6. 후속 단계를 완료 하 고 **마침** 을 클릭 하 여 작업을 완료 합니다.
+6. 다음 단계를 완료 하 고 **마침** 을 클릭 하 여 작업을 완료 합니다.
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>기존 정책에 제외 규칙 추가
 
@@ -70,7 +71,7 @@ ms.locfileid: "86057826"
 
     ![항목 선택](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. 후속 단계를 완료 하 고 **마침** 을 클릭 하 여 작업을 완료 합니다.
+5. 다음 단계를 완료 하 고 **마침** 을 클릭 하 여 작업을 완료 합니다.
 
 ### <a name="remove-items-from-existing-policy"></a>기존 정책에서 항목 제거
 
@@ -81,7 +82,7 @@ ms.locfileid: "86057826"
     > [!NOTE]
     > 정책에서 볼륨을 완전히 제거 하는 경우에는 주의 하십시오.  다시 추가 해야 하는 경우 새 볼륨으로 처리 됩니다. 다음 예약 된 백업에서는 증분 백업 대신 초기 백업 (전체 백업)을 수행 합니다. 나중에 항목을 일시적으로 제거 하 고 추가 해야 하는 경우에는 전체 백업 대신 증분 백업을 위해 **항목을 제거** 하는 대신 **제외 설정을** 사용 하는 것이 좋습니다.
 
-2. 후속 단계를 완료 하 고 **마침** 을 클릭 하 여 작업을 완료 합니다.
+2. 다음 단계를 완료 하 고 **마침** 을 클릭 하 여 작업을 완료 합니다.
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>파일 및 폴더 백업 보호 중지
 
@@ -108,10 +109,10 @@ ms.locfileid: "86057826"
 1. 예약 된 **백업 수정 또는 중지** 페이지에서 **이 백업 일정 사용 중지를 선택 하지만 일정이 다시 활성화 될 때까지 저장 된 백업 유지**를 선택 합니다. 그다음에 **다음**을 선택합니다.
 
     ![예약 된 백업 수정 또는 중지](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. **예약 된 백업 일시 중지** 에서 정보를 검토 하 고 **마침**을 클릭 합니다.
+1. **예약 된 백업 일시 중지**에서 정보를 검토 하 고 **마침**을 클릭 합니다.
 
     ![예약 된 백업 수정 또는 중지](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. **백업 프로세스 수정** 에서 일정 백업 일시 중지가 성공 상태 인지 확인 하 고 **닫기** 를 클릭 하 여 완료 합니다.
+1. **백업 수정 프로세스**에서 일정 백업 일시 중지가 성공 상태 인지 확인 하 고 **닫기** 를 클릭 하 여 완료 합니다.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>보호 중지 및 백업 데이터 삭제
 
@@ -155,17 +156,18 @@ ms.locfileid: "86057826"
 
 암호는 MARS 에이전트를 사용 하 여 온-프레미스 또는 로컬 컴퓨터를 백업 또는 복원 하는 동안 데이터를 암호화 하 고 암호 해독 하는 데 사용 됩니다. 암호를 분실 하거나 잊은 경우 다음 단계를 수행 하 여 암호를 다시 생성할 수 있습니다 (컴퓨터가 Recovery Services 자격 증명 모음에 등록 되 고 백업이 구성 된 경우).
 
-- MARS 에이전트 콘솔에서 **작업 창**  >  **속성 변경** >로 이동 합니다. 그런 다음 **암호화 탭**으로 이동 합니다.<br>
-- **암호 변경** 확인란을 선택 합니다.<br>
-- 새 암호를 입력 하거나 **암호 생성**을 클릭 합니다.
-- **찾아보기** 를 클릭 하 여 새 암호를 저장 합니다.
+1. MARS 에이전트 콘솔에서 **작업 창**  >  **속성 변경** >로 이동 합니다. 그런 다음 **암호화 탭**으로 이동 합니다.<br>
+1. **암호 변경** 확인란을 선택 합니다.<br>
+1. 새 암호를 입력 하거나 **암호 생성**을 클릭 합니다.
+1. **찾아보기** 를 클릭 하 여 새 암호를 저장 합니다.
 
     ![암호를 생성 합니다.](./media/backup-azure-manage-mars/passphrase.png)
-- **확인** 을 클릭 하 여 변경 내용을 적용 합니다.  Recovery Services 자격 증명 모음에 대 한 Azure Portal에서 [보안 기능](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) 을 사용 하는 경우 보안 PIN을 입력 하 라는 메시지가 표시 됩니다. PIN을 받으려면이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)에 나열 된 단계를 따르세요.<br>
-- 포털에서 보안 PIN을 붙여넣은 다음 **확인** 을 클릭 하 여 변경 내용을 적용 합니다.<br>
+
+1. **확인** 을 클릭 하 여 변경 내용을 적용 합니다.  Recovery Services 자격 증명 모음에 대 한 Azure Portal에서 [보안 기능](./backup-azure-security-feature.md#enable-security-features) 을 사용 하는 경우 보안 PIN을 입력 하 라는 메시지가 표시 됩니다. PIN을 받으려면이 [문서](./backup-azure-security-feature.md#authentication-to-perform-critical-operations)에 나열 된 단계를 따르세요.<br>
+1. 포털에서 보안 PIN을 붙여넣은 다음 **확인** 을 클릭 하 여 변경 내용을 적용 합니다.<br>
 
     ![암호를 생성 합니다.](./media/backup-azure-manage-mars/passphrase2.png)
-- 암호를 원본 컴퓨터가 아닌 대체 위치에 안전 하 게 저장 하 고 Azure Key Vault 하는 것이 좋습니다. MARS 에이전트를 사용 하 여 여러 컴퓨터를 백업 하는 경우 모든 암호를 추적 하세요.
+1. 암호를 원본 컴퓨터가 아닌 대체 위치에 안전 하 게 저장 하 고 Azure Key Vault 하는 것이 좋습니다. MARS 에이전트를 사용 하 여 여러 컴퓨터를 백업 하는 경우 모든 암호를 추적 하세요.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>사용할 수 없는 컴퓨터의 백업 데이터 관리
 
@@ -182,13 +184,14 @@ ms.locfileid: "86057826"
 MARS의 백업 정책을 관리 하는 작업은 포털을 통해서가 아니라 MARS 콘솔을 통해 수행 됩니다. 만료 되기 전에 기존 복구 지점의 보존 설정을 확장 해야 하는 경우 컴퓨터를 복원 하 고 MARS 콘솔을 설치 하 고 정책을 확장 해야 합니다.
 
 - 컴퓨터를 복원 하려면 다음 단계를 수행 합니다.
-  - [대체 대상 컴퓨터로 VM 복원](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - 원본 컴퓨터와 동일한 호스트 이름을 사용 하 여 대상 컴퓨터를 다시 만듭니다.
-  - 에이전트를 설치 하 고 동일한 암호를 사용 하 여 동일한 자격 증명 모음에 다시 등록
-  - MARS 클라이언트를 시작 하 여 요구 사항에 따라 보존 기간을 연장 합니다.
+  1. [대체 대상 컴퓨터로 VM 복원](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. 원본 컴퓨터와 동일한 호스트 이름을 사용 하 여 대상 컴퓨터를 다시 만듭니다.
+  1. 에이전트를 설치 하 고 동일한 암호를 사용 하 여 동일한 자격 증명 모음에 다시 등록
+  1. MARS 클라이언트를 시작 하 여 요구 사항에 따라 보존 기간을 연장 합니다.
 - MARS를 사용 하 여 보호 되는 새로 복원 된 컴퓨터는 백업을 계속 수행 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-- 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [MARS 에이전트에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)를 참조 하세요.
+- 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [MARS 에이전트에 대 한 지원 매트릭스](./backup-support-matrix-mars-agent.md)를 참조 하세요.
 - [주문형 백업 정책 보존 동작](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior)에 대해 자세히 알아보세요.
+- 질문과 대답은 [MARS 에이전트 FAQ](backup-azure-file-folder-backup-faq.md)를 참조 하십시오.

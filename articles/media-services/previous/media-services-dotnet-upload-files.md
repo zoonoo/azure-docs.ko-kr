@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4025ace5c2609783a8d0f09b99d60537addb6f08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64869483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060105"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET을 사용하여 Media Services 계정에 파일 업로드 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
 
 Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다.  파일이 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다.
 
@@ -315,4 +315,3 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제�
 이제 Media Services에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][How to Get a Media Processor] 아티클로 이동하세요.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-

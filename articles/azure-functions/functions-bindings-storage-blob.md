@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847654"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055980"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 Azure Blob storage 바인딩
 
-Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Storage](https://docs.microsoft.com/azure/storage/) 와 통합 됩니다. Blob storage와 통합 하면 blob 데이터의 변경 내용 및 읽기/쓰기 값에 반응 하는 함수를 작성할 수 있습니다.
+Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Storage](../storage/index.yml) 와 통합 됩니다. Blob storage와 통합 하면 blob 데이터의 변경 내용 및 읽기/쓰기 값에 반응 하는 함수를 작성할 수 있습니다.
 
 | 작업 | 형식 |
 |---------|---------|
@@ -28,7 +28,7 @@ Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)
 
 트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 
-| 언어                                        | 추가 방법 ...                                   | 설명 
+| Language                                        | 추가 방법 ...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지]설치, 버전 3(sp3) | |
 | C # 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 은 Visual Studio Code와 함께 사용 하는 것이 좋습니다. |

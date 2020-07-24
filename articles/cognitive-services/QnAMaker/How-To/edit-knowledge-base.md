@@ -2,13 +2,13 @@
 title: 기술 자료 편집 - QnA Maker
 description: QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054019"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -54,7 +54,7 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 �
     > [!div class="mx-imgBorder"]
     > ![서식 있는 텍스트 편집기를 사용 하 여 텍스트를 작성 하 고 서식을 지정 하 고 markdown로 저장 합니다.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
 
-    |서식 있는 텍스트 편집기 기능|키보드 바로 가기 키|
+    |서식 있는 텍스트 편집기 기능|바로 가기 키|
     |--|--|
     |서식 있는 텍스트 편집기와 markdown 사이를 전환 합니다. `</>`|Ctrl+M|
     |글꼴로. **B**|CTR + LB|
@@ -111,6 +111,10 @@ QnA 쌍 연결은 [추가 작업 프롬프트](multiturn-conversation.md)와 함
 ## <a name="add-metadata"></a>메타데이터 추가
 
 먼저 **보기 옵션**을 선택한 다음 **메타 데이터 표시**를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
+
+메타 데이터에 대 한 QnA Maker 포털 빠른 시작에서 메타 데이터에 대해 자세히 알아보세요.
+* [제작-QnA 쌍에 메타 데이터 추가](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [쿼리 예측-메타 데이터에의 한 응답 필터링](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>QnA 쌍의 변경 내용 저장
 

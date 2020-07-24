@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0ce0f7d90540274d24a7e0248e6f197b74033a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8da2355b62d7be36b10ac9a1ce4b53e87b4b288
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059228"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에 대한 GA 참조 데이터 관리
+# <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c"></a>C를 사용 하 여 Azure Time Series Insights Gen 1 환경에 대 한 참조 데이터 관리 #
 
-이 문서에서는 C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 및 Azure Active Directory를 결합하여 Azure Time Series Insights GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대한 프로그래밍 방식 API 요청을 만드는 방법을 보여 줍니다.
+이 문서에서는 c #, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory를 결합 하 여 Azure Time Series Insights Gen 1 [참조 데이터 관리 api](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대 한 프로그래밍 방식 api 요청을 만드는 방법을 보여 줍니다.
 
 > [!TIP]
 > [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)에서 GA C# 코드 샘플을 봅니다.
@@ -30,7 +30,7 @@ ms.locfileid: "81416979"
 아래 샘플 코드에서는 다음과 같은 기능을 보여 줍니다.
 
 * [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**을 사용하여 액세스 토큰 획득
-* GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대한 순차적 만들기, 읽기, 업데이트 및 삭제 작업
+* Gen 1 [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대 한 순차적 생성, 읽기, 업데이트 및 삭제 작업입니다.
 * [일반적인 오류 코드](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)를 포함하는 일반적인 응답 코드
     
     Reference Data Management API는 각 항목을 개별적으로 처리하며 한 항목의 오류 때문에 다른 항목이 완료되지 못하는 것은 아닙니다. 예를 들어, 요청에 100개 항목이 있고 한 항목에 오류가 있는 경우 99개 항목이 기록되고 하나는 거부됩니다.
@@ -39,8 +39,8 @@ ms.locfileid: "81416979"
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
-1. [GA Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
-) 환경을 프로비저닝합니다.
+1. [Gen 1 Azure Time Series Insights 환경을 프로 비전](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+) 합니다.
 
 1. 환경 내에서 [참조 데이터 세트를 만듭니다](time-series-insights-add-reference-data-set.md). 다음 참조 데이터 구성표를 사용합니다.
 
@@ -309,4 +309,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>다음 단계
 
-- GA [Reference Data  Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 참조 설명서를 읽습니다.
+- Gen 1 [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) 참조 설명서를 읽습니다.

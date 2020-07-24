@@ -3,14 +3,14 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055294"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대 한 참조 host.js 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
 
 > [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
 > * [버전 1](functions-host-json-v1.md)
@@ -151,7 +151,7 @@ ms.locfileid: "85298500"
 | enableLiveMetrics | true | 라이브 메트릭 수집을 사용 하도록 설정 합니다. |
 | enableDependencyTracking | true | 종속성 추적을 사용 합니다. |
 | enablePerformanceCountersCollection | true | Kudu 성능 카운터 수집을 사용 하도록 설정 합니다. |
-| liveMetricsInitializationDelay | 00:00:15 | 내부 전용입니다. |
+| liveMetricsInitializationDelay | 00:00:15 | 내부에서만 사용합니다. |
 | httpAutoCollectionOptions | 해당 없음 | [Applicationinsights](#applicationinsightshttpautocollectionoptions)를 참조 하세요. |
 | snapshotConfiguration | 해당 없음 | [Applicationinsights](#applicationinsightssnapshotconfiguration)를 참조 하세요. |
 
@@ -181,7 +181,7 @@ ms.locfileid: "85298500"
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>snapshotConfiguration
 
-스냅숏에 대 한 자세한 내용은 [.net 앱의 예외에 대 한 스냅숏 디버그](/azure/azure-monitor/app/snapshot-debugger) 및 [Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결](/azure/azure-monitor/app/snapshot-debugger-troubleshoot)을 참조 하세요.
+스냅숏에 대 한 자세한 내용은 [.net 앱의 예외에 대 한 스냅숏 디버그](../azure-monitor/app/snapshot-debugger.md) 및 [Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결](../azure-monitor/app/snapshot-debugger-troubleshoot.md)을 참조 하세요.
 
 |속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
@@ -310,7 +310,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 |속성  |기본값 | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
-|logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x 이상에서는 로그 범주 필터링을 위한 ASP.NET Core 레이아웃을 따릅니다. 이 설정을 통해 특정 함수에 대 한 로깅을 필터링 할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
+|logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x 이상에서는 로그 범주 필터링을 위한 ASP.NET Core 레이아웃을 따릅니다. 이 설정을 통해 특정 함수에 대 한 로깅을 필터링 할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
 |콘솔|해당 없음| [콘솔](#console) 로깅 설정입니다. |
 |applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
 

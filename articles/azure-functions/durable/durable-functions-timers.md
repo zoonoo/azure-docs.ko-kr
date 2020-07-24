@@ -2,17 +2,18 @@
 title: 지속성 함수의 타이머 - Azure
 description: Azure Functions의 지속성 함수 확장에서 지속성 타이머를 구현하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76261486"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056221"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
-[지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머*를 제공합니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 대신, 오케스트레이터 함수에 사용해야 합니다.
+[지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머*를 제공합니다. 지 속성 타이머는 `Thread.Sleep` 및 `Task.Delay` (c #) 또는 `setTimeout()` 및 `setInterval()` (JavaScript) 또는 `time.sleep()` (Python) 대신 orchestrator 함수에서 사용 해야 합니다.
 
 `CreateTimer` `createTimer` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.net) 메서드 또는 (JavaScript) 메서드를 호출 하 여 지 속성 타이머를 만듭니다. 메서드는 지정 된 날짜와 시간에 완료 되는 작업을 반환 합니다.
 
@@ -61,7 +62,21 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    for i in range(0, 9):
+        deadline = context.current_utc_datetime + timedelta(days=1)
+        yield context.create_timer(deadline)
+        yield context.call_activity("SendBillingEvent")
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
 > [!WARNING]
@@ -129,6 +144,28 @@ module.exports = df.orchestrator(function*(context) {
         return false;
     }
 });
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    deadline = context.current_utc_datetime + timedelta(seconds=30)
+    activity_task = context.call_activity("GetQuote")
+    timeout_task = context.create_timer(deadline)
+
+    winner = yield context.task_any([activity_task, timeout_task])
+    if winner == activity_task:
+        timeout_task.cancel()
+        return True
+    elif winner == timeout_task:
+        return False
+
+main = df.Orchestrator.create(orchestrator_function)
 ```
 
 ---

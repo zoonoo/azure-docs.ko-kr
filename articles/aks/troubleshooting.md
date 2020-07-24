@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056521"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -80,7 +80,11 @@ AKS에는 Slo (서비스 수준 목표) 및 Sla (서비스 수준 계약)를 보
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
     - https://github.com/helm/helm/issues/4543
+- **[차단 되는 노드 간의 내부 트래픽 입니까?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>을 (를) 받고 있습니다. `TCP timeouts``dial tcp <Node_IP>:10250: i/o timeout`
+
+이러한 시간 제한은 차단 되는 노드 간의 내부 트래픽과 관련 될 수 있습니다. 클러스터의 노드에 대 한 서브넷의 [네트워크 보안 그룹](concepts-security.md#azure-network-security-groups) 등이 트래픽이 차단 되 고 있지 않은지 확인 합니다.
 
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>기존 클러스터에서 RBAC(역할 기반 액세스 제어)를 사용하도록 설정하려고 합니다. 어떻게 하면 되나요?
 
@@ -197,14 +201,14 @@ AKS 클러스터의 송신 트래픽을 제한하는 경우 AKS에 대한 [필�
 
 Kubernetes 버전 1.10에서 Azure 디스크를 다시 탑재하면 MountVolume.WaitForAttach가 실패할 수 있습니다.
 
-Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 예:
+Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-Windows의 경우 잘못된 DevicePath(LUN) 번호 오류가 표시될 수 있습니다. 예:
+Windows의 경우 잘못된 DevicePath(LUN) 번호 오류가 표시될 수 있습니다. 다음은 그 예입니다.
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -251,7 +255,7 @@ spec:
   >[!NOTE]
   > 이는 gid 및 uid를 기본적으로 root 또는 0으로 탑재하기 때문입니다. gid 또는 uid가 root가 아닌 값(예: 1000)으로 설정된 경우 Kubernetes는 `chown`을 사용하여 해당 디스크 아래의 모든 디렉터리와 파일을 변경합니다. 이 작업을 수행하는 데 시간이 오래 걸릴 수 있으며 디스크를 매우 느리게 탑재할 수 있습니다.
 
-* initContainers에서 `chown`을 사용하여 gid 및 uid를 설정합니다. 다음은 그 예입니다.
+* initContainers에서 `chown`을 사용하여 gid 및 uid를 설정합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 initContainers:
@@ -274,7 +278,7 @@ Azure 디스크를 분리하지 못하면 지수 백오프를 사용하여 디�
 | 1.12 | 1.12.9 이상 |
 | 1.13 | 1.13.6 이상 |
 | 1.14 | 1.14.2 이상 |
-| 1.15 이상 | 해당 없음 |
+| 1.15 이상 | N/A |
 
 이 문제에 대한 수정이 없는 Kubernetes 버전을 사용하고 있고 노드에 사용되지 않는 디스크 목록이 있는 경우 존재하지 않는 모든 디스크를 VM에서 대량 작업으로 분리하여 완화할 수 있습니다. **존재하지 않는 디스크는 개별적으로 분리하지 못할 수 있습니다.**
 
@@ -293,7 +297,7 @@ Azure 디스크를 분리하지 못하면 지수 백오프를 사용하여 디�
 | 1.12 | 1.12.10 이상 |
 | 1.13 | 1.13.8 이상 |
 | 1.14 | 1.14.4 이상 |
-| 1.15 이상 | 해당 없음 |
+| 1.15 이상 | N/A |
 
 이 문제에 대한 수정이 없는 Kubernetes 버전을 사용하고 있고 노드가 실패 상태에 있는 경우 다음 중 하나를 사용하여 VM 상태를 수동으로 업데이트하여 완화할 수 있습니다.
 
@@ -410,7 +414,7 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 base64로 인코딩된 스토리지 계정 키를 사용하여 Azure 파일 비밀에서 `azurestorageaccountkey` 필드를 수동으로 업데이트하여 완화할 수 있습니다.
 
-스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 예:
+스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64

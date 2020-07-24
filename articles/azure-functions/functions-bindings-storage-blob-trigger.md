@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056057"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 트리거
 
@@ -300,7 +301,7 @@ Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 �
 
 # <a name="python"></a>[Python](#tab/python)
 
-[InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
+[InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -411,7 +412,7 @@ Blob 트리거는 큐를 내부적으로 사용하므로 동시 함수 호출의
 
 [소비 계획은](functions-scale.md#how-the-consumption-and-premium-plans-work) 하나의 VM (가상 머신)에서 1.5 GB의 메모리로 함수 앱을 제한 합니다. 메모리는 각각 동시에 함수 인스턴스를 실행하여 함수 런타임 자체에서 사용됩니다. Blob 트리거된 함수에서 전체 Blob을 메모리로 로드하는 경우 Blob에 대해 해당 함수에서 사용되는 최대 메모리는 24 * 최대 Blob 크기입니다. 예를 들어 세 개의 Blob 트리거된 함수 및 기본 설정이 있는 함수 앱은 3*24 = 72 함수 호출의 최대 VM당 동시성을 갖습니다.
 
-JavaScript 및 Java 함수는 전체 Blob을 메모리에 로드하고 C# 함수는 `string`, `Byte[]` 또는 POCO로 바인딩하는 경우 로드합니다.
+JavaScript 및 Java 함수는 전체 blob을 메모리로 로드 하 고 c # 함수는, 또는에 바인딩할 경우이를 수행 `string` `Byte[]` 합니다.
 
 ## <a name="polling"></a>폴링
 

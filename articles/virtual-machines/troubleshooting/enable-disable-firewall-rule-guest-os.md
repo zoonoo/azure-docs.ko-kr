@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058769"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Azure VM 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함
 
@@ -29,7 +29,7 @@ ms.locfileid: "86232239"
 
 *   모든 방화벽 프로필을 사용하지 않도록 설정하면 RDP 관련 방화벽 규칙을 설정하는 것보다 훨씬 더 쉽게 문제를 해결할 수 있습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 방화벽 규칙을 구성하는 방법은 필요한 VM에 대한 액세스 수준에 따라 달라집니다. 다음 예제에서는 RDP 규칙을 사용합니다. 그러나 올바른 레지스트리 키를 가리켜서 다른 모든 종류의 트래픽에도 동일한 방법을 적용할 수 있습니다.
 
@@ -77,7 +77,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
 VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 액세스할 수 있는 경우 다른 VM을 사용하여 다음과 같은 완화를 수행할 수 있습니다.
 
-1.  문제 해결을 위한 VM에서 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)를 다운로드합니다.
+1.  문제 해결을 위한 VM에서 [PSTools](/sysinternals/downloads/pstools)를 다운로드합니다.
 
 2.  CMD 인스턴스를 열고, 해당 DIP(내부 IP)를 통해 VM에 액세스합니다. 
 

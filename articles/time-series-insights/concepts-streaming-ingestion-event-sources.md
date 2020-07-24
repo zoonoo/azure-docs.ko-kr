@@ -1,6 +1,6 @@
 ---
-title: 스트리밍 수집 이벤트 원본-Azure Time Series Insights | Microsoft Docs
-description: Azure Time Series Insights에 데이터를 스트리밍하는 방법에 대해 알아봅니다.
+title: 스트리밍 수집 이벤트 원본-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Azure Time Series Insights Gen2으로 데이터를 스트리밍하는 방법에 대해 알아봅니다.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,18 +8,17 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.custom: seodec18
-ms.openlocfilehash: 602f5a0df6cbd7c308d45d02795e7404c46c73a7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: c2a25632942c0c39a20fa0c7f51a1e8937bdd873
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059386"
 ---
-# <a name="time-series-insights-event-sources"></a>이벤트 원본 Time Series Insights
+# <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 
- TSI 환경에는 최대 두 개의 스트리밍 이벤트 소스가 있을 수 있습니다. 입력으로 지원 되는 두 가지 유형의 Azure 리소스는 다음과 같습니다.
+ Azure Time Series Insights Gen2 환경에는 최대 두 개의 스트리밍 이벤트 소스가 있을 수 있습니다. 입력으로 지원 되는 두 가지 유형의 Azure 리소스는 다음과 같습니다.
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
@@ -28,23 +27,23 @@ ms.locfileid: "86049931"
 
 ## <a name="create-or-edit-event-sources"></a>이벤트 원본 만들기 또는 편집
 
-이벤트 원본 리소스는 Time Series Insights 환경이 나 다른 구독과 동일한 Azure 구독에 존재할 수 있습니다. [Azure Portal](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM 템플릿](time-series-insights-manage-resources-using-azure-resource-manager-template.md)및 [REST API](https://docs.microsoft.com/rest/api/time-series-insights/management/eventsources) 를 사용 하 여 환경의 이벤트 원본을 생성, 편집 또는 제거할 수 있습니다.
+이벤트 원본 리소스는 Azure Time Series Insights Gen2 환경 또는 다른 구독과 동일한 Azure 구독에 존재할 수 있습니다. [Azure Portal](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM 템플릿](time-series-insights-manage-resources-using-azure-resource-manager-template.md)및 [REST API](https://docs.microsoft.com/rest/api/time-series-insights/management/eventsources) 를 사용 하 여 환경의 이벤트 원본을 생성, 편집 또는 제거할 수 있습니다.
 
-이벤트 원본이 연결되면 TSI 환경에서 가장 오래된 이벤트부터 시작하여 현재 IoT 또는 Event Hub에 저장된 모든 이벤트를 읽습니다.
+이벤트 원본을 연결 하면 Azure Time Series Insights Gen2 환경에서 가장 오래 된 이벤트부터 시작 하 여 현재 Iot 또는 Event Hub에 저장 된 모든 이벤트를 읽습니다.
 
 > [!IMPORTANT]
 >
-> * 이벤트 원본을 미리 보기 환경에 연결할 때 초기 대기 시간이 길어질 수 있습니다.
+> * Azure Time Series Insights Gen2 환경에 이벤트 원본을 연결할 때 초기 대기 시간이 길어질 수 있습니다.
 > 이벤트 원본 대기 시간은 현재 IoT Hub 또는 Event Hub에 있는 이벤트 수에 따라 달라집니다.
 > * 이벤트 원본 데이터가 처음 수집된 후에는 대기 시간이 줄어듭니다. 대기 시간이 계속 긴 경우 Azure Portal을 통해 지원 티켓을 제출하세요.
 
 ## <a name="streaming-ingestion-best-practices"></a>스트리밍 수집 모범 사례
 
-* 항상 사용자의 이벤트 원본에서 데이터를 사용 하는 TSI 환경에 고유한 소비자 그룹을 만듭니다. 소비자 그룹을 다시 사용 하면 임의 연결이 끊길 수 있으며 데이터가 손실 될 수 있습니다.
+* 항상 Azure Time Series Insights Gen2 환경을 위한 고유한 소비자 그룹을 만들어 이벤트 원본의 데이터를 사용 합니다. 소비자 그룹을 다시 사용 하면 임의 연결이 끊길 수 있으며 데이터가 손실 될 수 있습니다.
 
-* 동일한 Azure 지역에서 TSI 환경 및 IoT Hub 및/또는 Event Hubs를 구성 합니다. 별도의 지역에 이벤트 원본을 구성할 수는 있지만이 시나리오는 지원 되지 않으며 고가용성을 보장할 수 없습니다.
+* 동일한 Azure 지역에서 Azure Time Series Insights Gen2 환경과 IoT Hub 및/또는 Event Hubs를 구성 합니다. 별도의 지역에 이벤트 원본을 구성할 수는 있지만이 시나리오는 지원 되지 않으며 고가용성을 보장할 수 없습니다.
 
-* 사용자 환경의 [처리량 속도 제한](concepts-streaming-throughput-limitations.md) 또는 파티션 당 제한을 초과 하지 마세요.
+* 사용자 환경의 [처리량 속도 제한](./concepts-streaming-ingress-throughput-limits.md) 또는 파티션 당 제한을 초과 하지 마세요.
 
 * 환경에서 데이터를 처리 하는 데 문제가 발생 하는 경우 알림을 받도록 지연 [경고](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) 를 구성 합니다.
 
@@ -56,7 +55,7 @@ ms.locfileid: "86049931"
 
 ### <a name="historical-data-ingestion"></a>기록 데이터 수집
 
-스트리밍 파이프라인을 사용하여 기록 데이터를 가져오는 것은 현재 Azure Time Series Insights 미리 보기에서 지원되지 않습니다. 이전 데이터를 사용자 환경으로 가져와야 하는 경우 아래 지침을 따릅니다.
+스트리밍 파이프라인을 사용 하 여 기록 데이터를 가져오는 Azure Time Series Insights Gen2에서 현재 지원 되지 않습니다. 이전 데이터를 사용자 환경으로 가져와야 하는 경우 아래 지침을 따릅니다.
 
 * 라이브 데이터와 기록 데이터를 동시에 스트림하지 않습니다. 순서가 잘못된 데이터를 수집하면 쿼리 성능이 저하됩니다.
 * 최상의 성능을 위해 기록 데이터를 지정된 시간 순서대로 수집합니다.
@@ -65,9 +64,9 @@ ms.locfileid: "86049931"
 
 ## <a name="event-source-timestamp"></a>이벤트 원본 타임 스탬프
 
-이벤트 원본을 구성할 때 타임 스탬프 ID 속성을 제공 하 라는 메시지가 표시 됩니다. Timestamp 속성은 시간이 지남에 따라 이벤트를 추적 하는 데 사용 됩니다 .이 시간은 $event로 사용 됩니다. 시계열 [쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute) 및 tsi 탐색기의 그리기 시리즈에서 $ts. 만든 시간에 속성이 제공 되지 않거나 타임 스탬프 속성이 이벤트에 없는 경우 이벤트의 IoT Hub 또는 이벤트 허브 큐에 넣은 시간이 기본값으로 사용 됩니다. Timestamp 속성 값은 UTC로 저장 됩니다.
+이벤트 원본을 구성할 때 타임 스탬프 ID 속성을 제공 하 라는 메시지가 표시 됩니다. Timestamp 속성은 시간이 지남에 따라 이벤트를 추적 하는 데 사용 됩니다 .이 시간은 $event로 사용 됩니다. [쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) 및 Azure Time Series Insights Gen2 탐색기의 그리기 시리즈에서 $ts. 만든 시간에 속성이 제공 되지 않거나 타임 스탬프 속성이 이벤트에 없는 경우 이벤트의 IoT Hub 또는 이벤트 허브 큐에 넣은 시간이 기본값으로 사용 됩니다. Timestamp 속성 값은 UTC로 저장 됩니다.
 
-일반적으로 사용자는 타임 스탬프 속성을 사용자 지정 하도록 선택 하 고, 센서 또는 태그가 기본 허브 큐에 대기 시간을 사용 하는 대신 읽기를 생성 한 시간을 사용 합니다. 이는 장치에 간헐적으로 연결 손실이 있고 지연 된 메시지 일괄 처리가 TSI로 전달 되는 경우에 특히 필요 합니다.
+일반적으로 사용자는 타임 스탬프 속성을 사용자 지정 하도록 선택 하 고, 센서 또는 태그가 기본 허브 큐에 대기 시간을 사용 하는 대신 읽기를 생성 한 시간을 사용 합니다. 이는 장치가 간헐적으로 연결 손실이 발생 하 고 지연 된 메시지의 일괄 처리가 Azure Time Series Insights Gen2 전달 되는 경우에 특히 필요 합니다.
 
 사용자 지정 타임 스탬프가 중첩 된 JSON 개체 또는 배열 내에 있는 경우 [평면화 및 이스케이프 명명 규칙](concepts-json-flattening-escaping-rules.md)에 따라 올바른 속성 이름을 제공 해야 합니다. 예를 들어 [여기](concepts-json-flattening-escaping-rules.md#example-a) 에 표시 된 JSON 페이로드의 이벤트 원본 타임 스탬프는로 입력 해야 합니다 `"values.time"` .
 
@@ -85,7 +84,7 @@ ms.locfileid: "86049931"
 
 * 이벤트를 저장 하는 방법을 이해 하려면 [JSON 평면화 및 이스케이프 규칙](./concepts-json-flattening-escaping-rules.md) 을 참조 하세요. 
 
-* 사용자 환경의 [처리량 제한 사항](concepts-streaming-throughput-limitations.md) 이해
+* 사용자 환경의 [처리량 제한 사항](./concepts-streaming-ingress-throughput-limits.md) 이해
 
 
 

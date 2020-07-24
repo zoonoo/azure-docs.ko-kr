@@ -4,11 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 Azure VM 백업을 관리 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054756"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
@@ -53,6 +54,17 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
 ## <a name="manage-backup-policy-for-a-vm"></a>VM에 대 한 백업 정책 관리
 
+### <a name="modify-backup-policy"></a>백업 정책 수정
+
+기존 백업 정책을 수정 하려면:
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 자격 증명 모음 대시보드를 엽니다.
+2. **> 백업 정책 관리**에서 Azure 가상 머신 유형에 대 한 백업 정책을 선택 합니다.
+3.  수정을 클릭 하 고 설정을 변경 합니다.
+
+
+### <a name="switch-backup-policy"></a>스위치 백업 정책 
+
 백업 정책을 관리 하려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 자격 증명 모음 대시보드를 엽니다.
@@ -77,6 +89,9 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 * 초기 백업이 보류 중인 경우 주문형 백업은 Recovery Services 자격 증명 모음에 VM의 전체 복사본을 만듭니다.
 * 초기 백업이 완료 되 면 주문형 백업은 이전 스냅숏의 변경 내용을 Recovery Services 자격 증명 모음으로 보냅니다. 즉, 이후의 백업은 항상 증분입니다.
 * 주문형 백업의 보존 범위는 백업을 트리거할 때 지정 하는 보존 값입니다.
+
+> [!NOTE]
+> Azure Backup 서비스는 하루에 최대 9 번의 주문형 백업을 지원 하지만 최상의 성능을 보장 하기 위해 최대 4 개의 매일 주문형 백업을 지원 하지 않는 것이 좋습니다.
 
 요청 시 백업을 트리거하려면 다음을 수행합니다.
 
@@ -125,6 +140,9 @@ VM의 보호를 중지 하 고 데이터를 삭제 하려면:
 
     ![백업 데이터 삭제](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
+> [!NOTE]
+> 삭제 작업을 완료 한 후 백업 된 데이터는 [일시 삭제 된 상태](./soft-delete-virtual-machines.md)에서 14 일 동안 보존 됩니다. <br>또한 [일시 삭제를 사용 하거나 사용 하지 않도록](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)설정할 수도 있습니다.
+
 ## <a name="resume-protection-of-a-vm"></a>VM 보호 다시 시작
 
 VM 보호를 중지 하는 동안 [보호 중지 및 백업 데이터 보존](#stop-protection-and-retain-backup-data) 옵션을 선택한 경우 **백업 다시 시작**을 사용할 수 있습니다. [보호 중지 및 백업 데이터 삭제](#stop-protection-and-delete-backup-data) 옵션을 선택 하거나 [백업 데이터를 삭제](#delete-backup-data)하는 경우에는이 옵션을 사용할 수 없습니다.
@@ -157,7 +175,7 @@ VM의 백업 데이터를 삭제 하는 방법에는 다음 두 가지가 있습
 
   * 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**를 선택 합니다. 알림 메시지를 통해 백업 데이터가 삭제 되었음을 알 수 있습니다.
 
-데이터를 보호 하기 위해 Azure Backup에는 일시 삭제 기능이 포함 되어 있습니다. 일시 삭제를 사용 하면 VM의 백업 (모든 복구 시점)이 삭제 된 후에도 백업 데이터는 14 일 동안 보존 됩니다. 자세한 내용은 [일시 삭제 설명서](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)를 참조 하세요.
+데이터를 보호 하기 위해 Azure Backup에는 일시 삭제 기능이 포함 되어 있습니다. 일시 삭제를 사용 하면 VM의 백업 (모든 복구 시점)이 삭제 된 후에도 백업 데이터는 14 일 동안 보존 됩니다. 자세한 내용은 [일시 삭제 설명서](./backup-azure-security-feature-cloud.md)를 참조 하세요.
 
   > [!NOTE]
   > 백업 데이터를 삭제 하면 연결 된 모든 복구 지점이 삭제 됩니다. 삭제할 특정 복구 지점은 선택할 수 없습니다.
@@ -172,4 +190,4 @@ VM의 백업 데이터를 삭제 하는 방법에는 다음 두 가지가 있습
 
 * [Vm의 설정에서 Azure vm을 백업](backup-azure-vms-first-look-arm.md)하는 방법에 대해 알아봅니다.
 * [Vm을 복원](backup-azure-arm-restore-vms.md)하는 방법을 알아봅니다.
-* [AZURE VM 백업을 모니터링](backup-azure-monitor-vms.md)하는 방법에 대해 알아봅니다.
+* [AZURE VM 백업을 모니터링](./backup-azure-monitoring-built-in-monitor.md)하는 방법에 대해 알아봅니다.

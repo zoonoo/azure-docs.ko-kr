@@ -4,11 +4,12 @@ description: Azure에 Linux 가상 머신의 애플리케이션 일치 백업을
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054853"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 
@@ -64,13 +65,13 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
     - **ScriptsExecutionPollTimeSeconds**: 스크립트 실행에 대 한 각 폴링 간에 확장이 대기 해야 하는 시간을 설정 합니다. 예를 들어 값이 2 인 경우 확장은 사전/사후 스크립트 실행이 2 초 마다 완료 되었는지 여부를 확인 합니다. 사용할 수 있는 최소값 및 최대값은 각각 1과 5입니다. 값은 반드시 정수 여야 합니다.
 
-6. 이제 스크립트 프레임워크가 구성되었습니다. VM 백업이 이미 구성된 경우 다음 백업 시 스크립트가 호출되고 애플리케이션 일치 백업이 트리거됩니다. VM 백업이 구성되지 않은 경우 [Recovery Services 자격 증명 모음에 Azure Virtual Machines 백업](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)을 사용하여 구성하세요.
+6. 이제 스크립트 프레임워크가 구성되었습니다. VM 백업이 이미 구성된 경우 다음 백업 시 스크립트가 호출되고 애플리케이션 일치 백업이 트리거됩니다. VM 백업이 구성되지 않은 경우 [Recovery Services 자격 증명 모음에 Azure Virtual Machines 백업](./backup-azure-vms-first-look-arm.md)을 사용하여 구성하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 사전 스크립트 및 사후 스크립트를 작성하는 동안 적절한 로깅을 추가했는지 확인하고 스크립트 로그를 검토하여 모든 스크립트 문제를 해결하세요. 스크립트를 실행하는 데 여전히 문제가 있는 경우 자세한 내용은 다음 표를 참조하세요.
 
-| Error | 오류 메시지 | 권장 작업 |
+| 오류 | 오류 메시지 | 권장 작업 |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |사전 스크립트가 오류를 반환하여 백업이 애플리케이션에 일관되지 않을 수 있습니다.| 이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하세요.|  
 |Post-ScriptExecutionFailed |사후 스크립트가 애플리케이션 상태에 영향을 줄 수 있는 오류를 반환했습니다. |이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하고 애플리케이션 상태를 확인하세요. |
@@ -85,4 +86,4 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Recovery Services 자격 증명 모음에 VM 백업 구성](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Recovery Services 자격 증명 모음에 VM 백업 구성](./backup-azure-vms-first-look-arm.md)
