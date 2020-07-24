@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232324"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074246"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "86232324"
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>중첩 지원 Azure VM 만들기
 
-새 Windows Server 2016 Azure VM을 만듭니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](acu.md)를 참조하세요.
+새 Windows Server 2016 Azure VM을 만듭니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](../acu.md)를 참조하세요.
 
 게스트 가상 머신의 수요를 지원할 만큼 큰 VM 크기를 선택해야 합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
 
@@ -30,7 +30,7 @@ Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https:
 
 >[!NOTE]
 >
->새 가상 머신을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)를 참조하세요.
+>새 가상 머신을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](./tutorial-manage-vm.md)를 참조하세요.
     
 ## <a name="connect-to-your-azure-vm"></a>Azure VM에 연결
 
@@ -181,4 +181,4 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 게스트 가상 머신에서 브라우저를 열고 웹 페이지로 이동합니다.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-게스트 VM 및 Azure VM 간에 투명한 연결을 사용하는 방법에 대한 지침은 [이 문서](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 참조하세요.
+게스트 VM 및 Azure VM 간에 투명한 연결을 사용하는 방법에 대한 지침은 [이 문서](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 참조하세요.

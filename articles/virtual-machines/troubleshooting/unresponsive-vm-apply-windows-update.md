@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80633958"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074305"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Windows 업데이트를 적용 하는 동안 "C01A001D" 오류가 발생 하 여 VM이 응답 하지 않습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "80633958"
 
 ## <a name="symptoms"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 진행 중인 WINDOWS 업데이트 (KB)가 표시 되지만 오류 코드 ' C01A001D '와 함께 실패 합니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 진행 중인 WINDOWS 업데이트 (KB)가 표시 되지만 오류 코드 ' C01A001D '와 함께 실패 합니다.
 
 ![응답 하지 않는 Windows 업데이트](./media/unresponsive-vm-apply-windows-update/unresponsive-windows-update.png)
 
@@ -49,17 +49,17 @@ ms.locfileid: "80633958"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [Vm 복구 명령의 1-3 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 를 수행 하 여 복구 vm을 준비 합니다.
+1. [Vm 복구 명령의 1-3 단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) 를 수행 하 여 복구 vm을 준비 합니다.
 2. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
 
 ### <a name="free-up-space-on-the-hard-disk"></a>하드 디스크 공간 확보
 
 디스크가 아직 1Tb가 아니면 크기를 조정 해야 합니다. 디스크가 1tb 이면 디스크 정리 및 드라이브 조각 모음을 수행 합니다.
 
-1. 디스크가 꽉 찼는지 확인합니다. 디스크가 1tb 미만이 면 [PowerShell을 사용 하 여 최대 1tb까지 확장](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)합니다.
+1. 디스크가 꽉 찼는지 확인합니다. 디스크가 1tb 미만이 면 [PowerShell을 사용 하 여 최대 1tb까지 확장](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)합니다.
 2. 디스크가 1tb 이면 디스크 정리를 수행 합니다.
-    - [손상 된 VM에서 데이터 디스크를 분리](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk)합니다.
-    - [작동 하는 VM에 데이터 디스크를 연결](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)합니다.
+    - [손상 된 VM에서 데이터 디스크를 분리](../windows/detach-disk.md)합니다.
+    - [작동 하는 VM에 데이터 디스크를 연결](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm)합니다.
     - [디스크 정리 도구](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup)를 사용하여 공간을 확보합니다.
 3. 크기 조정 및 정리 후 드라이브 조각 모음을 수행 합니다.
 
@@ -115,4 +115,4 @@ ms.locfileid: "80633958"
 
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-Vm [복구 명령의 5 단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) 를 사용 하 여 vm을 리 어셈블합니다.
+Vm [복구 명령의 5 단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) 를 사용 하 여 vm을 리 어셈블합니다.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100637"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074127"
 ---
 # <a name="create-a-snapshot"></a>스냅샷 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "82100637"
 
 ## <a name="use-powershell"></a>PowerShell 사용
 
-다음 단계에서는 VHD 디스크를 복사 하 고 스냅숏 구성을 만드는 방법을 보여 줍니다. 그런 다음 [AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용 하 여 디스크의 스냅숏을 만들 수 있습니다. 
+다음 단계에서는 VHD 디스크를 복사 하 고 스냅숏 구성을 만드는 방법을 보여 줍니다. 그런 다음 [AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용 하 여 디스크의 스냅숏을 만들 수 있습니다. 
 
  
 
@@ -53,18 +53,18 @@ ms.locfileid: "82100637"
 2. VM을 가져옵니다.
 
    ```azurepowershell-interactive
-   $vm = get-azvm `
-   -ResourceGroupName $resourceGroupName 
-   -Name $vmName
+   $vm = Get-AzVM `
+       -ResourceGroupName $resourceGroupName `
+       -Name $vmName
    ```
 
 3. 스냅샷 구성을 만듭니다. 이 예제에서 스냅샷은 OS 디스크의 스냅샷입니다.
 
    ```azurepowershell-interactive
-   $snapshot =  New-AzSnapshotConfig 
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
-   -Location $location 
-   -CreateOption copy
+   $snapshot =  New-AzSnapshotConfig `
+       -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Location $location `
+       -CreateOption copy
    ```
    
    > [!NOTE]
@@ -73,10 +73,10 @@ ms.locfileid: "82100637"
 4. 스냅샷을 만듭니다.
 
    ```azurepowershell-interactive
-   New-AzSnapshot 
-   -Snapshot $snapshot 
-   -SnapshotName $snapshotName 
-   -ResourceGroupName $resourceGroupName 
+   New-AzSnapshot `
+       -Snapshot $snapshot `
+       -SnapshotName $snapshotName `
+       -ResourceGroupName $resourceGroupName 
    ```
 
 

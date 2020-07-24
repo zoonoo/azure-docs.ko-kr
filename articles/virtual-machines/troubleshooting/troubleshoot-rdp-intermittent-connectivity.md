@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: eec52fb2342ee85932a6e24aa4cb292496beccad
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 60be7c234a0166331c35eb6528eae11bfbbf518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074315"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM에에서 원격 데스크톱 연결이 자주 끊김
 
@@ -95,7 +95,7 @@ RDP 수신기가 잘못 구성되면 이 문제가 발생할 수 있습니다. �
 
 ### <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
 
-1. [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다.
+1. [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)합니다.
 2. OS 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 3. 연결한 OS 디스크에서 **\windows\system32\config** 폴더로 이동합니다. 롤백이 필요한 경우 이 폴더에 있는 모든 파일을 복사합니다.
 4. 레지스트리 편집기(regedit.exe)를 시작합니다.
@@ -184,8 +184,3 @@ RDP 수신기가 잘못 구성되면 이 문제가 발생할 수 있습니다. �
 
 ## <a name="need-help"></a>도움 필요 시 
 지원에 문의 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-
-
-
-
-

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79249998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074344"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다. 
@@ -38,7 +39,7 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 ## <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅숏 만들기
 스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 스냅숏을 만들기 전에 VM을 완전히 종료 하 여 진행 중인 모든 프로세스를 지워야 하는 것이 좋습니다. OS 디스크의 스냅숏을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
 1. 왼쪽 창에서 **디스크**를 선택 하 고 OS 디스크의 이름을 선택 합니다.
     ![OS 디스크의 이름에 대 한 이미지](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
 1. OS 디스크의 **개요** 페이지에서 **스냅숏 만들기**를 선택 합니다.
@@ -126,9 +127,9 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>VM에 대 한 OS 디스크 교체
 
-Azure Portal은 이제 VM의 OS 디스크 변경을 지원 합니다. 이렇게 하려면 다음 단계를 따르십시오.
+Azure Portal은 이제 VM의 OS 디스크 변경을 지원 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 합니다. 사이드바에서 **Virtual machines** 를 선택한 다음 문제가 있는 VM을 선택 합니다.
 1. 왼쪽 창에서 **디스크**를 선택 하 고 **OS 디스크 교체**를 선택 합니다.
         ![Azure Portal에서 OS 디스크 교체에 대 한 이미지](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 

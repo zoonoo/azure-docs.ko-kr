@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074277"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
 
@@ -25,13 +26,13 @@ Azure 컴퓨팅 요청은 서비스의 전반적인 성능에 도움이 되도�
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Azure Resource Manager 대 리소스 공급자에 의한 제한  
 
-Azure의 정문인 Azure Resource Manager는 들어오는 모든 API 요청에 대해 인증, 1차 유효성 검사 및 제한을 수행합니다. Azure Resource Manager 호출 속도 제한 및 관련 진단 응답 HTTP 헤더가 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling)에 설명돼 있습니다.
+Azure의 정문인 Azure Resource Manager는 들어오는 모든 API 요청에 대해 인증, 1차 유효성 검사 및 제한을 수행합니다. Azure Resource Manager 호출 속도 제한 및 관련 진단 응답 HTTP 헤더가 [여기](../../azure-resource-manager/management/request-limits-and-throttling.md)에 설명돼 있습니다.
  
 Azure API 클라이언트에 제한 오류가 발생하면 HTTP 상태가 429 요청이 너무 많은 상태가 됩니다. Azure Resource Manager 또는 CRP와 같은 기본 리소스 공급자가 요청 제한을 수행하는지 파악하려면 GET 요청의 경우 `x-ms-ratelimit-remaining-subscription-reads` 및 GET이 아닌 요청의 경우 `x-ms-ratelimit-remaining-subscription-writes` 응답 헤더를 검사합니다. 남은 호출 수가 0에 이른 경우 Azure Resource Manager에서 정의한 구독의 일반 호출 제한에 도달한 것입니다. 모든 구독 클라이언트에 의한 활동은 함께 집계됩니다. 그렇지 않으면, 대상 리소스 공급자(요청 URL의 `/providers/<RP>` 세그먼트에서 주소가 지정된 리소스 공급자)가 제한을 제공합니다. 
 
 ## <a name="call-rate-informational-response-headers"></a>호출 속도 정보 응답 헤더 
 
-| 헤더                            | 값 형식                           | 예제                               | 설명                                                                                                                                                                                               |
+| 헤더                            | 값 형식                           | 예제                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | 이 요청의 대상을 비롯한 리소스 버킷 또는 작업 그룹을 포함하는 제한 정책의 나머지 API 호출 수                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | 호출 수는 해당 정책의 제한에 대한 이 HTTP 요청의 경우 "청구됨"으로 계산됩니다. 이 수는 가장 일반적으로 1입니다. 가상 머신 확장 집합 크기 조정의 경우와 같이 일괄 처리 요청은 여러 개수에 요금을 청구할 수 있습니다. |
@@ -78,8 +79,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API 호출 속도 및 제한 오류 분석기
 문제 해결 기능의 미리 보기 버전은 Compute 리소스 공급자의 API에 대해 사용 가능합니다. 이러한 PowerShell cmdlet은 작업당 시간 간격당 API 요청률 및 작업 그룹(정책)당 제한 위반에 대한 통계를 제공합니다.
--   [내보내기-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [내보내기-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+-   [내보내기-AzLogAnalyticRequestRateByInterval](/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [내보내기-AzLogAnalyticThrottledRequest](/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 API 호출 통계는 구독의 클라이언트 동작에 대한 유용한 인사이트를 제공하고 제한을 발생시키는 호출 패턴을 쉽게 식별할 수 있습니다.
 
@@ -99,4 +100,4 @@ PowerShell cmdlet은 클라이언트에서 직접 쉽게 호출될 수 있는 RE
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 기타 서비스의 경우 다시 시도 지침에 대한 자세한 내용은 [특정 서비스에 대한 다시 시도 지침](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)을 참조
+Azure의 기타 서비스의 경우 다시 시도 지침에 대한 자세한 내용은 [특정 서비스에 대한 다시 시도 지침](/azure/architecture/best-practices/retry-service-specific)을 참조

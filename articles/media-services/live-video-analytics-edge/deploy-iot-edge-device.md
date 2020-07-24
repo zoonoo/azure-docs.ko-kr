@@ -3,25 +3,25 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074447"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 라이브 비디오 분석의 HW/SW 제약 조건을 충족 하는 Linux 컴퓨터
-* [소유자 권한이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 있는 Azure 구독
-* [IoT Hub 만들기 및 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* [IoT Edge 장치 등록](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
-* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
+* [IoT Hub 만들기 및 설정](../../iot-hub/iot-hub-create-through-portal.md)
+* [IoT Edge 장치 등록](../../iot-edge/how-to-register-device.md)
+* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Azure Media Services 계정 만들기](../latest/create-account-howto.md)
     * 미국 동부 2, 미국 중부, 미국 중 북부, 일본 동부, 미국 서 부 2, 미국 중부, 캐나다 동부, 영국 남부, 프랑스 중부, 프랑스 남부, 스위스 북부, 스위스 서부, 일본 서 부 지역 중 하나를 사용 합니다.
     * 범용 v2 (GPv2) 저장소 계정을 사용 하는 것이 좋습니다.
@@ -225,7 +225,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 2.  디바이스 세부 정보에서 Blob Storage 모듈이 **배포에 지정됨 및 디바이스에서 보고됨** 모두로 나열되어 있는지를 확인합니다.
 
 모듈을 디바이스에서 시작한 다음, IoT Hub에 다시 보고하려면 몇 분 정도 걸릴 수 있습니다. 업데이트된 상태를 보려면 페이지를 새로 고칩니다.
-상태 코드: 200 – OK는 [IoT Edge 런타임이](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) 정상 이며 제대로 작동 하 고 있음을 의미 합니다.
+상태 코드: 200 – OK는 [IoT Edge 런타임이](../../iot-edge/iot-edge-runtime.md) 정상 이며 제대로 작동 하 고 있음을 의미 합니다.
 
 ![상태](./media/deploy-iot-edge-device/status.png)
 

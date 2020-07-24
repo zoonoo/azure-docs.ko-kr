@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3f3dbd74ef74f091ca923f8c09680c6913ac300
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074239"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure VM에 MATLAB 분산 컴퓨팅 서버 클러스터 만들기
 Microsoft Azure 가상 머신을 사용하여 계산 집약적인 병렬 MATLAB 작업을 실행하기 위한 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 만듭니다. MATLAB 분산 컴퓨팅 서버 소프트웨어를 VM에 설치하여 기본 이미지로 사용하고, Azure 빠른 시작 템플릿 또는 Azure PowerShell 스크립트( [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)에 제공됨)를 사용하여 클러스터를 배포하고 관리합니다. 배포 후에 클러스터에 연결하여 작업을 실행합니다.
@@ -22,9 +23,9 @@ Microsoft Azure 가상 머신을 사용하여 계산 집약적인 병렬 MATLAB 
 
 Azure 가상 머신을 사용하면, 대화형 작업, 배치 작업, 독립 작업, 통신 작업 같은 병렬 작업을 온-프레미스 클러스터로 전송하는 데 사용하는 메커니즘과 같은 모든 메커니즘을 포함하는 MATLAB 분산 컴퓨팅 서버 클러스터를 만들 수 있습니다. Azure를 MATLAB 플랫폼과 결합하여 사용하면 기존의 온-프레미스 하드웨어를 프로비전하고 사용하는 것에 비해 많은 장점이 있습니다. 다양한 가상 머신 크기, 사용하는 컴퓨팅 리소스에 대해서만 지불하는 주문형 클러스터 생성, 대규모로 모델을 테스트할 수 있는 기능 등이 장점입니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 * **클라이언트 컴퓨터** - 배포 후 Azure 및 MATLAB 분산 컴퓨팅 서버 클러스터와 통신하기 위한 Windows 기반 클라이언트 컴퓨터가 필요합니다.
-* **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
+* **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/) 을 참조하세요.
 * **Azure 구독** - 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
 * **vCPU 할당량** - 대형 클러스터 또는 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 배포하려면 vCPU 할당량을 늘리는 것이 필요할 수 있습니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 여세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) .
 * **MATLAB, 병렬 컴퓨팅 도구 상자 및 MATLAB 분산 컴퓨팅 서버 정보 라이선스** - 스크립트는 모든 라이선스에 대해 [MathWorks 호스티드 라이선스 관리자](https://www.mathworks.com/help/install/license-management.html) 가 사용되었다고 가정합니다.  

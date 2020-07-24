@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 545399e1d7941351ce861ac98d995d5e57006ea1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250089"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074365"
 ---
-# <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
+# <a name="use-the-azure-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 Azure 직렬 콘솔 사용
 
 ## <a name="system-request-sysrq"></a>시스템 요청(SysRq)
 SysRq는 일련의 미리 정의된 작업을 트리거할 수 있는 Linux 작업 시스템 커널에서 인식되는 키의 시퀀스입니다. 이러한 명령은 기존 관리를 통해 가상 컴퓨터 문제 해결 또는 복구를 수행할 수 없는 경우 (예: VM이 응답 하지 않는 경우)에 자주 사용 됩니다. Azure 직렬 콘솔의 SysRq 기능을 사용하면 실제 키보드에서 입력한 문자와 SysRq 키 누르기를 가장합니다.
@@ -28,11 +29,11 @@ SysRq 시퀀스가 전달되면 커널 구성이 시스템의 응답을 제어�
 
 아래 표시된 명령줄에서 키보드 아이콘을 사용하여 SysRq를 Azure Virtual Machine에 전송하는 데 Azure 직렬 콘솔을 사용할 수 있습니다.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Azure 직렬 콘솔의 스크린샷 키보드 아이콘이 강조 표시 되 고 메뉴가 표시 됩니다. 이 메뉴에는 Send SysRq 명령 항목이 포함 되어 있습니다.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 “SysRq 명령 보내기”를 선택하면 일반적인 SysRq 옵션을 제공하거나 대화 상자에 입력된 SysRq 명령의 시퀀스를 허용하는 대화 상자가 열립니다.  이렇게 하면 일련의 SysRq에서 `REISUB`를 사용하여 안전한 부팅처럼 높은 수준의 작업을 수행할 수 있습니다.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![게스트에 대 한 SysRq 명령 보내기 대화 상자 스크린샷 명령 입력 옵션이 선택 되 고 명령 상자에 REISUB가 포함 됩니다.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 SysRq 명령은 중지된 가상 머신 또는 해당 커널이 응답하지 않는 상태의 가상 머신에서 사용할 수 없습니다. (예: 커널 패닉)
 
@@ -50,7 +51,7 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 ### <a name="command-keys"></a>명령 키
 위의 SysRq 관리자 가이드에서:
 
-|명령| 기능
+|명령| 함수
 | ------| ----------- |
 |``b``  |   디스크를 동기화 또는 분리하지 않고 시스템을 즉시 재부팅합니다.
 |``c``  |   NULL 포인터 역참조에 의해 시스템 크래시를 수행합니다. 구성된 경우 크래시덤프가 수행됩니다.
@@ -101,7 +102,7 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 
 아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure 가상 머신에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다.  운영 체제가 NMI를 수신하는 메모리 덤프를 크래시하고 만들도록 Linux 운영 체제를 구성할 수 있습니다.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![직렬 콘솔의 스크린샷 키보드 아이콘이 강조 표시 되 고 메뉴가 표시 됩니다. 이 메뉴에는 마스크 되지 않은 보내기 인터럽트 항목이 포함 되어 있습니다.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 ### <a name="enable-nmi"></a>NMI 사용
 커널 매개 변수를 구성하기 위해 sysctl을 지원하는 Linux 시스템의 경우 다음을 사용하여 이 NMI을 받으면 패닉을 사용하도록 설정할 수 있습니다.

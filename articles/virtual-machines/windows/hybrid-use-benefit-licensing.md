@@ -7,13 +7,14 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074265"
 ---
-# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server의 Azure 하이브리드 혜택
+# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure 하이브리드 혜택
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
 
 각 2개 프로세서 라이선스 또는 각 16코어 라이선스 집합이 있으면 최대 8코어 인스턴스 두 개 또는 최대 16코어 인스턴스 한 개를 받을 수 있습니다. Standard Edition 라이선스에 대한 Azure Hybrid Benefit은 온-프레미스 또는 Azure에서 한 번만 사용할 수 있습니다. Datacenter Edition 혜택은 온-프레미스와 Azure 모두에서 동시에 사용할 수 있습니다.
@@ -65,7 +66,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>템플릿
-Resource Manager 템플릿 내에서 `licenseType` 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있음
+Resource Manager 템플릿 내에서 `licenseType` 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)에 대해 자세히 알아볼 수 있음
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -189,7 +190,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ## <a name="next-steps"></a>다음 단계
 - Azure 하이브리드 혜택를 사용 하 여 [비용을 절감 하는 방법](https://azure.microsoft.com/pricing/hybrid-use-benefit/) 에 대해 자세히 알아보세요.
 - [Azure Hybrid Benefit에 대한 질문과 대답](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)을 자세히 알아봄
-- [Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)에 대해 자세히 알아봅니다.
+- [Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](/windows-server/get-started/azure-hybrid-benefit)에 대해 자세히 알아봅니다.
 - [Windows Server용 Azure 하이브리드 혜택 및 Azure Site Recovery를 사용하여 애플리케이션을 Azure로 훨씬 간편하게 마이그레이션하는 방법](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)에 대해 자세히 알아봅니다.
-- [다중 테넌트 호스팅 권한으로 Azure에서 Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)에 대해 자세히 알아봅니다.
+- [다중 테넌트 호스팅 권한으로 Azure에서 Windows 10](./windows-desktop-multitenant-hosting-deployment.md)에 대해 자세히 알아봅니다.
 - [리소스 관리자 템플릿 사용](../../azure-resource-manager/management/overview.md) 에 대 한 자세한 정보
