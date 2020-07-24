@@ -10,11 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012488"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -22,15 +23,15 @@ Data Science Virtual Machine (DSVM)를 사용 하 여 광범위 한 데이터 �
 
 DSVM에서 지원 되는 데이터 플랫폼 도구는 다음과 같습니다.
 
-## <a name="sql-server-developer-edition"></a>SQL Server Developer 버전
+## <a name="sql-server-developer-edition"></a>SQL Server Developer Edition
 
-| | |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 로컬 관계형 데이터베이스 인스턴스      |
 | 지원 되는 DSVM 버전      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
-| 일반적인 사용 용도      | 더 작은 데이터 세트를 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
-| 샘플에 대한 링크      |    뉴욕 도시 데이터 집합의 작은 샘플은 SQL 데이터베이스에 로드 됩니다.<br/>  `nyctaxi` <br/> Microsoft Machine Learning Server 및 데이터베이스 내 분석을 보여 주는 jupyter 샘플은 다음 위치에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| DSVM의 관련 도구       | SQL Server Management Studio <br/> ODBC/JDBC 드라이버<br/> pyodbc, RODBC<br />Apache Drill      |
+| 일반적인 사용 용도      | <ul><li>더 작은 데이터 세트를 사용하여 로컬에서 빠른 개발</li><li>In-database R 실행</li></ul> |
+| 샘플에 대한 링크      | <ul><li>뉴욕 도시 데이터 집합의 작은 샘플은 SQL 데이터베이스에 로드 됩니다.<br/>  `nyctaxi`</li><li>Microsoft Machine Learning Server 및 데이터베이스 내 분석을 보여 주는 jupyter 샘플은 다음 위치에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
+| DSVM의 관련 도구       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC 드라이버</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > SQL Server Developer Edition은 개발 및 테스트 목적 으로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스나 SQL Server VM 중 하나가 필요합니다.
@@ -61,13 +62,13 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (독립 실행형)
 
-| | |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 인기 있는 Apache Spark 플랫폼의 독립 실행형 (단일 노드 in-process) 인스턴스 고속, 대규모 데이터 처리 및 기계 학습을 위한 시스템     |
 | 지원 되는 DSVM 버전      | Linux     |
-| 일반적인 사용 용도      | * 더 작은 데이터 집합을 사용 하 여 로컬로 Spark/PySpark 응용 프로그램을 신속 하 게 개발 하 고 Azure HDInsight와 같은 대량 Spark 클러스터에서 나중에 배포<br/> * 테스트 Microsoft Machine Learning Server Spark 컨텍스트 <br />* SparkML 또는 Microsoft의 오픈 소스 [Mmlspark](https://github.com/Azure/mmlspark) 라이브러리를 사용 하 여 ML 응용 프로그램 빌드 |
-| 샘플에 대한 링크      |    Jupyter 샘플: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft Machine Learning Server (Spark 컨텍스트):/dsvm/samples/MRS/MRSSparkContextSample.R |
-| DSVM의 관련 도구       | PySpark, Scala<br/>Jupyter (Spark/PySpark 커널)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
+| 일반적인 사용 용도      | <ul><li>더 작은 데이터 집합을 사용 하 여 로컬로 Spark/PySpark 응용 프로그램을 신속 하 게 개발 하 고 Azure HDInsight와 같은 대량 Spark 클러스터에서 나중에 배포</li><li>테스트 Microsoft Machine Learning Server Spark 컨텍스트</li><li>SparkML 또는 Microsoft의 오픈 소스 [Mmlspark](https://github.com/Azure/mmlspark) 라이브러리를 사용 하 여 ML 응용 프로그램 빌드</li></ul> |
+| 샘플에 대한 링크      |    Jupyter 샘플:<ul><li>~/notebooks/SparkML/pySpark</li><li>~/notebooks/MMLSpark</li></ul><p>Microsoft Machine Learning Server (Spark 컨텍스트):/dsvm/samples/MRS/MRSSparkContextSample.R</p> |
+| DSVM의 관련 도구       | <ul><li>PySpark, Scala</li><li>Jupyter (Spark/PySpark 커널)</li><li>Microsoft Machine Learning Server, SparkR, Sparklyr</li><li>Apache Drill</li></ul> |
 
 ### <a name="how-to-use-it"></a>사용 방법
 또는 명령을 실행 하 여 명령줄에서 Spark 작업을 제출할 수 `spark-submit` 있습니다 `pyspark` . 또한 Spark 커널로 새 노트북을 만듦으로써 Jupyter 노트북을 만들 수 있습니다.

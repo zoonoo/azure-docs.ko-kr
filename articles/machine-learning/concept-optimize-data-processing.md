@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 데이터 처리 속도를 최적화 하기 위한 모범 사례 및 대규모로 데이터 처리를 지 원하는 통합 Azure Machine Learning에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0badd92a3156f76f99bf1f48fca2093a2bca2f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012640"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 데이터 처리 최적화
 
@@ -70,7 +70,7 @@ CSV 파일은 Excel에서 쉽게 편집 하 고 읽을 수 있으므로 일반�
 
 다음 표에서는 코드 기본 설정 또는 데이터 크기에 따라 Azure Machine Learning와 통합 된 분산 프레임 워크를 권장 합니다.
 
-환경 또는 데이터 크기 | 권장
+환경 또는 데이터 크기 | 권장 사항
 ------|------
 잘 알고 있는 경우`Pandas`| `Modin`또는 `Dask` 데이터 프레임
 선호 하는 경우`Spark` | `PySpark`

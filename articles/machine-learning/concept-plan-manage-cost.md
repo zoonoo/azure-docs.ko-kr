@@ -10,11 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996335"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012691"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 비용 계획 및 관리
 
@@ -32,7 +33,7 @@ Machine learning 모델을 학습 하는 경우 관리 되는 Azure Machine Lear
 * 낮은 우선 순위의 가상 머신 (VM) 사용
 * Azure Reserved VM Instance 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../cost-management-billing/costs/understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. 
 
@@ -80,7 +81,7 @@ AmlCompute 클러스터는 워크 로드에 따라 동적으로 크기를 조정
 
 규모를 축소 하기 전에 노드가 유휴 상태로 유지 되는 시간을 구성할 수도 있습니다. 기본적으로 축소 전의 유휴 시간은 120 초로 설정 됩니다.
 
-+ 반복적 실험을 수행 하는 경우 비용을 절약 하기 위해이 시간을 줄입니다. 
++ 반복적 실험을 수행 하는 경우 비용을 절약 하기 위해이 시간을 줄입니다.
 + 매우 반복적인 개발/테스트 실험을 수행 하는 경우 학습 스크립트나 환경에 대 한 각 변경 후 일정 한 확장 및 축소에 대해 비용을 지불 하지 않도록 시간을 늘려야 할 수 있습니다.
 
 Amlcompute [SDK 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) [AMLCOMPUTE CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)와 [REST api](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용 하 여 Azure Portal에서 변화 하는 워크 로드 요구 사항에 대해 amlcompute 클러스터를 구성할 수 있습니다.
@@ -106,31 +107,13 @@ AmlCompute는 [할당량 (또는 제한) 구성과](how-to-manage-quotas.md#azur
 * 하이퍼 [매개 변수 조정](how-to-tune-hyperparameters.md#early-termination)의 경우 산적 정책, 중간 중지 정책 또는 잘림 선택 정책에서 조기 종료 정책을 정의 합니다. 하이퍼 매개 변수 스윕을 추가로 제어 하려면 또는와 같은 매개 변수를 사용 `max_total_runs` `max_duration_minutes` 합니다.
 * [자동화 된 machine learning](how-to-configure-auto-train.md#exit)의 경우 플래그를 사용 하 여 비슷한 종료 정책을 설정 `enable_early_stopping` 합니다. 또한 및와 같은 속성 `iteration_timeout_minutes` `experiment_timeout_minutes` 을 사용 하 여 실행의 최대 기간 또는 전체 실험을 제어 합니다.
 
-## <a name="use-low-priority-vms"></a>우선 순위가 낮은 VM 사용
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>우선 순위가 낮은 Vm 사용
 
 Azure를 사용 하면 가상 머신 확장 집합, 배치 및 Machine Learning 서비스에서 낮은 우선 순위의 Vm으로 과도 하 게 사용 되는 용량을 사용할 수 있습니다. 이러한 할당은 emptible는 하지만 전용 Vm과 비교 하 여 저렴 한 가격으로 제공 됩니다. 일반적으로 Batch 워크 로드에 우선 순위가 낮은 Vm을 사용 하는 것이 좋습니다. 다시 전송 (Batch 추론의 경우) 또는 다시 시작 (검사점을 사용한 심층 학습 교육)을 통해 중단을 복구할 수 있는 경우에도이를 사용 해야 합니다.
 
 우선 순위가 낮은 Vm은 VM 제품군에 따라 전용 할당량 값과 별도의 단일 할당량이 있습니다. [AmlCompute 할당량에](how-to-manage-quotas.md)대해 자세히 알아보세요.
 
-다음과 같은 방법으로 VM의 우선 순위를 설정 합니다.
-
-* 스튜디오에서 VM을 만들 때 **낮은 우선 순위** 를 선택 합니다.
-
-* Python SDK를 사용 하 여 `vm_priority` 프로 비전 구성에서 특성을 설정 합니다.  
-
-    ```python
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                               vm_priority='lowpriority',
-                                                               max_nodes=4)
-    ```
-
-* CLI를 사용 하 여를 설정 합니다 `vm-priority` .
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
-    ```
-
- 낮은 우선 순위 Vm은 대화형 노트북 환경을 지원 해야 하기 때문에 계산 인스턴스에 대해 작동 하지 않습니다. 
+ 낮은 우선 순위 Vm은 대화형 노트북 환경을 지원 해야 하기 때문에 계산 인스턴스에 대해 작동 하지 않습니다.
 
 ## <a name="use-reserved-instances"></a>예약 인스턴스 사용
 
@@ -143,5 +126,5 @@ Azure Machine Learning Compute는 기본적으로 예약 된 인스턴스를 지
 
 다음에 대해 자세히 알아봅니다.
 * [리소스 할당량 관리 및 증가](how-to-manage-quotas.md)
-* [ [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md)을 사용 하 여 비용 관리.
+* [비용 분석을 사용 하 여 비용 관리](../cost-management-billing/costs/quick-acm-cost-analysis.md)
 * [계산을 Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute)합니다.

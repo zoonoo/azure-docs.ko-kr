@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a748b9284407b5ecd8cc8f6225c6762e7017d4d9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d5a332acbf6550fcc3a4256e1bc0531b31dd6c6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012258"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>실행 중인 팀 데이터 과학 프로세스: Azure Synapse Analytics 사용
 이 자습서에서는 [NYC Taxi 여행](https://www.andresmh.com/nyctaxitrips/) 데이터 집합을 사용 하 여 공개적으로 사용 가능한 데이터 집합에 대해 Azure Synapse Analytics를 사용 하 여 기계 학습 모델을 빌드하고 배포 하는 과정을 안내 합니다. 생성 된 이진 분류 모델은 여행에 대해 팁이 지불 되었는지 여부를 예측 합니다.  모델에는 다중 클래스 분류 (팁이 있는지 여부) 및 회귀 (tip 금액의 분포)가 포함 됩니다.
@@ -602,7 +602,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
 **출력:** 이 쿼리는 승차 및 하차 위도 및 경도와 해당 직선 거리(마일)가 포함된 테이블(2,803,538개 행)을 생성합니다. 처음 3 개 행에 대 한 결과는 다음과 같습니다.
 
-|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
+| (행 번호) | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
 | 1 |40.731804 |-74.001083 |40.736622 |-73.988953 |.7169601222 |
 | 2 |40.715794 |-74,010635 |40.725338 |-74.00399 |.7448343721 |

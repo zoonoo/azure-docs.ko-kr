@@ -10,11 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012317"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 
@@ -24,7 +25,7 @@ ms.locfileid: "84708011"
 
 ## <a name="adlcopy"></a>AdlCopy
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Azure Blob 저장소에서 Azure Data Lake Store로 데이터를 복사 하는 도구입니다. 또한 두 Azure Data Lake Store 계정 간에 데이터를 복사할 수도 있습니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
@@ -35,7 +36,7 @@ ms.locfileid: "84708011"
 
 ## <a name="azure-cli"></a>Azure CLI
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Azure용 관리 도구. 또한 Azure Blob storage 및 Azure Data Lake Store 같은 Azure 데이터 플랫폼에서 데이터를 이동 하는 명령 동사를 포함 합니다.     |
 | 지원 되는 DSVM 버전      | Windows, Linux     |
@@ -47,7 +48,7 @@ ms.locfileid: "84708011"
 
 ## <a name="azcopy"></a>AzCopy
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 로컬 파일, Azure Blob 저장소, 파일 및 테이블 간에 데이터를 복사 하는 도구입니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
@@ -59,7 +60,7 @@ ms.locfileid: "84708011"
 
 ## <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB 데이터 마이그레이션 도구
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 클라우드의 NoSQL 데이터베이스인 Azure Cosmos DB으로 다양 한 소스에서 데이터를 가져오는 도구입니다. 이러한 원본에는 JSON 파일, CSV 파일, SQL, MongoDB, Azure Table storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션이 있습니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
@@ -70,7 +71,7 @@ ms.locfileid: "84708011"
 
 ## <a name="azure-storage-explorer"></a>Azure Storage Explorer
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Azure 클라우드에 저장 된 파일과 상호 작용 하기 위한 그래픽 사용자 인터페이스입니다. |
 | 지원 되는 DSVM 버전      | Windows      |
@@ -81,7 +82,7 @@ ms.locfileid: "84708011"
 
 ## <a name="bcp"></a>bcp
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | SQL Server와 데이터 파일 간에 데이터를 복사하는 SQL Server 도구입니다.      |
 | 지원 되는 DSVM 버전      | Windows      |
@@ -92,7 +93,7 @@ ms.locfileid: "84708011"
 
 ## <a name="blobfuse"></a>blobfuse
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Linux 파일 시스템에서 Azure Blob 저장소 컨테이너를 탑재 하는 도구입니다.      |
 | 지원 되는 DSVM 버전      | Linux      |

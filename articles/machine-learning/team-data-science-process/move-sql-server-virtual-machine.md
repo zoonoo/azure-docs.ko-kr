@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 82ef70677dd0ede4ddfdd0899747c18f335da5a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012181"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
 
@@ -44,7 +44,7 @@ Machine Learning을 위해 Azure SQL Database로 데이터를 이동하기 위�
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 * **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요. 스토리지 계정을 만든 후에는 스토리지 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요.
 * 프로비전된 **Azure VM의 SQL Server**. 자세한 내용은 [고급 분석을 위해 Azure SQL Server 가상 머신을 IPython Notebook 서버로 설정](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)을 참조하세요.
-* 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/overview)을 참조하세요.
+* 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/)을 참조하세요.
 
 ## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터 이동
 데이터가 플랫 파일에 있는 경우(행/열 형식으로 정렬됨) 다음 방법을 통해 Azure 기반의 SQL Server VM으로 데이터를 이동할 수 있습니다.

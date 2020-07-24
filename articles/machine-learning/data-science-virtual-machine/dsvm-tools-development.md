@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012386"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Azure Data Science Virtual Machine의 개발 도구
 
@@ -23,7 +23,7 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 범용 IDE      |
 | 지원 되는 DSVM 버전      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
@@ -37,7 +37,7 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | 범용 IDE      |
 | 지원 되는 DSVM 버전      | Windows, Linux     |
@@ -47,7 +47,7 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | R 언어용 클라이언트 IDE   |
 | 지원 되는 DSVM 버전      | Windows, Linux      |
@@ -57,7 +57,7 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 
 ## <a name="rstudio-server"></a>RStudio Server
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | R 언어용 클라이언트 IDE   |
 | 무엇인가요?   | R용 웹 기반 IDE    |
@@ -68,7 +68,7 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 
 ## <a name="juno"></a>Juno 
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Julia 언어용 클라이언트 IDE   |
 | 지원 되는 DSVM 버전      | Windows, Linux      |
@@ -78,7 +78,7 @@ DSVM (Data Science Virtual Machine)은 매우 생산적인 IDE (통합 개발 �
 
 ## <a name="pycharm"></a>Pycharm
 
-|    |           |
+| 범주 | 값 |
 | ------------- | ------------- |
 | 무엇인가요?   | Python 언어용 클라이언트 IDE    |
 | 지원 되는 DSVM 버전      | Windows 2019, Linux      |

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6dd3efb3e8bbe902d3c8267aff714a8e7f77acc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e78634001c5ef1b11d6add8f02208cfa9cacf07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738841"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012300"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 모델 메트릭 추적 및 ML 모델 배포 (미리 보기)
 
@@ -47,7 +47,7 @@ ms.locfileid: "84738841"
  MLflow 추적은 [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 통해 사용할 수 있는 메트릭 로깅 및 아티팩트 스토리지 기능을 제공합니다.
 
 
-| | MLflow &nbsp; 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
+| 기능 | MLflow &nbsp; 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
 |---|---|---|---|---|
 | 작업 영역 관리 |   | ✓ | ✓ | ✓ |
 | 데이터 저장소 사용  |   | ✓ | ✓ | |

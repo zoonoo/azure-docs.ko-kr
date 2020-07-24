@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 118c80b27d10714703d631f0e2560540eb2d39cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012555"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -47,13 +47,18 @@ ms.locfileid: "86147037"
 
 다음과 같은 방법으로 작업 영역과 상호 작용할 수 있습니다.
 
+> [!IMPORTANT]
+> 아래 표시 된 (미리 보기) 도구는 현재 공개 미리 보기로 제공 됩니다.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 + 웹에서:
     + [Azure Machine Learning studio](https://ml.azure.com) 
     + [Azure Machine Learning designer (미리 보기)](concept-designer.md) - [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용할 수 있습니다.
 + [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하는 모든 python 환경에서
-+ [R에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 r 환경에서
++ [R (미리 보기)에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 모든 r 환경
 + Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서
 + [Azure Machine Learning VS Code 확장](how-to-manage-resources-vscode.md#workspaces)
+
 
 ## <a name="machine-learning-with-a-workspace"></a>작업 영역을 사용 하는 기계 학습
 

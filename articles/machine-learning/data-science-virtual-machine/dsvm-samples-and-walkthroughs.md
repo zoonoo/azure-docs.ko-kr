@@ -10,11 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012572"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
 
@@ -22,12 +23,12 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 > [!NOTE]
 > 데이터 과학 virtual machines에서 Jupyter 노트북을 실행 하는 방법에 대 한 자세한 내용은 [Jupyter 액세스](#access-jupyter) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-이러한 샘플을 실행 하려면 Data Science Virtual Machine를 프로 비전 해야 합니다. [Windows](./provision-vm.md) 및 [Ubuntu](./dsvm-ubuntu-intro.md)에 대 한 빠른 시작을 참조 하세요.
+이러한 샘플을 실행 하려면 [Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md)를 프로 비전 해야 합니다.
 
 ## <a name="available-samples"></a>사용 가능한 샘플
-| 샘플 범주 | 설명 | 위치 |
+| 샘플 범주 | Description | 위치 |
 | ------------- | ------------- | ------------- |
 | R 언어  | 샘플은 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 오픈 소스 R 및 Microsoft Machine Learning Server 비교 하는 방법 등의 시나리오를 보여 줍니다. 또한 Microsoft Machine Learning Server 및 SQL Server에서 모델을 운영 하는 방법을 설명 합니다. <br/> [R 언어](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Python 언어  | 샘플에서는 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 Azure Machine Learning 사용 하는 방법 등의 시나리오를 설명 합니다.  <br/> [Python 언어](#python-language) | <br/>`~notebooks` <br/><br/>|
@@ -35,7 +36,7 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 | Azure Machine Learning  | Machine Learning를 사용 하 여 기계 학습 및 심층 학습 모델을 빌드하는 방법을 보여 줍니다. 어디서든지 모델을 배포합니다. 자동화된 기계 학습 및 지능형 하이퍼 매개 변수 조정을 사용합니다. 또한 모델 관리 및 분산 학습을 사용합니다. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | PyTorch 노트북  | PyTorch 기반 신경망을 사용 하는 심층 학습 샘플. 노트북은 초급부터 고급 시나리오까지 포함합니다.  <br/> [PyTorch 노트북](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  TensorFlow framework를 사용 하 여 구현 되는 다양 한 신경망 샘플과 기술입니다. <br/> [Tensorflow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Microsoft Cognitive 도구 키트 <br/>   | Microsoft의 Cognitive Toolkit 팀에서 게시 한 심층 학습 샘플입니다.  <br/> [Cognitive 도구 키트](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
+| Microsoft Cognitive 도구 키트 <br/>   | Microsoft의 Cognitive Toolkit 팀에서 게시 한 심층 학습 샘플입니다.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
 | Caffe2 | Caffe2 기반 신경망을 사용 하는 심층 학습 샘플. 여러 노트북은 Caffe2 및 it를 효과적으로 사용 하는 방법을 숙지 합니다. 예제에는 이미지 전처리 및 데이터 집합 생성이 포함 됩니다. 또한 회귀 및 미리 학습 된 모델을 사용 하는 방법을 포함 합니다. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | 실제 문제 시나리오에 H2O를 사용 하는 Python 기반 샘플입니다. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | SparkML 언어  | PySpark 및 MMLSpark: Microsoft Machine Learning를 통해 Apache Spark MLLib 도구 키트의 기능을 사용 하는 샘플은 2.x Apache Spark의 Apache Spark를 사용 합니다.  <br/> [SparkML 언어](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |

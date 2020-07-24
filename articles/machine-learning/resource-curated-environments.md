@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9d0964fb28451abe0a77276d6f9d605fcaac2514
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 72ccf2a765f50358635e4a803ed0b92e60bd7d19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012215"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning 큐 레이트 환경
 
-이 문서에서는 Azure Machine Learning의 큐 레이트 환경과 해당 환경에 미리 설치 된 패키지 및 채널을 나열 합니다.
+이 문서에서는 Azure Machine Learning의 큐 레이트 환경과 해당 환경에 미리 설치 된 패키지 및 채널을 나열 합니다. 큐 레이트 환경은 Azure Machine Learning에서 제공 하며 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 이미지는 캐시 된 Docker 이미지에 의해 지원 되므로 실행 준비 비용을 줄이고 배포 시간을 단축할 수 있습니다. 이러한 환경을 사용 하 여 다양 한 기계 학습 프레임 워크를 빠르게 시작할 수 있습니다.
 
 > [!NOTE]
 > 이 목록은 6 월 2020로 업데이트 됩니다. Python SDK를 사용 하 여 가장 많이 업데이트 된 목록을 가져옵니다. 자세한 내용은 [환경 문서](./how-to-use-environments.md#use-a-curated-environment)를 참조 하세요.
