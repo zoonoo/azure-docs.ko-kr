@@ -44,7 +44,7 @@
       href: migrate-to-policy.md
     - name: DNS 설정
       href: dns-settings.md
-    - name: 여러 공용 IP 배포
+    - name: 여러 공용 IP 배포 - PowerShell
       href: multiple-public-ip-powershell.md
 - name: 참조
   items:
@@ -62,7 +62,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
       href: /rest/api/virtualnetwork/firewallpolicies
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

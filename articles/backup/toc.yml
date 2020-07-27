@@ -89,6 +89,8 @@
           href: backup-azure-monitor-alert-faq.md
     - name: 백업 아키텍처
       href: backup-architecture.md
+    - name: 지침 및 모범 사례
+      href: guidance-best-practices.md
 - name: 방법 가이드
   items:
     - name: Recovery Services 자격 증명 모음
@@ -375,6 +377,9 @@
           href: encryption-at-rest-with-cmk.md
         - name: 기본 제공 보안 컨트롤
           href: backup-security-controls.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
     - name: 문제 해결

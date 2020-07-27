@@ -170,7 +170,7 @@
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 영역
-      href: regions.md
+      href: ../regions.md
     - name: 확장
       items:
         - name: Azure 확장 정보
@@ -182,7 +182,7 @@
     - name: 가용성 및 성능
       items:
         - name: 가용성
-          href: availability.md
+          href: ../availability.md
         - name: 공동 배치
           href: co-location.md
         - name: 네트워크 성능
@@ -290,7 +290,7 @@
             - name: Dedicated Host 선불
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Azure 예약이란?
-              href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
             - name: VM 인스턴스 크기 유연성
               href: reserved-vm-instance-size-flexibility.md
         - name: 스폿 VM
@@ -298,10 +298,12 @@
           displayName: 'pre-empt, preempt'
         - name: 임시 디스크가 없는 Azure VM
           href: ../azure-vms-no-temp-disk.md
+        - name: Azure VM 크기 명명 규칙
+          href: ../vm-naming-conventions.md
         - name: 이전 세대
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 격리된 크기
-          href: isolation.md
+          href: ../isolation.md
         - name: ACU(Azure 컴퓨팅 단위)
           href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: vCPU 할당량
@@ -311,7 +313,7 @@
             - name: VM 선불
               href: prepay-reserved-vm-instances.md
             - name: Azure 예약이란?
-              href: ../../billing/billing-save-compute-costs-reservations.md
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: VM 인스턴스 크기 유연성
               href: reserved-vm-instance-size-flexibility.md
         - name: 벤치마크 점수
@@ -345,17 +347,22 @@
         - name: 사용 후 삭제 OS 디스크
           href: ephemeral-os-disks.md
     - name: 네트워킹
-      href: network-overview.md
+      href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 확장 집합
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 인프라 자동화
-      href: infrastructure-automation.md
+      href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 보안
       items:
         - name: 보안 및 정책
           href: security-policy.md
         - name: Azure 디스크 암호화
           href: disk-encryption-overview.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+        - name: Azure Security Benchmark에 대한 보안 기준
+          href: security-baseline.md
         - name: 기본 제공 보안 컨트롤
           href: virtual-machines-linux-security-controls.md
         - name: Bastion
@@ -367,9 +374,9 @@
     - name: Backup 및 복구
       href: backup-recovery.md
     - name: 클라우드 채택 프레임워크
-      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/'
+      href: /azure/cloud-adoption-framework/get-started/
     - name: 아키텍처 센터
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: 인프라 지침
       href: infrastructure-example.md
 - name: 방법 가이드
@@ -427,22 +434,24 @@
           items:
             - name: 일반 단계
               href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
             - name: CentOS
               href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
             - name: Debian
               href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
+            - name: Flatcar Container Linux
+              href: flatcar-create-upload-vhd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
             - name: Oracle Linux
               href: oracle-create-upload-vhd.md
             - name: OpenBSD
               href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
         - name: cloud-init 사용
           items:
             - name: Cloud-init 개요
@@ -632,7 +641,7 @@
         - name: 재해 복구
           href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: VM 백업
-          href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../backup/backup-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
           items:
             - name: 단일 VM 백업
               href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -694,7 +703,7 @@
             - name: 개요
               href: ../extensions/agent-linux.md
             - name: 에이전트 업데이트
-              href: update-agent.md
+              href: ../extensions/update-linux-agent.md
         - name: 투기적 실행 완화
           href: mitigate-se.md
         - name: 모니터 메타데이터
@@ -726,7 +735,6 @@
         - name: 예약된 이벤트
           href: scheduled-events.md
     - name: VM 모니터링
-      href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
         - name: 에이전트
           items:
@@ -820,7 +828,7 @@
     - name: 가용성 및 규모
       items:
         - name: 자동 크기 조정
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: 고가용성
           href: manage-availability.md
         - name: 가용성 집합 변경
@@ -865,7 +873,7 @@
     - name: 컨테이너 실행
       items:
         - name: Docker 호스트 만들기
-          href: dockerextension.md
+          href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
         - name: Docker 컴퓨터 사용
           href: docker-machine.md
         - name: Docker Compose 사용
@@ -873,9 +881,9 @@
     - name: 애플리케이션 실행
       items:
         - name: Cloud Foundry
-          href: 'https://docs.microsoft.com/azure/cloudfoundry/'
+          href: ../../cloudfoundry/index.yml
         - name: Cassandra
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json'
+          href: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: OpenShift
           items:
             - name: OpenShift 개요
@@ -913,7 +921,7 @@
             - name: Linux의 MS SQL
               href: /sql/linux/sql-server-linux-azure-virtual-machine
         - name: 고성능 컴퓨팅(HPC)
-          href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+          href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
             - name: Architecture
@@ -937,6 +945,10 @@
           href: disks-shared-enable.md
         - name: 디스크에 VHD 업로드 - CLI
           href: disks-upload-vhd-to-managed-disk-cli.md
+        - name: 디스크를 안전하게 가져오기/내보내기 - CLI
+          href: disks-export-import-private-links-cli.md
+        - name: 디스크를 안전하게 가져오기/내보내기 - 포털
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 디스크 크기 조정
           href: expand-disks.md
         - name: Storage Explorer를 사용하여 디스크 관리
@@ -955,12 +967,16 @@
           items:
             - name: 호스트에서 암호화 사용 - CLI
               href: disks-enable-host-based-encryption-cli.md
+            - name: 호스트에서 암호화 사용 - 포털
+              href: disks-enable-host-based-encryption-portal.md
             - name: 고객 관리형 키 사용 - CLI
               href: disks-enable-customer-managed-keys-cli.md
             - name: 고객 관리형 키 사용 - 포털
               href: disks-enable-customer-managed-keys-portal.md
-            - name: 미사용 이중 암호화 사용
+            - name: 미사용 이중 암호화 사용 - CLI
               href: disks-enable-double-encryption-at-rest-cli.md
+            - name: 미사용 이중 암호화 사용 - 포털
+              href: disks-enable-double-encryption-at-rest-portal.md
         - name: 마이그레이션 및 변환
           items:
             - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
@@ -996,7 +1012,7 @@
     - name: 네트워킹 관리
       items:
         - name: 가상 네트워크 만들기
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../virtual-network/quick-create-cli.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: VM에 대한 포트 열기
           href: nsg-quickstart.md
         - name: 공용 IP 주소 할당
@@ -1017,18 +1033,18 @@
     - name: 관리되는 ID 구성
       items:
         - name: 포털
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: CLI
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: PowerShell
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Azure Resource Manager 템플릿
           displayName: ARM
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: REST (영문)
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Azure SDK
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: VM 확장 사용
       items:
         - name: 확장 설치 제한
@@ -1098,13 +1114,13 @@
             - name: 온-프레미스 VM 업로드
               href: upload-vhd.md
             - name: Azure Site Recovery 사용
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+              href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
 - name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/vm
     - name: PowerShell
-      href: /powershell/azureps-cmdlets-docs
+      href: /powershell/azure/
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
     - name: Java
@@ -1113,7 +1129,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.compute/allversions
@@ -1121,10 +1137,10 @@
 - name: 리소스
   items:
     - name: Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
+      href: /answers/topics/azure-virtual-machines.html
     - name: ARM 템플릿 작성
       displayName: 'Azure Resource Manager, ARM'
-      href: /azure/azure-resource-manager/
+      href: ../../azure-resource-manager/index.yml
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-virtual-machines
     - name: Azure 로드맵

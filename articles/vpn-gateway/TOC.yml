@@ -210,6 +210,8 @@
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
     - name: 모니터링 및 경고
       items:
+        - name: VPN Gateway 메트릭 보기
+          href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
         - name: 메트릭 기반의 경고 설정
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: 리소스 로그 기반의 경고 설정
@@ -260,9 +262,9 @@
 - name: 참조
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#vpn'
+      href: /powershell/module/az.network#vpn
     - name: Azure PowerShell(클래식)
-      href: '/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure'
+      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
     - name: REST (영문)
       href: /rest/api/network/virtualnetworkgateways
     - name: REST(클래식)

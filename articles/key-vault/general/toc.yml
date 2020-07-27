@@ -1,20 +1,28 @@
 - name: 일반
   href: index.yml
 - name: 개요
-  expanded: true
   items:
     - name: Azure Key Vault 정보
       href: overview.md
     - name: '키, 비밀 및 인증서 정보'
       href: about-keys-secrets-certificates.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: 포털
+      href: quick-create-portal.md
 - name: 자습서
   items:
     - name: Azure Virtual Machine
       items:
-        - name: .NET에서 Windows 가상 머신에 Azure Key Vault 사용
-          href: tutorial-net-windows-virtual-machine.md
-        - name: Python에서 Windows 가상 머신에 Azure Key Vault 사용
-          href: tutorial-python-windows-virtual-machine.md
+        - name: .NET에서 가상 머신이 있는 Azure Key Vault 사용
+          href: tutorial-net-virtual-machine.md
+        - name: Python에서 가상 머신이 있는 Azure Key Vault 사용
+          href: tutorial-python-virtual-machine.md
     - name: Azure Kubernetes Service
       items:
         - name: Azure Key Vault와 Kubernetes 통합
@@ -117,15 +125,11 @@
     - name: Key Vault 이동
       items:
         - name: 다른 리소스 그룹으로 Key Vault 이동
-          href: keyvault-moveresourcegroup.md
+          href: move-resourcegroup.md
         - name: 다른 구독으로 Key Vault 이동
-          href: keyvault-move-subscription.md
+          href: move-subscription.md
         - name: 다른 영역으로 Key Vault 이동
-          href: keyvault-moveregion.md
-    - name: 문제 해결
-      items:
-        - name: 구독 이동 후 키 자격 증명 모음 테넌트 ID 변경
-          href: subscription-move-fix.md
+          href: move-region.md
 - name: 참조
   items:
     - name: REST API 오류 코드 - Azure Key Vault
@@ -146,7 +150,7 @@
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
     - name: Python
       href: /python/api/overview/azure/keyvault/management?view=azure-python
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

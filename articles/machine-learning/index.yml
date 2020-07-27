@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Azure Machine Learning 설명서
-summary: Azure Machine Learning으로 대규모 기계 학습 모델, AutoML 실험, 파이프라인을 학습, 배포 및 관리하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
+summary: Azure Machine Learning으로 기계 학습 모델을 교육, 배포 및 관리하고 AutoML을 사용하며 파이프라인을 대규모로 실행하는 방법을 알아봅니다.  자습서, 코드 예제, API 참조 등이 표시됩니다.
 metadata:
   title: Azure Machine Learning 설명서
-  description: Azure Machine Learning으로 대규모 기계 학습 모델, AutoML 실험, 파이프라인을 학습, 배포 및 관리하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
+  description: Azure Machine Learning으로 기계 학습 모델을 교육, 배포 및 관리하고 AutoML을 사용하며 파이프라인을 대규모로 실행하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/30/2020
-  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83593004"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87047804"
 landingContent:
 - title: 기계 학습 시작
   linkLists:
@@ -31,14 +31,14 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: 스튜디오 웹 환경 사용
+- title: 스튜디오에서 디자이너 및 AutoML 사용
   linkLists:
   - linkListType: overview
     links:
+    - text: 자동화된 Machine Learning(AutoML)이란?
+      url: concept-automated-ml.md
     - text: 디자이너(끌어서 놓기)란?
       url: concept-designer.md
-    - text: 자동화된 Machine Learning이란?
-      url: concept-automated-ml.md
     - text: 알고리즘을 선택하는 방법
       url: how-to-select-algorithms.md
   - linkListType: tutorial
@@ -51,7 +51,7 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: 이미지 레이블 지정 프로젝트 만들기
       url: tutorial-labeling.md
-- title: Python SDK 사용
+- title: Python SDK를 사용하여 학습
   linkLists:
   - linkListType: tutorial
     links:
@@ -71,19 +71,19 @@ landingContent:
       url: how-to-machine-learning-interpretability.md
     - text: 딥 러닝과 ML 비교
       url: concept-deep-learning-vs-machine-learning.md
-    - text: Scikit-learn을 사용하여 학습
+    - text: Scikit-learn 모델 학습 및 등록
       url: how-to-train-scikit-learn.md
-    - text: TensorFlow로 학습
+    - text: TensorFlow 모델 학습 및 등록
       url: how-to-train-tensorflow.md
-    - text: PyTorch로 학습
+    - text: PyTorch 모델 학습 및 등록
       url: how-to-train-pytorch.md
-    - text: Keras로 학습
+    - text: Keras 모델 학습 및 등록
       url: how-to-train-keras.md
     - text: 보충 학습
       url: how-to-use-reinforcement-learning.md
     - text: ML 파이프라인이란?
       url: concept-ml-pipelines.md
-- title: 모델 배포 및 관리(MLOps)
+- title: 'MLOps: 모델 배포 및 관리'
   linkLists:
   - linkListType: how-to-guide
     links:

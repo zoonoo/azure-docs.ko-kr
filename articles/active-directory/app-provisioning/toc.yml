@@ -83,10 +83,10 @@
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM 및 그래프 시나리오
       href: scim-graph-scenarios.md
-    - name: 프로비전 메서드 선택
-      href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: 클라우드 HR 프로비저닝
       items:
+        - name: SuccessFactors 통합
+          href: sap-successfactors-integration-reference.md
         - name: SuccessFactors 특성 참조
           href: sap-successfactors-attribute-reference.md
         - name: Workday 특성 참조

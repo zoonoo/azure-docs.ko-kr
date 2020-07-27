@@ -2,43 +2,45 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Kubernetes용 Arc 정보
+    - name: Arc 지원 Kubernetes 정보
       href: ./kubernetes/overview.md
-    - name: 서버용 Azure Arc 정보
+    - name: Azure Arc 지원 서버 정보
       href: ./servers/overview.md
 - name: 샘플
   items:
     - name: Azure Policy 기본 제공 기능
       items:
-        - name: Kubernetes용 Arc
+        - name: Arc 지원 Kubernetes
           href: ./kubernetes/policy-samples.md
-        - name: 서버용 Arc
+        - name: Arc 지원 서버
           href: ./servers/policy-samples.md
 - name: 방법 가이드
   items:
-    - name: Kubernetes용 Arc
+    - name: Arc 지원 Kubernetes
       items:
-        - name: 클러스터 작업
+        - name: Azure Arc에 연결
           items:
             - name: 클러스터 연결
               href: ./kubernetes/connect-cluster.md
-            - name: 연결된 클러스터에 GitOps 사용
+            - name: 서비스 사용자 온보딩
+              href: ./kubernetes/create-onboarding-service-principal.md
+        - name: 관리
+          items:
+            - name: GitOps를 사용하여 구성 배포
               href: ./kubernetes/use-gitops-connected-cluster.md
-            - name: Helm에서 GitOps 사용
+            - name: GitOps를 사용하여 Helm 차트 배포
               href: ./kubernetes/use-gitops-with-helm.md
             - name: Azure Policy를 사용하여 GitOps 적용
               href: ./kubernetes/use-azure-policy.md
-            - name: 컨테이너용 Azure Monitor로 모니터링
-              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+            - name: 컨테이너용 Azure Monitor를 사용하여 모니터링
+              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
             - name: Azure Policy를 사용한 허용 제어 정책
-              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
             - name: IoT 워크로드 배포
               href: ./kubernetes/deploy-azure-iot-edge-workloads.md
-            - name: 서비스 사용자 온보딩
-              href: ./kubernetes/create-onboarding-service-principal.md
-            - name: 문제 해결
-              href: ./kubernetes/Troubleshooting.md
-    - name: 서버용 Arc
+        - name: 문제 해결
+          href: ./kubernetes/Troubleshooting.md
+    - name: Arc 지원 서버
       items:
         - name: Azure Arc에 연결
           items:

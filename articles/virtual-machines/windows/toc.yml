@@ -148,13 +148,13 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
-        - name: Resource Manager 템플릿
+        - name: 리소스 관리자 템플릿
           href: template-description.md
     - name: 영역
-      href: regions.md
+      href: ../regions.md
       items:
         - name: Azure 확장 정보
           href: ../extensions/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -165,7 +165,7 @@
     - name: 가용성 및 성능
       items:
         - name: 가용성
-          href: availability.md
+          href: ../availability.md
         - name: 공동 배치
           href: co-location.md
         - name: 네트워크 성능
@@ -234,7 +234,7 @@
         - name: GPU - 컴퓨팅 가속화
           items:
             - name: 개요
-              href: sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+              href: ../sizes-gpu.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
             - name: NC 시리즈
               href: ../nc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: NCv2 시리즈
@@ -275,7 +275,7 @@
             - name: Dedicated Host 선불
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Azure 예약이란?
-              href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
             - name: VM 인스턴스 크기 유연성
               href: reserved-vm-instance-size-flexibility.md
         - name: 스폿 VM
@@ -283,11 +283,13 @@
           displayName: 'pre-empt, preempt'
         - name: 임시 디스크가 없는 Azure VM
           href: ../azure-vms-no-temp-disk.md
+        - name: Azure VM 크기 명명 규칙
+          href: ../vm-naming-conventions.md
         - name: 이전 세대
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic
         - name: 격리된 크기
-          href: isolation.md
+          href: ../isolation.md
         - name: ACU(Azure 컴퓨팅 단위)
           href: ../acu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 벤치마크 점수
@@ -299,7 +301,7 @@
             - name: VM 선불
               href: prepay-reserved-vm-instances.md
             - name: Azure 예약이란?
-              href: ../../billing/billing-save-compute-costs-reservations.md
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: VM 인스턴스 크기 유연성
               href: reserved-vm-instance-size-flexibility.md
     - name: 전용 호스트
@@ -329,17 +331,22 @@
         - name: 사용 후 삭제 OS 디스크
           href: ephemeral-os-disks.md
     - name: 네트워킹
-      href: network-overview.md
+      href: ../network-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 확장 집합
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 인프라 자동화
-      href: infrastructure-automation.md
+      href: ../infrastructure-automation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 보안
       items:
         - name: 보안 및 정책
           href: security-policy.md
         - name: Azure 디스크 암호화
           href: disk-encryption-overview.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+        - name: Azure Security Benchmark에 대한 보안 기준
+          href: security-baseline.md
         - name: 기본 제공 보안 컨트롤
           href: virtual-machines-windows-security-controls.md
         - name: Bastion
@@ -351,9 +358,9 @@
     - name: Backup 및 복구
       href: backup-recovery.md
     - name: 클라우드 채택 프레임워크
-      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'
+      href: /azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 아키텍처 센터
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: 인프라 예제
       href: infrastructure-example.md
 - name: 방법 가이드
@@ -385,9 +392,6 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: C#과 ARM 템플릿 사용
-          href: csharp-template.md
-          displayName: Azure Resource Manager
         - name: Chef로 VM 만들기
           href: ../../chef/chef-automation.md
         - name: Java 사용
@@ -451,7 +455,7 @@
             - name: CLI
               items:
                 - name: 갤러리 만들기
-                  href: ../linux/shared-images.md
+                  href: ../shared-images-cli.md
                 - name: 이미지 만들기
                   items:
                     - name: VM에서
@@ -587,7 +591,7 @@
         - name: 재해 복구
           href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: VM 백업
-          href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../backup/backup-overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
           items:
             - name: 단일 VM 백업
               href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -670,8 +674,6 @@
           href: scheduled-event-service.md
     - name: VM 모니터링
       items:
-        - name: Azure 가상 머신 모니터링
-          href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 에이전트
           items:
             - name: 에이전트 개요
@@ -698,7 +700,7 @@
                     - name: 버전 기록
                       href: ../../azure-monitor/platform/diagnostics-extension-versions.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: JSON 줄 리소스 로그 형식
-                      href: ../../azure-monitor/platform/diagnostic-logs-append-blobs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                      href: ../../azure-monitor/platform/resource-logs-append-blobs.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
                     - name: 문제 해결
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Log Analytics 에이전트
@@ -708,7 +710,7 @@
                 - name: Windows 에이전트
                   href: ../../azure-monitor/platform/agent-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Windows용 VM 확장
-                  href: ../../azure-monitor/../virtual-machines/windows/extensions-oms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json?toc=/azure/azure-monitor/toc.json
+                  href: ../extensions/oms-windows.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json?toc=/azure/azure-monitor/toc.json&toc=/azure/virtual-machines/windows/toc.json
                 - name: Log Analytics 게이트웨이
                   href: ../../azure-monitor/platform/gateway.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: 에이전트 관리
@@ -780,7 +782,7 @@
     - name: 가용성 및 규모
       items:
         - name: Virtual Machine Scale Sets
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: 고가용성
           href: manage-availability.md
         - name: 근접 배치 그룹 만들기
@@ -806,7 +808,7 @@
     - name: 애플리케이션 실행
       items:
         - name: SQL Server
-          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
+          href: ../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: Azure의 SAP
@@ -816,18 +818,18 @@
         - name: Visual Studio
           href: using-visual-studio-vm.md
         - name: 고성능 컴퓨팅(HPC)
-          href: hpcpack-cluster-options.md
+          href: /powershell/high-performance-computing/overview
           items:
             - name: HPC 팩 2016 클러스터
-              href: hpcpack-2016-cluster.md
+              href: /powershell/high-performance-computing/overview
             - name: HPC 팩 2016 Azure Active Directory 통합
-              href: hpcpack-cluster-active-directory.md
+              href: /powershell/high-performance-computing/hpcpack-cluster-active-directory
             - name: HPC 팩 2012 R2 헤드 노드
-              href: hpcpack-cluster-headnode.md
+              href: /powershell/high-performance-computing/deploy-an-hpc-pack-2016-cluster-in-azure
             - name: HPC 팩 2012 R2에 온-프레미스 작업 제출
-              href: hpcpack-cluster-submit-jobs.md
+              href: /powershell/high-performance-computing/hpcpack-cluster-submit-jobs-in-azure
             - name: HPC 팩의 Excel
-              href: excel-cluster-hpcpack.md
+              href: /powershell/high-performance-computing/excel-2016-offloading-to-azure-cluster
     - name: 스토리지 관리
       items:
         - name: 디스크 추가
@@ -845,6 +847,8 @@
           href: disks-shared-enable.md
         - name: 디스크에 VHD 업로드 - PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
+        - name: 디스크를 안전하게 가져오기/내보내기 - 포털
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 디스크 크기 조정
           href: expand-os-disk.md
         - name: Storage Explorer를 사용하여 디스크 관리
@@ -861,14 +865,18 @@
           href: incremental-snapshots.md
         - name: 암호화
           items:
-            - name: 호스트 기반 암호화 사용 - PowerShell
+            - name: 호스트에서 암호화 사용 - PowerShell
               href: disks-enable-host-based-encryption-powershell.md
+            - name: 호스트에서 암호화 사용 - 포털
+              href: disks-enable-host-based-encryption-portal.md
             - name: 고객 관리형 키 사용 - PowerShell
               href: disks-enable-customer-managed-keys-powershell.md
             - name: 고객 관리형 키 사용 - 포털
               href: disks-enable-customer-managed-keys-portal.md
             - name: 미사용 이중 암호화 사용
               href: disks-enable-double-encryption-at-rest-powershell.md
+            - name: 미사용 이중 암호화 사용 - 포털
+              href: disks-enable-double-encryption-at-rest-portal.md
         - name: 마이그레이션 및 변환
           items:
             - name: 디스크를 표준 또는 프리미엄으로 변환
@@ -897,7 +905,7 @@
       href: ps-common-network-ref.md
       items:
         - name: 가상 네트워크 만들기
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: VM에 대한 포트 열기
           items:
             - name: Azure portal
@@ -917,18 +925,18 @@
     - name: 관리되는 ID 구성
       items:
         - name: 포털
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: CLI
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: PowerShell
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure Resource Manager 템플릿
           displayName: ARM
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: REST (영문)
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure SDK
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 확장 사용
       items:
         - name: 확장 설치 제한
@@ -1002,7 +1010,7 @@
             - name: Amazon Web Services(AWS)에서
               href: aws-to-azure.md
             - name: Azure Site Recovery 사용
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+              href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
 - name: 문제 해결
   href: ../troubleshooting/index.yml
 - name: 참조
@@ -1010,7 +1018,7 @@
     - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
-      href: /powershell/azureps-cmdlets-docs
+      href: /powershell/azure/
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
     - name: Java
@@ -1029,7 +1037,7 @@
 - name: 리소스
   items:
     - name: Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
+      href: /answers/topics/azure-virtual-machines.html
     - name: ARM 템플릿 작성
       displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

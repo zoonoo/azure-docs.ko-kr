@@ -67,6 +67,8 @@
       href: concepts-app-templates.md
     - name: 디바이스 템플릿이란?
       href: concepts-device-templates.md
+    - name: 메시지 페이로드
+      href: concepts-telemetry-properties-commands.md
     - name: 디바이스 연결
       href: concepts-get-connected.md
     - name: IoT Edge 디바이스 연결

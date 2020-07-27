@@ -939,8 +939,6 @@
           href: ./control-network-traffic.md
         - name: NSG 및 UDR에 필요한 IP 주소
           href: ./hdinsight-management-ip-addresses.md
-        - name: Azure Firewall에 대한 서비스 태그
-          href: ./hdinsight-service-tags.md
         - name: 고객 관리형 키 디스크 암호화
           href: ./disk-encryption.md
         - name: Ranger 및 Apache Ambari의 LDAP 동기화
@@ -967,8 +965,12 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: 아웃바운드 트래픽을 제한하는 방화벽 사용
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: 서비스 엔드포인트 정책 만들기
+          href: ./service-endpoint-policies.md
         - name: 네트워크 가상 어플라이언스 구성
           href: ./network-virtual-appliance.md
+        - name: Azure Firewall에 대한 서비스 태그
+          href: ./hdinsight-service-tags.md
         - name: 문제 해결
           items:
             - name: ESP 인증 문제

@@ -81,24 +81,44 @@
     - name: REST (영문)
       href: /rest/api/resources/
     - name: 사용자 인터페이스 함수
-      href: create-uidefinition-functions.md
+      items:
+        - name: 모든 함수
+          href: create-uidefinition-functions.md
+        - name: 컬렉션 함수
+          href: create-ui-definition-collection-functions.md
+        - name: 변환 함수
+          href: create-ui-definition-conversion-functions.md
+        - name: 날짜 함수
+          href: create-ui-definition-date-functions.md
+        - name: 논리 함수
+          href: create-ui-definition-logical-functions.md
+        - name: 수치 연산 함수
+          href: create-ui-definition-math-functions.md
+        - name: 참조 함수
+          href: create-ui-definition-referencing-functions.md
+        - name: 문자열 함수
+          href: create-ui-definition-string-functions.md
     - name: 사용자 인터페이스 요소
       href: create-uidefinition-elements.md
       items:
         - name: 일반
           items:
+            - name: CheckBox
+              href: microsoft-common-checkbox.md
             - name: DropDown
               href: microsoft-common-dropdown.md
             - name: FileUpload
               href: microsoft-common-fileupload.md
             - name: InfoBox
               href: microsoft-common-infobox.md
-            - name: OptionsGroup
+            - name: OptionsGroup(라디오 단추)
               href: microsoft-common-optionsgroup.md
             - name: PasswordBox
               href: microsoft-common-passwordbox.md
             - name: 섹션
               href: microsoft-common-section.md
+            - name: 슬라이더
+              href: microsoft-common-slider.md
             - name: TagsByResource
               href: microsoft-common-tagsbyresource.md
             - name: TextBlock
@@ -123,6 +143,12 @@
               href: microsoft-network-publicipaddresscombo.md
             - name: VirtualNetworkCombo
               href: microsoft-network-virtualnetworkcombo.md
+        - name: 솔루션
+          items:
+            - name: ArmApiControl
+              href: microsoft-solutions-armapicontrol.md
+            - name: ResourceSelector
+              href: microsoft-solutions-resourceselector.md
         - name: 스토리지
           items:
             - name: MultiStorageAccountCombo

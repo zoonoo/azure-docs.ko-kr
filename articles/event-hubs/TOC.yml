@@ -124,6 +124,9 @@
           href: network-security.md
         - name: 기본 제공 보안 컨트롤
           href: event-hubs-security-controls.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
     - name: AMQP 1.0 프로토콜 가이드
@@ -196,7 +199,7 @@
         - name: 진단 로그 설정
           href: event-hubs-diagnostic-logs.md
         - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
-          href: event-hubs-streaming-azure-diags-data.md
+          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
         - name: 처리량 단위 규모를 자동으로 조정
           href: event-hubs-auto-inflate.md
         - name: Event Hubs 관리 라이브러리
@@ -289,6 +292,8 @@
       href: /azure/templates/microsoft.eventhub/allversions
     - name: 할당량
       href: event-hubs-quotas.md
+    - name: Apache Kafka 구성
+      href: apache-kafka-configurations.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

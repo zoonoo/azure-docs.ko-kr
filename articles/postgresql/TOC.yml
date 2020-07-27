@@ -46,7 +46,7 @@
       items:
         - name: 1 - 데이터베이스 설계
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: tutorial-design-database-using-azure-portal.md
             - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
@@ -67,7 +67,7 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -231,13 +231,13 @@
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
         - name: 방화벽 관리
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-manage-firewall-using-portal.md
             - name: Azure CLI
               href: howto-manage-firewall-using-cli.md
         - name: 서버 복원
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restore-server-portal.md
             - name: Azure CLI
               href: howto-restore-server-cli.md
@@ -257,7 +257,7 @@
               href: howto-tls-configurations.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
             - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
@@ -265,7 +265,7 @@
               href: howto-configure-server-parameters-using-powershell.md
         - name: 자동 증가 스토리지
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
@@ -293,19 +293,19 @@
               href: howto-database-threat-protection-portal.md
         - name: Virtual Network
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-manage-vnet-using-portal.md
             - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
         - name: Private Link
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-privatelink-portal.md
             - name: Azure CLI
               href: howto-configure-privatelink-cli.md
         - name: 데이터 암호화
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
@@ -317,7 +317,7 @@
               href: howto-double-encryption.md
         - name: 서버 다시 시작
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -351,6 +351,8 @@
           items:
             - name: 메트릭에 대한 경고 만들기
               href: howto-hyperscale-alert-on-metric.md
+            - name: 데이터베이스 로그 액세스
+              href: howto-hyperscale-logging.md
         - name: 문제 해결
           items:
             - name: 연결 오류 문제 해결

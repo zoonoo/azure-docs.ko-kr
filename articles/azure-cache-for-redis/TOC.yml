@@ -39,7 +39,7 @@
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
-    - name: Azure Policy 기본 제공
+    - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
 - name: 개념
@@ -59,13 +59,15 @@
     - name: 계획
       items:
         - name: 캐시 계층 선택
-          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
+          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
         - name: 클러스터링을 통해 캐시 배포
           href: cache-how-to-premium-clustering.md
         - name: Redis 데이터 지속성을 통해 캐시 지속
           href: cache-how-to-premium-persistence.md
         - name: 가상 네트워크로 캐시 보호
           href: cache-how-to-premium-vnet.md
+        - name: 캐시에 비공개로 연결
+          href: cache-private-link.md
         - name: 지리적 복제 설정
           href: cache-how-to-geo-replication.md
         - name: 예약 용량으로 저장
@@ -101,9 +103,9 @@
         - name: 데이터 Import/Export
           href: cache-how-to-import-export-data.md
         - name: Reboot
-          href: 'cache-administration.md#reboot'
+          href: cache-administration.md#reboot
         - name: 업데이트를 예약
-          href: 'cache-administration.md#schedule-updates'
+          href: cache-administration.md#schedule-updates
         - name: redis-cli.exe 액세스 구성
           href: cache-how-to-redis-cli-tool.md
         - name: TLS 1.0 및 1.1 제거
@@ -113,7 +115,7 @@
         - name: Azure Portal에서 모니터링
           href: cache-how-to-monitor.md
         - name: 예외에 대한 경고 설정
-          href: 'cache-how-to-monitor.md#operations-and-alerts'
+          href: cache-how-to-monitor.md#operations-and-alerts
     - name: 진단 및 문제 해결
       items:
         - name: Redis 서버 문제 해결

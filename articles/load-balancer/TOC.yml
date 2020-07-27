@@ -18,17 +18,19 @@
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Load Balancer 만들기 - ARM 템플릿
       href: quickstart-load-balancer-standard-public-template.md
-    - name: 내부 Load Balancer 만들기 - 포털
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: 내부 Load Balancer 만들기 - Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: 내부 Load Balancer 만들기 - Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: 내부 Load Balancer 만들기 - ARM 템플릿
-      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: 자습서
   items:
+    - name: 내부 부하 분산 장치
+      items:
+        - name: 내부 Load Balancer 만들기 - 포털
+          href: tutorial-load-balancer-standard-internal-portal.md
+        - name: 내부 Load Balancer 만들기 - Azure CLI
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: 내부 Load Balancer 만들기 - Azure PowerShell
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: 내부 Load Balancer 만들기 - ARM 템플릿
+          href: load-balancer-get-started-ilb-arm-template.md
     - name: 가용성 영역에 VM 부하 분산
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: 특정 가용성 영역 내에 VM 부하 분산
@@ -73,6 +75,8 @@
       href: load-balancer-security-controls.md
     - name: 백 엔드 풀 관리
       href: backend-pool-management.md
+    - name: 표준 Load Balancer 및 Virtual Machine Scale Sets
+      href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: 방법
   items:
     - name: 가상 머신 크기 집합
@@ -156,7 +160,7 @@
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers'
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
-    - name: REST (영문)
+    - name: REST
       href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
     - name: Resource Manager 템플릿
       href: 'https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers'

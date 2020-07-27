@@ -123,8 +123,10 @@
           href: azure-stack-edge-contact-microsoft-support.md
         - name: 모니터
           href: azure-stack-edge-monitor.md
-        - name: 디바이스 반환 또는 바꾸기
+        - name: 디바이스 반환
           href: azure-stack-edge-return-device.md
+        - name: 디바이스 바꾸기
+          href: azure-stack-edge-replace-device.md
     - name: 릴리스 정보
       items:
         - name: 2007 - 현재
@@ -137,6 +139,14 @@
           href: data-box-gateway-1905-release-notes.md
         - name: GA(일반 공급)
           href: data-box-gateway-release-notes.md
+    - name: 참조
+      items:
+        - name: Azure PowerShell
+          href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
+        - name: REST API
+          href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
+        - name: .NET SDK
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
 - name: 리소스
   items:
     - name: Azure Stack Edge C# 모듈 샘플(.NET)

@@ -96,6 +96,7 @@
     - name: Enterprise 대 기본 버전
       href: concept-editions.md
     - name: 비용 계획 및 관리
+      displayName: low priority VM
       href: concept-plan-manage-cost.md
     - name: 디자이너(ML 끌어서 놓기)
       items:
@@ -166,6 +167,9 @@
             - name: TLS로 웹 서비스 보호
               displayName: ssl
               href: how-to-secure-web-service.md
+            - name: 복원력 향상
+              displayName: 'high availability, disaster recovery'
+              href: how-to-high-availability-machine-learning.md
             - name: AKS 배포에서 Azure AD ID 사용
               href: how-to-use-azure-ad-identity.md
             - name: 스토리지 액세스 키 다시 생성
@@ -217,6 +221,9 @@
         - name: 소프트웨어 환경 설정
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
+        - name: 프라이빗 Python 패키지 사용
+          displayName: 'pip, Conda, anaconda'
+          href: how-to-use-private-python-packages.md
         - name: 로깅 사용
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
@@ -356,6 +363,9 @@
           href: how-to-deploy-and-where.md
         - name: 배포 시나리오
           items:
+            - name: 기존 모델 사용
+              displayName: publish existing model
+              href: how-to-deploy-existing-model.md
             - name: Azure ML 컴퓨팅 인스턴스
               href: how-to-deploy-local-container-notebook-vm.md
             - name: Azure Kubernetes Service
@@ -374,18 +384,15 @@
               href: how-to-deploy-functions.md
             - name: Azure Cognitive Search
               href: how-to-deploy-model-cognitive-search.md
-            - name: Azure IoT Edge 디바이스
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
+            - name: 사용자 지정 Docker 이미지 사용
+              href: how-to-deploy-custom-docker-image.md
+            - name: IoT Edge
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: FPGA 유추
               href: how-to-deploy-fpga-web-service.md
-            - name: 사용자 지정 Docker 이미지
-              href: how-to-deploy-custom-docker-image.md
-            - name: 비 Azure ML 모델
-              displayName: publish existing model
-              href: how-to-deploy-existing-model.md
         - name: 문제 해결 및 디버그
           href: how-to-troubleshoot-deployment.md
-        - name: 서비스 엔드포인트 호출
+        - name: 클라이언트 만들기
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: 모델 모니터링
@@ -393,8 +400,6 @@
             - name: 모델 데이터 수집 및 평가
               displayName: track production
               href: how-to-enable-data-collection.md
-            - name: 데이터 드리프트 검색
-              href: how-to-monitor-data-drift.md
             - name: Application Insights로 모니터링
               href: how-to-enable-app-insights.md
         - name: 암호화된 추론 서비스 배포

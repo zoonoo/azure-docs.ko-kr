@@ -40,9 +40,11 @@
       items:
         - name: Azure Digital Twins CLI 사용
           href: how-to-use-cli.md
-        - name: Azure Digital Twins 인스턴스 만들기
-          href: how-to-set-up-instance.md
-        - name: 클라이언트 애플리케이션 인증
+        - name: 인스턴스 및 인증 설정(스크립팅됨)
+          href: how-to-set-up-instance-scripted.md
+        - name: 인스턴스 및 인증 설정(수동)
+          href: how-to-set-up-instance-manual.md
+        - name: 앱 인증 코드 쓰기
           href: how-to-authenticate-client.md
     - name: 디자인 모델
       items:
@@ -50,6 +52,8 @@
           href: how-to-manage-model.md
         - name: 모델 구문 분석 및 유효성 검사
           href: how-to-use-parser.md
+        - name: 태그 추가
+          href: how-to-use-tags.md
     - name: 라이브 실행 환경 사용
       items:
         - name: Digital Twins 관리
@@ -72,10 +76,16 @@
           href: how-to-manage-routes.md
         - name: Azure Maps와 통합
           href: how-to-integrate-maps.md
+        - name: Azure Time Series Insights와 통합
+          href: how-to-integrate-time-series-insights.md
     - name: 문제 해결
       items:
         - name: 알려진 문제
           href: troubleshoot-known-issues.md
+        - name: 문제 해결
+          items:
+            - name: 403(사용할 수 없음)
+              href: troubleshoot-error-403.md
 - name: 참조
   items:
     - name: Digital Twins 서비스 제한
@@ -145,7 +155,7 @@
         - name: Azure Digital Twins 샘플
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
         - name: Azure Digital Twins 탐색기(샘플)
-          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: DTDL 유효성 검사기(샘플)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Azure 도구

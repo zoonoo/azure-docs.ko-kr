@@ -10,6 +10,8 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: 템플릿 만들기 - VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: 템플릿 사양 만들기 및 배포
+      href: quickstart-create-template-specs.md
     - name: Azure 서비스
       items:
         - name: AI+Machine Learning
@@ -28,6 +30,8 @@
               href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Databricks
               href: /azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Data Factory
+              href: ../../data-factory/quickstart-create-data-factory-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Event Hubs
               href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: HDInsight - Hadoop
@@ -114,6 +118,8 @@
           items:
             - name: Advisor
               href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Automation
+              href: ../../automation/quickstart-create-automation-account-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Backup
               href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cost Management + 청구
@@ -201,6 +207,12 @@
         - name: 3 - 파이프라인 만들기
           displayName: Devop
           href: deployment-tutorial-pipeline.md
+    - name: 템플릿 사양
+      items:
+        - name: 연결된 템플릿을 사용하여 만들기
+          href: template-specs-create-linked.md
+        - name: 연결된 템플릿으로 배포
+          href: template-specs-deploy-linked-template.md
     - name: 고급 템플릿
       items:
         - name: 템플릿 참조 사용
@@ -240,6 +252,8 @@
       href: template-best-practices.md
     - name: 질문과 대답
       href: frequently-asked-questions.md
+    - name: 템플릿 사양
+      href: template-specs.md
     - name: 클라우드 일관성을 위한 템플릿
       href: templates-cloud-consistency.md
     - name: 배포 모드
@@ -267,7 +281,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: template-parameters.md
-        - name: variables
+        - name: 변수
           href: template-variables.md
         - name: 사용자 정의 함수
           href: template-user-defined-functions.md
@@ -431,7 +445,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

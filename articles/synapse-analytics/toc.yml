@@ -6,6 +6,24 @@
   items:
     - name: Azure Synapse Analytics란?
       href: overview-what-is.md
+    - name: 시작
+      items:
+        - name: 소개
+          href: get-started.md
+        - name: 1단계 Synapse 작업 영역 만들기
+          href: get-started-create-workspace.md
+        - name: 2단계 SQL 풀을 사용하여 분석
+          href: get-started-analyze-sql-pool.md
+        - name: 3단계 Spark를 사용하여 분석
+          href: get-started-analyze-spark.md
+        - name: 4단계 SQL 주문형을 사용하여 분석
+          href: get-started-analyze-sql-on-demand.md
+        - name: 5단계 스토리지 계정에서 데이터 분석
+          href: get-started-analyze-storage.md
+        - name: 6단계 - 파이프라인을 사용하여 오케스트레이션
+          href: get-started-pipelines.md
+        - name: 7단계 - Power BI를 사용하여 시각화
+          href: get-started-visualize-power-bi.md
     - name: 참고 자료
       href: overview-cheat-sheet.md
     - name: FAQ
@@ -46,8 +64,6 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: 자습서
   items:
-    - name: 시작하기
-      href: get-started.md
     - name: Spark 풀에 대해 Apache Spark 애플리케이션 실행
       href: ./spark/intellij-tool-synapse.md
     - name: Spark 작업 정의
@@ -649,7 +665,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST (영문)
+            - name: REST
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -698,6 +714,8 @@
               href: ../data-factory/connector-web-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Xero
               href: ../data-factory/connector-xero.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: XML 형식
+              href: ../data-factory/format-xml.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Zoho
               href: ../data-factory/connector-zoho.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 데이터 이동
@@ -755,15 +773,17 @@
               href: ../data-factory/transform-data-using-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: HDInsight 스트리밍 작업
               href: ../data-factory/transform-data-using-hadoop-streaming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: ML 일괄 처리 실행 작업
+            - name: Machine Learning 파이프라인 실행 작업
+              href: ../data-factory/transform-data-machine-learning-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Machine Learning Studio(클래식) 일괄 처리 실행 작업
               href: ../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure ML 업데이트 리소스 작업
+            - name: Machine Learning Studio(클래식) 업데이트 리소스 작업
               href: ../data-factory/update-machine-learning-models.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 저장 프로시저 작업
               href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 컴퓨팅 연결 서비스
               href: ../data-factory/compute-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: 흐름 제어
+        - name: 제어 흐름
           items:
             - name: 변수 작업 추가
               href: ../data-factory/control-flow-append-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -856,7 +876,7 @@
     - name: PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: REST API
-      href: ./sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      href: /rest/api/synapse/
     - name: 시스템 뷰
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: T-SQL

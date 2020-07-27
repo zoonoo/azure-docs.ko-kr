@@ -5,7 +5,6 @@
     - name: 가상 머신 확장 집합이란?
       href: overview.md
 - name: 빠른 시작
-  expanded: true
   items:
     - name: Azure Portal에서 만들기
       href: quick-create-portal.md
@@ -21,6 +20,7 @@
         - name: Windows 확장 집합
           displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
+  expanded: true
 - name: 자습서
   items:
     - name: 1 - 확장 집합 만들기/관리
@@ -102,65 +102,71 @@
       href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: 영역
-      href: ../virtual-machines/windows/regions.md
+      href: ../virtual-machines/regions.md
     - name: 가용성 및 성능
-      maintainContext: true
       items:
         - name: 가용성
-          href: availability.md
+          href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
         - name: 공동 배치
           href: co-location.md
         - name: 네트워크 성능
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: 확장 집합의 오류 도메인 관리
           href: virtual-machine-scale-sets-manage-fault-domains.md
+      maintainContext: true
     - name: 이미지
       href: shared-image-galleries.md
     - name: VM 유형 및 크기
       href: ../virtual-machines/windows/sizes.md
-      maintainContext: true
       items:
         - name: 범용 가상 컴퓨터
-          href: ../virtual-machines/windows/sizes-general.md
+          href: ../virtual-machines/sizes-general.md
           maintainContext: true
           items:
             - name: B-시리즈 버스터블
-              href: ../virtual-machines/windows/b-series-burstable.md
+              href: ../virtual-machines/sizes-b-series-burstable.md
               maintainContext: true
         - name: 컴퓨팅 최적화
-          href: ../virtual-machines/windows/sizes-compute.md
+          href: ../virtual-machines/sizes-compute.md
           maintainContext: true
         - name: 메모리에 최적화
-          href: ../virtual-machines/windows/sizes-memory.md
+          href: ../virtual-machines/sizes-memory.md
           maintainContext: true
           items:
             - name: 제한된 vCPU
               href: ../virtual-machines/windows/constrained-vcpu.md
               maintainContext: true
         - name: Storage에 최적화
-          href: ../virtual-machines/windows/sizes-storage.md
+          href: ../virtual-machines/sizes-storage.md
           maintainContext: true
         - name: GPU에 최적화
-          href: ../virtual-machines/windows/sizes-gpu.md
+          href: ../virtual-machines/sizes-gpu.md
           maintainContext: true
           items:
             - name: NVIDIA GPU 드라이버 설정
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
         - name: 고성능 컴퓨팅
-          href: ../virtual-machines/windows/sizes-hpc.md
+          href: ../virtual-machines/sizes-hpc.md
+          maintainContext: true
+        - name: 임시 디스크가 없는 Azure VM
+          href: ../virtual-machines/azure-vms-no-temp-disk.md
+          maintainContext: true
+        - name: Azure VM 크기 명명 규칙
+          href: ../virtual-machines/vm-naming-conventions.md
           maintainContext: true
         - name: ACU(Azure 컴퓨팅 단위)
-          href: ../virtual-machines/windows/acu.md
+          href: ../virtual-machines/acu.md
           maintainContext: true
         - name: 벤치마크 점수
           href: ../virtual-machines/windows/compute-benchmark-scores.md
           maintainContext: true
+      maintainContext: true
     - name: Linux 보증 배포판
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
     - name: 유지 관리 및 업데이트
-      href: ../virtual-machines/windows/maintenance-and-updates.md
+      href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
     - name: 오케스트레이션 모드
       href: orchestration-modes.md
@@ -198,11 +204,13 @@
           href: ../virtual-machines/windows/security-policy.md
         - name: Azure 디스크 암호화
           href: disk-encryption-overview.md
+        - name: Azure 보안 기준
+          href: security-baseline.md
         - name: 기본 제공 보안 컨트롤
           href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: 모니터링
-      href: ../virtual-machines/windows/monitor.md
+      href: ../azure-monitor/insights/monitor-vm-azure.md
       maintainContext: true
     - name: 배포 고려 사항
       items:
@@ -381,9 +389,7 @@
 - name: 참조
   items:
     - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: Azure CLI
-      href: ../virtual-machines/azure-cli-arm-commands.md
+      href: /powershell/azure/
     - name: REST (영문)
       href: /rest/api/virtualmachinescalesets/
     - name: Azure 템플릿

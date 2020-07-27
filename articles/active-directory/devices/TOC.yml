@@ -75,6 +75,8 @@
           href: enterprise-state-roaming-faqs.md
 - name: 참조
   items:
+    - name: TLS 1.2 적용
+      href: reference-device-registration-tls-1-2.md
     - name: 엔터프라이즈 상태 로밍 GPO 설정
       href: enterprise-state-roaming-group-policy-settings.md
     - name: 엔터프라이즈 상태 로밍 Windows 설정

@@ -14,6 +14,9 @@
       href: automation-quickstart-create-runbook.md
     - name: 머신의 Desired State Configuration 사용
       href: automation-quickstart-dsc-configuration.md
+    - name: Automation 계정 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: quickstart-create-automation-account-template.md
 - name: 자습서
   items:
     - name: 그래픽 Runbook 만들기
@@ -58,7 +61,7 @@
         - name: Azure Portal을 사용하여 Automation 계정 만들기
           href: automation-create-standalone-account.md
         - name: Resource Manager 템플릿을 사용하여 Automation 계정 만들기
-          href: automation-create-account-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Amazon Web Services로 인증 구성
           href: automation-config-aws-account.md
         - name: Azure AD를 사용하여 인증 구성
@@ -177,6 +180,18 @@
               href: automation-dsc-extension-history.md
             - name: 상태 구성 문제 해결
               href: troubleshoot/desired-state-configuration.md
+            - name: 시나리오
+              items:
+                - name: STIG를 기준으로 데이터 구성
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: 대규모 데이터 구성
+                  href: automation-dsc-config-data-at-scale.md
+                - name: 기존 서버에서 구성 만들기
+                  href: automation-dsc-config-from-server.md
+                - name: 구성을 복합 리소스로 변환
+                  href: automation-dsc-create-composite.md
+                - name: 비준수 서버 수정
+                  href: automation-dsc-remediate.md
         - name: 변경 내용 추적 및 인벤토리
           items:
             - name: 개요

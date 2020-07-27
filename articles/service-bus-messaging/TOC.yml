@@ -13,7 +13,7 @@
       items:
         - name: Service Bus 큐 만들기
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -110,6 +110,9 @@
                   href: authenticate-application.md
         - name: 기본 제공 보안 컨트롤
           href: service-bus-messaging-security-controls.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: 네트워크 보안
           href: network-security.md
 - name: 방법 가이드

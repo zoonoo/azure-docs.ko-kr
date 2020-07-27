@@ -53,8 +53,10 @@
       href: ../../mysql/security-baseline.md
     - name: Azure Database for MariaDB 보안 기준
       href: ../../mariadb/security-baseline.md
-    - name: Azure Database for PostgreSQL 보안 기준
+    - name: Azure Database for PostgreSQL - 단일 서버 보안 기준
       href: ../../postgresql/security-baseline.md
+    - name: Azure Database for PostgreSQL - 하이퍼스케일 보안 기준
+      href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Azure Databricks 보안 기준
       href: ../../azure-databricks/security-baseline.md
     - name: Azure Functions 보안 기준
@@ -79,6 +81,8 @@
       href: ../../cosmos-db/security-baseline.md
     - name: 고객 Lockbox 보안 기준
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Data Lake Analytics 보안 기준
+      href: ../../data-lake-analytics/security-baseline.md
     - name: Event Hubs 보안 기준
       href: ../../event-hubs/security-baseline.md
     - name: ExpressRoute 보안 기준
@@ -91,7 +95,15 @@
       href: ../../logic-apps/security-baseline.md
     - name: Network Watcher 보안 기준
       href: ../../network-watcher/security-baseline.md
+    - name: Service Fabric 기준
+      href: ../../service-fabric/security-baseline.md
     - name: Stream Analytics 기준
       href: ../../stream-analytics/security-baseline.md
     - name: Synapse Analytics 보안 기준
       href: ../../synapse-analytics/security-baseline.md
+    - name: Virtual Machine Scale Sets 보안 기준
+      href: ../../virtual-machine-scale-sets/security-baseline.md
+    - name: Virtual Machines Linux 보안 기준
+      href: ../../virtual-machines/linux/security-baseline.md
+    - name: Virtual Machines Windows 보안 기준
+      href: ../../virtual-machines/windows/security-baseline.md

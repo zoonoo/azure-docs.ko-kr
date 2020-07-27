@@ -68,10 +68,14 @@
           href: boosted-decision-tree-regression.md
         - name: 의사 결정 포리스트 회귀
           href: decision-forest-regression.md
+        - name: 빠른 포리스트 분위수 회귀
+          href: fast-forest-quantile-regression.md
         - name: 선형 회귀
           href: linear-regression.md
         - name: 신경망 회귀
           href: neural-network-regression.md
+        - name: 포아송 회귀
+          href: poisson-regression.md
     - name: Clustering
       items:
         - name: K-평균 클러스터링

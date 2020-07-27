@@ -84,6 +84,8 @@
           href: troubleshoot-missing-data-download.md
         - name: 보고를 위한 Graph API에 액세스할 수 없음
           href: troubleshoot-graph-api.md
+        - name: 확인된 도메인 변경에 대한 데이터 감사
+          href: troubleshoot-audit-data-verified-domain.md
 - name: 참조
   expanded: true
   items:

@@ -2,19 +2,19 @@
 title: Azure Arc
 summary: Azure Arc는 Azure Resource Manager 기능을 Linux 및 Windows 서버뿐만 아니라 온-프레미스, 다중 클라우드 및 에지의 모든 인프라에 있는 Kubernetes 클러스터로도 확장합니다. 또한 Azure Arc를 사용하면 고객은 어디서나 Azure 데이터 서비스를 실행할 수 있으므로 항상 최신 데이터 기능, 몇 시간이 아닌 몇 초 이내의 배포 및 모든 인프라의 동적 확장성을 포함한 클라우드 혁신의 이점을 실현할 수 있습니다.
 metadata:
-  title: 서버용 Azure Arc
+  title: Azure Arc
   description: Azure에서 온-프레미스 머신을 관리하는 방법에 대해 알아보기
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 8493a5d90656206c5498fafbc2b0a2743cd973a7
-  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+  ms.openlocfilehash: f9d4da85185d3a8541c165b407d276af0a25ccc6
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/27/2020
-  ms.locfileid: "85482346"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87008492"
 landingContent:
 - title: Azure Arc 개요
   linkLists:
@@ -22,11 +22,11 @@ landingContent:
     links:
     - text: Azure Arc에 대해 자세히 알아보기
       url: https://aka.ms/Azure-Arc-Info
-- title: 서버용 Azure Arc를 사용하여 Azure에 머신 연결
+- title: Azure Arc 지원 서버를 사용하여 Azure에 머신 연결
   linkLists:
   - linkListType: overview
     links:
-    - text: 서버용 Azure Arc란?
+    - text: Azure Arc 지원 서버란?
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
@@ -42,19 +42,21 @@ landingContent:
     links:
     - text: Azure Arc를 지원하는 Kubernetes란 무엇인가요?
       url: ./kubernetes/overview.md
-  - linkListType: how-to-guide
+  - linkListType: quickstart
     links:
     - text: 클러스터 연결
       url: ./kubernetes/connect-cluster.md
-    - text: 연결된 클러스터에서 GitOps 사용
+  - linkListType: how-to-guide
+    links:
+    - text: GitOps를 사용하여 구성 배포
       url: ./kubernetes/use-gitops-connected-cluster.md
-    - text: Helm에서 GitOps 사용
+    - text: GitOps를 사용하여 Helm 차트 배포
       url: ./kubernetes/use-gitops-with-helm.md
-    - text: 컨테이너에 Azure Monitor 사용
-      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
-    - text: Azure Policy 사용
+    - text: Azure Policy를 사용하여 GitOps 적용
       url: ./kubernetes/use-azure-policy.md
+    - text: 컨테이너용 Azure Monitor를 사용하여 모니터링
+      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+    - text: Azure Policy를 사용한 허용 제어 정책
+      url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
     - text: Azure IoT 에지 워크로드 배포
       url: ./kubernetes/deploy-azure-iot-edge-workloads.md
-    - text: 서비스 사용자 온보딩
-      url: ./kubernetes/create-onboarding-service-principal.md
