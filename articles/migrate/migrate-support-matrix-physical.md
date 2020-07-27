@@ -3,12 +3,12 @@ title: Azure Migrate의 물리적 서버 평가 지원
 description: Azure Migrate Server 평가를 사용 하 여 물리적 서버 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 226f49dc2a1603aba5eaa2f03ead32b815ac34b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e28c1fd3dd117491360a1671955a6ec028033c01
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101693"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171620"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
 
@@ -34,7 +34,7 @@ ms.locfileid: "86101693"
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **물리적 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | **Windows:** 검색 하려는 모든 Windows 서버의 도메인 관리자 여야 합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. |
+| **권한**           | **Windows:** 도메인에 가입 된 컴퓨터에 도메인 계정을 사용 하 고 도메인에 가입 된 컴퓨터의 로컬 계정을 사용 합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. |
 | **운영 체제** | Windows Server 2003 및 SUSE Linux를 제외한 모든 운영 체제는 마이그레이션을 평가할 수 있습니다. |
 
 

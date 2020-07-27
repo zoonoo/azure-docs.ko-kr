@@ -25,6 +25,11 @@
       href: extension-resource-types.md
     - name: 리소스 인스턴스 제한
       href: resources-without-resource-group-limit.md
+    - name: 보안
+      items:
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: 방법
   items:
     - name: 리소스 그룹/구독 이동

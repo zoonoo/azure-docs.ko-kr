@@ -7,21 +7,25 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/18/2019
-ms.openlocfilehash: e59648ee76b6715029c690329cbf8f4f1eee7243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: 6d990b94210383ba4b30569693f4471f43306ed2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483655"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169845"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>NFS 볼륨에 대한 내보내기 정책 구성
 
-필요에 따라 내보내기 정책을 구성하여 Azure NetApp Files 볼륨에 대한 액세스를 제어할 수 있습니다. Azure NetApp Files 내보내기 정책은 NFS 볼륨만 지원 합니다.  NFSv3 및 NFSv4가 모두 지원 됩니다. 
+Azure NetApp Files 볼륨에 대 한 액세스를 제어 하도록 내보내기 정책을 구성할 수 있습니다. Azure NetApp Files 내보내기 정책은 NFS 프로토콜 (NFSv3 및 NFSv 4.1 모두) 및 이중 프로토콜 (NFSv3 및 SMB)을 사용 하는 볼륨을 지원 합니다. 
+
+최대 5 개의 내보내기 정책 규칙을 만들 수 있습니다.
 
 ## <a name="steps"></a>단계 
 
-1.  Azure NetApp Files 탐색 창에서 **정책 내보내기** 를 클릭 합니다. 
+1.  볼륨 페이지에서 내보내기 정책을 구성 하려는 볼륨을 선택 하 고 **정책 내보내기**를 클릭 합니다. 
+
+    또한 볼륨을 만드는 동안 내보내기 정책을 구성할 수 있습니다.
 
 2.  내보내기 정책 규칙을 만들도록 다음 필드에 대한 정보를 지정합니다.   
     *  **인덱싱할**   
@@ -39,7 +43,11 @@ ms.locfileid: "85483655"
         * 읽기 및 쓰기
         * 읽기 전용
 
-    ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    * **루트 액세스**  
+        `root`계정에서 볼륨에 액세스할 수 있는지 여부를 지정 합니다.  기본적으로 루트 액세스는 **On**으로 설정 되 고, 계정에는 볼륨에 대 한 액세스 권한이 있습니다 `root` .
+
+        ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+
 
 
 ## <a name="next-steps"></a>다음 단계 

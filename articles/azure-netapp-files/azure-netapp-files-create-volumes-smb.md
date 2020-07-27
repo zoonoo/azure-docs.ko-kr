@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6bd6ddc8b75b83355f6761ef0567ea949c86b61a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483706"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169974"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -215,6 +215,12 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * 볼륨에 기존 스냅숏 정책을 적용 하려면 **고급 섹션 표시** 를 클릭 하 여 확장 하 고 풀 다운 메뉴에서 스냅숏 정책을 선택 합니다. 
+
+        스냅숏 정책을 만드는 방법에 대 한 자세한 내용은 [스냅숏 관리](azure-netapp-files-manage-snapshots.md)를 참조 하세요.
+
+        ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. **프로토콜**을 클릭하고 다음 정보를 입력합니다.  
     * 볼륨의 프로토콜 유형으로 **SMB**를 선택합니다. 

@@ -618,6 +618,14 @@
           href: vs-active-directory-webapi-what-happened.md
         - name: 인증 중 오류 진단
           href: vs-active-directory-error.md
+    - name: Market으로 앱 가져오기
+      items:
+        - name: App Source에 게시
+          href: v2-howto-get-appsource-certified.md
+        - name: Azure AD App Gallery에 게시
+          href: v2-howto-app-gallery-listing.md
+        - name: Office 365 판매자 대시보드에 게시
+          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
 - name: 참조
   items:
     - name: 애플리케이션 매니페스트.

@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2fbbf5f9d01ed4a469967dac87faa3b130905757
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aca2e0a878470a644aff3a42411b69da9096fc78
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027107"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170523"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
@@ -51,7 +51,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 ### <a name="header-claims"></a>헤더 클레임
 
-|클레임 | 형식 | 설명 |
+|클레임 | 형식 | Description |
 |-----|--------|-------------|
 |`typ` | 문자열 - 항상 "JWT" | 토큰이 JWT 토큰 임을 나타냅니다.|
 |`alg` | String | 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. 예: "RS256" |
@@ -87,7 +87,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`ver` | 문자열, 1.0 또는 2.0 | id_token의 버전을 나타냅니다. |
 
 > [!NOTE]
-> V1.0 및 v 22.0 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 버전은 기본적으로 발급 된 위치에서 Azure AD 플랫폼 끝점을 지정 합니다. [AZURE AD OAuth 구현은](about-microsoft-identity-platform.md) 몇 년 동안 진화 했습니다. 현재 Azure AD 응용 프로그램에 대 한 두 가지 다른 끝점이 있습니다. V2.0 또는 v 1.0으로 분류 된 새 끝점을 사용할 수 있습니다. 이러한 두 가지 모두에 대 한 OAuth 끝점은 서로 다릅니다. V2.0 끝점은 더 최신 이며, v2.0 끝점의 기능은이 끝점으로 마이그레이션됩니다. 새 개발자는 v2.0 끝점을 사용 해야 합니다.
+> V1.0 및 v2.0 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 버전은 기본적으로 발급 된 위치에서 Azure AD 플랫폼 끝점을 지정 합니다. [AZURE AD OAuth 구현은](about-microsoft-identity-platform.md) 몇 년 동안 진화 했습니다. 현재 Azure AD 응용 프로그램에 대 한 두 가지 다른 끝점이 있습니다. V2.0 또는 v 1.0으로 분류 된 새 끝점을 사용할 수 있습니다. 이러한 두 가지 모두에 대 한 OAuth 끝점은 서로 다릅니다. V2.0 끝점은 더 최신 이며, v2.0 끝점의 기능은이 끝점으로 마이그레이션됩니다. 새 개발자는 v2.0 끝점을 사용 해야 합니다.
 >
 > - v1.0: Azure AD 끝점:`https://login.microsoftonline.com/common/oauth2/authorize`
 > - v2.0: Microsoft identitypPlatform 끝점:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

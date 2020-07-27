@@ -7,11 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
-ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcf782a41dbb09135f7a4cd767a94ff90578b6ba
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75548757"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169364"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
 
@@ -34,7 +35,7 @@ ms.locfileid: "75548757"
 
 ## <a name="next-steps"></a>다음 단계
 
-아래 표는 위협 모델링 도구를 시작하는 데 중요한 링크를 포함합니다.
+아래 표에는 Threat Modeling Tool을 시작 하는 데 도움이 되는 중요 한 링크가 나와 있습니다. 참고 항목: [시스템 요구 사항](threat-modeling-tool-releases.md)
 
 | 단계  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |

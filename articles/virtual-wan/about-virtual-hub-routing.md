@@ -8,16 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064915"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171884"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
 
-가상 허브의 라우팅 기능은 BGP (Border Gateway Protocol)를 사용 하 여 게이트웨이 간의 모든 라우팅을 관리 하는 라우터에서 제공 합니다. 가상 허브는 사이트 간 VPN 게이트웨이, Express 경로 게이트웨이, 지점 및 사이트 간 게이트웨이, Azure 방화벽과 같은 여러 게이트웨이를 포함할 수 있습니다. 또한이 라우터는 가상 허브에 연결 하는 가상 네트워크 간의 전송 연결을 제공 하며 50 Gbps의 최대 집계 처리량을 지원할 수 있습니다. 이러한 라우팅 기능은 표준 가상 WAN 고객에 게 적용 됩니다.
+가상 허브의 라우팅 기능은 BGP (Border Gateway Protocol)를 사용 하 여 게이트웨이 간의 모든 라우팅을 관리 하는 라우터에서 제공 합니다. 가상 허브는 사이트 간 VPN 게이트웨이, Express 경로 게이트웨이, 지점 및 사이트 간 게이트웨이, Azure 방화벽과 같은 여러 게이트웨이를 포함할 수 있습니다. 또한이 라우터는 가상 허브에 연결 하는 가상 네트워크 간의 전송 연결을 제공 하며 50 Gbps의 최대 집계 처리량을 지원할 수 있습니다. 이러한 라우팅 기능은 표준 가상 WAN 고객에 게 적용 됩니다. 
 
 라우팅을 구성 하려면 [가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요.
 
@@ -60,7 +61,7 @@ ms.locfileid: "87064915"
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="전파":::
 
-### <a name="labels"></a><a name="static"></a>레이블입니다.
+### <a name="labels"></a><a name="static"></a>레이블
 레이블은 경로 테이블을 논리적으로 그룹화 하는 메커니즘을 제공 합니다. 이는 연결에서 여러 경로 테이블로 경로를 전파 하는 동안 특히 유용 합니다. 예를 들어 기본 경로 테이블에는 ' Default ' 라는 기본 제공 레이블이 있습니다. 사용자가 연결 경로를 ' Default ' 레이블에 전파 하면 가상 WAN의 모든 허브에서 모든 기본 경로 테이블에 자동으로 적용 됩니다. 
 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>가상 네트워크 연결에서 정적 경로 구성
@@ -79,6 +80,15 @@ ms.locfileid: "87064915"
 새 경로 테이블 기능을 사용 하려면 Azure에서 롤아웃이 완료 될 때까지 1 월 1 일에 시작 될 때까지 기다려 주세요. Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치한 경우 먼저 해당 경로를 삭제 한 다음 새 경로 테이블을 만들어야 합니다 (Azure Portal의 허브에 대 한 경로 테이블 섹션에서 사용 가능).
 
 * **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 셋째 주까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
+
+## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>가상 WAN 라우팅 고려 사항
+
+가상 WAN 라우팅을 구성할 때 다음 사항을 고려 하세요.
+
+* 모든 분기 연결 (지점 및 사이트 간, 사이트 간 및 Express 경로)을 기본 경로 테이블에 연결 해야 합니다. 이렇게 하면 모든 분기가 동일한 접두사를 배우게 됩니다.
+* 모든 분기 연결에서 경로를 동일한 경로 테이블 집합에 전파 해야 합니다. 예를 들어 분기가 기본 경로 테이블에 전파 되도록 결정 한 경우이 구성은 모든 분기에서 일치 해야 합니다. 따라서 기본 경로 테이블에 연결 된 모든 연결에서 모든 분기에 연결할 수 있습니다.
+* Azure 방화벽을 통한 분기 간 분기는 현재 지원 되지 않습니다.
+* 여러 지역에서 Azure 방화벽을 사용 하는 경우 모든 스포크 가상 네트워크를 동일한 경로 테이블에 연결 해야 합니다. 예를 들어 Vnet 하위 집합이 Azure 방화벽을 통과 하는 반면, 다른 Vnet는 동일한 가상 허브에서 Azure 방화벽을 우회 하는 것은 불가능 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

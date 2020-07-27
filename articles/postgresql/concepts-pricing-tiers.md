@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b99e5f7d079e580ad8fcd30a311c24a55ef7fc5b
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121625"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171151"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 가격 책정 계층 - 단일 서버
 
@@ -21,7 +21,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10GB |
+| vCore 메모리 | 2GB | 5GB | 10 GB |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 | 가격 책정 계층 | 대상 워크로드 |
 |:-------------|:-----------------|
-| Basic | 간단한 컴퓨팅 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
+| 기본 | 간단한 컴퓨팅 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 애플리케이션이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
@@ -47,7 +47,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 |:---|:----------|:--------------------|:---------------------|
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
-| 스토리지 증분 크기 | 1GB | 1GB | 1GB |
+| 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!NOTE]
@@ -85,11 +85,11 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 저장소는 다운 되지 않고 확장만 가능 합니다.
 
-## <a name="backup"></a>Backup
+## <a name="backup-storage"></a>백업 저장소
 
-서비스에서 서버 백업을 자동으로 수행합니다. 7 일에서 35 일 사이의 보존 기간을 선택할 수 있습니다. 범용 및 메모리 액세스에 최적화 된 서버는 백업에 대 한 지역 중복 저장소를 선택할 수 있습니다. 개념에 대 한 자세한 내용은 [개념 문서를 참조](concepts-backup.md)하세요.
+Azure Database for PostgreSQL은 추가 비용 없이 최대 100%의 프로비전된 서버 스토리지를 백업 스토리지로 제공합니다. 이 용량을 초과 하 여 사용 하는 백업 저장소는 매달 GB 단위로 요금이 청구 됩니다. 예를 들어 250 GB의 저장소를 사용 하 여 서버를 프로 비전 하는 경우 무료로 서버를 백업 하는 데 250 GB의 추가 저장소를 사용할 수 있습니다. 250 GB를 초과 하는 백업용 저장소는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/postgresql/)에 따라 요금이 청구 됩니다. 백업 저장소 사용, 모니터링 및 제어 백업 저장소 비용에 영향을 주는 요소를 이해 하기 위해 [백업 설명서](concepts-backup.md)를 참조할 수 있습니다.
 
-## <a name="scale-resources"></a>리소스 크기 조정
+## <a name="scale-resources"></a>리소스 스케일링
 
 서버를 만든 후 vCore 수, 하드웨어 생성, 가격 책정 계층(기본 제외), 스토리지 크기 및 백업 보존 기간을 독립적으로 변경할 수 있습니다. 서버가 만들어진 후 백업 스토리지 유형은 변경할 수 없습니다. vCore 수는 늘리거나 줄일 수 있습니다. 백업 보존 기간은 7~35일 범위에서 늘리거나 줄일 수 있습니다. 스토리지 크기는 늘릴 수 있습니다. 리소스의 크기 조정은 포털 또는 Azure CLI를 통해 수행할 수 있습니다. Azure CLI를 사용하는 크기 조정의 예제는 [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 모니터링 및 크기 조정](scripts/sample-scale-server-up-or-down.md)을 참조하세요.
 

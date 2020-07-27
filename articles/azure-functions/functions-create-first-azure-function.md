@@ -5,19 +5,25 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 030af8a289daaf03d17f8402e8d603e893657853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd4ddc5b6b685813740aed63cc6f446bc66e8169
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123623"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170092"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
 Azure Functions를 사용하면 먼저 VM(가상 머신)을 만들거나 웹 애플리케이션을 게시하지 않고도 서버리스 환경에서 코드를 실행할 수 있습니다. 이 문서에서는 Azure Functions를 사용 하 여 Azure Portal에서 "hello 세계" HTTP 트리거 함수를 만드는 방법에 대해 알아봅니다.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[함수를 로컬로 개발](functions-develop-local.md) 하 고 Azure에서 함수 앱에 게시 하는 것이 좋습니다.  
+다음 링크 중 하나를 사용 하 여 선택한 로컬 개발 환경 및 언어를 시작 합니다.
 
-C# 개발자인 경우 포털 대신 [Visual Studio 2019에서 첫 번째 함수를 만드는](functions-create-your-first-function-visual-studio.md) 것이 좋습니다. 
+| Visual Studio Code | 터미널/명령 프롬프트 | Visual Studio |
+| --- | --- | --- |
+|  &bull;&nbsp;[C 시작 #](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[C 시작 #](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Python 시작](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [C 시작 #](functions-create-your-first-function-visual-studio.md) |
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

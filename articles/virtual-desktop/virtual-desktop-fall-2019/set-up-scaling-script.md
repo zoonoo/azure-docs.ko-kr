@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442dfc1667027bd39b138d59a28542138cc4a1ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085971"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172060"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 세션 호스트 크기 조정
 
@@ -60,10 +60,10 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 - 이 솔루션은 풀링된 다중 세션 세션 호스트 Vm에만 적용 됩니다.
 - 이 솔루션은 모든 지역에서 Vm을 관리 하지만 Azure Automation 계정 및 Azure 논리 앱과 동일한 구독 에서만 사용할 수 있습니다.
-- Runbook의 최대 작업 런타임은 3 시간입니다. 호스트 풀에서 Vm을 시작 하거나 중지 하는 데 시간이 더 오래 걸리면 작업이 실패 합니다. 자세한 내용은 [공유 리소스](../../automation/automation-runbook-execution.md#fair-share) 를 참조 하세요.
+- Runbook의 최대 작업 런타임은 3 시간입니다. 호스트 풀에서 Vm을 시작 하거나 중지 하는 데 시간이 더 오래 걸리면 작업이 실패 합니다. 자세한 내용은 [공유 리소스](../../automation/automation-runbook-execution.md#fair-share)를 참조 하세요.
 
 >[!NOTE]
->크기 조정 도구는 도구가 크기를 조정하는 대상 호스트 풀의 부하 분산 모드를 제어합니다. 도구는 사용량이 많은 시간과 적은 시간 모두에 대해 호스트 풀을 폭 우선 부하 분산으로 설정합니다.
+>크기 조정 도구는 현재 크기를 조정 하는 호스트 풀의 부하 분산 모드를 제어 합니다. 이 도구는 최고 및 사용률이 낮은 시간 모두에 대해 너비 우선 부하 분산 모드를 사용 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -140,7 +140,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
 
 [Azure Automation 실행 계정은](../../automation/manage-runas-account.md) azure cmdlet을 사용 하 여 azure에서 리소스를 관리 하기 위한 인증을 제공 합니다. 실행 계정을 만들 때 Azure Active Directory에 새 서비스 주체 사용자를 만들고 구독 수준에서 서비스 주체 사용자에 게 참가자 역할을 할당 합니다. Azure 실행 계정은 자격 증명 개체에 사용자 이름과 암호를 저장 하지 않고도 인증서 및 서비스 주체 이름으로 안전 하 게 인증할 수 있는 좋은 방법입니다. 실행 계정 인증에 대해 자세히 알아보려면 [실행 계정 권한 제한](../../automation/manage-runas-account.md#limit-run-as-account-permissions)을 참조 하세요.
 
-구독 관리자 역할의 구성원이고 구독의 공동 관리자인 사용자는 다음 섹션의 지침에 따라 실행 계정을 만들 수 있습니다.
+구독 관리자 역할의 구성원이 고 구독의 공동 관리자 인 사용자는 모두 실행 계정을 만들 수 있습니다.
 
 Azure Automation 계정에 실행 계정을 만들려면 다음을 수행 합니다.
 

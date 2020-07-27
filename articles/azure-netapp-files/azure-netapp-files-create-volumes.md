@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2019
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483638"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169460"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -76,7 +76,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.  
 
     * **가상 네트워크**  
-        볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다.  
+        볼륨에 액세스하려는 Microsoft Azure Virtual Network(VNet)를 지정합니다.  
 
         지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files 서비스는 동일한 VNet 또는 VNet 피어링을 통해 볼륨과 동일한 영역에 있는 VNet에서만 액세스할 수 있습니다. Express Route를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수도 있습니다.   
 
@@ -89,6 +89,12 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * 볼륨에 기존 스냅숏 정책을 적용 하려면 **고급 섹션 표시** 를 클릭 하 여 확장 하 고 풀 다운 메뉴에서 스냅숏 정책을 선택 합니다. 
+
+        스냅숏 정책을 만드는 방법에 대 한 자세한 내용은 [스냅숏 관리](azure-netapp-files-manage-snapshots.md)를 참조 하세요.
+
+        ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. **프로토콜**을 클릭한 후, 다음 작업을 완료합니다.  
     * **NFS**를 볼륨에 대한 프로토콜 유형으로 선택합니다.   

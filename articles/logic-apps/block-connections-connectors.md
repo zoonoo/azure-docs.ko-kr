@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 0ba95969d8bb6987d2e3685f937170f97e1af68f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/23/2020
+ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078706"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172087"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Azure Logic Apps 커넥터에서 만든 연결 차단
 
@@ -21,7 +21,7 @@ ms.locfileid: "87078706"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. 구독이 없는 경우 시작 하기 전에 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/) .
+* Azure 구독 구독이 없는 경우 시작 하기 전에 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 * 차단 하려는 커넥터의 참조 ID입니다. 자세한 내용은 [커넥터 참조 ID 찾기](#connector-reference-ID)를 참조 하세요.
 
@@ -35,8 +35,8 @@ ms.locfileid: "87078706"
 
 1. 차단할 커넥터에 대 한 참조 페이지를 찾습니다.
 
-   예를 들어,이 페이지로 이동 하 여 다음 페이지로 이동 합니다. 
-   
+   예를 들어, 사용 되지 않는 go Agram 커넥터를 차단 하려는 경우이 페이지로 이동 합니다.
+
    `https://docs.microsoft.com/connectors/instagram/`
 
 1. 페이지의 URL에서 슬래시 ()를 사용 하지 않고 끝에 커넥터 참조 ID를 복사 하 여 저장 `/` 합니다 (예:) `instagram` .
@@ -47,7 +47,7 @@ ms.locfileid: "87078706"
 
 <a name="connector-ID-portal"></a>
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾아서 엽니다.
 
@@ -123,10 +123,10 @@ ms.locfileid: "87078706"
 
    ![정책 정의 속성](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **정의 위치** | 예 | <*Azure-subscription-name*> | 정책 정의에 사용할 Azure 구독입니다. <p><p>1. 구독을 찾으려면 줄임표 (**...**) 단추를 선택 합니다. <br>2. **구독** 목록에서 구독을 찾아 선택 합니다. <br>3. 완료 되 면 **선택**을 선택 합니다. |
-   | **이름** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
+   | **Name** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
    | **설명** | 예 | <*정책-정의-이름*> | 정책 정의에 대 한 설명입니다. |
    | **범주** | 예 | **논리 앱** | 정책 정의에 대 한 기존 범주나 새 범주의 이름 |
    | **정책 적용** | 예 | **Enabled** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
@@ -150,7 +150,7 @@ ms.locfileid: "87078706"
     }
     ```
 
-   | 속성 | Value | 설명 |
+   | 속성 | Value | Description |
    |----------|-------|-------------|
    | `mode` | `All` | 정책이 평가 하는 리소스 종류를 결정 하는 모드입니다. <p><p>이 시나리오에서는 `mode` `All` 정책을 Azure 리소스 그룹, 구독 및 모든 리소스 유형에 적용 하는로 설정 합니다. <p><p>자세한 내용은 [정책 정의 구조-모드](../governance/policy/concepts/definition-structure.md#mode)를 참조 하세요. |
    | `if` | `{condition-to-evaluate}` | 정책 규칙을 적용할 시기를 결정 하는 조건입니다. <p><p>이 시나리오에서는 `{condition-to-evaluate}` `api.id` `Microsoft.Web/connections/api.id` `*managedApis/{connector-name}` 와일드 카드 (*) 값을 지정 하는에 일치 하는 값이 있는지 여부를 확인 합니다. <p><p>자세한 내용은 [정책 정의 구조-정책 규칙](../governance/policy/concepts/definition-structure.md#policy-rule)을 참조 하세요. |
@@ -244,10 +244,10 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
 
    ![정책 정의 속성](./media/block-connections-connectors/policy-definition-using-connections-1.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **정의 위치** | 예 | <*Azure-subscription-name*> | 정책 정의에 사용할 Azure 구독입니다. <p><p>1. 구독을 찾으려면 줄임표 (**...**) 단추를 선택 합니다. <br>2. **구독** 목록에서 구독을 찾아 선택 합니다. <br>3. 완료 되 면 **선택**을 선택 합니다. |
-   | **이름** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
+   | **Name** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
    | **설명** | 예 | <*정책-정의-이름*> | 정책 정의에 대 한 설명입니다. |
    | **범주** | 예 | **논리 앱** | 정책 정의에 대 한 기존 범주나 새 범주의 이름 |
    | **정책 적용** | 예 | **Enabled** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
@@ -271,7 +271,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
     }
     ```
 
-   | 속성 | Value | 설명 |
+   | 속성 | Value | Description |
    |----------|-------|-------------|
    | `mode` | `All` | 정책이 평가 하는 리소스 종류를 결정 하는 모드입니다. <p><p>이 시나리오에서는 `mode` `All` 정책을 Azure 리소스 그룹, 구독 및 모든 리소스 유형에 적용 하는로 설정 합니다. <p><p>자세한 내용은 [정책 정의 구조-모드](../governance/policy/concepts/definition-structure.md#mode)를 참조 하세요. |
    | `if` | `{condition-to-evaluate}` | 정책 규칙을 적용할 시기를 결정 하는 조건입니다. <p><p>이 시나리오에서는의 `{condition-to-evaluate}` 문자열 출력에 문자열이 포함 되어 있는지 여부를 확인 합니다 `[string(field('Microsoft.Logic/workflows/parameters'))]` `{connector-name}` . <p><p>자세한 내용은 [정책 정의 구조-정책 규칙](../governance/policy/concepts/definition-structure.md#policy-rule)을 참조 하세요. |
@@ -329,7 +329,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
 
 1. **기본**에서 정책 할당에 대 한 다음 정보를 제공 합니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **범위** | 예 | 정책 할당을 적용 하려는 리소스입니다. <p><p>1. **범위** 상자 옆의 줄임표 (**...**) 단추를 선택 합니다. <br>2. **구독** 목록에서 Azure 구독을 선택 합니다. <br>3. 필요에 따라 **리소스 그룹** 목록에서 리소스 그룹을 선택 합니다. <br>4. 완료 되 면 **선택**을 선택 합니다. |
    | **제외 항목** | 예 | 정책 할당에서 제외할 모든 Azure 리소스입니다. <p><p>1. **제외** 상자 옆의 줄임표 (**...**) 단추를 선택 합니다. <br>2. **리소스** 목록에서 **선택한 범위에 추가**> 리소스를 선택 합니다. <br>3. 완료 되 면 **저장**을 선택 합니다. |
@@ -364,7 +364,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
 메시지에는 다음 정보가 포함 됩니다.
 
 | Description | 콘텐츠 |
-|---|---|
+|-------------|---------|
 | 실패 이유 | `"Resource 'instagram' was disallowed by policy."` |
 | 할당 이름 | `"Block Instagram connections"` |
 | 할당 ID | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |

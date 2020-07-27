@@ -1,15 +1,16 @@
 ---
 title: Windows Node.js 앱 구성
 description: App Service의 네이티브 Windows 인스턴스에서 Node.js 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
+ms.custom: devx-track-javascript
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 9f4ccdd04b8d57784f452dc28fa4507fb7ea94c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fc6ed5cb090653e381d82f484d355a514520c62
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907993"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170901"
 ---
 # <a name="configure-a-windows-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Windows Node.js 앱 구성
 
@@ -56,7 +57,7 @@ process.env.NODE_ENV
 
 기본적으로 App Service 빌드 자동화는 `npm install --production` 응용 프로그램이 Git (또는 빌드 자동화를 사용 하는 Zip 배포를 사용 하 여 배포 됨)를 통해 배포 되 Node.js는 경우 빌드 자동화를 실행 합니다. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우이를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) 를 제공 해야 합니다.
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 예를 들어:
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 예:
 
 ```json
 "dependencies": {

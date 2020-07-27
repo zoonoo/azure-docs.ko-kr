@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 3a6162bb381f4e54114e3cabbf138f5b1c6aaae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e28fc3c5779f2c31abbb48a7ced448cd8f92d1a2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373026"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171848"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -19,13 +19,30 @@ Azure Database for MySQL은 자동으로 서버 백업을 만들어 사용자가
 
 ## <a name="backups"></a>Backup
 
-Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원되는 최대 스토리지 크기에 따라 전체 및 차등 백업(최대 4TB 스토리지 서버) 또는 스냅샷 백업(최대 16TB 스토리지 서버)을 수행합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 [따라](howto-restore-server-portal.md#set-backup-configuration) 최대 35 일을 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원 되는 최대 저장소 크기에 따라 전체 및 차등 백업 (4-TB의 최대 저장소 서버) 또는 스냅숏 백업 (최대 16TB의 최대 저장소 서버)을 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 [따라](howto-restore-server-portal.md#set-backup-configuration) 최대 35 일을 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
 이러한 백업 파일은 사용자에 게 노출 되지 않으므로 내보낼 수 없습니다. 이러한 백업은 Azure Database for MySQL 복원 작업에만 사용할 수 있습니다. [Mysqldump](concepts-migrate-dump-restore.md) 를 사용 하 여 데이터베이스를 복사할 수 있습니다.
 
 ### <a name="backup-frequency"></a>Backup 주기
 
-일반적으로 전체 백업은 매주 실행 되 고 차등 백업은 최대 4 TB의 저장소를 지 원하는 서버에 대해 매일 두 번 발생 합니다. 스냅샷 백업은 최대 16TB의 스토리지를 지원하는 서버에서 하루에 한 번 이상 수행됩니다. 두 경우 모두 트랜잭션 로그 백업은 5분마다 수행됩니다. 서버를 만든 후 즉시 전체 백업의 첫 번째 스냅숏이 예약 됩니다. 초기 전체 백업은 복원 된 대량 서버에서 더 오래 걸릴 수 있습니다. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다. 스냅숏이 순간에는 최대 16TB의 저장소를 지 원하는 서버를 만든 시간으로 다시 복원할 수 있습니다.
+#### <a name="servers-with-up-to-4-tb-storage"></a>최대 2TB 저장소를 포함 하는 서버
+
+최대 5TB의 저장소를 지 원하는 서버의 경우 전체 백업은 매주 한 번 수행 됩니다. 차등 백업은 하루에 두 번 발생 합니다. 트랜잭션 로그 백업은 5 분 마다 발생 합니다.
+
+#### <a name="servers-with-up-to-16-tb-storage"></a>최대 16TB의 저장소를 포함 하는 서버
+[Azure 지역의](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 최대 16tb의 저장소를 지원할 수 있습니다. 이러한 대량 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅숏 백업은 서버를 만든 후 즉시 예약 됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅숏 백업은 차등 백업만 수행 합니다. 
+
+차등 스냅숏 백업은 하루에 한 번 이상 발생 합니다. 차등 스냅숏 백업은 고정 일정에서 발생 하지 않습니다. 차등 스냅숏 백업은 마지막 차등 백업 이후 트랜잭션 로그 (MySQL의 binlog)가 50를 초과 하지 않는 한 24 시간 마다 발생 합니다. 하루에 최대 6 개의 차등 스냅숏이 허용 됩니다. 
+
+트랜잭션 로그 백업은 5 분 마다 발생 합니다. 
+
+### <a name="backup-retention"></a>Backup 보존
+
+백업은 서버의 백업 보존 기간 설정에 따라 보존 됩니다. 7 일에서 35 일의 보존 기간을 선택할 수 있습니다. 기본 보존 기간은 7 일입니다. [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) 또는 [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration)를 사용 하 여 백업 구성을 업데이트 하 여 서버를 만드는 동안 또는 나중에 보존 기간을 설정할 수 있습니다. 
+
+백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 백업 보존 기간은 복원 관점에서 복구 기간으로 처리 될 수도 있습니다. 백업 보존 기간 내에 지정 시간 복원을 수행 하는 데 필요한 모든 백업은 백업 저장소에 유지 됩니다. 예를 들어 백업 보존 기간을 7 일로 설정 하면 복구 기간이 최근 7 일로 간주 됩니다. 이 시나리오에서는 지난 7 일 동안 서버를 복원 하는 데 필요한 모든 백업이 유지 됩니다. 백업 보존 기간을 7 일로 바꿉니다.
+- 4mb 저장소를 사용 하는 레거시 서버는 최대 2 개의 전체 데이터베이스 백업, 모든 차등 백업 및 가장 이른 전체 데이터베이스 백업 이후에 수행 된 트랜잭션 로그 백업을 유지 합니다.
+-   대량 저장소 (16TB)가 있는 서버는 최근 8 일 동안 전체 데이터베이스 스냅숏, 모든 차등 스냅숏 및 트랜잭션 로그 백업을 유지 합니다.
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
@@ -36,9 +53,11 @@ Azure Database for MySQL은 범용 및 메모리 최적화 계층에서 로컬�
 
 ### <a name="backup-storage-cost"></a>백업 스토리지 비용
 
-Azure Database for MySQL은 추가 비용 없이 최대 100%의 프로비전된 서버 스토리지를 백업 스토리지로 제공합니다. 이는 일반적으로 7일의 백업 보존 기간에 적합합니다. 사용되는 추가 백업 스토리지는 GB/월 단위로 청구됩니다.
+Azure Database for MySQL은 추가 비용 없이 최대 100%의 프로비전된 서버 스토리지를 백업 스토리지로 제공합니다. 사용 되는 추가 백업 저장소는 매달 GB 단위로 요금이 청구 됩니다. 예를 들어 250 GB의 저장소로 서버를 프로 비전 한 경우 추가 비용 없이 서버 백업에 250 GB의 추가 저장소를 사용할 수 있습니다. 250 GB 보다 많은 백업에 사용 된 저장소는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/mysql/)에 따라 요금이 청구 됩니다. 
 
-예를 들어 250GB의 서버를 프로비전한 경우, 추가 비용 없이 250GB의 백업 스토리지를 사용할 수 있습니다. 그러나 250GB를 초과하는 경우 스토리지에 대한 요금이 청구됩니다.
+Azure Portal를 통해 사용할 수 있는 Azure Monitor [백업 저장소 사용](concepts-monitoring.md) 메트릭을 사용 하 여 서버에서 사용 하는 백업 저장소를 모니터링할 수 있습니다. 백업 저장소 사용 메트릭은 서버에 설정 된 백업 보존 기간에 따라 유지 되는 모든 전체 데이터베이스 백업, 차등 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 백업 빈도는 서비스에서 관리 되며 앞에서 설명한 것입니다. 서버에서 많은 트랜잭션 작업을 수행 하면 전체 데이터베이스 크기에 관계 없이 백업 저장소 사용량이 증가할 수 있습니다. 지역 중복 저장소의 경우 백업 저장소 사용량이 로컬 중복 저장소의 두 배가 됩니다. 
+
+백업 저장소 비용을 제어 하는 기본적인 방법은 적절 한 백업 보존 기간을 설정 하 고 원하는 복구 목표를 충족 하는 올바른 백업 중복성 옵션을 선택 하는 것입니다. 7 일에서 35 일 사이의 보존 기간을 선택할 수 있습니다. 범용 및 메모리 액세스에 최적화 된 서버는 백업에 대 한 지역 중복 저장소를 선택할 수 있습니다.
 
 ## <a name="restore"></a>복원
 

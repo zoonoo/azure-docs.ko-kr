@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65ff0ab03abdbd3b403d37700dc8df4fa5eee73a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116594"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169432"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -87,7 +87,7 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록
 
 다음으로, 범위를 추가하여 API를 노출합니다.
 
-1. **관리**에서 **API 표시**를 선택합니다.
+1. 왼쪽 메뉴의 **관리**에서 **API 노출**을 선택 합니다.
 1. **범위 추가**를 선택한 다음, **저장 후 계속**을 선택하여 기본 애플리케이션 ID URI를 적용합니다.
 1. Azure AD B2C 테넌트에서 사용자 지정 정책을 실행하도록 허용하는 범위를 만들도록 다음 값을 입력합니다.
     * **범위 이름**: `user_impersonation`
@@ -110,13 +110,13 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록
 
 다음으로, 애플리케이션을 퍼블릭 클라이언트로 처리하도록 지정합니다.
 
-1. **관리**에서 **인증**을 선택합니다.
+1. 왼쪽 메뉴의 **관리** 아래에서 **인증**을 선택합니다.
 1. **고급 설정**에서 **애플리케이션을 퍼블릭 클라이언트로 처리**(**예** 선택)를 사용하도록 설정합니다. 애플리케이션 매니페스트에 **"allowPublicClient": true**가 설정되었는지 확인합니다. 
 1. **저장**을 선택합니다.
 
 이제 앞서 *IdentityExperienceFramework* 등록 시 제공한 API 범위에 권한을 부여합니다.
 
-1. **관리** 아래에서 **API 권한**을 선택합니다.
+1. 왼쪽 메뉴의 **관리**에서 **API 권한**을 선택 합니다.
 1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
 1. **내 API** 탭을 선택한 후 **IdentityExperienceFramework** 애플리케이션을 선택합니다.
 1. **권한**에서 이전에 정의한 **user_impersonation** 범위를 선택합니다.

@@ -10,13 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112633"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171245"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,13 +41,13 @@ ms.locfileid: "84112633"
 
 ### <a name="supported-connectors"></a>지원되는 커넥터
 
-**파일 저장소**
+**File Storage**
 
 | 커넥터/메타데이터 | itemName<br>(파일/폴더) | itemType<br>(파일/폴더) | 크기<br>(파일) | created<br>(파일/폴더) | lastModified<br>(파일/폴더) |childItems<br>(폴더) |contentMD5<br>(파일) | structure<br/>(파일) | columnCount<br>(파일) | exists<br>(파일/폴더) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Azure Blob Storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Blob 스토리지](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure 파일](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -59,6 +60,7 @@ ms.locfileid: "84112633"
 - Azure Blob storage의 경우 `lastModified` 컨테이너와 Blob에는 적용 되지만 가상 폴더에는 적용 되지 않습니다.
 - `lastModified`필터는 현재 필터 자식 항목에 적용 되지만 지정 된 폴더/파일 자체에는 적용 되지 않습니다.
 - 폴더/파일에 대 한 와일드 카드 필터는 메타 데이터 가져오기 작업에 대해 지원 되지 않습니다.
+- `structure`및 `columnCount` 는 이진, JSON 또는 XML 파일에서 메타 데이터를 가져올 때 지원 되지 않습니다.
 
 **관계형 데이터베이스**
 
@@ -73,7 +75,7 @@ ms.locfileid: "84112633"
 
 메타 데이터 가져오기 작업 필드 목록에서 다음 메타 데이터 형식을 지정 하 여 해당 정보를 검색할 수 있습니다.
 
-| 메타데이터 유형 | 설명 |
+| 메타데이터 유형 | Description |
 |:--- |:--- |
 | itemName | 파일 또는 폴더의 이름입니다. |
 | itemType | 파일 또는 폴더의 형식입니다. 반환 된 값은 `File` 또는 `Folder` 입니다. |
@@ -92,7 +94,7 @@ ms.locfileid: "84112633"
 >[!NOTE]
 >파일 저장소에서 메타 데이터를 가져오고 또는를 구성 하는 경우 `modifiedDatetimeStart` `modifiedDatetimeEnd` `childItems` 에는 지정 된 범위 내에서 마지막으로 수정 된 시간을 포함 하는 지정 된 경로의 파일만 출력에 포함 됩니다. 의는 하위 폴더에 항목을 포함 하지 않습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 **메타 데이터 가져오기 작업**
 
@@ -136,12 +138,12 @@ ms.locfileid: "84112633"
 
 현재, 메타 데이터 가져오기 작업은 다음과 같은 유형의 메타 데이터 정보를 반환할 수 있습니다.
 
-속성 | 설명 | 필요한 공간
+속성 | Description | 필수
 -------- | ----------- | --------
 fieldList | 필요한 메타 데이터 정보의 형식입니다. 지원 되는 메타 데이터에 대 한 자세한 내용은이 문서의 [메타 데이터 옵션](#metadata-options) 섹션을 참조 하세요. | 예 
 데이터 세트 | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | 예
-formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
-나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
+formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
+나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
 
 ## <a name="sample-output"></a>샘플 출력
 

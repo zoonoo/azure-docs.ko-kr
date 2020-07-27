@@ -1,6 +1,6 @@
 ---
 title: NetApp Azure Files를 사용하여 스냅샷 관리 | Microsoft Docs
-description: Azure NetApp Files를 사용하여 볼륨에 대한 스냅샷을 만들거나 스냅샷에서 새 볼륨으로 복원하는 방법을 설명합니다.
+description: Azure NetApp Files를 사용 하 여 스냅숏을 만들고 관리 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483604"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169642"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
-Azure NetApp Files를 사용 하 여 볼륨에 대 한 주문형 스냅숏을 수동으로 만들거나 스냅숏에서 새 볼륨으로 복원할 수 있습니다. Azure NetApp Files 서비스는 볼륨 스냅숏을 자동으로 만들지 않습니다.  
+Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용을 지원 하 여 자동 스냅숏 생성을 예약 합니다.  스냅숏을 새 볼륨으로 복원할 수도 있습니다.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
-요청이 있는 경우에만 스냅샷을 만들 수 있습니다. 스냅샷 정책은 현재 지원되지 않습니다.
+요청 시 볼륨 스냅숏을 만들 수 있습니다. 
 
-1.  [볼륨] 블레이드에서 **스냅샷**을 클릭합니다.
+1.  스냅숏을 만들 볼륨으로 이동 합니다. **스냅숏**을 클릭 합니다.
 
     ![스냅샷으로 이동](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
@@ -43,47 +43,109 @@ Azure NetApp Files를 사용 하 여 볼륨에 대 한 주문형 스냅숏을 �
 
 4. **확인**을 클릭합니다. 
 
+## <a name="manage-snapshot-policies"></a>스냅숏 정책 관리
+
+스냅숏 정책을 사용 하 여 볼륨 스냅숏이 자동으로 수행 되도록 예약할 수 있습니다. 필요에 따라 스냅숏 정책을 수정 하거나 더 이상 필요 하지 않은 스냅숏 정책을 삭제할 수도 있습니다.  
+
+### <a name="create-a-snapshot-policy"></a>스냅숏 정책 만들기 
+
+스냅숏 정책을 사용 하면 매시간, 매일, 매주 또는 매월 주기로 스냅숏 생성 빈도를 지정할 수 있습니다. 또한 볼륨에 대해 유지할 최대 스냅숏 수를 지정 해야 합니다.  
+
+1.  NetApp 계정 보기에서 **스냅숏 정책**을 클릭 합니다.
+
+    ![스냅숏 정책 탐색](../media/azure-netapp-files/snapshot-policy-navigation.png)
+
+2.  스냅숏 정책 창에서 정책 상태를 **사용**으로 설정 합니다. 
+
+3.  **매시간,** **매일**, **매주**또는 **매월** 탭을 클릭 하 여 매시간, 매일, 매주 또는 매월 스냅숏 정책을 만듭니다. **유지할 스냅숏의 수**를 지정 합니다.  
+
+    볼륨에 허용 되는 최대 스냅숏 수에 대 한 [Azure NetApp Files 리소스 제한을](azure-netapp-files-resource-limits.md) 참조 하세요. 
+
+    다음 예에서는 매시간 스냅숏 정책 구성을 보여 줍니다. 
+
+    ![스냅숏 정책 매시간](../media/azure-netapp-files/snapshot-policy-hourly.png)
+
+    다음 예제에서는 일별 스냅숏 정책 구성을 보여 줍니다.
+
+    ![매일 스냅숏 정책](../media/azure-netapp-files/snapshot-policy-daily.png)
+
+    다음 예에서는 주별 스냅숏 정책 구성을 보여 줍니다.
+
+    ![매주 스냅숏 정책](../media/azure-netapp-files/snapshot-policy-weekly.png)
+
+    다음 예에서는 월간 스냅숏 정책 구성을 보여 줍니다.
+
+    ![스냅숏 정책 매월](../media/azure-netapp-files/snapshot-policy-monthly.png) 
+
+4.  **저장**을 클릭합니다.  
+
+추가 스냅숏 정책을 만들어야 하는 경우 3 단계를 반복 합니다.
+만든 정책이 스냅숏 정책 페이지에 표시 됩니다.
+
+볼륨에서 스냅숏 정책을 사용 하려면 해당 [정책을 볼륨에 적용](azure-netapp-files-manage-snapshots.md#apply-a-snapshot-policy-to-a-volume)해야 합니다. 
+
+### <a name="apply-a-snapshot-policy-to-a-volume"></a>볼륨에 스냅숏 정책 적용
+
+만든 스냅숏 정책을 볼륨에 사용 하려면 해당 정책을 볼륨에 적용 해야 합니다. 
+
+1.  **볼륨** 페이지로 이동 하 여 스냅숏 정책을 적용 하려는 볼륨을 마우스 오른쪽 단추로 클릭 하 고 **편집**을 선택 합니다.
+
+    ![볼륨 오른쪽 클릭 메뉴](../media/azure-netapp-files/volume-right-cick-menu.png) 
+
+2.  편집 창의 **스냅숏 정책**에서 볼륨에 사용할 정책을 선택 합니다.  **확인** 을 클릭 하 여 정책을 적용 합니다.  
+
+    ![스냅숏 정책 편집](../media/azure-netapp-files/snapshot-policy-edit.png) 
+
+### <a name="modify-a-snapshot-policy"></a>스냅숏 정책 수정 
+
+기존 스냅숏 정책을 수정 하 여 정책 상태, 스냅숏 빈도 (매시간, 매일, 매주 또는 매월) 또는 유지할 스냅숏 수를 변경할 수 있습니다.  
+ 
+1.  NetApp 계정 보기에서 **스냅숏 정책**을 클릭 합니다.
+
+2.  수정 하려는 스냅숏 정책을 마우스 오른쪽 단추로 클릭 한 다음 **편집**을 선택 합니다.
+
+    ![스냅숏 정책 마우스 오른쪽 단추 클릭 메뉴](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  표시 되는 스냅숏 정책 창에서 변경한 다음 **저장**을 클릭 합니다. 
+
+### <a name="delete-a-snapshot-policy"></a>스냅숏 정책 삭제 
+
+더 이상 유지 하지 않을 스냅숏 정책을 삭제할 수 있습니다.   
+
+1.  NetApp 계정 보기에서 **스냅숏 정책**을 클릭 합니다.
+
+2.  수정 하려는 스냅숏 정책을 마우스 오른쪽 단추로 클릭 한 다음 **삭제**를 선택 합니다.
+
+    ![스냅숏 정책 마우스 오른쪽 단추 클릭 메뉴](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  **예** 를 클릭 하 여 스냅숏 정책의 삭제를 확인 합니다.   
+
+    ![스냅숏 정책 삭제 확인](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>새 볼륨으로 스냅샷 복원
 
 현재 새 볼륨으로만 스냅샷을 복원할 수 있습니다. 
-1. 스냅샷 목록을 표시하려면 볼륨 블레이드에서 **스냅샷 관리** 블레이드로 이동합니다. 
-2. 복원할 스냅샷을 선택합니다.  
-3. 스냅샷 이름을 마우스 오른쪽 단추로 클릭하고 메뉴 옵션에서 **새 볼륨으로 복원**을 선택합니다.  
+1. 볼륨 **블레이드에서 스냅숏을 선택 하** 여 스냅숏 목록을 표시 합니다. 
+2. 복원할 스냅숏을 마우스 오른쪽 단추로 클릭 하 고 메뉴 옵션에서 **새 볼륨으로 복원을** 선택 합니다.  
 
     ![새 볼륨으로 스냅샷 복원](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-4. 새 볼륨 창에서 새 볼륨에 대한 정보를 제공합니다.  
+3. 볼륨 만들기 창에서 새 볼륨에 대 한 정보를 제공 합니다.  
     * **이름의**   
         만들고 있는 볼륨의 이름을 지정합니다.  
         
         이름은 각 리소스 그룹 내에서 고유해야 합니다. 3자 이상이어야 합니다.  영숫자 문자를 사용할 수 있습니다.
 
-    * **파일 경로**     
-        새 볼륨에 대한 내보내기 경로를 만드는 데 사용할 파일 경로를 지정합니다. 내보내기 경로는 볼륨을 탑재하고 액세스하는 데 사용됩니다.   
-        
-        탑재 대상은 NFS 서비스 IP 주소의 엔드포인트입니다. 자동으로 생성됩니다.   
-        
-        파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
-
     * **할당량**  
-        볼륨에 할당되는 논리 스토리지의 크기를 지정합니다.  
+        볼륨에 할당 하려는 논리적 저장소 크기를 지정 합니다.  
 
-        **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.
+    ![새 볼륨으로 복원](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-    *   **가상 네트워크**  
-        볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다.  
-        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files는 동일한 Vnet 또는 Vnet 피어링을 통해 볼륨과 동일한 지역에 있는 Vnet에서만 액세스할 수 있습니다. Express 경로를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수 있습니다. 
-
-    * **서브넷**  
-        볼륨에 사용할 서브넷을 지정합니다.  
-        지정하는 서브넷은 Azure NetApp Files 서비스에 위임되어야 합니다. 서브넷 필드 아래에서 **새로 만들기**를 선택하여 새 서브넷을 만들 수 있습니다.  
-   <!--
-    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-   -->
-
-5. **확인**을 클릭합니다.   
+4. **검토 + 만들기**를 클릭 합니다.  **만들기**를 클릭합니다.   
+    새 볼륨은 스냅숏에 사용 되는 것과 동일한 프로토콜을 사용 합니다.   
     스냅샷이 복원된 새 볼륨은 볼륨 블레이드에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md)
+* [Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md)
+* [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
