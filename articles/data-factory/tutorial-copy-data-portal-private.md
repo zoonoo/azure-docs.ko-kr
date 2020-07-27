@@ -1,0 +1,288 @@
+---
+title: 프라이빗 엔드포인트를 사용하여 Azure Data Factory 파이프라인 만들기
+description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 작업을 사용하여 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: tutorial
+ms.custom: seo-lt-2019
+ms.date: 05/15/2020
+ms.author: jingwang
+ms.openlocfilehash: 9458c89922fab8450b7cb8e202491d4c47e250e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540527"
+---
+# <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. **이 데이터 팩터리의 파이프라인은 [Azure Data Factory 관리형 Virtual Network](managed-virtual-network-private-endpoint.md)의 프라이빗 엔드포인트를 사용하여 데이터를 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 안전하게 복사합니다(둘 다 선택한 네트워크에만 액세스할 수 있음).** 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) 표를 참조하세요.
+
+> [!NOTE]
+>
+> - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](https://docs.microsoft.com/azure/data-factory/introduction)를 참조하세요.
+
+이 자습서에서는 다음 단계를 수행합니다.
+
+> * 데이터 팩터리 만들기
+> * 복사 작업을 사용하여 파이프라인 만들기
+
+
+## <a name="prerequisites"></a>필수 구성 요소
+* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)를 참조하세요. **스토리지 계정에서 '선택한 네트워크'에서만 액세스를 허용하는지 확인합니다.** 
+* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL 데이터베이스가 없는 경우 만드는 단계를 [SQL 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)에서 참조하세요. **Azure SQL Database 계정에서 '선택한 네트워크'에서만 액세스를 허용하는지 확인합니다.** 
+
+### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
+
+이제 다음 단계를 수행하여 자습서에서 사용할 Blob Storage 및 SQL 데이터베이스를 준비합니다.
+
+#### <a name="create-a-source-blob"></a>원본 Blob 만들기
+
+1. 메모장을 시작합니다. 다음 텍스트를 복사하고 디스크에 **emp.txt** 파일로 저장합니다.
+
+    ```
+    FirstName,LastName
+    John,Doe
+    Jane,Doe
+    ```
+
+1. Blob Storage에 **adftutorial**이라는 컨테이너를 만듭니다. 이 컨테이너에 **input**이라는 폴더를 만듭니다. 그런 다음 **emp.txt** 파일을 **input** 폴더에 업로드합니다. 이러한 작업을 수행하려면 Azure Portal 또는 [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용합니다.
+
+#### <a name="create-a-sink-sql-table"></a>싱크 SQL 테이블 만들기
+
+1. 다음 SQL 스크립트를 사용하여 SQL 데이터베이스에 **dbo.emp** 테이블을 만듭니다.
+
+    ```sql
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50)
+    )
+    GO
+
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    ```
+
+1. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. Data Factory에서 SQL Server에 데이터를 쓸 수 있도록 SQL Server에 대해 **Azure 서비스 방문 허용**이 **켜기**로 설정되어 있는지 확인합니다. 이 설정을 확인하고 켜려면 Azure SQL Server > 개요 > 서버 방화벽 설정>으로 이동하고 **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
+
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
+이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다.
+
+1. **Microsoft Edge** 또는 **Google Chrome**을 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
+
+
+2. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다.
+
+3. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory**를 입력합니다.
+
+   Azure Data Factory의 이름은 *전역적으로 고유*해야 합니다. 이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. (예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](https://docs.microsoft.com/azure/data-factory/naming-rules)을 참조하세요.
+
+4. 데이터 팩터리를 만들 Azure **구독**을 선택합니다.
+
+5. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
+
+    a. **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
+
+    b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
+         
+    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)를 참조하세요. 
+
+6. **버전**에서 **V2**를 선택합니다.
+
+7. **위치**에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
+
+
+8. **만들기**를 선택합니다.
+
+
+9. 만들기가 완료되면 알림 센터에 알림이 표시됩니다. **리소스로 이동**을 선택하여 Data Factory 페이지로 이동합니다.
+
+10. **작성 및 모니터링**을 선택하여 별도의 탭에서 Data Factory UI를 선택합니다.
+
+## <a name="create-an-azure-integration-runtime-in-adf-managed-virtual-network"></a>ADF 관리형 Virtual Network에서 Azure Integration Runtime 만들기
+이 단계에서는 Azure Integration Runtime을 만들고 관리형 Virtual Network를 사용하도록 설정합니다.
+
+1. ADF 포털에서 **허브 관리**로 이동하고, **새로 만들기**를 클릭하여 새 Azure Integration Runtime을 만듭니다.
+   ![새 Azure Integration Runtime 만들기](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+2. Azure** Integration Runtime을 만들려면 이 항목을 선택합니다.
+   ![새 Azure Integration Runtime](./media/tutorial-copy-data-portal-private/azure-ir.png)
+3. **Virtual Network**를 사용하도록 설정합니다.
+   ![새 Azure Integration Runtime](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+4. **만들기**를 선택합니다.
+
+## <a name="create-a-pipeline"></a>파이프라인 만들기
+이 단계에서는 복사 활동이 있는 파이프라인을 데이터 팩터리에 만듭니다. 복사 활동은 Blob Storage에서 SQL Database로 데이터를 복사합니다. [빠른 시작 자습서](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal)에서 다음 단계에 따라 파이프라인을 만들었습니다.
+
+1. 연결된 서비스를 만듭니다.
+1. 입력 및 출력 데이터 세트를 만듭니다.
+1. 파이프라인을 만듭니다.
+
+이 자습서에서는 파이프라인을 만드는 것부터 시작합니다. 그런 다음, 파이프라인을 구성해야 할 때 연결된 서비스와 데이터 세트를 만듭니다.
+
+1. **시작** 페이지에서 **파이프라인 만들기**를 선택합니다.
+
+   ![파이프라인 만들기](./media/doc-common-process/get-started-page.png)
+1. 파이프라인에 대한 **속성** 창에서 파이프라인의 **이름**에 대해 **CopyPipeline**을 입력합니다.
+
+1. **활동** 도구 상자에서 **이동 및 변환** 범주를 펼치고, **데이터 복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **이름**에 대해 **CopyFromBlobToSql**을 지정합니다.
+
+    ![복사 활동](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
+
+### <a name="configure-source"></a>원본 구성
+
+>[!TIP]
+>이 자습서에서는 *계정 키*를 원본 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI*, *서비스 주체* 및 *관리 ID*를 선택합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties)의 해당 섹션을 참조하세요.
+>데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)를 참조하세요.
+
+#### <a name="create-source-dataset-and-linked-service"></a>원본 데이터 세트 및 연결된 서비스 만들기
+
+1. **원본** 탭으로 이동합니다. **+ 새로 만들기**를 선택하여 원본 데이터 세트를 만듭니다.
+
+1. **새 데이터 세트** 대화 상자에서 **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 원본 데이터는 Blob 스토리지에 있으므로 원본 데이터 세트으로 **Azure Blob Storage**를 선택합니다.
+
+1. **형식 선택** 대화 상자에서 데이터의 형식 유형을 선택한 다음, **계속**을 선택합니다.
+
+1. **속성 설정** 대화 상자에서 이름에 **SourceBlobDataset**를 입력합니다. **헤더로 첫 번째 행**의 확인란을 선택합니다. **연결된 서비스** 텍스트 상자에서 **+ 새로 만들기**를 선택합니다.
+
+1. **새로 연결된 서비스(Azure Blob Storage)** 대화 상자에서 **AzureStorageLinkedService**를 이름으로 입력하고, **스토리지 계정 이름** 목록에서 스토리지 계정을 선택합니다. 
+
+1. **대화형 작성**을 사용하도록 설정해야 합니다. 사용하도록 설정하는 데 약 1분 정도 걸릴 수 있습니다.
+
+    ![대화형 작성](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
+
+1. **연결 테스트**를 선택합니다. 스토리지 계정에서 '선택한 네트워크'로부터의 액세스만 허용하고 Azure Data Factory에서 사용하기 전에 승인해야 하는 프라이빗 엔드포인트를 만들어야 하는 경우 이 연결이 실패합니다. 오류 메시지에는 관리형 프라이빗 엔드포인트를 만들기 위해 따를 수 있는 **프라이빗 엔드포인트** 만들기에 대한 링크가 표시됩니다. *또 다른 방법은 [관리] 탭으로 직접 이동하여 [다음 섹션](#create-a-managed-private-endpoint)의 지침에 따라 관리형 프라이빗 엔드포인트를 만드는 것입니다.*
+> [!NOTE]
+> 일부 데이터 팩터리 인스턴스에는 [관리] 탭을 사용할 수 없습니다. 이 탭이 표시되지 않는 경우에도 '**작성자**' 탭 --> '**연결**' --> '**프라이빗 엔드포인트**'를 통해 [프라이빗 엔드포인트]에 액세스할 수 있습니다.
+1. 대화 상자를 열어 둔 채 위에서 선택한 스토리지 계정으로 이동합니다.
+
+1. [이 섹션](#approval-of-a-private-link-in-storage-account)의 지침에 따라 프라이빗 링크를 승인합니다.
+
+1. 대화 상자로 돌아갑니다. **연결 테스트**를 다시 하고 **만들기**를 선택하여 연결된 서비스를 배포합니다.
+
+1. 연결된 서비스가 생성된 후 **속성 설정** 페이지로 다시 이동합니다. **파일 경로** 옆에 있는 **찾아보기**를 선택합니다.
+
+1. **adftutorial/input** 폴더로 이동하여 **emp.txt** 파일을 선택한 다음, **확인**을 선택합니다.
+
+1. **확인**을 선택합니다. 자동으로 파이프라인 페이지로 이동합니다. **원본** 탭에서 **SourceBlobDataset**가 선택되어 있는지 확인합니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기**를 선택합니다.
+
+    ![원본 데이터 세트](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
+
+#### <a name="create-a-managed-private-endpoint"></a>관리형 프라이빗 엔드포인트 만들기
+
+위의 연결을 테스트할 때 하이퍼링크를 클릭하지 않은 경우 다음 경로를 따릅니다. 이제 위에서 만든 연결된 서비스에 연결하는 관리형 프라이빗 엔드포인트를 만들어야 합니다.
+
+1. [관리] 탭으로 이동합니다.
+> [!NOTE]
+> 일부 데이터 팩터리 인스턴스에는 [관리] 탭을 사용할 수 없습니다. 이 탭이 표시되지 않는 경우에도 '**작성자**' 탭 --> '**연결**' --> '**프라이빗 엔드포인트**'를 통해 [프라이빗 엔드포인트]에 액세스할 수 있습니다.
+
+1. [관리형 프라이빗 엔드포인트] 섹션으로 이동합니다.
+
+1. [관리형 프라이빗 엔드포인트] 섹션 아래에서 **+ 새로 만들기**를 선택합니다.
+
+    ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+
+1. 목록에서 Azure Blob Storage 타일, **계속**을 차례로 선택합니다.
+
+1. 위에서 만든 스토리지 계정의 이름을 입력합니다.
+
+1. **만들기**를 선택합니다.
+
+1. 몇 초 정도 기다리면 만들어진 프라이빗 링크를 승인해야 한다고 표시됩니다.
+
+1. 위에서 만든 프라이빗 엔드포인트를 선택합니다. 스토리지 계정 수준에서 프라이빗 엔드포인트를 승인하도록 안내하는 하이퍼링크가 표시됩니다.
+
+    ![프라이빗 엔드포인트 관리](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png) 
+
+#### <a name="approval-of-a-private-link-in-storage-account"></a>스토리지 계정에서 프라이빗 링크 승인
+1. 스토리지 계정의 [설정] 섹션 아래에서 **프라이빗 엔드포인트 연결**로 이동합니다.
+
+1. 위에서 만든 프라이빗 엔드포인트, **승인**을 차례로 선택합니다.
+
+    ![프라이빗 엔드포인트 승인](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+
+1. 설명을 추가하고 **예**를 클릭합니다.
+1. Azure Data Factory에서 **관리** 탭의 **관리형 프라이빗 엔드포인트** 섹션으로 돌아갑니다.
+1. Azure Data Factory UI에서 프라이빗 엔드포인트에 대한 승인을 반영하는 데 약 1-2분 정도 걸립니다.
+
+
+### <a name="configure-sink"></a>싱크 구성
+>[!TIP]
+>이 자습서에서는 *SQL 인증*을 싱크 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *서비스 주체* 및 *관리 ID*를 선택합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties)의 해당 섹션을 참조하세요.
+>데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)를 참조하세요.
+
+#### <a name="create-sink-dataset-and-linked-service"></a>싱크 데이터 세트 및 연결된 서비스 만들기
+1. **싱크** 탭으로 이동하고, **+ 새로 만들기**를 선택하여 싱크 데이터 세트를 만듭니다.
+
+1. **새 데이터 세트** 대화 상자에서 검색 상자에 “SQL”을 입력하여 커넥터를 필터링하고, **Azure SQL Database**를 선택한 다음, **마침**을 선택합니다. 이 자습서에서는 데이터를 SQL 데이터베이스에 복사합니다.
+
+1. **속성 설정** 대화 상자에서 이름에 **OutputSqlDataset**를 입력합니다. **연결된 서비스** 드롭다운 목록에서 **+ 새로 만들기**를 선택합니다. 데이터 세트는 연결된 서비스와 연결되어야 합니다. 연결된 서비스에는 런타임에 Data Factory에서 SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열 있습니다. 데이터 세트는 데이터가 복사될 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다.
+
+1. **새로 연결된 서비스(Azure SQL Database)** 대화 상자에서 다음 단계를 수행합니다.
+
+    1. **이름** 아래에서 **AzureSqlDatabaseLinkedService**를 입력합니다.
+    1. **서버 이름** 아래에서 SQL Server 인스턴스를 선택합니다.
+    1. **대화형 작성**을 사용하도록 설정해야 합니다.
+    1. **데이터베이스 이름** 아래에서 SQL 데이터베이스를 선택합니다.
+    1. **사용자 이름** 아래에서 사용자의 이름을 입력합니다.
+    1. **암호** 아래에서 사용자의 암호를 입력합니다.
+    1. **연결 테스트**를 클릭합니다. SQL 서버에서 '선택한 네트워크'로부터의 액세스만 허용하고 Azure Data Factory에서 사용하기 전에 승인해야 하는 프라이빗 엔드포인트를 만들어야 하므로 이 연결이 실패합니다. 오류 메시지에는 관리형 프라이빗 엔드포인트를 만들기 위해 따를 수 있는 **프라이빗 엔드포인트** 만들기에 대한 링크가 표시됩니다. *또 다른 방법은 [관리] 탭으로 직접 이동하여 다음 섹션의 지침에 따라 관리형 프라이빗 엔드포인트를 만드는 것입니다.*
+    1. 대화 상자를 열어 둔 채 위에서 선택한 SQL 서버로 이동합니다.    
+    1. [이 섹션](#approval-of-a-private-link-in-sql-server)의 지침에 따라 프라이빗 링크를 승인합니다.
+    1. 대화 상자로 돌아갑니다. **연결 테스트**를 다시 하고 **만들기**를 선택하여 연결된 서비스를 배포합니다.
+
+1. 자동으로 **속성 설정** 대화 상자로 이동합니다. **테이블**에서 **[dbo].[emp]** 를 선택합니다. 그런 다음, **확인**을 선택합니다.
+
+1. 파이프라인이 있는 탭으로 이동하고, **싱크 데이터 세트**에서 **OutputSqlDataset**가 선택되어 있는지 확인합니다.
+
+    ![파이프라인 탭](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)       
+
+[복사 작업의 스키마 매핑](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping)을 따라 선택적으로 원본 스키마를 대상의 해당 스키마에 매핑할 수 있습니다.
+
+#### <a name="create-a-managed-private-endpoint"></a>관리형 프라이빗 엔드포인트 만들기
+
+위의 연결을 테스트할 때 하이퍼링크를 클릭하지 않은 경우 다음 경로를 따릅니다. 이제 위에서 만든 연결된 서비스에 연결하는 관리형 프라이빗 엔드포인트를 만들어야 합니다.
+
+1. [관리] 탭으로 이동합니다.
+1. [관리형 프라이빗 엔드포인트] 섹션으로 이동합니다.
+1. [관리형 프라이빗 엔드포인트] 섹션 아래에서 **+ 새로 만들기**를 선택합니다.
+
+    ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+
+1. 목록에서 Azure SQL Database 타일, **계속**을 차례로 선택합니다.
+1. 위에서 선택한 SQL 서버의 이름을 입력합니다.
+1. **만들기**를 선택합니다.
+1. 몇 초 정도 기다리면 만들어진 프라이빗 링크를 승인해야 한다고 표시됩니다.
+1. 위에서 만든 프라이빗 엔드포인트를 선택합니다. SQL 서버 수준에서 프라이빗 엔드포인트를 승인하도록 안내하는 하이퍼링크가 표시됩니다.
+
+
+#### <a name="approval-of-a-private-link-in-sql-server"></a>SQL 서버에서 프라이빗 링크 승인
+1. SQL 서버의 [설정] 섹션 아래에서 **프라이빗 엔드포인트 연결**로 이동합니다.
+1. 위에서 만든 프라이빗 엔드포인트, **승인**을 차례로 선택합니다.
+1. 설명을 추가하고 **예**를 클릭합니다.
+1. Azure Data Factory에서 **관리** 탭의 **관리형 프라이빗 엔드포인트** 섹션으로 돌아갑니다.
+1. 프라이빗 엔드포인트에 대한 승인을 반영하는 데 약 1-2분 정도 걸립니다.
+
+#### <a name="debug-and-publish-the-pipeline"></a>파이프라인 디버그 및 게시
+
+아티팩트(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 또는 고유한 Azure Repos Git 리포지토리에 게시하기 전에 파이프라인을 디버그할 수 있습니다.
+
+1. 파이프라인을 디버그하려면 도구 모음에서 **디버그**를 선택합니다. 창의 아래쪽에 있는 **출력** 탭에서 파이프라인 실행 상태가 표시됩니다.
+2. 파이프라인이 성공적으로 실행되면 위쪽 도구 모음에서 **모두 게시**를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 세트 및 파이프라인)를 Data Factory에 게시합니다.
+3. **게시됨** 메시지가 표시될 때까지 기다립니다. 알림 메시지를 보려면 오른쪽 위에서 **알림 표시**(종 모양 단추)를 클릭합니다.
+
+
+#### <a name="summary"></a>요약
+이 샘플의 파이프라인은 관리형 Virtual Network의 프라이빗 엔드포인트를 사용하여 데이터를 Blob 스토리지에서 Azure SQL DB로 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
+
+> * 데이터 팩터리 만들기
+> * 복사 작업을 사용하여 파이프라인 만들기
+
