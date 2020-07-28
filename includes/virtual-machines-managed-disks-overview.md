@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102834"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -45,22 +45,30 @@ ms.locfileid: "83343449"
 
 ### <a name="upload-your-vhd"></a>vhd 업로드
 
- 직접 업로드를 사용하면 vhd를 Azure 관리 디스크로 쉽게 전송할 수 있습니다. 이전에는 스토리지 계정에 데이터 준비를 포함하는 더 많은 관련 프로세스를 수행해야 했습니다. 이제 단계가 줄어듭니다. Azure에 온-프레미스 VM을 업로드하거나 대규모 관리 디스크에 업로드하는 과정에서 번거로움이 줄어듭니다. 백업 및 복원 프로세스도 간단해집니다. 또한 데이터를 VM에 연결하지 않고도 관리 디스크에 직접 업로드할 수 있으므로 비용이 절감됩니다. 직접 업로드를 사용하여 최대 32TiB 크기의 vhd를 업로드할 수 있습니다.
+직접 업로드를 사용하면 vhd를 Azure 관리 디스크로 쉽게 전송할 수 있습니다. 이전에는 스토리지 계정에 데이터 준비를 포함하는 더 많은 관련 프로세스를 수행해야 했습니다. 이제 단계가 줄어듭니다. Azure에 온-프레미스 VM을 업로드하거나 대규모 관리 디스크에 업로드하는 과정에서 번거로움이 줄어듭니다. 백업 및 복원 프로세스도 간단해집니다. 또한 데이터를 VM에 연결하지 않고도 관리 디스크에 직접 업로드할 수 있으므로 비용이 절감됩니다. 직접 업로드를 사용하여 최대 32TiB 크기의 vhd를 업로드할 수 있습니다.
 
- vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) 문서를 참조하세요.
+vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) 문서를 참조하세요.
 
-## <a name="encryption"></a>암호화
+## <a name="security"></a>보안
+
+### <a name="private-links"></a>Private Link
+
+관리 디스크는 Private Link를 사용하여 네트워크 내부의 관리 디스크를 가져오거나 내보낼 수 있도록 지원합니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../articles/private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
+
+관리 디스크를 가져오거나 내보내는 데 Private Link를 사용하도록 설정하는 방법에 대한 자세한 내용은 [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) 또는 [포털](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) 문서를 참조하세요.
+
+### <a name="encryption"></a>암호화
 
 관리 디스크는 두 가지 종류의 암호화를 제공합니다. 첫 번째는 스토리지 서비스에서 수행하는 SSE(서버 쪽 암호화)이고, 두 번째는 VM에 대한 OS 및 데이터 디스크에서 사용할 수 있는 ADE(Azure Disk Encryption)입니다.
 
-### <a name="server-side-encryption"></a>서버 쪽 암호화
+#### <a name="server-side-encryption"></a>서버 쪽 암호화
 
-[Azure 서버 쪽 암호화](../articles/virtual-machines/windows/disk-encryption.md)는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. 서버 쪽 암호화는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. (반면에 임시 디스크는 Storage Service 암호화로 암호화되지 않습니다. [디스크 역할: 임시 디스크](#temporary-disk)를 참조하세요).
+서버 쪽 암호화는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. 서버 쪽 암호화는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. (반면 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다. [디스크 역할: 임시 디스크](#temporary-disk) 참조).
 
-Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키입니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
+Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키입니다. 자세한 내용은 [Azure Disk Storage의 서버 쪽 암호화](../articles/virtual-machines/windows/disk-encryption.md) 문서를 참조하세요.
 
 
-### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
+#### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 
 Azure Disk Encryption을 사용하면 IaaS Virtual Machines에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 이 암호화에는 관리되는 디스크가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 암호화 프로세스는 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [Linux VM용 Azure Disk Encryption](../articles/virtual-machines/linux/disk-encryption-overview.md) 또는 [Windows VM용 Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md)을 참조하세요.
 
@@ -82,9 +90,9 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 스토리지를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 기간에 또는 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)할 때 손실될 수 있습니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다.  
+모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 스토리지를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)할 때 손실될 수 있습니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다.  
 
-Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 임시 디스크는 서버 쪽 암호화로 암호화되지 않습니다([암호화](#encryption) 참조).
+Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다.
 
 ## <a name="managed-disk-snapshots"></a>관리 디스크 스냅샷
 

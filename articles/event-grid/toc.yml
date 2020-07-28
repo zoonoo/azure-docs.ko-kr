@@ -8,6 +8,8 @@
       href: overview.md
     - name: 메시징 서비스 비교
       href: compare-messaging-services.md
+    - name: 릴리스 정보
+      href: whats-new.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -236,7 +238,7 @@
           href: configure-private-endpoints.md
         - name: IP 방화벽 구성(미리 보기)
           href: configure-firewall.md
-        - name: AAD를 사용한 보안 WebHook
+        - name: AAD를 사용한 보안 웹후크
           href: secure-webhook-delivery.md
         - name: 관리 ID를 사용하여 이벤트 전달
           href: managed-service-identity.md

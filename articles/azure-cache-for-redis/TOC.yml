@@ -72,7 +72,9 @@
           href: cache-how-to-geo-replication.md
         - name: 예약 용량으로 저장
           href: cache-reserved-pricing.md
-        - name: Managed Cache Service에서 마이그레이션
+        - name: Azure Cache for Redis로 마이그레이션
+          href: cache-migration-guide.md
+        - name: Managed Cache Service에서 마이그레이션(사용되지 않음)
           href: cache-migrate-to-redis.md
     - name: 자동화
       items:

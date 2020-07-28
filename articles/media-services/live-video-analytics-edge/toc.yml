@@ -64,6 +64,8 @@
       href: manage-recording-policy-how-to.md
     - name: 선택한 AI를 사용하여 라이브 비디오 분석
       href: analyze-with-ai-your-choice-how-to.md
+    - name: 포털을 사용하여 직접 메서드 호출
+      href: use-azure-portal-to-invoke-direct-methods.md
     - name: 문제 해결
       href: troubleshoot-how-to.md
 - name: 참조

@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7164aa71495100d7be4f1c0f6ef6de90644831b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 0f3ecb918aa1f830edeafbe57b365441e1e534f4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115976"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169335"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록
 
@@ -63,7 +63,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 
 애플리케이션 등록이 완료되면 암시적 권한 부여 흐름을 사용하도록 설정합니다.
 
-1. **관리**에서 **인증**을 선택합니다.
+1. 왼쪽 메뉴의 **관리** 아래에서 **인증**을 선택합니다.
 1. **암시적 권한 부여**에서 **액세스 토큰** 및 **ID 토큰** 확인란을 둘 다 선택합니다.
 1. **저장**을 선택합니다.
 
@@ -96,7 +96,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. **Azure AD B2C - 앱 등록** 페이지에서 만든 애플리케이션을 선택합니다(예: *webapp1*).
-1. **관리**에서 **인증서 및 암호**를 선택합니다.
+1. 왼쪽 메뉴의 **관리**에서 **인증서 및 비밀**을 선택합니다.
 1. **새 클라이언트 비밀**을 선택합니다.
 1. **설명** 상자에 클라이언트 암호에 대한 설명을 입력합니다. 예: *clientsecret1*.
 1. **만료**에서 암호가 유효한 기간을 선택한 다음 **추가**를 선택합니다.

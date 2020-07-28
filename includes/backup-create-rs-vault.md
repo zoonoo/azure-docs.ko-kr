@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
-ms.translationtype: MT
+ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003830"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
-Recovery Services 자격 증명 모음은 시간에 따라 생성 되는 복구 지점이 저장 되 고 백업 관련 작업을 수행 하기 위한 인터페이스를 제공 하는 관리 엔터티입니다. 여기에는 주문형 백업 수행, 복원 수행 및 백업 정책 만들기가 포함 됩니다.
+Recovery Services 자격 증명 모음은 시간이 지남에 따라 만들어지는 복구 지점을 저장하고 백업 관련 작업을 수행하기 위한 인터페이스를 제공하는 관리 엔터티입니다. 여기에는 주문형 백업 수행, 복원 수행 및 백업 정책 만들기가 포함됩니다.
 
 Recovery Services 자격 증명 모음을 만들려면 다음 단계를 따릅니다.
 
@@ -52,6 +52,10 @@ Recovery Services 자격 증명 모음을 만들려면 다음 단계를 따릅�
       >
       >
 
+1. 값이 제공되면 **검토 및 만들기**를 선택합니다.
+
+    ![Recovery Services 자격 증명 모음 만들기](./media/backup-create-rs-vault/review-and-create.png)
+
 1. Recovery Services 자격 증명 모음을 만들 준비가 되면 **만들기**를 선택합니다.
 
     ![Recovery Services 자격 증명 모음 만들기](./media/backup-create-rs-vault/click-create-button.png)
@@ -61,4 +65,4 @@ Recovery Services 자격 증명 모음을 만들려면 다음 단계를 따릅�
      ![백업 자격 증명 모음 목록 새로 고침](./media/backup-create-rs-vault/refresh-button.png)
 
 >[!IMPORTANT]
-> **저장소 복제 유형** 및 **보안 설정** 에 대 한 기본 설정은 자격 증명 모음에서 백업을 구성 하기 전에 검토 하는 것이 좋습니다. 자세한 내용은 [저장소 중복성 설정](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 섹션을 참조 하세요.
+> 자격 증명 모음에서 백업을 구성하기 전에 **스토리지 복제 유형** 및 **보안 설정**에 대한 기본 설정을 검토하는 것이 좋습니다. 자세한 내용은 [스토리지 중복 설정](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 섹션을 참조하세요.
