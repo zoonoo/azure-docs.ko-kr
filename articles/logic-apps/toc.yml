@@ -49,8 +49,13 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: 비즈니스 연속성 및 재해 복구
       href: business-continuity-disaster-recovery-guidance.md
-    - name: 보안 기준
-      href: security-baseline.md
+    - name: 보안
+      items:
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 개발
@@ -197,7 +202,7 @@
           href: ../connectors/connectors-create-api-container-instances.md
         - name: Azure Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Azure Functions
+        - name: Azure 기능
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md

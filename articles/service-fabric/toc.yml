@@ -127,7 +127,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: Architecture
+    - name: 아키텍처
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -143,6 +143,9 @@
           href: cluster-security-certificates.md
         - name: Service Fabric에서 인증서 관리
           href: cluster-security-certificate-management.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Azure Security Benchmark에 대한 보안 기준
           href: security-baseline.md
     - name: 용어

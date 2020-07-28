@@ -345,7 +345,7 @@
         - name: 공유 디스크
           href: disks-shared.md
         - name: 사용 후 삭제 OS 디스크
-          href: ephemeral-os-disks.md
+          href: ../ephemeral-os-disks.md
     - name: 네트워킹
       href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 확장 집합
