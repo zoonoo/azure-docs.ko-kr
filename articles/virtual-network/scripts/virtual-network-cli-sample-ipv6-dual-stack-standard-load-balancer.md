@@ -1,7 +1,7 @@
 ---
 title: Azure CLI 스크립트 샘플-IPv6 프런트 엔드 구성-표준 Load Balancer
 titlesuffix: Azure Virtual Network
-description: Azure Virtual Network에서 Azure CLI를 사용 하 여 IPv6 끝점 사용
+description: 표준 Load Balancer를 사용 하 여 가상 네트워크 스크립트 샘플에서 IPv6 끝점을 구성 하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5f5856a89a04b58b138ee23a5f289ceff0915acf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2509034abb37c7dc90b65569d14f228eadb746c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235047"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281619"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>표준 Load Balancer를 사용 하 여 가상 네트워크 스크립트 샘플에서 IPv6 끝점 구성 (미리 보기)
 
@@ -27,7 +27,7 @@ Azure [Cloud Shell](https://shell.azure.com/bash) 또는 로컬 Azure CLI 설치
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 Azure virtual network에 대 한 IPv6 기능을 사용 하려면 다음과 같이 구독을 한 번만 구성 해야 합니다.
 
 ```azurecli

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 19b7962462e5cdb03bad0c6004b8c19f781ccc69
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005279"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281857"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 그룹 관리 서비스 계정 (gMSA) 만들기
 
@@ -76,7 +76,7 @@ New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"
 * **-Name** 은 *WebFarmSvc* 로 설정 됩니다.
 * **-Path** 매개 변수는 이전 단계에서 만든 gMSA에 대 한 사용자 지정 OU를 지정 합니다.
 * *WebFarmSvc.aaddscontoso.com* 에 대 한 DNS 항목 및 서비스 주체 이름 설정
-* *Aaddscontoso-SERVER $* 의 보안 주체는 id를 사용 하 여 암호를 검색할 수 있습니다.
+* *Aaddscontoso-SERVER $* 의 보안 주체는 암호를 검색 하 고 id를 사용할 수 있습니다.
 
 고유한 이름과 도메인 이름을 지정 합니다.
 

@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 가상 네트워크 구성 | Microsoft 문서
 description: 기존 가상 네트워크 및 서브넷을 구성하고 Azure DevTest Labs를 통해 VM에서 사용하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21fe23b6be6fdc924c5502ff97f9c03a3f3e759d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482652"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283557"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 가상 네트워크 구성
 [랩에 VM 추가](devtest-lab-add-vm.md) 문서에 설명된 대로 랩에 VM을 만들 때 구성된 가상 네트워크를 지정할 수 있습니다. 예를 들어 ExpressRoute 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 VM에서 회사 네트워크 리소스에 액세스해야 할 수 있습니다.
@@ -53,10 +53,9 @@ ms.locfileid: "85482652"
 
 이제 가상 네트워크를 구성했으므로 VM을 만들 때 선택할 수 있습니다. VM을 만들고 가상 네트워크를 지정하는 방법은 [랩에 VM 추가](devtest-lab-add-vm.md) 문서를 참조하세요. 
 
-Azure의 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network)에 VNet을 설정하고 관리하고 온-프레미스 네트워크에 연결하는 방법을 포함하여 VNet 사용 방법에 대한 자세한 정보가 나와 있습니다.
+Azure의 [가상 네트워크 설명서](../virtual-network/index.yml)에 VNet을 설정하고 관리하고 온-프레미스 네트워크에 연결하는 방법을 포함하여 VNet 사용 방법에 대한 자세한 정보가 나와 있습니다.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>다음 단계
 랩에 원하는 가상 네트워크를 추가한 후에는 [랩에 VM을 추가](devtest-lab-add-vm.md)해야 합니다.
-

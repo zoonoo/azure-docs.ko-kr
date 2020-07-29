@@ -3,23 +3,23 @@ title: Azure CLI 샘플 Windows
 description: Azure CLI 샘플 Windows
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11d0af0133a113382ea9ed03eeeb8686ebe0c73b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3d91197b72071c6379ea74d212aa7fdc550f4780
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203687"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288336"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Windows 가상 머신에 대한 Azure CLI 샘플
 
 다음 테이블은 Windows 가상 머신을 배포하는 Azure CLI를 사용하여 빌드된 Bash 셸에 대한 링크를 포함합니다.
 
-| 스크립트 | 설명 |
+| 스크립트 | Description |
 |---|---|
 |**가상 머신 만들기**||
 | [가상 머신 만들기](./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 최소한의 구성으로 Windows 가상 머신을 만듭니다. |
@@ -32,7 +32,7 @@ ms.locfileid: "86203687"
 | [스냅샷에서 관리 디스크 만들기](../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 스냅샷에서 관리 디스크를 만듭니다. |
 | [같은 구독 또는 다른 구독으로 관리 디스크 복사](../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 부모 관리 디스크와 같은 지역에 있지만 동일하거나 다른 구독으로 관리 디스크를 복사합니다. 
 | [스냅샷을 VHD로 스토리지 계정에 내보내기](../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 다른 지역의 스토리지 계정에 관리 스냅샷을 VHD로 내보냅니다. |
-| [관리 디스크의 VHD를 스토리지 계정에 내보내기](../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 관리 디스크의 기본 VHD를 다른 지역의 스토리지 계정으로 내보냅니다. |
+| [관리 디스크의 VHD를 스토리지 계정으로 내보내기](../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 관리 디스크의 기본 VHD를 다른 지역의 스토리지 계정으로 내보냅니다. |
 | [같은 구독 또는 다른 구독으로 스냅샷 복사](../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 부모 스냅샷과 같은 지역에 있지만 동일하거나 다른 구독으로 스냅샷을 복사합니다. |
 |**네트워크 가상 머신**||
 | [가상 머신 간의 네트워크 트래픽 보안](./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 두 개의 가상 머신, 모든 관련된 리소스 및 내부 및 외부 NSG(네트워크 보안 그룹)를 만듭니다. |
