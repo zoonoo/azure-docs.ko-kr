@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018777"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 
@@ -75,7 +75,7 @@ ms.locfileid: "75971883"
  
 ## <a name="access-data"></a>데이터 액세스  
 
-이 섹션에서는 VM ID를 사용하여 액세스 토큰을 가져오고 이를 사용하여 Key Vault에서 비밀을 검색하는 방법을 보여줍니다. PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다운로드하고 설치](https://docs.microsoft.com/powershell/azure/overview)해야 합니다.
+이 섹션에서는 VM ID를 사용하여 액세스 토큰을 가져오고 이를 사용하여 Key Vault에서 비밀을 검색하는 방법을 보여줍니다. PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다운로드하고 설치](https://docs.microsoft.com/powershell/azure/)해야 합니다.
 
 먼저 VM의 시스템 할당 관리 ID를 사용하여 Key Vault에 인증하기 위한 액세스 토큰을 가져옵니다.
  

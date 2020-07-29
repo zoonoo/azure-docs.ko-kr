@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 597b12a584e7b4c17ec21635e18368f897ad168a
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85443879"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324270"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 Azure 리소스 모니터링
 [Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 리소스에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 리소스에 대해 자동으로 수집되는 데이터 및 특정 리소스에 대한 Azure Portal에서 이 데이터를 보는 방법에 대한 간단한 연습을 제공합니다. 나중에 추가 데이터를 수집하는 구성을 추가하고, Azure Monitor 메뉴로 이동한 후 동일한 도구를 사용하여 구독의 모든 리소스에 대해 수집된 데이터에 액세스할 수 있습니다.
@@ -70,4 +70,5 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 이 빠른 시작에서는 Azure Monitor에서 자동으로 수집하는 Azure 리소스에 대한 활동 로그 및 메트릭을 살펴보았습니다. [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 분석할 수 있는 Log Analytics 작업 영역에 활동 로그를 수집하는 방법을 보여주는 다음 빠른 시작을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 활동 로그를 Log Analytics 작업 영역으로 보내기](quick-monitor-azure-resource.md)
+> [Azure 활동 로그를 Log Analytics 작업 영역으로 보내기]()
+

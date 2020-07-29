@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: c213b0089af0af295d44afd38bbc5c17b6db159d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006435"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 판매 인사이트를 파생하는 엔드투엔드 데이터 파이프라인 만들기
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * [Azure 기본 제공 역할 - 소유자](../role-based-access-control/built-in-roles.md)의 멤버
 
-* PowerShell을 사용하여 Data Factory 파이프라인을 트리거하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요합니다.
+* PowerShell을 사용하여 Data Factory 파이프라인을 트리거하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/)이 필요합니다.
 
 * 이 자습서의 끝부분에서 비즈니스 인사이트를 시각화하는 [Power BI Desktop](https://aka.ms/pbiSingleInstaller)
 

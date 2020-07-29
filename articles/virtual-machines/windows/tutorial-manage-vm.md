@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 229df5d2f5186ad7cec08952f2a44790f9220dfe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c896e617346c9bab598044cedfc475b471466cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998853"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
@@ -34,7 +34,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *EastUS* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다.
 
@@ -50,13 +50,13 @@ New-AzResourceGroup `
 
 VM을 만들 때 운영 체제 이미지, 네트워크 구성 및 관리 자격 증명과 같은 몇 가지 옵션을 사용할 수 있습니다. 이 예에서는 Windows Server 2016 Datacenter의 기본 버전을 실행하는 *myVM*이라는 VM을 만듭니다.
 
-[Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6)을 사용하여 VM의 컴퓨터의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6)을 사용하여 VM의 컴퓨터의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다.
+[New-AzVM](/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -93,13 +93,13 @@ mstsc /v:<publicIpAddress>
 
 Azure Marketplace에는 새 VM을 만드는 데 사용할 수 있는 여러 VM 이미지가 포함되어 있습니다. 이전 단계에서는 Windows Server 2016 Datacenter 이미지를 사용하여 VM을 만들었습니다. 이 단계에서는 PowerShell 모듈을 사용하여 Marketplace에서 새 VM의 기반이 될 수도 있는 다른 Windows 이미지를 검색합니다. 이 프로세스는 이미지를 [식별](cli-ps-findimage.md#terminology)하기 위한 게시자, 제품, SKU 및 버전 번호(선택 사항)로 구성되어 있습니다.
 
-[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용하여 이미지 게시자 목록을 반환합니다.
+[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용하여 이미지 게시자 목록을 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-이미지 제안 목록을 반환하려면 [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer)를 사용합니다. 이 명령을 사용하면 반환된 목록이 `MicrosoftWindowsServer`라는 지정된 게시자를 기준으로 필터링됩니다.
+이미지 제안 목록을 반환하려면 [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer)를 사용합니다. 이 명령을 사용하면 반환된 목록이 `MicrosoftWindowsServer`라는 지정된 게시자를 기준으로 필터링됩니다.
 
 ```azurepowershell-interactive
 Get-AzVMImageOffer `
@@ -117,7 +117,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-그런 다음, [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) 명령으로 게시자 및 제안 이름을 기준으로 필터링하여 이미지 이름 목록을 반환합니다.
+그런 다음, [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) 명령으로 게시자 및 제안 이름을 기준으로 필터링하여 이미지 이름 목록을 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku `
@@ -173,18 +173,18 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 일반적인 크기           |    Description       |
+| Type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [컴퓨팅 최적화](sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
-| [메모리에 최적화](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
-| [Storage에 최적화](sizes-storage.md)      | Lsv2, Ls              | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
-| [고성능](sizes-hpc.md) | H        | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
+| [범용](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
+| [컴퓨팅 최적화](../sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [메모리에 최적화](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [Storage에 최적화](../sizes-storage.md)      | Lsv2, Ls              | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
+| [고성능](../sizes-hpc.md) | H        | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
 ### <a name="find-available-vm-sizes"></a>사용 가능한 VM 크기 찾기
 
-특정 영역에서 사용할 수 있는 VM 크기의 목록을 보려면 [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 명령을 사용합니다.
+특정 영역에서 사용할 수 있는 VM 크기의 목록을 보려면 [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) 명령을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzVMSize -Location "EastUS"
@@ -194,7 +194,7 @@ Get-AzVMSize -Location "EastUS"
 
 VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다.
 
-VM의 크기를 조정하기 원하는 크기를 현재 VM 클러스터에서 사용 가능한지 확인합니다. [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 명령은 크기 목록을 반환합니다.
+VM의 크기를 조정하기 원하는 크기를 현재 VM 클러스터에서 사용 가능한지 확인합니다. [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) 명령은 크기 목록을 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
@@ -245,7 +245,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다.
 | - | VM의 전원 상태를 알 수 없습니다. |
 
 
-특정 VM의 상태를 검색하려면 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 명령을 사용합니다. VM 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다.
+특정 VM의 상태를 검색하려면 [Get-AzVM](/powershell/module/az.compute/get-azvm) 명령을 사용합니다. VM 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다.
 
 ```azurepowershell-interactive
 Get-AzVM `
@@ -268,7 +268,7 @@ VM의 수명 주기 동안 VM 시작, 중지 또는 삭제 등의 관리 작업�
 
 ### <a name="stop-a-vm"></a>VM 중지
 
-[Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm)을 사용하여 VM을 중지하고 할당을 취소합니다.
+[Stop-AzVM](/powershell/module/az.compute/stop-azvm)을 사용하여 VM을 중지하고 할당을 취소합니다.
 
 ```azurepowershell-interactive
 Stop-AzVM `

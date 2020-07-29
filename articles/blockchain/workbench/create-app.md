@@ -4,12 +4,12 @@ description: Azure Blockchain Workbench 미리 보기용 블록체인 애플리�
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
-ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74324819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073114"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench용 블록체인 애플리케이션 만들기
 
@@ -329,7 +329,7 @@ Blockchain Workbench에 블록체인 애플리케이션을 추가하려면 구�
 블록체인 애플리케이션을 배포하는 데 몇 분이 걸립니다. 배포가 완료되면 새 애플리케이션이 **애플리케이션**에 표시됩니다. 
 
 > [!NOTE]
-> [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)를 사용하여 블록체인 애플리케이션을 만들 수도 있습니다.
+> [Azure Blockchain Workbench REST API](/rest/api/azure-blockchain-workbench)를 사용하여 블록체인 애플리케이션을 만들 수도 있습니다.
 
 ## <a name="add-blockchain-application-members"></a>블록체인 애플리케이션 구성원 추가
 

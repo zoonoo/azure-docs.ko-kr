@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4431031e5e96c71c6488b57cc570271d763bb764
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6edd926c0a91519f4c75228d8230c71ff7b96442
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693467"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018828"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Windows VM 시스템 할당 관리 ID를 사용하여 Resource Manager에 액세스
 
@@ -51,7 +51,7 @@ Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 시스템 할당 관리 ID를 통해 액세스 토큰을 가져오고 Azure Resource Manager를 호출하는 데 사용합니다. 
 
-이 부분에서는 **PowerShell**을 사용해야 합니다.  **PowerShell**이 설치되어 있지 않으면 [여기](https://docs.microsoft.com/powershell/azure/overview)서 다운로드하세요. 
+이 부분에서는 **PowerShell**을 사용해야 합니다.  **PowerShell**이 설치되어 있지 않으면 [여기](https://docs.microsoft.com/powershell/azure/)서 다운로드하세요. 
 
 1.  Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요**에서 **연결**을 클릭합니다. 
 2.  Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 

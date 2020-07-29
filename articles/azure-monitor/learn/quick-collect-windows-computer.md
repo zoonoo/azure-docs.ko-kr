@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539638"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324321"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Azure Monitor를 사용하여 하이브리드 환경에서 Windows 컴퓨터의 데이터 수집
 
-[Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 사용자 환경의 물리적 또는 가상 Windows 컴퓨터 데이터를 Log Analytics 작업 영역으로 직접 수집할 수 있습니다. [Log Analytics 에이전트](../platform/log-analytics-agent.md)를 설치하면 Azure Monitor에서 데이터 센터 또는 다른 클라우드 환경의 데이터를 수집할 수 있습니다. 이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Windows 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다. Azure Windows VM에 대한 자세한 내용은 [Azure Virtual Machines에 대한 데이터 수집](../../azure-monitor/learn/quick-collect-azurevm.md)을 참조하세요.  
+[Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 사용자 환경의 물리적 또는 가상 Windows 컴퓨터 데이터를 Log Analytics 작업 영역으로 직접 수집할 수 있습니다. [Log Analytics 에이전트](../platform/log-analytics-agent.md)를 설치하면 Azure Monitor에서 데이터 센터 또는 다른 클라우드 환경의 데이터를 수집할 수 있습니다. 이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Windows 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다. Azure Windows VM에 대한 자세한 내용은 [Azure Virtual Machines에 대한 데이터 수집](./quick-collect-azurevm.md)을 참조하세요.  
 
-지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](../../azure-monitor/platform/log-analytics-agent.md#network-requirements)을 참조하세요.
+지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](../platform/log-analytics-agent.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](../platform/log-analytics-agent.md#network-requirements)을 참조하세요.
  
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -166,3 +166,4 @@ Azure Monitor는 장기 분석 및 보고를 위해 Windows 이벤트 로그 및
 
 > [!div class="nextstepaction"]
 > [Log Analytics에서 데이터 보기 또는 분석](../log-query/get-started-portal.md)
+

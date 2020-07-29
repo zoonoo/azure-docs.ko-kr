@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 15c388336efc92381ac5ebd84df9145c1890cfcc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007217"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "75438959"
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
   3. **테넌트 ID**를 가져옵니다.
   4. **ADFGetStartedApp** 애플리케이션을 **데이터 팩터리 참가자** 역할에 할당합니다.
-* [Azure PowerShell](/powershell/azure/overview)을 설치합니다.
+* [Azure PowerShell](/powershell/azure/)을 설치합니다.
 * **PowerShell** 을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   1. **Connect-AzAccount**를 실행하고 Azure Portal에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.
   2. **Get-AzSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
