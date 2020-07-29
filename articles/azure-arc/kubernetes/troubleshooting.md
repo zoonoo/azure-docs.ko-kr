@@ -10,6 +10,7 @@ description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
 ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83725587"
