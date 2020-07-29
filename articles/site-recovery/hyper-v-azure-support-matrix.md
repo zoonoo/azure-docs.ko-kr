@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 465b0ca3fdc5dd96b03ec7ab53bf453c4cdc083d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 268d8f3b43809e02476757cfe36b1ee52d4eaef1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317487"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -30,15 +30,13 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 
-**Server** | **Requirements** | **세부 정보**
+**Server** | **요구 사항** | **세부 정보**
 --- | --- | ---
-Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016, 최신 업데이트가 포함 된 Windows Server 2012 R2 (Windows Server 2019를 제외 하 고 이러한 운영 체제의 Server core 설치 포함) | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요.
+Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016, 최신 업데이트가 포함 된 Windows Server 2012 R2 (이러한 운영 체제의 Server core 설치 포함) | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요.
 Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (Virtual Machine Manager 2019를 제외 하 고 이러한 운영 체제의 server core 설치 포함) | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.
 
 > [!NOTE]
->
-> - 온-프레미스 서버에 .NET Framework 4.6.2 이상이 있는지 확인 합니다.
-> - Virtual Machine Manager를 사용 하거나 사용 하지 않고 실행 되는 대체 위치나 원래 위치로 장애 조치 (Failover) 및 장애 복구 (failback)는 Windows Server 2019 Server core 버전에서 지원 되지 않습니다.
+> 온-프레미스 서버에 .NET Framework 4.6.2 이상이 있는지 확인 합니다.
 
 ## <a name="replicated-vms"></a>복제된 VM
 
@@ -55,23 +53,23 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 
 **동작** | **세부 정보**
 --- | ---
-복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
-복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 크기 조정 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 추가 | 지원 안 됨 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 네트워크 구성
 
 **구성 요소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-호스트 네트워크: NIC 팀 | 예 | 예
-호스트 네트워크: VLAN | 예 | 예
-호스트 네트워크: IPv4 | 예 | 예
+호스트 네트워크: NIC 팀 | 예 | yes
+호스트 네트워크: VLAN | 예 | yes
+호스트 네트워크: IPv4 | 예 | yes
 호스트 네트워크: IPv6 | 아니요 | 아니요
 게스트 VM 네트워크: NIC 팀 | 아니요 | 아니요
-게스트 VM 네트워크: IPv4 | 예 | 예
+게스트 VM 네트워크: IPv4 | 예 | yes
 게스트 VM 네트워크: IPv6 | 예 | 예
-게스트 VM 네트워크: 고정 IP(Windows) | 예 | 예
+게스트 VM 네트워크: 고정 IP(Windows) | 예 | yes
 게스트 VM 네트워크: 고정 IP(Linux) | 아니요 | 아니요
-게스트 VM 네트워크: 다중 NIC | 예 | 예
+게스트 VM 네트워크: 다중 NIC | 예 | yes
 Https 프록시 | 아니요 | 아니요
 Site Recovery 서비스에 대 한 개인 링크 액세스 | 예. [자세한 정보를 알아보세요](hybrid-how-to-enable-replication-private-endpoints.md). | 예. [자세한 정보를 알아보세요](hybrid-how-to-enable-replication-private-endpoints.md).
 
@@ -82,15 +80,15 @@ Site Recovery 서비스에 대 한 개인 링크 액세스 | 예. [자세한 정
 
 **구성 요소** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-Azure ExpressRoute | 예 | 예
-ILB | 예 | 예
-ELB | 예 | 예
-Azure Traffic Manager | 예 | 예
-다중 NIC | 예 | 예
-예약된 IP | 예 | 예
-IPv4 | 예 | 예
-원본 IP 주소 유지 | 예 | 예
-Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 없음) | 예 | 예
+Azure ExpressRoute | 예 | yes
+ILB | 예 | yes
+ELB | 예 | yes
+Azure Traffic Manager | 예 | yes
+다중 NIC | 예 | yes
+예약된 IP | 예 | yes
+IPv4 | 예 | yes
+원본 IP 주소 유지 | 예 | yes
+Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 없음) | 예 | yes
 가속 네트워킹 | 아니요 | 아니요
 
 
@@ -99,18 +97,18 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 **스토리지** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
 NFS | 해당 없음 | 해당 없음
-SMB 3.0 | 예 | 예
-SAN(ISCSI) | 예 | 예
-다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 예 | 예
+SMB 3.0 | 예 | yes
+SAN(ISCSI) | 예 | yes
+다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 예 | yes
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 스토리지
 
 **스토리지** | **Virtual Machine Manager를 사용한 hyper-v** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 VMDK | 해당 없음 | 해당 없음
-VHD/VHDX | 예 | 예
-2세대 VM | 예 | 예
-EFI/UEFI<br></br>Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.| 예 | 예
+VHD/VHDX | 예 | yes
+2세대 VM | 예 | yes
+EFI/UEFI<br></br>Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.| 예 | yes
 공유 클러스터 디스크 | 아니요 | 아니요
 암호화된 디스크 | 아니요 | 아니요
 NFS | 해당 없음 | 해당 없음
@@ -118,9 +116,9 @@ SMB 3.0 | 아니요 | 아니요
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
-디스크: 4K 논리 및 512 바이트 실제 섹터 | 예 |  예
-논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | 예 | 예
-스트라이프 디스크 포함 볼륨 1TB 이상 | 예 | 예
+디스크: 4K 논리 및 512 바이트 실제 섹터 | 예 |  yes
+논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | 예 | yes
+스트라이프 디스크 포함 볼륨 1TB 이상 | 예 | yes
 스토리지 공간 | 아니요 | 아니요
 디스크 핫 추가/제거 | 아니요 | 아니요
 디스크 제외 | 예 | 예
@@ -159,7 +157,7 @@ HUB | 예 | 예
 
 Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azure VM 요구 사항을 충족해야 합니다.
 
-**구성 요소** | **Requirements** | **세부 정보**
+**구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | Site Recovery은 [Azure에서 지원](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))되는 모든 운영 체제를 지원 합니다.  | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 게스트 운영 체제 아키텍처 | 32 비트 (Windows Server 2008)/64-bit | 지원되지 않는 경우 필수 구성 요소 확인이 실패함

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5dc603a890a112cf475e6ceafb79145dec5a56ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f8f1cceb5cfee4bf910674ecd50c7fba1d5c021
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077221"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318371"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -28,7 +28,7 @@ Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나
 새 플랫폼에서 경고를 시작하고 다시 만드는 것이 좋습니다. 많은 수의 경고를 포함 하는 고객의 경우 기존 기존 경고를 중단 또는 추가 비용 없이 새 경고 시스템으로 이동 하는 [자발적 마이그레이션 도구인](alerts-using-migration-tool.md) [단계로 롤아웃](alerts-understand-migration.md#rollout-phases)됩니다.
 
 > [!IMPORTANT]
-> 활동 로그에서 생성된 클래식 경고 규칙은 더 이상 사용 또는 마이그레이션되지 않습니다. 활동 로그에서 생성된 모든 클래식 경고 규칙은 새로운 Azure Monitor - 경고에서 액세스하여 사용할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-activity-log.md)를 참조하세요. 마찬가지로, Service Health에 대한 경고는 새로운 Service Health 섹션에서 현재 상태로 액세스하여 사용할 수 있습니다. 자세한 내용은 [서비스 상태 알림에서 경고](../../service-health/alerts-activity-log-service-notifications-portal.md)를 참조하세요.
+> 활동 로그에서 생성된 클래식 경고 규칙은 더 이상 사용 또는 마이그레이션되지 않습니다. 활동 로그에서 생성된 모든 클래식 경고 규칙은 새로운 Azure Monitor - 경고에서 액세스하여 사용할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리](./alerts-activity-log.md)를 참조하세요. 마찬가지로, Service Health에 대한 경고는 새로운 Service Health 섹션에서 현재 상태로 액세스하여 사용할 수 있습니다. 자세한 내용은 [서비스 상태 알림에서 경고](../../service-health/alerts-activity-log-service-notifications-portal.md)를 참조하세요.
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Application Insights의 통합 메트릭 및 경고
 
@@ -36,29 +36,29 @@ Azure Monitor의 새 메트릭 플랫폼은 이제 Application Insights에서 �
 
 Application Insights에 대한 새로운 통합 모니터링 및 경고에 포함된 항목은 다음과 같습니다.
 
-- **Application Insights 플랫폼 메트릭** – Application Insights 제품에서 인기 있는 미리 작성된 메트릭을 제공합니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 플랫폼 메트릭 사용](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) 문서를 참조하세요.
-- **Application Insights 가용성 및 웹 테스트** - 웹 애플리케이션 또는 서버의 응답성과 가용성을 평가할 수 있는 기능을 제공합니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 가용성 테스트 및 알림 사용](../../azure-monitor/app/monitor-web-app-availability.md) 문서를 참조하세요.
-- **Application Insights 사용자 지정 메트릭** – 모니터링 및 경고에 대한 자체의 메트릭을 정의하고 내보낼 수 있습니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 사용자 지정 메트릭 사용](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) 문서를 참조하세요.
+- **Application Insights 플랫폼 메트릭** – Application Insights 제품에서 인기 있는 미리 작성된 메트릭을 제공합니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 플랫폼 메트릭 사용](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) 문서를 참조하세요.
+- **Application Insights 가용성 및 웹 테스트** - 웹 애플리케이션 또는 서버의 응답성과 가용성을 평가할 수 있는 기능을 제공합니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 가용성 테스트 및 알림 사용](../app/monitor-web-app-availability.md) 문서를 참조하세요.
+- **Application Insights 사용자 지정 메트릭** – 모니터링 및 경고에 대한 자체의 메트릭을 정의하고 내보낼 수 있습니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 사용자 지정 메트릭 사용](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) 문서를 참조하세요.
 - **Application Insights 오류 이상(스마트 검색의 일부)** – 웹 애플리케이션이 실패한 HTTP 요청 또는 종속성 호출의 속도가 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알려줍니다. 자세한 내용은 [스마트 검색 오류 비정상](../app/proactive-failure-diagnostics.md)사용에 대 한 문서를 참조 하세요.
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>다른 Azure 리소스에 대한 통합 메트릭 및 경고
 
-2018년 3월 이후 Azure 리소스에 대한 차세대 경고 및 다차원 모니터링이 출시되었습니다. 이제 새 메트릭 플랫폼 및 경고는 거의 실시간에 가까운 기능을 통해 더욱 빨라졌습니다. 무엇보다도 최신 플랫폼에 특정 값 조합, 조건 또는 작업을 조각화 및 필터링할 수 있는 차원 옵션이 포함되어 있어 최신 메트릭 플랫폼 경고에서 더 자세한 세분성을 제공합니다. 새 Azure Monitor의 모든 경고와 마찬가지로, ActionGroups를 사용함으로써 최신 메트릭 경고가 확장되어 이메일 또는 웹후크를 넘어 SMS, 음성, Azure Function, Automation Runbook 등으로 알림을 확장할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조하세요.
+2018년 3월 이후 Azure 리소스에 대한 차세대 경고 및 다차원 모니터링이 출시되었습니다. 이제 새 메트릭 플랫폼 및 경고는 거의 실시간에 가까운 기능을 통해 더욱 빨라졌습니다. 무엇보다도 최신 플랫폼에 특정 값 조합, 조건 또는 작업을 조각화 및 필터링할 수 있는 차원 옵션이 포함되어 있어 최신 메트릭 플랫폼 경고에서 더 자세한 세분성을 제공합니다. 새 Azure Monitor의 모든 경고와 마찬가지로, ActionGroups를 사용함으로써 최신 메트릭 경고가 확장되어 이메일 또는 웹후크를 넘어 SMS, 음성, Azure Function, Automation Runbook 등으로 알림을 확장할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](./alerts-metric.md)를 참조하세요.
 Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같습니다.
 
-- **Azure Monitor 표준 플랫폼 메트릭** – 다양한 Azure 서비스와 제품에서 인기 있는 미리 채워진 메트릭을 제공합니다. 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported) 및 [Azure Monitor에서 메트릭 경고 지원](../../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts) 문서를 참조하세요.
-- **Azure Monitor 사용자 지정 메트릭** – Azure Diagnostics 에이전트가 포함된 사용자 구동 원본의 메트릭을 제공합니다. 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md) 문서를 참조하세요. 사용자 지정 메트릭을 사용하면 [Windows Azure Diagnostics 에이전트](../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md) 및 [InfluxData Telegraf 에이전트](../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md)에서 수집한 메트릭을 게시할 수도 있습니다.
+- **Azure Monitor 표준 플랫폼 메트릭** – 다양한 Azure 서비스와 제품에서 인기 있는 미리 채워진 메트릭을 제공합니다. 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported) 및 [Azure Monitor에서 메트릭 경고 지원](./alerts-metric-overview.md#supported-resource-types-for-metric-alerts) 문서를 참조하세요.
+- **Azure Monitor 사용자 지정 메트릭** – Azure Diagnostics 에이전트가 포함된 사용자 구동 원본의 메트릭을 제공합니다. 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](./metrics-custom-overview.md) 문서를 참조하세요. 사용자 지정 메트릭을 사용하면 [Windows Azure Diagnostics 에이전트](./collect-custom-metrics-guestos-resource-manager-vm.md) 및 [InfluxData Telegraf 에이전트](./collect-custom-metrics-linux-telegraf.md)에서 수집한 메트릭을 게시할 수도 있습니다.
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>클래식 모니터링 및 경고 플랫폼의 사용 중지
 
-앞에서 설명한 대로, 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에서 사용할 수 있는 클래식 모니터링 및 경고 플랫폼은 새 시스템으로 교체됨에 따라 앞으로 몇 개월 내에 사용 중지됩니다.
+앞에서 설명한 대로, 현재 Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)에서 사용할 수 있는 클래식 모니터링 및 경고 플랫폼은 새 시스템으로 교체됨에 따라 앞으로 몇 개월 내에 사용 중지됩니다.
 이전 클래식 모니터링 및 경고는 31 월 2019 일에 사용 중지 됩니다. 관련 Api, Azure Portal 인터페이스 및 서비스의 종료를 포함 합니다. 사용 중지되는 기능은 구체적으로 다음과 같습니다.
 
-- 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Azure 리소스에 대한 이전(클래식) 메트릭 및 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
-- 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
-- 현재 Azure Porta에서 [Application Insights 내 스마트 검색](../../azure-monitor/app/proactive-diagnostics.md)으로 사용할 수 있는 이전(클래식) 오류 이상 경고이며, Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에 표시된 경고 구성도 포함됩니다.
+- 현재 Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)을 통해 사용할 수 있는 Azure 리소스에 대한 이전(클래식) 메트릭 및 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
+- 현재 Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
+- 현재 Azure Porta에서 [Application Insights 내 스마트 검색](../app/proactive-diagnostics.md)으로 사용할 수 있는 이전(클래식) 오류 이상 경고이며, Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)에 표시된 경고 구성도 포함됩니다.
 
-해당 [API](/rest/api/monitor/alertrules), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure Portal 페이지](../../azure-monitor/platform/alerts-classic-portal.md)및 [리소스 템플릿을](../../azure-monitor/platform/alerts-enable-template.md) 포함 한 모든 클래식 모니터링 및 경고 시스템은 8 월 2019 일까 때까지 사용할 수 있습니다. 
+해당 [API](/rest/api/monitor/alertrules), [PowerShell](./alerts-classic-portal.md), [CLI](./alerts-classic-portal.md), [Azure Portal 페이지](./alerts-classic-portal.md)및 [리소스 템플릿을](./alerts-enable-template.md) 포함 한 모든 클래식 모니터링 및 경고 시스템은 8 월 2019 일까 때까지 사용할 수 있습니다. 
 
 8 월 2019 끝에 Azure Monitor:
 
@@ -75,7 +75,7 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 
 ## <a name="pricing-for-migrated-alert-rules"></a>마이그레이션된 경고 규칙에 대 한 가격 책정
 
-Azure Monitor [클래식 경고](../../azure-monitor/platform/alerts-classic.overview.md) 를 새로운 경고 환경으로 마이그레이션하는 데 도움이 되는 마이그레이션 도구를 배포 합니다. 마이그레이션된 경고 규칙 및 마이그레이션된 해당 작업 그룹 (email, webhook 또는 LogicApp)은 무료로 제공 됩니다. 임계값, 집계 유형 및 집계 세분성을 편집 하는 기능을 포함 하 여 클래식 경고와 함께 제공 되는 기능은 마이그레이션된 경고 규칙에 따라 계속 무료로 제공 됩니다. 그러나 마이그레이션된 경고 규칙을 편집 하 여 새 경고 플랫폼 기능, 알림 또는 작업 유형을 사용 하는 경우 해당 요금이 적용 됩니다. 경고 규칙 및 알림에 대 한 가격 책정에 대 한 자세한 내용은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
+Azure Monitor [클래식 경고](./alerts-classic.overview.md) 를 새로운 경고 환경으로 마이그레이션하는 데 도움이 되는 마이그레이션 도구를 배포 합니다. 마이그레이션된 경고 규칙 및 마이그레이션된 해당 작업 그룹 (email, webhook 또는 LogicApp)은 무료로 제공 됩니다. 임계값, 집계 유형 및 집계 세분성을 편집 하는 기능을 포함 하 여 클래식 경고와 함께 제공 되는 기능은 마이그레이션된 경고 규칙에 따라 계속 무료로 제공 됩니다. 그러나 마이그레이션된 경고 규칙을 편집 하 여 새 경고 플랫폼 기능, 알림 또는 작업 유형을 사용 하는 경우 해당 요금이 적용 됩니다. 경고 규칙 및 알림에 대 한 가격 책정에 대 한 자세한 내용은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
 
 다음은 경고 규칙에 대 한 요금이 부과 되는 경우의 예입니다.
 
@@ -88,5 +88,6 @@ Azure Monitor [클래식 경고](../../azure-monitor/platform/alerts-classic.ove
 
 ## <a name="next-steps"></a>다음 단계
 
-* [새로운 통합 Azure Monitor](../../azure-monitor/overview.md)에 대해 자세히 알아봅니다.
-* [새로운 Azure 경고](../../azure-monitor/platform/alerts-overview.md)에 대해 자세히 알아봅니다.
+* [새로운 통합 Azure Monitor](../overview.md)에 대해 자세히 알아봅니다.
+* [새로운 Azure 경고](./alerts-overview.md)에 대해 자세히 알아봅니다.
+

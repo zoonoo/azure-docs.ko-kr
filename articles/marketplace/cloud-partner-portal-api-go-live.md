@@ -4,15 +4,15 @@ description: Go Live API는 제품 라이브 목록 추가 프로세스를 시�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535946"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292946"
 ---
 # <a name="go-live"></a>Go Live
 
@@ -26,11 +26,11 @@ ms.locfileid: "86535946"
 ## <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **이름**      |   **설명**                                                           | **데이터 형식** |
+|  **Name**      |   **설명**                                                           | **데이터 형식** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  String       |
-| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  String       |
-| api-version    | 최신 버전의 API입니다.                                                   |  날짜         |
+| publisherId    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  문자열       |
+| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  문자열       |
+| api-version    | 최신 버전의 API입니다.                                                   |  Date         |
 |  |  |  |
 
 ## <a name="header"></a>헤더

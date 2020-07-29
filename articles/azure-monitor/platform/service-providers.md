@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: e49f9caaeb1b16daa49fabb217b6fc40fff17f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081477"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315448"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자에 대 한 Azure Monitor 로그
 
@@ -19,7 +19,7 @@ Azure Monitor의 Log Analytics 작업 영역을 통해 MSPs (관리 서비스 �
 
 대기업은 서비스 공급자와 많은 유사성을 공유하는데, 특히 중앙 IT 팀이 다양한 사업부의 IT 관리를 담당한다는 점이 그렇습니다. 간단한 설명을 위해 이 문서에서는 *서비스 공급자*라는 용어를 사용하지만 기업 및 기타 고객에 대해서도 같은 기능을 사용할 수 있습니다.
 
-[CSP (클라우드 솔루션 공급자)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) 프로그램의 일부인 파트너 및 서비스 공급자의 경우 Azure Monitor의 Log Analytics는 azure CSP 구독에서 사용할 수 있는 azure 서비스 중 하나입니다.
+[CSP (클라우드 솔루션 공급자)](https://partner.microsoft.com/membership/cloud-solution-provider) 프로그램의 일부인 파트너 및 서비스 공급자의 경우 Azure Monitor의 Log Analytics는 azure CSP 구독에서 사용할 수 있는 azure 서비스 중 하나입니다.
 
 [Azure Lighthouse](../../lighthouse/overview.md)의 azure 위임 된 리소스 관리 기능을 통해 고객 리소스를 관리 하는 서비스 공급자가 Azure Monitor의 Log Analytics 사용할 수도 있습니다.
 
@@ -36,7 +36,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 서비스 공급자 관리자는 고객 테 넌 트의 Log Analytics 작업 영역에 대 한 액세스 권한을 얻을 수 있는 두 가지 방법이 있습니다.
 
 - 고객이 [B2B (Azure Active Directory 게스트 사용자)](../../active-directory/b2b/what-is-b2b.md)로 서비스 공급자의 개별 사용자를 추가할 수 있습니다. 서비스 공급자 관리자는 이러한 작업 영역에 액세스할 수 있도록 Azure Portal의 각 고객 디렉터리에 로그인 해야 합니다. 또한 고객은 각 서비스 공급자 관리자에 대 한 개별 액세스를 관리 해야 합니다.
-- 확장성과 유연성을 향상 하기 위해 서비스 공급자는 [Azure Lighthouse](../../lighthouse/overview.md) 의 [azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md) 기능을 사용 하 여 고객의 테 넌 트에 액세스할 수 있습니다. 이 방법을 사용 하는 경우 서비스 공급자 관리자는 서비스 공급자의 테 넌 트에 있는 Azure AD 사용자 그룹에 포함 되며, 각 고객에 대 한 온 보 딩 프로세스 중에는이 그룹에 액세스 권한이 부여 됩니다. 그러면 이러한 관리자는 각 고객의 테 넌 트에 개별적으로 로그인 할 필요 없이 자체의 서비스 공급자 테 넌 트 내에서 각 고객의 작업 영역에 액세스할 수 있습니다. 이러한 방식으로 고객의 Log Analytics 작업 영역 리소스에 액세스 하면 고객 측에 필요한 작업이 줄어들고 [Azure Monitor 통합 문서](../..//azure-monitor/platform/workbooks-overview.md)와 같은 도구를 통해 동일한 서비스 공급자에서 관리 하는 여러 고객에 게 데이터를 더 쉽게 수집 하 고 분석할 수 있습니다. 자세한 내용은 [대규모 고객 리소스 모니터링](../../lighthouse/how-to/monitor-at-scale.md)을 참조 하세요.
+- 확장성과 유연성을 향상 하기 위해 서비스 공급자는 [Azure Lighthouse](../../lighthouse/overview.md) 의 [azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md) 기능을 사용 하 여 고객의 테 넌 트에 액세스할 수 있습니다. 이 방법을 사용 하는 경우 서비스 공급자 관리자는 서비스 공급자의 테 넌 트에 있는 Azure AD 사용자 그룹에 포함 되며, 각 고객에 대 한 온 보 딩 프로세스 중에는이 그룹에 액세스 권한이 부여 됩니다. 그러면 이러한 관리자는 각 고객의 테 넌 트에 개별적으로 로그인 할 필요 없이 자체의 서비스 공급자 테 넌 트 내에서 각 고객의 작업 영역에 액세스할 수 있습니다. 이러한 방식으로 고객의 Log Analytics 작업 영역 리소스에 액세스 하면 고객 측에 필요한 작업이 줄어들고 [Azure Monitor 통합 문서](./workbooks-overview.md)와 같은 도구를 통해 동일한 서비스 공급자에서 관리 하는 여러 고객에 게 데이터를 더 쉽게 수집 하 고 분석할 수 있습니다. 자세한 내용은 [대규모 고객 리소스 모니터링](../../lighthouse/how-to/monitor-at-scale.md)을 참조 하세요.
 
 분산 아키텍처의 장점은 다음과 같습니다.
 
@@ -75,18 +75,19 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 중앙 위치에 로그를 구현 하는 두 가지 옵션이 있습니다.
 
-1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](../../azure-monitor/platform/data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md)를 사용하는 것입니다.
+1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](./data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md)를 사용하는 것입니다.
 
-2. 중앙 위치로 Power BI: Power BI 여러 작업 영역에서 Log Analytics 작업 영역과 [Power BI](../../azure-monitor/platform/powerbi.md)간의 통합을 사용 하 여 데이터를 내보낼 때 중앙 위치로 작동할 수 있습니다.
+2. 중앙 위치로 Power BI: Power BI 여러 작업 영역에서 Log Analytics 작업 영역과 [Power BI](./powerbi.md)간의 통합을 사용 하 여 데이터를 내보낼 때 중앙 위치로 작동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Resource Manager 템플릿](template-workspace-configuration.md)을 사용하여 작업 영역 생성 및 구성 자동화
 
-* [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화
+* [PowerShell](./powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화
 
-* [경고](../../azure-monitor/platform/alerts-overview.md)를 사용하여 기존 시스템과 통합
+* [경고](./alerts-overview.md)를 사용하여 기존 시스템과 통합
 
-* [Power BI](../../azure-monitor/platform/powerbi.md)를 사용하여 요약 보고서 생성
+* [Power BI](./powerbi.md)를 사용하여 요약 보고서 생성
 
 * [Azure에서 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)에 고객을 등록 합니다.
+

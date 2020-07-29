@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/24/2020
+ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505298"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318354"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -31,16 +31,16 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
-IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조 하세요.  
+IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](./gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
 * Azure Monitor System Center Operations Manager 2016 이상, Operations Manager 2012 SP1 커밋하기 위한 이상 및 Operations Manager 2012 R2 U R 2 이상만 지원 합니다. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
 * System Center Operations Manager 2016를 미국 정부 클라우드와 통합 하려면 업데이트 롤업 2 이상에 포함 된 업데이트 된 Advisor 관리 팩이 필요 합니다. System Center Operations Manager 2012 R2 업데이트 롤업 3 이상에 포함 된 업데이트 된 Advisor 관리 팩이 필요 합니다.
 * 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않으면 Windows 에이전트 통신이 실패하고 Operations Manager 이벤트 로그에 오류가 생성될 수 있습니다.
-* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](design-logs-deployment.md)를 검토합니다. 
+* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](design-logs-deployment.md)를 검토합니다.
 * [Log Analytics 기여자 역할](manage-access.md#manage-access-using-azure-permissions)의 멤버인 계정으로 Azure에 인증합니다.
 
 * 지원 되는 지역-System Center Operations Manager에서 Log Analytics 작업 영역에 연결 하는 데 사용할 수 있는 Azure 지역은 다음과 같습니다.
@@ -95,7 +95,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 
 ### <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
 
-Azure Monitor 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2 이상을 사용 하도록 에이전트 및 관리 그룹을 구성 하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요.
+Azure Monitor 전송 중인 데이터의 보안을 보장 하려면 TLS (전송 계층 보안) 1.2 이상을 사용 하도록 에이전트 및 관리 그룹을 구성 하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](./data-security.md#sending-data-securely-using-tls-12)를 검토하세요.
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -193,25 +193,15 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Azure Monitor와 Operations Manager 통합의 유효성을 검사 합니다.
 
-몇 가지 방법으로 Azure Monitor Operations Manager 통합이 성공적인 지 확인할 수 있습니다.
+다음 쿼리를 사용 하 여 Operations Manager 연결 된 인스턴스를 가져옵니다.
 
-### <a name="to-confirm-integration-from-the-azure-portal"></a>Azure Portal에서 통합을 확인하려면
-
-1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다.
-1. Log Analytics 작업 영역 목록에서 적용 가능한 작업 영역을 선택합니다.  
-1. **고급 설정**, **연결된 원본**, **System Center**를 차례로 선택합니다.
-1. System Center Operations Manager 섹션 아래의 테이블에 데이터를 마지막으로 받았을 때 에이전트 및 상태 수와 함께 나열된 관리 그룹의 이름이 표시됩니다.
-
-   ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
-
-### <a name="to-confirm-integration-from-the-operations-console"></a>운영 콘솔에서 통합을 확인하려면
-
-1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-1. **관리 팩**을 선택하고 **찾기:** 텍스트 상자에 **관리자** 또는 **인텔리전스**를 입력합니다.
-1. 활성화한 솔루션에 따라 검색 결과에 나열된 해당 관리 팩을 볼 수 있습니다.  예를 들어 경고 관리 솔루션을 활성화한 경우 관리 팩 Microsoft System Center Advisor 경고 관리가 목록에 나타납니다.
-1. **모니터링** 보기에서 **Operations Management Suite\Health State** 보기로 이동합니다.  **관리 서버 상태** 창 아래에서 관리 서버를 선택하고 **상세 보기** 창에서 **인증 서비스 URI** 속성의 값이 Log Analytics 작업 영역 ID와 일치하는지 확인합니다.
-
-   ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+```azurepowershell
+union *
+| where isnotempty(MG)
+| where not(ObjectName == 'Advisor Metrics' or ObjectName == 'ManagedSpace')
+| summarize LastData = max(TimeGenerated) by lowerCasedComputerName=tolower(Computer), MG, ManagementGroupName
+| sort by lowerCasedComputerName asc
+```
 
 ## <a name="remove-integration-with-azure-monitor"></a>Azure Monitor와의 통합 제거
 
@@ -354,4 +344,5 @@ Operations Manager와 통합 하는 데 사용 하도록 설정한 솔루션에 
 
 ## <a name="next-steps"></a>다음 단계
 
-기능을 추가 하 고 데이터를 수집 하려면 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md)를 참조 하세요.
+기능을 추가 하 고 데이터를 수집 하려면 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../insights/solutions.md)를 참조 하세요.
+

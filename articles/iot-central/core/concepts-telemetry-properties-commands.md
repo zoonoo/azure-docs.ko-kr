@@ -7,12 +7,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 108a7940084e99348dc8fdfa0143d5c6855599df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291617"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>원격 분석, 속성 및 명령 페이로드
 
@@ -30,6 +30,9 @@ Azure IoT Central의 장치 템플릿은 다음을 정의 하는 청사진입니
 
 각 예제에서는 장치에서 IoT Central 응용 프로그램과 상호 작용 하는 방법을 설명 하는 형식 및 예제 JSON 페이로드를 정의 하는 DCM (장치 기능 모델)의 조각을 보여 줍니다.
 
+> [!NOTE]
+> IoT Central는 유효한 모든 JSON을 허용 하지만 DCM의 정의와 일치 하는 경우 시각화에만 사용할 수 있습니다. 정의와 일치 하지 않는 데이터를 내보낼 수 있습니다. [Azure에서 IoT 데이터를 대상으로 내보내기](howto-export-data.md)를 참조 하세요.
+
 DCM을 정의 하는 JSON 파일은 [DTDL (디지털 쌍 정의 언어) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md)을 사용 합니다. 이 사양에는 속성 형식에 대 한 정의가 포함 됩니다 `@id` .
 
 사용 중인 이러한 페이로드 중 일부를 표시 하는 샘플 장치 코드는 [클라이언트 응용 프로그램을 만들어 azure IoT Central 응용 프로그램에 연결 (Node.js)](tutorial-connect-device-nodejs.md) 하 고 [클라이언트 응용 프로그램을 만들어 azure IoT Central 응용 프로그램 (Python) 자습서에 연결](tutorial-connect-device-python.md) 을 참조 하세요.
@@ -43,9 +46,8 @@ IoT Central를 사용 하 여 장치가 응용 프로그램에 전송 하는 원
 1. **원시 데이터** 탭을 선택 합니다.
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="원시 데이터 뷰":::
-    
-    이 뷰에서 표시할 열을 선택 하 고 표시할 시간 범위를 설정할 수 있습니다. 모델링 되지 않은 **데이터** 열은 장치 템플릿의 속성 또는 원격 분석 정의와 일치 하지 않는 장치의 데이터를 표시 합니다.
 
+    이 뷰에서 표시할 열을 선택 하 고 표시할 시간 범위를 설정할 수 있습니다. 모델링 되지 않은 **데이터** 열은 장치 템플릿의 속성 또는 원격 분석 정의와 일치 하지 않는 장치의 데이터를 표시 합니다.
 
 ## <a name="telemetry"></a>원격 분석
 
@@ -766,12 +768,12 @@ IoT Central 장치에서 쓰기 가능한 속성 업데이트에 대 한 응답�
 
 `ac`는 다음 표의 값을 사용 하는 숫자 필드입니다.
 
-| Value | 레이블 | Description |
+| 값 | 레이블 | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | 속성 변경 작업을 성공적으로 완료 했습니다. |
-| `'ac': 202`디스크나`'ac': 201` | 보류 중 | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
-| `'ac': 4xx` | 오류 | 요청 된 속성 변경이 잘못 되었거나 오류가 발생 했습니다. |
-| `'ac': 5xx` | 오류 | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
+| `'ac': 202`디스크나`'ac': 201` | Pending | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
+| `'ac': 4xx` | Error | 요청 된 속성 변경이 잘못 되었거나 오류가 발생 했습니다. |
+| `'ac': 5xx` | Error | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
 
 `av`장치에 전송 된 버전 번호입니다.
 

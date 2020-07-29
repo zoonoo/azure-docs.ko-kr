@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 97e687acba0c94f72ca571c498fb54531118714b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098239"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318048"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
@@ -34,7 +34,7 @@ Azure Monitor에서 Azure Key Vault 솔루션을 사용 하 여 Azure Key Vault 
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 지침을 사용하여 Azure Key Vault 솔루션을 설치 및 구성합니다.
 
-1. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md) 에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 Azure Key Vault 솔루션을 추가 합니다.
+1. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md) 에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 Azure Key Vault 솔루션을 추가 합니다.
 2. [포털](#enable-key-vault-diagnostics-in-the-portal) 또는 [PowerShell](#enable-key-vault-diagnostics-using-powershell) 을 사용 하 여 모니터링할 Key Vault 리소스에 대해 진단 로깅을 사용 하도록 설정 합니다.
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>포털에서 Key Vault 진단 사용 설정
@@ -132,7 +132,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 업데이트된 솔루션을 사용하려면 다음을 수행합니다.
 
 1. [진단을 구성 하 여 Key Vault에서 Log Analytics 작업 영역으로 직접 전송](#enable-key-vault-diagnostics-in-the-portal)  
-2. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md) 에 설명 된 프로세스를 사용 하 여 Azure Key Vault 솔루션을 사용 하도록 설정 합니다.
+2. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md) 에 설명 된 프로세스를 사용 하 여 Azure Key Vault 솔루션을 사용 하도록 설정 합니다.
 3. 새 데이터 형식을 사용하도록 저장된 쿼리, 대시보드 또는 경고를 업데이트합니다.
    + KeyVaults에서 AzureDiagnostics로 형식을 변경합니다. ResourceType을 사용하여 Key Vault 로그로 필터링할 수 있습니다.
    + `KeyVaults` 대신 `AzureDiagnostics | where ResourceType'=="VAULTS"`를 사용합니다.
@@ -149,4 +149,5 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor의 로그 쿼리](../../azure-monitor/log-query/log-query-overview.md) 를 사용 하 여 자세한 Azure Key Vault 데이터를 볼 수 있습니다.
+* [Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 자세한 Azure Key Vault 데이터를 볼 수 있습니다.
+

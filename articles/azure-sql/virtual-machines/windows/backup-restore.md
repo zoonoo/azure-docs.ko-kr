@@ -3,7 +3,7 @@ title: Azure VM에서 SQL Server의 백업 및 복원 | Microsoft Docs
 description: Azure Virtual Machines에서 실행되는 SQL Server 데이터베이스의 백업 및 복원 시 고려 사항에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 27438b0729aa309878eb54a346f04754cb983af1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a03a91eeb9296e60aa147f97634a15e8d344209
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073261"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293049"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server의 백업 및 복원
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -130,12 +130,12 @@ SQL Server 2016부터 Managed Backup은 예약, 시스템 데이터베이스 백
 | 옵션 | 자동화된 백업 | SQL에 대한 Azure Backup | 수동 백업 |
 |---|---|---|---|
 | 추가 Azure 서비스 필요 |   | ![예](./media/backup-restore/yes.png) |   |
-| Azure Portal에서 백업 정책 구성 | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) |   |
+| Azure Portal에서 백업 정책 구성 | ![예](./media/backup-restore/yes.png) | ![yes](./media/backup-restore/yes.png) |   |
 | Azure Portal에서 데이터베이스 복원 |   | ![예](./media/backup-restore/yes.png) |   |
 | 하나의 대시보드에서 여러 서버 관리 |   | ![예](./media/backup-restore/yes.png) |   |
-| 지정 시간 복원 | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) |
-| 15분 RPO(복구 지점 목표) | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) |
-| 단기 백업 보존 정책(일) | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) |   |
+| 지정 시간 복원 | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) | ![yes](./media/backup-restore/yes.png) |
+| 15분 RPO(복구 지점 목표) | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) | ![yes](./media/backup-restore/yes.png) |
+| 단기 백업 보존 정책(일) | ![예](./media/backup-restore/yes.png) | ![yes](./media/backup-restore/yes.png) |   |
 | 장기 백업 보존 정책(월, 년) |   | ![예](./media/backup-restore/yes.png) |   |
 | SQL Server Always On에 대한 기본 제공 지원 |   | ![예](./media/backup-restore/yes.png) |   |
 | Azure Storage 계정에 백업 | ![예](./media/backup-restore/yes.png)(자동) | ![예](./media/backup-restore/yes.png)(자동) | ![예](./media/backup-restore/yes.png)(고객 관리) |
@@ -145,7 +145,7 @@ SQL Server 2016부터 Managed Backup은 예약, 시스템 데이터베이스 백
 | 오류에 대한 통합된 이메일 경고 |   | ![예](./media/backup-restore/yes.png) |   |
 | Azure Monitor 로그에 따라 모니터링 사용자 지정 |   | ![예](./media/backup-restore/yes.png) |   |
 | SSMS 또는 Transact-SQL 스크립트를 사용하여 백업 작업 모니터링 | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) | ![예](./media/backup-restore/yes.png) |
-| SSMS 또는 Transact-SQL 스크립트를 사용하여 데이터베이스 복원 | ![예](./media/backup-restore/yes.png) |   | ![예](./media/backup-restore/yes.png) |
+| SSMS 또는 Transact-SQL 스크립트를 사용하여 데이터베이스 복원 | ![예](./media/backup-restore/yes.png) |   | ![yes](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>다음 단계
 

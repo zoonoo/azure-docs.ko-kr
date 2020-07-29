@@ -4,12 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077331"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318337"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -268,7 +268,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor에 대 한 자세한 정보](../../azure-monitor/overview.md)
+- [Azure Monitor에 대 한 자세한 정보](../overview.md)
 - [REST API를 사용하여 메트릭 액세스](rest-api-walkthrough.md)
 - [타사 서비스에 활동 로그 스트림](./activity-log.md#legacy-collection-methods)
 - [Microsoft 이외의 서비스로 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs)
@@ -281,13 +281,13 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 소개."
 [circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
-[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
+[cloudhealth-doc]: https://www.cloudhealthtech.com/products/azure-management
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog 설명서."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 설명서."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic 설명서."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana 통합."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor 유입 data Telegraf integration."
+[influxdata-doc]: ./collect-custom-metrics-linux-telegraf.md "Azure Monitor 유입 data Telegraf integration."
 [logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Logic Monitor 설명서."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft 설명서."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."
@@ -302,3 +302,4 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 설명서."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
 [turbonomic-doc]: https://turbonomic.com/ "Turbonomic 소개."
+

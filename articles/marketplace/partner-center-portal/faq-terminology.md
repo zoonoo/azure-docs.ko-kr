@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2f3d4050e51c5394edaa3c72213bc8da48ab568e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011841"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317555"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>상업용 마켓플레이스 분석 용어 및 일반적인 질문
 
@@ -68,8 +70,8 @@ ms.locfileid: "87011841"
 | Marketplace 구독 ID | 고객, 주문 | 고객이 Marketplace 제품을 구매하는 데 사용한 Azure 구독과 연결된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다.|
 | 제품 이름  | 주문| Marketplace 제품의 이름입니다.|
 | 제품 유형  | 주문| Microsoft Marketplace 제품 유형입니다.|
-| 제품 유형: 관리형 애플리케이션  | 주문 | 다음 조건이 필요한 경우 Azure 앱: 관리되는 앱 제품 형식을 사용합니다. VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. 사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. |
-| 제품 유형: Azure 애플리케이션| 주문 | 솔루션에 단순 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우, Azure 애플리케이션 솔루션 템플릿 제품 유형을 사용합니다.|
+| 제품 유형: 관리형 애플리케이션  | 순서 | 다음 조건이 필요한 경우 Azure 앱: 관리되는 앱 제품 형식을 사용합니다. VM 또는 전체 IaaS 기반 솔루션을 사용하여 고객에게 구독 기반 솔루션을 배포합니다. 사용자 또는 고객이 솔루션을 파트너가 관리하도록 요구합니다. |
+| 제품 유형: Azure 애플리케이션| 순서 | 솔루션에 단순 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우, Azure 애플리케이션 솔루션 템플릿 제품 유형을 사용합니다.|
 | 제품 유형: 컨설팅 서비스| 주문| Azure Marketplace의 컨설팅 서비스는 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대하는 데 유용합니다.|
 | 제품 유형: 컨테이너 | 주문| 솔루션이 Kubernetes 기반 Azure Container Service로 프로비전된 Docker 컨테이너 이미지인 경우 컨테이너 제품 유형을 사용합니다.|
 | 제품 유형: Dynamics 365 Business Central| 주문| 솔루션이 재무 및 운영을 위한 Dynamics 365와 통합된 경우 이 제품 유형을 사용합니다.|

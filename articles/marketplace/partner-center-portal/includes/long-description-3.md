@@ -4,15 +4,15 @@ description: 파일
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/19/2020
-ms.openlocfilehash: 91c27143b4b122b1913429879d227125e1b2169c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5197b71db4f46d9908d5539c114d636b9474a870
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317686"
 ---
 HTML 태그를 사용하여 설명의 서식을 지정하면 더 흡입력 있는 설명을 만들 수 있습니다. 대부분의 태그에는 이 표에 나와 있는 것처럼 열기 및 닫기 구성 요소가 모두 필요합니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Microsoft AppSource에서 Power BI 앱 제안 만들기
 description: Power BI 앱 제품을 만들고 Microsoft AppSource에 게시하는 방법을 알아봅니다.
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: fa8c08f5d6f49b12306ea1f4bb82c07747622f48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1687224e796043af1f7c3d1ee6f0417465fb4959
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011943"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317695"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제안 만들기
 
@@ -143,7 +143,7 @@ ms.locfileid: "87011943"
 7. 개인 정보 보호 정책
 8. Offer name
 9. 요약
-10. Description
+10. 설명
 11. 스크린샷/비디오
 
 ### <a name="name"></a>속성

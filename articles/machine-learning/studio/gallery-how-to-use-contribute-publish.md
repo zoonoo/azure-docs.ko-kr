@@ -1,6 +1,5 @@
 ---
-title: Azure AI 갤러리
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): Azure AI Gallery-Azure'
 description: Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합니다. 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: cf483dadb9e27020095329d948698807a14012af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbece33d443139c9f1b1384c1a9e0b3c4da0d08
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709031"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318558"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,7 +28,7 @@ ms.locfileid: "84709031"
 
 ## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
 
-Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 내용은 다음과 같습니다.
+Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 여기에는 다음이 포함됩니다.
 
 * **실험** -갤러리에는 Azure Machine Learning Studio (클래식)에서 개발 된 다양 한 실험이 포함 되어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 * **자습서** - Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning 문제를 해결하기 위한 고급 방법을 설명하는 다양한 자습서가 있습니다.
@@ -95,7 +98,7 @@ Studio (클래식) 내에서 리소스를 다운로드 하려면 다음을 수�
    * 실험 그래프 스크린샷
    * 데이터 원본 및 설명
    * 데이터 처리
-   * 기능 엔지니어링
+   * 특징 엔지니어링
    * 모델 설명
    * 결과 및 모델 성능 평가
 
@@ -121,7 +124,7 @@ Studio (클래식) 내에서 리소스를 다운로드 하려면 다음을 수�
 
 * 실험 이름
 * 요약 또는 설명
-* Tags
+* 태그들
 * 이미지
 * 표시 여부 설정(**공개** 또는 **비공개**)
 
@@ -150,9 +153,9 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 1. **새 항목**을 선택 합니다.
 
-1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. **다음**을 클릭합니다.
+1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. 그런 후 **Next** 를 클릭합니다.
 
-1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. **다음**을 클릭합니다.
+1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
 1. **설정** 페이지의 **표시 유형**에 대해 컬렉션이 **공개**(누구나 볼 수 있음)인지 또는 **비공개**(직접 링크가 있는 사람만 볼 수 있음)인지를 선택합니다.
 
@@ -178,7 +181,7 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 * 컬렉션의 항목에 메모를 추가하려면 항목의 오른쪽 위 모서리를 선택하고 **메모 추가/편집**을 선택합니다.
 * 컬렉션에서 항목을 제거하려면 항목의 오른쪽 위 모서리를 선택하고 **제거**를 선택합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **이미지 제출 또는 편집에 대한 요구 사항은 무엇인가요?**
 

@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: cd6ea6d4967e024ddf88fb9572d5efae8b7a7815
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495342"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289893"
 ---
 ### <a name="property-limits"></a>속성 제한
 
@@ -33,7 +33,7 @@ Azure Time Series Insights 속성 제한은 Gen1에서 800의 최대 캡에서 1
 * [이벤트 허브 원본을 추가](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)하는 방법에 대해 알아봅니다.
 * [IoT hub 원본을](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)구성 합니다.
 
-기본적으로 Gen2 환경은 **환경 당 초당**최대 1mb의 [수신 속도를 지원](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) 합니다. 고객은 필요한 경우 최대 **16mb/s** 처리량까지 환경을 확장할 수 있습니다. 또한 **0.5 m b/s**의 파티션당 제한이 있습니다.
+기본적으로 Gen2 환경은 **환경 당 초당**최대 1mb의 [수신 속도를 지원](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) 합니다. 고객은 필요한 경우 최대 **16mb/s** 처리량까지 환경을 확장할 수 있습니다. 또한 **0.5 m b/s**의 파티션당 제한이 있습니다.
 
 ### <a name="api-limits"></a>API 제한
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b94d195ea1f31d228505f01c2a77a299e63c0a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 487177b4a114ba7537ac4f1aa74a4e2472455d4b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518099"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369563"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -289,6 +289,12 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 이 역할의 사용자는 Azure AD에서 하이브리드 ID 사용 설정과 관련된 서비스 및 설정을 사용하도록 설정하고, 구성하고, 관리할 수 있습니다. 이 역할은 지원되는 세 가지 인증 방법, 즉, PHS(암호 해시 동기화), PTA(통과 인증), 페더레이션(AD FS 또는 타사 페더레이션 공급자) 중 하나로 Azure AD를 구성하고, 관련 온-프레미스 인프라를 배포하여 이 방법을 사용하도록 설정할 수 있는 기능을 부여합니다. 온-프레미스 인프라에는 프로비저닝 및 PTA 에이전트가 포함되어 있습니다. 이 역할은 S-SSO(Seamless Single Sign-On)를 사용하도록 설정하여 Windows 10 이외의 디바이스 또는 Windows Server 2016 이외의 컴퓨터에서 원활한 인증이 가능하게 하는 기능을 부여합니다. 또한 이 역할은 모니터링 및 문제 해결을 위해 로그인 로그를 살펴보고 상태 및 분석에 액세스할 수 있는 기능을 부여합니다. 
 
+### <a name="insights-administrator"></a>[Insights 관리자](#insights-administrator-permissions)
+이 역할의 사용자는 [M365 Insights 응용 프로그램](https://go.microsoft.com/fwlink/?linkid=2129521)의 전체 관리 기능 집합에 액세스할 수 있습니다. 이 역할에는 디렉터리 정보를 읽고, 서비스 상태를 모니터링 하 고, 파일 지원 티켓을 확인 하 고, Insights 관리 설정 측면에 액세스할 수 있는 기능이 있습니다.
+
+### <a name="insights-business-leader"></a>[Insights 비즈니스 리더](#insights-business-leader-permissions)
+이 역할의 사용자는 [M365 insights 응용 프로그램](https://go.microsoft.com/fwlink/?linkid=2129521)을 통해 대시보드와 정보 집합에 액세스할 수 있습니다. 여기에는 모든 대시보드에 대 한 모든 액세스 권한 및 제공 되는 정보 및 데이터 탐색 기능이 포함 됩니다. 이 역할의 사용자는 정보 관리자 역할의 책임이 있는 제품 구성 설정에 액세스할 수 없습니다.
+
 ### <a name="intune-administrator"></a>[Intune 관리자](#intune-service-administrator-permissions)
 
 이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Intune Online 내에서 글로벌 사용 권한을 갖습니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 디바이스를 관리하는 기능을 포함합니다. 자세한 내용은 [Microsoft Intune에서 RBAC(역할 기반 관리 제어)](https://docs.microsoft.com/intune/role-based-access-control)를 참조하세요
@@ -314,22 +320,22 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 이 역할의 사용자는 Exchange, Intune 및 Microsoft Teams와 같은 구성된 서비스에서 조직에 대한 [Office 365 메시지 센터](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)의 알림 및 자문 상태 업데이트를 모니터링할 수 있습니다. 메시지 센터 읽기 권한자는 게시물 및 업데이트 이메일 다이제스트를 매주 수신하며, 메시지 센터 게시물을 Office 365에서 공유할 수 있습니다. Azure AD에서 이 역할에 할당된 사용자는 Azure AD 서비스에서 사용자 및 그룹처럼 읽기 전용 권한만 있습니다. 이 역할에는 지원 티켓 보기, 생성 또는 관리 권한은 없습니다.
 
-### <a name="modern-commerce-administrator"></a>[최신 상거래 관리자](#modern-commerce-administrator-permissions)
+### <a name="modern-commerce-user"></a>[최신 상거래 사용자](#modern-commerce-user-permissions)
 
 사용하지 마십시오. 이 역할은 상거래에서 자동으로 할당되며 다른 용도로 사용하기에 적합하거나 지원되지 않습니다. 아래에서 자세한 내용을 참조하세요.
 
-최신 상거래 관리자 역할은 특정 사용자에게 Microsoft 365 관리 센터에 액세스하여 **홈**, **청구** 및 **지원**에 대한 왼쪽 탐색 항목을 볼 수 있는 권한을 부여합니다. 이러한 영역에 제공되는 콘텐츠는 사용자가 직접 구매했거나 조직을 대신해서 구매한 제품을 관리하기 위해 사용자에게 할당하는 [상거래 관련 역할](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles)을 통해 제어됩니다. 여기에는 요금 결제 또는 청구 계정 및 청구 프로필 액세스와 같은 작업이 포함될 수 있습니다. 
+최신 상거래 사용자 역할은 Microsoft 365 관리 센터에 액세스할 수 있는 권한을 특정 사용자에 게 제공 하 고 **홈**, **대금 청구**및 **지원**에 대 한 왼쪽 탐색 항목을 표시 합니다. 이러한 영역에 제공되는 콘텐츠는 사용자가 직접 구매했거나 조직을 대신해서 구매한 제품을 관리하기 위해 사용자에게 할당하는 [상거래 관련 역할](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles)을 통해 제어됩니다. 여기에는 요금 결제 또는 청구 계정 및 청구 프로필 액세스와 같은 작업이 포함될 수 있습니다. 
 
-최신 상거래 관리자 역할이 할당된 사용자는 일반적으로 다른 Microsoft 구매 시스템에서 관리 권한을 갖지만, 관리 센터에 액세스하는 데 사용되는 전역 관리자 또는 대금 청구 관리자 역할은 갖지 못합니다. 
+최신 상거래 사용자 역할의 사용자에 게는 일반적으로 다른 Microsoft 구매 시스템에서 관리 권한이 있지만 관리 센터에 액세스 하는 데 사용 되는 전역 관리자 또는 청구 관리자 역할은 없습니다. 
 
-**최신 상거래 관리자 역할은 언제 할당되나요?**
+**최신 상거래 사용자 역할은 언제 할당 되나요?**
 
-* **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스로 구매하는 사용자에게는 상거래 시스템의 역할과 최신 상거래 관리자 역할이 할당되므로 관리 센터에서 구매를 관리할 수 있습니다. 관리자는 [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide)을 참조하세요.  
-* **Microsoft 상업용 마켓플레이스에서 구매** – 셀프 서비스 구매와 마찬가지로 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품 또는 서비스를 구매할 때 사용자에게 전역 관리자 또는 대금 청구 관리자 역할이 없는 경우 최신 상거래 관리자 역할이 할당됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
-* **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락하는 사람이 Azure AD에서 전역 관리자 또는 대금 청구 관리자 역할이 없는 경우 제안을 완료하기 위한 상거래 관련 역할과 관리 센터에 액세스하기 위한 최신 상거래 관리자 역할이 모두 할당됩니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
-* **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 전역 관리자 또는 대금 청구 관리자가 아닌 사용자에게는 관리 센터에 액세스할 수 있도록 최신 상거래 관리자 역할이 할당됩니다.  
+* **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스 구매를 수행 하는 사용자에 게는 상거래 시스템의 역할과 최신 상거래 사용자 역할이 할당 되므로 관리 센터에서 해당 구매를 관리할 수 있습니다. 관리자는 [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide)을 참조하세요.  
+* **Microsoft 상업적 marketplace에서 구매** – 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품이 나 서비스를 구입 하는 경우에는 전역 관리자 또는 청구 관리자 역할이 없는 경우 최신 상거래 사용자 역할이 할당 됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
+* **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락 하는 사용자에 게 Azure AD의 전역 관리자 또는 청구 관리자 역할이 없는 경우, 관리자 센터에 액세스 하려면 제안서를 완료 하 고 최신 상거래 사용자 역할을 모두 할당 합니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
+* **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 사용자가 전역 또는 대금 청구 관리자가 아니면 관리 센터에 액세스할 수 있도록 최신 상거래 사용자 역할을 받게 됩니다.  
 
-사용자가 최신 상거래 관리자 역할의 할당을 해제하면 Microsoft 365 관리 센터에 액세스할 수 없게 됩니다. 직접 또는 조직을 대신해서 제품을 관리하는 사용자는 제품을 관리할 수 없게 됩니다. 여기에는 라이선스 할당, 결제 방법 변경, 청구서 결제 또는 구독 관리에 대한 기타 작업이 포함될 수 있습니다.
+최신 상거래 사용자 역할이 사용자에 게 할당 되지 않은 경우에는 Microsoft 365 관리 센터에 액세스할 수 없게 됩니다. 직접 또는 조직을 대신해서 제품을 관리하는 사용자는 제품을 관리할 수 없게 됩니다. 여기에는 라이선스 할당, 결제 방법 변경, 청구서 결제 또는 구독 관리에 대한 기타 작업이 포함될 수 있습니다.
 
 ### <a name="network-administrator"></a>[네트워크 관리자](#network-administrator-permissions)
 
@@ -1224,6 +1230,27 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
+### <a name="insights-administrator-permissions"></a>Insights 관리자 권한
+
+M365 Insights 앱에서 sdministrative 액세스를 가집니다. 
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft insights/allEntities/Allentities | 통찰력의 모든 측면을 관리 합니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+
+### <a name="insights-business-leader-permissions"></a>Insights 비즈니스 리더 권한
+
+M365 Insights 앱을 통해 대시보드와 정보를 보고 공유할 수 있습니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft의 통찰력/보고서/읽기 | Insights 앱에서 보고서 및 대시보드 보기 |
+| microsoft insights/프로그램/업데이트 | Insights 앱에서 프로그램을 배포 하 고 관리 합니다. |
 
 ### <a name="intune-service-administrator-permissions"></a>Intune 서비스 관리자 권한
 
@@ -1338,7 +1365,7 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
 
-### <a name="modern-commerce-administrator-permissions"></a>최신 상거래 관리자 권한
+### <a name="modern-commerce-user-permissions"></a>최신 상거래 사용자 권한
 회사, 부서 또는 팀의 상업적 구매를 관리할 수 있습니다. 
 
 > [!NOTE]
@@ -1619,24 +1646,26 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 �
 
 | **actions** | **설명** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.directory/applications/policies/update | Azure Active Directory에서 applications.policies 속성을 업데이트합니다. |
 | microsoft.directory/auditLogs/allProperties/read | Azure Active Directory에서 auditLogs에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | Azure Active Directory에서 devices.bitLockerRecoveryKeys 속성을 읽습니다. |
+| microsoft. directory/identityProtection/allProperties/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
+| microsoft. directory/identityProtection/allProperties/update | microsoft.aad.identityProtection에서 모든 리소스를 업데이트합니다. |
 | microsoft.directory/policies/basic/update | Azure Active Directory에서 정책의 기본 속성을 업데이트합니다. |
 | microsoft.directory/policies/create | Azure Active Directory에서 정책을 만듭니다. |
 | microsoft.directory/policies/delete | Azure Active Directory에서 정책을 삭제합니다. |
 | microsoft.directory/policies/owners/update | Azure Active Directory에서 policies.owners 속성을 업데이트합니다. |
 | microsoft.directory/policies/tenantDefault/update | Azure Active Directory에서 policies.tenantDefault 속성을 업데이트합니다. |
+| microsoft. directory/privilegedIdentityManagement/allProperties/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
 | microsoft.directory/servicePrincipals/policies/update | Azure Active Directory에서 servicePrincipals.policies 속성을 업데이트합니다. |
 | microsoft.directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
-| microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
-| microsoft.aad.identityProtection/allEntities/update | microsoft.aad.identityProtection에서 모든 리소스를 업데이트합니다. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.protectionCenter/allEntities/read | Office 365 보호 센터의 모든 측면을 읽습니다. |
 | microsoft.office365.protectionCenter/allEntities/update | microsoft.office365.protectionCenter에서 모든 리소스를 업데이트합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="security-operator-permissions"></a>보안 운영자 권한
 
@@ -1649,12 +1678,13 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 �
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Microsoft Cloud App Security를 읽고 구성합니다. |
-| microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Azure AD Advanced Threat Protection을 읽고 구성합니다. |
+| microsoft. directory/cloudAppSecurity/allProperties/Allproperties | Microsoft Cloud App Security를 읽고 구성합니다. |
+| microsoft. directory/identityProtection/allProperties/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
+| microsoft. directory/privilegedIdentityManagement/allProperties/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
 | microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | 보안 및 준수 센터를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Windows Defender Advanced Threat Protection을 읽고 구성합니다. |
 
 ### <a name="security-reader-permissions"></a>보안 읽기 권한자 권한
@@ -1872,13 +1902,15 @@ Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d09
 게스트 초대자 | 게스트 초대자 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 기술 지원팀 관리자 | 기술 지원팀 관리자 | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 하이브리드 ID 관리자 | 하이브리드 ID 관리자 | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
+Insights 관리자 | Insights 관리자 | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
+Insights 비즈니스 리더 | Insights 비즈니스 리더 | 31e939ad-9672-4796-9c2e-873181342d2d
 Intune 서비스 관리자 | Intune 관리자 | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala 관리자 | Kaizala 관리자 | 74ef975b-6605-40af-a5d2-b9539d836353
 라이선스 관리자 | 라이선스 관리자 | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | 75941009-915a-4869-abe7-691bff18279e
 메시지 센터 개인 정보 읽기 권한자 | 메시지 센터 개인 정보 읽기 권한자 | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 메시지 센터 읽기 권한자 | 메시지 센터 읽기 권한자 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-최신 상거래 관리자 | 최신 상거래 관리자 | d24aef57-1500-4070-84db-2666f29cf966
+최신 상거래 사용자 | 최신 상거래 사용자 | d24aef57-1500-4070-84db-2666f29cf966
 네트워크 관리자 | 네트워크 관리자 | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office 앱 관리자 | Office 앱 관리자 | 2b745bdf-0803-4d80-aa65-822c4493daac
 파트너 계층1 지원 | 사용하면 안되므로 표시되지 않습니다. | 4ba39ca4-527c-499a-b93d-d9b492c50246

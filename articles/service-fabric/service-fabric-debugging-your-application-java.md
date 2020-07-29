@@ -4,13 +4,14 @@ description: 로컬 개발 클러스터의 Eclipse에서 개발하고 디버그�
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
+ms.custom: devx-track-java
 ms.author: suhuruli
-ms.openlocfilehash: 6f2361bf76bd4f9d297fbe541b950840f13966cc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 32472c6caafe62d629ee3a5ffb8c758624228efd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246404"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87316616"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]

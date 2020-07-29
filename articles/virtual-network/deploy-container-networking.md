@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network 컨테이너 네트워킹 배포 | Microsoft Docs
-description: ACS-Engine을 사용하여 직접 배포하는 Kubernetes 클러스터 및 Docker 컨테이너용 Azure Virtual Network CNI(컨테이너 네트워크 인터페이스) 플러그 인을 배포하는 방법에 대해 알아봅니다.
+description: Kubernetes 클러스터에 대 한 Azure CNI (Virtual Network container Network interface) 플러그 인을 배포 하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a0574666441138c143932e843080e8745f1b40
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710017"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289591"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
 

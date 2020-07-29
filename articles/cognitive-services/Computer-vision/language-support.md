@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 16bb5fa41389dcf1ddd8ee2e3434e15755bb0d8d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205290"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290928"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대 한 언어 지원
 
@@ -25,34 +25,34 @@ Computer Vision의 일부 기능은 여러 언어를 지원 합니다. 여기서
 
 Computer Vision의 OCR Api는 여러 언어를 지원 합니다. 언어 코드를 지정 하지 않아도 됩니다. 자세한 내용은 [OCR (광학 문자 인식)](concept-recognizing-text.md) 을 참조 하세요.
 
-|언어| 언어 코드 | OCR API | 읽기 API |
-|:-----|:----:|:-----:|:---:|
-|아랍어 | `ar`|✔ | |
-|중국어(간체) | `zh-Hans`|✔ | |
-|중국어(번체) | `zh-Hant`|✔ | |
-|체코어 | `cs` |✔ | |
-|덴마크어 | `da` |✔ | |
-|네덜란드어 | `nl` |✔ |✔ |
-|영어 | `en` |✔ |✔ |
-|핀란드어 | `fi` |✔ | |
-|프랑스어 | `fr` |✔ |✔ |
-|독일어 | `de` |✔ |✔ |
-|그리스어 | `el` |✔ | |
-|헝가리어 | `hu` |✔ | |
-|이탈리아어 | `it` |✔ |✔ |
-|일본어 | `ja` |✔ | |
-|한국어 | `ko` |✔ | |
-|노르웨이어 | `nb` |✔ | |
-|폴란드어 | `pl` |✔ | |
-|포르투갈어 | `pt` |✔ |✔ |
-|루마니아어 | `ro` |✔ | |
-|러시아어 | `ru` |✔ | |
-|세르비아어(키릴 자모) | `sr-Cyrl` |✔ | |
-|세르비아어(라틴 문자) | `sr-Latn` |✔ | |
-|슬로바키아어 | `sk` |✔ | |
-|스페인어 | `es` |✔ |✔ |
-|스웨덴어 | `sw` |✔ | |
-|터키어 | `tr` |✔ | |
+|언어| 언어 코드 | OCR API | V 3.0 읽기 | 읽기 v 3.1-미리 보기. 1 |
+|:-----|:----:|:-----:|:---:|:---:|
+|아랍어 | `ar`|✔ | | |
+|중국어(간체) | `zh-Hans`|✔ | |✔ |
+|중국어(번체) | `zh-Hant`|✔ | | |
+|체코어 | `cs` |✔ | | |
+|덴마크어 | `da` |✔ | | |
+|네덜란드어 | `nl` |✔ |✔ |✔ |
+|영어 | `en` |✔ |✔ |✔ |
+|핀란드어 | `fi` |✔ | | |
+|프랑스어 | `fr` |✔ |✔ |✔ |
+|독일어 | `de` |✔ |✔ |✔ |
+|그리스어 | `el` |✔ | | |
+|헝가리어 | `hu` |✔ | | |
+|이탈리아어 | `it` |✔ |✔ |✔ |
+|일본어 | `ja` |✔ | | |
+|한국어 | `ko` |✔ | | |
+|노르웨이어 | `nb` |✔ | | |
+|폴란드어 | `pl` |✔ | | |
+|포르투갈어 | `pt` |✔ |✔ |✔ |
+|루마니아어 | `ro` |✔ | | |
+|러시아어 | `ru` |✔ | | |
+|세르비아어(키릴 자모) | `sr-Cyrl` |✔ | | |
+|세르비아어(라틴 문자) | `sr-Latn` |✔ | | |
+|슬로바키아어 | `sk` |✔ | | |
+|스페인어 | `es` |✔ |✔ |✔ |
+|스웨덴어 | `sw` |✔ | | |
+|터키어 | `tr` |✔ | | |
 
 ## <a name="image-analysis"></a>이미지 분석
 

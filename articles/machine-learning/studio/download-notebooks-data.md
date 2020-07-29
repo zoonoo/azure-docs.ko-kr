@@ -1,6 +1,5 @@
 ---
-title: 노트북 (미리 보기) 데이터를 다운로드 하는 방법
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 노트북 (미리 보기) 데이터를 다운로드 하는 방법-Azure'
 description: ML Studio (클래식)에서 노트북 (미리 보기) 데이터를 다운로드 하는 방법입니다.
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,14 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208468"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318660"
 ---
 # <a name="download-notebookspreview-data"></a>노트북 (미리 보기) 데이터 다운로드
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
 
 노트북 (미리 보기) 기능은 *4 월 13 2020*에 제거 되었습니다. 노트북 (미리 보기) 탭과 사용자 전자 필기장 파일의 제거는 현재 전 세계의 Azure 지역에 배포 됩니다.
 

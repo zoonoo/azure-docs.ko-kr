@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041388"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318150"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -81,7 +81,7 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 
 ### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>테스트 실패를 진단 하는 데 관련 된 서버 쪽 원격 분석이 표시 되지 않나요? *
 
-서버 쪽 애플리케이션에 대해 Application Insights를 설정한 경우, [샘플링](../../azure-monitor/app/sampling.md)이 작동 중이기 때문일 수 있습니다. 다른 가용성 결과를 선택합니다.
+서버 쪽 애플리케이션에 대해 Application Insights를 설정한 경우, [샘플링](./sampling.md)이 작동 중이기 때문일 수 있습니다. 다른 가용성 결과를 선택합니다.
 
 ### <a name="can-i-call-code-from-my-web-test"></a>웹 테스트에서 코드를 호출할 수 있나요?
 
@@ -96,7 +96,7 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 
    가능한 해결 방법으로 다음 두 가지가 있습니다.
 
-   * [웹 테스트 에이전트의 IP 주소](../../azure-monitor/app/ip-addresses.md)에서 들어오는 요청을 허용하도록 방화벽을 구성합니다.
+   * [웹 테스트 에이전트의 IP 주소](./ip-addresses.md)에서 들어오는 요청을 허용하도록 방화벽을 구성합니다.
    * 내부 서버를 정기적으로 테스트하는 사용자 고유의 코드를 작성합니다. 방화벽 뒤의 테스트 서버에서 코드를 백그라운드 프로세스로 실행합니다. 테스트 프로세스는 코어 SDK 패키지의 [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API를 사용하여 Application Insights에 결과를 보낼 수 있습니다. 이렇게 하려면 테스트 서버에 Application Insights 수집 엔드포인트에 대한 송신 액세스 권한이 있어야 하지만, 들어오는 요청을 허용하는 대체 방법보다 보안 위험이 훨씬 낮습니다. 포털을 통해 생성 된 테스트에 사용할 수 있는 환경에서 환경이 약간 간소화 되기는 하지만 가용성 웹 테스트 블레이드에서 결과가 표시 됩니다. 또한 사용자 지정 가용성 테스트는 분석, 검색 및 메트릭에 대 한 가용성 결과로 표시 됩니다.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>다중 단계 웹 테스트 업로드 실패
@@ -134,3 +134,4 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 
 * [다단계 웹 테스트](availability-multistep.md)
 * [URL ping 테스트](monitor-web-app-availability.md)
+

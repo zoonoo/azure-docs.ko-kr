@@ -1,6 +1,5 @@
 ---
-title: 모델 교차 유효성 검사 & 평가
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 모델 교차 유효성 검사 & 평가-Azure'
 description: Azure Machine Learning Studio (클래식)에서 모델 성능을 모니터링 하는 데 사용할 수 있는 메트릭에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: bd6c291cd703d56f86dc26c041eb39023bba0578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2308b57859a7f8eb0aa6519246fbb52ffdf9e81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945106"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318643"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 모델 성능 평가 (클래식)
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 이 문서에서는 Azure Machine Learning Studio (클래식)에서 모델 성능을 모니터링 하는 데 사용할 수 있는 메트릭에 대해 알아볼 수 있습니다.  모델 성능 평가는 데이터 과학 프로세스의 핵심 단계 중 하나입니다. 이는 학습된 모델에서 데이터 세트 점수 매기기(예측)에 성공한 정도를 나타냅니다. Azure Machine Learning Studio (클래식)은 두 가지 주요 기계 학습 모듈을 통해 모델 평가를 지원 합니다. 
 + [모델 평가][evaluate-model] 

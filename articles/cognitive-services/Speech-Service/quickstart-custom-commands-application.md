@@ -10,26 +10,36 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362145"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289425"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>사용자 지정 명령을 사용하여 음성 도우미 만들기
 
 이 빠른 시작에서는 Speech Studio를 사용 하 여 기본 사용자 지정 명령 응용 프로그램을 만들고 테스트 합니다. 이 응용 프로그램은 Windows 클라이언트 앱 에서도 액세스할 수 있습니다. **사용자 지정 명령을** 사용 하면 음성 우선 상호 작용 환경에 최적화 된 풍부한 음성 명령 앱을 쉽게 빌드할 수 있습니다. 통합 된 제작 환경, 자동 호스팅 모델 및 비교적 낮은 복잡성을 제공 하므로 음성 명령 시나리오에 가장 적합 한 솔루션을 구축 하는 데 집중할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="region-availability"></a>지역 가용성
+이번에는 사용자 지정 명령이 다음 지역에서 만든 음성 등록을 지원 합니다.
+* 미국 서부
+* 미국 서부2
+* 미국 동부
+* 미국 동부2
+* 북유럽
+* 서유럽
+* 미국 중서부
+* 인도 중부
+* 동아시아
+* 동남아시아
+
+## <a name="prerequisites"></a>전제 조건
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">사용자 지정 명령을 지 원하는 지역에서 Azure Speech 리소스를 만듭니다.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">사용자 지정 명령을 지 원하는 지역에서 Azure Speech 리소스를 만듭니다.<span class="docon docon-navigate-external x-hidden-focus"></span></a> 지원 되는 지역 목록에 대해서는 위의 **지역 가용성** 섹션을 참조 하세요.
 > * 샘플 [스마트 공간 Lite](https://aka.ms/speech/cc-quickstart) json 파일을 다운로드 합니다.
 > * 최신 버전의 [Windows Voice Assistant 클라이언트](https://aka.ms/speech/va-samples-wvac)를 다운로드 합니다.
-
-> [!NOTE]
-> 현재 사용자 지정 명령은 westus, westus2 및 northeurope 지역의 음성 구독만 지원 합니다.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>사용자 지정 명령을 위한 Speech Studio로 이동
 

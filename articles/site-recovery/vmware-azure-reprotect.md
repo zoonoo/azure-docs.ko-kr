@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037851"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292794"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Azure에서 온-프레미스로 다시 보호
 
@@ -33,7 +33,7 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
     - ESXi 5.5 free edition 또는 vSphere 6 하이퍼바이저 무료 버전을 사용 하 고 있는 경우 다른 버전으로 업그레이드 합니다.
     - Windows Server 2008 R2 SP1 물리적 서버가 있는 경우
     - VMware Vm은 Hyper-v로 장애 복구 (failback) 할 수 없습니다.
-    - [마이그레이션된](migrate-overview.md#what-do-we-mean-by-migration)vm입니다.
+    - 마이그레이션된 Vm입니다.
     - 다른 리소스 그룹으로 이동 된 VM입니다.
     - 삭제 된 복제본 Azure VM입니다.
     - 보호 되지 않는 복제본 Azure VM (온-프레미스 사이트에 복제)
@@ -47,7 +47,7 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 - 복구 계획을 다시 보호 하는 경우 보호 된 모든 컴퓨터에 대 한 값을 제공 해야 합니다.
 - Vm이 다중 VM 일관성을 위해 복제 그룹에 속하는 경우 복구 계획을 사용 하 여 다시 보호 수 있습니다. 복제 그룹의 Vm은 동일한 마스터 대상 서버를 사용 해야 합니다.
 
-### <a name="before-you-start"></a>시작하기 전 확인 사항
+### <a name="before-you-start"></a>시작하기 전에
 
 - 장애 조치 (failover) 후 Azure에서 VM을 부팅 한 후 에이전트에서 구성 서버에 다시 등록 하는 데 약간의 시간이 걸립니다 (최대 15 분). 이 시간 동안 다시 보호를 사용할 수 없으며 에이전트가 설치되지 않았다는 오류 메시지가 표시됩니다. 이 문제가 발생 하는 경우 몇 분 정도 기다린 후 다시 보호 합니다.
 - Azure VM을 기존 온-프레미스 VM으로 장애 복구 (failback) 하려는 경우 마스터 대상 서버의 ESXi 호스트에 대 한 읽기/쓰기 액세스 권한으로 온-프레미스 VM 데이터 저장소를 탑재 합니다.

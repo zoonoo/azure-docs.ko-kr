@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
-ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75497866"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292815"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -83,7 +84,7 @@ Azure로 장애 조치 (failover) 한 후에는 Azure Vm을 온-프레미스 사
 10. 장애 복구 (failback) 할 수 없는 다음 시나리오를 확인 합니다.
     - ESXi 5.5 free edition 또는 vSphere 6 하이퍼바이저 무료 버전을 사용 하 고 있는 경우 다른 버전으로 업그레이드 합니다.
     - Windows Server 2008 R2 SP1 물리적 서버가 있는 경우
-    - [마이그레이션된](migrate-overview.md#what-do-we-mean-by-migration)vm입니다.
+    - 마이그레이션된 Vm입니다.
     - 다른 리소스 그룹으로 이동 된 VM입니다.
     - 삭제 된 복제본 Azure VM입니다.
     - 보호 되지 않는 복제본 Azure VM (온-프레미스 사이트에 복제)

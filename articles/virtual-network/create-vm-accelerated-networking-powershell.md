@@ -1,6 +1,6 @@
 ---
 title: 가속 네트워킹을 사용 하 여 Windows VM 만들기-Azure PowerShell
-description: 가속화 된 네트워킹을 사용 하 여 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
+description: 가속화 된 네트워킹을 사용 하 여 Windows VM (가상 머신)을 만들면 네트워킹 성능을 크게 향상 시킬 수 있습니다.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088192"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289621"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 Windows VM 만들기
 

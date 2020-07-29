@@ -4,15 +4,15 @@ description: AzCopy 및 file storage를 사용 하 여 데이터를 전송 합�
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527883"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292719"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송 
 
@@ -53,8 +53,8 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 > |---|---|
 > |Acl (액세스 제어 목록)을 파일과 함께 복사 합니다.|**--smb-권한 유지** = \[ true \| false\]|
 > |파일과 함께 SMB 속성 정보를 복사 합니다.|**--smb-정보** = \[ 를 유지 합니다. true \| false\]|
-> |추가 Blob 또는 페이지 Blob으로 파일을 업로드 합니다.|**--blob-형식** = \[ BlockBlob \| pageblob \| appendblob\]|
-> |특정 액세스 계층 (예: 보관 계층)에 업로드 합니다.|**--블록-blob 계층** = \[ 없음 \| 핫 \| 쿨 \| 아카이브\]|
+> |추가 Blob 또는 페이지 Blob으로 파일을 업로드합니다.|**--blob-형식** = \[ BlockBlob \| pageblob \| appendblob\]|
+> |특정 액세스 계층(예: 보관 계층)에 업로드합니다.|**--블록-blob 계층** = \[ 없음 \| 핫 \| 쿨 \| 아카이브\]|
 > 
 > 전체 목록은 [options](storage-ref-azcopy-copy.md#options)를 참조 하세요.
 
@@ -101,7 +101,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 ### <a name="upload-specific-files"></a>특정 파일 업로드
 
-전체 파일 이름을 지정 하거나 부분 이름에 와일드 카드 문자 (*)를 사용할 수 있습니다.
+전체 파일 이름, 와일드 카드 문자 (*)가 포함 된 부분 이름, 날짜 및 시간을 사용 하 여 특정 파일을 업로드할 수 있습니다.
 
 #### <a name="specify-multiple-complete-file-names"></a>전체 파일 이름을 여러 개 지정
 
@@ -128,6 +128,17 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 옵션을 사용 하 여 파일을 제외할 수도 있습니다 `--exclude-pattern` . 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 `--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `–recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `–include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>날짜 및 시간 이후 수정 된 파일 업로드 
+
+옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-after` . ISO 8601 형식으로 날짜 및 시간을 지정 합니다 (예: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **구문** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **예제** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z'` |
+
+자세한 참조는 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 ## <a name="download-files"></a>파일 다운로드
 
@@ -185,7 +196,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 ### <a name="download-specific-files"></a>특정 파일 다운로드
 
-전체 파일 이름을 지정 하거나 부분 이름에 와일드 카드 문자 (*)를 사용할 수 있습니다.
+전체 파일 이름, 와일드 카드 문자 (*)가 포함 된 부분 이름, 날짜 및 시간을 사용 하 여 특정 파일을 다운로드할 수 있습니다.
 
 #### <a name="specify-multiple-complete-file-names"></a>전체 파일 이름을 여러 개 지정
 
@@ -212,6 +223,18 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 옵션을 사용 하 여 파일을 제외할 수도 있습니다 `--exclude-pattern` . 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 `--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `–recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `–include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>날짜 및 시간 이후 수정 된 파일 다운로드 
+
+옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-after` . ISO-8601 형식으로 날짜 및 시간을 지정 합니다 (예: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **구문** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>/*<SAS-token>' '<local-directory-path>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **예제** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z'` |
+
+
+자세한 참조는 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 ## <a name="copy-files-between-storage-accounts"></a>스토리지 계정 간에 파일 복사
 

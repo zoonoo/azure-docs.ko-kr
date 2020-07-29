@@ -156,6 +156,8 @@
       href: customer-managed-keys.md
     - name: 경고에서 인시던트 만들기
       href: create-incidents-from-alerts.md
+    - name: 인시던트 메트릭을 사용하여 SOC를 효율적으로 관리
+      href: manage-soc-with-incident-metrics.md
     - name: 사냥
       href: hunting.md
       items:

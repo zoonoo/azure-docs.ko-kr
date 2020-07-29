@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcd73a5bb6de162fc258d93398b7d00044429588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099563"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289933"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 진단 및 문제 해결
 
@@ -121,7 +121,7 @@ Timestamp 속성을 명시적으로 지정 하지 않으면 이벤트의 IoT hub
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>문제: Gen2 탐색기의 모든 내 인스턴스에서 부모가 부족 합니다.
 
-환경에 시계열 모델 계층 구조가 정의 되어 있지 않은 경우이 문제가 발생할 수 있습니다. 자세한 내용은 [시계열 모델을 사용](./time-series-insights-update-how-to-tsm.md)하는 방법을 참조 하세요.
+환경에 시계열 모델 계층 구조가 정의 되어 있지 않은 경우이 문제가 발생할 수 있습니다. 자세한 내용은 [시계열 모델을 사용](/azure/time-series-insights/time-series-insights-overview)하는 방법을 참조 하세요.
 
   [![Unparented 인스턴스는 경고를 표시 합니다.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,7 +135,7 @@ Power BI Desktop에서 Power BI 커넥터의 최신 버전을 사용 하지 않�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시계열 모델을 사용](./time-series-insights-update-how-to-tsm.md)하는 방법에 대해 읽어 보세요.
+- [시계열 모델을 사용](/azure/time-series-insights/time-series-insights-overview)하는 방법에 대해 읽어 보세요.
 
 - [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)에 대해 알아봅니다.
 

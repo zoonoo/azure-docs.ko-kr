@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516790"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318082"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -26,7 +26,7 @@ AD 복제 상태 솔루션은 복제 오류에 대 한 Active Directory 환경�
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-### <a name="prerequisites"></a>사전 준비 사항
+### <a name="prerequisites"></a>전제 조건
 
 * AD 복제 상태 솔루션에는 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.6.2 이상이 설치 되어 있어야 합니다.  이 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
@@ -34,13 +34,13 @@ AD 복제 상태 솔루션은 복제 오류에 대 한 Active Directory 환경�
 
 
 ### <a name="install-agents-on-domain-controllers"></a>도메인 컨트롤러에 에이전트 설치
-평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Azure Monitor에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Azure Monitor에 연결하는 방법을 파악하려면 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요. 도메인 컨트롤러가 Azure Monitor에 연결하려는 기존 System Center Operations Manager 환경에 이미 속해 있는 경우 [Azure Monitor에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
+평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Azure Monitor에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Azure Monitor에 연결하는 방법을 파악하려면 [Azure Monitor에 Windows 컴퓨터 연결](../platform/agent-windows.md)을 참조하세요. 도메인 컨트롤러가 Azure Monitor에 연결하려는 기존 System Center Operations Manager 환경에 이미 속해 있는 경우 [Azure Monitor에 Operations Manager 연결](../platform/om-agents.md)을 참조하세요.
 
 ### <a name="enable-non-domain-controller"></a>비도메인 컨트롤러 사용
 Azure Monitor에 도메인 컨트롤러를 직접 연결하지 않으려는 경우 Azure Monitor에 연결된 도메인의 다른 컴퓨터를 사용하여 AD 복제 상태 솔루션 팩에 대한 데이터를 수집하고 데이터를 보내도록 할 수 있습니다.
 
 1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
-2. 아직 연결되어 있지 않으면 [Windows 컴퓨터를 Azure Monitor에 연결](../../azure-monitor/platform/om-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 Azure Monitor에 연결](../../azure-monitor/platform/om-agents.md)합니다.
+2. 아직 연결되어 있지 않으면 [Windows 컴퓨터를 Azure Monitor에 연결](../platform/om-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 Azure Monitor에 연결](../platform/om-agents.md)합니다.
 3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.<br>키: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management Groups \<ManagementGroupName> \S\s\adreplication**<br>값: **IsTarget**<br>값 데이터: **true**
 
    > [!NOTE]
@@ -110,7 +110,7 @@ AD 복제 상태 타일에는 현재 발생한 복제 오류 수가 표시됩니
 
 ![쿼리 결과의 AD 복제 상태 오류](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-여기에서 추가로 필터링, 로그 쿼리 수정 등을 수행할 수 있습니다. Azure Monitor에서 로그 쿼리를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그 데이터 분석](../../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
+여기에서 추가로 필터링, 로그 쿼리 수정 등을 수행할 수 있습니다. Azure Monitor에서 로그 쿼리를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그 데이터 분석](../log-query/log-query-overview.md)을 참조하세요.
 
 **HelpLink** 필드는 해당 특정 오류에 대한 추가 세부 정보로 TechNet 페이지의 URL을 표시합니다. 이 링크를 브라우저 창에 복사하여 붙여넣고 문제 해결 및 오류 해결에 대한 정보를 볼 수 있습니다.
 
@@ -150,9 +150,10 @@ A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.
 ## <a name="troubleshoot-data-collection-problems"></a>데이터 수집 문제 해결
 데이터를 수집하려면 AD 복제 상태 솔루션 팩에 하나 이상의 도메인 컨트롤러가 Log Analytics 작업 영역에 연결되어 있어야 합니다. 도메인 컨트롤러에 연결할 때까지 **데이터가 여전히 수집되고 있다고** 표시하는 메시지가 표시됩니다.
 
-도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/om-agents.md)에서 문서를 볼 수 있습니다. 또는 도메인 컨트롤러가 기존 System Center Operations Manager 환경에 이미 연결된 경우 [Azure Monitor에 System Center Operations Manager 연결](../../azure-monitor/platform/om-agents.md)에서 문서를 볼 수 있습니다.
+도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Azure Monitor에 Windows 컴퓨터 연결](../platform/om-agents.md)에서 문서를 볼 수 있습니다. 또는 도메인 컨트롤러가 기존 System Center Operations Manager 환경에 이미 연결된 경우 [Azure Monitor에 System Center Operations Manager 연결](../platform/om-agents.md)에서 문서를 볼 수 있습니다.
 
 Azure Monitor 또는 System Center Operations Manager에 도메인 컨트롤러를 직접 연결하지 않으려는 경우 [비도메인 컨트롤러 사용](#enable-non-domain-controller)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor의 로그 쿼리](../../azure-monitor/log-query/log-query-overview.md)를 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
+* [Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md)를 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
+

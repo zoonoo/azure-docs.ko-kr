@@ -5,16 +5,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2c5394dce503a6fa00e2a3e6ff73a683d3d2e76f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012096"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317730"
 ---
 # <a name="create-a-saas-offer"></a>SaaS 제품 만들기
 
 상업용 Marketplace에서 SaaS(Software as a Service) 제품을 만들기 시작하려면 먼저 [파트너 센터 계정을 만든](./create-account.md) 다음 **개요** 탭이 선택된 상태에서 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
+
+> [!NOTE]
+> 불가능 SaaS 제품을 만드는 경우 [saas 처리 api](./pc-saas-fulfillment-apis.md)와의 통합을 구현 해야 합니다.  Transactability가 Marketplace에서 제대로 작동 하는 유일한 방법은 Api와의 통합입니다. 또한 앱에서 SSO (single sign on)를 사용 하 여 Azure AD 인증을 사용 하는지 확인 해야 합니다. [상업적 marketplace의 AZURE AD 및 불가능 SaaS 제품](../azure-ad-saas.md)을 참조 하세요.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
@@ -25,13 +30,13 @@ ms.locfileid: "87012096"
    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 상점에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
+> 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 스토어에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 ## <a name="new-offer"></a>새 제안
 
 **제품 ID**를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
 
-- 이 ID는 Marketplace 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
+- 이 ID는 마켓플레이스 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
 - 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 여기에 **test-offer-1**을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
 - **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
@@ -39,10 +44,6 @@ ms.locfileid: "87012096"
 
 - 이 이름은 마켓플레이스에서 사용되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
 - **만들기**를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
-
-<!---
-![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
--->
 
 **만들기**를 선택하여 제품을 생성하고 계속합니다.
 
@@ -62,8 +63,8 @@ ms.locfileid: "87012096"
 이 페이지에서는 다음 정보를 요청합니다.
 
 - **Microsoft를 통해 판매하시겠습니까?** (예/아니요)
-    - **예**, Microsoft를 통해 판매하고 Microsoft가 대신 트랜잭션을 호스트하도록 하겠습니다.
-    - **아니요**, 마켓플레이스를 통해서 제품을 나열만 하고 트랜잭션을 독립적으로 처리하겠습니다.
+  - **예**, Microsoft를 통해 판매하고 Microsoft가 대신 트랜잭션을 호스트하도록 하겠습니다.
+  - **아니요**, 마켓플레이스를 통해서 제품을 나열만 하고 트랜잭션을 독립적으로 처리하겠습니다.
 
 ### <a name="sell-through-microsoft"></a>Microsoft를 통해 판매
 
@@ -102,15 +103,13 @@ SaaS는 요금 청구 서비스를 사용하여 정액 요금, 사용자당 요�
 
 마켓플레이스 목록을 만들어 Microsoft로 비즈니스를 홍보하세요. Microsoft가 아닌 제품을 나열하도록 선택하는 것은 Microsoft가 소프트웨어 라이선스 트랜잭션에 직접 참여하지 않는다는 것을 의미합니다. 관련된 트랜잭션 수수료는 없으며 게시자는 고객으로부터 수금한 소프트웨어 라이선스 수수료를 100% 수취합니다. 단, 게시자는 주문, 이행, 계량, 청구, 송장, 지불 및 수금을 포함하되 이에 제한되지 않는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다.
 
-<!-- - **How do you want potential customers to interact with this listing offer?** -->
-
 #### <a name="get-it-now-free"></a>지금 받기(무료)
 
 [Azure Active Directory (AZURE AD)를 사용 하 여 한 번의 클릭으로 인증](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 고객에 게 제품을 무료로 제공 합니다. `https://contoso.com/saas-app`)을 입력합니다.
 
-#### <a name="free-trial-listing"></a>평가판(목록)
+#### <a name="free-trial-listing"></a>무료 평가판(목록)
 
-올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 평가판에 대 한 링크를 고객에 게 나열 합니다. 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있습니다. 예: `https://contoso.com/trial/saas-app`. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
+올바른 주소 ( *http* 또는 *https*로 시작)를 제공 하 여 평가판에 대 한 링크를 고객에 게 나열 합니다. 여기에서 [Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있습니다. `https://contoso.com/trial/saas-app`)을 입력합니다. 무료 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 애플리케이션에서 수신하는 토큰은 앱에서 자동으로 계정을 만드는 Azure AD를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에 MSA(Microsoft 계정)가 지원되지 않습니다.
@@ -120,8 +119,6 @@ SaaS는 요금 청구 서비스를 사용하여 정액 요금, 사용자당 요�
 CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품 이름, ID 및 Marketplace(고객이 제품을 찾은 소스)와 함께 구성된 CRM 시스템으로 전송됩니다. CRM을 구성하는 방법에 대한 자세한 내용은 [잠재 고객](#customer-leads)을 참조하세요.
 
 #### <a name="example-marketplace-offer-listing"></a>마켓플레이스 제품 목록 예
-
-<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
 
 Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음과 같습니다.
 
@@ -137,7 +134,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 11. 문서
 
@@ -148,7 +145,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
@@ -278,19 +275,19 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 - **연락처** – 각 고객 연락처에 대해 직원 **이름**, **전화 번호**, **이메일** 주소를 제공합니다(이들 정보는 공개적으로 표시되지 않음). **지원 URL**은 **지원 연락처** 그룹에 필요합니다(공개적으로 표시됨).
 
-    - **지원 연락처**(필수) – 일반적인 지원 질문을 위한 연락처입니다.
-    - **엔지니어링 연락처**(필수) - 기술 관련 질문을 위한 연락처입니다.
-    - **채널 관리자 연락처**(필수) – CSP 프로그램과 관련된 재판매인 질문을 위한 연락처입니다.
+  - **지원 연락처**(필수) – 일반적인 지원 질문을 위한 연락처입니다.
+  - **엔지니어링 연락처**(필수) - 기술 관련 질문을 위한 연락처입니다.
+  - **채널 관리자 연락처**(필수) – CSP 프로그램과 관련된 재판매인 질문을 위한 연락처입니다.
 
 #### <a name="files-and-images"></a>파일 및 이미지
 
 - **Documents** (필수) – 제품에 대 한 관련 마케팅 문서를 하나 이상의 문서에 대 한 하나 이상의 문서 (PDF 형식)로 추가 합니다.
 - **이미지**(선택 사항) – 제품의 로고 이미지가 마켓플레이스의 여러 위치에 나타날 수 있으며, 다음 픽셀 크기의 PNG 형식이어야 합니다.
 
-    - **소형**(48 x 48, 필수)
-    - **중형**(90 x 90, 필수)
-    - **대형**(216 x 216, 필수)
-    - **와이드**(255 x 115)
+  - **소형**(48 x 48, 필수)
+  - **중형**(90 x 90, 필수)
+  - **대형**(216 x 216, 필수)
+  - **와이드**(255 x 115)
 
 - **스크린샷** (필수)-1280 x 720 픽셀로 크기를 지정 하 여 제품을 보여 주는 최대 5 개의 스크린샷을 추가 합니다. 모든 이미지는 .PNG 형식이어야 합니다.
 - **동영상**(선택 사항) – 제품을 보여 주는 동영상에 대한 링크를 추가합니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 또한 동영상 미리 보기 이미지를 입력해야 합니다. 이 이미지는 PNG 형식의 1280 x 720 픽셀로 크기가 지정됩니다. 제품당 최대 4개의 동영상을 표시할 수 있습니다.
@@ -322,32 +319,32 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 ## <a name="technical-configuration"></a>기술 구성
 
-**기술 구성** 탭에서는 Marketplace에서 SaaS 서비스와 통신 하는 데 사용 하는 기술 세부 정보를 정의 합니다. 이 연결을 통해 최종 고객의 제품을 획득 하 고 관리 하는 경우 해당 제품을 프로 비전 할 수 있습니다. 
+**기술 구성** 탭에서는 Marketplace에서 SaaS 서비스와 통신 하는 데 사용 하는 기술 세부 정보를 정의 합니다. 이 연결을 통해 최종 고객의 제품을 획득 하 고 관리 하는 경우 해당 제품을 프로 비전 할 수 있습니다.
 
->[!Note]
->제안 세부 정보에서 이러한 세부 정보를 구성 하기 전에 [SaaS 처리 api](./pc-saas-fulfillment-api-v2.md) 와의 통합을 구현 해야 합니다.
+>[!NOTE]
+>제안 세부 정보에서 이러한 세부 정보를 구성 하기 전에 [SaaS 처리 api](./pc-saas-fulfillment-api-v2.md) 와의 통합을 구현 해야 합니다. 또한 방문 페이지를 만들어야 하며 앱은 SSO (single sign on)와 함께 Azure AD 인증을 사용 해야 합니다. 자세한 내용은 [상업적 marketplace에서 AZURE AD 및 불가능 SaaS 제품](../azure-ad-saas.md)을 참조 하세요.
 
 수집 된 필드 사용을 설명 하는 다이어그램 및 자세한 설명은 [api](./pc-saas-fulfillment-api-v2.md)에 대 한 설명서에서 확인할 수 있습니다.
 
 - **방문 페이지 url** (필수) – `https://contoso.com/signup` marketplace에서 제품을 획득 하 고 새로 만든 saas 구독에서 구성 프로세스를 트리거하는 최종 고객의 saas 사이트 URL (예:)을 정의 합니다.  이 URL은 특정 최종 고객의 SaaS 구매를 고유 하 게 식별 하는 marketplace 구매 id 토큰 매개 변수를 사용 하 여 호출 됩니다.  [확인](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) API를 사용 하 여 해당 SaaS 구독 세부 정보에 대해이 토큰을 교환 해야 합니다.  이러한 세부 정보 및 수집할 다른 모든 항목은 최종 고객 등록을 완료 하 고 구매를 활성화 하는 사용자의 경험을 기반으로 하는 고객 대화형 웹 페이지의 일부로 사용 해야 합니다.  이 페이지에서 사용자는 Azure Active Directory (Azure AD)를 사용 하 여 한 번의 클릭으로 인증을 통해 등록 해야 합니다. <br> <br> 또한 marketplace 구매 식별 토큰 매개 변수를 사용 하 여이 URL은 최종 고객이 Azure Portal 또는 M365 관리 센터에서 관리 되는 SaaS 환경을 시작할 때 호출 됩니다. 새 고객에 대해 구매한 후에 처음 토큰을 제공 하는 경우와 SaaS를 관리 하는 기존 고객을 위해 제공 된 경우 두 흐름을 모두 처리 해야 합니다. <br> <br> 여기에서 구성 하는 방문 페이지는 24/7을 실행 해야 합니다. Marketplace에서 만든 SaaS 제품의 새로운 구매 또는 제품의 활성 구독에 대 한 구성 요청에 대 한 알림이 표시 되는 유일한 방법입니다.
 
-- **Connection webhook** (필수) – Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 됨)에 대해 연결 webhook URL을 제공 해야 합니다. 이 URL을 호출 하 여 이벤트에 대해 알려줍니다. <br> <br> 제공 하는 웹 후크는 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받는 유일한 방법 이므로 24/7을 실행 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: `https://prod-1westus.logic.azure.com:443/work` ). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
+- **Connection webhook** (필수) – Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 됨)에 대해 연결 webhook URL을 제공 해야 합니다. 이 URL을 호출 하 여 이벤트에 대해 알려줍니다. <br> <br> 제공 하는 웹 후크는 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받는 유일한 방법 이므로 24/7을 실행 해야 합니다.  웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: `https://prod-1westus.logic.azure.com:443/work` ). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
 
 - **AZURE ad 테 넌 트 ID** (필수) – Azure Portal 내에서는 두 서비스 간의 연결에 대 한 유효성을 검사 하 여 인증 된 통신을 수행할 수 있도록 [Azure Active Directory (ad) 앱을 만들어야](../../active-directory/develop/howto-create-service-principal-portal.md) 합니다. [테 넌 트 ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
 
 - **AZURE AD 앱 id** (필수) – [응용 프로그램 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)도 필요 합니다. 해당 값을 가져오려면 Azure Active Directory로 이동 하 여 **앱 등록**을 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
 
->[!Note]
->Azure AD 앱 ID는 파트너 센터 계정의 게시자 ID에 연결 됩니다. 모든 제품에서 동일한 응용 프로그램 ID를 사용 해야 합니다.
+>[!NOTE]
+>Azure AD 앱 ID는 파트너 센터 계정의 게시자 ID에 연결 됩니다.  모든 제품에서 동일한 응용 프로그램 ID를 사용 하는지 확인 합니다.
 
->[!Note]
+>[!NOTE]
 >게시자의 파트너 센터에 두 개 이상의 다른 계정이 있는 경우 각 계정에 대해 둘 이상의 서로 다른 Azure AD 앱 Id를 사용 해야 합니다. 파트너 센터의 각 파트너 계정은이 계정을 통해 게시 되는 모든 SaaS 제품에 대해 고유한 Azure AD 앱 ID를 사용 해야 합니다.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
 ## <a name="plan-overview"></a>플랜 개요
 
-이 페이지를 통해 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 계획 (이전의 Sku)은 버전, 수익 화 또는 서비스 계층의 측면에서 다를 수 있습니다. Marketplace에서 제품을 판매 하려면 계획을 하나 이상 설정 해야 합니다.
+이 페이지를 통해 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 플랜(SKU라고도 함)은 버전, 수익화 또는 서비스 계층 측면에서 다를 수 있습니다. 마켓플레이스에서 제품을 판매하려면 플랜을 하나 이상 설정해야 합니다.
 
 플랜이 만들어지면 플랜 이름, ID, 가격 책정 모델, 가용성(공개 또는 비공개), 현재 게시 상태 및 사용 가능한 작업이 표시됩니다.
 
@@ -380,7 +377,7 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 #### <a name="markets-optional"></a>시장(선택 사항)
 
-모든 플랜은 하나 이상의 시장에서 사용할 수 있어야 합니다. **시장 편집**을 선택하고 이 플랜을 제공할 시장 위치의 확인란을 선택합니다. 이 페이지에는 Microsoft 송금 sales 및 사용자를 대신 하 여 세금을 사용 하는 ["세금 송금" 국가/지역을](tax-details-paid-transactions.md)선택 하는 검색 상자 및 옵션이 포함 되어 있습니다.
+모든 플랜은 하나 이상의 시장에서 사용할 수 있어야 합니다. **시장 편집**을 선택하고 이 플랜을 제공할 시장 위치의 확인란을 선택합니다. 이 페이지에는 Microsoft가 게시자를 대신하여 판매세와 이용세를 송금하는 "세금 송금" 국가/지역을 선택하는 검색 상자 및 옵션이 포함되어 있습니다.
 
 이미 플랜 가격을 미국 달러(USD)로 설정하고 다른 시장 위치를 추가하는 경우 새 시장의 가격은 현재 환율에 따라 계산됩니다. 게시 전에 각 시장의 가격을 검토합니다. 변경 내용을 저장한 후 "가격 내보내기(.xlsx)" 링크를 사용하여 가격 책정을 확인하세요.
 
@@ -462,8 +459,6 @@ SaaS 제품이 테넌트 ID를 사용하여 비공개 대상 그룹을 정의하
 1. 플랜 이름
 2. 플랜 설명
 
-<br>
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>CSP(클라우드 솔루션 공급자) 재판매인 대상 그룹
 
 CSP 프로그램에서 제품을 사용할 수 있도록 선택하면 클라우드 솔루션 공급자가 고객에게 번들로 제공되는 솔루션의 일부로 제품을 판매할 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자](https://go.microsoft.com/fwlink/?linkid=2111109)를 참조하세요.
@@ -477,12 +472,12 @@ CSP 프로그램에서 제품을 사용할 수 있도록 선택하면 클라우�
 이 제품을 처음으로 게시하는 경우 다음을 수행할 수 있습니다.
 
 - 제품의 각 섹션에서 완료 상태를 확인합니다.
-    - **시작되지 않음** – 섹션이 작업되지 않았으므로 완료해야 합니다.
-    - **완료되지 않음** – 섹션에 수정해야 하는 오류가 있거나 추가 정보를 입력해야 합니다. 섹션으로 돌아가서 업데이트해야 합니다.
-    - **완료됨** – 섹션이 완료되고 필요한 모든 데이터가 입력되었으며 오류가 발생하지 않습니다. 제품을 제출하려면 먼저 제품의 모든 섹션이 완료됨 상태여야 합니다.
+  - **시작되지 않음** – 섹션이 작업되지 않았으므로 완료해야 합니다.
+  - **완료되지 않음** – 섹션에 수정해야 하는 오류가 있거나 추가 정보를 입력해야 합니다. 섹션으로 돌아가서 업데이트해야 합니다.
+  - **완료됨** – 섹션이 완료되고 필요한 모든 데이터가 입력되었으며 오류가 발생하지 않습니다. 제품을 제출하려면 먼저 제품의 모든 섹션이 완료됨 상태여야 합니다.
 - 앱을 이해 하는 데 도움이 되는 보조 노트 뿐만 아니라 앱이 올바르게 테스트 되었는지 확인 하기 위해 인증 팀에 테스트 지침을 제공 합니다.
 - **제출**을 선택하여 게시할 제품을 제출합니다. 제품의 미리 보기 버전을 검토하고 승인할 수 있는 시기를 알려주는 이메일을 보내 드립니다. 파트너 센터로 돌아가서 공개 **를 선택 하 여 공개** (또는 개인 제품의 경우 비공개 사용자에 게 제안)를 게시 합니다.
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - [상업용 Marketplace에서 기존 제품 업데이트](./update-existing-offer.md)

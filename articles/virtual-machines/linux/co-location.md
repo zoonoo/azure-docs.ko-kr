@@ -2,15 +2,15 @@
 title: Linux Vm 공동 배치
 description: Azure VM 리소스를 공동 배치 하 여 대기 시간을 개선할 수 있는 방법에 대해 알아봅니다.
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 0a28b238701eeb0572149fb55e1633cdd40ec0a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 000c8c8955314060ae9bdedb96b086a509fb3e96
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511027"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368645"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>대기 시간 향상을 위한 리소스 공동 배치
 

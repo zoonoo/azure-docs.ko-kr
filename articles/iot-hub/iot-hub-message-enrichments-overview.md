@@ -8,11 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75429117"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290301"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>장치-클라우드 IoT Hub 메시지의 메시지 강화
 
@@ -59,11 +60,11 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 강화는 다음 메서드를 사용 하 여 구성할 수 있습니다.
 
-| **메서드** | **명령** |
+| **방법** | **명령** |
 | ----- | -----| 
 | 포털 | [Azure Portal](https://portal.azure.com) | [메시지 강화 자습서](tutorial-message-enrichments.md) 를 참조 하세요. | 
 | Azure CLI   | [az iot hub message-보강](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
-| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 메시지 강화 추가는 메시지 라우팅에 대기 시간을 추가 하지 않습니다.
 

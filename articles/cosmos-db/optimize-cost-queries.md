@@ -5,26 +5,29 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445122"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318269"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 쿼리 비용 최적화
 
-Azure Cosmos DB는 컨테이너 내의 항목에 작동하는 관계형 쿼리 및 계층형 쿼리를 비롯한 다양한 데이터베이스 작업 세트를 제공합니다. 이러한 작업 각각과 관련된 비용은 작업을 완료하는 데 필요한 CPU, IO 및 메모리에 따라 달라집니다. 하드웨어 리소스를 고려하고 관리하는 대신, 요청을 처리하기 위한 다양한 데이터베이스 작업을 수행하는 데 필요한 리소스의 단일 측정값으로 RU(요청 단위)를 고려할 수 있습니다. 이 문서에서는 쿼리에 대한 요청 단위 요금을 평가하고 성능 및 비용 측면에서 쿼리를 최적화하는 방법을 설명합니다. 
+Azure Cosmos DB는 컨테이너 내의 항목에 작동하는 관계형 쿼리 및 계층형 쿼리를 비롯한 다양한 데이터베이스 작업 세트를 제공합니다. 이러한 작업 각각과 관련된 비용은 작업을 완료하는 데 필요한 CPU, IO 및 메모리에 따라 달라집니다. 하드웨어 리소스를 고려하고 관리하는 대신, 요청을 처리하기 위한 다양한 데이터베이스 작업을 수행하는 데 필요한 리소스의 단일 측정값으로 RU(요청 단위)를 고려할 수 있습니다. 이 문서에서는 쿼리에 대한 요청 단위 요금을 평가하고 성능 및 비용 측면에서 쿼리를 최적화하는 방법을 설명합니다.
 
-Azure Cosmos DB의 쿼리는 일반적으로 처리량 측면에서 가장 빠르고/가장 효율적인 것부터 더 느리고/덜 효율적인 순서로 정렬됩니다.  
+일반적으로 Azure Cosmos DB 읽기는 다음과 같이 처리량 측면에서 가장 빠르고 효율적으로 정렬 됩니다.  
 
-* 단일 파티션 키 및 항목 키에 대한 GET 작업
+* Point reads (단일 항목 ID 및 파티션 키에 대 한 키/값 조회).
 
 * 단일 파티션 키 내에 필터 절이 있는 쿼리
 
 * 속성에 대해 같음 또는 범위 필터 절이 없는 쿼리
 
 * 필터가 없는 쿼리
+
+항목 ID의 키/값 조회가 가장 효율적인 종류의 읽기 이기 때문에 항목 ID에 의미 있는 값이 있는지 확인 해야 합니다.
 
 하나 이상의 파티션에서 데이터를 읽는 쿼리는 대기 시간이 더 길며 더 많은 수의 요청 단위를 사용합니다. 각 파티션에는 모든 속성에 대한 자동 인덱싱을 포함하므로 인덱스에서 쿼리를 효율적으로 제공할 수 있습니다. 병렬 처리 옵션을 사용하여 여러 파티션을 사용하는 쿼리를 보다 신속하게 만들 수 있습니다. 분할 및 파티션 키에 대해 자세히 알아보려면 [Azure Cosmos DB의 분할](partitioning-overview.md)을 참조하세요.
 
@@ -35,7 +38,7 @@ Azure Cosmos DB의 쿼리는 일반적으로 처리량 측면에서 가장 빠�
 또한 SDK를 사용하여 쿼리 비용을 프로그래밍 방식으로 확인할 수도 있습니다. 만들기, 업데이트 또는 삭제와 같은 작업의 오버헤드를 측정하려면 REST API를 사용하여 `x-ms-request-charge` 헤더를 조사합니다. .NET 또는 Java SDK를 사용 하는 경우 `RequestCharge` 속성은 요청 요금을 얻기 위한 동일한 속성 이며,이 속성은 ResourceResponse 또는 FeedResponse 내에 있습니다.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 

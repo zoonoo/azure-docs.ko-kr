@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network 피어링 만들기, 변경 또는 삭제 | Microsoft Docs
-description: 가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다.
+description: 가상 네트워크 피어 링을 만들거나, 변경 하거나, 삭제 합니다. 가상 네트워크 피어 링을 사용 하면 동일한 지역 및 여러 지역에서 가상 네트워크를 연결할 수 있습니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711105"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291871"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -145,7 +146,7 @@ ms.locfileid: "84711105"
 
 계정이 이전 역할 중 하나에 할당되지 않은 경우 다음 표에서 필요한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 할당되어야 합니다.
 
-| 작업                                                          | 이름 |
+| 작업                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 가상 네트워크 A에서 가상 네트워크 B로의 피어링을 만들어야 합니다. 가상 네트워크 A는 가상 네트워크(Resource Manager)이어야 함          |
 | Microsoft.Network/virtualNetworks/peer/action                   | 가상 네트워크 B(Resource Manager)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                       |
@@ -157,7 +158,7 @@ ms.locfileid: "84711105"
 
 - 가상 네트워크 피어링은 동일하거나 다른 구독에 존재하는 동일하거나 다른 배포 모델을 통해 만든 가상 네트워크 간에 만들어집니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-  |Azure 배포 모델             | Subscription  |
+  |Azure 배포 모델             | 구독  |
   |---------                          |---------|
   |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[다름](create-peering-different-subscriptions.md)|

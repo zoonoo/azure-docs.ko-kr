@@ -4,12 +4,12 @@ description: ASM(Azure 서비스 관리) 또는 RDFE 배포 모델이라고도 �
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317385"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 
@@ -21,7 +21,7 @@ Azure Monitor(이전에 처음 출시될 때는 Azure Insights)는 현재 클래
 
 Azure Portal, [새로운 Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI 또는 Resource Manager 템플릿을 통해 자동 크기 조정을 관리하는 경우 아무 작업도 필요하지 않습니다.  
 
-Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../azure-monitor/platform/partners.md)를 통해 메트릭을 사용하는 경우 아무 작업도 필요하지 않습니다. Microsoft는 새 API로 마이그레이션하기 위해 모니터링 파트너와 협력하고 있습니다.
+Azure Portal 또는 다양한 [모니터링 파트너 서비스](./partners.md)를 통해 메트릭을 사용하는 경우 아무 작업도 필요하지 않습니다. Microsoft는 새 API로 마이그레이션하기 위해 모니터링 파트너와 협력하고 있습니다.
 
 ## <a name="who-is-affected"></a>영향을 받는 사람
 
@@ -85,7 +85,8 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 질문이 있으면 MonitorClassicAPIhelp@microsoft.com으로 문의하세요.  
 
-## <a name="references"></a>참고 자료
+## <a name="references"></a>참고 문헌
 
 - [Azure Monitor용 최신 REST API](/rest/api/monitor/) 
 - [최신 Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

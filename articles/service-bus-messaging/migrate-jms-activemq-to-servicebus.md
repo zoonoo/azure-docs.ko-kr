@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
-ms.openlocfilehash: 7926e3b8aedde63c3a1a5a57c42b3d4f29cb9797
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076215"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369036"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS (Java Message Service) 2.0 응용 프로그램 마이그레이션
 
@@ -26,7 +27,7 @@ ms.locfileid: "87076215"
 
 Azure Service Bus는 AMQP (Advanced Message Queuing Protocol)를 통해 JMS 2.0 API를 사용 하는 Java 2 Platform, Enterprise Edition 및 스프링 워크 로드를 지원 합니다.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 ### <a name="differences-between-azure-service-bus-and-apache-activemq"></a>Azure Service Bus와 Apache ActiveMQ의 차이점
 

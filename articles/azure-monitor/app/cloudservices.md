@@ -3,19 +3,19 @@ title: Azure Cloud Services용 Application Insights | Microsoft Docs
 description: Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2adcdcdc36fdd41b1f871acbea386beb1d7a9451
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075422"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318439"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start]는 Application Insights SDK의 데이터와 Cloud Services의 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) 데이터를 결합하여 [Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 작업을 시작하려면 다음이 필요합니다.
 
 * [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
@@ -31,9 +31,9 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 이 옵션만 필요한 경우, 옵션 선택 후 게시를 완료하면 됩니다. 
 
-다음 단계는 분석을 사용 하 여 데이터를 [쿼리](../log-query/log-query-overview.md)하는 [앱에서 메트릭을 보는](../../azure-monitor/platform/metrics-charts.md)것입니다. 
+다음 단계는 분석을 사용 하 여 데이터를 [쿼리](../log-query/log-query-overview.md)하는 [앱에서 메트릭을 보는](../platform/metrics-charts.md)것입니다. 
 
-브라우저에서 성능을 모니터링하려면 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정하고 [웹 페이지에 코드를 추가](../../azure-monitor/app/javascript.md)할 수도 있습니다.
+브라우저에서 성능을 모니터링하려면 [가용성 테스트](./monitor-web-app-availability.md)를 설정하고 [웹 페이지에 코드를 추가](./javascript.md)할 수도 있습니다.
 
 다음 섹션에서는 다음과 같은 추가 옵션을 설명합니다.
 
@@ -51,9 +51,9 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 Azure 클라우드 서비스와 해당 Application Insights 모니터링 리소스를 모두 단일 작업으로 [배포 하는 스크립트를 작성할](../../azure-resource-manager/templates/deploy-powershell.md) 수 있습니다.
 
 ### <a name="resources-for-components"></a>구성 요소에 대한 리소스
-앱의 각 구성 요소에 대해 별도 리소스를 만드는 것이 좋습니다. 즉, 각 웹 역할 및 작업자 역할에 대해 리소스를 만드는 것입니다. 각 구성 요소를 개별적으로 분석할 수 있지만 모든 구성 요소의 주요 차트를 함께 표시하는 [대시보드](../../azure-monitor/app/overview-dashboard.md)를 만들어 단일 보기에서 이러한 차트를 비교하고 함께 모니터링할 수 있습니다. 
+앱의 각 구성 요소에 대해 별도 리소스를 만드는 것이 좋습니다. 즉, 각 웹 역할 및 작업자 역할에 대해 리소스를 만드는 것입니다. 각 구성 요소를 개별적으로 분석할 수 있지만 모든 구성 요소의 주요 차트를 함께 표시하는 [대시보드](./overview-dashboard.md)를 만들어 단일 보기에서 이러한 차트를 비교하고 함께 모니터링할 수 있습니다. 
 
-또 다른 접근 방법은 둘 이상의 역할에서 동일한 리소스로 원격 분석을 전송하되, [각 원격 분석 항목에 해당 소스 역할을 식별하는 차원 속성을 추가](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)하는 것입니다. 이 접근 방법에서는 예외와 같은 메트릭 차트에 일반적으로 다양한 역할의 카운트 집계가 표시되지만 필요한 경우 역할 식별자별로 차트를 분할할 수 있습니다. 동일한 차원으로 검색을 필터링할 수도 있습니다. 이 방법을 사용하면 모든 항목을 보다 쉽게 동시에 볼 수 있지만 역할 간에 약간의 혼동이 발생할 수도 있습니다.
+또 다른 접근 방법은 둘 이상의 역할에서 동일한 리소스로 원격 분석을 전송하되, [각 원격 분석 항목에 해당 소스 역할을 식별하는 차원 속성을 추가](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)하는 것입니다. 이 접근 방법에서는 예외와 같은 메트릭 차트에 일반적으로 다양한 역할의 카운트 집계가 표시되지만 필요한 경우 역할 식별자별로 차트를 분할할 수 있습니다. 동일한 차원으로 검색을 필터링할 수도 있습니다. 이 방법을 사용하면 모든 항목을 보다 쉽게 동시에 볼 수 있지만 역할 간에 약간의 혼동이 발생할 수도 있습니다.
 
 브라우저 원격 분석은 일반적으로 해당 서버 쪽 웹 역할과 동일한 리소스에 포함됩니다.
 
@@ -68,7 +68,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>각 역할에 대한 Application Insights 리소스 만들기
 
-각 역할에 대한 별도의 리소스(각 빌드 구성에 대한 별도의 집합)를 만들기로 결정한 경우 Application Insights 포털에서 모든 리소스를 만드는 것이 가장 간편합니다. 많은 리소스를 만드는 경우 [프로세스를 자동화](../../azure-monitor/app/powershell.md)할 수 있습니다.
+각 역할에 대한 별도의 리소스(각 빌드 구성에 대한 별도의 집합)를 만들기로 결정한 경우 Application Insights 포털에서 모든 리소스를 만드는 것이 가장 간편합니다. 많은 리소스를 만드는 경우 [프로세스를 자동화](./powershell.md)할 수 있습니다.
 
 1. [Azure Portal][portal]에서 **새로 만들기** > **개발자 서비스** > **Application Insights**를 선택합니다.  
 
@@ -92,7 +92,7 @@ Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 
 
 그러면 Application Insights 계측 키가 *ServiceConfiguration.\*.cscfg* 파일에 삽입됩니다. 다음은 [샘플 코드](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)입니다.
 
-Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [.cscfg 파일을 직접 편집](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)할 수 있습니다.**
+Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [.cscfg 파일을 직접 편집](../platform/diagnostics-extension-to-application-insights.md)할 수 있습니다.**
 
 ## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>각 프로젝트에 SDK 설치
 이 옵션을 사용하여 임의 역할에 사용자 지정 비즈니스 원격 분석을 추가할 수 있습니다. 이 옵션은 앱이 사용되는 방식과 성능을 좀 더 자세히 분석해서 제공합니다.
@@ -165,7 +165,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 1. 만든 Application Insights 리소스를 엽니다.
 
-   개별 데이터 요소는 [Search][diagnostic]에 표시되고 집계된 데이터는 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에 표시됩니다.
+   개별 데이터 요소는 [Search][diagnostic]에 표시되고 집계된 데이터는 [메트릭 탐색기](../platform/metrics-charts.md)에 표시됩니다.
 
 1. 원격 분석을 더 추가하고(다음 섹션 참조) 앱을 게시하여 라이브 진단 및 사용 피드백을 가져옵니다. 
 
@@ -184,11 +184,11 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 * Windows 이벤트 로그는 추적 및 사용자 지정 이벤트로 표시됩니다.
 * 애플리케이션 로그, ETW 로그 및 진단 인프라 로그는 추적으로 표시됩니다.
 
-성능 카운터 및 이벤트 개수를 보려면 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)를 열고 다음 차트를 추가합니다.
+성능 카운터 및 이벤트 개수를 보려면 [메트릭 탐색기](../platform/metrics-charts.md)를 열고 다음 차트를 추가합니다.
 
 ![Azure Diagnostics 데이터](./media/cloudservices/23-wad.png)
 
-Azure Diagnostics에서 보낸 다양한 추적 로그를 검색하려면 [Search](../../azure-monitor/app/diagnostic-search.md) 또는 [분석 쿼리](../../azure-monitor/log-query/get-started-portal.md)를 사용합니다. 예를 들어 역할이 충돌하여 재활용되도록 하는 처리되지 않은 예외가 있다고 가정해 봅시다. 해당 정보는 Windows 이벤트 로그의 애플리케이션 채널에 표시됩니다. Search를 사용하여 Windows 이벤트 로그 오류를 살펴보고 예외에 대한 전체 스택 추적을 가져올 수 있습니다. 이렇게 하면 문제의 근본 원인을 찾는 데 도움이 됩니다.
+Azure Diagnostics에서 보낸 다양한 추적 로그를 검색하려면 [Search](./diagnostic-search.md) 또는 [분석 쿼리](../log-query/get-started-portal.md)를 사용합니다. 예를 들어 역할이 충돌하여 재활용되도록 하는 처리되지 않은 예외가 있다고 가정해 봅시다. 해당 정보는 Windows 이벤트 로그의 애플리케이션 채널에 표시됩니다. Search를 사용하여 Windows 이벤트 로그 오류를 살펴보고 예외에 대한 전체 스택 추적을 가져올 수 있습니다. 이렇게 하면 문제의 근본 원인을 찾는 데 도움이 됩니다.
 
 ![Azure Diagnostics 검색](./media/cloudservices/25-wad.png)
 
@@ -205,7 +205,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>예외
-다양한 웹앱 유형에서 처리되지 않은 예외를 수집하는 방법에 대한 자세한 내용은 [Application Insights에서 예외 모니터링](../../azure-monitor/app/asp-net-exceptions.md)을 참조하세요.
+다양한 웹앱 유형에서 처리되지 않은 예외를 수집하는 방법에 대한 자세한 내용은 [Application Insights에서 예외 모니터링](./asp-net-exceptions.md)을 참조하세요.
 
 샘플 웹 역할에는 MVC5 및 Web API 2 컨트롤러에 있습니다. 2에서 처리되지 않은 예외는 다음 처리기를 통해 캡처됩니다.
 
@@ -255,11 +255,11 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 앱을 라이브 상태로 유지하고 응답하도록 하려면 [웹 테스트를 설정][availability]합니다.
 
 ## <a name="display-everything-together"></a>모든 항목을 함께 표시
-시스템에 대한 전반적인 정보를 얻기 위해 주요 모니터링 차트를 하나의 [대시보드](../../azure-monitor/app/overview-dashboard.md)에 표시할 수 있습니다. 예를 들어 각 역할의 요청 및 실패 수를 고정할 수 있습니다. 
+시스템에 대한 전반적인 정보를 얻기 위해 주요 모니터링 차트를 하나의 [대시보드](./overview-dashboard.md)에 표시할 수 있습니다. 예를 들어 각 역할의 요청 및 실패 수를 고정할 수 있습니다. 
 
 시스템에서 Stream Analytics와 같은 다른 Azure 서비스를 사용하는 경우 해당 모니터링 차트도 포함합니다. 
 
-클라이언트 모바일 앱이 있는 경우 [App Center](../../azure-monitor/learn/mobile-center-quickstart.md)를 사용합니다. [분석](../log-query/log-query-overview.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
+클라이언트 모바일 앱이 있는 경우 [App Center](../learn/mobile-center-quickstart.md)를 사용합니다. [분석](../log-query/log-query-overview.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
 
 ## <a name="example"></a>예제
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) 는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.
@@ -272,18 +272,19 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights에 Azure Diagnostics를 보내도록 구성](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [자동으로 Application Insights 리소스 만들기](../../azure-monitor/app/powershell.md)
-* [Azure Diagnostics 자동화](../../azure-monitor/app/powershell-azure-diagnostics.md)
+* [Application Insights에 Azure Diagnostics를 보내도록 구성](../platform/diagnostics-extension-to-application-insights.md)
+* [자동으로 Application Insights 리소스 만들기](./powershell.md)
+* [Azure Diagnostics 자동화](./powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../azure-monitor/app/app-insights-overview.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
+[api]: ./api-custom-events-metrics.md
+[availability]: ./monitor-web-app-availability.md
+[azure]: ./app-insights-overview.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+
