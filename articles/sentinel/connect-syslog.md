@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Syslog 데이터 연결 | Microsoft Docs
-description: 어플라이언스와 센티널 사이에 Linux 컴퓨터의 에이전트를 사용 하 여 Syslog를 지 원하는 온-프레미스 어플라이언스를 Azure 센티널에 연결 합니다. 
+description: 어플라이언스와 센티널 사이에 Linux 컴퓨터의 에이전트를 사용 하 여 Syslog를 지 원하는 컴퓨터 또는 어플라이언스를 Azure 센티널에 연결 합니다. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,66 +12,90 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076252"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322842"
 ---
-# <a name="connect-your-external-solution-using-syslog"></a>Syslog를 사용 하 여 외부 솔루션 연결
+# <a name="collect-data-from-linux-based-sources-using-syslog"></a>Syslog를 사용 하 여 Linux 기반 원본에서 데이터 수집
 
-Syslog를 지 원하는 온-프레미스 어플라이언스를 Azure 센티널에 연결할 수 있습니다. 어플라이언스와 Azure 센티널 사이에 Linux 컴퓨터를 기반으로 하는 에이전트를 사용 하 여이 작업을 수행 합니다. Linux 컴퓨터가 Azure에 있는 경우 어플라이언스 또는 응용 프로그램에서 Azure에 만든 전용 작업 영역으로 로그를 스트리밍하 고 연결할 수 있습니다. Linux 컴퓨터가 Azure에 없으면 어플라이언스의 로그를 Linux 용 에이전트를 설치 하는 전용 온-프레미스 VM 또는 컴퓨터로 스트리밍할 수 있습니다. 
+Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사용 하 여 Linux 기반 Syslog 지원 컴퓨터 또는 어플라이언스에서 Azure 센티널로 이벤트를 스트리밍할 수 있습니다. 컴퓨터에 Log Analytics 에이전트를 직접 설치할 수 있는 모든 컴퓨터에 대해이 작업을 수행할 수 있습니다. 컴퓨터의 기본 Syslog 디먼은 지정 된 형식의 로컬 이벤트를 수집 하 고 에이전트에 로컬로 전달 하므로 Log Analytics 작업 영역으로 스트리밍합니다.
 
 > [!NOTE]
-> 어플라이언스에서 Syslog CEF를 지 원하는 경우에는 연결이 더 완벽 하므로이 옵션을 선택 하 고 [CEF의 데이터 연결](connect-common-event-format.md)에 설명 된 지침을 따라야 합니다.
+> - 어플라이언스에서 Syslog를 **통해 CEF (일반 이벤트 형식)** 를 지 원하는 경우 더 완벽 한 데이터 집합이 수집 되 고 데이터는 컬렉션에서 구문 분석 됩니다. 이 옵션을 선택 하 고 [CEF를 사용 하 여 외부 솔루션 연결](connect-common-event-format.md)의 지침을 따르세요.
+>
+> - Log Analytics **는 rsyslog 또는** **syslog-기능** 디먼에서 보낸 메시지의 컬렉션을 지원 합니다. 여기서 rsyslog는 기본값입니다. Red Hat Enterprise Linux (RHEL), CentOS 및 Oracle Linux 버전 (**sy log**)의 버전 5에 있는 기본 syslog 디먼은 syslog 이벤트 수집에 대해 지원 되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
-Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.
+**Syslog** 는 Linux에 공통적인 이벤트 로깅 프로토콜입니다. **Linux 용 Log Analytics 에이전트가** VM 또는 어플라이언스에 설치 된 경우 설치 루틴은 TCP 포트 25224의 에이전트로 메시지를 전달 하도록 로컬 Syslog 데몬을 구성 합니다. 그러면 에이전트는 HTTPS를 통해 Log Analytics 작업 영역으로 메시지를 보냅니다. 그러면 **Azure 센티널 > 로그**의 Syslog 테이블에 있는 이벤트 로그 항목으로 구문 분석 됩니다.
 
 자세한 내용은 [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/platform/data-sources-syslog.md)을 참조 하세요.
 
-> [!NOTE]
-> - 에이전트는 여러 원본에서 로그를 수집할 수 있지만 전용 프록시 컴퓨터에 설치 해야 합니다.
-> - 동일한 VM에서 CEF와 Syslog 모두에 대 한 커넥터를 지원 하려면 다음 단계를 수행 하 여 데이터 중복을 방지 합니다.
->    1. 지침에 따라 [CEF를 연결](connect-common-event-format.md)합니다.
->    2. Syslog 데이터를 연결 하려면 **설정**  >  **작업 영역 설정**  >  **고급 설정**데이터 Syslog로 이동 하 고, 해당  >  **Data**  >  **Syslog** 기능 및 해당 우선 순위를 설정 하 여 cef 구성에서 사용한 것과 동일한 시설 및 속성이 되도록 합니다. <br></br>**내 컴퓨터에 아래 구성 적용**을 선택 하는 경우이 작업 영역에 연결 된 모든 vm에 이러한 설정 적용 됩니다.
+## <a name="configure-syslog-collection"></a>Syslog 컬렉션 구성
 
-
-## <a name="connect-your-syslog-appliance"></a>Syslog 어플라이언스 연결
+### <a name="configure-your-linux-machine-or-appliance"></a>Linux 컴퓨터 또는 어플라이언스 구성
 
 1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Syslog** 커넥터를 선택 합니다.
 
-2. **Syslog** 블레이드에서 **커넥터 페이지 열기**를 선택 합니다.
+1. **Syslog** 블레이드에서 **커넥터 페이지 열기**를 선택 합니다.
 
-3. Linux 에이전트를 설치 합니다.
+1. Linux 에이전트를 설치 합니다. **에이전트를 설치할 위치 선택에서 다음을 수행 합니다.**
     
-    - Azure에 Linux 가상 머신이 있는 경우 **Azure linux 가상 머신에서 에이전트 다운로드 및 설치**를 선택 합니다. **Virtual machines** 블레이드에서 에이전트를 설치할 가상 컴퓨터를 선택 하 고 **연결**을 클릭 합니다.
-    - Linux 컴퓨터가 Azure에 없는 경우 **linux가 아닌 linux에서 에이전트 다운로드 및 설치**를 선택 합니다. **직접 에이전트** 블레이드에서 **LINUX 용 에이전트 다운로드 및** 등록을 위한 명령을 복사 하 고 컴퓨터에서 실행 합니다. 
+    **Azure Linux VM의 경우:**
+      
+    1. **Azure Linux 가상 컴퓨터에 에이전트 설치를**선택 합니다.
+    
+    1. **다운로드 & Azure Linux 가상 머신에 대 한 에이전트 설치 >** 링크를 클릭 합니다. 
+    
+    1. **Virtual machines** 블레이드에서 에이전트를 설치할 가상 컴퓨터를 클릭 한 다음 **연결**을 클릭 합니다. 연결 하려는 각 VM에 대해이 단계를 반복 합니다.
+    
+    **기타 Linux 컴퓨터의 경우:**
+
+    1. **비 Azure Linux 컴퓨터에 에이전트 설치** 를 선택 합니다.
+
+    1. & 다운로드를 클릭 하 여 **Azure Linux가 아닌 컴퓨터에 대 한 에이전트 설치 >** 링크를 클릭 합니다. 
+
+    1. **에이전트 관리** 블레이드에서 **linux 서버** 탭을 클릭 한 다음 linux **용 에이전트 다운로드 및** 등록 명령을 복사 하 여 linux 컴퓨터에서 실행 합니다. 
     
    > [!NOTE]
    > 조직의 보안 정책에 따라 이러한 컴퓨터에 대 한 보안 설정을 구성 해야 합니다. 예를 들어 조직의 네트워크 보안 정책에 맞게 네트워크 설정을 구성 하 고, 보안 요구 사항에 맞게 디먼의 포트 및 프로토콜을 변경할 수 있습니다.
 
-4. **작업 영역 열기 고급 설정 구성**을 선택 합니다.
+### <a name="configure-the-log-analytics-agent"></a>Log Analytics 에이전트 구성
 
-5. **고급 설정** 블레이드에서 **데이터**  >  **Syslog**를 선택 합니다. 그런 다음 수집할 커넥터에 대 한 기능을 추가 합니다.
+1. Syslog 커넥터 블레이드의 아래쪽에서 **작업 영역 고급 설정 구성 >열기** 링크를 클릭 합니다.
+
+1. **고급 설정** 블레이드에서 **데이터**  >  **Syslog**를 선택 합니다. 그런 다음 수집할 커넥터에 대 한 기능을 추가 합니다.
     
-    Syslog 어플라이언스에 포함 된 기능을 로그 헤더에 추가 합니다. Syslog 어플라이언스에서 폴더의 **syslog-d** `/etc/rsyslog.d/security-config-omsagent.conf` 및의 **r-Syslog** 에서이 구성을 볼 수 있습니다 `/etc/syslog-ng/security-config-omsagent.conf` .
+    - Syslog 어플라이언스에 포함 된 기능을 로그 헤더에 추가 합니다. 
     
-    수집한 데이터를 사용 하 여 비정상적인 SSH 로그인 검색을 사용 하려는 경우 **auth** 및 **authpriv**를 추가 합니다. 자세한 내용은 [다음 섹션](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) 을 참조 하세요.
+    - 수집한 데이터를 사용 하 여 비정상적인 SSH 로그인 검색을 사용 하려는 경우 **auth** 및 **authpriv**를 추가 합니다. 자세한 내용은 [다음 섹션](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) 을 참조 하세요.
 
-6. 모니터링 하려는 모든 기능을 추가 하 고 각 기능에 대 한 심각도 옵션을 조정한 경우 **내 컴퓨터에 아래 구성 적용**확인란을 선택 합니다.
+1. 모니터링 하려는 모든 기능을 추가 하 고 각 기능에 대 한 심각도 옵션을 조정한 경우 **내 컴퓨터에 아래 구성 적용**확인란을 선택 합니다.
 
-7. **저장**을 선택합니다. 
+1. **저장**을 선택합니다. 
 
-8. Syslog 어플라이언스에서 지정한 시설을 전송 하 고 있는지 확인 합니다.
+1. VM 또는 어플라이언스에서 지정한 시설을 전송 하 고 있는지 확인 합니다.
 
-9. Syslog 로그에 대해 Azure Monitor에서 관련 스키마를 사용 하려면 **syslog**를 검색 합니다.
+1. **로그**에서 syslog 로그 데이터를 쿼리하려면 `Syslog` 쿼리 창에를 입력 합니다.
 
-10. [Azure Monitor 로그 쿼리의 함수를 사용 하 여](../azure-monitor/log-query/functions.md) Syslog 메시지를 구문 분석 하는 방법에 설명 된 Kusto 함수를 사용할 수 있습니다. 그런 다음 새 데이터 형식으로 사용할 새 Log Analytics 함수로 저장할 수 있습니다.
+1. [Azure Monitor 로그 쿼리의 함수를 사용 하 여](../azure-monitor/log-query/functions.md) Syslog 메시지를 구문 분석 하는 데 설명 된 쿼리 매개 변수를 사용할 수 있습니다. 그런 다음 쿼리를 새 Log Analytics 함수로 저장 하 고 새 데이터 형식으로 사용할 수 있습니다.
+
+> [!NOTE]
+>
+> 기존 [Cef 로그 전달자 컴퓨터](connect-cef-agent.md) 를 사용 하 여 일반 Syslog 원본 에서도 로그를 수집 하 고 전달할 수 있습니다. 그러나 다음 단계를 수행 하 여 두 형식의 이벤트를 Azure 센티널로 보내지 않도록 하 여 이벤트를 중복 하는 것을 방지 해야 합니다.
+>
+>    이미 [CEF 원본에서 데이터 수집](connect-common-event-format.md)을 설정 하 고 위와 같이 Log Analytics 에이전트를 구성 했습니다.
+>
+> 1. CEF 형식으로 로그를 전송 하는 각 컴퓨터에서 Syslog 구성 파일을 편집 하 여 CEF 메시지를 보내는 데 사용 되는 기능을 제거 해야 합니다. 이러한 방식으로 CEF에서 전송 되는 기능은 Syslog로 보내지지 않습니다. 이 작업을 수행 하는 방법에 대 한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) 을 참조 하세요.
+>
+> 1. Azure 센티널의 Syslog 구성과 에이전트의 동기화를 사용 하지 않도록 설정 하려면 해당 컴퓨터에서 다음 명령을 실행 해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성 변경을 덮어쓰지 않습니다.<br>
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+
 
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>비정상적인 SSH 로그인 검색을 위한 Syslog 커넥터 구성
 

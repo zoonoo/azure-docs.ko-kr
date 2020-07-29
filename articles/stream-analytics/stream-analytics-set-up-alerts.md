@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: d701a518dfa0bd21b33aa2f13f533ad6ef49430d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: de8b69cbe3117a3ec248cee4808b676b39c56658
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037820"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324797"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
 
@@ -63,16 +64,8 @@ Stream Analytics 작업의 성능 모니터링에 대해 다음 경고를 사용
 |워터마크 지연|초과|최대|마지막 15분 동안 이 메트릭의 평균 값이 지연 도착 허용 시간(초)보다 큰 경우. 지연 도착 허용 시간을 수정하지 않은 경우, 기본값은 5초로 설정됩니다.|SU 수를 늘리거나 쿼리를 병렬 처리하세요. SU에 대한 자세한 내용은 [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job)을 참조하세요. 쿼리 병렬 처리에 대한 자세한 내용은 [Azure Stream Analytics에서 쿼리 병렬 처리 활용](stream-analytics-parallelization.md)을 참조하세요.|
 |입력 역직렬화 오류|초과|합계|0|활동 또는 리소스 로그를 검토하고 입력을 적절히 변경합니다. 리소스 로그에 대한 자세한 내용은 [Azure Stream Analytics 리소스 로그를 사용하여 문제 해결](stream-analytics-job-diagnostic-logs.md)을 참조하세요.|
 
-## <a name="get-help"></a>도움말 보기
-
-Azure Portal에서 경고를 구성에 대한 자세한 내용은 [경고 알림 받기](../azure-monitor/platform/alerts-overview.md)를 참조하세요.  
-
-추가 지원이 필요한 경우 [Azure Stream Analytics에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 방문해 보세요.
-
 ## <a name="next-steps"></a>다음 단계
-* [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
+
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

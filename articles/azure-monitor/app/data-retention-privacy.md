@@ -3,12 +3,12 @@ title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft 
 description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 16483c9417c08ea60853d7e70b7121cd0af9db71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 039e86f964649441967dff82270a3a6c460612f0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540063"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324474"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
@@ -38,24 +38,24 @@ Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나
 ## <a name="what-data-does-it-collect"></a>어떤 데이터를 수집하나요?
 세 가지 데이터 원본이 있습니다.
 
-* [개발 시](../../azure-monitor/app/asp-net.md) 또는 [런타임 시](../../azure-monitor/app/monitor-performance-live-website-now.md) 앱과 통합하는 SDK가 있습니다. 다른 애플리케이션 형식에 대한 여러 SDK가 있습니다. 또한 페이지와 함께 최종 사용자의 브라우저에 로드 되는 [웹 페이지에 대 한 SDK](../../azure-monitor/app/javascript.md)가 있습니다.
+* [개발 시](./asp-net.md) 또는 [런타임 시](./monitor-performance-live-website-now.md) 앱과 통합하는 SDK가 있습니다. 다른 애플리케이션 형식에 대한 여러 SDK가 있습니다. 또한 페이지와 함께 최종 사용자의 브라우저에 로드 되는 [웹 페이지에 대 한 SDK](./javascript.md)가 있습니다.
   
-  * 각 SDK에는 다양한 [모듈](../../azure-monitor/app/configuration-with-applicationinsights-config.md)이 있으며 이는 서로 다른 기술을 사용하여 다른 형식의 원격 분석 데이터를 수집합니다.
+  * 각 SDK에는 다양한 [모듈](./configuration-with-applicationinsights-config.md)이 있으며 이는 서로 다른 기술을 사용하여 다른 형식의 원격 분석 데이터를 수집합니다.
   * 개발 시 SDK를 설치하면 표준 모듈 외에도 API를 사용하여 사용자 고유의 원격 분석을 보낼 수 있습니다. 이 사용자 지정 원격 분석은 전송하려는 데이터를 포함할 수 있습니다.
-* 또한 일부 웹 서버에는 앱과 함께 실행하고 CPU, 메모리 및 네트워크 선점에 대한 원격 분석을 보내는 에이전트가 있습니다. 예를 들어 Azure VM, Docker 호스트 및 [Java EE 서버](../../azure-monitor/app/java-agent.md)에는 이러한 에이전트가 있을 수 있습니다.
-* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 는 정기적으로 웹앱에 요청을 전송하는 Microsoft에서 실행되는 프로세스입니다. 결과는 Application Insights 서비스에 전송됩니다.
+* 또한 일부 웹 서버에는 앱과 함께 실행하고 CPU, 메모리 및 네트워크 선점에 대한 원격 분석을 보내는 에이전트가 있습니다. 예를 들어 Azure VM, Docker 호스트 및 [Java EE 서버](./java-agent.md)에는 이러한 에이전트가 있을 수 있습니다.
+* [가용성 테스트](./monitor-web-app-availability.md) 는 정기적으로 웹앱에 요청을 전송하는 Microsoft에서 실행되는 프로세스입니다. 결과는 Application Insights 서비스에 전송됩니다.
 
 ### <a name="what-kinds-of-data-are-collected"></a>어떤 종류의 데이터를 수집하나요?
 주요 범주는 다음과 같습니다.
 
-* [웹 서버 원격 분석](../../azure-monitor/app/asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. `Session id`.
-* [웹 페이지](../../azure-monitor/app/javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
+* [웹 서버 원격 분석](./asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. `Session id`.
+* [웹 페이지](./javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
 * 클라이언트 및 서버 컨텍스트 - OS, 로캘, 디바이스 형식, 브라우저, 화면 해상도입니다.
-* [예외](../../azure-monitor/app/asp-net-exceptions.md) 및 충돌- **스택 덤프**, `build id` , CPU 형식. 
-* [종속성](../../azure-monitor/app/asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
-* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
-* [추적 로그](../../azure-monitor/app/asp-net-trace-logs.md) 및 [사용자 지정 원격 분석](../../azure-monitor/app/api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
+* [예외](./asp-net-exceptions.md) 및 충돌- **스택 덤프**, `build id` , CPU 형식. 
+* [종속성](./asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
+* [가용성 테스트](./monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
+* [추적 로그](./asp-net-trace-logs.md) 및 [사용자 지정 원격 분석](./api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
 
 [자세한 내용](#data-sent-by-application-insights).
 
@@ -71,16 +71,16 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 ![F12 키를 누르고 네트워크 탭을 엽니다.](./media/data-retention-privacy/08-browser.png)
 
 ### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>전송하기 전에 코드를 작성하여 원격 분석을 필터링할 수 있습니까?
-[원격 분석 프로세서 플러그 인](../../azure-monitor/app/api-filtering-sampling.md)을 작성하여 수행할 수 있습니다.
+[원격 분석 프로세서 플러그 인](./api-filtering-sampling.md)을 작성하여 수행할 수 있습니다.
 
 ## <a name="how-long-is-the-data-kept"></a>데이터가 얼마 동안 보존되나요?
-원시 데이터 요소 (즉, 분석에서 쿼리하고 검색에서 검사할 수 있는 항목)는 최대 730 일 동안 유지 됩니다. 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일의 [보존 기간을 선택할](./pricing.md#change-the-data-retention-period) 수 있습니다. 데이터를 730 일 보다 오래 유지 해야 하는 경우 [연속 내보내기를](../../azure-monitor/app/export-telemetry.md) 사용 하 여 데이터를 수집 하는 동안 저장소 계정에 복사할 수 있습니다. 
+원시 데이터 요소 (즉, 분석에서 쿼리하고 검색에서 검사할 수 있는 항목)는 최대 730 일 동안 유지 됩니다. 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일의 [보존 기간을 선택할](./pricing.md#change-the-data-retention-period) 수 있습니다. 데이터를 730 일 보다 오래 유지 해야 하는 경우 [연속 내보내기를](./export-telemetry.md) 사용 하 여 데이터를 수집 하는 동안 저장소 계정에 복사할 수 있습니다. 
 
 90 일 보다 오래 유지 되는 데이터는 추가 요금이 발생 합니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)의 Application Insights 가격 책정에 대해 자세히 알아보세요.
 
 집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 90일 동안 1분 단위로 보존됩니다.
 
-[디버그 스냅숏은](../../azure-monitor/app/snapshot-debugger.md) 15 일 동안 저장 됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
+[디버그 스냅숏은](./snapshot-debugger.md) 15 일 동안 저장 됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 데이터는 사용자 및 조직 계정이 있는 경우 팀 멤버에게 표시됩니다. 
@@ -233,7 +233,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Application Insights에 저장된 개인 데이터
 
-[Application Insights 개인 데이터 아티클](../../azure-monitor/platform/personal-data-mgmt.md)에서는 이 문제를 자세히 설명합니다.
+[Application Insights 개인 데이터 아티클](../platform/personal-data-mgmt.md)에서는 이 문제를 자세히 설명합니다.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>내 사용자가 Application Insights를 끌 수 있나요?
 직접 끌 수는 없습니다. 사용자가 Application Insights를 끄기 위해 작동할 수 있는 스위치는 제공되지 않습니다.
@@ -247,9 +247,9 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 | 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조) |
 | --- | --- |
-| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>users |
+| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>사용자 |
 | [IIS에서 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
-| [Java 웹앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>users |
+| [Java 웹앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자 |
 | [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax |
 | [기본 속성 정의][apiproperties] |**속성** |
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
@@ -286,7 +286,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
 
 > [!NOTE]
-> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](./ip-collection.md) 에서 사용자의 옵션을 안내 합니다.
+> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](./ip-collection.md) 에서 사용자의 옵션을 안내 합니다.
 
 ## <a name="credits"></a>크레딧
 이 제품에는에서 사용할 수 있는 MaxMind로 생성 된 GeoLite2 데이터가 포함 됩니다 [https://www.maxmind.com](https://www.maxmind.com) .
@@ -295,13 +295,14 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiproperties]: ../../azure-monitor/app/api-custom-events-metrics.md#properties
-[client]: ../../azure-monitor/app/javascript.md
-[config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[api]: ./api-custom-events-metrics.md
+[apiproperties]: ./api-custom-events-metrics.md#properties
+[client]: ./javascript.md
+[config]: ./configuration-with-applicationinsights-config.md
+[greenbrown]: ./asp-net.md
+[java]: ./java-get-started.md
+[platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

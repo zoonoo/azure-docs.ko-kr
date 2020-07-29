@@ -1,6 +1,6 @@
 ---
-title: Android에서 Windows 가상 데스크톱에 연결 2019-Azure
-description: Android 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
+title: Android에서 Windows 가상 데스크톱 (클래식)에 연결-Azure
+description: Android 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결 하는 방법
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ccea4e39146500cb9d3796c4ca99725e2e2ac429
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd319c7a6b356052f91e779e2f2a67eff4c4b6de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087155"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270756"
 ---
-# <a name="connect-with-the-android-client"></a>Android 클라이언트와 연결
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Android 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결
 
 > 적용 대상: Android 4.1 이상, Chromebooks ChromeOS 53 이상
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-android.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../connect-android.md)를 참조 하세요.
 
 >[!NOTE]
 > Android 클라이언트에서 Windows 가상 데스크톱 리소스에 액세스 하는 기능은 현재 미리 보기로 제공 됩니다.

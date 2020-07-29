@@ -6,35 +6,35 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: b8edbbc397a56f4fcf5b3ae070f04ca61659d98d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321108"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
 이 문서에서는 Azure Monitor에서 로그 경고와 관련 된 일반적인 문제를 해결 하는 방법을 보여 줍니다. 또한 로그 경고의 기능 및 구성과 관련 된 일반적인 문제에 대 한 해결 방법을 제공 합니다.
 
-용어 *로그 경고* 는 [Azure Log Analytics 작업 영역](../log-query/get-started-portal.md) 또는 [Azure 애플리케이션 Insights](../log-query/log-query-overview.md)에서 로그 쿼리를 기반으로 발생 하는 규칙을 설명 합니다. [Azure Monitor에서 로그 경고](../platform/alerts-unified-log.md)의 기능, 용어 및 형식에 대해 자세히 알아보세요.
+용어 *로그 경고* 는 [Azure Log Analytics 작업 영역](../log-query/get-started-portal.md) 또는 [Azure 애플리케이션 Insights](../log-query/log-query-overview.md)에서 로그 쿼리를 기반으로 발생 하는 규칙을 설명 합니다. [Azure Monitor에서 로그 경고](./alerts-unified-log.md)의 기능, 용어 및 형식에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 이 문서에서는 Azure Portal 경고 규칙을 표시 하 고 연결 된 작업 그룹에서 알림을 수행 하지 않는 경우를 고려 하지 않습니다. 이러한 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](../platform/action-groups.md)의 세부 정보를 참조 하세요.
+> 이 문서에서는 Azure Portal 경고 규칙을 표시 하 고 연결 된 작업 그룹에서 알림을 수행 하지 않는 경우를 고려 하지 않습니다. 이러한 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](./action-groups.md)의 세부 정보를 참조 하세요.
 
 ## <a name="log-alert-didnt-fire"></a>로그 경고가 발생하지 않음
 
-[Azure Monitor에서 구성 된 로그 경고 규칙](../platform/alerts-log.md) 의 상태가 [예상 대로 *실행 되는* 것으로](../platform/alerts-managing-alert-states.md)표시 되지 않는 몇 가지 일반적인 이유는 다음과 같습니다.
+[Azure Monitor에서 구성 된 로그 경고 규칙](./alerts-log.md) 의 상태가 [예상 대로 *실행 되는* 것으로](./alerts-managing-alert-states.md)표시 되지 않는 몇 가지 일반적인 이유는 다음과 같습니다.
 
 ### <a name="data-ingestion-time-for-logs"></a>로그에 대 한 데이터 수집 시간
 
-로그 경고는 [Log Analytics](../log-query/get-started-portal.md) 또는 [Application Insights](../log-query/log-query-overview.md)를 기반으로 쿼리를 주기적으로 실행 합니다. Azure Monitor은 전 세계의 다양 한 소스에서 수천 대의 데이터를 처리 하기 때문에 서비스는 다양 한 시간 지연에 영향을 받습니다. 자세한 내용은 [Azure Monitor 로그의 데이터 수집 시간](../platform/data-ingestion-time.md)을 참조 하세요.
+로그 경고는 [Log Analytics](../log-query/get-started-portal.md) 또는 [Application Insights](../log-query/log-query-overview.md)를 기반으로 쿼리를 주기적으로 실행 합니다. Azure Monitor은 전 세계의 다양 한 소스에서 수천 대의 데이터를 처리 하기 때문에 서비스는 다양 한 시간 지연에 영향을 받습니다. 자세한 내용은 [Azure Monitor 로그의 데이터 수집 시간](./data-ingestion-time.md)을 참조 하세요.
 
 지연을 완화 하기 위해 시스템은 필요한 데이터를 아직 수집 하지 않는 경우 경고 쿼리를 여러 번 대기한 후 다시 시도 합니다. 시스템에는 기하급수적으로 증가하는 대기 시간이 설정되어 있습니다. 로그 경고는 데이터를 사용할 수 있는 경우에만 트리거되고 로그 데이터 수집 속도가 느려지는 원인일 수 있습니다.
 
 ### <a name="incorrect-time-period-configured"></a>잘못된 기간이 구성됨
 
-[로그 경고에 대 한 용어](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)에 대 한 문서에 설명 된 대로 구성에 설명 된 기간에는 쿼리에 대 한 시간 범위가 지정 됩니다. 이 쿼리는이 범위 내에서 생성 된 레코드만 반환 합니다.
+[로그 경고에 대 한 용어](./alerts-unified-log.md#log-search-alert-rule---definition-and-types)에 대 한 문서에 설명 된 대로 구성에 설명 된 기간에는 쿼리에 대 한 시간 범위가 지정 됩니다. 이 쿼리는이 범위 내에서 생성 된 레코드만 반환 합니다.
 
 이 기간은 로그 쿼리에 대해 인출 되는 데이터를 제한 하 여 악용을 방지 하 고 로그 쿼리에 사용 되는 시간 명령 (예: **전**)을 우회 합니다. 예를 들어 기간이 60분으로 설정되고 오후 1시 15분에 쿼리를 실행하는 경우 오후 12시 15분부터 오후 1시 15분 사이에 생성된 레코드만 로그 쿼리에 사용됩니다. 로그 쿼리가 이전 **(1d)** 와 같은 시간 명령을 사용 하는 경우 해당 기간으로 설정 되어 있기 때문에 쿼리는 여전히 12:15 pm 및 1:15 pm 사이의 데이터만 사용 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "87045353"
 
 ### <a name="suppress-alerts-option-is-set"></a>경고 표시 안 함 옵션이 설정됨
 
-[Azure Portal에서 로그 경고 규칙을 만드는](../platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal)방법에 대 한 문서 8 단계에서 설명한 대로 로그 경고는 구성 된 시간 동안 트리거 및 알림 작업을 표시 하지 않도록 **경고 표시 안** 함 옵션을 제공 합니다. 따라서 경고가 발생 하지 않은 것으로 생각할 수 있습니다. 실제로는 발생 했지만 억제 되었습니다.  
+[Azure Portal에서 로그 경고 규칙을 만드는](./alerts-log.md#create-a-log-alert-rule-with-the-azure-portal)방법에 대 한 문서 8 단계에서 설명한 대로 로그 경고는 구성 된 시간 동안 트리거 및 알림 작업을 표시 하지 않도록 **경고 표시 안** 함 옵션을 제공 합니다. 따라서 경고가 발생 하지 않은 것으로 생각할 수 있습니다. 실제로는 발생 했지만 억제 되었습니다.  
 
 ![알림 표시 안 함](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
@@ -83,11 +83,11 @@ ms.locfileid: "87045353"
 
 ## <a name="log-alert-fired-unnecessarily"></a>로그 경고가 불필요하게 발생함
 
-[Azure Monitor에서 구성 된 로그 경고 규칙](../platform/alerts-log.md) 은 [Azure Alerts](../platform/alerts-managing-alert-states.md)에서 볼 때 예기치 않게 트리거될 수 있습니다. 다음 섹션에서는 몇 가지 일반적인 이유를 설명 합니다.
+[Azure Monitor에서 구성 된 로그 경고 규칙](./alerts-log.md) 은 [Azure Alerts](./alerts-managing-alert-states.md)에서 볼 때 예기치 않게 트리거될 수 있습니다. 다음 섹션에서는 몇 가지 일반적인 이유를 설명 합니다.
 
 ### <a name="alert-triggered-by-partial-data"></a>부분 데이터로 인해 경고가 트리거됨
 
-Log Analytics 및 Application Insights 수집 지연과 처리가 적용 됩니다. 로그 경고 쿼리를 실행할 때 데이터를 사용할 수 없거나 일부 데이터만 사용할 수 있는 것을 확인할 수 있습니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](../platform/data-ingestion-time.md)을 참조 하세요.
+Log Analytics 및 Application Insights 수집 지연과 처리가 적용 됩니다. 로그 경고 쿼리를 실행할 때 데이터를 사용할 수 없거나 일부 데이터만 사용할 수 있는 것을 확인할 수 있습니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](./data-ingestion-time.md)을 참조 하세요.
 
 경고 규칙을 구성 하는 방법에 따라 경고 실행 시 로그에 데이터 또는 데이터 일부가 없으면 잘못 실행 될 수 있습니다. 이 경우 경고 쿼리 또는 구성을 변경 하는 것이 좋습니다.
 
@@ -103,7 +103,7 @@ Log Analytics 및 Application Insights 수집 지연과 처리가 적용 됩니�
 
 ## <a name="log-alert-was-disabled"></a>로그 경고를 사용 하지 않도록 설정 했습니다.
 
-다음 섹션에서는 Azure Monitor [로그 경고 규칙](../platform/alerts-log.md)을 사용 하지 않도록 설정할 수 있는 몇 가지 이유를 나열 합니다.
+다음 섹션에서는 Azure Monitor [로그 경고 규칙](./alerts-log.md)을 사용 하지 않도록 설정할 수 있는 몇 가지 이유를 나열 합니다.
 
 ### <a name="resource-where-the-alert-was-created-no-longer-exists"></a>경고가 생성 된 리소스가 더 이상 존재 하지 않습니다.
 
@@ -179,7 +179,7 @@ Azure 활동 로그의 다음 샘플 이벤트는 지속적으로 실패 하 여
 구성의 일부로 Azure Monitor에서 생성 되는 각 로그 경고 규칙은 경고 서비스가 정기적으로 실행할 분석 쿼리를 지정 해야 합니다. 분석 쿼리는 규칙을 만들거나 업데이트할 때 올바른 구문이 될 수 있습니다. 그러나 일정 기간 동안 로그 경고 규칙에 제공 된 쿼리가 구문 문제를 개발 하 고 규칙 실행이 실패할 수 있습니다. 로그 경고 규칙에 제공 된 분석 쿼리가 오류를 개발할 수 있는 몇 가지 일반적인 이유는 다음과 같습니다.
 
 - 쿼리는 [여러 리소스에서 실행](../log-query/cross-workspace-query.md)되도록 작성 됩니다. 하나 이상의 지정 된 리소스가 더 이상 존재 하지 않습니다.
-- 구성 된 [메트릭 측정 유형 로그 경고](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) 에서 경고 쿼리가 표준 구문을 준수 하지 않습니다.
+- 구성 된 [메트릭 측정 유형 로그 경고](./alerts-unified-log.md#metric-measurement-alert-rules) 에서 경고 쿼리가 표준 구문을 준수 하지 않습니다.
 - 분석 플랫폼에 대 한 데이터 흐름이 없습니다. 제공 된 쿼리에 대 한 데이터가 없기 때문에 [쿼리 실행 시 오류가](https://dev.loganalytics.io/documentation/Using-the-API/Errors) 발생 합니다.
 - [쿼리 언어](/azure/kusto/query/) 의 변경 내용에는 명령 및 함수에 대 한 수정 된 형식이 포함 됩니다. 따라서 경고 규칙에서 이전에 제공 된 쿼리가 더 이상 유효 하지 않습니다.
 
@@ -218,11 +218,12 @@ Azure 활동 로그의 다음 샘플 이벤트는 지속적으로 실패 하 여
 
 #### <a name="from-api"></a>API에서
 
-- PowerShell- [AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
-- REST API - [구독별 목록](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/listbysubscription)
+- PowerShell- [AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
+- REST API - [구독별 목록](/rest/api/monitor/scheduledqueryrules/listbysubscription)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 로그 경고](../platform/alerts-unified-log.md)에 대해 알아봅니다.
+- [Azure의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
 - [Application Insights](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.
 - [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요.
+

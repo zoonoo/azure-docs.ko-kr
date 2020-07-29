@@ -4,12 +4,12 @@ description: Application Insights를 시작합니다. 온-프레미스 또는 Mi
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323454"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
@@ -23,9 +23,9 @@ Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스�
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>성능 모니터링 설정
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.
 
-* [ASP.NET 웹 앱](../../azure-monitor/app/asp-net.md)
-  * [예외 모니터링 추가](../../azure-monitor/app/asp-net-exceptions.md)
-  * [종속성 모니터링 추가](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [ASP.NET 웹 앱](./asp-net.md)
+  * [예외 모니터링 추가](./asp-net-exceptions.md)
+  * [종속성 모니터링 추가](./monitor-performance-live-website-now.md)
 * [Java EE 웹앱](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>성능 메트릭 탐색
@@ -106,7 +106,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>성능 조사 환경을 사용하여 성능 병목 현상 찾기 및 수정
 
-성능 조사 환경을 사용하여 웹앱에서 성능이 느린 작업을 검토합니다. 느린 특정 작업을 신속하게 선택하고 [프로파일러](../../azure-monitor/app/profiler.md)를 사용하여 코드에 대한 작업 속도를 저하시키는 근본 원인을 파악할 수 있습니다. 선택한 작업이 표시된 새 기간 분포를 사용하면 해당 환경이 얼마나 고객에게 나쁜지를 빠르게 즉시 가늠할 수 있습니다. 느린 작업마다 영향을 받은 사용자 상호 작용의 상태를 확인할 수 있습니다. 다음 예제에서는 고객/세부 정보 가져오기 작업에 대한 환경을 자세히 살펴보겠습니다. 기간 분포에서 세 가지 스파이크가 있음을 알 수 있습니다. 맨 왼쪽 스파이크는 약 400ms이며 뛰어난 응답 환경을 나타냅니다. 중간 스파이크는 약 1.2s이며 보통의 환경을 나타냅니다. 3.6s에서 99번째 백분위수 환경을 나타내는 마지막 작은 스파이크는 고객 불만족으로 이어질 가능성이 높습니다. 그러한 환경은 동일한 작업에 대해 탁월한 환경보다 10배 더 느립니다. 
+성능 조사 환경을 사용하여 웹앱에서 성능이 느린 작업을 검토합니다. 느린 특정 작업을 신속하게 선택하고 [프로파일러](./profiler.md)를 사용하여 코드에 대한 작업 속도를 저하시키는 근본 원인을 파악할 수 있습니다. 선택한 작업이 표시된 새 기간 분포를 사용하면 해당 환경이 얼마나 고객에게 나쁜지를 빠르게 즉시 가늠할 수 있습니다. 느린 작업마다 영향을 받은 사용자 상호 작용의 상태를 확인할 수 있습니다. 다음 예제에서는 고객/세부 정보 가져오기 작업에 대한 환경을 자세히 살펴보겠습니다. 기간 분포에서 세 가지 스파이크가 있음을 알 수 있습니다. 맨 왼쪽 스파이크는 약 400ms이며 뛰어난 응답 환경을 나타냅니다. 중간 스파이크는 약 1.2s이며 보통의 환경을 나타냅니다. 3.6s에서 99번째 백분위수 환경을 나타내는 마지막 작은 스파이크는 고객 불만족으로 이어질 가능성이 높습니다. 그러한 환경은 동일한 작업에 대해 탁월한 환경보다 10배 더 느립니다. 
 
 ![고객/세부 정보 가져오기 세 가지 기간 스파이크](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -142,12 +142,13 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
 [usage]: usage-overview.md
-[livestream]: ../../azure-monitor/app/live-stream.md
-[snapshot]: ../../azure-monitor/app/snapshot-debugger.md
+[livestream]: ./live-stream.md
+[snapshot]: ./snapshot-debugger.md
+

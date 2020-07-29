@@ -4,15 +4,15 @@ description: API를 제공 하 여 제품의 현재 상태를 검색 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535878"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272014"
 ---
 # <a name="retrieve-offer-status"></a>제안 상태 검색
 
@@ -27,15 +27,15 @@ ms.locfileid: "86535878"
 
 |  **이름**       |   **설명**                            |  **데이터 형식** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     String     |
-|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     String     |
-|  api-version    | 최신 버전 API                        |     날짜       |
+|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     문자열     |
+|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     문자열     |
+|  api-version    | 최신 버전 API                        |     Date       |
 |  |  |
 
 ## <a name="header"></a>헤더
 
 
-|  이름           |  값               |
+|  Name           |  값               |
 |  -------------  | -------------------  |
 |  콘텐츠 형식   |  `application/json`  |
 |  권한 부여  | `Bearer YOUR_TOKEN`  |
@@ -154,7 +154,7 @@ ms.locfileid: "86535878"
 |  실행 중                     | 제안 제출을 처리 중입니다.                     |
 |  성공                   | 제안 제출 처리를 완료했습니다.               |
 |  취소됨                    | 제안 제출이 취소되었습니다.                           |
-|  Failed                      | 제안 제출에 실패했습니다.                                 |
+|  실패                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
 
 ### <a name="step-status"></a>단계 상태

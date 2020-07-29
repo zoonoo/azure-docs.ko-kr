@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 080af271870362e6e0633aaf590820f2fadb6144
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505740"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325392"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리
 
@@ -26,15 +26,15 @@ Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor �
 
 ## <a name="concepts"></a>개념
 
-- [Azure Monitor에서 로그 데이터 분석](../../azure-monitor/log-query/log-query-overview.md)에서는 로그 쿼리의 간략한 개요를 제공하고 Azure Monitor 로그 데이터가 구성된 방식을 설명합니다.
+- [Azure Monitor에서 로그 데이터 분석](./log-query-overview.md)에서는 로그 쿼리의 간략한 개요를 제공하고 Azure Monitor 로그 데이터가 구성된 방식을 설명합니다.
 - [Azure Monitor에서 데이터 보기 및 분석](./log-query-overview.md)에서는 로그 쿼리를 만들고 실행하는 포털을 설명합니다.
 
 ## <a name="reference"></a>참조
 
 - [쿼리 언어 참조](/azure/kusto/query)는 Kusto 쿼리 언어에 대한 전체 언어 참조입니다.
 - [Azure Monitor 로그 쿼리 언어 차이](data-explorer-difference.md)에서는 Kusto 쿼리 언어 버전 간의 차이점을 설명합니다.
-- [Azure Monitor 로그 레코드의 표준 속성](../../azure-monitor/platform/log-standard-properties.md)에서는 모든 Azure Monitor 로그 데이터의 표준이 되는 속성을 설명합니다.
-- [Azure Monitor에서 리소스 간 로그 쿼리 수행](../../azure-monitor/log-query/cross-workspace-query.md)에서는 여러 Log Analytics 작업 영역 및 Application Insights 애플리케이션의 데이터를 사용하는 로그 쿼리를 작성하는 방법을 설명합니다.
+- [Azure Monitor 로그 레코드의 표준 속성](../platform/log-standard-properties.md)에서는 모든 Azure Monitor 로그 데이터의 표준이 되는 속성을 설명합니다.
+- [Azure Monitor에서 리소스 간 로그 쿼리 수행](./cross-workspace-query.md)에서는 여러 Log Analytics 작업 영역 및 Application Insights 애플리케이션의 데이터를 사용하는 로그 쿼리를 작성하는 방법을 설명합니다.
 
 ## <a name="examples"></a>예제
 
@@ -58,3 +58,4 @@ Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor �
 ## <a name="next-steps"></a>다음 단계
 
 - [Kusto 쿼리 언어에 대한 전체 참조 문서](/azure/kusto/query/)에 액세스합니다.
+

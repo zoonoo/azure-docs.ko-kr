@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424468"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325154"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
 
@@ -58,7 +59,7 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 | Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> Windows [에 대 한 Log Analytics 에이전트](../platform/agent-windows.md)외에도 windows 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> Linux [에 대 한 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md)외에도 linux 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
-| Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | 예 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서는 Microsoft Monitoring Agent (MMA)를 사용 하 여 데이터를 수집 하 고 전송 하기 위해 System Center Operations Manager와 Azure Monitor 모두 사용 합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager 및 Azure Monitor는 MMA의 약간 다른 버전을 제공 합니다. 이러한 버전은 각각 System Center Operations Manager, Azure Monitor 또는 양쪽 모두에 보고할 수 있습니다.
 
@@ -98,7 +99,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 #### <a name="windows-desktop"></a>Windows 데스크톱
 
 - Windows 10 1803
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -162,11 +163,11 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 단계를 수행하여 작업 영역에 대해 Wire Data 솔루션을 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) 또는 [솔루션 갤러리에서 모니터링 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용 하 여 활동 로그 분석 솔루션을 사용 하도록 설정 합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) 또는 [솔루션 갤러리에서 모니터링 솔루션 추가](./solutions.md)에 설명 된 프로세스를 사용 하 여 활동 로그 분석 솔루션을 사용 하도록 설정 합니다.
 2. 데이터를 가져오려는 각 컴퓨터에 종속성 에이전트를 설치 합니다. 종속성 에이전트는 즉시 인접 환경에 대 한 연결을 모니터링할 수 있으므로 모든 컴퓨터에 에이전트가 필요 하지 않을 수 있습니다.
 
 > [!NOTE]
@@ -181,7 +182,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 다음 단계를 사용 하 여 Windows를 실행 하는 각 컴퓨터에 종속성 에이전트를 설치 합니다.
 
-1. [사용자 환경에서 호스트되는 Windows 컴퓨터에서 데이터 수집](../../azure-monitor/platform/agent-windows.md)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
+1. [사용자 환경에서 호스트되는 Windows 컴퓨터에서 데이터 수집](../platform/agent-windows.md)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
 2. 이전 섹션의 링크를 사용 하 여 Windows 종속성 에이전트를 다운로드 한 후 다음 명령을 사용 하 여 실행 합니다.`InstallDependencyAgent-Windows.exe`
 3. 마법사에 따라 에이전트를 설치합니다.
 4. Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 %Programfiles%\Microsoft Dependency Agent\logs입니다.
@@ -207,7 +208,7 @@ Windows 종속성 에이전트에 대 한 파일은 기본적으로 C:\Program F
 
 각 Linux 컴퓨터에서 Dependency Agent를 설치하려면 다음 단계를 사용합니다.
 
-1. [사용자 환경에서 호스트되는 Linux 컴퓨터에서 데이터 수집](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
+1. [사용자 환경에서 호스트되는 Linux 컴퓨터에서 데이터 수집](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
 2. 이전 섹션의 링크를 사용하여 Linux 종속성 에이전트를 다운로드한 후 다음 명령을 사용하여 루트로 설치합니다. sh InstallDependencyAgent-Linux64.bin
 3. Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 /var/opt/microsoft/dependency-agent/log입니다.
 
@@ -225,7 +226,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 
-| **Files** | **위치** |
+| **파일** | **위치** |
 | --- | --- |
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
@@ -375,7 +376,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 프로토콜 트래픽이 시간에 따라 증가하는지 감소하는지 여부를 아는 데 유용합니다. 예를 들어 애플리케이션에 의해 전송되고 있는 데이터 양이 증가하는 경우 이를 알고 있어야 하거나 주목할 만한 것일 수 있습니다.
 
-## <a name="input-data"></a>데이터 입력
+## <a name="input-data"></a>입력 데이터
 
 실시간 데이터 기능은 설정한 에이전트를 사용하여 네트워크 트래픽에 대한 메타데이터를 수집합니다. 각 에이전트는 약 15초마다 데이터를 보냅니다.
 
@@ -392,7 +393,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 | ReceivedBytes | 받은 바이트의 양 |
 | ProtocolName | 사용되는 네트워크 프로토콜의 이름 |
 | IPVersion | IP 버전 |
-| Direction | 인바운드 또는 아웃바운드 |
+| 방향 | 인바운드 또는 아웃바운드 |
 | MaliciousIP | 알려진 악의적인 원본의 IP 주소 |
 | 심각도 | 의심되는 맬웨어 심각도 |
 | RemoteIPCountry | 원격 IP 주소의 국가/지역 |
@@ -415,4 +416,5 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로그를 검색](../../azure-monitor/log-query/log-query-overview.md)하여 자세한 실시간 데이터 검색 레코드를 볼 수 있습니다.
+- [로그를 검색](../log-query/log-query-overview.md)하여 자세한 실시간 데이터 검색 레코드를 볼 수 있습니다.
+

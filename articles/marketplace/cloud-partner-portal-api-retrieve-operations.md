@@ -4,15 +4,15 @@ description: API를 통해 제품의 모든 작업을 검색 하거나 지정 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 90ff7c4a85fd9e48ac3aa49ace99f43eb0244603
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271946"
 ---
 # <a name="retrieve-operations"></a>작업 검색
 
@@ -31,12 +31,12 @@ ms.locfileid: "86520292"
 
 ## <a name="uri-parameters"></a>URI 매개 변수
 
-|  **이름**          |      **설명**                                                                                           | **데이터 형식** |
+|  **Name**          |      **설명**                                                                                           | **데이터 형식** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  String       |
-|  offerId           |  제안 식별자입니다.                                                                                              |  String       |
+|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  문자열       |
+|  offerId           |  제안 식별자입니다.                                                                                              |  문자열       |
 |  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   Guid   |
-|  api-version       | 최신 버전 API |    날짜      |
+|  api-version       | 최신 버전 API |    Date      |
 |  |  |  |
 
 ## <a name="header"></a>헤더
@@ -169,19 +169,19 @@ ms.locfileid: "86520292"
 
 ### <a name="response-body-properties"></a>응답 본문 속성
 
-|  **이름**                    |  **설명**                                                                                  |
+|  **Name**                    |  **설명**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | 작업을 고유하게 식별하는 GUID입니다.                                                       |
 |  submissionType              | 제품에 대해 보고되는 작업 유형(예: `Publish/GoLive`)을 식별합니다.      |
 |  createdDateTime             | 작업이 만들어진 UTC 날짜/시간입니다.                                                       |
 |  lastActionDateTime          | 작업에 대한 마지막 업데이트가 수행된 UTC 날짜/시간입니다.                                       |
 |  상태                      | 작업의 상태 `not started` \| `running` \| `failed` \| `completed` 입니다. 한 번에 하나의 작업만 상태 `running`을 가질 수 있습니다. |
-|  error                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
+|  오류                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>응답 단계 속성
 
-|  **이름**                    |  **설명**                                                                                  |
+|  **Name**                    |  **설명**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | 이 작업의 예상 기간입니다. |
 | id | 단계 프로세스에 대 한 고유 식별자입니다. |

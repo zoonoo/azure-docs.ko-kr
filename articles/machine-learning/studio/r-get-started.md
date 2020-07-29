@@ -9,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 8252c9bf899811163193c9ed21f1f81c9fd0502f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1b7b94f88653621c895ba8365651b78dcbf9d59f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080808"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325018"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>R에서 Azure Machine Learning Studio (클래식) 시작
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 <!-- Stephen F Elston, Ph.D. -->
 이 자습서에서는 ML Studio (클래식)를 사용 하 여 R 코드를 만들고 테스트 하 고 실행 하는 방법에 대해 알아봅니다. 끝에는 완전 한 예측 솔루션이 있습니다.  
@@ -768,7 +771,7 @@ pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = c
 
 이러한 변수 간의 관계가 약간 이상해 보입니다. 변수를 표준화하지 않은 점과 데이터의 추세로 인해 이렇게 된 것 같습니다.
 
-### <a name="correlation-analysis"></a>상관관계 분석
+### <a name="correlation-analysis"></a>상관 관계 분석
 
 상관관계 분석을 수행하려면 변수를 비추세화하고 표준화해야 합니다. 간단히 R `scale()` 함수를 사용하여 변수를 중심값으로 하고 그 크기를 조정할 수 있습니다. 이 함수가 더 빨리 실행될 수 있지만 R의 방어적 프로그래밍 예를 보여주려고 합니다.
 
@@ -1335,7 +1338,7 @@ RStudio는 매우 잘 문서화 되어 있습니다. 다음은 시작 하는 데
 이 R 프로그래밍 자습서에서는 Azure Machine Learning Studio (클래식)에서 R 언어를 사용 하는 데 필요한 기본 사항을 설명 합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
 * Emmanuel Paradis [의 초보자를 위한 R](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) 을 시작 하는 것이 좋습니다.  
-* W. N. N [의 R에 대 한 소개](https://cran.r-project.org/doc/manuals/R-intro.html) 입니다. Venables et. al. 좀 더 깊이 있게 이동 합니다.
+* W. N. N [의 R에 대 한 소개](https://cran.r-project.org/doc/manuals/R-intro.html) 입니다. Venables et. 등은 좀 더 깊이 있게 이동 합니다.
 
 R을 시작하는 데 도움을 되는 서적이 많이 있습니다. 몇 가지 유용한 서적은 다음과 같습니다.
 

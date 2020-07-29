@@ -6,20 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
-ms.openlocfilehash: 8bb5f69bc43a6af27aa71d4cf1fe054d693cc085
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 15a86fd191eefc5882150fb276228d18efd6ff5d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201217"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323794"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
 Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)

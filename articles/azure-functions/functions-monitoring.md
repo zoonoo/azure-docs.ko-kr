@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081800"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273376"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -596,6 +596,9 @@ Functions v2는 HTTP 요청, ServiceBus, EventHub 및 SQL에 대한 종속성을
 종속성을 표시하는 사용자 지정 코드를 작성할 수 있습니다. [C# 사용자 지정 원격 분석 섹션](#log-custom-telemetry-in-c-functions)의 샘플 코드에 예제가 나와 있습니다. 샘플 코드의 결과는 다음 이미지와 비슷한 Application Insights의 *애플리케이션 맵*입니다.
 
 ![애플리케이션 맵](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> 종속성은 정보 수준에서 기록 됩니다. 경고 이상에서 필터링 하는 경우이 데이터는 표시 되지 않습니다. 또한 자동 종속성 컬렉션은 사용자가 아닌 범위에서 발생 합니다. 따라서 수준이 host.js의 사용자 범위 (예: 함수 외부)에 있는 **정보** 이상으로 설정 되어 있는지 확인 합니다. <YOUR_FUNCTION_NAME>. 사용자 키)를 클릭 하 여 해당 종속성을 캡처할 수 있습니다.
 
 ## <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
 

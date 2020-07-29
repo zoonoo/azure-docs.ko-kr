@@ -6,24 +6,24 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6ef67addba2bcc96cfb51f9f217d7d43e729bdf4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f01eaf879e70406c6dbe17e6fc544f7aed367e8b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539910"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324117"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
 이 기능은 현재 미리 보기로 제공됩니다.
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용할 때 라이브 웹 애플리케이션의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. Application Insights Profiler는 이제 Azure App Service의 Linux에서 호스팅되는 ASP.NET Core 웹앱에서 사용할 수 있습니다. 이 가이드에서는 ASP.NET Core Linux 웹앱에 대한 프로파일러 추적을 수집하는 방법에 대한 단계별 지침을 제공합니다.
+[Application Insights](./app-insights-overview.md)를 사용할 때 라이브 웹 애플리케이션의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. Application Insights Profiler는 이제 Azure App Service의 Linux에서 호스팅되는 ASP.NET Core 웹앱에서 사용할 수 있습니다. 이 가이드에서는 ASP.NET Core Linux 웹앱에 대한 프로파일러 추적을 수집하는 방법에 대한 단계별 지침을 제공합니다.
 
 이 연습을 완료하면 앱은 이미지에 표시된 것처럼 추적과 같은 프로파일러 추적을 수집할 수 있습니다. 이 예에서는 시간이 대기하는 데 소요되었으므로 프로파일러 추적에서 특정 웹 요청이 느리다는 것을 나타냅니다. 앱의 속도를 저하시키는 코드의 *핫 경로*는 화염 아이콘으로 표시됩니다. 메서드는 **Thread.Sleep** 함수를 호출하기 때문에 **HomeController** 섹션에서 **About** 메서드는 웹앱의 속도를 저하시킵니다.
 
 ![Profiler 추적](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 다음 지침은 모든 Windows, Linux 및 Mac 개발 환경에 적용됩니다.
 
 * [.NET Core SDK 2.1.2 이상](https://dotnet.microsoft.com/download/archives)을 설치합니다.
@@ -149,7 +149,7 @@ ms.locfileid: "86539910"
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>웹앱을 모니터링하는 Application Insights 추가
 
-1. [Application Insights 리소스를 만듭니다](./../../azure-monitor/app/create-new-resource.md ).
+1. [Application Insights 리소스를 만듭니다](./create-new-resource.md).
 
 2. Application Insights 리소스의 **iKey** 값을 복사하고 웹앱에서 다음 설정을 지정합니다.
 
@@ -171,3 +171,4 @@ ms.locfileid: "86539910"
 Azure App Service에 의해 호스팅되는 사용자 지정 컨테이너를 사용하는 경우 [컨테이너화된 ASP.NET Core 애플리케이션에 대한 서비스 프로파일러 활성화](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)의 지침을 따라 Application Insights Profiler를 활성화합니다.
 
 Application Insights GitHub 리포지토리([ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues))에 문제 또는 제안 사항을 보고합니다.
+

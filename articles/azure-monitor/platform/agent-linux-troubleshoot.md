@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 2343de97d06abdefed2c2977a7341aa411429319
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80520733"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325375"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -43,7 +43,7 @@ ms.locfileid: "80520733"
  추가 구성 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >사용하는 작업 영역에 대한 Azure Portal의 [데이터 메뉴 Log Analytics 고급 설정](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources)에서 컬렉션을 구성한 경우 성능 카운터 및 Syslog에 대한 편집 구성 파일을 덮어씁니다. 모든 에이전트에 구성을 사용하지 않도록 설정하려면 Log Analytics **고급 설정**에서 컬렉션을 사용하지 않도록 설정합니다. 또는 단일 에이전트인 경우 다음 명령을 실행합니다.  
+ >사용하는 작업 영역에 대한 Azure Portal의 [데이터 메뉴 Log Analytics 고급 설정](./agent-data-sources.md#configuring-data-sources)에서 컬렉션을 구성한 경우 성능 카운터 및 Syslog에 대한 편집 구성 파일을 덮어씁니다. 모든 에이전트에 구성을 사용하지 않도록 설정하려면 Log Analytics **고급 설정**에서 컬렉션을 사용하지 않도록 설정합니다. 또는 단일 에이전트인 경우 다음 명령을 실행합니다.  
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>설치 오류 코드
@@ -53,7 +53,7 @@ ms.locfileid: "80520733"
 | NOT_DEFINED | 필요한 종속성이 설치되지 않아 auoms auditd 플러그 인이 설치되지 않습니다. | auoms 설치가 실패했습니다. 패키지 auditd를 설치하세요. |
 | 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
+| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 확인하려면 검토하세요. |
 | 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. |
 | 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent-*x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
 | 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
@@ -228,7 +228,7 @@ Nss의 회귀 [1.0.3 -5. el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.
 * 초당 전달되는 메시지 수가 너무 많아 Linux용 Log Analytics 에이전트의 기본 구성에서 처리할 수 없습니다.
 
 ### <a name="resolution"></a>해결 방법
-* Syslog용 Log Analytics 작업 영역의 구성에서 모든 설비가 있고 로그 수준이 올바른지 확인합니다. [Azure Portal에서 Syslog 수집 구성](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)을 검토합니다.
+* Syslog용 Log Analytics 작업 영역의 구성에서 모든 설비가 있고 로그 수준이 올바른지 확인합니다. [Azure Portal에서 Syslog 수집 구성](./data-sources-syslog.md#configure-syslog-in-the-azure-portal)을 검토합니다.
 * 네이티브 syslog 메시징 디먼(`rsyslog`, `syslog-ng`)이 전달된 메시지를 수신할 수 있는지 확인합니다.
 * Syslog 서버에서 방화벽 설정을 확인하여 메시지가 차단되지 않는지 확인합니다.
 * `logger` 명령을 사용하여 Syslog 메시지를 Log Analytics에 시뮬레이션 합니다.
@@ -422,7 +422,7 @@ sudo sh ./onboard_agent.sh --purge
 ### <a name="resolution"></a>해결 방법 
 다음 단계에 따라 문제를 해결합니다.
 1. Azure Portal에서 확장을 제거합니다.
-2. [지침](../../azure-monitor/learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
+2. [지침](../learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
 3. `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작합니다.
 * 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공**으로 변경됩니다.
 
@@ -444,3 +444,4 @@ sudo sh ./onboard_agent.sh --purge
     ```
 
 3. `sudo sh ./omsagent-*.universal.x64.sh --upgrade` 명령을 실행하여 패키지를 업그레이드합니다.
+

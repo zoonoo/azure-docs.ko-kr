@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5213a13539ac028d3e2bfec3bc7476ac645f615b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 136d0627e701104e9958d51b2e37256de5659f25
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043481"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271419"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
@@ -43,12 +43,13 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 
 ### <a name="installation-instructions"></a>설치 지침
 다음 표에는 간단한 단계가 설명되어 있습니다. 더 자세한 내용은 다음 섹션에 제공됩니다.
-|단계   | 메모   |
-| ---   |  ---      |
-| **스토리지 컨테이너 만들기**   | 스토리지 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 스토리지 컨테이너를 다시 사용할 수 있습니다.     |
-| **ASA Edge 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
-| **디바이스에서 IoT Edge 환경 설정**   | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
-| **IoT Edge 디바이스에 ASA 배포**   |  ASA 작업 정의는 이전에 만든 스토리지 컨테이너로 내보내집니다.       |
+
+| 단계 | 메모 |
+| --- | --- |
+| **스토리지 컨테이너 만들기** | 스토리지 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 스토리지 컨테이너를 다시 사용할 수 있습니다. |
+| **ASA Edge 작업 만들기** | 새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다. |
+| **디바이스에서 IoT Edge 환경 설정** | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침|
+| **IoT Edge 디바이스에 ASA 배포** | ASA 작업 정의는 이전에 만든 스토리지 컨테이너로 내보내집니다. |
 
 [이 단계별 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)에 따라 IoT Edge에 첫 번째 ASA 작업을 배포할 수 있습니다. 다음 비디오는 IoT Edge 디바이스에서 Stream Analytics 작업을 실행하는 프로세스를 이해하는 데 도움이 됩니다.  
 

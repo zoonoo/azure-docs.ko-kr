@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/25/2020
-ms.openlocfilehash: 4235e948dba76c0b2926d9965ccd2fcb072cad62
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/28/2020
+ms.openlocfilehash: 2aa267f3c04225699d3ce65b5f8ee3b573ac0c78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323760"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -113,7 +113,7 @@ ms.locfileid: "86520786"
 
 [프리미엄 ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)의 처리량 제한은 다음과 같습니다.
 
-| 이름 | 제한 | 참고 |
+| Name | 제한 | 메모 |
 |------|-------|-------|
 | 기준 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 분당 ~4000개 작업 실행을 제공하며 이를 월 단위로 환산하면 매월 ~1억 6000만 개의 작업 실행 제공 | |
 | 배율 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 각 배율 단위는 분당 ~2000개 추가 작업 실행을 제공할 수 있으며 이를 월 단위로 환산하면 매월 ~8000만 개 이상의 추가 작업 실행 제공 | |
@@ -141,7 +141,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 일부 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신하므로 이 작업에 대한 시간 제한이 이 제한보다 길 수 있습니다. 자세한 내용은 특정 커넥터에 대한 기술 정보 및 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)을 참조하세요.
 
-| 이름 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
+| Name | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
 | 아웃바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 아웃바운드 요청의 예로는 HTTP 트리거가 수행한 호출을 들 수 있습니다. <p><p>**팁**: 더 오래 걸리는 작업의 경우, [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)를 사용합니다. [호출 가능 엔드포인트](logic-apps-http-endpoint.md)가 있는 또 다른 논리 앱을 호출할 때 시간 제한을 피하려면 기본 제공 Azure Logic Apps 작업을 대신 사용하면 됩니다. 이 작업은 **기본 제공** 아래의 커넥터 선택에서 찾을 수 있습니다. |
 | 인바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 인바운드 요청의 예로는 요청 트리거와 웹후크 트리거가 수신한 호출을 들 수 있습니다. <p><p>**참고**: 원래 호출자가 응답을 받으려면 또 다른 논리 앱을 중첩된 워크플로로 호출하지 않는 한 응답의 모든 단계가 제한 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. |
@@ -151,7 +151,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 #### <a name="message-size"></a>메시지 크기
 
-| 이름 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
+| Name | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
 | 메시지 크기 | 100MB | 200MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. <p><p>- AS2, X12 및 EDIFACT 같은 커넥터는 자체적인 [B2B 메시지 제한](#b2b-protocol-limits)이 있습니다. <br>- ISE 커넥터는 비-ISE 커넥터 제한이 아닌 ISE 제한을 사용합니다. |
 | 청킹이 있는 메시지 크기 | 1 GB | 5GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용할 수 있는 작업에 적용됩니다. <p><p>ISE를 사용하는 경우 Logic Apps 엔진은 이 제한을 지원하지만, 커넥터 자체의 최대 청크는 엔진 제한으로 제한되어 있습니다. 예제는 [Azure Blob Storage 커넥터의 API 참조](/connectors/azureblob/)를 확인하세요. 청크 분할에 대한 자세한 내용은 [청크 분할을 사용하여 큰 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. |
@@ -169,7 +169,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 #### <a name="retry-policy"></a>다시 시도 정책
 
-| 이름 | 제한 | 참고 |
+| Name | 제한 | 메모 |
 | ---- | ----- | ----- |
 | 다시 시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 | 재시도 최대 지연 시간 | 1일 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
@@ -194,7 +194,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 다음은 웹 API에서 만들 수 있는 사용자 지정 커넥터에 대한 제한 사항입니다.
 
-| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
+| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
 | 사용자 지정 커넥터 수 | Azure 구독당 1,000개 | Azure 구독당 1,000개 ||
 | 사용자 지정 커넥터의 분당 요청 수 | 연결마다 분당 500개 요청 | *사용자 지정 커넥터*마다 분당 2,000개 요청 ||
@@ -255,7 +255,7 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 
 ### <a name="artifact-capacity-limits"></a>아티팩트 용량 제한
 
-| 아티팩트 | 제한 | 참고 |
+| 아티팩트 | 제한 | 메모 |
 | -------- | ----- | ----- |
 | 어셈블리 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
 | 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고**: 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기와 작업 시간 제한에 따라 달라집니다. 예를 들어 [HTTP 메시지 크기 및 시간 제한](#request-limits)을 기준으로 HTTP 작업을 사용하는 경우 작업이 HTTP 시간 제한 내에 완료된다면 맵은 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
@@ -389,8 +389,7 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 
 > [!TIP]
 > 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps**를 사용하면 복잡성을 줄일 수 있습니다.
-> 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
-> 관리형 커넥터의 경우 IP 주소를 계속 사용해야 합니다.
+> 관리 되는 커넥터의 경우 필요에 따라 각 지역에 대해 아웃 바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 **azureconnectors** 서비스 태그를 사용할 수 있습니다. 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다. 
 
 <a name="multi-tenant-outbound"></a>
 

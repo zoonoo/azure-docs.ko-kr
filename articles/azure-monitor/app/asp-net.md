@@ -3,16 +3,16 @@ title: Azure Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | Mi
 description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용자 동작 분석을 구성합니다.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 7dd60be0a3f2ee7e1a0d306fa007bed166746115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886828"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324219"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
-이 절차는 ASP.NET 웹앱에서 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스로 원격 분석을 보내도록 구성합니다. 사용자 고유의 IIS 서버 온-프레미스 또는 클라우드에서 호스팅되는 ASP.NET 앱에서 작동합니다. 차트 및 강력한 쿼리 언어를 사용하여 앱의 성능, 사용 방식 및 오류 또는 성능 문제에 대한 자동 알림을 이해할 수 있습니다. 많은 개발자가 이 기능이 있는 그대로 훌륭한 것으로 알게 되지만, 필요에 따라 원격 분석을 확장하고 사용자 지정할 수도 있습니다.
+이 절차는 ASP.NET 웹앱에서 [Azure Application Insights](./app-insights-overview.md) 서비스로 원격 분석을 보내도록 구성합니다. 사용자 고유의 IIS 서버 온-프레미스 또는 클라우드에서 호스팅되는 ASP.NET 앱에서 작동합니다. 차트 및 강력한 쿼리 언어를 사용하여 앱의 성능, 사용 방식 및 오류 또는 성능 문제에 대한 자동 알림을 이해할 수 있습니다. 많은 개발자가 이 기능이 있는 그대로 훌륭한 것으로 알게 되지만, 필요에 따라 원격 분석을 확장하고 사용자 지정할 수도 있습니다.
 
 Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. 원격 분석의 양을 제한하여 비용 부담을 피할 수 있는 옵션이 있습니다. 이 기능을 이용하면 사용자가 많지 않은 사이트를 실험하고 디버그하거나 모니터링할 수 있습니다. 프로덕션 사이트를 먼저 모니터링하려고 결정하는 경우 나중에 제한을 쉽게 늘릴 수 있습니다.
 
@@ -54,7 +54,7 @@ Application Insights 구성 화면:
 
  원격 분석이 디버깅 중 및 앱을 게시한 후에 [Azure Portal](https://portal.azure.com)로 전송됩니다.
 > [!NOTE]
-> 디버그하는 동안 포털에 원격 분석을 보내지 않으려면 앱에 Application Insights SDK를 추가하고 포털에서 리소스를 구성하지는 않습니다. 디버그하는 동안 Visual Studio에서 원격 분석을 볼 수 있습니다. 나중에 이 구성 페이지로 돌아오거나 앱을 배포할 때까지 기다려서 [런타임에 원격 분석으로 전환할 수 있습니다](../../azure-monitor/app/status-monitor-v2-overview.md).
+> 디버그하는 동안 포털에 원격 분석을 보내지 않으려면 앱에 Application Insights SDK를 추가하고 포털에서 리소스를 구성하지는 않습니다. 디버그하는 동안 Visual Studio에서 원격 분석을 볼 수 있습니다. 나중에 이 구성 페이지로 돌아오거나 앱을 배포할 때까지 기다려서 [런타임에 원격 분석으로 전환할 수 있습니다](./status-monitor-v2-overview.md).
 
 ## <a name="step-2-run-your-app"></a><a name="run"></a> 2단계: 앱 실행
 F5를 사용하여 앱을 실행합니다. 다른 페이지를 열어서 일부 원격 분석을 생성합니다.
@@ -77,7 +77,7 @@ Visual Studio Application Insights Search 창에서 앱의 서버 쪽에 생성�
 > [!Tip]
 > 데이터가 보이지 않으면 시간 범위가 올바른지 확인하고 Search 아이콘을 클릭하세요.
 
-[Visual Studio의 Application Insights 도구에 대해 자세히 알아봅니다](../../azure-monitor/app/visual-studio.md).
+[Visual Studio의 Application Insights 도구에 대해 자세히 알아봅니다](./visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>웹 포털에서 원격 분석 확인
@@ -93,14 +93,14 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 포털에서 타일이나 차트를 클릭하여 자세한 정보를 확인합니다.
 
 ## <a name="step-4-publish-your-app"></a>4단계: 앱 게시
-IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
+IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](./live-stream.md)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
 
 원격 분석이 Application Insights 포털에 구축되며, 이곳에서 메트릭을 모니터링하고 원격 분석을 검색할 수 있습니다. 또한 강력한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
 
-[Visual Studio](../../azure-monitor/app/visual-studio.md)에서 진단 검색 및 [추세](../../azure-monitor/app/visual-studio-trends.md) 등의 도구를 사용하여 원격 분석을 계속 수행할 수도 있습니다.
+[Visual Studio](./visual-studio.md)에서 진단 검색 및 [추세](./visual-studio-trends.md) 등의 도구를 사용하여 원격 분석을 계속 수행할 수도 있습니다.
 
 > [!NOTE]
-> 앱에서 너무 많은 원격 분석을 보내 [제한 한도](../../azure-monitor/app/pricing.md#limits-summary)에 도달할 경우 자동 [샘플링](../../azure-monitor/app/sampling.md)이 켜집니다. 샘플링은 앱에서 보내는 원격 분석의 양을 줄이고 진단을 위해 상호 관련된 데이터를 유지합니다.
+> 앱에서 너무 많은 원격 분석을 보내 [제한 한도](./pricing.md#limits-summary)에 도달할 경우 자동 [샘플링](./sampling.md)이 켜집니다. 샘플링은 앱에서 보내는 원격 분석의 양을 줄이고 진단을 위해 상호 관련된 데이터를 유지합니다.
 >
 >
 
@@ -120,27 +120,28 @@ ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업�
 
 관심이 있는 경우 살펴볼만한 다른 문서:
 
-* [런타임 시 웹앱 계측](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [런타임 시 웹앱 계측](./monitor-performance-live-website-now.md)
+* [Azure Cloud Services](./cloudservices.md)
 
 ### <a name="more-telemetry"></a>추가 원격 분석
 
-* **[브라우저 및 페이지 로드 데이터](../../azure-monitor/app/javascript.md)** - 웹 페이지에 코드 조각을 삽입합니다.
-* **[더 자세한 종속성 및 예외 모니터링 가져오기](../../azure-monitor/app/monitor-performance-live-website-now.md)** - 서버에 상태 모니터를 설치합니다.
-* **[사용자 지정 이벤트 코딩](../../azure-monitor/app/api-custom-events-metrics.md)** - 사용자 작업의 수, 시간 또는 측정값을 평가합니다.
-* **[로그 데이터 가져오기](../../azure-monitor/app/asp-net-trace-logs.md)** - 로그 데이터와 원격 분석 간에 상관 관계를 지정합니다.
+* **[브라우저 및 페이지 로드 데이터](./javascript.md)** - 웹 페이지에 코드 조각을 삽입합니다.
+* **[더 자세한 종속성 및 예외 모니터링 가져오기](./monitor-performance-live-website-now.md)** - 서버에 상태 모니터를 설치합니다.
+* **[사용자 지정 이벤트 코딩](./api-custom-events-metrics.md)** - 사용자 작업의 수, 시간 또는 측정값을 평가합니다.
+* **[로그 데이터 가져오기](./asp-net-trace-logs.md)** - 로그 데이터와 원격 분석 간에 상관 관계를 지정합니다.
 
 ### <a name="analysis"></a>분석
 
-* **[Visual Studio Online에서 Application Insights로 작업](../../azure-monitor/app/visual-studio.md)**<br/>원격 분석, 진단 검색 및 코드 드릴스루를 통한 디버깅에 대한 정보가 포함되어 있습니다.
-* **[분석](../../azure-monitor/log-query/get-started-portal.md)** - 강력한 쿼리 언어입니다.
+* **[Visual Studio Online에서 Application Insights로 작업](./visual-studio.md)**<br/>원격 분석, 진단 검색 및 코드 드릴스루를 통한 디버깅에 대한 정보가 포함되어 있습니다.
+* **[분석](../log-query/get-started-portal.md)** - 강력한 쿼리 언어입니다.
 
 ### <a name="alerts"></a>경고
 
-* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
-* [스마트 진단](../../azure-monitor/app/proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
-* [메트릭 경고](../../azure-monitor/platform/alerts-log.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
+* [가용성 테스트](./monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
+* [스마트 진단](./proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
+* [메트릭 경고](../platform/alerts-log.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
 
 ### <a name="automation"></a>Automation
 
-* [Application Insights 리소스 만들기 자동화](../../azure-monitor/app/powershell.md)
+* [Application Insights 리소스 만들기 자동화](./powershell.md)
+

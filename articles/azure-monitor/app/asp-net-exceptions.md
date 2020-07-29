@@ -3,24 +3,24 @@ title: Azure 애플리케이션 정보를 사용 하 여 오류 및 예외 진�
 description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 4d298b3b8541590387995898b0b9f067e8130c3d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c91ab4bcf8a0d2172c89fa04bd7a3b4999b2217e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517215"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321363"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
-라이브 웹앱의 예외는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
+라이브 웹앱의 예외는 [Application Insights](./app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
 
 ## <a name="set-up-exception-reporting"></a>예외 보고 설정
 * 서버 앱에서 예외를 보고하도록 하려면
-  * Azure 웹앱: [Application Insights 확장](../../azure-monitor/app/azure-web-apps.md) 추가
-  * Azure VM 및 Azure 가상 머신 확장 집합 IIS에서 호스팅되는 앱: [응용 프로그램 모니터링 확장](../../azure-monitor/app/azure-vm-vmss-apps.md) 추가
-  * 앱 코드에서 [Application Insights SDK](../../azure-monitor/app/asp-net.md)를 설치합니다.
-  * IIS 웹 서버: [Application Insights 에이전트](../../azure-monitor/app/monitor-performance-live-website-now.md)를 실행합니다.
+  * Azure 웹앱: [Application Insights 확장](./azure-web-apps.md) 추가
+  * Azure VM 및 Azure 가상 머신 확장 집합 IIS에서 호스팅되는 앱: [응용 프로그램 모니터링 확장](./azure-vm-vmss-apps.md) 추가
+  * 앱 코드에서 [Application Insights SDK](./asp-net.md)를 설치합니다.
+  * IIS 웹 서버: [Application Insights 에이전트](./monitor-performance-live-website-now.md)를 실행합니다.
   * Java 웹 앱: [java 에이전트](./java-in-process-agent.md) 를 사용 하도록 설정
-* 웹 페이지에 [JavaScript 조각](../../azure-monitor/app/javascript.md)을 설치하여 브라우저 예외를 catch합니다.
+* 웹 페이지에 [JavaScript 조각](./javascript.md)을 설치하여 브라우저 예외를 catch합니다.
 * 일부 애플리케이션 프레임워크 또는 일부 설정에서는 더 많은 예외를 catch하기 위해 몇 가지 추가 단계를 수행해야 합니다.
   * [Web forms](#web-forms)
   * [MVC](#mvc)
@@ -70,31 +70,31 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 
 여러 옵션이 있습니다.
 
-* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) 는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](../../azure-monitor/app/diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다.
-* [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 를 사용하여 POST 정보와 같은 긴데이터를 보낼 수 있습니다.
+* [TrackEvent()](./api-custom-events-metrics.md#trackevent) 는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](./diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다.
+* [TrackTrace()](./api-custom-events-metrics.md#tracktrace) 를 사용하여 POST 정보와 같은 긴데이터를 보낼 수 있습니다.
 * [TrackException()](#exceptions) 은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처](asp-net-trace-logs.md)하고 볼 수 있습니다.
 
-이러한 이벤트를 보려면 왼쪽 메뉴에서 [검색](../../azure-monitor/app/diagnostic-search.md) 을 열고 드롭다운 메뉴 **이벤트 유형을**선택한 다음 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
+이러한 이벤트를 보려면 왼쪽 메뉴에서 [검색](./diagnostic-search.md) 을 열고 드롭다운 메뉴 **이벤트 유형을**선택한 다음 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
 
 ![드릴스루](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> 앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 알아봅니다.](../../azure-monitor/app/sampling.md)
+> 앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 알아봅니다.](./sampling.md)
 >
 >
 
 ### <a name="how-to-see-request-post-data"></a>요청 게시 데이터를 참조하는 방법
 요청 세부 정보에는 POST 호출에서 앱으로 전송된 데이터가 포함되지 않습니다. 이 데이터에 대한 보고를 받으려면 다음을 수행합니다.
 
-* 애플리케이션 프로젝트에 [SDK를 설치](../../azure-monitor/app/asp-net.md)합니다.
-* 애플리케이션에 코드를 삽입하여 [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)를 호출합니다. 메시지 매개 변수의 POST 데이터를 보냅니다. 허용되는 크기에 제한이 있으므로 꼭 필요한 데이터만 보내야 합니다.
+* 애플리케이션 프로젝트에 [SDK를 설치](./asp-net.md)합니다.
+* 애플리케이션에 코드를 삽입하여 [Microsoft.ApplicationInsights.TrackTrace()](./api-custom-events-metrics.md#tracktrace)를 호출합니다. 메시지 매개 변수의 POST 데이터를 보냅니다. 허용되는 크기에 제한이 있으므로 꼭 필요한 데이터만 보내야 합니다.
 * 실패한 요청을 조사할 때 연결된 추적을 찾습니다.
 
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
-처음에는 앱에서 실패를 유발하는 예외가 포털에 전부 표시되지 않을 것입니다. 웹 페이지에서 [JavaScript SDK](../../azure-monitor/app/javascript.md)를 사용 중이라면 브라우저 예외가 보일 것입니다. 하지만 대부분 서버 예외는 IIS에서 catch하며 서버 예외를 보려면 약간의 코드를 작성해야 합니다.
+처음에는 앱에서 실패를 유발하는 예외가 포털에 전부 표시되지 않을 것입니다. 웹 페이지에서 [JavaScript SDK](./javascript.md)를 사용 중이라면 브라우저 예외가 보일 것입니다. 하지만 대부분 서버 예외는 IIS에서 catch하며 서버 예외를 보려면 약간의 코드를 작성해야 합니다.
 
-다음을 할 수 있습니다.
+다음을 수행할 수 있습니다.
 
 * **예외를 명시적으로 기록** 합니다.
 * **예외를 자동으로 캡처** 합니다. 프레임워크 유형에 따라 추가할 항목이 다릅니다.
@@ -152,7 +152,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
     End Try
 ```
 
-속성 및 측정 매개 변수는 선택적이지만 추가 정보를 [필터링 및 추가](../../azure-monitor/app/diagnostic-search.md)하는 데 유용합니다. 예를 들어 여러 게임을 실행할 수 있는 앱이 있는 경우 특정 게임과 관련된 모든 예외 보고서를 찾을 수 있습니다. 각 사전에 원하는 만큼 항목을 추가할 수 있습니다.
+속성 및 측정 매개 변수는 선택적이지만 추가 정보를 [필터링 및 추가](./diagnostic-search.md)하는 데 유용합니다. 예를 들어 여러 게임을 실행할 수 있는 앱이 있는 경우 특정 게임과 관련된 모든 예외 보고서를 찾을 수 있습니다. 각 사전에 원하는 만큼 항목을 추가할 수 있습니다.
 
 ## <a name="browser-exceptions"></a>브라우저 예외
 대부분의 브라우저 예외가 보고됩니다.
@@ -482,7 +482,7 @@ Add the attribute to the service implementations:
 [샘플](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>예외 성능 카운터
-서버에 [Application Insights 에이전트를 설치](../../azure-monitor/app/monitor-performance-live-website-now.md)한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
+서버에 [Application Insights 에이전트를 설치](./monitor-performance-live-website-now.md)한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
 
 메트릭 탐색기 탭을 열고 새 차트를 추가 하 고 성능 카운터 아래에 나열 된 **예외 속도**를 선택 합니다.
 
@@ -491,6 +491,7 @@ Add the attribute to the service implementations:
 TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 ‘예외’ 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [REST, SQL 및 기타 종속성 호출 모니터링](../../azure-monitor/app/asp-net-dependencies.md)
-* [페이지 로드 시간, 브라우저 예외 및 AJAX 호출 모니터링](../../azure-monitor/app/javascript.md)
-* [성능 카운터 모니터링](../../azure-monitor/app/performance-counters.md)
+* [REST, SQL 및 기타 종속성 호출 모니터링](./asp-net-dependencies.md)
+* [페이지 로드 시간, 브라우저 예외 및 AJAX 호출 모니터링](./javascript.md)
+* [성능 카운터 모니터링](./performance-counters.md)
+

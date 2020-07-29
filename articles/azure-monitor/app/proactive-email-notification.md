@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41298be1b0288f429647d8b38a1cc75dd2c40b0a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8e2bf4e451ebc3c9ebba2c01dae6703fc79aa606
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516756"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324134"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>스마트 검색 메일 알림 변경
 
@@ -44,6 +44,7 @@ Azure Portal을 통해 Monitoring Reader 또는 Monitoring Contributor 역할에
 
 스마트 검색에 대해 자세히 알아봅니다.
 
-- [오류 잘못된 부분](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [메모리 누수](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [성능 이상](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [오류 잘못된 부분](./proactive-failure-diagnostics.md)
+- [메모리 누수](./proactive-potential-memory-leak.md)
+- [성능 이상](./proactive-performance-diagnostics.md)
+

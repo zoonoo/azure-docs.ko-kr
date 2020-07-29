@@ -1,6 +1,6 @@
 ---
-title: IOS에서 Windows 가상 데스크톱에 연결 2019-Azure
-description: IOS 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
+title: IOS에서 Windows 가상 데스크톱 (클래식)에 연결-Azure
+description: IOS 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결 하는 방법
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 26c031710c96c42b1d5236332e445992de87616e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06de85e23b1d6350a48735506c8931922d40b799
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087138"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270739"
 ---
-# <a name="connect-with-the-ios-client"></a>iOS 클라이언트와 연결
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>IOS 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결
 
 > 적용 대상: iOS 13.0 이상. IPhone, iPad 및 iPod touch와 호환 됩니다.
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-ios.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../connect-ios.md)를 참조 하세요.
 
 다운로드 가능한 클라이언트를 사용 하 여 iOS 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 이 가이드에서는 iOS 클라이언트를 설정 하는 방법을 설명 합니다.
 

@@ -7,11 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Operations'
+- 'Role: Technical Support'
+ms.openlocfilehash: 675391a92c991f80faadf8b75abc79dcb4cd19d7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688979"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322961"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -92,7 +97,7 @@ ms.locfileid: "84688979"
 
 IoT Hub에는 다른 작업 제한도 적용됩니다.
 
-| 연산 | 제한 |
+| 작업(Operation) | 제한 |
 | --------- | ----- |
 | 디바이스 | 단일 IoT hub에 등록할 수 있는 장치 및 모듈의 총 수는 100만로 표시 됩니다. 이 한도를 늘리는 유일한 방법은 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 연결 하는 것입니다.|
 | 파일 업로드 | 장치 당 10 개의 동시 파일 업로드. |

@@ -3,12 +3,12 @@ title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft 
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014527"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324338"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -22,11 +22,11 @@ ms.locfileid: "87014527"
 * 메트릭 또는 검색 탭 맨 위에 있는 내보내기 단추를 사용하면 테이블 및 차트를 Excel 스프레드시트로 전송할 수 있습니다.
 
 * [분석](../log-query/log-query-overview.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
-* [Power BI에서 데이터를 탐색](../../azure-monitor/app/export-power-bi.md )하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
+* [Power BI에서 데이터를 탐색](./export-power-bi.md)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
 * [PowerShell을 통해 연속 내보내기](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)설정에 액세스할 수도 있습니다.
 
-연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](../../azure-monitor/app/data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
+연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](./data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>연속 내보내기 고급 스토리지 구성
 
@@ -52,7 +52,7 @@ ms.locfileid: "87014527"
 4. 스토리지에서 컨테이너를 만들거나 선택합니다.
 
 > [!NOTE]
-> 내보내기를 만들면 새로 수집 데이터가 Azure Blob storage로 전달 되기 시작 합니다. 연속 내보내기는 연속 내보내기가 활성화 된 후 생성/수집 새 원격 분석만 전송 합니다. 연속 내보내기를 사용 하도록 설정 하기 전에 있던 데이터는 내보내지 않으며, 연속 내보내기를 사용 하 여 이전에 만든 데이터를 소급 내보낼 수 있는 방법은 지원 되지 않습니다.
+> 내보내기를 만들면 새로 수집 데이터가 Azure Blob storage로 전달 되기 시작 합니다. 연속 내보내기는 연속 내보내기가 활성화 된 후 생성/수집 새 원격 분석만 전송 합니다. 연속 내보내기를 사용하도록 설정하기 전에 있던 데이터는 내보내지 않으며, 연속 내보내기를 사용하여 이전에 만든 데이터를 소급하여 내보낼 수 있는 방법은 지원되지 않습니다.
 
 데이터가 스토리지에 표시되려면 1시간 정도 지연될 수 있습니다.
 
@@ -60,13 +60,13 @@ ms.locfileid: "87014527"
 
 |속성 | Description |
 |:----|:------|
-| [가용성](export-data-model.md#availability) | [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 보고합니다.  |
-| [이벤트](export-data-model.md#events) | [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다. 
-| [예외](export-data-model.md#exceptions) |서버 및 브라우저의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 를 보고합니다.
-| [메시지](export-data-model.md#trace-messages) | [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](../../azure-monitor/app/asp-net-trace-logs.md)에서 전송합니다.
+| [가용성](export-data-model.md#availability) | [가용성 웹 테스트](./monitor-web-app-availability.md)를 보고합니다.  |
+| [이벤트](export-data-model.md#events) | [TrackEvent()](./api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다. 
+| [예외](export-data-model.md#exceptions) |서버 및 브라우저의 [예외](./asp-net-exceptions.md) 를 보고합니다.
+| [메시지](export-data-model.md#trace-messages) | [TrackTrace](./api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](./asp-net-trace-logs.md)에서 전송합니다.
 | [Metrics](export-data-model.md#metrics)(메트릭) | 메트릭 API 호출로 생성됩니다.
 | [PerformanceCounters](export-data-model.md) | Application Insights에서 수집한 성능 카운터입니다.
-| [요청](export-data-model.md#requests)| [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.| 
+| [요청](export-data-model.md#requests)| [TrackRequest](./api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.| 
 
 ### <a name="to-edit-continuous-export"></a>연속 내보내기를 편집하려면
 
@@ -84,14 +84,14 @@ ms.locfileid: "87014527"
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a> 어떤 이벤트를 얻나요?
 클라이언트 IP 주소에서 계산하는 위치 데이터를 추가한다는 점을 제외하고 내보낸 데이터는 애플리케이션에서 수신하는 원시 원격 분석입니다.
 
-[샘플링](../../azure-monitor/app/sampling.md) 에서 무시된 데이터는 내보낸 데이터에 포함되지 않습니다.
+[샘플링](./sampling.md) 에서 무시된 데이터는 내보낸 데이터에 포함되지 않습니다.
 
 계산된 다른 메트릭은 포함되지 않습니다. 예를 들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
 
-데이터에는 설정한 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)의 결과도 포함됩니다.
+데이터에는 설정한 [가용성 웹 테스트](./monitor-web-app-availability.md)의 결과도 포함됩니다.
 
 > [!NOTE]
-> **샘플링** 애플리케이션에서 많은 양의 데이터를 전송하는 경우 샘플링 기능이 작동하여 생성된 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](../../azure-monitor/app/sampling.md)
+> **샘플링** 애플리케이션에서 많은 양의 데이터를 전송하는 경우 샘플링 기능이 작동하여 생성된 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](./sampling.md)
 >
 >
 
@@ -210,5 +210,6 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+

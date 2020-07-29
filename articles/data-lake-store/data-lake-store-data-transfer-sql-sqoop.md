@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 32d17962938c9a1dc301c7a1a681801ed488c584
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323080"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Sqoop를 사용 하 여 Data Lake Storage Gen1와 Azure SQL Database 간에 데이터 복사
 
@@ -99,10 +99,10 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 
    **Sql-database-서버 이름** 자리 표시자는 데이터베이스가 실행 되 고 있는 서버의 이름을 나타냅니다. **sql-database-name** 자리 표시자는 실제 데이터베이스 이름을 나타냅니다.
 
-   예제:
+   예를 들면 다음과 같습니다.
 
     ```console
-    sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
+    sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
     ```
 
 1. 데이터가 Data Lake Storage Gen1 계정으로 전송되었는지 확인합니다. 다음 명령을 실행합니다.
@@ -131,10 +131,10 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
     sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
-   예제:
+   예를 들면 다음과 같습니다.
 
     ```console
-    sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+    sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
 1. 데이터가 SQL Database 테이블에 업로드되었는지 확인합니다. [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) 또는 Visual Studio를 사용하여 Azure SQL Database에 연결한 후, 다음 쿼리를 실행합니다.
@@ -156,7 +156,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Sqoop 사용에 대한 성능 고려 사항
 
-Data Lake Storage Gen1로 데이터를 복사 하는 Sqoop 작업을 조정 하는 방법에 대 한 자세한 내용은 [sqoop 성능 블로그 게시물](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)을 참조 하세요.
+Data Lake Storage Gen1로 데이터를 복사 하는 Sqoop 작업을 조정 하는 방법에 대 한 자세한 내용은 [sqoop 성능 블로그 게시물](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

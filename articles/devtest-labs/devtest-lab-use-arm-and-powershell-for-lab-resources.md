@@ -3,12 +3,12 @@ title: Azure Resource Manager 템플릿을 사용 하 여 랩 만들기 또는 �
 description: Azure Resource Manager 템플릿 및 PowerShell을 사용하여 DevTest 랩에서 랩을 자동으로 생성 또는 수정하는 방법에 대해 배웁니다
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: af225e8cfade30a64aa1f4cf747e2a4d8d3f895f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645f1d0717514d2c7e7b16844513327127e4e1a8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483179"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272643"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Azure Resource Manager 템플릿 및 PowerShell을 사용하여 랩 자동 생성 또는 수정
 
@@ -20,12 +20,12 @@ DevTest Labs는 새 랩을 빠르게 자동 생성하거나 기존 랩을 수정
 공용 [GitHub 리포지토리에서](https://github.com/Azure/azure-devtestlab)미리 작성 된 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) 및 [PowerShell 스크립트](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) 를 찾을 수 있습니다. 그대로 사용하거나 요구 사항에 맞게 사용자 지정하고 [프라이빗 Git 리포지토리](devtest-lab-add-artifact-repo.md)에 저장합니다.
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>2단계: Azure Resource Manager 템플릿 수정
-이전에 템플릿을 만든 적이 없는 경우 [첫 번째 Azure Resource Manager 템플릿 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)에 나온 단계를 수행하시면 됩니다.
+이전에 템플릿을 만든 적이 없는 경우 [첫 번째 Azure Resource Manager 템플릿 만들기](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)에 나온 단계를 수행하시면 됩니다.
 
-또한 [Azure Resource Manager 템플릿 작성에 대한 모범 사례](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)에 안정적이고 사용하기 쉬운 Azure Resource Manager 템플릿을 만드는 데 도움이 되는 다양한 지침과 제안이 나와 있습니다. 일반적으로 제공되는 접근 방식 또는 예제 중 하나의 변형을 사용하고 사용자 필요에 따라 템플릿을 수정하게 됩니다.
+또한 [Azure Resource Manager 템플릿 작성에 대한 모범 사례](../azure-resource-manager/templates/template-best-practices.md)에 안정적이고 사용하기 쉬운 Azure Resource Manager 템플릿을 만드는 데 도움이 되는 다양한 지침과 제안이 나와 있습니다. 일반적으로 제공되는 접근 방식 또는 예제 중 하나의 변형을 사용하고 사용자 필요에 따라 템플릿을 수정하게 됩니다.
 
 ## <a name="step-3-deploy-resources-with-powershell"></a>3단계: PowerShell로 리소스 배포
-템플릿과 스크립트를 사용자 지정한 후 [Resource Manager 템플릿 및 Azure PowerShell로 리소스를 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)하는 데 필요한 단계를 따르십시오. 이 문서는 Azure Resource Manager 템플릿과 Azure PowerShell을 사용하여 Azure에 리소스를 배포하는 방법에 대한 일반 정보를 제공합니다.
+템플릿과 스크립트를 사용자 지정한 후 [Resource Manager 템플릿 및 Azure PowerShell로 리소스를 배포](../azure-resource-manager/templates/deploy-powershell.md)하는 데 필요한 단계를 따르십시오. 이 문서는 Azure Resource Manager 템플릿과 Azure PowerShell을 사용하여 Azure에 리소스를 배포하는 방법에 대한 일반 정보를 제공합니다.
 
 
 ## <a name="common-tasks-you-can-perform-in-devtest-labs-using-powershell"></a>PowerShell을 사용하여 DevTest 랩에서 수행할 수 있는 일반 작업

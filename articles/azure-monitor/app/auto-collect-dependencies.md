@@ -5,12 +5,12 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087988"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324185"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 
@@ -88,9 +88,10 @@ ms.locfileid: "87087988"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [.NET](../../azure-monitor/app/asp-net-dependencies.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
-- [Java](../../azure-monitor/app/java-agent.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
-- [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md)에 대 한 사용자 지정 종속성 추적을 설정 합니다.
-- [사용자 지정 종속성 원격 분석을 작성합니다](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
-- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](../../azure-monitor/app/data-model.md)을 참조하세요.
-- Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.
+- [.NET](./asp-net-dependencies.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
+- [Java](./java-agent.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
+- [OpenCensus Python](./opencensus-python-dependency.md)에 대 한 사용자 지정 종속성 추적을 설정 합니다.
+- [사용자 지정 종속성 원격 분석을 작성합니다](./api-custom-events-metrics.md#trackdependency).
+- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](./data-model.md)을 참조하세요.
+- Application Insights에서 지원되는 [플랫폼](./platforms.md)을 확인합니다.
+

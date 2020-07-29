@@ -3,17 +3,17 @@ title: Azure Application Insights 데이터 모델 | Microsoft Docs
 description: JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1577e56960edcb1941c5d7b73ef44c514706d4e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110252"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324389"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
-이 테이블은 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
+이 테이블은 [Application Insights](./app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
 이러한 속성이 [연속 내보내기](export-telemetry.md)에서 데이터 출력에 표시됩니다
-또한 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 및 [진단 검색](../../azure-monitor/app/diagnostic-search.md)의 속성 필터에 나타납니다.
+또한 [메트릭 탐색기](../platform/metrics-charts.md) 및 [진단 검색](./diagnostic-search.md)의 속성 필터에 나타납니다.
 
 주의할 사항:
 
@@ -104,17 +104,17 @@ ms.locfileid: "86110252"
 }
 ```
 
-## <a name="context"></a>Context
+## <a name="context"></a>컨텍스트
 모든 유형의 원격 분석에는 컨텍스트 섹션이 함께 제공됩니다. 이러한 모든 필드가 모든 데이터 요소와 함께 전송되는 것은 아닙니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |사용자 지정 속성 매개 변수에 의해 설정되는 키-값 문자열 쌍입니다. 키 최대 길이가 100이고, 값 최대 길이가 1024입니다. 100개 이상의 고유 값, 속성을 검색할 수 있지만 구분에 사용할 수 없습니다. ikey당 최대 키는 200개입니다. |
 | context.custom.metrics [0] |object [ ] |사용자 지정 측정 매개 변수 및 TrackMetrics에 의해 설정된 키-값 쌍입니다. 키 최대 길이가 100이고, 값은 숫자가 될 수 있습니다. |
 | context.data.eventTime |문자열 |UTC |
 | context.data.isSynthetic |boolean |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
-| context.data.samplingRate |number |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
-| context.device |개체 |클라이언트 디바이스 |
+| context.data.samplingRate |숫자 |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
+| context.device |object |클라이언트 디바이스 |
 | context.device.browser |문자열 |IE, Chrome, ... |
 | context.device.browserVersion |문자열 |Chrome 48.0, ... |
 | context.device.deviceModel |문자열 | |
@@ -129,7 +129,7 @@ ms.locfileid: "86110252"
 | context.device.roleName |문자열 | |
 | context.device.screenResolution |문자열 | |
 | context.device.type |문자열 |PC, 브라우저... |
-| context.location |개체 |`clientip`에서 파생됩니다. |
+| context.location |object |`clientip`에서 파생됩니다. |
 | context.location.city |문자열 |알려진 경우에서 파생 됩니다. `clientip` |
 | context.location.clientip |문자열 |마지막 팔각형이 0으로 익명 처리됩니다. |
 | context.location.continent |문자열 | |
@@ -144,7 +144,7 @@ ms.locfileid: "86110252"
 | context.user.accountId |문자열 | |
 | context.user.anonAcquisitionDate |문자열 | |
 | context.user.anonId |문자열 | |
-| context.user.authAcquisitionDate |문자열 |[인증된 사용자](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authAcquisitionDate |문자열 |[인증된 사용자](./api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |문자열 | |
 | context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |문자열 | |
@@ -152,23 +152,23 @@ ms.locfileid: "86110252"
 | internal.data.id |문자열 | `Unique id`항목이 수집 될 때 할당 됩니다 Application Insights |
 
 ## <a name="events"></a>이벤트
-[TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
+[TrackEvent()](./api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| event [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| event [0] count |integer |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | event [0] name |문자열 |이벤트 이름입니다.  최대 길이 250 |
 | event [0] url |문자열 | |
 | event [0] urlData.base |문자열 | |
 | event [0] urlData.host |문자열 | |
 
 ## <a name="exceptions"></a>예외
-서버 및 브라우저의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 를 보고합니다.
+서버 및 브라우저의 [예외](./asp-net-exceptions.md) 를 보고합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | basicException [0] assembly |문자열 | |
-| basicException [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| basicException [0] count |integer |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |문자열 | |
 | basicException [0] exceptionType |문자열 | |
 | basicException [0] failedUserCodeMethod |문자열 | |
@@ -192,9 +192,9 @@ ms.locfileid: "86110252"
 | basicException [0] typeName |문자열 | |
 
 ## <a name="trace-messages"></a>추적 메시지
-[TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](../../azure-monitor/app/asp-net-trace-logs.md)에서 전송합니다.
+[TrackTrace](./api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](./asp-net-trace-logs.md)에서 전송합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | message [0] loggerName |문자열 | |
 | message [0] parameters |문자열 | |
@@ -202,16 +202,16 @@ ms.locfileid: "86110252"
 | message [0] severityLevel |문자열 | |
 
 ## <a name="remote-dependency"></a>원격 종속성
-TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](../../azure-monitor/app/asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
+TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](./asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |문자열 | |
 | remoteDependency [0] commandName |문자열 |예를 들어 "홈/인덱스" |
-| remoteDependency [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| remoteDependency [0] count |integer |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |문자열 |HTTP, SQL, ... |
-| remoteDependency [0] durationMetric.value |number |호출부터 종속성의 응답 완료까지 걸리는 시간 |
+| remoteDependency [0] durationMetric.value |숫자 |호출부터 종속성의 응답 완료까지 걸리는 시간 |
 | remoteDependency [0]`id` |문자열 | |
 | remoteDependency [0] name |문자열 |Url. 최대 길이 250 |
 | remoteDependency [0] resultCode |문자열 |HTTP 종속성에서 |
@@ -223,12 +223,12 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 | remoteDependency [0] urlData.host |문자열 |최대 길이 200 |
 
 ## <a name="requests"></a>요청
-[TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
+[TrackRequest](./api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| request [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
-| request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
+| request [0] count |integer |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
+| request [0] durationMetric.value |숫자 |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | 요청 [0]`id` |문자열 |`Operation id` |
 | request [0] name |문자열 |GET/POST + url 기본입니다.  최대 길이 250 |
 | request [0] responseCode |integer |클라이언트에 보낸 HTTP 응답 |
@@ -243,7 +243,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 
 컨텍스트 값은 클라이언트 OS 및 브라우저 버전을 표시합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |HTML 수신 완료부터 페이지 표시까지 걸리는 시간입니다. |
 | clientPerformance [0] name |문자열 | |
@@ -258,11 +258,11 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 | clientPerformance [0] urlData.protocol |문자열 | |
 
 ## <a name="page-views"></a>페이지 보기
-trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)에서 전송
+trackPageView() 또는 [stopTrackPage](./api-custom-events-metrics.md#page-views)에서 전송
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| view [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| view [0] count |integer |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | view [0] durationMetric.value |integer |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
 | view [0] name |문자열 |페이지 제목입니다.  최대 길이 250 |
 | view [0] url |문자열 | |
@@ -271,17 +271,17 @@ trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events
 | view [0] urlData.host |문자열 | |
 
 ## <a name="availability"></a>가용성
-[가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 보고합니다.
+[가용성 웹 테스트](./monitor-web-app-availability.md)를 보고합니다.
 
-| 경로 | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |문자열 |availability |
-| availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
-| availability [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| availability [0] availabilityMetric.value |숫자 |1.0 또는 0.0 |
+| availability [0] count |integer |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |문자열 | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |문자열 | |
-| availability [0] durationMetric.value |number |테스트 기간 1e7==1s |
+| availability [0] durationMetric.value |숫자 |테스트 기간 1e7==1s |
 | availability [0] message |문자열 |오류 진단 |
 | availability [0] result |문자열 |성공/실패 |
 | availability [0] runLocation |문자열 |Http 요청의 지역 소스 |
@@ -345,12 +345,13 @@ TrackMetric()에서 생성합니다.
 
 위의 표에서는 자주 사용 되지 않는 필드 count, min, max, stdDev 및 sampledValue를 생략 했습니다.
 
-원격 분석의 양을 줄여야 하는 경우 사전 집계 메트릭 대신 [샘플링](../../azure-monitor/app/sampling.md) 을 사용할 수 있습니다
+원격 분석의 양을 줄여야 하는 경우 사전 집계 메트릭 대신 [샘플링](./sampling.md) 을 사용할 수 있습니다
 
 ### <a name="durations"></a>기간
 달리 명시된 경우를 제외하고, 기간은 10분의 1 마이크로초로 표현되므로 10000000.0은 1초를 의미합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
 * [연속 내보내기](export-telemetry.md)
 * [코드 샘플](export-telemetry.md#code-samples)
+

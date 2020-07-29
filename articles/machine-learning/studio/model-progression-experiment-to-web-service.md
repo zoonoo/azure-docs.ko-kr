@@ -1,6 +1,5 @@
 ---
-title: 모델이 웹 서비스가 되는 방법
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 모델이 웹 서비스가 되는 방법-Azure'
 description: Azure Machine Learning Studio(클래식) 모델이 개발 실험에서 웹 서비스로 진행되는 방식에 대한 메커니즘을 간략히 살펴봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 4d7ab5cada77ccebc214e09b43fbb70b3ad8bb59
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6a02ac6db7e560fcb90a87b7bc96284c279c1654
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117197"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325001"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio(클래식) 모델이 실험에서 웹 서비스로 진행되는 방법
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 Azure Machine Learning Studio(클래식)는 예측 분석 모델을 대신하는 ***실험***을 개발, 실행, 테스트 및 반복할 수 있는 대화형 캔버스를 제공합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
 

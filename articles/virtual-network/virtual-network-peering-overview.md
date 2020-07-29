@@ -1,7 +1,7 @@
 ---
 title: Azure Virtual Network 피어링
 titlesuffix: Azure Virtual Network
-description: Azure의 가상 네트워크 피어링에 대해 알아봅니다.
+description: Azure Virtual Network에서 네트워크를 연결 하는 방법을 비롯 하 여 Azure의 가상 네트워크 피어 링에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: altambaw
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265163"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -109,7 +110,7 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 * 두 가상 네트워크 간에 피어 링을 만들 수 있습니다. 네트워크는 동일한 구독, 동일한 구독에 있는 다른 배포 모델 또는 다른 구독에 속할 수 있습니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-    |Azure 배포 모델             | Subscription  |
+    |Azure 배포 모델             | 구독  |
     |---------                          |---------|
     |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[다름](create-peering-different-subscriptions.md)|

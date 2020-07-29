@@ -5,18 +5,18 @@ description: Azure Machine Learning을 사용하여 자동화된 Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
-manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: ac5357d0f8ba03943af14d7dd4ce6928b20db128
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1e87eec4384887ebd82d5f70c0897add250f31fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074639"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320802"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -75,7 +75,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     1. **설정 및 미리 보기** 양식을 검토하여 정확히 지정했는지 확인합니다. 양식은 파일 형식에 따라 지능적으로 채워집니다. 
 
-        필드| Description
+        필드| 설명
         ----|----
         파일 형식| 파일에 저장된 데이터의 레이아웃 및 유형을 정의합니다.
         구분 기호| 일반 텍스트 또는 다른 데이터 스트림에서 별도의 독립적인 지역 간의 경계를 지정하기 위한 하나 이상의 문자입니다.
@@ -83,7 +83,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
         열 머리글| 데이터 세트의 헤더(있는 경우)가 처리되는 방법을 나타냅니다.
         행 건너뛰기 | 데이터 세트에서 건너뛴 행(있는 경우)의 수를 나타냅니다.
     
-        **새로 만들기**를 선택합니다.
+        **다음**을 선택합니다.
 
     1. **스키마** 양식은 **설정 및 미리 보기** 양식의 선택 사항에 따라 지능적으로 채워집니다. 여기서는 각 열의 데이터 형식을 구성하고, 열 이름을 검토하고, 실험에 **포함하지 않을** 열을 선택합니다. 
             
@@ -91,7 +91,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     1. **세부 정보 확인** 양식은 이전에 **기본 정보** 및 **설정 및 미리 보기** 양식에 채운 정보를 요약한 것입니다. 프로파일링을 사용하도록 설정된 컴퓨팅을 사용하여 데이터 세트에 대한 데이터 프로필을 만드는 옵션도 있습니다. [데이터 프로파일링](#profile)에 대한 자세한 정보
 
-        **새로 만들기**를 선택합니다.
+        **다음**을 선택합니다.
 1. 새로 만든 데이터 세트가 표시되면 선택합니다. 또한 데이터 세트 및 샘플 통계 미리 보기도 볼 수 있습니다. 
 
 1. **실행 구성** 양식에서 고유한 실험 이름을 입력합니다.
@@ -132,7 +132,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. (선택 사항) 추가 구성 설정 보기: 학습 작업을 더 효율적으로 제어하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다. 
 
-    추가 구성|Description
+    추가 구성|설명
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#explore-model-metrics).
     최상의 모델에 대한 설명 | 권장 되는 최상의 모델의 explainability을 표시 하려면 선택 합니다.

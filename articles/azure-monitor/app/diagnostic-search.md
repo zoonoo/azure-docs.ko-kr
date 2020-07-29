@@ -3,18 +3,18 @@ title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 7a264f25f92bed1b93848c323fd59eafd7b09215
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033618"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324457"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
-Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
+Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](./app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
 
-(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../../azure-monitor/log-query/get-started-portal.md)를 사용합니다.)
+(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../log-query/get-started-portal.md)를 사용합니다.)
 
 ## <a name="where-do-you-see-search"></a>Search 기능은 어디에 있나요?
 
@@ -56,13 +56,13 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 이벤트 유형은 다음과 같습니다.
 
-* **추적**  -  Log4Net 추적,, NLog 및 System.object를 포함 하는 [진단 로그](../../azure-monitor/app/asp-net-trace-logs.md) 를 호출 합니다.
+* **추적**  -  Log4Net 추적,, NLog 및 System.object를 포함 하는 [진단 로그](./asp-net-trace-logs.md) 를 호출 합니다.
 * **요청** - 페이지, 스크립트, 이미지, 스타일 파일 및 데이터를 포함하는 서버 애플리케이션이 수신하는 HTTP 요청입니다. 이러한 이벤트는 요청을 만들고 개요 차트에 응답하는 데 사용됩니다.
-* **페이지 보기**  -  [웹 클라이언트에서 보낸 원격 분석](../../azure-monitor/app/javascript.md)으로 페이지 보기 보고서를 만드는 데 사용 됩니다.
-* **사용자 지정 이벤트** - [사용량을 모니터링](../../azure-monitor/app/api-custom-events-metrics.md)하기 위해 TrackEvent()에 호출을 삽입한 경우 여기에서 검색할 수 있습니다.
-* [서버에서](../../azure-monitor/app/asp-net-exceptions.md) **예외가** catch 되지 않은 예외 및 지 수 예외 ()를 사용 하 여 기록 하는 예외
-* **종속성**  -  [서버 응용 프로그램에서](../../azure-monitor/app/asp-net-dependencies.md) REST api 또는 데이터베이스와 같은 다른 서비스와 [클라이언트 코드](../../azure-monitor/app/javascript.md)의 AJAX 호출에 대 한 호출입니다.
-* **가용성** - [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)의 결과입니다.
+* **페이지 보기**  -  [웹 클라이언트에서 보낸 원격 분석](./javascript.md)으로 페이지 보기 보고서를 만드는 데 사용 됩니다.
+* **사용자 지정 이벤트** - [사용량을 모니터링](./api-custom-events-metrics.md)하기 위해 TrackEvent()에 호출을 삽입한 경우 여기에서 검색할 수 있습니다.
+* [서버에서](./asp-net-exceptions.md) **예외가** catch 되지 않은 예외 및 지 수 예외 ()를 사용 하 여 기록 하는 예외
+* **종속성**  -  [서버 응용 프로그램에서](./asp-net-dependencies.md) REST api 또는 데이터베이스와 같은 다른 서비스와 [클라이언트 코드](./javascript.md)의 AJAX 호출에 대 한 호출입니다.
+* **가용성** - [가용성 테스트](./monitor-web-app-availability.md)의 결과입니다.
 
 ## <a name="filter-on-property-values"></a>속성 값에서 필터링
 
@@ -81,10 +81,10 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 ## <a name="search-the-data"></a>데이터 검색
 
 > [!NOTE]
-> 더 복잡 한 쿼리를 작성 하려면 검색 블레이드의 위쪽에서 [**로그 (분석)**](../../azure-monitor/log-query/get-started-portal.md) 를 엽니다.
+> 더 복잡 한 쿼리를 작성 하려면 검색 블레이드의 위쪽에서 [**로그 (분석)**](../log-query/get-started-portal.md) 를 엽니다.
 >
 
-속성 값 중 하나에서 용어를 검색할 수 있습니다. 이는 속성 값을 사용 하 여 [사용자 지정 이벤트](../../azure-monitor/app/api-custom-events-metrics.md) 를 작성 한 경우에 유용 합니다.
+속성 값 중 하나에서 용어를 검색할 수 있습니다. 이는 속성 값을 사용 하 여 [사용자 지정 이벤트](./api-custom-events-metrics.md) 를 작성 한 경우에 유용 합니다.
 
 더 짧은 시간 범위로 검색하는 것이 더 빠른 것처럼 시간 범위를 설정하고자 할 수 있습니다.
 
@@ -92,14 +92,14 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 하위 문자열이 아닌 전체 단어를 검색합니다. 인용 부호를 사용하여 특수 문자를 묶습니다.
 
-| String | 찾을 수 *없음* | 있음 |
+| 문자열 | 찾을 수 *없음* | 있음 |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |미국|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
 
 다음은 사용할 수 있는 검색 식입니다.
 
-| 샘플 쿼리 | 영향 |
+| 샘플 쿼리 | 효과 |
 | --- | --- |
 | `apple` |지정된 시간 범위의 필드에 단어 "apple"이 포함된 모든 이벤트를 찾습니다. |
 | `apple AND banana` <br/>`apple banana` |두 단어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요. <br/>약식입니다. |
@@ -110,7 +110,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 앱이 많은 양의 원격 분석을 생성 하는 경우 (ASP.NET SDK 버전 2.0.0-beta3 이상을 사용 중인 경우), 적응 샘플링 모듈은 이벤트의 대표적인 일부만 전송 하 여 포털에 전송 되는 볼륨을 자동으로 줄입니다. 그러나, 동일한 요청과 관련된 이벤트가 그룹으로 선택되거나 선택 취소되므로 관련 이벤트 간을 이동할 수 있습니다.
 
-[샘플링에 대해 알아봅니다](../../azure-monitor/app/sampling.md).
+[샘플링에 대해 알아봅니다](./sampling.md).
 
 ## <a name="create-work-item"></a>작업 항목 만들기
 
@@ -128,24 +128,25 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 수행할 수 있습니다.
 
-* [.NET](../../azure-monitor/app/asp-net-trace-logs.md) 또는 [Java](../../azure-monitor/app/java-trace-logs.md)의 즐겨찾는 로깅 프레임워크에서 로그 추적을 캡처합니다. 이는 로그 추적을 통해 검색하고 페이지 보기, 예외 사항 및 기타 이벤트와 상관 관계를 지정할 수 있음을 의미합니다.
-* [코드를 작성](../../azure-monitor/app/api-custom-events-metrics.md)하여 사용자 지정 이벤트, 페이지 보기 및 예외 사항을 보냅니다.
+* [.NET](./asp-net-trace-logs.md) 또는 [Java](./java-trace-logs.md)의 즐겨찾는 로깅 프레임워크에서 로그 추적을 캡처합니다. 이는 로그 추적을 통해 검색하고 페이지 보기, 예외 사항 및 기타 이벤트와 상관 관계를 지정할 수 있음을 의미합니다.
+* [코드를 작성](./api-custom-events-metrics.md)하여 사용자 지정 이벤트, 페이지 보기 및 예외 사항을 보냅니다.
 
-[Application Insights에 로그 및 사용자 지정 원격 분석을 보내는 방법에 대해 알아봅니다](../../azure-monitor/app/asp-net-trace-logs.md).
+[Application Insights에 로그 및 사용자 지정 원격 분석을 보내는 방법에 대해 알아봅니다](./asp-net-trace-logs.md).
 
 ## <a name="q--a"></a><a name="questions"></a>Q & A
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>얼마나 많은 데이터가 보존되나요?
 
-[제한 요약](../../azure-monitor/app/pricing.md#limits-summary)을 참조하세요.
+[제한 요약](./pricing.md#limits-summary)을 참조하세요.
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>내 서버 요청에서 게시 데이터를 어떻게 볼 수 있나요?
 
-게시 데이터를 자동으로 기록하지는 않지만 [TrackTrace 또는 로그 호출](../../azure-monitor/app/asp-net-trace-logs.md)을 사용할 수 있습니다. 메시지 매개 변수에 게시 데이터를 넣습니다. 속성을 필터링할 수 있는 동일한 방법으로 메시지에서 필터링할 수는 없지만 크기 제안은 더 깁니다.
+게시 데이터를 자동으로 기록하지는 않지만 [TrackTrace 또는 로그 호출](./asp-net-trace-logs.md)을 사용할 수 있습니다. 메시지 매개 변수에 게시 데이터를 넣습니다. 속성을 필터링할 수 있는 동일한 방법으로 메시지에서 필터링할 수는 없지만 크기 제안은 더 깁니다.
 
 ## <a name="next-steps"></a><a name="add"></a>다음 단계
 
-* [분석에서 복잡한 쿼리 작성](../../azure-monitor/log-query/get-started-portal.md)
-* [Application Insights에 로그 및 사용자 지정 원격 분석 전송](../../azure-monitor/app/asp-net-trace-logs.md)
-* [가용성 및 응답성 테스트 설정](../../azure-monitor/app/monitor-web-app-availability.md)
+* [분석에서 복잡한 쿼리 작성](../log-query/get-started-portal.md)
+* [Application Insights에 로그 및 사용자 지정 원격 분석 전송](./asp-net-trace-logs.md)
+* [가용성 및 응답성 테스트 설정](./monitor-web-app-availability.md)
 * [문제 해결](../faq.md)
+

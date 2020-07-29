@@ -7,15 +7,15 @@ editor: edprice
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 8aa2b936f97b037bdc62a01f607945ad270faa13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502336"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87268036"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure의 IBM DB2 pureScale
 
@@ -40,7 +40,7 @@ IBM DB2 pureScale 환경은 Linux 운영 체제에서 Azure용 데이터베이�
 > [!NOTE]
 > 이 문서에서는 DB2 마이그레이션 방법 중 하나를 설명하지만 다른 방법도 있습니다. 예를 들어, DB2 pureScale를 가상화된 온-프레미스 환경에서 실행할 수도 있습니다. IBM은 다양한 구성의 Microsoft Hyper-V에서 DB2를 지원합니다. 자세한 내용은 IBM 기술 센터에서 [DB2 pureScale 가상화 아키텍처](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/r0061462.html) 를 참조 하세요.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 Azure에서 고가용성 및 확장성을 지원하기 위해 DB2 pureScale에 대해 스케일 아웃 공유 데이터 아키텍처를 사용할 수 있습니다. 고객 마이그레이션에서 다음 예제 아키텍처가 사용되었습니다.
 

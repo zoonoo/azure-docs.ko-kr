@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 4cdb9390b3146df74f2cbe8eba7b170a5d11fb2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4f14280f38a2389809477b84461eb3174909316
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507061"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323896"
 ---
 # <a name="enable-azure-monitor-for-single-vm-or-vmss-in-the-azure-portal"></a>Azure Portal에서 단일 VM 또는 VMSS에 대 한 Azure Monitor를 사용 하도록 설정
 이 문서에서는 Azure Portal를 사용 하 여 단일 가상 머신 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "85507061"
 
     ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-1. VM이 Log Analytics 작업 영역에 이미 연결 되어 있지 않은 경우 하나를 선택 하 라는 메시지가 표시 됩니다. 이전에 [작업 영역을 만들지](../../azure-monitor/learn/quick-create-workspace.md)않은 경우 구독에서 VM 또는 vmss가 배포 된 위치에 대 한 기본값을 선택할 수 있습니다. 이 작업 영역은 아직 없는 경우 만들어지고 구성 됩니다.
+1. VM이 Log Analytics 작업 영역에 이미 연결 되어 있지 않은 경우 하나를 선택 하 라는 메시지가 표시 됩니다. 이전에 [작업 영역을 만들지](../learn/quick-create-workspace.md)않은 경우 구독에서 VM 또는 vmss가 배포 된 위치에 대 한 기본값을 선택할 수 있습니다. 이 작업 영역은 아직 없는 경우 만들어지고 구성 됩니다.
 
 2. 구성이 수행 되 면 상태 메시지가 표시 됩니다.
 
@@ -49,3 +49,4 @@ ms.locfileid: "85507061"
 
 * 검색 된 응용 프로그램 종속성을 보려면 [VM용 Azure Monitor 매핑 사용](vminsights-maps.md)을 참조 하세요. 
 * 병목 상태, 전반적인 사용률 및 VM의 성능을 식별 하려면 [AZURE VM 성능 보기](vminsights-performance.md)를 참조 하세요.
+

@@ -1,6 +1,6 @@
 ---
 title: Azure 가상 컴퓨터 네트워크 처리량 | Microsoft Docs
-description: Azure 가상 머신 네트워크 처리량에 대해 알아봅니다.
+description: 가상 컴퓨터에 대역폭을 할당 하는 방법을 포함 하 여 Azure 가상 컴퓨터 네트워크 처리량에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 1cbec961f6249ebd59324dca1745bfd9e77f5388
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4fed883c8fa92df77af432e1e4a4b3acca72a0d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088175"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265117"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>가상 머신 네트워크 대역폭
 

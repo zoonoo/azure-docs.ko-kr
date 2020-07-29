@@ -4,11 +4,12 @@ description: Application Insights 원격 분석 컨텍스트 데이터 모델
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671866"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322672"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -38,14 +39,14 @@ ms.locfileid: "77671866"
 
 ## <a name="operation-id"></a>작업 ID
 
-루트 작업의 고유 식별자입니다. 이 식별자를 사용하여 여러 구성 요소에서 원격 분석을 그룹화할 수 있습니다. 자세한 내용은 [원격 분석 상관 관계](../../azure-monitor/app/correlation.md)를 참조하세요. 작업 ID는 요청 또는 페이지 보기에서 생성됩니다. 다른 모든 원격 분석은 이 필드를 포함 요청 또는 페이지 보기의 값으로 설정합니다. 
+루트 작업의 고유 식별자입니다. 이 식별자를 사용하여 여러 구성 요소에서 원격 분석을 그룹화할 수 있습니다. 자세한 내용은 [원격 분석 상관 관계](./correlation.md)를 참조하세요. 작업 ID는 요청 또는 페이지 보기에서 생성됩니다. 다른 모든 원격 분석은 이 필드를 포함 요청 또는 페이지 보기의 값으로 설정합니다. 
 
 최대 길이: 128
 
 
 ## <a name="parent-operation-id"></a>부모 작업 ID
 
-원격 분석 항목의 직계 부모의 고유 식별자입니다. 자세한 내용은 [원격 분석 상관 관계](../../azure-monitor/app/correlation.md)를 참조하세요.
+원격 분석 항목의 직계 부모의 고유 식별자입니다. 자세한 내용은 [원격 분석 상관 관계](./correlation.md)를 참조하세요.
 
 최대 길이: 128
 
@@ -75,7 +76,7 @@ ms.locfileid: "77671866"
 
 익명 사용자 id입니다. 응용 프로그램의 최종 사용자를 나타냅니다. 원격 분석이 서비스에서 전송되는 경우 사용자 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)은 수집된 원격 분석의 양을 최소화하는 기술 중 하나입니다. 샘플링 알고리즘은 상관 관계가 지정된 모든 원격 분석을 샘플링합니다. 익명 사용자 ID는 샘플링 점수 생성에 사용됩니다. 따라서 익명 사용자 ID는 충분히 임의의 값이어야 합니다. 
+[샘플링](./sampling.md)은 수집된 원격 분석의 양을 최소화하는 기술 중 하나입니다. 샘플링 알고리즘은 상관 관계가 지정된 모든 원격 분석을 샘플링합니다. 익명 사용자 ID는 샘플링 점수 생성에 사용됩니다. 따라서 익명 사용자 ID는 충분히 임의의 값이어야 합니다. 
 
 익명 사용자 ID를 사용하여 사용자 이름을 저장하는 것은 이 필드의 오용입니다. 인증된 사용자 ID를 사용하세요.
 
@@ -126,6 +127,7 @@ SDK 버전입니다. 자세한 내용은 [이 문서](https://github.com/microso
 
 ## <a name="next-steps"></a>다음 단계
 
-- [원격 분석을 확장 및 필터링](../../azure-monitor/app/api-filtering-sampling.md)하는 방법을 알아봅니다.
+- [원격 분석을 확장 및 필터링](./api-filtering-sampling.md)하는 방법을 알아봅니다.
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
-- 표준 컨텍스트 속성 컬렉션 [구성](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)을 확인합니다.
+- 표준 컨텍스트 속성 컬렉션 [구성](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)을 확인합니다.
+

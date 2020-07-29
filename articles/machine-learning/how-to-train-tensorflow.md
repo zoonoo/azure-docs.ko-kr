@@ -5,17 +5,17 @@ description: Azure Machine Learning를 사용 하 여 대규모로 TensorFlow �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
-ms.custom: seodec18
-ms.openlocfilehash: 6604f9ca6c8525a9b60ac6ffc0d043b052a27b18
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1d7523f68f97250f71405f840a6a5e9fcf9fb2f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030874"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320870"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 심층 학습 모델 빌드
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-
 
 [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 

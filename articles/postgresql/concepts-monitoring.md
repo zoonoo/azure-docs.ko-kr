@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: fc41b76fa14d464b2e4ddcca7e98997011a51cd4
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f6a042dfee000dd6341368b46db32fe36060cc72
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276637"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171590"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
@@ -37,7 +37,7 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 |connections_failed|실패한 연결|개수|실패 한 설정 된 연결 수입니다.|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
-|backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
+|backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양. 이 메트릭은 서버에 대해 설정 된 백업 보존 기간에 따라 유지 되는 모든 전체 데이터베이스 백업, 차등 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 백업 빈도는 서비스에서 관리 되며 [개념 문서](concepts-backup.md)에서 설명 합니다. 지역 중복 저장소의 경우 백업 저장소 사용량이 로컬 중복 저장소의 두 배가 됩니다.|
 |pg_replica_log_delay_in_bytes|복제본 간 최대 지연 시간|바이트|마스터와 가장 지연 복제본 사이의 지연 (바이트)입니다. 이 메트릭은 마스터 서버에서만 사용할 수 있습니다.|
 |pg_replica_log_delay_in_seconds|복제본 지연 시간|초|마지막으로 재생 된 트랜잭션 이후 경과 된 시간입니다. 이 메트릭은 복제본 서버에만 사용할 수 있습니다.|
 

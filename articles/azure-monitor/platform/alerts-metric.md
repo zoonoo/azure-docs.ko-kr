@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045373"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321125"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "87045373"
 
 3. **대상 선택**을 클릭하고, 로드되는 컨텍스트 창에서 경고를 사용할 대상 리소스를 선택합니다. **구독** 및 **리소스 종류** 드롭다운을 사용하여 모니터링하려는 리소스를 찾습니다. 검색 창을 사용하여 리소스를 검색할 수도 있습니다.
 
-4. 선택한 리소스에 경고를 만들 수 있는 메트릭이 있으면 오른쪽 아래의 **사용 가능한 신호**에 메트릭이 포함됩니다. 이 [문서](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)의 메트릭 경고에 지원되는 리소스 종류의 전체 목록을 볼 수 있습니다.
+4. 선택한 리소스에 경고를 만들 수 있는 메트릭이 있으면 오른쪽 아래의 **사용 가능한 신호**에 메트릭이 포함됩니다. 이 [문서](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)의 메트릭 경고에 지원되는 리소스 종류의 전체 목록을 볼 수 있습니다.
 
 5. 대상 리소스를 선택한 후에는 **조건 추가**를 클릭합니다.
 
@@ -136,7 +136,8 @@ ms.locfileid: "87045373"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Resource Manager 템플릿을 사용하여 메트릭 경고를 만듭니다](../../azure-monitor/platform/alerts-metric-create-templates.md).
+- [Azure Resource Manager 템플릿을 사용하여 메트릭 경고를 만듭니다](./alerts-metric-create-templates.md).
 - [메트릭 경고의 작동 원리를 이해합니다](alerts-metric-overview.md).
 - [동적 임계값 조건을 사용하는 메트릭 경고의 작동 원리를 이해합니다](alerts-dynamic-thresholds.md).
-- [메트릭 경고에 대한 웹후크 스키마를 이해합니다](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema).
+- [메트릭 경고에 대한 웹후크 스키마를 이해합니다](./alerts-metric-near-real-time.md#payload-schema).
+

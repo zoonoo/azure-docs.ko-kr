@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9371feb527bbb2d94d43072bb8a44a6705b45055
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518048"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280225"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -23,6 +23,7 @@ ms.locfileid: "86518048"
 * [Azure Container Service (ACS)에서 마이그레이션-2020 년 1 월 31 일 사용 중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) AKS
 * [AKS 엔진](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) 에서 AKS로 마이그레이션
 * 비 Azure 기반 Kubernetes 클러스터에서 AKS로 마이그레이션
+* 기존 리소스를 다른 지역으로 이동
 
 마이그레이션할 때 대상 Kubernetes 버전이 AKS에 대해 지원 되는 창 내에 있는지 확인 합니다. 이전 버전을 사용 하는 경우 지원 되는 범위 내에 있지 않을 수 있으며 AKS에서 업그레이드 버전을 지원 해야 합니다. 자세한 내용은 [지원 되는 AKS Kubernetes 버전](./supported-kubernetes-versions.md) 을 참조 하세요.
 

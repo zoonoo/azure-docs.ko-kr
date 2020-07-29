@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315cc8c9dfcfa66999ff263fab95f414061e54e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662267"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321261"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 
 이 문서에서는 REST API를 통해 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내는 방법을 보여 줍니다. Azure Monitor에 메트릭이 있으면 표준 메트릭으로 수행하는 모든 작업을 해당 메트릭으로 수행할 수 있습니다. 예를 들어, 차트 작성, 경고, 다른 외부 도구로 라우팅 등이 있습니다.  
 
 >[!NOTE]  
->REST API는 Azure 리소스에 대한 사용자 지정 메트릭 보내기만 허용합니다. 다른 환경이나 온-프레미스 리소스에 대한 메트릭을 보내려면 [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md)를 사용할 수 있습니다.    
+>REST API는 Azure 리소스에 대한 사용자 지정 메트릭 보내기만 허용합니다. 다른 환경이나 온-프레미스 리소스에 대한 메트릭을 보내려면 [Application Insights](../app/api-custom-events-metrics.md)를 사용할 수 있습니다.    
 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>서비스 주체를 만들고 메트릭 내보내기 권한 부여 
@@ -92,7 +93,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 1. 구독 또는 리소스 그룹에 대한 메트릭을 Azure 리소스로 실행할 수 없습니다. 
 1. 20분 이상 경과된 메트릭을 저장소에 저장할 수 없습니다. 메트릭 저장소는 경고 및 실시간 차트 작성에 최적화되어 있습니다. 
 2. 차원 이름 수는 값과 일치해야 하고, 그 반대의 경우도 마찬가지입니다. 값을 확인합니다. 
-2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원 되는 지역](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions)을 참조 하세요. 
+2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원 되는 지역](./metrics-custom-overview.md#supported-regions)을 참조 하세요. 
 
 
 
@@ -116,5 +117,5 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 
  
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](./metrics-custom-overview.md)에 대해 자세히 알아보세요.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3cd43963175594fcdc1c3c67d6b2493ce1ccd313
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075283"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321924"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Istio를 사용하여 Kubernetes에서 호스트된 애플리케이션에 대한 제로 계측 애플리케이션 모니터링 - 사용되지 않음
 
@@ -18,10 +18,10 @@ ms.locfileid: "87075283"
 > 이 기능은 현재 사용되지 않으며 2020년 8월 1일부터 더 이상 지원되지 않습니다.
 > 현재 코드리스 모니터링은 [독립 실행형 에이전트를 통해 Java](./java-in-process-agent.md)에 대해서만 사용하도록 설정할 수 있습니다. 다른 언어의 경우 SDK를 사용하여 AKS에서 [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md) 및 [Python](./opencensus-python.md) 등의 앱을 모니터링합니다.
 
-Azure Monitor는 Kubernetes 클러스터에서 서비스 메시 기술을 사용하여 Kubernetes에서 호스트된 모든 앱에 대한 애플리케이션 모니터링을 즉시 제공합니다. [애플리케이션 맵](../../azure-monitor/app/app-map.md)과 같은 기본 Application Insight 기능을 사용하여 종속성, 실시간 모니터링을 위한 [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md), [기본 대시보드](../../azure-monitor/app/overview-dashboard.md)를 이용한 강력한 시각화, [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md), [통합 문서](../../azure-monitor/platform/workbooks-overview.md) 등을 모델링할 수 있습니다. 사용자는 이 기능을 사용하여 선택한 Kubernetes 네임스페이스 내의 모든 Kubernetes 워크로드에서 성능 병목 상태 및 오류 다발 지점을 찾을 수 있습니다. Azure Monitor는 Istio와 같은 기술을 통해 기존의 서비스 메시 투자를 활용하여 애플리케이션 코드를 수정하지 않고도 자동 계측된 앱 모니터링을 사용하도록 설정할 수 있습니다.
+Azure Monitor는 Kubernetes 클러스터에서 서비스 메시 기술을 사용하여 Kubernetes에서 호스트된 모든 앱에 대한 애플리케이션 모니터링을 즉시 제공합니다. [애플리케이션 맵](./app-map.md)과 같은 기본 Application Insight 기능을 사용하여 종속성, 실시간 모니터링을 위한 [라이브 메트릭 스트림](./live-stream.md), [기본 대시보드](./overview-dashboard.md)를 이용한 강력한 시각화, [메트릭 탐색기](../platform/metrics-getting-started.md), [통합 문서](../platform/workbooks-overview.md) 등을 모델링할 수 있습니다. 사용자는 이 기능을 사용하여 선택한 Kubernetes 네임스페이스 내의 모든 Kubernetes 워크로드에서 성능 병목 상태 및 오류 다발 지점을 찾을 수 있습니다. Azure Monitor는 Istio와 같은 기술을 통해 기존의 서비스 메시 투자를 활용하여 애플리케이션 코드를 수정하지 않고도 자동 계측된 앱 모니터링을 사용하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> 위 방법은 Kubernetes에서 애플리케이션 모니터링을 수행하는 여러 가지 방법 중 하나입니다. [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml)를 사용하여 서비스 메시 없이도 Kubernetes에서 호스트되는 모든 앱을 계측할 수도 있습니다. SDK를 사용하여 애플리케이션을 계측하지 않고 Kubernetes를 모니터링하려면 아래 방법을 사용하면 됩니다.
+> 위 방법은 Kubernetes에서 애플리케이션 모니터링을 수행하는 여러 가지 방법 중 하나입니다. [Application Insights SDK](../azure-monitor-app-hub.yml)를 사용하여 서비스 메시 없이도 Kubernetes에서 호스트되는 모든 앱을 계측할 수도 있습니다. SDK를 사용하여 애플리케이션을 계측하지 않고 Kubernetes를 모니터링하려면 아래 방법을 사용하면 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,12 +34,12 @@ Azure Monitor는 Kubernetes 클러스터에서 서비스 메시 기술을 사용
 
 Kubernetes에서 호스트된 앱에 대해 제로 계측 애플리케이션 모니터링을 사용하면 다음을 사용할 수 있습니다.
 
-- [애플리케이션 맵](../../azure-monitor/app/app-map.md)
-- [라이브 스트림 메트릭](../../azure-monitor/app/live-stream.md)
-- [대시보드](../../azure-monitor/app/overview-dashboard.md)
-- [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)
-- [분산 추적](../../azure-monitor/app/distributed-tracing.md)
-- [엔드투엔드 트랜잭션 모니터링](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
+- [애플리케이션 맵](./app-map.md)
+- [라이브 스트림 메트릭](./live-stream.md)
+- [대시보드](./overview-dashboard.md)
+- [메트릭 탐색기](../platform/metrics-getting-started.md)
+- [분산 추적](./distributed-tracing.md)
+- [엔드투엔드 트랜잭션 모니터링](../learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## <a name="installation-steps"></a>설치 단계
 
@@ -141,4 +141,5 @@ kubectl delete -f <filename.yaml>
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Monitor 및 컨테이너가 함께 작동하는 방법에 대한 자세한 내용은 [컨테이너용 Azure Monitor 개요](../../azure-monitor/insights/container-insights-overview.md)를 참조하세요.
+Azure Monitor 및 컨테이너가 함께 작동하는 방법에 대한 자세한 내용은 [컨테이너용 Azure Monitor 개요](../insights/container-insights-overview.md)를 참조하세요.
+

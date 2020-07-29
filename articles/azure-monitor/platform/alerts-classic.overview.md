@@ -4,17 +4,17 @@ description: 클래식 경고는 더 이상 사용되지 않습니다. 경고를
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56dd601e8d961d65ec21eefcc2dd5fed5c75f9fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515957"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322366"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
 > [!NOTE]
-> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](../../azure-monitor/platform/alerts-overview.md)지원 합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다. 
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다. 
 >
 
 경고를 통해 데이터에 대한 조건을 구성하고 최신 모니터링 데이터가 조건에 일치하면 알림을 받을 수 있습니다.
@@ -40,8 +40,8 @@ Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 �
 - **다차원 메트릭에 대한 지원**: 메트릭의 흥미로운 세그먼트를 모니터링할 수 있도록 차원이 포함된 메트릭에서 경고를 수행할 수 있습니다.
 - **메트릭 조건 세부 제어**: 경고 규칙을 다양하게 정의할 수 있습니다. 최신 경고는 메트릭의 최대, 최소, 평균 및 전체 값을 모니터링하도록 지원합니다.
 - **여러 가지 메트릭의 결합 모니터링**: 단일 규칙을 사용하여 다중 메트릭(현재 최대 2개)을 모니터링할 수 있습니다. 두 메트릭이 지정된 기간 동안 해당 임계값을 위반하면 경고가 트리거됩니다.
-- **향상된 알림 시스템**: 모든 최신 경고는 여러 경고에서 다시 사용할 수 있는 알림 및 작업으로 명명된 그룹인 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 사용합니다.  클래식 메트릭 경고 및 이전 Log Analytics 경고는 작업 그룹을 사용하지 않습니다. 
-- **로그의 메트릭**(공용 미리 보기): 이제 Log Analytics로 이동하는 로그 데이터를 추출하고 Azure Monitor 메트릭으로 변환한 다음, 다른 메트릭과 마찬가지로 경고할 수 있습니다. 클래식 경고의 고유 용어는 [경고(클래식)](alerts-classic.overview.md)를 참조하세요. 
+- **향상된 알림 시스템**: 모든 최신 경고는 여러 경고에서 다시 사용할 수 있는 알림 및 작업으로 명명된 그룹인 [작업 그룹](./action-groups.md)을 사용합니다.  클래식 메트릭 경고 및 이전 Log Analytics 경고는 작업 그룹을 사용하지 않습니다. 
+- **로그의 메트릭**(공용 미리 보기): 이제 Log Analytics로 이동하는 로그 데이터를 추출하고 Azure Monitor 메트릭으로 변환한 다음, 다른 메트릭과 마찬가지로 경고할 수 있습니다. 클래식 경고의 고유 용어는 [경고(클래식)]()를 참조하세요. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Azure Monitor 데이터에 대한 클래식 경고
@@ -51,7 +51,7 @@ Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 �
 
 * **클래식 활동 로그 경고** - 사용자가 할당한 필터 기준에 부합하는 활동 로그 이벤트 항목을 트리거하는 스트리밍 로그 경고입니다. 이러한 경고는 "활성화됨" 상태에서만 동작합니다. 경고 엔진은 필터 기준을 모든 새 이벤트에 간단히 적용합니다. 검색을 사용하여 이전 항목을 찾을 수 없습니다. 이러한 경고를 통해 예를 들어 “가상 머신 삭제” 와 같이 새 Service Health 문제가 발생하거나 사용자 또는 애플리케이션이 구독에서 작업을 수행할 경우에 알림을 받을 수 있습니다.
 
-Azure Monitor를 통해 사용할 수 있는 리소스 로그 데이터의 경우 데이터를 Log Analytics로 라우팅하고 로그 쿼리 경고를 사용 합니다. Log Analytics 이제 [새 경고 메서드](../../azure-monitor/platform/alerts-overview.md) 를 사용 합니다. 
+Azure Monitor를 통해 사용할 수 있는 리소스 로그 데이터의 경우 데이터를 Log Analytics로 라우팅하고 로그 쿼리 경고를 사용 합니다. Log Analytics 이제 [새 경고 메서드](./alerts-overview.md) 를 사용 합니다. 
 
 다음 다이어그램에서는 Azure Monitor의 데이터 원본을 요약하고 그러한 데이터에 대해 경고 받는 방법을 개념적으로 설명약합니다.
 
@@ -68,7 +68,7 @@ Azure는 다음 용어를 사용하여 클래식 경고와 그 기능을 설명�
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Azure Monitor 클래식 경고에서 알림을 받는 방법
 지금까지 다양한 서비스의 Azure 경고는 자체 기본 제공 알림 방법을 사용했습니다. 
 
-Azure Monitor에서 *작업 그룹*이라는 재사용 가능한 알림 그룹화를 만듭니다. 작업 그룹은 알림에 대한 받는 사람 집합을 지정합니다. 언제든지 작업 그룹을 참조하는 경고가 활성화되면 모든 받는 사람은 해당 알림을 받습니다. 작업 그룹을 통해 여러 경고 개체에서 수신자 그룹(예: 당직 엔지니어 목록)을 재사용할 수 있습니다. 작업 그룹은 메일 주소, SMS 번호 및 다양한 다른 작업 외에도 webhook URL 게시를 통한 알림도 지원합니다.  자세한 내용은 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 참조 하세요. 
+Azure Monitor에서 *작업 그룹*이라는 재사용 가능한 알림 그룹화를 만듭니다. 작업 그룹은 알림에 대한 받는 사람 집합을 지정합니다. 언제든지 작업 그룹을 참조하는 경고가 활성화되면 모든 받는 사람은 해당 알림을 받습니다. 작업 그룹을 통해 여러 경고 개체에서 수신자 그룹(예: 당직 엔지니어 목록)을 재사용할 수 있습니다. 작업 그룹은 메일 주소, SMS 번호 및 다양한 다른 작업 외에도 webhook URL 게시를 통한 알림도 지원합니다.  자세한 내용은 [작업 그룹](./action-groups.md)을 참조 하세요. 
 
 이전 클래식 활동 로그 경고는 작업 그룹을 사용합니다.
 
@@ -96,3 +96,4 @@ Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성�
 * [활동 로그 경고 웹후크 스키마](activity-log-alerts-webhook.md) 검토
 * [작업 그룹](action-groups.md) 에 대 한 자세한 정보
 * [최신 경고](alerts-metric.md) 구성
+

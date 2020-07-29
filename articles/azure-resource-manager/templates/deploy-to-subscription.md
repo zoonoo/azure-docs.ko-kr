@@ -2,43 +2,65 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832817"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321771"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
-리소스 관리를 간소화하기 위해 Azure 구독 수준에서 리소스를 배포할 수 있습니다. 예를 들어 구독에 대한 [정책](../../governance/policy/overview.md) 및 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 배포하고, 해당 리소스를 구독 전체에 적용할 수 있습니다. 리소스 그룹을 만들고 리소스 그룹에 리소스를 배포할 수도 있습니다.
+리소스 관리를 간소화 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 Azure 구독 수준에서 리소스를 배포할 수 있습니다. 예를 들어 구독에 적용 되는 [정책](../../governance/policy/overview.md) 및 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 를 구독에 배포할 수 있습니다. 구독 내에서 리소스 그룹을 만들고 구독의 리소스 그룹에 리소스를 배포할 수도 있습니다.
 
 > [!NOTE]
 > 구독 수준 배포에서 800개의 다른 리소스 그룹에 배포할 수 있습니다.
 
-구독 수준에서 템플릿을 배포하려면 Azure CLI, PowerShell 또는 REST API를 사용합니다.
+구독 수준에서 템플릿을 배포 하려면 Azure CLI, PowerShell, REST API 또는 포털을 사용 합니다.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
-구독 수준에서 다음과 같은 리소스 유형을 배포할 수 있습니다.
+모든 리소스 종류를 구독 수준에 배포할 수 있는 것은 아닙니다. 이 섹션에서는 지원 되는 리소스 종류를 나열 합니다.
 
+Azure 청사진의 경우 다음을 사용 합니다.
+
+* [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
 * [blueprints](/azure/templates/microsoft.blueprint/blueprints)
-* [budgets](/azure/templates/microsoft.consumption/budgets)
-* [deployments](/azure/templates/microsoft.resources/deployments) - 리소스 그룹에 배포하는 중첩된 템플릿의 경우
-* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
+* [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [버전 (청사진)](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+Azure 정책의 경우 다음을 사용 합니다.
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [remediations](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
-* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+
+역할 기반 액세스 제어를 사용 하려면 다음을 사용 합니다.
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
-* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+
+리소스 그룹에 배포 하는 중첩 된 템플릿의 경우 다음을 사용 합니다.
+
+* [배포](/azure/templates/microsoft.resources/deployments)
+
+새 리소스 그룹을 만들려면 다음을 사용 합니다.
+
+* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+
+구독을 관리 하려면 다음을 사용 합니다.
+
+* [budgets](/azure/templates/microsoft.consumption/budgets)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [태그](/azure/templates/microsoft.resources/tags)
-* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
+
+다른 지원 되는 형식은 다음과 같습니다.
+
+* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
 ### <a name="schema"></a>스키마
 
@@ -91,6 +113,47 @@ REST API의 경우 [배포 - 구독 범위에서 만들기](/rest/api/resources/
 
 각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
 
+## <a name="deployment-scopes"></a>배포 범위
+
+구독에 배포 하는 경우 구독 또는 구독 내의 모든 리소스 그룹을 대상으로 지정할 수 있습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
+
+템플릿의 resources 섹션 내에 정의 된 리소스는 구독에 적용 됩니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        subscription-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+구독 내의 리소스 그룹을 대상으로 하려면 중첩 된 배포를 추가 하 고 속성을 포함 `resourceGroup` 합니다. 다음 예제에서 중첩 된 배포는 이라는 리소스 그룹을 대상으로 `rg2` 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedDeployment",
+            "resourceGroup": "rg2",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="use-template-functions"></a>템플릿 함수 사용
 
 구독 수준 배포의 경우 템플릿 함수를 사용할 때 몇 가지 중요한 고려 사항이 있습니다.
@@ -111,9 +174,11 @@ REST API의 경우 [배포 - 구독 범위에서 만들기](/rest/api/resources/
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## <a name="create-resource-groups"></a>리소스 그룹 만들기
+## <a name="resource-groups"></a>리소스 그룹
 
-Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 및 위치를 사용하여 [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) 리소스를 정의합니다. 리소스 그룹을 만든 후 동일한 템플릿에서 해당 리소스 그룹에 리소스를 배포할 수 있습니다.
+### <a name="create-resource-groups"></a>리소스 그룹 만들기
+
+ARM 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 및 위치를 사용 하 여 [Microsoft .resources/resourceGroups](/azure/templates/microsoft.resources/allversions) 리소스를 정의 합니다.
 
 다음 템플릿은 빈 리소스 그룹을 만듭니다.
 
@@ -133,7 +198,7 @@ Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소�
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -164,7 +229,7 @@ Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소�
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -180,7 +245,7 @@ Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소�
 
 리소스 반복에 대한 자세한 내용은 [Azure Resource Manager 템플릿에서 두 개 이상의 리소스 인스턴스 배포](./copy-resources.md) 및 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./template-tutorial-create-multiple-instances.md)를 참조하세요.
 
-## <a name="resource-group-and-resources"></a>리소스 그룹 및 리소스
+### <a name="create-resource-group-and-resources"></a>리소스 그룹 및 리소스 만들기
 
 리소스 그룹을 만들고 거기에 리소스를 배포하려면 중첩 템플릿을 사용합니다. 중첩 템플릿은 리소스 그룹에 배포할 리소스를 정의합니다. 리소스를 배포하기 전에 리소스 그룹이 존재하도록 중첩 템플릿을 리소스 그룹에 종속된 것으로 설정합니다. 최대 800개의 리소스 그룹에 배포할 수 있습니다.
 
@@ -208,14 +273,14 @@ Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소�
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -406,14 +471,16 @@ New-AzSubscriptionDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
-## <a name="template-samples"></a>템플릿 샘플
+## <a name="access-control"></a>Access Control
 
-* [리소스 그룹을 만들고 잠그고 권한을 부여합니다](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
-* [리소스 그룹, 정책 및 정책 할당을 만듭니다](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+역할 할당에 관해 알아보려면 [RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-template.md)를 참조하세요.
+
+다음 예제에서는 리소스 그룹을 만들고 해당 그룹에 잠금을 적용 한 다음 보안 주체에 역할을 할당 합니다.
+
+:::code language="json" source="~/quickstart-templates/subscription-deployments/create-rg-lock-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>다음 단계
 
-* 역할 할당에 관해 알아보려면 [RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-template.md)를 참조하세요.
 * Azure Security Center에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)을 참조하세요.
 * 샘플 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments)에서 찾을 수 있습니다.
 * [관리 그룹 수준](deploy-to-management-group.md) 및 [테넌트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

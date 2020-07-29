@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: de5b490f1ffd50e44defb1c3e3c6f0ad32ca689c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f86cc5e3edc659a233066fcf2544ed4a5019d0f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516382"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324287"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 작업 영역 만들기
 **Log Analytics 작업 영역** 메뉴를 사용하여 Azure Portal에서 Log Analytics 작업 영역을 만듭니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
@@ -23,8 +23,8 @@ ms.locfileid: "86516382"
 
 Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.
 
-*  [Azure 가상 머신에서 데이터 수집](../learn/quick-collect-azurevm.md) 
-*  [하이브리드 Linux 컴퓨터에서 데이터 수집](../learn/quick-collect-linux-computer.md)
+*  [Azure 가상 머신에서 데이터 수집](./quick-collect-azurevm.md) 
+*  [하이브리드 Linux 컴퓨터에서 데이터 수집](./quick-collect-linux-computer.md)
 *  [하이브리드 Windows 컴퓨터에서 데이터 수집](quick-collect-windows-computer.md)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -66,3 +66,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * [System Center Operations Manager를 데이터 원본으로 추가](../platform/om-agents.md)하여 Operations Manager 관리 그룹을 보고하는 에이전트에서 데이터를 수집하고 Log Analytics 작업 영역에 저장합니다. 
 * [Configuration Manager](../platform/collect-sccm.md)를 연결하여 계층에서 컬렉션의 멤버인 컴퓨터를 가져옵니다.  
 * 제공되는 [모니터링 솔루션](../insights/solutions.md)을 검토하고 작업 영역에서 솔루션을 추가하거나 제거하는 방법을 검토합니다.
+

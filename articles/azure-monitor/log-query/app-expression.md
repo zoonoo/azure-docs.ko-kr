@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cb8073d048118e704dafb0c70fe7cdb6774344a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201114"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324542"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
 
@@ -19,7 +20,7 @@ ms.locfileid: "83201114"
 > [!IMPORTANT]
 > 응용 프로그램 () 식은 [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md) 를 사용 하는 경우에는 로그 데이터가 Log Analytics 작업 영역에 저장 되므로 사용 되지 않습니다. Log () 식을 사용 하 여 여러 작업 영역에서 응용 프로그램을 포함 하는 쿼리를 작성 합니다. 동일한 작업 영역에 있는 여러 응용 프로그램의 경우에는 상호 작업 영역 쿼리가 필요 하지 않습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 `app(`*한정자*`)`
 
@@ -36,14 +37,14 @@ ms.locfileid: "83201114"
 | Azure 리소스 ID | Azure 리소스의 식별자 |app(“/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp”) |
 
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 
 * 애플리케이션에 대한 읽기 권한이 있어야 합니다.
 * 애플리케이션을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 * 관련된 식 [작업 영역](workspace-expression.md)을 사용하여 Log Analytics 작업 영역 전체를 쿼리합니다.
 * 앱() 식은 현재 Application Insights 애플리케이션이 경고 규칙에 대한 리소스로 사용되지 않는 한 Azure Portal을 사용하여 [사용자 지정 로그 검색 경고 규칙](../platform/alerts-log.md)을 만들 때 검색 쿼리에서 지원되지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ```Kusto
 app("fabrikamapp").requests | count
@@ -72,5 +73,6 @@ union
 ## <a name="next-steps"></a>다음 단계
 
 - Log Analytics 작업 영역을 가리키는 [작업 영역 식](workspace-expression.md)을 참조하세요.
-- [Azure Monitor 데이터](../../azure-monitor/log-query/log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
+- [Azure Monitor 데이터](./log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
 - [ 쿼리 언어](/azure/kusto/query/)에 대한 전체 문서에 액세스합니다.
+

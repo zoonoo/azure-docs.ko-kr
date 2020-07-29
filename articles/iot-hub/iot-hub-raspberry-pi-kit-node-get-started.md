@@ -10,11 +10,14 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: 1188c597b3e46af140173d59b2cbac972d0c018c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640524"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324032"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -44,9 +47,9 @@ ms.locfileid: "81640524"
 
 * IoT Hub로 센서 데이터를 보내는 방법.
 
-## <a name="what-you-need"></a>필요한 항목
+## <a name="what-you-need"></a>필요한 작업
 
-![필요한 항목](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
+![필요한 작업](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
 
@@ -103,7 +106,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
    b. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
-   다. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
+   c. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
 
    d. Flash를 클릭하여 microSD 카드에 Raspbian을 설치합니다.
 

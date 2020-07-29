@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205693"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321590"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 기능화
 
@@ -64,7 +64,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 | ------------- | ------------- |
 |**상위 카디널리티를 삭제 하거나 가변성 기능을 제거 합니다.*** |이러한 기능을 학습 및 유효성 검사 집합에서 삭제 합니다. 모든 행에서 동일한 값을 가진 모든 값이 누락 된 기능 또는 높은 카디널리티 (예: 해시, Id 또는 Guid)를 가진 기능에 적용 됩니다.|
 |**누락 값 돌립니다*** |숫자 기능의 경우 돌립니다는 열에 있는 값의 평균을 사용 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|
-|**추가 기능 생성*** |DateTime 기능: 연도, 월, 일, 요일, 연간 일자, 분기, 연간 주, 시간, 분, 초<br/><br/>텍스트 기능의 경우: 선 그램, bigrams 및 trigrams을 기반으로 하는 용어 빈도.|
+|**추가 기능 생성*** |DateTime 기능: 연도, 월, 일, 요일, 연간 일자, 분기, 연간 주, 시간, 분, 초<br/><br/>텍스트 기능의 경우: 선 그램, bigrams 및 trigrams을 기반으로 하는 용어 빈도. [BERT를 사용 하 여이 작업을 수행 하는 방법](#bert-integration) 에 대해 자세히 알아보세요.|
 |**변환 및 인코딩***|고유 값이 적은 숫자 기능을 범주 기능으로 변환 합니다.<br/><br/>단일 핫 인코딩은 낮은 카디널리티 범주 기능에 사용 됩니다. 단일 핫 해시 인코딩은 고급 카디널리티 범주 기능에 사용 됩니다.|
 |**단어 포함**|텍스트 featurizer 사전 학습 된 모델을 사용 하 여 텍스트 토큰의 벡터를 문장 벡터로 변환 합니다. 문서에 있는 각 단어의 포함 벡터는 문서 기능 벡터를 생성 하기 위해 나머지와 함께 집계 됩니다.|
 |**대상 인코딩**|범주 기능의 경우이 단계는 회귀 문제에 대 한 평균 목표 값과 분류 문제에 대 한 각 클래스의 확률에 각 범주를 매핑합니다. 빈도 기반 가중치 및 k 접기 교차 유효성 검사를 적용 하 여 스파스 데이터 범주로 인 한 매핑의 과잉 맞춤을 줄입니다.|
@@ -138,6 +138,50 @@ featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strate
 featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
+
+## <a name="bert-integration"></a>BERT 통합 
+[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) 는 자동화 된 ML의 기능화 계층에서 사용 됩니다. 이 계층에서는 열에 타임 스탬프 나 단순 숫자와 같은 다른 형식의 데이터 나 여유 텍스트가 포함 되어 있는지 검색 하 고 그에 따라 피쳐화를 검색 합니다. BERT 사용자 제공 레이블을 사용 하 여 모델을 미세 조정/학습 한 다음, 포함 (BERT)는 타임 스탬프 기반 기능 (예: 요일) 또는 많은 일반적인 데이터 집합에 있는 숫자와 같은 다른 기능과 함께 제공 되는 문서 (특수 [CLS] 토큰에 연결 된 최종 숨겨진 상태)를 출력 합니다. 
+
+BERT를 사용 하도록 설정 하려면 교육을 위해 GPU 계산을 사용 해야 합니다. CPU 계산을 사용 하는 경우 BERT 대신 AutoML은 BiLSTM DNN featurizer를 사용 하도록 설정 합니다. BERT를 호출 하려면 automl_settings에서 "enable_dnn: True"를 설정 하 고 GPU 계산 (예: vm_size = "STANDARD_NC6" 또는 더 높은 GPU)을 사용 해야 합니다. [예제는이 노트북을](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)참조 하세요.
+
+AutoML은 BERT의 경우 다음 단계를 수행 합니다. 이러한 항목이 발생 하려면 automl_settings에서 "enable_dnn: True"를 설정 해야 합니다.
+
+1. 모든 텍스트 열의 토큰화를 포함 하는 전처리 (최종 모델의 기능화 요약에 "StringCast" 변환기가 표시 됨) 메서드를 사용 하 여 모델의 기능화 요약을 생성 하는 방법에 대 한 예제를 보려면 [이 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) 을 방문 하세요 `get_featurization_summary()` .
+
+```python
+text_transformations_used = []
+for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
+    text_transformations_used.extend(column_group['Transformations'])
+text_transformations_used
+```
+
+2. 모든 텍스트 열을 단일 텍스트 열에 연결 하므로 최종 모델에 "StringConcatTransformer"이 표시 됩니다. 
+
+> [!NOTE]
+> BERT 구현에서는 학습 샘플의 총 텍스트 길이를 128 토큰으로 제한 합니다. 즉, 연결 될 때 모든 텍스트 열 길이가 최대 128 토큰 이어야 합니다. 이상적으로 여러 열이 있는 경우이 조건이 충족 되도록 각 열을 정리 해야 합니다. 예를 들어 데이터에 두 개의 텍스트 열이 있는 경우 두 텍스트 열 모두 64 토큰으로 정리 되어야 합니다 (두 열을 모두 최종 연결 된 텍스트 열에 동일 하 게 표시 하려는 경우). 128 토큰 >연결 된 열에 대해 BERT의 토크를 제거할 경우이 입력은 128 토큰으로 잘립니다.
+
+3. 기능 스윕 단계에서 automl은 데이터 샘플에 대 한 기준선 (BERT 기능 + 미리 학습 된 된 단어 포함)과 비교 하 여 정확성을 향상 시킬 수 있는지 여부를 확인 합니다. BERT가 기준선 보다 더 잘 작동 하는 것으로 확인 되 면 AutoML은 BERT를 사용 하 여 기능화을 최적의 기능화 전략으로 사용 하 고 전체 데이터를 기능화으로 진행 합니다. 이 경우 최종 모델에 "PretrainedTextDNNTransformer"이 표시 됩니다.
+
+AutoML은 현재 100 언어를 지원 하며, 데이터 집합의 언어에 따라 AutoML은 적절 한 BERT 모델을 선택 합니다. 독일 데이터의 경우 독일어 BERT 모델을 사용 합니다. 영어의 경우 영어 BERT 모델을 사용 합니다. 다른 모든 언어의 경우에는 다국어 BERT 모델을 사용 합니다.
+
+다음 코드에서는 데이터 집합 언어가 ' deu '로 지정 되어 있고 [ISO 분류](https://iso639-3.sil.org/code/hbs)에 따라 독일어의 3 자 언어 코드를 지정 하기 때문에 독일어 BERT 모델이 트리거됩니다.
+
+```python
+from azureml.automl.core.featurization import FeaturizationConfig
+
+featurization_config = FeaturizationConfig(dataset_language='deu')
+
+automl_settings = {
+    "experiment_timeout_minutes": 120,
+    "primary_metric": 'accuracy', 
+# All other settings you want to use 
+    "featurization": featurization_config,
+    
+  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_voting_ensemble": False,
+    "enable_stack_ensemble": False
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계

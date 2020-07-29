@@ -3,18 +3,18 @@ title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft 
 description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성 및 관리를 자동화합니다.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 1a0a3a5b186d57e8670201e601eee48ee858c976
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 53cdf338db5cc4ea359f729297fe57e63853aa5c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041629"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322485"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 만들고, [경고](../../azure-monitor/platform/alerts-log.md)를 설정하고, [가격 책정 계층](pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
+이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](./app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](./monitor-web-app-availability.md)를 만들고, [경고](../platform/alerts-log.md)를 설정하고, [가격 책정 계층](pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
 
 이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md)용 JSON 템플릿입니다. 기본 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드하고, 이름과 같은 특정 값을 매개 변수화한 다음, 새 리소스를 만들려고 할 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 스토리지를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
 
@@ -474,3 +474,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+

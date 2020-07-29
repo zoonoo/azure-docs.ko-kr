@@ -1,6 +1,6 @@
 ---
 title: Azure 공용 IP 주소 만들기, 변경 또는 삭제 | Microsoft 문서
-description: 공용 IP 주소를 만들거나 변경하거나 삭제하는 방법에 대해 알아봅니다.
+description: 공용 IP 주소를 생성, 변경 또는 삭제 합니다. 또한 공용 IP 주소를 구성 가능한 고유한 설정을 사용 하는 리소스인 경우를 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 7da6c0f88ae68f473e57590824e675299f7d524b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c0766dc063932c5fdd41a4e21ac11befd84a0e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068567"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265129"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>공용 IP 주소 만들기, 변경 또는 삭제
 
@@ -46,7 +46,7 @@ ms.locfileid: "87068567"
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 2. *마켓플레이스 검색* 상자에 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 선택합니다.
 3. **공용 IP 주소** 아래에서 **만들기**를 선택합니다.
 4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:
@@ -61,7 +61,7 @@ ms.locfileid: "87068567"
    |DNS 이름 레이블|예|이름을 만드는 Azure 위치 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 두 주소 버전을 모두 만드는 경우 IPv4 및 IPv6 주소 둘 다에 같은 DNS 이름이 할당됩니다. Azure의 기본 DNS는 IPv4 A 및 IPv6 AAAA 이름 레코드를 모두 포함하며, DNS 이름을 조회할 때 응답으로 두 레코드를 모두 전송합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다. 기본 접미사로 DNS 이름 레이블을 사용하는 것 대신 또는 그 외에 Azure DNS 서비스를 사용하여 공용 IP 주소로 확인하는 사용자 지정 접미사로 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure 공용 IP 주소로 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
    |이름 (IP **버전의 IP**버전을 선택 하는 경우에만 표시 됨)|예, **둘 다** 의 IP 버전을 선택 하는 경우|이름은 이 목록의 첫 번째 **이름**으로 입력하는 이름과 달라야 합니다. IPv4 주소와 IPv6 주소를 모두 만들도록 선택하면 Portal에서는 각 IP 주소 버전이 할당된 개별 공용 IP 주소 리소스 두 개를 만듭니다.|
    |IP 주소 할당 (IP **버전의 Ip**버전을 선택 하는 경우에만 표시 됨)|예, **둘 다** 의 IP 버전을 선택 하는 경우|위의 IP 주소 할당과 동일한 제한 사항|
-   |Subscription|예|공용 IP를 연결할 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 에 있어야 합니다.|
+   |구독|예|공용 IP를 연결할 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 에 있어야 합니다.|
    |Resource group|예|공용 IP를 연결할 리소스와 동일 하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 에 있을 수 있습니다.|
    |위치|예|공용 IP를 연결할 리소스와 동일한 [위치](https://azure.microsoft.com/regions)(지역이 라고도 함)에 있어야 합니다.|
    |가용성 영역| 예 | 이 설정은 지원되는 위치를 선택하는 경우에만 나타납니다. 지원되는 위치 목록은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. **기본** SKU를 선택한 경우 *없음*이 자동으로 선택됩니다. 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다. 두 선택 중 하나는 영역 중복이 아닙니다. **표준** SKU를 선택한 경우: 영역 중복이 자동으로 선택되며, 영역 오류 시 데이터 경로가 복원 가능합니다. 영역 오류 시 복원 불가능한 특정 영역을 보장하려는 경우 특정 영역을 선택할 수 있습니다.
@@ -108,7 +108,7 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 공용 IP 주소에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 계정이 할당되어야 합니다.
 
-| 작업                                                             | 이름                                                           |
+| 작업                                                             | Name                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | 공용 IP 주소 읽기                                          |
 | Microsoft.Network/publicIPAddresses/write                          | 공용 IP 주소 만들기 또는 업데이트                           |

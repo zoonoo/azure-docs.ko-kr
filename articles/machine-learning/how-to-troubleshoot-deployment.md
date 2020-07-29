@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 68c328bde853bbf4e48ab7ab1a6e2c7b51198f59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47daf331c717ebb9752644deac826330681bb31a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030694"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320819"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Azure Kubernetes Service 및 Azure Container Instances를 사용 하 여 모델의 Docker 배포 문제 해결 
 
 Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)와의 일반적인 Docker 배포 오류를 해결 하 고 해결 하거나 해결 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
@@ -184,7 +184,9 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
-
+`Booting worker with pid: <pid>`로그에서 여러 번 발생 하는 줄이 표시 되 면 작업자를 시작 하는 데 충분 한 메모리가 없는 것입니다.
+에서의 값을 늘려서 오류를 해결할 수 있습니다. `memory_gb``deployment_config`
+ 
 ## <a name="container-cannot-be-scheduled"></a>컨테이너를 예약할 수 없음
 
 서비스를 Azure Kubernetes Service 컴퓨팅 대상에 배포하는 경우 Azure Machine Learning에서 서비스를 요청된 리소스의 양으로 예약하려고 합니다. 5 분 후에 클러스터에서 사용할 수 있는 적절 한 양의 리소스를 사용할 수 있는 노드가 없는 경우 배포는 메시지와 함께 실패 합니다 `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . 이 오류는 더 많은 노드를 추가하거나 노드의 SKU를 변경하거나 서비스의 리소스 요구 사항을 변경하여 해결할 수 있습니다. 

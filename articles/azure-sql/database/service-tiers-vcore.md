@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007744"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325069"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요-Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용 하는 가상 코
 
 VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및 Hyperscale이 포함 됩니다. 서비스 계층은 일반적으로 가용성 및 재해 복구와 관련 된 저장소 아키텍처, 공간 및 i/o 제한 및 비즈니스 연속성 옵션을 정의 합니다.
 
-|-|**범용**|**중요 비즈니스용**|**하이퍼스케일**|
+|-|**일반 용도**|**중요 비즈니스용**|**하이퍼스케일**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 는 예산 지향적이 고 균형이 조정 되며 확장 가능한 계산 및 저장소 옵션을 제공 합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
 |스토리지|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**SQL Managed Instance**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
@@ -83,7 +83,7 @@ Gen4/Gen5을 사용할 수 있는 지역의 경우 [Gen4/Gen5 availability](#gen
 - 워크 로드에 따라 Fsv2 시리즈는 Gen5 보다 vCore 당 더 많은 CPU 성능을 제공할 수 있으며, 72 vCore 크기는 Gen5에서 80 Vcore 보다 적은 비용으로 더 많은 CPU 성능을 제공할 수 있습니다. 
 - Fsv2는 다른 하드웨어 보다 vCore의 메모리와 tempdb를 더 작게 제공 하므로 이러한 한도에 영향을 주는 워크 로드는 Gen5 또는 M 시리즈를 대신 고려 하는 것이 좋습니다.  
 
-Fsv2 시리즈는 일반적인 용도의 계층 에서만 지원 됩니다. Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용성](#fsv2-series)을 참조 하세요.
+Fsv2 시리즈는 일반적인 용도의 계층 에서만 지원 됩니다. Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용성](#fsv2-series-1)을 참조 하세요.
 
 
 ### <a name="m-series"></a>M 시리즈
@@ -91,7 +91,7 @@ Fsv2 시리즈는 일반적인 용도의 계층 에서만 지원 됩니다. Fsv2
 - M 시리즈는 Gen5에서 제공 하는 것 보다 더 많은 메모리를 필요로 하는 워크 로드에 대 한 메모리 액세스에 최적화 된 하드웨어 옵션입니다.
 - M 시리즈는 vCore 당 30GB를 제공 하 고 최대 128 Vcore를 제공 하 여 Gen5 by 8x를 기준으로 약 4 TB까지 메모리 제한을 늘립니다.
 
-M 시리즈는 중요 비즈니스용 계층 에서만 지원 되며 영역 중복성은 지원 하지 않습니다.  구독은 종 량 제 또는 기업계약 (EA)를 포함 한 유료 제안 유형 이어야 합니다. M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
+M 시리즈는 중요 비즈니스용 계층 에서만 지원 되며 영역 중복성은 지원 하지 않습니다.  구독은 종 량 제 또는 기업계약 (EA)를 포함 한 유료 제안 유형 이어야 합니다. M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series-1)을 참조 하세요.
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

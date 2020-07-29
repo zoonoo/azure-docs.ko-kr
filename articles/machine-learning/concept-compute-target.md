@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/26/2020
-ms.openlocfilehash: 95177282ad5b07a600f11f72789e0fc08f4b52c0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/27/2020
+ms.openlocfilehash: f8b532716e14a8a90b0be061f7d93abf43e55e38
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199812"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321992"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -50,10 +50,10 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 
 다음에서 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
 * Azure Machine Learning Studio
-* Azure Portal
+* Azure portal
 * Python SDK 계산 [Einstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) 및 [amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) 클래스
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (미리 보기)
-* Resource Manager 템플릿
+* 리소스 관리자 템플릿입니다. 예제 템플릿은 [create Azure Machine Learning compute 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)을 참조 하세요.
 * [Azure CLI에 대 한](reference-azure-machine-learning-cli.md#resource-management)Machine learning 확장입니다.  
 
 이러한 계산 리소스는 생성 될 때 다른 종류의 계산 대상과 달리 자동으로 작업 영역에 포함 됩니다.

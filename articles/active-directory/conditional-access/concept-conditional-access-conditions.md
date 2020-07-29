@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024456"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275006"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -64,6 +64,9 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 기본적으로 조건부 액세스 정책은 최신 인증 프로토콜을 활용 하는 브라우저 기반 응용 프로그램 및 응용 프로그램에 적용 됩니다. 이러한 응용 프로그램 외에도 관리자는 Exchange ActiveSync 클라이언트 및 레거시 프로토콜을 활용 하는 다른 클라이언트를 포함 하도록 선택할 수 있습니다.
 
+> [!NOTE]
+> 선택한 클라이언트 앱을 쉽게 확인할 수 있도록 클라이언트 앱 조건에서 예/아니요 구성 설정이 제거 되었습니다. 기존 정책이 적용 되는 클라이언트 앱에는 영향을 주지 않습니다.
+
 - 브라우저
    - 여기에는 SAML, WS-FEDERATION, Openid connect Connect 또는 OAuth 기밀 클라이언트로 등록 된 서비스와 같은 프로토콜을 사용 하는 웹 기반 응용 프로그램이 포함 됩니다.
 - 모바일 앱 및 데스크톱 클라이언트
@@ -94,7 +97,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 | OS | 브라우저 |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| 윈도우 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8 / 8.1 | Internet Explorer, 크롬 |
 | Windows 7 | Internet Explorer, 크롬 |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -139,11 +142,11 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | 클라이언트 앱 | 대상 서비스 | 플랫폼 |
 | --- | --- | --- |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | Windows 10 |
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | 윈도우 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원 되지 않습니다.| 모든 My Apps 앱 서비스 | Android 및 iOS |
-| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft 팀 | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Office 2016 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | 윈도우 10 |
 | Office 2016(Word, Excel, PowerPoint, OneNote만 해당) | Office 365 SharePoint Online | macOS |
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Office 모바일 앱 | Office 365 SharePoint Online | Android, iOS |
@@ -164,7 +167,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요**를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [조건부 액세스를 사용 하 여 레거시 인증 차단](block-legacy-authentication.md)
 - [조건부 액세스를 사용 하 여 승인 된 클라이언트 앱 요구](app-based-conditional-access.md)

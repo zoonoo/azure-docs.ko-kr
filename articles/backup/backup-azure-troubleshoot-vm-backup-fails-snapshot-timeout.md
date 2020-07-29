@@ -1,22 +1,71 @@
 ---
 title: 에이전트 및 확장 문제 해결
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5bf52606e6fa5de6a122a65432da87de1491e17f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538822"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324746"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
 이 문서에서는 VM 에이전트 및 확장과의 통신에 관련된 Azure Backup 오류를 해결하는 데 도움이 될 수 있는 문제 해결 단계를 제공합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="step-by-step-guide-to-troubleshoot-backup-failures"></a>백업 실패 문제를 해결 하는 단계별 가이드
+
+가장 일반적인 백업 오류는 아래에 나열 된 문제 해결 단계를 수행 하 여 자체 해결할 수 있습니다.
+
+### <a name="step-1-check-azure-vm-health"></a>1 단계: Azure VM 상태 확인
+
+- **AZURE vm 프로 비전 상태가 ' 실행 중 ' 인지 확인**: [VM 프로 비전 상태가](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states) **중지 됨/할당 취소 됨/업데이트 중** 상태 이면 백업 작업에 방해가 됩니다. *Azure Portal > vm > 개요 >* 를 열고 vm 상태를 확인 하 여 **실행 중인지** 확인 하 고 백업 작업을 다시 시도 합니다.
+- **보류 중인 os 업데이트 또는 다시 부팅 검토**: VM에서 보류 중인 os 업데이트 또는 다시 부팅이 보류 중인지 확인 합니다.
+
+### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>2 단계: Azure VM 게스트 에이전트 서비스 상태 확인
+
+- **AZURE VM 게스트 에이전트 서비스가 시작 되 고 최신 상태 인지 확인 합니다**.
+  - Windows VM에서:
+    - **Services.msc** 로 이동 하 여 **Windows Azure VM 게스트 에이전트 서비스가** 실행 중인지 확인 합니다. 또한 [최신 버전이](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 설치 되어 있는지 확인 합니다. 자세한 내용은 [WINDOWS VM 게스트 에이전트 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)를 참조 하세요.
+    - Azure VM 에이전트는 포털, PowerShell, 명령줄 인터페이스 또는 Azure Resource Manager 템플릿에서 Azure Marketplace 이미지에서 배포 된 모든 Windows VM에 기본적으로 설치 됩니다. Azure에 배포 되는 사용자 지정 VM 이미지를 만들 때 [에이전트를 수동으로 설치](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows#manual-installation) 해야 할 수 있습니다.
+    - 지원 매트릭스를 검토 하 여 [지원 되는 Windows 운영 체제](backup-support-matrix-iaas.md#operating-system-support-windows)에서 VM이 실행 되는지 확인 합니다.
+  - Linux VM에서
+    - 명령을 실행 하 여 Azure VM 게스트 에이전트 서비스가 실행 중인지 확인 `ps-e` 합니다. 또한 [최신 버전이](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) 설치 되어 있는지 확인 합니다. 자세히 알아보려면 [LINUX VM 게스트 에이전트 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)를 참조 하세요.
+    - [시스템 패키지에 대 한 LINUX VM 에이전트 종속성](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) 의 구성이 지원 되는지 확인 합니다. 예: 지원 되는 Python 버전은 2.6 이상입니다.
+    - 지원 매트릭스를 검토 하 여 [지원 되는 Linux 운영 체제](backup-support-matrix-iaas.md#operating-system-support-linux) 에서 VM이 실행 되는지 확인 합니다.
+
+### <a name="step-3-check-azure-vm-extension-health"></a>3 단계: Azure VM 확장 상태 확인
+
+- **모든 AZURE VM 확장이 ' 프로 비전 성공 ' 상태 인지 확인**: 확장이 실패 상태 이면 백업을 방해할 수 있습니다.
+- *Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고* 모든 확장이 **프로 비전 성공** 상태에 있는지 확인 합니다.
+- 모든 [확장 문제가](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions) 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.
+- **COM + 시스템 응용 프로그램이** 실행 중인지 확인 합니다. 또한 **DTC(Distributed Transaction Coordinator) 서비스** 는 **네트워크 서비스 계정**으로 실행 되어야 합니다. 이 문서의 단계를 수행 하 여 [COM + 및 MSDTC 문제를 해결](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error)합니다.
+
+### <a name="step-4-check-azure-backup-vm-extension-health"></a>4 단계: VM 확장 상태 Azure Backup 확인
+
+Azure Backup VM 스냅숏 확장을 사용 하 여 Azure 가상 컴퓨터의 응용 프로그램 일치 백업을 수행 합니다. Azure Backup는 백업을 사용 하도록 설정한 후 트리거된 첫 번째 예약 된 백업의 일부로 확장을 설치 합니다.
+
+- **VMSnapshot 확장이 실패 상태에 있지 않은지 확인**:이 [섹션](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) 에 나열 된 단계에 따라 Azure Backup 확장이 정상 상태 인지 확인 합니다.
+
+- **바이러스 백신이 확장을 차단 하**고 있는지 확인 합니다. 특정 바이러스 백신 소프트웨어로 인해 확장이 실행 되지 않을 수 있습니다.
+  
+  백업 오류가 발생 한 경우 이벤트 뷰어 응용 프로그램 ***로그*** 에 로그 항목이 있는지 확인 하 고 오류가 발생 한 ***응용 프로그램 이름을 IaaSBcdrExtension.exe***합니다. 항목이 표시 되는 경우 VM에 구성 된 바이러스 백신이 백업 확장의 실행을 제한 하는 것일 수 있습니다. 바이러스 백신 구성에서 다음 디렉터리를 제외 하 고 테스트 한 후 백업 작업을 다시 시도 합니다.
+  - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+  - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+
+- **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세한 정보를 알아보세요](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+  - 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
+  - 게스트 방화벽이 나 프록시를 사용 하 여에 대 한 액세스를 차단 하는 경우에 `168.63.129.16` 는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526이 필요 합니다. [자세한 정보](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+
+- **Dhcp를 게스트 vm 내에서 사용 하도록 설정**: IaaS vm 백업이 작동 하려면 dhcp에서 호스트 또는 패브릭 주소를 가져오는 데 필요 합니다. 정적 개인 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성 하 고 VM 내에서 DHCP 옵션을 사용 하도록 설정 하 여 [자세한 정보](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)를 확인 해야 합니다.
+
+- **Vss 기록기 서비스가 실행 중인지 확인**: [Vss 기록기 문제를 해결](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state)하려면 다음 단계를 수행 합니다.
+- **백업 모범 사례 지침 따르기**: [모범 사례를 검토 하 여 Azure VM backup을 사용 하도록 설정](backup-azure-vms-introduction.md#best-practices)합니다.
+- **암호화 된 디스크에 대 한 지침 검토**: 암호화 된 디스크가 있는 vm에 대 한 백업을 사용 하도록 설정 하는 경우 필요한 모든 권한을 제공 했는지 확인 합니다. 자세히 알아보려면 [암호화 된 AZURE VM 백업 및 복원](backup-azure-vms-encryption.md#encryption-support)을 참조 하세요.
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 에이전트가 Azure Backup과 통신할 수 없습니다.
 
@@ -155,7 +204,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하면 최신 버전을 가져올 수 있습니다. 또한 서비스와의 통신을 다시 시작하는 데도 도움이 됩니다.
 
@@ -171,7 +220,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
@@ -209,7 +258,7 @@ VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세
 
 [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) 또는 다른 응용 프로그램 제어 솔루션을 실행 하는 경우 규칙은 게시자 또는 경로를 기반으로 하며, **IaaSBcdrExtension.exe** 실행 파일이 실행 되지 못하도록 차단할 수 있습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 `/var/lib`AppLocker (또는 다른 응용 프로그램 제어 소프트웨어)에서 경로 또는 **IaaSBcdrExtension.exe** 실행 파일을 제외 합니다.
 
@@ -217,11 +266,11 @@ VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세
 
 VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사용합니다. 스토리지 계정에 액세스할 수 없거나 스냅샷 작업의 실행이 지연되기 때문에 백업이 실패할 수 있습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
-| 원인 | 솔루션 |
+| 원인 | 해결 방법 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않은 경우 VM 대시보드의 **종료** 옵션을 사용 하 여 포털에서 vm을 종료 합니다. |
 | VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP가 필요한 경우 **Azure Portal** 또는 **PowerShell** 을 통해 구성 하 고 VM 내의 DHCP 옵션이 사용 하도록 설정 되어 있는지 확인 해야 합니다. PowerShell을 사용 하 여 고정 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) .

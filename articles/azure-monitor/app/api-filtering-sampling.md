@@ -3,12 +3,12 @@ title: Application Insights SDK에서 필터링 및 전처리 | Microsoft Docs
 description: SDK에 대 한 원격 분석 프로세서 및 원격 분석 이니셜라이저를 작성 하 여 원격 분석을 Application Insights 포털로 보내기 전에 데이터에 속성을 필터링 하거나 추가 합니다.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a16dc7bc9f6f3c49640d320fbfbffaa7acbed6b9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014629"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323216"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -17,7 +17,7 @@ Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 �
 * [샘플링](sampling.md) 통계를 왜곡하지 않고 원격 분석의 양을 줄입니다. 문제를 진단할 때 탐색할 수 있도록 관련 데이터 요소를 함께 유지 합니다. 포털에서는 샘플링을 보완하기 위해 총 개수를 곱합니다.
 * 원격 분석 프로세서를 사용 하 여 필터링 하면 SDK가 서버에 전송 되기 전에 SDK에서 원격 분석을 필터링 할 수 있습니다. 예를 들어 로봇의 요청을 제외하여 원격 분석의 양을 줄일 수 있습니다. 필터링은 샘플링 보다 트래픽을 줄이는 보다 기본적인 방법입니다. 전송 된 항목을 더 자세히 제어할 수 있지만 통계에 영향을 줍니다. 예를 들어 성공한 모든 요청을 필터링 할 수 있습니다.
 * [원격 분석 이니셜라이저](#add-properties) 앱에서 전송 된 원격 분석에 속성을 추가 하거나 수정 합니다. 여기에는 표준 모듈의 원격 분석이 포함 됩니다. 예를 들어 포털에서 데이터를 필터링 하는 데 사용할 계산 된 값 또는 버전 번호를 추가할 수 있습니다.
-* [SDK API](../../azure-monitor/app/api-custom-events-metrics.md) 사용자 지정 이벤트 및 메트릭을 보내는 데 사용됩니다.
+* [SDK API](./api-custom-events-metrics.md) 사용자 지정 이벤트 및 메트릭을 보내는 데 사용됩니다.
 
 시작하기 전에
 
@@ -34,7 +34,7 @@ Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 �
 > [!WARNING]
 > 프로세서를 사용 하 여 SDK에서 전송 된 원격 분석을 필터링 하면 포털에 표시 되는 통계를 왜곡 하 고 관련 항목을 따르기 어려울 수 있습니다.
 >
-> 대신 [샘플링](../../azure-monitor/app/sampling.md)사용을 고려하세요.
+> 대신 [샘플링](./sampling.md)사용을 고려하세요.
 >
 >
 
@@ -352,7 +352,7 @@ ASP.NET **Core/Worker 서비스 앱: 이니셜라이저 로드**
 </script>
 ```
 
-원격 분석 항목에서 사용할 수 있는 noncustom 속성에 대 한 요약은 [데이터 모델 Application Insights 내보내기](../../azure-monitor/app/export-data-model.md)를 참조 하세요.
+원격 분석 항목에서 사용할 수 있는 noncustom 속성에 대 한 요약은 [데이터 모델 Application Insights 내보내기](./export-data-model.md)를 참조 하세요.
 
 이니셜라이저를 원하는 수만큼 추가할 수 있습니다. 추가 된 순서 대로 호출 됩니다.
 
@@ -542,7 +542,7 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [API 개요](../../azure-monitor/app/api-custom-events-metrics.md)
+* [API 개요](./api-custom-events-metrics.md)
 * [ASP.NET 참조](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>SDK 코드
@@ -552,6 +552,7 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
-* [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md)
-* [샘플링](../../azure-monitor/app/sampling.md)
+* [검색 이벤트 및 로그](./diagnostic-search.md)
+* [견본](./sampling.md)
 * [문제 해결](../faq.md)
+

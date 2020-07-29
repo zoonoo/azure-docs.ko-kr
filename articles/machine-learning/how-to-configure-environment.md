@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: how-to
 ms.date: 12/27/2019
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: f0ac64fa184382f3939530565caa93f87da0fbf6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816730"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321482"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84816730"
 
 다음 표에서는 이 문서에서 다루는 각 개발 환경을 장단점과 함께 보여 줍니다.
 
-| 환경 | 장점 | 단점 |
+| Environment | 장점 | 단점 |
 | --- | --- | --- |
 | [클라우드 기반 Azure Machine Learning 계산 인스턴스 (미리 보기)](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
@@ -136,7 +136,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 ## <a name="local-computer"></a><a id="local"></a>로컬 컴퓨터
 
-로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 Anaconda 환경을 만들고 SDK를 설치 합니다. 예를 들면 다음과 같습니다.
+로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 Anaconda 환경을 만들고 SDK를 설치 합니다. 예는 다음과 같습니다.
 
 1. 아직 없는 경우 [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 버전)을 다운로드 하 여 설치 합니다.
 
@@ -285,7 +285,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 다음 설정을 사용합니다.
 
-| Setting |적용 대상| 값 |
+| 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |always| yourclustername |
 | Databricks Runtime |always|비 ML 런타임 6.5 (scala 2.11, spark 2.4.3) |

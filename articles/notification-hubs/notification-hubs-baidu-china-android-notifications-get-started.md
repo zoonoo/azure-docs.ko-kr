@@ -14,12 +14,13 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
-ms.openlocfilehash: a605a11b1effd5d272dc8123f7e9c5c44262a3e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: bace9130f87300585d1e7d90c6c1a30041171f4b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530205"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324661"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 
@@ -29,7 +30,7 @@ Baidu 클라우드 푸시는 모바일 디바이스로 푸시 알림을 보내�
 
 Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없으므로 다른 앱 스토어 및 푸시 서비스를 사용해야 합니다. Baidu는 그 중 하나이며 현재 알림 허브에서 사용하는 것입니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 사용하려면 다음이 필요합니다.
 

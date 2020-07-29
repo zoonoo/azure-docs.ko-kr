@@ -3,11 +3,12 @@ title: Azure Application Insights 개요 대시보드 | Microsoft Docs
 description: Azure Application Insights 및 개요 대시보드 기능을 사용하여 애플리케이션을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669899"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322536"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
@@ -56,6 +57,7 @@ Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에
 
 ## <a name="next-steps"></a>다음 단계
 
-- [깔때기](../../azure-monitor/app/usage-funnels.md)
-- [보존](../../azure-monitor/app/usage-retention.md)
-- [사용자 흐름](../../azure-monitor/app/usage-flows.md)
+- [깔때기](./usage-funnels.md)
+- [보존](./usage-retention.md)
+- [사용자 흐름](./usage-flows.md)
+

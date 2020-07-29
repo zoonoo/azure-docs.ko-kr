@@ -3,12 +3,12 @@ title: VHD에서 Azure DevTest Labs 사용자 지정 이미지 만들기 | Micro
 description: Azure Portal을 사용하여 프로비저닝된 VM에서 Azure DevTest Labs에 사용자 지정 이미지를 만드는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 597ef49b667cf613b721c645e09f8e6dcb157011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476600"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277030"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>VM에서 사용자 지정 이미지 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "85476600"
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
 
-- [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [사용자 지정 이미지 또는 수식?](./devtest-lab-faq.md#blog-post)
 - [Azure DevTest Labs 간의 사용자 지정 이미지 복사](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>다음 단계

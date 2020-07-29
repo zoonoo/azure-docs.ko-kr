@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop 웹 클라이언트 연결 - Azure
-description: 웹 클라이언트를 사용하여 Windows Virtual Desktop에 연결하는 방법
+title: Windows 가상 데스크톱 (클래식) 웹 클라이언트 연결-Azure
+description: 웹 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결 하는 방법
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e95498498fd15d7a6e73630e218f9bdd1b892f09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efe97c86ebfac8e130489b3105a97302866d6822
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204798"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270382"
 ---
-# <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용하여 연결
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>웹 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-web.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../connect-web.md)를 참조 하세요.
 
 웹 클라이언트를 사용하면 시간이 오래 걸리는 설치 프로세스 없이 웹 브라우저에서 Windows Virtual Desktop 리소스에 액세스할 수 있습니다.
 
@@ -42,7 +42,7 @@ HTML5 지원 브라우저가 제대로 작동하는 동안에는 다음 운영 �
 브라우저에서 <https://rdweb.wvd.microsoft.com/webclient>의 Windows Virtual Desktop 웹 클라이언트로 이동한 후 사용자 계정으로 로그인합니다.
 
 >[!NOTE]
->Azure Resource Manager가 통합된 Windows Virtual Desktop 2020년 봄 릴리스를 사용하는 경우 대신, <https://rdweb.wvd.microsoft.com/arm/webclient>에서 리소스에 연결합니다.
+>Azure Resource Manager 통합을 통해 Windows 가상 데스크톱을 사용 하는 경우에는에서 리소스에 연결 <https://rdweb.wvd.microsoft.com/arm/webclient> 합니다.
 
 >[!NOTE]
 >Windows Virtual Desktop에 사용하려는 계정이 아닌 Azure Active Directory 계정으로 이미 로그인한 경우에는 로그아웃하거나 프라이빗 브라우저 창을 사용해야 합니다.

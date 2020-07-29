@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088109"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273204"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
-Application Gateway 및 WAF(웹 애플리케이션 방화벽)는 Standard_v2 및 WAF_v2 SKU 에서도 사용할 수 있습니다. V2 SKU는 성능 향상을 제공하고 자동 크기 조정, 영역 중복성 및 정적 VIP 지원과 같은 중요한 새 기능에 대한 지원을 추가적으로 제공합니다. Standard 및 WAF SKU의 기존 기능은 새 v2 SKU에서 계속 지원되며, [비교](#differences-from-v1-sku) 섹션에 몇 가지 예외가 나와 있습니다.
+Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF (웹 응용 프로그램 방화벽)는 WAF_v2 SKU에서 사용할 수 있습니다. V2 SKU는 성능 향상을 제공하고 자동 크기 조정, 영역 중복성 및 정적 VIP 지원과 같은 중요한 새 기능에 대한 지원을 추가적으로 제공합니다. Standard 및 WAF SKU의 기존 기능은 새 v2 SKU에서 계속 지원되며, [비교](#differences-from-v1-sku) 섹션에 몇 가지 예외가 나와 있습니다.
 
 새 v2 SKU에는 다음과 같은 향상된 기능이 포함되어 있습니다.
 
@@ -178,11 +178,11 @@ Azure Application Gateway는 고가용성이 유지되는 방식으로 배포됩
 
 |차이점|세부 정보|
 |--|--|
-|인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 TLS 개요](ssl-overview.md#end-to-end-tls-with-the-v2-sku)를 참조하세요.|
+|인증 인증서|지원 안 됨<br>자세한 내용은 [Application Gateway의 엔드투엔드 TLS 개요](ssl-overview.md#end-to-end-tls-with-the-v2-sku)를 참조하세요.|
 |동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
 |Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원됨(특정 시나리오). 미리 보기 상태.<br> 지원되는 시나리오에 대한 자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요.|
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
-|Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
+|Azure 진단의 성능 로그|지원 안 됨<br>Azure 메트릭을 사용해야 합니다.|
 |결제|청구는 2019년 7월 1일에 시작하도록 예약됩니다.|
 |FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|

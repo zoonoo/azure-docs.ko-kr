@@ -1,7 +1,7 @@
 ---
 title: Azure Virtual Network 만들기, 변경 또는 삭제
 titlesuffix: Azure Virtual Network
-description: Azure에서 가상 네트워크를 만들고 변경하거나 삭제하는 방법을 알아봅니다.
+description: 가상 네트워크를 만들고 삭제 하 고 기존 가상 네트워크의 DNS 서버 및 IP 주소 공간과 같은 설정을 변경 합니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a35576435780ee43d9f2aa99167b736f90799ab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710034"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265248"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -90,7 +91,7 @@ ms.locfileid: "84710034"
      - [활동 로그](../azure-monitor/platform/platform-logs-overview.md)
      - [액세스 제어(IAM)](../role-based-access-control/overview.md)
      - [태그](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [중지](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [잠금](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [자동화 스크립트](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **명령**
@@ -170,7 +171,7 @@ ms.locfileid: "84710034"
 
 가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 작업                                  |   이름                                |
+| 작업                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   가상 네트워크 읽기              |
 |Microsoft.Network/virtualNetworks/write  |   가상 네트워크 만들기 또는 업데이트  |

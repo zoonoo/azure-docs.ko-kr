@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505808"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324763"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Log Analytics 로그 검색에서 Azure Monitor 로그로 전환
 Log Analytics의 로그 검색은 Azure Monitor 로그를 분석하기 위한 새로운 환경으로 바뀌었습니다. 로그 검색 페이지는 이제 Azure Portal의 **Log Analytics 작업 영역**에 있는 **로그(클래식)** 메뉴 항목을 통해 계속 액세스할 수 있지만 이 페이지는 2019년 2월 15일에 제거될 예정입니다. 이 문서에서는 두 환경 간의 차이점을 설명하여 로그 검색에서 전환할 수 있도록 지원합니다. 
@@ -44,7 +44,7 @@ Azure Monitor 로그에서 현재 쿼리를 저장하려면 **저장**을 선택
 ![로그 쿼리 저장](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>저장된 쿼리
-로그 검색에서 저장한 쿼리는 작업 모음 항목 **저장된 검색**을 통해 사용할 수 있습니다. Azure Monitor 로그의 [쿼리 탐색기](../log-query/get-started-portal.md#save-queries)에서 저장한 쿼리에 액세스합니다.
+로그 검색에서 저장한 쿼리는 작업 모음 항목 **저장된 검색**을 통해 사용할 수 있습니다. Azure Monitor 로그의 [쿼리 탐색기](./get-started-portal.md#save-queries)에서 저장한 쿼리에 액세스합니다.
 
 ![쿼리 탐색기](media/log-search-transition/query-explorer.png)
 
@@ -69,3 +69,4 @@ Azure Monitor 로그의 [로그 쿼리에서 경고를 만듭니다](../platform
 ## <a name="next-steps"></a>다음 단계
 
 - 새 [Azure Monitor 로그 환경](get-started-portal.md)에 대해 자세히 알아봅니다.
+
