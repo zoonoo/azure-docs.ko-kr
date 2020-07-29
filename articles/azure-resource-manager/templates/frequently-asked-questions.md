@@ -2,15 +2,15 @@
 title: ARM 템플릿 faq (질문과 대답)
 description: Azure Resource Manager 템플릿에 대 한 FAQ (질문과 대답)입니다.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296868"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327262"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대 한 질문과 대답
 
@@ -48,7 +48,7 @@ ms.locfileid: "85296868"
 
   새 템플릿 언어에 대해 알아보려면 [알림에 등록](https://aka.ms/armLangUpdates)합니다.
 
-  템플릿 사양 미리 보기의 경우 [대기 목록에 조인](https://aka.ms/templateSpecsWaitlist)합니다.
+  템플릿 사양에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 사양 (미리 보기)](template-specs.md)을 참조 하세요.
 
 ## <a name="creating-and-testing-templates"></a>템플릿 만들기 및 테스트
 
@@ -64,7 +64,7 @@ ms.locfileid: "85296868"
 
 * **ARM 템플릿에서 리소스 그룹을 만들고 여기에 리소스를 배포할 수 있나요?**
 
-  예, Azure 구독 수준에서 템플릿을 배포할 때 템플릿에서 리소스 그룹을 만들 수 있습니다. 리소스 그룹을 만들고 리소스를 배포 하는 방법에 대 한 예제는 [리소스 그룹 및 리소스](deploy-to-subscription.md#resource-group-and-resources)를 참조 하세요.
+  예, Azure 구독 수준에서 템플릿을 배포할 때 템플릿에서 리소스 그룹을 만들 수 있습니다. 리소스 그룹을 만들고 리소스를 배포 하는 방법에 대 한 예제는 [리소스 그룹 및 리소스](deploy-to-subscription.md#resource-groups)를 참조 하세요.
 
 * **ARM 템플릿에서 구독을 만들 수 있나요?**
 

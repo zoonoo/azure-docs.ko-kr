@@ -1,6 +1,6 @@
 ---
 title: VM 네트워크 처리량 최적화 | Microsoft Docs
-description: Azure Virtual Machine 네트워크 처리량을 최적화하는 방법을 알아봅니다.
+description: Ubuntu, CentOS, Red Hat 등의 주요 배포를 비롯 하 여 Microsoft Azure Windows 및 Linux Vm에 대 한 네트워크 처리량을 최적화 합니다.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 86785ada1d5b55a1eaa7c81243dd0b6c39087e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695966"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265146"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure Virtual Machine에 대한 네트워크 처리량 최적화
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 762264cfe7e0441671411e2c277a0796cd527399
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b2ab664f319de07fd70bd1a22b1ba6d64ac208f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320258"
 ---
 # <a name="metric-chart-examples"></a>메트릭 차트 예 
 
@@ -52,5 +52,6 @@ App Service 리소스를 선택하고 **CPU 백분율** 메트릭을 찾습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor [통합 문서](../../azure-monitor/platform/workbooks-overview.md)에 대해 알아보기
+* Azure Monitor [통합 문서](./workbooks-overview.md)에 대해 알아보기
 * [메트릭 탐색기](metrics-charts.md)에 대해 자세히 알아보기
+

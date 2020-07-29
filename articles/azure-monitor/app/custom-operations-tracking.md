@@ -4,12 +4,12 @@ description: Azure Application Insights .NET SDK를 통한 사용자 지정 작�
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540046"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320377"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -206,14 +206,14 @@ public async Task Process(BrokeredMessage message)
 다음 예제에서는 [Azure Storage 큐](../../storage/queues/storage-dotnet-how-to-use-queues.md) 작업을 추적하고 생산자, 소비자 및 Azure Storage 간의 원격 분석 상관 관계를 지정하는 방법을 보여 줍니다. 
 
 Storage 큐에는 HTTP API가 있습니다. 큐에 대한 모든 호출은 HTTP 요청에 대한 Application Insights 종속성 수집기에서 추적됩니다.
-ASP.NET 및 ASP.NET Core 응용 프로그램에서 기본적으로 구성 되며 다른 종류의 응용 프로그램을 사용 하 여 [콘솔 응용 프로그램 설명서](../../azure-monitor/app/console.md) 를 참조할 수 있습니다.
+ASP.NET 및 ASP.NET Core 응용 프로그램에서 기본적으로 구성 되며 다른 종류의 응용 프로그램을 사용 하 여 [콘솔 응용 프로그램 설명서](./console.md) 를 참조할 수 있습니다.
 
 또한 Application Insights 작업 ID와 Storage 요청 ID 사이의 상관 관계를 지정할 수도 있습니다. Storage 요청 클라이언트와 서버 요청 ID를 설정하고 가져 오는 방법에 대한 자세한 내용은 [Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing)을 참조하세요.
 
 #### <a name="enqueue"></a>큐에 넣기
 Storage 큐는 HTTP API를 지원하므로 큐를 통한 모든 작업은 Application Insights에서 자동으로 추적됩니다. 대부분의 경우 이 계측으로 충분합니다. 그러나 생산자 추적과 소비자 쪽 추적 사이의 상관 관계를 지정하려면 상관 관계에 대한 HTTP 프로토콜에서 수행하는 것과 비슷한 일부 상관 관계 컨텍스트를 전달해야 합니다. 
 
-이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음을 할 수 있습니다.
+이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음을 수행할 수 있습니다.
 
  - **상관 관계 지정 재시도(있는 경우)**: 모든 작업에는 `Enqueue` 작업인 하나의 공통 부모가 있습니다. 그렇지 않으면 들어오는 요청의 자식으로 추적됩니다. 큐에 대한 논리적 요청이 여러 개 있으면 재시도가 발생한 호출을 찾는 것이 어려울 수 있습니다.
  - **스토리지 상관 관계 지정 로그(필요한 경우)**: Application Insights 원격 분석과의 상관 관계가 지정됩니다.
@@ -478,8 +478,9 @@ public async Task RunAllTasks()
 ## <a name="next-steps"></a>다음 단계
 
 - Application Insights에서 [원격 분석 상관 관계](correlation.md) 기본 사항을 알아봅니다.
-- 상관 관계가 지정 된 데이터의 [트랜잭션 진단 환경](../../azure-monitor/app/transaction-diagnostics.md) 및 [응용 프로그램 맵을](../../azure-monitor/app/app-map.md)확인 합니다.
-- Application Insights 유형 및 데이터 모델은 [데이터 모델](../../azure-monitor/app/data-model.md)을 참조합니다.
-- 사용자 지정 [이벤트 및 메트릭](../../azure-monitor/app/api-custom-events-metrics.md)을 Application Insights에 보고합니다.
+- 상관 관계가 지정 된 데이터의 [트랜잭션 진단 환경](./transaction-diagnostics.md) 및 [응용 프로그램 맵을](./app-map.md)확인 합니다.
+- Application Insights 유형 및 데이터 모델은 [데이터 모델](./data-model.md)을 참조합니다.
+- 사용자 지정 [이벤트 및 메트릭](./api-custom-events-metrics.md)을 Application Insights에 보고합니다.
 - 컨텍스트 속성 컬렉션에 대한 표준 [구성](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)을 확인합니다.
 - [System.Diagnostics.Activity 사용자 가이드](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)에서 원격 분석 상관 관계를 지정하는 방법을 확인합니다.
+

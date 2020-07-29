@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4481e62fb15b5ec21b48deb00f1438abf01aa27a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041470"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323709"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 
@@ -28,7 +28,7 @@ Impact는 사이트의 느린 속도가 사용자의 관심도 유지에 미치�
 ![브라우저별 전환율 스크린 샷](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Application Insights 리소스는 Impact 도구를 사용하기 위한 페이지 보기 또는 사용자 지정 이벤트를 포함해야 합니다. [Application Insights JavaScript SDK를 사용하여 자동으로 페이지 뷰를 수집하도록 앱을 설정하는 방법에 대해 알아봅니다](../../azure-monitor/app/javascript.md). 또한 상관 관계를 분석하는 것이므로 샘플 크기가 중요합니다.
+> Application Insights 리소스는 Impact 도구를 사용하기 위한 페이지 보기 또는 사용자 지정 이벤트를 포함해야 합니다. [Application Insights JavaScript SDK를 사용하여 자동으로 페이지 뷰를 수집하도록 앱을 설정하는 방법에 대해 알아봅니다](./javascript.md). 또한 상관 관계를 분석하는 것이므로 샘플 크기가 중요합니다.
 >
 >
 
@@ -85,5 +85,6 @@ Impact의 궁극적인 계산 방법은 분석 기준이 메트릭인지 아니�
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
+    - [통합 문서](../platform/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)
+

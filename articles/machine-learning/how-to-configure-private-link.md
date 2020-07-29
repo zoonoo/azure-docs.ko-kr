@@ -5,17 +5,18 @@ description: Azure 개인 링크를 사용 하 여 가상 네트워크에서 Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/14/2020
-ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a723c76f04c85bffd7ae4d1d1e8bf5b65ad4619
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031221"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326497"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성 (미리 보기)
 
@@ -30,6 +31,8 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 > Azure 개인 링크는 작업 영역을 삭제 하거나 계산 리소스를 관리 하는 것과 같은 Azure 제어 평면 (관리 작업)에 영향을 주지 않습니다. 예를 들어 계산 대상을 생성, 업데이트 또는 삭제 합니다. 이러한 작업은 일반적인 공용 인터넷을 통해 수행 됩니다.
 >
 > Azure Machine Learning 컴퓨팅 인스턴스 미리 보기는 Private Link가 활성화된 작업 영역에서 지원되지 않습니다.
+>
+> Mozilla Firefox를 사용 하는 경우 작업 영역에 대 한 개인 끝점에 액세스 하는 동안 문제가 발생할 수 있습니다. 이 문제는 HTTPS를 통한 DNS와 관련 된 것일 수 있습니다. 해결 방법으로 Google Chrome의 Microsoft Edge를 사용 하는 것이 좋습니다.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>개인 끝점을 사용 하는 작업 영역 만들기
 
@@ -54,7 +57,7 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 
 템플릿이 제출 되 고 프로 비전이 완료 되 면 작업 영역을 포함 하는 리소스 그룹에 개인 링크와 관련 된 세 가지 새 아티팩트 형식이 포함 됩니다.
 
-* 개인 끝점
+* 프라이빗 엔드포인트
 * 네트워크 인터페이스
 * 프라이빗 DNS 영역
 

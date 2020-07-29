@@ -7,21 +7,21 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: 043ecc07c521f9c1c79835bcd67ff1d81cacfa34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3b0215ea2f02441f93e6eb9b672744638ae93b11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539468"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321142"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](./alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
+> 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
 
 기본적인 단계는 다음과 같습니다.
 
@@ -3464,7 +3464,7 @@ az group deployment create \
 
 ## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>메트릭 경고와 함께 가용성 테스트에 대 한 템플릿
 
-[Application Insights 가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)는 전 세계 다양한 위치에서 웹 사이트/애플리케이션의 가용성을 모니터링하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 수의 위치에서 가용성 테스트가 실패할 때 사용자에게 알려줍니다.
+[Application Insights 가용성 테스트](../app/monitor-web-app-availability.md)는 전 세계 다양한 위치에서 웹 사이트/애플리케이션의 가용성을 모니터링하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 수의 위치에서 가용성 테스트가 실패할 때 사용자에게 알려줍니다.
 메트릭 경고(Microsoft.Insights/metricAlerts)와 동일한 리소스 종류의 가용성 테스트 경고입니다. 다음 샘플 Azure Resource Manager 템플릿을 사용 하 여 간단한 가용성 테스트 및 관련 경고를 설정할 수 있습니다.
 
 이 연습의 목적을 위해 availabilityalert.js에 json을 저장 합니다.
@@ -3628,3 +3628,4 @@ az group deployment create \
 - [Azure의 경고](alerts-overview.md)에 대해 자세히 알아보기
 - [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는](action-groups-create-resource-manager-template.md) 방법에 대해 알아보기
 - JSON 구문 및 속성의 경우 [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) 템플릿 참조를 참조하세요.
+

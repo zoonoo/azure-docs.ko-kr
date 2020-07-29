@@ -3,24 +3,24 @@ title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1acc803d66bef29a77266d4e38e1605ffd75f36f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd0b95fe92171d2c5a1515941dbf86a0e31e04be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014068"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323556"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
-가장 인기 있는 웹 또는 모바일 앱의 기능은 무엇인가요? 사용자가 앱으로 이러한 목표를 달성하고 있나요? 특정 지점에서 나갔다가 나중에 돌아오나요?  [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 사람들이 사용자의 앱을 사용하는 방식을 잘 이해할 수 있도록 도와줍니다. 앱을 업데이트할 때마다 사용자들에게 얼마나 적절한지 평가할 수 있습니다. 이러한 지식을 바탕으로 다음 개발 주기에 대해 데이터 중심의 결정을 내릴 수 있습니다.
+가장 인기 있는 웹 또는 모바일 앱의 기능은 무엇인가요? 사용자가 앱으로 이러한 목표를 달성하고 있나요? 특정 지점에서 나갔다가 나중에 돌아오나요?  [Azure Application Insights](./app-insights-overview.md)는 사람들이 사용자의 앱을 사용하는 방식을 잘 이해할 수 있도록 도와줍니다. 앱을 업데이트할 때마다 사용자들에게 얼마나 적절한지 평가할 수 있습니다. 이러한 지식을 바탕으로 다음 개발 주기에 대해 데이터 중심의 결정을 내릴 수 있습니다.
 
 ## <a name="send-telemetry-from-your-app"></a>앱에서 원격 분석 보내기
 
 앱 서버 코드와 웹 페이지에 모두 Application Insights를 설치하여 최상의 환경을 얻습니다. 앱의 클라이언트 및 서버 구성 요소는 분석을 위해 Azure Portal로 원격 분석을 다시 보냅니다.
 
-1. **서버 코드:** [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) 또는 [기타](../../azure-monitor/app/platforms.md) 앱에 적합한 모듈을 설치합니다.
+1. **서버 코드:** [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-get-started.md), [Node.js](./nodejs.md) 또는 [기타](./platforms.md) 앱에 적합한 모듈을 설치합니다.
 
-    * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](../../azure-monitor/app/create-new-resource.md ) 하면 됩니다.*
+    * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](./create-new-resource.md) 하면 됩니다.*
 
 2. **웹 페이지 코드:** ``</head>``를 닫기 전에 다음 스크립트를 웹 페이지에 추가합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
     
@@ -36,7 +36,7 @@ ms.locfileid: "87014068"
 
     웹 사이트 모니터링을 위한 고급 구성에 대해 자세히 알아보려면 [JavaScript SDK 참조 문서](./javascript.md)를 확인하세요.
 
-3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../../azure-monitor/learn/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
+3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../learn/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
 4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음, Application Insights의 개요 블레이드에서 결과를 찾습니다.
 
@@ -103,7 +103,7 @@ ms.locfileid: "87014068"
 
 포털에서 검사할 때 이벤트를 필터링하거나 분할할 수 있도록 이러한 이벤트에 속성 값을 추가할 수 있습니다. 또한 익명 사용자 ID와 같은 표준 속성 집합이 각 이벤트에 추가되므로 개별 사용자의 활동 시퀀스를 추적할 수 있습니다.
 
-[사용자 지정 이벤트](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) 및 [속성](../../azure-monitor/app/api-custom-events-metrics.md#properties)에 대해 자세히 알아보세요.
+[사용자 지정 이벤트](./api-custom-events-metrics.md#trackevent) 및 [속성](./api-custom-events-metrics.md#properties)에 대해 자세히 알아보세요.
 
 ### <a name="slice-and-dice-events"></a>이벤트 분석 및 분할
 
@@ -121,7 +121,7 @@ ms.locfileid: "87014068"
 
 Application Insights 포털에서 속성 값에 대해 데이터를 필터링하고 분할하여 다른 버전과 비교할 수 있습니다.
 
-이렇게 하려면 [원격 분석 이니셜라이저를 설정](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)합니다.
+이렇게 하려면 [원격 분석 이니셜라이저를 설정](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)합니다.
 
 **ASP.NET 앱**
 
@@ -175,5 +175,6 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
    - [깔때기](usage-funnels.md)
    - [보존](usage-retention.md)
    - [사용자 흐름](usage-flows.md)
-   - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
+   - [통합 문서](../platform/workbooks-overview.md)
    - [사용자 컨텍스트 추가](usage-send-user-context.md)
+

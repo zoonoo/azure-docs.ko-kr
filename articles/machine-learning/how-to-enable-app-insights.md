@@ -5,18 +5,18 @@ description: Azure 애플리케이션 Insights를 사용 하 여 Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743512"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320224"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,15 +153,20 @@ Azure 애플리케이션 Insights를 사용 하지 않도록 설정 하려면 �
 1. **Application Insights 진단 및 데이터 수집 사용을** 선택 합니다.
 
     ![앱 Insights 사용](./media/how-to-enable-app-insights/enable-app-insights.png)
-## <a name="evaluate-data"></a>데이터 평가
+
+## <a name="view-metrics-and-logs"></a>메트릭 및 로그 보기
+
 서비스의 데이터는 Azure Machine Learning와 동일한 리소스 그룹 내에 Azure 애플리케이션 Insights 계정에 저장 됩니다.
 이 데이터를 보려면:
 
-1. [Azure Portal](https://ms.portal.azure.com/) 에서 Azure Machine Learning 작업 영역으로 이동 하 여 Application Insights 링크를 클릭 합니다.
+1. [스튜디오](https://ml.azure.com/)에서 Azure Machine Learning 작업 영역으로 이동 합니다.
+1. **엔드포인트**를 선택합니다.
+1. 배포 된 서비스를 선택 합니다.
+1. 아래로 스크롤하여 **Application Insights url** 을 찾고 링크를 클릭 합니다.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Application Insights url 찾기](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. 왼쪽 목록의 **개요** 탭 또는 __모니터링__ 섹션에서 __로그__를 선택 합니다.
+1. 응용 프로그램 Isights의 **개요** 탭 또는 왼쪽 목록의 __모니터링__ 섹션에서 __로그__를 선택 합니다.
 
     [![모니터링의 개요 탭](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -186,7 +191,7 @@ Azure 애플리케이션 Insights의 [연속 내보내기를](https://docs.micro
 
 Azure Data Factory, Azure ML 파이프라인 또는 다른 데이터 처리 도구를 사용 하 여 필요에 따라 데이터를 변환할 수 있습니다. 데이터를 변환한 후에는 데이터 집합으로 Azure Machine Learning 작업 영역에 데이터를 등록할 수 있습니다. 이렇게 하려면 [데이터 집합을 만들고 등록 하는 방법](how-to-create-register-datasets.md)을 참조 하세요.
 
-   [![연속 내보내기](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="연속 내보내기":::
 
 
 ## <a name="example-notebook"></a>예제 Notebook

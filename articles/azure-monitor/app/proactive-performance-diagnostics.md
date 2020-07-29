@@ -4,18 +4,18 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 5152a3deb73c7069655ff016fbfc03f6b9cee16d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045792"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321312"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)는 웹 애플리케이션의 성능을 자동으로 분석하고 잠재적 문제에 대해 경고할 수 있습니다. 스마트 검색 알림 중 하나를 수신했으므로 읽어볼 수 있습니다.
+[Application Insights](./app-insights-overview.md)는 웹 애플리케이션의 성능을 자동으로 분석하고 잠재적 문제에 대해 경고할 수 있습니다. 스마트 검색 알림 중 하나를 수신했으므로 읽어볼 수 있습니다.
 
-이 기능을 사용 하려면 [지원 되는 언어](../../azure-monitor/app/platforms.md)에 대 한 Application Insights 앱을 구성 하는 것 외에 특별 한 설정이 필요 하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
+이 기능을 사용 하려면 [지원 되는 언어](./platforms.md)에 대 한 Application Insights 앱을 구성 하는 것 외에 특별 한 설정이 필요 하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>스마트 검색 알림은 언제 제공되나요?
 
@@ -43,7 +43,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 2. **범위**. 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 페이지에만 영향을 주나요? 특정 브라우저 또는 위치로 제한되나요? 이 정보는 알림에서 얻을 수 있습니다.
 3. **진단**. 종종 알림의 진단 정보는 문제의 특성을 암시합니다. 예를 들어 요청 속도가 높을 때 응답 시간이 느려지면 서버 또는 종속성이 오버로드된 것을 암시합니다. 
 
-    그렇지 않으면 Application Insights에서 성능 블레이드를 엽니다. 여기서 [프로파일러](profiler.md) 데이터를 찾을 수 있습니다. 예외가 throw되는 경우에는 [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)를 사용할 수 있습니다.
+    그렇지 않으면 Application Insights에서 성능 블레이드를 엽니다. 여기서 [프로파일러](profiler.md) 데이터를 찾을 수 있습니다. 예외가 throw되는 경우에는 [스냅샷 디버거](./snapshot-debugger.md)를 사용할 수 있습니다.
 
 
 
@@ -60,18 +60,18 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 ## <a name="faq"></a>FAQ
 
 * *그렇다면, 내 데이터를 확인하나요?*
-  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
+  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](./data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.
 
 * 이러한 분석 기능은 어떤 유형의 애플리케이션에서 사용할 수 있나요?
-  * 이러한 성능 저하는 해당 원격 분석을 생성하는 모든 애플리케이션에서 검색됩니다. 웹앱에 Application Insights를 설치한 경우 요청 및 종속성이 자동으로 추적됩니다. 그렇지만 백 엔드 서비스 또는 다른 앱에서 [trackrequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 또는 [TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency) 호출을 삽입해도 스마트 검색이 동일한 방식으로 작동합니다.
+  * 이러한 성능 저하는 해당 원격 분석을 생성하는 모든 애플리케이션에서 검색됩니다. 웹앱에 Application Insights를 설치한 경우 요청 및 종속성이 자동으로 추적됩니다. 그렇지만 백 엔드 서비스 또는 다른 앱에서 [trackrequest ()](./api-custom-events-metrics.md#trackrequest) 또는 [TrackDependency](./api-custom-events-metrics.md#trackdependency) 호출을 삽입해도 스마트 검색이 동일한 방식으로 작동합니다.
 
 * *나만의 이상 감지 규칙을 만들거나 기존 규칙을 사용자 지정할 수 있나요?*
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
     * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../platform/alerts-log.md)할 수 있습니다.
-    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [Power BI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
+    * 직접 분석할 수 있는 [데이터베이스](./code-sample-export-sql-stream-analytics.md), [Power BI](./export-power-bi.md)에 [원격 분석을 내보냅니다](./export-telemetry.md).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
@@ -92,16 +92,16 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 영향 설명(영향을 받은 사용자 또는 트래픽의 % 비율)을 일반적인 지침으로 사용하되, 이것이 전부가 아니라는 사실에 유의합니다. 확인하려면 다른 증거를 수집합니다.
 
-문제의 매개 변수를 고려합니다. 지리적 위치에 종속적이면 해당 지역을 포함하여 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정합니다. 단순히 해당 영역의 네트워크 문제일 수 있습니다.
+문제의 매개 변수를 고려합니다. 지리적 위치에 종속적이면 해당 지역을 포함하여 [가용성 테스트](./monitor-web-app-availability.md)를 설정합니다. 단순히 해당 영역의 네트워크 문제일 수 있습니다.
 
 ### <a name="diagnose-slow-page-loads"></a>느린 페이지 로드를 진단합니다.
 문제는 어디에 있습니까? 느리게 응답하는 서버, 매우 긴 페이지 또는 표시하는 데 많은 작업을 수행하는 브라우저입니까?
 
 브라우저 메트릭 블레이드를 엽니다. 브라우저 페이지 로드 시간의 분할된 표시는 시간의 흐름을 보여줍니다. 
 
-* **보내기 요청 시간** 이 높은 경우 서버가 느리게 응답하거나 데이터가 많은 게시물이 요청된 것입니다. [성능 메트릭](../../azure-monitor/app/web-monitor-performance.md#metrics) 을 살펴 응답 시간을 조사합니다.
-* [종속성 추적](../../azure-monitor/app/asp-net-dependencies.md) 을 설정하여 속도 저하의 원인이 외부 서비스인지 아니면 사용자의 데이터베이스인지를 확인합니다.
-* **응답 수신** 이 주된 경우 페이지 및 종속 파트 즉, JavaScript, CSS, 이미지 등(그러나 비동기적으로 로드 된 데이터가 아닌)의 길이가 깁니다. [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정하고 종속 파트를 로드하는 옵션을 설정합니다. 일부 결과 얻을 때 결과의 세부 사항을 열고 확장하여 다른 파일의 로드 시간을 확인합니다.
+* **보내기 요청 시간** 이 높은 경우 서버가 느리게 응답하거나 데이터가 많은 게시물이 요청된 것입니다. [성능 메트릭](./web-monitor-performance.md#metrics) 을 살펴 응답 시간을 조사합니다.
+* [종속성 추적](./asp-net-dependencies.md) 을 설정하여 속도 저하의 원인이 외부 서비스인지 아니면 사용자의 데이터베이스인지를 확인합니다.
+* **응답 수신** 이 주된 경우 페이지 및 종속 파트 즉, JavaScript, CSS, 이미지 등(그러나 비동기적으로 로드 된 데이터가 아닌)의 길이가 깁니다. [가용성 테스트](./monitor-web-app-availability.md)를 설정하고 종속 파트를 로드하는 옵션을 설정합니다. 일부 결과 얻을 때 결과의 세부 사항을 열고 확장하여 다른 파일의 로드 시간을 확인합니다.
 * 긴 **클라이언트 처리 시간** 은 스크립트가 느리게 실행됨을 의미합니다. 이유가 명확하지 않다면 일부 타이밍 코드를 추가하는 것이 좋고 trackMetric 호출에 시간을 보냅니다.
 
 ### <a name="improve-slow-pages"></a>느린 페이지 개선
@@ -174,11 +174,12 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
 * [프로파일러](profiler.md) 
-* [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)
-* [분석](../../azure-monitor/log-query/get-started-portal.md)
+* [스냅숏 디버거](./snapshot-debugger.md)
+* [분석](../log-query/get-started-portal.md)
 * [분석 스마트 진단](../log-query/log-query-overview.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
 * [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
-* [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)
+* [가용성 웹 테스트](./monitor-web-app-availability.md)
+

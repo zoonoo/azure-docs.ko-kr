@@ -3,19 +3,19 @@ title: Application Insights에서 .NET 추적 로그 탐색
 description: 추적, NLog 또는 Log4Net에서 생성된 로그를 검색합니다.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c192ae8fad6cf463af892018fcac385b3bdcd345
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014578"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321329"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 검색
 
 ILogger, NLog, log4Net 또는 System.Diagnostics.Trace의 ASP.NET/ASP.NET Core 애플리케이션에 대한 진단 추적 로그를 [Azure 애플리케이션 Insights][start]로 보냅니다. Python 애플리케이션의 경우 Azure Monitor용 OpenCensus Python에서 AzureLogHandler를 사용하여 진단 추적 로그를 보냅니다. 그런 다음, 탐색하고 검색할 수 있습니다. 해당 로그가 애플리케이션의 다른 로그 파일과 병합되므로 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있습니다.
 
 > [!NOTE]
-> 로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터입니다. 그러나 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [**Application Insights TrackTrace()** ](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)를 직접 호출하는 것이 좋습니다.
+> 로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터입니다. 그러나 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [**Application Insights TrackTrace()** ](./api-custom-events-metrics.md#tracktrace)를 직접 호출하는 것이 좋습니다.
 >
 >
 ## <a name="install-logging-on-your-app"></a>앱에 대한 로깅 설치
@@ -34,7 +34,7 @@ ILogger, NLog, log4Net 또는 System.Diagnostics.Trace의 ASP.NET/ASP.NET Core �
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>로그를 수집하도록 Application Insights 구성
-[프로젝트에 Application Insights를 추가](../../azure-monitor/app/asp-net.md)하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
+[프로젝트에 Application Insights를 추가](./asp-net.md)하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
 
 또는 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하여 **Application Insights를 구성**합니다. **추적 컬렉션 구성** 옵션을 선택합니다.
 
@@ -84,7 +84,7 @@ log4net 또는 NLog를 원하는 경우 다음을 사용합니다.
 ```
 
 ## <a name="use-eventsource-events"></a>EventSource 이벤트 사용
-Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -100,7 +100,7 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSou
  * **Keywords**(선택 사항)는 사용할 키워드 정수 값 조합을 지정합니다.
 
 ## <a name="use-diagnosticsource-events"></a>DiagnosticSource 이벤트 사용
-Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 이벤트를 구성할 수 있습니다. 먼저 [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet 패키지를 설치합니다. 그런 다음, [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 "TelemetryModules" 섹션을 편집합니다.
+Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 이벤트를 구성할 수 있습니다. 먼저 [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet 패키지를 설치합니다. 그런 다음, [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) 파일의 "TelemetryModules" 섹션을 편집합니다.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -113,7 +113,7 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource
 추적하려는 각 DiagnosticSource에 대해 **Name** 특성 세트가 포함된 항목을 DiagnosticSource 이름에 추가합니다.
 
 ## <a name="use-etw-events"></a>ETW 이벤트 사용
-추적으로 Application Insights에 전송될 ETW(Windows용 이벤트 추적) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EtwCollector` NuGet 패키지를 설치합니다. 그런 다음, [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 "TelemetryModules" 섹션을 편집합니다.
+추적으로 Application Insights에 전송될 ETW(Windows용 이벤트 추적) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EtwCollector` NuGet 패키지를 설치합니다. 그런 다음, [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) 파일의 "TelemetryModules" 섹션을 편집합니다.
 
 > [!NOTE] 
 > ETW 이벤트는 SDK를 호스트하는 프로세스가 성능 로그 사용자 또는 관리자의 구성원인 ID에서 실행되는 경우에만 수집할 수 있습니다.
@@ -158,7 +158,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 ## <a name="azureloghandler-for-opencensus-python"></a>OpenCensus Python용 AzureLogHandler
 Azure Monitor 로그 처리기를 사용하여 Python 로그를 Azure Monitor로 내보낼 수 있습니다.
 
-Azure Monitor에 대한 [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md)를 사용하여 애플리케이션을 계측합니다.
+Azure Monitor에 대한 [OpenCensus Python SDK](./opencensus-python.md)를 사용하여 애플리케이션을 계측합니다.
 
 이 예제에서는 Azure Monitor에 경고 수준 로그를 보내는 방법을 보여 줍니다.
 
@@ -185,14 +185,14 @@ logger.warning('Hello, World!')
 * 페이지의 구성을 즐겨찾기로 저장합니다.
 
 > [!NOTE]
->애플리케이션이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 *적응 샘플링* 기능이 작동하여 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](../../azure-monitor/app/sampling.md)
+>애플리케이션이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 *적응 샘플링* 기능이 작동하여 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="how-do-i-do-this-for-java"></a>Java의 경우 이 작업을 어떻게 수행하나요?
 Java 코드리스 계측(권장)에서 로그는 기본적으로 수집되고 [Java 3.0 에이전트](./java-in-process-agent.md)를 사용합니다.
 
-Java SDK를 사용하는 경우 [Java 로그 어댑터](../../azure-monitor/app/java-trace-logs.md)를 사용합니다.
+Java SDK를 사용하는 경우 [Java 로그 어댑터](./java-trace-logs.md)를 사용합니다.
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>프로젝트 상황에 맞는 메뉴에 Application Insights 옵션이 없습니다.
 * Developer Analytics Tools가 개발 머신에 설치되어 있는지 확인합니다. Visual Studio **도구** > **확장 및 업데이트**에서 **Developer Analytics Tools**를 찾습니다. **설치됨** 탭에 없는 경우 **온라인** 탭을 열고 설치합니다.
@@ -210,10 +210,10 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 모든 이벤트와 요청이 파이프라인을 통과할 때까지 시간이 걸릴 수 있습니다.
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>얼마나 많은 데이터가 보존되나요?
-여러 가지 요인이 보관되는 데이터의 양에 영향을 줍니다. 자세한 내용은 고객 이벤트 메트릭 페이지의 [제한](../../azure-monitor/app/api-custom-events-metrics.md#limits) 섹션을 참조하세요.
+여러 가지 요인이 보관되는 데이터의 양에 영향을 줍니다. 자세한 내용은 고객 이벤트 메트릭 페이지의 [제한](./api-custom-events-metrics.md#limits) 섹션을 참조하세요.
 
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>예상한 일부 로그 항목이 표시되지 않음
-애플리케이션이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](../../azure-monitor/app/sampling.md)
+애플리케이션이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](./sampling.md)
 
 ## <a name="next-steps"></a><a name="add"></a>다음 단계
 
@@ -224,9 +224,10 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
+

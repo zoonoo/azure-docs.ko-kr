@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: abd802f19917b048f6d006b8e3097b08efaf22e2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0e83d53122b3f80d73a573f0eff8c13888cbee11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510483"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325205"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Linux Vm에 대 한 Azure Disk Encryption 문제 해결 가이드
 
@@ -70,30 +70,54 @@ Microsoft. OSTCExtensions. AzureDiskEncryptionForLinux 확장은 더 이상 사�
 
 Linux OS 디스크 암호화 시퀀스는 OS 드라이브를 일시적으로 탑재 해제합니다. 그런 다음 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 단위로 암호화를 수행합니다. Linux 디스크 암호화는 암호화를 진행 하는 동안 VM을 동시에 사용할 수 없습니다. VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 큰 차이를 만들 수 있습니다. 이러한 특성은 디스크 크기 및 스토리지 계정이 표준 또는 프리미엄(SSD) 스토리지인지 여부를 포함합니다.
 
-암호화 상태를 확인 하려면 [AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령에서 반환 된 **ProgressMessage** 필드를 폴링합니다. OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 진행 중인 프로세스의 중단을 방지하기 위해 SSH를 비활성화합니다. **EncryptionInProgress** 메시지는 암호화가 진행 중인 동안 대부분의 시간에 대해 보고합니다. 몇 시간 후에 **VMRestartPending** 메시지는 VM을 다시 시작하라는 프롬프트를 표시합니다. 예를 들면 다음과 같습니다.
-
+OS 드라이브가 암호화 되는 동안 VM은 서비스 상태를 입력 하 고 SSH를 사용 하지 않도록 설정 하 여 진행 중인 프로세스의 중단을 방지 합니다.  암호화 상태를 확인 하려면 Azure PowerShell [AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 명령을 사용 하 여 **ProgressMessage** 필드를 확인 합니다. **ProgressMessage** 은 데이터 및 OS 디스크가 암호화 될 때 일련의 상태를 보고 합니다.
 
 ```azurepowershell
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings :
+ProgressMessage            : Transitioning
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for data volumes
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Provisioning succeeded
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
-
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
-OsVolumeEncrypted          : VMRestartPending
-DataVolumesEncrypted       : Encrypted
-OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
-ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-VM을 다시 부팅하라는 메시지가 표시된 후, VM이 다시 시작된 후 재부팅 및 대상에서 수행되어야 하는 마지막 단계를 위해 2~3분 정도 기다려야 합니다. 암호화가 마지막으로 완료되는 경우 상태 메시지가 변경됩니다. 이 메시지가 제공되면 암호화된 OS 드라이브가 사용할 준비가 되었으며 VM을 다시 사용할 수 있게 됩니다.
+**ProgressMessage** 는 대부분의 암호화 프로세스에 대해 시작 되는 **OS 디스크 암호화** 에 남아 있습니다.  암호화가 완료 되 고 성공적으로 완료 되 면 **ProgressMessage** 에서 다음을 반환 합니다.
 
-다음과 같은 경우에 스냅샷 또는 암호화 직전에 수행된 백업으로 VM을 다시 복원하는 것이 좋습니다.
-   - 이전에 설명된 다시 부팅 시퀀스가 발생하지 않는 경우
-   - 부팅 정보, 프로세스 메시지 또는 기타 오류 표시기가 이 프로세스 도중에 OS 암호화에 실패했다고 보고하는 경우 메시지의 예는 이 가이드에 설명되어 있는 "분리하지 못했습니다." 오류입니다.
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
 
-다음 시도를 수행하기 전에 VM의 특성을 다시 평가하고 모든 필수 조건이 충족되는지 확인합니다.
+OsVolumeEncrypted          : Encrypted
+DataVolumesEncrypted       : NotMounted
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for all volumes
+```
+
+이 메시지가 제공되면 암호화된 OS 드라이브가 사용할 준비가 되었으며 VM을 다시 사용할 수 있게 됩니다.
+
+이 프로세스가 실행 되는 동안 부팅 정보, 진행 메시지 또는 오류에서 OS 암호화가 실패 한 것으로 보고 되는 경우, 암호화 되기 직전에 수행 된 스냅숏 또는 백업으로 VM을 복원 합니다. 메시지의 예는 이 가이드에 설명되어 있는 "분리하지 못했습니다." 오류입니다.
+
+암호화를 다시 시도 하기 전에 VM의 특성을 다시 평가 하 고 모든 필수 구성 요소가 충족 되는지 확인 합니다.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Disk Encryption 문제 해결
 
@@ -101,11 +125,11 @@ VM을 다시 부팅하라는 메시지가 표시된 후, VM이 다시 시작된 
 
 ## <a name="troubleshooting-encryption-status"></a>암호화 상태 문제 해결 
 
-포털은 VM 내에서 암호화되지 않은 경우에도 디스크를 암호화된 상태로 표시할 수 있습니다.  상위 수준의 Azure Disk Encryption 관리 명령을 사용하는 대신 낮은 수준의 명령을 사용하여 VM 내에서 디스크의 암호를 직접 해독하면 이 오류가 발생할 수 있습니다.  상위 수준의 명령은 VM 내에서 디스크의 암호를 해독할 뿐만 아니라 VM 외부에서 중요한 플랫폼 수준 암호화 설정 및 VM에 연결된 확장 설정도 업데이트합니다.  이러한 설정이 그대로 유지되지 않으면 플랫폼이 암호화 상태를 보고하거나 VM을 올바르게 프로비저닝할 수 없습니다.   
+포털은 VM 내에서 암호화되지 않은 경우에도 디스크를 암호화된 상태로 표시할 수 있습니다.  상위 수준의 Azure Disk Encryption 관리 명령을 사용하는 대신 낮은 수준의 명령을 사용하여 VM 내에서 디스크의 암호를 직접 해독하면 이 오류가 발생할 수 있습니다.  상위 수준의 명령은 VM 내에서 디스크의 암호를 해독할 뿐만 아니라 VM 외부에서 중요한 플랫폼 수준 암호화 설정 및 VM에 연결된 확장 설정도 업데이트합니다.  이러한 설정이 그대로 유지되지 않으면 플랫폼이 암호화 상태를 보고하거나 VM을 올바르게 프로비저닝할 수 없습니다.
 
 PowerShell을 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려면 [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) 및 [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension)을 차례로 사용합니다. 암호화를 사용하지 않도록 설정하기 전에 Remove-AzVMDiskEncryptionExtension을 실행하면 오류가 발생합니다.
 
-CLI를 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption)을 사용합니다. 
+CLI를 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption)을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

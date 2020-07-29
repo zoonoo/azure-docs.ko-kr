@@ -4,15 +4,16 @@ description: 예외 원격 분석을 위한 Azure Application Insights 데이터
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6732fb3dde79abd5c69e2b0a91710bdd2356d6aa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671939"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320598"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>예외 원격 분석: Application Insights 데이터 모델
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 예외 인스턴스는 모니터링되는 애플리케이션을 실행하는 동안 발생하여 처리되거나 처리되지 않은 예외를 나타냅니다.
+[Application Insights](./app-insights-overview.md)에서 예외 인스턴스는 모니터링되는 애플리케이션을 실행하는 동안 발생하여 처리되거나 처리되지 않은 예외를 나타냅니다.
 
 ## <a name="problem-id"></a>문제 ID
 
@@ -39,5 +40,6 @@ ms.locfileid: "77671939"
 ## <a name="next-steps"></a>다음 단계
 
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
-- [Application Insights를 사용하여 웹앱에서 예외를 진단](../../azure-monitor/app/asp-net-exceptions.md)하는 방법을 알아봅니다.
-- Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.
+- [Application Insights를 사용하여 웹앱에서 예외를 진단](./asp-net-exceptions.md)하는 방법을 알아봅니다.
+- Application Insights에서 지원되는 [플랫폼](./platforms.md)을 확인합니다.
+

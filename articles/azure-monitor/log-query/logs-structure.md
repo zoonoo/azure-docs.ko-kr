@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e36a21e9dbab6f9bf814cdeb86f175ded38ea8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516195"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327296"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 로그의 구조
 [로그 쿼리](log-query-overview.md)를 사용하여 데이터에 대한 인사이트를 신속하게 파악할 수 있는 기능은 Azure Monitor의 강력한 기능입니다. 효율적이고 유용한 쿼리를 만들려면 원하는 데이터의 위치 및 구조와 같은 몇 가지 기본 개념을 이해해야 합니다. 이 문서에는 시작하는 데 필요한 기본 개념이 제공됩니다.
@@ -89,4 +89,5 @@ Azure Monitor 로그의 각 테이블에는 자체 스키마가 있지만 모든
 
 ## <a name="next-steps"></a>다음 단계
 - [Log Analytics를 사용하여 로그 검색을 만들고 편집](./log-query-overview.md)하는 방법을 알아봅니다.
-- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](../log-query/get-started-queries.md)를 확인해 보세요.
+- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](./get-started-queries.md)를 확인해 보세요.
+

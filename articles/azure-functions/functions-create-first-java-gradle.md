@@ -2,15 +2,16 @@
 title: Java 및 Gradle를 사용 하 여 Azure에 함수 게시
 description: Java 및 Gradle를 사용 하 여 HTTP 트리거 함수를 만들어 Azure에 게시 합니다.
 author: KarlErickson
+ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 906f3d45edef6180557c54f0ff29cd11a1c96fa3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce2169838faaee8da459f80979fa31318e9d50c9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055672"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322179"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle를 사용 하 여 Azure에 함수 만들기 및 게시
 
@@ -19,7 +20,7 @@ ms.locfileid: "87055672"
 > [!NOTE]
 > Gradle가 권장 되 개발 도구가 아닌 경우 [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ 아이디어](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [VS Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)를 사용 하 여 Java 개발자를 위한 유사한 자습서를 확인 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 

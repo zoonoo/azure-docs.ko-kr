@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03d0367b3794069908b31ee7af1250fd70f1bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319adfc88eedb007677a78693ab0b2e514e646f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525214"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171661"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -104,6 +104,7 @@ SAP 구성 요소에 Azure 서비스를 통합하는 방법에 대한 자세한 
 
 ## <a name="change-log"></a>변경 로그
 
+- 07/23/2020: SAP HANA(대규모 인스턴스) 예약을 구입 하기 전에 알고 있어야 하는 내용과 구매를 수행 하는 방법을 설명 하는 [Azure 예약 문서와 함께 SAP HANA(대규모 인스턴스) 저장](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) 을 추가 했습니다.
 - 07/16/2020: Azure PowerShell 사용 하 여 SAP 용 새 VM 확장을 설치 하는 방법에 대 한 설명 [배포 가이드](deployment-guide.md)
 - 7/04/2020: [SAP 솔루션 (미리 보기)에 대 한 Azure monitor](./azure-monitor-overview.md) 릴리스
 - 07/01/2020: 문서의 Azure premium storage 버스트 기능을 기준으로 저렴 한 저장소 구성을 제안 [SAP HANA azure 가상 머신 저장소 구성](./hana-vm-operations-storage.md) 

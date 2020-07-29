@@ -3,12 +3,12 @@ title: Azure Migrate Server 마이그레이션에 대 한 일반적인 질문
 description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 방법에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224131"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321227"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -80,7 +80,7 @@ VCenter Server 5.5 및 vSphere ESXi 호스트 버전 5.5 이상이 있어야 합
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>에이전트 없는 마이그레이션을 사용 하 여 한 번에 복제할 수 있는 Vm 수는 몇 개입니까?
 
-현재 vCenter Server 인스턴스당 100 Vm을 동시에 마이그레이션할 수 있습니다. 10 개의 Vm을 일괄 처리 하 여 마이그레이션합니다.
+현재 vCenter Server 인스턴스당 300 Vm을 동시에 마이그레이션할 수 있습니다. 10 개의 Vm을 일괄 처리 하 여 마이그레이션합니다.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용 하 여에서 복제를 어떻게 할까요? 제한 하 시겠습니까?  
 
@@ -106,7 +106,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>내 vCenter Server에서 Vm을 검색 하기 위해 두 개 이상의 어플라이언스를 배포 했습니다. 그러나 Vm을 마이그레이션하도록 시도할 때 어플라이언스 중 하나에 해당 하는 Vm만 표시 됩니다.
 
-이는 좋은 사용 사례가 될 수 있지만 현재 지원 하지 않습니다. 두 개 이상의 어플라이언스를 배포 하 여 동일한 Vm 집합을 검색 하면 VM 소유권이 두 어플라이언스 간을 전환 하는 서비스 문제가 발생 합니다. 이는 Vm이 표시 되 고 사라짐을 표시 하는 이유입니다. 이 경우 문제를 해결 하려면 하나의 어플라이언스를 삭제 하 고 하드 새로 고침을 수행 해야 합니다.
+여러 어플라이언스를 설정 하는 경우 제공 된 vCenter 계정에 있는 Vm 간에 겹치는 부분이 필요 하지 않습니다. 이러한 겹치는 검색은 지원 되지 않는 시나리오입니다.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware Vm을 마이그레이션하려면 VMware vCenter가 필요 한가요?
 VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세한 정보를 알아보세요](migrate-support-matrix-physical-migration.md).

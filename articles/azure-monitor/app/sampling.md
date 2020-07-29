@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e2557b114b5eb90b03e59dc64cbd6e69c7dd9a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539825"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326582"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
-샘플링은 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 기능입니다. 응용 프로그램 데이터에 대 한 통계적으로 정확한 분석을 유지 하면서 원격 분석 트래픽, 데이터 비용 및 저장소 비용을 줄이는 것이 좋습니다. 샘플링을 사용 하면 원격 분석 Application Insights 제한을 방지할 수도 있습니다. 샘플링 필터는 관련 된 항목을 선택 하 여 진단 조사를 수행할 때 항목 간을 탐색할 수 있도록 합니다.
+샘플링은 [Azure Application Insights](./app-insights-overview.md)의 기능입니다. 응용 프로그램 데이터에 대 한 통계적으로 정확한 분석을 유지 하면서 원격 분석 트래픽, 데이터 비용 및 저장소 비용을 줄이는 것이 좋습니다. 샘플링을 사용 하면 원격 분석 Application Insights 제한을 방지할 수도 있습니다. 샘플링 필터는 관련 된 항목을 선택 하 여 진단 조사를 수행할 때 항목 간을 탐색할 수 있도록 합니다.
 
 포털에 메트릭 수가 표시 되 면이를 고려 하는 것이 개발자도 됩니다. 이렇게 하면 통계에 미치는 영향이 최소화 됩니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "86539825"
 * 고정 률 샘플링은 ASP.NET, ASP.NET Core, Java (에이전트와 SDK 모두) 및 Python 용 Application Insights Sdk의 최신 버전에서 사용할 수 있습니다.
 * 수집 샘플링은 Application Insights 서비스 끝점에서 작동 합니다. 다른 샘플링이 적용 되지 않는 경우에만 적용 됩니다. SDK에서 원격 분석을 샘플링 하는 경우 수집 샘플링이 사용 하지 않도록 설정 됩니다.
 * 웹 응용 프로그램의 경우 사용자 지정 이벤트를 기록 하 고 이벤트 집합이 함께 유지 또는 삭제 되는지 확인 해야 하는 경우 이벤트의 값이 같아야 합니다 `OperationId` .
-* 분석 쿼리를 작성하는 경우 [샘플링을 고려](../../azure-monitor/log-query/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
+* 분석 쿼리를 작성하는 경우 [샘플링을 고려](../log-query/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 * 성능 메트릭 및 사용자 지정 메트릭을 비롯 한 일부 원격 분석 유형은 샘플링을 사용 하는지 여부에 관계 없이 항상 유지 됩니다.
 
 다음 표에는 각 SDK 및 응용 프로그램 유형에 사용할 수 있는 샘플링 형식이 요약 되어 있습니다.
@@ -34,11 +34,11 @@ ms.locfileid: "86539825"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure Functions | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Java | 아니요 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Node.JS | 아니요 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
-| Python | 아니요 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| 나머지 | 아니요 | 아니요 | [예](#ingestion-sampling) |
+| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
+| Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| 나머지 | 예 | 예 | [예](#ingestion-sampling) |
 
 > [!NOTE]
 > 이 페이지의 대부분에 대 한 정보는 Application Insights Sdk의 현재 버전에 적용 됩니다. 이전 버전의 Sdk에 대 한 자세한 내용은 [아래 섹션을 참조](#older-sdk-versions)하세요.
@@ -72,9 +72,9 @@ ms.locfileid: "86539825"
 ### <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대 한 적응 샘플링 구성
 
 > [!NOTE]
-> 이 섹션은 ASP.NET Core 응용 프로그램에는 적용 되지 않고 ASP.NET 응용 프로그램에 적용 됩니다. [이 문서의 뒷부분에 나오는 ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 하는 방법에 대해 알아봅니다.](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)
+> 이 섹션은 ASP.NET Core 응용 프로그램에는 적용 되지 않고 ASP.NET 응용 프로그램에 적용 됩니다. [이 문서의 뒷부분에 나오는 ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 하는 방법에 대해 알아봅니다.](#configuring-adaptive-sampling-for-aspnet-core-applications)
 
-에서는 [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 노드의 여러 매개 변수를 조정할 수 있습니다 `AdaptiveSamplingTelemetryProcessor` . 표시된 수치는 기본값입니다.
+에서는 [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) 노드의 여러 매개 변수를 조정할 수 있습니다 `AdaptiveSamplingTelemetryProcessor` . 표시된 수치는 기본값입니다.
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -146,7 +146,7 @@ ms.locfileid: "86539825"
     builder.Build();
     ```
 
-    ([원격 분석 프로세서에 대해 알아봅니다](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
+    ([원격 분석 프로세서에 대해 알아봅니다](./api-filtering-sampling.md#filtering).)
 
 각 원격 분석 형식에 대 한 샘플링 비율을 개별적으로 조정 하거나 특정 형식이 샘플링 되지 않도록 제외할 수도 있습니다.
 
@@ -222,7 +222,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대 한 고정 요금 샘플링 구성
 
-1. **적응 샘플링 사용 안 함**:에서 [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 노드를 제거 하거나 주석으로 처리 `AdaptiveSamplingTelemetryProcessor` 합니다.
+1. **적응 샘플링 사용 안 함**:에서 [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) 노드를 제거 하거나 주석으로 처리 `AdaptiveSamplingTelemetryProcessor` 합니다.
 
     ```xml
     <TelemetryProcessors>
@@ -233,7 +233,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
         -->
     ```
 
-2. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 다음에이 코드 조각을 추가 합니다 [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+2. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 다음에이 코드 조각을 추가 합니다 [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) .
    
     ```XML
     <TelemetryProcessors>
@@ -265,7 +265,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
     builder.Build();
     ```
 
-    ([원격 분석 프로세서에 대해 알아봅니다](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
+    ([원격 분석 프로세서에 대해 알아봅니다](./api-filtering-sampling.md#filtering).)
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 고정 요금 샘플링 구성
 
@@ -331,7 +331,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 #### <a name="configuring-java-sdk"></a>Java SDK 구성
 
-1. 최신 [Application Insights JAVA SDK](../../azure-monitor/app/java-get-started.md)를 사용 하 여 웹 응용 프로그램을 다운로드 하 고 구성 합니다.
+1. 최신 [Application Insights JAVA SDK](./java-get-started.md)를 사용 하 여 웹 응용 프로그램을 다운로드 하 고 구성 합니다.
 
 2. 파일에 다음 코드 조각을 추가 하 여 **고정 요금 샘플링 모듈을 사용 하도록 설정 합니다** `ApplicationInsights.xml` .
 
@@ -366,7 +366,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>OpenCensus Python 응용 프로그램에 대 한 고정 요금 샘플링 구성
 
-최신 [OpenCensus Azure Monitor 내보내기](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 응용 프로그램을 계측 합니다.
+최신 [OpenCensus Azure Monitor 내보내기](./opencensus-python.md)를 사용 하 여 응용 프로그램을 계측 합니다.
 
 > [!NOTE]
 > 메트릭 내보내기에서 고정 률 샘플링을 사용할 수 없습니다. 즉, 사용자 지정 메트릭은 샘플링을 구성할 수 없는 유일한 원격 분석 유형입니다. 메트릭 내보내기는 추적 하는 모든 원격 분석을 보냅니다.
@@ -446,7 +446,7 @@ Application Insights 사용 하도록 JavaScript 기반 웹 페이지를 구성�
 
 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다. 요청 빈도 및 예외 처리 빈도와 같은 메트릭 수는 올바르게 유지됩니다.
 
-샘플링에서 무시된 데이터 요소는 [연속 내보내기](../../azure-monitor/app/export-telemetry.md)와 같은 Application Insights 기능에서 사용할 수 없습니다.
+샘플링에서 무시된 데이터 요소는 [연속 내보내기](./export-telemetry.md)와 같은 Application Insights 기능에서 사용할 수 없습니다.
 
 적응 또는 고정 요금 샘플링이 작업 중인 동안 수집 샘플링이 작동 하지 않습니다. 적응 샘플링은 ASP.NET SDK 또는 ASP.NET Core SDK를 사용 하는 경우 또는 [Azure App Service](azure-web-apps.md) 에서 Application Insights를 사용 하거나 상태 모니터를 사용 하는 경우 기본적으로 사용 하도록 설정 됩니다. Application Insights 서비스 끝점에서 원격 분석을 수신 하는 경우 원격 분석을 검사 하 고 샘플링 비율이 100% (원격 분석이 샘플링 됨을 나타냄) 보다 작은 것으로 보고 되는 경우 설정한 수집 샘플링 주기는 무시 됩니다.
 
@@ -473,7 +473,7 @@ Application Insights 사용 하도록 JavaScript 기반 웹 페이지를 구성�
 
 **다음과 같은 경우 고정 비율 샘플링을 사용합니다.**
 
-* 클라이언트와 서버 간에 동기화 된 샘플링을 원하는 경우 [검색](../../azure-monitor/app/diagnostic-search.md)중인 이벤트를 조사할 때 페이지 보기 및 HTTP 요청과 같이 클라이언트와 서버의 관련 이벤트를 탐색할 수 있습니다.
+* 클라이언트와 서버 간에 동기화 된 샘플링을 원하는 경우 [검색](./diagnostic-search.md)중인 이벤트를 조사할 때 페이지 보기 및 HTTP 요청과 같이 클라이언트와 서버의 관련 이벤트를 탐색할 수 있습니다.
 * 사용자가 앱에 대한 적절한 샘플링 비율을 확신하는 경우입니다. 샘플링 비율은 정확한 메트릭을 가져오기 위해 충분히 높아야 하지만 가격 책정 할당량 및 조정 제한을 초과하는 비율보다 낮아야 합니다.
 
 **다음과 같은 경우 적응 샘플링을 사용합니다.**
@@ -561,7 +561,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 
-* 이를 위해 사용자 지정 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)을 작성 하는 것이 가장 좋습니다 .이는 `SamplingPercentage` 아래와 같이 보존 하려는 원격 분석 항목에서를 100로 설정 합니다. 이니셜라이저가 원격 분석 프로세서 (샘플링 포함) 보다 먼저 실행 되도록 보장 되므로 모든 샘플링 기술이 샘플링 고려 사항에서이 항목을 무시 하 게 됩니다. ASP.NET SDK, ASP.NET Core SDK, JavaScript SDK 및 Java SDK에서 사용자 지정 원격 분석 이니셜라이저를 사용할 수 있습니다. 예를 들어 ASP.NET SDK를 사용 하 여 원격 분석 이니셜라이저를 구성할 수 있습니다.
+* 이를 위해 사용자 지정 [TelemetryInitializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)을 작성 하는 것이 가장 좋습니다 .이는 `SamplingPercentage` 아래와 같이 보존 하려는 원격 분석 항목에서를 100로 설정 합니다. 이니셜라이저가 원격 분석 프로세서 (샘플링 포함) 보다 먼저 실행 되도록 보장 되므로 모든 샘플링 기술이 샘플링 고려 사항에서이 항목을 무시 하 게 됩니다. ASP.NET SDK, ASP.NET Core SDK, JavaScript SDK 및 Java SDK에서 사용자 지정 원격 분석 이니셜라이저를 사용할 수 있습니다. 예를 들어 ASP.NET SDK를 사용 하 여 원격 분석 이니셜라이저를 구성할 수 있습니다.
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer
@@ -586,5 +586,6 @@ ASP.NET SDK의 v 2.5.0 및 v 2.2.0-beta3 ASP.NET Core SDK의 경우 샘플링 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [필터링](../../azure-monitor/app/api-filtering-sampling.md) 은 SDK에서 보내는 항목을 더 엄격하게 제어할 수 있습니다.
+* [필터링](./api-filtering-sampling.md) 은 SDK에서 보내는 항목을 더 엄격하게 제어할 수 있습니다.
 * 개발자 네트워크 문서 [Application Insights를 사용 하 여 원격 분석 최적화](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights)를 읽어 보세요.
+

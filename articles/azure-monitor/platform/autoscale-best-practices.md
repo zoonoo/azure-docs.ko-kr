@@ -4,12 +4,12 @@ description: Azure에서 Web Apps, Virtual Machine 확장 집합 및 Cloud Servi
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539536"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327058"
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](../../api-management/api-management-key-concepts.md)에만 적용됩니다.
@@ -22,7 +22,7 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
   자동 크기 조정 설정에는 최대, 최소 및 기본 인스턴스 값이 있습니다.
 * 자동 크기 조정 작업에서는 항상 규모 확장 또는 규모 감축에 대해 구성된 임계값에 도달했는지 확인하여 크기를 조정할 연관된 메트릭을 읽습니다. [Azure Monitor 자동 크기 조정 공통 메트릭](autoscale-common-metrics.md)에서 자동 크기 조정을 통해 크기를 조정할 수 있는 메트릭 목록을 볼 수 있습니다.
 * 모든 임계값은 인스턴스 수준에서 계산됩니다. 예를 들어 "인스턴스 수가 2일 때 평균 CPU가 80%를 초과하면 1인스턴스만큼 규모 확장"은 모든 인스턴스에서 평균 CPU가 80%보다 높은 경우에 규모를 확장함을 의미합니다.
-* 모든 자동 크기 조정 실패는 활동 로그에 기록됩니다. 그러므로 자동 크기 조정 오류가 있을 때마다 메일, SMS 또는 웹후크를 통해 알림을 받을 수 있도록 [활동 로그 경고](./../../azure-monitor/platform/activity-log-alerts.md)를 구성할 수 있습니다.
+* 모든 자동 크기 조정 실패는 활동 로그에 기록됩니다. 그러므로 자동 크기 조정 오류가 있을 때마다 메일, SMS 또는 웹후크를 통해 알림을 받을 수 있도록 [활동 로그 경고](./activity-log-alerts.md)를 구성할 수 있습니다.
 * 마찬가지로, 모든 성공한 크기 조정 작업도 활동 로그에 게시됩니다. 그러므로 성공한 자동 크기 조정 작업이 있을 때마다 메일, SMS 또는 웹후크를 통해 알림을 받을 수 있도록 활동 로그 경고를 구성할 수 있습니다. 또한 크기 조정 설정의 알림 탭을 통해 성공적인 크기 조정 작업에 대한 알림을 받도록 전자 메일 또는 웹후크 알림을 구성할 수도 있습니다.
 
 ## <a name="autoscale-best-practices"></a>자동 크기 조정 모범 사례
@@ -151,3 +151,4 @@ Out 및 in 조건에 대해 동일 하거나 유사한 임계값을 사용 하�
 ## <a name="next-steps"></a>다음 단계
 - [구독에 대 한 모든 자동 크기 조정 엔진 작업을 모니터링 하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

@@ -6,16 +6,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 19a0e94206691dc741020374bf5c827ba423515d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320649"
 ---
 # <a name="availability-alerts"></a>가용성 경고
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 응용 프로그램이 응답 하지 않거나 너무 느리게 응답 하는 경우 사용자에 게 경고할 수 있습니다.
+[Azure Application Insights](./app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 응용 프로그램이 응답 하지 않거나 너무 느리게 응답 하는 경우 사용자에 게 경고할 수 있습니다.
 
 ## <a name="enable-alerts"></a>경고 사용
 
@@ -65,7 +65,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 ## <a name="automate-alerts"></a>경고 자동화
 
-Azure Resource Manager 템플릿을 사용 하 여이 프로세스를 자동화 하려면 [리소스 관리자 템플릿을 사용 하 여 메트릭 경고 만들기](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) 설명서를 참조 하세요.
+Azure Resource Manager 템플릿을 사용 하 여이 프로세스를 자동화 하려면 [리소스 관리자 템플릿을 사용 하 여 메트릭 경고 만들기](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) 설명서를 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -75,3 +75,4 @@ Azure Resource Manager 템플릿을 사용 하 여이 프로세스를 자동화 
 
 * [다중 단계 웹 테스트](availability-multistep.md)
 * [Url ping 웹 테스트](monitor-web-app-availability.md)
+

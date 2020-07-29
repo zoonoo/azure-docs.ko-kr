@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323505"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Application Insights에서 사용자 동작 분석 도구 문제 해결
 [Application Insights의 사용자 동작 분석 도구](usage-overview.md)에서 [사용자, 세션, 이벤트](usage-segmentation.md), [유입 경로](usage-funnels.md), [사용자 흐름](usage-flows.md), [재방문 주기](usage-retention.md) 또는 코호트에 대해 질문이 있으신가요? 다음은 몇 가지 대답입니다.
@@ -18,13 +19,13 @@ ms.locfileid: "77670919"
 ## <a name="counting-users"></a>사용자 수 계산
 **사용자 동작 분석 도구는 내 앱에 하나의 사용자/세션이 있음을 보여 주지만 앱에 많은 사용자/세션이 있음을 알고 있습니다. 이러한 잘못 된 개수는 어떻게 해결할 수 있나요?**
 
-Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2가지인 [익명 사용자 ID](../../azure-monitor/app/data-model-context.md) 및 [세션 ID](../../azure-monitor/app/data-model-context.md)가 있습니다. 기본적으로 모든 사용량 현황 분석 도구는 이러한 ID를 기준으로 사용자 및 세션 수를 계산합니다. 이러한 표준 속성이 앱의 각 사용자 및 세션의 고유 ID로 채워지지 않을 경우 사용량 현황 분석 도구에 잘못된 수의 사용자 및 세션이 표시됩니다.
+Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2가지인 [익명 사용자 ID](./data-model-context.md) 및 [세션 ID](./data-model-context.md)가 있습니다. 기본적으로 모든 사용량 현황 분석 도구는 이러한 ID를 기준으로 사용자 및 세션 수를 계산합니다. 이러한 표준 속성이 앱의 각 사용자 및 세션의 고유 ID로 채워지지 않을 경우 사용량 현황 분석 도구에 잘못된 수의 사용자 및 세션이 표시됩니다.
 
-웹앱을 모니터링하는 경우 가장 쉬운 방법은 앱에 [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md)를 추가하고, 모니터링하려는 각 페이지에 스크립트 조각이 로드되는지 확인하는 것입니다. JavaScript SDK는 익명 사용자 및 세션 ID를 자동으로 생성한 다음, 앱에서 전송되는 원격 분석 이벤트를 이러한 ID로 채웁니다.
+웹앱을 모니터링하는 경우 가장 쉬운 방법은 앱에 [Application Insights JavaScript SDK](./javascript.md)를 추가하고, 모니터링하려는 각 페이지에 스크립트 조각이 로드되는지 확인하는 것입니다. JavaScript SDK는 익명 사용자 및 세션 ID를 자동으로 생성한 다음, 앱에서 전송되는 원격 분석 이벤트를 이러한 ID로 채웁니다.
 
 웹 서비스를 모니터링하는 경우(사용자 인터페이스 없음) 고유한 사용자 및 세션에 대한 서비스 개념에 따라, [익명 사용자 ID 및 세션 ID 속성을 채우는 원격 분석 이니셜라이저를 만듭니다](usage-send-user-context.md).
 
-앱이 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 전송하는 경우 사용자 도구에서 인증된 사용자 ID를 기준으로 수를 계산할 수 있습니다. "표시" 드롭다운 목록에서 "인증된 사용자"를 선택합니다.
+앱이 [인증된 사용자 ID](./api-custom-events-metrics.md#authenticated-users)를 전송하는 경우 사용자 도구에서 인증된 사용자 ID를 기준으로 수를 계산할 수 있습니다. "표시" 드롭다운 목록에서 "인증된 사용자"를 선택합니다.
 
 사용자 동작 분석 도구는 현재, 익명 사용자 ID, 인증된 사용자 ID 또는 세션 ID 이외의 속성을 기준으로 사용자 또는 세션 수를 계산하는 것을 지원하지 않습니다.
 

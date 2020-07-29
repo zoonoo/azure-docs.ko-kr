@@ -8,19 +8,19 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 530ddf7af5b95cfec948270affbd13b6d61d08ff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081443"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323403"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Azure Monitor의 모니터링 사용량 및 예상 비용
 
 > [!NOTE]
 > 이 문서에서는 여러 Azure 모니터링 기능을 통해 사용량 및 예상 비용을 보는 방법을 설명 합니다. Azure Monitor의 특정 구성 요소에 대 한 관련 문서는 다음과 같습니다.
 > - [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](manage-cost-storage.md) 데이터 보존 기간을 변경 하 여 비용을 제어 하는 방법 및 데이터 사용량을 분석 하 고 경고 하는 방법을 설명 합니다.
-> - [Application Insights에 대 한 사용량 및 비용 관리](../../azure-monitor/app/pricing.md) Application Insights에서 데이터 사용량을 분석 하는 방법을 설명 합니다.
+> - [Application Insights에 대 한 사용량 및 비용 관리](../app/pricing.md) Application Insights에서 데이터 사용량을 분석 하는 방법을 설명 합니다.
 
 ## <a name="azure-monitor-pricing-model"></a>Azure Monitor 가격 책정 모델
 
@@ -96,3 +96,4 @@ Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Anal
 > [!WARNING]
 > 조직에 현재 Microsoft Operations Management Suite E1 및 E2가 있는 경우 "노드당 (OMS)" 가격 책정 계층에 Log Analytics 작업 영역을 유지 하 고 "Enterprise" 가격 책정 계층에 Application Insights 리소스를 유지 하는 것이 좋습니다. 
 >
+

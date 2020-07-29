@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: b9f41a99f6cf21574c3c26950d5c9f048d85a468
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 40ce2844e33c9a71f87e434a6a3e9f8e0f7e3cc6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539519"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322111"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
 이 문서에서는 다른 Azure 구독에 있는 경우에도 Application Insights 커넥터의 사용 중단을 대체 하 여 한 곳에서 모든 Application Insights 로그 데이터를 쿼리하고 보는 방법을 설명 합니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스의 수는 100 개로 제한 됩니다.
@@ -57,7 +57,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 ![쿼리 간 결과 예제](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->로그 경고의 [리소스 간 쿼리](../log-query/cross-workspace-query.md)는 새 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [scheduledQueryRules API에 대한 ARM 템플릿](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)을 사용하면 전환하지 않고 [리소스 간 쿼리](../log-query/cross-workspace-query.md) 로그 경고 규칙을 만들 수 있지만, 이 경고 규칙은 Azure Portal이 아닌 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)를 통해 관리할 수 있습니다.
+>로그 경고의 [리소스 간 쿼리](./cross-workspace-query.md)는 새 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [SCHEDULEDQUERYRULES api의 ARM 템플릿을](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) 사용 하 여 스위치를 만들지 않고 [리소스 간 쿼리](./cross-workspace-query.md) 로그 경고 규칙을 만들 수 있습니다. 그러나이 경고 규칙은 Azure Portal [scheduledQueryRules api](/rest/api/monitor/scheduledqueryrules) 를 통해 관리할 수 있습니다.
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Application Insights 및 Log Analytics 작업 영역 스키마의 차이점
 다음 표에는 Log Analytics 및 Application Insights의 스키마 간 차이점이 나와 있습니다.  
@@ -112,4 +112,5 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 
 ## <a name="next-steps"></a>다음 단계
 
-Application Insights 앱에 대한 자세한 정보를 보려면 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용합니다.
+Application Insights 앱에 대한 자세한 정보를 보려면 [로그 검색](./log-query-overview.md)을 사용합니다.
+

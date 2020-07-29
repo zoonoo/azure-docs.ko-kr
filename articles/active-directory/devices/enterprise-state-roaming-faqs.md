@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672384"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274088"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 
@@ -23,20 +24,20 @@ ms.locfileid: "78672384"
 
 ## <a name="what-data-roams"></a>어떤 데이터가 로밍됩니까?
 
-**Windows 설정**: Windows 운영 체제에 내장된 PC 설정. 일반적으로 PC를 개인 설정하는 설정이며, 다음과 같은 광범위한 범주를 포함합니다.
+**Windows 설정**: windows 운영 체제에 기본 제공 되는 PC 설정입니다. 일반적으로 PC를 개인 설정하는 설정이며, 다음과 같은 광범위한 범주를 포함합니다.
 
-* *테마*- 바탕 화면 테마 및 작업 표시줄 설정과 같은 기능 포함
-* *Internet Explorer 설정*- 최근에 열어본 탭 및 즐겨찾기 포함
+* '테마' - 바탕 화면 테마, 작업 표시줄 설정 등의 기능이 포함됩니다.
+* *Internet Explorer 설정* - 최근에 열어 본 탭, 즐겨찾기 등이 있습니다.
 * *Microsoft Edge 브라우저 설정*- 즐겨찾기, 읽기 목록 등
-* *암호*- 인터넷 암호, Wi-Fi 프로필 등 포함
-* 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등의 설정을 포함 하는 *언어 기본 설정*입니다.
-* *접근성 기능*- 고대비 테마, 내레이터, 돋보기 등
-* 마우스 설정과 같은 *기타 Windows 설정*입니다.
+* *암호*(인터넷 암호, wi-fi 프로필 등)를 포함 합니다.
+* '언어 기본 설정' - 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등에 대한 설정이 포함됩니다.
+* *접근성 기능* - 고대비 테마, 내레이터, 돋보기 등이 있습니다.
+* *기타 Windows 설정* - 예를 들어 마우스 설정이 있습니다.
 
 > [!NOTE]
 > 이 문서는 7 월 2015에 Windows 10으로 시작 된 Microsoft Edge 레거시 HTML 기반 브라우저에 적용 됩니다. 이 문서는 2020 년 1 월 15 일에 릴리스된 새 Microsoft Edge Chromium 기반 브라우저에는 적용 되지 않습니다. 새 Microsoft Edge의 동기화 동작에 대 한 자세한 내용은 [Microsoft Edge 동기화](/deployedge/microsoft-edge-enterprise-sync)문서를 참조 하세요.
 
-**애플리케이션 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용 하는 유니버설 Windows 앱을 개발 하는 방법에 대 한 자세한 내용은 [appdata STORAGE API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 appdata 로밍 개발자 블로그](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조 하세요.
+**애플리케이션 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용 하는 유니버설 Windows 앱을 개발 하는 방법에 대 한 자세한 내용은 [appdata STORAGE API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 appdata 로밍 개발자 블로그](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/)를 참조 하세요.
 
 ## <a name="what-account-is-used-for-settings-sync"></a>설정 동기화에 어떤 계정이 사용됩니까?
 

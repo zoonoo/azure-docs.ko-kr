@@ -3,12 +3,12 @@ title: 컨테이너에 대해 Azure Monitor 사용 Microsoft Docs
 description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 성능 관련 문제를 이해할 수 있도록 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5131d7b8a357075345b5165398d5fa9fc06b5ad8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320309"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor 사용
 
@@ -28,11 +28,11 @@ ms.locfileid: "86499038"
 - Azure 포털
 - Azure PowerShell
 - Azure CLI
-- [Terraform 및 AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- [Terraform 및 AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -131,3 +131,4 @@ ms.locfileid: "86499038"
 ## <a name="next-steps"></a>다음 단계
 
 이제 모니터링을 사용 하도록 설정 했으므로 AKS (Azure Kubernetes Service), Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터의 성능 분석을 시작할 수 있습니다. 컨테이너에 Azure Monitor를 사용 하는 방법에 대 한 자세한 내용은 [View Kubernetes cluster performance](container-insights-analyze.md)을 참조 하세요.
+

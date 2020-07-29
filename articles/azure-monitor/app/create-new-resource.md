@@ -3,12 +3,12 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: cb47453140c7659ca2f5e6da2e40d9d78405f8e7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517096"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323131"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -153,13 +153,14 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 이 명령에 대 한 전체 Azure CLI 설명서 및 계측 키를 검색 하는 방법에 대 한 자세한 내용은 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [진단 검색](../../azure-monitor/app/diagnostic-search.md)
-* [메트릭 탐색](../../azure-monitor/platform/metrics-charts.md)
+* [진단 검색](./diagnostic-search.md)
+* [메트릭 탐색](../platform/metrics-charts.md)
 * [분석 쿼리 작성](../log-query/log-query-overview.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../platform/metrics-charts.md
+[start]: ./app-insights-overview.md
+

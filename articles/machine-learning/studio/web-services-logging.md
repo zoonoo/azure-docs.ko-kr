@@ -1,6 +1,5 @@
 ---
-title: 웹 서비스 로깅 사용
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 웹 서비스 로깅 사용-Azure'
 description: Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅을 사용 하도록 설정 하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
 services: machine-learning
 author: likebupt
@@ -11,13 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baaad137e4a5bc5268642addb5779961b7be3b04
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705834"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326242"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 이 문서에서는 Machine Learning Studio (클래식) 웹 서비스의 로깅 기능에 대 한 정보를 제공 합니다. 로깅은 오류 번호 및 메시지 외에도 Machine Learning Studio (클래식) Api에 대 한 호출 문제를 해결 하는 데 도움이 될 수 있는 추가 정보를 제공 합니다.  
 
@@ -49,7 +52,7 @@ ms.locfileid: "84705834"
 
    1. [Azure Portal](https://portal.azure.com)에서 웹 서비스와 연결된 스토리지 계정으로 이동합니다.
 
-   2. **Blob Service**에서 **컨테이너**를 클릭합니다.
+   2. **Blob Service**에서 **컨테이너**를 클릭 합니다.
 
    3. 컨테이너 **ml-diagnostics**가 없는 경우 **+컨테이너**를 클릭하여 컨테이너 이름을 “ml-diagnostics”로 지정하고, **액세스 형식**을 “Blob”으로 선택합니다. **확인**을 클릭합니다.
 

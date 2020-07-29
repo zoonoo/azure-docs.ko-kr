@@ -5,17 +5,17 @@ description: Azure Machine Learning designer (미리 보기)에서 데이터를 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.custom: designer
-ms.openlocfilehash: 68ed1b83b1e82daa9c4578a6b3bec24792a8268d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203790"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326990"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너의 데이터 변환(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,6 +31,8 @@ ms.locfileid: "86203790"
 1. 결과를 확인합니다.
 
 이 방법 안내 문서는 [디자이너 모델 재학습 방법](how-to-retrain-designer.md) 문서의 필수 조건 문서입니다. 이 문서에서는 변환된 데이터 세트를 사용하여 파이프라인 매개 변수로 여러 모델을 학습시키는 방법을 알아봅니다.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="transform-a-dataset"></a>데이터 세트 변환
 

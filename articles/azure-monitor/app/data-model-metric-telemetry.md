@@ -4,16 +4,16 @@ description: 메트릭 원격 분석을 위한 Azure Application Insights 데이
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540012"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320581"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 지원하는 메트릭 원격 분석에는 두 가지 유형, 즉 단일 측정 및 미리 집계된 메트릭이 있습니다. 단일 측정은 이름 및 값만 포함합니다. 미리 집계된 메트릭은 집계 간격에서 메트릭의 최소값 및 최대값과 해당 표준 편차를 지정합니다.
+[Application Insights](./app-insights-overview.md)에서 지원하는 메트릭 원격 분석에는 두 가지 유형, 즉 단일 측정 및 미리 집계된 메트릭이 있습니다. 단일 측정은 이름 및 값만 포함합니다. 미리 집계된 메트릭은 집계 간격에서 메트릭의 최소값 및 최대값과 해당 표준 편차를 지정합니다.
 
 미리 집계된 메트릭 원격 분석은 집계 기간을 1분으로 가정합니다.
 
@@ -33,7 +33,7 @@ Application Insights에서는 잘 알려진 몇 가지 메트릭 이름을 지�
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | 진행 중인 작업... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | 평균 요청 실행 시간
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | 진행 중인 작업... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | 큐에서 처리를 대기 중인 요청 수
 
-## <a name="name"></a>이름
+## <a name="name"></a>Name
 
 Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입니다. 
 
@@ -49,7 +49,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 집계된 메트릭의 최소값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
-## <a name="max"></a>최대
+## <a name="max"></a>최대값
 
 집계된 메트릭의 최대값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
@@ -65,6 +65,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 이벤트 및 메트릭용 Application Insights API](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) 사용 방법을 알아봅니다.
+- [사용자 지정 이벤트 및 메트릭용 Application Insights API](./api-custom-events-metrics.md#trackmetric) 사용 방법을 알아봅니다.
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
-- Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.
+- Application Insights에서 지원되는 [플랫폼](./platforms.md)을 확인합니다.
+
