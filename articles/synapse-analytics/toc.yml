@@ -10,19 +10,19 @@
       items:
         - name: 소개
           href: get-started.md
-        - name: 1단계 Synapse 작업 영역 만들기
+        - name: 1 Synapse 작업 영역 만들기
           href: get-started-create-workspace.md
-        - name: 2단계 SQL 풀을 사용하여 분석
+        - name: 2 SQL 풀을 사용하여 분석
           href: get-started-analyze-sql-pool.md
-        - name: 3단계 Spark를 사용하여 분석
+        - name: 3 Spark를 사용하여 분석
           href: get-started-analyze-spark.md
-        - name: 4단계 SQL 주문형을 사용하여 분석
+        - name: 4 SQL 주문형을 사용하여 분석
           href: get-started-analyze-sql-on-demand.md
-        - name: 5단계 스토리지 계정에서 데이터 분석
+        - name: 5 스토리지 계정에서 데이터 분석
           href: get-started-analyze-storage.md
-        - name: 6단계 - 파이프라인을 사용하여 오케스트레이션
+        - name: 6 파이프라인을 사용하여 오케스트레이션
           href: get-started-pipelines.md
-        - name: 7단계 - Power BI를 사용하여 시각화
+        - name: 7 Power BI를 사용하여 시각화
           href: get-started-visualize-power-bi.md
     - name: 참고 자료
       href: overview-cheat-sheet.md
@@ -264,6 +264,8 @@
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 결과 세트 캐싱
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 기계 학습 예측
+              href: ./sql-data-warehouse/sql-data-warehouse-predict.md
             - name: 테이블
               items:
                 - name: 개요
@@ -665,7 +667,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST
+            - name: REST (영문)
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

@@ -4,12 +4,12 @@ description: 자동 크기 조정 설정 및 작동 방법을 자세히 설명�
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539383"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317470"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
 자동 크기 조정 설정은 애플리케이션의 변화하는 부하를 처리할 수 있는 적절한 양의 리소스가 실행되도록 하는 데 도움이 됩니다. 부하 또는 성능을 나타내는 메트릭을 기준으로 트리거되거나 예약된 날짜 및 시간에 트리거되도록 자동 크기 조정 설정을 구성할 수 있습니다. 이 문서에서는 자동 크기 조정 설정을 자세히 분석합니다. 이 문서는 스키마 및 설정의 속성부터 설명한 후, 구성할 수 있는 다른 프로필 유형에 대해서도 설명합니다. 마지막으로, 이 문서에서는 Azure의 자동 크기 조정 기능이 지정된 시간에 실행할 프로필을 평가하는 방법을 설명합니다.
@@ -106,7 +106,7 @@ ms.locfileid: "86539383"
 | metricTrigger | timeAggregation | 샘플링된 메트릭을 집계하는 데 사용되는 집계 방법입니다. 예를 들어 **Timeaggregation = "average"** 는 평균을 취하여 샘플링 된 메트릭을 집계 해야 합니다. 앞의 경우에서 1분짜리 샘플을 10개 가져와서 평균을 구합니다. |
 | rule(규칙) | scaleAction | 규칙의 metricTrigger가 트리거될 때 수행할 작업입니다. |
 | scaleAction | direction | 스케일 아웃하려는 경우 "Increase"이고, 스케일 인하려는 경우 "Decrease"입니다.|
-| scaleAction | 값 | 늘리거나 줄일 리소스 용량 크기입니다. |
+| scaleAction | value | 늘리거나 줄일 리소스 용량 크기입니다. |
 | scaleAction | cooldown | 크기 조정 작업 후, 다시 크기를 조정하기 전에 대기하는 시간입니다. 예를 들어, **cooldown = “PT10M”** 인 경우 자동 크기 조정 기능은 추가로 10분 동안 다시 크기 조정을 시도하지 않습니다. cooldown은 인스턴스의 추가 또는 제거 후에 메트릭이 안정화될 수 있도록 합니다. |
 
 ## <a name="autoscale-profiles"></a>자동 크기 조정 프로필
@@ -301,8 +301,9 @@ ms.locfileid: "86539383"
 ## <a name="next-steps"></a>다음 단계
 자동 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
 
-* [자동 크기 조정 개요](../../azure-monitor/platform/autoscale-overview.md)
-* [Azure Monitor 자동 크기 조정 공용 메트릭](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Azure Monitor 자동 크기 조정에 대한 모범 사례](../../azure-monitor/platform/autoscale-best-practices.md)
-* [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [자동 크기 조정 개요](./autoscale-overview.md)
+* [Azure Monitor 자동 크기 조정 공용 메트릭](./autoscale-common-metrics.md)
+* [Azure Monitor 자동 크기 조정에 대한 모범 사례](./autoscale-best-practices.md)
+* [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](./autoscale-webhook-email.md)
 * [자동 크기 조정 REST API](/rest/api/monitor/autoscalesettings)
+

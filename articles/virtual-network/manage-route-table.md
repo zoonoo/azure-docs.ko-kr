@@ -1,7 +1,7 @@
 ---
 title: Azure 경로 테이블 만들기, 변경 또는 삭제
 titlesuffix: Azure Virtual Network
-description: 경로 테이블을 만들거나 변경하거나 삭제하는 방법을 알아봅니다.
+description: 가상 네트워크 트래픽 라우팅에 대 한 정보를 찾을 수 있는 위치 및 경로 테이블을 만들거나 변경 하거나 삭제 하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708266"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291001"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -51,7 +52,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
     1. 경로 테이블의 **이름을** 입력 합니다.
     1. **구독**을 선택합니다.
     1. 기존 **리소스 그룹** 을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다.
-    1. **위치**를 선택 합니다.
+    1. **위치**를 선택합니다.
     1. VPN gateway를 통해 온-프레미스 네트워크에 연결 된 가상 네트워크의 서브넷에 경로 테이블을 연결 하 고 온-프레미스 경로를 서브넷의 네트워크 인터페이스로 전파 하지 않으려는 경우 **가상 네트워크 게이트웨이 경로 전파** 를 **사용 안 함으로**설정 합니다.
 
 1. **만들기** 를 선택 하 여 새 경로 테이블을 만듭니다.
@@ -87,7 +88,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블 수에는 제�
 - [활동 로그](../azure-monitor/platform/platform-logs-overview.md)
 - [액세스 제어(IAM)](../role-based-access-control/overview.md)
 - [태그](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [중지](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [잠금](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [자동화 스크립트](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>경로 테이블의 세부 정보 보기-명령
@@ -332,7 +333,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 경로 테이블 및 경로에 대 한 작업을 수행 하려면 다음 표에 나열 된 적절 한 작업을 할당 받은 [네트워크 기여자 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 또는 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 계정을 할당 해야 합니다.
 
-| 작업                                                          |   이름                                                  |
+| 작업                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   경로 테이블 읽기                                    |
 | Microsoft.Network/routeTables/write                             |   경로 테이블 만들기 또는 업데이트                        |

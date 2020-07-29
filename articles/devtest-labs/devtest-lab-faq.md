@@ -3,12 +3,12 @@ title: Azure DevTest Labs FAQ | Microsoft 문서
 description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537492"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289373"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -36,7 +36,7 @@ Twitter 핸들: [@azlabservices](https://twitter.com/azlabservices)
 질문이 여기에 나열되어 있지 않은 경우 답변을 찾는 데 도움을 드릴 수 있도록 알려주세요.
 
 - 이 FAQ의 끝에 질문을 게시합니다.
-- 더 폭넓은 대상에 다가갈 수 있도록 [Azure DevTest Labs에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html)에 질문을 게시하세요. Azure DevTest Labs 팀과 커뮤니티의 다른 구성원들이 참여합니다.
+- 더 폭넓은 대상에 다가갈 수 있도록 [Azure DevTest Labs에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-devtestlabs.html)에 질문을 게시하세요. Azure DevTest Labs 팀과 커뮤니티의 다른 구성원들이 참여합니다.
 - 기능 요청의 경우 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
 
 ### <a name="what-is-a-microsoft-account"></a>Microsoft 계정이란?

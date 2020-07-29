@@ -5,16 +5,16 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: bc30275b2ee24af7bb526b3b43618c706bc027ca
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502098"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368152"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
 
@@ -251,7 +251,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `infraVmSize` | 인프라 VM의 크기입니다. 파일의 azuredeploy.js에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
 | `nodeVmSize` | 앱 노드 VM의 크기입니다. 파일의 azuredeploy.js에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
 | `cnsVmSize` | 컨테이너 기본 저장소 (CN) 노드 VM의 크기입니다. 파일의 azuredeploy.js에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_E4s_v3 |
-| `osImageType` | 사용할 RHEL 이미지입니다. defaultgallery: 주문형 marketplace: 타사 이미지 | defaultgallery <br> Marketplace | defaultgallery |
+| `osImageType` | 사용할 RHEL 이미지입니다. defaultgallery: 주문형 marketplace: 타사 이미지 | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Marketplace 인 경우 `osImageType` marketplace 제안의 ' 게시자 ', ' 제안 ', ' sku ', ' 버전 '에 대해 적절 한 값을 입력 합니다. 이 매개 변수는 개체 유형입니다. |  |  |
 | `storageKind` | 사용할 저장소의 유형입니다.  | 관리<br> unmanaged | 관리 |
 | `openshiftClusterPrefix` | 모든 노드에 대 한 호스트 이름을 구성 하는 데 사용 되는 클러스터 접두사입니다.  1 ~ 007e; 20 자 |  | mycluster |
@@ -295,9 +295,9 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `existingInfraSubnetReference` | 인프라 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingCnsSubnetReference` | CN 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingNodeSubnetReference` | 계산 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
-| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`masterPrivateClusterIp` | public <br> private | public |
+| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`masterPrivateClusterIp` | 공공 <br> private | 공공 |
 | `masterPrivateClusterIp` | 개인 마스터 노드를 선택 하는 경우에는 마스터 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 마스터 서브넷의 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. 공용 마스터 노드를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.1.0.200 |
-| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`routerPrivateClusterIp` | public <br> private | public |
+| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`routerPrivateClusterIp` | 공공 <br> private | 공공 |
 | `routerPrivateClusterIp` | 개인 인프라 노드가 선택 된 경우 인프라 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 인프라 서브넷에 대 한 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. Public 인프라 nodes를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.2.0.200 |
 | `routingCertType` | 라우팅 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 사용자 지정 | selfsigned |
 | `masterCertType` | 마스터 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 사용자 지정 | selfsigned |

@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 6dd485adb71bf05be6499f2fc18572e8a28357d7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209622"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367774"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>자동으로 앱 구성 저장소 백업
 
@@ -32,9 +32,9 @@ ms.locfileid: "86209622"
 
 이 자습서에서는 지역 `centralus` 및 지역에 있는 다른 모든 리소스에 보조 저장소를 만듭니다 `westus` .
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-- Azure 구독- [무료로 하나를 만듭니다](https://azure.microsoft.com/free/). Azure Cloud Shell을 사용할 수도 있습니다.
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/). Azure Cloud Shell을 사용할 수도 있습니다.
 - Azure 개발 워크 로드가 포함 된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) .
 - [.NET Core SDK](https://dotnet.microsoft.com/download)를 다운로드하여 설치합니다.
 - 최신 버전의 Azure CLI (2.3.1 이상) 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 사용 하는 경우 먼저를 사용 하 여 로그인 해야 `az login` 합니다. Azure Cloud Shell을 사용할 수도 있습니다.
@@ -145,9 +145,9 @@ Azure Functions를 만드는 방법에 대 한 자세한 내용은 [Azure에서 
 ## <a name="create-azure-function-app-settings"></a>Azure 함수 앱 설정 만들기
 
 제공 된 Azure Functions를 사용 하는 경우 Azure 함수 앱에서 다음 앱 설정이 필요 합니다.
-- `PrimaryStoreEndpoint`: 기본 앱 구성 저장소의 끝점입니다. 예를 들면 `https://{primary_appconfig_name}.azconfig.io`과 같습니다.
-- `SecondaryStoreEndpoint`: 보조 앱 구성 저장소의 끝점입니다. 예를 들면 `https://{secondary_appconfig_name}.azconfig.io`과 같습니다.
-- `StorageQueueUri`: 저장소 큐 URI입니다. 예를 들면 `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`과 같습니다.
+- `PrimaryStoreEndpoint`: 기본 앱 구성 저장소의 끝점입니다. 예, `https://{primary_appconfig_name}.azconfig.io`
+- `SecondaryStoreEndpoint`: 보조 앱 구성 저장소의 끝점입니다. 예, `https://{secondary_appconfig_name}.azconfig.io`
+- `StorageQueueUri`: 저장소 큐 URI입니다. 예, `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
 
 다음 명령은 Azure 함수 앱에 필요한 앱 설정을 만듭니다. `<function_app_name>`을 Azure 함수 앱 이름으로 바꿉니다.
 

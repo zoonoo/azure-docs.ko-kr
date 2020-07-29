@@ -5,14 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: ayshakeen
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678548"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292065"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -57,7 +58,7 @@ B16 특징:
 
 ![시간별 트래픽 데이터 차트](./media/b-series-burstable/office-workload.png)
 
-| 시나리오 | 시간 | CPU 사용량 (%) | 누적 크레딧<sup>1</sup> | 크레딧을 사용할 수 있음 |
+| 시나리오 | Time | CPU 사용량 (%) | 누적 크레딧<sup>1</sup> | 크레딧을 사용할 수 있음 |
 | --- | --- | --- | --- | --- |
 | B16ms 배포 | 배포 | 배포  | 480 (초기 크레딧) | 480 |
 | 트래픽 없음 | 0:00 | 0 | 162 | 642 |
@@ -89,7 +90,7 @@ B16 특징:
 
 16 개의 vCPUs 및 64 GiB의 메모리를 포함 하는 D16s_v3의 경우 시간당 요금은 시간당 $0.936 (월간 $673.92)이 고, 16 개의 vCPUs 및 64 GiB memory가 있는 B16ms (월별 $0.794)입니다. <b>그러면 15% 절감 효과가 발생 합니다.</b>
 
-## <a name="q--a"></a>Q&A
+## <a name="q--a"></a>Q & A
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: VM에서 135% 기준 성능을 얻으려면 어떻게 할까요?
 
@@ -134,7 +135,7 @@ Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세�
 
 **A** : B1ls는 Linux 이미지만 지원 하 고 다른 OS 이미지를 배포 하는 경우 고객 환경을 최대한 활용 하지 못할 수 있습니다.
 
-## <a name="other-sizes"></a>기타 크기
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [컴퓨팅 최적화](sizes-compute.md)
@@ -142,6 +143,10 @@ Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세�
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대 한 자세한 정보: [디스크 유형](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>다음 단계
 

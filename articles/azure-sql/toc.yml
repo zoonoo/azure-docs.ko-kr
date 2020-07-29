@@ -78,6 +78,8 @@
                   href: database/authentication-mfa-ssms-configure.md
                 - name: 조건부 액세스
                   href: database/conditional-access-configure.md
+                - name: 서비스 주체(애플리케이션)
+                  href: database/authentication-aad-service-principal.md
             - name: TDE(투명한 데이터 암호화)
               items:
                 - name: 개요
@@ -141,6 +143,8 @@
               href: database/long-term-backup-retention-configure.md
         - name: 보안
           items:
+            - name: Azure AD 게스트 사용자 만들기 및 Azure AD 관리자로 설정
+              href: database/authentication-aad-guest-users.md
             - name: BYOK를 사용하여 TDE 구성
               href: database/transparent-data-encryption-byok-configure.md
             - name: 스토리지에 취약성 검색 저장
@@ -277,6 +281,8 @@
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: TDE 보호기 제거
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
+            - name: 서비스 주체를 사용하여 사용자 만들기
+              href: database/authentication-aad-service-principal-tutorial.md
         - name: 데이터 이동
           items:
             - name: DMS를 사용하여 마이그레이션
@@ -978,7 +984,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: 수동으로 구성
                       items:
-                        - name: 필수 구성 요소
+                        - name: 사전 요구 사항
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: 자습서
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

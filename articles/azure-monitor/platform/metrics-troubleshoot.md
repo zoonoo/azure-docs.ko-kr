@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318388"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -67,7 +68,7 @@ Azure의 메트릭 액세스는 [RBAC(역할 기반 액세스 제어)](../../rol
 
 **게스트 OS** 메트릭 컬렉션을 사용하려면 Azure Diagnostics 확장을 구성하거나 해당 리소스의 **진단 설정** 패널을 사용하여 Azure 진단 확장을 설정해야 합니다.
 
-**해결 방법:** Azure 진단 확장이 사용 하도록 설정 되어 있지만 여전히 메트릭을 볼 수 없는 경우 [Azure 진단 확장 문제 해결 가이드](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)에 설명 된 단계를 수행 합니다. [게스트 OS 네임 스페이스 및 메트릭을 선택할 수 없는](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics) 문제 해결 단계도 참조 하세요.
+**해결 방법:** Azure 진단 확장이 사용 하도록 설정 되어 있지만 여전히 메트릭을 볼 수 없는 경우 [Azure 진단 확장 문제 해결 가이드](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)에 설명 된 단계를 수행 합니다. [게스트 OS 네임 스페이스 및 메트릭을 선택할 수 없는](#cannot-pick-guest-os-namespace-and-metrics) 문제 해결 단계도 참조 하세요.
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>대시보드에서 "데이터를 검색 하는 동안 오류가 발생 했습니다." 메시지
 
@@ -105,7 +106,7 @@ Azure 메트릭 차트는 파선 스타일을 사용 하 여 두 개의 알려�
     > [!WARNING]
     > [Log Analytics 에이전트](agents-overview.md#log-analytics-agent)(Microsoft Monitoring Agent 또는 줄여서 MMA라고도 함)를 사용하여 **게스트 OS**를 스토리지 계정으로 보낼 수 없습니다.
 
-1. **Microsoft Insights** 리소스 공급자가 [구독에 등록](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription)되어 있는지 확인 합니다.
+1. **Microsoft Insights** 리소스 공급자가 [구독에 등록](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription)되어 있는지 확인 합니다.
 
 1. 스토리지 계정이 방화벽의 보호를 받고 있는지 확인합니다. 메트릭 데이터를 검색하고 차트를 그리려면 Azure Portal에서 스토리지 계정에 액세스해야 합니다.
 
@@ -117,3 +118,4 @@ Azure 메트릭 차트는 파선 스타일을 사용 하 여 두 개의 알려�
 * [메트릭 탐색기의 고급 기능에 대 한 자세한 정보](metrics-charts.md)
 * [Azure 서비스에 사용 가능한 메트릭 목록 보기](metrics-supported.md)
 * [구성된 차트 예제 보기](metric-chart-samples.md)
+

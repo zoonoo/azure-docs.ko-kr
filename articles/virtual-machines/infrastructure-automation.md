@@ -3,16 +3,16 @@ title: 인프라 자동화 도구 사용
 description: Ansible, Chef, 퍼핏, Terraform 및 패키지와 같은 인프라 자동화 도구를 사용 하 여 Azure에서 가상 머신을 만들고 관리 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 31a0d9d4eac731836812c438a71541885863c8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5567274fd9ee2cfaf41f9ff4c6e71bb2faab7b1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099228"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292377"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 
@@ -124,7 +124,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/)는 코드 공유 및 추적, 자동화된 빌드 사용 및 완전한 CI/CD(연속 통합 및 연속 개발) 파이프라인 만들기를 지원하는 도구 모음입니다. Azure DevOps Services는 Visual Studio 및 다른 편집기와 통합되어 사용을 간소화합니다. 또한 Azure DevOps Services로 Azure VM을 만들고 구성한 다음, Azure VM에 코드를 배포할 수도 있습니다.
 
-다음에 대해 자세히 알아보세요.
+다음에 대해 자세히 알아봅니다.
 
 - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: fde95e3b6d1b4d1cdfb060c11e1e67241d3329f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121710"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317572"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 다운로드 대시보드
 

@@ -1,10 +1,10 @@
-- name: Windows Virtual Desktop 2019년 가을 릴리스
+- name: Windows Virtual Desktop(클래식)
   href: ../index.yml
 - name: 개요
   items:
     - name: Windows Virtual Desktop이란?
       href: ../overview.md
-    - name: 2020년 봄 릴리스 설명서
+    - name: Windows Virtual Desktop 설명서
       href: ../create-host-pools-azure-marketplace.md
 - name: 자습서
   items:

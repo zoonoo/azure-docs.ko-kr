@@ -1,6 +1,5 @@
 ---
-title: API Management를 사용하여 웹 서비스 관리
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): API Management를 사용 하 여 웹 서비스 관리-Azure'
 description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: c397c52b39cd8056122424a5bcf6736edcfdbaa5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dcbf9ba00592a9f4e25f9355549629f7eeb9b92a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086826"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318490"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio(클래식) 웹 서비스 관리
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 ## <a name="overview"></a>개요
 이 가이드에서는 API Management를 빠르게 시작하여 Azure Machine Learning Studio(클래식) 웹 서비스를 관리하는 방법을 보여줍니다.

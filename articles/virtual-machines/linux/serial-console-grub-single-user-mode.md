@@ -4,16 +4,16 @@ description: Azure 가상 머신에서 Grub에 직렬 콘솔 사용
 services: virtual-machines-linux
 author: asinn826
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: d594f4d8019a7c23da79506cd702adbe9f25038d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da7e558464c82db9d71132c4b1f53f9892d2d653
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292246"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -120,7 +120,7 @@ GRUB에 액세스하려면 VM이 부팅되는 동안 'Esc' 키를 길게 누릅�
 1. `GRUB_TIMEOUT` 값을 0이 아닌 값으로 변경합니다.
 1. 원하는 텍스트 편집기에서 `/etc/default/grub`를 엽니다.
 1. `GRUB_HIDDEN_TIMEOUT=1` 줄을 주석으로 처리합니다.
-1. `sudo update-grub`를 실행합니다.
+1. `sudo update-grub`을 실행합니다.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
 Ubuntu는 정상적으로 부팅할 수 없는 경우 단일 사용자 모드로 자동으로 전환됩니다. 단일 사용자 모드로 수동으로 전환하려면 다음 지침을 따르세요.

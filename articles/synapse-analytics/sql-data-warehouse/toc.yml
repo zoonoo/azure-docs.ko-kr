@@ -126,7 +126,7 @@
       items:
         - name: 개요
           href: design-elt-data-loading.md
-        - name: 모범 사례
+        - name: 최선의 구현 방법
           href: guidance-for-loading-data.md
         - name: Columnstore 압축
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
@@ -182,6 +182,8 @@
               href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 캐시 정리
               href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: 기계 학습 예측
+          href: sql-data-warehouse-predict.md
         - name: 테이블
           items:
             - name: 개요

@@ -8,26 +8,23 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1010f89057d83a11fb2e156f01509e909270b044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083575"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292545"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 문제 해결 개요, 피드백 및 지원
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 사용하여 2020년 봄 업데이트에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop 2019년 가을 릴리스를 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md)를 참조하세요.
->
-> Windows Virtual Desktop 2020 봄 업데이트는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md)를 참조 하세요.
 
 이 문서에서는 Windows 가상 데스크톱 환경을 설정할 때 발생할 수 있는 문제에 대 한 개요를 제공 하 고 문제를 해결 하는 방법을 제공 합니다.
 
-## <a name="report-issues-during-public-preview"></a>공개 미리 보기 중 문제 보고
+## <a name="report-issues"></a>문제 보고
 
-스프링 2020 릴리스에 대 한 공개 미리 보기 중에 문제를 보고 하거나 기능을 제안 하려면 [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문 하세요. 기술 커뮤니티를 사용 하 여 모범 사례를 논의 하거나 새로운 기능을 제안 하 고 투표를 할 수 있습니다. 공개 미리 보기 릴리스와 관련 된 문제를 보고 하는 경우 문제 유형에 **스프링 2020 업데이트 (미리 보기)** 로 레이블을 지정 해야 합니다.
+Azure Resource Manager 통합으로 Windows 가상 데스크톱에 대 한 문제를 보고 하거나 기능을 제안 하려면 [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문 하십시오. 기술 커뮤니티를 사용 하 여 모범 사례를 논의 하거나 새로운 기능을 제안 하 고 투표를 할 수 있습니다.
 
 도움을 요청 하거나 새로운 기능을 제안 하는 게시물을 작성 하는 경우 최대한 많은 세부 정보로 항목을 설명 해야 합니다. 자세한 정보는 다른 사용자가 질문에 답변 하거나 투표를 제안 하는 기능을 이해 하는 데 도움이 될 수 있습니다.
 

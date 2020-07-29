@@ -5,18 +5,18 @@ description: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
-ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536388"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317878"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,6 +31,11 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 1. 웹 서비스 라고도 하는 배포 된 모델을 테스트 합니다.
 
 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
+
+> [!IMPORTANT]
+> 웹 서비스로 배포 하기 전에 로컬로 디버그 하는 것이 좋습니다. 자세한 내용은 [로컬로 디버그](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally) 를 참조 하세요.
+>
+> Azure Machine Learning- [로컬 노트북에 배포](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local) 를 참조할 수도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -611,10 +616,10 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 | 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
 | 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
-| 비정상 | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
+| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
 | 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
-| Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
-| Healthy | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
+| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
+| 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>계산 인스턴스 웹 서비스 (개발/테스트)
 

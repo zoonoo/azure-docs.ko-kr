@@ -2,13 +2,13 @@
 title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079607"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318184"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -18,12 +18,12 @@ ms.locfileid: "87079607"
 |스토리지 서비스  | Functions 사용  |
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | 바인딩 상태 및 함수 키를 유지 관리합니다.  <br/>[Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서도 사용됩니다. |
-| [Azure 파일](../storage/files/storage-files-introduction.md)  | [사용 플랜](functions-scale.md#consumption-plan)에서 함수 앱 코드를 저장 및 실행하는 데 사용되는 파일 공유입니다. |
+| [Azure 파일](../storage/files/storage-files-introduction.md)  | [소비 계획](functions-scale.md#consumption-plan) 및 [프리미엄 계획](functions-scale.md#premium-plan)에서 함수 앱 코드를 저장 하 고 실행 하는 데 사용 되는 파일 공유입니다. |
 | [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.       |
 
 > [!IMPORTANT]
-> 소비 호스팅 계획을 사용할 경우 함수 코드 및 바인딩 구성 파일은 기본 스토리지 계정의 Azure File Storage에 저장됩니다. 기본 스토리지 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
+> 소비/프리미엄 호스팅 계획을 사용 하는 경우 함수 코드 및 바인딩 구성 파일은 주 저장소 계정의 Azure File storage에 저장 됩니다. 기본 스토리지 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 

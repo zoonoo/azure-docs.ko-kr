@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e8ab6e2e62bdcb08754d011a6b576cb615371a09
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076464"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290161"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용하여 Azure Database for PostgreSQL Single 서버 데이터 암호화
 
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL Single 서버 데이터에 고객 관리형 키를
 Key Vault는 클라우드 기반의 외부 키 관리 시스템입니다. 가용성이 우수하며 RSA 암호화 키에 대한 안전하고 확장성 있는 스토리지를 제공합니다. FIPS 140-2 수준 2 유효성 검사를 통과한 HSM(하드웨어 보안 모듈)을 선택 사항으로 지원합니다. 저장된 키에 직접 액세스할 수 없지만, 권한 있는 엔터티에 암호화 및 암호 해독 서비스를 제공합니다. Key Vault는 키를 생성하고, 가져오고, [온-프레미스 HSM 디바이스에서 전송](../key-vault/key-Vault-hsm-protected-keys.md)되도록 할 수 있습니다.
 
 > [!NOTE]
-> Azure Database for PostgreSQL Single 서버가 "범용" 및 "메모리 최적화" 가격 책정 계층을 지원하는 모든 Azure 지역에서 이 기능을 사용할 수 있습니다.
+> Azure Database for PostgreSQL Single 서버가 "범용" 및 "메모리 최적화" 가격 책정 계층을 지원하는 모든 Azure 지역에서 이 기능을 사용할 수 있습니다. 기타 제한 사항에 대해서는 [제한](concepts-data-encryption-postgresql.md#limitations) 사항 섹션을 참조 하세요.
 
 ## <a name="benefits"></a>이점
 

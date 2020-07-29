@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Reco
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054995"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317351"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -112,7 +112,7 @@ ms.locfileid: "87054995"
 1. **예약 된 백업 일시 중지**에서 정보를 검토 하 고 **마침**을 클릭 합니다.
 
     ![예약 된 백업 수정 또는 중지](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. **백업 수정 프로세스**에서 일정 백업 일시 중지가 성공 상태 인지 확인 하 고 **닫기** 를 클릭 하 여 완료 합니다.
+1. **백업 수정 진행률**에서 일정 백업 일시 중지가 성공 상태 인지 확인 하 고 **닫기** 를 클릭 하 여 완료 합니다.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>보호 중지 및 백업 데이터 삭제
 

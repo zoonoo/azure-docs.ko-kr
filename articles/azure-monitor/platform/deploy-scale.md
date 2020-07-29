@@ -4,12 +4,12 @@ description: Azure Policy를 사용 하 여 대규모로 Azure Monitor 기능을
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 043edae04c6de5d42849cf43b947b9646f12f489
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317432"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 Azure Monitor 배포
 일부 Azure Monitor 기능은 한 번 또는 여러 번 구성 되지만 모니터링 하려는 각 리소스에 대해 다른 기능을 반복 해야 합니다. 이 문서에서는 Azure Policy를 사용 하 여 모든 Azure 리소스에 대해 모니터링이 일관적이 고 정확 하 게 구성 되도록 하는 Azure Monitor을 구현 하는 방법을 설명 합니다.
@@ -43,7 +43,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 
 
 ## <a name="diagnostic-settings"></a>진단 설정
-[진단 설정은](../platform/diagnostic-settings.md) Azure 리소스에서 여러 위치로, 일반적으로 Log Analytics 작업 영역에 대 한 리소스 로그 및 메트릭을 수집 하 여 [로그 쿼리](../log-query/log-query-overview.md) 및 [로그 경고](alerts-log.md)로 데이터를 분석할 수 있도록 합니다. 정책을 사용 하 여 리소스를 만들 때마다 진단 설정을 자동으로 만듭니다.
+[진단 설정은](./diagnostic-settings.md) Azure 리소스에서 여러 위치로, 일반적으로 Log Analytics 작업 영역에 대 한 리소스 로그 및 메트릭을 수집 하 여 [로그 쿼리](../log-query/log-query-overview.md) 및 [로그 경고](alerts-log.md)로 데이터를 분석할 수 있도록 합니다. 정책을 사용 하 여 리소스를 만들 때마다 진단 설정을 자동으로 만듭니다.
 
 각 Azure 리소스 종류에는 진단 설정에 나열 해야 하는 고유한 범주 집합이 있습니다. 따라서 각 리소스 종류에는 별도의 정책 정의가 필요 합니다. 일부 리소스 종류에는 수정 하지 않고 할당할 수 있는 기본 제공 정책 정의가 있습니다. 다른 리소스 형식의 경우 사용자 지정 정의를 만들어야 합니다.
 
@@ -79,7 +79,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. 스크립트는 각 정책 정의에 대해 azurepolicy, json, azurepolicy.rules.json azurepolicy.parameters.js라는 세 개의 파일을 포함 하는 별도의 폴더를 만듭니다. Azure Portal에서 정책을 수동으로 만들려면 전체 정책 정의가 포함 되어 있으므로 azurepolicy.js의 내용을 복사 하 여 붙여 넣을 수 있습니다. PowerShell 또는 CLI를 사용 하 여 다른 두 파일을 사용 하 여 명령줄에서 정책 정의를 만듭니다.
+5. 이 스크립트는 각 정책 정의에 대 한 별도의 폴더를 만듭니다. 각 정책 정의에는 azurepolicy.json, azurepolicy.rules.json, azurepolicy.parameters.js에 각각 3 개의 파일이 포함 됩니다. Azure Portal에서 정책을 수동으로 만들려면 전체 정책 정의가 포함 되어 있으므로 azurepolicy.js의 내용을 복사 하 여 붙여 넣을 수 있습니다. PowerShell 또는 CLI를 사용 하 여 다른 두 파일을 사용 하 여 명령줄에서 정책 정의를 만듭니다.
 
     다음 예에서는 PowerShell 및 CLI에서 정책 정의를 설치 하는 방법을 보여 줍니다. 각에는 기본 제공 정책 정의를 사용 하 여 새 정책 정의를 그룹화 하는 **모니터링** 범주를 지정 하는 메타 데이터가 포함 됩니다.
 
@@ -119,19 +119,65 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 ![이니셔티브 수정](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
-[VM용 Azure Monitor](../insights/vminsights-overview.md) 는 가상 컴퓨터를 모니터링 하는 Azure Monitor 기본 도구입니다. VM용 Azure Monitor 사용 하도록 설정 하면 Log Analytics 에이전트와 종속성 에이전트가 모두 설치 됩니다. 이러한 작업을 수동으로 수행 하는 대신 Azure Policy를 사용 하 여 각 가상 컴퓨터를 만들 때 구성 했는지 확인 합니다.
+## <a name="azure-monitor-for-vms-and-virtual-machine-agents"></a>VM용 Azure Monitor 및 가상 컴퓨터 에이전트
+[VM용 Azure Monitor](../insights/vminsights-overview.md) 는 가상 머신 및 가상 머신 확장 집합을 모니터링 하기 위한 Azure Monitor 기본 도구입니다. VM용 Azure Monitor를 사용 하도록 설정 하려면 각 클라이언트에 Log Analytics 에이전트와 종속성 에이전트를 모두 설치 해야 합니다. 다른 모니터링 시나리오를 지원 하기 위해 자체에 Log Analytics 에이전트를 설치할 수도 있습니다. 이러한 작업을 수동으로 수행 하는 대신 Azure Policy를 사용 하 여 각 가상 컴퓨터를 만들 때 구성 했는지 확인 합니다.
 
-VM용 Azure Monitor에는 **VM용 Azure Monitor 사용** 이라는 두 가지 기본 제공 이니셔티브와 **Virtual Machine Scale Sets에 대 한 Azure Monitor 사용**이 포함 됩니다. 이러한 이니셔티브에는 Log Analytics 에이전트를 설치 하는 데 필요한 정책 정의 집합과 VM용 Azure Monitor를 사용 하도록 설정 하는 데 필요한 종속성 에이전트가 포함 됩니다. 
+> [!NOTE]
+> VM용 Azure Monitor에는 사용자 환경에서 비규격 Vm을 검색 및 재구성 하는 데 사용할 수 있는 **VM용 Azure Monitor 정책 적용** 기능 이라는 기능이 포함 되어 있습니다. Azure Vm에 대 한 Azure Policy 및 Azure Arc와 연결 된 하이브리드 가상 머신에 직접 작업 하는 대신이 기능을 사용할 수 있습니다. Azure 가상 머신 확장 집합의 경우 Azure Policy를 사용 하 여 할당을 만들어야 합니다.
+ 
 
+VM용 Azure Monitor는 전체 모니터링을 사용 하기 위해 두 에이전트를 모두 설치 하는 다음과 같은 기본 제공 이니셔티브를 포함 합니다. 
+
+|Name |설명 |
+|:---|:---|
+|VM용 Azure Monitor 사용 | Azure Arc에 연결 된 Azure Vm 및 하이브리드 Vm에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
+|가상 머신 확장 집합에 대 한 Azure Monitor 사용 | Azure 가상 머신 확장 집합에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
+
+
+### <a name="virtual-machines"></a>가상 머신
 Azure Policy 인터페이스를 사용 하 여 이러한 이니셔티브에 대 한 할당을 만드는 대신 VM용 Azure Monitor에는 각 범위에 있는 가상 머신의 수를 검사 하 여 이니셔티브의 적용 여부를 확인할 수 있는 기능이 포함 되어 있습니다. 그런 다음 작업 영역을 구성 하 고 해당 인터페이스를 사용 하 여 필요한 할당을 만들 수 있습니다.
 
 이 프로세스에 대 한 자세한 내용은 [Azure Policy를 사용 하 여 VM용 Azure Monitor 사용](../insights/vminsights-enable-at-scale-policy.md)을 참조 하세요.
 
 ![VM용 Azure Monitor 정책](../platform/media/deploy-scale/vminsights-policy.png)
 
+### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
+Azure Policy를 사용 하 여 가상 머신 확장 집합에 대 한 모니터링을 사용 하도록 설정 하려면 모니터링할 리소스의 범위에 따라 **가상 머신 확장 집합에 대 한 Azure Monitor 사용** 이니셔티브를 Azure 관리 그룹, 구독 또는 리소스 그룹에 할당 합니다. [관리 그룹](../../governance/management-groups/overview.md) 은 특히 조직에 여러 구독이 있는 경우 범위 지정 정책에 특히 유용 합니다.
+
+![이니셔티브 할당](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+
+데이터가 전송 될 작업 영역을 선택 합니다. 이 작업 영역에는의 설명에 따라 *VMInsights* 솔루션이 설치 되어 있어야 합니다 []() .
+
+![작업 영역 선택](media/deploy-scale/virtual-machine-scale-set-workspace.png)
+
+이 정책을 할당 해야 하는 기존 가상 머신 확장 집합이 있는 경우 수정 작업을 만듭니다.
+
+![수정 작업](media/deploy-scale/virtual-machine-scale-set-remediation.png)
+
+### <a name="log-analytics-agent"></a>Log Analytics 에이전트
+Log Analytics 에이전트를 설치 하지만 종속성 에이전트는 설치 하지 않으려는 시나리오가 있을 수 있습니다. 에이전트에 대 한 기본 제공 이니셔티브는 없지만 VM용 Azure Monitor에서 제공 하는 기본 제공 정책 정의에 따라 직접 만들 수 있습니다.
+
+> [!NOTE]
+> Log Analytics 에이전트가 Azure Monitor에 데이터를 전달 해야 하므로 종속성 에이전트를 자체에 배포할 이유가 없습니다.
+
+
+|Name |설명 |
+|-----|------------|
+|감사 Log Analytics 에이전트 배포 – VM 이미지 (OS) 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않은 경우 vm을 비규격으로 보고 합니다. |
+|Linux VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |
+|Windows VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |
+| [Preview]: Linux Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치 해야 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 비규격으로 하이브리드 Azure Arc 컴퓨터를 보고 합니다. |
+| [Preview]: Log Analytics 에이전트가 Windows Azure Arc 컴퓨터에 설치 되어 있어야 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows Vm에 대 한 비규격으로 하이브리드 Azure Arc 컴퓨터를 보고 합니다. |
+| [Preview]: Linux Azure Arc 컴퓨터에 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux 하이브리드 Azure Arc 컴퓨터용 Log Analytics 에이전트를 배포 합니다. |
+| [Preview]: Microsoft Azure Arc 컴퓨터에 Log Analytics 에이전트를 배포 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows 하이브리드 Azure Arc 컴퓨터용 Log Analytics 에이전트를 배포 합니다. |
+|가상 머신 확장 집합에서 종속성 에이전트 배포 감사 – VM 이미지 (OS)가 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않으면 가상 머신 확장 집합을 비규격으로 보고 합니다. |
+|Virtual machine scale sets의 감사 Log Analytics 에이전트 배포 – VM 이미지 (OS)가 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않으면 가상 머신 확장 집합을 비규격으로 보고 합니다. |
+|Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux 가상 머신 확장 집합에 대 한 Log Analytics 에이전트를 배포 합니다. |
+|Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows 가상 머신 확장 집합에 대 한 Log Analytics 에이전트를 배포 합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 
 - 자세한 내용은 [Azure Policy](../../governance/policy/overview.md)를 참조 하세요.
 - 자세한 내용은 [진단 설정](diagnostic-settings.md)을 참조 하세요.
+

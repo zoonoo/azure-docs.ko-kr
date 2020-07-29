@@ -4,26 +4,26 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: 7a97afa3f960393637b8af63c56fba419f853465
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6504f28b891fb16bd588b899b7a0402b65b4e44
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077055"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318286"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그의 공통 및 서비스별 스키마
 
 > [!NOTE]
 > 이전에는 리소스 로그를 진단 로그 라고 했습니다. 이 이름은 2019 년 10 월에 변경 되었으며 Azure 리소스를 포함 하도록 이동 Azure Monitor 이동 했습니다. 또한이 문서에 나열 될 때까지 수집할 수 있는 리소스 로그 범주의 목록입니다. [리소스 로그 범주로](resource-logs-categories.md)이동 되었습니다. 
 
-[Azure Monitor 리소스 로그](../../azure-monitor/platform/platform-logs-overview.md) 는 해당 서비스 또는 리소스의 작업을 설명 하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다.
+[Azure Monitor 리소스 로그](./platform-logs-overview.md) 는 해당 서비스 또는 리소스의 작업을 설명 하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다.
 
 리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 이 문서에서는 리소스 로그의 최상위 스키마와 각 서비스에 대 한 schemata 링크를 설명 합니다.
 
 
 ## <a name="top-level-common-schema"></a>최상위 공용 스키마
 
-| 이름 | 필수/선택 | 설명 |
+| Name | 필수/선택 | 설명 |
 |---|---|---|
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
@@ -88,7 +88,8 @@ ms.locfileid: "87077055"
 ## <a name="next-steps"></a>다음 단계
 
 * [수집할 수 있는 리소스 로그 범주를 참조 하세요.](resource-logs-categories.md)
-* [리소스 로그에 대해 자세히 알아보기](../../azure-monitor/platform/platform-logs-overview.md)
+* [리소스 로그에 대해 자세히 알아보기](./platform-logs-overview.md)
 * [**Event Hubs** 에 대 한 리소스 리소스 로그 스트림](./resource-logs.md#send-to-azure-event-hubs)
 * [Azure Monitor REST API를 사용 하 여 리소스 로그 진단 설정 변경](/rest/api/monitor/diagnosticsettings)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](./resource-logs.md#send-to-log-analytics-workspace)
+

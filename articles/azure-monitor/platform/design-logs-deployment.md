@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008203"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317287"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -47,12 +47,12 @@ Log Analytics 작업 영역이 제공하는 정보:
 
 Log Analytics 에이전트를 사용하여 데이터를 수집할 때 에이전트 배포를 계획하려면 다음 사항을 잘 알고 있어야 합니다.
 
-* Windows 에이전트에서 데이터를 수집하기 위해 System Center Operations Manager 관리 그룹에 보고하는 동안에도 [하나 이상의 작업 영역에 보고하도록 각 에이전트를 구성](../../azure-monitor/platform/agent-windows.md)할 수 있습니다. Windows 에이전트는 최대 4개의 작업 영역에 보고할 수 있습니다.
+* Windows 에이전트에서 데이터를 수집하기 위해 System Center Operations Manager 관리 그룹에 보고하는 동안에도 [하나 이상의 작업 영역에 보고하도록 각 에이전트를 구성](./agent-windows.md)할 수 있습니다. Windows 에이전트는 최대 4개의 작업 영역에 보고할 수 있습니다.
 * Linux 에이전트는 멀티호밍을 지원하지 않으며 단일 작업 영역에만 보고할 수 있습니다.
 
 System Center Operations Manager 2012 R2 이상을 사용하는 경우
 
-* 각 Operations Manager 관리 그룹을 [하나의 작업 영역에만 연결](../platform/om-agents.md)할 수 있습니다. 
+* 각 Operations Manager 관리 그룹을 [하나의 작업 영역에만 연결](./om-agents.md)할 수 있습니다. 
 * 관리 그룹에 보고하는 Linux 컴퓨터는 Log Analytics 작업 영역에 직접 보고하도록 구성해야 합니다. Linux 컴퓨터가 이미 작업 영역에 직접 보고하고 있으며 Operations Manager로 모니터링하려는 경우 다음 단계에 따라 [Operations Manager 관리 그룹에 보고](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)하세요. 
 * Windows 컴퓨터에 Log Analytics Windows 에이전트를 설치하고 작업 영역과 통합된 Operations Manager 및 다른 작업 영역 모두에 보고하도록 할 수 있습니다.
 
@@ -62,7 +62,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -166,3 +166,4 @@ Operation
 ## <a name="next-steps"></a>다음 단계
 
 이 가이드에서 권장 하는 보안 권한 및 제어를 구현 하려면 [로그에 대 한 액세스 관리](manage-access.md)를 검토 하세요.
+

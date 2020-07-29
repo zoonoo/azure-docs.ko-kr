@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317130"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "84704712"
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -60,7 +60,7 @@ az account list-locations \
 
 Azure 위치를 만든 후에 [az group create](/cli/azure/group#az-group-create) 명령을 사용 하 여 Azure CLI에 새 리소스 그룹을 만듭니다.
 
-아래 예제에서는 azure 위치를 `westus2` 구독에 사용할 수 있는 azure 위치 중 하나로 바꿉니다.
+아래 예제에서는 Azure 위치를 `westus2` 구독에 사용할 수 있는 azure 위치 중 하나로 바꿉니다.
 
 ```azurecli-interactive
 az group create \
@@ -100,19 +100,19 @@ az group create \
 | 서비스            | 종류                  |
 |--------------------|-----------------------|
 | Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
+| Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
 | Bing Entity Search | `Bing.EntitySearch`   |
 | Bing Search        | `Bing.Search.v7`      |
-| Bing Spell Check   | `Bing.SpellCheck.v7`  |
+| Bing 맞춤법 검사   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>음성
+### <a name="speech"></a>Speech
 
 | 서비스            | 종류                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | 음성 인식 | `SpeakerRecognition` |
 
-### <a name="language"></a>언어
+### <a name="language"></a>Language
 
 | 서비스            | 종류                |
 |--------------------|---------------------|
@@ -152,6 +152,8 @@ az cognitiveservices account create \
     --yes
 ```
 
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
+
 ## <a name="get-the-keys-for-your-resource"></a>리소스의 키를 가져옵니다.
 
 CLI (명령줄 인터페이스)의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령을 사용 합니다.
@@ -190,7 +192,7 @@ az cognitiveservices account list-usage \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Cognitive Services 리소스를 정리 하 고 제거 하려면 해당 리소스 그룹을 삭제 하거나 리소스 그룹을 삭제 하면 됩니다. 리소스 그룹을 삭제 하면 해당 그룹에 포함 된 다른 리소스도 모두 삭제 됩니다.
+Cognitive Services 리소스를 정리 하 고 제거 하려면 해당 리소스 그룹을 삭제 하거나 리소스 그룹을 삭제 하면 됩니다. 리소스 그룹을 삭제하면 그룹에 포함된 모든 리소스가 함께 삭제됩니다.
 
 리소스 그룹 및 연결 된 리소스를 제거 하려면 az group delete 명령을 사용 합니다.
 
@@ -201,6 +203,6 @@ az group delete --name cognitive-services-resource-group
 ## <a name="see-also"></a>참고 항목
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
-* [Azure Cognitive Services 이란?](Welcome.md)
+* [Azure Cognitive Services란?](Welcome.md)
 * [자연어 지원](language-support.md)
 * [Docker 컨테이너 지원](cognitive-services-container-support.md)
