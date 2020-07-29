@@ -10,16 +10,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e0278329ff6b6946c4107ea048367753eaccbfd8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 160833817150332b240ec17b2b700fbcb7a4456b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124989"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370651"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Azure Portal을 사용하여 Blob 및 큐 데이터 액세스를 위한 RBAC 역할 할당
 
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다.
+Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다.
 
 RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
@@ -48,7 +48,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 >
 > 저장소 계정에 계층 네임 스페이스가 사용 하도록 설정 된 경우 컨테이너 또는 큐에 범위가 지정 된 역할을 할당할 수 없습니다.
 
-### <a name="assign-a-built-in-rbac-role"></a>기본 제공 RBAC 역할 할당
+### <a name="assign-an-azure-built-in-role"></a>Azure 기본 제공 역할 할당
 
 보안 주체에 역할을 할당 하기 전에 부여 하는 사용 권한의 범위를 고려해 야 합니다. [리소스 범위 결정](#determine-resource-scope) 섹션을 검토 하 여 적절 한 범위를 결정 합니다.
 

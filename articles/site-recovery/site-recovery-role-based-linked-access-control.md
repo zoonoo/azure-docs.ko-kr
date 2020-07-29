@@ -6,18 +6,18 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 877545eb22331e724520102814ec8a00b2c205e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847910"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370821"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
 Azure 역할 기반 access Control (RBAC)은 Azure에 대 한 세밀 한 액세스 관리를 가능 하 게 합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
 
-Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기본 제공 역할을 제공합니다. [Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 알아보기
+Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기본 제공 역할을 제공합니다. [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md) 에 대 한 자세한 정보
 
 * [Site Recovery 참가자](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - 이 역할에는 Recovery Services 자격 증명 모음에서 Azure Site Recovery 작업을 관리하는 데 필요한 모든 사용 권한이 있습니다. 그러나 이 역할의 사용자는 Recovery Services 자격 증명 모음을 만들거나 삭제할 수 없고 액세스 권한을 다른 사용자에게 할당할 수 없습니다. 이 역할은 애플리케이션이나 전체 조직에 재해 복구를 사용하도록 설정하고 관리할 수 있는 재해 복구 관리자에 대해 가장 적합합니다.
 * [Site Recovery 연산자](../role-based-access-control/built-in-roles.md#site-recovery-operator) - 이 역할에는 장애 조치 및 장애 복구 작업을 실행하고 관리하는 사용 권한이 있습니다. 이 역할의 사용자는 복제를 활성화하거나 비활성화할 수 없고, 자격 증명 모음을 만들거나 삭제할 수 없으며, 새로운 인프라를 등록하거나 다른 사용자에게 액세스 권한을 할당할 수 없습니다. 이 역할은 실제 또는 시뮬레이션된 재해 상황에서 DR 드릴과 같은 애플리케이션 소유자 및 IT 관리자가 지시하는 경우 가상 머신 또는 애플리케이션을 장애 조치할 수 있는 재해 복구 연산자에 가장 적합합니다. 재해를 해결한 후에 게시 DR 연산자는 가상 머신을 다시 보호하고 장애 복구할 수 있습니다.
@@ -43,7 +43,7 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 
 | **리소스 종류** | **배포 모델** | **사용 권한** |
 | --- | --- | --- |
-| Compute | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
+| 컴퓨팅 | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |

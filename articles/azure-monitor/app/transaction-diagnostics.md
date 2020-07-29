@@ -4,11 +4,12 @@ description: Application Insights 엔드투엔드 트랜잭션 진단
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671140"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318915"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -63,7 +64,7 @@ ms.locfileid: "77671140"
 
 ## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅샷 디버거
 
-[Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅샷 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
+[Application Insights 프로파일러](./profiler.md) 또는 [스냅샷 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
 
 프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp \@ microsoft.com** 에 문의 하세요.
 
@@ -94,3 +95,4 @@ ms.locfileid: "77671140"
 *새 환경에서 대부분의 관련 항목 쿼리가 누락되는 이유는 무엇인가요?*
 
 이것은 의도적인 것입니다. 모든 구성 요소에서 관련된 모든 항목은 이미 왼쪽(위쪽 및 아래쪽 섹션)에서 사용할 수 있습니다. 새 환경에는 왼쪽에서 다루지 않는 두 개의 관련 항목, 즉 이 이벤트 전후 5분의 모든 원격 분석 및 사용자 타임라인이 있습니다.
+

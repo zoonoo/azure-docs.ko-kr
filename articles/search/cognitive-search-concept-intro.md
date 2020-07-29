@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564417"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319051"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
@@ -59,7 +59,7 @@ Azure Cognitive Search의 기본 제공 기술은 Cognitive Services API: [Compu
 
 사용자 지정 기술은 양식 인식, 또는 [사용자 지정 기술 웹 인터페이스](cognitive-search-custom-skill-interface.md)에서 제공하고 래핑하는 모델을 사용하는 사용자 지정 엔터티 검색처럼 좀 더 복잡한 시나리오를 지원할 수 있습니다. 사용자 지정 기술의 예로는 [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) 통합, [사용자 지정 엔터티 인식](https://github.com/Microsoft/SkillsExtractorCognitiveSearch) 등이 있습니다.
 
-<a name="enrichment-steps">보강 파이프라인의 # # 단계</a>
+## <a name="steps-in-an-enrichment-pipeline"></a>보강 파이프라인의 단계<a name="enrichment-steps"></a>
 
 보강 파이프라인은 [*인덱서*](search-indexer-overview.md)를 기반으로 합니다. 인덱서는 문서 크랙에 대해 인덱스와 데이터 원본 간의 필드-필드 매핑을 기반으로 인덱스를 채웁니다. 이제 인덱서에 연결 된 기술은 사용자가 정의한 기술에 따라 문서를 가로채 고 보강 합니다. 인덱싱이 완료되면 [Azure Cognitive Search에서 지원하는 모든 쿼리 유형](search-query-overview.md)을 통한 검색 요청에서 콘텐츠에 액세스할 수 있습니다.  인덱서를 처음 접하는 경우, 이 섹션의 단계별 안내를 참조하세요.
 

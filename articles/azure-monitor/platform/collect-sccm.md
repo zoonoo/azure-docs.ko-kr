@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 5984cbf8cf618a938ee85638d981f7867c6ec8b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539366"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319323"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>전제 조건
 
 Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 
@@ -41,7 +41,7 @@ Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Configuration Manager에 Log Analytics에 대한 사용 권한 제공
 
-다음 절차에서는 Log Analytics 작업 영역의 *Contributor* 역할을 Configuration Manager에 대해 이전에 만든 AD 애플리케이션 및 서비스 주체에 부여합니다. 작업 영역이 아직 없는 경우 계속 진행 하기 전에 [Azure Monitor에서 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md) 를 참조 하세요. 이를 통해 Configuration Manager는 Log Analytics 작업 영역을 인증하고 연결할 수 있습니다.  
+다음 절차에서는 Log Analytics 작업 영역의 *Contributor* 역할을 Configuration Manager에 대해 이전에 만든 AD 애플리케이션 및 서비스 주체에 부여합니다. 작업 영역이 아직 없는 경우 계속 진행 하기 전에 [Azure Monitor에서 작업 영역 만들기](../learn/quick-create-workspace.md) 를 참조 하세요. 이를 통해 Configuration Manager는 Log Analytics 작업 영역을 인증하고 연결할 수 있습니다.  
 
 > [!NOTE]
 > Configuration Manager에 대 한 Log Analytics 작업 영역에서 사용 권한을 지정 해야 합니다. 그렇지 않고 Configuration Manager에서 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
@@ -139,14 +139,15 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실�
 
 ## <a name="view-data-from-configuration-manager"></a>구성 관리자의 데이터 보기
 
-Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실행 하는 컴퓨터에 에이전트를 Configuration Manager 및 설치 Log Analytics 연결을 추가 하면 에이전트의 데이터가 Azure Monitor의 Log Analytics 작업 영역으로 전송 됩니다. Azure Monitor에서 Configuration Manager 컬렉션은 [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)으로 표시 됩니다. **Settings\Computer Groups** 아래 **Configuration Manager** 페이지에서 그룹을 볼 수 있습니다.
+Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실행 하는 컴퓨터에 에이전트를 Configuration Manager 및 설치 Log Analytics 연결을 추가 하면 에이전트의 데이터가 Azure Monitor의 Log Analytics 작업 영역으로 전송 됩니다. Azure Monitor에서 Configuration Manager 컬렉션은 [컴퓨터 그룹](./computer-groups.md)으로 표시 됩니다. **Settings\Computer Groups** 아래 **Configuration Manager** 페이지에서 그룹을 볼 수 있습니다.
 
 컬렉션을 가져오면 컬렉션 멤버 자격이 있는 컴퓨터 중 삭제된 컴퓨터 수를 확인할 수 있습니다. 또한 가져온 컬렉션 수도 확인할 수 있습니다.
 
 ![컴퓨터 그룹 - SCCM 탭](./media/collect-sccm/sccm-computer-groups02.png)
 
-하나를 클릭 하면 모든 가져온 그룹이 나 각 그룹에 속한 모든 컴퓨터를 표시 하는 로그 쿼리 편집기가 열립니다. [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용 하 여 컬렉션 멤버 자격 데이터를 자세히 분석할 수 있습니다.
+하나를 클릭 하면 모든 가져온 그룹이 나 각 그룹에 속한 모든 컴퓨터를 표시 하는 로그 쿼리 편집기가 열립니다. [로그 검색](../log-query/log-query-overview.md)을 사용 하 여 컬렉션 멤버 자격 데이터를 자세히 분석할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.
+[로그 검색](../log-query/log-query-overview.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.
+

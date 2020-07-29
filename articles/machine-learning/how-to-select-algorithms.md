@@ -5,16 +5,18 @@ description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: 582d6077a4b84e5b2d8c0d69da7b00b807a355b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ad0d2c520d5347e36a9cead4ed6c5526d885ca4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433147"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319527"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 알고리즘을 선택 하는 방법
 
@@ -45,7 +47,7 @@ Azure Machine Learning Algorithm 참고 자료 시트의 지침과 함께 솔루
 
 다음 표에는 분류, 회귀 및 클러스터링 제품군에서 알고리즘의 가장 중요 한 특성이 요약 되어 있습니다.
 
-| **알고리즘** | **높아집니다** | **학습 시간** | **선형성** | **매개 변수** | **참고** |
+| **알고리즘** | **정확도** | **학습 시간** | **선형성** | **매개 변수** | **참고** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **분류 패밀리** | | | | | |
 | [2 클래스 로지스틱 회귀](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |좋음  |빠름 |예 |4 | |

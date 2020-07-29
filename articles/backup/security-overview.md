@@ -3,12 +3,12 @@ title: 보안 기능 개요
 description: 백업 데이터를 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure Backup의 보안 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062602"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319306"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure Backup의 보안 기능 개요
 
@@ -38,17 +38,21 @@ Azure VM을 백업하려면 가상 머신의 디스크에서 Recovery Services �
 
 ## <a name="private-endpoints-for-azure-backup"></a>Azure 백업에 대한 프라이빗 엔드포인트
 
-이제 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 데이터를 가상 네트워크 내의 서버에서 Recovery Services 자격 증명 모음으로 안전하게 백업할 수 있습니다. 프라이빗 엔드포인트는 자격 증명 모음에 대한 VNET 주소 공간의 IP를 사용하므로 가상 네트워크를 공용 IP에 노출할 필요가 없습니다. 프라이빗 엔드포인트는 Azure VM 내에서 실행되는 SQL 및 SAP HANA 데이터베이스를 백업하고 복원하는 데 사용할 수 있습니다. 또한 MARS 에이전트를 사용하는 온-프레미스 서버에도 사용할 수 있습니다.
+이제 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 데이터를 가상 네트워크 내의 서버에서 Recovery Services 자격 증명 모음으로 안전하게 백업할 수 있습니다. 개인 끝점은 자격 증명 모음에 대 한 VNET 주소 공간의 IP를 사용 하므로 공용 Ip에 가상 네트워크를 노출할 필요가 없습니다. 프라이빗 엔드포인트는 Azure VM 내에서 실행되는 SQL 및 SAP HANA 데이터베이스를 백업하고 복원하는 데 사용할 수 있습니다. 또한 MARS 에이전트를 사용하는 온-프레미스 서버에도 사용할 수 있습니다.
 
 Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](./private-endpoints.md)를 참조하세요.
 
-## <a name="encryption-of-data-in-transit-and-at-rest"></a>전송 중 및 미사용 데이터 암호화
+## <a name="encryption-of-data"></a>데이터 암호화
 
-암호화는 데이터를 보호하고 조직의 보안 및 규정 준수 노력에 부합하는 데 도움이 됩니다. Azure 내에서 Azure 스토리지와 자격 증명 모음 간에 이동하는 데이터는 HTTPS를 통해 보호됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
+암호화는 데이터를 보호하고 조직의 보안 및 규정 준수 노력에 부합하는 데 도움이 됩니다. 데이터 암호화는 Azure Backup의 여러 단계에서 발생 합니다.
 
-* 백업 데이터는 Microsoft 관리 키를 사용하여 자동으로 암호화됩니다. Azure Key Vault에 저장된 [고객 관리 키](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)를 사용하여 Recovery Services Vault에서 백업된 관리 디스크 VM을 암호화할 수도 있습니다. 이 암호화를 사용하도록 설정하기 위해 명시적인 작업을 수행할 필요는 없습니다. Recovery Services 자격 증명 모음에 백업되는 모든 워크로드에 적용됩니다.
+* Azure 내에서 Azure storage와 자격 증명 모음 간의 전송 데이터는 [HTTPS에 의해 보호](backup-support-matrix.md#network-traffic-to-azure)됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
 
-* Azure Backup은 ADE(Azure Disk Encryption)로 암호화된 OS/데이터 디스크가 있는 Azure VM의 백업 및 복원을 지원합니다. [암호화된 Azure VM 및 Azure Backup에 대해 자세히 알아보세요](./backup-azure-vms-encryption.md).
+* 백업 데이터는 [Microsoft 관리 키](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)를 사용 하 여 자동으로 암호화 되며이를 사용 하도록 설정 하기 위해 명시적인 조치를 취할 필요가 없습니다. Azure Key Vault에 저장 된 [고객 관리 키](encryption-at-rest-with-cmk.md) 를 사용 하 여 백업 된 데이터를 암호화할 수도 있습니다. Recovery Services 자격 증명 모음에 백업되는 모든 워크로드에 적용됩니다.
+
+* Azure Backup은 [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) 로 암호화 된 OS/데이터 디스크와 [cmk 암호화 된 디스크가 있는 vm](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys)을 포함 하는 Azure vm의 백업 및 복원을 지원 합니다. 자세한 내용은 [암호화 된 Azure vm 및 Azure Backup에 대해 자세히 알아보세요](./backup-azure-vms-encryption.md).
+
+* MARS 에이전트를 사용 하 여 온-프레미스 서버에서 데이터를 백업 하는 경우 Azure Backup 업로드 하기 전에 암호를 사용 하 여 데이터를 암호화 한 후 Azure Backup에서 다운로드 한 후에만 암호를 해독 합니다. [하이브리드 백업을 보호 하는 데 도움이 되는 보안 기능](#security-features-to-help-protect-hybrid-backups)에 대해 자세히 알아보세요.
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>의도하지 않은 삭제로부터 백업 데이터 보호
 

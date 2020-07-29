@@ -3,12 +3,12 @@ title: 전체 모드 삭제
 description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 모드 삭제를 처리하는 방법을 보여줍니다.
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.openlocfilehash: 5e247fc20a128b3dd8b3fe646ef956388e0d2c2d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 48a7758ce706612607b97647bc88238957b118d3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027842"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371348"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -18,7 +18,7 @@ ms.locfileid: "86027842"
 
 로 표시 된 리소스 종류는 템플릿에 없을 때 자동으로 삭제 **되지 않습니다.** 그러나 부모 리소스를 삭제 하는 경우 삭제 됩니다. 동작에 대한 전체 설명은 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 
-[템플릿에서 둘 이상의 리소스 그룹](cross-resource-group-deployment.md)에 배포 하는 경우 배포 작업에 지정 된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제 되지 않습니다.
+[템플릿에서 둘 이상의 리소스 그룹](cross-scope-deployment.md)에 배포 하는 경우 배포 작업에 지정 된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제 되지 않습니다.
 
 리소스 공급자 네임스페이스로 이동합니다.
 > [!div class="op_single_selector"]
@@ -769,7 +769,7 @@ ms.locfileid: "86027842"
 > | ReservationRecommendations | 아니요 |
 > | ReservationSummaries | 아니요 |
 > | ReservationTransactions | 아니요 |
-> | Tags | 아니요 |
+> | 태그 | 아니요 |
 > | tenants | 아니요 |
 > | 용어 | 아니요 |
 > | UsageDetails | 아니요 |
@@ -842,7 +842,7 @@ ms.locfileid: "86027842"
 > | CloudConnectors | 아니요 |
 > | 커넥터 | 예 |
 > | costAllocationRules | 아니요 |
-> | Departments | 아니요 |
+> | 부서 | 아니요 |
 > | 차원 | 아니요 |
 > | EnrollmentAccounts | 아니요 |
 > | 내보내기 | 아니요 |
@@ -1295,7 +1295,7 @@ ms.locfileid: "86027842"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | devices | 예 |
+> | 디바이스 | 예 |
 > | registeredSubscriptions | 아니요 |
 > | 판매 | 아니요 |
 > | 공급 업체/sku | 아니요 |
@@ -2260,7 +2260,7 @@ ms.locfileid: "86027842"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | devices | 예 |
+> | 디바이스 | 예 |
 > | registeredSubscriptions | 아니요 |
 > | 판매 | 아니요 |
 > | 공급 업체/sku | 아니요 |

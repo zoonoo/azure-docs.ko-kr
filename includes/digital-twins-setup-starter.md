@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 3f19674c0e25ebf5cddc2dfb45580a15d04fad46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcc616dd8d30bfadb751df9ba24d71d72675428a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098096"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371460"
 ---
 >[!NOTE]
 >이러한 작업은 Azure 구독에 대 한 *소유자* 역할이 있는 사용자가 완료 하기 위한 것입니다. 일부 부분은이 상승 된 권한 없이도 완료할 수 있지만 소유자의 협력은 사용 가능한 인스턴스를 완전히 설정 해야 합니다. 이에 대 한 자세한 내용은 아래의 [*필수 조건: 필수 권한*](#prerequisites-permission-requirements) 섹션을 참조 하세요.
@@ -38,6 +38,6 @@ az role assignment list --assignee <your-Azure-email>
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/owner-role.png" alt-text="Az role 대입문 list 명령의 출력을 보여 주는 Cloud Shell 창":::
 
-값이 *참가자* 또는 *소유자*가 아닌 다른 것으로 확인 되 면 구독 소유자에 게 연락 하 여 다음 방법 중 하나를 진행할 수 있습니다.
-* 사용자 대신이 문서의 단계를 완료 하기 위한 소유자 요청
-* 소유자에 게 구독에 대 한 소유자에 게 권한을 부여 하 여 사용자가 직접 계속할 수 있는 권한을 갖도록 요청 합니다. 이 방법이 적절 한지 여부는 조직 및 조직 내 사용자의 역할에 따라 달라 집니다.
+값이 *참가자* 또는 *소유자*가 아닌 다른 것으로 확인 되 면 다음 방법 중 하나를 진행할 수 있습니다.
+* 구독 소유자에 게 문의 하 고 소유자에 게 문의 하 여 사용자 대신이 문서의 단계를 완료 하도록 요청 하세요.
+* 구독 소유자 또는 구독에 대 한 사용자 액세스 관리자 역할을 가진 사용자에 게 연락 하 고 사용자가 직접 계속할 수 있는 권한을 부여 하도록 구독 소유자에 게 권한을 부여 하도록 요청 합니다. 이 방법이 적절 한지 여부는 조직 및 조직 내 사용자의 역할에 따라 달라 집니다.

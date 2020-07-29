@@ -4,16 +4,16 @@ description: .NET 및 .NET Core 용 Azure 애플리케이션 Insights Sdk에서 
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6f9e93d477efeee7e1d8a0b0d8704f9c83d2a4f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5ae1ee1e4bf9f64eb4587f0ceb76972a4571b2e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539791"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318932"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
 
-원격 분석 채널은 [Azure 애플리케이션 Insights sdk](../../azure-monitor/app/app-insights-overview.md)의 필수적인 부분입니다. Application Insights 서비스에 대 한 원격 분석의 버퍼링 및 전송을 관리 합니다. Sdk의 .NET 및 .NET Core 버전에는 두 가지 기본 제공 원격 분석 채널 (및)이 있습니다. `InMemoryChannel` `ServerTelemetryChannel` 이 문서에서는 채널 동작을 사용자 지정 하는 방법을 비롯 하 여 각 채널에 대해 자세히 설명 합니다.
+원격 분석 채널은 [Azure 애플리케이션 Insights sdk](./app-insights-overview.md)의 필수적인 부분입니다. Application Insights 서비스에 대 한 원격 분석의 버퍼링 및 전송을 관리 합니다. Sdk의 .NET 및 .NET Core 버전에는 두 가지 기본 제공 원격 분석 채널 (및)이 있습니다. `InMemoryChannel` `ServerTelemetryChannel` 이 문서에서는 채널 동작을 사용자 지정 하는 방법을 비롯 하 여 각 채널에 대해 자세히 설명 합니다.
 
 ## <a name="what-are-telemetry-channels"></a>원격 분석 채널 이란?
 
@@ -39,7 +39,7 @@ Application Insights .NET 및 .NET Core Sdk는 두 개의 기본 제공 채널�
 
 원격 분석 채널을 활성 원격 분석 구성으로 설정 하 여 구성 합니다. ASP.NET 응용 프로그램의 경우 구성에는 원격 분석 채널 인스턴스를로 설정 하거나를 수정 하는 작업이 포함 됩니다 `TelemetryConfiguration.Active` `ApplicationInsights.config` . ASP.NET Core 응용 프로그램의 경우 구성에는 종속성 주입 컨테이너에 채널을 추가 하는 작업이 포함 됩니다.
 
-다음 섹션에서는 `StorageFolder` 다양 한 응용 프로그램 유형에 서 채널에 대 한 설정을 구성 하는 예를 보여 줍니다. `StorageFolder`구성 가능한 설정 중 하나일 뿐입니다. 구성 설정의 전체 목록은이 문서의 뒷부분에 있는 [설정 섹션](telemetry-channels.md#configurable-settings-in-channels) 을 참조 하세요.
+다음 섹션에서는 `StorageFolder` 다양 한 응용 프로그램 유형에 서 채널에 대 한 설정을 구성 하는 예를 보여 줍니다. `StorageFolder`구성 가능한 설정 중 하나일 뿐입니다. 구성 설정의 전체 목록은이 문서의 뒷부분에 있는 [설정 섹션](#configurable-settings-in-channels) 을 참조 하세요.
 
 ### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대해 ApplicationInsights.config를 사용 하 여 구성
 
@@ -166,5 +166,6 @@ Application Insights에 대 한 모든 SDK와 마찬가지로 채널은 오픈 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [샘플링](../../azure-monitor/app/sampling.md)
-* [SDK 문제 해결](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [샘플링](./sampling.md)
+* [SDK 문제 해결](./asp-net-troubleshoot-no-data.md)
+

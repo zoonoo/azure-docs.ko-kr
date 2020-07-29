@@ -3,15 +3,16 @@ title: Office 365 Outlook 연결
 description: Azure Logic Apps를 사용 하 여 Office 365 Outlook에서 전자 메일, 연락처 및 일정을 관리 하는 작업 및 워크플로 자동화
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75732707"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319238"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
 
@@ -28,9 +29,9 @@ ms.locfileid: "75732707"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Office 365 계정](https://www.office.com/)
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다. 
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
+* [Office 365 계정](https://www.office.com/)
 
 * Office 365 Outlook 계정에 액세스 하려는 논리 앱입니다. Office 365 Outlook 트리거를 사용 하 여 워크플로를 시작 하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 있어야 합니다. 워크플로에 Office 365 Outlook 작업을 추가 하려면 논리 앱에 이미 트리거가 있어야 합니다.
 
@@ -45,6 +46,9 @@ ms.locfileid: "75732707"
    ![트리거를 선택 하 여 논리 앱 시작](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Office 365 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 있는 경우 트리거의 속성에 대 한 정보를 제공 합니다.
+
+   > [!NOTE]
+   > 로그인 자격 증명을 변경 하더라도 해지 될 때까지 연결이 만료 되지 않습니다. 자세한 내용은 [Azure Active Directory에서 구성 가능한 토큰 수명](../active-directory/active-directory-configurable-token-lifetimes.md)을 참조하세요.
 
    이 예에서는 트리거가 확인 하는 달력을 선택 합니다. 예를 들면 다음과 같습니다.
 
@@ -76,6 +80,9 @@ ms.locfileid: "75732707"
 
 1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Office 365 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 존재 하는 경우 작업의 속성에 대 한 정보를 제공 합니다.
 
+   > [!NOTE]
+   > 로그인 자격 증명을 변경 하더라도 해지 될 때까지 연결이 만료 되지 않습니다. 자세한 내용은 [Azure Active Directory에서 구성 가능한 토큰 수명](../active-directory/active-directory-configurable-token-lifetimes.md)을 참조하세요.
+
    이 예제에서는 작업에서 새 연락처를 만드는 연락처 폴더를 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![작업 속성 구성](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -84,9 +91,9 @@ ms.locfileid: "75732707"
 
 1. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/office365connector/)를 참조 하세요. 
+커넥터의 Swagger 파일에 설명 된 대로이 커넥터에 대 한 기술 세부 정보 (예: 트리거, 작업 및 제한)는 [커넥터의 참조 페이지](/connectors/office365/)를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

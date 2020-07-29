@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 32fd0da0095c34c4ef199eb703881e048473f0a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499361"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319000"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights 에이전트 API 참조
 
@@ -83,7 +83,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
-이 예제에서는 다음이 적용됩니다.
+이 예제에 대한 설명:
 - `MachineFilter`와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
 - `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
 - `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
@@ -475,7 +475,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
-이 예제에서는 다음이 적용됩니다.
+이 예제에 대한 설명:
 - `MachineFilter`와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
 - `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
 - `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
@@ -638,14 +638,15 @@ Timeout Reached. Stopping...
 
   원격 분석 보기:
  - [메트릭을 탐색](../platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
-- [이벤트와 로그를 검색](../../azure-monitor/app/diagnostic-search.md) 하 여 문제를 진단 합니다.
+- [이벤트와 로그를 검색](./diagnostic-search.md) 하 여 문제를 진단 합니다.
 - 고급 쿼리를 위해 [분석](../log-query/log-query-overview.md) 을 사용 합니다.
-- [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
+- [대시보드를 만듭니다](./overview-dashboard.md).
  
  원격 분석 더 추가:
  - [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
-- 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
-- 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
+- 웹 [클라이언트 원격 분석을 추가](./javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
+- 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](./asp-net.md) 합니다.
  
  Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
  - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
+

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 4f27fc9542d6c4e9027c7a1a0d4daeb7cb079e81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b81dbce9f73c76ceea0f7842d731d00f905fb01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321555"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371518"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,7 +130,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 * 시계열 샘플 빈도(예: 매시간, 매일, 매주)를 검색하고 없는 시간 요소의 새 레코드를 만들어 계열이 연속되도록 합니다.
 * 누락된 값을 대상(전방 채우기를 통해) 및 기능 열(중앙값 열 값 사용)에 귀속
-* 여러 계열에서 고정 효과를 사용하도록 설정하는 조직 기반 기능 만들기
+* 시계열 식별자를 기반으로 하는 기능을 만들어 여러 계열에 걸쳐 고정 효과 사용
 * 계절적 패턴을 학습하는 데 도움이 되는 시간 기반 기능 만들기
 * 범주 변수를 숫자 수량으로 인코딩
 
@@ -139,21 +139,21 @@ automl_config = AutoMLConfig(task='forecasting',
 | 매개 변수&nbsp;이름 | Description | 필수 |
 |-------|-------|-------|
 |`time_column_name`|시계열을 작성하고 해당 빈도를 유추하는 데 사용되는 날짜/시간 열을 입력 데이터에 지정하는 데 사용됩니다.|✓|
-|`grain_column_names`|입력 데이터에서 개별 계열 그룹을 정의하는 이름입니다. 조직을 정의하지 않으면 데이터 세트는 하나의 시계열로 간주됩니다.||
-|`max_horizon`|원하는 최대 예측 구간을 시계열 빈도 단위로 정의합니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
+|`time_series_id_column_names`|타임 스탬프를 사용 하는 여러 행이 있는 데이터의 시계열을 고유 하 게 식별 하는 데 사용 되는 열 이름입니다. 시계열 식별자가 정의 되지 않은 경우 데이터 집합은 하나의 시계열으로 간주 됩니다.||
+|`forecast_horizon`|예측 하려는 기간을 정의 합니다. 수평은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. 예를 들어 제품에 대한 수요를 예측하려고 할 때 특정 월의 수요는 3개월 전 특정 상품 가격에 따라 달라질 수 있습니다. 이 예에서는 모델이 올바른 관계를 학습하도록 대상(수요)을 -3개월 지연시킬 수 있습니다.||
 |`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n*개 기록 기간입니다. 생략하면 *n*은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다.||
 |`enable_dnn`|예측 DNN을 사용하도록 설정합니다.||
 
 자세한 내용은 [참조 설명서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)를 참조하세요.
 
-시계열 설정을 사전 개체로 만듭니다. `time_column_name`을 데이터 세트의 `day_datetime` 필드로 설정합니다. `grain_column_names` 매개 변수를 정의하여 데이터에 대해 매장 A 및 B에 대해 각각 하나씩 **두 개의 개별 시계열 그룹**이 생성되도록 합니다. 마지막으로 전체 테스트 세트를 예측하기 위해 `max_horizon`을 50으로 설정합니다. `target_rolling_window_size`를 사용하여 예측 기간을 10개로 설정하고 `target_lags` 매개 변수를 사용하여 두 기간의 대상 값 앞에 단일 지연을 지정합니다. `max_horizon`, `target_rolling_window_size` 및 `target_lags`을 "auto"로 설정하여 이러한 값을 자동으로 검색하도록 하는 것이 좋습니다. 아래 예제에서는 이러한 매개 변수에 "auto" 설정을 사용했습니다. 
+시계열 설정을 사전 개체로 만듭니다. `time_column_name`을 데이터 세트의 `day_datetime` 필드로 설정합니다. `time_series_id_column_names` 매개 변수를 정의하여 데이터에 대해 매장 A 및 B에 대해 각각 하나씩 **두 개의 개별 시계열 그룹**이 생성되도록 합니다. 마지막으로 전체 테스트 세트를 예측하기 위해 `forecast_horizon`을 50으로 설정합니다. `target_rolling_window_size`를 사용하여 예측 기간을 10개로 설정하고 `target_lags` 매개 변수를 사용하여 두 기간의 대상 값 앞에 단일 지연을 지정합니다. `forecast_horizon`, `target_rolling_window_size` 및 `target_lags`을 "auto"로 설정하여 이러한 값을 자동으로 검색하도록 하는 것이 좋습니다. 아래 예제에서는 이러한 매개 변수에 "auto" 설정을 사용했습니다. 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
-    "grain_column_names": ["store"],
-    "max_horizon": "auto",
+    "time_series_id_column_names": ["store"],
+    "forecast_horizon": "auto",
     "target_lags": "auto",
     "target_rolling_window_size": "auto",
     "preprocess": True,
@@ -163,7 +163,7 @@ time_series_settings = {
 > [!NOTE]
 > 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
 
-AutoML은 위의 코드 조각에서 `grain_column_names`를 정의하여 다중 시계열이라고도 하는 두 개의 개별 시계열 그룹을 만듭니다. 조직을 정의하지 않으면 AutoML은 데이터 세트가 단일 시계열이라고 가정합니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.
+AutoML은 위의 코드 조각에서 `time_series_id_column_names`를 정의하여 다중 시계열이라고도 하는 두 개의 개별 시계열 그룹을 만듭니다. 시계열 식별자가 정의 되지 않은 경우 AutoML은 데이터 집합이 단일 시계열 이라고 가정 합니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.
 
 이제 표준 `AutoMLConfig` 개체를 만들고 `forecasting` 태스크 유형을 지정한 후 실험을 제출합니다. 모델이 완료된 후 최상의 실행 반복을 검색합니다.
 
@@ -221,6 +221,32 @@ AML 컴퓨팅 및 GPU를 포함하는 VM 크기에 대한 자세한 내용은 [A
 
 DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)을 참조하세요.
 
+### <a name="customize-featurization"></a>기능화 사용자 지정
+기능화 설정을 사용자 지정 하 여 ML 모델을 학습 하는 데 사용 되는 데이터와 기능이 관련 된 예측을 얻을 수 있도록 할 수 있습니다. 
+
+Featurizations를 사용자 지정 하려면 `"featurization": FeaturizationConfig` 개체에를 지정 `AutoMLConfig` 합니다. 실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [방법 문서](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 참조 하세요.
+
+지원되는 사용자 지정은 다음과 같습니다.
+
+|사용자 지정|정의|
+|--|--|
+|**열 용도 업데이트**|지정 된 열에 대해 자동 검색 된 기능 유형을 재정의 합니다.|
+|**변환기 매개 변수 업데이트** |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는 fill_value 및 중앙값 *을 지원 합니다* .|
+|**삭제 열** |기능화에서 삭제할 열을 지정 합니다.|
+
+`FeaturizationConfig`기능화 구성을 정의 하 여 개체를 만듭니다.
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
 ### <a name="target-rolling-window-aggregation"></a>대상 이동 기간 집계
 종종 예측자가 보유할 수 있는 최상의 정보는 대상의 최신 값입니다. 대상의 누적 통계를 만들면 예측의 정확도가 높아질 수 있습니다. 대상 이동 기간 집계를 사용하면 데이터 값의 이동 집계를 기능으로 추가할 수 있습니다. 대상 이동 기간을 사용하도록 지정하려면 `target_rolling_window_size`를 원하는 정수 기간 크기로 설정합니다. 
 
@@ -271,7 +297,7 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-전체적인 모델 정확도를 확인했으므로 가장 현실적인 다음 단계는 모델을 사용하여 알 수 없는 미래 가치를 예측하는 것입니다. 테스트 세트 `test_data`와 형식은 같지만 날짜/시간이 미래인 데이터 세트를 제공하면 결과 예측 세트는 각 시계열 단계에 대해 예측된 값입니다. 데이터 세트의 마지막 시계열 레코드가 2018년 12월 31일에 대한 것이라고 가정합니다. 다음 날(또는 예측해야 하는 `max_horizon` 이하 기간)의 수요를 예측하려면 2019년 1월 1일의 각 매장에 대한 단일 시계열 레코드를 만듭니다.
+전체적인 모델 정확도를 확인했으므로 가장 현실적인 다음 단계는 모델을 사용하여 알 수 없는 미래 가치를 예측하는 것입니다. 테스트 세트 `test_data`와 형식은 같지만 날짜/시간이 미래인 데이터 세트를 제공하면 결과 예측 세트는 각 시계열 단계에 대해 예측된 값입니다. 데이터 세트의 마지막 시계열 레코드가 2018년 12월 31일에 대한 것이라고 가정합니다. 다음 날(또는 예측해야 하는 `forecast_horizon` 이하 기간)의 수요를 예측하려면 2019년 1월 1일의 각 매장에 대한 단일 시계열 레코드를 만듭니다.
 
 ```output
 day_datetime,store,week_of_year
@@ -282,7 +308,7 @@ day_datetime,store,week_of_year
 필요한 단계를 반복하여 이 미래 데이터를 데이터 프레임에 로드하고 `best_run.predict(test_data)`를 실행하여 미래 가치를 예측합니다.
 
 > [!NOTE]
-> `max_horizon`보다 큰 기간 동안의 값은 예측할 수 없습니다. 현재 구간을 넘어서는 미래 가치를 예측하려면 모델을 더 큰 구간으로 다시 학습해야 합니다.
+> `forecast_horizon`보다 큰 기간 동안의 값은 예측할 수 없습니다. 현재 구간을 넘어서는 미래 가치를 예측하려면 모델을 더 큰 구간으로 다시 학습해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

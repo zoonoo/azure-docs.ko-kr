@@ -1,26 +1,26 @@
 ---
 title: 온-프레미스 데이터 원본 액세스
-description: Azure 온-프레미스 데이터 게이트웨이 리소스를 만들어 Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
+description: Azure에서 데이터 게이트웨이 리소스를 만들어 Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 94fedc5dc6c9f420fbf14f80618a6daeefe908b2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 07/28/2020
+ms.openlocfilehash: a9ebc6b0cdbaa05c36383fa5126c2672fb19b69c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172045"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370957"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
-논리 앱에서 온-프레미스의 데이터 원본에 액세스 하려면 먼저 [로컬 컴퓨터에 온 *-프레미스 데이터 게이트웨이* 를 설치한](../logic-apps/logic-apps-gateway-install.md)후 Azure 리소스를 만들어야 합니다. 그런 다음 논리 앱은 Azure Logic Apps 사용할 수 있는 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors) 에서 제공 하는 트리거 및 작업에이 Azure 게이트웨이 리소스를 사용 합니다.
+[로컬 컴퓨터에 온 *-프레미스 데이터 게이트웨이* 를 설치](../logic-apps/logic-apps-gateway-install.md) 하 고 논리 앱에서 온-프레미스의 데이터 원본에 액세스 하려면 먼저 게이트웨이 설치를 위해 Azure에서 게이트웨이 리소스를 만들어야 합니다. 그런 다음 Azure Logic Apps에서 사용할 수 있는 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors) 에 사용 하려는 트리거와 작업에서이 게이트웨이 리소스를 선택할 수 있습니다.
 
 이 문서에서는 [로컬 컴퓨터에](../logic-apps/logic-apps-gateway-install.md)이전에 설치 된 게이트웨이에 대 한 Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 게이트웨이에 대 한 자세한 내용은 [게이트웨이의 작동](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)원리를 참조 하세요.
 
 > [!TIP]
-> Azure Virtual Network에 연결하려면 대신 [*통합 서비스 환경*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만드는 것을 고려합니다. 
+> 게이트웨이를 사용 하지 않고 Azure 가상 네트워크의 온-프레미스 리소스에 직접 액세스 하려면 [*통합 서비스 환경을*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 대신 만드는 것이 좋습니다. 
 
 다른 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
@@ -50,18 +50,15 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업에는 [페이로드 크기 제한](/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
 
-* 해당 데이터 게이트웨이를 설치할 때 사용 된 것 [과 동일한 Azure 계정 및 구독](../logic-apps/logic-apps-gateway-install.md#requirements) 을 사용 하 고 있습니다. 이 Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에 속해야 합니다.
+* 게이트웨이 설치에 사용한 것 [과 동일한 Azure 계정 및 구독이](../logic-apps/logic-apps-gateway-install.md#requirements) 있습니다. 이 Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해야 합니다. 게이트웨이 관리자만 Azure에서 게이트웨이 리소스를 만들 수 있기 때문에 Azure에서 게이트웨이 리소스를 만들기 위해 동일한 Azure 계정 및 구독이 필요 합니다. 서비스 사용자는 현재 지원 되지 않습니다.
 
-* 게이트웨이 설치는 이미 Azure Portal의 다른 기존 Azure 게이트웨이 리소스에서 등록 및 요청 되지 않습니다.
-
-  Azure Portal에서 게이트웨이 리소스를 만들 때 게이트웨이 리소스와 해당 게이트웨이 리소스에만 연결 되는 게이트웨이 설치를 선택 합니다. 각 게이트웨이 리소스는 하나의 Azure 계정에만 연결할 수 있는 하나의 게이트웨이 설치에만 연결할 수 있습니다. Azure Logic Apps 온-프레미스 트리거 및 작업은 온-프레미스 데이터 원본에 연결할 때 게이트웨이 리소스를 사용 합니다. 구독 액세스 권한이 있는 경우 각각 다른 게이트웨이 리소스와 연결 된 다양 한 Azure 구독에서 선택할 수 있습니다. 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독을 사용할 필요가 없습니다.
-
-  > [!NOTE]
-  > 게이트웨이 관리자만 Azure Portal에서 게이트웨이 리소스를 만들 수 있습니다. 현재 서비스 주체는 지원 되지 않습니다. 
+  * Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 리소스와 함께 사용할 게이트웨이 설치 및 해당 게이트웨이 리소스를 선택 합니다. 각 게이트웨이 리소스는 하나의 게이트웨이 설치에만 연결할 수 있으며 Azure 계정 및 구독 하나에만 연결할 수 있습니다. 따라서 다른 게이트웨이 리소스와 이미 연결 되어 있는 게이트웨이 설치를 선택할 수 없습니다.
+  
+  * 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다. 구독 액세스 권한이 있는 경우 온-프레미스 데이터 원본에 액세스할 수 있는 트리거 및 작업에서 각각 다른 게이트웨이 리소스와 연결 된 다른 Azure 구독에서 선택할 수 있습니다.
 
 <a name="create-gateway-resource"></a>
 
@@ -87,7 +84,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
    | **구독** | 게이트웨이 설치에 사용 된 Azure 계정에 대 한 Azure 구독을 선택 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
    | **리소스 그룹** | 사용 하려는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) |
    | **위치** | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 것과 동일한 지역 또는 위치입니다. 그렇지 않으면 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
-   | **설치 이름** | 이러한 조건이 충족 될 때만 목록에 표시 되는 게이트웨이 설치를 선택 합니다. <p><p>-게이트웨이 설치는 만들려는 게이트웨이 리소스와 동일한 지역을 사용 합니다. <br>-게이트웨이 설치는 다른 Azure 게이트웨이 리소스에 연결 되지 않습니다. <br>-게이트웨이 설치는 게이트웨이 리소스를 만드는 데 사용 하는 것과 동일한 Azure 계정에 연결 됩니다. <br>-Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology) 에 속하며 게이트웨이 설치에 사용 된 것과 동일한 계정입니다. <p><p>자세한 내용은 질문과 [대답](#faq) 섹션을 참조 하세요. |
+   | **설치 이름** | 이러한 조건이 충족 될 때만 목록에 표시 되는 게이트웨이 설치를 선택 합니다. <p><p>-게이트웨이 설치는 만들려는 게이트웨이 리소스와 동일한 지역을 사용 합니다. <br>-게이트웨이 설치는 다른 Azure 게이트웨이 리소스에 연결 되지 않습니다. <br>-게이트웨이 설치는 게이트웨이 리소스를 만드는 데 사용 하는 것과 동일한 Azure 계정에 연결 됩니다. <br>-Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology) 에 속하며 게이트웨이 설치에 사용한 것과 동일한 계정입니다. <p><p>자세한 내용은 질문과 [대답](#faq) 섹션을 참조 하세요. |
    |||
 
    다음은 게이트웨이 리소스와 동일한 지역에 있고 동일한 Azure 계정에 연결 된 게이트웨이 설치를 보여 주는 예제입니다.
@@ -108,7 +105,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 1. 게이트웨이 **의** **구독** 목록에서 원하는 게이트웨이 리소스가 있는 Azure 구독을 선택 합니다.
 
-   구독 액세스 권한이 있는 경우 각각 다른 게이트웨이 리소스와 연결 된 다양 한 Azure 구독에서 선택할 수 있습니다. 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독을 사용할 필요가 없습니다.
+   구독 액세스 권한이 있는 경우 각각 다른 게이트웨이 리소스와 연결 된 다양 한 Azure 구독에서 선택할 수 있습니다. 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다.
 
 1. 선택한 구독에서 사용 가능한 게이트웨이 리소스를 보여 주는 **연결 게이트웨이** 목록에서 원하는 게이트웨이 리소스를 선택 합니다. 각 게이트웨이 리소스는 단일 게이트웨이 설치에 연결 됩니다.
 
@@ -166,11 +163,15 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 **Q**: Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 설치가 나타나지 않는 이유는 무엇 인가요? <br/>
 **A**: 이 문제는 다음과 같은 이유 때문에 발생할 수 있습니다.
 
-* Azure 계정은 로컬 컴퓨터의 게이트웨이 설치에 연결 된 계정과 동일 해야 합니다. 게이트웨이 설치에 연결 된 것과 동일한 id를 사용 하 여 Azure Portal 로그인 했는지 확인 합니다. 또한 Azure 계정이 단일 [AZURE ad 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology) 에 속하고 게이트웨이 설치 중에 사용 된 것과 동일한 azure ad 테 넌 트 또는 디렉터리로 설정 되었는지 확인 합니다.
+* Azure 계정은 로컬 컴퓨터의 게이트웨이 설치에 사용한 것과 동일한 계정이 아닙니다. 게이트웨이 설치에 사용한 것과 동일한 id를 사용 하 여 Azure Portal에 로그인 했는지 확인 합니다. 게이트웨이 관리자만 Azure에서 게이트웨이 리소스를 만들 수 있습니다. 서비스 사용자는 현재 지원 되지 않습니다.
 
-* 게이트웨이 리소스와 게이트웨이 설치는 동일한 지역을 사용 해야 합니다. 그러나 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다.
+* Azure 계정은 단일 [AZURE AD 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해 있지 않습니다. 게이트웨이 설치 중에 사용한 것과 동일한 Azure AD 테 넌 트 또는 디렉터리를 사용 하 고 있는지 확인 합니다.
 
-* 게이트웨이 설치가 이미 다른 게이트웨이 리소스에 의해 등록 되 고 요청 되었습니다. 이러한 설치는 **설치 이름** 목록에 표시 되지 않습니다. Azure Portal에서 게이트웨이 등록을 검토 하려면 *모든* azure 구독에서 **온-프레미스 데이터 게이트웨이** 형식이 있는 모든 azure 리소스를 찾습니다. 다른 게이트웨이 리소스에서 게이트웨이 설치의 연결을 끊으려면 [게이트웨이 리소스 삭제](#change-delete-gateway-resource)를 참조 하세요.
+* 게이트웨이 리소스와 게이트웨이 설치는 동일한 지역에 존재 하지 않습니다. 그러나 논리 앱의 위치는 게이트웨이 리소스 위치와 다를 수 있습니다.
+
+* 게이트웨이 설치는 이미 다른 게이트웨이 리소스와 연결 되어 있습니다. 각 게이트웨이 리소스는 하나의 게이트웨이 설치에만 연결할 수 있으며 Azure 계정 및 구독 하나에만 연결할 수 있습니다. 따라서 다른 게이트웨이 리소스와 이미 연결 되어 있는 게이트웨이 설치를 선택할 수 없습니다. 이러한 설치는 **설치 이름** 목록에 표시 되지 않습니다.
+
+  Azure Portal에서 게이트웨이 등록을 검토 하려면 *모든* azure 구독에서 **온-프레미스 데이터 게이트웨이** 리소스 종류를 포함 하는 모든 azure 리소스를 찾습니다. 다른 게이트웨이 리소스에서 게이트웨이 설치의 연결을 끊으려면 [게이트웨이 리소스 삭제](#change-delete-gateway-resource)를 참조 하세요.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 

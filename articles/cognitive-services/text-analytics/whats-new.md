@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103401"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371127"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -23,7 +23,7 @@ ms.locfileid: "86103401"
 
 ## <a name="july-2020"></a>2020년 7월
 
-### <a name="text-analytics-for-health-container-public-gated-preview"></a>상태 컨테이너 공용 미리 보기에 대 한 Text Analytics
+### <a name="text-analytics-for-health-container---public-gated-preview"></a>상태 컨테이너에 대 한 Text Analytics-공용 제어 된 미리 보기
 
 상태 컨테이너에 대 한 Text Analytics는 이제 환자 흡입구 양식, 의사 (정보), 연구 용지 및 방전 요약 등의 임상 문서에서 구조화 되지 않은 영어 텍스트의 정보를 추출할 수 있는 공용 제어 미리 보기입니다. 현재 상태 컨테이너 사용에 대 한 Text Analytics에 대해서는 요금이 청구 되지 않습니다. 
 
@@ -111,7 +111,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * 메일 
+    * 전자 메일 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소

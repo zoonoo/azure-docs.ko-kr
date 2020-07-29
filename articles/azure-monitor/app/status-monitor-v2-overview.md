@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 6a51da4f4685d7d7b1c597d8a9b9dd78270f29b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499276"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318949"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 배포
 
@@ -31,7 +31,7 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
 ![PowerShell 갤러리](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>지침
 - 간결한 코드 샘플을 가져오려면 [시작 지침](status-monitor-v2-get-started.md) 을 참조 하세요.
 - 시작 하는 방법에 대 한 심층 [정보는 자세한 지침](status-monitor-v2-detailed-instructions.md) 을 참조 하세요.
 
@@ -76,13 +76,14 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
 
 원격 분석 보기:
 
-* [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
-* [이벤트와 로그를 검색](../../azure-monitor/app/diagnostic-search.md) 하 여 문제를 진단 합니다.
+* [메트릭을 탐색](../platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
+* [이벤트와 로그를 검색](./diagnostic-search.md) 하 여 문제를 진단 합니다.
 * 고급 쿼리를 위해 [분석을 사용](../log-query/log-query-overview.md) 합니다.
-* [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
+* [대시보드를 만듭니다](./overview-dashboard.md).
 
 원격 분석 더 추가:
 
 * [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
-* 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
-* 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
+* 웹 [클라이언트 원격 분석을 추가](./javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
+* 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](./asp-net.md) 합니다.
+

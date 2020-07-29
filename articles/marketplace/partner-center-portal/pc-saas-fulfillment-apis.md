@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109300"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304142"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 등록 Api
 
@@ -45,7 +47,7 @@ SaaS 처리 Api와의 올바른 통합은 다음을 확인 하는 데 중요 합
 
 이 시나리오에서는 게시자가 API 호출 흐름을 다르게 구현할 필요가 없습니다.
 
-CSP에 대 한 자세한 내용은을 참조 하세요 https://partner.microsoft.com/en-us/licensing .
+CSP에 대 한 자세한 내용은을 참조 하세요 https://partner.microsoft.com/licensing .
 
 >[!Warning]
 >이 API의 현재 버전은 모든 새 SaaS 제품에 사용 되는 버전 2입니다. API의 버전 1은 더 이상 사용 되지 않으며 기존 제안을 지원 하기 위해 유지 관리 되 고 있습니다.

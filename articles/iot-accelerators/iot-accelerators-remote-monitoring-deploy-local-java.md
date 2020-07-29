@@ -3,17 +3,18 @@ title: 원격 모니터링 솔루션을 로컬로 배포-IntelliJ IDE-Azure | Mi
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 IntelliJ를 사용 하 여 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포 하는 방법을 보여 줍니다.
 author: v-krghan
 manager: dominicbetts
+ms.custom: devx-track-java
 ms.author: v-krghan
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187214"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319170"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - IntelliJ
 
@@ -23,7 +24,7 @@ ms.locfileid: "82187214"
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
@@ -90,7 +91,7 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 1. **start.cmd** 스크립트를 실행합니다. 스크립트에서 다음 정보를 요구하는 메시지가 표시됩니다.
 
    * 솔루션 이름
-   * 사용할 Azure 구독입니다.
+   * Azure 구독을 사용합니다.
    * 사용할 Azure 데이터 센터의 위치
 
    이 스크립트는 Azure에서 솔루션 이름이 있는 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용 하는 Azure 리소스가 포함 되어 있습니다. 해당 리소스가 더 이상 필요 하지 않은 경우이 리소스 그룹을 삭제할 수 있습니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6b04a59da78abc81f7749300dfe34ca176c75c4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386371"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371178"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -24,7 +24,7 @@ Windows 디바이스를 관리하려면 로컬 관리자 그룹의 구성원이 
 
 이 문서에서는 로컬 관리자 구성원 업데이트의 작동 방식 및 Azure AD 조인 중에이를 사용자 지정 하는 방법을 설명 합니다. 이 문서의 내용은 **하이브리드 AZURE AD 조인** 장치에는 적용 되지 않습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 Azure ad 조인을 사용 하 여 Azure AD에 Windows 장치를 연결 하는 경우 Azure AD는 장치의 로컬 관리자 그룹에 다음 보안 주체를 추가 합니다.
 
@@ -66,6 +66,21 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 
 >[!NOTE]
 > 위의 작업은 이전에 관련 장치에 로그인 하지 않은 사용자에 게는 적용 되지 않습니다. 이 경우 관리자 권한은 처음으로 장치에 로그인 한 후 즉시 적용 됩니다. 
+
+## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Azure AD 그룹을 사용 하 여 관리자 권한 관리 (미리 보기)
+
+>[!NOTE]
+> 이 기능은 현재 미리 보기로 제공됩니다.
+
+Windows 10 2004 업데이트부터 Azure AD 그룹을 사용 하 여 [제한 된 그룹] (Windows/client management/mdm/restrictedgroups) MDM 정책을 사용 하 여 Azure AD 가입 장치에 대 한 관리자 권한을 관리할 수 있습니다. 이 정책을 사용 하면 개별 사용자 또는 Azure AD 그룹을 Azure AD 조인 장치에 있는 로컬 관리자 그룹에 할당 하 여 여러 장치 그룹에 대 한 고유한 관리자를 구성 하는 세분성을 제공할 수 있습니다. 
+
+현재, Intune에서이 정책을 관리 하는 UI가 없으며 [사용자 지정 OMA-URI 설정] (mem/Intune/구성/사용자 지정-windows-10)을 사용 하 여 구성 해야 합니다. 이 정책에 대 한 몇 가지 고려 사항: 
+
+- 정책을 통해 Azure AD 그룹을 추가 하려면 그룹 API를 실행 하 여 가져올 수 있는 그룹의 SID가 필요 합니다. SID는 그룹 API의 속성으로 정의 됩니다 `securityIdentifier` .
+- 제한 된 그룹 정책을 적용 하면 멤버 목록에 없는 그룹의 현재 구성원이 제거 됩니다. 따라서이 정책을 새 구성원 또는 그룹으로 적용 하면 장치에서 장치 관리자 역할 및 전역 관리자 역할을 조인한 기존 관리자가 제거 됩니다. 기존 구성원을 제거 하지 않으려면 제한 된 그룹 정책에서 구성원 목록의 일부로 구성 해야 합니다. 
+- 이 정책은 Windows 10 장치 (관리자, 사용자, 게스트, 고급 사용자, 원격 데스크톱 사용자 및 원격 관리 사용자)의 잘 알려진 다음 그룹에만 적용 됩니다. 
+- 제한 된 그룹을 사용 하는 로컬 관리자 관리 정책은 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치에 적용 되지 않습니다.
+- Windows 10 2004 업데이트 이전에는 제한 된 그룹 정책이 있었지만, 장치의 로컬 관리자 그룹의 구성원으로 Azure AD 그룹을 지원 하지 않았습니다. 
 
 ## <a name="manage-regular-users"></a>일반 사용자 관리
 

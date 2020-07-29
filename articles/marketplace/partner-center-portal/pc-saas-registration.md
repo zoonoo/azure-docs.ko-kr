@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 85bd6f4192f5c1f47856851ab53521a101340007
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 52427cbaa418e0335797fe0a98c26c3fb84cf670
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109266"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304176"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
@@ -85,7 +87,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 |  `client_secret`   |  True      |  Azure AD 앱과 연결 된 암호입니다. |
 |  `resource`        |  True      |  토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`이 경우 Marketplace SAAS API는 항상 대상 리소스 이므로를 사용 합니다. |
 
-##### <a name="response"></a>*응답*
+##### <a name="response"></a>*Response*
 
 |  Name     |  Type         |  설명 |
 |  ------   |  ---------------  | ------------ |

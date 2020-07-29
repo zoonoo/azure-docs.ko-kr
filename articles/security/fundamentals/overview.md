@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371399"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -47,7 +47,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 ### <a name="features-to-secure-the-azure-platform"></a>Azure 플랫폼을 보호 하는 기능
 다음 기능은 Azure 플랫폼이 안전 하 게 관리 된다는 보증을 제공 하기 위해 검토할 수 있는 기능입니다. Microsoft가 보안 플랫폼, 개인 정보 & 제어, 규정 준수 및 투명도의 네 가지 영역에서 고객 신뢰 질문을 해결 하는 방법에 대 한 링크를 제공 합니다.
 
-| [보안 플랫폼](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [개인 정보 보호 및 제어](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[호환성](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [투명도](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
+| [보안 플랫폼](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [개인 정보 보호 및 제어](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[호환성](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [투명성](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [보안 개발 주기](https://www.microsoft.com/sdl/)(영문), 내부 감사 | [항상 사용자 데이터 관리](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data)(영문) | [보안 센터](https://www.microsoft.com/trustcenter/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/trustcenter/Transparency/default.aspx)(영문) |
 | [필수 보안 교육, 백그라운드 검사](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](https://azuredatacentermap.azurewebsites.net/)(영문)|
@@ -68,7 +68,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 또한 특정 이벤트가 검색되면 [특정 작업을 자동으로 수행](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)하도록 보안 및 규정 준수를 구성할 수 있습니다.
 
-### <a name="azure-resource-manager"></a>Azure Resource Manager
+### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 [Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
 Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제어 설정을 표준화된 템플릿 기반 배포에 통합할 수 있기 때문에 Azure에 배포된 솔루션의 보안을 향상시킬 수 있습니다. 이렇게 하면 수동 배포 중에 발생할 수 있는 보안 구성 오류의 위험이 줄어듭니다.
@@ -142,7 +142,7 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
-RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. Storage 계정 참여자와 같은 [기본 제공 RBAC 역할](../../role-based-access-control/built-in-roles.md)을 사용하여 사용자에게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하는 저장소 계정의 저장소 키에 대 한 액세스는 RBAC (역할 기반 Access Control)를 통해 제어할 수 있습니다.
+RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. 저장소 계정 기여자와 같은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하는 저장소 계정의 저장소 키에 대 한 액세스는 RBAC (역할 기반 Access Control)를 통해 제어할 수 있습니다.
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 [SAS (공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
@@ -155,7 +155,7 @@ RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안
 
 -   클라이언트 쪽 암호화 - 데이터를 스토리지로 전송하기 전에 암호화하고, 스토리지에서 전송한 후에 암호를 해독합니다.
 
-### <a name="encryption-at-rest"></a>휴지 상태의 암호화
+### <a name="encryption-at-rest"></a>저장 데이터 암호화
 많은 조직에서 미사용 데이터 암호화는 데이터 개인 정보 보호, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. &quot;미사용&quot; 데이터 암호화를 제공하는 세 가지 Azure Storage 보안 기능이 있습니다.
 
 -   [Storage 서비스 암호화](../../storage/common/storage-service-encryption.md) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
@@ -288,7 +288,7 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-intro.md) 는 네트워크 보안 모범 사례에 대 한 Azure 리소스의 보안 상태를 지속적으로 분석 합니다. Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>컴퓨팅
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신

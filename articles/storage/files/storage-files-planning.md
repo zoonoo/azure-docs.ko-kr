@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659644"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370362"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure File Sync를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
@@ -74,6 +75,30 @@ Azure 스토리지 계정에 대해 전송 중 암호화를 사용하지 않도�
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="data-protection"></a>데이터 보호
+Azure Files는 데이터를 백업, 복구 및 보안 위협 으로부터 보호할 수 있도록 하는 다중 계층 방식이 있습니다.
+
+### <a name="soft-delete"></a>일시 삭제
+파일 공유에 대 한 일시 삭제 (미리 보기)는 파일 공유를 실수로 삭제 한 경우 복구할 수 있도록 하는 저장소 계정 수준 설정입니다. 파일 공유를 삭제 하면 영구적으로 삭제 되는 대신 일시 삭제 된 상태로 전환 됩니다. 일시 삭제 된 데이터를 영구적으로 삭제 하기 전에 복구할 수 있는 시간을 구성 하 고,이 보존 기간 동안 언제 든 지 공유를 삭제 취소 합니다. 
+
+대부분의 파일 공유에 대해 일시 삭제를 설정 하는 것이 좋습니다. 공유 삭제가 공통적이 고 예상 되는 워크플로가 있는 경우 보존 기간을 매우 짧게 설정 하거나 일시 삭제를 사용 하도록 설정 하지 않을 수 있습니다.
+
+일시 삭제에 대 한 자세한 내용은 [실수로 인 한 데이터 삭제 방지](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion)를 참조 하세요.
+
+### <a name="backup"></a>Backup
+공유 [스냅숏](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)(읽기 전용, 공유의 지정 시간 복사본)을 통해 Azure 파일 공유를 백업할 수 있습니다. 스냅숏은 증분 이므로 이전 스냅숏 이후 변경 된 만큼의 데이터만 포함 합니다. 파일 공유 당 최대 200 개의 스냅숏을 보유 하 고 최대 10 년 동안 유지할 수 있습니다. PowerShell 또는 CLI (명령줄 인터페이스)를 통해 Azure Portal에서 수동으로 이러한 스냅숏을 만들거나 [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json)를 사용할 수 있습니다. 스냅숏은 파일 공유 내에 저장 됩니다. 즉, 파일 공유를 삭제 하면 스냅숏은 삭제 됩니다. 스냅숏 백업이 실수로 삭제 되지 않도록 보호 하려면 공유에 대해 일시 삭제를 사용 하도록 설정 해야 합니다.
+
+[Azure 파일 공유에 대 한 Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) 는 스냅숏의 예약 및 보존을 처리 합니다. GFS (조부) 기능을 사용 하는 경우 매일, 매주, 매월 및 매년 스냅숏을 만들 수 있으며 각각 고유한 보존 기간을 갖습니다. 또한 오케스트레이션는 일시 삭제를 사용 하도록 설정 하 고 저장소 계정 내의 파일 공유가 백업에 대해 구성 되는 즉시 저장소 계정에 대 한 삭제 잠금을 수행 합니다. Azure Backup 마지막으로, Azure Backup은 고객이 백업 공간을 통합 하 여 볼 수 있도록 하는 특정 주요 모니터링 및 경고 기능을 제공 합니다.
+
+Azure Backup를 사용 하 여 Azure Portal에서 항목 수준 및 공유 수준 복원을 모두 수행할 수 있습니다. 복원 지점 (특정 스냅숏), 특정 파일 또는 디렉터리 (관련 된 경우) 및 복원 하려는 위치 (원래 또는 대체)를 선택 하기만 하면 됩니다. 백업 서비스는 스냅숏 데이터 복사를 처리 하 고 포털의 복원 진행률을 보여 줍니다.
+
+백업에 대 한 자세한 내용은 [Azure 파일 공유 백업](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json)정보를 참조 하세요.
+
+### <a name="advanced-threat-protection-for-azure-files-preview"></a>Azure Files에 대 한 Advanced Threat Protection (미리 보기)
+Azure Storage에 대 한 ATP (Advanced Threat Protection)는 저장소 계정에서 비정상적인 활동을 검색할 때 경고를 제공 하는 추가 보안 인텔리전스 계층을 제공 합니다 (예: 저장소 계정에 대 한 액세스를 비정상적인 시도). ATP는 맬웨어 해시 평판 분석도 실행 하 고 알려진 맬웨어에 대해 경고 합니다. Azure Security Center를 통해 구독 또는 저장소 계정 수준에서 ATP를 구성할 수 있습니다. 
+
+자세한 내용은 [Azure Storage에 대 한 Advanced Threat protection](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)을 참조 하세요.
 
 ## <a name="storage-tiers"></a>스토리지 계층
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

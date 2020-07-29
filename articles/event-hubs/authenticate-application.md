@@ -3,12 +3,12 @@ title: Azure Event Hubs 리소스에 액세스 하는 응용 프로그램 인증
 description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하 Azure Active Directory 응용 프로그램 인증에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 56c9033d5b44fde50ebac25bf194cbea486ad387
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1def026b1f188eba85ad5a86bf963ba1964b768a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131942"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371535"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용 하 여 응용 프로그램을 인증 Event Hubs 리소스에 액세스
 Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure Event Hubs에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은입니다 `https://eventhubs.azure.net/` . Kafka 클라이언트의 경우 토큰을 요청 하는 리소스가입니다 `https://<namespace>.servicebus.windows.net` . Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
@@ -19,7 +19,7 @@ Azure AD 보안 주체에 역할을 할당 하는 경우 Azure는 해당 보안 
 > 역할 정의는 사용 권한 컬렉션입니다. RBAC (역할 기반 액세스 제어)는 역할 할당을 통해 이러한 사용 권한을 적용 하는 방법을 제어 합니다. 역할 할당은 보안 주체, 역할 정의, 범위의 세 가지 요소로 구성됩니다. 자세한 내용은 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 기본 제공 역할
-Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 액세스 권한을 부여 하는 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
+Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
 
 - [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 완전 한 액세스를 제공 합니다.
 - [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다.

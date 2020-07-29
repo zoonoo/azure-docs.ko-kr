@@ -3,12 +3,12 @@ title: Event Grid 원본으로 Azure Blob Storage
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 792e4b24df5eb374d1e3589629fa8628d6680cf8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113754"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371280"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Blob Storage
 
@@ -24,7 +24,10 @@ ms.locfileid: "86113754"
 
 이러한 이벤트는 클라이언트가 Blob REST Api를 호출 하 여 blob을 만들거나 바꾸거나 삭제할 때 트리거됩니다.
 
- |이벤트 이름 |Description|
+> [!NOTE]
+> *`(abfss://URI) `* 비 계층적 네임 스페이스 사용 계정에 대해 dfs 끝점을 사용 하면 이벤트가 생성 되지 않습니다. 이러한 계정에 대해서는 blob 끝점만 *`(wasb:// URI)`* 이벤트를 생성 합니다.
+
+ |이벤트 이름 |설명|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Blob을 만들거나 바꿀 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `PutBlob` `PutBlockList` `CopyBlob` Blob REST API에서 사용할 수 있는, 또는 작업을 사용 하는 경우 트리거됩니다.   |
  |**Microsoft.Storage.BlobDeleted** |Blob이 삭제 될 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `DeleteBlob` Blob REST API에서 사용할 수 있는 작업을 호출 하는 경우 트리거됩니다. |
@@ -36,7 +39,7 @@ ms.locfileid: "86113754"
 
 이러한 이벤트는 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하 고 클라이언트는 Azure Data Lake Storage Gen2 REST Api를 호출 하는 경우 트리거됩니다. Bout Azure Data Lake Storage Gen2 자세한 내용은 [Azure Data Lake Storage Gen2 소개](../storage/blobs/data-lake-storage-introduction.md)를 참조 하세요.
 
-|이벤트 이름|Description|
+|이벤트 이름|설명|
 |----------|-----------|
 |**Microsoft.Storage.BlobCreated** | Blob을 만들거나 바꿀 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `CreateFile` `FlushWithClose` Azure Data Lake Storage Gen2 REST API에서 사용할 수 있는 및 작업을 사용 하는 경우 트리거됩니다. |
 |**Microsoft.Storage.BlobDeleted** |Blob이 삭제 될 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 `DeleteFile` Azure Data Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 호출 하는 경우에도 트리거됩니다. |
@@ -291,7 +294,7 @@ Blob 저장소 계정에 계층적 네임 스페이스가 있는 경우 데이�
 | 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
@@ -310,13 +313,13 @@ Blob 저장소 계정에 계층적 네임 스페이스가 있는 경우 데이�
 | contentType | 문자열 | Blob에 대해 지정된 콘텐츠 형식입니다. |
 | contentLength | integer | Blob의 크기(바이트)입니다. |
 | blobType | 문자열 | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
-| contentOffset | number | 이벤트 트리거 응용 프로그램에서 파일에 쓰기를 완료 한 시점에 수행 된 쓰기 작업의 오프셋 (바이트)입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
+| contentOffset | 숫자 | 이벤트 트리거 응용 프로그램에서 파일에 쓰기를 완료 한 시점에 수행 된 쓰기 작업의 오프셋 (바이트)입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
 | destinationUrl |문자열 | 작업이 완료 된 후 존재 하는 파일의 url입니다. 예를 들어 파일의 이름을 바꾸면 `destinationUrl` 속성에 새 파일 이름의 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
 | sourceUrl |문자열 | 작업 이전에 존재 하는 파일의 url입니다. 예를 들어 파일의 이름을 바꾸면 `sourceUrl` 이름 바꾸기 작업 이전의 원본 파일 이름 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
 | url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 * \<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\> *입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 * \<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *입니다. |
 | recursive | 문자열 | `True`모든 자식 디렉터리에서 작업을 수행 하려면 그렇지 않으면 `False` 입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
 | sequencer | 문자열 | 특정 Blob 이름에 대한 이벤트의 논리적 순서를 나타내는 불투명 문자열 값입니다.  사용자는 표준 문자열 비교를 사용하여 동일한 Blob 이름에 대한 두 이벤트의 상대적 순서를 이해할 수 있습니다. |
-| storageDiagnostics | 개체 | 경우에 따라 Azure Storage 서비스에 의해 포함되는 진단 데이터입니다. 포함될 경우, 이벤트 소비자는 무시해야 합니다. |
+| storageDiagnostics | object | 경우에 따라 Azure Storage 서비스에 의해 포함되는 진단 데이터입니다. 포함될 경우, 이벤트 소비자는 무시해야 합니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 |제목  |Description  |

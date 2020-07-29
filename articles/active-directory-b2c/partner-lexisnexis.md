@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fa4610c925429ea59eae7399094230c1370bf2a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098256"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371195"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 LexisNexis 구성에 대 한 자습서
 
@@ -23,11 +23,11 @@ ms.locfileid: "87098256"
 
 이 통합은 등록 흐름 중에 사용자가 제공 하는 몇 가지 사용자 정보를 기반으로 프로 파일링을 수행 합니다. ThreatMetrix는 사용자가 로그인 할 수 있도록 허용할지 여부를 결정 합니다. 다음 특성은 ThreatMetrix의 위험 분석에서 고려 됩니다.
 
-- 메일
+- 전자 메일
 - 전화 번호
 - 사용자의 컴퓨터에서 수집 된 프로 파일링 정보
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작 하려면 다음이 필요 합니다.
 
@@ -82,7 +82,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 응용 프로그램 설정은 [Azure의 App service에서 구성할](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)수 있습니다.  이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: Url | ThreatMetrix 계정 구성 |     |
 |ThreatMetrix: OrgId | ThreatMetrix 계정 구성 |     |
@@ -147,7 +147,7 @@ UI는 바다색 페이지 템플릿을 기반으로 합니다. 배포 된 위치
 
 6. 로그인 흐름을 통해 이동  
 
-7. **Continue**를 입력 하면 CrossCore 퍼즐이 팝업 됩니다.
+7. **Continue**를 입력 하면 ThreatMetrix 퍼즐이 팝업 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

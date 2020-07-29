@@ -1,7 +1,7 @@
 ---
-title: Azure AD B2C에 대 한 파트너 갤러리
+title: Azure AD B2C에 대 한 ISV 파트너 갤러리
 titleSuffix: Azure AD B2C
-description: 파트너와 통합 하 여 사용자의 요구에 맞게 최종 사용자 환경을 조정 하는 방법을 알아보세요. 파트너 네트워크는 솔루션 기능을 확장 합니다. MFA 사용, 보안 고객 인증, 역할 기반 Access Control Id 확인 교정을 통해 사기 행위를 방지 합니다.
+description: ISV 파트너와 통합 하 여 사용자의 요구에 맞게 최종 사용자 환경을 조정 하는 방법을 알아봅니다. 파트너 네트워크는 솔루션 기능을 확장 합니다. MFA 사용, 보안 고객 인증, 역할 기반 Access Control Id 확인 교정을 통해 사기 행위를 방지 합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,23 +11,23 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2336916f7d47b38a12ee0418353a249b5eaa3801
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 986abbe6c124ce1323add5b8e854973416dfcbf4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042410"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371212"
 ---
-# <a name="azure-active-directory-b2c-partners"></a>Azure Active Directory B2C 파트너
+# <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
-파트너 네트워크는 원활한 최종 사용자 환경을 구축 하는 데 도움이 되는 솔루션 기능을 확장 합니다. Azure AD B2C를 사용 하 여 파트너와 통합 하 여 multi-factor authentication 방법을 사용 하도록 설정 하 고, SCA (Secure Customer Authentication)를 사용 하도록 설정 하 고, 역할 기반 Access Control를 수행 하 고, id 확인 및 교정을 통해 사기 행위를 수행할 수 있습니다 아래에 나열 된 파트너와 앱을 통합 하는 방법을 알아보려면 자세한 샘플 연습을 사용 하세요.
+ISV 파트너 네트워크는 원활한 최종 사용자 환경을 구축 하는 데 도움이 되는 솔루션 기능을 확장 합니다. Azure AD B2C를 사용 하면 ISV 파트너와 통합 하 여 multi-factor authentication 방법을 사용 하도록 설정 하 고, SCA (Secure Customer Authentication)를 사용 하도록 설정 하 고, 역할 기반 Access Control를 수행 하 고, id 확인 및 교정을 통해 사기 행위를 수행할 수 있습니다. 아래에 나열 된 ISV 파트너와 앱을 통합 하는 방법을 알아보려면 자세한 샘플 연습을 사용 하세요.
 
 >[!NOTE]
 >[GitHub의 Azure Active Directory B2C 커뮤니티 사이트](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) 는 커뮤니티의 샘플 사용자 지정 정책을 제공 합니다.
 
-## <a name="integration-partners"></a>통합 파트너
+## <a name="integration-isv-partners"></a>통합 ISV 파트너
 
-| 파트너 | 설명 및 통합 연습  |
+| ISV 파트너 | 설명 및 통합 연습  |
 | :--- | :--- |
 | ![로고](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) 는 조직이 봇 공격, 계정 인수 공격 및 사기성 계정 입구를 방지 하는 데 도움이 되는 사기 행위 방지 솔루션 공급자입니다.
 | ![로고](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) 는 사기 행위를 방지 하기 위해 사용자 특성을 기반으로 위험 평가를 수행 하는 id 확인 및 교정 공급자입니다.|

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089331"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370277"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Synapse Analytics에 대 한 Azure 보안 기준
 
@@ -314,7 +314,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 처음으로 Azure SQL을 배포할 때 해당 로그인에 대 한 관리자 로그인 및 연결 된 암호를 지정 합니다. 이 관리 계정을 서버 관리자 라고 합니다. Azure Portal를 열고 서버 또는 관리 되는 인스턴스의 속성 탭으로 이동 하 여 데이터베이스에 대 한 관리자 계정을 식별할 수 있습니다. 모든 관리 권한을 사용 하 여 Azure AD 관리자 계정을 구성할 수도 있습니다 .이는 Azure Active Directory 인증을 사용 하도록 설정 하려는 경우에 필요 합니다.
 
-관리 작업의 경우 명시적으로 할당 해야 하는 기본 제공 azure RBAC (역할 기반 액세스 제어) 역할을 사용 합니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
+관리 작업의 경우 명시적으로 할당 해야 하는 Azure 기본 제공 역할을 사용 합니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
 * [SQL Database에 대 한 인증](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -328,7 +328,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 * [Azure SQL에서 기존 로그인 및 관리자 계정을 관리 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Azure RBAC 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Azure 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1026,7 +1026,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 고객 관리 키를 사용 하 여 데이터베이스 암호화 키를 암호화 하는 경우 키를 백업 하 고 있는지 확인 합니다.
 
-* [Azure Synapse SQL 풀에서 백업 및 복원](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Azure Synapse SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Azure Key Vault 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

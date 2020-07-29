@@ -1,6 +1,5 @@
 ---
-title: 보기 & 다시 실행 실험
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 실험을 통해 실험 & 다시 실행-Azure'
 description: Azure Machine Learning Studio (클래식)에서 실험 실행을 관리 합니다. 이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e6d4312850dc16b76e248c9bbceacd8b5311d5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687398"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318524"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 실험 실행 관리 (클래식)
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.
 

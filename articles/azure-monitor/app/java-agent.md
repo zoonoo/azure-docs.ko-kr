@@ -3,12 +3,13 @@ title: Java 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: f2ce02c3ec9fbbc762b7919ee31d9b69306a008a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java
+ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322621"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371365"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 

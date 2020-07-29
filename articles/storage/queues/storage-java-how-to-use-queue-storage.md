@@ -2,18 +2,19 @@
 title: Java에서 Queue storage를 사용 하는 방법-Azure Storage
 description: 큐 저장소를 사용 하 여 큐를 만들고 삭제 하 고 Java 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 메시지를 삽입, 가져오기 및 삭제 하는 방법에 대해 알아봅니다.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: a0c94f3c9af9220bb3cf6476c50799d1f3313ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17e5a542bc951df5b40144490f05e41aec1a09e8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809239"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319425"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Java에서 Queue Storage를 사용하는 방법
 

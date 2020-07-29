@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565908"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371416"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure Portal의 Azure Cognitive Search에 대 한 서비스 관리
 
@@ -123,7 +123,7 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 
 복제본을 추가 하는 것이 더 일반적 이지만 저장소가 제한 된 경우 더 많은 용량을 얻기 위해 파티션을 추가할 수 있습니다. 서비스를 프로 비전 한 계층은 파티션을 추가할 수 있는지 여부를 결정 합니다. 기본 계층은 한 파티션에서 잠깁니다. 표준 계층 이상에서는 추가 파티션을 지원 합니다.
 
-파티션은 12의 배수로 추가 됩니다 (특히 1, 2, 3, 4, 6 또는 12). 이는 분할의 아티팩트입니다. 인덱스는 12개 분할로 만들어지며 모두 하나의 파티션에 저장되거나 2, 3, 4, 6 또는 12개 파티션(파티션당 하나의 분할)에 똑같이 나뉠 수 있습니다.
+파티션은 12 제 수 (특히 1, 2, 3, 4, 6 또는 12)로 추가 됩니다. 이는 분할의 아티팩트입니다. 인덱스는 12개 분할로 만들어지며 모두 하나의 파티션에 저장되거나 2, 3, 4, 6 또는 12개 파티션(파티션당 하나의 분할)에 똑같이 나뉠 수 있습니다.
 
 ### <a name="remove-replicas"></a>복제본 제거
 
