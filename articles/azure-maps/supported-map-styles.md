@@ -1,29 +1,32 @@
 ---
-title: 지원 되는 지도 스타일 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure 맵에서 지 원하는 다양 한 지도 렌더링 스타일에 대해 알아봅니다.
+title: 지원 되는 기본 제공 Azure Maps 지도 스타일
+description: 이 문서에서는 Microsoft Azure 맵에서 지 원하는 다양 한 기본 제공 지도 스타일에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/06/2019
+ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: c22363b3b1e0b8283de572ff578e6d78f0627486
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: b9641fe647eebae020ee67ee19a9cc131a487a7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128066"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286888"
 ---
-# <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
+# <a name="azure-maps-supported-built-in-map-styles"></a>지원 되는 기본 제공 지도 스타일 Azure Maps
+
 Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타일을 지원합니다.
 
 ## <a name="road"></a>도로
-**도로** 지도는 도로, 자연적 특징 및 인공적 특징을 해당 특징에 대한 레이블과 함께 표시하는 표준 지도입니다.
+
+**도로 지도는도로** 를 표시 하는 표준 지도입니다. 또한 자연 및 인공 특징과 이러한 기능에 대 한 레이블을 표시 합니다.
 
 ![도로 지도 스타일](./media/supported-map-styles/road.png)
 
 **적용 가능한 API:**
+
 * [지도 이미지](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤
@@ -32,49 +35,56 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 ## <a name="blank-and-blank_accessible"></a>blank 및 blank_accessible
 
-**비어** 있는 지도와 **blank_accessible** 지도 스타일은 데이터를 시각화할 빈 캔버스를 제공 합니다. 기본 지도가 표시 되지 않더라도 **blank_accessible** 스타일은 지도 위치 세부 정보를 사용 하 여 화면 판독기 업데이트를 계속 제공 합니다.
+**빈** 지도와 **blank_accessible** 지도 스타일은 데이터를 시각화 하기 위한 빈 캔버스를 제공 합니다. 기본 지도가 표시 되지 않더라도 **blank_accessible** 스타일은 지도 위치 세부 정보를 사용 하 여 화면 판독기 업데이트를 계속 제공 합니다.
 
 > [!Note]
 > 웹 SDK에서 지도 DIV 요소의 CSS 스타일을 설정 하 여 지도의 배경색을 변경할 수 있습니다 `background-color` .
 
 **적용 가능한 API:**
+
 * 웹 SDK 맵 컨트롤
 
-## <a name="satellite"></a>satellite 
+## <a name="satellite"></a>satellite
+
 **위성** 스타일은 위성 및 항공 이미지의 조합입니다.
 
 ![위성 타일 지도 스타일](./media/supported-map-styles/satellite.png)
 
 **적용 가능한 API:**
+
 * [위성 타일](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
+
 이 지도 스타일은 위성 및 항공 이미지 위에 겹쳐진 도로 및 레이블의 하이브리드입니다.
 
 ![satellite_road_labels 지도 스타일](./media/supported-map-styles/satellite-road-labels.png)
 
 **적용 가능한 API:**
+
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="grayscale_dark"></a>grayscale_dark
+
 **회색조 진한** 은도로 지도 스타일의 어두운 버전입니다.
 
 ![gray_scale 지도 스타일](./media/supported-map-styles/grayscale-dark.png)
 
 **적용 가능한 API:**
+
 * [지도 이미지](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* 웹 SDK 맵 컨트롤 
+* 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
 
-
 ## <a name="grayscale_light"></a>grayscale_light
+
 **회색조 라이트** 는도로 지도 스타일의 조명 버전입니다.
 
 ![회색조 연한 지도 스타일](./media/supported-map-styles/grayscale-light.png)
@@ -84,23 +94,26 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 * Android 맵 컨트롤
 * Power BI 시각적 개체
 
-
 ## <a name="night"></a>야간
+
 **야간**은 색이 지정된 도로 및 기호가 포함된 어두운 버전의 도로 지도 스타일입니다.
 
 ![야간 지도 스타일](./media/supported-map-styles/night.png)
 
 **적용 가능한 API:**
+
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
+
 **도로 음영 입체**는 지구의 등고선으로 채워진 Azure Maps 주요 스타일입니다.
 
 ![음영 된 릴리프 맵 스타일](./media/supported-map-styles/shaded-relief.png)
 
 **적용 가능한 API:**
+
 * [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
@@ -113,6 +126,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 ![고대비 어둡게 지도 스타일](./media/supported-map-styles/high-contrast-dark.png)
 
 **적용 가능한 API:**
+
 * 웹 SDK 맵 컨트롤
 * Power BI 시각적 개체
 

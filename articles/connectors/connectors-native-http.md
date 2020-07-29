@@ -7,11 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286634"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -161,7 +162,7 @@ HTTP 요청에 형식이 있는 콘텐츠를 처리 하려면 `multipart/form-da
 
 ## <a name="asynchronous-request-response-behavior"></a>비동기 요청-응답 동작
 
-기본적으로 Azure Logic Apps의 모든 HTTP 기반 작업은 표준 [비동기 작업 패턴](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)을 따릅니다. 이 패턴은 HTTP 작업에서 끝점, 서비스, 시스템 또는 API에 대 한 요청을 호출 하거나 보낸 후 수신자가 ["202 수락"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 즉시 반환 하도록 지정 합니다. 이 코드는 수신자가 요청을 수락 했지만 처리가 완료 되지 않았음을 확인 합니다. 응답에는 수신기가 `location` 처리를 중지 하 고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 다른 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인 하는 데 사용할 수 있는 URL 및 새로 고침 ID를 지정 하는 헤더가 포함 될 수 있습니다. 그러나 호출자는 요청이 처리를 마칠 때까지 기다릴 필요가 없으며 다음 작업을 계속 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로 서비스 통합에 마이크로 서비스 자율성 적용](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조 하세요.
+기본적으로 Azure Logic Apps의 모든 HTTP 기반 작업은 표준 [비동기 작업 패턴](/azure/architecture/patterns/async-request-reply)을 따릅니다. 이 패턴은 HTTP 작업에서 끝점, 서비스, 시스템 또는 API에 대 한 요청을 호출 하거나 보낸 후 수신자가 ["202 수락"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 즉시 반환 하도록 지정 합니다. 이 코드는 수신자가 요청을 수락 했지만 처리가 완료 되지 않았음을 확인 합니다. 응답에는 수신기가 `location` 처리를 중지 하 고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 다른 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인 하는 데 사용할 수 있는 URL 및 새로 고침 ID를 지정 하는 헤더가 포함 될 수 있습니다. 그러나 호출자는 요청이 처리를 마칠 때까지 기다릴 필요가 없으며 다음 작업을 계속 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로 서비스 통합에 마이크로 서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조 하세요.
 
 * 논리 앱 디자이너에서 트리거는 제외 하 고 HTTP 작업에는 기본적으로 사용 되는 **비동기 패턴** 설정이 있습니다. 이 설정은 호출자가 처리가 완료 될 때까지 기다리지 않고 다음 작업으로 이동할 수 있도록 지정 하지만 처리가 중지 될 때까지 계속 해 서 상태를 확인 합니다. 사용 하지 않도록 설정 된 경우이 설정은 호출자가 다음 작업으로 이동 하기 전에 처리가 완료 될 때까지 대기 하도록 지정 합니다.
 
@@ -252,7 +253,7 @@ Logic Apps에서 HTTP 트리거 또는 작업을 사용 하는 논리 앱을 이
 
 이 정보를 반환 하는 HTTP 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 |----------|------|-------------|
 | `headers` | JSON 개체 | 요청의 헤더 |
 | `body` | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
@@ -273,3 +274,4 @@ Logic Apps에서 HTTP 트리거 또는 작업을 사용 하는 논리 앱을 이
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

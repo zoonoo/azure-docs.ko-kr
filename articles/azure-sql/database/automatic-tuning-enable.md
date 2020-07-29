@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982790"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373507"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Azure Portal에서 자동 조정 기능을 사용 하 여 쿼리를 모니터링 하 고 워크 로드 성능을 향상 시킵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,7 +117,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 ## <a name="permissions"></a>사용 권한
 
-자동 튜닝은 Azure 기능 이므로,이 기능을 사용 하려면 Azure의 기본 제공 RBAC 역할을 사용 해야 합니다. SQL 인증을 사용 하는 경우에만 Azure Portal 기능을 사용할 수 있는 것은 아닙니다.
+자동 튜닝은 Azure 기능 이므로,이 기능을 사용 하려면 Azure의 기본 제공 역할을 사용 해야 합니다. SQL 인증을 사용 하는 경우에만 Azure Portal 기능을 사용할 수 있는 것은 아닙니다.
 
 자동 조정을 사용 하려면 사용자에 게 권한을 부여 하는 데 필요한 최소 권한이 Azure의 기본 제공 [SQL Database 기여자](../../role-based-access-control/built-in-roles.md#sql-db-contributor) 역할입니다. SQL Server 참여자, SQL Managed Instance 기여자, 참가자, 소유자 등의 더 높은 권한 역할을 사용 하는 것을 고려할 수도 있습니다.
 

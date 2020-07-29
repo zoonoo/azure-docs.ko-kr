@@ -6,13 +6,13 @@ ms.topic: how-to
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.custom: tracking-python
-ms.openlocfilehash: ae4840f5ca31f9bbef1fa5f9ffd175a1f1d7696b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python, devx-track-java
+ms.openlocfilehash: e1321c0d5b1f83ffcfd3f46384dfb3af792c9b8b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832222"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373099"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 
@@ -65,7 +65,7 @@ Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아�
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 7단계":::
 
-8. **Finish**를 클릭합니다.
+8. **마침**을 클릭합니다.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Azure Cosmos DB 로컬 에뮬레이터 내보내기 8단계":::
 

@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: c10e47ea10939b60c6c334229fb18ec2702af11f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77209701"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286922"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
@@ -32,7 +33,7 @@ ms.locfileid: "77209701"
 - BMP
 - GIF (애니메이션 없음)
 
-## <a name="add-a-symbol-layer"></a>기호 계층 추가
+## <a name="add-a-symbol-layer"></a>기호 레이어 추가
 
 지도에 기호 계층을 추가 하려면 몇 가지 단계를 수행 해야 합니다. 먼저 데이터 원본을 만들어 맵에 추가 합니다. 기호 계층을 만듭니다. 그런 다음 데이터 소스를 기호 계층에 전달 하 여 데이터 소스에서 데이터를 검색 합니다. 마지막으로 데이터 소스에 데이터를 추가 하 여 렌더링할 항목이 있는지를 파악 합니다. 
 

@@ -5,16 +5,17 @@ description: Python에서 Azure Machine Learning 파이프라인을 디버깅 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: troubleshooting, tracking-python
+ms.openlocfilehash: 6fa75c0c6ec6146ca59f6eaf4593b4912ae823c1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557427"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372963"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +27,7 @@ ms.locfileid: "84557427"
 * Application Insights를 사용 하 여 디버그
 * Visual Studio Code (VS Code) 및 Visual Studio용 Python 도구 (PTVSD)를 사용 하 여 대화형으로 디버그
 
-## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK의 디버그 및 문제 해결
+## <a name="azure-machine-learning-sdk"></a>Azure Machine Learning SDK
 다음 섹션에서는 파이프라인을 빌드할 때 발생 하는 일반적인 문제에 대 한 개요와 파이프라인에서 실행 되는 코드를 디버깅 하기 위한 다른 전략을 제공 합니다. 예상 대로 실행 되는 파이프라인을 가져오는 데 문제가 있는 경우 다음 팁을 사용 하세요.
 
 ### <a name="testing-scripts-locally"></a>로컬에서 스크립트 테스트
@@ -76,7 +77,7 @@ ms.locfileid: "84557427"
 
 다음 표에는 잠재적인 솔루션을 포함 하는 파이프라인 개발 중에 일반적인 문제가 포함 되어 있습니다.
 
-| 문제 | 가능한 솔루션 |
+| 문제 | 가능한 해결 방법 |
 |--|--|
 | 디렉터리에 데이터를 전달할 수 없습니다. `PipelineData` | 파이프라인이 단계 출력 데이터를 기대 하는 위치에 해당 하는 디렉터리를 스크립트에 만들었는지 확인 합니다. 대부분의 경우 입력 인수는 출력 디렉터리를 정의 하 고 디렉터리를 명시적으로 만듭니다. `os.makedirs(args.output_dir, exist_ok=True)`를 사용 하 여 출력 디렉터리를 만듭니다. 이 디자인 패턴을 보여 주는 점수 매기기 스크립트 예제에 대 한 [자습서](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) 를 참조 하세요. |
 | 종속성 버그 | 스크립트를 로컬로 개발 하 고 테스트 했지만 파이프라인에서 원격 계산을 실행할 때 종속성 문제가 발견 되 면 계산 환경 종속성 및 버전이 테스트 환경과 일치 하는지 확인 합니다. [환경 빌드, 캐싱 및 재사용](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse) 을 참조 하세요.|
@@ -88,7 +89,7 @@ ms.locfileid: "84557427"
 
 다음 표에서는 파이프라인에 대 한 다양 한 디버그 옵션에 대 한 정보를 제공 합니다. 여기에 표시 된 Azure Machine Learning, Python 및 OpenCensus 뿐 아니라 다른 옵션도 존재 하므로 완전 한 목록은 아닙니다.
 
-| 라이브러리                    | 형식   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
+| 라이브러리                    | Type   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
@@ -126,9 +127,13 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너에서 디버그 및 문제 해결 (미리 보기)
+## <a name="azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)
 
 이 섹션에서는 디자이너의 파이프라인 문제를 해결 하는 방법에 대 한 개요를 제공 합니다. 디자이너에서 만든 파이프라인의 경우 제작 페이지나 파이프라인 실행 세부 정보 페이지에서 **70_driver_log** 파일을 찾을 수 있습니다.
+
+### <a name="enable-logging-for-real-time-endpoints"></a>실시간 끝점에 대 한 로깅 사용
+
+디자이너에서 실시간 끝점의 문제를 해결 하 고 디버그 하려면 SDK를 사용 하 여 응용 프로그램 정보 로깅을 사용 하도록 설정 해야 합니다. 로깅을 사용 하면 모델 배포 및 사용 문제를 해결 하 고 디버그할 수 있습니다. 자세한 내용은 [배포 된 모델에 대 한 로깅](how-to-enable-logging.md#logging-for-deployed-models)을 참조 하세요. 
 
 ### <a name="get-logs-from-the-authoring-page"></a>제작 페이지에서 로그 가져오기
 
@@ -155,14 +160,14 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 > [!IMPORTANT]
 > 파이프라인 실행 정보 페이지에서 파이프라인을 업데이트 하려면 파이프라인 실행을 새 파이프라인 초안으로 **복제** 해야 합니다. 파이프라인 실행은 파이프라인의 스냅숏입니다. 로그 파일과 비슷하며 변경할 수 없습니다. 
 
-## <a name="debug-and-troubleshoot-in-application-insights"></a>Application Insights 디버그 및 문제 해결
+## <a name="application-insights"></a>Application Insights
 이러한 방식으로 OpenCensus Python 라이브러리를 사용 하는 방법에 대 한 자세한 내용은이 가이드: [Application Insights machine learning 파이프라인 디버그 및 문제 해결](how-to-debug-pipelines-application-insights.md) 을 참조 하세요.
 
-## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Visual Studio Code 디버그 및 문제 해결
+## <a name="visual-studio-code"></a>Visual Studio Code
 
 ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. Visual Studio Code (VS Code) 및 Visual Studio용 Python 도구 (PTVSD)를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 * __Azure Virtual Network__를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
 * 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.
@@ -175,7 +180,7 @@ ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버�
 
 Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 대 한 자세한 내용은 azure [Virtual Network 내에서 AZURE ML 실험 및 유추 작업 보호](how-to-enable-virtual-network.md)를 참조 하세요.
 
-### <a name="how-it-works"></a>작동 방법
+### <a name="how-it-works"></a>작동 방식
 
 ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
     

@@ -3,16 +3,17 @@ title: Azure에서 FreeBSD의 패킷 필터를 사용하여 방화벽 만들기
 description: Azure에서 FreeBSD의 PF를 사용하여 NAT 방화벽을 배포하는 방법을 알아봅니다.
 author: KylieLiang
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: eeeb60cc41f96edbf8733468ca0cfd18d2939af7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 85804e0f9293ec2e63aa319854e9559da11c8be1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286277"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Azure에서 FreeBSD 패킷 필터를 사용하여 보안 방화벽을 만드는 방법
 이 문서에서는 일반 웹 서버 시나리오에 대해 Azure Resource Manager 템플릿을 통해 FreeBSD 패킷 필터를 사용하여 NAT 방화벽을 배포하는 방법을 소개합니다.

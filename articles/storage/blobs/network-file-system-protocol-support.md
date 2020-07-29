@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b76e25b2961bf3fb268da6622cbfcce3a50a3396
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099613"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372895"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
 
@@ -87,10 +87,8 @@ ms.locfileid: "87099613"
 
 - 저장소 계정에서 NFS 3.0 지원을 사용 하지 않도록 설정 하는 기능 (설정 후)
 
-- NFS 3.0 및 다른 REST Api 또는 Sdk를 사용 하 여 blob에 쓸 수 있습니다. 
-
-  REST Api 또는 Sdk를 사용 하 여 blob에 쓰려면 읽기 작업을 수행 하는 데에만 NFS 3.0을 사용 해야 합니다. 그렇지 않으면 blob이 손상 될 수 있습니다.
-
+- REST Api 또는 Sdk를 사용 하 여 blob에 쓸 수 있습니다. 
+  
 ## <a name="nfs-30-features-not-yet-supported"></a>NFS 3.0 기능이 아직 지원 되지 않음
 
 다음 NFS 3.0 기능은 Azure Data Lake Storage Gen2에서 아직 지원 되지 않습니다.

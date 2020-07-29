@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩의 라이선스 이미지 사용 | Microsoft
 description: Azure Portal을 사용하여 Azure DevTest Labs에서 라이선스 이미지를 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481020"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286515"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 라이선스 이미지 사용
 
@@ -50,7 +50,7 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
     ![프로그래밍 방식 배포 구성 창](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > 데이터 과학 VM은 데이터 분석, 기계 학습 및 AI 교육에 일반적으로 사용되는 몇 가지 인기 있는 도구로, 미리 설치되고 구성되고 테스트된 Azure Virtual Machine 이미지입니다. [Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)에서는 DSVM에 대한 풍부한 정보를 제공합니다.
+   > 데이터 과학 VM은 데이터 분석, 기계 학습 및 AI 교육에 일반적으로 사용되는 몇 가지 인기 있는 도구로, 미리 설치되고 구성되고 테스트된 Azure Virtual Machine 이미지입니다. [Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개](../machine-learning/data-science-virtual-machine/overview.md)에서는 DSVM에 대한 풍부한 정보를 제공합니다.
    >
    >
 
@@ -78,7 +78,7 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
 
-- [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [사용자 지정 이미지 또는 수식?](./devtest-lab-faq.md#blog-post)
 - [Azure DevTest Labs 간의 사용자 지정 이미지 복사](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>다음 단계

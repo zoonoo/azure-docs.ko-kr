@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087886"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286617"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -86,7 +86,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 그러면 서버에 대한 연결에서 시도 수가 감소하며 성능이 개선됩니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 편집합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -219,7 +219,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 1. 완료되면 **완료**를 선택합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 <a name="file-added-modified"></a>
 
@@ -255,7 +255,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sftpwithssh/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/sftpwithssh/)를 참조 하세요.
 
 > [!NOTE]
 > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블이 지정 된 버전에는 대신 [ISE 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 사용 하는 청크가 필요 합니다.
@@ -263,3 +263,4 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 작업을
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

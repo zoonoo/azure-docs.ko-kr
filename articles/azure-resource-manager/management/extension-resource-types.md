@@ -2,12 +2,13 @@
 title: 확장 리소스 종류
 description: 다른 리소스 유형의 기능을 확장 하는 데 사용 되는 Azure 리소스 유형을 나열 합니다.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754861"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374017"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장 하는 리소스 종류
 
@@ -25,9 +26,11 @@ ms.locfileid: "80754861"
 - Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft.Authorization/locks
 - Microsoft. 권한 부여/사용 권한
-- Microsoft. 권한 부여/policyAssignments
+- Microsoft.Authorization/policyAssignments
 - Microsoft. Authorization/policyDefinitions
+- Microsoft. Authorization/policyExemptions
 - Microsoft. Authorization/policySetDefinitions
+- Microsoft. Authorization/privateLinkAssociations
 - Microsoft.Authorization/roleAssignments
 - Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
@@ -38,6 +41,7 @@ ms.locfileid: "80754861"
 - Microsoft. 청구/createBillingRoleAssignment
 - Microsoft. 청사진/blueprintAssignments
 - Microsoft. 청사진/청사진
+- Microsoft. ChangeAnalysis/resourceChanges
 - Microsoft 소비량/AggregatedCost
 - Microsoft 소비량/잔액
 - Microsoft 소비량/예산
@@ -49,6 +53,7 @@ ms.locfileid: "80754861"
 - Microsoft 사용/OperationStatus
 - Microsoft 소비량/Pricesheets
 - Microsoft 소비량/ReservationDetails
+- Microsoft 소비량/ReservationRecommendationDetails
 - Microsoft 소비량/ReservationRecommendations
 - Microsoft 소비량/ReservationSummaries
 - Microsoft 소비량/ReservationTransactions
@@ -63,6 +68,7 @@ ms.locfileid: "80754861"
 - ContainerInstance/serviceAssociationLinks
 - CostManagement/경고
 - CostManagement/예산
+- CostManagement/costAllocationRules
 - CostManagement/차원
 - CostManagement/내보내기
 - CostManagement/ExternalSubscriptions
@@ -70,8 +76,8 @@ ms.locfileid: "80754861"
 - CostManagement/쿼리
 - CostManagement/Reportconfigs
 - CostManagement/보고서
-- CostManagement/뷰
 - CostManagement/showbackRules
+- CostManagement/뷰
 - Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
@@ -107,12 +113,13 @@ ms.locfileid: "80754861"
 - Microsoft ManagedServices/registrationDefinitions
 - OperationalInsights/storageInsightConfigs
 - Microsoft.operationsmanagement/managementassociations
+- Microsoft PolicyInsights/증명
 - Microsoft PolicyInsights/Policyinsights
 - Microsoft PolicyInsights/Policyinsights
 - Microsoft PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 - Microsoft RecoveryServices/backupProtectedItems
-- Microsoft RecoveryServices/replicationEligibilityResults    
+- Microsoft RecoveryServices/replicationEligibilityResults
 - Microsoft ResourceHealth/availabilityStatuses
 - Microsoft ResourceHealth/childAvailabilityStatuses
 - Microsoft ResourceHealth/childResources
@@ -130,11 +137,12 @@ ms.locfileid: "80754861"
 - Microsoft. Security/complianceResults
 - Microsoft. Security/dataCollectionAgents
 - Microsoft. Security/deviceSecurityGroups
-- Microsoft. 보안/네트워크 데이터
+- Microsoft. Security/jitPolicies
 - Microsoft. Security/serverVulnerabilityAssessments
 - Microsoft SecurityInsights/집계
 - Microsoft SecurityInsights/alertRuleTemplates
 - Microsoft SecurityInsights/alertRules
+- Microsoft SecurityInsights/automationRules
 - Microsoft SecurityInsights/책갈피
 - Microsoft SecurityInsights/사례
 - Microsoft SecurityInsights/dataConnectors
@@ -144,6 +152,7 @@ ms.locfileid: "80754861"
 - Microsoft SecurityInsights/인시던트
 - Microsoft SecurityInsights/officeConsents
 - Microsoft SecurityInsights/설정
+- Microsoft SecurityInsights/threatIntelligence
 - SoftwarePlan/hybridUseBenefits
 - Microsoft. Subscription/CreateSubscription
 - microsoft. 지원/지원 티켓

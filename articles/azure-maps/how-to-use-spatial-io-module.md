@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0532b1548af9be04a53f3ba06147fdde4722f307
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f848274f67b5ebf5349cbef24a769aaae39b9955
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130701"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287035"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Azure Maps 공간 IO 모듈을 사용 하는 방법
 
@@ -37,7 +38,7 @@ Azure Maps 웹 SDK는 공간 **IO 모듈**을 제공 합니다 .이 모듈은 �
 > [!WARNING]
 > 신뢰 하는 원본에서 가져온 데이터 및 서비스만 사용 합니다. 특히 다른 도메인에서 참조 하는 경우에만 사용 합니다. 공간 IO 모듈은 위험을 최소화 하는 단계를 수행 하지만, 가장 안전한 방법은 응용 프로그램에 danagerous 데이터를 사용할 수 없는 것입니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 공간 IO 모듈을 사용 하려면 먼저 [Azure Maps 계정을](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) 만들고 [계정에 대 한 기본 구독 키를 가져와야](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)합니다.
 
@@ -133,7 +134,7 @@ Azure Maps 웹 SDK는 공간 **IO 모듈**을 제공 합니다 .이 모듈은 �
     var datasource, layer;
     ```
 
-    및
+    그리고
 
     ```javascript
     //Create a data source and add it to the map.

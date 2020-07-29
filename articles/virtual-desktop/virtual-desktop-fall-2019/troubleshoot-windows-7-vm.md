@@ -1,6 +1,6 @@
 ---
-title: Windows 7 virtual machines Windows 가상 데스크톱-Azure
-description: Windows 가상 데스크톱 환경에서 Windows 7 Vm (가상 컴퓨터)에 대 한 문제를 해결 하는 방법입니다.
+title: Windows 7 virtual machines Windows 가상 데스크톱 (클래식)-Azure
+description: Windows 가상 데스크톱 (클래식) 환경에서 Windows 7 Vm (가상 컴퓨터)에 대 한 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74f2e22bcc9d75070e4f7af304f92d9c5640ca7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f433668c34fb5edc35889adcd604023202ada4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615280"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286345"
 ---
-# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 문제 해결
+# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱의 Windows 7 가상 컴퓨터 문제 해결 (클래식)
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다.
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 

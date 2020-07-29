@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 1a86c1ef12a4cae4132e79a742b99c1b95ee4cd5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77208559"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287028"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>맵에 거품형 계층 추가
 
@@ -22,7 +23,7 @@ ms.locfileid: "77208559"
 > [!TIP]
 > 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 속성을로 설정 하 고 `['==', ['geometry-type'], 'Point']` , `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 다중 포인트 기능을 포함 하려는 경우로 설정 합니다.
 
-## <a name="add-a-bubble-layer"></a>거품형 계층 추가
+## <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
 다음 코드는 데이터 소스에 점의 배열을 로드 합니다. 그런 다음 데이터 요소를 [거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)에 연결 합니다. 거품형 계층은 각 거품의 반지름을 5 픽셀 및 흰색 채우기 색으로 렌더링 합니다. 그리고, 파란색의 스트로크 색 및 6 픽셀의 스트로크 너비입니다. 
 

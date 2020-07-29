@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055667"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374000"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -78,7 +78,7 @@ ms.locfileid: "86055667"
 | SubnetsNotInSameVnet | 가상 머신에는 하나의 가상 네트워크만 있을 수 있습니다. 여러 NIC를 배포할 때는 모두 동일한 가상 네트워크에 속해야 합니다. | [여러 NIC](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered 됨 | 네트워크 리소스를 배포할 때 Microsoft. 네트워크 리소스 공급자가 구독에 자동으로 등록 됩니다. 자동 등록이 시간 내에 완료 되지 않는 경우가 있습니다. 이 일시적인 오류를 방지 하려면 배포 전에 Microsoft 네트워크 리소스 공급자를 등록 합니다. | [등록 오류 해결](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | 단일 배포에 대한 리소스 그룹의 수를 줄입니다. | [크로스 리소스 그룹 배포](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | 단일 배포에 대한 리소스 그룹의 수를 줄입니다. | [범위 간 배포](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>오류 코드 찾기
 

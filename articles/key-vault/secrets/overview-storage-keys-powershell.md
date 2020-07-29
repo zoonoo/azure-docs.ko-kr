@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dea4c0f63b6c4e76c2289e6c3d930ea32cf2880
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090470"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373218"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell를 사용 하 여 저장소 계정 키 관리
 
@@ -49,12 +49,12 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-az-ps?view=azps-2.6.0)합니다.
-- [키 자격 증명 모음 만들기](quick-create-powershell.md)
+- [주요 자격 증명 모음 만들기](quick-create-powershell.md)
 - [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md?tabs=azure-powershell) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 
@@ -99,7 +99,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>저장소 계정에 대 한 Key Vault 액세스 권한 부여
 
-Key Vault가 스토리지 계정 키에 액세스하여 관리하려면 사용자가 스토리지 계정에 액세스 권한을 부여해야 합니다. Key Vault 애플리케이션은 스토리지 계정의 키를 *나열*하고 *다시 생성*할 수 있는 권한이 필요합니다. 이러한 권한은 기본 제공된 RBAC 역할 [스토리지 계정 키 운영자 서비스 역할](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)을 통해 사용 설정되어 있습니다. 
+Key Vault가 스토리지 계정 키에 액세스하여 관리하려면 사용자가 스토리지 계정에 액세스 권한을 부여해야 합니다. Key Vault 애플리케이션은 스토리지 계정의 키를 *나열*하고 *다시 생성*할 수 있는 권한이 필요합니다. 이러한 권한은 Azure 기본 제공 역할 [저장소 계정 키 운영자 서비스 역할](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)을 통해 사용 하도록 설정 됩니다. 
 
 Azure PowerShell [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) cmdlet을 사용 하 여 범위를 저장소 계정으로 제한 하 여 Key Vault 서비스 사용자에 게이 역할을 할당 합니다.
 

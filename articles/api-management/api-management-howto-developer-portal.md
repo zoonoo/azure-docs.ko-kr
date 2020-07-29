@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025084"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373150"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -105,7 +105,19 @@ ms.locfileid: "87025084"
 
 이 API는 [GitHub 리포지토리의 wiki 섹션][2]에 설명 되어 있습니다. 테스트 환경에서 프로덕션 환경으로, 예를 들어 환경 간의 포털 콘텐츠 마이그레이션을 자동화 하는 데 사용할 수 있습니다. 이 프로세스에 대 한 자세한 내용은 GitHub의 [이 문서 문서에서](https://aka.ms/apimdocs/migrateportal) 확인할 수 있습니다.
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>관리에서 자체 호스트 된 버전으로 이동 어떻게 할까요??
+
+[GitHub의 개발자 포털 리포지토리의 Wiki 섹션][2]에서 자세한 문서를 참조 하세요.
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>하나의 API Management 서비스에서 여러 개발자 포털을 사용할 수 있나요?
+
+하나의 관리 되는 포털 및 여러 개의 자체 호스팅 포털이 있을 수 있습니다. 모든 포털의 콘텐츠는 동일한 API Management 서비스에 저장 되므로 동일 하 게 됩니다. 포털의 모양과 기능을 구분 하려면 URL을 기반으로 런타임 시 페이지를 동적으로 사용자 지정 하는 고유한 사용자 지정 위젯을 사용 하 여 자체 호스트할 수 있습니다.
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>포털이 Azure Resource Manager 템플릿을 지원 하나요? 아니면 API Management DevOps Resource Kit와 호환 되나요?
+
+아니요.
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>포털 콘텐츠가 API Management의 백업/복원 기능과 함께 저장 되나요?
 
 아니요.
 
@@ -200,7 +212,7 @@ API Management 서비스가 VNet에 있는 경우 위의 VNet 연결 질문을 �
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>포털에 대 한 브라우저 지원 이란?
 
-| 브라우저                     | 지원 여부       |
+| 브라우저                     | 지원됨       |
 |-----------------------------|-----------------|
 | Apple Safari                | 예<sup>1</sup> |
 | Google Chrome               | 예<sup>1</sup> |

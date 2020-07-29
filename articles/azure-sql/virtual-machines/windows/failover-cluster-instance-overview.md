@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a40c5512da40ede84251ec16345a3957c391bb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965649"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287357"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용 하 여 장애 조치 (Failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,10 +48,10 @@ Azure Vm에서 SQL Server는 SQL Server 장애 조치 (failover) 클러스터 �
 
 ||[Azure 공유 디스크](../../../virtual-machines/windows/disks-shared.md)|[프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[스토리지 공간 다이렉트(S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**최소 OS 버전**| Windows Server 2016|Windows Server 2012|Windows Server 2016|
-|**최소 SQL Server 버전**|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|**최소 OS 버전**| 모두 |Windows Server 2012|Windows Server 2016|
+|**최소 SQL Server 버전**|모두|SQL Server 2012|SQL Server 2016|
 |**지원 되는 VM 가용성** |근접 배치 그룹을 사용 하는 가용성 집합 |가용성 집합 및 가용성 영역|가용성 집합 |
-|**FileStream 지원**|아니요|예|예 |
+|**FileStream 지원**|예|예|예 |
 |**Azure blob 캐시**|아니요|예|예|
 
 이 섹션의 나머지 부분에서는 Azure Vm에서 SQL Server 하는 데 사용할 수 있는 각 저장소 옵션의 이점 및 제한 사항을 나열 합니다. 
@@ -60,18 +60,18 @@ Azure Vm에서 SQL Server는 SQL Server 장애 조치 (failover) 클러스터 �
 
 [Azure 공유 디스크](../../../virtual-machines/windows/disks-shared.md) 는 [azure managed disks](../../../virtual-machines/windows/managed-disks-overview.md)의 기능입니다. Windows Server 장애 조치 (Failover) 클러스터링은 장애 조치 (failover) 클러스터 인스턴스에서 Azure 공유 디스크 사용을 지원 합니다. 
 
-**지원 되는 OS**: Windows Server 2019   
-**지원 되는 SQL 버전**: SQL Server 2019   
+**지원 되는 OS**: 모두   
+**지원 되는 SQL 버전**: 모두     
 
 **이점은**다음과 같습니다. 
 - 고가용성 및 재해 복구 (HADR) 아키텍처를 그대로 유지 하면서 Azure로 마이그레이션하려는 응용 프로그램에 유용 합니다. 
 - 는 scsi PR (SCSI 영구 예약) 지원으로 인해 클러스터형 응용 프로그램을 Azure로 마이그레이션할 수 있습니다. 
 - SQL Server 2019에 대 한 모든 버전의 SQL Server 및 공유 Azure Ultra 디스크 저장소에 대해 공유 Azure 프리미엄 SSD을 지원 합니다. 
 - 단일 공유 디스크를 사용 하거나 여러 공유 디스크를 스트라이프 하 여 공유 저장소 풀을 만들 수 있습니다. 
+- Filestream을 지원 합니다.
 
 
 **단점**: 
-- 미리 보기 중에는 SQL Server 2019 및 Windows Server 2019에 대해서만 사용할 수 있습니다. 
 - 가상 머신은 동일한 가용성 집합 및 근접 배치 그룹에 배치 해야 합니다.
 - 가용성 영역은 지원 되지 않습니다.
 - 프리미엄 SSD 디스크 캐싱은 지원 되지 않습니다.

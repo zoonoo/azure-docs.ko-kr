@@ -3,15 +3,15 @@ title: REST API를 사용 하 여 Linux VM 만들기
 description: Azure에서 Azure REST API를 통해 관리 디스크 및 SSH 인증을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082565"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373405"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -21,7 +21,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 
 이 문서에서는 REST API를 사용하여 관리 디스크 및 SSH 인증을 통해 Ubuntu 18.04-LTS를 실행하는 Linux VM을 만드는 방법을 보여 줍니다.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
@@ -54,7 +54,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| Name                       | 필수 | 형식                                                                                | 설명  |
+| Name                       | 필수 | Type                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | 위치                   | True     | 문자열                                                                              | 리소스 위치. |
 | name                       |          | 문자열                                                                              | 가상 머신의 이름. |
@@ -128,9 +128,9 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | 유형                                                                              | 설명 |
+| Name        | Type                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
-| 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 정상          |
+| 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 확인          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |
 
 VM을 만든 이전 요청 본문 예제에서 압축된 *201 생성됨* 응답은 *vmId*가 할당되었으며 *provisioningState*가 *만들어지고 있음*을 보여 줍니다.

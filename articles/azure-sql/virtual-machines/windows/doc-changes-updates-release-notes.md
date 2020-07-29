@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a09a30bafa5bc9ef052b14cad29e000bbd09a48
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503792"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287388"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배
 | 변경 | 세부 정보 |
 | --- | --- |
 | **DNN (분산 네트워크 이름)** | Windows Server 2016 +의 SQL Server 2019은 이제 Azure Load Balancer를 사용 하는 대신 [분산 네트워크 이름을](hadr-distributed-network-name-dnn-configure.md) 사용 하 여 fci (장애 조치 (failover) 클러스터 인스턴스)에 대 한 트래픽 라우팅 지원을 미리 볼 수 있습니다. 이 지원은 Azure에서 고가용성 (HA) 솔루션에 대 한 연결을 간소화 하 고 간소화 합니다. | 
-| **Azure 공유 디스크를 사용 하는 FCI** | 이제 Windows Server 2016 + 가상 머신에서 SQL Server 2019와 함께 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 [fci (장애 조치 (failover) 클러스터 인스턴스)](failover-cluster-instance-overview.md) 를 배포할 수 있습니다. |
+| **Azure 공유 디스크를 사용 하는 FCI** | 이제 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md)를 사용 하 여 [fci (장애 조치 (failover) 클러스터 인스턴스)](failover-cluster-instance-overview.md) 를 배포할 수 있습니다. |
 | **FCI 문서 재구성** | [Azure vm에서 SQL Server를 사용 하는 장애 조치 (failover) 클러스터 인스턴스에](failover-cluster-instance-overview.md) 대 한 설명서는 명확 하 게 다시 작성 되 고 재구성 되었습니다. [클러스터 구성 모범 사례](hadr-cluster-best-practices.md), [SQL Server fci를 위해 가상 머신을](failover-cluster-instance-prepare-vm.md)준비 하는 방법 및 [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md)를 구성 하는 방법 등 일부 구성 콘텐츠를 분리 했습니다. | 
 | &nbsp; | &nbsp; |
 

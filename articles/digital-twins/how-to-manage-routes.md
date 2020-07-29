@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c9fbf7bc45ed2070570faf0d1dfdb15b5fd98ee
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132265"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373269"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Azure Digital Twins에서 끝점 및 경로 관리
 
@@ -149,7 +149,7 @@ catch (RequestFailedException e)
 
 | 필터 이름 | 설명 | 필터 스키마 | 지원되는 값 | 
 | --- | --- | --- | --- |
-| 형식 | 디지털 쌍 인스턴스를 통해 흐르는 [이벤트의 유형입니다](./concepts-route-events.md#types-of-event-messages) . | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Type | 디지털 쌍 인스턴스를 통해 흐르는 [이벤트의 유형입니다](./concepts-route-events.md#types-of-event-messages) . | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | 원본 | Azure Digital Twins 인스턴스의 이름 | `"filter" : "source = '<hostname>'"`|  **알림**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **원격 분석의 경우**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
 | 주체 | 위의 이벤트 원본에 대 한 컨텍스트의 이벤트 설명입니다. | `"filter": " subject = '<subject>'"` | **알림의 경우**: 제목은입니다.`<twinid>` <br> 또는 여러 부분이 나 Id로 고유 하 게 식별 되는 주제에 대 한 URI 형식:<br>`<twinid>/relationships/<relationshipid>`<br> **원격 분석의**경우: 주체는와 같은 구성 요소 경로입니다 (쌍으로 원격 분석을 내보내는 경우) `comp1.comp2` . 구성 요소에서 원격 분석을 내보내지 않는 경우에는 해당 제목 필드가 비어 있습니다. |
 | 데이터 스키마 | DTDL 모델 ID | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **원격 분석의 경우**: 데이터 스키마는 쌍의 모델 ID 또는 원격 분석을 내보내는 구성 요소입니다. <br>**알림**: 데이터 스키마는 지원 되지 않습니다.|
@@ -184,7 +184,7 @@ Azure Digital Twins CLI를 사용 하 여 끝점과 경로를 관리할 수도 �
 
 포털 홈페이지에서 Azure Digital Twins 인스턴스를 검색 하 여 세부 정보를 가져옵니다. Azure Digital Twins 인스턴스 메뉴에서 **메트릭** 옵션을 선택 하 여 *메트릭* 페이지를 표시 합니다.
 
-:::image type="content" source="media/how-to-manage-routes/metrics.png" alt-text="Azure Portal에서 Azure Digital Twins 인스턴스의 메트릭 페이지":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Azure Digital Twins의 메트릭 페이지를 보여 주는 스크린샷":::
 
 여기에서 인스턴스에 대 한 메트릭을 보고 사용자 지정 보기를 만들 수 있습니다.
 

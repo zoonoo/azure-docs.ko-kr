@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131619"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373286"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용 하 여 Azure Digital Twins 보호
 
@@ -45,7 +45,7 @@ Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용�
 
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins의 RBAC 역할
 
-Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
+Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하는 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
 * *Azure 디지털 쌍 소유자 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 모든 권한을 부여 합니다.
 * *Azure Digital Twins 판독기 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
 

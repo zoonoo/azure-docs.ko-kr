@@ -3,7 +3,7 @@ title: SQL Server Always On 가용성 그룹 개요
 description: 이 문서에서는 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹를 소개 합니다.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e676e1c97c0039490137aa12b06fc88e457646f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073288"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286815"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 소개
 
@@ -43,7 +43,7 @@ Azure Virtual Machines의 가용성 그룹에 대 한 주요 차이점은 이러
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
 | **[빠른 시작 템플릿](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | 클라우드 감시 | 예 | 예 | 예 | 예 | 예 | 예 |
-| **[수동](availability-group-manually-configure-prerequisites-tutorial.md)** | 모두 | 모두 | 모두 | 모두 | 예 | 예 | 예 | 예 | 예 | 예 |
+| **[수동](availability-group-manually-configure-prerequisites-tutorial.md)** | 모두 | 모두 | 모두 | 모두 | 예 | yes | yes | yes | yes | yes |
 
 **SQL Server AlwaysOn 클러스터 (미리 보기)** 템플릿이 Azure Marketplace에서 제거 되었으며 더 이상 사용할 수 없습니다. 
 

@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 6ffec1afc44c6b920a64b4b92b384b6ce3829488
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77209718"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286948"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 
@@ -35,7 +36,7 @@ ms.locfileid: "77209718"
 - BMP
 - GIF (애니메이션 없음)
 
-## <a name="add-an-image-layer"></a>이미지 계층 추가
+## <a name="add-an-image-layer"></a>이미지 레이어 추가
 
 다음 코드는 map에서 [1922의 New Jersey 뉴어크 맵](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 이미지를 오버레이 합니다. [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) 는 이미지에 URL을 전달 하 고 네 개의 모퉁이를 형식으로 조정 하 여 생성 됩니다 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
 
@@ -92,4 +93,4 @@ map.layers.add(new atlas.layer.ImageLayer({
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [타일 계층 추가](./map-add-tile-layer.md)
+> [타일 레이어 추가](./map-add-tile-layer.md)

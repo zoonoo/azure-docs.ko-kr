@@ -3,12 +3,13 @@ title: Azure App Services 성능 모니터링 | Microsoft Docs
 description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 042dd67c0e1e5a0ba2f81d5678e191dbfdd60a43
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067887"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373167"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -165,7 +166,7 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 
 ### <a name="application-settings-definitions"></a>응용 프로그램 설정 정의
 
-|앱 설정 이름 |  정의 | Value |
+|앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`입니다. |
@@ -405,10 +406,11 @@ PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워�
 코드 없는 모니터링을 사용 하는 경우 연결 문자열만 필요 합니다. 그러나 수동 계측을 수행할 때 이전 버전의 SDK와 이전 버전과의 호환성을 유지 하기 위해 계측 키를 설정 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [라이브 앱에서 프로파일러를 실행합니다](../app/profiler.md).
+* [라이브 앱에서 프로파일러를 실행합니다](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights로 Azure Functions 모니터링
 * [Azure 진단을 사용](../platform/diagnostics-extension-to-application-insights.md) 하여 Application Insights에 보냅니다.
 * [서비스 상태 메트릭을 모니터링](../platform/data-platform.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../platform/alerts-overview.md)합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](javascript.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
 * [가용성 웹 테스트를 설정](monitor-web-app-availability.md) 합니다.
+

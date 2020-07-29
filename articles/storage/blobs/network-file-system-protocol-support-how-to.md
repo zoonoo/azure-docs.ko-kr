@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 8f4ef046221ae50d2b05525d6cea2d268282551c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099618"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372912"
 ---
 # <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>NFS (네트워크 파일 시스템) 3.0 프로토콜을 사용 하 여 Linux에서 Blob storage 탑재 (미리 보기)
 
@@ -90,7 +90,7 @@ NFS 3.0를 사용 하 여 컨테이너를 탑재 하려면 구독에 기능을 �
 
 계정을 구성 하는 경우 다음 값을 선택 합니다.
 
-|설정 | Value|
+|설정 | 값|
 |----|---|
 |위치|다음 지역 중 하나: 미국 동부, 미국 중부 및 캐나다 중부 |
 |성능|Premium|
@@ -113,7 +113,7 @@ NFS 3.0를 사용 하 여 컨테이너를 탑재 하려면 구독에 기능을 �
 |[AZCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST (영문)](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Azure Portal](https://portal.azure.com)|[REST (영문)](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>7 단계: 컨테이너 탑재
 
@@ -139,7 +139,6 @@ NFS 3.0를 사용 하 여 컨테이너를 탑재 하려면 구독에 기능을 �
 |---|---|
 |`Access denied by server while mounting`|지원 되는 서브넷 내에서 클라이언트가 실행 되 고 있는지 확인 합니다. [지원 되는 네트워크 위치](network-file-system-protocol-support.md#supported-network-connections)를 참조 하세요.|
 |`No such file or directory`| 기능이 등록 되었는지 확인 한 후 탑재할 컨테이너가 생성 되었는지 확인 합니다. [2 단계: 기능이 등록 되었는지 확인](#step-2-verify-that-the-feature-is-registered)을 참조 하세요. 또한 탑재 명령과 매개 변수를 터미널에 직접 입력 해야 합니다. 이 명령의 일부를 복사 하 여 다른 응용 프로그램의 터미널에 붙여넣으면 붙여넣은 정보에 숨겨진 문자가 있으면이 오류가 발생할 수 있습니다.|
-|NFS 이외의 3.0 도구를 사용 하 여 업로드 된 파일은 디렉터리에 표시 되지 않습니다. | 컨테이너를 탑재 해제 하 고 컨테이너를 다시 탑재 합니다. |
 
 ## <a name="see-also"></a>참고 항목
 

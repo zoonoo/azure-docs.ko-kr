@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/25/2020
+ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252647"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373116"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기) 연결 및 쿼리
 
@@ -29,7 +29,7 @@ Azure SQL Edge에서 컨테이너를 배포한 후에는 다음 위치 중 하�
 
 다음과 같은 일반적인 도구 중 하나에서 Azure SQL Edge 인스턴스의 인스턴스에 연결할 수 있습니다.
 
-* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): sqlcmd 클라이언트 도구는 Azure SQL Edge의 컨테이너 이미지에 이미 포함 되어 있습니다. 대화형 bash 셸을 사용하여 실행 중인 컨테이너에 연결하는 경우 도구를 로컬로 실행할 수 있습니다.
+* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): sqlcmd 클라이언트 도구는 Azure SQL Edge의 컨테이너 이미지에 이미 포함 되어 있습니다. 대화형 bash 셸을 사용하여 실행 중인 컨테이너에 연결하는 경우 도구를 로컬로 실행할 수 있습니다. SQL 클라이언트 도구는 SQL Edge 컨테이너의 ARM64 버전에 포함 되지 않으므로 ARM64 플랫폼에서 사용할 수 없습니다. 
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
 * [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
@@ -55,7 +55,7 @@ Azure SQL Edge에서 컨테이너를 배포한 후에는 다음 위치 중 하�
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>컨테이너 내에서 데이터베이스 엔진에 연결
 
-[SQL Server 명령줄 도구](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) 는 Azure SQL Edge의 컨테이너 이미지에 포함 되어 있습니다. 대화형 명령 프롬프트를 사용 하 여 컨테이너에 연결 하는 경우 도구를 로컬로 실행할 수 있습니다.
+[SQL Server 명령줄 도구](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) 는 Azure SQL Edge의 컨테이너 이미지에 포함 되어 있습니다. 대화형 명령 프롬프트를 사용 하 여 컨테이너에 연결 하는 경우 도구를 로컬로 실행할 수 있습니다. SQL 클라이언트 도구는 SQL Edge 컨테이너의 ARM64 버전에 포함 되지 않으므로 ARM64 플랫폼에서 사용할 수 없습니다. 
 
 1. `docker exec -it` 명령을 사용하여 실행 중인 컨테이너 내에서 대화형 bash 셸을 시작합니다. 다음 예제에서 `e69e056c702d` 은 컨테이너 ID입니다.
 

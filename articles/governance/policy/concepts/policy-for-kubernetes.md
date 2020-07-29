@@ -3,12 +3,12 @@ title: 미리 보기 - Kubernetes용 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다. 이 기능은 미리 보기 기능입니다.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373762"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Kubernetes용 Azure Policy 클러스터 이해(미리 보기)
 
@@ -373,7 +373,7 @@ Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 �
 
 ## <a name="assign-a-built-in-policy-definition"></a>기본 제공 정책 정의 할당
 
-Kubernetes 클러스터에 정책 정의를 할당하려면 적절한 RBAC(역할 기반 액세스 제어) 정책 할당 작업이 할당되어야 합니다. 기본 제공 RBAC 역할인 **리소스 정책 기여자** 및 **소유자**가 이 작업을 수행합니다. 자세한 내용은 [Azure Policy의 RBAC 권한](../overview.md#rbac-permissions-in-azure-policy)을 참조하세요.
+Kubernetes 클러스터에 정책 정의를 할당하려면 적절한 RBAC(역할 기반 액세스 제어) 정책 할당 작업이 할당되어야 합니다. Azure 기본 제공 역할 **리소스 정책 참가자** 및 **소유자** 는 이러한 작업을 수행 합니다. 자세한 내용은 [Azure Policy의 RBAC 권한](../overview.md#rbac-permissions-in-azure-policy)을 참조하세요.
 
 다음 단계를 통해 Azure Portal을 사용하여 클러스터를 관리하기 위한 기본 제공 정책 정의를 찾습니다.
 

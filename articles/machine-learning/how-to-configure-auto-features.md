@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321590"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373745"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 기능화
 
@@ -114,13 +114,13 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 기능화 설정을 사용자 지정 하 여 ML 모델을 학습 하는 데 사용 되는 데이터와 기능이 관련 된 예측을 얻을 수 있도록 할 수 있습니다.
 
-Featurizations를 사용자 지정 하려면  `"featurization": FeaturizationConfig` 개체에를 지정 `AutoMLConfig` 합니다. 실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [방법 문서](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 참조 하세요.
+Featurizations를 사용자 지정 하려면  `"featurization": FeaturizationConfig` 개체에를 지정 `AutoMLConfig` 합니다. 실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [방법 문서](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 참조 하세요. Forecastings 작업 유형에 대 한 기능화을 사용자 지정 하려면 [예측 방법](how-to-auto-train-forecast.md#customize-featurization)을 참조 하세요.
 
 지원되는 사용자 지정은 다음과 같습니다.
 
 |사용자 지정|정의|
 |--|--|
-|**열 용도 업데이트**|지정 된 열에 대 한 기능 유형을 재정의 합니다.|
+|**열 용도 업데이트**|지정 된 열에 대해 자동 검색 된 기능 유형을 재정의 합니다.|
 |**변환기 매개 변수 업데이트** |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는 *(평균* , 가장 자주, 중앙값) 및 *HashOneHotEncoder*을 지원 합니다.|
 |**삭제 열** |기능화에서 삭제할 열을 지정 합니다.|
 |**블록 변환기**| 기능화 프로세스에 사용할 블록 변환기를 지정 합니다.|

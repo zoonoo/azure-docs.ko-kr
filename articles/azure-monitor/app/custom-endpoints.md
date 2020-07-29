@@ -3,13 +3,13 @@ title: Azure 애플리케이션 Insights 기본 SDK 끝점 재정의
 description: Azure Government 같은 영역에 대 한 기본 Azure Monitor Application Insights SDK 끝점을 수정 합니다.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions
-ms.openlocfilehash: 50a072cd7e509642c36c783e3cc0fd78e4d5adc0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: references_regions, devx-track-javascript
+ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092867"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373133"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
 

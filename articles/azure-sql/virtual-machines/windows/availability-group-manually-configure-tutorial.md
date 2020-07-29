@@ -3,7 +3,7 @@ title: '자습서: SQL Server Always On 가용성 그룹 구성'
 description: 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960744"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286855"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>자습서: Azure Virtual Machines에서 수동으로 SQL Server 가용성 그룹 구성
 
@@ -118,7 +119,7 @@ ms.locfileid: "85960744"
    >만약 스토리지 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 따라서 저장소 공간이 클러스터에서 제거 되 고 PowerShell을 사용 하 여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시 되지 않습니다. 스토리지 공간은 여러 디스크를 스토리지 풀로 그룹화합니다. 자세한 내용은 [스토리지 공간](https://technet.microsoft.com/library/hh831739)을 참조하세요.
    >
 
-1. **새로 만들기**를 선택합니다.
+1. **다음**을 선택합니다.
 
 1. **마침**을 선택합니다.
 
@@ -142,9 +143,9 @@ ms.locfileid: "85960744"
 
    **공유 폴더 만들기 마법사**를 사용하여 공유를 만듭니다.
 
-1. **폴더 경로**에서 **찾아보기** 를 선택 하 고 공유 폴더에 대 한 경로를 찾거나 만듭니다. **새로 만들기**를 선택합니다.
+1. **폴더 경로**에서 **찾아보기** 를 선택 하 고 공유 폴더에 대 한 경로를 찾거나 만듭니다. **다음**을 선택합니다.
 
-1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **새로 만들기**를 선택합니다.
+1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 선택합니다.
 
 1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정**...을 선택 합니다.
 
@@ -180,9 +181,9 @@ ms.locfileid: "85960744"
    >Windows Server 2016은 클라우드 감시를 지원합니다. 이 유형의 감시를 선택한 경우 파일 공유 감시가 필요하지 않습니다. 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)를 참조하세요. 이 자습서에서는 이전 운영 체제에서 지원되는 파일 공유 감시를 사용합니다.
    >
 
-1. **파일 공유 감시 구성**에서 사용자가 만든 공유에 대한 경로를 입력합니다. **새로 만들기**를 선택합니다.
+1. **파일 공유 감시 구성**에서 사용자가 만든 공유에 대한 경로를 입력합니다. **다음**을 선택합니다.
 
-1. **확인**에서 설정을 확인합니다. **새로 만들기**를 선택합니다.
+1. **확인**에서 설정을 확인합니다. **다음**을 선택합니다.
 
 1. **마침**을 선택합니다.
 
@@ -245,9 +246,9 @@ Repeat these steps on the second SQL Server.
 
    **공유 폴더 만들기 마법사**를 사용하여 공유를 만듭니다.
 
-1. **폴더 경로**에서 **찾아보기** 를 선택 하 고 데이터베이스 백업 공유 폴더의 경로를 찾거나 만듭니다. **새로 만들기**를 선택합니다.
+1. **폴더 경로**에서 **찾아보기** 를 선택 하 고 데이터베이스 백업 공유 폴더의 경로를 찾거나 만듭니다. **다음**을 선택합니다.
 
-1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **새로 만들기**를 선택합니다.
+1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 선택합니다.
 
 1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정**...을 선택 합니다.
 
@@ -284,7 +285,7 @@ Repeat these steps on the second SQL Server.
 
     ![새 가용성 그룹 마법사 시작](./media/availability-group-manually-configure-tutorial/56-newagwiz.png)
 
-2. **소개** 페이지에서 **다음**을 선택 합니다. 가용성 그룹 **이름 지정** 페이지에서 가용성 **그룹 이름**에 가용성 그룹의 이름을 입력 합니다. 예: **AG1**. **새로 만들기**를 선택합니다.
+2. **소개** 페이지에서 **다음**을 선택 합니다. 가용성 그룹 **이름 지정** 페이지에서 가용성 **그룹 이름**에 가용성 그룹의 이름을 입력 합니다. 예: **AG1**. **다음**을 선택합니다.
 
     ![새 가용성 그룹 마법사, 가용성 그룹 이름 지정](./media/availability-group-manually-configure-tutorial/58-newagname.png)
 
@@ -310,7 +311,7 @@ Repeat these steps on the second SQL Server.
 
     ![새 가용성 그룹 마법사, 초기 데이터 동기화 선택](./media/availability-group-manually-configure-tutorial/66-endpoint.png)
 
-8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 ** \\ \\ 먼저 SQL Server \> \\ \backup을<** 합니다. **새로 만들기**를 선택합니다.
+8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 ** \\ \\ 먼저 SQL Server \> \\ \backup을<** 합니다. **다음**을 선택합니다.
 
    >[!NOTE]
    >전체 동기화는 SQL Server의 첫 번째 인스턴스에서 데이터베이스의 전체 백업을 수행하고 두 번째 인스턴스로 복원합니다. 대형 데이터베이스의 경우 전체 동기화는 시간이 오래 걸릴 수 있으므로 권장되지 않습니다. 수동으로 데이터베이스의 백업을 수행하고 `NO RECOVERY`를 통해 복원하여 이 시간을 줄일 수 있습니다. 가용성 그룹을 구성하기 전에 두 번째 SQL Server에서 이미 `NO RECOVERY`로 데이터베이스를 복원한 경우 **조인만**을 선택합니다. 가용성 그룹을 구성한 후 백업을 수행하려는 경우 **초기 데이터 동기화 건너뛰기**를 선택합니다.
@@ -371,7 +372,7 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
    | 설정 | 필드 |
    | --- | --- |
-   | **이름** |예를 들어 **sqlLB**와 같은 부하 분산 장치에 대한 텍스트 이름을 사용합니다. |
+   | **Name** |예를 들어 **sqlLB**와 같은 부하 분산 장치에 대한 텍스트 이름을 사용합니다. |
    | **형식** |내부 |
    | **가상 네트워크** |Azure Virtual Network의 이름을 사용합니다. |
    | **서브넷** |가상 컴퓨터가 있는 서브넷 이름을 사용합니다.  |
@@ -413,7 +414,7 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
 1. 다음과 같이 수신기 상태 프로브를 설정합니다.
 
-   | Setting | 설명 | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -429,7 +430,7 @@ Azure의 부하 분산 장치는 표준 Load Balancer 또는 기본 Load Balance
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | Setting | 설명 | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
@@ -457,7 +458,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
 
-   | Setting | 설명 | 예제
+   | 설정 | 설명 | 예제
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |

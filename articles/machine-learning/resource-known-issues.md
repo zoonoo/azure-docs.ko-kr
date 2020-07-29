@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536116"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373694"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -368,6 +368,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 ```
 
 예를 들어 원격 실행을 위해 제출된 ML 파이프라인에서 컴퓨팅 대상을 만들거나 연결하려고 시도하면 오류가 나타납니다.
+
+## <a name="missing-user-interface-items-in-studio"></a>스튜디오에 사용자 인터페이스 항목이 없습니다.
+
+Azure 역할 기반 액세스 제어를 사용 하 여 Azure Machine Learning에서 수행할 수 있는 작업을 제한할 수 있습니다. 이러한 제한으로 인해 Azure Machine Learning studio에서 사용자 인터페이스 항목이 표시 되지 않을 수 있습니다. 예를 들어 계산 인스턴스를 만들 수 없는 역할이 할당 된 경우 계산 인스턴스를 만드는 옵션은 스튜디오에 표시 되지 않습니다.
+
+자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

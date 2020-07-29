@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507100"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287468"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -50,7 +50,7 @@ Windows Server 노드의 경우 Windows 업데이트가 자동으로 실행되�
 
 스토리지를 제공하기 위해 노드는 Azure Managed Disks를 사용합니다. 대부분의 VM 노드 크기의 경우 해당되는 항목은 고성능 SSD로 지원되는 프리미엄 디스크입니다. 관리 디스크에 저장된 데이터는 미사용 시 Azure 플랫폼에서 자동으로 저장 데이터 암호화됩니다. 중복성을 높이기 위해 이러한 디스크는 Azure 데이터 센터 내에서 안전하게 복제됩니다.
 
-AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *Pod 보안 정책*과 같은 추가 보안 기능 또는 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다. 워크 로드를 격리 하는 방법에 대 한 자세한 내용은 [AKS의 클러스터 격리에 대 한 모범 사례][cluster-isolation]를 참조 하세요.
+AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *Pod 보안 정책*또는 노드에 대 한 보다 세분화 되어 있는 역할 기반 액세스 제어 (RBAC)와 같은 추가 보안 기능을 사용 하 여 악용 하기 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다. 워크 로드를 격리 하는 방법에 대 한 자세한 내용은 [AKS의 클러스터 격리에 대 한 모범 사례][cluster-isolation]를 참조 하세요.
 
 ### <a name="compute-isolation"></a>계산 격리
 

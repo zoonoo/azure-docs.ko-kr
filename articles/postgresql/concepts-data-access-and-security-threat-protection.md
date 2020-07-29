@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768744"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287514"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 Advanced Threat Protection-단일 서버
 
@@ -19,7 +20,7 @@ Azure Database for PostgreSQL용 Advanced Threat Protection은 비정상적이�
 > [!NOTE]
 > Advanced Threat Protection은 공개 미리 보기로 제공 됩니다.
 
-Threat Detection은 고급 보안 기능용 통합 패키지인 ATP(Advanced Threat Protection) 제품의 일부입니다. 고급 위협 방지는 [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/postgresql/serversecurityalertpolicies)를 통해 액세스 하 고 관리할 수 있습니다. 이 기능은 범용 및 메모리 액세스에 최적화 된 서버에서 사용할 수 있습니다.
+Threat Detection은 고급 보안 기능용 통합 패키지인 ATP(Advanced Threat Protection) 제품의 일부입니다. 고급 위협 방지는 [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/postgresql)를 통해 액세스 하 고 관리할 수 있습니다. 이 기능은 범용 및 메모리 액세스에 최적화 된 서버에서 사용할 수 있습니다.
 
 > [!NOTE]
 > Advanced Threat Protection 기능을 사용할 수 **없는** Azure 정부 및 소버린 클라우드 지역은 US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2입니다. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.

@@ -3,12 +3,12 @@ title: 잘못된 템플릿 오류
 description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118888"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373813"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -130,7 +130,7 @@ part of the allowed values
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>해결 방법 4 - 너무 많은 대상 리소스 그룹
 
-단일 배포에서는 5개의 대상 리소스 그룹으로 제한되어 있기 때문에 이전 배포에서 이 오류가 표시될 수 있습니다. 2020년 5월, 이 제한이 800개의 리소스 그룹으로 증가되었습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-resource-group-deployment.md)를 참조하세요.
+단일 배포에서는 5개의 대상 리소스 그룹으로 제한되어 있기 때문에 이전 배포에서 이 오류가 표시될 수 있습니다. 2020년 5월, 이 제한이 800개의 리소스 그룹으로 증가되었습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
 
 <a id="circular-dependency"></a>
 

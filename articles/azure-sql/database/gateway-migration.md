@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084956"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373490"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 제공 하기 위해 정기적으로 하드웨어를 새로 고칩니다. 향후 몇 개월 동안 새로운 하드웨어 세대를 기반으로 하는 게이트웨이를 추가 하 고, 트래픽을 마이그레이션하고, 궁극적으로는 일부 지역에서 이전 하드웨어를 기반으로 하는 게이트웨이를 서비스 해제할 계획입니다.  
 
@@ -27,6 +27,19 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
+### <a name="september-2020"></a>2020년 9월
+
+새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
+
+- 북아메리카 유럽: 13.74.104.113 
+- 서 부 미국: 40.78.248.10 
+- 유럽 서부: 52.236.184.163 
+- 미국 중부 중부: 20.45.121.1, 20.49.88.1 
+
+기존 SQL 게이트웨이는 다음 지역에서 트래픽을 허용 하기 시작 합니다.
+- 일본 동부: 40.79.184.8, 40.79.192.5
+
+이러한 SQL 게이트웨이는 1 월 2020 일에 고객 트래픽을 수락 하기 시작 합니다. 
 
 ### <a name="august-2020"></a>8 월 2020
 
@@ -38,7 +51,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 
 이러한 SQL 게이트웨이는 2020 8 월 10 일에 고객 트래픽 수락을 시작 합니다. 
 
-# <a name="completed"></a>[완료됨](#tab/completed-ip)
+# <a name="completed"></a>[Completed](#tab/completed-ip)
 
 다음 게이트웨이 마이그레이션이 완료 되었습니다. 
 

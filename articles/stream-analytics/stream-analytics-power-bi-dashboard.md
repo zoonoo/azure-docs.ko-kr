@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044144"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314223"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
@@ -184,16 +184,6 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
      ![사기성 호출에 대한 두 가지 타일을 보여 주는 완료된 Power BI 대시보드](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
-
-## <a name="learn-more-about-power-bi"></a>Power BI에 대해 자세히 알아보기
-
-이 자습서에서는 데이터 세트에 대해 몇 가지 종류의 차트를 만드는 방법만 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. 자세한 개념은 다음 리소스를 참조하세요.
-
-* Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
-* Power BI에 Streaming Analytics 작업 출력 구성 및 Power BI 그룹 사용에 대한 자세한 내용은 [Stream Analytics 출력](stream-analytics-define-outputs.md) 문서의 [Power BI](stream-analytics-define-outputs.md#power-bi) 섹션을 검토하세요. 
-* 일반적으로 Power BI를 사용 하는 방법은 [Power BI의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)를 참조하세요.
-
-
 ## <a name="learn-about-limitations-and-best-practices"></a>제한 사항 및 모범 사례에 대해 알아보기
 현재는 대략 1초당 한 번 Power BI를 호출할 수 있습니다. 스트리밍 시각적 개체는 15KB의 패킷을 지원합니다. 이보다 크면 스트리밍 시각적 개체가 실패합니다(푸시는 계속 작동). 이러한 제한 사항 때문에 Power BI는 Azure Stream Analytics가 데이터 부하를 상당히 줄이는 경우에 가장 적합합니다. 연속 창 또는 도약 창을 사용하여 데이터 푸시가 최대 초당 한번의 푸시를 수행하고 쿼리가 처리량 요구 사항 범위 내에 있도록 하는 것이 좋습니다.
 
@@ -234,12 +224,9 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영역에 문제가 해결되었음을 나타내는 녹색 알림이 표시됩니다.
 
-## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
-
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Stream Analytics 출력](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

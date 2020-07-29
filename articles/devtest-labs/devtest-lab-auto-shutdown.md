@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 자동 종료 정책 관리 Microsoft Docs
 description: 사용 하지 않을 때 가상 컴퓨터가 자동으로 종료 되도록 랩에 대 한 자동 종료 정책을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482737"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287551"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 및 계산 가상 컴퓨터에 대 한 자동 종료 구성
 
@@ -71,7 +71,7 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 - 이 시간 동안 자동 종료 건너뛰기
 - VM에서 계속 작업을 수행할 수 있도록 1 시간 또는 2 시간의 자동 종료를 다시 알림 합니다.
 
-알림은 구성 된 웹 후크 끝점 또는 자동 종료 설정의 랩 소유자가 지정한 전자 메일 주소를 통해 전송 됩니다. 웹 후크를 사용 하면 특정 이벤트를 구독 하는 통합을 빌드하거나 설정할 수 있습니다. 이러한 이벤트 중 하나가 트리거되면 DevTest Labs는 HTTP POST 페이로드를 webhook의 구성 된 URL에 보냅니다. 웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-create-a-web-hook-or-api-function.md)를 참조하세요. 
+알림은 구성 된 웹 후크 끝점 또는 자동 종료 설정의 랩 소유자가 지정한 전자 메일 주소를 통해 전송 됩니다. 웹 후크를 사용 하면 특정 이벤트를 구독 하는 통합을 빌드하거나 설정할 수 있습니다. 이러한 이벤트 중 하나가 트리거되면 DevTest Labs는 HTTP POST 페이로드를 webhook의 구성 된 URL에 보냅니다. 웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-bindings-http-webhook.md)를 참조하세요. 
 
 웹 후크는 다양 한 앱에서 광범위 하 게 지원 되므로 (예: 여유 시간, Azure Logic Apps 등) 웹 후크를 사용 하는 것이 좋습니다 .이를 통해 알림을 보내는 고유한 방법을 구현할 수 있습니다. 예를 들어이 문서에서는 Azure Logic Apps를 사용 하 여 전자 메일에서 자동 종료 알림을 가져오는 방법을 안내 합니다. 먼저 실습에서 자동 종료 알림을 사용 하도록 설정 하는 기본 단계를 빠르게 수행해 보겠습니다.   
 
@@ -211,4 +211,3 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 ## <a name="next-steps"></a>다음 단계
 모든 정책을 설정 하는 방법을 알아보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md)를 참조 하세요.
-

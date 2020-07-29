@@ -10,20 +10,20 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/14/2020
-ms.openlocfilehash: 4a723c76f04c85bffd7ae4d1d1e8bf5b65ad4619
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/28/2020
+ms.openlocfilehash: 59a82b8d7037fb9f2ca03b99b9e797920644fbd6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326497"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373728"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성 (미리 보기)
 
 이 문서에서는 Azure Machine Learning 작업 영역에서 Azure 개인 링크를 사용 하는 방법에 대해 알아봅니다. 
 
 > [!IMPORTANT]
-> Azure Machine Learning 작업 영역에서 Azure 개인 링크를 사용 하는 것은 현재 공개 미리 보기 상태입니다. 이 기능은 **미국 동부**, **미국 서 부 2**및 **미국 남부 중부** 지역 에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> Azure Machine Learning 작업 영역에서 Azure 개인 링크를 사용 하는 것은 현재 공개 미리 보기 상태입니다. 이 기능은 **미국 동부** 및 **미국 서 부 2** 지역 에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음 개인 IP 주소를 통해서만 발생 하도록 작업 영역에 대 한 액세스를 제한할 수 있습니다. 개인 링크를 사용 하면 데이터 exfiltration의 위험을 줄일 수 있습니다. 프라이빗 엔드포인트에 대한 자세한 내용은 [Azure Private Link](/azure/private-link/private-link-overview) 문서를 참조하세요.
 
@@ -134,8 +134,8 @@ Azure Virtual Machines에 대 한 자세한 내용은 [Virtual Machines 설명�
 
 작업 영역에서 사용 하는 Azure Kubernetes 서비스를 보호 하려면 가상 네트워크 내에 배치 합니다. 자세한 내용은 [작업 영역에서 Azure Kubernetes Services 사용](how-to-enable-virtual-network.md#aksvnet)을 참조 하세요.
 
-> [!WARNING]
-> Azure Machine Learning은 프라이빗 링크가 활성화된 Azure Kubernetes Service 사용을 지원하지 않습니다.
+이제 Azure Machine Learning에서는 개인 링크가 사용 하도록 설정 된 Azure Kubernetes 서비스를 사용할 수 있습니다.
+개인 AKS 클러스터를 만들려면 [여기](https://docs.microsoft.com/azure/aks/private-clusters) 의 문서를 따르세요.
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 

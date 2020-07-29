@@ -4,14 +4,15 @@ description: Azure에서 인프라 예제를 배포하기 위한 핵심 디자�
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500de3f89bd041adf0b73e21762495d8c89e19c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944897"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286294"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM에 대한 Azure 인프라 연습 예제
 이 문서에서는 예제 애플리케이션 인프라를 구축하는 과정을 안내합니다. 명명 규칙, 가용성 집합, 가상 네트워크 및 부하 분산 장치에 대한 모든 지침 및 결정 사항을 함께 제공하는 간단한 온라인 스토어용 인프라의 설계와 VM(가상 머신)의 실제 배포를 자세히 다룹니다.

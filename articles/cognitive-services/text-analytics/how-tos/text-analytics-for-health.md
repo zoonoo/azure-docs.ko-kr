@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: cbc950647dc2f7102f20766c22f434526ab66639
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122314"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373473"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "86122314"
 > 상태 Text Analytics은 "있는 그대로" 및 "모든 오류를 포함 하 여" 제공 되는 미리 보기 기능입니다. 따라서 **상태 (미리 보기)에 대 한 Text Analytics는 프로덕션 환경에서 구현 하거나 배포 해서는** 안 됩니다. 상태에 대 한 Text Analytics는 질병 또는 기타 조건에 대 한 진단, 치료, 완화, 처리 또는 방지에 사용 하기 위한 의료 장치, 임상 지원, 진단 도구 또는 기타 기술로 사용할 수 없으며, Microsoft가 이러한 목적을 위해이 기능을 사용할 수 있는 라이선스 또는 권한이 부여 되지 않습니다. 이 기능은 의료 전문가의 전문 의료 통지, 의료 보험 통지, 진단, 처리 또는 임상를 위한 대체 방법으로 설계 되거나 구현 하거나 배포 하기 위한 것이 아니며, 사용 하지 않아야 합니다. 고객은 상태에 대 한 Text Analytics의 사용만을 담당 합니다. Microsoft는 의료 목적을 위해이 기능을 사용 하 여 제공 되는 Text Analytics 또는 모든 사람의 의료 요구 사항을 충족 하는 경우에만이 기능을 제공 합니다. 
 
 
-Azure Text Analytics for Health는 의사 (컨테이너 화 된) 노트, 방전 요약, 임상 문서 및 전자 상태 레코드와 같은 구조화 되지 않은 텍스트에서 관련 의료 정보를 추출 하 고 레이블 하는 데 사용할 수 있는 서비스입니다.  
+상태에 대 한 Text Analytics는 의사 (컨테이너 화 된) 노트, 방전 요약, 임상 문서 및 전자 상태 레코드와 같은 구조화 되지 않은 텍스트에서 관련 의료 정보를 추출 하 고 레이블 하는 데 사용할 수 있는 서비스입니다.  
 
 ## <a name="features"></a>기능
 
@@ -62,7 +62,7 @@ Azure Text Analytics for Health는 의사 (컨테이너 화 된) 노트, 방전 
 
 ---
 
-지원 되는 엔터티의 전체 목록은 의료에 대해 Text Analytics에서 반환 된 [엔터티 범주](../named-entity-types.md?tabs=health) 를 참조 하세요.
+지원 되는 엔터티의 전체 목록에 대해서는 Text Analytics에서 반환 된 [엔터티 범주](../named-entity-types.md?tabs=health) 를 참조 하세요.
 
 ## <a name="supported-languages"></a>지원되는 언어
 
@@ -80,8 +80,8 @@ Azure Text Analytics for Health는 의사 (컨테이너 화 된) 노트, 방전 
 
 여러 가지 방법으로 컨테이너를 설치 하 고 실행할 수 있습니다. 
 
-1. [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) 를 사용 하 여 Text Analytics 리소스를 만들고 Docker를 사용 하 여 컨테이너를 가져옵니다.
-2. 아래 PowerShell 및 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 스크립트를 사용 하 여 리소스 배포 컨테이너 구성을 자동화 합니다.
+- [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) 를 사용 하 여 Text Analytics 리소스를 만들고 Docker를 사용 하 여 컨테이너를 가져옵니다.
+- 다음 PowerShell 및 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 스크립트를 사용 하 여 리소스 배포 컨테이너 구성을 자동화할 수 있습니다.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Azure Web App for Containers을 사용 하 여 컨테이너 설치
 

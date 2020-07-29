@@ -8,11 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 69ca43021ff2c45733375e14d87d0ed65d8962e9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804659"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287058"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Azure Maps services 모듈 사용
 
@@ -28,7 +30,7 @@ Azure Maps 웹 SDK는 *서비스 모듈*을 제공 합니다. 이 모듈은 Java
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - 또는 [Azure Maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용 하 여 AZURE MAPS 웹 SDK 소스 코드에 대 한 서비스 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스팅합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 명령 사용:
+    - 또는 [Azure Maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용 하 여 AZURE MAPS 웹 SDK 소스 코드에 대 한 서비스 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스팅합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 사용합니다.
     
         > **npm install azure-maps-rest**
     

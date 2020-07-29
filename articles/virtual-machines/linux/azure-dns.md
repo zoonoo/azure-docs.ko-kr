@@ -3,15 +3,15 @@ title: Linux Vm에 대 한 DNS 이름 확인 옵션
 description: Azure IaaS의 Linux 가상 머신에 대한 이름 확인 시나리오(제공된 DNS 서비스, 하이브리드 외부 DNS 및 사용자 고유의 DNS 서버 포함)입니다.
 author: RicksterCDN
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: aa007888c68df41242f937e1062a90ec1b7fc3ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494737"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372827"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
 Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대해 기본적으로 DNS 이름 확인을 제공합니다. Azure에서 호스트하는 가상 머신에서 자체 DNS 서비스를 구성하여 사용자 고유의 DNS 이름 확인 솔루션을 구현할 수 있습니다. 다음 시나리오는 특정 상황에 적합한 솔루션을 선택하는 데 도움이 됩니다.
