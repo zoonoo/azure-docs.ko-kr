@@ -5,18 +5,18 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 0af0848f057b5c225471e9ac13f14db2468d838c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 96ba60508cf57a10d717c948daba13b1dd35a142
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186098"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372606"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Azure Portal에서 업데이트 관리 사용
 
 이 문서에서는 Azure Portal을 탐색하여 VM에 [업데이트 관리](automation-update-management.md) 기능을 사용하도록 설정하는 방법을 설명합니다. 대규모로 Azure VM을 사용하도록 설정하려면 업데이트 관리를 사용하여 기존 VM을 사용하도록 설정해야 합니다. 
 
-VM 관리에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/templates/cross-resource-group-deployment.md)으로 제한됩니다. Resource Manager 배포(업데이트 배포와 혼동하지 말 것)는 배포당 5개의 리소스 그룹으로 제한됩니다. 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 3개의 리소스 그룹을 선택하여 업데이트 관리에서 관리할 수 있습니다. 이 제한은 Automation 기능으로 관리할 수 있는 리소스 그룹의 수가 아니라 동시 설정에만 적용됩니다.
+VM 관리에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/templates/cross-scope-deployment.md)으로 제한됩니다. Resource Manager 배포(업데이트 배포와 혼동하지 말 것)는 배포당 5개의 리소스 그룹으로 제한됩니다. 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 3개의 리소스 그룹을 선택하여 업데이트 관리에서 관리할 수 있습니다. 이 제한은 Automation 기능으로 관리할 수 있는 리소스 그룹의 수가 아니라 동시 설정에만 적용됩니다.
 
 > [!NOTE]
 > 업데이트 관리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대한 지역 매핑](how-to/region-mappings.md)을 참조하세요.

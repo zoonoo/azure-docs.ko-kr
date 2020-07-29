@@ -5,16 +5,17 @@ description: 디자이너를 사용하여 모델을 학습하고 일괄 처리 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
-ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429934"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319612"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,6 +34,8 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법에서는 학습 파이프라인이 이미 있다고 가정합니다. 디자이너를 소개하는 방법에 대한 자세한 내용을 확인하려면 [디자이너 자습서의 1부](tutorial-designer-automobile-price-train-score.md)를 완료하세요. 
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-batch-inference-pipeline"></a>일괄 처리 유추 파이프라인 만들기
 

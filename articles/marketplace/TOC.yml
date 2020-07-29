@@ -121,7 +121,7 @@
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Azure VM 기술 자산 FAQ
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Azure VM 이미지 인증
+                - name: VHD에서 배포된 Virtual Machine 테스트
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: SAS URI
                   items:
@@ -131,7 +131,7 @@
                       href: ./partner-center-portal/common-sas-uri-issues.md
         - name: 컨설팅 서비스
           items:
-            - name: 필수 구성 요소
+            - name: 사전 요구 사항
               href: ./partner-center-portal/consulting-service-prerequisites.md
             - name: 컨설팅 서비스 제품 만들기
               href: ./partner-center-portal/create-consulting-service-offer.md
@@ -268,7 +268,7 @@
       items:
         - name: 개요
           href: ./cloud-partner-portal-api-overview.md
-        - name: 필수 구성 요소
+        - name: 사전 요구 사항
           href: ./cloud-partner-portal-api-prerequisites.md
         - name: 고려 사항
           href: ./cloud-partner-portal-api-considerations.md

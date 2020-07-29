@@ -5,18 +5,18 @@ description: 기계 학습 모델이 기능 중요도를 결정 하 고 Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 04d9e82c56979a459734b8732c127922361a1100
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 7f2ca2a84123d3bb7dd92a797d517a2490544efa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072377"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307015"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측 (미리 보기)을 설명 합니다.
 
@@ -244,7 +244,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예: `train_explain.py`.
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예들 들어 `train_explain.py`입니다.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -304,7 +304,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 다음 그림에서는 학습 된 모델을 예측 및 설명과 함께 전체 보기를 제공 합니다.
 
-|그림|Description|
+|그림|설명|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시 합니다.|
 |글로벌 중요도|개별 datapoints의 기능 중요도 값을 집계 하 여 모델의 전체 상위 K (구성 가능 K) 중요 기능을 표시 합니다. 기본 모델의 전반적인 동작을 이해 하는 데 도움이 됩니다.|
@@ -318,7 +318,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 전체 플롯에서 개별 데이터 요소 중 하나를 클릭 하 여 모든 데이터 요소에 대 한 개별 기능 중요도 그림을 로드할 수 있습니다.
 
-|그림|Description|
+|그림|설명|
 |----|-----------|
 |로컬 중요도|개별 예측에 대 한 최상위 K (구성 가능 K) 중요 기능을 보여 줍니다. 특정 데이터 요소에 대 한 기본 모델의 로컬 동작을 보여 줍니다.|
 |Perturbation 탐색 (what-if 분석)|선택한 데이터 요소의 기능 값에 대 한 변경 내용을 허용 하 고 그 결과 예측 값에 대 한 변경 내용을 관찰 합니다.|

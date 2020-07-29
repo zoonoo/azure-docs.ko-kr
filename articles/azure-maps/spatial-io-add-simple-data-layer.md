@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 622aa41975fdec015e4ca4964309c5c4bf274ef2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 704cb43a31ff1dfcaf287f9af467f7d6e7d6c50d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131449"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282809"
 ---
 # <a name="add-a-simple-data-layer"></a>단순 데이터 레이어 추가
 
@@ -113,7 +114,7 @@ Azure Maps 및 GitHub 스타일 속성은 지원 되는 속성 이름의 두 가
 
 클러스터도 거품형 계층을 사용 하 여 렌더링 됩니다. 기본적으로 클러스터의 radius는로 설정 됩니다 `16` . 클러스터의 색은 아래에 정의 된 대로 클러스터의 요소 수에 따라 달라 집니다.
 
-| 점수 | 색상    |
+| 점수 | 색    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |

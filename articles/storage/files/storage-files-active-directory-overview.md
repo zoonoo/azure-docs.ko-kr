@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127199"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372327"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -73,7 +73,7 @@ Azure Files의 Windows Acl에 대 한 id 기반 인증 및 지원은 다음과 �
 |---------|---------|
 |Azure AD DS에 가입 된 Windows 컴퓨터는 SMB를 통해 Azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다.     |온-프레미스 AD DS 가입 된 또는 Azure AD DS에 가입 된 Windows 컴퓨터는 SMB를 통해 Azure AD에 동기화 되는 온-프레미스 Active Directory 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 클라이언트는 AD DS에 대 한 시야를가지고 있어야 합니다.        |
 
-### <a name="restrictions"></a>제한 사항
+### <a name="restrictions"></a>제한
 
 - Azure AD DS와 온-프레미스 AD DS 인증은 컴퓨터 계정에 대 한 인증을 지원 하지 않습니다. 대신 서비스 로그온 계정을 사용 하는 것을 고려할 수 있습니다.
 - Azure AD에 가입 된 장치 또는 Azure AD 등록 장치에 대해 Azure AD DS 인증 및 온-프레미스 AD DS 인증을 지원 하지 않습니다.
@@ -91,7 +91,7 @@ Azure Files에 대 한 id 기반 인증은 공유 키 인증 사용에 대 한 �
 -   **데이터와 함께 Windows Acl (NTFS 라고도 함) 백업**  
     Azure 파일 공유를 사용 하 여 기존 온-프레미스 파일 공유를 백업할 수 있습니다. Azure Files은 SMB를 통해 Azure 파일 공유에 파일 공유를 백업할 때 데이터와 함께 Acl을 유지 합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 Azure 파일 공유는 온-프레미스 AD DS 또는 Azure AD DS를 사용 하 여 인증 하기 위해 Kerberos 프로토콜을 활용 합니다. 클라이언트에서 실행 되는 사용자 또는 응용 프로그램과 연결 된 id가 Azure 파일 공유의 데이터에 액세스 하려고 하면 요청은 AD DS 또는 Azure AD DS에서 id를 인증 하는 도메인 서비스로 전송 됩니다. 인증에 성공 하면 Kerberos 토큰을 반환 합니다. 클라이언트는 Kerberos 토큰을 포함 하는 요청을 보내고, Azure 파일 공유는 해당 토큰을 사용 하 여 요청에 권한을 부여 합니다. Azure 파일 공유는 액세스 자격 증명이 아닌 Kerberos 토큰만 받습니다.
 
@@ -123,7 +123,7 @@ Azure AD DS 인증의 경우 파일 데이터에 액세스 하려는 Vm에 대 �
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Azure Files에 대한 공유 수준 권한 구성
 
-Azure AD DS 또는 온-프레미스 AD DS 인증을 사용 하는 경우 기본 제공 RBAC 역할을 사용 하거나 Azure AD id에 대 한 사용자 지정 역할을 구성 하 고 저장소 계정의 모든 파일 공유에 대 한 액세스 권한을 할당할 수 있습니다. 할당 된 사용 권한을 통해 부여 된 id는 루트 디렉터리 뿐만 아니라 공유에 대해서만 액세스 권한을 얻을 수 있습니다. Azure 파일 공유에 대 한 디렉터리 또는 파일 수준 권한을 별도로 구성 해야 합니다.
+Azure AD DS 또는 온-프레미스 AD DS 인증을 사용 하는 경우 azure 기본 제공 역할을 사용 하거나 Azure AD id에 대 한 사용자 지정 역할을 구성 하 고 저장소 계정의 모든 파일 공유에 대 한 액세스 권한을 할당할 수 있습니다. 할당 된 사용 권한을 통해 부여 된 id는 루트 디렉터리 뿐만 아니라 공유에 대해서만 액세스 권한을 얻을 수 있습니다. Azure 파일 공유에 대 한 디렉터리 또는 파일 수준 권한을 별도로 구성 해야 합니다.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Azure Files에 대 한 디렉터리 또는 파일 수준 권한 구성
 

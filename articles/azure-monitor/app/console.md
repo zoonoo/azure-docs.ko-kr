@@ -4,25 +4,25 @@ description: 애플리케이션의 가용성, 성능 및 사용 현황을 모니
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: 955988cd16af5269c474061cf60fb18a040909e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28f86e32dd73e25079ca685538fd0cb6f351b2d9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091235"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310466"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하여 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
+[Application Insights](./app-insights-overview.md)를 사용하여 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
 
 > [!NOTE]
-> 콘솔 응용 프로그램에 대해서는 [여기에 나와](../../azure-monitor/app/worker-service.md) 있는 관련 지침과 [Microsoft applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 를 사용 하는 것이 *좋습니다* . 이 패키지 [`NetStandard2.0`](/dotnet/standard/net-standard) 는를 대상으로 하므로 .Net Core 2.1 이상에서 사용할 수 있으며 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
+> 콘솔 응용 프로그램에 대해서는 [여기에 나와](./worker-service.md) 있는 관련 지침과 [Microsoft applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 를 사용 하는 것이 *좋습니다* . 이 패키지 [`NetStandard2.0`](/dotnet/standard/net-standard) 는를 대상으로 하므로 .Net Core 2.1 이상에서 사용할 수 있으며 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
-* [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md). 애플리케이션 유형으로 **일반**을 선택합니다.
+* [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](./create-new-resource.md). 애플리케이션 유형으로 **일반**을 선택합니다.
 * 계측 키를 복사합니다. 만든 새 리소스의 **필수** 드롭다운에서 키를 찾습니다.
 * 최신 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 패키지를 설치합니다.
 * 원격 분석을 추적하기 전에 코드에서 계측 키를 설정합니다(또는 APPINSIGHTS_INSTRUMENTATIONKEY 환경 변수 설정). 그런 다음, 수동으로 원격 분석을 추적하고 Azure Portal에서 확인할 수 있습니다.
@@ -96,7 +96,7 @@ var telemetryClient = new TelemetryClient(configuration);
 
 ### <a name="configuring-telemetry-collection-from-code"></a>코드에서 원격 분석 컬렉션 구성
 > [!NOTE]
-> .NET Core에서는 구성 파일 읽기가 지원되지 않습니다. [ASP.NET Core용 Application Insights SDK](../../azure-monitor/app/asp-net-core.md)를 사용하는 것을 고려할 수 있습니다.
+> .NET Core에서는 구성 파일 읽기가 지원되지 않습니다. [ASP.NET Core용 Application Insights SDK](./asp-net-core.md)를 사용하는 것을 고려할 수 있습니다.
 
 * 애플리케이션이 시작하는 동안 `DependencyTrackingTelemetryModule` 인스턴스를 만들고 구성합니다. 이 인스턴스는 싱글톤이어야 하며 애플리케이션 수명 동안 유지되어야 합니다.
 
@@ -207,5 +207,6 @@ namespace ConsoleApp
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [종속성을 모니터링](../../azure-monitor/app/asp-net-dependencies.md)하여 REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
-* [API를 사용](../../azure-monitor/app/api-custom-events-metrics.md) 합니다.
+* [종속성을 모니터링](./asp-net-dependencies.md)하여 REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
+* [API를 사용](./api-custom-events-metrics.md) 합니다.
+

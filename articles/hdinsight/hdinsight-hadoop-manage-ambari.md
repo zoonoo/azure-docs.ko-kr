@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075759"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281392"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -55,10 +55,10 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 |클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
 |경고 개수|클러스터에 대 한 경고 또는 중요 한 알림 (있는 경우)을 표시 합니다.|
 |대시보드|대시보드를 표시 합니다.|
-|서비스|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
+|Services|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
 |호스트|클러스터의 노드에 대 한 정보 및 구성 설정입니다.|
 |경고|정보, 경고 및 중요 한 알림 로그입니다.|
-|관리자|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
+|Admin|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
 |관리 단추|Ambari 관리, 사용자 설정 및 로그 아웃입니다.|
 
 ## <a name="monitoring"></a>모니터링
@@ -104,9 +104,10 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 ![Apache Ambari 호스트 요약 정보](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
-### <a name="services"></a>서비스
+### <a name="services"></a>Services
 
 대시보드의 **Services** 세로 막대는 클러스터에서 실행되는 서비스 상태에 대한 빠른 정보를 제공합니다. 다양한 아이콘은 수행해야 하는 상태 또는 작업을 나타내는 데 사용됩니다. 예를 들어 서비스가 재활용되어야 하는 경우 노란색 재활용 기호가 표시됩니다.
+
 
 ![Apache Ambari services의 가로 막대형](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
@@ -162,18 +163,18 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
     |유지 관리 모드 해제|호스트를 정상 경고로 반환 합니다.|
     |중지|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
     |시작|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
-    |재시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
+    |다시 시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
     |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
     |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
 
-### <a name="services"></a><a id="service"></a>서비스
+### <a name="services"></a><a id="service"></a>Services
 
 **대시보드** 또는 **서비스** 페이지에서 서비스 목록 아래쪽의 **작업** 단추를 사용하여 모든 서비스를 중지하고 시작합니다.
 
-![Apache Ambari 서비스 작업 목록](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Apache Ambari 서비스 작업 목록입니다." border="true":::
 
 > [!WARNING]  
-> 이 메뉴에 나열되어 있는 **서비스 추가**는 HDInsight 클러스터에 서비스를 추가하는 데 사용하면 안됩니다. 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 **Actions** 단추는 모든 서비스를 다시 시작할 수 있는 반면, 특정 서비스를 시작하거나 중지, 다시 시작하려는 경우가 많습니다. 개별 서비스에 대해 작업을 수행 하려면 다음 단계를 사용 합니다.
 

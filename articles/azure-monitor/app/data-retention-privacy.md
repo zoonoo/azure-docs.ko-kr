@@ -3,12 +3,13 @@ title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft 
 description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 039e86f964649441967dff82270a3a6c460612f0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324474"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372402"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 

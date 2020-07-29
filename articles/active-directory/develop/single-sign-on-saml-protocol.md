@@ -4,22 +4,22 @@ titleSuffix: Microsoft identity platform
 description: 이 문서에서는 Azure Active Directory의 SSO(Single Sign On) SAML 프로토콜에 대해 설명합니다.
 services: active-directory
 documentationcenter: .net
-author: rwike77
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: ryanwi
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
-ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.reviewer: paulgarn
+ms.openlocfilehash: f3896bf795e3b1ca258f65fa2c6f4974f2115014
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076949"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282996"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -101,7 +101,7 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 ### <a name="signature"></a>서명
 요소의 `Signature` 요소는 `AuthnRequest` 선택 사항입니다. 서명이 존재 하는 경우 Azure AD는 서명 된 인증 요청의 유효성을 검사 하지 않습니다. 요청자 확인은 등록된 Assertion Consumer Service URL에만 응답하여 제공됩니다.
 
-### <a name="subject"></a>제목
+### <a name="subject"></a>주체
 `Subject` 요소를 포함하지 마세요. Azure AD는 요청 주제 지정을 지원하지 않고, 요청이 제공되면 오류를 반환합니다.
 
 ## <a name="response"></a>응답

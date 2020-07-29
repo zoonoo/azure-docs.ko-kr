@@ -3,12 +3,12 @@ title: 배포 모드
 description: Azure Resource Manager를 사용하여 전체 또는 증분 배포 모드를 사용할지 여부를 지정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040435"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371586"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -29,7 +29,7 @@ ms.locfileid: "87040435"
 
 [복사 루프](copy-resources.md)에서 전체 모드를 사용할 때는 주의 해야 합니다. 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스는 삭제 됩니다.
 
-[템플릿에서 둘 이상의 리소스 그룹](cross-resource-group-deployment.md)에 배포 하는 경우 배포 작업에 지정 된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제 되지 않습니다.
+[템플릿에서 둘 이상의 리소스 그룹](cross-scope-deployment.md)에 배포 하는 경우 배포 작업에 지정 된 리소스 그룹의 리소스를 삭제할 수 있습니다. 보조 리소스 그룹의 리소스는 삭제 되지 않습니다.
 
 리소스 형식에서 완료 모드 삭제를 처리 하는 방법에는 몇 가지 차이점이 있습니다. 전체 모드로 배포된 템플릿에 없는 경우 부모 리소스가 자동으로 삭제됩니다. 일부 자식 리소스는 템플릿에 없더라도 자동으로 삭제되지 않습니다. 그러나 이러한 자식 리소스는 부모 리소스가 삭제 되는 경우 삭제 됩니다.
 

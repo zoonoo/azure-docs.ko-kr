@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284084"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Azure Blob Storage에서 blob 만들기 및 관리
 
@@ -19,7 +20,7 @@ ms.locfileid: "84711292"
 
 Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보겠습니다. 이 도구는 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob Storage 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다.
 
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 [Azure Blob Storage 커넥터 참조](https://docs.microsoft.com/connectors/azureblobconnector/)를 참조하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 [Azure Blob Storage 커넥터 참조](/connectors/azureblobconnector/)를 참조하세요.
 
 > [!IMPORTANT]
 > 논리 앱은 모두 동일한 지역에 있는 경우 방화벽 뒤에 있는 저장소 계정에 직접 액세스할 수 없습니다. 문제를 해결 하기 위해 논리 앱과 저장소 계정을 서로 다른 지역에 포함할 수 있습니다. Azure Logic Apps에서 방화벽 뒤의 저장소 계정으로의 액세스를 설정 하는 방법에 대 한 자세한 내용은이 항목의 뒷부분에 있는 [방화벽 뒤의 저장소 계정 액세스](#storage-firewalls) 섹션을 참조 하세요.
@@ -126,7 +127,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    | **Storage 계정** | 예 | <*저장소 계정*> | 목록에서 스토리지 계정을 선택합니다. |
    ||||
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ![Azure Blob storage 계정 연결 만들기](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
@@ -136,7 +137,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/azureblobconnector/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/azureblobconnector/)를 참조 하세요.
 
 > [!NOTE]
 > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
@@ -193,7 +194,7 @@ Microsoft의 신뢰할 수 있는 서비스에 방화벽을 통해 저장소 계
 1. 논리 앱의 워크플로에서 저장소 계정 또는 엔터티에 액세스 하는 HTTP 작업 또는 트리거를 추가 하 고 설정 합니다.
 
    > [!IMPORTANT]
-   > 나가는 HTTP 작업 또는 Azure Storage 계정에 대 한 트리거 호출의 경우 요청 헤더에 `x-ms-version` 저장소 계정에서 실행 하려는 작업의 속성 및 API 버전이 포함 되어 있는지 확인 합니다. 자세한 내용은 [관리 되는 id를 사용 하 여 액세스 인증](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) 및 [Azure Storage services에 대 한 버전](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests)관리를 참조 하세요.
+   > 나가는 HTTP 작업 또는 Azure Storage 계정에 대 한 트리거 호출의 경우 요청 헤더에 `x-ms-version` 저장소 계정에서 실행 하려는 작업의 속성 및 API 버전이 포함 되어 있는지 확인 합니다. 자세한 내용은 [관리 되는 id를 사용 하 여 액세스 인증](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) 및 [Azure Storage services에 대 한 버전](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests)관리를 참조 하세요.
 
 1. 해당 작업에서 인증에 사용할 [관리 되는 id를 선택](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) 합니다.
 
@@ -206,3 +207,4 @@ Microsoft의 신뢰할 수 있는 서비스에 방화벽을 통해 저장소 계
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

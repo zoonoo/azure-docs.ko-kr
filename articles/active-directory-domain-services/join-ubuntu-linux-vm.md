@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 7eaf8b6b5cddc8a01b59cda0cafc819e06a5ec7c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283149"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에 Ubuntu Linux 가상 컴퓨터 연결
 
@@ -24,7 +25,7 @@ ms.locfileid: "87005007"
 
 이 문서에서는 Ubuntu Linux VM을 관리 되는 도메인에 조인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -138,7 +139,7 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
     다시, 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 라는 계정이 `contosoadmin@aaddscontoso.com` Kerberos를 초기화 하는 데 사용 됩니다. 관리 되는 도메인의 일부인 사용자 계정을 입력 합니다.
 
     ```console
-    kinit contosoadmin@AADDSCONTOSO.COM
+    kinit -V contosoadmin@AADDSCONTOSO.COM
     ```
 
 1. 마지막으로 명령을 사용 하 여 VM을 관리 되는 도메인에 가입 시킵니다 `realm join` . 이전 명령에서 지정한 관리 되는 도메인의 일부인 동일한 사용자 계정 (예:)을 사용 합니다 `kinit` `contosoadmin@AADDSCONTOSO.COM` .
@@ -182,7 +183,7 @@ rdns=false
 1. 변경 내용을 적용 하려면 SSSD 서비스를 다시 시작 합니다.
 
     ```console
-    sudo service sssd restart
+    sudo systemctl restart sssd
     ```
 
 ## <a name="configure-user-account-and-group-settings"></a>사용자 계정 및 그룹 설정 구성

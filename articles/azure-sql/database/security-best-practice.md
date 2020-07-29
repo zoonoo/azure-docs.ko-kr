@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132945"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371790"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -255,7 +255,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 필요한 정확한 권한을 사용 하 여 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다.
   - 보안 배포
   - 관리자
-  - 개발자
+  - Developer
   - 지원 담당자
   - 감사자
   - 자동화 된 프로세스
@@ -324,7 +324,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 - 보안 관련 작업에 대 한 감사 내역이 항상 있는지 확인 합니다.
 
-- 기본 제공 RBAC 역할의 정의를 검색 하 여 사용 된 사용 권한을 확인 하 고 PowerShell을 통해 이러한 항목의 발췌 및 cumulations을 기반으로 사용자 지정 역할을 만들 수 있습니다.
+- Azure 기본 제공 역할의 정의를 검색 하 여 사용 된 사용 권한을 확인 하 고 PowerShell을 통해 이러한 항목의 발췌 및 cumulations을 기반으로 사용자 지정 역할을 만들 수 있습니다.
 
 - Db_owner 데이터베이스 역할의 모든 멤버는 TDE (투명한 데이터 암호화)와 같은 보안 설정을 변경 하거나 SLO를 변경할 수 있기 때문에이 멤버 자격은 신중 하 게 부여 되어야 합니다. 그러나 db_owner 권한이 필요한 많은 태스크가 있습니다. DB 옵션 변경 등의 데이터베이스 설정을 변경 하는 것과 같은 작업입니다. 감사는 모든 솔루션에서 주요 역할을 수행 합니다.
 

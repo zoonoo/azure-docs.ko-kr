@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656342"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284016"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 FTP 파일 만들기, 모니터링 및 관리
 
@@ -80,7 +81,7 @@ Ftp 트리거는 FTP 파일 시스템을 폴링하고 마지막 폴링 이후 �
 
 1. 선택한 트리거 또는 작업에 대 한 정보를 제공 하 고 논리 앱의 워크플로를 계속 빌드합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 <a name="file-added-modified"></a>
 
@@ -170,7 +171,7 @@ Ftp 트리거는 FTP 파일 시스템을 폴링하고 마지막 폴링 이후 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/ftpconnector/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/ftpconnector/)를 참조 하세요.
 
 > [!NOTE]
 > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
@@ -178,3 +179,4 @@ Ftp 트리거는 FTP 파일 시스템을 폴링하고 마지막 폴링 이후 �
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

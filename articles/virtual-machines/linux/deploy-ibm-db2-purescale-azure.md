@@ -3,15 +3,15 @@ title: Azure에서 IBM DB2 pureScale 배포
 description: z/OS에서 실행되는 IBM DB2 환경에서 Azure의 IBM Db2 pureScale로 엔터프라이즈를 마이그레이션하는 데 최근 사용된 예제 아키텍처를 배포하는 방법을 알아봅니다.
 author: njray
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 7e2ec4bfe04112d300a63e6326f0391968e385f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510736"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371926"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Azure에서 IBM DB2 pureScale 배포
 
@@ -19,7 +19,7 @@ ms.locfileid: "86510736"
 
 마이그레이션에 사용되는 단계를 진행하려면 GitHub의 [DB2onAzure](https://aka.ms/db2onazure) 리포지토리에서 설치 스크립트를 참조하세요. 이러한 스크립트는 일반적인 중간 크기의 OLTP(온라인 트랜잭션 처리) 워크로드용 아키텍처를 기준으로 합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 이 아키텍처를 배포하려면 GitHub의 [DB2onAzure](https://aka.ms/db2onazure) 리포지토리에 있는 deploy.sh 스크립트를 다운로드하여 실행합니다.
 
@@ -75,7 +75,7 @@ GitHub 리포지토리에는 DB2 pureScale 설치용 자동 스크립트를 생�
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | 시작                   |                                              | 새 설치                                                                                           |
 | 제품 선택          |                                              | DB2 버전 11.1.3.3. DB2 pureScale이 포함된 Server Edition                                              |
-| Configuration             | 디렉터리                                    | /data1/opt/ibm/db2/V11.1                                                                              |
+| 구성             | 디렉터리                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | 설치 유형 선택                 | 일반                                                                                               |
 |                           | IBM 사용 약관에 동의함                     | 선택됨                                                                                               |
 | 인스턴스 소유자            | 인스턴스, 사용자 이름에 대한 기존 사용자        | DB2sdin1                                                                                              |

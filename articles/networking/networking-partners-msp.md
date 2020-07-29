@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: d9a8b44cc6e78eda4a3e0b18d59d2372e7129c05
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 69129ad0ecda6b5893a5f758b8cac9a30dd0b093
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124183"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282112"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -40,6 +40,7 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 |[NTT Data](https://us.nttdata.com/en/digital/cloud-transformation)|[관리형 서비스: 10주 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
 |[Equinix](https://www.equinix.com/)|[클라우드 최적화 WAN 워크샵](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[ExpressRoute 연결 전략 워크샵](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview)||||
 |[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[ExpressRoute 구현: 1시간 브리핑](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute: 2주 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
+|[페더레이션된 무선](https://www.federatedwireless.com/caas/)||||[페더레이션된 무선 연결 (as a Service)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/federatedwireless1580839623708.fw_caas?tab=Overview)|
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Integrate+ for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Azure 네트워킹 평가 - 5일](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[클라우드 준비 - 2시간 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
@@ -54,7 +55,7 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure 상태 확인: 5일 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5일 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis 관리 ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Fortinet에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Palo Alto Networks에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-다음 Azure 네트워킹 MSP 파트너의 관리 되는 Express 경로, 가상 WAN, 보안 서비스 및 개인에 지 영역 서비스에 대 한 Azure Marketplace 제품은 로드맵에 있습니다. [Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX 도달](https://www.ixreach.com/services/sdn-cloud-connect/)  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/);  [Sejong 텔레콤](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [페더레이션된 무선](https://www.federatedwireless.com/caas/)
+다음 Azure 네트워킹 MSP 파트너의 관리 되는 Express 경로, 가상 WAN, 보안 서비스 및 개인에 지 영역 서비스에 대 한 Azure Marketplace 제품은 로드맵에 있습니다. [Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX 도달](https://www.ixreach.com/services/sdn-cloud-connect/)  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/);  [Sejong 텔레콤](https://www.sejongtelecom.net/en/pages/service/cloud_ms);
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>ExpressRoute 파트너
 

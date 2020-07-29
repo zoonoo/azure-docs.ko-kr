@@ -9,11 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667882"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282775"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)로 복제 구성 
 
@@ -23,7 +24,7 @@ Azure SQL Edge 인스턴스를 단방향 트랜잭션 복제 또는 스냅숏 �
   
 - Azure SQL Edge 인스턴스는 게시자의 푸시 구독자 여야 합니다.
 - 게시자 및 배포자는 다음 중 하나일 수 있습니다.
-   - 온-프레미스 또는 Azure 가상 머신에서 실행 되는 SQL Server 인스턴스를 실행 하는 SQL Server 인스턴스입니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/)를 참조하세요. SQL Server 인스턴스는 SQL Server 2016 이상 버전을 사용 해야 합니다.
+   - 온-프레미스 또는 Azure 가상 머신에서 실행 되는 SQL Server 인스턴스를 실행 하는 SQL Server 인스턴스입니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](https://docs.microsoft.com/azure/azure-sql/virtual-machines/)를 참조하세요. SQL Server 인스턴스는 SQL Server 2016 이상 버전을 사용 해야 합니다.
    - Azure SQL Managed Instance의 인스턴스입니다. SQL Managed Instance은 게시자, 배포자 및 구독자 데이터베이스를 호스팅할 수 있습니다. 자세한 내용은 [SQL Database Managed Instance를 사용하여 복제](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/)를 참조하세요.
 
 - 배포 데이터베이스 및 복제 에이전트는 Azure SQL Edge 인스턴스에 배치할 수 없습니다.  

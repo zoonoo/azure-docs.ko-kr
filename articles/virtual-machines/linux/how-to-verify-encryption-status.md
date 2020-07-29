@@ -3,15 +3,16 @@ title: Linux의 암호화 상태 확인 - Azure Disk Encryption
 description: 이 문서에서는 플랫폼 및 OS 수준에서 암호화 상태를 확인하는 방법을 설명합니다.
 author: kailashmsft
 ms.service: security
-ms.topic: article
+ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2916a71f167c415f6bf1dde8ff82a38b0e0557c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 58bb3f38938414f25551d0df47a50b6a8f386acc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873995"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283336"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Linux의 암호화 상태 확인 
 
@@ -279,7 +280,7 @@ az storage account list --query [].[id] -o tsv
 ```
 스토리지 계정 ID는 다음과 같은 형식으로 나열됩니다.
 
-/subscriptions/\<subscription id>/resourceGroups/\<resource group name>/providers/Microsoft.Storage/storageAccounts/\<storage account name>
+/subscriptions/ \<subscription id> /Ssourceg/ \<resource group name> /providers/Microsoft.Storage/storageAccounts/\<storage account name>
 
 적절한 ID를 선택하고 변수에 저장합니다.
 ```bash

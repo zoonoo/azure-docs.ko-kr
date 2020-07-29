@@ -1,6 +1,5 @@
 ---
-title: 여러 모델 및 끝점 만들기
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 끝점 & 다중 모델 만들기-Azure'
 description: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b158c2fbdbfba91055d64f92f64c51dc6c3d391
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9cb5b0b87b1d6adb8e0e5cda06049cfddba3d950
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283540"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>ML Studio (클래식) 및 PowerShell을 사용 하 여 한 실험에서 여러 웹 서비스 끝점 만들기
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
 
 일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용 하 여 Azure Machine Learning Studio (클래식)의 규모에서이 작업을 수행 하는 방법을 보여 줍니다.
 

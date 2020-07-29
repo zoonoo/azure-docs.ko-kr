@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e25af1f629ea6fa7db14ce89dfffaa340486a989
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd641b57cfdd7f9481e17a90dbbd81d5e43f8ad2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689797"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311112"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -27,7 +27,7 @@ ms.locfileid: "82689797"
 
 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비스(비밀 클라이언트)에서 다른 웹 서비스를 호출할 때 사용자를 가장하는 대신 고유한 자격 증명을 사용하여 인증할 수 있습니다. 이 시나리오에서 클라이언트는 일반적으로 중간 계층 웹 서비스, 디먼 서비스 또는 웹 사이트입니다. 더 높은 수준의 보증을 위해 Microsoft ID 플랫폼은 호출 서비스가 자격 증명으로 인증서(공유 비밀 대신)를 사용할 수 있도록 합니다.
 
-더 일반적인 *삼각 OAuth*에서 클라이언트 애플리케이션에는 특정 사용자를 대신하여 리소스에 액세스할 수 있는 사용 권한이 부여됩니다. 사용 권한은 일반적으로 동의 프로세스 동안 사용자에게서 애플리케이션에 [위임](v2-permissions-and-consent.md) 됩니다. 그러나 클라이언트 자격 증명(*2단계 OAuth*) 흐름에서는 애플리케이션 자체에 직접 사용 권한이 부여됩니다. 앱이 리소스에 대한 토큰을 제공하는 경우 리소스는 사용자에게 권한을 부여하지 않고 앱 자체에 작업을 수행할 수 있는 권한을 부여합니다.
+클라이언트 자격 증명 흐름에서 관리자는 응용 프로그램 자체에 사용 권한을 직접 부여 합니다. 앱이 리소스에 대 한 토큰을 제공 하는 경우 리소스는 인증에 관련 된 사용자가 없기 때문에 앱 자체에 작업을 수행할 수 있는 권한을 부여 합니다.  이 문서에서는 [api를 호출 하는 응용 프로그램에 권한을 부여](#application-permissions)하는 데 필요한 단계와 [api를 호출 하는 데 필요한 토큰을 가져오는 방법](#get-a-token)에 대해 설명 합니다.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -52,6 +52,9 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비
 
 이 종류의 권한 부여는 개인 Microsoft 계정을 가진 소비자 사용자가 소유한 데이터에 액세스해야 하는 디먼 및 서비스 계정에 일반적입니다. 조직에서 소유한 데이터의 경우 애플리케이션 사용 권한을 통해 필요한 권한 부여를 획득하는 것이 좋습니다.
 
+> [!NOTE]
+> 이 ACL 기반 권한 부여 패턴을 사용 하도록 설정 하기 위해 Azure AD에서는 응용 프로그램에 다른 응용 프로그램에 대 한 토큰을 가져올 수 있는 권한이 필요 하지 않으므로 클레임 없이 앱 전용 토큰을 발급할 수 있습니다 `rules` . Api를 노출 하는 응용 프로그램은 토큰을 허용 하기 위해 권한 확인을 구현 해야 합니다.
+
 ### <a name="application-permissions"></a>애플리케이션 사용 권한
 
 Acl을 사용 하는 대신 Api를 사용 하 여 **응용 프로그램 사용 권한**집합을 노출할 수 있습니다. 애플리케이션 사용 권한은 조직의 관리자가 애플리케이션에 부여하며 해당 조직 및 그 직원이 소유한 데이터 액세스에만 사용할 수 있습니다. 예를 들어 Microsoft Graph는 다음을 수행할 수 있는 몇 가지 애플리케이션 사용 권한을 노출합니다.
@@ -61,14 +64,12 @@ Acl을 사용 하는 대신 Api를 사용 하 여 **응용 프로그램 사용 �
 * 모든 사용자로 메일 보내기
 * 디렉터리 데이터 읽기
 
-애플리케이션 사용 권한에 대한 자세한 내용은 [Microsoft Graph](https://developer.microsoft.com/graph)를 참조하세요.
+응용 프로그램 사용 권한에 대 한 자세한 내용은 [동의 및 사용 권한 설명서](v2-permissions-and-consent.md#permission-types)를 참조 하세요.
 
 앱에서 애플리케이션 사용 권한을 사용하려면 다음 섹션에서 설명하는 단계를 수행합니다.
 
-
 > [!NOTE]
 > 사용자와는 달리 응용 프로그램으로 인증 하는 경우 "위임 된 권한" (사용자가 부여 하는 범위)을 사용할 수 없습니다.  "역할"이 라고도 하는 "응용 프로그램 사용 권한"을 사용 해야 합니다 .이는 응용 프로그램에 대 한 관리자가 부여 하거나 웹 API의 사전 인증을 통해 부여 됩니다.
-
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>앱 등록 포털에서 사용 권한 요청
 

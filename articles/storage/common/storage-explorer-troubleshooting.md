@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 492f44353a9a43279afa4869640193f1baddd41c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974520"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372878"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -67,9 +67,9 @@ Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명�
 
 다른 리소스 유형의 경우 현재 RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
-### <a name="recommended-built-in-rbac-roles"></a>권장 되는 기본 제공 RBAC 역할
+### <a name="recommended-azure-built-in-roles"></a>권장 되는 Azure 기본 제공 역할
 
-Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 몇 가지 기본 제공 RBAC 역할이 있습니다. 이러한 역할 중 일부는 다음과 같습니다.
+Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 몇 가지 Azure 기본 제공 역할이 있습니다. 이러한 역할 중 일부는 다음과 같습니다.
 - [Owner](/azure/role-based-access-control/built-in-roles#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다. **참고**:이 역할은 키 액세스를 제공 합니다.
 - [참가자](/azure/role-based-access-control/built-in-roles#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다. **참고**:이 역할은 키 액세스를 제공 합니다.
 - [Reader](/azure/role-based-access-control/built-in-roles#reader): 리소스를 읽고 나열 합니다.

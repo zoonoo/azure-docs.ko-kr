@@ -3,15 +3,15 @@ title: SSH 키 쌍을 만드는 자세한 단계
 description: Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 관리하는 단계를 자세히 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ebce641aa7cb59deaf74490fb934b3f1536911a9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119211"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372776"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리 
 SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Linux 가상 머신을 Azure에서 만들 수 있으므로 로그인할 때 암호가 필요하지 않습니다. Azure Portal, Azure CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 만든 VM은 SSH 연결을 위해 SSH 키 인증을 설정하는 배포의 일부로 SSH 공개 키를 포함할 수 있습니다. 

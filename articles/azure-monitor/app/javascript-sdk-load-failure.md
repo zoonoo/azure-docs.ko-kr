@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517062"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371637"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>JavaScript 웹 앱에 대 한 SDK 로드 오류 문제 해결
 
@@ -29,7 +30,7 @@ Sdk 로드 실패 예외는 SDK 스크립트를 다운로드 하거나 초기화
 
 스택 정보에는 최종 사용자가 사용 하는 Url의 기본 정보가 포함 됩니다.
 
-| 이름                      | 설명                                                                                                  |
+| Name                      | 설명                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN &nbsp; 끝점&gt; | SDK를 다운로드 하는 데 사용 되거나 실패 한 URL입니다.                                                      |
 | &lt;도움말 &nbsp; 링크&gt;    | 문제 해결 설명서 (이 페이지)에 연결 되는 URL입니다.                                              |

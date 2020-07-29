@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371113"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281483"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용하여 IBM 메인프레임에서 3270 화면 기반 앱을 Azure와 통합
 
@@ -39,7 +39,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 디자인 도구에서 메타 데이터 파일을 생성 한 후에는 해당 파일을 Azure의 통합 계정에 추가 합니다. 이렇게 하면 논리 앱에서 3270 커넥터 작업을 추가할 때 앱의 메타 데이터에 액세스할 수 있습니다. 커넥터는 통합 계정에서 메타 데이터 파일을 읽고, 3270 화면에서 탐색을 처리 하 고, 3270 커넥터 작업에 대 한 매개 변수를 동적으로 표시 합니다. 그런 다음 호스트 응용 프로그램에 데이터를 제공할 수 있으며 커넥터가 결과를 논리 앱에 반환 합니다. 이렇게 하면 레거시 앱을 Azure, Microsoft 및 기타 앱, 서비스 및 Azure Logic Apps 지원 되는 시스템과 통합할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -220,7 +220,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 * 메시지-10
 * CICS 시작
-* Empty
+* 비어 있음
 * WBGB_1 (입력)
 * WBGB_2 (오류)
 * Empty_1
@@ -292,7 +292,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
    |---------------|-----------------|
    | **데이터 형식** | Byte, Date Time, Decimal, Int, Long, Short, String |
    | **필드 채우기 기술** | 매개 변수는 다음과 같은 채우기 형식을 지원 합니다. 필요한 경우 공백으로 채웁니다. <p><p>- **형식**: 필드에 순차적으로 문자를 입력 합니다. <p>- **채우기**: 필드의 내용을 문자로 바꾸고 필요한 경우 공백으로 채웁니다. <p>- **EraseEofType**: 필드를 지운 다음 필드에 순차적으로 문자를 입력 합니다. |
-   | **서식 문자열** | 일부 매개 변수 데이터 형식은 텍스트를 화면에서 .NET 데이터 형식으로 변환 하는 방법을 3270 커넥터에 알리는 형식 문자열을 사용 합니다. <p><p>- **Datetime**: datetime 형식 문자열은 [.net 사용자 지정 날짜 및 시간 서식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 따릅니다. 예를 들어 날짜는 `06/30/2019` 서식 문자열을 사용 합니다 `MM/dd/yyyy` . <p>- **Decimal**: 10 진수 형식 문자열은 [COBOL Picture 절](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html)을 사용 합니다. 예를 들어 숫자는 `100.35` 형식 문자열을 사용 합니다 `999V99` . |
+   | **서식 문자열** | 일부 매개 변수 데이터 형식은 텍스트를 화면에서 .NET 데이터 형식으로 변환 하는 방법을 3270 커넥터에 알리는 형식 문자열을 사용 합니다. <p><p>- **Datetime**: datetime 형식 문자열은 [.net 사용자 지정 날짜 및 시간 서식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 따릅니다. 예를 들어 날짜는 `06/30/2019` 서식 문자열을 사용 합니다 `MM/dd/yyyy` . <p>- **Decimal**: 10 진수 형식 문자열은 [COBOL Picture 절](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html)을 사용 합니다. 예를 들어 숫자는 `100.35` 형식 문자열을 사용 합니다 `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>메타 데이터 저장 및 보기
@@ -372,19 +372,19 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
    | **호스트 ssl 인증서의 유효성을 검사 하 시겠습니까?** | 아니요 | 설정 또는 해제 | 서버 인증서에 대 한 유효성 검사를 설정 하거나 해제 합니다. |
    ||||
 
-   예:
+   예를 들면 다음과 같습니다.
 
    ![연결 속성](./media/connectors-create-api-3270/connection-properties.png)
 
 1. 작업에 필요한 정보를 제공 합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **Hidx 이름** | 예 | <*HIDX-파일 이름*> | 사용 하려는 3270 HIDX 파일을 선택 합니다. |
    | **메서드 이름** | 예 | <*메서드 이름*> | HIDX 파일에서 사용 하려는 메서드를 선택 합니다. 메서드를 선택한 후에는 **새 매개 변수 추가** 목록이 표시 되므로 해당 메서드와 함께 사용할 매개 변수를 선택할 수 있습니다. |
    ||||
 
-   예:
+   예를 들면 다음과 같습니다.
 
    **HIDX 파일 선택**
 
@@ -409,7 +409,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/si3270/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/si3270/)를 참조 하세요.
 
 > [!NOTE]
 > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
@@ -417,3 +417,4 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

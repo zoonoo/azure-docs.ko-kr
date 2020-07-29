@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652648"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283081"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 질문과 대답
 
@@ -37,7 +38,7 @@ Azure AD 포털에서는 공용이 아닌 클라우드에서 온-프레미스 �
 
 **Q: 온-프레미스 사용자의 하위 집합에 Azure AD 암호 보호 혜택을 적용 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
+지원 안 됨 Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
 
 **Q: 암호 변경 및 암호 설정 (또는 다시 설정)의 차이점은 무엇 인가요?**
 
@@ -61,11 +62,11 @@ Active Directory는 [NetValidatePasswordPolicy](https://docs.microsoft.com/windo
 
 **Q: Azure를 사용 하지 않고 내 Active Directory 환경에서 Azure AD 암호 보호를 배포 하 고 구성 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. Azure AD 암호 보호는 온-프레미스 Active Directory 환경으로 지원이 확장되는 Azure 기능입니다.
+지원 안 됨 Azure AD 암호 보호는 온-프레미스 Active Directory 환경으로 지원이 확장되는 Azure 기능입니다.
 
 **Q: Active Directory 수준에서 정책의 내용을 수정 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
+지원 안 됨 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
 
 **Q: sysvol 복제에 DFSR이 필요한가요?**
 
@@ -148,7 +149,7 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 
 [Azure AD 암호 보호는 이제 일반 공급 됩니다.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[이메일 피싱 방지 가이드-15 부: Microsoft Azure AD 암호 보호 서비스 (온-프레미스의 경우)를 구현 합니다.](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[이메일 피싱 방지 가이드-15 부: Microsoft Azure AD 암호 보호 서비스 (온-프레미스의 경우)를 구현 합니다.](http://kmartins.com/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
 [이제 Azure AD 암호 보호 및 스마트 잠금이 공개 미리 보기로 제공됨](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 

@@ -11,20 +11,49 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512666"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373796"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
+## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK 1.13.0:2020-7 월 릴리스
+
+**참고**: Windows의 Speech SDK는 Visual Studio 2015, 2017 및 2019에 대 한 공유 Microsoft Visual C++ 재배포 가능 패키지에 따라 달라 집니다. [여기](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)에서 다운로드하여 설치합니다.
+
+**새 기능**
+- **C #**: 비동기 대화 기록을 위한 지원이 추가 되었습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription)에서 설명서를 참조 하세요.  
+- **JavaScript**: [브라우저](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) 와 [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition)에 대 한 Speaker Recognition 지원이 추가 되었습니다.
+- **JavaScript**: 자동 언어 검색/언어 ID에 대 한 지원이 추가 되었습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript)에서 설명서를 참조 하세요.
+- **목적-C**: 다중 장치 대화 및 대화 기록에 대 한 지원이 추가 되었습니다. 
+- **Python**: Windows 및 Linux에서 python에 대 한 압축 오디오 지원을 추가 했습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)에서 설명서를 참조 하세요. 
+
+**버그 수정**
+- **모두**: 인식 후 KeywordRecognizer 스트림을 앞으로 이동 하지 않는 문제를 해결 했습니다.
+- **All**: KeywordRecognitionResult에서 가져온 스트림이 키워드를 포함 하지 않도록 하는 문제를 해결 했습니다.
+- **모든**: 사용자가 대기를 완료 한 후 SendMessageAsync가 네트워크를 통해 메시지를 전송 하지 않는 문제를 해결 했습니다.
+- **모든**: 사용자가 여러 VoiceProfileClient:: SpeakerRecEnrollProfileAsync를 시작 하 고 완료 될 때까지 기다리지 않는 경우 Speaker Recognition api에서 충돌이 해결 되었습니다.
+- **All**: VoiceProfileClient 및 SpeakerRecognizer 클래스에서 파일 로깅 사용을 수정 했습니다.
+- **JavaScript**: 브라우저가 최소화 되었을 때 조정 [문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) 를 수정 했습니다.
+- **JavaScript**: 스트림에서 메모리 누수가 발생 한 [문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) 를 수정 했습니다.
+- **JavaScript**: nodejs에서 OCSP 응답에 대 한 캐싱을 추가 했습니다.
+- **Java**: BigInteger 필드에서 항상 0을 반환 하는 문제를 해결 했습니다.
+- **ios**: Ios 앱 스토어에서 음성 SDK 기반 앱을 게시 하는 문제를 해결 하 고 [문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) 를 해결 하세요.
+
+**샘플**
+- **C + +**: [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp)에 Speaker Recognition 샘플 코드를 추가 했습니다.
+
+**Covid-19 요약 테스트:** 지난 몇 주 동안 원격으로 작업 하기 때문에 일반적으로 수행 하는 것 처럼 많은 수동 확인 테스트를 수행할 수 없습니다. 모든 항목을 손상 했을 수 있으며 자동화 된 테스트가 모두 통과 했을 수 있습니다. 오류가 발생 하지 않은 경우 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)에서 알려주세요.<br>
+정상 상태를 유지 하세요.
+
 ## <a name="text-to-speech-2020-july-release"></a>텍스트 음성 변환 2020-7 월 릴리스
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
-* **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), Swara에서 `hi-IN` 힌디어 (인도), Colette in 네덜란드어 (폴란드어 `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` ), Zofia In 폴란드어 (폴란드어), Fernanda in 폴란드어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (스웨덴어), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어의 HsiaoYu (대만 북경어). [지원 되](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)는 모든 언어를 확인 합니다.  
+* **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), 힌디어 (인도), Swara의 `hi-IN` Colette, 네덜란드어 (네덜란드), 폴란드어 (폴란드어) `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` , Fernanda In 러시아어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (태국), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어 in 중국어 (HsiaoYu 대만) [지원 되](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)는 모든 언어를 확인 합니다.  
 
 * **사용자 환경을 단순화 하기 위해 학습 흐름을 사용한 사용자 지정 음성, 간소화 된 음성 테스트**: 새로운 테스트 기능을 사용 하면 각 음성이 일반 및 음성 도우미 시나리오를 다루는 각 언어에 대해 최적화 된 미리 정의 된 테스트 집합으로 자동으로 테스트 됩니다. 이러한 테스트 집합은 신중 하 게 선택 하 고 테스트 하 여 일반적인 사용 사례와 언어의 음소을 포함 합니다. 뿐만 아니라 사용자가 모델을 학습할 때 자체 테스트 스크립트를 업로드 하도록 선택할 수 있습니다.
 
@@ -56,7 +85,7 @@ ms.locfileid: "86512666"
 
 * 5 개 언어로 된 단어 수준 음성 정확도 향상
 
-    | 언어 | 음성 오류 감소 |
+    | Language | 음성 오류 감소 |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -69,7 +98,7 @@ ms.locfileid: "86512666"
 * 통화 판독값
     * 및에 대 한 통화 읽기와 관련 된 문제를 해결 했습니다. `es-ES``es-MX`
      
-    | 언어 | 입력 | 개선 후의 기능 |
+    | Language | 입력 | 개선 후의 기능 |
     |---|---|---|
     | `es-MX` | $1.58 | un 페소 cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
@@ -85,10 +114,10 @@ ms.locfileid: "86512666"
 
 ### <a name="samplessdk"></a>샘플/SDK
 
-* JavaScript: FireFox 및 macOS 및 iOS의 Safari에서 재생 문제를 수정 합니다. 
+* JavaScript: Firefox 및 macOS 및 iOS의 Safari에서 재생 문제를 수정 합니다. 
 
 ## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK 1.12.1:2020-6 월 릴리스
-**Speech CLI (즉, SPX)**
+**Speech CLI (SPX 라고도 함)**
 -   CLI 내 도움말 검색 기능이 추가 되었습니다.
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`
@@ -101,7 +130,7 @@ ms.locfileid: "86512666"
 
 **버그 수정**
 -   **C \# , c + +**: 고정 마이크 기록이 스피커 인식에서 1.12에서 작동 하지 않았습니다.
--   **JavaScript**: FireFox에서 텍스트 음성 변환 및 Macos 및 IOS의 Safari를 수정 합니다.
+-   **JavaScript**: Firefox에서 텍스트 음성 변환 및 Macos 및 IOS의 Safari를 수정 합니다.
 -   8 채널 스트림을 사용 하는 경우 대화에 대 한 Windows 응용 프로그램 검증 도구 검증 액세스 위반 충돌을 수정 합니다.
 -   다중 장치 대화 변환에서 Windows 응용 프로그램 검증 도구 액세스 위반 충돌을 수정 합니다.
 
@@ -115,7 +144,7 @@ ms.locfileid: "86512666"
 
 
 ## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK 1.12.0:2020-릴리스 수
-**Speech CLI (즉, SPX)**
+**음성 CLI (SPX로도 인식)**
 - **SPX** 는 명령줄에서 인식, 합성, 번역, 배치 기록 및 사용자 지정 음성 관리를 수행할 수 있도록 하는 새로운 명령줄 도구입니다. 이를 사용 하 여 음성 서비스를 테스트 하거나 수행 해야 하는 음성 서비스 작업을 스크립팅할 수 있습니다. 도구를 다운로드 하 고 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview)에서 설명서를 읽으십시오.
 
 **새 기능**
@@ -489,7 +518,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - Android
   - APK 생성 중에 ProGuard 지원이 설정되었습니다.
 
-**개선과**
+**개선 사항**
 
 - 스레드, 잠금, 뮤텍스 수를 줄이면서 내부 스레드 사용이 개선되었습니다.
 - 오류 보고/정보가 개선되었습니다. 일부 경우에는 오류 메시지가 모든 방식으로 전파 되지 않습니다.
@@ -521,7 +550,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - 프록시 지원: 개체에서 `SpeechConfig` 이제 함수를 호출 하 여 프록시 정보 (호스트 이름, 포트, 사용자 이름 및 암호)를 설정할 수 있습니다. iOS에서는 아직 이 기능을 사용할 수 없습니다.
 - 향상된 오류 코드 및 메시지입니다. 인식이 오류를 반환한 경우 이미 `Reason`(취소된 이벤트의) 또는 `CancellationDetails`(인식 결과의) `Error`로 설정되어 있습니다. 취소 이벤트에는 이제 두 개의 추가 멤버 `ErrorCode` 및 `ErrorDetails`가 포함됩니다. 서버에서 보고된 오류를 사용하여 추가 오류 정보를 반환하는 경우 해당 서버를 새 멤버에서 사용할 수 있습니다.
 
-**개선과**
+**개선 사항**
 
 - 인식기 구성에서 추가 확인을 추가하고, 추가 오류 메시지를 추가했습니다.
 - 오디오 파일의 중간에 긴 무음 시간 처리가 향상되었습니다.

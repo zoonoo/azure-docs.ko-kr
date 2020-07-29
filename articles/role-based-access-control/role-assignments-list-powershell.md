@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4ee6a3c09d24d6968227ef4215000888c5f4af05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791013"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372079"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당 나열
 
@@ -29,7 +30,7 @@ ms.locfileid: "84791013"
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](/azure/cloud-shell/overview)
 
@@ -139,6 +140,26 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 
 ```Example
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+## <a name="list-role-assignments-for-a-resource"></a>리소스에 대 한 역할 할당 나열
+
+특정 리소스에 대 한 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 및 `-Scope` 매개 변수를 사용 합니다. 범위는 리소스에 따라 달라 집니다. 범위를 가져오려면 `Get-AzRoleAssignment` 모든 역할 할당을 나열 하는 매개 변수 없이를 실행 한 다음 나열할 범위를 찾을 수 있습니다.
+
+```azurepowershell
+Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource>
+```
+
+다음 예제에서는 저장소 계정에 대 한 역할 할당을 나열 하는 방법을 보여 줍니다. 이 명령은 리소스 그룹 및 구독과 같이이 저장소 계정에 적용 되는 더 높은 범위의 역할 할당도 나열 합니다.
+
+```Example
+PS C:\> Get-AzRoleAssignment -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"
+```
+
+리소스에 직접 할당 된 역할 할당을 나열 하려는 경우에는 [Where 개체](/powershell/module/microsoft.powershell.core/where-object) 명령을 사용 하 여 목록을 필터링 할 수 있습니다.
+
+```Example
+PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"}
 ```
 
 ## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>클래식 서비스 관리자 및 공동 관리자에 대한 역할 할당 나열

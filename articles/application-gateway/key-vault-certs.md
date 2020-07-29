@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 4/25/2019
+ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: a214dae7c80cbc520fc6aff5a492466a77261167
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255367"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282350"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용 하는 TLS 종료
 
@@ -43,7 +43,7 @@ Key Vault와 통합 Application Gateway 하려면 3 단계 구성 프로세스�
 
 1. **사용자 할당 관리 ID 만들기**
 
-   사용자를 대신 하 여 Key Vault에서 인증서를 검색 하는 데 사용 Application Gateway 하는 기존 사용자 할당 관리 id를 만들거나 다시 사용 합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요. 이 단계에서는 Azure Active Directory 테 넌 트에 새 id를 만듭니다. Id를 만드는 데 사용 되는 구독에서 id를 신뢰 합니다.
+   사용자를 대신 하 여 Key Vault에서 인증서를 검색 하는 데 사용 Application Gateway 하는 기존 사용자 할당 관리 id를 만들거나 다시 사용 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할 만들기, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)을 참조 하세요. 이 단계에서는 Azure Active Directory 테 넌 트에 새 id를 만듭니다. Id를 만드는 데 사용 되는 구독에서 id를 신뢰 합니다.
 
 1. **주요 자격 증명 모음 구성**
 

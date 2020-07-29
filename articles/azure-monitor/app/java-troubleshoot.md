@@ -3,12 +3,13 @@ title: Java 웹 프로젝트에서 Application Insights 문제 해결
 description: 문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 74b4bc009158d826955f851f22458e9570a58e7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java
+ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324151"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372521"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.

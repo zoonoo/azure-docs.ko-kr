@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09d07717895c6faa506d692becb261e834e44890
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 7ee4c7776dbddf089d290d760d6c0689ba9c0102
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995363"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283030"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>조건부 액세스: Azure 관리용 MFA 필요
 
@@ -49,7 +50,7 @@ ms.locfileid: "83995363"
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업** > **포함**에서 **앱 선택**을 선택하고, **Microsoft Azure Management**, **선택**, **완료**를 차례로 선택합니다.
-1. **조건** > **클라이언트 앱(미리 보기)** 에서 **구성**을 **예**로 설정하고 **완료**를 선택합니다.
+1. **Conditions**  >  **클라이언트 앱 (미리 보기)** 의 조건에서 **이 정책이 적용 되는 클라이언트 앱 선택** 에서 모든 기본값 유지를 선택 하 고 **완료**를 선택 합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택**을 차례로 선택합니다.
 1. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
 1. **만들기**를 선택하여 정책을 만들어 사용하도록 설정합니다.

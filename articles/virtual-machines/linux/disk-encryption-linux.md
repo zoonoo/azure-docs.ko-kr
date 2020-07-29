@@ -4,16 +4,16 @@ description: 이 문서에서는 다양한 시나리오를 위한 Linux VM용 Mi
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080287"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372657"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -409,7 +409,7 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - 커널 크래시 덤프(kdump)
 - Oracle ACFS(ASM 클러스터 파일 시스템)
 - Gen2 VM(참조: [Azure의 2세대 VM 지원](generation-2.md#generation-1-vs-generation-2-capabilities))
-- Lsv2 시리즈 VM(참조: [Lsv2 시리즈](../lsv2-series.md))
+- Lsv2 시리즈 Vm의 NVMe 디스크 (참조: [Lsv2 시리즈](../lsv2-series.md)).
 - "중첩된 탑재 지점" 즉, 단일 경로 내 여러 탑재 지점(예: "/1stmountpoint/data/2stmountpoint")이 있는 VM
 - 데이터 드라이브가 OS 폴더 위에 탑재 된 VM입니다.
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm

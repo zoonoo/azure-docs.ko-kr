@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 배포 계획
 description: Azure에 대 한 프로덕션 Service Fabric 클러스터 배포를 계획 하 고 준비 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610594"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281330"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포 계획 및 준비
 
@@ -51,7 +51,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 
 임시 OS 디스크는 특정 Service Fabric 기능이 아니라 Service Fabric 노드 형식에 매핑되는 Azure *가상 머신 확장 집합* 의 기능입니다. Service Fabric와 함께 사용 하려면 클러스터 Azure Resource Manager 템플릿에서 다음을 수행 해야 합니다.
 
-1. 노드 형식에서 임시 OS 디스크에 대해 [지원 되는 AZURE VM 크기](../virtual-machines/windows/ephemeral-os-disks.md) 를 지정 하 고 VM 크기에는 os 디스크 크기를 지원 하기에 충분 한 캐시 크기가 있는지 확인 합니다 (아래 *참고* 참조). 예를 들어:
+1. 노드 형식에서 임시 OS 디스크에 대해 [지원 되는 AZURE VM 크기](../virtual-machines/ephemeral-os-disks.md) 를 지정 하 고 VM 크기에는 os 디스크 크기를 지원 하기에 충분 한 캐시 크기가 있는지 확인 합니다 (아래 *참고* 참조). 예를 들어:
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 > 마이그레이션하기 위해 사용자는 임시 디스크를 사용 하 여 새 nodeType을 [추가](./virtual-machine-scale-set-scale-node-type-scale-out.md) 하 고, 워크 로드를 새 nodetype & 이동 하 여 기존 nodetype을 [제거](./service-fabric-how-to-remove-node-type.md) 해야 합니다.
 >
 
-자세한 정보 및 추가 구성 옵션은 [Azure vm에 대 한 임시 OS 디스크](../virtual-machines/windows/ephemeral-os-disks.md) 를 참조 하세요. 
+자세한 정보 및 추가 구성 옵션은 [Azure vm에 대 한 임시 OS 디스크](../virtual-machines/ephemeral-os-disks.md) 를 참조 하세요. 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>클러스터의 내구성 및 안정성 수준 선택

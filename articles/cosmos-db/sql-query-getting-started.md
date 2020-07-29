@@ -4,30 +4,41 @@ description: SQL 쿼리를 사용 하 여 Azure Cosmos DB에서 데이터를 쿼
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d292b7cfcda73cb4cd6ac2535c7e27fc675e1030
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74873338"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308188"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 쿼리 시작
 
-Azure Cosmos DB SQL API 계정은 구조적 쿼리 언어 (SQL)를 사용 하 여 항목을 JSON 쿼리 언어로 쿼리 하는 것을 지원 합니다. Azure Cosmos DB 쿼리 언어의 디자인 목표는 다음과 같습니다.
+SQL API 계정 Azure Cosmos DB에서는 두 가지 방법으로 데이터를 읽을 수 있습니다.
 
-* 새 쿼리 언어를 고안 하는 대신 가장 친숙 하 고 인기 있는 쿼리 언어 중 하나인 SQL을 지원 합니다. SQL은 JSON 항목에 대 한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공 합니다.  
+**Point reads** -단일 *항목 ID* 및 파티션 키에 대 한 키/값 조회를 수행할 수 있습니다. *항목 ID* 와 파티션 키 조합은 키 이며 항목 자체는 값입니다. 1kb 문서의 경우 지점은 일반적으로 10 밀리초 미만의 대기 시간으로 비용 1 [요청 단위](request-units.md) 를 읽습니다. Point reads는 단일 항목을 반환 합니다.
 
-* JavaScript의 프로그래밍 모델을 쿼리 언어의 기반으로 사용 합니다. JavaScript의 형식 시스템, 식 평가 및 함수 호출은 SQL API의 루트입니다. 이러한 루트는 관계형 프로젝션, JSON 항목에 대 한 계층적 탐색, 자체 조인, 공간 쿼리, 완전히 JavaScript로 작성 된 Udf (사용자 정의 함수) 호출 등의 기능에 대 한 자연 스러운 프로그래밍 모델을 제공 합니다.
+**Sql 쿼리** -JSON 쿼리 언어로 구조적 쿼리 언어 (sql)를 사용 하 여 쿼리를 작성 하 여 데이터를 쿼리할 수 있습니다. 쿼리는 항상 최소 2.3 요청 단위를 비용으로 청구 하며, 일반적으로 지점 읽기 보다 더 높은 가변 대기 시간을 갖습니다. 쿼리에서 많은 항목을 반환할 수 있습니다.
+
+Azure Cosmos DB에 대 한 대부분의 읽기 작업은 지점 읽기와 SQL 쿼리의 조합을 사용 합니다. 단일 항목을 읽어야 하는 경우 쿼리 보다 더 저렴 하 고 더 빠른 지점 읽기가 있습니다. Point reads는 쿼리 엔진을 사용 하 여 데이터에 액세스할 필요가 없으며 데이터를 직접 읽을 수 있습니다. 물론, 모든 작업에서 지점 읽기를 사용 하 여 데이터를 독점적으로 읽을 수 있는 것은 아니므로 SQL을 쿼리 언어로 지원 하 고 [스키마에 관계 없는 인덱싱을](index-overview.md) 사용 하 여 데이터에 보다 유연 하 게 액세스할 수 있습니다.
+
+다음은 각 SDK를 사용 하 여 요소 읽기를 수행 하는 방법에 대 한 몇 가지 예입니다.
+
+- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
+- [Java SDK](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
+- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+
+이 문서의 나머지 부분에서는 Azure Cosmos DB에서 SQL 쿼리 작성을 시작 하는 방법을 보여 줍니다. SQL 쿼리는 SDK 또는 Azure Portal를 통해 실행할 수 있습니다.
 
 ## <a name="upload-sample-data"></a>샘플 데이터 업로드
 
-SQL API Cosmos DB 계정에서 라는 컨테이너를 만듭니다 `Families` . 컨테이너에 두 개의 간단한 JSON 항목을 만듭니다. 이 데이터 집합을 사용 하 여 Azure Cosmos DB 쿼리 문서에서 대부분의 샘플 쿼리를 실행할 수 있습니다.
+SQL API Cosmos DB 계정에서 라는 컨테이너를 만듭니다 `Families` . 컨테이너에 두 개의 간단한 JSON 항목을 만듭니다. 이 데이터 집합을 사용 하 여 Azure Cosmos DB 쿼리 설명서에서 대부분의 샘플 쿼리를 실행할 수 있습니다.
 
 ### <a name="create-json-items"></a>JSON 항목 만들기
 
 다음 코드는 패밀리에 대해 두 개의 간단한 JSON 항목을 만듭니다. Andersen 및 Wakefield 제품군에 대 한 간단한 JSON 항목에는 부모, 자식, 애완 동물, 주소 및 등록 정보가 포함 됩니다. 첫 번째 항목에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다.
-
 
 ```json
 {
@@ -71,7 +82,7 @@ SQL API Cosmos DB 계정에서 라는 컨테이너를 만듭니다 `Families` . 
             { "givenName": "Shadow" }
         ]
       },
-      { 
+      {
         "familyName": "Miller",
          "givenName": "Lisa",
          "gender": "female",
@@ -87,7 +98,7 @@ SQL API Cosmos DB 계정에서 라는 컨테이너를 만듭니다 `Families` . 
 
 JSON 데이터에 대 한 몇 가지 쿼리를 수행 하 여 Azure Cosmos DB의 SQL 쿼리 언어에 대 한 몇 가지 주요 측면을 이해 합니다.
 
-다음 쿼리는 필드가 일치 하는 항목을 반환 합니다 `id` `AndersenFamily` . 쿼리 이기 때문에 `SELECT *` 쿼리 출력은 전체 JSON 항목입니다. SELECT 구문에 대 한 자세한 내용은 [select 문](sql-query-select.md)을 참조 하십시오. 
+다음 쿼리는 필드가 일치 하는 항목을 반환 합니다 `id` `AndersenFamily` . 쿼리 이기 때문에 `SELECT *` 쿼리 출력은 전체 JSON 항목입니다. SELECT 구문에 대 한 자세한 내용은 [select 문](sql-query-select.md)을 참조 하십시오.
 
 ```sql
     SELECT *
@@ -95,7 +106,7 @@ JSON 데이터에 대 한 몇 가지 쿼리를 수행 하 여 Azure Cosmos DB의
     WHERE f.id = "AndersenFamily"
 ```
 
-쿼리 결과는 다음과 같습니다. 
+쿼리 결과는 다음과 같습니다.
 
 ```json
     [{

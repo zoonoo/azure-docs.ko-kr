@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284169"
 ---
 # <a name="create-application-with-simple-commands"></a>간단한 명령으로 애플리케이션 만들기
 
@@ -83,8 +83,8 @@ ms.locfileid: "87090963"
     
     | 설정    | 제안 값                          | 설명                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
-    | **이름**       | ConfirmationResponse                  | 규칙의 용도를 설명 하는 이름입니다.          |
-    | **조건** | None                                     | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
+    | **Name**       | ConfirmationResponse                  | 규칙의 용도를 설명 하는 이름입니다.          |
+    | **조건** | 없음                                     | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
     | **actions**    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, turning the tv on` | 규칙 조건이 참인 경우 수행할 동작입니다. |
     
 
@@ -95,6 +95,7 @@ ms.locfileid: "87090963"
 
 1. **저장** 을 선택 하 여 작업을 저장 합니다.
 1. **완료 규칙** 섹션으로 돌아가서 **저장** 을 선택 하 여 모든 변경 내용을 저장 합니다. 
+
 
     > [!NOTE]
     > 명령과 함께 제공 되는 기본 완료 규칙을 사용할 필요는 없습니다. 필요한 경우 기존 기본 완료 규칙을 삭제 하 고 사용자 고유의 규칙을 추가할 수 있습니다.
@@ -125,8 +126,8 @@ ms.locfileid: "87090963"
 | 설정    | 제안 값                          |
 | ---------- | ---------------------------------------- |
 | Name  | ConfirmationResponse                  |
-| 조건 | None                                     |
-| 작업    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting temperature to 40 degrees` |
+| 조건 | 없음                                     |
+| 동작    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting temperature to 40 degrees` |
 
 **저장** 을 선택 하 여 명령에 대 한 모든 변경 내용을 저장 합니다.
 
@@ -136,8 +137,8 @@ ms.locfileid: "87090963"
 | 설정    | 제안 값                          |
 | ---------- | ---------------------------------------- |
 | 규칙 이름  | ConfirmationResponse                  |
-| 조건 | None                                     |
-| 작업    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting an alarm for 9 am tomorrow` |
+| 조건 | 없음                                     |
+| 동작    | 첫 번째 변형 > 간단한 편집기 > 음성 응답 보내기 >`Ok, setting an alarm for 9 am tomorrow` |
 
 **저장** 을 선택 하 여 명령에 대 한 모든 변경 내용을 저장 합니다.
 

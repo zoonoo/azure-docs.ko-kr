@@ -3,12 +3,12 @@ title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mic
 description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499531"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310449"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
@@ -22,7 +22,7 @@ ms.locfileid: "86499531"
 - 앱이 Azure VM 또는 Azure 가상 머신 확장 집합에 배포 되는 경우 [다음 지침](azure-vm-vmss-apps.md)을 따르세요.
 - 앱을 Azure App Services에 배포하는 경우 [이러한 지침](azure-web-apps.md)을 따릅니다.
 - 앱을 Azure VM에 배포하는 경우 Azure 제어판에서 Application Insights 모니터링을 켤 수 있습니다.
-- [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)를 계측 하는 방법에 대 한 별도의 문서도 있습니다.
+- [Azure Cloud Services](./cloudservices.md)를 계측 하는 방법에 대 한 별도의 문서도 있습니다.
 
 
 ![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -39,13 +39,13 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| **& 예외 요청** |예 |예 |
-| **[자세한 예외](../../azure-monitor/app/asp-net-exceptions.md)** | |예 |
-| **[종속성 진단](../../azure-monitor/app/asp-net-dependencies.md)** |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| **[시스템 성능 카운터](../../azure-monitor/app/performance-counters.md)** |예 |예 |
+| **& 예외 요청** |yes |예 |
+| **[자세한 예외](./asp-net-exceptions.md)** | |예 |
+| **[종속성 진단](./asp-net-dependencies.md)** |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
+| **[시스템 성능 카운터](./performance-counters.md)** |yes |예 |
 | **[사용자 지정 원격 분석에 대 한 API][api]** |예 |아니요 |
-| **[추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md)** |예 |아니요 |
-| **[사용자 데이터 & 페이지 보기](../../azure-monitor/app/javascript.md)** |예 |아니요 |
+| **[추적 로그 통합](./asp-net-trace-logs.md)** |예 |아니요 |
+| **[사용자 데이터 & 페이지 보기](./javascript.md)** |예 |아니요 |
 | **코드를 다시 빌드해야 함** |예 | 아니요 |
 
 
@@ -70,7 +70,7 @@ IIS 서버에서 앱이 호스트되는 경우 상태 모니터를 사용하여 
 
 ## <a name="customize-monitoring-options"></a>모니터링 옵션 사용자 지정
 
-Application Insights를 사용하면 DLL 및 ApplicationInsights.config가 웹앱에 추가됩니다. [이 .config 파일을 편집](../../azure-monitor/app/configuration-with-applicationinsights-config.md)하여 일부 옵션을 변경할 수 있습니다.
+Application Insights를 사용하면 DLL 및 ApplicationInsights.config가 웹앱에 추가됩니다. [이 .config 파일을 편집](./configuration-with-applicationinsights-config.md)하여 일부 옵션을 변경할 수 있습니다.
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>앱을 다시 게시할 때 Application Insights 다시 활성화
 
@@ -106,7 +106,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 
 ### <a name="cant-connect-no-telemetry"></a>연결할 수 없나요? 원격 분석이 없나요?
 
-* 상태 모니터가 작동할 수 있도록 서버 방화벽에서 [필요한 송신 포트](../../azure-monitor/app/ip-addresses.md#outgoing-ports)를 엽니다.
+* 상태 모니터가 작동할 수 있도록 서버 방화벽에서 [필요한 송신 포트](./ip-addresses.md#outgoing-ports)를 엽니다.
 
 ### <a name="unable-to-login"></a>로그인할 수 없음
 
@@ -261,7 +261,7 @@ IIS 웹 서버에 설치한 데스크톱 애플리케이션입니다. 웹앱을 
 ### <a name="when-do-i-use-status-monitor"></a>언제 상태 모니터를 사용하나요?
 
 * 이미 실행 중인 경우에라도 IIS 서버에서 실행 중인 모든 웹앱을 계측하려는 경우입니다.
-* 컴파일 시 [Application Insights SDK를 사용하여 빌드한](../../azure-monitor/app/asp-net.md) 웹앱에 대한 추가 원격 분석을 사용하도록 설정하려는 경우입니다. 
+* 컴파일 시 [Application Insights SDK를 사용하여 빌드한](./asp-net.md) 웹앱에 대한 추가 원격 분석을 사용하도록 설정하려는 경우입니다. 
 
 ### <a name="can-i-close-it-after-it-runs"></a>실행한 후에 닫을 수 있나요?
 
@@ -305,7 +305,7 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 
 [자세히 알아보기](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>동영상
+## <a name="video"></a>비디오
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
@@ -319,7 +319,7 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 
 원격 분석 보기:
 
-* [메트릭을 탐색하여](../../azure-monitor/platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
+* [메트릭을 탐색하여](../platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 * [이벤트 및 로그를 검색하여][diagnostic] 문제를 진단합니다.
 * [분석](../log-query/log-query-overview.md)을 통해 고급 쿼리를 수행합니다.
 
@@ -331,11 +331,12 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[api]: ./api-custom-events-metrics.md
 [availability]: monitor-web-app-availability.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[usage]: ../../azure-monitor/app/javascript.md
+[roles]: ./resources-roles-access-control.md
+[usage]: ./javascript.md
+

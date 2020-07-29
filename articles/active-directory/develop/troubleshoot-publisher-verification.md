@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477042"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282979"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>게시자 확인 문제 해결(미리 보기)
 [게시자 확인(미리 보기)](publisher-verification-overview.md)을 사용하여 프로세스를 완료할 수 없거나 예기치 않은 동작이 발생하는 경우 오류를 수신하거나 예기치 않은 동작이 표시되면 먼저 다음을 수행해야 합니다. 
@@ -37,7 +37,7 @@ ms.locfileid: "85477042"
     1. [MPN 등록 페이지](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)로 이동합니다.
     1. 조직의 기본 Azure AD 테넌트에서 사용자 계정으로 로그인합니다. 
     1. MPN 계정이 이미 있으면 이 계정이 인식되어 계정에 추가됩니다. 
-    1. MPN ID 및 기본 계정 연락처가 나열되는 [파트너 프로필 페이지](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile)로 이동합니다.
+    1. MPN ID 및 기본 계정 연락처가 나열되는 [파트너 프로필 페이지](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile)로 이동합니다.
 
 - **Azure AD 글로벌 관리자(회사 관리자 또는 테넌트 관리자라고도 함)가 누구인지 알 수 없습니다. 어떻게 찾을 수 있나요? 앱 관리자 또는 다른 관리자 역할은 어떻나요?**
     1. 조직의 기본 테넌트에서 사용자 계정을 사용하여 [Azure AD 포털](https://aad.portal.azure.com)에 로그인합니다.
@@ -45,14 +45,14 @@ ms.locfileid: "85477042"
     1. "전역 관리자" 또는 원하는 관리자 역할을 클릭합니다.
     1. 해당 역할에 할당된 사용자의 목록이 표시됩니다.
 
-- **내 MPN 계정에 대한 관리자가 누구인지 알 수 없습니다.** [MPN 사용자 관리 페이지](https://partner.microsoft.com/en-us/pcv/users)로 이동하고, 사용자 목록을 필터링하여 다양한 관리 역할에 속한 사용자를 확인합니다.
+- **내 MPN 계정에 대한 관리자가 누구인지 알 수 없습니다.** [MPN 사용자 관리 페이지](https://partner.microsoft.com/pcv/users)로 이동하고, 사용자 목록을 필터링하여 다양한 관리 역할에 속한 사용자를 확인합니다.
 
 - **MPN ID가 잘못되었거나 액세스할 수 없다는 오류가 발생합니다.**
-    1. [파트너 프로필](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile)로 이동하여 다음을 확인합니다. 
+    1. [파트너 프로필](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile)로 이동하여 다음을 확인합니다. 
         - MPN ID가 올바릅니다. 
         - 오류 또는 "보류 중인 작업"이 표시되지 않으며, 법적 비즈니스 프로필 및 파트너 정보 아래에서 확인 상태가 모두 "권한 있음" 또는 "성공"으로 표시됩니다.
-    1. [MPN 테넌트 관리 페이지](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement)로 이동하여 앱이 등록되어 있고 사용자 계정으로 서명하는 테넌트가 연결된 테넌트 목록에 있는지 확인합니다.
-    1. [MPN 사용자 관리 페이지](https://partner.microsoft.com/en-us/pcv/users)로 이동하여 로그인하는 사용자가 글로벌 관리자, MPN 관리자 또는 계정 관리자인지 확인합니다.
+    1. [MPN 테넌트 관리 페이지](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement)로 이동하여 앱이 등록되어 있고 사용자 계정으로 서명하는 테넌트가 연결된 테넌트 목록에 있는지 확인합니다.
+    1. [MPN 사용자 관리 페이지](https://partner.microsoft.com/pcv/users)로 이동하여 로그인하는 사용자가 글로벌 관리자, MPN 관리자 또는 계정 관리자인지 확인합니다.
 
 - **Azure AD 포털에 로그인하면 등록된 앱이 표시되지 않습니다. 그 이유는 무엇일까요?** 
     앱 등록이 다른 사용자 계정을 사용하여 만들어졌거나 다른 테넌트에 만들어졌을 수 있습니다. 앱 등록을 만든 테넌트에서 올바른 계정으로 로그인했는지 확인합니다.

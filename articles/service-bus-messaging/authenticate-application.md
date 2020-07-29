@@ -3,12 +3,12 @@ title: Azure Service Bus 엔터티에 액세스 하는 응용 프로그램 인�
 description: 이 문서에서는 Azure Service Bus 엔터티 (큐, 토픽 등)에 액세스 하 Azure Active Directory 응용 프로그램을 인증 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 371fa42420c2cc90a581b05ac47d7a65f28fc473
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f94f17a538fc86615f4ffeb8f351beb99e0cb33
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128491"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372351"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스 하 Azure Active Directory 응용 프로그램 인증 및 권한 부여
 Azure Service Bus은 Azure Active Directory (Azure AD)를 사용 하 여 엔터티 (큐, 토픽, 구독 또는 필터)에 대 한 요청 Service Bus에 권한을 부여 하는 것을 지원 합니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
@@ -21,18 +21,18 @@ Azure Service Bus은 Azure Active Directory (Azure AD)를 사용 하 여 엔터�
 
 인증 단계를 수행 하려면 응용 프로그램 요청이 런타임에 OAuth 2.0 액세스 토큰을 포함 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 azure 함수 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 관리 id를 사용 하 여 리소스에 액세스할 수 있습니다. 관리 id에서 Service Bus 서비스에 대 한 요청을 인증 하는 방법을 알아보려면 [Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 Azure Service Bus 리소스에 대 한 액세스 인증](service-bus-managed-service-identity.md)을 참조 하세요. 
 
-권한 부여 단계를 수행 하려면 하나 이상의 RBAC 역할을 보안 주체에 할당 해야 합니다. Azure Service Bus는 Service Bus 리소스에 대 한 권한 집합을 포함 하는 RBAC 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Service Bus에 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Service Bus 기본 제공 rbac 역할](#built-in-rbac-roles-for-azure-service-bus)을 참조 하세요. 
+권한 부여 단계를 수행 하려면 하나 이상의 RBAC 역할을 보안 주체에 할당 해야 합니다. Azure Service Bus는 Service Bus 리소스에 대 한 권한 집합을 포함 하는 RBAC 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Service Bus에 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Service Bus에 대 한 Azure 기본 제공 역할](#azure-built-in-roles-for-azure-service-bus)을 참조 하세요. 
 
 Service Bus에 대 한 요청을 하는 네이티브 응용 프로그램 및 웹 응용 프로그램은 Azure AD를 사용 하 여 권한을 부여할 수도 있습니다. 이 문서에서는 액세스 토큰을 요청 하 고이를 사용 하 여 Service Bus 리소스에 대 한 요청에 권한을 부여 하는 방법을 보여 줍니다. 
 
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>액세스 권한에 대 한 RBAC 역할 할당
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Service Bus는 Service Bus 엔터티에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
+Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Service Bus는 Service Bus 엔터티에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
 RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 범위는 구독, 리소스 그룹 또는 Service Bus 네임 스페이스의 수준으로 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
-## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Azure Service Bus에 대 한 기본 제공 RBAC 역할
-Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네임스페이스 및 관련된 모든 리소스의 관리는 이미 RBAC(*역할 기반 액세스 제어*) 모델을 사용하여 보호되고 있습니다. Azure는 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하는 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
+## <a name="azure-built-in-roles-for-azure-service-bus"></a>Azure Service Bus에 대 한 Azure 기본 제공 역할
+Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네임스페이스 및 관련된 모든 리소스의 관리는 이미 RBAC(*역할 기반 액세스 제어*) 모델을 사용하여 보호되고 있습니다. Azure는 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
 
 - [Azure Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Service Bus 네임 스페이스와 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스를 가능 하 게 합니다.
 - [Azure Service Bus 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender):이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스를 보낼 수 있습니다.

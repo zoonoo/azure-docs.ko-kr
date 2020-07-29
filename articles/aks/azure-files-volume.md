@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용�
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 144d93cbb3b66f260dbd9d92863ca5fb13ed00a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f013d16b899418a5262f23dfcc595a1e270616
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82207669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281211"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
@@ -161,7 +161,7 @@ spec:
 
 버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0*으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조하세요.
 
-탑재 옵션을 업데이트 하려면 *PersistentVolume*를 사용 하 여 *azurefile-mount-pv .yaml* 파일을 만듭니다. 예:
+탑재 옵션을 업데이트 하려면 *PersistentVolume*를 사용 하 여 *azurefile-mount-pv .yaml* 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 apiVersion: v1
@@ -187,7 +187,7 @@ spec:
   - nobrl
 ```
 
-*PersistentVolume*를 사용 하는 *PersistentVolumeClaim* 를 사용 하 여 *azurefile-mount-.yaml* 파일을 만듭니다. 예:
+*PersistentVolume*를 사용 하는 *PersistentVolumeClaim* 를 사용 하 여 *azurefile-mount-.yaml* 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 apiVersion: v1
@@ -234,6 +234,8 @@ azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 관련 모범 사례는 [AKS에서 스토리지 및 백업에 대한 모범 사례][operator-best-practices-storage]를 참조하세요.
 
 Azure Files와 상호 작용하는 AKS 클러스터에 대한 자세한 내용은 [Azure Files에 대한 Kubernetes 플러그 인][kubernetes-files]을 참조하세요.
+
+저장소 클래스 매개 변수는 [정적 프로 비전 (사용자 고유의 파일 공유 가져오기)](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share)을 참조 하세요.
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

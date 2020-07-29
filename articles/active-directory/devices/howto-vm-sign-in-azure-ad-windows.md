@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025849"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282945"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -208,9 +208,9 @@ Azure AD 로그인을 사용 하도록 설정 된 Azure에서 Windows Vm에 대 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Azure AD 자격 증명을 사용 하 여 Windows VM에 로그인
 
 > [!IMPORTANT]
-> Azure ad에 가입 된 Vm에 대 한 원격 연결은 Azure AD에 가입 된 Windows 10 Pc 또는 VM과 **동일한** 디렉터리에 조인 된 하이브리드 Azure ad 에서만 허용 됩니다. 또한 Azure AD 자격 증명을 사용 하는 RDP에 대 한 사용자는 두 RBAC 역할, 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 중 하나에 속해야 합니다. 지금은 AADLoginForWindows 확장을 사용 하 여 Azure Active Directory 인증을 사용 하 여 로그인 하는 데 Azure 방호를 사용할 수 없습니다. 직접 RDP만 지원 됩니다.
+> Azure ad에 가입 된 Vm에 대 한 원격 연결은 Azure AD가 등록 된 Windows 10 Pc (최소 필요한 빌드는 20H1) 또는 Azure AD 조인 또는 하이브리드 Azure AD가 VM과 **동일한** 디렉터리에 조인 된 경우에만 허용 됩니다. 또한 Azure AD 자격 증명을 사용 하는 RDP에 대 한 사용자는 두 RBAC 역할, 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 중 하나에 속해야 합니다. Azure AD에서 등록 된 Windows 10 PC를 사용 하는 경우 AzureAD\UPN 형식으로 자격 증명을 입력 해야 합니다 (예: AzureAD\john@contoso.com ). 지금은 AADLoginForWindows 확장을 사용 하 여 Azure Active Directory 인증을 사용 하 여 로그인 하는 데 Azure 방호를 사용할 수 없습니다. 직접 RDP만 지원 됩니다.
 
-Azure AD를 사용 하 여 Windows Server 2019 가상 컴퓨터에 로그인 하려면 다음을 수행 합니다. 
+Azure AD를 사용 하 여 Windows Server 2019 가상 컴퓨터에 로그인 하려면: 
 
 1. Azure AD 로그온을 사용 하도록 설정 된 가상 컴퓨터의 개요 페이지로 이동 합니다.
 1. **연결** 을 선택 하 여 가상 머신에 연결 블레이드를 엽니다.
@@ -342,7 +342,7 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 원격 데스크톱 연결을 시작 하는 데 사용 하는 Windows 10 PC가 Azure AD에 가입 되어 있거나, VM이 조인 되는 동일한 Azure AD 디렉터리에 연결 된 하이브리드 Azure AD 인지 확인 합니다. 장치 id에 대 한 자세한 내용은 [장치 Id 정의](/azure/active-directory/devices/overview)문서를 참조 하세요.
 
 > [!NOTE]
-> Windows 10 20H1은 VM에 대 한 원격 데스크톱 연결을 시작 하기 위해 Azure AD에 등록 된 PC에 대 한 지원을 추가 합니다. Windows 참가자 프로그램에 참여 하 여 Windows 10의 새로운 기능을 확인해 보세요.
+> Windows 10 Build 20H1은 VM에 대 한 RDP 연결을 시작 하기 위해 Azure AD에 등록 된 PC에 대 한 지원을 추가 했습니다. VM에 대 한 연결을 시작 하기 위해 RDP 클라이언트로 등록 된 (Azure AD 조인 또는 하이브리드 Azure AD 조인 된) PC를 사용 하는 경우 AzureAD\UPn 형식으로 자격 증명을 입력 해야 합니다 (예: AzureAD\john@contoso.com ).
 
 또한 Azure AD 조인이 완료 된 후 AADLoginForWindows 확장이 제거 되지 않았는지 확인 합니다.
  

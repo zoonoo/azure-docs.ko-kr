@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af82a9d19f8dee9062d15a58e83ee3c2a8c59af6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2830db6132e665d3f876a535fb645e936971b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995431"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283064"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>조건부 액세스: 관리자에 대해 MFA 필요
 
@@ -23,7 +24,7 @@ ms.locfileid: "83995431"
 
 최소한 다음 역할에 대 한 MFA를 요구 하는 것이 좋습니다.
 
-* 대금 청구 관리자
+* 청구 관리자
 * 조건부 액세스 관리자
 * Exchange 관리자
 * 전역 관리자
@@ -55,7 +56,7 @@ ms.locfileid: "83995431"
 1. **할당**에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**아래에서 **디렉터리 역할 (미리 보기)** 을 선택 하 고 최소한 다음 역할을 선택 합니다.
       * 인증 관리자
-      * 대금 청구 관리자
+      * 청구 관리자
       * 조건부 액세스 관리자
       * Exchange 관리자
       * 전역 관리자
@@ -65,9 +66,9 @@ ms.locfileid: "83995431"
       * SharePoint 관리자
       * 사용자 관리자
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
-   1. **완료** 를 선택합니다.
+   1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업** > **포함**에서 **모든 클라우드 앱**을 선택하고 **완료**를 선택합니다.
-1. **조건** > **클라이언트 앱(미리 보기)** 에서 **구성**을 **예**로 설정하고 **완료**를 선택합니다.
+1. **Conditions**  >  **클라이언트 앱 (미리 보기)** 의 조건에서 **이 정책이 적용 되는 클라이언트 앱 선택** 에서 모든 기본값 유지를 선택 하 고 **완료**를 선택 합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택**을 차례로 선택합니다.
 1. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
 1. **만들기**를 선택하여 정책을 만들어 사용하도록 설정합니다.

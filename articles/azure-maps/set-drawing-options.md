@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 261202173a0692c66a24091b2173f5d4fe271058
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 4c00639c02f8834a24a3828ac5b8ba828d0e1733
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129511"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282826"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 
@@ -30,7 +31,7 @@ Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈�
         <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
         ```
 
-    - 또는 [npm 패키지를 사용](https://www.npmjs.com/package/azure-maps-drawing-tools) 하 여 AZURE MAPS 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 실행합니다.
+    - 또는 [npm 패키지를 사용](https://www.npmjs.com/package/azure-maps-drawing-tools) 하 여 AZURE MAPS 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 사용합니다.
     
         > **npm 설치-맵-그리기-도구**
     

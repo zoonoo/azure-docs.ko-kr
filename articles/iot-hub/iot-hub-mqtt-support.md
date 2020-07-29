@@ -10,12 +10,14 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 72c012ba9ce28c0ca5dd5a315cf94b8895558a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+- 'Role: IoT Device'
+- 'Role: Cloud Development'
+ms.openlocfilehash: df6de62eefc0971ece0e0035299425689af5f784
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001692"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307627"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -80,7 +82,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 |Java     |    230초     |     아니요    |
 |C     | 240초 |  [예](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300초 |  [예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python(V2)   | 60초 |  예   |
+|Python   | 60초 |  예   |
 
 [MQTT 사양](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)에 따라 IoT Hub의 keep-alive ping 간격은 클라이언트 keep-alive 값의 1.5배입니다. 그러나 모든 Azure 서비스가 Azure Load Balancer TCP 유휴 시간 제한(29.45분)에 바인딩되므로 IoT Hub는 최대 서버 쪽 시간 제한을 29.45분(1767초)으로 제한합니다. 
 
@@ -308,7 +310,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{devi
 
 클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
 
-| 속성 값 | 표현 | Description |
+| 속성 값 | 표현 | 설명 |
 |----|----|----|
 | `null` | `key` | 키만 속성 모음에 표시 됩니다. |
 | 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |
@@ -366,7 +368,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들어:
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 디바이스 쌍의 문서에 있는 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -377,7 +379,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |

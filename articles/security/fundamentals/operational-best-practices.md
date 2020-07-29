@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204738"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283472"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -52,7 +53,7 @@ Azure 운영 보안은 사용자가 Azure에서 자신의 데이터, 애플리�
 Azure 등록 포털에서 보안 작업에 알리는 세부 정보를 관리 담당자 정보에 포함할 수 있습니다. 연락처 정보는 전자 메일 주소 및 전화 번호입니다.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Azure 구독을 관리 그룹으로 구성
-조직에 구독이 많으면 구독에 대한 액세스, 정책 및 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹 이라고 하는 컨테이너에 구성 하 고 관리 되는 조건을 관리 그룹에 적용 합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
+조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹 이라고 하는 컨테이너에 구성 하 고 관리 되는 조건을 관리 그룹에 적용 합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
 
 관리 그룹 및 구독의 유연한 구조를 디렉터리에 빌드할 수 있습니다. 각 디렉터리에는 루트 관리 그룹 이라는 단일 최상위 관리 그룹이 제공 됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 루트 관리 그룹을 사용 하면 디렉터리 수준에서 전역 정책 및 RBAC 할당을 적용할 수 있습니다.
 
@@ -181,7 +182,7 @@ DDoS 발생 시 복원하는 기능을 설계하고 작성하려면 다양한 �
 
 Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../../cloud-services/cloud-services-choose-me.md)를 사용하도록 구성합니다.
 
-[Azure Virtual Machines](/azure/virtual-machines/windows/overview)의 경우 VM 아키텍처가 둘 이상의 VM을 포함하는지와 각 VM이 [가용성 집합](/azure/virtual-machines/virtual-machines-windows-manage-availability)에 포함되는지 확인합니다. 자동 크기 조정 기능을 활용할 수 있는 Virtual Machine Scale Sets를 사용하는 것이 좋습니다.
+[Azure Virtual Machines](../../virtual-machines/windows/overview.md)의 경우 VM 아키텍처가 둘 이상의 VM을 포함하는지와 각 VM이 [가용성 집합](../../virtual-machines/windows/tutorial-availability-sets.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 활용할 수 있는 Virtual Machine Scale Sets를 사용하는 것이 좋습니다.
 
 **모범 사례**: 애플리케이션에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 애플리케이션 디자인을 구현합니다.  
 **세부 정보**: 애플리케이션의 크기(노출 영역)가 커지면 공격 위험도 증가합니다. 부하 분산 장치([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 및 [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal))에 필요하지 않은 노출된 IP 주소 공간 및 수신 대기 포트를 종료하기 위해 허용 목록을 사용하여 노출 영역을 줄일 수 있습니다.

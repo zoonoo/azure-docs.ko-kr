@@ -5,14 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: a8c879ae56eb22d9817841667d33e37109a4f63d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adcbc5b0ba0056c79576e8d4c8ded2150b206513
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759408"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371875"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM에서 사용하는 OS 디스크 변경
 

@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081596"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309344"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "87081596"
 Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이제 스마트 검색 규칙 구성은 Application Insights 리소스 내부에서 **ProactiveDetectionConfigs**라고 하는 내부 리소스로 제공됩니다.
 유연성을 극대화하기 위해 고유한 알림 설정을 사용하여 각 스마트 검색 규칙을 구성할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 아래는 Azure Resource Manager 템플릿을 사용하여 스마트 검색 규칙 설정을 구성하는 방법을 보여주는 몇 가지 예입니다.
 모든 샘플은 _“myApplication”_ 이라는 Application Insights 리소스 및 내부에서 _“longdependencyduration”_ 이라고 부르는 "긴 종속성 기간 스마트 검색 규칙"을 참조합니다.
@@ -192,6 +192,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 
 자동으로 감지하는 방법에 대해 자세히 알아봅니다.
 
-- [오류 잘못된 부분](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [메모리 누수](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [성능 이상](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [오류 잘못된 부분](./proactive-failure-diagnostics.md)
+- [메모리 누수](./proactive-potential-memory-leak.md)
+- [성능 이상](./proactive-performance-diagnostics.md)
+
