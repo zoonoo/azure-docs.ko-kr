@@ -6,18 +6,18 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9e05773955fb79007a5d5899babf8680c69aa654
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855761"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281721"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Hive 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
 서로 다른 여러 사용 사례 간에 적절한 성능을 제공하도록 기본 설정이 지정되었습니다.  I/O 집약적인 쿼리의 경우 Azure Data Lake Storage Gen1로 더 나은 성능을 얻도록 Hive를 조정할 수 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Data Lake Storage Gen1 계정**. 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
@@ -81,5 +81,5 @@ Data Lake Storage Gen1에서 제공하는 대역폭 한도에 도달한 경우 �
 
 Hive 쿼리를 조정하는 데 도움이 되는 몇 가지 블로그는 다음과 같습니다.
 * [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Hive 쿼리 성능 문제 해결](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+* [Azure HDInsight에서 Hive 쿼리 파일 인코딩](https://docs.microsoft.com/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
 * [HDInsight에서 Hive 최적화에 대한 논의](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

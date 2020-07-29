@@ -5,15 +5,15 @@ author: cynthn
 manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 6a648fd7f2835ca23285b69d5fed7156507b2ace
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5b7e50ebe6f09de2555af03a47641ef6ca92e92a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288294"
 ---
 # <a name="download-the-template-for-a-vm"></a>VM에 대한 템플릿 다운로드
 포털 또는 PowerShell을 사용하여 Azure에서 VM을 만들 때 Resource Manager 템플릿은 자동으로 만들어집니다. 배포를 빠르게 복제하는 데 이 템플릿을 사용할 수 있습니다. 템플릿은 리소스 그룹에 있는 모든 리소스에 대한 정보를 포함합니다. 즉 가상 머신의 경우 네트워킹 리소스를 포함하여 해당 리소스 그룹에서 VM을 지원하기 위해 만든 모든 항목이 템플릿에 있음을 의미합니다.

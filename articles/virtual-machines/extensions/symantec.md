@@ -1,25 +1,19 @@
 ---
 title: Azure에서 Windows VM에 Symantec Endpoint Protection 설치
 description: 클래식 배포 모델을 사용하여 새로운 또는 기존 Azure VM에 Symantec Endpoint Protection 보안 확장을 설치하고 구성하는 방법을 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roiyz
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 985aa094a2761483e682cdfc576891affab68547
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a89ec99af02b32d452fba1dffb0387ae6013a7c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080338"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292427"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -65,7 +59,7 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 2. Windows Server 2008 R2의 경우, **시작 > Symantec Endpoint Protection**을 클릭합니다. Windows Server 2012 또는 Windows Server 2012 R2의 경우, 시작 화면에서 **Symantec**을 입력하고 **Symantec Endpoint Protection**을 클릭합니다.
 3. **Status-Symantec Endpoint Protection** 창의 **상태** 탭에서 필요한 경우 업데이트를 적용하거나 다시 시작합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 [Windows Server를 실행하는 Virtual Machine에 로그온하는 방법][Logon]
 
 [Azure VM 확장 및 기능][Ext]
@@ -81,4 +75,4 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 [Logon]:../windows/classic/connect-logon.md
 
-[Ext]: https://go.microsoft.com/fwlink/p/?linkid=390493
+[Ext]: features-windows.md

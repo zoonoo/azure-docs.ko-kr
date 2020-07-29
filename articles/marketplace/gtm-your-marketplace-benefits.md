@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536058"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287890"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -41,7 +41,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 쉽게 시작할 수 있습니다.
 
 1. Microsoft AppSource 또는 Azure Marketplace에 제품을 게시합니다.
-2. 파트너 센터의 [Marketplace 보상](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) 으로 이동 하 고 **marketplace 보상 프로그램에서 등록**을 선택 합니다.
+2. 파트너 센터의 [Marketplace 보상](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) 으로 이동 하 고 **marketplace 보상 프로그램에서 등록**을 선택 합니다.
 3. 판매 및 마케팅 혜택을 활성화 하려면 회사 마케팅 연락처를 할당 합니다. 이 담당자는 Marketplace Rewards에 대한 추가 연락을 받게 됩니다.
 4. 마케팅 담당자 정보를 추가하거나 업데이트하려면 Marketplace Rewards 페이지의 영업 및 마케팅 혜택 탭 맨 위로 이동한 다음 **추가, 업데이트 또는 변경**을 선택합니다.  다음으로, 아래 작업을 수행합니다.
 

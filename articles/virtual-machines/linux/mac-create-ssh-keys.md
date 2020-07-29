@@ -4,15 +4,15 @@ description: Azure에서 인증 프로세스의 보안을 개선하기 위해 Li
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: df02378e638e9883d802318eba86dbfb066cd6cb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d956ce273a7ea630bfdcf900fbbba5e8be30b254
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527293"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288445"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍 만들기 및 사용
 

@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: d3fab2515bb15cce35070de9326cd6afcc034b20
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517751"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281568"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 리소스를 관리하기 위한 애플리케이션 개발자 모범 사례
 
@@ -35,7 +35,7 @@ AKS 클러스터 내에서 컴퓨팅 리소스를 관리하는 기본 방법은 
     * Kubernetes scheduler가 노드에 pod를 추가 하려고 할 때 pod 요청은 예약에 사용할 수 있는 충분 한 리소스가 있는 노드를 확인 하는 데 사용 됩니다.
     * Pod 요청을 설정 하지 않으면 기본적으로 정의 된 제한으로 설정 됩니다.
     * 응용 프로그램의 성능을 모니터링 하 여 이러한 요청을 조정 하는 것이 매우 중요 합니다. 요청 수가 충분 하지 않으면 노드 예약을 통해 응용 프로그램의 성능이 저하 될 수 있습니다. 요청이 과도 하 게 예상 되는 경우 응용 프로그램의 문제가 증가 하 여 예약 될 수 있습니다.
-* **POD cpu/메모리 제한은** pod에서 사용할 수 있는 최대 cpu 및 메모리의 양입니다. 이러한 제한을 통해 리소스가 부족 하 여 노드가 불안정 한 경우 중단 해야 하는 pod를 정의할 수 있습니다. 적절 한 제한이 없으면 리소스 압력이 리프트 될 때까지 pod가 종료 됩니다.
+* **POD cpu/메모리 제한은** pod에서 사용할 수 있는 최대 cpu 및 메모리의 양입니다. 메모리 제한은 리소스가 부족 하 여 노드가 불안정 한 경우 어느 pod를 종료할 것인지를 정의 하는 데 도움이 됩니다. 적절 한 제한이 없으면 리소스 압력이 리프트 될 때까지 pod가 종료 됩니다. Pod는 일정 시간 동안 CPU 제한을 초과할 수도 있고 그렇지 않을 수도 있지만, pod는 CPU 제한을 초과 하는 경우에는 중단 되지 않습니다. 
     * Pod 제한은 pod가 리소스 소비량에 대 한 제어권을 상실 한 경우를 정의 합니다. 한도를 초과 하면 pod의 우선 순위를 지정 하 여 노드 상태를 유지 하 고 노드를 공유 하는 pod에 대 한 영향을 최소화 합니다.
     * Pod 제한을 설정 하지 않으면 기본적으로 지정 된 노드에서 사용 가능한 가장 높은 값으로 설정 됩니다.
     * 노드에서 지원할 수 있는 것보다 높은 Pod 한도를 설정하지 마세요. 각 AKS 노드는 핵심 Kubernetes 구성 요소의 설정된 CPU 및 메모리 크기를 예약합니다. 애플리케이션이 노드에서 너무 많은 리소스를 사용하려고 하여 다른 Pod가 성공적으로 실행되지 않을 수 있습니다.

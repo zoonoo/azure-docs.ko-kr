@@ -4,16 +4,16 @@ description: 이 문서에서는 Windows IaaS VM용 Microsoft Azure Disk Encrypt
 author: msmbaldwin
 ms.service: virtual-machines
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8677fa2620c1edc646dcffe120938f03fd13a0e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3265e70159cd4c27f698d00d85dce7d4cb49b95
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085624"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286158"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Windows Vm 용 Azure AD Azure Disk Encryption (이전 릴리스)
 
@@ -53,7 +53,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 Marketplace 시나리오에서 새 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | Description | 
+| 매개 변수 | 설명 | 
 | --- | --- |
 | adminUserName | 가상 머신의 관리 사용자 이름 |
 | adminPassword | 가상 머신의 관리 사용자 암호 |
@@ -162,7 +162,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 비밀 |

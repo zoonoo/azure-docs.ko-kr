@@ -3,12 +3,12 @@ title: VM 설정에서 Azure VM 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일 Azure VM 또는 여러 Azure vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538890"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286748"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
@@ -24,7 +24,7 @@ ms.locfileid: "86538890"
 
 ### <a name="azure-vm-agent-installation"></a>Azure VM 에이전트 설치
 
-Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 에이전트에 확장을 설치합니다. Azure Marketplace 이미지에서 VM을 만든 경우 에이전트가 실행됩니다. 경우에 따라 사용자 지정 VM을 만들거나 온-프레미스에서 컴퓨터를 마이그레이션할 수 있습니다. 이러한 경우 에이전트를 수동으로 설치해야 할 수 있습니다.
+Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 에이전트에 확장을 설치합니다. Azure Marketplace 이미지에서 VM을 만든 경우 에이전트가 실행 됩니다. 경우에 따라 사용자 지정 VM을 만들거나 온-프레미스에서 컴퓨터를 마이그레이션할 수 있습니다. 이러한 경우 에이전트를 수동으로 설치해야 할 수 있습니다.
 
 - VM 에이전트를 수동으로 설치해야 하는 경우 [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) VM에 대한 지침을 따릅니다.
 - 에이전트를 설치한 후 백업을 사용하도록 설정하면, Azure Backup은 에이전트에 백업 확장을 설치합니다. 사용자 개입 없이 확장을 업데이트하고 패치합니다.
@@ -39,15 +39,15 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
    - 자격 증명 모음에 이미 있는 경우 **기존 항목 선택**을 클릭하고 자격 증명 모음을 선택합니다.
    - 자격 증명 모음에 없는 경우 **새로 만들기**를 클릭합니다. 자격 증명 모음의 이름을 지정합니다. 해당 자격 증명 모음은 VM과 동일한 지역 및 리소스 그룹에 생성됩니다. VM 설정에서 직접 백업을 사용하도록 설정하면 이러한 설정을 수정할 수 없습니다.
 
-   ![Backup 마법사 사용](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Backup 마법사 사용](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. **백업 정책 선택**에서 다음을 수행합니다.
+6. **백업 정책 선택**에서 다음 중 하나를 수행 합니다.
 
    - 기본 정책을 그대로 둡니다. 이렇게 하면 지정된 시간에 하루 1번 VM이 백업되고, 30일 동안 자격 증명 모음에 백업이 유지됩니다.
    - 기존 백업 정책이 있는 경우 선택합니다.
    - 새 정책을 만들고 정책 설정을 정의합니다.  
 
-   ![백업 정책 선택](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![백업 정책 선택](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. **백업 사용**을 클릭 합니다. 이렇게 하면 백업 정책이 VM에 연결됩니다.
 
