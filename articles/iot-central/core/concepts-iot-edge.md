@@ -7,13 +7,14 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759097"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337078"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 Azure IoT Edge 장치 연결
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결
 
 *이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
 
@@ -57,7 +58,7 @@ Azure IoT Central에서 배포 매니페스트를 가져와서 장치 템플릿�
 
 ![배포 매니페스트 수명 주기 순서도](./media/concepts-iot-edge/dmflow.png)
 
-IoT 플러그 앤 플레이 (미리 보기)는 다음과 같이 IoT Edge 장치를 모델링 합니다.
+IoT Central은 다음과 같이 IoT Edge 장치를 모델링 합니다.
 
 * 모든 IoT Edge 디바이스 템플릿에는 디바이스 기능 모델이 있습니다.
 * 배포 매니페스트에 나열된 모든 사용자 지정 모듈에 대한 모듈 기능 모델이 생성됩니다.

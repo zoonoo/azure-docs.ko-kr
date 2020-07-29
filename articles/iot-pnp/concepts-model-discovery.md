@@ -1,79 +1,117 @@
 ---
 title: IoT 플러그 앤 플레이 미리 보기 모델 검색 구현 | Microsoft Docs
-description: 솔루션 개발자는 솔루션에서 IoT 플러그 앤 플레이 모델 검색을 구현 하는 방법에 대해 알아봅니다.
-author: Philmea
-ms.author: philmea
-ms.date: 12/26/2019
+description: 솔루션 빌더는 솔루션에서 IoT 플러그 앤 플레이 모델 검색을 구현 하는 방법에 대해 알아봅니다.
+author: prashmo
+ms.author: prashmo
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
-ms.openlocfilehash: 74eb38269a3c7fbdc6d95554a8a8cef14eb0b787
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 364b85a8ead09858b97d5d7e6ca8c130b9960b2c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770464"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337384"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Iot 솔루션에서 IoT 플러그 앤 플레이 미리 보기 모델 검색 구현
 
-이 문서에서는 솔루션 개발자가 iot 솔루션에서 IoT 플러그 앤 플레이 미리 보기 모델 검색을 구현할 수 있는 방법을 설명 합니다.  IoT 플러그 앤 플레이 모델 검색은 IoT 플러그 앤 플레이 장치에서 지원 되는 기능 모델과 인터페이스를 식별 하는 방법 및 IoT 솔루션이 이러한 기능 모델과 인터페이스를 검색 하는 방법을 보여 줍니다.
+이 문서에서는 iot 솔루션에서 IoT 플러그 앤 플레이 Preview 모델 검색을 구현할 수 있는 방법을 설명 합니다. 모델 검색은 다음 방법을 설명 합니다.
 
-Iot 솔루션에는 알려진 IoT 플러그 앤 플레이 장치 집합에서 작동 하는 용도의 빌드 솔루션과 IoT 플러그 앤 플레이 장치에서 작동 하는 모델 기반 솔루션이 있습니다.
+- IoT 플러그 앤 플레이 장치는 해당 모델 ID를 등록 합니다.
+- IoT 솔루션은 장치에서 구현 하는 인터페이스를 검색 합니다.
 
-이 개념 문서에서는 두 유형의 솔루션 모두에서 모델 검색을 구현 하는 방법을 설명 합니다.
+IoT 솔루션은 다음과 같은 두 가지 범주로 나뉩니다.
+
+- *용도에 맞는 iot 솔루션* 은 알려진 iot 플러그 앤 플레이 장치 모델 집합에서 작동 합니다.
+
+- *모델 기반 iot 솔루션* 은 모든 IoT 플러그 앤 플레이 장치에서 작동할 수 있습니다. 모델 기반 솔루션을 구축 하는 것은 더 복잡 하지만, 나중에 추가 된 장치를 사용 하 여 솔루션이 작동 한다는 이점도 있습니다.
+
+    모델 기반 IoT 솔루션을 빌드하려면 IoT 플러그 앤 플레이 인터페이스 기본 형식: 원격 분석, 속성 및 명령에 대 한 논리를 구축 해야 합니다. 솔루션의 논리는 여러 원격 분석, 속성 및 명령 기능을 결합 하 여 장치를 나타냅니다.
+
+이 문서에서는 두 가지 유형의 솔루션 모두에서 모델 검색을 구현 하는 방법을 설명 합니다.
 
 ## <a name="model-discovery"></a>모델 검색
 
-IoT 플러그 앤 플레이 장치는 먼저 IoT hub에 연결 하는 경우 모델 정보 원격 분석 메시지를 보냅니다. 이 메시지에는 장치에서 구현 하는 인터페이스의 Id가 포함 됩니다. 솔루션이 장치를 사용 하려면 해당 Id를 확인 하 고 각 인터페이스에 대 한 정의를 검색 해야 합니다.
+장치가 구현 하는 모델을 검색 하기 위해 솔루션은 이벤트 기반 검색 또는 쌍 기반 검색을 사용 하 여 모델 ID를 가져올 수 있습니다.
 
-장치 프로 비전 서비스 (DPS)를 사용 하 여 허브에 연결 하는 경우 IoT 플러그 앤 플레이 장치에서 수행 하는 단계는 다음과 같습니다.
+### <a name="event-based-discovery"></a>이벤트 기반 검색
 
-1. 장치를 켜면 DPS의 글로벌 끝점에 연결 하 고 허용 되는 방법 중 하나를 사용 하 여 인증 합니다.
-1. 그런 다음 DPS는 장치를 인증 하 고 장치를 할당할 IoT hub를 알려 주는 규칙을 조회 합니다. 그런 다음 DPS는 해당 허브에 장치를 등록 합니다.
-1. DPS는 장치에 IoT Hub 연결 문자열을 반환 합니다.
-1. 그런 다음 장치는 검색 원격 분석 메시지를 IoT Hub 보냅니다. 검색 원격 분석 메시지에는 장치에서 구현 하는 인터페이스의 Id가 포함 됩니다.
-1. Iot 플러그 앤 플레이 장치는 이제 IoT hub를 사용 하는 솔루션을 사용할 준비가 되었습니다.
+IoT 플러그 앤 플레이 장치가 IoT Hub에 연결 하는 경우 구현 하는 모델을 등록 합니다. 이 등록으로 인해 [디지털 쌍 변경 이벤트](concepts-digital-twin.md#digital-twin-change-events) 알림이 발생 합니다. 디지털 쌍 이벤트에 대해 라우팅을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [IoT Hub 메시지 라우팅을 사용 하 여 여러 끝점으로 장치-클라우드 메시지 보내기](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)를 참조 하세요.
 
-장치가 IoT hub에 직접 연결 하는 경우 장치 코드에 포함 된 연결 문자열을 사용 하 여 연결 합니다. 그런 다음 장치는 검색 원격 분석 메시지를 IoT Hub 보냅니다.
+솔루션은 다음 코드 조각에 표시 된 이벤트를 사용 하 여 연결 된 IoT 플러그 앤 플레이 장치에 대해 알아보고 모델 ID를 가져올 수 있습니다.
 
-모델 정보 원격 분석 메시지에 대해 자세히 알아보려면 [modelinformation](concepts-common-interfaces.md) 인터페이스를 참조 하세요.
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
 
-### <a name="purpose-built-iot-solutions"></a>목적의 빌드된 IoT 솔루션
+이 이벤트는 장치 모델 ID가 추가 되거나 업데이트 될 때 트리거됩니다.
 
-용도에 맞는 IoT 솔루션은 알려진 IoT 플러그 앤 플레이 장치 기능 모델 및 인터페이스 집합을 사용 하 여 작동 합니다.
+### <a name="twin-based-discovery"></a>쌍 기반 검색
 
-솔루션에 연결 하는 장치에 대 한 기능 모델 및 인터페이스를 미리 사용할 수 있습니다. 다음 단계를 사용 하 여 솔루션을 준비 합니다.
+솔루션이 지정 된 장치의 기능을 알고 싶을 경우 [디지털 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) API를 사용 하 여 정보를 검색할 수 있습니다.
 
-1. 솔루션에서 읽을 수 있는 [모델 리포지토리에](./howto-manage-models.md) 인터페이스 JSON 파일을 저장 합니다.
-1. 예상 IoT 플러그 앤 플레이 기능 모델 및 인터페이스를 기반으로 하는 IoT 솔루션의 논리를 작성 합니다.
-1. 솔루션에서 사용 하는 IoT hub의 알림을 구독 합니다.
+다음 디지털 쌍 조각에는 `$metadata.$model` IoT 플러그 앤 플레이 장치의 모델 ID가 포함 되어 있습니다.
 
-새 장치 연결에 대 한 알림을 받으면 다음 단계를 수행 합니다.
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
 
-1. 검색 원격 분석 메시지를 읽고 장치에 의해 구현 된 기능 모델 및 인터페이스의 Id를 검색 합니다.
-1. 기능 모델의 ID를 미리 저장 한 기능 모델의 id와 비교 합니다.
-1. 이제 연결 된 장치 유형을 알 수 있습니다. 이전에 작성 한 논리를 사용 하 여 사용자가 장치를 적절 하 게 상호 작용할 수 있도록 합니다.
+솔루션은 다음 코드 조각과 같이 **Get** 쌍을 사용 하 여 장치 쌍에서 모델 ID를 검색할 수도 있습니다.
 
-### <a name="model-driven-solutions"></a>모델 기반 솔루션
+```json
+{
+    "deviceId": "sample-device",
+    "etag": "AAAAAAAAAAc=",
+    "deviceEtag": "NTk0ODUyODgx",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00Z",
+    "connectionState": "Disconnected",
+    "lastActivityTime": "2020-07-17T06:12:26.8402249Z",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "modelId": "dtmi:com:example:TemperatureController;1",
+    "version": 15,
+    "properties": {...}
+    }
+}
+```
 
-모델 기반 IoT 솔루션은 모든 IoT 플러그 앤 플레이 장치에서 작동할 수 있습니다. 모델 기반 IoT 솔루션을 빌드하는 것은 더 복잡 하지만, 나중에 추가 된 장치에서 솔루션이 작동 하는 이점을 누릴 수 있습니다.
+## <a name="model-resolution"></a>모델 확인
 
-모델 기반 IoT 솔루션을 빌드하려면 IoT 플러그 앤 플레이 인터페이스 기본 형식: 원격 분석, 속성 및 명령에 대 한 논리를 구축 해야 합니다. IoT 솔루션의 논리는 여러 원격 분석, 속성 및 명령 기능을 결합 하 여 장치를 나타냅니다.
+솔루션은 모델 확인을 사용 하 여 모델 ID에서 모델을 구성 하는 인터페이스에 대 한 액세스를 가져옵니다. 
 
-또한 솔루션은 사용 하는 IoT hub의 알림을 구독 해야 합니다.
-
-솔루션에 새 장치 연결에 대 한 알림이 수신 되 면 다음 단계를 수행 합니다.
-
-1. 검색 원격 분석 메시지를 읽고 장치에 의해 구현 된 기능 모델 및 인터페이스의 Id를 검색 합니다.
-1. 각 ID에 대해 전체 JSON 파일을 읽어 장치의 기능을 찾습니다.
-1. 각 인터페이스가 이전에 솔루션에서 검색 된 JSON 파일을 저장 하기 위해 빌드한 모든 캐시에 있는지 확인 합니다.
-1. 그런 다음 해당 ID의 인터페이스가 공용 모델 리포지토리에 있는지 확인 합니다. 자세한 내용은 [공용 모델 리포지토리](howto-manage-models.md)를 참조 하세요.
-1. 인터페이스가 공용 모델 리포지토리에 없으면 솔루션에 알려진 모든 회사 모델 리포지토리에서 검색 해 보세요. 회사 모델 리포지토리에 액세스 하려면 연결 문자열이 필요 합니다. 자세한 내용은 [회사 모델 리포지토리](howto-manage-models.md)를 참조 하세요.
-1. 공용 모델 리포지토리에서 또는 회사 모델 리포지토리에서 모든 인터페이스를 찾을 수 없는 경우 장치에서 인터페이스 정의를 제공할 수 있는지 확인할 수 있습니다. 장치는 명령을 사용 하 여 인터페이스 파일을 검색 하는 방법에 대 한 정보를 게시 하는 표준 [Modeldefinition](concepts-common-interfaces.md) 인터페이스를 구현할 수 있습니다.
-1. 장치에서 구현 하는 각 인터페이스에 대 한 JSON 파일을 찾은 경우 장치의 기능을 열거할 수 있습니다. 이전에 작성 한 논리를 사용 하 여 사용자가 장치와 상호 작용할 수 있도록 합니다.
-1. 언제 든 지 디지털 쌍 API를 호출 하 여 장치에 대 한 기능 모델 id와 인터페이스 id를 검색할 수 있습니다.
+- 솔루션은 이러한 인터페이스를 로컬 폴더의 파일로 저장 하도록 선택할 수 있습니다. 
+- 솔루션은 [모델 리포지토리](concepts-model-repository.md)를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 모델 검색에 대해 알아보았습니다. IoT 솔루션은 솔루션에 대 한 다른 기능을 활용 하기 위해 [Azure Iot 플랫폼](overview-iot-plug-and-play.md) 에 대해 자세히 알아보세요.
+이제 모델 검색에 대해 알아보았습니다. IoT 솔루션에 대 한 자세한 내용은 솔루션에 다른 기능을 사용 하는 [Azure iot 플랫폼](overview-iot-plug-and-play.md) 에 대해 알아보세요.
+
+- [솔루션에서 장치와 상호 작용](quickstart-service-node.md)
+- [IoT 디지털 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [Azure IoT 탐색기](howto-use-iot-explorer.md)

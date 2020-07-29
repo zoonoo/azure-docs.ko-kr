@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 0602829f1334e13241c2e396d409280506099d34
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 72fe4d897c9c202e0c4cd5861525093760036d26
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130888"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285665"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>사용자 로그인을 사용 하 여 단일 페이지 응용 프로그램 보호
 

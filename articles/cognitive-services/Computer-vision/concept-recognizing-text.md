@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 6bc118145bec30085c2d9fbf726c40a20b312430
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207064"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284254"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -24,7 +24,7 @@ Microsoft Computer Vision API는 이미지 및 PDF 문서에서 인쇄 되거나
 
 ## <a name="read-api"></a>읽기 API 
 
-Computer Vision의 [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 이미지 및 다중 페이지 PDF 문서에서 인쇄 된 텍스트 (7 개의 언어), 필기 텍스트 (영어 전용), 숫자 및 통화 기호를 추출 하는 Microsoft의 최신 OCR 기술입니다. 이는 혼합 된 언어를 사용 하 여 텍스트 집약적 이미지 및 다중 페이지 PDF 문서에서 텍스트를 추출 하는 데 최적화 되어 있습니다. 동일한 이미지나 문서에서 인쇄 및 필기 텍스트 (영어만) 검색을 지원 합니다. [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 의 전체 목록 페이지를 참조 하세요.
+Computer Vision의 [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 이미지 및 다중 페이지 PDF 문서에서 인쇄 된 텍스트를 여러 언어로 추출 하는 Microsoft의 최신 OCR 기술 (영어 전용), 숫자 및 통화 기호입니다. 이는 혼합 된 언어를 사용 하 여 텍스트 집약적 이미지 및 다중 페이지 PDF 문서에서 텍스트를 추출 하는 데 최적화 되어 있습니다. 동일한 이미지나 문서에서 인쇄 및 필기 텍스트 (영어만) 검색을 지원 합니다. [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 의 전체 목록 페이지를 참조 하세요.
 
 ### <a name="how-ocr-works"></a>OCR 작동 방법
 
@@ -123,7 +123,7 @@ C # 및 REST API를 사용 하 여 OCR을 구현 하려면 [인쇄 및 필기 �
 
 ### <a name="printed-text-in-supported-languages"></a>지원 되는 언어로 인쇄 된 텍스트
 
-읽기 API는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 텍스트 추출을 지원 합니다. 시나리오에서 더 많은 언어를 지원 해야 하는 경우이 문서의 OCR API 개요를 참조 하세요. 모든 [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 목록을 참조 하세요.
+읽기 3.0 API는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 된 텍스트를 추출 하는 것을 지원 합니다. [Read 3.1-preview. 1 API 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 는 중국어 간체에 대 한 지원을 추가 합니다. 시나리오에서 더 많은 언어를 지원 해야 하는 경우이 문서의 OCR API 개요를 참조 하세요. 모든 [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 목록을 참조 하세요.
 
 ![회전 중인 이미지와 해당 텍스트를 읽고 구분 하 고 있습니다.](./Images/supported-languages-example.png)
 
@@ -137,7 +137,7 @@ C # 및 REST API를 사용 하 여 OCR을 구현 하려면 [인쇄 및 필기 �
 
 모든 인식 서비스와 마찬가지로, 읽기 서비스를 사용 하는 개발자는 고객 데이터에 대 한 Microsoft 정책을 인식 해야 합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/en-us/trust-center/product-overview) 의 Cognitive Services 페이지를 참조 하세요.
 
-### <a name="deploy-on-premises"></a>온-프레미스 배포
+### <a name="containers-for-on-premise-deployment"></a>온-프레미스 배포를 위한 컨테이너
 
 읽기는 새 OCR 기능을 사용자 환경에 배포할 수 있도록 Docker 컨테이너 (미리 보기)로도 사용할 수 있습니다. 컨테이너는 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. [읽기 컨테이너를 설치 하 고 실행 하는 방법을](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) 참조 하세요.
 
@@ -149,4 +149,5 @@ C # 및 REST API를 사용 하 여 OCR을 구현 하려면 [인쇄 및 필기 �
 ## <a name="next-steps"></a>다음 단계
 
 - [읽기 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
+- 중국어 간체에 대 한 지원이 추가 된 [REST API 읽기 3.1-미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.
 - [텍스트 추출](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 따라 REST API와 함께 c #, Java, JavaScript 또는 Python을 사용 하 여 OCR을 구현 합니다.

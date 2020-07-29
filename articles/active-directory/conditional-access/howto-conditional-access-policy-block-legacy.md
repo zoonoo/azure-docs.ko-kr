@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995193"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283013"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -35,7 +36,7 @@ ms.locfileid: "83995193"
    1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업**에서 **모든 클라우드 앱**을 선택합니다.
    1. **완료**를 선택합니다.
-1. **조건 > ** **클라이언트 앱(미리 보기)** 에서 **구성**을 **예**로 설정합니다.
+1. **조건**  >  **클라이언트 앱 (미리 보기)** 의 아래에서 **이 정책이 적용 되는 클라이언트 앱을 선택 합니다**.
    1. **모바일 앱 및 데스크톱 클라이언트** > **기타 클라이언트** 확인란만 선택합니다.
    1. **완료**를 선택합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 차단**을 선택합니다.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117208"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326089"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -113,7 +113,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 ### <a name="configure-the-solution"></a>솔루션 구성 
 
-1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용할 수도 있습니다. 
+1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md)에 설명 된 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
 3. 메시지 솔루션을 사용 하 여 **네트워크 성능 모니터** 타일을 선택 하 고 *추가 구성이 필요*합니다.
 
@@ -291,3 +291,4 @@ Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:
 
 ## <a name="next-steps"></a>다음 단계 
 [성능 모니터](network-performance-monitor-performance-monitor.md), [서비스 연결 모니터](network-performance-monitor-performance-monitor.md) 및 [ExpressRoute 모니터](network-performance-monitor-expressroute.md)에 대해 자세히 알아봅니다. 
+

@@ -1,6 +1,6 @@
 ---
-title: Windows 가상 데스크톱 진단 로그 분석 (낙하 2019)-Azure
-description: Windows 가상 데스크톱 (낙하 2019 릴리스) 진단 기능을 통해 log analytics를 사용 하는 방법에 대해 알아봅니다.
+title: Windows 가상 데스크톱 (클래식) 진단 log analytics-Azure
+description: Windows 가상 데스크톱 (클래식) 진단 기능을 사용 하 여 log analytics를 사용 하는 방법
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077609"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285070"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>진단 기능 Log Analytics 사용 (낙하 2019 릴리스)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱의 진단 기능 Log Analytics 사용 (클래식)
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../diagnostics-log-analytics.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../diagnostics-log-analytics.md)를 참조 하세요.
 
 Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 지원하는 진단 기능을 제공합니다. 이 기능은 Windows 가상 데스크톱 역할에 할당 된 사용자가 서비스를 사용할 때마다 진단 정보를 기록 합니다. 각 로그에는 작업에 관련 된 Windows 가상 데스크톱 역할, 세션 중에 표시 되는 오류 메시지, 테 넌 트 정보 및 사용자 정보에 대 한 정보가 포함 되어 있습니다. 진단 기능은 사용자 및 관리 작업 모두에 대 한 활동 로그를 만듭니다. 각 활동 로그는 세 가지 주요 범주로 구분 됩니다.
 

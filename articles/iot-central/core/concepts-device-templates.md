@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002355"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337112"
 ---
 # <a name="what-are-device-templates"></a>디바이스 템플릿이란?
 
@@ -28,6 +28,9 @@ Azure IoT Central의 장치 템플릿은 응용 프로그램에 연결 하는 �
 - _클라우드 속성_. 이 장치 템플릿 파트를 통해 솔루션 개발자는 저장할 장치 메타 데이터를 지정할 수 있습니다. 클라우드 속성은 장치와 동기화 되지 않으며 응용 프로그램에만 존재 합니다. 클라우드 속성은 장치 개발자가 DCM을 구현 하기 위해 작성 하는 코드에 영향을 주지 않습니다.
 - _사용자 지정_. 이 장치 템플릿 부분에서는 솔루션 개발자가 DCM의 일부 정의를 재정의할 수 있습니다. 사용자 지정은 솔루션 개발자가 속성의 표시 이름 변경 또는 원격 분석 값을 표시 하는 데 사용 된 색과 같은 응용 프로그램에서 값을 처리 하는 방법을 조정 하려는 경우에 유용 합니다. 사용자 지정은 장치 개발자가 DCM을 구현 하기 위해 작성 하는 코드에 영향을 주지 않습니다.
 - _뷰입니다_. 이 장치 템플릿 파트를 통해 솔루션 개발자는 장치에서 데이터를 보는 시각화를 정의 하 고 장치를 관리 하 고 제어할 수 있습니다. 보기는 DCM, 클라우드 속성 및 사용자 지정을 사용 합니다. 보기는 장치 개발자가 DCM을 구현 하기 위해 작성 하는 코드에 영향을 주지 않습니다.
+
+> [!NOTE]
+> [Iot 플러그 앤 플레이 공개 미리 보기 새로 고침 릴리스](../../iot-pnp/overview-iot-plug-and-play.md) 는 장치 개발자 및 oem이 장치 빌드를 시작 하 고 GA 시작 전에 iot 플러그 앤 플레이에 대해 인증할 수 있는 장치를 시작 합니다.
 
 ## <a name="device-capability-models"></a>디바이스 기능 모델
 
@@ -206,7 +209,7 @@ IoT Central 데이터 내보내기 기능을 사용 하 여 저장소 또는 Eve
 
 사용자 지정은 장치 개발자가 DCM을 구현 하기 위해 작성 하는 코드에 영향을 줄 수 있습니다. 예를 들어 사용자 지정은 원격 분석을 위해 최소 및 최대 문자열 길이 또는 최소 및 최대 숫자 값을 설정할 수 있습니다.
 
-## <a name="views"></a>뷰
+## <a name="views"></a>보기
 
 솔루션 개발자는 운영자가 연결 된 장치를 모니터링 하 고 관리할 수 있는 뷰를 만듭니다. 보기는 장치 템플릿의 일부 이므로 뷰가 특정 장치 유형과 연결 됩니다. 보기에는 다음이 포함 될 수 있습니다.
 

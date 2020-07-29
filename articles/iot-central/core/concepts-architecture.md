@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337146"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
 
@@ -29,7 +30,7 @@ ms.locfileid: "84695337"
 - 원격 분석 데이터 같은 측정값을 보냅니다.
 - 애플리케이션과 설정을 동기화합니다.
 
-Azure IoT Central에서, 디바이스가 애플리케이션과 교환할 수 있는 데이터는 디바이스 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
+Azure IoT Central에서 디바이스가 애플리케이션으로 교환할 수 있는 데이터는 디바이스 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
 
 디바이스가 Azure IoT Central 애플리케이션에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-get-connected.md)을 참조하세요.
 
@@ -122,7 +123,7 @@ Azure IoT Central은 디바이스에서 보낸 측정값 데이터에 시계열 
 
 분석 서비스는 애플리케이션에서 표시하는 사용자 지정 보고 데이터를 생성합니다. 운영자는 애플리케이션에 표시되는 [분석을 사용자 지정](howto-create-analytics.md)할 수 있습니다. 분석 서비스는 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) 위에 빌드되며, 디바이스에서 보낸 측정값 데이터를 처리합니다.
 
-## <a name="rules-and-actions"></a>규칙 및 동작
+## <a name="rules-and-actions"></a>규칙 및 작업
 
 [규칙 및 동작](tutorial-create-telemetry-rules.md)은 서로 긴밀하게 작동하여 애플리케이션 내의 작업을 자동화합니다. 작성자는 정의된 임계값을 초과하는 온도 같은 디바이스 원격 분석 데이터를 기반으로 규칙을 정의할 수 있습니다. Azure IoT Central은 스트림 프로세서를 사용하여 규칙 조건 충족 여부를 확인합니다. 규칙 조건이 충족되면 작성자가 정의한 작업을 트리거합니다. 예를 들어 디바이스 온도가 너무 높다고 엔지니어에게 알리는 이메일을 작업에서 보낼 수 있습니다.
 
@@ -134,7 +135,7 @@ Azure IoT Central 애플리케이션에서 디바이스 템플릿은 디바이�
 
 IoT Central 응용 프로그램 장치 템플릿에는 다음이 포함 됩니다.
 
-- **장치 기능 모델** 은 송신 원격 분석, 장치 상태를 정의 하는 속성 및 장치가 응답 하는 명령과 같은 장치의 기능을 지정 합니다. 장치 기능은 하나 이상의 인터페이스로 구성 됩니다. 장치 기능 모델에 대 한 자세한 내용은 [IoT 플러그 앤 플레이 (미리 보기)](../../iot-pnp/overview-iot-plug-and-play.md) 설명서를 참조 하세요.
+- **장치 기능 모델** 은 송신 원격 분석, 장치 상태를 정의 하는 속성 및 장치가 응답 하는 명령과 같은 장치의 기능을 지정 합니다. 장치 기능은 하나 이상의 인터페이스로 구성 됩니다.
 - **클라우드 속성** 은 장치에 대 한 저장소 IoT Central 속성을 지정 합니다. 이러한 속성은 IoT Central에만 저장 되며 장치에 전송 되지 않습니다.
 - **보기** 는 운영자가 장치를 모니터링 하 고 관리할 수 있도록 작성기에서 만드는 대시보드 및 폼을 지정 합니다.
 - **사용자 지정** 을 통해 빌더는 장치 기능 모델의 일부 정의를 재정의 하 여 IoT Central 응용 프로그램에 더 적합 하 게 만들 수 있습니다.

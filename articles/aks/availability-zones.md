@@ -5,11 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feea8c3cba170244be2ca3ec7a11c36a3c39f700
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195556"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281228"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -98,7 +99,7 @@ AKS 클러스터를 만드는 데 몇 분이 걸립니다.
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-다음으로, [kubectl describe][kubectl-describe] 명령을 사용하여 클러스터의 노드를 나열합니다. 다음 예제와 같이 *failure-domain.beta.kubernetes.io/zone* 값을 필터링합니다.
+그런 다음 [kubectl 설명][kubectl-describe] 명령을 사용 하 여 클러스터의 노드를 나열 하 고 *failure-domain.beta.kubernetes.io/zone* 값을 필터링 합니다. 다음은 Bash 셸에 대 한 예입니다.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -130,7 +131,7 @@ az aks scale \
     --node-count 5
 ```
 
-몇 분 후에 스케일링 작업이 완료되면 `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` 명령이 이 샘플과 유사한 출력을 제공합니다.
+몇 분 후에 크기 조정 작업이 완료 되 면 `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` Bash 셸의 명령이 다음 샘플과 유사한 출력을 제공 해야 합니다.
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -151,7 +152,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Pod가 실행되는 노드를 보면 3개의 다른 가용성 영역에 해당하는 노드에서 Pod가 실행되고 있는 것을 볼 수 있습니다. 예를 들어 `kubectl describe pod | grep -e "^Name:" -e "^Node:"` 명령을 사용하여 다음과 유사한 출력을 얻을 수 있습니다.
+Pod가 실행되는 노드를 보면 3개의 다른 가용성 영역에 해당하는 노드에서 Pod가 실행되고 있는 것을 볼 수 있습니다. 예를 들어 `kubectl describe pod | grep -e "^Name:" -e "^Node:"` Bash 셸에서 명령을 사용 하면 다음과 유사한 출력이 표시 됩니다.
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg

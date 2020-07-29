@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224766"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337095"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -213,13 +213,13 @@ IoT Central의 주요 기능 중 하나는 장치 연결 시 장치 템플릿을
 
 다음 코드 조각은 자동 연결이 작동 하기 위해 DPS 등록 호출 중에 장치에서 전송 해야 하는 추가 페이로드의 형식을 보여 줍니다.
 
-IoT 플러그 앤 플레이을 지원 하지 않는 일반적으로 사용 가능한 장치 SDK를 사용 하는 장치에 대 한 형식입니다.
+일반적으로 사용 가능한 장치 SDK를 사용 하는 장치에 대 한 형식은 다음과 같습니다.
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-IoT 플러그 앤 플레이를 지 원하는 공용 미리 보기 장치 SDK를 사용 하는 장치에 대 한 형식입니다.
+공개 미리 보기 장치 SDK를 사용 하는 장치에 대 한 형식은 다음과 같습니다.
 
 ```javascript
 '__iot:interfaces': {
@@ -280,8 +280,6 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 | 속성 | 디바이스 쌍 reported 속성 |
 | 속성(쓰기 가능) | 디바이스 쌍 desired 및 reported 속성 |
 | 명령 | 직접 메서드 |
-
-장치 Sdk를 사용 하는 방법에 대 한 자세한 내용은 [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](howto-connect-devkit.md) 예제 코드를 참조 하세요.
 
 ### <a name="protocols"></a>프로토콜
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232698"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283489"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -62,7 +62,7 @@ Azure Marketplace는 정적 코드 분석을 수행하 고 코드 검토를 지�
 
 ### <a name="verify-your-applications-outputs"></a>애플리케이션의 출력 확인
 
-시각적으로 또는 문서 내에서 표시하는 모든 출력은 항상 인코딩 및 이스케이프되어야 합니다. *출력 인코딩*이라고도 하는 [이스케이프](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29)는 신뢰할 수 없는 데이터가 삽입 공격의 수단으로 사용되지 않도록 하는 데 사용됩니다. 이스케이프를 데이터 유효성 검사와 함께 사용하면 계층형 방어를 통해 시스템 보안을 전체적으로 강화할 수 있습니다.
+시각적으로 또는 문서 내에서 표시하는 모든 출력은 항상 인코딩 및 이스케이프되어야 합니다. *출력 인코딩*이라고도 하는 [이스케이프](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29)는 신뢰할 수 없는 데이터가 삽입 공격의 수단으로 사용되지 않도록 하는 데 사용됩니다. 이스케이프를 데이터 유효성 검사와 함께 사용하면 계층형 방어를 통해 시스템 보안을 전체적으로 강화할 수 있습니다.
 
 이스케이프를 사용하면 모든 항목이 *출력*으로 표시됩니다. 또한 이스케이프를 통해 실행용 데이터가 아니라는 것을 인터프리터에 알릴 수 있으며, 이렇게 하면 공격이 작동하지 못하게 차단됩니다. 이것을 *XSS(사이트 간 스크립팅*)라고 하며 또 다른 형태의 일반적인 공격 기술입니다.
 

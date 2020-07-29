@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133115"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372300"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스
 
@@ -26,7 +26,7 @@ Azure Storage 리소스 공급자를 사용 하 여 저장소 계정 만들기 �
 
 Microsoft는 Azure Storage 리소스를 사용 하기 위한 두 가지 REST Api를 제공 합니다. 이러한 Api는 Azure Storage에 대해 수행할 수 있는 모든 작업의 기본을 형성 합니다. Azure Storage REST API를 사용 하 여 blob, 큐, 파일 및 테이블 데이터를 비롯 하 여 저장소 계정에서 데이터를 사용할 수 있습니다. Azure Storage 리소스 공급자 REST API를 사용 하 여 저장소 계정 및 관련 리소스를 사용할 수 있습니다.
 
-Blob 데이터를 읽거나 쓰는 요청에는 관리 작업을 수행 하는 요청과 다른 권한이 필요 합니다. RBAC는 두 종류의 리소스에 대 한 권한을 보다 세부적으로 제어할 수 있도록 합니다. 보안 주체에 RBAC 역할을 할당 하는 경우 해당 보안 주체에 부여 되는 사용 권한을 알고 있어야 합니다. 각 기본 제공 RBAC 역할에 연결 된 작업을 설명 하는 자세한 참조는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+Blob 데이터를 읽거나 쓰는 요청에는 관리 작업을 수행 하는 요청과 다른 권한이 필요 합니다. RBAC는 두 종류의 리소스에 대 한 권한을 보다 세부적으로 제어할 수 있도록 합니다. 보안 주체에 RBAC 역할을 할당 하는 경우 해당 보안 주체에 부여 되는 사용 권한을 알고 있어야 합니다. 각 Azure 기본 제공 역할에 연결 된 작업을 설명 하는 자세한 참조는 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 Azure Storage는 Azure AD를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여 합니다. Blob 및 큐 데이터 작업의 RBAC 역할에 대 한 자세한 내용은 [Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
 

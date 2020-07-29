@@ -4,14 +4,15 @@ description: Azure CLI를 사용 하 여 만드는 동안 Linux VM에서 클라�
 author: rickstercdn
 manager: gwallace
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969196"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371943"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>클라우드 초기화를 사용 하 여 Linux VM에서 스왑 파티션 구성
 이 문서에서는 [클라우드 초기화](https://cloudinit.readthedocs.io) 를 사용 하 여 다양 한 Linux 배포판에서 스왑 파티션을 구성 하는 방법을 보여 줍니다. 스왑 파티션은 기존에 필요한 배포를 기반으로 Linux 에이전트 (WALA)에 의해 구성 됩니다.  이 문서에서는 클라우드 초기화를 사용 하 여 프로 비전 하는 동안 요청 시 스왑 파티션을 작성 하는 프로세스에 대해 간략하게 설명 합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.

@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-ms.date: 3/14/2019
-ms.openlocfilehash: 4cc5ad575b0fbe371d9432668e8ccf43b45ae717
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/28/2020
+ms.openlocfilehash: 8cd8dda807b27bc1a83176c6a46596eccfd19073
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84032074"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372096"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +56,17 @@ VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](elastic
 >
 > - 탄력적 풀에 대 한 서비스 계층 또는 크기 조정 계산을 변경 하는 경우에는 풀의 모든 데이터베이스에서 사용 되는 공간의 합계를 사용 하 여 예상 값을 계산 해야 합니다.
 > - 탄력적 풀에서 데이터베이스를 이동 하는 경우 데이터베이스에 사용 되는 공간만 탄력적 풀에서 사용 하는 공간이 아니라 대기 시간에 영향을 줍니다.
->
+> - 표준 및 범용 탄력적 풀의 경우 탄력적 풀 또는 탄력적 풀 간에 데이터베이스 이동의 대기 시간은 탄력적 풀에서[PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)(프리미엄 파일 공유) 저장소를 사용 하는 경우 데이터베이스 크기에 비례 합니다. 풀에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 풀에 있는 모든 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 이면 `PremiumFileStorage` 풀에서 PFS 저장소를 사용 합니다.
+
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
+
 > [!TIP]
 > 진행 중인 작업을 모니터링 하려면 [sql REST API를 사용 하 여 작업 관리](https://docs.microsoft.com/rest/api/sql/operations/list), [CLI를 사용](/cli/azure/sql/db/op)하 여 작업 관리, [t-sql을 사용 하 여 작업 모니터링](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 및 다음 두 가지 PowerShell 명령 ( [AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 및 [AzSqlDatabaseActivity)](/powershell/module/az.sql/stop-azsqldatabaseactivity)을 참조 하세요.
 

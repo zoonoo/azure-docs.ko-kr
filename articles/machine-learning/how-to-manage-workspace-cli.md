@@ -5,16 +5,17 @@ description: Azure CLI를 사용하여 새 Azure Machine Learning 작업 영역�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1cc280dc12fcb462e11a568910eef053e4bdac50
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319697"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +60,13 @@ az extension add -n azure-cli-ml
 Azure Machine Learning 작업 영역은 다음과 같은 Azure 서비스 또는 엔터티를 사용합니다.
 
 > [!IMPORTANT]
-> 기존 Azure 서비스를 지정하지 않으면 작업 영역을 만드는 동안 서비스가 자동으로 생성됩니다. 항상 리소스 그룹을 지정해야 합니다. 사용자 고유의 저장소 계정을 연결 하는 경우 Azure Blob 및 Azure 파일 기능을 모두 사용 하도록 설정 하 고 계층 구조 네임 스페이스 (ADLS Gen 2)를 사용 하지 않도록 설정 해야 합니다. 작업 영역이 datastores로 생성 된 후에는 언제 든 지 사용자 고유의 저장소 계정을 연결할 수 있습니다.
+> 기존 Azure 서비스를 지정하지 않으면 작업 영역을 만드는 동안 서비스가 자동으로 생성됩니다. 항상 리소스 그룹을 지정해야 합니다. 사용자 고유의 저장소 계정을 연결 하는 경우 다음 조건을 충족 하는지 확인 합니다.
+>
+> * 저장소 계정이 프리미엄 계정이 _아닙니다_ (Premium_LRS 및 Premium_GRS).
+> * Azure Blob 및 Azure 파일 기능 모두 사용
+> * 계층 구조 네임 스페이스 (ADLS Gen 2)를 사용할 수 없습니다.
+>
+> 이러한 요구 사항은 작업 영역에서 사용 하는 _기본_ 저장소 계정에만 적용 됩니다.
 
 | 서비스 | 기존 인스턴스를 지정하는 매개 변수 |
 | ---- | ---- |
@@ -147,6 +154,9 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
     이 명령의 응답은 다음 텍스트와 비슷하며 스토리지 계정의 ID입니다.
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > 기존 Azure Storage 계정을 사용 하려는 경우 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
 
 + **Azure Application Insights**:
 

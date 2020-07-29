@@ -4,15 +4,15 @@ description: 앱 및 서비스 게시자를 위한 Microsoft 상업적 marketpla
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 8fac0fa18e0332f8295ecdd287e80810b5d9c671
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319867"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 개인 제품
 

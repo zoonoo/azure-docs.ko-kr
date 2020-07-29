@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 관리 도구 배포 - Azure
-description: Windows Virtual Desktop 리소스를 관리하기 위해 Azure Resource Manager 템플릿을 사용하여 사용자 인터페이스 도구 설치 방법을 설명합니다.
+description: Windows 가상 데스크톱 (클래식) 리소스를 관리 하기 위해 Azure Resource Manager 템플릿을 사용 하 여 사용자 인터페이스 도구를 설치 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514233"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284951"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 관리 도구 배포
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 (클래식) 관리 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다.
 
 이 문서의 지침은 Azure Resource Manager 템플릿을 사용하여 UI를 배포하는 방법을 설명합니다.
 

@@ -7,18 +7,19 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515363"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337350"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 * Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
@@ -29,7 +30,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     $PSVersionTable.PSVersion
     ```
 
-    Windows Server 2012 R2를 처음 설치하면 대부분이 그렇듯이, PSVersion 값이 5.1.\*보다 낮으면 [WMF(Windows Management Framework) 5.1](https://www.microsoft.com/download/details.aspx?id=54616)을 다운로드한 후 설치하여 쉽게 업그레이드할 수 있습니다. Windows Server 2012 r 2 용으로 다운로드 하 고 설치할 수 있는 적절 한 패키지는 **win \* \* \* \* \* \* \* 8.1 andw2k12r2**입니다. 
+    **PSVersion** 값이 5.1 보다 작은 경우에는 \* windows Server 2012 r 2를 새로 설치 하는 경우와 마찬가지로 [WMF (windows Management Framework) 5.1](https://www.microsoft.com/download/details.aspx?id=54616)를 다운로드 하 고 설치 하 여 쉽게 업그레이드할 수 있습니다. Windows Server 2012 r 2 용으로 다운로드 하 고 설치할 수 있는 적절 한 패키지는 **win \* \* \* \* \* \* \* 8.1 andw2k12r2**입니다. 
 
     PowerShell 6 +는 지원 되는 모든 시스템에서 사용할 수 있으며 [GitHub 페이지](https://github.com/PowerShell/PowerShell#get-powershell)를 통해 다운로드할 수 있습니다. 
 
@@ -214,6 +215,8 @@ Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 
 > [!Note]
 > 서버 등록 시 Azure 자격 증명을 사용하여 스토리지 동기화 서비스와 Windows Server 사이에 트러스트 관계가 생성되지만, 그 이후 서버는 고유의 ID를 만들어서 사용하며 이 ID는 서버의 등록 상태가 유지되고 현재 공유 액세스 서명 토큰(Storage SAS)이 유효한 동안에는 유효성을 유지합니다. 서버가 등록되지 않으면 새 SAS 토큰을 발급할 수 없으며, 따라서 Azure 파일 공유에 액세스하는 서버 기능이 제거되고 모든 동기화가 중지됩니다.
+
+서버를 등록 하는 관리자는 지정 된 저장소 동기화 서비스에 대 한 관리 역할 **소유자** 또는 **참가자** 의 구성원 이어야 합니다. 저장소 동기화 서비스에 대 한 Azure Portal **Access Control (IAM)** 에서 구성할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않은 경우 파일 위치(C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe)에서 수동으로 열 수 있습니다. 서버 등록 UI가 열리면 **로그인**을 선택하여 시작합니다.

@@ -11,11 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336868"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336925"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -48,7 +49,7 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
 1.  끌어오기 요청을 승인하고 변경 내용을 마스터 분기에서 병합한 후에 변경 내용이 개발 팩터리에 게시됩니다.
 
-1.  팀이 테스트 또는 UAT 팩터리에 대한 변경 내용을 배포할 준비가 되면 팀은 해당 Azure Pipelines 릴리스로 이동하여 원하는 버전의 개발 팩터리를 UAT에 배포합니다. 이 배포는 Azure Pipelines 작업의 일부로 발생하고 Resource Manager 템플릿 매개 변수를 사용하여 적절한 구성을 적용합니다.
+1.  팀이 테스트 또는 UAT (사용자 수용 테스트) 팩터리에 대 한 변경 내용을 배포할 준비가 되 면 팀은 해당 Azure Pipelines 릴리스로 이동 하 여 원하는 버전의 개발 팩터리를 UAT에 배포 합니다. 이 배포는 Azure Pipelines 작업의 일부로 발생하고 Resource Manager 템플릿 매개 변수를 사용하여 적절한 구성을 적용합니다.
 
 1.  테스트 팩터리에서 변경 내용을 확인한 후 파이프라인 릴리스의 다음 작업을 사용하여 프로덕션 팩터리에 배포합니다.
 

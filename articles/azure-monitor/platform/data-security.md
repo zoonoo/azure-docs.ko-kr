@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539349"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319799"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](https://www.microsoft.com/en-us/trust-center?rtc=1)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -69,11 +69,11 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 | **데이터 형식** | **필드** |
 | --- | --- |
 | 경고 |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Configuration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| 구성 |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | 이벤트 |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**참고:** 사용자 지정 필드가 있는 이벤트를 Windows 이벤트 로그에 기록하면 Log Analytics에서 해당 이벤트를 수집합니다. |
 | 메타데이터 |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | 성능 |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| 시스템 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>물리적 보안
 Log Analytics 서비스는 Microsoft 담당자가 관리하며 모든 활동을 기록하여 감사할 수 있습니다. Log Analytics는 Azure 서비스로 작동하며 모든 Azure 준수 및 보안 요구 사항을 충족합니다. Azure 자산의 물리적 보안에 대한 자세한 내용은 [Microsoft Azure 보안 개요](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)의 18페이지에서 확인할 수 있습니다. 더 이상 Log Analytics 서비스에 대한 전송, 종료 등의 책임이 없는 사용자는 영업일 기준 1일 이내에 보안 영역에 대한 물리적 액세스 권한이 변경됩니다. [Microsoft 데이터 센터](https://azure.microsoft.com/global-infrastructure/)에서 사용하는 글로벌 물리적 인프라에 대해 읽을 수 있습니다.
@@ -148,7 +148,7 @@ Operations Manager의 경우 Operations Manager 관리 그룹에서 Log Analytic
 
 연결된 시스템과 Log Analytics 서비스 간 모든 통신은 암호화됩니다. TLS(HTTPS) 프로토콜은 암호화에 사용됩니다.  Log Analytics에 최신 암호화 프로토콜을 적용할 수 있도록 Microsoft SDL 프로세스를 준수합니다.
 
-각 에이전트 유형은 Log Analytics에 대한 데이터를 수집합니다. 수집되는 데이터 형식은 사용하는 솔루션 유형에 따라 다릅니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 데이터 수집에 대한 요약 정보를 참조할 수 있습니다. 또한 대부분의 솔루션에 대해 자세한 컬렉션 정보를 사용할 수 있습니다. 솔루션은 미리 정의된 보기, 로그 검색 쿼리, 데이터 수집 규칙 및 처리 논리의 모음입니다. 관리자만 Log Analytics를 사용하여 솔루션을 가져올 수 있습니다. 가져온 솔루션은 Operations Manager 관리 서버(사용하는 경우)로 이동한 후 선택한 임의 에이전트로 이동합니다. 그런 다음 에이전트에서 데이터를 수집합니다.
+각 에이전트 유형은 Log Analytics에 대한 데이터를 수집합니다. 수집되는 데이터 형식은 사용하는 솔루션 유형에 따라 다릅니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../insights/solutions.md)에서 데이터 수집에 대한 요약 정보를 참조할 수 있습니다. 또한 대부분의 솔루션에 대해 자세한 컬렉션 정보를 사용할 수 있습니다. 솔루션은 미리 정의된 보기, 로그 검색 쿼리, 데이터 수집 규칙 및 처리 논리의 모음입니다. 관리자만 Log Analytics를 사용하여 솔루션을 가져올 수 있습니다. 가져온 솔루션은 Operations Manager 관리 서버(사용하는 경우)로 이동한 후 선택한 임의 에이전트로 이동합니다. 그런 다음 에이전트에서 데이터를 수집합니다.
 
 ## <a name="2-send-data-from-agents"></a>2. 에이전트에서 데이터 보내기
 등록 키를 사용 하 여 모든 에이전트 유형을 등록 하면 인증서 기반 인증 및 포트 443를 사용 하 여 에이전트와 Log Analytics 서비스 간에 보안 연결이 설정 됩니다. Log Analytics는 암호 저장소를 사용하여 키를 생성 및 유지합니다. 프라이빗 키는 90일마다 회전되어 Azure에 저장되며 Azure 운영팀에서 엄격한 규정 및 규정 준수 방식을 따라 관리합니다.
@@ -172,6 +172,7 @@ Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결
 Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 계정 또는 조직 계정을 사용하여 Azure Portal에 로그인합니다. 포털과 Log Analytics 서비스 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다. 포털을 사용할 때는 사용자 클라이언트(웹 브라우저)에 세션 ID가 생성되며 세션이 종료될 때까지 데이터가 로컬 캐시에 저장됩니다. 세션이 종료되면 캐시가 삭제됩니다. 개인 식별이 가능한 정보가 포함되지 않는 클라이언트 측 쿠키는 자동으로 제거되지 않습니다. 세션 쿠키는 HTTPOnly로 표시되며 보안됩니다. 사전 지정한 유휴 기간이 지나면 Azure Portal 세션이 종료됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure VM 빠른 시작](../../azure-monitor/learn/quick-collect-azurevm.md)에 따라 Azure VM용 Log Analytics를 사용하여 데이터를 수집하는 방법에 대해 알아봅니다.  
+* [Azure VM 빠른 시작](../learn/quick-collect-azurevm.md)에 따라 Azure VM용 Log Analytics를 사용하여 데이터를 수집하는 방법에 대해 알아봅니다.  
 
-*  사용자 환경에서 물리적 또는 가상 Windows 또는 Linux 컴퓨터로부터 데이터를 수집하려면 [Linux 컴퓨터용 빠른 시작](../../azure-monitor/learn/quick-collect-linux-computer.md) 또는 [Windows 컴퓨터용 빠른 시작](../../azure-monitor/learn/quick-collect-windows-computer.md)을 참조하세요.
+*  사용자 환경에서 물리적 또는 가상 Windows 또는 Linux 컴퓨터로부터 데이터를 수집하려면 [Linux 컴퓨터용 빠른 시작](../learn/quick-collect-linux-computer.md) 또는 [Windows 컴퓨터용 빠른 시작](../learn/quick-collect-windows-computer.md)을 참조하세요.
+

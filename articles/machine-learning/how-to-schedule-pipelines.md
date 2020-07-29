@@ -5,16 +5,17 @@ description: Python 용 Azure Machine Learning SDK를 사용 하 여 Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 3fede6bf194d0dd6b18118df7a44b7ccd0224a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: c076ceafc35a11f172ff35b7ab5ce89d1bf99f17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552183"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319561"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 예약
 
@@ -22,7 +23,7 @@ ms.locfileid: "84552183"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독. Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
 * Python 용 Azure Machine Learning SDK가 설치 된 Python 환경 자세한 내용은 [Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 재사용 가능한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
 

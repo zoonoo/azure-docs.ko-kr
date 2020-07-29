@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965646"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285631"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례 (Azure Vm의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ ms.locfileid: "85965646"
 
 쿼럼 리소스는 이러한 문제 중 하나에 대해 클러스터를 보호 합니다. 
 
-Azure Vm에서 SQL Server를 사용 하 여 쿼럼 리소스를 구성 하려면 다음 감시 유형을 사용할 수 있습니다. 
+다음 표에서는 Azure VM과 함께 사용 하기 위해 권장 되는 순서 대로 사용 가능한 쿼럼 옵션을 보여 줍니다. 여기에는 디스크 감시를 선호 하는 옵션이 있습니다. 
 
 
 ||[디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness)  |[파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**지원되는 OS**| 모두 |Windows Server 2016+| Windows Server 2012 이상|
-|**지원 되는 SQL Server 버전**|SQL Server 2019|SQL Server 2016 이상|SQL Server 2016 이상|
+
 
 
 
 ### <a name="disk-witness"></a>디스크 감시
 
-디스크 감시는 클러스터에서 사용 가능한 저장소 그룹의 작은 클러스터 된 디스크입니다. 이 디스크는 항상 사용 가능 하며 노드 간에 장애 조치 (failover) 할 수 있습니다. 이 파일에는 클러스터 데이터베이스의 복사본이 포함 되며, 기본 크기는 일반적으로 1gb 보다 낮습니다. 
+디스크 감시는 클러스터에서 사용 가능한 저장소 그룹의 작은 클러스터 된 디스크입니다. 이 디스크는 항상 사용 가능 하며 노드 간에 장애 조치 (failover) 할 수 있습니다. 이 파일에는 클러스터 데이터베이스의 복사본이 포함 되며, 기본 크기는 일반적으로 1gb 보다 낮습니다. 디스크 감시는 클라우드 감시와 파일 공유 감시와는 달리, 파티션 시간 문제를 해결할 수 있으므로 Azure VM에 대 한 기본 쿼럼 옵션입니다. 
 
 Azure 공유 디스크를 디스크 감시로 구성 합니다. 
 
 시작 하려면 [디스크 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
-**지원 되는 OS**: 모두    
-**지원 되는 SQL 버전**: SQL Server 2019   
+**지원 되는 OS**: 모두   
 
 
 ### <a name="cloud-witness"></a>클라우드 감시
@@ -73,21 +72,18 @@ Azure 공유 디스크를 디스크 감시로 구성 합니다.
 
 
 **지원 되는 OS**: Windows Server 2016 이상   
-**지원 되는 SQL 버전**: SQL Server 2016 이상     
 
 
 ### <a name="file-share-witness"></a>파일 공유 감시
 
 파일 공유 감시는 일반적으로 Windows Server를 실행 하는 파일 서버에 구성 되는 SMB 파일 공유입니다. 이는 감시 파일에 클러스터링 정보를 유지 하지만 클러스터 데이터베이스의 복사본은 저장 하지 않습니다. Azure에서 파일 공유 감시로 사용할 [azure 파일 공유](../../../storage/files/storage-how-to-create-file-share.md) 를 구성 하거나 별도의 가상 머신에서 파일 공유를 사용할 수 있습니다.
 
-다른 Azure 파일 공유를 사용 하려는 경우 [프리미엄 파일 공유를 탑재](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share)하는 데 사용한 것과 동일한 프로세스를 사용 하 여 탑재할 수 있습니다. 
+Azure 파일 공유를 사용 하려는 경우 [프리미엄 파일 공유를 탑재](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share)하는 데 사용한 것과 동일한 프로세스를 사용 하 여 탑재할 수 있습니다. 
 
 시작 하려면 [파일 공유 감시 구성](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)을 참조 하세요.
 
 
 **지원 되는 OS**: Windows Server 2012 이상   
-**지원 되는 SQL 버전**: SQL Server 2016 이상   
-
 
 ## <a name="connectivity"></a>연결
 

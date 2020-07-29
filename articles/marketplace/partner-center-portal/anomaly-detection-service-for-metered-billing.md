@@ -4,17 +4,17 @@ description: 변칙 검색이 작동 하는 방식, 알림이 전송 되는 시�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
 ms.author: mingshen
+author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: becd15ceea41e40b35848f46f9657c501acf659a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122033"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320088"
 ---
-# <a name="anomaly-detection-service-for-metered-billing"></a>데이터 요금 청구를 위한 변칙 검색 서비스
+# <a name="anomaly-detection-service-for-metered-billing"></a>요금제 청구를 위한 변칙 검색 서비스
 
 [Marketplace 계량 서비스](marketplace-metering-service-apis-faq.md) 를 사용 하면 비표준 단위에 따라 요금이 청구 되는 상업적 Marketplace 프로그램에 제품을 만들 수 있습니다. 요금제를 사용 하 여 고객 사용에 대 한 사용 이벤트를 Microsoft에 전송 하 고 해당 사용량을 기준으로 청구를 준비 합니다.
 
@@ -58,9 +58,9 @@ Microsoft는 주간에 변칙 검색 알림을 전자 메일로 보냅니다. �
 
 ## <a name="when-and-how-to-get-support"></a>지원 받기 시기 및 방법
 
-Microsoft에 잘못 된 사용량을 전송 했거나 고객의 요금을 지불 하 게 되 면 Microsoft는 사용자에 게 보고 된 사용량에 대 한 청구를 시작 하거나 해당 사용량을 지불 하지 않습니다. 보고 중에는 수익 손실을 방지 해야 합니다.
+Microsoft에 잘못 된 사용량을 전송 했거나 고객의 요금을 지불 하 게 되 면 Microsoft는 사용자에 게 보고 된 사용량에 대 한 청구를 시작 하거나 해당 사용량을 지불 하지 않습니다. 실제보다 낮게 보고하여 발생한 수익 손실을 감당해야 합니다.
 
-다음 사례 중 하나가 적용 되는 경우 지원 티켓을 열어 고객에 대 한 환불 또는 청구 조정을 요청할 수 있습니다.
+다음 사례 중 하나가 적용되는 경우 지원 티켓을 열어 고객에 대한 환불 또는 청구 조정을 요청할 수 있습니다.
 
 - 찾은 변칙 중 하나가 실제 문제이 고 잘못 된 사용으로 인해 고객이 과도 하 게 **부과** 되는 것을 확인 했습니다.
 - 잘못 된 사용을 보낸 것을 발견 했으며 잘못 된 사용으로 인해 고객이 과도 하 게 **부과** 됩니다.

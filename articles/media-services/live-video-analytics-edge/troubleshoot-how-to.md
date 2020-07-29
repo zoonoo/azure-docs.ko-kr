@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: 62163217862f586be7ed5c0a6000693f8e7fcdd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043197"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285461"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
 
@@ -265,6 +265,9 @@ IoT Edge의 Live Video Analytics에서는 여러 토폴로지와 여러 그래�
 ### <a name="collect-logs-for-submitting-a-support-ticket"></a>지원 티켓을 제출 하기 위한 로그 수집
 
 자체 단계별 문제 해결 단계에서 문제가 해결 되지 않으면 Azure Portal으로 이동 하 여 [지원 티켓을 엽니다](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+> [!WARNING]
+> 로그에는 사용자의 IP 주소와 같은 PII (개인적으로 식별이 가능한 정보)가 포함 될 수 있습니다. 로그의 모든 로컬 복사본을 검토 하 고 지원 티켓을 닫으면 즉시 삭제 됩니다.  
 
 티켓에 추가 해야 하는 관련 로그를 수집 하려면 다음 섹션의 지침을 따르세요. 지원 요청의 **세부 정보** 창에서 로그 파일을 업로드할 수 있습니다.
 

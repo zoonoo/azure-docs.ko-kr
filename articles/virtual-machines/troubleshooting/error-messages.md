@@ -12,11 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e35772e81329e112aac361b6a533c559154f03f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76543021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284696"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리할 때 발생하는 일반적인 오류 메시지를 이해
 
@@ -175,7 +176,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OSProvisioningClientError  |  VM에 지정된 사용자 이름은 이 Linux 배포판에 유효하지 않습니다. 오류 세부 정보: {0}  |
 |  OSProvisioningInternalError  |  내부 오류로 인해 VM '{0}'에 대한 OS 프로비전에 실패했습니다.  |
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. VM은 성공적으로 프로비전을 완료할 수 있습니다. 나중에 프로비전 상태를 확인합니다.  |
-|  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. VM은 성공적으로 프로비전을 완료할 수 있습니다. 나중에 프로비전 상태를 확인합니다. 또한 이미지가 올바르게 준비되었는지 확인합니다(일반화됨).   <ul><li>Windows에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Linux에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. VM은 성공적으로 프로비전을 완료할 수 있습니다. 나중에 프로비전 상태를 확인합니다. 또한 이미지가 올바르게 준비되었는지 확인합니다(일반화됨).   <ul><li>[Windows]( ../windows/upload-image.md)에 대 한 지침입니다.</li><li> [Linux](../linux/capture-image.md) 에 대 한 지침</li></ul>  |
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. 그러나 VM 게스트 에이전트가 실행되는 것을 감지했습니다. 즉, 게스트 OS는 VM 이미지로 사용되도록 제대로 준비되지 않았습니다(CreateOption=FromImage를 사용하여). 이 문제를 해결하려면 CreateOption=Attach와 함께 VHD를 있는 그대로 사용하거나 이미지 형식으로 사용할 수 있도록 제대로 준비합니다.   <ul><li>Windows에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Linux에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  요청한 VM 크기를 선택한 위치에서 현재 사용할 수 없습니다.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  지금은 진행 중인 플랫폼 업데이트로 인해 리소스를 업데이트할 수 없습니다. 나중에 다시 시도하세요.  |

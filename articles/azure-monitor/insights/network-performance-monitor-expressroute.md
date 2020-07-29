@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77660753"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326157"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
@@ -22,7 +23,7 @@ ms.locfileid: "77660753"
 
 ![ExpressRoute 모니터](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>Configuration 
+## <a name="configuration"></a>구성 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
 
 ### <a name="configure-network-security-group-rules"></a>네트워크 보안 그룹 규칙 구성 
@@ -139,4 +140,5 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
  
 
 ## <a name="next-steps"></a>다음 단계
-자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 수행합니다.
+자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../log-query/log-query-overview.md)을 수행합니다.
+

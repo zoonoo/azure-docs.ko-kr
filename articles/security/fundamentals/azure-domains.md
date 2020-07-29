@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
-ms.openlocfilehash: f12a137d4cf182837e2f2212923b97cb7dc5f34a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: d1a11ac42a7fb280ba96229f0f67b9c45999b310
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057775"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285376"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Azure 도메인의 참조 목록 (포괄적이 아님)
 
@@ -31,7 +31,7 @@ ms.locfileid: "86057775"
 |[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)|*. graph.windows.net/*. onmicrosoft.com|
 |[Azure API Management](https://azure.microsoft.com/services/api-management/)|*. azure-api.net|
 |[Azure BizTalk Services](https://azure.microsoft.com/pricing/details/biztalk-services/) (사용 되지 않음)|*. biztalk.windows.net|
-|[Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)|*.blob.core.windows.net|
+|[Azure Blob 스토리지](https://docs.microsoft.com/azure/storage/blobs/)|\*.blob.core.windows.net|
 |[Azure Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) 및 [azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)|*.cloudapp.net|
 |[Azure Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)|*. cloudapp.azure.com|
 |[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)|*.azurecr.io|
@@ -48,5 +48,5 @@ ms.locfileid: "86057775"
 |[Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) 및 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)|*.azureedge.net|
 |[Azure Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview)|*.table.core.windows.net|
 |[Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)|*. trafficmanager.net|
-|[Azure Websites](https://azure.microsoft.com/resources/videos/playlists/websites/)|*.azurewebsites.net|
+|[Azure Websites](https://azure.microsoft.com/resources/videos/home/)|*.azurewebsites.net|
 |[Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)|*.visualStudio.com|

@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129307"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372844"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 Microsoft 팀 사용
 
 >[!IMPORTANT]
->Microsoft 팀에 대 한 미디어 최적화는 현재 공개 미리 보기로 제공 됩니다. 프로덕션 워크 로드를 위해 팀을 배포 하기 전에 최적화 된 팀 사용자 환경을 평가 하는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+>팀에 대 한 미디어 최적화는 Microsoft 365 정부 환경에서 지원 되지 않습니다.
 
 >[!NOTE]
 >Microsoft 팀의 미디어 최적화는 windows 10 컴퓨터의 Windows 데스크톱 클라이언트에만 사용할 수 있습니다. 미디어 최적화를 위해서는 Windows 데스크톱 클라이언트 버전 1.2.1026.0 이상이 필요 합니다.
@@ -27,7 +27,7 @@ Windows 가상 데스크톱의 Microsoft 팀은 채팅 및 공동 작업을 지�
 
 Microsoft 팀을 위한 미디어 최적화를 사용 하는 Windows 데스크톱 클라이언트는 팀 호출 및 모임에 대해 로컬로 오디오 및 비디오를 처리 합니다. Windows 가상 데스크톱의 Microsoft 팀을 다른 클라이언트와 함께 사용할 수 있습니다. 팀 채팅 및 공동 작업 기능은 모든 플랫폼에서 지원 됩니다. 원격 세션에서 로컬 장치를 리디렉션하려면 [호스트 풀의 사용자 지정 원격 데스크톱 프로토콜 속성](#customize-remote-desktop-protocol-properties-for-a-host-pool)을 선택 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다음 작업을 수행 해야 합니다.
 
@@ -47,21 +47,27 @@ Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다�
 1. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **HKEY_LOCAL_MACHINE \software\microsoft\teams**로 이동 합니다.
 2. 팀 키에 대해 다음 값을 만듭니다.
 
-| 이름             | 유형   | 데이터/값  |
+| Name             | Type   | 데이터/값  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
 ### <a name="install-the-teams-websocket-service"></a>팀 WebSocket 서비스 설치
 
-VM 이미지에 [WebSocket 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) 를 설치 합니다. 설치 오류가 발생 하는 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 를 설치 하 고 다시 시도 하세요.
+VM 이미지에 최신 [WebSocket 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) 를 설치 합니다. 설치 오류가 발생 하는 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 를 설치 하 고 다시 시도 하세요.
 
 #### <a name="latest-websocket-service-versions"></a>최신 WebSocket 서비스 버전
 
-다음 표에는 각 사용자 그룹에 사용할 수 있는 현재 버전이 나와 있습니다.
+다음 표에서는 WebSocket 서비스의 최신 버전을 보여 줍니다.
 
-|버전    |릴리스 날짜  |
-|-----------|--------------|
-|0.11.0     |05/29/2020    |
+|버전        |릴리스 날짜  |
+|---------------|--------------|
+|1.0.2006.11001 |07/28/2020    |
+|0.11.0         |05/29/2020    |
+
+#### <a name="updates-for-version-10200611001"></a>버전 1.0.2006.11001 업데이트
+
+- 전화 또는 모임 중에 팀 앱을 최소화 하 여 들어오는 비디오를 삭제 하는 문제를 해결 했습니다.
+- 다중 모니터 데스크톱 세션에서 공유할 모니터를 하나 선택 하는 기능이 추가 되었습니다.
 
 ### <a name="install-microsoft-teams"></a>Microsoft 팀 설치
 
@@ -117,7 +123,7 @@ WebSocket 서비스 및 팀 데스크톱 앱을 설치한 후 다음 단계에 �
 
 3. 사용자 프로필 이미지를 선택한 다음 **설정**을 선택 합니다.
 
-      미디어 최적화가 로드 되 면 로컬에서 사용할 수 있는 오디오 장치와 카메라가 장치 메뉴에 열거 됩니다. 메뉴에 **원격 오디오가**표시 되 면 팀 앱을 종료 하 고 다시 시도 합니다. 장치가 계속 메뉴에 표시 되지 않으면 [Microsoft 팀 설치](#install-microsoft-teams) 로 돌아가서 설치 프로세스를 완료 했는지 확인 합니다.
+      미디어 최적화가 로드 되 면 로컬에서 사용할 수 있는 오디오 장치와 카메라가 장치 메뉴에 열거 됩니다. 메뉴에 **원격 오디오가**표시 되 면 팀 앱을 종료 하 고 다시 시도 합니다. 장치가 메뉴에 여전히 표시 되지 않으면 로컬 PC의 개인 정보 설정을 확인 합니다. **설정**  >  **개인 정보**  >  **앱 사용 권한** 아래에서 **앱에 대 한 액세스 허용** 설정이 전환 되어 **On**있는지 확인 합니다. 원격 세션에서 연결을 끊은 다음 다시 연결 하 여 오디오 및 비디오 장치를 다시 확인 합니다. 통화 및 모임을 비디오와 조인 하려면 앱에서 카메라에 액세스할 수 있는 권한도 부여 해야 합니다.
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
@@ -133,9 +139,7 @@ WebSocket 서비스 및 팀 데스크톱 앱을 설치한 후 다음 단계에 �
 ### <a name="calls-and-meetings"></a>통화 및 모임
 
 - Windows 가상 데스크톱 환경의 팀 데스크톱 클라이언트는 라이브 이벤트를 지원 하지 않습니다. 지금은 원격 세션의 [팀 웹 클라이언트](https://teams.microsoft.com) 에서 라이브 이벤트를 조인 하는 것이 좋습니다.
-- 전화 또는 모임 중에 팀 앱을 최소화 하면 앱을 확장할 때 들어오는 비디오 피드가 사라지는 것일 수 있습니다.
 - 호출 또는 모임은 현재 응용 프로그램 공유를 지원 하지 않습니다. 데스크톱 세션은 데스크톱 공유를 지원 합니다.
-- 다중 모니터 설정에서 데스크톱을 공유 하는 경우 모든 모니터가 공유 됩니다.
 - 컨트롤 제공 및 제어는 현재 지원 되지 않습니다.
 - Windows 가상 데스크톱의 팀은 한 번에 하나의 수신 비디오 입력만 지원 합니다. 즉, 누군가가 자신의 화면을 공유 하려고 할 때마다 모임 리더의 화면 대신 화면에 표시 됩니다.
 - WebRTC 제한으로 인해 들어오고 나가는 비디오 스트림 해상도는 720p로 제한 됩니다.

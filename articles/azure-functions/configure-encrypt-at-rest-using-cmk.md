@@ -3,19 +3,19 @@ title: 미사용 응용 프로그램 원본 암호화
 description: Azure Storage에서 응용 프로그램 데이터를 암호화 하 고 패키지 파일로 배포 합니다.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081885"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282333"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 응용 프로그램 데이터 암호화
 
 휴지 상태의 함수 앱의 응용 프로그램 데이터를 암호화 하려면 Azure Storage 계정과 Azure Key Vault 필요 합니다. 이러한 서비스는 배포 패키지에서 앱을 실행할 때 사용 됩니다.
 
   - [Azure Storage는 미사용 암호화를 제공](../storage/common/storage-service-encryption.md)합니다. 시스템 제공 키 또는 고객이 관리 하는 고유한 키를 사용할 수 있습니다. Azure의 함수 앱에서 실행 되 고 있지 않을 때 응용 프로그램 데이터가 저장 되는 위치입니다.
-  - [배포 패키지에서 실행] ((run-functions-from-deployment-package.md)는 App Service의 배포 기능입니다. SAS (공유 액세스 서명) URL을 사용 하 여 Azure Storage 계정에서 사이트 콘텐츠를 배포할 수 있습니다.
+  - [배포 패키지에서 실행](run-functions-from-deployment-package.md) 은 App Service의 배포 기능입니다. SAS (공유 액세스 서명) URL을 사용 하 여 Azure Storage 계정에서 사이트 콘텐츠를 배포할 수 있습니다.
   - [Key Vault 참조](../app-service/app-service-key-vault-references.md) 는 App Service의 보안 기능입니다. 이를 통해 런타임에 응용 프로그램 설정으로 암호를 가져올 수 있습니다. 이를 사용 하 여 Azure Storage 계정의 SAS URL을 암호화 합니다.
 
 ## <a name="set-up-encryption-at-rest"></a>미사용 암호화 설정

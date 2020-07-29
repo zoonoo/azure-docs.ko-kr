@@ -10,25 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 02/24/2020
-ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031474"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309259"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 [데이터베이스](single-database-overview.md) 의 트랜잭션 측면에서 일관 된 복사본을 만드는 여러 가지 방법을 제공 합니다. Azure Portal, PowerShell 또는 T-sql을 사용 하 여 데이터베이스를 복사할 수 있습니다.
+Azure SQL Database는 동일한 서버나 다른 서버에 기존 [데이터베이스](single-database-overview.md) 의 복사본을 만드는 여러 가지 방법을 제공 합니다. Azure Portal, PowerShell, Azure CLI 또는 T-sql을 사용 하 여 데이터베이스를 복사할 수 있습니다.
 
 ## <a name="overview"></a>개요
 
-데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅샷입니다. 동일한 서버 또는 다른 서버를 선택할 수 있습니다. 또한 서비스 계층과 계산 크기를 유지 하거나 동일한 서비스 계층 (버전) 내에서 다른 계산 크기를 사용 하도록 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다. 복사본은 지역에서 복제 기술을 사용 하 여 만들어지며 시드가 완료 되 면 지역에서 복제 링크가 자동으로 종료 됩니다. 지역에서 복제를 사용 하기 위한 모든 요구 사항은 데이터베이스 복사 작업에 적용 됩니다. 자세한 내용은 [활성 지역 복제 개요](active-geo-replication-overview.md) 를 참조 하세요.
-
-> [!NOTE]
-> 데이터베이스 복사본을 만들 때 [자동화된 데이터베이스 백업](automated-backups-overview.md)이 사용됩니다.
+데이터베이스 복사본은 복사 요청이 시작 된 후의 특정 시점에 원본 데이터베이스의 트랜잭션 측면에서 일관 된 스냅숏입니다. 복사본에 대해 동일한 서버 또는 다른 서버를 선택할 수 있습니다. 또한 원본 데이터베이스의 서비스 계층과 계산 크기를 유지 하거나 동일한 또는 다른 서비스 계층 내에서 다른 계산 크기를 사용 하도록 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 복사 된 데이터베이스의 로그인, 사용자 및 권한은 원본 데이터베이스와 독립적으로 관리 됩니다. 복사본은 지역에서 복제 기술을 사용 하 여 생성 됩니다. 복제본 시드가 완료 되 면 지역에서 복제 링크가 자동으로 종료 됩니다. 지역에서 복제를 사용 하기 위한 모든 요구 사항은 데이터베이스 복사 작업에 적용 됩니다. 자세한 내용은 [활성 지역 복제 개요](active-geo-replication-overview.md) 를 참조 하세요.
 
 ## <a name="logins-in-the-database-copy"></a>데이터베이스 복사본에서 로그인
 

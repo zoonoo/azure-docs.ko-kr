@@ -5,18 +5,18 @@ description: Azure Machine Learning에서 모델의 공평을 평가 하는 방�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 4f791ef9e18032ce6773f4262586431e693b43b2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 5e6f241fcf30d4090a1af9a26441a5a10b939972
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206729"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307066"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
 

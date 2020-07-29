@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064690"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285682"
 ---
 # <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
 
@@ -106,7 +106,7 @@ CodePen의 Azure Maps ()를 사용 하 여 <a href='https://codepen.io/azuremaps
 
 
 > [!TIP]
-> 이미지 템플릿도 지도 외부에서 사용할 수 있습니다. GetImageTemplate 작동는 자리 표시 자가 있는 SVG 문자열을 반환 합니다. `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. 올바른 SVG 문자열을 만들려면 이러한 자리 표시자 값을 바꿉니다. 그런 다음 HTML DOM에 직접 SVG 문자열을 추가 하거나 데이터 URI로 변환 하 여 이미지 태그에 삽입할 수 있습니다. 예를 들어:
+> 이미지 템플릿도 지도 외부에서 사용할 수 있습니다. GetImageTemplate 작동는 자리 표시 자가 있는 SVG 문자열을 반환 합니다. `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. 올바른 SVG 문자열을 만들려면 이러한 자리 표시자 값을 바꿉니다. 그런 다음 HTML DOM에 직접 SVG 문자열을 추가 하거나 데이터 URI로 변환 하 여 이미지 태그에 삽입할 수 있습니다. 예를 들면 다음과 같습니다.
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -119,7 +119,7 @@ CodePen의 Azure Maps ()를 사용 하 여 <a href='https://codepen.io/azuremaps
 
 응용 프로그램에서 아이콘이 다른 아이콘을 사용 하거나 추가 이미지 템플릿을 추가 하는 모듈을 만드는 경우 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가 하 고 검색할 수 있습니다. 네임 스페이스에서 다음 정적 함수를 사용 합니다 `atlas` .
 
-| Name | 반환 형식 | Description | 
+| Name | 반환 형식 | 설명 | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Atlas 네임 스페이스에 사용자 지정 SVG 이미지 템플릿을 추가 합니다. |
 |  `getImageTemplate(templateName: string, scale?: number)`| 문자열 | 이름으로 SVG 템플릿을 검색 합니다. |
@@ -127,7 +127,7 @@ CodePen의 Azure Maps ()를 사용 하 여 <a href='https://codepen.io/azuremaps
 
 SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 
-| 자리표시자 | Description |
+| 자리 표시자 | 설명 |
 |-|-|
 | `{color}` | 기본 색입니다. | 
 | `{secondaryColor}` | 보조 색입니다. | 

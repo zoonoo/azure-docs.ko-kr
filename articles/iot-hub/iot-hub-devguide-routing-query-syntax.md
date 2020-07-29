@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 34ffa7a9fe9bd129fa3fd572bc8ef4d80b43ab9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322978"
+ms.locfileid: "87336500"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -59,9 +59,10 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 | contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
 | iothub-connection-device-id | 문자열 | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
 | iothub-enqueuedtime | 문자열 | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
-| iothub-interface-name | 문자열 | 이 값은 사용자가 설정 하 고 원격 분석 메시지를 구현 하는 디지털 쌍 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. |
+| dt-dataschema | 문자열 |  이 값은 장치-클라우드 메시지의 IoT hub에 의해 설정 됩니다. 장치 연결에 설정 된 장치 모델 ID를 포함 합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. 쿼리하려면 `$dt-dataschema`을 사용합니다. |
+| dt-주체 | 문자열 | 장치-클라우드 메시지를 전송 하는 구성 요소의 이름입니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. 쿼리하려면 `$dt-subject`을 사용합니다. |
 
-[IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. **contentType**, **contentEncoding** 및 **enqueuedTime** 이외에 **connectionDeviceId** 및 **connectionModuleId**도 쿼리할 수 있습니다.
+[IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. 위의 표에 나와 있는 위의 속성 외에도 **Connectiondeviceid**, **connectionModuleId**를 쿼리할 수 있습니다.
 
 ### <a name="application-properties"></a>애플리케이션 속성
 

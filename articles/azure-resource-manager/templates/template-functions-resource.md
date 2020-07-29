@@ -3,12 +3,12 @@ title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 19f5b6c07010c82ba6675e6db031e663ef7c5cdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044952"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372385"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -665,7 +665,7 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 ### <a name="remarks"></a>설명
 
-`resourceGroup()` 함수는 [구독 수준에서 배포](deploy-to-subscription.md)된 템플릿에서 사용할 수 없습니다. 리소스 그룹에 배포된 템플릿에서만 사용할 수 있습니다. 부모 템플릿이 구독에 배포되는 경우에도 리소스 그룹을 대상으로 하는 [연결된 템플릿 또는 중첩된 템플릿(내부 범위 포함)](linked-templates.md)에서 `resourceGroup()` 함수를 사용할 수 있습니다. 이 시나리오에서는 연결된 템플릿이나 중첩된 템플릿이 리소스 그룹 수준에서 배포됩니다. 구독 수준 배포에서 리소스 그룹을 대상으로 지정하는 방법에 대한 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-resource-group-deployment.md)를 참조하세요.
+`resourceGroup()` 함수는 [구독 수준에서 배포](deploy-to-subscription.md)된 템플릿에서 사용할 수 없습니다. 리소스 그룹에 배포된 템플릿에서만 사용할 수 있습니다. 부모 템플릿이 구독에 배포되는 경우에도 리소스 그룹을 대상으로 하는 [연결된 템플릿 또는 중첩된 템플릿(내부 범위 포함)](linked-templates.md)에서 `resourceGroup()` 함수를 사용할 수 있습니다. 이 시나리오에서는 연결된 템플릿이나 중첩된 템플릿이 리소스 그룹 수준에서 배포됩니다. 구독 수준 배포에서 리소스 그룹을 대상으로 지정하는 방법에 대한 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
 
 resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 리소스를 만드는 데 사용됩니다. 다음 예제에서는 기본 매개 변수 값에 대해 리소스 그룹 위치를 사용합니다.
 
@@ -680,7 +680,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 또한 resourceGroup 함수를 사용하여 리소스 그룹의 태그를 리소스에 적용할 수 있습니다. 자세한 내용은 [리소스 그룹에서 태그 적용](../management/tag-resources.md#apply-tags-from-resource-group)을 참조하세요.
 
-중첩된 템플릿을 사용하여 여러 리소스 그룹에 배포하는 경우 resourceGroup 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-resource-group-deployment.md)를 참조하세요.
+중첩된 템플릿을 사용하여 여러 리소스 그룹에 배포하는 경우 resourceGroup 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
 
 ### <a name="resource-group-example"></a>리소스 그룹 예제
 
@@ -728,7 +728,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 | resourceGroupName |예 |문자열 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹의 범위에 배포하는 경우에만 이 값을 제공합니다. |
 | resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
 | resourceName1 |예 |문자열 |리소스의 이름입니다. |
-| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 
@@ -862,7 +862,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -890,7 +890,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 ### <a name="remarks"></a>설명
 
-중첩된 템플릿을 사용하여 여러 구독에 배포하는 경우 subscription 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-resource-group-deployment.md)를 참조하세요.
+중첩된 템플릿을 사용하여 여러 구독에 배포하는 경우 subscription 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](cross-scope-deployment.md)를 참조하세요.
 
 ### <a name="subscription-example"></a>구독 예제
 
@@ -923,7 +923,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 | subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
 | resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
 | resourceName1 |예 |문자열 |리소스의 이름입니다. |
-| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 
@@ -1004,7 +1004,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 |:--- |:--- |:--- |:--- |
 | resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
 | resourceName1 |예 |문자열 |리소스의 이름입니다. |
-| resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceName2 |아니요 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
 

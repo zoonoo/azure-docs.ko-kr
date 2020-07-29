@@ -302,6 +302,8 @@
         - name: 배포 스크립트
           displayName: custom script
           href: deployment-script-template.md
+        - name: 배포 스크립트 개발 환경 만들기
+          href: deployment-script-template-configure-dev.md
         - name: 템플릿 모듈화
           displayName: 'linked templates, nested templates'
           href: linked-templates.md
@@ -445,7 +447,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
