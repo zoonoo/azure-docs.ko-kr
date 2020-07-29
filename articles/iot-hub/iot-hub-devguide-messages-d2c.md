@@ -8,11 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790520"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327721"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -52,7 +55,7 @@ IoT Hub 현재 다음 끝점을 지원 합니다.
 
 메시지를 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 및 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) 계정으로 라우팅할 수 IoT Hub 두 개의 저장소 서비스가 있습니다. Azure Data Lake Storage 계정은 blob storage를 기반으로 구축 된 [계층적 네임 스페이스](../storage/blobs/data-lake-storage-namespace.md)사용 저장소 계정입니다. 둘 다 저장소에 blob을 사용 합니다.
 
-IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https://avro.apache.org/) 형식으로 Azure Storage에 쓸 수 있습니다. 기본값은 AVRO입니다. 인코딩 형식은 blob storage 끝점이 구성 된 경우에만 설정할 수 있습니다. 기존 끝점에 대 한 형식을 편집할 수 없습니다. JSON 인코딩을 사용 하는 경우 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/JSON** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 두 값은 대/소문자를 구분 하지 않습니다. 콘텐츠 인코딩이 설정 되지 않은 경우 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다. IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)를 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 다이어그램에서는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
+IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https://avro.apache.org/) 형식으로 Azure Storage에 쓸 수 있습니다. 기본값은 AVRO입니다. 인코딩 형식은 blob storage 끝점이 구성 된 경우에만 설정할 수 있습니다. 기존 끝점에 대 한 형식을 편집할 수 없습니다. JSON 인코딩을 사용 하는 경우 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/JSON** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 두 값은 대/소문자를 구분 하지 않습니다. 콘텐츠 인코딩이 설정 되지 않은 경우 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다. IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint)를 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 다이어그램에서는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
 
 ![Blob storage 끝점 인코딩](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 

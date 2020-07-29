@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326038"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor 맵 기능과 System Center Operations Manager 통합
 
@@ -139,9 +139,10 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 서비스 주체 만들기에 대한 공식적인 Azure 설명서를 보려면 다음을 참조하세요.
 
 * [PowerShell을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Azure CLI를 사용하여 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Azure CLI를 사용하여 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 * [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>제안
 
 VM용 Azure Monitor 맵 기능과의 통합이나 이 설명서에 대한 의견이 있으신가요? 기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
+

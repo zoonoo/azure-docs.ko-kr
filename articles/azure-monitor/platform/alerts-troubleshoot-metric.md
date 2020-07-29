@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: reference
 ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045221"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327483"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -108,7 +108,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>아직 내보내지 않은 사용자 지정 메트릭에 대 한 경고 규칙을 정의 합니다.
 
-메트릭 경고 규칙을 만들 때 메트릭 [정의 API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) 에 대 한 메트릭 이름 유효성을 검사 하 여 존재 하는지 확인 합니다. 경우에 따라 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수도 있습니다. 예를 들어 (ARM 템플릿을 사용 하 여), 해당 메트릭을 모니터링 하는 경고 규칙과 함께 사용자 지정 메트릭을 내보내는 Application Insights 리소스를 만들 수 있습니다.
+메트릭 경고 규칙을 만들 때 메트릭 [정의 API](/rest/api/monitor/metricdefinitions/list) 에 대 한 메트릭 이름 유효성을 검사 하 여 존재 하는지 확인 합니다. 경우에 따라 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수도 있습니다. 예를 들어 (ARM 템플릿을 사용 하 여), 해당 메트릭을 모니터링 하는 경고 규칙과 함께 사용자 지정 메트릭을 내보내는 Application Insights 리소스를 만들 수 있습니다.
 
 사용자 지정 메트릭의 정의 유효성을 검사 하는 동안 배포가 실패 하지 않도록 하려면 경고 규칙의 조건 섹션에서 *skipMetricValidation* 매개 변수를 사용할 수 있습니다. 그러면 메트릭 유효성 검사가 생략 됩니다. ARM 템플릿에서이 매개 변수를 사용 하는 방법은 아래 예제를 참조 하세요. 메트릭 경고 규칙을 만들기 위한 전체 ARM 템플릿 샘플은 [여기]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)를 참조 하세요.
 
@@ -247,3 +247,4 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 ## <a name="next-steps"></a>다음 단계
 
 - 경고 및 알림에 대 한 일반적인 문제 해결 정보는 [Azure Monitor 경고의 문제 해결](alerts-troubleshoot.md)을 참조 하세요.
+

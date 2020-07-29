@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 2f82d5d4dcb29504abbfa6881fa825b6d8efce0d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049541"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325613"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
@@ -32,7 +32,7 @@ Azure Monitor의 메트릭은 경량이며 거의 실시간으로 시나리오�
 |  | 설명 |
 |:---|:---|
 | **분석** | [메트릭 탐색기](metrics-charts.md)를 사용 하 여 차트에서 수집된 메트릭을 분석하고 여러 리소스의 메트릭을 비교할 수 있습니다. |
-| **시각화** | 메트릭 탐색기에서 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 차트를 고정합니다.<br>대화형 보고서에서 여러 데이터 집합을 결합하는 [워크북](../platform/workbooks-overview.md)을 만듭니다. 쿼리 결과를 [Grafana](grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 소스와 결합합니다. |
+| **시각화** | 메트릭 탐색기에서 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 차트를 고정합니다.<br>대화형 보고서에서 여러 데이터 집합을 결합하는 [워크북](./workbooks-overview.md)을 만듭니다. 쿼리 결과를 [Grafana](grafana-plugin.md)로 내보내 대시보드를 활용하고 다른 데이터 소스와 결합합니다. |
 | **경고** | 메트릭 값이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](action-groups.md)을 수행하는 [메트릭 경고 규칙](alerts-metric.md)을 구성합니다. |
 | **자동화** |  [자동 크기 조정](autoscale-overview.md)을 사용하여 임계값을 초과하는 메트릭 값을 기준으로 리소스를 늘리거나 줄입니다. |
 | **내보내기** | [로그로 메트릭 라우팅](./resource-logs.md#send-to-azure-storage)은 Azure Monitor 로그의 데이터와 함께 Azure Monitor 메트릭의 데이터를 분석하고 93일 이상 메트릭 값을 저장합니다.<br>메트릭을 [이벤트 허브](stream-monitoring-data-event-hubs.md)로 스트리밍하여 외부 시스템에 라우팅합니다. |
@@ -89,7 +89,7 @@ Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습
 
 **플랫폼 메트릭**은 Azure 리소스에서 생성되고 해당 상태 및 성능에 대한 가시성을 제공합니다. 각 리소스 유형은 필요한 구성 없이 [고유 메트릭 집합](metrics-supported.md)을 만듭니다. 메트릭 정의에서 달리 지정하지 않은 한, 플랫폼 메트릭은 1분 간격으로 Azure 리소스에서 수집됩니다. 
 
-**게스트 OS 메트릭**은 가상 머신의 게스트 운영 체제에서 수집됩니다. Windows 가상 머신의 경우 [WAD(Windows Diagnostic Extension)](../platform/diagnostics-extension-overview.md)를 사용하고, Linux 가상 머신의 경우 [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/)를 사용하여 게스트 OS 메트릭을 사용하도록 설정합니다.
+**게스트 OS 메트릭**은 가상 머신의 게스트 운영 체제에서 수집됩니다. Windows 가상 머신의 경우 [WAD(Windows Diagnostic Extension)](./diagnostics-extension-overview.md)를 사용하고, Linux 가상 머신의 경우 [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/)를 사용하여 게스트 OS 메트릭을 사용하도록 설정합니다.
 
 **애플리케이션 메트릭**은 모니터링된 애플리케이션에 대한 Application Insights에 의해 생성되며 성능 문제를 감지하고 애플리케이션이 사용되는 추세를 추적하는 데 도움이 됩니다. _서버 응답 시간_ 및 _브라우저 예외_와 같은 값을 포함합니다.
 
@@ -99,7 +99,7 @@ Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습
 Azure의 대다수 리소스의 경우 메트릭은 93일 동안 저장됩니다. 다음과 같은 몇 가지 예외 사항이 있습니다.
 
 **게스트 OS 메트릭**
--   **클래식 게스트 OS 메트릭** 이러한 메트릭은 [WAD(Windows Diagnostic Extension)](../platform/diagnostics-extension-overview.md) 또는 [LAD(Linux Diagnostic Extension)](../../virtual-machines/extensions/diagnostics-linux.md)에 의해 수집되어 Azure Storage 계정으로 라우팅되는 성능 카운터입니다. 이러한 메트릭의 보존 기간은 14일입니다.
+-   **클래식 게스트 OS 메트릭** 이러한 메트릭은 [WAD(Windows Diagnostic Extension)](./diagnostics-extension-overview.md) 또는 [LAD(Linux Diagnostic Extension)](../../virtual-machines/extensions/diagnostics-linux.md)에 의해 수집되어 Azure Storage 계정으로 라우팅되는 성능 카운터입니다. 이러한 메트릭의 보존 기간은 14일입니다.
 -   **Azure Monitor 메트릭**으로 전송된 게스트 OS 메트릭 이러한 메트릭은 [WAD(Windows Diagnostic Extension)](diagnostics-extension-overview.md)에 의해 수집되어 [Azure Monitor 데이터 싱크](diagnostics-extension-overview.md#data-destinations)로 전송되거나, Linux 컴퓨터의 [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/)를 통해 전송되는 성능 카운터입니다. 이러한 메트릭의 보존 기간은 93일입니다.
 -   **Log Analytics 에이전트에서 수집한 게스트 OS 메트릭** 이러한 메트릭은 Log Analytics 에이전트에 의해 수집되어 Log Analytics 작업 영역으로 전송되는 성능 카운터입니다. 이 메트릭의 보존 기간은 31일이며 2년까지 연장할 수 있습니다.
 
@@ -119,3 +119,4 @@ Azure의 대다수 리소스의 경우 메트릭은 93일 동안 저장됩니다
 - [Azure Monitor 데이터 플랫폼](data-platform.md)에 대해 자세히 알아봅니다.
 - [Azure Monitor의 로그 데이터](data-platform-logs.md)에 대해 알아봅니다.
 - Azure의 다양한 리소스에 [사용 가능한 모니터링 데이터](data-sources.md)에 대해 알아봅니다.
+

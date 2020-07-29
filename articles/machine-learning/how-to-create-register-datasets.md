@@ -5,18 +5,19 @@ description: 기계 학습 실험 실행을 위해 데이터에 액세스 하는
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a220a7279cbb5ba75c8aa803cb4bd709442a52fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031170"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326395"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -32,7 +33,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -53,7 +54,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
  
 Pandas를 사용 하는 경우 두 개 이상의 vCPU가 사용 되는 이유가 없습니다. 를로 변경 하기만 하면 단일 Azure Machine Learning 계산 인스턴스/노드의 여러 vCPUs로 쉽게 병렬 처리 하 고, 필요한 경우 대규모 클러스터로 확장할 수 있습니다 `import pandas as pd` `import modin.pandas as pd` . 
  
-데이터에 대 한 충분 한 가상의 데이터를 가져올 수 없는 경우 두 가지 옵션이 있습니다. 예를 들어 Spark 또는 데이터 프레임와 같은 프레임 워크를 사용 하 여 데이터 ' 메모리 부족 '에 대 한 처리를 수행 합니다. 즉, 파티션 및 처리에 따라 RAM 파티션에 로드 되며 최종 결과가 마지막에 수집 됩니다. 이 속도가 너무 느리면 Spark 또는 Fask를 사용 하 여 계속 대화형으로 사용할 수 있는 클러스터로 확장할 수 있습니다. 
+데이터에 대 한 충분 한 가상 컴퓨터를 가져올 수 없는 경우 다음 두 가지 옵션을 사용할 수 있습니다. 예를 들어 Spark 또는 6Ask와 같은 프레임 워크를 사용 하 여 데이터 ' 메모리 부족 '에 대 한 처리를 수행 합니다. 즉, 데이터 프레임는 파티션 및 처리 별로 RAM 파티션에 로드 되며 최종 결과가 마지막에 수집 됩니다. 이 속도가 너무 느리면 Spark 또는 Fask를 사용 하 여 계속 대화형으로 사용할 수 있는 클러스터로 확장할 수 있습니다. 
 
 ## <a name="dataset-types"></a>데이터 세트 형식
 
@@ -82,7 +83,7 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 #### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
-클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) 메서드를 사용 `TabularDatasetFactory` 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다. 
+클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) 메서드를 사용 `TabularDatasetFactory` 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다. 
 
 다음 코드는 이름을 기준으로 작업 영역 기존 작업 영역 및 원하는 데이터 저장소를 가져옵니다. 그런 다음는 데이터 저장소 및 파일 위치를 `path` 매개 변수에 전달 하 여 새 TabularDataset를 만듭니다 `weather_ds` .
 
@@ -124,9 +125,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 |인덱싱할|PassengerId|Survived|Pclass|Name|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|거짓|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|참|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 In memory pandas 데이터 프레임에서 데이터 집합을 만들려면 csv와 같은 로컬 파일에 데이터를 작성 하 고 해당 파일에서 데이터 집합을 만듭니다. 다음 코드에서는이 워크플로를 보여 줍니다.
 

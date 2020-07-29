@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e87ddd243aa248b896a26e6389ac1a219579a06d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515532"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325579"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 데이터 플랫폼
 
@@ -36,7 +36,7 @@ Azure 리소스는 상당한 양의 모니터링 데이터를 생성합니다. A
 
 Azure Monitor 메트릭은 타임스탬프 데이터 분석에 최적화된 시계열 데이터베이스에 저장됩니다. 따라서 메트릭은 이슈를 경고하고 빠르게 검색하는 데 특히 적합합니다. 이를 통해 시스템의 작동 성능을 알 수 있지만 일반적으로 이슈의 근본 원인을 파악하기 위해서는 로그와 결합해야 합니다.
 
-[Azure 메트릭 탐색기](../platform/metrics-getting-started.md)를 사용하여 Azure Portal의 대화형 분석에 메트릭을 사용할 수 있습니다. 이러한 메트릭을 다른 데이터와의 시각화를 위해 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 추가하고 근 실시간으로 [경고](alerts-metric.md)에 사용할 수 있습니다.
+[Azure 메트릭 탐색기](./metrics-getting-started.md)를 사용하여 Azure Portal의 대화형 분석에 메트릭을 사용할 수 있습니다. 이러한 메트릭을 다른 데이터와의 시각화를 위해 [Azure 대시보드](../learn/tutorial-app-dashboards.md)에 추가하고 근 실시간으로 [경고](alerts-metric.md)에 사용할 수 있습니다.
 
 [Azure Monitor의 메트릭](data-platform-metrics.md)에서 데이터 원본이 포함된 Azure Monitor 메트릭에 대해 자세히 알아보세요.
 
@@ -90,3 +90,4 @@ Azure에서 도구를 사용하여 모니터링 데이터를 분석하는 것 �
 - [Azure Monitor의 메트릭](data-platform-metrics.md)에 대해 읽어보세요.
 - [Azure Monitor의 로그](data-platform-logs.md)에 대해 읽어보세요.
 - Azure의 다양한 리소스에 [사용 가능한 모니터링 데이터](data-sources.md)에 대해 알아봅니다.
+

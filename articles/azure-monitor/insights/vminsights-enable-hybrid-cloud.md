@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea060ec9ba755a197e2969c0bf58050eb1d62a03
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092850"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325970"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "87092850"
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 사용자가 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우에는 항상 Log Analytics 에이전트가 직접 또는 [Operations Management Suite 게이트웨이](../../azure-monitor/platform/gateway.md) 를 통해 Azure Monitor 서비스에 맵 데이터를 전송 합니다.
+>VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 사용자가 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우에는 항상 Log Analytics 에이전트가 직접 또는 [Operations Management Suite 게이트웨이](../platform/gateway.md) 를 통해 Azure Monitor 서비스에 맵 데이터를 전송 합니다.
 
 이 작업을 완료 하는 단계는 다음과 같이 요약 됩니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "87092850"
 
 다음 표에는 명령줄에서 에이전트 설정을 통해 지원되는 매개 변수가 강조 표시되어 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | /? | 명령줄 옵션의 목록을 반환합니다. |
 | /S | 사용자 상호 작용 없이 자동 설치를 수행합니다. |
@@ -79,7 +79,7 @@ Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 
-| Files | 위치 |
+| 파일 | 위치 |
 |:--|:--|
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
@@ -145,7 +145,7 @@ configuration VMInsights {
 ## <a name="enable-performance-counters"></a>성능 카운터 사용하도록 설정
 
 솔루션에서 참조되는 Log Analytics 작업 영역이 솔루션에 필요한 성능 카운터를 수집하도록 구성되지 않은 경우 사용하도록 설정해야 합니다. 다음 두 가지 방법 중 하나로 수행할 수 있습니다.
-* 수동으로([Log Analytics의 Windows 및 Linux 성능 데이터 원본](../../azure-monitor/platform/data-sources-performance-counters.md)에 설명되어 있음)
+* 수동으로([Log Analytics의 Windows 및 Linux 성능 데이터 원본](../platform/data-sources-performance-counters.md)에 설명되어 있음)
 * [Azure PowerShell 갤러리](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1) 에서 사용할 수 있는 PowerShell 스크립트를 다운로드 하 여 실행 합니다.
 
 ## <a name="deploy-azure-monitor-for-vms"></a>VM용 Azure Monitor를 배포합니다.
@@ -259,3 +259,4 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 - 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
 
 - VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE vm 성능 보기](vminsights-performance.md)를 참조 하세요.
+

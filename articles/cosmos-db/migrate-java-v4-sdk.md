@@ -2,17 +2,18 @@
 title: Azure Cosmos DB Java SDK v4(com.azure.cosmos)를 사용하도록 애플리케이션 마이그레이션
 description: 이전 Azure Cosmos DB Java SDK를 사용하여 기존 Java 애플리케이션을 최신 Core (SQL) API용 Java SDK 4.0(com.azure.cosmos 패키지)으로 업그레이드하는 방법에 대해 알아봅니다.
 author: anfeldma-ms
+ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 29b3ca267e22c8d1f349cb127efb7d2fd71e1477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263503"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327857"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4를 사용하도록 애플리케이션 마이그레이션
 

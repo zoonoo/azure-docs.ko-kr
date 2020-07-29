@@ -3,14 +3,15 @@ title: 온-프레미스에서 실행되는 Java 애플리케이션 모니터링 
 description: 앱을 계측하지 않고 온-프레미스에서 실행되는 Java 애플리케이션에 대한 애플리케이션 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 author: MS-jgol
+ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
-ms.openlocfilehash: 6c083e24ce44272ef9394b8418d3dc66771ceb8a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2d35a6f379b0d7cf3c4c7d61e5e679553e5302f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014272"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326888"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>온-프레미스 Java 코드리스 애플리케이션 모니터링 - Azure Monitor Application Insights - 공개 미리 보기
 

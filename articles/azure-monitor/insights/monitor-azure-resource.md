@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539740"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326174"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -96,7 +96,7 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션 
-일부 서비스는 Azure Monitor 표준 기능 외의 도구를 제공합니다. [인사이트](../insights/insights-overview.md)는 Azure Monitor 데이터 플랫폼과 표준 기능을 기반으로 한 사용자 지정된 모니터링 환경을 제공합니다. [솔루션](../insights/solutions.md)은 Azure Monitor 로그를 기반으로 한 미리 정의된 모니터링 논리를 제공합니다. 
+일부 서비스는 Azure Monitor 표준 기능 외의 도구를 제공합니다. [인사이트](./insights-overview.md)는 Azure Monitor 데이터 플랫폼과 표준 기능을 기반으로 한 사용자 지정된 모니터링 환경을 제공합니다. [솔루션](./solutions.md)은 Azure Monitor 로그를 기반으로 한 미리 정의된 모니터링 논리를 제공합니다. 
 
 서비스에 Azure Monitor 인사이트가 있는 경우에는 각 리소스 메뉴의 **모니터링**에서 액세스할 수 있습니다. **Azure Monitor** 메뉴에서 모든 인사이트 및 솔루션에 액세스할 수 있습니다.
 
@@ -164,3 +164,4 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 Azure 서비스에 해당하는 리소스 로그에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/resource-logs-schema.md)를 참조하세요.  
+

@@ -11,11 +11,14 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674957"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327755"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -109,7 +112,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 
 디바이스에 대한 알림 메시지:
 
-| 이름 | 값 |
+| Name | 값 |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -121,7 +124,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 |operationTimestamp | 작업의 ISO8601 타임스탬프 |
 |iothub-message-schema | deviceLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예제:
+본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -145,7 +148,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 ```
 모듈에 대한 알림 메시지:
 
-| 이름 | 값 |
+| Name | 값 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -157,7 +160,7 @@ moduleId | 모듈의 ID |
 operationTimestamp | 작업의 ISO8601 타임스탬프 |
 iothub-message-schema | moduleLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예제:
+본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```json
 {

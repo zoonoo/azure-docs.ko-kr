@@ -5,17 +5,17 @@ description: Azure Machine Learning designer (미리 보기)에서 Python을 사
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.custom: designer, tracking-python
-ms.openlocfilehash: 61086bf8c215a09e457e931ffed157559b339a9b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer, tracking-python
+ms.openlocfilehash: c798fa3bdb6754b2d8b955efe49e208ea954f80a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206807"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326973"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 Python 코드 실행
 
@@ -26,6 +26,8 @@ ms.locfileid: "86206807"
 기본 실행 환경에서는 Python의 Anacondas 배포를 사용합니다. 사전 설치된 패키지의 전체 목록은 [Python 스크립트 실행 모듈 참조](algorithm-module-reference/execute-python-script.md) 페이지를 참조하세요.
 
 ![Python 입력 맵 실행](media/how-to-designer-python/execute-python-map.png)
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="execute-python-written-in-the-designer"></a>디자이너에서 작성한 Python 실행
 

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505604"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327500"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -77,8 +77,8 @@ ms.locfileid: "86505604"
 1. **빈도**에서 경고가 실행 되는 빈도를 선택 합니다. 
 
     **로그 경고**는 다음을 기반으로 할 수 있습니다.
-    - [레코드 수](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): 쿼리에서 반환된 레코드의 개수가 제공된 값보다 큰 또는 값보다 작은 경우 경고가 생성됩니다.
-    - [메트릭 측정](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): 결과에서 각 *집계 값*이 제공된 임계값을 초과하고 선택한 값*으로 그룹화*되는 경우 경고가 생성됩니다. 경고에 대한 위반 수는 임계값이 선택한 기간에서 초과된 횟수입니다. 결과 집합에서 모든 위반의 조합에 대해 총 위반을 지정하거나 연속 위반을 지정하여 연속된 샘플에서 위반이 발생해야 한다고 요구할 수 있습니다.
+    - [레코드 수](./alerts-unified-log.md#number-of-results-alert-rules): 쿼리에서 반환된 레코드의 개수가 제공된 값보다 큰 또는 값보다 작은 경우 경고가 생성됩니다.
+    - [메트릭 측정](./alerts-unified-log.md#metric-measurement-alert-rules): 결과에서 각 *집계 값*이 제공된 임계값을 초과하고 선택한 값*으로 그룹화*되는 경우 경고가 생성됩니다. 경고에 대한 위반 수는 임계값이 선택한 기간에서 초과된 횟수입니다. 결과 집합에서 모든 위반의 조합에 대해 총 위반을 지정하거나 연속 위반을 지정하여 연속된 샘플에서 위반이 발생해야 한다고 요구할 수 있습니다.
 
 
 1. **Done**을 클릭합니다. 
@@ -100,7 +100,7 @@ ms.locfileid: "86505604"
     몇 가지 추가 기능을 사용 하 여 기본 작업을 재정의할 수 있습니다.
 
     - **전자 메일 알림**: 작업 그룹을 통해 전송 된 전자 메일의 *전자 메일 제목을* 무시 합니다. 메일 본문은 수정할 수 없으며, 이 필드는 이메일 주소에 대한 필드가 **아닙니다**.
-    - **사용자 지정 Json 페이로드 포함**: 작업 그룹에 webhook 형식이 포함 된 것으로 가정 하 여 작업 그룹에서 사용 하는 webhook Json을 재정의 합니다. 웹 후크 형식에 대 한 자세한 내용은 [로그 경고에 대 한](../../azure-monitor/platform/alerts-log-webhook.md)웹 후크 작업을 참조 하세요. 샘플 JSON 데이터를 사용하여 형식을 검사할 수 있는 Webhook 보기 옵션이 제공됩니다.
+    - **사용자 지정 Json 페이로드 포함**: 작업 그룹에 webhook 형식이 포함 된 것으로 가정 하 여 작업 그룹에서 사용 하는 webhook Json을 재정의 합니다. 웹 후크 형식에 대 한 자세한 내용은 [로그 경고에 대 한](./alerts-log-webhook.md)웹 후크 작업을 참조 하세요. 샘플 JSON 데이터를 사용하여 형식을 검사할 수 있는 Webhook 보기 옵션이 제공됩니다.
 
         ![경고 로그에 대한 작업 재정의](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -212,7 +212,7 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 리소스 간 쿼리를 통해 로그 경고
 
-다음은 변수로 샘플 데이터 세트가 있는 [메트릭 측정 유형 로그 경고](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)의 [리소스 간 로그 검색 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 사용하여 [예약된 쿼리 규칙 만들기](/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
+다음은 변수로 샘플 데이터 세트가 있는 [메트릭 측정 유형 로그 경고](./alerts-unified-log.md#metric-measurement-alert-rules)의 [리소스 간 로그 검색 쿼리](../log-query/cross-workspace-query.md)를 사용하여 [예약된 쿼리 규칙 만들기](/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
 
 ```json
 
@@ -319,7 +319,7 @@ Azure Monitor [예약 된 쿼리 규칙 API](/rest/api/monitor/scheduledqueryrul
 - [AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : PowerShell cmdlet은 로그 경고에 대 한 작업 매개 변수를 지정 하는 개체를 만들거나 업데이트 합니다. AzScheduledQueryRule 및 [AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet [의](/powershell/module/az.monitor/new-azscheduledqueryrule) 입력으로 사용 됩니다.
 - [AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell cmdlet은 로그 경고에 대 한 작업 그룹 매개 변수를 지정 하는 개체를 만들거나 업데이트 합니다. [AzScheduledQueryRuleAlertingAction cmdlet의](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) 입력으로 사용 됩니다.
 - [AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell cmdlet은 로그 경고에 대 한 트리거 조건 매개 변수를 지정 하는 개체를 만들거나 업데이트 합니다. [AzScheduledQueryRuleAlertingAction cmdlet의](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) 입력으로 사용 됩니다.
-- [AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet은 메트릭 [측정 유형 로그 경고](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)에 대 한 메트릭 트리거 조건 매개 변수를 지정 하는 개체를 만들거나 업데이트 합니다. [AzScheduledQueryRuleTriggerCondition cmdlet의](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) 입력으로 사용 됩니다.
+- [AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet은 메트릭 [측정 유형 로그 경고](./alerts-unified-log.md#metric-measurement-alert-rules)에 대 한 메트릭 트리거 조건 매개 변수를 지정 하는 개체를 만들거나 업데이트 합니다. [AzScheduledQueryRuleTriggerCondition cmdlet의](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) 입력으로 사용 됩니다.
 - [AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell cmdlet-기존 로그 경고 규칙 또는 특정 로그 경고 규칙을 나열 합니다.
 - [AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : 로그 경고 규칙을 사용 하거나 사용 하지 않도록 설정 하는 PowerShell cmdlet
 - [AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): 기존 로그 경고 규칙을 삭제 하는 PowerShell cmdlet
@@ -363,7 +363,8 @@ az group deployment create --resource-group contosoRG --template-file sampleSche
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure alerts의 로그 경고](../../azure-monitor/platform/alerts-unified-log.md) 에 대해 알아보기
-* [로그 경고에 대한 웹후크 작업](../../azure-monitor/platform/alerts-log-webhook.md) 이해
+* [Azure alerts의 로그 경고](./alerts-unified-log.md) 에 대해 알아보기
+* [로그 경고에 대한 웹후크 작업](./alerts-log-webhook.md) 이해
 * [Application Insights](../log-query/log-query-overview.md) 에 대 한 자세한 정보
 * [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요.
+

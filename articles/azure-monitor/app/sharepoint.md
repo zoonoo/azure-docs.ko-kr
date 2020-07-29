@@ -3,12 +3,12 @@ title: Application Insights를 사용하여 SharePoint 사이트 모니터링
 description: 새 계측 키를 사용하여 새 애플리케이션 모니터링 시작
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 392c0e0ee46e8acd540d498cbda1d240611d182e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516892"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326531"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
 
@@ -137,7 +137,8 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>다음 단계
-* [웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)
-* 다른 유형의 앱에 대한[Application Insights](../../azure-monitor/app/app-insights-overview.md).
+* [웹 테스트](./monitor-web-app-availability.md)
+* 다른 유형의 앱에 대한[Application Insights](./app-insights-overview.md).
 
 <!--Link references-->
+
