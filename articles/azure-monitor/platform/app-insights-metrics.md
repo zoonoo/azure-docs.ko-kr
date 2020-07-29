@@ -7,19 +7,19 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073571"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327075"
 ---
 # <a name="application-insights-log-based-metrics"></a>로그 기반 메트릭 Application Insights
 
 Application Insights 로그 기반 메트릭을 사용 하 여 모니터링 되는 앱의 상태를 분석 하 고, 강력한 대시보드를 만들고, 경고를 구성할 수 있습니다. 메트릭에는 다음과 같은 두 종류가 있습니다.
 
-* 장면 뒤의 [로그 기반 메트릭은](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) 저장 된 이벤트에서 [kusto 쿼리로](/azure/kusto/query/) 변환 됩니다.
-* [표준 메트릭은](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) 미리 집계 된 시계열으로 저장 됩니다.
+* 장면 뒤의 [로그 기반 메트릭은](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) 저장 된 이벤트에서 [kusto 쿼리로](/azure/kusto/query/) 변환 됩니다.
+* [표준 메트릭은](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) 미리 집계 된 시계열으로 저장 됩니다.
 
 *표준 메트릭은* 수집 중에 미리 집계 되므로 쿼리 시 성능이 향상 됩니다. 이렇게 하면 대시보드를 보다 효과적으로 선택 하 고 실시간 경고를 만들 수 있습니다. *로그 기반 메트릭에* 는 더 많은 차원이 있습니다 .이를 통해 데이터 분석 및 임시 진단에 대 한 상위 옵션을 사용할 수 있습니다. [메트릭 탐색기](metrics-getting-started.md)에서 로그 기반 및 표준 메트릭 간을 전환 하려면 [네임 스페이스 선택기](metrics-getting-started.md#create-your-first-metric-chart) 를 사용 합니다.
 
@@ -38,11 +38,11 @@ Application Insights 로그 기반 메트릭을 사용 하 여 모니터링 되�
 - 선택한 **분할 된 차트** 차원은 추가 요약 속성으로 변환 됩니다. 예를 들어 차트를 *위치*별로 분할 하 고 5 분 시간 세분성을 사용 하 여 그리면 *요약* 절 *이 요약 됩니다. bin (타임 스탬프, 5 m), 위치를 기준으로*합니다.
 
 > [!NOTE]
-> Kusto 쿼리 언어를 처음 접하는 경우에는 수정 하지 않고 Kusto 문을 복사 하 여 Log Analytics 쿼리 창에 붙여 넣는 작업을 시작 합니다. 기본 차트를 보려면 **실행** 을 클릭 합니다. 쿼리 언어의 구문을 이해 하기 시작할 때 약간의 수정 작업을 시작 하 고 변경의 영향을 확인할 수 있습니다. 사용자 고유의 데이터를 탐색 하는 것은 [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) 및 [Azure Monitor](../../azure-monitor/overview.md)의 모든 기능을 실현 하기 시작 하는 좋은 방법입니다.
+> Kusto 쿼리 언어를 처음 접하는 경우에는 수정 하지 않고 Kusto 문을 복사 하 여 Log Analytics 쿼리 창에 붙여 넣는 작업을 시작 합니다. 기본 차트를 보려면 **실행** 을 클릭 합니다. 쿼리 언어의 구문을 이해 하기 시작할 때 약간의 수정 작업을 시작 하 고 변경의 영향을 확인할 수 있습니다. 사용자 고유의 데이터를 탐색 하는 것은 [Log Analytics](../log-query/get-started-portal.md) 및 [Azure Monitor](../overview.md)의 모든 기능을 실현 하기 시작 하는 좋은 방법입니다.
 
 ## <a name="availability-metrics"></a>가용성 메트릭
 
-가용성 범주의 메트릭을 사용 하면 전 세계에서 관찰 된 웹 응용 프로그램의 상태를 확인할 수 있습니다. 이 범주의 메트릭을 사용 하 여 시작 하도록 [가용성 테스트를 구성](../../azure-monitor/app/monitor-web-app-availability.md) 합니다.
+가용성 범주의 메트릭을 사용 하면 전 세계에서 관찰 된 웹 응용 프로그램의 상태를 확인할 수 있습니다. 이 범주의 메트릭을 사용 하 여 시작 하도록 [가용성 테스트를 구성](../app/monitor-web-app-availability.md) 합니다.
 
 ### <a name="availability-availabilityresultsavailabilitypercentage"></a>가용성 (availabilityResults/availabilityPercentage)
 *가용성* 메트릭은 문제를 검색 하지 못한 웹 테스트 실행의 비율을 보여 줍니다. 가능한 최소값은 0 이며,이는 모든 웹 테스트 실행이 실패 했음을 나타냅니다. 100 값은 모든 웹 테스트 실행에서 유효성 검사 조건을 통과 했음을 의미 합니다.
@@ -59,7 +59,7 @@ availabilityResults
 
 ### <a name="availability-test-duration-availabilityresultsduration"></a>가용성 테스트 기간 (availabilityResults/duration)
 
-*가용성 테스트 기간* 메트릭은 웹 테스트를 실행 하는 데 걸린 시간을 보여 줍니다. [다단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)의 경우 메트릭은 모든 단계의 총 실행 시간을 반영 합니다.
+*가용성 테스트 기간* 메트릭은 웹 테스트를 실행 하는 데 걸린 시간을 보여 줍니다. [다단계 웹 테스트](../app/availability-multistep.md)의 경우 메트릭은 모든 단계의 총 실행 시간을 반영 합니다.
 
 |측정 단위|지원 되는 집계|지원 되는 차원|
 |---|---|---|---|---|---|
@@ -92,13 +92,13 @@ availabilityResults
 브라우저 메트릭은 실제 최종 사용자 브라우저에서 Application Insights JavaScript SDK에 의해 수집 됩니다. 웹 앱을 사용 하 여 사용자의 경험에 대 한 유용한 정보를 제공 합니다. 브라우저 메트릭은 일반적으로 샘플링 되지 않습니다. 즉, 샘플링으로 기울일 수 있는 서버 쪽 메트릭과 비교 하 여 사용 숫자의 전체 자릿수를 제공 합니다.
 
 > [!NOTE]
-> 브라우저 메트릭을 수집 하려면 [Application Insights JAVASCRIPT SDK](../../azure-monitor/app/javascript.md)를 사용 하 여 응용 프로그램을 계측 해야 합니다.
+> 브라우저 메트릭을 수집 하려면 [Application Insights JAVASCRIPT SDK](../app/javascript.md)를 사용 하 여 응용 프로그램을 계측 해야 합니다.
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>브라우저 페이지 로드 시간 (browserTimings/totalDuration)
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -114,7 +114,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -130,7 +130,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -146,7 +146,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -162,7 +162,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -182,9 +182,9 @@ browserTimings
 
 이 메트릭은 브라우저에서 실행 중인 응용 프로그램 코드에서 throw 된 예외 수를 반영 합니다. Application Insights API 호출로 추적 되는 예외만 ```trackException()``` 메트릭에 포함 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
-|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 exceptions
@@ -197,9 +197,9 @@ exceptions
 
 실패 한 종속성 호출 수입니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
-|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 dependencies
@@ -210,9 +210,9 @@ dependencies
 
 ### <a name="exceptions-exceptionscount"></a>예외 (예외/개수)
 
-Application Insights에 대 한 예외를 기록할 때마다 SDK의 지 수 [예외 () 메서드가](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) 호출 됩니다. 예외 메트릭에는 로깅된 예외의 수가 표시 됩니다.
+Application Insights에 대 한 예외를 기록할 때마다 SDK의 지 수 [예외 () 메서드가](../app/api-custom-events-metrics.md#trackexception) 호출 됩니다. 예외 메트릭에는 로깅된 예외의 수가 표시 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스, 장치 유형|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -224,9 +224,9 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>실패 한 요청 (요청/실패)
 
-*실패로*표시 된 추적 된 서버 요청 수입니다. 기본적으로 Application Insights SDK는 HTTP 응답 코드 5xx 또는 4xx를 반환한 각 서버 요청을 실패 한 요청으로 자동으로 표시 합니다. [사용자 지정 원격 분석 이니셜라이저에서](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)요청 원격 분석 항목의 *success* 속성을 수정 하 여이 논리를 사용자 지정할 수 있습니다.
+*실패로*표시 된 추적 된 서버 요청 수입니다. 기본적으로 Application Insights SDK는 HTTP 응답 코드 5xx 또는 4xx를 반환한 각 서버 요청을 실패 한 요청으로 자동으로 표시 합니다. [사용자 지정 원격 분석 이니셜라이저에서](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)요청 원격 분석 항목의 *success* 속성을 수정 하 여이 논리를 사용자 지정할 수 있습니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 인스턴스, 클라우드 역할 이름, 실제 또는 가상 트래픽, 요청 성능, 응답 코드|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -241,7 +241,7 @@ requests
 
 이 메트릭은 서버 예외의 수를 표시 합니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -254,7 +254,7 @@ exceptions
 
 ## <a name="performance-counters"></a>성능 카운터
 
-**성능 카운터** 범주의 메트릭을 사용 하 여 Application Insights에 [의해 수집 된 시스템 성능 카운터](../../azure-monitor/app/performance-counters.md)에 액세스할 수 있습니다.
+**성능 카운터** 범주의 메트릭을 사용 하 여 Application Insights에 [의해 수집 된 시스템 성능 카운터](../app/performance-counters.md)에 액세스할 수 있습니다.
 
 ### <a name="available-memory-performancecountersavailablememory"></a>사용 가능한 메모리 (performanceCounters/availableMemory)
 
@@ -492,3 +492,4 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
+

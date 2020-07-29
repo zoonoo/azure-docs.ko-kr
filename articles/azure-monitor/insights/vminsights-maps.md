@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283857"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320513"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>VM용 Azure Monitor의 맵 기능을 사용 하 여 응용 프로그램 구성 요소 이해
 VM용 Azure Monitor에서는 Azure 또는 사용자 환경에서 실행되는 Windows 및 Linux VM(가상 머신)에서 검색된 애플리케이션 구성 요소를 볼 수 있습니다. 두 가지 방법으로 Vm을 관찰할 수 있습니다. VM에서 직접 맵을 보거나 Azure Monitor에서 맵을 확인 하 여 Vm 그룹에서 구성 요소를 볼 수 있습니다. 이 문서는 이러한 두 가지 보기 방법과 지도 기능을 사용 하는 방법을 이해 하는 데 도움이 됩니다. 
@@ -49,7 +49,7 @@ VM을 선택 하면 오른쪽의 **속성** 창에 vm의 속성이 표시 됩니
 - 컴퓨터 별로 경고를 그룹화 하는 절을 포함 합니다 (예: **컴퓨터 간격 1 분**).
 - 메트릭에 대 한 경고를 기반으로 합니다.
 
-Azure 경고 및 경고 규칙을 만드는 방법에 대 한 자세한 내용은 [Azure Monitor의 통합 경고](../../azure-monitor/platform/alerts-overview.md)를 참조 하세요.
+Azure 경고 및 경고 규칙을 만드는 방법에 대 한 자세한 내용은 [Azure Monitor의 통합 경고](../platform/alerts-overview.md)를 참조 하세요.
 
 오른쪽 위 모서리에서 **범례** 옵션은 지도의 기호와 역할을 설명 합니다. 지도를 좀 더 자세히 살펴보고 이동 하려면 오른쪽 아래 모서리에 있는 확대/축소 컨트롤을 사용 합니다. 확대/축소 수준을 설정 하 고 지도를 페이지 크기에 맞출 수 있습니다.  
 
@@ -128,10 +128,11 @@ Azure Monitor 맵 기능은 Vm 및 해당 종속성에 대 한 글로벌 보기�
 
 페이지 맨 위에 있는 **작업 영역** 선택기를 사용 하 여 작업 영역을 선택 합니다. 둘 이상의 Log Analytics 작업 영역이 있는 경우 솔루션과 함께 사용 하도록 설정 된 작업 영역을 선택 하 고 Vm에 보고 하는 작업 영역을 선택 합니다. 
 
-**그룹** 선택기는 선택한 작업 영역과 관련 된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)및 가상 컴퓨터 크기 집합을 반환 합니다. 선택 항목은 지도 기능에만 적용 되며 성능 또는 상태에 대해 전달 되지 않습니다.
+**그룹** 선택기는 선택한 작업 영역과 관련 된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../platform/computer-groups.md)및 가상 컴퓨터 크기 집합을 반환 합니다. 선택 항목은 지도 기능에만 적용 되며 성능 또는 상태에 대해 전달 되지 않습니다.
 
 기본적으로 맵은 최근 30분을 보여줍니다. 이전에 종속성이 표시 되는 방식을 확인 하려는 경우 최대 1 시간의 기록 시간 범위를 쿼리할 수 있습니다. 쿼리를 실행 하려면 **TimeRange** 선택기를 사용 합니다. 예를 들어 인시던트 중 또는 변경 전 상태를 확인 하는 등의 쿼리를 실행할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
 병목 상태를 식별 하 고 성능을 확인 하 고 Vm의 전반적인 사용률을 이해 하려면 [VM용 Azure Monitor에 대 한 성능 상태 보기](vminsights-performance.md)를 참조 하세요. 
+

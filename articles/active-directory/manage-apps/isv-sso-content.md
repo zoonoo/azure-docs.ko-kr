@@ -12,11 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fa2b82b89c7b9ce1e05062718f2c4d0c93197c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cabcaacbdc7e3e94e62c8fb45274c4d4f9390ddd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273408"
 ---
 # <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 Single Sign-on 사용  
 
@@ -60,4 +61,4 @@ SSO (Single sign-on)는 사용자가 Azure Active Directory 및 기타 id를 사
 1. [Azure 테 넌 트 만들기](isv-tenant-multi-tenant-app.md) 및 응용 프로그램 테스트
 1. [사이트에서 SSO 설명서를 만들고 게시](isv-create-sso-documentation.md)합니다.
 1. Microsoft의 사이트에 대 한 설명서를 만들려면 [응용 프로그램 목록과](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) 파트너를 Microsoft에 제출 하세요.
-1. [Microsoft 파트너 네트워크 (무료)에 참여 하 고 시장 출시 계획을 만듭니다](https://partner.microsoft.com/en-us/explore/commercial#gtm).
+1. [Microsoft 파트너 네트워크 (무료)에 참여 하 고 시장 출시 계획을 만듭니다](https://partner.microsoft.com/explore/commercial#gtm).

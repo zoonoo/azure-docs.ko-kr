@@ -4,12 +4,12 @@ description: 컨테이너 구독에 대 한 Azure Monitor를 사용 하 여 새 
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 86ace49ea60bf1bd11633b5a883401f678ecaf8d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516637"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320326"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>새 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -29,7 +29,7 @@ Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성�
 
 ## <a name="enable-using-terraform"></a>Terraform 사용
 
-[Terraform을 사용하여 새 AKS 클러스터를 배포](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)하는 경우 기존 항목을 지정하도록 선택하지 않으면 [Log Analytics 작업 영역을 만들도록](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) 프로필에서 필요한 인수를 지정합니다. 
+[Terraform을 사용하여 새 AKS 클러스터를 배포](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)하는 경우 기존 항목을 지정하도록 선택하지 않으면 [Log Analytics 작업 영역을 만들도록](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) 프로필에서 필요한 인수를 지정합니다. 
 
 >[!NOTE]
 >Terraform을 사용하도록 선택하는 경우 Terraform Azure RM Provider 버전 1.17.0 이상을 실행해야 합니다.
@@ -118,3 +118,4 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 * 솔루션을 등록하는 동안 문제가 발생하는 경우 [문제 해결 가이드](container-insights-troubleshoot.md)를 검토하세요.
 
 * 모니터링을 사용 하 여 AKS 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아봅니다.
+

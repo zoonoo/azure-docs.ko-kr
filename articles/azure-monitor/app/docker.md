@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Docker 애플리케이션 모니터링 |
 description: Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 앱에서 보낸 원격 분석과 함께 Application Insights에 표시될 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 6af39db68c2020e578fe6fbd39870b2e00a16e07
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539927"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324423"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights에서 Docker 응용 프로그램 모니터링 (사용 되지 않음)
 
@@ -23,15 +23,15 @@ Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r
 
 * 호스트에서 실행하는 모든 컨테이너에 대한 수명 주기 원격 분석 – 시작, 중지 등
 * 모든 컨테이너에 대한 성능 카운터 CPU, 메모리, 네트워크 사용량 외 다수
-* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](../../azure-monitor/app/java-get-started.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 머신을 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
+* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](./java-get-started.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 머신을 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
 
 ## <a name="set-up-your-application-insights-resource"></a>Application Insights 리소스 설정
 
-1. [Microsoft Azure Portal](https://azure.com)에 로그인하고 앱에 대한 Application Insights 리소스를 열거나 [새 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ). 
+1. [Microsoft Azure Portal](https://azure.com)에 로그인하고 앱에 대한 Application Insights 리소스를 열거나 [새 리소스를 만듭니다](./create-new-resource.md). 
    
-    *어떤 리소스를 사용해야 하나요?* 호스트에서 실행하는 앱을 다른 사람이 개발한 경우에는 [새로운 Application Insights 리소스를 만들어야 합니다](../../azure-monitor/app/create-new-resource.md ). 이 리소스에서 원격 분석을 보고 분석하게 됩니다. (앱 형식에 대해 '일반'을 선택합니다.)
+    *어떤 리소스를 사용해야 하나요?* 호스트에서 실행하는 앱을 다른 사람이 개발한 경우에는 [새로운 Application Insights 리소스를 만들어야 합니다](./create-new-resource.md). 이 리소스에서 원격 분석을 보고 분석하게 됩니다. (앱 형식에 대해 '일반'을 선택합니다.)
    
-    해당 앱의 개발자인 경우에는 각 앱에 [Application Insights SDK를 추가](../../azure-monitor/app/java-get-started.md) 하셨기를 바랍니다. 실제로 모든 리소스가 단일 비즈니스 애플리케이션의 구성 요소라면, 하나의 리소스에 원격 분석을 보내도록 모든 리소스를 구성하고, 동일한 리소스를 사용하여 Docker 수명 주기 및 성능 데이터를 표시하게 됩니다. 
+    해당 앱의 개발자인 경우에는 각 앱에 [Application Insights SDK를 추가](./java-get-started.md) 하셨기를 바랍니다. 실제로 모든 리소스가 단일 비즈니스 애플리케이션의 구성 요소라면, 하나의 리소스에 원격 분석을 보내도록 모든 리소스를 구성하고, 동일한 리소스를 사용하여 Docker 수명 주기 및 성능 데이터를 표시하게 됩니다. 
    
     세 번째 시나리오는 사용자가 대부분의 앱을 개발했지만 별도의 리소스를 사용하여 앱의 원격 분석을 나타내는 경우입니다. 대개 이런 경우에는 Docker 데이터에 대해서도 별도의 리소스를 만들려고 할 것입니다.
 
@@ -54,7 +54,7 @@ Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r
 Application Insights 이미지는 Docker 호스트당 하나만 필요합니다. 애플리케이션을 여러 개의 Docker 호스트에 표시하는 경우, 이 명령을 호스트마다 반복합니다.
 
 ## <a name="update-your-app"></a>앱 업데이트
-애플리케이션이 [Java용 Application Insights SDK](../../azure-monitor/app/java-get-started.md)를 사용하여 계측되는 경우에는, 프로젝트의 ApplicationInsights.xml 파일에서 `<TelemetryInitializers>` 요소 아래에 다음 줄을 추가합니다.
+애플리케이션이 [Java용 Application Insights SDK](./java-get-started.md)를 사용하여 계측되는 경우에는, 프로젝트의 ApplicationInsights.xml 파일에서 `<TelemetryInitializers>` 요소 아래에 다음 줄을 추가합니다.
 
 ```xml
 
@@ -73,7 +73,7 @@ Docker 타일을 클릭합니다.
 ### <a name="docker-container-events"></a>Docker 컨테이너 이벤트
 ![예제](./media/docker/13.png)
 
-개별 이벤트를 조사하려면 [검색](../../azure-monitor/app/diagnostic-search.md)을 클릭합니다. 검색 및 필터링하여 원하는 이벤트를 찾습니다. 자세한 내용을 보려면 이벤트를 클릭합니다.
+개별 이벤트를 조사하려면 [검색](./diagnostic-search.md)을 클릭합니다. 검색 및 필터링하여 원하는 이벤트를 찾습니다. 자세한 내용을 보려면 이벤트를 클릭합니다.
 
 ### <a name="exceptions-by-container-name"></a>컨테이너 이름별 예외
 ![예제](./media/docker/14.png)
@@ -81,7 +81,7 @@ Docker 타일을 클릭합니다.
 ### <a name="docker-context-added-to-app-telemetry"></a>앱 원격 분석에 추가되는 Docker 컨텍스트
 AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
 
-## <a name="q--a"></a>Q&A
+## <a name="q--a"></a>Q & A
 *Docker에서 얻을 수 없는 어떤 기능을 Application Insights가 제공하나요?*
 
 * 컨테이너 및 이미지별로 성능 카운터의 자세한 분석 결과를 제공합니다.
@@ -90,7 +90,7 @@ AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 �
 
 *앱 자체에서 원격 분석을 가져오려면 어떻게 해야 하나요?*
 
-* Application Insights SDK를 앱에 설치합니다. [Java 웹앱](../../azure-monitor/app/java-get-started.md), [Windows 웹앱](../../azure-monitor/app/asp-net.md)에 대한 방법을 알아봅니다.
+* Application Insights SDK를 앱에 설치합니다. [Java 웹앱](./java-get-started.md), [Windows 웹앱](./asp-net.md)에 대한 방법을 알아봅니다.
 
 ## <a name="video"></a>비디오
 
@@ -98,6 +98,7 @@ AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Java용 Application Insights](../../azure-monitor/app/java-get-started.md)
-* [Node.js용 Application Insights](../../azure-monitor/app/nodejs.md)
-* [ASP.NET용 Application Insights](../../azure-monitor/app/asp-net.md)
+* [Java용 Application Insights](./java-get-started.md)
+* [Node.js용 Application Insights](./nodejs.md)
+* [ASP.NET용 Application Insights](./asp-net.md)
+

@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539774"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326072"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
 서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
 
-이 문서에서는 서비스 맵 사용 및 온보딩에 대한 세부 정보를 설명합니다. 이 솔루션에 대 한 필수 구성 요소를 구성 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 개요 사용](vminsights-enable-overview.md#prerequisites)을 참조 하세요. 요약 하자면, 다음이 필요 합니다.
+이 문서에서는 서비스 맵 사용 및 온보딩에 대한 세부 정보를 설명합니다. 솔루션의 필수 구성 요소는 다음과 같습니다.
 
-* 이 솔루션을 사용 하도록 설정 하는 Log Analytics 작업 영역입니다.
+* [지원 되는 지역의](vminsights-configure-workspace.md#supported-regions)Log Analytics 작업 영역입니다.
 
-* 솔루션을 사용 하도록 설정한 것과 동일한 작업 영역을 보고 하도록 구성 된 Windows 컴퓨터 또는 Linux 서버에 설치 된 Log Analytics 에이전트입니다.
+* 이 솔루션을 사용 하도록 설정한 동일한 작업 영역에 연결 된 Windows 컴퓨터 또는 Linux 서버에 설치 된 [Log Analytics 에이전트](vminsights-enable-overview.md#agents) 입니다.
 
-* Windows 컴퓨터 또는 Linux 서버에 설치 된 종속성 에이전트입니다.
+* Windows 컴퓨터 또는 Linux 서버에 설치 된 [종속성 에이전트](vminsights-enable-overview.md#agents) 입니다.
 
 >[!NOTE]
->서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM용 Azure Monitor에서 맵을 볼 수 있습니다. 자세한 내용은 [VM용 Azure Monitor 개요](../../azure-monitor/insights/vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM용 Azure Monitor 맵 기능 간의 차이점에 대 한 자세한 내용은 다음 [FAQ](../faq.md#azure-monitor-for-vms)를 참조 하세요.
+>서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM용 Azure Monitor에서 맵을 볼 수 있습니다. 자세한 내용은 [VM용 Azure Monitor 개요](./vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM용 Azure Monitor 맵 기능 간의 차이점에 대 한 자세한 내용은 다음 [FAQ](../faq.md#azure-monitor-for-vms)를 참조 하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -34,7 +34,7 @@ ms.locfileid: "86539774"
 
 ## <a name="enable-service-map"></a>서비스 맵 사용
 
-1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) 에서 또는 [솔루션 갤러리의 모니터링 솔루션 추가](solutions.md)에 설명 된 프로세스를 사용 하 여 서비스 맵 솔루션을 사용 하도록 설정 합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) 또는 [솔루션 갤러리에서 모니터링 솔루션 추가](solutions.md)에 설명 된 프로세스를 사용 하 여 서비스 맵 솔루션을 사용 하도록 설정 합니다.
 1. [Windows에 종속성 에이전트를 설치](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) 하거나 데이터를 가져오려는 각 컴퓨터에 [Linux에 종속성 에이전트를 설치](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) 합니다. 종속성 에이전트는 모든 컴퓨터에서 에이전트를 필요로 하지 않도록 바로 인접한 연결을 모니터링할 수 있습니다.
 
 Log Analytics 작업 영역의 Azure Portal에서 서비스 맵에 액세스하고 왼쪽 창에서 **솔루션** 옵션을 선택합니다.<br><br> ![작업 영역에서 솔루션 옵션을 선택합니다](./media/service-map/select-solution-from-workspace.png).<br> 솔루션의 목록에서 **ServiceMap(workspaceName)** 을 선택하고 서비스 맵 솔루션 개요 페이지에서 서비스 맵 요약 타일을 클릭합니다.<br><br> ![서비스 맵 요약 타일](./media/service-map/service-map-summary-tile.png).
@@ -304,7 +304,7 @@ Linux:
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
 
-서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../../azure-monitor/log-query/log-query-overview.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
+서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../log-query/log-query-overview.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 프로세스 또는 컴퓨터가 시작되거나 서비스 맵에 등록된 경우 생성되는 레코드 외에도 고유한 각 컴퓨터 및 프로세스에 대해 시간당 하나의 레코드가 생성됩니다. 이러한 레코드는 다음 표의 속성을 가집니다. ServiceMapComputer_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 컴퓨터 리소스 필드에 매핑됩니다. ServiceMapProcess_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 프로세스 리소스 필드에 매핑됩니다. ResourceName_s 필드는 해당하는 Resource Manager 리소스의 이름 필드와 일치합니다. 
 
@@ -550,7 +550,7 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Log Analytics의 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
+Log Analytics의 [로그 검색](../log-query/log-query-overview.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -603,3 +603,4 @@ Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리�
 ## <a name="suggestions"></a>제안
 
 서비스 맵 또는 이 설명서에 대한 의견이 있습니까?  기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
+

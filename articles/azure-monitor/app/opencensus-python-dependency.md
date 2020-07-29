@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c5f78535a3bd5ab93d3020d14a6242257c492297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499463"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321295"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>OpenCensus Python으로 종속성 추적
 
 종속성은 애플리케이션에서 호출하는 외부 구성 요소로, 종속성 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 그런 다음 데이터는 원격 분석으로 Azure Monitor Application Insights 전송 됩니다 `dependencies` .
 
-먼저 최신 [OpenCensus PYTHON SDK](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
+먼저 최신 [OpenCensus PYTHON SDK](./opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
 
 ## <a name="in-process-dependencies"></a>In-process 종속성
 
@@ -170,8 +170,9 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## <a name="next-steps"></a>다음 단계
 
-* [애플리케이션 맵](../../azure-monitor/app/app-map.md)
-* [가용성](../../azure-monitor/app/monitor-web-app-availability.md)
-* [검색](../../azure-monitor/app/diagnostic-search.md)
-* [로그 (분석) 쿼리](../../azure-monitor/log-query/log-query-overview.md)
-* [트랜잭션 진단](../../azure-monitor/app/transaction-diagnostics.md)
+* [애플리케이션 맵](./app-map.md)
+* [가용성](./monitor-web-app-availability.md)
+* [검색](./diagnostic-search.md)
+* [로그 (분석) 쿼리](../log-query/log-query-overview.md)
+* [트랜잭션 진단](./transaction-diagnostics.md)
+

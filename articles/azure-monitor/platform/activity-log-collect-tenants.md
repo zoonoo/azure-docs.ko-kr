@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516348"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321873"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Azure 활동 로그를 Azure Active Directory 테 넌 트 간에 Azure Monitor으로 수집 (레거시)
 
@@ -126,7 +126,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
    |설정 | 설명  |
    |:---|:---|
-   | 이름           | Logic App의 고유 이름입니다. |
+   | Name           | Logic App의 고유 이름입니다. |
    | 구독   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
    | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |
@@ -340,4 +340,5 @@ Logic App 디자이너에서 **실행**을 클릭하여 Logic App을 테스트�
 이 문서에서는 이벤트 허브에서 Azure 활동 로그를 읽고 분석을 위해 Log Analytics 작업 영역으로 전송 하는 논리 앱을 만들었습니다. 대시보드 만들기를 포함 하 여 작업 영역에서 데이터를 시각화 하는 방법에 대 한 자세한 내용은 데이터 시각화를 위한 자습서를 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [로그 검색 데이터 시각화 자습서](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [로그 검색 데이터 시각화 자습서](../learn/tutorial-logs-dashboards.md)
+

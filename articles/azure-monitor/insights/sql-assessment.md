@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871250"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325987"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
 
@@ -43,9 +44,9 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 SQL Server 서버에 대 한 상태 검사를 수행 하려면 다음 지원 되는 방법 중 하나를 사용 하 여 Azure Monitor에 대 한 에이전트 및 연결이 필요 합니다.
 
-1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
+1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../platform/agent-windows.md)를 설치합니다.
 2. System Center 2016-Operations Manager 또는 Operations Manager 2012 r 2를 사용 하 여 모니터링 되 고 관리 그룹이 Azure Monitor와 통합 되지 않은 경우에는 서버에서 데이터를 수집 하 여 서비스로 전달 하 고 Operations Manager에서 계속 모니터링 하는 Log Analytics를 사용할 수 있습니다.  
-3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
+3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
 SQL Server의 에이전트가 Operations Manager 관리 그룹에 보고 하 고, 데이터를 수집 하 고, 할당 된 관리 서버로 전달한 다음 관리 서버에서 직접 전송 하 여 Azure Monitor 합니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
@@ -155,7 +156,7 @@ Azure Monitor에서 평가 솔루션을 사용 하려면 먼저 솔루션이 설
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터**를 선택 합니다.
+2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력 내용에 따라 목록이 필터링됩니다. **모니터**를 선택 합니다.
 3. 메뉴의 **Insights** 섹션에서 **자세히**를 선택 합니다.  
 4. **개요** 페이지에서 **SQL Health Check** 타일을 클릭합니다.
 5. **상태 검사** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
@@ -257,3 +258,4 @@ SQLAssessmentRecommendation
 
 ## <a name="next-steps"></a>다음 단계
 * 자세한 SQL Health Check 데이터 및 권장 사항을 분석 하는 방법을 알아보려면 [로그 쿼리](../log-query/log-query-overview.md) 를 참조 하세요.
+

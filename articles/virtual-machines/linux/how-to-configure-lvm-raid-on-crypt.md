@@ -3,16 +3,16 @@ title: 암호화 된 장치에서 LVM 및 RAID 구성-Azure Disk Encryption
 description: 이 문서에서는 Linux Vm 용 암호화 된 장치에서 LVM 및 RAID를 구성 하기 위한 지침을 제공 합니다.
 author: jofrance
 ms.service: security
-ms.topic: article
+ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3be8863d86fd1525e6f64b46ddf5ca3c702ecdea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 746243336d74aefc55df48872fe9dd21e9cd99a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029232"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87268223"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화 된 장치에서 LVM 및 RAID 구성
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: 14fa6859a16dc173e75091983abee717bf813220
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499024"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326905"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -31,7 +31,7 @@ ms.locfileid: "86499024"
 
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)에 배포 된 컨테이너가 있는 경우 [Service Fabric 솔루션과](../../service-fabric/service-fabric-diagnostics-oms-setup.md) 이 솔루션을 모두 사용 하 여 클러스터 이벤트의 모니터링을 포함 하는 것이 좋습니다. Service Fabric 솔루션을 사용 하도록 설정 하기 전에 [Service Fabric 솔루션을 사용 하 여](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) 제공 되는 내용 및 사용 방법에 대해 검토 합니다.
 
-AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Kubernetes Service 모니터링](../../azure-monitor/insights/container-insights-overview.md)을 참조하세요. 컨테이너 모니터링 솔루션은 해당 플랫폼 모니터링을 지원 하지 않습니다.  
+AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Kubernetes Service 모니터링](./container-insights-overview.md)을 참조하세요. 컨테이너 모니터링 솔루션은 해당 플랫폼 모니터링을 지원 하지 않습니다.  
 
 다음 다이어그램은 Azure Monitor를 사용 하는 다양 한 컨테이너 호스트와 에이전트 간의 관계를 보여 줍니다.
 
@@ -92,11 +92,11 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 에서 또는 [솔루션 갤러리에서 모니터링 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가 합니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 에서 또는 [솔루션 갤러리에서 모니터링 솔루션 추가](./solutions.md)에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가 합니다.
 
 2. Log Analytics 에이전트를 사용하여 Docker를 설치하고 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
    - 독립 실행형 호스트의 경우:
-     - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음, [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md)를 설치하고 구성합니다.  
+     - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음, [Linux용 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md)를 설치하고 구성합니다.  
      - CoreOS에서는 Linux용 Log Analytics 에이전트를 실행할 수 없습니다. 대신 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 CoreOS를 포함한 Linux 컨테이너 호스트 또는 CoreOS을 포함한 Azure Government Linux 컨테이너 호스트를 검토하세요.
      - Windows Server 2016 및 Windows 10에서 Docker 엔진과 클라이언트를 설치 하 고 에이전트를 연결 하 여 정보를 수집 하 고 Azure Monitor으로 보냅니다. Windows 환경을 사용하는 경우 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts)을 검토하세요.
    - Docker 다중 호스트 오케스트레이션의 경우:
@@ -112,7 +112,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 [Windows에서 Docker 엔진](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
 
 > [!IMPORTANT]
-> Docker는 컨테이너 호스트에 [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md)를 설치하기 **전에** 실행해야 합니다. Docker 설치에 앞서 에이전트를 이미 설치한 경우 Linux용 Log Analytics 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
+> Docker는 컨테이너 호스트에 [Linux용 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md)를 설치하기 **전에** 실행해야 합니다. Docker 설치에 앞서 에이전트를 이미 설치한 경우 Linux용 Log Analytics 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Linux 컨테이너 호스트 설치 및 구성
 
@@ -120,7 +120,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 
 **CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
-- Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 단계는 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)를 참조하세요.
+- Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 단계는 [Log Analytics 에이전트 개요](../platform/log-analytics-agent.md)를 참조하세요.
 
 **CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우:**
 
@@ -140,7 +140,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환**
 
-이전에 직접 설치한 에이전트를 사용하였고 이제 컨테이너에서 실행 중인 에이전트를 사용하려는 경우 먼저 Linux용 Log Analytics 에이전트를 제거해야 합니다. 성공적으로 에이전트를 제거하는 방법은 [Linux용 Log Analytics 에이전트 제거](../../azure-monitor/learn/quick-collect-linux-computer.md)를 참조하세요.  
+이전에 직접 설치한 에이전트를 사용하였고 이제 컨테이너에서 실행 중인 에이전트를 사용하려는 경우 먼저 Linux용 Log Analytics 에이전트를 제거해야 합니다. 성공적으로 에이전트를 제거하는 방법은 [Linux용 Log Analytics 에이전트 제거](../learn/quick-collect-linux-computer.md)를 참조하세요.  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Docker Swarm용 Log Analytics 에이전트 구성
 
@@ -185,8 +185,8 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
 
 컨테이너 모니터링 데이터 수집을 시작하기 위해 Red Hat OpenShift에 Log Analytics 에이전트를 추가하는 방법에는 세 가지가 있습니다.
 
-* 각 OpenShift 노드에 직접 [Linux 용 Log Analytics 에이전트 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)  
-* Azure에 있는 각 OpenShift 노드에서 [Log Analytics VM 확장을 사용하도록 설정](../../azure-monitor/learn/quick-collect-azurevm.md)  
+* 각 OpenShift 노드에 직접 [Linux 용 Log Analytics 에이전트 설치](../learn/quick-collect-linux-computer.md)  
+* Azure에 있는 각 OpenShift 노드에서 [Log Analytics VM 확장을 사용하도록 설정](../learn/quick-collect-azurevm.md)  
 * Log Analytics 에이전트를 OpenShift 디먼 집합으로 설치 합니다.  
 
 이 섹션에서는 OpenShift 디먼 집합으로 Log Analytics 에이전트를 설치하는 데 필요한 단계를 다룹니다.  
@@ -509,9 +509,9 @@ Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한
 
 #### <a name="install-windows-agents"></a>Windows 에이전트 설치
 
-Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행 하는 컴퓨터의 경우 [Azure Monitor에 windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조 하세요. Azure에서 실행 되는 가상 머신의 경우 [가상 머신 확장](../../azure-monitor/learn/quick-collect-azurevm.md)을 사용 하 여 Azure Monitor에 연결 합니다.
+Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행 하는 컴퓨터의 경우 [Azure Monitor에 windows 컴퓨터 연결](../platform/agent-windows.md)을 참조 하세요. Azure에서 실행 되는 가상 머신의 경우 [가상 머신 확장](../learn/quick-collect-azurevm.md)을 사용 하 여 Azure Monitor에 연결 합니다.
 
-Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](../../azure-monitor/learn/quick-collect-azurevm.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](../../azure-monitor/platform/agent-windows.md)만 현재 Service Fabric에 대해 지원됩니다.
+Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](../learn/quick-collect-azurevm.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](../platform/agent-windows.md)만 현재 Service Fabric에 대해 지원됩니다.
 
 컨테이너 모니터링 솔루션이 Windows에 대해 올바르게 설정되어 있는지 확인할 수 있습니다. 관리 팩이 제대로 다운로드되었는지 확인하려면 *ContainerManagement.xxx*를 찾습니다. 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
 
@@ -527,9 +527,9 @@ Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니�
 
 데이터는 다음 에이전트 형식으로 3분마다 수집됩니다.
 
-- [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md)
-- [Windows 에이전트](../../azure-monitor/platform/agent-windows.md)
-- [Log Analytics VM 확장](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Linux용 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md)
+- [Windows 에이전트](../platform/agent-windows.md)
+- [Log Analytics VM 확장](../learn/quick-collect-azurevm.md)
 
 ### <a name="container-records"></a>컨테이너 레코드
 
@@ -640,3 +640,4 @@ Log Analytics 열리고 컨테이너의 상태에 대 한 정보가 표시 됩�
 ## <a name="next-steps"></a>다음 단계
 
 [로그를 쿼리하여](../log-query/log-query-overview.md) 자세한 컨테이너 데이터 레코드를 확인 합니다.
+

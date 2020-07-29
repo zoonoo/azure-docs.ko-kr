@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/27/2020
+ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321720"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Azure SQL Edge (미리 보기)에서 Azure Stream Analytics 작업 만들기 
 
@@ -42,8 +42,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 | 데이터 원본 유형 | 입력 | 출력 | Description |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge 허브 | 지원 | 지원 | 스트리밍 데이터를 읽고 Azure IoT Edge 허브에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)를 참조 하세요.|
-| SQL Database | N | 지원 | SQL Database에 스트리밍 데이터를 쓰는 데이터 원본 연결입니다. 데이터베이스는 Azure SQL Edge의 로컬 데이터베이스 이거나 SQL Server 또는 Azure SQL Database의 원격 데이터베이스 일 수 있습니다.|
-| Azure Blob Storage | N | Y | Azure 스토리지 계정의 BLOB에 데이터를 쓰는 데이터 원본입니다. |
+| SQL Database | N | Y | SQL Database에 스트리밍 데이터를 쓰는 데이터 원본 연결입니다. 데이터베이스는 Azure SQL Edge의 로컬 데이터베이스 이거나 SQL Server 또는 Azure SQL Database의 원격 데이터베이스 일 수 있습니다.|
 | Kafka | Y | N | Kafka 토픽에서 스트리밍 데이터를 읽는 데이터 원본입니다. 이 어댑터는 현재 Intel 또는 AMD 버전의 Azure SQL Edge 에서만 사용할 수 있습니다. Azure SQL Edge의 ARM64 버전에는 사용할 수 없습니다.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>예: Azure IoT Edge hub에 대 한 외부 스트림 입력/출력 개체 만들기
@@ -54,7 +53,8 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 
     ```sql
     Create External file format InputFileFormat
-    WITH (  
+    WITH 
+    (  
        format_type = JSON,
     )
     go
@@ -63,8 +63,10 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 2. Azure IoT Edge 허브에 대 한 외부 데이터 원본을 만듭니다. 다음 T-sql 스크립트는 Azure SQL Edge와 동일한 Docker 호스트에서 실행 되는 IoT Edge 허브에 대 한 데이터 원본 연결을 만듭니다.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE EdgeHubInput WITH (
-    LOCATION = 'edgehub://'
+    CREATE EXTERNAL DATA SOURCE EdgeHubInput 
+    WITH 
+    (
+        LOCATION = 'edgehub://'
     )
     go
     ```
@@ -72,13 +74,15 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 3. Azure IoT Edge hub에 대 한 외부 스트림 개체를 만듭니다. 다음 T-sql 스크립트는 IoT Edge 허브에 대 한 스트림 개체를 만듭니다. IoT Edge 허브 스트림 개체의 경우 LOCATION 매개 변수는 읽거나 쓸 IoT Edge 허브 항목 또는 채널의 이름입니다.
 
     ```sql
-    CREATE EXTERNAL STREAM MyTempSensors WITH (
-    DATA_SOURCE = EdgeHubInput,
-    FILE_FORMAT = InputFileFormat,
-    LOCATION = N'TemperatureSensors',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
-    )
+    CREATE EXTERNAL STREAM MyTempSensors 
+    WITH 
+    (
+        DATA_SOURCE = EdgeHubInput,
+        FILE_FORMAT = InputFileFormat,
+        LOCATION = N'TemperatureSensors',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
     go
     ```
 
@@ -107,9 +111,11 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
     * 이전에 만든 자격 증명을 사용 합니다.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
-    LOCATION = 'sqlserver://tcp:.,1433'
-    ,CREDENTIAL = SQLCredential
+    CREATE EXTERNAL DATA SOURCE LocalSQLOutput 
+    WITH 
+    (
+        LOCATION = 'sqlserver://tcp:.,1433',
+        CREDENTIAL = SQLCredential
     )
     go
     ```
@@ -117,12 +123,52 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 4. 외부 스트림 개체를 만듭니다. 다음 예에서는 dbo 테이블을 가리키는 외부 stream 개체를 만듭니다 *. *데이터베이스 *MySQLDatabase*의 TemperatureMeasurements.
 
     ```sql
-    CREATE EXTERNAL STREAM TemperatureMeasurements WITH (
-    DATA_SOURCE = LocalSQLOutput,
-    LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
+    CREATE EXTERNAL STREAM TemperatureMeasurements 
+    WITH 
+    (
+        DATA_SOURCE = LocalSQLOutput,
+        LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
+    ```
+
+### <a name="example-create-an-external-stream-object-for-kafka"></a>예: Kafka에 대 한 외부 스트림 개체 만들기
+
+다음 예제에서는 Azure SQL Edge의 로컬 데이터베이스에 대 한 외부 스트림 개체를 만듭니다. 이 예에서는 kafka 서버를 익명 액세스로 구성 했다고 가정 합니다. 
+
+1. CREATE EXTERNAL DATA SOURCE를 사용하여 외부 데이터 원본을 만듭니다. 다음 예제를 참조하세요.
+
+    ```sql
+    Create EXTERNAL DATA SOURCE [KafkaInput] 
+    With
+    (
+        LOCATION = N'kafka://<kafka_bootstrap_server_name_ip>:<port_number>'
     )
+    GO
+    ```
+2. Kafka 입력에 대 한 외부 파일 형식을 만듭니다. 다음 예제에서는 GZipped 압축을 사용 하 여 JSON 파일 형식을 만들었습니다. 
+
+   ```sql
+   CREATE EXTERNAL FILE FORMAT JsonGzipped  
+    WITH 
+    (  
+        FORMAT_TYPE = JSON , 
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
+    )
+   ```
+    
+3. 외부 스트림 개체를 만듭니다. 다음 예에서는 Kafka 토픽을 가리키는 외부 stream 개체를 만듭니다 `*TemperatureMeasurement*` .
+
+    ```sql
+    CREATE EXTERNAL STREAM TemperatureMeasurement 
+    WITH 
+    (  
+        DATA_SOURCE = KafkaInput, 
+        FILE_FORMAT = JsonGzipped,
+        LOCATION = 'TemperatureMeasurement',     
+        INPUT_OPTIONS = 'PARTITIONS: 10' 
+    ); 
     ```
 
 ## <a name="create-the-streaming-job-and-the-streaming-queries"></a>스트리밍 작업 및 스트리밍 쿼리 만들기
@@ -205,7 +251,7 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 | 처리 중 | 스트리밍 작업이 실행 중이며 입력을 처리하고 있습니다. 이 상태는 스트리밍 작업이 정상임을 나타냅니다. |
 | 성능 저하됨 | 스트리밍 작업이 실행 중이지만 입력 처리 중에 치명적이 지 않은 오류가 발생 했습니다. 입력 작업은 계속 실행되지만 오류가 발생하는 입력은 삭제됩니다. |
 | 중지됨 | 스트리밍 작업이 중지되었습니다. |
-| Failed | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
+| 실패 | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

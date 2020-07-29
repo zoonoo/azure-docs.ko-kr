@@ -11,15 +11,17 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a67d90a0888c39938f07c294f8e161ce98fd945a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+ms.openlocfilehash: a5707ef266f3d49bdcbff9793a0b90e6c3f4cb68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732509"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327653"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
-Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 IoT Hub 이벤트를 수신 대기 할 수 있게 비즈니스 애플리케이션을 구성합니다.예를 들어 데이터베이스를 업데이트 하 고, 작업 티켓을 만들고, 새 IoT 장치가 IoT hub에 등록 될 때마다 전자 메일 알림을 배달 하는 응용 프로그램을 빌드합니다.
+Azure Maps 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure IoT Hub가 Azure Event Grid와 통합됩니다. 안정적이고 확장 가능하고 안전한 방식으로 중요 이벤트에 대응할 수 있도록 비즈니스 애플리케이션에서 IoT Hub 이벤트를 수신하도록 구성합니다.예를 들어 데이터베이스를 업데이트하고, 작업 티켓을 만들고, 새 IoT 디바이스가 IoT 허브에 등록될 때마다 이메일 알림을 전달하는 애플리케이션을 빌드합니다.
 
 [Azure Event Grid](../event-grid/overview.md)는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
@@ -39,13 +41,13 @@ IoT Hub는 다음과 같은 이벤트 유형을 게시합니다.
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceConnected | IoT Hub에 디바이스가 연결되는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDisconnected | IoT Hub와 디바이스의 연결이 해제되는 경우 게시합니다. |
-| DeviceTelemetry | 장치 원격 분석 메시지를 IoT hub로 보낼 때 게시 |
+| Microsoft.Devices.DeviceTelemetry | 디바이스 원격 분석 메시지를 IoT 허브로 보낼 때 게시됩니다. |
 
 Azure Portal 또는 Azure 명령줄 인터페이스를 사용하여 각 IoT 허브에서 어떤 이벤트를 게시할지 구성할 수 있습니다. 한 예로 자습서 [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 시도해 봅니다.
 
 ## <a name="event-schema"></a>이벤트 스키마
 
-IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. EventType 속성이 **Microsoft.Devices**로 시작하는지 확인하면 IoT Hub 이벤트인지 식별할 수 있습니다. Event Grid 이벤트 속성을 사용하는 방법에 대한 자세한 내용은 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)를 참조하세요.
+IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. eventType 속성이 **Microsoft.Devices**로 시작하는지 확인하여 IoT Hub 이벤트를 식별할 수 있습니다. Event Grid 이벤트 속성을 사용하는 방법에 대한 자세한 내용은 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)를 참조하세요.
 
 ### <a name="device-connected-schema"></a>디바이스 연결됨 스키마
 
@@ -192,15 +194,15 @@ Event Grid를 통해 원격 분석 이벤트를 구독할 때 IoT Hub는 기본 
 
 장치 연결이 깜박이는 경우 (장치에서 연결 하 고 연결이 자주 끊어진 경우) 모든 단일 연결 상태를 전송 하지는 않지만 깜박임이 계속 될 때까지 주기적인 스냅숏에서 수행 된 현재 연결 상태를 게시 합니다. 서로 다른 시퀀스 번호 또는 서로 다른 연결 상태 이벤트를 사용 하 여 동일한 연결 상태 이벤트를 수신 하면 장치 연결 상태가 변경 된 것을 의미 합니다.
 
-## <a name="tips-for-consuming-events"></a>이벤트 사용하기 위한 팁
+## <a name="tips-for-consuming-events"></a>이벤트 사용 팁
 
-IoT Hub 이벤트를 처리하는 애플리케이션은 다음 권장 사항을 따라야 합니다.
+IoT Hub 이벤트를 처리하는 애플리케이션은 다음과 같은 권장 지침을 따라야 합니다.
 
-* 이벤트를 동일한 이벤트 처리기로 라우팅하는 여러 구독을 구성할 수 있으므로 이벤트를 특정 원본에서 가져온 것으로 가정 하지 마십시오. 항상 메시지 항목을 확인하여 예상한 IoT 허브에서 온 개체인지 확인합니다.
+* 이벤트를 동일한 이벤트 처리기로 라우팅하도록 여러 구독을 구성할 수 있습니다. 따라서 이벤트가 특정 원본에서 제공되었다고 가정하지 마세요. 항상 메시지 항목을 확인하여 예상한 IoT Hub에서 제공된 것인지 확인합니다.
 
-* 받은 모든 이벤트가 예상대로의 형식일 것이라고 가정하지 마십시오. 메시지를 처리하기 전에 eventType을 항상 확인합니다.
+* 수신하는 모든 이벤트가 예상한 유형일 것이라고 가정하지 마세요. 메시지를 처리하기 전에 eventType을 항상 확인합니다.
 
-* 메시지는 지연 후 또는 잘못된 순서로 도착할 수 있습니다. Etag 필드를 사용 하 여 개체에 대 한 정보가 장치 생성 또는 장치 삭제 이벤트에 대해 최신 상태 인지 파악 합니다.
+* 메시지가 잘못된 순서로 도착하거나 지연 후에 도착할 수 있습니다. Etag 필드를 사용 하 여 개체에 대 한 정보가 장치 생성 또는 장치 삭제 이벤트에 대해 최신 상태 인지 파악 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

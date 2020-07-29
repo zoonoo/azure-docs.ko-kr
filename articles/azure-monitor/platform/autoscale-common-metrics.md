@@ -4,12 +4,12 @@ description: Cloud Services, Virtual Machines 및 Web Apps의 자동 크기 조�
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 57bffede3b6c6c137da2feea32ad467a13f71a37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1a77fc1b40faca0a339c5e1aaceb71dec8de8bd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073522"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327041"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 
@@ -33,8 +33,8 @@ VM 규모 집합을 사용 중인데 특정 메트릭이 목록에 표시되지 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭
 기본적으로 Windows 및 Linux 인스턴스 모두 Azure VM 및 VMSS용으로 다음 호스트 수준 메트릭을 내보냅니다. 이러한 메트릭은 Azure VM을 설명하지만 게스트 VM에 설치된 에이전트를 통하는 대신 Azure VM 호스트에서 수집됩니다. 자동 크기 조정 규칙에서 이러한 메트릭을 사용할 수 있습니다.
 
-- [Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Resource Manager 기반 Windows 및 Linux VM Scale Sets용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭](./metrics-supported.md#microsoftcomputevirtualmachines)
+- [Resource Manager 기반 Windows 및 Linux VM Scale Sets용 호스트 메트릭](./metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>리소스 관리자 기반 Windows Vm에 대 한 게스트 OS 메트릭
 Azure에서 VM을 만들 때 진단 확장을 사용하여 진단을 사용하도록 설정합니다. 진단 확장을 사용하여 VM 내에서 가져온 메트릭 집합을 내보냅니다. 즉, 기본적으로 내보내지 않도록 메트릭의 자동 크기 조정을 해제할 수 있습니다.
@@ -186,3 +186,4 @@ VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하�
 > Service Bus의 경우 리소스 그룹 개념이 없지만 Azure Resource Manager가 지역마다 기본 리소스 그룹을 만듭니다. 리소스 그룹은 일반적으로 'Default-ServiceBus-[region]' 형식입니다. 예를 들어 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' 등입니다.
 >
 >
+

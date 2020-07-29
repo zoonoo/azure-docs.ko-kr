@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 2da00b44be7018bef80e466231efb75a8eb99754
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081545"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326004"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -125,7 +125,7 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Azure CLI를 사용 하 여 솔루션 설치
 
-솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](/azure/azure-monitor/platform/manage-access)을 선택해야 합니다.  Azure CLI를 사용 하 여 [az monitor log-analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 참조 명령을 사용 하 여 작업 영역을 관리 합니다.  [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
+솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다.  Azure CLI를 사용 하 여 [az monitor log-analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 참조 명령을 사용 하 여 작업 영역을 관리 합니다.  [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
 
 [Az monitor log-analytics solution create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) 를 사용 하 여 모니터링 솔루션을 설치 합니다.  대괄호 안의 매개 변수는 선택 사항입니다.
 
@@ -192,6 +192,7 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft에서 모니터링 솔루션 목록](solutions-inventory.md)을 가져옵니다.
+* [Microsoft에서 모니터링 솔루션 목록](/azure/azure-monitor/monitor-reference)을 가져옵니다.
 * 모니터링 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-query/log-query-overview.md) 방법을 알아봅니다.
 * [Azure Monitor에 대 한 모든 Azure CLI 명령을](/cli/azure/azure-cli-reference-for-monitor)참조 하세요.
+

@@ -3,16 +3,16 @@ title: Azure에서 PowerShell을 사용하여 Application Insights 설정 | Micr
 description: Application Insights에 데이터를 파이프 하는 Azure 진단 구성을 자동화 합니다.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: 20f5a5c61c65b476a98c59b24283a2d15c39ddae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3d0b7d1e8d4a164d517834eae877844d85b9a256
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111187"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320360"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용 하 여 Azure Cloud Services에 대 한 Application Insights 설정
 
-[Microsoft Azure](https://azure.com)는 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)에 [Azure Diagnostics를 보내도록 구성](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)할 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
+[Microsoft Azure](https://azure.com)는 [Azure Application Insights](./app-insights-overview.md)에 [Azure Diagnostics를 보내도록 구성](../platform/diagnostics-extension-to-application-insights.md)할 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 
 ## <a name="azure-template"></a>Azure 템플릿
 웹앱이 Azure에 있고 Azure Resource Manager 템플릿을 사용하여 리소스를 만드는 경우 리소스 노드에 이를 추가하여 Application Insights를 구성할 수 있습니다.
@@ -124,7 +124,7 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 
 ## <a name="see-also"></a>참고 항목
-* [Application Insights로 Azure Cloud Services 앱 모니터링](../../azure-monitor/app/cloudservices.md)
-* [Application Insights에 Azure Diagnostics 보내기](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+* [Application Insights로 Azure Cloud Services 앱 모니터링](./cloudservices.md)
+* [Application Insights에 Azure Diagnostics 보내기](../platform/diagnostics-extension-to-application-insights.md)
 * [구성 경고 자동화](powershell-alerts.md)
 

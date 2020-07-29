@@ -1,17 +1,18 @@
 ---
 title: 지역별 지급 세부 정보 - Microsoft 상업용 마켓플레이스
 description: 대금을 보내는 데 걸리는 예상 시간 및 지불을 받을 수 있는 Microsoft 상점이 국가/지역 및 지불 계정 유형에 따라 달라지는 방식을 알아봅니다.
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745005"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327330"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>결제 임계값, 메서드 및 시간 프레임
 

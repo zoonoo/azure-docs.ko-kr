@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 69342e59e99dd588b2c2cee9d02af5370ddb3af2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b928ea8b0d05b9e1eac3c9429ec4c0ce8f88bb22
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086945"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322876"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
@@ -219,7 +219,7 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 
 ### <a name="configure-resources"></a>리소스 구성
 
-리소스 섹션을 사용하면 토폴로지에 구성 요소에 필요한 구성 파일과 같은 비코드 리소스를 포함할 수 있습니다. 이 예에서는 파일의 섹션에 다음 텍스트를 추가 합니다 `<resources>` `pom.xml` . 그런 다음 파일을 저장하고 닫습니다.
+리소스 섹션을 사용하면 토폴로지에 구성 요소에 필요한 구성 파일과 같은 비코드 리소스를 포함할 수 있습니다. 이 예에서는 파일의 섹션에 다음 텍스트를 추가 합니다 `<resources>` `pom.xml` . 그런 다음, 파일을 저장하고 닫습니다.
 
 ```xml
 <resource>

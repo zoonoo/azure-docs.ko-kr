@@ -11,15 +11,18 @@ ms.author: kgremban
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: System Architecture'
+ms.openlocfilehash: 1b51e2338dabd34ec69d311a9eb1a5c4a644f628
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733430"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322757"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IoT 디바이스를 Azure에 연결: IoT Hub 및 Event Hubs
 
-Azure는 데이터를 강력한 클라우드에 연결할 수 있도록 다양한 유형의 연결 및 통신을 위해 특별히 개발된 서비스를 제공합니다. Azure IoT Hub와 Azure Event Hubs는 대량의 데이터를 수집하고 비즈니스 관련 정보를 얻기 위해 해당 데이터를 처리 또는 저장할 수 있는 클라우드 서비스입니다. 두 서비스는 데이터 수집을 지원하고 대기 시간이 짧고 안정성이 높다는 점에서는 비슷하지만, 서로 다른 용도로 설계되었습니다. IoT Hub는 Azure 클라우드에 IoT 장치를 연결 하는 고유한 요구 사항을 해결 하기 위해 개발 되었으며 Event Hubs는 빅 데이터 스트리밍을 위해 설계 되었습니다. IoT 장치를 Azure에 연결 하는 Azure IoT Hub을 사용 하는 것이 좋습니다.
+Azure는 데이터를 강력한 클라우드에 연결할 수 있도록 다양한 유형의 연결 및 통신을 위해 특별히 개발된 서비스를 제공합니다. Azure IoT Hub와 Azure Event Hub는 모두 대량의 데이터를 수집하고 비즈니스 인사이트를 위해 이 데이터를 처리하거나 저장할 수 있는 클라우드 서비스입니다. 두 서비스는 짧은 대기 시간과 높은 안정성으로 데이터 수집을 지원한다는 점은 비슷하지만 다른 용도로 디자인된 것입니다. IoT Hub는 Azure 클라우드에 IoT 장치를 연결 하는 고유한 요구 사항을 해결 하기 위해 개발 되었으며 Event Hubs는 빅 데이터 스트리밍을 위해 설계 되었습니다. IoT 장치를 Azure에 연결 하는 Azure IoT Hub을 사용 하는 것이 좋습니다.
 
 Azure IoT Hub는 IoT 장치를 연결 하 여 데이터를 수집 하 고 비즈니스 통찰력 및 자동화를 구동 하는 클라우드 게이트웨이입니다. 또한 IoT Hub에는 디바이스와 백 엔드 시스템 간의 관계를 보강하는 기능이 있습니다. 양방향 통신 기능은 장치에서 데이터를 수신 하는 동안 장치에 명령 및 정책을 다시 보낼 수도 있음을 의미 합니다. 예를 들어 클라우드-장치 메시징을 사용 하 여 속성을 업데이트 하거나 장치 관리 작업을 호출할 수 있습니다. 클라우드-장치 통신을 사용 하면 Azure IoT Edge를 사용 하 여에 지 장치에 클라우드 인텔리전스를 보낼 수도 있습니다. IoT Hub에서 제공하는 고유의 디바이스 수준 ID는 잠재적인 공격으로부터 IoT 솔루션을 보다 안전하게 보호합니다. 
 

@@ -3,11 +3,12 @@ title: Java 웹 앱에서 Azure 애플리케이션 Insights 원격 분석 필터
 description: 모니터링하지 않아도 되는 이벤트를 필터링하여 원격 분석 트래픽을 줄입니다.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd53a0e02eb43bdf7cde4952ed4835c6d1cdd126
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659920"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322587"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -22,7 +23,7 @@ ms.locfileid: "77659920"
 
 > [!NOTE]
 > 필터는 앱 메트릭의 타이밍 스큐를 발생합니다. 예를 들어 느린 응답을 진단하기 위해서는 빠른 응답 시간을 삭제하는 필터를 설정하도록 결정할 수 있습니다. 하지만 Application Insights에서 보고하는 평균 응답 시간이 실제 속도보다 느리고 요청 수가 실제 수보다 작을 것이라는 점을 알아야 합니다.
-> 이것이 문제가 될 경우 대신 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.
+> 이것이 문제가 될 경우 대신 [샘플링](./sampling.md)을 사용합니다.
 
 ## <a name="setting-filters"></a>필터 설정
 
@@ -151,7 +152,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
 ### <a name="telemetry-event-filter"></a>원격 분석 이벤트 필터
 
-사용자 지정 이벤트를 필터링합니다([TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)를 사용하여 로깅됨).
+사용자 지정 이벤트를 필터링합니다([TrackEvent()](./api-custom-events-metrics.md#trackevent)를 사용하여 로깅됨).
 
 
 ```XML
@@ -167,7 +168,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
 ### <a name="trace-telemetry-filter"></a>추적 원격 분석 필터
 
-로그 추적을 필터링합니다([TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 또는 [로깅 프레임워크 수집기](java-trace-logs.md)를 사용하여 로깅됨).
+로그 추적을 필터링합니다([TrackTrace()](./api-custom-events-metrics.md#tracktrace) 또는 [로깅 프레임워크 수집기](java-trace-logs.md)를 사용하여 로깅됨).
 
 ```XML
 
@@ -267,4 +268,5 @@ public TelemetryProcessor successFilter() {
 
 ## <a name="next-steps"></a>다음 단계
 
-* [샘플링](../../azure-monitor/app/sampling.md) - 메트릭을 스큐하지 않는 대안으로 샘플링을 고려합니다.
+* [샘플링](./sampling.md) - 메트릭을 스큐하지 않는 대안으로 샘플링을 고려합니다.
+

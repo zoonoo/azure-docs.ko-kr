@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416820"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171264"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -52,13 +52,13 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 > [!Note]
 > Oracle 프록시 서버는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
 통합 런타임은 기본 제공 Oracle 드라이버를 제공합니다. 따라서 Oracle 데이터 복사 작업에는 드라이버를 수동으로 설치할 필요가 없습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -77,11 +77,13 @@ Oracle 연결 된 서비스는 다음 속성을 지원 합니다.
 >[!TIP]
 >"ORA-01025: UPI 매개 변수가 범위를 벗어났습니다" 라는 오류 메시지가 표시 되 고 Oracle 버전이 8i 인 경우 `WireProtocolMode=1` 연결 문자열에를 추가 합니다. 그런 다음, 다시 시도하세요.
 
+장애 조치 (failover) 시나리오에 대 한 Oracle 인스턴스가 여러 개 있는 경우 Oracle 연결 된 서비스를 만들고 기본 호스트, 포트, 사용자 이름, 암호 등을 입력 한 다음 속성 이름을로 사용 하 여 새 "**추가 연결 속성**"을 추가 하 고, `AlternateServers` 괄호를 `(HostName=<secondary host>:PortNumber=<secondary port>:ServiceName=<secondary service name>)` 누락 하지 않고 콜론 ( `:` )을 구분 기호로 사용할 수 있습니다. 예를 들어 다음 대체 서버 값은 연결 장애 조치 (failover)를 위해 두 개의 대체 데이터베이스 서버를 정의 `(HostName=AccountingOracleServer:PortNumber=1521:SID=Accounting,HostName=255.201.11.24:PortNumber=1522:ServiceName=ABackup.NA.MyCompany)` 합니다.
+
 경우에 따라 연결 문자열에서 설정할 수 있는 추가 연결 속성이 있습니다.
 
 | 속성 | Description | 허용되는 값 |
 |:--- |:--- |:--- |
-| ArraySize |단일 네트워크 왕복에서 커넥터가 인출할 수 있는 바이트 수입니다. `ArraySize=‭10485760‬`예:,.<br/><br/>값이 클수록 네트워크를 통해 데이터를 인출 하는 횟수가 줄어들어 처리량이 증가 합니다. 값이 작을수록 서버에서 데이터를 전송할 때까지 대기 하는 지연 시간이 줄어들기 때문에 응답 시간이 증가 합니다. | 1에서 4294967296 사이의 정수입니다 (4gb). 기본값은 `60000`입니다. 값 1은 바이트 수를 정의 하지 않지만 정확히 하나의 데이터 행에 대 한 공간 할당을 나타냅니다. |
+| ArraySize |단일 네트워크 왕복에서 커넥터가 인출할 수 있는 바이트 수입니다. `ArraySize=‭10485760‬`예:,.<br/><br/>값이 클수록 네트워크를 통해 데이터를 인출 하는 횟수가 줄어들어 처리량이 증가 합니다. 값이 작을수록 서버에서 데이터를 전송할 때까지 대기 하는 지연 시간이 줄어들기 때문에 응답 시간이 증가 합니다. | 1에서 4294967296 사이의 정수입니다 (4gb). 기본값은 `60000`여야 합니다. 값 1은 바이트 수를 정의 하지 않지만 정확히 하나의 데이터 행에 대 한 공간 할당을 나타냅니다. |
 
 Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가지 옵션이 있습니다.
 
@@ -122,7 +124,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
         ```
 
     3.  `truststore`자체 호스팅 IR 컴퓨터에 파일을 저장 합니다. 예를 들어 파일을 C:\mytrustfilefilefilefilefilefilefile.
-    4.  Azure Data Factory에서 및 해당 값을 사용 하 여 Oracle 연결 문자열을 구성 합니다 `EncryptionMethod=1` `TrustStore` / `TrustStorePassword` . 예를 들어 `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    4.  Azure Data Factory에서 및 해당 값을 사용 하 여 Oracle 연결 문자열을 구성 합니다 `EncryptionMethod=1` `TrustStore` / `TrustStorePassword` . 예들 들어 `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`입니다.
 
 **예:**
 
@@ -212,16 +214,16 @@ Oracle 간에 데이터를 복사 하려면 데이터 집합의 type 속성을�
 
 Oracle에서 데이터를 복사 하려면 복사 작업의 원본 형식을로 설정 `OracleSource` 합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을로 설정 해야 합니다 `OracleSource` . | 예 |
-| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
-| partitionOptions | Oracle에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Oracle 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 아니요 |
-| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 아니요 |
-| 파티션 이름 | 복사 해야 하는 실제 파티션 목록입니다. <br>파티션 옵션이 `PhysicalPartitionsOfTable`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfTabularPartitionName`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
-| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용되는 **정수 형식으로** 원본 열의 이름을 지정합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionColumnName` WHERE 절에 후크 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
+| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
+| partitionOptions | Oracle에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Oracle 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
+| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 예 |
+| 파티션 이름 | 복사 해야 하는 실제 파티션 목록입니다. <br>파티션 옵션이 `PhysicalPartitionsOfTable`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfTabularPartitionName`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
+| partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용되는 **정수 형식으로** 원본 열의 이름을 지정합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우 `?AdfRangePartitionColumnName` WHERE 절에 후크 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
-| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
+| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
 
 **예: 파티션이 없는 기본 쿼리를 사용 하 여 데이터 복사**
 
@@ -259,12 +261,12 @@ Oracle에서 데이터를 복사 하려면 복사 작업의 원본 형식을로 
 
 Oracle에 데이터를 복사 하려면 복사 작업의 싱크 형식을로 설정 `OracleSink` 합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은로 설정 해야 합니다 `OracleSink` . | 예 |
 | writeBatchSize | 버퍼 크기가에 도달 하면 SQL 테이블에 데이터를 삽입 `writeBatchSize` 합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
-| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 아니요 |
-| preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 아니요 |
+| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 예 |
+| preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |
 
 **예:**
 
@@ -354,24 +356,24 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(Oracle 10g 이상에서만 지원됨) |
 | CHAR |String |
-| CLOB |String |
+| CLOB |문자열 |
 | DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | 정수 |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| LONG |String |
+| LONG |문자열 |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |문자열 |
+| NCLOB |문자열 |
 | NUMBER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |문자열 |
 | RAW |Byte[] |
-| ROWID |String |
+| ROWID |문자열 |
 | timestamp |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
-| UNSIGNED INTEGER |number |
-| VARCHAR2 |String |
-| XML |String |
+| TIMESTAMP WITH LOCAL TIME ZONE |문자열 |
+| TIMESTAMP WITH TIME ZONE |문자열 |
+| UNSIGNED INTEGER |Number |
+| VARCHAR2 |문자열 |
+| XML |문자열 |
 
 > [!NOTE]
 > 데이터 형식 INTERVAL YEAR TO MONTH 및 INTERVAL DAY TO SECOND는 지원되지 않습니다.

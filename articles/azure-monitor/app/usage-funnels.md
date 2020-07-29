@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797823"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323726"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Application Insights Funnels를 통해 고객이 애플리케이션을 사용하는 방법 검색
 
@@ -36,7 +37,7 @@ ms.locfileid: "83797823"
 ### <a name="funnels-features"></a>Funnels 기능
 앞의 스크린샷에는 5개의 강조 표시된 영역이 있습니다. 이들은 Funnels의 기능입니다. 다음 목록에서는 스크린샷의 각 해당 영역을 상세히 설명합니다.
 1. 앱이 샘플링된 경우 샘플링 배너가 표시됩니다. 배너를 선택하면 컨텍스트 창이 열려 샘플링을 끄는 방법을 설명합니다. 
-2. 깔때기를 [Power BI](../../azure-monitor/app/export-power-bi.md )로 내보낼 수 있습니다.
+2. 깔때기를 [Power BI](./export-power-bi.md)로 내보낼 수 있습니다.
 3. 단계를 선택하면 오른쪽에 더 상세한 내용이 표시됩니다. 
 4. 기록 전환 그래프에서 지난 90일 동안의 전환율을 확인할 수 있습니다. 
 5. 사용자 도구에 액세스하여 사용자에 대해 더 깊이 있게 파악할 수 있습니다. 각 단계에서 필터를 사용할 수 있습니다. 
@@ -45,7 +46,7 @@ ms.locfileid: "83797823"
   * [사용 현황 개요](usage-overview.md)
   * [사용자, 세션 및 이벤트](usage-segmentation.md)
   * [보존](usage-retention.md)
-  * [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
+  * [통합 문서](../platform/workbooks-overview.md)
   * [사용자 컨텍스트 추가](usage-send-user-context.md)
-  * [Power BI에 내보내기](../../azure-monitor/app/export-power-bi.md )
+  * [Power BI에 내보내기](./export-power-bi.md)
 

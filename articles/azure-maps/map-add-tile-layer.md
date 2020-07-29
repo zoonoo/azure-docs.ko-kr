@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: bb277a3413a21011b537b47bdc8fc1979c8e81c5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242307"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279562"
 ---
-# <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 계층 추가
+# <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 레이어 추가
 
 이 문서에서는 지도에서 타일 계층을 오버레이 하는 방법을 보여 줍니다. 타일 계층을 사용하여 Azure Maps 기본 맵 타일의 위에 이미지를 겹칠 수 있습니다. 바둑판식 배열 시스템 Azure Maps에 대 한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조 하세요.
 
@@ -39,7 +39,7 @@ ms.locfileid: "86242307"
 * `{subdomain}`-하위 도메인 값에 대 한 자리 표시자 (지정 된 경우) `subdomain` 가 추가 됩니다.
 * `{azMapsDomain}`-맵에 사용 되는 것과 동일한 값을 사용 하 여 도메인 및 타일 요청의 인증을 정렬 하는 자리 표시자입니다.
 
-## <a name="add-a-tile-layer"></a>타일 계층 추가
+## <a name="add-a-tile-layer"></a>타일 레이어 추가
 
  이 샘플에서는 타일 집합을 가리키는 타일 계층을 만드는 방법을 보여 줍니다. 이 샘플에서는 x, y, zoom 바둑판식 배열 시스템을 사용 합니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다. 이 동작은 계층 아래에 타일 계층을 삽입 하 여 구현할 수 있습니다 `labels` .
 
@@ -82,4 +82,4 @@ map.layers.add(new atlas.layer.TileLayer({
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [이미지 계층 추가](./map-add-image-layer.md)
+> [이미지 레이어 추가](./map-add-image-layer.md)

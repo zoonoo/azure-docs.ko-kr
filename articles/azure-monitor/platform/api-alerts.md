@@ -4,24 +4,24 @@ description: Log Analytics 경고 REST API를 사용 하 여 Log Analytics의 �
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: 38f2f671ecf426f6544f6faf934aec7071451b0d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eec7aeab32aa071ce9d4476b15740c89210f0606
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515753"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322332"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리 
 
 Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 
 > [!IMPORTANT]
-> [앞서 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)했 듯이 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 azure ScheduledQueryRules [REST API](/rest/api/monitor/scheduledqueryrules/), [azure Resource Mananger 템플릿](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell) **만** 사용 하 여 경고 규칙을 관리할 수 있습니다. 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능, 규칙에서 lookback 기간 증가, 별도의 리소스 그룹 또는 구독에서 규칙 생성 등의 많은 [새로운 이점을](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 누릴 수 있습니다.
+> [앞서 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)했 듯이 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 azure ScheduledQueryRules [REST API](/rest/api/monitor/scheduledqueryrules/), [azure Resource Mananger 템플릿](./alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell cmdlet](./alerts-log.md#managing-log-alerts-using-powershell) **만** 사용 하 여 경고 규칙을 관리할 수 있습니다. 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](./alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능, 규칙에서 lookback 기간 증가, 별도의 리소스 그룹 또는 구독에서 규칙 생성 등의 많은 [새로운 이점을](./alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 누릴 수 있습니다.
 
 Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-현재 Log Analytics에 저장된 검색을 사용해서만 경고를 만들 수 있습니다.  자세한 내용은 [로그 검색 REST API](../../azure-monitor/log-query/log-query-overview.md) 를 참조하세요.
+## <a name="prerequisites"></a>사전 요구 사항
+현재 Log Analytics에 저장된 검색을 사용해서만 경고를 만들 수 있습니다.  자세한 내용은 [로그 검색 REST API](../log-query/log-query-overview.md) 를 참조하세요.
 
 ## <a name="schedules"></a>일정
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
@@ -265,7 +265,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName
 #### <a name="action-groups"></a>작업 그룹
 Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘으로 작업 그룹을 사용합니다. 작업 그룹을 사용하여 작업을 한 번 지정한 다음, 작업 그룹을 Azure 전체에서 여러 경고에 연결할 수 있습니다. 필요가 없으면, 반복적으로 동일한 작업을 반복하고 다시 선언합니다. 작업 그룹은 이메일, SMS, 음성 통화, ITSM 연결, Automation Runbook, 웹후크 URI 등을 포함하는 여러 작업을 지원합니다. 
 
-자신의 경고를 Azure로 확장한 사용자의 경우 일정은 이제 경고를 만들 수 있도록 임계값과 함께 전달된 작업 그룹 세부 정보가 있어야 합니다. 이메일 세부 정보, 웹후크 URL, Runbook Automation 세부 정보 및 기타 작업은 경고를 만들기 전에 먼저 작업 그룹 내에서 정의되어야 합니다. 하나의 항목은 포털에서 [Azure Monitor에서 작업 그룹](../../azure-monitor/platform/action-groups.md)을 만들거나 [작업 그룹 API](/rest/api/monitor/actiongroups)를 사용할 수 있습니다.
+자신의 경고를 Azure로 확장한 사용자의 경우 일정은 이제 경고를 만들 수 있도록 임계값과 함께 전달된 작업 그룹 세부 정보가 있어야 합니다. 이메일 세부 정보, 웹후크 URL, Runbook Automation 세부 정보 및 기타 작업은 경고를 만들기 전에 먼저 작업 그룹 내에서 정의되어야 합니다. 하나의 항목은 포털에서 [Azure Monitor에서 작업 그룹](./action-groups.md)을 만들거나 [작업 그룹 API](/rest/api/monitor/actiongroups)를 사용할 수 있습니다.
 
 경고에 작업 그룹의 연결을 추가하려면 경고 정의에 작업 그룹의 고유한 Azure Resource Manager ID를 지정합니다. 아래에서 샘플 그림이 제공됩니다.
 
@@ -345,7 +345,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 ```
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>작업 그룹에 대한 웹후크 페이로드 사용자 지정
-기본적으로 로그 분석에 대한 작업 그룹을 통해 전송되는 웹후크는 고정된 구조를 가집니다. 하지만 하나의 항목은 웹후크 엔드포인트의 요구 사항을 충족하기 위해 지원되는 특정 변수를 사용하여 JSON 페이로드를 사용자 지정할 수 있습니다. 자세한 내용은 [로그 경고 규칙에 대한 웹후크 작업](../../azure-monitor/platform/alerts-log-webhook.md)을 참조하세요. 
+기본적으로 로그 분석에 대한 작업 그룹을 통해 전송되는 웹후크는 고정된 구조를 가집니다. 하지만 하나의 항목은 웹후크 엔드포인트의 요구 사항을 충족하기 위해 지원되는 특정 변수를 사용하여 JSON 페이로드를 사용자 지정할 수 있습니다. 자세한 내용은 [로그 경고 규칙에 대한 웹후크 작업](./alerts-log-webhook.md)을 참조하세요. 
 
 사용자 지정 웹후크 세부 정보를 ActionGroup 세부 정보와 함께 보내야 하며 다음 샘플에서와 같이 작업 그룹 내에서 지정된 모든 웹후크 URI에 적용됩니다.
 
@@ -387,6 +387,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>다음 단계
 
-* Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](../../azure-monitor/log-query/log-query-overview.md) 합니다.
-* [Azure monitor의 로그 경고](../../azure-monitor/platform/alerts-unified-log.md) 에 대해 알아보기
-* [Azure monitor에서 로그 경고 규칙을 생성, 편집 또는 관리](../../azure-monitor/platform/alerts-log.md) 하는 방법
+* Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](../log-query/log-query-overview.md) 합니다.
+* [Azure monitor의 로그 경고](./alerts-unified-log.md) 에 대해 알아보기
+* [Azure monitor에서 로그 경고 규칙을 생성, 편집 또는 관리](./alerts-log.md) 하는 방법
+

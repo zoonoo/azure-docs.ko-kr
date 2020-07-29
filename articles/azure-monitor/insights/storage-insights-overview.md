@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081613"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327347"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Storage용 Azure Monitor를 사용하여 스토리지 서비스 모니터링
 
@@ -242,7 +242,7 @@ Storage용 Azure Monitor로 식별한 스토리지 관련 문제를 해결하려
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>가용성에 대한 색 지정 및 임계값을 변경하려면 어떻게 하나요?
 
-가용성에 대한 색 지정 및 임계값을 변경하는 방법에 대한 자세한 단계는 [가용성 임계값 수정](storage-insights-overview.md#modify-the-availability-threshold) 섹션을 참조하세요.
+가용성에 대한 색 지정 및 임계값을 변경하는 방법에 대한 자세한 단계는 [가용성 임계값 수정](#modify-the-availability-threshold) 섹션을 참조하세요.
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Storage용 Azure Monitor에 표시된 데이터를 분석하고 문제를 해결하려면 어떻게 하나요?
 
@@ -274,3 +274,4 @@ n개의 서로 다른 오류 유형을 확인하려면 splitByLimit를 나머지
 * [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
 
 * 스토리지 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+

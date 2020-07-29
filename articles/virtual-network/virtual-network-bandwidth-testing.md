@@ -1,7 +1,7 @@
 ---
 title: Azure VM 네트워크 처리량 테스트
 titlesuffix: Azure Virtual Network
-description: Azure Virtual Machine 네트워크 처리량을 테스트하는 방법을 알아봅니다.
+description: NTTTCP를 사용 하 여 테스트를 위해 네트워크를 대상으로 하 고 성능에 영향을 줄 수 있는 다른 리소스의 사용을 최소화 합니다.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708249"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265180"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 

@@ -4,12 +4,14 @@ description: 이 문서에서는 Visual Studio Code를 사용하여 Java Service
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
+ms.custom: devx-track-java
 ms.author: pepogors
-ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610049"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327364"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션 개발
 
@@ -109,7 +111,7 @@ VotingDataService 및 Voting 애플리케이션을 디버그할 수 있게 준�
 
    ![디버그(연결) 구성](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)
 
-3. 웹 브라우저에서 `http://localhost:8080`으로 이동합니다. 텍스트 상자에 새 항목을 입력하고 **+ 추가**를 클릭합니다. 중단점이 적중되어야 합니다. VS Code 맨 위에 있는 디버그 도구 모음을 사용하여 실행을 계속하거나, 줄을 건너뛰거나, 메서드를 한 단계씩 실행하거나, 현재 메서드에서 나갈 수 있습니다. 
+3. 웹 브라우저에서 `http://localhost:8080`로 이동합니다. 텍스트 상자에 새 항목을 입력하고 **+ 추가**를 클릭합니다. 중단점이 적중되어야 합니다. VS Code 맨 위에 있는 디버그 도구 모음을 사용하여 실행을 계속하거나, 줄을 건너뛰거나, 메서드를 한 단계씩 실행하거나, 현재 메서드에서 나갈 수 있습니다. 
    
    ![중단점 적중](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-hit.png)
        

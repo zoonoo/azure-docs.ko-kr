@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c7e6733a9149008f6ed98ae7a7e0103f92f79f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196229"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325273"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../log-query/logs-structure.md)각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
@@ -26,7 +27,7 @@ Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Applica
 
 **Timegenerated** 및 **timestamp** 는 시간에 따라 필터링 하거나 요약 하는 데 사용할 공용 속성을 제공 합니다. Azure Portal에서 뷰나 대시보드의 시간 범위를 선택 하면 TimeGenerated 또는 timestamp를 사용 하 여 결과를 필터링 합니다. 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 쿼리는 이전 주의 각 날짜에 생성된 오류 이벤트 수를 반환합니다.
 
@@ -64,7 +65,7 @@ Event
 ## <a name="type-and-itemtype"></a>유형 및 itemType
 **유형** (Log Analytics 작업 영역) 및 **itemType** (Application Insights 응용 프로그램) 속성은 레코드가 검색 된 테이블의 이름을 포함 하 여 레코드 형식으로 간주할 수도 있습니다. 이 속성은 연산자를 사용 하는 레코드와 같이 여러 테이블의 레코드를 결합 하 여 여러 형식의 레코드를 구분 하는 쿼리에 유용 `search` 합니다. 경우에 따라 **Type** 대신 **$table**을 사용할 수도 있습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 다음 쿼리는 지난 시간 동안 수집된 레코드 수를 유형별로 반환합니다.
 
 ```Kusto
@@ -85,7 +86,7 @@ Azure 리소스의 경우 **_ResourceId** 값은 [Azure 리소스 ID URL](../../
 > [!NOTE]
 > 일부 데이터 형식은 Azure 리소스 ID 또는 적어도 그 일부(예: 구독 ID)를 포함하는 필드를 이미 갖고 있습니다. 이러한 필드는 이전 버전과의 호환성을 위해 유지되지만, 보다 일관적인 _ResourceId를 사용하여 교차 상관 관계를 수행하는 것이 좋습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 다음 쿼리는 각 컴퓨터에 대한 성능 및 이벤트 데이터를 조인합니다. 여기서는 ID가 _101_이고 프로세서 활용률이 50%를 초과하는 이벤트가 모두 표시됩니다.
 
 ```Kusto
@@ -126,7 +127,7 @@ union withsource = tt *
 ## <a name="_isbillable"></a>\_IsBillable
 ** \_ Isbillable** 가능 속성은 수집 데이터에 대 한 청구 가능 여부를 지정 합니다. ** \_ Isbillable** 가능이 포함 된 데이터 `false` 는 무료로 수집 되며 Azure 계정에 청구 되지 않습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 비용이 청구되는 데이터 형식을 전송하는 컴퓨터 목록을 가져오려면 다음 쿼리를 사용합니다.
 
 > [!NOTE]
@@ -154,7 +155,7 @@ union withsource = tt *
 ** \_ BilledSize** 속성은 ** \_ isbillable** 가능 true 인 경우 Azure 계정에 청구 되는 데이터의 크기 (바이트)를 지정 합니다.
 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 컴퓨터당 수집된 청구 가능한 이벤트의 크기를 보려면 크기(바이트)를 제공하는 `_BilledSize` 속성을 사용합니다.
 
 ```Kusto
@@ -210,5 +211,6 @@ union withsource = tt *
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor 로그 데이터](../log-query/log-query-overview.md)가 저장되는 방법에 대해 자세히 알아보세요.
-- [로그 쿼리 작성](../../azure-monitor/log-query/get-started-queries.md) 단원을 계속 진행하세요.
-- [로그 쿼리에서 테이블 조인](../../azure-monitor/log-query/joins.md) 단원을 계속 진행하세요.
+- [로그 쿼리 작성](../log-query/get-started-queries.md) 단원을 계속 진행하세요.
+- [로그 쿼리에서 테이블 조인](../log-query/joins.md) 단원을 계속 진행하세요.
+

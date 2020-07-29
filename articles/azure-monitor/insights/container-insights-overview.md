@@ -3,12 +3,12 @@ title: 컨테이너용 Azure Monitor 개요 | Microsoft Docs
 description: 이 문서에서는 AKS Container Insights 솔루션을 모니터링하는 컨테이너용 Azure Monitor 및 Azure Monitor가 Azure의 AKS 클러스터 및 Container Instances 상태를 모니터링하여 제공하는 가치에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: c5fcdd3bfc42e298791e1ab761fa4db432a93dd7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85adae1b79609f13be6bb73eb4e57000beda6d77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091167"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320275"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
 
@@ -66,8 +66,9 @@ Linux 클러스터와 비교 하 여 Windows Server 클러스터 모니터링의
 
 ![컨테이너용 Azure Monitor에 액세스하는 방법에 대한 개요](./media/container-insights-overview/azmon-containers-experience.png)
 
-AKS 외부에서 실행 되는 Docker 및 Windows 컨테이너 호스트를 모니터링 하 고 관리 하는 데 관심이 있는 경우 구성, 감사 및 리소스 사용률을 보려면 [컨테이너 모니터링 솔루션](../../azure-monitor/insights/containers.md)을 참조 하세요.
+AKS 외부에서 실행 되는 Docker 및 Windows 컨테이너 호스트를 모니터링 하 고 관리 하는 데 관심이 있는 경우 구성, 감사 및 리소스 사용률을 보려면 [컨테이너 모니터링 솔루션](./containers.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 Kubernetes 클러스터 모니터링을 시작 하려면 [컨테이너에 대해 Azure Monitor를 사용 하도록 설정](container-insights-onboard.md) 하 여 모니터링을 사용 하는 요구 사항 및 사용 가능한 방법을 이해 하는 방법을 검토 합니다.
+

@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008390"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321890"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -19,7 +19,7 @@ ms.locfileid: "87008390"
 
 ## <a name="overview"></a>개요
 
-Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/platform/action-groups.md)을 호출합니다. 작업 그룹을 사용하면 다른 사람들에게 경고를 알리도록 하나 이상의 작업을 트리거할 수 있으며, 수정도 가능합니다.
+Azure Monitor 경고가 트리거되면 [동작 그룹](./action-groups.md)을 호출합니다. 작업 그룹을 사용하면 다른 사람들에게 경고를 알리도록 하나 이상의 작업을 트리거할 수 있으며, 수정도 가능합니다.
 
 일반적인 절차는 다음과 같습니다.
 
@@ -294,6 +294,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 Logic Apps는 방대한 애플리케이션 및 데이터베이스에서 작업을 트리거할 수 있는 다양한 커넥터를 제공합니다. Slack, SQL Server, Oracle, Salesforce 등을 예로 들 수 있습니다. 커넥터에 대한 자세한 내용은 [논리 앱 커넥터](../../connectors/apis-list.md)를 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 활동 로그 경고의 개요](../../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
+* [Azure 활동 로그 경고의 개요](./alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [Azure Service Health 알림이 게시될 때 경고를 구성](../../service-health/alerts-activity-log-service-notifications-portal.md)하는 방법을 알아보세요.
-* [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+* [작업 그룹](./action-groups.md)에 대해 자세히 알아보세요.
+

@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eec4a46596b9cd39a43b6bb1f8969d41e99916b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024370"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322553"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -474,13 +474,14 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [들어오는 요청 추적](./../../azure-monitor/app/opencensus-python-dependency.md)
-* [진행 중인 요청 추적](./../../azure-monitor/app/opencensus-python-request.md)
-* [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
-* [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)
+* [들어오는 요청 추적](./opencensus-python-dependency.md)
+* [진행 중인 요청 추적](./opencensus-python-request.md)
+* [애플리케이션 맵](./app-map.md)
+* [엔드투엔드 성능 모니터링](../learn/tutorial-performance.md)
 
 ### <a name="alerts"></a>경고
 
-* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
-* [스마트 진단](../../azure-monitor/app/proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
-* [메트릭 경고](../../azure-monitor/platform/alerts-log.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
+* [가용성 테스트](./monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
+* [스마트 진단](./proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
+* [메트릭 경고](../platform/alerts-log.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
+

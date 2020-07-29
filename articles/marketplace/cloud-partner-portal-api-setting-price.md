@@ -4,15 +4,15 @@ description: 가상 컴퓨터 제품의 가격 책정을 지정 하는 세 가�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8d6dcd7f3f86e111cfb17fb08c4faadac1552b94
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039122"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271725"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 
@@ -104,7 +104,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 
 다음 표에는 사용자 지정 코어 가격을 지정할 수 있는 지역 및 해당하는 통화 코드가 나와 있습니다.
 
-| **지역** | **이름**             | **통화 코드** |
+| **지역** | **Name**             | **통화 코드** |
 |------------|----------------------|-------------------|
 | DZ         | 알제리              | DZD               |
 | AR         | 아르헨티나            | ARS               |

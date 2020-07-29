@@ -8,11 +8,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201538"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327568"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -197,7 +201,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. App Service에서 웹앱에 대한 Git 리포지토리를 참조하는 복제본에 원격 기능을 추가합니다. \<Git 복제 URL\>의 경우 이전 단계에서 반환된 URL을 사용합니다. 명령 창에서 다음 명령을 실행합니다.
+7. App Service에서 웹앱에 대한 Git 리포지토리를 참조하는 복제본에 원격 기능을 추가합니다. 의 \<Git clone URL\> 경우 이전 단계에서 반환 된 URL을 사용 합니다. 명령 창에서 다음 명령을 실행합니다.
 
    ```cmd
    git remote add webapp <Git clone URL>

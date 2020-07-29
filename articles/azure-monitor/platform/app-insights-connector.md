@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073632"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327109"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
 ![Application Insights 기호](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)가 지원되므로 Application Insights 커넥터 관리 솔루션이 더 이상 필요하지 않습니다. 사용되지 않으며, Azure 상용 클라우드에 대해 2019년 1월 15일에 공식적으로 사용 중단된 OMS 포털과 함께 Azure Marketplace에서 제거되었습니다. Azure 미국 정부 클라우드의 경우 2019년 3월 30일에 사용 중지됩니다.
+> [리소스 간 쿼리](../log-query/cross-workspace-query.md)가 지원되므로 Application Insights 커넥터 관리 솔루션이 더 이상 필요하지 않습니다. 사용되지 않으며, Azure 상용 클라우드에 대해 2019년 1월 15일에 공식적으로 사용 중단된 OMS 포털과 함께 Azure Marketplace에서 제거되었습니다. Azure 미국 정부 클라우드의 경우 2019년 3월 30일에 사용 중지됩니다.
 >
 >기존 연결은 2019년 6월 30일까지 계속 작동합니다.  OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. PowerShell을 사용하여 기존 연결을 제거하는 스크립트는 아래의 [PowerShell을 사용하여 커넥터 제거](#removing-the-connector-with-powershell)를 참조하세요.
 >
->여러 애플리케이션에 대한 Application Insights 로그 데이터를 쿼리하는 방법에 대한 지침은 [Azure Monitor Application Insights 리소스 통합](../log-query/unify-app-resource-data.md)을 참조하세요. OMS 포털 지원 중단에 대한 자세한 내용은 [Azure로 이동하는 OMS 포털](../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
+>여러 애플리케이션에 대한 Application Insights 로그 데이터를 쿼리하는 방법에 대한 지침은 [Azure Monitor Application Insights 리소스 통합](../log-query/unify-app-resource-data.md)을 참조하세요. OMS 포털 지원 중단에 대한 자세한 내용은 [Azure로 이동하는 OMS 포털](./oms-portal-transition.md)을 참조하세요.
 >
 > 
 
-Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 애플리케이션 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 애플리케이션 데이터가 한 곳에 있게 되므로 애플리케이션에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 애플리케이션 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
+Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../app/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 애플리케이션 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 애플리케이션 데이터가 한 곳에 있게 되므로 애플리케이션에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 애플리케이션 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
 
 이 솔루션을 사용하면 다음을 수행할 수 있습니다.
 
@@ -44,12 +44,12 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 예 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](./agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 예 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](./om-agents.md) | 예 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure storage 계정](./resource-logs.md#send-to-log-analytics-workspace) | 예 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Application Insights 커넥터 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 - 구성된 Application Insights 리소스가 하나 이상 있어야 합니다.
@@ -57,7 +57,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ## <a name="configuration"></a>구성
 
-1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
 3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 애플리케이션을 선택합니다.
 4. **저장**을 클릭합니다.
@@ -144,7 +144,7 @@ Application Insights 커넥터 블레이드는 사용자가 *Azure Portal을 사
 
 ### <a name="sample-corrected-data"></a>샘플 수정 데이터
 
-Application Insights는 *[샘플링 수정](../../azure-monitor/app/sampling.md)* 을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 Log Analytics 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
+Application Insights는 *[샘플링 수정](../app/sampling.md)* 을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 Log Analytics 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
 
 다음은 로그 검색 쿼리의 샘플링 수정 예입니다.
 
@@ -163,8 +163,8 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 - 가용성
 - 예외
 - 요청
-- 페이지 보기 - 작업 영역에서 페이지 보기를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views)를 참조하세요.
-- 사용자 지정 이벤트 - 작업 영역에서 사용자 지정 이벤트를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)를 참조하세요.
+- 페이지 보기 - 작업 영역에서 페이지 보기를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [PageViews](../app/api-custom-events-metrics.md#page-views)를 참조하세요.
+- 사용자 지정 이벤트 - 작업 영역에서 사용자 지정 이벤트를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [TrackEvent](../app/api-custom-events-metrics.md#trackevent)를 참조하세요.
 
 데이터를 사용할 수 있게 되면 Application Insights에서 Log Analytics로 수신됩니다.
 
@@ -176,7 +176,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 속성 | 설명 |
 | --- | --- |
-| 형식 | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 레코드 시간 |
 | ApplicationId | Application Insights 앱의 계측 키 |
@@ -225,7 +225,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>예외 관련 필드
 
-| 형식 | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 예외 |
 | ExceptionType | 예외 형식 |
@@ -244,7 +244,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 속성 | 설명 |
 | --- | --- |
-| 형식 | ApplicationInsights |
+| Type | ApplicationInsights |
 | TelemetryType | 요청 |
 | ResponseCode | 클라이언트에 보낸 HTTP 응답 |
 | RequestSuccess | 성공 또는 실패를 표시합니다. True 또는 False입니다. |
@@ -318,4 +318,5 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 앱에 대한 자세한 정보를 보려면 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용합니다.
+- Application Insights 앱에 대한 자세한 정보를 보려면 [로그 검색](../log-query/log-query-overview.md)을 사용합니다.
+

@@ -4,16 +4,16 @@ description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에
 ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327143"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
-Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이 메트릭은 [플랫폼 메트릭](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md), [메트릭으로 변환되는 Azure Monitor의 주요 로그](../../azure-monitor/platform/alerts-metric-logs.md) 및 Application Insights 메트릭일 수 있습니다. 메트릭 경고는 주기적으로 하나 이상의 메트릭 시계열에서 조건이 참인지 평가하고 평가에 부합하면 사용자에게 알립니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
+Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이 메트릭은 [플랫폼 메트릭](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [사용자 지정 메트릭](./metrics-custom-overview.md), [메트릭으로 변환되는 Azure Monitor의 주요 로그](./alerts-metric-logs.md) 및 Application Insights 메트릭일 수 있습니다. 메트릭 경고는 주기적으로 하나 이상의 메트릭 시계열에서 조건이 참인지 평가하고 평가에 부합하면 사용자에게 알립니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
 
 ## <a name="how-do-metric-alerts-work"></a>메트릭 경고 작동 방식
 
@@ -137,10 +137,10 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 | 서비스 | 공용 Azure | 정부 | 중국 |
 |:--------|:--------|:--------|:--------|
-| 가상 머신  | **예** | 아니요 | 아니요 |
-| SQL server 데이터베이스 | **예** | **예** | 아니요 |
-| SQL server 탄력적 풀 | **예** | **예** | 아니요 |
-| Data box edge 장치 | **예** | **예** | 아니요 |
+| 가상 머신  | **예** | 예 | 예 |
+| SQL server 데이터베이스 | **예** | **예** | 예 |
+| SQL server 탄력적 풀 | **예** | **예** | 예 |
+| Data box edge 장치 | **예** | **예** | 예 |
 
 세 가지 방법 중 하나로 단일 메트릭 경고 규칙에 따라 모니터링 범위를 지정할 수 있습니다. 예를 들어 virtual machines를 사용 하 여 범위를 다음과 같이 지정할 수 있습니다.  
 
@@ -152,7 +152,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 >
 > 다중 리소스 메트릭 경고 규칙의 범위는 선택한 리소스 유형의 리소스를 하나 이상 포함 해야 합니다.
 
-여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 모니터링 되는 각 리소스에 대 한 개별 알림을 받게 됩니다.
+여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 모니터링 되는 각 리소스에 대 한 개별 알림을 받게 됩니다.
 
 > [!NOTE]
 >
@@ -164,12 +164,13 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>메트릭 경고에 대한 지원되는 리소스 종류
 
-지원 되는 리소스 종류의 전체 목록은이 [문서](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에서 찾을 수 있습니다.
+지원 되는 리소스 종류의 전체 목록은이 [문서](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에서 찾을 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure에서 메트릭 경고를 만들고, 보고, 관리 하는 방법을 알아봅니다.](alerts-metric.md)
-- [Azure Resource Manager 템플릿을 사용한 메트릭 경고 배포 방법 알아보기](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Azure Resource Manager 템플릿을 사용한 메트릭 경고 배포 방법 알아보기](./alerts-metric-create-templates.md)
 - [작업 그룹에 대 한 자세한 정보](action-groups.md)
 - [동적 임계값 조건 형식에 대해 자세히 알아봅니다](alerts-dynamic-thresholds.md).
+
