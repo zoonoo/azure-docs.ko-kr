@@ -3,12 +3,12 @@ title: Azure Pipelines에 Azure DevTest Labs 통합
 description: Azure Pipelines 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs를 통합하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 080577a74a1cb168453c6a027d77ae395072ccc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480578"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288928"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Azure Pipelines CI/CD 파이프라인에 Azure DevTest Labs 통합
 
@@ -218,5 +218,5 @@ ms.locfileid: "85480578"
 ## <a name="next-steps"></a>다음 단계
 - [Resource Manager 템플릿으로 다중 VM 환경을 만드는](devtest-lab-create-environment-from-arm.md) 방법을 알아봅니다.
 - [공용 DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 DevTest Labs 자동화를 위한 더 많은 빠른 시작 리소스 관리자 템플릿을 살펴보세요.
-- 필요한 경우 [Azure DevOps 문제 해결](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) 페이지를 참조 하세요.
+- 필요한 경우 [Azure DevOps 문제 해결](/azure/devops/pipelines/troubleshooting) 페이지를 참조 하세요.
  

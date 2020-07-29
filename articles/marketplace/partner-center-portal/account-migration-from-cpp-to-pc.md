@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520156"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289328"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 계정을 마이그레이션하는 방법
 
@@ -59,7 +59,7 @@ Microsoft와 파트너 관계를 맺으려는 회사는 MPN(Microsoft 파트너 
 
 Microsoft 파트너 네트워크의 멤버가 아닌 경우 [여기에서 가입](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new)하여 MPN ID를 받을 수 있습니다. 계정 활성화 프로세스 중에 입력해야 하는 MPN ID를 적어 둡니다.
 
-Microsoft 파트너 네트워크에 대한 자세한 내용은 파트너 웹 사이트의 [Microsoft 파트너 네트워크 가입](https://partner.microsoft.com/en-US/membership)을 참조하세요. Microsoft 파트너 네트워크의 ISV 이점에 대한 자세한 내용은 [ISV 리소스 허브](https://partner.microsoft.com/isv-resource-hub)를 참조하세요.  
+Microsoft 파트너 네트워크에 대한 자세한 내용은 파트너 웹 사이트의 [Microsoft 파트너 네트워크 가입](https://partner.microsoft.com/membership)을 참조하세요. Microsoft 파트너 네트워크의 ISV 이점에 대한 자세한 내용은 [ISV 리소스 허브](https://partner.microsoft.com/isv-resource-hub)를 참조하세요.  
 
 ## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Dynamics 365 및 PowerApps 제품을 파트너 센터로 이동
 

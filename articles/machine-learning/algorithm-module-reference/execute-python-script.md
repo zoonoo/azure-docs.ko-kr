@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 06/16/2020
-ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: d07681798cadf1d983942d681b910e26ea48d6d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147247"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285937"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -30,124 +30,16 @@ Python을 사용 하면 다음과 같이 기존 모듈이 지원 하지 않는 �
 + [데이터 가져오기](./import-data.md) 모듈이 지원 하지 않는 원본의 데이터를 읽고 로드 하 고 조작 합니다.
 + 심층 학습 코드를 직접 실행 합니다. 
 
+## <a name="supported-python-packages"></a>지원 되는 Python 패키지
 
 Azure Machine Learning는 데이터 처리를 위한 여러 일반적인 유틸리티를 포함 하는 Python의 Anaconda 배포를 사용 합니다. Anaconda 버전이 자동으로 업데이트 됩니다. 현재 버전:
  -  Python 3.6에 대 한 Anaconda 4.5 + 배포 
 
-사전 설치 된 패키지는 다음과 같습니다.
--    adal==1.2.2
--    applicationinsights==0.11.9
--    attrs = = 19.3.0
--    azure-common = = 1.1.25
--    azure-core = = 1.3.0
--    azure-graphrbac==0.61.1
--    azure-identity = = 1.3.0
--    azure-mgmt-authorization==0.60.0
--    azure-mgmt-containerregistry==2.8.0
--    azure-mgmt-keyvault = = 2.2.0
--    azure-mgmt-resource = = 8.0.1
--    azure-관리-저장소 = = 8.0.0
--    azure-storage-blob = = 1.5.0
--    azure-저장소-공통 = = 1.4.2
--    azureml-코어 = = 1.1.5.5
--    azureml-dataprep-native = = 14.1.0
--    azureml-dataprep = = 1.3.5
--    azureml-기본값 = = 1.1.5.1
--    azureml-디자이너-클래식-모듈 = = 0.0.118
--    azureml 디자이너-코어 = = 0.0.31
--    azureml-디자이너-내부 = = 0.0.18
--    azureml-모델-관리-sdk = = 1.0.1 b6. post1
--    azureml-파이프라인-코어 = = 1.1.5
--    azureml-원격 분석 = = 1.1.5.3
--    backports.tempfile==1.0
--    backports.weakref==1.0.post1
--    boto3 = = 1.12.29
--    botocore = = 1.15.29
--    cachetools = = 4.0.0
--    certifi = = 2019.11.28
--    cffi==1.12.3
--    chardet==3.0.4
--    = = 7.1.1를 클릭 합니다.
--    cloudpickle = = 1.3.0
--    configparser = = 3.7.4
--    contextlib2 = = 0.6.0 post1
--    암호화 = = 2.8
--    cycler==0.10.0
--    dill==0.3.1.1
--    distro==1.4.0
--    docker = = 4.2.0
--    docutils==0.15.2
--    dotnetcore2 = = 2.1.13
--    flask = = 1.0.3
--    fusepy==3.0.1
--    gensim==3.8.1
--    google-api-core = = 1.16.0
--    google-auth = = 1.12.0
--    google-cloud-core = = 1.3.0
--    google-cloud-storage = = 1.26.0
--    google-다시 시작 가능-미디어 = = 0.5.0
--    googleapis-protos = = 1.51.0
--    gunicorn = = 19.9.0
--    idna = = 2.9
--    불균형-배우기 = = 0.4.3
--    isodate==0.6.0
--    itsdangerous = = 1.1.0
--    jeepney = = 0.4.3
--    jinja2 = = 2.11.1
--    jmespath = = 0.9.5
--    joblib = = 0.14.0
--    py = = 0.2
--    jsonpickle = = 1.3
--    jsonschema = = 3.0.1
--    kiwisolver==1.1.0
--    liac-arff = = 2.4.0
--    lightgbm==2.2.3
--    markupsafe = = 1.1.1
--    matplotlib = = 3.1.3
--    itertools = = 6.0.0
--    msal-extensions = = 0.1.3
--    msal = = 1.1.0
--    msrest = = 0.6.11
--    msrestazure = = 0.6.3
--    ndg-httpsclient==0.5.1
--    nimbusml = = 1.6.1
--    numpy = = 1.18.2
--    oauthlib==3.1.0
--    pandas = = 0.25.3
--    pathspec = = 0.7.0
--    pip = = 20.0.2
--    portalocker = = 1.6.0
--    protobuf = = 3.11.3
--    pyarrow = = 0.16.0
--    pyasn1 = = 0.2.8
--    pyasn1 = = 0.4.8
--    pycparser = = 2.20
--    pycryptodomex = = 3.7.3
--    pyjwt = = 1.7.1 for
--    pyopenssl = = 19.1.0
--    pyparsing = = 2.4.6
--    pyrsistent = = 0.16.0
--    python-dateutil = = 2.8.1
--    pytz==2019.3
--    요청-oauthlib = = 1.3.0
--    요청 = = 2.23.0
--    rsa = = 4.0
--    ruamel.yaml==0.15.89
--    s3transfer = = 0.3.3
--    scikit-배우기 = = 0.22.2
--    scipy = = 1.4.1
--    secretstorage = = 3.1.2
--    setuptools = = 46.1.1. post20200323
--    6 = = 1.14.0
--    스마트 열림 = = 1.10.0
--    urllib3 = = 1.25.8
--    websocket-client = = 0.57.0
--    werkzeug = = 0.16.1
--    wheel = = 0.34.2
+전체 목록은 [사전 설치 된 Python 패키지](#preinstalled-python-packages)섹션을 참조 하세요.
 
- 사전 설치 된 목록에 없는 패키지 (예: *scikit*)를 설치 하려면 스크립트에 다음 코드를 추가 합니다. 
+사전 설치 된 목록에 없는 패키지 (예: *scikit*)를 설치 하려면 스크립트에 다음 코드를 추가 합니다. 
 
- ```python
+```python
 import os
 os.system(f"pip install scikit-misc")
 ```
@@ -262,6 +154,117 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
 + **결과 데이터 집합 2**는 Python 스크립트에서 반환 된 두 번째 pandas 데이터 프레임으로 정의 됩니다.
 
+## <a name="preinstalled-python-packages"></a>사전 설치 된 Python 패키지
+사전 설치 된 패키지는 다음과 같습니다.
+-    adal==1.2.2
+-    applicationinsights==0.11.9
+-    attrs = = 19.3.0
+-    azure-common = = 1.1.25
+-    azure-core = = 1.3.0
+-    azure-graphrbac==0.61.1
+-    azure-identity = = 1.3.0
+-    azure-mgmt-authorization==0.60.0
+-    azure-mgmt-containerregistry==2.8.0
+-    azure-mgmt-keyvault = = 2.2.0
+-    azure-mgmt-resource = = 8.0.1
+-    azure-관리-저장소 = = 8.0.0
+-    azure-storage-blob = = 1.5.0
+-    azure-저장소-공통 = = 1.4.2
+-    azureml-코어 = = 1.1.5.5
+-    azureml-dataprep-native = = 14.1.0
+-    azureml-dataprep = = 1.3.5
+-    azureml-기본값 = = 1.1.5.1
+-    azureml-디자이너-클래식-모듈 = = 0.0.118
+-    azureml 디자이너-코어 = = 0.0.31
+-    azureml-디자이너-내부 = = 0.0.18
+-    azureml-모델-관리-sdk = = 1.0.1 b6. post1
+-    azureml-파이프라인-코어 = = 1.1.5
+-    azureml-원격 분석 = = 1.1.5.3
+-    backports.tempfile==1.0
+-    backports.weakref==1.0.post1
+-    boto3 = = 1.12.29
+-    botocore = = 1.15.29
+-    cachetools = = 4.0.0
+-    certifi = = 2019.11.28
+-    cffi==1.12.3
+-    chardet==3.0.4
+-    = = 7.1.1를 클릭 합니다.
+-    cloudpickle = = 1.3.0
+-    configparser = = 3.7.4
+-    contextlib2 = = 0.6.0 post1
+-    암호화 = = 2.8
+-    cycler==0.10.0
+-    dill==0.3.1.1
+-    distro==1.4.0
+-    docker = = 4.2.0
+-    docutils==0.15.2
+-    dotnetcore2 = = 2.1.13
+-    flask = = 1.0.3
+-    fusepy==3.0.1
+-    gensim==3.8.1
+-    google-api-core = = 1.16.0
+-    google-auth = = 1.12.0
+-    google-cloud-core = = 1.3.0
+-    google-cloud-storage = = 1.26.0
+-    google-다시 시작 가능-미디어 = = 0.5.0
+-    googleapis-protos = = 1.51.0
+-    gunicorn = = 19.9.0
+-    idna = = 2.9
+-    불균형-배우기 = = 0.4.3
+-    isodate==0.6.0
+-    itsdangerous = = 1.1.0
+-    jeepney = = 0.4.3
+-    jinja2 = = 2.11.1
+-    jmespath = = 0.9.5
+-    joblib = = 0.14.0
+-    py = = 0.2
+-    jsonpickle = = 1.3
+-    jsonschema = = 3.0.1
+-    kiwisolver==1.1.0
+-    liac-arff = = 2.4.0
+-    lightgbm==2.2.3
+-    markupsafe = = 1.1.1
+-    matplotlib = = 3.1.3
+-    itertools = = 6.0.0
+-    msal-extensions = = 0.1.3
+-    msal = = 1.1.0
+-    msrest = = 0.6.11
+-    msrestazure = = 0.6.3
+-    ndg-httpsclient==0.5.1
+-    nimbusml = = 1.6.1
+-    numpy = = 1.18.2
+-    oauthlib==3.1.0
+-    pandas = = 0.25.3
+-    pathspec = = 0.7.0
+-    pip = = 20.0.2
+-    portalocker = = 1.6.0
+-    protobuf = = 3.11.3
+-    pyarrow = = 0.16.0
+-    pyasn1 = = 0.2.8
+-    pyasn1 = = 0.4.8
+-    pycparser = = 2.20
+-    pycryptodomex = = 3.7.3
+-    pyjwt = = 1.7.1 for
+-    pyopenssl = = 19.1.0
+-    pyparsing = = 2.4.6
+-    pyrsistent = = 0.16.0
+-    python-dateutil = = 2.8.1
+-    pytz==2019.3
+-    요청-oauthlib = = 1.3.0
+-    요청 = = 2.23.0
+-    rsa = = 4.0
+-    ruamel.yaml==0.15.89
+-    s3transfer = = 0.3.3
+-    scikit-배우기 = = 0.22.2
+-    scipy = = 1.4.1
+-    secretstorage = = 3.1.2
+-    setuptools = = 46.1.1. post20200323
+-    6 = = 1.14.0
+-    스마트 열림 = = 1.10.0
+-    urllib3 = = 1.25.8
+-    websocket-client = = 0.57.0
+-    werkzeug = = 0.16.1
+-    wheel = = 0.34.2
 
 ## <a name="next-steps"></a>다음 단계
 

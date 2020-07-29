@@ -10,28 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851315"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289054"
 ---
 # <a name="add-interaction-rules"></a>상호 작용 규칙 추가
 
-이 문서에서는 *상호 작용 규칙*에 대해 알아봅니다. 이러한 추가 규칙은 보다 구체적 이거나 복잡 한 상황을 처리 합니다. 사용자 지정 상호 작용 규칙을 직접 작성할 수 있지만이 문서에서는 다음과 같은 대상 시나리오에 대 한 상호 작용 규칙을 사용 합니다.
+이 문서에서는 **상호 작용 규칙**에 대해 알아봅니다. 구체적이 고 복잡 한 상황을 처리 하는 추가 규칙입니다. 사용자 고유의 사용자 지정 상호 작용 규칙을 자유롭게 작성할 수 있지만이 문서에서는 다음과 같은 대상 시나리오에 대 한 상호 작용 규칙을 사용 합니다.
 
 * 명령 확인
 * 명령에 1 단계 수정 추가
 
 상호 작용 규칙에 대해 자세히 알아보려면 [참조](./custom-commands-references.md) 섹션으로 이동 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 다음 문서의 단계를 완료 해야 합니다.
 > [!div class="checklist"]
-> * [간단한 명령으로 애플리케이션 만들기](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [명령에 매개 변수 추가](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [방법: 간단한 명령을 사용 하 여 응용 프로그램 만들기](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [방법: 명령에 매개 변수 추가](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>명령에 확인 추가
 
@@ -40,7 +40,7 @@ ms.locfileid: "85851315"
 1. 왼쪽 창에서 **SetTemperature** 명령을 선택 합니다.
 1. 가운데 창에서 **추가** 를 선택 하 여 상호 작용 규칙을 추가 합니다. 그런 다음 **상호 작용 규칙**  >  **확인 명령**을 선택 합니다.
 
-    이 작업을 수행 하면 3 개의 상호 작용 규칙이 추가 됩니다. 이 규칙은 사용자에 게 알람의 날짜 및 시간을 확인 하 고 다음 턴에 확인 (예/아니요)을 예상 하도록 요청 합니다.
+    이 작업을 수행 하면 사용자에 게 알람 날짜와 시간을 확인 하 고 다음 턴에 확인 (예/아니요)을 예상 하는 세 가지 상호 작용 규칙이 추가 됩니다.
 
     1. 다음 구성에 따라 명령 상호 작용 **확인** 규칙을 수정 합니다.
         1. **이름** 이름을 변경 하 여 **온도를 확인**합니다.
@@ -76,13 +76,13 @@ ms.locfileid: "85851315"
 학습 **을 선택 하**고 학습을 완료할 때까지 기다린 다음 **테스트**를 선택 합니다.
 
 - **Input**: 온도를 80도로 설정 합니다.
-- **출력**: 정상 80?
-- **입력**: 아니요.
+- **출력**: 온도를 80 각도로 설정 하 시겠습니까?
+- **입력**: 아니요
 - **출력**: 문제가 없습니다. 온도는 어떻게 되나요?
-- **입력**: 83도.
-- **출력**: 정상 83?
-- **입력**: 예.
-- **출력**: 정상, 온도를 83 각도로 설정 합니다.
+- **입력**: 72도
+- **출력**: 온도를 72 각도로 설정 하 시겠습니까?
+- **입력**: 예
+- **출력**: 정상, 온도를 83 각도로 설정
 
 
 ## <a name="implement-corrections-in-a-command"></a>명령에서 수정 구현

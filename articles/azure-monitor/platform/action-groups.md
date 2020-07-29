@@ -3,28 +3,26 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a9d0fa9efaa07582212344e617d9a42f264b99ee
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321856"
+ms.locfileid: "87337796"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
-
-이메일 또는 SMS를 통해 개인에게 알리는 작업을 구성하면 해당 개인이 작업 그룹에 추가되었다는 확인 메시지를 수신합니다.
 
 이 문서에서는 Azure Portal에서 작업 그룹을 만들고 관리하는 방법을 보여 줍니다.
 
 각 작업은 다음과 같은 속성으로 구성됩니다.
 
-* **Name**: 작업 그룹 내의 고유 식별자입니다.  
-* **작업 유형**: 실행된 동작. 음성 통화, SMS, 이메일 보내기나, 여러 자동화된 작업 유형 트리거를 예로 들 수 있습니다. 이 문서 뒷부분에 나오는 유형을 참조하세요.
-* **세부 정보**: 작업 유형에 따라 달라지는 해당 세부 정보입니다.
+* **유형**: 수행 되는 알림 또는 동작입니다. 음성 통화, SMS, 이메일 보내기나, 여러 자동화된 작업 유형 트리거를 예로 들 수 있습니다. 이 문서 뒷부분에 나오는 유형을 참조하세요.
+* **Name**: 작업 그룹 내의 고유 식별자입니다.
+* **세부 정보**: *유형별로*달라 지는 해당 세부 정보입니다.
 
 Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](./action-groups-create-resource-manager-template.md)을 참조하세요.
 
@@ -32,33 +30,75 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 1. [Azure Portal](https://portal.azure.com)에서 **모니터**를 검색하여 선택합니다. **모니터** 창은 모든 모니터링 설정과 데이터를 하나의 보기로 통합합니다.
 
-1. **경고**를 선택한 다음, **작업 관리**를 선택합니다.
+1. **경고**를 선택한 다음 **작업 관리**를 선택 합니다.
 
     ![작업 관리 단추](./media/action-groups/manage-action-groups.png)
     
-1. **작업 그룹 추가**를 선택하고 필드를 입력합니다.
+1. **작업 그룹 추가**를 선택 하 고 마법사 환경에서 관련 필드를 채웁니다.
 
-    ![“작업 그룹 추가” 명령](./media/action-groups/add-action-group.png)
+    ![“작업 그룹 추가” 명령](./media/action-groups/add-action-group.PNG)
+
+### <a name="configure-basic-action-group-settings"></a>기본 작업 그룹 설정 구성
+
+**프로젝트 세부 정보**:
+
+작업 그룹이 저장 되는 **구독** 및 **리소스 그룹** 을 선택 합니다.
+
+**인스턴스 세부 정보**에서
+
+1. **작업 그룹 이름을**입력 합니다.
+
+1. **표시 이름을**입력 합니다. 표시 이름은이 그룹을 사용 하 여 알림을 보낼 때 전체 작업 그룹 이름 대신 사용 됩니다.
+
+      ![“작업 그룹 추가” 대화 상자](./media/action-groups/action-group-1-basics.png)
+
+
+### <a name="configure-notifications"></a>알림 구성
+
+1. **다음: 알림 >** 단추를 클릭 하 여 **알림** 탭으로 이동 하거나 화면 맨 위에 있는 **알림** 탭을 선택 합니다.
+
+1. 경고가 트리거될 때 보낼 알림 목록을 정의 합니다. 각 알림에 대해 다음을 제공 합니다.
+
+    a. **알림 유형**: 송신 하려는 알림 유형을 선택 합니다. 사용 가능한 옵션은 다음과 같습니다.
+      * 전자 메일 Azure Resource Manager 역할-특정 구독 수준 ARM 역할에 할당 된 사용자에 게 전자 메일을 보냅니다.
+      * 이메일/SMS/푸시/음성-이러한 알림 유형을 특정 수신자에 게 보냅니다.
     
-1. **작업 그룹 이름** 상자에 이름을 입력하고 **약식 이름** 상자에 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
+    b. **이름**: 알림의 고유한 이름을 입력 합니다.
 
-      ![“작업 그룹 추가” 대화 상자](./media/action-groups/action-group-define.png)
-
-1. **구독** 상자가 현재 구독으로 자동으로 채워집니다. 이 구독은 작업 그룹이 저장되는 위치입니다.
-
-1. 작업 그룹이 저장되는 **리소스 그룹**을 선택합니다.
-
-1. 작업 목록을 정의합니다. 각 작업에 대해 다음을 제공합니다.
-
-    1. **Name**: 이 작업에 대한 고유 식별자를 입력합니다.
-
-    1. **작업 유형**: Automation Runbook, Azure 함수, 이메일 Azure Resource Manager 역할, 이메일/SMS/푸시/음성, ITSM, 논리 앱, 보안 웹후크, 웹후크를 선택합니다.
-
-    1. **세부 정보**: 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
+    c. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
     
-    1. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용하도록 선택할 수 있습니다.
+    d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용하도록 선택할 수 있습니다.
 
-1. **확인**을 선택하여 작업 그룹을 만듭니다.
+    ![알림 탭](./media/action-groups/action-group-2-notifications.png)
+    
+### <a name="configure-actions"></a>작업 구성
+
+1. **다음: 작업 >** 단추를 클릭 하 여 **작업** 탭으로 이동 하거나 화면 위쪽에서 **작업** 탭을 선택 합니다.
+
+1. 경고가 트리거될 때 트리거할 동작 목록을 정의 합니다. 각 작업에 대해 다음을 제공합니다.
+
+    a. **작업 유형**: Automation Runbook, Azure Function, Itsm, 논리 앱, 보안 Webhook, webhook를 선택 합니다.
+    
+    b. **이름**: 동작에 대 한 고유한 이름을 입력 합니다.
+
+    c. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
+    
+    d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용하도록 선택할 수 있습니다.
+    
+    ![작업 탭](./media/action-groups/action-group-3-actions.png)
+
+### <a name="create-the-action-group"></a>작업 그룹 만들기
+
+1. 원하는 경우 **태그** 설정을 둘러볼 수 있습니다. 그러면 분류의 작업 그룹에 키/값 쌍을 연결할 수 있으며 모든 Azure 리소스에 사용할 수 있는 기능입니다.
+
+    ![태그 탭](./media/action-groups/action-group-4-tags.png)
+    
+1. **검토 + 만들기**를 클릭하여 설정을 검토합니다. 그러면 입력의 빠른 유효성 검사를 수행 하 여 모든 필수 필드가 선택 되었는지 확인 합니다. 문제가 있는 경우 여기에 보고됩니다. 설정을 검토 한 후 **만들기** 를 클릭 하 여 작업 그룹을 프로 비전 합니다.
+    
+    ![검토 + 만들기 탭](./media/action-groups/action-group-5-review.png)
+
+> [!NOTE]
+> 전자 메일 또는 SMS를 통해 사용자에 게 알리는 작업을 구성 하는 경우 작업 그룹에 추가 되었음을 나타내는 확인 메시지가 표시 됩니다.
 
 ## <a name="manage-your-action-groups"></a>작업 그룹 관리
 

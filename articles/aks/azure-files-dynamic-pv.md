@@ -5,12 +5,12 @@ description: Azure Files를 사용하여 AKS(Azure Kubernetes Service)에서 여
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: e6735bba4a84a694e4cf6a58f695f2d89afe8994
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e9e686d8da420c650709d3bedc103d0043fa679
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057261"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287116"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -186,6 +186,8 @@ parameters:
 ## <a name="next-steps"></a>다음 단계
 
 관련 모범 사례는 [AKS에서 스토리지 및 백업에 대한 모범 사례][operator-best-practices-storage]를 참조하세요.
+
+저장소 클래스 매개 변수는 [동적 프로 비전](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision)을 참조 하세요.
 
 Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알아봅니다.
 

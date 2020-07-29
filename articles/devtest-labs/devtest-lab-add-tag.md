@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩에 태그 추가 | Microsoft Docs
 description: Azure DevTest Labs에서 랩에 태그를 추가하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483009"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287592"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
 
@@ -52,7 +52,7 @@ ms.locfileid: "85483009"
 * 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다. 스토리지 계정에서 태그 이름은 128자로 제한되며 태그 값은 256자로 제한됩니다.
 * 태그는 해당 리소스 그룹의 리소스에 의해 상속되지 않은 리소스 그룹에 적용됩니다.
 
-PowerShell 또는 Azure CLI를 사용하여 태그를 관리하는 방법을 비롯하여 Azure에서 태그를 사용하는 방법과 관련된 보다 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)에 나와 있습니다.
+PowerShell 또는 Azure CLI를 사용하여 태그를 관리하는 방법을 비롯하여 Azure에서 태그를 사용하는 방법과 관련된 보다 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)에 나와 있습니다.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348672"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367523"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 앱 구성 모범 사례
 
@@ -42,7 +42,7 @@ ms.locfileid: "80348672"
 
 앱 구성은이를 사용 하 여 저장 된 모든 키를 독립적인 엔터티로 처리 합니다. 앱 구성은 키 간의 관계를 유추 하거나 해당 계층 구조를 기반으로 키 값을 상속 하지 않습니다. 그러나 응용 프로그램 코드에서 적절 한 구성 스태킹와 결합 된 레이블을 사용 하 여 여러 키 집합을 집계할 수 있습니다.
 
-한 가지 예를 살펴보겠습니다. **Asset1**라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1**의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
+예를 살펴보겠습니다. **Asset1**라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1**의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
 
 코드에서 먼저 레이블 없이 키 값을 검색 한 다음 "개발" 레이블을 사용 하 여 동일한 키 값 집합을 두 번 검색 합니다. 값을 두 번째로 검색할 때 키의 이전 값을 덮어씁니다. .NET Core 구성 시스템을 사용 하면 여러 구성 데이터 집합을 서로 "스택" 할 수 있습니다. 하나 이상의 집합에 키가 있는 경우 해당 키를 포함 하는 마지막 집합이 사용 됩니다. .NET Core와 같은 최신 프로그래밍 프레임 워크를 사용 하면 네이티브 구성 공급자를 사용 하 여 앱 구성에 액세스 하는 경우이 스택 기능을 무료로 이용할 수 있습니다. 다음 코드 조각에서는 .NET Core 응용 프로그램에서 스태킹를 구현할 수 있는 방법을 보여 줍니다.
 
@@ -81,7 +81,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 * 개별 키를 감시 하지 않고 단일 *센티널 키*를 시청 합니다. 센티널 키가 변경 되는 경우에만 모든 구성을 새로 고칩니다. 예는 [ASP.NET Core 앱에서 동적 구성 사용](enable-dynamic-configuration-aspnet-core.md) 을 참조 하세요.
 
-* 변경을 지속적으로 폴링하는 대신 Azure Event Grid를 사용 하 여 구성이 변경 될 때 알림을 받을 수 있습니다. 자세한 내용은 [웹 끝점에 Azure 앱 구성 이벤트 라우팅](./howto-app-configuration-event.md) 을 참조 하세요.
+* 변경을 지속적으로 폴링하는 대신 Azure Event Grid를 사용 하 여 구성이 변경 될 때 알림을 받을 수 있습니다. 자세한 내용은 [웹 끝점으로 Azure 앱 구성 이벤트 라우팅](./howto-app-configuration-event.md) 을 참조 하세요.
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>구성 데이터를 앱 구성으로 가져오기
 

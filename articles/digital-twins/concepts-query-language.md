@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537501"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337928"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Azure Digital Twins의 쿼리 언어 정보
 
@@ -28,7 +28,7 @@ Azure Digital Twins는 쌍 그래프에 대해 광범위 한 쿼리 기능을 �
 > 모든 Azure Digital Twins 쿼리 작업은 대/소문자를 구분 합니다.
 
 Azure Digital Twins 쿼리 저장소 언어에서 사용할 수 있는 작업은 다음과 같습니다.
-* 디지털 쌍의 속성을 통해 쌍를 가져옵니다.
+* Digital 쌍의 속성 (태그 포함)을 통해 [쌍](how-to-use-tags.md)을 가져옵니다.
 * 디지털 쌍 인터페이스를 통해 쌍을 가져옵니다.
 * 관계 속성으로 쌍를 가져옵니다.
 * 여러 관계 유형 (쿼리)에 대해 쌍을 가져옵니다 `JOIN` . 허용 되는 수에는 제한 사항이 있습니다 `JOIN` (공개 미리 보기의 경우 한 수준).

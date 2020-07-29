@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 3559ae5c246129aa369cb49e7749e499002f1dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048189"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337843"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -119,6 +119,22 @@ azureml_main <- function(dataframe1, dataframe2){
 > [!div class="mx-imgBorder"]
 > ![업로드 된 이미지 미리 보기](media/module/upload-image-in-r-script.png)
 
+## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
+
+다음 샘플 코드를 참조 하 여 작업 영역에서 [등록 된 데이터 집합에 액세스할](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) 수 있습니다.
+
+```R
+        azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 
 R 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는 샘플 코드가 포함 되어 있습니다. R 스크립트 실행 모듈을 구성 하려면 실행할 입력 및 코드 집합을 제공 합니다.
@@ -177,6 +193,25 @@ R 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는 샘�
  
     > [!NOTE]
     > 기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
+
+    스크립트가 16KB 보다 큰 경우 **스크립트 번들** 포트를 사용 하 여 *명령줄이 16597 문자 제한을 초과*하는 것과 같은 오류를 방지 합니다. 
+    
+    스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들 하 고 zip 파일을 **파일 데이터 집합** 으로 스튜디오에 업로드 합니다. 그런 다음 디자이너 제작 페이지의 왼쪽 모듈 창에 있는 *내 데이터* 집합 목록에서 데이터 집합 모듈을 끌 수 있습니다. **R 스크립트 실행** 모듈의 **스크립트 번들** 포트에 데이터 집합 모듈을 연결 합니다.
+    
+    스크립트 번들에서 스크립트를 사용 하는 샘플 코드는 다음과 같습니다.
+
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
 
 1.  **임의 초기값**의 경우 R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
 

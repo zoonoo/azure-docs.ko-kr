@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0e840a9f78a4d6a9fef83abd7b0f011b700f985f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3ce829a9fd58fb2940ee3265a66717af3dc9c0b5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231943"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289065"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 성능 지침
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -108,13 +108,17 @@ TempDB는 중요 업무를 위한 SQL Server 워크로드용 로컬 SSD `D:\` �
       1. 파티션 잘못 맞춤으로 인한 영향이 성능에 미치지 않도록 하려면 OLTP 워크로드에는 64KB(65,536바이트), 데이터 웨어하우징 워크로드에는 256KB(262,144바이트)로 인터리빙(스트라이프 크기)을 설정합니다. 이는 PowerShell로 설정되어야 합니다.
       2. 열 수를 실제 디스크 수로 설정합니다. 8개 이상의 디스크(서버 관리자 UI 아님)를 구성하는 경우 PowerShell을 사용합니다. 
 
-    예를 들어, 다음 PowerShell은 인터리빙 크기가 64KB이며 열 수를 2로 설정한 새 스토리지 풀을 만듭니다.
+    예를 들어 다음 PowerShell은 인터리브 크기가 64 KB이 고 저장소 풀의 실제 디스크 양과 동일한 열 수를 사용 하 여 새 저장소 풀을 만듭니다.
 
     ```powershell
-    $PoolCount = Get-PhysicalDisk -CanPool $True
     $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
-
-    New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false 
+    
+    New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" `
+        -PhysicalDisks $PhysicalDisks | New- VirtualDisk -FriendlyName "DataFiles" `
+        -Interleave 65536 -NumberOfColumns $PhysicalDisks .Count -ResiliencySettingName simple `
+        –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
+        -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" `
+        -AllocationUnitSize 65536 -Confirm:$false 
     ```
 
   * Windows 2008 R2 또는 이전 버전에서는 동적 디스크(OS 스트라이프 볼륨)를 사용할 수 있으며 스트라이프 크기는 항상 64KB입니다. 이 옵션은 Windows 8/Windows Server 2012부터 사용되지 않습니다. 자세한 내용은 [가상 디스크 서비스가 Windows 스토리지 관리 API로 전환](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx)에 있는 지원 설명을 참조하세요.

@@ -3,12 +3,12 @@ title: 리소스 계층 구조를 보호하는 방법 - Azure 거버넌스
 description: 기본 관리 그룹 설정을 포함하는 계층 설정으로 리소스 계층 구조를 보호하는 방법에 대해 알아봅니다.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127999"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366775"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>리소스 계층 구조를 보호하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "87127999"
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-이러한 작업은 사용자가 계층 설정을 읽고 업데이트만 할 수 있도록 허용합니다. 작업은 관리 그룹 계층 구조 또는 계층 구조의 리소스에 대한 다른 액세스 권한을 제공하지 않습니다. 이러한 작업은 모두 기본 제공 RBAC 역할 **계층 설정 관리자**에서 사용할 수 있습니다.
+이러한 작업은 사용자가 계층 설정을 읽고 업데이트만 할 수 있도록 허용합니다. 작업은 관리 그룹 계층 구조 또는 계층 구조의 리소스에 대한 다른 액세스 권한을 제공하지 않습니다. 이러한 작업은 모두 Azure 기본 제공 역할 **계층 구조 설정 관리자**에서 사용할 수 있습니다.
 
 ## <a name="setting---default-management-group"></a>설정 - 기본 관리 그룹
 

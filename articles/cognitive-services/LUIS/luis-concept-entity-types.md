@@ -3,12 +3,12 @@ title: 엔터티 형식-LUIS
 description: 엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676491"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337622"
 ---
 # <a name="extract-data-with-entities"></a>엔터티를 사용 하 여 데이터 추출
 
@@ -51,7 +51,7 @@ ms.locfileid: "84676491"
 
 |발화|예측된 의도|추출 된 엔터티|설명|
 |--|--|--|--|
-|도움말|도움말|-|추출할 항목이 없습니다.|
+|도움말|help|-|추출할 항목이 없습니다.|
 |항목 보내기|sendSomething|-|추출할 항목이 없습니다. 모델에는이 컨텍스트에서 추출 하는 데 필요한 기능이 없으며 `something` 받는 사람이 언급 되지 않습니다.|
 |Bob이 있는 메일 보내기|sendSomething|`Bob`, `present`|모델은 미리 작성 된 `Bob` 엔터티의 필수 기능을 추가 하 여 추출 `personName` 합니다. 기계 학습 엔터티를 추출 하는 데 사용 되었습니다 `present` .|
 |Bob에 게 빠졌습니다의 상자를 보냅니다.|sendSomething|`Bob`, `box of chocolates`|두 개의 중요 한 데이터 `Bob` 및는 `box of chocolates` 기계 학습 엔터티에 의해 추출 됩니다.|
@@ -78,6 +78,12 @@ ms.locfileid: "84676491"
 * 하위 엔터티를 사용 하 여 컴퓨터에서 엔터티를 학습 한 경우 엔터티 및 하위 엔터티의 다른 주문 및 변형이 레이블이 지정 된 길이 발언에 표시 되는지 확인 합니다. 레이블이 지정 된 예 길이 발언는 유효한 모든 폼을 포함 하 고, 표시 되 고 존재 하지 않으며 utterance 내에서 순서가 지정 된 엔터티를 포함 해야 합니다.
 * 엔터티를 매우 고정 된 집합으로 과잉 맞춤 하는 것을 피해 야 합니다. **과잉 맞춤** 는 모델을 일반화 하지 않고 기계 학습 모델에서 일반적인 문제가 발생 한 경우에 발생 합니다. 이는 앱이 새 데이터에 적절 하 게 작동 하지 않음을 의미 합니다. 또한 앱이 사용자가 제공 하는 제한 된 예를 넘어 일반화할 수 있도록 레이블이 지정 된 예제 길이 발언를 변경 해야 합니다. 표시 된 예제 뿐 아니라 더 많은 개념을 고려 하기 위해 모델에 대 한 변경 내용이 충분 한 하위 엔터티를 다르게 지정 해야 합니다.
 
+## <a name="effective-prebuilt-entities"></a>효과적인 미리 작성 한 엔터티
+
+미리 작성 된 [엔터티에서](luis-reference-prebuilt-entities.md)제공 하는 것과 같은 일반 데이터를 추출 하는 효과적인 엔터티를 작성 하려면 다음 프로세스를 수행 하는 것이 좋습니다.
+
+사용자 고유의 데이터를 기능으로 엔터티에 가져오는 방법으로 데이터 추출을 향상 시킵니다. 이렇게 하면 데이터의 모든 추가 레이블에서 응용 프로그램에 사용자 이름이 있는 컨텍스트를 알 수 있습니다.
+
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
 <a name="patternany-entity"></a>
@@ -94,7 +100,7 @@ ms.locfileid: "84676491"
 |엔터티 유형|용도|
 |--|--|
 |[**컴퓨터-학습**](tutorial-machine-learned-entity.md)|레이블이 지정 된 예제에서 배운 중첩 된 복잡 한 데이터를 추출 합니다. |
-|[**은**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
+|[**목록**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
 |[**패턴. 모든**](#patternany-entity)|엔터티 끝을 찾는 엔터티는 자유 형식 이므로 확인 하기 어렵습니다. [패턴](luis-concept-patterns.md)에서만 사용할 수 있습니다.|
 |[**미리 빌드됨**](luis-reference-prebuilt-entities.md)|URL, 전자 메일 등의 특정 종류의 데이터를 추출 하도록 이미 학습 되었습니다. 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다.|
 |[**정규식**](reference-entity-regular-expression.md)|**정확히 일치**하는 텍스트를 위해 정규식을 사용 합니다.|

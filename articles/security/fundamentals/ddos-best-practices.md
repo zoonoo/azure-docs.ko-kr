@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054443"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287806"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>복원 력 있는 솔루션 Azure DDoS Protection 설계
 
@@ -48,7 +48,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 증폭되는 부하, 특히 DDoS 공격 시 증폭되는 부하 수요를 충족할 수 있도록 애플리케이션이 [수평으로 확장 가능](/azure/architecture/guide/design-principles/scale-out)하도록 설계합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
 
-[Azure App Service](/azure/app-service/app-service-value-prop-what-is)의 경우 여러 인스턴스를 제공하는 [App Service 계획](/azure/app-service/overview-hosting-plans)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](/azure/cloud-services/cloud-services-choose-me)를 사용하도록 구성합니다. [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](/azure/virtual-machines/virtual-machines-windows-manage-availability)에 포함되는지 확인합니다. 자동 크기 조정 기능을 사용 하려면 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) 을 사용 하는 것이 좋습니다.
+[Azure App Service](/azure/app-service/app-service-value-prop-what-is)의 경우 여러 인스턴스를 제공하는 [App Service 계획](/azure/app-service/overview-hosting-plans)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](/azure/cloud-services/cloud-services-choose-me)를 사용하도록 구성합니다. [Azure Virtual Machines](../../virtual-machines/index.yml)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](../../virtual-machines/windows/tutorial-availability-sets.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 사용 하려면 [가상 머신 확장 집합](../../virtual-machine-scale-sets/overview.md) 을 사용 하는 것이 좋습니다.
 
 ### <a name="defense-in-depth"></a>심층 방어
 

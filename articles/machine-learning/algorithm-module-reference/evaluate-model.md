@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171121"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285954"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
@@ -80,9 +80,9 @@ ms.locfileid: "86171121"
   
 -   **정확도**는 분류 모델의 적합성을 전체 사례에 대한 참 결과의 비율로 측정합니다.  
   
--   **정밀도**는 모든 긍정 결과에 대한 참 결과의 비율입니다.  
+-   **정밀도**는 모든 긍정 결과에 대한 참 결과의 비율입니다. 전체 자릿수 = TP/(TP + FP)  
   
--   **회수**는 모델에서 반환하는 모든 올바른 결과의 비율입니다.  
+-   **회수** 는 실제로 검색 된 관련 인스턴스의 전체 크기에 대 한 비율입니다. 회수 = TP/(TP + FN)  
   
 -   **F1 점수** 는 전체 자릿수의 가중치가 적용 된 평균으로 계산 되며 이상적인 F1 점수 값이 1 인 0과 1 사이에서 회수 됩니다.  
   

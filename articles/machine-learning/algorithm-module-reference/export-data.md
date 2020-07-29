@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/28/2020
+ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048155"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337826"
 ---
 # <a name="export-data-module"></a>데이터 내보내기 모듈
 
@@ -26,7 +26,7 @@ ms.locfileid: "87048155"
 
 - Azure Blob 컨테이너
 - Azure 파일 공유
-- Azure Data Lake
+- Azure 데이터 레이크
 - Azure Data Lake Gen2
 - Azure SQL 데이터베이스
 
@@ -41,6 +41,9 @@ ms.locfileid: "87048155"
 1. **데이터 내보내기** 를 선택 하 여 **속성** 창을 엽니다.
 
 1. **데이터 저장소**의 경우 드롭다운 목록에서 기존 데이터 저장소를 선택 합니다. 새 데이터 저장소를 만들 수도 있습니다. [Azure storage 서비스에서 데이터 액세스](../how-to-access-data.md)를 방문 하 여 방법을 확인 합니다.
+
+    > [!NOTE]
+    > 특정 데이터 형식의 데이터를 다른 데이터 형식으로 지정 된 SQL database 열로 내보내는 것은 지원 되지 않습니다.
 
 1. **출력 다시 생성**확인란은 실행 시 출력을 다시 생성 하기 위해 모듈을 실행할지 여부를 결정 합니다. 
 

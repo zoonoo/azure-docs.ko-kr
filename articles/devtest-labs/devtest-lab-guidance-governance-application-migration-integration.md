@@ -4,12 +4,12 @@ description: 이 문서에서는 응용 프로그램 마이그레이션 및 통�
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: cebc32edf78df1fa6a72876f8c8e5d23525942b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d86728eefc46c74b49ac610e2207ce5e7ae6a9d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481581"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289356"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
 개발/테스트 랩 환경을 설정한 후에는 다음 사항을 고려해야 합니다.
@@ -50,14 +50,14 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 사용자 지정 조직 이미지를 DevTest Labs 환경으로 가져오기 위해 손쉽게 반복 가능한 프로세스를 설정하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>답변
-[이미지 팩터리 패턴에 대 한이 비디오를](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)참조 하세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
+[이미지 팩터리 패턴에 대 한이 비디오를](./devtest-lab-faq.md#blog-post)참조 하세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
 
 DevTest Labs를 사용하여 Azure Pipelines에서 사용자 지정 이미지 파이프라인 만들기:
 
-- [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [이미지 팩터리 – 2 부! Vm을 만들기 위한 Azure Pipelines 및 공장 랩 설정](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](./devtest-lab-faq.md#blog-post)
+- [이미지 팩터리 – 2 부! Vm을 만들기 위한 Azure Pipelines 및 공장 랩 설정](./devtest-lab-faq.md#blog-post)
+- [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](./devtest-lab-faq.md#blog-post)
+- [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](./devtest-lab-faq.md#blog-post)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>네트워크 구성을 설정하는 패턴
 

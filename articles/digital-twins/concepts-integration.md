@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129732"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367439"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Azure Digital Twins를 다른 서비스와 통합
 
@@ -20,11 +20,11 @@ Azure Digital Twins는 일반적으로 다른 서비스와 함께 사용 됩니�
 
 ## <a name="data-ingress"></a>데이터 수신
 
-Azure Digital Twins는 IoT Hub의 데이터로 구동 될 수 있습니다. 이렇게 하면 사용자 환경의 물리적 장치에서 원격 분석을 수집 하 고 클라우드의 Azure Digital Twins 그래프를 사용 하 여이 데이터를 처리할 수 있습니다.
+Azure Digital Twins는 IoT Hub, Logic Apps, 사용자 지정 서비스 등 모든 서비스의 데이터 및 이벤트를 기반으로 할 수 있습니다. 이렇게 하면 사용자 환경의 물리적 장치에서 원격 분석을 수집 하 고 클라우드의 Azure Digital Twins 그래프를 사용 하 여이 데이터를 처리할 수 있습니다.
 
 Azure Digital Twins에는 기본 제공 되는 IoT Hub 없습니다. 현재 프로덕션에 있는 기존 IoT Hub를 사용 하거나 새 기존을 배포할 수 있습니다. 이는 IoT Hub의 모든 장치 관리 기능에 대 한 모든 권한을 제공 합니다.
 
-IoT Hub에서 Azure Digital Twins로 데이터를 수집 하려면 [azure 함수](../azure-functions/functions-overview.md)를 사용 합니다. 이 패턴에 대 한 자세한 내용은 [*방법: IoT Hub에서 원격 분석 수집*](how-to-ingest-iot-hub-data.md)또는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 직접 사용해 보세요.
+모든 원본에서 Azure Digital Twins로 데이터를 수집 하려면 [azure 함수](../azure-functions/functions-overview.md)를 사용 합니다. 이 패턴에 대 한 자세한 내용은 [*방법: IoT Hub에서 원격 분석 수집*](how-to-ingest-iot-hub-data.md)또는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 직접 사용해 보세요.
 
 ## <a name="data-egress-services"></a>데이터 송신 서비스
 

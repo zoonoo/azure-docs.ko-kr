@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae797e73d52391288a5e8b7cf4a5c6ab2a122fc
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75977308"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337877"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터-Azure Functions 및 SendGrid를 사용 하 여 도어를 열 때 전자 메일 보내기           
 
@@ -172,7 +173,7 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
-DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
+DevKit이 다시 부팅되고 코드 실행이 시작됩니다.
 
 > [!NOTE]
 > 경우에 따라 "오류: AZ3166: 알 수 없는 패키지" 오류 메시지가 표시될 수 있습니다. 보드 패키지 인덱스가 올바르게 새로 고쳐지지 않으면 이 오류가 발생합니다. 이 오류를 해결하려면 [IoT DevKit FAQ의 개발 섹션](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)을 참조하세요.
@@ -196,7 +197,4 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 권장되는 단계는 다음과 같습니다.
-
-* [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](/azure/iot-central/core/howto-connect-devkit)
+Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 제안 된 다음 단계는 다음과 같습니다.[Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)

@@ -3,16 +3,16 @@ title: 여러 랩 및 구독에서 Azure DevTest Labs 사용
 description: 여러 랩 및 구독에서 Azure DevTest Labs 사용량을 보고 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287277"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>여러 랩 및 구독에서 Azure DevTest Labs 사용 보고
 
-대부분의 큰 조직은 사용량에서 추세 및 이상 값을 시각화 하 여 리소스 사용을 보다 효과적으로 추적 하려고 합니다. 리소스 사용량에 따라 랩 소유자 또는 관리자는 [리소스 사용량 및 비용을 개선](https://docs.microsoft.com/azure/billing/billing-getting-started)하도록 랩을 사용자 지정할 수 있습니다. Azure DevTest Labs에서 랩 당 리소스 사용량을 다운로드 하 여 사용 패턴에 대 한 세부적인 기록을 볼 수 있습니다. 이러한 사용 패턴은 효율성 향상을 위해 변경 사항을 정확히 파악 하는 데 도움이 됩니다. 대부분의 기업은 [여러 랩 및 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/)에서 개별 랩 사용량과 전체 사용량을 모두 원합니다. 
+대부분의 큰 조직은 사용량에서 추세 및 이상 값을 시각화 하 여 리소스 사용을 보다 효과적으로 추적 하려고 합니다. 리소스 사용량에 따라 랩 소유자 또는 관리자는 [리소스 사용량 및 비용을 개선](../cost-management-billing/manage/getting-started.md)하도록 랩을 사용자 지정할 수 있습니다. Azure DevTest Labs에서 랩 당 리소스 사용량을 다운로드 하 여 사용 패턴에 대 한 세부적인 기록을 볼 수 있습니다. 이러한 사용 패턴은 효율성 향상을 위해 변경 사항을 정확히 파악 하는 데 도움이 됩니다. 대부분의 기업은 [여러 랩 및 구독](/azure/architecture/cloud-adoption/decision-guides/subscriptions/)에서 개별 랩 사용량과 전체 사용량을 모두 원합니다. 
 
 이 문서에서는 여러 랩 및 구독에서 리소스 사용량 정보를 처리 하는 방법을 설명 합니다.
 
@@ -24,8 +24,8 @@ ms.locfileid: "85483434"
 
 DevTest Labs의 리소스 사용을 내보내려면 먼저 사용 데이터를 포함 하는 다른 파일을 저장할 수 있도록 Azure Storage 계정을 설정 해야 합니다. 데이터 내보내기를 실행 하는 두 가지 일반적인 방법은 다음과 같습니다.
 
-* [DevTest Labs REST API](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* PowerShell Az. Resource 모듈은 [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) 의 작업 `exportResourceUsage` , 랩 리소스 ID 및 필요한 매개 변수를 사용 하 여 AzResourceAction를 호출 합니다. 
+* [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
+* PowerShell Az. Resource 모듈은 [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) 의 작업 `exportResourceUsage` , 랩 리소스 ID 및 필요한 매개 변수를 사용 하 여 AzResourceAction를 호출 합니다. 
 
     [개인 데이터 내보내기 또는 삭제](personal-data-delete-export.md) 문서에는 내보낸 데이터에 대 한 자세한 정보가 포함 된 샘플 PowerShell 스크립트가 포함 되어 있습니다. 
 
@@ -48,8 +48,8 @@ DevTest Labs의 리소스 사용을 내보내려면 먼저 사용 데이터를 �
 
 여러 랩에 대 한 사용 정보를 내보내려면 다음을 사용 하십시오. 
 
-* PowerShell을 비롯 한 여러 언어에서 사용할 수 있는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)또는 
-* [Runbook을 Azure Automation](https://docs.microsoft.com/azure/automation/)PowerShell, Python 또는 사용자 지정 그래픽 디자이너를 사용 하 여 내보내기 코드를 작성 합니다.
+* PowerShell을 비롯 한 여러 언어에서 사용할 수 있는 [Azure Functions](../azure-functions/index.yml)또는 
+* [Runbook을 Azure Automation](../automation/index.yml)PowerShell, Python 또는 사용자 지정 그래픽 디자이너를 사용 하 여 내보내기 코드를 작성 합니다.
 
 이러한 기술을 사용 하 여 특정 날짜 및 시간에 모든 랩에서 개별 랩 내보내기를 실행할 수 있습니다. 
 
@@ -69,13 +69,13 @@ Azure 함수는 데이터를 장기적인 저장소로 푸시 해야 합니다. 
 
 ## <a name="visualizing-data-and-gathering-insights"></a>데이터 시각화 및 정보 수집
 
-원하는 데이터 시각화 도구를 사용 하 여 사용 현황 데이터를 표시 하 고 정보를 수집 하 여 사용 효율성을 확인 합니다. 예를 들어 [Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) 사용 하 여 사용 현황 데이터를 구성 하 고 표시할 수 있습니다. 
+원하는 데이터 시각화 도구를 사용 하 여 사용 현황 데이터를 표시 하 고 정보를 수집 하 여 사용 효율성을 확인 합니다. 예를 들어 [Power BI](/power-bi/power-bi-overview) 사용 하 여 사용 현황 데이터를 구성 하 고 표시할 수 있습니다. 
 
 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 를 사용 하 여 단일 위치 인터페이스 내에서 리소스를 만들고, 연결 하 고, 관리할 수 있습니다. 더 많은 제어가 필요한 경우에는 개별 리소스를 단일 리소스 그룹 내에 만들고 Data Factory 서비스와 독립적으로 관리할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-시스템이 설정 되 고 데이터가 장기 저장소로 이동 하는 경우 다음 단계는 데이터에 응답 해야 하는 질문에 대 한 것입니다. 예를 들어: 
+시스템이 설정 되 고 데이터가 장기 저장소로 이동 하는 경우 다음 단계는 데이터에 응답 해야 하는 질문에 대 한 것입니다. 예를 들면 다음과 같습니다. 
 
 -   VM 크기 사용은 무엇 인가요?
 

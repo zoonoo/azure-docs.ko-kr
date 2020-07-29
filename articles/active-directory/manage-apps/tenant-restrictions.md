@@ -12,12 +12,12 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019253"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285903"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -69,6 +69,11 @@ ms.locfileid: "87019253"
 
 login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들어오는 각 요청에 대해 두 개의 HTTP 헤더인 *Restrict-Access-To-Tenants* 및 *Restrict-Access-Context*를 삽입합니다.
 
+> [!NOTE]
+> SSL 가로채기 및 헤더 주입을 구성할 때에 대 한 트래픽이 https://device.login.microsoftonline.com 제외 되는지 확인 합니다. 이 URL은 장치 인증에 사용 되며 TLS 중단 및 검사는 클라이언트 인증서 인증을 방해할 수 있으며,이로 인해 장치 등록 및 장치 기반 조건부 액세스와 관련 된 문제가 발생할 수 있습니다.
+
+
+
 헤더에는 다음 요소가 포함되어야 합니다.
 
 - *-테 넌 트에 대 한 액세스 제한*의 경우 \<permitted tenant list\> 사용자에 게 액세스를 허용 하려는 테 넌 트의 쉼표로 구분 된 목록 값을 사용 합니다. 테넌트에 등록된 모든 도메인은 이 목록의 테넌트를 식별하는 데 사용할 수 있습니다. 예를 들어 Contoso 및 Fabrikam 테넌트 모두에 대한 액세스를 허용하기 위해 이름/값 쌍은 다음과 같이 지정됩니다.  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
@@ -81,6 +86,9 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 사용자가 승인되지 않은 테넌트에 와 자체 HTTP 헤더를 삽입하지 못하도록 하기 위해 프록시는 *Restrict-Access-To-Tenants* 헤더가 들어오는 요청에 이미 있는 경우 바꾸어야 합니다.
 
 클라이언트는 Login.microsoftonline.com, login.microsoft.com 및 login.windows.net에 대한 모든 요청에 강제로 해당 프록시를 사용하도록 지정되어야 합니다. 예를 들어 PAC 파일을 사용하여 클라이언트가 프록시를 사용하도록 하면 최종 사용자는 PAC 파일을 편집하거나 사용하지 않도록 설정할 수 없습니다.
+
+> [!NOTE]
+> 프록시 구성에서 *. login.microsoftonline.com에 하위 도메인을 포함 하지 마십시오. 이렇게 하면 device.login.microsoftonline.com 포함 되며 장치 등록 및 장치 기반 조건부 액세스 시나리오에서 사용 되는 클라이언트 인증서 인증을 방해할 수 있습니다. TLS 중단 및 검사 및 헤더 주입에서 device.login.microsoftonline.com을 제외 하도록 프록시 서버를 구성 합니다.
 
 ## <a name="the-user-experience"></a>사용자 환경
 

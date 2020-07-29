@@ -10,11 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a8c065c226d1cc94d79b44d16f288fab205a56
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733484"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337860"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
 
@@ -80,14 +81,11 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [클라우드의 Azure IoT Hub에 IoT DevKit AZ3166 연결](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [흔들기, 흔들어서 트윗 찾기](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 MXChip Iot DevKit를 MQTT 클라이언트로 구성하고, MQTT 클라이언트 라이브러리를 사용하여 메시지를 MQTT broker에 보내는 방법을 알아보았으므로 여기서 제안되는 단계는 다음과 같습니다.
-
-* [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](/azure/iot-central/core/howto-connect-devkit)
+이제 MXChip Iot DevKit를 MQTT 클라이언트로 구성 하 고 MQTT 클라이언트 라이브러리를 사용 하 여 MQTT broker로 메시지를 보내는 방법을 알아보았습니다. [Azure Iot 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/) 에서 제안 하는 다음 단계를 참조 하세요.

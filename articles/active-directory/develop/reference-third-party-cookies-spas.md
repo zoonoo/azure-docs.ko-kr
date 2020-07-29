@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 1478ee1396390e26d333230b0254578ec748ef6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477263"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311758"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>타사 쿠키를 차단하는 Safari 및 다른 브라우저에서 ITP 처리
 
@@ -46,7 +46,7 @@ Microsoft ID 플랫폼의 경우, SPA 및 네이티브 클라이언트는 다음
 
 SPA에는 다음의 두 가지 추가 제한 사항이 있습니다.
 
-* [로그인 엔드포인트에서 CORS를 사용하려면 리디렉션 URI를 `spa`](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) 형식으로 표시해야 합니다.
+* [로그인 엔드포인트에서 CORS를 사용하려면 리디렉션 URI를 `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) 형식으로 표시해야 합니다.
 * `spa` 리디렉션 URI에 대한 인증 코드 흐름을 통해 발급된 새로 고침 토큰의 수명은 90일이 아닌 24시간입니다.
 
 ![SPA 앱에 대한 코드 흐름](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)

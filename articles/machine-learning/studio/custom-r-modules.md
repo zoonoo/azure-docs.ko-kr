@@ -1,6 +1,5 @@
 ---
-title: 사용자 지정 R 모듈 만들기 & 배포
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 사용자 지정 R 모듈 만들기 & 배포-Azure'
 description: ML Studio (클래식)에서 사용자 지정 R 모듈을 작성 하 고 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957327"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287248"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
+# <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
 
 이 항목에서는 사용자 지정 R Studio (클래식)를 작성 하 고 배포 하는 방법에 대해 설명 합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
@@ -142,7 +144,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 
 * **입력 및 출력 포트** 의 최대 개수는 각각 8개입니다.
 
-### <a name="input-elements"></a>Input 요소
+### <a name="input-elements"></a>입력 요소
 입력 포트를 통해 사용자는 R 함수 및 작업 영역으로 데이터를 전달할 수 있습니다. 입력 포트에 지원되는 **데이터 형식** 은 다음과 같습니다. 
 
 **DataTable:** 이 형식은 data.frame으로 R 함수에 전달됩니다. 실제로 Machine Learning에서 지원되고 **DataTable** 과 호환되는 모든 형식(예: CSV 파일 또는 ARFF 파일)은 자동으로 data.frame으로 변환됩니다. 
@@ -303,7 +305,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     * 숫자
     * Boolean
     * 범주
-    * String
+    * 문자열
     * 레이블
     * 기능
     * 점수

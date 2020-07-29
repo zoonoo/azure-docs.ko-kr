@@ -3,12 +3,13 @@ title: 사용자 지정 이벤트 및 메트릭용 Application Insights API | Mi
 description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: d263c99af7793acbe1f939f64c5cc2dcadd3a054
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 430ec96006ed8f564ea5bbd0a28beca858ebe1ab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323233"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366875"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -31,7 +32,7 @@ ms.locfileid: "87323233"
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
-## <a name="before-you-start"></a><a name="prep"></a>시작 하기 전에
+## <a name="before-you-start"></a><a name="prep"></a>시작하기 전에
 
 Application Insights SDK에 대한 참조가 아직 없는 경우:
 

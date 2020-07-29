@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/01/2020
+ms.date: 07/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8d6c9ab2bacf94b3a27bfd1de0189d8b89b5efaf
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf8fa174611c7173c957ded49ff9135f90cebc08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129443"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287207"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -52,6 +52,22 @@ $ras.Count
 ## <a name="problems-with-azure-role-assignments"></a>Azure 역할 할당 문제
 
 - 추가 역할 할당 추가 옵션을 사용할 수 없거나 "개체 id가 있는 클라이언트에 작업을 수행할 수 **Add**있는 권한이 없습니다." 라는 권한 오류가 발생 하 여 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우  >  **Add role assignment** 역할을 `Microsoft.Authorization/roleAssignments/write` 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
+- 서비스 주체를 사용 하 여 역할을 할당 하는 경우 "작업을 완료 하는 데 필요한 권한이 없습니다." 오류가 발생할 수 있습니다. 예를 들어 소유자 역할이 할당 되 고 Azure CLI를 사용 하 여 서비스 주체로 다음 역할 할당을 만들려고 하는 서비스 사용자가 있다고 가정해 보겠습니다.
+
+    ```azurecli
+    az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
+    az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
+
+    "작업을 완료할 수 있는 권한이 부족 합니다." 오류가 발생 하는 경우 Azure CLI가 Azure AD에서 담당자 id를 조회 하려고 시도 하 고 서비스 사용자가 기본적으로 Azure AD를 읽을 수 없기 때문일 수 있습니다.
+
+    이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할을 할당 하는 것입니다. 디렉터리에 대 한 권한을 부여할 수도 있습니다. Microsoft Graph의 [All 사용 권한을 참조](https://docs.microsoft.com/graph/permissions-reference) 하십시오.
+
+    이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md#new-service-principal)를 참조 하세요.
+
+    ```azurecli
+    az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
 
@@ -205,7 +221,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 * 엔드포인트  
 * IP 주소  
 * 디스크  
-* Extensions  
+* 확장  
 
 다음 항목을 사용하려면 **가상 머신**와 가상 머신이 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
 
