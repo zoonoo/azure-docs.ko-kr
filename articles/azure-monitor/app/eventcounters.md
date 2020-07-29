@@ -3,12 +3,12 @@ title: Application Insights의 이벤트 카운터 | Microsoft Docs
 description: Application Insights에서 시스템 및 사용자 지정 .NET/.NET Core EventCounters 모니터링
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324406"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 소개
 
@@ -124,7 +124,7 @@ customMetrics
 다른 원격 분석과 마찬가지로 **customMetrics**에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 위의 쿼리는 인스턴스당 카운터 값을 표시하며 다른 서버 인스턴스의 성능을 비교하는 데 사용할 수 있습니다.
 
 ## <a name="alerts"></a>경고
-다른 메트릭과 마찬가지로 이벤트 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../../azure-monitor/platform/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
+다른 메트릭과 마찬가지로 이벤트 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../platform/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -148,4 +148,5 @@ EventCounter는 특별한 사용 권한이 필요하지 않으며 모든 플랫�
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 
-* [종속성 추적](../../azure-monitor/app/asp-net-dependencies.md)
+* [종속성 추적](./asp-net-dependencies.md)
+

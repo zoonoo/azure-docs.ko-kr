@@ -3,14 +3,15 @@ title: Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 description: Micrometer를 Application Insights Spring Boot 및 Spring Boot 이외 애플리케이션에 사용하기 위한 단계별 가이드입니다.
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: da75498d6e4616b287ddb11c69df2469baaf2655
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fbdf4e267e0f9a479a89d6f31e72f09d9e11bb0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067641"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322570"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코드의 메트릭을 측정하며, 자주 사용하는 모니터링 시스템으로 데이터를 내보낼 수 있습니다. 이 문서에서는 Spring Boot 및 Spring Boot 이외 애플리케이션 모두에 대해 Application Insights에 Micrometer를 사용하는 방법을 안내합니다.
@@ -20,7 +21,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 * [Application Insights 스프링-부팅-스타터](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 이상
 * Micrometer Azure Registry 1.1.0 이상
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 이상(Spring 프레임워크의 자동 구성 코드 지원)
-* [ApplicationInsights 리소스](../../azure-monitor/app/create-new-resource.md )
+* [ApplicationInsights 리소스](./create-new-resource.md)
 
 단계
 
@@ -58,7 +59,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 * Application Insights Spring-boot-starter 2.1.2 이상
 * Azure-스프링-부팅-메트릭-초보자 2.0.7 이상
-* [Application Insights 리소스](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights 리소스](./create-new-resource.md)
 
 단계:
 
@@ -117,7 +118,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 * Application Insights Web Auto 2.5.0 이상
 * Micrometer Azure Registry 1.1.0 이상
-* [Application Insights 리소스](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights 리소스](./create-new-resource.md)
 
 단계:
 
@@ -272,3 +273,4 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 * 마이크로 측정기에 대해 자세히 알아보려면 공식 [마이크로 측정기 설명서](https://micrometer.io/docs)를 참조 하세요.
 * Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](/java/azure/spring-framework/?view=azure-java-stable)를 참조 하세요.
+

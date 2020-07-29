@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 7fac201de2fd623058eb5771e194ae697f879ee8
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 20175e252d009620585e20cf76cdb634549b4f1d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224165"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323913"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>프로그래밍 방식으로 Azure 구독 만들기 (미리 보기)
 
@@ -26,7 +26,7 @@ Azure 구독을 프로그래밍 방식으로 만드는 경우 해당 구독은 M
 
 다음 섹션의 정보를 사용 하 여 EA 구독을 만들 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 구독을 만들려면 등록 계정에 대 한 소유자 역할이 있어야 합니다. 다음 두 가지 방법으로 역할을 가져올 수 있습니다.
 
@@ -160,7 +160,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-먼저를 실행 하 여이 미리 보기 모듈을 설치 `Install-Module Az.Subscription -AllowPrerelease` 합니다. `-AllowPrerelease`가 작동하는지 확인하려면 [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget)에서 최신 버전의 PowerShellGet을 설치합니다.
+Cmdlet이 포함 된 모듈의 최신 버전을 설치 하려면 `New-AzSubscription` 를 실행 `Install-Module Az.Subscription` 합니다. PowerShellGet의 최신 버전을 설치 하려면 [Powershellget 모듈 가져오기](/powershell/scripting/gallery/installing-psget)를 참조 하세요.
 
 아래의 [AzSubscription](/powershell/module/az.subscription) 명령을 실행 하 고을 `<enrollmentAccountObjectId>` `ObjectId` 첫 번째 단계 ()에 수집 된로 바꿉니다 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . 소유자를 지정 하려면 [사용자 개체 id를 가져오는 방법을](grant-access-to-create-subscription.md#userObjectId)알아보세요.
 
@@ -177,7 +177,8 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | 예       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 이메일 주소입니다. `OwnerObjectId` 대신 이 매개 변수를 사용할 수 있습니다.|
 | `OwnerApplicationId` | 예       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 서비스 사용자의 애플리케이션 ID입니다. `OwnerObjectId` 대신 이 매개 변수를 사용할 수 있습니다. 이 매개 변수를 사용하는 경우 서비스 주체는 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 있어야 합니다.|
 
-모든 매개 변수의 전체 목록을 보려면 [New-AzSubscription](/powershell/module/az.subscription)을 참조하세요.
+모든 매개 변수의 전체 목록을 보려면 [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription)을 참조하세요.
+
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -212,7 +213,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 ## <a name="create-subscriptions-for-an-mca-account"></a>MCA 계정에 대 한 구독 만들기
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 구독을 만들려면 청구 프로필 또는 청구 계정에 대 한 청구서 섹션 또는 소유자 또는 참가자 역할에 소유자, 참가자 또는 Azure 구독 작성자 역할이 있어야 합니다. 자세한 내용은 [구독 청구 역할 및 작업](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.
 
@@ -353,7 +354,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ## <a name="create-subscriptions-for-an-mpa-billing-account"></a>MPA 청구 계정에 대 한 구독 만들기
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 청구 계정에 대 한 구독을 만들려면 조직의 클라우드 솔루션 공급자 계정에 전역 관리자 또는 관리 에이전트 역할이 있어야 합니다. 자세한 내용은 [파트너 센터-사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조 하세요.
 

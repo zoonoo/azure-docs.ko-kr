@@ -1,17 +1,17 @@
 ---
 title: Azure Automation에서 역할 권한 및 보안 관리
-description: 이 문서에서는 Azure 리소스의 액세스 관리를 지원하는 RBAC(역할 기반 액세스 제어)를 사용하는 방법을 설명합니다.
+description: 이 문서에서는 Azure 리소스에 대 한 액세스 관리를 가능 하 게 하는 RBAC (역할 기반 액세스 제어)를 사용 하는 방법을 설명 합니다.
 keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186149"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279885"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -69,7 +69,12 @@ Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 �
 
 ### <a name="automation-operator"></a>Automation 운영자
 
-Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Automation 계정의 모든 Runbook에 대한 Runbook 이름 및 속성을 읽을 수 있습니다.  참고: 개별 Runbook에 액세스하도록 연산자를 제어하려는 경우에는 이 역할을 설정하지 말고 대신 ‘Automation 작업 연산자’ 및 ‘Automation Runbook 연산자’ 역할을 조합하여 사용합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
+Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Automation 계정의 모든 Runbook에 대한 Runbook 이름 및 속성을 읽을 수 있습니다.
+
+>[!NOTE]
+>개별 runbook에 대 한 운영자 액세스를 제어 하려면이 역할을 설정 하지 않습니다. 대신 **Automation 작업 연산자** 및 **자동화 Runbook operator** 역할을 함께 사용 합니다.
+
+다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
 |**actions**  |**설명**  |
 |---------|---------|
@@ -96,7 +101,9 @@ Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Auto
 
 ### <a name="automation-job-operator"></a>Automation 작업 연산자
 
-Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩니다. 그러면 연산자 권한이 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
+Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩니다. 그러면 연산자 권한이 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 작업 운영자 역할에 Automation 계정이 포함 된 리소스 그룹에 대 한 읽기 권한이 부여 된 경우 해당 역할의 멤버는 runbook을 시작할 수 있습니다. 그러나 이러한 항목은 생성, 편집 또는 삭제할 수 없습니다.
+
+다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
 |**actions**  |**설명**  |
 |---------|---------|
@@ -114,7 +121,7 @@ Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩�
 
 ### <a name="automation-runbook-operator"></a>Automation Runbook 연산자
 
-Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Automation Runbook 연산자 역할은 Runbook의 이름 및 속성을 볼 수 있습니다.  ‘Automation 작업 연산자’ 역할과 결합된 이 역할은 연산자가 Runbook에 대한 작업을 만들고 관리할 수 있도록 설정합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
+Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Automation Runbook 연산자 역할은 Runbook의 이름 및 속성을 볼 수 있습니다.이 역할을 **Automation 작업 operator** 역할과 결합 하면 운영자가 runbook에 대 한 작업을 만들고 관리할 수도 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
 |**actions**  |**설명**  |
 |---------|---------|
@@ -213,7 +220,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |**동작**  |**사용 권한**  |**최소 범위**  |
 |---------|---------|---------|
 |새 배포 쓰기      | Microsoft.Resources/deployments/*          |Subscription          |
-|새 리소스 그룹 쓰기      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|새 리소스 그룹 쓰기      | Microsoft.Resources/subscriptions/resourceGroups/write        | 구독          |
 |새로운 기본 작업 영역 만들기      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |새 계정 만들기      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |작업 영역 및 계정 연결      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|작업 영역</br>Automation 계정
@@ -235,7 +242,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |**동작**  |**사용 권한** |**최소 범위**  |
 |---------|---------|---------|
 |새 배포 만들기     | Microsoft.Resources/deployments/*        | Subscription         |
-|새 리소스 그룹 만들기     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|새 리소스 그룹 만들기     | Microsoft.Resources/subscriptions/resourceGroups/write         | 구독        |
 |AutomationOnboarding 블레이드 - 새 작업 영역 만들기     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |AutomationOnboarding 블레이드 - 연결된 작업 영역 읽기     | Microsoft.Automation/automationAccounts/read        | Automation 계정       |
 |AutomationOnboarding 블레이드 - 솔루션 읽기     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | 해결 방법        |
@@ -290,6 +297,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
    ![사용자 나열](media/automation-role-based-access-control/automation-05-list-users.png)
 
    역할 페이지에서 사용자에게 역할을 할당할 수도 있습니다.
+
 4. 액세스 제어(IAM) 페이지에서 **역할**을 클릭하여 역할 페이지를 엽니다. 역할의 이름과 해당 역할에 할당된 사용자 및 그룹의 수를 볼 수 있습니다.
 
     ![사용자 페이지에서 역할 할당](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -353,7 +361,7 @@ ObjectType         : User
 ```
 
 [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0)를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 액세스 권한을 할당합니다.
-    
+
 **예:** 다음 명령을 사용하여 Automation 계정 범위의 사용자에 "Automation 운영자" 역할을 할당합니다.
 
 ```azurepowershell-interactive

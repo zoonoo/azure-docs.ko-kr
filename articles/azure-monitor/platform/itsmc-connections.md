@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 7baabe455128bf420a3c3e11ea83bb5357ed35c8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505162"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325358"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
-이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.
+이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
 
 다음 ITSM 제품/서비스는 지원되지 않습니다. 제품을 ITSMC에 연결하는 방법에 대한 자세한 정보를 보려면 제품을 선택합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "86505162"
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Service Manager 웹 애플리케이션(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
 - 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection).
 - 지원되는 Service Manager 버전:  2012 R2 또는 2016.
@@ -64,7 +64,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 | **연결 이름**   | ITSMC에 연결하려는 System Center Service Manager 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 인스턴스/보기의 자세한 로그 분석에서 작업 항목을 구성할 때 사용합니다. |
 | **파트너 유형**   | **System Center Service Manager**를 선택합니다. |
 | **서버 URL**   | Service Manager 웹앱의 URL을 입력합니다. Service Manager 웹앱에 대한 자세한 내용은 [여기](#create-and-deploy-service-manager-web-app-service)에 나와 있습니다.
-| **클라이언트 ID**   | 웹앱을 인증하기 위해 생성한 클라이언트 ID를 입력합니다(자동 스크립트 사용). 자동화된 스크립트에 대한 자세한 내용은 [여기](../../azure-monitor/platform/itsmc-service-manager-script.md)에 나와 있습니다.|
+| **클라이언트 ID**   | 웹앱을 인증하기 위해 생성한 클라이언트 ID를 입력합니다(자동 스크립트 사용). 자동화된 스크립트에 대한 자세한 내용은 [여기](./itsmc-service-manager-script.md)에 나와 있습니다.|
 | **클라이언트 암호**   | 이 ID에 대해 생성된 클라이언트 암호를 입력합니다.   |
 | **데이터 동기화**   | ITSMC를 통해 동기화할 Service Manager 작업 항목을 선택합니다.  이러한 작업 항목을 Log Analytics로 가져옵니다. **옵션:**  인시던트, 변경 요청.|
 | **데이터 동기화 범위** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
@@ -79,7 +79,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Service Manager 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Service Manager 웹앱 서비스 만들기 및 배포
 
@@ -87,11 +87,11 @@ Azure에서 ITSMC에 온-프레미스 Service Manager를 연결하기 위해 Mic
 
 Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니다.
 
-- **웹앱 배포** – 웹앱을 배포하고, 속성을 설정하고, Azure AD를 사용하여 인증합니다. Microsoft에서 제공한 [자동화 스크립트](../../azure-monitor/platform/itsmc-service-manager-script.md)를 사용하여 웹앱을 배포할 수 있습니다.
+- **웹앱 배포** – 웹앱을 배포하고, 속성을 설정하고, Azure AD를 사용하여 인증합니다. Microsoft에서 제공한 [자동화 스크립트](./itsmc-service-manager-script.md)를 사용하여 웹앱을 배포할 수 있습니다.
 - **하이브리드 연결 구성** - 수동으로 [이 연결을 구성](#configure-the-hybrid-connection)합니다.
 
 #### <a name="deploy-the-web-app"></a>웹앱 배포
-자동화 [스크립트](../../azure-monitor/platform/itsmc-service-manager-script.md)를 사용하여 웹앱을 배포하고, 속성을 설정하고, Azure AD를 사용하여 인증합니다.
+자동화 [스크립트](./itsmc-service-manager-script.md)를 사용하여 웹앱을 배포하고, 속성을 설정하고, Azure AD를 사용하여 인증합니다.
 
 다음 필수 정보를 제공하여 스크립트를 실행합니다.
 
@@ -178,7 +178,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ### <a name="prerequisites"></a>사전 요구 사항
 다음 필수 조건이 충족되는지 확인합니다.
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow는 지원되는 버전: New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 > [!NOTE]
 > ITSMC는 Service Now의 공식 SaaS 제품만 지원합니다. Service Now의 비공개 배포는 지원되지 않습니다. 
@@ -247,7 +247,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 ServiceNow 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 
 > [!NOTE]
@@ -303,7 +303,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 필수 조건이 충족되는지 확인합니다.
 
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance 앱을 Azure AD에 등록해야 합니다. 그래야 클라이언트 ID를 사용할 수 있게 됩니다. 자세한 내용은 [Active Directory 인증을 구성하는 방법](../../app-service/configure-authentication-provider-aad.md)을 참조하세요.
 
 - 사용자 역할:  관리자.
@@ -345,7 +345,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Provance 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Cherwell을 Azure의 IT 서비스 관리 커넥터에 연결
 
@@ -355,7 +355,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - 클라이언트 ID가 생성되었습니다. 추가 정보: [Cherwell용 클라이언트 ID 생성](#generate-client-id-for-cherwell).
 - 사용자 역할:  관리자.
 
@@ -397,7 +397,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Cherwell 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 
 ### <a name="generate-client-id-for-cherwell"></a>Cherwell용 클라이언트 ID 생성
 
@@ -411,4 +411,5 @@ Cherwell용 클라이언트 ID/키를 생성하려면 다음 절차를 수행합
 
 
 ## <a name="next-steps"></a>다음 단계
- - [Azure 경고에서 ITSM 작업 항목 만들기](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Azure 경고에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+

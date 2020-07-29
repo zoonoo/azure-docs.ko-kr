@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
-ms.date: 01/22/2019
-ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: 6efe6392c32221f979a9ac319b4385b4b94b1235
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101429"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171309"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>MySQL을 사용 하 여 인증을 위해 Azure Active Directory 사용
 
@@ -57,7 +57,7 @@ Azure AD를 인식하지 못하고 MySQL에 연결할 때 사용자 이름 및 �
 
 다음은 사용자/애플리케이션에서 Azure AD로 인증해야 하는 단계입니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure Cloud Shell, Azure VM 또는 로컬 컴퓨터에서 수행할 수 있습니다. [Azure CLI가 설치](/cli/azure/install-azure-cli)되어 있는지 확인합니다.
 
@@ -145,7 +145,7 @@ Azure Database for MySQL 데이터베이스에 Azure AD 사용자를 추가하�
 2. Azure AD 관리 사용자로 Azure Database for MySQL 인스턴스에 로그인합니다.
 3. Azure Database for MySQL에서 `<user>@yourtenant.onmicrosoft.com` 사용자를 만듭니다.
 
-**예제:**
+**예:**
 
 ```sql
 CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';

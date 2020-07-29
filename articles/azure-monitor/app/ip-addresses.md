@@ -5,15 +5,15 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/18/2020
-ms.openlocfilehash: dc1aef1f25be8d65dbd4f34bfc728335dc7a90f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cf4ac48cfbb969ae617551f13b43c15819510f7b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014459"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322655"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
+[Azure Application Insights](./app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
 
 > [!NOTE]
 > 이러한 주소는 고정이지만 경우에 따라 변경해야 할 수 있습니다. 모든 Application Insights 트래픽은 인바운드 방화벽 규칙을 필요로 하는 가용성 모니터링 및 웹후크를 제외하고 아웃바운드 트래픽을 나타냅니다.
@@ -36,7 +36,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 ## <a name="status-monitor"></a>상태 모니터
 상태 모니터 구성 - 변경하는 경우에만 필요합니다.
 
-| 목적 | URL | IP | 포트 |
+| 용도 | URL | IP | 포트 |
 | --- | --- | --- | --- |
 | 구성 |`management.core.windows.net` | |`443` |
 | 구성 |`management.azure.com` | |`443` |
@@ -48,7 +48,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 | 설치 | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>가용성 테스트
-[가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
+[가용성 웹 테스트](./monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
 
 ### <a name="service-tag"></a>서비스 태그
 
@@ -191,7 +191,7 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="application-insights-analytics"></a>Application Insights 분석
 
-| 목적 | URI | IP | 포트 |
+| 용도 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | 분석 포털 | analytics.applicationinsights.io | 동적 | 80,443 |
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
@@ -201,7 +201,7 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="log-analytics-portal"></a>Log Analytics 포털
 
-| 목적 | URI | IP | 포트 |
+| 용도 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | 포털 | portal.loganalytics.io | 동적 | 80,443 |
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
@@ -210,14 +210,14 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure Portal 확장
 
-| 목적 | URI | IP | 포트 |
+| 용도 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | Application Insights 확장 | stamp2.app.insightsportal.visualstudio.com | 동적 | 80,443 |
 | Application Insights 확장 CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | 동적 | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Application Insights SDK
 
-| 목적 | URI | IP | 포트 |
+| 용도 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | 동적 | 80,443 |
 
@@ -245,3 +245,4 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 | 에이전트 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | 포털 | ppe.gateway.azureserviceprofiler.net | 동적 | 443
 | 스토리지 | *.core.windows.net | 동적 | 443
+

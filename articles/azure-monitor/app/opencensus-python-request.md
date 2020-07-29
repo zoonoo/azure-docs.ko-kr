@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6eae11e2157904b47582f78a601c8d2900e61247
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753201"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324593"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>OpenCensus Python을 사용 하 여 들어오는 요청 추적
 
 들어오는 요청 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 인기 있는 웹 프레임 워크를 기반으로 하는 웹 응용 프로그램에 전송 된 들어오는 요청 데이터를 추적 `django` `flask` `pyramid` 합니다. 그런 다음 데이터는 원격 분석으로 Azure Monitor Application Insights 전송 됩니다 `requests` .
 
-먼저 최신 [OpenCensus PYTHON SDK](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
+먼저 최신 [OpenCensus PYTHON SDK](./opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
 
 ## <a name="tracking-django-applications"></a>Django 응용 프로그램 추적
 
@@ -119,8 +119,9 @@ ms.locfileid: "84753201"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [애플리케이션 맵](../../azure-monitor/app/app-map.md)
-* [가용성](../../azure-monitor/app/monitor-web-app-availability.md)
-* [검색](../../azure-monitor/app/diagnostic-search.md)
-* [로그 (분석) 쿼리](../../azure-monitor/log-query/log-query-overview.md)
-* [트랜잭션 진단](../../azure-monitor/app/transaction-diagnostics.md)
+* [애플리케이션 맵](./app-map.md)
+* [가용성](./monitor-web-app-availability.md)
+* [검색](./diagnostic-search.md)
+* [로그 (분석) 쿼리](../log-query/log-query-overview.md)
+* [트랜잭션 진단](./transaction-diagnostics.md)
+

@@ -3,12 +3,12 @@ title: Application Insights에 대한 릴리스 주석 | Microsoft Docs
 description: Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093037"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320666"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
@@ -34,7 +34,7 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
 
 각 Azure Pipelines 릴리스 템플릿에 대 한 별도의 API 키를 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 응용 프로그램을 모니터링 하는 Application Insights 리소스를 엽니다. 또는 [새 Application Insights 리소스를 만듭니다](../../azure-monitor/app/app-insights-overview.md).
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 응용 프로그램을 모니터링 하는 Application Insights 리소스를 엽니다. 또는 [새 Application Insights 리소스를 만듭니다](./app-insights-overview.md).
    
 1. **API 액세스** 탭을 열고 **Application Insights ID**를 복사 합니다.
    
@@ -115,5 +115,6 @@ GitHub의 [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [작업 항목 만들기](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [PowerShell을 사용한 Automation](../../azure-monitor/app/powershell.md)
+* [작업 항목 만들기](./diagnostic-search.md#create-work-item)
+* [PowerShell을 사용한 Automation](./powershell.md)
+

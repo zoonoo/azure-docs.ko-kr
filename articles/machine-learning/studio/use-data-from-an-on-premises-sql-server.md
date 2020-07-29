@@ -1,6 +1,5 @@
 ---
-title: 온-프레미스 SQL Server
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 온-프레미스 SQL Server-Azure'
 description: SQL Server 데이터베이스의 데이터를 사용 하 여 Azure Machine Learning Studio (클래식)을 통해 고급 분석을 수행할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 49ec8916e03323bdf4263fe9ea6cfca323339dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e654950360b7891e59f4f273efb7139a5223854a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706055"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324848"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>SQL Server 데이터베이스를 사용 하 여 Azure Machine Learning Studio (클래식)으로 분석 수행
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. Azure Machine Learning Studio (클래식)에서는 이제 SQL Server 데이터베이스에서 데이터를 읽은 다음이 데이터를 사용 하 여 모델을 학습 하 고 점수를 매길 수 있습니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio (클래식)의 **데이터 가져오기** 모듈에서 학습 및 점수 매기기 작업을 위해 SQL Server 데이터베이스에서 직접 읽을 수 있습니다.
 

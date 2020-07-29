@@ -4,15 +4,15 @@ description: 지정한 제품을 게시하는 API를 소개합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 1dede788242f858468c00e9f30f70ebdbe60cd1b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272048"
 ---
 # <a name="publish-an-offer"></a>제안 게시
 
@@ -26,11 +26,11 @@ ms.locfileid: "87086407"
 ## <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **이름**      |    **설명**                               |  **데이터 형식** |
+|  **Name**      |    **설명**                               |  **데이터 형식** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | 게시자 식별자입니다(예: `contoso`).      |   String       |
-|  offerId       | 제안 식별자입니다.                                 |   String       |
-|  api-version   | 최신 버전의 API입니다.                        |   날짜         |
+|  publisherId   | 게시자 식별자입니다(예: `contoso`).      |   문자열       |
+|  offerId       | 제안 식별자입니다.                                 |   문자열       |
+|  api-version   | 최신 버전의 API입니다.                        |   Date         |
 |  |  |
 
 ## <a name="header"></a>헤더
@@ -59,7 +59,7 @@ ms.locfileid: "87086407"
 
 ### <a name="request-body-properties"></a>요청 본문 속성
 
-|  **이름**               |   **설명**                                                                                 |
+|  **Name**               |   **설명**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
 |  notification-emails    | 게시 작업의 진행률 알림을 받을 전자 메일 주소의 쉼표로 구분된 목록입니다. |
 |  |  |

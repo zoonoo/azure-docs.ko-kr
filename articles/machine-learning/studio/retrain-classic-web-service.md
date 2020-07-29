@@ -1,6 +1,5 @@
 ---
-title: 기존 웹 서비스 다시 학습
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (클래식): 다시 학습 기존 웹 서비스-Azure'
 description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 모델을 사용 하도록 모델을 다시 학습 하 고 기존 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: c1dd91a800c8e807d527f24a381262bde97d792c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d24449f942a8c0da6774ebb2aa85f94a3088b36c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080315"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324950"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio (클래식) 웹 서비스 다시 학습 및 배포
+
+**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio (클래식) 웹 서비스를 다시 학습 하는 방법을 보여 줍니다. 새 Studio (클래식) 웹 서비스를 다시 학습 하는 방법에 대 한 지침은 [이 방법 문서를 참조 하세요.](retrain-machine-learning-model.md)
 
@@ -58,7 +60,7 @@ ms.locfileid: "86080315"
 1. [Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털에 로그인합니다.
 1. 맨 위에 있는 **웹 서비스** 또는 **기존 웹 서비스**를 클릭합니다.
 1. 사용 중인 점수 매기기 웹 서비스를 클릭합니다(웹 서비스의 기본 이름을 수정하지 않은 경우 “[Scoring Exp.]”로 끝남).
-1. **+새로 만들기**를 클릭합니다.
+1. **+ 새로 만들기**를 클릭 합니다.
 1. 엔드포인트가 추가된 후 엔드포인트 이름을 클릭합니다.
 1. **패치** URL 아래의 **API 도움말**을클 릭하여 패치 도움말 페이지를 엽니다.
 

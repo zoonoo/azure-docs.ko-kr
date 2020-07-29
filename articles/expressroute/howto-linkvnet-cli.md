@@ -5,13 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/21/2019
+ms.date: 07/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 133a586612f8a5b864c84400ece63d9ba6ccb150
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d51409baf9d5ca6ce90f1367ac128d7d47a9757
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729245"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325256"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -152,7 +153,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 *RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
 
 ## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
-Express 경로 회로가 [express 경로 다이렉트](expressroute-erdirect-about.md) 에 있고 가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath는 초당 패킷 및 온-프레미스 네트워크와 가상 네트워크 간의 초당 연결과 같은 데이터 경로 preformance를 향상 시킵니다. 
+가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [Express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath는 초당 패킷 및 온-프레미스 네트워크와 가상 네트워크 간의 초당 연결과 같은 데이터 경로 preformance를 향상 시킵니다. 
 
 **새 연결에서 FastPath 구성**
 

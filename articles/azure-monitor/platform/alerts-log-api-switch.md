@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: a5613198b404f629727f3040b308c030763a10b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7e1073817013d45558a9679a4f70db0c002cfaa9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515804"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324083"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>로그 경고의 API 기본 설정 전환
 
@@ -115,4 +115,5 @@ armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>
 
 - [Azure Monitor - 로그 경고](alerts-unified-log.md)에 대해 알아봅니다.
 - [Azure Alerts에서 로그 경고](alerts-log.md)를 만드는 방법을 알아봅니다.
-- [Azure Alerts 환경](../../azure-monitor/platform/alerts-overview.md)에 대해 자세히 알아봅니다.
+- [Azure Alerts 환경](./alerts-overview.md)에 대해 자세히 알아봅니다.
+

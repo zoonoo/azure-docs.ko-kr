@@ -4,15 +4,15 @@ description: API를 통해 게시자 네임 스페이스 아래에서 요약 된
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535895"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271963"
 ---
 # <a name="retrieve-offers"></a>제품 검색
 
@@ -25,10 +25,10 @@ ms.locfileid: "86535895"
 
 ## <a name="uri-parameters"></a>URI 매개 변수
 
-| **이름**         |  **설명**                         |  **데이터 형식** |
+| **Name**         |  **설명**                         |  **데이터 형식** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | 게시자 식별자입니다(예: `contoso`). |   String    |
-|  api-version     | 최신 버전 API                    |    날짜        |
+|  publisherId     | 게시자 식별자입니다(예: `contoso`). |   문자열    |
+|  api-version     | 최신 버전 API                    |    Date        |
 |  |  |
 
 ## <a name="header"></a>헤더
@@ -62,7 +62,7 @@ ms.locfileid: "86535895"
 
 ### <a name="response-body-properties"></a>응답 본문 속성
 
-|  **이름**       |       **설명**                                                                                                  |
+|  **Name**       |       **설명**                                                                                                  |
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | 제안의 형식을 식별합니다.                                                                                           |
 |  publisherId    | 게시자를 고유하게 식별하는 식별자                                                                      |
@@ -85,7 +85,7 @@ ms.locfileid: "86535895"
 
 ### <a name="offer-status"></a>제품 상태
 
-|  **이름**                    | **설명**                                  |
+|  **Name**                    | **설명**                                  |
 |  ------------------------    | -----------------------------------------------  |
 |  NeverPublished              | 제안이 게시된 적이 없습니다.                  |
 |  NotStarted                  | 제안이 새 제안이지만 시작되지 않았습니다.                 |
@@ -93,5 +93,5 @@ ms.locfileid: "86535895"
 |  실행 중                     | 제안 제출을 처리 중입니다.             |
 |  성공                   | 제안 제출 처리를 완료했습니다.       |
 |  취소됨                    | 제안 제출이 취소되었습니다.                   |
-|  Failed                      | 제안 제출에 실패했습니다.                         |
+|  실패                      | 제안 제출에 실패했습니다.                         |
 |  |  |

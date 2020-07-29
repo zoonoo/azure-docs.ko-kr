@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516178"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321856"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -26,7 +26,7 @@ ms.locfileid: "86516178"
 * **작업 유형**: 실행된 동작. 음성 통화, SMS, 이메일 보내기나, 여러 자동화된 작업 유형 트리거를 예로 들 수 있습니다. 이 문서 뒷부분에 나오는 유형을 참조하세요.
 * **세부 정보**: 작업 유형에 따라 달라지는 해당 세부 정보입니다.
 
-Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)을 참조하세요.
+Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](./action-groups-create-resource-manager-template.md)을 참조하세요.
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 작업 그룹 만들기
 
@@ -86,12 +86,12 @@ Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조하세요.
+작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./alerts-rate-limiting.md) 문서를 참조하세요.
 
 ### <a name="email-azure-resource-manager-role"></a>메일 Azure Resource Manager 역할
 구독 역할의 멤버에게 이메일을 보냅니다. 이메일은 해당 역할의 **Azure AD 사용자** 멤버에게만 발송됩니다. Azure AD 그룹 또는 서비스 주체에게는 이메일이 전송되지 않습니다.
 
-작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조하세요.
+작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./alerts-rate-limiting.md) 문서를 참조하세요.
 
 ### <a name="function"></a>함수
 [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)에서 기존 HTTP 트리거 엔드포인트를 호출합니다.
@@ -99,7 +99,7 @@ Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](
 작업 그룹에서 함수 작업의 수가 제한될 수 있습니다.
 
 ### <a name="itsm"></a>ITSM
-ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-monitor/platform/itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
+ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](./itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
 
 작업 그룹에서 ITSM 작업의 수가 제한될 수 있습니다. 
 
@@ -109,8 +109,8 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-moni
 ### <a name="secure-webhook"></a>보안 웹후크
 작업 그룹 웹후크 작업을 사용하면 Azure Active Directory를 활용하여 작업 그룹과 보호된 웹 API(웹후크 엔드포인트) 간의 연결을 보호할 수 있습니다. 이 기능을 활용하기 위한 전체 워크플로는 아래에 설명되어 있습니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../../active-directory/develop/v2-overview.md)를 참조하세요.
 
-1. 보호된 웹 API에 대한 Azure AD 애플리케이션을 만듭니다. [보호 된 웹 API: 앱 등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration)을 참조 하세요.
-    - [디먼 앱에서 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app)하도록 보호 된 API를 구성 합니다.
+1. 보호된 웹 API에 대한 Azure AD 애플리케이션을 만듭니다. [보호 된 웹 API: 앱 등록](../../active-directory/develop/scenario-protected-web-api-app-registration.md)을 참조 하세요.
+    - [디먼 앱에서 호출](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)하도록 보호 된 API를 구성 합니다.
     
 2. Azure AD 애플리케이션을 사용하도록 작업 그룹을 설정합니다.
 
@@ -196,7 +196,7 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>sms
-[속도 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 및 [SMS 경고 동작](../../azure-monitor/platform/alerts-sms-behavior.md)에서 중요한 추가 정보를 참조하세요. 
+[속도 제한 정보](./alerts-rate-limiting.md) 및 [SMS 경고 동작](./alerts-sms-behavior.md)에서 중요한 추가 정보를 참조하세요. 
 
 작업 그룹에서 SMS 작업의 수가 제한될 수 있습니다.
 
@@ -207,7 +207,7 @@ Write-Host $myApp.AppRoles
   
 
 ### <a name="voice"></a>음성
-[속도 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서에서 중요한 추가 동작을 참조하세요.
+[속도 제한 정보](./alerts-rate-limiting.md) 문서에서 중요한 추가 동작을 참조하세요.
 
 작업 그룹에서 음성 작업의 수가 제한될 수 있습니다.
 
@@ -248,9 +248,10 @@ Write-Host $myApp.AppRoles
 
 
 ## <a name="next-steps"></a>다음 단계
-* [SMS 경고 동작](../../azure-monitor/platform/alerts-sms-behavior.md)에 대해 자세히 알아보세요.  
-* [활동 로그 경고 웹후크 스키마의 이해](../../azure-monitor/platform/activity-log-alerts-webhook.md)를 확인해 보세요.  
-* [ITSM 커넥터](../../azure-monitor/platform/itsmc-overview.md)에 대해 자세히 알아보세요.
-* 경고의 [속도 제한](../../azure-monitor/platform/alerts-rate-limiting.md)에 대해 자세히 알아보세요.
-* [활동 로그 경고의 개요](../../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
+* [SMS 경고 동작](./alerts-sms-behavior.md)에 대해 자세히 알아보세요.  
+* [활동 로그 경고 웹후크 스키마의 이해](./activity-log-alerts-webhook.md)를 확인해 보세요.  
+* [ITSM 커넥터](./itsmc-overview.md)에 대해 자세히 알아보세요.
+* 경고의 [속도 제한](./alerts-rate-limiting.md)에 대해 자세히 알아보세요.
+* [활동 로그 경고의 개요](./alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [서비스 상태 알림이 게시될 때마다 경고를 구성](../../service-health/alerts-activity-log-service-notifications-portal.md)하는 방법을 알아보세요.
+

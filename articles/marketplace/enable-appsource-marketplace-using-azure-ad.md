@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103626"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323267"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>상업용 Marketplace 목록과 Azure Active Directory 통합
 
@@ -35,15 +35,16 @@ Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용�
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 | Virtual Machine | 해당 없음 | 아니요 | 예 | 예 |
 | Azure 앱(솔루션 템플릿)  | N/A | 해당 없음 | 해당 없음 | 해당 없음 |
-| 관리되는 앱  | N/A | 해당 없음 | 해당 없음 | No |
-| SaaS  | No | 예 | 예 | 예 |
-| 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
+| 관리되는 앱  | N/A | 해당 없음 | 해당 없음 | 예 |
+| SaaS  | 예 | 예 | 예 | 예 |
+| 컨테이너  | N/A | 해당 없음 | 해당 없음 | 예 |
 | 컨설팅 서비스  | 예 | N/A | 해당 없음 | 해당 없음 |
 
-SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 애플리케이션 제품 게시 가이드](marketplace-saas-applications-technical-publishing-guide.md)를 참조하세요.
+SaaS 기술 요구 사항에 대 한 자세한 내용은 [상용 marketplace의 AZURE AD 및 불가능 SaaS 제품](./azure-ad-saas.md)을 참조 하세요.
 
 ## <a name="azure-ad-integration"></a>Azure AD 통합
 
+- 불가능 SaaS (software as a service) 제품에 Azure AD를 통합 하는 방법에 대 한 자세한 내용은 [상용 marketplace의 AZURE ad 및 불가능 SaaS 제품](./azure-ad-saas.md)을 참조 하세요.
 - Azure AD를 목록에 통합하여 Single Sign-On을 사용하도록 설정하는 방법에 대한 자세한 내용은 [개발자용 Azure Active Directory](../active-directory/develop/index.yml)를 참조하세요.
 - Azure AD Single Sign-On에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../active-directory/manage-apps/what-is-single-sign-on.md)를 참조하세요.
 

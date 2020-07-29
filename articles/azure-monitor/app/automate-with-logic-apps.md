@@ -3,12 +3,12 @@ title: Logic Apps를 사용 하 여 Azure 애플리케이션 Insights 프로세�
 description: 논리 앱에 Application Insights 커넥터를 추가하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079624"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323199"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화
 
@@ -130,9 +130,10 @@ ms.locfileid: "87079624"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Analytics 쿼리](../../azure-monitor/log-query/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
+- [Analytics 쿼리](../log-query/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
 - [Logic Apps](../../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.
 
 
 
 <!--Link references-->
+

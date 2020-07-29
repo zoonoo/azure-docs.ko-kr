@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324559"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
 
@@ -183,7 +184,8 @@ Azure Monitor 로그 데이터에 [Kusto 쿼리 언어](/azure/kusto/query/)를 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)
 - [집계 함수](aggregations.md)
-- [고급 집계](advanced-aggregations.md)
+- [고급 집계]()
 - [JSON 및 데이터 구조](json-data-structures.md)
 - [조인](joins.md)
 - [차트](charts.md)
+

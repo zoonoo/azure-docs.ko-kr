@@ -4,12 +4,12 @@ description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516059"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322417"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -92,7 +92,7 @@ Azure Portal를 사용하여 활동 로그 경고 규칙을 만들고 수정할 
     - **설명**: 새 경고 규칙에 대한 설명입니다.
     - **리소스 그룹에 경고 저장**: 이 새 규칙을 저장하고자 하는 리소스 그룹을 선택합니다.
 
-5. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들어](../../azure-monitor/platform/action-groups.md) 새 규칙에 할당합니다. 새 그룹을 만들려면 **+ 새 그룹**을 선택합니다.
+5. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들어](./action-groups.md) 새 규칙에 할당합니다. 새 그룹을 만들려면 **+ 새 그룹**을 선택합니다.
 
 6. 규칙을 만든 후 사용하도록 설정하려면 **규칙을 만들면 바로 사용**에 대해 **예**를 선택합니다.
 7. **경고 규칙 만들기**를 선택합니다.
@@ -285,7 +285,8 @@ Azure CLI 명령 [az monitor activity-log alert delete](/cli/azure/monitor/activ
 
 ## <a name="next-steps"></a>다음 단계
 
-- [활동 로그에 대한 웹후크 스키마](../../azure-monitor/platform/activity-log-alerts-webhook.md)를 알아봅니다.
-- [활동 로그 개요](../../azure-monitor/platform/activity-log-alerts.md)를 읽습니다.
-- [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.  
+- [활동 로그에 대한 웹후크 스키마](./activity-log-alerts-webhook.md)를 알아봅니다.
+- [활동 로그 개요](./activity-log-alerts.md)를 읽습니다.
+- [작업 그룹](./action-groups.md)에 대해 자세히 알아보세요.  
 - [서비스 상태 알림](../../service-health/service-notifications.md)에 대해 자세히 알아보세요.
+

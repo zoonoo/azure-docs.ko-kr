@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 �
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109997"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321210"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -31,7 +31,7 @@ ms.locfileid: "86109997"
     - Azure Migrate 어플라이언스를 설정 하 고 Azure Migrate 프로젝트에서 컴퓨터를 검색 한 후에만 작업 영역을 연결할 수 있습니다.
     - Azure Migrate 프로젝트를 포함 하는 구독에 작업 영역이 있는지 확인 합니다.
     - 작업 영역은 미국 동부, 동남 아시아 또는 서유럽 지역에 있어야 합니다. 다른 지역의 작업 영역은 프로젝트에 연결할 수 없습니다.
-    - 작업 영역은 [서비스 맵 지원되는](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) 지역에 있어야 합니다.
+    - 작업 영역은 [서비스 맵 지원되는](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) 지역에 있어야 합니다.
     - 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결할 수 있습니다.
     - 컴퓨터에 대 한 종속성 시각화를 처음 설정할 때 작업 영역을 연결 합니다. Azure Migrate 프로젝트에 대한 작업 영역은 추가된 후 수정할 수 없습니다.
     - Log Analytics에서 Azure Migrate와 연결된 작업 영역에는 마이그레이션 프로젝트 키와 프로젝트 이름이 태그로 지정됩니다.

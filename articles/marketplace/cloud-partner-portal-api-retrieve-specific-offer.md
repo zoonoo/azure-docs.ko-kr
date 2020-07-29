@@ -4,15 +4,15 @@ description: 게시자 네임 스페이스 내에서 지정 된 제품을 검색
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087410"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271844"
 ---
 # <a name="retrieve-a-specific-offer"></a>특정 제안 검색
 
@@ -37,13 +37,13 @@ ms.locfileid: "87087410"
 
 ## <a name="uri-parameters"></a>URI 매개 변수
 
-| **이름**    | **설명**                                                                          | **데이터 형식** |
+| **Name**    | **설명**                                                                          | **데이터 형식** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId입니다. 예: Contoso                                                        | String        |
-| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | String        |
+| publisherId | publisherId입니다. 예: Contoso                                                        | 문자열        |
+| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | 문자열        |
 | 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | 정수       |
 | slotId      | 제안이 검색될 슬롯으로, 다음 중 하나일 수 있습니다.      <br/>  - `Draft`(기본값)는 현재 초안에 있는 제안 버전을 검색합니다.  <br/>  -  `Preview`는 현재 미리 보기에 있는 제안 버전을 검색합니다.     <br/>  -  `Production`은 현재 프로덕션 환경에 있는 제안 버전을 검색합니다.          |      enum |
-| api-version | 최신 버전 API                                                                    | 날짜          |
+| api-version | 최신 버전 API                                                                    | Date          |
 |  |  |  |
 
 ## <a name="header"></a>헤더
@@ -171,7 +171,7 @@ ms.locfileid: "87087410"
 
 ### <a name="response-body-properties"></a>응답 본문 속성
 
-|  **이름**       |   **설명**                                                                                                               |
+|  **Name**       |   **설명**                                                                                                               |
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | 제안의 형식을 식별합니다.                                                                                                    |
 |  publisherId    | 게시자의 고유 식별자입니다.                                                                                              |
@@ -194,7 +194,7 @@ ms.locfileid: "87087410"
 
 ### <a name="offer-status"></a>제안 상태
 
-|  **이름**                   |   **설명**                             |
+|  **Name**                   |   **설명**                             |
 | --------------------------- |  -------------------------------------------- |
 |  NeverPublished             | 제안이 게시된 적이 없습니다.               |
 |  NotStarted                 | 제안이 새 제안이지만 시작되지 않았습니다.              |

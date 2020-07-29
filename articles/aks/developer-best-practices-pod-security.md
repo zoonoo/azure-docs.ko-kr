@@ -2,16 +2,15 @@
 title: 개발자 모범 사례 - AKS(Azure Kubernetes Services)의 pod 보안
 description: AKS(Azure Kubernetes Services)에서 pod 보안을 유지하는 방법에 대한 개발자 모범 사례 알아보기
 services: container-service
-author: zr-msft
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 21ee65e6a4e51e91b23d9634917ec3f0267f1771
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115609"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320683"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -52,15 +51,16 @@ kind: Pod
 metadata:
   name: security-context-demo
 spec:
+  securityContext:
+    fsGroup: 2000
   containers:
     - name: security-context-demo
       image: nginx:1.15.5
-    securityContext:
-      runAsUser: 1000
-      fsGroup: 2000
-      allowPrivilegeEscalation: false
-      capabilities:
-        add: ["NET_ADMIN", "SYS_TIME"]
+      securityContext:
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
 클러스터 운영자와 함께 필요한 보안 컨텍스트 설정을 확인합니다. pod에 필요한 추가 권한 및 액세스 권한을 최소화하도록 애플리케이션을 디자인합니다. AppArmor 및 seccomp(보안 컴퓨팅)를 사용하여 액세스를 제한하는 추가 보안 기능이 있습니다. 이러한 보안 기능은 클러스터 운영자가 구현할 수 있습니다. 자세한 내용은 [리소스에 대한 컨테이너 액세스 보호][apparmor-seccomp]를 참조하세요.

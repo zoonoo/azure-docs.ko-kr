@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4680d989cc1befe50955af408aec79a14031481e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416391"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321244"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory의 삭제 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -46,9 +46,6 @@ Azure Data Factory에서 삭제 작업을 사용 하 여 온-프레미스 저장
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Azure File Storage](connector-azure-file-storage.md)
-
-### <a name="file-system-data-stores"></a>파일 시스템 데이터 저장소
-
 -   [파일 시스템](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
@@ -82,14 +79,14 @@ Azure Data Factory에서 삭제 작업을 사용 하 여 온-프레미스 저장
 
 ## <a name="type-properties"></a>형식 속성
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | 데이터 세트 | 삭제할 파일이나 폴더를 결정하기 위한 데이터 세트 참조를 제공합니다. | 예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 파일을 재귀적으로 삭제할지 여부를 나타냅니다.  | 아니요. 기본값은 `false`입니다. |
 | maxConcurrentConnections | 폴더 또는 파일 삭제를 위해 동시에 스토리지 저장소에 연결할 수 있는 연결 수입니다.   |  아니요. 기본값은 `1`입니다. |
-| enablelogging | 삭제된 폴더 또는 파일 이름을 기록해야 하는지 여부를 나타냅니다. true이면 로그 파일을 읽어 삭제 작업 동작을 추적할 수 있도록 로그 파일을 저장할 스토리지 계정을 추가로 제공해야 합니다. | 아니요 |
-| logStorageSettings | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업으로 삭제한 폴더 또는 파일 이름이 들어 있는 로그 파일을 저장할 위치를 지정할 수 있는 스토리지 속성 그룹입니다. | 아니요 |
-| linkedServiceName | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업에 의해 삭제 된 폴더 또는 파일 이름이 포함 된 로그 파일을 저장 하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 의 연결 된 서비스입니다. 이는 삭제 작업에 사용 된 것과 동일한 형식의 Integration Runtime 구성 하 여 파일을 삭제 해야 합니다. | 아니요 |
+| enablelogging | 삭제된 폴더 또는 파일 이름을 기록해야 하는지 여부를 나타냅니다. true이면 로그 파일을 읽어 삭제 작업 동작을 추적할 수 있도록 로그 파일을 저장할 스토리지 계정을 추가로 제공해야 합니다. | 예 |
+| logStorageSettings | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업으로 삭제한 폴더 또는 파일 이름이 들어 있는 로그 파일을 저장할 위치를 지정할 수 있는 스토리지 속성 그룹입니다. | 예 |
+| linkedServiceName | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업에 의해 삭제 된 폴더 또는 파일 이름이 포함 된 로그 파일을 저장 하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 의 연결 된 서비스입니다. 이는 삭제 작업에 사용 된 것과 동일한 형식의 Integration Runtime 구성 하 여 파일을 삭제 해야 합니다. | 예 |
 | 경로 | enablelogging = true일 때만 해당됩니다.<br/><br/>스토리지 계정에 로그 파일을 저장할 경로입니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예 |
 
 ## <a name="monitoring"></a>모니터링
@@ -118,7 +115,7 @@ Azure Data Factory에서 삭제 작업을 사용 하 여 온-프레미스 저장
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>샘플 로그 샘플 로그 파일
 
-| 속성 | Category | 상태 | 오류 |
+| 속성 | 범주 | 상태 | Error |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | 파일 | 삭제됨 |  |
 | test2/hello789.txt | 파일 | 삭제됨 |  |

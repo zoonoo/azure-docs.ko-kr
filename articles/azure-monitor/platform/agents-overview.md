@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 75394768cc41d3ca73398c2691b9ec0feb8c17f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202570"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325341"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -76,7 +76,7 @@ Log Analytics 에이전트의 제한 사항은 다음과 같습니다.
 다음 작업을 수행 해야 하는 경우 Azure 진단 확장을 사용 합니다.
 
 - 보관을 위해 Azure Storage 데이터를 보내거나 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같은 도구를 사용 하 여 분석 합니다.
-- [메트릭 탐색기](metrics-getting-started.md) 를 사용 하 여 분석 하 고, 거의 실시간 [메트릭 경고](../../azure-monitor/platform/alerts-metric-overview.md) 및 [자동 크기 조정](autoscale-overview.md) (Windows에만 해당)과 같은 기능을 활용 하기 위해 데이터를 [Azure Monitor 메트릭에](data-platform-metrics.md) 보냅니다.
+- [메트릭 탐색기](metrics-getting-started.md) 를 사용 하 여 분석 하 고, 거의 실시간 [메트릭 경고](./alerts-metric-overview.md) 및 [자동 크기 조정](autoscale-overview.md) (Windows에만 해당)과 같은 기능을 활용 하기 위해 데이터를 [Azure Monitor 메트릭에](data-platform-metrics.md) 보냅니다.
 - [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md)를 사용 하 여 타사 도구로 데이터를 보냅니다.
 - [부팅 진단을](../../virtual-machines/troubleshooting/boot-diagnostics.md) 수집 하 여 VM 부팅 문제를 조사 합니다.
 
@@ -91,7 +91,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 다음 작업을 수행 해야 하는 경우 Telegraf 에이전트를 사용 합니다.
 
-* [메트릭 탐색기](metrics-getting-started.md) 를 사용 하 여 분석 하 고, 거의 실시간 [메트릭 경고](../../azure-monitor/platform/alerts-metric-overview.md) 및 [자동 크기 조정](autoscale-overview.md) (Linux만 해당)과 같은 기능을 활용 하기 위해 데이터를 [Azure Monitor 메트릭에](data-platform-metrics.md) 보냅니다. 
+* [메트릭 탐색기](metrics-getting-started.md) 를 사용 하 여 분석 하 고, 거의 실시간 [메트릭 경고](./alerts-metric-overview.md) 및 [자동 크기 조정](autoscale-overview.md) (Linux만 해당)과 같은 기능을 활용 하기 위해 데이터를 [Azure Monitor 메트릭에](data-platform-metrics.md) 보냅니다. 
 
 
 
@@ -120,3 +120,4 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 - [Log Analytics 에이전트 개요](log-analytics-agent.md)
 - [Azure Diagnostics 확장 개요](diagnostics-extension-overview.md)
 - [InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집](collect-custom-metrics-linux-telegraf.md)
+

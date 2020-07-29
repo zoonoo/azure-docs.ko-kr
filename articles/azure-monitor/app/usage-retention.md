@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25d1cccdbd56db397fc444d1488c773515ad6553
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6155d3230d234e1163ee12cd7685817331b93
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499310"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323539"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 재방문 주기 기능은 앱으로 돌아온 사용자 수와 특정 작업을 수행하거나 목표를 달성하는 빈도를 분석하는 데 도움을 줍니다. 예를 들어 게임 사이트를 실행하는 경우 게임에서 진 후에 사이트로 돌아오는 사용자 수와 이긴 후에 돌아온 사용자 수를 비교할 수 있습니다. 이러한 지식이 있으면 사용자 환경 및 비즈니스 전략을 둘 다 향상시킬 수 있습니다.
+[Azure Application Insights](./app-insights-overview.md)의 재방문 주기 기능은 앱으로 돌아온 사용자 수와 특정 작업을 수행하거나 목표를 달성하는 빈도를 분석하는 데 도움을 줍니다. 예를 들어 게임 사이트를 실행하는 경우 게임에서 진 후에 사이트로 돌아오는 사용자 수와 이긴 후에 돌아온 사용자 수를 비교할 수 있습니다. 이러한 지식이 있으면 사용자 환경 및 비즈니스 전략을 둘 다 향상시킬 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -54,7 +54,7 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
    telemetry.TrackEvent("won game");
 ```
 
-[사용자 지정 이벤트 작성에 대해 자세히 알아봅니다](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+[사용자 지정 이벤트 작성에 대해 자세히 알아봅니다](./api-custom-events-metrics.md#trackevent).
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -63,5 +63,6 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
     - [사용자, 세션, 이벤트](usage-segmentation.md)
     - [깔때기](usage-funnels.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../../azure-monitor/platform/workbooks-overview.md)
+    - [통합 문서](../platform/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)
+

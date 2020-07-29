@@ -4,19 +4,19 @@ description: 이 페이지에서는 Azure SQL Database의 단일 데이터베이
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 099094338deba63f678337b7ea13dd9ce9800084
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa8901f2a219b0693cee17bc4d0ab78da615c415
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517691"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325103"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>DTU 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,14 +38,14 @@ ms.locfileid: "86517691"
 | :--- | --: |
 | 최대 DTU | 5 |
 | 포함된 스토리지(GB) | 2 |
-| 최대 스토리지(GB) 옵션 | 2 |
+| 최대 저장소 (GB) | 2 |
 | 최대 메모리 내 OLTP 스토리지(GB) |N/A |
 | 최대 동시 작업자(요청) | 30 |
 | 최대 동시 세션 | 300 |
 |||
 
 > [!IMPORTANT]
-> 기본 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
+> 기본 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다.
 >
 >데이터 저장소와 관련 하 여 기본 서비스 계층은 표준 페이지 Blob에 배치 됩니다. 표준 페이지 Blob은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하며 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
 >
@@ -55,15 +55,17 @@ ms.locfileid: "86517691"
 | **컴퓨팅 크기** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | 최대 DTU | 10 | 20 | 50 | 100 |
-| 포함된 스토리지(GB) | 250 | 250 | 250 | 250 |
-| 최대 스토리지(GB) 옵션 | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| 포함 된 저장소 (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
+| 최대 저장소 (GB) | 250 | 250 | 250 | 1024 |
 | 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |
 | 최대 동시 작업자(요청)| 60 | 90 | 120 | 200 |
 | 최대 동시 세션 |600 | 900 | 1200 | 2400 |
 ||||||
 
+<sup>1</sup> 추가 저장소로 프로 비전 될 때 발생 하는 추가 비용에 대 한 자세한 내용은 [SQL Database 가격 책정 옵션](https://azure.microsoft.com/pricing/details/sql-database/single/) 을 참조 하세요.
+
 > [!IMPORTANT]
-> 표준 S0, S1 및 S2 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
+> 표준 S0, S1 및 S2 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다.
 >
 >데이터 저장소와 관련 하 여 표준 S0 및 S1 서비스 계층은 표준 페이지 Blob에 배치 됩니다. 표준 페이지 Blob은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하며 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
 >
@@ -73,29 +75,33 @@ ms.locfileid: "86517691"
 | **컴퓨팅 크기** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
 | 최대 DTU | 200 | 400 | 800 | 1600 | 3000 |
-| 포함된 스토리지(GB) | 250 | 250 | 250 | 250 | 250 |
-| 최대 스토리지(GB) 옵션 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| 포함 된 저장소 (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
+| 최대 저장소 (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 | 최대 메모리 내 OLTP 스토리지(GB) | N/A | N/A | N/A | N/A |N/A |
 | 최대 동시 작업자(요청)| 400 | 800 | 1600 | 3200 |6000 |
 | 최대 동시 세션 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
+
+<sup>1</sup> 추가 저장소로 프로 비전 될 때 발생 하는 추가 비용에 대 한 자세한 내용은 [SQL Database 가격 책정 옵션](https://azure.microsoft.com/pricing/details/sql-database/single/) 을 참조 하세요.
 
 ### <a name="premium-service-tier"></a>프리미엄 서비스 계층
 
 | **컴퓨팅 크기** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | 최대 DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| 포함된 스토리지(GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
-| 최대 스토리지(GB) 옵션 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
+| 포함 된 저장소 (GB) <sup>1</sup> | 500 | 500 | 500 | 500 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
+| 최대 저장소 (GB) | 1024 | 1024 | 1024 | 1024 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | 최대 메모리 내 OLTP 스토리지(GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | 최대 동시 작업자(요청)| 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\*1024 GB에서 최대 4096 GB까지 256 GB 단위로
+<sup>1</sup> 추가 저장소로 프로 비전 될 때 발생 하는 추가 비용에 대 한 자세한 내용은 [SQL Database 가격 책정 옵션](https://azure.microsoft.com/pricing/details/sql-database/single/) 을 참조 하세요.
+
+<sup>2</sup> 1024,-4096 gb 256의 증분
 
 > [!IMPORTANT]
-> 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
+> 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.
 > [!NOTE]
 > `tempdb`제한 사항은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
 

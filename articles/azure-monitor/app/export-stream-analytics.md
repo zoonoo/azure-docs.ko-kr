@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Stream Analytics를 사용하여 내보�
 description: Stream Analytics를 사용하면 Application Insights에서 내보내는 데이터를 지속적으로 변환, 필터링 및 라우팅할 수 있습니다.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539961"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324355"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -16,7 +16,7 @@ ms.locfileid: "86539961"
 이 예제에서는 Application Insights에서 데이터를 가져오고, 필드 중 일부에 대해 이름을 바꾸고 처리하며, Power BI로 파이프하는 어댑터를 만듭니다.
 
 > [!WARNING]
-> [Power BI에서 Application Insights 데이터를 표시하는 데 권장되는 방법](../../azure-monitor/app/export-power-bi.md )이 있으며, 이 방법들은 훨씬 더 효율적이며 간편합니다. 여기서 설명하는 경로는 내보낸 데이터를 처리하는 방법을 보여 주기 위한 예로 사용했을 뿐입니다.
+> [Power BI에서 Application Insights 데이터를 표시하는 데 권장되는 방법](./export-power-bi.md)이 있으며, 이 방법들은 훨씬 더 효율적이며 간편합니다. 여기서 설명하는 경로는 내보낸 데이터를 처리하는 방법을 보여 주기 위한 예로 사용했을 뿐입니다.
 > 
 > 
 
@@ -55,7 +55,7 @@ ms.locfileid: "86539961"
 
     ![이벤트 유형 선택](./media/export-stream-analytics/080.png)
 
-1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
+1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../platform/metrics-charts.md)에서 통계 차트가, [진단 검색](./diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
     또한 데이터를 스토리지로 내보냅니다. 
 2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
@@ -186,7 +186,7 @@ FROM flat
 
 ## <a name="see-results-in-power-bi"></a>Power BI에 결과를 참조하세요.
 > [!WARNING]
-> [Power BI에서 Application Insights 데이터를 표시하는 데 권장되는 방법](../../azure-monitor/app/export-power-bi.md )이 있으며, 이 방법들은 훨씬 더 효율적이며 간편합니다. 여기서 설명하는 경로는 내보낸 데이터를 처리하는 방법을 보여 주기 위한 예로 사용했을 뿐입니다.
+> [Power BI에서 Application Insights 데이터를 표시하는 데 권장되는 방법](./export-power-bi.md)이 있으며, 이 방법들은 훨씬 더 효율적이며 간편합니다. 여기서 설명하는 경로는 내보낸 데이터를 처리하는 방법을 보여 주기 위한 예로 사용했을 뿐입니다.
 > 
 > 
 
@@ -211,4 +211,5 @@ Noam Ben Zeev에서는 Stream Analytics를 사용하여 내보낸 데이터를 �
 ## <a name="next-steps"></a>다음 단계
 * [연속 내보내기](export-telemetry.md)
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](export-data-model.md)
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
+

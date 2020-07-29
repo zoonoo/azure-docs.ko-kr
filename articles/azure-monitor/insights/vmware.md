@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091184"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322910"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor에서 VMware 모니터링 (사용 되지 않음) 솔루션
 
@@ -27,7 +27,7 @@ Azure Monitor의 VMware 모니터링 솔루션은 대량 VMware 로그에 대 �
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-* [모니터링 솔루션 설치](../insights/solutions.md#install-a-monitoring-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
+* [모니터링 솔루션 설치](./solutions.md#install-a-monitoring-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
 
 #### <a name="supported-vmware-esxi-hosts"></a>지원되는 VMware ESXi 호스트
 vSphere ESXi 호스트 5.5, 6.0 및 6.5
@@ -66,7 +66,7 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
 
 1. Azure Portal에서에 대 한 로그 쿼리를 수행 `VMware_CL` 합니다. Azure Monitor syslog 데이터를 수집 하는 경우 syslog 형식을 유지 합니다. 포털에서는 *Hostname* 및 *ProcessName*과 같은 일부 특정 필드가 캡처됩니다.  
 
-    ![형식](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     로그 검색 결과 보기가 위 이미지와 비슷한 경우 VMware 모니터링 솔루션 대시보드를 사용하도록 설정된 것입니다.  
 
@@ -200,3 +200,4 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
 * Log Analytics에서 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 자세한 VMware 호스트 데이터를 봅니다.
 * VMware 호스트 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../learn/tutorial-logs-dashboards.md)
 * 특정 VMware 호스트 이벤트가 발생하는 경우의 [경고 만들기](../platform/alerts-overview.md)
+

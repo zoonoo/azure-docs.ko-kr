@@ -3,11 +3,12 @@ title: Java 웹 프로젝트에서 Application Insights 문제 해결
 description: 문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74b4bc009158d826955f851f22458e9570a58e7c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484790"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324151"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -23,7 +24,7 @@ ms.locfileid: "84484790"
 * 잠시 기다린 후 새로 고침을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 새로 고침 간격은 차트의 시간 범위에 따라 달라집니다.
 * 계측 키가 ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)에 정의되어 있거나 환경 변수로 구성되었는지 확인합니다.
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
-* 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. 최신 버전은 [방화벽 예외의 전체 목록](../../azure-monitor/app/ip-addresses.md)
+* 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. 최신 버전은 [방화벽 예외의 전체 목록](./ip-addresses.md)
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 애플리케이션 블레이드를 닫고 다시 엽니다.
 * [Turn on logging](#debug-data-from-the-sdk) `<SDKLogger />` 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml 파일의 루트 노드 아래에 요소를 추가 하 여 로깅을 설정 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
@@ -37,7 +38,7 @@ ms.locfileid: "84484790"
 * 올바른 AI 리소스를 보고 있나요? 원격 분석이 필요한 리소스에 애플리케이션의 iKey를 일치합니다. 동일해야 합니다.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우
-* 사용량 및 예상 비용 페이지를 열고 [샘플링](../../azure-monitor/app/sampling.md)이 작동 중인지 확인합니다. (100% 전송에서는 샘플링이 작동 하지 않음을 의미 합니다.) 앱에서 수신 하는 원격 분석의 일부만 허용 하도록 Application Insights 서비스를 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다.
+* 사용량 및 예상 비용 페이지를 열고 [샘플링](./sampling.md)이 작동 중인지 확인합니다. (100% 전송에서는 샘플링이 작동 하지 않음을 의미 합니다.) 앱에서 수신 하는 원격 분석의 일부만 허용 하도록 Application Insights 서비스를 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다.
 * SDK 샘플링이 켜져 있나요? 켜져 있으면 적용 가능한 모든 유형에서 지정된 비율로 데이터가 샘플링됩니다.
 * 이전 버전의 Java SDK를 실행 중인가요? 버전 2.0.1부터 로컬 드라이브의 데이터 지속성뿐 아니라 간헐적인 네트워크 및 백 엔드 오류를 처리하는 내결함성 메커니즘이 도입되었습니다.
 * 과도한 원격 분석 때문에 제한되나요? INFO 로깅을 켜면 “앱이 제한되었습니다.”라는 로그 메시지가 표시됩니다. 현재 제한은 32K 원격 분석 항목/초입니다.
@@ -192,11 +193,11 @@ Application Insights는 `org.apache.http`를 사용합니다. 이 모듈은 Appl
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[data]: ../../azure-monitor/app/data-retention-privacy.md
+[availability]: ./monitor-web-app-availability.md
+[data]: ./data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[track]: ../../azure-monitor/app/api-custom-events-metrics.md
+[platforms]: ./platforms.md
+[track]: ./api-custom-events-metrics.md
 [usage]: javascript.md
 

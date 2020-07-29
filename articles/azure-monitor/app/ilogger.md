@@ -4,12 +4,12 @@ description: ASP.NET Core 및 콘솔 응용 프로그램과 함께 Azure 애플�
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 419813eba371def9eeeb43e45b51b38d1f20c607
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 171aaeb624bfedb9aa7408a736c11faca316b392
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014476"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322638"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider for .NET Core ILogger logs
 
@@ -218,7 +218,7 @@ public class Startup
 ## <a name="console-application"></a>콘솔 애플리케이션
 
 > [!NOTE]
-> 모든 콘솔 응용 프로그램에 대해 Application Insights (ILogger 및 기타 Application Insights 원격 분석)를 사용 하도록 설정 하는 데 사용할 수 있는 [라는 새로운](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK가 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서 이 패키지 및 관련 지침을 사용하는 것이 좋습니다.
+> 모든 콘솔 응용 프로그램에 대해 Application Insights (ILogger 및 기타 Application Insights 원격 분석)를 사용 하도록 설정 하는 데 사용할 수 있는 [라는 새로운](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK가 있습니다. [여기](./worker-service.md)에서 이 패키지 및 관련 지침을 사용하는 것이 좋습니다.
 
 다음 코드는 Application Insights으로 ILogger 추적을 보내도록 구성 된 샘플 콘솔 응용 프로그램을 보여 줍니다.
 
@@ -392,7 +392,7 @@ Visual Studio에서 디버그할 때 이중 로깅이 발생 하 `EnableDebugLog
 
 ### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>[Microsoft 2.7.1 SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 버전을 업데이트 하 고 ILogger의 로그가 자동으로 캡처됩니다. 이 기능을 완전히 해제 어떻게 할까요?
 
-일반적으로 로그를 필터링 하는 방법을 보려면 [컨트롤 로깅 수준](../../azure-monitor/app/ilogger.md#control-logging-level) 섹션을 참조 하세요. ApplicationInsightsLoggerProvider를 해제 하려면 다음을 사용 합니다 `LogLevel.None` .
+일반적으로 로그를 필터링 하는 방법을 보려면 [컨트롤 로깅 수준](#control-logging-level) 섹션을 참조 하세요. ApplicationInsightsLoggerProvider를 해제 하려면 다음을 사용 합니다 `LogLevel.None` .
 
 **코드**
 
@@ -499,4 +499,5 @@ Program.cs를 수정 하 고 다음과 같이 appsettings.js합니다.
 다음에 대해 자세히 알아봅니다.
 
 * [ASP.NET Core에 로그인](/aspnet/core/fundamentals/logging)
-* [Application Insights의 .NET 추적 로그](../../azure-monitor/app/asp-net-trace-logs.md)
+* [Application Insights의 .NET 추적 로그](./asp-net-trace-logs.md)
+

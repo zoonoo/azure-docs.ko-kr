@@ -10,12 +10,12 @@ ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d54a8bf9fb5a1f31a29e41ecea545b43dbe58cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086016"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276689"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
@@ -97,7 +97,7 @@ Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 
 
 ### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>고객 관리 키의 자동 회전을 위한 암호화 구성
 
-고객 관리 키의 자동 회전에 대 한 암호화를 구성 하려면 [Azure CLI 버전 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](/azure/install-azure-cli)를 참조하세요.
+고객 관리 키의 자동 회전에 대 한 암호화를 구성 하려면 [Azure CLI 버전 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 고객 관리 키를 자동으로 회전 하려면 저장소 계정에 대 한 고객 관리 키를 구성할 때 키 버전을 생략 합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 를 호출 하 여 저장소 계정의 암호화 설정을 업데이트 합니다. 매개 변수를 포함 하 `--encryption-key-source` 고로 설정 하 여 `Microsoft.Keyvault` 계정에 대해 고객이 관리 하는 키를 사용 하도록 설정 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 

@@ -3,19 +3,20 @@ title: Azure Application Insights에서 Power BI로 내보내기 | Microsoft Doc
 description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664000"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324372"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
-[Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
+[Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](./app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
 
 Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 있습니다.
 
 * [**분석 쿼리를 내보냅니다**](#export-analytics-queries). 이는 선호되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
-* [**연속 내보내기 및 Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 스토리지 오버헤드가 추가로 발생합니다.
+* [**연속 내보내기 및 Azure Stream Analytics**](./export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 스토리지 오버헤드가 추가로 발생합니다.
 * **Power BI 어댑터**. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
 
 > [!NOTE]
@@ -30,7 +31,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)를 설치 합니다.
 
 ### <a name="export-an-analytics-query"></a>Analytics 쿼리 내보내기
-1. [Analytics 열기 및 쿼리 작성](../../azure-monitor/log-query/get-started-portal.md).
+1. [Analytics 열기 및 쿼리 작성](../log-query/get-started-portal.md).
 2. 결과에 만족할 때까지 쿼리를 테스트하고 수정합니다. 내보내기 전에 Analytics에서 쿼리가 제대로 실행되는지 확인합니다.
 3. **내보내기** 메뉴에서 **Power BI(M)** 를 선택합니다. 텍스트 파일을 저장합니다.
    
@@ -55,7 +56,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 8. 간격을 두고 보고서를 수동으로 새로 고치거나 옵션 페이지에서 예약된 새로 고침을 설정합니다.
 
 ### <a name="export-a-funnel"></a>깔때기 내보내기
-1. [깔때기를 만드세요](../../azure-monitor/app/usage-funnels.md).
+1. [깔때기를 만드세요](./usage-funnels.md).
 2. **Power BI**를 선택합니다.
 
    ![Power BI 단추 스크린샷](./media/export-power-bi/button.png)
@@ -111,7 +112,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
  ```
 
 ## <a name="about-sampling"></a>샘플링 정보
-애플리케이션에서 보낸 데이터의 양에 따라 원격 분석의 백분율만 보내는 적응 샘플링 기능을 사용할 수 있습니다. 이는 SDK 또는 수집에서 샘플링을 수동으로 설정한 경우에도 마찬가지입니다. [샘플링에 대해 자세히 알아보세요](../../azure-monitor/app/sampling.md).
+애플리케이션에서 보낸 데이터의 양에 따라 원격 분석의 백분율만 보내는 적응 샘플링 기능을 사용할 수 있습니다. 이는 SDK 또는 수집에서 샘플링을 수동으로 설정한 경우에도 마찬가지입니다. [샘플링에 대해 자세히 알아보세요](./sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI 어댑터(사용되지 않음)
 이 방법은 원격 분석의 전체 대시보드를 만듭니다. 초기 데이터 세트는 미리 정의되어 있으나, 더 많은 데이터를 추가할 수 있습니다.
@@ -145,5 +146,5 @@ Application Insights 차트를 다른 원본의 차트 및 Analytics 쿼리와 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Power BI - 알아보기](https://www.powerbi.com/learning/)
-* [Analytics 자습서](../../azure-monitor/log-query/get-started-portal.md)
+* [Analytics 자습서](../log-query/get-started-portal.md)
 

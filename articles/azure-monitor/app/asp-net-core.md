@@ -3,12 +3,12 @@ title: ASP.NET Core 응용 프로그램에 대 한 Azure 애플리케이션 정�
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1d5ce4fe2a3ceb3235b77916aa408c681f81b0de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517232"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321397"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -30,7 +30,7 @@ ms.locfileid: "86517232"
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -221,7 +221,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ASP.NET Core에 대 한 Application Insights SDK는 고정 비율과 적응 샘플링을 모두 지원 합니다. 적응 샘플링은 기본적으로 사용 하도록 설정 되어 있습니다. 
 
-자세한 내용은 [ASP.NET Core 응용 프로그램에 대 한 적응 샘플링 구성](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)을 참조 하세요.
+자세한 내용은 [ASP.NET Core 응용 프로그램에 대 한 적응 샘플링 구성](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)을 참조 하세요.
 
 ### <a name="adding-telemetryinitializers"></a>TelemetryInitializers 추가
 
@@ -459,8 +459,9 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="next-steps"></a>다음 단계
 
-* 사용자 [흐름을 탐색](../../azure-monitor/app/usage-flows.md) 하 여 사용자가 앱을 탐색 하는 방법을 파악 합니다.
+* 사용자 [흐름을 탐색](./usage-flows.md) 하 여 사용자가 앱을 탐색 하는 방법을 파악 합니다.
 * 예외가 throw 될 때 소스 코드 및 변수의 상태를 확인 하도록 [스냅숏 컬렉션을 구성](./snapshot-debugger.md) 합니다.
-* [API를 사용](../../azure-monitor/app/api-custom-events-metrics.md) 하 여 앱의 성능 및 사용 현황에 대 한 자세한 보기에 대 한 사용자 고유의 이벤트 및 메트릭을 보냅니다.
-* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 사용하여 전 세계에서 사용자 앱을 지속적으로 확인합니다.
+* [API를 사용](./api-custom-events-metrics.md) 하 여 앱의 성능 및 사용 현황에 대 한 자세한 보기에 대 한 사용자 고유의 이벤트 및 메트릭을 보냅니다.
+* [가용성 테스트](./monitor-web-app-availability.md)를 사용하여 전 세계에서 사용자 앱을 지속적으로 확인합니다.
 * [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection)
+

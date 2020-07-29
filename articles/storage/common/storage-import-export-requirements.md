@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 877d1442c346b321562cb396a77224a6b40c7df2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276400"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -26,7 +26,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 |플랫폼 |버전 |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> 윈도우 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 클라이언트에 필요한 다른 소프트웨어
@@ -50,7 +50,7 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 각 작업은 하나의 스토리지 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 스토리지 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 
 > [!IMPORTANT]
-> [Virtual Network 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)   기능이 사용 하도록 설정 된 저장소 계정의 경우 **신뢰할 수 있는 Microsoft 서비스 허용** ... 설정을 사용 하 여 [가져오기/내보내기](/storage-network-security.md) 서비스에서 Azure로/에서 데이터 가져오기/내보내기를 수행할 수 있도록 합니다.
+> [Virtual Network 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)   기능이 사용 하도록 설정 된 저장소 계정의 경우 **신뢰할 수 있는 Microsoft 서비스 허용** ... 설정을 사용 하 여 [가져오기/내보내기](/azure/storage/common/storage-network-security) 서비스에서 Azure로/에서 데이터 가져오기/내보내기를 수행할 수 있도록 합니다.
 
 ## <a name="supported-storage-types"></a>지원되는 스토리지 형식
 
@@ -59,8 +59,8 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 
 |작업  |스토리지 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob 스토리지 <br><br> Azure File 스토리지       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
-|내보내기     |   Azure Blob 스토리지       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
+|가져오기     |  Azure Blob Storage <br><br> Azure File 스토리지       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Azure Blob Storage       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어
@@ -72,7 +72,7 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 다음 디스크 목록은 Import/Export 서비스에서 사용하도록 지원됩니다.
 
 
-|디스크 유형  |Size  |지원 여부 |
+|디스크 유형  |크기  |지원됨 |
 |---------|---------|---------|
 |SSD    |   2.5"      |SATA III          |
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |

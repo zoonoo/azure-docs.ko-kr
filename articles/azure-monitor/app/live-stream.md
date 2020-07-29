@@ -4,16 +4,16 @@ description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니�
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4b84088c1213801e61a4c669bccb1a983c999310
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166487"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321941"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 라이브 메트릭 스트림를 사용 하 여 실시간 프로덕션 웹 응용 프로그램을 모니터링 합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. [프로파일러](../../azure-monitor/app/profiler.md) 및 [스냅숏 디버거와](../../azure-monitor/app/snapshot-debugger.md)함께 라이브 메트릭 스트림는 라이브 웹 사이트를 위한 강력한 비 침입 진단 도구를 제공 합니다.
+[Application Insights](./app-insights-overview.md)에서 라이브 메트릭 스트림를 사용 하 여 실시간 프로덕션 웹 응용 프로그램을 모니터링 합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. [프로파일러](./profiler.md) 및 [스냅숏 디버거와](./snapshot-debugger.md)함께 라이브 메트릭 스트림는 라이브 웹 사이트를 위한 강력한 비 침입 진단 도구를 제공 합니다.
 
 라이브 메트릭 스트림을 사용하여 다음을 수행할 수 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "86166487"
 
 ## <a name="get-started"></a>시작하기
 
-1. 응용 프로그램에 [Application Insights를 설치](../../azure-monitor/azure-monitor-app-hub.yml) 합니다.
+1. 응용 프로그램에 [Application Insights를 설치](../azure-monitor-app-hub.yml) 합니다.
 2. 표준 Application Insights 패키지 외에 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)는 라이브 메트릭 스트림을 활성화하는 데 필요합니다.
 3. Application Insights 패키지의 **최신 버전으로 업데이트**합니다. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다. **업데이트** 탭을 열고, 모든 Microsoft.ApplicationInsights.* 패키지를 선택합니다.
 
@@ -43,17 +43,17 @@ ms.locfileid: "86166487"
 
 ### <a name="no-data-check-your-server-firewall"></a>데이터가 없나요? 서버 방화벽을 확인합니다.
 
-[라이브 메트릭 스트림의 나가는 포트](../../azure-monitor/app/ip-addresses.md#outgoing-ports)가 서버의 방화벽에서 열려 있는지 확인합니다.
+[라이브 메트릭 스트림의 나가는 포트](./ip-addresses.md#outgoing-ports)가 서버의 방화벽에서 열려 있는지 확인합니다.
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>라이브 메트릭 스트림과 메트릭 탐색기 및 분석과의 차이점
 
 | |라이브 스트림 | 메트릭 탐색기 및 분석 |
 |---|---|---|
 |**대기 시간**|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
-|**보존 없음**|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**보존 없음**|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**요청 시**|라이브 메트릭 창이 열려 있는 동안에만 데이터가 스트리밍됩니다. |SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|**Free**|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
-|**샘플링**|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
+|**Free**|라이브 스트림 데이터 무료|[가격 책정](./pricing.md)에 따라 다름
+|**샘플링**|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](./api-filtering-sampling.md)될 수 있음|
 |**컨트롤 채널**|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|한 가지 방법은 포털에 대 한 통신입니다.|
 
 ## <a name="select-and-filter-your-metrics"></a>메트릭 선택 및 필터링
@@ -64,7 +64,7 @@ ms.locfileid: "86166487"
 
 ![필터 요청 빈도](./media/live-stream/filter-request.png)
 
-Count와 다른 값을 모니터링할 수 있습니다. 옵션은 Application Insights 원격 분석이 될 수 있는 스트림 유형에 따라 달라집니다. 요청, 종속성, 예외, 추적, 이벤트 또는 메트릭 등이 옵션으로 제공됩니다. 이것은 사용자 고유의 [사용자 지정 측정](../../azure-monitor/app/api-custom-events-metrics.md#properties)일 수 있습니다.
+Count와 다른 값을 모니터링할 수 있습니다. 옵션은 Application Insights 원격 분석이 될 수 있는 스트림 유형에 따라 달라집니다. 요청, 종속성, 예외, 추적, 이벤트 또는 메트릭 등이 옵션으로 제공됩니다. 이것은 사용자 고유의 [사용자 지정 측정](./api-custom-events-metrics.md#properties)일 수 있습니다.
 
 ![사용자 지정 메트릭을 사용 하 여 요청 율의 쿼리 작성기](./media/live-stream/query-builder-request.png)
 
@@ -185,7 +185,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="supported-features-table"></a>지원 되는 기능 표
 
-| 언어                         | 기본 메트릭       | 성능 메트릭 | 사용자 지정 필터링    | 샘플 원격 분석    | 프로세스별 CPU 분할 |
+| Language                         | 기본 메트릭       | 성능 메트릭 | 사용자 지정 필터링    | 샘플 원격 분석    | 프로세스별 CPU 분할 |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET                             | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +)  |
 | .NET Core (target = .net Framework)| 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +)  |
@@ -206,10 +206,11 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="troubleshooting"></a>문제 해결
 
-데이터가 없나요? 응용 프로그램이 보호 된 네트워크에 있는 경우: 라이브 메트릭 스트림 다른 Application Insights 원격 분석과 다른 IP 주소를 사용 합니다. 방화벽에서 [해당 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
+데이터가 없나요? 응용 프로그램이 보호 된 네트워크에 있는 경우: 라이브 메트릭 스트림 다른 Application Insights 원격 분석과 다른 IP 주소를 사용 합니다. 방화벽에서 [해당 포트](./ip-addresses.md)가 열려 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights를 사용하여 사용량 모니터링](../../azure-monitor/app/usage-overview.md)
-* [진단 검색 사용](../../azure-monitor/app/diagnostic-search.md)
-* [프로파일러](../../azure-monitor/app/profiler.md)
-* [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)
+* [Application Insights를 사용하여 사용량 모니터링](./usage-overview.md)
+* [진단 검색 사용](./diagnostic-search.md)
+* [프로파일러](./profiler.md)
+* [스냅샷 디버거](./snapshot-debugger.md)
+

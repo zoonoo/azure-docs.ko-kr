@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320632"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
-이 문서에서는 사용자 고유의 비즈니스 논리를 사용 하 여 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 이를 통해 포털에서 [가용성 모니터링](../../azure-monitor/app/monitor-web-app-availability.md) 을 통해 수행할 수 있는 것과 유사한 사용자 지정 된 테스트를 만들 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서이 기능을 사용할 수 없는 경우에도 가용성 테스트를 만들 수 있습니다.
+이 문서에서는 사용자 고유의 비즈니스 논리를 사용 하 여 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 이를 통해 포털에서 [가용성 모니터링](./monitor-web-app-availability.md) 을 통해 수행할 수 있는 것과 유사한 사용자 지정 된 테스트를 만들 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서이 기능을 사용할 수 없는 경우에도 가용성 테스트를 만들 수 있습니다.
 
 > [!NOTE]
 > 이 예제는 Azure Function 내에서 지 수 () API 호출이 작동 하는 방식에 대 한 메커니즘을 보여 주기 위해서만 설계 되었습니다. 이를 완전 한 기능을 갖춘 가용성 테스트로 전환 하는 데 필요한 기본 HTTP 테스트 코드/비즈니스 논리를 작성 하는 방법에 대해서는 설명 하지 않습니다. 기본적으로이 예제를 진행 하는 경우 항상 오류를 생성 하는 가용성 테스트를 만듭니다.
@@ -177,7 +177,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ## <a name="query-in-logs-analytics"></a>로그에서 쿼리 (분석)
 
-로그 (분석)를 사용 하 여 가용성 결과, 종속성 등을 볼 수 있습니다. 로그에 대 한 자세한 내용을 보려면 [로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+로그 (분석)를 사용 하 여 가용성 결과, 종속성 등을 볼 수 있습니다. 로그에 대 한 자세한 내용을 보려면 [로그 쿼리 개요](../log-query/log-query-overview.md)를 참조 하세요.
 
 >[!div class="mx-imgBorder"]
 >![가용성 결과](media/availability-azure-functions/availabilityresults.png)
@@ -187,5 +187,6 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [애플리케이션 맵](../../azure-monitor/app/app-map.md)
-- [트랜잭션 진단](../../azure-monitor/app/transaction-diagnostics.md)
+- [애플리케이션 맵](./app-map.md)
+- [트랜잭션 진단](./transaction-diagnostics.md)
+

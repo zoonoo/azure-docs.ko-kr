@@ -4,19 +4,20 @@ description: 요청 원격 분석을 위한 Azure Application Insights 데이터
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807658"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320564"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 요청 원격 분석 항목은 애플리케이션에 대한 외부 요청으로 트리거되는 실행의 논리적 순서를 나타냅니다. 모든 요청 실행은 모든 실행 매개 변수를 포함하는 고유한 `ID` 및 `url`로 식별됩니다. 논리적 `name`으로 요청을 그룹화하고 이 요청의 `source`를 정의할 수 있습니다. 코드 실행으로 `success` 또는 `fail`이 발생할 수 있으며 특정 `duration` 동안 지속됩니다. success(성공) 및 failure(실패) 실행은 모두 `resultCode`별로 그룹화할 수 있습니다. 봉투 (envelope) 수준에 정의된 요청 원격 분석의 시작 시간입니다.
+[Application Insights](./app-insights-overview.md)에서 요청 원격 분석 항목은 애플리케이션에 대한 외부 요청으로 트리거되는 실행의 논리적 순서를 나타냅니다. 모든 요청 실행은 모든 실행 매개 변수를 포함하는 고유한 `ID` 및 `url`로 식별됩니다. 논리적 `name`으로 요청을 그룹화하고 이 요청의 `source`를 정의할 수 있습니다. 코드 실행으로 `success` 또는 `fail`이 발생할 수 있으며 특정 `duration` 동안 지속됩니다. success(성공) 및 failure(실패) 실행은 모두 `resultCode`별로 그룹화할 수 있습니다. 봉투 (envelope) 수준에 정의된 요청 원격 분석의 시작 시간입니다.
 
 요청 원격 분석은 사용자 지정 `properties` 및 `measurements`를 사용하여 표준 확장성 모델을 지원합니다.
 
-## <a name="name"></a>이름
+## <a name="name"></a>Name
 
 요청의 이름은 요청을 처리하기 위해 진행된 코드 경로를 나타냅니다. 더 나은 요청 그룹화를 허용하는 낮은 카디널리티 값입니다. HTTP 요청의 경우 HTTP 메서드 및 실제 `id` 값이 없는 `GET /values/{id}`와 같은 URL 경로 템플릿을 나타냅니다.
 
@@ -26,7 +27,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 ## <a name="id"></a>ID
 
-요청 호출 인스턴스의 식별자입니다. 요청 및 기타 원격 분석 항목 간 상관 관계에 사용됩니다. ID는 전역적으로 고유해야 합니다. 자세한 내용은 [상관 관계](../../azure-monitor/app/correlation.md) 페이지를 참조하세요.
+요청 호출 인스턴스의 식별자입니다. 요청 및 기타 원격 분석 항목 간 상관 관계에 사용됩니다. ID는 전역적으로 고유해야 합니다. 자세한 내용은 [상관 관계](./correlation.md) 페이지를 참조하세요.
 
 최대 길이: 128자
 
@@ -38,11 +39,11 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 ## <a name="source"></a>원본
 
-요청의 원본입니다. 호출자의 계측 키 또는 호출자의 IP 주소를 예로 들 수 있습니다. 자세한 내용은 [상관 관계](../../azure-monitor/app/correlation.md) 페이지를 참조하세요.
+요청의 원본입니다. 호출자의 계측 키 또는 호출자의 IP 주소를 예로 들 수 있습니다. 자세한 내용은 [상관 관계](./correlation.md) 페이지를 참조하세요.
 
 최대 길이: 1024자
 
-## <a name="duration"></a>기간
+## <a name="duration"></a>Duration
 
 요청 기간은 `DD.HH:MM:SS.MMMMMM` 형식으로 나타냅니다. `1000`일보다 작은 양수여야 합니다. 요청 원격 분석은 처음과 끝이 있는 작업을 나타내므로 이 필드는 필수입니다.
 
@@ -52,7 +53,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 최대 길이: 1024자
 
-## <a name="success"></a>성공
+## <a name="success"></a>Success
 
 성공 또는 실패한 호출을 나타냅니다. 이 필드는 필수 필드입니다. 명시적으로 `false`로 설정되지 않은 경우 - 요청이 성공으로 간주됩니다. 작업이 예외에 의해 중단되었거나 오류 결과 코드를 반환한 경우 이 값을 `false`로 설정합니다.
 
@@ -72,7 +73,8 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 요청 원격 분석을 작성합니다](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest).
+- [사용자 지정 요청 원격 분석을 작성합니다](./api-custom-events-metrics.md#trackrequest).
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
-- 자세한 방법 Application Insights를 사용하여 [ASP.NET Core 애플리케이션을 구성](../../azure-monitor/app/asp-net.md)하는 방법을 알아봅니다.
-- Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.
+- 자세한 방법 Application Insights를 사용하여 [ASP.NET Core 애플리케이션을 구성](./asp-net.md)하는 방법을 알아봅니다.
+- Application Insights에서 지원되는 [플랫폼](./platforms.md)을 확인합니다.
+

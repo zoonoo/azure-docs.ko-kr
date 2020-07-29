@@ -3,20 +3,20 @@ title: PowerShell을 사용하여 Application Insights에서 경고 설정 | Mic
 description: Application Insights의 구성을 자동화하여 메트릭 변경 사항에 대한 전자 메일을 받습니다.
 ms.topic: conceptual
 ms.date: 07/23/2016
-ms.openlocfilehash: 00212aa8783a6bfc8e46d325a882781e33b7de51
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 74d477b6660c0f7ec2ee32b34169bb85886936e5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117167"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322468"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 [경고](../../azure-monitor/platform/alerts-log.md)의 구성을 자동화할 수 있습니다.
+[Application Insights](./app-insights-overview.md)에서 [경고](../platform/alerts-log.md)의 구성을 자동화할 수 있습니다.
 
-또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다.
+또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../platform/alerts-webhooks.md)할 수 있습니다.
 
 > [!NOTE]
 > 리소스와 경고를 동시에 만들려면 [Azure Resource Manager 템플릿을 사용](powershell.md)하는 것이 좋습니다.
@@ -82,7 +82,7 @@ Add-AzMetricAlertRule -Name "slow responses" `
 ```
 
 ## <a name="example-2"></a>예제 2
-[TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 애플리케이션이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
+[TrackMetric()](./api-custom-events-metrics.md#trackmetric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 애플리케이션이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
 
 ```azurepowershell
 Add-AzMetricAlertRule -Name "poor sales" `
@@ -98,7 +98,7 @@ Add-AzMetricAlertRule -Name "poor sales" `
   -RuleType Metric
 ```
 
-TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](../../azure-monitor/app/api-custom-events-metrics.md#properties) 를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
+TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](./api-custom-events-metrics.md#properties) 를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
 
 ## <a name="metric-names"></a>메트릭 이름
 | 메트릭 이름 | 화면 이름 | Description |
@@ -124,22 +124,23 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | `request.rate` |요청 속도 |애플리케이션에 전송된 모든 요청의 속도(초)입니다. |
 | `requestFailed.count` |실패한 요청 |응답 코드가 400 이상인 HTTP 요청의 개수입니다. |
 | `view.count` |페이지 보기 |웹 페이지에 대한 클라이언트 사용자 요청의 수입니다. 가상 트래픽은 필터링됩니다. |
-| {사용자 지정 메트릭 이름} |{사용자의 메트릭 이름} |메트릭 값은 [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)에 의해 또는 [추적 호출의 측정 매개 변수](../../azure-monitor/app/api-custom-events-metrics.md#properties)에 보고됩니다. |
+| {사용자 지정 메트릭 이름} |{사용자의 메트릭 이름} |메트릭 값은 [TrackMetric](./api-custom-events-metrics.md#trackmetric)에 의해 또는 [추적 호출의 측정 매개 변수](./api-custom-events-metrics.md#properties)에 보고됩니다. |
 
 다음과 같은 다양한 원격 분석 모듈에서 메트릭이 전송됩니다.
 
 | 메트릭 그룹 | 수집기 모듈 |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>뷰 |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
-| performanceCounter |[성능](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[종속성](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| request,<br/>requestFailed |[서버 요청](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>뷰 |[브라우저 JavaScript](./javascript.md) |
+| performanceCounter |[성능](./configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[종속성](./configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[서버 요청](./configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhook
-[경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
+[경고에 대한 응답을 자동화](../platform/alerts-webhooks.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [Application Insights를 구성하는 스크립트](./create-new-resource.md#creating-a-resource-automatically)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](powershell.md)
 * [Application Insights에 Microsoft Azure Diagnostics 결합 자동화](powershell-azure-diagnostics.md)
-* [경고에 대한 응답 자동화](../../azure-monitor/platform/alerts-webhooks.md)
+* [경고에 대 한 응답 자동화](../platform/alerts-webhooks.md)
+

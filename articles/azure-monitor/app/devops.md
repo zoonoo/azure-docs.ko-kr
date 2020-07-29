@@ -3,12 +3,12 @@ title: 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: devOps 주기에 Application Insights를 적용하는 방법
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033685"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324491"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -85,7 +85,7 @@ Real Madrid는 Power BI 모듈을 사용하여 원격 분석을 확인합니다.
 ![Application Insights 원격 분석의 Power BI 보기](./media/devops/080.png)
 
 ## <a name="smart-detection"></a>스마트 감지
-[사전 진단](../../azure-monitor/app/proactive-diagnostics.md)은 최신 기능입니다. 사용자가 특별한 구성을 하지 않아도 Application Insights가 앱에서 실패율이 비정상적으로 증가하는 것을 자동으로 감지하고 알립니다. 이 기능은 매우 지능적이어서 백그라운드에서 때때로 일어나거나 요청 증가에 비례하여 증가하는 오류에 대해서는 무시합니다. 예를 들어, 사용하는 서비스에 오류가 발생하거나 방금 배포한 새 빌드가 제대로 작동하지 않는다면 이메일을 보는 즉시 그 사실을 알 수 있습니다. (또한 webhook가 있어 다른 앱을 트리거할 수 있습니다.)
+[사전 진단](./proactive-diagnostics.md)은 최신 기능입니다. 사용자가 특별한 구성을 하지 않아도 Application Insights가 앱에서 실패율이 비정상적으로 증가하는 것을 자동으로 감지하고 알립니다. 이 기능은 매우 지능적이어서 백그라운드에서 때때로 일어나거나 요청 증가에 비례하여 증가하는 오류에 대해서는 무시합니다. 예를 들어, 사용하는 서비스에 오류가 발생하거나 방금 배포한 새 빌드가 제대로 작동하지 않는다면 이메일을 보는 즉시 그 사실을 알 수 있습니다. (또한 webhook가 있어 다른 앱을 트리거할 수 있습니다.)
 
 또한, 이 기능은 매일 심층적으로 원격 분석을 분석하여 발견하기 어려운 비정상적인 성능 패턴을 찾아냅니다. 예를 들어, 특정 지리적 영역 또는 특정 브라우저 버전과 관련된 성능 저하 문제를 찾을 수 있습니다.
 
@@ -145,9 +145,9 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 경고가 발생한 경우 Application Insights는 자동으로 사용자의 작업 추적 시스템에서 작업 항목을 만듭니다.
 
 ## <a name="but-what-about"></a>기타 사항
-* [개인 정보 보호 및 스토리지](../../azure-monitor/app/data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
+* [개인 정보 보호 및 스토리지](./data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
 * 성능 - 성능에 미치는 영향이 매우 낮습니다. 원격 분석은 일괄 처리됩니다.
-* [가격 책정](../../azure-monitor/app/pricing.md) - 무료로 시작할 수 있고 낮은 볼륨에서는 계속 무료로 이용할 수 있습니다.
+* [가격 책정](./pricing.md) - 무료로 시작할 수 있고 낮은 볼륨에서는 계속 무료로 이용할 수 있습니다.
 
 
 ## <a name="video"></a>비디오
@@ -157,6 +157,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 ## <a name="next-steps"></a>다음 단계
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 
-* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)및 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)에 대 한도 있습니다.
-* 개발 중에 프로젝트를 계측합니다. [ASP.NET](../../azure-monitor/app/asp-net.md) 또는 [Java](../../azure-monitor/app/java-get-started.md) 앱, [Node.js](../../azure-monitor/app/nodejs.md), 여러 가지 [기타 유형](../../azure-monitor/app/platforms.md) 호스트에 적용할 수 있습니다. 
-* 짧은 코드 조각을 추가하여 [아무 웹 페이지](../../azure-monitor/app/javascript.md) 나 계측합니다.
+* [IIS 서버](./monitor-performance-live-website-now.md)및 [Azure App Service](./app-insights-overview.md)에 대 한도 있습니다.
+* 개발 중에 프로젝트를 계측합니다. [ASP.NET](./asp-net.md) 또는 [Java](./java-get-started.md) 앱, [Node.js](./nodejs.md), 여러 가지 [기타 유형](./platforms.md) 호스트에 적용할 수 있습니다. 
+* 짧은 코드 조각을 추가하여 [아무 웹 페이지](./javascript.md) 나 계측합니다.
+

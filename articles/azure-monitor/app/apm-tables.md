@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540114"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323182"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>작업 영역 기반 리소스 변경 (미리 보기)
 
@@ -43,7 +43,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: 가용성
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -65,7 +65,7 @@ ms.locfileid: "86540114"
 |iKey|문자열|IKey|문자열|
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
-|itemType|문자열|형식|String|
+|itemType|문자열|Type|String|
 |위치|문자열|위치|문자열|
 |message|문자열|메시지|문자열|
 |name|문자열|이름|string|
@@ -87,7 +87,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: browserTimings
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -108,7 +108,7 @@ ms.locfileid: "86540114"
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
 |itemType|문자열|Type|문자열|
-|name|문자열|이름|Datetime|
+|name|문자열|Name|Datetime|
 |networkDuration|real|NetworkDurationMs|real|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
@@ -131,7 +131,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: 종속성
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -154,7 +154,7 @@ ms.locfileid: "86540114"
 |iKey|문자열|IKey|문자열|
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
-|itemType|문자열|형식|String|
+|itemType|문자열|Type|String|
 |name|문자열|이름|string|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
@@ -165,7 +165,7 @@ ms.locfileid: "86540114"
 |sdkVersion|문자열|SdkVersion|문자열|
 |session_Id|문자열|SessionId|문자열|
 |성공|문자열|Success|Bool|
-|대상|문자열|Target|문자열|
+|대상|문자열|대상|문자열|
 |timestamp|Datetime|TimeGenerated|Datetime|
 |type|문자열|DependencyType|문자열|
 |user_AccountId|문자열|UserAccountId|문자열|
@@ -176,7 +176,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: customEvents
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -213,7 +213,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: customMetrics
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -243,7 +243,7 @@ ms.locfileid: "86540114"
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
-|값|real|제거||
+|value|real|제거||
 |이상|int|이상|int|
 |valueMax|real|ValueMax|real|
 |이상|real|이상|real|
@@ -254,7 +254,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: pageViews
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -276,7 +276,7 @@ ms.locfileid: "86540114"
 |iKey|문자열|IKey|문자열|
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
-|itemType|문자열|형식|String|
+|itemType|문자열|Type|String|
 |name|문자열|이름|string|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
@@ -295,7 +295,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: performanceCounters
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -328,13 +328,13 @@ ms.locfileid: "86540114"
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
-|값|real|값|real|
+|value|real|값|real|
 
 ### <a name="apprequests"></a>AppRequests
 
 레거시 테이블: 요청
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -352,24 +352,24 @@ ms.locfileid: "86540114"
 |customDimensions|동적|속성|동적|
 |customMeasurements|동적|측정|동적|
 |duration|real|DurationMs|Real|
-|`id`|문자열|`Id`|String|
+|`id`|문자열|`Id`|문자열|
 |iKey|문자열|IKey|문자열|
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
-|itemType|문자열|형식|String|
-|name|문자열|이름|String|
+|itemType|문자열|Type|String|
+|name|문자열|Name|문자열|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
 |operation_ParentId|문자열|OperationParentId|문자열|
 |operation_SyntheticSource|문자열|OperationSyntheticSource|문자열|
-|performanceBucket|문자열|PerformanceBucket|String|
-|resultCode|문자열|ResultCode|String|
+|performanceBucket|문자열|PerformanceBucket|문자열|
+|resultCode|문자열|ResultCode|문자열|
 |sdkVersion|문자열|SdkVersion|문자열|
 |session_Id|문자열|SessionId|문자열|
-|source|문자열|원본|String|
+|source|문자열|원본|문자열|
 |성공|문자열|Success|Bool|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|url|문자열|Url|String|
+|url|문자열|Url|문자열|
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
@@ -378,12 +378,12 @@ ms.locfileid: "86540114"
 
 레거시 테이블: 예외
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
 |appName|문자열|\_ResourceId|문자열|
-|어셈블리(assembly)|문자열|어셈블리|문자열|
+|어셈블리|문자열|어셈블리|문자열|
 |client_Browser|문자열|ClientBrowser|문자열|
 |client_City|문자열|ClientCity|문자열|
 |client_CountryOrRegion|문자열|ClientCountryOrRegion|문자열|
@@ -430,7 +430,7 @@ ms.locfileid: "86540114"
 
 레거시 테이블: 추적
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -466,5 +466,6 @@ ms.locfileid: "86540114"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 탐색](../../azure-monitor/platform/metrics-charts.md)
+* [메트릭 탐색](../platform/metrics-charts.md)
 * [분석 쿼리 작성](../log-query/log-query-overview.md)
+

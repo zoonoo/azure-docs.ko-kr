@@ -3,11 +3,12 @@ title: Java 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2ce02c3ec9fbbc762b7919ee31d9b69306a008a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537545"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322621"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 
@@ -119,19 +120,20 @@ Application Insights 리소스에서 집계 된 원격 종속성과 메서드 �
 
 종속성의 개별 인스턴스, 예외 및 메서드 보고서를 찾으려면 [검색][diagnostic]을 엽니다.
 
-[종속성 문제 진단 - 자세한 내용](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[종속성 문제 진단 - 자세한 내용](./asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
-* 데이터가 없나요? [방화벽 예외 설정](../../azure-monitor/app/ip-addresses.md)
+## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
+* 데이터가 없나요? [방화벽 예외 설정](./ip-addresses.md)
 * [Java 문제 해결](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
+

@@ -3,16 +3,16 @@ title: 사용자 지정 이벤트 및 메트릭용 Application Insights API | Mi
 description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 43951a415256577144b93c7deea168e30e7a13ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d263c99af7793acbe1f939f64c5cc2dcadd3a054
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014731"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323233"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
-애플리케이션에 몇 줄의 코드를 삽입하여 사용자가 해당 애플리케이션으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 디바이스 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 코어 원격 분석 API를 사용하여 사용자 지정 이벤트 및 메트릭 그리고 고유한 버전의 표준 원격 분석을 보냅니다. 이 API는 표준 Application Insights 데이터 수집기에서 사용하는 동일한 API입니다.
+애플리케이션에 몇 줄의 코드를 삽입하여 사용자가 해당 애플리케이션으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 디바이스 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다. [Azure Application Insights](./app-insights-overview.md) 코어 원격 분석 API를 사용하여 사용자 지정 이벤트 및 메트릭 그리고 고유한 버전의 표준 원격 분석을 보냅니다. 이 API는 표준 Application Insights 데이터 수집기에서 사용하는 동일한 API입니다.
 
 ## <a name="api-summary"></a>API 요약
 
@@ -31,17 +31,17 @@ ms.locfileid: "87014731"
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
-## <a name="before-you-start"></a><a name="prep"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a><a name="prep"></a>시작 하기 전에
 
 Application Insights SDK에 대한 참조가 아직 없는 경우:
 
 * 프로젝트에 Application Insights SDK 추가:
 
-  * [ASP.NET 프로젝트](../../azure-monitor/app/asp-net.md)
-  * [ASP.NET Core 프로젝트](../../azure-monitor/app/asp-net-core.md)
-  * [Java 프로젝트](../../azure-monitor/app/java-get-started.md)
-  * [Node.js 프로젝트](../../azure-monitor/app/nodejs.md)
-  * [각 웹 페이지의 JavaScript](../../azure-monitor/app/javascript.md) 
+  * [ASP.NET 프로젝트](./asp-net.md)
+  * [ASP.NET Core 프로젝트](./asp-net-core.md)
+  * [Java 프로젝트](./java-get-started.md)
+  * [Node.js 프로젝트](./nodejs.md)
+  * [각 웹 페이지의 JavaScript](./javascript.md) 
 * 디바이스 또는 웹 서버 코드에 다음을 포함합니다.
 
     *C #:*`using Microsoft.ApplicationInsights;`
@@ -107,7 +107,7 @@ Node.js 프로젝트에서 `new applicationInsights.TelemetryClient(instrumentat
 
 ## <a name="trackevent"></a>TrackEvent
 
-Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에 집계된 개수로 표시하고 [진단 검색](../../azure-monitor/app/diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
+Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](../platform/metrics-charts.md)에 집계된 개수로 표시하고 [진단 검색](./diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
 다양한 이벤트를 계산하기 위해 코드에 `TrackEvent`를 삽입합니다. 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지를 계산할 수 있습니다.
 
@@ -147,11 +147,11 @@ telemetry.trackEvent({name: "WinGame"});
 
 [Application Insights 분석](../log-query/log-query-overview.md)의 `customEvents` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackEvent(..)` 호출을 나타냅니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 사용자 지정 이벤트의 정확한 수를 가져오려면와 같은 코드를 사용 해야 합니다 `customEvents | summarize sum(itemCount)` .
+[샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 사용자 지정 이벤트의 정확한 수를 가져오려면와 같은 코드를 사용 해야 합니다 `customEvents | summarize sum(itemCount)` .
 
 ## <a name="getmetric"></a>GetMetric
 
-GetMetric () 호출을 효과적으로 사용 하 여 .NET 및 .NET Core 응용 프로그램에 대해 로컬로 미리 집계 된 메트릭을 캡처하는 방법을 알아보려면 [getmetric](../../azure-monitor/app/get-metric.md) 설명서를 참조 하세요.
+GetMetric () 호출을 효과적으로 사용 하 여 .NET 및 .NET Core 응용 프로그램에 대해 로컬로 미리 집계 된 메트릭을 캡처하는 방법을 알아보려면 [getmetric](./get-metric.md) 설명서를 참조 하세요.
 
 ## <a name="trackmetric"></a>TrackMetric
 
@@ -166,7 +166,7 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 * 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="single-values"></a>단일 값
 
@@ -307,9 +307,9 @@ pageViews
 
 ## <a name="operation-context"></a>작업 컨텍스트
 
-원격 분석 항목을 작업 컨텍스트와 연결하여 상호 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](../../azure-monitor/app/diagnostic-search.md) 및 [분석](../log-query/log-query-overview.md)에서 해당 작업 ID를 사용 하 여 요청과 연결 된 모든 이벤트를 쉽게 찾을 수 있습니다.
+원격 분석 항목을 작업 컨텍스트와 연결하여 상호 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](./diagnostic-search.md) 및 [분석](../log-query/log-query-overview.md)에서 해당 작업 ID를 사용 하 여 요청과 연결 된 모든 이벤트를 쉽게 찾을 수 있습니다.
 
-상관 관계에 대한 자세한 내용은 [Application Insights의 원격 분석 상관 관계](../../azure-monitor/app/correlation.md)를 참조하세요.
+상관 관계에 대한 자세한 내용은 [Application Insights의 원격 분석 상관 관계](./correlation.md)를 참조하세요.
 
 원격 분석을 수동으로 추적할 경우 다음 패턴을 사용하여 원격 분석 상관 관계를 가장 쉽게 유지할 수 있습니다.
 
@@ -341,13 +341,13 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 ![관련 항목](./media/api-custom-events-metrics/21.png)
 
-사용자 지정 작업 추적에 대한 자세한 내용은 [Application Insights .NET SDK를 통한 사용자 지정 작업 추적](../../azure-monitor/app/custom-operations-tracking.md)을 참조하세요.
+사용자 지정 작업 추적에 대한 자세한 내용은 [Application Insights .NET SDK를 통한 사용자 지정 작업 추적](./custom-operations-tracking.md)을 참조하세요.
 
 ### <a name="requests-in-analytics"></a>분석의 요청
 
 [Application Insights 분석](../log-query/log-query-overview.md)에서 요청은 `requests` 테이블에 표시됩니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackRequest()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 요청 이름별로 분할된 정확한 요청 수 및 평균 기간을 가져오려면 다음과 같은 코드를 사용합니다.
+[샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackRequest()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 요청 이름별로 분할된 정확한 요청 수 및 평균 기간을 가져오려면 다음과 같은 코드를 사용합니다.
 
 ```kusto
 requests
@@ -358,8 +358,8 @@ requests
 
 Application Insights로 예외를 보냅니다.
 
-* 문제의 빈도 표시로 [계산](../../azure-monitor/platform/metrics-charts.md)하려면
-* [개별 항목을 검사](../../azure-monitor/app/diagnostic-search.md)하려면
+* 문제의 빈도 표시로 [계산](../platform/metrics-charts.md)하려면
+* [개별 항목을 검사](./diagnostic-search.md)하려면
 
 보고서는 스택 추적을 포함합니다.
 
@@ -414,8 +414,8 @@ catch (ex)
 
 SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackException을 명시적으로 호출할 필요는 없습니다.
 
-* ASP.NET: [예외를 catch 하는 코드를 작성](../../azure-monitor/app/asp-net-exceptions.md)합니다.
-* Java EE: [예외가 자동으로 catch 됩니다](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* ASP.NET: [예외를 catch 하는 코드를 작성](./asp-net-exceptions.md)합니다.
+* Java EE: [예외가 자동으로 catch 됩니다](./java-get-started.md#exceptions-and-request-failures).
 * JavaScript: 예외가 자동으로 catch됨. 자동 수집을 사용하지 않도록 설정하려면 웹 페이지에 삽입하는 코드 조각에 다음 한 줄을 추가합니다.
 
 ```javascript
@@ -429,14 +429,14 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 
 [Application Insights 분석](../log-query/log-query-overview.md)에서 예외는 `exceptions` 테이블에 표시됩니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 `itemCount` 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackException()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 예외 유형별로 분할된 정확한 예외 수를 가져오려면 다음과 같은 코드를 사용합니다.
+[샘플링](./sampling.md)이 작동 중이면 `itemCount` 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackException()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 예외 유형별로 분할된 정확한 예외 수를 가져오려면 다음과 같은 코드를 사용합니다.
 
 ```kusto
 exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들어:
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들면 다음과 같습니다.
 
 ```kusto
 exceptions
@@ -452,11 +452,11 @@ exceptions
 
 ## <a name="tracktrace"></a>TrackTrace
 
-이 TrackTrace를 사용하여 Application Insights에 '이동 경로 트레일'을 전송하면 문제 진단에 도움이 됩니다. 진단 데이터의 청크를 보내고 [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 검사할 수 있습니다.
+이 TrackTrace를 사용하여 Application Insights에 '이동 경로 트레일'을 전송하면 문제 진단에 도움이 됩니다. 진단 데이터의 청크를 보내고 [진단 검색](./diagnostic-search.md)에서 검사할 수 있습니다.
 
-.NET에서 [로그 어댑터](../../azure-monitor/app/asp-net-trace-logs.md)는 이 API를 사용하여 포털에 타사 로그를 보냅니다.
+.NET에서 [로그 어댑터](./asp-net-trace-logs.md)는 이 API를 사용하여 포털에 타사 로그를 보냅니다.
 
-[Log4J, Logback 같은 표준 로거](../../azure-monitor/app/java-trace-logs.md)용 Java에서 Application Insights Log4j 또는 Logback Appenders를 사용하여 타사 로그를 포털로 전송합니다.
+[Log4J, Logback 같은 표준 로거](./java-trace-logs.md)용 Java에서 Application Insights Log4j 또는 Logback Appenders를 사용하여 타사 로그를 포털로 전송합니다.
 
 *C#*
 
@@ -499,7 +499,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 *C#*
 
@@ -518,13 +518,13 @@ properties.put("Database", db.ID);
 telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
-[검색](../../azure-monitor/app/diagnostic-search.md)에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
+[검색](./diagnostic-search.md)에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
 
 ### <a name="traces-in-analytics"></a>분석의 추적
 
 [Application Insights 분석](../log-query/log-query-overview.md)에서 TrackTrace에 대한 호출은 `traces` 테이블에 표시됩니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 `trackTrace()`에 대한 10개 호출 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 추적 호출 수를 가져오려면 `traces | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
+[샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 `trackTrace()`에 대한 10개 호출 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 추적 호출 수를 가져오려면 `traces | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -591,19 +591,19 @@ finally
 }
 ```
 
-서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](../../azure-monitor/app/asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 
+서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](./asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 
 
-Java에서 특정 종속성 호출은 [Java 에이전트](../../azure-monitor/app/java-agent.md)를 사용하여 자동으로 추적할 수 있습니다.
+Java에서 특정 종속성 호출은 [Java 에이전트](./java-agent.md)를 사용하여 자동으로 추적할 수 있습니다.
 
 자동화된 추적에서 포착하지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
 
-C#에서 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)를 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다. 표준 종속성을 자동으로 수집하지 않으려는 경우 Java에서 Java 에이전트를 설치하지 마십시오.
+C#에서 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)를 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다. 표준 종속성을 자동으로 수집하지 않으려는 경우 Java에서 Java 에이전트를 설치하지 마십시오.
 
 ### <a name="dependencies-in-analytics"></a>분석의 종속성
 
 [Application Insights 분석](../log-query/log-query-overview.md)에서 trackDependency 호출은 `dependencies` 테이블에 표시됩니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackDependency()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 대상 구성 요소별로 분할된 정확한 종속 수를 가져오려면 다음과 같은 코드를 사용합니다.
+[샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackDependency()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 대상 구성 요소별로 분할된 정확한 종속 수를 가져오려면 다음과 같은 코드를 사용합니다.
 
 ```kusto
 dependencies
@@ -649,7 +649,7 @@ telemetry.flush();
 
 ## <a name="authenticated-users"></a>인증된 사용자
 
-웹 앱에서 사용자는 기본적으로 [쿠키로 식별](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool)됩니다. 사용자가 다른 컴퓨터 또는 브라우저에서 앱에 액세스하거나 쿠키를 삭제하는 경우 두 번 이상 계산될 수 있습니다.
+웹 앱에서 사용자는 기본적으로 [쿠키로 식별](./usage-segmentation.md#the-users-sessions-and-events-segmentation-tool)됩니다. 사용자가 다른 컴퓨터 또는 브라우저에서 앱에 액세스하거나 쿠키를 삭제하는 경우 두 번 이상 계산될 수 있습니다.
 
 사용자가 앱에 로그인하면 브라우저 코드에서 인증된 사용자 ID를 설정하여 보다 정확한 개수를 얻을 수 있습니다.
 
@@ -689,9 +689,9 @@ ASP.NET 웹 MVC 애플리케이션에서의 예:
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-[메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
+[메트릭 탐색기](../platform/metrics-charts.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
 
-특정 사용자 이름과 계정으로 클라이언트 데이터 지점을 [검색](../../azure-monitor/app/diagnostic-search.md)할 수도 있습니다.
+특정 사용자 이름 및 계정을 사용 하 여 클라이언트 데이터 요소를 [검색할](./diagnostic-search.md) 수도 있습니다.
 
 ## <a name="filtering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>속성을 사용하여 데이터를 필터링, 검색 및 세분화
 
@@ -822,7 +822,7 @@ requests
 다음에 유의합니다.
 
 * customDimensions 또는 customMeasurements JSON에서 값을 추출하면 동적 유형이므로 `tostring` 또는 `todouble`로 캐스트해야 합니다.
-* [샘플링](../../azure-monitor/app/sampling.md)의 가능성을 고려하려면 `count()`가 아닌 `sum(itemCount)`을 사용해야 합니다.
+* [샘플링](./sampling.md)의 가능성을 고려하려면 `count()`가 아닌 `sum(itemCount)`을 사용해야 합니다.
 
 ## <a name="timing-events"></a><a name="timed"></a> 타이밍 이벤트
 
@@ -919,19 +919,19 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 *Javascript 웹 클라이언트의*경우 javascript 원격 분석 이니셜라이저를 사용 합니다.
 
-표준 컬렉션 모듈의 데이터를 포함하여 *모든 원격 분석에 속성을 추가하려면*[`ITelemetryInitializer`를 구현합니다](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
+표준 컬렉션 모듈의 데이터를 포함하여 *모든 원격 분석에 속성을 추가하려면*[`ITelemetryInitializer`를 구현합니다](./api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>원격 분석 샘플링, 필터링 및 처리
 
 SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 수 있습니다. 처리는 HTTP 요청 컬렉션 및 종속성 컬렉션과 같은 표준 원격 분석 모듈에서 전송된 데이터를 포함합니다.
 
-`ITelemetryInitializer`를 구현하여 원격 분석에 [속성을 추가](../../azure-monitor/app/api-filtering-sampling.md#add-properties)합니다. 예를 들어 다른 속성에서 계산된 버전 번호 또는 값을 추가할 수 있습니다.
+`ITelemetryInitializer`를 구현하여 원격 분석에 [속성을 추가](./api-filtering-sampling.md#add-properties)합니다. 예를 들어 다른 속성에서 계산된 버전 번호 또는 값을 추가할 수 있습니다.
 
-`ITelemetryProcessor`를 구현하여 원격 분석이 SDK에서 전송되기 전에 [필터링](../../azure-monitor/app/api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
+`ITelemetryProcessor`를 구현하여 원격 분석이 SDK에서 전송되기 전에 [필터링](./api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
 
-[샘플링](../../azure-monitor/app/api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
+[샘플링](./api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
 
-[자세한 정보를 알아보세요](../../azure-monitor/app/api-filtering-sampling.md).
+[자세한 정보를 알아보세요](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 
@@ -951,7 +951,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-선택한 표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 *사용 하지 않도록 설정*하려면 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제 하거나 주석으로 처리 합니다. 예를 들어 사용자 고유의 자체 요청 데이터를 전송 하려는 경우이 작업을 수행할 수 있습니다.
+선택한 표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 *사용 하지 않도록 설정*하려면 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제 하거나 주석으로 처리 합니다. 예를 들어 사용자 고유의 자체 요청 데이터를 전송 하려는 경우이 작업을 수행할 수 있습니다.
 
 *Node.JS*
 
@@ -1012,7 +1012,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
 
-개발, 테스트 및 프로덕션 환경에서 원격 분석이 혼합 되지 않게 하려면 환경에 따라 [별도의 Application Insights 리소스를 만들고](../../azure-monitor/app/create-new-resource.md ) 해당 키를 변경할 수 있습니다.
+개발, 테스트 및 프로덕션 환경에서 원격 분석이 혼합 되지 않게 하려면 환경에 따라 [별도의 Application Insights 리소스를 만들고](./create-new-resource.md) 해당 키를 변경할 수 있습니다.
 
 구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
@@ -1062,13 +1062,13 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들어:
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
 ```
 
-이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 관련 줄을 제거해야 합니다.
+이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 관련 줄을 제거해야 합니다.
 
 * **Component**: 앱 및 앱 버전입니다.
 * **Device**: 앱이 실행되는 디바이스에 대한 데이터입니다. (웹앱에서 원격 분석이 전송되는 서버 또는 클라이언트 디바이스입니다.)
@@ -1086,9 +1086,9 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-데이터 속도 제한에 도달하지 않도록 하려면 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.
+데이터 속도 제한에 도달하지 않도록 하려면 [샘플링](./sampling.md)을 사용합니다.
 
-데이터 유지 기간을 결정하려면 [데이터 보존 및 개인 정보](../../azure-monitor/app/data-retention-privacy.md)를 참조하세요.
+데이터 유지 기간을 결정하려면 [데이터 보존 및 개인 정보](./data-retention-privacy.md)를 참조하세요.
 
 ## <a name="reference-docs"></a>참조 문서
 
@@ -1112,9 +1112,10 @@ telemetry.Context.Operation.Name = "MyOperationName";
     없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
 * *포털에서 데이터를 가져오는 REST API가 있나요?*
 
-    예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](../../azure-monitor/app/export-power-bi.md ) 및 [연속 내보내기](../../azure-monitor/app/export-telemetry.md)가 있습니다.
+    예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](./export-power-bi.md) 및 [연속 내보내기](./export-telemetry.md)가 있습니다.
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 
-* [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md)
+* [검색 이벤트 및 로그](./diagnostic-search.md)
 * [문제 해결](../faq.md)
+

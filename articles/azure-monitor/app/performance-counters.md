@@ -3,12 +3,12 @@ title: Application Insights의 성능 카운터 | Microsoft Docs
 description: Application Insights에서 시스템 및 사용자 지정 .NET 성능 카운터를 모니터링합니다.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024421"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322519"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -131,7 +131,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
 * *예외 속도* 는 시스템 성능 카운터입니다. CLR은 발생하는 처리된 예외 및 처리되지 않은 예외를 모두 계산하고 샘플링 간격의 합계를 간격 길이로 나눕니다. Application Insights SDK는 이 결과를 수집하여 포털에 보냅니다.
 
-* *예외* 는 차트의 샘플링 간격에 포털이 받은 TrackException 보고서 개수입니다. 코드에서 TrackException 호출을 작성한 처리된 예외만 포함하며, [처리되지 않은 예외](../../azure-monitor/app/asp-net-exceptions.md)는 모두 포함되지 않습니다. 
+* *예외* 는 차트의 샘플링 간격에 포털이 받은 TrackException 보고서 개수입니다. 코드에서 TrackException 호출을 작성한 처리된 예외만 포함하며, [처리되지 않은 예외](./asp-net-exceptions.md)는 모두 포함되지 않습니다. 
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Azure Web Apps에서 실행되는 애플리케이션에 대한 성능 카운터
 
@@ -147,9 +147,10 @@ ASP.NET Core의 성능 카운터에 대한 지원은 제한적입니다.
 * SDK 버전 2.8.0 이상에서는 Linux의 cpu/메모리 카운터를 지원합니다. 다른 카운터는 Linux에서 지원되지 않습니다. Linux 및 기타 비 Windows 환경에서 시스템 카운터를 가져오는 권장 방법은 [EventCounters](eventcounters.md)를 사용하는 것입니다.
 
 ## <a name="alerts"></a>경고
-다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../../azure-monitor/platform/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
+다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../platform/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 
-* [종속성 추적](../../azure-monitor/app/asp-net-dependencies.md)
-* [예외 추적](../../azure-monitor/app/asp-net-exceptions.md)
+* [종속성 추적](./asp-net-dependencies.md)
+* [예외 추적](./asp-net-exceptions.md)
+
