@@ -3,12 +3,13 @@ title: Application Insights SDK에서 필터링 및 전처리 | Microsoft Docs
 description: SDK에 대 한 원격 분석 프로세서 및 원격 분석 이니셜라이저를 작성 하 여 원격 분석을 Application Insights 포털로 보내기 전에 데이터에 속성을 필터링 하거나 추가 합니다.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: a16dc7bc9f6f3c49640d320fbfbffaa7acbed6b9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-javascript
+ms.openlocfilehash: eec3cf44eb516ce20db564e1bed32e5741bfd02a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323216"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366758"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 

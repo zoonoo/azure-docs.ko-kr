@@ -1,15 +1,15 @@
 ---
 title: Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트워크를 배포 하 고 구성 하는 방법
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081283"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286056"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -28,13 +28,15 @@ AKS (Azure Kubernetes Service) 템플릿에서 HLF (Hyperledger Fabric)를 사�
 
 옵션 | 서비스 모델 | 일반적인 사용 사례
 -------|---------------|-----------------
-솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 템플릿은 지정 된 blockchain 네트워크 유형에 대해 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 배포 하 고 구성 합니다. 솔루션 템플릿은 서비스 수준 계약 없이 제공 됩니다. [Microsoft Q&질문 페이지를](/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
-[Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, consortium 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에는 Azure Blockchain 서비스를 사용 합니다.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain Workbench 미리 보기는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 애플리케이션을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능 컬렉션입니다. 블록 체인 솔루션 프로토타입 또는 블록 체인 응용 프로그램 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다. Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다. [Microsoft Q&질문 페이지를](/answers/topics/azure-blockchain-workbench.html) 사용 하 여 지원을 받을 수 있습니다.
+솔루션 템플릿 | IaaS | 솔루션 템플릿은 완전히 구성 된 blockchain 네트워크 토폴로지를 프로 비전 하는 데 사용할 수 있는 Azure Resource Manager 템플릿입니다. 템플릿은 지정 된 blockchain 네트워크 유형에 대해 Microsoft Azure 계산, 네트워킹 및 저장소 서비스를 배포 하 고 구성 합니다. 솔루션 템플릿은 서비스 수준 계약 없이 제공 됩니다. 지원을 받으려면 [Microsoft Q&A 질문 페이지](/answers/topics/azure-blockchain-workbench.html)를 사용하세요.
+[Azure Blockchain 서비스](../service/overview.md) | PaaS | Azure Blockchain 서비스 미리 보기는 컨소시엄 Blockchain 네트워크의 대형, 관리 및 관리를 간소화 합니다. PaaS, consortium 관리 또는 계약 및 트랜잭션 개인 정보를 요구 하는 솔루션에는 Azure Blockchain 서비스를 사용 합니다.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS 및 PaaS | Azure Blockchain Workbench 미리 보기는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 애플리케이션을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능 컬렉션입니다. 블록 체인 솔루션 프로토타입 또는 블록 체인 응용 프로그램 개념 증명을 위해 Azure Blockchain 워크 벤치를 사용 합니다. Azure Blockchain Workbench는 서비스 수준 규약 없이 제공됩니다. 지원을 받으려면 [Microsoft Q&A 질문 페이지](/answers/topics/azure-blockchain-workbench.html)를 사용하세요.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Hyperledger 패브릭 컨소시엄 아키텍처
 
-Azure에서 Hyperledger 패브릭 네트워크를 빌드하려면 피어 노드를 사용 하 여 주문 서비스 및 조직을 배포 해야 합니다. 템플릿 배포의 일부로 생성 되는 다양 한 기본 구성 요소는 다음과 같습니다.
+Azure에서 Hyperledger 패브릭 네트워크를 빌드하려면 피어 노드를 사용 하 여 주문 서비스 및 조직을 배포 해야 합니다. Azure Kubernetes Service 솔루션 템플릿에서 Hyperledger 패브릭을 사용 하 여 주문 노드나 피어 노드를 만들 수 있습니다. 만들려는 각 노드에 대 한 템플릿을 배포 해야 합니다.
+
+템플릿 배포의 일부로 생성 되는 다양 한 기본 구성 요소는 다음과 같습니다.
 
 - **Orderer 노드**: 원장에서 트랜잭션 순서 지정을 담당 하는 노드입니다. 다른 노드와 함께, 정렬 된 노드는 Hyperledger 패브릭 네트워크의 주문 서비스를 형성 합니다.
 
@@ -58,22 +60,13 @@ Azure에서 Hyperledger 패브릭 네트워크를 빌드하려면 피어 노드�
 - **Azure managed disk**: azure 관리 디스크는 원장 및 피어 노드 세계 상태 데이터베이스용 영구 저장소에 대 한 것입니다.
 - **공용 ip**: 클러스터와의 상호 작용을 위해 배포 된 AKS 클러스터의 공용 ip 끝점입니다.
 
-## <a name="hyperledger-fabric-blockchain-network-setup"></a>Hyperledger 패브릭 Blockchain 네트워크 설정
+## <a name="deploy-the-ordererpeer-organization"></a>Orderer/피어 조직 배포
 
 시작하려면 여러 가상 머신과 표준 스토리지 계정의 배포를 지원할 수 있는 Azure 구독이 필요합니다. Azure 구독이 없는 경우 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 
-다음 단계를 사용 하 여 Hyperledger 패브릭 Blockchain 네트워크를 설정 합니다.
+HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다.
 
-- [Orderer/피어 조직 배포](#deploy-the-ordererpeer-organization)
-- [컨소시엄 빌드](#build-the-consortium)
-
-## <a name="deploy-the-ordererpeer-organization"></a>Orderer/피어 조직 배포
-
-HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다. **Azure Kubernetes Service에서 하이퍼 원장 패브릭을**검색 > **리소스 만들기 > blockchain** 을 선택 합니다.
-
-1. **만들기** 를 선택 하 여 템플릿 배포를 시작 합니다. **Azure Kubernetes에서 Hyperledger 패브릭 만들기 서비스가** 표시 됩니다.
-
-    ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
+1. **Azure Kubernetes Service (미리 보기)에서 하이퍼 원장 패브릭을**검색 > **리소스 만들기 > blockchain** 을 선택 합니다.
 
 2. **기본 사항** 페이지에서 프로젝트 세부 정보를 입력 합니다.
 
@@ -90,7 +83,7 @@ HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https:/
 
 5. 다음 세부 정보를 입력합니다.
     - **조직 이름**: 다양 한 데이터 평면 작업에 필요한 패브릭 조직의 이름입니다. 조직 이름은 배포 마다 고유 해야 합니다.
-    - **패브릭 네트워크 구성 요소**: 설치 하려는 blockchain 네트워크 구성 요소를 기준으로 정렬 서비스 또는 피어 노드를 선택 합니다.
+    - **패브릭 네트워크 구성 요소**: 설정 하려는 blockchain 네트워크 구성 요소를 기준으로 정렬 서비스 또는 피어 노드를 선택 합니다.
     - **노드 수** -다음은 두 가지 유형의 노드입니다.
         - 서비스 순서 지정-네트워크에 내결함성을 제공한 노드 수를 선택 합니다. 지원 되는 가져오므로 노드 수는 3, 5, 7만 지원 됩니다.
         - 피어 노드-요구 사항에 따라 1-10 노드를 선택할 수 있습니다.
@@ -103,7 +96,7 @@ HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https:/
     - **루트 인증서 개인 키**: 루트 인증서의 개인 키를 업로드 합니다. 공개 키와 개인 키가 모두 결합 된 pem 인증서가 있는 경우 여기에도 업로드 합니다.
 
 
-6. **AKS 클러스터 설정** 탭을 선택 하 여 패브릭 네트워크 구성 요소를 설치할 기본 인프라로 Azure Kubernetes 클러스터 구성을 정의 합니다.
+6. **AKS 클러스터 설정** 탭을 선택 하 여 패브릭 네트워크 구성 요소가 설정 되는 기본 인프라 인 Azure Kubernetes 클러스터 구성을 정의 합니다.
 
     ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
@@ -136,7 +129,7 @@ HLF 네트워크 구성 요소 배포를 시작 하려면 [Azure Portal](https:/
 > 제공 되는 Azure HLF (azhlf) 스크립트는 데모/DevTest 시나리오에만 도움이 됩니다. 이 스크립트로 만든 채널 및 컨소시엄에는 데모/DevTest 시나리오를 간소화 하는 기본 HLF 정책이 있습니다. 프로덕션 설정의 경우 기본 HLF Api를 사용 하 여 조직의 규정 준수 요구 사항에 따라 channel/consortium HLF 정책을 업데이트 하는 것이 좋습니다.
 
 
-Azure HLF 스크립트를 실행 하는 모든 명령은 Azure Bash 명령줄을 통해 실행할 수 있습니다. 인터페이스 (CLI). 를 통해 Azure shell 웹 버전에 로그인 할 수 있습니다.  ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) 옵션을 Azure Portal 선택 합니다. 명령 프롬프트에서 bash를 입력 하 고를 입력 하 여 bash CLI로 전환 합니다.
+Azure HLF 스크립트를 실행 하는 모든 명령은 Azure Bash 명령줄을 통해 실행할 수 있습니다. 인터페이스 (CLI).   ![ ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) Azure Portal의 오른쪽 위 모퉁이에 있는 Azure Kubernetes 서비스 템플릿의 하이퍼 원장 패브릭을 통해 azure shell 웹 버전에 로그인 할 수 있습니다. 명령 프롬프트에서 bash를 입력 하 고를 입력 하 여 bash CLI로 전환 하거나 shell 도구 모음에서 *bash* 를 선택 합니다.
 
 자세한 내용은 [Azure shell](../../cloud-shell/overview.md) 을 참조 하세요.
 
@@ -147,17 +140,17 @@ Azure HLF 스크립트를 실행 하는 모든 명령은 Azure Bash 명령줄을
 
 ![Azure Kubernetes의 hyperledger 패브릭 서비스 템플릿](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-클라이언트 응용 프로그램의 초기 설정에 대해 아래 명령을 수행 합니다. 
+클라이언트 응용 프로그램의 초기 설치에 대 한 섹션을 완료 합니다. 
 
-1.  [클라이언트 응용 프로그램 파일 다운로드](#download-client-application-files)
-2.  [환경 변수 설정](#setup-environment-variables)
-3.  [조직 연결 프로필, 관리 사용자 및 MSP 가져오기](#import-organization-connection-profile-admin-user-identity-and-msp)
+1. 클라이언트 응용 프로그램 파일 다운로드
+1. 환경 변수 설정
+1. 조직 연결 프로필, 관리 사용자 및 MSP 가져오기
 
-초기 설정을 완료 한 후 클라이언트 응용 프로그램을 사용 하 여 다음과 같은 작업을 수행할 수 있습니다.  
+초기 설정을 완료 한 후 클라이언트 응용 프로그램을 사용 하 여 다음 작업을 수행 합니다.  
 
-- [채널 관리 명령](#channel-management-commands)
-- [컨소시엄 관리 명령](#consortium-management-commands)
-- [Chaincode 관리 명령](#chaincode-management-commands)
+- 채널 관리
+- 컨소시엄 관리
+- Chaincode 관리
 
 ### <a name="download-client-application-files"></a>클라이언트 응용 프로그램 파일 다운로드
 
@@ -168,19 +161,16 @@ curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kuberne
 cd azhlfTool
 npm install
 npm run setup
-
 ```
-이러한 명령은 공용 GitHub 리포지토리에서 Azure HLF client 응용 프로그램 코드를 복제 한 다음 모든 종속 npm 패키지를 로드 합니다. 명령을 성공적으로 실행 한 후에는 현재 디렉터리에서 node_modules 폴더를 볼 수 있습니다. 필요한 모든 패키지가 node_modules 폴더에 로드 됩니다.
 
+이러한 명령은 공용 GitHub 리포지토리에서 Azure HLF client 응용 프로그램 코드를 복제 한 다음 모든 종속 npm 패키지를 로드 합니다. 명령을 성공적으로 실행 한 후에는 현재 디렉터리에서 node_modules 폴더를 볼 수 있습니다. 필요한 모든 패키지가 node_modules 폴더에 로드 됩니다.
 
 ### <a name="setup-environment-variables"></a>환경 변수 설정하기
 
 > [!NOTE]
 > 모든 환경 변수는 Azure 리소스 명명 규칙을 따릅니다.
 
-
-**가져오므로 조직 클라이언트용 환경 변수 설정**
-
+#### <a name="set-environment-variables-for-orderer-organization-client"></a>가져오므로 조직 클라이언트에 대 한 환경 변수 설정
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -189,7 +179,8 @@ ORDERER_ORG_NAME=<ordererOrgName>
 ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-**피어 조직 클라이언트에 대해 아래 환경 변수 설정**
+
+#### <a name="set-the-environment-variables-for-peer-organization-client"></a>피어 조직 클라이언트에 대 한 환경 변수 설정
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -202,7 +193,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > 컨소시엄의 피어 Orgs 수에 따라 피어 명령을 반복 하 고 환경 변수를 적절 하 게 설정 해야 할 수 있습니다.
 
-**Azure Storage 계정을 설정 하기 위해 아래 환경 변수를 설정 합니다.**
+#### <a name="set-the-environment-variables-for-setting-up-azure-storage-account"></a>Azure Storage 계정 설정에 대 한 환경 변수 설정
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -212,7 +203,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Azure Storage 계정을 만들려면 아래 단계를 따르세요. 이미 Azure Storage 계정을 만든 경우에는 다음 단계를 건너뜁니다.
+계정을 만드는 Azure Storage 다음 단계를 사용 합니다. 이미 Azure Storage 계정을 만든 경우에는 다음 단계를 건너뜁니다.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -220,14 +211,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Azure Storage 계정에서 파일 공유를 만들려면 아래 단계를 따르세요. 파일 공유를 이미 만든 경우에는 다음 단계를 건너뜁니다.
+Azure Storage 계정에서 파일 공유를 만드는 데 다음 단계를 사용 합니다. 파일 공유를 이미 만든 경우에는 다음 단계를 건너뜁니다.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Azure 파일 공유 연결 문자열을 생성 하는 다음 단계를 따르세요.
+다음 단계를 사용 하 여 Azure 파일 공유 연결 문자열을 생성 합니다.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -256,39 +247,13 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### <a name="channel-management-commands"></a>채널 관리 명령
-
-> [!NOTE]
-> 모든 채널 작업을 시작 하기 전에 클라이언트 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.  
-
-다음은 두 가지 채널 관리 명령입니다.
-
-1. [채널 만들기 명령](#create-channel-command)
-2. [앵커 피어 명령 설정](#setting-anchor-peers-command)
-
-
-#### <a name="create-channel-command"></a>채널 만들기 명령
+### <a name="create-channel-command"></a>채널 만들기 명령
 
 가져오므로 조직 클라이언트에서 명령을 실행 하 여 새 채널을 만듭니다. 이 명령은 가져오므로 조직에만 채널을 만듭니다.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
-
-#### <a name="setting-anchor-peers-command"></a>앵커 피어 명령 설정
-피어 조직 클라이언트에서 아래 명령을 실행 하 여 지정 된 채널에서 피어 조직의 앵커 피어를 설정 합니다.
-
->[!NOTE]
-> 이 명령을 실행 하기 전에 Consortium 관리 명령을 사용 하 여 채널에 피어 조직을 추가 해야 합니다.
-
-```bash
-./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
-```
-
-`<anchorPeersList>`앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예를 들면 다음과 같습니다.
-
-  - `<anchorPeersList>`Peer1 노드만 앵커 피어로 설정 하려면 "peer1"로 설정 합니다.
-  - `<anchorPeersList>`Peer1 및 peer3 노드를 앵커 피어로 설정 하려면 "peer1" "peer3"로 설정 합니다.
 
 ### <a name="consortium-management-commands"></a>컨소시엄 관리 명령
 
@@ -324,6 +289,21 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 
 마찬가지로, 채널에 피어 조직을 더 추가 하려면 필요한 피어 조직에 따라 피어 환경 변수를 업데이트 하 고 1 ~ 4 단계를 실행 합니다.
 
+### <a name="set-anchor-peers-command"></a>앵커 피어 명령 설정
+
+피어 조직 클라이언트에서 명령을 실행 하 여 지정 된 채널에서 피어 조직의 앵커 피어를 설정 합니다.
+
+>[!NOTE]
+> 이 명령을 실행 하기 전에 Consortium 관리 명령을 사용 하 여 채널에 피어 조직을 추가 해야 합니다.
+
+```bash
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
+```
+
+`<anchorPeersList>`앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예를 들면 다음과 같습니다.
+
+  - `<anchorPeersList>`Peer1 노드만 앵커 피어로 설정 하려면 "peer1"로 설정 합니다.
+  - `<anchorPeersList>`Peer1 및 peer3 노드를 앵커 피어로 설정 하려면 "peer1" "peer3"로 설정 합니다.
 
 ### <a name="chaincode-management-commands"></a>Chaincode 관리 명령
 
@@ -344,7 +324,7 @@ CC_VERSION=<chaincodeVersion>
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is place.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  

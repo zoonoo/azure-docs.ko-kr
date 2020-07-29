@@ -4,17 +4,18 @@ description: 회신 URL/리디렉션 URI 제한 사항
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/29/2019
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4fdeb0018e27a2557161b2ec1c4794d975403523
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725315"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311622"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>리디렉션 URI/회신 URL 제한 및 제한 사항
 
@@ -40,17 +41,34 @@ ms.locfileid: "83725315"
 앱 등록에 추가하는 각 리디렉션 URI에 대해 최대 256문자를 사용할 수 있습니다.
 
 ## <a name="supported-schemes"></a>지원되는 스키마
+
 현재 Azure AD 애플리케이션 모델은 모든 조직의 Azure AD(Azure Active Directory) 테넌트에서 Microsoft 회사 또는 학교 계정에 로그인하는 앱에 HTTP 및 HTTPS 스키마를 모두 지원합니다. 즉. 애플리케이션 매니페스트의 `signInAudience` 필드가 *AzureADMyOrg* 또는 *AzureADMultipleOrgs*로 설정되어 있습니다. 개인 Microsoft 계정 및 회사/학교 계정에 로그인하는 앱의 경우(즉 `signInAudience`가 *AzureADandPersonalMicrosoftAccount*로 설정됨) HTTPS 스키마만 허용됩니다.
 
 > [!NOTE]
 > 새 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서는 개발자가 UI에서 HTTP 스키마를 사용하는 URI를 추가할 수 없습니다. 회사 또는 학교 계정에 로그인하는 앱에 대한 HTTP URI 추가는 앱 매니페스트 편집기를 통해서만 지원됩니다. 앞으로 새 앱은 리디렉션 URI에서 HTTP 스키마를 사용할 수 없습니다. 그러나 리디렉션 URI에 HTTP 스키마가 포함된 이전 앱은 계속 작동합니다. 개발자는 리디렉션 URI에서 HTTPS 스키마를 사용해야 합니다.
 
+## <a name="localhost-exceptions"></a>Localhost 예외
+
+[RFC 8252 섹션 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) 및 [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "루프백" 또는 "localhost" 리디렉션 uri는 다음과 같은 두 가지 특별 한 고려 사항과 함께 제공 됩니다.
+
+1. `http`리디렉션이 장치를 벗어날 수 없으므로 URI 체계가 허용 됩니다.  이는 뿐만 아니라도 `http://127.0.0.1/myApp` 사용할 수 있음을 의미 `https://127.0.0.1/myApp` 합니다. 
+1. 기본 응용 프로그램에서 사용 되는 사용 후 삭제 포트 범위 때문에 리디렉션 URI를 일치 시키기 위해 포트 구성 요소 (예: `:5001` 또는 `:443` )가 무시 됩니다.  결과적으로와는 `http://127.0.0.1:5000/MyApp` `http://127.0.0.1:1234/MyApp` 모두와 일치 합니다. `http://127.0.0.1/MyApp``http://127.0.0.1:8080/MyApp`
+
+개발 관점에서이는 다음과 같은 몇 가지 것을 의미 합니다.
+
+1. 포트가 서로 다른 경우 여러 회신 Uri를 등록 하지 마십시오.  로그인 서버는 임의의 항목을 임의로 선택 하 고 해당 회신 URI와 연결 된 동작을 사용 합니다 (예: `web` , `native` 및 `spa` -형식 리디렉션).
+1. 호스트에서 여러 리디렉션 Uri를 등록 하 여 개발 중에 서로 다른 흐름을 테스트 해야 하는 경우에는 URI의 *경로* 구성 요소를 사용 하 여 구분 합니다.  `http://127.0.0.1/MyWebApp`가와 일치 하지 않습니다 `http://127.0.0.1/MyNativeApp` .  
+1. RFC 지침에 따라 리디렉션 URI에서를 사용 하면 안 `localhost` 됩니다.  대신 실제 루프백 IP 주소를 사용 `127.0.0.1` 합니다. 이렇게 하면 잘못 구성 된 방화벽 또는 이름이 바뀐 네트워크 인터페이스로 인해 앱이 중단 되지 않습니다.
+
+>[!NOTE]
+> 지금은 IPv6 루프백 ( `[::1]` )이 지원 되지 않습니다.  이는 나중에 추가 됩니다.
+
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>URI에서 와일드카드 사용 제한
 
-`https://*.contoso.com`와 같은 와일드카드 URI는 편리하지만 이를 피해야 합니다. 리디렉션 URI에서 와일드카드를 사용하면 보안에 영향을 미칩니다. OAuth 2.0 사양([RFC 6749의섹션 3.1.2](https://tools.ietf.org/html/rfc6749#section-3.1.2))에 따라 리디렉션 엔드포인트 URI는 절대 URI여야 합니다. 
+`https://*.contoso.com`와 같은 와일드카드 URI는 편리하지만 이를 피해야 합니다. 리디렉션 URI에서 와일드카드를 사용하면 보안에 영향을 미칩니다. OAuth 2.0 사양([RFC 6749의섹션 3.1.2](https://tools.ietf.org/html/rfc6749#section-3.1.2))에 따라 리디렉션 엔드포인트 URI는 절대 URI여야 합니다.
 
-Azure AD 애플리케이션 모델은 개인 Microsoft 계정 및 회사 또는 학교 계정에 로그인하도록 구성된 앱에 대한 와일드카드 URI를 지원하지 않습니다. 그러나 현재 조직의 Azure AD 테넌트에서 회사 또는 학교 계정에 로그인하도록 구성되어 있는 앱에는 와일드카드 URI를 사용할 수 있습니다. 
- 
+Azure AD 애플리케이션 모델은 개인 Microsoft 계정 및 회사 또는 학교 계정에 로그인하도록 구성된 앱에 대한 와일드카드 URI를 지원하지 않습니다. 그러나 현재 조직의 Azure AD 테넌트에서 회사 또는 학교 계정에 로그인하도록 구성되어 있는 앱에는 와일드카드 URI를 사용할 수 있습니다.
+
 > [!NOTE]
 > 새 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서는 개발자가 UI에서 와일드카드 URI를 추가할 수 없습니다. 회사 또는 학교 계정에 로그인하는 앱에 대한 와일드카드 URI 추가는 앱 매니페스트 편집기를 통해서만 지원됩니다. 앞으로 새 앱은 리디렉션 URI에서 와일드카드를 사용할 수 없습니다. 그러나 리디렉션 URI에 와일드카드가 포함된 이전 앱은 계속 작동합니다.
 
@@ -58,7 +76,7 @@ Azure AD 애플리케이션 모델은 개인 Microsoft 계정 및 회사 또는 
 
 ### <a name="use-a-state-parameter"></a>상태 매개 변수 사용
 
-다수의 하위 도메인을 사용하는 경우 그리고 인증이 성공하면 사용자를 인증이 시작된 동일한 페이지로 리디렉션해야 하는 시나리오에서는 상태 매개 변수를 사용하는 것이 도움이 될 수 있습니다. 
+다수의 하위 도메인을 사용하는 경우 그리고 인증이 성공하면 사용자를 인증이 시작된 동일한 페이지로 리디렉션해야 하는 시나리오에서는 상태 매개 변수를 사용하는 것이 도움이 될 수 있습니다.
 
 이 방법의 경우 다음을 수행합니다.
 

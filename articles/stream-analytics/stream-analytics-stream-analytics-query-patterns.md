@@ -6,14 +6,14 @@ author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
-ms.openlocfilehash: c79d810979641d1dc128c741c2124d9b5887aa3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c22f028779090e735bf6f91d5ecc1fc572f190ab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313645"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure Stream Analytics의 일반적인 쿼리 패턴
 
@@ -28,200 +28,6 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
 Azure Stream Analytics는 CSV, JSON 및 Avro 데이터 형식의 이벤트 처리를 지원합니다.
 
 JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복합 형식을 포함할 수 있습니다. 이러한 복잡한 데이터 형식 작업에 대한 자세한 내용은 [JSON 구문 분석 및 AVRO 데이터](stream-analytics-parsing-json.md) 문서를 참조하세요.
-
-## <a name="simple-pass-through-query"></a>간단한 통과 쿼리
-
-간단한 통과 쿼리를 사용하여 입력 스트림 데이터를 출력에 복사할 수 있습니다. 예를 들어 문자 분석을 위한 SQL 데이터베이스에 실시간 차량 정보를 포함하는 데이터 스트림을 저장해야 하는 경우 간단한 통과 쿼리로 작업을 수행합니다.
-
-**입력**:
-
-| 계정을 | Time | 무게 |
-| --- | --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |"1000" |
-| Make1 |2015-01-01T00:오전 12:02.0000000Z |"2000" |
-
-**출력**:
-
-| 계정을 | Time | 무게 |
-| --- | --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |"1000" |
-| Make1 |2015-01-01T00:오전 12:02.0000000Z |"2000" |
-
-**쿼리**:
-
-```SQL
-SELECT
-    *
-INTO Output
-FROM Input
-```
-
-**SELECT** * 쿼리는 들어오는 이벤트의 모든 필드를 프로젝션하여 출력으로 보냅니다. 동일한 방식으로 **SELECT**를 사용하여 입력의 필수 필드만 프로젝션하는 데 사용할 수도 있습니다. 다음 예제에서는 자동차 *Make* 및 *Time*이 저장할 유일한 필수 필드인 경우 해당 필드를 **SELECT** 문에 지정할 수 있습니다.
-
-**입력**:
-
-| 계정을 | Time | 무게 |
-| --- | --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |1000 |
-| Make1 |2015-01-01T00:오전 12:02.0000000Z |2000 |
-| Make2 |2015-01-01T00:오전 12:04.0000000Z |1500 |
-
-**출력**:
-
-| 계정을 | Time |
-| --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |
-| Make1 |2015-01-01T00:오전 12:02.0000000Z |
-| Make2 |2015-01-01T00:오전 12:04.0000000Z |
-
-**쿼리**:
-
-```SQL
-SELECT
-    Make, Time
-INTO Output
-FROM Input
-```
-## <a name="data-aggregation-over-time"></a>시간별 데이터 집계
-
-시간대에 대한 정보를 계산하기 위해 데이터를 함께 집계할 수 있습니다. 이 예에서는 특정 자동차를 만들 때마다 지난 10 초 동안 카운트를 계산 합니다.
-
-**입력**:
-
-| 계정을 | Time | 무게 |
-| --- | --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |1000 |
-| Make1 |2015-01-01T00:오전 12:02.0000000Z |2000 |
-| Make2 |2015-01-01T00:오전 12:04.0000000Z |1500 |
-
-**출력**:
-
-| 계정을 | 개수 |
-| --- | --- |
-| Make1 | 2 |
-| Make2 | 1 |
-
-**쿼리**:
-
-```SQL
-SELECT
-    Make,
-    COUNT(*) AS Count
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    Make,
-    TumblingWindow(second, 10)
-```
-
-이 집계는 *Make*별로 자동차를 그룹화하고 10초마다 계산합니다. 출력에는 톨게이트를 통과한 차량의 *Make* 및 *Count*가 있습니다.
-
-TumblingWindow는 이벤트를 그룹화하는 데 사용되는 기간 이동 함수입니다. 그룹화된 모든 이벤트에 대해 집계를 적용할 수 있습니다. 자세한 내용은 [기간 이동 함수](stream-analytics-window-functions.md)를 참조하세요.
-
-집계에 대한 자세한 내용은 [집계 함수](/stream-analytics-query/aggregate-functions-azure-stream-analytics)를 참조하세요.
-
-## <a name="data-conversion"></a>데이터 변환
-
-**CAST** 메서드를 사용하여 실시간으로 데이터를 캐스팅할 수 있습니다. 예를 들어 자동차 중량은 **nvarchar(max)** 형식에서 **bigint** 형식으로 변환하여 숫자 계산에 사용할 수 있습니다.
-
-**입력**:
-
-| 계정을 | Time | 무게 |
-| --- | --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |"1000" |
-| Make1 |2015-01-01T00:오전 12:02.0000000Z |"2000" |
-
-**출력**:
-
-| 계정을 | 무게 |
-| --- | --- |
-| Make1 |3000 |
-
-**쿼리**:
-
-```SQL
-SELECT
-    Make,
-    SUM(CAST(Weight AS BIGINT)) AS Weight
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    Make,
-    TumblingWindow(second, 10)
-```
-
-**CAST** 문을 사용하여 데이터 형식을 지정합니다. [데이터 형식(Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics)에서 지원되는 데이터 형식의 목록을 참조하세요.
-
-자세한 내용은 [데이터 변환 함수](/stream-analytics-query/conversion-functions-azure-stream-analytics)를 참조하세요.
-
-## <a name="string-matching-with-like-and-not-like"></a>LIKE 및 NOT LIKE를 사용한 문자열 일치
-
-**LIKE** 및 **NOT LIKE**는 필드가 특정 패턴과 일치하는지 확인하는 데 사용할 수 있습니다. 예를 들어 문자 ‘A’로 시작하고 숫자 9로 끝나는 번호판만 반환하도록 필터를 만들 수 있습니다.
-
-**입력**:
-
-| 계정을 | License_plate | Time |
-| --- | --- | --- |
-| Make1 |ABC-123 |2015-01-01T00:오전 12:01.0000000Z |
-| Make2 |AAA-999 |2015-01-01T00:오전 12:02.0000000Z |
-| Make3 |ABC-369 |2015-01-01T00:오전 12:03.0000000Z |
-
-**출력**:
-
-| 계정을 | License_plate | Time |
-| --- | --- | --- |
-| Make2 |AAA-999 |2015-01-01T00:오전 12:02.0000000Z |
-| Make3 |ABC-369 |2015-01-01T00:오전 12:03.0000000Z |
-
-**쿼리**:
-
-```SQL
-SELECT
-    *
-FROM
-    Input TIMESTAMP BY Time
-WHERE
-    License_plate LIKE 'A%9'
-```
-
-**LIKE** 문을 사용하여 **License_plate** 필드 값을 확인합니다. 문자 ‘A’로 시작한 다음, 0개 이상의 문자열을 포함하고 숫자 9로 끝나야 합니다.
-
-## <a name="specify-logic-for-different-casesvalues-case-statements"></a>다른 사례/값(CASE 문)에 대한 논리를 지정합니다.
-
-**CASE** 문에서는 특정 기준에 따라 서로 다른 필드에 대해 다른 계산을 제공할 수 있습니다. 예를 들어 차선 ‘A’를 *Make1*의 자동차에 할당하고 차선 ‘B’를 다른 브랜드에 할당합니다.
-
-**입력**:
-
-| 계정을 | Time |
-| --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |
-| Make2 |2015-01-01T00:오전 12:02.0000000Z |
-| Make2 |2015-01-01T00:오전 12:03.0000000Z |
-
-**출력**:
-
-| 계정을 |Dispatch_to_lane | Time |
-| --- | --- | --- |
-| Make1 |“A” |2015-01-01T00:오전 12:01.0000000Z |
-| Make2 |“B” |2015-01-01T00:오전 12:02.0000000Z |
-
-**솔루션**:
-
-```SQL
-SELECT
-    Make
-    CASE
-        WHEN Make = "Make1" THEN "A"
-        ELSE "B"
-    END AS Dispatch_to_lane,
-    System.TimeStamp() AS Time
-FROM
-    Input TIMESTAMP BY Time
-```
-
-**CASE** 식은 하나의 식을 일련의 간단한 식과 비교하여 그 결과를 결정합니다. 이 예제에서 *Make1*의 차량은 차선 ‘A’로 보내고 다른 모든 브랜드의 자동차에는 차선 ‘B’가 할당됩니다.
-
-자세한 내용은 [CASE 식](/stream-analytics-query/case-azure-stream-analytics)을 참조하세요.
 
 ## <a name="send-data-to-multiple-outputs"></a>데이터를 여러 출력으로 전송
 
@@ -239,7 +45,7 @@ FROM
 
 **Output ArchiveOutput**:
 
-| 계정을 | Time |
+| Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:오전 12:01.0000000Z |
 | Make1 |2015-01-01T00:오전 12:02.0000000Z |
@@ -308,40 +114,91 @@ HAVING [Count] >= 3
 
 자세한 내용은 [**WITH** 절](/stream-analytics-query/with-azure-stream-analytics)을 참조하세요.
 
-## <a name="count-unique-values"></a>고유 값 카운트
+## <a name="simple-pass-through-query"></a>간단한 통과 쿼리
 
-**COUNT** 및 **DISTINCT**를 사용하여 시간대 내에 스트림에 나타나는 고유 필드 값의 수를 계산할 수 있습니다. 2초 안에 톨게이트 요금소를 통과한 자동차의 고유한 ‘브랜드’는 몇 개인지 계산하는 쿼리를 생성할 수 있습니다.
+간단한 통과 쿼리를 사용하여 입력 스트림 데이터를 출력에 복사할 수 있습니다. 예를 들어 문자 분석을 위한 SQL 데이터베이스에 실시간 차량 정보를 포함하는 데이터 스트림을 저장해야 하는 경우 간단한 통과 쿼리로 작업을 수행합니다.
 
 **입력**:
 
-| 계정을 | Time |
-| --- | --- |
-| Make1 |2015-01-01T00:오전 12:01.0000000Z |
-| Make1 |2015-01-01T00:오전 12:02.0000000Z |
-| Make2 |2015-01-01T00:오전 12:01.0000000Z |
-| Make2 |2015-01-01T00:오전 12:02.0000000Z |
-| Make2 |2015-01-01T00:오전 12:03.0000000Z |
+| Make | Time | 무게 |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |"1000" |
+| Make1 |2015-01-01T00:오전 12:02.0000000Z |"2000" |
 
-**출력:**
+**출력**:
 
-| Count_make | Time |
-| --- | --- |
-| 2 |2015-01-01T00:오전 12:02.000Z |
-| 1 |2015-01-01T00:오전 12:04.000Z |
+| Make | Time | 무게 |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |"1000" |
+| Make1 |2015-01-01T00:오전 12:02.0000000Z |"2000" |
 
-**쿼리:**
+**쿼리**:
 
 ```SQL
 SELECT
-     COUNT(DISTINCT Make) AS Count_make,
-     System.TIMESTAMP() AS Time
-FROM Input TIMESTAMP BY TIME
-GROUP BY 
-     TumblingWindow(second, 2)
+    *
+INTO Output
+FROM Input
 ```
 
-**COUNT(DISTINCT Make)** 는 시간대 내에서 **Make** 열의 고유한 값의 수를 반환합니다.
-자세한 내용은 [**COUNT** 집계 함수](/stream-analytics-query/count-azure-stream-analytics)를 참조하세요.
+**SELECT** * 쿼리는 들어오는 이벤트의 모든 필드를 프로젝션하여 출력으로 보냅니다. 동일한 방식으로 **SELECT**를 사용하여 입력의 필수 필드만 프로젝션하는 데 사용할 수도 있습니다. 다음 예제에서는 자동차 *Make* 및 *Time*이 저장할 유일한 필수 필드인 경우 해당 필드를 **SELECT** 문에 지정할 수 있습니다.
+
+**입력**:
+
+| Make | Time | 무게 |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |1000 |
+| Make1 |2015-01-01T00:오전 12:02.0000000Z |2000 |
+| Make2 |2015-01-01T00:오전 12:04.0000000Z |1500 |
+
+**출력**:
+
+| Make | Time |
+| --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |
+| Make1 |2015-01-01T00:오전 12:02.0000000Z |
+| Make2 |2015-01-01T00:오전 12:04.0000000Z |
+
+**쿼리**:
+
+```SQL
+SELECT
+    Make, Time
+INTO Output
+FROM Input
+```
+
+## <a name="string-matching-with-like-and-not-like"></a>LIKE 및 NOT LIKE를 사용한 문자열 일치
+
+**LIKE** 및 **NOT LIKE**는 필드가 특정 패턴과 일치하는지 확인하는 데 사용할 수 있습니다. 예를 들어 문자 ‘A’로 시작하고 숫자 9로 끝나는 번호판만 반환하도록 필터를 만들 수 있습니다.
+
+**입력**:
+
+| 계정을 | License_plate | Time |
+| --- | --- | --- |
+| Make1 |ABC-123 |2015-01-01T00:오전 12:01.0000000Z |
+| Make2 |AAA-999 |2015-01-01T00:오전 12:02.0000000Z |
+| Make3 |ABC-369 |2015-01-01T00:오전 12:03.0000000Z |
+
+**출력**:
+
+| 계정을 | License_plate | Time |
+| --- | --- | --- |
+| Make2 |AAA-999 |2015-01-01T00:오전 12:02.0000000Z |
+| Make3 |ABC-369 |2015-01-01T00:오전 12:03.0000000Z |
+
+**쿼리**:
+
+```SQL
+SELECT
+    *
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    License_plate LIKE 'A%9'
+```
+
+**LIKE** 문을 사용하여 **License_plate** 필드 값을 확인합니다. 문자 ‘A’로 시작한 다음, 0개 이상의 문자열을 포함하고 숫자 9로 끝나야 합니다.
 
 ## <a name="calculation-over-past-events"></a>과거 이벤트에 대한 계산
 
@@ -349,14 +206,14 @@ GROUP BY
 
 **입력**:
 
-| 계정을 | Time |
+| Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:오전 12:01.0000000Z |
 | Make2 |2015-01-01T00:오전 12:02.0000000Z |
 
 **출력**:
 
-| 계정을 | Time |
+| Make | Time |
 | --- | --- |
 | Make2 |2015-01-01T00:오전 12:02.0000000Z |
 
@@ -375,69 +232,6 @@ WHERE
 **LAG**를 사용하여 한 이벤트 전의 입력 스트림에 피킹하고 *Make* 값을 검색한 후 현재 이벤트의 *Make* 값을 비교하여 이벤트를 출력합니다.
 
 자세한 내용은 [**LAG**](/stream-analytics-query/lag-azure-stream-analytics)를 참조하세요.
-
-## <a name="retrieve-the-first-event-in-a-window"></a>창에서 첫 번째 이벤트 검색
-
-**IsFirst**는 시간대에서 첫 번째 이벤트를 검색하는 데 사용할 수 있습니다. 예를 들어 10분 간격으로 첫 번째 자동차 정보를 출력합니다.
-
-**입력**:
-
-| License_plate | 계정을 | Time |
-| --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:오전 12:05.0000000Z |
-| YZK 5704 |Make3 |2015-07-27T00:오전 2:17.0000000Z |
-| RMV 8282 |Make1 |2015-07-27T00:오전 5:01.0000000Z |
-| YHN 6970 |Make2 |2015-07-27T00:오전 6:00.0000000Z |
-| VFE 1616 |Make2 |2015-07-27T00:오전 9:31.0000000Z |
-| QYF 9358 |Make1 |2015-07-27T00:오후 12:02.0000000Z |
-| MDR 6128 |Make4 |2015-07-27T00:오후 1:45.0000000Z |
-
-**출력**:
-
-| License_plate | 계정을 | Time |
-| --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:오전 12:05.0000000Z |
-| QYF 9358 |Make1 |2015-07-27T00:오후 12:02.0000000Z |
-
-**쿼리**:
-
-```SQL
-SELECT 
-    License_plate,
-    Make,
-    Time
-FROM 
-    Input TIMESTAMP BY Time
-WHERE 
-    IsFirst(minute, 10) = 1
-```
-
-**IsFirst**는 데이터를 분할하고 각 특정 자동차 ‘브랜드’에 대한 첫 번째 이벤트를 10분 간격으로 계산할 수 있습니다.
-
-**출력**:
-
-| License_plate | 계정을 | Time |
-| --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:오전 12:05.0000000Z |
-| YZK 5704 |Make3 |2015-07-27T00:오전 2:17.0000000Z |
-| YHN 6970 |Make2 |2015-07-27T00:오전 6:00.0000000Z |
-| QYF 9358 |Make1 |2015-07-27T00:오후 12:02.0000000Z |
-| MDR 6128 |Make4 |2015-07-27T00:오후 1:45.0000000Z |
-
-**쿼리**:
-
-```SQL
-SELECT 
-    License_plate,
-    Make,
-    Time
-FROM 
-    Input TIMESTAMP BY Time
-WHERE 
-    IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
-```
-
-자세한 내용은 [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics)를 참조하세요.
 
 ## <a name="return-the-last-event-in-a-window"></a>한 시간대에서 마지막 이벤트 반환
 
@@ -492,6 +286,89 @@ FROM
 
 스트림 조인에 대한 자세한 내용은 [**JOIN**](/stream-analytics-query/join-azure-stream-analytics)을 참조하세요.
 
+## <a name="data-aggregation-over-time"></a>시간별 데이터 집계
+
+시간대에 대한 정보를 계산하기 위해 데이터를 함께 집계할 수 있습니다. 이 예에서는 특정 자동차를 만들 때마다 지난 10 초 동안 카운트를 계산 합니다.
+
+**입력**:
+
+| Make | Time | 무게 |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |1000 |
+| Make1 |2015-01-01T00:오전 12:02.0000000Z |2000 |
+| Make2 |2015-01-01T00:오전 12:04.0000000Z |1500 |
+
+**출력**:
+
+| Make | 개수 |
+| --- | --- |
+| Make1 | 2 |
+| Make2 | 1 |
+
+**쿼리**:
+
+```SQL
+SELECT
+    Make,
+    COUNT(*) AS Count
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+```
+
+이 집계는 *Make*별로 자동차를 그룹화하고 10초마다 계산합니다. 출력에는 톨게이트를 통과한 차량의 *Make* 및 *Count*가 있습니다.
+
+TumblingWindow는 이벤트를 그룹화하는 데 사용되는 기간 이동 함수입니다. 그룹화된 모든 이벤트에 대해 집계를 적용할 수 있습니다. 자세한 내용은 [기간 이동 함수](stream-analytics-window-functions.md)를 참조하세요.
+
+집계에 대한 자세한 내용은 [집계 함수](/stream-analytics-query/aggregate-functions-azure-stream-analytics)를 참조하세요.
+
+## <a name="periodically-output-values"></a>정기적으로 값 출력
+
+비정상적인 이벤트 또는 누락된 이벤트의 경우 좀 더 드문 데이터 입력에서 정기적인 간격의 출력이 생성될 수 있습니다. 예를 들어, 가장 최근 표시된 데이터 지점을 보고하도록 5초마다 이벤트를 생성합니다.
+
+**입력**:
+
+| Time | 값 |
+| --- | --- |
+| "2014-01-01T06:01:00" |1 |
+| "2014-01-01T06:오전 1:05" |2 |
+| "2014-01-01T06:오전 1:10" |3 |
+| "2014-01-01T06:오전 1:15" |4 |
+| "2014-01-01T06:오전 1:30" |5 |
+| "2014-01-01T06:오전 1:35" |6 |
+
+**출력(처음 10개 행)** :
+
+| Window_end | Last_event.Time | Last_event.Value |
+| --- | --- | --- |
+| 2014-01-01T14:오전 1:00.000Z |2014-01-01T14:오전 1:00.000Z |1 |
+| 2014-01-01T14:오전 1:05.000Z |2014-01-01T14:오전 1:05.000Z |2 |
+| 2014-01-01T14:오전 1:10.000Z |2014-01-01T14:오전 1:10.000Z |3 |
+| 2014-01-01T14:오전 1:15.000Z |2014-01-01T14:오전 1:15.000Z |4 |
+| 2014-01-01T14:오전 1:20.000Z |2014-01-01T14:오전 1:15.000Z |4 |
+| 2014-01-01T14:오전 1:25.000Z |2014-01-01T14:오전 1:15.000Z |4 |
+| 2014-01-01T14:오전 1:30.000Z |2014-01-01T14:오전 1:30.000Z |5 |
+| 2014-01-01T14:오전 1:35.000Z |2014-01-01T14:오전 1:35.000Z |6 |
+| 2014-01-01T14:오전 1:40.000Z |2014-01-01T14:오전 1:35.000Z |6 |
+| 2014-01-01T14:오전 1:45.000Z |2014-01-01T14:오전 1:35.000Z |6 |
+
+**쿼리**:
+
+```SQL
+SELECT
+    System.Timestamp() AS Window_end,
+    TopOne() OVER (ORDER BY Time DESC) AS Last_event
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    HOPPINGWINDOW(second, 300, 5)
+```
+
+이 쿼리는 5초마다 이벤트를 생성하고 이전에 수신했던 마지막 이벤트를 출력합니다. **HOPPINGWINDOW** 기간은 쿼리가 과거의 어느 시점까지 최신 이벤트를 찾는지를 결정합니다.
+
+자세한 내용은 [도약 창](/stream-analytics-query/hopping-window-azure-stream-analytics)을 참조하세요.
 
 ## <a name="correlate-events-in-a-stream"></a>스트림의 이벤트 상관 관계
 
@@ -565,6 +442,224 @@ WHERE
 
 **LAST** 함수는 특정 조건 내에서 마지막 이벤트를 검색하는 데 사용할 수 있습니다. 이 예제에서 조건은 Start 형식의 이벤트이며 **PARTITION BY** 사용자 및 기능을 사용하여 검색을 분할합니다. 이렇게 하면 모든 사용자 및 기능이 Start 이벤트를 검색할 때 독립적으로 처리됩니다. **LIMIT DURATION**은 End 이벤트와 Start 이벤트 간에 1시간 전으로 검색을 제한합니다.
 
+## <a name="count-unique-values"></a>고유 값 카운트
+
+**COUNT** 및 **DISTINCT**를 사용하여 시간대 내에 스트림에 나타나는 고유 필드 값의 수를 계산할 수 있습니다. 2초 안에 톨게이트 요금소를 통과한 자동차의 고유한 ‘브랜드’는 몇 개인지 계산하는 쿼리를 생성할 수 있습니다.
+
+**입력**:
+
+| 계정을 | Time |
+| --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |
+| Make1 |2015-01-01T00:오전 12:02.0000000Z |
+| Make2 |2015-01-01T00:오전 12:01.0000000Z |
+| Make2 |2015-01-01T00:오전 12:02.0000000Z |
+| Make2 |2015-01-01T00:오전 12:03.0000000Z |
+
+**출력:**
+
+| Count_make | Time |
+| --- | --- |
+| 2 |2015-01-01T00:오전 12:02.000Z |
+| 1 |2015-01-01T00:오전 12:04.000Z |
+
+**쿼리:**
+
+```SQL
+SELECT
+     COUNT(DISTINCT Make) AS Count_make,
+     System.TIMESTAMP() AS Time
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+```
+
+**COUNT(DISTINCT Make)** 는 시간대 내에서 **Make** 열의 고유한 값의 수를 반환합니다.
+자세한 내용은 [**COUNT** 집계 함수](/stream-analytics-query/count-azure-stream-analytics)를 참조하세요.
+
+## <a name="retrieve-the-first-event-in-a-window"></a>창에서 첫 번째 이벤트 검색
+
+**IsFirst**는 시간대에서 첫 번째 이벤트를 검색하는 데 사용할 수 있습니다. 예를 들어 10분 간격으로 첫 번째 자동차 정보를 출력합니다.
+
+**입력**:
+
+| License_plate | 계정을 | Time |
+| --- | --- | --- |
+| DXE 5291 |Make1 |2015-07-27T00:오전 12:05.0000000Z |
+| YZK 5704 |Make3 |2015-07-27T00:오전 2:17.0000000Z |
+| RMV 8282 |Make1 |2015-07-27T00:오전 5:01.0000000Z |
+| YHN 6970 |Make2 |2015-07-27T00:오전 6:00.0000000Z |
+| VFE 1616 |Make2 |2015-07-27T00:오전 9:31.0000000Z |
+| QYF 9358 |Make1 |2015-07-27T00:오후 12:02.0000000Z |
+| MDR 6128 |Make4 |2015-07-27T00:오후 1:45.0000000Z |
+
+**출력**:
+
+| License_plate | 계정을 | Time |
+| --- | --- | --- |
+| DXE 5291 |Make1 |2015-07-27T00:오전 12:05.0000000Z |
+| QYF 9358 |Make1 |2015-07-27T00:오후 12:02.0000000Z |
+
+**쿼리**:
+
+```SQL
+SELECT 
+    License_plate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) = 1
+```
+
+**IsFirst**는 데이터를 분할하고 각 특정 자동차 ‘브랜드’에 대한 첫 번째 이벤트를 10분 간격으로 계산할 수 있습니다.
+
+**출력**:
+
+| License_plate | 계정을 | Time |
+| --- | --- | --- |
+| DXE 5291 |Make1 |2015-07-27T00:오전 12:05.0000000Z |
+| YZK 5704 |Make3 |2015-07-27T00:오전 2:17.0000000Z |
+| YHN 6970 |Make2 |2015-07-27T00:오전 6:00.0000000Z |
+| QYF 9358 |Make1 |2015-07-27T00:오후 12:02.0000000Z |
+| MDR 6128 |Make4 |2015-07-27T00:오후 1:45.0000000Z |
+
+**쿼리**:
+
+```SQL
+SELECT 
+    License_plate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
+
+자세한 내용은 [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics)를 참조하세요.
+
+## <a name="remove-duplicate-events-in-a-window"></a>창에서 중복된 이벤트 제거
+
+지정된 시간 범위에서 이벤트에 대한 평균 계산과 같은 작업을 수행하는 경우 중복 이벤트를 필터링해야 합니다. 다음 예제에서 두 번째 이벤트는 첫 번째 이벤트와 중복됩니다.
+
+**입력**:  
+
+| DeviceId | Time | attribute | 값 |
+| --- | --- | --- | --- |
+| 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
+| 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
+| 2 |2018-07-27T00:00:01.0000000Z |온도 |40 |
+| 1 |2018-07-27T00:00:05.0000000Z |온도 |60 |
+| 2 |2018-07-27T00:00:05.0000000Z |온도 |50 |
+| 1 |2018-07-27T00:00:10.0000000Z |온도 |100 |
+
+**출력**:  
+
+| AverageValue | deviceId |
+| --- | --- |
+| 70 | 1 |
+|45 | 2 |
+
+**쿼리**:
+
+```SQL
+With Temp AS (
+SELECT
+    COUNT(DISTINCT Time) AS CountTime,
+    Value,
+    DeviceId
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Value,
+    DeviceId,
+    SYSTEM.TIMESTAMP()
+)
+
+SELECT
+    AVG(Value) AS AverageValue, DeviceId
+INTO Output
+FROM Temp
+GROUP BY DeviceId,TumblingWindow(minute, 5)
+```
+
+**COUNT(DISTINCT Time)** 는 시간 범위 내에서 Time 열의 고유한 값 수를 반환합니다. 그러면 중복 항목을 삭제하여 디바이스당 평균을 계산하는 데 이 단계의 출력을 사용할 수 있습니다.
+
+자세한 내용은 [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics)를 참조하세요.
+
+## <a name="specify-logic-for-different-casesvalues-case-statements"></a>다른 사례/값(CASE 문)에 대한 논리를 지정합니다.
+
+**CASE** 문에서는 특정 기준에 따라 서로 다른 필드에 대해 다른 계산을 제공할 수 있습니다. 예를 들어 차선 ‘A’를 *Make1*의 자동차에 할당하고 차선 ‘B’를 다른 브랜드에 할당합니다.
+
+**입력**:
+
+| Make | Time |
+| --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |
+| Make2 |2015-01-01T00:오전 12:02.0000000Z |
+| Make2 |2015-01-01T00:오전 12:03.0000000Z |
+
+**출력**:
+
+| 계정을 |Dispatch_to_lane | Time |
+| --- | --- | --- |
+| Make1 |“A” |2015-01-01T00:오전 12:01.0000000Z |
+| Make2 |“B” |2015-01-01T00:오전 12:02.0000000Z |
+
+**솔루션**:
+
+```SQL
+SELECT
+    Make
+    CASE
+        WHEN Make = "Make1" THEN "A"
+        ELSE "B"
+    END AS Dispatch_to_lane,
+    System.TimeStamp() AS Time
+FROM
+    Input TIMESTAMP BY Time
+```
+
+**CASE** 식은 하나의 식을 일련의 간단한 식과 비교하여 그 결과를 결정합니다. 이 예제에서 *Make1*의 차량은 차선 ‘A’로 보내고 다른 모든 브랜드의 자동차에는 차선 ‘B’가 할당됩니다.
+
+자세한 내용은 [CASE 식](/stream-analytics-query/case-azure-stream-analytics)을 참조하세요.
+
+## <a name="data-conversion"></a>데이터 변환
+
+**CAST** 메서드를 사용하여 실시간으로 데이터를 캐스팅할 수 있습니다. 예를 들어 자동차 중량은 **nvarchar(max)** 형식에서 **bigint** 형식으로 변환하여 숫자 계산에 사용할 수 있습니다.
+
+**입력**:
+
+| Make | Time | 무게 |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:오전 12:01.0000000Z |"1000" |
+| Make1 |2015-01-01T00:오전 12:02.0000000Z |"2000" |
+
+**출력**:
+
+| 계정을 | 무게 |
+| --- | --- |
+| Make1 |3000 |
+
+**쿼리**:
+
+```SQL
+SELECT
+    Make,
+    SUM(CAST(Weight AS BIGINT)) AS Weight
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+```
+
+**CAST** 문을 사용하여 데이터 형식을 지정합니다. [데이터 형식(Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics)에서 지원되는 데이터 형식의 목록을 참조하세요.
+
+자세한 내용은 [데이터 변환 함수](/stream-analytics-query/conversion-functions-azure-stream-analytics)를 참조하세요.
+
 ## <a name="detect-the-duration-of-a-condition"></a>조건의 기간 감지
 
 여러 이벤트를 사용하는 조건의 경우 **LAG** 함수를 사용하여 해당 조건의 기간을 파악할 수 있습니다. 예를 들어 버그로 인해 모든 자동차의 중량이 잘못되었고(20.000파운드 이상) 버그의 지속 시간을 계산해야 한다고 가정합니다.
@@ -612,52 +707,6 @@ WHERE
 
 End_fault는 이전 이벤트에 오류가 발생했던 현재 오류가 발생하지 않은 이벤트이며, Start_fault는 그 이전에 오류가 발생하지 않은 마지막 이벤트입니다.
 
-## <a name="periodically-output-values"></a>정기적으로 값 출력
-
-비정상적인 이벤트 또는 누락된 이벤트의 경우 좀 더 드문 데이터 입력에서 정기적인 간격의 출력이 생성될 수 있습니다. 예를 들어, 가장 최근 표시된 데이터 지점을 보고하도록 5초마다 이벤트를 생성합니다.
-
-**입력**:
-
-| Time | 값 |
-| --- | --- |
-| "2014-01-01T06:01:00" |1 |
-| "2014-01-01T06:오전 1:05" |2 |
-| "2014-01-01T06:오전 1:10" |3 |
-| "2014-01-01T06:오전 1:15" |4 |
-| "2014-01-01T06:오전 1:30" |5 |
-| "2014-01-01T06:오전 1:35" |6 |
-
-**출력(처음 10개 행)** :
-
-| Window_end | Last_event.Time | Last_event.Value |
-| --- | --- | --- |
-| 2014-01-01T14:오전 1:00.000Z |2014-01-01T14:오전 1:00.000Z |1 |
-| 2014-01-01T14:오전 1:05.000Z |2014-01-01T14:오전 1:05.000Z |2 |
-| 2014-01-01T14:오전 1:10.000Z |2014-01-01T14:오전 1:10.000Z |3 |
-| 2014-01-01T14:오전 1:15.000Z |2014-01-01T14:오전 1:15.000Z |4 |
-| 2014-01-01T14:오전 1:20.000Z |2014-01-01T14:오전 1:15.000Z |4 |
-| 2014-01-01T14:오전 1:25.000Z |2014-01-01T14:오전 1:15.000Z |4 |
-| 2014-01-01T14:오전 1:30.000Z |2014-01-01T14:오전 1:30.000Z |5 |
-| 2014-01-01T14:오전 1:35.000Z |2014-01-01T14:오전 1:35.000Z |6 |
-| 2014-01-01T14:오전 1:40.000Z |2014-01-01T14:오전 1:35.000Z |6 |
-| 2014-01-01T14:오전 1:45.000Z |2014-01-01T14:오전 1:35.000Z |6 |
-
-**쿼리**:
-
-```SQL
-SELECT
-    System.Timestamp() AS Window_end,
-    TopOne() OVER (ORDER BY Time DESC) AS Last_event
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    HOPPINGWINDOW(second, 300, 5)
-```
-
-이 쿼리는 5초마다 이벤트를 생성하고 이전에 수신했던 마지막 이벤트를 출력합니다. **HOPPINGWINDOW** 기간은 쿼리가 과거의 어느 시점까지 최신 이벤트를 찾는지를 결정합니다.
-
-자세한 내용은 [도약 창](/stream-analytics-query/hopping-window-azure-stream-analytics)을 참조하세요.
-
 ## <a name="process-events-with-independent-time-substreams"></a>독립된 시간으로 이벤트 처리(하위 스트림)
 
 이벤트 생성자 간의 클록 스큐, 파티션 간 클럭 스큐 또는 네트워크 대기 시간으로 인해 이벤트가 늦게 도착하거나 순서대로 도착하지 못할 수 있습니다.
@@ -701,55 +750,6 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 **TIMESTAMP BY OVER** 절은 하위 스트림을 사용하여 각 디바이스 타임라인을 독립적으로 살펴봅니다. 각 *TollID*에 대한 출력 이벤트는 계산될 때 생성됩니다. 즉, 모든 디바이스가 동일한 시계를 사용하는 것처럼 순서가 재배열되는 대신 이벤트가 각 *TollID*에 관해 순서대로 처리됩니다.
 
 자세한 내용은 [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering)를 참조하세요.
-
-## <a name="remove-duplicate-events-in-a-window"></a>창에서 중복된 이벤트 제거
-
-지정된 시간 범위에서 이벤트에 대한 평균 계산과 같은 작업을 수행하는 경우 중복 이벤트를 필터링해야 합니다. 다음 예제에서 두 번째 이벤트는 첫 번째 이벤트와 중복됩니다.
-
-**입력**:  
-
-| deviceId | Time | attribute | 값 |
-| --- | --- | --- | --- |
-| 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
-| 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
-| 2 |2018-07-27T00:00:01.0000000Z |온도 |40 |
-| 1 |2018-07-27T00:00:05.0000000Z |온도 |60 |
-| 2 |2018-07-27T00:00:05.0000000Z |온도 |50 |
-| 1 |2018-07-27T00:00:10.0000000Z |온도 |100 |
-
-**출력**:  
-
-| AverageValue | deviceId |
-| --- | --- |
-| 70 | 1 |
-|45 | 2 |
-
-**쿼리**:
-
-```SQL
-With Temp AS (
-SELECT
-    COUNT(DISTINCT Time) AS CountTime,
-    Value,
-    DeviceId
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    Value,
-    DeviceId,
-    SYSTEM.TIMESTAMP()
-)
-
-SELECT
-    AVG(Value) AS AverageValue, DeviceId
-INTO Output
-FROM Temp
-GROUP BY DeviceId,TumblingWindow(minute, 5)
-```
-
-**COUNT(DISTINCT Time)** 는 시간 범위 내에서 Time 열의 고유한 값 수를 반환합니다. 그러면 중복 항목을 삭제하여 디바이스당 평균을 계산하는 데 이 단계의 출력을 사용할 수 있습니다.
-
-자세한 내용은 [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics)를 참조하세요.
 
 ## <a name="session-windows"></a>세션 창
 
@@ -885,6 +885,7 @@ MATCH_RECOGNIZE (
 자세한 내용은 [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics)를 참조하세요.
 
 ## <a name="geofencing-and-geospatial-queries"></a>지오펜싱 및 지리 공간적 쿼리
+
 Azure Stream Analytics는 차량 관리, 차량 공유, 연결된 자동차 및 자산 추적과 같은 시나리오를 구현하는 데 사용할 수 있는 기본 제공 지리 공간적 함수를 제공합니다.
 지리 공간적 데이터는 이벤트 스트림 또는 참조 데이터의 일부로 GeoJSON 또는 WKT 형식으로 수집할 수 있습니다.
 예를 들어 여권 인쇄용 머신 제조 전문 회사는 정부 및 영사관에 머신을 임대합니다. 이러한 머신의 위치는 잘못된 배치 및 여권 위조에 사용할 가능성을 방지하기 위해 엄격하게 제어됩니다. 각 머신에는 GPS 추적기가 장착되고 해당 정보는 Azure Stream Analytics 작업에 다시 릴레이됩니다.

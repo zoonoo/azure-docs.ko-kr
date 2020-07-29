@@ -1,5 +1,5 @@
 ---
-title: 인스턴스 및 인증 설정 (스크립팅된)
+title: 인스턴스 및 인증 설정(스크립팅됨)
 titleSuffix: Azure Digital Twins
 description: 적절 한 인증을 포함 하 여 Azure Digital Twins 서비스의 인스턴스를 설정 하는 방법을 참조 하세요. 스크립팅된 버전.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c601d01589a89667b630d04ddb19dfbe190cca9f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125809"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337911"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -49,7 +49,7 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
     * 인스턴스: 사용할 Azure 구독의 *구독 ID*
     * 인스턴스의 경우 인스턴스를 배포 하려는 *위치* 입니다. Azure Digital Twins를 지 원하는 지역을 확인 하려면 [*지역별 제공 되는 azure 제품*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 방문 하세요.
     * 인스턴스의 경우: *리소스 그룹* 이름입니다. 기존 리소스 그룹을 사용 하거나 새 이름을 입력 하 여 만들 수 있습니다.
-    * 인스턴스의 경우: Azure Digital Twins 인스턴스의 *이름* 입니다. 새 인스턴스의 이름은 지역 내에서 고유 해야 합니다. 즉, 해당 지역의 다른 Azure 디지털 Twins 인스턴스에서 이미 선택한 이름을 사용 하 고 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
+    * 인스턴스의 경우: Azure Digital Twins 인스턴스의 *이름* 입니다. 새 인스턴스의 이름은 구독에 대 한 지역 내에서 고유 해야 합니다. 즉, 사용자가 선택한 이름을 이미 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
     * 앱 등록: 등록에 연결할 *AZURE AD 응용 프로그램 표시 이름* 입니다. 이 앱 등록에서는 [Azure Digital Twins api](how-to-use-apis-sdks.md)에 대 한 액세스 권한을 구성 합니다. 나중에 클라이언트 앱이 앱 등록에 대해 인증 되 고, 그 결과 Api에 대해 구성 된 액세스 권한이 부여 됩니다.
     * 앱 등록의 경우: Azure AD 응용 프로그램에 대 한 *AZURE ad 응용 프로그램 회신 URL* 입니다. 을 사용할 수 있습니다 `http://localhost` .
 

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309954"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289284"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
@@ -28,7 +29,7 @@ ms.locfileid: "84309954"
 - 프로세스 서버에서 구성 서버에 연결할 수 없는 경우 텔넷을 사용하여 443 포트에서 구성 서버에 대한 연결을 확인합니다. 프로세스 서버에서 구성 서버를 ping할 수도 있습니다. 또한 프로세스 서버에는 구성 서버에 연결될 때 하트비트도 있어야 합니다.
 - 물리적 온-프레미스 서버로 보호되는 Windows Server 2008 R2 SP1 서버는 Azure에서 온-프레미스 사이트로 장애 복구할 수 없습니다.
 - 다음과 같은 경우에 장애 복구(failback)를 수행할 수 없습니다.
-    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아보기](migrate-overview.md#what-do-we-mean-by-migration).
+    - Azure에 컴퓨터를 마이그레이션했습니다. 
     - 다른 리소스 그룹으로 VM을 이동했습니다.
     - Azure VM을 삭제했습니다.
     - VM의 보호를 해제했습니다.
@@ -63,7 +64,7 @@ ms.locfileid: "84309954"
 이 문제를 해결하려면:
 
 * 다시 보호에서 이름이 충돌하지 않는 다른 호스트에 컴퓨터를 만들 수 있도록 다른 호스트에 있는 다른 마스터 대상 서버를 선택합니다.
-* vMotion을 사용하여 이름 충돌이 발생하지 않는 다른 호스트로 마스터 대상을 이동시킬 수도 있습니다. 기존 VM이 이탈된 컴퓨터인 경우 새 VM을 동일한 ESXi 호스트에 만들 수 있도록 이름을 변경합니다.
+* VMotion를 사용 하 여 이름 충돌이 발생 하지 않는 다른 호스트로 마스터 대상을 이동할 수도 있습니다. 기존 VM이 이탈된 컴퓨터인 경우 새 VM을 동일한 ESXi 호스트에 만들 수 있도록 이름을 변경합니다.
 
 
 ### <a name="error-code-78093"></a>오류 코드 78093
@@ -97,4 +98,4 @@ ms.locfileid: "84309954"
 이 문제를 해결하려면:
 
 * ESXi 호스트에 더 많은 메모리를 프로비전합니다.
-* 또한 vMotion을 사용하여 VM을 부팅하는 데 충분한 메모리가 있는 다른 ESXi 호스트로 VM을 이동시킬 수 있습니다.
+* 또한 VMotion를 사용 하 여 vm을 부팅 하는 데 충분 한 메모리가 있는 다른 ESXi 호스트로 VM을 이동할 수 있습니다.

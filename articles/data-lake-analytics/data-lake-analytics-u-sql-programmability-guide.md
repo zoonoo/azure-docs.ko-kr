@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 80edafb9cffa43f7163c1b75c9faaaefbb97c616
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127420"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288940"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -125,7 +125,7 @@ REFERENCE ASSEMBLY MyDB.[MyAssembly];
 
 
 ### <a name="use-assembly-versioning"></a>어셈블리 버전 관리 사용
-현재 U-SQL은 .NET Framework 버전 4.5를 사용합니다. 따라서 자신의 어셈블리가 해당 런타임 버전과 호환되는지 확인해야 합니다.
+현재 4.7.2는 .NET Framework 버전을 사용 합니다. 따라서 자신의 어셈블리가 해당 런타임 버전과 호환되는지 확인해야 합니다.
 
 앞에서 언급했듯이 U-SQL은 64비트(x64) 형식 코드를 실행합니다. 따라서 코드가 x64에서 실행되도록 컴파일되었는지 확인합니다. 그렇지 않으면 앞에서 설명한 잘못된 형식 오류가 발생합니다.
 

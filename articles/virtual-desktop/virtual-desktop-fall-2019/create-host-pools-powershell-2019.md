@@ -1,6 +1,6 @@
 ---
-title: Windows 가상 데스크톱 수준 2019 호스트 풀 PowerShell 만들기-Azure
-description: PowerShell cmdlet을 사용하여 Windows Virtual Desktop에서 호스트 풀을 만드는 방법입니다.
+title: Windows 가상 데스크톱 (클래식) 호스트 풀 PowerShell 만들기-Azure
+description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱 (클래식)에서 호스트 풀을 만드는 방법
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 552a3fdd20d67d81fe0c6a81a965fd3231da643d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7bc1e229711ef24b07641c5767f5f60c17a3b97c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527645"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291285"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 (클래식)에서 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../create-host-pools-powershell.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../create-host-pools-powershell.md)를 참조 하세요.
 
 호스트 풀은 Windows Virtual Desktop 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 

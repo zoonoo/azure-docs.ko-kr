@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 1ec2aed0a2cceebe4685cf75c7007d1ce0785615
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293092"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -51,7 +51,7 @@ Error details: Failed to enable the Update solution
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>시나리오: 대체된 업데이트가 업데이트 관리에 누락된 것으로 표시됨
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 이전 업데이트가 대체된 경우에도 Automation 계정에 대해 누락된 것으로 나타납니다. 대체된 업데이트는 동일한 취약성을 해결하는 후속 업데이트를 사용할 수 있기 때문에 설치하지 않아도 되는 업데이트입니다. 업데이트 관리가 대체된 업데이트를 무시하고 대체하는 업데이트 대신 적용하지 않습니다. 관련 문제에 대한 자세한 내용은 [업데이트가 대체됨](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)을 참조하세요.
 
@@ -81,7 +81,7 @@ Error details: Failed to enable the Update solution
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>시나리오: 포털의 업데이트 관리 아래에 머신이 표시되지 않음
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 머신에 다음과 같은 증상이 있습니다.
 
@@ -132,7 +132,7 @@ Error details: Failed to enable the Update solution
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>시나리오: Automation 리소스 공급자를 구독에 등록할 수 없음
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 Automation 계정에서 기능 배포를 사용하는 경우 다음과 같은 오류가 발생합니다.
 
@@ -160,7 +160,7 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 
 ## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>시나리오: 동적 일정에 따라 예약된 업데이트에서 일부 머신이 누락됨
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 업데이트 미리 보기에 포함된 머신 중 일부가 예약된 실행 동안 패치된 머신 목록에 표시되지 않습니다.
 
@@ -275,7 +275,7 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>시나리오: 업데이트 관리 구성 요소가 사용하도록 설정되었으나 VM이 계속 구성 중으로 표시됨
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 배포를 시작하고 15분 후에 VM에서 다음 메시지가 계속 표시됩니다.
 
@@ -329,7 +329,7 @@ VM의 이름을 변경하여 환경에서 고유한 이름을 유지하도록 �
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>시나리오: 다른 Azure 테넌트에 있는 머신의 업데이트 배포를 만들 때 연결된 구독 오류가 발생합니다.
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 다른 Azure 테넌트에 있는 머신의 업데이트 배포를 만들려고 하면 다음 오류가 발생합니다.
 
@@ -357,7 +357,7 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>시나리오: 설명되지 않고 다시 부팅됨
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 **다시 부팅 제어** 옵션을**다시 부팅 안 함**으로 설정한 경우에도 업데이트가 설치된 후에 머신이 다시 부팅됩니다.
 
@@ -371,7 +371,7 @@ Windows 업데이트는 여러 레지스트리 키로 수정할 수 있으며, �
 
 ## <a name="scenario-machine-shows-failed-to-start-in-an-update-deployment"></a><a name="failed-to-start"></a>시나리오: 업데이트 배포에서 머신이 "시작하지 못함"을 표시함
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 머신이 `Failed to start` 상태를 표시합니다. 머신에 대한 특정 세부 정보를 볼 때 다음과 같은 오류가 표시됩니다.
 
@@ -387,7 +387,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 * 머신이 꺼져 있고 연결할 수 없습니다.
 * 머신에 네트워크 연결 이슈가 있으므로 머신의 Hybrid Worker에 연결할 수 없습니다.
 * 원본 컴퓨터 ID를 변경한 MMA가 업데이트되었습니다.
-* Automation 계정에서 2,000개의 동시 작업 제한에 도달하여 업데이트 실행이 제한되었습니다. 각 배포는 하나의 작업으로 간주되며, 업데이트 배포의 각 머신은 하나의 작업으로 계산됩니다. Automation 계정에서 현재 실행되고 있는 다른 모든 Automation 작업 또는 업데이트 배포는 동시 작업 제한으로 계산됩니다.
+* Automation 계정에서 200의 동시 작업 제한에 도달 하는 경우 업데이트 실행이 제한 되었습니다. 각 배포는 하나의 작업으로 간주되며, 업데이트 배포의 각 머신은 하나의 작업으로 계산됩니다. Automation 계정에서 현재 실행되고 있는 다른 모든 Automation 작업 또는 업데이트 배포는 동시 작업 제한으로 계산됩니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -425,7 +425,7 @@ Windows에서는 업데이트가 사용 가능해지는 즉시 자동으로 설�
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>시나리오: 컴퓨터가 이미 다른 계정에 등록되어 있습니다.
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 다음과 같은 오류 메시지가 표시됩니다.
 
@@ -444,7 +444,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>시나리오: 머신이 서비스와 통신할 수 없음
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 다음과 같은 오류 메시지 중 하나가 표시됩니다.
 
@@ -474,7 +474,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ## <a name="scenario-unable-to-create-self-signed-certificate"></a><a name="unable-to-create-selfsigned-cert"></a>시나리오: 자체 서명된 인증서를 만들 수 없습니다.
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 다음과 같은 오류 메시지 중 하나가 표시됩니다.
 
@@ -492,7 +492,7 @@ Hybrid Runbook Worker가 자체 서명 인증서를 생성할 수 없습니다.
 
 ## <a name="scenario-the-scheduled-update-failed-with-a-maintenancewindowexceeded-error"></a><a name="mw-exceeded"></a>시나리오: 예약된 업데이트가 MaintenanceWindowExceeded 오류로 인해 실패함
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 업데이트를 위한 기본 유지 관리 기간은 120분입니다. 유지 관리 기간을 최대 6시간 또는 360분으로 늘릴 수 있습니다.
 
@@ -504,7 +504,7 @@ Hybrid Runbook Worker가 자체 서명 인증서를 생성할 수 없습니다.
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>시나리오: 머신이 "평가되지 않음"으로 표시되고 HRESULT 예외를 표시함
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 * 머신이 **규정 준수**에서 `Not assessed`로 표시되며 그 아래에 예외 메시지가 표시됩니다.
 * 포털에 HRESULT 오류 코드가 표시됩니다.

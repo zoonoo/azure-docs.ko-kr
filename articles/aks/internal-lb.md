@@ -5,12 +5,12 @@ description: 내부 부하 분산 장치를 만들고 사용하여 AKS(Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 58aadc4fadb93a4f6eb47214f580f7a2bebdf49c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056827"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285886"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
@@ -25,7 +25,9 @@ AKS(Azure Kubernetes Service)에서 애플리케이션에 대한 액세스를 �
 
 또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 일반적으로 위임된 리소스의 서비스 주체에게 ‘네트워크 기여자’ 역할을 할당합니다. 서비스 주체 대신 시스템 할당 관리 id를 사용 하 여 권한을 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 권한 위임][aks-sp]을 참조하세요.
+기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 자세한 내용은 [AKS (Azure Kubernetes service)에서 고유한 IP 주소 범위를 사용 하 여 kubenet 네트워킹 사용][use-kubenet] 또는 [AKS (azure Kubernetes Service)에서 azure Cni 네트워킹 구성][advanced-networking]을 참조 하세요. [다른 서브넷의 IP 주소][different-subnet]를 사용 하도록 부하 분산 장치를 구성 하는 경우 AKS 클러스터 서비스 주체에도 해당 서브넷에 대 한 읽기 권한이 있어야 합니다.
+
+서비스 주체를 대신하여 사용 권한에 대한 시스템이 할당한 관리 ID를 사용할 수도 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 권한 위임][aks-sp]을 참조하세요.
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -65,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>IP 주소 지정
 
-내부 부하 분산 장치를 통해 특정 IP 주소를 사용하려는 경우 부하 분산 장치 YAML 매니페스트에 *loadBalancerIP* 속성을 추가합니다. 지정된 IP 주소는 AKS 클러스터와 동일한 서브넷에 상주해야 하며 아직 리소스에 할당되면 안 됩니다. 예를 들어 Kubernetes 서브넷에 지정 된 범위의 IP 주소를 사용 하면 안 됩니다.
+내부 부하 분산 장치를 통해 특정 IP 주소를 사용하려는 경우 부하 분산 장치 YAML 매니페스트에 *loadBalancerIP* 속성을 추가합니다. 이 시나리오에서 지정 된 IP 주소는 AKS 클러스터와 동일한 서브넷에 있어야 하 고 이미 리소스에 할당 되지 않아야 합니다. 예를 들어 Kubernetes 서브넷에 지정 된 범위의 IP 주소를 사용 하면 안 됩니다.
 
 ```yaml
 apiVersion: v1
@@ -91,6 +93,8 @@ $ kubectl get service internal-app
 NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
+
+다른 서브넷에서 부하 분산 장치를 구성 하는 방법에 대 한 자세한 내용은 [다른 서브넷 지정][different-subnet] 을 참조 하세요.
 
 ## <a name="use-private-networks"></a>프라이빗 네트워크 사용
 
@@ -153,3 +157,4 @@ spec:
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
+[different-subnet]: #specify-a-different-subnet

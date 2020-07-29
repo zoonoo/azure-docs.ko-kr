@@ -9,11 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888859"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337673"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT DevKit 디바이스 연결
 
@@ -48,7 +49,7 @@ DevKit 디바이스에서 IoT Hub 디바이스 연결 문자열을 구성하려�
 1. IoT DevKit를 **구성 모드로**전환 합니다.
 
     * **A** 단추를 누르고 있습니다.
-    * **다시 설정** 단추를 눌렀다가 놓습니다.
+    * **다시 설정** 단추를 푸시하고 해제 합니다.
 
 1. 화면에 DevKit ID 및 `Configuration`이 표시됩니다.
 
@@ -129,4 +130,3 @@ DevKit LED 중 하나의 색을 변경하려면 **LedColor** 메서드를 사용
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-accelerators/)
 * [UI 사용자 지정](iot-accelerators-remote-monitoring-customize.md)
-* [Azure IoT Central 애플리케이션에 IoT DevKit 연결](../iot-central/core/howto-connect-devkit.md)

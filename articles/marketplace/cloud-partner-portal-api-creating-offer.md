@@ -4,15 +4,15 @@ description: 새 API를 만들거나 기존 제안을 업데이트 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 249eb982ee701ea0a442121c02e55ad98e1f6fb9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68416fa91f6b75fb3ef2b91c1297f13d84f2bdab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011994"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292956"
 ---
 <a name="create-or-modify-an-offer"></a>제안 만들기 또는 수정
 =========================
@@ -28,11 +28,11 @@ ms.locfileid: "87011994"
 <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **이름**         |  **설명**                      |  **데이터 형식**  |
+|  **Name**         |  **설명**                      |  **데이터 형식**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  게시자 식별자입니다(예: `contoso`). |   String |
-| offerId           |  제안 식별자입니다.                     |   String        |
-| api-version       |  최신 버전의 API입니다.            |   날짜           |
+| publisherId       |  게시자 식별자입니다(예: `contoso`). |   문자열 |
+| offerId           |  제안 식별자입니다.                     |   문자열        |
+| api-version       |  최신 버전의 API입니다.            |   Date           |
 |  |  |  |
 
 <a name="header"></a>헤더

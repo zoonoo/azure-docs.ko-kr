@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464167"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337452"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>방법: 위험 정책 구성 및 사용
 
@@ -30,7 +31,7 @@ ms.locfileid: "84464167"
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 
 사용자가 위험 검색 시 자체 재구성을 허용 하려는 경우 셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication 모두에 대해 사용자를 등록 해야 합니다. 최상의 환경을 위해 [결합 된 보안 정보 등록 환경을 사용 하는](../authentication/howto-registration-mfa-sspr-combined.md) 것이 좋습니다. 사용자가 직접 수정할 수 있도록 하면 관리자의 개입 없이도 신속 하 게 생산적인 상태로 다시 전환할 수 있습니다. 관리자는 이러한 이벤트를 계속 확인 하 고 팩트 후에 조사할 수 있습니다. 
 
@@ -54,7 +55,7 @@ Microsoft는 사용자 위험 정책 임계값을 **높음** 으로, 로그인 �
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. **Azure Active Directory**  >  **보안**  >  **id 보호**  >  **개요**로 이동 합니다.
-1. **사용자 위험 정책 구성**을 선택 합니다.
+1. **사용자 위험 정책**을 선택 합니다.
    1. **할당** 아래
       1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
          1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.
@@ -63,7 +64,7 @@ Microsoft는 사용자 위험 정책 임계값을 **높음** 으로, 로그인 �
       1. **액세스** - **액세스를 허용** 하 고 **암호 변경을 요구**하는 것이 Microsoft의 권장 사항입니다.
    1. **정책 적용**  -  **설정**
    1. **저장** -이 작업을 수행 하면 **개요** 페이지로 돌아갑니다.
-1. **로그인 위험 정책 구성**을 선택 합니다.
+1. **로그인 위험 정책**을 선택 합니다.
    1. **할당** 아래
       1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
          1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.

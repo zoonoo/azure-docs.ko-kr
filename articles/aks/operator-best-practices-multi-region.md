@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251199"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285869"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -57,9 +57,9 @@ Traffic Manager DNS 조회를 수행 하 고 사용자의 가장 적합 한 끝�
 
 끝점과 라우팅을 설정 하는 방법에 대 한 자세한 내용은 [Traffic Manager를 사용 하 여 지리적 트래픽 라우팅 방법 구성](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)을 참조 하세요.
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Azure Front 도어 서비스를 사용 하 여 계층 7 응용 프로그램 라우팅
+### <a name="application-routing-with-azure-front-door-service"></a>Azure Front 도어 서비스를 사용 하 여 응용 프로그램 라우팅
 
-Traffic Manager는 DNS (계층 3)를 사용 하 여 트래픽을 셰이프 합니다. [Azure Front 도어 서비스](../frontdoor/front-door-overview.md) 는 HTTP/HTTPS (계층 7) 라우팅 옵션을 제공 합니다. Azure Front 도어 서비스의 추가 기능에는 TLS 종료, 사용자 지정 도메인, 웹 응용 프로그램 방화벽, URL 재작성 및 세션 선호도가 포함 됩니다. 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
+[Azure Front 도어 서비스](../frontdoor/front-door-overview.md) 는 분할 TCP 기반 애니캐스트 프로토콜을 사용 하 여 최종 사용자가 가장 가까운 앞면 도어 POP (현재 위치)에 신속 하 게 연결할 수 있도록 합니다. Azure Front 도어 서비스의 추가 기능에는 TLS 종료, 사용자 지정 도메인, 웹 응용 프로그램 방화벽, URL 재작성 및 세션 선호도가 포함 됩니다. 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>글로벌 가상 네트워크 피어 링을 사용 하 여 지역 상호 연결
 

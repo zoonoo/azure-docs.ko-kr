@@ -3,15 +3,15 @@ title: 재해 복구 시나리오
 description: Azure 가상 머신에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업을 알아본다.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 43e7cb0906fc6008e8bdbfafec84ecfd8e8be6b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525826"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289669"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Azure 서비스 중단이 Azure Vm에 영향을 주는 경우
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.

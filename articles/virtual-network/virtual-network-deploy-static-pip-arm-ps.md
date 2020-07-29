@@ -1,6 +1,6 @@
 ---
 title: 고정 공용 IP 주소를 사용하는 VM 만들기 - PowerShell | Microsoft Docs
-description: PowerShell을 사용하여 고정 공용 IP 주소를 사용하는 VM을 만드는 방법에 대해 알아봅니다.
+description: PowerShell을 사용 하 여 고정 공용 IP 주소를 사용 하는 VM (가상 머신)을 만듭니다. 고정 공용 IP 주소는 변경 되지 않는 주소입니다.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 03a619a647da247347492076e9fd36414565bf33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca83836771af8448f6510ab27d0ac5f2973b35c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703148"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287707"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>PowerShell을 사용하여 고정 공용 IP 주소를 사용하는 가상 머신 만들기
 

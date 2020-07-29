@@ -5,11 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443403"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286005"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>GPU virtual machines를 사용 하 여 랩 설정
 
@@ -31,7 +32,7 @@ ms.locfileid: "85443403"
 | ---- | ----- | --- | ----------- | 
 | 소형 GPU(컴퓨팅) | -&nbsp;6 &nbsp; 코어<br>-&nbsp;56 &nbsp; GB &nbsp; RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |이 크기는 AI (인공 지능) 및 심층 학습 등 컴퓨터를 많이 사용 하는 응용 프로그램에 가장 적합 합니다. |
 
-*시각화* GPU 크기는 그래픽을 많이 사용 하는 응용 프로그램을 위한 것입니다.  예를 들어 [SolidWorks 엔지니어링 클래스 형식은](./class-type-solidworks.md) **작은 GPU (시각화)** 크기를 사용 하 여 표시 합니다.  이러한 종류의 클래스에는 학생 들이 사용 하기에 적합 합니다 .이는 학생 들이 solid 개체를 모델링 하 고 시각화할 수 있도록 CAD (SolidWorks 3D 컴퓨터 사용 디자인) 환경과 상호 작용 하기 때문입니다.
+*시각화* GPU 크기는 그래픽을 많이 사용 하는 응용 프로그램을 위한 것입니다.  예를 들어 [SOLIDWORKS 엔지니어링 클래스 형식은](./class-type-solidworks.md) **작은 GPU (시각화)** 크기를 사용 하 여 표시 합니다.  이러한 종류의 클래스에는 학생 들이 사용 하기에 적합 합니다 .이는 학생 들이 solid 개체를 모델링 하 고 시각화할 수 있도록 CAD (SOLIDWORKS 3D 컴퓨터 사용 디자인) 환경과 상호 작용 하기 때문입니다.
 
 | 크기 | 코어 수 | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
@@ -44,7 +45,7 @@ ms.locfileid: "85443403"
 !["GPU 드라이버 설치" 옵션을 보여 주는 "새 랩"의 스크린샷](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 위의 그림에 표시 된 것 처럼이 옵션은 기본적으로 사용 하도록 설정 되어 있으며,이 옵션은 선택한 GPU 및 이미지 유형에 대해 *최신* 드라이버가 설치 되어 있는지 확인 합니다.
-- *계산* GPU 크기를 선택 하는 경우 랩 Vm은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU에 의해 구동 됩니다.  이 경우 고성능 컴퓨팅을 가능 하 게 하 [는 최신 드라이버가](https://www.nvidia.com/object/io_69526.html) 설치 되어 있습니다.
+- *계산* GPU 크기를 선택 하는 경우 랩 Vm은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU에 의해 구동 됩니다.  이 경우 고성능 컴퓨팅을 가능 하 게 하 [는 최신 드라이버가](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) 설치 되어 있습니다.
 - *시각화* GPU 크기를 선택 하는 경우 랩 Vm은 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 [그리드 기술로](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf)구동 됩니다.  이 경우 최신 그리드 드라이버가 설치 되어 그래픽을 많이 사용 하는 응용 프로그램을 사용할 수 있습니다.
 
 ### <a name="install-the-drivers-manually"></a>수동으로 드라이버 설치
@@ -62,7 +63,7 @@ ms.locfileid: "85443403"
 
    a. 브라우저에서 [NVIDIA 드라이버 다운로드 페이지로](https://www.nvidia.com/Download/index.aspx)이동 합니다.  
    b. **제품 유형을** **Tesla**로 설정 합니다.  
-   다. **제품 시리즈** 를 **K 시리즈**로 설정 합니다.  
+   c. **제품 시리즈** 를 **K 시리즈**로 설정 합니다.  
    d. 랩을 만들 때 선택한 기본 이미지 유형에 따라 **운영 체제** 를 설정 합니다.  
    e. 필요한 verda 드라이버의 버전으로 **Verda Toolkit** 을 설정 합니다.  
    f. **검색** 을 선택 하 여 드라이버를 찾습니다.  
@@ -112,7 +113,7 @@ Linux를 실행 하는 [N 시리즈 vm에 NVIDIA GPU 드라이버 설치](https:
 다음 문서를 참조하세요.
 
 - [클래스룸 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
-- [SolidWorks 컴퓨터-CAD (design) 클래스 형식](class-type-solidworks.md)
+- [SOLIDWORKS 컴퓨터-CAD (design) 클래스 형식](class-type-solidworks.md)
 - [MATLAB (matrix 실습) 클래스 형식](class-type-matlab.md)
 
 

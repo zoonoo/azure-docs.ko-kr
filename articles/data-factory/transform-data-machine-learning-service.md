@@ -10,12 +10,12 @@ ms.author: daperlov
 author: djpmsft
 manager: anandsub
 ms.date: 07/16/2020
-ms.openlocfilehash: 83a7f072af64b0fe8f7f3d7c982cf3466288f63e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7239c1516c4a04b57249ea4f39bff4aec9156d72
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007200"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337690"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Azure Data Factory에서 Azure Machine Learning 파이프라인 실행
 
@@ -60,6 +60,9 @@ experimentName | Machine Learning 파이프라인 실행의 실행 기록 실험
 mlPipelineParameters | 게시 된 Azure Machine Learning 파이프라인 끝점에 전달 되는 키, 값 쌍입니다. 키가 게시 된 Machine Learning 파이프라인에 정의 된 파이프라인 매개 변수의 이름과 일치 해야 합니다. | 키 값 쌍 (또는 resultType 개체가 있는 식)이 포함 된 개체입니다. | 아니요
 mlParentRunId | 부모 Azure Machine Learning 파이프라인 실행 ID | 문자열(또는 resultType 문자열이 있는 식) | 아니요
 continueOnStepFailure | 단계가 실패 하는 경우 Machine Learning 파이프라인 실행에서 다른 단계의 실행을 계속할지 여부 | boolean | 아니요
+
+> [!NOTE]
+> Machine Learning 파이프라인 이름 및 ID의 드롭다운 항목을 채우려면 사용자에 게 ML 파이프라인을 나열할 수 있는 권한이 있어야 합니다. ADF UX는 로그인 한 사용자의 자격 증명을 사용 하 여 AzureMLService Api를 직접 호출 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요.

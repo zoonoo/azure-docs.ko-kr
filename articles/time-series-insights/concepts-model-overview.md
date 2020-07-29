@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98951dc29b7c8504cbf1654a810ebba933fef3a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495383"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289971"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
 
@@ -24,7 +24,7 @@ ms.locfileid: "86495383"
 > [!TIP]
 >
 > * 라이브 시계열 모델 예제는 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동 합니다.
-> * Azure Time Series Insights Gen2 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](time-series-insights-update-how-to-tsm.md) 에 대해 알아봅니다.
+> * Azure Time Series Insights Gen2 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](/azure/time-series-insights/how-to-edit-your-model) 에 대해 알아봅니다.
 
 ## <a name="summary"></a>요약
 
@@ -75,7 +75,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 [![시계열 모델 개요 차트](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-시계열 모델은 [Azure Time Series Insights Gen2 탐색기](time-series-insights-update-how-to-tsm.md)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)를 통해 관리할 수 있습니다.
+시계열 모델은 [Azure Time Series Insights Gen2 탐색기](/azure/time-series-insights/concepts-model-overview)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)를 통해 관리할 수 있습니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 
@@ -283,12 +283,13 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
   ]
 }
 ```
+
 시계열 모델 유형에는 이벤트에 대 한 수식 및 계산 규칙을 지정 하는 여러 변수가 있을 수 있습니다. [시계열 모델 변수를 정의 하는 방법](./concepts-variables.md) 에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Api를 통해 모델을 편집 하는 방법에 대 한 자세한 내용은 [Time Series 모델](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) 참조 설명서를 참조 하세요.
+* Api를 통해 모델을 편집 하는 방법에 대 한 자세한 내용은 [Time Series 모델](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) 참조 설명서를 참조 하세요.
 
-- 시계열 [모델 변수](./concepts-variables.md) 를 사용 하 여 만들 수 있는 수식 및 계산 살펴보기
+* 시계열 [모델 변수](./concepts-variables.md) 를 사용 하 여 만들 수 있는 수식 및 계산 살펴보기
 
-- Azure Time Series Insights Gen2에서 [데이터를 쿼리](concepts-query-overview.md) 하는 방법에 대해 알아봅니다.
+* Azure Time Series Insights Gen2에서 [데이터를 쿼리](concepts-query-overview.md) 하는 방법에 대해 알아봅니다.

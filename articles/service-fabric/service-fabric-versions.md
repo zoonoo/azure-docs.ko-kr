@@ -3,16 +3,18 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 211197ced52ca094d375d3ae212957fa25a523fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d849b4471bf11183dc02735c7373f858f0c773be
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091643"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289324"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
 클러스터가 항상 지원 되는 Azure Service Fabric 버전을 실행 하 고 있는지 확인 합니다. Service Fabric 새 버전의 릴리스를 발표 한 후 최소 60 일이 지나면 이전 버전에 대 한 지원이 종료 됩니다. [Service Fabric 팀 블로그에서](https://azure.microsoft.com/updates/?product=service-fabric)새 릴리스에 대 한 공지를 확인할 수 있습니다.
+
+지정 된 버전의 Service Fabric 런타임에 대해 지정 된 또는 이전 버전의 SDK/NuGet 패키지를 사용할 수 있습니다. 최신 버전의 패키지가 지원 되지 않으며, 해당 환경에서 지원 하지 않는 기능 또는 프로토콜 변경이 있을 수 있으므로 이전 클러스터를 대상으로 하는 문제가 발생할 수 있습니다.
 
 클러스터에서 지원 되는 Service Fabric 버전을 계속 실행 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 

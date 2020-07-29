@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117046"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291798"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -556,48 +556,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 ## <a name="configure-development-environment"></a>개발 환경 구성
 
-배포 스크립트 개발 환경으로 미리 구성된 docker 컨테이너 이미지를 사용할 수 있습니다. Docker를 설치 하려면 [Docker 가져오기](https://docs.docker.com/get-docker/)를 참조 하세요.
-또한 배포 스크립트를 포함 하는 디렉터리를 Docker 컨테이너에 탑재 하도록 파일 공유를 구성 해야 합니다.
-
-1. 배포 스크립트 컨테이너 이미지를 로컬 컴퓨터로 끌어옵니다.
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    이 예에서는 PowerShell 2.7.0 버전을 사용합니다.
-
-    MCR(Microsoft Container Registry)에서 CLI 이미지를 끌어오려면 다음을 수행합니다.
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    이 예에서는 CLI 2.0.80 버전을 사용합니다. 배포 스크립트는 [여기](https://hub.docker.com/_/microsoft-azure-cli) 있는 기본 CLI 컨테이너 이미지를 사용합니다.
-
-1. Docker 이미지를 로컬로 실행합니다.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **&lt;host driver letter>** 및 **&lt;host directory name>** 을 공유 드라이브의 기존 폴더로 바꿉니다.  폴더가 컨테이너의 **/data** 폴더에 매핑됩니다. 예를 들어 D:\docker를 매핑하려면 다음을 수행합니다.
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **-it**는 컨테이너 이미지를 활성 상태로 유지하는 것을 의미합니다.
-
-    CLI 예:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. 다음 스크린샷은 공유 드라이브에 helloworld.ps1 파일이 있는 경우 PowerShell 스크립트를 실행 하는 방법을 보여 줍니다.
-
-    ![Resource Manager 템플릿 배포 스크립트 Docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+배포 스크립트 개발 환경으로 미리 구성 된 컨테이너 이미지를 사용할 수 있습니다. 자세한 내용은 [템플릿에서 배포 스크립트에 대 한 개발 환경 구성](./deployment-script-template-configure-dev.md)을 참조 하세요.
 
 스크립트를 성공적으로 테스트 한 후에는이를 템플릿에서 배포 스크립트로 사용할 수 있습니다.
 
@@ -618,7 +577,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 | DeploymentScriptStorageAccountInvalidAccessKey | 기존 저장소 계정에 지정 된 액세스 키가 잘못 되었습니다. |
 | DeploymentScriptStorageAccountInvalidAccessKeyFormat | 저장소 계정 키 형식이 잘못 되었습니다. [저장소 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조 하세요. |
 | DeploymentScriptExceededMaxAllowedTime | 배포 스크립트 실행 시간이 배포 스크립트 리소스 정의에 지정 된 시간 제한 값을 초과 했습니다. |
-| DeploymentScriptInvalidOutputs | 배포 스크립트 출력이 유효한 JSON 개체가 아닙니다. |
+| DeploymentScriptInvalidOutputs | 배포 스크립트 출력은 올바른 JSON 개체가 아닙니다. |
 | DeploymentScriptContainerInstancesServiceLoginFailure | 1 분 간격으로 10 번 시도 하면 사용자 할당 관리 id가 로그인 할 수 없습니다. |
 | DeploymentScriptContainerGroupNotFound | 배포 스크립트 서비스에서 만든 컨테이너 그룹은 외부 도구나 프로세스에 의해 삭제 되었습니다. |
 | DeploymentScriptDownloadFailure | 지원 스크립트를 다운로드 하지 못했습니다. [지원 스크립트 사용](#use-supporting-scripts)을 참조 하세요.|
