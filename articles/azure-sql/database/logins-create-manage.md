@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986286"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290097"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 데이터베이스 액세스 권한 부여
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -110,7 +110,7 @@ ms.locfileid: "85986286"
   master 데이터베이스에서 SQL 로그인을 만듭니다. 그런 다음 사용자가 액세스해야 하는 각 데이터베이스에서 사용자 계정을 만들고 해당 사용자 계정을 로그인에 연결합니다. 이 접근 방식은 사용자가 여러 데이터베이스에 액세스해야 하며 암호를 일정하게 유지하려는 경우에 선호됩니다. 그러나 이 접근 방식에서는 주 서버와 보조 서버 양쪽에서 모두 로그인이 만들어져야 하므로 지역 복제와 함께 사용할 경우 복잡한 문제가 발생할 수 있습니다. 자세한 내용은 [지역 복원 또는 장애 조치(failover)를 위해 Azure SQL Database 보안 구성 및 관리](active-geo-replication-security-configure.md)를 참조하세요.
 - **사용자 계정 만들기**
 
-  사용자가 액세스 해야 하는 데이터베이스에서 사용자 계정을 만듭니다 ( [포함 된 사용자](/sql/relational-databases/security/contained-database-users-making-your-database-portable)라고도 함).
+  사용자가 액세스해야 하는 데이터베이스에서 사용자 계정을 만듭니다([포함된 사용자](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 
   - SQL Database를 사용 하 여 언제 든 지이 유형의 사용자 계정을 만들 수 있습니다.
   - [AZURE AD 서버 보안 주체](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)를 지 원하는 sql Managed Instance를 사용 하 여 데이터베이스 사용자를 포함 된 데이터베이스 사용자로 만들 필요 없이 sql Managed Instance 인증 하는 사용자 계정을 만들 수 있습니다.

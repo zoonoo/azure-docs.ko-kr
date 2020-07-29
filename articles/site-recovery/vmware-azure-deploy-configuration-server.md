@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132155"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287731"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -26,7 +26,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 구성 서버는 최소 하드웨어 및 크기 조정 요구 사항에 따라 항상 사용 가능한 VMware VM으로 설정 해야 합니다. 편리 하 고 쉬운 배포를 위해 Site Recovery는 여기에 나열 된 모든 요구 사항을 준수 하는 구성 서버를 설정 하는 다운로드 가능한 OVA (Open Virtualization Application) 템플릿을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 구성 서버에 대 한 최소 하드웨어 요구 사항은 다음 섹션에 요약 되어 있습니다.
 
@@ -66,7 +66,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 ## <a name="import-the-template-in-vmware"></a>VMware에서 템플릿 가져오기
 
-1. VMWare vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
+1. VMware vSphere 클라이언트를 사용 하 여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인 합니다.
 2. 파일 메뉴에서 **배치 템플릿 배포** 를 선택 하 여 **파일** **배포** 마법사를 시작 합니다.
 
      ![파일 배포 템플릿](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -92,13 +92,13 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 구성 서버에 NIC를 추가하려면 자격 증명 모음에 서버를 등록하기 전에 추가하세요. 등록 후에는 어댑터를 추가할 수 없습니다.
 
 1. VSphere 클라이언트 인벤토리에서 VM을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
-2. **하드웨어**에서 **추가** > **이더넷 어댑터**를 선택합니다. **다음**을 선택합니다.
+2. **하드웨어**에서 **추가** > **이더넷 어댑터**를 선택합니다. 그런 후 **다음**을 선택합니다.
 3. 어댑터 유형 및 네트워크를 선택합니다.
 4. VM이 켜질 때 가상 NIC에 연결하려면 **전원이 켜지면 연결**을 선택합니다. 그런 다음, **다음**  >  **마침**  >  **확인을**선택 합니다.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Azure Site Recovery 서비스에 구성 서버 등록
 
-1. VMWare vSphere 클라이언트 콘솔에서 VM을 켭니다.
+1. VMware vSphere 클라이언트 콘솔에서 VM을 켭니다.
 2. VM이 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
 3. 설치가 완료되면 VM에 관리자 권한으로 로그인합니다.
 4. 처음 로그인 할 때 몇 초 안에 Azure Site Recovery 구성 도구가 시작 됩니다.

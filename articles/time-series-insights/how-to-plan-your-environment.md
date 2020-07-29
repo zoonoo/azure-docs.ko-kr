@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a17f28f2a87ae42b552bfa07732b8b8232ef5e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531438"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289901"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 계획
 
@@ -78,7 +78,7 @@ Azure Time Series Insights Gen2 환경을 프로 비전 할 때 두 가지 Azure
 
 이제 Azure Time Series Insights 환경의 시계열 모델을 구성할 수 있습니다. 새 모델을 사용하면 IoT 데이터를 쉽게 찾아서 분석할 수 있습니다. 시계열 데이터의 큐레이션, 유지 관리 및 보강을 가능하게 하며, 소비자가 바로 사용할 수 있는 데이터 세트를 준비하는 데 도움이 됩니다. 모델은 고유한 리소스를 변수(형식이라고도 함) 및 계층 구조와 연결하는 인스턴스에 매핑되는 시계열 ID를 사용합니다. 자세한 내용은 [시계열 모델](./concepts-model-overview.md) 개요를 참조 하세요.
 
-모델은 동적이므로 언제든지 빌드할 수 있습니다. 신속 하 게 시작 하려면 데이터를 Azure Time Series Insights 푸시 하기 전에 빌드 및 업로드 하세요. 모델을 작성 하려면 [시계열 모델 사용](./time-series-insights-update-how-to-tsm.md)을 참조 하세요.
+모델은 동적이므로 언제든지 빌드할 수 있습니다. 신속 하 게 시작 하려면 데이터를 Azure Time Series Insights 푸시 하기 전에 빌드 및 업로드 하세요. 모델을 작성 하려면 [시계열 모델 사용](/azure/time-series-insights/concepts-model-overview)을 참조 하세요.
 
 많은 고객의 경우, 시계열 모델은 이미 구현된 기존 자산 모델 또는 ERP 시스템에 매핑됩니다. 기존 모델이 없는 경우, 빠르게 시작하고 실행하도록 사전 빌드된 사용자 환경이 [제공](https://github.com/Microsoft/tsiclient)됩니다. 모델이 어떻게 도움이 되는지를 확인하려면 [샘플 데모 환경](https://insights.timeseries.azure.com/preview/demo)을 살펴보세요.
 

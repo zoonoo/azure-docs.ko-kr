@@ -4,16 +4,16 @@ description: 이 문서에서는 다양 한 시나리오에 대해 Windows Vm에
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036134"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291973"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 
@@ -140,6 +140,33 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 | resizeOSDisk | 시스템 볼륨을 분할하기 전에 전체 OS VHD를 채우려면 OS 파티션 크기를 조정해야 합니다. |
 | 위치 | 모든 리소스에 대한 위치. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Lsv2 Vm의 NVMe 디스크에서 암호화 사용
+
+이 시나리오에서는 Lsv2 시리즈 Vm에 대해 NVMe 디스크에 Azure Disk Encryption를 사용 하도록 설정 하는 방법을 설명 합니다.  Lsv2 시리즈는 로컬 NVMe 저장소 기능을 제공 합니다. 로컬 NVMe 디스크는 일시적 이며, VM을 중지/할당 취소 하는 경우 이러한 디스크의 데이터가 손실 됩니다 (참조: [Lsv2 시리즈](../lsv2-series.md)).
+
+NVMe 디스크에서 암호화를 사용 하도록 설정 하려면:
+
+1. NVMe 디스크를 초기화 하 고 NTFS 볼륨을 만듭니다.
+1. Vetype 매개 변수를 All로 설정 하 여 VM에서 암호화를 사용 하도록 설정 합니다. 그러면 NVMe 디스크로 지원 되는 볼륨을 포함 하 여 모든 OS 및 데이터 디스크에 대해 암호화가 사용 됩니다. 자세한 내용은 [기존 또는 실행 중인 WINDOWS VM에서 암호화 사용](#enable-encryption-on-an-existing-or-running-windows-vm)을 참조 하세요.
+
+다음 시나리오에서는 암호화가 NVMe 디스크에 유지 됩니다.
+- VM 재부팅
+- VMSS 이미지로 다시 설치
+- OS 교체
+
+NVMe 디스크는 다음 시나리오에서 초기화 되지 않습니다.
+
+- 할당 취소 후 VM 시작
+- 서비스 복구
+- Backup
+
+이러한 시나리오에서는 VM이 시작 된 후 NVMe 디스크를 초기화 해야 합니다. NVMe 디스크에서 암호화를 사용 하도록 설정 하려면 명령을 실행 하 여 NVMe 디스크가 초기화 된 후 Azure Disk Encryption를 다시 사용 하도록 설정 합니다.
+
+[지원 되지 않는 시나리오](#unsupported-scenarios) 섹션에 나열 된 시나리오 외에도 다음에 대해 NVMe 디스크의 암호화가 지원 되지 않습니다.
+
+- AAD를 사용 하 여 Azure Disk Encryption로 암호화 된 Vm (이전 릴리스)
+- 저장소 공간이 있는 NVMe 디스크
+- NVMe 디스크를 사용 하는 Sku Azure Site Recovery ( [azure 지역 간 AZURE VM 재해 복구를 위한 지원 매트릭스: 복제 된 컴퓨터-저장소](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)참조).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a> 고객 암호화 VHD 및 암호화 키로 만든 새 IaaS VM
 
@@ -236,7 +263,6 @@ Azure Disk Encryption 다음 시나리오, 기능 및 기술에는 적용 되지
 - 다른 구독 또는 지역으로 암호화 된 Vm 이동
 - 암호화 된 VM의 이미지나 스냅숏을 만들어 추가 Vm을 배포 하는 데 사용
 - Gen2 Vm ( [Azure의 2 세대 vm에 대 한 지원](generation-2.md#generation-1-vs-generation-2-capabilities))을 참조 하세요.
-- Lsv2 시리즈 Vm (참조: [Lsv2 시리즈](../lsv2-series.md))
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm
 - 컴퓨터 관리 키 (SSE + CMK)를 사용 하 여 [서버 쪽 암호화](disk-encryption.md) 로 암호화 된 데이터 디스크가 있는 VM에 ade를 적용 하거나 ade로 암호화 된 vm의 데이터 디스크에 SSE + cmk를 적용 합니다.
 - ADE로 암호화 된 VM을 고객이 관리 하는 키를 사용 하는 [서버 쪽 암호화](disk-encryption.md)로 마이그레이션

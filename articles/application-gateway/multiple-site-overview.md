@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290992"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
 
@@ -31,7 +31,7 @@ ms.locfileid: "87067947"
 
 ## <a name="wildcard-host-names-in-listener-preview"></a>수신기의 와일드 카드 호스트 이름 (미리 보기)
 
-Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호스트 기반 라우팅을 허용 합니다. 이제 호스트 이름에 별표 (*) 및 물음표 (?)와 같은 와일드 카드 문자를 사용할 수 있으며 다중 사이트 HTTP (S) 수신기 당 최대 5 개의 호스트 이름을 사용할 수 있습니다. 예: `*.contoso.com`.
+Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호스트 기반 라우팅을 허용 합니다. 이제 호스트 이름에 별표 (*) 및 물음표 (?)와 같은 와일드 카드 문자를 사용할 수 있으며 다중 사이트 HTTP (S) 수신기 당 최대 5 개의 호스트 이름을 사용할 수 있습니다. 예들 들어 `*.contoso.com`입니다.
 
 호스트 이름에 와일드 카드 문자를 사용 하 여 단일 수신기에서 여러 호스트 이름을 찾을 수 있습니다. 예를 들어는 및 등과 `*.contoso.com` 일치할 수 있습니다 `ecom.contoso.com` `b2b.contoso.com` `customer1.b2b.contoso.com` . 호스트 이름 배열을 사용 하 여 수신기에 대 한 호스트 이름을 두 개 이상 구성 하 여 요청을 백 엔드 풀로 라우팅할 수 있습니다. 예를 들어 수신기에는 `contoso.com, fabrikam.com` 호스트 이름에 대 한 요청을 허용 하는가 포함 될 수 있습니다.
 
@@ -40,16 +40,12 @@ Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호�
 >[!NOTE]
 > 이 기능은 미리 보기 상태 이며 Application Gateway의 Standard_v2 및 WAF_v2 SKU에 대해서만 사용할 수 있습니다. 미리 보기에 대 한 자세한 내용은 [여기의 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-[Azure Portal](create-multiple-sites-portal.md)아래 스크린샷에 표시 된 것 처럼 별도의 텍스트 상자에서 정의할 수 있습니다.
-
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="와일드 카드 수신기 예제 구성":::
-
 >[!NOTE]
->새 다중 사이트 수신기를 만들거나 Azure Portal에서 기존 다중 사이트 수신기에 호스트 이름을 두 개 이상 추가 하는 경우 기본적으로 `HostNames` 수신기 구성의 매개 변수에 추가 됩니다. 그러면 구성의 기존 매개 변수에 더 많은 기능이 추가 됩니다 `HostName` .
+>이 기능은 현재 [Azure PowerShell](tutorial-multiple-sites-powershell.md) 및 [Azure CLI](tutorial-multiple-sites-cli.md)를 통해서만 사용할 수 있습니다. 포털 지원이 곧 제공 될 예정입니다.
 
-[Azure PowerShell](tutorial-multiple-sites-powershell.md)에서 대신를 사용 해야 합니다 `-HostNames` `-HostName` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com,*.fabrikam.com"`
+[Azure PowerShell](tutorial-multiple-sites-powershell.md)에서 대신를 사용 해야 합니다 `-HostNames` `-HostName` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예, `-HostNames "*.contoso.com,*.fabrikam.com"`
 
-[Azure CLI](tutorial-multiple-sites-cli.md)에서 대신를 사용 해야 합니다 `--host-names` `--host-name` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예를 들어 `--host-names "*.contoso.com,*.fabrikam.com"`
+[Azure CLI](tutorial-multiple-sites-cli.md)에서 대신를 사용 해야 합니다 `--host-names` `--host-name` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예, `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>호스트 이름 필드에 허용 되는 문자:
 
@@ -77,7 +73,7 @@ Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호�
 *   "Hostname" 속성은 한 문자열을 입력으로 사용 합니다. 여기서 와일드 카드 없는 도메인 이름을 하나만 입력할 수 있으며 "hostname"은 문자열 배열을 입력으로 사용 하 여 와일드 카드 도메인 이름을 5 개까지 사용할 수 있습니다. 그러나 두 속성은 동시에 사용할 수 없습니다.
 *   와일드 카드 또는 여러 호스트 이름을 사용 하는 대상 수신기를 사용 하 여 [리디렉션](redirect-overview.md) 규칙을 만들 수 없습니다.
 
-다중 사이트 수신기에서 와일드 카드 호스트 이름을 구성 하는 방법에 대 한 단계별 가이드는 [Azure Portal을 사용 하 여 다중 사이트 만들기](create-multiple-sites-portal.md) 또는 [Azure PowerShell 사용](tutorial-multiple-sites-powershell.md) 또는 [Azure CLI 사용](tutorial-multiple-sites-cli.md) 을 참조 하세요.
+다중 사이트 수신기에서 와일드 카드 호스트 이름을 구성 하는 방법에 대 한 단계별 가이드는 [Azure PowerShell을 사용 하 여 다중 사이트 만들기](tutorial-multiple-sites-powershell.md) 또는 [Azure CLI 사용](tutorial-multiple-sites-cli.md) 을 참조 하세요.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>호스트 헤더 및 SNI(서버 이름 표시)
 
@@ -95,6 +91,9 @@ Application Gateway는 HTTP 1.1 호스트 헤더를 기반으로 동일한 공�
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 사이트 호스팅에 대해 학습 한 후에는 여러 웹 사이트를 호스트 하는 Application Gateway을 만드는 방법에 대 한 단계별 가이드에서 [Azure Portal를 사용 하 여 다중 사이트 만들기](create-multiple-sites-portal.md) 또는 [Azure PowerShell 사용](tutorial-multiple-sites-powershell.md) 또는 [Azure CLI 사용](tutorial-multiple-sites-cli.md) 으로 이동 합니다.
+Application Gateway에서 여러 사이트 호스팅을 구성 하는 방법에 대해 알아봅니다.
+* [Azure Portal 사용](create-multiple-sites-portal.md)
+* [Azure PowerShell 사용](tutorial-multiple-sites-powershell.md) 
+* [Azure CLI 사용](tutorial-multiple-sites-cli.md)
 
 종단 간 템플릿 기반 배포는 [다중 사이트 호스팅을 사용하는 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting)을 방문하세요.

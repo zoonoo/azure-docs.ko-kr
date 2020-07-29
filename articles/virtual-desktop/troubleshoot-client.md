@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059134"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291323"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -64,7 +64,7 @@ Windows 7 또는 Windows 10용 원격 데스크톱 클라이언트와 같은 다
 
 먼저 사용 중인 Azure Active Directory 계정을 확인합니다. Windows 가상 데스크톱에 사용할 것과 다른 Azure Active Directory 계정으로 이미 로그인 한 경우에는 서명 하거나 개인 브라우저 창을 사용 해야 합니다.
 
-Windows Virtual Desktop 가을 2019 릴리스를 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-web-2019.md)에서 웹 클라이언트 링크를 사용하여 리소스에 연결하십시오.
+Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서의](./virtual-desktop-fall-2019/connect-web-2019.md) 웹 클라이언트 링크를 사용 하 여 리소스에 연결 합니다.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>웹 클라이언트의 응답이 중지되거나 연결이 끊어짐
 

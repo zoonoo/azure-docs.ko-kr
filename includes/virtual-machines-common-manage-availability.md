@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 04a25b6b0b243744cc81c8b71a1f03e7c7375a68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102835"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292394"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -32,7 +32,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 * [중복성을 위해 가용성 집합에서 여러 가상 머신 구성]
 * [가용성 집합의 VM에 Managed Disks 사용]
-* [예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답](../articles/virtual-machines/linux/scheduled-events.md)
 * [각 애플리케이션 계층을 별도의 가용성 집합으로 구성]
 * [가용성 집합과 부하 분산 장치 결합]
 * [가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자 보호]
@@ -95,7 +95,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답
 
-[예약된 이벤트](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)를 구독하면 VM에 영향을 줄 수 있는 예정된 유지 관리 이벤트에 대한 알림이 VM에 전달됩니다. 예약된 이벤트를 사용하도록 설정되면 유지 관리 작업을 수행하기 전에 가상 머신에 최소 시간을 제공할 수 있습니다. 예를 들어 VM에 영향을 줄 수 있는 호스트 OS 업데이트는 아무 작업을 수행하지 않을 경우 유지 관리가 수행되는 시간에 영향을 지정하는 이벤트로 큐에서 대기됩니다. 또한 Azure에서 VM에 영향을 줄 수 있는 임박한 하드웨어 장애를 감지하면 예약된 이벤트가 큐에 넣어지고, 이를 통해 복구를 수행할 시기를 결정할 수 있습니다. 고객은 유지 관리하기 전에 이 이벤트를 사용하여 상태 저장, 보조 스토리지로의 장애 조치 등과 같은 작업을 수행할 수 있습니다. 유지 관리 이벤트를 정상적으로 처리하기 위한 논리가 완료되면 플랫폼에서 유지 관리를 진행할 수 있도록 처리 중인 예약된 이벤트를 승인할 수 있습니다.
+[예약된 이벤트](../articles/virtual-machines/linux/scheduled-events.md)를 구독하면 VM에 영향을 줄 수 있는 예정된 유지 관리 이벤트에 대한 알림이 VM에 전달됩니다. 예약된 이벤트를 사용하도록 설정되면 유지 관리 작업을 수행하기 전에 가상 머신에 최소 시간을 제공할 수 있습니다. 예를 들어 VM에 영향을 줄 수 있는 호스트 OS 업데이트는 아무 작업을 수행하지 않을 경우 유지 관리가 수행되는 시간에 영향을 지정하는 이벤트로 큐에서 대기됩니다. 또한 Azure에서 VM에 영향을 줄 수 있는 임박한 하드웨어 장애를 감지하면 예약된 이벤트가 큐에 넣어지고, 이를 통해 복구를 수행할 시기를 결정할 수 있습니다. 고객은 유지 관리하기 전에 이 이벤트를 사용하여 상태 저장, 보조 스토리지로의 장애 조치 등과 같은 작업을 수행할 수 있습니다. 유지 관리 이벤트를 정상적으로 처리하기 위한 논리가 완료되면 플랫폼에서 유지 관리를 진행할 수 있도록 처리 중인 예약된 이벤트를 승인할 수 있습니다.
 
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>가용성 영역 또는 집합과 부하 분산 장치 결합

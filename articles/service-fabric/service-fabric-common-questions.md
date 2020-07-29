@@ -4,12 +4,12 @@ description: 기능, 사용 사례 및 일반적인 시나리오를 비롯 하 �
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258939"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292848"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -36,7 +36,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 고려할 사항은 다음과 같습니다. 
 
-1. 현재 Azure에서 Service Fabric 클러스터 리소스는 클러스터가 작성된 가상 머신 확장 집합이므로 지역에 국한됩니다. 즉, 하위 지역에서 오류가 발생할 경우 Azure Resource Manager 또는 Azure Portal을 통해 클러스터를 관리하지 못하게 될 수 있습니다. 클러스터는 계속 실행되는데도 이러한 문제가 발생할 수도 있으며, 이 경우 직접 개입하는 것이 나을 수 있습니다. 또한 현재 Azure에서는 하위 지역에 걸쳐 사용할 수 있는 단일 가상 네트워크를 유지하는 기능을 제공하지 않습니다. 즉, Azure의 다중 지역 클러스터에는 [VM Scale Sets의 각 VM에 대한 공용 IP 주소](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 또는 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)가 필요합니다. 이러한 네트워킹 선택 항목은 비용, 성능 및 애플리케이션 디자인에 어느 정도 다르게 영향을 미치므로 이러한 환경을 구성하기 전에 신중하게 분석하고 계획해야 합니다.
+1. 현재 Azure에서 Service Fabric 클러스터 리소스는 클러스터가 작성된 가상 머신 확장 집합이므로 지역에 국한됩니다. 즉, 하위 지역에서 오류가 발생할 경우 Azure Resource Manager 또는 Azure Portal을 통해 클러스터를 관리하지 못하게 될 수 있습니다. 클러스터는 계속 실행되는데도 이러한 문제가 발생할 수도 있으며, 이 경우 직접 개입하는 것이 나을 수 있습니다. 또한 현재 Azure에서는 하위 지역에 걸쳐 사용할 수 있는 단일 가상 네트워크를 유지하는 기능을 제공하지 않습니다. 즉, Azure의 다중 지역 클러스터에는 가상 머신 확장 집합 또는 [AZURE VPN 게이트웨이의](../vpn-gateway/vpn-gateway-about-vpngateways.md) [각 VM에 대 한 공용 IP 주소](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 가 필요 합니다. 이러한 네트워킹 선택 항목은 비용, 성능 및 애플리케이션 디자인에 어느 정도 다르게 영향을 미치므로 이러한 환경을 구성하기 전에 신중하게 분석하고 계획해야 합니다.
 2. 이러한 컴퓨터의 유지 관리, 관리, 모니터링은 복잡할 수 있으며 다른 클라우드 공급자 간 또는 온-프레미스 리소스와 Azure 간 등, 여러 환경 _유형_ 간에 걸쳐 있는 경우에는 특히 복잡할 수 있습니다. 이러한 환경에서 프로덕션 워크로드를 실행하기 전에 클러스터 및 애플리케이션 둘 다에 대해 업그레이드, 모니터링, 관리 및 진단을 파악하도록 해야 합니다. Azure 또는 자체 데이터 센터에서 이러한 문제를 이미 해결한 경험이 있으면 Service Fabric 클러스터를 빌드하거나 실행할 때도 이러한 동일한 해결 방법을 적용할 수 있습니다. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 노드에서 OS 업데이트를 자동으로 수신하나요?
@@ -59,7 +59,7 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 
 프로덕션 워크로드를 시행하는 Service Fabric 클러스터에 지원되는 최소 크기는 5개 노드입니다. 개발 시나리오의 경우 노드 1개(Visual Studio에서 빠른 개발 환경에 최적화됨) 및 노드 클러스터 5개를 지원합니다.
 
-다음 세 가지 이유로 인해 프로덕션 클러스터에는 5개의 이상의 노드가 있어야 합니다.
+다음 세 가지 이유로 인해 프로덕션 클러스터에 5 개 이상의 노드가 있어야 합니다.
 1. 실행 중인 사용자 서비스가 없는 경우에도 Service Fabric 클러스터는 Naming Service 및 장애 조치(Failover) 관리자 서비스를 포함한 일련의 상태 저장 시스템 서비스를 실행합니다. 클러스터가 계속 작동하려면 이러한 시스템 서비스가 필수입니다.
 2. 항상 노드당 하나의 서비스 복제본이 배치되므로 클러스터 크기는 서비스(실제로는 파티션)에 포함될 수 있는 최대 복제본 수입니다.
 3. 클러스터 업그레이드는 하나 이상의 노드를 중지시키기 때문에 노드 하나 이상의 버퍼를 포함하려고 하므로 프로덕션 클러스터에 최솟값 ‘이외에’ 두 개 이상의 노드를 포함하려고 합니다.** 최솟값은 아래 설명된 대로 시스템 서비스의 쿼럼 크기입니다.  
@@ -84,7 +84,7 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>비용 절감을 위해 야간/주말에 내 클러스터를 해제할 수 있나요?
 
-일반적으로 그렇지 않습니다. Service Fabric은 임시 로컬 디스크에 상태를 저장하므로 가상 머신이 다른 호스트로 이동하는 경우 데이터가 이동하지 않습니다. 정상 작동 시에는 새 노드가 다른 노드에 의해 최신 상태가 되므로 문제가 되지 않습니다. 그러나 모든 노드를 중지하고 나중에 다시 시작하는 경우 대부분의 노드가 새 호스트에서 실행되고 시스템을 복구할 수 없을 가능성이 높습니다.
+일반적으로 그렇지 않습니다. Service Fabric은 임시 로컬 디스크에 상태를 저장하므로 가상 머신이 다른 호스트로 이동하는 경우 데이터가 이동하지 않습니다. 정상 작동 시에는 새 노드는 다른 노드에 의해 최신 상태가 되므로 문제가 되지 않습니다. 그러나 모든 노드를 중지하고 나중에 다시 시작하는 경우 대부분의 노드가 새 호스트에서 실행되고 시스템을 복구할 수 없을 가능성이 높습니다.
 
 배포하기 전 애플리케이션 테스트를 위해 클러스트를 만드는 경우 해당 클러스터를 [연속 통합/연속 배포 파이프라인](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)의 일부로 동적으로 만드는 것이 좋습니다.
 
@@ -122,11 +122,11 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 애플리케이션을 KeyVault로 어떻게 인증하나요?
-다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
+### <a name="how-can-my-application-authenticate-to-key-vault-to-get-secrets"></a>응용 프로그램이 비밀을 얻기 위해 Key Vault 인증 하는 방법
+다음은 Key Vault를 인증 하기 위한 자격 증명을 응용 프로그램에서 얻기 위한 것입니다.
 
-A. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
-B. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 가져온 다음, [keyvault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
+A. 응용 프로그램 빌드/압축 작업 중에 인증서를 SF 앱의 데이터 패키지로 끌어오고이를 사용 하 여 Key Vault에 인증할 수 있습니다.
+B. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 가져온 다음 [Key Vault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
 
 ## <a name="application-design"></a>애플리케이션 설계
 
@@ -155,7 +155,7 @@ Reliable Services는 일반적으로 분할되므로 저장할 수 있는 양은
 
 각 개체는 세 번(주에서 1번, 복제본에서 2번) 저장되어야 하며 전체 용량으로 작동할 때 컬렉션에서 약 3천 500만 개체에 대해 충분한 메모리를 포함합니다. 하지만 오류 도메인 및 업그레이드 도메인의 동시 손실에 복원력을 갖추는 것이 좋습니다. 동시 손실의 경우 용량의 약 1/3을 나타내므로 약 2천 300만 개체로 감소합니다.
 
-이 계산에서는 다음 사항도 가정합니다.
+이 계산에서는 다음을 가정 합니다.
 
 - 파티션 간 데이터 분포는 대략적으로 균일하거나 부하 메트릭을 Cluster Resource Manager에 보고합니다. 기본적으로 Service Fabric은 복제본 수에 따라 부하 분산을 수행합니다. 앞의 예제에서는 클러스터의 각 노드에 주 복제본 10개와 보조 복제본 20개를 배치합니다. 파티션 간에 부하가 고르게 분포된 경우에는 원활하게 작동합니다. 부하가 고르게 분포되지 않은 경우 로드를 보고하여 Resource Manager에서 작은 크기의 복제본을 함께 패킹하여 큰 복제본이 개별 노드에서 더 많은 메모리를 사용하도록 합니다.
 
@@ -167,6 +167,12 @@ Reliable Services는 일반적으로 분할되므로 저장할 수 있는 양은
 
 Reliable Services와 마찬가지로 행위자 서비스에 저장할 수 있는 데이터 양은 클러스터에 있는 노드 간에 사용 가능한 총 디스크 공간 및 메모리 양에 의해서만 제한됩니다. 하지만 개별 행위자는 적은 양의 상태 및 관련 비즈니스 논리를 캡슐화하는 데 사용할 경우 가장 효과적입니다. 일반적으로 개별 행위자는 킬로바이트 단위로 측정되는 상태를 포함하게 됩니다.
 
+
+### <a name="where-does-azure-service-fabric-resource-provider-store-customer-data"></a>Azure Service Fabric 리소스 공급자는 고객 데이터를 저장 하는 위치
+
+Azure Service Fabric 리소스 공급자는 고객 데이터를 배포 된 지역 외부로 이동 하거나 저장 하지 않습니다.
+
+
 ## <a name="other-questions"></a>기타 질문
 
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Service Fabric은 컨테이너와 어떻게 연결되나요?
@@ -177,7 +183,7 @@ Reliable Services와 마찬가지로 행위자 서비스에 저장할 수 있는
 
 GitHub의 Service Fabric 일부에 대해 오픈 소스를 제공하였으며([신뢰할 수 있는 서비스 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [신뢰할 수 있는 작업자 프레임워크](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core 통합 라이브러리](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) 및 [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)), 해당 프로젝트에 대한 커뮤니티 참여를 받고 있습니다. 
 
-Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 발표했습니다](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). 현재 GitHub의 Linux 빌드 및 테스트 도구가 포함된 [Service Fabric 리포지토리](https://github.com/Microsoft/service-fabric/)가 있습니다. 즉, 리포지토리를 복제하고, Linux용 Service Fabric을 빌드하고, 기본 테스트를 실행하고, 현안을 공개하고, 끌어오기 요청을 제출할 수 있습니다. 마이그레이션된 Windows 빌드 환경과 함께 완벽한 CI 환경을 제공하기 위해 최선을 다하고 있습니다.
+Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 발표했습니다](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). 이 시점에서 Linux 빌드 및 테스트 도구를 사용 하 여 GitHub에 [Service Fabric 리포지토리](https://github.com/Microsoft/service-fabric/) 를 제공 합니다. 즉, 리포지토리를 복제 하 고, Linux 용 Service Fabric를 빌드하고, 기본 테스트를 실행 하 고, 작업을 열고, 끌어오기 요청을 제출할 수 있습니다. 마이그레이션된 Windows 빌드 환경과 함께 완벽한 CI 환경을 제공하기 위해 최선을 다하고 있습니다.
 
 공지되면 [Service Fabric 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 자세한 내용을 확인하세요.
 

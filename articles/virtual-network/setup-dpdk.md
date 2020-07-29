@@ -1,6 +1,6 @@
 ---
 title: Azure Linux VM의 DPDK | Microsoft Docs
-description: Linux 가상 머신에서 DPDK를 설정하는 방법에 대해 알아봅니다.
+description: DPDK (데이터 평면 개발 키트)의 이점 및 Linux 가상 머신에서 DPDK를 설정 하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: ec117172a367d014f634106b5d2405892b80ffa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20f22825e6954f32d7f020dd160f36c3c1859c86
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689268"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287720"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 

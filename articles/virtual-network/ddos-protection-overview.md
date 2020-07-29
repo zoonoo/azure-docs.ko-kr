@@ -1,6 +1,6 @@
 ---
 title: Azure DDoS Protection 표준 개요
-description: Azure DDoS Protection 서비스에 대해 알아봅니다.
+description: Azure DDoS Protection 표준이 응용 프로그램 디자인 모범 사례와 결합 된 경우 DDoS 공격에 대 한 방어를 제공 하는 방법을 알아보세요.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e92f3b5d8c48c783648285c9a03d8cb8d391a5ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82130963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289602"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
@@ -37,9 +37,9 @@ DDoS(배포된 서비스 거부) 공격은 고객이 애플리케이션을 클�
 |완화 보고서                              |아니요                                    |사후 공격 완화 보고서                |
 |완화 흐름 로그                            |아니요                                    |SIEM 통합을 위한 NRT 로그 스트림           |
 |완화 정책 사용자 지정                 |아니요                                    |DDoS 전문가 참여                           |
-|Support(지원)                                         |최상의 노력                           |활성 공격 중 DDoS 전문가에 대 한 액세스|
+|지원                                         |최상의 노력                           |활성 공격 중 DDoS 전문가에 대 한 액세스|
 |SLA                                             |Azure 지역                          |응용 프로그램 보장 & 비용 보호       |
-|가격 책정                                         |Free                                  |매월 & 사용량 기반                         |
+|가격 책정                                         |무료                                  |매월 & 사용량 기반                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>DDoS Protection 표준으로 완화되는 DDoS 공격의 유형
 
@@ -80,7 +80,7 @@ DDoS Protection 표준은 실제 트래픽 사용률을 모니터링하고 이�
 - 클라이언트와 상호 작용하여 트래픽이 스푸핑된 패킷일 가능성이 있는지 확인합니다(예: SYN Auth 또는 SYN 쿠키 또는 원본에서 다시 전송하도록 패킷 삭제).
 - 다른 적용 방법을 수행할 수 없는 경우 패킷 속도를 제한합니다.
 
-DDoS 보호는 공격 트래픽을 차단하고 나머지 트래픽을 의도하는 대상으로 전달합니다. 공격이 감지되면 몇 분 안에 Azure Monitor 메트릭을 통해 알림이 전송됩니다. DDoS Protection 표준 원격 분석에 대한 로깅을 구성하면 추후 분석 시 사용할 수 있는 옵션에 로그를 작성할 수 있습니다. DDoS Protection 표준을 위한 Azure Monitor의 메트릭 데이터는 30일 동안 보존됩니다.
+DDoS 보호는 공격 트래픽을 차단하고, 나머지 트래픽을 의도하는 대상으로 전달합니다. 공격이 감지되면 몇 분 안에 Azure Monitor 메트릭을 통해 알림이 전송됩니다. DDoS Protection 표준 원격 분석에 대한 로깅을 구성하면 추후 분석 시 사용할 수 있는 옵션에 로그를 작성할 수 있습니다. DDoS Protection 표준을 위한 Azure Monitor의 메트릭 데이터는 30일 동안 보존됩니다.
 
 Microsoft는 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud)와 협력하여 시뮬레이션을 위해 DDoS Protection을 사용하도록 설정된 공용 IP 주소에 대한 트래픽을 생성할 수 있는 인터페이스를 구축했습니다. BreakPoint Cloud 시뮬레이션을 사용하여 수행할 수 있는 작업은 다음과 같습니다.
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8a951a4920f2f80a4b9738317bdb2da96c613d53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013048"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290040"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -136,7 +136,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 + Azure Machine Learning Studio: [이러한 단계](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 사용하여 **추가 구성 보기** 섹션에서 **자동 기능화**를 사용하도록 설정합니다.
 
-+ Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에를 지정 합니다. [기능화 사용] ((how to configure-auto-features.md)에 대해 자세히 알아보세요. 
++ Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에를 지정 합니다. [기능화 사용](how-to-configure-auto-features.md)에 대해 자세히 알아보세요. 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a> 앙상블 모델
 

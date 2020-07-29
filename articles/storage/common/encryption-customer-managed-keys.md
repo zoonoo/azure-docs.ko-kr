@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af70b1746b2ac847d964975aaf1b2186aa89be01
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029793"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292732"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리
 
@@ -70,7 +70,7 @@ Azure Storage 암호화를 위해 Azure Key Vault에서 고객이 관리 하는 
 
 Azure storage 암호화는 2048, 3072 및 4096 크기의 RSA 및 RSA HSM 키를 지원 합니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)정보를 참조 하세요.
 
-Azure Key Vault 사용에는 비용이 수반 됩니다. 자세한 내용은 [Key Vault 가격 책정](/pricing/details/key-vault/)을 참조 하세요.
+Azure Key Vault 사용에는 비용이 수반 됩니다. 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)을 참조 하세요.
 
 ## <a name="rotate-customer-managed-keys"></a>고객 관리 키 회전
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 988d1efd348fe8e85dd33fbe35cc8dc9362c081b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039994"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290610"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
 
@@ -122,10 +122,11 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 ## <a name="get-some-help"></a>도움 받기
 
-[Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)에서 질문하고, 질문에 답변하고, 다른 Logic Apps 사용자가 수행 중인 작업을 확인할 수 있습니다. 
+[Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-logic-apps.html)에서 질문하고, 질문에 답변하고, 다른 Logic Apps 사용자가 수행 중인 작업을 확인할 수 있습니다. 
 
 [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출해 주시면 Logic Apps 및 커넥터를 개선하는 데 도움이 될 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱을 만들고](../logic-apps/quickstart-create-first-logic-app-workflow.md)[API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 커넥터를 탐색합니다.
+

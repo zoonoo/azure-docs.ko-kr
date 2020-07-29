@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204475"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291505"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "85204475"
 시작하기 전에 MSIX app attach를 구성하는 데 필요한 사항은 다음과 같습니다.
 
 - MSIX app attach API를 지원하는 Windows 10 버전을 확보하기 위한 Windows 참가자 포털에 대한 액세스 권한
-- 작동하는 Windows Virtual Desktop 배포 Windows 가상 데스크톱 2019 릴리스를 배포 하는 방법을 알아보려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조 하세요. Windows 가상 데스크톱 스프링 2020 릴리스를 배포 하는 방법에 대 한 자세한 내용은 [Azure Portal 사용 하 여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조 하세요.
+- 작동하는 Windows Virtual Desktop 배포 Windows 가상 데스크톱 (클래식)을 배포 하는 방법을 알아보려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조 하세요. Azure Resource Manager 통합을 사용 하 여 Windows 가상 데스크톱을 배포 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조 하세요.
 - MSIX 패키징 도구입니다.
 - MSIX 패키지가 저장 되는 Windows 가상 데스크톱 배포의 네트워크 공유입니다.
 
