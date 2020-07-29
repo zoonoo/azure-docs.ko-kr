@@ -2,19 +2,16 @@
 title: Azure Automation Runbook 문제 해결
 description: 이 문서에서는 Azure Automation Runbook과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187186"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337299"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -511,6 +508,24 @@ The quota for the monthly total job run time has been reached for this subscript
 1. **설정**, **가격 책정**을 차례로 선택합니다.
 1. 페이지 아래쪽에서 **사용**을 선택하여 계정을 기본 계층으로 업그레이드합니다.
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>시나리오: Runbook 출력 스트림이 1mb를 초과 합니다.
+
+### <a name="issue"></a>문제
+
+Azure 샌드박스에서 실행 되는 runbook이 실패 하 고 다음 오류가 발생 합니다.
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>원인
+
+이 오류는 runbook이 출력 스트림에 너무 많은 예외 데이터를 쓰려고 시도 했기 때문에 발생 합니다.
+
+### <a name="resolution"></a>해결 방법
+
+작업 출력 스트림에는 1mb 제한이 있습니다. Runbook에서 `try` 및 `catch` 블록을 사용하여 실행 파일 또는 하위 프로세스에 대한 호출을 포함해야 합니다. 작업에서 예외를 throw하는 경우 코드에서 예외의 메시지를 Automation 변수에 쓰도록 합니다. 이 방법은 메시지를 작업 출력 스트림에 쓰지 않도록 방지합니다. 실행 되는 Hybrid Runbook Worker 작업의 경우 1mb로 잘린 출력 스트림은 오류 메시지 없이 표시 됩니다.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못함
 
 ### <a name="issue"></a>문제
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 이 오류는 다음 문제 중 하나로 인해 발생합니다.
 
 * **메모리 제한.** 400MB를 초과하는 메모리를 사용하면 작업이 실패할 수 있습니다. 샌드박스에 할당된 메모리에 대해 문서화된 제한은 [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)에서 확인할 수 있습니다. 
+
 * **네트워크 소켓.** Azure 샌드박스는 1,000개의 동시 네트워크 소켓으로 제한됩니다. 자세한 내용은 [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)을 참조하세요.
+
 * **호환되지 않는 모듈.** 모듈 종속성이 올바르지 않을 수 있습니다. 이 경우 Runbook에서 일반적으로 `Command not found` 또는 `Cannot bind parameter` 메시지를 반환합니다.
+
 * **샌드박스에 대한 Active Directory 인증 없음.** Azure 샌드박스에서 실행되는 실행 파일 또는 하위 프로세스를 Runbook에서 호출하려고 했습니다. Azure ADAL(Active Directory 인증 라이브러리)을 사용하여 Azure AD에서 인증하도록 Runbook을 구성하는 것은 지원되지 않습니다.
-* **너무 많은 예외 데이터.** Runbook에서 너무 많은 예외 데이터를 출력 스트림에 쓰려고 했습니다.
 
 ### <a name="resolution"></a>해결 방법
 
 * **메모리 제한, 네트워크 소켓.** 메모리 제한 내에서 작업하도록 하는 데 추천되는 방법은 워크로드를 여러 Runbook으로 분할하고, 메모리에서 더 적은 데이터를 처리하며, Runbook에서 불필요한 출력을 기록하지 않고, PowerShell 워크플로 Runbook에 작성되는 검사점의 수를 고려하는 것입니다. `$myVar.clear`와 같은 clear 메서드를 사용하여 변수를 지우고, `[GC]::Collect`를 사용하여 가비지 수집을 즉시 실행합니다. 이러한 작업은 런타임 중에 Runbook의 메모리 공간을 줄입니다.
+
 * **호환되지 않는 모듈.** [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md)의 단계에 따라 Azure 모듈을 업데이트합니다.
+
 * **샌드박스에 대한 Active Directory 인증 없음.** Runbook을 사용하여 Azure AD에 인증하는 경우 Automation 계정에서 Azure AD 모듈을 사용할 수 있는지 확인합니다. Runbook에서 자동화하는 작업을 수행하는 데 필요한 권한을 부여해야 합니다.
 
   Runbook이 Azure 샌드박스에서 실행되는 실행 파일 또는 하위 프로세스를 호출할 수 없는 경우 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 사용합니다. 하이브리드 작업자는 Azure 샌드박스의 메모리 및 네트워크 제한으로 제한되지 않습니다.
-
-* **너무 많은 예외 데이터.** 작업 출력 스트림에는 1MB 제한이 있습니다. Runbook에서 `try` 및 `catch` 블록을 사용하여 실행 파일 또는 하위 프로세스에 대한 호출을 포함해야 합니다. 작업에서 예외를 throw하는 경우 코드에서 예외의 메시지를 Automation 변수에 쓰도록 합니다. 이 방법은 메시지를 작업 출력 스트림에 쓰지 않도록 방지합니다.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>시나리오: "메서드를 호출할 수 없습니다." 오류 메시지로 인해 PowerShell 작업이 실패함
 

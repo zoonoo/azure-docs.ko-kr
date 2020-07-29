@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202531"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372026"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
@@ -35,7 +35,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
 디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다. 지원 패키지를 생성 하려면 다음 단계를 수행 합니다.
 
-1. 로컬 웹 UI에서 **고객 지원에 문의**로 이동한 다음 **지원 패키지 만들기**를 클릭합니다.
+1. 로컬 웹 UI에서 **지원 담당자** 로 이동 하 여 지원 **패키지 만들기**를 선택 합니다.
 
     ![지원 패키지 만들기 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,14 +43,13 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
     ![지원 패키지 만들기 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. 지원 패키지 만들기가 완료되면 **지원 패키지 다운로드**를 클릭합니다. 
+3. 지원 패키지 만들기가 완료 되 면 **지원 패키지 다운로드**를 선택 합니다.
 
     ![지원 패키지 만들기 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. 다운로드 위치를 찾아서 선택합니다. 폴더를 열어 내용을 확인합니다.
 
     ![지원 패키지 만들기 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## <a name="shut-down-or-restart-your-device"></a>디바이스 종료 또는 다시 시작
 
@@ -59,7 +58,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 장치를 종료 하려면 다음 단계를 수행 합니다.
 
 1. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-2. **종료**를 클릭합니다.
+2. **종료**를 선택합니다.
 
     ![Data Box 종료 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -72,11 +71,11 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 
 1. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
-2. **다시 시작**을 클릭합니다.
+2. **다시 시작**을 선택합니다.
 
     ![Data Box 다시 시작 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. 다시 시작을 확인하라는 메시지가 표시되면 **확인**을 클릭하여 계속 진행합니다.
+3. 확인 메시지가 표시 되 면 **확인** 을 선택 하 여 계속 합니다.
 
    디바이스가 종료되었다가 다시 시작됩니다.
 
@@ -90,9 +89,9 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
 
     ![디바이스 배송 준비 완료](media/data-box-portal-admin/ready-to-ship.png)
 
-2. **파일 목록 다운로드**를 클릭하면 Data Box에 복사된 파일 목록을 다운로드할 수 있습니다.
+2. **파일 목록 다운로드** 를 선택 하 여 Data Box에 복사 된 파일 목록을 다운로드 합니다.
 
-    ![파일 목록 다운로드 클릭](media/data-box-portal-admin/download-list-of-files.png)
+    ![파일 목록 다운로드를 선택 합니다.](media/data-box-portal-admin/download-list-of-files.png)
 
 3. 파일 탐색기에서, 디바이스에 연결하는 데 사용된 프로토콜 및 사용된 Azure Storage 유형에 따라 별도의 파일 목록이 생성되는 것을 볼 수 있습니다.
 
@@ -104,9 +103,9 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
     |---------|---------|---------|
     |databoxe2etest_BlockBlob.txt     |블록 Blob         |SMB/NFS         |
     |databoxe2etest_PageBlob.txt     |페이지 Blob         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST         |
+    |databoxe2etest_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
+    |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
+    |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
     |mydbmdrg1_MDisk-BOM.txt    |관리 디스크:         |SMB/NFS         |
     |mydbmdrg2_MDisk-BOM.txt     |관리 디스크:         |SMB/NFS         |
 
@@ -179,10 +178,51 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
     ![체크섬 사용 안 함](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. 체크섬 유효성 검사를 **사용 안 함**으로 설정합니다.
-3. **적용**을 클릭합니다.
+3. **적용**을 선택합니다.
 
 > [!NOTE]
 > 체크섬 계산 건너뛰기 옵션은 Azure Data Box 잠금 해제 된 경우에만 사용할 수 있습니다. 장치가 잠겨 있으면이 옵션이 표시 되지 않습니다.
 
-- [Azure Portal를 통해 Data Box 및 Data Box Heavy를 관리](data-box-portal-admin.md)하는 방법을 알아봅니다.
+## <a name="enable-smb-signing"></a>SMB 서명 사용
 
+SMB (서버 메시지 블록) 서명은 SMB를 사용 하는 통신을 패킷 수준에서 디지털 서명할 수 있는 기능입니다. 이 서명은 전송 중인 SMB 패킷을 수정 하는 공격을 방지 합니다.
+
+SMB 서명과 관련 된 자세한 내용은 [서버 메시지 블록 서명 개요](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing)를 참조 하세요.
+
+Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수행 합니다.
+
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+
+    ![설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **사용** SMB 서명.
+
+    ![SMB 서명 사용](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. **적용**을 선택합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
+5. **다시 시작**을 선택합니다.
+
+## <a name="enable-tls-11"></a>TLS 1.1 사용
+
+기본적으로 Azure Data Box는 TSL 1.1 보다 더 안전 하므로 암호화에 TLS (Transport Layer Security) 1.2를 사용 합니다. 그러나 사용자 또는 클라이언트가 브라우저를 사용 하 여 TLS 1.2을 지원 하지 않는 데이터에 액세스 하는 경우 TLS 1.1을 사용 하도록 설정할 수 있습니다.
+
+TLS와 관련 된 자세한 내용은 [Azure Data Box Gateway 보안](../databox-online/data-box-gateway-security.md)을 참조 하세요.
+
+Azure 장치에서 TLS 1.1을 사용 하도록 설정 하려면 다음을 수행 합니다.
+
+1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**을 선택 합니다.
+
+    ![설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **사용** TLS 1.1.
+
+    ![TLS 1.1 사용](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. **적용**을 선택합니다.
+4. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
+5. **다시 시작**을 선택합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Portal를 통해 Data Box 및 Data Box Heavy를 관리](data-box-portal-admin.md)하는 방법을 알아봅니다.

@@ -4,16 +4,16 @@ description: 이 문서에는 컨테이너를 만들고, 파일을 복사 하 �
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513778"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282452"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 
@@ -31,7 +31,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
+> 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`과 다음과 같습니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -62,8 +62,8 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 >
 > |시나리오|플래그|
 > |---|---|
-> |추가 Blob 또는 페이지 Blob으로 파일을 업로드 합니다.|**--blob-형식** = \[ BlockBlob \| pageblob \| appendblob\]|
-> |특정 액세스 계층 (예: 보관 계층)에 업로드 합니다.|**--블록-blob 계층** = \[ 없음 \| 핫 \| 쿨 \| 아카이브\]|
+> |추가 Blob 또는 페이지 Blob으로 파일을 업로드합니다.|**--blob-형식** = \[ BlockBlob \| pageblob \| appendblob\]|
+> |특정 액세스 계층(예: 보관 계층)에 업로드합니다.|**--블록-blob 계층** = \[ 없음 \| 핫 \| 쿨 \| 아카이브\]|
 > 
 > 전체 목록은 [options](storage-ref-azcopy-copy.md#options)를 참조 하세요.
 
@@ -111,7 +111,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 ### <a name="upload-specific-files"></a>특정 파일 업로드
 
-전체 파일 이름을 지정 하거나 부분 이름에 와일드 카드 문자 (*)를 사용할 수 있습니다.
+전체 파일 이름, 와일드 카드 문자 (*)가 포함 된 부분 이름, 날짜 및 시간을 사용 하 여 특정 파일을 업로드할 수 있습니다.
 
 #### <a name="specify-multiple-complete-file-names"></a>전체 파일 이름을 여러 개 지정
 
@@ -140,6 +140,18 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 옵션을 사용 하 여 파일을 제외할 수도 있습니다 `--exclude-pattern` . 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 `--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `–recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `–include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>날짜 및 시간 이후 수정 된 파일 업로드 
+
+옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-after` . ISO-8601 형식으로 날짜 및 시간을 지정 합니다 (예: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **구문** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **예제** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **예** (계층적 네임 스페이스) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+자세한 참조는 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 ## <a name="download-files"></a>파일 다운로드
 
@@ -202,7 +214,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 ### <a name="download-specific-files"></a>특정 파일 다운로드
 
-전체 파일 이름을 지정 하거나 부분 이름에 와일드 카드 문자 (*)를 사용할 수 있습니다.
+전체 파일 이름, 와일드 카드 문자 (*)가 포함 된 부분 이름, 날짜 및 시간을 사용 하 여 특정 파일을 다운로드할 수 있습니다. 
 
 #### <a name="specify-multiple-complete-file-names"></a>전체 파일 이름을 여러 개 지정
 
@@ -231,6 +243,18 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 옵션을 사용 하 여 파일을 제외할 수도 있습니다 `--exclude-pattern` . 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 `--include-pattern`및 `--exclude-pattern` 옵션은 경로에는 적용 되지 않고 파일 이름에만 적용 됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려는 경우 옵션을 사용 `–recursive` 하 여 전체 디렉터리 트리를 가져온 다음를 사용 하 여 `–include-pattern` `*.txt` 모든 텍스트 파일을 가져오도록 지정 합니다.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>날짜 및 시간 이후 수정 된 파일 다운로드 
+
+옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 합니다 `--include-after` . ISO-8601 형식으로 날짜 및 시간을 지정 합니다 (예: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **구문** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **예제** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **예** (계층적 네임 스페이스) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+자세한 참조는 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
 ## <a name="copy-blobs-between-storage-accounts"></a>스토리지 계정 간에 Blob 복사
 
@@ -332,14 +356,14 @@ AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>로컬 파일 시스템에 대 한 변경 내용으로 컨테이너 업데이트
 
-이 경우 컨테이너는 대상 이며 로컬 파일 시스템은 원본입니다. 
+이 경우 컨테이너는 대상이며 로컬 파일 시스템은 원본입니다. 
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **예제** | `azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-### <a name="update-a-local-file-system-with-changes-to-a-container"></a>컨테이너의 변경 내용으로 로컬 파일 시스템 업데이트
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>변경이 포함된 로컬 파일 시스템을 컨테이너로 업데이트
 
 이 경우 로컬 파일 시스템은 대상이 고 컨테이너는 원본입니다.
 
@@ -374,7 +398,7 @@ AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block
 
 - [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
 - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 

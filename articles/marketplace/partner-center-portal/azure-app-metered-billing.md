@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118939"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320054"
 ---
 # <a name="managed-application-metered-billing"></a>관리 되는 응용 프로그램 요금제 청구 
 
@@ -64,7 +66,7 @@ CoA 서비스를 구독 하는 Azure 고객은 선택한 계획에 따라 월 �
 
 차원 자체를 정의 하는 특성은 제품에 대 한 모든 계획에서 공유 됩니다. 제품을 게시 하기 전에 계획의 컨텍스트에서 이러한 특성에 대 한 변경 사항은 모든 계획의 차원 정의에 영향을 줍니다. 제품을 게시 한 후에는 이러한 특성을 더 이상 편집할 수 없습니다. 특성은 다음과 같습니다.
 
-* ID
+* 식별자
 * Name
 * 측정 단위
 
@@ -90,7 +92,7 @@ Marketplace 계량 서비스에 사용 되는 차원은 고객이 서비스를 �
 
 차원이 포함 된 제품을 게시 한 후에는 해당 차원에 대 한 제품 수준 세부 정보를 더 이상 변경할 수 없습니다.
 
-* ID
+* 식별자
 * Name
 * 측정 단위
 
@@ -109,21 +111,13 @@ Marketplace 계량 서비스에 사용 되는 차원은 고객이 서비스를 �
 
 ## <a name="get-support"></a>지원 받기
 
-다음 사례 중 하나가 적용 되는 경우 지원 티켓을 열 수 있습니다.
+다음 문제 중 하나가 발생 한 경우 지원 티켓을 열 수 있습니다.
 
 * Marketplace 계량 서비스 API의 기술 문제.
 * 사용자 측의 오류 또는 버그로 인해 에스컬레이션 해야 하는 문제 (예: 잘못 된 사용 이벤트).
 * 데이터 요금 청구와 관련 된 기타 문제
 
-지원 티켓을 제출 하려면 다음 단계를 따르세요.
-
-1. [지원 페이지](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)로 이동합니다. 처음 몇 개의 드롭다운 메뉴는 자동으로 채워집니다. Marketplace 지원을 위해 **클라우드 및 온라인 서비스로**서, 제품 제품군을 **마켓플레이스 게시자**로 식별 합니다. 미리 채워진 드롭다운 메뉴 선택 항목을 변경 하지 마십시오.
-2. "제품 버전 선택"에서 **Live 제품 관리**를 선택 합니다.
-3. "문제를 가장 잘 설명 하는 범주를 선택 하십시오." 아래에서 **Azure 응용 프로그램 제품**을 선택 합니다.
-4. "문제를 가장 잘 설명 하는 문제 선택" 아래에서 **요금제 청구**를 선택 합니다.
-5. **다음** 단추를 선택 하 여 문제에 대 한 세부 정보를 입력할 수 있는 **문제 세부 정보** 페이지로 이동 합니다.
-
-더 많은 게시자 지원 옵션 [은 파트너 센터에서 상용 marketplace 프로그램 지원](support.md)을 참조 하세요.
+[파트너 센터에서 상업용 marketplace 프로그램 지원](./support.md) 의 지침에 따라 게시자 지원 옵션을 이해 하 고 Microsoft에서 지원 티켓을 엽니다.
 
 ## <a name="next-steps"></a>다음 단계
 

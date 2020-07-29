@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: aaf974eca4b307fc122cf0ee5fdb0ddbcf75088a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242613"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285716"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -83,14 +83,14 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['at', number, array]` | 개체 | 배열에서 항목을 검색 합니다. |
+| `['at', number, array]` | object | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
-| `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
-| `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string]` | value | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string, object]` | value | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
-| `['id']` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
-| `['length', string | array]` | number | 문자열이 나 배열의 길이를 가져옵니다. |
+| `['id']` | value | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
+| `['length', string | array]` | 숫자 | 문자열이 나 배열의 길이를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `['in', substring, string]` | boolean | 문자열에 부분 문자열이 있는지 여부를 확인 합니다. |
 
@@ -143,32 +143,32 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | number | 지정 된 숫자의 합계를 계산 합니다. |
-| `['-', number]` | number | 지정 된 수 만큼 0을 뺍니다. |
-| `['-', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
-| `['*', number, number, …]` | number | 지정 된 숫자를 곱합니다. |
-| `['/', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 나눕니다. |
-| `['%', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. |
-| `['^', number, number]` | number | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
-| `['abs', number]` | number | 지정된 숫자의 절대 값을 계산합니다. |
-| `['acos', number]` | number | 지정 된 숫자의 아크코사인을 계산 합니다. |
-| `['asin', number]` | number | 지정 된 숫자의 아크사인을 계산 합니다. |
-| `['atan', number]` | number | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
-| `['ceil', number]` | number | 숫자를 다음 정수 정수로 반올림 합니다. |
-| `['cos', number]` | number | 지정 된 수의 cos를 계산 합니다. |
-| `['e']` | number | 수학 상수를 반환 합니다 `e` . |
-| `['floor', number]` | number | 숫자를 이전 정수 정수로 내림 합니다. |
-| `['ln', number]` | number | 지정 된 숫자의 자연 로그를 계산 합니다. |
-| `['ln2']` | number | 수학 상수를 반환 합니다 `ln(2)` . |
-| `['log10', number]` | number | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
-| `['log2', number]` | number | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
-| `['max', number, number, …]` | number | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
-| `['min', number, number, …]` | number | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
-| `['pi']` | number | 수학 상수를 반환 합니다 `PI` . |
-| `['round', number]` | number | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어 `['round', -1.5]` 은-2로 계산 됩니다. |
-| `['sin', number]` | number | 지정 된 숫자의 사인을 계산 합니다. |
-| `['sqrt', number]` | number | 지정된 숫자의 제곱근을 계산합니다. |
-| `['tan', number]` | number | 지정 된 숫자의 탄젠트를 계산 합니다. |
+| `['+', number, number, …]` | 숫자 | 지정 된 숫자의 합계를 계산 합니다. |
+| `['-', number]` | 숫자 | 지정 된 수 만큼 0을 뺍니다. |
+| `['-', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
+| `['*', number, number, …]` | 숫자 | 지정 된 숫자를 곱합니다. |
+| `['/', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눕니다. |
+| `['%', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. |
+| `['^', number, number]` | 숫자 | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
+| `['abs', number]` | 숫자 | 지정된 숫자의 절대 값을 계산합니다. |
+| `['acos', number]` | 숫자 | 지정 된 숫자의 아크코사인을 계산 합니다. |
+| `['asin', number]` | 숫자 | 지정 된 숫자의 아크사인을 계산 합니다. |
+| `['atan', number]` | 숫자 | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
+| `['ceil', number]` | 숫자 | 숫자를 다음 정수 정수로 반올림 합니다. |
+| `['cos', number]` | 숫자 | 지정 된 수의 cos를 계산 합니다. |
+| `['e']` | 숫자 | 수학 상수를 반환 합니다 `e` . |
+| `['floor', number]` | 숫자 | 숫자를 이전 정수 정수로 내림 합니다. |
+| `['ln', number]` | 숫자 | 지정 된 숫자의 자연 로그를 계산 합니다. |
+| `['ln2']` | 숫자 | 수학 상수를 반환 합니다 `ln(2)` . |
+| `['log10', number]` | 숫자 | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
+| `['log2', number]` | 숫자 | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
+| `['max', number, number, …]` | 숫자 | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
+| `['min', number, number, …]` | 숫자 | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
+| `['pi']` | 숫자 | 수학 상수를 반환 합니다 `PI` . |
+| `['round', number]` | 숫자 | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어 `['round', -1.5]` 은-2로 계산 됩니다. |
+| `['sin', number]` | 숫자 | 지정 된 숫자의 사인을 계산 합니다. |
+| `['sqrt', number]` | 숫자 | 지정된 숫자의 제곱근을 계산합니다. |
+| `['tan', number]` | 숫자 | 지정 된 숫자의 탄젠트를 계산 합니다. |
 
 ## <a name="aggregate-expression"></a>집계 식
 
@@ -405,7 +405,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 | `['image', string]` | 문자열 | 지정 된 이미지 ID가 맵 이미지 스프라이트에 로드 되는지 확인 합니다. 인 경우 ID가 반환 되 고, 그렇지 않으면 null이 반환 됩니다. |
 | `['to-boolean', value]` | boolean | 입력 값을 부울로 변환 합니다. `false`입력이 빈 문자열인,, 또는 이면이 고, `0` `false` `null` `NaN` 그렇지 않으면입니다 `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | 색 | 입력 값을 색으로 변환 합니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 또는 이면 `null` `false` 결과는 0입니다. 입력이 이면 `true` 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | 숫자 | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 또는 이면 `null` `false` 결과는 0입니다. 입력이 이면 `true` 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
 | `['to-string', value]` | 문자열 | 입력 값을 문자열로 변환 합니다. 입력이 이면 `null` 결과는 `""` 입니다. 입력이 부울 이면 결과는 `"true"` 또는 `"false"` 입니다. 입력이 숫자 이면 ECMAScript 언어 사양의 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number 함수를 사용 하 여 문자열로 변환 됩니다. 입력이 색 이면 CSS RGBA 색 문자열로 변환 됩니다 `"rgba(r,g,b,a)"` . 그렇지 않으면 ECMAScript 언어 사양의 [json.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) 함수를 사용 하 여 입력이 문자열로 변환 됩니다. |
 | `['typeof', value]` | 문자열 | 지정 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
 

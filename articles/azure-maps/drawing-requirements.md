@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242477"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374323"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
@@ -208,7 +208,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `buildingLevels` 개체에는 건물 수준의 JSON 배열이 포함됩니다.
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |levelName    |문자열    |true |    설명이 포함된 수준 이름입니다. 다음은 그 예입니다.  1층, 로비, 장애인 주차 공간, 지하실 등입니다.|
 |ordinal | integer |    true | 서수는 수준의 세로 순서를 결정하는 데 사용됩니다. 모든 시설에는 서수가 0인 수준이 있어야 합니다. |
@@ -218,7 +218,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### <a name="georeference"></a>georeference
 
-| 속성  | 형식 | 필수 | 설명 |
+| 속성  | Type | 필수 | 설명 |
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |lon    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
@@ -226,7 +226,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| 속성  | 형식 | 필수 | 설명 |
+| 속성  | Type | 필수 | 설명 |
 |-----------|------|----------|-------------|
 |exterior    |문자열 배열|    true|    외부 건물 프로필을 정의하는 레이어의 이름입니다.|
 |단위|    문자열 배열|    true|    단위를 정의하는 레이어의 이름입니다.|
@@ -240,7 +240,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `unitProperties` 개체에는 단위 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |unitName    |문자열    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. `unitName`과 일치하는 레이블이 `unitLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다. |
 |categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
@@ -260,7 +260,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `zoneProperties` 개체에는 영역 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | 형식 | 필수 | Description |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |zoneName        |문자열    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
 |categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
@@ -279,7 +279,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
     "version": "1.1", 
     "directoryInfo": { 
         "name": "Contoso Building", 
-        "streetAddresss": "Contoso Way", 
+        "streetAddress": "Contoso Way", 
         "unit": "1", 
         "locality": "Contoso eastside", 
         "postalCode": "98052", 

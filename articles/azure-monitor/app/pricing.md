@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ff7d088a80ceaf01e9434ef62beb0e771cdf6b55
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081664"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309684"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -24,9 +24,9 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-[Azure Application Insights][start]의 기본 가격은 수집된 데이터 볼륨을 기반으로 하며 필요에 따라 데이터를 더 오래 보존하기 위한 **종량제** 모델에 속합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md) 사용에 대한 데이터 볼륨 요금은 없습니다.
+[Azure Application Insights][start]의 기본 가격은 수집된 데이터 볼륨을 기반으로 하며 필요에 따라 데이터를 더 오래 보존하기 위한 **종량제** 모델에 속합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. [라이브 메트릭 스트림](./live-stream.md) 사용에 대한 데이터 볼륨 요금은 없습니다.
 
-[다중 단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
+[다중 단계 웹 테스트](./availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 
 [사용자 지정 메트릭 차원에 대한 경고를 사용하도록 설정](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)하는 Application Insights 옵션을 사용할 경우 추가로 사전 집계 메트릭이 생성될 수 있으므로 추가 비용이 발생할 수 있습니다. Application Insights의 로그 기반 및 사전 집계 메트릭과 Azure Monitor 사용자 지정 메트릭 [가격](https://azure.microsoft.com/pricing/details/monitor/)에 대해 [자세히 알아보세요](./pre-aggregated-metrics-log-metrics.md).
 
@@ -48,7 +48,7 @@ ASP.NET SDK의 [적응 샘플링](sampling.md#adaptive-sampling)을 사용하면
 
 ### <a name="learn-from-what-similar-customers-collect"></a>비슷한 고객이 수집하는 데이터의 볼륨으로부터 추정
 
-Application Insights용 Azure Monitoring 가격 계산기에서 “애플리케이션 작업을 기반으로 데이터 볼륨 추정” 기능을 사용하도록 설정한 경우 애플리케이션에 대한 입력(클라이언트 쪽 원격 분석을 수집할 경우 월 요청 건수와 월 페이지 보기 수)을 제공하면 계산기에서 비슷한 애플리케이션에 의해 수집된 데이터 양의 중앙값과 90번째 백분위 수를 알려 줍니다. 이러한 애플리케이션에는 여러 Application Insights 구성이 적용되어 있으므로(예: 기본 [샘플링](../../azure-monitor/app/sampling.md)을 사용하는 경우와 샘플링을 사용하지 않는 경우 등) 샘플링을 사용하여 수집하는 데이터의 볼륨을 중앙값보다 훨씬 밑으로 제어할 수 있습니다. 그러나 이것은 다른 비슷한 고객의 경우를 이해하기 위한 출발점에 지나지 않습니다.
+Application Insights용 Azure Monitoring 가격 계산기에서 “애플리케이션 작업을 기반으로 데이터 볼륨 추정” 기능을 사용하도록 설정한 경우 애플리케이션에 대한 입력(클라이언트 쪽 원격 분석을 수집할 경우 월 요청 건수와 월 페이지 보기 수)을 제공하면 계산기에서 비슷한 애플리케이션에 의해 수집된 데이터 양의 중앙값과 90번째 백분위 수를 알려 줍니다. 이러한 애플리케이션에는 여러 Application Insights 구성이 적용되어 있으므로(예: 기본 [샘플링](./sampling.md)을 사용하는 경우와 샘플링을 사용하지 않는 경우 등) 샘플링을 사용하여 수집하는 데이터의 볼륨을 중앙값보다 훨씬 밑으로 제어할 수 있습니다. 그러나 이것은 다른 비슷한 고객의 경우를 이해하기 위한 출발점에 지나지 않습니다.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>사용량 및 예상 비용의 이해
 
@@ -56,10 +56,10 @@ Application Insights를 사용하면 최근 사용 패턴에 따른 예상 비�
 
 ![가격 책정 선택](./media/pricing/pricing-001.png)
 
-A. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](../../azure-monitor/app/sampling.md) 이후) 모든 데이터가 포함됩니다.  
-B. [다단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)에 대해서는 별도 요금이 부과됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
+A. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](./sampling.md) 이후) 모든 데이터가 포함됩니다.  
+B. [다단계 웹 테스트](./availability-multistep.md)에 대해 별도의 요금이 부과 됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
 C. 지난 달의 데이터 볼륨 추세를 봅니다.  
-D. 데이터 수집 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.
+D. 데이터 수집 [샘플링](./sampling.md)을 사용합니다.
 E. 일일 데이터 볼륨 한도를 설정합니다.  
 
 (이 문서의 스크린샷에 표시된 모든 가격은 예시 목적으로만 제시된 것입니다. 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정][pricing]을 참조하세요.)
@@ -183,11 +183,11 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 전송하는 데이터 볼륨은 다음 기법을 사용하여 관리할 수 있습니다.
 
-* **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](../../azure-monitor/app/sampling.md)에 대해 자세히 알아보세요.
+* **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](./sampling.md)에 대해 자세히 알아보세요.
 
-* **Ajax 호출 제한**: 모든 페이지 보기에서 [보고될 수 있는 Ajax 호출 수를 제한](../../azure-monitor/app/javascript.md#configuration)하거나 Ajax 보고를 해제할 수 있습니다.
+* **Ajax 호출 제한**: 모든 페이지 보기에서 [보고될 수 있는 Ajax 호출 수를 제한](./javascript.md#configuration)하거나 Ajax 보고를 해제할 수 있습니다.
 
-* **불필요한 모듈 사용 안 함**: [ApplicationInsights.config를 편집](../../azure-monitor/app/configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
+* **불필요한 모듈 사용 안 함**: [ApplicationInsights.config를 편집](./configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
 
 * **메트릭 사전 집계**: 앱에 TrackMetric에 대한 호출을 추가한 경우 측정 일괄 처리의 평균 및 표준 편차 계산을 허용하는 오버로드를 사용하여 트래픽을 줄일 수 있습니다. 또는 [사전 집계 패키지](https://www.myget.org/gallery/applicationinsights-sdk-labs)를 사용할 수 있습니다.
  
@@ -207,7 +207,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 일일 볼륨 한도를 사용하여 수집된 데이터를 제한할 수 있습니다. 그러나 한도가 충족되는 경우 해당 날짜의 나머지 기간 동안 애플리케이션에서 보낸 모든 원격 분석의 손실이 발생합니다. 애플리케이션이 일일 한도에 도달하는 것은 *권장되지 않습니다*. 일일 한도에 도달한 후 애플리케이션의 상태 및 성능을 추적할 수 없습니다.
 
-일별 볼륨 한도를 사용하는 대신 [샘플링](../../azure-monitor/app/sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정합니다. 그런 다음, 애플리케이션이 예기치 않게 높은 볼륨의 원격 분석을 보내기 시작하는 경우 "최후의 수단"으로만 일일 한도를 사용합니다.
+일별 볼륨 한도를 사용하는 대신 [샘플링](./sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정합니다. 그런 다음, 애플리케이션이 예기치 않게 높은 볼륨의 원격 분석을 보내기 시작하는 경우 "최후의 수단"으로만 일일 한도를 사용합니다.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
 
@@ -219,7 +219,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-003.png)
 
-[Azure Resource Manager를 통해 일일 한도를 변경](../../azure-monitor/app/powershell.md)하려면 `dailyQuota` 속성을 변경해야 합니다.  Azure Resource Manager를 통해 `dailyQuotaResetTime`과 일일 한도의 `warningThreshold`도 설정할 수 있습니다.
+[Azure Resource Manager를 통해 일일 한도를 변경](./powershell.md)하려면 `dailyQuota` 속성을 변경해야 합니다.  Azure Resource Manager를 통해 `dailyQuotaResetTime`과 일일 한도의 `warningThreshold`도 설정할 수 있습니다.
 
 ### <a name="create-alerts-for-the-daily-cap"></a>일일 한도 경고 만들기
 
@@ -230,13 +230,13 @@ Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수�
 * Application Insights 구성 요소 일일 상한에 도달함
 
 ## <a name="sampling"></a>샘플링
-[샘플링](../../azure-monitor/app/sampling.md)은 진단 검색 중에 관련 이벤트를 찾는 기능은 유지하면서 앱에 원격 분석이 전송되는 속도를 줄이는 방법입니다. 또한 올바른 이벤트 개수를 유지합니다.
+[샘플링](./sampling.md) 은 진단 검색 중에 관련 이벤트를 찾는 기능을 유지 하면서 앱에 원격 분석이 전송 되는 속도를 줄이는 방법입니다. 또한 올바른 이벤트 개수를 유지합니다.
 
 샘플링은 요금을 줄이고 월간 할당량 내로 유지하는 효과적인 방법입니다. 샘플링 알고리즘은 예를 들어 검색을 사용하면 특정 예외와 관련된 요청을 찾을 수 있도록 원격 분석의 관련된 항목을 유지합니다. 알고리즘은 또한 요청 속도, 예외 속도 및 기타 카운트에 대해 메트릭 탐색기에 올바른 값을 확인할 수 있도록 올바른 카운트를 유지합니다.
 
 샘플링에는 여러 가지 유형이 있습니다.
 
-* [적응 샘플링](../../azure-monitor/app/sampling.md)은 ASP.NET SDK에 대한 기본값입니다. 적응 샘플링은 앱이 보내는 원격 분석의 양을 자동으로 조정합니다. 웹앱의 SDK에서 자동으로 작동하여 네트워크에서 원격 분석 트래픽이 감소됩니다. 
+* [적응 샘플링](./sampling.md)은 ASP.NET SDK에 대한 기본값입니다. 적응 샘플링은 앱이 보내는 원격 분석의 양을 자동으로 조정합니다. 웹앱의 SDK에서 자동으로 작동하여 네트워크에서 원격 분석 트래픽이 감소됩니다. 
 * *수집 샘플링*은 한 가지 대안으로서 앱의 원격 분석이 Application Insights 서비스에 들어가는 지점에서 작동합니다. 수집 샘플링은 앱에서 보낸 원격 분석의 양에 영향을 주지 않지만 서비스에서 보존하는 양을 줄여 줍니다. 수집 샘플링을 사용하여 브라우저 및 다른 SDK의 원격 분석에서 사용한 할당량을 줄일 수 있습니다.
 
 수집 샘플링을 설정하려면 **가격 책정** 창으로 이동합니다.
@@ -310,7 +310,7 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
   * *노드*는 앱을 호스트하는 실제/가상 서버 컴퓨터 또는 PaaS(Platform-as-a-Service) 역할 인스턴스입니다.
   * 개발 컴퓨터, 클라이언트 브라우저 및 모바일 디바이스는 노드로 계산되지 않습니다.
   * 원격 분석을 보내는 여러 구성 요소(예: 웹 서비스 및 백 엔드 작업자)가 앱에 있는 경우 해당 구성 요소는 개별적으로 집계됩니다.
-  * [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다. 구독에서 요금은 앱 기준이 아니라 노드 기준으로 부과됩니다. 12개 앱에 대해 원격 분석을 보내는 노드가 5개 있는 경우 5개 노드에 대한 요금이 부과됩니다.
+  * [라이브 메트릭 스트림](./live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다. 구독에서 요금은 앱 기준이 아니라 노드 기준으로 부과됩니다. 12개 앱에 대해 원격 분석을 보내는 노드가 5개 있는 경우 5개 노드에 대한 요금이 부과됩니다.
 * 요금이 매월 견적되지만 노드에서 앱의 원격 분석을 보내는 모든 시간에 대해서만 부과됩니다. 시간당 요금은 견적된 월별 요금을 744(한 달이 31일일 때 시간 수)로 나눈 것입니다.
 * 시간별로 감지되는 각 노드에 대해 1일 200MB의 데이터 볼륨 할당이 제공됩니다. 사용되지 않은 데이터 할당은 다음 날로 이월되지 않습니다.
   * 노드당 가격 책정 계층을 선택하면 각 구독은 해당 구독의 Application Insights 리소스에 원격 분석을 보내는 노드 수에 따라 일일 데이터 허용량을 받습니다. 따라서 하루 종일 데이터를 전송하는 5개의 노드가 있는 경우 해당 구독의 모든 Application Insights 리소스에 풀링된 1GB 허용량이 적용됩니다. 모든 노드에서 포함된 데이터를 공유하기 때문에 특정 노드에서 다른 노드보다 더 많은 데이터를 보내는 것은 중요하지 않습니다. 지정된 날에 Application Insights 리소스에서 해당 구독의 일일 데이터 할당에 포함된 것보다 많은 데이터를 받으면 GB당 초과 데이터 요금이 적용됩니다. 
@@ -339,10 +339,11 @@ Azure Resource Management를 사용하여 가격 책정 계층을 설정하는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [샘플링](../../azure-monitor/app/sampling.md)
+* [견본](./sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
+

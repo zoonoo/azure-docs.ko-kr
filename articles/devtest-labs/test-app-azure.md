@@ -3,22 +3,22 @@ title: Azure에서 앱을 테스트하는 방법 | Microsoft Docs
 description: 랩에서 파일 공유를 만들어 랩의 로컬 컴퓨터 및 가상 머신에 파일 공유를 탑재하는 방법을 알아본 다음, 데스크톱/웹 애플리케이션을 파일 공유에 배포하고 테스트해 보세요.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476498"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282248"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
 이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그런 다음 Visual Studio 2019을 사용 하 여 랩의 VM에서 앱을 실행할 수 있도록 앱을 파일 공유에 배포 합니다.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 1. Azure 구독이 아직 없는 경우에는 [Azure 구독을 만들고](https://azure.microsoft.com/free/)[Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. [이 문서](devtest-lab-create-lab.md)의 지침에 따라 Azure DevTest Labs를 사용하여 랩을 만듭니다. 나중에 로그인할 때 쉽게 찾을 수 있도록 랩을 대시보드에 고정합니다. Azure DevTest Labs를 사용하면 폐기물을 최소화하고 비용을 제어하여 Azure 내에서 리소스를 빠르게 만들 수 있습니다. DevTest Labs에 대한 자세한 내용은 [개요](devtest-lab-overview.md)를 참조하세요. 
-3. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md) 문서의 지침에 따라 랩의 리소스 그룹에 Azure Storage 계정을 만듭니다. **스토리지 계정 만들기** 페이지에서 **리소스 그룹**에 **기존 사용**을 선택하고 **랩 리소스 그룹**을 선택합니다. 
+3. [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서의 지침에 따라 랩의 리소스 그룹에 Azure Storage 계정을 만듭니다. **스토리지 계정 만들기** 페이지에서 **리소스 그룹**에 **기존 사용**을 선택하고 **랩 리소스 그룹**을 선택합니다. 
 4. [Azure 파일에 파일 공유 만들기](../storage/files/storage-how-to-create-file-share.md) 문서에 있는 지침에 따라 Azure Storage에서 파일 공유를 만듭니다. 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>로컬 컴퓨터에 파일 공유 탑재

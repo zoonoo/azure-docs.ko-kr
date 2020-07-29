@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539672"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326140"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -19,7 +19,7 @@ ms.locfileid: "86539672"
 
 이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.
 
-[네트워크 성능 모니터](../../networking/network-monitoring-overview.md) 는 네트워크 인프라의 다양 한 요소 간 네트워크 성능을 모니터링 하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
+[네트워크 성능 모니터](../../networking/network-monitoring-overview.md) 는 네트워크 인프라의 다양 한 요소 간 네트워크 성능을 모니터링 하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](./network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](./network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](./network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
 
 네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 디바이스로 국한시킵니다. 
 
@@ -40,7 +40,7 @@ Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능
 네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM를 실행 하는 데 별도의 노드를 사용할 필요가 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU가 5% 넘게 사용 되는 경우 모니터링 프로세스를 중지할 수 있는 기능이 있습니다.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>NPM을 사용하려면 내 노드를 직접 에이전트로 또는 System Center Operations Manager를 통해 연결해야 하나요?
-성능 모니터와 서비스 연결 모니터 기능은 모두 [직접 에이전트로 연결 되](../../azure-monitor/platform/agent-windows.md) 고 [Operations Manager를 통해 연결](../../azure-monitor/platform/om-agents.md)된 노드를 지원 합니다.
+성능 모니터와 서비스 연결 모니터 기능은 모두 [직접 에이전트로 연결 되](../platform/agent-windows.md) 고 [Operations Manager를 통해 연결](../platform/om-agents.md)된 노드를 지원 합니다.
 
 ExpressRoute 모니터 기능의 경우 Azure 노드를 직접 에이전트로만 연결해야 합니다. Operations Manager를 통해 연결된 Azure 노드는 지원되지 않습니다. 온-프레미스 노드의 경우 직접 에이전트로 연결 된 노드와 Operations Manager를 통해 Express 경로 회로를 모니터링 하는 데 사용할 수 있습니다.
 
@@ -49,12 +49,12 @@ Windows server 기반 노드를 사용 하 여 네트워크를 모니터링 하�
 
 Windows 데스크톱/클라이언트 운영 체제 기반 노드에 ICMP를 사용하는 것이 좋습니다. 이 플랫폼에서는 NPM가 네트워크 토폴로지를 검색 하는 데 사용 하는 원시 소켓을 통해 TCP 데이터를 전송 하는 것을 허용 하지 않습니다.
 
-각 프로토콜의 상대적 이점에 대한 세부 정보는 [여기](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol)에서 얻을 수 있습니다.
+각 프로토콜의 상대적 이점에 대한 세부 정보는 [여기](./network-performance-monitor-performance-monitor.md#choose-the-protocol)에서 얻을 수 있습니다.
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>TCP 프로토콜을 사용하여 모니터링을 지원하려면 노드를 어떻게 구성할 수 있나요?
 노드가 TCP 프로토콜을 사용하여 모니터링을 지원하려면: 
 * 노드 플랫폼이 Windows 서버(2008 SP1 이상)인지 확인합니다.
-* 노드에서 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 스크립트를 실행합니다. 자세한 내용은 [지침](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)을 참조하세요.
+* 노드에서 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 스크립트를 실행합니다. 자세한 내용은 [지침](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)을 참조하세요.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>NPM에서 모니터링을 위해 사용 중인 TCP 포트를 어떻게 변경할 수 있나요?
@@ -182,10 +182,10 @@ NetworkMonitoring
 ```
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM의 성능 모니터에 대해 지원되는 하위 지역은 어느 지역인가요?
-NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
+NPM은 [지원되는 하위 지역](./network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>NPM의 서비스 연결 모니터에 대한 지원되는 하위 지역은 어느 지역인가요?
-NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
+NPM은 [지원되는 하위 지역](./network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM의 ExpressRoute 모니터에 대해 지원되는 하위 지역은 어느 하위 지역인가요?
 NPM은 어떤 Azure 하위 지역에 위치한 ExpressRoute 회로도 모니터링할 수 있습니다. NPM에 합류하려면 Log Analytics 작업 영역을 [지원되는 하위 지역](../../expressroute/how-to-npm.md) 중 하나에서 호스팅해야 합니다.
@@ -299,4 +299,5 @@ NPM은 UI 및 밀리초 단위의 대기 시간 숫자를 반올림합니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 네트워크 성능 모니터 솔루션](../../azure-monitor/insights/network-performance-monitor.md)을 참조하여 네트워크 성능 모니터에 대해 알아봅니다.
+- [Azure의 네트워크 성능 모니터 솔루션](./network-performance-monitor.md)을 참조하여 네트워크 성능 모니터에 대해 알아봅니다.
+

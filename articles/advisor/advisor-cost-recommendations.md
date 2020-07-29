@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284373"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감
 
@@ -89,7 +89,7 @@ Advisor는 반복적으로 실패 하는 Azure Data Factory 파이프라인을 �
 Advisor는 Azure Blob 저장소 개체 수, 총 크기 및 트랜잭션에 대 한 인텔리전스를 사용 하 여 하나 이상의 저장소 계정에서 데이터를 계층화 하는 주기 관리를 사용 하도록 설정 해야 하는지 여부를 검색 합니다. 응용 프로그램 호환성을 위해 Azure Blob storage에 데이터를 유지 하면서 데이터를 쿨 또는 보관 저장소로 자동으로 계층화 하 여 저장소 비용을 최적화 하는 수명 주기 관리 규칙을 만드는 메시지를 표시 합니다.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>사용 후 삭제되는 OS 디스크 만들기 권장 사항
-사용 [후 삭제 OS 디스크](../virtual-machines/windows/ephemeral-os-disks.md) 를 사용 하 여 다음을 수행할 수 있습니다. 
+사용 [후 삭제 OS 디스크](../virtual-machines/ephemeral-os-disks.md) 를 사용 하 여 다음을 수행할 수 있습니다. 
 - OS 디스크에 대 한 저장소 비용을 절약 합니다. 
 - OS 디스크에 대 한 읽기/쓰기 대기 시간을 줄입니다. 
 - OS 및 임시 디스크를 원래 상태로 다시 설정 하 여 VM 이미지로 다시 설치 작업을 빠르게 수행 합니다.

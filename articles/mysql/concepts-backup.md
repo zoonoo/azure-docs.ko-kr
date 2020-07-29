@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: e28fc3c5779f2c31abbb48a7ced448cd8f92d1a2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 3f24e3538f05ca3b6a27907e0b794705402fce7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171848"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285444"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -41,8 +41,8 @@ Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을
 백업은 서버의 백업 보존 기간 설정에 따라 보존 됩니다. 7 일에서 35 일의 보존 기간을 선택할 수 있습니다. 기본 보존 기간은 7 일입니다. [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) 또는 [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration)를 사용 하 여 백업 구성을 업데이트 하 여 서버를 만드는 동안 또는 나중에 보존 기간을 설정할 수 있습니다. 
 
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 백업 보존 기간은 복원 관점에서 복구 기간으로 처리 될 수도 있습니다. 백업 보존 기간 내에 지정 시간 복원을 수행 하는 데 필요한 모든 백업은 백업 저장소에 유지 됩니다. 예를 들어 백업 보존 기간을 7 일로 설정 하면 복구 기간이 최근 7 일로 간주 됩니다. 이 시나리오에서는 지난 7 일 동안 서버를 복원 하는 데 필요한 모든 백업이 유지 됩니다. 백업 보존 기간을 7 일로 바꿉니다.
-- 4mb 저장소를 사용 하는 레거시 서버는 최대 2 개의 전체 데이터베이스 백업, 모든 차등 백업 및 가장 이른 전체 데이터베이스 백업 이후에 수행 된 트랜잭션 로그 백업을 유지 합니다.
--   대량 저장소 (16TB)가 있는 서버는 최근 8 일 동안 전체 데이터베이스 스냅숏, 모든 차등 스냅숏 및 트랜잭션 로그 백업을 유지 합니다.
+- 최대 2TB 저장소를 포함 하는 서버는 최대 2 개의 전체 데이터베이스 백업, 모든 차등 백업 및 가장 이른 전체 데이터베이스 백업 이후에 수행 된 트랜잭션 로그 백업을 유지 합니다.
+-   최대 16TB의 저장소를 포함 하는 서버는 지난 8 일간 전체 데이터베이스 스냅숏, 모든 차등 스냅숏 및 트랜잭션 로그 백업을 유지 합니다.
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 

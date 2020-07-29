@@ -4,12 +4,12 @@ description: 역할 기반 Access Control을 사용하여 Recovery Services 자�
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: dd6930a0228829f376140d515a3035afebad0f27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032428"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371705"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 
@@ -18,7 +18,7 @@ Azure RBAC (역할 기반 액세스 제어)를 통해 Azure에 대 한 세밀 �
 > [!IMPORTANT]
 > Azure Backup에서 제공 하는 역할은 Azure Portal 또는 REST API 또는 Recovery Services 자격 증명 모음 PowerShell 또는 CLI cmdlet을 통해 수행할 수 있는 작업으로 제한 됩니다. Azure 백업 에이전트 클라이언트 UI, System Center Data Protection Manager UI 또는 Azure Backup Server UI에서 실행되는 작업은 이러한 역할의 제어를 받지 않습니다.
 
-Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 역할을 제공 합니다. [Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 알아보기
+Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 역할을 제공 합니다. [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md) 에 대 한 자세한 정보
 
 * [백업 참여자](../role-based-access-control/built-in-roles.md#backup-contributor) -이 역할에는 Recovery Services 자격 증명 모음을 삭제 하 고 다른 사용자에 게 액세스 권한을 부여 하는 경우를 제외 하 고 백업을 만들고 관리할 수 있는 모든 백업 관리 작업을 수행할 수 있는 백업 관리 관리자 역할로 생각하시면 됩니다.
 * [Backup 운영자](../role-based-access-control/built-in-roles.md#backup-operator) - 이 역할은 백업을 제거하고 백업 정책을 관리하는 권한을 제외하고, 참여자가 할 수 있는 모든 일을 할 수 있습니다. 이 역할은 온-프레미스 리소스의 데이터 삭제나 등록 제거를 통해 백업을 중지하는 작업처럼 안전하지 않은 작업을 수행할 수 없다는 점만 빼면 참여자와 똑같습니다.

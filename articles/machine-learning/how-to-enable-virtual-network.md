@@ -5,18 +5,18 @@ description: 격리된 Azure Virtual Network를 사용하여 Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072621"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320173"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -203,7 +203,7 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](https://doc
 
  Azure Data Lake Store Gen1 및 Azure Data Lake Store Gen2는 기본적으로 유효성 검사를 건너뛰고 추가 작업이 필요 하지 않습니다. 그러나 다음 서비스의 경우 유사한 구문을 사용 하 여 데이터 저장소 유효성 검사를 건너뛸 수 있습니다.
 
-- Azure Blob 스토리지
+- Azure Blob Storage
 - Azure 파일 공유
 - PostgreSQL
 - Azure SQL Database
@@ -304,8 +304,8 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 - NSG 규칙을 사용하여 아웃바운드 인터넷 연결을 거부합니다.
 
 - __컴퓨팅 인스턴스__ 또는 __컴퓨팅 클러스터__의 경우 다음 항목에 대한 아웃바운드 트래픽을 제한합니다.
-   - __저장소__의 __서비스 태그__ 를 사용 하 여 Azure Storage 합니다.
-   - __AzureContainerRegistry__의 __서비스 태그__ 를 사용 하 여 Azure Container Registry 합니다.
+   - Azure Storage, __Storage.RegionName__의 __서비스 태그__를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
+   - Azure Container Registry, __AzureContainerRegistry.RegionName__의 __서비스 태그__를 사용합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
    - Azure Machine Learning, __AzureMachineLearning__의 __서비스 태그__를 사용합니다.
    - Azure Resource Manager, __AzureResourceManager__의 __서비스 태그__를 사용합니다.
    - Azure Active Directory, __AzureActiveDirectory__의 __서비스 태그__를 사용합니다.

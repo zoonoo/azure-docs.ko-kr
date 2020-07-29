@@ -4,15 +4,15 @@ description: Mv2 시리즈 Vm에 대 한 사양입니다.
 author: ayshakeen
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 21c28f3b6b498b162cbff276755b098c5ebba7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74d8c4dc9f6b8f1a409f5f6766bea57b23b15ba7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010481"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284798"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -30,12 +30,12 @@ Premium Storage 캐싱: 지원 됨
 
 쓰기 가속기: [지원 됨](./windows/how-to-enable-write-accelerator.md)
 
-|Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
-|---|---|---|---|---|---|---|---|
-| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |
-| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8/32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8/32000 |
+|크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 | 16000 |
+| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 | 16000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8 | 32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8 | 32000 |
 
 <sup>1</sup> Mv2 시리즈 vm은 2 세대 전용 이며 지원 되는 2 세대 이미지의 하위 집합을 지원 합니다. Mv2 시리즈에 대해 지원 되는 이미지의 전체 목록에 대해서는 아래를 참조 하세요. Linux를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./linux/generation-2.md) 을 참조 하세요. Windows를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./windows/generation-2.md) 을 참조 하세요. 
 
@@ -48,7 +48,7 @@ Premium Storage 캐싱: 지원 됨
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>기타 크기
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -56,6 +56,11 @@ Premium Storage 캐싱: 지원 됨
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대 한 자세한 정보: [디스크 유형](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 42924b4ac5493fc910079ca1f89a6195ccba55e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007914"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305094"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>WAD (Windows Azure 진단 확장) 구성 스키마 버전 및 기록
 이 문서에서는 Microsoft Azure SDK의 일부로 제공 되는 [WAD (Windows 용 Azure 진단 확장)](diagnostics-extension-overview.md) 스키마 버전의 버전 기록을 제공 합니다.  
@@ -47,7 +47,7 @@ ms.locfileid: "87007914"
 ### <a name="diagnostics-extension-111"></a>진단 확장 1.11
 Azure Monitor 싱크에 대한 지원이 추가되었습니다. 이 싱크는 성능 카운터에만 적용됩니다. VM, VMSS 또는 클라우드 서비스에 수집된 성능 카운터를 Azure Monitor에 사용자 지정 메트릭으로 보낼 수 있습니다. Azure Monitor 싱크는 다음을 지원합니다.
 * [Azure Monitor 메트릭 API](/rest/api/monitor/metrics/list)를 통해 Azure Monitor로 보낸 모든 성능 카운터 검색
-* Azure Monitor의 새로운 [통합 경고 환경](../../azure-monitor/platform/alerts-overview.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
+* Azure Monitor의 새로운 [통합 경고 환경](./alerts-overview.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
 * 성능 카운터의 와일드카드 연산자를 메트릭에 대한 “인스턴스” 차원으로 처리. 예를 들어 “LogicalDisk(\*)/DiskWrites/sec” 카운터를 수집한 경우 “인스턴스” 차원을 기준으로 필터링 및 분할하여 각 논리 디스크(C:, D: 등)에 대해 Disk Writes/sec를 그리거나 경고할 수 있습니다.
 
 진단 확장 구성에서 Azure Monitor를 새 싱크로 정의
@@ -155,7 +155,7 @@ PublicConfig에 스토리지 형식이 추가되었습니다. StorageType은 *Ta
 EventHub로 라우팅하는 기능이 추가되었습니다.
 
 ### <a name="diagnostics-extension-15"></a>진단 확장 1.5
-[Application Insights](../../azure-monitor/app/cloudservices.md)에 진단 데이터를 전송하는 싱크 요소 및 기능이 추가되어 시스템 및 인프라 수준뿐만 아니라 애플리케이션 전반에 나타나는 문제를 쉽게 진단할 수 있습니다.
+[Application Insights](../app/cloudservices.md)에 진단 데이터를 전송하는 싱크 요소 및 기능이 추가되어 시스템 및 인프라 수준뿐만 아니라 애플리케이션 전반에 나타나는 문제를 쉽게 진단할 수 있습니다.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 및 진단 확장 1.3
 Visual Studio에서 클라우드 서비스 프로젝트의 경우 다음 사항이 변경되었습니다. (이러한 변경 사항은 이후 버전의 Azure SDK에도 적용됩니다.)
@@ -190,3 +190,4 @@ Azure SDK 2.4에서 Azure SDK 2.5 이상으로 업그레이드하는 경우 다�
 * **클라우드 서비스 애플리케이션에 대한 진단은 인스턴스 수준이 아닌 역할 수준에서만 구성할 수 있습니다.**
 * **앱을 배포할 때마다 진단 구성이 업데이트됨** – 이로 인해 서버 탐색기에서 진단 구성을 변경한 후 앱을 다시 배포하는 경우 패리티 문제가 발생할 수 있습니다.
 * **Azure SDK 2.5 이상에서 크래시 덤프는 코드가 아닌 진단 구성 파일에서 구성됨** – 코드에서 크래시 덤프를 구성했다면 Azure SDK 2.6으로 마이그레이션할 때 크래시 덤프가 전송되지 않으므로 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
+

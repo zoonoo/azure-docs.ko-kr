@@ -5,21 +5,21 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281891"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3에서 Azure Storage로 데이터 복사
 
 AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서는 AzCopy를 사용 하 여 Amazon Web Services (AWS) s 3에서 Azure blob storage로 개체, 디렉터리 및 버킷을 복사 하는 데 도움이 됩니다.
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명을 제공 하는 방법을 선택 합니다.
+## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명을 제공하는 방법 선택
 
 * Azure Storage를 사용 하 여 권한을 부여 하려면 Azure Active Directory (AD) 또는 SAS (공유 액세스 서명) 토큰을 사용 합니다.
 
@@ -34,7 +34,7 @@ AzCopy를 다운로드 하려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문�
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
+> 예를 들면 `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`과 다음과 같습니다.
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3 인증
 
@@ -49,9 +49,6 @@ AWS 액세스 키 및 비밀 액세스 키를 수집 하 고 다음 환경 변�
 ## <a name="copy-objects-directories-and-buckets"></a>개체, 디렉터리 및 버킷 복사
 
 AzCopy는 [URL API에서 Put 블록](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) 을 사용 하므로 AWS S3 및 storage 서버 간에 데이터를 직접 복사 합니다. 이러한 복사 작업은 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다.
-
-> [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공됩니다. 복사 작업 후 S3 버킷의 데이터를 제거 하려는 경우 데이터를 제거 하기 전에 데이터를 저장소 계정에 올바르게 복사 했는지 확인 해야 합니다.
 
 > [!TIP]
 > 이 단원의 예제에서는 경로 인수를 작은따옴표 (' ')로 묶습니다. Windows 명령 셸 (cmd.exe)을 제외 하 고 모든 명령 셸에서 작은따옴표를 사용 합니다. cmd.exe (Windows 명령 셸)을 사용 하는 경우 작은따옴표 (' ') 대신 경로 인수를 큰따옴표 ("")로 묶습니다.
@@ -84,6 +81,19 @@ AzCopy는 [URL API에서 Put 블록](https://docs.microsoft.com/rest/api/storage
 | **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 | **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+
+> [!NOTE]
+> 이 예제에서는 플래그를 추가 `--recursive` 하 여 모든 하위 디렉터리의 파일을 복사 합니다.
+
+### <a name="copy-the-contents-of-a-directory"></a>디렉터리의 내용 복사
+
+와일드 카드 기호 (*)를 사용 하 여 포함 하는 디렉터리 자체를 복사 하지 않고 디렉터리의 내용을 복사할 수 있습니다.
+
+|    |     |
+|--------|-----------|
+| **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **예** (계층적 네임 스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>버킷 복사
 
