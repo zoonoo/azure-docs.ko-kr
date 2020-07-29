@@ -4,15 +4,16 @@ description: 이 문서에서는 azcopy sync 명령에 대 한 참조 정보를 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221054"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285206"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -32,13 +33,13 @@ Sync 명령은 다음과 같은 여러 가지 방법으로 복사 명령과 다�
 
 1. 기본적으로 재귀 플래그는 true 이며 sync는 모든 하위 디렉터리를 복사 합니다. 동기화는 재귀 플래그가 false 인 경우 디렉터리 내의 최상위 파일만 복사 합니다.
 2. 가상 디렉터리 간에 동기화 할 때 가상 디렉터리와 동일한 이름의 blob이 있는 경우 경로에 후행 슬래시를 추가 합니다 (예제 참조).
-3. ' DeleteDestination ' 플래그가 true 또는 prompt로 설정 된 경우 sync는 대상에서 원본에 없는 파일 및 blob을 삭제 합니다.
+3. `deleteDestination`플래그가 true 또는 prompt로 설정 된 경우 sync는 대상에서 원본에 없는 파일 및 blob을 삭제 합니다.
 
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
 - [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
-- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
 ### <a name="advanced"></a>고급
@@ -57,7 +58,7 @@ Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다.
 azcopy sync <source> <destination> [flags]
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 단일 파일 동기화:
 
@@ -65,16 +66,13 @@ azcopy sync <source> <destination> [flags]
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-> [!NOTE]
-> 대상 blob이 *있어야* 합니다. `azcopy copy`를 사용 하 여 대상에 아직 없는 단일 파일을 복사 합니다. 그렇지 않으면 다음과 같은 오류가 발생 합니다. `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
-
-위와 동일 하지만 이번에는 파일 콘텐츠의 MD5 해시를 계산 하 고 blob의 콘텐츠-MD5 속성으로 저장 합니다.
+위와 동일 하지만 파일 콘텐츠의 MD5 해시를 계산 하 고 해당 MD5 해시를 blob의 콘텐츠-MD5 속성으로 저장 합니다. 
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
 ```
 
-하위 디렉터리를 포함 하 여 전체 디렉터리를 동기화 합니다 (기본적으로 재귀적이 켜져 있는지 확인).
+하위 디렉터리를 포함 하 여 전체 디렉터리를 동기화 합니다 (기본적으로 재귀적으로 설정 됨).
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
@@ -86,22 +84,22 @@ azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
 ```
 
-디렉터리 내의 최상위 파일만 동기화 하 고 하위 디렉터리는 동기화 하지 않습니다.
+디렉터리 내의 파일만 동기화 하 고 하위 디렉터리 또는 하위 디렉터리 내의 파일은 동기화 하지 않습니다.
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-디렉터리에 있는 파일의 하위 집합을 동기화 합니다 (예: jpg 및 pdf 파일만 또는 파일 이름이 "exactName" 인 경우).
+디렉터리에 있는 파일의 하위 집합을 동기화 합니다 (예: jpg 및 pdf 파일만, 파일 이름이 인 경우 `exactName` ).
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include="*.jpg;*.pdf;exactName"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
-전체 디렉터리를 동기화 하지만 범위에서 특정 파일을 제외 합니다 (예: foo로 시작 하는 모든 파일 또는 막대로 끝남).
+전체 디렉터리를 동기화 하지만 범위에서 특정 파일을 제외 합니다. 예를 들어 foo로 시작 하는 모든 파일 또는 막대로 끝나는 모든 파일을 제외 합니다.
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude-pattern="foo*;*bar"
 ```
 
 단일 blob 동기화:
@@ -133,29 +131,31 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options"></a>옵션
 
-**--블록 크기** 는 Azure Storage에서 Azure Storage 업로드 하거나 다운로드 하는 경우 MiB에 지정 된이 블록 크기 (MiB에 지정)를 사용 합니다. 기본값은 파일 크기에 따라 자동으로 계산 됩니다. 소수 부분을 사용할 수 있습니다 (예: 0.25).
+**--블록 크기** 는 Azure Storage에서 Azure Storage 업로드 하거나 다운로드 하는 경우 MiB에 지정 된이 블록 크기 (MiB에 지정)를 사용 합니다. 기본값은 파일 크기에 따라 자동으로 계산 됩니다. 소수 부분을 사용할 수 있습니다 (예: `0.25` ).
 
-**--확인란을 선택** 하면 md5 문자열을 다운로드할 때 유효성을 검사 하는 방법을 지정 합니다. 이 옵션은를 다운로드 하는 경우에만 사용할 수 있습니다. 사용 가능한 값은 NoCheck, LogOnly, FailIfDifferent,입니다. 기본값은 ' FailIfDifferent '입니다. (기본값 "FailIfDifferent")
+**--확인란을 선택** 하면 md5 문자열을 다운로드할 때 유효성을 검사 하는 방법을 지정 합니다. 이 옵션은를 다운로드 하는 경우에만 사용할 수 있습니다. 사용 가능한 값은 `NoCheck` , `LogOnly` , `FailIfDifferent` , `FailIfDifferentOrMissing` 입니다. (기본값 `FailIfDifferent` ). (기본값 `FailIfDifferent` )
 
-**--delete 대상** 문자열은 원본에 존재 하지 않는 대상에서 추가 파일을 삭제할지 여부를 정의 합니다. True, false 또는 프롬프트로 설정할 수 있습니다. 메시지를 표시로 설정 하면 파일 및 blob의 삭제를 예약 하기 전에 사용자에 게 문의 하 라는 메시지가 표시 됩니다. (기본값 ' false '). (기본값 "false")
+**--delete 대상** 문자열은 원본에 존재 하지 않는 대상에서 추가 파일을 삭제할지 여부를 정의 합니다. , 또는로 설정할 수 있습니다 `true` `false` `prompt` . 로 설정 하면 `prompt` 파일 및 blob을 삭제 하기 전에 사용자에 게 문의 하 라는 메시지가 표시 됩니다. (기본값 `false` ). (기본값 `false` )
 
-**--exclude 특성** 문자열 (Windows에만 해당) 특성 목록과 일치 하는 특성을 가진 파일을 제외 합니다. 예: A; 삭제 &
+**--exclude 특성** 문자열 (Windows에만 해당)은 특성이 특성 목록과 일치 하는 파일을 제외 합니다. `A;S;R`
 
-**--제외-경로 문자열은** 복사할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예: myFolder; myFolder/subDirName/file.pdf)를 확인 합니다. 계정 순회와 함께 사용 하는 경우 경로는 컨테이너 이름을 포함 하지 않습니다.
+**--제외 경로** 문자열은 대상과 대상과 비교할 때 이러한 경로를 제외 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 하지 않습니다. 상대 경로 접두사 (예:)를 확인 `myFolder;myFolder/subDirName/file.pdf` 합니다.
 
-**--exclude-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일을 제외 합니다. 예: \* .jpg; \* . pdf; exactName
+**--exclude-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일을 제외 합니다. `*.jpg;*.pdf;exactName`
 
-**-h,--** 동기화 도움말 도움말
+**--** 동기화에 대 한 도움말 도움말입니다.
 
-**--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일만 포함 합니다. 예: A; 삭제 &
+**--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일만 포함 합니다. `A;S;R`
 
-**--include-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일만 포함 합니다. 예: \* .jpg; \* . pdf; exactName
+**--include-패턴** 문자열은 이름이 패턴 목록과 일치 하는 파일만 포함 합니다. `*.jpg;*.pdf;exactName`
 
-**--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청 및 응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본 정보). (기본 "정보")
+**--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준 `INFO` (모든 요청 및 응답), `WARNING` (저속 응답), ( `ERROR` 실패 한 요청만) 및 `NONE` (출력 로그 없음)을 정의 합니다. (기본값 `INFO` ). 
 
-**--입력-md5**                     각 파일의 MD5 해시를 만들고 대상 blob 또는 파일의 콘텐츠-MD5 속성으로 해시를 저장 합니다. 기본적으로 해시가 생성 되지 않습니다. 업로드할 때만 사용할 수 있습니다.
+**--입력-md5**     각 파일의 MD5 해시를 만들고 대상 blob 또는 파일의 콘텐츠-MD5 속성으로 해시를 저장 합니다. 기본적으로 해시가 생성 되지 않습니다. 업로드할 때만 사용할 수 있습니다.
 
-**--recursive**                   기본적으로 True로 설정 하면 디렉터리 간에 동기화 할 때 하위 디렉터리를 재귀적으로 찾습니다. 기본값은 true입니다. (기본값 true)
+**--recursive** `True` 디렉터리 간에 동기화 할 때 기본적으로 하위 디렉터리를 재귀적으로 확인 합니다.     (기본값 `True` ). 
+
+**--s2s-보존-액세스 계층**  서비스를 복사 하는 동안 액세스 계층을 유지 합니다. 대상 저장소 계정에서 액세스 계층 설정을 지원 하도록 하려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요. 액세스 계층 설정이 지원 되지 않는 경우에는 s2sPreserveAccessTier = false를 사용 하 여 액세스 계층 복사를 무시 하세요. (기본값 `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
 
@@ -165,6 +165,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
 |--신뢰할 수 있는 microsoft 접미사 문자열   |Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

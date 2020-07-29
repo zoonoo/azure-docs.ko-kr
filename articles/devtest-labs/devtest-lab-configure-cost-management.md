@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 월간 예상 랩 비용 추세 보기
 description: 이 문서에서는 Azure DevTest Labs의 랩 비용 (월별 예상 비용 추세 차트)을 추적 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283829"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩과 관련 된 비용 추적
 이 문서에서는 랩 비용을 추적 하는 방법에 대 한 정보를 제공 합니다. 랩의 현재 월에 대 한 예상 비용 추세를 확인 하는 방법을 보여 줍니다. 또한이 문서에서는 랩에서 리소스 당 월간 누계 비용을 보는 방법을 보여 줍니다.
@@ -28,7 +28,7 @@ ms.locfileid: "85482771"
 
     **예상 비용** 값은 현재 월의 현재까지의 예상 비용입니다. **예측 비용** 은 이번 달 전체의 예상 비용으로, 이전 5일 동안의 랩 비용을 사용해서 계산합니다.
 
-    금액은 다음 정수로 올림됩니다. 예를 들어: 
+    금액은 다음 정수로 올림됩니다. 예를 들면 다음과 같습니다. 
 
    * 5.01은 6으로 올림됩니다. 
    * 5.50은 6으로 올림됩니다.
@@ -69,7 +69,7 @@ DevTest Labs에서 지출 목표를 설정하고 이후에 월별 예상 비용 
      - 마찬가지로, 웹후크 URL을 정의하는 경우 비용 임계값 창에서 **알림**을 **켜기**로 설정해야 합니다.
      - 여기에 입력하기 전에 웹후크를 만들어야 합니다.  
 
-       웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-create-a-web-hook-or-api-function.md)를 참조하세요. 
+       웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-bindings-http-webhook.md)를 참조하세요. 
 
 ## <a name="view-cost-by-resource"></a>자원별 비용 보기 
 랩에서 월별 비용 추세 기능을 사용 하면 현재 월에 얼마나 많은 시간이 소요 되었는지 확인할 수 있습니다. 또한 지난 7 일 동안의 지출에 따라 해당 월의 끝까지 지출 프로젝션을 보여 줍니다. 랩에서 지출 하는 이유를 이해 하는 데 도움이 되도록 테이블의 **자원별** 월간 누계 비용을 보여 주는 **리소스 비용** 기능을 사용할 수 있습니다.
@@ -93,4 +93,3 @@ DevTest Labs에서 지출 목표를 설정하고 이후에 월별 예상 비용 
 * [사용자 지정 이미지 만들기](devtest-lab-create-template.md) - VM을 만들 때 사용자 지정 이미지 또는 Marketplace 이미지 중에서 기본 이미지를 지정할 수 있습니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
 * [마켓플레이스 이미지 구성](devtest-lab-configure-marketplace-images.md) - DevTest Labs에서 Azure Marketplace 이미지에 기반하여 VM을 만들 수 있습니다. 이 문서에서는 랩에서 VM을 만들 때 사용할 수 있는 Azure Marketplace 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 * [랩에서 VM 만들기](devtest-lab-add-vm.md) - 기본 이미지(사용자 지정 또는 Marketplace 이미지)에서 VM을 만드는 방법 및 VM에서 아티팩트 작업 방법에 대해 설명합니다.
-

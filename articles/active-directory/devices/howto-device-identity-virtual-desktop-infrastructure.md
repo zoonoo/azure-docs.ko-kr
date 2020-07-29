@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900366"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284407"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
 
@@ -40,7 +41,7 @@ ms.locfileid: "74900366"
 
 VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되는 시나리오를 숙지 합니다. 다음 표에서는 지원 되는 프로 비전 시나리오를 보여 줍니다. 이 컨텍스트에서 프로 비전 하는 것은 관리자가 최종 사용자 개입 없이도 장치 id를 대규모로 구성할 수 있음을 의미 합니다.
 
-| 장치 id 유형 | Id 인프라 | Windows 디바이스 | VDI 플랫폼 버전 | 지원됨 |
+| 장치 id 유형 | ID 인프라 | Windows 디바이스 | VDI 플랫폼 버전 | 지원됨 |
 | --- | --- | --- | --- | --- |
 | 하이브리드 Azure AD 가입 | 제휴 | Windows 현재 * * * 및 Windows 하위 수준 * * * * | 영구적 | 예 |
 |   |   | Windows 현재 | 비영구 | 아니요 |
@@ -50,11 +51,11 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 |   |   | Windows 하위 수준 | 비영구 | 예 |
 | Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
-|   | 관리 | Windows 현재 | 영구적 | 아니요 |
+|   | 관리 대상 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
-| Azure AD 등록됨 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
+| Azure AD 등록됨 | 페더레이션 | Windows 현재 | 영구적 | 해당 사항 없음 |
 |   |   |   | 비영구 | 아니요 |
-|   | 관리 | Windows 현재 | 영구적 | 아니요 |
+|   | 관리 대상 | Windows 현재 | 영구적 | 해당 사항 없음 |
 |   |   |   | 비영구 | 아니요 |
 
 \***페더레이션된** id 인프라 환경은 AD FS 또는 기타 타사 IDP와 같은 id 공급자를 사용 하는 환경을 나타냅니다.

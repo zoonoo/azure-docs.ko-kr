@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 46cb4d0d099cd21db3ce51c337d3b059206bb425
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099298"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281194"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 및 URL 다시 작성
 
@@ -109,25 +109,25 @@ Application gateway는 다음 서버 변수를 지원 합니다.
 | add_x_forwarded_for_proxy | `client_ip`I p 1, IP2, p 3 등의 형식으로 추가 된 (이 표의 뒷부분에 나오는 설명 참조) 변수와 함께 X로 전달 된 클라이언트 요청 헤더 필드입니다. X 전달-For 필드가 클라이언트 요청 헤더에 없으면 `add_x_forwarded_for_proxy` 변수는 `$client_ip` 변수와 같습니다.   이 변수는 헤더에 포트 정보가 없는 IP 주소만 포함 되도록 Application Gateway에 의해 설정 된 X 전달 된 헤더를 다시 작성 하려는 경우에 특히 유용 합니다. |
 | ciphers_supported         | 클라이언트에서 지 원하는 암호화 목록입니다.               |
 | ciphers_used              | 설정 된 TLS 연결에 사용 되는 암호화 문자열입니다. |
-| client_ip                 | 응용 프로그램 게이트웨이에서 요청을 받은 클라이언트의 IP 주소입니다. 응용 프로그램 게이트웨이와 원래 클라이언트 앞에 역방향 프록시가 있는 경우 *client_ip* 는 역방향 프록시의 ip 주소를 반환 합니다. |
+| client_ip                 | 응용 프로그램 게이트웨이에서 요청을 받은 클라이언트의 IP 주소입니다. 응용 프로그램 게이트웨이와 원래 클라이언트 앞에 역방향 프록시가 있는 경우 `client_ip` 은 역방향 프록시의 IP 주소를 반환 합니다. |
 | client_port               | 클라이언트 포트입니다.                                             |
 | client_tcp_rtt            | 클라이언트 TCP 연결에 대 한 정보입니다. TCP_INFO 소켓 옵션을 지 원하는 시스템에서 사용할 수 있습니다. |
 | client_user               | HTTP 인증을 사용 하는 경우 인증을 위해 제공 되는 사용자 이름입니다. |
-| 호스트                      | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* 호스트 값은 *contoso.com* 입니다. |
+| 호스트                      | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` 호스트 값은입니다.`contoso.com` |
 | cookie_*이름*             | *이름* 쿠키입니다.                                           |
 | http_method               | URL 요청을 만드는 데 사용 되는 메서드입니다. 예를 들어 GET 또는 POST입니다. |
 | http_status               | 세션 상태입니다. 예: 200, 400 또는 403.           |
 | http_version              | 요청 프로토콜입니다. 일반적으로 HTTP/1.0, HTTP/1.1 또는 HTTP/2.0입니다. |
-| query_string              | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* query_string 값은 *id = 123&title = fabrikam* 입니다. |
+| query_string              | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` query_string 값은입니다.`id=123&title=fabrikam` |
 | received_bytes            | 요청 (요청 줄, 헤더 및 요청 본문 포함)의 길이입니다. |
 | request_query             | 요청 줄의 인수입니다.                           |
 | request_scheme            | 요청 체계: http 또는 https.                           |
-| request_uri               | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* request_uri 값은 */article.aspx? id = 123&title = fabrikam* 입니다. |
+| request_uri               | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` request_uri 값은입니다.`/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | 클라이언트에 전송 된 바이트 수입니다.                        |
 | server_port               | 요청을 수락한 서버 포트입니다.              |
 | ssl_connection_protocol   | 설정 된 TLS 연결의 프로토콜입니다.               |
 | ssl_enabled               | TLS 모드에서 연결이 작동 하는 경우 "On"입니다. 그렇지 않으면 빈 문자열입니다. |
-| uri_path                  | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path 값은 */article.aspx* 입니다. |
+| uri_path                  | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path 값은입니다.`/article.aspx` |
 
  
 
@@ -230,7 +230,7 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 사용자가 볼 수 있는 링크가 간단 하 고 이해 하기 쉬운 쇼핑 웹 사이트의 시나리오를 고려해 야 하지만 백 엔드 서버에는 올바른 콘텐츠를 표시 하는 쿼리 문자열 매개 변수가 필요 합니다.
 
-이 경우 URL에서 매개 변수를 캡처하여 URL의 매개 변수에서 쿼리 문자열 키-값 쌍을 추가할 수 Application Gateway. 예를 들어, 사용자가 https://www.contoso.com/fashion/shirts https://www.contoso.com/buy.aspx?category=fashion&product=shirts 다음 URL 재작성 구성을 통해 달성할 수 있도록 다시 작성 하려는 경우를 가정해 보겠습니다.
+이 경우 URL에서 매개 변수를 캡처하여 URL의 매개 변수에서 쿼리 문자열 키-값 쌍을 추가할 수 Application Gateway. 예를 들어, 사용자가 `https://www.contoso.com/fashion/shirts` `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` 다음 URL 재작성 구성을 통해 달성할 수 있도록 다시 작성 하려는 경우를 가정해 보겠습니다.
 
 **조건** -서버 변수가 `uri_path` 패턴과 같은 경우`/(.+)/(.+)`
 

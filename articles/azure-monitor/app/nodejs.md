@@ -3,16 +3,17 @@ title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링
 description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024387"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371620"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 하 여 성능 및 기타 문제를 검색 하 고 신속 하 게 진단할 수 있도록 합니다. 데이터 센터, Azure Vm 및 웹 앱에서 호스트 되는 Node.js 서비스와 다른 공용 클라우드에서도 Application Insights를 사용할 수 있습니다.
+[Application Insights](./app-insights-overview.md) 는 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 하 여 성능 및 기타 문제를 검색 하 고 신속 하 게 진단할 수 있도록 합니다. 데이터 센터, Azure Vm 및 웹 앱에서 호스트 되는 Node.js 서비스와 다른 공용 클라우드에서도 Application Insights를 사용할 수 있습니다.
 
 모니터링 데이터를 수신, 저장 및 탐색하려면 코드에 SDK를 포함하고 Azure에서 해당 Application Insights 리소스를 설정합니다. SDK는 추가 분석 및 탐색을 위해 해당 리소스로 데이터를 보냅니다.
 
@@ -24,7 +25,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
@@ -80,8 +81,8 @@ SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 
 
 * 애플리케이션을 계속 사용합니다. 더 많은 작업을 수행하여 더 많은 원격 분석을 생성합니다.
 * 포털 리소스 보기에서 **새로 고침**을 클릭합니다. 차트는 자체에서 주기적으로 새로 고치지만, 수동으로 새로 고침하면 즉시 새로 고쳐집니다.
-* [필요한 발신 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
-* [검색](../../azure-monitor/app/diagnostic-search.md)을 사용하여 특정 이벤트를 찾습니다.
+* [필요한 발신 포트](./ip-addresses.md)가 열려 있는지 확인합니다.
+* [검색](./diagnostic-search.md)을 사용하여 특정 이벤트를 찾습니다.
 * [FAQ][FAQ]를 확인 합니다.
 
 ## <a name="basic-usage"></a>기본 사용
@@ -216,7 +217,7 @@ appInsights
 
 ## <a name="telemetryclient-api"></a>TelemetryClient API
 
-TelemetryClient API에 대한 전체 설명은 [사용자 지정 이벤트 및 메트릭용 Application Insights API](../../azure-monitor/app/api-custom-events-metrics.md)를 참조하세요.
+TelemetryClient API에 대한 전체 설명은 [사용자 지정 이벤트 및 메트릭용 Application Insights API](./api-custom-events-metrics.md)를 참조하세요.
 
 Application Insights Node.js SDK를 사용하여 모든 요청, 이벤트, 메트릭 또는 예외를 추적할 수 있습니다. 다음 코드 예제에는 사용할 수 있는 몇 가지 API가 나와 있습니다.
 
@@ -373,7 +374,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 여러 Application Insights 리소스를 만들고 각각의 계측 키 ("ikey")를 사용 하 여 서로 다른 데이터를 보낼 수 있습니다.
 
- 예를 들어:
+ 예를 들면 다음과 같습니다.
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -414,10 +415,11 @@ client.config.PROPERTYNAME = VALUE;
 
 ## <a name="next-steps"></a>다음 단계
 
-* [포털에서 원격 분석 모니터링](../../azure-monitor/app/overview-dashboard.md)
-* [원격 분석에 분석 쿼리 작성](../../azure-monitor/log-query/get-started-portal.md)
+* [포털에서 원격 분석 모니터링](./overview-dashboard.md)
+* [원격 분석에 분석 쿼리 작성](../log-query/get-started-portal.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
+

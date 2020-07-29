@@ -5,16 +5,17 @@ description: Azure Machine Learning 디자이너(미리 보기)에서 게시된 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.custom: designer
-ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430065"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319629"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)를 사용하여 모델 재학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,6 +34,8 @@ ms.locfileid: "84430065"
 
 * Enterprise SKU를 사용하는 Azure Machine Learning 작업 영역
 * 이 방법 시리즈의 1부, [디자이너에서 데이터 변환](how-to-designer-transform-data.md)을 완료합니다.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 또한 이 문서에서는 디자이너에서 파이프라인을 빌드하는 방법에 대한 기본 지식이 있다고 가정합니다. 단계별 소개를 보려면 [자습서](tutorial-designer-automobile-price-train-score.md)를 완료하세요. 
 

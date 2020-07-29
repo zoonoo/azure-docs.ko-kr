@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: cef0fcb990cd2c5c6583822d4dc4c6993c52eac2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 114b8b32d4abb1fd9b7e641625cd1b132470bafd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75666791"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281449"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>논리 앱을 최신 스키마 버전으로 마이그레이션
 
@@ -39,4 +40,5 @@ ms.locfileid: "75666791"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [논리 앱을 수동으로 마이그레이션](../logic-apps/logic-apps-schema-2015-08-01.md)하는 방법을 알아봅니다.
+* [논리 앱을 수동으로 마이그레이션](../logic-apps/logic-apps-schema-2016-04-01.md)하는 방법을 알아봅니다.
+

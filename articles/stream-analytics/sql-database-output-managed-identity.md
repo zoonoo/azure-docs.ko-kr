@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045623"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305927"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>관리 ID를 사용하여 Azure Stream Analytics 작업에서 Azure SQL Database에 액세스(미리 보기)
 
@@ -102,7 +102,7 @@ Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 
 
 ## <a name="grant-stream-analytics-job-permissions"></a>Stream Analytics 작업 권한 부여
 
-이전 섹션에서 설명한 대로 포털에서 포함된 데이터베이스 사용자를 만들고 Azure 서비스에 대한 액세스 권한을 부여하고 나면 Stream Analytics 작업에는 관리 ID를 통해 SQL Database 리소스에 대한 관리 ID의 **CONNECT** 권한이 포함됩니다. 나중에 Stream Analytics 워크플로에서 필요하므로 Stream Analytics 작업에 대한 SELECT 및 INSERT 권한을 부여하는 것이 좋습니다. **SELECT** 권한이 있으면 작업에서 SQL Database의 테이블에 대한 연결을 테스트할 수 있습니다. **INSERT** 권한이 있으면 입력 및 SQL Database 출력을 구성한 후 엔드투엔드 Stream Analytics 쿼리를 테스트할 수 있습니다. SQL Server Management Studio를 사용하여 Stream Analytics 작업에 해당 권한을 부여할 수 있습니다. 자세한 내용은 [GRANT(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) 참조를 확인하세요.
+이전 섹션에서 설명한 대로 포털에서 포함된 데이터베이스 사용자를 만들고 Azure 서비스에 대한 액세스 권한을 부여하고 나면 Stream Analytics 작업에는 관리 ID를 통해 SQL Database 리소스에 대한 관리 ID의 **CONNECT** 권한이 포함됩니다. 나중에 Stream Analytics 워크플로에서 필요하므로 Stream Analytics 작업에 대한 SELECT 및 INSERT 권한을 부여하는 것이 좋습니다. **SELECT** 권한이 있으면 작업에서 SQL Database의 테이블에 대한 연결을 테스트할 수 있습니다. **INSERT** 권한이 있으면 입력 및 SQL Database 출력을 구성한 후 엔드투엔드 Stream Analytics 쿼리를 테스트할 수 있습니다. SQL Server Management Studio를 사용하여 Stream Analytics 작업에 해당 권한을 부여할 수 있습니다. 자세한 내용은 GRANT (Transact-sql) 참조를 참조 하세요.
 
 데이터베이스의 특정 테이블 또는 개체에만 권한을 부여하려면 다음 T-SQL 구문을 사용하고 쿼리를 실행합니다. 
 

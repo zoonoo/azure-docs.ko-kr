@@ -6,11 +6,12 @@ ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 7f922275e5541baabc77a1efb19e48fa8be4c5ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f325280cb4b18def603410464a06fddaed09c78a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289427"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285410"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL 마이그레이션 파트너
 Azure Database for MySQL 솔루션을 광범위하게 지원하기 위해 다양한 업계 선도 파트너 및 도구를 선택할 수 있습니다. 이 문서에서는 Azure Database for MySQL을 지원하는 마이그레이션 솔루션을 제공하는 Microsoft 파트너를 중점적으로 소개합니다.
@@ -26,7 +27,7 @@ Azure Database for MySQL 솔루션을 광범위하게 지원하기 위해 다양
 | ![Pactera][6] |**Pactera**<br>Pactera는 전 세계의 유명 기업에 컨설팅, 디지털, 기술 및 운영 서비스를 제공하는 글로벌 회사입니다. Pactera는 회사의 근본인 엔지니어링부터 최신 디지털 변환까지, 고객에게 경쟁력 있는 첨단 기술을 제공합니다. 이 회사의 검증된 방법론 및 도구는 고객 데이터의 보안, 신뢰성 및 정확성을 보장합니다.|[웹 사이트][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contact][pactera_contact] | |
 
 ## <a name="next-steps"></a>다음 단계
-Microsoft의 다른 파트너에 대해 자세히 알려면 [Microsoft 파트너 사이트](https://partner.microsoft.com/en-US/)를 참조합니다.
+Microsoft의 다른 파트너에 대해 자세히 알려면 [Microsoft 파트너 사이트](https://partner.microsoft.com/)를 참조합니다.
 
 <!--Image references-->
 [1]: ./media/partner-migration-mysql/SNP_Logo.png

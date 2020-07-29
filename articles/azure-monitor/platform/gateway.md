@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077277"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305213"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -89,7 +89,7 @@ Log Analytics 게이트웨이는 다음 언어로 제공 됩니다.
 
 Log Analytics 게이트웨이는 TLS (전송 계층 보안) 1.0, 1.1 및 1.2만 지원 합니다.  SSL(Secure Sockets Layer) (SSL)를 지원 하지 않습니다.  Log Analytics 전송 중인 데이터의 보안을 보장 하려면 TLS 1.2 이상을 사용 하도록 게이트웨이를 구성 합니다. 이전 버전의 TLS 또는 SSL은 취약 합니다. 현재 이전 버전과의 호환성을 허용 하지만 사용 하지 마세요.  
 
-자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
+자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](./data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
 
 ### <a name="supported-number-of-agent-connections"></a>지원되는 에이전트 연결 수
 
@@ -141,7 +141,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
    ![게이트웨이 프록시에 대 한 구성 스크린샷](./media/gateway/gateway-wizard02.png)
 
 1. Microsoft 업데이트 사용 하도록 설정 되지 않은 경우 Microsoft 업데이트 페이지가 표시 되 고 사용 하도록 선택할 수 있습니다. 항목을 선택 하 고 **다음**을 선택 합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
-1. **대상 폴더** 페이지에서 기본 폴더인 C:\Program Files\OMS gateway를 그대로 두거나 게이트웨이를 설치 하려는 위치를 입력 합니다. **다음**을 선택합니다.
+1. **대상 폴더** 페이지에서 기본 폴더인 C:\Program Files\OMS gateway를 그대로 두거나 게이트웨이를 설치 하려는 위치를 입력 합니다. 그런 후 **다음**을 선택합니다.
 1. **설치 준비 완료** 페이지에서 **설치**를 선택 합니다. 사용자 계정 컨트롤에서 설치 권한을 요청 하는 경우 **예**를 선택 합니다.
 1. 설치가 완료 되 면 **마침**을 선택 합니다. 서비스가 실행 되 고 있는지 확인 하려면 services.msc 스냅인을 열고 서비스 목록에 **OMS 게이트웨이가** 표시 되 고 해당 상태가 **실행**중인지 확인 합니다.
 
@@ -153,7 +153,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
  
 다음 표에서는 설치 프로그램에서 지 원하는 매개 변수를 보여 줍니다.
 
-|매개 변수| 참고|
+|매개 변수| 메모|
 |----------|------| 
 |PORTNUMBER | 게이트웨이에서 수신 대기 하는 TCP 포트 번호 |
 |프록시 | 프록시 서버의 IP 주소 |
@@ -248,7 +248,7 @@ OMS 게이트웨이를 사용 하 여 Operations Manager을 지원 하려면 다
 
 Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 등록 하는 경우 운영 콘솔에서 관리 그룹에 대 한 프록시 구성을 지정 하는 옵션이 표시 되지 않습니다. 이 옵션은 관리 그룹이 서비스에 등록 된 경우에만 사용할 수 있습니다.  
 
-통합을 구성 하려면 운영 콘솔과 관리 그룹의 모든 관리 서버를 실행 하는 시스템에서 Netsh를 사용 하 여 시스템 프록시 구성을 업데이트 합니다. 다음 단계를 수행합니다.
+통합을 구성 하려면 운영 콘솔과 관리 그룹의 모든 관리 서버를 실행 하는 시스템에서 Netsh를 사용 하 여 시스템 프록시 구성을 업데이트 합니다. 다음 단계를 수행하세요.
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
 
@@ -305,13 +305,13 @@ Log Analytics 게이트웨이 서버를 사용 하도록 특정 서버 또는 �
 
 컴퓨터가 Hybrid Runbook Worker으로 자동으로 등록 된 경우, 예를 들어 하나 이상의 Vm에 대해 업데이트 관리 솔루션을 사용 하도록 설정한 경우 다음 단계를 수행 합니다.
 
-1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예를 들면 다음과 같습니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. `Restart-Service OMSGatewayService` PowerShell cmdlet을 사용하여 Log Analytics 게이트웨이 서비스를 다시 시작합니다.
 
 Hybrid Runbook Worker 등록 cmdlet을 사용 하 여 Azure Automation에 컴퓨터를 연결 하는 경우 다음 단계를 수행 합니다.
 
-1. 에이전트 서비스 등록 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예를 들면 다음과 같습니다. `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예를 들면 다음과 같습니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 에이전트 서비스 등록 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Log Analytics 게이트웨이 서비스를 다시 시작합니다.
     `Restart-Service OMSGatewayService`
 
@@ -329,8 +329,8 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 
 | **#A0** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |키(필수) <br> Value |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayConfig` |Key |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 (보안 문자열) |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시와 자격 증명을 설정 합니다.<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시를 설정 합니다.`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |현재 허용 된 호스트 가져오기 (로컬로 구성 된 허용 된 호스트만, 허용 된 호스트를 자동으로 다운로드 하지 않음) |`Get-OMSGatewayAllowedHost` | 
@@ -388,4 +388,5 @@ Azure Portal에 로그인 하면 Log Analytics 게이트웨이 또는 다른 Azu
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터 [원본을 추가](../../azure-monitor/platform/agent-data-sources.md) 하 여 연결 된 원본에서 데이터를 수집 하 고 Log Analytics 작업 영역에 데이터를 저장 합니다.
+데이터 [원본을 추가](./agent-data-sources.md) 하 여 연결 된 원본에서 데이터를 수집 하 고 Log Analytics 작업 영역에 데이터를 저장 합니다.
+

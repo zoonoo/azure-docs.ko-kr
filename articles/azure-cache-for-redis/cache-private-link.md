@@ -6,19 +6,19 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 59d5c6c4a9c3af70eb08e9d5a05d516f4b8b8bdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099663"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337265"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (미리 보기)
 Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure Cache, Azure virtual network 및 개인 끝점을 만드는 방법에 대해 알아봅니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * Azure 구독- [무료로 하나 만들기](https://azure.microsoft.com/free/)
 
 > [!NOTE]
@@ -73,25 +73,25 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
     | Subscription     | 드롭다운하여 구독을 선택합니다.                                  |
     | 리소스 그룹   | 드롭다운 하 고 리소스 그룹을 선택 합니다. |
     | **인스턴스 세부 정보** |                                                                 |
-    | 속성             | 들어가서**\<virtual-network-name>**                                    |
+    | 속성             | **\<virtual-network-name>** 를 입력합니다.                                    |
     | 지역           | [**\<region-name>** |
 
 4. **Ip 주소** 탭을 선택 하거나 페이지 맨 아래에 있는 **다음: ip 주소** 단추를 선택 합니다.
 
 5. **IP 주소** 탭에서 다음 정보를 입력 합니다.
 
-    | 설정            | Value                      |
+    | 설정            | 값                      |
     |--------------------|----------------------------|
-    | IPv4 주소 공간 | 들어가서**\<IPv4-address-space>** |
+    | IPv4 주소 공간 | **\<IPv4-address-space>** 를 입력합니다. |
 
 6. **서브넷 이름**에서 **기본**이라는 단어를 선택 합니다.
 
 7. **서브넷 편집**에서 다음 정보를 입력 합니다.
 
-    | 설정            | Value                      |
+    | 설정            | 값                      |
     |--------------------|----------------------------|
-    | 서브넷 이름 | 들어가서**\<subnet-name>** |
-    | 서브넷 주소 범위 | 들어가서**\<subnet-address-range>**
+    | 서브넷 이름 | **\<subnet-name>** 를 입력합니다. |
+    | 서브넷 주소 범위 | **\<subnet-address-range>** 를 입력합니다.
 
 8. **저장**을 선택합니다.
 
@@ -121,7 +121,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
     | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | Subscription | 드롭다운하여 구독을 선택합니다. |
+    | 구독 | 드롭다운하여 구독을 선택합니다. |
     | Resource group | 드롭다운 하 고 리소스 그룹을 선택 합니다. |
     | **인스턴스 정보** |  |
     | Name |개인 끝점의 이름을 입력 합니다.  |
@@ -149,3 +149,9 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 11.  **검토 + 만들기**를 선택합니다. Azure에서 구성의 유효성을 검사 하는 **검토 + 만들기**   탭으로 이동 됩니다.
 
 12. 녹색 **유효성 검사 통과** 메시지가 표시 되 면 **만들기**를 선택 합니다.
+
+
+## <a name="next-steps"></a>다음 단계
+
+개인 링크에 대 한 자세한 내용은 [Azure 개인 링크 설명서](https://docs.microsoft.com/azure/private-link/private-link-overview)를 참조 하세요. 
+

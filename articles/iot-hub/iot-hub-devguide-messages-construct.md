@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 07/22/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 4d33a47e0498c82dff967242cfbc12a89c94a3b5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327738"
+ms.locfileid: "87336721"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -61,14 +61,16 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 | iothub-connection-module-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **moduleId**를 포함합니다. | 예 | connectionModuleId |
 | iothub-connection-auth-generation-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **connectionDeviceGenerationId**([디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당)를 포함합니다. | 예 |connectionDeviceGenerationId |
 | iothub-connection-auth-method |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 디바이스를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다.| 예 | connectionAuthMethod |
+| dt-dataschema | 이 값은 장치-클라우드 메시지의 IoT hub에 의해 설정 됩니다. 장치 연결에 설정 된 장치 모델 ID를 포함 합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. | 아니요 | N/A |
+| dt-주체 | 장치-클라우드 메시지를 전송 하는 구성 요소의 이름입니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. | 예 | 해당 없음 |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>**C2D** IoT Hub 메시지의 시스템 속성
 
 | 속성 | Description  |사용자 설정 가능 여부|
 | --- | --- | --- |
 | message-id |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 길이 128자)입니다.  |예|
-| sequence-number |숫자(디바이스 큐 별로 고유함)는 IoT Hub에서 각 클라우드-디바이스 메시지에 할당됩니다. |예|
-| to |[클라우드-디바이스](iot-hub-devguide-c2d-guidance.md) 메시지에 지정된 대상입니다. |예|
+| sequence-number |숫자(디바이스 큐 별로 고유함)는 IoT Hub에서 각 클라우드-디바이스 메시지에 할당됩니다. |아니요|
+| to |[클라우드-디바이스](iot-hub-devguide-c2d-guidance.md) 메시지에 지정된 대상입니다. |아니요|
 | absolute-expiry-time |메시지 만료 날짜 및 시간입니다. |예|   |
 | correlation-id |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |예|
 | user-id |메시지의 원본을 지정하는 데 사용되는 ID입니다. 메시지가 IoT Hub에서 생성되면 `{iot hub name}`로 설정합니다. |예|
@@ -89,8 +91,9 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 |contentType|content-type|contentType|ContentType|iothub-content-type|
 |contentEncoding|content-encoding|contentEncoding|ContentEncoding|iothub-content-encoding|
 |iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime| N/A |iothub-enqueuedtime|
-|iothub-interface-name|iothub-interface-name|interfaceName|Iothub-interface-name|iothub-interface-name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
+|dt-dataschema|dt-dataschema|dt-dataschema|dt-dataschema|dt-dataschema|
+|dt-주체|dt-주체|dt-주체|dt-주체|dt-주체|
 
 ## <a name="message-size"></a>메시지 크기
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 018fe9b97b343bc07cf3c04a1d0e84edaf6cc7ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066996"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283863"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Azure Stack Edge 장치 반환
 
@@ -117,14 +117,14 @@ ms.locfileid: "87066996"
 
 Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 또는 변조 징후가 있는지 검사합니다.
 
-- 장치가 그대로 도착 하 고 좋은 셰이프 이면 해당 리소스에 대 한 청구 측정기가 중지 됩니다. Microsoft 지원에서 디바이스 반환 확인을 위해 연락드립니다. 그러면 Microsoft Azure Portal에서 디바이스와 연결된 리소스를 삭제할 수 있습니다.
+- 장치가 그대로 도착 하 고 좋은 셰이프 이면 해당 리소스에 대 한 청구 측정기가 중지 됩니다. Edge 운영 팀 Azure Stack 장치가 반환 되었는지 확인 하기 위해 연락 합니다. 그러면 Microsoft Azure Portal에서 디바이스와 연결된 리소스를 삭제할 수 있습니다.
 - 디바이스가 많이 손상된 상태로 도착하면 벌금이 부과될 수 있습니다. 자세한 내용은 [분실 또는 손상된 디바이스에 대한 FAQ](https://azure.microsoft.com/pricing/details/databox/edge/)와 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요.  
 
 
 Microsoft Azure Portal에서 디바이스를 삭제할 수 있습니다.
 
 - 주문한 후 Microsoft에서 디바이스를 준비하기 전
-- 디바이스가 Microsoft에 반환된 후 Azure 데이터 센터에서 실물 검사를 통과하면 Microsoft 지원 센터에서 디바이스 반환 확인을 위해 전화를 드립니다.
+- 장치를 Microsoft에 반환 하면 Azure 데이터 센터에서 물리적 검사를 전달 하 고, Edge 운영 팀 호출을 Azure Stack 하 여 장치가 반환 되었는지 확인 합니다.
 
 다른 구독 또는 위치에 대해 디바이스를 활성화한 경우 Microsoft는 1일(업무일 기준) 이내에 주문을 새 구독 또는 위치로 이동합니다. 주문이 이동된 후 이 리소스를 삭제할 수 있습니다.
 

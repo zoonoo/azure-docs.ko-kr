@@ -1,6 +1,6 @@
 ---
-title: Windows 가상 데스크톱 환경 (낙하 2019)-Azure
-description: 테 넌 트 및 호스트 풀과 같은 Windows 가상 데스크톱 (낙하 2019 릴리스) 환경의 기본 요소에 대해 알아봅니다.
+title: Windows 가상 데스크톱 (클래식) 환경-Azure
+description: Windows 가상 데스크톱 (클래식) 환경의 기본 요소
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082650"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285019"
 ---
-# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Windows 가상 데스크톱 환경 (낙하 2019 릴리스)
+# <a name="windows-virtual-desktop-classic-environment"></a>Windows 가상 데스크톱 (클래식) 환경
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../environment-setup.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../environment-setup.md)를 참조 하세요.
 
 Windows 가상 데스크톱은 사용자에 게 가상화 된 데스크톱 및 Remoteapp에 대 한 액세스를 쉽고 안전 하 게 제공 하는 서비스입니다. 이 항목에서는 Windows 가상 데스크톱 환경의 일반적인 구조에 대해 자세히 설명 합니다.
 

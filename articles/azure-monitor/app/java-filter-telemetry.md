@@ -3,12 +3,13 @@ title: Java 웹 앱에서 Azure 애플리케이션 Insights 원격 분석 필터
 description: 모니터링하지 않아도 되는 이벤트를 필터링하여 원격 분석 트래픽을 줄입니다.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: cd53a0e02eb43bdf7cde4952ed4835c6d1cdd126
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java
+ms.openlocfilehash: 825c807d9af542e8776e3b6361b8f6b6dd08f164
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322587"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372181"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 

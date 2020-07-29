@@ -3,12 +3,12 @@ title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 4975d91cc20b81de302a1dd0cb7b3326878a96a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540097"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311231"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL Database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
@@ -24,9 +24,9 @@ ms.locfileid: "86540097"
 ## <a name="add-application-insights-to-your-application"></a>애플리케이션에 Application Insights 추가
 시작하기:
 
-1. [웹 페이지용 Application Insights를 설치합니다](../../azure-monitor/app/javascript.md). 
+1. [웹 페이지용 Application Insights를 설치합니다](./javascript.md). 
    
-    (이 예제에서는 클라이언트 브라우저에서 페이지 보기 데이터를 처리하는 데 초점을 두었지만 [Java](../../azure-monitor/app/java-get-started.md) 또는 [ASP.NET](../../azure-monitor/app/asp-net.md) 앱의 서버 쪽에 대한 Application Insights, 프로세스 요청, 종속성 및 기타 서버 원격 분석도 설정할 수 있습니다.)
+    (이 예제에서는 클라이언트 브라우저에서 페이지 보기 데이터를 처리하는 데 초점을 두었지만 [Java](./java-get-started.md) 또는 [ASP.NET](./asp-net.md) 앱의 서버 쪽에 대한 Application Insights, 프로세스 요청, 종속성 및 기타 서버 원격 분석도 설정할 수 있습니다.)
 2. 앱을 게시하고 Application Insights 리소스에 표시되는 원격 분석 데이터를 확인합니다.
 
 ## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
@@ -61,7 +61,7 @@ ms.locfileid: "86540097"
     ![이벤트 유형 선택](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
+1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../platform/metrics-charts.md)에서 통계 차트가, [진단 검색](./diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
     또한 데이터를 스토리지로 내보냅니다. 
 2. 포털 또는 Visual Studio에서 내보낸 데이터를 검사합니다. 포털에서 **찾아보기**, 스토리지 계정을 선택한 다음 **컨테이너**를 선택합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
@@ -128,7 +128,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![PageViewsTable 만들기](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
 
-이 샘플에서 페이지 보기에서 데이터를 사용합니다. 사용 가능한 다른 데이터를 보려면 JSON 출력을 검사하고 [데이터 모델 내보내기](../../azure-monitor/app/export-data-model.md)를 참조합니다.
+이 샘플에서 페이지 보기에서 데이터를 사용합니다. 사용 가능한 다른 데이터를 보려면 JSON 출력을 검사하고 [데이터 모델 내보내기](./export-data-model.md)를 참조합니다.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
 [Azure Portal](https://portal.azure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
@@ -165,7 +165,7 @@ webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다. 
 * `1234...`은 **대시를 제거한**Application Insights 리소스의 계측 키입니다. 
-* `PageViews` 는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](../../azure-monitor/app/export-data-model.md)를 참조합니다.
+* `PageViews` 는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](./export-data-model.md)를 참조합니다.
 * `/{date}/{time}` 은 문자로 기록된 패턴입니다.
 
 Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개요 페이지에서 필수 항목을 열거나 설정을 엽니다.
@@ -215,7 +215,7 @@ Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개�
 
 ```
 
-처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다. [속성 형식 및 값에 대한 자세한 데이터 모델 참조](../../azure-monitor/app/export-data-model.md)
+처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다. [속성 형식 및 값에 대한 자세한 데이터 모델 참조](./export-data-model.md)
 
 ## <a name="set-up-output-to-database"></a>데이터베이스에 출력 설정
 SQL을 출력으로 선택합니다.
@@ -243,15 +243,16 @@ FROM [dbo].[PageViewsTable]
 ```
 
 ## <a name="related-articles"></a>관련된 문서
-* [Stream Analytics를 사용하여 Power BI로 내보내기](../../azure-monitor/app/export-power-bi.md )
-* [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](../../azure-monitor/app/export-data-model.md)
-* [Application Insights에서 연속 내보내기](../../azure-monitor/app/export-telemetry.md)
+* [Stream Analytics를 사용하여 Power BI로 내보내기](./export-power-bi.md)
+* [속성 형식 및 값에 대 한 자세한 데이터 모델 참조입니다.](./export-data-model.md)
+* [Application Insights에서 연속 내보내기](./export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
 <!--Link references-->
 
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[diagnostic]: ./diagnostic-search.md
+[export]: ./export-telemetry.md
+[metrics]: ../platform/metrics-charts.md
 [portal]: https://portal.azure.com/
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
+

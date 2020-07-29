@@ -2,15 +2,15 @@
 title: Azure Linux Vm에 대 한 벤치 마크 점수 계산
 description: Linux를 실행하는 Azure VM의 CoreMark 컴퓨팅 벤치마크 점수를 비교합니다.
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: afe1bddd5822b506dcf2c177fc308b717ddc2129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61deac4c94902dc392a23f05674e2b1fb3f3cf87
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580454"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373422"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM의 컴퓨팅 벤치마크 점수
 다음 CoreMark 벤치마크 점수는 Ubuntu를 실행하는 Azure의 고성능 VM 라인업에 대한 컴퓨팅 성능을 보여 줍니다. [Windows Vm](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
@@ -151,7 +151,7 @@ ms.locfileid: "82580454"
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | 표준 편차 | 표준 Dev% | #실행 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 7.8 | 20359 | 799 | 3.93% | 154 |
-| Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20737 | 1422 | 6.86% | 546 |
+| Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20737 | 1,422 | 6.86% | 546 |
 | Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 15.7 | 40095 | 1501 | 3.74% | 147 |
 | Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15.7 | 41147 | 2706 | 6.58% | 546 |
 | Standard_D8_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 80383 | 1486 | 1.85% | 133 |

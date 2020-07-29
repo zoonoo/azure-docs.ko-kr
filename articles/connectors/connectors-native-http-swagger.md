@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831928"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281466"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 REST 엔드포인트 호출
 
@@ -27,11 +28,11 @@ ms.locfileid: "83831928"
 
   * Swagger 파일은 공개적으로 액세스할 수 있는 HTTPS URL에 호스팅해야 합니다.
 
-  * Swagger 파일은 [CORS(원본 간 리소스 공유)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)를 사용해야 합니다.
+  * Swagger 파일은 [CORS(원본 간 리소스 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)를 사용해야 합니다.
 
   호스트되지 않았거나 보안 및 원본 간 요구 사항을 충족하지 않는 Swagger 파일을 참조하려면 [Azure Storage 계정의 Blob 컨테이너에 Swagger 파일을 업로드하고](#host-swagger) 이 스토리지 계정에서 CORS를 사용하도록 설정하여 해당 파일을 참조할 수 있습니다.
 
-  이 토픽의 예에서는 [Cognitive Services 계정 및 액세스 키](../cognitive-services/cognitive-services-apis-create-account.md)를 필요로 하는 [Cognitive Services Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)를 사용합니다.
+  이 토픽의 예에서는 [Cognitive Services 계정 및 액세스 키](../cognitive-services/cognitive-services-apis-create-account.md)를 필요로 하는 [Cognitive Services Face API](../cognitive-services/face/overview.md)를 사용합니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
@@ -117,7 +118,7 @@ ms.locfileid: "83831928"
 
 Azure Storage 계정의 Blob 컨테이너에 Swagger 파일을 업로드하고 이 스토리지 계정에서 CORS를 사용하도록 설정하여 호스트되지 않았거나 보안 및 원본 간 요구 사항을 충족하지 않는 Swagger 파일을 참조할 수 있습니다. Azure Storage에서 Swagger 파일을 만들고 설정하고 저장하려면 다음 단계를 수행합니다.
 
-1. [Azure Storage 계정 만들기](../storage/common/storage-create-storage-account.md)
+1. [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)
 
 1. 이제 Blob에 CORS를 사용하도록 설정합니다. 스토리지 계정 메뉴에서 **CORS**를 선택합니다. **Blob service** 탭에서 이러한 값을 지정한 다음, **저장**을 선택합니다.
 
@@ -165,3 +166,4 @@ HTTP + Swagger 트리거 또는 동작의 출력에 대한 자세한 내용은 �
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026512"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311571"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
 Microsoft ID 플랫폼에서 SPA(단일 페이지 애플리케이션)를 등록하려면 다음 단계를 완료합니다. 암시적 허용 흐름을 지원하는 MSAL.js 1.0 및 PKCE를 사용하는 인증 코드 흐름을 지원하는 MSAL.js 2.0의 등록 단계는 서로 다릅니다.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>앱 등록 만들기
 
@@ -67,7 +69,7 @@ MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 
 
 이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **ID 토큰** 및 **액세스 토큰** 중 하나 또는 둘 다를 선택하여 암시적 허용 흐름을 사용하도록 설정했습니다.
 
-추가 지침을 보려면 [자습서](tutorial-v2-javascript-spa.md) 를 따르세요. 
+추가 지침을 보려면 [자습서](tutorial-v2-javascript-spa.md) 를 따르세요.
 
 ## <a name="note-about-authorization-flows"></a>권한 부여 흐름에 대한 참고 사항
 

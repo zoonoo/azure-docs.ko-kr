@@ -5,16 +5,17 @@ description: 자동화 된 ML 모델이 기능 중요도를 결정 하 고 Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 13fd9aaa58032f4fc4d2e31c1341001109b09e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072266"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306420"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretability: 자동화 된 machine learning (미리 보기)의 모델 설명
 
@@ -30,7 +31,7 @@ ms.locfileid: "87072266"
 - 시각화를 사용 하 여 데이터 및 설명의 패턴을 쉽게 확인할 수 있습니다.
 - 유추 또는 점수 매기기 중 interpretability을 구현 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Interpretability 기능. `pip install azureml-interpret azureml-contrib-interpret`을 실행 하 여 필요한 패키지를 가져옵니다.
 - 자동화 된 ML 실험 빌드에 대 한 지식. Azure Machine Learning SDK를 사용 하는 방법에 대 한 자세한 내용은이 [회귀 모델 자습서](tutorial-auto-train-models.md) 를 완료 하거나 [자동화 된 ML 실험을 구성](how-to-configure-auto-train.md)하는 방법을 참조 하세요.

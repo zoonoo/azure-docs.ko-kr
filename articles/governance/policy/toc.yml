@@ -228,6 +228,8 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: 리소스
   items:
+    - name: 알려진 문제
+      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: GitHub - Azure Policy 샘플
       href: 'https://github.com/Azure/azure-policy'
     - name: GitHub - 커뮤니티 정책 리포지토리
@@ -246,8 +248,8 @@
           href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
         - name: 수정 작업
           href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: 동영상 - 빌드 2018
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: 비디오 - Ignite 2019
+      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 요금 계산기

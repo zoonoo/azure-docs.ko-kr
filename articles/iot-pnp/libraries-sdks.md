@@ -1,41 +1,45 @@
 ---
 title: IoT 플러그 앤 플레이 라이브러리 및 Sdk
 description: IoT 플러그 앤 플레이 사용 솔루션을 개발 하는 데 사용할 수 있는 장치 및 서비스 라이브러리에 대 한 정보입니다.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/08/2020
+author: rido-min
+ms.author: rmpablos
+ms.date: 07/22/2020
 ms.topic: reference
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 394edc24cfeefb96cb2f412985cb990a2306bb09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3331a0a9a8d3fb5d028d801d334daf2dbfa25235
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80064340"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337333"
 ---
 # <a name="iot-plug-and-play-libraries-and-sdks"></a>IoT 플러그 앤 플레이 라이브러리 및 Sdk
 
 IoT 플러그 앤 플레이 라이브러리 및 Sdk를 통해 개발자는 여러 플랫폼에서 다양 한 프로그래밍 언어를 사용 하 여 IoT 솔루션을 빌드할 수 있습니다. 다음 표에서는 시작 하는 데 도움이 되는 샘플 및 빠른 시작에 대 한 링크를 제공 합니다.
 
-## <a name="microsoft-supported-libraries-and-sdks"></a>Microsoft 지원 라이브러리 및 Sdk
+## <a name="microsoft-sdks-for-iot-plug-and-play"></a>IoT 용 Microsoft Sdk 플러그 앤 플레이
 
-| 플랫폼 | 라이브러리/패키지 | 소스 코드 | 예제 | 빠른 시작 | 참고 |
-| -------- | ------- | ----------- | ------ | ---------- | --------- |
-| C/Linux  | [Apt의 장치 SDK-get](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#aptgetpackage) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [디지털 쌍 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [IoT Hub에 연결](./quickstart-connect-pnp-device-c-linux.md) | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/Windows  | [Vcpkg의 장치 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/doc/setting_up_vcpkg.md#setup-c-sdk-vcpkg-for-windows-development-environment) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [디지털 쌍 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) | [IoT Hub에 연결](./quickstart-connect-pnp-device-c-windows.md) | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/mbed  | [EMBED의 장치 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#mbed) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [디지털 쌍 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) |  | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/Arduino  | [Arduino IDE의 장치 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/iothub_client/readme.md#arduino) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [디지털 쌍 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) |  | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C/iOS  | [CocoaPod의 장치 SDK](https://cocoapods.org/pods/AzureIoTHubClient) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) | [디지털 쌍 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/samples) |  | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
-| C#    | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.DigitalTwin.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [디지털 쌍 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/digitaltwin/Samples) | [IoT Hub에 연결](./quickstart-connect-pnp-device-csharp.md) | [참조](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet) |
-| Java   | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/digital-twin-device-client-preview/1.0.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [디지털 쌍 샘플](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/digital-twin/Samples) | [IoT Hub에 연결](./quickstart-connect-pnp-device-java.md) | [참조](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device) |
-| Node.js | [NPM](https://www.npmjs.com/package/azure-iot-digitaltwins-device) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/digitaltwins-preview) | [디지털 쌍 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/digitaltwins-preview/digitaltwins/samples) | [IoT Hub에 연결](./quickstart-connect-pnp-device-node.md) | [참조](https://docs.microsoft.com/javascript/api/azure-iot-device/) |
+**디바이스 SDK**
 
-## <a name="iot-hub-support"></a>IoT Hub 지원
+| 언어 | 패키지 | 코드 리포지토리 | 샘플 | 빠른 시작 | 참조 |
+|---|---|---|---|---|---|
+| C-장치 | [vcpkg 1.3.9](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md) | [GitHub](https://github.com/Azure/azure-iot-sdk-c/releases/tag/2020-07-19) | [샘플](https://github.com/Azure/azure-iot-sdk-c/tree/2020-07-19/iothub_client/samples/pnp) | [IoT Hub에 연결](quickstart-connect-device-c.md) | [참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) |
+| .NET-장치 | [NuGet 1.27.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/1.27.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/) | [샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples/PnpDeviceSamples) | [IoT Hub에 연결](quickstart-connect-device-csharp.md) | [참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client?view=azure-dotnet) |
+| Java-장치 | [Maven 1.24.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client/1.24.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/master/) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample) | [IoT Hub에 연결](quickstart-connect-device-java.md) | [참조](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device?view=azure-java-stable) |
+| Python-장치 | [pip 2.1.4](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/) | [샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp) | [IoT Hub에 연결](quickstart-connect-device-python.md) | [참조](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device?view=azure-python) |
+| 노드-장치 | [npm 1.17.0](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp) | [IoT Hub에 연결](quickstart-connect-device-node.md) | [참조](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-node-latest) |
 
-IoT 플러그 앤 플레이 장치 기능은 [무료 및 표준 계층 IoT hubs](../iot-hub/iot-hub-scaling.md)에서만 지원 됩니다.
+**서비스 Sdk (미리 보기)**
+
+| 언어 | 패키지 | 코드 리포지토리 | 샘플 | 빠른 시작 | 참조 |
+|---|---|---|---|---|---|
+| .NET-IoT Hub service 미리 보기 | [NuGet 1.27.1-미리 보기-002](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.27.1-preview-002 ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh) | [샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/pnp-preview-refresh/iothub/service/samples/PnpServiceSamples) | na | [참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet) |
+| Java-IoT Hub service 미리 보기 | [Maven 1.1.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client-preview/1.1.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/pnp-preview-refresh/service/iot-service-samples/pnp-service-sample) | na | [참조](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable) |
+| Python-IoT Hub/Digital Twins 서비스 미리 보기 | [pip 2.2.1 rc1](https://pypi.org/project/azure-iot-hub/2.2.1rc1/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh) | [샘플](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh/azure-iot-hub/samples) | [IoT Hub Digital Twins API와 상호 작용](quickstart-service-python.md) | [참조](https://docs.microsoft.com/python/api/azure-iot-hub/?view=azure-python) |
+| 노드 IoT Hub/디지털 Twins 서비스 미리 보기 | [npm 1.0.0-pnp-refresh. 3](https://www.npmjs.com/package/azure-iot-digitaltwins-service/v/1.0.0-pnp-refresh.3) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh/digitaltwins/samples/service/javascript) | [IoT Hub Digital Twins API와 상호 작용](quickstart-service-node.md) | [참조](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-node-latest) |
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 Sdk 및 라이브러리 외에도 REST Api를 사용 하 여 모델 리포지토리와 상호 작용할 수 있습니다.
+Sdk 및 라이브러리를 사용해 보려면 [개발자 가이드](concepts-developer-guide.md) 및 [장치](quickstart-connect-device-c.md) 빠른 시작 및 [서비스 퀵 스타트](quickstart-service-node.md)를 참조 하세요.

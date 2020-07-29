@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP �
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 89068210e0a2656c0a0642417532b28d8f10d93a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 38caddeece7b8e2a49d09e25a22e9996cf65d069
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335956"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -69,6 +69,9 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 수신 컨트롤러의 **IP 주소** 와 FQDN 접두사에 사용할 **고유 이름을** 사용 하 여 다음 스크립트를 업데이트 합니다.
 
+> [!IMPORTANT]
+> 명령을 실행할 때 *STATIC_IP* 및 *DNS_LABEL* 을 고유한 IP 주소 및 고유한 이름으로 바꾸어야 합니다.
+
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
@@ -83,7 +86,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
 
 NGINX 수신 컨트롤러에 대해 Kubernetes 부하 분산 장치 서비스를 만든 경우 다음 예제 출력에 표시된 대로 고정 IP 주소를 할당합니다.

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9c927015114bb0e7230dcb96cd16a81e7763f64d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325885"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372113"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,6 +34,8 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 
 * Azure Machine Learning SDK, Machine Learning CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 AKS 클러스터를 만듭니다. 이 프로세스는 클러스터를 작업 영역에 자동으로 연결 합니다.
 * 기존 AKS 클러스터를 Azure Machine Learning 작업 영역에 연결 합니다. Azure Machine Learning SDK, Machine Learning CLI 또는 Azure Machine Learning studio를 사용 하 여 클러스터를 연결할 수 있습니다.
+
+AKS 클러스터 및 AML 작업 영역은 다른 리소스 그룹에 있을 수 있습니다.
 
 > [!IMPORTANT]
 > 생성 또는 첨부 파일 프로세스는 일회성 작업입니다. AKS 클러스터가 작업 영역에 연결 되 면 배포에 사용할 수 있습니다. 더 이상 필요 하지 않은 경우 AKS 클러스터를 분리 하거나 삭제할 수 있습니다. 분리 또는 삭제 된 후에는 더 이상 클러스터에 배포할 수 없습니다.
@@ -61,11 +63,28 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 
 - 이 문서의 __CLI__ 코드 조각은 문서를 만든 것으로 가정 합니다 `inferenceconfig.json` . 이 문서를 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
+- [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)있는 AKS 클러스터를 연결 하는 경우 AKS 클러스터에 대해 AML 연결 OL 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 추론 pod을 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 추론 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정할 때 [쌍을 이루는 지역]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 대 한 [ip 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) 를 사용 합니다.
+ 
+ - 계산 이름은 작업 영역 내에서 고유 해야 합니다.
+   - 이름은 필수 이며 길이가 3 ~ 007e; 24 자 사이 여야 합니다.
+   - 유효한 문자는 대 문자와 소문자, 숫자 및 문자입니다.
+   - 이름은 문자로 시작 해야 합니다.
+   - 이름은 Azure 지역 내의 모든 기존 계산에서 고유 해야 합니다. 선택한 이름이 고유 하지 않으면 경고가 표시 됩니다.
+   
+ - GPU 노드나 FPGA 노드 (또는 특정 SKU)에 모델을 배포 하려면 특정 SKU를 사용 하 여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포 하는 것은 지원 되지 않습니다.
+ 
+ - BLB (기본 Load Balancer) 대신 클러스터에 표준 Load Balancer (SLB)를 배포 해야 하는 경우 AKS portal/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 연결 하세요. 
+
+
+
 ## <a name="create-a-new-aks-cluster"></a>새 AKS 클러스터 만들기
 
-**예상 시간**: 약 20 분.
+**예상 시간**: 약 10 분
 
 작업 영역에 대 한 일회성 프로세스는 AKS 클러스터를 만들거나 연결 하는 것입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 클러스터를 포함 하는 리소스 그룹을 삭제 하는 경우 다음에를 배포 해야 할 때 새 클러스터를 만들어야 합니다. 여러 AKS 클러스터를 작업 영역에 연결할 수 있습니다.
+ 
+이제 Azure Machine Learning에서는 개인 링크가 사용 하도록 설정 된 Azure Kubernetes 서비스를 사용할 수 있습니다.
+개인 AKS 클러스터를 만들려면 [여기](https://docs.microsoft.com/azure/aks/private-clusters) 의 문서를 따르세요.
 
 > [!TIP]
 > Azure Virtual Network를 사용 하 여 AKS 클러스터를 보호 하려면 먼저 가상 네트워크를 만들어야 합니다. 자세한 내용은 [Azure Virtual Network를 사용 하 여 보안 실험 및 유추](how-to-enable-virtual-network.md#aksvnet)를 참조 하세요.

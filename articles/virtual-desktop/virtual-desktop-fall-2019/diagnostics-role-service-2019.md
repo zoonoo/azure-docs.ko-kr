@@ -1,6 +1,6 @@
 ---
-title: Windows 가상 데스크톱 문제 진단-2019-Azure
-description: Windows Virtual Desktop 진단 기능을 사용하여 문제를 진단하는 방법.
+title: Windows 가상 데스크톱 (클래식) 문제 진단-Azure
+description: Windows 가상 데스크톱 (클래식) 진단 기능을 사용 하 여 문제를 진단 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0aad1c780c6695c771d3cfea04509acde65c051e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085863"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285053"
 ---
-# <a name="identify-and-diagnose-issues"></a>문제 식별 및 진단
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)의 문제를 식별 하 고 진단 합니다.
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조 하세요.
 
 Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 지원하는 진단 기능을 제공합니다. Windows Virtual Desktop 역할은 사용자가 시스템과 상호 작용할 때마다 진단 작업을 로깅합니다. 각 로그에는 트랜잭션에 개입한 Windows Virtual Desktop 역할, 오류 메시지, 테넌트 정보, 사용자 정보와 같은 관련 정보가 포함됩니다. 진단 작업은 최종 사용자 작업과 관리자 작업 양쪽에 의해 생성되며, 다음과 같은 세 가지 버킷으로 구분됩니다.
 

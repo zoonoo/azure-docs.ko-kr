@@ -4,18 +4,16 @@ description: 일시 삭제 하는 방법에 대 한 자세한 내용은 실수�
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054377"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282707"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Azure Backup를 사용 하 여 Azure 파일 공유에 대 한 실수로 인 한 삭제 방지
 
-사이버 공격 또는 실수로 인 한 삭제를 방지 하기 위해 각 저장소 계정의 파일 공유에 대 한 백업을 구성할 때 저장소 계정의 모든 파일 공유에 대해 [일시 삭제](../storage/files/storage-files-prevent-file-share-deletion.md) 를 사용할 수 있습니다. 일시 삭제를 사용 하면 악의적인 행위자가 파일 공유를 삭제 하는 경우에도 파일 공유의 내용과 복구 지점은 최소 14 일 동안 보존 되므로 데이터 손실 없이 파일 공유를 복구할 수 있습니다.  
-
-일시 삭제는 standard 및 premium storage 계정에 대해서만 지원 되며 현재 [이러한 지역의](azure-file-share-support-matrix.md)Azure Backup 쪽에서 사용할 수 있습니다.
+사이버 공격 또는 실수로 인 한 삭제를 방지 하기 위해 각 저장소 계정의 파일 공유에 대 한 백업을 구성할 때 저장소 계정의 모든 파일 공유에 대해 [일시 삭제](../storage/files/storage-files-prevent-file-share-deletion.md) 를 사용할 수 있습니다. 일시 삭제를 사용 하면 악의적인 행위자가 파일 공유를 삭제 하는 경우에도 파일 공유의 내용과 복구 지점은 최소 14 일 동안 보존 되므로 데이터 손실 없이 파일 공유를 복구할 수 있습니다.  일시 삭제는 standard 및 premium storage 계정에 대해 지원 되며, 백업 된 파일 공유를 호스트 하는 모든 저장소 계정에 대 한 Azure Backup 하 여 설정을 사용할 수 있습니다.
 
 다음 순서도는 저장소 계정의 파일 공유에 대해 일시 삭제를 사용 하도록 설정한 경우 백업 항목의 여러 단계와 상태를 보여 줍니다.
 

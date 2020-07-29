@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b9be0808d4edc9662c1d3a4144f3102242560564
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 234f772b4a77b780f0b0c1faf307c93847e5caf2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075358"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310721"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 Azure Monitor Application Insights 이란?
 
@@ -47,7 +47,7 @@ Application Insights 다양 한 리소스 공급자와 통합 되며 여러 환�
 
 App Service의 Java 및 Node.js 응용 프로그램에 대 한 모니터링은 공개 미리 보기 이며 모든 지역에서 사용할 수 있는 Azure Portal에서 사용 가능 합니다.
 
-## <a name="azure-functions"></a>Azure Functions
+## <a name="azure-functions"></a>Azure 기능
 
 기본적으로 Azure Functions에 대 한 기본 모니터링을 사용 하 여 로그, 성능, 오류 데이터 및 HTTP 요청을 수집 합니다. Java 응용 프로그램의 경우 분산 추적을 통해 다양 한 모니터링을 사용 하도록 설정 하 고 종단 간 트랜잭션 세부 정보를 얻을 수 있습니다. Java 용이 기능은 공개 미리 보기 상태 이며 [Azure Portal에서 사용 하도록 설정할](./monitor-functions.md)수 있습니다.
 
@@ -68,5 +68,6 @@ Azure Kubernetes Service의 코드 없는 계측은 현재 [독립 실행형 에
 ## <a name="next-steps"></a>다음 단계
 
 * [Application Insights 개요](./app-insights-overview.md)
-* [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
-* [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)
+* [애플리케이션 맵](./app-map.md)
+* [엔드투엔드 성능 모니터링](../learn/tutorial-performance.md)
+

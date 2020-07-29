@@ -3,12 +3,12 @@ title: Azure Event Hubs-리소스 관리자 예외 | Microsoft Docs
 description: Azure Resource Manager 및 제안 된 작업으로 표시 되는 Azure Event Hubs 예외 목록입니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d8d52f0a0c58ee756afa4d5d8599e2981edb9cdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1a3ca647bbf9e6590446549455a9853411fd7d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312519"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281041"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs-리소스 관리자 예외
 이 문서에서는 Azure Resource Manager via 템플릿 또는 직접 호출을 사용 하 여 Azure Event Hubs와 상호 작용할 때 생성 되는 예외를 나열 합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "85312519"
 | BadRequest | 없음 | 보조 네임 스페이스를 업데이트할 수 없습니다. | 네임 스페이스는 [Geodr 페어링](event-hubs-geo-dr.md)의 보조 네임 스페이스 이므로 업데이트할 수 없습니다. | 해당 하는 경우이 페어링의 기본 네임 스페이스를 대신 변경 합니다. 그렇지 않으면 GeoDR 페어링을 중단 하 여 변경 합니다. |
 | BadRequest | 없음 | 기본 SKU에서 자동 확장을 설정할 수 없습니다. | 기본 계층 Event Hubs 네임 스페이스에서 자동 확장을 사용 하도록 설정할 수 없습니다. | 네임 스페이스에서 자동 확장을 [사용](event-hubs-auto-inflate.md) 하려면 표준 계층 인지 확인 합니다. |
 | BadRequest | 없음 | 용량이 부족 하 여 네임 스페이스를 만들 수 없습니다. Event Hubs 관리자에 게 문의 하십시오. | 선택한 지역이 용량에 있고 더 이상 네임 스페이스를 만들 수 없습니다. | 네임 스페이스를 저장할 다른 지역을 선택 합니다. |
-| BadRequest | 없음 | ' Namespace name ' 네임 스페이스에서 ' Basic ' 계층을 사용 하 고 있으므로 엔터티 형식 ' ConsumerGroup '에 대 한 작업을 수행할 수 없습니다.  | 기본 계층 Event Hubs 네임 스페이스에는 소비자 그룹 하나 (기본값)의 [quota] ((event hubs-할당량과 # event-and-standard---할당량 및 제한)가 있습니다. 추가 소비자 그룹을 만드는 것은 지원 되지 않습니다. | 기본 소비자 그룹 ($Default)을 계속 사용 하거나, 필요한 경우 표준 계층 Event Hubs 네임 스페이스를 대신 사용 하는 것이 좋습니다. | 
+| BadRequest | 없음 | ' Namespace name ' 네임 스페이스에서 ' Basic ' 계층을 사용 하 고 있으므로 엔터티 형식 ' ConsumerGroup '에 대 한 작업을 수행할 수 없습니다.  | 기본 계층 Event Hubs 네임 스페이스에는 소비자 그룹 하나 (기본값)의 [할당량이](event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-and-limits) 있습니다. 추가 소비자 그룹을 만드는 것은 지원 되지 않습니다. | 기본 소비자 그룹 ($Default)을 계속 사용 하거나, 필요한 경우 표준 계층 Event Hubs 네임 스페이스를 대신 사용 하는 것이 좋습니다. | 
 | BadRequest | 없음 | 네임 스페이스 ' 네임 스페이스 이름 '이 없습니다. | 제공 된 네임 스페이스를 찾을 수 없습니다. | 네임 스페이스 이름이 올바르고 구독에서 찾을 수 있는지 확인 합니다. 그렇지 않으면 [Event Hubs 네임 스페이스를 만듭니다](event-hubs-create.md). | 
 | BadRequest | 없음 | 리소스의 location 속성이 포함 하는 네임 스페이스와 일치 하지 않습니다. | 특정 지역에 이벤트 허브를 만들지 못했습니다 .이는 네임 스페이스의 지역과 일치 하지 않기 때문입니다. | 네임 스페이스와 동일한 지역에 이벤트 허브를 만들어 보세요. | 
 

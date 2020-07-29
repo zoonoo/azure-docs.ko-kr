@@ -13,12 +13,12 @@ ms.date: 07/16/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ea207a4584d9f4fad5dee45b3633c306a8d98b3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4274292dfbd53abed09dfeae77ec976afe9ebc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282962"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -184,6 +184,59 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
+
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>OAuth2.0 OBO 흐름을 통해 획득한 SAML 어설션
+
+일부 OAuth 기반 웹 서비스는 비대화형 흐름에서 SAML 어설션을 수락하는 다른 웹 서비스 API에 액세스해야 합니다. Azure Active Directory는 SAML 기반 웹 서비스를 사용하는 On-Behalf-Of 흐름에 대응하여 SAML 어설션을 대상 리소스로 제공할 수 있습니다.
+
+>[!NOTE]
+>이 어설션은 OAuth2 기반 애플리케이션이 SAML 토큰을 사용하는 웹 서비스 API 엔드포인트에 액세스할 수 있는 OAuth 2.0 On-Behalf-Of 흐름에 대한 비표준 확장입니다.
+
+> [!TIP]
+> 프런트 엔드 웹 애플리케이션에서 SAML로 보호되는 웹 서비스를 호출하는 경우 간단히 API를 호출하고 사용자 기존 세션을 사용하여 일반적인 대화형 인증 흐름을 시작할 수 있습니다. 서비스 간 호출이 사용자 컨텍스트를 제공하기 위해 SAML 토큰을 요구할 경우에만 OBO 흐름을 사용해야 합니다.
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>공유 비밀을 통해 OBO 요청을 사용하여 SAML 토큰 가져오기
+
+SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
+
+| 매개 변수 | Type | 설명 |
+| --- | --- | --- |
+| grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다.|
+| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
+| client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
+| 리소스 |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
+| requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
+| requested_token_type | required | 요청된 토큰의 형식을 지정합니다. 값은 액세스된 리소스의 요구 사항에 따라 **urn:ietf:params:oauth:token-type:saml2** 또는 **urn:ietf:params:oauth:token-type:saml1**입니다. |
+
+응답에는 UTF8 및 Base64url로 인코딩된 SAML 토큰이 포함됩니다.
+
+- **OBO 호출에 기반한 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에서 **SubjectConfirmationData**의 받는 사람 값이 필요한 경우 이 값은 리소스 애플리케이션 구성의 비 와일드카드 회신 URL이어야 합니다.
+- **SubjectConfirmationData 노드**: 이 노드는 SAML 응답의 일부가 아니므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
+
+- **동의**: OAuth 흐름에서 사용자 데이터가 포함된 SAML 토큰을 받으려면 동의를 부여해야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent)를 참조하세요.
+
+### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
+
+| 매개 변수 | 설명 |
+| --- | --- |
+| token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
+| scope |토큰에 부여된 액세스 범위입니다. |
+| expires_in |액세스 토큰이 유효한 기간(초)입니다. |
+| expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
+| resource |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
+| access_token |SAML 어설션을 반환하는 매개 변수입니다. |
+| refresh_token |토큰 새로 고침. 호출 서비스는 이 토큰을 사용하여 현재 SAML 어설션이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
+
+- token_type: 전달자
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- resource: `https://api.contoso.com`
+- access_token:\<SAML assertion\>
+- issued_token_type: urn:ietf:params:oauth:token-type:saml2
+- refresh_token:\<Refresh token\>
+
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>중간 계층 애플리케이션에 대한 동의 얻기
 

@@ -1,6 +1,6 @@
 ---
-title: Windows 7 가상 컴퓨터 배포 Windows 가상 데스크톱에서 2019-Azure
-description: Windows 가상 데스크톱에서 Windows 7 가상 컴퓨터를 구성 하 고 배포 하는 방법을 설명 합니다.
+title: Windows 7 가상 머신 Windows 가상 데스크톱 (클래식) 배포-Azure
+description: Windows 가상 데스크톱 windows 가상 데스크톱 (클래식)에서 Windows 7 가상 컴퓨터를 구성 하 고 배포 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d8ce67f129844c09a93b29c8100fe28096c520c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99c82f63e88815edba13bf88ba23c18493649dd9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085880"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285087"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop---fall-2019"></a>Windows 가상 데스크톱에 Windows 7 가상 컴퓨터 배포-2019
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에 Windows 7 가상 컴퓨터 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../deploy-windows-7-virtual-machine.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. 현재 버전의 Windows 가상 데스크톱에서 도입 된 Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../deploy-windows-7-virtual-machine.md)를 참조 하세요.
 
 Windows 가상 데스크톱에 Windows 7 VM (가상 컴퓨터)을 배포 하는 프로세스는 이후 버전의 Windows를 실행 하는 Vm과 약간 다릅니다. 이 가이드에서는 Windows 7을 배포 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell-2019.md) 의 지침에 따라 호스트 풀을 만듭니다. 그런 다음 [Azure Marketplace에서 호스트 풀 만들기](create-host-pools-azure-marketplace-2019.md#optional-assign-additional-users-to-the-desktop-application-group) 의 지침에 따라 데스크톱 응용 프로그램 그룹에 하나 이상의 사용자를 할당 합니다.
 

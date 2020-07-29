@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870ec6997b0abf5afc1c1bfa788bbca18c08ead7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84141996"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283999"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -155,7 +156,7 @@ ms.locfileid: "84141996"
 
 ## <a name="send-correlated-messages-in-order"></a>상관 관계가 지정 된 메시지를 순서 대로 보냅니다.
 
-관련 메시지를 특정 순서로 보내야 하는 경우에는 [Azure Service Bus 커넥터](../connectors/connectors-create-api-servicebus.md)를 사용 하 여 [ *순차 호위 (convoy* ) 패턴](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) 을 사용할 수 있습니다. 상관 관계가 지정 된 메시지에는 Service Bus [세션](../service-bus-messaging/message-sessions.md) 의 ID와 같은 해당 메시지 간의 관계를 정의 하는 속성이 있습니다.
+관련 메시지를 특정 순서로 보내야 하는 경우에는 [Azure Service Bus 커넥터](../connectors/connectors-create-api-servicebus.md)를 사용 하 여 [ *순차 호위 (convoy* ) 패턴](/azure/architecture/patterns/sequential-convoy) 을 사용할 수 있습니다. 상관 관계가 지정 된 메시지에는 Service Bus [세션](../service-bus-messaging/message-sessions.md) 의 ID와 같은 해당 메시지 간의 관계를 정의 하는 속성이 있습니다.
 
 논리 앱을 만들 때 순차 호위 (convoy) 패턴을 구현 하는 **service bus 세션 템플릿을 사용 하 여 상관 관계가 지정 된 순서 대로 배달을** 선택할 수 있습니다. 자세한 내용은 [순서 대로 관련 메시지 보내기](../logic-apps/send-related-messages-sequential-convoy.md)를 참조 하세요.
 
@@ -170,3 +171,4 @@ Service Bus 커넥터는 Service Bus에서 커넥터 캐시로 최대 1500 개�
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

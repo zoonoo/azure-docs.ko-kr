@@ -4,15 +4,15 @@ description: 파트너 센터를 사용 하 여 Azure Marketplace에서 IoT Edge
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: b2a1e523e2af8c0be9c4211dfc8a0ffd2a889ca0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053658"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320037"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -229,7 +229,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 3. 지원 주소 (링크)
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
-6. 이름
+6. Name
 7. 요약
 8. 설명
 9. 유용한 링크
@@ -251,7 +251,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. 이름
+1. Name
 2. 설명
 3. 유용한 링크
 4. 스크린샷

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036474"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284713"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스
 주 통합 부팅 로더 (GRUB)는 VM (가상 머신)을 부팅할 때 가장 먼저 표시 될 것입니다. 운영 체제를 시작 하기 전에 표시 되기 때문에 GRUB는 SSH를 통해 액세스할 수 없습니다. GRUB에서 부팅 구성이 단일 사용자 모드로 부팅 되도록 수정할 수 있습니다.
@@ -164,7 +164,7 @@ GRUB에 액세스 하려면 VM이 부팅 되는 동안 Esc 키를 누릅니다.
 1. 텍스트 편집기에서 */etc/default/grub*을 엽니다.
 1. 줄을 주석으로 처리 `GRUB_HIDDEN_TIMEOUT=1` 합니다.
 1. 줄이 있는지 확인 `GRUB_TIMEOUT_STYLE=menu` 합니다.
-1. `sudo update-grub`를 실행합니다.
+1. `sudo update-grub`을 실행합니다.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
 Ubuntu를 정상적으로 부팅할 수 없는 경우 사용자를 단일 사용자 모드로 자동으로 삭제 합니다. 단일 사용자 모드를 수동으로 입력 하려면 다음을 수행 합니다.
@@ -241,7 +241,7 @@ Oracle Linux에서 단일 사용자 모드를 사용 하도록 설정 하려면 
 ## <a name="next-steps"></a>다음 단계
 직렬 콘솔에 대 한 자세한 내용은 다음을 참조 하세요.
 * [Linux 직렬 콘솔 설명서](serial-console-linux.md)
-* [직렬 콘솔을 사용 하 여 다양 한 배포에서 GRUB 사용](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
+* [직렬 콘솔을 사용 하 여 다양 한 배포에서 GRUB 사용](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [NMI 및 SysRq 호출에 직렬 콘솔 사용](serial-console-nmi-sysrq.md)
 * [Windows Vm 용 직렬 콘솔](serial-console-windows.md)
 * [부트 진단](boot-diagnostics.md)

@@ -1,6 +1,6 @@
 ---
 title: Microsoft 글로벌 네트워크 - Azure
-description: Microsoft에서 빠르고 신뢰할 수 있는 글로벌 네트워크를 구축하는 방법 설명
+description: Microsoft에서 전 세계의 가장 큰 백본 네트워크 중 하나를 빌드하고 운영 하는 방법과 우수한 클라우드 환경을 제공 하는 것이 중요 한 이유를 알아보세요.
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125824"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280905"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 

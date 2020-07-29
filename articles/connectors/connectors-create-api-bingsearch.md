@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75665890"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284067"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>을 사용 하 여 Bing Search 결과 찾기 Azure Logic Apps
 
@@ -20,9 +21,9 @@ ms.locfileid: "75665890"
 예를 들어 검색 조건에 따라 뉴스 항목을 찾고, Twitter에서 해당 항목을 Twitter 피드의 트윗으로 게시할 수 있습니다.
 
 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
-커넥터 관련 기술 정보는 [Bing Search 커넥터 참조](https://docs.microsoft.com/connectors/bingsearch/)를 참조하세요.
+커넥터 관련 기술 정보는 [Bing Search 커넥터 참조](/connectors/bingsearch/)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Cognitive Services 계정](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -58,7 +59,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
    | Offset | 아니요 | <*skip-값*> | 결과를 반환하기 전에 건너뛸 결과 수입니다. |
    |||||
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ![트리거 설정](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -154,7 +155,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    | API 키 | 예 | <*API 키*> | 이전에 가져온 Bing Search API 키입니다. 키가 없는 경우 [이제 API 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 가져옵니다. |  
    |||||  
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ![연결 만들기](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
@@ -167,3 +168,4 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+

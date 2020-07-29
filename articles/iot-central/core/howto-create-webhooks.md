@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 7cb80b54c75d637842c5f50d9336629dedf758fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2ac4bbf1457144d23a91c4e83b554b3ee806119
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100127"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337231"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Azure IoT Central에서 규칙에 대해 웹후크 작업 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "82100127"
 
 이제 규칙이 트리거되면 RequestBin에 새 요청이 표시 됩니다.
 
-## <a name="payload"></a>페이로드
+## <a name="payload"></a>Payload
 
 규칙이 트리거되면 원격 분석, 장치, 규칙 및 응용 프로그램 세부 정보를 사용 하 여 json 페이로드를 포함 하는 콜백 URL에 대해 HTTP POST 요청이 수행 됩니다. 페이로드는 다음과 같습니다.
 
@@ -143,7 +143,7 @@ ms.locfileid: "82100127"
     }],
     "application": {
         "id": "<id>",
-        "displayName": "x - Store Analytics Checkout---PnP",
+        "displayName": "x - Store Analytics Checkout",
         "subdomain": "<subdomain>",
         "host": "<host>"
     }
