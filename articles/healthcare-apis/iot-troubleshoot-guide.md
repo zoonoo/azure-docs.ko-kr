@@ -8,18 +8,18 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: e74e3475256858955a5ab0dc99e7b858548e2485
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eff1272318413da7855134b0a8a44dd0a0711a6c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099393"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285580"
 ---
-# <a name="iot-connector-preview-troubleshooting-guide-and-how-to"></a>IoT 커넥터 (미리 보기) 문제 해결 가이드 및 방법
+# <a name="iot-connector-preview-troubleshooting-guide"></a>IoT 커넥터 (미리 보기) 문제 해결 가이드
 
-이 문서에서는 일반적인 IoT 커넥터 (미리 보기) 오류 메시지 및 조건 문제를 해결 하는 방법을 알아봅니다.
+이 문서에서는 일반적인 IoT 커넥터 (미리 보기) 오류 메시지 및 조건 문제를 해결 하는 단계를 제공 합니다.  
 
-또한 IoT 커넥터 (미리 보기) JSON 매핑의 복사본을 만드는 방법을 알아봅니다.
+또한 Azure Portal 외부에서 편집 및 보관 하기 위해 IoT 커넥터 (미리 보기) JSON 매핑 파일의 복사본을 만드는 방법에 대해 알아봅니다.
 
 ## <a name="error-messages-and-fixes"></a>오류 메시지 및 수정
 

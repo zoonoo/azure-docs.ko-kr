@@ -4,15 +4,15 @@ description: Azure에서 가상 머신을 실행 하기 위한 지역에 대해 
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
-ms.openlocfilehash: 5cff97e7fea2cf9ef4da87e2d2ec700678d1d39b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 44370b378899228949aa1bddcc92570ad282fe92
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531625"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284730"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역
 
@@ -75,7 +75,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 데이터가 여러 시설에 걸쳐 복제됩니다. |예 |예 |예 |예 |
+| 데이터가 여러 시설에 걸쳐 복제됩니다. |예 |예 |yes |yes |
 | 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |예 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 

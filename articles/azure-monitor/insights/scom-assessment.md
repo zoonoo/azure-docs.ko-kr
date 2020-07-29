@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045695"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326055"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -203,7 +203,7 @@ System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Mi
 
 ## <a name="use-health-check-focus-area-recommendations"></a>상태 검사 사용 초점 영역 권장 사항
 
-Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 자세히 알아보려면 [관리 솔루션 설치](../../azure-monitor/insights/solutions.md)를 참조하세요. 설치 후 Azure Portal의 사용자 작업 영역에 대한 **개요** 페이지에서 System Center Operations Manager Health Check 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
+Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 자세히 알아보려면 [관리 솔루션 설치](./solutions.md)를 참조하세요. 설치 후 Azure Portal의 사용자 작업 영역에 대한 **개요** 페이지에서 System Center Operations Manager Health Check 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
 
 인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
@@ -229,7 +229,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,4 +295,5 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로그를 검색하여](../../azure-monitor/log-query/log-query-overview.md) 상세 System Center Operations Manager Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+- [로그를 검색하여](../log-query/log-query-overview.md) 상세 System Center Operations Manager Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+

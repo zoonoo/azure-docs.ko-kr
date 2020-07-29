@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 675391a92c991f80faadf8b75abc79dcb4cd19d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322961"
+ms.locfileid: "87335565"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -30,9 +30,9 @@ ms.locfileid: "87322961"
 
 또한 계층은 IoT Hub가 모든 작업에 강제로 적용하는 조정 제한을 결정합니다.
 
-### <a name="iot-plug-and-play"></a>IoT 플러그 앤 플레이
+## <a name="iot-plug-and-play"></a>IoT 플러그 앤 플레이
 
-공개 미리 보기 중 IoT 플러그 앤 플레이 장치는 인터페이스 마다 별도의 메시지를 전송 하 여 메시지 할당량에 대해 계산 되는 메시지 수를 늘릴 수 있습니다.
+IoT 플러그 앤 플레이 장치는 루트를 포함 하 여 각 인터페이스에 대 한 원격 분석 메시지를 하나 이상 전송 하 여 메시지 할당량으로 계산 되는 메시지 수를 늘릴 수 있습니다.
 
 ## <a name="operation-throttles"></a>작업 제한
 

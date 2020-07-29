@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751641"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371688"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -512,7 +512,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: 전송 중인 모든 중요한 정보 암호화
 
-**지침**: 저장소 계정에 대해 보안 전송 필요를 사용 하도록 설정 하 여 HTTPS 사용을 적용할 수 있습니다. 설정된 경우 HTTP를 사용한 연결은 거부됩니다. 또한 Azure Security Center 및 Azure Policy를 사용 하 여 저장소 계정에 대 한 보안 전송을 적용 합니다.
+**지침**: 저장소 계정에 대해 보안 전송 필요를 사용 하도록 설정 하 여 HTTPS 사용을 적용할 수 있습니다. 이 옵션을 사용하도록 설정하면 HTTP를 사용한 연결이 거부됩니다. 또한 Azure Security Center 및 Azure Policy를 사용 하 여 저장소 계정에 대 한 보안 전송을 적용 합니다.
 
 - [Azure Storage에서 보안 전송을 요구 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)
 
@@ -534,7 +534,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: Azure Active Directory (Azure AD)는 RBAC (역할 기반 액세스 제어)를 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. 
+**지침**: Azure Active Directory (Azure AD)는 RBAC (역할 기반 액세스 제어)를 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다. 
 
 - [Azure Storage 계정에 대 한 RBAC 역할을 할당 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
 

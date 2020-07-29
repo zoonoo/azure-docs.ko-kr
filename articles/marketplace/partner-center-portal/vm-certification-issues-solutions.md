@@ -4,15 +4,15 @@ description: 이 문서에서는 VM 이미지에 대 한 일반적인 오류 메
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: v-miegge
-ms.author: v-krmall
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120656"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319901"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>가상 컴퓨터 인증 중의 문제 및 해결 방법 
 
@@ -29,7 +29,7 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 
 이 오류는 다른 게시자에 속하는 기본 이미지를 사용 하 여 이미지를 업데이트 한 경우에 발생 합니다. 이 경우 이미지를 게시할 수 없습니다.
 
-이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 항목을 참조하세요.
+이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 - [Linux 이미지](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows 이미지](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
@@ -63,7 +63,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면 다음을 수행 
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|해결 방법|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -94,7 +94,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|Description|
+|시나리오|테스트 사례|설명|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -122,7 +122,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|Description|
+|시나리오 |테스트 사례|설명|
 |---|---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -161,7 +161,7 @@ OS 디스크 크기에 대 한 제한 사항은 다음 규칙을 참조 하세�
 
 Vm에서 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기가 VHD에 대해 충분히 큰지 확인 합니다. 디스크가 가동 중지 시간 없이 확장 되지 않으므로 디스크 크기를 30gb에서 50 GB까지 사용 합니다.
 
-|VHD 크기|실제 차지 크기|솔루션|
+|VHD 크기|실제 차지 크기|해결 방법|
 |---|---|---|
 |>500 tebibytes (TiB)|해당 없음|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 |250-500 TiB|Blob 크기와 >200 GiB) 차이|예외 승인에 대해서는 지원 팀에 문의 하세요.|
@@ -207,9 +207,9 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
-||18.10 |4.18.0-1023|
-||19.04 |5.0.0-1010|
-||19.04 |5.3.0-1004|
+||18.10|4.18.0-1023|
+||19.04|5.0.0-1010|
+||19.04|5.3.0-1004|
 |RHEL 및 운영 체제|6.10|2.6.32 커널을-754.15.3|
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
@@ -261,7 +261,7 @@ VM에서 테스트 사례를 실행 하는 동안 액세스 거부 문제가 발
     
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드할 때 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|해결 방법|
 |---|---|---|---|
 |1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -304,7 +304,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|오류|이유|솔루션|
+|Error|이유|해결 방법|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 전송 될 때 LUN (논리 단위 번호)에 잘못 된 숫자가 지정 된 경우에 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 지정 된 SAS URL에서 데이터 디스크를 찾을 수 없기 때문에 발생할 수 있습니다.|데이터 디스크가 요청에 지정 된 SAS URL에 있는지 확인 합니다.|

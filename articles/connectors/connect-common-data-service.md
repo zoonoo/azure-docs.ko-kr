@@ -7,15 +7,16 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997101"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284118"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service에서 레코드 만들기 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Common Data Service 커넥터](https://docs.microsoft.com/connectors/commondataservice/)를 사용 하 여 [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) 데이터베이스에서 레코드를 관리 하는 자동화 된 워크플로를 작성할 수 있습니다. 이러한 워크플로는 레코드를 만들고, 레코드를 업데이트 하 고, 기타 작업을 수행할 수 있습니다. Common Data Service 데이터베이스에서 정보를 가져와 논리 앱에서 사용할 수 있는 다른 작업에 대 한 출력을 제공할 수도 있습니다. 예를 들어 Common Data Service 데이터베이스에서 레코드가 업데이트 되는 경우 Office 365 Outlook 커넥터를 사용 하 여 전자 메일을 보낼 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Common Data Service 커넥터](/connectors/commondataservice/)를 사용 하 여 [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) 데이터베이스에서 레코드를 관리 하는 자동화 된 워크플로를 작성할 수 있습니다. 이러한 워크플로는 레코드를 만들고, 레코드를 업데이트 하 고, 기타 작업을 수행할 수 있습니다. Common Data Service 데이터베이스에서 정보를 가져와 논리 앱에서 사용할 수 있는 다른 작업에 대 한 출력을 제공할 수도 있습니다. 예를 들어 Common Data Service 데이터베이스에서 레코드가 업데이트 되는 경우 Office 365 Outlook 커넥터를 사용 하 여 전자 메일을 보낼 수 있습니다.
 
 이 문서에서는 새 잠재 고객 레코드를 만들 때마다 작업 레코드를 만드는 논리 앱을 빌드하는 방법을 보여 줍니다.
 
@@ -23,10 +24,10 @@ ms.locfileid: "82997101"
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 조직에서 비즈니스 데이터 및 Common Data Service 데이터베이스를 저장, 관리 및 공유 하는 공간에 해당 하는 [Common Data Service 환경](https://docs.microsoft.com/power-platform/admin/environments-overview)입니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요.<p>
+* 조직에서 비즈니스 데이터 및 Common Data Service 데이터베이스를 저장, 관리 및 공유 하는 공간에 해당 하는 [Common Data Service 환경](/power-platform/admin/environments-overview)입니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요.<p>
 
-  * [자세한 정보: Common Data Service 시작](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [전원 플랫폼-환경 개요](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [자세한 정보: Common Data Service 시작](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)
 
 * Common Data Service 데이터베이스의 레코드에 액세스 하려는 논리 앱 및 논리 앱을 [만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 기술 자료입니다. Common Data Service 트리거를 사용 하 여 논리 앱을 시작 하려면 빈 논리 앱이 필요 합니다. Azure Logic Apps를 처음 사용 하는 경우 [빠른 시작: Azure Logic Apps를 사용 하 여 첫 번째 워크플로 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토 하세요.
 
@@ -50,7 +51,7 @@ ms.locfileid: "82997101"
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **환경** | 예 | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](https://docs.microsoft.com/power-platform/admin/environments-overview)를 참조 하세요. |
+   | **환경** | 예 | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)를 참조 하세요. |
    | **엔터티 이름** | 예 | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
    | **범위** | 예 | 새 레코드를 만든 원본 (예: 조직 내 사용자 또는 사업부의 사용자)입니다. 이 예에서는 "비즈니스 단위"를 사용 합니다. |
    ||||
@@ -73,7 +74,7 @@ ms.locfileid: "82997101"
    |----------|----------|-------------|
    | **조직 이름** | 예 | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
    | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
-   | **제목** | 예,이 예제에서 선택한 엔터티를 기반으로 합니다. | 이 작업의 목표에 대 한 간단한 설명입니다. |
+   | **Subject** | 예,이 예제에서 선택한 엔터티를 기반으로 합니다. | 이 작업의 목표에 대 한 간단한 설명입니다. |
    ||||
 
    1. **Subject** 속성의 경우 뒤에 공백을 사용 하 여이 텍스트를 입력 합니다.
@@ -125,7 +126,7 @@ ms.locfileid: "82997101"
 
    ![레코드 필터링을 위한 ODATA 필터 쿼리 입력](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-시스템 쿼리 옵션에 대 한 자세한 내용은 `$filter` [Common Data Service 필터 결과](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results)를 참조 하세요.
+시스템 쿼리 옵션에 대 한 자세한 내용은 `$filter` [Common Data Service 필터 결과](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results)를 참조 하세요.
 
 ## <a name="list-records-based-on-an-order"></a>주문을 기준으로 레코드 나열
 
@@ -139,7 +140,7 @@ ms.locfileid: "82997101"
 
    ![레코드 순서 지정을 위한 ODATA 필터 쿼리 입력](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-시스템 쿼리 옵션에 대 한 자세한 내용은 `$orderby` [Common Data Service 주문 결과](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results)를 참조 하세요.
+시스템 쿼리 옵션에 대 한 자세한 내용은 `$orderby` [Common Data Service 주문 결과](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results)를 참조 하세요.
 
 ## <a name="field-data-types"></a>필드 데이터 형식
 
@@ -165,7 +166,7 @@ ms.locfileid: "82997101"
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 설명 (예: 트리거, 작업, 제한 및 기타 세부 정보)을 기반으로 하는 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/commondataservice/)를 참조 하세요.
+커넥터의 Swagger 설명 (예: 트리거, 작업, 제한 및 기타 세부 정보)을 기반으로 하는 기술 정보는 [커넥터의 참조 페이지](/connectors/commondataservice/)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

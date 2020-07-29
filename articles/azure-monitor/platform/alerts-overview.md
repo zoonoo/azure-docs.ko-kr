@@ -4,12 +4,12 @@ description: Azure의 경고에 대한 개요입니다. 경고, 클래식 경고
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 37980f3cebdee2754a9741a8a45ec6932e7e98ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327126"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371603"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -178,7 +178,7 @@ ms.locfileid: "87327126"
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>경고 인스턴스에 대 한 RBAC (역할 기반 액세스 제어)
 
-경고 인스턴스를 사용 하 고 관리 하려면 사용자에 게 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 또는 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader)의 기본 제공 RBAC 역할이 있어야 합니다. 이러한 역할은 구독 수준에서 리소스 수준의 세부적인 할당까지 모든 Azure Resource Manager 범위에서 지원 됩니다. 예를 들어 사용자가 가상 컴퓨터에 대 한 참가자 액세스를 모니터링 하는 경우 `ContosoVM1` 해당 사용자는에 생성 된 경고만 사용 하 고 관리할 수 있습니다 `ContosoVM1` .
+경고 인스턴스의 소비 및 관리를 위해서는 사용자에 게 [모니터링 참여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 또는 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader)의 Azure 기본 제공 역할이 있어야 합니다. 이러한 역할은 구독 수준에서 리소스 수준의 세부적인 할당까지 모든 Azure Resource Manager 범위에서 지원 됩니다. 예를 들어 사용자가 가상 컴퓨터에 대 한 참가자 액세스를 모니터링 하는 경우 `ContosoVM1` 해당 사용자는에 생성 된 경고만 사용 하 고 관리할 수 있습니다 `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>프로그래밍 방식으로 경고 인스턴스 관리
 
@@ -212,4 +212,3 @@ Azure 리소스 그래프 탐색기: [portal.azure.com](https://portal.azure.com
 - [Azure에서 경고 인스턴스 관리](https://aka.ms/managing-alert-instances)
 - [스마트 그룹 관리](https://aka.ms/managing-smart-groups)
 - [Azure alerts 가격에 대 한 자세한 정보](https://azure.microsoft.com/pricing/details/monitor/)
-
