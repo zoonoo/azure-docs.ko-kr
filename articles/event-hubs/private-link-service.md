@@ -3,12 +3,12 @@ title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512261"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287962"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Azure Private Link와 Azure Event Hubs 통합
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트**를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -26,9 +26,7 @@ Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗
 > 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks를 사용할 때 지원되지 않습니다.
 >
 > Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
-> - Azure Monitor(진단 설정)
 > - Azure Stream Analytics
-> - Azure Event Grid와 통합
 > - Azure IoT Hub 경로
 > - Azure IoT Device Explorer
 >

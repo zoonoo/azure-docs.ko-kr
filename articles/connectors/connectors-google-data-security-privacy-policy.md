@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194976"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288103"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침
 
-2020 년 5 **월 1**일부 터 Google의 [데이터 보안 및 개인 정보 취급 방침](https://www.blog.google/technology/safety-security/project-strobe/) 으로 인 한 변경 내용은 [Gmail 커넥터](https://docs.microsoft.com/connectors/gmail/)를 사용 하는 논리 앱 워크플로에 영향을 줄 수 있습니다. 논리 앱에서 Gmail 소비자 계정 (또는로 끝나는 전자 메일 주소)과 함께 Gmail 커넥터를 사용 하는 경우 @gmail.com @googlemail.com 논리 앱은 특정 [Google 승인 된 트리거, 작업 및 커넥터만](#approved-connectors)사용할 수 있습니다.
+2020 년 5 **월 1**일부 터 Google의 [데이터 보안 및 개인 정보 취급 방침](https://www.blog.google/technology/safety-security/project-strobe/) 으로 인 한 변경 내용은 [Gmail 커넥터](/connectors/gmail/)를 사용 하는 논리 앱 워크플로에 영향을 줄 수 있습니다. 논리 앱에서 Gmail 소비자 계정 (또는로 끝나는 전자 메일 주소)과 함께 Gmail 커넥터를 사용 하는 경우 @gmail.com @googlemail.com 논리 앱은 특정 [Google 승인 된 트리거, 작업 및 커넥터만](#approved-connectors)사용할 수 있습니다.
 
 > [!NOTE]
 > 논리 앱에서 G 제품군 비즈니스 계정 (사용자 지정 도메인이 있는 전자 메일 주소)과 함께 Gmail 커넥터를 사용 하는 경우 논리 앱은 영향을 받지 않으며 Gmail 커넥터 사용에 대 한 제한이 없습니다.
@@ -62,7 +62,7 @@ Google에서 승인 되지 않은 기본 제공 트리거와 작업 또는 관�
 
   ![비호환 논리 앱-예제 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
-최신 정보는 [Gmail 커넥터의 기술 참조 설명서](https://docs.microsoft.com/connectors/gmail/)를 참조 하세요.
+최신 정보는 [Gmail 커넥터의 기술 참조 설명서](/connectors/gmail/)를 참조 하세요.
 
 <a name="update-affected-workflows"></a>
 
@@ -74,11 +74,11 @@ Gmail 소비자 계정으로 Gmail 커넥터를 사용 하 고 논리 앱에서 
 
 1. Gmail 커넥터에서 Google 클라이언트 앱의 클라이언트 ID 및 클라이언트 암호 값을 사용 합니다.
 
-자세한 내용은 [Gmail 커넥터의 기술 참조 설명서](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application)를 참조 하세요.
+자세한 내용은 [Gmail 커넥터의 기술 참조 설명서](/connectors/gmail/#authentication-and-bring-your-own-application)를 참조 하세요.
 
 ### <a name="create-google-client-app"></a>Google 클라이언트 앱 만들기
 
-클라이언트 앱에 대 한 프로젝트를 설정 하려면 [GOOGLE API 콘솔 마법사](https://console.developers.google.com/start/api?id=gmail&credential=client_key) 를 사용 하 여 지침을 따릅니다. 또는 자세한 단계를 보려면 [Gmail 커넥터의 기술 참조 설명서](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application)에 있는 지침을 검토 하세요.
+클라이언트 앱에 대 한 프로젝트를 설정 하려면 [GOOGLE API 콘솔 마법사](https://console.developers.google.com/start/api?id=gmail&credential=client_key) 를 사용 하 여 지침을 따릅니다. 또는 자세한 단계를 보려면 [Gmail 커넥터의 기술 참조 설명서](/connectors/gmail/#authentication-and-bring-your-own-application)에 있는 지침을 검토 하세요.
 
 완료 되 면 사용자가 논리 앱에서 나중에 사용할 수 있는 고유한 **클라이언트 ID** 및 **클라이언트 암호** 값을 포함 한다는 점을 제외 하 고 화면은 다음 예제와 같습니다.
 
@@ -117,4 +117,5 @@ Gmail 트리거 또는 작업에서 Google 클라이언트 앱의 클라이언�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Gmail 커넥터](https://docs.microsoft.com/connectors/gmail/) 에 대 한 자세한 정보
+[Gmail 커넥터](/connectors/gmail/) 에 대 한 자세한 정보
+

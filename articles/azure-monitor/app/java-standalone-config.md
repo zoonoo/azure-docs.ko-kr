@@ -3,12 +3,13 @@ title: 어디서 나 Java 응용 프로그램 모니터링 Azure Monitor Applica
 description: 앱을 계측 하지 않고 모든 환경에서 실행 중인 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링을 코드 없는. 분산 추적 및 응용 프로그램 맵을 사용 하 여 문제 d의 근본 원인을 찾습니다.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 3a01f2e9339f3ba4f8f50fc41617fabf9da9d8cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014204"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374289"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>구성 옵션-Azure Monitor Application Insights 용 Java 독립 실행형 에이전트
 
@@ -118,7 +119,7 @@ Application Insights Java 3.0 미리 보기는 Log4j, Logback 및 java를 통해
 | 심각한        | 심각한  | 오류   | SEVERE  |
 | 오류/심각 | 오류  | 오류   | SEVERE  |
 | 경고/경고 | 게   | 게    | 경고 |
-| 정보         | 정보   | 정보    | 정보    |
+| 정보         | INFO   | INFO    | INFO    |
 | CONFIG       | DEBUG  | DEBUG   | CONFIG  |
 | 디버그/자세히   | DEBUG  | DEBUG   | FINE    |
 | FINER        | DEBUG  | DEBUG   | FINER   |

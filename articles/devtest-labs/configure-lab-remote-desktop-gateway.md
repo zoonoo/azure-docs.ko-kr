@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 �
 description: RDP 포트를 노출 하지 않고도 랩 Vm에 안전 하 게 액세스할 수 있도록 원격 데스크톱 게이트웨이를 사용 하 여 Azure DevTest Labs에서 랩을 구성 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483842"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288075"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 하도록 랩 구성
 Azure DevTest Labs에서 랩에 대 한 원격 데스크톱 게이트웨이를 구성 하 여 RDP 포트를 노출 하지 않고도 랩 Vm (가상 머신)에 대 한 보안 액세스를 보장할 수 있습니다. 랩 사용자는 랩 사용자가 액세스 권한이 있는 모든 가상 컴퓨터를 보고 연결할 수 있는 중앙의 장소를 제공 합니다. **가상 컴퓨터** 페이지의 **연결** 단추를 클릭 하면 컴퓨터에 연결 하기 위해 열 수 있는 컴퓨터 관련 RDP 파일이 만들어집니다. 랩을 원격 데스크톱 게이트웨이에 연결 하 여 RDP 연결을 추가로 사용자 지정 하 고 보호할 수 있습니다. 
@@ -36,7 +36,7 @@ DevTest Labs 토큰 인증 기능을 사용 하려면 게이트웨이 컴퓨터,
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>원격 데스크톱 게이트웨이 컴퓨터에 대 한 요구 사항
 - HTTPS 트래픽을 처리 하려면 게이트웨이 컴퓨터에 TLS/SSL 인증서가 설치 되어 있어야 합니다. 인증서는 게이트웨이 팜에 대 한 부하 분산 장치의 FQDN (정규화 된 도메인 이름)과 일치 하거나 컴퓨터를 하나만 있는 경우 컴퓨터 자체의 FQDN과 일치 해야 합니다. 와일드 카드 TLS/SSL 인증서가 작동 하지 않습니다.  
 - 게이트웨이 컴퓨터에 설치 된 서명 인증서입니다. [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) 스크립트를 사용 하 여 서명 인증서를 만듭니다.
-- 원격 데스크톱 게이트웨이에 대 한 토큰 인증을 지 원하는 [플러그형 인증](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) 모듈을 설치 합니다. 이러한 모듈의 한 가지 예는 `RDGatewayFedAuth.msi` [SYSTEM CENTER VIRTUAL MACHINE MANAGER (VMM) 이미지](/system-center/vmm/install-console?view=sc-vmm-1807)와 함께 제공 되는 것입니다. System Center에 대 한 자세한 내용은 [System center 설명서](https://docs.microsoft.com/system-center/) 및 [가격 정보](https://www.microsoft.com/cloud-platform/system-center-pricing)를 참조 하세요.  
+- 원격 데스크톱 게이트웨이에 대 한 토큰 인증을 지 원하는 [플러그형 인증](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) 모듈을 설치 합니다. 이러한 모듈의 한 가지 예는 `RDGatewayFedAuth.msi` [SYSTEM CENTER VIRTUAL MACHINE MANAGER (VMM) 이미지](/system-center/vmm/install-console?view=sc-vmm-1807)와 함께 제공 되는 것입니다. System Center에 대 한 자세한 내용은 [System center 설명서](/system-center/) 및 [가격 정보](https://www.microsoft.com/cloud-platform/system-center-pricing)를 참조 하세요.  
 - 게이트웨이 서버는에 대 한 요청을 처리할 수 있습니다 `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` .
 
     게이트웨이-호스트 이름은 게이트웨이 팜의 부하 분산 장치 FQDN 또는 컴퓨터를 하나만 있는 경우 컴퓨터 자체의 fqdn입니다. 는 연결 하려는 `{lab-machine-name}` 랩 컴퓨터의 이름이 고,는 `{port-number}` 연결을 설정할 대상 포트입니다.  기본적으로이 포트는 3389입니다.  그러나 가상 컴퓨터가 DevTest Labs에서 [공유 IP](devtest-lab-shared-ip.md) 기능을 사용 하는 경우 포트는 달라 집니다.
@@ -159,5 +159,3 @@ Automation을 통해 랩 구성이 선호 되는 경우 [Set-DevTestLabGateway.p
 
 ## <a name="next-steps"></a>다음 단계
 원격 데스크톱 서비스에 대해 자세히 알아보려면 다음 문서를 참조 하세요. [원격 데스크톱 서비스 설명서](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
-
-

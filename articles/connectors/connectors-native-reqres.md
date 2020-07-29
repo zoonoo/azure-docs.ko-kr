@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289434"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -24,9 +24,9 @@ ms.locfileid: "86261380"
 
 * 다른 논리 앱의 HTTPS 호출을 수신하고 응답합니다.
 
-요청 트리거는 논리 앱에 대한 인바운드 호출에 권한을 부여하기 위해 Azure AD OAuth([Azure Active Directory Open Authentication](/azure/active-directory/develop/))를 지원합니다. 이 인증을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Logic Apps에서 액세스 및 데이터 보안 - Azure AD OAuth 인증 사용](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth)을 참조하세요.
+요청 트리거는 논리 앱에 대한 인바운드 호출에 권한을 부여하기 위해 Azure AD OAuth([Azure Active Directory Open Authentication](../active-directory/develop/index.yml))를 지원합니다. 이 인증을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Logic Apps에서 액세스 및 데이터 보안 - Azure AD OAuth 인증 사용](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 가입](https://azure.microsoft.com/free/)할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "86261380"
 
 ## <a name="transport-layer-security-tls"></a>TLS(전송 계층 보안)
 
-* 인바운드 호출은 TLS (Transport Layer Security) 1.2 *만* 지원 합니다. TLS 핸드셰이크 오류가 발생하는 경우 TLS 1.2를 사용해야 합니다. 자세한 내용은 [TLS 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조하세요. 아웃 바운드 호출은 대상 끝점의 기능을 기반으로 TLS 1.0, 1.1 및 1.2을 지원 합니다.
+* 인바운드 호출은 TLS (Transport Layer Security) 1.2 *만* 지원 합니다. TLS 핸드셰이크 오류가 발생하는 경우 TLS 1.2를 사용해야 합니다. 자세한 내용은 [TLS 1.0 문제 해결](/security/solving-tls1-problem)을 참조하세요. 아웃 바운드 호출은 대상 끝점의 기능을 기반으로 TLS 1.0, 1.1 및 1.2을 지원 합니다.
 
 * 인바운드 호출은 다음과 같은 암호 그룹을 지원 합니다.
 
@@ -287,3 +287,4 @@ ms.locfileid: "86261380"
 ## <a name="next-steps"></a>다음 단계
 
 * [Logic Apps용 커넥터](../connectors/apis-list.md)
+

@@ -3,12 +3,13 @@ title: 모든 환경에서 실행 중인 Java 응용 프로그램 모니터링-A
 description: 앱을 계측 하지 않고 Java 독립 실행형 에이전트가 있는 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 6499fbc62a78cb333c623dbea8269144e623921c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014244"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374306"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Azure Monitor Application Insights에 대 한 JVM args Java 독립 실행형 에이전트 구성
 

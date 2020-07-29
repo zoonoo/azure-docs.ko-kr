@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261951"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288158"
 ---
-# <a name="add-a-bar-chart-layer"></a>가로 막대형 차트 계층 추가
+# <a name="add-a-bar-chart-layer"></a>가로 막대형 차트 레이어 추가
 
-**가로 막대형 차트 계층** 은 지도에서 위치 데이터의 시각화를 3d 막대나 원통으로 허용 하 여 다음 차원으로 데이터를 가져오는 데 유용 합니다. 거품형 계층과 마찬가지로 나중에 가로 막대형 차트는 색 및 상대 높이를 사용 하 여 두 메트릭을 동시에 쉽게 시각화할 수 있습니다. 막대가 높이가 되도록 하려면 **필드** 창의 **크기** 버킷에 측정값을 추가 해야 합니다. 측정값이 제공 되지 않으면 **가로 막대형 셰이프** 옵션에 따라 높이가 없는 막대가 플랫 사각형 또는 원으로 표시 됩니다.
+**가로 막대형 차트 계층** 은 지도에서 위치 데이터의 시각화를 3d 막대나 원통으로 허용 하 여 다음 차원으로 데이터를 가져오는 데 유용 합니다. 거품형 계층과 마찬가지로 나중에 가로 막대형 차트는 색 및 상대 높이를 사용 하 여 두 메트릭을 동시에 쉽게 시각화할 수 있습니다. 막대가 높이가 되도록 하려면 **필드** 창의 **크기** 버킷에 측정값을 추가 해야 합니다. 측정값이 제공 되지 않은 경우에는 **막대 모양** 옵션에 따라 높이가 없는 막대가 플랫 사각형 또는 원으로 표시 됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![가로 막대형 차트 계층을 사용 하 여 점 데이터를 표시 하는 지도](media/power-bi-visual/bar-chart-layer-styled.png)
@@ -60,10 +60,10 @@ ms.locfileid: "86261951"
 맵에 컨텍스트를 더 추가 합니다.
 
 > [!div class="nextstepaction"]
-> [참조 계층 추가](power-bi-visual-add-reference-layer.md)
+> [참조 레이어 추가](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
-> [타일 계층 추가](power-bi-visual-add-tile-layer.md)
+> [타일 레이어 추가](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
 > [실시간 트래픽 표시](power-bi-visual-show-real-time-traffic.md)

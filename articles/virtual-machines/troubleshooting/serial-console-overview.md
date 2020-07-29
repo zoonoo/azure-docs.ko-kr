@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28c5a3085d84b25deb7c5ee09a9c9cc4d7a06819
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074330"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374068"
 ---
 # <a name="azure-serial-console"></a>Azure 직렬 콘솔
 
@@ -27,8 +27,7 @@ Azure Portal의 직렬 콘솔은 Linux 또는 Windows를 실행하는 VM(가상 
 
 직렬 콘솔은 VM 및 가상 머신 확장 집합 인스턴스에 대해 동일한 방식으로 작동합니다. 이 문서에서는 VM에 대한 모든 언급에는 달리 명시되지 않는 한 가상 머신 확장 집합 인스턴스가 암시적으로 포함됩니다.
 
-> [!NOTE]
-> 직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
+직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Azure 직렬 콘솔에 액세스하기 위한 필수 구성 요소
 VM 또는 가상 머신 확장 집합 인스턴스에서 직렬 콘솔에 액세스하려면 다음이 필요합니다.
@@ -36,9 +35,10 @@ VM 또는 가상 머신 확장 집합 인스턴스에서 직렬 콘솔에 액세
 - VM에 대해 부트 진단을 사용하도록 설정해야 합니다.
 - 암호 인증을 사용하는 사용자 계정은 VM 내에 존재해야 합니다. VM 액세스 확장의 [암호 재설정](../extensions/vmaccess.md#reset-password) 함수를 사용하여 암호 기반 사용자를 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다.
 - 직렬 콘솔에 액세스하는 Azure 계정에는 VM 및 [부트 진단](boot-diagnostics.md) 스토리지 계정 모두에 대해 [Virtual Machine Contributor 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)이 있어야 합니다.
+- 클래식 배포는 지원되지 않습니다. VM 또는 가상 머신 확장 집합 인스턴스는 Azure Resource Manager 배포 모델을 사용해야 합니다.
 
 > [!NOTE]
-> 클래식 배포는 지원되지 않습니다. VM 또는 가상 머신 확장 집합 인스턴스는 Azure Resource Manager 배포 모델을 사용해야 합니다.
+> 직렬 콘솔은 현재 관리 되는 부트 진단 저장소 계정과 호환 되지 않습니다. 직렬 콘솔을 사용 하려면 사용자 지정 저장소 계정을 사용 하 고 있는지 확인 합니다.
 
 ## <a name="get-started-with-the-serial-console"></a>직렬 콘솔 시작
 VM 및 가상 머신 확장 집합용 직렬 콘솔은 Azure Portal을 통해서만 액세스할 수 있습니다.

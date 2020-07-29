@@ -3,12 +3,12 @@ title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft 
 description: 이 문서에서는 가상 네트워크에 Microsoft EventHub 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066698"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288002"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -25,7 +25,6 @@ ms.locfileid: "87066698"
 >
 > Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
 > - Azure Stream Analytics
-> - Azure Event Grid와 통합
 > - Azure IoT Hub 경로
 > - Azure IoT Device Explorer
 >
@@ -60,7 +59,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. **모든 네트워크** 옵션을 선택하면 이벤트 허브는 모든 IP 주소에서의 연결을 허용합니다. 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
     ![방화벽 - 모든 네트워크 옵션 선택됨](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. 특정 네트워크에 대 한 액세스를 restrct 페이지 위쪽에서 **선택한 네트워크** 옵션을 선택 합니다.
+1. 특정 네트워크에 대 한 액세스를 제한 하려면 페이지 맨 위에서 **선택한 네트워크** 옵션을 선택 합니다.
 2. 페이지의 **Virtual Network** 섹션에서 * * + 기존 가상 네트워크 추가 * * *를 선택 합니다. 새 VNet을 만들려면 **+ 새 가상 네트워크 만들기** 를 선택 합니다. 
 
     ![기존 가상 네트워크 추가](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -85,9 +84,9 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
 템플릿 매개 변수:
 
-* **namespaceName**: Event Hubs 네임스페이스입니다.
-* **vnetRuleName**: 만들 Virtual Network 규칙의 이름입니다.
-* **virtualNetworkingSubnetId**: 가상 네트워크 서브넷에 대해 정규화된 Resource Manager 경로입니다(예: 가상 네트워크 기본 서브넷의 경우 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`).
+* `namespaceName`: 네임 스페이스를 Event Hubs 합니다.
+* `vnetRuleName`: 만들 Virtual Network 규칙의 이름입니다.
+* `virtualNetworkingSubnetId`: 가상 네트워크 서브넷의 정규화 된 리소스 관리자 경로입니다. 예를 들어 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` 가상 네트워크의 기본 서브넷에 대해입니다.
 
 > [!NOTE]
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.

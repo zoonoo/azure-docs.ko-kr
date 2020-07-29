@@ -1,6 +1,6 @@
 ---
-title: Windows 가상 데스크톱에 대 한 피드 사용자 지정 사용자 지정 2019 사용자-Azure
-description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱 사용자에 대 한 피드를 사용자 지정 하는 방법입니다.
+title: Windows 가상 데스크톱 (클래식) 사용자에 대 한 피드 사용자 지정-Azure
+description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱 (클래식) 사용자에 대 한 피드를 사용자 지정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9c573fc1aa220b9301e51ef0ccb1190d9243250e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab1206a8963d9ba3b556a48b2e973eea663c9cb8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011229"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288661"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-users"></a>Windows Virtual Desktop 사용자용 피드를 사용자 지정
+# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Windows 가상 데스크톱 (클래식) 사용자에 대 한 피드 사용자 지정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../customize-feed-for-virtual-desktop-users.md)를 참조하세요.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../customize-feed-for-virtual-desktop-users.md)를 참조 하세요.
 
 사용자에 게 RemoteApp 및 원격 데스크톱 리소스가 인식할 수 있는 방식으로 표시 되도록 피드를 사용자 지정할 수 있습니다.
 

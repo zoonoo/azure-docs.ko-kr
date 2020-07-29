@@ -4,14 +4,15 @@ description: Azure App Service에서 간헐적 연결 오류 및 관련 된 성�
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252443"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289153"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
 
@@ -36,6 +37,8 @@ Azure 앱 서비스에서 호스트 되는 응용 프로그램 및 함수는 다
 응용 프로그램 또는 함수가 새 연결을 신속 하 게 열면 128 포트의 미리 할당 된 할당량을 빠르게 고갈 시킬 수 있습니다. 그러면 추가 SNAT 포트를 동적으로 할당 하거나 회수 된 SNAT 포트를 다시 사용 하 여 새 SNAT 포트를 사용할 수 있게 될 때까지 차단 됩니다. 새 연결을 만들 수 없기 때문에 차단 된 응용 프로그램이 나 함수는이 문서의 **현상** 단원에 설명 된 문제 중 하나 이상이 발생 하기 시작 합니다.
 
 ## <a name="avoiding-the-problem"></a>문제 방지
+
+대상이 서비스 끝점을 지 원하는 Azure 서비스인 경우 [VNet 통합](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) 및 서비스 끝점을 사용 하 여 SNAT 포트 소모 문제를 방지할 수 있습니다. VNet 통합을 사용 하 고 통합 서브넷에 서비스 끝점을 추가 하는 경우 해당 서비스에 대 한 아웃 바운드 트래픽에 아웃 바운드 SNAT 포트 제한이 적용 되지 않습니다.
 
 SNAT 포트 문제를 방지 하는 것은 동일한 호스트 및 포트에 대 한 새 연결을 반복적으로 만드는 것을 방지 하는 것입니다.
 

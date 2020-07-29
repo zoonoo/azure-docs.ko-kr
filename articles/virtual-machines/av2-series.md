@@ -4,15 +4,15 @@ description: Av2 시리즈 Vm에 대 한 사양입니다.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1b5b77bb9bdf679fe0fd8bf73966dd45acc80155
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdcc26a8a22e9a1dc7af75667cdb33bb044c7858
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085778"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288592"
 ---
 # <a name="av2-series"></a>Av2 시리즈
 
@@ -28,9 +28,8 @@ Premium Storage 캐싱:  지원되지 않음
 
 메모리 보존 업데이트: 지원됨
 
-가격 계산기 및 지역 가용성 정보: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">가격 계산기</a>
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps)
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps)
 |---|---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2 | 250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |
@@ -51,9 +50,9 @@ Premium Storage 캐싱:  지원되지 않음
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
 
-가격 계산기 및 지역 가용성 정보: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">가격 계산기</a>
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">디스크 유형</a>
+디스크 유형에 대 한 자세한 정보: [디스크 유형](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>다음 단계
 

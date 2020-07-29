@@ -3,16 +3,16 @@ title: 로컬 임시 디스크가 없는 Azure VM 크기 FAQ
 description: 이 문서에서는 로컬 임시 디스크를 포함 하지 않는 Microsoft Azure VM 크기에 대 한 FAQ (질문과 대답)를 제공 합니다.
 author: brbell
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 502883a0c4eb36be9e89ba8693f4d32ba7f16ebd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088872"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288556"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>로컬 임시 디스크가 없는 Azure VM 크기 
 이 문서에서는 로컬 임시 디스크가 없는 Azure VM 크기에 대 한 FAQ (질문과 대답)를 제공 합니다 (예: 로컬 임시 디스크 없음). 이러한 VM 크기에 대 한 자세한 내용은 [Dv4 및 Dsv4에 대 한 사양 (범용 워크 로드)](dv4-dsv4-series.md) 또는 [Ev4 및 Esv4 시리즈 사양 (메모리 액세스에 최적화 된 작업)](ev4-esv4-series.md)을 참조 하세요.

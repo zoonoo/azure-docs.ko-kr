@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: bb7be1815364b3def9b22e50454dceabd17e6150
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d144960972f5a1b45e88cc3a0ea015925cae3b91
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829650"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288140"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twilio에서 메시지 관리
 
@@ -68,7 +69,7 @@ Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 
 
 ## <a name="get-support"></a>지원 받기
 
-* 질문하려면 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)를 방문하세요.
+* 질문하려면 [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-logic-apps.html)를 방문하세요.
 * 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계

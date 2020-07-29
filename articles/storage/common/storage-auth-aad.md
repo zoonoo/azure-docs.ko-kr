@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 4eb3173700a0907f8195466b9e0d7ab1903cf93e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b5e75819fd018cda60bca4c992bc4c141b14a379
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124785"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374187"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -43,15 +43,15 @@ Azure Blob 또는 큐 서비스에 요청 하는 네이티브 응용 프로그�
 
 ## <a name="assign-rbac-roles-for-access-rights"></a>액세스 권한에 대 한 RBAC 역할 할당
 
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 및 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. Blob 및 큐 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
+Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 및 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다. Blob 및 큐 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
 RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
-### <a name="built-in-rbac-roles-for-blobs-and-queues"></a>Blob 및 큐에 대 한 기본 제공 RBAC 역할
+### <a name="azure-built-in-roles-for-blobs-and-queues"></a>Blob 및 큐에 대 한 Azure 기본 제공 역할
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-보안 주체에 기본 제공 RBAC 역할을 할당 하는 방법을 알아보려면 다음 문서 중 하나를 참조 하세요.
+Azure 기본 제공 역할을 보안 주체에 할당 하는 방법을 알아보려면 다음 문서 중 하나를 참조 하세요.
 
 - [Azure Portal에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-portal.md)
 - [Azure CLI에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-cli.md)

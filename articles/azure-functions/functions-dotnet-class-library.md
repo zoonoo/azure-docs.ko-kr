@@ -2,13 +2,13 @@
 title: Azure Functions C# 개발자 참조
 description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.openlocfilehash: 9ecc2dad8d1d520b44972022d47c312f495d5c38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/24/2020
+ms.openlocfilehash: 7c00dcd3648ef175d4e834fceef3444f7943e70b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506516"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288198"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -31,7 +31,7 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 | ---- | ---- |
 | 함수 3(sp3) | .NET Core 3.1 |
 | Functions 2.x | .NET Core 2.2 |
-| Functions 1.x | .NET Framework 4.6 |
+| Functions 1.x | .NET Framework 4.7 |
 
 자세히 알아보려면 [Azure Functions 런타임 버전 개요](functions-versions.md) 를 참조 하세요.
 
@@ -138,7 +138,7 @@ public static class BindingExpressionsExample
 
 이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](functions-scale.md#how-the-consumption-and-premium-plans-work)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
 
-생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
+생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예는 다음과 같습니다.
 
 ```json
 {

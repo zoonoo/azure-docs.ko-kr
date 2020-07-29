@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d067d4a7fff385deea946ffa5475e1eb83548a50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e71c426fee62187bb680c7b8bd1af92d87e85274
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098763"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288811"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2 프로 비전 및 관리
 
@@ -93,7 +93,7 @@ Azure Portal를 사용 하 여 Azure Time Series Insights Gen2 환경을 관리�
 
 * 배율 단위는 Azure Time Series Insights Gen2 환경에 적용 되지 않으므로 Azure Portal의 **구성** 블레이드가 제거 됩니다. 그러나 **저장소 구성을** 사용 하 여 새로 도입 된 웜 저장소를 구성할 수 있습니다.
 
-* 참조 데이터 개념이 [TSM (시계열 모델)](./time-series-insights-update-how-to-tsm.md)로 대체 되었기 때문에 Azure Portal의 **참조 데이터** 블레이드가 Azure Time Series Insights Gen2에서 제거 되었습니다.
+* 참조 데이터 개념이 [TSM (시계열 모델)](/azure/time-series-insights/concepts-model-overview)로 대체 되었기 때문에 Azure Portal의 **참조 데이터** 블레이드가 Azure Time Series Insights Gen2에서 제거 되었습니다.
 
 [![Azure Portal Azure Time Series Insights Gen2 환경](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 

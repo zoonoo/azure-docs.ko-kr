@@ -1,25 +1,19 @@
 ---
 title: VM에 추세 마이크로 심층 보안 설치
 description: 이 문서에서는 Azure에서 클래식 배포 모델을 사용하여 만든 VM에 Trend Micro 보안을 설치하고 구성하는 방법을 설명합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: c4a4f641283a9a4771a236ba844cfe296b31c28c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082681"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288517"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 
@@ -88,7 +82,7 @@ Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Versio
 * 가상 머신 구성을 위한 [샘플 Windows PowerShell 스크립트](https://go.microsoft.com/fwlink/?LinkId=404100)
 * [지침](https://go.microsoft.com/fwlink/?LinkId=404099)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 [Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법]
 
 [Azure VM 확장 및 기능]
@@ -100,4 +94,4 @@ Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Versio
 
 <!-- Link references -->
 [Windows Server를 실행 하는 가상 컴퓨터에 로그온 하는 방법]:../windows/classic/connect-logon.md
-[Azure VM 확장 및 기능]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM 확장 및 기능]: features-windows.md

@@ -7,26 +7,26 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: ba8a6e5b53634850670a7d6b2fb55ef0e7b18d09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e500f678d2066d24de12a04f28ccbdb3f76eda3a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255503"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288177"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
 
-이 문서에서는 SQL Server 커넥터가 있는 논리 앱 내에서 SQL 데이터베이스의 데이터에 액세스하는 방법에 대해 설명합니다. 이런 식으로 논리 앱을 만들어 SQL 데이터 및 리소스를 관리하는 작업, 프로세스 및 워크플로를 자동화할 수 있습니다. SQL Server 커넥터는 [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) 뿐만 아니라 [AZURE SQL DATABASE](../azure-sql/database/sql-database-paas-overview.md) 및 [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)에 대해 작동 합니다.
+이 문서에서는 SQL Server 커넥터가 있는 논리 앱 내에서 SQL 데이터베이스의 데이터에 액세스하는 방법에 대해 설명합니다. 이런 식으로 논리 앱을 만들어 SQL 데이터 및 리소스를 관리하는 작업, 프로세스 및 워크플로를 자동화할 수 있습니다. SQL Server 커넥터는 [SQL Server](/sql/sql-server/sql-server-technical-documentation) 뿐만 아니라 [AZURE SQL DATABASE](../azure-sql/database/sql-database-paas-overview.md) 및 [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)에 대해 작동 합니다.
 
 SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이벤트로 트리거될 때 실행할 수 있는 논리 앱을 만들 수 있습니다. 논리 앱은 기존 SQL 쿼리 및 저장 프로시저를 실행하여 데이터를 가져오고 삽입하고 삭제할 수 있습니다. 예를 들어 Dynamics CRM Online에서 새 레코드를 자동으로 확인하고, 새 레코드에 대한 항목을 SQL 데이터베이스에 추가한 다음, 추가된 항목에 관한 메일 경고를 보내는 논리 앱을 만들 수 있습니다.
 
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보, 제한 사항 및 알려진 문제에 대해서는 [SQL Server 커넥터 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보, 제한 사항 및 알려진 문제에 대해서는 [SQL Server 커넥터 참조 페이지](/connectors/sql/)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [SQL Server 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database), [AZURE SQL DATABASE](../azure-sql/database/single-database-create-quickstart.md)또는 [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* [SQL Server 데이터베이스](/sql/relational-databases/databases/create-a-database), [AZURE SQL DATABASE](../azure-sql/database/single-database-create-quickstart.md)또는 [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
   작업을 호출할 때 논리 앱에서 결과를 반환할 수 있도록 테이블에 데이터가 있어야 합니다. Azure SQL Database 사용 하는 경우 포함 된 예제 데이터베이스를 사용할 수 있습니다.
 
@@ -74,7 +74,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
    | 인증 | 설명 |
    |----------------|-------------|
    | [**Azure AD 통합**](../azure-sql/database/authentication-aad-overview.md) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 액세스할 수 있는 유효한 Azure Active Directory (Azure AD) id가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD 통합 인증](../azure-sql/database/authentication-aad-overview.md) |
-   | [**SQL Server 인증**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    이 예제는 **AZURE AD 통합**을 계속 합니다.
@@ -89,7 +89,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
    |----------|----------|-------------|
    | **서버 이름** | 예 | SQL server의 주소입니다 (예:).`Fabrikam-Azure-SQL.database.windows.net` |
    | **데이터베이스 이름** | 예 | SQL 데이터베이스의 이름입니다 (예:).`Fabrikam-Azure-SQL-DB` |
-   | **표 이름** | 예 | 사용 하려는 테이블 (예:)`SalesLT.Customer` |
+   | **테이블 이름** | 예 | 사용 하려는 테이블 (예:)`SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -117,8 +117,8 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
    | 인증 | 설명 |
    |----------------|-------------|
-   | [**Windows 인증**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -다중 테 넌 트 Azure 또는 ISE를 사용 하는지 여부에 관계 없이 Azure에서 이전에 만든 데이터 게이트웨이 리소스를 필요로 하는 비 ISE SQL Server 커넥터만 지원 합니다. <p><p>-Windows 계정을 통해 id를 확인 하려면 올바른 Windows 사용자 이름 및 암호가 필요 합니다. <p>자세한 내용은 [Windows 인증](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) 을 참조 하세요. |
-   | [**SQL Server 인증**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-SQL Server에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 [SQL Server 인증](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)을 참조 하세요. |
+   | [**Windows 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -다중 테 넌 트 Azure 또는 ISE를 사용 하는지 여부에 관계 없이 Azure에서 이전에 만든 데이터 게이트웨이 리소스를 필요로 하는 비 ISE SQL Server 커넥터만 지원 합니다. <p><p>-Windows 계정을 통해 id를 확인 하려면 올바른 Windows 사용자 이름 및 암호가 필요 합니다. <p>자세한 내용은 [Windows 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) 을 참조 하세요. |
+   | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-SQL Server에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 [SQL Server 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)을 참조 하세요. |
    |||
 
    이 예제는 **Windows 인증**을 사용 하 여 계속 합니다.
@@ -134,7 +134,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
    | **사용자 이름** | 예 | SQL server 및 데이터베이스의 사용자 이름 |
    | **암호** | 예 | SQL server 및 데이터베이스의 암호 |
    | **구독** |  예, Windows 인증의 경우 | Azure에서 이전에 만든 데이터 게이트웨이 리소스에 대 한 Azure 구독 |
-   | **연결 게이트웨이** | 예, Windows 인증의 경우 | Azure에서 이전에 만든 데이터 게이트웨이 리소스의 이름 <p><p>**팁**: 게이트웨이가 목록에 표시 되지 않으면 게이트웨이를 올바르게 [설정](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)했는지 확인 합니다. |
+   | **연결 게이트웨이** | 예, Windows 인증의 경우 | Azure에서 이전에 만든 데이터 게이트웨이 리소스의 이름 <p><p>**팁**: 게이트웨이가 목록에 표시 되지 않으면 게이트웨이를 올바르게 [설정](../logic-apps/logic-apps-gateway-connection.md)했는지 확인 합니다. |
    |||
 
    > [!TIP]
@@ -171,7 +171,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
    이 트리거는 선택한 테이블에서 한 개의 행만 반환 하 고 다른 행은 반환 하지 않습니다. 다른 작업을 수행 하려면 논리 앱 워크플로에서 원하는 다음 작업을 수행 하는 [다른](../connectors/apis-list.md) 작업 또는 [SQL connector 작업](#add-sql-action) 을 추가 하 여 계속 합니다.
    
-   예를 들어 이 행의 데이터를 보려면 반환된 행의 필드를 포함하는 파일을 만드는 다른 작업을 추가하고 메일 알림을 보낼 수 있습니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조하세요.
+   예를 들어 이 행의 데이터를 보려면 반환된 행의 필드를 포함하는 파일을 만드는 다른 작업을 추가하고 메일 알림을 보낼 수 있습니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](/connectors/sql/)를 참조하세요.
 
 1. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -201,7 +201,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
    ![테이블 이름을 선택 하 고 행 ID를 지정 합니다.](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
-   이 작업에서는 선택한 테이블에서 한 행만 반환하며 그 외에는 아무것도 반환하지 않습니다. 따라서이 행의 데이터를 보려면 반환 된 행에서 필드를 포함 하는 파일을 만드는 다른 작업을 추가 하 고 클라우드 저장소 계정에 해당 파일을 저장 합니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조하세요.
+   이 작업에서는 선택한 테이블에서 한 행만 반환하며 그 외에는 아무것도 반환하지 않습니다. 따라서이 행의 데이터를 보려면 반환 된 행에서 필드를 포함 하는 파일을 만드는 다른 작업을 추가 하 고 클라우드 저장소 계정에 해당 파일을 저장 합니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](/connectors/sql/)를 참조하세요.
 
 1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -217,13 +217,13 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
   여러 행을 가져오거나 삽입하는 경우 논리 앱은 이 [제한](../logic-apps/logic-apps-limits-and-config.md) 내에서 [‘until 루프’](../logic-apps/logic-apps-control-flow-loops.md#until-loop)를 사용하여 이러한 행을 반복할 수 있습니다. 하지만 논리 앱에서 수천 또는 수백만 개의 행과 같이 너무 큰 레코드 집합을 사용하여 데이터베이스에 대한 호출로 인한 비용을 최소화하려는 경우가 있습니다.
 
-  원하는 방식으로 결과를 구성하려면 SQL 인스턴스에서 실행되는 [‘저장 프로시저’](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine)를 만들고, **SELECT - ORDER BY** 문을 사용할 수 있습니다. 이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다.
+  원하는 방식으로 결과를 구성하려면 SQL 인스턴스에서 실행되는 [‘저장 프로시저’](/sql/relational-databases/stored-procedures/stored-procedures-database-engine)를 만들고, **SELECT - ORDER BY** 문을 사용할 수 있습니다. 이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다.
 
   솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
   * [Logic Apps를 사용한 대량 데이터 전송에 대한 SQL 페이지 매김](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-  * [SELECT - ORDER BY 절](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  * [SELECT - ORDER BY 절](/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ### <a name="handle-dynamic-bulk-data"></a>동적 대량 데이터 처리
 
@@ -250,8 +250,9 @@ SQL Server 커넥터를 사용 하 여 저장 프로시저를 호출 하는 경�
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-이 커넥터의 트리거, 작업 및 제한에 대 한 기술 정보는 Swagger 설명에서 생성 된 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조 하세요.
+이 커넥터의 트리거, 작업 및 제한에 대 한 기술 정보는 Swagger 설명에서 생성 된 [커넥터의 참조 페이지](/connectors/sql/)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Logic Apps용 다른 커넥터](../connectors/apis-list.md)에 대해 자세히 알아보기
+

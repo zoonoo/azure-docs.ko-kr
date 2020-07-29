@@ -3,15 +3,16 @@ title: 근접 배치 그룹 사용
 description: Azure에서 가상 머신에 대 한 근접 배치 그룹을 만들고 사용 하는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: f89b28e7a3c29e45efa2796788e27325c01d7098
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee172203d6aa54b4b539356835f8a6bf2d21bad3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759260"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288420"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Azure CLI를 사용 하 여 근접 배치 그룹에 Vm 배포
 

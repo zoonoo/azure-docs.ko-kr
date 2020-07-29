@@ -3,14 +3,15 @@ title: Azure CLI를 사용하여 Linux VM 이미지 선택
 description: Azure CLI를 사용하여 Marketplace VM 이미지의 게시자, 제품, SKU 및 버전을 확인하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711598"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374085"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지 찾기
 
@@ -326,7 +327,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 
 ### <a name="accept-the-terms"></a>약관에 동의
 
-사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들어:
+사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

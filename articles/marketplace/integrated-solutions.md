@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/15/2020
-ms.openlocfilehash: 8e029d888b963fd10e7198486a973766755c9812
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 54b34b1900fd928ea45d586bcdf6acd7d9a8a441
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119517"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287842"
 ---
 # <a name="integrated-solutions-in-the-commercial-marketplace"></a>상업용 마켓플레이스의 통합 솔루션
 통합 솔루션은 전문가 서비스 파트너에서 제공하는 컨설팅, 배포 및 지원과 함께 Microsoft 파트너의 동종 최고의 기술을 제공합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "86119517"
 * [대출 포트폴리오 분석](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
 * [의료 클라우드 보안 스택](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
 * [DevOps 가속 엔진](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
-* [Windows Server 지원 종료](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+* [Windows Server 지원 종료](https://azuremarketplace.microsoft.com/marketplace/apps/stratum.eos_windows?tab=Overview)
 * [신속한 데이터 센터 통합 빠른 시작](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rivermeadowsoftwareinc.rapid-datacenter-consolidation-jumpstart?flightCodes=100discovermigrate)
 * [연결된 필드 서비스에 대한 DeviceTone IoT](https://azuremarketplace.microsoft.com/marketplace/apps/marketplaceprodware.devicetone_iot_for_connected_field_service?tab=Overview)
 * [Unison: 통합 마케팅 관리 솔루션](https://appsource.microsoft.com/marketplace/consulting-services/barhead_solutions.unison_p2p?pub_source=email&pub_status=success)

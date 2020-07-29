@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210629"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374136"
 ---
 # <a name="data-warehouse-units-dwus"></a>DWUs (데이터 웨어하우스 단위)
 
@@ -100,7 +100,7 @@ SQL 풀은 데이터 양 조정이 가능한 대량의 컴퓨팅 및 쿼리를 �
 
 데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 설명된 권한이 필요합니다.
 
-SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
+SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
 
 ## <a name="view-current-dwu-settings"></a>현재 DWU 설정 보기
 

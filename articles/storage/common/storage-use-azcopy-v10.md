@@ -4,15 +4,15 @@ description: AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142999"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289230"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -57,7 +57,7 @@ AzCopy 디렉터리를 경로에 추가 하지 않도록 선택 하는 경우 Az
 > [!NOTE] 
 > Azure Storage 계정의 소유자는 데이터에 액세스할 수 있는 권한을 자동으로 할당 하지 않습니다. AzCopy를 사용 하 여 의미 있는 작업을 수행 하려면 먼저 저장소 서비스에 권한 부여 자격 증명을 제공 하는 방법을 결정 해야 합니다. 
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명을 제공 하는 방법을 선택 합니다.
+## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명을 제공하는 방법 선택
 
 AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) 토큰을 사용 하 여 권한 부여 자격 증명을 제공할 수 있습니다.
 
@@ -65,8 +65,8 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 
 | 스토리지 유형 | 현재 지원 되는 권한 부여 방법 |
 |--|--|
-|**Azure BLOB Storage** | Azure AD & SAS |
-|**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
+|**Blob Storage** | Azure AD 및 SAS |
+|**Blob 저장소 (계층적 네임 스페이스)** | Azure AD 및 SAS |
 |**File Storage** | SAS 전용 |
 
 ### <a name="option-1-use-azure-active-directory"></a>옵션 1: Azure Active Directory 사용
@@ -111,7 +111,7 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 azcopy login
 ```
 
-둘 이상의 조직에 속한 경우 저장소 계정이 속한 조직의 테 넌 트 ID를 포함 합니다.
+오류가 표시 되 면 저장소 계정이 속한 조직의 테 넌 트 ID를 포함 해 보세요.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

@@ -3,16 +3,16 @@ title: 대기 시간 개선을 위해 Vm 배치
 description: Azure VM 리소스를 공동 배치 하 여 대기 시간을 개선할 수 있는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 85832fe56b064916b50a63bf4b399f0a21afaaac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5a3c0a582b1e9dfbcf81968ebc9d0c7a0a4f75e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288323"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>대기 시간 향상을 위한 리소스 배치
 

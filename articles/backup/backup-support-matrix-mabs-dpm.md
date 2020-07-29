@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 938fb751de90112dc206779a36b88f95f1d7d508
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289458"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -24,7 +24,7 @@ MABS는 System Center DPM을 기반으로 하며 다음과 같은 몇 가지 차
 
 - MABS를 실행하기 위해 System Center 라이선스가 필요하지 않습니다.
 - MABS와 DPM 모두 Azure는 장기 백업 저장소를 제공 합니다. 또한 DPM을 사용하면 테이프의 장기 보관할 수 있게 데이터를 백업할 수 있습니다. MABS는 이 기능을 제공하지 않습니다.
-- 보조 DPM 서버를 사용 하 여 주 DPM 서버를 백업할 수 있습니다. 보조 서버는 주 서버의 데이터베이스와 주 서버에 저장된 데이터 원본 복제본을 보호합니다. 주 서버에서 오류가 발생하는 경우 보조 서버는 주 서버를 다시 사용할 수 있을 때까지 주 서버에 의해 보호되는 작업을 계속 보호할 수 있습니다.  MABS는 이 기능을 제공하지 않습니다.
+- [보조 dpm 서버를 사용 하 여 주 dpm 서버를 백업할 수](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019)있습니다. 보조 서버는 주 서버의 데이터베이스와 주 서버에 저장된 데이터 원본 복제본을 보호합니다. 주 서버에서 오류가 발생하는 경우 보조 서버는 주 서버를 다시 사용할 수 있을 때까지 주 서버에 의해 보호되는 작업을 계속 보호할 수 있습니다.  MABS는 이 기능을 제공하지 않습니다.
 
 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57520)에서 mabs를 다운로드 합니다. 온-프레미스 또는 Azure VM에서 실행할 수 있습니다.
 
@@ -85,7 +85,7 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **설치** | 단일 용도의 컴퓨터에 DPM/MABS를 설치 합니다.<br/><br/> DPM/MABS를 도메인 컨트롤러에 설치 하지 마세요. 응용 프로그램 서버 역할이 설치 된 컴퓨터, Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에서 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](/system-center/dpm/prepare-environment-for-dpm#dpm-server)합니다.
 **도메인** | DPM/MABS는 도메인에 가입 되어 있어야 합니다. DPM/MABS를 먼저 설치한 후 도메인에 가입합니다. 배포가 지원되지 않으면 DPM/MABS를 새 도메인으로 이동
 **스토리지** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
-**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아봅니다](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세한 정보를 알아보세요](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> MABS 데이터베이스를 복원해야 하므로 백업이 필요합니다.
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack의 MABS 지원

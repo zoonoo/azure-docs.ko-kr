@@ -1,6 +1,6 @@
 ---
-title: 세션 호스트 Azure Automation 크기 조정 - Azure
-description: Azure Automation을 사용하여 Windows Virtual Desktop 세션 호스트 크기를 자동으로 조정하는 방법입니다.
+title: Windows 가상 데스크톱 (클래식) Azure Automation 세션 호스트 크기 조정-Azure
+description: Azure Automation를 사용 하 여 Windows 가상 데스크톱 (클래식) 세션 호스트 크기를 자동으로 조정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172060"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288633"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 세션 호스트 크기 조정
+# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Azure Automation를 사용 하 여 Windows 가상 데스크톱 (클래식) 세션 호스트 크기 조정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
+>이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다.
 
 VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비용을 줄일 수 있습니다. VM을 크기 조정한다는 것은 사용량이 적은 시간에는 세션 호스트 VM을 종료 및 할당 취소하고 사용량이 많은 시간에는 다시 켜서 할당하는 것을 의미합니다.
 

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: keferna
+author: keferna
+ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102942"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287937"
 ---
 # <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
@@ -68,7 +70,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 ### <a name="accepted-parameter-metadata-types"></a>허용되는 매개 변수 메타데이터 유형
 
-| 메타데이터 유형   | 매개 변수 유형  | Description     | 샘플 값    |
+| 메타데이터 유형   | 매개 변수 유형  | 설명     | 샘플 값    |
 |---|---|---|---|
 | **baseuri**     | 문자열          | 배포 패키지의 기본 URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
 | **이름**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
@@ -235,7 +237,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 구독에서 선택한 각 지역에 원하는 모든 리소스를 배포할 수 있는지 확인 합니다. 또한 사용할 모든 지역에서 가상 머신 이미지를 사용할 수 있는지 확인 하세요. 그렇지 않으면 일부 지역에서 배포 템플릿이 작동 하지 않습니다.
 
-### <a name="outputs"></a>출력
+### <a name="outputs"></a>outputs
 
 일반적으로 리소스 관리자 템플릿을 사용 하 여 출력을 생성 하지 않고 배포할 수 있습니다. 이는 템플릿 매개 변수를 채우는 데 사용하는 모든 값을 알고 있으며 항상 리소스의 속성을 수동으로 검사할 수 있기 때문입니다.
 
@@ -243,7 +245,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 템플릿 출력과 관련된 제한 사항은 없습니다. 시험 사용에서 모든 출력 값을 문자열로 변환 하므로 개체를 출력으로 보내면 사용자에 게 JSON 문자열이 표시 됩니다.
 
-예:
+예제:
 
 ```JSON
 "outputs": {

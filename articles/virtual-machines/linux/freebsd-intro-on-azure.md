@@ -3,16 +3,16 @@ title: Azure의 FreeBSD 소개
 description: Azure에서 FreeBSD 가상 머신을 사용하는 방법을 알아봅니다.
 author: thomas1206
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: c7ca47e0fbb9acbac67f2cc9af6e1e7555690046
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2959904029643e5345590bd49f81b231c49771d4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085608"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286311"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
 이 문서에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
