@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337265"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421657"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (미리 보기)
 Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure Cache, Azure virtual network 및 개인 끝점을 만드는 방법에 대해 알아봅니다.  
 
-## <a name="prerequisites"></a>전제 조건
+> [!IMPORTANT]
+> 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요. 
+> 
+
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독- [무료로 하나 만들기](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > 이 기능은 현재 미리 보기 상태입니다. 관심이 있는 경우 [문의해 주세요](mailto:azurecache@microsoft.com) .
-  >
-
+> 이 기능은 현재 미리 보기 상태입니다. 관심이 있는 경우 [문의해 주세요](mailto:azurecache@microsoft.com) .
+>
 
 ## <a name="create-a-cache"></a>캐시 만들기
 1. 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하여 **리소스 만들기**를 선택합니다. 
@@ -121,7 +124,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
     | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 드롭다운하여 구독을 선택합니다. |
+    | Subscription | 드롭다운하여 구독을 선택합니다. |
     | Resource group | 드롭다운 하 고 리소스 그룹을 선택 합니다. |
     | **인스턴스 정보** |  |
     | Name |개인 끝점의 이름을 입력 합니다.  |

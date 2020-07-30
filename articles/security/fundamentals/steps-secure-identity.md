@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 7e8e12c3e10243e2e8adb23527683813f33a75a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084378"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386149"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -35,7 +35,7 @@ ms.locfileid: "86084378"
 이 검사 목록을 읽는 동안 완료된 기능 및 단계를 계속 추적해야 합니다.
 
 > [!NOTE]
-> 이 문서의 다양한 권장 사항은 ID 공급자로 Azure Active Directory를 사용하도록 구성되어 있는 애플리케이션에만 적용됩니다. Single Sign-On에 대해 앱을 구성하면 해당 앱에 자격 증명 정책, 위협 요소 탐지, 감사, 로깅 및 기타 기능의 이점이 추가됩니다. [Azure Active Directory를 통한 Single Sign-On](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)은 이러한 모든 권장 사항의 기반이 되는 토대입니다.
+> 이 문서의 다양한 권장 사항은 ID 공급자로 Azure Active Directory를 사용하도록 구성되어 있는 애플리케이션에만 적용됩니다. Single Sign-On에 대해 앱을 구성하면 해당 앱에 자격 증명 정책, 위협 요소 탐지, 감사, 로깅 및 기타 기능의 이점이 추가됩니다. [AZURE AD 응용 프로그램 관리](../../active-directory/manage-apps/what-is-application-management.md) 는 이러한 모든 권장 사항을 기반으로 하는 기본 설정입니다.
 
 이 문서의 권장 사항은 Azure AD 테넌트의 ID 보안 구성 평가를 자동화한 [ID 보안 점수](../../active-directory/fundamentals/identity-secure-score.md)와 일치합니다. 조직은 Azure AD 포털의 ID 보안 점수 페이지를 통해 현재 보안 구성의 빈틈을 찾아 보안과 관련된 Microsoft의 현재 [모범 사례](identity-management-best-practices.md)를 따를 수 있습니다. [보안 점수] 페이지의 각 권장 사항을 구현하면 점수가 올라가고 진행 상황을 추적할 수 있으며, 비슷한 규모의 조직 또는 산업과 구현을 비교할 수 있습니다.
 

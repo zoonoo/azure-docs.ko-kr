@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 264d4afb50904be17624f8801b7b79fe4b232030
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763247"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386812"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 Azure 테 넌 트 만들기  
 
@@ -37,7 +37,7 @@ Azure 구독 및 Azure active directory를 무료로 만들고 기본 기능을 
 
    a. **OIDC 또는 Oath 응용 프로그램의**경우 [응용 프로그램](../develop/quickstart-register-app.md) 을 다중 테 넌 트 응용 프로그램으로 등록 합니다. 지원 되는 계정 유형에서 조직 디렉터리 및 개인 Microsoft 계정 옵션의 계정을 선택 합니다.
 
-   b. **Saml 및 WS 급지됨 기반 응용 프로그램의**경우 Azure AD에서 일반 saml 템플릿을 사용 하 여 [saml 기반 Single sign-on](configure-single-sign-on-non-gallery-applications.md) 응용 프로그램을 구성 합니다.
+   b. **Saml 및 WS 급지됨 기반 응용 프로그램의**경우 Azure AD에서 일반 saml 템플릿을 사용 하 여 [saml 기반 Single sign-on](configure-saml-single-sign-on.md) 응용 프로그램을 구성 합니다.
 
 필요한 경우 [단일 테 넌 트 응용 프로그램을 다중 테 넌 트로 변환할](../develop/howto-convert-app-to-be-multi-tenant.md) 수도 있습니다.
 

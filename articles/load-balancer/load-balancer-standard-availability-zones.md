@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027565"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420314"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -51,7 +51,7 @@ Azure 표준 Load Balancer는 가용성 영역 시나리오를 지원 합니다.
 프런트 엔드의 IP 주소는 여러 가용성 영역에서 여러 독립 인프라 배포에 의해 동시에 처리 됩니다. 재시도 또는 재설정는 영역 실패의 영향을 받지 않는 다른 영역에서 성공 합니다. 
 
 <p align="center">
-  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Virtual Network NAT">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" alt="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration." width="512" title="Virtual Network NAT">
 </p>
 
 *그림: 영역 중복 부하 분산 장치*
@@ -64,7 +64,7 @@ Azure 표준 Load Balancer는 가용성 영역 시나리오를 지원 합니다.
 
 
 <p align="center">
-  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Virtual Network NAT">
+  <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Virtual Network NAT">
 </p>
 
 *그림: 영역 중복 부하 분산 장치*

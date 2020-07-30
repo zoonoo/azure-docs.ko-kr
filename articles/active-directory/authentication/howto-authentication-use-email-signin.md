@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223026"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419532"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>대체 로그인 ID (미리 보기)로 전자 메일을 사용 하 여 Azure Active Directory 로그인
 
@@ -158,6 +158,8 @@ Azure AD Connect에 의해 자동으로 동기화되는 사용자 특성 중 하
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
+
+정책이 적용 되 면, 사용자가 대체 로그인 ID를 사용 하 여 로그인 할 수 있도록 전파 하는 데 최대 한 시간이 걸릴 수 있습니다.
 
 ## <a name="test-user-sign-in-with-email"></a>메일을 사용하여 사용자 로그인 테스트
 

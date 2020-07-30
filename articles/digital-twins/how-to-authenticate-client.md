@@ -1,5 +1,5 @@
 ---
-title: 앱 인증 코드 작성
+title: 앱 인증 코드 쓰기
 titleSuffix: Azure Digital Twins
 description: 클라이언트 응용 프로그램에서 인증 코드를 작성 하는 방법을 참조 하세요.
 author: baanders
@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4d235280ae4a600994eb93ec08c7a13630f9682f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1eebacefa2e91970263c301de4ff160ea7c9f2eb
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131585"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420348"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 

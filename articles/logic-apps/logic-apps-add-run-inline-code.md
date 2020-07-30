@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a1c3828a4b1899ff4b22c0a9520f676add21fe02
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75453506"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420127"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
 
@@ -32,7 +33,7 @@ ms.locfileid: "75453506"
 
 ![예제 개요](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -260,7 +261,7 @@ ms.locfileid: "75453506"
 
 1. 다른 작업을 추가 하려면 **추가 새 항목**을 선택 합니다.
 
-## <a name="reference"></a>참고
+## <a name="reference"></a>참조
 
 워크플로 정의 언어를 사용 하 여 논리 앱의 기본 워크플로 정의에서 **JavaScript 코드** 작업의 구조 및 구문을 실행 하는 방법에 대 한 자세한 내용은이 작업의 [참조 섹션](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)을 참조 하세요.
 

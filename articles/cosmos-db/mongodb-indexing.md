@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260698"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420654"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
 
@@ -23,7 +24,7 @@ Azure Cosmos DB의 MongoDB API는 Azure Cosmos DB의 핵심 인덱스 관리 기
 
 MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API `_id` 는 필드를 자동으로 인덱싱하고 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . MongoDB에 대 한 Azure Cosmos DB API에서는 분할 및 인덱싱이 별도의 개념입니다. 분할 키를 인덱싱할 필요가 없습니다. 그러나 문서의 다른 속성과 마찬가지로이 속성이 쿼리에서 일반 필터 이면 분할 키를 인덱싱하는 것이 좋습니다.
 
-추가 필드를 인덱싱 하려면 MongoDB 인덱스 관리 명령을 적용 합니다. MongoDB에서와 마찬가지로, MongoDB에 대 한 Azure Cosmos DB API는 자동으로 필드를 인덱싱합니다 `_id` . 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
+추가 필드를 인덱싱하려면 MongoDB 인덱스 관리 명령을 적용합니다. MongoDB에서와 마찬가지로, MongoDB에 대 한 Azure Cosmos DB API는 자동으로 필드를 인덱싱합니다 `_id` . 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
 
 쿼리에 정렬을 적용 하려면 정렬 작업에 사용 되는 필드에 대 한 인덱스를 만들어야 합니다.
 
@@ -49,7 +50,7 @@ Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 �
 
 `db.coll.find().sort({name:1,age:1})`
 
-앞의 복합 인덱스를 사용 하 여 모든 필드에서 정렬 순서가 반대인 쿼리를 효율적으로 정렬할 수도 있습니다. 예를 들면 다음과 같습니다.
+앞의 복합 인덱스를 사용 하 여 모든 필드에서 정렬 순서가 반대인 쿼리를 효율적으로 정렬할 수도 있습니다. 예는 다음과 같습니다.
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -218,7 +219,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 
 특정 컬렉션에서 문서 만료를 사용 하도록 설정 하려면 [TTL (time-to-live) 인덱스](../cosmos-db/time-to-live.md)를 만들어야 합니다. TTL 인덱스는 값이 있는 필드의 인덱스입니다 `_ts` `expireAfterSeconds` .
 
-예:
+예제:
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})

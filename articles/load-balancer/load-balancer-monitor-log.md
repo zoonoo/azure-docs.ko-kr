@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 351307132e231f1fc6639333e6839848ac933337
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809185"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420909"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>공용 기본 Load Balancer용 Azure Monitor 로그
 
@@ -39,8 +39,8 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
 
 1. 포털에서 **리소스 그룹**을 클릭 합니다.
 2. **\<resource-group-name>** 부하 분산 장치가 있는 위치를 선택 합니다.
-3. 부하 분산 장치를 선택 합니다.
-4. **Monitoring**  >  **진단 설정**모니터링을 선택 합니다.
+3. 부하 분산 장치를 선택합니다.
+4. **활동 로그**  >  **진단 설정**을 선택 합니다.
 5. **진단 설정** 창의 **진단 설정**에서 **+ 진단 설정 추가**를 선택 합니다.
 6. **진단 설정** 만들기 창에서 **이름** 필드에 **myLBDiagnostics** 을 입력 합니다.
 7. **진단 설정**에 대 한 세 가지 옵션이 있습니다.  하나, 둘 또는 세 가지를 모두 선택 하 고 요구 사항에 맞게 구성할 수 있습니다.

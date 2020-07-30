@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d31240cad709a156d7235f116c9cd2c8fb698b03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76840556"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421147"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Network Watcher 기능을 사용하는 데 필요한 역할 기반 액세스 제어 권한
 
@@ -104,7 +104,7 @@ Network Watcher 기능에는 다음 작업도 필요합니다.
 
 | 작업                                                           | 설명                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Authorization/\*/Read                                     | RBAC 역할 할당 및 정책 정의를 인출 하는 데 사용 됩니다.          |
+| Microsoft.Authorization/\*/Read                                     | Azure 역할 할당 및 정책 정의를 가져오는 데 사용 됩니다.          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | 구독의 모든 리소스 그룹을 열거 하는 데 사용 됩니다.    |
 | Microsoft.Storage/storageAccounts/Read                              | 지정 된 저장소 계정에 대 한 속성을 가져오는 데 사용 됩니다.   |
 | Microsoft. Storage/storageAccounts/List서비스로 서/작업, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| [저장소 계정에 대 한 보안 액세스](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) 를 설정 하 고 저장소 계정에 쓸 수 있는 SAS (공유 액세스 서명)를 인출 하는 데 사용 됩니다. |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373796"
+ms.locfileid: "87415026"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -28,20 +28,20 @@ ms.locfileid: "87373796"
 - **C #**: 비동기 대화 기록을 위한 지원이 추가 되었습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription)에서 설명서를 참조 하세요.  
 - **JavaScript**: [브라우저](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) 와 [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition)에 대 한 Speaker Recognition 지원이 추가 되었습니다.
 - **JavaScript**: 자동 언어 검색/언어 ID에 대 한 지원이 추가 되었습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript)에서 설명서를 참조 하세요.
-- **목적-C**: 다중 장치 대화 및 대화 기록에 대 한 지원이 추가 되었습니다. 
+- **목적-C**: [다중 장치 대화](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) 및 [대화](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription)기록에 대 한 지원이 추가 되었습니다. 
 - **Python**: Windows 및 Linux에서 python에 대 한 압축 오디오 지원을 추가 했습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)에서 설명서를 참조 하세요. 
 
 **버그 수정**
 - **모두**: 인식 후 KeywordRecognizer 스트림을 앞으로 이동 하지 않는 문제를 해결 했습니다.
 - **All**: KeywordRecognitionResult에서 가져온 스트림이 키워드를 포함 하지 않도록 하는 문제를 해결 했습니다.
 - **모든**: 사용자가 대기를 완료 한 후 SendMessageAsync가 네트워크를 통해 메시지를 전송 하지 않는 문제를 해결 했습니다.
-- **모든**: 사용자가 여러 VoiceProfileClient:: SpeakerRecEnrollProfileAsync를 시작 하 고 완료 될 때까지 기다리지 않는 경우 Speaker Recognition api에서 충돌이 해결 되었습니다.
+- **모든**: 사용자가 VoiceProfileClient:: SpeakerRecEnrollProfileAsync 메서드를 여러 번 호출 하 고 호출이 완료 될 때까지 기다리지 않는 경우 Speaker Recognition api에서 충돌이 해결 되었습니다.
 - **All**: VoiceProfileClient 및 SpeakerRecognizer 클래스에서 파일 로깅 사용을 수정 했습니다.
 - **JavaScript**: 브라우저가 최소화 되었을 때 조정 [문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) 를 수정 했습니다.
 - **JavaScript**: 스트림에서 메모리 누수가 발생 한 [문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) 를 수정 했습니다.
 - **JavaScript**: nodejs에서 OCSP 응답에 대 한 캐싱을 추가 했습니다.
 - **Java**: BigInteger 필드에서 항상 0을 반환 하는 문제를 해결 했습니다.
-- **ios**: Ios 앱 스토어에서 음성 SDK 기반 앱을 게시 하는 문제를 해결 하 고 [문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) 를 해결 하세요.
+- **ios**: Ios 앱 스토어에서 음성 SDK 기반 앱을 게시 하는 [문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) 를 수정 했습니다.
 
 **샘플**
 - **C + +**: [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp)에 Speaker Recognition 샘플 코드를 추가 했습니다.
@@ -85,7 +85,7 @@ ms.locfileid: "87373796"
 
 * 5 개 언어로 된 단어 수준 음성 정확도 향상
 
-    | Language | 음성 오류 감소 |
+    | 언어 | 음성 오류 감소 |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -98,7 +98,7 @@ ms.locfileid: "87373796"
 * 통화 판독값
     * 및에 대 한 통화 읽기와 관련 된 문제를 해결 했습니다. `es-ES``es-MX`
      
-    | Language | 입력 | 개선 후의 기능 |
+    | 언어 | 입력 | 개선 후의 기능 |
     |---|---|---|
     | `es-MX` | $1.58 | un 페소 cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |

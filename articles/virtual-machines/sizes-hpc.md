@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c02b0d63db3a761f52c9ea15e6fc6ba3356cd4be
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372572"
+ms.locfileid: "87421368"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
@@ -46,9 +46,9 @@ Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 �
 
 - **InfiniBand 및 Rdma 드라이버** -InfiniBand 사용 VM에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. SR-IOV를 사용 하도록 설정 된 H-및 N 시리즈 Vm에서는 [INFINIBANDDRIVERLINUX VM 확장](./extensions/hpc-compute-infiniband-linux.md) 을 사용 하 여 Mellanox OFED 드라이버를 설치 하 고 InfiniBand를 사용 하도록 설정할 수 있습니다. RDMA 지원 VM에서 InfiniBand 사용에 대 한 자세한 내용은 [HPC 작업](./workloads/hpc/overview.md)을 확인 하세요.
 
-Windows에서 [INFINIBANDDRIVERWINDOWS vm 확장](./extensions/hpc-compute-infiniband-windows.md) 은 RDMA 연결에 Windows 네트워크 직접 드라이버 (sr-iov vm이 아닌 vm) 또는 Mellanox OFED 드라이버 (sr-iov vm)를 설치 합니다. A8 및 A9 인스턴스의 특정 배포에서 HpcVmDrivers 확장이 자동으로 추가 됩니다. HpcVmDrivers VM 확장은 더 이상 사용 되지 않습니다. 업데이트 되지 않습니다.
+   Windows에서 [INFINIBANDDRIVERWINDOWS vm 확장](./extensions/hpc-compute-infiniband-windows.md) 은 RDMA 연결에 Windows 네트워크 직접 드라이버 (sr-iov vm이 아닌 vm) 또는 Mellanox OFED 드라이버 (sr-iov vm)를 설치 합니다. A8 및 A9 인스턴스의 특정 배포에서 HpcVmDrivers 확장이 자동으로 추가 됩니다. HpcVmDrivers VM 확장은 더 이상 사용 되지 않습니다. 업데이트 되지 않습니다.
 
-VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/) cmdlet을 사용할 수 있습니다. 자세한 내용은 [가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요. 또한 [클래식 배포 모델](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic)에서 배포된 VM의 확장으로 작업할 수 있습니다.
+   VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/) cmdlet을 사용할 수 있습니다. 자세한 내용은 [가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요. 또한 [클래식 배포 모델](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic)에서 배포된 VM의 확장으로 작업할 수 있습니다.
 
 - **Mpi** -AZURE에서 SR-IOV 지원 VM 크기 (HBv2, HB, HC, NCv3, NDv2)는 모든 MPI의 모든 버전을 Mellanox OFED와 함께 사용할 수 있습니다.
 SR-IOV를 사용할 수 없는 Vm에서 지원 되는 MPI 구현은 Microsoft 네트워크 직접 (ND) 인터페이스를 사용 하 여 Vm 간에 통신 합니다. 따라서 Microsoft MPI (MS MPI) 2012 R2 이상 및 Intel MPI 5.x 버전만 지원 됩니다. Intel MPI 런타임 라이브러리의 이후 버전 (2017, 2018)은 Azure RDMA 드라이버와 호환 될 수도 있고 그렇지 않을 수도 있습니다.
@@ -98,6 +98,6 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 용 HPC 응용 프로그램 최적화 및 [Hpc 작업](./workloads/hpc/overview.md) 의 몇 가지 예제에 대해 자세히 알아보세요. 
+- Azure 용 HPC 응용 프로그램 최적화 및 [Hpc 작업](./workloads/hpc/overview.md)의 몇 가지 예제에 대해 자세히 알아보세요.
 
-- [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+- [Azure Compute 기술 커뮤니티 블로그의](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)최신 공지 사항 및 일부 HPC 예제 및 결과에 대해 읽어 보세요.

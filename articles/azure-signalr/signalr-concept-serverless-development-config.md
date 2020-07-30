@@ -6,12 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: dbacb6a5bbdead52750935c476f453423647fc0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e25a874af66b73f5f75a07a5df65c155a16c9f01
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457136"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387152"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure SignalR Service를 사용하여 Azure Functions 개발 및 구성
 
@@ -220,7 +221,7 @@ JavaScript/TypeScript 클라이언트는 협상 함수에 대해 HTTP 요청을 
 * `CORS`-클라이언트 응용 프로그램의 원본인 기준 URL을 입력 합니다.
 * `CORSCredentials`- `true` "withCredentials" 요청을 허용 하도록 설정 합니다.
 
-예:
+예제:
 
 ```json
 {

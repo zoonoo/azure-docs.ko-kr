@@ -5,13 +5,14 @@ ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
+ms.custom: devx-track-javascript
 ms.reviewer: mbullwin
-ms.openlocfilehash: 56438389ea8a371335facd3cfd0b2d4161b421c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 375929a983c5dfea01a88fb64fd5ab19bf105c0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326565"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383633"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -57,7 +58,7 @@ ms.locfileid: "87326565"
 
 연결 문자열은 세미콜론으로 구분 된 키-값 쌍으로 표시 되는 설정 목록으로 구성 됩니다.`key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>구문
+#### <a name="syntax"></a>Syntax
 
 - `InstrumentationKey`(예: 00000000-0000-0000-0000-000000000000)  연결 문자열은 **필수** 필드입니다.
 - `Authorization`(예: ikey) 이 설정은 현재 ikey 권한 부여만 지원 하기 때문에 선택 사항입니다.

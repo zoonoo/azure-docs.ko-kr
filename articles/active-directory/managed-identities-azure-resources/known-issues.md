@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b97edeb34e5d245d3bcf9018399f18b096b56f4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019066"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420501"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -76,7 +76,7 @@ ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>구독을 다른 디렉터리로 이동하면 관리 ID가 자동으로 다시 생성되나요?
 
-아니요. 구독을 다른 디렉터리로 이동하는 경우 관리 ID를 수동으로 다시 만들고 Azure RBAC 역할 할당을 다시 부여해야 합니다.
+아니요. 구독을 다른 디렉터리로 이동 하는 경우 수동으로 다시 만들고 Azure 역할 할당을 다시 부여 해야 합니다.
 - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다. 
 - 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
 

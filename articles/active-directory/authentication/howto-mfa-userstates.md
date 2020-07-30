@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027498"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417933"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>사용자별 Azure Multi-Factor Authentication을 사용하여 로그인 이벤트 보호
 
@@ -55,7 +55,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. *Azure Active Directory*를 검색하고 선택한 다음, **사용자** > **모든 사용자**를 선택합니다.
-1. **Multi-Factor Authentication**을 선택합니다. 이 메뉴 옵션을 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 아래 예제 스크린샷을 선택하여 전체 Azure Portal 창 및 메뉴 위치를 확인합니다. [![](media/howto-mfa-userstates/selectmfa-cropped.png "Azure AD의 사용자 창에서 Multi-Factor Authentication을 선택합니다.")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. **Multi-Factor Authentication**을 선택합니다. 이 메뉴 옵션을 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 다음 스크린샷 예를 선택 하 여 전체 Azure Portal 창 및 메뉴 위치를 확인 합니다. [ ![ Azure AD의 사용자 창에서 Multi-Factor Authentication를 선택 합니다.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. 다음 예제와 같이 사용자 상태를 표시하는 새 페이지가 열립니다.
    ![Azure Multi-Factor Authentication에 대한 예제 사용자 상태 정보를 보여 주는 스크린샷](./media/howto-mfa-userstates/userstate1.png)
 

@@ -8,12 +8,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 67b85c34c72d8c4b4dc7cecaeb74a9b164133702
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 64bc8e76a4dcce963251219528bd93dd786f01cf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391964"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419617"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -36,7 +37,7 @@ ms.locfileid: "85391964"
 |---------|---------|
 |SDK 다운로드  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API 설명서  |  [JavaScript SDK 참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
-|SDK 설치 지침  |  [설치 지침](https://github.com/Azure/azure-cosmos-js#installation)
+|SDK 설치 지침  |  [설치 지침](https://github.com/Azure/azure-sdk-for-js)
 |SDK에 참여 | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | 샘플 | [Node.js 코드 샘플](sql-api-nodejs-samples.md)
 | 시작 자습서 | [JavaScript SDK 시작](sql-api-nodejs-get-started.md)

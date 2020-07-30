@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 50ee9e3c22c885931e2586f65ba2fa3353fccfeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b5de26afceb1127b42c937f1cb1005a660881d4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355848"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273425"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Microsoft Graph API를 사용하여 SAML 기반 SSO 앱 구성 자동화
 
@@ -601,7 +601,7 @@ HTTP/1.1 204
 | 사용자 ID(principalId) | 6cad4079-4e79-4a3f-9efb-ea30a14bdb26 |
 | 유형(principalType) | 사용자 |
 | 앱 역할 ID(appRoleId) | 454dc4c2-8176-498e-99df-8c4efcde41ef |
-| servicePrincipalID(resourceId) | 515f62cb-d18a-4dca-bec3-bb0bf31deeea |
+| servicePrincipalID(resourceId) | f47a6776-bca7-4f2e-bc6c-eec59d058e3e |
 
 #### <a name="request"></a>요청
 
@@ -618,7 +618,7 @@ Content-type: appRoleAssignments/json
   "principalId": "6cad4079-4e79-4a3f-9efb-ea30a14bdb26",
   "principalType": "User",
   "appRoleId":"454dc4c2-8176-498e-99df-8c4efcde41ef",
-  "resourceId":"515f62cb-d18a-4dca-bec3-bb0bf31deeea"
+  "resourceId":"f47a6776-bca7-4f2e-bc6c-eec59d058e3e"
 }
 ```
 #### <a name="response"></a>응답
@@ -639,7 +639,7 @@ Content-type: appRoleAssignments/json
     "principalId": "6cad4079-4e79-4a3f-9efb-ea30a14bdb26",
     "principalType": "User",
     "resourceDisplayName": "AWS API Created",
-    "resourceId": "515f62cb-d18a-4dca-bec3-bb0bf31deeea"
+    "resourceId": "f47a6776-bca7-4f2e-bc6c-eec59d058e3e"
 }
 ```
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223043"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419600"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용 하 Azure Active Directory Domain Services의 보안 감사 이벤트 검토
 
@@ -75,7 +75,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 
 1. 차트 아래에 있는 보안 개요 보고서의 아래쪽 부분은 선택한 작업 유형을 분할 합니다. 다음 예제 보고서에 표시 된 것 처럼 오른쪽에 포함 된 사용자 이름을 기준으로 필터링 할 수 있습니다.
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Azure Monitor 통합 문서에서 계정 잠금에 대 한 세부 정보입니다.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>계정 활동 보고서 통합 문서 사용
 
@@ -93,7 +93,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 
     다음 예제 보고서에 표시 된 것 처럼 **계정 사용자 이름**(예: *felix*)을 기준으로 필터링 할 수 있습니다.
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Azure Monitor 통합 문서에 있는 계정 활동 보고서](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     차트 아래 영역에는 작업 결과 및 원본 워크스테이션과 같은 정보와 함께 개별 로그인 이벤트가 표시 됩니다. 이 정보는 계정 잠금을 유발 하거나 잠재적인 공격을 나타낼 수 있는 로그인 이벤트의 반복 되는 원본을 확인 하는 데 도움이 됩니다.
 

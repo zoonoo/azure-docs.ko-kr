@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282945"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419787"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -69,7 +69,7 @@ Azure에서 Windows Vm에 대해 Azure AD 인증을 사용 하도록 설정 하�
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Azure에서 Windows VM에 대 한 Azure AD 로그인 사용
 
-Azure에서 Windows VM에 대해에서 Azure AD 로그인을 사용 하려면 먼저 Windows VM에 대해 Azure AD 로그인 옵션을 사용 하도록 설정 하 고 VM에 로그인 할 수 있는 권한이 있는 사용자에 대해 RBAC 역할 할당을 구성 해야 합니다.
+Azure에서 Windows VM에 대해에서 Azure AD 로그인을 사용 하려면 먼저 Windows VM에 대해 Azure AD 로그인 옵션을 사용 하도록 설정 해야 합니다. 그런 다음 VM에 로그인 할 수 있는 권한이 있는 사용자에 대해 Azure 역할 할당을 구성 해야 합니다.
 Windows VM에 대해 Azure AD 로그인을 사용 하도록 설정 하는 방법에는 여러 가지가 있습니다.
 
 - Windows VM을 만들 때 Azure Portal 환경 사용

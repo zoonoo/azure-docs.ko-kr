@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067479"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416318"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -98,14 +98,14 @@ SecurityEvent
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>요약 및 조인에서 효과적인 집계 명령 및 차원 사용
@@ -433,7 +433,7 @@ Azure Monitor 로그는 Azure 데이터 탐색기의 대규모 클러스터를 �
 - 직렬화 [연산자](/azure/kusto/query/serializeoperator), [next ()](/azure/kusto/query/nextfunction), [prev ()](/azure/kusto/query/prevfunction)및 [row](/azure/kusto/query/rowcumsumfunction) 함수와 같은 직렬화 및 창 함수를 사용 합니다. 이러한 경우에는 시계열 및 사용자 분석 함수를 사용할 수 있습니다. 쿼리 끝에 [범위](/azure/kusto/query/rangeoperator), [정렬](/azure/kusto/query/sortoperator), [순서](/azure/kusto/query/orderoperator), [위쪽](/azure/kusto/query/topoperator), [hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator)와 같은 연산자를 사용 하는 경우 비효율적인 serialization이 발생할 수도 있습니다.
 -    [Dcount ()](/azure/kusto/query/dcount-aggfunction) 집계 함수를 사용 하면 시스템에 고유 값의 중앙 복사본이 적용 됩니다. 데이터의 소수 자릿수가 높으면 dcount 함수 선택적인 매개 변수를 사용 하 여 정확도를 줄이는 것이 좋습니다.
 -    대부분의 경우 [조인](/azure/kusto/query/joinoperator?pivots=azuremonitor) 연산자는 전반적인 병렬 처리를 줄입니다. 성능이 문제가 되는 경우 무작위 조인을 검사 합니다.
--    리소스 범위 쿼리에서 RBAC 할당이 매우 많은 경우 실행 전 RBAC 검사가 지연 될 수 있습니다. 이로 인해 병렬 처리의 낮은 검사가 길어질 수 있습니다. 예를 들어 쿼리는 수천 개의 리소스가 있고 각 리소스는 구독 또는 리소스 그룹이 아니라 리소스 수준에서 많은 역할 할당을 보유 하는 구독에 대해 실행 됩니다.
+-    리소스 범위 쿼리에서 매우 많은 수의 Azure 역할 할당이 있는 경우 실행 전 RBAC 검사가 지연 될 수 있습니다. 이로 인해 병렬 처리의 낮은 검사가 길어질 수 있습니다. 예를 들어 쿼리는 수천 개의 리소스가 있고 각 리소스는 구독 또는 리소스 그룹이 아니라 리소스 수준에서 많은 역할 할당을 보유 하는 구독에 대해 실행 됩니다.
 -    쿼리가 작은 데이터 청크를 처리 하는 경우에는 시스템에서 여러 계산 노드에 분산 되지 않으므로 병렬 처리 속도가 낮습니다.
 
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 945d6ac15c3cb0b3f98ebb14e6b859b8f356b944
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311350"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419838"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -187,9 +187,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `access_token`  | 요청된 액세스 토큰입니다. 앱은 이 토큰을 사용하여 Web API와 같은 보안 리소스를 인증할 수 있습니다.  |
 | `token_type`    | 토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. |
 | `expires_in`    | 액세스 토큰이 유효한 기간(초)입니다. |
-| `scope`         | access_token이 유효한 범위입니다. |
+| `scope`         | access_token이 유효한 범위입니다. 선택 사항-표준이 아닙니다. 생략 하면 흐름의 초기 레그에서 요청 된 범위에 대 한 토큰이 됩니다. |
 | `refresh_token` | OAuth 2.0 새로 고침 토큰입니다. 앱은 현재 액세스 토큰이 만료된 후 이 토큰을 사용하여 추가 액세스 토큰을 획득할 수 있습니다. refresh_token은 수명이 길며, 오랜 시간 동안 리소스에 대한 액세스를 유지하는 데 사용할 수 있습니다. 액세스 토큰 새로 고침에 대한 자세한 내용은 [아래 섹션](#refresh-the-access-token)을 참조하세요. <br> **참고:** `offline_access` 범위가 요청된 경우에만 제공됩니다. |
-| `id_token`      | JWT(JSON Web Token) 앱은 이 토큰의 세그먼트를 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있지만 권한 부여 또는 보안 경계에 대해 의존해서는 안 됩니다. id_tokens에 대한 자세한 내용은 [`id_token reference`](id-tokens.md)를 참조하세요. <br> **참고:** `openid` 범위가 요청된 경우에만 제공됩니다. |
+| `id_token`      | JWT(JSON Web Token) 앱은 이 토큰의 세그먼트를 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시 하 고 표시할 수 있으며, 기밀 클라이언트는 권한 부여에이를 사용할 수 있습니다. id_tokens에 대한 자세한 내용은 [`id_token reference`](id-tokens.md)를 참조하세요. <br> **참고:** `openid` 범위가 요청된 경우에만 제공됩니다. |
 
 ### <a name="error-response"></a>오류 응답
 
@@ -227,8 +227,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `invalid_client` | 클라이언트 인증에 실패했습니다.  | 클라이언트 자격 증명이 잘못되었습니다. 해결하려면 애플리케이션 관리자가 자격 증명을 업데이트합니다.   |
 | `unsupported_grant_type` | 권한 부여 서버가 해당 권한 부여 유형을 지원하지 않습니다. | 요청에서 권한 부여 유형을 변경하십시오. 이 유형의 오류는 개발 중에만 발생하며 초기 테스트 중에 검색됩니다. |
 | `invalid_resource` | 대상 리소스가 존재하지 않거나 Azure AD에서 해당 리소스를 찾을 수 없거나 올바르게 구성되지 않았기 때문에 잘못되었습니다. | 리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다.  |
-| `interaction_required` | 요청을 위해 사용자 상호 작용이 필요합니다. 예를 들어 추가 인증 단계가 필요합니다. | 동일한 리소스를 사용하여 요청을 다시 시도하십시오.  |
-| `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 요청을 다시 시도하십시오. 클라이언트 애플리케이션이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
+| `interaction_required` | 비 비표준. OIDC 사양은 끝점 에서만이를 호출 합니다 `/authorize` . 요청에는 사용자 조작이 필요 합니다. 예를 들어 추가 인증 단계가 필요합니다. | 동일한 범위를 사용 하 여 요청을 다시 시도 하세요 `/authorize` . |
+| `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 약간의 지연 후 요청을 다시 시도 합니다. 클라이언트 애플리케이션이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
+|`consent_required` | 요청에는 사용자 동의가 필요 합니다. 이 오류는 일반적으로 OIDC 사양에 따라 끝점 에서만 반환 되므로 비표준입니다 `/authorize` . `scope`클라이언트 앱에 요청할 권한이 없는 코드 상환 흐름에서 매개 변수가 사용 된 경우 반환 됩니다.  | 클라이언트는 `/authorize` 동의를 트리거하기 위해 올바른 범위의 끝점으로 사용자를 다시 보내야 합니다. |
 
 > [!NOTE]
 > 단일 페이지 앱에는 '단일 페이지 애플리케이션' 클라이언트 유형에 대해서만 원본 간 토큰 상환이 허용됨을 나타내는 `invalid_request` 오류가 표시될 수 있습니다.  이것은 토큰을 요청하는 데 사용되는 리디렉션 URI가 `spa` 리디렉션 URI로 표시되지 않았음을 나타냅니다.  이 흐름을 사용하도록 설정하는 방법에 대해서는 [애플리케이션 등록 단계](#redirect-uri-setup-required-for-single-page-apps)를 검토합니다.
@@ -278,7 +279,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 매개 변수     | Type           | 설명        |
 |---------------|----------------|--------------------|
-| `tenant`        | 필수     | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.   |
+| `tenant`        | required     | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.   |
 | `client_id`     | 필수    | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID**입니다. |
 | `grant_type`    | 필수    | 이 인증 코드 흐름 범례에 대한 `refresh_token` 이어야 합니다. |
 | `scope`         | required    | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 원래 authorization_code 요청 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 요청에 지정된 범위가 여러 리소스 서버에 걸쳐 있는 경우 Microsoft ID 플랫폼 엔드포인트는 첫 번째 범위에 지정된 리소스에 대한 토큰을 반환합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |

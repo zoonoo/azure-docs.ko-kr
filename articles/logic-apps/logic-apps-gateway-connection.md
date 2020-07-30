@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: a9ebc6b0cdbaa05c36383fa5126c2672fb19b69c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370957"
+ms.locfileid: "87386183"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -50,15 +50,15 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업에는 [페이로드 크기 제한](/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
+* 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다. 이 게이트웨이 설치는이 설치에 연결 되는 게이트웨이 리소스를 만들기 전에 존재 해야 합니다.
 
-* 게이트웨이 설치에 사용한 것 [과 동일한 Azure 계정 및 구독이](../logic-apps/logic-apps-gateway-install.md#requirements) 있습니다. 이 Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해야 합니다. 게이트웨이 관리자만 Azure에서 게이트웨이 리소스를 만들 수 있기 때문에 Azure에서 게이트웨이 리소스를 만들기 위해 동일한 Azure 계정 및 구독이 필요 합니다. 서비스 사용자는 현재 지원 되지 않습니다.
+* 게이트웨이 설치에 사용한 것 [과 동일한 Azure 계정 및 구독이](../logic-apps/logic-apps-gateway-install.md#requirements) 있습니다. 이 Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해야 합니다. 게이트웨이 관리자만 Azure에서 게이트웨이 리소스를 만들 수 있기 때문에 Azure에서 게이트웨이 리소스를 만들려면 동일한 Azure 계정 및 구독을 사용 해야 합니다. 서비스 사용자는 현재 지원 되지 않습니다.
 
-  * Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 리소스와 함께 사용할 게이트웨이 설치 및 해당 게이트웨이 리소스를 선택 합니다. 각 게이트웨이 리소스는 하나의 게이트웨이 설치에만 연결할 수 있으며 Azure 계정 및 구독 하나에만 연결할 수 있습니다. 따라서 다른 게이트웨이 리소스와 이미 연결 되어 있는 게이트웨이 설치를 선택할 수 없습니다.
+  * Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 설치를 선택 하 여 게이트웨이 리소스 및 해당 게이트웨이 리소스에만 연결 합니다. 각 게이트웨이 리소스는 하나의 게이트웨이 설치에만 연결할 수 있습니다. 다른 게이트웨이 리소스와 이미 연결 되어 있는 게이트웨이 설치는 선택할 수 없습니다.
   
-  * 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다. 구독 액세스 권한이 있는 경우 온-프레미스 데이터 원본에 액세스할 수 있는 트리거 및 작업에서 각각 다른 게이트웨이 리소스와 연결 된 다른 Azure 구독에서 선택할 수 있습니다.
+  * 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다. 구독 액세스 권한이 있는 경우 온-프레미스 데이터 원본에 액세스할 수 있는 트리거 및 작업에서 게이트웨이 리소스가 있는 다른 Azure 구독을 선택할 수 있습니다.
 
 <a name="create-gateway-resource"></a>
 

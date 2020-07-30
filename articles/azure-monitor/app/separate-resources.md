@@ -3,18 +3,18 @@ title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 159a1c5554c0ac017bc9eeb2e9df65fddba334ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326548"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420569"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
-웹 애플리케이션의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](./app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다.
+웹 애플리케이션의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다.
 
-시스템이 Azure 클라우드 서비스인 경우 [별도의 ikey를 설정하는 다른 방법](./cloudservices.md)이 있습니다.
+시스템이 Azure 클라우드 서비스인 경우 [별도의 ikey를 설정하는 다른 방법](../../azure-monitor/app/cloudservices.md)이 있습니다.
 
 ## <a name="about-resources-and-instrumentation-keys"></a>리소스 및 계측 키 정보
 
@@ -35,7 +35,7 @@ ms.locfileid: "87326548"
 
 ### <a name="other-things-to-keep-in-mind"></a>주의해야 할 기타 사항
 
--   의미 있는 값이 [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE*이 작동합니다.
+-   의미 있는 값이 [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE*이 작동합니다.
 - Service Fabric 애플리케이션 및 클래식 클라우드 서비스의 경우 SDK는 Azure 역할 환경에서 자동으로 읽고 이를 설정합니다. 다른 모든 유형의 앱의 경우 이를 명시적으로 설정해야 할 수도 있습니다.
 -   라이브 메트릭 환경은 역할 이름별로 분할하는 것을 지원하지 않습니다.
 
@@ -58,7 +58,7 @@ protected void Application_Start()
 이 예제에서는 서로 다른 리소스에 대한 ikeys는 다른 버전의 웹 구성 파일에 배치됩니다. 웹 구성 파일 교체는 릴리스 스크립트의 일부로 수행될 수 있고 대상 리소스를 교체합니다.
 
 ### <a name="web-pages"></a>웹 페이지
-iKey는 [빠른 시작 창에서 가져온 스크립트](./javascript.md)에 있는 앱의 웹페이지에서도 사용됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
+iKey는 [빠른 시작 창에서 가져온 스크립트](../../azure-monitor/app/javascript.md)에 있는 앱의 웹페이지에서도 사용됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
 
 ```javascript
 <script type="text/javascript">
@@ -86,14 +86,14 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
 ## <a name="filter-on-build-number"></a>빌드 번호 필터링
 앱의 새 버전을 게시하면서 다른 빌드의 원격 분석을 구분하고자 할 수 있습니다.
 
-애플리케이션 버전 속성을 설정하여 [검색](./diagnostic-search.md) 및 [메트릭 탐색기](../platform/metrics-charts.md) 결과를 필터링할 수 있습니다.
+애플리케이션 버전 속성을 설정하여 [검색](../../azure-monitor/app/diagnostic-search.md) 및 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 결과를 필터링할 수 있습니다.
 
 애플리케이션 버전 속성은 몇 가지 다른 방법으로 설정할 수 있습니다.
 
 * 직접 설정:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* [원격 분석 이니셜라이저](./api-custom-events-metrics.md#defaults) 에서 해당 줄을 래핑하여 모든 TelemetryClient 인스턴스가 일관되게 설정되었는지 확인합니다.
+* [원격 분석 이니셜라이저](../../azure-monitor/app/api-custom-events-metrics.md#defaults) 에서 해당 줄을 래핑하여 모든 TelemetryClient 인스턴스가 일관되게 설정되었는지 확인합니다.
 * [ASP.NET] `BuildInfo.config`에서 버전을 설정합니다. 웹 모듈은 BuildLabel 노드에서 버전을 선택합니다. 프로젝트에 이 파일을 포함하고 솔루션 탐색기에서 항상 복사 속성을 설정합니다.
 
     ```XML
@@ -132,15 +132,14 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
 </PropertyGroup>
 ```
 
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](./diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
 그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성됩니다.
 
 ### <a name="release-annotations"></a>릴리스 주석
-Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](./annotations.md)이 차트에 추가됩니다. 
+Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [여러 역할에 대한 공유 리소스](./app-map.md)
-* [A|B 변형을 구분하는 원격 분석 이니셜라이저 만들기](./api-filtering-sampling.md#add-properties)
-
+* [여러 역할에 대한 공유 리소스](../../azure-monitor/app/app-map.md)
+* [A|B 변형을 구분하는 원격 분석 이니셜라이저 만들기](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

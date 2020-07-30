@@ -4,12 +4,12 @@ description: Azure CLI를 사용 하 여 Kubernetes 클러스터를 신속 하 �
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015632"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421232"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -94,8 +94,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> 암호 유효성 검사 오류가 발생 하는 경우 다른 지역에 리소스 그룹을 만들어 보세요.
-> 그런 다음 새 리소스 그룹을 사용 하 여 클러스터를 만들어 보세요.
+> 암호 유효성 검사 오류가 발생 하는 경우 windows *-관리자 암호* 매개 변수가 [windows Server 암호 요구 사항을][windows-server-password]충족 하는지 확인 합니다. 암호가 요구 사항을 충족 하는 경우 다른 지역에 리소스 그룹을 만들어 보세요. 그런 다음 새 리소스 그룹을 사용 하 여 클러스터를 만들어 보세요.
 
 몇 분 후 명령이 완료되면 클러스터에 대한 JSON 형식 정보가 반환됩니다. 경우에 따라 클러스터를 프로비저닝하는 데 몇 분 이상 걸릴 수 있습니다. 이 경우 최대 10분이 허용됩니다.
 

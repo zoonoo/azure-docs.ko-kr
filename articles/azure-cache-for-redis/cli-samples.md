@@ -1,24 +1,24 @@
 ---
-title: Redis 샘플에 대 한 Azure Cache Azure CLI
-description: 'Redis 용 Azure 캐시에 대 한 Azure CLI 샘플: 캐시를 만들고, 캐시를 삭제 하 고, 캐시 세부 정보, 호스트 이름, 포트 및 키를 가져오고, 웹 앱에 연결 합니다.'
+title: Azure CLI를 사용 하 여 Azure Cache for Redis 관리
+description: 'Redis에 대 한 Azure Cache를 관리 하기 위한 Azure CLI 샘플: 캐시 만들기, 캐시 삭제, 캐시 정보 가져오기, 호스트 이름, 포트 및 키, 웹 앱 연결'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.openlocfilehash: 43a986f884d621f257de2e9c305a0bcc59092d3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 345fd0272e0cfe9b4d7329f004e628ea7820c2d9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033668"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421243"
 ---
-# <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Azure Cache for Redis용 Azure CLI 샘플
+# <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cache for Redis 관리
 
 다음 테이블은 Azure CLI를 사용하여 빌드된 bash 셸에 대한 링크를 포함합니다.
 
-| 캐시 만들기 | Description |
+| 캐시 만들기 | 설명 |
 | ------------ | ----------- |
 | [캐시 만들기](./scripts/create-cache.md) | 리소스 그룹 및 기본 계층 Azure Cache for Redis를 만듭니다. |
 | [클러스터링을 사용하여 프리미엄 캐시 만들기](./scripts/create-premium-cache-cluster.md) | 클러스터링을 사용하여 리소스 그룹 및 프리미엄 계층 캐시를 만듭니다.|

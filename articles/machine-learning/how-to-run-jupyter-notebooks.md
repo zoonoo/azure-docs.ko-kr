@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: c794b87a88cec20b75923e1f251c1e309a43ef1c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319595"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386455"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -185,11 +185,20 @@ Notebook 도구 모음을 사용하면 Notebook이 실행되는 환경을 변경
 Notebook은 연결된 컴퓨팅 인스턴스에 설치된 모든 Jupyter 커널을 자동으로 찾습니다.  커널을 컴퓨팅 인스턴스에 추가하려면 다음을 수행합니다.
 
 1. Notebook 도구 모음에서 [**터미널 열기**](#terminal)를 선택합니다.
-1. 터미널 창을 사용하여 새 환경을 만듭니다.
+1. 터미널 창을 사용하여 새 환경을 만듭니다.  예를 들어 아래 코드는를 만듭니다 `newenv` .
+    ```shell
+    conda create --name newenv
+    ```
 1. 환경을 활성화합니다.  예를 들어 `newenv`를 만든 후에는 다음을 수행합니다.
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. 새 환경에 pip 및 ipykernel 패키지를 설치 하 고 해당 conda env의 커널 만들기
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

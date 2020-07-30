@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 28b768e421ac72be363ab187312e52ba15d34970
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872983"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386761"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Azure Key Vault에 대한 보안 추천 사항
 
@@ -30,7 +30,7 @@ ms.locfileid: "83872983"
 
 | 권장 | 주석 | Security Center |
 |-|----|--|
-|일시 삭제 사용 | [일시 삭제](overview-soft-delete.md)를 사용하면 삭제된 자격 증명 모음 및 자격 증명 모음 개체를 복구할 수 있습니다. |  - |
+|일시 삭제 사용 | [일시 삭제](soft-delete-overview.md)를 사용하면 삭제된 자격 증명 모음 및 자격 증명 모음 개체를 복구할 수 있습니다. |  - |
 | 자격 증명 모음 데이터에 대한 액세스 제한  | 최소 권한의 원칙에 따라 자격 증명 모음 데이터에 대한 액세스 권한이 있는 조직 멤버를 제한합니다. |  - |
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리

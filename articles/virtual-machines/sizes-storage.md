@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 038433e3b83ba936c14142053b86e0a7b0ed9dc6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e99ebfe53763811a86c04c53381c502cb1c25a7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291070"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421079"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>스토리지 최적화 가상 컴퓨터 크기
 
@@ -36,3 +36,5 @@ ms.locfileid: "87291070"
 [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
 [Windows](windows/storage-performance.md) 또는 [Linux](linux/storage-performance.md)용 Lsv2 시리즈 가상 머신에서 성능을 최적화 하는 방법에 대해 알아봅니다.
+
+Azure에서 Vm의 이름을 지정 하는 방법에 대 한 자세한 내용은 [azure virtual machine 크기 명명 규칙](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)을 참조 하세요.

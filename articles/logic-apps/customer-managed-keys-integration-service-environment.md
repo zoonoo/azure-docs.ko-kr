@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7e1432cf74dc741a6e2f5d561e9dc203df95007c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072680"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386166"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps
 
@@ -33,13 +33,13 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * ISE를 만드는 HTTPS PUT 요청을 보낸 후 *30 분* 이내에 [ise의 시스템 할당 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 합니다. 그렇지 않으면 ISE 만들기가 실패 하 고 권한 오류가 throw 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Portal ISE를 만들 때 [ise에 대 한 액세스를 가능 하 게 하](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) 는 동일한 [필수 구성 요소](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) 및 요구 사항
 
 * **일시 삭제** 및 **제거 안 함** 속성을 사용 하는 Azure key vault
 
-  이러한 속성을 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/overview-soft-delete.md) 및 [Azure Key Vault를 사용 하 여 고객 관리 키 구성](../storage/common/storage-encryption-keys-portal.md)을 참조 하세요. Azure Key Vault를 처음 사용 하는 경우 Azure Portal를 사용 하거나 Azure PowerShell 명령 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)를 사용 하 여 [주요 자격 증명 모음을 만드는 방법을](../key-vault/secrets/quick-create-portal.md#create-a-vault) 알아봅니다.
+  이러한 속성을 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md) 및 [Azure Key Vault를 사용 하 여 고객 관리 키 구성](../storage/common/storage-encryption-keys-portal.md)을 참조 하세요. Azure Key Vault를 처음 사용 하는 경우 Azure Portal를 사용 하거나 Azure PowerShell 명령 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)를 사용 하 여 [주요 자격 증명 모음을 만드는 방법을](../key-vault/secrets/quick-create-portal.md#create-a-vault) 알아봅니다.
 
 * 키 자격 증명 모음에서 다음 속성 값을 사용 하 여 만든 키입니다.
 
@@ -47,7 +47,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
   |----------|-------|
   | **키 유형** | RSA |
   | **RSA 키 크기** | 2048 |
-  | **Enabled** | 예 |
+  | **사용** | 예 |
   |||
 
   ![고객이 관리 하는 암호화 키 만들기](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)

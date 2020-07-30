@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a43538ec7fa17764e8d9d53aad305480bd3ab4f5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284407"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419804"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
 
@@ -54,9 +54,9 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 |   | 관리 대상 | Windows 현재 | 영구적 | 아니요 |
 |   |   |   | 비영구 | 아니요 |
 | Azure AD 등록됨 | 페더레이션 | Windows 현재 | 영구적 | 해당 사항 없음 |
-|   |   |   | 비영구 | 아니요 |
+|   |   |   | 비영구 | 해당 사항 없음 |
 |   | 관리 대상 | Windows 현재 | 영구적 | 해당 사항 없음 |
-|   |   |   | 비영구 | 아니요 |
+|   |   |   | 비영구 | 해당 사항 없음 |
 
 \***페더레이션된** id 인프라 환경은 AD FS 또는 기타 타사 IDP와 같은 id 공급자를 사용 하는 환경을 나타냅니다.
 

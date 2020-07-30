@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639819"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418239"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>로그인 보고서를 사용하여 Azure Multi-Factor Authentication 이벤트 검토
 
@@ -44,7 +44,7 @@ Azure Multi-Factor Authentication 이벤트를 검토하고 이해하려면 Azur
 
     이벤트 세부 정보의 *인증 세부 정보* 또는 *조건부 액세스* 탭에는 MFA 프롬프트를 트리거한 상태 코드 또는 정책이 표시됩니다.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Azure Portal의 Azure Active Directory 로그인 보고서 예제 스크린샷](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 사용할 수 있는 경우 문자 메시지, Microsoft Authenticator 앱 알림 또는 전화 통화와 같은 인증이 표시됩니다.
 
@@ -145,8 +145,8 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 | FAILED_INVALID_EXTENSION | 잘못된 내선 번호 | 내선 번호에 잘못된 문자가 포함되어 있습니다.  숫자, 쉼표, * 및 #만 허용됩니다.  @ 접미사를 사용할 수도 있습니다. |
 | FAILED_FRAUD_CODE_ENTERED | 사기 코드가 입력됨 | 사용자가 전화 통화 시 사기 행위를 보고하여 인증이 거부되고 전화 번호가 차단되었습니다.| 
 | FAILED_SERVER_ERROR | 전화를 걸 수 없음 | Multi-Factor Authentication 서비스에서 전화를 걸 수 없습니다. |
-| FAILED_SMS_NOT_SENT | 문자 메시지를 보낼 수 없음 | 문자 메시지를 보낼 수 없습니다.  인증이 거부되었습니다. |
-| FAILED_SMS_OTP_INCORRECT | 문자 메시지의 OTP가 잘못됨 | 사용자가 수신된 문자 메시지의 OTP(일회성 암호)를 잘못 입력했습니다.  인증이 거부되었습니다. |
+| FAILED_SMS_NOT_SENT | 문자 메시지를 보낼 수 없음 | 문자 메시지를 보낼 수 없습니다. 인증이 거부되었습니다. |
+| FAILED_SMS_OTP_INCORRECT | 문자 메시지의 OTP가 잘못됨 | 사용자가 수신된 문자 메시지의 OTP(일회성 암호)를 잘못 입력했습니다. 인증이 거부되었습니다. |
 | FAILED_SMS_OTP_PIN_INCORRECT | 문자 메시지의 OTP + PIN이 잘못됨 | 사용자가 잘못된 OTP(일회용 암호) 및/또는 잘못된 사용자 PIN을 입력했습니다.  인증이 거부되었습니다. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | 문자 메시지 최대 OTP 시도 횟수를 초과함 | 사용자가 최대 OTP(일회용 암호) 시도 횟수를 초과했습니다. |
 | FAILED_PHONE_APP_DENIED | 모바일 앱이 거부됨 | 사용자가 모바일 앱에서 거부 단추를 눌러 인증을 거부했습니다. |

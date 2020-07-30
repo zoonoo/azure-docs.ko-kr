@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 84166e5523cdbdb9ccebf9a0cbfc5e4dee0eb9e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981331"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387135"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객이 관리 하는 키로 투명한 데이터 암호화 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "85981331"
 - TDE에 사용할 Azure Key Vault 및 키를 만듭니다.
   - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../../key-vault/keys/hsm-protected-keys.md)
     - 키 자격 증명 모음에는 TDE에 사용할 다음 속성이 있어야 합니다.
-  - [일시 삭제](../../key-vault/general/overview-soft-delete.md) 및 보호 제거
+  - [일시 삭제](../../key-vault/general/soft-delete-overview.md) 및 보호 제거
 - 키에는 TDE에 사용할 다음 특성이 있어야 합니다.
   - 만료 날짜 없음
   - 사용 안 함 없음

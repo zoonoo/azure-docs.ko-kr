@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 5e0cb1a5c5c115aa1aaf9697e19631e2142853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a872bc63be33ebed0a8ba9d89383cdfc9feef28
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808075"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386285"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Azure PowerShell을 사용하여 Key Vault 인증서로 TLS 종료 구성
 
@@ -73,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> TLS 종료가 제대로 작동하려면 -EnableSoftDelete 플래그를 사용해야 합니다. [포털을 통해 Key Vault 일시 삭제](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)를 구성하는 경우 보존 기간은 기본값인 90일로 유지되어야 합니다. Application Gateway는 아직 다른 보존 기간을 지원하지 않습니다. 
+> TLS 종료가 제대로 작동하려면 -EnableSoftDelete 플래그를 사용해야 합니다. [포털을 통해 Key Vault 일시 삭제](../key-vault/general/soft-delete-overview.md#soft-delete-behavior)를 구성하는 경우 보존 기간은 기본값인 90일로 유지되어야 합니다. Application Gateway는 아직 다른 보존 기간을 지원하지 않습니다. 
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 

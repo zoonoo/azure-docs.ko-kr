@@ -3,12 +3,12 @@ title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate:Server Assessment 도구를 사용하여 VM을 평가하기 위한 VMware에 대한 지원을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9c981306b7e026dcc811618302ecbd3e80b6486d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9c9b1f7687d1ab1af36ac603501ecbaa7affd9b6
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321431"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387033"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
 
@@ -82,7 +82,7 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 **요구 사항** | **세부 정보**
 --- | --- 
-**배포 전** | Azure Migrate 프로젝트가 준비되어 있고 서버 평가 도구가 프로젝트에 추가되어 있어야 합니다.<br/><br/>  온-프레미스 VMWare 머신을 검색하도록 Azure Migrate 어플라이언스를 설정한 후 종속성 시각화를 배포합니다.<br/><br/> 처음으로 프로젝트를 만드는 [방법을 알아봅니다](create-manage-projects.md).<br/> 기존 프로젝트에 평가 도구를 추가하는 [방법을 알아봅니다](how-to-assess.md).<br/> VMware VM의 평가를 위해 Azure Migrate 어플라이언스를 설정하는 [방법을 알아봅니다](how-to-set-up-appliance-vmware.md).
+**배포 전** | Azure Migrate 프로젝트가 준비되어 있고 서버 평가 도구가 프로젝트에 추가되어 있어야 합니다.<br/><br/>  온-프레미스 VMware 컴퓨터를 검색 하도록 Azure Migrate 어플라이언스를 설정한 후 종속성 시각화를 배포 합니다.<br/><br/> 처음으로 프로젝트를 만드는 [방법을 알아봅니다](create-manage-projects.md).<br/> 기존 프로젝트에 평가 도구를 추가하는 [방법을 알아봅니다](how-to-assess.md).<br/> VMware VM의 평가를 위해 Azure Migrate 어플라이언스를 설정하는 [방법을 알아봅니다](how-to-set-up-appliance-vmware.md).
 **지원되는 머신** | 현재 VMware VM에만 지원됩니다.
 **Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2(64비트)
 **vCenter Server 자격 증명** | 종속성 시각화에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 가상 머신 > 게스트 작업에 대해 사용하도록 설정된 권한이 필요합니다.

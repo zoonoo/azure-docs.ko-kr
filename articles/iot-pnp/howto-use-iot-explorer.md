@@ -24,7 +24,7 @@ Azure IoT 탐색기는 IoT 플러그 앤 플레이 미리 보기 장치를 조�
 - Azure IoT 탐색기 도구를 설치 하 고 구성 합니다.
 - 도구를 사용 하 여 장치를 조작 하 고 테스트 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 

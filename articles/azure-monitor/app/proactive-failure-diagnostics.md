@@ -4,12 +4,12 @@ description: 웹앱에 요청 실패율의 비정상적인 변경 내용에 대�
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315940"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420212"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [Application Insights](./app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 경고합니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청의 일반적인 응답 코드는 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 애플리케이션 데이터의 특성에 대한 분석이 경고 정보에 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "87315940"
 
 샘플 경고는 다음과 같습니다.
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="실패에 대 한 클러스터 분석을 보여 주는 샘플 스마트 검색 경고입니다." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 경고 정보는 다음을 알려 줍니다.
 
@@ -72,11 +72,11 @@ ms.locfileid: "87315940"
 
 경고 페이지를 엽니다. 오류 이상 경고 규칙은 수동으로 설정된 경고와 함께 포함되며 현재 경고 상태인지 여부를 볼 수 있습니다.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Application Insights 리소스 페이지에서 경고 타일을 클릭 한 다음 경고 규칙 관리를 클릭 합니다." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 경고를 클릭하여 구성합니다.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="규칙 구성 화면." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 오류 이상 경고 규칙을 사용하지 않도록 설정하거나 삭제할 수 있지만 동일한 Application Insights 리소스에서 다른 경고 규칙을 만들 수는 없습니다.
 
@@ -298,7 +298,7 @@ ms.locfileid: "87315940"
 
 '진단 오류'를 클릭하면 자세한 정보를 얻고 문제를 해결하는 데 도움을 얻을 수 있습니다.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="진단 검색." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 영향을 받는 요청의 백분율 및 사용자 수에서 문제가 얼마나 긴급한지 결정할 수 있습니다. 위의 예에서 78.5%의 실패율은 일반 비율 2.2%와 비교했을 때 무엇인가 잘못되었음을 나타냅니다. 반면에 46명의 사용자만 영향을 받았습니다. 앱에서 영향을 받은 경우 얼마나 심각한지 평가할 수 있습니다.
 
@@ -306,13 +306,13 @@ ms.locfileid: "87315940"
 
 이 예제에서는 요청 제한에 도달 하 여 SQL Database에서 예외가 발생 했습니다.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="실패 한 요청 정보입니다." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>최근 경고 검토
 
 Application Insights 리소스 페이지에서 **경고**를 클릭하여 가장 최근에 발생한 경고를 가져옵니다.
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="경고 요약." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>차이점은 무엇입니까...
 실패에 대한 스마트 검색은 Application Insights의 다른 유사하지만 고유한 기능을 보완합니다.

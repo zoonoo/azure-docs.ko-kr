@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281500"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382698"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,15 +36,14 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
-|대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
-|작동 시간 SLA|99.99%|99.99%|99.99%|
-|최대 백업 보존|7 일|35일|35일|
-|CPU|낮음|낮음, 보통, 높음|보통, 높음|
-|IO 처리량(근사치) |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
-|IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
-|Columnstore 인덱싱 |N/A|S3 이상|지원됨|
-|메모리 내 OLTP|N/A|해당 없음|지원됨|
-|||||
+|**대상 워크로드**|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
+|**작동 시간 SLA**|99.99%|99.99%|99.99%|
+|**최대 백업 보존**|7 일|35일|35일|
+|**CPU**|낮음|낮음, 보통, 높음|보통, 높음|
+|**IO 처리량(근사치)** |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
+|**IO 대기 시간(근사치)**|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
+|**Columnstore 인덱싱** |해당 없음|S3 이상|지원됨|
+|**메모리 내 OLTP**|N/A|해당 없음|지원됨|
 
 > [!IMPORTANT]
 > 기본, 표준 S0, S1 및 S2 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
@@ -61,9 +60,8 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| 최대 스토리지 크기 | 2GB | 1TB | 4 TB  |
-| 최대 DTU | 5 | 3000 | 4000 | 
-|||||
+| **최대 스토리지 크기** | 2GB | 1TB | 4 TB  |
+| **최대 DTU** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](file-space-manage.md)를 참조 하세요.
@@ -72,12 +70,11 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 || **기본** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| 데이터베이스당 최대 스토리지 크기  | 2GB | 1TB | 1TB |
-| 풀당 최대 스토리지 크기 | 156GB | 4 TB | 4 TB |
-| 데이터베이스당 최대 eDTU | 5 | 3000 | 4000 |
-| 풀당 최대 eDTU | 1600 | 3000 | 4000 |
-| 풀당 최대 데이터베이스 수 | 500  | 500 | 100 |
-|||||
+| **데이터베이스당 최대 저장소 크기**  | 2GB | 1TB | 1TB |
+| **풀 당 최대 저장소 크기** | 156GB | 4 TB | 4 TB |
+| **데이터베이스당 최대 eDTU** | 5 | 3000 | 4000 |
+| **풀당 최대 eDTU** | 1600 | 3000 | 4000 |
+| **풀당 최대 데이터베이스 수** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
 > 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  

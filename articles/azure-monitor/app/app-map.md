@@ -3,14 +3,13 @@ title: Azure Application Insights의 애플리케이션 맵 | Microsoft Docs
 description: 애플리케이션 맵을 사용하여 복잡한 애플리케이션 토폴로지 모니터링
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367013"
+ms.locfileid: "87421300"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -82,9 +81,12 @@ ms.locfileid: "87367013"
 
 ![Analytics 환경 스크린샷](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>클라우드 역할 이름 설정
+## <a name="set-or-override-cloud-role-name"></a>클라우드 역할 이름 설정 또는 재정의
 
-응용 프로그램 맵은 **클라우드 역할 이름** 속성을 사용 하 여 맵의 구성 요소를 식별 합니다. Application Insights SDK는 구성 요소에서 내보낸 원격 분석에 클라우드 역할 이름 속성을 자동으로 추가 합니다. 예를 들어 SDK는 클라우드 역할 이름 속성에 웹 사이트 이름 또는 서비스 역할 이름을 추가 합니다. 그러나 기본값을 대체할 수 있는 경우가 있습니다. 클라우드 역할 이름을 재정의 하 고 응용 프로그램 맵에 표시 되는 항목을 변경 하려면:
+응용 프로그램 맵은 **클라우드 역할 이름** 속성을 사용 하 여 맵의 구성 요소를 식별 합니다. 클라우드 역할 이름을 수동으로 설정 또는 재정의 하 고 응용 프로그램 맵에 표시 되는 항목을 변경 하려면:
+
+> [!NOTE]
+> Application Insights SDK 또는 에이전트는 Azure App Service 환경의 구성 요소에서 내보낸 원격 분석에 클라우드 역할 이름 속성을 자동으로 추가 합니다.
 
 # <a name="netnetcore"></a>[.NET/NetCore](#tab/net)
 
@@ -266,7 +268,7 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 3. C #을 사용 하 여 Azure Functions를 사용 하는 경우 [V2 함수로](../../azure-functions/functions-versions.md)업그레이드 합니다.
 
-4. [클라우드 역할 이름이](#set-cloud-role-name) 올바르게 구성 되었는지 확인 합니다.
+4. [클라우드 역할 이름이](#set-or-override-cloud-role-name) 올바르게 구성 되었는지 확인 합니다.
 
 5. 종속성이 누락된 경우 [자동 수집 종속성](./auto-collect-dependencies.md) 목록에 들어 있는지 확인합니다. 이 목록에 없어도 [종속성 호출 추적](./api-custom-events-metrics.md#trackdependency)을 사용하여 수동으로 계속 추적할 수 있습니다.
 
@@ -282,7 +284,7 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 * 종속성 유형은 종속성의 논리적 유형을 나타내야 합니다. 예를 들어 HTTP, SQL 또는 Azure Blob은 일반적으로 종속성 유형입니다. 고유 Id를 포함 해서는 안 됩니다.
 
-* 클라우드 역할 이름의 용도는 [위의 섹션](#set-cloud-role-name)에 설명 되어 있습니다.
+* 클라우드 역할 이름의 용도는 [위의 섹션](#set-or-override-cloud-role-name)에 설명 되어 있습니다.
 
 ## <a name="portal-feedback"></a>포털 사용자 의견
 

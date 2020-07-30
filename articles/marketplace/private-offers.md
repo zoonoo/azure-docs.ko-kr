@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319867"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420110"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 개인 제품
 
@@ -43,6 +43,9 @@ ms.locfileid: "87319867"
 
 *비공개 요금제만 포함 된 새 제품*의 경우, 게시자는 해당 제품을 다른 제품으로 만든 다음 해당 계획을 비공개로 표시할 수 있습니다. 비공개 요금제만 있는 제품은 Microsoft 상용 marketplace 또는 제품과 연결 되지 않은 고객의 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 을 통해 검색 되거나 액세스할 수 없게 됩니다.
 
+>[!NOTE]
+>비공개 계획만 포함 된 제안은 공용 Azure Marketplace 또는 AppSource에 표시 되지 않습니다.
+
 ## <a name="targeting-customers-with-private-offers"></a>비공개 제품을 사용 하 여 고객 대상 지정
 
 새로운 프라이빗 제품 및 기존 전용 제품의 경우 게시자는 구독 식별자를 사용하여 고객을 대상으로 지정할 수 있습니다. 가상 컴퓨터 또는 Azure 애플리케이션 제안을 사용 하는 게시자는 개인 요금제의 가용성을 개별 Azure 구독 ID로 제한 하거나 최대 2만 Azure 구독 id의 CSV를 업로드할 수 있습니다. SaaS 앱 개인 제안을 사용 하는 동안 게시자는 수동 또는 CSV 업로드 방법을 사용 하 여 테 넌 트 ID를 연결 하 여 개인 계획의 가용성을 제한할 수 있습니다.
@@ -61,6 +64,7 @@ Azure Portal에 로그인 하면 고객이 Marketplace 탐색 요소를 선택 �
 
 >[!Note]
 >CSP (클라우드 솔루션 공급자) 프로그램의 재판매인을 통해 설정 된 구독은 개인 제공을 지원 하지 않습니다.
+
 
 <!---
 ## Next steps

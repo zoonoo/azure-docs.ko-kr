@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8360eae71ddd41d3105dbd037f273139262727ad
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550492"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419566"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Azure Active Directory를 사용한 SMS 기반 인증 구성 및 사용자 활성화(미리 보기)
 
@@ -65,7 +65,7 @@ SMS 기반 인증의 공개 미리 보기 중에는 다음과 같은 제한 사�
 1. **Azure Active Directory**를 검색하고 선택합니다.
 1. Azure Active Directory 창 왼쪽의 탐색 메뉴에서 **보안 > 인증 방법 > 인증 방법 정책(미리 보기)** 을 선택합니다.
 
-    [![](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png "Browse to and select the Authentication method policy (preview) window in the Azure portal")](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
+    [![Azure Portal에서 인증 방법 정책 (미리 보기) 창으로 이동 하 여 선택 합니다.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
 1. 사용 가능한 인증 방법 목록에서 **문자 메시지**를 선택합니다.
 1. **사용**을 예로 설정합니다.
@@ -81,7 +81,7 @@ Azure AD 테넌트에서 SMS 기반 인증을 사용하도록 설정한 상태�
 1. 문자 메시지 인증 정책 창에서 **대상**을 사용자 설정으로 설정합니다.
 1. **사용자 또는 그룹 추가**를 선택한 다음 테스트 사용자 또는 그룹(예: *Contoso User* 또는 *Contoso SMS Users*)을 선택합니다.
 
-    [![](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png "Choose users or groups to enable for SMS-based authentication in the Azure portal")](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
+    [![Azure Portal에서 SMS 기반 인증을 사용 하도록 설정할 사용자 또는 그룹을 선택 합니다.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
 1. 사용자 또는 그룹을 선택한 경우 **선택**을 선택하고 업데이트된 인증 방법 정책을 **저장**합니다.
 

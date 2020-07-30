@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 1cb9600393fe50226da1efcef550cbb8b26f7f14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321600"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387067"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Azure Machine Learning에서 사용 하는 Azure Storage 계정의 액세스 키
 보안을 위해 Azure Storage 계정에 대 한 액세스 키를 변경 해야 할 수 있습니다. 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 업데이트 해야 합니다. Azure Machine Learning은 모델 저장소 및 데이터 저장소에 대 한 저장소 계정을 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 데이터 저장소를 사용 하는 자격 증명 registred 작업 영역과 연결 된 Azure Key Vault에 저장 됩니다. Key Vault에 대해 [일시 삭제](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) 를 사용 하도록 설정한 경우 자격 증명 업데이트에 대 한이 문서를 참조 하세요. 데이터 저장소의 등록을 취소 하 고 같은 이름으로 다시 등록 하면 실패 합니다.
+> 데이터 저장소를 사용 하는 자격 증명 registred 작업 영역과 연결 된 Azure Key Vault에 저장 됩니다. Key Vault에 대해 [일시 삭제](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) 를 사용 하도록 설정한 경우 자격 증명 업데이트에 대 한이 문서를 참조 하세요. 데이터 저장소의 등록을 취소 하 고 같은 이름으로 다시 등록 하면 실패 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

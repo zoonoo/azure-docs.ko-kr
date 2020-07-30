@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.openlocfilehash: 7879793cbbb029468e84b14f8e8eee793cf4c530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260732"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415094"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용 하 여 Azure Cosmos DB의 MongoDB API에 저장 된 데이터를 관리 합니다. 
 
@@ -36,7 +37,7 @@ MongoDB에 대 한 Azure Cosmos DB API는 MongoDB server 버전 3.2 및 3.6와 �
 
 Create database extension 명령은 새 MongoDB 데이터베이스를 만듭니다. 데이터베이스 이름은 명령에 의해 설정 된 데이터베이스 컨텍스트에서 사용할 수 있습니다 `use database` . 다음 표에서는 명령 내의 매개 변수에 대해 설명 합니다.
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 | `customAction`   |  `string`  |   사용자 지정 명령의 이름은 "CreateDatabase" 여야 합니다.      |
 | `offerThroughput` | `int`  | 데이터베이스에 대해 설정한 프로 비전 된 처리량입니다. 이 매개 변수는 선택 사항입니다. |
@@ -52,7 +53,7 @@ Create database extension 명령은 새 MongoDB 데이터베이스를 만듭니�
 
 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="create-a-database"></a>데이터베이스 만들기
 
@@ -89,7 +90,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 데이터베이스 확장 업데이트 명령은 지정 된 데이터베이스와 연결 된 속성을 업데이트 합니다. 다음 표에서는 명령 내의 매개 변수에 대해 설명 합니다.
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 | `customAction`    |    `string`     |   사용자 지정 명령의 이름입니다. "UpdateDatabase" 여야 합니다.      |
 |  `offerThroughput`   |  `int`       |     데이터베이스에서 [데이터베이스 수준 처리량](set-throughput.md#set-throughput-on-a-database) 을 사용 하는 경우 데이터베이스에 대해 설정 하려는 새로운 프로 비전 된 처리량  |
@@ -107,7 +108,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-database"></a>데이터베이스와 연결 된 프로 비전 된 처리량 업데이트
 
@@ -141,7 +142,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 다음 표에서는 명령 내의 매개 변수에 대해 설명 합니다.
 
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  `customAction`   |   `string`      |   사용자 지정 명령의 이름입니다. "GetDatabase" 여야 합니다.|
         
@@ -149,7 +150,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 
 명령이 성공 하면 응답에 다음 필드를 포함 하는 문서가 포함 됩니다.
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   응답 상태입니다. 1 = = 성공. 0 = = 실패      |
 | `database`    |    `string`        |   데이터베이스의 이름입니다.      |
@@ -158,7 +159,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 
 명령이 실패 하면 기본 사용자 지정 명령 응답이 반환 됩니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="get-the-database"></a>데이터베이스 가져오기
 
@@ -210,10 +211,10 @@ db.runCommand({customAction: "GetDatabase"});
 
 다음 표에서는 명령 내의 매개 변수에 대해 설명 합니다.
 
-| **필드** | **Type** | **필수** | **설명** |
+| **필드** | **형식** | **필수** | **설명** |
 |---------|---------|---------|---------|
-| `customAction` | `string` | 필요한 공간 | 사용자 지정 명령의 이름입니다. "CreateCollection" 이어야 합니다.|
-| `collection` | `string` | 필요한 공간 | 컬렉션의 이름입니다. 특수 문자나 공백은 허용 되지 않습니다.|
+| `customAction` | `string` | 필수 | 사용자 지정 명령의 이름입니다. "CreateCollection" 이어야 합니다.|
+| `collection` | `string` | 필수 | 컬렉션의 이름입니다. 특수 문자나 공백은 허용 되지 않습니다.|
 | `offerThroughput` | `int` | 선택 사항 | 데이터베이스에 설정할 프로 비전 된 처리량입니다. 이 매개 변수를 지정 하지 않으면 기본값은 최소, 400 r u/초입니다. * 1만 r u/초를 초과 하는 처리량을 지정 하려면 `shardKey` 매개 변수가 필요 합니다.|
 | `shardKey` | `string` | 처리량이 많은 컬렉션에 필요 합니다. | 분할 된 collection에 대 한 분할 키의 경로입니다. 이 매개 변수는에서 1만 이상/s를 설정 하는 경우에 필요 `offerThroughput` 합니다.  지정 된 경우에는 삽입 된 모든 문서에이 키와 값이 필요 합니다. |
 | `autoScaleSettings` | `Object` | [자동 크기 조정 모드](provision-throughput-autoscale.md) 에 필요 | 이 개체에는 자동 크기 조정 용량 모드와 관련 된 설정이 포함 됩니다. `maxThroughput`컬렉션이 동적으로 증가 하는 가장 많은 요청 단위를 설명 하는 값을 설정할 수 있습니다. |
@@ -222,7 +223,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 기본 사용자 지정 명령 응답을 반환 합니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="create-a-collection-with-the-minimum-configuration"></a>최소 구성을 사용 하 여 컬렉션 만들기
 
@@ -233,7 +234,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 예를 들어: 
+그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 예를 들면 다음과 같습니다. 
 
 ```javascript
 use test
@@ -301,7 +302,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 다음 표에서는 명령 내의 매개 변수에 대해 설명 합니다.
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  `customAction`   |   `string`      |   사용자 지정 명령의 이름입니다. "UpdateCollection" 이어야 합니다.      |
 |  `collection`   |   `string`      |   컬렉션의 이름입니다.       |
@@ -312,7 +313,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 기본 사용자 지정 명령 응답을 반환 합니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-collection"></a>컬렉션과 연결 된 프로 비전 된 처리량 업데이트
 
@@ -337,7 +338,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 다음 표에서는 명령 내의 매개 변수에 대해 설명 합니다.
 
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 | `customAction`    |   `string`      |   사용자 지정 명령의 이름입니다. "GetCollection" 이어야 합니다.      |
 | `collection`    |    `string`     |    컬렉션의 이름입니다.     |
@@ -347,7 +348,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 명령이 성공 하면 응답에 다음 필드를 포함 하는 문서가 포함 됩니다.
 
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   응답 상태입니다. 1 = = 성공. 0 = = 실패      |
 | `database`    |    `string`     |   데이터베이스의 이름입니다.      |
@@ -358,7 +359,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 
 명령이 실패 하면 기본 사용자 지정 명령 응답이 반환 됩니다. 출력의 매개 변수에 대 한 사용자 지정 명령의 [기본 출력](#default-output) 을 참조 하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="get-the-collection"></a>컬렉션 가져오기
 
@@ -416,7 +417,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 지정 하지 않으면 사용자 지정 응답에 다음 필드를 포함 하는 문서가 포함 됩니다.
 
-|**필드**|**Type** |**설명** |
+|**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   응답 상태입니다. 1 = = 성공. 0 = = 실패      |
 | `code`    |   `int`      |   명령이 실패 한 경우에만 반환 됩니다 (예: ok = = 0). MongoDB 오류 코드를 포함 합니다. 선택적 응답 매개 변수입니다.      |

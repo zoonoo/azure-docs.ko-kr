@@ -3,12 +3,12 @@ title: VMware에 대 한 Azure Migrate 어플라이언스 설정
 description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112819"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386744"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -34,7 +34,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
 ## <a name="download-the-ova-template"></a>OVA 템플릿 다운로드
 
 1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
-2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMWare vSphere 하이퍼바이저 사용**을 클릭합니다.
+2. 컴퓨터 **Discover machines**를  >  **가상화 하는**컴퓨터를 검색 하는 경우 **VMware vSphere 하이퍼바이저를 사용 하 여 예를**클릭 합니다.
 3. **다운로드**를 클릭하여 .OVA 템플릿 파일을 다운로드합니다.
 
   ![OVA 파일 다운로드 선택](./media/tutorial-assess-vmware/download-ova.png)
@@ -89,7 +89,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
         - HTTP 프록시만 지원됩니다.
     - **시간 동기화**: 시간이 확인됩니다. 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
     - **업데이트 설치**: Azure Migrate 최신 어플라이언스 업데이트가 설치 되어 있는지 확인 합니다.
-    - **INSTALL VDDK**: Azure Migrate VMWare VSPHERE VDDK (가상 디스크 개발 키트)가 설치 되어 있는지 확인 합니다.
+    - **INSTALL VDDK**: Azure Migrate VMware vSphere 가상 디스크 개발 키트 (VDDK)가 설치 되어 있는지 확인 합니다.
         - Azure migration은 VDDK를 사용 하 여 Azure로 마이그레이션하는 동안 컴퓨터를 복제 합니다.
         - VMware에서 VDDK 6.7을 다운로드하고, 다운로드한 zip 콘텐츠를 어플라이언스의 지정된 위치에 추출합니다.
 
@@ -111,7 +111,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
 
 ### <a name="specify-vcenter-server-details"></a>vCenter Server 세부 정보 지정
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신하는 사용자 지정 포트를 지정할 수 있습니다.
-2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 검색 범위는 vCenter 계정에 대한 액세스를 제한하여 지정할 수 있습니다. [자세히 알아보기](set-discovery-scope.md).
+2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 검색 범위는 vCenter 계정에 대한 액세스를 제한하여 지정할 수 있습니다. [자세한 정보를 알아보세요](set-discovery-scope.md).
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정

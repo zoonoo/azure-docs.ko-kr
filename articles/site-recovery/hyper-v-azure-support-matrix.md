@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 268d8f3b43809e02476757cfe36b1ee52d4eaef1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317487"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386710"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -32,8 +32,8 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 **Server** | **요구 사항** | **세부 정보**
 --- | --- | ---
-Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016, 최신 업데이트가 포함 된 Windows Server 2012 R2 (이러한 운영 체제의 Server core 설치 포함) | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요.
-Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (Virtual Machine Manager 2019를 제외 하 고 이러한 운영 체제의 server core 설치 포함) | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.
+Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016, 최신 업데이트가 포함 된 Windows Server 2012 R2 <br/><br/> **참고:** 이러한 운영 체제의 Server core 설치도 지원 됩니다. | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요.
+Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **참고:** 이러한 운영 체제의 Server core 설치도 지원 됩니다.  | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.
 
 > [!NOTE]
 > 온-프레미스 서버에 .NET Framework 4.6.2 이상이 있는지 확인 합니다.

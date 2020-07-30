@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7992563bdfb318867e963ed4f371998bafbbbcdb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019916"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385146"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect 그룹 쓰기 저장
 
@@ -40,7 +40,7 @@ ms.locfileid: "87019916"
 6. **쓰기 저장 페이지**에서 Active Directory 조직 구성 단위 (OU)를 선택 하 여 Office 365에서 온-프레미스 조직으로 동기화 된 개체를 저장 하 **고 다음을 클릭 합니다**.
 7. 구성 **준비 완료** 페이지에서 **구성**을 클릭 합니다.
 8. 마법사가 완료 되 면 구성 완료 페이지에서 **끝내기** 를 클릭 합니다.
-9. Azure Active Directory Connect 서버에서 Windows PowerShell을 열고 다음 명령을 실행 합니다.
+9. Azure Active Directory Connect 서버에서 관리자 권한으로 Windows PowerShell을 열고 다음 명령을 실행 합니다.
 
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338275"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421725"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 
@@ -56,7 +56,7 @@ ms.locfileid: "85338275"
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>조건부 액세스 정책에서 하나 이상의 계정 제외
 
-응급 상황에서 정책으로 인해 액세스 권한이 차단되어 문제를 해결하지 못하는 경우는 없어야 합니다. 따라서 하나 이상의 응급 액세스 계정을 모든 조건부 액세스 정책에서 제외시켜야 합니다. [기준 정책](../conditional-access/baseline-protection.md)을 사용하도록 설정한 경우에는 응급 액세스 계정을 제외해야 합니다.
+응급 상황에서 정책으로 인해 액세스 권한이 차단되어 문제를 해결하지 못하는 경우는 없어야 합니다. 따라서 하나 이상의 응급 액세스 계정을 모든 조건부 액세스 정책에서 제외시켜야 합니다.
 
 ## <a name="federation-guidance"></a>페더레이션 지침
 

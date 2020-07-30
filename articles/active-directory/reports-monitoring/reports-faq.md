@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199386"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383769"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -145,7 +145,7 @@ ms.locfileid: "83199386"
 
 * **적용되지 않음**: 범위 내 사용자 및 앱에 CA 정책이 없음을 의미합니다. 
 * **성공**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되었음을 의미합니다. 
-* **실패**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되지 않았음을 의미합니다. 
+* **실패**: 로그인에서 하나 이상의 조건부 액세스 정책에 대 한 사용자 및 응용 프로그램 조건을 충족 하 고 grant 컨트롤이 충족 되지 않거나 액세스를 차단 하도록 설정 되었습니다.
     
 **Q: 조건부 액세스 정책 결과에 사용할 수 있는 모든 값은 무엇 인가요?**
 

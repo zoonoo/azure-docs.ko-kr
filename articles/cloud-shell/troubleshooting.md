@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189465"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421742"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -141,26 +141,6 @@ Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대�
 ### <a name="preview-version-of-azuread-module"></a>AzureAD 모듈의 미리 보기 버전
 
 현재 .NET 표준 기반의 미리 보기인 `AzureAD.Standard.Preview` 모듈은 사용할 수 있습니다. 이 모듈은 `AzureAD`와 동일한 기능을 제공합니다.
-
-### <a name="sqlserver-module-functionality"></a>`SqlServer` 모듈 기능
-
-Cloud Shell에 포함된 `SqlServer` 모듈은 PowerShell Core에 대해 평가판 지원만 제공합니다. 특히 `Invoke-SqlCmd`는 아직 사용할 수 없습니다.
-
-### <a name="default-file-location-when-created-from-azure-drive"></a>Azure 드라이브에서 만들 때 기본 파일 위치
-
-PowerShell cmdlet을 사용하면 사용자가 Azure 드라이브에 파일을 만들 수 없습니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 `$HOME` 폴더에 저장됩니다.
-
-### <a name="tab-completion-can-throw-psreadline-exception"></a>탭 완성 기능은 PSReadline 예외를 throw할 수 있습니다.
-
-사용자의 PSReadline EditMode가 Emacs로 설정되어 있고 해당 사용자가 탭 완성 기능을 통해 가능한 모든 항목을 표시하려고 하는데, 가능한 모든 항목을 표시하기에 창 크기가 너무 작은 경우 PSReadline은 처리되지 않은 예외를 throw합니다.
-
-### <a name="large-gap-after-displaying-progress-bar"></a>진행률 표시줄을 표시한 후의 큰 간격
-
-명령 또는 사용자 작업이 `Azure:` 드라이브에 있는 동안 탭 완성 기능처럼 진행률 표시줄을 표시하는 경우, 커서가 제대로 설정되지 않고, 진행률 표시줄이 이전에 있던 위치에 간격이 나타날 수 있습니다.
-
-### <a name="random-characters-appear-inline"></a>임의의 문자가 인라인으로 표시됩니다.
-
-커서 위치 시퀀스 코드(예: `5;13R`)가 사용자 입력에 나타날 수 있습니다. 문자는 수동으로 제거할 수 있습니다.
 
 ## <a name="personal-data-in-cloud-shell"></a>Cloud Shell에서 개인 데이터
 

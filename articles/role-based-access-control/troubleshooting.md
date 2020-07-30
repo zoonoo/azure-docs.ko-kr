@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: bf8fa174611c7173c957ded49ff9135f90cebc08
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287207"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382579"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -61,7 +61,7 @@ $ras.Count
 
     "작업을 완료할 수 있는 권한이 부족 합니다." 오류가 발생 하는 경우 Azure CLI가 Azure AD에서 담당자 id를 조회 하려고 시도 하 고 서비스 사용자가 기본적으로 Azure AD를 읽을 수 없기 때문일 수 있습니다.
 
-    이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할을 할당 하는 것입니다. 디렉터리에 대 한 권한을 부여할 수도 있습니다. Microsoft Graph의 [All 사용 권한을 참조](https://docs.microsoft.com/graph/permissions-reference) 하십시오.
+    이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할을 할당 하는 것입니다.
 
     이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md#new-service-principal)를 참조 하세요.
 

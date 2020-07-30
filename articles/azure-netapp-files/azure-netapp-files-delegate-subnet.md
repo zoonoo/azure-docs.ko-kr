@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 713a72b0a406d2038d56dc6fcc41e169d02c54eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14c97fdea57fa50faf8b73275ec406ea36fbf552
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483621"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420399"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
 Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 때는 위임된 서브넷을 지정해야 합니다.
 
 ## <a name="considerations"></a>고려 사항
-* 새 서브넷 만들기용 마법사의 기본값은 /24 네트워크 마스크이며, 이는 251개의 IP 주소를 제공합니다. 16개의 사용 가능한 IP 주소를 제공하는 /28 네트워크 마스크를 서비스에 사용하면 충분합니다.
+* 새 서브넷 만들기용 마법사의 기본값은 /24 네트워크 마스크이며, 이는 251개의 IP 주소를 제공합니다. 11 개의 사용 가능한 IP 주소를 제공 하는/28 네트워크 마스크를 사용 하면 서비스에 충분 합니다.
 * 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
    Azure를 통해 VNet에서 여러 개의 위임 된 서브넷을 만들 수 있습니다.  그러나 두 개 이상의 위임 된 서브넷을 사용 하는 경우 새 볼륨을 만들려는 모든 시도가 실패 합니다.  
    VNet에는 위임 된 서브넷이 하나만 있을 수 있습니다. NetApp 계정은 각각 고유한 위임 된 서브넷이 있는 여러 Vnet에 볼륨을 배포할 수 있습니다.  

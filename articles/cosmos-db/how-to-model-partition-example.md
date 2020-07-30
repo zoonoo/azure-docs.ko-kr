@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: af5211e82820c1052b9ea17ce1fbdb0ebd5b9f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d5809d7475759450a513153abf641f7943163d98
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800378"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422218"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 
@@ -447,7 +448,7 @@ function updateUsernames(userId, username) {
 }
 ```
 
-다음 사항에 유의합니다.
+다음 사항에 유의하세요.
 
 - 사용자와 게시물을 구분하기 위해 `type` 필드를 사용자 항목에 도입했습니다.
 - `userId` 필드도 사용자 항목에 추가되었습니다. 이 필드는 `id` 필드와 중복되지만, 이제 `users` 컨테이너가 `userId`(앞서와 같이 `id`가 아님)로 분할되므로 필요합니다.

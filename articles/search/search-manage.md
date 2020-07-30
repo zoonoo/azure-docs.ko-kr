@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371416"
+ms.locfileid: "87421895"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure Portal의 Azure Cognitive Search에 대 한 서비스 관리
 
@@ -58,7 +58,7 @@ Azure 구독 관리자 또는 공동 관리자는 서비스 자체를 프로비�
 
 서비스 프로 비전에 대 한 권한은 역할 할당을 통해 부여 됩니다. [RBAC (역할 기반 액세스)](../role-based-access-control/overview.md) 는 Azure 리소스의 프로 비전을 위해 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 기반으로 하는 권한 부여 시스템입니다. 
 
-Azure Cognitive Search 컨텍스트에서 [RBAC 역할 할당](search-security-rbac.md) 은 [포털](search-manage.md), [PowerShell](search-manage-powershell.md)또는 [관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)를 사용 하는지에 관계 없이 작업을 수행할 수 있는 사람을 결정 합니다.
+Azure Cognitive Search 컨텍스트에서 [azure 역할 할당](search-security-rbac.md) 은 [포털](search-manage.md), [PowerShell](search-manage-powershell.md)또는 [관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)를 사용 하는지에 관계 없이 작업을 수행할 수 있는 사람을 결정 합니다.
 
 * 서비스 만들기 또는 삭제
 * 서비스 크기 조정
