@@ -2,13 +2,13 @@
 title: Azure Portal에서 템플릿 내보내기
 description: Azure Portal를 사용 하 여 구독의 리소스에서 Azure Resource Manager 템플릿을 내보냅니다.
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/29/2020
+ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057707"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423238"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기
 
@@ -52,6 +52,8 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원 하지 않습니다. Data Factory 리소스를 내보내는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](https://aka.ms/exportTemplateViaAdf)를 참조 하세요.
 
 클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](https://aka.ms/migrateclassicresourcetoarm)합니다.
+
+리소스 형식을 내보내지 못했음을 나타내는 템플릿을 내보낼 때 경고가 표시 되 면 해당 리소스에 대 한 속성을 계속 검색할 수 있습니다. 리소스 속성을 볼 수 있는 다양 한 옵션에 대 한 자세한 내용은 [리소스 속성 검색](view-resources.md)을 참조 하세요. 리소스 종류에 대 한 [Azure REST API](/rest/api/azure/) 를 살펴볼 수도 있습니다.
 
 ## <a name="export-template-from-a-resource-group"></a>리소스 그룹에서 템플릿 내보내기
 

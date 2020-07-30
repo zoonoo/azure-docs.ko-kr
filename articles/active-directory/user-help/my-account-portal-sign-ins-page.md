@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 738e6507a1642a1ab76938eeaf3294668bcea964
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744520"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422296"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>내 로그인(미리 보기) 페이지에서 최근 로그인 활동 보기 및 검색
 
@@ -73,3 +73,5 @@ ms.locfileid: "83744520"
 - [조직](my-account-portal-organizations-page.md)을 보거나 관리합니다.
 
 - 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 확인합니다.
+
+- [내 계정 포털 설정](my-account-portal-settings.md) 변경

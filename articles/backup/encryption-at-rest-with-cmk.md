@@ -3,12 +3,12 @@ title: 고객 관리 키를 사용 하 여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091099"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388002"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
@@ -23,7 +23,7 @@ Azure Backup를 사용 하면 기본적으로 사용 하도록 설정 된 플랫
 - 고객 관리 키를 사용 하 여 암호화 된 자격 증명 모음에 백업 수행
 - 백업에서 데이터 복원
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 - 이 기능을 사용 하면 **새 Recovery Services 자격 증명 모음만**암호화할 수 있습니다. 등록 하거나 등록 하려고 시도 하는 기존 항목을 포함 하는 모든 자격 증명 모음은 지원 되지 않습니다.
 
@@ -92,7 +92,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Azure Key Vault에서 일시 삭제 및 보호 제거 사용
 
-암호화 키를 저장 하는 Azure Key Vault에 대해 **일시 삭제 및 제거 보호를 사용 하도록 설정** 해야 합니다. 다음과 같이 Azure Key Vault UI에서이 작업을 수행할 수 있습니다. 또는 Key Vault를 만드는 동안 이러한 속성을 설정할 수 있습니다. 이러한 Key Vault 속성에 대 한 자세한 내용은 [여기](../key-vault/general/overview-soft-delete.md)를 참조 하세요.
+암호화 키를 저장 하는 Azure Key Vault에 대해 **일시 삭제 및 제거 보호를 사용 하도록 설정** 해야 합니다. 다음과 같이 Azure Key Vault UI에서이 작업을 수행할 수 있습니다. 또는 Key Vault를 만드는 동안 이러한 속성을 설정할 수 있습니다. 이러한 Key Vault 속성에 대 한 자세한 내용은 [여기](../key-vault/general/soft-delete-overview.md)를 참조 하세요.
 
 ![일시 삭제 및 보호 제거 사용](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 

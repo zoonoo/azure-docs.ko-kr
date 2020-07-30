@@ -8,14 +8,14 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/16/2020
-ms.openlocfilehash: 0fc2039805b155535eeac1d653fc9ecb9e576d5d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496947"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387390"
 ---
-# <a name="azure-resource-providers-operations"></a>Azure 리소스 공급자 작업
+# <a name="azure-resource-provider-operations"></a>Azure 리소스 공급자 작업
 
 이 섹션에서는 기본 제공 역할에 사용 되는 Azure 리소스 공급자에 대 한 작업을 나열 합니다. Azure [사용자 지정 역할](custom-roles.md) 에서 이러한 작업을 사용 하 여 azure의 리소스에 대 한 세부적인 액세스 제어를 제공할 수 있습니다. 리소스 공급자 작업은 계속 업데이트됩니다. 최신 작업을 가져오려면 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)를 사용합니다.
 
@@ -6929,7 +6929,7 @@ Azure 서비스: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | VMware vCenter 속성을 가져옵니다. |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | VMware vCenter를 만들거나 업데이트합니다. |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>모니터
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -7636,7 +7636,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | operationalinsights/작업 영역/scopedPrivateLinkProxies/읽기 | 범위가 지정 된 개인 링크 프록시를 가져옵니다. |
 > | operationalinsights/작업 영역/scopedPrivateLinkProxies/쓰기 | 범위가 지정 된 개인 링크 프록시를 추가 합니다. |
 > | operationalinsights/작업 영역/scopedPrivateLinkProxies/삭제 | 범위가 지정 된 개인 링크 프록시를 삭제 합니다. |
-> | microsoft.operationalinsights/workspaces/search/read | 검색 결과를 가져옵니다. 사용되지 않습니다. |
+> | microsoft.operationalinsights/workspaces/search/read | 검색 결과를 가져옵니다. 더 이상 사용되지 않습니다. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | 새 스토리지 구성을 만듭니다. 이러한 구성은 기존 스토리지 계정의 위치에서 데이터를 가져오는 데 사용됩니다. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | 스토리지 구성을 가져옵니다. |

@@ -3,12 +3,12 @@ title: 리소스 계층 구조를 보호하는 방법 - Azure 거버넌스
 description: 기본 관리 그룹 설정을 포함하는 계층 설정으로 리소스 계층 구조를 보호하는 방법에 대해 알아봅니다.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366775"
+ms.locfileid: "87422830"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>리소스 계층 구조를 보호하는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "87366775"
 
 기본적으로 테넌트 내에 추가된 새 구독은 루트 관리 그룹의 멤버로 추가됩니다. 정책 할당, RBAC(역할 기반 액세스 제어) 및 기타 거버넌스 구문이 루트 관리 그룹에 할당되면 이러한 새 구독에 즉시 적용됩니다. 이러한 이유로 대부분의 조직에서는 루트 관리 그룹이 이러한 구성을 할당하기에 적합한 그룹이더라도 루트 관리 그룹에 적용하지 않습니다. 다른 경우에는 보다 제한적인 컨트롤 집합이 새 구독에 대해 필요하지만 모든 구독에 할당되어서는 안 됩니다. 이 설정은 두 사용 사례 모두 지원합니다.
 
-새 구독에 대한 기본 관리 그룹을 정의하는 것을 허용하여 조직 차원의 거버넌스 구문을 루트 관리 그룹에 적용할 수 있으며, 새 구독에 더 적합한 정책 할당 또는 RBAC 할당을 가진 별도의 관리 그룹을 정의할 수 있습니다.
+새 구독에 대 한 기본 관리 그룹을 정의할 수 있도록 하 여, 조직 차원의 거 버 넌 스 구문을 루트 관리 그룹에 적용할 수 있으며, 정책 할당 또는 Azure 역할 할당을 사용 하는 별도의 관리 그룹을 새 구독에 더 적합 하 게 정의할 수 있습니다.
 
 이 설정을 구성하기 위해 [계층 설정](/rest/api/resources/hierarchysettings) REST API 엔드포인트가 호출됩니다. 이렇게 하려면 다음 REST API URI 및 본문 형식을 사용합니다. `{rootMgID}`를 루트 관리 그룹의 ID로 바꾸고 `{defaultGroupID}`를 기본 관리 그룹이 될 관리 그룹의 ID로 바꿉니다.
 

@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320224"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423816"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "87320224"
 [Azure 애플리케이션 Insights에 대해 자세히 알아보세요](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 
@@ -128,6 +128,8 @@ ms.locfileid: "87320224"
 
 3. 이미지를 빌드하고 [AKS 또는 ACI](how-to-deploy-and-where.md)에 배포합니다.
 
+로깅 및 데이터 수집에 대 한 자세한 내용은 [Azure Machine Learning 로깅 사용](how-to-enable-logging.md) 및 [프로덕션 환경에서 모델에서 데이터 수집](how-to-enable-data-collection.md)을 참조 하세요.
+
 ### <a name="disable-tracking-in-python"></a>Python에서 추적을 사용하지 않도록 설정
 
 Azure 애플리케이션 Insights를 사용 하지 않도록 설정 하려면 다음 코드를 사용 합니다.
@@ -166,7 +168,7 @@ Azure 애플리케이션 Insights를 사용 하지 않도록 설정 하려면 �
 
     [![Application Insights url 찾기](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. 응용 프로그램 Isights의 **개요** 탭 또는 왼쪽 목록의 __모니터링__ 섹션에서 __로그__를 선택 합니다.
+1. Application Insights의 **개요** 탭 또는 왼쪽 목록의 __모니터링__ 섹션에서 __로그__를 선택 합니다.
 
     [![모니터링의 개요 탭](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 

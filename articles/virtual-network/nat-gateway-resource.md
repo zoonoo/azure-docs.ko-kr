@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549642"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424071"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
@@ -28,7 +28,7 @@ NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일�
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
 </p>
 
 *그림: 인터넷으로의 아웃바운드를 위한 Virtual Network NAT*
@@ -54,7 +54,7 @@ NAT 게이트웨이 리소스:
 다음 다이어그램에서는 다양한 Azure Resource Manager 리소스 간의 쓰기 가능한 참조를 보여 줍니다.  화살표는 쓰기 가능한 위치에서 시작되는 참조의 방향을 나타냅니다. 검토 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT 개체 모델">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT 개체 모델">
 </p>
 
 *그림: Virtual Network NAT 개체 모델*
@@ -119,7 +119,7 @@ NAT 게이트웨이와 호환되는 리소스는 다음과 같습니다.
 새 배포를 개발하는 경우 표준 SKU부터 시작합니다.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
 </p>
 
 *그림: 인터넷으로의 아웃바운드를 위한 Virtual Network NAT*
@@ -129,7 +129,7 @@ NAT 게이트웨이에서 제공하는 인터넷 아웃바운드 전용 시나�
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>인스턴스 수준 공용 IP를 사용하는 NAT 및 VM
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="인스턴스 수준 공용 IP를 사용하는 Virtual Network NAT 및 VM">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="인스턴스 수준 공용 IP를 사용하는 Virtual Network NAT 및 VM">
 </p>
 
 *그림: 인스턴스 수준 공용 IP를 사용하는 Virtual Network NAT 및 VM*
@@ -144,7 +144,7 @@ VM은 NAT 게이트웨이를 아웃바운드에 사용합니다.  시작된 인�
 #### <a name="nat-and-vm-with-public-load-balancer"></a>공용 Load Balancer를 사용하는 NAT 및 VM
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM">
 </p>
 
 *그림: 공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM*
@@ -159,7 +159,7 @@ VM은 NAT 게이트웨이를 아웃바운드에 사용합니다.  시작된 인�
 #### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>인스턴스 수준 공용 IP 및 공용 Load Balancer를 사용하는 NAT 및 VM
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="인스턴스 수준 공용 IP 및 공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="인스턴스 수준 공용 IP 및 공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM">
 </p>
 
 *그림: 인스턴스 수준 공용 IP 및 공용 Load Balancer를 사용하는 Virtual Network NAT 및 VM*
@@ -182,7 +182,7 @@ NAT 게이트웨이는 서브넷의 아웃바운드 시나리오보다 우선적
 #### <a name="zone-isolation-with-zonal-stacks"></a>영역 스택을 사용하여 영역 격리
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="영역 격리를 사용하는 Virtual Network NAT, 여러 개 만들기 "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="영역 격리를 사용하는 Virtual Network NAT, 여러 개 만들기 "zonal stacks"">
 </p>
 
 *그림: 영역 격리를 사용하는 Virtual Network NAT, 여러 "영역 스택" 만들기*
@@ -210,7 +210,7 @@ NAT 게이트웨이 리소스를 사용하는 가상 머신 인스턴스가 NAT 
 #### <a name="cross-zone-outbound-scenarios-not-supported"></a>영역 간 아웃바운드 시나리오는 지원되지 않음
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT는 영역 스패닝 서브넷과 호환되지 않음">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Virtual Network NAT는 영역 스패닝 서브넷과 호환되지 않음">
 </p>
 
 *그림: Virtual Network NAT는 영역 스패닝 서브넷과 호환되지 않음*
@@ -268,7 +268,7 @@ NAT에서 제공하는 SNAT는 여러 측면에서 [Load Balancer](../load-balan
 NAT는 새로운 아웃바운드 트래픽 흐름을 위한 주문형 SNAT 포트를 제공합니다. 인벤토리에서 사용 가능한 모든 SNAT 포트는 NAT로 구성된 서브넷의 모든 가상 머신에서 사용됩니다. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Virtual Network NAT 주문형 아웃바운드 SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="Virtual Network NAT 주문형 아웃바운드 SNAT">
 </p>
 
 *그림: Virtual Network NAT 주문형 아웃바운드 SNAT*
@@ -276,7 +276,7 @@ NAT는 새로운 아웃바운드 트래픽 흐름을 위한 주문형 SNAT 포�
 가상 머신의 모든 IP 구성은 필요에 따라 주문형 아웃바운드 흐름을 만들 수 있습니다.  인스턴스당 최악의 경우 오버프로비저닝을 포함한 인스턴스 계획당 미리 할당은 필요하지 않습니다.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="소모 시나리오의 차이점">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="소모 시나리오의 차이점">
 </p>
 
 *그림: 소모 시나리오의 차이점*

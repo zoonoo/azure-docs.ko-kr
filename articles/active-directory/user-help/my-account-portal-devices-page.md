@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 9badda1663947587b078c6bb808f4efdf2e10579
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735959"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422484"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>디바이스 페이지에서 연결된 디바이스 관리
 
@@ -75,6 +75,8 @@ ms.locfileid: "83735959"
 - [로그인 활동](my-account-portal-sign-ins-page.md) 보기
 
 - 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법 보기
+
+- [내 계정 포털 설정](my-account-portal-settings.md) 변경
 
 ## <a name="related-office-content"></a>관련 Office 콘텐츠
 

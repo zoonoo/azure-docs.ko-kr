@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82304052d6ed0c0169c24c19c58d53548b4479cc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731505"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423595"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 삭제
 
@@ -53,7 +53,7 @@ CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대�
 
    ![삭제 하려는 사용자를 나열 하는 로컬 CSV 파일을 선택 합니다.](./media/users-bulk-delete/bulk-delete.png)
 
-1. CSV 파일을 열고 삭제할 각 사용자에 대 한 줄을 추가 합니다. 유일 하 게 필요한 값은 **사용자 계정 이름**입니다. 그런 다음 파일을 저장합니다.
+1. CSV 파일을 열고 삭제할 각 사용자에 대 한 줄을 추가 합니다. 유일 하 게 필요한 값은 **사용자 계정 이름**입니다. 그런 다음, 파일을 저장합니다.
 
    ![CSV 파일에는 삭제할 사용자의 이름 및 Id가 포함 되어 있습니다.](./media/users-bulk-delete/delete-csv-file.png)
 
@@ -68,7 +68,7 @@ CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대�
 
 **대량 작업 결과** 페이지에서 보류 중인 모든 대량 요청의 상태를 볼 수 있습니다.
 
-   [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
+   [![대량 작업 결과 페이지에서 삭제 상태를 선택 합니다.](media/users-bulk-delete/bulk-center.png)](media/users-bulk-delete/bulk-center.png#lightbox)
 
 다음으로, 사용자가 삭제 한 사용자가 Azure Portal 또는 PowerShell을 사용 하 여 Azure AD 조직에 있는지 확인할 수 있습니다.
 

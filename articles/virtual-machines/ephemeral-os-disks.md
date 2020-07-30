@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 0058c250c2d1d29061ac7a4130dffedbcf62a249
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294181"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387730"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm 용 삭제 OS 디스크
 
@@ -35,7 +35,7 @@ ms.locfileid: "87294181"
 |                             | 영구적 OS 디스크                          | 사용 후 삭제 OS 디스크                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **OS 디스크의 크기 제한**      | 2TiB                                                                                        | VM 크기나 2TiB의 캐시 크기 중 더 작은 쪽입니다. **GiB의 캐시 크기**에 대해서는 [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)및 [GS](sizes-previous-gen.md#gs-series) 를 참조 하세요.              |
-| **지원 되는 VM 크기**          | 모두                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, LSv2, M 등 프리미엄 저장소를 지 원하는 VM 크기                                               |
+| **지원 되는 VM 크기**          | 모두                                                                                          | Premium storage를 지 원하는 VM 크기 (예: DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M)                                               |
 | **디스크 유형 지원**           | 관리 및 관리 되지 않는 OS 디스크                                                                | 관리 되는 OS 디스크만                                                               |
 | **지역 지원**              | 모든 지역                                                                                  | 모든 지역                              |
 | **데이터 지속성**            | Os 디스크에 작성 된 OS 디스크 데이터는 Azure Storage에 저장 됩니다.                                  | OS 디스크에 기록 되는 데이터는 로컬 VM 저장소에 저장 되 고 Azure Storage에 유지 되지 않습니다. |

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118820"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387951"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Azure Migrate의 AVS 평가: 서버 평가
 
@@ -28,8 +28,8 @@ ms.locfileid: "86118820"
 
 **평가 유형** | **세부 정보**
 --- | --- 
-**Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다. [자세히 알아보기](concepts-assessment-calculation.md)
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](../azure-vmware/introduction.md)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다. [자세히 알아보기](concepts-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 서버 평가의 Azure VMware 솔루션 (AVS) 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공 합니다.
 
@@ -119,7 +119,7 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 | **속성** | **세부 정보** 
 | - | - 
 | **대상 위치** | 마이그레이션할 AVS 사설 클라우드 위치를 지정 합니다.<br/><br/> 서버 평가의 AVS 평가는 현재 미국 동부, 유럽 서부, 미국 서 부 등의 대상 지역을 지원 합니다. 
-| **저장소 유형** | AVS에서 사용할 저장소 엔진을 지정 합니다.<br/><br/> AVS 평가는 vSAN을 기본 저장소 유형 으로만 지원 합니다. 
+| **스토리지 유형** | AVS에서 사용할 저장소 엔진을 지정 합니다.<br/><br/> AVS 평가는 vSAN을 기본 저장소 유형 으로만 지원 합니다. 
 **예약 인스턴스 (RIs)** | 이 속성은 AVS에서 예약 인스턴스를 지정 하는 데 도움이 됩니다. RIs는 현재 AVS 노드에 대해 지원 되지 않습니다. 
 **노드 유형** | 온-프레미스 Vm을 매핑하는 데 사용 되는 [AVS 노드 유형을](../azure-vmware/concepts-private-clouds-clusters.md) 지정 합니다. 기본 노드 형식은 AV36입니다. <br/><br/> Azure Migrate Vm을 AVS로 마이그레이션하기 위해 필요한 수의 노드를 권장 합니다. 
 **FTT 설정, RAID 수준** | 허용 및 Raid 조합에 적용 가능한 실패를 지정 합니다. 온-프레미스 VM 디스크 요구 사항과 함께 선택한 FTT 옵션은 AVS에 필요한 총 vSAN 저장소를 결정 합니다. 
@@ -127,8 +127,8 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 **성능 기록** | 컴퓨터의 성능 데이터를 평가 하는 데 고려할 기간을 설정 합니다. 이 속성은 크기 조정 기준이 *성능 기반*인 경우에만 적용할 수 있습니다. 
 **백분위 수 사용률** | 오른쪽 크기 조정에 대해 고려할 성능 샘플 집합의 백분위 수 값을 지정 합니다. 이 속성은 크기 조정이 성능 기반 인 경우에만 적용할 수 있습니다.
 **쾌적 인자** | Azure Migrate Server 평가는 평가 중에 버퍼 (편안한 요인)를 고려 합니다. 이 버퍼는 VM의 컴퓨터 사용률 데이터(CPU, 메모리, 디스크 및 네트워크)를 기반으로 적용됩니다. 쾌적 인자는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가 가능성 등의 문제를 고려합니다.<br/><br/> 예를 들어 사용률이 20%인 10코어 VM은 일반적으로 2코어 VM이라는 결과가 나옵니다. 그러나 쾌적 인자가 2.0x이면 결과는 4코어 VM이 됩니다. 
-**제안** | 등록 된 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 을 표시 합니다. Azure Migrate는 그에 따라 비용을 예측합니다.
-**Currency** | 계정에 대 한 청구 통화를 표시 합니다. 
+**제품** | 등록 된 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 을 표시 합니다. Azure Migrate는 그에 따라 비용을 예측합니다.
+**최신** | 계정에 대 한 청구 통화를 표시 합니다. 
 **할인(%)** | Azure 제품을 기반으로 받는 모든 구독 관련 할인을 나열 합니다. 기본 설정은 0%입니다. 
 **Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)자격이 있는지 여부를 지정 합니다. 노드 기반 가격으로 인해 Azure VMware 솔루션 가격 책정에는 영향을 주지 않지만, 고객은 Azure 하이브리드 혜택을 사용 하 여 온-프레미스 OS 라이선스 (Microsoft 기반)를 AVS에 계속 적용할 수 있습니다. 다른 소프트웨어 OS 공급 업체는 RHEL와 같은 고유한 라이선스 용어를 제공 해야 합니다. 
 **vCPU 초과 구독** | AVS 노드의 하나의 물리적 코어에 연결 된 가상 코어 수의 비율을 지정 합니다. 계산의 기본값은 4 vCPU: 1 실제 코어 (AVS의 경우)입니다. <br/><br/> API 사용자는이 값을 정수로 설정할 수 있습니다. VCPU 초과 구독의 4:1 > CPU 사용량에 따라 작업에 영향을 줄 수 있습니다. 
@@ -152,7 +152,7 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 
 | **속성** | **세부 정보** | **AVS 준비 상태** 
 | - | - | - 
-| **인터넷 프로토콜** | 현재 AVS는 IPv6 인터넷 주소 지정을 지원 하지 않습니다.<br/><br/> 컴퓨터가 i p v 6을 통해 검색 되는 경우 수정 지침에 대 한 지침은 로컬 MSFT AVS GBB 팀에 문의 하세요.| 조건적으로 준비 된 인터넷 프로토콜
+| **인터넷 프로토콜** | 현재 AVS는 IPv6 인터넷 주소 지정을 지원하지 않습니다.<br/><br/> 컴퓨터가 IPv6을 통해 검색되는 경우 수정 지침은 로컬 MSFT AVS GBB 팀에 문의하세요.| 조건적으로 준비 된 인터넷 프로토콜
 
 
 ### <a name="guest-operating-system"></a>게스트 운영 체제
@@ -172,15 +172,15 @@ VM 속성과 함께 서버 평가는 컴퓨터의 게스트 운영 체제를 확
 
 ### <a name="ftt-sizing-parameters"></a>FTT 크기 조정 매개 변수
 
-AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 저장소 정책은 가상 컴퓨터에 대 한 저장소 요구 사항을 정의 합니다. 이러한 정책은 VM에 저장소를 할당 하는 방법을 결정 하기 때문에 Vm에 필요한 서비스 수준을 보장 합니다. 사용 가능한 FTT-Raid 조합은 다음과 같습니다. 
+AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 저장소 정책은 가상 컴퓨터에 대 한 저장소 요구 사항을 정의 합니다. 이러한 정책은 VM에 스토리지를 할당하는 방법을 결정하기 때문에 VM에 필요한 서비스 수준을 보장합니다. 사용 가능한 FTT-Raid 조합은 다음과 같습니다. 
 
-**허용 하지 못한 (FTT)** | **RAID 구성** | **필요한 최소 호스트** | **크기 조정 고려 사항**
+**FTT(허용 실패)** | **RAID 구성** | **필요한 최소 호스트** | **크기 조정 고려 사항**
 --- | --- | --- | --- 
-1 | RAID-1 (미러링) | 3 | 100GB VM은 200GB를 사용 합니다.
-1 | RAID 5 (지우기 코딩) | 4 | 100GB VM은 133.33 GB를 사용 합니다.
-2 | RAID-1 (미러링) | 5 | 100GB VM은 300GB를 사용 합니다.
-2 | RAID 6 (코드 지우기) | 6 | 100GB VM은 150GB를 사용 합니다.
-3 | RAID-1 (미러링) | 7 | 100GB VM은 400GB를 사용 합니다.
+1 | RAID-1(미러링) | 3 | 100GB VM은 200GB를 사용합니다.
+1 | RAID-5(이레이져 코딩) | 4 | 100GB VM은 133.33GB를 사용합니다.
+2 | RAID-1(미러링) | 5 | 100GB VM은 300GB를 사용합니다.
+2 | RAID-6(이레이져 코딩) | 6 | 100GB VM은 150GB를 사용합니다.
+3 | RAID-1(미러링) | 7 | 100GB VM은 400GB를 사용합니다.
 
 ### <a name="performance-based-sizing"></a>성능 기반 크기 조정
 
@@ -197,11 +197,11 @@ AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 저장소 정책
 
 **저장소 크기 조정**Azure Migrate: 전체 온-프레미스 VM 디스크 공간을 계산 매개 변수로 사용 하 여 고객이 선택한 ftt 설정 외에도 AVS vsan 저장소 요구 사항을 확인 합니다. FTT-FTT 당 최소 노드 수를 요구 하는 것 외에도 실패 하는 경우 VM 디스크 요구 사항과 결합 된 총 vSAN 저장소 수를 결정 합니다.
 
-**네트워크 크기 조정**: 서버 평가는 현재 네트워크 설정을 사용 하 여 AVS 평가를 고려 하지 않습니다.
+**네트워크 크기 조정**: 서버 평가는 현재 AVS 평가를 위해 네트워크 설정을 고려하지 않습니다.
 
 **계산 크기 조정**: 저장소 요구 사항을 계산한 후 서버 평가는 CPU 및 메모리 요구 사항을 고려 하 여 노드 형식에 따라 AVS에 필요한 노드 수를 결정 합니다.
 
-- 서버 평가는 크기 조정 기준에 따라 성능 기반 VM 데이터 또는 온-프레미스 VM 구성을 확인 합니다. 편안 하 게 설정 하면 클러스터의 증가율을 지정할 수 있습니다. 현재는 기본적으로 하이퍼스레딩을 사용 하도록 설정 되므로 36 코어 노드에 72 vCores가 있습니다. 물리적 당 4 개의 vCores는 클러스터 가용성을 손상 시 키 지 않고 유지 관리 또는 실패를 처리 하기 위해 80%의 사용률을 초과 하지 않는 VMware 표준을 사용 하 여 클러스터당 CPU 임계값을 결정 하는 데 사용 됩니다. 현재 구독 초과 값을 변경 하는 데 사용할 수 있는 재정의가 없습니다 .이는 이후 버전에서 사용할 수 있습니다.
+- 서버 평가는 크기 조정 기준에 따라 성능 기반 VM 데이터 또는 온-프레미스 VM 구성을 확인 합니다. 편안 하 게 설정 하면 클러스터의 증가율을 지정할 수 있습니다. 현재는 기본적으로 하이퍼스레딩이 사용하도록 설정되어 있으므로 36 코어 노드에 72개의 vCore가 있습니다. 물리적인 4개의 vCore는 클러스터 가용성을 손상시키지 않고 유지 관리 또는 실패를 처리할 수 있도록 80%의 사용률을 초과하지 않는 VMware 표준을 사용하여 클러스터당 CPU 임계값을 결정하는 데 사용됩니다. 현재 구독 초과 값을 변경 하는 데 사용할 수 있는 재정의가 없습니다 .이는 이후 버전에서 사용할 수 있습니다.
 
 ### <a name="as-on-premises-sizing"></a>온-프레미스로 크기 조정
 
@@ -255,9 +255,9 @@ Azure VMware 솔루션 (AVS)이 미리 보기 상태 이므로 평가의 노드 
 
 ## <a name="migration-tool-guidance"></a>마이그레이션 도구 지침
 
-Azure VMware 솔루션 (AVS) 평가에 대 한 Azure 준비 보고서에서 다음과 같은 권장 도구를 볼 수 있습니다. 
+AVS(Azure VMware 솔루션) 평가에 대한 Azure 준비 상태 보고서에서 다음과 같은 권장 도구를 확인할 수 있습니다. 
 - **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 컴퓨터의 경우에는 HCX (VMWare 하이브리드 클라우드 확장) 솔루션을 사용 하는 것이 좋습니다.
+- **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 컴퓨터의 경우에는 HCX (VMware 하이브리드 클라우드 확장) 솔루션을 사용 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

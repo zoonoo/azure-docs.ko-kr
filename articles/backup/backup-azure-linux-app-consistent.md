@@ -1,19 +1,18 @@
 ---
 title: Linux Vm의 응용 프로그램 일치 백업
 description: Azure에 Linux 가상 머신의 애플리케이션 일치 백업을 만듭니다. 이 문서에서는 Azure 배포 Linux VM을 백업하는 스크립트 프레임워크를 구성하는 내용에 대해 설명합니다. 이 문서에는 문제 해결 정보도 포함되어 있습니다.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054853"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407101"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 
-VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 후 VM이 부팅될 때 애플리케이션이 시작되는 것을 의미합니다. 짐작할 수 있듯이 애플리케이션 일관성은 매우 중요합니다. Linux VM의 애플리케이션 일관성을 보장하기 위해 Linux 사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 애플리케이션 일치 백업을 만들 수 있습니다. 사전 스크립트 및 사후 스크립트 프레임워크는 Azure Resource Manager에서 배포한 Linux 가상 머신을 지원합니다. 애플리케이션 일관성을 위한 스크립트는 Service Manager 배포 가상 머신 또는 Windows 가상 머신을 지원하지 않습니다.
+VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 후 VM이 부팅될 때 애플리케이션이 시작되는 것을 의미합니다. 짐작할 수 있듯이 애플리케이션 일관성은 매우 중요합니다. Linux VM의 애플리케이션 일관성을 보장하기 위해 Linux 사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 애플리케이션 일치 백업을 만들 수 있습니다. 사전 스크립트 및 사후 스크립트 프레임워크는 Azure Resource Manager에서 배포한 Linux 가상 머신을 지원합니다. 응용 프로그램 일관성을 위한 스크립트는 Service Manager 배포 가상 머신 또는 Windows 가상 머신을 지원 하지 않습니다.
 
 ## <a name="how-the-framework-works"></a>프레임워크의 작동 원리
 
@@ -53,19 +52,19 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
     - **postScriptParams**: 사후 스크립트에 전달해야 하는 선택적 매개 변수를 제공합니다. 모든 매개 변수는 따옴표로 묶어야 합니다. 매개 변수를 여러 개 사용하는 경우 매개 변수를 쉼표로 분리합니다.
 
-    - **preScriptNoOfRetries**: 종료하기 전에 모든 오류에서 사전 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
+    - **preScriptNoOfRetries**: 종료 하기 전에 오류가 발생 하는 경우 사전 스크립트를 다시 시도해 야 하는 횟수를 설정 합니다. 0은 한 번의 시도를 의미 하 고 실패 한 경우 재시도 하지 않습니다.
 
-    - **postScriptNoOfRetries**: 종료하기 전에 모든 오류에서 사후 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
+    - **Postscriptnoofretries 시도**: 종료 하기 전에 오류가 발생 하는 경우 사후 스크립트를 다시 시도해 야 하는 횟수를 설정 합니다. 0은 한 번의 시도를 의미 하 고 실패 한 경우 재시도 하지 않습니다.
 
     - **timeoutInSeconds**: 사전 스크립트 및 사후 스크립트에 대 한 개별 시간 제한을 지정 합니다 (최 댓 값은 1800 일 수 있음).
 
-    - **continueBackupOnFailure**: Azure Backup을 사전 스크립트 또는 사후 스크립트가 실패하는 경우 파일 시스템 일관성/충돌 일관성 백업으로 대체하려는 경우 이 값을 **true**로 설정합니다. 이 값을 **false**로 설정하면 스크립트 오류가 발생하는 경우 백업에 실패합니다(이 설정과 관련 없는 충돌 일관성 백업으로 대체하는 단일 디스크 VM의 경우 제외).
+    - **continueBackupOnFailure**: Azure Backup을 사전 스크립트 또는 사후 스크립트가 실패하는 경우 파일 시스템 일관성/충돌 일관성 백업으로 대체하려는 경우 이 값을 **true**로 설정합니다. 이 설정을 **false** 로 설정 하면 스크립트 오류가 발생 하는 경우 백업에 실패 합니다 (이 설정에 관계 없이 크래시 일관성 백업으로 대체 하는 단일 디스크 VM이 있는 경우 제외). **ContinueBackupOnFailure** 값이 false로 설정 된 경우 백업이 실패 하면 서비스의 다시 시도 논리에 따라 백업 작업을 다시 시도 합니다 (규정 된 횟수).
 
     - **fsFreezeEnabled**: 파일 시스템 일관성을 유지하는 VM 스냅샷을 만드는 동안 Linux fsfreeze를 호출해야 하는지 여부를 지정합니다. 애플리케이션이 fsfreeze 비활성화에 대한 종속성을 갖지 않는 한, 이 설정을 **true**로 유지하는 것이 좋습니다.
 
     - **ScriptsExecutionPollTimeSeconds**: 스크립트 실행에 대 한 각 폴링 간에 확장이 대기 해야 하는 시간을 설정 합니다. 예를 들어 값이 2 인 경우 확장은 사전/사후 스크립트 실행이 2 초 마다 완료 되었는지 여부를 확인 합니다. 사용할 수 있는 최소값 및 최대값은 각각 1과 5입니다. 값은 반드시 정수 여야 합니다.
 
-6. 이제 스크립트 프레임워크가 구성되었습니다. VM 백업이 이미 구성된 경우 다음 백업 시 스크립트가 호출되고 애플리케이션 일치 백업이 트리거됩니다. VM 백업이 구성되지 않은 경우 [Recovery Services 자격 증명 모음에 Azure Virtual Machines 백업](./backup-azure-vms-first-look-arm.md)을 사용하여 구성하세요.
+6. 이제 스크립트 프레임워크가 구성되었습니다. VM 백업이 이미 구성된 경우 다음 백업 시 스크립트가 호출되고 애플리케이션 일치 백업이 트리거됩니다. VM 백업이 구성 되지 않은 경우 [Recovery Services 자격 증명 모음에 Azure 가상 머신](./backup-azure-vms-first-look-arm.md) 백업을 사용 하 여 구성 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

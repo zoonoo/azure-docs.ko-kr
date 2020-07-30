@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 81d65954197c0ebe0de77dc2fea63239d4c3f17b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056670"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412952"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Azure 방화벽을 사용 하 여 AKS (Azure Kubernetes Service) 배포 보호
 
@@ -24,7 +24,7 @@ Kubernetes는 사용 가능한 계산 리소스 및 각 컨테이너의 리소�
 
 이 문서의 지침에 따라 azure 방화벽을 사용 하 여 Azure Kubernetes 클러스터에 대 한 추가 보호를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 응용 프로그램을 실행 하는 배포 된 Azure Kubernetes 클러스터.
 
@@ -50,7 +50,9 @@ Azure 방화벽은 구성을 간소화 하는 AKS FQDN 태그를 제공 합니�
       보다 구체적인 정보를 보려면 **. <location> azmk8s.io* 및 주소를 다음 표에 나와 있습니다.
    - UDP 포트 123은 NTP(Network Time Protocol) 시간 동기화(Linux 노드)에 필요합니다.
    - API 서버에 직접 액세스하는 포드가 있으면 DNS용 UDP 포트 53도 필요합니다.
-- AzureMonitor 및 Storage 서비스 태그를 구성 합니다. Azure Monitor는 log analytics 데이터를 수신 합니다. 
+
+   자세한 내용은 [Azure Kubernetes 서비스에서 클러스터 노드에 대 한 송신 트래픽 제어 (AKS)](../aks/limit-egress-traffic.md)를 참조 하세요.
+- AzureMonitor 및 Storage 서비스 태그를 구성 합니다. Azure Monitor는 log analytics 데이터를 수신 합니다.
 
    작업 영역 URL은 `<worksapceguid>.ods.opinsights.azure.com` , 및를 개별적으로 허용할 수도 `<worksapceguid>.oms.opinsights.azure.com` 있습니다. 다음 방법 중 하나로 해결할 수 있습니다.
 

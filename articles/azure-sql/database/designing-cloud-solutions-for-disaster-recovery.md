@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344648"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405044"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 > 재해 복구의 경우 애플리케이션 배포를 두 지역으로 제한하여 구성하는 것이 좋습니다. 대부분의 경우 Azure 지역이 두 개뿐이기 때문입니다. 이 구성은 두 영역에서 동시에 발생하는 치명적인 오류로부터 애플리케이션을 보호하지 않습니다. 이러한 발생 가능성이 없는 실패 시 [지리적 복원 작업](disaster-recovery-guidance.md#recover-using-geo-restore)을 사용하여 세 번째 지역에서 데이터베이스를 복구할 수 있습니다.
 >
 
- 작동 중단이 완화되면 보조 데이터베이스가 주 데이터베이스와 자동으로 다시 동기화됩니다. 동기화 중에는 주 데이터베이스의 성능에 영향이 있을 수 있습니다. 특정한 영향은 장애 조치 후 새로운 주 데이터베이스가 확보하게 되는 데이터의 크기에 따라 결정됩니다. 다음 다이어그램은 보조 지역의 작동 중단을 보여 줍니다.
+ 작동 중단이 완화되면 보조 데이터베이스가 주 데이터베이스와 자동으로 다시 동기화됩니다. 동기화 중에는 주 데이터베이스의 성능에 영향이 있을 수 있습니다. 특정한 영향은 장애 조치 후 새로운 주 데이터베이스가 확보하게 되는 데이터의 크기에 따라 결정됩니다. 
+
+> [!NOTE]
+> 중단이 완화 되 면 Traffic Manager는 지역 A의 응용 프로그램에 대 한 연결을 더 높은 우선 순위의 끝점으로 라우팅하기 시작 합니다. 한 동안 지역 B에서 주 복제본을 유지 하려는 경우 Trafic Manager 프로필의 우선 순위 테이블을 적절 하 게 변경 해야 합니다. 
+>
+ 
+ 다음 다이어그램은 보조 지역의 작동 중단을 보여 줍니다.
 
 ![시나리오 1. 보조 지역에서 중단 후 구성](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
@@ -153,7 +159,7 @@ Traffic Manager 지역 A에 대 한 연결 실패를 검색 하면 사용자 트
 
 특정 클라우드 재해 복구 전략은 애플리케이션의 요구 사항을 최상으로 충족하도록 이러한 디자인 패턴을 결합하거나 확장할 수 있습니다.  앞에서 설명한 대로 선택한 전략은 고객 및 애플리케이션 배포 토폴로지에 제공하려는 SLA에 따라 달라집니다. 결정에 도움을 주기 위해 다음 테이블에서는 복구 지점 목표(RPO) 및 예상 복구 시간(ERT)에 따라 선택 항목을 비교합니다.
 
-| 무늬 | RPO | ERT |
+| 패턴 | RPO | ERT |
 |:--- |:--- |:--- |
 | 배치된 데이터베이스 액세스로 재해 복구에 대한 활성-수동 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |
 | 애플리케이션 부하 분산에 대한 활성-활성 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |

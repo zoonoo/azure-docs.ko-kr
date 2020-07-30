@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fb23893f176a2b51e5917ea5bbcb0e52faa64bf3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317878"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423442"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -218,6 +218,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
                                              file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
+
+Azure Machine Learning를 사용 하 여 Python 환경을 사용자 지정 하 고 사용자 지정 하는 방법에 대 한 자세한 내용은 [에서 소프트웨어 환경 만들기 & 사용](how-to-use-environments.md) 을 참조 하세요 Azure Machine Learning
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. 점수 매기기 코드 정의
 
@@ -636,7 +638,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 ### <a name="ab-testing-controlled-rollout"></a>A/B 테스트 (제어 된 롤아웃)
 자세한 내용은 [ML 모델의 제어 된 롤아웃](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) (영문)을 참조 하세요.
 
-## <a name="consume-web-services"></a>웹 서비스 사용
+## <a name="inference-using-web-services"></a>웹 서비스를 사용한 유추
 
 모든 배포 된 웹 서비스는 REST 끝점을 제공 하므로 모든 프로그래밍 언어로 클라이언트 응용 프로그램을 만들 수 있습니다.
 서비스에 대 한 키 기반 인증을 사용 하도록 설정한 경우 서비스 키를 요청 헤더에 토큰으로 제공 해야 합니다.

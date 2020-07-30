@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8101c01762749c2ceb085516936fa0c421fdb5f3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187265"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422711"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 페이지 추가
 
@@ -154,7 +155,7 @@ npm start
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. Azure Portal 또는 [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 솔루션에서 마이크로 서비스를 호스팅하는 가상 컴퓨터에 대 한 SSH 액세스를 사용 하도록 설정 합니다. 예:
+1. Azure Portal 또는 [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 솔루션에서 마이크로 서비스를 호스팅하는 가상 컴퓨터에 대 한 SSH 액세스를 사용 하도록 설정 합니다. 예를 들면 다음과 같습니다.
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -162,7 +163,7 @@ npm start
 
     테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 사용 하도록 설정 하는 경우 [가능한 한 빨리 다시 사용 하지 않도록 설정 해야](../security/fundamentals/network-best-practices.md)합니다.
 
-1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예:
+1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들면 다음과 같습니다.
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

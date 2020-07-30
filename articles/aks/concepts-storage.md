@@ -4,12 +4,12 @@ description: 볼륨, 영구적 볼륨, 스토리지 클래스 및 클레임을 �
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171381"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406965"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 스토리지 옵션
 
@@ -75,6 +75,9 @@ parameters:
   storageaccounttype: Premium_LRS
   kind: Managed
 ```
+
+> [!NOTE]
+> AKS는 기본 저장소 클래스를 조정 하 고 해당 저장소 클래스의 모든 변경 내용을 덮어씁니다.
 
 ## <a name="persistent-volume-claims"></a>영구적 볼륨 클레임
 

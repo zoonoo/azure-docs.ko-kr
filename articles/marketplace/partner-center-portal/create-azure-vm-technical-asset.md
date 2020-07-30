@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317759"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407951"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Azure Virtual Machine 기술 자산 만들기
 
@@ -282,4 +282,4 @@ Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hard
 
 그렇지 않은 경우:
 
-* [VM 이미지 인증](get-sas-uri.md)에서는 *Azure Certified용 인증 테스트 도구*를 가져올 수 있는 위치와 VM 이미지를 인증하는 데 사용하는 방법을 비롯하여 Azure Marketplace 인증을 위해 VM 이미지를 테스트하고 제출하는 방법에 대해 설명합니다.
+* [VHD에서 배포 된 테스트 vm (가상 머신)](azure-vm-image-certification.md) 은 *Azure 인증 도구용 인증 테스트 도구* 를 가져올 위치 및 vm 이미지를 인증 하는 데 사용 하는 방법을 비롯 하 여 AZURE MARKETPLACE 인증을 위해 vm 이미지를 테스트 하 고 제출 하는 방법을 설명 합니다.

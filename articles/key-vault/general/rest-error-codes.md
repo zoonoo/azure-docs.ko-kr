@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432061"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424378"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 오류 코드
  
@@ -134,7 +134,7 @@ HTTP 403은 고객의 응용 프로그램이 고객이 생각 하는 클라이�
 
 ### <a name="troubleshooting-403"></a>403 문제 해결
 
-먼저 로깅을 설정 합니다. 이 작업을 수행 하는 방법에 대 한 지침은 [Azure Key Vault 로깅](logging.md))을 참조 하세요.
+먼저 로깅을 설정 합니다. 이 작업을 수행 하는 방법에 대 한 지침은 [Azure Key Vault 로깅](logging.md)을 참조 하세요.
 
 로깅이 설정 되 면 액세스 정책 또는 방화벽 정책으로 인 한 403 인지 확인할 수 있습니다.
 
