@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: cc02890cb5293e48a8065b63f4f9c799c5dda7f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55ee6e99cdf6d77ea1e78799e016d4c276e85fcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081034"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423867"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
@@ -114,7 +114,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 ## <a name="administrative-rights"></a>관리 권한
 
-[RBAC (역할 기반 액세스)](../role-based-access-control/overview.md) 는 Azure 리소스의 프로 비전을 위해 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 기반으로 하는 권한 부여 시스템입니다. Azure Cognitive Search에서 리소스 관리자를 사용 하 여 서비스를 만들거나 삭제 하 고, API 키를 관리 하 고, 서비스를 확장 합니다. 따라서 RBAC 역할 할당은 [포털](search-manage.md), [POWERSHELL](search-manage-powershell.md)또는 [관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)를 사용 하는지에 관계 없이 이러한 작업을 수행할 수 있는 사람을 결정 합니다.
+[RBAC (역할 기반 액세스)](../role-based-access-control/overview.md) 는 Azure 리소스의 프로 비전을 위해 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 기반으로 하는 권한 부여 시스템입니다. Azure Cognitive Search에서 리소스 관리자를 사용 하 여 서비스를 만들거나 삭제 하 고, API 키를 관리 하 고, 서비스를 확장 합니다. 따라서 Azure 역할 할당은 [포털](search-manage.md), [POWERSHELL](search-manage-powershell.md)또는 [관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)를 사용 하는지에 관계 없이 이러한 작업을 수행할 수 있는 사람을 결정 합니다.
 
 반면, 인덱스를 만들거나 삭제 하는 기능과 같은 서비스에서 호스트 되는 콘텐츠에 대 한 관리자 권한은 [이전 섹션](#index-access)에서 설명한 대로 API 키를 통해 부여 되 됩니다.
 
@@ -125,7 +125,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 Azure Cognitive Search는 공용 클라우드와 Azure Government에 대 한 여러 글로벌, 지역 및 산업 관련 표준을 준수 하 고 있습니다. 전체 목록은 공식 감사 보고서 페이지에서 [ **Microsoft Azure 준수 제품** 백서](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) 를 다운로드 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure 보안 기본 사항](../security/fundamentals/index.yml)
 + [Azure 보안](https://azure.microsoft.com/overview/security)

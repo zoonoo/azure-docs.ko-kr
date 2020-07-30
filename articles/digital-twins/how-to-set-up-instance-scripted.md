@@ -1,18 +1,18 @@
 ---
 title: 인스턴스 및 인증 설정(스크립팅됨)
 titleSuffix: Azure Digital Twins
-description: 적절 한 인증을 포함 하 여 Azure Digital Twins 서비스의 인스턴스를 설정 하는 방법을 참조 하세요. 스크립팅된 버전.
+description: 자동화 된 배포 스크립트를 실행 하 여 Azure Digital Twins 서비스의 인스턴스를 설정 하는 방법을 참조 하세요.
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337911"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407490"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -20,9 +20,12 @@ ms.locfileid: "87337911"
 
 이 문서에서는 인스턴스를 만들고 인증을 설정 하는 등 **새 Azure Digital Twins 인스턴스를 설정**하는 단계에 대해 설명 합니다. 이 문서를 완료 한 후에는에 대 한 프로그래밍을 시작할 준비가 된 Azure Digital Twins 인스턴스를 사용할 수 있습니다.
 
-이 버전의이 문서에서는 프로세스를 간소화 하는 [ **자동화 된 배포 스크립트** 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) 을 실행 하 여 이러한 단계를 완료 합니다. 백그라운드에서 스크립트를 실행 하는 수동 단계를 보려면이 문서의 수동 버전인 [*방법: 인스턴스 및 인증 설정 (수동)*](how-to-set-up-instance-manual.md)을 참조 하세요.
+이 버전의이 문서에서는 프로세스를 간소화 하는 [ **자동화 된 배포 스크립트** 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) 을 실행 하 여 이러한 단계를 완료 합니다. 
+* 백그라운드에서 스크립트를 실행 하는 수동 CLI 단계를 보려면이 문서의 CLI 버전 [*(방법: 인스턴스 및 인증 (CLI) 설정)*](how-to-set-up-instance-cli.md)을 참조 하세요.
+* Azure Portal에 따라 수동 단계를 보려면이 문서의 포털 버전 [*(방법: 인스턴스 및 인증 설정) (포털)*](how-to-set-up-instance-portal.md)을 참조 하세요.
 
-[!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
 
 ## <a name="run-the-deployment-script"></a>배포 스크립트 실행
 
@@ -41,7 +44,7 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
  
 2. 로그인 한 후 Cloud Shell 창 아이콘 표시줄을 찾습니다. "파일 업로드/다운로드" 아이콘을 선택 하 고 "업로드"를 선택 합니다.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="업로드 옵션 선택 항목을 보여 주는 Cloud Shell 창":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="업로드 옵션 선택 항목을 보여 주는 Cloud Shell 창":::
 
     컴퓨터에서 _**deploy.ps1**_ 파일로 이동 하 고 "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드 됩니다.
 
@@ -57,21 +60,38 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 다음은 스크립트에서 출력 로그를 발췌 한 것입니다.
 
-:::image type="content" source="media/how-to-set-up-instance/deployment-script-output.png" alt-text="배포 스크립트를 실행 하 여 입력 및 출력 로그를 표시 하는 Cloud Shell 창" lightbox="media/how-to-set-up-instance/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="배포 스크립트를 실행 하 여 입력 및 출력 로그를 표시 하는 Cloud Shell 창" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 스크립트가 성공적으로 완료 되 면 최종 인쇄물은로 표시 됩니다 `Deployment completed successfully` . 그렇지 않으면 오류 메시지를 해결 하 고 스크립트를 다시 실행 합니다. 이미 완료 한 단계를 무시 하 고 종료 된 지점에서 입력 요청을 다시 시작 합니다.
 
-스크립트가 완료 되 면 이제 Azure Digital Twins 인스턴스를 사용할 준비가 되 고 사용 권한이 관리 되도록 설정 됩니다.
+스크립트가 완료 되 면 이제 Azure Digital Twins 인스턴스를 관리할 수 있는 권한으로 준비 하 고 클라이언트 앱에 액세스할 수 있는 권한을 설정할 수 있습니다.
+
+> [!NOTE]
+> 이 스크립트는 현재 Azure Digital Twins (*Azure Digital Twins 소유자 (미리 보기)*) 내에서 필요한 관리 역할을 Cloud Shell 스크립트를 실행 하는 동일한 사용자에 게 할당 합니다. 인스턴스를 관리 하는 다른 사람에 게이 역할을 할당 해야 하는 경우 Azure Portal ([지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 또는 CLI ([지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions))를 통해이 역할을 수행할 수 있습니다.
 
 ## <a name="collect-important-values"></a>중요 한 값 수집
 
-앱 등록에서 두 가지 중요 한 값은 나중에 [Azure Digital Twins api에 대해 클라이언트 앱을 인증](how-to-authenticate-client.md)하는 데 필요 합니다. 
+스크립트에 의해 설정 되는 리소스의 몇 가지 중요 한 값은 Azure Digital Twins 인스턴스 작업을 계속할 때 필요할 수 있습니다. 이 섹션에서는 [Azure Portal](https://portal.azure.com) 를 사용 하 여 이러한 값을 수집 합니다. 이러한 파일을 안전한 장소에 저장 하거나 나중에 필요할 때 찾을 수 있도록이 섹션으로 돌아옵니다.
+
+다른 사용자가 인스턴스에 대 한 프로그래밍을 수행 하는 경우에도 이러한 값을 공유 해야 합니다.
+
+### <a name="collect-instance-values"></a>인스턴스 값 수집
+
+[Azure Portal](https://portal.azure.com)포털 검색 표시줄에서 인스턴스의 이름을 검색 하 여 Azure Digital twins 인스턴스를 찾습니다.
+
+이를 선택 하면 인스턴스의 *개요* 페이지가 열립니다. *이름*, *리소스 그룹*및 *호스트 이름을*확인 합니다. 나중에 인스턴스를 식별 하 고 연결 하는 데 필요할 수 있습니다.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="인스턴스의 개요 페이지에서 중요 한 값 강조 표시":::
+
+### <a name="collect-app-registration-values"></a>앱 등록 값 수집 
+
+앱 등록에서 두 가지 중요 한 값은 나중에 [Azure Digital Twins api에 대 한 클라이언트 앱 인증 코드를 작성](how-to-authenticate-client.md)하는 데 필요 합니다. 
 
 이를 찾으려면 [이 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 를 따라 Azure Portal의 Azure AD 앱 등록 개요 페이지로 이동 합니다. 이 페이지에는 구독에 생성 된 모든 앱 등록이 표시 됩니다.
 
 이 목록에서 방금 만든 앱 등록이 표시 됩니다. 이를 선택 하 여 세부 정보를 엽니다.
 
-:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="앱 등록에 대 한 중요 한 값의 포털 보기":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="앱 등록에 대 한 중요 한 값의 포털 보기":::
 
 **페이지에** 표시 된 *응용 프로그램 (클라이언트) id* 및 *디렉터리 (테 넌 트) id* 를 기록해 둡니다. 클라이언트 응용 프로그램에 대 한 코드를 작성 하는 사람이 아닌 경우이 값을 지정할 사용자와 공유 해야 합니다.
 
@@ -86,6 +106,9 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 ### <a name="verify-user-role-assignment"></a>사용자 역할 할당 확인
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+
+> [!NOTE]
+> 스크립트는 현재이 필수 역할을 Cloud Shell 스크립트를 실행 하는 사용자와 동일한 사용자에 게 할당 합니다. 인스턴스를 관리 하는 다른 사람에 게이 역할을 할당 해야 하는 경우 Azure Portal ([지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 또는 CLI ([지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions))를 통해이 역할을 수행할 수 있습니다.
 
 ### <a name="verify-app-registration"></a>앱 등록 확인
 

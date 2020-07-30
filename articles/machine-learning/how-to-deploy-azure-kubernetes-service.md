@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372113"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433233"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,11 @@ AKS 클러스터 및 AML 작업 영역은 다른 리소스 그룹에 있을 수 
 
 - 이 문서의 __CLI__ 코드 조각은 문서를 만든 것으로 가정 합니다 `inferenceconfig.json` . 이 문서를 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)있는 AKS 클러스터를 연결 하는 경우 AKS 클러스터에 대해 AML 연결 OL 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 추론 pod을 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 추론 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정할 때 [쌍을 이루는 지역]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 대 한 [ip 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) 를 사용 합니다.
+- BLB (기본 Load Balancer) 대신 클러스터에 표준 Load Balancer (SLB)를 배포 해야 하는 경우 AKS portal/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 연결 하세요.
+
+- [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)있는 AKS 클러스터를 연결 하는 경우 AKS 클러스터에 대해 AML 연결 OL 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 추론 pod을 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 추론 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정 하는 경우 [쌍을 이루는 지역]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 대 한 [ip 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) 를 사용 합니다.
+
+__인증 된 IP 범위는 표준 Load Balancer 에서만 작동 합니다.__
  
  - 계산 이름은 작업 영역 내에서 고유 해야 합니다.
    - 이름은 필수 이며 길이가 3 ~ 007e; 24 자 사이 여야 합니다.
@@ -73,7 +77,7 @@ AKS 클러스터 및 AML 작업 영역은 다른 리소스 그룹에 있을 수 
    
  - GPU 노드나 FPGA 노드 (또는 특정 SKU)에 모델을 배포 하려면 특정 SKU를 사용 하 여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포 하는 것은 지원 되지 않습니다.
  
- - BLB (기본 Load Balancer) 대신 클러스터에 표준 Load Balancer (SLB)를 배포 해야 하는 경우 AKS portal/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 연결 하세요. 
+ 
 
 
 
@@ -257,6 +261,30 @@ VS Code 사용에 대 한 자세한 내용은 [VS Code 확장을 통해 AKS에 �
 
 > [!IMPORTANT]
 > VS Code를 통해 배포 하려면 AKS 클러스터를 미리 만들거나 작업 영역에 미리 연결 해야 합니다.
+
+### <a name="understand-the-deployment-processes"></a>배포 프로세스 이해
+
+단어 "deployment"는 Kubernetes 및 Azure Machine Learning 모두에 사용 됩니다. 이러한 두 컨텍스트에서는 "배포"의 의미가 매우 다릅니다. Kubernetes에서는 `Deployment` 선언적 YAML 파일을 사용 하 여 지정 된 구체적인 엔터티입니다. Kubernetes에는 `Deployment` 및와 같은 다른 Kubernetes 엔터티와의 정의 된 수명 주기와 구체적 관계가 있습니다 `Pods` `ReplicaSets` . 문서 및 비디오의 Kubernetes에 대 한 자세한 내용은 [Kubernetes?를](https://aka.ms/k8slearning)살펴보세요.
+
+Azure Machine Learning에서 "배포"는 보다 일반적으로 사용 가능 하 고 프로젝트 리소스를 정리 하는 데 사용 됩니다. 배포의 일부를 고려 하 Azure Machine Learning 단계는 다음과 같습니다.
+
+1. Amlignore 또는. .gitignore에 지정 된 파일을 무시 하 고 프로젝트 폴더의 파일을 압축 합니다.
+1. 계산 클러스터 확장 (Kubernetes과 관련)
+1. Dockerfile을 계산 노드에 빌드 또는 다운로드 (Kubernetes와 관련 됨)
+    1. 시스템은 다음의 해시를 계산 합니다. 
+        - 기본 이미지 
+        - 사용자 지정 docker 단계 ( [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)참조)
+        - Conda definition YAML ( [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)을 참조 하세요.)
+    1. 시스템은 작업 영역 Azure Container Registry (ACR) 조회에서이 해시를 키로 사용 합니다.
+    1. 찾을 수 없는 경우 전역 ACR에서 일치 하는 항목을 찾습니다.
+    1. 이 파일을 찾을 수 없는 경우 시스템은 새 이미지를 빌드합니다 (작업 영역 ACR에 캐시 및 등록 됨).
+1. 계산 노드의 임시 저장소에 압축 된 프로젝트 파일 다운로드
+1. 프로젝트 파일 압축 풀기
+1. 실행 하는 계산 노드`python <entry script> <arguments>`
+1. `./outputs`작업 영역과 연결 된 저장소 계정에 기록 된 로그, 모델 파일 및 기타 파일 저장
+1. 임시 저장소 제거를 포함 하 여 계산 축소 (Kubernetes와 관련 됨)
+
+AKS를 사용 하는 경우 위에 설명 된 대로 빌드된 dockerfile을 사용 하 여 계산의 확장 및 축소는 Kubernetes에 의해 제어 됩니다. 
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>제어 된 롤아웃 (미리 보기)을 사용 하 여 AKS에 모델 배포
 

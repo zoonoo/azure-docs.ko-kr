@@ -1,17 +1,14 @@
 ---
 title: Azure 가상 네트워크와 Azure Functions 통합
 description: Azure 가상 네트워크에 함수를 연결 하는 방법을 보여 주는 단계별 자습서입니다.
-author: alexkarcher-msft
 ms.topic: article
 ms.date: 4/23/2020
-ms.author: alkarche
-ms.reviewer: glenga
-ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122692"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387526"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>자습서: Azure Virtual Network에 Azure Functions 통합
 
@@ -73,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![VM 만들기의 네트워킹 탭](./media/functions-create-vnet/create-vm-2.png)
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **이름** | myResourceGroup-vnet | 가상 네트워크에 대해 생성된 기본 이름을 사용할 수 있습니다. |
     | **주소 범위** | 10.10.0.0/16 | 가상 네트워크에 단일 주소 범위를 사용합니다. |
@@ -142,7 +139,7 @@ VNet 통합을 사용 하도록 설정 하면 함수 앱에서 프록시를 만�
 
 1. **만들기** 를 선택 하 여 함수 앱에 프록시를 추가 합니다.
 
-## <a name="try-it-out"></a>기능 직접 사용해 보기
+## <a name="try-it-out"></a>사용해 보기
 
 1. 브라우저에서 **백 엔드 url**로 사용한 url에 액세스를 시도 합니다. 예상 대로 요청 시간이 초과 됩니다. WordPress 사이트는 인터넷이 아닌 가상 네트워크에만 연결 되므로 시간 초과가 발생 합니다.
 

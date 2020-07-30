@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: f6868e3a77cbc4b262180b47ed3b387840062969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/15/2020
+ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097716"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406285"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 관리 되는 Virtual Network 및 관리 되는 개인 끝점을 설명 합니다.
 
@@ -47,7 +47,7 @@ Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Inte
 
 관리 되는 개인 끝점은 Azure 리소스에 대 한 개인 링크를 설정 하는 Virtual Network Azure Data Factory 관리 되는 전용 끝점입니다. Azure Data Factory은 사용자 대신 이러한 개인 끝점을 관리 합니다. 
 
-![새 관리 되는 개인 끝점](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
+![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
 Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure SQL Data Warehouse)에 액세스할 수 있습니다.
 
@@ -63,7 +63,7 @@ Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용
 
 Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 상태로 개인 끝점 연결이 생성 됩니다. 승인 워크플로가 시작됩니다. 프라이빗 링크 리소스 소유자가 연결을 승인 또는 거부합니다.
 
-![개인 끝점 관리](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
+![프라이빗 엔드포인트 관리](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
 소유자가 연결을 승인하면 프라이빗 링크가 설정됩니다. 거부하면 프라이빗 링크가 설정되지 않습니다. 어떤 경우든 관리형 프라이빗 엔드포인트는 연결 상태로 업데이트 됩니다.
 
@@ -82,6 +82,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure SQL Data Warehouse
 - Azure CosmosDB SQL
 - Azure Key Vault
+- Azure Private Link
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
 - 아웃 바운드 통신용 포트 443만 열립니다.

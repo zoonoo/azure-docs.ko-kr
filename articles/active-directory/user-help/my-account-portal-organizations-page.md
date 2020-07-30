@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 54e19d8680a5b5b7477c143a1857931b082fed98
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742254"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422449"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>조직 페이지에서 연결된 조직 관리
 
@@ -68,3 +68,5 @@ ms.locfileid: "83742254"
 - [로그인 활동](my-account-portal-sign-ins-page.md)을 봅니다.
 
 - 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 봅니다.
+
+- [내 계정 포털 설정](my-account-portal-settings.md) 변경

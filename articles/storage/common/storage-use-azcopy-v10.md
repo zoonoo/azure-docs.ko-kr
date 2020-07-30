@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b43b20023aa0d96dcaa3ce79b626d61ec6f6752d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289230"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423834"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -97,7 +97,7 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 역할을 확인 하 고 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 > [!NOTE]
-> RBAC 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요.
+> Azure 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요.
 
 보안 주체를 대상 컨테이너 또는 디렉터리의 ACL (액세스 제어 목록)에 추가 하는 경우 이러한 역할 중 하나를 보안 주체에 할당 하지 않아도 됩니다. ACL에서 보안 주체에는 대상 디렉터리에 대 한 쓰기 권한과 컨테이너 및 각 부모 디렉터리에 대 한 실행 권한이 필요 합니다.
 

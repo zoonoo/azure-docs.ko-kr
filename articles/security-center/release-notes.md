@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083976"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430471"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -32,9 +32,27 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 ## <a name="july-2020"></a>2020년 7월
 
 7 월의 업데이트는 다음과 같습니다.
+- [이제 가상 머신에 대 한 취약성 평가를 비 marketplace 이미지 자동에 사용할 수 있습니다](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images).        
 - [Azure Files 및 Azure Data Lake Storage Gen2 (미리 보기)를 포함 하도록 위협 방지 Azure Storage 확장 됨](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [위협 방지 기능을 사용 하도록 설정 하는 8 가지 새로운 권장 사항](#eight-new-recommendations-to-enable-threat-protection-features)
 - [컨테이너 보안 개선-더 빠른 레지스트리 검색 및 새로 고침 설명서](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [적응 응용 프로그램 제어 규칙 업데이트에 대 한 새로운 권장 사항](#new-recommendation-to-update-your-adaptive-application-controls-rules)
 - [SQL 고급 데이터 보안에 대 한 6 가지 정책 사용 되지 않음](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>이제 가상 머신에 대 한 취약성 평가를 비 마켓플레이스 이미지에 사용할 수 있습니다.
+
+취약성 평가 솔루션을 배포할 때 이전에는를 배포 하기 전에 유효성 검사를 수행 Security Center 합니다. 확인은 대상 가상 머신의 marketplace SKU를 확인 하는 것입니다. 
+
+이 업데이트에서 확인이 제거 되었으며 이제 ' 사용자 지정 ' Windows 및 Linux 컴퓨터에 취약성 평가 도구를 배포할 수 있습니다. 사용자 지정 이미지는 marketplace 기본값에서 수정한 이미지입니다.
+
+이제 더 많은 컴퓨터에서 통합 취약성 평가 확장 (Qualys 기반)을 배포할 수 있지만, [Qualys 기본 제공 취약점 스캐너 배포](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner)에 나열 된 OS를 사용 하는 경우에만 지원을 사용할 수 있습니다.
+
+[가상 컴퓨터에 대 한 통합 취약성 스캐너](built-in-vulnerability-assessment.md)에 대해 자세히 알아보세요 (표준 계층에만 해당).
+
+Qualys 또는 Rapid7에서 개인적으로 사용이 허가 된 취약점 평가 솔루션을 사용 하는 방법에 대 한 자세한 내용은 [파트너 취약점 검사 솔루션 배포](partner-vulnerability-assessment.md)를
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Azure Files 및 Azure Data Lake Storage Gen2 (미리 보기)를 포함 하도록 위협 방지 Azure Storage 확장 됨
@@ -44,6 +62,39 @@ Azure Storage에 대 한 위협 방지는 Azure Storage 계정에서 잠재적�
 Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는지에 관계 없이 데이터를 보호할 수 있습니다. 
 
 [Azure Storage에 대 한 위협 방지](threat-protection.md#threat-protection-for-azure-storage-)에 대해 자세히 알아보세요.
+
+
+
+
+### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>위협 방지 기능을 사용 하도록 설정 하는 8 가지 새로운 권장 사항
+
+가상 컴퓨터, App Service 계획, Azure SQL Database 서버, 컴퓨터의 SQL server, Azure Storage 계정, Azure Kubernetes 서비스 클러스터, Azure Container Registry 레지스트리 및 Azure Key Vault 자격 증명 모음에 대 한 Azure Security Center의 위협 방지 기능을 사용 하도록 설정 하는 간단한 방법을 제공 하기 위해 8 개의 새로운 권장 사항이 추가 되었습니다.
+
+새로운 권장 사항은 다음과 같습니다.
+
+- **Azure SQL Database 서버에서 Advanced Data Security를 사용하도록 설정해야 함**
+- **머신의 SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 함**
+- **Azure App Service 계획에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Container Registry 레지스트리에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Kubernetes Service 클러스터에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Storage 계정에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **가상 머신에서 고급 위협 방지를 사용 하도록 설정 해야 합니다.**
+
+이러한 새 권장 사항은 **Advanced Threat Protection 보안 설정** 제어에 속합니다.
+
+권장 사항에는 빠른 수정 기능도 포함 되어 있습니다. 
+
+> [!IMPORTANT]
+> 이러한 권장 사항에 수정 관련 리소스를 보호 하는 요금이 부과 됩니다. 현재 구독에 관련 리소스가 있는 경우 이러한 요금은 즉시 시작 됩니다. 나중에 추가 하는 경우 나중에 추가 합니다.
+> 
+> 예를 들어 구독에 Azure Kubernetes Service 클러스터가 없고 위협 방지를 사용 하도록 설정 하는 경우 요금이 발생 하지 않습니다. 나중에 동일한 구독에서 클러스터를 추가 하는 경우 자동으로 보호 되 고 해당 시간에 요금이 청구 됩니다.
+
+[보안 권장 사항 참조 페이지](recommendations-reference.md)에서 각각에 대해 자세히 알아보세요.
+
+[Azure Security Center에서 위협 방지](https://docs.microsoft.com/azure/security-center/threat-protection)에 대해 자세히 알아보세요.
+
+
 
 
 ### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>컨테이너 보안 개선-더 빠른 레지스트리 검색 및 새로 고침 설명서
@@ -62,6 +113,15 @@ Azure Security Center의 컨테이너 보안 기능과 관련 된 명확 성과 
 - [Azure Kubernetes 서비스 호스트에 대 한 위협 방지 기능의 보안 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
 - [컨테이너에 대 한 보안 권장 사항](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
 
+
+
+### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>적응 응용 프로그램 제어 규칙 업데이트에 대 한 새로운 권장 사항
+
+적응 응용 프로그램 컨트롤 기능은 구성 된 그룹의 컴퓨터 작업을 지속적으로 모니터링 합니다. 이 업데이트를 통해 이전에는 허용 되지 않은 잠재적으로 합법적인 동작에 대 한 알림이 표시 되며,이로 인해 가양성 경고가 발생할 수 있습니다.
+
+적응 응용 프로그램 제어 정책에서 새로운 권장 사항, **Allowlist 규칙을 업데이트 해야 하며**, 적응 응용 프로그램 제어 위반 경고에서 가양성 수를 줄이기 위해 기존 정책에 새 규칙을 추가 하 라는 메시지를 표시 합니다.
+
+[적응형 애플리케이션 제어에 대해 자세히 알아봅니다](security-center-adaptive-application.md).
 
 
 
@@ -185,9 +245,9 @@ Azure policy에서 정책을 찾을 수 있습니다.
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [Azure SQL Database 서버에서 Advanced Data Security를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [머신의 SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [스토리지 계정에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Azure Storage 계정에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
 | [Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [App Service 요금제에서 Advanced threat protection을 사용 하도록 설정 해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [Azure App Service 계획에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
 | [Azure Container Registry 레지스트리에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
 | [Azure Kubernetes Service 클러스터에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
 | [Virtual Machines에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
@@ -275,7 +335,7 @@ Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 �
 
 [Azure Security Center에서 향상된 보안 점수(미리 보기)](secure-score-security-controls.md)의 보안 컨트롤에 대해 자세히 알아보세요.
 
-![권장 사항에 대 한 "컨트롤 그룹화" 토글](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
+![권장 사항에 대 한 "컨트롤 그룹화" 토글](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>확장된 보안 컨트롤 "보안 모범 사례 구현" 
 

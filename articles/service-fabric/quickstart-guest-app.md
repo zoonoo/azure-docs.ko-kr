@@ -3,18 +3,19 @@ title: 클러스터에 기존 앱을 신속 하 게 배포
 description: Azure Service Fabric 클러스터를 사용하여 Visual Studio에서 기존 Node.js 애플리케이션을 호스트합니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614845"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430724"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
 이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 애플리케이션(이 예제에서는 Node.js)을 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2019 또는 2015 설치를 포함 합니다.
 
@@ -41,7 +42,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 서비스 이름을 **MyGuestService**로 지정하고 다음과 같은 값으로 오른쪽에 있는 옵션을 설정합니다.
 
-| Setting                   | 값 |
+| 설정                   | 값 |
 | ------------------------- | ------ |
 | 코드 패키지 폴더       | _&lt;Node.js 앱이 있는 폴더&gt;_ |
 | 코드 패키지 동작     | 프로젝트에 폴더 내용 복사 |

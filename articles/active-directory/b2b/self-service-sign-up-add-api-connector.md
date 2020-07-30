@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88270d51bf50b2b175d9d8761685a8a2a8ae19b1
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027515"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428263"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
@@ -42,9 +42,16 @@ ms.locfileid: "87027515"
 8. API로 전송 하려는 클레임을 선택 합니다.
 9. API에서 다시 수신 하려는 클레임을 선택 합니다.
 
-   ![API 커넥터 클레임 설정](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
+   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
 
 10. **저장**을 선택합니다.
+
+### <a name="selection-of-claims-to-send-and-claims-to-receive"></a>' 보낼 클레임 ' 및 ' 받을 클레임 ' 선택
+> [!IMPORTANT]
+> 아래 그림과 같이 기본적으로 선택 된 모든 클레임이 표시 될 수 있습니다. 모든 API 커넥터는 이런 방식으로 동작 하도록 업데이트 됩니다. API는 사용 가능한 모든 클레임을 수신 하 고 API 커넥터 정의에서 구성 하지 않고도 지원 되는 모든 클레임을 다시 보낼 수 있습니다. 
+
+![API 커넥터 클레임 설정](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>사용자 흐름에서 API 커넥터를 사용 하도록 설정
 
@@ -136,7 +143,7 @@ Content-type: application/json
 | 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
-| 작업                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
+| action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
 
@@ -162,7 +169,7 @@ Content-type: application/json
 | 매개 변수   | Type   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
-| 작업      | String | 예      | 값은 이어야 합니다.`ShowBlockPage`                                              |
+| action      | String | 예      | 값은 이어야 합니다.`ShowBlockPage`                                              |
 | userMessage | String | 예      | 사용자에게 표시할 메시지입니다.                                            |
 | 코드        | String | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |
 
@@ -192,7 +199,7 @@ Content-type: application/json
 | 매개 변수   | Type    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
-| 작업      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
+| action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
 | 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
 | 코드        | String  | 아니요       | 오류 코드 디버깅을 위해 사용할 수 있습니다. 사용자에 게 표시 되지 않습니다. |

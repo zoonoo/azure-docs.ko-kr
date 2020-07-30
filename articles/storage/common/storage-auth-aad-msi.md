@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6571f4351fb3410d1c10079a41b7041eb85ee5e3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127182"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423765"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 id를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한 부여
 
@@ -87,13 +87,13 @@ az ad sp create-for-rbac \
 ```
 
 > [!IMPORTANT]
-> RBAC 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+> Azure 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 #### <a name="set-environment-variables"></a>환경 변수 설정
 
 Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변수에서 값을 읽어서 서비스 사용자를 인증 합니다. 다음 표에서는 각 환경 변수에 대해 설정할 값을 설명 합니다.
 
-|환경 변수|Value
+|환경 변수|값
 |-|-
 |`AZURE_CLIENT_ID`|서비스 사용자의 앱 ID
 |`AZURE_TENANT_ID`|서비스 주체의 Azure AD 테 넌 트 ID

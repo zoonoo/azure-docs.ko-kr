@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 361e8c63dc036443e527d1027fe3fd0cca784d9a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747201"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423000"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>전화 번호를 사용자 이름으로 사용(미리 보기)
 
@@ -52,11 +52,11 @@ ms.locfileid: "83747201"
 
 1. SMS 로그인을 사용할 수 있게 되면 전화 번호를 SMS 로그인용으로 사용할 것인지 묻는 배너가 표시됩니다.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    [![전화 번호에 대해 SMS 로그인을 사용 하도록 설정 하는 배너입니다.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
 
 1. 또한, 전화 방법 타일에서 캐럿을 선택하면 **사용** 단추가 표시됩니다.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![전화 번호에 대해 SMS 로그인을 사용 하도록 설정 하는 배너입니다.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. 이 방법을 사용하도록 설정하려면 **사용**을 선택합니다. 작업을 확인하라는 메시지가 표시됩니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "83747201"
 
 1. 전화 번호를 삭제하려면 SMS 로그인 전화 방법 타일에서 삭제 단추를 선택합니다.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![전화 번호에 대 한 SMS 로그인을 삭제 하는 배너입니다.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. 작업을 확인하라는 메시지가 표시되면 **확인**을 선택합니다.
 

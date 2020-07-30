@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ce85473e80bfccf1bcff3e21408fd91e4cd428a4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f508974891266735c5c193baa116771f11dc40a7
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131330"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388104"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
@@ -281,7 +281,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 오케스트레이션에 서 한 번에 하나의 인스턴스를 쿼리 하는 대신 모든 항목을 한 번에 쿼리 하는 것이 더 효율적일 수 있습니다.
 
-`GetStatusAsync`(.Net), `getStatusAll` (JavaScript) 또는 `get_status_all` (Python) 메서드를 사용 하 여 모든 오케스트레이션 인스턴스의 상태를 쿼리할 수 있습니다. .NET에서는 `CancellationToken` 개체를 취소 하려는 경우에 개체를 전달할 수 있습니다. 이 메서드는 매개 변수가 있는 `GetStatusAsync` 메서드와 속성이 동일한 개체를 반환합니다.
+[ListInstancesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net), [getstatusall](https://docs.microsoft.com/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusall--) (JavaScript) 또는 `get_status_all` (Python) 메서드를 사용 하 여 모든 오케스트레이션 인스턴스의 상태를 쿼리할 수 있습니다. .NET에서는 `CancellationToken` 개체를 취소 하려는 경우에 개체를 전달할 수 있습니다. 메서드는 쿼리 매개 변수와 일치 하는 오케스트레이션 인스턴스를 나타내는 개체 목록을 반환 합니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -292,11 +292,14 @@ public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
-    IList<DurableOrchestrationStatus> instances = await client.GetStatusAsync(); // You can pass CancellationToken as a parameter.
-    foreach (var instance in instances)
+    var noFilter = new OrchestrationStatusQueryCondition();
+    OrchestrationStatusQueryResult result = await client.ListInstancesAsync(
+        noFilter,
+        CancellationToken.None);
+    foreach (DurableOrchestrationStatus instance in result.DurableOrchestrationState)
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));
-    };
+    }
 }
 ```
 
@@ -357,7 +360,7 @@ func durable get-instances
 
 표준 인스턴스 쿼리에서 제공할 수 있는 모든 정보가 필요 하지 않은 경우 어떻게 되나요? 예를 들어 오케스트레이션 만든 시간 또는 오케스트레이션 런타임 상태를 검색 하는 경우는 어떻게 되나요? 필터를 적용 하 여 쿼리 범위를 좁힐 수 있습니다.
 
-`GetStatusAsync`(.Net) 또는 `getStatusBy` (JavaScript) 메서드를 사용 하 여 미리 정의 된 필터 집합과 일치 하는 오케스트레이션 인스턴스 목록을 가져옵니다.
+[ListInstancesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net) 또는 [getstatusby](https://docs.microsoft.com/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) 메서드를 사용 하 여 미리 정의 된 필터 집합과 일치 하는 오케스트레이션 인스턴스 목록을 가져옵니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -368,19 +371,26 @@ public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
-    var runtimeStatus = new List<OrchestrationRuntimeStatus> {
-        OrchestrationRuntimeStatus.Completed,
-        OrchestrationRuntimeStatus.Running
+    // Get the first 100 running or pending instances that were created between 7 and 1 day(s) ago
+    var queryFilter = new OrchestrationStatusQueryCondition
+    {
+        RuntimeStatus = new[]
+        {
+            OrchestrationRuntimeStatus.Pending,
+            OrchestrationRuntimeStatus.Running,
+        },
+        CreatedTimeFrom = DateTime.UtcNow.Subtract(TimeSpan.FromDays(7)),
+        CreatedTimeTo = DateTime.UtcNow.Subtract(TimeSpan.FromDays(1)),
+        PageSize = 100,
     };
-    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
-        new DateTime(2018, 3, 10, 10, 1, 0),
-        new DateTime(2018, 3, 10, 10, 23, 59),
-        runtimeStatus
-    ); // You can pass CancellationToken as a parameter.
-    foreach (var instance in instances)
+    
+    OrchestrationStatusQueryResult result = await client.ListInstancesAsync(
+        queryFilter,
+        CancellationToken.None);
+    foreach (DurableOrchestrationStatus instance in result.DurableOrchestrationState)
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));
-    };
+    }
 }
 ```
 

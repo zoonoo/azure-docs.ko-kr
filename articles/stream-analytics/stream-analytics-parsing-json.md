@@ -6,12 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: 8d68c36e7d6603cb8cdc906ad2a0280094e6e0e5
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ff3ae9a787586a4d3f7c27353aca37326be32448
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698262"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432552"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Azure Stream Analytics에서 JSON 및 Avro 데이터 구문 분석
 

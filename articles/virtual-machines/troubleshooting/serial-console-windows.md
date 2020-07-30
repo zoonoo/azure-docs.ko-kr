@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005942"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424003"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows의 Azure 직렬 콘솔
 
@@ -26,10 +26,12 @@ Azure Portal의 직렬 콘솔은 Windows VM(가상 머신) 및 가상 머신 확
 
 직렬 콘솔은 VM 및 가상 머신 확장 집합 인스턴스에 대해 동일한 방식으로 작동합니다. 이 문서에서 달리 명시되지 않는 한 VM에 대한 모든 언급에는 가상 머신 확장 집합 인스턴스가 암시적으로 포함됩니다.
 
+직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
+
 Linux에 대한 직렬 콘솔 설명서는 [Linux용 Azure 직렬 콘솔](serial-console-linux.md)을 참조하세요.
 
 > [!NOTE]
-> 직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
+> 직렬 콘솔은 현재 관리 되는 부트 진단 저장소 계정과 호환 되지 않습니다. 직렬 콘솔을 사용 하려면 사용자 지정 저장소 계정을 사용 하 고 있는지 확인 합니다.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소

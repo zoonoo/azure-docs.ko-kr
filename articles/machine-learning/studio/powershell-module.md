@@ -8,16 +8,16 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 46f51a09a82d544a5940dfad69dc8e36d99a2f7a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a165a15825e09931cee871396c22cd6ab35af719
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324984"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431302"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 용 PowerShell 모듈 (클래식)
 
-**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+**적용 대상:** ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 PowerShell 모듈을 사용 하 여 작업 영역, 데이터 집합 및 웹 서비스와 같은 사용자의 Studio (클래식) 리소스 및 자산을 프로그래밍 방식으로 관리할 수 있습니다.

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d8ac2a8317343b1bc172eefa17c6eb0074c5c21f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292065"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432626"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -92,18 +92,21 @@ B16 특징:
 
 ## <a name="q--a"></a>Q & A
 
+### <a name="q-what-happens-if-the-credits-run-out"></a>Q: 크레딧을 실행 하는 경우 어떻게 되나요?
+**A**: 크레딧이 소진 되 면 VM이 기준 성능으로 돌아옵니다.
+
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: VM에서 135% 기준 성능을 얻으려면 어떻게 할까요?
 
 **A**: 135%는 VM 크기를 구성하는 8개 vCPU에서 공유됩니다. 예를 들어 애플리케이션에서 일괄 처리를 수행하는 8개 코어 중 4개를 사용하고 해당 4개 vCPU에서 30% 사용률에서 실행하는 경우 총 VM CPU 성능은 120%가 됩니다.  즉 VM이 기준 성능에서 15% 델타에 따라 크레딧 시간을 적립한다는 것을 의미합니다.  그러나 동일한 VM에서 8개 vCPU를 모두 100% 사용하여 해당 VM에 최대 800% CPU 성능을 제공하는 크레딧을 사용할 수 있음도 의미합니다.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: 크레딧 잔액과 소비량을 모니터링하려면 어떻게 할까요?
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: 내 크레딧 잔액 및 소비량을 모니터링 하려면 어떻게 해야 하나요?
 
 **A**: 몇 주 후에 새로운 2개의 메트릭을 소개할 예정입니다. **Credit** 메트릭을 통해 VM에서 적립한 크레딧 수를 확인할 수 있고, **ConsumedCredit** 메트릭을 통해 VM에서 적립한 크레딧으로부터 소비한 CPU 크레딧 수를 확인할 수 있습니다.    포털의 메트릭 창에서 또는 Azure Monitor API를 통한 프로그래밍 방식으로 이러한 메트릭을 볼 수 있습니다.
 
 Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
-### <a name="q-how-are-credits-accumulated"></a>Q: 크레딧은 어떻게 적립될까요?
+### <a name="q-how-are-credits-accumulated-and-consumed"></a>Q: 크레딧을 누적 하 고 소비 하는 방법은 무엇입니까?
 
 **A**: 정확히 기준 성능 수준에서 실행되는 VM이 버스팅 크레딧의 순 적립 또는 소비가 적용되지 않도록 VM 적립 및 소비 속도가 설정됩니다.  VM이 기준 성능 수준 이하로 실행될 때마다 크레딧이 순 증가하고, VM이 기준 성능 수준보다 더 많은 CPU를 활용할 때마다 크레딧이 순 감소합니다.
 

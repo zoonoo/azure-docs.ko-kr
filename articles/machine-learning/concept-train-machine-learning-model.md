@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b35f971d90f8cd74e2f5a60e34864d8e55a743c4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147042"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431916"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -92,9 +92,31 @@ Azure Machine Learning을 사용하는 일반적인 학습 작업은 [RunConfigu
 * [예제: 자동화된 기계 학습을 사용하는 파이프라인](https://aka.ms/pl-automl)
 * [예제: 예측 도구를 사용하는 파이프라인](https://aka.ms/pl-estimator)
 
+### <a name="understand-what-happens-when-you-submit-a-training-job"></a>학습 작업을 제출할 때 수행 되는 작업 이해
+
+Azure 교육 수명 주기는 다음으로 구성 됩니다.
+
+1. _Amlignore_ 또는 _. .gitignore_ 에 지정 된 파일을 무시 하 고 프로젝트 폴더의 파일을 압축 합니다.
+1. 계산 클러스터 확장 
+1. Dockerfile을 계산 노드에 빌드 또는 다운로드 
+    1. 시스템은 다음의 해시를 계산 합니다. 
+        - 기본 이미지 
+        - 사용자 지정 docker 단계 ( [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)참조)
+        - Conda definition YAML ( [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)을 참조 하세요.)
+    1. 시스템은 작업 영역 Azure Container Registry (ACR) 조회에서이 해시를 키로 사용 합니다.
+    1. 찾을 수 없는 경우 전역 ACR에서 일치 하는 항목을 찾습니다.
+    1. 이 파일을 찾을 수 없는 경우 시스템은 새 이미지를 빌드합니다 (작업 영역 ACR에 캐시 및 등록 됨).
+1. 계산 노드의 임시 저장소에 압축 된 프로젝트 파일 다운로드
+1. 프로젝트 파일 압축 풀기
+1. 실행 하는 계산 노드`python <entry script> <arguments>`
+1. `./outputs`작업 영역과 연결 된 저장소 계정에 기록 된 로그, 모델 파일 및 기타 파일 저장
+1. 임시 저장소 제거를 포함 하 여 계산 확장 
+
+로컬 컴퓨터에서 학습 하도록 선택 하는 경우 ("로컬 실행으로 구성") Docker를 사용할 필요가 없습니다. 선택 하는 경우 Docker를 로컬로 사용할 수 있습니다 (예제는 [ML 파이프라인 구성](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) 섹션 참조).
+
 ## <a name="r-sdk"></a>R SDK
 
-R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SDK는 그물형 패키지를 사용하여 Azure Machine Learning의 Python SDK에 바인딩합니다. 따라서 모든 R 환경에서 Python SDK를 사용하여 구현된 핵심 개체 및 메서드에 액세스할 수 있습니다.
+R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SDK는 그물형 패키지를 사용하여 Azure Machine Learning의 Python SDK에 바인딩합니다. 이를 통해 모든 R 환경에서 Python SDK에 구현 된 핵심 개체 및 메서드에 액세스할 수 있습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -103,7 +125,7 @@ R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SD
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning 디자이너
 
-디자이너를 사용하면 웹 브라우저에서 끌어서 놓기 인터페이스를 사용하여 모델을 학습시킬 수 있습니다.
+디자이너를 사용 하면 웹 브라우저에서 끌어서 놓기 인터페이스를 사용 하 여 모델을 학습 시킬 수 있습니다.
 
 + [디자이너란?](concept-designer.md)
 + [자습서: 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)

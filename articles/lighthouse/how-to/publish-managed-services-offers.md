@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace에 관리 서비스 제품 게시
 description: Azure Lighthouse에 고객에 게 제공 하는 관리 서비스 제품을 게시 하는 방법에 대해 알아봅니다.
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 19364164617a32a561140e985c8723f8deafe1a7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e86cec16cc377470f255c8b677d7462dee6b3573
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133313"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407067"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
 
@@ -34,7 +34,7 @@ MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로
 고객이 제품을 추가한 후에는 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있으며, 그러면 [Azure Lighthouse에 등록](#the-customer-onboarding-process)됩니다.
 
 > [!IMPORTANT]
-> 관리 서비스 제안의 각 계획에는 **매니페스트 세부 정보** 섹션이 포함 되어 있습니다. 여기에는 테 넌 트에서 위임 된 리소스 그룹 및/또는 해당 요금제를 구매한 고객의 구독에 대 한 액세스 권한이 있는 Azure Active Directory (Azure AD) 엔터티를 정의 합니다. 포함 하는 모든 그룹 (또는 사용자 또는 서비스 주체)은 계획을 구입 하는 모든 고객에 대해 동일한 권한을 갖게 됩니다. 각 고객에 대해 사용할 다른 그룹을 할당 하려면 각 고객에 게 단독으로 사용 되는 별도의 [개인 요금제](../../marketplace/private-offers.md) 를 게시 해야 합니다.
+> 관리 서비스 제안의 각 계획에는 **매니페스트 세부 정보** 섹션이 포함 되어 있습니다. 여기에는 테 넌 트에서 위임 된 리소스 그룹 및/또는 해당 요금제를 구매한 고객의 구독에 대 한 액세스 권한이 있는 Azure Active Directory (Azure AD) 엔터티를 정의 합니다. 포함 하는 모든 그룹 (또는 사용자 또는 서비스 주체)은 계획을 구입 하는 모든 고객에 대해 동일한 권한을 갖게 됩니다. 각 고객에 대해 사용할 다른 그룹을 할당 하기 위해 각 고객에 게 단독으로 사용 되는 별도의 [비공개 요금제](../../marketplace/private-offers.md) 를 게시할 수 있습니다. 사설 요금제는 CSP (클라우드 솔루션 공급자) 프로그램의 재판매인을 통해 설정 된 구독에서 지원 되지 않는다는 점에 유의 하세요.
 
 ## <a name="publish-your-offer"></a>제품 게시
 

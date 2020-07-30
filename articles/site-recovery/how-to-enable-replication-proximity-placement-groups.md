@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 1f64c7aa45b748bdb8174bd69dbfc25f43329c10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bd7619f000d16a55e1cfb31cc3b9cfb3b6d33502
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285342"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432613"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>근접 배치 그룹에서 실행되는 Azure 가상 머신을 다른 지역에 복제
 
@@ -63,19 +63,21 @@ $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2
 
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
 
-#OsDisk
-$OSdiskId = $vm.StorageProfile.OsDisk.ManagedDisk.Id
-$RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
-$RecoveryReplicaDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+#OS Disk
+$OSdisk = Get-AzDisk -DiskName $OSdiskName -ResourceGroupName $OSdiskResourceGroup
+$OSdiskId = $OSdisk.Id
+$RecoveryOSDiskAccountType = $OSdisk.Sku.Name
+$RecoveryReplicaDiskAccountType = $OSdisk.Sku.Name
 
-$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
+$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
-# Data disk
-$datadiskId1 = $vm.StorageProfile.DataDisks[0].ManagedDisk.Id
-$RecoveryReplicaDiskAccountType = $vm.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType
-$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType
+#Data disk
+$datadisk = Get-AzDisk -DiskName $datadiskName -ResourceGroupName $datadiskResourceGroup
+$datadiskId1 = $datadisk[0].Id
+$RecoveryReplicaDiskAccountType = $datadisk[0].Sku.Name
+$RecoveryTargetDiskAccountType = $datadisk[0].Sku.Name
 
-$DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType ` -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+$DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
 
@@ -110,6 +112,7 @@ $WestUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestoragewestus" 
 #Use the recovery protection container, new cache storage account in West US and the source region VM resource group 
 Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure -ProtectionContainerMapping $WusToEusPCMapping -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.ResourceId -RecoveryProximityPlacementGroupId $vm.ProximityPlacementGroup.Id
 ```
+
 14. 복제를 사용하지 않도록 설정하려면 [여기](./azure-to-azure-powershell.md#disable-replication)의 단계를 따릅니다.
 
 ### <a name="vmware-to-azure"></a>VMware에서 Azure로
@@ -127,7 +130,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 $ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 
 #Get the target virtual network to be used
-$RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
+$RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg"
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
 $PolicyMap = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
@@ -139,13 +142,15 @@ $VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $Protection
 # The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
 $Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $targetPpg.Id
 ```
+
 8. 가상 머신의 복제 상황 및 복제 상태는 Get-ASRReplicationProtectedItem cmdlet을 사용하여 확인할 수 있습니다.
 
 ```azurepowershell
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
+
 9. [여기](./vmware-azure-disaster-recovery-powershell.md#configure-failover-settings)의 단계를 수행하여 장애 조치(failover) 설정을 구성합니다.
-10. 테스트 장애 조치(failover)를 [실행](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover)합니다. 
+10. 테스트 장애 조치(failover)를 [실행](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover)합니다.
 11. [이러한](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) 단계를 사용하여 Azure로 장애 조치(Failover)합니다.
 
 ### <a name="hyper-v-to-azure"></a>Hyper-V에서 Azure로

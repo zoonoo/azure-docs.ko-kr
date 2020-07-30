@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 95372d69f58249afc946f12ec74696507429e5c6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a971291dd423894e4d04158abe873a7222f9802c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125300"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405614"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>서비스 요청이 실패 했습니다. 상태: 403 (사용할 수 없음)
 
@@ -57,7 +57,7 @@ ms.locfileid: "87125300"
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-이 역할 요구 사항과 할당 프로세스에 대 한 자세한 내용은 *방법: 인스턴스 및 인증 설정 (수동)* 의 [ *사용자 액세스 권한 설정* 섹션](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions) 을 참조 하세요.
+이 역할 요구 사항과 할당 프로세스에 대 한 자세한 내용은 *방법: 인스턴스 및 인증 설정 (CLI 또는 포털)* 의 [ *사용자 액세스 권한 설정* 섹션](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) 을 참조 하세요.
 
 이 역할 할당이 이미 있고 403 문제가 계속 발생 하는 경우 다음 솔루션을 계속 진행 합니다.
 
@@ -75,12 +75,12 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 #### <a name="fix-issues"></a>문제 해결
 
-설명 된 것과 다르게 표시 되는 경우 *방법: 인스턴스 및 인증 설정 (수동)* 의 [ *클라이언트 응용 프로그램에 대 한 액세스 권한 설정* 섹션](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications) 에서 앱 등록을 설정 하는 방법에 대 한 지침을 따르세요.
+설명 된 것과 다르게 표시 되는 경우 *방법: 인스턴스 및 인증 (CLI 또는 포털) 설정*의 [ *클라이언트 응용 프로그램에 대 한 액세스 권한 설정* 섹션](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) 에서 앱 등록을 설정 하는 방법에 대 한 지침을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 새 Azure Digital Twins 인스턴스를 만들고 인증 하는 방법에 대 한 설치 단계를 읽으십시오.
-* [*방법: 인스턴스 및 인증 설정 (수동)*](how-to-set-up-instance-manual.md)
+* [*방법: 인스턴스 및 인증 설정 (CLI)*](how-to-set-up-instance-cli.md)
 
 Azure Digital Twins의 보안 및 사용 권한에 대해 자세히 알아보세요.
 * [*개념: Azure Digital Twins 솔루션에 대 한 보안*](concepts-security.md)

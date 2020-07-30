@@ -6,12 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: da827b994685e95baf28e3ad34072642c24fa510
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857412"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422609"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Azure Media Player에 대 한 플러그 인 작성 #
 
@@ -35,7 +36,7 @@ ms.locfileid: "82857412"
 
 태그 또는 외부 JavaScript 파일 내에서 HTML 페이지에 직접 코드를 작성할 수 있습니다 `<script>` . 후자를 수행 하는 경우에는 `<head>` AMP 스크립트 *뒤* 에 HTML 페이지의에 JavaScript 파일을 포함 해야 합니다.
 
-예:
+예제:
 
 ```javascript
     <!--*****START OF Azure Media Player Scripts*****-->

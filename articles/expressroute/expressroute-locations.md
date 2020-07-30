@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72408b4f17aa5e8601095b27478806883739a7a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0aac3d7a4bc2eb8bb83405155b345360f5d2c699
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031629"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407356"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Express 경로 연결 파트너 및 피어 링 위치
 
@@ -82,7 +82,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[Aryaka Networks](https://www.aryaka.com/)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 홍콩 특별 행정구, 상파울루, 시애틀, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
 | **[Ascenty Data Cente](https://www.ascenty.com/en/cloud/microsoft-express-route)** |지원됨 |지원됨 |상파울루 |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 프랑크푸르트, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
-| **[AT TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | 지원됨 | 지원됨 | 도쿄2 |
+| **[AT TOKYO](https://www.attokyo.com/connectivity/azure.html)** | 지원됨 | 지원됨 | 오사카, Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | 지원됨 | 지원됨 | 도쿄 |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |지원됨 |지원됨 |케이프타운, 요하네스버그|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |지원됨 |지원됨 |몬트리올, 토론토, 퀘벡 시티 |
@@ -109,7 +109,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **Etisalat UAE** |지원됨 |지원됨 |두바이|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |지원됨 |지원됨 |암스테르담, Amsterdam2, 더블린, 프랑크푸르트, 런던 |
 | **FarEasTone** |지원됨 |지원됨 |타이베이|
-| **GÉANT** |지원됨 |지원됨 |암스테르담, 더블린, 프랑크푸르트, 마르세유에 |
+| **GÉANT** |지원됨 |지원됨 |암스테르담, Amsterdam2, 더블린, 프랑크푸르트, 마르세유에 |
 | **GTT** |지원됨 |지원됨 |런던2 |
 | **[GCX(Global Cloud Xchange)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | 지원됨| 지원됨 | 첸나이, 뭄바이 |
 | **Intelsat** | 지원됨 | 지원됨 | 워싱턴 DC2 |
@@ -185,7 +185,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |시카고, Phoenix, 실리콘밸리, 워싱턴 DC |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |뉴욕, Phoenix, 샌안토니오, 워싱턴 DC |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원 여부 |지원 여부 |애틀란타, 시카고, 댈러스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원 여부 |지원됨 |애틀란타, 시카고, 댈러스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원 여부 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원 여부 | 지원됨 | 시카고, 댈러스, 샌안토니오, 시애틀, 워싱턴 DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |지원 여부 |지원됨 |시카고, 댈러스, 뉴욕, 실리콘밸리, 워싱턴 DC |
@@ -194,9 +194,9 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 
 | **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
-| **China Telecom** |지원 여부 |지원되지 않음 |베이징, 베이징2, 상하이, 상하이2 |
-| **China Unicom** | 지원 여부 | 지원되지 않음 | 베이징2, 상하이2 |
-| **[GDS](http://www.gds-services.com/en/about_2.html)** |지원 여부 |지원되지 않음 |베이징2, 상하이2 |
+| **China Telecom** |지원됨 |지원되지 않음 |베이징, 베이징2, 상하이, 상하이2 |
+| **China Unicom** | 지원됨 | 지원되지 않음 | 베이징2, 상하이2 |
+| **[GDS](http://www.gds-services.com/en/about_2.html)** |지원됨 |지원되지 않음 |베이징2, 상하이2 |
 
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)를 참조하세요.
 
@@ -206,7 +206,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |지원 여부 |지원되지 않음 |베를린 |
+| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |지원됨 |지원되지 않음 |베를린 |
 | **Interxion** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨  | 지원되지 않음 | 베를린 |
 | **T 시스템** |지원됨 |지원되지 않음 |베를린 |

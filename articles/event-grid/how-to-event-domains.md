@@ -3,12 +3,12 @@ title: Azure Event Grid를 사용 하 여 이벤트 도메인으로 이벤트 �
 description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규모 토픽 집합을 관리하고 토픽에 이벤트를 게시하는 방법을 보여줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 30a77d98fdb0d5bfd5169174999a0a08742adfd8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eae467c1c4cc1257e7a5205dd5efda40490f7908
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105564"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423646"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -135,7 +135,7 @@ New-AzureRmEventGridSubscription `
 
 이벤트를 구독할 테스트 엔드포인트가 필요한 경우 들어오는 이벤트를 표시하는 [미리 빌드된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 언제든지 배포할 수 있습니다. `https://<your-site-name>.azurewebsites.net/api/updates`에서 테스트 웹 사이트에 이벤트를 보낼 수 있습니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
 토픽에 대해 설정되고 Azure Active Directory에 저장된 권한은 명시적으로 삭제해야 합니다. 구독이 토픽에 대한 쓰기 액세스 권한을 갖고 있는 경우 이벤트 구독을 삭제해도 이벤트 구독을 만드는 사용자 액세스 권한이 철회되지 않습니다.
 

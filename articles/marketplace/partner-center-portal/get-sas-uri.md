@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/14/2020
-ms.openlocfilehash: f3589fb9ae176e04f727f516cca7c18c87dad9e0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 3c5c86f89882654e44f924ce0a19d4d71713144d
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317504"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431684"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
@@ -31,17 +31,15 @@ VHD의 SAS URI를 생성할 때 다음 요구 사항을 따릅니다.
 
 SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 다음과 같습니다.
 
-* **Microsoft Storage Explorer** – Windows, macOS 및 Linux에서 사용할 수 있는 그래픽 도구
+* **Microsoft Storage 탐색기** – Azure Portal에서 사용할 수 있는 그래픽 도구입니다.
 * **Microsoft Azure CLI** – 비 Windows 운영 체제 및 자동 또는 지속적인 통합 환경에 권장됨
 
 ### <a name="use-microsoft-storage-explorer"></a>Microsoft Storage Explorer 사용
 
-1. [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 다운로드하고 설치합니다.
-2. 탐색기를 열고 왼쪽 메뉴에서 **계정 추가**를 선택합니다. **Azure Storage에 연결** 대화 상자가 표시됩니다.
-3. **Azure 계정 추가**를 선택한 다음, **로그인**을 선택합니다. Azure 계정에 로그인하는 데 필요한 단계를 완료합니다.
-4. 왼쪽 **탐색기** 창에서 **스토리지 계정**으로 이동하고 이 노드를 확장합니다.
-5. VHD를 마우스 오른쪽 단추로 클릭한 다음 **공유 액세스 서명 가져오기**를 선택합니다.
-6. **공유 액세스 서명** 대화 상자가 나타납니다. 다음 필드를 작성합니다.
+1. Azure Portal의 저장소 계정으로 이동 합니다.
+2. 왼쪽 탐색기 창에서 **Storage 탐색기** (미리 보기) 도구를 엽니다.
+3. VHD를 마우스 오른쪽 단추로 클릭 하 고 **공유 액세스 서명 가져오기**를 선택 합니다.
+4. **공유 액세스 서명** 대화 상자가 나타납니다. 다음 필드를 작성합니다.
 
     * **시작 시간** – VHD 액세스 권한의 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다.
     * **만료 시간** – VHD 액세스 권한의 만료 날짜입니다. 현재 날짜보다 최소 3주 후의 날짜를 제공합니다.
@@ -50,20 +48,11 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 
         :::image type="content" source="media/create-sas-uri-storage-explorer.png" alt-text="공유 액세스 서명 대화 상자가 나타납니다.":::
 
-7. 이 VHD에 연결되는 SAS URI를 만들려면 **만들기**를 선택합니다. 대화 상자가 새로 고쳐지고 이 작업에 대한 세부 정보가 표시됩니다.
-8. **URI**를 복사하고, 안전한 위치에 텍스트 파일로 저장합니다.
+5. 이 VHD에 연결되는 SAS URI를 만들려면 **만들기**를 선택합니다. 대화 상자가 새로 고쳐지고 이 작업에 대한 세부 정보가 표시됩니다.
+6. **URI**를 복사하고, 안전한 위치에 텍스트 파일로 저장합니다.
 
     :::image type="content" source="media/create-sas-uri-shared-access-signature-details.png" alt-text="공유 액세스 서명 세부 정보 상자가 나타납니다.":::
-
-    이 생성된 SAS URI는 컨테이너 수준 액세스를 위한 것입니다. 구체적으로 만들려면 텍스트 파일을 편집하여 VHD 이름을 추가합니다(다음 단계).
-
-9. SAS URI의 VHD 문자열 뒤에 VHD 이름을 삽입합니다(앞의 슬래시 포함). 최종 SAS URI는 다음과 같습니다.
-
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>` 예를 들어 VDH의 이름이 `TestRGVM2.vhd`이면 결과 SAS URI는 다음과 같습니다.
-
-    `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-10. 게시할 계획의 각 VHD에 대해 이 단계를 반복합니다.
+7. 게시할 계획의 각 VHD에 대해 이 단계를 반복합니다.
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 

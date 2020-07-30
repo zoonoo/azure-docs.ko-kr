@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: cbac35e6c20c0885a1849e3d37951aa23c2dfeb0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f58232eac6727f10fdccb32e7795bf12a93b7cbb
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057234"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405520"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용하여 CoreDNS 사용자 지정
 
@@ -28,6 +28,8 @@ AKS는 관리 되는 서비스 이므로 CoreDNS (a *CoreFile*)에 대 한 기�
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
+아래 예제와 같은 구성을 만들 때 *데이터* 섹션의 이름은 *server* 또는 *. override*로 끝나야 합니다. 이 명명 규칙은 명령을 사용 하 여 볼 수 있는 기본 AKS CoreDNS Configmap에 정의 되어 있습니다 `kubectl get configmaps --namespace=kube-system coredns -o yaml` .
+
 ## <a name="what-is-supportedunsupported"></a>지원 되는/지원 되지 않는 기능
 
 모든 기본 제공 CoreDNS 플러그 인이 지원 됩니다. 추가 기능/타사 플러그 인은 지원 되지 않습니다.
@@ -43,7 +45,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  test.server: |
+  test.server: | # you may select any name here, but it must end with the .server file extension
     <domain to be rewritten>.com:53 {
         errors
         cache 30
@@ -110,7 +112,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  puglife.server: |
+  puglife.server: | # you may select any name here, but it must end with the .server file extension
     puglife.local:53 {
         errors
         cache 30
@@ -136,7 +138,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  test.server: |
+  test.server: | # you may select any name here, but it must end with the .server file extension
     abc.com:53 {
         errors
         cache 30
@@ -168,7 +170,7 @@ metadata:
   name: coredns-custom # this is the name of the configmap you can overwrite with your changes
   namespace: kube-system
 data:
-    test.override: |
+    test.override: | # you may select any name here, but it must end with the .override file extension
           hosts example.hosts example.org { # example.hosts must be a file
               10.0.0.1 example.org
               fallthrough
@@ -186,7 +188,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  log.override: |
+  log.override: | # you may select any name here, but it must end with the .override file extension
         log
 ```
 

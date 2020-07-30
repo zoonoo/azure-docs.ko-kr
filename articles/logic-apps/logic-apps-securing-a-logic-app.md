@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 5b25c56591e64d66901dbcf79dc629f0beb2bbb0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117007"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423306"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -248,7 +248,7 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses:" : []
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -783,7 +783,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | 사용할 인증 유형입니다. [Azure API Management](../api-management/api-management-howto-mutual-certificates.md)를 사용 하 여 인증서를 관리할 수 있습니다. <p></p>**참고**: 사용자 지정 커넥터는 인바운드 및 아웃 바운드 호출에 대해 인증서 기반 인증을 지원 하지 않습니다. |
 | **Pfx** | `pfx` | 예 | <*encoded-pfx-file-content*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계에 따라 PowerShell을 사용합니다. <p>1. 인증서 콘텐츠를 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 콘텐츠를 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **암호** | `password`| 예 | <*password-for-pfx-file*> | PFX 파일에 액세스하기 위한 암호 |
+| **암호** | `password`| 아니요 | <*password-for-pfx-file*> | PFX 파일에 액세스하기 위한 암호 |
 |||||
 
 [보안 매개 변수](#secure-action-parameters)를 사용하여 중요한 정보를 처리하고 보안을 유지하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)에서), 식을 사용하여 런타임 시 해당 매개 변수 값에 액세스할 수 있습니다. 다음 예제 HTTP 작업 정의는 인증 `type`을 `ClientCertificate`으로 지정하고 [parameters() 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters)를 사용하여 매개 변수 값을 가져옵니다.

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f644203b494e5baf087241e2a4fe669b7db07b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512aed93906968b14f7c6a13e08f74bbeb2f5f31
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077895"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431085"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -105,7 +105,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
    ![사용자 및 그룹의 목록을 표시 합니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
 
 1. 응용 프로그램 테스트를 위한 사용자를 선택 하 고 **선택**을 선택 합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다.
-1. **할당**을 선택 합니다.
+1. **할당**을 선택합니다.
 1. 응용 프로그램 사이드바에서 **Single sign-on**  >  **헤더 기반**을 선택 합니다.
 
    > [!TIP]
@@ -121,6 +121,11 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 1. 애플리케이션을 선택합니다.
 1. 웹 및 공용 클라이언트에 대해 설정 된 리디렉션 Uri 수를 표시 하는 **리디렉션 uri**옆의 링크를 선택 합니다. ** \<application name> -인증** 페이지가 표시 됩니다.
 1. 이전에 응용 프로그램에 할당 한 외부 URL이 **리디렉션 uri** 목록에 있는지 확인 합니다. 그렇지 않은 경우에는 **웹**의 리디렉션 URI 형식을 사용 하 여 외부 URL을 지금 추가 하 고 **저장**을 선택 합니다.
+
+외부 url 외에도 외부 URL에 대 한 Azure Active Directory의 권한 부여 끝점을 리디렉션 Uri 목록에 추가 해야 합니다.
+
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
 
 마지막으로, 사용자가 읽기 액세스 권한을 가지 며 다른 응용 프로그램에 읽기/쓰기 액세스 권한이 있도록 온-프레미스 응용 프로그램을 설정 합니다.
 
@@ -201,7 +206,7 @@ AzureAD에 없는 특성에 대 한 [클레임 매핑 정책 (미리 보기)](ht
 >
 > PowerShell 또는 Microsoft Graph를 통해 정책 정의 및 할당을 수행할 수 있습니다. PowerShell에서이 작업을 수행 하는 경우 먼저를 사용 하 고를 사용 하 여 `New-AzureADPolicy` 응용 프로그램에 할당 해야 할 수 있습니다 `Add-AzureADServicePrincipalPolicy` . 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)을 참조 하세요.
 
-예:
+예제:
 ```powershell
 $pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
 

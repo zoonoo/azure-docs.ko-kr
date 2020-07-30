@@ -4,12 +4,12 @@ description: kubenet 및 Azure CNI 네트워킹, 수신 컨트롤러, 부하 분
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0e2c193e626b2d82fc57ef0699a2558ec3a9629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244653"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387764"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -105,7 +105,7 @@ Kubenet와 Azure CNI 간에는 다음과 같은 동작 차이가 있습니다.
 | 부하 분산 장치 서비스, 앱 게이트웨이 또는 수신 컨트롤러를 사용 하 여 Kubernetes services 노출 | 지원됨 | 지원됨 |
 | 기본 Azure DNS 및 개인 영역                                                          | 지원됨 | 지원됨 |
 
-Kubenet 및 Azure CNI 플러그 인 dns를 모두 사용 하는 DNS와 관련 하 여 AKS에서 실행 되는 디먼 집합인 CoreDNS에서 제공 합니다. CoreDNS on Kubernetes에 대 한 자세한 내용은 [DNS 서비스 사용자 지정](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)을 참조 하세요. CoreDNS는 AKS 클러스터가 배포 되는 Azure Virtual Network의 DNS 기능에 대 한 알 수 없는 도메인을 노드 DNS 서버로 전달 하기 위해 기본적으로 구성 됩니다. 따라서 Azure DNS 및 개인 영역은 AKS에서 실행 되는 pod에 대해 작동 합니다.
+Kubenet 및 Azure CNI 플러그 인 DNS를 모두 사용 하는 DNS와 관련 하 여 AKS에서 실행 되는 배포 인 CoreDNS는 자체 autoscaler를 통해 제공 됩니다. CoreDNS on Kubernetes에 대 한 자세한 내용은 [DNS 서비스 사용자 지정](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)을 참조 하세요. CoreDNS는 AKS 클러스터가 배포 되는 Azure Virtual Network의 DNS 기능에 대 한 알 수 없는 도메인을 노드 DNS 서버로 전달 하기 위해 기본적으로 구성 됩니다. 따라서 Azure DNS 및 개인 영역은 AKS에서 실행 되는 pod에 대해 작동 합니다.
 
 ### <a name="support-scope-between-network-models"></a>네트워크 모델 간의 범위 지원
 
@@ -114,7 +114,7 @@ Kubenet 및 Azure CNI 플러그 인 dns를 모두 사용 하는 DNS와 관련 �
 * Azure 플랫폼은 AKS 클러스터를 만들 때 가상 네트워크 리소스를 자동으로 만들고 구성할 수 있습니다.
 * AKS 클러스터를 만들 때 가상 네트워크 리소스를 수동으로 만들고 구성 하 고 해당 리소스에 연결할 수 있습니다.
 
-서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 예:
+서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 예를 들면 다음과 같습니다.
 
 * AKS 클러스터에 대 한 가상 네트워크 리소스를 수동으로 만드는 경우 고유한 UDRs 또는 서비스 끝점을 구성할 때 지원 됩니다.
 * Azure 플랫폼에서 AKS 클러스터에 대 한 가상 네트워크 리소스를 자동으로 만드는 경우 해당 AKS 관리 리소스를 수동으로 변경 하 여 사용자 고유의 UDRs 또는 서비스 끝점을 구성할 수 없습니다.

@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027175"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428007"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -436,6 +436,9 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클레임을 사용자 지정할 수 있는 경우 많은 시나리오가 가능합니다. 이 섹션에서는 클레임 매핑 정책 형식을 사용하는 방법을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오를 설명합니다.
 
+> [!NOTE]
+> 클레임 매핑 정책을 만들 때 토큰의 디렉터리 스키마 확장 특성에서 클레임을 내보낼 수도 있습니다. 요소에서 *ID* 대신 확장 특성에 *extensionid* 를 사용 `ClaimsSchema` 합니다.  확장 특성에 대 한 자세한 내용은 [디렉터리 스키마 확장 특성 사용](active-directory-schema-extensions.md)을 참조 하세요.
+
 #### <a name="prerequisites"></a>사전 요구 사항
 
 다음 예제에서는 서비스 주체에 대한 정책을 만들고, 업데이트, 연결 및 삭제합니다. Azure AD를 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.
@@ -527,4 +530,5 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
 
 ## <a name="see-also"></a>참고 항목
 
-Azure Portal을 통해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법에 대한 자세한 내용은 [방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정](active-directory-saml-claims-customization.md)을 참조하세요.
+- Azure Portal을 통해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법에 대한 자세한 내용은 [방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정](active-directory-saml-claims-customization.md)을 참조하세요.
+- 확장 특성에 대해 자세히 알아보려면 [클레임에서 디렉터리 스키마 확장 특성 사용](active-directory-schema-extensions.md)을 참조 하세요.

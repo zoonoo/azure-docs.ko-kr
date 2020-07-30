@@ -5,15 +5,15 @@ description: Azure CLI를 사용하여 Azure DNS에 DNS 영역 파일을 가져�
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.date: 4/3/2019
+ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
-ms.openlocfilehash: bd40b3400b2a1c09be8fabd1201bedc7043bf19b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f17d7f32d774cac283ec335c372e8f68d50931f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709099"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424225"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기
 
@@ -82,7 +82,7 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 1. Resource Manager 리소스 그룹이 없는 경우 해당 리소스 그룹을 만들어야 할 수도 있습니다.
 
     ```azurecli
-    az group create --group myresourcegroup -l westeurope
+    az group create --resource-group myresourcegroup -l westeurope
     ```
 
 2. **contoso.com.txt** 파일에서 **myresourcegroup** 리소스 그룹의 새 DNS 영역으로 **contoso.com** 영역을 가져오려면 `az network dns zone import` 명령을 실행합니다.<BR>이 명령은 영역 파일을 로드하여 구문을 분석합니다. 이 명령은 Azure DNS 서비스에서 일련의 명령을 실행하여 영역 및 영역의 모든 레코드 집합을 만듭니다. 이 명령은 모든 오류 또는 경고뿐만 아니라 콘솔 창에 진행률도 보고합니다. 레코드 집합이 계열에 만들어지기 때문에 큰 영역 파일을 가져오는 데 몇 분 정도 걸릴 수 있습니다.

@@ -9,17 +9,17 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 83c4a48f8c177cf84078966bae32126102b45c3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bfbe67c20fdec292dca0d6e07a05f2ff27637396
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521023"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87427968"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
 > [!NOTE]
-> 이 문서에 설명 된 인증 방법은 더 이상 모범 사례를 고려 하지 않습니다. [Azure Key Vault에 인증 하는 방법](authentication.md)에서 업데이트 된 인증 방법을 채택 하는 것이 좋습니다.
+> **Microsoft. Azure. AppAuthentication** 은 더 이상 사용 되지 않습니다. .NET, Java, TypeScript 및 Python에 사용할 수 있는 새 Azure Identity library **DefaultAzureCredentials** 로 대체 되었으며 모든 새 개발에 사용 해야 합니다. 자세한 내용은 [인증 및 AZURE SDK에서](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)찾을 수 있습니다.
 
 Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Active Directory (Azure AD) 자격 증명이 필요 합니다.
 
@@ -235,7 +235,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
 프로세스를 제어하려면 `AzureServiceTokenProvider` 생성자에 전달되거나 *AzureServicesAuthConnectionString* 환경 변수에 지정된 연결 문자열을 사용합니다.  다음과 같은 옵션이 지원됩니다.
 
-| 연결 문자열 옵션 | 시나리오 | 주석|
+| 연결 문자열 옵션 | 시나리오 | 의견|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | `AzureServiceTokenProvider`는 AzureCli를 사용 하 여 토큰을 가져옵니다. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | `AzureServiceTokenProvider`Visual Studio를 사용 하 여 토큰을 가져옵니다. |

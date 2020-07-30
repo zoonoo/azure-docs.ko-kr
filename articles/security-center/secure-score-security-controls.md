@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 1956090f1b927d9fd4e205eaa57bf1952cb1b070
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f80403946b3097e81678383c4829ef6606f26cd6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083993"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430358"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 향상
 
@@ -169,6 +169,10 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">감사 및 로깅 사용(최대 점수 1)</p></strong>데이터 로깅은 과거 문제에 대한 인사이트를 제공하고, 잠재적인 문제를 방지하고, 애플리케이션 성능을 향상시킬 수 있으며 수동 작업을 자동화하는 기능을 제공합니다.<br>- <strong>제어/관리 로그</strong>는 <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/overview">Azure Resource Manager</a> 작업에 대한 정보를 제공합니다.<br>- <strong>데이터 평면 로그</strong>는 Azure 리소스 사용의 일부로 발생한 이벤트에 대한 정보를 제공합니다.<br>- <strong>처리된 이벤트</strong>는 처리되어 분석된 이벤트/경고에 대한 정보를 제공합니다.</td>
     <td class="tg-lboi"; width=55%>- SQL 서버에 대한 감사가 사용되도록 설정되어야 합니다.<br>- App Services의 진단 로그를 사용하도록 설정해야 합니다.<br>- Azure Data Lake Store의 진단 로그를 사용하도록 설정해야 합니다.<br>- Azure Stream Analytics의 진단 로그를 사용하도록 설정해야 합니다.<br>- Batch 계정의 진단 로그를 사용하도록 설정해야 합니다.<br>- Data Lake Analytics의 진단 로그를 사용하도록 설정해야 합니다.<br>- Event Hub의 진단 로그를 사용하도록 설정해야 합니다.<br>- IoT Hub의 진단 로그를 사용하도록 설정해야 합니다.<br>- Key Vault의 진단 로그를 사용하도록 설정해야 합니다.<br>- Logic Apps의 진단 로그를 사용하도록 설정해야 합니다.<br>- Search Service의 진단 로그를 사용하도록 설정해야 합니다.<br>- Service Bus의 진단 로그를 사용하도록 설정해야 합니다.<br>- Virtual Machine Scale Sets의 진단 로그를 사용하도록 설정해야 합니다.<br>- Batch 계정에서 메트릭 경고 규칙을 구성해야 합니다.<br>- SQL 감사 설정에는 중요한 작업을 캡처하도록 구성된 작업 그룹이 있어야 합니다.<br>- 감사 보존 기간(일)을 90일보다 큰 값으로 설정하여 SQL 서버를 구성해야 합니다.</td>
+  </tr>
+  <tr>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Advanced threat protection 사용 (최대 점수 0)</p></strong>Azure Security Center의 위협 방지는 사용자 환경에 대 한 포괄적인 방어 기능을 제공 합니다. Security Center는 사용자 환경의 모든 영역에서 위협을 탐지하면 경고를 생성합니다. 이러한 경고는 영향을 받는 리소스의 세부 정보, 제안된 수정 단계 및 경우에 따라 응답으로 논리 앱을 트리거하는 옵션을 설명합니다.<br>각 위협 방지 번들은이 보안 제어에서 관련 권장 사항을 사용 하 여 설정할 수 있는 별도의 선택적 제공입니다.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Security Center에서 위협 방지에 대해 자세히 알아보세요</a>.</td>
+    <td class="tg-lboi"; width=55%>-Azure SQL Database 서버에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>-컴퓨터의 SQL server에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>-Virtual Machines에서 Advanced threat protection을 사용 하도록 설정 해야 합니다.<br>-Azure App Service 요금제에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>-Azure Storage 계정에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>-Azure Kubernetes Service 클러스터에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>-Azure Container Registry 레지스트리에서 Advanced threat protection을 사용 하도록 설정 해야 합니다.<br>-Azure Key Vault 자격 증명 모음에서 Advanced threat protection을 사용 하도록 설정 해야 함</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 모범 사례 구현(최대 점수 0)</p></strong>최신 보안 방침에서는 네트워크 경계의 "침해를 가정"합니다. 이러한 이유로 이 컨트롤의 많은 모범 사례는 ID 관리에 중점을 둡니다.<br>키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">Azure Key Vault</a>는 키, .pfx 파일 및 암호를 암호화하여 키와 암호를 보호합니다.<br>VPN(가상 사설망)은 가상 머신에 안전하게 액세스할 수 있는 방법입니다. VPN을 사용할 수 없는 경우 <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>과 같은 복잡한 암호 및 2단계 인증을 사용합니다. 2단계 인증은 사용자 이름 및 암호에만 의존하는 약점을 방지합니다.<br>강력한 인증 및 권한 부여 플랫폼을 사용하는 것이 또 다른 모범 사례입니다. 페더레이션된 ID를 사용하면 조직에서 권한 있는 ID의 관리를 위임할 수 있습니다. 직원의 채용을 끝내고 해당 액세스 권한을 취소해야 하는 경우에도 이러한 과정이 중요합니다.</td>

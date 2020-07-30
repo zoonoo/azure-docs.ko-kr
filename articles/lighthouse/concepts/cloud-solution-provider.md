@@ -1,14 +1,14 @@
 ---
 title: 클라우드 솔루션 공급자 프로그램 고려 사항
 description: CSP 파트너의 경우 Azure 위임 리소스 관리를 통해 세분화된 권한을 사용하여 보안 및 제어 기능을 향상시킵니다.
-ms.date: 07/06/2020
+ms.date: 07/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131510"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429455"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse 및 클라우드 솔루션 공급자 프로그램
 
@@ -32,6 +32,9 @@ Azure Lighthouse를 사용 하 여 다음 다이어그램에 표시 된 것 처�
 CSP 프로그램을 통해 만든 구독을 온 보 딩 하는 것은 [Azure Lighthouse에 구독 등록](../how-to/onboard-customer.md)에 설명 된 단계를 따릅니다. 테넌트에서 관리 에이전트 역할이 있는 사용자는 이 온보딩을 수행할 수 있습니다.
 
 ![AOBO 및 Azure 위임 리소스 관리를 사용한 테넌트 관리](../media/csp-2.jpg)
+
+> [!TIP]
+> CSP (클라우드 솔루션 공급자) 프로그램의 재판매인을 통해 설정 된 구독은 비공개 요금제를 사용 하는 [관리 서비스 제공](managed-services-offers.md) 을 지원 하지 않습니다. [Azure Resource Manager 템플릿을 사용](../how-to/onboard-customer.md)하 여 Azure Lighthouse에 이러한 구독을 등록할 수 있습니다.
 
 > [!NOTE]
 > 이제 [Azure Portal의 **내 고객** 페이지](../how-to/view-manage-customers.md) 에는 [Microsoft MCA (고객 계약)에 서명](/partner-center/confirm-customer-agreement) 하 고 [Azure 요금제](/partner-center/azure-plan-get-started)에 있는 CSP 고객에 대 한 청구 정보 및 리소스를 표시 하는 **클라우드 솔루션 공급자 (미리 보기)** 섹션이 포함 되어 있습니다. 자세한 내용은 [Microsoft 파트너 계약 청구 계정 시작](../../cost-management-billing/understand/mpa-overview.md)을 참조하세요.

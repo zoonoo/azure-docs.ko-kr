@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207276"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423799"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Azure 개인 링크를 사용 하 여 네트워크를 Azure Automation (미리 보기)에 안전 하 게 연결
 
@@ -132,15 +132,15 @@ Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 �
 
 ## <a name="set-public-network-access-flags"></a>공용 네트워크 액세스 플래그 설정
 
-모든 공용 구성을 거부 하도록 Automation 계정을 구성 하 고, 개인 끝점을 통해서만 연결을 허용 하 여 네트워크 보안을 더욱 향상 시킬 수 있습니다. VNet 내 에서만 Automation 계정에 대 한 액세스를 제한 하 고 공용 인터넷에서의 액세스를 허용 하지 않으려면 `publicNetworkAccess` 속성을로 설정할 수 있습니다 `$true` .
+모든 공용 구성을 거부 하도록 Automation 계정을 구성 하 고, 개인 끝점을 통해서만 연결을 허용 하 여 네트워크 보안을 더욱 향상 시킬 수 있습니다. VNet 내 에서만 Automation 계정에 대 한 액세스를 제한 하 고 공용 인터넷에서의 액세스를 허용 하지 않으려면 `publicNetworkAccess` 속성을로 설정할 수 있습니다 `$false` .
 
-**공용 네트워크 액세스 거부** 설정이로 설정 되 면 `true` 개인 끝점을 통한 연결만 허용 되며 오류 메시지와 함께 공용 끝점을 통한 모든 연결이 거부 됩니다.
+**공용 네트워크 액세스** 설정이로 설정 되 면 `$false` 개인 끝점을 통한 연결만 허용 되며, 공용 끝점을 통한 모든 연결은 unathorized 오류 메시지와 401의 HTTP 상태와 함께 거부 됩니다. 
 
 다음 PowerShell 스크립트는 `Get` `Set` Automation 계정 수준에서 및 **공용 네트워크 액세스** 속성을 보여 줍니다.
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

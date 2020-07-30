@@ -5,23 +5,24 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
-ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e9cb216c100f1732230a90572284bd3f8462584
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681481"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433143"
 ---
 # <a name="override-materials-during-model-conversion"></a>모델 변환 중 재질 재정의
 
-변환 하는 동안 원본 모델의 재질 설정은 렌더러에 사용 되는 [.pbr 재질](../../overview/features/pbr-materials.md) 을 정의 하는 데 사용 됩니다.
+원본 모델의 재질 설정은 렌더러에 사용 되는 [.pbr 재질](../../overview/features/pbr-materials.md) 을 정의 하는 데 사용 됩니다.
 [기본 변환이](../../reference/material-mapping.md) 원하는 결과를 제공 하지 않으며 변경 해야 하는 경우도 있습니다.
 Azure 원격 렌더링에서 사용할 수 있도록 모델을 변환 하는 경우 자재 재정의 파일을 제공 하 여 재질을 기준으로 수행 되는 재질을 사용자 지정할 수 있습니다.
 [모델 변환 구성](configure-model-conversion.md) 섹션에는 재질 재정의 파일 이름을 선언 하는 방법에 대 한 지침이 있습니다.
 
 ## <a name="the-override-file-used-during-conversion"></a>변환 하는 동안 사용 된 재정의 파일
 
-간단한 예로, box 모델에 "Default" 라는 단일 재료가 있다고 가정해 보겠습니다. ARR에서 사용 하려면 albedo 색을 조정 해야 합니다.
+간단한 예로, box 모델에 "Default" 라는 단일 재료가 있다고 가정해 보겠습니다.
+또한 ARR에서 사용할 수 있도록 albedo 색을 조정 해야 한다고 가정 합니다.
 이 경우 다음과 `box_materials_override.json` 같이 파일을 만들 수 있습니다.
 
 ```json
@@ -38,7 +39,7 @@ Azure 원격 렌더링에서 사용할 수 있도록 모델을 변환 하는 경
 ]
 ```
 
-이 `box_materials_override.json` 파일은 입력 컨테이너에 배치 되 고,은 `ConversionSettings.json` 재정의 파일을 찾을 위치를 변환에 지시 하는에 추가 됩니다 `box.fbx` ( [모델 변환 구성](configure-model-conversion.md)참조).
+이 `box_materials_override.json` 파일은 입력 컨테이너에 배치 되 고,은 `box.ConversionSettings.json` 재정의 파일을 찾을 위치를 변환에 지시 하는에 추가 됩니다 `box.fbx` ( [모델 변환 구성](configure-model-conversion.md)참조).
 
 ```json
 {
@@ -51,7 +52,7 @@ Azure 원격 렌더링에서 사용할 수 있도록 모델을 변환 하는 경
 ### <a name="color-materials"></a>색 재질
 
 [색 재질](../../overview/features/color-materials.md) 모델은 조명과 독립적인 지속적으로 음영이 있는 표면에 대해 설명 합니다.
-이는 예를 들어 Photogrammetry 알고리즘에서 만든 자산에 유용 합니다.
+색 재질은 Photogrammetry 알고리즘에서 만든 자산에 유용 합니다 (예:).
 재질 재정의 파일에서을로 설정 하 여 재질을 색 재질로 선언할 수 있습니다 `unlit` `true` .
 
 ```json

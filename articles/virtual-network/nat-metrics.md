@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 75e20a4fb91b73bc353d347f0b34f9be8f7a8a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c47a60a6cda074eba7b5c3292577c29f50c2ab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709949"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424054"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Azure Virtual Network NAT 메트릭
 
 Azure Virtual Network NAT 게이트웨이 리소스는 다차원 메트릭을 제공합니다. 이러한 메트릭을 사용하여 작업을 관찰하고 [문제를 해결](troubleshoot-nat.md)할 수 있습니다.  SNAT 소모와 같은 중요한 문제에 대해 경고를 구성할 수 있습니다.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">
 </p>
 
 *그림: 인터넷으로의 아웃바운드를 위한 Virtual Network NAT*

@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: f245b1baddad52f18f66e99fa98d9ec5f73c8011
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 99d8ab3b7edc2d32e580ec8de9132fef3ea3503a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130905"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424344"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -162,7 +162,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 ```
 
 > [!IMPORTANT]
-> 사용자 위임 키와 RBAC 역할 할당은 모두 Azure Storage에 의해 캐시 되므로, 해지 프로세스를 시작 하 고 기존 사용자 위임 SAS가 무효화 될 때 사이에 지연이 발생할 수 있습니다.
+> 사용자 위임 키와 Azure 역할 할당은 모두 Azure Storage에 의해 캐시 되므로, 해지 프로세스를 시작 하 고 기존 사용자 위임 SAS가 무효화 될 때 사이에 지연이 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

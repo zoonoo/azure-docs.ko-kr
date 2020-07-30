@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045127"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423085"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -69,7 +69,7 @@ Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.
 
 [Azure IoT Hub .net (c #) 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp) 는로 테스트 되 고 다음과 같은 구성을 지원 합니다.
 
-| OS                                   | 표준                                                   |
+| OS                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop 및 Server Sku   | .NET Core 2.1, .NET Framework 4.5.1 또는 .NET Framework 4.7 |
@@ -99,7 +99,7 @@ Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.
 
 Microsoft는 다양 한 파트너와 협력 하 여 여러 마이크로프로세서 아키텍처에 대 한 개발 키트를 제공 합니다. 이러한 파트너는 Azure IoT C SDK를 플랫폼으로 이식 했습니다. 파트너는 SDK의 PAL (플랫폼 추상화 계층)을 만들고 유지 관리 합니다. Microsoft는 이러한 파트너와 협력 하 여 확장 된 지원을 제공 합니다.
 
-| 파트너             | 디바이스                            | 링크                     | Support(지원) |
+| 파트너             | 디바이스                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -124,7 +124,7 @@ IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 HTTPS 요청 및 �
 
 ## <a name="support-and-other-resources"></a>지원 및 다른 리소스
 
-Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 지원을 검색 하는 몇 가지 방법이 있습니다. 다음 채널 중 하나를 시도할 수 있습니다.
+Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 아래 요약 된 지원을 검색 하는 몇 가지 방법이 있습니다. 모든 지원 옵션에 대 한 자세한 내용은 [Azure IoT 지원 및 도움말 옵션](https://aka.ms/iothelp)을 참조 하세요. 
 
 **버그 보고** – 장치 sdk의 버그는 관련 GitHub 프로젝트의 문제 페이지에서 보고할 수 있습니다. 프로젝트에서 제품 업데이트로 신속하게 문제를 해결합니다.
 
@@ -137,6 +137,8 @@ Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 지�
 * [Azure IoT Hub Node.js SDK 문제](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Python SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**기술 질문** – [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) 와 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) 태그를 사용 하 여 기술 관련 질문을 할 *수 있습니다.*
 
 **Microsoft 고객 지원 팀** - [지원 계획이](https://azure.microsoft.com/support/plans/) 있는 사용자는 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 직접 새 지원 요청을 만들어 Microsoft 고객 지원 팀에 참여할 수 있습니다.
 

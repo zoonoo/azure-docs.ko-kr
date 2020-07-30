@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515127"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428229"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -161,6 +161,9 @@ SQL Database 및 SQL Managed Instance은 모든 백업 파일에서 총 청구 �
 **서비스 이름**에 대한 필터를 추가한 다음, 드롭다운 목록에서 **SQL 데이터베이스**를 선택합니다. **미터 하위 범주** 필터를 사용하여 서비스에 대한 청구 카운터를 선택합니다. 단일 데이터베이스 또는 Elastic Database 풀의 경우 **단일/탄력적 풀 PITR 백업 스토리지**를 선택합니다. 관리되는 인스턴스의 경우 **MI PITR 백업 스토리지**를 선택합니다. **스토리지** 및 **계산** 하위 범주에도 관심이 갈지 모르지만, 이 둘은 백업 스토리지 비용과는 관련이 없습니다.
 
 ![백업 스토리지 비용 분석](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > 미터는 현재 사용 중인 카운터에 대해서만 표시 됩니다. 카운터를 사용할 수 없는 경우 범주를 현재 사용 하 고 있지 않을 수 있습니다. 예를 들어 관리 되는 인스턴스가 배포 되지 않은 고객에 게는 관리 되는 인스턴스 카운터가 표시 되지 않습니다. 마찬가지로 저장소를 사용 하지 않는 리소스에 대해서는 저장소 카운터가 표시 되지 않습니다. 
 
 ## <a name="encrypted-backups"></a>암호화된 백업
 

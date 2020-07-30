@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: bf02bdc4d824a47bdaad4821ffc9562b9fe2dd40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84482627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424395"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -100,7 +100,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   v2 SKU를 사용하는 경우 가격 책정 모델은 사용량에 따라 결정됩니다. 용량 단위는 고정 비용 외에 청구되는 소비 기반 비용을 측정합니다. 청구 된 *예상 용량 단위* 는 청구를 예상 하는 데 사용 하는 용량 단위 수를 나타냅니다. 이 값은 *현재 용량 단위*(트래픽 부하를 분산하는 데 필요한 용량 단위)와 *고정 청구 가능 용량 단위*(프로비저닝된 최소 용량 단위) 중에서 더 큰 값으로 계산됩니다.
 
-- **실패한 요청**
+- **실패 한 요청**
 
   Application Gateway에서 5xx 서버 오류 코드와 함께 제공 된 요청 수입니다. 여기에는 Application Gateway에서 생성 된 5xx 코드 뿐 아니라 백 엔드에서 생성 된 5xx 코드도 포함 됩니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
    
@@ -160,7 +160,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   Application Gateway와 설정된 현재 연결 수
 
-- **실패한 요청**
+- **실패 한 요청**
 
   Application Gateway에서 5xx 서버 오류 코드와 함께 제공 된 요청 수입니다. 여기에는 Application Gateway에서 생성 된 5xx 코드 뿐 아니라 백 엔드에서 생성 된 5xx 코드도 포함 됩니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
 
@@ -198,7 +198,7 @@ Application gateway로 이동 하 고 **모니터링** 에서 **메트릭**을 �
 
 다음 이미지에서는 최근 30분 동안 표시된 세 가지 메트릭을 포함한 예제가 표시됩니다.
 
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="메트릭 보기." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
 현재 지원되는 메트릭 목록을 보려면 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 

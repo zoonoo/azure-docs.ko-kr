@@ -4,12 +4,12 @@ description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5b217bb1052a16ded205ac216878945fb960d32d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205583"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424259"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -67,7 +67,7 @@ Content-Type: application/json
 
 토큰 형식은 공급자에 따라 약간 다릅니다. 자세한 내용은 다음 표를 참조하세요.
 
-| 공급자 값 | 요청 본문에 필요 | 설명 |
+| 공급자 값 | 요청 본문에 필요 | 의견 |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 속성은 선택 사항입니다. <br/>Live 서비스에서 토큰을 요청하는 경우 항상 `wl.basic` 범위를 요청합니다. |
@@ -413,7 +413,8 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "loginScopes": [
+                    "scope": [
+                        "openid",
                         "profile",
                         "email"
                     ],

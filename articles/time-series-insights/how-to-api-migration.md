@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: shresha
-ms.openlocfilehash: a5721748f023ea5f098b71d8d43dbda53721c54d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171705"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423952"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>새 Azure Time Series Insights Gen2 API 버전으로 마이그레이션
 
@@ -104,7 +104,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
   - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="typesbatchput"></a>유형 Batchput
 
@@ -286,7 +286,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
 
 또는 `value` 도 일 수 있습니다 `$event['Bar-Pressure-Offset'].Double` . 데이터 형식이 지정 되지 않은 경우 데이터 형식은 항상 Double로 가정 됩니다. 특수 문자 ()를 이스케이프 하려면 대괄호 표기법을 사용 해야 합니다 `-` .
 
-#### <a name="getaggregateseries"></a>GetAggregateSeries
+#### <a name="aggregateseries"></a>AggregateSeries
 
 이전 요청 본문 (에서 사용 됨 `2018-11-01-preview` ):
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068026"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428169"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -55,7 +55,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
   - 기본 아웃 바운드 규칙을 제거 하지 마십시오.
   - 아웃 바운드 연결을 거부 하는 아웃 바운드 규칙은 만들지 마십시오.
 
-- **Azureloadbalancer** 태그의 트래픽이 허용 되어야 합니다.
+- **Azureloadbalancer** 태그에서 대상 서브넷으로의 트래픽은 허용 되어야 **합니다.**
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>몇 가지 원본 Ip에 Application Gateway 액세스 허용
 
@@ -74,7 +74,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
 - **v1**
 
-   V1 SKU의 경우 UDRs (사용자 정의 경로)는 종단 간 요청/응답 통신을 변경 하지 않는 한 Application Gateway 서브넷에서 지원 됩니다. 예를 들어 Application Gateway 서브넷에서 UDR을 설정 하 여 패킷 검사를 위한 방화벽 어플라이언스를 가리키도록 할 수 있습니다. 그러나 검사 후 패킷이 의도 한 대상에 도달할 수 있는지 확인 해야 합니다. 그렇지 않으면 잘못 된 상태 프로브 또는 트래픽 라우팅 동작이 발생할 수 있습니다. 여기에는 Azure Express 경로 또는 가상 네트워크의 VPN 게이트웨이에서 전파 되는 학습 된 경로 또는 기본 0.0.0.0/0 경로가 포함 됩니다.
+   V1 SKU의 경우 UDRs (사용자 정의 경로)는 종단 간 요청/응답 통신을 변경 하지 않는 한 Application Gateway 서브넷에서 지원 됩니다. 예를 들어 Application Gateway 서브넷에서 UDR을 설정 하 여 패킷 검사를 위한 방화벽 어플라이언스를 가리키도록 할 수 있습니다. 그러나 검사 후 패킷이 의도 한 대상에 도달할 수 있는지 확인 해야 합니다. 그렇지 않으면 잘못 된 상태 프로브 또는 트래픽 라우팅 동작이 발생할 수 있습니다. 여기에는 Azure Express 경로 또는 가상 네트워크의 VPN 게이트웨이에서 전파 되는 학습 된 경로 또는 기본 0.0.0.0/0 경로가 포함 됩니다. 0.0.0.0/0을 온-프레미스 (강제 터널링)에서 리디렉션해야 하는 모든 시나리오는 v1에서 지원 되지 않습니다.
 
 - **v2**
 
@@ -279,7 +279,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 - [PowerShell을 사용 하 여 외부 사이트로 트래픽 리디렉션](redirect-external-site-powershell.md)
 - [CLI를 사용 하 여 외부 사이트로 트래픽 리디렉션](redirect-external-site-cli.md)
 
-### <a name="rewrite-http-headers-and-url"></a>HTTP 헤더 및 URL 다시 작성
+### <a name="rewrite-http-headers-and-url"></a>HTTP 헤더 및 URL 다시 쓰기
 
 다시 쓰기 규칙을 사용 하 여 요청 및 응답 패킷이 응용 프로그램 게이트웨이를 통해 클라이언트와 백 엔드 풀 간에 이동할 때 URL 경로 및 쿼리 문자열 매개 변수 뿐만 아니라 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다.
 
