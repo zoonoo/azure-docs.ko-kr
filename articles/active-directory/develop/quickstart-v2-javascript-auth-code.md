@@ -9,26 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134183"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311945"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다.
-
-> [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 GA(일반 공급) 전에 변경될 수 있습니다.
 
 이 빠른 시작에서는 인증 코드 흐름을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정에 로그인하는 방법을 설명하는 코드 샘플을 실행합니다. 또한 이 코드 샘플은 웹 API(이 경우에는 Microsoft Graph API)를 호출하기 위해 액세스 토큰을 가져오는 방법을 보여줍니다. 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
 이 빠른 시작에서는 인증 코드 흐름과 함께 MSAL.js 2.0을 사용합니다. 암시적 흐름과 함께 MSAL.js 1.0을 사용하는 비슷한 빠른 시작은 [빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)

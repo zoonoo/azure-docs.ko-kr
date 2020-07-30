@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267565"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126128"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
@@ -22,7 +22,7 @@ Azure 리소스에 대한 액세스를 관리하려면 적절한 관리자 역�
 
 이 문서에서는 구독 범위에서 RBAC를 사용하여 사용자에 대한 관리자 역할을 추가하거나 변경하는 방법을 설명합니다.
 
-RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 여전히 클래식 배포 모델을 사용 중이고, [Azure 서비스 관리 PowerShell 모듈](https://docs.microsoft.com/powershell/module/servicemanagement/azure)을 사용하여 클래식 리소스를 관리하는 경우에는 클래식 관리자를 사용해야 합니다.
+RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 여전히 클래식 배포 모델을 사용 중이고, [Azure 서비스 관리 PowerShell 모듈](/powershell/module/servicemanagement/azure.service)을 사용하여 클래식 리소스를 관리하는 경우에는 클래식 관리자를 사용해야 합니다.
 
 > [!TIP]
 > Azure Portal을 통해서만 클래식 리소스를 관리하는 경우 클래식 관리자를 사용할 필요가 없습니다.
@@ -69,7 +69,7 @@ RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습
 
 ## <a name="next-steps"></a>다음 단계
 
-* [RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
+* [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
 * [Azure의 다양한 역할 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Azure Active Directory의 관리자 역할 사용 권한](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)

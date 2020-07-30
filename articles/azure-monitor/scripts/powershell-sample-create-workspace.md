@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2017
-ms.openlocfilehash: 62b02de5d1c08f6047052d71e3be420cceb1c5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6bfb3a244874f6160d34c174b6d10b9a03ca437
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80054641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024132"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>PowerShell을 사용하여 Log Analytics 작업 영역 만들기
 
@@ -39,5 +39,5 @@ ms.locfileid: "80054641"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 

@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 6d1f47561842fa3759621d8cf372ad3ebc2d5193
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-java
+ms.openlocfilehash: 4b09a956f4956548a47d87d93404b8304bc287fa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987275"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322264"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>빠른 시작: Computer Vision REST API 및 Java를 사용하여 인쇄된 텍스트(OCR) 추출
 

@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/11/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: f8f65d5f5fe9ec2345279d9f680cb77354834715
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: aa182f27fcd3ab2984bbd9f960b2b828880c36f5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735567"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374714"
 ---
 <a name="HOLTop"></a>
 
@@ -28,9 +28,9 @@ ms.locfileid: "84735567"
 
 ---
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Text Analytics 리소스를 만들어"  target="_blank">Text Analytics 리소스를 만들어<span class="docon docon-navigate-external x-hidden-focus"></span></a> 키와 엔드포인트를 가져옵니다.  배포 후 **리소스로 이동**을 클릭합니다.
     * 애플리케이션을 Text Analytics API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
@@ -44,7 +44,7 @@ Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이�
 
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
-**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고 `Azure.AI.TextAnalytics`를 검색합니다. `1.0.0` 버전, **설치**를 차례로 선택합니다. [패키지 관리자 콘솔](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
+**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고 `Azure.AI.TextAnalytics`를 검색합니다. `5.0.0` 버전, **설치**를 차례로 선택합니다. [패키지 관리자 콘솔](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
 
 
 > [!TIP]

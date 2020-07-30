@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516365"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322434"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -36,7 +36,7 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
     - Azure 개발
 - [Visual Studio 스냅샷 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
 - [Visual Studio 스냅샷 디버거](../app/snapshot-debugger.md) 사용
-- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../../azure-monitor/app/asp-net.md)합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../app/asp-net.md)합니다. 
 - 자습서는 애플리케이션에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
@@ -63,7 +63,7 @@ Application Insights는 애플리케이션에서 모든 오류를 수집하고 �
 
     ![실패한 요청 샘플](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. 실패한 요청에 대한 세부 정보는 Gantt 차트를 보여 줍니다. 이 차트에서는 전체 트랜잭션 기간의 50% 이상을 차지함으로써 발생한 두 개의 종속성 오류가 이 트랜잭션에 있음을 보여 줍니다. 이 환경은 이 작업 ID와 관련된 분산 애플리케이션의 구성 요소 간에 모든 원격 분석을 제공합니다. [새 환경에 대해 자세히 알아보세요](../../azure-monitor/app/transaction-diagnostics.md). 항목 중 하나를 선택하여 세부 정보를 볼 수 있습니다. 
+6. 실패한 요청에 대한 세부 정보는 Gantt 차트를 보여 줍니다. 이 차트에서는 전체 트랜잭션 기간의 50% 이상을 차지함으로써 발생한 두 개의 종속성 오류가 이 트랜잭션에 있음을 보여 줍니다. 이 환경은 이 작업 ID와 관련된 분산 애플리케이션의 구성 요소 간에 모든 원격 분석을 제공합니다. [새 환경에 대해 자세히 알아보세요](../app/transaction-diagnostics.md). 항목 중 하나를 선택하여 세부 정보를 볼 수 있습니다. 
 
     ![실패한 요청 세부 정보](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -112,4 +112,5 @@ Application Insights를 Azure DevOps 또는 GitHub와 같은 추적 시스템에
 이제 런타임 예외를 식별하는 방법을 배웠으므로 성능 문제를 식별하고 진단하는 방법을 알아보는 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [성능 문제 식별](../../azure-monitor/learn/tutorial-performance.md)
+> [성능 문제 식별](./tutorial-performance.md)
+

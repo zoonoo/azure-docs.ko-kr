@@ -3,12 +3,13 @@ title: Java(최신)를 사용하여 Azure Event Hubs에서 이벤트 보내기 �
 description: 이 문서에서는 최신 azure-messaging-eventhubs 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 Java 애플리케이션을 만드는 과정을 연습할 수 있습니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ab28b3d434c1e44fb173655c6414412ceda1101f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: b1e18942e1e39c4238d73c6689c5de21d0d390db
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537091"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366792"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기(azure-messaging-eventhubs)
 이 빠른 시작에서는 **azure-messaging-eventhubs** Java 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.

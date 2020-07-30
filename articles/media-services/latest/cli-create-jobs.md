@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b9d9f66b638eba2503f1650ba64fcd6b4652dc24
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71122385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023419"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI 예: 작업 만들기 및 제출
 
@@ -27,7 +27,7 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-[Media Services 계정 만들기](create-account-cli-how-to.md)
+[Media Services 계정 만들기](./create-account-howto.md)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -87,4 +87,4 @@ az ams job start \
 
 ## <a name="next-steps"></a>다음 단계
 
-[az ams job(CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job(CLI)](/cli/azure/ams/job?view=azure-cli-latest)

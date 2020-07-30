@@ -3,16 +3,16 @@ title: 자동화된 일정 기반 워크플로 빌드
 description: 자습서 - Azure Logic Apps를 사용하여 자동화된 일정 기반 되풀이 워크플로 만들기
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f7b1309a9c7fa9a5f2abb3e2e59f08ef31382d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146518"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124853"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 일정 기반 되풀이 워크플로 만들기
 
@@ -36,18 +36,16 @@ ms.locfileid: "82146518"
 
 * Azure 구독 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에 가입합니다](https://azure.microsoft.com/free/).
 
-* Logic Apps에서 지원하는 이메일 공급자(예: Office 365 Outlook, Outlook.com 또는 Gmail)의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 빠른 시작에서는 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다를 수 있습니다.
+* Logic Apps에서 지원하는 이메일 공급자(예: Office 365 Outlook, Outlook.com 또는 Gmail)의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](/connectors/). 이 빠른 시작에서는 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다를 수 있습니다.
 
   > [!IMPORTANT]
-  > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
+  > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
-* 경로의 이동 시간 정보를 가져오려면 Bing 지도 API에 대한 액세스 키가 필요합니다. 이 키를 가져오려면 [Bing 지도 키를 가져오는 방법](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)의 단계를 수행합니다.
-
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
-
-Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+* 경로의 이동 시간 정보를 가져오려면 Bing 지도 API에 대한 액세스 키가 필요합니다. 이 키를 가져오려면 [Bing 지도 키를 가져오는 방법](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)의 단계를 수행합니다.
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
+
+1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure 주 메뉴에서 **리소스 만들기** > **통합** > **논리 앱**을 차례로 선택합니다.
 
@@ -57,7 +55,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![논리 앱에 대한 정보 제공](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | Value | 설명 |
    |----------|-------|-------------|
    | **이름** | LA-TravelTime | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱의 이름입니다. 이 예에서는 "LA-TravelTime"을 사용합니다. |
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독 이름 |
@@ -92,7 +90,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![되풀이 트리거의 간격 및 빈도 변경](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **간격** | 예 | 1 | 검사 간에 대기하는 간격의 수 |
    | **빈도** | 예 | Week | 되풀이에 사용할 시간 단위 |
@@ -110,7 +108,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![일정 및 되풀이 세부 정보 입력](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | Value | 설명 |
    |----------|-------|-------------|
    | **요일 선택** | 월요일,화요일,수요일,목요일,금요일 | **빈도**가 "주"로 설정된 경우에만 사용 가능 |
    | **시간 선택** | 7,8,9 | **빈도**가 "주" 또는 "일"로 설정된 경우에만 사용할 수 있습니다. 이 되풀이를 실행할 시간을 선택합니다. 이 예에서는 7, 8 및 9시 표시에 실행됩니다. |
@@ -141,10 +139,10 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![Bing Maps API에 대한 연결 만들기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | BingMapsConnection | 연결 이름을 입력합니다. 이 예에서는 "BingMapsConnection"을 사용합니다. |
-   | **API 키** | 예 | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](https://msdn.microsoft.com/library/ff428642.aspx)을 알아보세요. |
+   | **API 키** | 예 | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)을 알아보세요. |
    |||||
 
 1. `Get route and travel time with traffic` 설명이 포함되도록 작업 이름을 바꿉니다.
@@ -170,7 +168,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    | **Travel mode** | 예 | Driving | 경로의 이동 모드. "구동" 모드를 선택합니다. |
    ||||
 
-   이러한 매개 변수에 대한 자세한 내용은 [경로 계산](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route)을 참조하세요.
+   이러한 매개 변수에 대한 자세한 내용은 [경로 계산](/bingmaps/rest-services/routes/calculate-a-route)을 참조하세요.
 
 1. 논리 앱을 저장합니다.
 
@@ -192,10 +190,10 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 여기에 설명된 대로 변수에 대한 세부 정보를 입력합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **이름** | 예 | travelTime | 변수의 이름입니다. 이 예에서는 "travelTime"을 사용합니다. |
-   | **형식** | 예 | 정수  | 변수의 데이터 형식 |
+   | **형식** | 예 | 정수 | 변수의 데이터 형식 |
    | **값** | 예| 현재 이동 시간을 초 단위에서 분 단위로 변환하는 식입니다(이 표 아래의 단계 참조). | 변수의 초기 값 |
    ||||
 

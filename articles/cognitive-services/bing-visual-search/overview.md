@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 14acebb71538dddfd2421fbb27794f456b6c9c8f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 192517aa16e0fe56eb5b7dc8b852116af500b715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023724"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Visual Search API란?
 
@@ -57,7 +57,15 @@ Bing Visual Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하�
 먼저 Bing Visual Search API [대화형 데모](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/)를 사용해보세요.
 데모에서는 검색 쿼리를 빠르게 사용자 지정하고 웹에서 이미지를 샅샅이 검색하는 방법을 보여줍니다.
 
-첫 번째 요청으로 신속하게 시작하려면 빠른 시작: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)을 참조하세요.
+첫 번째 요청으로 신속하게 시작하려면 빠른 시작:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)
 
 ## <a name="see-also"></a>참고 항목
 
