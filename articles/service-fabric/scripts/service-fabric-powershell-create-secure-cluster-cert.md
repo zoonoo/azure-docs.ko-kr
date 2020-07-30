@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: f8e1a0ca86f9346cf07c87a738d48cb56f6d7d57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6b900bba178d4180d48ed3b89ec1e4d6cb49d7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076113"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "75614777"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -52,6 +52,6 @@ Remove-AzResourceGroup -Name $groupname -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 Azure PowerShell 샘플은 [Azure PowerShell 샘플](../service-fabric-powershell-samples.md)에서 확인할 수 있습니다.

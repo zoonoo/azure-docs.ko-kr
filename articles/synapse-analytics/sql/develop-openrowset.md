@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a03c031f8874471794f2533285ce65b395d43c2d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242001"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280480"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에서 OPENROWSET를 사용하는 방법
 
@@ -30,8 +30,8 @@ Synapse SQL의 OPENROWSET 함수는 데이터 소스에서 파일 콘텐츠를 �
 
     ```sql
     SELECT *
-    FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
-                    TYPE = 'PARQUET') AS file
+    FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
+                    FORMAT = 'PARQUET') AS file
     ```
 
 이 방법은 사전 구성 없이 파일 콘텐츠를 쉽고 빠르게 읽을 수 있는 방법입니다. 이 옵션을 사용하면 기본 인증 옵션을 사용하여 스토리지에 액세스할 수 있습니다(Azure AD 로그인의 경우 Azure AD 통과, SQL 로그인의 경우 SAS 토큰). 
@@ -42,7 +42,7 @@ Synapse SQL의 OPENROWSET 함수는 데이터 소스에서 파일 콘텐츠를 �
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    TYPE = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS file
     ```
 
 

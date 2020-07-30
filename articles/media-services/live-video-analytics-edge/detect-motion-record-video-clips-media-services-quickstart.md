@@ -3,12 +3,12 @@ title: 동작을 감지하고 Azure Media Services에 비디오 녹화
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 라이브 비디오 스트림의 동작을 감지하고 Azure Media Services에 비디오 클립을 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817311"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074404"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>빠른 시작: 동작을 감지하고 Media Services에 비디오 녹화
 
@@ -655,7 +655,7 @@ GraphTopologyList 호출에서 설명한 것과 동일한 단계를 따라 다�
 
 위의 메시지에서 다음 속성을 확인합니다.
 
-* 각 메시지에는 "body" 섹션과 "applicationProperties" 섹션이 포함되어 있습니다. 이러한 섹션이 나타내는 내용을 이해하려면 [IoT Hub 메시지 작성 및 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) 문서를 참조하세요.
+* 각 메시지에는 "body" 섹션과 "applicationProperties" 섹션이 포함되어 있습니다. 이러한 섹션이 나타내는 내용을 이해하려면 [IoT Hub 메시지 작성 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md) 문서를 참조하세요.
 * 첫 번째 메시지는 진단 이벤트 MediaSessionEstablished입니다. 즉, RTSP 원본 노드(주체)가 RTSP 시뮬레이터와 연결을 설정할 수 있었으며, (시뮬레이션된) 라이브 피드를 받기 시작했음을 나타냅니다.
 * applicationProperties의 "subject"는 메시지가 생성된 그래프 토폴로지의 노드를 나타냅니다. 이 경우 메시지는 RTSP 원본 노드에서 온 것입니다.
 * applicationProperties의 "eventType"은 진단 이벤트임을 나타냅니다.

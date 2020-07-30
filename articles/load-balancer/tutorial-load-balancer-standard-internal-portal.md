@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f7f16093074b48610c1db8fec7f05ee01e7ab1ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920852"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078774"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 표준 부하 분산 장치로 내부 트래픽 부하 분산
 
@@ -32,25 +32,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서를 사용하여 단계를 수행하려면 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-vnet-back-end-servers-and-a-test-vm"></a>VNet, 백 엔드 서버 및 테스트 VM 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
+이 섹션에서는 단계의 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-먼저 VNet(가상 네트워크)을 만듭니다. VNet에서 표준 부하 분산 장치의 백 엔드 풀에 사용할 VM을 두 개 만들고 부하 분산 장치를 테스트하는 데 사용할 세 번째 VM을 만듭니다. 
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | 미국 동부 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-
-1. 포털의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
    
-1. **가상 네트워크 만들기** 창에서 다음 값을 입력하거나 선택합니다.
-   
-   - **Name**: **MyVNet**을 입력합니다.
-   - **ResourceGroup**: **새로 만들기**를 선택하고 **MyResourceGroupLB**를 입력한 다음, **확인**을 선택합니다. 
-   - **서브넷** > **이름**: **MyBackendSubnet**을 입력합니다.
-   
-1. **만들기**를 선택합니다.
 
-   ![가상 네트워크 만들기](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
-### <a name="create-virtual-machines"></a>가상 머신 만들기
+## <a name="create-virtual-machines"></a>가상 머신 만들기
 
 1. 포털의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **Windows Server 2016 Datacenter**를 차례로 선택합니다. 
    

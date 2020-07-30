@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cac918f369a10a8084cdc7d0c66d5c0c4c400cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f098b866eee6fd8555cafcec0f64a0a5f261f9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458542"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079981"
 ---
 # <a name="restart-vms"></a>VM 다시 시작
 
@@ -86,15 +86,15 @@ az group delete -n myResourceGroup --no-wait --yes
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | 가상 머신을 만듭니다.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | `--query`와 함께 사용되어 VM이 다시 시작된 후에 프로비전되도록 하고 VM ID를 가져와 다시 시작합니다. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm) | `--query`와 함께 사용되어 태그를 사용하는 VM ID를 가져옵니다. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | VM을 다시 시작합니다. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az vm create](/cli/azure/vm/availability-set) | 가상 머신을 만듭니다.  |
+| [az vm list](/cli/azure/vm) | `--query`와 함께 사용되어 VM이 다시 시작된 후에 프로비전되도록 하고 VM ID를 가져와 다시 시작합니다. |
+| [az resource list](/cli/azure/vm) | `--query`와 함께 사용되어 태그를 사용하는 VM ID를 가져옵니다. |
+| [az vm restart](/cli/azure/vm) | VM을 다시 시작합니다. |
+| [az group delete](/cli/azure/vm/extension) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 가상 머신 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.

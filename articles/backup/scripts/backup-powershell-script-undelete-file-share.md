@@ -3,12 +3,12 @@ title: PowerShell 스크립트 - 삭제된 파일 공유 삭제 취소
 description: Azure PowerShell 스크립트를 사용하여 실수로 삭제한 파일 공유의 삭제를 취소하는 방법을 알아봅니다.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007635"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>삭제된 파일 공유를 삭제 취소하는 PowerShell 스크립트
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-1. 스크립트를 실행하기 전에 [이 링크](//powershell/azure/install-az-ps)에서 최신 Azure PowerShell Az 모듈을 설치합니다.
+1. 스크립트를 실행하기 전에 [이 링크](/powershell/azure/install-az-ps)에서 최신 Azure PowerShell Az 모듈을 설치합니다.
 2. 다음 세부 정보는 스크립트의 다른 매개 변수에 대한 값으로 전달해야 하므로 보관해 둡니다.
 
     * **-SubscriptionId** - 파일 공유가 있는 구독의 ID입니다.

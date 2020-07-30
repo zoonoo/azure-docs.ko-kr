@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 4e3953c56a9acf911c7dc2bbbd453b52b72f9bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f7534fe5fe68e2b94b106e464006ee45957bd99
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077834"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -28,9 +28,14 @@ JavaScript용 Azure Queue storage 클라이언트 라이브러리 v12를 사용�
 * 큐에서 메시지 삭제
 * 큐 삭제
 
-[API 참조 설명서](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [패키지(Node Package Manager)](https://www.npmjs.com/package/@azure/storage-queue) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+추가 리소스:
 
-## <a name="prerequisites"></a>사전 요구 사항
+* [API 참조 설명서](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
+* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+* [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-queue)
+* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

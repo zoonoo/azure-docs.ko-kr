@@ -4,15 +4,15 @@ description: 요금을 절감하기 위해 예약된 용량으로 Azure Databric
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b000934bb218c21a454ed04afe4e9a4495e808ab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dd5654b31f8d1bebe44902d1db5c35fc6dd9a866
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200387"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287606"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>사전 구매를 사용하여 Azure Databricks 비용 최적화
 

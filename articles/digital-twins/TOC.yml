@@ -66,6 +66,8 @@
           href: how-to-create-azure-function.md
         - name: 쌍 그래프 쿼리
           href: how-to-query-graph.md
+        - name: Azure Monitor의 메트릭 보기
+          href: how-to-view-metrics.md
     - name: 연결 입력
       items:
         - name: IoT Hub에서 원격 분석 수집
@@ -80,6 +82,8 @@
           href: how-to-integrate-time-series-insights.md
     - name: 문제 해결
       items:
+        - name: 진단 로그 사용
+          href: troubleshoot-diagnostics.md
         - name: 알려진 문제
           href: troubleshoot-known-issues.md
         - name: 문제 해결

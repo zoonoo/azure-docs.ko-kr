@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7623373be1aded29cb022f1d5080ed94d96b719
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c2957cf59a93837e4f84f64be054cdb9e6939da3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170091"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016497"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>자습서: Zscaler Internet Access Administrator와 Azure Active Directory 통합
 
@@ -41,6 +41,9 @@ Zscaler Internet Access Administrator와 Azure AD 통합을 구성하려면 다�
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
 * Zscaler Internet Access Administrator 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -108,21 +111,25 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 
     a. **식별자** 텍스트 상자에 요구 사항에 따라 URL을 입력합니다.
 
-    - `https://admin.zscaler.net`
-    - `https://admin.zscalerone.net`
-    - `https://admin.zscalertwo.net`
-    - `https://admin.zscalerthree.net`
-    - `https://admin.zscloud.net`
-    - `https://admin.zscalerbeta.net`
+    | ID |
+    |------------|
+    | `https://admin.zscaler.net` |
+    | `https://admin.zscalerone.net` |
+    | `https://admin.zscalertwo.net` |
+    | `https://admin.zscalerthree.net` |
+    | `https://admin.zscloud.net` |
+    | `https://admin.zscalerbeta.net` |
 
     b. **회신 URL** 텍스트 상자에 요구 사항에 따라 URL을 입력합니다.
 
-    - `https://admin.zscaler.net/adminsso.do`
-    - `https://admin.zscalerone.net/adminsso.do`
-    - `https://admin.zscalertwo.net/adminsso.do`
-    - `https://admin.zscalerthree.net/adminsso.do`
-    - `https://admin.zscloud.net/adminsso.do`
-    - `https://admin.zscalerbeta.net/adminsso.do`
+    | 회신 URL |
+    |-----------|
+    | `https://admin.zscaler.net/adminsso.do` |
+    | `https://admin.zscalerone.net/adminsso.do` |
+    | `https://admin.zscalertwo.net/adminsso.do` |
+    | `https://admin.zscalerthree.net/adminsso.do` |
+    | `https://admin.zscloud.net/adminsso.do` |
+    | `https://admin.zscalerbeta.net/adminsso.do` |
 
 5. Zscaler Internet Access Administrator 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정 페이지**에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
@@ -130,7 +137,7 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
-    | 속성  | 원본 특성  |
+    | Name  | 원본 특성  |
     | ---------| ------------ |
     | 역할     | user.assignedroles |
 

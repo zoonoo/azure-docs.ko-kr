@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 4d3d522de84ebd019fd432f5c4e5d89ac5ef8bcf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263740"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282486"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Azure Media Player 플러그 인 갤러리 #
 
@@ -20,7 +20,7 @@ ms.locfileid: "84263740"
 | 플러그 인 이름                         | 데모 URL                    | 소스 코드                | Description    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | 추가 기능                 | | | |
-| **신규!** AMP360Video                | [데모](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | 플러그 인을 사용하면 데스크톱 또는 VR 호환 디바이스의 Amp에서 360 비디오를 시각화할 수 있습니다. 전체 설명서는 [여기](https://doc\.babylonjs\.com/extensions/amp360video)서 사용할 수 있습니다. |
+| **신규!** AMP360Video                | [데모](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | 플러그 인을 사용하면 데스크톱 또는 VR 호환 디바이스의 Amp에서 360 비디오를 시각화할 수 있습니다. 전체 설명서는 [여기](https://doc.babylonjs.com/extensions/amp360video)서 사용할 수 있습니다. |
 |  스프라이트 팁                         | [데모](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | AMS(Azure Media Services) MES(Media Encoder Standard)에서 생성된 비디오 썸네일 이미지 스프라이트의 타임라인 렌더링을 위한 AMP(Azure Media Player) 플러그 인입니다. |
 | 진단 오버레이                 | [데모](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | 이 플러그 인은 모든 주요 매개 변수, 비디오 통계, 비디오 재생 수명 주기의 모든 이벤트 및 보호된 경우 DRM 보호 정보(예: 키 ID, 라이선스 취득 URL)를 표시합니다.                                                                                                                                                                      |
 | 프레임 속도 및 시간 코드 계산기 | 사용 가능한 데모 없음 | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | 이 플러그 인은 첫 번째 MPEG-DASH 비디오 조각의 `tfhd`/`trun` MP4 Box를 기반으로 하여 비디오 프레임 속도을 계산하고, MPEG-DASH 클라이언트 매니페스트의 시간 단위 값을 구문 분석하며, 플레이어로부터 지정된 절대 시간에 대한 시간 코드를 생성하는 방법을 제공합니다(시간 코드를 고려하여 플레이어에 절대 시간도 제공함). |

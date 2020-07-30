@@ -5,15 +5,15 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1b63b0316b8314e4c5107ddd3f1d22c1d59cbb08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262100"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281806"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -218,9 +218,9 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 - 컴퓨팅 시간
 - IP 주소 시간
 - 데이터 수신
-- 데이터 송신
-- 표준 관리 디스크
-- 표준 관리 디스크 작업
+- 데이터 발신
+- 표준 관리형 디스크
+- 표준 관리형 디스크 작업
 - 표준 IO-디스크
 - 표준 IO-블록 Blob 읽기
 - 표준 IO-블록 Blob 쓰기
