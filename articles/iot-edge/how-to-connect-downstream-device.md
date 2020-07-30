@@ -11,12 +11,13 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-javascript
+ms.openlocfilehash: b6d2f502eb6bb6bd70e6d76ec88aa332c9ecdc77
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309223"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419872"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -36,7 +37,7 @@ ms.locfileid: "84309223"
 
 이 문서에서 *게이트웨이* 및 * IoT Edge 게이트웨이*라는 용어는 투명한 게이트웨이로 사용되는 IoT Edge 디바이스를 의미합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 장치 CA 인증서를 생성 하는 데 사용 된 루트 CA 인증서 파일을 사용 하 여 다운스트림 장치에서 사용할 수 있는 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다. 데모 인증서를 사용 하는 경우 루트 CA 인증서를 **azure-iot-test-only**라고 합니다.
 * [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)에 설명 된 대로 게이트웨이 장치를 가리키는 수정 된 연결 문자열이 있어야 합니다.

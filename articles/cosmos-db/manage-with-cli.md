@@ -4,14 +4,14 @@ description: Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 97b5118f74cbd098beea804c312ed08f1a152873
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067184"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432834"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 리소스 관리
 
@@ -19,7 +19,7 @@ ms.locfileid: "87067184"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 항목에서는 Azure CLI 버전 2.9.1 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 계정
 
@@ -308,6 +308,7 @@ az lock delete --ids $lockid
 다음 섹션에서는 Azure Cosmos DB 컨테이너를 관리하는 방법을 보여 줍니다.
 
 * [컨테이너 만들기](#create-a-container)
+* [자동 크기 조정으로 컨테이너 만들기](#create-a-container-with-autoscale)
 * [TTL이 설정 된 컨테이너 만들기](#create-a-container-with-ttl)
 * [사용자 지정 정책을 사용하여 컨테이너 만들기](#create-a-container-with-a-custom-index-policy)
 * [컨테이너 처리량 변경](#change-container-throughput)
@@ -330,6 +331,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### <a name="create-a-container-with-autoscale"></a>자동 크기 조정으로 컨테이너 만들기
+
+기본 인덱스 정책, 파티션 키 및 자동 크기 조정/초 (4000)를 사용 하 여 Cosmos 컨테이너를 만듭니다.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### <a name="create-a-container-with-ttl"></a>TTL을 사용 하 여 컨테이너 만들기

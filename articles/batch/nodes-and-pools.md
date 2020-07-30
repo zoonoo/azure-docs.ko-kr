@@ -3,12 +3,12 @@ title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144932"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385758"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -119,7 +119,7 @@ Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 
 
 동적 워크로드의 경우 풀에 자동 크기 조정 정책을 적용할 수 있습니다. Batch 서비스는 컴퓨팅 시나리오의 현재 워크로드 및 리소스 사용량에 따라 주기적으로 수식을 평가하여 동적으로 풀 내 노드 수를 조정합니다. 그러면 필요한 리소스만을 사용하고 필요하지 않은 리소스를 해제하여 애플리케이션을 실행하는 전체 비용을 낮출 수 있습니다.
 
-[자동 크기 조정 수식](batch-automatic-scaling.md#automatic-scaling-formulas)을 작성하고 해당 수식의 풀과 연결하여 자동 크기 조정을 사용하도록 설정합니다. Batch 서비스는 이 수식을 사용하여 다음 크기 조정 간격(구성할 수 있는 간격)에 대한 풀의 노드 대상 수를 확인합니다. 풀을 만들 때 자동 크기 조정 설정을 지정하거나 나중에 풀에 자동 크기 조정을 사용하도록 설정할 수 있습니다. 크기 조정을 사용하는 풀에 크기 조정 설정을 업데이트할 수도 있습니다.
+[자동 크기 조정 수식](batch-automatic-scaling.md#autoscale-formulas)을 작성하고 해당 수식의 풀과 연결하여 자동 크기 조정을 사용하도록 설정합니다. Batch 서비스는 이 수식을 사용하여 다음 크기 조정 간격(구성할 수 있는 간격)에 대한 풀의 노드 대상 수를 확인합니다. 풀을 만들 때 자동 크기 조정 설정을 지정하거나 나중에 풀에 자동 크기 조정을 사용하도록 설정할 수 있습니다. 크기 조정을 사용하는 풀에 크기 조정 설정을 업데이트할 수도 있습니다.
 
 예를 들어 작업에서 많은 수의 실행할 태스크를 제출해야 합니다. 현재 큐에 대기된 태스크 수 및 작업에서 이러한 태스크의 완료율에 따라 풀의 노드 수를 조정하는 크기 조정 수식을 풀에 할당할 수 있습니다. Batch 서비스는 수식을 정기적으로 계산하고 워크로드 및 다른 수식 설정에 따라 풀 크기를 조정합니다. 서비스는 큐에 대기 중인 태스크 수가 많은 경우 필요에 따라 노드를 추가하고, 큐에 대기 중이거나 실행 중인 태스크가 없는 경우 노드를 제거합니다.
 

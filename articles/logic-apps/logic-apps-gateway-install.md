@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078654"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386132"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -28,21 +28,20 @@ ms.locfileid: "87078654"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 계정 및 구독 구독이 있는 Azure 계정이 없는 경우 [체험 Azure 계정에 가입](https://azure.microsoft.com/free/)합니다.
+* Azure 계정 및 구독 구독이 있는 Azure 계정이 없는 경우 [체험 Azure 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다.
 
-  * Azure 계정은 단일 [Azure AD(Azure Active Directory) 테넌트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에 속해야 합니다. 게이트웨이를 로컬 컴퓨터에 설치하고 관리하려면 동일한 Azure 계정을 사용해야 합니다.
-
-  * 게이트웨이 설치 중에 Azure 계정으로 로그인합니다. 이 계정은 게이트웨이 설치를 Azure 계정 및 해당 계정에만 연결합니다. 나중에 Azure Portal에서 게이트웨이 설치를 등록하고 청구하는 Azure 게이트웨이 리소스를 만들 때 동일한 Azure 계정과 Azure AD 테넌트를 사용해야 합니다. Azure Logic Apps의 경우 온-프레미스 트리거 및 작업에서 게이트웨이 리소스를 사용하여 온-프레미스 데이터 원본에 연결합니다.
+  * Azure 계정은 회사 계정 또는 학교 계정 이어야 하며 다음과 같습니다 `username@contoso.com` . Azure B2B(게스트) 계정 또는 개인 Microsoft 계정(예: @hotmail.com 또는 @outlook.com)은 사용할 수 없습니다.
 
     > [!NOTE]
-    > 하나의 게이트웨이 설치와 하나의 Azure 게이트웨이 리소스만 서로 연결할 수 있습니다. 동일한 게이트웨이 설치는 여러 Azure 계정 또는 Azure 게이트웨이 리소스에 연결할 수 없습니다. 그러나 Azure 계정은 여러 게이트웨이 설치 및 Azure 게이트웨이 리소스에 연결할 수 있습니다. 온-프레미스 트리거 또는 작업의 경우 다양한 Azure 구독에서 선택한 다음, 연결된 게이트웨이 리소스를 선택할 수 있습니다.
+    > Office 365 제품에 가입했지만 회사 이메일 주소를 제공하지 않은 경우 주소는 `username@domain.onmicrosoft.com`과 같을 수 있습니다. 계정이 Azure AD 테 넌 트에 저장 됩니다. 대부분의 경우 Azure 계정에 대 한 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
 
-  * *조직* 계정이라고도 하는 회사 계정 또는 학교 계정(예: `username@contoso.com`)으로 로그인해야 합니다. Azure B2B(게스트) 계정 또는 개인 Microsoft 계정(예: @hotmail.com 또는 @outlook.com)은 사용할 수 없습니다.
+    Microsoft 계정와 연결 된 [Visual Studio 표준 구독](https://visualstudio.microsoft.com/vs/pricing/) 을 사용 하려면 먼저 [Azure AD 테 넌 트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용 합니다. 암호가 있는 사용자를 디렉터리에 추가한 다음, 해당 사용자에게 Azure 구독에 대한 액세스 권한을 부여합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 
-    > [!TIP]
-    > Office 365 제품에 가입했지만 회사 이메일 주소를 제공하지 않은 경우 주소는 `username@domain.onmicrosoft.com`과 같을 수 있습니다. 계정은 Azure AD(Azure Active Directory)의 테넌트 내에 저장됩니다. 대부분의 경우 Azure AD 계정의 UPN(사용자 계정 이름)은 이메일 주소와 동일합니다.
-    >
-    > Microsoft 계정에 연결된 [Visual Studio Standard 구독](https://visualstudio.microsoft.com/vs/pricing/)을 사용하려면 먼저 [Azure AD에서 테넌트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용합니다. 암호가 있는 사용자를 디렉터리에 추가한 다음, 해당 사용자에게 Azure 구독에 대한 액세스 권한을 부여합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
+  * Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해야 합니다. 로컬 컴퓨터에 게이트웨이를 설치 하 고 관리 하려면 동일한 Azure 계정을 사용 해야 합니다.
+
+  * 게이트웨이를 설치할 때 azure 계정으로 로그인 합니다. 그러면 azure 계정에 게이트웨이 설치를 연결 하 고 해당 계정에만 연결 됩니다. 여러 Azure 계정 또는 Azure AD 테 넌 트에서 동일한 게이트웨이 설치를 연결할 수 없습니다.
+
+  * Azure Portal 나중에 게이트웨이 설치에 연결 되는 Azure 게이트웨이 리소스를 만들기 위해 동일한 Azure 계정을 사용 해야 합니다. 하나의 게이트웨이 설치와 하나의 Azure 게이트웨이 리소스만 서로 연결할 수 있습니다. 그러나 Azure 계정은 각각 Azure 게이트웨이 리소스와 연결 된 여러 게이트웨이 설치에 연결할 수 있습니다. 그러면 논리 앱이 트리거 및 온-프레미스 데이터 원본에 액세스할 수 있는 작업에서이 게이트웨이 리소스를 사용할 수 있습니다.
 
 * 로컬 컴퓨터에 대한 요구 사항은 다음과 같습니다.
 

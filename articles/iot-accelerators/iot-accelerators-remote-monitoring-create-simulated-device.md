@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt
-ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682002"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422762"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 만들기 및 테스트
 
@@ -33,7 +33,7 @@ ms.locfileid: "81682002"
 
 | Name                     | 값                      |
 | ------------------------ | --------------------------- |
-| 색상                    | 흰색, 빨강, 파랑            |
+| 색                    | 흰색, 빨강, 파랑            |
 | 밝기               | 0~100                    |
 | 남은 예상 수명 | 10,000시간에서 카운트다운 |
 
@@ -54,7 +54,7 @@ ms.locfileid: "81682002"
 
 다음 표는 새 디바이스에서 지원하는 작업을 보여 줍니다.
 
-| 이름        |
+| Name        |
 | ----------- |
 | 켜짐   |
 | 꺼짐  |
@@ -65,7 +65,7 @@ ms.locfileid: "81682002"
 
 | Name                     | 값 |
 | ------------------------ | -------|
-| 초기 색상            | 흰색  |
+| 초기 색상            | 백인  |
 | 초기 밝기       | 75     |
 | 초기 남은 수명   | 10000 |
 | 초기 원격 분석 상태 | "켜짐"   |
@@ -77,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 

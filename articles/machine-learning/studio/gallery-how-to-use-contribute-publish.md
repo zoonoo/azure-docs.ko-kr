@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 4bbece33d443139c9f1b1384c1a9e0b3c4da0d08
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7918f684fea1092cbd7c11fade3d8f40c1e44240
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318558"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431201"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
-**적용 대상:** ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 
+**적용 대상:** ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
@@ -124,7 +124,7 @@ Studio (클래식) 내에서 리소스를 다운로드 하려면 다음을 수�
 
 * 실험 이름
 * 요약 또는 설명
-* 태그들
+* 태그
 * 이미지
 * 표시 여부 설정(**공개** 또는 **비공개**)
 
@@ -203,6 +203,6 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 사용자가 주도하는 사용자를 위한 갤러리를 원합니다. 오른쪽에 있는 웃는 얼굴을 사용하여 갤러리가 마음에 드는지 아니면 싫어하는지 알려주세요.  
 
-![사용자 의견](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![피드백](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[갤러리로 이동 >>](https://gallery.azure.ai)**

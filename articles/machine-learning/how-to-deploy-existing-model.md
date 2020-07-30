@@ -1,54 +1,42 @@
 ---
 title: 기존 모델 사용 및 배포
 titleSuffix: Azure Machine Learning
-description: 서비스 외부에서 학습 된 모델에 Azure Machine Learning를 사용 하는 방법에 대해 알아봅니다. Azure Machine Learning 외부에서 만든 모델을 등록 한 다음 웹 서비스 또는 Azure IoT Edge 모듈로 배포할 수 있습니다.
+description: Azure Machine Learning를 사용 하 여 로컬로 학습 된 ML 모델을 Azure 클라우드로 가져오는 방법에 대해 알아봅니다.  Azure Machine Learning 외부에서 만든 모델을 등록 한 다음 웹 서비스 또는 Azure IoT Edge 모듈로 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/17/2020
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7dc58540cf78356021f1fa2d33dd498381f1da7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e9177fdbac6173040145ff6d84dda8a579ee1d9e
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325834"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429422"
 ---
-# <a name="use-an-existing-model-with-azure-machine-learning"></a>Azure Machine Learning에서 기존 모델 사용
+# <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 기존 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning에서 기존 machine learning 모델을 사용 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Machine Learning 외부에서 학습 한 machine learning 모델을 등록 하 고 배포 하는 방법에 대해 알아봅니다. 는 웹 서비스 또는 IoT Edge 장치에 배포할 수 있습니다.  배포 되 면 모델을 모니터링 하 고 Azure Machine Learning에서 데이터 드리프트를 검색할 수 있습니다. 
 
-Azure Machine Learning 외부에서 학습 된 machine learning 모델을 사용 하는 경우에도 서비스를 사용 하 여 모델을 웹 서비스로 배포 하거나 IoT Edge 장치로 배포할 수 있습니다. 
+이 문서의 개념 및 용어에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-> [!TIP]
-> 이 문서에서는 기존 모델을 등록 하 고 배포 하는 방법에 대 한 기본 정보를 제공 합니다. 배포 된 Azure Machine Learning 모델에 대 한 모니터링을 제공 합니다. 또한 배포에 전송 된 입력 데이터를 저장 하 여 데이터 드리프트 분석에 사용 하거나 모델의 새 버전을 학습할 수 있습니다.
->
-> 여기에 사용 된 개념과 용어에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
->
-> 배포 프로세스에 대 한 일반 정보는 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+## <a name="prerequisites"></a>필수 구성 요소
 
-## <a name="prerequisites"></a>사전 요구 사항
+* [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
+  + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다.
+  
+  + CLI 예제에서는 및의 자리 표시자 `myworkspace` `myresourcegroup` 를 사용 합니다 .이 자리 표시자는 작업 영역 이름 및이를 포함 하는 리소스 그룹으로 바꾸어야 합니다.
 
-* Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
-
-    > [!TIP]
-    > 이 문서의 Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 되어 있다고 가정 합니다.
-    >
-    > CLI 예제에서는 및의 자리 표시자를 사용 합니다 `myworkspace` `myresourcegroup` . 이를 작업 영역 이름 및이를 포함 하는 리소스 그룹으로 바꿉니다.
-
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  
+* [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.  
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-* 학습된 모델. 모델은 개발 환경에서 하나 이상의 파일에 유지 되어야 합니다.
-
-    > [!NOTE]
-    > Azure Machine Learning 외부에서 학습 한 모델 등록을 보여 주기 위해이 문서의 예제 코드 조각은 Paolo Ripamonti의 Twitter 감정 분석 프로젝트에서 만든 모델을 사용 합니다 [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis) .
+* 학습된 모델. 모델은 개발 환경에서 하나 이상의 파일에 유지 되어야 합니다. <br><br>학습 된 모델 등록을 보여 주기 위해이 문서의 예제 코드에서는 [Paolo Ripamonti의 Twitter 감정 분석 프로젝트](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)의 모델을 사용 합니다.
 
 ## <a name="register-the-models"></a>모델 등록
 
@@ -82,7 +70,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 
 유추 구성은 배포 된 모델을 실행 하는 데 사용 되는 환경을 정의 합니다. 유추 구성은 모델을 배포할 때 모델을 실행 하는 데 사용 되는 다음 엔터티를 참조 합니다.
 
-* 항목 스크립트. 이 파일 (이라고 함 `score.py` )은 배포 된 서비스가 시작 될 때 모델을 로드 합니다. 또한 데이터를 수신 하 고 모델에 전달한 다음 응답을 반환 하는 일을 담당 합니다.
+* 라는 항목 스크립트는 `score.py` 배포 된 서비스가 시작 될 때 모델을 로드 합니다. 이 스크립트는 데이터를 수신 하 고 모델에 전달한 다음 응답을 반환 하는 작업도 담당 합니다.
 * Azure Machine Learning [환경](how-to-use-environments.md)입니다. 환경은 모델 및 항목 스크립트를 실행 하는 데 필요한 소프트웨어 종속성을 정의 합니다.
 
 다음 예제에서는 SDK를 사용 하 여 환경을 만든 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
@@ -112,7 +100,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 + [환경을 사용 하는 방법](how-to-use-environments.md)
 + [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 참조입니다.
@@ -145,7 +133,7 @@ dependencies:
 
 유추 구성에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-### <a name="entry-script"></a>항목 스크립트
+### <a name="entry-script-scorepy"></a>항목 스크립트 (score.py)
 
 항목 스크립트에는 및 라는 두 개의 필수 함수만 있습니다 `init()` `run(data)` . 이러한 함수는 시작 시 서비스를 초기화 하 고 클라이언트에서 전달 된 요청 데이터를 사용 하 여 모델을 실행 하는 데 사용 됩니다. 스크립트의 나머지 부분은 모델 로드 및 실행을 처리 합니다.
 
@@ -309,5 +297,4 @@ print(response.json())
 
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
-* [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
 * [배포 된 모델에 대 한 클라이언트를 만드는 방법](how-to-consume-web-service.md)

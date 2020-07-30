@@ -5,16 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281024"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429261"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>날씨 파트너의 날씨 데이터 가져오기
 
-Azure FarmBeats는 Docker 기반 커넥터 프레임 워크를 사용 하 여 날씨 데이터 공급자의 날씨 데이터를 가져오는 데 도움이 됩니다. 이 프레임 워크를 사용 하 여 날씨 데이터 공급자는 FarmBeats와 통합할 수 있는 Docker를 구현 합니다. 현재 [Dtn](https://www.dtn.com/dtn-content-integration/) 날씨 데이터 공급자만 지원 됩니다.
+Azure FarmBeats는 Docker 기반 커넥터 프레임 워크를 사용 하 여 날씨 데이터 공급자의 날씨 데이터를 가져오는 데 도움이 됩니다. 이 프레임 워크를 사용 하 여 날씨 데이터 공급자는 FarmBeats와 통합할 수 있는 Docker를 구현 합니다. 현재 다음 날씨 데이터 공급자가 지원 됩니다.
+
+  ![FarmBeats 파트너](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  
+   [DTN](https://www.dtn.com/dtn-content-integration/)
 
 날씨 데이터를 사용 하 여 FarmBeats에서 실행 가능한 정보를 생성 하 고 AI 또는 ML 모델을 빌드할 수 있습니다.
 

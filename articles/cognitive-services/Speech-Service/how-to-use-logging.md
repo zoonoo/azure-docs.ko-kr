@@ -10,23 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 707a0f801a739a7a91cee19635e609305cd8f021
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 21f4494bedd824cef373a391c5635e35ec2600d0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74805793"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406880"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅 사용
 
-파일에 로깅은 음성 SDK의 선택적 기능입니다. 개발 로깅은 음성 SDK의 핵심 구성 요소에서 추가 정보와 진단을 제공 합니다. 음성 구성 개체의 속성 `Speech_LogFilename` 을 로그 파일의 위치 및 이름으로 설정 하 여이 기능을 사용 하도록 설정할 수 있습니다. 이 구성에서 인식기를 만든 후에는 로깅이 전체적으로 활성화 되며 나중에 비활성화할 수 없습니다. 실행 중인 로깅 세션 중에는 로그 파일의 이름을 변경할 수 없습니다.
+파일에 로깅은 음성 SDK의 선택적 기능입니다. 개발 로깅은 음성 SDK의 핵심 구성 요소에서 추가 정보와 진단을 제공 합니다. `Speech_LogFilename`음성 구성 개체의 속성을 로그 파일의 위치 및 이름으로 설정 하 여이 기능을 사용 하도록 설정할 수 있습니다. 이 구성에서 인식기를 만든 후에는 로깅이 전체적으로 활성화 되며 나중에 비활성화할 수 없습니다. 실행 중인 로깅 세션 중에는 로그 파일의 이름을 변경할 수 없습니다.
 
 > [!NOTE]
 > 음성 SDK 버전은 JavaScript를 제외 하 고 지원 되는 모든 Speech SDK 프로그래밍 언어로 1.4.0 되므로 로깅을 사용할 수 있습니다.
 
 ## <a name="sample"></a>예제
 
-로그 파일 이름은 구성 개체에서 지정 됩니다. 을 예 `SpeechConfig` 로 가져오고 라는 `config`인스턴스를 만든 것으로 가정 합니다.
+로그 파일 이름은 구성 개체에서 지정 됩니다. 을 `SpeechConfig` 예로 가져오고 라는 인스턴스를 만든 것으로 가정 합니다 `config` .
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -51,7 +52,7 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 구성 개체에서 인식기를 만들 수 있습니다. 그러면 모든 인식기에 대해 로깅을 사용할 수 있습니다.
 
 > [!NOTE]
-> Config 개체에서을 `SpeechSynthesizer` 만드는 경우 로깅을 사용 하지 않습니다. 그러나 로깅을 사용 하는 경우에 `SpeechSynthesizer`도에서 진단을 받게 됩니다.
+> `SpeechSynthesizer`Config 개체에서을 만드는 경우 로깅을 사용 하지 않습니다. 그러나 로깅을 사용 하는 경우에도에서 진단을 받게 됩니다 `SpeechSynthesizer` .
 
 ## <a name="create-a-log-file-on-different-platforms"></a>서로 다른 플랫폼에서 로그 파일 만들기
 
@@ -79,9 +80,9 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-위의 코드에서는 응용 프로그램별 디렉터리의 루트에 있는 외부 저장소에 로그 파일을 저장 합니다. 사용자는 파일 관리자 (일반적으로 `Android/data/ApplicationName/logfile.txt`)를 사용 하 여 파일에 액세스할 수 있습니다. 응용 프로그램이 제거 되 면 파일이 삭제 됩니다.
+위의 코드에서는 응용 프로그램별 디렉터리의 루트에 있는 외부 저장소에 로그 파일을 저장 합니다. 사용자는 파일 관리자 (일반적으로)를 사용 하 여 파일에 액세스할 수 있습니다 `Android/data/ApplicationName/logfile.txt` . 응용 프로그램이 제거 되 면 파일이 삭제 됩니다.
 
-또한 매니페스트 파일에서 권한을 `WRITE_EXTERNAL_STORAGE` 요청 해야 합니다.
+또한 `WRITE_EXTERNAL_STORAGE` 매니페스트 파일에서 권한을 요청 해야 합니다.
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
@@ -104,7 +105,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-만든 파일에 액세스 하려면 응용 프로그램의 `Info.plist` 속성 목록에 아래 속성을 추가 합니다.
+만든 파일에 액세스 하려면 `Info.plist` 응용 프로그램의 속성 목록에 아래 속성을 추가 합니다.
 
 ```xml
 <key>UIFileSharingEnabled</key>

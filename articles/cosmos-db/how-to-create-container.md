@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB에서 컨테이너 만들기
-description: Azure Portal, .Net, Java, Python, Node.js 및 기타 Sdk를 사용 하 여 Azure Cosmos DB에서 컨테이너를 만드는 방법에 대해 알아봅니다.
+description: Azure Portal, .NET, Java, Python, Node.js 및 기타 Sdk를 사용 하 여 Azure Cosmos DB에서 컨테이너를 만드는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 22c51497a9c9a331f1337134fbaf7c781b9c8ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 761789b36e85b16f0b4482cef12645e673c73be7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390893"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429709"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 
-이 문서에서는 Azure Cosmos 컨테이너(컬렉션, 테이블 또는 그래프)를 만드는 여러 가지 방법을 설명합니다. 이를 위해 Azure Portal, Azure CLI 또는 지원되는 SDK를 사용할 수 있습니다. 이 문서에서는 컨테이너를 만들고 파티션 키를 지정하고 처리량을 프로비저닝하는 방법을 보여줍니다.
+이 문서에서는 Azure Portal, Azure CLI, PowerShell 또는 지원 되는 Sdk를 사용 하 여 Azure Cosmos 컨테이너 (컬렉션, 테이블 또는 그래프)를 만드는 다양 한 방법을 설명 합니다. 이 문서에서는 컨테이너를 만들고 파티션 키를 지정하고 처리량을 프로비저닝하는 방법을 보여줍니다.
 
 > [!NOTE]
 > 컨테이너를 만들 때 이름은 같지만 대/소문자가 다른 두 개의 컨테이너를 만들지 않도록 해야 합니다. Azure 플랫폼의 일부 부분에서는 대/소문자를 구분하지 않으므로 이로 인해 이러한 이름을 가진 컨테이너에 대한 원격 분석 및 작업의 혼동/충돌이 발생할 수 있습니다.
@@ -111,7 +111,7 @@ ms.locfileid: "85390893"
 
 아래 링크는 Azure CLI를 사용 하 여 Azure Cosmos DB에 대 한 컨테이너 리소스를 만드는 방법을 보여 줍니다.
 
-모든 Azure Cosmos DB Api에 대 한 모든 Azure CLI 샘플 목록은 [SQL api](cli-samples.md), [CASSANDRA API](cli-samples-cassandra.md), [MongoDB api](cli-samples-mongodb.md), [Gremlin api](cli-samples-gremlin.md)및 [Table API](cli-samples-table.md) 를 참조 하세요.
+모든 Azure Cosmos DB Api에 대 한 모든 Azure CLI 샘플 목록은 [Azure Cosmos DB에 대 한 Azure CLI 샘플](cli-samples.md)을 참조 하세요.
 
 * [Azure CLI를 사용 하 여 컨테이너 만들기](manage-with-cli.md#create-a-container)
 * [Azure CLI를 사용 하 여 MongoDB API에 대 한 Azure Cosmos DB 컬렉션 만들기](./scripts/cli/mongodb/create.md)
@@ -123,13 +123,13 @@ ms.locfileid: "85390893"
 
 아래 링크는 PowerShell을 사용 하 여 Azure Cosmos DB에 대 한 컨테이너 리소스를 만드는 방법을 보여 줍니다.
 
-모든 Azure Cosmos DB Api에 대 한 모든 Azure CLI 샘플 목록은 [SQL api](powershell-samples-sql.md), [CASSANDRA API](powershell-samples-cassandra.md), [MongoDB api](powershell-samples-mongodb.md), [Gremlin api](powershell-samples-gremlin.md)및 [Table API](powershell-samples-table.md) 를 참조 하세요.
+모든 Azure Cosmos DB Api에 대 한 모든 PowerShell 샘플 목록은 [SQL api](powershell-samples-sql.md), [CASSANDRA API](powershell-samples-cassandra.md), [MongoDB api](powershell-samples-mongodb.md), [Gremlin api](powershell-samples-gremlin.md)및 [Table API](powershell-samples-table.md) 를 참조 하세요.
 
-* [Powershell을 사용 하 여 컨테이너 만들기](manage-with-powershell.md#create-container)
-* [Powershell을 사용 하 여 MongoDB API에 대 한 Azure Cosmos DB 컬렉션 만들기](./scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Powershell을 사용 하 여 Cassandra 테이블 만들기](./scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Powershell을 사용 하 여 Gremlin 그래프 만들기](./scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Powershell을 사용 하 여 Table API 테이블 만들기](./scripts/powershell/table/ps-table-create.md)
+* [PowerShell을 사용 하 여 컨테이너 만들기](manage-with-powershell.md#create-container)
+* [PowerShell을 사용 하 여 MongoDB API에 대 한 Azure Cosmos DB 컬렉션 만들기](./scripts/powershell/mongodb/ps-mongodb-create.md)
+* [PowerShell을 사용 하 여 Cassandra 테이블 만들기](./scripts/powershell/cassandra/ps-cassandra-create.md)
+* [PowerShell을 사용 하 여 Gremlin 그래프 만들기](./scripts/powershell/gremlin/ps-gremlin-create.md)
+* [PowerShell을 사용 하 여 Table API 테이블 만들기](./scripts/powershell/table/ps-table-create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>.NET SDK를 사용하여 컨테이너 만들기
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ac083f842bf10adcbb23e3e1c1157383e11f3af9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124908"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432434"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Data Factory 모니터링 및 경고
 
@@ -111,8 +111,8 @@ Data Factory은 파이프라인 실행 데이터를 45 일간만 저장 합니�
 이 솔루션을 설치 하면 선택한 Log Analytics 작업 영역의 통합 문서 섹션 내에 기본 보기 집합이 만들어집니다. 그 결과 다음과 같은 메트릭이 활성화 됩니다.
 
 * ADF 실행-1) Data Factory에의 한 파이프라인 실행
-* ADF 실행-2) 데이터 요소에의 한 작업 실행
-* ADF 실행-3) 데이터 요소에의 한 트리거 실행
+* ADF 실행-2) Data Factory에의 한 작업 실행
+* ADF 실행-3) Data Factory에서 트리거 실행
 * ADF 오류-1) Data Factory 별 상위 10 개의 파이프라인 오류
 * ADF 오류-2) Data Factory에서 상위 10 개의 작업 실행
 * ADF 오류-3) Data Factory 별 상위 10 개 트리거 오류
@@ -221,7 +221,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>헤더
+##### <a name="headers"></a>headers
 
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
 * `{resource-id}`진단 설정을 편집 하려는 리소스의 ID로 대체 합니다. 자세한 내용은 [리소스 그룹을 사용 하 여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조 하세요.
@@ -278,7 +278,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | **로그온**| 복합 형식| 리소스 종류에 대 한 진단 로그 범주의 이름입니다. 리소스에 대 한 진단 로그 범주의 목록을 가져오려면 진단 설정 가져오기 작업을 수행 합니다. |
 | **category**| String| 로그 범주 및 해당 보존 정책의 배열입니다. |
 | **timeGrain** | String | ISO 8601 기간 형식으로 캡처된 메트릭의 세분성입니다. 속성 값은 `PT1M` 1 분을 지정 하는 이어야 합니다. |
-| **사용**| Boolean | 이 리소스에 대해 메트릭 또는 로그 범주의 컬렉션을 사용할 수 있는지 여부를 지정 합니다. |
+| **사용**| 부울 | 이 리소스에 대해 메트릭 또는 로그 범주의 컬렉션을 사용할 수 있는지 여부를 지정 합니다. |
 | **retentionPolicy**| 복합 형식| 메트릭 또는 로그 범주에 대한 보존 정책을 설명합니다. 이 속성은 저장소 계정에만 사용 됩니다. |
 |**일별로**| Int| 메트릭 또는 로그를 유지할 일 수입니다. 속성 값이 0 이면 로그가 영구적으로 유지 됩니다. 이 속성은 저장소 계정에만 사용 됩니다. |
 
@@ -341,7 +341,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>헤더
+##### <a name="headers"></a>headers
 
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
 * `{resource-id}`진단 설정을 편집 하려는 리소스의 ID로 대체 합니다. 자세한 내용은 [리소스 그룹을 사용 하 여 Azure 리소스 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조 하세요.
@@ -444,7 +444,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | 속성 | 형식 | 설명 | 예제 |
 | --- | --- | --- | --- |
-| **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
+| **Level** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | Timespan UTC 형식의 이벤트 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` 입니다. | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| String| 작업 실행의 ID입니다. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
@@ -490,7 +490,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | 속성 | 형식 | 설명 | 예제 |
 | --- | --- | --- | --- |
-| **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
+| **Level** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | Timespan UTC 형식의 이벤트 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` 입니다. | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| String| 파이프라인 실행의 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
@@ -533,7 +533,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | 속성 | 형식 | 설명 | 예제 |
 | --- | --- | --- | --- |
-| **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
+| **Level** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | **time** | String | Timespan UTC 형식의 이벤트 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` 입니다. | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| String| 트리거의 실행 ID입니다. | `08587023010602533858661257311` |

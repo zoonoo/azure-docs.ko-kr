@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147949"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432014"
 ---
 # <a name="configure-the-model-conversion"></a>모델 변환 구성
 
@@ -18,7 +18,8 @@ ms.locfileid: "84147949"
 
 ## <a name="settings-file"></a>설정 파일
 
-`ConversionSettings.json`이라는 파일이 입력 모델 옆의 입력 컨테이너에 있으면 모델 변환 프로세스에 추가 구성을 제공하는 데 사용됩니다.
+라는 파일이 입력 `<modelName>.ConversionSettings.json` 모델 옆의 입력 컨테이너에 있으면 `<modelName>.<ext>` 모델 변환 프로세스에 대 한 추가 구성을 제공 하는 데 사용 됩니다.
+예를 들어를 `box.ConversionSettings.json` 변환할 때를 사용 `box.gltf` 합니다.
 
 파일의 내용은 다음 json 스키마를 충족해야 합니다.
 
@@ -54,7 +55,7 @@ ms.locfileid: "84147949"
 }
 ```
 
-예제 `ConversionSettings.json` 파일은 다음과 같을 수 있습니다.
+예제 파일은 `box.ConversionSettings.json` 다음과 같을 수 있습니다.
 
 ```json
 {
@@ -66,15 +67,18 @@ ms.locfileid: "84147949"
 
 ### <a name="geometry-parameters"></a>기하 도형 매개 변수
 
-* `scaling` - 이 매개 변수는 모델의 크기를 균일하게 조정합니다. 예를 들어 크기 조정을 사용하여 모델을 확장 또는 축소하고 테이블 탑 뷰로 건물 모델을 표시할 수 있습니다. 렌더링 엔진은 길이를 미터 단위로 예상하므로 이 매개 변수의 또 다른 중요한 용도는 모델이 다른 단위로 정의될 때 구현합니다. 예를 들어 모델이 센티미터 단위로 정의된 경우 눈금 0.01을 적용하면 모델을 올바른 크기로 렌더링되어야 합니다.
+* `scaling` - 이 매개 변수는 모델의 크기를 균일하게 조정합니다. 예를 들어 크기 조정을 사용하여 모델을 확장 또는 축소하고 테이블 탑 뷰로 건물 모델을 표시할 수 있습니다.
+크기 조정은 렌더링 엔진에 미터가 필요 하기 때문에 미터 이외의 단위로 모델을 정의할 때에도 중요 합니다.
+예를 들어 모델이 센티미터 단위로 정의된 경우 눈금 0.01을 적용하면 모델을 올바른 크기로 렌더링되어야 합니다.
 일부 원본 데이터 형식(예: .fbx)은 단위 크기 조정 힌트를 제공하며 이 경우 변환을 통해 모델 크기는 암시적으로 미터 단위로 조정됩니다. 원본 형식에서 제공하는 암시적 크기 조정이 크기 조정 매개 변수 위에 적용됩니다.
 최종 배율 인수가 장면 그래프 노드의 기하 도형 꼭짓점과 로컬 변환에 적용됩니다. 루트 엔터티의 변환에 대한 크기 조정은 수정되지 않고 유지됩니다.
 
 * `recenterToOrigin` - 해당 경계 상자의 중심이 원점에 오도록 모델을 변환해야 함을 설명합니다.
-원본 모델이 원점에서 멀리 떨어져 있는 경우에는 부동 소수점 정밀도 문제로 인해 렌더링 아티팩트가 발생할 수 있으므로 가운데 맞춤이 중요합니다.
+원본 모델이 원본에서 멀리 떨어져 있으면 부동 소수점 정밀도 문제로 인해 렌더링 아티팩트가 치환 수 있습니다.
+이 경우 모델을 중심으로 하는 것이 도움이 될 수 있습니다.
 
 * `opaqueMaterialDefaultSidedness` - 렌더링 엔진은 불투명 재질을 양면으로 가정합니다.
-이것이 의도된 동작이 아닌 경우 이 매개 변수를 "SingleSided"로 설정해야 합니다. 자세한 내용은 [ :::no-loc text="single sided"::: 렌더링](../../overview/features/single-sided-rendering.md)을 참조 하세요.
+이러한 가정이 특정 모델에 대해 true가 아니면이 매개 변수를 "SingleSided"로 설정 해야 합니다. 자세한 내용은 [ :::no-loc text="single sided"::: 렌더링](../../overview/features/single-sided-rendering.md)을 참조 하세요.
 
 ### <a name="material-overrides"></a>재질 재정의
 
@@ -99,10 +103,10 @@ ms.locfileid: "84147949"
 
 * `sceneGraphMode` - 소스 파일의 장면 그래프를 변환하는 방법을 정의합니다.
   * `dynamic`(기본값): 파일의 모든 개체는 API의 [엔터티](../../concepts/entities.md)로 노출되며 독립적으로 변환할 수 있습니다. 런타임에 노드 계층 구조는 소스 파일의 구조와 동일합니다.
-  * `static`: 모든 개체는 API에 노출되지만 독립적으로 변환할 수 없습니다.
+  * `static`: 모든 개체는 API에 노출 되지만 독립적으로 변환할 수 없습니다.
   * `none`: 장면 그래프가 하나의 개체로 축소됩니다.
 
-모드마다 런타임 성능이 다릅니다. `dynamic` 모드에서 성능 비용은 이동된 부분이 없더라도 그래프에서 [엔터티](../../concepts/entities.md) 수에 맞춰 선형으로 확장됩니다. 애플리케이션에 대해 부분을 개별적으로 이동해야 하는 경우에만 사용해야 합니다(예: '폭발 뷰' 애니메이션).
+모드마다 런타임 성능이 다릅니다. `dynamic` 모드에서 성능 비용은 이동된 부분이 없더라도 그래프에서 [엔터티](../../concepts/entities.md) 수에 맞춰 선형으로 확장됩니다. `dynamic`' 분해 뷰 ' 애니메이션과 같이 파트를 개별적으로 이동 해야 하는 경우에만 모드를 사용 합니다.
 
 `static` 모드는 전체 장면 그래프를 내보내지만 이 그래프 내의 부분은 루트 부분을 기준으로 일정하게 변형되어 있습니다. 그러나 개체의 루트 노드는 큰 성능 비용 없이 이동, 회전 또는 확장할 수 있습니다. 또한 [공간 쿼리](../../overview/features/spatial-queries.md)는 개별 부분을 반환하고 각 부분은 [상태 재정의](../../overview/features/override-hierarchical-state.md)를 통해 수정할 수 있습니다. 이 모드에서 개체당 런타임 오버헤드는 무시됩니다. 개체별 검사를 수행해야 하지만 개체별 변환 변경은 없는 많은 장면을 사용할 때 유용합니다.
 
@@ -178,7 +182,7 @@ ms.locfileid: "84147949"
 
 형식의 메모리 공간은 다음과 같습니다.
 
-| 형식 | Description | 바이트 당 바이트:::no-loc text="vertex"::: |
+| 형식 | 설명 | 바이트 당 바이트:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|2분 부동 소수점 배정밀도|8
 |16_16_FLOAT|2분 부동 소수점 단정밀도|4
@@ -278,6 +282,11 @@ ms.locfileid: "84147949"
 * 개별 부분은 선택 및 이동 가능해야 하므로 `sceneGraphMode`를 `dynamic` 상태로 유지해야 합니다.
 * 광선 캐스팅은 일반적으로 애플리케이션의 필수적인 부분이므로 충돌 메시를 생성해야 합니다.
 * 절단면은 `opaqueMaterialDefaultSidedness` 플래그를 사용하도록 설정하면 더 나아 보입니다.
+
+## <a name="deprecated-features"></a>사용되지 않는 기능
+
+비 모델 관련 파일 이름을 사용 하는 설정을 제공 하 `conversionSettings.json` 는 것은 계속 지원 되지만 사용 되지 않습니다.
+모델 관련 파일 이름을 대신 사용 하세요 `<modelName>.ConversionSettings.json` .
 
 ## <a name="next-steps"></a>다음 단계
 

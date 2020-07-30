@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 09e32d5baa367b76c34ebca28adfdd20385e4e18
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6db571d64b0fd276519f15a3984848e80c4e18a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374593"
+ms.locfileid: "87387679"
 ---
 # <a name="view-and-understand-azure-digital-twins-metrics"></a>Azure Digital Twins 메트릭 보기 및 이해
 
@@ -36,7 +36,7 @@ ms.locfileid: "87374593"
 
     :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
 
-    이 프로세스에 대 한 자세한 내용은 [*방법: 진단 설정*](how-to-set-up-diagnostics.md)을 참조 하세요.
+    이 프로세스에 대 한 자세한 내용은 [*문제 해결: 진단 설정*](troubleshoot-diagnostics.md)을 참조 하세요.
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Azure Digital Twins 메트릭 및 사용 방법
 
@@ -94,7 +94,7 @@ API 요청으로 수행 해야 하는 메트릭:
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins에 대해 기록 된 메트릭을 관리 하는 방법에 대 한 자세한 내용은 [*방법: 진단 설정*](how-to-set-up-diagnostics.md)을 참조 하세요.
+Azure Digital Twins에 대해 기록 된 메트릭을 관리 하는 방법에 대 한 자세한 내용은 [*문제 해결: 진단 설정*](troubleshoot-diagnostics.md)을 참조 하세요.
 
 Azure Digital Twins 메트릭에 대 한 개요를 살펴보았으므로 이제 다음 링크를 따라 Azure Digital Twins 관리에 대해 자세히 알아보세요.
 

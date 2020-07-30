@@ -1,18 +1,18 @@
 ---
-title: '빠른 시작: node.js 용 REST Api를 사용 하 여 QnA Maker'
+title: '빠른 시작: Node.js 용 REST Api를 사용 하 여 QnA Maker'
 description: 이 빠른 시작에서는 Node.js용 QnA Maker REST API를 시작하는 방법을 보여줍니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: b42bc3be0d425a84da8bb545ebb29e261a6b0780
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342734"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406098"
 ---
-# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>빠른 시작: node.js 용 REST Api QnA Maker
+# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>퀵 스타트: Node.js에 대 한 REST Api QnA Maker
 
 Node.js용 QnA Maker REST API를 시작합니다. 다음 단계에 따라 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
 
@@ -29,7 +29,7 @@ Node.js용 QnA Maker REST API를 사용하여 다음을 수행합니다.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Node.js](https://nodejs.org)

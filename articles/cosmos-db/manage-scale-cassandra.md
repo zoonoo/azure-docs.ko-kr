@@ -4,14 +4,14 @@ description: Azure Cosmos DB Cassandra API 계정의 크기를 조정하는 데 
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 447744f0436cb29e849a52694a02600183fd357a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119157"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432811"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정에서 탄력적으로 크기 조정
 
@@ -46,7 +46,7 @@ Azure Portal을 사용하여 Azure Cosmos DB Cassandra API 계정에서 리소�
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>컨트롤 플레인
 
-Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 사용하여 프로그래밍 방식으로 처리량을 조정하는 기능을 제공합니다. 지침 및 샘플은 [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md) 및 [Azure CLI](cli-samples-cassandra.md) 문서를 참조하세요.
+Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 사용하여 프로그래밍 방식으로 처리량을 조정하는 기능을 제공합니다. 지침 및 샘플은 [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md) 및 [Azure CLI](cli-samples.md) 문서를 참조하세요.
 
 이 방법의 장점은 최대 작업 또는 낮은 작업 기간을 고려하여 타이머를 기반으로 리소스의 확장 또는 축소를 자동화할 수 있다는 것입니다. Azure Functions 및 PowerShell을 사용하여 이를 수행하는 방법은 [여기](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler)에서 샘플을 살펴보세요.
 

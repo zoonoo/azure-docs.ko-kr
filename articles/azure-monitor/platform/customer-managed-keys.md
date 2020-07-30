@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117374"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382953"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -187,8 +187,8 @@ CMK 기능은 전용 Log Analytics 클러스터에서 제공됩니다.사용자�
 
 이러한 설정은 CLI 및 PowerShell을 통해 업데이트할 수 있습니다.
 
-- [일시 삭제](../../key-vault/general/overview-soft-delete.md)
-- [제거 보호](../../key-vault/general/overview-soft-delete.md#purge-protection)는 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제하지 않도록 방지합니다.
+- [일시 삭제](../../key-vault/general/soft-delete-overview.md)
+- [제거 보호](../../key-vault/general/soft-delete-overview.md#purge-protection)는 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제하지 않도록 방지합니다.
 
 ### <a name="create-cluster-resource"></a>*클러스터* 리소스 만들기
 
@@ -706,8 +706,8 @@ Content-type: application/json
 - Cmk 암호화는 CMK 구성 후에 새로 수집 데이터에 적용 됩니다.  CMK가 구성되기 전에 수집된 데이터는Microsoft 키를 사용하여 암호화된 상태로 유지됩니다.  CMK가 구성되기 전후에 수집된 데이터는 원활하게 쿼리할 수 있습니다.
 
 - Azure Key Vault를 복구할 수 있는 것으로 구성 해야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않으며 CLI 또는 PowerShell을 사용 하 여 구성 해야 합니다.<br>
-  - [일시 삭제](../../key-vault/general/overview-soft-delete.md)
-  - 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제 하는 것을 방지 하려면 [보호 제거](../../key-vault/general/overview-soft-delete.md#purge-protection) 를 켜야 합니다.
+  - [일시 삭제](../../key-vault/general/soft-delete-overview.md)
+  - 일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제 하는 것을 방지 하려면 [보호 제거](../../key-vault/general/soft-delete-overview.md#purge-protection) 를 켜야 합니다.
 
 - 다른 리소스 그룹 또는 구독에 대 한 *클러스터* 리소스 이동은 현재 지원 되지 않습니다.
 
@@ -763,7 +763,7 @@ Content-type: application/json
   -  400--클러스터가 삭제 중 상태입니다. 비동기 작업이 진행 중입니다. 업데이트 작업을 수행 하기 전에 클러스터에서 해당 작업을 완료 해야 합니다.
   -  400--KeyVaultProperties가 비어 있지 않지만 형식이 잘못 되었습니다. [키 식별자 업데이트](#update-cluster-resource-with-key-identifier-details)를 참조 하세요.
   -  400--Key Vault의 키 유효성을 검사 하지 못했습니다. 권한이 부족 하거나 키가 없는 경우에 발생할 수 있습니다. Key Vault에서 [키 및 액세스 정책을 설정](#grant-key-vault-permissions) 했는지 확인 합니다.
-  -  400--키를 복구할 수 없습니다. 일시 삭제 및 제거 보호로 Key Vault 설정 해야 합니다. [Key Vault 설명서](../../key-vault/general/overview-soft-delete.md) 를 참조 하세요.
+  -  400--키를 복구할 수 없습니다. 일시 삭제 및 제거 보호로 Key Vault 설정 해야 합니다. [Key Vault 설명서](../../key-vault/general/soft-delete-overview.md) 를 참조 하세요.
   -  400-지금은 작업을 실행할 수 없습니다. 비동기 작업이 완료 될 때까지 기다린 후 다시 시도 하십시오.
   -  400--클러스터가 삭제 중 상태입니다. 비동기 작업이 완료 될 때까지 기다린 후 다시 시도 하십시오.
 

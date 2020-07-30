@@ -4,14 +4,14 @@ description: AKS 및 Azure Container Registry와 함께 투구를 사용 하 여
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82169571"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407118"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>빠른 시작: 투구를 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 
@@ -23,7 +23,6 @@ ms.locfileid: "82169571"
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Docker를 설치 하 고 구성 했습니다. Docker는 모든 [Mac][docker-for-mac], [Windows][docker-for-windows] 또는 [Linux][docker-for-linux] 시스템에서 Docker를 구성하는 패키지를 제공합니다.
 * [투구 v3이 설치][helm-install]되었습니다.
 
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
@@ -57,14 +56,6 @@ az acr create --resource-group MyResourceGroup --name MyHelmACR --sku Basic
   "type": "Microsoft.ContainerRegistry/registries"
 }
 ```
-
-ACR 인스턴스를 사용 하려면 먼저 로그인 해야 합니다. [Az acr login][az-acr-login] 명령을 사용 하 여 로그인 합니다. 아래 예제에서는 *My Macr*이라는 ACR에 로그인 합니다.
-
-```azurecli
-az acr login --name MyHelmACR
-```
-
-이 명령이 완료되면 *로그인했습니다.* 라는 메시지를 반환합니다.
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
 
@@ -122,18 +113,12 @@ CMD ["node","server.js"]
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>샘플 응용 프로그램을 빌드하여 ACR에 푸시합니다.
 
-[Az acr list][az-acr-list] 명령을 사용 하 여 로그인 서버 주소를 가져오고 *loginServer*를 쿼리 합니다.
+[Az acr build][az-acr-build] 명령을 사용 하 여 앞의 Dockerfile을 사용 하 여 이미지를 빌드하고 레지스트리에 푸시합니다. 명령 끝부분에 있는 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
 
 ```azurecli
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
-
-Docker를 사용 하 여 샘플 응용 프로그램 컨테이너를 빌드 및 태그 하 고 ACR에 푸시합니다.
-
-```console
-docker build -t webfrontend:latest .
-docker tag webfrontend <acrLoginServer>/webfrontend:v1
-docker push <acrLoginServer>/webfrontend:v1
+az acr build --image webfrontend:v1 \
+  --registry MyHelmACR \
+  --file Dockerfile .
 ```
 
 ## <a name="create-your-helm-chart"></a>투구 차트 만들기
@@ -144,12 +129,12 @@ docker push <acrLoginServer>/webfrontend:v1
 helm create webfrontend
 ```
 
-*Webfrontend 엔드/값*으로 다음 업데이트를 수행 합니다. yaml:
+*Webfrontend 엔드/값*으로 다음 업데이트를 수행 합니다. yaml. 이전 단계에서 기록한 레지스트리의 loginServer (예: *myhelmacr.azurecr.io*)를 대체 합니다.
 
-* `image.repository`를 `<acrLoginServer>/webfrontend`로 변경
+* `image.repository`를 `<loginServer>/webfrontend`로 변경
 * `service.type`를 `LoadBalancer`로 변경
 
-예:
+예를 들면 다음과 같습니다.
 
 ```yml
 # Default values for webfrontend.
@@ -159,7 +144,7 @@ helm create webfrontend
 replicaCount: 1
 
 image:
-  repository: <acrLoginServer>/webfrontend
+  repository: *myhelmacr.azurecr.io*/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:
@@ -168,7 +153,7 @@ service:
 ...
 ```
 
-`appVersion` `v1` *Webfrontend 엔드/차트에서로 업데이트 합니다. yaml*. 예
+`appVersion` `v1` *Webfrontend 엔드/차트에서로 업데이트 합니다. yaml*. 예를 들면 다음과 같습니다.
 
 ```yml
 apiVersion: v2
@@ -218,16 +203,11 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [Helm 설명서][helm-documentation]
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-list]: /cli/azure/acr#az-acr-list
+[az-acr-build]: /cli/azure/acr#az-acr-build
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-
-[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-for-mac]: https://docs.docker.com/docker-for-mac/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/
