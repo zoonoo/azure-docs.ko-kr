@@ -4,16 +4,16 @@ description: '자습서: 이 자습서에서는 이벤트 그리드에서 트리
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: b5f38c1a5b60dc8c8f0d9e8710c5dbc95434fe78
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 8d45681b53aa2dd8df8c2288fecdde1b45fb7bd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039500"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>자습서: Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 
-Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)는 Event Hubs에 스트림된 데이터를 Azure Blob Storage 또는 Azure Data Lake 스토리지에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 스토리지 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](https://docs.microsoft.com/azure/event-grid/overview)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
+Event Hubs [캡처](./event-hubs-capture-overview.md)는 Event Hubs에 스트림된 데이터를 Azure Blob Storage 또는 Azure Data Lake 스토리지에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 스토리지 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](../event-grid/overview.md)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -178,7 +178,4 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 ## <a name="next-steps"></a>다음 단계 
 데이터 웨어하우스에서 강력한 데이터 시각화 도구를 사용하여 실행 가능한 인사이트를 얻을 수 있습니다.
 
-[SQL Data Warehouse에서 Power BI를 사용하는 방법](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi) 문서를 참조하세요.
-
-
-
+[SQL Data Warehouse에서 Power BI를 사용하는 방법](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi) 문서를 참조하세요.

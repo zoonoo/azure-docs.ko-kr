@@ -485,7 +485,7 @@
             - name: 알림 확인
               href: ../service-health/service-notifications.md
             - name: 알림 이벤트에 대한 경고 구성
-              href: platform/alerts-activity-log-service-notifications.md
+              href: ../service-health/alerts-activity-log-service-notifications-portal.md
         - name: 알림 및 작업
           items:
             - name: 작업 규칙(미리 보기)
@@ -905,18 +905,24 @@
           href: insights/vminsights-ga-release-faq.md
         - name: FAQ
           href: faq.md#azure-monitor-for-vms
-        - name: 모니터링 사용
+        - name: 작업 영역 구성
+          href: insights/vminsights-configure-workspace.md
+        - name: 에이전트 설치
           items:
-            - name: 모니터링 사용 개요
+            - name: 개요
               href: insights/vminsights-enable-overview.md
-            - name: 단일 Azure VM에 사용하도록 설정
-              href: insights/vminsights-enable-single-vm.md
-            - name: Azure Policy를 사용하여 설정
-              href: insights/vminsights-enable-at-scale-policy.md
-            - name: Azure PowerShell을 사용하여 사용
-              href: insights/vminsights-enable-at-scale-powershell.md
-            - name: 하이브리드 환경에서 사용하도록 설정
-              href: insights/vminsights-enable-hybrid-cloud.md
+            - name: Azure portal
+              href: insights/vminsights-enable-portal.md
+            - name: Azure PowerShell
+              href: insights/vminsights-enable-powershell.md
+            - name: ARM 템플릿
+              href: insights/vminsights-enable-resource-manager.md
+            - name: Azure Policy
+              href: insights/vminsights-enable-policy.md
+            - name: 하이브리드 VM
+              href: insights/vminsights-enable-hybrid.md
+            - name: 종속성 에이전트 업그레이드
+              href: insights/vminsights-dependency-agent-maintenance.md
         - name: 종속성 매핑
           href: insights/vminsights-maps.md
         - name: 성능 모니터링
@@ -927,8 +933,6 @@
           href: insights/vminsights-workbooks.md
         - name: 경고 규칙 만들기
           href: insights/vminsights-alerts.md
-        - name: 종속성 에이전트 업그레이드
-          href: insights/vminsights-dependency-agent-maintenance.md
         - name: 모니터링 사용 안 함
           href: insights/vminsights-optout.md
     - name: 컨테이너용 Azure Monitor
@@ -1116,7 +1120,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

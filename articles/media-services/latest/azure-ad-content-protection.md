@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001403"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>자습서: Azure AD를 사용하여 엔드투엔드 콘텐츠 보호
 
@@ -48,13 +48,13 @@ Azure Media Services 구독이 없는 경우 Azure [체험 계정](https://azure
 선택 사항이지만, 이 자습서를 시작하기 전에 다음 개념을 숙지하는 것이 좋습니다.
 
 * DRM(디지털 권한 관리)
-* [AMS(Azure Media Services) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [AMS(Azure Media Services) v3](./media-services-overview.md)
 * AMS API v3, Azure Portal 또는 [AMSE(Azure Media Services 탐색기) 도구](https://github.com/Azure/Azure-Media-Services-Explorer)를 사용하는 AMS [콘텐츠 키 정책](content-key-policy-concept.md)
-* [Microsoft ID 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)의 Azure AD v2 엔드포인트
-* 최신 클라우드 인증(예: [OAuth 2.0 및 OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols))
-  * [OAuth 2.0의 권한 부여 코드 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) 및 PKCE가 필요한 이유
-  * [위임된 권한 및 애플리케이션 권한](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#permissions)
-* [JWT 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), 해당 클레임 및 서명 키 롤오버(샘플에 포함되어 있음)
+* [Microsoft ID 플랫폼](../../active-directory/develop/index.yml)의 Azure AD v2 엔드포인트
+* 최신 클라우드 인증(예: [OAuth 2.0 및 OpenID Connect](../../active-directory/develop/active-directory-v2-protocols.md))
+  * [OAuth 2.0의 권한 부여 코드 흐름](../../active-directory/develop/v2-oauth2-auth-code-flow.md) 및 PKCE가 필요한 이유
+  * [위임된 권한 및 애플리케이션 권한](../../active-directory/develop/developer-glossary.md#permissions)
+* [JWT 토큰](../../active-directory/develop/access-tokens.md), 해당 클레임 및 서명 키 롤오버(샘플에 포함되어 있음)
 
 ### <a name="prerequisite-code-and-installations"></a>필수 구성 요소 코드 및 설치
 
@@ -63,7 +63,7 @@ Azure Media Services 구독이 없는 경우 Azure [체험 계정](https://azure
 * Node.js 설치 [https://nodejs.org](https://nodejs.org)에서 Node.js를 다운로드하세요. NPM이 설치와 함께 제공됩니다.
 * [Azure 구독](https://azure.microsoft.com/free/).
 * AMS(Azure Media Services) 계정
-* @azure/msal-browser v2.0(다양한 클라이언트 플랫폼용 [MSAL(Microsoft 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) SDK 제품군의 멤버 중 하나)
+* @azure/msal-browser v2.0(다양한 클라이언트 플랫폼용 [MSAL(Microsoft 인증 라이브러리)](../../active-directory/develop/msal-overview.md) SDK 제품군의 멤버 중 하나)
 * 최신 버전의 [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(샘플에 포함되어 있음)
 * Apple의 FPS 자격 증명(클라이언트 쪽 JavaScript를 통해 액세스할 수 있는 CORS를 사용하여 호스팅되는 FairPlay DRM 및 애플리케이션 인증서를 포함하려는 경우)
 
@@ -98,7 +98,7 @@ Azure Media Services 구독이 없는 경우 Azure [체험 계정](https://azure
 
 ![JWT 토큰을 구문 분석하는 화면](media/aad-ams-content-protection/subsystem.svg)
 
-하위 시스템에 대한 자세한 내용은 [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](https://docs.microsoft.com/azure/media-services/latest/design-multi-drm-system-with-access-control)를 참조하세요.
+하위 시스템에 대한 자세한 내용은 [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](./design-multi-drm-system-with-access-control.md)를 참조하세요.
 
 ## <a name="understand-the-single-page-app"></a>단일 페이지 앱 이해
 
@@ -339,7 +339,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-*groups* 클레임은 Azure AD에서 [제한된 클레임 집합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets)의 멤버입니다.
+*groups* 클레임은 Azure AD에서 [제한된 클레임 집합](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets)의 멤버입니다.
 
 #### <a name="test"></a>테스트
 

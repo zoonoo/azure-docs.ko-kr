@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6530d05b8e1aa565e64256054e81b785572edfb0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080151"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Azure Linux VM 프로비저닝
 일반화된 이미지(Shared Image Gallery 또는 관리형 이미지)로 VM을 만들 때 컨트롤 플레인을 사용하여 VM을 만들고 매개 변수와 설정을 VM에 전달할 수 있습니다. 이것을 VM *프로비저닝*이라고 합니다. 프로비저닝하는 동안 플랫폼은 VM이 부팅될 때 사용할 수 있는 필수 VM 생성 매개 변수 값(호스트 이름, 사용자 이름, 암호, SSH 키, customData)을 만듭니다. 
 
 이미지 속에 구워진 프로비저닝 에이전트는 플랫폼과 상호 작용하고, 여러 독립 프로비저닝 인터페이스에 연결하고, 속성을 설정하고, 플랫폼에 완료되었다는 신호를 보냅니다. 
 
-프로비저닝 에이전트는 [Azure Linux 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)일 수도 있고 [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)일 수도 있습니다. 두 에이전트는 일반화된 이미지를 만드는 데 꼭 필요한 [필수 구성 요소](create-upload-generic.md)입니다.
+프로비저닝 에이전트는 [Azure Linux 에이전트](../extensions/agent-linux.md)일 수도 있고 [cloud-init](./using-cloud-init.md)일 수도 있습니다. 두 에이전트는 일반화된 이미지를 만드는 데 꼭 필요한 [필수 구성 요소](create-upload-generic.md)입니다.
 
-프로비저닝 에이전트는 보증 [Azure Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 모두 지원하며, 대부분의 경우 cloud-init와 Linux 에이전트가 함께 보증 배포판 이미지와 함께 제공됩니다. 따라서 cloud-init에서 프로비저닝을 처리한 다음, Linux 에이전트에서 [Azure 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows) 처리를 지원할 수 있습니다. 확장을 지원한다는 것은 VM에서 VM 암호 재설정, Azure 모니터링, Azure Backup, Azure 디스크 암호화 같은 추가 Azure 서비스를 지원할 수 있다는 뜻입니다.
+프로비저닝 에이전트는 보증 [Azure Linux 배포판](./endorsed-distros.md)을 모두 지원하며, 대부분의 경우 cloud-init와 Linux 에이전트가 함께 보증 배포판 이미지와 함께 제공됩니다. 따라서 cloud-init에서 프로비저닝을 처리한 다음, Linux 에이전트에서 [Azure 확장](../extensions/features-windows.md) 처리를 지원할 수 있습니다. 확장을 지원한다는 것은 VM에서 VM 암호 재설정, Azure 모니터링, Azure Backup, Azure 디스크 암호화 같은 추가 Azure 서비스를 지원할 수 있다는 뜻입니다.
 
 프로비저닝이 완료되면 부팅할 때마다 cloud-init가 실행됩니다. cloud-init는 네트워킹 변경, 탑재, 임시 디스크 포맷, Linux 에이전트 시작 등의 VM 변경 내용을 모니터링합니다. Linux 에이전트는 지속적으로 서버에서 실행되면서 Azure 플랫폼으로부터 '목표 상태'(새 구성)를 검색하므로, 확장을 설치할 때마다 에이전트가 확장을 처리할 수 있습니다.
 

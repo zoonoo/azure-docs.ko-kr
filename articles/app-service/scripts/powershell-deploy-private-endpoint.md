@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: e4bdf1c06a4a52a9483b3d2bbae8d2737c531eb0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 97ded67b9f9daa2652b2740a21a4b7d6a0ac2bdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86060453"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068269"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-powershell"></a>PowerShell을 사용하여 App Service 앱 만들기 및 프라이빗 엔드포인트 배포
 
@@ -124,5 +124,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+- Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 - Azure App Service Web Apps에 대한 추가 Azure PowerShell 샘플은 [Azure PowerShell 샘플](../samples-powershell.md)에서 확인할 수 있습니다.

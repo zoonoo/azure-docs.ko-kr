@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460106"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080100"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Linux 가상 머신 모니터링
 
@@ -57,7 +57,7 @@ VM 보안 구성을 확인하려면 먼저 Security Center 데이터 수집을 �
 
 ## <a name="set-up-a-security-policy"></a>보안 정책 설정
 
-보안 정책은 Security Center에서 데이터를 수집하고 권장할 항목을 정의하는 데 사용됩니다. 서로 다른 보안 정책을 Azure 리소스 집합마다 개별적으로 적용할 수 있습니다. 기본적으로 Azure 리소스가 모든 정책 항목에 대해 평가되지만, 모든 Azure 리소스 또는 리소스 그룹에 대해 개별 정책 항목을 해제할 수 있습니다. Azure Security Center 보안 정책에 대한 자세한 내용은 [Azure Security Center에서 보안 정책 설정](../../security-center/security-center-policies.md)을 참조하세요. 
+보안 정책은 Security Center에서 데이터를 수집하고 권장할 항목을 정의하는 데 사용됩니다. 서로 다른 보안 정책을 Azure 리소스 집합마다 개별적으로 적용할 수 있습니다. 기본적으로 Azure 리소스가 모든 정책 항목에 대해 평가되지만, 모든 Azure 리소스 또는 리소스 그룹에 대해 개별 정책 항목을 해제할 수 있습니다. Azure Security Center 보안 정책에 대한 자세한 내용은 [Azure Security Center에서 보안 정책 설정](../../security-center/tutorial-security-policy.md)을 참조하세요. 
 
 전체 구독에 대한 보안 정책을 설정하려면:
 
@@ -134,4 +134,3 @@ Jenkins, GitHub 및 Docker를 사용하여 CI/CD 파이프라인을 만드는 �
 
 > [!div class="nextstepaction"]
 > [Jenkins, GitHub 및 Docker를 사용하여 CI/CD 인프라 만들기](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-

@@ -8,16 +8,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7b6081e6bad1382ca2b3a8349036234c0c01cb13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: e8bc1d2eb978e0685552ff9b86d70ea4731285cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856505"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277743"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>자습서: .NET Framework에서 동적 구성 사용
 
-App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 다시 시작하지 않고도 주문형 구성 설정 세트의 업데이트를 지원합니다. 이는 구성 공급 기업의 옵션에서 먼저 `IConfigurationRefresher`의 인스턴스를 가져온 다음, 코드의 해당 인스턴스에서 `Refresh`를 호출하여 구현할 수 있습니다.
+App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 다시 시작하지 않고도 주문형 구성 설정 세트의 업데이트를 지원합니다. 이는 구성 공급 기업의 옵션에서 먼저 `IConfigurationRefresher`의 인스턴스를 가져온 다음, 코드의 해당 인스턴스에서 `TryRefreshAsync`를 호출하여 구현할 수 있습니다.
 
 설정을 업데이트하고 구성 저장소에 대한 너무 많은 호출을 피하기 위해 각 설정에 대해 캐시를 사용합니다. 설정의 캐시된 값이 만료될 때까지 새로 고침 작업은 구성 저장소에서 값이 변경된 경우에도 값을 업데이트하지 않습니다. 각 요청의 기본 만료 시간은 30초지만, 필요한 경우 재정의할 수 있습니다.
 
@@ -95,7 +95,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
         PrintMessage().Wait();
     }
     ```
-    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. `AddAzureAppConfiguration` 메서드에 제공된 옵션에서 `GetRefresher` 메서드를 호출하여 `IConfigurationRefresher`의 인스턴스를 검색할 수 있으며, 이 인스턴스의 `Refresh` 메서드를 사용하여 코드의 아무 곳에서나 새로 고침 작업을 트리거할 수 있습니다.
+    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. `AddAzureAppConfiguration` 메서드에 제공된 옵션에서 `GetRefresher` 메서드를 호출하여 `IConfigurationRefresher`의 인스턴스를 검색할 수 있으며, 이 인스턴스의 `TryRefreshAsync` 메서드를 사용하여 코드의 아무 곳에서나 새로 고침 작업을 트리거할 수 있습니다.
 
     > [!NOTE]
     > 구성 설정에 대한 기본 캐시 만료 시간은 30초이지만 `ConfigureRefresh` 메서드에 대한 인수로 전달된 옵션 이니셜라이저의 `SetCacheExpiration` 메서드를 호출하여 재정의할 수 있습니다.
@@ -110,7 +110,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
         // Wait for the user to press Enter
         Console.ReadLine();
 
-        await _refresher.Refresh();
+        await _refresher.TryRefreshAsync();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
     ```

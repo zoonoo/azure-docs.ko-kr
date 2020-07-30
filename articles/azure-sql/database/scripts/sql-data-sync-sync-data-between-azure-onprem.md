@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ca07e30f9d3ef8dee185884cfb4946d93b515932
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 432f9a3e6af60beda9dd8a8dd1237cb93cc40639
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084937"
 ---
 # <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>PowerShell을 사용하여 SQL Database와 SQL Server 간에 데이터 동기화
 
@@ -307,7 +307,7 @@ Remove-AzResourceGroup -ResourceGroupName $syncDatabaseResourceGroupName
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../powershell-script-content-guide.md)에 있습니다.
 
