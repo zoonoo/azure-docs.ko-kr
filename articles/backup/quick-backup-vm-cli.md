@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: a359e47a70f6a1a9e0957b4e1c3965c8db12339a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 275a53c0ae5e1058d58516e9c01fa894ddad2120
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74171983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054604"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI를 사용하여 Azure에서 가상 머신 백업
 
@@ -26,7 +26,7 @@ CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0.18 이
 
 Recovery Services 자격 증명 모음은 Azure VM과 같은 각 보호된 리소스에 대한 백업 데이터를 저장하는 논리 컨테이너입니다. 보호된 리소스에 대한 백업 작업이 실행될 때 Recovery Services 자격 증명 모음 내에 복구 지점을 만듭니다. 이러한 복구 지점 중 하나를 사용하여 지정된 특정 시점으로 데이터를 복원할 수 있습니다.
 
-[az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az-backup-vault-create)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 보호하려는 VM으로 동일한 리소스 그룹 및 위치를 지정합니다. [VM 빠른 시작](../virtual-machines/linux/quick-create-cli.md)을 사용한 경우 다음이 만들어집니다.
+[az backup vault create](/cli/azure/backup/vault#az-backup-vault-create)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 보호하려는 VM으로 동일한 리소스 그룹 및 위치를 지정합니다. [VM 빠른 시작](../virtual-machines/linux/quick-create-cli.md)을 사용한 경우 다음이 만들어집니다.
 
 - *myResourceGroup*이라는 이름의 리소스 그룹,
 - *myVM*이라는 이름의 VM,
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지에 대해 설정됩니다. 지역 중복 스토리지는 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업 데이터가 복제되었음을 보장합니다. 스토리지 중복 설정을 수정해야 하는 경우 [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet을 사용합니다.
+기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지에 대해 설정됩니다. 지역 중복 스토리지는 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업 데이터가 복제되었음을 보장합니다. 스토리지 중복 설정을 수정해야 하는 경우 [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet을 사용합니다.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Azure VM에 백업 사용
 
-보호 정책을 만들어 백업 작업이 실행되는 시기와 복구 지점이 저장되는 기간을 정의합니다. 기본 보호 정책은 매일 백업 작업을 실행하고 복구 지점을 30일 동안 유지합니다. VM을 신속하게 보호하기 위해 이러한 기본 정책 값을 사용할 수 있습니다. VM에 대한 백업 보호 사용을 설정하려면 [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm)을 사용합니다. 보호할 리소스 그룹 및 VM, 사용할 정책을 지정합니다.
+보호 정책을 만들어 백업 작업이 실행되는 시기와 복구 지점이 저장되는 기간을 정의합니다. 기본 보호 정책은 매일 백업 작업을 실행하고 복구 지점을 30일 동안 유지합니다. VM을 신속하게 보호하기 위해 이러한 기본 정책 값을 사용할 수 있습니다. VM에 대한 백업 보호 사용을 설정하려면 [az backup protection enable-for-vm](/cli/azure/backup/protection#az-backup-protection-enable-for-vm)을 사용합니다. 보호할 리소스 그룹 및 VM, 사용할 정책을 지정합니다.
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,11 +71,11 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> CLI를 사용하여 한 번에 여러 VM에 대한 백업을 사용하도록 설정하는 동안 단일 정책에 100개가 넘는 VM이 연결되어 있지 않은지 확인합니다. 이는 [권장 모범 사례](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy)입니다. VM이 100개를 넘는 경우 지금은 PS 클라이언트가 명시적으로 차단하고 있진 않지만 향후 확인 절차를 추가하고자 합니다.
+> CLI를 사용하여 한 번에 여러 VM에 대한 백업을 사용하도록 설정하는 동안 단일 정책에 100개가 넘는 VM이 연결되어 있지 않은지 확인합니다. 이는 [권장 모범 사례](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy)입니다. VM이 100개를 넘는 경우 지금은 PS 클라이언트가 명시적으로 차단하고 있진 않지만 향후 확인 절차를 추가하고자 합니다.
 
 ## <a name="start-a-backup-job"></a>백업 작업 시작
 
-예약된 시간에 작업을 실행하는 기본 정책을 대기하지 않고 지금 백업을 시작하려면 [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now)를 사용합니다. 이 첫 번째 백업 작업에서 전체 복구 지점이 생성됩니다. 이 초기 백업 후에 각 백업 작업에서 증분 복구 지점이 생성됩니다. 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 스토리지 및 시간 효율적입니다.
+예약된 시간에 작업을 실행하는 기본 정책을 대기하지 않고 지금 백업을 시작하려면 [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now)를 사용합니다. 이 첫 번째 백업 작업에서 전체 복구 지점이 생성됩니다. 이 초기 백업 후에 각 백업 작업에서 증분 복구 지점이 생성됩니다. 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 스토리지 및 시간 효율적입니다.
 
 다음 매개 변수는 VM을 백업하는 데 사용됩니다.
 
@@ -96,7 +96,7 @@ az backup protection backup-now \
 
 ## <a name="monitor-the-backup-job"></a>백업 작업 모니터링
 
-백업 작업의 상태를 모니터링하려면 [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az-backup-job-list)를 사용합니다.
+백업 작업의 상태를 모니터링하려면 [az backup job list](/cli/azure/backup/job#az-backup-job-list)를 사용합니다.
 
 ```azurecli-interactive
 az backup job list \

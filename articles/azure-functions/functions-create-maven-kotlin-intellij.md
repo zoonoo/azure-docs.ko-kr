@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: 2eb1a016e04a4150a76112c68683926810f5c66d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: fa834e3ac4946c4f617e857342f850445eebfd30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055444"
 ---
 # <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>빠른 시작: Kotlin 및 IntelliJ를 사용하여 첫 번째 HTTP 트리거 함수 만들기
 
@@ -26,7 +26,7 @@ Kotlin 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트�
 - [JDK(Java Developer Kit)](https://aka.ms/azure-jdks) 버전 8
 - [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download) Community 또는 Ultimate 버전(Maven 포함)
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - Azure Functions Core Tools의 [버전 2.x](functions-run-local.md#v2). 이 버전은 Azure Functions의 작성, 실행 및 디버깅을 위한 로컬 개발 환경을 제공합니다.
 
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ Kotlin 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트�
 1. **확인**선택하고 **다음**을 선택합니다.
 1. 현재 프로젝트에 대한 세부 정보를 입력하고 **완료**를 선택합니다.
 
-Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
+Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](./functions-bindings-http-webhook.md) 함수입니다.
 
 ## <a name="run-functions-locally-in-the-ide"></a>IDE에서 로컬로 함수 실행
 

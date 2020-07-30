@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Azure Monitor Application Insights를 �
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: b47f3ce1ebed12d14dffd68e87dd013bb86218ea
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: eb6c0a8319257949cee8f35be6cdfac22f1fe5d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801640"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323437"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>빠른 시작: Azure Monitor Application Insights를 사용하여 웹 사이트 모니터링 시작
 
@@ -30,7 +30,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 1. **리소스 만들기** > **관리 도구** > **Application Insights**를 선택합니다.
 
    > [!NOTE]
-   >Application Insights 리소스를 처음 만드는 경우 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 참조하세요.
+   >Application Insights 리소스를 처음 만드는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조하세요.
 1. 구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 완료합니다.
 
     | 설정        | 값           | Description  |
@@ -105,15 +105,15 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/website-monitoring/analytics-query.png)
 
-1. **개요** 페이지로 돌아갑니다. **조사** 헤더에서 **브라우저**를 선택한 다음, **성능**을 선택합니다.  웹 사이트의 성능과 관련된 메트릭이 표시됩니다. 웹 사이트의 실패 및 예외를 분석할 수 있는 보기가 있습니다. **샘플**을 선택하여 [엔드투엔드 트랜잭션 세부 정보](../../azure-monitor/app/transaction-diagnostics.md)에 액세스할 수 있습니다.
+1. **개요** 페이지로 돌아갑니다. **조사** 헤더에서 **브라우저**를 선택한 다음, **성능**을 선택합니다.  웹 사이트의 성능과 관련된 메트릭이 표시됩니다. 웹 사이트의 실패 및 예외를 분석할 수 있는 보기가 있습니다. **샘플**을 선택하여 [엔드투엔드 트랜잭션 세부 정보](./transaction-diagnostics.md)에 액세스할 수 있습니다.
 
    ![서버 메트릭 그래프](./media/website-monitoring/browser-performance.png)
 
-1. Application Insights 주 메뉴의 **사용량** 헤더 아래에서 [**사용자**](../../azure-monitor/app/usage-segmentation.md)를 선택하여 [사용자 동작 분석 도구](../../azure-monitor/app/usage-overview.md) 탐색을 시작합니다. 현재 단일 머신으로 테스트 중이기 때문에 한 사용자에 대한 데이터만 표시됩니다. 라이브 웹 사이트의 경우 사용자 분포가 다음과 비슷합니다.
+1. Application Insights 주 메뉴의 **사용량** 헤더 아래에서 [**사용자**](./usage-segmentation.md)를 선택하여 [사용자 동작 분석 도구](./usage-overview.md) 탐색을 시작합니다. 현재 단일 머신으로 테스트 중이기 때문에 한 사용자에 대한 데이터만 표시됩니다. 라이브 웹 사이트의 경우 사용자 분포가 다음과 비슷합니다.
 
      ![사용자 그래프](./media/website-monitoring/usage-users.png)
 
-1. 여러 페이지를 포함하는 보다 복잡한 웹 사이트의 경우 [**사용자 흐름**](../../azure-monitor/app/usage-flows.md) 도구를 사용하여 방문자가 웹 사이트의 다양한 부분을 차지하는 경로를 추적할 수 있습니다.
+1. 여러 페이지를 포함하는 보다 복잡한 웹 사이트의 경우 [**사용자 흐름**](./usage-flows.md) 도구를 사용하여 방문자가 웹 사이트의 다양한 부분을 차지하는 경로를 추적할 수 있습니다.
 
    ![사용자 흐름 시각화](./media/website-monitoring/user-flows.png)
 
@@ -132,4 +132,5 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [성능 문제 찾기 및 진단](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [성능 문제 찾기 및 진단](../log-query/log-query-overview.md)
+

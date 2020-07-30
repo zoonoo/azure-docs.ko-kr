@@ -14,6 +14,13 @@
           href: ./kubernetes/policy-samples.md
         - name: Arc 지원 서버
           href: ./servers/policy-samples.md
+- name: 개념
+  items:
+    - name: 보안
+      items:
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./servers/security-controls-policy.md
 - name: 방법 가이드
   items:
     - name: Arc 지원 Kubernetes

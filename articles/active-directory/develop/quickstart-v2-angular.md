@@ -7,17 +7,17 @@ author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860055"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129188"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>빠른 시작: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -107,7 +107,7 @@ ms.locfileid: "83860055"
 > > [!TIP]
 > > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 
-사용할 수 있는 구성 가능한 옵션에 대한 자세한 내용은 [클라이언트 애플리케이션 초기화](msal-js-initializing-client-applications.md)를 참조하세요. 
+사용할 수 있는 구성 가능한 옵션에 대한 자세한 내용은 [클라이언트 애플리케이션 초기화](msal-js-initializing-client-applications.md)를 참조하세요.
 
 GitHub의 [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) 리포지토리에서 MSAL 라이브러리의 소스 코드를 찾을 수 있습니다.
 
@@ -134,7 +134,7 @@ Node.js를 사용하는 경우:
 
 ## <a name="how-the-sample-works"></a>샘플 작동 방법
 
-![이 빠른 시작에서 샘플 앱의 작동 방식을 보여주는 다이어그램](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![이 빠른 시작에서 샘플 앱의 작동 방식을 보여주는 다이어그램](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## <a name="next-steps"></a>다음 단계

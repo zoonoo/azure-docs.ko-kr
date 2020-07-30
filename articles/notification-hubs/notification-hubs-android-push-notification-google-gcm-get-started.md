@@ -11,17 +11,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3f2ad007ff0e1012f957c718d125b2e5b2e40964
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 8bbdf984311883006fcd6af16f42d7f7972cc169
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249241"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323318"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시(더 이상 사용되지 않음)
 
@@ -485,7 +485,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(선택 사항) 앱에서 바로 푸시 알림 보내기
 
-일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 애플리케이션에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
+일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 애플리케이션에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](/previous-versions/azure/reference/dn223264(v=azure.100))를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
 
 1. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **텍스트** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>`바로 앞에 추가합니다.
 
@@ -544,7 +544,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. 알림 허브로 메시지를 보낼 POST 요청을 인증하기 위해 SaS(Software Access Signature) 토큰을 만듭니다. 연결 문자열에서 키 데이터를 구문 분석한 다음, [일반적인 개념](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 참조에 설명된 대로 SaS 토큰을 만듭니다. 다음 코드는 구현 예제입니다.
+6. 알림 허브로 메시지를 보낼 POST 요청을 인증하기 위해 SaS(Software Access Signature) 토큰을 만듭니다. 연결 문자열에서 키 데이터를 구문 분석한 다음, [일반적인 개념](/previous-versions/azure/reference/dn495627(v=azure.100)) REST API 참조에 설명된 대로 SaS 토큰을 만듭니다. 다음 코드는 구현 예제입니다.
 
     `MainActivity.java`에서 `MainActivity` 클래스에 다음 메서드를 추가하여 연결 문자열의 구문을 분석합니다.
 
@@ -741,7 +741,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com

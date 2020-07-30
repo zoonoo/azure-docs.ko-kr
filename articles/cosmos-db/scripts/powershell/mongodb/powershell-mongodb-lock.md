@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: b9a457536754539aa8e736953913590a71b5a32c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 3e4a64b989c11f168468936cf25d5bbd4f6c9b15
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039890"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-mongodb-api-database-and-collection-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cosmos MongoDB API 데이터베이스 및 컬렉션에 대한 리소스 잠금 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "85127209"
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
 > [!IMPORTANT]
-> `disableKeyBasedMetadataWriteAccess` 속성을 사용하도록 설정된 상태에서 먼저 Cosmos DB 계정이 잠겨 있지 않는 한 MongoDB SDK, Mongoshell, 도구 또는 Azure Portal을 사용하여 연결한 사용자가 변경한 내용에 대해서는 리소스 잠금이 작동하지 않습니다. 이 속성을 사용하도록 설정하는 방법에 대한 자세한 내용은 [SDK에서 변경 방지](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk)를 참조하세요.
+> `disableKeyBasedMetadataWriteAccess` 속성을 사용하도록 설정된 상태에서 먼저 Cosmos DB 계정이 잠겨 있지 않는 한 MongoDB SDK, Mongoshell, 도구 또는 Azure Portal을 사용하여 연결한 사용자가 변경한 내용에 대해서는 리소스 잠금이 작동하지 않습니다. 이 속성을 사용하도록 설정하는 방법에 대한 자세한 내용은 [SDK에서 변경 방지](../../../role-based-access-control.md#prevent-sdk-changes)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

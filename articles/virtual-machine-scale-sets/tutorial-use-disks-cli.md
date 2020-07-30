@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1aa87d72bf2b73b1fa616d7ff7535dac4da9b7fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198266"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029629"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -43,12 +43,12 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
-| [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
-| [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 576 |
-| [메모리에 최적화](../virtual-machines/linux/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
-| [Storage에 최적화](../virtual-machines/linux/sizes-storage.md) | L 시리즈 | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 1440 |
-| [고성능](../virtual-machines/linux/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
+| [범용](../virtual-machines/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
+| [컴퓨팅 최적화](../virtual-machines/sizes-compute.md) | F 시리즈 | 576 |
+| [메모리에 최적화](../virtual-machines/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
+| [Storage에 최적화](../virtual-machines/sizes-storage.md) | L 시리즈 | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N 시리즈 | 1440 |
+| [고성능](../virtual-machines/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
@@ -112,7 +112,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>데이터 디스크 준비
 확장 집합 VM 인스턴스에 만들어지고 연결된 디스크는 원시 디스크입니다. 데이터 및 애플리케이션과 함께 사용하려면 먼저 디스크를 준비해야 합니다. 디스크를 준비하려면 파티션을 만들고, 파일 시스템을 만들고, 디스크를 탑재합니다.
 
-확장 집합의 여러 VM 인스턴스에 걸쳐 프로세스를 자동화하려면 Azure 사용자 지정 스크립트 확장을 사용할 수 있습니다. 이 확장은 연결된 데이터 디스크를 준비하는 것과 같이 각 VM 인스턴스에서 스크립트를 로컬로 실행할 수 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/linux/extensions-customscript.md)를 참조하세요.
+확장 집합의 여러 VM 인스턴스에 걸쳐 프로세스를 자동화하려면 Azure 사용자 지정 스크립트 확장을 사용할 수 있습니다. 이 확장은 연결된 데이터 디스크를 준비하는 것과 같이 각 VM 인스턴스에서 스크립트를 로컬로 실행할 수 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/extensions/custom-script-linux.md)를 참조하세요.
 
 다음 예제에서는 연결된 모든 원시 데이터 디스크를 준비하는 [az vmss extension set](/cli/azure/vmss/extension)을 사용하여 각 VM 인스턴스에서 GitHub 샘플 리포지토리의 스크립트를 실행합니다.
 

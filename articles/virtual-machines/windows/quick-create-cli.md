@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6f1663924f338b6b17c760afe64527f563f5bc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 178c4b92722453cd1c97471e725cb0fc68abb6fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82098019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020324"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows 가상 머신 만들기
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 
 [az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다. 이 예에서는 관리자 이름으로 *azureuser*를 사용합니다. 
 
-[Azure VM의 암호 요구 사항](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+[Azure VM의 암호 요구 사항](./faq.md#what-are-the-password-requirements-when-creating-a-vm
 )을 충족하는 암호를 제공해야 합니다. 아래 예제를 사용하여 명령줄에서 암호를 입력하라는 메시지가 표시됩니다. 암호에 대한 값을 사용하여 `--admin-password` 매개 변수를 추가할 수도 있습니다. 사용자 이름 및 암호는 나중에 VM에 연결할 때 사용됩니다.
 
 ```azurecli-interactive

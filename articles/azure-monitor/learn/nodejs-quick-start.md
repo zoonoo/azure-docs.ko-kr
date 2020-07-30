@@ -6,13 +6,13 @@ ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.openlocfilehash: af75afb2840d2bc14e1fa46310f76f662efa2a54
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516501"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384789"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
 
@@ -112,11 +112,11 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    </script>
    ```
 
-5. 왼쪽에서 **메트릭**을 선택합니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. **새 차트 추가**를 선택하여 사용자 지정 보기를 추가로 만들거나, **편집**을 선택하여 기존 차트의 종류, 높이, 색상표, 그룹화 및 메트릭을 수정할 수 있습니다. 예를 들어 메트릭 드롭다운의 "브라우저 페이지 로드 시간"과 집계의 "Avg"를 선택하여 평균 브라우저 페이지 로드 시간을 표시하는 차트를 만들 수 있습니다. Azure 메트릭 탐색기에 대해 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../../azure-monitor/platform/metrics-getting-started.md)을 방문하세요.
+5. 왼쪽에서 **메트릭**을 선택합니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. **새 차트 추가**를 선택하여 사용자 지정 보기를 추가로 만들거나, **편집**을 선택하여 기존 차트의 종류, 높이, 색상표, 그룹화 및 메트릭을 수정할 수 있습니다. 예를 들어 메트릭 드롭다운의 "브라우저 페이지 로드 시간"과 집계의 "Avg"를 선택하여 평균 브라우저 페이지 로드 시간을 표시하는 차트를 만들 수 있습니다. Azure 메트릭 탐색기에 대해 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md)을 방문하세요.
 
    ![Application Insights Server 메트릭 그래프](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Node.js 모니터링에 대한 자세한 내용은 [AppInsights Node.js 추가 설명서](../../azure-monitor/app/nodejs.md)를 참조하세요.
+Node.js 모니터링에 대한 자세한 내용은 [AppInsights Node.js 추가 설명서](../app/nodejs.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -132,3 +132,4 @@ Node.js 모니터링에 대한 자세한 내용은 [AppInsights Node.js 추가 �
 
 > [!div class="nextstepaction"]
 > [성능 문제 찾기 및 진단](../log-query/log-query-overview.md)
+

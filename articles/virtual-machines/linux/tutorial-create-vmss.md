@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e97611cdfdca28b2c2b22f21d3aedcc79c4ee6d0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d005cf64089abee07c44f584366fee9cd26c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085421"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>자습서: Azure CLI를 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "83198100"
 > * 확장 집합 인스턴스에 대한 연결 정보 보기
 > * 확장 집합에 데이터 디스크 사용
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 

@@ -67,7 +67,9 @@
     - name: 일시 삭제
       items:
         - name: Azure Key Vault 일시 삭제
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: 기본적으로 일시 삭제 설정
+          href: soft-delete-change.md
     - name: '인증, 요청 및 응답'
       href: authentication-requests-and-responses.md
     - name: Azure Key Vault 제한 지침
@@ -150,7 +152,7 @@
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
     - name: Python
       href: /python/api/overview/azure/keyvault/management?view=azure-python
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

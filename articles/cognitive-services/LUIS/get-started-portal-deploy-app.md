@@ -3,12 +3,12 @@ title: '빠른 시작: LUIS 포털에서 앱 배포'
 description: 이 빠른 시작에서는 예측 엔드포인트 리소스를 만들고, 리소스를 할당하고, 앱을 학습시키고 게시하여 앱을 배포하는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653241"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336374"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -19,7 +19,7 @@ LUIS 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure 구독](https://azure.microsoft.com/free)을 가져옵니다.
-* [이전 포털 빠른 시작](get-started-portal-build-app.md)을 완료하거나 [앱을 다운로드하고 가져옵니다](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* [이전 포털 빠른 시작](get-started-portal-build-app.md)을 완료하거나 [앱을 다운로드하고 가져옵니다](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json).
 * 이전의 Azure 리소스 인증을 받은 앱이 있는 경우 [Azure 리소스로 마이그레이션](luis-migration-authoring.md)합니다. 이메일 인증이 적용되는 경우 일부 포털 페이지가 다르게 보입니다.
 
 <a name="create-the-endpoint-resource"></a>

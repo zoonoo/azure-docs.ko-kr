@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515379"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322298"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Azure Monitor의 메트릭 경고 규칙에 대한 Resource Manager 템플릿 샘플
 
@@ -23,7 +23,7 @@ ms.locfileid: "86515379"
 메트릭 경고 규칙에서 사용할 수 있는 리소스 목록은 [Azure Monitor에서 메트릭 경고에 지원되는 리소스](../platform/alerts-metric-near-real-time.md)를 참조하세요. 경고 규칙에 대한 스키마 및 속성에 대한 설명은 [메트릭 경고 - 만들기 또는 업데이트](/rest/api/monitor/metricalerts/createorupdate)에서 사용할 수 있습니다.
 
 > [!NOTE]
-> 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)을 참조하세요.
+> 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그 메트릭 경고 - 리소스 템플릿](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)을 참조하세요.
 
 
 
@@ -3127,7 +3127,7 @@ Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메
 
 
 ## <a name="availability-test-with-metric-alert"></a>메트릭 경고를 사용하여 가용성 테스트
-[Application Insights 가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)는 전 세계 다양한 위치에서 웹 사이트/애플리케이션의 가용성을 모니터링하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 수의 위치에서 가용성 테스트가 실패할 때 사용자에게 알려줍니다. 메트릭 경고(Microsoft.Insights/metricAlerts)와 동일한 리소스 종류의 가용성 테스트 경고입니다. 다음 샘플에서는 간단한 가용성 테스트 및 관련 경고를 만듭니다.
+[Application Insights 가용성 테스트](../app/monitor-web-app-availability.md)는 전 세계 다양한 위치에서 웹 사이트/애플리케이션의 가용성을 모니터링하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 수의 위치에서 가용성 테스트가 실패할 때 사용자에게 알려줍니다. 메트릭 경고(Microsoft.Insights/metricAlerts)와 동일한 리소스 종류의 가용성 테스트 경고입니다. 다음 샘플에서는 간단한 가용성 테스트 및 관련 경고를 만듭니다.
 
 > [!NOTE]
 > `&amp`;는 &에 대한 HTML 엔터티 참조입니다. URL 매개 변수는 여전히 단일 &로 구분되지만, HTML에서 URL을 언급하는 경우 인코딩해야 합니다. 따라서 pingURL 매개 변수 값에 "&"가 있으면 "`&amp`;"를 사용하여 이스케이프해야 합니다.
@@ -3266,3 +3266,4 @@ Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메
 - [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](resource-manager-samples.md).
 - [경고에 대해 자세히 알아봅니다](../platform/alerts-overview.md).
 - [Resource Manager 템플릿을 사용하여 작업 그룹을 만드는 샘플을 가져옵니다](resource-manager-action-groups.md).
+
