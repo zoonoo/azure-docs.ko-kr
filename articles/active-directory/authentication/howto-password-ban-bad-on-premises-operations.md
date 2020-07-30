@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652629"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419770"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 사용
 
-사용자는 종종 학교, 스포츠 팀 또는 유명한 사용자와 같은 일반적인 로컬 단어를 사용 하는 암호를 만듭니다. 이러한 암호는 추측 하기 쉬우며 사전 기반 공격에 취약 합니다. 조직에서 강력한 암호를 적용 하기 위해 Azure Active Directory (Azure AD) 암호 보호는 전역 및 사용자 지정 금지 된 암호 목록을 제공 합니다. 이러한 금지 된 암호 목록에 일치 하는 항목이 있으면 암호 변경 요청이 실패 합니다.
+사용자가 학교, 스포츠 팀 또는 유명 인사와 같은 일반적인 로컬 단어를 사용하는 암호를 만드는 경우가 많습니다. 이러한 암호는 쉽게 추측할 수 있으며 사전 기반 공격에 취약합니다. 조직에서 강력한 암호를 적용 하기 위해 Azure Active Directory (Azure AD) 암호 보호는 전역 및 사용자 지정 금지 된 암호 목록을 제공 합니다. 이러한 금지 된 암호 목록에 일치 하는 항목이 있으면 암호 변경 요청이 실패 합니다.
 
 온-프레미스 Active Directory Domain Services (AD DS) 환경을 보호 하기 위해 Azure AD 암호 보호를 설치 하 고 구성 하 여 온-프레미스 DC를 사용할 수 있습니다. 이 문서에서는 온-프레미스 환경에 대해 Azure AD 암호 보호를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "80652629"
 1. 처음에는 **모드** 를 *Audit*로 설정 하는 것이 좋습니다. 기능 및 조직의 사용자에 대 한 영향에 익숙해지면 **모드** 를 *적용*으로 전환할 수 있습니다. 자세한 내용은 [작업 모드](#modes-of-operation)에 대 한 다음 섹션을 참조 하세요.
 1. 준비되면 **저장**을 선택합니다.
 
-    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Azure Portal의 인증 방법에서 온-프레미스 암호 보호를 사용 하도록 설정](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## <a name="modes-of-operation"></a>작동 모드
 

@@ -1,26 +1,29 @@
 ---
-title: 지 오 코딩 범위 | Microsoft Azure 맵
-description: 위치 주소를 위도 및 경도 좌표로 변환 하는 프로세스를 지 오 코딩 라고 합니다. 이 문서에서는 Microsoft Azure Maps에서 지 오 코딩 검사가 적용 되는 지역에 대해 알아봅니다.
+title: Microsoft Azure Maps 검색 서비스 지 오 코딩 검사
+description: 이 문서에서는 다양 한 국가/지역에서 Microsoft Azure 지도 지 오 코딩 검사에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/31/2019
+ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: 52c6cda800b535109d906fd6e6ae1aa8c709f23f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132809"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386914"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
-Azure Maps를 사용 하 여 위치를 검색 하는 경우 검색 서비스 (예: 검색 [주소 가져오기](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress))는 검색 용어를 사용 하 여 위도 및 경도 좌표를 반환 합니다. 이 프로세스를 지오코딩이라고 합니다. 그러나 Azure Maps은 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요. 
+Azure Maps [search 서비스](https://docs.microsoft.com/rest/api/maps/search) 는 지 오 코딩을 지원 합니다. 즉, API 요청에서 주소 또는 위치의 이름과 같은 검색 용어를 포함 하 고 결과를 위도 및 경도 좌표로 반환할 수 있습니다. 예를 들어 Azure Maps [가져오기 검색 주소 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) 는 위치 정보를 포함 하는 쿼리를 받고 결과를 위도 및 경도 좌표로 반환 합니다.
 
-국가/지역에서 코드를 geocode는 기능은 지 오 코딩 서비스의도로 데이터 검사 및 지 오 코딩 정밀도에 따라 달라 집니다. 각 국가/지역에서 지 오 코딩 지원 수준을 지정 하는 데 사용 되는 분류는 다음과 같습니다.
-* **주소 지점** - 주소 데이터는 주소 구획(속성 경계) 내에서 위도/경도 좌표로 확인할 수 있습니다. 정확하게 'Rooftop'으로 참조되는 경우도 있습니다. 주소에 대해 사용 가능한 가장 높은 수준의 정확도입니다. 
+그러나 Azure Maps [Search 서비스](https://docs.microsoft.com/rest/api/maps/search) 는 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요.
+
+국가/지역에서 코드를 geocode는 기능은 지 오 코딩 서비스의도로 데이터 검사 및 지 오 코딩 정밀도에 따라 달라 집니다. 다음 분류는 각 국가/지역에서 지 오 코딩 지원 수준을 지정 하는 데 사용 됩니다.
+
+* 주소 **요소** -주소 데이터는 주소 parcel (속성 경계) 내에서 위도/경도 좌표로 확인 될 수 있습니다. 주소 요소는 주소에 사용할 수 있는 가장 높은 수준의 정확도 인 ' Rooftop '으로 간주 되는 경우가 많습니다.
 * **번지** - 주소는 거리의 위도/경도 좌표에 보간됩니다.
 * **거리 수준** - 주소는 주소를 포함하는 거리의 위도/경도 좌표로 확인됩니다. 번지는 처리되지 않을 수 있습니다.
 * **도시 수준** - 도시 위치 이름을 지원합니다.
@@ -214,7 +217,6 @@ Azure Maps를 사용 하 여 위치를 검색 하는 경우 검색 서비스 (�
 | 우즈베키스탄                                          |                 |                |              |      ✓     |          ✓         |
 | 바티칸 시국                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## <a name="middle-east-and-africa"></a>중동 및 아프리카
 
 | 국가/지역                                      | 주소 지점 |번지 | 거리 | 도시 | 관심 지점 |
@@ -295,11 +297,8 @@ Azure Maps를 사용 하 여 위치를 검색 하는 경우 검색 서비스 (�
 | 잠비아                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | 짐바브웨                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps 지오코딩에 대한 자세한 내용은 [검색](https://docs.microsoft.com/rest/api/maps/search) 참조 페이지를 참조하세요.
-
-[Maps 트래픽 서비스에 대한 검사 영역](traffic-coverage.md)에 대해 알아봅니다. 
-
+Azure Maps 지 오 코딩에 대해 자세히 알아보세요.
+> [!div class="nextstepaction"]
+> [Azure Maps Search 서비스](https://docs.microsoft.com/rest/api/maps/search)

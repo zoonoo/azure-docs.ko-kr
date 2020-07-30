@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fde1b80a1646a92688a0fcc1fa221cf01ba0a9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926895"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418868"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Active Directory Azure Active Directory 비교
 
@@ -42,7 +42,7 @@ Azure AD는 클라우드 및 온-프레미스에서 모든 앱에 대 한 IDaaS 
 | 중간 계층/디먼 서비스|온-프레미스 환경에서 실행 되는 서비스는 일반적으로 AD 서비스 계정 또는 gMSA (그룹 관리 서비스 계정)를 사용 하 여 실행 합니다. 이러한 앱은 서비스 계정의 사용 권한을 상속 합니다.| Azure AD는 클라우드에서 다른 작업을 실행 하기 위해 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) 를 제공 합니다. 이러한 id의 수명 주기는 Azure AD에서 관리 되 고, 리소스 공급자에 연결 되어 백도어 액세스를 얻는 다른 용도로 사용할 수 없습니다.|
 | **디바이스**|||
 | 모바일|Active Directory는 타사 솔루션이 없는 모바일 장치를 기본적으로 지원 하지 않습니다.| Microsoft의 모바일 장치 관리 솔루션 Microsoft Intune는 Azure AD와 통합 됩니다. Microsoft Intune는 인증 중에 평가할 id 시스템에 장치 상태 정보를 제공 합니다. |
-| Windows 데스크톱|Active Directory 그룹 정책, System Center Configuration Manager 또는 기타 타사 솔루션을 사용 하 여 Windows 장치를 관리 하는 도메인 가입 기능을 제공 합니다.|Windows 장치 [를 AZURE AD에 조인할](https://docs.microsoft.com/azure/active-directory/devices/)수 있습니다. 조건부 액세스는 장치가 인증 프로세스의 일부로 Azure AD에 가입 되어 있는지 확인할 수 있습니다. [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune)를 사용 하 여 Windows 장치를 관리할 수도 있습니다. 이 경우 조건부 액세스는 앱에 대 한 액세스를 허용 하기 전에 장치가 불만 (예: 최신 보안 패치 및 바이러스 서명) 인지 여부를 고려 합니다.|
+| Windows 데스크톱|Active Directory 그룹 정책, System Center Configuration Manager 또는 기타 타사 솔루션을 사용 하 여 Windows 장치를 관리 하는 도메인 가입 기능을 제공 합니다.|Windows 장치 [를 AZURE AD에 조인할](https://docs.microsoft.com/azure/active-directory/devices/)수 있습니다. 조건부 액세스는 장치가 인증 프로세스의 일부로 Azure AD에 가입 되어 있는지 확인할 수 있습니다. [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune)를 사용 하 여 Windows 장치를 관리할 수도 있습니다. 이 경우 조건부 액세스는 앱에 대 한 액세스를 허용 하기 전에 장치가 호환 되는지 (예: 최신 보안 패치와 바이러스 서명)를 고려 합니다.|
 | Windows 서버| Active Directory은 그룹 정책 또는 기타 관리 솔루션을 사용 하 여 온-프레미스 Windows server에 대 한 강력한 관리 기능을 제공 합니다.| Azure의 Windows server 가상 머신은 [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)로 관리할 수 있습니다. [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) 는 vm이 id 시스템 디렉터리 또는 리소스에 액세스 해야 하는 경우에 사용할 수 있습니다.|
 | Linux/Unix 워크 로드|Active Directory는 타사 솔루션 없이는 기본적으로 Windows를 지원 하지 않습니다. 하지만 Active Directory Kerberos 영역으로 인증 하도록 Linux 컴퓨터를 구성할 수 있습니다.|Linux/Unix Vm은 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) 를 사용 하 여 id 시스템 또는 리소스에 액세스할 수 있습니다. 일부 조직에서는 이러한 워크 로드를 클라우드 컨테이너 기술로 마이그레이션하고 관리 id를 사용할 수도 있습니다.|
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df819f5ff641af014750d6501c8b168e54917318
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320173"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420535"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,9 +57,6 @@ __가상 네트워크__는 공용 인터넷에서 Azure 리소스를 격리하�
 > [!WARNING]
 > 
 > Azure Machine Learning 컴퓨팅 인스턴스 미리 보기는 Private Link가 활성화된 작업 영역에서 지원되지 않습니다.
->
-> Azure Machine Learning은 프라이빗 링크가 활성화된 Azure Kubernetes Service 사용을 지원하지 않습니다. 대신 가상 네트워크에서 Azure Kubernetes Service를 사용할 수 있습니다. 자세한 내용은 [Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호](how-to-enable-virtual-network.md)를 참조하세요.
-
 
 <a id="amlcompute"></a>
 
@@ -448,9 +445,6 @@ Azure 계산 인스턴스에서 노트북을 사용 하는 경우 노트북이 �
 > 다음 절차를 시작하기 전에 [AKS(Azure Kubernetes Service)에서 고급 네트워킹 구성](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) 방법의 필수 구성 요소에 따라 클러스터의 IP 주소 지정을 계획하세요.
 >
 > AKS 인스턴스와 Azure 가상 네트워크는 동일한 지역에 있어야 합니다. 가상 네트워크의 작업 영역에 사용되는 Azure Storage 계정에 보안을 적용하는 경우 AKS 인스턴스와 동일한 가상 네트워크에 있어야 합니다.
-
-> [!WARNING]
-> Azure Machine Learning은 프라이빗 링크가 활성화된 Azure Kubernetes Service 사용을 지원하지 않습니다.
 
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 로그인한 다음, 구독과 작업 영역을 선택합니다.
 

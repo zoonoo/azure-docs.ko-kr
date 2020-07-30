@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337350"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386693"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
@@ -218,6 +218,13 @@ Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 
 서버를 등록 하는 관리자는 지정 된 저장소 동기화 서비스에 대 한 관리 역할 **소유자** 또는 **참가자** 의 구성원 이어야 합니다. 저장소 동기화 서비스에 대 한 Azure Portal **Access Control (IAM)** 에서 구성할 수 있습니다.
 
+또한 관리자가 저장소 동기화 서비스에서 동기화를 구성 하도록 허용 된 서버에서 서버를 등록할 수 있는 것을 구분할 수 있습니다. 이를 위해서는 서버를 등록 하 고 사용자 지정 역할에 다음 권한을 부여 하는 관리자를 나열 하는 사용자 지정 역할을 만들어야 합니다.
+
+* "Microsoft.storagesync/storageSyncServices/registeredServers/write"
+* "Microsoft.storagesync/storageSyncServices/read"
+* "Microsoft.storagesync/storageSyncServices/워크플로/읽기"
+* "Microsoft.storagesync/storageSyncServices/워크플로/작업/읽기"
+
 # <a name="portal"></a>[포털](#tab/azure-portal)
 Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않은 경우 파일 위치(C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe)에서 수동으로 열 수 있습니다. 서버 등록 UI가 열리면 **로그인**을 선택하여 시작합니다.
 
@@ -245,6 +252,8 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 
 > [!Important]  
 > 동기화 그룹의 클라우드 엔드포인트 또는 서버 엔드포인트를 변경할 수 있고, 파일이 동기화 그룹의 다른 엔드포인트와 동기화되도록 할 수 있습니다. 클라우드 엔드포인트(Azure 파일 공유)를 직접 변경하는 경우 변경 사항은 먼저 Azure 파일 동기화 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
+
+클라우드 끝점을 만드는 관리자는 클라우드 끝점이 가리키는 Azure 파일 공유가 포함 된 저장소 계정에 대 한 관리 역할 **소유자** 의 구성원 이어야 합니다. 저장소 계정에 대 한 Azure Portal **Access Control (IAM)** 에서 구성할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 동기화 그룹을 만들려면 [Azure Portal](https://portal.azure.com/)에서 저장소 동기화 서비스로 이동한 후 **+ 동기화 그룹**을 선택 합니다.

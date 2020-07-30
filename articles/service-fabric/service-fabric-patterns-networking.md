@@ -3,12 +3,12 @@ title: Azure Service Fabric에 대 한 네트워킹 패턴
 description: Service Fabric에 대한 일반적인 네트워킹 패턴과 Azure 네트워킹 기능을 사용하여 클러스터를 만드는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258530"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421470"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -99,6 +99,8 @@ DnsSettings              : {
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   Azure Portal의 클러스터 배포 블레이드에서 가상 네트워크 이름을 두 번 입력 하 라는 메시지가 표시 되지 않도록 "virtualNetworkName" 라는 이름으로 매개 변수를 주석으로 처리할 수도 있습니다.
 
 2. 기존 서브넷을 사용하고 1단계에서 이 변수를 사용하지 않도록 설정했으므로 `Microsoft.Compute/virtualMachineScaleSets`의 `nicPrefixOverride` 특성을 주석으로 처리합니다.
 

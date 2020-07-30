@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124717"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385486"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linux Virtual Machines에 대 한 Azure 보안 기준
 
@@ -1096,7 +1096,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 * [Vm에 대 한 일시 삭제](../../backup/soft-delete-virtual-machines.md)
 
-* [Azure Key Vault 일시 삭제 개요](../../key-vault/general/overview-soft-delete.md)
+* [Azure Key Vault 일시 삭제 개요](../../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center 모니터링**: 예
 

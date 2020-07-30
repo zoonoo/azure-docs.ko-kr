@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 75e2ffcad4caeb6500f05ce3801797084c18a043
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321652"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407033"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Azure Machine Learning 용 Azure 방화벽 뒤에 작업 영역 사용
 
@@ -60,9 +60,9 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 
 | **호스트 이름** | **용도** |
 | ---- | ---- |
-| **anaconda.com** | Conda 패키지를 설치할 때 사용 됩니다. |
-| **pypi.org** | Pip 패키지를 설치할 때 사용 됩니다. |
-
+| **anaconda.com** | 기본 패키지를 설치 하는 데 사용 됩니다. |
+| **\*. anaconda.org** | 리포지토리 데이터를 가져오는 데 사용 됩니다. |
+| **pypi.org** | 기본 인덱스에서 종속성을 나열 하는 데 사용 되며 (있는 경우) 사용자 설정에서 인덱스를 덮어쓰지 않습니다. 인덱스를 덮어쓰는 경우 ** \* pythonhosted.org**도 허용 해야 합니다. |
 
 ## <a name="r-hosts"></a>R 호스트
 

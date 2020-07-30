@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ab22e9843ca133274361838eeb49abbe326588dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 72d223e0a2052c8e33c12ad5c540f5f32f540a4d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502237"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420586"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **컴퓨터 신뢰 경계** | <ul><li>[중요 한 정보가 포함 된 경우 이진 파일이 난독 처리 되었는지 확인](#binaries-info)</li><li>[EFS(암호화 파일 시스템)를 사용하여 비밀 사용자 지정 데이터를 보호함](#efs-user)</li><li>[파일 시스템의 애플리케이션에서 저장한 중요한 데이터가 암호화되었는지 확인](#filesystem)</li></ul> | 
 | **웹 애플리케이션** | <ul><li>[브라우저에서 중요한 콘텐츠가 캐시되지 않았는지 확인](#cache-browser)</li><li>[중요한 데이터가 포함된 Web App의 구성 파일의 섹션 암호화](#encrypt-data)</li><li>[중요한 양식 및 입력에서 자동 완성 HTML 특성 명시적으로 사용 중지](#autocomplete-input)</li><li>[사용자 화면에 표시되는 중요한 데이터가 마스킹되었는지 확인](#data-mask)</li></ul> | 
-| **데이터베이스** | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요 한 데이터가 암호화 되어 있는지 확인](#db-encrypted)</li><li>[TDE (데이터베이스 수준 암호화)가 설정 되어 있는지 확인 합니다.](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
+| **Database** | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요 한 데이터가 암호화 되어 있는지 확인](#db-encrypted)</li><li>[TDE (데이터베이스 수준 암호화)가 설정 되어 있는지 확인 합니다.](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
 | **앱 API** | <ul><li>[Web API와 관련된 중요한 데이터가 브라우저의 스토리지에 저장되지 않았는지 확인](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Azure Cosmos DB에 저장된 중요한 데이터 암호화](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS VM 신뢰 경계** | <ul><li>[Azure Disk Encryption를 사용 하 여 Virtual Machines에서 사용 하는 디스크 암호화](#disk-vm)</li></ul> | 

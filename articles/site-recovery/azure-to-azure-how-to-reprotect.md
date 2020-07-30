@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용 하 여 Azure Vm을 주 지역으로 다시 보호 Microsoft Docs
 description: Azure Site Recovery를 사용 하 여 장애 조치 (failover) 후 보조 지역에서 주 지역으로 Azure Vm을 다시 보호 하는 방법을 설명 합니다.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738068"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422082"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
@@ -33,7 +33,7 @@ ms.locfileid: "82738068"
 
    ![다시 보호](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-1. 리소스 그룹, 네트워크, 스토리지 및 가용성 집합을 검토합니다. 그런 후 **OK**를 클릭합니다. 새 것으로 표시 된 리소스가 있는 경우 다시 보호 프로세스의 일부로 생성 됩니다.
+1. 리소스 그룹, 네트워크, 스토리지 및 가용성 집합을 검토합니다. 그런 다음, **확인**을 클릭합니다. 새 것으로 표시 된 리소스가 있는 경우 다시 보호 프로세스의 일부로 생성 됩니다.
 1. 다시 보호 작업은 최신 데이터로 대상 사이트를 시드합니다. 작업이 완료 되 면 델타 복제가 수행 됩니다. 그런 다음 주 사이트로 다시 장애 조치(failover)할 수 있습니다. 사용자 지정 옵션을 사용하여 다시 보호 중에 사용할 네트워크나 스토리지 계정을 선택할 수 있습니다.
 
    ![옵션 사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
@@ -95,10 +95,6 @@ ms.locfileid: "82738068"
 |원본 영역에 1TB premium 디스크가 있는 1 개의 VM이 있습니다.<br/>20gb 데이터만 사용 되 고 나머지 디스크는 비어 있습니다.<br/>디스크 유형은 프리미엄 이며 200 MBps 처리량이 있습니다.<br/>장애 조치 (failover) 직후 디스크의 초기 데이터는 15gb입니다. 장애 조치 (failover) 후 5gb의 데이터 변경 내용이 있습니다. 따라서 채워진 전체 데이터는 20gb입니다.| 대략적인 시간: 30-45 분.<br/>디스크에 채워지는 데이터가 디스크 크기의 10% 보다 작기 때문에 전체 초기 복제를 수행 합니다.<br/>전송 속도는 약 16%의 처리량 또는 32MBps입니다. 따라서 30GB/32mbps 인 20gb의 변경 사항을 적용 하 여 약 11 분의 시간을 전송 합니다.<br/>일부 오버 헤드 시간은 Site Recovery 자동 크기 조정 하는 데 필요 합니다 (약 20-30 분). |
 
 주 지역으로 장애 복구 (failback) 한 후 VM을 다시 보호 하는 경우 (즉, VM이 주 지역에서 DR 지역으로 다시 보호 되는 경우) 대상 VM 및 연결 된 NIC가 삭제 됩니다.
-
-VM이 DR 지역에서 주 지역으로 다시 보호 되는 경우 기본 VM 및 연결 된 NIC를 삭제 하지 않습니다.
-
-주 지역으로 장애 복구 (failback) 한 후 VM을 다시 보호 하는 경우 (즉, VM이 주 지역에서 DR 지역으로 다시 보호 되는 경우) 대상 VM 및 연결 된 NIC가 삭제 됩니다. 
 
 VM이 DR 지역에서 주 지역으로 다시 보호 되는 경우 기본 VM 및 연결 된 NIC를 삭제 하지 않습니다.
 

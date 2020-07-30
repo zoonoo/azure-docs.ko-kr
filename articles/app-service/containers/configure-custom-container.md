@@ -3,12 +3,12 @@ title: 사용자 지정 Linux 컨테이너 구성
 description: Azure App Service에서 사용자 지정 Linux 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a3e360270ac388d0f8434a9184d39d602c98e9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008594"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422779"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성
 
@@ -63,7 +63,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
          && echo "root:Docker!" | chpasswd 
     ```
 
-    이 구성은 컨테이너에 대 한 외부 연결을 허용 하지 않습니다. SSH는를 통해서만 사용할 수 `https://<app-name>.scm.azurewebsites.net` 있으며 게시 자격 증명으로 인증 됩니다.
+    이 구성은 컨테이너에 대한 외부 연결을 허용하지 않습니다. SSH는를 통해서만 사용할 수 `https://<app-name>.scm.azurewebsites.net` 있으며 게시 자격 증명으로 인증 됩니다.
 
 - [이 sshd_config 파일](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) 을 이미지 리포지토리에 추가 하 고 [복사](https://docs.docker.com/engine/reference/builder/#copy) 명령을 사용 하 여 파일을 */etc/ssh/* 디렉터리에 복사 합니다. *Sshd_config* 파일에 대 한 자세한 내용은 [openbsd 설명서](https://man.openbsd.org/sshd_config)를 참조 하세요.
 
@@ -155,10 +155,6 @@ wordpress:
 
 > [!NOTE]
 > 명시적으로 호출 되지 않는 다른 모든 옵션은 공개 미리 보기에서 무시 됩니다.
-
-## <a name="configure-vnet-integration"></a>VNet 통합 구성
-
-VNet 통합에 사용자 지정 컨테이너를 사용 하려면 컨테이너를 추가로 구성 해야 할 수 있습니다. [Azure Virtual Network에 앱 통합](../web-sites-integrate-with-vnet.md)을 참조하세요.
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 

@@ -9,18 +9,20 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 244cdf5329e26fc7d928998b734a539f086051ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 374b8bb094a93c6c608d6bf95d2b074f661c4a6a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193382"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384738"
 ---
-# <a name="what-is-delta-lake"></a>델타 Lake 란?
+# <a name="what-is-delta-lake"></a>Delta Lake란?
 
 Azure Synapse Analytics는 Linux Foundation 델타 Lake와 호환 됩니다. 델타 Lake는 ACID (원자성, 일관성, 격리성 및 내구성) 트랜잭션을 Apache Spark 및 빅 데이터 작업에 제공 하는 오픈 소스 저장소 계층입니다.
 
-## <a name="key-features"></a>주요 기능
+Azure Synapse에 포함 된 현재 버전의 델타 Lake에는 Scala, PySpark 및 .NET에 대 한 언어 지원이 있습니다. 페이지 맨 아래에 보다 자세한 예제 및 설명서에 대 한 링크가 있습니다.
+
+## <a name="key-features"></a>주요 특징
 
 | 기능 | 설명 |
 | --- | --- |
@@ -32,12 +34,12 @@ Azure Synapse Analytics는 Linux Foundation 델타 Lake와 호환 됩니다. 델
 | **스키마 적용** | 스키마 적용을 사용 하면 데이터 형식이 올바르고 필요한 열이 있는지를 확인 하 여 잘못 된 데이터에서 데이터 불일치를 방지할 수 있습니다. 자세한 내용은 [델타 Lake: 스키마 적용 & 진화 살펴보기](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) 를 참조 하세요. |
 | **스키마 진화** | 델타 Lake를 사용 하면 마이그레이션 DDL을 작성 하지 않고도 자동으로 적용할 수 있는 테이블 스키마를 변경할 수 있습니다. 자세한 내용은 [델타 Lake: 스키마 적용 & 진화 살펴보기](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) 를 참조 하세요. |
 | **감사 기록** | 델타 Lake 트랜잭션 로그는 변경 내용의 전체 감사 내역을 제공 하는 데이터에 대 한 모든 변경 내용에 대 한 세부 정보를 기록 합니다. |
-| **업데이트 및 삭제** | 델타 Lake는 다양 한 기능을 위해 Scala/Java/Python 및 SQL Api를 지원 합니다. 병합, 업데이트 및 삭제 작업에 대 한 지원을 통해 규정 준수 요구 사항을 충족할 수 있습니다. 자세한 내용은 DML 명령을 병합, 업데이트 및 삭제 하는 코드 조각을 포함 하는 Python Api를 사용 하 여 델타 lake [0.4.0 릴리스](https://delta.io/news/delta-lake-0-4-0-released/) 및 [단순 하 고 안정적인 upsert 및 삭제](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html)를 참조 하세요. |
+| **업데이트 및 삭제** | 델타 Lake는 다양 한 기능을 위해 Scala/Java/Python 및 SQL Api를 지원 합니다. 병합, 업데이트 및 삭제 작업에 대 한 지원을 통해 규정 준수 요구 사항을 충족할 수 있습니다. 자세한 내용은 델타 lake [V0.6.1 릴리스 발표](https://delta.io/news/delta-lake-0-6-1-released/), 델타 Lake [0.7 릴리스를 발표](https://delta.io/news/delta-lake-0-7-0-released/) 하 고, [Python Api를 사용 하 여 델타 lake 테이블에서 단순 하 고 안정적인 upsert 및](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html)삭제를 발표 합니다. 여기에는 DML 명령 병합, 업데이트 및 삭제를 위한 코드 조각이 포함 되어 있습니다. |
 | **Apache Spark API와 100% 호환 가능** | 개발자는 기존 Spark 구현과 완전히 호환 되므로 변화를 최소화 하면서 기존 데이터 파이프라인에서 델타 Lake를 사용할 수 있습니다. |
 
 전체 설명서는 [델타 Lake 설명서 페이지](https://docs.delta.io/latest/delta-intro.html) 를 참조 하세요.
 
-자세한 내용은 [델타 Lake 프로젝트](https://lfprojects.org)를 참조 하세요.
+자세한 내용은 [델타 Lake 프로젝트](https://github.com/delta-io/delta)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

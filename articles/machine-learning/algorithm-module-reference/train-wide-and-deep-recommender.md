@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090181"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420892"
 ---
 # <a name="train-wide--deep-recommender"></a>넓은 & 심층적 추천 학습
 이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 **전체 & 심층 추천** 모듈을 사용 하 여 권장 사항 모델을 학습 하는 방법을 설명 합니다. 이 모듈은 Google에서 제안 하는 넓은 & 심층 학습을 기반으로 합니다.
@@ -105,7 +105,7 @@ ms.locfileid: "87090181"
 
     이 하이퍼 매개 변수는 최소 손실 함수를 향해 이동 하는 동안 각 학습 단계의 단계 크기를 결정 합니다. 너무 큰 학습 률로 인해 최소에 대 한 학습이 이동 될 수 있지만, 너무 작은 학습 률로 인해 수렴 문제가 발생할 수 있습니다.
 
-7.  **교차 기능 차원**: 교차 사용자 id 및 항목 id 기능의 차원을 입력 합니다. 
+7.  **교차 기능 차원**: 원하는 사용자 id 및 항목 id 기능을 입력 하 여 차원을 입력 합니다. 
 
     넓은 & 심층 추천는 기본적으로 사용자 id 및 항목 id 기능에 대 한 제품 간 변환을 수행 합니다. 이 숫자에 따라 십자 결과가 해시 되어 차원이 확인 됩니다.
 

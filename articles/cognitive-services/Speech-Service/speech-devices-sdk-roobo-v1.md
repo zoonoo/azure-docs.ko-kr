@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9add5b063b67ddcc4cd5bf93e7f5b570b004e5ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a32e485dfc9cd465f6dd6d50abdb166737dc3aa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74815584"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387985"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>장치: Roobo 스마트 오디오 개발자 키트
 
@@ -54,7 +54,7 @@ ms.locfileid: "74815584"
     > [!NOTE]
     > 이러한 명령은 Android Studio 설치의 일부인 Android Debug Bridge, `adb.exe`를 사용합니다. 이 도구는 C:\Users\[사용자 이름]\AppData\Local\Android\Sdk\platform-tools에 있습니다. 이 디렉터리를 경로에 추가하면 `adb`를 더 편리하게 호출할 수 있습니다. 그렇지 않으면, `adb`를 호출하는 모든 명령에 adb.exe 설치의 전체 경로를 지정해야 합니다.
     >
-    > 오류가 `no devices/emulators found` 표시 되 면 USB 케이블이 연결 되어 있고 고품질 케이블 인지 확인 합니다. `adb devices`를 사용하여 컴퓨터가 디바이스 목록을 반환할 때 개발 키트와 통신할 수 있는지 확인할 수 있습니다.
+    > 오류가 표시 되 면 `no devices/emulators found` USB 케이블이 연결 되어 있고 고품질 케이블 인지 확인 합니다. `adb devices`를 사용하여 컴퓨터가 디바이스 목록을 반환할 때 개발 키트와 통신할 수 있는지 확인할 수 있습니다.
     >
     > [!TIP]
     > PC의 마이크와 스피커를 음소거하여 개발 키트의 마이크를 사용하고 있는지 확인하세요. 이렇게 하면 디바이스를 PC에서 오디오로 실수로 트리거하지 않습니다.
@@ -69,7 +69,7 @@ ms.locfileid: "74815584"
 
 ## <a name="audio"></a>오디오
 
-Roobo는 플래시 메모리에 모든 오디오를 캡처하는 도구를 제공 합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. [Roobo 사이트](https://ddk.roobo.com/)에서 장치를 선택 하 고 페이지 아래쪽의 **Roobo 도구** 링크를 선택 합니다.
+Roobo는 플래시 메모리에 모든 오디오를 캡처하는 도구를 제공 합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. [Roobo 사이트](http://ddk.roobo.com/)에서 장치를 선택 하 고 페이지 아래쪽의 **Roobo 도구** 링크를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

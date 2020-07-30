@@ -3,19 +3,34 @@ title: .NET SDK를 사용 하 여 HTTP 408 Azure Cosmos DB 또는 요청 시간 
 description: .NET SDK 요청 시간 제한 예외를 진단 하 고 해결 하는 방법
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294398"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417610"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>.NET SDK 요청 시간 제한 Azure Cosmos DB 진단 및 문제 해결
 HTTP 408 오류는 SDK가 시간 제한이 발생 하기 전에 요청을 완료할 수 없는 경우에 발생 합니다.
+
+## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Azure Cosmos .NET SDK에서 시간 제한 사용자 지정
+
+SDK에는 제한 시간을 제어 하는 두 가지 다른 대안이 있으며 각 항목은 서로 다른 범위를 사용 합니다.
+
+### <a name="requesttimeout"></a>RequestTimeout
+
+`CosmosClientOptions.RequestTimeout`(또는 `ConnectionPolicy.RequestTimeout` SDK V2) 구성을 사용 하면 각 개별 네트워크 요청에 영향을 주는 시간 제한을 설정할 수 있습니다.  사용자가 시작한 작업은 여러 네트워크 요청에 걸쳐 있을 수 있으며 (예: 제한이 있을 수 있음)이 구성은 다시 시도할 때 각 네트워크 요청에 적용 됩니다. 종단 간 작업 요청 시간이 초과 되지 않습니다.
+
+### <a name="cancellationtoken"></a>CancellationToken
+
+SDK의 모든 비동기 작업에는 선택적 CancellationToken 매개 변수가 있습니다. 이 [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) 는 모든 네트워크 요청에서 전체 작업 전체에 사용 됩니다. 네트워크 요청 사이에서 CancellationToken가 확인 되 고 관련 토큰이 만료 되 면 작업이 취소 될 수 있습니다. CancellationToken는 작업 범위에서 예상 되는 대략적인 시간 제한을 정의 하는 데 사용 해야 합니다.
+
+> [!NOTE]
+> CancellationToken는 [잘못 된 상태를 발생 시 키](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/)지 않을 때 라이브러리가 취소를 확인 하는 메커니즘입니다. 취소가 정의 된 시간이 되 면 작업은 취소 되지 않을 수 있지만 시간이 지난 후에는이 작업을 수행 하는 것이 안전 하다 면 취소 됩니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 다음 목록에는 요청 시간 제한 예외에 대 한 알려진 원인과 해결 방법이 나와 있습니다.

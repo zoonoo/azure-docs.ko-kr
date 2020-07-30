@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b52fe22e455f5b0ebce6960b40bcc80c46079c3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091354"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421351"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -34,9 +34,9 @@ RBAC는 역할 할당을 사용 하 여 *보안 주체*에 대 한 권한 집합
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>파일 및 디렉터리 수준 액세스 제어 목록에 대 한 역할 할당의 영향
 
-RBAC 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강력한 메커니즘 이지만 Acl을 기준으로 하는 매우 coarsely 세분화 된 메커니즘입니다. RBAC에 대 한 가장 작은 세분성은 컨테이너 수준에서 이며 Acl 보다 높은 우선 순위로 평가 됩니다. 따라서 컨테이너 범위에서 보안 주체에 역할을 할당 하는 경우 해당 보안 주체는 ACL 할당에 관계 없이 해당 컨테이너의 모든 디렉터리 및 파일에 대해 해당 역할과 연결 된 권한 부여 수준을 갖습니다.
+Azure 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강력한 메커니즘 이지만 Acl을 기준으로 하는 매우 coarsely 세분화 된 메커니즘입니다. RBAC에 대 한 가장 작은 세분성은 컨테이너 수준에서 이며 Acl 보다 높은 우선 순위로 평가 됩니다. 따라서 컨테이너 범위에서 보안 주체에 역할을 할당 하는 경우 해당 보안 주체는 ACL 할당에 관계 없이 해당 컨테이너의 모든 디렉터리 및 파일에 대해 해당 역할과 연결 된 권한 부여 수준을 갖습니다.
 
-보안 주체에 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 RBAC 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 RBAC 할당이 없거나 요청한 작업이 할당된 사용 권한과 일치하지 않는 경우 ACL 검사를 통해 보안 주체가 요청된 작업을 수행할 수 있는 권한이 있는지 확인합니다.
+보안 주체에 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 Azure 역할 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 게 Azure 역할 할당이 없거나 요청의 작업이 할당 된 권한과 일치 하지 않는 경우에는 ACL 검사를 수행 하 여 보안 주체가 요청 된 작업을 수행할 수 있는 권한을 부여 받았는지 확인 합니다.
 
 > [!NOTE]
 > 보안 주체가 저장소 Blob 데이터 소유자 기본 제공 역할 할당을 할당 한 경우에는 보안 주체가 *슈퍼 사용자* 로 간주 되 고 디렉터리 또는 파일의 소유자를 설정 하거나 소유자가 아닌 디렉터리와 파일에 대 한 acl을 설정 하는 등 모든 변경 작업에 대 한 모든 권한을 부여 받습니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
@@ -123,7 +123,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 저장소 계정에서 특정 작업을 수행 하는 데 필요한 사용 권한을 이해 하는 데 도움이 되는 몇 가지 일반적인 시나리오를 보여 줍니다.
 
-|    작업             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -333,7 +333,7 @@ OID가 표시 됩니다.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2에서 ACL의 상속을 지원하나요?
 
-Azure RBAC 할당은 상속됩니다. 할당은 구독, 리소스 그룹 및 저장소 계정 리소스에서 컨테이너 리소스로 흐릅니다.
+Azure 역할 할당은 상속 됩니다. 할당은 구독, 리소스 그룹 및 저장소 계정 리소스에서 컨테이너 리소스로 흐릅니다.
 
 ACL은 상속되지 않습니다. 그러나 기본 ACL을 사용하여 부모 디렉터리 아래에 만들어진 자식 하위 디렉터리 및 파일에 대한 ACL을 설정할 수 있습니다. 
 

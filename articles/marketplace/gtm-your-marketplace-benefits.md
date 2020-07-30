@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287890"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408121"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -106,9 +106,15 @@ Rewards 혜택 외에도, Microsoft AppSource에 게시된 Dynamics 제품을 �
 Microsoft는 다음과 같은 게시자에 대한 Marketplace Rewards 혜택을 철회 및 종료할 수 있는 권리를 보유합니다. 
 
 * Marketplace 목록을 사용 하 여 잘못 된 활동을 참여 시킵니다.
+* 사기성 또는 사기성으로 알려진 구매를 수신 합니다.
 * 는 상업적 marketplace에서 나열 되지 않습니다. 
 * 제품을 사용 하 여 저작권 또는 상표 법률을 위반 하는 마케팅 또는 기타 콘텐츠를 표시 합니다.
 * 자체 내부 작업 또는 Bitcoin 마이닝에 대 한 Azure 후원 자금 사용을 포함 하 여 [azure 후원 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)의 정책을 위반 합니다.
+
+Microsoft는 다음과 같은 경우 Marketplace 보상을 철회 하 고 종료할 수 있는 권리를 보유 합니다.
+
+* 구매한 고객이 실수로 구매를 취소 하려고 했습니다. 
+* 파트너의 제품을 사용 하기 전에 고객이 취소 합니다.
 
 ### <a name="offer-availability"></a>제품 가용성
 

@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536304"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387849"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>고객 관리형 키 디스크 암호화
 
@@ -30,7 +30,7 @@ HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호�
 
 키 자격 증명 모음 방화벽이 디스크 암호화 키가 저장 된 키 자격 증명 모음에서 사용 되는 경우 클러스터를 배포할 지역에 대 한 HDInsight 지역별 리소스 공급자 IP 주소를 key vault 방화벽 구성에 추가 해야 합니다. HDInsight는 신뢰할 수 있는 Azure key vault 서비스가 아니기 때문에 필요 합니다.
 
-Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 회전할 수 있습니다. 키를 회전 하는 경우 HDInsight 클러스터는 몇 분 내에 새 키를 사용 하기 시작 합니다. [일시 삭제](../key-vault/general/overview-soft-delete.md) 키 보호 기능을 사용 하도록 설정 하 여 랜 섬 웨어 시나리오를 방지 하 고 실수로 삭제 합니다. 이 보호 기능이 없는 키 자격 증명 모음은 지원 되지 않습니다.
+Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 회전할 수 있습니다. 키를 회전 하는 경우 HDInsight 클러스터는 몇 분 내에 새 키를 사용 하기 시작 합니다. [일시 삭제](../key-vault/general/soft-delete-overview.md) 키 보호 기능을 사용 하도록 설정 하 여 랜 섬 웨어 시나리오를 방지 하 고 실수로 삭제 합니다. 이 보호 기능이 없는 키 자격 증명 모음은 지원 되지 않습니다.
 
 |클러스터 유형 |OS 디스크 (관리 디스크) |데이터 디스크 (관리 디스크) |임시 데이터 디스크 (로컬 SSD) |
 |---|---|---|---|
@@ -86,7 +86,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 1. **액세스 정책 추가** 페이지에서 다음 정보를 제공 합니다.
 
-    |속성 |Description|
+    |속성 |설명|
     |---|---|
     |키 권한|**가져오기**, **키 래핑**및 **키 래핑**을 선택 합니다.|
     |비밀 권한|**가져오기**, **설정**및 **삭제**를 선택 합니다.|
@@ -106,7 +106,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 예를 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 
@@ -124,7 +124,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 --assign-identity MyMSI
 ```
 
-### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
+### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
 다음 예제에서는 Azure Resource Manager 템플릿을 사용 하 여 디스크 암호화를 사용 하도록 설정 된 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [ARM 템플릿 이란?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)을 참조 하세요.
 

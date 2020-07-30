@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 4c374e62c0807269d1457bfe46d3df4260acd45c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510455"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413105"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1 부: Azure 파일 공유에 대 한 AD DS 인증 사용 
 
@@ -53,7 +53,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 #Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
+#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
 Connect-AzAccount
 
 #Define parameters
@@ -85,7 +85,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ### <a name="checking-environment"></a>환경 확인
 
-먼저, 환경의 상태를 확인 해야 합니다. 특히, PowerShell이 설치 되어 있는지, 그리고 관리자 권한으로 셸이 실행 중인지 [Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) 확인 해야 합니다. 그런 다음 [Az. Storage 2.0 모듈이](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) 설치 되어 있는지 확인 하 고 그렇지 않으면 설치 합니다. 이러한 검사를 완료 한 후 AD DS를 확인 하 여 이미 SPN/UPN을 사용 하 여 생성 된 [컴퓨터 계정](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (기본값) 또는 [서비스 로그온 계정이](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) "cifs/your-name-file 계정이 존재 하지 않는 경우 다음 섹션에 설명 된 대로 계정을 만듭니다.
+먼저, 환경의 상태를 확인 해야 합니다. 특히, PowerShell이 설치 되어 있는지, 그리고 관리자 권한으로 셸이 실행 중인지 [Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) 확인 해야 합니다. 그런 다음 [Az.Storage 2.0 모듈](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 이러한 검사를 완료 한 후 AD DS를 확인 하 여 이미 SPN/UPN을 사용 하 여 생성 된 [컴퓨터 계정](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (기본값) 또는 [서비스 로그온 계정이](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) "cifs/your-name-file 계정이 존재 하지 않는 경우 다음 섹션에 설명 된 대로 계정을 만듭니다.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>수동으로 AD의 저장소 계정을 나타내는 id 만들기
 

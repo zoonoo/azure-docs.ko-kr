@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에서 Azure 가상 머신 제품 만들기
-description: 필요한 요금제를 사용 하 여 Azure Marketplace에서 가상 컴퓨터 제품을 만드는 방법에 대해 알아봅니다.
+description: Azure Marketplace에 가상 컴퓨터 제품을 게시 하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.date: 07/17/2020
-ms.openlocfilehash: 8da76650f9cc3da0ff8f79a9d3df7a00cdd01a24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.topic: how-to
+author: emuench
+ms.author: mingshen
+ms.date: 07/28/2020
+ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324695"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386438"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -352,7 +352,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 #### <a name="plan-name"></a>플랜 이름
 
-이 필드는 플랜을 만들 때 지정한 이름으로 자동으로 채워집니다. 이 이름은 Azure Marketplace에서 이 플랜의 제목으로 표시됩니다. 100자로 제한됩니다.
+이 필드는 사용자가 계획을 만들 때 지정한 이름으로 자동으로 채워집니다. 이 이름은 Azure Marketplace에서 이 플랜의 제목으로 표시됩니다. 100자로 제한됩니다.
 
 #### <a name="plan-summary"></a>플랜 요약
 
@@ -368,7 +368,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 이 창에서 구성하는 항목은 다음과 같습니다.
 
-- 이 플랜을 사용할 수 있는 시장
+- 이 플랜을 사용할 수 있는 시장 모든 요금제는 하나 이상의 [시장](../marketplace-geo-availability-currencies.md)에서 사용할 수 있어야 합니다.
 - 시간당 가격
 - 플랜을 모든 사용자에게 표시할지, 아니면 특정 고객(프라이빗 대상 그룹)에게만 표시할지 여부
 

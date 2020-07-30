@@ -1,15 +1,15 @@
 ---
-title: 자주 묻는 질문
+title: 질문과 대답
 description: Azure Container Instances 서비스와 관련 된 faq (질문과 대답)
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806604"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421283"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 
@@ -89,7 +89,7 @@ Azure Container Instances는 서버를 사용 하지 않는 컨테이너 주문�
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>사용자 지정 VNet에서 실행 되는 인스턴스에 사용할 수 있는 기능은 무엇 인가요?
 
-선택한 [azure virtual network에 컨테이너 그룹을 배포](container-instances-vnet.md) 하 고, 개인 ip를 컨테이너 그룹에 위임 하 여 azure 리소스를 통해 VNet 내에서 트래픽을 라우팅할 수 있습니다. 컨테이너 그룹을 가상 네트워크에 배포 하는 작업은 현재 Azure 지역 하위 집합의 프로덕션 작업에 사용할 수 있습니다.
+선택한 [azure virtual network에 컨테이너 그룹을 배포](container-instances-vnet.md) 하 고, 개인 ip를 컨테이너 그룹에 위임 하 여 azure 리소스를 통해 VNet 내에서 트래픽을 라우팅할 수 있습니다. 네트워킹 시나리오 및 Azure Container Instances 제한 사항은 [가상 네트워크 시나리오 및 리소스](container-instances-virtual-network-concepts.md)를 참조 하세요.
 
 ## <a name="pricing"></a>가격 책정
 

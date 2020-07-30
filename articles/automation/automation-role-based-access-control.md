@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279885"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420484"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -220,7 +220,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |**동작**  |**사용 권한**  |**최소 범위**  |
 |---------|---------|---------|
 |새 배포 쓰기      | Microsoft.Resources/deployments/*          |Subscription          |
-|새 리소스 그룹 쓰기      | Microsoft.Resources/subscriptions/resourceGroups/write        | 구독          |
+|새 리소스 그룹 쓰기      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
 |새로운 기본 작업 영역 만들기      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |새 계정 만들기      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |작업 영역 및 계정 연결      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|작업 영역</br>Automation 계정
@@ -242,7 +242,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |**동작**  |**사용 권한** |**최소 범위**  |
 |---------|---------|---------|
 |새 배포 만들기     | Microsoft.Resources/deployments/*        | Subscription         |
-|새 리소스 그룹 만들기     | Microsoft.Resources/subscriptions/resourceGroups/write         | 구독        |
+|새 리소스 그룹 만들기     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
 |AutomationOnboarding 블레이드 - 새 작업 영역 만들기     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |AutomationOnboarding 블레이드 - 연결된 작업 영역 읽기     | Microsoft.Automation/automationAccounts/read        | Automation 계정       |
 |AutomationOnboarding 블레이드 - 솔루션 읽기     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | 해결 방법        |
@@ -338,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)에는 지정된 범위의 Azure AD RBAC 역할 할당이 나열됩니다. 이 cmdlet은 매개 변수 없이 해당 구독에서 이루어진 모든 역할 할당을 반환합니다. `ExpandPrincipalGroups` 매개 변수를 사용하여 지정된 사용자에 대한 액세스 할당과 해당 사용자가 속한 그룹을 나열합니다.
+[AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) 는 지정 된 범위에서 Azure 역할 할당을 나열 합니다. 이 cmdlet은 매개 변수 없이 해당 구독에서 이루어진 모든 역할 할당을 반환합니다. `ExpandPrincipalGroups` 매개 변수를 사용하여 지정된 사용자에 대한 액세스 할당과 해당 사용자가 속한 그룹을 나열합니다.
 
 **예:** 다음 cmdlet을 사용하여 해당 Automation 계정에 속한 모든 사용자와 그 역할을 나열합니다.
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374444"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387781"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -55,7 +55,7 @@ Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이�
 ### <a name="considerations-for-federation-based-sso"></a>페더레이션 기반 SSO에 대 한 고려 사항
 
 - **Openid connect Connect 및 Oauth 사용** -연결 중인 응용 프로그램에서 지원 되는 경우 oidc/oauth 2.0 메서드를 사용 하 여 해당 응용 프로그램에 SSO를 사용 하도록 설정 합니다. 이 방법을 사용 하는 경우 더 작은 구성이 필요 하며 더 풍부한 사용자 환경을 지원 합니다. 자세한 내용은 [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [openid connect Connect 1.0](../develop/v2-protocols-oidc.md)및 [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)를 참조 하세요.
-- **Saml 기반 SSO에 대 한 끝점 구성** -saml을 사용 하는 경우 응용 프로그램을 구성 하기 전에 개발자에 게 특정 정보가 필요 합니다. 자세한 내용은 [기본 SAML 구성 편집](configure-single-sign-on-non-gallery-applications.md)을 참조 하세요.
+- **Saml 기반 SSO에 대 한 끝점 구성** -saml을 사용 하는 경우 응용 프로그램을 구성 하기 전에 개발자에 게 특정 정보가 필요 합니다. 자세한 내용은 [SAML 기반 Single Sign-On 구성](configure-saml-single-sign-on.md)을 참조 하세요.
 - **SAML 기반 sso에 대 한 인증서 관리** -응용 프로그램에 대해 페더레이션된 sso를 사용 하도록 설정 하면 Azure AD에서는 기본적으로 3 년 동안 유효한 인증서를 만듭니다. 필요한 경우 해당 인증서의 만료 날짜를 사용자 지정할 수 있습니다. 만료 되기 전에 인증서를 갱신 하는 프로세스가 준비 되었는지 확인 합니다. 자세히 알아보려면 [AZURE AD 인증서 관리](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)를 참조 하세요.
 
 ### <a name="considerations-for-password-based-sso"></a>암호 기반 SSO에 대 한 고려 사항
@@ -236,9 +236,9 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 | Persona| 역할 | Azure AD 역할 (필요한 경우) |
 |--------|-------|-----------------------------|
 | 지원 센터 관리자 | 계층 1 지원 | 없음 |
-| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 글로벌 관리자 |
+| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 전역 관리자 |
 | 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
-| 인프라 관리자 | 인증서 롤오버 소유자 | 글로벌 관리자 |
+| 인프라 관리자 | 인증서 롤오버 소유자 | 전역 관리자 |
 | 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
 
 디렉터리 사용 권한을 가진 사용자에 대 한 추가 감사, 제어 및 액세스 검토를 제공 하기 위해 PIM ( [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) )을 사용 하 여 역할을 관리 하는 것이 좋습니다.

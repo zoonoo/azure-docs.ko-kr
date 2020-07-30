@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: ded28ef872bbc3147793ea3d68c94f8dde35f74e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 44a2c0c1b4bc9b4e6fc1247497640b261d1d0fa1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674185"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387917"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리형 키 설정
 
@@ -64,9 +64,9 @@ CMK를 프로비저닝하려면 다음 단계를 수행합니다. 
 
 1.  [복구 옵션 설정:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   [일시 삭제](../key-vault/general/overview-soft-delete.md)가 설정되어 있는지 확인합니다.
+    -   [일시 삭제](../key-vault/general/soft-delete-overview.md)가 설정되어 있는지 확인합니다.
 
-    -   일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제하지 않도록 보호하려면 [제거 보호](../key-vault/general/overview-soft-delete.md#purge-protection)를 설정합니다.
+    -   일시 삭제 후에도 비밀/자격 증명 모음을 강제로 삭제하지 않도록 보호하려면 [제거 보호](../key-vault/general/soft-delete-overview.md#purge-protection)를 설정합니다.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>2단계: Log Analytics 작업 영역에서 CMK 사용
 

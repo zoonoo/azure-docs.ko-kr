@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 40a907cdeb4934b4518fb6b1923d69a004f14d8d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d0aebffa5f3d27a77928c2a1c7461384bf99ce8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291471"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387883"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Android 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결
 
@@ -21,9 +21,6 @@ ms.locfileid: "87291471"
 
 >[!IMPORTANT]
 >이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-android-2019.md)를 참조 하세요.
-
->[!NOTE]
-> Android 클라이언트에서 Windows 가상 데스크톱 리소스에 액세스 하는 기능은 현재 미리 보기로 제공 됩니다.
 
 다운로드 가능한 클라이언트를 사용 하 여 Android 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. Google Play 스토어를 지 원하는 Chromebook 장치에서 Android 클라이언트를 사용할 수도 있습니다. 이 가이드에서는 Android 클라이언트를 설정 하는 방법을 설명 합니다.
 

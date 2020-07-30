@@ -13,18 +13,18 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00dfac7c3036c4fd457c5d3a6bb4eb7bd4e56998
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb119ef0ffd4da4dc524c9d3c0a88b94e2251142
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731327"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423561"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Azure Active Directory 포털에서 사용자 목록 다운로드
 
 Azure AD (Azure Active Directory)는 대량 사용자 가져오기 (만들기) 작업을 지원 합니다.
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="required-permissions"></a>필수 사용 권한
 
 Azure AD 관리 센터에서 사용자 목록을 다운로드 하려면 Azure AD에서 하나 이상의 조직 수준 관리자 역할에 할당 된 사용자로 로그인 해야 합니다 (사용자 관리자는 필요한 최소 역할). 게스트 초대자 및 응용 프로그램 개발자는 관리자 역할로 간주 되지 않습니다.
 
@@ -72,7 +72,7 @@ Azure AD 관리 센터에서 사용자 목록을 다운로드 하려면 Azure AD
 
 **대량 작업 결과** 페이지에서 보류 중인 대량 요청의 상태를 볼 수 있습니다.
 
-[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
+[![대량 작업 결과 페이지에서 상태를 확인 합니다.](media/users-bulk-download/bulk-center.png)](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
 

@@ -51,7 +51,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 
 이러한 SQL 게이트웨이는 2020 8 월 10 일에 고객 트래픽 수락을 시작 합니다. 
 
-# <a name="completed"></a>[Completed](#tab/completed-ip)
+# <a name="completed"></a>[완료됨](#tab/completed-ip)
 
 다음 게이트웨이 마이그레이션이 완료 되었습니다. 
 

@@ -2,15 +2,15 @@
 title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 가상 네트워크에 Microsoft EventHub 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/29/2020
+ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288002"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420460"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 
 [VNet(Virtual Network) 서비스 엔드포인트][vnet-sep]와 Event Hubs를 통합하면 양쪽 엔드에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다.
 
@@ -56,10 +56,19 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 이 섹션에서는 Azure Portal를 사용 하 여 가상 네트워크 서비스 끝점을 추가 하는 방법을 보여 줍니다. 액세스를 제한 하려면이 Event Hubs 네임 스페이스에 대 한 가상 네트워크 서비스 끝점을 통합 해야 합니다.
 
 1. **Azure Portal**에서 [Event Hubs 네임스페이스](https://portal.azure.com)로 이동합니다.
-2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. **모든 네트워크** 옵션을 선택하면 이벤트 허브는 모든 IP 주소에서의 연결을 허용합니다. 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
+4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택 합니다. 
+
+    > [!NOTE]
+    > **표준** 또는 **전용** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다. 
+
+    기본적으로 **선택한 네트워크** 옵션이 선택 되어 있습니다. IP 방화벽 규칙을 지정 하지 않거나이 페이지에서 가상 네트워크를 추가 하는 경우 공용 인터넷을 포함 한 모든 네트워크 (액세스 키 사용)에서 네임 스페이스에 액세스할 수 있습니다. 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="네트워크 탭-선택한 네트워크 옵션" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    **모든 네트워크** 옵션을 선택 하는 경우 이벤트 허브는 모든 IP 주소에서 연결을 수락 합니다 (액세스 키 사용). 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
     ![방화벽 - 모든 네트워크 옵션 선택됨](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. 특정 네트워크에 대 한 액세스를 제한 하려면 페이지 맨 위에서 **선택한 네트워크** 옵션을 선택 합니다.
+1. 특정 네트워크에 대 한 액세스를 제한 하려면 페이지 맨 위에 있는 **선택한 네트워크** 옵션을 선택 합니다 (아직 선택 하지 않은 경우).
 2. 페이지의 **Virtual Network** 섹션에서 * * + 기존 가상 네트워크 추가 * * *를 선택 합니다. 새 VNet을 만들려면 **+ 새 가상 네트워크 만들기** 를 선택 합니다. 
 
     ![기존 가상 네트워크 추가](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -77,6 +86,8 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
     ![네트워크 저장](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > 특정 IP 주소 또는 범위에 대 한 액세스를 제한 하려면 [특정 ip 주소 또는 범위에서 액세스 허용](event-hubs-ip-filtering.md)을 참조 하세요.
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 

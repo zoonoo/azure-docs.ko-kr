@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497646"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407696"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -45,13 +45,10 @@ Data Factory는 세 가지 유형의 IR (Integration Runtime)을 제공 하며, 
 
 IR 유형 | 공용 네트워크 | 프라이빗 네트워크
 ------- | -------------- | ---------------
-Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
+Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치
 자체 호스팅 | 데이터 이동<br/>작업 디스패치 | 데이터 이동<br/>작업 디스패치
 Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
-다음 다이어그램은 서로 다른 통합 런타임을 조합해 사용하여 풍부한 데이터 통합 기능 및 네트워크 지원을 제공할 수 있는 방법을 보여 줍니다.
-
-![통합 런타임의 다양한 유형](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Azure 통합 런타임
 
@@ -63,7 +60,7 @@ Azure 통합 런타임은 다음과 같은 작업을 수행할 수 있습니다.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
 
-Azure Integration Runtime는 데이터 저장소에 연결 하 고 액세스 가능한 공용 끝점을 사용 하 여 서비스를 계산 하도록 지원 합니다. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
+Azure Integration Runtime는 데이터 저장소에 연결 하 고 액세스 가능한 공용 끝점을 사용 하 여 서비스를 계산 하도록 지원 합니다. 관리 되는 Virtual Network 사용 하도록 설정 Azure Integration Runtime 개인 네트워크 환경에서 개인 링크 서비스를 사용 하 여 데이터 저장소에 연결할 수 있습니다.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Azure IR 컴퓨팅 리소스 및 크기 조정
 Azure 통합 런타임은 Azure에서 완전히 관리되고, 서버리스 컴퓨팅을 제공합니다.  인프라 프로 비전, 소프트웨어 설치, 패치 또는 용량 크기 조정에 대해 걱정할 필요가 없습니다.  또한 실제 사용 기간에 대해서만 지불합니다.
@@ -136,7 +133,7 @@ IR 위치는 해당 백 엔드 컴퓨팅의 위치, 즉 기본적으로 데이�
 
 Azure IR의 특정 위치를 설정할 수 있습니다 .이 경우 작업 실행 또는 디스패치는 해당 특정 지역에서 수행 됩니다.
 
-기본값인 자동 확인 Azure IR 사용 하도록 선택 하는 경우
+기본값 인 공용 네트워크에서 자동 확인 Azure IR를 사용 하도록 선택 하는 경우
 
 - 복사 활동의 경우 ADF는 싱크 데이터 저장소의 위치를 자동으로 검색 한 다음 사용 가능한 경우 동일한 지역에서 IR을 사용 하 고 동일한 지역에서 가장 가까운 것을 사용 합니다. 싱크 데이터 저장소의 지역이 검색 되지 않는 경우 data factory 지역의 IR이 대신 사용 됩니다.
 
@@ -154,6 +151,8 @@ Azure IR의 특정 위치를 설정할 수 있습니다 .이 경우 작업 실�
 
   > [!TIP] 
   > 데이터 흐름이 해당 데이터 저장소와 동일한 지역에서 실행 되도록 하는 것이 좋습니다 (가능한 경우). Azure IR 자동 해결 (데이터 저장소 위치가 Data Factory 위치와 동일한 경우) 하거나 데이터 저장소와 동일한 지역에 새 Azure IR 인스턴스를 만든 다음 데이터 흐름에서 실행 하 여이를 달성할 수 있습니다. 
+
+자동 해결을 위해 관리 되는 Virtual Network Azure IR 사용 하도록 설정 하면 ADF는 data factory 지역에서 IR을 사용 합니다. 
 
 UI 또는 작업 모니터링 페이로드에 대한 파이프라인 작업 모니터링 보기의 작업 실행 동안 어떤 IR 위치가 적용되는지 모니터링할 수 있습니다.
 

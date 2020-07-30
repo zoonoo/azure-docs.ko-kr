@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057895"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423612"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 만들기
 
@@ -60,7 +60,7 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 
 1. CSV 파일을 열고 만들려는 각 사용자에 대한 줄을 추가합니다. 유일한 필수 값은 **이름**, **사용자 계정 이름**, **초기 암호** 및 **로그인 차단(예/아니요)** 입니다. 그런 다음 파일을 저장합니다.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![CSV 파일에는 만들 사용자의 이름 및 ID가 포함되어 있습니다.](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. **사용자 일괄 만들기** 페이지의 CSV 파일 업로드에서 해당 파일을 찾습니다. 파일을 선택하고 **제출**을 클릭하면 CSV 파일의 유효성 검사가 시작됩니다.
 1. 파일 콘텐츠의 유효성 검사가 완료되면 **파일 업로드 성공**이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
@@ -73,7 +73,7 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 
 **대량 작업 결과** 페이지에서 보류 중인 모든 대량 요청의 상태를 볼 수 있습니다.
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![대량 작업 결과 페이지에서 만들기 상태 확인](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 다음으로, Azure Portal 또는 PowerShell을 사용하여 Azure AD 조직에 만든 사용자가 있는지 확인할 수 있습니다.
 

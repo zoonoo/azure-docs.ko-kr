@@ -10,12 +10,12 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 80ca5b63a91da31a5b226a589e15fb202eabd4ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7e93f54c1aa0eaa5edf3b3fcbfbf8bd9a6442d7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805767"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417542"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
 
@@ -71,7 +71,7 @@ Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 �
 1. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자 인 경우에도 저장소 계정에 대해 데이터 작업을 수행 하려면 명시적 권한이 필요 합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
 
     > [!IMPORTANT]
-    > RBAC 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+    > Azure 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 1. [AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer)를 호출 하 여 컨테이너를 만듭니다. 이 호출에서 이전 단계에서 만든 컨텍스트를 사용 하므로 컨테이너는 Azure AD 자격 증명을 사용 하 여 만들어집니다.
 

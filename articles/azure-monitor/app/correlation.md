@@ -7,26 +7,26 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: b4facaee44a0bc5c7d64376ca80e5aaf8d0768d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa68f1ea8c0dd0d4367d3dcf39f059d0bd8a77ea
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323165"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421929"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
-마이크로 서비스의 세계에서 모든 논리 작업은 서비스의 다양한 구성 요소에서 수행되어야 합니다. [Application Insights](./app-insights-overview.md)를 사용 하 여 이러한 각 구성 요소를 개별적으로 모니터링할 수 있습니다. Application Insights는 오류 또는 성능 저하를 일으키는 구성 요소를 검색하는 데 사용하는 분산된 원격 분석 상관 관계를 지원합니다.
+마이크로 서비스의 세계에서 모든 논리 작업은 서비스의 다양한 구성 요소에서 수행되어야 합니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용 하 여 이러한 각 구성 요소를 개별적으로 모니터링할 수 있습니다. Application Insights는 오류 또는 성능 저하를 일으키는 구성 요소를 검색하는 데 사용하는 분산된 원격 분석 상관 관계를 지원합니다.
 
 이 문서에서는 여러 구성 요소에서 보낸 원격 분석의 상관 관계를 지정하기 위해 Application Insights에서 사용되는 데이터 모델에 대해 설명합니다. 컨텍스트 전파 기술 및 프로토콜을 다룹니다. 또한 다양 한 언어 및 플랫폼에 대 한 상관 관계 전략의 구현을 다룹니다.
 
 ## <a name="data-model-for-telemetry-correlation"></a>원격 분석 상관 관계에 대한 데이터 모델
 
-Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 모델](./data-model.md)을 정의합니다. 원격 분석을 논리 작업과 연결 하기 위해 모든 원격 분석 항목에는 라는 컨텍스트 필드가 `operation_Id` 있습니다. 이 식별자는 분산 추적의 모든 원격 분석 항목에서 공유됩니다. 따라서 단일 계층에서 원격 분석이 손실 되더라도 다른 구성 요소에서 보고 된 원격 분석을 연결할 수 있습니다.
+Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 모델](../../azure-monitor/app/data-model.md)을 정의합니다. 원격 분석을 논리 작업과 연결 하기 위해 모든 원격 분석 항목에는 라는 컨텍스트 필드가 `operation_Id` 있습니다. 이 식별자는 분산 추적의 모든 원격 분석 항목에서 공유됩니다. 따라서 단일 계층에서 원격 분석이 손실 되더라도 다른 구성 요소에서 보고 된 원격 분석을 연결할 수 있습니다.
 
-일반적으로 분산 논리 작업은 구성 요소 중 하나에서 처리 되는 요청에 해당 하는 작은 작업 집합으로 구성 됩니다. 이러한 작업은 [요청 원격 분석](./data-model-request-telemetry.md)에서 정의됩니다. 모든 요청 원격 분석 항목에는 `id` 고유 하 고 전역적으로 식별 하는 자체가 있습니다. 요청과 연결 된 모든 원격 분석 항목 (예: 추적 및 예외)은를 `operation_parentId` 요청 값으로 설정 해야 합니다 `id` .
+일반적으로 분산 논리 작업은 구성 요소 중 하나에서 처리 되는 요청에 해당 하는 작은 작업 집합으로 구성 됩니다. 이러한 작업은 [요청 원격 분석](../../azure-monitor/app/data-model-request-telemetry.md)에서 정의됩니다. 모든 요청 원격 분석 항목에는 `id` 고유 하 고 전역적으로 식별 하는 자체가 있습니다. 요청과 연결 된 모든 원격 분석 항목 (예: 추적 및 예외)은를 `operation_parentId` 요청 값으로 설정 해야 합니다 `id` .
 
-모든 나가는 작업(예: 다른 구성 요소에 대한 HTTP 호출)은 [종속성 원격 분석](./data-model-dependency-telemetry.md)으로 표시됩니다. 종속성 원격 분석은 `id` 전역적으로 고유한 자체도 정의 합니다. 이 종속성 호출을 통해 시작된 요청 원격 분석은 이 `id`를 `operation_parentId`로 사용합니다.
+모든 나가는 작업(예: 다른 구성 요소에 대한 HTTP 호출)은 [종속성 원격 분석](../../azure-monitor/app/data-model-dependency-telemetry.md)으로 표시됩니다. 종속성 원격 분석은 `id` 전역적으로 고유한 자체도 정의 합니다. 이 종속성 호출을 통해 시작된 요청 원격 분석은 이 `id`를 `operation_parentId`로 사용합니다.
 
 `operation_Id`, `operation_parentId` 및 `request.id`를 `dependency.id`와 함께 사용하여 분산 논리 작업의 보기를 빌드할 수 있습니다. 또한 이러한 필드는 원격 분석 호출의 인과 관계 순서를 정의합니다.
 
@@ -216,7 +216,7 @@ public void ConfigureServices(IServiceCollection services)
 | `Operation_Id`                         | `TraceId`                                           |
 | `Operation_ParentId`                   | `ChildOf` 유형의 `Reference`(상위 범위)     |
 
-자세한 내용은 [Application Insights 원격 분석 데이터 모델](./data-model.md)을 참조 하세요.
+자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
 
 OpenTracing 개념에 대 한 정의는 OpenTracing [사양](https://github.com/opentracing/specification/blob/master/specification.md) 및 [의미 체계 규칙](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)을 참조 하세요.
 
@@ -372,11 +372,10 @@ Java [에이전트](./java-in-process-agent.md) 및 [java SDK](../../azure-monit
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 원격 분석](./api-custom-events-metrics.md)을 작성 합니다.
+- [사용자 지정 원격 분석](../../azure-monitor/app/api-custom-events-metrics.md)을 작성 합니다.
 - ASP.NET Core 및 ASP.NET의 고급 상관 관계 시나리오는 [사용자 지정 작업 추적](custom-operations-tracking.md)을 참조 하세요.
-- 다른 SDK의 [cloud_RoleName 설정](./app-map.md#set-cloud-role-name)에 대해 자세히 알아봅니다.
+- 다른 SDK의 [cloud_RoleName 설정](./app-map.md#set-or-override-cloud-role-name)에 대해 자세히 알아봅니다.
 - Application Insights에서 마이크로 서비스의 모든 구성 요소를 온보딩합니다. [지원되는 플랫폼](./platforms.md)을 확인합니다.
 - Application Insights 유형에 대한 [데이터 모델](./data-model.md)을 참조합니다.
 - [원격 분석을 확장 및 필터링](./api-filtering-sampling.md)하는 방법을 알아봅니다.
 - [Application Insights 구성 참조](configuration-with-applicationinsights-config.md)를 검토합니다.
-

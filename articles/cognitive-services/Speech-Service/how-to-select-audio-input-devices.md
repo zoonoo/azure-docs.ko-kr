@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 80671a40b5933a89962fa07b267d7e99e475657f
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109966"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406693"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: 음성 SDK를 사용 하 여 오디오 입력 장치 선택
 
@@ -175,7 +176,7 @@ namespace ConsoleApp
 
 ## <a name="audio-device-ids-on-uwp"></a>UWP의 오디오 디바이스 ID
 
-UWP (유니버설 Windows 플랫폼)에서 해당 `Id()` [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) 개체의 속성을 사용 하 여 오디오 입력 장치를 가져올 수 있습니다.
+UWP (유니버설 Windows 플랫폼)에서 `Id()` 해당 개체의 속성을 사용 하 여 오디오 입력 장치를 가져올 수 있습니다 [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) .
 
 다음 코드 샘플에서는 C++ 및 C#에서 이 작업을 수행하는 방법을 보여 줍니다.
 
@@ -365,7 +366,7 @@ CFArrayRef CreateInputDeviceArray()
 
 ## <a name="audio-device-ids-on-ios"></a>iOS의 오디오 디바이스 ID
 
-iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다. 그러나 SDK를 사용 하는 앱은 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) 프레임 워크를 통한 오디오 라우팅에 영향을 줄 수 있습니다.
+iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다. 그러나 SDK를 사용 하는 앱은 프레임 워크를 통한 오디오 라우팅에 영향을 줄 수 있습니다 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) .
 
 예를 들어 다음 명령은
 

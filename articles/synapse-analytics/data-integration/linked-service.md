@@ -1,6 +1,6 @@
 ---
 title: 연결 된 서비스 보안
-description: 관리 Vnet을 사용 하 여 연결 된 서비스를 프로 비전 하 고 보호 하는 방법을 알아봅니다.
+description: 관리 VNet을 사용 하 여 연결 된 서비스를 프로 비전 하 고 보호 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: acomet
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496080"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387247"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>개인 링크를 사용 하 여 연결 된 서비스 보안 
+# <a name="secure-a-linked-service-with-private-links"></a>개인 링크를 사용 하 여 연결 된 서비스 보호 
 
 이 문서에서는 개인 끝점을 사용 하 여 Synapse에서 연결 된 서비스를 보호 하는 방법에 대해 설명 합니다.
 
@@ -35,27 +35,27 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 1. **외부 연결**에서 **연결된 서비스**를 선택합니다.
 1. 연결된 서비스를 추가하려면 **새로 만들기**를 클릭합니다.
 1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택하고 **계속**을 클릭합니다.
-1. **대화형 제작**을 사용 하도록 설정 해야 합니다. 사용 하도록 설정 하는 데 약 1 분 정도 걸릴 수 있습니다. 
+1. **대화형 작성**을 사용하도록 설정해야 합니다. 사용하도록 설정하는 데 약 1분 정도 걸릴 수 있습니다. 
 1. 인증 자격 증명을 입력합니다. 계정 키, 서비스 주체 및 관리 ID는 현재 지원되는 인증 유형입니다. 연결 테스트를 클릭하여 자격 증명이 올바른지 확인합니다.
 1. **연결 테스트**를 선택 하면 개인 끝점을 만들고 승인 하지 않고도 저장소 계정에서 액세스할 수 있으므로 실패 합니다. 오류 메시지에는 다음 부분으로 이동 하기 위해 수행할 수 있는 **개인 끝점** 을 만들기 위한 링크가 표시 됩니다. 해당 링크를 팔 로우 하는 경우 다음 부분을 건너뜁니다.
 1. 작업을 완료하면 **만들기**를 선택합니다.
 
-## <a name="create-a-managed-private-endpoint"></a>관리 되는 개인 끝점 만들기
+## <a name="create-a-managed-private-endpoint"></a>관리형 프라이빗 엔드포인트 만들기
 
-위의 연결을 테스트할 때 하이퍼링크를 클릭 하지 않은 경우에는 다음 경로를 따르세요. 이제 위에서 만든 연결 된 서비스에 연결 하는 관리 되는 개인 끝점을 만들어야 합니다.
+위의 연결을 테스트할 때 하이퍼링크를 클릭 하지 않은 경우에는 다음 경로를 따르세요. 이제 위에서 만든 연결된 서비스에 연결하는 관리형 프라이빗 엔드포인트를 만들어야 합니다.
 
 1. **관리** 탭으로 이동 합니다.
 1. **관리 되는 가상 네트워크** 섹션으로 이동 합니다.
 1. 관리 되는 개인 끝점에서 **+ 새로 만들기** 를 선택 합니다.
 1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속**을 선택 합니다.
-1. 위에서 만든 저장소 계정의 이름을 입력 합니다.
+1. 위에서 만든 스토리지 계정의 이름을 입력합니다.
 1. **만들기**
-1. 잠시 기다린 후 개인 링크에서 승인이 필요한 경우를 확인 해야 합니다.
+1. 몇 초 정도 기다리면 만들어진 프라이빗 링크를 승인해야 한다고 표시됩니다.
 
-## <a name="approval-of-a-private-link"></a>개인 링크 승인
-1. 위에서 만든 개인 끝점을 선택 합니다. 저장소 계정 수준에서 개인 끝점을 승인할 수 있도록 하는 하이퍼링크가 표시 됩니다. *대신 Azure Portal Storage 계정으로 직접 이동 하 여 **개인 끝점 연결** 블레이드로 이동 합니다.*
+## <a name="private-link-approval"></a>개인 링크 승인
+1. 위에서 만든 프라이빗 엔드포인트를 선택합니다. 저장소 계정 수준에서 개인 끝점을 승인할 수 있도록 하는 하이퍼링크가 표시 됩니다. *대신 Azure Portal Storage 계정으로 직접 이동 하 여 **개인 끝점 연결** 블레이드로 이동 합니다.*
 1. Studio에서 만든 개인 끝점을 틱 하 고 **승인**을 선택 합니다.
-1. 설명을 추가 하 고 **예** 를 클릭 합니다.
+1. 설명을 추가하고 **예**를 클릭합니다.
 1. [ **관리** ] 탭의 [ **관리 되는 가상 네트워크** ] 섹션에서 Synapse Studio로 돌아갑니다.
 1. 개인 끝점에 대 한 승인을 반영 하는 데 1 분 정도가 소요 됩니다.
 

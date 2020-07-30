@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5f159ffcea0aa88f354ae503be96a5c571c10adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806835"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423323"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 분할
 
@@ -31,7 +31,7 @@ Apache Cassandra은 파티션에 저장할 수 있는 데이터 크기에 대해
 
 Azure Cosmos DB에서 각 실제 파티션은 복제본 집합이 라고도 하는 복제본 집합으로 구성 되며 파티션 당 복제본이 4 개 이상 포함 됩니다. 이는 복제 인수를 1로 설정 하는 것이 가능한 Apache Cassandra와는 대조적입니다. 그러나 데이터가 있는 유일한 노드가 중단 되 면 가용성이 낮아집니다. Cassandra API의 복제 인수는 항상 4 (쿼럼을 3)입니다. Azure Cosmos DB는 자동으로 복제본 집합을 관리 하지만 Apache Cassandra의 다양 한 도구를 사용 하 여 유지 해야 합니다. 
 
-Apache Cassandra에는 파티션 키의 해시로 토큰 개념이 있습니다. 토큰은 murmur3 64 바이트 해시를 기반으로 하며, 값은-2 ^ 63에서-2 ^ 63-1 사이입니다. 이 범위는 일반적으로 Apache Cassandra에서 "토큰 링" 이라고 합니다. 토큰 링은 토큰 범위에 배포 되 고 이러한 범위는 네이티브 Apache Cassandra 클러스터에 있는 노드 간에 분할 됩니다. Azure Cosmos DB에 대 한 분할은 다른 해시 알고리즘을 사용 하 고 더 큰 토큰 링을 포함 하는 것을 제외 하 고 비슷한 방식으로 구현 됩니다. 
+Apache Cassandra에는 파티션 키의 해시로 토큰 개념이 있습니다. 토큰은 murmur3 64 바이트 해시를 기반으로 하며, 값은-2 ^ 63에서-2 ^ 63-1 사이입니다. 이 범위는 일반적으로 Apache Cassandra에서 "토큰 링" 이라고 합니다. 토큰 링은 토큰 범위에 배포 되 고 이러한 범위는 네이티브 Apache Cassandra 클러스터에 있는 노드 간에 분할 됩니다. Azure Cosmos DB에 대 한 분할은 다른 해시 알고리즘을 사용 하 고 내부 토큰 링이 더 크다는 점을 제외 하 고 비슷한 방식으로 구현 됩니다. 그러나 외부에서는 Apache Cassandra와 같은 토큰 범위 (예:-2 ^ 63 ~-2 ^ 63-1)를 제공 합니다.
 
 
 ## <a name="primary-key"></a>기본 키

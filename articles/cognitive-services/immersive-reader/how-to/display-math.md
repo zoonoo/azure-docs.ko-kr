@@ -9,12 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: pasta
-ms.openlocfilehash: e01cc9e8cedb6c38da0b56e04419c706d5d0566e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6bde75fe0fb856633d7849173faf21db76edc950
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946285"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406914"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>몰입 형 판독기에서 수학을 표시 하는 방법
 
@@ -22,7 +23,7 @@ ms.locfileid: "75946285"
 MIME 형식은 몰입 형 판독기 [청크](../reference.md#chunk)를 통해 설정할 수 있습니다. 자세한 내용은 [지원 되는 MIME 형식](../reference.md#supported-mime-types) 을 참조 하세요.
 
 ## <a name="send-math-to-the-immersive-reader"></a>몰입 형 판독기로 수학을 보냅니다.
-MathML를 포함 하는 청크를 입력 하 고 MIME 형식을로 ```application/mathml+xml```설정 합니다.
+MathML를 포함 하는 청크를 입력 하 고 MIME 형식을로 설정 합니다 ```application/mathml+xml``` .
 
 예를 들어 다음과 같은 내용이 있습니다.
 

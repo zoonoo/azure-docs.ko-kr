@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7a6105e8742a4cb3d2f113c6ef723f6171baf4d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328441"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417117"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대 한 VM용 Azure Monitor 사용
 이 문서에서는 온-프레미스 및 기타 클라우드 환경을 포함 하 여 Azure 외부에서 가상 머신에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
 
 > [!IMPORTANT]
-> 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대해 Azure Arc](/azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 azure vm과 유사한 프로세스를 사용 하 VM용 Azure Monitor vm을 사용할 수 있도록 하는 것입니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
+> 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대해 Azure Arc](../../azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 azure vm과 유사한 프로세스를 사용 하 VM용 Azure Monitor vm을 사용할 수 있도록 하는 것입니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
@@ -31,7 +31,7 @@ Azure 외부의 가상 컴퓨터에는 Azure Vm에 사용 되는 것과 동일�
 Log Analytics 에이전트 배포에 대 한 자세한 내용은 [Azure Monitor에 Windows 컴퓨터 연결](../platform/agent-windows.md) 또는 [Linux 컴퓨터를 Azure Monitor에](../platform/agent-linux.md) 연결을 참조 하세요. 종속성 에이전트에 대 한 세부 정보는이 문서에 나와 있습니다. 
 
 ## <a name="firewall-requirements"></a>방화벽 요구 사항
-Log Analytics 에이전트에 대 한 방화벽 요구 사항은 [Log Analytics 에이전트 개요](..//platform/log-analytics-agent.md#network-requirements)에 제공 됩니다. VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 사용자가 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우에는 항상 Log Analytics 에이전트가 직접 또는 [Operations Management Suite 게이트웨이](../../azure-monitor/platform/gateway.md) 를 통해 Azure Monitor 서비스에 맵 데이터를 전송 합니다.
+Log Analytics 에이전트에 대 한 방화벽 요구 사항은 [Log Analytics 에이전트 개요](../platform/log-analytics-agent.md#network-requirements)에 제공 됩니다. VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 사용자가 네트워크의 컴퓨터에서 인터넷에 연결할 수 있도록 허용 하지 않는 경우에는 항상 Log Analytics 에이전트가 직접 또는 [Operations Management Suite 게이트웨이](../../azure-monitor/platform/gateway.md) 를 통해 Azure Monitor 서비스에 맵 데이터를 전송 합니다.
 
 
 ## <a name="dependency-agent"></a>종속성 에이전트
@@ -92,7 +92,7 @@ Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 
-| 파일 | 위치 |
+| Files | 위치 |
 |:--|:--|
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |

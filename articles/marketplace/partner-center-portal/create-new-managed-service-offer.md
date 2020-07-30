@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405248"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
@@ -194,6 +194,9 @@ ms.locfileid: "87326627"
 현재 관리형 서비스 제품에 사용할 수 있는 가격 책정 모델은 **BYOL(사용자 라이선스 필요)** 하나뿐입니다. 즉, 고객에게 이 제품과 관련된 비용을 직접 청구할 것이며 Microsoft는 사용자에게 요금을 부과하지 않음을 의미합니다.
 
 **플랜 표시 여부** 섹션에서 플랜이 [비공개](../../marketplace/private-offers.md)여야 하는지 여부를 지정할 수 있습니다. **비공개 플랜** 확인란을 선택하지 않은 상태로 두면, 플랜은 특정 고객(또는 특정 수의 고객)으로 제한되지 않습니다.
+
+> [!NOTE]
+> 사설 요금제는 CSP (클라우드 솔루션 공급자) 프로그램의 재판매인을 통해 설정 된 구독에서 지원 되지 않습니다.
 
 이 플랜을 특정 고객만 사용할 수 있도록 설정하려면 **예**를 선택합니다. 이렇게 하면 구독 ID를 제공하여 고객을 식별해야 합니다. 하나씩 입력하거나(구독 최대 10개) .csv 파일(모든 플랜의 구독 최대 10,000개)을 업로드하여 입력할 수 있습니다. 제품을 테스트하고 유효성을 검사할 수 있도록 여기에 고유한 구독을 포함해야 합니다.
 

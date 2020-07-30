@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ac701b70a9db860e2f839ab30fb575133703c142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708479"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422915"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>자습서: 두 개의 관리 되는 인스턴스 간에 복제 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "84708479"
 트랜잭션 복제를 사용 하면 SQL Server 또는 [AZURE SQL Managed Instance](sql-managed-instance-paas-overview.md) (공개 미리 보기) 중 하나에서 호스트 되는 다른 데이터베이스에 데이터를 복제할 수 있습니다. SQL Managed Instance는 복제 토폴로지의 게시자, 배포자 또는 구독자 일 수 있습니다. 사용 가능한 구성에 대 한 [트랜잭션 복제 구성](replication-transactional-overview.md#common-configurations) 을 참조 하세요.
 
 > [!NOTE]
-> 이 문서에서는 Azure SQL Managed Instance에서 [트랜잭션 복제](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) 를 사용 하는 방법을 설명 합니다. [장애 조치 (failover) 그룹과](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group)는 관련이 없으며, 개별 인스턴스의 완전 한 읽기 가능한 복제본을 만들 수 있는 Azure SQL Managed Instance 기능입니다.
+> 이 문서에서는 Azure SQL Managed Instance에서 [트랜잭션 복제](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) 를 사용 하는 방법을 설명 합니다. [장애 조치 (failover) 그룹과](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group)는 관련이 없으며, 개별 인스턴스의 완전 한 읽기 가능한 복제본을 만들 수 있는 Azure SQL Managed Instance 기능입니다. [장애 조치 그룹을 사용 하 여 트랜잭션 복제를](replication-transactional-overview.md#with-failover-groups)구성할 때 추가로 고려해 야 할 사항이 있습니다.
 
 이 자습서에서는 하나의 관리 되는 인스턴스를 게시자 및 배포자로 구성 하 고 두 번째 관리 되는 인스턴스를 구독자로 구성 하는 방법을 설명 합니다.  
 

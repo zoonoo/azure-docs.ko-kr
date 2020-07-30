@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132722"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421436"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 
@@ -18,12 +18,12 @@ ms.locfileid: "86132722"
 
 Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다.
 
-| URL | 세부 정보 |
-|---|---|
-| `*.blob.core.windows.net` | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 특정 저장소 계정 Url에 대해 허용 목록을 사용할 수 있습니다. 예를 들어 `cache1.blob.core.windows.net` `cache2.blob.core.windows.net` 대신 및입니다 `*.blob.core.windows.net` . |
-| `login.microsoftonline.com` | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다. |
-| `*.hypervrecoverymanager.windowsazure.com` | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 _SITE RECOVERY IP_ 를 사용할 수 있습니다. |
-| `*.servicebus.windows.net` | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 하는 _Site Recovery 모니터링 IP_ 를 사용할 수 있습니다. |
+| **이름**                  | **상용**                               | **정부**                                 | **설명** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| 스토리지                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. Vm에 대 한 모든 캐시 저장소 계정을 알고 있는 경우 특정 저장소 계정 Url에 대해 허용 목록을 사용할 수 있습니다. 예를 들어 `cache1.blob.core.windows.net` `cache2.blob.core.windows.net` 대신 및입니다 `*.blob.core.windows.net` . |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다. |
+| 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 Ip를 지 원하는 경우 해당 _SITE RECOVERY IP_ 를 사용할 수 있습니다. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM에서 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 하는 데 필요합니다. 방화벽 프록시가 ip를 지 원하는 경우 해당 하는 _Site Recovery 모니터링 IP_ 를 사용할 수 있습니다. |
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Site Recovery URL 또는 IP 범위에 대한 아웃바운드 연결(오류 코드 151037 또는 151072)
 

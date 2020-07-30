@@ -2,19 +2,19 @@
 title: Azure Functions 준비 트리거
 description: Azure Functions에서 워밍업 트리거를 사용 하는 방법을 이해 합니다.
 documentationcenter: na
-author: alexkarcher-msft
+author: craigshoemaker
 manager: gwallace
 keywords: azure 함수, 함수, 이벤트 처리, 준비, 콜드 시작, 프리미엄, 동적 계산, 서버를 사용 하지 않는 아키텍처
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
-ms.author: alkarche
-ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: cshoe
+ms.openlocfilehash: dade31fd9a5a75c875274ea45607fea81a2de027
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982244"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383718"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 

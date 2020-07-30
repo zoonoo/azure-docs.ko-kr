@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 668b8d714c4d6c146d9b279d9e6a49599c04775c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870525"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423510"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>보안 연결을 보장 하려면 보안 전송 필요
 
@@ -51,7 +51,7 @@ ms.locfileid: "81870525"
 
 ## <a name="require-secure-transfer-from-code"></a>코드에서 보안 전송 필요
 
-프로그래밍 방식으로 보안 전송을 요구 하려면 저장소 계정에서 _supportsHttpsTrafficOnly_ 속성을 설정 합니다. 저장소 리소스 공급자 REST API, 클라이언트 라이브러리 또는 도구를 사용 하 여이 속성을 설정할 수 있습니다.
+프로그래밍 방식으로 보안 전송을 요구 하려면 저장소 계정에서 _enableHttpsTrafficOnly_ 속성을 _True_ 로 설정 합니다. 저장소 리소스 공급자 REST API, 클라이언트 라이브러리 또는 도구를 사용 하 여이 속성을 설정할 수 있습니다.
 
 * [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)

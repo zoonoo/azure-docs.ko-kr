@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509021"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423459"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux용 Azure Serial Console
 
@@ -26,11 +26,12 @@ Azure Portal의 직렬 콘솔은 Linux Vm (가상 머신) 및 가상 머신 확�
 
 직렬 콘솔은 VM 및 가상 머신 확장 집합 인스턴스에 대해 동일한 방식으로 작동합니다. 이 문서에서 달리 명시되지 않는 한 VM에 대한 모든 언급에는 가상 머신 확장 집합 인스턴스가 암시적으로 포함됩니다.
 
+직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
+
 Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](./serial-console-windows.md)을 참조 하세요.
 
 > [!NOTE]
-> 직렬 콘솔은 일반적으로 글로벌 Azure 지역 및 Azure Government의 공개 미리 보기에서 사용할 수 있습니다. Azure 중국 클라우드에서는 아직 사용할 수 없습니다.
-
+> 직렬 콘솔은 현재 관리 되는 부트 진단 저장소 계정과 호환 되지 않습니다. 직렬 콘솔을 사용 하려면 사용자 지정 저장소 계정을 사용 하 고 있는지 확인 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -59,7 +60,7 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](./serial-cons
 > [!NOTE]
 > 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다. **Enter 키** 를 누르면 직렬 콘솔에 아무것도 표시 되지 않는 문제를 해결 하는 경우가 많습니다.
 
-배포      | 직렬 콘솔 액세스
+분포      | 직렬 콘솔 액세스
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 CentOS      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
@@ -70,7 +71,7 @@ SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 직렬 콘�
 Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 
 ### <a name="custom-linux-images"></a>사용자 지정 Linux 이미지
-사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
+사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예를 들면 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`과 다음과 같습니다. TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
 
 또한 직렬 출력의 대상으로 ttys0을 추가 하려고 합니다. 직렬 콘솔을 사용 하도록 사용자 지정 이미지를 구성 하는 방법에 대 한 자세한 내용은 [Azure에서 LINUX VHD 만들기 및 업로드](https://aka.ms/createuploadvhd#general-linux-system-requirements)에서 일반적인 시스템 요구 사항을 참조 하세요.
 

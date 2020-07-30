@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49c389170e9d586a2001009226c6542d4d152f7f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027532"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418222"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대 한 사용자 설정 관리
 
@@ -47,7 +47,7 @@ Azure Multi-Factor Authentication 사용자를 관리 하려면 사용자가 암
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **Azure Active Directory**  >  **사용자**  >  **모든 사용자**를 선택 합니다.
-1. **Multi-Factor Authentication**을 선택합니다. 이 메뉴 옵션을 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 아래 예제 스크린샷을 선택하여 전체 Azure Portal 창 및 메뉴 위치를 확인합니다. [![](media/howto-mfa-userstates/selectmfa-cropped.png "Azure AD의 사용자 창에서 Multi-Factor Authentication을 선택합니다.")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. **Multi-Factor Authentication**을 선택합니다. 이 메뉴 옵션을 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 다음 스크린샷 예를 선택 하 여 전체 Azure Portal 창 및 메뉴 위치를 확인 합니다. [ ![ Azure AD의 사용자 창에서 Multi-Factor Authentication를 선택 합니다.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 오른쪽에 빠른 단계 옵션 목록이 표시 됩니다.
 1. **사용자 설정 관리**를 선택 하 고 다음 예제와 같이 모든 기존 앱 암호 삭제의 확인란을 선택 하 여 **선택한 사용자가 생성 한 모든 기존 앱 암호를 삭제**합니다. 확인란을 선택 합니다. ![](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. **저장**, **닫기**를 차례로 선택 합니다.

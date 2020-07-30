@@ -2,13 +2,13 @@
 title: Azure Service Bus 프리미엄 및 표준 계층
 description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 계층에 대해 설명 합니다. 는 이러한 계층을 비교 하 고 기술적 차이를 제공 합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337420"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386353"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -24,7 +24,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 | 예측 가능한 성능 |가변 대기 시간 |
 | 고정된 가격 책정 |종량제 가변 가격 |
 | 작업을 확장 및 축소하는 기능 |해당 없음 |
-| 최대 1MB의 메시지 크기 |최대 256KB의 메시지 크기 |
+| 메시지 크기는 최대 1mb입니다. 이 제한은 향후 발생할 수 있습니다. 서비스에 대 한 최신 중요 업데이트는 [Azure의 Messaging 블로그](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog)를 참조 하세요. |최대 256KB의 메시지 크기 |
 
 **Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임 스페이스에 대해 1, 2, 4 또는 8 개의 메시징 단위를 구입할 수 있습니다. 단일 작업 또는 엔터티는 여러 메시징 단위에 걸쳐 있을 수 있으며 메시징 단위 수는 변경 될 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
 
@@ -36,11 +36,11 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 
 ### <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
-프리미엄 메시징에서 분할된 큐 및 항목이 지원되지 않습니다. 분할에 대한 자세한 내용은 [분할 큐 및 항목](service-bus-partitioning.md)을 참조하세요.
+분할 된 큐 및 토픽은 프리미엄 메시징에서 지원 되지 않습니다. 분할에 대한 자세한 내용은 [분할 큐 및 항목](service-bus-partitioning.md)을 참조하세요.
 
 ### <a name="express-entities"></a>Express 엔터티
 
-프리미엄 메시지가 완전히 격리된 런타임 환경에서 실행되므로 프리미엄 메시지는 Express 엔터티가 지원되지 않습니다. Express 기능에 대한 자세한 내용은 [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성을 참조하세요.
+프리미엄 메시징은 격리 된 런타임 환경에서 실행 되므로 프리미엄 네임 스페이스에서는 express 엔터티가 지원 되지 않습니다. Express 기능에 대한 자세한 내용은 [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성을 참조하세요.
 
 표준 메시지에서 실행되는 코드가 있고 프리미엄 계층으로 이식하려는 경우 [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성이 **false**(기본값)로 설정되어 있는지 확인합니다.
 
@@ -51,9 +51,9 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 - 런타임 작업 (메시지 보내기 및 받기)
 - 작업 및 경고 모니터링
 
-추가 CPU 및 메모리 사용은 그 외에도 가격이 책정 되지 않습니다. 프리미엄 메시징 계층에는 메시지 단위에 대 한 단일 가격이 있습니다.
+추가 CPU 및 메모리 사용량은 이외에도 가격이 책정 되지 않습니다. 프리미엄 메시징 계층에는 메시지 단위에 대 한 단일 가격이 있습니다.
 
-다음과 같은 이유로 CPU 및 메모리 사용량이 추적 되 고 사용자에 게 표시 됩니다. 
+다음과 같은 이유로 CPU 및 메모리 사용량이 추적 되 고 표시 됩니다. 
 
 - 시스템 내부에 투명성 제공
 - 구매한 리소스의 용량을 파악 합니다.
