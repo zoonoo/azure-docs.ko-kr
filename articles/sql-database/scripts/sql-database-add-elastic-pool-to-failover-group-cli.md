@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 965e6fe3546630713f3fee2774c70aebd1ed2ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086084"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>CLI를 사용하여 Azure SQL Database 탄력적 풀을 장애 조치(failover) 그룹에 추가
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| | |
+| 명령 | 설명 |
 |---|---|
 | [az sql elastic-pool](/cli/azure/sql/elastic-pool) | 탄력적 풀 명령입니다. |
 | [az sql failover-group](/cli/azure/sql/failover-group) | 장애 조치(failover) 그룹 명령입니다. |

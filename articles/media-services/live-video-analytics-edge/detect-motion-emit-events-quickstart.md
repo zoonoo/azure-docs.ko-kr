@@ -3,12 +3,12 @@ title: 동작 감지 및 이벤트 내보내기 - Azure
 description: 이 빠른 시작에서는 프로그래밍 방식으로 직접 메서드를 호출하여 Live Video Analytics on IoT Edge를 사용하여 동작을 감지하고 이벤트를 내보내는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: fca773d0583bee3bef4e7254bcca95866b2205e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091915"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>빠른 시작: 동작 감지 및 이벤트 내보내기
 
@@ -36,7 +36,7 @@ ms.locfileid: "84816700"
 * IoT Hub
 * 스토리지 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge-linux.md)이 설치된 Azure의 Linux VM
 
 이 빠른 시작에서는 [Live Video Analytics 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)를 사용하여 Azure 구독에 필요한 리소스를 배포하는 것이 좋습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
@@ -228,7 +228,7 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 들어오는 라이브 �
 
 ## <a name="interpret-results"></a>결과 해석
 
-미디어 그래프를 실행하면 동작 감지기 프로세서 노드의 결과가 IoT Hub 싱크 노드를 통해 IoT 허브에 전송됩니다. Visual Studio Code의 **출력** 창에 표시되는 메시지에는 `body` 섹션과 `applicationProperties` 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)를 참조하세요.
+미디어 그래프를 실행하면 동작 감지기 프로세서 노드의 결과가 IoT Hub 싱크 노드를 통해 IoT 허브에 전송됩니다. Visual Studio Code의 **출력** 창에 표시되는 메시지에는 `body` 섹션과 `applicationProperties` 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 
 다음 메시지에서 Live Video Analytics 모듈은 애플리케이션 속성 및 본문의 콘텐츠를 정의합니다.
 

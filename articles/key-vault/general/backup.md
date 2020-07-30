@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 76ceba11ffeb5569e250fab6bc47fe8faf019361
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 668154b5e54ed4d496d272e33e8fc7f378e75e8a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521108"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386268"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault 백업
 
@@ -27,7 +27,7 @@ Azure Key Vault는 가용성을 유지하고 데이터 손실을 방지하는 �
 
 Key Vault는 재해 시나리오에서 가용성을 유지하고 사용자의 개입 없이도 쌍으로 연결된 지역으로 요청을 자동으로 장애 조치(failover)합니다. 자세한 내용은 [Azure Key Vault 가용성 및 중복성](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)을 참조하세요.
 
-비밀을 실수로 또는 악의적으로 삭제하지 않도록 보호하려면 키 자격 증명 모음에서 일시 삭제 및 제거 보호 기능을 구성합니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)를 참조하세요.
+비밀을 실수로 또는 악의적으로 삭제하지 않도록 보호하려면 키 자격 증명 모음에서 일시 삭제 및 제거 보호 기능을 구성합니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 

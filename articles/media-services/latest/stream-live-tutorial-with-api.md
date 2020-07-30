@@ -15,19 +15,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b92d26da837cab72a4c4404a7b5b3de5d3116480
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043361"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>자습서: Media Services로 라이브 스트리밍
 
 > [!NOTE]
-> 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하지만, 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
+> 이 자습서에서 [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하지만, 일반적인 단계는 [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
 
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 Azure Media Services에서 라이브 스트리밍 콘텐츠를 처리하는 작업을 담당합니다. 라이브 이벤트는 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. 라이브 이벤트는 라이브 인코더에서 라이브 입력 스트림을 수신하여 하나 이상의 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 라이브 이벤트는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다. 이 자습서에는 .NET Core를 사용하여 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다.
+[라이브 이벤트](/rest/api/media/liveevents)는 Azure Media Services에서 라이브 스트리밍 콘텐츠를 처리하는 작업을 담당합니다. 라이브 이벤트는 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. 라이브 이벤트는 라이브 인코더에서 라이브 입력 스트림을 수신하여 하나 이상의 [스트리밍 엔드포인트](/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 라이브 이벤트는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다. 이 자습서에는 .NET Core를 사용하여 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -44,8 +44,8 @@ ms.locfileid: "79472019"
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.
 
 - Visual Studio Code 또는 Visual Studio 설치
-- [Media Services 계정 만들기](create-account-cli-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용하는 값을 기억해 두세요.
-- [Azure CLI를 사용하여 Azure Media Services API 액세스](access-api-cli-how-to.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
+- [Media Services 계정 만들기](./create-account-howto.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용하는 값을 기억해 두세요.
+- [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 - 브로드캐스트 또는 이벤트에 사용되는 카메라 또는 디바이스(예: 랩톱).
 - 카메라에서 Media Services 라이브 스트리밍 서비스로 보내는 스트림으로 신호를 변환하는 온-프레미스 라이브 인코더입니다. [권장되는 온-프레미스 라이브 인코더](recommended-on-premises-live-encoders.md)를 참조하세요. 스트림은 **RTMP** 또는 **부드러운 스트리밍** 형식이어야 합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "79472019"
 
 라이브 스트리밍 샘플은 [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp) 폴더에 있습니다.
 
-다운로드한 프로젝트에서 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) 파일을 엽니다. 값을 [API에 액세스](access-api-cli-how-to.md)하여 가져온 자격 증명으로 바꿉니다.
+다운로드한 프로젝트에서 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) 파일을 엽니다. 값을 [API에 액세스](./access-api-howto.md)하여 가져온 자격 증명으로 바꿉니다.
 
 > [!IMPORTANT]
 > 이 샘플에서는 각 리소스에 고유한 접미사를 사용합니다. 디버깅을 취소하거나 앱을 실행하지 않고 종료하면 계정에서 여러 라이브 이벤트가 발생합니다. <br/>실행 중인 라이브 이벤트를 중지해야 합니다. 그렇지 않으면 **비용이 청구**됩니다.

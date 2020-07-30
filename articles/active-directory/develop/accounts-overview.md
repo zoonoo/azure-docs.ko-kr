@@ -140,7 +140,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 계정에 대 한 새로 고침 토큰은 B2C 정책 간에 공유 되지 않습니다. 따라서 토큰을 사용 하는 Single Sign-On를 사용할 수 없습니다. 이는 Single Sign-On 가능 하지 않음을 의미 하지 않습니다. Single Sign-On을 사용 하도록 설정 하는 데 쿠키를 사용할 수 있는 대화형 환경을 사용 해야 Single Sign-On 의미 합니다.
 
-즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 를 사용 하 여 토큰을 요청 하는 계정을 사용 하려는 경우 `acquireTokenSilent` 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예:
+즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 를 사용 하 여 토큰을 요청 하는 계정을 사용 하려는 경우 `acquireTokenSilent` 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예를 들어:
 
 ```java
 // Get Account For Policy

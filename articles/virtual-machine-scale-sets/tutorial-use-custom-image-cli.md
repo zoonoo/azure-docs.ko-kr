@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 22f3fd44fbeb3d951d4add7b90a0e9aebd863ebf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 159ded093f278672a8251263f7bab1050a945e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085846"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
 확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -92,11 +92,11 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 이미지 정의가 올바른 형식인지 확인합니다. VM을 일반화한 경우(Windows용 Sysprep 사용 또는 Linux용 waagent -프로비전 해제) `--os-state generalized`를 사용하여 일반화된 이미지 정의를 만들어야 합니다. 기존 사용자 계정을 제거하지 않고 VM을 사용하려는 경우 `--os-state specialized`를 사용하여 특수화된 이미지 정의를 만듭니다.
 
-이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)를 참조하세요.
+이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../virtual-machines/linux/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
-다음 예제에서는 이미지 정의의 이름이 *myImageDefinition*이며 [특수](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
+다음 예제에서는 이미지 정의의 이름이 *myImageDefinition*이며 [특수](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -137,7 +137,7 @@ az sig image-version create \
 > [!NOTE]
 > 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
-> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 프리미엄 스토리지에 추가하거나 `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)를 추가하여 이미지를 저장할 수도 있습니다.
+> 또한 이미지 버전을 만들 때 `--storage-account-type  premium_lrs`를 추가하여 프리미엄 스토리지에 추가하거나 `--storage-account-type  standard_zrs`를 추가하여 [영역 중복 스토리지](../storage/common/storage-redundancy.md)를 추가하여 이미지를 저장할 수도 있습니다.
 >
 
 
@@ -217,7 +217,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)를 참조하세요.
+RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](../role-based-access-control/role-assignments-cli.md)를 참조하세요.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

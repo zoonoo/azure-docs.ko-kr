@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.custom: avverma
-ms.openlocfilehash: 1db108adfe1a3af562a046160856a38daf990885
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9ee64f86cba7287af371f856c442d93e9a03d85b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088910"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 이 스크립트는 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만들고, CPU 로드 변경에 따라 호스트 기반 메트릭을 사용하여 자동으로 크기 조정합니다.
@@ -47,5 +47,5 @@ Remove-AzResourceGroup -Name myResourceGroup
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 

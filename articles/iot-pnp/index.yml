@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: IoT 플러그 앤 플레이 미리 보기 설명서
-summary: IoT 플러그 앤 플레이 미리 보기를 사용하면 디바이스 코드를 작성하지 않고도 클라우드 솔루션이 디바이스를 자동으로 이해하고 상호 작용을 시작할 수 있는 디바이스 모델을 정의할 수 있습니다.
+title: IoT 플러그 앤 플레이 미리 보기 새로 고침 설명서
+summary: IoT 플러그 앤 플레이를 사용하면 클라우드 솔루션이 디바이스를 자동으로 이해하고 상호 작용을 시작할 수 있는 디바이스 모델을 정의할 수 있습니다.
 metadata:
-  title: IoT 플러그 앤 플레이 미리 보기 설명서
-  description: IoT 플러그 앤 플레이 미리 보기를 사용하면 디바이스 코드를 작성하지 않고도 클라우드 솔루션이 디바이스를 자동으로 이해하고 상호 작용을 시작할 수 있는 디바이스 모델을 정의할 수 있습니다.
+  title: IoT 플러그 앤 플레이 미리 보기 아키텍처
+  description: IoT 플러그 앤 플레이 미리 보기를 사용하면 솔루션 빌더가 수동으로 구성하지 않고 디바이스를 솔루션에 통합할 수 있습니다. 이 문서에서는 이러한 작업을 가능하게 하는 핵심 아키텍처 요소를 보여줍니다.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 9469adb901c2da5f814088aa8eb59121889a0b78
-  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+  ms.openlocfilehash: 6fe77d059974bcc37fb0b0bbc6a171d371a93478
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80998284"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87337367"
 landingContent:
 - title: IoT 플러그 앤 플레이 정보
   linkLists:
@@ -24,51 +24,41 @@ landingContent:
     links:
     - text: IoT 플러그 앤 플레이란?
       url: overview-iot-plug-and-play.md
-  - linkListType: video
-    links:
-    - text: IoT 플러그 앤 플레이 소개
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
-- title: 디바이스 개발
+    - text: 미리 보기 새로 고침 업데이트 2020
+      url: overview-iot-plug-and-play-preview-updates.md
+- title: 빌드 디바이스
   linkLists:
   - linkListType: quickstart
     links:
-    - text: IoT Hub에 샘플 디바이스 연결
-      url: quickstart-connect-pnp-device-c-windows.md
-    - text: IoT Central에 샘플 디바이스 연결
-      url: ../iot-central/core/tutorial-connect-pnp-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-    - text: 디바이스 기능 모델을 사용하여 디바이스 만들기
-      url: quickstart-create-pnp-device-windows.md
-  - linkListType: tutorial
-    links:
-    - text: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트
-      url: tutorial-pnp-visual-studio-code.md
-    - text: 인증을 위해 준비된 디바이스 빌드
-      url: tutorial-build-device-certification.md
-    - text: 디바이스 인증
-      url: tutorial-certification-test.md
-  - linkListType: how-to-guide
-    links:
-    - text: Visual Studio Code용 Azure IoT Tools 사용
-      url: howto-develop-with-vs-vscode.md
-    - text: IoT용 Azure Certified 포털에 온보딩
-      url: howto-onboard-portal.md
+    - text: IoT Hub에 샘플 디바이스 연결(C)
+      url: quickstart-connect-device-c.md
+    - text: IoT Hub에 샘플 디바이스 연결(C#)
+      url: quickstart-connect-device-csharp.md
+    - text: IoT Hub에 샘플 디바이스 연결(Java)
+      url: quickstart-connect-device-java.md
+    - text: IoT Hub에 샘플 디바이스 연결(Node.js)
+      url: quickstart-connect-device-node.md
+    - text: IoT Hub에 샘플 디바이스 연결(Python)
+      url: quickstart-connect-device-python.md
   - linkListType: concept
     links:
-    - text: 공용 인터페이스
-      url: concepts-common-interfaces.md
+    - text: 개발자 가이드
+      url: concepts-developer-guide.md
+    - text: IoT 플러그 앤 플레이 규칙
+      url: concepts-convention.md
+    - text: 구성 요소
+      url: concepts-components.md
 - title: 솔루션 빌드
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 솔루션에 연결된 디바이스와 상호 작용
-      url: quickstart-connect-pnp-device-solution-node.md
+    - text: 솔루션에서 디바이스와 상호 작용(Node.js)
+      url: quickstart-service-node.md
+    - text: 솔루션에서 디바이스와 상호 작용(Python)
+      url: quickstart-service-python.md
   - linkListType: concept
     links:
-    - text: 모델 검색
-      url: concepts-model-discovery.md
-    - text: 공용 인터페이스
-      url: concepts-common-interfaces.md
-  - linkListType: how-to-guide
-    links:
-    - text: 솔루션에서 디바이스에 연결
-      url: howto-develop-solution.md
+    - text: 아키텍처
+      url: concepts-architecture.md
+    - text: Digital Twins
+      url: concepts-digital-twin.md

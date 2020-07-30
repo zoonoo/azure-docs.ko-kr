@@ -27,7 +27,7 @@ ms.locfileid: "87319238"
 > [!NOTE]
 > 또는 계정에 대 한 작업을 자동화 하려면 @outlook.com @hotmail.com [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md)를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다. 
 
