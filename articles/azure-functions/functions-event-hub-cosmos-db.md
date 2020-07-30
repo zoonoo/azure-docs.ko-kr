@@ -5,12 +5,13 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-java
+ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77425326"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372453"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>자습서: Java에서 Event Hub 트리거 및 Azure Cosmos DB 출력 바인딩을 사용하여 함수 만들기
 
@@ -445,9 +446,9 @@ az group delete --name $RESOURCE_GROUP
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Event Hub 이벤트를 처리하고 Cosmos DB를 업데이트하는 Azure 함수를 만드는 방법을 알아보았습니다. 자세한 내용은 [Azure Functions Java 개발자 가이드](/azure/azure-functions/functions-reference-java)를 참조하세요. 사용되는 주석에 대한 자세한 내용은 [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation) 참조를 참조하세요.
+이 자습서에서는 Event Hub 이벤트를 처리하고 Cosmos DB를 업데이트하는 Azure 함수를 만드는 방법을 알아보았습니다. 자세한 내용은 [Azure Functions Java 개발자 가이드](./functions-reference-java.md)를 참조하세요. 사용되는 주석에 대한 자세한 내용은 [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation) 참조를 참조하세요.
 
-이 자습서에서는 환경 변수와 애플리케이션 설정을 사용하여 연결 문자열과 같은 비밀을 저장했습니다. 이러한 비밀을 Azure Key Vault에 저장하는 방법에 대한 자세한 내용은 [App Service 및 Azure Functions에 Key Vault 참조 사용](/azure/app-service/app-service-key-vault-references)을 참조하세요.
+이 자습서에서는 환경 변수와 애플리케이션 설정을 사용하여 연결 문자열과 같은 비밀을 저장했습니다. 이러한 비밀을 Azure Key Vault에 저장하는 방법에 대한 자세한 내용은 [App Service 및 Azure Functions에 Key Vault 참조 사용](../app-service/app-service-key-vault-references.md)을 참조하세요.
 
 다음으로, 자동화된 배포에 Azure Pipelines CI/CD를 사용하는 방법을 알아봅니다.
 

@@ -3,12 +3,12 @@ title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 
 description: 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 938bae28b1a523e23ea9f8f1ba79bbe6c487d5db
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: cbd00bf5737e9833a860e154c629bb344416b6ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011789"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
 
@@ -32,9 +32,9 @@ ms.locfileid: "84765202"
 * [Live Video Analytics on IoT Edge 용어](terminology.md)
 * [미디어 그래프 개념](media-graph-concept.md) 
 * [이벤트 기반 비디오 녹화](event-based-video-recording-concept.md)
-* [자습서: IoT Edge 모듈 개발](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [자습서: IoT Edge 모듈 개발](../../iot-edge/tutorial-develop-for-linux.md)
 * [deployment.*.template.json을 편집하는 방법](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
-* [IoT Edge 배포 매니페스트에서 경로를 선언하는 방법](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)에 대한 섹션
+* [IoT Edge 배포 매니페스트에서 경로를 선언하는 방법](../../iot-edge/module-composition.md#declare-routes)에 대한 섹션
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -52,7 +52,7 @@ ms.locfileid: "84765202"
 * Azure IoT Hub
 * Azure Storage 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge-linux.md)이 설치된 Azure의 Linux VM
 
 ## <a name="concepts"></a>개념
 
@@ -135,9 +135,9 @@ src/edge/deployment.objectCounter.template.json 파일을 엽니다. **모듈** 
 * **rtspsim**: RTSP 시뮬레이터
 * **objectCounter**: yolov3의 결과에서 특정 개체를 찾는 모듈
 
-objectCounter 모듈의 경우 "image" 값에 사용되는 (${MODULES.objectCounter}) 문자열을 확인합니다. 이는 IoT Edge 모듈을 개발하는 방법에 대한 [자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)를 기반으로 합니다. Visual Studio Code에서 objectCounter 모듈의 코드가 src/edge/modules/objectCounter 아래에 있음을 자동으로 인식합니다. 
+objectCounter 모듈의 경우 "image" 값에 사용되는 (${MODULES.objectCounter}) 문자열을 확인합니다. 이는 IoT Edge 모듈을 개발하는 방법에 대한 [자습서](../../iot-edge/tutorial-develop-for-linux.md)를 기반으로 합니다. Visual Studio Code에서 objectCounter 모듈의 코드가 src/edge/modules/objectCounter 아래에 있음을 자동으로 인식합니다. 
 
-IoT Edge 배포 매니페스트에서 경로를 선언하는 방법은 [이 섹션](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)을 참조하세요. 그런 다음, 템플릿 JSON 파일의 경로를 검사합니다. 다음 사항을 확인합니다.
+IoT Edge 배포 매니페스트에서 경로를 선언하는 방법은 [이 섹션](../../iot-edge/module-composition.md#declare-routes)을 참조하세요. 그런 다음, 템플릿 JSON 파일의 경로를 검사합니다. 다음 사항을 확인합니다.
 
 * LVAToObjectCounter를 사용하여 특정 이벤트를 objectCounter 모듈의 특정 엔드포인트로 보내는 방법
 * ObjectCounterToLVA를 사용하여 트리거 이벤트를 lvaEdge 모듈의 특정 엔드포인트(IoT Hub 원본 노드여야 함)로 보내는 방법
@@ -150,7 +150,7 @@ IoT Edge 배포 매니페스트에서 경로를 선언하는 방법은 [이 섹�
 
 배포 매니페스트는 에지 디바이스에 배포되는 모듈 및 해당 모듈의 구성 설정을 정의합니다. 다음 단계에 따라 템플릿 파일에서 매니페스트를 생성한 다음, 에지 디바이스에 배포합니다.
 
-Visual Studio Code를 사용하여 [이러한 지침](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution)에 따라 Docker에 로그인합니다. 그런 다음, **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 이 단계에서는 src/edge/deployment.objectCounter.template.json을 사용합니다.
+Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution)에 따라 Docker에 로그인합니다. 그런 다음, **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 이 단계에서는 src/edge/deployment.objectCounter.template.json을 사용합니다.
 
 ![IoT Edge 솔루션 빌드 및 푸시](./media/event-based-video-recording-tutorial/build-push.png)
 
@@ -259,7 +259,7 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
 
 ## <a name="interpret-the-results"></a>결과 해석 
 
-미디어 그래프를 실행하면 Live Video Analytics on IoT Edge 모듈에서 특정 진단 및 작업 이벤트를 IoT Edge 허브에 보냅니다. 이러한 이벤트는 Visual Studio Code의 **출력** 창에 표시되는 메시지입니다. 여기에는 body 섹션 및 applicationProperties 섹션이 포함되어 있습니다. 이러한 섹션이 나타내는 내용을 이해하려면 [IoT Hub 메시지 작성 및 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)를 참조하세요.
+미디어 그래프를 실행하면 Live Video Analytics on IoT Edge 모듈에서 특정 진단 및 작업 이벤트를 IoT Edge 허브에 보냅니다. 이러한 이벤트는 Visual Studio Code의 **출력** 창에 표시되는 메시지입니다. 여기에는 body 섹션 및 applicationProperties 섹션이 포함되어 있습니다. 이러한 섹션이 나타내는 내용을 이해하려면 [IoT Hub 메시지 작성 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 
 다음 메시지에서 애플리케이션 속성 및 본문의 콘텐츠는 Live Video Analytics 모듈에서 정의됩니다.
 
@@ -413,4 +413,4 @@ Azure Portal에 로그인하여 비디오를 보면 그래프에서 만든 Media
 ## <a name="next-steps"></a>다음 단계
 
 * RTSP 시뮬레이터 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 프로필 G, S 또는 T를 준수하는 디바이스를 찾아 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다.
-* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
