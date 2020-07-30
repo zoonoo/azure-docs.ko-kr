@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075907"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387322"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Synapse Studio를 사용 하 여 작업 영역 파이프라인 실행 모니터링
 
@@ -22,7 +22,7 @@ Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, �
 
 이 문서에서는 파이프라인 실행을 모니터링 하 여 파이프라인의 최신 상태, 문제 및 진행률을 확인할 수 있는 방법을 설명 합니다.
 
-## <a name="access-the-list-of-pipeline-runs"></a>파이프라인 실행 목록 액세스
+## <a name="access-pipeline-runs-list"></a>액세스 파이프라인 실행 목록
 
 작업 영역에서 파이프라인 실행 목록을 보려면 먼저 [Synapse Studio를 열고](https://web.azuresynapse.net/) 작업 영역을 선택 합니다.
 
@@ -36,7 +36,7 @@ Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, �
 
 ![파이프라인 실행 선택](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## <a name="filtering-your-pipeline-runs"></a>파이프라인 실행 필터링
+## <a name="filter-your-pipeline-runs"></a>파이프라인 실행 필터링
 
 파이프라인 실행 목록을 관심 있는 항목으로 필터링 할 수 있습니다. 화면 위쪽의 필터를 사용 하 여 필터링 할 필드를 지정할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, �
 
 ![샘플 필터](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-pipeline-run"></a>특정 파이프라인 실행에 대 한 세부 정보 보기
+## <a name="view-details-about-a-specific-pipeline-run"></a>특정 파이프라인 실행에 대 한 세부 정보 보기
 
 파이프라인 실행에 대 한 세부 정보를 보려면 파이프라인 실행을 선택 합니다. 그런 다음 파이프라인 실행과 연결 된 활동 실행을 확인 합니다. 파이프라인이 아직 실행 중인 경우 진행률을 모니터링할 수 있습니다. 
   

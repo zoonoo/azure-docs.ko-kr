@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: abdf84a4266b0bc57d74f2219fdaece8dd193086
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 10802cd141e0b10e30cb01d3d1dc385aedf7fc1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133030"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387016"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 Azure 보안 기준
 
@@ -1091,7 +1091,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 * [Vm에 대 한 일시 삭제](../../backup/soft-delete-virtual-machines.md)
 
-* [Azure Key Vault 일시 삭제 개요](../../key-vault/general/overview-soft-delete.md)
+* [Azure Key Vault 일시 삭제 개요](../../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center 모니터링**: 예
 

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: fa92cd4f4cba63eee09714813954af9fa9c9c4ea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185537"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290953"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>자습서: 그래픽 Runbook 만들기
 
@@ -32,6 +32,7 @@ ms.locfileid: "86185537"
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * [Automation 계정](../index.yml) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 머신. 이 머신을 중지하고 시작하므로 프로덕션 VM이 아니어야 합니다.
+* 필요한 경우 사용하는 cmdlet에 따라 [Azure 모듈을 가져오거나](../shared-resources/modules.md) [모듈을 업데이트](../automation-update-azure-modules.md)합니다.
 
 ## <a name="step-1---create-runbook"></a>1단계 - Runbook 만들기
 
@@ -161,7 +162,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 5. [라이브러리] 컨트롤의 검색 필드에서 `Connect-AzAccount`를 입력합니다.
 
-6. `Connect-AzAccount`를 캔버스에 추가합니다.
+6. `Connect-AzAccount`을 캔버스에 추가합니다.
 
 7. 도형 아래쪽에 원이 나타날 때까지 마우스로 `Get Run As Connection` 위를 가리킵니다. 원을 클릭하고, 화살표를 `Connect-AzAccount`로 끌어 링크를 만듭니다. Runbook에서 `Get Run As Connection`을 사용하여 시작한 다음, `Connect-AzAccount`를 실행합니다.<br> ![활동 간 링크 만들기](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
 

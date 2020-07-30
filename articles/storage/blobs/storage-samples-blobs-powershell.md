@@ -7,18 +7,18 @@ ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: c4e8608c0d5c8dc79fa299d5d814f33cd6c8da2d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f66c188186c81e5a4d15c417a31ab096ba7ef598
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68726317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020902"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure Blob Storage에 대한 Azure PowerShell 샘플
 
 다음 표에는 Azure Storage를 만들고 관리하는 PowerShell 스크립트 샘플에 대한 링크가 제공됩니다.
 
-| | |
+| 스크립트 | Description |
 |---|---|
 |**스토리지 계정**||
 | [스토리지 계정 만들기 및 액세스 키 검색/회전](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Storage 계정을 만들고 해당 액세스 키 중 하나를 검색 및 회전합니다. |

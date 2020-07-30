@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 2103c93e553cc5e1e94941b1567bd3c0f168eabf
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 80a9a98043a39b654f0d62a84ae81e12797b15b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022364"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-204"></a>자습서: Azure Notification Hubs(버전 2.0.4)를 사용하여 iOS 앱에 푸시 알림 보내기
 
@@ -491,7 +491,7 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 디바이스에 앱을 
 - [등록 관리](notification-hubs-push-notification-registration-management.md)
 - [태그 작업](notification-hubs-tags-segment-push-message.md)
 - [사용자 지정 템플릿 작업](notification-hubs-templates-cross-platform-push-messages.md)
-- [공유 액세스 서명을 사용한 Service Bus 액세스 제어](/azure/service-bus-messaging/service-bus-sas)
+- [공유 액세스 서명을 사용한 Service Bus 액세스 제어](../service-bus-messaging/service-bus-sas.md)
 - [프로그래밍 방식으로 SAS 토큰 생성](/rest/api/eventhub/generate-sas-token)
 - [Apple 보안: 일반적인 암호화](https://developer.apple.com/security/)
 - [UNIX Epoch 시간](https://en.wikipedia.org/wiki/Unix_time)
