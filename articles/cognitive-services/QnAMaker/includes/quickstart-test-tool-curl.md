@@ -2,20 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
-ms.author: diberry
-ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a078455b7630046a83a9ae1c896d0fc44bf8efad
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237694"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132899"
 ---
 이 cURL 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 

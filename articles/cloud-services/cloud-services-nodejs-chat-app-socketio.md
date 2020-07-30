@@ -9,12 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 5bea3bec68217881729f1daf8d75837e1d67e8ce
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8029c243052114b9a0932e5372301be84440cf85
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919972"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386591"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
@@ -24,7 +25,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 * [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -138,7 +139,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
     PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
     ```
 
-5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예를 들어:
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예:
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch

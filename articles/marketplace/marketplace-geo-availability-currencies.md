@@ -3,16 +3,16 @@ title: Microsoft 상업용 마켓플레이스의 지리적 가용성 및 통화 
 description: 상업용 마켓플레이스의 트랜잭션에 대한 지리적 가용성 및 통화 지원
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 01/29/2020
-ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120010"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387441"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업용 마켓플레이스의 지리적 가용성 및 통화 지원
 
@@ -43,9 +43,9 @@ ms.locfileid: "86120010"
 | 브라질                              | BR        | BRL\*        |
 | 브루나이                              | BN        | USD          |
 | 불가리아                            | BG        | EUR          |
+| 카보베르데                          | CV        | USD          |
 | 카메룬                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
-| 카보베르데                          | CV        | USD          |
 | 케이맨 제도                      | KY        | USD          |
 | 칠레                               | CL        | USD          |
 | 중국\**                            | CN        | 해당 없음          |
@@ -110,8 +110,8 @@ ms.locfileid: "86120010"
 | 나미비아                             | 해당 없음        | USD          |
 | 네팔                               | NP        | USD          |
 | 네덜란드                         | NL        | EUR          |
-| 니카라과                           | NI        | USD          |
 | 뉴질랜드                         | NZ        | NZD          |
+| 니카라과                           | NI        | USD          |
 | 나이지리아                             | NG        | USD          |
 | 노르웨이                              | 아니요        | NOK          |
 | 오만                                | OM        | USD          |
@@ -148,15 +148,15 @@ ms.locfileid: "86120010"
 | 튀니지                             | TN        | USD          |
 | 터키                              | TR        | USD          |
 | 투르크메니스탄                        | TM        | USD          |
-| 바티칸 시국(교황청)             | VA        | EUR          |
-| 미국령 버진 아일랜드 | VI        | USD          |
 | 우간다                              | UG        | USD          |
 | 우크라이나                             | UA        | USD          |
 | 아랍에미리트                | AE        | USD          |
 | United Kingdom                      | GB        | GBP          |
 | 미국                       | US        | USD          |
+| 미국 버진 아일랜드                 | VI        | USD          |
 | 우루과이                             | UY        | USD          |
 | 우즈베키스탄                          | UZ        | USD          |
+| 바티칸 시국(교황청)             | VA        | EUR          |
 | 베네수엘라                           | VE        | USD          |
 | 베트남                             | VN        | USD          |
 | 예멘                               | YE        | USD          |

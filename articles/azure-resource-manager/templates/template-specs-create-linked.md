@@ -3,12 +3,12 @@ title: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기
 description: 연결 된 템플릿으로 템플릿 사양을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c2648cb8a71be709406f314d02a226ed097be6f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097736"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387866"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기 (미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "87097736"
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-의 linkedTemplate.js에서 호출 되는에 대 한 다른 linkedTemplate2.js이 있는 경우에는 linkedTemplate2.jslinkedTemplate.js에 지정 된 relativePath가 **linkedTemplate2.js**됩니다.
+`relativePath`속성은가 선언 된 템플릿 파일을 기준으로 합니다. `relativePath` 따라서의 linkedTemplate.js에서 호출 되 고 linkedTemplate2.js의 다른 linkedTemplate2.js이 동일한 아티팩트 하위 폴더에 저장 된 경우에는 linkedTemplate.js에 지정 된 relativePath만이 됩니다 `linkedTemplate2.json` .
 
 1. 다음 JSON을 사용 하 여 기본 템플릿을 만듭니다. 주 템플릿을 로컬 컴퓨터에 **azuredeploy.js** 로 저장 합니다. 이 자습서에서는 **c:\Templates\linkedTS\azuredeploy.js** 경로에 저장 했지만 임의의 경로를 사용할 수 있다고 가정 합니다.
 

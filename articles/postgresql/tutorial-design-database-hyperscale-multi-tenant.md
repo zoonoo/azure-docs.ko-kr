@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 17ac29de243f4abfff1cfc83fc6424799978bf0e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74978154"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386398"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계
 
@@ -139,6 +139,8 @@ SELECT create_distributed_table('ads',         'company_id');
 SELECT create_distributed_table('clicks',      'company_id');
 SELECT create_distributed_table('impressions', 'company_id');
 ```
+
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## <a name="ingest-sample-data"></a>샘플 데이터 수집
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77597901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037102"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
 
@@ -259,9 +259,8 @@ Azure 파일 동기화 에이전트를 설치한 후 서버 등록 UI가 자동�
 
    ![서버 등록 UI 스크린샷](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | 값 | Description |
+   | ----- | ----- |
    | **Azure 구독** | 이 자습서에 대한 스토리지 동기화 서비스가 포함된 구독입니다. |
    | **리소스 그룹** | 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다. 이 자습서의 경우 _afsresgroup101918_을 사용합니다. |
    | **스토리지 동기화 서비스** | 스토리지 동기화 서비스의 이름입니다. 이 자습서의 경우 _afssyncservice02_를 사용합니다. |
@@ -301,9 +300,8 @@ Azure 파일 동기화 에이전트를 설치한 후 서버 등록 UI가 자동�
 
 1. **서버 엔드포인트 추가** 창에 다음 정보를 입력하여 서버 엔드포인트를 만듭니다.
 
-   | | |
-   | ----- | ----- |
    | 값 | Description |
+   | ----- | ----- |
    | **등록된 서버** | 사용자가 만든 서버의 이름입니다. 이 자습서의 경우 *afsvm101918*을 사용합니다. |
    | **Path** | 사용자가 만든 드라이브에 대한 Windows Server 경로입니다. 이 자습서의 경우 *f:\filestosync*를 사용합니다. |
    | **클라우드 계층화** | 이 자습서에 대해 사용하지 않는 상태로 둡니다. |

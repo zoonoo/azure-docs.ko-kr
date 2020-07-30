@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 32140429d96d73100c4bd5a2ae274e508a15b7a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 773a7d6b12cc515a7525808068080f46d9f79799
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068698"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>다중 계층 애플리케이션을 위한 네트워크 만들기 스크립트 샘플
 
@@ -65,6 +65,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 추가 가상 네트워크 PowerShell 스크립트 샘플은 [가상 네트워크 PowerShell 샘플](../powershell-samples.md)에 나와 있습니다.

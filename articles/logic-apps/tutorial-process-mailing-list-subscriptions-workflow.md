@@ -3,16 +3,16 @@ title: 자동화된 승인 기반 워크플로 빌드
 description: 자습서 - Azure Logic Apps를 사용하여 메일 그룹 구독을 처리하는 자동화된 승인 기반 워크플로 만들기
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75456604"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132401"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 승인 기반 워크플로 만들기
 
@@ -21,6 +21,7 @@ ms.locfileid: "75456604"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 빈 논리 앱을 만듭니다.
 > * 구독 요청에 대한 이메일을 모니터링하는 트리거를 추가합니다.
 > * 이러한 요청을 승인 또는 거부하는 이메일을 보내는 작업을 추가합니다.
@@ -41,11 +42,9 @@ ms.locfileid: "75456604"
 
 * 승인 워크플로를 지원하는 Office 365 Outlook 또는 Outlook.com의 이메일 계정. 이 문서에서는 Office 365 Outlook을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
-
-Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
+
+1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure 주 메뉴에서 **리소스 만들기** > **통합** > **논리 앱**을 차례로 선택합니다.
 
@@ -55,7 +54,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![논리 앱에 대한 정보 제공](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **이름** | LA-MailingList | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함할 수 있는 논리 앱의 이름입니다. 이 예제에서는 "LA-MailingList"를 사용합니다. |
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독 이름 |
@@ -95,7 +94,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
       ![이메일 확인에 사용할 폴더, 간격 및 빈도 지정](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | 속성 | 값 | Description |
+      | 속성 | 값 | 설명 |
       |----------|-------|-------------|
       | **폴더** | `Inbox` | 모니터링할 이메일 폴더 |
       | **간격** | `1` | 검사 간에 대기하는 간격의 수 |
@@ -106,7 +105,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
       ![트리거할 "제목 필터" 속성 추가](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      이 트리거의 속성에 대한 자세한 내용은 [Office 365 Outlook 커넥터 참조](https://docs.microsoft.com/connectors/office365/) 또는 [Outlook.com 커넥터 참조](https://docs.microsoft.com/connectors/outlook/)에서 확인할 수 있습니다.
+      이 트리거의 속성에 대한 자세한 내용은 [Office 365 Outlook 커넥터 참조](/connectors/office365/) 또는 [Outlook.com 커넥터 참조](/connectors/outlook/)에서 확인할 수 있습니다.
 
    1. 트리거에 속성이 표시되면 `subscribe-test-members-ML` 텍스트를 입력합니다.
 
@@ -145,7 +144,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    지금은 특정 편집 상자 내부를 클릭할 때 표시되는 동적 콘텐츠 목록을 무시합니다. 이 목록을 통해 워크플로에서 입력으로 사용할 수 있는 이전 작업의 출력을 선택할 수 있습니다.
 
-   이 작업의 속성에 대한 자세한 내용은 [Office 365 Outlook 커넥터 참조](https://docs.microsoft.com/connectors/office365/) 또는 [Outlook.com 커넥터 참조](https://docs.microsoft.com/connectors/outlook/)에서 확인할 수 있습니다.
+   이 작업의 속성에 대한 자세한 내용은 [Office 365 Outlook 커넥터 참조](/connectors/office365/) 또는 [Outlook.com 커넥터 참조](/connectors/outlook/)에서 확인할 수 있습니다.
  
 1. 논리 앱을 저장합니다.
 
@@ -203,14 +202,14 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    !["목록에 구성원 추가"에 대한 정보 제공](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **목록 Id** | 예 | `test-members-ML` | MailChimp 메일 그룹의 이름. 이 예제에서는 "test-members-ML"을 사용합니다. |
    | **상태** | 예 | `subscribed` | 새 구성원의 구독 상태를 선택합니다. 이 예제에서는 "구독함"을 사용합니다. <p>자세한 내용은 [MailChimp API로 구독자 관리](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/)를 참조하세요. |
    | **이메일 주소** | 예 | <*new-member-email-address*> | 동적 콘텐츠 목록의 **새 이메일이 도착하는 경우** 아래에서 새 구성원의 이메일 주소를 전달하는 **보내는 사람**을 선택합니다. |
    ||||
 
-   이 작업의 속성에 대한 자세한 내용은 [MailChimp 커넥터 참조](https://docs.microsoft.com/connectors/mailchimp/)에서 확인할 수 있습니다.
+   이 작업의 속성에 대한 자세한 내용은 [MailChimp 커넥터 참조](/connectors/mailchimp/)에서 확인할 수 있습니다.
 
 1. 논리 앱을 저장합니다.
 

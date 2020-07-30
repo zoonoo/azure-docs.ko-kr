@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2a0560163f9806053f49944cbec0db2b1a9de8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed7900373c5d8897fd360c708434d96e5dfbc73d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67105472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>자습서: Clear Review와 Azure Active Directory 통합
 
@@ -41,6 +41,9 @@ Clear Review와 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 
 * Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Clear Review Single Sign-on이 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
-ms.openlocfilehash: c3bb15e494638d543795ac5b95e2513cb5871a2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dcc8a99480400786a48ff952eb378a57c595464f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118633"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388189"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
 
@@ -22,13 +22,13 @@ Azure Portal를 사용 하 여 Azure Database for MySQL 데이터 암호화를 �
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 * Azure Key Vault에서, 고객이 관리 하는 키에 사용할 키 자격 증명 모음 및 키를 만듭니다.
 * 키 자격 증명 모음에는 고객이 관리 하는 키로 사용할 수 있는 다음과 같은 속성이 있어야 합니다.
-  * [일시 삭제](../key-vault/general/overview-soft-delete.md)
+  * [일시 삭제](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [보호 된 데이터 삭제](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [보호 된 데이터 삭제](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

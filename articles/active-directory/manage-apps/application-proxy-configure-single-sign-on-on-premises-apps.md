@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764828"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387271"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML Single Sign-On
 
@@ -47,7 +47,7 @@ SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Sin
 
 4. Single Sign-On 방법으로 **SAML** 을 선택 합니다.
 
-5. 먼저 회사 네트워크에서 작업 하는 동안 SAML SSO를 설정 합니다. SAML을 **사용 하 여 Single Sign-on 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. [기본 saml 구성 입력](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) 의 단계에 따라 응용 프로그램에 대 한 saml 기반 인증을 구성 합니다.
+5. 먼저 회사 네트워크에서 작동 하도록 SAML SSO를 설정 합니다. 응용 프로그램에 대 한 SAML 기반 인증을 구성 하려면 [saml 기반 Single Sign-On 구성](configure-saml-single-sign-on.md) 의 기본 SAML 구성 섹션을 참조 하세요.
 
 6. 응용 프로그램에 사용자를 한 명 이상 추가 하 고 테스트 계정에 응용 프로그램에 대 한 액세스 권한이 있는지 확인 합니다. 회사 네트워크에 연결 되어 있는 동안 테스트 계정을 사용 하 여 응용 프로그램에 Single Sign-On 있는지 확인 합니다. 
 
@@ -81,7 +81,7 @@ SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Sin
 
 4. 업데이트 된 **회신 URL** 옆에 있는 확인란을 선택 하 여 기본값으로 표시 합니다.
 
-   * 필수 **회신 url** 을 기본값으로 표시 하는 경우 내부 url을 사용 하는 이전에 구성 된 **회신 url** 을 삭제할 수도 있습니다.
+   * 필요한 **회신 url** 을 기본값으로 표시 한 후 내부 url을 사용 하는 이전에 구성 된 **회신 url** 을 삭제할 수도 있습니다.
 
    * SP에서 시작한 흐름의 경우 백 엔드 응용 프로그램에서 올바른 **회신 URL** 을 지정 하는지 또는 인증 토큰을 수신 하기 위한 Assertion Consumer Service URL를 지정 하는지 확인 합니다.
 
