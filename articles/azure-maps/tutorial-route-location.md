@@ -1,20 +1,20 @@
 ---
 title: '자습서: 위치에 대한 경로 찾기 | Microsoft Azure Maps'
 description: 이 자습서에서는 Microsoft Azure Maps Routing Service를 사용하여 맵에서 위치(관심 지점)로 경로를 렌더링하는 방법을 보여줍니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 98c36176ecd2996e5f735c52017162a076ef4bde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: d6a526e23be47c9e05de0c9064bdb4095a49d132
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333772"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287416"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 관심 지점으로 라우팅
 
@@ -27,7 +27,7 @@ ms.locfileid: "80333772"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-계속하기 전에 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S1 가격 책정 계층을 사용한 구독이 필요합니다. [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정에 대한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
+계속하기 전에 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)의 지침에 따라 S1 가격 책정 계층을 사용한 구독이 필요합니다. [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정에 대한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 <a id="getcoordinates"></a>
 

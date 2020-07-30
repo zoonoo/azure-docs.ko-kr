@@ -8,13 +8,14 @@ ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
+ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 479891513eb48e4ced4c1dff2feb3215b3c8ea57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0cfdf3d7fe22d5e7e580e4147b9df430f451f9a5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87374909"
 ---
 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
@@ -73,7 +74,7 @@ import com.azure.core.util.Context;
 
 
 ```java
-public static void Main(string[] args)
+public static void main(String[] args)
 {
     String key = System.getenv("FORM_RECOGNIZER_KEY");
     String endpoint = System.getenv("FORM_RECOGNIZER_ENDPOINT");
@@ -133,9 +134,9 @@ FormTrainingClient trainingClient = recognizerClient.getFormTrainingClient();
 > 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)의 관련 메서드를 참조하세요.
 
 ```java
-    string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-    string receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
+    String trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
+    String formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
+    String receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
     + "/contoso-allinone.jpg";
 
     // Call Form Recognizer scenarios:
@@ -179,7 +180,7 @@ private static void GetContent(
     contentResult.forEach(formPage -> {
         // Table information
         System.out.println("----Recognizing content ----");
-        System.out.printf("Has width: %d and height: %d, measured with unit: %s.%n", formPage.getWidth(),
+        System.out.printf("Has width: %f and height: %f, measured with unit: %s.%n", formPage.getWidth(),
             formPage.getHeight(),
             formPage.getUnit());
         formPage.getTables().forEach(formTable -> {
@@ -202,7 +203,7 @@ URI를 통해 영수증을 확인하려면 **beginRecognizeReceiptsFromUrl** 메
 
 ```java
 private static void AnalyzeReceipt(
-    FormRecognizerClient recognizerClient, string receiptUri)
+    FormRecognizerClient recognizerClient, String receiptUri)
 {
     SyncPoller<OperationResult, List<RecognizedReceipt>> syncPoller =
         formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
@@ -303,7 +304,7 @@ private static void AnalyzeReceipt(
 
 ```java
 private static String TrainModel(
-    FormRecognizerClient trainingClient, string trainingDataUrl)
+    FormRecognizerClient trainingClient, String trainingDataUrl)
 {
     String trainingSetSource = "{unlabeled_training_set_SAS_URL}";
     SyncPoller<OperationResult, CustomFormModel> trainingPoller =

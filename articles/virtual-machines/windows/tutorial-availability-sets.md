@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d269b95e5e6fb8491afd4c2f9729cbb047cf3419
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065258"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -47,7 +47,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 한 위치의 하드웨어는 여러 개의 업데이트 도메인 및 장애 도메인으로 구분됩니다. **업데이트 도메인**은 동시에 다시 부팅할 수 있는 VM 그룹과 기본 물리적 하드웨어입니다. 동일한 **장애 도메인**의 VM은 공통의 스토리지뿐만 아니라 공통의 전원 및 네트워크 스위치를 공유합니다.  
 
-[New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서 업데이트 및 장애 도메인의 수는 모두 *2*이며 가용성 집합의 이름은 *myAvailabilitySet*입니다.
+[New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서 업데이트 및 장애 도메인의 수는 모두 *2*이며 가용성 집합의 이름은 *myAvailabilitySet*입니다.
 
 리소스 그룹을 만듭니다.
 
@@ -57,7 +57,7 @@ New-AzResourceGroup `
    -Location EastUS
 ```
 
-`-sku aligned` 매개 변수가 있는 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset)을 사용하여 관리형 가용성 집합을 만듭니다.
+`-sku aligned` 매개 변수가 있는 [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 관리형 가용성 집합을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzAvailabilitySet `
@@ -73,15 +73,15 @@ New-AzAvailabilitySet `
 VM이 하드웨어 전체에 올바르게 배포되도록 하려면 VM을 가용성 집합 내에 만들어야 합니다. VM을 만든 후에는 가용성 집합에 기존 VM을 추가할 수 없습니다. 
 
 
-[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 때 `-AvailabilitySetName` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
+[New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 때 `-AvailabilitySetName` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
 
-먼저 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
+먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 가용성 집합에 2개의 VM을 만듭니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 가용성 집합에 2개의 VM을 만듭니다.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -107,7 +107,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="check-for-available-vm-sizes"></a>사용 가능한 VM 크기 확인 
 
-가용성 집합 내에서 VM을 만들 때는 하드웨어에서 사용할 수 있는 VM 크기를 알아야 합니다. [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 명령을 사용하여 가용성 집합에 배포할 수 있는 가상 머신에 사용할 수 있는 모든 크기를 가져옵니다.
+가용성 집합 내에서 VM을 만들 때는 하드웨어에서 사용할 수 있는 VM 크기를 알아야 합니다. [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) 명령을 사용하여 가용성 집합에 배포할 수 있는 가상 머신에 사용할 수 있는 모든 크기를 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzVMSize `
@@ -136,5 +136,3 @@ Get-AzVMSize `
 
 > [!div class="nextstepaction"]
 > [VM 확장 집합 만들기](tutorial-create-vmss.md)
-
-

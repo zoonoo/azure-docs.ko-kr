@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 1b8d557d36b0265e9c32d4af6ca7435697531a50
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ee6b6c29c89c39c72144371af8268760da843170
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637435"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375513"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 수행합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "84637435"
 이 줄을 추가하여 최신 SDK 버전으로 go.mod 파일을 업데이트합니다.
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.12.1
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.13.0
 )
 ```
 

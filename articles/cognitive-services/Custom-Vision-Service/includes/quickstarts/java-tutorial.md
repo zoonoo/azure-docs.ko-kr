@@ -1,14 +1,15 @@
 ---
 author: areddish
+ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: efbfed5198620fc07b10354a5b74f6ddaf2cd4ab
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f4d4075fae22c22e249a6891185c7b7fc9a572de
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133970"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375179"
 ---
 이 문서에서는 Custom Vision Java SDK를 사용하여 이미지 분류 모델을 빌드하는 방법을 보여줍니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Java 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 코드 _없이_ 분류 모델을 빌드하고 사용하는 방법을 알아보려면 [브라우저 기반 가이드](../../getting-started-build-a-classifier.md)를 참조하세요.
 

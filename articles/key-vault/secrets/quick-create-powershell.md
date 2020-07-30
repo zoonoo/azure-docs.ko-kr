@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 459c9f2d68d8a3a3c1b597665914146987aecdc2
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 9e3f5e37462b30b0201be5350dedc103a49bb39a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039296"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -62,8 +62,6 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 * **자격 증명 모음 URI**: 이 예제에서는 https://Contoso-Vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 자격 증명 모음을 만든 후 사용자의 Azure 계정은 이 새 자격 증명 모음에 대해 모든 작업을 수행할 수 있는 유일한 계정입니다.
-
-![Key Vault 만들기 명령이 완료된 후 출력](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Key Vault에서 비밀을 관리할 수 있는 사용자 계정 권한을 부여합니다.
 

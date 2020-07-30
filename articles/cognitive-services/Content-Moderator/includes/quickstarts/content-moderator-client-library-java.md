@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
 ms.date: 01/27/2020
+ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: ffbb0e4bd2eec3299b4d5b2b38477edf611db1a2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4d4e09bed1350a59848ef6853efe2a301d7357e9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187444"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375192"
 ---
 Java용 Content Moderator 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Content Moderator는 자료에서 모욕적이거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 인지 서비스입니다. 이러한 자료가 발견되면 서비스가 콘텐츠에 적절한 레이블(플래그)을 적용합니다. 그러면 앱이 규정에 부합하고 원하는 사용자 환경을 유지하기 위해 플래그가 지정된 콘텐츠를 처리할 수 있습니다.
 
@@ -27,7 +28,7 @@ Java용 Content Moderator 클라이언트 라이브러리를 사용하여 다음
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)의 현재 버전
 * [Gradle 빌드 도구](https://gradle.org/install/) 또는 다른 종속성 관리자
 
@@ -37,10 +38,9 @@ Java용 Content Moderator 클라이언트 라이브러리를 사용하여 다음
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Content Moderator용 리소스를 만듭니다. 다음도 가능합니다.
 
-* 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
 
-평가판 구독 또는 리소스에서 키를 가져오면 `AZURE_CONTENTMODERATOR_KEY`라는 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+리소스에서 키를 가져온 후 `AZURE_CONTENTMODERATOR_KEY`라는 키에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ### <a name="create-a-new-gradle-project"></a>새 Gradle 프로젝트 만들기
 
@@ -93,7 +93,7 @@ mkdir -p src/main/java
 
 Content Moderator Java 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스는 다음과 같습니다.
 
-|속성|Description|
+|이름|설명|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
 |[ImageModeration](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations?view=azure-java-stable)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|

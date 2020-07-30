@@ -3,19 +3,19 @@ title: Microsoft 고객 계약에 대한 청구 역할 - Azure
 description: Azure의 Microsoft 고객 계약에서 청구 계정에 대한 청구 역할에 대해 알아봅니다.
 author: amberbhargava
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 84cb68c4cae962fd985a02a72cc85c6b2cf1aa1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207208"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286583"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure의 Microsoft 고객 계약 관리자 역할 이해
 
-Microsoft 고객 계약의 청구 계정을 관리하려면 다음 섹션에서 설명하는 역할을 사용하세요. 이러한 역할은 리소스에 대한 액세스를 제어하기 위한 Azure의 기본 제공 역할 외에 추가로 제공됩니다. 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+Microsoft 고객 계약의 청구 계정을 관리하려면 다음 섹션에서 설명하는 역할을 사용하세요. 이러한 역할은 리소스에 대한 액세스를 제어하기 위한 Azure의 기본 제공 역할 외에 추가로 제공됩니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. Microsoft 고객 계약에 액세스할 수 있는지 확인하세요.
 

@@ -1,14 +1,15 @@
 ---
 author: areddish
+ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: cf25d69a1f3765613d0d19af8f8f1489d89db1ba
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 383df0d9f3c8fef01d5185be1cf69fe203ba11a2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133960"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87374943"
 ---
 이 문서에서는 Java와 함께 Custom Vision SDK를 사용하여 개체 검색 모델을 빌드하는 방법을 보여줍니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Java 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
 
