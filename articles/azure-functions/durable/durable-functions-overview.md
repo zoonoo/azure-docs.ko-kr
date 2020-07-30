@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: bfbab26e47befbd84ed7b060992d6c0b239ae4db
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 46f0af1eee97a31811e6e463d55fb8aba2d7cd91
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033788"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -232,21 +232,21 @@ Durable Functions는 이 패턴에 대한 **기본 제공 지원**을 제공하�
 다음 예제에서는 오케스트레이터를 시작하고 해당 상태를 쿼리하는 REST 명령을 보여 줍니다. 명확히 하기 위해 예제에서 일부 프로토콜 세부 정보가 생략되었습니다.
 
 ```
-> curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
+> curl -X POST https://myfunc.azurewebsites.net/api/orchestrators/DoWork -H "Content-Length: 0" -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"id":"b79baf67f717453ca9e86c5da21e03ec", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"runtimeStatus":"Running","lastUpdatedTime":"2019-03-16T21:20:47Z", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 200 OK
 Content-Length: 175
 Content-Type: application/json

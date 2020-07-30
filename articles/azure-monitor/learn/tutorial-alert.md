@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 706f3913e25eca6240c186e45709faf6c77620bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505876"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324576"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 애플리케이션 상태에 대한 모니터링 및 경고
 
@@ -73,4 +73,5 @@ Application Insights에서 가용성 테스트를 사용하여 전 세계 여러
 이제 문제에 대한 경고를 설정하는 방법을 배웠으므로 사용자가 애플리케이션과 상호 작용하는 방법을 분석하는 방법을 알아보는 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [사용자 이해](../../azure-monitor/learn/tutorial-users.md)
+> [사용자 이해](./tutorial-users.md)
+

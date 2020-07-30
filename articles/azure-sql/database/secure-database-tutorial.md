@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092935"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -146,7 +146,7 @@ Azure AD를 구성하는 방법에 대한 자세한 내용은 다음을 참조�
 - [Azure AD에 고유한 도메인 이름 추가](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure에서 Windows Server AD와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Azure AD 디렉터리 관리](../../active-directory/fundamentals/active-directory-whatis.md)
-- [PowerShell을 사용하여 Azure AD 관리](/powershell/azure/overview?view=azureadps-2.0)
+- [PowerShell을 사용하여 Azure AD 관리](/powershell/azure/?view=azureadps-2.0)
 - [포트 및 프로토콜이 필요한 하이브리드 ID](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>데이터베이스 액세스 관리

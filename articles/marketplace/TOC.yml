@@ -169,6 +169,14 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: SaaS 제품 만들기
               href: ./partner-center-portal/create-new-saas-offer.md
+            - name: SaaS에 대한 Azure AD 인증
+              items:
+                - name: Azure AD 및 SaaS 개요
+                  href: ./azure-ad-saas.md
+                - name: 거래 가능한 제품의 방문 페이지
+                  href: ./azure-ad-transactable-saas-landing-page.md
+                - name: 체험 또는 평가판의 방문 페이지
+                  href: ./azure-ad-free-or-trial-landing-page.md
             - name: SaaS 처리 API
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:

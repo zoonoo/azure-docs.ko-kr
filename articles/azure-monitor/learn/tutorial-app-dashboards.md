@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661637"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318422"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "77661637"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../../azure-monitor/app/asp-net.md)합니다.
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../app/asp-net.md)합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
@@ -127,4 +127,5 @@ Azure Applications Insights Logs(Analytics)는 별도 서비스이므로 로그 
 이제 사용자 지정 대시보드를 만드는 방법을 배웠으니 사례 연구를 포함하는 Application Insights 설명서의 나머지 부분을 살펴봅니다.
 
 > [!div class="nextstepaction"]
-> [심층 진단](../../azure-monitor/app/devops.md)
+> [심층 진단](../app/devops.md)
+

@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: aa140d9faad2de9fb6cb8a720623244da58e3bda
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 13a8596da9afa34d79c5e2d8ec8a59aa746e655c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75467273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102861"
 ---
-바로 들어가려면 GitHub에서 모든 <a href="https://aka.ms/speech/github-java">Speech SDK Java 샘플</a>을 보거나 다운로드합니다. 그렇지 않으면 시작하겠습니다.
+GitHub에서 모든 <a href="https://aka.ms/speech/github-java">Speech SDK Java 샘플</a>을 보거나 다운로드할 수 있습니다. 

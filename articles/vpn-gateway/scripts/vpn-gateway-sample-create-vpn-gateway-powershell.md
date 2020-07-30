@@ -3,18 +3,18 @@ title: Azure PowerShell 스크립트 샘플 - VPN Gateway 만들기 | Microsoft 
 description: PowerShell을 사용하여 VPN Gateway를 만듭니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: 52a5a70bc8c9f56ff4c5a2e971775d582c8db94d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1531bf7fdb2ec23be49f5a31145e3d8c2487aedc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75862393"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087002"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>PowerShell로 VPN Gateway 만들기
 
@@ -82,4 +82,4 @@ Remove-AzResourceGroup -Name TestRG1
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.

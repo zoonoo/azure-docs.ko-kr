@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5e4c50b4b66d164ba2e89cfc537d9dd8593c4f57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "69639399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092034"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - Node.js
 
@@ -35,8 +35,8 @@ ms.locfileid: "69639399"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Node.js](https://nodejs.org/en/download/)
-- [Media Services 계정 만들기](create-account-cli-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
-- [Azure CLI를 사용하여 Azure Media Services API 액세스](access-api-cli-how-to.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
+- [Media Services 계정 만들기](./create-account-howto.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+- [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 
 ## <a name="download-and-configure-the-sample"></a>샘플 다운로드 및 구성
 
@@ -48,7 +48,7 @@ ms.locfileid: "69639399"
 
 샘플은 [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample) 폴더에 있습니다.
 
-다운로드한 프로젝트에서 [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25)를 엽니다. `endpoint config` 값을 [API에 액세스](access-api-cli-how-to.md)하여 가져온 자격 증명으로 바꿉니다.
+다운로드한 프로젝트에서 [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25)를 엽니다. `endpoint config` 값을 [API에 액세스](./access-api-howto.md)하여 가져온 자격 증명으로 바꿉니다.
 
 샘플은 다음 작업을 수행합니다.
 
@@ -101,7 +101,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="see-also"></a>참고 항목
 
-[작업 오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+[작업 오류 코드](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 06/18/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: fbaa10ec8a0b48d40644bb90144d89f53ab52563
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 9ecbd7778480d37fb0a0cf135d3cc5db48bf2add
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513529"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323658"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기
 
@@ -64,7 +64,6 @@ ms.locfileid: "85513529"
 
 3. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다. 리소스가 성공적으로 배포되면 **리소스로 이동** 단추가 강조 표시됩니다.
 
-
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 
 > [!NOTE]
@@ -84,6 +83,8 @@ read
 ```
 
 ---
+
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
