@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79461013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000961"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -31,7 +31,7 @@ Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 �
 Media Services v3 SDK는 [Media Services v3 OpenAPI 사양(Swagger)](https://aka.ms/ams-v3-rest-sdk)을 기반으로 합니다.
 
 > [!NOTE]
-> 현재 [Azure Portal](https://portal.azure.com/)을 사용하여 Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고(관리 아님), [API 액세스에 대한 정보를 가져올](access-api-portal.md) 수 있습니다. 다른 모든 관리 작업(예제: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+> 현재 [Azure Portal](https://portal.azure.com/)을 사용하여 Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고(관리 아님), [API 액세스에 대한 정보를 가져올](./access-api-howto.md) 수 있습니다. 다른 모든 관리 작업(예제: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,8 +53,8 @@ Media Services를 사용하여 클라우드에서 다양한 미디어 워크플�
 * 녹화된 비디오 또는 오디오 컨텐츠를 분석합니다. 예를 들어, 고객 만족도를 높이기 위해 조직은 음성-텍스트를 추출하고 검색 인덱스 및 대시 보드를 빌드할 수 있습니다. 그런 다음 일반적인 불만, 불만의 원인 및 기타 관련 데이터 인텔리전스를 추출할 수 있습니다.
 * 고객(예: 영화 스튜디오)이 독점 저작물의 액세스 및 사용을 제한해야 하는 경우 구독 비디오 서비스를 만들고 DRM 보호된 콘텐츠를 스트리밍합니다.
 * 항공기, 기차 및 자동차에서 재생할 오프라인 콘텐츠를 제공합니다. 고객은 네트워크에서 연결이 끊길 것으로 예상되는 경우 재생을 위해 휴대 전화나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다.
-* Azure Media Services 및 [Azure Cognitive Services API](https://docs.microsoft.com/azure/?pivot=products&panel=ai)를 사용하여 음성-텍스트 캡션, 다중 언어로 번역 등을 위한 교육 온라인 학습 비디오 플랫폼을 구현합니다.
-* [Azure Cognitive Services API](https://docs.microsoft.com/azure/?pivot=products&panel=ai)와 함께 Azure Media Services를 사용하여 더 많은 청중(예: 청각 장애인 또는 다른 언어로 따라 읽기를 원하는 사람들)을 수용하기 위해 자막 및 캡션을 비디오에 추가합니다.
+* Azure Media Services 및 [Azure Cognitive Services API](../../index.yml?pivot=products&panel=ai)를 사용하여 음성-텍스트 캡션, 다중 언어로 번역 등을 위한 교육 온라인 학습 비디오 플랫폼을 구현합니다.
+* [Azure Cognitive Services API](../../index.yml?pivot=products&panel=ai)와 함께 Azure Media Services를 사용하여 더 많은 청중(예: 청각 장애인 또는 다른 언어로 따라 읽기를 원하는 사람들)을 수용하기 위해 자막 및 캡션을 비디오에 추가합니다.
 * Azure CDN을 사용하여 순간적인 높은 부하(예: 제품 런칭 이벤트 시작)를 더 효율적으로 처리하기 위한 대규모 크기 조정을 구현합니다.
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요? 
@@ -88,14 +88,14 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 
 ### <a name="samples"></a>샘플
 
-[이 샘플 브라우저](https://docs.microsoft.com/samples/browse/?products=azure-media-services)를 사용하여 Azure Media Services 코드 샘플을 찾아볼 수 있습니다.
+[이 샘플 브라우저](/samples/browse/?products=azure-media-services)를 사용하여 Azure Media Services 코드 샘플을 찾아볼 수 있습니다.
 
 ### <a name="how-to-guides"></a>방법 가이드
 
 방법 가이드에는 작업을 완료하는 방법을 설명하는 코드 샘플이 포함되어 있습니다. 이 섹션에서는 많은 예제를 찾을 수 있습니다. 다음은 몇 가지 옵션입니다.
 
-* [계정 만들기 - CLI](create-account-cli-how-to.md)
-* [API 액세스 - CLI](access-api-cli-how-to.md)
+* [계정 만들기 - CLI](./create-account-howto.md)
+* [API 액세스 - CLI](./access-api-howto.md)
 * [HTTPS를 작업 입력으로 인코딩 - .NET](job-input-from-http-how-to.md)  
 * [이벤트 모니터링 - 포털](monitor-events-portal-how-to.md)
 * [다중 DRM으로 동적으로 암호화 - .NET](protect-with-drm.md) 

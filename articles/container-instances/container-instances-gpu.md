@@ -2,13 +2,13 @@
 title: GPU 사용 컨테이너 인스턴스 배포
 description: GPU 리소스를 사용 하 여 계산 집약적인 컨테이너 앱을 실행 하기 위해 Azure container instances를 배포 하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076873"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387095"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -33,9 +33,6 @@ Azure Container Instances에서 특정 계산 집약적인 작업을 실행 하�
 
 ## <a name="about-gpu-resources"></a>GPU 리소스 정보
 
-> [!IMPORTANT]
-> GPU 리소스는 요청 시에만 사용할 수 있습니다. GPU 리소스에 대 한 액세스를 요청 하려면 [Azure 지원 요청][azure-support]을 제출 하세요.
-
 ### <a name="count-and-sku"></a>수 및 SKU
 
 컨테이너 인스턴스에서 GPU를 사용하려면 다음 정보를 사용하여 *GPU 리소스*를 지정해야 합니다.
@@ -52,6 +49,9 @@ Azure Container Instances에서 특정 계산 집약적인 작업을 실행 하�
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 GPU 리소스를 배포할 때 앞의 표에 표시 된 최대 값까지 워크 로드에 적합 한 CPU 및 메모리 리소스를 설정 합니다. 이러한 값은 현재 GPU 리소스가 없는 컨테이너 그룹에서 사용할 수 있는 CPU 및 메모리 리소스 보다 큽니다.  
+
+> [!IMPORTANT]
+> GPU 리소스의 기본 [구독 제한](container-instances-quotas.md) (할당량)은 SKU에 따라 다릅니다. P100 및 V100 Sku에 대 한 기본 CPU 제한은 처음에 0으로 설정 됩니다. 사용 가능한 지역에서 증가를 요청 하려면 [Azure 지원 요청][azure-support]을 제출 하세요.
 
 ### <a name="things-to-know"></a>알아야 할 사항
 
@@ -209,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예를 들면 다음과 같습니다.
+GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

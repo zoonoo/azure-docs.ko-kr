@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/03/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 441d830c7512b7d06c5d4f3e64dc59844b764453
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782265"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387169"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -42,7 +42,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 아니요. 이전 동작에서 작동하도록 코딩된 SCIM 앱에 호환성이 손상되는 변경이 발생한 경우 변경 사항이 기존 앱에 자동으로 적용되지 않았습니다.
 
-Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](../manage-apps/configure-single-sign-on-non-gallery-applications.md)에 변경 사항이 수정 날짜 이후에 적용됩니다.
+Azure Portal에서 구성된 모든 신규 비갤러리 SCIM 앱에 변경 사항이 수정 날짜 이후에 적용됩니다.
 
 최신 수정을 포함하도록 기존 사용자 프로비저닝 작업을 마이그레이션하는 방법에 대한 정보는 다음 섹션을 참조하세요.
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519717"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387373"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure(온-프레미스 포함) 컴퓨터에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 데이터는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사하는 Log Analytics 에이전트를 사용하여 수집됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다.
@@ -211,15 +211,17 @@ Security Center는 Log Analytics 에이전트 확장을 기존 Operations Manage
     - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치되어 있고 기존 Log Analytics 작업 영역에 보고하는 환경을 갖고 있는 경우 [Azure Security Center에서 지원하는 운영 체제](security-center-os-coverage.md) 목록을 검토하여 현재 운영 체제가 지원되는지 확인하세요. 자세한 내용은 [기존 Log Analytics 고객](./faq-azure-monitor-logs.md)을 참조하세요.
  
 ### <a name="turn-off-automatic-provisioning"></a>자동 프로비전 끄기 <a name="offprovisioning"></a>
-언제든지 보안 정책에서 이 설정을 해제하여 리소스 자동 프로비전을 끌 수 있습니다. 
+Log Analytics 에이전트의 자동 프로 비전을 해제 하려면 다음을 수행 합니다.
 
+1. 포털의 Security Center 메뉴에서 **가격 책정 & 설정**을 선택합니다.
+2. 관련 구독을 선택합니다.
 
-1. Security Center 주 메뉴로 돌아가서 보안 정책을 선택합니다.
-2. 자동 프로비저닝을 사용하지 않도록 설정할 구독 행에서 **설정 편집**을 클릭합니다.
-3. **보안 정책 - 데이터 수집** 페이지의 **자동 프로비저닝** 아래에서 **해제**를 선택합니다.
-4. **저장**을 선택합니다.
+   ![구독 선택][7]
 
-   ![자동 프로비저닝 사용 안 함][6]
+3. **데이터 수집**을 선택합니다.
+4. 자동 프로 **비전**에서 **끄기** 를 선택 하 여 자동 프로비저닝을 사용 하지 않도록 설정 합니다.
+5. **저장**을 선택합니다. 
+
 
 자동 프로비전을 해제하면(끄면) 기본 작업 영역 구성 섹션이 표시되지 않습니다.
 

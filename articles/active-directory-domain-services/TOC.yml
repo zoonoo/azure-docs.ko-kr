@@ -49,6 +49,8 @@
       href: synchronization.md
     - name: 암호 해시 동기화 작동 방식
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: 가상 네트워크 고려 사항
+      href: network-considerations.md
     - name: 클래식 배포 마이그레이션 이점
       href: concepts-migration-benefits.md
     - name: Azure Active Directory란?
@@ -65,10 +67,6 @@
           href: create-ou.md
         - name: gMSA(그룹 관리 서비스 계정) 만들기
           href: create-gmsa.md
-    - name: Azure AD DS 계획
-      items:
-        - name: 가상 네트워크 고려 사항
-          href: network-considerations.md
     - name: Azure AD DS 관리
       items:
         - name: 그룹 정책 관리

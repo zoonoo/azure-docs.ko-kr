@@ -3,12 +3,12 @@ title: '빠른 시작: Go를 사용하여 이벤트 보내기 및 받기 - Azure
 description: '빠른 시작: 이 문서에서는 Azure Event Hubs에서 이벤트를 보내는 Go 애플리케이션을 만드는 연습을 제공합니다.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320355"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002457"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>빠른 시작: Go를 사용하여 Event Hubs에서 이벤트 보내기 또는 받기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -126,7 +126,7 @@ log.Printf("got partition IDs: %s\n", info.PartitionIDs)
 
 ### <a name="create-a-storage-account-and-container"></a>Storage 계정 및 컨테이너 만들기
 
-이벤트 스트림의 파티션 및 검사점 임대와 같은 상태는 Azure Storage 컨테이너를 사용하여 수신기 간에 공유됩니다. Go SDK를 사용하여 스토리지 계정 및 컨테이너를 만들 수 있지만, [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 지침에 따라 새로 만들 수도 있습니다.
+이벤트 스트림의 파티션 및 검사점 임대와 같은 상태는 Azure Storage 컨테이너를 사용하여 수신기 간에 공유됩니다. Go SDK를 사용하여 스토리지 계정 및 컨테이너를 만들 수 있지만, [Azure Storage 계정 정보](../storage/common/storage-account-create.md)의 지침에 따라 새로 만들 수도 있습니다.
 
 Go SDK를 사용하여 Storage 아티팩트를 만드는 샘플은 [Go 샘플 리포지토리](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) 및 이 자습서에 해당하는 샘플에서 사용할 수 있습니다.
 
