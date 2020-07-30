@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 73d7c129a63e4d63ad5cc05d8dac47720c7955e4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 748e31499a4aa8f1ddd2cea4e918b688426338fa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117245"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>빠른 시작: 가상 Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -22,10 +22,12 @@ ms.locfileid: "86511917"
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
-1. IoT Hub를 만듭니다.
-2. IoT Edge 디바이스를 IoT Hub에 등록합니다.
-3. 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
-4. 원격으로 모듈을 IoT Edge 디바이스에 배포하고 IoT Hub에 원격 분석을 전송합니다.
+> [!div class="checklist"]
+>
+> * IoT Hub를 만듭니다.
+> * IoT Edge 디바이스를 IoT Hub에 등록합니다.
+> * 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
+> * 원격으로 모듈을 IoT Edge 디바이스에 배포하고 IoT Hub에 원격 분석을 전송합니다.
 
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart/install-edge-full.png)
 

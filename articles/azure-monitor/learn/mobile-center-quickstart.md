@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: a5c025f40f3d78e9e2ff54a0de76763a3e717640
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498698"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322145"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -167,4 +167,5 @@ Application Insights 리소스를 삭제하려면:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [고객이 앱을 사용하는 방법 이해](../../azure-monitor/app/usage-overview.md)
+> [고객이 앱을 사용하는 방법 이해](../app/usage-overview.md)
+

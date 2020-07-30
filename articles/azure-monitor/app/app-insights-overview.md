@@ -4,18 +4,18 @@ description: 라이브 웹 애플리케이션의 애플리케이션 성능을 �
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: c25929100fdfa6f4652e99c0d2563d9e56cfb62b
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: f80322e8cde27ea48ca343ca8eee5985cba23ceb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996094"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321448"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 [Azure Monitor](../overview.md)의 기능인 Application Insights는 개발자 및 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 애플리케이션을 모니터링하는 데 사용합니다. 성능 이상을 자동으로 감지하고, 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 온-프레미스, 하이브리드 또는 퍼블릭 클라우드에서 호스팅되는 .NET, Node.js, Java 및 Python을 포함하여 다양한 플랫폼의 앱에서 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
 
 ## <a name="how-does-application-insights-work"></a>Application Insights의 작동 방식
-작은 계측 패키지(SDK)를 애플리케이션에 설치하거나, [지원되는](../../azure-monitor/app/platforms.md) 경우 Application Insights Agent를 사용하여 Application Insights를 사용하도록 설정합니다. 계측은 앱을 모니터링하고, 계측 키라고 하는 고유한 GUID를 사용하여 원격 분석 데이터를 Azure Application Insights 리소스로 보냅니다.
+작은 계측 패키지(SDK)를 애플리케이션에 설치하거나, [지원되는](./platforms.md) 경우 Application Insights Agent를 사용하여 Application Insights를 사용하도록 설정합니다. 계측은 앱을 모니터링하고, 계측 키라고 하는 고유한 GUID를 사용하여 원격 분석 데이터를 Azure Application Insights 리소스로 보냅니다.
 
 웹 서비스 애플리케이션뿐 아니라 모든 백그라운드 구성 요소와 웹 페이지 자체의 JavaScript까지 계측할 수 있습니다. 애플리케이션 및 해당 구성 요소는 어디서나 실행될 수 있으며 Azure에서 호스팅할 필요가 없습니다.
 
@@ -49,29 +49,29 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 
 |  |  |
 | --- | --- |
-| [**스마트 검색 및 수동 경고**](../../azure-monitor/app/proactive-diagnostics.md)<br/>앱의 일반적인 원격 분석 패턴에 맞게 자동경고가 설정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 [경고를 설정](../../azure-monitor/platform/alerts-log.md)할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
-| [**애플리케이션 맵**](../../azure-monitor/app/app-map.md)<br/>주요 메트릭 및 경고가 포함된 앱의 구성 요소를 살펴봅니다. |![애플리케이션 맵](./media/app-insights-overview/appmap-tn.png)  |
-| [**프로파일러**](../../azure-monitor/app/profiler.md)<br/>샘플링된 요청의 실행 프로필을 검사합니다. |![프로파일러](./media/app-insights-overview/profiler.png) |
-| [**사용량 현황 분석**](../../azure-monitor/app/usage-overview.md)<br/>사용자 구분 및 재방문 주기를 분석합니다.|![재방문 주기 도구](./media/app-insights-overview/retention.png) |
-| [**인스턴스 데이터에 대한 진단 검색**](../../azure-monitor/app/diagnostic-search.md)<br/>요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다.  |![원격 분석 검색](./media/app-insights-overview/search-tn.png) |
-| [**집계된 데이터에 대한 메트릭 탐색기**](../../azure-monitor/platform/metrics-charts.md)<br/>요청, 오류 및 예외의 비율과 응답 시간, 페이지 로드 시간과 같은 집계된 데이터를 탐색, 필터링 및 분할할 수 있습니다. |![메트릭](./media/app-insights-overview/metrics-tn.png) |
-| [**대시보드**](../../azure-monitor/app/overview-dashboard.md)<br/>여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 애플리케이션에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다. |![대시보드 샘플](./media/app-insights-overview/dashboard-tn.png) |
-| [**라이브 메트릭 스트림**](../../azure-monitor/app/live-stream.md)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다. |![라이브 메트릭 샘플](./media/app-insights-overview/live-metrics-tn.png) |
-| [**분석**](../../azure-monitor/app/analytics.md)<br/>이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다. |![분석 샘플](./media/app-insights-overview/analytics-tn.png) |
-| [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>코드의 성능 데이터를 참조하세요. 스택 추적의 코드로 이동하세요.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
-| [**스냅샷 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
-| [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
+| [**스마트 검색 및 수동 경고**](./proactive-diagnostics.md)<br/>앱의 일반적인 원격 분석 패턴에 맞게 자동경고가 설정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 [경고를 설정](../platform/alerts-log.md)할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
+| [**애플리케이션 맵**](./app-map.md)<br/>주요 메트릭 및 경고가 포함된 앱의 구성 요소를 살펴봅니다. |![애플리케이션 맵](./media/app-insights-overview/appmap-tn.png)  |
+| [**프로파일러**](./profiler.md)<br/>샘플링된 요청의 실행 프로필을 검사합니다. |![프로파일러](./media/app-insights-overview/profiler.png) |
+| [**사용량 현황 분석**](./usage-overview.md)<br/>사용자 구분 및 재방문 주기를 분석합니다.|![재방문 주기 도구](./media/app-insights-overview/retention.png) |
+| [**인스턴스 데이터에 대한 진단 검색**](./diagnostic-search.md)<br/>요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다.  |![원격 분석 검색](./media/app-insights-overview/search-tn.png) |
+| [**집계된 데이터에 대한 메트릭 탐색기**](../platform/metrics-charts.md)<br/>요청, 오류 및 예외의 비율과 응답 시간, 페이지 로드 시간과 같은 집계된 데이터를 탐색, 필터링 및 분할할 수 있습니다. |![메트릭](./media/app-insights-overview/metrics-tn.png) |
+| [**대시보드**](./overview-dashboard.md)<br/>여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 애플리케이션에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다. |![대시보드 샘플](./media/app-insights-overview/dashboard-tn.png) |
+| [**라이브 메트릭 스트림**](./live-stream.md)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다. |![라이브 메트릭 샘플](./media/app-insights-overview/live-metrics-tn.png) |
+| [**분석**](../log-query/log-query-overview.md)<br/>이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다. |![분석 샘플](./media/app-insights-overview/analytics-tn.png) |
+| [**Visual Studio**](./visual-studio.md)<br/>코드의 성능 데이터를 참조하세요. 스택 추적의 코드로 이동하세요.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**스냅샷 디버거**](./snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
+| [**Power BI**](./export-power-bi.md)<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.| ![REST API](./media/app-insights-overview/rest-tn.png) |
-| [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 스토리지에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
+| [**연속 내보내기**](./export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 스토리지에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Application Insights를 어떻게 사용하나요?
 
 ### <a name="monitor"></a>모니터
-앱에 Application Insights를 설치하고, [가용성 웹 테스트를 설정](../../azure-monitor/app/monitor-web-app-availability.md)하고, 다음을 수행합니다.
+앱에 Application Insights를 설치하고, [가용성 웹 테스트를 설정](./monitor-web-app-availability.md)하고, 다음을 수행합니다.
 
-* 종속성, 페이지 로드 및 AJAX 호출의 부하, 응답성 및 성능을 모니터링하기 위한 팀 공간용 기본 [애플리케이션 대시보드](../../azure-monitor/app/overview-dashboard.md)를 체크 아웃합니다.
+* 종속성, 페이지 로드 및 AJAX 호출의 부하, 응답성 및 성능을 모니터링하기 위한 팀 공간용 기본 [애플리케이션 대시보드](./overview-dashboard.md)를 체크 아웃합니다.
 * 가장 느리고 대부분 실패한 요청을 검색합니다.
-* 새 릴리스를 배포할 때 [라이브 스트림](../../azure-monitor/app/live-stream.md)을 보고 성능 저하를 즉시 인식합니다.
+* 새 릴리스를 배포할 때 [라이브 스트림](./live-stream.md)을 보고 성능 저하를 즉시 인식합니다.
 
 ### <a name="detect-diagnose"></a>감지, 진단
 경고를 수신하거나 문제를 검색한 경우:
@@ -81,7 +81,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 * 프로파일러, 스냅샷, 스택 덤프 및 추적 로그를 검사합니다.
 
 ### <a name="build-measure-learn"></a>빌드, 측정, 학습
-배포하는 새로운 각 기능의 [효율성을 측정](../../azure-monitor/app/usage-overview.md)합니다.
+배포하는 새로운 각 기능의 [효율성을 측정](./usage-overview.md)합니다.
 
 * 고객이 새 UX 또는 비즈니스 기능을 사용하는 방식을 측정하도록 계획합니다.
 * 코드에 사용자 지정 원격 분석을 작성합니다.
@@ -93,41 +93,41 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 시작하는 데는 몇 가지 방법이 있습니다. 본인에게 적합한 방법으로 시작합니다. 나중에 계정을 더 추가할 수 있습니다.
 
 * **런타임: 서버에서 웹앱을 계측합니다.** 이미 배포된 애플리케이션에 적합합니다. 코드에 대한 업데이트를 방지합니다.
-  * [**Azure Web Apps에서 호스팅되는 ASP.NET 또는 ASP.NET Core 애플리케이션**](../../azure-monitor/app/azure-web-apps.md)
-  * [**Azure VM 또는 Azure Virtual Machine Scale Set의 IIS에 호스트된 ASP.NET 애플리케이션**](../../azure-monitor/app/azure-vm-vmss-apps.md)
-  * [**IIS 온-프레미스 VM에 호스트된 ASP.NET 애플리케이션**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**Azure Web Apps에서 호스팅되는 ASP.NET 또는 ASP.NET Core 애플리케이션**](./azure-web-apps.md)
+  * [**Azure VM 또는 Azure Virtual Machine Scale Set의 IIS에 호스트된 ASP.NET 애플리케이션**](./azure-vm-vmss-apps.md)
+  * [**IIS 온-프레미스 VM에 호스트된 ASP.NET 애플리케이션**](./monitor-performance-live-website-now.md)
 * **개발 타임: 코드에 Application Insights를 추가합니다.** 원격 분석 데이터 컬렉션을 사용자 지정하고 원격 분석 데이터를 추가로 전송할 수 있습니다.
-  * [ASP.NET 애플리케이션](../../azure-monitor/app/asp-net.md)
-  * [ASP.NET Core 애플리케이션](../../azure-monitor/app/asp-net-core.md)
-  * [.NET 콘솔 애플리케이션](../../azure-monitor/app/console.md)
-  * [Java](../../azure-monitor/app/java-get-started.md)
-  * [Node.JS](../../azure-monitor/app/nodejs.md)
-  * [Python](../../azure-monitor/app/opencensus-python.md)
-  * [기타 플랫폼](../../azure-monitor/app/platforms.md)
-* 페이지 보기, AJAX 및 기타 클라이언트 쪽 원격 분석에 대해 **[웹 페이지를 계측](../../azure-monitor/app/javascript.md)** 합니다.
-* Visual Studio App Center와 통합하여 **[모바일 앱 사용을 분석](../../azure-monitor/learn/mobile-center-quickstart.md)** 합니다.
-* **[가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)** -서버에서 정기적으로 웹 사이트를 ping합니다.
+  * [ASP.NET 애플리케이션](./asp-net.md)
+  * [ASP.NET Core 애플리케이션](./asp-net-core.md)
+  * [.NET 콘솔 애플리케이션](./console.md)
+  * [Java](./java-get-started.md)
+  * [Node.JS](./nodejs.md)
+  * [Python](./opencensus-python.md)
+  * [기타 플랫폼](./platforms.md)
+* 페이지 보기, AJAX 및 기타 클라이언트 쪽 원격 분석에 대해 **[웹 페이지를 계측](./javascript.md)** 합니다.
+* Visual Studio App Center와 통합하여 **[모바일 앱 사용을 분석](../learn/mobile-center-quickstart.md)** 합니다.
+* **[가용성 테스트](./monitor-web-app-availability.md)** -서버에서 정기적으로 웹 사이트를 ping합니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 런타임에 시작하세요.
 
-* [Azure VM 및 Azure Virtual Machine Scale Set IIS 호스트 앱](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+* [Azure VM 및 Azure Virtual Machine Scale Set IIS 호스트 앱](./azure-vm-vmss-apps.md)
+* [IIS 서버](./monitor-performance-live-website-now.md)
+* [Azure Web Apps](./azure-web-apps.md)
 
 다음을 사용하여 개발 시에 시작하세요.
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.JS](../../azure-monitor/app/nodejs.md)
-* [Python](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.JS](./nodejs.md)
+* [Python](./opencensus-python.md)
 
 
 ## <a name="support-and-feedback"></a>지원 및 피드백
 * 질문 및 문제:
   * [문제 해결][qna]
-  * [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+  * [Microsoft Q&A 질문 페이지](/answers/topics/azure-monitor.html)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * 사용자 제안:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
@@ -136,15 +136,16 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 
 <!--Link references-->
 
-[android]: ../../azure-monitor/learn/mobile-center-quickstart.md
+[android]: ../learn/mobile-center-quickstart.md
 [azure]: ../../insights-perf-analytics.md
-[client]: ../../azure-monitor/app/javascript.md
-[desktop]: ../../azure-monitor/app/windows-desktop.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[ios]: ../../azure-monitor/learn/mobile-center-quickstart.md
-[java]: ../../azure-monitor/app/java-get-started.md
+[client]: ./javascript.md
+[desktop]: ./windows-desktop.md
+[greenbrown]: ./asp-net.md
+[ios]: ../learn/mobile-center-quickstart.md
+[java]: ./java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[platforms]: ./platforms.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
+[qna]: ../faq.md
+[redfield]: ./monitor-performance-live-website-now.md
+

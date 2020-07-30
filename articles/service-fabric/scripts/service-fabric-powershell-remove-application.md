@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 9ac4c23468c74b5a2c6874de2cb6b8d0e6b9e7dd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8b4b07288ce2c3570da5482a446b9418c7319011
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75610287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086203"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Powershell을 사용하여 Service Fabric 클러스터에서 애플리케이션 제거
 
@@ -42,6 +42,6 @@ ms.locfileid: "75610287"
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/?view=azureservicefabricps)를 참조하세요.
+Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview?view=azureservicefabricps)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 PowerShell 샘플은 [Azure PowerShell 샘플](../service-fabric-powershell-samples.md)에서 확인할 수 있습니다.
