@@ -3,23 +3,20 @@ title: '빠른 시작: Azure Queue storage 라이브러리 v12 - .NET'
 description: Azure Queue .NET v12 라이브러리를 사용하여 큐를 만들고 큐에 메시지를 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 삭제하는 방법을 알아봅니다. 큐를 삭제하는 방법도 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/22/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5931311368a6389386adb689a505feeeed03b29c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78197490"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289185"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Queue storage 클라이언트 라이브러리 v12
 
 .NET용 Azure Queue storage 클라이언트 라이브러리 버전 12를 시작합니다. Azure Queue storage는 나중에 검색하고 처리할 수 있도록 대량의 메시지를 저장하는 서비스입니다. 다음 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요.
-
-> [!NOTE]
-> 이전 SDK 버전을 시작하려면 [빠른 시작: .NET용 Azure Storage SDK v11을 사용하여 큐 관리](storage-quickstart-queues-dotnet-legacy.md)를 참조하세요.
 
 .NET용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행할 수 있습니다.
 
@@ -31,9 +28,14 @@ ms.locfileid: "78197490"
 * 큐에서 메시지 삭제
 * 큐 삭제
 
-[API 참조 설명서](/dotnet/api/azure.storage.queues) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+추가 리소스:
 
-## <a name="prerequisites"></a>사전 요구 사항
+* [API 참조 설명서](/dotnet/api/azure.storage.queues)
+* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+* [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
