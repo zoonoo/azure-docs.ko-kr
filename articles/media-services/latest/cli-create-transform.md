@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: c21a16d043f972042949d6340985774741b3df6a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 365c6a6a10ee79d96c1054416669e84c5392344c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74888618"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092170"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI 예: Transform 만들기
 
@@ -27,14 +27,14 @@ ms.locfileid: "74888618"
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-[Media Services 계정 만들기](create-account-cli-how-to.md)
+[Media Services 계정 만들기](./create-account-howto.md)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 > [!NOTE]
-> [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)에 대한 사용자 지정 표준 인코더 사전 설정 JSON 파일의 경로만 지정할 수 있습니다. [사용자 지정 변환으로 인코딩](custom-preset-cli-howto.md) 예제를 참조하세요.
+> [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset)에 대한 사용자 지정 표준 인코더 사전 설정 JSON 파일의 경로만 지정할 수 있습니다. [사용자 지정 변환으로 인코딩](custom-preset-cli-howto.md) 예제를 참조하세요.
 >
-> [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)을 사용할 때는 파일 이름을 전달할 수 없습니다.
+> [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)을 사용할 때는 파일 이름을 전달할 수 없습니다.
 
 ## <a name="example-script"></a>예제 스크립트
 
@@ -42,4 +42,4 @@ ms.locfileid: "74888618"
 
 ## <a name="next-steps"></a>다음 단계
 
-[az ams transform(CLI)](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest)
+[az ams transform(CLI)](/cli/azure/ams/transform?view=azure-cli-latest)

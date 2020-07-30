@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: c0ce0a1019554592f769d88f4168da7dc6188586
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 14c6193b4a4373d754e3e90d573eccd2735de56c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085030"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에서 탄력적 풀 모니터링 및 크기 조정
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -60,6 +60,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 추가 PowerShell 스크립트 샘플은 [Azure PowerShell 스크립트](../powershell-script-content-guide.md)에서 찾을 수 있습니다.

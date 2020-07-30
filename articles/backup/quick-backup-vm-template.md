@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054482"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure에서 가상 머신 백업
 
-[Azure Backup](backup-overview.md)은 온-프레미스 머신과 앱, Azure VM을 백업합니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)과 Azure PowerShell을 사용하여 Azure VM을 백업하는 방법을 보여줍니다. 이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들기 위해 ARM 템플릿을 배포하는 과정에 중점을 둡니다. ARM 탬플릿 개발에 대한 자세한 내용은 [Azure Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.recoveryservices/allversions)를 참조하세요.
+[Azure Backup](backup-overview.md)은 온-프레미스 머신과 앱, Azure VM을 백업합니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)과 Azure PowerShell을 사용하여 Azure VM을 백업하는 방법을 보여줍니다. 이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들기 위해 ARM 템플릿을 배포하는 과정에 중점을 둡니다. ARM 탬플릿 개발에 대한 자세한 내용은 [Azure Resource Manager 설명서](../azure-resource-manager/index.yml) 및 [템플릿 참조](/azure/templates/microsoft.recoveryservices/allversions)를 참조하세요.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

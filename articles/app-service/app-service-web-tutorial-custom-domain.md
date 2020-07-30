@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a594a754f33ae60d151215deb5a5ed57f87126c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986832"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050656"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -329,7 +329,7 @@ App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리�
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
-[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 스크립트를 통해 사용자 지정 도메인의 관리를 자동화할 수 있습니다. 
+[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/)을 사용하여 스크립트를 통해 사용자 지정 도메인의 관리를 자동화할 수 있습니다. 
 
 ### <a name="azure-cli"></a>Azure CLI 
 

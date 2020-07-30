@@ -7,13 +7,13 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e06d7d73230b17710d8c667ab89d5ead522e6de1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 92bfaa7718a8e094fcfc1479e9dba6790438f7a7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254262"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322706"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "85254262"
 
 > [!NOTE]
 >
-> IntelliJ, Eclipse 및 VS Code와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit for Eclipse 빠른 시작](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) 또는 [VS Code 빠른 시작](https://code.visualstudio.com/docs/java/java-webapp)에서 유사한 문서를 확인하세요.
+> IntelliJ, Eclipse 및 VS Code와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app), [Azure Toolkit for Eclipse 빠른 시작](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app) 또는 [VS Code 빠른 시작](https://code.visualstudio.com/docs/java/java-webapp)에서 유사한 문서를 확인하세요.
 >
 ![Azure App Service에서 실행 중인 샘플 앱](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 

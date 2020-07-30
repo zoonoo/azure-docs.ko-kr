@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3007aa1fab8797d77e1edde83f22e359196641cc
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85248584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053810"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ ms.locfileid: "85248584"
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다. 
   3. **테넌트 ID**를 가져옵니다. 
   4. **ADFCopyTutorialApp** 애플리케이션을 **데이터 팩터리 기여자** 역할에 할당합니다.  
-* [Azure PowerShell](/powershell/azure/overview)을 설치합니다.  
+* [Azure PowerShell](/powershell/azure/)을 설치합니다.  
 * **PowerShell**을 시작하고 다음 단계를 수행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   
   1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.

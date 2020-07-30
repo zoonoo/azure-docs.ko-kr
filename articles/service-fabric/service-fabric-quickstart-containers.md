@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260508"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089620"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
@@ -86,7 +86,7 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 
 다음 샘플 스크립트는 X.509 인증서를 사용하여 보호되는 5노드 Service Fabric 클러스터로 만듭니다. 이 명령은 자체 서명된 인증서를 만들고 새로운 Key Vault에 업로드합니다. 인증서는 로컬 디렉터리에도 복사됩니다. [Service Fabric 클러스터 만들기](scripts/service-fabric-powershell-create-secure-cluster-cert.md)에서 이 스크립트를 사용하여 클러스터를 만드는 방법에 대해 자세히 알아볼 수 있습니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다.
 
 다음 스크립트를 실행하기 전에 PowerShell에서 `Connect-AzAccount`를 실행하여 Azure와의 연결을 설정합니다.
 

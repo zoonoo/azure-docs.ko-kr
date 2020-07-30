@@ -52,8 +52,12 @@
     - name: 액세스 및 ID
       href: concepts-identity.md
     - name: 보안
-      href: concepts-security.md
-      items: null
+      items:
+        - name: 애플리케이션 및 클러스터에 대한 보안
+          href: concepts-security.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: 네트워킹
       href: concepts-network.md
     - name: 스토리지
@@ -364,7 +368,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

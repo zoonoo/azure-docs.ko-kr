@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63f2abe7a3890efbaf4c79186467a3eb20d8afda
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 0a1a5bf9f192a7128da8843b79b60be0175cec23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092136"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Azure CLI 예제: 계정 자격 증명을 다시 설정합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "80382990"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[Media Services 계정 만들기](create-account-cli-how-to.md)
+[Media Services 계정 만들기](./create-account-howto.md)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

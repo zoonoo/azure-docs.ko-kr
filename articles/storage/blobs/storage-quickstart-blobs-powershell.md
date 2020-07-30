@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: bca04317acf589e8bae46f086c6c79dfc82152a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d84867e598110c5d9a59b477d92a2c8e021358db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176654"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087367"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -63,6 +63,12 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
+
+# upload a file to a folder
+Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
+  -Container $containerName `
+  -Blob "Foldername/Image003.jpg" `
+  -Context $ctx 
 ```
 
 원하는 만큼 파일을 업로드한 후 계속합니다.
