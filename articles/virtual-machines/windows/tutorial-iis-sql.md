@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3e44236f74a5448c540c58ba730d65b412d48bd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c53194bd345c18ac582acd538f1e8f8e1e34d54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027855"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL, IIS, .NET 스택 설치
 
@@ -33,7 +33,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ## <a name="create-an-iis-vm"></a>IIS VM 만들기 
 
-이 예제에서는 PowerShell Cloud Shell에서 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet을 사용하여 Windows Server 2016 VM을 빠르게 만든 다음, IIS와 .NET Framework를 설치합니다. IIS 및 SQL VM은 리소스 그룹 및 가상 네트워크를 공유하므로 그러한 이름의 변수를 만듭니다.
+이 예제에서는 PowerShell Cloud Shell에서 [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet을 사용하여 Windows Server 2016 VM을 빠르게 만든 다음, IIS와 .NET Framework를 설치합니다. IIS 및 SQL VM은 리소스 그룹 및 가상 네트워크를 공유하므로 그러한 이름의 변수를 만듭니다.
 
 
 ```azurepowershell-interactive
@@ -52,7 +52,7 @@ New-AzVm `
     -OpenPorts 80,3389 
 ```
 
-[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet으로 사용자 지정 스크립트 확장을 사용하여 IIS 및 .NET Framework를 설치합니다.
+[Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet으로 사용자 지정 스크립트 확장을 사용하여 IIS 및 .NET Framework를 설치합니다.
 
 ```azurepowershell-interactive
 Set-AzVMExtension `
@@ -76,7 +76,7 @@ $vNet = Get-AzVirtualNetwork `
    -ResourceGroupName $resourceGroup
 ```
 
-[Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용하여 서브넷의 구성을 만듭니다.
+[Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용하여 서브넷의 구성을 만듭니다.
 
 
 ```azurepowershell-interactive
@@ -87,7 +87,7 @@ Add-AzVirtualNetworkSubnetConfig `
    -ServiceEndpoint Microsoft.Sql
 ```
 
-[Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)를 사용하여 새 서브넷 구성으로 vNet을 업데이트합니다.
+[Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)를 사용하여 새 서브넷 구성으로 vNet을 업데이트합니다.
    
 ```azurepowershell-interactive   
 $vNet | Set-AzVirtualNetwork
@@ -111,7 +111,7 @@ New-AzVm `
     -OpenPorts 3389,1401 
 ```
 
-[Set-AzVMSqlServerExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsqlserverextension)을 사용하여 [SQL Server 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)을 SQL VM에 추가합니다.
+[Set-AzVMSqlServerExtension](/powershell/module/az.compute/set-azvmsqlserverextension)을 사용하여 [SQL Server 확장](../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)을 SQL VM에 추가합니다.
 
 ```azurepowershell-interactive
 Set-AzVMSqlServerExtension `
@@ -135,4 +135,3 @@ TLS/SSL 인증서로 IIS 웹 서버를 보호하는 방법에 대해 알아보�
 
 > [!div class="nextstepaction"]
 > [TLS/SSL 인증서로 IIS 웹 서버 보호](tutorial-secure-web-server.md)
-

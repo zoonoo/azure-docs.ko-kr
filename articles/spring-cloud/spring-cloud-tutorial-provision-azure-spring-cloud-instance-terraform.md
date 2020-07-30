@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 554315ebd4b5b70256894fa3c78f8fe693153622
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: 817a7c132657ba0ad8910a334b571f9d05481a0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021225"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>자습서: Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
 

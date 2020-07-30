@@ -2,16 +2,14 @@
 title: Azure for Students Starter를 사용하여 함수 만들기
 description: Azure for Students Starter 구독 내에서 Azure 함수 만드는 방법 알아보기
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
-author: alexkarcher-msft
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.author: alkarche
-ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122868"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386965"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
 

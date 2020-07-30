@@ -3,12 +3,12 @@ title: Azure DevTest Labs에 대 한 Azure 보안 기준
 description: Azure DevTest Labs에 대 한 Azure 보안 기준
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 47adca5867fef1d41ccfec2455acc6932269842d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f0dc1fb18740e2b0611b5954821a5ceda2d2657
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282282"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387832"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -547,7 +547,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 **지침:** Azure Backup를 사용 하 여 관리 디스크를 백업 하는 경우 Vm은 저장소 서비스 암호화 (SSE)를 사용 하 여 미사용 상태에서 암호화 됩니다. Azure Backup Azure Disk Encryption를 사용 하 여 암호화 된 Azure Vm을 백업할 수도 있습니다. Azure Disk Encryption는 키 자격 증명 모음에 비밀으로 보호는 BEKs (BitLocker 암호화 키)와 통합 됩니다. Azure Disk Encryption은 KEKs (Azure Key Vault 키 암호화 키)와도 통합 됩니다. Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 악의적으로 삭제되지 않도록 키를 보호합니다.
 
 - [Vm에 대 한 일시 삭제](../backup/soft-delete-virtual-machines.md)
-- [Azure Key Vault-일시 삭제 개요](../key-vault/general/overview-soft-delete.md)
+- [Azure Key Vault-일시 삭제 개요](../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center 모니터링:** 예로
 

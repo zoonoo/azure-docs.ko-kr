@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.custom: devx-track-java
+ms.openlocfilehash: 8cc8f347330904bfab980b79cf5c5f351ce16629
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089484"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Azure Spring Cloud를 사용하는 회로 차단기 대시보드 사용
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine)은 여러 [Hystrix](https://github.com/Netflix/Hystrix) 메트릭 스트림을 집계하는 데 널리 사용되므로 Hystrix 대시보드를 사용하여 단일 뷰에서 스트림을 모니터링할 수 있습니다. 이 자습서에서는 Azure Spring Cloud에서 이를 사용하는 방법을 설명합니다.

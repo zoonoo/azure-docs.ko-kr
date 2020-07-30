@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: ecc34b84e5be2d0470cc5a58a71a70e9ffcab1b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052550"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387356"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램 모니터링
 
@@ -39,7 +39,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 
 ## <a name="monitor-running-apache-spark-application"></a>실행 중인 Apache Spark 응용 프로그램 모니터링
 
-**모니터**를 열고 **Apache Spark 응용 프로그램**을 선택 합니다. 실행 중인 Apache Spark 응용 프로그램에 대 한 세부 정보를 보려면 Apache Spark 응용 프로그램 제출을 선택 하 고 세부 정보를 확인 합니다. Apache Spark 응용 프로그램이 계속 실행 중인 경우 진행률을 모니터링할 수 있습니다.
+**모니터**를 열고 **Apache Spark 응용 프로그램**을 선택 합니다. 실행 되는 Apache Spark 응용 프로그램에 대 한 세부 정보를 보려면 Apache Spark 응용 프로그램 제출을 선택 하 고 세부 정보를 확인 합니다. Apache Spark 응용 프로그램이 계속 실행 중인 경우 진행률을 모니터링할 수 있습니다.
 
   ![실행 중인 작업 선택](./media/how-to-monitor-spark-applications/select-running-job.png)
 

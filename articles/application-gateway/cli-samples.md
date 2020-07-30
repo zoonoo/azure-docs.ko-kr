@@ -7,19 +7,18 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 57df87f6cc101f4cc097b464d93238d3b868c93b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0df0ace18e39a3920354e6c713843adc55bf1394
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74129787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086900"
 ---
 # <a name="azure-cli-examples-for-azure-application-gateway"></a>Azure Application Gateway에 대한 Azure CLI 예제
 
 다음 표에서는 Azure Application Gateway의 Azure CLI 스크립트 예제에 대한 링크를 포함합니다.
 
-| | |
-|---|---|
+| 예제 | Description |
+|-------- | ----------- |
 | [웹 트래픽 관리](./scripts/create-vmss-cli.md) | 애플리케이션 게이트웨이 및 모든 관련 리소스를 만듭니다. |
 | [웹 트래픽 제한](./scripts/create-vmss-waf-cli.md) | OWASP 규칙을 사용하여 트래픽을 제한하는 애플리케이션 게이트웨이를 만듭니다.|
-| | |
