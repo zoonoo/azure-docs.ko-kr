@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 98ab333a495c31889bee2a9cddab778a12876af5
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090079"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -34,7 +34,7 @@ ms.locfileid: "84816906"
 * IoT Hub
 * 스토리지 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge-linux.md)이 설치된 Azure의 Linux VM
 
 이 빠른 시작에서는 [Live Video Analytics 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)를 사용하여 Azure 구독에 필요한 리소스를 배포하는 것이 좋습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
@@ -561,7 +561,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 다음 세부 정보를 확인합니다.
 
-* 메시지에는 `body` 섹션 및 `applicationProperties` 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)를 참조하세요.
+* 메시지에는 `body` 섹션 및 `applicationProperties` 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 * `applicationProperties`에서 `subject`는 메시지가 생성된 `MediaGraph`의 노드를 참조합니다. 이 경우 메시지는 동작 감지 프로세서에서 시작됩니다.
 * `applicationProperties`에서 `eventType`은 이 이벤트가 분석 이벤트임을 나타냅니다.
 * `eventTime` 값은 이벤트가 발생한 시간을 나타냅니다.

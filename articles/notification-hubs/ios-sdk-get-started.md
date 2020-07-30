@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: bf6477fed1840daa326f411862a7304018f39e3c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 94e930c996710c2b25d4114c7cfcb17129c5177d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252205"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022432"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기
 
@@ -185,7 +185,7 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
    이는 나중에 Notification Hubs를 구성하는 데 사용되는 토큰 값입니다.
 
-이러한 단계가 완료되면 나중에 [APNS 정보를 사용하여 알림 허브 구성](notification-hubs-ios-push-notifications-swift-apps-get-started.md#configure-your-notification-hub-with-apns-information)에서 사용할 수 있도록 다음 정보가 있어야 합니다.
+이러한 단계가 완료되면 나중에 [APNS 정보를 사용하여 알림 허브 구성](#configure-the-notification-hub-with-apns-information)에서 사용할 수 있도록 다음 정보가 있어야 합니다.
 
 - **팀 ID**(1단계 참조) 
 - **번들 ID**(1단계 참조) 
@@ -264,7 +264,7 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>APNS 정보를 사용하여 알림 허브 구성
 
- **Notification Services** 아래에서 **Apple(APNS)** 을 선택한 다음, 이전에 [Notification Hubs에 대한 인증서 만들기](notification-hubs-ios-push-notifications-swift-apps-get-started.md#creating-a-certificate-for-notification-hubs) 섹션에서 선택한 방법에 따라 적절한 단계를 수행합니다.
+ **Notification Services** 아래에서 **Apple(APNS)** 을 선택한 다음, 이전에 [Notification Hubs에 대한 인증서 만들기](#create-a-certificate-for-notification-hubs) 섹션에서 선택한 방법에 따라 적절한 단계를 수행합니다.
 
 > [!NOTE]
 > 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 **애플리케이션 모드**에 대해 **프로덕션**을 사용합니다.
@@ -306,4 +306,4 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 이 자습서에서는 Azure에서 알림 허브를 만들고, 구성하고, APNS(Apple Push Notification Service)를 통해 알림을 애플리케이션에 보낼 수 있도록 구성했습니다. 다음으로, iOS 애플리케이션 샘플을 만들고 Azure Notifications Hubs SDK를 통합하여 Azure Portal을 통해 보내는 푸시 알림을 받을 수 있습니다. 선택한 언어에 따라 다음 자습서로 계속 진행하세요.
 
-- [자습서: Swift를 사용하여 iOS 앱과 통합](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+- [자습서: Swift를 사용하여 iOS 앱과 통합]()

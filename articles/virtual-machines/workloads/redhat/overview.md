@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 718447e1dbf597af4349eab0be78a2bb544dec90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78970163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052110"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Azure의 Red Hat 워크로드
 
@@ -45,7 +45,7 @@ Azure는 Red Hat Gold 이미지도 제공합니다(`rhel-byos`). 이러한 이�
 
 ### <a name="generation-2-images"></a>2세대 이미지
 
-2세대 VM(가상 머신)은 1세대 VM에 비해 몇 가지 최신 기능을 제공합니다. 자세한 내용은 [2세대 설명서](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)를 참조하세요. RHEL 이미지 관점의 주요 차이점은, 2세대 VM이 BIOS 펌웨어 인터페이스 대신 UEFI를 사용한다는 것입니다. 또한 부팅 시 MBR(마스터 부트 레코드) 대신 GPT(GUID 파티션 테이블)를 사용합니다. GPT를 사용하면 2TB보다 큰 OS 디스크 크기를 사용할 수 있습니다. 또한 [Mv2 시리즈 VM](../../mv2-series.md)은 2세대 이미지에서만 실행됩니다.
+2세대 VM(가상 머신)은 1세대 VM에 비해 몇 가지 최신 기능을 제공합니다. 자세한 내용은 [2세대 설명서](../../linux/generation-2.md)를 참조하세요. RHEL 이미지 관점의 주요 차이점은, 2세대 VM이 BIOS 펌웨어 인터페이스 대신 UEFI를 사용한다는 것입니다. 또한 부팅 시 MBR(마스터 부트 레코드) 대신 GPT(GUID 파티션 테이블)를 사용합니다. GPT를 사용하면 2TB보다 큰 OS 디스크 크기를 사용할 수 있습니다. 또한 [Mv2 시리즈 VM](../../mv2-series.md)은 2세대 이미지에서만 실행됩니다.
 
 RHEL 2세대 이미지는 Azure Marketplace에서 구입할 수 있습니다. Azure CLI를 사용할 때 표시되는 모든 이미지 목록에서 이미지 SKU의 "gen2"를 찾습니다. VM 배포 프로세스에서 **고급** 탭으로 이동하여 2세대 VM을 배포합니다.
 

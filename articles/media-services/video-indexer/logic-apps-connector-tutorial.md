@@ -1,19 +1,19 @@
 ---
 title: Logic App 및 Power Automate를 사용하는 Video Indexer 커넥터 자습서
 description: 이 자습서에서는 Logic App 및 Power Automate를 사용하여 Video Indexer 커넥터에서 새로운 경험과 수익 창출 기회를 실현하는 방법을 보여 줍니다.
-author: anikaz
+author: anzaman
 manager: johndeu
-ms.author: anzaman
+ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 932f52aa694c13fd3696d82872135304a4e41bdc
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047098"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>자습서: Logic App 및 Power Automate에서 Video Indexer 사용
 
@@ -64,7 +64,7 @@ Azure Storage 및 Video Indexer 계정에 연결할 수 있으면 "Blob이 추�
 
 ![경로로 SAS URI](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) 를 입력합니다.
+Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](./video-indexer-use-apis.md#account-id) 를 입력합니다.
 
 ![계정 액세스 토큰 가져오기](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](https://do
 
 트리거에서는 HTTP POST URL 필드가 표시됩니다. 흐름을 저장한 후에는 URL이 생성되지 않지만, 결국에는 URL이 필요합니다. 나중에 이를 다시 살펴보겠습니다. 
 
-Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) 를 입력합니다.  
+Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](./video-indexer-use-apis.md#account-id) 를 입력합니다.  
 
 "비디오 인덱스 가져오기" 작업으로 이동하여 필수 매개 변수를 입력합니다. [비디오 ID]에 대해 triggerOutputs()['queries']['id'] 식을 입력합니다. 
 

@@ -3,12 +3,12 @@ title: '빠른 시작: Apache Storm을 사용하여 이벤트 수신 - Azure Eve
 description: '빠른 시작: 이 문서에서는 Apache Storm을 사용하여 Azure Event Hubs에서 이벤트를 수신하는 방법에 대한 정보를 제공합니다.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087580"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>빠른 시작: Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 
@@ -238,7 +238,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
 [이벤트 허브를 사용한 HDInsight Storm 예제]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 

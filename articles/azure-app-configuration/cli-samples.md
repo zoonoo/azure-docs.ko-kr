@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/19/2020
-ms.openlocfilehash: a255db3fbce2c111a0a629c01b86cc891d71e803
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c68dfdf5357d73cc3b01d19cad61525404ab955f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050151"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 
 다음 표에는 Azure CLI를 사용하여 Azure App Configuration용 bash 스크립트에 대한 링크가 나와 있습니다.
 
-| | |
+| 스크립트 | Description |
 |-|-|
 |**만들기**||
 | [App Configuration 저장소 만들기](./scripts/cli-create-service.md) | 리소스 그룹 및 App Configuration 저장소 인스턴스를 만듭니다.  |

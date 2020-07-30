@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 33548df0b8eb73d28dfe6348f057266cca4c0290
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 15dc4ee8a5c1021587bb5c37e634070a76b3f05d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168544"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058239"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>자습서: RingCentral과 Azure Active Directory 통합
 
@@ -38,6 +38,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * RingCentral SSO(Single Sign-On)가 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -91,14 +94,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **서비스 공급자 메타데이터 파일**이 없는 경우 다음 필드의 값을 입력합니다.
 
     a. **식별자** 텍스트 상자에 다음 URL을 입력합니다.
-
-    - `https://sso.ringcentral.com`
-    - `https://ssoeuro.ringcentral.com`
+  
+    | ID |
+    |--|
+    |  `https://sso.ringcentral.com` |
+    | `https://ssoeuro.ringcentral.com` |
 
     b. **회신 URL** 텍스트 상자에서 URL을 입력합니다.
 
-    - `https://sso.ringcentral.com/sp/ACS.saml2`
-    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
+    | 회신 URL |
+    |--|
+    | `https://sso.ringcentral.com/sp/ACS.saml2` |
+    | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
@@ -112,7 +119,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `BrittaSimon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `BrittaSimon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
