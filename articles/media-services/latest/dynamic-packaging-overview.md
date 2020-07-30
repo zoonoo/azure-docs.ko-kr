@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/11/2020
 ms.author: juliako
-ms.openlocfilehash: 20389c8298f4e970c4b3ba93d96f811fdc905003
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791608"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090113"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -28,7 +28,7 @@ Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 �
 Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)(원본)는 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 또한 다음 섹션에 설명된 일반적인 스트리밍 미디어 프로토콜중 하나를 사용합니다. *동적 패키징*은 모든 스트리밍 엔드포인트(표준 또는 프리미엄)에 표준으로 제공되는 기능입니다.
 
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>전송할 원본 파일 준비
 
@@ -126,7 +126,7 @@ Media Services v3의 라이브 스트리밍에 대 한 정보는 [라이브 스�
 동적 패키징은 [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC)(MPEG-4 AVC 또는 AVC1) 또는 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding)(HEVC, hev1 또는 hvc1)로 인코딩된 동영상을 포함하는 MP4 파일을 지원합니다.
 
 > [!NOTE]
-> 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 *동적 패키징*을 통해 테스트되었습니다. [프리미엄 인코더](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)는 레거시 v2 API를 통해 H.265로의 인코딩을 지원합니다.
+> 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 *동적 패키징*을 통해 테스트되었습니다. [프리미엄 인코더](../previous/media-services-encode-asset.md#media-encoder-premium-workflow)는 레거시 v2 API를 통해 H.265로의 인코딩을 지원합니다.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>동적 패키징으로 지원되는 오디오 코덱
 

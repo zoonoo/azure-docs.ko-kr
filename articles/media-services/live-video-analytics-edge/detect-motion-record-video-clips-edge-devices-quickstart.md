@@ -3,12 +3,12 @@ title: 에지 디바이스에서 동작을 감지하고 비디오 녹화 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하고, 동작이 있는지 감지하고, 해당하는 경우 에지 디바이스의 로컬 파일 시스템에 MP4 비디오 클립을 녹화하는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 32f1ae5e9edbdbe522afb39bd56584cd2423dd33
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 14dcc7b298244a1d53a9b820c641ea87c4f9a016
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817084"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091864"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>빠른 시작: 에지 디바이스에서 동작을 감지하고 비디오 녹화
  
@@ -164,7 +164,7 @@ ms.locfileid: "84817084"
      * 마지막 `GraphTopologyList` 호출은 목록이 비어 있음을 보여줍니다.
 
 ## <a name="interpret-results"></a>결과 해석 
-미디어 그래프를 실행하면 동작 감지기 프로세서 노드의 결과가 IoT Hub 싱크 노드를 통해 IoT 허브에 전송됩니다. Visual Studio Code의 **출력** 창에 표시되는 메시지에는 `body` 섹션과 `applicationProperties` 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)를 참조하세요.
+미디어 그래프를 실행하면 동작 감지기 프로세서 노드의 결과가 IoT Hub 싱크 노드를 통해 IoT 허브에 전송됩니다. Visual Studio Code의 **출력** 창에 표시되는 메시지에는 `body` 섹션과 `applicationProperties` 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 
 다음 메시지에서 Live Video Analytics 모듈은 애플리케이션 속성 및 본문의 콘텐츠를 정의합니다.
 
@@ -254,7 +254,7 @@ MP4 클립을 재생하는 방법은 다음과 같습니다.
 
     ![출력](./media/quickstarts/samples-output.png) 
 
-1. [SCP(Secure Copy)](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp)를 사용하여 로컬 머신에 파일을 복사합니다. 
+1. [SCP(Secure Copy)](../../virtual-machines/linux/copy-files-to-linux-vm-using-scp.md)를 사용하여 로컬 머신에 파일을 복사합니다. 
 1. [VLC 미디어 플레이어](https://www.videolan.org/vlc/) 또는 기타 MP4 플레이어를 사용하여 파일을 재생합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -267,4 +267,4 @@ MP4 클립을 재생하는 방법은 다음과 같습니다.
 * 고급 사용자에 대한 추가 문제를 검토합니다.
 
     * RTSP 시뮬레이터를 사용하는 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
-    * Azure에서 Linux VM을 사용하는 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+    * Azure에서 Linux VM을 사용하는 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.

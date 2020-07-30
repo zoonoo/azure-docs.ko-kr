@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 1857d3ee8b607d91b6fdd13b4499518d06fb9913
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 6263e18ae541dd60dcd3455a00cdf58e371485f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023554"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.locfileid: "83834546"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
-* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다.
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다.
 * (선택 사항) 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](/powershell/module/az.datafactory) (영문)를 참조하세요.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기

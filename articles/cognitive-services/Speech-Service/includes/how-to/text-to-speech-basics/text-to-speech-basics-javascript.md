@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: 57db307b1fe5c5112b08fbcffda06e6f24177bff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37f74933f231951347d14b3fa110f957e8fe81d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102865"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -24,30 +24,6 @@ class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 또한 대상 환경에 따라 다음 중 하나를 사용합니다.
 
-# <a name="import"></a>[import](#tab/import)
-
-```javascript
-import { readFileSync } from "fs";
-import {
-    AudioConfig,
-    SpeechConfig,
-    SpeechSynthesisOutputFormat,
-    SpeechSynthesizer 
-} from "microsoft-cognitiveservices-speech-sdk";
-```
-
-`import`에 대한 자세한 내용은 <a href="https://javascript.info/import-export" target="_blank">내보내기 및 가져오기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
-
-# <a name="require"></a>[필수](#tab/require)
-
-```javascript
-const readFileSync = require("fs").readFileSync;
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-`require`에 대한 자세한 내용은 <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">필요한 항목<span class="docon docon-navigate-external x-hidden-focus"></span></a>을 참조하세요.
-
-
 # <a name="script"></a>[스크립트](#tab/script)
 
 <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript용 Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* 파일을 다운로드하여 압축을 풀고 HTML 파일에 액세스할 수 있는 폴더에 저장합니다.
@@ -59,7 +35,24 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 > [!TIP]
 > 웹 브라우저를 대상으로 지정하고 `<script>` 태그를 사용하는 경우 `sdk` 접두사는 필요하지 않습니다. `sdk` 접두사는 `require` 모듈의 이름을 지정하는 데 사용되는 별칭입니다.
 
+# <a name="import"></a>[import](#tab/import)
+
+```javascript
+import * from "microsoft-cognitiveservices-speech-sdk";
+```
+
+`import`에 대한 자세한 내용은 <a href="https://javascript.info/import-export" target="_blank">내보내기 및 가져오기<span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
+
+# <a name="require"></a>[필수](#tab/require)
+
+```javascript
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+```
+
+`require`에 대한 자세한 내용은 <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">필요한 항목<span class="docon docon-navigate-external x-hidden-focus"></span></a>을 참조하세요.
+
 ---
+
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 

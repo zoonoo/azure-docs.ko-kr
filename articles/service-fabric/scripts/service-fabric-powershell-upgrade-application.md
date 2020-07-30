@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 3a4ef9fad8567eb145d51c6fef61773cc3a00b11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1b04a0c4d2865cf72d9fbccb51f0f083872ea799
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037885"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Service Fabric 애플리케이션 업그레이드
 
@@ -49,6 +49,6 @@ ms.locfileid: "75614743"
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/?view=azureservicefabricps)를 참조하세요.
+Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview?view=azureservicefabricps)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 PowerShell 샘플은 [Azure PowerShell 샘플](../service-fabric-powershell-samples.md)에서 확인할 수 있습니다.

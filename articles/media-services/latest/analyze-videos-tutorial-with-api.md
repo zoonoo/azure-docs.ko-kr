@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e5c74f6356c8b07cfef923dfb5e12547aa4693ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053560"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>자습서: Media Services v3으로 비디오 분석
 
 > [!NOTE]
-> 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하지만, 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
+> 이 자습서에서 [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하지만, 일반적인 단계는 [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
 
 이 자습서는 Azure Media Services로 비디오를 분석하는 방법을 보여줍니다. 녹음/녹화한 비디오나 오디오 콘텐츠를 심층적으로 파악해야 하는 다양한 경우가 있을 수 있습니다. 예를 들어, 고객 만족도를 높이 달성하기 위해 음성을 텍스트로 변환하는 프로세스를 실행하여 고객 지원 기록을 인덱스 및 대시보드와 함께 검색 가능한 카탈로그로 변환할 수 있습니다. 그러면 비즈니스에 대한 인사이트를 얻을 수 있습니다. 이러한 인사이트에는 일반적인 불만 사항, 불만의 원인, 기타 유용한 정보가 포함됩니다.
 
@@ -45,8 +45,8 @@ ms.locfileid: "86202843"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)를 가져옵니다.
-- [Media Services 계정 만들기](create-account-cli-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
-- [Azure CLI를 사용하여 Azure Media Services API 액세스](access-api-cli-how-to.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
+- [Media Services 계정 만들기](./create-account-howto.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+- [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 
 ## <a name="download-and-configure-the-sample"></a>샘플 다운로드 및 구성
 
@@ -58,7 +58,7 @@ ms.locfileid: "86202843"
 
 샘플은 [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) 폴더에 있습니다.
 
-다운로드한 프로젝트에서 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) 파일을 엽니다. 값을 [API에 액세스](access-api-cli-how-to.md)하여 가져온 자격 증명으로 바꿉니다.
+다운로드한 프로젝트에서 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) 파일을 엽니다. 값을 [API에 액세스](./access-api-howto.md)하여 가져온 자격 증명으로 바꿉니다.
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>지정된 비디오를 분석하는 코드 검사
 
@@ -84,33 +84,33 @@ ms.locfileid: "86202843"
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>입력 자산을 만들고 여기에 로컬 파일 업로드 
 
-**CreateInputAsset** 함수는 새로운 입력 [Asset](https://docs.microsoft.com/rest/api/media/assets)을 만들고 이 자산에 지정된 로컬 비디오 파일을 업로드합니다. 이 Asset은 인코딩 Job에 대한 입력으로 사용됩니다. Media Services v3에서 Job에 대한 입력은 Asset이거나 HTTPS URL을 통해 Media Services 계정에서 사용할 수 있는 콘텐츠일 수도 있습니다. HTTPS URL에서 인코딩하는 방법은 [이](job-input-from-http-how-to.md) 문서를 참조하세요.  
+**CreateInputAsset** 함수는 새로운 입력 [Asset](/rest/api/media/assets)을 만들고 이 자산에 지정된 로컬 비디오 파일을 업로드합니다. 이 Asset은 인코딩 Job에 대한 입력으로 사용됩니다. Media Services v3에서 Job에 대한 입력은 Asset이거나 HTTPS URL을 통해 Media Services 계정에서 사용할 수 있는 콘텐츠일 수도 있습니다. HTTPS URL에서 인코딩하는 방법은 [이](job-input-from-http-how-to.md) 문서를 참조하세요.  
 
 Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드합니다. 다음 .NET 코드 조각에서 방법을 참조하세요.
 
 다음 함수는 아래와 같은 작업을 완료합니다.
 
 * 자산 만들기
-* [스토리지에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
+* [스토리지에 있는 자산 컨테이너](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](../../storage/common/storage-sas-overview.md) 가져오기
 
-    자산의 [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) 함수를 사용하여 SAS URL을 가져오는 경우 각 스토리지 계정에 대해 두 개의 스토리지 계정 키가 있으므로 이 함수는 여러 SAS URL을 반환합니다. 스토리지 계정에는 스토리지 계정 키를 원활하게 회전할 수 있도록 두 개의 키가 있습니다(예: 다른 키를 사용하는 동안 하나를 변경한 다음, 새 키를 사용하여 다른 키를 회전). 첫 번째 SAS URL은 스토리지 key1 및 두 번째 스토리지 key2를 나타냅니다.
+    자산의 [ListContainerSas](/rest/api/media/assets/listcontainersas) 함수를 사용하여 SAS URL을 가져오는 경우 각 스토리지 계정에 대해 두 개의 스토리지 계정 키가 있으므로 이 함수는 여러 SAS URL을 반환합니다. 스토리지 계정에는 스토리지 계정 키를 원활하게 회전할 수 있도록 두 개의 키가 있습니다(예: 다른 키를 사용하는 동안 하나를 변경한 다음, 새 키를 사용하여 다른 키를 회전). 첫 번째 SAS URL은 스토리지 key1 및 두 번째 스토리지 key2를 나타냅니다.
 * SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>작업 결과를 저장할 출력 자산 만들기
 
-출력 [Asset](https://docs.microsoft.com/rest/api/media/assets)은 작업의 결과를 저장합니다. 프로젝트는 출력 자산의 결과를 "output" 폴더로 저장하는 **DownloadResults** 함수를 정의합니다. 따라서 무엇을 다운로드했는지 볼 수 있습니다.
+출력 [Asset](/rest/api/media/assets)은 작업의 결과를 저장합니다. 프로젝트는 출력 자산의 결과를 "output" 폴더로 저장하는 **DownloadResults** 함수를 정의합니다. 따라서 무엇을 다운로드했는지 볼 수 있습니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>비디오를 분석하는 Transform 및 Job 만들기
 
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 각각의 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](transform-concept.md)을 참조하세요. 이 자습서에 설명된 샘플은 지정된 비디오를 분석하는 레시피를 정의합니다.
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 각각의 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](./transforms-jobs-concept.md)을 참조하세요. 이 자습서에 설명된 샘플은 지정된 비디오를 분석하는 레시피를 정의합니다.
 
 #### <a name="transform"></a>변환
 
-새로운 [Transform](https://docs.microsoft.com/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. **TransformOutput**은 필수 매개 변수입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. **Preset**은 원하는 **TransformOutput**을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 예제에서는 **VideoAnalyzerPreset** preset이 사용되며 해당 생성자에게 언어("en-US")가 전달됩니다(`new VideoAnalyzerPreset("en-US")`). 이 preset을 통해 비디오에서 여러 개의 오디오 및 비디오 인사이트를 추출할 수 있습니다. 비디오에서 여러 오디오 인사이트를 추출해야 하는 경우 **AudioAnalyzerPreset** preset을 사용할 수 있습니다.
+새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. **TransformOutput**은 필수 매개 변수입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. **Preset**은 원하는 **TransformOutput**을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 예제에서는 **VideoAnalyzerPreset** preset이 사용되며 해당 생성자에게 언어("en-US")가 전달됩니다(`new VideoAnalyzerPreset("en-US")`). 이 preset을 통해 비디오에서 여러 개의 오디오 및 비디오 인사이트를 추출할 수 있습니다. 비디오에서 여러 오디오 인사이트를 추출해야 하는 경우 **AudioAnalyzerPreset** preset을 사용할 수 있습니다.
 
 **Transform**을 만드는 경우 먼저 **Get** 메서드를 사용하여 해당 Transform이 이미 있는지 확인합니다. 아래 코드를 참조하세요. Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null**을 반환합니다(이름의 대/소문자를 구분하지 않음).
 
@@ -118,7 +118,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 #### <a name="job"></a>작업
 
-위에서 언급했듯이 [Transform](https://docs.microsoft.com/rest/api/media/transforms) 개체는 레시피이며 [Job](https://docs.microsoft.com/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. Media Service 계정에 있는 HTTPS URL, SAS URL 또는 자산을 사용하여 비디오 위치를 지정할 수 있습니다.
+위에서 언급했듯이 [Transform](/rest/api/media/transforms) 개체는 레시피이며 [Job](/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. Media Service 계정에 있는 HTTPS URL, SAS URL 또는 자산을 사용하여 비디오 위치를 지정할 수 있습니다.
 
 이 예에서 작업 입력은 로컬 비디오입니다.  
 
@@ -126,7 +126,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 ### <a name="wait-for-the-job-to-complete"></a>작업이 완료될 때까지 대기
 
-작업이 완료될 때까지 시간이 조금 걸립니다. 적업이 완료될 때 알림을 받을 수 있습니다. [Job](https://docs.microsoft.com/rest/api/media/jobs) 완료에 대한 알림을 받는 옵션은 여러 가지입니다. 가장 간단한 옵션(여기에 표시됨)은 폴링을 사용하는 것입니다.
+작업이 완료될 때까지 시간이 조금 걸립니다. 적업이 완료될 때 알림을 받을 수 있습니다. [Job](/rest/api/media/jobs) 완료에 대한 알림을 받는 옵션은 여러 가지입니다. 가장 간단한 옵션(여기에 표시됨)은 폴링을 사용하는 것입니다.
 
 폴링은 대기 시간이 발생할 가능성이 있기 때문에 프로덕션 앱에 권장하는 방법이 아닙니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다.
 
@@ -138,11 +138,11 @@ Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계�
 
 ### <a name="job-error-codes"></a>작업 오류 코드
 
-[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
+[오류 코드](/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
 
 ### <a name="download-the-result-of-the-job"></a>작업 결과 다운로드
 
-다음 함수는 출력 [Asset](https://docs.microsoft.com/rest/api/media/assets)의 결과를 "output" 폴더로 다운로드하기 때문에 작업의 결과를 검사할 수 있습니다.
+다음 함수는 출력 [Asset](/rest/api/media/assets)의 결과를 "output" 폴더로 다운로드하기 때문에 작업의 결과를 검사할 수 있습니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
@@ -160,7 +160,7 @@ Ctrl+F5 키를 눌러 *AnalyzeVideos* 앱을 실행합니다.
 
 ## <a name="examine-the-output"></a>출력 내용 검사
 
-분석 비디오의 출력 파일은 insights.json입니다. 이 파일에는 비디오에 대한 인사이트가 포함됩니다. json 파일에 있는 요소에 대한 설명은 [미디어 인텔리전스](intelligence-concept.md) 문서를 참조하세요.
+분석 비디오의 출력 파일은 insights.json입니다. 이 파일에는 비디오에 대한 인사이트가 포함됩니다. json 파일에 있는 요소에 대한 설명은 [미디어 인텔리전스](./analyzing-video-audio-files-concept.md) 문서를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

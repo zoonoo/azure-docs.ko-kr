@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 98a118ef662abd323854911e9fc1ffc6b7374db2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a62cb11e862bb8733e2758297d82aa7732b2d739
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84232989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082467"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신
 
@@ -30,7 +30,7 @@ Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 예는
 애플리케이션에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
-Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
+Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/n-tier/windows-vm)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
 
 * 애플리케이션 리소스 이름
 * 리소스가 저장되어 있는 위치
@@ -48,9 +48,9 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 | 방법 | Description |
 | --- | --- |
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
-| Azure PowerShell |[Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
-| REST API |[위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions) 작업을 사용합니다. |
-| Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
+| Azure PowerShell |[Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
+| REST API |[위치 나열](/rest/api/resources/subscriptions) 작업을 사용합니다. |
+| Azure CLI |[az account list-locations](/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
 
 ## <a name="availability"></a>가용성
 Azure는 모든 디스크에 프리미엄 스토리지를 사용하여 VM을 배포하는 경우 업계 최고의 99.9% 단일 인스턴스 가상 머신 Service Level Agreement(서비스 수준 약정)를 발표했습니다.  배포에서 표준 99.95% VM 서비스 수준 약정을 충족하려면 가용성 집합 내부에서 워크로드를 실행하는 VM을 둘 이상 계속 배포해야 합니다. 가용성 집합을 사용하면 VM이 Azure 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
@@ -95,7 +95,7 @@ Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 �
 적절한 DevOps 문화권을 얻으려면 모든 인프라가 코드여야 합니다.  모든 인프라가 코드로 되어 있으면 쉽게 다시 만들 수 있습니다.  Azure는 Ansible, Chef, SaltStack 및 Puppet과 같은 모든 주요 자동화 도구와 함께 작동합니다.  또한 Azure는 자체 자동화 도구도 제공합니다.
 
 * [Azure 템플릿](create-ssh-secured-vm-from-template.md)
-* [Azure VMAccess](using-vmaccess-extension.md)
+* [Azure VMAccess](../extensions/vmaccess.md)
 
 Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](https://cloud-init.io/)를 지원합니다.  Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다.
 
@@ -120,4 +120,3 @@ Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](h
 - [포털](quick-create-portal.md)
 - [Azure CLI](quick-create-cli.md)
 - [PowerShell](quick-create-powershell.md)
-

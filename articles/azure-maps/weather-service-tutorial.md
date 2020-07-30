@@ -1,20 +1,20 @@
 ---
 title: '자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인 | Microsoft Azure Maps'
 description: 이 자습서에서는 Azure Notebooks(Python)를 사용하여 Microsoft Azure Maps Weather Service의 날씨 예측 데이터와 센서 데이터를 조인하는 방법을 보여줍니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 41d52eff2dc2d9fc1e4c956c893a2f14c91d9f92
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5a262c95328fef772c9158082f554de9f7ac5f81
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560369"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133234"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인
 
@@ -35,7 +35,7 @@ ms.locfileid: "84560369"
 
 이 자습서를 완료하려면 먼저 다음을 수행해야 합니다.
 
-1. [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S0 가격 책정 계층에서 Azure Maps 계정 구독을 만듭니다.
+1. [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)의 지침에 따라 S0 가격 책정 계층에서 Azure Maps 계정 구독을 만듭니다.
 2. 계정에 대한 기본 구독 키를 가져오려면 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 지침을 따릅니다.
 
 
