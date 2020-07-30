@@ -9,23 +9,24 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fada393dcab61cf00a0a3befcf4af3660bf625dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 36bebe829ccf81ef5b1832b90b2f73d15d5499af
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536524"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384806"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
 이 빠른 시작에서는 컨테이너화된 코드를 가상 Linux IoT Edge 디바이스에 배포하여 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 IoT Edge 서비스가 설치된 테스트 컴퓨터를 빠르게 만든 다음, 빠른 시작을 마친 후 삭제할 수 있습니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
-
-1. IoT Hub를 만듭니다.
-2. IoT Edge 디바이스를 IoT Hub에 등록합니다.
-3. 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
-4. 모듈을 IoT Edge 디바이스에 원격으로 배포합니다.
+> [!div class="checklist"]
+>
+> * IoT Hub를 만듭니다.
+> * IoT Edge 디바이스를 IoT Hub에 등록합니다.
+> * 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
+> * 모듈을 IoT Edge 디바이스에 원격으로 배포합니다.
 
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart-linux/install-edge-full.png)
 
@@ -116,14 +117,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 * bash 또는 Cloud Shell 사용자의 경우 다음 명령을 텍스트 편집기에 복사하고, 자리 표시자 텍스트를 해당 정보로 바꾸고, bash 또는 Cloud Shell 창에 복사합니다.
 
    ```azurecli-interactive
-   az deployment group create \
-   --resource-group IoTEdgeResources \
-   --template-uri "https://aka.ms/iotedge-vm-deploy" \
-   --parameters dnsLabelPrefix='my-edge-vm' \
-   --parameters adminUsername='azureUser' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
-   --parameters authenticationType='password' \
-   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   az deployment group create --resource-group IoTEdgeResources --template-uri "https://aka.ms/iotedge-vm-deploy" --parameters dnsLabelPrefix='my-edge-vm' --parameters adminUsername='azureUser' --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) --parameters authenticationType='password' --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
 * PowerShell 사용자의 경우 PowerShell 창에 다음 명령을 복사한 다음, 자리 표시자 텍스트를 해당 정보로 바꿉니다.

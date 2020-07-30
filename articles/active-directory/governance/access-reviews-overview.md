@@ -3,7 +3,7 @@ title: 액세스 검토란? - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 액세스 검토를 사용하면 조직의 거버넌스, 위험 관리 및 규정 준수 이니셔티브를 충족할 수 있도록 그룹 멤버 자격 및 애플리케이션 액세스를 제어할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/17/2020
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22a7cafbf8223c3d9e7641851d02f61bc2ad16ae
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.openlocfilehash: ec88d795d0e05c62f07ff415364ced651ad8f4bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034615"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 

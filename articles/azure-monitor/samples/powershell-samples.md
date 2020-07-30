@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 520022be8ee2054d6c0c89ee3f027de9094ae1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413895"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055267"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -22,10 +22,10 @@ ms.locfileid: "85413895"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="set-up-powershell"></a>PowerShell 설정
-아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/)을 참조하세요.
 
 ## <a name="examples-in-this-article"></a>이 문서의 예
-문서의 예에서는 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다. [Azure Monitor(Insights) Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
+문서의 예에서는 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다. [Azure Monitor(Insights) Cmdlet](/powershell/module/az.applicationinsights)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
 
 ## <a name="sign-in-and-use-subscriptions"></a>로그인 후 구독 사용
 먼저 Azure 구독에 로그인합니다.
@@ -53,7 +53,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log"></a>활동 로그 검색
-[Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet을 사용합니다.  다음은 몇 가지 일반적인 예입니다. 활동 로그는 최근 90일 동안의 작업을 저장합니다. 이 시간 이전에 날짜를 사용하면 오류 메시지가 나타납니다.  
+[Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet을 사용합니다.  다음은 몇 가지 일반적인 예입니다. 활동 로그는 최근 90일 동안의 작업을 저장합니다. 이 시간 이전에 날짜를 사용하면 오류 메시지가 나타납니다.  
 
 현재 날짜/시간을 확인하여 아래 명령에 사용할 시간을 확인합니다.
 ```powershell
@@ -116,7 +116,7 @@ Get-AzLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 201
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-`Get-AzAlertHistory` cmdlet은 다양한 매개 변수를 지원합니다. 자세한 내용은 [Get AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx)를 참조하세요.
+`Get-AzAlertHistory` cmdlet은 다양한 매개 변수를 지원합니다. 자세한 내용은 [Get AlertHistory](/previous-versions/azure/mt282453(v=azure.100))를 참조하세요.
 
 ## <a name="retrieve-information-on-alert-rules"></a>경고 규칙에 대한 정보 검색
 다음 명령은 모두 "montest"라는 리소스 그룹에 적용됩니다.
@@ -139,7 +139,7 @@ Get-AzAlertRule -ResourceGroup montest
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` 명령은 다른 매개 변수를 지원합니다. 자세한 내용은 [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) 을 참조하세요.
+`Get-AzAlertRule` 명령은 다른 매개 변수를 지원합니다. 자세한 내용은 [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) 을 참조하세요.
 
 ## <a name="create-metric-alerts"></a>메트릭 경고 만들기
 `Add-AlertRule` cmdlet을 사용하여 경고 규칙을 만들고, 업데이트하고, 비활성화할 수 있습니다.
@@ -201,7 +201,7 @@ Get-AzMetricDefinition -ResourceId <resource_id>
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-`Get-AzMetricDefinition` 에 사용 가능한 옵션 전체 목록은 [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)에 있습니다.
+`Get-AzMetricDefinition` 에 사용 가능한 옵션 전체 목록은 [Get-MetricDefinitions](/previous-versions/azure/mt282458(v=azure.100))에 있습니다.
 
 ## <a name="create-and-manage-activity-log-alerts"></a>활동 로그 경고 만들기 및 관리
 `Set-AzActivityLogAlert` cmdlet을 사용하여 활동 로그 경로를 설정할 수 있습니다. 활동 로그 경고는 먼저 조건 사전으로 조건을 정의한 다음, 이러한 조건을 사용하는 경로를 만들어야 합니다.
@@ -272,7 +272,7 @@ $notification1= New-AzAutoscaleNotification -CustomEmails ashwink@microsoft.com 
 Add-AzAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-자동 크기 조정 설정을 관리하는 방법에 대한 자세한 내용은 [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx)을 참조하세요.
+자동 크기 조정 설정을 관리하는 방법에 대한 자세한 내용은 [Get-AutoscaleSetting](/previous-versions/azure/mt282461(v=azure.100))을 참조하세요.
 
 ## <a name="autoscale-history"></a>자동 크기 조정 기록
 다음은 최근에 있었던 자동 크기 조정 및 경고 이벤트를 보는 방법을 알려주는 예입니다. 활동 로그 검색을 사용하여 자동 크기 조정 기록을 봅니다.
@@ -287,7 +287,7 @@ Get-AzLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartT
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-자세한 내용은 [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx)를 참조하세요.
+자세한 내용은 [Get-AutoscaleHistory](/previous-versions/azure/mt282464(v=azure.100))를 참조하세요.
 
 ### <a name="view-details-for-an-autoscale-setting"></a>자동 크기 조정 설정에 대한 세부 사항 보기
 `Get-Autoscalesetting` cmdlet을 사용하여 자동 크기 조정 설정에 대한 자세한 정보를 검색할 수 있습니다.
@@ -399,4 +399,3 @@ WorkspaceId 속성은 작업 영역의 *리소스 ID*를 사용합니다. 다음
 ```
 
 이 명령은 데이터를 여러 대상으로 보내도록 결합될 수 있습니다.
-

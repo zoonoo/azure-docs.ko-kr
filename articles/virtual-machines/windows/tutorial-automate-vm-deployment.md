@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c576ac1f56a29fc73f92e2292b457262828c5046
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d0190a97c22a805065ceaf41dcd655b9e8182b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100467"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065287"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>자습서 - 사용자 지정 스크립트 확장을 사용하여 Azure에서 Windows 가상 머신에 애플리케이션 배포
 
-신속하고 일관된 방식으로 VM(가상 머신)을 구성하려면 [Windows용 사용자 지정 스크립트 확장](extensions-customscript.md)을 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+신속하고 일관된 방식으로 VM(가상 머신)을 구성하려면 [Windows용 사용자 지정 스크립트 확장](../extensions/custom-script-windows.md)을 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 스크립트 확장을 사용하여 IIS 설치
@@ -39,13 +39,13 @@ Windows VM 및 Linux VM 둘 다에 사용자 지정 스크립트 확장을 사�
 
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 아직 없는 경우 *myResourceGroupAutomate* 리소스 그룹 및 지원 네트워크 리소스가 만들어집니다. 웹 트래픽을 허용하기 위해 cmdlet에서 *80* 포트도 엽니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 아직 없는 경우 *myResourceGroupAutomate* 리소스 그룹 및 지원 네트워크 리소스가 만들어집니다. 웹 트래픽을 허용하기 위해 cmdlet에서 *80* 포트도 엽니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -64,7 +64,7 @@ New-AzVm `
 
 
 ## <a name="automate-iis-install"></a>IIS 설치 자동화
-[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 확장은 `powershell Add-WindowsFeature Web-Server`를 실행하여 IIS 웹 서버를 설치한 다음 *Default.htm* 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
+[Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension)을 사용하여 사용자 지정 스크립트 확장을 설치합니다. 확장은 `powershell Add-WindowsFeature Web-Server`를 실행하여 IIS 웹 서버를 설치한 다음 *Default.htm* 페이지를 업데이트하여 VM의 호스트 이름을 표시합니다.
 
 ```azurepowershell-interactive
 Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
@@ -79,7 +79,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
 
 
 ## <a name="test-web-site"></a>웹 사이트 테스트
-[Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIPAddress*의 IP 주소를 가져옵니다.
+[Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIPAddress*의 IP 주소를 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `

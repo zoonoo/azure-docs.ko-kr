@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 8d04099f2835102b8fdf63b26bd19b43b206cf6a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021888"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>자습서: 전화 번호에 대한 사용자 지정 분석기 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "86172319"
 
 ## <a name="download-files"></a>파일 다운로드
 
-이 자습서의 소스 코드는 [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub 리포지토리의 [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/custom-analyzers) 폴더에 있습니다.
+이 자습서의 소스 코드는 [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub 리포지토리의 [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) 폴더에 있습니다.
 
 ## <a name="1---create-azure-cognitive-search-service"></a>1 - Azure Cognitive Search 서비스 만들기
 

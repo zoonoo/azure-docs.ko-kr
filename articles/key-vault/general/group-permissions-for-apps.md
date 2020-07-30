@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 21cb7133bad27013895a5e717cb7729b71795ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126232"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078961"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>액세스 제어 정책을 사용하여 Key Vault 인증 제공
 
@@ -39,7 +39,7 @@ Key Vault 액세스 제어에 대한 자세한 내용은 [Azure Key Vault 보안
    - [Azure CLI를 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-cli.md)
    - [Azure PowerShell을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-powershell.md)
    - [Azure Portal을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-portal.md)
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview). 또는 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다.
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/). 또는 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다.
 
 ## <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
 

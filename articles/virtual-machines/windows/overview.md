@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf1e3abc1d4fceaa6547f63346ecd64e1128eac2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4868db7df6209c620c5ae1bd9b1207072214ad35
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074224"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Azure의 Windows 가상 머신
 
@@ -30,7 +30,7 @@ Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 예는
 애플리케이션에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
-Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
+Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/n-tier/windows-vm)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
 
 * 애플리케이션 리소스 이름
 * 리소스가 저장되어 있는 위치
@@ -45,12 +45,12 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | Description |
+| 메서드 | 설명 |
 | --- | --- |
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
-| Azure PowerShell |[Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
-| REST API |[위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions) 작업을 사용합니다. |
-| Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
+| Azure PowerShell |[Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
+| REST API |[위치 나열](/rest/api/resources/subscriptions) 작업을 사용합니다. |
+| Azure CLI |[az account list-locations](/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
 
 ## <a name="availability"></a>가용성
 Azure는 모든 디스크에 프리미엄 스토리지를 사용하여 VM을 배포하는 경우 업계 최고의 99.9% 단일 인스턴스 가상 머신 Service Level Agreement(서비스 수준 약정)를 발표했습니다.  배포에서 표준 99.95% VM 서비스 수준 약정을 충족하려면 가용성 집합 내부에서 워크로드를 실행하는 VM을 둘 이상 계속 배포해야 합니다. 가용성 집합을 사용하면 VM이 Azure 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
@@ -71,23 +71,23 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 
 아래 표에서는 이미지에 대한 정보를 찾을 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | Description |
+| 방법 | 설명 |
 | --- | --- |
 | Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
-| Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
-| REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
+| Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
+| REST API |[이미지 게시자 나열](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
 
 [사용자 고유의 이미지를 업로드하고 사용하도록](upload-generalized-managed.md) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 
 ### <a name="extensions"></a>확장
-VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)은 배포 후 구성 및 자동화 작업을 통해 VM 추가 기능을 제공합니다.
+VM [확장](../extensions/features-windows.md?toc=/azure/virtual-machines/windows/toc.json)은 배포 후 구성 및 자동화 작업을 통해 VM 추가 기능을 제공합니다.
 
 다음과 같은 일반 작업은 확장을 사용하여 수행할 수 있습니다.
 
-* **사용자 지정 스크립트 실행** – [사용자 지정 스크립트 확장](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 VM을 프로비전할 때 스크립트를 실행하여 VM에 워크로드를 구성할 수 있습니다.
-* **구성 배포 및 관리** – [PowerShell DSC(필요한 상태 구성) 확장](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 구성과 환경을 관리하도록 VM에 DSC를 설정할 수 있습니다.
-* **진단 데이터 수집** – [Azure Diagnostics 확장](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 애플리케이션의 상태를 모니터링하는 데 사용할 수 있는 진단 데이터를 수집하도록 VM을 구성할 수 있습니다.
+* **사용자 지정 스크립트 실행** – [사용자 지정 스크립트 확장](../extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json)을 사용하면 VM을 프로비전할 때 스크립트를 실행하여 VM에 워크로드를 구성할 수 있습니다.
+* **구성 배포 및 관리** – [PowerShell DSC(필요한 상태 구성) 확장](../extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json)을 사용하면 구성과 환경을 관리하도록 VM에 DSC를 설정할 수 있습니다.
+* **진단 데이터 수집** – [Azure Diagnostics 확장](../extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)을 사용하면 애플리케이션의 상태를 모니터링하는 데 사용할 수 있는 진단 데이터를 수집하도록 VM을 구성할 수 있습니다.
 
 ### <a name="related-resources"></a>관련 리소스
 이 표에 있는 리소스는 VM에서 사용하며, VM을 만들 때 이미 존재하거나 만들어야 합니다.
@@ -95,7 +95,7 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | 리소스 | 필수 | Description |
 | --- | --- | --- |
 | [리소스 그룹](../../azure-resource-manager/management/overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
-| [스토리지 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 스토리지 계정이 필요합니다. |
+| [스토리지 계정](../../storage/common/storage-account-create.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 스토리지 계정이 필요합니다. |
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/public-ip-addresses.md) |예 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
@@ -108,4 +108,3 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 - [포털](quick-create-portal.md)
 - [PowerShell](quick-create-powershell.md)
 - [Azure CLI](quick-create-cli.md)
-

@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: Synapse SQL 연결 및 쿼리'
+title: SSMS(SQL Server Management Studio)를 사용하여 Synapse SQL에 연결
 description: SSMS(SQL Server Management Studio)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리합니다.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658184"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077718"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 Synapse SQL에 연결
 > [!div class="op_single_selector"]
