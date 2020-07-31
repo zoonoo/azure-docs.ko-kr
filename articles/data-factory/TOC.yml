@@ -167,8 +167,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: 통합 런타임
       href: concepts-integration-runtime.md
-    - name: 관리형 Virtual Network
-      href: managed-virtual-network-private-endpoint.md
     - name: 보안
       items:
         - name: 보안 기준
@@ -588,6 +586,8 @@
           href: data-factory-service-identity.md
         - name: 고객 관리형 키 암호화
           href: enable-customer-managed-key.md
+        - name: 관리형 Virtual Network
+          href: managed-virtual-network-private-endpoint.md
     - name: 모니터링 및 관리
       items:
         - name: 시각적으로 모니터링
@@ -732,6 +732,8 @@
           href: connector-troubleshoot-guide.md
         - name: 데이터 흐름
           href: data-flow-troubleshoot-guide.md
+        - name: 데이터 복사 도구
+          href: copy-data-tool-troubleshoot-guide.md
         - name: 자체 호스팅 통합 런타임
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure SSIS 통합 런타임

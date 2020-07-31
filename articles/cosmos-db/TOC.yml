@@ -458,12 +458,15 @@
         - name: 매개 변수가 있는 쿼리
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
-        - name: LINQ to SQL
-          displayName: 'linq, .NET'
-          href: sql-query-linq-to-sql.md
         - name: SQL 쿼리 실행
           displayName: 'query performance, query execution'
           href: sql-query-execution.md
+        - name: 페이지 매김
+          displayName: 'page, paging, continuation, token, pagination'
+          href: sql-query-pagination.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
     - name: Azure Cosmos 계정 작업
       href: account-overview.md
     - name: 컨테이너 및 항목
@@ -671,7 +674,7 @@
             - name: Powershell을 사용하여 관리
               href: powershell-samples-cassandra.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples-cassandra.md
+              href: cli-samples.md
     - name: MongoDB API
       items:
         - name: 개요
@@ -765,7 +768,7 @@
             - name: Powershell을 사용하여 관리
               href: powershell-samples-mongodb.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples-mongodb.md
+              href: cli-samples.md
             - name: 일반적인 문제 해결
               href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -825,7 +828,7 @@
             - name: Powershell을 사용하여 관리
               href: powershell-samples-gremlin.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples-gremlin.md
+              href: cli-samples.md
         - name: 참조
           items:
             - name: 응답 헤더
@@ -896,7 +899,7 @@
             - name: Powershell을 사용하여 관리
               href: powershell-samples-table.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples-table.md
+              href: cli-samples.md
         - name: 참조
           items:
             - name: .NET

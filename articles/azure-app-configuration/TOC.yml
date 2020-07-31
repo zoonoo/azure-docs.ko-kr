@@ -4,6 +4,8 @@
   items:
     - name: Azure App Configuration 정보
       href: overview.md
+    - name: 모범 사례
+      href: howto-best-practices.md
     - name: FAQ
       href: faq.md
 - name: 빠른 시작
@@ -111,8 +113,6 @@
       href: howto-app-configuration-event.md
     - name: 자동으로 구성 저장소 백업
       href: howto-backup-config-store.md
-    - name: 모범 사례
-      href: howto-best-practices.md
 - name: 참조
   items:
     - name: 구성

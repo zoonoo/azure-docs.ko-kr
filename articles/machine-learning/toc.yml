@@ -16,6 +16,7 @@
   expanded: true
   items:
     - name: 스튜디오
+      expanded: true
       items:
         - name: 디자이너(끌어서 놓기)
           items:
@@ -37,6 +38,7 @@
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
     - name: Python SDK
+      expanded: true
       items:
         - name: 첫 번째 ML 실험 만들기
           items:

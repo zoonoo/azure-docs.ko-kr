@@ -4,15 +4,15 @@ description: 온-프레미스 데이터 게이트웨이를 설치 및 구성 하
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062152"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438970"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "77062152"
 
 Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자세히 알아보려면 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요. 일반적인 고급 설치 시나리오 및 게이트웨이에 대 한 자세한 내용은 [온-프레미스 데이터 게이트웨이 설명서](/data-integration/gateway/service-gateway-onprem)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 **최소 요구 사항:**
 
@@ -44,11 +44,11 @@ Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자
 * 게이트웨이를 등록한 구독과 동일한 [테넌트](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
 * 데이터 원본이 Azure VNet(Virtual Network)에 있는 경우 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 서버 속성을 구성해야 합니다.
 
-## <a name="download"></a><a name="download"></a>다운로드
+## <a name="download"></a>다운로드
 
  [게이트웨이 다운로드](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a><a name="install"></a>설치
+## <a name="install"></a>설치
 
 1. 설치를 실행합니다.
 
@@ -67,7 +67,7 @@ Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자
    > [!NOTE]
    > 도메인 계정으로 로그인하는 경우 Azure AD의 조직 계정에 매핑됩니다. 조직 계정은 게이트웨이 관리자로 사용됩니다.
 
-## <a name="register"></a><a name="register"></a>등록
+## <a name="register"></a>등록
 
 Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라우드 서비스와 함께 설치한 로컬 인스턴스를 등록해야 합니다. 
 
@@ -83,7 +83,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
    ![등록](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Azure 게이트웨이 리소스 만들기
+## <a name="create-an-azure-gateway-resource"></a>Azure 게이트웨이 리소스 만들기
 
 게이트웨이를 설치 하 고 등록 한 후에는 Azure에서 게이트웨이 리소스를 만들어야 합니다. 게이트웨이를 등록할 때 사용했던 동일한 계정으로 Azure에 로그인합니다.
 
@@ -107,7 +107,12 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
      완료하면 **만들기**를 클릭합니다.
 
-## <a name="connect-servers-to-the-gateway-resource"></a><a name="connect-servers"></a>게이트웨이 리소스에 서버 연결
+## <a name="connect-gateway-resource-to-server"></a>서버에 게이트웨이 리소스 연결
+
+> [!NOTE]
+> 서버와 다른 구독의 게이트웨이 리소스에 연결 하는 것은 포털에서 지원 되지 않지만 PowerShell을 사용 하 여 지원 됩니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. Azure Analysis Services 서버 개요에서 **온-프레미스 데이터 게이트웨이**를 클릭합니다.
 
@@ -124,6 +129,27 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 
     ![게이트웨이 리소스에 서버 연결 성공](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) 를 사용 하 여 게이트웨이 ResourceID를 가져옵니다. 그런 다음 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) 또는 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver)에서 **-gresourceid** 를 지정 하 여 게이트웨이 리소스를 기존 또는 새 서버에 연결 합니다.
+
+게이트웨이 리소스 ID를 가져오려면:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+기존 서버를 구성 하려면:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
 
 이제 끝났습니다! 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 

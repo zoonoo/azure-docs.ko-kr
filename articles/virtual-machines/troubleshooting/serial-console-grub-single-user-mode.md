@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5341cc62a7d02c3072df90becf893dec18427ac2
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284713"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439547"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스
 주 통합 부팅 로더 (GRUB)는 VM (가상 머신)을 부팅할 때 가장 먼저 표시 될 것입니다. 운영 체제를 시작 하기 전에 표시 되기 때문에 GRUB는 SSH를 통해 액세스할 수 없습니다. GRUB에서 부팅 구성이 단일 사용자 모드로 부팅 되도록 수정할 수 있습니다.
 
 단일 사용자 모드는 최소한의 기능만 사용 하는 최소 환경입니다. 이는 부팅 문제, 파일 시스템 문제 또는 네트워크 문제를 조사 하는 데 유용할 수 있습니다. 백그라운드에서 실행 될 수 있는 서비스의 수를 줄이고 실행 수준에 따라 파일 시스템이 자동으로 탑재 되지 않을 수도 있습니다.
 
-단일 사용자 모드는 로그인을 위해 SSH 키만 허용 하도록 VM을 구성할 수 있는 경우에도 유용 합니다. 이 경우 단일 사용자 모드를 사용 하 여 암호 인증을 사용 하는 계정을 만들 수 있습니다. 
+단일 사용자 모드는 로그인을 위해 SSH 키만 허용 하도록 VM을 구성할 수 있는 경우에도 유용 합니다. 이 경우 단일 사용자 모드를 사용 하 여 암호 인증을 사용 하는 계정을 만들 수 있습니다.
 
 > [!NOTE]
 > 직렬 콘솔 서비스를 사용 하면 *참가자* 수준의 사용 권한이 있는 사용자만 VM의 직렬 콘솔에 액세스할 수 있습니다.
@@ -66,6 +66,9 @@ RHEL에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB를 시작 
 
 **RHEL 8의 경우**
 
+>[!NOTE]
+> Red Hat은 RHEL 8 +에서 커널 명령줄 매개 변수를 구성 하는 데 Grubby를 사용 하는 것을 권장 합니다. 현재는 grubby를 사용 하 여 grub 제한 시간 및 터미널 매개 변수를 업데이트할 수 없습니다. 업데이트를 수정 하려면 모든 부팅 항목에 대 한 GRUB_CMDLINE_LINUX 인수를 실행 `grubby --update-kernel=ALL --args="console=ttyS0,115200 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"` 합니다. 자세한 내용은 [여기](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel)에 있습니다.
+
 ```
 GRUB_TIMEOUT=5
 GRUB_TERMINAL="serial console"
@@ -90,8 +93,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200
 1. Root로 전환 합니다.
 1. 다음을 수행 하 여 루트 사용자에 대 한 암호를 사용 하도록 설정 합니다.
     * `passwd root`(강력한 루트 암호 설정)를 실행 합니다.
-1. 루트 사용자가 다음을 수행 하 여 ttyS0를 통해서만 로그인 할 수 있는지 확인 합니다.  
-    a. 을 실행 하 `edit /etc/ssh/sshd_config` 고 PermitRootLogIn이로 설정 되었는지 확인 `no` 합니다.  
+1. 다음을 수행 하 여 루트 사용자가 ttyS0를 통해서만 로그인 할 수 있는지 확인 합니다. 을 실행 하 `edit /etc/ssh/sshd_config` 고 PermitRootLogIn이로 설정 되었는지 확인 `no` 합니다.
     b. `edit /etc/securetty file`TtyS0를 통한 로그인만 허용 하려면를 실행 합니다.
 
 이제 시스템이 단일 사용자 모드로 부팅 되 면 루트 암호를 사용 하 여 로그인 할 수 있습니다.
@@ -106,7 +108,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200
 1. 커널 줄을 찾습니다. Azure에서 *linux16*로 시작 합니다.
 1. 줄의 끝으로 이동 하려면 Ctrl + E를 누릅니다.
 1. 줄의 끝에 *systemd. unit = 구출*를 추가 합니다.
-    
+
     이 작업을 수행 하면 단일 사용자 모드로 부팅 됩니다. 응급 모드를 사용 하려면 systemd *. unit = 비상* 을 줄의 끝에 추가 합니다 ( *systemd. unit = 구출*대신).
 
 1. Ctrl + X를 눌러 종료 하 고 적용 된 설정으로 다시 부팅 합니다.
@@ -130,11 +132,11 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200
     이 작업을 수행 하면 `initramfs` `systemd` [Red Hat 설명서](https://aka.ms/rhel7rootpassword)에 설명 된 대로 컨트롤이에서로 전달 되기 전에 부팅 프로세스가 중단 됩니다.
 1. Ctrl + X를 눌러 종료 하 고 적용 된 설정으로 다시 부팅 합니다.
 
-   를 다시 부팅 한 후에는 읽기 전용 파일 시스템을 사용 하 여 응급 모드로 전환 됩니다. 
-   
+   를 다시 부팅 한 후에는 읽기 전용 파일 시스템을 사용 하 여 응급 모드로 전환 됩니다.
+
 1. 셸에서 `mount -o remount,rw /sysroot` 읽기/쓰기 권한을 사용 하 여 루트 파일 시스템을 다시 탑재 하려면를 입력 합니다.
 1. 단일 사용자 모드로 부팅 한 후를 입력 하 여 `chroot /sysroot` 감옥으로 전환 `sysroot` 합니다.
-1. 이제 루트에 있습니다. 를 입력 하 `passwd` 고 위의 지침에 따라 단일 사용자 모드로 전환 하 여 루트 암호를 다시 설정할 수 있습니다. 
+1. 이제 루트에 있습니다. 를 입력 하 `passwd` 고 위의 지침에 따라 단일 사용자 모드로 전환 하 여 루트 암호를 다시 설정할 수 있습니다.
 1. 완료 되 면 `reboot -f` 를 입력 하 여 다시 부팅 합니다.
 
 ![명령줄 인터페이스를 표시 하는 애니메이션 이미지입니다. 사용자가 서버를 선택 하 고 커널 줄의 끝을 찾은 다음 지정 된 명령을 입력 합니다.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)

@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000163"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439618"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>스토리지 암호화로 콘텐츠 암호화 
 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
->   
-
-AES-256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음 암호화된 상태로 저장할 Azure Storage에 이를 업로드하는 것이 좋습니다.
+>
 
 이 문서에서는 AMS 스토리지 암호화에 대한 개요를 제공하며, 스토리지 암호화된 콘텐츠를 업로드하는 방법을 보여 줍니다.
 
@@ -46,10 +44,10 @@ Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체�
 
 ### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
 
-|암호화 옵션|Description|Media Services v2|Media Services v3|
+|암호화 옵션|설명|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 키 관리|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
-|[미사용 데이터에 대한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원 여부|지원 여부|
+|[미사용 데이터에 대한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|지원됨|
 |[스토리지 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|지원되지 않음|
 
 <sup>1</sup> Media Services가 깨끗한/어떠한 형태의 암호화도 없는 콘텐츠 처리를 지원하기는 하지만, 그렇게 하지 않는 것이 좋습니다.
@@ -113,7 +111,7 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 
     스토리지 암호화를 위해 다음 속성을 요청 본문에 포함해야 합니다.
 
-    요청 본문 속성    | Description
+    요청 본문 속성    | 설명
     ---|---
     Id | ContentKey ID는 "nb:kid:UUID:\<NEW GUID>" 형식을 사용하여 생성됩니다.
     ContentKeyType | 콘텐츠 키 형식은 키를 정의하는 정수입니다. 스토리지 암호화 형식에서 값은 1입니다.

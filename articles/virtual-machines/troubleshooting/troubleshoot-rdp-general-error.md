@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a1a5f3eaf79a345b0d33f43d260fe6aa15236b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079828"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439261"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM의 RDP 일반 오류 문제 해결
 
@@ -81,7 +81,7 @@ RDP 수신기가 잘못 구성되었습니다.
 1. 그룹 정책으로 RDP를 사용 하지 않도록 설정 했는지 확인 합니다.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     그룹 정책에서 RDP를 사용할 수 없음을 나타내는 경우 (fDenyTSConnections 값은 0x1) 다음 명령을 실행 하 여 TermService 서비스를 사용 하도록 설정 합니다. 레지스트리 키를 찾을 수 없는 경우 RDP를 사용 하지 않도록 구성 된 그룹 정책이 없습니다. 다음 단계로 이동할 수 있습니다.

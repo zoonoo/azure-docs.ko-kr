@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428169"
+ms.locfileid: "87438911"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -50,7 +50,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
 - 들어오는 인터넷 트래픽을 Application Gateway v1 SKU의 경우 65503-65534 TCP 포트에서 허용하고, 대상 서브넷이 **Any**이고 원본이 **GatewayManager** 서비스 태그인 v2 SKU의 경우 65200-65535 TCP 포트에서 허용해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 이러한 끝점에서는 외부 엔터티 (해당 게이트웨이의 고객 포함)를 통신할 수 없습니다.
 
-- 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙은 인터넷 연결을 허용 합니다. 다음을 수행하는 것이 좋습니다.
+- 아웃 바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙은 인터넷 연결을 허용 합니다. 다음을 수행하는 것이 좋습니다.
 
   - 기본 아웃 바운드 규칙을 제거 하지 마십시오.
   - 아웃 바운드 연결을 거부 하는 아웃 바운드 규칙은 만들지 마십시오.
@@ -65,7 +65,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 2. 원본에서 **Gmanager** 서비스 태그 및 **destination으로 들어오는** 요청을 Application Gateway v1 sku의 경우 65503-65534로, [백 엔드 상태 통신](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)의 경우 포트 65200-65535을 사용 하도록 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 적절 한 인증서가 없는 경우 외부 엔터티는 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
 3. [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)에서 들어오는 Azure Load Balancer 프로브 (*azureloadbalancer* 태그) 및 인바운드 가상 네트워크 트래픽 (*VirtualNetwork* 태그)을 허용 합니다.
 4. 모든 수신 트래픽 거부 규칙을 사용 하 여 차단 합니다.
-5. 모든 대상에 대해 인터넷으로의 아웃바운드 트래픽을 허용합니다.
+5. 모든 대상에 대해 인터넷에 대 한 아웃 바운드 트래픽을 허용 합니다.
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 지원되는 사용자 정의 경로
 
@@ -122,11 +122,19 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
 ## <a name="front-end-ip"></a>프런트 엔드 IP
 
-공용 IP 주소, 개인 IP 주소 또는 둘 다를 갖도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 클라이언트에서 인터넷 연결 VIP (가상 IP)를 통해 인터넷을 통해 액세스 해야 하는 백 엔드를 호스트 하는 경우 공용 IP가 필요 합니다. 
+공용 IP 주소, 개인 IP 주소 또는 둘 다를 갖도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 클라이언트에서 인터넷 연결 VIP (가상 IP)를 통해 인터넷을 통해 액세스 해야 하는 백 엔드를 호스트 하는 경우 공용 IP가 필요 합니다.
+
+> [!NOTE]
+> 현재 Application Gateway V2는 사설 IP 전용 모드를 지원하지 않습니다. 다음 조합을 지원 합니다.
+>* 사설 IP 및 공용 IP
+>* 공용 IP 전용
+>
+> 자세한 내용은 [Application Gateway에 대 한 질문과 대답](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)을 참조 하세요.
+
 
 공용 IP는 인터넷에 노출 되지 않은 내부 끝점에 필요 하지 않습니다. 이를 ilb ( *내부 부하 분산 장치* ) 끝점 또는 개인 프런트 엔드 IP 라고 합니다. 응용 프로그램 게이트웨이 ILB는 인터넷에 노출 되지 않는 내부 lob (기간 업무) 응용 프로그램에 유용 합니다. 또한 인터넷에 노출 되지 않지만 라운드 로빈 부하 분산, 세션 유지, TLS 종료를 필요로 하는 보안 경계 내에 있는 다중 계층 응용 프로그램의 서비스 및 계층에도 유용 합니다.
 
-공용 IP 주소 1 개 또는 개인 IP 주소 1 개만 지원 됩니다. 응용 프로그램 게이트웨이를 만들 때 프런트 엔드 IP를 선택 합니다.
+하나의 공용 IP 주소 또는 하나의 개인 IP 주소만 지원 됩니다. 응용 프로그램 게이트웨이를 만들 때 프런트 엔드 IP를 선택 합니다.
 
 - 공용 IP의 경우 새 공용 IP 주소를 만들거나 application gateway와 동일한 위치에 있는 기존 공용 IP를 사용할 수 있습니다. 자세한 내용은 [고정 및 동적 공용 IP 주소](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)를 참조 하세요.
 

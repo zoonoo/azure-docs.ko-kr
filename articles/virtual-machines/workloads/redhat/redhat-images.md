@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525503"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439479"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -100,6 +100,9 @@ RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다.
 
 ## <a name="rhel-8-image-types"></a>RHEL 8 이미지 형식
 
+>[!NOTE]
+> Red Hat은 RHEL 8 +에서 커널 명령줄 매개 변수를 구성 하는 데 Grubby를 사용 하는 것을 권장 합니다. 자세한 내용은 [여기](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel)에 있습니다.
+
 RHEL 8 이미지 형식에 대 한 세부 정보는 아래와 같습니다.
 
 |게시자 | 제안 | SKU 값 | 버전 | 세부 정보
@@ -147,7 +150,7 @@ RedHat:RHEL:7.6:7.6.2019102813
 RHEL 7.4      |RedHat: RHEL: 7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | 6 월 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat: RHEL: 7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
-RHEL 8.0      |N/A                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
+RHEL 8.0      |해당 없음                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
 
 ### <a name="update-services-for-sap"></a>SAP 용 업데이트 서비스
 

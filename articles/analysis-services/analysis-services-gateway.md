@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버가 온-프레미스 데이터 원
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76310155"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438827"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
 
@@ -28,14 +28,14 @@ Azure Analysis Services의 경우 처음으로 게이트웨이를 사용 하 여
 
 - **Azure에서 게이트웨이 리소스 만들기** -이 단계에서는 azure에서 게이트웨이 리소스를 만듭니다.
 
-- **게이트웨이 리소스에 서버 연결** -게이트웨이 리소스가 있으면 서버 연결을 시작할 수 있습니다. 동일한 지역에 있는 경우 여러 서버 및 기타 리소스를 연결할 수 있습니다.
+- **서버에 게이트웨이 리소스 연결** -게이트웨이 리소스가 있으면 서버 연결을 시작할 수 있습니다. 동일한 지역에 있는 경우 여러 서버 및 기타 리소스를 연결할 수 있습니다.
 
 
 
-## <a name="how-it-works"></a><a name="how-it-works"> </a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 조직의 컴퓨터에 설치하는 게이트웨이는 Windows 서비스인 **온-프레미스 데이터 게이트웨이**로 실행됩니다. 이 로컬 서비스는 Azure Service Bus를 통해 게이트웨이 클라우드 서비스로 등록됩니다. 그런 다음 Azure 구독에 대 한 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 Azure Analysis Services 서버가 Azure 게이트웨이 리소스에 연결 됩니다. 서버의 모델을 쿼리 또는 처리를 위해 온-프레미스 데이터 원본에 연결해야 하는 경우 쿼리 및 데이터 흐름은 게이트웨이 리소스, Azure Service Bus, 로컬 온-프레미스 데이터 게이트웨이 서비스 및 데이터 원본을 통과합니다. 
 
-![작동 방법](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![작동 방식](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 쿼리 및 데이터 흐름:
 
@@ -49,6 +49,10 @@ Azure Analysis Services의 경우 처음으로 게이트웨이를 사용 하 여
 ## <a name="installing"></a>설치
 
 Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services에 대 한 온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)에 설명 된 단계를 수행 하는 것이 중요 합니다. 이 문서는 Azure Analysis Services에만 적용 됩니다. Azure에서 온-프레미스 데이터 게이트웨이 리소스를 설정 하 고 리소스에 Azure Analysis Services 서버를 연결 하는 데 필요한 추가 단계를 포함 합니다.
+
+## <a name="connecting-to-a-gateway-resource-in-a-different-subscription"></a>다른 구독의 게이트웨이 리소스에 연결
+
+서버와 동일한 구독에서 Azure 게이트웨이 리소스를 만드는 것이 좋습니다. 그러나 다른 구독의 게이트웨이 리소스에 연결 하도록 서버를 구성할 수 있습니다. 기존 서버 설정을 구성 하거나 포털에서 새 서버를 만들 때 다른 구독에서 게이트웨이 리소스에 연결 하는 것은 지원 되지 않지만 PowerShell을 사용 하 여 구성할 수 있습니다. 자세히 알아보려면 [서버에 게이트웨이 리소스 연결](analysis-services-gateway-install.md#connect-gateway-resource-to-server)을 참조 하세요.
 
 ## <a name="ports-and-communication-settings"></a>포트 및 통신 설정
 
@@ -71,9 +75,9 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. |
 | *.microsoftonline-p.com |443 |구성에 따라 인증에 사용합니다. |
-| dc.services.visualstudio.com  |443 |AppInsights에서 원격 분석을 수집 하는 데 사용 됩니다. |
+| dc.services.visualstudio.com    |443 |AppInsights에서 원격 분석을 수집 하는 데 사용 됩니다. |
 
-### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Azure Service Bus와의 HTTPS 통신 강제 적용
+### <a name="forcing-https-communication-with-azure-service-bus"></a>Azure Service Bus와의 HTTPS 통신 강제 적용
 
 직접 TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트웨이 강제할 수 있지만 성능이 크게 저하될 수 있습니다. 값을 `AutoDetect`에서 `Https`로 변경하여 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 파일을 수정할 수 있습니다. 이 파일은 기본적으로 *C:\Program Files\On-premises data gateway*에 위치합니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: a7ff8a0cf23bf0701a7cc35cb137ec0965f295ec
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3d63ccc2c47bca9410b5b9105b90aa1f0cf5854a
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223978"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439273"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
 
@@ -120,20 +120,80 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
         - 존재-Azure 하위 도메인 (예: *. azurewebsites.net 또는 *. cloudapp.azure.com)을 가리키는 리소스에 대 한 DNS 영역을 쿼리 합니다 ( [이 참조 목록](azure-domains.md)참조).
         - 사용자는 DNS 하위 도메인에서 대상으로 하는 모든 리소스를 소유 하 고 있는지 확인 합니다.
 
-    - Azure FQDN (정규화 된 도메인 이름) 끝점과 응용 프로그램 소유자의 서비스 카탈로그를 유지 관리 합니다. 서비스 카탈로그를 빌드하려면 아래 표의 매개 변수를 사용 하 여 다음 ARG (Azure 리소스 그래프) 쿼리를 실행 합니다.
-    
+    - Azure FQDN (정규화 된 도메인 이름) 끝점과 응용 프로그램 소유자의 서비스 카탈로그를 유지 관리 합니다. 서비스 카탈로그를 빌드하려면 다음 Azure 리소스 그래프 쿼리 스크립트를 실행 합니다. 이 스크립트는 액세스할 수 있는 리소스의 FQDN 끝점 정보를 프로젝트 하 고 CSV 파일로 출력 합니다. 테 넌 트에 대 한 모든 구독에 대 한 액세스 권한이 있는 경우 스크립트는 다음 샘플 스크립트와 같이 모든 해당 구독을 고려 합니다. 결과를 특정 구독 집합으로 제한 하려면 스크립트를 다음과 같이 편집 합니다.
+
         >[!IMPORTANT]
         > **권한** -모든 Azure 구독에 대 한 액세스 권한이 있는 사용자로 쿼리를 실행 합니다. 
         >
-        > **제한 사항** -Azure 리소스 그래프에는 azure 환경이 클 경우 고려해 야 하는 제한 및 페이징 제한이 있습니다. Azure 리소스 데이터 집합을 사용 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) .  
+        > **제한 사항** -Azure 리소스 그래프에는 azure 환경이 클 경우 고려해 야 하는 제한 및 페이징 제한이 있습니다. Azure 리소스 데이터 집합을 사용 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) . 다음 샘플 스크립트는 구독 일괄 처리를 사용 하 여 이러한 제한 사항을 방지 합니다.
 
         ```powershell
-        Search-AzGraph -Query "resources | where type == '<ResourceType>' | 
-        project tenantId, subscriptionId, type, resourceGroup, name, 
-        endpoint = <FQDNproperty>"
-        ``` 
+        
+            # Fetch the full array of subscription IDs.
+            $subscriptions = Get-AzSubscription
 
-        ARG 쿼리에 대 한 서비스 당 매개 변수:
+            $subscriptionIds = $subscriptions.Id
+                   # Output file path and names
+                   $date = get-date
+                   $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
+                   $fdate #log to console
+                   $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
+                   $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
+                   $fpath = $rpath + $rname
+                   $fpath #This is the output file of FQDN report.
+
+            # query
+            $query = "where type in ('microsoft.network/frontdoors',
+                                    'microsoft.storage/storageaccounts',
+                                    'microsoft.cdn/profiles/endpoints',
+                                    'microsoft.network/publicipaddresses',
+                                    'microsoft.network/trafficmanagerprofiles',
+                                    'microsoft.containerinstance/containergroups',
+                                    'microsoft.apimanagement/service',
+                                    'microsoft.web/sites',
+                                    'microsoft.web/sites/slots')
+                        | extend FQDN = case(
+                            type =~ 'microsoft.network/frontdoors', properties['cName'],
+                            type =~ 'microsoft.storage/storageaccounts', parse_url(tostring(properties['primaryEndpoints']['blob'])).Host,
+                            type =~ 'microsoft.cdn/profiles/endpoints', properties['hostName'],
+                            type =~ 'microsoft.network/publicipaddresses', properties['dnsSettings']['fqdn'],
+                            type =~ 'microsoft.network/trafficmanagerprofiles', properties['dnsConfig']['fqdn'],
+                            type =~ 'microsoft.containerinstance/containergroups', properties['ipAddress']['fqdn'],
+                            type =~ 'microsoft.apimanagement/service', properties['hostnameConfigurations']['hostName'],
+                            type =~ 'microsoft.web/sites', properties['defaultHostName'],
+                            type =~ 'microsoft.web/sites/slots', properties['defaultHostName'],
+                            '')
+                        | project id, ['type'], name, FQDN
+                        | where isnotempty(FQDN)";
+
+            # Paging helper cursor
+            $Skip = 0;
+            $First = 1000;
+
+            # If you have large number of subscriptions, process them in batches of 2,000.
+            $counter = [PSCustomObject] @{ Value = 0 }
+            $batchSize = 2000
+            $response = @()
+
+            # Group the subscriptions into batches.
+            $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
+
+            # Run the query for each subscription batch with paging.
+            foreach ($batch in $subscriptionsBatch)
+            { 
+                $Skip = 0; #Reset after each batch.
+
+                $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
+                else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
+                $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
+            }
+
+            # View the completed results of the query on all subscriptions.
+            $response | Export-Csv -Path $fpath -Append 
+
+        ```
+
+        `FQDNProperty`이전 리소스 그래프 쿼리에 지정 된 형식 및 해당 값의 목록입니다.
 
         |리소스 이름  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
@@ -146,23 +206,6 @@ Azure App Service에 기존 사용자 지정 DNS 이름을 매핑하는 방법�
         |Azure API Management|microsoft.apimanagement/service|hostnameConfigurations. hostName|
         |Azure App Service|microsoft.web/sites|defaultHostName|
         |Azure App Service-슬롯|microsoft.web/sites/slots|defaultHostName|
-
-        
-        **예 1** -이 쿼리는 Azure App Service에서 리소스를 반환 합니다. 
-
-        ```powershell
-        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | 
-        project tenantId, subscriptionId, type, resourceGroup, name, 
-        endpoint = properties.defaultHostName"
-        ```
-        
-        **예 2** -이 쿼리는 여러 리소스 형식을 결합 하 여 Azure App Service **및** Azure App Service 슬롯에서 리소스를 반환 합니다.
-
-        ```powershell
-        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
-        'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, 
-        resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
 
 
 - **수정 절차 만들기:**

@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup을 사용하여 Recovery Services 자격 증명 모음에 Azure VM을 백업하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373940"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439716"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -88,7 +88,7 @@ s ![ 새 자격 증명 모음에 대 한 저장소 구성을 설정 합니다.](
      !["가상 머신 선택" 창](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > 자격 증명 모음과 동일한 지역 및 구독에 있는 모든 Vm은 백업을 구성 하는 데 사용할 수 있습니다. 백업을 구성할 때 해당 Vm에 대 한 필수 권한이 없어도 가상 컴퓨터 이름 및 해당 리소스 그룹을 찾아볼 수 있습니다.  
+    > 자격 증명 모음과 동일한 지역 및 구독에 있는 모든 Vm은 백업을 구성 하는 데 사용할 수 있습니다. 백업을 구성할 때 해당 Vm에 대 한 필수 권한이 없어도 가상 컴퓨터 이름 및 해당 리소스 그룹을 찾아볼 수 있습니다. VM이 일시 삭제 된 상태 이면이 목록에 표시 되지 않습니다. VM을 다시 보호 해야 하는 경우 일시 삭제 된 시간이 일시 삭제 될 때까지 기다리거나 일시 삭제 된 목록에서 VM의 삭제를 취소 해야 합니다. 자세한 내용은 [vm에 대 한 일시 삭제 문서](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal)를 참조 하세요.
 
 1. **백업**에서 **백업 사용**을 선택합니다. 이렇게 하면 자격 증명 모음과 VM에 정책을 배포하고 Azure VM에서 실행되는 VM 에이전트에 백업 확장을 설치합니다.
 
@@ -147,7 +147,7 @@ s ![ 새 자격 증명 모음에 대 한 저장소 구성을 설정 합니다.](
 
 **스냅샷** | **자격 증명 모음으로 데이터 전송** | **작업 상태**
 --- | --- | ---
-Completed | 진행 중 | 진행 중
+완료됨 | 진행 중 | 진행 중
 완료 | 건너뜀 | Completed
 Completed | Completed | Completed
 Completed | 실패 | 경고와 함께 완료

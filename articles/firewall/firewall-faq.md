@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128100"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439212"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -168,7 +168,9 @@ Azure Firewall의 초기 처리량 용량은 2.5 ~ 3Gbps이며 30Gbps까지 스�
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Azure Firewall을 스케일 아웃하는 데 얼마나 걸리나요?
 
-평균 처리량 또는 CPU 사용량이 60%일 때 Azure Firewall이 점차적으로 스케일링됩니다. 스케일 아웃에는 5 ~ 7분 정도 걸립니다. 성능 테스트를 수행 하는 경우 10 ~ 15 분 이상 테스트 하 고 새로 만든 방화벽 노드를 활용 하려면 새 연결을 시작 해야 합니다.
+평균 처리량 또는 CPU 사용량이 60%일 때 Azure Firewall이 점차적으로 스케일링됩니다. 기본 배포 최대 처리량은 약 2.5-3gbps 이며 해당 숫자의 60%에 도달 하면 규모 확장을 시작 합니다. 스케일 아웃에는 5 ~ 7분 정도 걸립니다. 
+
+성능 테스트를 수행 하는 경우 10 ~ 15 분 이상 테스트 하 고 새로 만든 방화벽 노드를 활용 하려면 새 연결을 시작 해야 합니다.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure Firewall에서 기본적으로 Active Directory에 대한 액세스를 허용하나요?
 

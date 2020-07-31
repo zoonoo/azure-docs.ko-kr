@@ -3,12 +3,12 @@ title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f42b119c361eaddcb84dda738b50c8accc84f9c
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513872"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439743"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -25,7 +25,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 > * 주문형 백업 작업 실행
 
 >[!NOTE]
->RHEL용 SAP HANA 백업 미리 보기(7.4, 7.6, 7.7 또는 8.1)로 [시작](./tutorial-backup-sap-hana-db.md)하세요. 추가 쿼리는 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)에 기록합니다.
+>2020 년 8 월 1 일부 터 RHEL (7.4, 7.6, 7.7 & 8.1)의 SAP HANA 백업이 일반적으로 제공 됩니다.
 
 >[!NOTE]
 >**Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제**는 이제 미리 보기로 제공됩니다.<br>
@@ -67,7 +67,7 @@ NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 �
 
 1. **추가**를 클릭하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
 
-마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다.
+마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)를 참조 하세요.
 
 #### <a name="azure-firewall-tags"></a>Azure Firewall 태그
 

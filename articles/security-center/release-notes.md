@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430471"
+ms.locfileid: "87438940"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -32,11 +32,11 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 ## <a name="july-2020"></a>2020년 7월
 
 7 월의 업데이트는 다음과 같습니다.
-- [이제 가상 머신에 대 한 취약성 평가를 비 marketplace 이미지 자동에 사용할 수 있습니다](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images).        
+- [이제 가상 머신에 대 한 취약성 평가를 비 마켓플레이스 이미지에 사용할 수 있습니다.](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Azure Files 및 Azure Data Lake Storage Gen2 (미리 보기)를 포함 하도록 위협 방지 Azure Storage 확장 됨](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [위협 방지 기능을 사용 하도록 설정 하는 8 가지 새로운 권장 사항](#eight-new-recommendations-to-enable-threat-protection-features)
 - [컨테이너 보안 개선-더 빠른 레지스트리 검색 및 새로 고침 설명서](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [적응 응용 프로그램 제어 규칙 업데이트에 대 한 새로운 권장 사항](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [적응 응용 프로그램 컨트롤이 새로운 권장 사항 및 경로 규칙의 와일드 카드 지원으로 업데이트 됨](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [SQL 고급 데이터 보안에 대 한 6 가지 정책 사용 되지 않음](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -115,11 +115,16 @@ Azure Security Center의 컨테이너 보안 기능과 관련 된 명확 성과 
 
 
 
-### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>적응 응용 프로그램 제어 규칙 업데이트에 대 한 새로운 권장 사항
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>적응 응용 프로그램 컨트롤이 새로운 권장 사항 및 경로 규칙의 와일드 카드 지원으로 업데이트 됨
 
-적응 응용 프로그램 컨트롤 기능은 구성 된 그룹의 컴퓨터 작업을 지속적으로 모니터링 합니다. 이 업데이트를 통해 이전에는 허용 되지 않은 잠재적으로 합법적인 동작에 대 한 알림이 표시 되며,이로 인해 가양성 경고가 발생할 수 있습니다.
+적응 응용 프로그램 컨트롤 기능은 다음과 같은 두 가지 중요 한 업데이트를 받았습니다.
 
-적응 응용 프로그램 제어 정책에서 새로운 권장 사항, **Allowlist 규칙을 업데이트 해야 하며**, 적응 응용 프로그램 제어 위반 경고에서 가양성 수를 줄이기 위해 기존 정책에 새 규칙을 추가 하 라는 메시지를 표시 합니다.
+- 새 권장 사항은 이전에는 허용 되지 않은 잠재적으로 합법적인 동작을 식별 합니다. 적응 응용 프로그램 제어 정책에서 새로운 권장 사항, **Allowlist 규칙을 업데이트 해야 하며**, 적응 응용 프로그램 제어 위반 경고에서 가양성 수를 줄이기 위해 기존 정책에 새 규칙을 추가 하 라는 메시지를 표시 합니다.
+
+- 이제 경로 규칙에서 와일드 카드를 지원 합니다. 이 업데이트에서 와일드 카드를 사용 하 여 허용 되는 경로 규칙을 구성할 수 있습니다. 지원 되는 두 가지 시나리오는 다음과 같습니다.
+
+    - 경로의 끝에 와일드 카드를 사용 하 여이 폴더와 하위 폴더에 있는 모든 실행 파일을 허용 합니다.
+    - 경로 중간에 와일드 카드를 사용 하 여 변경 된 폴더 이름 (예: 알려진 실행 파일이 있는 개인 사용자 폴더, 자동으로 생성 된 폴더 이름 등)이 있는 알려진 실행 파일 이름을 사용할 수 있습니다. 
 
 [적응형 애플리케이션 제어에 대해 자세히 알아봅니다](security-center-adaptive-application.md).
 
