@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 07/30/2020
-  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 066f82bf214a9a5a2a364bc9dc021a1baa31feac
+  ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87047804"
+  ms.lasthandoff: 07/30/2020
+  ms.locfileid: "87433070"
 landingContent:
 - title: 기계 학습 시작
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: 스튜디오에서 디자이너 및 AutoML 사용
+- title: AutoML 사용 또는 Studio에서 끌어서 놓기
   linkLists:
   - linkListType: overview
     links:
@@ -51,6 +51,12 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: 이미지 레이블 지정 프로젝트 만들기
       url: tutorial-labeling.md
+- title: 모델을 Azure로 가져오기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 클라우드에 로컬 모델 배포
+      url: how-to-deploy-existing-model.md
 - title: Python SDK를 사용하여 학습
   linkLists:
   - linkListType: tutorial

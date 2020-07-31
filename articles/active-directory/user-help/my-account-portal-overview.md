@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/20/2020
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 878fbb81e05db058aa015f8b4a7eae42e8cfea2e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742197"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422416"
 ---
 # <a name="what-is-the-my-account-portal"></a>내 계정 포털이란?
 
@@ -33,7 +33,7 @@ ms.locfileid: "83742197"
 ![내 계정 포털, 개요 페이지](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->이 문서는 해당 보안 정보, 디바이스 정보, 암호, 연결된 조직, 개인 정보 또는 이전 로그인 정보를 업데이트하기 위해 내 계정 포털에 가져오려는 사용자를 위해 작성되었습니다. 직원 및 기타 용도로 인증 및 기타 Azure AD(Azure Active Directory) 기능을 설정하는 방법에 대한 정보를 찾는 관리자는 [관리자를 위한 Azure AD 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요.
+>이 문서는 해당 보안 정보, 디바이스 정보, 암호, 연결된 조직, 언어 설정, 개인 정보 또는 이전 로그인 정보를 업데이트하기 위해 내 계정 포털에 가져오려는 사용자를 위해 작성되었습니다. 직원 및 기타 용도로 인증 및 기타 Azure AD(Azure Active Directory) 기능을 설정하는 방법에 대한 정보를 찾는 관리자는 [관리자를 위한 Azure AD 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -46,6 +46,8 @@ ms.locfileid: "83742197"
 - [로그인 활동](my-account-portal-sign-ins-page.md) 보기
 
 - 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법 보기
+
+- [내 계정 포털 설정](my-account-portal-settings.md) 변경
 
 ## <a name="related-microsoft-office-content"></a>관련 Microsoft Office 콘텐츠
 

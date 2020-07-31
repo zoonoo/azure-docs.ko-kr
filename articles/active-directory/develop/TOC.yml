@@ -512,6 +512,8 @@
           href: active-directory-claims-mapping.md
         - name: 선택적 클레임 구성
           href: active-directory-optional-claims.md
+        - name: 클레임에서 디렉터리 스키마 확장 특성 사용
+          href: active-directory-schema-extensions.md
         - name: 토큰 수명 구성
           href: active-directory-configurable-token-lifetimes.md
         - name: Chrome 브라우저에서 SameSite 쿠키 변경 내용 처리

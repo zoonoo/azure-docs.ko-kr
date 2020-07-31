@@ -51,6 +51,8 @@
       items:
         - name: 예약 및 사용률 보기
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: CSP로 예약 보기
+          href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 예약 관리
           href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 최적화 설정 변경

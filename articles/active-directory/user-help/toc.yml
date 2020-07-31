@@ -68,7 +68,9 @@
       href: my-account-portal-privacy-page.md
     - name: 최근 로그인 활동 보기
       href: my-account-portal-sign-ins-page.md
-- name: 보안 정보(미리 보기) 도움말
+    - name: 포털 설정 변경
+      href: my-account-portal-settings.md
+- name: 보안 정보 도움말
   items:
     - name: 로그인하는 동안 보안 정보 추가
       href: security-info-setup-signin.md

@@ -232,6 +232,10 @@
           href: devtest-lab-mandatory-artifacts.md
         - name: 아티팩트 적용 관련 문제 해결
           href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: 랩에서 사용되는 스토리지 및 OS 디스크 암호화
+      items:
+        - name: 랩에서 사용되는 스토리지 암호화
+          href: encrypt-storage.md
     - name: CI/CD와 통합
       items:
         - name: Azure Pipelines CI/CD 파이프라인에 랩 통합

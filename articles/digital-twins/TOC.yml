@@ -42,8 +42,10 @@
           href: how-to-use-cli.md
         - name: 인스턴스 및 인증 설정(스크립팅됨)
           href: how-to-set-up-instance-scripted.md
-        - name: 인스턴스 및 인증 설정(수동)
-          href: how-to-set-up-instance-manual.md
+        - name: 인스턴스 및 인증 설정(CLI)
+          href: how-to-set-up-instance-cli.md
+        - name: 인스턴스 및 인증 설정(포털)
+          href: how-to-set-up-instance-portal.md
         - name: 앱 인증 코드 쓰기
           href: how-to-authenticate-client.md
     - name: 디자인 모델
