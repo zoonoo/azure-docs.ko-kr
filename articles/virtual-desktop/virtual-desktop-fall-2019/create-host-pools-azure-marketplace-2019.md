@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop 호스트 풀 Azure Marketplace - Azure
-description: Azure Marketplace를 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
+title: Windows Virtual Desktop(클래식) 호스트 풀 Azure Marketplace - Azure
+description: Azure Marketplace를 사용하여 Windows Virtual Desktop(클래식) 호스트 풀을 만드는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256852"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291307"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../create-host-pools-azure-marketplace.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../create-host-pools-azure-marketplace.md)를 참조하세요.
 
 이 자습서에서는 Microsoft Azure Marketplace 제품을 사용하여 Windows Virtual Desktop 테넌트 내에서 호스트 풀을 만드는 방법에 대해 알아봅니다.
 
