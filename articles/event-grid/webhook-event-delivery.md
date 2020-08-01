@@ -3,19 +3,19 @@ title: WebHook 이벤트 전달
 description: 이 문서에서는 웹후크를 사용할 때의 웹후크 이벤트 전달 및 엔드포인트 유효성 검사에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118956"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461241"
 ---
 # <a name="webhook-event-delivery"></a>웹후크 이벤트 전달
 웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 Event Grid 서비스는 요청 본문에 이벤트가 포함되어 구성된 엔드포인트로 HTTP 요청을 게시합니다.
 
 웹후크를 지원하는 여러 다른 서비스와 마찬가지로, Event Grid를 사용하려면 해당 엔드포인트로 이벤트 제공을 시작하기 전에 웹후크 엔드포인트에 대한 소유권을 증명해야 합니다. 이 요구 사항으로 인해 악의적인 사용자가 엔드포인트에서 과도한 이벤트를 발생하는 일이 방지됩니다. 아래 나열된 세 가지 Azure 서비스를 사용하는 경우 Azure 인프라는 자동으로 이 유효성 검사를 처리합니다.
 
-- [Event Grid 커넥터](https://docs.microsoft.com/connectors/azureeventgrid/)를 포함하는 Azure Logic Apps
+- [Event Grid 커넥터](/connectors/azureeventgrid/)를 포함하는 Azure Logic Apps
 - [웹후크](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)를 통한 Azure Automation
 - [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 포함하는 Azure Functions
 

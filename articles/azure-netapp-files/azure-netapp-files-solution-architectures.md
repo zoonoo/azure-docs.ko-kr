@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 23ec482de740cc1ac8800a5de1c0e3be1f055df7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6437e25a2d6afc547b03f2b2144df63728116ef4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045487"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460238"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -45,6 +45,7 @@ ms.locfileid: "86045487"
 ### <a name="file-sharing-and-global-file-caching"></a>파일 공유 및 전역 파일 캐싱
 
 * [Talon/Azure NetApp Files 배포](https://youtu.be/91LKb1qsLIM)
+* [사용자 고유의 Azure NFS 빌드 Wrestling Linux 파일 공유를 클라우드로](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 
 ### <a name="sql-server"></a>SQL Server
 

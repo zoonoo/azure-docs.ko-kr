@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4e2557b114b5eb90b03e59dc64cbd6e69c7dd9a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a618b00b211ce65b170379cc14d6b83a1183d28
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326582"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460358"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -34,7 +34,7 @@ ms.locfileid: "87326582"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Azure Functions | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 적용 되지 않는 경우에만 |
 | Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
 | Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
@@ -78,7 +78,7 @@ ms.locfileid: "87326582"
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    대상 비율은 **각 서버 호스트에**대한 것을 목표로 하는 적응 알고리즘입니다. 여러 호스트에서 웹앱을 실행하는 경우 Application Insights 포털에서 트래픽을 대상 비율 범위 내에서 유지하기 위해 이 값을 줄입니다.
+    적응 알고리즘이 **각 서버 호스트에서**수집 하기를 목표로 하는 [논리적 작업](./correlation.md#data-model-for-telemetry-correlation) 의 목표 률입니다. 여러 호스트에서 웹앱을 실행하는 경우 Application Insights 포털에서 트래픽을 대상 비율 범위 내에서 유지하기 위해 이 값을 줄입니다.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   

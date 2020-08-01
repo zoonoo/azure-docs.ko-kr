@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: c1c146783d54bf2df25a130b73ab430c6edeaef7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d39b5f414b1998a4c0eacbbf8fd792d27c70309c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319459"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474583"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "87319459"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -262,7 +262,8 @@ myenv.docker.enabled = True
 
 기본적으로 새로 빌드된 Docker 이미지는 작업 영역과 연결 된 컨테이너 레지스트리에 나타납니다.  리포지토리 이름의 형식은 *azureml/azureml_ \<uuid\> *입니다. 이름의 고유 식별자 (*uuid*) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이러한 대응을 통해 서비스는 지정 된 환경의 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
 
-또한 서비스는 Ubuntu Linux 기반 [기본 이미지](https://github.com/Azure/AzureML-Containers)중 하나를 자동으로 사용 합니다. 지정 된 Python 패키지를 설치 합니다. 기본 이미지에는 CPU 버전과 GPU 버전이 있습니다. Azure Machine Learning는 사용할 버전을 자동으로 검색 합니다. 또한 [사용자 지정 Docker 기본 이미지](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image)를 사용할 수 있습니다.
+### <a name="use-a-custom-docker-image-or-dockerfile"></a>사용자 지정 Docker 이미지 또는 Dockerfile 사용 
+서비스는 Ubuntu Linux 기반 [기본 이미지](https://github.com/Azure/AzureML-Containers)중 하나를 자동으로 사용 합니다. 지정 된 Python 패키지를 설치 합니다. 기본 이미지에는 CPU 버전과 GPU 버전이 있습니다. Azure Machine Learning는 사용할 버전을 자동으로 검색 합니다. 또한 [사용자 지정 Docker 기본 이미지](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image)를 사용할 수 있습니다.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -407,7 +408,9 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## <a name="example-notebooks"></a>노트북 예제
+## <a name="notebooks"></a>Notebooks
+
+이 [문서](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) 에서는 노트북에 커널로 Conda 환경을 설치 하는 방법에 대 한 정보를 제공 합니다.
 
 이 [예제 전자 필기장은](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) 이 문서에 설명 되어 있는 개념과 메서드를 확장 합니다.
 

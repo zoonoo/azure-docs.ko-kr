@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 64bc8e76a4dcce963251219528bd93dd786f01cf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419617"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461360"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -410,17 +410,8 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
-Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
-새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
-
-사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
-
-> [!WARNING]
-> SQL API용 Node 클라이언트 SDK의 모든 버전 **1.x**는 **2020년 8월 30일**에 사용 중지됩니다. 이는 클라이언트 쪽 노드 SDK에만 영향을 주며 서버 쪽 스크립트(저장 프로시저, 트리거 및 UDF)에는 영향을 주지 않습니다.
-> 
->
-<br/>
+Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다. 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fc50934b4c301b4eea509ecc22e00c62ca091d75
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056549"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475195"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -91,6 +91,14 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
+### <a name="supported-kubectl-versions"></a>지원 되는 `kubectl` 버전
+
+Kube 서버 버전에 비해 이전 또는 최신 버전의 부 버전 하나를 사용할 수 있으며 `kubectl` ,이는 [kubectl에 대 한 Kubernetes 지원 정책과](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl)일치 합니다. *kube-apiserver*
+
+예를 들어 *kube server* 가 *1.17*에 있으면 kube을 *1.16* *1.18* `kubectl` 해당 *서버*와 함께 사용 하 여 1.16에 버전 1.18를 사용할 수 있습니다.
+
+버전을 설치 하거나 업데이트 하려면 `kubectl` 를 실행 `az aks install-cli` 합니다.
+
 ## <a name="release-and-deprecation-process"></a>릴리스 및 사용 중단 프로세스
 
 [AKS Kubernetes 릴리스 달력](#aks-kubernetes-release-calendar)에서 예정 된 버전 릴리스 및 결함를 참조할 수 있습니다.
@@ -121,7 +129,6 @@ AKS는 하나 이상의 중요 한 프로덕션에 영향을 주는 버그 또�
 az aks get-versions --location eastus --output table
 ```
 
-
 ## <a name="aks-kubernetes-release-calendar"></a>AKS Kubernetes 릴리스 일정
 
 이전 릴리스 내역은 [여기](https://en.wikipedia.org/wiki/Kubernetes#History)를 참조 하세요.
@@ -139,7 +146,7 @@ az aks get-versions --location eastus --output table
 
 **사용자가 지원 되지 않는 부 버전으로 Kubernetes 클러스터를 업그레이드 하는 경우 어떻게 되나요?**
 
-이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예를 들어:
+이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예를 들면 다음과 같습니다.
 
 - 가장 오래 된 지원 되는 AKS 버전이 *1.15입니다. a* 와 *1.14* 에 있는 경우에는 지원 되지 않습니다.
 - *1.14* 에서 1.15로 업그레이드 하는 경우 *에는* 지원 정책 내에 다시 로그인 합니다.

@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422864"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460986"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -66,6 +66,9 @@ VMware 및 Hyper-v Vm의 경우 서버 평가는 서버 평가의 알려진 간�
 
 이 간격은 VMware Vm에서 [응용 프로그램 검색](./how-to-discover-applications.md) 을 사용 하도록 설정 하 여 해결할 수 있습니다. 서버 평가에서는 제공 된 게스트 자격 증명을 사용 하 여 VM에서 검색 된 운영 체제를 사용 합니다. 이 운영 체제 데이터는 Windows 및 Linux Vm의 경우 적절 한 OS 정보를 식별 합니다.
 
+## <a name="operating-system-version-not-available"></a>운영 체제 버전을 사용할 수 없음
+
+물리적 서버의 경우 운영 체제 부 버전 정보를 사용할 수 있습니다. 사용할 수 없는 경우 Microsoft 지원에 문의 하세요. VMware 컴퓨터의 경우 서버 평가는 vCenter Server VM에 지정 된 운영 체제 정보를 사용 합니다. 그러나 vCenter Server는 운영 체제의 부 버전을 제공 하지 않습니다. 부 버전을 검색 하려면 [응용 프로그램 검색](./how-to-discover-applications.md)을 설정 해야 합니다. Hyper-v Vm의 경우 운영 체제 부 버전 검색은 지원 되지 않습니다. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure VM 평가에서 온-프레미스 보다 큰 azure Sku
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 응급 사용자 액세스 취소 | Microsoft Docs
+title: Azure Active Directory의 응급 상황에서 사용자 액세스 취소 | Microsoft Docs
 description: Azure Active Directory의 Azure AD 관리 센터에서 사용자 대량 추가
 services: active-directory
 ms.service: active-directory
@@ -10,15 +10,15 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 06/26/2020
+ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ca5f7c6032a69286da72d8ef3640f64038eb3a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fbb2ad8e6d37190d0473f3f9f4af7738edd3b27f
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027191"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475212"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Azure Active Directory에서 사용자 액세스 취소
 

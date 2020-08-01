@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 8b931519abb1af48ce139193366649ad3f355569
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 49e005d67702013b77d688d346860a217a13c561
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172039"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460119"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -109,7 +109,7 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5 [(지원 되는 커널
 SUSE Linux Enterprise Server 15 | 15 및 15 SP1 [(지원되는 커널 버전)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> 복제 컴퓨터를 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터를 업그레이드한 경우 복제를 사용하지 않도록 설정하고 업그레이드 후에 다시 사용하도록 설정해야 합니다.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, [7.3, 7.4](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) [, 7.5](https://support.microsoft.com/help/4573888/) [, 7.6](https://support.microsoft.com/help/4573888/), 7.7, 7.8, [8.0, 8.1](https://support.microsoft.com/help/4573888/) <br/><br/> Red Hat 호환 커널 또는 UEK(Unbreakable Enterprise Kernel Release) 3, 4 및 5를 실행
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, [7.3, 7.4](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) [, 7.5](https://support.microsoft.com/help/4573888/), 7.6, [7.7, 7.8](https://support.microsoft.com/help/4573888/) , 8.0  <br/> Red Hat 호환 커널 또는 UEK(Unbreakable Enterprise Kernel Release) 3, 4 및 5를 실행<br/><br/>[8.1](https://support.microsoft.com/help/4573888/)<br/>모든 UEK 커널 및 RedHat 커널 <= 3.10.0-1062. *에서 실행 하는 것이 지원 됩니다. RedHat 커널의 나머지 부분에 대 한 지원은 8 월 말에 예상 되는 9.36에서 제공 됩니다.
 
 * * 참고: 릴리스 30 일 이내에 최신 Linux 커널을 지원 하기 위해 Azure Site Recovery 최신 모바일 에이전트 버전을 기반으로 하는 핫 픽스 패치를 롤업 합니다. 이 픽스는 두 주 버전 릴리스 사이에서 롤아웃 됩니다. 최신 버전의 모바일 에이전트 (핫 픽스 패치 포함)로 업데이트 하려면 [이 문서](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure)에 설명 된 단계를 따르세요. 이 패치는 현재 Azure에서 Azure로 DR 시나리오에 사용 되는 모바일 에이전트에 대해 출시 되었습니다.
 
@@ -179,8 +179,8 @@ Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 지원되는 �
 Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM 또는 물리적 컴퓨터가 Site Recovery를 사용하여 Azure에 마이그레이션되면 컴퓨터에서 실행되는 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
-RBAC 정책 | 지원되지 않음 | VM에 대한 RBAC(역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다.
-확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다. 장애 조치(failover) 후 수동으로 설치해야 합니다.
+RBAC 정책 | 지원 안 함 | VM에 대한 RBAC(역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다.
+확장 | 지원 안 함 | 확장은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다. 장애 조치(failover) 후 수동으로 설치해야 합니다.
 근접 배치 그룹 | 지원됨 | 근접 배치 그룹 내에 있는 가상 머신은 Site Recovery를 사용 하 여 보호할 수 있습니다.
 
 
@@ -202,7 +202,7 @@ RBAC 정책 | 지원되지 않음 | VM에 대한 RBAC(역할 기반 액세스 �
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
 OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
-임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
+임시 디스크 | 지원 안 함 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
 데이터 디스크 최대 크기 | 관리 디스크의 경우 8,192GB<br></br>비관리 디스크의 경우 4,095GB|
 데이터 디스크 최소 크기 | 비관리 디스크는 제한이 없습니다. 관리 디스크의 경우 2GB |
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
@@ -222,7 +222,7 @@ Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크를 사용하는 VM�
 Linux OS용 ADE(Azure Disk Encryption) | 관리 디스크를 사용하는 VM을 지원합니다. | 비관리 디스크를 사용하는 VM은 지원되지 않습니다. <br/><br/> HSM 보호 키는 지원되지 않습니다. <br/><br/> 단일 디스크에서 개별 볼륨 암호화는 지원되지 않습니다. <br><br> 복제를 사용 하는 것과 관련 된 알려진 문제입니다. [자세한 정보](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137) |
 SAS 키 회전 | 지원되지 않음 | 저장소 계정에 대 한 SAS 키를 회전 하는 경우 고객은 복제를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다. |
 핫 추가    | 지원됨 | 복제된 Azure VM에 추가하는 데이터 디스크에 대한 복제 설정은 관리 디스크를 사용하는 VM을 지원합니다. <br/><br/> Azure VM에 한 번에 하나의 디스크만 핫으로 추가할 수 있습니다. 여러 디스크의 병렬 추가는 지원되지 않습니다. |
-디스크 핫 제거    | 지원되지 않음 | VM에서 데이터 디스크를 제거하는 경우 해당 VM에 대해 복제를 해제했다가 다시 설정해야 합니다.
+디스크 핫 제거    | 지원 안 함 | VM에서 데이터 디스크를 제거하는 경우 해당 VM에 대해 복제를 해제했다가 다시 설정해야 합니다.
 디스크 제외 | 지원됨. [PowerShell](azure-to-azure-exclude-disks.md)을 사용하여 구성해야 합니다. |    임시 디스크는 기본적으로 제외됩니다.
 직접 스토리지 공간  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
@@ -230,13 +230,13 @@ DRBD | DRBD 설치 프로그램의 일부인 디스크는 지원되지 않습니
 LRS | 지원됨 |
 GRS | 지원됨 |
 RA-GRS | 지원됨 |
-ZRS | 지원되지 않음 |
+ZRS | 지원 안 함 |
 콜드 및 핫 스토리지 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 [신뢰할 수 있는 Microsoft 서비스 허용](../storage/common/storage-network-security.md#exceptions)을 사용하도록 설정합니다.
 범용 V2 스토리지 계정(핫 및 쿨 계층 모두) | 지원됨 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 2세대(UEFI 부팅) | 지원됨
 NVMe 디스크 | 지원되지 않음
-Azure 공유 디스크 | 지원되지 않음
+Azure 공유 디스크 | 지원 안 함
 보안 전송 옵션 | 지원됨
 
 >[!IMPORTANT]
@@ -270,19 +270,19 @@ NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 �
 서브넷의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 서브넷에 연결합니다.
 예약된(고정) IP 주소 | 지원됨 | 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에서 동일한 IP 주소를 사용할 수 있는 경우 해당 IP가 장애 조치(Failover)된 VM에 할당됩니다.<br/><br/> 대상 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 주소 중 하나가 이 VM용으로 예약됩니다.<br/><br/> **복제된 항목** > **설정** > **계산 및 네트워크** > **네트워크 인터페이스**에서 고정 IP 주소 및 서브넷을 지정할 수도 있습니다.
 동적 IP 주소 | 지원됨 | 원본의 NIC에 동적 IP 주소가 있는 경우 장애 조치(failover)된 VM의 NIC도 기본적으로 동적으로 설정됩니다.<br/><br/> 필요한 경우 이 주소를 고정 IP 주소로 수정할 수 있습니다.
-여러 IP 주소 | 지원되지 않음 | 여러 IP 주소가 할당된 NIC가 있는 VM을 장애 조치(failover)하는 경우 원본 지역의 NIC의 기본 IP 주소만 유지됩니다. 여러 IP 주소를 할당하려면 [복구 계획](recovery-plan-overview.md)에 VM을 추가하고 스크립트를 연결하여 계획에 추가 IP 주소를 할당하거나, 장애 조치(failover) 후 수동으로 또는 스크립트를 사용해 변경할 수 있습니다.
+여러 IP 주소 | 지원 안 함 | 여러 IP 주소가 할당된 NIC가 있는 VM을 장애 조치(failover)하는 경우 원본 지역의 NIC의 기본 IP 주소만 유지됩니다. 여러 IP 주소를 할당하려면 [복구 계획](recovery-plan-overview.md)에 VM을 추가하고 스크립트를 연결하여 계획에 추가 IP 주소를 할당하거나, 장애 조치(failover) 후 수동으로 또는 스크립트를 사용해 변경할 수 있습니다.
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS    | 지원됨 |
-인증되지 않은 프록시 | 지원됨 | [자세히 알아보기](./azure-to-azure-about-networking.md)
-인증된 프록시 | 지원되지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.
+인증되지 않은 프록시 | 지원됨 | [자세한 내용](./azure-to-azure-about-networking.md)
+인증된 프록시 | 지원 안 함 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.
 온-프레미스에 대한 VPN 사이트 간 연결<br/><br/>(ExpressRoute 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDR 및 NSG가 구성되어 있는지 확인합니다. [자세히 알아보기](./azure-to-azure-about-networking.md)
 VNet 간 연결    | 지원됨 | [자세히 알아보기](./azure-to-azure-about-networking.md)
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
 가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
-Palo Alto 네트워크 어플라이언스 | 지원되지 않음 | 타사 어플라이언스를 사용하는 경우 공급자가 가상 머신 내부에서 적용하는 제한 사항이 있는 경우가 흔합니다. Azure Site Recovery가 에이전트, 확장 및 아웃바운드 연결을 사용할 수 있어야 합니다. 하지만 어플라이언스는 가상 머신 내에서 아웃바운드 작업을 구성하는 것을 허용하지 않습니다.
+Palo Alto 네트워크 어플라이언스 | 지원 안 함 | 타사 어플라이언스를 사용하는 경우 공급자가 가상 머신 내부에서 적용하는 제한 사항이 있는 경우가 흔합니다. Azure Site Recovery가 에이전트, 확장 및 아웃바운드 연결을 사용할 수 있어야 합니다. 하지만 어플라이언스는 가상 머신 내에서 아웃바운드 작업을 구성하는 것을 허용하지 않습니다.
 IPv6  | 지원되지 않음 | IPv4 및 IPv6을 모두 포함하는 혼합 구성도 지원되지 않습니다. Site Recovery 작업을 수행하기 전에 IPv6 범위의 서브넷을 확보하세요.
-Site Recovery 서비스에 대 한 개인 링크 액세스 | 지원됨 | [자세히 알아보기](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+Site Recovery 서비스에 대 한 개인 링크 액세스 | 지원됨 | [자세한 내용](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
 
 

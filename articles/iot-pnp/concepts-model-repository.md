@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 모델 리포지토리의 개념 이해 | Microsoft Docs
 description: 솔루션 개발자 또는 IT 전문가는 Azure IoT 모델 리포지토리의 기본 개념에 대해 알아봅니다.
-author: JimacoMS3
-ms.author: v-jambra
+author: prashmo
+ms.author: prashmo
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 53ae5bf15c303f26d48550734f46e69ef1fcdd75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352489"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475501"
 ---
 # <a name="azure-iot-model-repository"></a>Azure IoT 모델 리포지토리
 
@@ -42,7 +42,7 @@ REST API 사용 하 여 프로그래밍 방식으로 공용 모델을 보려면 
 
 ```csharp
 var httpClient = new HttpClient();
-httpClient.BaseAddress = new Uri("<url>");
+httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
@@ -68,7 +68,7 @@ Azure AD 테 넌 트를 설정 하는 방법과 Azure AD 테 넌 트에서 사�
 
 다음 표에서는 회사 모델 리포지토리에서 지원 되는 기능과 관련 사용 권한을 요약 하 여 보여 줍니다.
 
-| 기능  | 사용 권한| 설명|
+| 기능  | 사용 권한| Description|
 |-------------|-----------|------------|
 |모델 읽기|모델 읽기|기본적으로 회사 테 넌 트의 모든 사용자는 회사 모델을 볼 수 있습니다. 또한 사용자는 다른 회사에서 공유 하는 개인 모델만 볼 수 있습니다.|
 |액세스 관리|액세스 관리|조직의 다른 사용자에 대 한 사용자 역할 할당 (추가 또는 제거)을 관리 합니다.|

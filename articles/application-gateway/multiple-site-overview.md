@@ -5,20 +5,20 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290992"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474328"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
 
-여러 사이트 호스팅을 사용 하면 응용 프로그램 게이트웨이의 동일한 포트에 둘 이상의 웹 응용 프로그램을 구성할 수 있습니다. 이를 통해 하나의 응용 프로그램 게이트웨이에 최대 100 개 이상의 웹 사이트를 추가 하 여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어, contoso.com, fabrikam.com 및 adatum.com 라는 세 개의 도메인은 응용 프로그램 게이트웨이의 IP 주소를 가리킵니다. 3 개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각 수신기를 구성 합니다. 
+여러 사이트 호스팅을 사용 하면 응용 프로그램 게이트웨이의 동일한 포트에 둘 이상의 웹 응용 프로그램을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 contoso.com, fabrikam.com 및 adatum.com이라는 세 개의 도메인이 애플리케이션 게이트웨이의 IP 주소를 가리킵니다. 3개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각각의 수신기를 구성합니다. 
 
-다중 사이트 수신기에서 와일드 카드 호스트 이름을 정의 하 고 수신기 당 최대 5 개의 호스트 이름을 정의할 수도 있습니다. 자세히 알아보려면 [수신기의 와일드 카드 호스트 이름](#wildcard-host-names-in-listener-preview)을 참조 하세요.
+또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세히 알아보려면 [수신기의 와일드 카드 호스트 이름](#wildcard-host-names-in-listener-preview)을 참조 하세요.
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="다중 사이트 Application Gateway":::
 
@@ -31,7 +31,7 @@ ms.locfileid: "87290992"
 
 ## <a name="wildcard-host-names-in-listener-preview"></a>수신기의 와일드 카드 호스트 이름 (미리 보기)
 
-Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호스트 기반 라우팅을 허용 합니다. 이제 호스트 이름에 별표 (*) 및 물음표 (?)와 같은 와일드 카드 문자를 사용할 수 있으며 다중 사이트 HTTP (S) 수신기 당 최대 5 개의 호스트 이름을 사용할 수 있습니다. 예: `*.contoso.com`.
+Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호스트 기반 라우팅을 허용 합니다. 이제 호스트 이름에 별표 (*) 및 물음표 (?)와 같은 와일드 카드 문자를 사용할 수 있으며 다중 사이트 HTTP (S) 수신기 당 최대 5 개의 호스트 이름을 사용할 수 있습니다. 예들 들어 `*.contoso.com`입니다.
 
 호스트 이름에 와일드 카드 문자를 사용 하 여 단일 수신기에서 여러 호스트 이름을 찾을 수 있습니다. 예를 들어는 및 등과 `*.contoso.com` 일치할 수 있습니다 `ecom.contoso.com` `b2b.contoso.com` `customer1.b2b.contoso.com` . 호스트 이름 배열을 사용 하 여 수신기에 대 한 호스트 이름을 두 개 이상 구성 하 여 요청을 백 엔드 풀로 라우팅할 수 있습니다. 예를 들어 수신기에는 `contoso.com, fabrikam.com` 호스트 이름에 대 한 요청을 허용 하는가 포함 될 수 있습니다.
 
@@ -42,6 +42,7 @@ Application Gateway는 다중 사이트 HTTP (S) 수신기를 사용 하는 호�
 
 >[!NOTE]
 >이 기능은 현재 [Azure PowerShell](tutorial-multiple-sites-powershell.md) 및 [Azure CLI](tutorial-multiple-sites-cli.md)를 통해서만 사용할 수 있습니다. 포털 지원이 곧 제공 될 예정입니다.
+> 포털 지원을 완전히 사용할 수 없으므로 호스트 이름 매개 변수만 사용 하는 경우 수신기가 포털에서 기본 수신기로 나타나고 수신기 목록 보기의 호스트 이름 열에 구성 된 호스트 이름이 표시 되지 않습니다. 와일드 카드 수신기를 변경 하려면 포털에서 지원 될 때까지 Azure PowerShell 또는 CLI를 사용 해야 합니다.
 
 [Azure PowerShell](tutorial-multiple-sites-powershell.md)에서 대신를 사용 해야 합니다 `-HostNames` `-HostName` . 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 언급 하 고 와일드 카드 문자를 사용할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com,*.fabrikam.com"`
 

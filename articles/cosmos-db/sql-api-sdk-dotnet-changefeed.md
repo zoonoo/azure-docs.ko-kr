@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 679f3113cddbfe13370483f2678154f4dd1f8ab2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2c846298fecdc771dd5d9831a558b99c74b2737
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392066"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461071"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 
@@ -48,7 +48,11 @@ ms.locfileid: "85392066"
 
 ### <a name="v2-builds"></a>v2 빌드
 
-### <a name="230"></a><a name="2.3.0"></a>2.3.0
+### <a name="231"></a><a name="2.3.1"/>2.3.1
+* `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` `FeedProcessing.IChangeFeedObserver.CloseAsync` 파티션을 찾을 수 없거나 대상 복제본이 읽기 세션에서 최신 상태가 아닌 경우 close 이유가로 전송 되는 경우를 수정 했습니다. 이러한 경우에 `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` 는 이제 닫는 이유가 사용 됩니다.
+* `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`대상 복제본이 읽기 세션에서 최신 상태가 아닐 때 변경 피드 관찰자를 닫기 위해 전송 된 새로운 닫기 이유를 추가 했습니다.
+
+### <a name="230"></a><a name="2.3.0"/>2.3.0
 * 새 메서드 `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` 및 해당 공용 인터페이스 `ICheckpointPartitionProcessorFactory`가 추가되었습니다. 이를 통해 `IPartitionProcessor` 인터페이스를 구현하여 기본 제공 검사점 메커니즘을 사용할 수 있습니다. 새 팩터리는 기존 `IPartitionProcessorFactory`와 유사합니다. 단, 해당 `Create` 메서드가 `ILeaseCheckpointer` 매개 변수도 사용한다는 점이 다릅니다.
 * 두 메서드 `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` 또는 `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` 중 하나만 동일한 `ChangeFeedProcessorBuilder` 인스턴스에 사용할 수 있습니다.
 
@@ -178,16 +182,16 @@ ms.locfileid: "85392066"
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
 
-Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
+Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다. 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
-새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
-
-사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
+> [!WARNING]
+> 2022 년 8 월 31 일 이후에는 Azure Cosmos DB에서 더 이상 버그를 수정 하지 않으며, 새 기능을 추가 하 고, Azure Cosmos DB .NET 또는 .NET Core SDK 버전의 SQL API에 대 한 지원을 제공 합니다. 업그레이드 하지 않으려는 경우 SDK의 버전 1.x에서 전송 된 요청은 Azure Cosmos DB 서비스에서 계속 제공 됩니다.
 
 <br/>
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |2020 년 7 월 30 일 |--- |
 | [2.3.0](#2.3.0) |2020년 4월 2일 |--- |
 | [2.2.8](#2.2.8) |2019년 10월 28일 |--- |
 | [2.2.7](#2.2.7) |2019년 5월 14일 |--- |

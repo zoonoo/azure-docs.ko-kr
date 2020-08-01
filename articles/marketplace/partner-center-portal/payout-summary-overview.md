@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 0f19d63bd5f22dc7bc60ceb76ef5bdbeff717dbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325732"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460391"
 ---
 # <a name="payout-summary-overview"></a>지급 요약 개요
 
@@ -23,7 +23,7 @@ Azure Marketplace에서 제품을 판매하는 경우 지급 요약에는 성공
 > [!NOTE]
 > 지급을 사용할 수 있으려면 수익이 $50의 [결제 임계값](./payment-thresholds-methods-timeframes.md)에 도달해야 합니다. 지불 임계값에 대한 자세한 내용은 [Microsoft Azure Marketplace 게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)을 참조하세요.
 
-포털의 오른쪽 위 모서리에 있는 이 아이콘을 사용하여 액세스하는 파트너 센터의 분석 섹션에서 거래 게시 옵션의 모든 보고 및 인사이트를 사용할 수 있습니다.
+지급 세부 정보를 보려면 [파트너 센터](https://partner.microsoft.com/dashboard/home) 에 로그인 하 고 화면의 오른쪽 위 모퉁이에 있는 지급 아이콘을 선택 합니다.
 
 ![파트너 센터 포털의 오른쪽 위 모서리에 있는 지급 아이콘을 보여 줍니다.](./media/payout-overview.png)
 

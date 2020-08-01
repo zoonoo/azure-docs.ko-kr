@@ -3,12 +3,12 @@ title: Azure Event Grid 파트너로 온보딩
 description: Azure Event Grid 파트너 토픽 유형으로 등록 합니다. 파트너 항목에 대 한 리소스 모델 및 게시 흐름을 이해 합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116117"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461258"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Azure Event Grid 파트너로 온보딩
 
@@ -150,13 +150,13 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 | 잘못된 엔드포인트                 | 404 찾을 수 없음         |
 | 배열 또는 이벤트가 크기 제한을 초과합니다. | 413 페이로드가 너무 큼 |
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참고 자료
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [ARM 템플릿](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [ARM 템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [REST API](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [CLI 확장](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [REST API](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [CLI 확장](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

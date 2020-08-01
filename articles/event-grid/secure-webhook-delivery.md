@@ -3,16 +3,16 @@ title: Azure Event Grid에서 Azure AD를 사용 하 여 보안 WebHook 배달
 description: 를 사용 하 여 Azure Active Directory 보호 하는 HTTPS 끝점에 이벤트를 전달 하는 방법을 설명 Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 90d06f203bc93177101a87a7a774d816b11b16f6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119126"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460714"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory 보호 된 끝점에 이벤트 게시
+# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory로 보호되는 엔드포인트에 이벤트 게시
 
-이 문서에서는 Azure Active Directory를 활용 하 여 이벤트 구독과 webhook 끝점 간의 연결을 보호 하는 방법을 설명 합니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조하세요.
+이 문서에서는 Azure Active Directory를 활용 하 여 이벤트 구독과 webhook 끝점 간의 연결을 보호 하는 방법을 설명 합니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../active-directory/develop/v2-overview.md)를 참조하세요.
 
 이 문서에서는 데모를 위해 Azure Portal를 사용 하지만 CLI, PowerShell 또는 Sdk를 사용 하 여이 기능을 사용 하도록 설정할 수도 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "86119126"
 아래의 PowerShell 스크립트를 사용 하 여 Azure AD 응용 프로그램에서 역할 및 서비스 주체를 만듭니다. Azure AD 응용 프로그램의 테 넌 트 ID 및 개체 ID가 필요 합니다.
 
    > [!NOTE]
-   > 이 스크립트를 실행하려면 [Azure AD 애플리케이션 관리자 역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles)의 멤버여야 합니다.
+   > 이 스크립트를 실행하려면 [Azure AD 애플리케이션 관리자 역할](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles)의 멤버여야 합니다.
     
 1. PowerShell 스크립트의 $myTenantId을 수정 하 여 Azure AD 테 넌 트 ID를 사용 합니다.
 1. Azure AD 응용 프로그램의 개체 ID를 사용 하도록 PowerShell 스크립트의 $myAzureADApplicationObjectId 수정

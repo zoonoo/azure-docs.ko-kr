@@ -2,13 +2,13 @@
 title: 공유 액세스 서명을 사용 하 여 액세스 제어 Azure Service Bus
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340967"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460697"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -19,7 +19,7 @@ SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호�
 > [!NOTE]
 > Azure Service Bus는 Azure Active Directory (Azure AD)를 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여 합니다. Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다.
 >
-> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 항목을 참조하세요.
+> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
 > - [Azure Active Directory를 사용 하 여 응용 프로그램을 인증 하 고 권한을 부여 하 여 Azure Service Bus 엔터티에 액세스](authenticate-application.md)합니다.
 > - [Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](service-bus-managed-service-identity.md)
 
@@ -49,7 +49,7 @@ Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조
 
 권한 부여 규칙은 *기본 키*와 *보조 키*에 할당됩니다. 이들은 강력한 암호화 키입니다. 잃어 버리거나 누출되지 않도록 하세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 정책에서 키를 다시 생성하거나 변경하는 경우 해당 키에 기반한 이전에 발급된 모든 토큰은 즉시 무효화됩니다. 그러나 이러한 토큰에 따라 생성된 진행 중인 연결은 토큰이 만료될 때까지 작업을 계속합니다.
 
-Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 애플리케이션에서 사용하지 않는 것이 좋습니다. Powershell 또는 Azure CLI를 통해 포털의 해당 네임스페이스에 대한 **구성** 탭에서 추가 정책 규칙을 만들 수 있습니다.
+Service Bus 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는 정책 규칙이 네임스페이스에 대해 자동으로 만들어집니다. 이 정책은 전체 네임스페이스에 대한 Manage 사용 권한을 갖습니다. 이 규칙을 관리 **루트** 계정과 같이 처리하고 애플리케이션에서 사용하지 않는 것이 좋습니다. PowerShell 또는 Azure CLI를 통해 포털에서 네임 스페이스에 대 한 **구성** 탭에서 추가 정책 규칙을 만들 수 있습니다.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
 
@@ -89,6 +89,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/contosoTopics/T1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
 SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로 추가하는 모든 리소스에 유효합니다.
+
+> [!NOTE]
+> 다른 프로그래밍 언어를 사용 하 여 SAS 토큰을 생성 하는 예제는 [sas 토큰 생성](/rest/api/eventhub/generate-sas-token)을 참조 하세요. 
 
 ## <a name="regenerating-keys"></a>키 다시 생성
 
@@ -177,7 +180,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>공유 액세스 서명(AMQP 수준) 사용
 
-이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 Service Bus에 보내는 방법을 살펴봤습니다. 아시다시피, Service Bus는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP와 함께 SAS 토큰을 사용하는 방법은 2013년 이후 초안 상태이지만 현재 Azure에서 충분한 지원을 받고 있는 문서 [AMQP 클레임 기반 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 에 설명되어 있습니다.
+이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 Service Bus에 보내는 방법을 살펴봤습니다. 아시다시피, Service Bus는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP를 사용 하는 SAS 토큰 사용에 대 한 자세한 내용은 2013부터 초안으로 작동 하는 [Amqp 클레임 기반 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) 문서에 설명 되어 있지만 현재 Azure에서 지원 됩니다.
 
 Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
@@ -253,7 +256,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 | 연산 | 필요한 클레임 | 클레임 범위 |
 | --- | --- | --- |
-| **네임스페이스** | | |
+| **Namespace** | | |
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |
 | **서비스 레지스트리** | | |
 | 프라이빗 정책 열거 |관리 |네임스페이스 주소 |

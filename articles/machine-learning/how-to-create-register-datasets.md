@@ -11,13 +11,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 06/29/2020
-ms.openlocfilehash: a220a7279cbb5ba75c8aa803cb4bd709442a52fe
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/22/2020
+ms.openlocfilehash: 5f58698de289efc0b74550260c2229f2a08d798d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326395"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461377"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -33,11 +33,13 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
+[데이터 세트를 사용하여 학습시키는 방법을 알아보세요](how-to-train-with-datasets.md).
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
-* Azure 구독. 구독이 없으면 시작하기 전에 계정을 만드세요. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독 구독이 없으면 시작하기 전에 계정을 만드세요. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -50,27 +52,23 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 데이터 집합을 만들 때 계산 처리 능력과 메모리의 데이터 크기를 검토 합니다. 저장소에 있는 데이터의 크기는 데이터 프레임의 데이터 크기와 동일 하지 않습니다. 예를 들어 CSV 파일의 데이터는 데이터 프레임에서 최대 10 배까지 확장할 수 있으므로 1gb CSV 파일은 데이터 프레임에서 10gb가 될 수 있습니다. 
 
-주 요소는 데이터 집합이 메모리 내 크기 (예: 데이터 프레임)입니다. 계산 크기와 처리 능력에는 2 배 RAM 크기를 포함 하는 것이 좋습니다. 따라서 데이터 프레임가 10GB 인 경우 20 개 이상의 RAM이 있는 계산 대상에서 데이터 프레임가 메모리에 맞고 처리 될 수 있도록 합니다. 데이터가 압축 되 면 추가로 확장할 수 있습니다. 압축 된 parquet 형식으로 저장 된 20gb의 비교적 스파스 데이터는 메모리에서 800 GB로 확장 될 수 있습니다. Parquet 파일은 데이터를 열 형식으로 저장 하기 때문에 열 절반이 필요한 경우에는 메모리에서 400 ~ GB를 로드 하기만 하면 됩니다.
+데이터가 압축 되 면 추가로 확장할 수 있습니다. 압축 된 parquet 형식으로 저장 된 20gb의 비교적 스파스 데이터는 메모리에서 800 GB로 확장 될 수 있습니다. Parquet 파일은 데이터를 열 형식으로 저장 하기 때문에 열 절반이 필요한 경우에는 메모리에서 400 ~ GB를 로드 하기만 하면 됩니다.
  
 Pandas를 사용 하는 경우 두 개 이상의 vCPU가 사용 되는 이유가 없습니다. 를로 변경 하기만 하면 단일 Azure Machine Learning 계산 인스턴스/노드의 여러 vCPUs로 쉽게 병렬 처리 하 고, 필요한 경우 대규모 클러스터로 확장할 수 있습니다 `import pandas as pd` `import modin.pandas as pd` . 
  
-데이터에 대 한 충분 한 가상 컴퓨터를 가져올 수 없는 경우 다음 두 가지 옵션을 사용할 수 있습니다. 예를 들어 Spark 또는 6Ask와 같은 프레임 워크를 사용 하 여 데이터 ' 메모리 부족 '에 대 한 처리를 수행 합니다. 즉, 데이터 프레임는 파티션 및 처리 별로 RAM 파티션에 로드 되며 최종 결과가 마지막에 수집 됩니다. 이 속도가 너무 느리면 Spark 또는 Fask를 사용 하 여 계속 대화형으로 사용할 수 있는 클러스터로 확장할 수 있습니다. 
+[Azure Machine Learning에서 데이터 처리 최적화에 대 한 자세한 정보](concept-optimize-data-processing.md)
 
 ## <a name="dataset-types"></a>데이터 세트 형식
 
 사용자가 학습에서 사용 하는 방법에 따라 두 가지 데이터 집합 형식이 있습니다.
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 Pandas 또는 Spark 데이터 프레임로 데이터를 구체화할 수 있습니다. `TabularDataset`.Csv,. tsv, parquet,. jsonl 파일 및 SQL 쿼리 결과에서 개체를 만들 수 있습니다. 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
-
 * [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 클래스는 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 이 방법에서는 파일을 FileDataset 개체로 계산에 다운로드 하거나 탑재할 수 있습니다. 이 파일은 심층 학습을 비롯 하 여 다양 한 기계 학습 시나리오를 가능 하 게 하는 모든 형식일 수 있습니다. 
 
-## <a name="create-datasets"></a>데이터 세트 만들기
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 Pandas 또는 Spark 데이터 프레임로 데이터를 구체화할 수 있습니다. `TabularDataset`.Csv,. tsv, parquet,. jsonl 파일 및 SQL 쿼리 결과에서 개체를 만들 수 있습니다. 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
 
-데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터가 기존 위치에 남아 있으므로 추가 스토리지 비용이 발생하지 않습니다. `TabularDataset` `FileDataset` Python SDK 또는의 Azure Machine Learning studio를 사용 하 여 및 데이터 집합을 모두 만들 수 있습니다 https://ml.azure.com .
+## <a name="create-datasets-via-the-sdk"></a>SDK를 통해 데이터 집합 만들기
 
-Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 [Azure 데이터 저장소](how-to-access-data.md) 또는 공용 웹 url의 경로에서 데이터 집합을 만들어야 합니다. 
-
-### <a name="use-the-sdk"></a>SDK 사용
+데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터가 기존 위치에 남아 있으므로 추가 스토리지 비용이 발생하지 않습니다. Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 [Azure 데이터 저장소](how-to-access-data.md) 또는 공용 웹 url의 경로에서 데이터 집합을 만들어야 합니다. 
 
 Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 에서 데이터 집합을 만들려면 다음을 수행 합니다.
 
@@ -80,6 +78,21 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 > [!Note]
 > 여러 데이터 저장소의 여러 경로에서 데이터 집합을 만들 수 있습니다. 데이터 집합을 만들 수 있는 파일 수 또는 데이터 크기에 대 한 하드 제한은 없습니다. 그러나 각 데이터 경로에 대해 몇 가지 요청은 저장소 서비스로 전송 되어 파일이 나 폴더를 가리키는지 확인 합니다. 이러한 오버 헤드로 인해 성능이 저하 되거나 오류가 발생할 수 있습니다. 내에서 1000 파일을 포함 하는 한 개의 폴더를 참조 하는 데이터 집합은 하나의 데이터 경로를 참조 하 고 최적의 성능을 위해 데이터 저장소에서 100 미만의 경로를 참조 하는 데이터 집합을 만드는 것이 좋습니다.
+
+#### <a name="create-a-filedataset"></a>FileDataset 만들기
+
+[`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)클래스의 메서드를 사용 `FileDatasetFactory` 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다. 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 메서드에서 매개 변수를 설정 `validate=False` `from_files()` 합니다. 이렇게 하면 초기 유효성 검사 단계가 무시 되 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다.
+
+```Python
+# create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
+datastore_paths = [(datastore, 'animals')]
+animal_ds = Dataset.File.from_files(path=datastore_paths)
+
+# create a FileDataset from image and label files behind public web urls
+web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
+mnist_ds = Dataset.File.from_files(path=web_paths)
+```
 
 #### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
@@ -123,11 +136,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|이름|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+1|2|참|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 In memory pandas 데이터 프레임에서 데이터 집합을 만들려면 csv와 같은 로컬 파일에 데이터를 작성 하 고 해당 파일에서 데이터 집합을 만듭니다. 다음 코드에서는이 워크플로를 보여 줍니다.
 
@@ -185,24 +198,22 @@ data_slice = dataset.time_after(datetime(2019, 1, 1))
 data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
+### <a name="register-datasets"></a>데이터 집합 등록
 
-#### <a name="create-a-filedataset"></a>FileDataset 만들기
-
-[`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-)클래스의 메서드를 사용 `FileDatasetFactory` 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다. 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 메서드에서 매개 변수를 설정 `validate=False` `from_files()` 합니다. 이렇게 하면 초기 유효성 검사 단계가 무시 되 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다.
+만들기 프로세스를 완료 하려면 작업 영역을 사용 하 여 데이터 집합을 등록 합니다. 메서드를 사용 하 여 [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) 다른 사람과 공유 하 고 작업 영역의 실험에서 다시 사용 하기 위해 작업 영역에 데이터 집합을 등록 합니다.
 
 ```Python
-# create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
-datastore_paths = [(datastore, 'animals')]
-animal_ds = Dataset.File.from_files(path=datastore_paths)
-
-# create a FileDataset from image and label files behind public web urls
-web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
-             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
-mnist_ds = Dataset.File.from_files(path=web_paths)
+titanic_ds = titanic_ds.register(workspace=workspace,
+                                 name='titanic_ds',
+                                 description='titanic training data')
 ```
 
-#### <a name="on-the-web"></a>웹에서 
-다음 단계와 애니메이션은 Azure Machine Learning studio에서 데이터 집합을 만드는 방법을 보여 줍니다 https://ml.azure.com .
+## <a name="create-datasets-in-the-studio"></a>Studio에서 데이터 집합 만들기
+
+다음 단계와 애니메이션은 [Azure Machine Learning studio](https://ml.azure.com)에서 데이터 집합을 만드는 방법을 보여 줍니다.
+
+> [!Note]
+> Azure Machine Learning studio를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다.
 
 ![UI를 사용 하 여 데이터 집합 만들기](./media/how-to-create-register-datasets/create-dataset-ui.gif)
 
@@ -216,19 +227,6 @@ Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
 1. **다음** 을 선택 하 여 **설정 및 미리 보기** 및 **스키마** 폼을 채웁니다. 이러한 형식은 파일 형식에 따라 지능적으로 채워지며 이러한 폼에서 만들기 전에 데이터 집합을 추가로 구성할 수 있습니다. 
 1. **다음** 을 선택 하 여 **확인 세부 정보** 양식을 검토 합니다. 선택 항목을 확인 하 고 데이터 집합에 대 한 선택적 데이터 프로필을 만듭니다. [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보 
 1. **만들기** 를 선택 하 여 데이터 집합 만들기를 완료 합니다.
-
-## <a name="register-datasets"></a>데이터 집합 등록
-
-만들기 프로세스를 완료 하려면 작업 영역을 사용 하 여 데이터 집합을 등록 합니다. 메서드를 사용 하 여 [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) 다른 사람과 공유 하 고 작업 영역의 실험에서 다시 사용 하기 위해 작업 영역에 데이터 집합을 등록 합니다.
-
-```Python
-titanic_ds = titanic_ds.register(workspace=workspace,
-                                 name='titanic_ds',
-                                 description='titanic training data')
-```
-
-> [!Note]
-> Azure Machine Learning studio를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Azure Open 데이터 집합을 사용 하 여 데이터 집합 만들기
 

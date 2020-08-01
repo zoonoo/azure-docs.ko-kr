@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b06edb83e85ef6d56cf8bf8f91551fe99535eba1
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352276"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475671"
 ---
 # <a name="iot-plug-and-play-conventions"></a>IoT 플러그 앤 플레이 규칙
 
@@ -25,11 +25,11 @@ IoT 플러그 앤 플레이 장치에서 [DTDL (디지털 Twins Language v2)](ht
 
 자세한 내용은 [모델의 IoT 플러그 앤 플레이 구성 요소](concepts-components.md)를 참조 하세요.
 
-## <a name="model-discovery"></a>모델 검색
+## <a name="identify-the-model"></a>모델 식별
 
 구현 하는 모델을 알리기 위해 IoT 플러그 앤 플레이 장치에는 필드에를 추가 하 여 MQTT 연결 패킷에 모델 ID가 포함 됩니다 `model-id` `USERNAME` .
 
-장치가 구현 하는 모델을 검색 하기 위해 서비스는 다음에서 모델 ID를 가져올 수 있습니다.
+장치가 구현 하는 모델을 식별 하기 위해 서비스는 다음에서 모델 ID를 가져올 수 있습니다.
 
 - 장치 쌍 `modelId` 필드입니다.
 - 디지털 쌍 `$metadata.$model` 필드입니다.

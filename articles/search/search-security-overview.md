@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 55ee6e99cdf6d77ea1e78799e016d4c276e85fcd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 07/30/2020
+ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423867"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475433"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
 이 문서에서는 콘텐츠와 작업을 보호할 수 있는 Azure Cognitive Search의 주요 보안 기능을 설명 합니다. 
 
-+ 저장소 계층에서 미사용 암호화는 플랫폼 수준에서 제공 되지만, Cognitive Search 사용자 소유의 키와 Microsoft 관리 키를 모두 이중으로 보호 하려는 고객을 위한 "이중 암호화" 옵션도 제공 됩니다.
++ 저장소 계층에서 미사용 암호화는 플랫폼 수준에서 제공 되지만 Cognitive Search 추가 암호화 계층에 대 한 Azure Key Vault를 통해 고객이 관리 하는 키를 제공할 수도 있습니다.
 
 + 인바운드 보안은 요청에 대 한 API 키, 방화벽의 인바운드 규칙, 공용 인터넷에서 서비스를 완전히 보호 하는 개인 끝점에 대 한 보안 수준의 검색 서비스 끝점을 보호 합니다.
 
@@ -107,7 +107,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 검색 결과에 대 한 사용자 단위 제어를 세부적으로 요구 하는 경우 쿼리에 보안 필터를 빌드하여 지정 된 보안 id와 연결 된 문서를 반환할 수 있습니다. 미리 정의된 역할 및 역할 할당 대신 ID 기반 액세스 제어는 ID에 따라 문서 및 콘텐츠의 검색 결과를 잘라내는 *필터*로 구현됩니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | 설명 |
+| 접근 방식 | Description |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
 |[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 이전 문서에서 확장되어 Azure 클라우드 플랫폼에서 제공하는 [체험 서비스](https://azure.microsoft.com/free/) 중 하나인 AAD(Azure Active Directory)에서 ID를 검색하는 단계를 제공합니다. |
@@ -124,6 +124,10 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 ## <a name="certifications-and-compliance"></a>인증 및 규정 준수
 
 Azure Cognitive Search는 공용 클라우드와 Azure Government에 대 한 여러 글로벌, 지역 및 산업 관련 표준을 준수 하 고 있습니다. 전체 목록은 공식 감사 보고서 페이지에서 [ **Microsoft Azure 준수 제품** 백서](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) 를 다운로드 하세요.
+
+규정 준수를 위해 [Azure Policy](../governance/policy/overview.md) 를 사용 하 여 [Azure 보안 벤치 마크](../security/benchmarks/introduction.md)에 대 한 높은 수준의 보안 모범 사례를 구현할 수 있습니다. Azure 보안 벤치 마크는 서비스 및 데이터에 대 한 위협을 완화 하기 위해 수행 해야 하는 주요 작업에 매핑되는 보안 변환 된에 대 한 보안 권장 사항의 모음입니다. 현재는 [네트워크 보안](../security/benchmarks/security-control-network-security.md), [로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 비롯 하 여 몇 가지 보안 제어와 이름에 대 한 [데이터 보호 기능이](../security/benchmarks/security-control-data-protection.md) 있습니다.
+
+Azure Policy는 azure에 기본 제공 되는 기능으로, Azure 보안 벤치 마크를 비롯 한 여러 표준에 대 한 규정 준수를 관리 하는 데 도움이 됩니다. 잘 알려진 벤치 마크의 경우 Azure Policy는 정책을 더 쉽게 만들 수 있도록 기본 제공 정의를 제공 합니다. Azure Cognitive Search에는 현재 진단 로깅에 대 한 기본 제공 정의가 하나 있습니다. 즉, 로깅 및 모니터링 보안 제어를 준수 하지 않는 검색 서비스를 식별 하 고 수정 하는 정책을 할당할 수 있습니다. 자세한 내용은 [Azure Cognitive Search에 대 한 규정 준수 제어 Azure Policy](security-controls-policy.md)를 참조 하세요.
 
 ## <a name="see-also"></a>참고 항목
 

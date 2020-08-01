@@ -3,12 +3,12 @@ title: Azure Event Grid를 사용 하 여 이벤트 도메인으로 이벤트 �
 description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규모 토픽 집합을 관리하고 토픽에 이벤트를 게시하는 방법을 보여줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: eae467c1c4cc1257e7a5205dd5efda40490f7908
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ce1cc9c2b09dd6b0c9508ad6b0597428bd355d4b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423646"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460561"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -78,7 +78,7 @@ New-AzureRmEventGridDomain `
 
 ## <a name="manage-access-to-topics"></a>토픽에 대한 액세스 관리
 
-토픽에 대한 액세스 관리는 [역할 할당](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)을 통해 수행됩니다. 역할 할당은 역할 기반 액세스 제어를 사용하여 Azure 리소스에 대한 작업을 특정 범위에서 권한이 부여된 사용자로 제한합니다.
+토픽에 대한 액세스 관리는 [역할 할당](../role-based-access-control/role-assignments-cli.md)을 통해 수행됩니다. 역할 할당은 역할 기반 액세스 제어를 사용하여 Azure 리소스에 대한 작업을 특정 범위에서 권한이 부여된 사용자로 제한합니다.
 
 Event Grid는 도메인 내 다양한 토픽에 대한 특정 사용자 액세스를 할당하는 데 사용할 수 있는 두 가지 기본 제공 역할을 제공합니다. 이러한 역할은 구독을 만들고 삭제할 수 있는 `EventGrid EventSubscription Contributor (Preview)` 및 이벤트 구독을 나열하는 것만 가능한 `EventGrid EventSubscription Reader (Preview)`입니다.
 

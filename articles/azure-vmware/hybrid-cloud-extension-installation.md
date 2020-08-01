@@ -3,12 +3,12 @@ title: HCX(하이브리드 클라우드 확장) 설치
 description: AVS(Azure VMware 솔루션) 프라이빗 클라우드에 대한 VMware HCX(하이브리드 클라우드 확장) 솔루션 설정
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539162"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475450"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Azure VMware 솔루션용 HCX 설치
 
@@ -19,7 +19,7 @@ HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 �
 
 [시작하기 전에](#before-you-begin), [소프트웨어 버전 요구 사항](#software-version-requirements) 및 [필수 구성 요소](#prerequisites)를 철저하게 검토합니다. 
 
-그런 다음, 모든 필수 구성 요소를 진행합니다.
+그런 다음, 다음을 수행 하는 데 필요한 모든 절차를 살펴보겠습니다.
 
 > [!div class="checklist"]
 > * 온-프레미스 HCX OVA 배포
@@ -31,10 +31,10 @@ HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
     
-* 기본 AVS SDDC(소프트웨어 정의 데이터 센터) [자습서 시리즈](tutorial-network-checklist.md) 검토
-* HCX 사용자 가이드를 포함한 [VMware HCX 설명서](https://docs.vmware.com/en/VMware-HCX/index.html) 검토 및 참조
-* VMware 설명서 [VMware HCX로 Virtual Machines 마이그레이션](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) 검토
-* 선택적으로 [VMware HCX 배포 고려 사항](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html) 검토
+* 기본 AVS (소프트웨어 정의 데이터 센터) [자습서 시리즈](tutorial-network-checklist.md)를 검토 합니다.
+* HCX 사용자 가이드를 포함 하 여 [VMware HCX 설명서](https://docs.vmware.com/en/VMware-HCX/index.html) 를 검토 하 고 참조 합니다.
+* Vmware 문서 [vmware HCX로 Virtual Machines 마이그레이션을](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)검토 합니다.
+* 필요에 따라 [VMware HCX 배포 고려 사항을](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)검토 합니다.
 * 필요에 따라 HCX의 VMware vSphere [블로그 시리즈](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)와 같은 HCX의 관련 VMware 자료 검토 
 * AVS 지원 채널을 통해 AVS HCX Enterprise 활성화 주문
 
@@ -45,14 +45,14 @@ HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 �
                                                          
 | 구성 요소 유형    | 원본 환경 요구 사항    | 대상 환경 요구 사항   |
 | --- | --- | --- |
-| vCenter Server   | 5.1<br/><br/>5\.5 U1 또는 이전 버전을 사용하는 경우 HCX 작업에 독립 실행형 HCX 사용자 인터페이스를 사용합니다.  | 6.0 U2 이상   |
+| vCenter Server   | 5.1<br/><br/>5.5 U1 또는 이전 버전을 사용 하는 경우 HCX 작업에 독립 실행형 HCX 사용자 인터페이스를 사용 합니다.  | 6.0 U2 이상   |
 | ESXi   | 5.0    | ESXi 6.0 이상   |
-| NSX    | 원본에서 논리 스위치의 HCX 네트워크 확장의 경우: NSXv 6.2+ 또는 NSX-T 2.4+   | NSXv 6.2+ 또는 NSX-T 2.4+<br/><br/>HCX 근접 라우팅의 경우: NSXv 6.4 + (NSX에서 근접 라우팅이 지원 되지 않음) |
+| NSX    | 원본에서 논리 스위치의 HCX 네트워크 확장의 경우: NSXv 6.2 + 또는 NSX-T 2.4 +   | NSXv 6.2+ 또는 NSX-T 2.4+<br/><br/>HCX 근접 라우팅의 경우: NSXv 6.4 + (NSX에서 근접 라우팅이 지원 되지 않음) |
 | vCloud Director   | 필요하지 않음 - 원본 사이트에서 vCloud Director와의 상호 운용성 없음 | 대상 환경을 vCloud Director와 통합 하는 경우 최소값은 9.1.0.2입니다.  |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 글로벌 접근은 온-프레미스와 AVS SDDC ER 회로 간에 구성 되어야 합니다.
+* Express 경로 Global Reach은 온-프레미스 및 AVS SDDC Express 경로 회로 간에 구성 되어야 합니다.
 
 * 온-프레미스와 AVS SDDC 사이에 필요한 모든 포트가 열려 있어야 합니다([VMware HCX 설명서](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)참조).
 

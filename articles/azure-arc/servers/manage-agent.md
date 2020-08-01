@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80c133eceb6af419d0eb5aa35ff784a0f9321d37
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067709"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474957"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -181,6 +181,9 @@ Azcmagent 도구(Azcmagent.exe)는 설치 도중 서버용 Azure Arc(미리 보�
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>다시 연결
+
+> [!WARNING]
+> `reconnect`명령은 더 이상 사용 되지 않으므로 사용 하면 안 됩니다. 이후 에이전트 릴리스에서 명령이 제거 되 고 기존 에이전트는 다시 연결 요청을 완료할 수 없습니다. 대신 컴퓨터의 [연결을 끊은](#disconnect) 다음 다시 [연결](#connect) 하세요.
 
 이 매개 변수는 이미 등록된 머신 또는 Connected Machine을 서버용 Azure Arc(미리 보기)와 다시 연결합니다. 머신이 45일 이상 꺼져 인증서가 만료되는 경우 이 매개 변수가 필요할 수 있습니다. 이 매개 변수는 제공된 인증 옵션을 사용하여 이 머신을 나타내는 Azure Resource Manager 리소스에 해당하는 새 자격 증명을 검색합니다.
 

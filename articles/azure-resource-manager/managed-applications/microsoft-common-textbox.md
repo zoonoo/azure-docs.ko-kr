@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 547b3ed84c8e4406b65ee8cf51c0db10b6878793
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c89bc434d9d67144a95b5c2f23e7664078fe7825
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063823"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474311"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI 요소
 
@@ -29,6 +29,7 @@ ms.locfileid: "87063823"
     "label": "Name",
     "defaultValue": "contoso123",
     "toolTip": "Use only allowed characters",
+    "placeholder": "",
     "constraints": {
         "required": true,
         "validations": [
@@ -60,6 +61,7 @@ ms.locfileid: "87063823"
 - `isValid`속성은 true 또는 false로 계산 되는 식을 포함 합니다. 식 내에서 텍스트 상자가 유효한 지 여부를 결정 하는 조건을 정의 합니다.
 - `message`속성은 텍스트 상자의 값에 대 한 유효성 검사가 실패 하는 경우 표시할 문자열입니다.
 - `required`를 **false**로 설정하면 `regex`에 대한 값을 지정할 수 있습니다. 이 시나리오에서는 텍스트 상자에서 유효성을 성공적으로 검사하는 데 값이 필요하지 않습니다. 지정하는 경우 정규식 패턴과 일치해야 합니다.
+- `placeholder`속성은 사용자가 편집을 시작할 때 사라지는 도움말 텍스트입니다. 및가 `placeholder` `defaultValue` 둘 다 정의 된 경우 `defaultValue` 가 우선적으로 적용 되 고 표시 됩니다.
 
 ## <a name="example"></a>예제
 

@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d88ac62d9117df9d24c6d865e684a0972c87dae
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337316"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475467"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기용 용어 설명
 
@@ -98,10 +98,6 @@ IoT 플러그 앤 플레이 장치는 일반적으로 데이터를 수집 하거
 ## <a name="iot-plug-and-play-conventions"></a>IoT 플러그 앤 플레이 규칙
 
 IoT 플러그 앤 플레이 [장치](#iot-plug-and-play-device) 는 솔루션을 사용 하 여 데이터를 교환할 때 일련의 [규칙](concepts-convention.md) 을 따라야 합니다.
-
-## <a name="model-discovery"></a>모델 검색
-
-[Iot 플러그 앤 플레이 장치가](#iot-plug-and-play-device) iot 솔루션에 연결 되 면 솔루션은 [장치 모델](#device-model)을 찾아 장치의 기능을 검색할 수 있습니다. 솔루션은 [모델 리포지토리](#model-repository) 또는 다른 위치에서 장치 모델을 찾을 수 있습니다.
 
 ## <a name="model-id"></a>모델 ID
 

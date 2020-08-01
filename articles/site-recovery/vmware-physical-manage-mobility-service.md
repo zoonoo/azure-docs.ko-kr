@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79256966"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460102"
 ---
 # <a name="manage-the-mobility-agent"></a>모바일 에이전트 관리 
 
 Azure에 대 한 VMware Vm 및 물리적 서버 재해 복구를 위해 Azure Site Recovery를 사용 하는 경우 서버에서 모바일 에이전트를 설정 합니다. 모바일 에이전트는 보호 된 컴퓨터, 구성 서버/확장 프로세스 서버 간의 통신을 조정 하 고 데이터 복제를 관리 합니다. 이 문서에서는 모바일 에이전트를 배포한 후 관리 하는 일반적인 작업을 요약 합니다.
 
+>[!TIP]
+>특정 OS/Linux 배포판 설치 관리자를 다운로드 하려면 [여기](vmware-physical-mobility-service-overview.md#locate-installer-files)의 지침을 참조 하세요. 포털에서 자동으로 업데이트 하려면 설치 관리자를 다운로드할 필요가 없습니다. [ASR은 구성 서버에서 설치 관리자를 자동으로 페치 하 고 에이전트를 업데이트](#update-mobility-service-from-azure-portal)합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,11 +31,11 @@ Azure에 대 한 VMware Vm 및 물리적 서버 재해 복구를 위해 Azure Si
 
      ![복제된 항목 창](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. 알림을 클릭하고 **에이전트 업데이트**에서 Mobility 서비스를 업그레이드하려는 머신을 선택합니다. 그런 후 **OK**를 클릭합니다.
+4. 알림을 클릭하고 **에이전트 업데이트**에서 Mobility 서비스를 업그레이드하려는 머신을 선택합니다. 그런 다음, **확인**을 클릭합니다.
 
      ![복제된 항목 VM 목록](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. 선택한 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다.
+5. 선택한 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다. 모바일 에이전트가 버전의 configuration server로 업데이트 됩니다. 예를 들어 구성 서버가 버전 9.33에 있는 경우 보호 된 VM의 모바일 에이전트도 9.33 버전으로 업데이트 됩니다.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Windows server의 powershell 스크립트를 통해 모바일 서비스 업데이트
 

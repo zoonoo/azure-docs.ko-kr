@@ -4,16 +4,16 @@ description: 여러 Vm에서 공유할 수 있도록 공유 디스크를 사용 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 07/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e36c539cc1143490aeb4862c928589db5c502656
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc365f6eef4da61ab7de5113b8f4b2b185360740
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080229"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460187"
 ---
 # <a name="enable-shared-disk"></a>공유 디스크 사용
 

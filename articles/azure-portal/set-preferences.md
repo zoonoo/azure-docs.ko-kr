@@ -5,22 +5,23 @@ services: azure-portal
 keywords: 설정, 시간 제한, 언어, 지역
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763961"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461941"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Azure Portal 기본 설정 지정
 
 사용자의 기본 설정에 맞게 Azure Portal의 기본 설정을 변경할 수 있습니다. 아래에 나열 된 각 설정을 변경할 수 있습니다.
 
 * [비활성 세션 제한 시간](#change-the-idle-duration-for-inactive-sign-out)
+* [기본 구독](#choose-your-default-subscription)
 * [기본 보기](#choose-your-default-view)
 * [포털 메뉴 모드](#choose-a-portal-menu-mode)
 * [색 및 고대비 테마](#choose-a-theme)
@@ -54,6 +55,18 @@ ms.locfileid: "84763961"
 > [!NOTE]
 > 관리자 인 경우 Azure Portal의 모든 사용자에 대해 비활성 시간 제한 설정을 적용 하려면 [Azure Portal 사용자에 대 한 디렉터리 수준 비활성 시간 제한 설정](admin-timeout.md) 을 참조 하세요.
 >
+
+### <a name="choose-your-default-subscription"></a>기본 구독 선택
+
+Azure Portal에 로그인 할 때 기본적으로 열리는 구독을 변경할 수 있습니다. 이는 사용 하는 기본 구독이 있지만 다른 사용자를 사용 하는 경우에 유용 합니다. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="구독 별로 리소스 목록을 필터링 합니다.":::
+
+1. 위쪽 탐색에서 디렉터리 및 구독 필터 아이콘을 선택 합니다.
+1. 포털을 시작할 때 기본 구독으로 사용할 구독을 선택 합니다. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="포털을 시작할 때 기본 구독으로 사용할 구독을 선택 합니다."::: 
+
 
 ### <a name="choose-your-default-view"></a>기본 보기 선택 
 

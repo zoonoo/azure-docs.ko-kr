@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019831"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460612"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -50,6 +50,8 @@ ms.locfileid: "87019831"
 -   단계적 롤아웃 기능을 사용하려면 테넌트의 전역 관리자여야 합니다.
 
 -   특정 Active Directory 포리스트에서 *Seamless SSO*를 사용하도록 설정하려면 도메인 관리자여야 합니다.
+
+-  하이브리드 Azure AD 또는 Azure AD 조인을 배포 하는 경우 Windows 10 1903 업데이트로 업그레이드 해야 합니다.
 
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오

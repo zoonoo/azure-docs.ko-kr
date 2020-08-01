@@ -3,12 +3,12 @@ title: Azure Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | Mi
 description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용자 동작 분석을 구성합니다.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324219"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475535"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -112,7 +112,10 @@ IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트�
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>향후 SDK 버전으로 업그레이드
-[SDK의 새 릴리스](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)로 업그레이드하려면 **NuGet 패키지 관리자**를 열고 설치된 패키지를 필터링합니다. **Microsoft.ApplicationInsights.Web**을 선택하고 **업그레이드**를 선택합니다.
+
+* [릴리스 정보](./release-notes.md)
+
+새 버전의 SDK로 업그레이드 하려면 **NuGet 패키지 관리자**를 열고 설치 된 패키지를 필터링 합니다. **Microsoft.ApplicationInsights.Web**을 선택하고 **업그레이드**를 선택합니다.
 
 ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업그레이드 전에 복사본을 저장합니다. 그런 다음 변경 내용을 새 버전에 병합합니다.
 

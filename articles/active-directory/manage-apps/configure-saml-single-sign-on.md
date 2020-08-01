@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 1abde88b653ae0f0ef3651b161e806047e143078
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418783"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461190"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "87418783"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Id 공급자로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 하는 것은 사용 중인 응용 프로그램에 따라 간단할 수도 있고 복잡할 수도 있습니다. 일부 응용 프로그램은 몇 가지 작업 으로만 설정할 수 있습니다. 다른 경우에는 심층 구성이 필요 합니다. 신속 하 게 진행 하려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. 추가 중인 응용 프로그램이 간단한 경우에는이 문서를 읽을 필요가 없을 것입니다. 추가 중인 응용 프로그램에 SAML 기반 SSO에 대 한 사용자 지정 구성이 필요한 경우이 문서를 참조 하세요.
+IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 하는 것은 사용 중인 응용 프로그램에 따라 단순 하거나 복잡할 수 있습니다. 일부 응용 프로그램은 몇 가지 작업 으로만 설정할 수 있습니다. 다른 경우에는 심층 구성이 필요 합니다. 신속 하 게 진행 하려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. 추가 중인 응용 프로그램이 간단한 경우에는이 문서를 읽을 필요가 없을 것입니다. 추가 중인 응용 프로그램에 SAML 기반 SSO에 대 한 사용자 지정 구성이 필요한 경우이 문서를 참조 하세요.
 
 [퀵 스타트 시리즈](view-applications-portal.md)에는 Single Sign-On를 구성 하는 문서가 있습니다. 여기서는 앱에 대 한 SAML 구성 페이지에 액세스 하는 방법을 알아봅니다. SAML 구성 페이지에는 5 개의 섹션이 포함 되어 있습니다. 이러한 섹션은이 문서에 자세히 설명 되어 있습니다.
 

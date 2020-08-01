@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6cd4d64361e1975a6752ff3a15600923ce3fdf98
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322893"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461054"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -138,6 +138,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * 이중 직렬화/deserialization을 제거 하 여 쿼리를 최적화 합니다. 
 * 불필요 한 복사를 앞뒤로 제거 하 여 응답 헤더를 최적화 합니다. 
 * `ByteBuffer`중간 문자열 인스턴스화를 제거 하 여 serialization/deserialization을 최적화 했습니다.
+
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
 * ConnectionPolicy `toString()` Null 포인터 예외가 수정 되었습니다.
 * 쿼리 결과 값이 쿼리의 경우 쿼리 결과의 구문 분석과 관련 된 문제를 해결 했습니다. 

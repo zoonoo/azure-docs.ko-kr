@@ -3,12 +3,12 @@ title: ASP.NET Core 응용 프로그램에 대 한 Azure 애플리케이션 정�
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321397"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475518"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -201,7 +201,7 @@ public void ConfigureServices(IServiceCollection services)
 
 의 전체 설정 목록`ApplicationInsightsServiceOptions`
 
-|설정 | 설명 | 기본값
+|설정 | Description | 기본값
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | 사용/사용 안 함`PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | 사용/사용 안 함`RequestTrackingTelemetryModule` | true
@@ -455,7 +455,9 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 
-[코드를 읽고이에 기여](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates)합니다.
+* [코드를 읽고이에 기여](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates)합니다.
+
+최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./release-notes.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

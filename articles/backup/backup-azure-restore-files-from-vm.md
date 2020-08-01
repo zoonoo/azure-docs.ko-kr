@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514087"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475059"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -132,28 +132,96 @@ Linux에서 LVM(논리 볼륨 관리자) 및/또는 소프트웨어 RAID 배열�
 
 #### <a name="for-lvm-partitions"></a>LVM 파티션의 경우
 
-실제 볼륨에 볼륨 그룹 이름을 나열하려면 다음을 수행합니다.
+스크립트가 실행 되 면 LVM 파티션이 스크립트 출력에 지정 된 실제 볼륨/디스크에 탑재 됩니다. 프로세스는
+
+1. 실제 볼륨 또는 디스크에서 고유한 볼륨 그룹 이름 목록을 가져옵니다.
+2. 그런 다음 해당 볼륨 그룹의 논리 볼륨을 나열 합니다.
+3. 그런 다음 원하는 경로에 논리 볼륨을 탑재 합니다.
+
+##### <a name="listing-volume-group-names-from-physical-volumes"></a>실제 볼륨에서 볼륨 그룹 이름 나열
+
+볼륨 그룹 이름을 나열 하려면:
+
+```bash
+pvs -o +vguuid
+```
+
+이 명령은 모든 실제 볼륨 (스크립트를 실행 하기 전에 존재 하는 볼륨 포함), 해당 볼륨 그룹 이름 및 볼륨 그룹의 고유한 사용자 Id (Uuid)를 나열 합니다. 명령의 샘플 출력은 다음과 같습니다.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+첫 번째 열 (PV)에는 실제 볼륨이 표시 되 고 후속 열에는 관련 볼륨 그룹 이름, 형식, 특성, 크기, 사용 가능한 공간 및 볼륨 그룹의 고유 ID가 표시 됩니다. 명령 출력에는 모든 실제 볼륨이 표시 됩니다. 스크립트 출력을 참조 하 고 백업과 관련 된 볼륨을 확인 합니다. 위의 예제에서 스크립트 출력은/hv/sd 및/dev/sdd.를 표시 합니다. 따라서 datavg_db 볼륨 그룹은 스크립트에 속하고 Appvg_new 볼륨 그룹은 컴퓨터에 속합니다. 최종 개념은 고유한 볼륨 그룹 이름에 하나의 고유 ID가 있어야 하는지 확인 하는 것입니다.
+
+###### <a name="duplicate-volume-groups"></a>중복 볼륨 그룹
+
+스크립트를 실행 한 후 볼륨 그룹 이름에 2 개의 Uuid가 있을 수 있는 시나리오가 있습니다. 이는 스크립트가 실행 되는 컴퓨터의 볼륨 그룹 이름과 백업 된 VM에서 동일 함을 의미 합니다. 그런 다음 백업 된 Vm 볼륨 그룹의 이름을 변경 해야 합니다. 아래 예제를 살펴보세요.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+스크립트 출력에는 연결 된 것 처럼/sv/pverg,/dev/svh,/dev/svm이 표시 됩니다. 따라서 해당 VG 이름은 Appvg_new 및 rootvg입니다. 그러나 동일한 이름이 컴퓨터의 VG 목록에도 있습니다. 1 개의 VG 이름에 2 개의 Uuid가 있는지 확인할 수 있습니다.
+
+이제 스크립트 기반 볼륨에 대 한 VG 이름 (예:/dv/sdg,/sv/shh,/dev/sdm2.)의 이름을 변경 해야 합니다. 볼륨 그룹의 이름을 바꾸려면 다음 명령을 사용 합니다.
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+이제 고유한 Id를 가진 모든 VG 이름이 있습니다.
+
+###### <a name="active-volume-groups"></a>활성 볼륨 그룹
+
+스크립트의 볼륨에 해당 하는 볼륨 그룹이 활성화 되어 있는지 확인 합니다. 아래 명령은 활성 볼륨 그룹을 표시 하는 데 사용 됩니다. 스크립트의 관련 볼륨 그룹이이 목록에 있는지 확인 합니다.
+
+```bash
+vgdisplay -a
+```  
+
+그렇지 않은 경우 아래 명령을 사용 하 여 볼륨 그룹을 활성화 합니다.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-볼륨 그룹에 모든 논리 볼륨, 이름 및 해당 경로를 나열하려면 다음을 수행합니다.
+##### <a name="listing-logical-volumes-within-volume-groups"></a>볼륨 그룹 내의 논리적 볼륨 나열
+
+스크립트와 관련 된 VGs의 고유한 활성 목록을 가져오면 아래 명령을 사용 하 여 해당 볼륨 그룹에 있는 논리 볼륨을 나열할 수 있습니다.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs commands results>
+lvdisplay <volume-group-name>
 ```
 
-또한 ```lvdisplay``` 명령은 볼륨 그룹이 활성 상태인지 여부를 보여줍니다. 볼륨 그룹이 비활성으로 표시되면 다시 활성화하여 탑재해야 합니다. 볼륨 그룹이 비활성으로 표시되면 다음 명령을 사용하여 활성화합니다.
+이 명령은 각 논리 볼륨의 경로를 ' LV 경로 '로 표시 합니다.
 
-```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name from the pvs commands results>
-```
-
-볼륨 그룹 이름이 활성화된 후에는 ```lvdisplay``` 명령을 한 번 더 실행하여 관련 특성을 모두 확인합니다.
+##### <a name="mounting-logical-volumes"></a>논리 볼륨 탑재
 
 선택한 경로에 논리 볼륨을 탑재하려면 다음을 수행합니다.
 
@@ -161,6 +229,9 @@ vgchange –a y  <volume-group-name from the pvs commands results>
 #!/bin/bash
 mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> ' 탑재 '를 사용 하지 마십시오. 이 명령은 '/etc/fstab '에 설명 된 모든 장치를 탑재 합니다. 이는 중복 된 장치가 탑재 될 수 있음을 의미할 수 있습니다. 데이터를 스크립트에 의해 생성 된 장치로 리디렉션할 수 있습니다. 그러면 데이터가 유지 되지 않으므로 데이터가 손실 될 수 있습니다.
 
 #### <a name="for-raid-arrays"></a>RAID 배열의 경우
 

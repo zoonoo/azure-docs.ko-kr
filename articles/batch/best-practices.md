@@ -1,14 +1,14 @@
 ---
 title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497780"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474906"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -56,6 +56,10 @@ ms.locfileid: "86497780"
 Batch 풀에서 Azure의 가동 중지 시간 이벤트를 경험할 수 있습니다. Batch 시나리오 또는 워크플로를 계획하고 개발하는 경우 이 점을 명심해야 합니다.
 
 노드가 실패하면 Batch에서 자동으로 사용자를 대신하여 이러한 컴퓨팅 노드를 복구하려고 시도합니다. 이 경우 복구된 노드에서 실행되는 모든 태스크를 다시 예약하는 작업이 트리거될 수 있습니다. 중단되는 태스크에 대한 자세한 내용은 [다시 시도 디자인](#design-for-retries-and-re-execution)을 참조하세요.
+
+### <a name="third-party-images"></a>타사 이미지
+
+풀은 Azure Marketplace에 게시 된 타사 이미지를 사용 하 여 만들 수 있습니다. 사용자 구독 모드 Batch 계정을 사용 하면 특정 타사 이미지를 사용 하 여 풀을 만들 때 "marketplace 구매 자격 확인으로 인해 할당 하지 못했습니다." 라는 오류가 표시 될 수 있습니다. 이 오류를 해결 하려면 이미지 게시자가 설정한 약관에 동의 합니다. [Azure Powershell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 ### <a name="azure-region-dependency"></a>Azure 지역 종속성
 

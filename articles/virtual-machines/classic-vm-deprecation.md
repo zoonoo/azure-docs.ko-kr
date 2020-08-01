@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 6ddc9299f72e8a0b25e8b1f85968933bd6868af8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d86805975b082136879c0a98ce2817f4f491a9a0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288529"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461207"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 
@@ -43,6 +43,8 @@ ms.locfileid: "87288529"
 
 - 자세한 내용은 [클래식에서 Azure Resource Manager로 마이그레이션에 대 한 질문과 대답](./windows/migration-classic-resource-manager-faq.md) 을 참조 하세요.
 
-- 기술 관련 질문을 하 고 허용 목록에 구독을 추가 하려면 [지원 담당자에 게 문의 하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- 기술 관련 질문을 하 고 허용 목록에 구독을 추가 하려면 [지원 담당자에 게 문의 하세요](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+
+- 마이그레이션 중에 도움이 필요 하면 [마이그레이션 지원 담당자에 게 문의 하세요](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}) .
 
 - FAQ 및 피드백의 일부가 아닌 다른 질문은 아래에 설명 되어 있습니다.

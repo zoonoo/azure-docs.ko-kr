@@ -2,16 +2,14 @@
 title: JavaScript 웹 앱에 대 한 Azure 애플리케이션 정보
 description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA (단일 페이지 응용 프로그램)를 가져오고 사용 패턴을 추적 합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다.
 ms.topic: conceptual
-author: Dawgfan
-ms.author: mmcc
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8cd0c7c73ac4f5c531d91d7e458300ab1b0ad1af
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 063d648c68431dd84fd1aeb88b85bc68f2acbe62
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371484"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475756"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -105,7 +103,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 사용 가능한 구성 옵션은 
 
-| Name | Type | 설명
+| 이름 | Type | Description
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK의 전역 이름이 며 기본값은 appInsights입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -116,7 +114,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 여기에는 다음이 포함됩니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 이러한 개체는 다음과 같습니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -342,7 +340,9 @@ SDK로는 고객이 사용 하는 브라우저를 제어할 수 없는 수많은
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 
-JavaScript SDK Application Insights는 소스 코드를 보거나 프로젝트에 참여 하 여 [공식 GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-JS)를 방문 하는 오픈 소스입니다.
+JavaScript SDK Application Insights는 소스 코드를 보거나 프로젝트에 참여 하 여 [공식 GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-JS)를 방문 하는 오픈 소스입니다. 
+
+최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./release-notes.md)하세요.
 
 ## <a name="next-steps"></a><a name="next"></a> 다음 단계
 * [사용 현황 추적](usage-overview.md)

@@ -7,12 +7,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 54524b0528f94ca9386c2d0d45ba4393c965fa88
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128814"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475263"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>런타임 변경으로 인 한 U-SQL 런타임 오류 문제를 해결 하는 방법 알아보기
 
@@ -46,11 +46,6 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 예를 들어 release_20190318_adl_3394512_2은 3 월 18 2019 일의 런타임 릴리스의 빌드 3394512의 두 번째 버전을 의미 하 고 release_20190318_adl_3394512_private는 동일한 릴리스의 개인 빌드를 의미 합니다. 참고: 해당 릴리스에 대 한 마지막 체크 인이 수행 된 시간과 공식 릴리스 날짜가 아닐 경우 날짜는와 관련 되어 있습니다.
 
-현재 사용할 수 있는 런타임 버전은 다음과 같습니다.
-
-- release_20190318_adl_3394512
-- 현재 기본값 release_20190318_adl_5832669
-- release_20190703_adl_4713356
 
 ## <a name="troubleshooting-u-sql-runtime-version-issues"></a>U-SQL 런타임 버전 문제 해결
 

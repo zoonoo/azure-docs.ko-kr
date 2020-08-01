@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f2d9407d9c7172839027e2650486695244f67889
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352219"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475688"
 ---
 # <a name="iot-plug-and-play-preview-architecture"></a>IoT 플러그 앤 플레이 미리 보기 아키텍처
 
@@ -79,5 +79,5 @@ IoT hub:
 IoT 플러그 앤 플레이 솔루션의 아키텍처에 대 한 개요를 만들었으므로 다음 단계는에 대 한 자세한 내용입니다.
 
 - [모델 리포지토리](./concepts-model-repository.md)
-- [모델 검색 프로세스](./concepts-model-discovery.md)
+- [디지털 쌍 모델 통합](./concepts-model-discovery.md)
 - [IoT 플러그 앤 플레이 용 개발](./concepts-developer-guide.md)

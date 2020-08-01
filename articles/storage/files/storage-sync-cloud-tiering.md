@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413980"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460085"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
@@ -40,16 +40,19 @@ Azure 파일 동기화 시스템 필터가 각 서버 엔드포인트에 네임�
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>계층에 대 한 파일의 최소 파일 크기는 무엇입니까?
 
-에이전트 버전 9 이상에서 파일 계층에 대 한 최소 파일 크기는 파일 시스템 클러스터 크기를 기준으로 합니다. 다음 표에서는 볼륨 클러스터 크기를 기준으로 계층화 할 수 있는 최소 파일 크기를 보여 줍니다.
+에이전트 버전 9 이상에서 파일 계층에 대 한 최소 파일 크기는 파일 시스템 클러스터 크기를 기준으로 합니다. 클라우드 계층화에 적합 한 최소 파일 크기는 클러스터 크기를 2 배, 최소 8kb로 계산 합니다. 다음 표에서는 볼륨 클러스터 크기를 기준으로 계층화 할 수 있는 최소 파일 크기를 보여 줍니다.
 
 |볼륨 클러스터 크기 (바이트) |이 크기 이상의 파일은 계층화 될 수 있습니다.  |
 |----------------------------|---------|
-|4KB (4096)                 | 8KB    |
+|4kb 이상 (4096)      | 8KB    |
 |8KB (8192)                 | 16KB   |
 |16KB (16384)               | 32KB   |
-|32 KB (32768) 이상    | 64KB   |
+|32 KB (32768)               | 64KB   |
+|64 KB (65536)               | 128KB  |
 
-Windows에서 사용 하는 모든 파일 시스템은 클러스터 크기 (할당 단위 크기 라고도 함)에 따라 하드 디스크를 구성 합니다. 클러스터 크기는 파일을 저장 하는 데 사용할 수 있는 최소 크기의 디스크 공간을 나타냅니다. 파일 크기가 클러스터 크기의 짝수 배수가 아닌 경우 파일을 저장 하기 위해 추가 공간을 사용 해야 합니다 (클러스터 크기의 다음 배수까지).
+Windows Server 2019 및 Azure File Sync 에이전트 버전 12 이상에서는 클러스터 크기를 최대 2mb까지 지원 하 고 더 큰 클러스터 크기를 계층화 하 여 동일한 방식으로 작동 합니다. 이전 OS 또는 에이전트 버전은 최대 64 KB의 클러스터 크기를 지원 합니다.
+
+Windows에서 사용 하는 모든 파일 시스템은 클러스터 크기 (할당 단위 크기 라고도 함)에 따라 하드 디스크를 구성 합니다. 클러스터 크기는 파일을 저장 하는 데 사용할 수 있는 최소 크기의 디스크 공간을 나타냅니다. 파일 크기가 클러스터 크기의 짝수 배수가 아닌 경우에는 클러스터 크기의 다음 배수로 파일을 저장 하기 위해 추가 공간을 사용 해야 합니다.
 
 Azure File Sync는 Windows Server 2012 R2 이상 버전의 NTFS 볼륨에서 지원 됩니다. 다음 표에서는 새 NTFS 볼륨을 만들 때의 기본 클러스터 크기에 대해 설명 합니다. 
 
@@ -60,9 +63,11 @@ Azure File Sync는 Windows Server 2012 R2 이상 버전의 NTFS 볼륨에서 지
 |32TB – 64 TB   | 16KB         |
 |64TB – 128 TB  | 32KB         |
 |128TB – 256 TB | 64KB         |
-|> 256 TB       | 지원되지 않음 |
+|> 256 TB       | 지원 안 함 |
 
-볼륨을 만들 때 다른 클러스터 (할당 단위) 크기의 볼륨을 수동으로 포맷 했을 수 있습니다. 이전 버전의 Windows에서 볼륨을 분석 하는 경우 기본 클러스터 크기도 다를 수 있습니다. [이 문서에는 기본 클러스터 크기에 대 한 자세한 내용이 포함 되어 있습니다.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+볼륨을 만들 때 다른 클러스터 크기의 볼륨에 수동으로 포맷 했을 수 있습니다. 이전 버전의 Windows에서 볼륨을 분석 하는 경우 기본 클러스터 크기도 다를 수 있습니다. [이 문서에는 기본 클러스터 크기에 대 한 자세한 내용이 포함 되어 있습니다.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) 4kb 보다 작은 클러스터 크기를 선택 하더라도 계층화 될 수 있는 가장 작은 파일 크기로 8kb 제한이 적용 됩니다. 기술적으로 두 클러스터 크기가 8kb 보다 작은 경우에도 마찬가지입니다.
+
+NTFS가 매우 작은 파일 (1kb에서 4kb 크기의 파일)을 저장 하는 방법에는 절대 최소값의 이유가 있습니다. 볼륨의 다른 매개 변수에 따라 작은 파일이 디스크의 클러스터에 저장 되지 않을 수 있습니다. 이러한 파일을 볼륨의 마스터 파일 테이블 또는 "MFT 레코드"에 직접 저장 하는 것이 더 효율적일 수 있습니다. 클라우드 계층화 재분석 지점은 항상 디스크에 저장 되 고 정확히 하나의 클러스터를 사용 합니다. 이러한 작은 파일의 계층화는 공간을 절약 하지 않을 수 있습니다. 극단적인 사례는 클라우드 계층화를 사용 하는 경우 더 많은 공간을 사용할 수도 있습니다. 이를 방지 하기 위해 클라우드 계층화가 계층으로 계층화 되는 파일의 가장 작은 크기는 4kb 또는 작은 클러스터 크기의 8kb입니다.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>사용 가능한 볼륨 공간 계층화 정책은 어떤 방식으로 작동하나요?
@@ -95,7 +100,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 사용 가능한 볼륨 공간 정책은 항상 우선적으로 적용 되 고, 볼륨에 날짜 정책에 설명 된 대로 며칠 분량의 파일을 보존 하기에 충분 한 여유 공간이 없는 경우 볼륨의 사용 가능한 공간 백분율이 충족 될 때까지 Azure File Sync는 coldest 파일의 계층화를 계속 합니다.
 
-예를 들어 60일의 날짜 기준 계층화 정책 및 20%의 사용 가능한 볼륨 공간 정책이 있다고 가정해 보겠습니다. 날짜 정책을 적용한 후 볼륨에 사용 가능한 공간의 20% 미만이 있는 경우 사용 가능한 볼륨 공간 정책이 시작되고 날짜 정책을 재정의합니다. 이렇게 하면 더 많은 파일이 계층화되고, 서버에 보관되는 데이터의 양을 60일의 데이터에서 45일로 줄일 수 있습니다. 반대로 이 정책은 사용 가능한 공간 임계값에 도달하지 않는 경우에도 시간 범위를 벗어나는 파일을 계층화하므로 61일이 된 파일은 볼륨이 비어 있더라도 계층화됩니다.
+예를 들어 60일의 날짜 기준 계층화 정책 및 20%의 사용 가능한 볼륨 공간 정책이 있다고 가정해 보겠습니다. 날짜 정책을 적용 한 후 볼륨에 사용 가능한 공간이 20% 미만이 면 사용 가능한 볼륨 공간 정책이 시작 되 고 날짜 정책이 재정의 됩니다. 이렇게 하면 더 많은 파일이 계층화되고, 서버에 보관되는 데이터의 양을 60일의 데이터에서 45일로 줄일 수 있습니다. 반대로 이 정책은 사용 가능한 공간 임계값에 도달하지 않는 경우에도 시간 범위를 벗어나는 파일을 계층화하므로 61일이 된 파일은 볼륨이 비어 있더라도 계층화됩니다.
 
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>사용 가능한 볼륨의 적절한 양은 어떻게 확인할 수 있나요?
@@ -118,7 +123,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
    *  **파일의 파일 특성을 확인합니다.**
      파일을 마우스 오른쪽 단추로 클릭하고 **세부 정보**로 이동한 다음 아래쪽의 **특성** 속성으로 스크롤합니다. 계층화된 파일에는 다음과 같은 특성 집합이 적용됩니다.     
         
-        | 특성 문자 | 특성 | 정의 |
+        | 특성 문자 | attribute | 정의 |
         |:----------------:|-----------|------------|
         | A | 보관 | 파일을 백업 소프트웨어로 백업해야 함을 나타냅니다. 이 특성은 파일이 계층화되는지 또는 디스크에 완전히 저장되는지에 관계없이 항상 설정됩니다. |
         | P | 스파스 파일 | 파일이 스파스 파일인지를 나타냅니다. 스파스 파일은 디스크 스트림의 파일이 대부분 비어 있을 때 효율적으로 사용하기 위해 NTFS가 제공하는 특수한 형식의 파일입니다. Azure 파일 동기화는 파일이 완전히 계층화되거나 부분적으로 회수되기 때문에 스파스 파일을 사용합니다. 완전히 계층화된 파일에서 파일 스트림은 클라우드에 저장됩니다. 부분적으로 회수된 파일에서 파일의 해당 부분은 이미 디스크에 있습니다. 파일이 디스크에 완전히 회수되면 Azure 파일 동기화는 스파스 파일에서 일반 파일로 변환합니다. 이 특성은 Windows Server 2016 이상 에서만 설정 됩니다.|
@@ -160,7 +165,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 * `-PerFileRetryCount`현재 차단 된 파일에 대 한 회수를 시도 하는 빈도를 결정 합니다.
 * `-PerFileRetryDelaySeconds`재시도 사이의 재시도 간격 (초)을 결정 합니다 .이 시간은 항상 이전 매개 변수와 함께 사용 해야 합니다.
 
-예:
+예제:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10

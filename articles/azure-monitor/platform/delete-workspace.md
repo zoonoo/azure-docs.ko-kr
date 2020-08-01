@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: e6ecd40d34233ba6f0b886f4b55aedf4339bf6de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505196"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461734"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복구
 
@@ -64,7 +64,7 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 > [!IMPORTANT]
 > 영구 작업 영역 삭제 작업은 취소할 수 없고 작업 영역 및 해당 데이터를 복구할 수 없으므로 주의해서 사용해야 합니다.
 
-작업 영역을 영구적으로 삭제 하려면 '-forceDelete ' 태그를 추가 합니다.
+작업 영역을 영구적으로 삭제 하려면 '-ForceDelete ' 태그를 추가 합니다. '-ForceDelete ' 옵션은 현재 Az. OperationalInsights 2.3.0 이상에서 사용할 수 있습니다. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete

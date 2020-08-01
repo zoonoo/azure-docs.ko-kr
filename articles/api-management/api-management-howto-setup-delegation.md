@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243208"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461003"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 
@@ -49,8 +49,6 @@ ms.locfileid: "86243208"
 1. 다음 형식의 요청을 받습니다.
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
-   > 
-   > 
    
     로그인/가입 사례에 대한 쿼리 매개 변수는 다음과 같습니다.
    
@@ -84,6 +82,7 @@ ms.locfileid: "86243208"
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **SignOut**
 
 계정 관리 작업에 대한 다음 쿼리 매개 변수를 전달해야 합니다.
 
@@ -93,6 +92,7 @@ ms.locfileid: "86243208"
 * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>제품 구독 위임
+
 제품 구독 위임은 사용자 로그인/가입 위임과 비슷하게 작동합니다. 최종 워크플로는 다음과 같습니다.
 
 1. 개발자가 API Management 개발자 포털에서 제품을 선택하고 [구독] 단추를 클릭합니다.
@@ -114,9 +114,9 @@ ms.locfileid: "86243208"
      * "Subscribe": 사용자가 제공된 ID를 사용하여 지정된 제품을 구독하도록 하는 요청입니다(아래 참조).
      * "Unsubscribe": 제품에 대한 사용자 구독을 취소하는 요청입니다.
      * "Renew": 구독을 갱신하는 요청입니다(예: 만료일이 다가오는 경우).
-   * **productId**: 사용자가 구독을 요청한 제품의 ID입니다.
+   * **productId**: *구독* -사용자가 구독을 요청한 제품의 ID입니다.
    * **subscriptionId**: *구독 취소* 및 *갱신*에서 - 제품 구독의 ID입니다.
-   * **userId**: 요청을 만든 사용자의 ID입니다.
+   * **userId**: *구독* 시-요청을 만든 사용자의 ID입니다.
    * **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
    * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 

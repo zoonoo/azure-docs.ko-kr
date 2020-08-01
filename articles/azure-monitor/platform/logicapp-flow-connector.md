@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081562"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475739"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Logic Apps 및 흐름에 대 한 Azure Monitor Logs 커넥터
-[Azure Logic Apps](../../logic-apps/index.yml) 및 [파워 자동화](https://ms.flow.microsoft.com) 를 사용 하면 다양 한 서비스에 대해 수백 개의 작업을 사용 하 여 자동화 된 워크플로를 만들 수 있습니다. Azure Monitor Logs 커넥터를 사용 하 여 Azure Monitor의 Application Insights 응용 프로그램 또는 Log Analytics 작업 영역에서 데이터를 검색 하는 워크플로를 만들 수 있습니다. 이 문서에서는 커넥터에 포함 된 작업에 대해 설명 하 고이 데이터를 사용 하 여 워크플로를 작성 하는 연습을 제공 합니다.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Logic Apps 및 파워 자동화를 위한 Azure Monitor Logs 커넥터
+[Azure Logic Apps](../../logic-apps/index.yml) 및 [파워 자동화](https://flow.microsoft.com) 를 사용 하면 다양 한 서비스에 대해 수백 개의 작업을 사용 하 여 자동화 된 워크플로를 만들 수 있습니다. Azure Monitor Logs 커넥터를 사용 하 여 Azure Monitor의 Application Insights 응용 프로그램 또는 Log Analytics 작업 영역에서 데이터를 검색 하는 워크플로를 만들 수 있습니다. 이 문서에서는 커넥터에 포함 된 작업에 대해 설명 하 고이 데이터를 사용 하 여 워크플로를 작성 하는 연습을 제공 합니다.
 
 예를 들어, Office 365의 전자 메일 알림에서 Azure Monitor 로그 데이터를 사용 하 여 Azure DevOps에서 버그를 만들거나 여유 시간 메시지를 게시 하는 논리 앱을 만들 수 있습니다.  메일이나 트윗이 수신될 때와 같이 연결된 서비스의 일부 작업 또는 단순 일정에서 워크플로를 트리거할 수 있습니다. 
 
@@ -28,7 +28,7 @@ Azure Monitor Logs 커넥터에는 다음과 같은 제한이 있습니다.
 
 사용 하는 쿼리 및 데이터의 크기에 따라 커넥터의 제한에 도달 하 여 실패할 수 있습니다. 트리거 되풀이를 조정 하 여 더 자주 실행 하 고 더 작은 데이터를 쿼리 하는 경우 이러한 경우를 해결할 수 있습니다. 데이터를 집계 하는 쿼리를 사용 하 여 더 작은 레코드와 열을 반환할 수 있습니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 다음 표에서는 Azure Monitor Logs 커넥터에 포함 된 작업에 대해 설명 합니다. 둘 다 Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에 대해 로그 쿼리를 실행할 수 있습니다. 차이점은 데이터가 반환 되는 방식에 있습니다.
 
 > [!NOTE]
@@ -126,4 +126,4 @@ Event
 
 - [Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.
 - [Logic Apps](../../logic-apps/index.yml) 에 대 한 자세한 정보
-- [Microsoft Flow](https://ms.flow.microsoft.com)에 대해 자세히 알아봅니다.
+- [전원 자동화](https://flow.microsoft.com)에 대해 자세히 알아보세요.

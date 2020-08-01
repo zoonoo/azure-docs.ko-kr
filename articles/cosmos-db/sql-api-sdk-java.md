@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323828"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461037"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -256,19 +256,11 @@ ms.locfileid: "87323828"
 * GA SDK
 
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
-Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
 
-새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
-
-사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
+Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다. 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 > [!WARNING]
-> Java용 SQL SDK의 모든 버전 **1.x**는 **2020년 5월 30일**에 사용 중지됩니다.
-> 
->
-
-> [!WARNING]
-> **1.0.0** 이전 버전의 Java에 대한 모든 버전의 SQL SDK는 **2016년 2월 29일**에 사용 중지됩니다.
+> Java용 SQL SDK의 모든 버전 **1.x**는 **2020년 5월 30일**에 사용 중지됩니다. **1.0.0** 이전 버전의 Java에 대한 모든 버전의 SQL SDK는 **2016년 2월 29일**에 사용 중지됩니다.
 > 
 > 
 

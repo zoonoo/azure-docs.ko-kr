@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284390"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475637"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
 
@@ -29,12 +29,12 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ## <a name="roles-available"></a>사용 가능한 역할
 
-역할  |  설명
+역할  |  Description
 ----- |  -----------
 인증 관리자  |  할당 된 관리 단위 에서만 관리자가 아닌 사용자에 대 한 인증 방법 정보를 보고 설정 하 고 다시 설정 하기 위한 액세스 권한이 있습니다.
 그룹 관리자  |  할당 된 관리 단위로 명명 및 만료 정책 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.
 기술 지원팀 관리자  |  에서는 관리자가 아닌 관리자와 기술 지원팀 관리자에 대 한 암호를 할당 된 관리 단위로만 다시 설정할 수 있습니다.
-라이선스 관리자  |  관리 단위 내 에서만 라이선스 할당을 할당, 제거 및 업데이트할 수 있습니다.
+라이선스 관리자  |  는 관리 단위 내 에서만 라이선스 할당을 할당, 제거 및 업데이트할 수 있습니다.
 암호 관리자  |  는 할당 된 관리 단위 내에서 비관리자 및 암호 관리자에 대 한 암호를 다시 설정할 수 있습니다.
 사용자 관리자  |  할당 된 관리 단위 내 에서만 제한 된 관리자에 대 한 암호 재설정을 포함 하 여 사용자 및 그룹의 모든 측면을 관리할 수 있습니다.
 
@@ -46,7 +46,7 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ![관리 단위를 선택 하 여 역할 범위 변경](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-할당할 역할을 선택 하 고 **할당 추가**를 선택 합니다. 그러면 역할에 할당 될 사용자를 한 명 이상 선택할 수 있는 오른쪽에 패널이 열립니다.
+할당할 역할을 선택 하 고 **할당 추가**를 선택 합니다. 역할에 할당할 사용자를 하나 이상 선택할 수 있는 오른쪽에 패널이 열립니다.
 
 ![범위를 지정 하는 역할을 선택 하 고 할당 추가를 선택 합니다.](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
@@ -104,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>다음 단계
 
-- [관리 단위 문제 해결 및 FAQ](roles-admin-units-faq-troubleshoot.md)
+- [클라우드 그룹을 사용 하 여 역할 할당 관리](roles-groups-concept.md)
+- [클라우드 그룹에 할당 된 역할 문제 해결](roles-groups-faq-troubleshooting.md)

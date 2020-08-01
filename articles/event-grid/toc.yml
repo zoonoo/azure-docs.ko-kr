@@ -93,7 +93,7 @@
     - name: 리소스 관리자 템플릿
       href: template-samples.md
     - name: 코드 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+      href: /samples/browse/?term=Event+Grid
     - name: Azure Policy 기본 제공 기능
       href: ./policy-samples.md
 - name: 개념

@@ -1,19 +1,19 @@
 ---
-title: 매핑 데이터 흐름 시각적 모니터링
-description: Azure Data Factory 데이터 흐름을 시각적으로 모니터링하는 방법
+title: 매핑 데이터 흐름 모니터링
+description: Azure Data Factory에서 데이터 흐름의 매핑을 시각적으로 모니터링 하는 방법
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/03/2020
-ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958902"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475552"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
@@ -27,7 +27,7 @@ ms.locfileid: "85958902"
 
 실행 시간 및 상태를 포함하여 이 수준에서 통계를 볼 수 있습니다. 작업 수준의 실행 ID는 파이프라인 수준의 실행 ID와 다릅니다. 이전 수준의 실행 ID는 파이프라인의 실행 ID입니다. 안경 아이콘을 선택하면 데이터 흐름 실행에 대한 심층 정보가 제공됩니다.
 
-![데이터 흐름 모니터링](media/data-flow/mon002.png "Data Flow 모니터링")
+![데이터 흐름 모니터링](media/data-flow/monitoring-details.png "Data Flow 모니터링")
 
 그래픽 노드 모니터링 보기에서는 데이터 흐름 그래프의 간소화된 보기 전용 버전을 볼 수 있습니다.
 

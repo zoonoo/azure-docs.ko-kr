@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: f5eac1d331bd439ad4066d1dea1b9aa950fcce60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004496"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474345"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 요소
 
@@ -47,6 +47,7 @@ DropDown 요소는 포털에서 모양을 결정 하는 다양 한 옵션을 포
     "name": "element1",
     "type": "Microsoft.Common.DropDown",
     "label": "Example drop down",
+    "placeholder": "",
     "defaultValue": "Value two",
     "toolTip": "",
     "multiselect": true,  
@@ -90,6 +91,7 @@ DropDown 요소는 포털에서 모양을 결정 하는 다양 한 옵션을 포
 - `constraints.allowedValues`에는 적어도 하나의 항목이 합니다.
 - 필요하지 않은 값을 에뮬레이트하려면 레이블과 값이 `""`(빈 문자열)인 항목을 `constraints.allowedValues`에 추가합니다.
 - `defaultDescription`속성은 설명이 없는 항목에 사용 됩니다.
+- `placeholder`속성은 사용자가 편집을 시작할 때 사라지는 도움말 텍스트입니다. 및가 `placeholder` `defaultValue` 둘 다 정의 된 경우 `defaultValue` 가 우선적으로 적용 되 고 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06c4ecd92368487af3110e84391ec721700a95aa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056057"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461173"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 트리거
 
@@ -203,7 +203,7 @@ public void run(
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  특성의 생성자는 조사할 컨테이너 및 선택적으로 [Blob 이름 패턴](#blob-name-patterns)을 나타내는 경로 문자열을 사용합니다. 예를 들면 다음과 같습니다.
+  특성의 생성자는 조사할 컨테이너 및 선택적으로 [Blob 이름 패턴](#blob-name-patterns)을 나타내는 경로 문자열을 사용합니다. 예는 다음과 같습니다.
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -331,7 +331,7 @@ Blob이 *original-Blob1.txt*인 경우 함수 코드에 있는 `blobname` 및 `b
 "path": "input/original-{name}",
 ```
 
-Blob 이름이 *original-Blob1.txt*인 경우 함수 코드에 있는 `name` 변수의 값은 `Blob1`입니다.
+Blob 이름이 *original-Blob1.txt*인 경우 함수 코드에 있는 `name` 변수의 값은 `Blob1.txt`입니다.
 
 ### <a name="filter-on-file-type"></a>파일 형식에 대한 필터링
 

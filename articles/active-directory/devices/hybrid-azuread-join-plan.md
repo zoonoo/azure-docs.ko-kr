@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025700"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461768"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -30,7 +30,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 온-프레미스 ad (Active Directory) 환경이 있고 AD 도메인에 가입 된 컴퓨터를 Azure AD에 가입 하려는 경우 하이브리드 Azure AD 조인을 수행 하 여이 작업을 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 [Azure Active Directory의 장치 id 관리 소개](../device-management-introduction.md)에 대해 잘 알고 있다고 가정 합니다.
 
@@ -54,7 +54,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 ### <a name="windows-current-devices"></a>Windows 현재 디바이스
 
-- Windows 10
+- 윈도우 10
 - Windows Server 2016
   - **참고**: Azure 국가별 클라우드 고객은 버전 1809을 요구 합니다.
 - Windows Server 2019
@@ -121,6 +121,9 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 관리형 환경은 [Seamless Single Sign On](/azure/active-directory/hybrid/how-to-connect-sso)을 사용하여 [PHS(암호 해시 동기화)](/azure/active-directory/hybrid/whatis-phs) 또는 [PTA(통과 인증)](/azure/active-directory/hybrid/how-to-connect-pta)를 통해 배포할 수 있습니다.
 
 이러한 시나리오는 인증용 페더레이션 서버를 구성할 필요가 없습니다.
+
+> [!NOTE]
+> [단계적 롤아웃을 사용 하는 클라우드 인증은](/hybrid/how-to-connect-staged-rollout) Windows 10 1903 업데이트를 시작 하는 경우에만 지원 됩니다.
 
 ### <a name="federated-environment"></a>페더레이션 환경
 

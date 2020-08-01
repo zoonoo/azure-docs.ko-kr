@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 20372d9584becf18c65e13c81b99403ce88d27e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568114"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460136"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Azure 방화벽 정책의 IP 그룹
 
@@ -66,43 +66,7 @@ IP 그룹의 모든 IP 주소와 연결 된 규칙 또는 리소스를 볼 수 �
 
 ## <a name="ip-address-limits"></a>IP 주소 제한
 
-50 IP 그룹 이하의 경우 각 방화벽 인스턴스당 개별 IP 주소를 최대 5000 개까지 포함할 수 있습니다. 51에서 100 IP 그룹의 경우 각 방화벽 인스턴스당 500 개별 IP 주소를 지정할 수 있습니다.
-
-### <a name="examples"></a>예
-
-#### <a name="example-1-supported"></a>예제 1: 지원 됨
-
-|IP 그룹  |IP 주소 개수  |Notation  |규칙  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |규칙 1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|규칙 1|
-|IPGroup3     |1|1.2.3.4|규칙 1|
-|     |**총 4100**|         |         |
-|     |         |         |         |
-
-#### <a name="example-2-supported"></a>예 2: 지원 됨
-
-|IP 그룹  |IP 주소 개수  |Notation  |규칙  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |규칙 1|
-|IPGroup2     |4096|11.0.0.0/20|규칙 1|
-|     |**총 8192**|         |         |
-
-#### <a name="example-3-not-supported"></a>예 3: 지원 되지 않음
-
-|IP 그룹  |IP 주소 개수  |Notation  |규칙  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |규칙 1|
-|     |**총 8192**|||
-
-#### <a name="example-4-supported"></a>예제 4: 지원 됨
-
-|IP 그룹  |IP 주소 개수  |Notation  |규칙  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |규칙 1|
-|IPGroup2     |4096|11.0.0.0/20|규칙 2|
-|     |**총 8192**|         |         |
-
+각 IP 그룹당 최대 5000 개별 IP 주소 또는 IP 접두사를 사용 하 여 방화벽 당 최대 100 개의 IP 그룹을 사용할 수 있습니다.
 
 ## <a name="related-azure-powershell-cmdlets"></a>관련 Azure PowerShell cmdlet
 
@@ -118,4 +82,4 @@ IP 그룹의 모든 IP 주소와 연결 된 규칙 또는 리소스를 볼 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure 방화벽 관리자를 사용 하 여 가상 WAN 보호](secure-cloud-network.md)
+- [자습서: Azure Firewall Manager를 사용하여 가상 WAN 보호](secure-cloud-network.md)

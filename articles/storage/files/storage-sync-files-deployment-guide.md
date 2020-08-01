@@ -7,24 +7,35 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 006825b5040db482262f79497b9fd810ed3b790c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386693"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460629"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-* Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
+## <a name="prerequisites"></a>사전 요구 사항
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+1. Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
-* Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
-* Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure File Sync에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell 원격을 통해 수행할 수 있습니다. Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. \* **$PSVersionTable** 개체의 **PSVersion** 속성 값을 확인 합니다.
+1. Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
+    - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
+    - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
+1. Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
+
+1. Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure File Sync에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell 원격을 통해 수행할 수 있습니다. Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. \* **$PSVersionTable** 개체의 **PSVersion** 속성 값을 확인 합니다.
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -37,7 +48,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     > [!Important]  
     > PowerShell에서 직접 등록 하는 대신 서버 등록 UI를 사용할 계획인 경우 PowerShell 5.1을 사용 해야 합니다.
 
-* PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2 이상 버전이 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
+1. PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2 이상 버전이 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
 
     > [!Important]  
     > Windows Server Core에 .NET 4.7.2 +를 설치 하는 경우 및 플래그를 사용 하 여 설치 해야 합니다 `quiet` `norestart` . 그렇지 않으면 설치에 실패 합니다. 예를 들어 .NET 4.8을 설치 하는 경우 명령은 다음과 같습니다.
@@ -45,10 +56,51 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-* Az PowerShell module: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)의 지침에 따라 설치할 수 있습니다.
+1. Az PowerShell module: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)의 지침에 따라 설치할 수 있습니다.
      
     > [!Note]  
     > 이제 az PowerShell module을 설치 하면 Microsoft.storagesync 모듈이 자동으로 설치 됩니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
+    - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
+    - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
+1. Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
+
+1. [Azure CLI 설치](/cli/azure/install-azure-cli)
+
+   원한다 면 Azure Cloud Shell를 사용 하 여이 자습서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
+
+   - 코드 블록의 오른쪽 위 모서리에서 **사용**을 선택합니다. Azure Cloud Shell를 열 수는 있지만 코드를 Cloud Shell 자동으로 복사 **하지 않습니다.**
+
+   - 다음으로 이동 하 여 Cloud Shell을 엽니다.[https://shell.azure.com](https://shell.azure.com)
+
+   - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
+
+1. 로그인합니다.
+
+   로컬에 설치된 CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 로그인합니다.
+
+   ```azurecli
+   az login
+   ```
+
+    터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
+
+1. [Az filesync](/cli/azure/ext/storagesync/storagesync) Azure CLI extension을 설치 합니다.
+
+   ```azurecli
+   az extension add --name storagesync
+   ```
+
+   **Microsoft.storagesync** 확장 참조를 설치한 후 다음과 같은 경고가 표시 됩니다.
+
+   ```output
+   The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
+   ```
+
+---
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Azure 파일 동기화에 사용할 Windows Server 준비
 장애 조치(failover) 클러스터의 각 서버 노드를 포함하여 Azure 파일 동기화에 사용할 각 서버에 대해 **Internet Explorer 보안 강화 구성**을 사용하지 않도록 설정합니다. 초기 서버 등록에만 필요합니다. 서버가 등록된 후에 사용하도록 다시 설정할 수 있습니다.
@@ -87,6 +139,10 @@ if ($installType -ne "Server Core") {
     Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 }
 ``` 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure Portal 또는 PowerShell에 대 한 지침을 따르세요.
 
 ---
 
@@ -155,6 +211,10 @@ $storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure Portal 또는 PowerShell에 대 한 지침을 따르세요.
+
 ---
 
 ## <a name="install-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트 설치
@@ -207,6 +267,9 @@ Start-Process -FilePath "StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 # You may remove the temp folder containing the MSI and the EXE installer
 Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 ```
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure Portal 또는 PowerShell에 대 한 지침을 따르세요.
 
 ---
 
@@ -242,6 +305,9 @@ Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 
 ```powershell
 $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure Portal 또는 PowerShell에 대 한 지침을 따르세요.
 
 ---
 
@@ -312,6 +378,27 @@ New-AzStorageSyncCloudEndpoint `
     -AzureFileShareName $fileShare.Name
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Az microsoft.storagesync](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) 명령을 사용 하 여 새 동기화 그룹을 만듭니다.  모든 CLI 명령에 대 한 리소스 그룹을 기본 설정 하려면 [az configure](/cli/azure/reference-index#az-configure)를 사용 합니다.
+
+```azurecli
+az storagesync sync-group create --resource-group myResourceGroupName \
+                                 --name myNewSyncGroupName \
+                                 --storage-sync-service myStorageSyncServiceName \
+```
+
+[Az microsoft.storagesync](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) 명령을 사용 하 여 새 클라우드 끝점을 만듭니다.
+
+```azurecli
+az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
+                                                --storage-sync-service myStorageSyncServiceName \
+                                                --sync-group-name mySyncGroupName \
+                                                --name myNewCloudEndpointName \
+                                                --storage-account mystorageaccountname \
+                                                --azure-file-share-name azure-file-share-name
+```
+
 ---
 
 ## <a name="create-a-server-endpoint"></a>서버 엔드포인트 만들기
@@ -363,6 +450,34 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath 
 }
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Az microsoft.storagesync server-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) 명령을 사용 하 여 새 서버 끝점을 만듭니다.
+
+```azurecli
+# Create a new sync group server endpoint 
+az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
+                                                 --name myNewServerEndpointName
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0
+                                                 --server-local-path d:\myPath
+                                                 --storage-sync-service myStorageSyncServiceNAme
+                                                 --sync-group-name mySyncGroupName
+
+# Create a new sync group server endpoint with additional optional parameters
+az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
+                                                 --name myNewServerEndpointName \
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0 \
+                                                 --server-local-path d:\myPath \
+                                                 --storage-sync-service myStorageSyncServiceName \
+                                                 --sync-group-name mySyncGroupName \
+                                                 --cloud-tiering on \
+                                                 --offline-data-transfer on \
+                                                 --offline-data-transfer-share-name myfilesharename \
+                                                 --tier-files-older-than-days 15 \
+                                                 --volume-free-space-percent 85 \
+
 ```
 
 ---

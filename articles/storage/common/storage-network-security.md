@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070658"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475416"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -120,7 +120,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 
 VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)를 사용하도록 설정합니다. 서비스 엔드포인트는 VNet의 트래픽을 Azure Storage 서비스에 대한 최적의 경로를 통해 라우팅합니다. 서브넷 및 가상 네트워크의 ID 또한 각 요청과 함께 전송됩니다. 그러면 관리자가 VNet의 특정 서브넷에서 요청을 받을 수 있도록 스토리지 계정에 대한 네트워크 규칙을 구성할 수 있습니다. 이러한 네트워크 규칙을 통해 액세스가 허용되는 클라이언트에서 데이터에 액세스하려면 스토리지 계정의 권한 부여 요구 사항을 계속 충족해야 합니다.
 
-각 스토리지 계정은 [IP 네트워크 규칙](#grant-access-from-an-internet-ip-range)과 결합될 수 있는 최대 100개의 가상 네트워크 규칙을 지원합니다.
+각 저장소 계정은 [IP 네트워크 규칙과](#grant-access-from-an-internet-ip-range)결합 될 수 있는 최대 200 가상 네트워크 규칙을 지원 합니다.
 
 ### <a name="available-virtual-network-regions"></a>사용 가능한 가상 네트워크 지역
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684683"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474362"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 스토리지 계정 모니터링
 
@@ -141,7 +141,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
     ![Azure Portal에서 로깅 구성](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. **저장**을 클릭합니다.
 
-진단 로그는 스토리지 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft Storage Explorer](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
+진단 로그는 스토리지 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft Azure Storage 탐색기](https://storageexplorer.com)와 같은 저장소 탐색기를 사용 하거나 저장소 클라이언트 라이브러리 또는 PowerShell을 사용 하 여 프로그래밍 방식으로 로그 데이터를 볼 수 있습니다.
 
 $logs 컨테이너 액세스에 대한 자세한 내용은 [스토리지 분석 로깅](storage-analytics-logging.md)을 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 97285ae9eadee3717f0b1a1510627392250424b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 108882fd9e585fadc98436c3404bd8945e80080f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037868"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460680"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Service Fabric에 대 한 Azure 보안 기준
 
@@ -626,7 +626,7 @@ Azure virtual machines 및 컨테이너 이미지에 대 한 취약성 평가를
 
 * [최신 확장 집합 모델로 VM을 최신 상태로 유지하는 방법](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Azure Automation - 업데이트 관리 개요](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure Automation - 업데이트 관리 개요](https://docs.microsoft.com/azure/automation/update-management/update-mgmt-overview)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
