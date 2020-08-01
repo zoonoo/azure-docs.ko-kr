@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fc7951411f1c8956b4816f9031a8b7c26594b42
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 7f19aec65ed2616d757718116ac948473dd4b0ed
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856140"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448006"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -28,7 +28,7 @@ Hybrid Runbook Worker 역할은 Azure Monitor Log Analytics 작업 영역에 따
 
 Azure Monitor Log Analytics 작업 영역이 없는 경우 작업 영역을 만들기 전에 [Azure Monitor 로그 디자인 지침](../azure-monitor/platform/design-logs-deployment.md) 을 검토 합니다.
 
-작업 영역이 있지만 Automation 계정에 연결 되어 있지 않은 경우 자동화 기능을 사용 하도록 설정 하면 Hybrid Runbook Worker에 대 한 지원을 포함 하 여 Azure Automation 기능을 추가할 수 있습니다. Log Analytics 작업 영역의 Azure Automation 기능 중 하나 (특히 [업데이트 관리](automation-update-management.md) 또는 [변경 내용 추적 및 인벤토리](change-tracking.md))를 사용 하도록 설정 하면 작업자 구성 요소가 에이전트 컴퓨터에 자동으로 푸시됩니다.
+작업 영역이 있지만 Automation 계정에 연결 되어 있지 않은 경우 자동화 기능을 사용 하도록 설정 하면 Hybrid Runbook Worker에 대 한 지원을 포함 하 여 Azure Automation 기능을 추가할 수 있습니다. Log Analytics 작업 영역의 Azure Automation 기능 중 하나 (특히 [업데이트 관리](update-management/update-mgmt-overview.md) 또는 [변경 내용 추적 및 인벤토리](change-tracking.md))를 사용 하도록 설정 하면 작업자 구성 요소가 에이전트 컴퓨터에 자동으로 푸시됩니다.
 
 작업 영역에 업데이트 관리 기능을 추가 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
@@ -84,9 +84,9 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 |-------------|-----------|
 |Python 2 |예 |
 |PowerShell |예<sup>1</sup> |
-|PowerShell 워크플로 |아니요 |
-|그래픽 |아니요 |
-|그래픽 PowerShell 워크플로 |아니요 |
+|PowerShell 워크플로 |예 |
+|그래픽 |예 |
+|그래픽 PowerShell 워크플로 |예 |
 
 <sup>1</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
 

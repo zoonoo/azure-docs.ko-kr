@@ -1,5 +1,5 @@
 ---
-title: FHIR 용 azure API에 대 한 Azure RBAC (역할 기반 Access Control) 구성
+title: FHIR 용 azure API에 대 한 azure RBAC (역할 기반 액세스 제어) 구성
 description: 이 문서에서는 FHIR 데이터 평면에 대 한 azure API에 대 한 Azure RBAC를 구성 하는 방법을 설명 합니다.
 author: hansenms
 ms.service: healthcare-apis
@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 3fbbfd931efb0e570bc96639bc6b7943fddc0237
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417678"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447162"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>FHIR에 대 한 Azure RBAC 구성 
 
-이 문서에서는 [Azure 역할 기반 Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) 를 사용 하 여 FHIR 데이터 평면에 대 한 azure API에 액세스 권한을 할당 하는 방법에 대해 설명 합니다. Azure RBAC는 데이터 평면 사용자가 Azure 구독과 연결 된 Azure Active Directory 테 넌 트에서 관리 되는 경우 데이터 평면 액세스를 할당 하는 데 선호 되는 방법입니다. 외부 Azure Active Directory 테 넌 트를 사용 하는 경우 [로컬 RBAC 할당 참조](configure-local-rbac.md)를 참조 하세요.
+이 문서에서는 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/) 를 사용 하 여 FHIR 데이터 평면에 대 한 azure API에 액세스 권한을 할당 하는 방법에 대해 설명 합니다. Azure RBAC는 데이터 평면 사용자가 Azure 구독과 연결 된 Azure Active Directory 테 넌 트에서 관리 되는 경우 데이터 평면 액세스를 할당 하는 데 선호 되는 방법입니다. 외부 Azure Active Directory 테 넌 트를 사용 하는 경우 [로컬 RBAC 할당 참조](configure-local-rbac.md)를 참조 하세요.
 
 ## <a name="confirm-azure-rbac-mode"></a>Azure RBAC 모드 확인
 

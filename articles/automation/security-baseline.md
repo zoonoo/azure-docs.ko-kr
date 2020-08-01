@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045902"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447710"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -220,7 +220,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 * [연결된 Log Analytics 작업 영역에 대해 지원되는 지역](./how-to/region-mappings.md)
 
-* [업데이트 관리 로그 쿼리](./automation-update-management-query-logs.md)
+* [업데이트 관리 로그 쿼리](./update-management/update-mgmt-query-logs.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -646,9 +646,9 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하는 경우 Azure 업데이트 관리를 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리 합니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-* [Azure의 업데이트 관리](./automation-update-management.md)
+* [Azure의 업데이트 관리](./update-management/update-mgmt-overview.md)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
+* [Vm에 대 한 업데이트 및 패치 관리](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -660,9 +660,9 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하는 경우 Azure 업데이트 관리를 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하면 사용자 지정 업데이트를 WSUS (Windows Server Update Services)에 게시할 수 있습니다. 이 시나리오를 통해 업데이트 관리은 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어로 업데이트 리포지토리로 패치할 수 있습니다.
 
-* [Azure의 업데이트 관리 솔루션](./automation-update-management.md)
+* [Azure의 업데이트 관리 솔루션](./update-management/update-mgmt-overview.md)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
+* [Azure VM에 대한 업데이트 및 패치 관리](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

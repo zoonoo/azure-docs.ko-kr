@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781602"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445573"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
@@ -56,7 +56,7 @@ Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수�
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만듭니다. 이를 통해 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킬 수 있습니다.
 
-### <a name="terms"></a>용어
+### <a name="terms"></a>사용 약관
 
 이 문서에서는 다음과 같은 용어를 사용 합니다.
 
@@ -257,7 +257,7 @@ Joiners 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합�
 
 Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
-| 프로세스 | 요구 사항 |
+| Process | 요구 사항 |
 | - | - |
 | **Joiners** | Id 수명 주기 관점에서 rehires을 어떻게 처리 하나요? 이전 직원 Id를 계속 고용 하나요? |
 | | 향후에는 고용를 처리 하 고 사전에 Active Directory 계정을 만들어야 하나요? 이러한 계정은 사용 또는 사용 안 함 상태로 생성 되나요? |
@@ -276,7 +276,7 @@ Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수
 
 Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
-| 프로세스 | 요구 사항 |
+| Process | 요구 사항 |
 | - | - |
 | **Joiners** | Active Directory 계정 생성 프로세스 수동, 자동화 또는 부분적으로 자동화 되었습니까? |
 | | 클라우드 HR 앱에서 Active Directory로 사용자 지정 특성을 전파할 계획 입니까? |
@@ -404,7 +404,6 @@ Azure AD 프로 비전 서비스는 30 일 이상 데이터를 저장, 처리 �
 
 - [Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제](application-provisioning-config-problem.md)
 - [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](user-provisioning-sync-attributes-for-mapping.md)
-- [Azure AD 갤러리 애플리케이션에 대한 사용자 프로비저닝이 오래 걸림](application-provisioning-when-will-provisioning-finish.md)
 - [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](application-provisioning-config-problem-storage-limit.md)
 - [사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 않음](application-provisioning-config-problem-no-users-provisioned.md)
 - [Azure AD 갤러리 애플리케이션에 잘못된 사용자 집합이 프로비전됨](application-provisioning-config-problem-wrong-users-provisioned.md)

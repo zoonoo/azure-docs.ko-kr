@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045079"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448888"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -160,6 +160,10 @@ UNION
 SELECT foo FROM DataTwo
 
 ```
+
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>파티션 당 판독기가 IoT Hub 제한을 초과 합니다.
+
+Stream Analytics 작업은 IoT Hub의 기본 제공 [Event Hub 호환 끝점](../iot-hub/iot-hub-devguide-messages-read-builtin.md) 을 사용 하 여 IoT Hub에서 이벤트를 연결 하 고 읽습니다. 파티션당 읽기가 IoT Hub 제한을 초과 하는 경우 [이벤트 허브에 대 한 솔루션](#readers-per-partition-exceeds-event-hubs-limit) 을 사용 하 여 문제를 해결할 수 있습니다. IoT Hub portal 끝점 세션이 나 [IOT HUB SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)를 통해 기본 제공 끝점에 대 한 소비자 그룹을 만들 수 있습니다.
 
 ## <a name="get-help"></a>도움말 보기
 

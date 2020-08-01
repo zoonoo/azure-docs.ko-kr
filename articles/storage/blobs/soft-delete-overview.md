@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 4f75b9af6e9b2f92818fd8ec16d59db2f1bd0075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223791"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446866"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Blob Storage에 대한 일시 삭제
 
@@ -83,7 +83,7 @@ Blob **배치**, **블록 목록 배치**또는 **blob 복사**를 사용 하 �
 
 다음 표는 일시 삭제가 설정된 경우 예상되는 동작을 자세히 설명합니다.
 
-| REST API 작업 | 리소스 종류 | 설명 | 동작 변경 |
+| REST API 작업 | 리소스 유형 | Description | 동작 변경 |
 |--------------------|---------------|-------------|--------------------|
 | [삭제](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경 없음 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
 | [컨테이너 삭제](/rest/api/storageservices/delete-container) | 컨테이너 | 포함하는 모든 Blob을 포함하여 컨테이너를 삭제합니다. | 변경 없음 삭제된 컨테이너의 Blob은 복구할 수 없습니다. |
@@ -93,7 +93,7 @@ Blob **배치**, **블록 목록 배치**또는 **blob 복사**를 사용 하 �
 | [블록 배치](/rest/api/storageservices/put-block) | 블록 Blob | 블록 Blob의 일부로 커밋될 새 블록을 만듭니다. | 활성 상태인 blob에 블록을 커밋하는 데 사용 되는 경우 변경 내용이 없습니다. 일시 삭제된 Blob에 블록을 커밋하는 데 사용되는 경우 새 Blob이 만들어지고 일시 삭제된 Blob의 상태를 캡처하도록 스냅샷이 자동으로 생성됩니다. |
 | [블록 목록 배치](/rest/api/storageservices/put-block-list) | 블록 Blob | 블록 Blob을 구성하는 블록 ID의 집합을 지정하여 Blob을 커밋합니다. | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 블록 blob 인 경우에만 이전에 일시 삭제 된 blob에도 적용 됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
 | [페이지 배치](/rest/api/storageservices/put-page) | 페이지 Blob | 페이지 blob에 페이지 범위를 씁니다. | 변경 없음 이 작업을 사용 하 여 덮어쓰거나 지운 페이지 blob 데이터는 저장 되지 않으므로 복구할 수 없습니다. |
-| [추가 블록](/rest/api/storageservices/append-block) | 추가 Blob | 추가 Blob의 끝에 데이터 블록을 작성합니다. | 변경 없음 |
+| [추가 블록](/rest/api/storageservices/append-block) | 추가 Blob | 추가 blob의 끝에 데이터 블록을 씁니다. | 변경 없음 |
 | [Blob 속성 설정](/rest/api/storageservices/set-blob-properties) | 블록, 추가 및 페이지 blob | Blob에 대해 정의된 시스템 속성에 대한 값을 설정합니다. | 변경 없음 덮어쓰여진 Blob 속성은 복구할 수 없습니다. |
 | [Blob 메타데이터 설정](/rest/api/storageservices/set-blob-metadata) | 블록, 추가 및 페이지 blob | 하나 이상의 이름 값 쌍으로 지정된 Blob에 대한 사용자 정의 메타데이터를 설정합니다. | 변경 없음 덮어쓰여진 Blob 메타데이터는 복구할 수 없습니다. |
 

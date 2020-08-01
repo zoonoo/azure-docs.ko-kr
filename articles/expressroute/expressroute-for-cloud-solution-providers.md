@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99b51610e41aaf8358e7e3069d38dfd8c68ae422
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281704"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446776"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. ExpressRoute는 Azure에서 고속의 프라이빗 통신 링크입니다. 
@@ -60,7 +60,7 @@ Connect-To 모델에서 서비스 공급자는 고객의 네트워크를 통해 
 
 이러한 두 옵션 간의 선택은 고객의 요구 사항 및 현재 Azure 서비스를 제공해야 하는지에 따라 결정합니다. 이러한 모델 및 연결된 역할 기반 액세스 제어, 네트워킹, ID 디자인 패턴에 대한 자세한 내용은 다음 링크에서 자세히 설명합니다.
 
-* **역할 기반 Access Control(RBAC)** - RBAC는 Azure Active Directory를 기반으로 합니다.  Azure RBAC에 대한 자세한 내용은 [여기](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+* **AZURE rbac (역할 기반 액세스 제어)** – RBAC는 Azure Active Directory을 기반으로 합니다.  Azure RBAC에 대한 자세한 내용은 [여기](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 * **네트워킹** – Microsoft Azure의 다양한 네트워킹 항목에 대해 다룹니다.
 * **Azure AD(Azure Active Directory)** – Azure AD는 Microsoft Azure 및 타사 SaaS 애플리케이션에 대한 ID 관리를 제공합니다. Azure AD에 대한 자세한 내용은 [여기](https://azure.microsoft.com/documentation/services/active-directory/)를 참조하세요.  
 

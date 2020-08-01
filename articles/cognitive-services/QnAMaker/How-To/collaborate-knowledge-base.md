@@ -1,14 +1,14 @@
 ---
 title: 기술 자료에 대 한 공동 작업-QnA Maker
-description: QnA Maker를 사용하면 여러 사용자가 기술 자료를 공동으로 작업할 수 있습니다. 이 기능은 Azure 역할 기반 액세스 제어를 통해 제공됩니다.
+description: QnA Maker를 사용하면 여러 사용자가 기술 자료를 공동으로 작업할 수 있습니다. 이 기능은 azure RBAC (역할 기반 액세스 제어)와 함께 제공 됩니다.
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 4c550a36dd045873df4bc4a382e1c884466f95ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20eb58f346322cb78bff85af3d6a0d366090763d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054047"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446940"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>작성자 및 편집기와 공동 작업
 

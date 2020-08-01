@@ -4,12 +4,12 @@ description: 역할 기반 Access Control을 사용하여 Recovery Services 자�
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371705"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445312"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 
@@ -77,7 +77,7 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 통해 시작합니다.
+* Azure [rbac (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md): AZURE PORTAL에서 RBAC를 시작 합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

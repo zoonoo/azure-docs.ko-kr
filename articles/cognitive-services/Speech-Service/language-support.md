@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087149"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457807"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -38,33 +38,59 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | 로캘  | 언어                          | 사용자 지정                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | 아랍어(UAE)                      | No                                                |
+| `ar-AE` | 아랍어(UAE)                      | 예                                                |
 | `ar-BH` | 아랍어(바레인), 최신 표준 | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 언어 모델                                    |
-| `ar-IL` | 아랍어(이스라엘)                   | No                                                |
-| `ar-JO` | 아랍어(요르단)                   | No                                                |
-| `ar-KW` | 아랍어(쿠웨이트)                   | No                                                |
-| `ar-LB` | 아랍어(레바논)                  | No                                                |
+| `ar-IL` | 아랍어(이스라엘)                   | 예                                                |
+| `ar-JO` | 아랍어(요르단)                   | 예                                                |
+| `ar-KW` | 아랍어(쿠웨이트)                   | 예                                                |
+| `ar-LB` | 아랍어(레바논)                  | 예                                                |
 | `ar-PS` | 아랍어(팔레스타인)                | 예                                                |
-| `ar-QA` | 아랍어(카타르)                    | No                                                |
-| `ar-SA` | 아랍어(사우디아라비아)             | No                                                |
+| `ar-QA` | 아랍어(카타르)                    | 예                                                |
+| `ar-SA` | 아랍어(사우디아라비아)             | 예                                                |
 | `ar-SY` | 아랍어(시리아)                    | 언어 모델                                    |
 | `ca-ES` | 카탈로니아어                           | 언어 모델                                    |
+| `cs-CZ` | 체코어(체코)            | 언어 모델                                    | 
 | `da-DK` | 덴마크어(덴마크)                  | 언어 모델                                    |
 | `de-DE` | 독일어(독일)                  | 음향 모델<br>언어 모델<br>발음 |
 | `en-AU` | 영어(오스트레일리아)               | 음향 모델<br>언어 모델                  |
 | `en-CA` | 영어(캐나다)                  | 음향 모델<br>언어 모델                  |
 | `en-GB` | 영어(영국)          | 음향 모델<br>언어 모델<br>발음 |
+| `en-HK` | 영어 (홍콩)               | 언어 모델                                    | 
+| `en-IE` | 영어(아일랜드)                 | 언어 모델                                    | 
 | `en-IN` | 영어(인도)                   | 음향 모델<br>언어 모델                  |
 | `en-NZ` | 영어(뉴질랜드)             | 음향 모델<br>언어 모델                  |
+| `en-PH` | 영어(필리핀)             | 언어 모델                                    | 
+| `en-SG` | 영어(싱가포르)               | 언어 모델                                    | 
 | `en-US` | 영어(미국)           | 음향 모델<br>언어 모델<br>발음 |
+| `en-ZA` | 영어(남아프리카)            | 언어 모델                                    | 
+| `es-AR` | 스페인어(아르헨티나)               | 언어 모델                                    | 
+| `es-BO` | 스페인어(볼리비아)                 | 언어 모델                                    | 
+| `es-CL` | 스페인어(칠레)                   | 언어 모델                                    | 
+| `es-CO` | 스페인어(콜롬비아)                | 언어 모델                                    | 
+| `es-CR` | 스페인어(코스타리카)              | 언어 모델                                    | 
+| `es-CU` | 스페인어 (쿠바)                    | 언어 모델                                    | 
+| `es-DO` | 스페인어(도미니카 공화국)      | 언어 모델                                    | 
+| `es-EC` | 스페인어(에콰도르)                 | 언어 모델                                    | 
 | `es-ES` | 스페인어(스페인)                   | 음향 모델<br>언어 모델                  |
+| `es-GT` | 스페인어(과테말라)               | 언어 모델                                    | 
+| `es-HN` | 스페인어(온두라스)                | 언어 모델                                    | 
 | `es-MX` | 스페인어(멕시코)                  | 음향 모델<br>언어 모델                  |
+| `es-NI` | 스페인어(니카라과)               | 언어 모델                                    | 
+| `es-PA` | 스페인어(파나마)                  | 언어 모델                                    | 
+| `es-PE` | 스페인어(페루)                    | 언어 모델                                    | 
+| `es-PR` | 스페인어(푸에르토리코)             | 언어 모델                                    | 
+| `es-PY` | 스페인어(파라과이)                | 언어 모델                                    | 
+| `es-SV` | 스페인어(엘살바도르)             | 언어 모델                                    | 
+| `es-US` | 스페인어 (미국)                     | 언어 모델                                    | 
+| `es-UY` | 스페인어(우루과이)                 | 언어 모델                                    | 
+| `es-VE` | 스페인어(베네수엘라)               | 언어 모델                                    | 
 | `fi-FI` | 핀란드어(핀란드)                 | 언어 모델                                    |
 | `fr-CA` | 프랑스어(캐나다)                   | 음향 모델<br>언어 모델                  |
 | `fr-FR` | 프랑스어(프랑스)                   | 음향 모델<br>언어 모델<br>발음 |
 | `gu-IN` | 구자라트어(인도)                 | 언어 모델                                    |
 | `hi-IN` | 힌디어(인도)                     | 음향 모델<br>언어 모델                  |
+| `hu-HU` | 헝가리어(헝가리)               | 언어 모델                                    | 
 | `it-IT` | 이탈리아어(이탈리아)                   | 음향 모델<br>언어 모델<br>발음 |
 | `ja-JP` | 일본어(일본)                  | 언어 모델                                    |
 | `ko-KR` | 한국어(한국)                    | 언어 모델                                    |
@@ -99,7 +125,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-|로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
+|Locale  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
 | `ar-EG` | 아랍어(이집트)                  | Female | `ar-EG-SalmaNeural`      | 일반 |
 | `ar-SA` | 아랍어(사우디아라비아)           | Female | `ar-SA-ZariyahNeura`     | 일반 |
@@ -150,7 +176,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-| 로캘 | 언어 | 성별 | 음성 이름 |
+| Locale | 언어 | 성별 | 음성 이름 |
 |--|--|--|--|
 | <sup>1</sup>`ar-EG` | 아랍어(이집트) | Female | "ar-EG-Hoda" |
 | `ar-SA` | 아랍어(사우디아라비아) | Male | "ar-SA-Naayf" |

@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: b8e2f580bb21d2f432ce5dcbc3e06c15ba6f380b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327211"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446175"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
@@ -25,7 +25,7 @@ Azure 또는 온-프레미스의 리소스를 포함 하 여 로그에서 메트
 
 - Windows 및 Linux 컴퓨터에 대한 [성능 카운터](./data-sources-performance-counters.md)
 - [에이전트 상태에 대한 하트비트 레코드](../insights/solution-agenthealth.md)
-- [업데이트 관리](../../automation/automation-update-management.md) 레코드
+- [업데이트 관리](../../automation/update-management/update-mgmt-overview.md) 레코드
 - [이벤트 데이터](./data-sources-windows-events.md) 로그
 
 Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 경고](./alerts-log.md)에 비해 많은 이점이 있습니다. 그 중 일부는 다음과 같습니다.
@@ -55,7 +55,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 
 1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)를 참조하세요.
 2. **에이전트가 Log Analytics 작업 영역에 대해 구성 되어**있습니다. Azure vm (및/또는) 온-프레미스 vm에 대해 에이전트를 구성 하 여 이전 단계에서 사용 되는 Log Analytics 작업 영역으로 데이터를 전송 해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](./agents-overview.md)를 참조하세요.
-3. **지원 되는 Log Analytics 솔루션이 설치 됨**: Log Analytics 솔루션을 구성 하 고 Log Analytics 작업 영역에 데이터를 전송 해야 합니다. 지원 되는 솔루션은 Windows & Linux, [에이전트 상태 하트 비트 레코드](../insights/solution-agenthealth.md), [업데이트 관리](../../automation/automation-update-management.md)및 [이벤트 데이터](./data-sources-windows-events.md)에 [대 한 성능 카운터](./data-sources-performance-counters.md)입니다.
+3. **지원 되는 Log Analytics 솔루션이 설치 됨**: Log Analytics 솔루션을 구성 하 고 Log Analytics 작업 영역에 데이터를 전송 해야 합니다. 지원 되는 솔루션은 Windows & Linux, [에이전트 상태 하트 비트 레코드](../insights/solution-agenthealth.md), [업데이트 관리](../../automation/update-management/update-mgmt-overview.md)및 [이벤트 데이터](./data-sources-windows-events.md)에 [대 한 성능 카운터](./data-sources-performance-counters.md)입니다.
 4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](./metrics-supported.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](./data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성

@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070562"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447147"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -184,7 +184,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 | 옵션 | Description | 명령 | 인수 |
 | --- | --- | --- | --- |
-| **Start** |스토리지 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
+| **시작** |스토리지 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
 | **중지** |스토리지 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |
 | **상태** |스토리지 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator.exe status` | |
 | **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
@@ -210,7 +210,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 * 증분 복사를 사용하면 덮어쓴 Blob의 스냅샷을 복사할 수 있으며 이로 인해 서비스에 오류가 반환됩니다.
 * 페이지 범위 가져오기 Diff는 증분 복사 Blob을 사용 하 여 복사한 스냅숏 간에 작동 하지 않습니다.
 * 요청에 임대 ID가 지정 되지 않은 경우에도 활성 임대를 사용 하 여 저장소 에뮬레이터에 있는 blob에 대 한 Put Blob 작업이 성공할 수 있습니다.
-* 추가 Blob 작업은 에뮬레이터에서 지원되지 않습니다. 추가 Blob에 대한 작업을 시도하면 FeatureNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 반환됩니다.
+* 에뮬레이터에서 추가 blob 작업을 지원 하지 않습니다. 추가 Blob에 대한 작업을 시도하면 FeatureNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 반환됩니다.
 
 ### <a name="differences-for-table-storage"></a>Table Storage의 차이점
 
@@ -304,7 +304,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ### <a name="version-41"></a>버전 4.1
 
-* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2015-02-21 버전의 저장소 서비스를 지원 합니다. 새로운 Blob 추가 기능을 지원 하지 않습니다.
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2015-02-21 버전의 저장소 서비스를 지원 합니다. 새로운 blob 추가 기능을 지원 하지 않습니다.
 * 이제 에뮬레이터에서 지원 되지 않는 저장소 서비스 버전에 대 한 의미 있는 오류 메시지를 반환 합니다. 최신 버전의 에뮬레이터를 사용하는 것이 좋습니다. VersionNotSupportedByEmulator 오류 (HTTP 상태 코드 400-잘못 된 요청)를 가져오는 경우 에뮬레이터의 최신 버전을 다운로드 합니다.
 * 경합 조건으로 인해 동시 병합 작업 중 잘못된 테이블 엔터티 데이터가 발생하는 버그가 수정되었습니다.
 

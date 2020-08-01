@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085149"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449132"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -33,18 +33,19 @@ Azure Functions Core Tools를 사용하면 명령 프롬프트나 터미널에�
 
 Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되는 버전은 로컬 개발 환경, [선택 언어](supported-languages.md)및 필요한 지원 수준에 따라 달라 집니다.
 
-+ **버전**1.x: Azure Functions 런타임의 버전 1.X를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
-
 + [**버전 3.x/**](#v2)2.x:는 [Azure Functions 런타임의 버전 3(sp3) 또는](functions-versions.md)2.x를 지원 합니다. 이러한 버전은 [Windows](?tabs=windows#v2), [Macos](?tabs=macos#v2)및 [Linux](?tabs=linux#v2) 를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다.
 
++ **버전**1.x: Azure Functions 런타임의 버전 1.X를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
+
 별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli) 해야 합니다. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
 [Azure Functions 핵심 도구]에는 로컬 개발 컴퓨터에서 실행할 수 있는 Azure Functions 런타임을 제공하는 동일한 런타임 버전이 포함됩니다. 또한 함수를 만들고, Azure에 연결하고, 함수 프로젝트를 배포하는 명령을 제공합니다.
-
->[!IMPORTANT]
->Azure Functions Core Tools에서 Azure에 게시 하려면 [Azure CLI](/cli/azure/install-azure-cli) 를 로컬로 설치 해야 합니다.  
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>버전 3(sp3) 및 2.x
 
@@ -55,27 +56,12 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-다음 단계에서는 npm을 사용하여 Windows에 핵심 도구를 설치합니다. [Chocolatey](https://chocolatey.org/)를 사용할 수도 있습니다. 자세한 내용은 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)를 참조하세요.
+다음 단계에서는 Windows installer (MSI)를 사용 하 여 핵심 도구 v3. x를 설치 합니다. 핵심 도구 v2. x를 설치 하는 데 필요한 다른 패키지 기반 설치 관리자에 대 한 자세한 내용은 [핵심 도구 추가](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)정보를 참조 하세요.
 
-1. [Node.js](npm 포함)를 설치합니다.
-    - Tools 버전 2.x의 경우 Node.js 10 이상 버전만 지원 됩니다.
-    - 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
+1. Windows 버전에 따라 핵심 도구 설치 관리자를 다운로드 하 여 실행 합니다.
 
-1. 다음과 같이 핵심 도구 패키지를 설치합니다.
-
-    ##### <a name="v3x-recommended"></a>v3. x (권장)
-
-    ```cmd
-    npm install -g azure-functions-core-tools@3
-    ```
-
-    ##### <a name="v2x"></a>v2.x
-
-    ```cmd
-    npm install -g azure-functions-core-tools@2
-    ```
-
-   Npm에서 핵심 도구 패키지를 다운로드 하 고 설치 하는 데 몇 분 정도 걸릴 수 있습니다.
+    - [v3. x-Windows 64](https://go.microsoft.com/fwlink/?linkid=2135274) 비트 (권장) [Visual Studio Code 디버깅](functions-develop-vs-code.md#debugging-functions-locally) 에는 64 비트가 필요 합니다.)
+    - [v3. x-Windows 32 비트](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용 하지 않으려는 경우 [Windows 용 .NET Core 3(sp3) SDK](https://dotnet.microsoft.com/download)를 설치 합니다.
 
@@ -526,7 +512,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
 | **`--build`**, **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local` . |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예를 들면 `python3-dev libevent-dev`과 다음과 같습니다. |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | 게시 하는 동안 프로젝트가 빌드되지 않습니다. Python의 경우가 `pip install` 수행 되지 않습니다. |
@@ -581,7 +567,7 @@ Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하�
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
-[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
 [확장 번들]: functions-bindings-register.md#extension-bundles

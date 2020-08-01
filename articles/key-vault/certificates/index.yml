@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 78963c02d35d93b4756c12f948c5ba214fb23e90
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 365f0b07370937a73d3925373be0be544a182865
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81423533"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87386778"
 landingContent:
 - title: 인증서
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
     links:
     - text: Key Vault 인증서란?
       url: about-certificates.md
+    - text: 일시 삭제에 대한 중요 뉴스
+      url: ../general/soft-delete-change.md
     - text: Key Vault 인증서 시작
       url: certificate-scenarios.md
     - text: 인증서 생성 방법
@@ -53,7 +55,7 @@ landingContent:
     - text: 기본 개념
       url: ../general/basic-concepts.md
     - text: 일시 삭제 개요
-      url: ../general/overview-soft-delete.md
+      url: ../general/soft-delete-overview.md
     - text: 보안 개요
       url: ../general/overview-security.md
 - title: Microsoft Learn

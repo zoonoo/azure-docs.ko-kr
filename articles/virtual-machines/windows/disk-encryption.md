@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e609e755f02d4321664804bfbb90f979c1c06ead
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133064"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448927"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
@@ -34,7 +34,7 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 ### <a name="platform-managed-keys"></a>플랫폼 관리형 키
 
-기본적으로 관리 디스크는 플랫폼 관리형 암호화 키를 사용합니다. 2017년 6월 10일부터 기존 관리 디스크에 기록되는 모든 새 관리 디스크, 스냅샷, 이미지 및 새 데이터는 플랫폼 관리형 키로 자동으로 미사용 암호화됩니다.
+기본적으로 관리 디스크는 플랫폼 관리형 암호화 키를 사용합니다. 기존 관리 디스크에 작성 된 모든 관리 디스크, 스냅숏, 이미지 및 데이터는 플랫폼 관리 키를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다.
 
 ### <a name="customer-managed-keys"></a>고객 관리형 키
 
@@ -54,7 +54,7 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 
 종단 간 암호화를 사용 하는 경우 임시 디스크와 사용 후 삭제 OS 디스크는 플랫폼 관리 키를 사용 하 여 미사용에 암호화 됩니다. OS 및 데이터 디스크 캐시는 암호화 유형에 따라 고객이 관리 하거나 플랫폼에서 관리 하는 키를 사용 하 여 미사용으로 암호화 됩니다. 예를 들어, 디스크가 고객 관리 키를 사용 하 여 암호화 된 경우 디스크의 캐시는 고객 관리 키를 사용 하 여 암호화 되 고, 디스크는 플랫폼 관리 키를 사용 하 여 암호화 되는 경우 디스크에 대 한 캐시는 플랫폼 관리 키를 사용 하 여 암호화 됩니다.
 
-### <a name="restrictions"></a>제한 사항
+### <a name="restrictions"></a>제한
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 

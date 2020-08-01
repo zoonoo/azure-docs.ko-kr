@@ -69,8 +69,6 @@
           href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: 원본 특성 누락
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: 프로비저닝 작업이 느림
-          href: application-provisioning-when-will-provisioning-finish.md
         - name: 프로비저닝 로그
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: SCIM 엔드포인트 빌드 및 프로비저닝 구성

@@ -71,8 +71,6 @@
       href: azure-netapp-files-manage-snapshots.md
     - name: 용량 풀 또는 볼륨 크기 조정
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: 볼륨의 서비스 수준을 동적으로 변경
-      href: dynamic-change-volume-service-level.md
     - name: 개발
       items:
         - name: REST API

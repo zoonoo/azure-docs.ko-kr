@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261191"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447861"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 
@@ -78,11 +78,11 @@ Automation 계정을 Log Analytics작업 영역에 더 이상 통합하지 않�
 
 또는 작업 영역 내 Automation 계정에서 작업 영역의 연결을 해제할 수 있습니다.
 
-1. 작업 영역의 **관련 리소스** 아래에서 **Automation 계정**을 선택합니다. 
+1. 작업 영역의 **관련 리소스** 아래에서 **Automation 계정**을 선택합니다.
 2. Automation 계정 페이지에서 **계정 연결 해제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [업데이트 관리 개요](../automation-update-management.md)에서 업데이트 관리에 대해 알아봅니다.
+* [업데이트 관리 개요](../update-management/update-mgmt-overview.md)에서 업데이트 관리에 대해 알아봅니다.
 * [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)에서 변경 내용 추적 및 인벤토리에 대해 알아봅니다.
 * [작업 시간 외 VM 시작/중지](../automation-solution-vm-management.md)에서 작업 시간 외 VM 시작/중지에 대해 알아봅니다.

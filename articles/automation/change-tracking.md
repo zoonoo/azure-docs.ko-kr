@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185588"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447924"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -203,7 +203,7 @@ Microsoft 서비스에 대한 기본 수집 빈도는 30분입니다. **Microsof
 
 - Automation 계정에서 이 기능을 사용하도록 설정하려면 [Automation 계정에서 변경 내용 추적 및 인벤토리 사용](automation-enable-changes-from-auto-acct.md)을 참조하세요.
 
-- Azure Portal를 검색 하 여 기능을 사용 하도록 설정 하려면 [Azure Portal에서 변경 내용 추적 및 인벤토리 사용](automation-onboard-solutions-from-browse.md)을 참조 하세요.
+- Azure Portal를 검색 하 여 기능을 사용 하도록 설정 하려면 [Azure Portal에서 변경 내용 추적 및 인벤토리 사용](automation-enable-changes-from-browse.md)을 참조 하세요.
 
 - Runbook에서 이 기능을 사용하도록 설정하려면 [Runbook에서 변경 내용 추적 및 인벤토리 사용](automation-enable-changes-from-runbook.md)을 참조하세요.
 

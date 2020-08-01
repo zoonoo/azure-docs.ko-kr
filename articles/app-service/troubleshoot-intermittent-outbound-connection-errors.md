@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289153"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447912"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
 
@@ -38,7 +38,7 @@ Azure 앱 서비스에서 호스트 되는 응용 프로그램 및 함수는 다
 
 ## <a name="avoiding-the-problem"></a>문제 방지
 
-대상이 서비스 끝점을 지 원하는 Azure 서비스인 경우 [VNet 통합](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) 및 서비스 끝점을 사용 하 여 SNAT 포트 소모 문제를 방지할 수 있습니다. VNet 통합을 사용 하 고 통합 서브넷에 서비스 끝점을 추가 하는 경우 해당 서비스에 대 한 아웃 바운드 트래픽에 아웃 바운드 SNAT 포트 제한이 적용 되지 않습니다.
+대상이 서비스 끝점을 지 원하는 Azure 서비스인 경우 [지역 VNet 통합](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) 및 서비스 끝점이 나 개인 끝점을 사용 하 여 SNAT 포트 소모 문제를 방지할 수 있습니다. 지역 VNet 통합을 사용 하 고 통합 서브넷에 서비스 끝점을 추가 하는 경우 해당 서비스에 대 한 아웃 바운드 트래픽에는 아웃 바운드 SNAT 포트 제한이 적용 되지 않습니다. 마찬가지로, 지역 VNet 통합 및 개인 끝점을 사용 하는 경우에는 해당 대상에 대 한 아웃 바운드 SNAT 포트 문제가 발생 하지 않습니다. 
 
 SNAT 포트 문제를 방지 하는 것은 동일한 호스트 및 포트에 대 한 새 연결을 반복적으로 만드는 것을 방지 하는 것입니다.
 
@@ -124,7 +124,7 @@ PHP는 연결 풀링을 지원 하지 않지만 백 엔드 서버에 대 한 영
 
 아웃 바운드 TCP 제한을 방지 하는 것은 작업자의 크기에 따라 제한이 설정 되므로 더 쉽게 해결할 수 있습니다. [샌드박스에서 VM 간 숫자 제한-TCP 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 의 제한을 확인할 수 있습니다.
 
-|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 
@@ -156,7 +156,7 @@ TCP 연결 및 SNAT 포트는 직접 관련 되지 않습니다. TCP 연결 사�
 * TCP 연결 제한은 작업자 인스턴스 수준에서 발생 합니다. Azure 네트워크 아웃 바운드 부하 분산에서는 SNAT 포트 제한에 TCP 연결 메트릭을 사용 하지 않습니다.
 * TCP 연결 제한은 [샌드박스 교차 VM 숫자 제한-Tcp 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 에 설명 되어 있습니다.
 
-|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385486"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446559"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linux Virtual Machines에 대 한 Azure 보안 기준
 
@@ -628,9 +628,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure 업데이트 관리 솔루션을 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 시스템을 패치 합니다.
 
-* [Azure의 업데이트 관리 솔루션](../../automation/automation-update-management.md)
+* [Azure의 업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](../../automation/automation-tutorial-update-management.md)
+* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -640,9 +640,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 타사 패치 관리 솔루션을 사용할 수 있습니다. Azure 업데이트 관리 솔루션을 사용 하 여 가상 컴퓨터에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 시스템을 패치 합니다.
 
-* [Azure의 업데이트 관리 솔루션](../../automation/automation-update-management.md)
+* [Azure의 업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](../../automation/automation-tutorial-update-management.md)
+* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 

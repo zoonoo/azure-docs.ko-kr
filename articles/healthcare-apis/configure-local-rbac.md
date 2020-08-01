@@ -1,5 +1,5 @@
 ---
-title: FHIR 용 Azure API에 대 한 RBAC (로컬 역할 기반 Access Control) 구성
+title: FHIR 용 Azure API에 대 한 로컬 RBAC (로컬 역할 기반 액세스 제어) 구성
 description: 이 문서에서는 데이터 평면에 외부 Azure AD 테 넌 트를 사용 하도록 FHIR 용 Azure API를 구성 하는 방법을 설명 합니다.
 author: hansenms
 ms.service: healthcare-apis
@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 8aa454e272e0dbf4c69941c35a63ee036c16f78f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 11e7d31385140206070e3b415224ccca725d110f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422575"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446910"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>FHIR에 대 한 로컬 RBAC 구성 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2a49c76e6fdb7f957c026e8f8220cd29a7b35d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749963"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448366"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -69,7 +69,7 @@ Azure Monitor 로그의 핵심 기능은 Azure에서 실행 되는 서비스 집
 | 서비스  | Description|
 | :------------- | :-------------|
 | Azure Monitor 로그 | 실제 컴퓨터와 가상 머신을 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
-|Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
+|자동화 | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
 | Backup | 중요한 데이터를 백업하고 복원합니다. |
 | Site Recovery | 중요한 애플리케이션에 고가용성을 제공합니다. |
 
@@ -108,7 +108,7 @@ Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저
 
 ![관리 솔루션](./media/operational-security/azure-operational-security-fig4.png)
 
-여러 서비스를 사용하여 추가 기능을 제공하는 솔루션의 좋은 예로 [업데이트 관리 솔루션](../../automation/automation-update-management.md)이 있습니다. 이 솔루션은 Windows 및 Linux 용 [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) agent를 사용 하 여 각 에이전트의 필수 업데이트에 대 한 정보를 수집 합니다. 이 데이터는 포함 된 대시보드를 사용 하 여 분석할 수 있는 Azure Monitor logs 리포지토리에 기록 됩니다.
+여러 서비스를 사용하여 추가 기능을 제공하는 솔루션의 좋은 예로 [업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)이 있습니다. 이 솔루션은 Windows 및 Linux 용 [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) agent를 사용 하 여 각 에이전트의 필수 업데이트에 대 한 정보를 수집 합니다. 이 데이터는 포함 된 대시보드를 사용 하 여 분석할 수 있는 Azure Monitor logs 리포지토리에 기록 됩니다.
 
 배포를 만들 때 [Azure Automation](../../automation/automation-intro.md)의 runbook을 사용하여 필요한 업데이트를 설치합니다. 이 전체 프로세스를 포털에서 관리할 수 있으며 기본적인 세부 사항에 대해 걱정할 필요가 없습니다.
 

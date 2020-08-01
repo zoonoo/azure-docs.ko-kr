@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 5d5348f8abe8d30c7f23882974b8c121af39636c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860525"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448152"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -103,7 +103,7 @@ App Service 앱을 구성할 때 다음 정보가 필요합니다.
     |필드|Description|
     |-|-|
     |클라이언트 ID| 앱 등록의 **애플리케이션(클라이언트) ID**를 사용합니다. |
-    |발급자 URL| `<authentication-endpoint>/<tenant-id>/v2.0`을 사용하고, *\<authentication-endpoint>* 를 [클라우드 환경의 인증 엔드포인트](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints)로 바꾸고(예: 글로벌 Azure는 "https://login.microsoft.com "), *\< tenant-id>* 를 앱 등록이 생성된 **디렉터리(테넌트) ID**로 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키와 토큰 발급자 클레임 값을 확인하는 등의 용도로 사용됩니다. AAD v1을 사용하는 애플리케이션에서는 `/v2.0` 섹션을 생략할 수 있습니다. |
+    |발급자 URL| 를 사용 하 `<authentication-endpoint>/<tenant-id>/v2.0` 고를 *\<authentication-endpoint>* [클라우드 환경에 대 한 인증 끝점](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (예: https://login.microsoft.com 글로벌 Azure의 경우 "")으로 바꾸고,를 *\<tenant-id>* 앱 등록이 만들어진 **디렉터리 (테 넌 트) ID** 로 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키와 토큰 발급자 클레임 값을 확인하는 등의 용도로 사용됩니다. Azure AD v1 및 Azure Functions apps를 사용 하는 응용 프로그램의 경우 `/v2.0` URL에서 생략 합니다.|
     |클라이언트 암호(선택 사항)| 앱 등록에서 생성한 클라이언트 암호를 사용합니다.|
     |허용되는 토큰 대상| 앱이 클라우드 또는 서버 앱이고 웹앱의 인증 토큰을 허용하려면 웹앱의 **애플리케이션 ID URI**를 여기에 추가합니다. 구성된 **클라이언트 ID**는 암시적으로 *항상* 허용되는 대상으로 간주됩니다. |
 

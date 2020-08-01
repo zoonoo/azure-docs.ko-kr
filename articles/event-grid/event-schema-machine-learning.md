@@ -3,12 +3,12 @@ title: Event Grid 원본으로 Azure Machine Learning
 description: 를 사용 하 여 Machine Learning 작업 영역 이벤트에 제공 되는 속성을 설명 Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090674"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458045"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Machine Learning
 
@@ -186,7 +186,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -201,7 +201,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>MachineLearningServices가 등록 되었습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | ModelName | 문자열 | 등록 된 모델의 이름입니다. |
 | ModelVersion | 문자열 | 등록 된 모델의 버전입니다. |
@@ -210,7 +210,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>MachineLearningServices 배포
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | ServiceName | 문자열 | 배포 된 서비스의 이름입니다. |
 | ServiceComputeType | 문자열 | 배포 된 서비스의 계산 형식 (예: ACI, AKS)입니다. |
@@ -220,7 +220,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>MachineLearningServices
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | experimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
 | experimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
@@ -231,7 +231,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>MachineLearningServices. DatasetDriftDetected
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | DataDriftId | 문자열 | 이벤트를 트리거한 데이터 드리프트 모니터의 ID입니다. |
 | DataDriftName | 문자열 | 이벤트를 트리거한 데이터 드리프트 모니터의 이름입니다. |
@@ -244,7 +244,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>MachineLearningServices. RunStatusChanged
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | experimentId | 문자열 | 실행이 속한 실험의 ID입니다. |
 | experimentName | 문자열 | 실행이 속한 실험의 이름입니다. |
@@ -257,11 +257,11 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 | 제목 | Description |
 | ----- | ----- |
-| [Azure Machine Learning 이벤트 사용](../machine-learning/concept-event-grid-integration.md) | Event Grid와 Azure Machine Learning 통합에 대 한 개요입니다. |
+| [Azure Machine Learning 이벤트 사용](../machine-learning/how-to-use-event-grid.md) | Event Grid와 Azure Machine Learning 통합에 대 한 개요입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
 * Azure Event Grid 구독을 만드는 방법에 대 한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md) 를 참조 하세요.
-* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 방법에 대 한 소개는 [Azure Machine Learning 이벤트](/azure/machine-learning/concept-event-grid-integration) 사용을 참조 하세요.
-* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 예제는 [이벤트 기반 기계 학습 워크플로 만들기](/azure/machine-learning/how-to-use-event-grid) 를 참조 하세요.
+* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 방법에 대 한 소개는 [Azure Machine Learning 이벤트](../machine-learning/how-to-use-event-grid.md) 사용을 참조 하세요.
+* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 예제는 [이벤트 기반 기계 학습 워크플로 만들기](../machine-learning/how-to-use-event-grid.md) 를 참조 하세요.

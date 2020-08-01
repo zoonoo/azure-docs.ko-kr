@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015020"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448052"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -18,7 +18,7 @@ Azure Automation의 Hybrid Runbook Worker 기능을 사용 하 여 역할을 호
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -28,7 +28,7 @@ Hybrid Runbook Worker 역할은 Azure Monitor Log Analytics 작업 영역에 따
 
 Azure Monitor Log Analytics 작업 영역이 없는 경우 작업 영역을 만들기 전에 [Azure Monitor 로그 디자인 지침](../azure-monitor/platform/design-logs-deployment.md) 을 검토 합니다.
 
-작업 영역이 있지만 Automation 계정에 연결 되어 있지 않은 경우 자동화 기능을 사용 하도록 설정 하면 Hybrid Runbook Worker에 대 한 지원을 포함 하 여 Azure Automation 기능을 추가할 수 있습니다. Log Analytics 작업 영역의 Azure Automation 기능 중 하나 (특히 [업데이트 관리](automation-update-management.md) 또는 [변경 내용 추적 및 인벤토리](change-tracking.md))를 사용 하도록 설정 하면 작업자 구성 요소가 에이전트 컴퓨터에 자동으로 푸시됩니다.
+작업 영역이 있지만 Automation 계정에 연결 되어 있지 않은 경우 자동화 기능을 사용 하도록 설정 하면 Hybrid Runbook Worker에 대 한 지원을 포함 하 여 Azure Automation 기능을 추가할 수 있습니다. Log Analytics 작업 영역의 Azure Automation 기능 중 하나 (특히 [업데이트 관리](update-management/update-mgmt-overview.md) 또는 [변경 내용 추적 및 인벤토리](change-tracking.md))를 사용 하도록 설정 하면 작업자 구성 요소가 에이전트 컴퓨터에 자동으로 푸시됩니다.
 
    작업 영역에 업데이트 관리 기능을 추가 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
@@ -77,7 +77,7 @@ Hybrid Runbook Worker에 대한 상세한 네트워킹 요구 사항은 [네트�
 Automation 계정의 Hybrid Runbook Worker 그룹에 작업자 컴퓨터를 추가할 수 있습니다. Azure Automation 기능과 하이브리드 Hybrid Runbook Worker 그룹 멤버 자격 모두에 대해 동일한 계정을 사용하는 한, Automation Runbook을 지원해야 합니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 
 >[!NOTE]
->Azure Automation [업데이트 관리](automation-update-management.md) 를 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 Windows 컴퓨터가 자동으로 운영 체제 업데이트 관리를 지원 하기 위한 Hybrid Runbook Worker로 구성 됩니다. 그러나 이 작업자는 Automation 계정에서 이미 정의한 어떤 Hybrid Runbook Worker 그룹에도 등록되지 않습니다.
+>Azure Automation [업데이트 관리](update-management/update-mgmt-overview.md) 를 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 Windows 컴퓨터가 자동으로 운영 체제 업데이트 관리를 지원 하기 위한 Hybrid Runbook Worker로 구성 됩니다. 그러나 이 작업자는 Automation 계정에서 이미 정의한 어떤 Hybrid Runbook Worker 그룹에도 등록되지 않습니다.
 
 ## <a name="enabling-machines-for-management-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 사용 하 여 관리를 위해 컴퓨터 사용
 
@@ -169,7 +169,7 @@ Heartbeat
 
 검색 결과에는 컴퓨터에 대 한 하트 비트 레코드가 표시 되 고이 레코드가 서비스에 연결 되 고 보고 되 고 있음을 나타냅니다. 기본적으로 모든 에이전트는 하트비트 레코드를 할당된 작업 영역으로 전달합니다. 다음 단계를 수행하여 에이전트 설치 및 설정을 완료합니다.
 
-1. 기능을 사용하도록 설정하여 에이전트 컴퓨터를 추가합니다. 업데이트 관리 및 Azure Vm의 경우 azure [Vm 사용](automation-onboard-solutions-from-automation-account.md#enable-azure-vms)및 비 azure vm의 경우 [작업 영역에서 컴퓨터 사용](automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace)을 참조 하세요. 변경 내용 추적 및 Azure Vm의 경우 azure [Vm 사용](automation-enable-changes-from-auto-acct.md#enable-azure-vms)및 비 azure vm의 경우 [작업 영역에서 컴퓨터 사용](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace)을 참조 하세요.
+1. 기능을 사용하도록 설정하여 에이전트 컴퓨터를 추가합니다. 업데이트 관리 및 Azure Vm의 경우 [Automation 계정에서 업데이트 관리 사용](update-management/update-mgmt-enable-automation-account.md)업데이트 관리을 참조 하 고, [Azure Portal 찾아보거나](update-management/update-mgmt-enable-portal.md), [runbook에서 업데이트 관리를 사용 하도록](update-management/update-mgmt-enable-runbook.md)설정 하거나, [azure VM에서 업데이트 관리](update-management/update-mgmt-enable-vm.md)를 사용 하도록 설정 합니다. 변경 내용 추적 및 Azure Vm의 경우 azure [Vm 사용](automation-enable-changes-from-auto-acct.md#enable-azure-vms)및 비 azure vm의 경우 [작업 영역에서 컴퓨터 사용](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace)을 참조 하세요.
 
 2. Hybrid Runbook Worker 버전을 확인 하려면로 이동 하 여 `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` **버전** 하위 폴더를 확인 합니다.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: eb5eb18351f6411a8049e962deed35e5d8f181d9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185248"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447830"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -226,7 +226,7 @@ Start-AzAutomationRunbook `
 
 1. Automation 계정을 만들고 [기여자 역할](automation-role-based-access-control.md)을 가져옵니다.
 2. [계정을 Azure 작업 영역에 연결](../security-center/security-center-enable-data-collection.md)합니다.
-3. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [업데이트 관리](automation-update-management.md) 또는 다른 Automation 기능을 사용 설정합니다. 
+3. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [업데이트 관리](update-management/update-mgmt-overview.md) 또는 다른 Automation 기능을 사용 설정합니다. 
 4. Linux 컴퓨터의 경우 높은 권한이 필요합니다. 로그인하여 [서명 확인을 해제](automation-linux-hrw-install.md#turn-off-signature-validation)합니다.
 
 ## <a name="test-a-runbook"></a>Runbook 테스트

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781653"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445609"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -162,7 +162,7 @@ ServiceNow, G Suite, Box 등의 일부 애플리케이션은 사용자 프로비
 
 ### <a name="how-long-provisioning-takes"></a>프로비저닝 소요 시간
 
-성능은 대로 프로비저닝 작업이 초기 프로비저닝 주기와 증분 주기 중 어느 것을 실행하는지에 따라 달라집니다. 프로비저닝 소요 시간 및 프로비저닝 서비스 상태를 모니터링하는 방법은 [사용자 프로비저닝 상태 확인](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요.
+성능은 대로 프로비저닝 작업이 초기 프로비저닝 주기와 증분 주기 중 어느 것을 실행하는지에 따라 달라집니다. 프로비저닝 소요 시간 및 프로비저닝 서비스 상태를 모니터링하는 방법은 [사용자 프로비저닝 상태 확인](application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요.
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>사용자가 올바르게 프로비저닝되었는지 확인하는 방법
 

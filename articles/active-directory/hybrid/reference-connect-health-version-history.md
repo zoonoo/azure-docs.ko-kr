@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31388f27eddcef2c75d4ad4d2030655b35f6aa1c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76897042"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446958"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -217,7 +217,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="november-2015"></a>2015년 11월
 **새로운 기능:**
 
-* [역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) 에 대 한 지원
 
 **새로운 미리 보기 기능:**
 
@@ -253,4 +253,3 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 ## <a name="next-steps"></a>다음 단계
 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](whatis-hybrid-identity-health.md)에 대해 자세히 알아봅니다.
-

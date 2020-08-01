@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bd6a7ff943b5f3750ce8aaeada32010b88272c2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745618"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447839"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Azure Portal로 Azure Monitor 로그 업데이트 배포 마이그레이션
 
@@ -19,7 +19,7 @@ OMS(Operations Management Suite) 포털은 [더 이상 사용되지 않습니다
 ## <a name="key-information"></a>주요 정보
 
 * 기존 배포는 계속 작동합니다. Azure에서 배포를 다시 만들고 나면 이전 배포를 삭제할 수 있습니다.
-* OMS에 있던 모든 기존 기능을 Azure에서 사용할 수 있습니다. 업데이트 관리에 대한 자세한 내용은 [업데이트 관리 개요](automation-update-management.md)를 참조하세요.
+* OMS에 있던 모든 기존 기능을 Azure에서 사용할 수 있습니다. 업데이트 관리에 대한 자세한 내용은 [업데이트 관리 개요](update-management/update-mgmt-overview.md)를 참조하세요.
 
 ## <a name="access-the-azure-portal"></a>Azure Portal 액세스
 
@@ -74,4 +74,4 @@ OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Automation의 업데이트 관리에 대한 자세한 내용은 [업데이트 관리 개요](automation-update-management.md)를 참조하세요.
+Azure Automation의 업데이트 관리에 대한 자세한 내용은 [업데이트 관리 개요](update-management/update-mgmt-overview.md)를 참조하세요.

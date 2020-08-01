@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf3566e90802f73accdd27f1cd5435e4af7b9be
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281823"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446993"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -74,10 +74,8 @@ ms.locfileid: "87281823"
 
 동일한 사용자 이름/암호 오류가 표시 되 면 통과 인증 에이전트가 제대로 작동 하 고 온-프레미스 UPN을 라우팅할 수 없는 문제일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)을 참조 하세요.
 
-
-
-
-
+> [!IMPORTANT]
+> Azure AD Connect 서버가 도메인에 가입 되지 않은 경우 [Azure AD Connect: 필수 조건](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites)에 설명 된 요구 사항으로 인해 잘못 된 사용자 이름/암호 문제가 발생 합니다.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유(프리미엄 라이선스 필요)
 

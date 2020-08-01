@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230386"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445322"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -47,6 +47,20 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >Azure AD Connect에서 동기화를 사용하도록 설정하면 이전 버전을 실행하는 경우 예정된 사용 중단에 대해 경고하는 상태 알림을 자동으로 받게 됩니다.
 >
 >Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)를 참조하세요.
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>릴리스 상태
+07/29/2020: 다운로드를 위해 릴리스 됨
+
+### <a name="functional-changes"></a>기능 변경 내용
+버그 수정 릴리스입니다. 이 릴리스에는 기능이 변경 되지 않았습니다.
+
+### <a name="fixed-issues"></a>해결된 문제
+
+- AZUREADSSOACC 컴퓨터 계정이 이미 "Active Directory"에 있는 경우 관리자가 "원활한 Single Sign-on"을 사용 하도록 설정할 수 없는 문제를 해결 했습니다.
+- 상태 포털을 통해 복구 된 충돌 하는 개체에 대해 V2 API 델타 가져오기 작업을 수행 하는 동안 준비 오류를 발생 시킨 문제를 해결 했습니다.
+- 사용 하지 않도록 설정 된 사용자 지정 규칙을 사용 하도록 설정한 경우 가져오기/내보내기 구성에서 문제가 해결 되었습니다.
 
 ## <a name="15420"></a>1.5.42.0
 
@@ -587,7 +601,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 
 Type     | 속성                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
-허용    | SYSTEM                        | 모든 권한         | 이 개체  |
+Allow    | SYSTEM                        | 모든 권한         | 이 개체  |
 Allow    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
 Allow    | 도메인 관리자                 | 모든 권한         | 이 개체  |
 Allow    | 관리자                | 모든 권한         | 이 개체  |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781636"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445645"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -50,7 +50,7 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 
 자동으로 프로 비전 하려는 응용 프로그램에 적합 한 라이선스가 필요 합니다. 응용 프로그램에 할당 된 사용자에 게 응용 프로그램 역할에 대 한 적절 한 라이선스가 있는지 여부를 응용 프로그램 소유자와 논의 합니다. Azure AD에서 역할에 따라 자동 프로 비전을 관리 하는 경우 Azure AD에서 할당 된 역할이 응용 프로그램 라이선스에 맞게 조정 되어야 합니다. 응용 프로그램에서 소유한 잘못 된 라이선스는 사용자의 프로 비전/업데이트 중에 오류가 발생할 수 있습니다.
 
-### <a name="terms"></a>용어
+### <a name="terms"></a>사용 약관
 
 이 문서에서는 다음과 같은 용어를 사용 합니다.
 
@@ -71,7 +71,7 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 | 주문형 웹 세미나| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
 | 동영상| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | 온라인 과정| SkillUp Online: [Id 관리](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Azure AD를 많은 SaaS 응용 프로그램과 통합 하 고 이러한 응용 프로그램에 대 한 사용자 액세스를 보호 하는 방법을 알아봅니다. |
-| 서적| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
+| 책| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
 | 자습서| [SaaS 앱을 AZURE AD와 통합 하는 방법에 대 한 자습서 목록을](../saas-apps/tutorial-list.md)참조 하세요. |
 | FAQ| 자동화 된 사용자 프로 비전에 대 한 질문과 [대답](../app-provisioning/user-provisioning.md) |
 
@@ -256,7 +256,7 @@ Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 �
 
 Azure AD 프로 비전 서비스가 처음으로 실행 될 때 원본 시스템 및 대상 시스템에 대 한 초기 주기는 각 대상 시스템에 대 한 모든 사용자 개체의 스냅숏을 만듭니다.
 
-응용 프로그램에 대해 자동 프로 비전을 사용 하도록 설정 하는 경우 초기 주기는 20 분에서 몇 시간까지 걸릴 수 있습니다. 기간은 Azure AD 디렉터리의 크기와 프로 비전 범위에 있는 사용자 수에 따라 달라 집니다. [프로 비전 성능을 향상 하는 방법을](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)참조 하세요.
+응용 프로그램에 대해 자동 프로 비전을 사용 하도록 설정 하는 경우 초기 주기는 20 분에서 몇 시간까지 걸릴 수 있습니다. 기간은 Azure AD 디렉터리의 크기와 프로 비전 범위에 있는 사용자 수에 따라 달라 집니다.
 
 프로 비전 서비스는 초기 주기 후에 두 시스템의 상태를 저장 하 여 후속 증분 주기의 성능을 향상 시킵니다.
 
@@ -299,8 +299,6 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 * [Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제](../app-provisioning/application-provisioning-config-problem.md)
 
 * [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [Azure AD 갤러리 애플리케이션에 대한 사용자 프로비저닝이 오래 걸림](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

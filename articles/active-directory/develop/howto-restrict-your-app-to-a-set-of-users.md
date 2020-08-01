@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477790"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445468"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>방법: azure ad 테 넌 트에서 사용자 집합으로 Azure AD 앱 제한
 
@@ -26,7 +26,7 @@ ms.locfileid: "85477790"
 
 마찬가지로, [다중 테넌트](howto-convert-app-to-be-multi-tenant.md) 앱의 경우 이 앱이 프로비전된 Azure AD 테넌트의 모든 사용자는 각 테넌트에서 성공적으로 인증되면 이 애플리케이션에 액세스할 수 있게 됩니다.
 
-테넌트 관리자 및 개발자에게는 종종 앱을 특정 사용자 집합으로 제한해야 하는 요구 사항이 있습니다. 개발자는 RBAC(역할 기반 액세스 제어)처럼 인기 있는 권한 부여 패턴을 사용하여 동일하게 수행할 수 있지만, 이 접근 방식은 개발자가 상당한 양의 작업을 수행해야 합니다.
+테넌트 관리자 및 개발자에게는 종종 앱을 특정 사용자 집합으로 제한해야 하는 요구 사항이 있습니다. 개발자는 azure RBAC (역할 기반 액세스 제어)와 같은 널리 사용 되는 권한 부여 패턴을 사용 하 여 동일한 작업을 수행할 수 있지만이 방법에는 개발자의 일부에 상당한 양의 작업이 필요 합니다.
 
 테 넌 트 관리자 및 개발자는 Azure AD의 기본 제공 기능을 사용 하 여 테 넌 트에서 특정 사용자 또는 보안 그룹 집합으로 앱을 제한할 수 있습니다.
 

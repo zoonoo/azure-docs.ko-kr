@@ -848,7 +848,7 @@
         - name: 디스크에 VHD 업로드 - PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 디스크를 안전하게 가져오기/내보내기 - 포털
-          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 디스크 크기 조정
           href: expand-os-disk.md
         - name: Storage Explorer를 사용하여 디스크 관리

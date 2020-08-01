@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 1063f7189de4bdf1aaca4a6d72c979476433c32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098269"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445779"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>질문과 대답-인증서 가져오기 Azure Key Vault
 
@@ -64,6 +64,9 @@ ms.locfileid: "87098269"
 
 ### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-auto-renew-feature-still-work"></a>파트너 CA에서 인증서를 가져오는 경우 자동 갱신 기능이 계속 작동 하나요?
 예, 업로드 한 후에는 인증서의 발급 정책에서 autorotation를 지정 해야 합니다. 또한 다음 주기 또는 인증서 버전까지 변경 내용이 반영 됩니다.
+
+### <a name="unable-to-see-the-app-service-certificate-imported-to-key-vault"></a>Key Vault으로 가져온 App Service Certificate를 볼 수 없나요? 
+인증서를 성공적으로 가져온 경우 비밀 블레이드에서을 검토 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

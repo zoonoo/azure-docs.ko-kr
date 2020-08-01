@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221285"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448727"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 보기 및 할당
 
@@ -56,6 +56,12 @@ ms.locfileid: "86221285"
 역할의 멤버를 보고 있는 경우 **설명**을 선택하여 역할 할당에서 부여된 권한의 전체 목록을 확인합니다. 이 페이지에는 디렉터리 역할을 관리하는 데 도움이 되는 관련 설명서에 대한 링크가 포함되어 있습니다.
 
 ![관리 역할에 대한 권한 목록](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="download-role-assignments"></a>역할 할당 다운로드
+
+특정 역할에 대 한 모든 할당을 다운로드 하려면 역할 **및 관리자** 페이지에서 역할을 선택한 다음 **역할 할당 다운로드**를 선택 합니다. 해당 역할의 모든 범위에서 할당을 나열 하는 CSV 파일이 다운로드 됩니다.
+
+![역할에 대 한 모든 할당 다운로드](./media/directory-manage-roles-portal/download-role-assignments.png)
 
 ## <a name="assign-a-role"></a>역할 할당
 

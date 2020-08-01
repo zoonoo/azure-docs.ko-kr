@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011637"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448389"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2와 v3 비교
 
@@ -83,7 +83,8 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
     * 입력에 오디오가 없을 때 무음 오디오 트랙 삽입
     * 입력에 비디오가 없을 때 비디오 트랙 삽입
 * 코드 변환을 사용하는 라이브 이벤트는 현재 슬레이트 삽입 중간 스트림 및 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
- 
+* `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git`에서 V2 REST API를 사용 하는 방법에 대 한 모범 사례 및 패턴은 샘플 코드를 참조 하세요. NETCore SDK.
+
 ## <a name="asset-specific-changes"></a>Asset 관련 변경 내용
 
 ### <a name="map-v3-asset-properties-to-v2"></a>V2에 v3 자산 속성 매핑
@@ -110,8 +111,8 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 |암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 관리 하는 키입니다.|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
-|[미사용 데이터에 대한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원 여부|지원 여부|
-|[스토리지 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않음|지원되지 않음|
+|[미사용 데이터에 대한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨|지원됨|
+|[스토리지 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원 안 함|지원 안 함|
 
 <sup>1</sup> Media Services는 암호화 형식 없이 clear/의 콘텐츠 처리를 지원 하지만 그렇게 하지 않는 것이 좋습니다.
 

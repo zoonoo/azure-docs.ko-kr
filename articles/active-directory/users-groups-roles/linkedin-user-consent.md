@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c35204e37e3aae930577697779b8f945c4fbfbcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ec7f8210df9e41b2620e639eddbc98d4bcb73d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727214"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448669"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn 계정 연결 데이터 공유 및 동의
 
@@ -39,7 +39,9 @@ Microsoft 앱 및 서비스 내에서 LinkedIn 정보에 대한 액세스 권한
 조직에 대한 설정을 관리하려면 Azure Active Directory 관리자여야 합니다. 모든 사용자 또는 사용자의 특정 집합에 대해 사용할 수 있습니다.
 
 1. 통합을 사용 하거나 사용 하지 않도록 설정 하려면 [AZURE AD 조직에 대 한 LinkedIn 통합에 동의 하](linkedin-integration.md)는 단계를 수행 합니다.
-2. 조직에서 LinkedIn을 통합한다고 공지하면 사용자에게 [Microsoft 앱 및 서비스의 LinkedIn 정보](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381)에 대한 FAQ를 알려줍니다. 이 문서에서는 LinkedIn 정보가 표시되는 위치, 계정을 연결하는 방법 등에 대한 정보를 제공합니다.
+2. 조직에서 LinkedIn을 통합한다고 공지하면 사용자에게 [Microsoft 앱 및 서비스의 LinkedIn 정보](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381)에 대한 FAQ를 알려줍니다. 이 문서에서는 LinkedIn 정보가 표시 되는 위치, [데이터 공유 및 개인 정보](https://support.microsoft.com/office/your-data-ae9c08a7-4d06-45b5-a065-320a97bc1400), [계정에 연결 하는 방법](https://support.microsoft.com/office/connect-your-linkedin-and-work-or-school-accounts-c7c245f2-fa56-4c9b-ba20-3fceb23c5772) 에 대 한 정보를 제공 합니다.
+
+Linkedin 통합과 관련 된 데이터 공유 및 개인 정보 보호와 관련 된 모든 정보를 제공 하는 사용자에 게 Linkedin 통합을 발표 해야 합니다. 사용자가 라이선스를 사용 하 여에서 계정을 연결할 수 있도록 하려면 
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Microsoft 및 LinkedIn의 데이터 액세스에 대한 사용자 동의
 

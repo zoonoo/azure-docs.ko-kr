@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187530"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448531"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 Azure SQL Managed Instance 마이그레이션에 대 한 네트워크 토폴로지
 
@@ -39,7 +39,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 작업 환경에 다음과 같은 시나리오 중 하나 이상이 필요한 경우 이 네트워크 토폴로지를 사용합니다.
 
 - SQL Managed Instance 온-프레미스 연결과 격리 되지만 Azure Database Migration Service 인스턴스는 온-프레미스 네트워크에 연결 됩니다.
-- RBAC (역할 기반 Access Control) 정책이 적용 되는 경우 SQL Managed Instance를 호스트 하는 동일한 구독에 액세스 하도록 사용자를 제한 해야 합니다.
+- Azure RBAC (역할 기반 액세스 제어) 정책이 적용 되는 경우 SQL Managed Instance를 호스트 하는 동일한 구독에 액세스 하도록 사용자를 제한 해야 합니다.
 - SQL Managed Instance 및 Azure Database Migration Service에 사용 되는 가상 네트워크가 서로 다른 구독에 있습니다.
 
 ![온-프레미스 네트워크에서 격리된 Managed Instance의 네트워크 토폴로지](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 작업 환경에 다음과 같은 시나리오 중 하나 이상이 필요한 경우 이 네트워크 토폴로지를 사용합니다.
 
 - SQL Managed Instance 격리 된 가상 네트워크에 프로 비전 됩니다.
-- RBAC (역할 기반 Access Control) 정책이 적용 되는 경우 SQL Managed Instance를 호스트 하는 동일한 구독에 액세스 하도록 사용자를 제한 해야 합니다.
+- Azure RBAC (역할 기반 액세스 제어) 정책이 적용 되는 경우 사용자에 게 SQL Managed Instance를 호스트 하는 동일한 구독에 액세스 하도록 제한 해야 합니다.
 - SQL Managed Instance 및 Azure Database Migration Service에 사용 되는 가상 네트워크가 서로 다른 구독에 있습니다.
 
 ![Isolated VNet을 사용 하 여 클라우드-클라우드 마이그레이션에 대 한 네트워크 토폴로지](media/resource-network-topologies/cloud-to-cloud-isolated.png)
@@ -90,7 +90,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 | SMB 공유                 | 445                                                   | TCP          | 모두        | 온-프레미스 주소 공간 | 허용      | Azure SQL Database MI 및 Azure VM의 SQL Server로 마이그레이션할 데이터베이스 백업 파일을 저장하는 DMS용 SMB 네트워크 공유 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.) |
 | DMS_subnet                | 모두                                                   | 모두          | 모두        | DMS_Subnet                | 허용      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [SQL Managed Instance SQL Server 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
 - [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](https://docs.microsoft.com/azure/dms/pre-reqs)

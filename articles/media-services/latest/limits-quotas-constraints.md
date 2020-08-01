@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043503"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446330"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>할당량 및 한도 Azure Media Services
@@ -28,14 +28,14 @@ ms.locfileid: "87043503"
 
 ## <a name="account-limits"></a>계정 제한
 
-| 리소스 | 기본 제한 | 
-| --- | --- | 
+| 리소스 | 기본 제한 |
+| --- | --- |
 | 단일 구독의 [Media Services 계정](media-services-account-concept.md) | 25(고정) |
 
 ## <a name="asset-limits"></a>자산 제한
 
-| 리소스 | 기본 제한 | 
-| --- | --- | 
+| 리소스 | 기본 제한 |
+| --- | --- |
 | Media Services 계정 당 [자산](assets-concept.md) | 1,000,000|
 
 ## <a name="storage-limits"></a>스토리지 제한
@@ -86,9 +86,10 @@ ms.locfileid: "87043503"
 
 ## <a name="packaging--delivery-limits"></a>패키지 & 배달 제한
 
-| 리소스 | 기본 제한 | 
-| --- | --- | 
+| 리소스 | 기본 제한 |
+| --- | --- |
 | Media Services 계정에 따라 [스트리밍 끝점](streaming-endpoint-concept.md) (중지 됨 또는 실행 중)|2 |
+| 프리미엄 스트리밍 단위 | 10 |
 | [동적 매니페스트 필터](filters-dynamic-manifest-overview.md)|100|
 | [스트리밍 정책](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | 한 번에 자산과 연결 된 고유한 [스트리밍 로케이터](streaming-locators-concept.md) | 100<sup>(7)</sup> (고정) |

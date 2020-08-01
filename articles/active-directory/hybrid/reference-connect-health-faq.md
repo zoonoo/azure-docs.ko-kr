@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331070"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446979"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -68,10 +68,10 @@ ms.locfileid: "80331070"
 
 | 역할 | 기능 | 독일 클라우드에서 지원됨 |
 | ------ | --------------- | --- |
-| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
 |  | 동기화 오류 보고서 | 예 |
-| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
-| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
+| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
 
 동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.
 
@@ -135,11 +135,11 @@ Health Agent는 다음과 같은 원인으로 등록에 실패할 수 있습니�
 
 * 방화벽이 트래픽을 차단하고 있어서 에이전트가 필수 엔드포인트와 통신할 수 없습니다. 특히 웹 애플리케이션 프록시 서버에서 자주 발생하는 문제입니다. 필수 엔드포인트 및 포트에 아웃바운드 통신을 허용해야 합니다. 자세한 내용은 [요구 사항 섹션](how-to-connect-health-agent-install.md#requirements) 을 참조 하세요.
 * 아웃 바운드 통신은 네트워크 계층에서 TLS 검사를 합니다. 이로 인해 에이전트에서 사용하는 인증서가 검사 서버/엔터티로 교체되고, 에이전트 등록을 완료하는 단계가 실패합니다.
-* 사용자는 에이전트의 등록을 수행하기 위한 액세스 권한이 없습니다. 전역 관리자는 기본적으로 액세스 권한이 있습니다. [역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)을 사용하여 다른 사용자에 대한 액세스를 위임할 수 있습니다.
+* 사용자는 에이전트의 등록을 수행하기 위한 액세스 권한이 없습니다. 전역 관리자는 기본적으로 액세스 권한이 있습니다. Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) 를 사용 하 여 다른 사용자에 게 액세스 권한을 위임할 수 있습니다.
 
 **Q: "상태 관리 서비스 데이터가 최신 상태가 아닙니다." 라는 경고 메시지가 표시 됩니다. 어떻게 할까요? 문제를 해결 하 시겠습니까?**
 
-Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. [자세히 알아보기](how-to-connect-health-data-freshness.md).
+Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. [자세히 알아봅니다](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>작업 관련 질문
 **Q: 웹 애플리케이션 프록시 서버에 대한 감사를 사용하도록 설정해야 하나요?**

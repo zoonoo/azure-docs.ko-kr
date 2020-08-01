@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360132"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447100"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
 > [!NOTE]
@@ -61,7 +61,7 @@ ms.locfileid: "85360132"
 
     a. **엔터프라이즈 관리자 자격 증명 제공**: 디바이스를 다시 써야 하는 포리스트에 대한 엔터프라이즈 관리자 자격 증명을 제공하면 Azure AD Connect는 디바이스 쓰기 저장을 구성하는 동안 자동으로 포리스트를 준비합니다.
 
-    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 디바이스 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 디바이스를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.psq** PowerShell 스크립트를 제공합니다.
+    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 디바이스 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 다운로드 한 PowerShell 스크립트 **CreateDeviceContainer.ps1** 을 장치를 다시 쓸 포리스트의 엔터프라이즈 관리자에 게 제공 합니다.
     ![Active Directory 포리스트 준비](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     active directory 포리스트를 준비하기 위해 다음 작업이 수행됩니다.

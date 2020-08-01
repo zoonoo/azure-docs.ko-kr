@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4a5f7e1f55eb5b4a68ee889ef6e1378eb573a6a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0ce7877ebd33385deb98977c9439bf8a05b5325
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099183"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447285"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -137,7 +137,7 @@ Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 �
 
 ### <a name="authentication-and-authorization"></a>인증 및 권한 부여
 
-* Azure RBAC (역할 기반 Access Control)는 팀 내에서 분리 업무를 수행 하는 데 필요한 사용자 에게만 액세스 권한을 부여 하 고 세분화 된 액세스 관리를 가능 하 게 합니다. [자세한 내용은 여기를 참조](backup-rbac-rs-vault.md)하세요.
+* Azure RBAC (역할 기반 액세스 제어)는 팀 내에서 분리 업무를 수행 하는 데 필요한 사용자 에게만 액세스 권한을 부여 하 고 세분화 된 액세스 관리를 가능 하 게 합니다. [자세한 내용은 여기를 참조](backup-rbac-rs-vault.md)하세요.
 
 * Azure Backup는 백업 관리 작업을 제어 하기 위한 세 가지 기본 제공 역할인 백업 참가자, 운영자 및 판독기를 제공 합니다. [자세한 내용은 여기를 참조](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)하세요.
 

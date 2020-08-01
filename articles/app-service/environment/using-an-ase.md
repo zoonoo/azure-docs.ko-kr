@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 64798e22a893c87a17e3f17077860537c7694c40
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042189"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448203"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -126,15 +126,15 @@ SCM URL은 Kudu 콘솔에 액세스 하거나 웹 배포를 사용 하 여 앱�
 
 ILB ASE를 사용 하 여 자체 DNS 서버에서 DNS를 구성 하려면:
 
-1. appserviceenvironment.net에 대 한 영역을 만듭니다 <ASE name> .
+1. &lt;ASE 이름&gt;.appserviceenvironment.net 영역 만들기
 1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 1. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
-1. appserviceenvironment.net에서 scm 이라는 영역을 만듭니다 <ASE name> .
+1. &lt;ASE 이름&gt;.appserviceenvironment.net에 scm이라는 영역 만들기
 1. scm 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 
 Azure DNS 개인 영역에서 DNS를 구성 하려면:
 
-1. appserviceenvironment.net 라는 Azure DNS 개인 영역을 만듭니다 <ASE name> .
+1. ASE 이름이 appserviceenvironment.net 인 Azure DNS 개인 영역을 만듭니다 &lt; &gt; .
 1. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 1. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
 1. 해당 영역에서 ILB IP 주소에 * scm을 가리키는 A 레코드를 만듭니다.

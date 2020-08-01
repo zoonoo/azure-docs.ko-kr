@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/02/2020
-ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298604"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448535"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -195,13 +195,21 @@ Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>업데이트 수, upsert, 삽입, 삭제 수
-Alter Row 변환을 사용 하는 경우 Alter Row 정책에서 발생 하는 업데이트의 수, upsert, 삽입, 삭제 수를 계산 하는 것이 좋습니다. Alter row 뒤에 집계 변환을 추가 하 고이 데이터 흐름 스크립트를 해당 개수에 대 한 집계 정의에 붙여 넣습니다.
+Alter Row 변환을 사용 하는 경우 Alter Row 정책에서 발생 하는 업데이트의 수, upsert, 삽입, 삭제 수를 계산 하는 것이 좋습니다. Alter row 뒤에 집계 변환을 추가 하 고이 데이터 흐름 스크립트를 해당 개수에 대 한 집계 정의에 붙여넣습니다.
 
 ```
 aggregate(updates = countIf(isUpdate(), 1),
         inserts = countIf(isInsert(), 1),
         upserts = countIf(isUpsert(), 1),
         deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### <a name="distinct-row-using-all-columns"></a>모든 열을 사용 하는 고유 행
+이 코드 조각은 들어오는 모든 열을 사용 하 고, 그룹화에 사용 되는 해시를 생성 하 여 중복 항목을 제거 하 고, 각 중복 항목을 출력으로 제공 하는 새 집계 변환을 데이터 흐름에 추가 합니다. 열 이름을 명시적으로 지정할 필요는 없으며 들어오는 데이터 스트림에서 자동으로 생성 됩니다.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
 ```
 
 ## <a name="next-steps"></a>다음 단계
