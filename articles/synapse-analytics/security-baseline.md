@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370277"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501953"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Synapse Analytics에 대 한 Azure 보안 기준
 
@@ -1014,7 +1014,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: Synapse SQL 풀의 스냅숏은 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 자동으로 수행 됩니다. 이 보존 기간은 변경할 수 없습니다. SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다. 필요한 경우 스냅숏을 수동으로 트리거할 수도 있습니다.
 
-* [Azure Synapse SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Azure Synapse SQL 풀에서 백업 및 복원](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Azure Security Center 모니터링**: 해당 없음
 

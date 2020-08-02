@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182390"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507619"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 
@@ -29,7 +29,7 @@ ms.locfileid: "67182390"
 
     2.  드롭다운 목록에서 **구독**을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 이 필드는 구독이 하나만 있는 경우에는 나타나지 않습니다.
 
-    3.  **리소스 그룹**의 경우 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)을 참조하세요.
+    3.  **리소스 그룹**의 경우 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](/azure/azure-resource-manager/management/manage-resource-groups-portal)을 참조하세요.
 
     4.  서비스의 **위치**를 지정합니다. 각 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/regions/#services) 을 참조하세요. 일반적으로 장치를 배포 하려는 지리적 지역에 가장 가까운 **위치** 를 선택 합니다. 다음 사항을 고려할 수도 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: d717d93b616e8acd296c89322b7277cda5ade3a3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323998"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504316"
 ---
 # <a name="common-issues-during-vhd-creation"></a>VHD를 만들 때 발생하는 일반적인 문제
 
@@ -34,8 +34,8 @@ FAQ(질문과 대답)는 Azure Virtual Machine 제품의 VHD(가상 하드 디�
 
 Windows 및 Linux 기반 VM에 대해 RDS를 다시 설정하는 방법을 설명하는 문서는 다음과 같습니다.
 
-* [Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-* [VMAccess 확장을 사용하여 Linux VM 암호 또는 SSH 키 재설정, SSH 구성 수정, 디스크 일관성 검사를 수행하는 방법](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+* [Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법](/azure/virtual-machines/troubleshooting/reset-rdp)
+* [VMAccess 확장을 사용하여 Linux VM 암호 또는 SSH 키 재설정, SSH 구성 수정, 디스크 일관성 검사를 수행하는 방법](/azure/virtual-machines/extensions/vmaccess)
 
 ## <a name="how-do-i-generate-new-ssh-certificates"></a>새 SSH 인증서를 생성하려면 어떻게 해야 하나요?
 
@@ -59,7 +59,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 세 가지 옵션은
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>VM에서 시작 태스크에 있는 사용자 지정 스크립트 확장을 어떻게 관리하나요?
 
-Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 문제 해결 단계에 대한 자세한 내용은 [Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)을 참조하세요.
+Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 문제 해결 단계에 대한 자세한 내용은 [Windows용 사용자 지정 스크립트 확장](/azure/virtual-machines/extensions/custom-script-windows)을 참조하세요.
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Azure Marketplace에서 32비트 애플리케이션 또는 서비스가 지원되나요?
 

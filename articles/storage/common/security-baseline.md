@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371688"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501375"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -292,7 +292,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: 해당 하는 경우 기본 암호를 변경 합니다.
 
-**지침**: Azure Storage 계정 또는 Azure Active Directory는 기본 또는 빈 암호의 개념이 없습니다. Azure Storage는 Azure 역할 기반 액세스 제어 (RBAC) 뿐만 아니라 공유 키 및 SAS (공유 액세스 서명)를 지 원하는 액세스 제어 모델을 구현 합니다. 공유 키 및 SAS 인증의 특징은 호출자와 연결 된 id가 없으므로 보안 주체 권한 기반 권한 부여를 수행할 수 없다는 것입니다. 
+**지침**: Azure Storage 계정 또는 Azure Active Directory는 기본 또는 빈 암호의 개념이 없습니다. Azure Storage은 azure RBAC (역할 기반 액세스 제어) 뿐만 아니라 공유 키 및 SAS (공유 액세스 서명)를 지 원하는 액세스 제어 모델을 구현 합니다. 공유 키 및 SAS 인증의 특징은 호출자와 연결 된 id가 없으므로 보안 주체 권한 기반 권한 부여를 수행할 수 없다는 것입니다. 
 
 - [Azure Storage 데이터에 대 한 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-auth)
 

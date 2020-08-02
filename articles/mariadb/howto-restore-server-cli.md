@@ -7,18 +7,19 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
-ms.openlocfilehash: 3b1eb164d367aa968b599c6d3e92c48fd94b0098
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 5073cd33d9dada666324e92f3418b2548d9af374
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118718"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502565"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
 
 Azure Database for MariaDB 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

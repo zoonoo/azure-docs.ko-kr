@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 5/26/2020
-ms.openlocfilehash: 1cf5cf3f34f2986bbc18b5293dad4862c24f47a2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 37fb724b83e80c1265755e6440f152143d419051
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121081"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503075"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MariaDB 서버 다시 시작
 
@@ -21,7 +22,7 @@ ms.locfileid: "86121081"
 
 다시 시작을 완료 하는 데 필요한 시간은 complete Iadb 복구 프로세스에 따라 달라 집니다. 다시 시작 시간을 줄이려면 다시 시작 하기 전에 서버에서 발생 하는 작업의 양을 최소화 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

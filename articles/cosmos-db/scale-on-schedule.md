@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262483"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503738"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Azure Functions 타이머 트리거를 사용 하 여 Azure Cosmos DB 처리량 크기 조정
 
 Azure Cosmos 계정의 성능은 초당 요청 단위로 표현 된 프로 비전 된 처리량의 양을 기반으로 합니다. 프로 비전은 두 번째 세분성 이며 시간당 최고 r u/초를 기준으로 요금이 청구 됩니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 대부분의 프로덕션 워크 로드는 이러한 기능을 제공 합니다. 그러나 Azure Cosmos DB 작업 시간 동안만 사용 되는 개발 및 테스트 환경에서는 작업 시간 이후 오전에 처리량을 확장 하 고 저녁에 축소할 수 있습니다.
 
-코어 (SQL) API 계정에 대 한 [Azure Resource Manager 템플릿](resource-manager-samples.md), [Azure CLI](cli-samples.md)및 [PowerShell](powershell-samples-sql.md)을 통해 또는 언어별 Azure Cosmos DB sdk를 사용 하 여 처리량을 설정할 수 있습니다. 리소스 관리자 템플릿, Azure CLI 또는 PowerShell을 사용 하는 경우의 혜택은 모든 Azure Cosmos DB 모델 Api를 지원 한다는 것입니다.
+코어 (SQL) API 계정에 대 한 [Azure Resource Manager 템플릿](resource-manager-samples.md), [Azure CLI](cli-samples.md)및 [PowerShell](powershell-samples.md)을 통해 또는 언어별 Azure Cosmos DB sdk를 사용 하 여 처리량을 설정할 수 있습니다. 리소스 관리자 템플릿, Azure CLI 또는 PowerShell을 사용 하는 경우의 혜택은 모든 Azure Cosmos DB 모델 Api를 지원 한다는 것입니다.
 
 ## <a name="throughput-scheduler-sample-project"></a>처리량 scheduler 샘플 프로젝트
 

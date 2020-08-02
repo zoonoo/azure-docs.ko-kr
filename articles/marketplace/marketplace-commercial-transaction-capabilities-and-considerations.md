@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 33c3cf4b9da33b15d7a7d1c14b0c3fb892b60121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317810"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503568"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
 ## <a name="transactions-by-publishing-option"></a>게시 옵션별 거래
 
-게시자나 Microsoft는 상업용 Marketplace의 제품에 대한 소프트웨어 라이선스 트랜잭션을 관리할 책임이 있습니다. 제품에 대해 선택하는 게시 옵션에 따라 트랜잭션 관리자가 결정됩니다. 각 게시 옵션에 대한 가용성 및 설명은 [게시 옵션 확인](./determine-your-listing-type.md#choose-a-publishing-option)을 참조하세요.
+게시자나 Microsoft는 상업용 Marketplace의 제품에 대한 소프트웨어 라이선스 트랜잭션을 관리할 책임이 있습니다. 제품에 대해 선택하는 게시 옵션에 따라 트랜잭션 관리자가 결정됩니다. 각 게시 옵션에 대한 가용성 및 설명은 [게시 옵션 확인](./determine-your-listing-type.md#choose-a-call-to-action)을 참조하세요.
 
 ### <a name="list-trial-and-byol-publishing-options"></a>목록, 평가판 및 BYOL 게시 옵션
 
@@ -136,7 +136,7 @@ Marketplace 서비스 요금 절감에 적격한 파트너는 2019년 5월부터
 |Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 90%의 라이선스 비용을 지급합니다.   |   매월 $80.00 <br> \* 매월 $90.00    |
 |Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 10%의 라이선스 비용을 유지합니다.  |  매월 $20.00 <br> \* $10.00     |
 
-상업적 marketplace에 게시 하는 특정 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incetivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에 적용 됩니다.
+상업적 marketplace에 게시 하는 특정 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에 적용 됩니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 
@@ -163,7 +163,7 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 
 #### <a name="billing-questions-and-support"></a>청구 관련 질문 및 지원
 
-자세한 내용과 법률 규정은 [게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)(파트너 센터에서 확인 가능)을 참조하세요.
+자세한 내용과 법률 규정은 [게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx)(파트너 센터에서 확인 가능)을 참조하세요.
 
 청구 관련 질문에 대한 도움말은 [상업용 Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport)에 문의하세요.
 

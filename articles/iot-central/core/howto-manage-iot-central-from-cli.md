@@ -7,13 +7,14 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/27/2020
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: c3e0beb9a35b7888787d018b5e3b9c4ceea7e1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd87f15ff63edf1da447faf986cad2f9591610dd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744556"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502973"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
@@ -21,7 +22,7 @@ ms.locfileid: "82744556"
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure CLI](/cli/azure/) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -42,7 +43,7 @@ az extension add --name azure-iot
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-[Az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 예:
+[Az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application

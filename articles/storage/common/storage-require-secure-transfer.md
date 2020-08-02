@@ -10,12 +10,13 @@ ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 668b8d714c4d6c146d9b279d9e6a49599c04775c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 84cbb6f099c7ca94ea7046bae3f4f40e784948fe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423510"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504571"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>보안 연결을 보장 하려면 보안 전송 필요
 

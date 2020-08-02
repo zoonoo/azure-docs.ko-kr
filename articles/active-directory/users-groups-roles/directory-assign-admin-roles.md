@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f87f732fbfff23e71096a89a7c04c65d1bd7959
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432347"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502480"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -392,7 +392,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 ### <a name="privileged-role-administrator"></a>[권한 있는 역할 관리자](#privileged-role-administrator-permissions)
 
-이 역할을 가진 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management에서 역할 할당을 관리할 수 있습니다. 또한 이 역할을 통해 Privileged Identity Management 및 관리 단위의 모든 것을 관리할 수 있습니다.
+이 역할을 가진 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management에서 역할 할당을 관리할 수 있습니다. Azure AD 역할에 할당 될 수 있는 그룹을 만들고 관리할 수 있습니다. 또한 이 역할을 통해 Privileged Identity Management 및 관리 단위의 모든 것을 관리할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 역할은 전역 관리자 역할을 포함하여 모든 Azure AD 역할의 할당을 관리할 수 있습니다. 이 역할은 사용자 생성 또는 업데이트와 같은 Azure AD의 다른 모든 권한 있는 기능을 포함하지는 않습니다. 그러나 이 역할에 할당된 사용자는 추가 역할을 할당하여 본인 또는 다른 사용자에게 추가 권한을 부여할 수 있습니다.
@@ -748,6 +748,9 @@ Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Azure Active Directory에서 directoryRoleTemplates를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft.directory/domains/allProperties/allTasks | Azure Active Directory에서 도메인을 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft.directory/groups/allProperties/allTasks | Azure Active Directory에서 그룹을 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
+| microsoft. directory/groupsAssignableToRoles/allProperties/update | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정한 그룹을 업데이트 합니다. |
+| microsoft. directory/groupsAssignableToRoles/create | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정 하 여 그룹을 만듭니다. |
+| microsoft. directory/groupsAssignableToRoles/delete | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정한 그룹을 삭제 합니다. |
 | microsoft.directory/groupSettings/allProperties/allTasks | Azure Active Directory에서 groupSettings를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Azure Active Directory에서 groupSettingTemplates를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
 | microsoft.directory/loginTenantBranding/allProperties/allTasks | Azure Active Directory에서 loginTenantBranding을 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
@@ -1582,7 +1585,10 @@ Azure AD의 역할 할당 및 Privileged Identity Management의 모든 것을 �
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
+| microsoft. directory/groupsAssignableToRoles/allProperties/update | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정한 그룹을 업데이트 합니다. |
+| microsoft. directory/groupsAssignableToRoles/create | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정 하 여 그룹을 만듭니다. |
+| microsoft. directory/groupsAssignableToRoles/delete | Azure Active Directory에서 isAssignableToRole 속성을 true로 설정한 그룹을 삭제 합니다. |
+| microsoft. directory/privilegedIdentityManagement/allEntities/Allentities | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.directory/servicePrincipals/appRoleAssignedTo/allTasks | Azure Active Directory에서 servicePrincipals.appRoleAssignedTo 속성을 읽고 구성합니다. |
 | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Azure Active Directory에서 servicePrincipals.oAuth2PermissionGrants 속성을 읽고 구성합니다. |
 | microsoft.directory/administrativeUnits/allProperties/allTasks | 관리 단위(구성원 포함)를 만들고 관리합니다. |

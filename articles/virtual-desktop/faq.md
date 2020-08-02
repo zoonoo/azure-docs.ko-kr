@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075632"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504418"
 ---
-# <a name="windows-virtual-desktop-faq"></a>Windows 가상 데스크톱 FAQ
+# <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
 
 이 문서에서는 자주 묻는 질문과 대답을 소개 하 고 Windows 가상 데스크톱에 대 한 모범 사례에 대해 설명 합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "87075632"
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>Windows 가상 데스크톱은 분할 Azure Active Directory 모델을 지원 하나요?
 
-사용자가 앱 그룹에 할당 되 면 서비스는 간단한 Azure RBAC (역할 기반 액세스 제어) 역할 할당을 수행 합니다. 따라서 사용자의 AD (Azure Active Directory)와 앱 그룹의 Azure AD는 동일한 위치에 있어야 합니다. 호스트 풀, 앱 그룹 및 작업 영역과 같은 모든 서비스 개체도 사용자와 동일한 Azure AD에 있어야 합니다.
+사용자가 앱 그룹에 할당 되 면 서비스는 간단한 Azure 역할 할당을 수행 합니다. 따라서 사용자의 AD (Azure Active Directory)와 앱 그룹의 Azure AD는 동일한 위치에 있어야 합니다. 호스트 풀, 앱 그룹 및 작업 영역과 같은 모든 서비스 개체도 사용자와 동일한 Azure AD에 있어야 합니다.
 
 Active Directory를 동일한 VNET (가상 네트워크)에서 사용자의 Azure AD와 동기화 하는 경우 다른 Azure AD에서 Vm (가상 머신)을 만들 수 있습니다.
 

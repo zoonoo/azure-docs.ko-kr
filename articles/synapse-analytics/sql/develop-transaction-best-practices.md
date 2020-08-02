@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075718"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503194"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 최적화
+# <a name="optimize-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 최적화
 
 긴 롤백에 대한 위험을 최소화하면서 SQL 풀의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 
@@ -82,7 +82,7 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 
 클러스터형 인덱스가 포함된 비어 있지 않은 테이블로 데이터를 로드하면 전체 로깅 행과 최소 로깅 행이 모두 포함되는 경우가 종종 있습니다. 클러스터형 인덱스는 균형 잡힌 페이지 트리(b-트리)입니다. 쓰여지고 있는 페이지가 이미 다른 트랜잭션의 행을 포함하고 있으면 쓰기 작업이 전체 로깅됩니다. 그러나 페이지가 비어 있으면 해당 페이지에 대한 쓰기 작업이 최소한으로 로깅됩니다.
 
-## <a name="optimizing-deletes"></a>삭제 최적화
+## <a name="optimize-deletes"></a>삭제 최적화
 
 DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
 
@@ -114,7 +114,7 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>업데이트 최적화
+## <a name="optimize-updates"></a>업데이트 최적화
 
 UPDATE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
 
@@ -179,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > [!NOTE]
 > 대규모 테이블을 다시 만들면 SQL 풀 워크로드 관리 기능의 이점을 활용할 수 있습니다. 자세한 내용은 [워크로드 관리를 위한 리소스 클래스](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
-## <a name="optimizing-with-partition-switching"></a>파티션 전환을 사용하여 최적화
+## <a name="optimize-with-partition-switching"></a>파티션 전환을 사용 하 여 최적화
 
 [테이블 파티션](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 내부에서 대규모 수정 작업에 직면하는 경우 파티션 전환 패턴을 사용하는 것이 효율적입니다. 데이터 수정 작업이 대규모이고 여러 파티션에 걸쳐 있는 경우 파티션을 반복해도 동일한 결과를 얻습니다.
 

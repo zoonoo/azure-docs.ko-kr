@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 09f866d7ed72e82770a7f3a0fe5da24bb864851f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126077"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502939"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
 
@@ -33,7 +33,7 @@ ms.locfileid: "87126077"
 1.  Azure Data Lake Storage Gen1 계정을 찾습니다.
 2.  **사용자**를 클릭합니다.
 3. **추가**를 클릭합니다.
-4.  이 그룹에 할당하려는 Azure RBAC 역할을 선택합니다.
+4.  이 그룹을 할당할 Azure 역할을 선택 합니다.
 5.  읽기 권한자 역할에 할당합니다. 이 역할에는 ADLSGen1에 저장된 데이터를 이동/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
 6.  그룹의 이름에 입력합니다.
 7.  **확인**을 클릭합니다.
@@ -54,4 +54,3 @@ ms.locfileid: "87126077"
 * [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Azure Portal을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
 * [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
-
