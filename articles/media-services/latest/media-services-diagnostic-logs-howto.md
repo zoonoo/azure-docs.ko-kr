@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 19acd39be11a33424008662eb27cd68ec0005f77
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038956"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501238"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -73,7 +74,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \

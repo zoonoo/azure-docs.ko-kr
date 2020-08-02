@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: edcecefab6243645c47af0ec1b8dd4b26fe22bb7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131823"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501119"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
 
@@ -324,7 +324,7 @@ Azure Active Directory를 사용 하 여 프로그래밍 방식으로 키에 액
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: 전용 관리 계정 사용
 
-**지침**: 해당 사항 없음 Azure Cosmos DB는 관리자 계정을 지원 하지 않습니다.  모든 액세스는 Azure Active Directory 및 Azure RBAC (역할 기반 액세스 제어)와 통합 됩니다.
+**지침**: 해당 사항 없음 Azure Cosmos DB는 관리자 계정을 지원 하지 않습니다.  모든 액세스는 Azure Active Directory 및 Azure 역할 기반 액세스 제어 (Azure RBAC)와 통합 됩니다.
 
 
 

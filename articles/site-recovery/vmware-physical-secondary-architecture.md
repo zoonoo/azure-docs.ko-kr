@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9b16a0edc1549a1b4d8ef5ba53d8b795f6d74e07
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c884ce839523706e67e4278f43e237e1a2b0580
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418324"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496970"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>VMware용 아키텍처/보조 온-프레미스 사이트에 물리적 서버 복제
 
@@ -55,9 +55,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 2. 초기 복제 후 각 컴퓨터에서 에이전트는 델타 복제 변경을 프로세스 서버로 보냅니다.
 3. 프로세스 서버가 데이터를 최적화하고 보조 사이트의 마스터 대상 서버로 보냅니다. 구성 서버는 복제 프로세스를 관리합니다.
 
-**그림 6: VMware에서 VMware로 복제**
-
-![VMware 간](./media/site-recovery-components/vmware-to-vmware.png)
+![VMware Vm 및 물리적 서버를 보조 데이터 센터에 복제 하는 방법을 보여 주는 다이어그램](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 

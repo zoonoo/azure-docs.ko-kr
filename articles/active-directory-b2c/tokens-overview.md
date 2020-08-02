@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757622"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482586"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 토큰 개요
 
@@ -97,7 +97,7 @@ ID 토큰에 있는 클레임은 특정 순서로 반환되지 않습니다. 또
 
 ## <a name="pass-through"></a>통과
 
-사용자가 과정을 시작하면 Azure AD B2C는 ID 공급자로부터 액세스 토큰을 받습니다. Azure AD B2C는 이 토큰을 사용하여 해당 사용자에 대한 정보를 검색합니다. 사용자는 Azure AD B2C에서 등록한 애플리케이션으로 토큰이 통과되도록 [사용자 흐름에서 클레임을 활성화](idp-pass-through-user-flow.md)하거나 [사용자 지정 정책에서 클레임을 정의](idp-pass-through-custom.md)합니다. 애플리케이션은 [v2 사용자 흐름](user-flow-versions.md)을 사용하여 토큰을 클레임으로 전달하는 기능을 활용해야 합니다.
+사용자가 과정을 시작하면 Azure AD B2C는 ID 공급자로부터 액세스 토큰을 받습니다. Azure AD B2C는 이 토큰을 사용하여 해당 사용자에 대한 정보를 검색합니다. 사용자는 Azure AD B2C에서 등록한 애플리케이션으로 토큰이 통과되도록 [사용자 흐름에서 클레임을 활성화](idp-pass-through-user-flow.md)하거나 [사용자 지정 정책에서 클레임을 정의](idp-pass-through-custom.md)합니다. 토큰을 클레임으로 전달 하는 기능을 활용 하려면 응용 프로그램에서 [권장 사용자 흐름](user-flow-versions.md) 을 사용 해야 합니다.
 
 Azure AD B2C는 현재 Facebook 및 Google을 비롯한 OAuth 2.0 ID 공급자의 액세스 토큰 통과만 지원합니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
 

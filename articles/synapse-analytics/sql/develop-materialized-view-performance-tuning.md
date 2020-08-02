@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: a3b012d86444ca2bb9b84af37aa17424221457d1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955066"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495695"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
 
@@ -40,7 +40,7 @@ SQL 풀은 표준 및 구체화된 뷰를 모두 지원합니다.  둘 다 SELEC
 |추가 스토리지                   | 예                                           | 예
 |구문                          | CREATE VIEW                                  | CREATE MATERIALIZED VIEW AS SELECT
 
-## <a name="benefits-of-using-materialized-views"></a>구체화된 뷰 사용의 이점
+## <a name="benefits-of-materialized-views"></a>구체화 된 뷰의 이점
 
 잘 디자인된 구체화된 뷰는 다음과 같은 이점을 제공합니다.
 

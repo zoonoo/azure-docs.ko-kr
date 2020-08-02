@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327007"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495374"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer로 데이터 가져오기 (미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "87327007"
 
 ### <a name="register-a-dataset"></a>데이터 세트 등록
 
-[SDK를 사용하여 프로그래밍 방식으로](how-to-create-register-datasets.md#use-the-sdk) 또는 [Azure Machine Learning 스튜디오에서 시각적으로](how-to-create-register-datasets.md#use-the-ui) 기존 데이터 세트를 등록할 수 있습니다.
+[SDK를 사용하여 프로그래밍 방식으로](how-to-create-register-datasets.md#datasets-sdk) 또는 [Azure Machine Learning 스튜디오에서 시각적으로](how-to-create-register-datasets.md#datasets-ui) 기존 데이터 세트를 등록할 수 있습니다.
 
 모든 디자이너 모듈의 출력을 데이터 세트로 등록할 수도 있습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "87327007"
 데이터 가져오기 모듈을 사용하는 방법에 대한 자세한 내용은 [데이터 가져오기 참조 페이지](algorithm-module-reference/import-data.md)를 확인하세요.
 
 > [!NOTE]
-> 데이터 세트에 너무 많은 열이 있는 경우 다음과 같은 오류가 발생할 수 있습니다. "크기 제한으로 인해 유효성 검사에 실패했습니다." 이 문제를 방지하려면 [데이터 세트 인터페이스에 데이터 세트를 등록](how-to-create-register-datasets.md#use-the-ui)합니다.
+> 데이터 세트에 너무 많은 열이 있는 경우 다음과 같은 오류가 발생할 수 있습니다. "크기 제한으로 인해 유효성 검사에 실패했습니다." 이 문제를 방지하려면 [데이터 세트 인터페이스에 데이터 세트를 등록](how-to-create-register-datasets.md#datasets-ui)합니다.
 
 ## <a name="supported-sources"></a>지원되는 원본
 

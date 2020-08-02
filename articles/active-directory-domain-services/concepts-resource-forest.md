@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 310527d8e98e474faa43f19406f037e1a3835756
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040268"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480410"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대한 리소스 포리스트 개념 및 기능
 
@@ -23,10 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 레거시 온-프레미�
 
 보안 및 추가 보안 이점을 제공하지만 일부 조직에서는 이러한 사용자 암호 해시를 Azure AD 또는 Azure AD DS와 동기화할 수 없습니다. 조직의 사용자는 스마트 카드 인증만 사용하기 때문에 암호를 알지 못할 수 있습니다. 이러한 제한 사항으로 인해 일부 조직에서는 Azure AD DS를 사용하여 온-프레미스 클래식 애플리케이션을 Azure로 리프트 앤 시프트하지 못합니다.
 
-이러한 요구와 제한을 해결 하기 위해 리소스 포리스트를 사용 하는 관리 되는 도메인을 만들 수 있습니다. 이 개념 문서에서는 포리스트의 정의 및 포리스트가 다른 리소스를 신뢰하여 보안 인증 방법을 제공하는 방식을 설명합니다. Azure AD DS 리소스 포리스트는 현재 미리 보기로 제공됩니다.
-
-> [!IMPORTANT]
-> Azure AD DS 리소스 포리스트는 현재 Azure HDInsight 또는 Azure Files를 지원하지 않습니다. 기본 Azure AD DS 사용자 포리스트는 이러한 추가 서비스를 모두 지원합니다.
+이러한 요구와 제한을 해결 하기 위해 리소스 포리스트를 사용 하는 관리 되는 도메인을 만들 수 있습니다. 이 개념 문서에서는 포리스트의 정의 및 포리스트가 다른 리소스를 신뢰하여 보안 인증 방법을 제공하는 방식을 설명합니다.
 
 ## <a name="what-are-forests"></a>포리스트란?
 
@@ -36,7 +33,7 @@ Azure AD DS 관리 되는 도메인에서 포리스트는 도메인을 하나만
 
 기본적으로 관리 되는 도메인은 *사용자* 포리스트로 생성 됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 도메인에 가입 된 VM에 로그인 하는 것과 같이 사용자 계정은 관리 되는 도메인에 대해 직접 인증할 수 있습니다. 사용자 포리스트는 암호 해시를 동기화할 수 있고 사용자가 스마트 카드 인증과 같은 독점적인 로그인 방법을 사용하지 않을 때 작동합니다.
 
-관리 되는 도메인 *리소스* 포리스트에서는 사용자가 온-프레미스 AD DS에서 단방향 포리스트 *트러스트* 를 통해 인증 합니다. 이 방법을 사용 하면 사용자 개체 및 암호 해시가 관리 되는 도메인에 동기화 되지 않습니다. 사용자 개체 및 자격 증명은 온-프레미스 AD DS에만 존재합니다. 이 접근 방식을 통해 엔터프라이즈는 Azure에서 LDAPS, Kerberos 또는 NTLM 등의 클래식 인증에 의존하는 리소스 및 애플리케이션 플랫폼을 호스트할 수 있지만 인증 문제나 우려는 해소됩니다. Azure AD DS 리소스 포리스트는 현재 미리 보기로 제공됩니다.
+관리 되는 도메인 *리소스* 포리스트에서는 사용자가 온-프레미스 AD DS에서 단방향 포리스트 *트러스트* 를 통해 인증 합니다. 이 방법을 사용 하면 사용자 개체 및 암호 해시가 관리 되는 도메인에 동기화 되지 않습니다. 사용자 개체 및 자격 증명은 온-프레미스 AD DS에만 존재합니다. 이 접근 방식을 통해 엔터프라이즈는 Azure에서 LDAPS, Kerberos 또는 NTLM 등의 클래식 인증에 의존하는 리소스 및 애플리케이션 플랫폼을 호스트할 수 있지만 인증 문제나 우려는 해소됩니다.
 
 또한 리소스 포리스트는 애플리케이션을 한 번에 한 구성 요소씩 리프트 앤 시프트하는 기능을 제공합니다. 많은 레거시 온-프레미스 애플리케이션은 종종 웹 서버 또는 프런트 엔드와 많은 데이터베이스 관련 구성 요소를 사용하여 다중 계층으로 구성됩니다. 이와 같이 계층으로 구성되므로 전체 애플리케이션을 한번에 클라우드로 리프트 앤 시프트하는 것이 어렵습니다. 리소스 포리스트를 사용하면 애플리케이션을 Azure로 좀 더 쉽게 이동할 수 있는 단계별 접근 방식으로 애플리케이션을 클라우드로 전환할 수 있습니다.
 
@@ -116,7 +113,7 @@ AD DS Dc는 다음 프로토콜 중 하나를 사용 하 여 사용자 및 응�
 
 트러스트에 대한 자세한 내용은 [Azure AD DS에서 포리스트 트러스트의 작동 방법][concepts-trust]을 참조하세요.
 
-리소스 포리스트를 사용 하 여 관리 되는 도메인을 만드는 작업을 시작 하려면 [Azure AD DS 관리 되는 도메인 만들기 및 구성][tutorial-create-advanced]을 참조 하세요. 그런 다음, [온-프레미스 도메인(미리 보기)에 대한 아웃바운드 포리스트 트러스트를 만들 수 있습니다][create-forest-trust].
+리소스 포리스트를 사용 하 여 관리 되는 도메인을 만드는 작업을 시작 하려면 [Azure AD DS 관리 되는 도메인 만들기 및 구성][tutorial-create-advanced]을 참조 하세요. 그런 다음 [온-프레미스 도메인에 대 한 아웃 바운드 포리스트 트러스트를 만들][create-forest-trust]수 있습니다.
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

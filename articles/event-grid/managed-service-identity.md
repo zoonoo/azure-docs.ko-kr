@@ -3,12 +3,12 @@ title: 관리형 서비스 ID를 사용하여 이벤트 전달
 description: 이 문서에서는 Azure Event Grid 토픽에 대해 관리형 서비스 ID를 사용하도록 설정하는 방법을 설명합니다. 이 ID를 사용하여 지원되는 대상에 이벤트를 전달합니다.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371263"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499826"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>관리 id를 사용 하 여 이벤트 배달
 이 문서에서는 Azure event grid 토픽 또는 도메인에 대해 [관리 서비스 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정 하는 방법을 설명 합니다. 이 ID를 사용하여 Service Bus 큐 및 토픽, Event Hubs, 스토리지 계정 등의 지원되는 대상으로 이벤트를 전달합니다.
@@ -42,7 +42,7 @@ az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCAT
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 다음 절차에서는 항목에 대해 시스템 관리 id를 사용 하도록 설정 하는 방법을 보여 줍니다. 도메인에 대 한 id를 설정 하는 단계는 유사 합니다. 
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 위쪽의 검색 창에서 **event grid 항목** 을 검색 합니다.
 3. 관리 ID를 사용하도록 설정할 **토픽**을 선택합니다. 
 4. **ID** 탭으로 전환합니다. 
@@ -64,7 +64,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 기존 도메인을 업데이트하는 명령은 유사합니다(`az eventgrid domain update`).
 
 ## <a name="supported-destinations-and-rbac-roles"></a>지원 되는 대상 및 RBAC 역할
-Event grid 토픽 또는 도메인에 대해 id를 사용 하도록 설정 하면 Azure에서 자동으로 Azure Active Directory에 id를 만듭니다. 토픽 또는 도메인에서 지원 되는 대상으로 이벤트를 전달할 수 있도록 적절 한 역할 기반 액세스 제어 (RBAC) 역할에이 id를 추가 합니다. 예를 들어 event grid 토픽에서 해당 네임 스페이스의 event Hubs로 이벤트를 전달할 수 있도록 Azure Event Hubs 네임 스페이스에 대 한 **azure Event Hubs 데이터 발신자** 역할에 id를 추가 합니다. 
+Event grid 토픽 또는 도메인에 대해 id를 사용 하도록 설정 하면 Azure에서 자동으로 Azure Active Directory에 id를 만듭니다. 토픽 또는 도메인에서 지원 되는 대상으로 이벤트를 전달할 수 있도록이 id를 적절 한 Azure 역할에 추가 합니다. 예를 들어 event grid 토픽에서 해당 네임 스페이스의 event Hubs로 이벤트를 전달할 수 있도록 Azure Event Hubs 네임 스페이스에 대 한 **azure Event Hubs 데이터 발신자** 역할에 id를 추가 합니다. 
 
 현재 Azure event grid는 시스템 할당 관리 id로 구성 된 토픽 또는 도메인을 지원 하 여 이벤트를 다음 대상으로 전달 합니다. 또한 이 테이블은 토픽이 이벤트를 전달하기 위해 ID가 속해야 하는 역할을 제공합니다.
 

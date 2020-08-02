@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478419"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496222"
 ---
-# <a name="using-file-metadata-in-queries"></a>쿼리에서 파일 메타데이터 사용
+# <a name="use-file-metadata-in-queries"></a>쿼리에서 파일 메타데이터 사용
 
 SQL 주문형 쿼리 서비스는 [쿼리 폴더 및 여러 파일](query-folders-multiple-csv-files.md) 문서에 설명된 대로 여러 파일 및 폴더를 처리할 수 있습니다. 이 문서에서는 쿼리에서 파일 및 폴더 이름에 대한 메타데이터 정보를 사용하는 방법에 대해 알아봅니다.
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389601"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482858"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -30,13 +30,14 @@ ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고�
 
 1. Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인합니다.
 2. Azure AD B2C 테넌트로 전환하려면 포털의 오른쪽 위 모서리에서 B2C 디렉터리를 선택합니다.
-3. **사용자 흐름**을 클릭하고 **새 사용자 흐름**을 선택합니다.
-4. **모두** 탭을 클릭하고 **ROPC를 사용하여 로그인**을 선택합니다.
-5. *ROPC_Auth*와 같은 사용자 흐름에 사용할 이름을 입력합니다.
-6. **애플리케이션 클레임**에서 **자세히 표시**를 클릭합니다.
-7. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
-8. **확인**을 선택하고 **만들기**를 선택합니다.
-9. **사용자 흐름 실행**을 클릭합니다.
+3. **사용자 흐름**을 선택 하 고 **새 사용자 흐름**을 선택 합니다.
+4. **ROPC (리소스 소유자 암호 자격 증명)를 사용 하 여 로그인**을 선택 합니다.
+5. **버전**에서 **미리 보기** 가 선택 되어 있는지 확인 한 다음 **만들기**를 선택 합니다.
+7. *ROPC_Auth*와 같은 사용자 흐름에 사용할 이름을 입력합니다.
+8. **애플리케이션 클레임**에서 **자세히 표시**를 클릭합니다.
+9. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
+10. **확인**을 선택하고 **만들기**를 선택합니다.
+11. **사용자 흐름 실행**을 클릭합니다.
 
    다음 예제와 같은 엔드포인트가 표시됩니다.
 
@@ -56,7 +57,7 @@ ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고�
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-| 키 | 값 |
+| Key | 값 |
 | --- | ----- |
 | 사용자 이름 | leadiocl@outlook.com |
 | password | Passxword1 |
@@ -131,7 +132,3 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 Azure AD B2C 구현은 공용 클라이언트 리소스 소유자 암호 자격 증명에 대한 OAuth 2.0 표준을 충족하며, 대부분의 클라이언트 SDK와 호환되어야 합니다. Microsoft는 iOS용 AppAuth 및 Android용 AppAuth를 사용하여 프로덕션 환경에서 이 흐름을 광범위하게 테스트했습니다. 최신 정보는 [모범 사례를 구현하는 OAuth 2.0 및 OpenID Connect용 네이티브 앱 SDK](https://appauth.io/)를 참조하세요.
 
 [Android](https://aka.ms/aadb2cappauthropc) 및 [iOS](https://aka.ms/aadb2ciosappauthropc)용 GitHub에서 Azure AD B2C에 사용하도록 구성된 작업 샘플을 다운로드합니다.
-
-
-
-

@@ -1,14 +1,14 @@
 ---
 title: 청사진 운영자를 위한 환경 설정
-description: 청사진 Operator 기본 제공 RBAC (역할 기반 액세스 제어) 역할을 사용 하도록 Azure 환경을 구성 하는 방법에 대해 알아봅니다.
+description: Azure 기본 제공 역할 청사진에 사용 하도록 Azure 환경을 구성 하는 방법을 알아봅니다.
 ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a61997f5e3247e5b42d5e2f07c0fc38cc1b5114d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9390958507a135497c4c48a260a44bc0f4492ffa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864014"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499809"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>청사진 운영자를 위한 환경 구성
 

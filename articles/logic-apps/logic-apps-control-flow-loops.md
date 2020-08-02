@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066338"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495610"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "87066338"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
+* Azure 계정 및 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
@@ -32,11 +32,11 @@ ms.locfileid: "87066338"
 
 ## <a name="foreach-loop"></a>"Foreach" 루프
 
-"Foreach" 루프는 각 배열 항목에 대해 하나 이상의 작업을 반복하고 배열에만 작동합니다. "Foreach" 루프의 반복이 병렬로 실행됩니다. 그렇지만 [순차적 "Foreach" 루프](#sequential-foreach-loop)를 설정하여 한 번에 하나씩 반복을 실행할 수 있습니다. 
+"Foreach" 루프는 각 배열 항목에 대해 하나 이상의 작업을 반복하고 배열에만 작동합니다. "Foreach" 루프를 사용하는 경우 다음과 같은 몇 가지 사항을 고려해야 합니다.
 
-"Foreach" 루프를 사용하는 경우 다음과 같은 몇 가지 사항을 고려해야 합니다.
+* 기본적으로 "Foreach" 루프의 반복은 동시에 실행 되거나 동시에 실행 됩니다. 이 동작은 반복이 한 번에 하나씩 또는 순차적으로 실행 되는 [ **각 루프에 적용** ](/power-automate/apply-to-each) 되는 것과 다릅니다. 그러나 [순차적 "Foreach" 루프 반복을 설정할](#sequential-foreach-loop)수 있습니다. 예를 들어 [지연 작업](../connectors/connectors-native-delay.md)을 사용 하 여 "Foreach" 루프의 다음 반복을 일시 중지 하려면 루프가 순차적으로 실행 되도록 설정 해야 합니다.
 
-* 중첩된 루프에서는 반복이 항상 병렬이 아닌 순차적으로 실행됩니다. 중첩된 루프의 항목에 대해 작업을 병렬로 실행하려면 [자식 논리 앱을 만들고 호출](../logic-apps/logic-apps-http-endpoint.md)합니다.
+  기본 동작에 대 한 예외는 반복이 병렬로 실행 되지 않고 항상 순차적으로 실행 되는 중첩 된 루프입니다. 중첩된 루프의 항목에 대해 작업을 병렬로 실행하려면 [자식 논리 앱을 만들고 호출](../logic-apps/logic-apps-http-endpoint.md)합니다.
 
 * 각 루프 반복 동안 변수 작업에서 예측 가능한 결과를 얻으려면 해당 루프를 순차적으로 실행합니다. 예를 들어, 동시에 실행 중인 루프가 종료될 때 변수에 대해 증가, 감소 및 추가 작업을 수행하면 예측 가능한 결과가 반환됩니다. 그러나 동시 실행 루프에서 각 반복이 수행되는 동안 이러한 작업을 수행하면 예기치 않은 결과가 반환될 수 있습니다. 
 
@@ -189,7 +189,7 @@ ms.locfileid: "87066338"
 
    ![변수 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | Value | Description |
    | -------- | ----- | ----------- |
    | **이름** | 제한 | 변수의 이름 | 
    | **형식** | 정수 | 변수의 데이터 형식 | 

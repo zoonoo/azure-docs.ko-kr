@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c36df4745e276471e35addf4774470dbaaa9e150
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080712"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496205"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Synapse SQL에 대 한 데이터베이스 데이터 정렬 지원
 
@@ -23,7 +23,7 @@ ms.locfileid: "87080712"
 
 CREATE DATABASE 문을 사용 하 여 만들 때 기본 Synapse SQL 주문형 데이터베이스 데이터 정렬을 지정할 수 있습니다.
 
-## <a name="changing-collation"></a>데이터 정렬 변경
+## <a name="change-collation"></a>데이터 정렬 변경
 SQL 풀 데이터베이스의 기본 데이터 정렬을 변경 하려면 프로 비전 환경의 데이터 정렬 필드를 간단 하 게 업데이트 해야 합니다. 예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS으로 변경 하면 됩니다. 
 
 SQL 주문형 데이터베이스의 기본 데이터 정렬을 변경 하려면 ALTER DATABASE 문을 사용 하면 됩니다.
@@ -104,7 +104,7 @@ SQL 주문형 데이터베이스의 기본 데이터 정렬을 변경 하려면 
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>현재 데이터 정렬 확인
+## <a name="check-the-current-collation"></a>현재 데이터 정렬 확인
 데이터베이스의 현재 데이터 정렬을 확인 하려면 다음 T-sql 코드 조각을 실행할 수 있습니다.
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

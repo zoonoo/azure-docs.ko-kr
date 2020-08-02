@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 60f2a1992750950b50995fcf36513e44e377004d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fb56c4da77ddeb87ebc3724a3b138994e4da98e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386608"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489693"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형 (미리 보기)을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
 
@@ -203,7 +203,7 @@ FROM
 
 구조는 `MapOfPersons` 열로 반환 되 `VARCHAR` 고 JSON 문자열로 형식이 지정 됩니다.
 
-## <a name="projecting-values-from-repeated-columns"></a>반복 되는 열의 값 프로젝션
+## <a name="project-values-from-repeated-columns"></a>반복 된 열의 프로젝트 값
 
 일부 열에 스칼라 값의 배열 (예:)이 있는 경우 `[1,2,3]` 쉽게 확장 하 고 다음 스크립트를 사용 하 여 주 행과 조인할 수 있습니다.
 

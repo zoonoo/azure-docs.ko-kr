@@ -7,18 +7,19 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 85c04c875e543a5c41e9ad5e736a7de77ac1dad0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f85283ad90f219dfbf404c437a843e1191b19fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119874"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498738"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for MySQL 서버를 백업 및 복원하는 방법
 
 Azure Database for MySQL 서버는 정기적으로 백업 되어 복원 기능을 사용 하도록 설정 합니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -77,7 +78,7 @@ Cmdlet의 **PointInTimeRestore** 매개 변수 집합에는 `Restore-AzMySqlServ
 | 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
-| Name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | 복원할 특정 시점을 선택 합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 **2020-03-13T05:59:00-08:00**과 같은 고유한 현지 표준 시간대를 사용할 수 있습니다. UTC 줄루어 형식을 사용할 수도 있습니다 (예: **2018-03-13T13:59:00Z**). |
 | UsePointInTimeRestore | `<SwitchParameter>` | 지정 시간 모드를 사용 하 여 복원 합니다. |
 
@@ -119,7 +120,7 @@ Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzMySqlServer` 다�
 | 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | 새 서버가 속한 리소스 그룹의 이름입니다.|
-|Name | mydemoserver-georestored | 새 서버의 이름입니다. |
+|이름 | mydemoserver-georestored | 새 서버의 이름입니다. |
 |위치 | eastus | 새 서버의 위치입니다. |
 |UseGeoRestore | `<SwitchParameter>` | 지역 모드를 사용 하 여 복원 합니다. |
 

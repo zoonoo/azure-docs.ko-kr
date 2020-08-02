@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 07/30/2020
+ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497055"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스 또는 컨테이너에 자동 크기 조정 처리량 프로비전
 
@@ -244,11 +244,11 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="cassandra-api"></a>Cassandra API
 
-[CQL 명령](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md)또는 [Azure Resource Manager 템플릿을](resource-manager-samples.md)사용 하 여 자동 크기 조정을 위해 Cassandra API에 대 한 Azure Cosmos DB 계정을 프로 비전 할 수 있습니다.
+[CQL commands](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) 또는 [Azure Resource Manager 템플릿을](resource-manager-samples.md)사용 하 여 자동 크기 조정을 위해 Cassandra API에 대 한 Azure Cosmos DB 계정을 프로 비전 할 수 있습니다.
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB
 
-MongoDB API에 대 한 Azure Cosmos DB 계정은 [MongoDB 확장 명령](mongodb-custom-commands.md), [Azure CLI](cli-samples.md)또는 [Azure Resource Manager 템플릿을](resource-manager-samples.md)사용 하 여 자동 크기 조정을 위해 프로 비전 할 수 있습니다.
+MongoDB API에 대 한 Azure Cosmos DB 계정은 [MongoDB 확장 명령](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) 또는 [Azure Resource Manager 템플릿을](resource-manager-samples.md)사용 하 여 자동 크기 조정을 위해 프로 비전 할 수 있습니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
@@ -257,6 +257,10 @@ Azure Resource Manager 템플릿을 사용 하 여 데이터베이스에 대 한
 ## <a name="azure-cli"></a>Azure CLI
 
 Azure CLI를 사용 하 여 데이터베이스에 대 한 자동 크기 조정 처리량 또는 모든 Azure Cosmos DB Api에 대 한 컨테이너 수준 리소스를 프로 비전 할 수 있습니다. 샘플은 [Azure Cosmos DB Azure CLI 샘플](cli-samples.md)을 참조 하세요.
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Azure PowerShell를 사용 하 여 데이터베이스에 대 한 자동 크기 조정 처리량 또는 모든 Azure Cosmos DB Api에 대 한 컨테이너 수준 리소스를 프로 비전 할 수 있습니다. 샘플은 [Azure Cosmos DB Azure PowerShell 샘플](powershell-samples.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

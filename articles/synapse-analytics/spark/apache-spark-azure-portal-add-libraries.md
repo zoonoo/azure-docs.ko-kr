@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b0231b28894ea7233e5f6e588300f03cb8784e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0d34d80df77b5c6fcdefc39b3bc3b1619a93705
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036457"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496256"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 추가 및 관리
 
@@ -21,7 +21,7 @@ Apache Spark는 기능을 제공 하기 위해 많은 라이브러리에 의존 
 
 Python 패키지는 Spark 풀 (미리 보기) 수준에서 추가할 수 있으며 jar 기반 패키지는 Spark 작업 정의 수준에서 추가할 수 있습니다.
 
-## <a name="adding-or-updating-python-libraries"></a>Python 라이브러리 추가 또는 업데이트
+## <a name="add-or-update-python-libraries"></a>Python 라이브러리 추가 또는 업데이트
 
 Azure Synapse Analytics의 Apache Spark에는 완전 한 Anacondas 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [Apache Spark 버전 지원](apache-spark-version-support.md)에서 찾을 수 있습니다.
 
@@ -51,7 +51,7 @@ alabaster==0.7.10
 
 ![Python 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Python 라이브러리 추가")
 
-### <a name="verifying-installed-libraries"></a>설치 된 라이브러리 확인
+### <a name="verify-installed-libraries"></a>설치 된 라이브러리 확인
 
 올바른 라이브러리의 올바른 버전이 설치 되어 있는지 확인 하려면 다음 코드를 실행 합니다.
 

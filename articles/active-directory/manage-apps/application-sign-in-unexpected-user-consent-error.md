@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763757"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499503"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 
@@ -38,6 +38,8 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 이 오류는 회사 관리자가 아닌 사용자가 관리자만이 부여할 수 있는 사용 권한을 요청하는 애플리케이션을 사용하려고 할 때 발생합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
 
 이 오류는 Microsoft가 권한 요청을 위험한 것으로 검색 하 여 사용자가 응용 프로그램에 동의 하지 못하도록 하는 경우에도 발생할 수 있습니다. 이 경우 감사 이벤트는 "ApplicationManagement" 범주, "응용 프로그램에 대 한 동의"의 활동 유형 및 "위험한 응용 프로그램 검색 됨" 상태 이유에도 기록 됩니다.
+
+이 오류가 발생할 수 있는 또 다른 시나리오는 사용자 할당이 응용 프로그램에 필요 하지만 관리자 동의가 제공 되지 않은 경우입니다. 이 경우 관리자는 먼저 관리자의 동의를 제공 해야 합니다.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>사용 권한 부여를 방지하는 정책 오류
 * **AADSTS90093:**&lt;tenantDisplayName&gt;의 관리자는 사용 권한이 요청하는 &lt;앱의 이름&gt;을 부여하지 못하도록 방지하는 정책을 설정했습니다. 사용자 대신 이 앱에 대한 권한을 부여할 수 있는 &lt;tenantDisplayName&gt;의 관리자에게 문의하세요.

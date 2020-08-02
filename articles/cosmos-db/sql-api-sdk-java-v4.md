@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 51582fd9aba8721b28f6fb18daec4d0009d0ac15
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461054"
+ms.locfileid: "87500660"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -63,7 +63,30 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 
 ## <a name="release-history"></a>릴리스 기록
 
+### <a name="440-beta1-unreleased"></a>4.4.0-베타. 1 (릴리스되지 않음)
+
+### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
+#### <a name="new-features"></a>새로운 기능
+* 재 행위자-핵심 라이브러리 버전을 (으)로 업데이트 했습니다 `3.3.8.RELEASE` . 
+* Reactor-netty 라이브러리 버전이로 업데이트 되었습니다 `0.9.10.RELEASE` . 
+* Netty 라이브러리 버전을로 업데이트 했습니다 `4.1.51.Final` . 
+* 를 사용 하 여에 대 한 새 오버 로드 Api를 추가 했습니다 `upsertItem` `partitionKey` . 
+* 개방형 원격 분석 추적 지원을 추가 했습니다. 
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+* 게이트웨이 모드에서 요청을 취소 하는 경우 SSLException이 throw 되는 문제를 해결 했습니다.
+* 저장 프로시저 실행에 대 한 리소스 제한 재시도 정책을 수정 했습니다.
+* SDK가 로그 수준 디버그 모드에서 중단 되는 문제를 해결 했습니다. 
+* 직접 모드의 대기 시간에 대 한 주기적인 급증을 수정 했습니다. 
+* 높은 클라이언트 초기화 시간 문제를 수정 했습니다. 
+* 직접 모드와 게이트웨이 모드를 사용 하 여 클라이언트를 사용자 지정할 때 http 프록시 버그가 수정 되었습니다. 
+* 사용자의 잠재적 NPE이 null 옵션을 전달 하는 문제를 수정 했습니다. 
+* 진단 문자열에 timeUnit를 추가 했습니다 `requestLatency` .
+* 진단 문자열에서 중복 된 uri 문자열을 제거 했습니다. 
+* 시점 작업을 위한 적절 한 JSON 형식의 진단 문자열을 수정 했습니다.
+* `.single()`찾을 수 없는 예외가 발생 하는 경우 원자로 체인이 중단 되도록 하는 연산자 문제를 해결 했습니다. 
+
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+#### <a name="new-features"></a>새로운 기능
 * 스크립트 로깅 사용 API를에 추가 했습니다 `CosmosStoredProcedureRequestOptions` .
 * 기본값을 1 시간로 업데이트 하 `DirectConnectionConfig` `idleEndpointTimeout` 고 기본값 `connectTimeout` 을 5 초로 업데이트 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정

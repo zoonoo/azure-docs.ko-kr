@@ -4,18 +4,18 @@ description: 지원 되는 LINQ 연산자 및 LINQ 쿼리가 Azure Cosmos DB의 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: 3f8753518e1d54ddba4fc15a5a030308d0c112a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042495"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498857"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 
-Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ로 변환 된 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에서 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 LINQ에 대 한 기본적인 지식이 있다고 가정 합니다.
+Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ에서 변환 되는 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에 대해 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)에 대 한 기본적인 지식이 있다고 가정 합니다.
 
 쿼리 공급자 유형 시스템은 JSON 기본 유형인 numeric, Boolean, string 및 null만 지원 합니다.
 
@@ -23,7 +23,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들어:
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들면 다음과 같습니다.
   
   ```
     family.Id;
@@ -32,7 +32,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
     family.children[n].grade; //n is an int variable
   ```
   
-- 숫자 및 부울 값에 대 한 일반적인 산술 식을 포함 하는 산술 식 전체 목록은 [AZURE COSMOS DB SQL 사양을](https://go.microsoft.com/fwlink/p/?LinkID=510612)참조 하십시오.
+- 숫자 및 부울 값에 대 한 일반적인 산술 식을 포함 하는 산술 식 전체 목록은 [AZURE COSMOS DB SQL 사양을](sql-query-system-functions.md)참조 하십시오.
   
   ```
     2 * family.children[0].grade;
@@ -54,31 +54,52 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
     new int[] { 3, child.grade, 5 };
   ```
 
+## <a name="using-linq"></a>LINQ 사용
+
+를 사용 하 여 LINQ 쿼리를 만들 수 있습니다 `GetItemLinqQueryable` . 이 예제에서는를 사용 하 여 LINQ 쿼리를 생성 하 고 비동기 실행을 보여 줍니다 `FeedIterator` .
+
+```csharp
+using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
+                      .Where(b => b.Title == "War and Peace")
+                      .ToFeedIterator<Book>())
+ {
+     //Asynchronous query execution
+     while (setIterator.HasMoreResults)
+     {
+         foreach(var item in await setIterator.ReadNextAsync()){
+         {
+             Console.WriteLine(item.cost);
+         }
+       }
+     }
+ }
+```
+
 ## <a name="supported-linq-operators"></a><a id="SupportedLinqOperators"></a>지원 되는 LINQ 연산자
 
 SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지원 합니다.
 
-- **Select**: 개체 생성을 포함 하 여 SQL select로 프로젝션 변환을 선택 합니다.
-- **Where**: 필터를 sql로 변환 하 고, 및에서 `&&` `||` `!` sql 연산자로의 변환을 지원 합니다.
-- **SelectMany**: SQL JOIN 절에 대한 배열 해제를 허용합니다. 를 사용 하 여 배열 요소를 필터링 하는 식을 연결 하거나 중첩 합니다.
-- **OrderBy** 및 **OrderByDescending**: ASC 또는 DESC를 사용 하 여 ORDER by로 변환 합니다.
-- 집계를 위한 **Count**, **Sum**, **Min**, **Max** 및 **Average** 연산자와 해당 비동기 동급 연산자 **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** 및 **AverageAsync**
+- **Select**: 개체 생성을 포함 하 여 [선택](sql-query-select.md)하는 프로젝션 변환을 선택 합니다.
+- **Where**: 필터를 [where](sql-query-where.md)로 변환 하 고, 및 `&&` 에서 `||` `!` SQL 연산자로의 변환을 지원 합니다.
+- **SelectMany**: [JOIN](sql-query-join.md) 절에 배열을 해제할 수 있습니다. 를 사용 하 여 배열 요소를 필터링 하는 식을 연결 하거나 중첩 합니다.
+- **OrderBy** 및 **OrderByDescending**: ASC 또는 DESC를 사용 하 [여 ORDER by](sql-query-order-by.md) 로 변환 합니다.
+- [집계](sql-query-aggregates.md)에 대 한 **Count**, **Sum**, **Min**, **Max**및 **Average** 연산자와 해당 비동기 해당 **CountAsync**, **sumasync**, **minasync**, **maxasync**및 **AverageAsync**입니다.
 - **CompareTo**: 범위 비교로 변환합니다. .NET에서는 비교할 수 없기 때문에 일반적으로 문자열에 사용 됩니다.
-- **Skip** 및 **TAKE**: SQL 오프셋으로 변환 하 고 쿼리 결과를 제한 하 고 페이지 매김을 수행 합니다.
-- **수치 연산 함수**: .net,,,,,,,,,,,,,,, `Abs` `Acos` 및에서 `Asin` `Atan` `Ceiling` `Cos` `Exp` 해당 하 `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` 는 SQL 기본 제공 함수로의 변환을 지원 합니다.
-- **문자열 함수**: .net,,,,,,,,,,, `Concat` `Contains` 및에서 `Count` `EndsWith` 해당 하 `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` 는 SQL 기본 제공 함수로의 변환을 지원 합니다.
-- **배열 함수**: .net `Concat` , 및에서 해당 하는 `Contains` `Count` SQL 기본 제공 함수로의 변환을 지원 합니다.
-- **지리 공간적 확장 함수**: 스텁 메서드 `Distance` , `IsValid` , 및에서 해당 하는 `IsValidDetailed` `Within` SQL 기본 제공 함수로의 변환을 지원 합니다.
-- **사용자 정의 함수 확장 함수**: 스텁 메서드에서 `UserDefinedFunctionProvider.Invoke` 해당 사용자 정의 함수로의 변환을 지원 합니다.
-- **기타**: `Coalesce` 및 조건부 연산자의 변환을 지원 합니다. 는 `Contains` 컨텍스트에 따라의 문자열 CONTAINS, ARRAY_CONTAINS 또는 SQL로 변환할 수 있습니다.
+- **Skip** 및 **Take**: 쿼리에서 결과를 제한 하 고 페이지 매김을 수행 하기 위한 [오프셋 및 제한](sql-query-offset-limit.md) 으로 변환 합니다.
+- **수치 연산 함수**: .net,,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` 및에서 `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` 해당 하는 [기본 제공 수학 함수로](sql-query-mathematical-functions.md)의 변환을 지원 합니다.
+- **문자열 함수**: .net,,,,,,,,,,, `Concat` `Contains` 및에서 `Count` `EndsWith` 해당 하 `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` 는 [기본 제공 문자열 함수로](sql-query-string-functions.md)의 변환을 지원 합니다.
+- **배열 함수**: .net `Concat` , `Contains` 및에서 `Count` 해당 하는 [기본 제공 배열 함수로](sql-query-array-functions.md)의 변환을 지원 합니다.
+- **지리 공간적 확장 함수**: 스텁 메서드 `Distance` , `IsValid` , 및에서 해당 하는 `IsValidDetailed` `Within` [기본 제공 지리 공간적 함수로](sql-query-geospatial-query.md)의 변환을 지원 합니다.
+- **사용자 정의 함수 확장 함수**: 스텁 메서드에서 `UserDefinedFunctionProvider.Invoke` 해당 [사용자 정의 함수로](sql-query-udfs.md)의 변환을 지원 합니다.
+- **기타**: `Coalesce` 및 조건부 [연산자](sql-query-operators.md)의 변환을 지원 합니다. 는 `Contains` 컨텍스트에 따라 STRING CONTAINS, ARRAY_CONTAINS 또는 IN으로 변환할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
-다음 예에서는 표준 LINQ 쿼리 연산자 중 일부를 Cosmos DB 쿼리로 변환 하는 방법을 보여 줍니다.
+다음 예에서는 표준 LINQ 쿼리 연산자 중 일부가 Azure Cosmos DB의 쿼리로 변환 되는 방법을 보여 줍니다.
 
 ### <a name="select-operator"></a>Select 연산자
 
-구문은 `input.Select(x => f(x))`입니다. 여기서 `f`는 스칼라 식입니다.
+구문은 `input.Select(x => f(x))`입니다. 여기서 `f`는 스칼라 식입니다. `input`이 경우는 `IQueryable` 개체입니다.
 
 **Select 연산자, 예 1:**
 
@@ -95,7 +116,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
       FROM Families f
     ```
   
-**Select 연산자, 예 2:** 
+**Select 연산자, 예 2:**
 
 - **LINQ 람다 식**
   
@@ -122,7 +143,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
     });
   ```
   
-- **SQL** 
+- **SQL**
   
   ```sql
       SELECT VALUE {"name":f.children[0].familyName,
@@ -320,7 +341,6 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
       JOIN c IN f.children
       WHERE c.familyName = f.parents[0].familyName
   ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

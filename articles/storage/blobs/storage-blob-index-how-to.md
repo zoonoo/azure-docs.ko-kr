@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: d4ea5889cbecbbb8609f90eed83ec9bd6b0032f9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 57366011c93065803162164c03c7878e1610af9f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448237"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500388"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그(미리 보기)를 활용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기
 
@@ -32,11 +32,9 @@ Blob 인덱스에 대해 자세히 알아보려면 [Blob 인덱스(미리 보기
 # <a name="net"></a>[.NET](#tab/net)
 Blob 인덱스가 퍼블릭 미리 보기로 제공되므로 .NET 스토리지 패키지는 미리 보기 NuGet 피드에 릴리스됩니다. 이 라이브러리는 공식적으로 제공되면 지금과 달라질 수 있습니다. 
 
-1. Visual Studio에서 NuGet 패키지 원본에 `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` URL을 추가합니다. 
+1. Visual Studio 프로젝트를 설정 하 여 .NET 용 Azure Blob storage 클라이언트 라이브러리 v12를 시작 합니다. 자세히 알아보려면 [.Net 빠른](storage-quickstart-blobs-dotnet.md) 시작을 참조 하세요.
 
-   자세한 내용은 [패키지 원본](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)을 참조하세요.
-
-2. NuGet 패키지 관리자에서 **Azure.Storage.Blobs** 패키지를 찾고 버전 **12.5.0-dev.20200422.2**를 프로젝트에 설치합니다. ```Install-Package Azure.Storage.Blobs -Version 12.5.0-dev.20200422.2``` 명령을 실행할 수도 있습니다.
+2. NuGet 패키지 관리자에서 **Azure.** 12.5.0 패키지를 찾고 프로젝트에 버전 **-preview. 6** 이상을 설치 합니다. ```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6``` 명령을 실행할 수도 있습니다.
 
    방법에 대한 자세한 내용은 [패키지 찾기 및 설치](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)를 참조하세요.
 

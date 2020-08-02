@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489540"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
 페이지 레이아웃 패키지는 주기적으로 업데이트 되어 페이지 요소에 수정 및 향상 된 기능이 포함 됩니다. 다음 변경 로그는 각 버전에 도입 된 변경 내용을 지정 합니다.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- 자체 어설션 페이지 ( `selfasserted` )
+  - 지역화 및 내게 필요한 옵션 수정.
+- 통합 SSP 페이지 ( `unifiedssp` )
+  - 여러 등록 링크에 대 한 지원이 추가 되었습니다.
+  - 정책에 정의 된 조건자 규칙에 따라 사용자 입력 유효성 검사에 대 한 지원이 추가 되었습니다.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ ms.locfileid: "78183978"
   - Chrome 변환 지원
 - 통합 및 자체 어설션된 페이지
   - 이제 사용자 이름/전자 메일 및 암호 필드에 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
+- 자체 어설션된 페이지
+  - 사용자 환경을 개선 하기 위해 구성 가능한 사용자 입력 유효성 검사 지연을 추가 했습니다.
 
 ## <a name="110"></a>1.1.0
 

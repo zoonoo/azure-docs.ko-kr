@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, seodec18, tracking-python
-ms.openlocfilehash: ca7feacf5d631b4e85a0b3f4e7a039bbb79abe45
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f30f2b45944281ed74da2026eb14e8938260b259
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460204"
+ms.locfileid: "87496103"
 ---
 # <a name="connect-to-azure-storage-services"></a>Azure 스토리지 서비스에 연결
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="access-validation"></a>액세스 유효성 검사
 
-**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로**기본 저장소 서비스가 존재 하 고 사용자가 제공한 보안 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 유효성을 검사 Azure Machine Learning 합니다.
+**초기 데이터 저장소 만들기 및 등록 프로세스의 일부로**기본 저장소 서비스가 존재 하 고 사용자가 제공한 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정 된 저장소에 액세스할 수 있는지 자동으로 유효성을 검사 Azure Machine Learning 합니다.
 
 **데이터 저장소를 만든 후**에는 데이터 저장소 개체가 검색 **될 때마다 기본** 저장소 컨테이너에 액세스 해야 하는 메서드에 대해서만이 유효성 검사가 수행 됩니다. 예를 들어 데이터 저장소에서 파일을 다운로드하려는 경우에는 유효성 검사가 수행되지만, 기본 데이터 저장소만 변경하려는 경우에는 유효성 검사가 수행되지 않습니다.
 
@@ -113,7 +113,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 
 ### <a name="permissions"></a>사용 권한
 
-Azure blob 컨테이너 및 Azure Data Lake Gen 2 storage의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 
+Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)에 대해 자세히 알아보세요. 
 
 <a name="python"></a>
 
@@ -176,7 +176,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Azure Data Lake Storage Generation 2(ADLS Gen 2) 데이터 저장소의 경우 [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-)를 사용하여 Azure DataLake Gen 2 스토리지에 연결된 자격 증명 데이터 저장소를 [서비스 주체 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)에 등록합니다. 
 
-서비스 주체를 활용하려면 [애플리케이션을 등록](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)하고 서비스 주체에 **Storage Blob 데이터 읽기 권한자** 액세스 권한을 부여해야 합니다. [ADLS Gen 2의 액세스 제어 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)에 대해 자세히 알아보세요. 
+서비스 주체를 활용 하려면 [응용 프로그램을 등록](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) 하 고 **저장소 Blob 데이터 판독기** 액세스를 사용 하 여 서비스 주체를 부여 해야 합니다. [ADLS Gen 2의 액세스 제어 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)에 대해 자세히 알아보세요. 
 
 다음 코드는 `adlsgen2_datastore_name` 데이터 저장소를 만들어 `ws` 작업 영역에 등록합니다. 이 데이터 저장소는 제공된 서비스 주체 자격 증명을 사용하여 `account_name` 스토리지 계정의 `test` 파일 시스템에 액세스합니다.
 
@@ -202,7 +202,9 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 <a name="studio"></a>
 
+
 ## <a name="create-datastores-in-the-studio"></a>스튜디오에서 데이터 저장소 만들기 
+
 
 Azure Machine Learning studio를 사용 하 여 몇 단계로 새 데이터 저장소를 만듭니다.
 
@@ -212,17 +214,16 @@ Azure Machine Learning studio를 사용 하 여 몇 단계로 새 데이터 저�
 1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
 1. 왼쪽 창의 **관리**에서 **데이터 저장소**를 선택합니다.
 1. **+ 새 데이터 저장소**를 선택합니다.
-1. 새 데이터 저장소에 대한 양식을 작성합니다. 이 양식은 사용자가 선택하는 Azure 스토리지 유형 및 인증 형식에 따라 지능적으로 업데이트됩니다. 이 폼을 채우는 데 필요한 인증 자격 증명을 찾을 수 있는 위치를 이해 하려면 [저장소 액세스 및 사용 권한 섹션](#access-validation) 을 참조 하세요.
+1. 새 데이터 저장소에 대한 양식을 작성합니다. 이 양식은 사용자가 선택하는 Azure 스토리지 유형 및 인증 형식에 따라 지능적으로 업데이트됩니다. 이 양식을 채우는 데 필요한 인증 자격 증명을 찾을 수 있는 위치를 이해 하려면 [저장소 액세스 및 사용 권한 섹션](#access-validation) 을 참조 하세요.
 
 다음 예제에서는 **Azure blob 데이터 저장소**를 만들 때 양식이 표시 되는 모양을 보여 줍니다. 
     
 ![새 데이터 저장소에 대한 양식](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
-
 ## <a name="use-data-in-your-datastores"></a>데이터 저장소의 데이터 사용
 
-데이터 저장소를 만든 후 데이터와 상호 작용 하 [는 Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md) . 데이터 집합은 학습 등의 기계 학습 작업에 대 한 데이터를 지연 계산 된 기능 개체로 패키지 합니다. 또한 Azure Blob storage 및 ADLS Gen 2와 같은 Azure storage 서비스에서 모든 형식의 파일을 [다운로드 하거나 탑재](how-to-train-with-datasets.md#mount-vs-download) 하는 기능을 제공 합니다. 또한 pandas 또는 Spark 데이터 프레임에 테이블 형식 데이터를 로드 하는 데 사용할 수 있습니다.
+데이터 저장소를 만든 후 데이터와 상호 작용 하 [는 Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md) . 데이터 집합은 학습 같은 기계 학습 작업에 대 한 데이터를 지연 계산 된 소비재 개체로 패키지 합니다. 또한 Azure Blob storage 및 ADLS Gen 2와 같은 Azure storage 서비스에서 모든 형식의 파일을 [다운로드 하거나 탑재](how-to-train-with-datasets.md#mount-vs-download) 하는 기능을 제공 합니다. 또한 pandas 또는 Spark 데이터 프레임에 테이블 형식 데이터를 로드 하는 데 사용할 수 있습니다.
 
 <a name="get"></a>
 

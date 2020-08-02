@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281551"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497599"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -47,8 +47,22 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 스냅숏 정책을 사용 하 여 볼륨 스냅숏이 자동으로 수행 되도록 예약할 수 있습니다. 필요에 따라 스냅숏 정책을 수정 하거나 더 이상 필요 하지 않은 스냅숏 정책을 삭제할 수도 있습니다.  
 
-> [!IMPORTANT] 
-> 스냅숏 정책 기능을 사용 하려면 허용 목록가 필요 합니다. 이 기능을 요청하려면 구독 ID를 사용하여 anffeedback@microsoft.com으로 이메일을 보내세요.
+### <a name="register-the-feature"></a>기능 등록
+
+1. **스냅숏 정책** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. 기능 등록의 상태를 확인 합니다. 
+
+    > [!NOTE]
+    > 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>스냅숏 정책 만들기 
 

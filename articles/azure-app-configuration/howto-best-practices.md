@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367523"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500303"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 앱 구성 모범 사례
 
@@ -86,6 +86,10 @@ configBuilder.AddAzureAppConfiguration(options => {
 ## <a name="importing-configuration-data-into-app-configuration"></a>구성 데이터를 앱 구성으로 가져오기
 
 앱 구성에서는 Azure Portal 또는 CLI를 사용 하 여 현재 구성 파일에서 구성 설정을 대량으로 [가져올](https://aka.ms/azconfig-importexport1) 수 있는 옵션을 제공 합니다. 동일한 옵션을 사용 하 여 관련 저장소 간에 앱 구성에서 값을 내보낼 수도 있습니다. GitHub 리포지토리와의 지속적인 동기화를 설정 하려는 경우 [Github 작업](https://aka.ms/azconfig-gha2) 을 사용 하 여 앱 구성의 혜택을 받을 때 기존 원본 제어 방법을 계속 사용할 수 있습니다.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>앱 구성에서 다중 지역 배포
+
+앱 구성은 지역 서비스입니다. 지역별 구성이 서로 다른 응용 프로그램의 경우 이러한 구성을 한 인스턴스에 저장 하면 단일 실패 지점이 발생할 수 있습니다. 여러 지역에 지역 당 하나의 앱 구성 인스턴스를 배포 하는 것이 더 나은 옵션 일 수 있습니다. 지역 재해 복구, 성능 및 보안 siloing에 도움이 될 수 있습니다. 또한 지역별로를 구성 하면 대기 시간이 향상 되 고, 제한이 인스턴스당 제한 되므로 분리 된 제한 할당량을 사용 합니다. 재해 복구 완화를 적용 하려면 [여러 구성 저장소](./concept-disaster-recovery.md)를 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

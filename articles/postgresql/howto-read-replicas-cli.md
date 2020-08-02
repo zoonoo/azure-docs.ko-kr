@@ -6,12 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: de74258cadcdf81da211561a84ff06927830e690
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 491b3ecfc950fa5f76bfe78eec52e81433294c23
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274410"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500081"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Azure CLI에서 읽기 복제본을 만들고 관리 REST API
 
@@ -31,7 +32,7 @@ ms.locfileid: "86274410"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 - [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - 마스터 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md)
@@ -64,7 +65,7 @@ Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습�
 | 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  복제본 서버가 생성 될 리소스 그룹입니다.  |
-| 이름 | mydemoserver-복제본 | 만들어지는 새 복제본 서버의 이름입니다. |
+| name | mydemoserver-복제본 | 만들어지는 새 복제본 서버의 이름입니다. |
 | source-server | mydemoserver | 복제할 기존 마스터 서버의 이름 또는 리소스 ID입니다. 복제본 및 마스터의 리소스 그룹을 다르게 하려면 리소스 ID를 사용 합니다. |
 
 아래 CLI 예제에서 복제본은 마스터와 동일한 지역에 생성 됩니다.

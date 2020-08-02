@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386625"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496239"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 Parquet 파일 쿼리
 
@@ -24,7 +24,7 @@ ms.locfileid: "87386625"
 
 `OPENROWSET`함수를 사용 하면 파일에 대 한 URL을 제공 하 여 parquet 파일의 내용을 읽을 수 있습니다.
 
-### <a name="reading-parquet-file"></a>Parquet 파일을 읽는 중
+### <a name="read-parquet-file"></a>Parquet 파일 읽기
 
 파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 `PARQUET` 함수에 파일 URL을 제공 하 고 parquet를 지정 하는 것입니다 `OPENROWSET` `FORMAT` . 파일이 공개적으로 사용 가능한 경우 또는 Azure AD id가이 파일에 액세스할 수 있는 경우 다음 예제와 같이 쿼리를 사용 하 여 파일의 내용을 볼 수 있어야 합니다.
 
@@ -37,7 +37,7 @@ from openrowset(
 
 이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 Azure id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다.
 
-### <a name="using-data-source"></a>데이터 원본 사용
+### <a name="data-source-usage"></a>데이터 원본 사용
 
 이전 예에서는 파일에 대 한 전체 경로를 사용 합니다. 또는 저장소의 루트 폴더를 가리키는 위치를 사용 하 여 외부 데이터 원본을 만들고 해당 데이터 원본 및 함수에 있는 파일에 대 한 상대 경로를 사용할 수 있습니다 `OPENROWSET` .
 

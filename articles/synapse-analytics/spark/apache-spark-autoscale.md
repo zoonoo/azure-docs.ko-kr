@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 7c6278d24e52159424c3e346b2382c93f4ab8160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075801"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500354"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Azure Synapse Analytics Apache Spark 풀 크기 자동 조정
 
@@ -67,9 +67,9 @@ Azure Synapse Analytics용 Apache Spark 풀의 자동 크기 조정 기능은 �
 
 크기 조정 작업을 완료하는 데 1 ~ 5분 정도 걸릴 수 있습니다.
 
-### <a name="preparation-for-scaling-down"></a>스케일 다운 준비
+### <a name="prepare-for-scaling-down"></a>규모 축소 준비
 
-인스턴스 스케일 다운을 처리하는 동안 자동 크기 조정 기능은 노드를 서비스 해제 상태로 전환하므로 해당 노드에서 새 실행기를 시작할 수 없습니다.
+인스턴스 규모를 축소 하는 동안 자동 크기 조정 기능은 노드를 서비스 해제 상태로 전환 하므로 해당 노드에서 새 실행 기를 시작할 수 없습니다.
 
 실행 중인 작업이 계속 실행되고 완료됩니다. 보류 중인 작업은 사용 가능한 노드가 더 적은 상태로 정상적으로 예약될 때까지 대기합니다.
 

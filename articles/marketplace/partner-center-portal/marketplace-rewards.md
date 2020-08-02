@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 2ae8e170e3f31090b6babfee23e4505f5b736655
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319952"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496018"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -21,7 +21,7 @@ Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인
 
 이 프로그램은 긍정적인 피드백 루프를 만듭니다. 각 성장 단계의 이점은 다음 단계로 진행 하는 데 도움을 주므로 상업적 marketplace를 플랫폼으로 활용 하 여 microsoft의 microsoft의 현장 및 microsoft의 채널을 통해 비즈니스를 성장 시킬 수 있습니다.
 
-혜택은 제품이 [목록, 평가판 또는 transact-sql](../determine-your-listing-type.md#choose-a-publishing-option)인지에 따라 차별화 됩니다.
+혜택은 제품이 [목록, 평가판 또는 거래](../determine-your-listing-type.md#choose-a-call-to-action)인지에 따라 구별됩니다.
 
 자격 조건에 따라 제품이 게시되면 Rewards 팀의 구성원이 연락을 드릴 것입니다.
 

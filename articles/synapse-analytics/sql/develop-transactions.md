@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d87da234e675059ba2c170f4322d0ba53965dc89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075694"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500762"
 ---
-# <a name="using-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 사용
+# <a name="use-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 사용
 
 솔루션 개발을 위한 SQL 풀(데이터 웨어하우스)의 트랜잭션 구현을 위한 팁입니다.
 
@@ -183,7 +183,7 @@ SELECT @xact_state AS TransactionState;
 
 SQL 풀이 ERROR_LINE() 함수를 구현하거나 지원하지 않는다는 점도 주목할 가치가 있습니다. 코드에 이 항목이 있는 경우 SQL 풀과 호환되도록 제거해야 합니다. 동등한 기능을 구현하는 대신 코드에서 쿼리 레이블을 사용합니다. 자세한 내용은 [레이블](develop-label.md) 문서를 참조하세요.
 
-## <a name="using-throw-and-raiserror"></a>THROW 및 RAISERROR 사용
+## <a name="use-of-throw-and-raiserror"></a>THROW 및 RAISERROR 사용
 
 THROW는 SQL 풀에서 예외를 발생시키기 위한 가장 최신 구현이지만 RAISERROR도 지원됩니다. 그러나 다음 몇 가지 사항에 주의해야 합니다.
 

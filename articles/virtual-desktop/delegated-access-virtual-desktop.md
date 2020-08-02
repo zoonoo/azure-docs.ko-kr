@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2dc96f587a9e5db9d9810a4d1ab7d32c4ff49f7d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: df4d1b98eac782641fb36c614d2df9508c6131ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289856"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498670"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 위임된 액세스
 
@@ -40,7 +40,7 @@ Windows 가상 데스크톱 위임 된 액세스는 역할 할당의 각 요소�
 
 시작 하기 전에 [powershell 모듈 설정](powershell-module.md) 의 지침에 따라 Windows 가상 데스크톱 powershell 모듈을 설정 하지 않은 경우 확인 합니다.
 
-Windows 가상 데스크톱은 사용자 또는 사용자 그룹에 앱 그룹을 게시 하는 동안 Azure 역할 기반 액세스 제어 (RBAC)를 사용 합니다. 데스크톱 가상화 사용자 역할은 사용자 또는 사용자 그룹에 할당 되 고 범위는 앱 그룹입니다. 이 역할은 사용자에 게 앱 그룹에 대 한 특별 한 데이터 액세스를 제공 합니다.  
+Windows 가상 데스크톱은 사용자 또는 사용자 그룹에 앱 그룹을 게시 하는 동안 Azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 데스크톱 가상화 사용자 역할은 사용자 또는 사용자 그룹에 할당 되 고 범위는 앱 그룹입니다. 이 역할은 사용자에 게 앱 그룹에 대 한 특별 한 데이터 액세스를 제공 합니다.  
 
 앱 그룹에 Azure Active Directory 사용자를 추가 하려면 다음 cmdlet을 실행 합니다.
 

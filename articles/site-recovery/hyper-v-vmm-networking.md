@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021667"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495946"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
 
@@ -63,11 +63,11 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 
 **장애 조치(failover) 전**
 
-![장애 조치(failover) 전](./media/hyper-v-vmm-networking/network-design2.png)
+![장애 조치 (failover) 전 서브넷을 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design2.png)
 
 **장애 조치(failover) 후**
 
-![장애 조치(failover) 후](./media/hyper-v-vmm-networking/network-design3.png)
+![장애 조치 (failover) 후 서브넷을 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design3.png)
 
 장애 조치(failover) 후 Site Recovery는 VM의 각 네트워크 인터페이스에 대해 IP 주소를 할당합니다. 주소는 각 VM 인스턴스에 대해 관련 네트워크의 고정 IP 주소 풀에서 할당됩니다.
 
@@ -118,11 +118,11 @@ $ip.address
 
 **장애 조치(failover) 전**
 
-![다른 IP 주소 - 장애 조치(failover) 전](./media/hyper-v-vmm-networking/network-design10.png)
+![장애 조치 (failover) 전에 서로 다른 IP 주소를 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design10.png)
 
 **장애 조치(failover) 후**
 
-![다른 IP 주소 - 장애 조치(failover) 후](./media/hyper-v-vmm-networking/network-design11.png)
+![장애 조치 (failover) 후 다른 IP 주소를 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>다음 단계

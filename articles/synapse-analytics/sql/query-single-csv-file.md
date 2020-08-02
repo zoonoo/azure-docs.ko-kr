@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383888"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489710"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
@@ -31,7 +31,7 @@ ms.locfileid: "87383888"
 
 `OPENROWSET`함수를 사용 하면 파일에 대 한 URL을 제공 하 여 CSV 파일의 내용을 읽을 수 있습니다.
 
-### <a name="reading-csv-file"></a>Csv 파일을 읽는 중
+### <a name="read-a-csv-file"></a>Csv 파일 읽기
 
 파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 `CSV` 함수에 파일 URL을 제공 하 고 `OPENROWSET` csv 및 2.0을 지정 하는 것입니다 `FORMAT` `PARSER_VERSION` . 파일이 공개적으로 사용 가능한 경우 또는 Azure AD id가이 파일에 액세스할 수 있는 경우 다음 예제와 같이 쿼리를 사용 하 여 파일의 내용을 볼 수 있어야 합니다.
 
@@ -46,7 +46,7 @@ from openrowset(
 
 옵션 `firstrow` 은이 경우 헤더를 나타내는 CSV 파일의 첫 번째 행을 건너뛰는 데 사용 됩니다. 이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다.
 
-### <a name="using-data-source"></a>데이터 원본 사용
+### <a name="data-source-usage"></a>데이터 원본 사용
 
 이전 예에서는 파일에 대 한 전체 경로를 사용 합니다. 대신 저장소의 루트 폴더를 가리키는 위치를 사용 하 여 외부 데이터 원본을 만들 수 있습니다.
 
@@ -93,7 +93,7 @@ from openrowset(
 
 다음 섹션에서는 다양 한 유형의 CSV 파일을 쿼리 하는 방법을 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 첫 번째 단계는 테이블을 만들 **데이터베이스를 만드는 것**입니다. 그런 다음 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 예에서 사용되는 데이터 원본, 데이터베이스 범위의 자격 증명 및 외부 파일 형식을 만듭니다.
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > FIELDQUOTE의 기본값은 큰따옴표이므로 FIELDQUOTE 매개 변수를 생략하면 이 쿼리는 동일한 결과를 반환합니다.
 
-## <a name="escaping-characters"></a>문자 이스케이프
+## <a name="escape-characters"></a>이스케이프 문자
 
 다음 쿼리에서는 헤더 행이 있고 Unix 스타일 줄 바꿈, 쉼표로 구분된 열 및 값 내의 필드 구분 기호(쉼표)에 사용되는 이스케이프 문자로 구성된 파일을 읽는 방법을 보여 줍니다. 다른 예와 비교하면 파일의 위치가 다르다는 것을 알 수 있습니다.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > "Slov,enia"의 쉼표가 국가/지역 이름의 일부가 아니라 필드 구분 기호로 처리되기 때문에 ESCAPECHAR를 지정하지 않으면 이 쿼리는 실패합니다. "Slov,enia"는 두 개의 열로 처리됩니다. 따라서 특정 행에는 다른 행보다 하나의 열이 더 있고, WITH 절에서 정의한 것보다 하나의 열이 더 있습니다.
 
-### <a name="escaping-quoting-characters"></a>따옴표 이스케이프 문자
+### <a name="escape-quoting-characters"></a>이스케이프 따옴표 문자
 
 다음 쿼리에서는 헤더 행이 있는 파일을 읽는 방법을 보여 줍니다. 여기에는 Unix 스타일의 줄 바꿈 및 쉼표로 구분 된 열과 값 내 이스케이프 된 큰따옴표 문자를 사용 합니다. 다른 예와 비교하면 파일의 위치가 다르다는 것을 알 수 있습니다.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>열의 하위 집합 반환
+## <a name="return-a-subset-of-columns"></a>열의 하위 집합 반환
 
 지금까지 WITH를 사용하고 모든 열을 나열하는 CSV 파일 스키마를 지정했습니다. 필요한 각 열에 서수를 사용하여 쿼리에 실제로 필요한 열만 지정할 수 있습니다. 또한 관심이 없는 열은 생략합니다.
 

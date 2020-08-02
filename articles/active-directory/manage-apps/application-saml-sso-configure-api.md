@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 5b5de26afceb1127b42c937f1cb1005a660881d4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4dd6a40ed0fe0c4ec168300b3688fc3ba5cacbb9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273425"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499146"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Microsoft Graph API를 사용하여 SAML 기반 SSO 앱 구성 자동화
 
@@ -194,6 +194,8 @@ Content-type: application/json
 
 이 예제에서는 [servicePrincipal 리소스 종류](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0)에서 `saml`을 Single Sign-On 모드로 설정합니다. 그 밖에도 `notificationEmailAddresses`, `loginUrl`, `samlSingleSignOnSettings.relayState`와 같은 SAML SSO 속성을 구성할 수 있습니다.
 
+이 쿼리를 실행 하기 전에 그래프 탐색기의 **수정 권한** 탭에서 동의를 제공 해야 합니다. 또한 이전에 가져온 **Serviceprincipal** id를 사용 하 고 있는지 확인 합니다.
+
 #### <a name="request"></a>요청
 
 <!-- {
@@ -224,6 +226,8 @@ HTTP/1.1 204
 ### <a name="set-basic-saml-urls-such-as-identifier-reply-url-sign-on-url"></a>식별자, 회신 URL, 로그온 URL과 같은 기본 SAML URL 설정
 
 애플리케이션 개체에서 AWS에 대해 식별자 및 회신 URL을 설정합니다.
+
+앞에서 가져온 **응용 프로그램** id를 사용 하 고 있는지 확인 합니다.
 
 #### <a name="request"></a>요청
 

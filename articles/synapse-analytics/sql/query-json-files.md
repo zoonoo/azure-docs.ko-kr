@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386642"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489727"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 JSON 파일 쿼리
 
@@ -22,7 +22,7 @@ ms.locfileid: "87386642"
 - 여러 JSON 문서가 JSON 배열로 저장 되는 표준 JSON 파일입니다.
 - 줄로 구분 된 JSON 파일. JSON 문서는 줄 바꿈 문자로 구분 됩니다. 이러한 파일 형식에 대 한 일반적인 확장은 `jsonl` , `ldjson` 및 `ndjson` 입니다.
 
-## <a name="reading-json-documents"></a>JSON 문서 읽기
+## <a name="read-json-documents"></a>JSON 문서 읽기
 
 JSON 파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 함수에 파일 URL을 제공 하 고 `OPENROWSET` csv를 지정 하 `FORMAT` 고 `0x0b` 및에 대 한 값을 설정 하 `fieldterminator` 는 것입니다 `fieldquote` . 줄로 구분 된 JSON 파일을 읽어야 하는 경우에는 이것으로 충분 합니다. 클래식 JSON 파일이 있는 경우에는에 대 한 값을 설정 `0x0b` 해야 `rowterminator` 합니다. `OPENROWSET`함수는 JSON을 구문 분석 하 고 모든 문서를 다음 형식으로 반환 합니다.
 
@@ -60,7 +60,7 @@ from openrowset(
 
 이 쿼리는 각 JSON 문서를 결과 집합의 개별 행으로 반환 합니다. 이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다. 
 
-### <a name="using-data-source"></a>데이터 원본 사용
+### <a name="data-source-usage"></a>데이터 원본 사용
 
 이전 예에서는 파일에 대 한 전체 경로를 사용 합니다. 또는 저장소의 루트 폴더를 가리키는 위치를 사용 하 여 외부 데이터 원본을 만들고 해당 데이터 원본 및 함수에 있는 파일에 대 한 상대 경로를 사용할 수 있습니다 `OPENROWSET` .
 

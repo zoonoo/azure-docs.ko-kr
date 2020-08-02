@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025341"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494437"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -95,6 +95,6 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 - 새 Azure AD 테 넌 트를 만들려면 [빠른 시작: Azure Active Directory에서 새 테 넌 트 만들기](active-directory-access-create-new-tenant.md)를 참조 하세요.
 
-- Microsoft Azure 리소스 액세스를 제어 하는 방법에 대해 자세히 알아보려면 [클래식 구독 관리자 역할, AZURE RBAC 역할 및 AZURE AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요.
+- Microsoft Azure 리소스 액세스를 제어 하는 방법에 대해 자세히 알아보려면 [클래식 구독 관리자 역할, azure 역할 및 AZURE AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요.
 
 - Azure AD에서 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자에 게 관리자 및 비관리자 역할 할당](active-directory-users-assign-role-azure-portal.md)을 참조 하세요.
