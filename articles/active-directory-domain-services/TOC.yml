@@ -9,7 +9,7 @@
 - name: 자습서
   expanded: true
   items:
-    - name: 기본 관리되는 도메인 만들기
+    - name: 관리형 도메인 만들기
       href: tutorial-create-instance.md
     - name: 앱용 가상 네트워크 구성
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: 암호 해시 동기화 구성
       href: tutorial-configure-password-hash-sync.md
-    - name: 고급 관리되는 도메인 만들기
+    - name: 복제본 집합 만들기(미리 보기)
+      href: tutorial-create-replica-set.md
+    - name: 사용자 지정 관리형 도메인 만들기
       href: tutorial-create-instance-advanced.md
-    - name: 포리스트 트러스트 만들기(미리 보기)
+    - name: 포리스트 트러스트 만들기
       href: tutorial-create-forest-trust.md
 - name: 샘플
   items:
@@ -33,12 +35,16 @@
       href: template-create-instance.md
     - name: Azure AD PowerShell를 사용하여 범위가 지정된 동기화 구성
       href: powershell-scoped-synchronization.md
+    - name: Azure PowerShell을 사용하여 리소스 포리스트 및 트러스트 만들기
+      href: create-resource-forest-powershell.md
 - name: 개념
   items:
     - name: 관리 기본 사항
       href: administration-concepts.md
     - name: 일반적인 배포 시나리오
       href: scenarios.md
+    - name: 복제본 집합(미리 보기)
+      href: concepts-replica-sets.md
     - name: 포리스트 및 트러스트
       items:
         - name: 리소스 포리스트

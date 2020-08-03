@@ -210,8 +210,10 @@
     - name: 템플릿 사양
       items:
         - name: 연결된 템플릿을 사용하여 만들기
+          displayName: template specs
           href: template-specs-create-linked.md
         - name: 연결된 템플릿으로 배포
+          displayName: template specs
           href: template-specs-deploy-linked-template.md
     - name: 고급 템플릿
       items:
@@ -366,8 +368,8 @@
           href: deploy-to-management-group.md
         - name: 테넌트
           href: deploy-to-tenant.md
-        - name: 리소스 그룹 간
-          href: cross-resource-group-deployment.md
+        - name: 범위 간 배포
+          href: cross-scope-deployment.md
     - name: 매개 변수 제공
       items:
         - name: 매개 변수 파일 만들기

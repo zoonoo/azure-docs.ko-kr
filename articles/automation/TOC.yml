@@ -244,43 +244,49 @@
     - name: 업데이트 관리
       items:
         - name: 개요
-          href: automation-update-management.md
+          href: update-management/update-mgmt-overview.md
         - name: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
           href: how-to/region-mappings.md
         - name: 사용
           items:
             - name: Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
-              href: automation-update-management-deploy-template.md
+              href: update-management/update-mgmt-enable-template.md
             - name: Azure Portal에서 업데이트 관리 사용
-              href: automation-onboard-solutions-from-browse.md
+              href: update-management/update-mgmt-enable-portal.md
             - name: Azure VM에서 업데이트 관리 사용
-              href: automation-onboard-solutions-from-vm.md
+              href: update-management/update-mgmt-enable-vm.md
             - name: Automation 계정에서 업데이트 관리 사용
-              href: automation-onboard-solutions-from-automation-account.md
+              href: update-management/update-mgmt-enable-automation-account.md
             - name: Runbook에서 업데이트 관리 사용
-              href: automation-onboard-solutions.md
-        - name: Azure VM에 대한 업데이트 관리
-          href: automation-tutorial-update-management.md
-        - name: 여러 VM에 대한 업데이트 관리
-          href: manage-update-multi.md
-        - name: 업데이트 평가 보기
-          href: automation-view-update-assessments.md
-        - name: 사전 스크립트 및 사후 스크립트 관리
-          href: pre-post-scripts.md
+              href: update-management/update-mgmt-enable-runbook.md
+        - name: VM 업데이트 관리
+          items:
+            - name: 시작하기
+              href: update-management/update-mgmt-manage-updates-for-vm.md
+            - name: 규정 준수 평가
+              href: update-management/update-mgmt-view-update-assessments.md
+            - name: 업데이트 배포 및 상태 검토
+              href: update-management/update-mgmt-deploy-updates.md
+            - name: 사전 스크립트 및 사후 스크립트 사용
+              href: update-management/update-mgmt-pre-post-scripts.md
+            - name: 경고 구성
+              href: update-management/update-mgmt-configure-alerts.md
         - name: Configuration Manager와 상호 작용
-          href: updatemgmt-mecmintegration.md
+          href: update-management/update-mgmt-mecmintegration.md
         - name: Windows 업데이트 클라이언트 구성
-          href: automation-configure-windows-update.md
+          href: update-management/update-mgmt-configure-wuagent.md
         - name: 동적 그룹 사용
-          href: automation-update-management-groups.md
+          href: update-management/update-mgmt-groups.md
         - name: 업데이트 관리 로그 쿼리
-          href: automation-update-management-query-logs.md
+          href: update-management/update-mgmt-query-logs.md
         - name: 범위 구성 작업
-          href: automation-scope-configurations-update-management.md
-        - name: Automation 계정에서 작업 영역 연결 해제
-          href: automation-unlink-workspace-update-management.md
-        - name: 업데이트 관리에서 VM 제거
-          href: automation-remove-vms-from-update-management.md
+          href: update-management/update-mgmt-scope-configuration.md
+        - name: 사용 안 함
+          items:
+            - name: 업데이트 관리 제거
+              href: update-management/update-mgmt-remove-feature.md
+            - name: 업데이트 관리에서 VM 제거
+              href: update-management/update-mgmt-remove-vms.md
         - name: 문제 해결
           items:
             - name: 기능 배포 문제 해결

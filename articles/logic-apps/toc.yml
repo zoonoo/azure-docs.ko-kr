@@ -28,6 +28,8 @@
       href: tutorial-process-email-attachments-workflow.md
 - name: 샘플
   items:
+    - name: 논리 앱 만들기 - 샘플 스크립트
+      href: sample-logic-apps-cli-script.md
     - name: Azure 코드 샘플
       href: /samples/browse/?products=azure-logic-apps
     - name: Resource Manager 빠른 시작 템플릿

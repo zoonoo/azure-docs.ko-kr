@@ -10,14 +10,16 @@
       href: load-balancer-faqs.md
 - name: 빠른 시작
   items:
-    - name: Load Balancer 만들기 - 포털
+    - name: 퍼블릭 부하 분산 장치 만들기 - 포털
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Load Balancer 만들기 - Azure CLI
+    - name: 퍼블릭 부하 분산 장치 만들기 - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Load Balancer 만들기 - Azure PowerShell
+    - name: 퍼블릭 부하 분산 장치 만들기 - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Load Balancer 만들기 - ARM 템플릿
+    - name: 퍼블릭 부하 분산 장치 만들기 - ARM 템플릿
       href: quickstart-load-balancer-standard-public-template.md
+    - name: 퍼블릭 부하 분산 장치 만들기 - 포털
+      href: quickstart-load-balancer-standard-internal-portal.md
   expanded: true
 - name: 자습서
   items:

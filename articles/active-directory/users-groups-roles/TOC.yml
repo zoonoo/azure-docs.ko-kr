@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: 앱 관리자 권한 위임
               href: roles-delegate-app-roles.md
+        - name: 그룹을 사용하여 역할 할당 관리
+          items:
+            - name: 그룹 기반 역할 할당 미리 보기
+              href: roles-groups-concept.md
+            - name: 역할 할당 가능 그룹 만들기
+              href: roles-groups-create-eligible.md
+            - name: 그룹에 역할 할당
+              href: roles-groups-assign-role.md
+            - name: 그룹에서 역할 할당 제거
+              href: roles-groups-remove-assignment.md
+            - name: 그룹 역할 할당 보기
+              href: roles-groups-view-assignments.md
+            - name: PIM에서 역할에 적합한 그룹 만들기
+              href: roles-groups-pim-eligible.md
+            - name: FAQ 및 문제 해결
+              href: roles-groups-faq-troubleshooting.md
         - name: 태스크별 최소 권한 있는 역할
           href: roles-delegate-by-task.md
         - name: Microsoft 365 역할

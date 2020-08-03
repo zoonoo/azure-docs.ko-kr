@@ -11,18 +11,18 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 657f6dd32c18b5b0745883da02563e9f5257d92d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd3abdfd9b0bc0e658caa1cc5ab5c5a7edfda453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307219"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494025"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning에서는 인증된 REST API를 사용하여 작업 영역 데이터를 내보내거나 삭제할 수 있습니다. 이 문서에서는 이러한 작업을 수행하는 방법에 대해 설명합니다.
+Azure Machine Learning에서 포털의 그래픽 인터페이스 또는 Python SDK를 사용 하 여 작업 영역 데이터를 내보내거나 삭제할 수 있습니다. 이 문서에서는 두 가지 옵션에 대해 설명 합니다.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -30,225 +30,62 @@ Azure Machine Learning에서는 인증된 REST API를 사용하여 작업 영역
 
 ## <a name="control-your-workspace-data"></a>작업 영역 데이터 제어
 
-Azure Machine Learning에 의해 저장 된 제품 데이터는 Azure Machine Learning studio, CLI, SDK 및 인증 된 REST Api를 통해 내보내기 및 삭제에 사용할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 
+Azure Machine Learning에 의해 저장 된 제품 내 데이터는 내보내기 및 삭제에 사용할 수 있습니다. Azure Machine Learning studio, CLI 및 SDK를 사용 하 여 내보내기 및 삭제할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 
 
-Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 간 상호 작용의 실행 기록 문서 및 원격 분석 레코드의 사용자 정보로 구성됩니다.
+Azure Machine Learning 개인 데이터는 실행 기록 문서의 사용자 정보로 구성 됩니다. 
 
-## <a name="delete-workspace-data-with-the-rest-api"></a>REST API를 통해 작업 영역 데이터 삭제
+## <a name="delete-high-level-resources-using-the-portal"></a>포털을 사용 하 여 상위 수준 리소스 삭제
 
-데이터를 삭제하려면 HTTP DELETE 동사로 다음 API 호출을 만들 수 있습니다. 이러한 호출은 요청에 `Authorization: Bearer <arm-token>` 헤더를 포함하여 권한이 부여됩니다. 여기서 `<arm-token>`은 `https://management.core.windows.net/` 엔드포인트에 대한 AAD 액세스 토큰입니다.  
+작업 영역을 만들 때 Azure는 리소스 그룹 내에 많은 리소스를 만듭니다.
 
-이 토큰을 가져오고 Azure 끝점을 호출 하는 방법에 대 한 자세한 내용은 [REST를 사용 하 여 ML 리소스](how-to-manage-rest.md) 및 [azure REST API 설명서](https://docs.microsoft.com/rest/api/azure/)관리를 참조 하세요.  
+- 작업 영역 자체
+- 스토리지 계정
+- 컨테이너 레지스트리
+- Application Insights 인스턴스
+- 주요 자격 증명 모음
 
-다음 예제에서 {}의 텍스트를 관련된 리소스를 결정하는 인스턴스 이름으로 바꿉니다.
+이러한 리소스는 목록에서 선택 하 고 **삭제** 를 선택 하 여 삭제할 수 있습니다. 
 
-### <a name="delete-an-entire-workspace"></a>전체 작업 영역 삭제
+:::image type="content" source="media/how-to-export-delete-data/delete-resource-group-resources.png" alt-text="삭제 아이콘이 강조 표시 된 포털의 스크린샷":::
 
-다음 호출을 사용하여 전체 작업 영역을 삭제합니다.  
-> [!WARNING]
-> 모든 정보가 삭제되고 작업 영역은 더 이상 사용할 수 없습니다.
+개인 사용자 정보를 포함할 수 있는 실행 기록 문서는의 하위 폴더에 있는 blob storage의 저장소 계정에 저장 됩니다 `/azureml` . 포털에서 데이터를 다운로드 하 고 삭제할 수 있습니다.
 
-`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2019-11-01`
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="포털 내에서 저장소 계정의 azureml 디렉터리 스크린샷":::
 
-### <a name="delete-models"></a>모델 삭제
+## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 기계 학습 리소스 내보내기 및 삭제
 
-이 호출을 사용하여 모델 및 해당 ID의 목록을 가져옵니다.
+Azure Machine Learning studio에서는 노트북, 데이터 집합, 모델 및 실험 등의 기계 학습 리소스에 대 한 통합 보기를 제공 합니다. Azure Machine Learning studio는 데이터 및 실험의 레코드 유지를 강조 합니다. 파이프라인 및 계산 리소스와 같은 계산 리소스는 브라우저를 사용 하 여 삭제할 수 있습니다. 이러한 리소스에 대해 문제의 리소스로 이동 하 고 **삭제**를 선택 합니다. 
 
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models?api-version=2019-11-01`
+데이터 집합의 등록을 취소 하 고 실험을 보관할 수 있지만 이러한 작업은 데이터를 삭제 하지 않습니다. 데이터를 완전히 제거 하려면 데이터 집합 및 실행 데이터를 저장소 수준에서 삭제 해야 합니다. 이전에 설명한 대로 저장소 수준에서 삭제는 포털을 사용 하 여 수행 됩니다.
 
-개별 모델은 다음을 통해 삭제할 수 있습니다.
+스튜디오를 사용 하 여 실험 실행에서 학습 아티팩트를 다운로드할 수 있습니다. 관심이 있는 **실험** 및 **실행** 을 선택 합니다. **출력 + 로그** 를 선택 하 고 다운로드 하려는 특정 아티팩트로 이동 합니다. ... **및** **다운로드**를 선택 합니다.
 
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models/{id}?api-version=2019-11-01`
+원하는 **모델로** 이동 하 고 **다운로드**를 선택 하 여 등록 된 모델을 다운로드할 수 있습니다. 
 
-### <a name="delete-assets"></a>자산 삭제
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="다운로드 옵션이 강조 표시 된 스튜디오 모델 페이지의 스크린샷":::
 
-다음 호출을 사용하여 자산 및 해당 ID의 목록을 가져옵니다.
+## <a name="export-and-delete-resources-using-the-python-sdk"></a>Python SDK를 사용 하 여 리소스 내보내기 및 삭제
 
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets?api-version=2019-11-01`
+다음을 사용 하 여 특정 실행의 출력을 다운로드할 수 있습니다. 
 
-개별 자산은 다음을 통해 삭제할 수 있습니다.
+```python
+# Retrieved from Azure Machine Learning web UI
+run_id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789AB'
+experiment = ws.experiments['my-experiment']
+run = next(run for run in ex.get_runs() if run.id == run_id)
+metrics_output_port = run.get_pipeline_output('metrics_output')
+model_output_port = run.get_pipeline_output('model_output')
 
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets/{id}?api-version=2019-11-01`
+metrics_output_port.download('.', show_progress=True)
+model_output_port.download('.', show_progress=True)
+```
 
-### <a name="delete-images"></a>이미지 삭제
+Python SDK를 사용 하 여 다음 machine learning 리소스를 삭제할 수 있습니다. 
 
-다음 호출을 사용하여 이미지 및 해당 ID의 목록을 가져옵니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images?api-version=2019-11-01`
-
-개별 이미지는 다음을 통해 삭제할 수 있습니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images/{id}?api-version=2019-11-01`
-
-### <a name="delete-services"></a>서비스 삭제
-
-다음 호출을 사용하여 서비스 및 해당 ID의 목록을 가져옵니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services?api-version=2019-11-01`
-
-개별 서비스는 다음을 통해 삭제할 수 있습니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services/{id}?api-version=2019-11-01`
-
-## <a name="export-service-data-with-the-rest-api"></a>REST API를 통해 서비스 데이터 내보내기
-
-데이터를 내보내려면 HTTP GET 동사로 다음 API 호출을 만들 수 있습니다. 이는 요청에 `Authorization: Bearer <arm-token>` 헤더를 포함하여 권한이 부여됩니다. 여기서 `<arm-token>`은 엔드포인트 `https://management.core.windows.net/`에 대한 AAD 액세스 토큰입니다.  
-
-이 토큰을 가져오고 Azure 끝점을 호출 하는 방법에 대 한 자세한 내용은 [REST를 사용 하 여 ML 리소스 관리](how-to-manage-rest.md) 및 [azure REST API 설명서](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.   
-
-다음 예제에서 {}의 텍스트를 관련된 리소스를 결정하는 인스턴스 이름으로 바꿉니다.
-
-### <a name="export-workspace-information"></a>작업 영역 정보 내보내기
-
-다음 호출을 사용하여 모든 작업 영역의 목록을 가져옵니다.
-
-`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces?api-version=2019-11-01`
-
-개별 작업 영역에 대한 정보는 다음을 통해 가져올 수 있습니다.
-
-`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2019-11-01`
-
-### <a name="export-compute-information"></a>컴퓨팅 정보 내보내기
-
-작업 영역에 연결된 모든 컴퓨팅 대상은 다음을 통해 가져올 수 있습니다.
-
-`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes?api-version=2019-11-01`
-
-단일 컴퓨팅 대상에 대한 정보는 다음을 통해 가져올 수 있습니다.
-
-`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}?api-version=2019-11-01`
-
-### <a name="export-run-history-data"></a>실행 기록 데이터 내보내기
-
-다음 호출을 사용하여 모든 실험 및 해당 정보의 목록을 가져옵니다.
-
-`https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments`
-
-특정 실험에 대한 모든 실행은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs`
-
-실행 기록 항목은 다음을 통해 얻을 수 있습니다.
-
-`https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId}`
-
-실험에 대한 모든 실행 메트릭은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/metrics`
-
-단일 실행 메트릭은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/metrics/{metricId}`
-
-### <a name="export-artifacts"></a>아티팩트 내보내기
-
-이 호출을 사용하여 아티팩트 및 해당 경로의 목록을 가져옵니다.
-
-`https://{location}.experiments.azureml.net/artifact/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/origins/ExperimentRun/containers/{runId}`
-
-### <a name="export-notifications"></a>알림 내보내기
-
-다음 호출을 사용하여 저장된 작업의 목록을 가져옵니다.
-
-`https://{location}.experiments.azureml.net/notification/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/tasks`
-
-단일 작업에 대한 알림은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.experiments.azureml.net/notification/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}tasks/{taskId}`
-
-### <a name="export-data-stores"></a>데이터 저장소 내보내기
-
-다음 호출을 사용하여 데이터 저장소의 목록을 가져옵니다.
-
-`https://{location}.experiments.azureml.net/datastore/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores`
-
-개별 데이터 저장소는 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.experiments.azureml.net/datastore/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores/{name}`
-
-### <a name="export-models"></a>모델 내보내기
-
-이 호출을 사용하여 모델 및 해당 ID의 목록을 가져옵니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models?api-version=2019-11-01`
-
-개별 모델은 다음을 통해 얻을 수 있습니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models/{id}?api-version=2019-11-01`
-
-### <a name="export-assets"></a>자산 내보내기
-
-다음 호출을 사용하여 자산 및 해당 ID의 목록을 가져옵니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets?api-version=2019-11-01`
-
-개별 자산은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets/{id}?api-version=2019-11-01`
-
-### <a name="export-images"></a>이미지 내보내기
-
-다음 호출을 사용하여 이미지 및 해당 ID의 목록을 가져옵니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images?api-version=2019-11-01`
-
-개별 이미지는 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images/{id}?api-version=2019-11-01`
-
-### <a name="export-services"></a>서비스 내보내기
-
-다음 호출을 사용하여 서비스 및 해당 ID의 목록을 가져옵니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services?api-version=2019-11-01`
-
-개별 서비스는 다음을 통해 얻을 수 있습니다.
-
-`https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services/{id}?api-version=2019-11-01`
-
-### <a name="export-pipeline-experiments"></a>파이프라인 실험 내보내기
-
-개별 실험은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Experiments/{experimentId}`
-
-### <a name="export-pipeline-graphs"></a>파이프라인 그래프 내보내기
-
-개별 그래프는 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Graphs/{graphId}`
-
-### <a name="export-pipeline-modules"></a>파이프라인 모듈 내보내기
-
-모듈은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Modules/{id}`
-
-### <a name="export-pipeline-templates"></a>파이프라인 템플릿 내보내기
-
-템플릿은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Templates/{templateId}`
-
-### <a name="export-pipeline-data-sources"></a>파이프라인 데이터 원본 내보내기
-
-데이터 원본은 다음을 통해 가져올 수 있습니다.
-
-`https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}`
-
-## <a name="delete-assets-in-the-designer"></a>디자이너에서 자산 삭제
-
-실험을 만든 디자이너에서 개별 자산을 삭제 합니다.
-
-1. 디자이너로 이동
-
-    ![자산 삭제](./media/how-to-export-delete-data/delete-experiment.png)
-
-1. 목록에서 삭제할 개별 파이프라인 초안을 선택 합니다.
-
-1. **삭제**를 선택합니다.
-
-### <a name="delete-datasets-in-the-designer"></a>디자이너에서 데이터 집합 삭제
-
-디자이너에서 데이터 집합을 삭제 하려면 Azure Portal 또는 Storage 탐색기를 사용 하 여 연결 된 저장소 계정으로 이동 하 고 여기에서 데이터 집합을 삭제 합니다. 디자이너에서 데이터 집합의 등록을 취소 하면 저장소의 참조 지점만 제거 됩니다.
+| 형식 | 함수 호출 | 참고 | 
+| --- | --- | --- |
+| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#delete-delete-dependent-resources-false--no-wait-false-) | `delete-dependent-resources`삭제를 계단식으로 배열 하는 데 사용 |
+| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#delete--) | | 
+| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#delete--) | |
+| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py) | | 
 

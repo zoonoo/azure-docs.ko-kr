@@ -45,7 +45,7 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Azure AD 역할 관리
       items:
-        - name: 기능 업데이트
+        - name: 기능 개요
           href: azure-ad-roles-features.md
         - name: Azure AD 역할에 대한 PowerShell
           href: powershell-for-azure-ad-roles.md
@@ -87,6 +87,22 @@
           href: azure-pim-resource-rbac.md
         - name: 사용자 지정 역할 사용
           href: pim-resource-roles-custom-role-policy.md
+    - name: 권한 있는 액세스 그룹 관리(미리 보기)
+      items:
+        - name: 권한 있는 액세스 개요
+          href: groups-features.md
+        - name: 그룹 검색
+          href: groups-discover-groups.md
+        - name: 멤버 또는 소유자 할당
+          href: groups-assign-member-owner.md
+        - name: 요청 승인
+          href: groups-approval-workflow.md
+        - name: 할당 확장 또는 갱신
+          href: groups-renew-extend.md
+        - name: 역할 설정 구성
+          href: groups-role-settings.md
+        - name: 감사 기록 보기
+          href: groups-audit.md
     - name: PIM 문제 해결
       href: pim-troubleshoot.md
     - name: 액세스 검토

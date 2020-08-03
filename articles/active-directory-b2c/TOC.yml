@@ -452,6 +452,8 @@
       displayName: security
     - name: 사용자 흐름 버전
       href: user-flow-versions.md
+    - name: 레거시 사용자 흐름 버전
+      href: user-flow-versions-legacy.md
 - name: 리소스
   items:
     - name: Azure 로드맵

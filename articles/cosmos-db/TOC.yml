@@ -78,7 +78,7 @@
     - name: Python 샘플
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples-sql.md
+      href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure 리소스 관리자
@@ -458,12 +458,6 @@
         - name: 매개 변수가 있는 쿼리
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
-        - name: SQL 쿼리 실행
-          displayName: 'query performance, query execution'
-          href: sql-query-execution.md
-        - name: 페이지 매김
-          displayName: 'page, paging, continuation, token, pagination'
-          href: sql-query-pagination.md
         - name: LINQ to SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
@@ -592,6 +586,8 @@
           href: policy.md
     - name: 서비스 할당량
       href: concepts-limits.md
+    - name: 자동 권장 사항
+      href: automated-recommendations.md
 - name: 'Cassandra, MongoDB 및 기타 API'
   expanded: true
   items:
@@ -672,7 +668,7 @@
               href: manage-cassandra-with-resource-manager.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples-cassandra.md
+              href: powershell-samples.md
             - name: Azure CLI를 사용하여 관리
               href: cli-samples.md
     - name: MongoDB API
@@ -766,7 +762,7 @@
               href: manage-mongodb-with-resource-manager.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples-mongodb.md
+              href: powershell-samples.md
             - name: Azure CLI를 사용하여 관리
               href: cli-samples.md
             - name: 일반적인 문제 해결
@@ -826,7 +822,7 @@
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples-gremlin.md
+              href: powershell-samples.md
             - name: Azure CLI를 사용하여 관리
               href: cli-samples.md
         - name: 참조
@@ -897,7 +893,7 @@
               href: manage-table-with-resource-manager.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples-table.md
+              href: powershell-samples.md
             - name: Azure CLI를 사용하여 관리
               href: cli-samples.md
         - name: 참조
