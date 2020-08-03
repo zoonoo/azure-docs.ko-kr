@@ -4,12 +4,13 @@ description: Language Understanding (LUIS)를 처음 사용 하는 경우 제작
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144642"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496902"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -58,7 +59,7 @@ LUIS와 같은 Azure 리소스는 리소스를 포함 하는 구독이 소유 �
 
 사용 제한은 가격 책정 계층을 기반으로 합니다.
 
-TPS (초당 트랜잭션 수) 할당량을 초과 하는 경우 HTTP 429 오류를 받게 됩니다. 월별 트랜잭션 (TPS) 할당량을 초과 하는 경우 HTTP 403 오류가 표시 됩니다.
+TPS(초당 트랜잭션 수) 할당량을 초과하는 경우 HTTP 429 오류가 표시됩니다. TPS(월별 트랜잭션 수) 할당량을 초과하는 경우 HTTP 403 오류가 표시됩니다.
 
 
 ### <a name="reset-authoring-key"></a>작성 키 다시 설정

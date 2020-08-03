@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 지 원하는 같음, 비교 및 논리 연�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063567"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498840"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Azure Cosmos DB 연산자
 
@@ -21,19 +21,27 @@ ms.locfileid: "80063567"
 
 다음 표는 SQL API에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **개체** | **배열과** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **배열** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Null** | Undefined | **그래** | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Boolean** | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined | Undefined |
 | **Number** | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined | Undefined |
 | **String** | Undefined | Undefined | Undefined | Undefined | **그래** | Undefined | Undefined |
-| **개체** | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** | Undefined |
-| **배열과** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** | Undefined |
+| **배열** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **그래** |
 
 ,,,, 등의 비교 연산자의 경우 `>` `>=` 형식 간 `!=` `<` `<=` 또는 두 개체 또는 배열 간의 비교는을 생성 `Undefined` 합니다.  
 
 스칼라 식의 결과가 인 경우 `Undefined` 항목은와 같지 않기 때문에 결과에 포함 되지 않습니다 `Undefined` `true` .
+
+예를 들어 다음 쿼리는 숫자와 문자열 값을 비교 하 여를 생성 `Undefined` 합니다. 따라서 필터에는 결과가 포함 되지 않습니다.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
 
 ## <a name="logical-and-or-and-not-operators"></a>논리(AND, OR 및 NOT) 연산자
 
@@ -46,8 +54,8 @@ ms.locfileid: "80063567"
 |  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |True |False |Undefined |
-| **Undefined** |True |Undefined |Undefined |
+| **False** |참 |False |Undefined |
+| **Undefined** |참 |Undefined |Undefined |
 
 **AND 연산자**
 
@@ -55,7 +63,7 @@ ms.locfileid: "80063567"
 
 |  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
-| **True** |True |False |Undefined |
+| **True** |참 |거짓 |Undefined |
 | **False** |False |False |False |
 | **Undefined** |Undefined |False |Undefined |
 
@@ -63,19 +71,19 @@ ms.locfileid: "80063567"
 
 부울 식의 값을 반대로 바꿉니다.
 
-|  | **나타내지** |
+|  | **NOT** |
 | --- | --- |
 | **True** |False |
-| **False** |True |
+| **False** |참 |
 | **Undefined** |Undefined |
 
 **연산자 우선 순위**
 
 논리 연산자, 및에는 아래와 같은 `OR` `AND` `NOT` 우선 순위 수준이 있습니다.
 
-| **연산자** | **Priority** |
+| **연산자** | **우선 순위** |
 | --- | --- |
-| **나타내지** |1 |
+| **NOT** |1 |
 | **하거나** |2 |
 | **OR** |3 |
 

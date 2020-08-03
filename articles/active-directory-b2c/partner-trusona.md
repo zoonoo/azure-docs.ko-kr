@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170108"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489472"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Azure Active Directory B2C와 Trusona 통합
 
 Trusona는 암호 없는 인증, multi-factor authentication 및 디지털 라이선스 검색을 사용 하 여 로그인을 보호 하는 ISV (독립 소프트웨어 공급 업체) 공급자입니다. 이 문서에서는 Trusona을 id Azure AD B2C 공급자로 추가 하 여 암호 없는 인증을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -125,25 +125,26 @@ Trusona는 암호 없는 인증, multi-factor authentication 및 디지털 라�
 
 ### <a name="create-a-user-flow-policy"></a>사용자 흐름 정책 만들기
 
-1. 이제 B2C id 공급자에 나열 된 **새 Openid connect Connect Id 공급자로** Trusona이 표시 됩니다.
+이제 B2C id 공급자에 나열 된 **새 Openid connect Connect Id 공급자로** Trusona이 표시 됩니다.
 
-2. 왼쪽 탐색 패널에서 **사용자 흐름 (정책)** 을 선택 합니다.
+1. Azure AD B2C 테 넌 트에서 **정책**아래에서 **사용자 흐름**을 선택 합니다.
 
-3. **Add**  >  **새 사용자 흐름**추가  >  **등록 및 로그인을**선택 합니다.
+1. **새 사용자 흐름**을 선택 합니다.
 
-### <a name="configure-the-policy"></a>정책 구성
+1. **등록 및 로그인**을 선택 하 고, 버전을 선택한 다음, **만들기**를 선택 합니다.
 
-1. 정책 이름을로 합니다.
+1. 정책의 **이름을** 입력 합니다.
 
-2. 새로 만든 **Trusona Id 공급자**를 선택 합니다.
+1. **Id 공급자** 섹션에서 새로 만든 **Trusona id 공급자**를 선택 합니다.
 
-3. Trusona는 기본적으로 다단계 인증을 사용 하지 않도록 설정 하는 것이 좋습니다.
+   > [!NOTE]
+   > Trusona는 기본적으로 다단계 인증을 사용 하지 않도록 설정 하는 것이 좋습니다.
 
-4. **만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 
-5. **사용자 특성 및 클레임**에서 **자세히 표시**를 선택 합니다. 양식에서 이전 섹션에서 id 공급자를 설정 하는 동안 지정한 특성을 하나 이상 선택 합니다.
+1. **사용자 특성 및 클레임**에서 **자세히 표시**를 선택 합니다. 양식에서 이전 섹션에서 id 공급자를 설정 하는 동안 지정한 특성을 하나 이상 선택 합니다.
 
-6. **확인**을 선택합니다.  
+1. **확인**을 선택합니다.  
 
 ### <a name="test-the-policy"></a>정책 테스트
 

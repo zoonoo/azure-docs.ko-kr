@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 07/27/2020
-ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281160"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499180"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL을 사용 하 여 Azure AD 인증 구성 및 관리
 
@@ -283,7 +283,7 @@ SQL Database 및 Azure Synapse에 대 한 Azure AD 관리자를 프로 비전 �
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 제거 합니다.|
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대해 현재 구성 된 Azure Active Directory 관리자에 대 한 정보를 반환 합니다. |
 
-PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. 예들 들어 `get-help Set-AzSqlServerActiveDirectoryAdministrator`입니다.
+PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. 예: `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
 다음 스크립트는 **DBA_Group** `40b79501-b343-44ed-9ce7-da4c8cc7353f` **그룹-23**이라는 리소스 그룹의 **demo_server** 서버에 대 한 DBA_GROUP (개체 ID) 이라는 Azure AD 관리자 그룹을 프로 비전 합니다.
 
@@ -291,7 +291,7 @@ PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 또는 ``DisplayName="johns@contoso.com"``입니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
+**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 및 ``DisplayName="johns@contoso.com"``가 있습니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
 
 > [!NOTE]
 > Azure PowerShell 명령 ```Set-AzSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다.
@@ -360,7 +360,7 @@ SQL Managed Instance는 Azure AD 서버 보안 주체 (로그인)를 지원 하�
 그러나 SQL Database 및 Azure Synapse를 사용 하 여 Azure Active Directory 인증을 사용 하려면 Azure AD id를 기반으로 하는 포함 된 데이터베이스 사용자를 사용 해야 합니다. 포함 된 데이터베이스 사용자는 master 데이터베이스에 로그인을 포함 하지 않으며, 데이터베이스와 연결 된 Azure AD의 id에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
 > [!NOTE]
-> 데이터베이스 사용자(관리자 예외)는 Azure Portal을 사용하여 만들 수 없습니다. RBAC 역할은 SQL Database, SQL Managed Instance 또는 Azure Synapse의 데이터베이스로 전파 되지 않습니다. Azure RBAC 역할은 Azure 리소스 관리에 사용되며 데이터베이스 사용 권한에는 적용되지 않습니다. 예를 들어 **SQL Server 참여자** 역할은 SQL DATABASE, SQL Managed Instance 또는 Azure Synapse에서 데이터베이스에 연결할 수 있는 액세스 권한을 부여 하지 않습니다. TRANSACT-SQL 문을 사용하여 데이터베이스에 직접 액세스 권한을 부여해야 합니다.
+> 데이터베이스 사용자(관리자 예외)는 Azure Portal을 사용하여 만들 수 없습니다. Azure 역할은 SQL Database, SQL Managed Instance 또는 Azure Synapse의 데이터베이스로 전파 되지 않습니다. Azure 역할은 Azure 리소스를 관리 하는 데 사용 되며 데이터베이스 사용 권한에는 적용 되지 않습니다. 예를 들어 **SQL Server 참여자** 역할은 SQL DATABASE, SQL Managed Instance 또는 Azure Synapse에서 데이터베이스에 연결할 수 있는 액세스 권한을 부여 하지 않습니다. TRANSACT-SQL 문을 사용하여 데이터베이스에 직접 액세스 권한을 부여해야 합니다.
 
 > [!WARNING]
 > `:` `&` T-sql 및 문에 사용자 이름으로 포함 될 때 콜론 또는 앰퍼샌드와 같은 특수 문자 `CREATE LOGIN` `CREATE USER` 는 지원 되지 않습니다.
@@ -544,4 +544,3 @@ Azure AD 인증을 사용 하 여 문제를 해결 하는 방법에 대 한 지�
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
-

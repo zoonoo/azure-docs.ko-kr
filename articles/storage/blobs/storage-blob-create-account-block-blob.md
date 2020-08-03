@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c23c034af40d7db2379f9d02357131a00482bd2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463572"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495746"
 ---
 # <a name="create-a-blockblobstorage-account"></a>BlockBlobStorage 계정 만들기
 
@@ -24,7 +25,7 @@ BlockBlobStorage 계정 종류를 사용 하면 프리미엄 성능 특성을 �
 
 BlockBlobStorage 계정에 대 한 자세한 내용은 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -40,12 +41,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
 
-- Azure Portal에서 Azure Cloud Shell의 CLI 명령을 실행할 수 있습니다.
-- CLI를 설치 하 고 CLI 명령을 로컬로 실행할 수 있습니다.
+- Azure Portal 내에서 Azure Cloud Shell을 사용하여 CLI 명령을 실행합니다.
+- CLI를 설치하고 로컬로 CLI를 실행합니다.
 
 ### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
-Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI는 사전 설치 되며 계정에 사용 하도록 구성 됩니다. Azure Portal의 오른쪽 위 섹션에 있는 메뉴에서 **Cloud Shell** 단추를 클릭 합니다.
+Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성됩니다. Azure Portal의 오른쪽 위 섹션에 있는 메뉴에서 **Cloud Shell** 단추를 클릭 합니다.
 
 [![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -209,4 +210,4 @@ Azure CLI를 사용 하 여 블록 blob 계정을 만들려면 Azure CLI v를 �
 
 - 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요.
 
-- 리소스 그룹에 대 한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조 하세요.
+- 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355661"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499877"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Blob 인덱스를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기 (미리 보기)
 
@@ -63,7 +63,7 @@ Blob에 여러 태그를 적용 하 여 데이터를 보다 자세히 설명할 
 > "Priority" = ' 01 ' 
 >
 
-기존 인덱스 태그 특성을 수정 하려면 먼저 기존 태그 특성을 검색 하 고 태그 특성을 수정한 후를 SetBlobTags 작업으로 바꾸어야 합니다. Blob에서 모든 인덱스 태그를 제거 하려면 태그 특성을 지정 하지 않고 SetBlobTags 작업을 호출 합니다. Blob 인덱스 태그는 blob 데이터 콘텐츠에 대 한 하위 리소스 이므로 SetBlobTags는 기본 콘텐츠를 수정 하지 않고 blob의 마지막 수정 시간 또는 ETag (엔터티 태그)를 변경 하지 않습니다. 모든 현재 기본 blob 및 이전 버전에 대 한 인덱스 태그를 만들거나 수정할 수 있습니다. 그러나 스냅숏이 나 일시 삭제 된 blob의 태그는 수정할 수 없습니다. 
+기존 인덱스 태그 특성을 수정 하려면 먼저 기존 태그 특성을 검색 하 고 태그 특성을 수정한 후를 SetBlobTags 작업으로 바꾸어야 합니다. Blob에서 모든 인덱스 태그를 제거 하려면 태그 특성을 지정 하지 않고 SetBlobTags 작업을 호출 합니다. Blob 인덱스 태그는 blob 데이터 콘텐츠에 대 한 하위 리소스 이므로 SetBlobTags는 기본 콘텐츠를 수정 하지 않고 blob의 마지막 수정 시간 또는 eTag (엔터티 태그)를 변경 하지 않습니다. 모든 현재 기본 blob 및 이전 버전에 대 한 인덱스 태그를 만들거나 수정할 수 있습니다. 그러나 스냅숏이 나 일시 삭제 된 blob의 태그는 수정할 수 없습니다. 
 
 Blob 인덱스 태그에는 다음과 같은 제한이 적용 됩니다.
 - 각 blob에는 최대 10 개의 blob 인덱스 태그를 사용할 수 있습니다.
@@ -293,6 +293,7 @@ az provider register --namespace 'Microsoft.Storage'
 -   계정 장애 조치 (failover)는 현재 지원 되지 않습니다. 장애 조치 (failover) 후 blob 인덱스가 제대로 업데이트 되지 않을 수 있습니다.
 -   현재 수명 주기 관리는 Blob 인덱스가 일치 하는 같음 검사만 지원 합니다.
 -   CopyBlob은 원본 blob에서 새 대상 blob으로 blob 인덱스 태그를 복사 하지 않습니다. 복사 작업 중에 대상 blob에 적용 하려는 태그를 지정할 수 있습니다. 
+- 현재 대상 blob에 적용 된 태그가 있는 다른 저장소 계정에서 CopyBlob (비동기 복사)를 수행 하면 blob 인덱스 엔진이 필터 집합에서 blob 및 해당 태그를 반환 하지 않습니다. URL (동기화 복사)의 CopyBlob을 임시에 사용 하는 것이 좋습니다.
 -   태그는 스냅숏 생성 시 유지 됩니다. 그러나 스냅숏의 수준을 올리는 것은 현재 지원 되지 않으며 태그 집합이 비어 있을 수 있습니다.
 
 ## <a name="faq"></a>FAQ
@@ -308,5 +309,7 @@ Blob 인덱스 태그는 문자열 데이터 형식만 지원 하 고 쿼리는 
 
 ## <a name="next-steps"></a>다음 단계
 
-Blob 인덱스를 활용 하는 방법의 예를 참조 하세요. [Blob 인덱스를 활용 하 여 데이터 관리 및 검색을](storage-blob-index-how-to.md) 참조 하세요.
+Blob 인덱스를 활용 하는 방법에 대 한 예는 [Blob 인덱스를 활용 하 여 데이터 관리 및 찾기](storage-blob-index-how-to.md)를 참조 하세요.
+
+[수명 주기 관리](storage-lifecycle-management-concepts.md) 에 대해 알아보고 Blob 인덱스 일치를 사용 하 여 규칙을 설정 합니다.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416335"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495729"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
@@ -36,7 +36,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **Hyper-V에서 Azure로 아키텍처(VMM 없음)**
 
-![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![VMM을 사용 하지 않고 온-프레미스 Hyper-v 사이트에서 Azure로 아키텍처를 보여 주는 다이어그램](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>아키텍처 구성 요소 - VMM 있는 Hyper-V
@@ -53,7 +53,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **Hyper-V에서 Azure로 아키텍처(VMM 있음)**
 
-![구성 요소](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![VMM을 사용 하 여 온-프레미스 Hyper-v 사이트에서 Azure로 아키텍처를 보여 주는 다이어그램](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>아웃 바운드 네트워크 연결 설정
 
@@ -76,7 +76,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 ## <a name="replication-process"></a>복제 프로세스
 
-![Azure로 Hyper-V 복제](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Hyper-v에서 Azure로 복제 프로세스를 보여 주는 다이어그램](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **복제 및 복구 프로세스**
 
@@ -86,7 +86,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화**가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
-4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 목록 ](media/hyper-v-azure-architecture/image1.png) ![ 보호 드릴 다운 사용](media/hyper-v-azure-architecture/image2.png)
+4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 탭 ](media/hyper-v-azure-architecture/image1.png) 의 작업 목록 스크린샷 ![추가 세부 정보를 포함 하는 보호 사용 화면의 스크린샷](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>초기 데이터 복제
@@ -123,7 +123,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 2. 다시 동기화를 마치면 일반 델타 복제가 다시 시작됩니다.
 3. 일정대로 기본 다시 동기화 시간까지 기다릴 수 없으면 수동으로 VM을 다시 동기화할 수 있습니다. 시스템이 중단이 발생한 경우를 예로 들 수 있습니다. 이렇게 하려면 Azure Portal에서 **VM > 다시 동기화**를 선택합니다.
 
-    ![수동 다시 동기화](./media/hyper-v-azure-architecture/image4-site.png)
+    ![다시 동기화 옵션을 보여 주는 스크린샷](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>다시 시도 프로세스

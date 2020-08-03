@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 0db618d63964c6f271f9a14b91849e704cfd7820
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 907ea5c600202b65195ef61cf740b5711928225d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077519"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499401"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
 
@@ -119,7 +119,7 @@ $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageR
 
 ### <a name="assign-permissions-for-identity-to-distribute-images"></a>ID에서 이미지를 배포하기 위한 권한 할당
 
-이 명령은 Azure 역할 정의 템플릿을 다운로드하고 앞에서 지정한 매개 변수를 사용하여 템플릿을 업데이트합니다.
+이 명령은 Azure 역할 정의 템플릿을 다운로드 하 고 앞에서 지정한 매개 변수를 사용 하 여 템플릿을 업데이트 합니다.
 
 ```powershell
 $aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"

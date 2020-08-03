@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 761789b36e85b16f0b4482cef12645e673c73be7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6e62e307b6c5f5de939505eae8850f0117782a69
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429709"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498364"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 
@@ -119,17 +120,17 @@ ms.locfileid: "87429709"
 * [Azure CLI를 사용 하 여 Gremlin 그래프 만들기](./scripts/cli/gremlin/create.md)
 * [Azure CLI를 사용 하 여 Table API 테이블 만들기](./scripts/cli/table/create.md)
 
-## <a name="create-a-container-using-powershella-idps-mongodba-idps-gremlin"></a>PowerShell을 사용 하 여 컨테이너 만들기<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## <a name="create-a-container-using-powershell"></a>PowerShell을 사용하여 컨테이너 만들기
 
 아래 링크는 PowerShell을 사용 하 여 Azure Cosmos DB에 대 한 컨테이너 리소스를 만드는 방법을 보여 줍니다.
 
-모든 Azure Cosmos DB Api에 대 한 모든 PowerShell 샘플 목록은 [SQL api](powershell-samples-sql.md), [CASSANDRA API](powershell-samples-cassandra.md), [MongoDB api](powershell-samples-mongodb.md), [Gremlin api](powershell-samples-gremlin.md)및 [Table API](powershell-samples-table.md) 를 참조 하세요.
+모든 Azure Cosmos DB Api에 대 한 모든 PowerShell 샘플 목록은 [Powershell 샘플](powershell-samples.md) 을 참조 하세요.
 
 * [PowerShell을 사용 하 여 컨테이너 만들기](manage-with-powershell.md#create-container)
-* [PowerShell을 사용 하 여 MongoDB API에 대 한 Azure Cosmos DB 컬렉션 만들기](./scripts/powershell/mongodb/ps-mongodb-create.md)
-* [PowerShell을 사용 하 여 Cassandra 테이블 만들기](./scripts/powershell/cassandra/ps-cassandra-create.md)
-* [PowerShell을 사용 하 여 Gremlin 그래프 만들기](./scripts/powershell/gremlin/ps-gremlin-create.md)
-* [PowerShell을 사용 하 여 Table API 테이블 만들기](./scripts/powershell/table/ps-table-create.md)
+* [PowerShell을 사용 하 여 MongoDB API에 대 한 Azure Cosmos DB 컬렉션 만들기](./scripts/powershell/mongodb/create.md)
+* [PowerShell을 사용 하 여 Cassandra 테이블 만들기](./scripts/powershell/cassandra/create.md)
+* [PowerShell을 사용 하 여 Gremlin 그래프 만들기](./scripts/powershell/gremlin/create.md)
+* [PowerShell을 사용 하 여 Table API 테이블 만들기](./scripts/powershell/table/create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>.NET SDK를 사용하여 컨테이너 만들기
 

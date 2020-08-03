@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dd6d3ef6f610dcbdc511297e459cc5856bebe033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f6fca572524d1b0254c777d0820d8781c9f7be8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030048"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496630"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Azure Database for PostgreSQL-Hyperscale의 Azure 보안 기준
 
@@ -484,7 +484,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
 
-**지침**: Azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 Citus (hyperscale) 제어 평면 (예: Azure Portal)에 대 한 액세스를 제어 합니다. RBAC는 데이터베이스 내의 사용자 권한에 영향을 주지 않습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Citus (hyperscale) 제어 평면 (예: Azure Portal)에 대 한 액세스를 제어 합니다. RBAC는 데이터베이스 내의 사용자 권한에 영향을 주지 않습니다.
 
 데이터베이스 수준에서 사용자 권한을 수정 하려면 PgAdmin 또는 psql과 같은 도구를 사용 하 여 표준 PostgreSQL 명령을 사용 합니다.
 

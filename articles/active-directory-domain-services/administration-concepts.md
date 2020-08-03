@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735050"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489676"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 사용자 계정, 암호 및 관리에 대 한 관리 개념
 
@@ -70,7 +70,7 @@ Azure AD DS에서 포리스트는 도메인을 하나만 포함합니다. 온-�
 
 기본적으로 관리 되는 도메인은 *사용자* 포리스트로 생성 됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 도메인에 가입 된 VM에 로그인 하는 것과 같이 사용자 계정은 관리 되는 도메인에 대해 직접 인증할 수 있습니다. 사용자 포리스트는 암호 해시를 동기화할 수 있고 사용자가 스마트 카드 인증과 같은 독점적인 로그인 방법을 사용하지 않을 때 작동합니다.
 
-Azure AD DS *리소스* 포리스트에서 사용자는 단방향 포리스트 *트러스트*를 통해 온-프레미스 AD DS에서 인증을 받습니다. 이 방법을 사용하면 사용자 개체 및 암호 해시가 Azure AD DS와 동기화되지 않습니다. 사용자 개체 및 자격 증명은 온-프레미스 AD DS에만 존재합니다. 이 접근 방식을 통해 엔터프라이즈는 Azure에서 LDAPS, Kerberos 또는 NTLM 등의 클래식 인증에 의존하는 리소스 및 애플리케이션 플랫폼을 호스트할 수 있지만 인증 문제나 우려는 해소됩니다. Azure AD DS 리소스 포리스트는 현재 미리 보기로 제공됩니다.
+Azure AD DS *리소스* 포리스트에서 사용자는 단방향 포리스트 *트러스트*를 통해 온-프레미스 AD DS에서 인증을 받습니다. 이 방법을 사용하면 사용자 개체 및 암호 해시가 Azure AD DS와 동기화되지 않습니다. 사용자 개체 및 자격 증명은 온-프레미스 AD DS에만 존재합니다. 이 접근 방식을 통해 엔터프라이즈는 Azure에서 LDAPS, Kerberos 또는 NTLM 등의 클래식 인증에 의존하는 리소스 및 애플리케이션 플랫폼을 호스트할 수 있지만 인증 문제나 우려는 해소됩니다.
 
 Azure AD DS의 포리스트 형식에 대 한 자세한 내용은 [리소스 포리스트 란 무엇 인가요?][concepts-forest] [azure AD DS에서 포리스트 트러스트는 어떻게 작동 하나요?][concepts-trust] 를 참조 하세요.
 
@@ -80,9 +80,9 @@ Azure AD DS에서 사용 가능한 성능 및 기능은 SKU를 기반으로 합�
 
 | SKU name   | 최대 개체 수 | Backup 주기 | 최대 아웃 바운드 포리스트 트러스트 수 |
 |------------|----------------------|------------------|----|
-| 표준   | 제한 없음            | 7 일 마다     | 0  |
-| Enterprise | 제한 없음            | 3 일 마다     | 5  |
-| Premium    | 제한 없음            | 매일            | 10 |
+| Standard   | 제한 없음            | 7 일 마다     | 0  |
+| 엔터프라이즈 | 제한 없음            | 3 일 마다     | 5  |
+| 프리미엄    | 제한 없음            | 매일            | 10 |
 
 이러한 Azure AD DS Sku 이전에 관리 되는 도메인의 개체 수 (사용자 및 컴퓨터 계정)를 기반으로 하는 청구 모델이 사용 되었습니다. 관리 되는 도메인의 개체 수를 기반으로 하는 변수 가격은 더 이상 없습니다.
 
@@ -102,7 +102,7 @@ SKU 수준이 늘어나면 이러한 백업 스냅숏 빈도가 높아집니다.
 
 ### <a name="outbound-forest-trusts"></a>아웃 바운드 포리스트 트러스트
 
-이전 섹션에서는 관리 되는 도메인에서 온-프레미스 AD DS 환경 (현재 미리 보기로 제공)에 대 한 세부 정보를 제공 합니다. SKU는 관리 되는 도메인에 대해 만들 수 있는 최대 포리스트 트러스트 수를 결정 합니다. 비즈니스 및 응용 프로그램 요구 사항을 검토 하 여 실제로 필요한 신뢰의 수를 확인 하 고 적절 한 Azure AD DS SKU를 선택 합니다. 비즈니스 요구 사항이 변경 되 고 추가 포리스트 트러스트를 만들어야 하는 경우에는 다른 SKU로 전환할 수 있습니다.
+이전 섹션에서는 관리 되는 도메인에서 온-프레미스 AD DS 환경으로 트러스트 하는 단방향 아웃 바운드 포리스트를 설명 합니다. SKU는 관리 되는 도메인에 대해 만들 수 있는 최대 포리스트 트러스트 수를 결정 합니다. 비즈니스 및 응용 프로그램 요구 사항을 검토 하 여 실제로 필요한 신뢰의 수를 확인 하 고 적절 한 Azure AD DS SKU를 선택 합니다. 비즈니스 요구 사항이 변경 되 고 추가 포리스트 트러스트를 만들어야 하는 경우에는 다른 SKU로 전환할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

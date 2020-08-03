@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 06/22/2020
-ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 37647a9591c0f686e4fc3f1fd858baa46e01f7ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103656"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498075"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 
@@ -47,18 +47,7 @@ ms.locfileid: "86103656"
 
 &#42;&#42; Microsoft 365 제품은 무료로 설치할 수 있으며 라이선스 서비스로 SaaS 제품을 통해 수익화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
 
-## <a name="selecting-a-storefront"></a>상점 선택
-
-게시 옵션을 선택하기 전에 상업용 Marketplace 솔루션, 앱 및 서비스에 대한 상점 자격 요구 사항을 이해해야 됩니다. 각 상점은 특정한 대상을 위해 고유한 고객의 요구 사항에 따른 서비스를 제공합니다. 제품 유형, 거래 기능 및 범주 또는 산업에서는 제품을 게시할 위치를 결정합니다.
-
-**Microsoft AppSource** 애플리케이션은 Azure를 바탕으로 빌드되거나 Dynamics 365, Office 365, PowerBI 또는 Power Apps를 위해 빌드될 수 있는 기간 업무 솔루션입니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
-
-**Azure Marketplace** 애플리케이션은 Azure에서 기본 제공하거나 Azure를 바탕으로 빌드된 기술적 "빌딩 블록" 솔루션이며 IT 또는 개발자를 대상으로 합니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
-
->[!Note]
->"교차 목록" (SaaS 앱에만 해당): SaaS 제품이 기술 사용자 (Azure Marketplace) 및 비즈니스 대상 (AppSource)을 위한 것 이라면 상점에 적용 가능한 범주 및/또는 하위 범주를 선택할 수 있습니다. 제품의 "교차 목록" 의도는 두 대상 모두로 확장 되는 가치 제안을 기반으로 해야 합니다. 각 Storefront에 적용 가능한 범주를 보려면 [여기](./gtm-offer-listing-best-practices.md#categories) 를 클릭 하세요.
-
-## <a name="choose-a-publishing-option"></a>게시 옵션 선택
+## <a name="choose-a-call-to-action"></a>동작에 대 한 호출 선택
 
 사용 가능한 게시 옵션은 차별화된 고객 참여를 제공하면서 잠재 고객 공유 및 [상업용 Marketplace 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)에 대한 액세스 권한을 부여합니다. 게시 옵션에 해당하는 CTA(calls-to-action)를 참고합니다.
 
@@ -71,6 +60,43 @@ ms.locfileid: "86103656"
 
 > [!Note]
 > Transact 게시 옵션을 사용할 때는 제품 유형을 선택하고 제품을 만들기 전에 가격, 청구, 송장 처리 및 지급 고려 사항을 이해하는 것이 중요합니다. 자세히 알아보려면 [상업용 Marketplace의 거래 기능](./marketplace-commercial-transaction-capabilities-and-considerations.md) 문서를 참조하세요.
+
+## <a name="selecting-a-storefront"></a>상점 선택
+
+각 상점은 특정한 대상을 위해 고유한 고객의 요구 사항에 따른 서비스를 제공합니다. 제품 유형, 거래 기능 및 범주에 따라 제품이 게시 되는 위치가 결정 됩니다. 범주 및 하위 범주는 대상 그룹을 기반으로 각 storefront에 매핑됩니다.
+
+**Microsoft AppSource** 는 Dynamics 365, Microsoft 365 및 Power Platform에 대 한 lob (기간 업무) 또는 업계 솔루션 및 컨설팅 서비스를 검색 하는 비즈니스 사용자를 대상으로 합니다.
+
+**Azure Marketplace** 는 azure 용으로 작성 된 솔루션 및 azure 사용을 가속화 하는 컨설팅 서비스를 찾는 IT 전문가 및 개발자를 대상으로 합니다.
+
+대상 사용자에 게 가장 적합 한 범주 및 하위 범주를 선택 합니다. 예를 들어, 웹 응용 프로그램 방화벽은 계획 된 대상이 IT 전문가 이므로 보안 범주 아래 Azure Marketplace에 게시 해야 합니다. 대상 사용자가 비즈니스 사용자 이기 때문에 계약 관리 앱을 판매 범주 아래의 AppSource에 게시 해야 합니다. 잘못 된 범주 또는 하위 범주를 선택 하면 제품이 잘못 된 storefront 게시 될 수 있습니다.
+
+### <a name="publishing-to-both-storefronts-saas-offers-only"></a>두 상점에 게시 (SaaS 제품에만 해당)
+
+SaaS 제품은 Azure Marketplace 또는 AppSource에 게시할 수 있습니다. SaaS 제품이 기술 사용자 (Azure Marketplace)와 비즈니스 대상 (AppSource) *모두* 에 대 한 것 이라면 각 storefront에 적용 가능한 범주 및/또는 하위 범주를 선택 합니다. 두 상점에 게시 된 제품에는 IT 전문가 *및* 비즈니스 사용자로 확장 되는 가치 제안이 있어야 합니다.
+
+> [!IMPORTANT]
+> 요금제를 사용 하는 SaaS 제품은 Azure Marketplace 및 Azure Portal를 통해 제공 됩니다. 개인 계획만 포함 된 SaaS 제품은 Azure Portal를 통해 제공 됩니다.
+
+| 요금제 청구 | 공개 계획 | 비공개 계획 | 사용 가능한 위치: |
+|---|---|---|---|
+| 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
+| 예             | 예         | 예          | Azure Marketplace 및 Azure Portal * |
+| 예             | 예          | 예          | Azure Portal만 |
+| 아니요              | 예          | 예          | Azure Portal만 |
+
+&#42; 제품의 비공개 요금제를 통해서만 사용할 수 있습니다 Azure Portal
+
+예를 들어, 요금제를 사용 하는 제품 및 비공개 요금제 (공개 요금제 없음)는 Azure Portal 고객이 구매할 예정입니다. [Microsoft 상업적 marketplace의 개인 제품](private-offers.md)에 대해 자세히 알아보세요.
+
+### <a name="categories"></a>범주
+
+범주와 하위 범주는 대상 그룹을 기반으로 각 storefront에 매핑됩니다. 제품 및 의도 한 대상에 가장 적합 한 범주와 하위 범주를 선택 합니다. 선택 옵션:
+
+- 하나 이상의 범주 (최대 2 개) 기본 및 보조 범주를 선택할 수 있는 옵션이 있습니다.
+- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 하위 범주를 선택 하지 않은 경우에도 선택한 범주에서 제품을 검색할 수 있습니다.
+
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

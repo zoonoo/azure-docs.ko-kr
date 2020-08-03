@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: e5daf318088cb71b6a1819db71e3c597a9fa94db
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421453"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498619"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -34,7 +34,7 @@ Azure VM에 대한 재해 복구에 관련된 구성 요소는 다음 표에 요
 **캐시 스토리지 계정** | 원본 네트워크에서 캐시 스토리지 계정이 필요합니다. 복제 중 VM 변경 내용이 대상 스토리지로 전송되기 전에 캐시에 저장됩니다.  캐시 저장소 계정은 표준 이어야 합니다.<br/><br/> 캐시를 사용하여 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.<br/><br/> 캐시 스토리지 요구 사항에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#cache-storage). 
 **대상 리소스** | 대상 리소스는 복제하는 동안 및 장애 조치(failover)가 발생하는 경우에 사용됩니다. Site Recovery는 기본적으로 대상 리소스를 설정할 수 있습니다. 또는 사용자가 만들거나 사용자 지정할 수 있습니다.<br/><br/> 대상 지역에서 VM을 만들 수 있는지, 구독에 대상 지역에 필요한 VM 크기를 지원하기 위해 충분한 리소스가 있는지 확인합니다. 
 
-![원본 및 대상 복제](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![원본 및 대상 복제를 보여 주는 다이어그램](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>대상 리소스
 
@@ -116,7 +116,7 @@ Azure VM에 대해 복제를 활성화하면 다음 상황이 발생합니다.
 4. Site Recovery는 캐시의 데이터를 처리하여 대상 스토리지 계정 또는 복제본 관리 디스크로 보냅니다.
 5. 데이터가 처리된 후 크래시 일관성 복구 지점이 5분마다 생성됩니다. 앱 일치 복구 지점은 복제 정책에 지정된 설정에 따라 생성됩니다.
 
-![복제를 사용하도록 설정하는 프로세스, 2단계](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![복제 프로세스를 보여 주는 다이어그램 2 단계](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **복제 프로세스**
 
@@ -191,7 +191,7 @@ Site Recovery에 대한 [아웃바운드 연결](azure-to-azure-about-networking
 
 장애 조치(failover)를 시작하면 대상 리소스 그룹, 대상 가상 네트워크, 대상 서브넷 및 대상 가용성 집합에 VM이 생성됩니다. 장애 조치(failover) 중에는 모든 복구 지점을 사용할 수 있습니다.
 
-![장애 조치(failover) 프로세스](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![원본 및 대상 환경의 장애 조치 (failover) 프로세스를 보여 주는 다이어그램](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>다음 단계
 

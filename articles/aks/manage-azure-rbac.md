@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b28507c072f338342dc1a936cb1ab5f3910eea1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056745"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498109"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
@@ -283,7 +283,7 @@ az group delete -n MyResourceGroup
 
 - AKS 인증, 권한 부여 및 RBAC에 대 한 자세한 내용은 [여기](concepts-identity.md)를 참조 하세요.
 - Azure RBAC에 대 한 자세한 내용은 [여기](../role-based-access-control/overview.md)를 참조 하세요.
-- Kubernetes [권한 부여에](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)대 한 사용자 지정 Azure RBAC 역할을 세부적으로 정의 하는 데 사용할 수 있는 모든 작업에 대해 자세히 알아보세요.
+- Kubernetes [권한 부여](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)에 대 한 사용자 지정 Azure 역할을 세부적으로 정의 하는 데 사용할 수 있는 모든 작업에 대해 자세히 알아보세요.
 
 
 <!-- LINKS - Internal -->

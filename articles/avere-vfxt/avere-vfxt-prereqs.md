@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124734"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496715"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -32,9 +32,9 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
 구독에 대한 소유자 권한이 있는 사용자는 vFXT 클러스터를 만들어야 합니다. 클러스터를 만들려면 소유자가 소프트웨어 서비스 약관에 동의 하 고 네트워크 및 저장소 리소스에 대 한 변경 내용을 부여 해야 합니다.
 
-비 소유자가 Azure 클러스터용 Avere vFXT을 만들 수 있도록 허용 하는 몇 가지 해결 방법이 있습니다. 이러한 시나리오에는 리소스를 제한 하 고 추가 RBAC (역할 기반 액세스 제어) 역할을 작성자에 게 할당 하는 작업이 포함 됩니다. 이러한 모든 경우에 구독 소유자는 미리 [Avere vFXT software 약관에 동의](#accept-software-terms) 해야 합니다.
+비 소유자가 Azure 클러스터용 Avere vFXT을 만들 수 있도록 허용 하는 몇 가지 해결 방법이 있습니다. 이러한 시나리오에는 리소스를 제한 하 고 작성자에 게 추가 Azure 역할을 할당 하는 작업이 포함 됩니다. 이러한 모든 경우에 구독 소유자는 미리 [Avere vFXT software 약관에 동의](#accept-software-terms) 해야 합니다.
 
-| 시나리오 | 제한 사항 | Avere vFXT 클러스터를 만드는 데 필요한 액세스 역할 |
+| 시나리오 | 제한 | Avere vFXT 클러스터를 만드는 데 필요한 액세스 역할 |
 |----------|--------|-------|
 | 리소스 그룹 관리자가 vFXT를 만듭니다. | 가상 네트워크, 클러스터 컨트롤러 및 클러스터 노드는 리소스 그룹 내에 만들어야 합니다. | [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할은 모두 대상 리소스 그룹으로 범위가 지정 됩니다. |
 | 기존 외부 가상 네트워크 사용 | 클러스터 컨트롤러와 클러스터 노드는 vFXT의 리소스 그룹 내에 만들어지지만 다른 리소스 그룹의 기존 가상 네트워크를 사용 합니다. | (1) [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할이 vFXT 리소스 그룹으로 범위가 지정 됩니다. 그리고 (2) [가상 머신 참가자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator)및 [Avere 참여자](../role-based-access-control/built-in-roles.md#avere-contributor) 역할 범위는 가상 네트워크의 리소스 그룹으로 지정 됩니다. |

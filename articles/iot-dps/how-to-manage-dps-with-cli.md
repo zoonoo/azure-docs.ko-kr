@@ -6,13 +6,14 @@ ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: devx-track-azurecli
 services: iot-dps
-ms.openlocfilehash: e49f71c100911d9186a0e4693ef133f548e7bc66
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 72978636b878aac9120b356e7be5fe5c978d1738
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037973"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499792"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Azure CLI 및 IoT 확장을 사용하여 IoT Hub Device Provisioning Service를 관리하는 방법
 
@@ -101,7 +102,7 @@ az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps 
 ![허브 연결](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
 ## <a name="next-steps"></a>다음 단계
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 디바이스 등록

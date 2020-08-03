@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046780"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490288"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀에 대 한 PolyBase 데이터 로드 전략 디자인
+# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀의 PolyBase 데이터 로드 전략 디자인
 
 기존 SMP 데이터 웨어하우스는 데이터를 로드 하기 위한 ETL (추출, 변환 및 로드) 프로세스를 사용 합니다. Azure SQL 풀은 계산 및 저장소 리소스의 확장성과 유연성을 활용 하는 MPP (대규모 parallel processing) 아키텍처입니다. ELT (추출, 로드 및 변환) 프로세스를 사용 하면 MPP를 활용 하 여 로드 전에 데이터를 변환 하는 데 필요한 리소스를 제거할 수 있습니다.
 
@@ -25,7 +25,7 @@ SQL 풀은 BCP 및 SQL 대량 복사 API와 같은 비 Polybase 옵션을 비롯
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## <a name="what-is-elt"></a>ELT란 무엇인가요?
+## <a name="extract-load-and-transform-elt"></a>추출, 로드 및 변환 (ELT)
 
 ELT (추출, 로드 및 변환)는 데이터를 원본 시스템에서 추출 하 여 데이터 웨어하우스로 로드 한 다음 변환 하는 프로세스입니다.
 
@@ -63,10 +63,10 @@ SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp
 |         float         |                             real                             |
 |        double         |                            money                             |
 |        double         |                          smallmoney                          |
-|        문자열         |                            nchar                             |
-|        문자열         |                           nvarchar                           |
-|        문자열         |                             char                             |
-|        문자열         |                           varchar                            |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
 |       timestamp       |                             date                             |

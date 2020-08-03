@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 97f9635cf6bba9ee276e6775c1718a5d83e9af3e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ad255b2e03cdecd9a87f1af3ce780ae64535bfa2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282129"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495083"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 SSL/TLS 연결
 
 MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 데이터베이스 서버를 클라이언트 애플리케이션에 연결하도록 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
 
 > [!NOTE]
-> `require_secure_transport`서버 매개 변수 값을 업데이트 해도 MySQL 서비스의 동작에는 영향을 주지 않습니다. 이 문서에 설명 된 SSL 및 TLS 적용 기능을 사용 하 여에 대 한 연결을 보호 합니다.
+> `require_secure_transport`서버 매개 변수 값을 업데이트 해도 MySQL 서비스의 동작에는 영향을 주지 않습니다. 이 문서에 설명 된 SSL 및 TLS 적용 기능을 사용 하 여 데이터베이스에 대 한 연결을 보호 합니다.
 
 ## <a name="ssl-default-settings"></a>SSL 기본 설정
 

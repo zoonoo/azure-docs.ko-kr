@@ -9,17 +9,17 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84cd5c2de0b1a6d0909a31071506d98627966775
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428655"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500745"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Synapse SQL을 사용 하는 t-sql 뷰
 이 문서에서는 T-sql 뷰를 사용 하 고 Synapse SQL을 사용 하 여 솔루션을 개발 하기 위한 팁을 찾을 수 있습니다. 
 
-## <a name="why-use-views"></a>뷰를 사용하는 이유
+## <a name="why-use-views"></a>뷰를 사용 하는 이유
 
 뷰를 여러 가지 다양한 방법으로 사용하여 솔루션의 품질을 개선할 수 있습니다.  이 문서에서는 보기를 사용 하 여 솔루션을 보강 하는 방법에 대 한 몇 가지 예제를 중점적으로 설명 하 고 고려해 야 할 제한 사항을 포함 합니다.
 

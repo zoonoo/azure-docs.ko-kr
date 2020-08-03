@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040030"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488655"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -91,7 +91,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 관리 되는 도메인은 배포 중에 일부 네트워킹 리소스를 만듭니다. 이러한 리소스는 관리 되는 도메인의 성공적인 작업 및 관리에 필요 하며 수동으로 구성할 수 없습니다.
 
-| Azure 리소스                          | 설명 |
+| Azure 리소스                          | Description |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
 | 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
@@ -108,11 +108,13 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 다음 네트워크 보안 그룹 규칙은 관리 되는 도메인에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. 관리 되는 도메인이 배포 된 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
-| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필요한 공간 | 용도 |
+| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 용도 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | Azure AD 테 넌 트와 동기화. |
 | 3389        | TCP      | CorpNetSaw                         | 모두         | 허용  | 예      | 도메인 관리. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | 도메인 관리. |
+
+이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다. 이 네트워크 보안 그룹을 삭제 하지 마세요. 부하 분산 장치가 없으면 제대로 작동 하지 않습니다.
 
 > [!WARNING]
 > 이러한 네트워크 리소스 및 구성은 수동으로 편집 하지 마세요. 잘못 구성 된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블을 관리 되는 도메인이 배포 된 서브넷과 연결 하면 Microsoft에서 도메인을 서비스 하 고 관리 하는 기능을 방해할 수 있습니다. Azure AD 테 넌 트와 관리 되는 도메인 간의 동기화도 중단 됩니다.

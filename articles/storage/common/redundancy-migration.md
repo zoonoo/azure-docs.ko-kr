@@ -10,12 +10,13 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 50745c96f73f4e2d666a82746549ed361502e381
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871372"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501392"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>저장소 계정이 복제 되는 방식 변경
 
@@ -122,14 +123,14 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 
 1. **새 지원 요청** 을 선택 합니다.
 2. 사용자 계정 정보를 기반으로 **기본 사항**을 완료합니다. **서비스** 섹션에서 **스토리지 계정 관리** 및 ZRS로 변환하려는 리소스를 선택합니다.
-3. **새로 만들기**를 선택합니다.
+3. **다음**을 선택합니다.
 4. **문제** 섹션에서 다음 값을 지정합니다.
     - **심각도**: 기본값을 그대로 둡니다.
     - **문제 유형**: **데이터 마이그레이션**을 선택합니다.
     - **범주**: **ZRS로 마이그레이션을**선택 합니다.
     - **제목**: 설명이 포함된 제목, 예를 들어 **ZRS 계정 마이그레이션**을 입력합니다.
     - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, 지역의 [LRS, GRS]에서 ZRS로 마이그레이션해야 \_ \_ 합니다.
-5. **새로 만들기**를 선택합니다.
+5. **다음**을 선택합니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
 7. **만들기**를 선택합니다.
 

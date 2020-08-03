@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461802"
+ms.locfileid: "87500966"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 데이터 처리 최적화
 
@@ -51,7 +51,7 @@ CSV 파일은 Excel에서 쉽게 편집 하 고 읽을 수 있으므로 일반�
 
 컴퓨터에 RAM을 더 추가할 수 없는 경우 CPU 워크 로드를 최소화 하 고 처리 시간을 최적화 하는 데 도움이 되는 다음 기술을 적용할 수 있습니다. 이러한 권장 사항은 단일 시스템과 분산 시스템 모두에 적용 됩니다.
 
-방법 | Description
+방법 | 설명
 ----|----
 압축 | 더 작은 메모리를 사용 하 고 계산 결과에 큰 영향을 주지 않는 방식으로 데이터에 대해 다른 표현을 사용 합니다.<br><br>*예:* 항목 당 약 10 바이트 이상의 문자열로 항목을 저장 하는 대신 1 바이트로 저장할 수 있는 부울, True 또는 False로 저장 합니다.
 청크 | 데이터 집합 (청크)의 메모리에 데이터를 로드 하거나, 한 번에 하나의 하위 집합을 처리 하거나, 여러 하위 집합을 병렬로 처리 합니다. 이 메서드는 모든 데이터를 처리 해야 하지만 한 번에 모든 데이터를 메모리에 로드 하지 않아도 되는 경우에 가장 잘 작동 합니다. <br><br>*예:* 한 번에 1 년 분량의 데이터를 처리 하는 대신 한 달에 한 번에 데이터를 로드 하 고 처리 합니다.
@@ -64,7 +64,6 @@ CSV 파일은 Excel에서 쉽게 편집 하 고 읽을 수 있으므로 일반�
 * 또는와 같은 프레임 워크를 사용 `Spark` `Dask` 하 여 ' 메모리 부족 ' 데이터를 처리 합니다. 이 옵션에서 데이터 프레임는 파티션 및 처리에 의해 RAM 파티션에 로드 되며 최종 결과가 마지막에 수집 됩니다.  
 
 * 분산 프레임 워크를 사용 하 여 클러스터로 확장 합니다. 이 옵션에서 데이터 처리 로드는 병렬로 작동 하는 여러 Cpu에서 분할 되 고 처리 되며 최종 결과가 마지막에 수집 됩니다.
-
 
 ### <a name="recommended-distributed-frameworks"></a>권장 되는 분산 프레임 워크
 

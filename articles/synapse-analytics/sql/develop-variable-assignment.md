@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3bd04d037f7852bd7d9ea51719abf27f09093b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85101009"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495678"
 ---
-# <a name="assigning-variables-with-synapse-sql"></a>Synapse SQL을 사용 하 여 변수 할당
+# <a name="assign-variables-with-synapse-sql"></a>Synapse SQL을 사용 하 여 변수 할당
 
 이 문서에서는 Synapse SQL을 사용 하 여 T-sql 변수를 할당 하기 위한 팁을 찾을 수 있습니다.
 
-## <a name="setting-variables-with-declare"></a>DECLARE를 사용하여 변수 설정
+## <a name="set-variables-with-declare"></a>DECLARE을 사용 하 여 변수 설정
 
 Synapse SQL의 변수는 문 또는 문을 사용 하 여 설정 됩니다 `DECLARE` `SET` . DECLARE을 사용 하 여 변수를 초기화 하는 것은 Synapse SQL에서 변수 값을 설정 하는 가장 유연한 방법 중 하나입니다.
 
@@ -45,7 +45,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>SET을 사용하여 값 설정
+## <a name="set-values-with-set"></a>집합을 사용 하 여 값 설정
 
 SET은 단일 변수를 설정하기 위한 일반적인 방법입니다.
 

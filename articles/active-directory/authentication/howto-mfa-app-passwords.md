@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485486"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489795"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>앱 암호를 사용 하 여 레거시 응용 프로그램에서 Azure Multi-Factor Authentication 사용 및 사용
 
@@ -88,6 +88,12 @@ Azure AD는 온-프레미스 Active Directory Domain Services (AD DS)를 사용 
 5. **서비스 설정** 페이지에서 **사용자가 비 브라우저 앱에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
 
     ![다단계 인증에 앱 암호의 사용자를 허용하는 서비스 설정을 보여 주는 Azure Portal의 스크린샷](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> 사용자가 앱 암호를 만들 수 있는 기능을 사용 하지 않도록 설정 하면 기존 앱 암호는 계속 작동 합니다. 그러나이 기능을 사용 하지 않도록 설정 하면 사용자는 기존 앱 암호를 관리 하거나 삭제할 수 없습니다.
+>
+> 앱 암호를 만드는 기능을 사용 하지 않도록 설정 하는 경우 [레거시 인증의 사용을 비활성화 하는 조건부 액세스 정책을 만드는](../conditional-access/block-legacy-authentication.md)것이 좋습니다. 이 방법은 기존 앱 암호가 작동 하지 않도록 하 고 최신 인증 방법을 강제로 사용 합니다.
 
 ## <a name="create-an-app-password"></a>앱 암호 만들기
 

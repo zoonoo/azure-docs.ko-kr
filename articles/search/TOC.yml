@@ -112,6 +112,8 @@
           href: cognitive-search-incremental-indexing-conceptual.md
     - name: 보안
       items:
+        - name: 보안 개요
+          href: search-security-overview.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -329,8 +331,6 @@
           href: search-api-migration.md
     - name: 보안
       items:
-        - name: 개요
-          href: search-security-overview.md
         - name: 데이터 암호화.
           items:
             - name: 고객 관리형 키

@@ -3,12 +3,13 @@ title: 메트릭에 대 한 컨테이너에 대 한 Azure Monitor를 업데이�
 description: 이 문서에서는 집계 된 메트릭에 대 한 탐색 및 경고를 지 원하는 사용자 지정 메트릭 기능을 사용 하도록 컨테이너에 Azure Monitor을 업데이트 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 78a6612e522accce8c934885a090e66a51850c97
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d56a280bdef2058c28d596f6c259eb319d80b08e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498987"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499962"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용할 수 있도록 컨테이너용 Azure Monitor를 업데이트하는 방법
 

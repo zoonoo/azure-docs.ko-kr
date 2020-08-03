@@ -4,14 +4,14 @@ description: Azure Cosmos DB에 대 한 SQL 키워드에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261570"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496684"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 
@@ -35,9 +35,6 @@ ms.locfileid: "81261570"
 ```
 
 SQL API에서 ANSI SQL과 달리 혼합 형식의 속성에 대해 범위 쿼리를 표현할 수 있습니다. 예를 들어는 `grade` `5` 일부 항목에서와 같은 숫자와 다른 문자열의 문자열 일 수 있습니다 `grade4` . 이러한 경우 JavaScript에서와 같이 서로 다른 두 형식 간의 비교로 인해 `Undefined` 항목이 생략 됩니다.
-
-> [!TIP]
-> 쿼리 실행 시간을 단축 하려면 절이 필터링 하는 숫자 속성 또는 경로에 대해 범위 인덱스 유형을 사용 하는 인덱싱 정책을 만듭니다 `BETWEEN` .
 
 ## <a name="distinct"></a>DISTINCT
 
@@ -76,7 +73,7 @@ FROM Families f
 ]
 ```
 
-DISTINCT는 하위 쿼리 내의 프로젝션에서 사용할 수도 있습니다.
+`DISTINCT`는 하위 쿼리 내의 프로젝션에서 사용할 수도 있습니다.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -168,4 +165,4 @@ TOP 키워드는 `N` 정의 되지 않은 순서로 쿼리 결과의 첫 번째 
 
 - [시작](sql-query-getting-started.md)
 - [조인](sql-query-join.md)
-- [하위 쿼리](sql-query-subquery.md)
+- [Subqueries](sql-query-subquery.md)

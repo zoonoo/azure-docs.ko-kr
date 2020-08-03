@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134005"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495977"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 
@@ -80,7 +80,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 4. Azure Site Recovery 공급자 설치 파일을 다운로드합니다.
 5. 등록 키를 다운로드합니다. 공급자를 설치할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
-    ![원본 설정](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![공급자 및 등록 키를 다운로드 하는 옵션의 스크린샷](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. 각 VMM 서버에 공급자를 설치합니다. Hyper-V 호스트 서버에 명시적으로 설치할 필요는 없습니다.
 
@@ -94,7 +94,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 4. **설치**에서 기본 설치 위치를 수락하거나 수정하고 **설치**를 클릭합니다.
 5. 설치가 완료되면 **등록**을 클릭하여 자격 증명 모음에 서버를 등록합니다.
 
-    ![설치 위치](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![설치 위치를 포함 하는 공급자 설치 화면의 스크린샷](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. **자격 증명 모음 이름**에서 서버를 등록할 자격 증명 모음의 이름을 확인합니다. **다음**을 클릭합니다.
 7. **프록시 연결**에서 VMM 서버에서 실행되는 공급자를 Azure에 연결하는 방법을 지정합니다.
    - 공급자가 인터넷에 직접 또는 프록시를 통해 연결되도록 지정할 수 있습니다. 필요에 따라 프록시 설정을 지정합니다.
@@ -115,7 +115,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 1. **인프라 준비** > **대상**을 차례로 클릭하고 대상 VMM 서버를 선택합니다.
 2. Site Recovery와 동기화된 VMM 클라우드가 표시됩니다. 대상 클라우드를 선택합니다.
 
-   ![대상](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![대상 VMM 서버 및 클라우드 선택의 스크린샷](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>복제 정책 설정
@@ -138,7 +138,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 5. **복제본 VM 삭제**를 선택하여 소스 VM에 대해 보호를 사용하지 않도록 설정하는 경우 복제본 가상 머신이 삭제되도록 지정합니다. 이 설정을 사용하도록 지정하는 경우 보호가 설정되지 않은 원본 VM이 Site Recovery 콘솔에서 제거되고, VMM에 대한 Site Recovery 설정이 VMM 콘솔에서 제거되고, 복제본이 삭제됩니다.
 6. 네트워크를 통해 복제하는 경우 **초기 복제 방법**에서 초기 복제를 시작할지 또는 예약할지를 지정합니다. 네트워크 대역폭을 절약하려면 사용량이 많지 않은 시간에 예약하는 것이 좋습니다. 그런 후 **OK**를 클릭합니다.
 
-     ![복제 정책](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![복제 정책 옵션의 스크린샷](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. 새 정책은 VMM 클라우드에 자동으로 연결됩니다. **복제 정책**에서 **확인**을 클릭합니다. 
 

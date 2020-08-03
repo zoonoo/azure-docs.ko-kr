@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129956"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490577"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
 
@@ -47,7 +47,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 2. **플래너 유형 선택** 목록 상자에서 **Quick Planner**를 선택합니다.
 
-   ![시작하기](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Quick Planner가 선택 된 플래너 유형 선택 옵션의 스크린샷](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. **Capacity Planner** 워크시트에서 필요한 정보를 입력합니다. 다음 스크린샷에 빨간색 원이 표시된 모든 필드를 입력합니다.
 
@@ -55,13 +55,13 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](./hyper-v-deployment-planner-overview.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
-   다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
+   c. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
    d. **보존 기간(일)** 에서 복제본을 보존할 기간을 일 단위로 지정합니다.
 
    e. **가상 머신의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 머신 수**에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다. Site Recovery가 배포되면 초기 데이터 집합 전체가 업로드됩니다.
 
-   ![입력](./media/site-recovery-capacity-planner/inputs.png)
+   ![필수 입력 정보를 표시 하는 Capacity Planner 워크시트의 스크린샷](./media/site-recovery-capacity-planner/inputs.png)
 
 4. 원본 환경에 대한 값을 입력하면 표시된 출력에는 다음이 포함됩니다.
 
@@ -77,7 +77,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
    * **필요한 추가 프로세스 서버 수**: 기본적으로 구성 서버에서 실행 되는 프로세스 서버 외에 추가 프로세스 서버가 필요한 지 여부를 표시 합니다.
    * **원본에서 100% 추가 저장소**: 원본 위치에 추가 저장소가 필요한 지 여부를 표시 합니다.
 
-      ![출력](./media/site-recovery-capacity-planner/output.png)
+      ![제공 된 입력을 기준으로 표시 되는 출력의 스크린샷](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Detailed Planner 실행
 
@@ -85,7 +85,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 2. **플래너 유형 선택**의 목록 상자에서 **Detailed Planner**를 선택합니다.
 
-   ![시작 가이드](./media/site-recovery-capacity-planner/getting-started-2.png)
+   ![상세 Planner가 선택 된 경우 플래너 유형 선택 옵션의 스크린샷](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. **Workload Qualification** 워크시트에서 필요한 정보를 입력합니다. 표시된 필드를 모두 입력해야 합니다.
 
@@ -93,7 +93,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    b. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
-   다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
+   c. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 
    d. **총 저장소 (GB)** 에서 VM 저장소의 총 크기를 지정 합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 스토리지 크기는 1500GB입니다.
 
@@ -101,11 +101,11 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    f. **디스크 용량 사용률(%)** 에는 평균 사용률을 지정합니다.
 
-   예: **일일 데이터 변경률(%)** 에는 원본 서버의 일일 데이터 변경률을 지정합니다.
+   g. **일일 데이터 변경률(%)** 에는 원본 서버의 일일 데이터 변경률을 지정합니다.
 
    h. **매핑 Azure VM 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 수행하지 않으려면**컴퓨팅 IaaS VM**을 선택합니다. 수동 설정을 입력하고 **컴퓨팅 IaaS VM**을 선택하면 수동 설정을 덮어쓸 수도 있습니다. 컴퓨팅 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문입니다.
 
-   ![Workload Qualification 워크시트](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![필수 입력 정보를 표시 하는 워크 로드 한정 워크시트의 스크린샷](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4. **컴퓨팅 IaaS VM**을 선택하면 수행되는 작업은 다음과 같습니다.
 
@@ -117,12 +117,12 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 각 VM에 대한 정보를 제공하는 AA~AE 열이 출력됩니다.
 
-![AA~AE 열 출력](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![출력 열 AA를 AE로 보여 주는 스크린샷](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>예제
 예를 들어 테이블에 값이 표시된 6개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure Storage 요구 사항을 계산 및 할당합니다.
 
-![Workload Qualification 할당](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![작업 자격 할당을 보여 주는 스크린샷](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * 이 예제 출력에서 다음을 확인할 수 있습니다.
 
@@ -144,7 +144,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 2. 변경하려면 **Workload Qualification** 워크시트를 수정해야 합니다. 그런 다음 **플래너 도구에 데이터 전송**을 다시 클릭합니다.
 
-   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Capacity Planner 워크시트에서 수정 된 입력 및 결과 출력을 보여 주는 스크린샷](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>다음 단계
 용량 계획 도구를 [실행하는 방법을 알아봅니다](./hyper-v-deployment-planner-overview.md).

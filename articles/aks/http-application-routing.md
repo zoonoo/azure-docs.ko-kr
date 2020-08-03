@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 7349504b5a1ed5a67f3b34be2c4ff5dda29afbf3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025305"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495151"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
@@ -20,7 +20,7 @@ HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes
 추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
 
 > [!CAUTION]
-> HTTP 애플리케이션 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 애플리케이션에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 프로덕션 용도로 사용하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](./ingress-tls.md)를 참조하세요.
+> HTTP 애플리케이션 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 애플리케이션에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 현재 프로덕션 환경에서 사용 하도록 설계 되지 않았으므로 프로덕션 환경에서 사용 하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](./ingress-tls.md)를 참조하세요.
 
 ## <a name="http-routing-solution-overview"></a>HTTP 라우팅 솔루션 개요
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327891"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489455"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리
 
@@ -20,7 +20,7 @@ Azure Monitor은 Log Analytics 작업 영역에 [로그](data-platform-logs.md) 
 이 문서에서는에 대 한 액세스 권한을 부여 하는 방법을 비롯 하 여 로그에 대 한 액세스를 관리 하 고 해당 로그를 포함 하는 작업 영역을 관리 하는 
 
 * 작업 영역 사용 권한을 사용 하는 작업 영역입니다.
-* Azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 특정 리소스의 로그 데이터에 액세스 해야 하는 사용자 ( [리소스 컨텍스트](design-logs-deployment.md#access-mode) 라고도 함)
+* Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 특정 리소스의 로그 데이터에 액세스 해야 하는 사용자 ( [리소스 컨텍스트](design-logs-deployment.md#access-mode) 라고도 함)
 * Azure RBAC를 사용 하 여 작업 영역의 특정 테이블에 있는 로그 데이터에 액세스 해야 하는 사용자입니다.
 
 RBAC 및 액세스 전략에 대 한 로그 개념을 이해 하려면 [Azure Monitor 로그 배포 디자인](design-logs-deployment.md) 을 참조 하세요.
@@ -106,7 +106,7 @@ Azure Resource Manager 템플릿에서 액세스 모드를 구성 하려면 작�
 
 다음 활동에도 Azure 권한이 필요합니다.
 
-|작업 |필요한 Azure 권한 |메모 |
+|작업 |필요한 Azure 권한 |참고 |
 |-------|-------------------------|------|
 | 모니터링 솔루션 추가 및 제거 | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | 이러한 사용 권한은 리소스 그룹 또는 구독 수준에서 권한을 부여 받아야 합니다. |
 | 가격 책정 계층 변경 | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -134,7 +134,7 @@ Azure의 Log Analytics 작업 영역에는 기본 제공되는 2개의 사용자
 
 Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
-| Type    | 사용 권한 | 설명 |
+| 형식    | 사용 권한 | 설명 |
 | ------- | ---------- | ----------- |
 | 작업 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행 하는 데 무제한의 모든 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
 | 작업 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
@@ -313,4 +313,3 @@ _Securitybaseline_ 테이블에만 액세스할 수 있는 역할을 만들려�
 * 데이터 센터 또는 다른 클라우드 환경의 컴퓨터에서 데이터를 수집하려면 [Log Analytics 에이전트 개요](./log-analytics-agent.md)를 참조하세요.
 
 * Azure Vm에서 데이터 수집을 구성 하려면 [azure virtual machines에 대 한 데이터 수집](../learn/quick-collect-azurevm.md) 을 참조 하세요.
-

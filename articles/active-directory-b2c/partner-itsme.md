@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170125"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489518"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 OIDC (itsme Openid connect Connect) 구성
 
 Itsme digital ID 앱을 사용 하면 카드 판독기, 암호, 2 단계 인증 또는 여러 PIN 코드 없이 안전 하 게 로그인 할 수 있습니다. Itsme 앱은 확인 된 id로 강력한 고객 인증을 제공 합니다. 이 문서에서는 클라이언트 암호 사용자 흐름 정책을 사용 하 여 OIDC (itsme Openid connect Connect)와 Azure AD B2C 인증을 통합 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -72,11 +72,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
 
-1. Azure AD B2C 테 넌 트가 포함 된 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 
 2. **Azure 서비스**에서 **Azure AD B2C** 를 선택 하거나, **추가 서비스** 를 선택 하 고 **모든 서비스** 검색 상자를 사용 하 여 *Azure AD B2C*를 검색 합니다.
 
-3. **Id 공급자**를 선택한 다음 **New openid connect Connect 공급자**를 선택 합니다.
+3. **ID 공급자**를 선택한 다음, **새 OpenID Connect 공급자**를 선택합니다.
 
 4. 다음 정보를 사용 하 여 양식을 작성 합니다.
 
@@ -91,7 +91,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |응답 모드 | Query |
    |도메인 힌트 | *이는 비워 둘 수 있습니다.* |
    |UserID | sub |
-   |표시 이름 | 이름 |
+   |표시 이름 | name |
    |이름 | given_name |
    |Surname | family_name |
    |메일 | 이메일|
@@ -104,7 +104,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. **새 사용자 흐름**을 선택 합니다.
 
-3. **등록 및 로그인**을 선택 합니다.
+3. **등록 및 로그인**을 선택 하 고, 버전을 선택한 다음, **만들기**를 선택 합니다.
 
 4. **이름**을 입력합니다.
 

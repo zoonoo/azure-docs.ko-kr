@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0446dd9e316e145cf93c503ab9634d4eedbc299b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b834dda926b7da1241a325e1453143eccafaf30
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387833"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488774"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 흐름 통과
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 흐름](user-flow-overview.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 애플리케이션에서 [v2 사용자 흐름](user-flow-versions.md)을 사용하고 있어야 합니다.
+* 응용 프로그램에서 [권장 사용자 흐름](user-flow-versions.md)을 사용 해야 합니다.
 * 사용자 흐름은 OAuth 2.0 ID 공급자를 사용하여 구성됩니다.
 
 ## <a name="enable-the-claim"></a>클레임 사용

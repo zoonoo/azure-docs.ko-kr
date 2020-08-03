@@ -1,6 +1,6 @@
 ---
 title: StorSimple에 역할 기반 액세스 제어 사용 | Microsoft Docs
-description: StorSimple 컨텍스트에서 Azure RBAC(역할 기반 액세스 제어)를 사용하는 방법에 대해 설명합니다.
+description: StorSimple의 컨텍스트에서 azure RBAC (역할 기반 액세스 제어)를 사용 하는 방법을 설명 합니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: ec98060a09a1fad4f851689daff3f4b578c164f5
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 58332be22600620e7a3ff1f455f96fe0d786d846
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124105"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500047"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 

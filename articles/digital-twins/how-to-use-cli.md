@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5272babf794529e5e9bd87a3c4a96e6df5758fb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537465"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499095"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Azure Digital Twins CLI 사용
 
@@ -25,13 +25,19 @@ Azure digital Twins는 Azure Portal에서 Azure Digital Twins 인스턴스를 �
 * [경로](concepts-route-events.md) 관리
 * RBAC (역할 기반 액세스 제어)를 통해 [보안](concepts-security.md) 구성
 
-Azure Digital Twins 명령은 [Azure CLI에 대 한 Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension)의 일부입니다. 이러한 명령에 대 한 참조 설명서는 `az iot` [az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)명령 집합의 일부로 볼 수 있습니다.
-
-## <a name="deploy-and-validate"></a>배포 및 유효성 검사
+## <a name="uses-deploy-and-validate"></a>사용 (배포 및 유효성 검사)
 
 일반적으로 인스턴스를 관리 하는 것 외에도 CLI는 배포 및 유효성 검사에 유용한 도구입니다.
 * 제어 평면 명령을 사용 하 여 새 인스턴스를 반복 하거나 자동으로 배포할 수 있습니다.
 * 데이터 평면 명령은 인스턴스의 값을 신속 하 게 확인 하 고 작업이 예상 대로 완료 되었는지 확인 하는 데 사용할 수 있습니다.
+
+## <a name="get-the-extension"></a>확장 가져오기
+
+Azure Digital Twins 명령은 [Azure CLI에 대 한 Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension)의 일부입니다. 이러한 명령에 대 한 참조 설명서는 `az iot` [az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)명령 집합의 일부로 볼 수 있습니다.
+
+이러한 단계를 통해 확장의 최신 버전이 있는지 확인할 수 있습니다. [Azure Cloud Shell](../cloud-shell/overview.md) 또는 [로컬 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 이러한 명령을 실행할 수 있습니다.
+
+[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

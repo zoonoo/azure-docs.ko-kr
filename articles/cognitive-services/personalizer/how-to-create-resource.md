@@ -3,12 +3,13 @@ title: Personalizer 리소스 만들기
 description: 서비스 구성에는 서비스의 보상 처리 방법, 서비스의 탐색 빈도, 모델을 다시 학습하는 빈도 및 저장할 데이터의 양이 포함됩니다.
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 8b56516b5555ca971d7ab1db3caf5b76f252729b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2ebd5496eb45ed007f47cd34761800f8b54e5a5a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501255"
 ---
 # <a name="create-a-personalizer-resource"></a>Personalizer 리소스 만들기
 
@@ -17,7 +18,7 @@ Personalizer 리소스는 Personalizer learning 루프와 동일 합니다. 각 
 Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최상의 콘텐츠를 선택 하도록 하려면 각에 대해 서로 다른 학습 루프를 사용 합니다.
 
 
-## <a name="create-a-resource-in-the-azure-portal"></a>Azure Portal에서 리소스를 만듭니다.
+## <a name="create-a-resource-in-the-azure-portal"></a>Azure Portal에서 리소스 만들기
 
 각 피드백 루프에 대한 Personalizer 리소스를 만듭니다.
 
