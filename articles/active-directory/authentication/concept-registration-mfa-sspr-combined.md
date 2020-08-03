@@ -11,16 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050951"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512978"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
 결합된 등록 전에는 사용자가 Azure Multi-Factor Authentication 및 SSPR(셀프 서비스 암호 재설정)에 대한 인증 방법을 별도로 등록했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
+
+> [!NOTE]
+> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다.
 
 이 문서에서는 결합 된 보안 등록을 간략하게 설명 합니다. 결합 된 보안 등록을 시작 하려면 다음 문서를 참조 하세요.
 
@@ -53,7 +56,7 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 | Microsoft Authenticator | 예 (최대 5 개) | 예 | 예 |
 | 기타 authenticator 앱 | 예 (최대 5 개) | 예 | 예 |
 | 하드웨어 토큰 | 아니요 | 예 | 예 |
-| Phone | 예 | 예 | 예 |
+| 전화 | 예 | 예 | 예 |
 | 대체 전화 | 예 | 예 | 예 |
 | 사무실 전화 | 아니요 | 아니요 | 예 |
 | 메일 | 예 | 예 | 예 |

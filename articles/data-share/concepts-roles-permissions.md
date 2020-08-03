@@ -1,17 +1,17 @@
 ---
 title: Azure Data Share의 역할 및 요구 사항
 description: Azure 데이터 공유를 사용 하 여 데이터를 공유 하 고 수신 하는 데 필요한 권한에 대해 알아봅니다.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111000"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513768"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Azure Data Share의 역할 및 요구 사항 
 
@@ -90,7 +90,13 @@ REST Api를 사용 하 여 데이터를 공유 하는 경우 이러한 역할 �
 
 ## <a name="resource-provider-registration"></a>리소스 공급자 등록 
 
-Azure 테 넌 트에서 처음으로 Azure 데이터 공유 초대를 보려면 DataShare 리소스 공급자를 Azure 구독에 수동으로 등록 해야 할 수 있습니다. Azure 구독에 DataShare 리소스 공급자를 등록 하려면 다음 단계를 수행 합니다. 리소스 공급자를 등록 하려면 Azure 구독에 대 한 *참가자* 액세스 권한이 필요 합니다.
+다음 시나리오에서는 DataShare 리소스 공급자를 Azure 구독에 수동으로 등록 해야 할 수 있습니다. 
+
+* Azure 테 넌 트에서 처음으로 Azure 데이터 공유 초대 보기
+* Azure 데이터 공유 리소스에서 다른 Azure 구독의 Azure 데이터 저장소에서 데이터 공유
+* Azure 데이터 공유 리소스에서 다른 Azure 구독의 Azure 데이터 저장소로 데이터를 수신 합니다.
+
+Azure 구독에 DataShare 리소스 공급자를 등록 하려면 다음 단계를 수행 합니다. 리소스 공급자를 등록 하려면 Azure 구독에 대 한 *참가자* 액세스 권한이 필요 합니다.
 
 1. Azure Portal에서 **구독**으로 이동 합니다.
 1. Azure 데이터 공유에 사용 중인 구독을 선택 합니다.

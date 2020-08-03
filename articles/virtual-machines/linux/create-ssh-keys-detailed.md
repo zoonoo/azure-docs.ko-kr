@@ -4,34 +4,32 @@ description: Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만�
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: ebce641aa7cb59deaf74490fb934b3f1536911a9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 34a84ed333172ea0931c529d2dbeee1b774ae8c5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372776"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513193"
 ---
-# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리 
-SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Linux 가상 머신을 Azure에서 만들 수 있으므로 로그인할 때 암호가 필요하지 않습니다. Azure Portal, Azure CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 만든 VM은 SSH 연결을 위해 SSH 키 인증을 설정하는 배포의 일부로 SSH 공개 키를 포함할 수 있습니다. 
+# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리
 
-이 문서에서는 SSH 클라이언트 연결을 위해 SSH RSA 퍼블릭 및 프라이빗 키 파일 쌍을 만들고 관리하는 단계 및 자세한 배경을 제공합니다. 빠른 명령을 원하는 경우 [Azure에서 Linux VM용 SSH 퍼블릭 및 프라이빗 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
+SSH (보안 셸) 키 쌍을 사용 하면 인증을 위해 SSH 키를 사용 하는 Linux 가상 컴퓨터를 만들 수 있습니다. 이 문서에서는 ssh 클라이언트 연결을 위해 SSH RSA 공개-개인 키 파일 쌍을 만들고 사용 하는 방법을 보여 줍니다.
 
-SSH 키를 생성 하 고이 키를 사용 하 여 **windows** 컴퓨터에서에 연결 하려면 [Azure에서 windows를 사용 하 여 ssh 키를 사용 하는 방법](ssh-from-windows.md)을 참조 하세요.
+빠른 명령을 원하는 경우 [Azure에서 Linux VM용 SSH 퍼블릭 및 프라이빗 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
+
+SSH 키를 만들고이 키를 사용 하 여 **windows** 컴퓨터에서에 연결 하려면 [Azure에서 windows를 사용 하 여 ssh 키를 사용 하는 방법](ssh-from-windows.md)을 참조 하세요. 또한 [Azure Portal](../ssh-keys-portal.md) 를 사용 하 여 포털에서 vm을 만들기 위한 SSH 키를 만들고 관리할 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
-
-### <a name="private-key-passphrase"></a>프라이빗 키 암호
-SSH 프라이빗 키에는 해당 키를 보호할 매우 안전한 암호가 있어야 합니다. 이 암호는 프라이빗 SSH 키 파일에 액세스하기 위한 것으로 사용자 계정 암호가 *아닙니다*. SSH 키에 암호를 추가하면 128비트 AES를 사용하여 프라이빗 키를 암호화하므로 암호가 없는 프라이빗 키는 해독하는 데 쓸모가 없습니다. 공격자가 프라이빗 키를 훔치고 해당 키에 암호가 없는 경우 해당 프라이빗 키를 사용하여 해당하는 공개 키가 있는 서버에 로그인할 수 있습니다. 프라이빗 키가 암호로 보호된 경우 공격자가 사용할 수 없어 Azure에서 인프라에 대해 보안 계층을 추가로 제공합니다.
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH 키 용도 및 이점
 
-공개 키를 지정하여 Azure VM을 만들 경우 Azure는 VM에서 공개 키(`.pub` 형식의)를 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys`의 SSH 키는 SSH 연결에서 일치하는 해당 프라이빗 키를 입력하라는 챌린지를 클라이언트에 표시하는 데 사용됩니다. 인증에 SSH 키를 사용하는 Azure Linux VM에서 Azure는 암호 로그인을 허용하지 않고 SSH 키만 허용하도록 SSHD 서버를 구성합니다. 따라서 SSH 키를 사용하여 Azure Linux VM을 만들면 VM 배포 보안을 유지하고 `sshd_config` 파일에서 암호를 사용하지 않도록 설정하는 일반 사후 배포 구성 단계를 줄일 수 있습니다.
+공개 키를 지정하여 Azure VM을 만들 경우 Azure는 VM에서 공개 키(`.pub` 형식의)를 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys`의 SSH 키는 SSH 연결에서 일치하는 해당 프라이빗 키를 입력하라는 챌린지를 클라이언트에 표시하는 데 사용됩니다. 인증에 SSH 키를 사용하는 Azure Linux VM에서 Azure는 암호 로그인을 허용하지 않고 SSH 키만 허용하도록 SSHD 서버를 구성합니다. SSH 키를 사용 하 여 Azure Linux VM을 만들면 VM 배포 보안을 유지 하 고 파일에서 암호를 사용 하지 않도록 설정 하는 일반적인 사후 배포 구성 단계를 줄일 수 있습니다 `sshd_config` .
 
-SSH 키를 사용하지 않지 않더라도 Linux VM을 설정해 암호 인증을 사용할 수 있습니다. VM이 인터넷에 노출되지 않는 경우에는 암호만 사용 하는 것으로도 충분할 수 있습니다. 그렇지만 지속적으로 각 Linux VM에 대한 암호를 관리하고, 최소 암호 길이, 정기 업데이트 등 정상적 암호 정책 및 사례들을 유지 관리해야 합니다. SSH 키를 사용하면 여러 VM에 대한 개별적인 자격 증명 관리의 복잡성을 줄입니다.
+SSH 키를 사용하지 않지 않더라도 Linux VM을 설정해 암호 인증을 사용할 수 있습니다. VM이 인터넷에 노출되지 않는 경우에는 암호만 사용 하는 것으로도 충분할 수 있습니다. 그렇지만 지속적으로 각 Linux VM에 대한 암호를 관리하고, 최소 암호 길이, 정기 업데이트 등 정상적 암호 정책 및 사례들을 유지 관리해야 합니다. 
 
 ## <a name="generate-keys-with-ssh-keygen"></a>ssh-keygen을 사용하여 키 생성하기
 
@@ -185,7 +183,8 @@ ssh-add ~/.ssh/id_rsa
 프라이빗 키 암호는 이제 `ssh-agent`에 저장됩니다.
 
 ## <a name="use-ssh-copy-id-to-copy-the-key-to-an-existing-vm"></a>키를 기존 VM에 복사하는 데 ssh-copy-id 사용
-VM을 이미 만든 경우 다음과 비슷한 명령을 사용하여 Linux VM에 새 SSH 공개 키를 설치할 수 있습니다.
+
+VM을 이미 만든 경우를 사용 하 여 Linux VM에 새 SSH 공개 키를 추가할 수 있습니다 `ssh-copy-id` .
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub azureuser@myserver
@@ -197,21 +196,19 @@ SSH 클라이언트 동작을 최적화하고 로그인 속도를 높이기 위�
 
 다음 예제에서는 기본 SSH 프라이빗 키를 사용하여 사용자로 특정 VM에 신속하게 로그인하는 데 사용할 수 있는 간단한 구성을 보여 줍니다. 
 
-### <a name="create-the-file"></a>파일 만들기
+파일을 만듭니다.
 
 ```bash
 touch ~/.ssh/config
 ```
 
-### <a name="edit-the-file-to-add-the-new-ssh-configuration"></a>파일을 편집하여 새 SSH 구성 추가
+파일을 편집하여 새 SSH 구성 추가
 
 ```bash
 vim ~/.ssh/config
 ```
 
-### <a name="example-configuration"></a>구성 예
-
-VM 호스트에 대해 적절한 구성 설정을 추가합니다.
+VM 호스트에 대해 적절한 구성 설정을 추가합니다. 이 예제에서 VM 이름은 *myvm* 이 고 계정 이름은 *azureuser*입니다.
 
 ```bash
 # Azure Keys

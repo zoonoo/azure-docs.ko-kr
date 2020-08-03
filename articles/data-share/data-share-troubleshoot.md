@@ -2,17 +2,17 @@
 title: Azure Data Share 문제 해결
 description: Azure 데이터 공유를 사용 하 여 데이터 공유를 만들거나 받을 때 초대 및 오류와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 services: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/10/2019
-ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: 2c67e2b72b7d35f5f7c8e9ccd136d7c10329f531
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322033"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513607"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure 데이터 공유의 일반적인 문제 해결 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 대 한 Faq | Microsoft Docs
-description: Azure NetApp Files에 대 한 질문과 대답입니다.
+description: 네트워킹, 보안, 성능, 용량 관리 및 데이터 마이그레이션/보호와 같은 Azure NetApp Files에 대 한 질문과 대답을 검토 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: be18a9d54049562eebc27720988b085c3e14f2da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f9552b82dc79e1edafb13fead5a07df3ecf1be3b
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956512"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512961"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -181,7 +181,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예:
+예제:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

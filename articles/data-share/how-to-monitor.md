@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 공유를 모니터링 하는 방법
 description: Azure 데이터 공유에서 초대 상태, 공유 구독 및 스냅숏 기록을 모니터링 하는 방법에 대해 알아봅니다.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: 3ee3f0d37c8e35972a1fc2b8c5d04504d2e065f3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120197"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511890"
 ---
 # <a name="monitor-azure-data-share"></a>Azure Data Share 모니터링  
 

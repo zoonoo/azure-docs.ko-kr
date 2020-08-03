@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 940a24aedb8592d0e809bc79dc1c8977bc3abd38
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448979"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513692"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍 만들기 및 사용
 
-SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는 VM(가상 머신)을 Azure에서 만들 수 있으므로 로그인할 때 암호가 필요하지 않습니다. 이 문서에서는 Linux VM용 SSH퍼블릭-프라이빗 키 파일 쌍을 신속하게 생성하고 사용하는 방법을 보여줍니다. Linux에서 Azure Cloud Shell, macOS 또는 Linux 호스트, Windows 하위 시스템 및 OpenSSH를 지원하는 기타 도구를 사용하여 이러한 단계를 완료할 수 있습니다. 
+SSH (보안 셸) 키 쌍을 사용 하면 인증을 위해 SSH 키를 사용 하는 Vm (가상 머신)을 Azure에서 만들 수 있습니다. 이 문서에서는 Linux VM용 SSH퍼블릭-프라이빗 키 파일 쌍을 신속하게 생성하고 사용하는 방법을 보여줍니다. MacOS 또는 Linux 호스트 Azure Cloud Shell를 사용 하 여 이러한 단계를 완료할 수 있습니다. 
 
 > [!NOTE]
 > SSH 키를 사용하여 만든 VM은 기본적으로 암호가 비활성화된 상태로 구성되므로 무차별 추측 공격의 어려움이 크게 증가합니다. 

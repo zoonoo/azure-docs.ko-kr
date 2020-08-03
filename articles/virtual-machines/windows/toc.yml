@@ -403,6 +403,13 @@
           href: ps-template.md
         - name: VM에 연결
           href: connect-logon.md
+        - name: Linux VM에 연결
+          displayName: ssh keygen ssk-key putty
+          items:
+            - name: 포털에서
+              href: ../ssh-keys-portal.md
+            - name: Windows
+              href: ../linux/ssh-from-windows.md
         - name: Azure 하이브리드 혜택 사용 라이선스
           href: hybrid-use-benefit-licensing.md
         - name: Windows 10에 대해 다중 테넌트 호스팅 권한 사용

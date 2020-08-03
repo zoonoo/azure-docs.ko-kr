@@ -2,16 +2,16 @@
 title: Azure 데이터 공유에서 지원 되는 데이터 저장소
 description: Azure 데이터 공유 사용에 대해 지원 되는 데이터 저장소에 대해 알아봅니다.
 ms.service: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: 8263e2b2d3d8d029cd28f6c8ea6c556fb9fe23be
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108297"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511907"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure 데이터 공유에서 지원 되는 데이터 저장소
 
@@ -25,7 +25,7 @@ Azure 데이터 공유는 다양 한 데이터 저장소에서 공유 하는 기
 
 | 데이터 저장소 | 스냅숏 기반 공유 | 내부 공유 
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob 스토리지 |✓ | |
+| Azure Blob Storage |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
 | Azure SQL Database |공개 미리 보기 | |
@@ -40,7 +40,7 @@ Azure 데이터 공유는 데이터 저장소를 결정할 때 데이터 소비�
 
 | 데이터 저장소 | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob 스토리지 | ✓ || ✓ ||
+| Azure Blob Storage | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
 | Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||

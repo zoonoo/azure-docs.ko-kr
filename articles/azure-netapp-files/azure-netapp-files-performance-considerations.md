@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 대 한 성능 고려 사항 | Microsoft Docs
-description: Azure NetApp Files에 대 한 성능 고려 사항을 설명 합니다.
+description: 할당량 및 처리량 한도의 관계와 볼륨 할당량을 동적으로 늘리거나 줄이는 방법에 대해 Azure NetApp Files 알아봅니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f88b4755c7b4c0b20f27065cf9de2351251bc1c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691324"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513879"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 고려 사항
 

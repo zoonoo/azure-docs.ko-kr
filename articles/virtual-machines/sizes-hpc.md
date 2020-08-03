@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c02b0d63db3a761f52c9ea15e6fc6ba3356cd4be
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 122a3e243f314395ea7b1d32b88a5e20b0965eef
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421368"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512009"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
@@ -42,9 +42,11 @@ Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 �
 > RDMA over IB는 모든 RDMA 지원 Vm에 대해 지원 됩니다.
 > IP over IB는 SR-IOV 사용 Vm 에서만 지원 됩니다.
 
-- **운영 체제** -LINUX는 HPC vm에 대해 매우 잘 지원 됩니다. CentOS, RHEL, Ubuntu, SUSE 등의 배포판은 일반적으로 사용 됩니다. Windows 지원과 관련 하 여 Windows Server 2016 이상 버전은 모든 HPC 시리즈 Vm에서 지원 됩니다. Windows Server 2012 R2, Windows Server 2012는 SR-IOV를 사용 하지 않는 Vm (H16r, H16mr, A8 및 A9) 에서도 지원 됩니다. [Windows Server 2012 r 2는 HBv2 및 64 (가상 또는 실제) 코어가 있는 다른 vm에서 지원 되지](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)않습니다.
+- **운영 체제** -LINUX는 HPC vm에 대해 매우 잘 지원 됩니다. CentOS, RHEL, Ubuntu, SUSE 등의 배포판은 일반적으로 사용 됩니다. Windows 지원과 관련 하 여 Windows Server 2016 이상 버전은 모든 HPC 시리즈 Vm에서 지원 됩니다. Windows Server 2012 R2, Windows Server 2012는 SR-IOV를 사용 하지 않는 Vm (H16r, H16mr, A8 및 A9) 에서도 지원 됩니다. [Windows Server 2012 r 2는 HBv2 및 64 (가상 또는 실제) 코어가 있는 다른 vm에서 지원 되지](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)않습니다. Marketplace에서 지원 되는 VM 이미지 목록과 적절 하 게 구성 하는 방법은 [Vm 이미지](./workloads/hpc/configure.md) 를 참조 하세요.
 
-- **InfiniBand 및 Rdma 드라이버** -InfiniBand 사용 VM에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. SR-IOV를 사용 하도록 설정 된 H-및 N 시리즈 Vm에서는 [INFINIBANDDRIVERLINUX VM 확장](./extensions/hpc-compute-infiniband-linux.md) 을 사용 하 여 Mellanox OFED 드라이버를 설치 하 고 InfiniBand를 사용 하도록 설정할 수 있습니다. RDMA 지원 VM에서 InfiniBand 사용에 대 한 자세한 내용은 [HPC 작업](./workloads/hpc/overview.md)을 확인 하세요.
+- **InfiniBand 및 Rdma 드라이버** -InfiniBand 사용 VM에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 SR-IOV 및 sr-iov를 사용 하지 않는 Vm의 경우 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. 바로 사용할 수 있는 VM Linux OS 이미지에 대 한 자세한 내용은 [LINUX os에 대 한 Vm 구성 및 최적화](./workloads/hpc/configure.md) 를 참조 하세요.
+
+   Linux에서는 [INFINIBANDDRIVERLINUX vm 확장](./extensions/hpc-compute-infiniband-linux.md) 을 사용 하 여 Mellanox OFED 드라이버를 설치 하 고 Sr-iov 사용 H-및 N 시리즈 Vm에서 InfiniBand를 사용 하도록 설정할 수 있습니다. [HPC 작업](./workloads/hpc/enable-infiniband.md)에서 RDMA 지원 vm에 대 한 InfiniBand 사용에 대해 자세히 알아보세요.
 
    Windows에서 [INFINIBANDDRIVERWINDOWS vm 확장](./extensions/hpc-compute-infiniband-windows.md) 은 RDMA 연결에 Windows 네트워크 직접 드라이버 (sr-iov vm이 아닌 vm) 또는 Mellanox OFED 드라이버 (sr-iov vm)를 설치 합니다. A8 및 A9 인스턴스의 특정 배포에서 HpcVmDrivers 확장이 자동으로 추가 됩니다. HpcVmDrivers VM 확장은 더 이상 사용 되지 않습니다. 업데이트 되지 않습니다.
 
@@ -99,5 +101,5 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 ## <a name="next-steps"></a>다음 단계
 
 - Azure 용 HPC 응용 프로그램 최적화 및 [Hpc 작업](./workloads/hpc/overview.md)의 몇 가지 예제에 대해 자세히 알아보세요.
-
 - [Azure Compute 기술 커뮤니티 블로그의](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)최신 공지 사항 및 일부 HPC 예제 및 결과에 대해 읽어 보세요.
+- 실행 중인 HPC 워크 로드에 대 한 높은 수준의 아키텍처 보기는 [Azure의 hpc (고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조 하세요.

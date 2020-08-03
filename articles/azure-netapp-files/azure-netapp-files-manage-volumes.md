@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files를 사용하여 볼륨 관리 | Microsoft Docs
-description: Azure NetApp Files 서비스를 사용하여 볼륨을 관리하는 방법을 설명합니다.
+description: Azure NetApp Files에서 볼륨을 보거나, 업데이트 하거나, 삭제 하는 방법에 대해 알아봅니다. 볼륨을 삭제 하려면 먼저 볼륨의 하위 개체를 모두 삭제 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 64d83cc88f66eefad8980bead7fe37ad1782873f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50de55846ba22a0be1bb2e9fa5a9224abe87a49
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483553"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513828"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 볼륨 관리
 볼륨을 보고, 업데이트 또는 삭제하여 볼륨을 관리할 수 있습니다. 

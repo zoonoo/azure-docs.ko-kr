@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 서브넷 위임 | Microsoft Docs
-description: 서브넷을 Azure NetApp Files에 위임하는 방법에 대해 설명합니다.
+description: Azure NetApp Files에 서브넷을 위임 하는 방법을 알아봅니다. 볼륨을 만들 때 위임 된 서브넷을 지정 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 14c97fdea57fa50faf8b73275ec406ea36fbf552
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9bb3e93b99ce8d5a61501d417a71e5e38753f5ff
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420399"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513029"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 대한 SMB 볼륨 만들기 | Microsoft Docs
-description: Azure NetApp Files에 대한 SMB 볼륨을 만드는 방법을 설명합니다.
+description: 이 문서에서는 Azure NetApp Files에서 SMBv3 볼륨을 만드는 방법을 보여 줍니다. Active Directory 연결 및 도메인 서비스에 대 한 요구 사항에 대해 알아봅니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169974"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513080"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -163,8 +163,20 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
      * **백업 정책 사용자**  
         Azure NetApp Files에 사용하기 위해 만든 컴퓨터 계정에 대한 높은 권한이 필요한 추가 계정을 포함할 수 있습니다. 지정된 계정은 파일 또는 폴더 수준에서 NTFS 권한을 변경할 수 있습니다. 예를 들어 Azure NetApp Files에서 SMB 파일 공유로 데이터를 마이그레이션하는 데 사용되는 권한 없는 서비스 계정을 지정할 수 있습니다.  
 
-        > [!IMPORTANT] 
-        > 백업 정책 사용자 기능을 사용하려면 허용 목록이 필요합니다. 이 기능을 요청하려면 구독 ID를 사용하여 anffeedback@microsoft.com으로 이메일을 보내세요. 
+        **백업 정책 사용자** 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        기능 등록의 상태를 확인 합니다. 
+
+        > [!NOTE]
+        > 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
 
     * **사용자 이름**과 **암호**를 포함한 자격 증명
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171884"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513726"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
 
@@ -27,7 +27,7 @@ ms.locfileid: "87171884"
 다음 섹션에서는 가상 허브 라우팅의 주요 개념에 대해 설명 합니다.
 
 > [!NOTE]
-> 가상 네트워크 연결의 허브 경로 테이블, 연결, 전파 및 고정 경로에 대 한 이러한 새로운 개념 중 일부는 여전히 롤아웃 될 수 있으며,이 경우 8 월 3 일에 완료 될 것으로 예상 됩니다.
+> 가상 네트워크 연결의 허브 경로 테이블, 연결, 전파 및 고정 경로에 대 한 이러한 새로운 개념 중 일부는 여전히 롤아웃 될 수 있으며 8 월 17 일 주에 완료 될 것으로 예상 됩니다.
 >
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>허브 경로 테이블
@@ -77,9 +77,9 @@ ms.locfileid: "87171884"
 
 * **가상 허브의 기존 경로를 사용 하는 표준 가상 WAN 고객**:
 
-새 경로 테이블 기능을 사용 하려면 Azure에서 롤아웃이 완료 될 때까지 1 월 1 일에 시작 될 때까지 기다려 주세요. Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치한 경우 먼저 해당 경로를 삭제 한 다음 새 경로 테이블을 만들어야 합니다 (Azure Portal의 허브에 대 한 경로 테이블 섹션에서 사용 가능).
+새 경로 테이블 기능을 사용 하려면 Azure에서 롤아웃이 완료 될 때까지 8 월의 17 일 될 때까지 기다려 주세요. Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치한 경우 먼저 해당 경로를 삭제 한 다음 새 경로 테이블을 만들어야 합니다 (Azure Portal의 허브에 대 한 경로 테이블 섹션에서 사용 가능).
 
-* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 셋째 주까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
+* **가상 허브의 기존 경로를 사용 하는 기본 가상 WAN 고객**: 새 경로 테이블 기능을 사용 하려면 Azure에서 롤아웃이 완료 될 때까지 17 일 될 때까지 기다려 주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>가상 WAN 라우팅 고려 사항
 

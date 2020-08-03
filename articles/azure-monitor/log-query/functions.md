@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2018
-ms.openlocfilehash: 5fb9e48a6d6a0b95b61478a7877e9b46dd8963e9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 07/31/2020
+ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649389"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511941"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
 
@@ -33,6 +33,9 @@ ms.locfileid: "83649389"
 
 ## <a name="use-a-function"></a>함수 사용
 다른 쿼리에 해당 별칭을 포함하여 함수를 사용합니다. 다른 테이블처럼 사용할 수 있습니다.
+
+## <a name="function-parameters"></a>함수 매개 변수 
+함수를 호출할 때 특정 변수에 대 한 값을 제공할 수 있도록 함수에 매개 변수를 추가할 수 있습니다. 현재 매개 변수를 사용 하 여 함수를 만드는 유일한 방법은 리소스 관리자 템플릿을 사용 하는 것입니다. 예제는 [Azure Monitor의 로그 쿼리에 대 한 리소스 관리자 템플릿 예제](../samples/resource-manager-log-queries.md#parameterized-function) 를 참조 하세요.
 
 ## <a name="example"></a>예제
 다음 샘플 쿼리는 마지막 날에 보고된 모든 누락된 보안 업데이트를 반환합니다. 별칭 _security_updates_last_day_를 사용하여 이 쿼리를 함수로 저장합니다. 
