@@ -4,19 +4,19 @@ description: Azure Portal에서 Azure 예약을 보는 방법을 알아봅니다
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/31/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 0635c21ee30a40344281f31c8f9aedf9d74a1284
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: fd5d4248e9b1e645628ac8b87df3b4b0a16e2049
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288956"
 ---
 # <a name="view-azure-reservations"></a>Azure 예약 보기
 
-Azure Portal에서 구매한 예약을 보고 관리할 수 있습니다.   
+Azure Portal에서 구매한 예약을 보고 관리할 수 있습니다.
 
 ## <a name="permissions-to-view-a-reservation"></a>예약을 볼 수 있는 권한
 
@@ -24,7 +24,7 @@ Azure Portal에서 구매한 예약을 보고 관리할 수 있습니다.
 
 자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요.
 
-## <a name="view-reservation-and-utilization-in-azure-portal"></a>Azure Portal에서 예약 및 사용률 보기
+## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Azure Portal에서 예약 및 사용률 보기
 
 소유자 또는 Reader로 예약을 보려면 다음을 수행합니다.
 

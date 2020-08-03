@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013269"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure Web App에 연결
 
@@ -28,7 +28,7 @@ Azure Key Vault를 사용하면 자격 증명과 기타 비밀을 안전하게 �
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -51,7 +51,7 @@ az group create --name "myResourceGroup" -l "EastUS"
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-반환된 `vaultUri`를 적어 둡니다. 이는 "https://<your-keyvault-name>.vault.azure.net/" 형식이며, [코드 업데이트](#update-the-code) 단계에서 사용됩니다.
+"https://&lt;your-keyvault-name&gt;.vault.azure.net/" 형식으로 반환된 `vaultUri`를 적어 둡니다. [코드 업데이트](#update-the-code) 단계에서 사용됩니다.
 
 이제 [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 명령을 사용하여 비밀을 키 자격 증명 모음에 배치할 수 있습니다. 비밀의 이름을 "MySecret"으로 설정하고, 값을 "Success!"로 설정합니다.
 

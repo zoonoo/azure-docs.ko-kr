@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service의 .NET Core 애플리케이션에서 팀 개발을 수행하는 방법을 보여줍니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d917dc71ef02b5197ed8d20ec31c538a1af4c14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166039"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072972"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Azure Dev Spaces와 함께 .NET Core 및 Visual Studio를 사용한 팀 개발
 
@@ -36,7 +36,7 @@ ms.locfileid: "82166039"
 * 일부 개발자는 서비스 종속성 대부분을 시뮬레이션하거나 모델링하는 데 의존합니다. 이 방법은 유용할 수 있지만 이러한 모의 개체 관리는 곧 개발 비용에 영향을 줄 수 있습니다. 또한 이 접근법은 개발 환경을 프로덕션과는 다르게 보이게 하는데, 이로 인해 감지하기 힘든 버그들이 발생할 수 있습니다.
 * 따라서 모든 종류의 통합 테스트를 수행하는 것이 어려워집니다. 통합 테스트는 현실적으로 커밋 후에만 수행할 수 있습니다. 이는 나중에 개발 주기에서 문제가 발생한다는 것을 의미합니다.
 
-    ![](media/common/microservices-challenges.png)
+    ![앱 서비스와 해당 종속성 간의 관계를 보여줌으로써 통합 테스트의 복잡성을 보여주는 이미지입니다.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>공유 개발 공간에서 작업
 Azure Dev Spaces를 사용하면 Azure에서 *공유* 개발 공간을 설정할 수 있습니다. 각 개발자는 애플리케이션의 일부에만 집중할 수 있으며, 시나리오에 종속된 다른 모든 서비스와 클라우드 리소스가 이미 포함되어 있는 개발 공간에서 *사전 커밋 코드*를 반복적으로 개발할 수 있습니다. 종속성은 항상 최신이며, 개발자는 프로덕션을 미러하는 방식으로 작업합니다.
@@ -63,8 +63,8 @@ Scott은 Dev Spaces를 사용하지 _않고도_ 몇 가지 방법으로 자신�
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 1. 왼쪽의 **디버그** 탭을 선택하여 Azure Dev Spaces 설정을 표시합니다.
 1. **변경**을 선택하여 F5 또는 Ctrl+F5를 누를 때 서비스에서 사용되는 공간을 만듭니다.
-1. 공간 드롭다운에서 **\<새 공간 만들기...\>** 를 선택합니다.
-1. 부모 공간이 **\<none\>** 으로 설정되어 있는지 확인하고 **dev**를 입력합니다. 확인을 클릭합니다.
+1. 공간 드롭다운에서 **\<Create New Space…\>** 를 선택합니다.
+1. 부모 공간이 **\<none\>** 로 설정되어 있는지 확인하고 공간 이름 **dev**를 입력합니다. 확인을 클릭합니다.
 1. Ctrl+F5를 눌러 연결된 디버거 없이 _mywebapi_를 실행합니다.
 1. 마찬가지로, _webfrontend_ 프로젝트가 있는 Visual Studio 창으로 전환하고, Ctrl+F5를 눌러 실행합니다.
 
@@ -88,17 +88,17 @@ Visual Studio 내에서 서비스를 F5 또는 Ctrl+F5로 누르면 사용할 �
 2. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 3. 왼쪽의 **디버그** 탭을 선택하여 Azure Dev Spaces 설정을 표시합니다.
 4. 여기서 F5 또는 Ctrl+F5를 누르면 사용할 클러스터 및/또는 공간을 변경하거나 만들 수 있습니다. *이전에 만든 Azure 개발 공간이 선택되어 있는지 확인합니다*.
-5. 공간 드롭다운에서 **\<새 공간 만들기...\>** 를 선택합니다.
+5. 공간 드롭다운에서 **\<Create New Space…\>** 를 선택합니다.
 
-    ![](media/get-started-netcore-visualstudio/Settings.png)
+    ![Visual Studio 솔루션 탐색기의 프로젝트 디버그 속성 페이지에 있는 공간 드롭다운에서 "새 공간 만들기" 선택을 보여주는 스크린샷.](media/get-started-netcore-visualstudio/Settings.png)
 
 6. **공간 추가** 대화 상자에서 부모 공간을 **dev**로 설정하고 새 공간의 이름을 입력합니다. 새 공간 이름에 사용자 이름(예: "scott")을 사용하면 해당 사용자가 작업 중인 공간이 동료에게 식별될 수 있습니다. **확인**을 클릭합니다.
 
-    ![](media/get-started-netcore-visualstudio/AddSpace.png)
+    ![팀 개발을 위한 새 개발 공간을 추가하기 위한 공간 추가 대화 상자를 보여주는 스크린샷.](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. 이제 프로젝트 속성 페이지에서 선택한 AKS 클러스터와 새 공간이 표시됩니다.
 
-    ![](media/get-started-netcore-visualstudio/Settings2.png)
+    ![Visual Studio 솔루션 탐색기의 프로젝트 디버그 속성 페이지에서 선택한 AKS 클러스터 "MyAKS" 및 공간 "scott"을 보여주는 스크린샷.](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### <a name="update-code-for-mywebapi"></a>*mywebapi*에 대한 코드 업데이트
 
@@ -117,7 +117,7 @@ Visual Studio 내에서 서비스를 F5 또는 Ctrl+F5로 누르면 사용할 �
 
 서로 다른 공간이 작동하는 방식을 이해하는 데 도움이 되는 다이어그램은 다음과 같습니다. 자주색 경로는 _dev_ 공간을 통한 요청을 나타내며, URL 앞에 공백이 없는 경우 사용되는 기본 경로입니다. 분홍색 경로는 _dev/scott_ 공간을 통한 요청을 나타냅니다.
 
-![](media/common/Space-Routing.png)
+![새로 만든 "dev/scott" 공간 및 기본 "dev" 공간을 통한 요청의 경로 이름 및 라우팅의 차이점을 보여주는 다이어그램입니다.](media/common/Space-Routing.png)
 
 기본 제공되는 Azure Dev Spaces 기능을 사용하면 각 개발자가 자신의 공간에서 서비스의 전체 스택을 다시 만들 필요 없이 공유 환경에서 코드를 엔드투엔드에 테스트할 수 있습니다. 이 라우팅에서는 이 가이드의 이전 단계에서 설명한 대로 앱 코드에서 전파 헤더를 전달해야 합니다.
 

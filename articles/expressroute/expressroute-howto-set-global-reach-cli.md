@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.openlocfilehash: df02213f1cba7c25cc77c06f1addcc04a2a4d27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2e4f7b53ffd3642869e6246e546e3feeda3cf529
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738399"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495899"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 Global Reach 구성
 
@@ -53,7 +54,7 @@ az account set --subscription <your subscription ID>
 
 연결을 사용하도록 설정하는 명령을 실행하는 경우 매개 변수 값에 대한 다음 요구 사항에 유의하세요.
 
-* *peer-circuit*은 전체 리소스 ID여야 합니다. 예를 들어:
+* *peer-circuit*은 전체 리소스 ID여야 합니다. 예:
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

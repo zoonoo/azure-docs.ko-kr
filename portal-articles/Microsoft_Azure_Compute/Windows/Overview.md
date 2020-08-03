@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Machines 개요 | Microsoft Docs
+title: Windows 가상 머신 개요 | Microsoft Docs
 description: Azure Portal 내에 있는 Windows 가상 머신의 도움말 콘텐츠 개요
 services: virtual-machines-windows
 author: sewatson
@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 15a89a03e07deb02a812e54c01e857f972681931
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0fa1ff016ed787725ffde10ade67040a09c7e238
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "64710787"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285920"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows Virtual Machines 설명서
 
@@ -23,9 +23,9 @@ Azure Windows Virtual Machines는 Windows Server를 사용하여 안전하고 �
 
 Windows Server 2016을 실행하는 Virtual Machine 내에 IIS 웹 서버를 배포하는 방법을 알아봅니다.
 
-- [Azure Portal](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Azure CLI](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure Portal](../../articles/virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure PowerShell](../../articles/virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure CLI](../../articles/virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>단계별 자습서
 

@@ -9,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 438595096e808646da990e1871cab07d1a795372
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087631"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499078"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>자습서: Azure CLI을 통해 DMS를 사용 하 여 PostgreSQL online 용 Azure DB로 PostgreSQL 마이그레이션
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 온-프레미스 PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD 대여** 샘플 데이터베이스를 PostgreSQL 9.6의 온-프레미스 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
 >
 > * pg_dump 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
@@ -108,7 +108,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    예를 들면 다음과 같습니다.
+    예:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -182,7 +182,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
        ```azurecli
        az extension list -otable
        ```
-       다음 출력이 표시됩니다.
+       다음과 같은 출력이 표시됩니다.
 
        ```output
        ExtensionType    Name
@@ -230,7 +230,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    예를 들면 다음과 같습니다.
+    예:
 
     ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -476,7 +476,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     az dms project task cutover -h
     ```
 
-    예를 들면 다음과 같습니다.
+    예:
 
     ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory

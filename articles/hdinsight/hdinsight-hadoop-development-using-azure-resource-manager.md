@@ -4,16 +4,16 @@ description: HDInsight 클러스터용 Azure Resource Manager 개발 도구에 �
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: c002f4e0a5a7c780f394a07cdd132c5e198877ed
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: faf13f580f6600e761cdaa9927fee4efa2b5995f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085517"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500183"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
 

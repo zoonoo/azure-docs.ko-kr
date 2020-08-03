@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 1c631f4dea3b182c97f11f3892dff834c7681507
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1068f715eb80eb5b7991a5b25c71c81d26d9f3c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102838"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -49,21 +49,19 @@ ms.locfileid: "81274794"
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-`SpeechRecognizer` 개체를 초기화하기 전에 구독 키와 구독 지역을 사용하는 구성을 만들어야 합니다. `RecognizeSpeechAsync()` 메서드에 이 코드를 삽입합니다.
+`SpeechRecognizer` 개체를 초기화하기 전에 구독 키와 구독 지역을 사용하는 구성을 만들어야 합니다. `SpeechRecognitionFromMicrophone_ButtonClicked()` 메서드에 이 코드를 삽입합니다.
 
 > [!NOTE]
 > 이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](https://docs.microsoft.com/dotnet/api/) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]를 참조하세요.
 
 ## <a name="initialize-a-speechrecognizer"></a>SpeechRecognizer 초기화
 
-이제 `SpeechRecognizer`를 만들어 보겠습니다. 이 개체는 관리되지 않는 리소스의 적절한 릴리스를 보장하기 위해 using 문 내에 생성됩니다. `RecognizeSpeechAsync()` 메서드(음성 구성 바로 아래)에 이 코드를 삽입합니다.
+이제 `SpeechRecognizer`를 만들어 보겠습니다. 이 개체는 관리되지 않는 리소스의 적절한 릴리스를 보장하기 위해 using 문 내에 생성됩니다. `SpeechRecognitionFromMicrophone_ButtonClicked()` 메서드(음성 구성 바로 아래)에 이 코드를 삽입합니다.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
 ## <a name="recognize-a-phrase"></a>구문 인식
 
 `SpeechRecognizer` 개체에서 `RecognizeOnceAsync()` 메서드를 호출합니다. 이 메서드를 사용하면 Speech Service에서 사용자가 인식을 위해 단일 구를 보내고, 구가 식별되고 나면 음성 인식이 중지됨을 알 수 있습니다.
-
-using 문 내에 다음 코드를 추가합니다.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
 

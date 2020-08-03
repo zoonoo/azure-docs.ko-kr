@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 07/24/2020
 ms.author: victorh
-ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290113"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 TLS 종료로 애플리케이션 게이트웨이 구성
 
@@ -158,7 +158,7 @@ Export-PfxCertificate `
 
 5. **Http 설정**에서 **새로 만들기**를 선택하여 새 HTTP 설정을 만듭니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 열리는 **HTTP 설정 추가** 창에서 **HTTP 설정 이름**으로 *myHTTPSetting*을 입력합니다. **HTTP 설정 추가** 창에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **추가**를 선택하여 **라우팅 규칙 추가** 창으로 돌아옵니다. 
 
-   ![새 애플리케이션 게이트웨이 만들기: HTTP 설정](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="새 애플리케이션 게이트웨이 만들기: HTTP 설정":::
 
 6. **라우팅 규칙 추가** 창에서 **추가**를 선택하여 라우팅 규칙을 저장하고 **구성** 탭으로 돌아옵니다.
 
@@ -250,7 +250,7 @@ Export-PfxCertificate `
 
     ![애플리케이션 게이트웨이에 대한 공용 IP 주소 기록](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. 브라우저의 주소 표시줄에 *https://\<애플리케이션 게이트웨이 ip 주소\>* 를 입력 합니다.
+2. 브라우저의 주소 표시줄에 *https://\<your application gateway ip address\>* 를 입력합니다.
 
    자체 서명된 인증서를 사용하는 경우 보안 경고를 수락하려면 **세부 정보**(또는 Chrome의 **Advanced**)를 선택하고, 다음 웹 페이지로 이동합니다.
 

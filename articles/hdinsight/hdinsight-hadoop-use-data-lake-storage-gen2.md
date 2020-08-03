@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2a534bd0cb89e837ff2315cb3fb9cfe70ad01f5f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1cba455f93abe4d603f417f8d0a00dda0e315e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078989"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497650"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -61,7 +61,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
     1. **고급** 탭을 클릭 합니다.
     1. **Data Lake Storage Gen2**에서 **계층적 네임 스페이스** 옆에 있는 **사용** 을 클릭 합니다.
     1. **검토 + 만들기**를 클릭합니다.
-    1. **만들기**
+    1. **만들기**를 클릭합니다.
 
 저장소 계정을 만드는 동안 기타 옵션에 대 한 자세한 내용은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조 하세요.
 
@@ -100,7 +100,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 
 [샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)수 있습니다. 템플릿 및 Azure CLI 코드 조각을 사용 하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
 
-| 자리 표시자 | Description |
+| 자리 표시자 | 설명 |
 |---|---|
 | `<SUBSCRIPTION_ID>` | Azure 구독의 ID입니다. |
 | `<RESOURCEGROUPNAME>` | 새 클러스터 및 저장소 계정을 만들 리소스 그룹입니다. |
@@ -159,7 +159,7 @@ Data Lake Storage Gen2에서는 RBAC (역할 기반 액세스 제어) 및 POSIX�
 
 RBAC는 역할 할당을 사용 하 여 Azure 리소스에 대 한 사용자, 그룹 및 서비스 사용자에 게 사용 권한 집합을 효과적으로 적용 합니다. 일반적으로 이러한 Azure 리소스는 최상위 리소스(예: Azure Storage 계정)로 제한됩니다. Azure Storage 및 Data Lake Storage Gen2에 대해서도이 메커니즘은 파일 시스템 리소스로 확장 되었습니다.
 
- RBAC를 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [AZURE rbac (역할 기반 액세스 제어)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac)를 참조 하세요.
+ RBAC를 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac)를 참조 하세요.
 
 Acl을 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조 하십시오.
 

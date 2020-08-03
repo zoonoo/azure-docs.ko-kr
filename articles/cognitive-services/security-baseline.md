@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1c5ce50a3736d6e96620e25cf084c5c66c456a5f
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85375128"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498347"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Cognitive Services에 대 한 Azure 보안 기준
 
@@ -28,7 +28,7 @@ Cognitive Services에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
-**지침**: Azure Cognitive Services는 계층화 된 보안 모델을 제공 합니다. 이 모델을 사용 하 여 Cognitive Services 계정을 특정 네트워크 하위 집합으로 보호할 수 있습니다. 네트워크 규칙이 구성 된 경우 지정 된 네트워크 집합을 통해 데이터를 요청 하는 응용 프로그램만 계정에 액세스할 수 있습니다. 요청 필터링을 사용 하 여 리소스에 대 한 액세스를 제한 하 여 지정 된 IP 주소, IP 범위 또는 Azure Virtual Network의 서브넷 목록에서 시작 되는 요청만 허용 합니다.
+**지침**: Azure Cognitive Services는 계층화 된 보안 모델을 제공 합니다. 이 모델을 사용하여 Cognitive Services 계정을 특정 네트워크 하위 집합으로 보호할 수 있습니다. 네트워크 규칙이 구성되면 지정된 네트워크 세트를 통해 데이터를 요청하는 애플리케이션만 계정에 액세스할 수 있습니다. 요청 필터링을 사용 하 여 리소스에 대 한 액세스를 제한 하 여 지정 된 IP 주소, IP 범위 또는 Azure Virtual Network의 서브넷 목록에서 시작 되는 요청만 허용 합니다.
 
 Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은 특정 지역 집합으로 제한 됩니다.
 
@@ -73,7 +73,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 **지침**: Azure Cognitive Services 컨테이너와 동일한 가상 네트워크에 가상 머신을 배포 하는 경우 Azure Policy를 사용 하 여 관련 네트워크 리소스에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Cognitiveservices account" 및 "Redis" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 인스턴스에 대 한 Azure Cache의 네트워크 구성을 감사 하거나 적용 합니다. 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
 - DDoS Protection 표준을 사용하도록 설정해야 합니다.
 
-또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, Azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
+또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure 배포를 간소화할 수 있습니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
 컨테이너 내에서 Cognitive Services를 사용 하는 경우, 악성 트래픽을 필터링 하 고 종단 간 TLS 암호화를 지 원하는 프런트 엔드 웹 응용 프로그램 방화벽 솔루션을 사용 하 여 컨테이너 배포를 보강 하 여 컨테이너 끝점을 비공개로 안전 하 게 유지할 수 있습니다.
 

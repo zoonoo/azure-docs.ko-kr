@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510983"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290683"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>자습서: 기술 세트에 대한 변경 내용 진단, 수정 및 적용
 
@@ -73,7 +73,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 1. **파일** > **새로 만들기** 아래에서 가져올 컬렉션을 선택합니다.
 1. 컬렉션을 가져온 후 작업 목록(...)을 펼칩니다.
 1. **편집**을 클릭합니다.
-1. searchService의 이름을 입력합니다(예: 엔드포인트가 https://mydemo.search.windows.net 인 경우 서비스 이름은 "mydemo"임).
+1. searchService의 이름을 입력합니다(예: 엔드포인트가 `https://mydemo.search.windows.net`인 경우 서비스 이름은 "`mydemo`"임).
 1. 검색 서비스의 기본 키 또는 보조 키를 사용하여 apiKey를 입력합니다.
 1. Azure Storage 계정의 키 페이지에서 storageConnectionString을 입력합니다.
 1. 스토리지 계정에서 만든 컨테이너에 대한 containerName을 입력합니다.

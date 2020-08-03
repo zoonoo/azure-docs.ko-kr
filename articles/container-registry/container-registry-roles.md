@@ -1,14 +1,14 @@
 ---
 title: RBAC 역할 및 사용 권한
-description: Azure RBAC(역할 기반 액세스 제어)와 IAM(ID 및 액세스 관리)을 사용하여 Azure Container Registry에서 리소스에 대한 세분화된 사용 권한을 제공합니다.
+description: Azure RBAC (역할 기반 액세스 제어) 및 IAM (id 및 액세스 관리)을 사용 하 여 Azure container registry의 리소스에 대 한 세분화 된 사용 권한을 제공 합니다.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74893487"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497752"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
@@ -16,10 +16,10 @@ Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 
 
 | 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [이미지 데이터 삭제](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 소유자 | X | X | X | X | X | X |  |  
-| 참가자 | X | X | X |  X | X | X |  |  
-| 판독기 | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | |  |  |  
+| 소유자 | x | x | x | x | x | x |  |  
+| 참가자 | x | x | x |  x | x | X |  |  
+| 판독기 | X |  |  | x |  |  |  |
+| AcrPush |  |  | x | x | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |

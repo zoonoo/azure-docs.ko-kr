@@ -3,12 +3,13 @@ title: Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성
 description: 이 문서에서는 Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점을 구성 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: ace3f7f59e4f26388652d7bda1a5ee28800a414b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7796c4160cbf40a241db901e31cc91edc361b00d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115338"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495287"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성
 [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하 여 공용 인터넷을 통하지 않고 [개인 링크](../private-link/private-link-overview.md) 를 통해 안전 하 게 항목 및 도메인에 대 한 가상 네트워크에서 직접 이벤트를 수신 하도록 허용할 수 있습니다. 개인 끝점은 토픽 또는 도메인에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. 개념에 대 한 자세한 내용은 [네트워크 보안](network-security.md)을 참조 하세요.
@@ -43,7 +44,7 @@ ms.locfileid: "86115338"
 
             ![개인 끝점-리소스 페이지](./media/configure-private-endpoints/resource-page.png)
     2. **리소스 ID 또는 별칭을 사용 하 여 리소스에 연결**을 선택 하는 경우 다음 단계를 수행 합니다.
-        1. 리소스의 ID를 입력 합니다. 예: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`  
+        1. 리소스의 ID를 입력 합니다. 예를 들어 `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`을 참조하십시오.  
         2. **리소스**에 대해 **토픽** 또는 **도메인**을 입력 합니다. 
         3. 필드 요청 메시지를 추가 합니다. 
         4. 완료되면 **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다. 

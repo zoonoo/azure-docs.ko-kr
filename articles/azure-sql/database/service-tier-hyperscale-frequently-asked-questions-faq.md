@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024020"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500149"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,17 +40,17 @@ ms.locfileid: "87024020"
 
 VCore 기반 서비스 계층은 다음 표에 설명 된 것 처럼 데이터베이스 가용성 및 저장소 유형, 성능 및 최대 크기에 따라 구분 됩니다.
 
-| | 리소스 종류 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
+| | 리소스 유형 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** |모두|예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.|대부분의 비즈니스 워크로드. 저장소 크기를 최대 100 TB, 빠른 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원으로 자동 크기 조정 합니다.|트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류** ||SQL Database/SQL Managed Instance | 단일 데이터베이스 | SQL Database/SQL Managed Instance |
 | **컴퓨팅 크기**|SQL Database * | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
-| **컴퓨팅 크기**|SQL Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | N/A | vCore 8, 16, 24, 32, 40, 64, 80개 |
-| **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| **컴퓨팅 크기**|SQL Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
+| **스토리지 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **스토리지 크기** | SQL Database *| 5GB~4TB | 최대 100TB | 5GB~4TB |
-| **스토리지 크기** | SQL Managed Instance  | 32GB~8TB | N/A | 32GB~4TB |
+| **스토리지 크기** | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **IOPS** | 단일 데이터베이스 | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
-| **IOPS** | SQL Managed Instance | 파일 크기에 따라 달라 집니다. | N/A | 1375 IOPS/vCore |
+| **IOPS** | SQL Managed Instance | 파일 크기에 따라 달라 집니다. | 해당 없음 | 1375 IOPS/vCore |
 |**가용성**|모두|복제본 1 개, 읽기 확장 없음, 로컬 캐시 없음 | 여러 복제본, 최대 4 개의 읽기 확장, 부분 로컬 캐시 | 복제본 3 개, 읽기 확장, 영역 중복 HA, 전체 로컬 저장소 |
 |**Backup**|모두|RA-GRS, 7-35 일 보존 (기본적으로 7 일)| RA-GRS, 7 일 보존, 일정 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35 일 보존 (기본적으로 7 일) |
 
@@ -331,7 +331,7 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-replica"></a>계산 복제본을 확장 및 축소 하는 데 소요 되는 시간
 
-계산 크기를 늘리거나 줄일 때 데이터 크기에 관계 없이 5-10 분이 소요 됩니다.
+일반적으로 계산 확장 또는 축소는 데이터 크기에 관계 없이 최대 2 분이 소요 됩니다.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>강화 및 축소 작업을 진행하는 동안 데이터베이스는 오프라인 상태인가요?
 

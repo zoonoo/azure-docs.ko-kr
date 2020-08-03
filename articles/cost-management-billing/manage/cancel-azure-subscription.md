@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: banders
-ms.openlocfilehash: 2d8b529683f4d07bc47010711d65ca40536823fb
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8b0ba7b597921d82883f2c7ba505ebb10eee1876
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039749"
 ---
 # <a name="cancel-your-azure-subscription"></a>Azure 구독 취소
 
@@ -25,7 +25,7 @@ ms.locfileid: "82996557"
 * 서비스를 종료합니다. [관리 포털의 페이지 리소스](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)로 이동한 후 실행 중인 가상 머신, 애플리케이션 또는 기타 서비스를 모두 **중지**합니다.
 * 데이터를 마이그레이션하는 것이 좋습니다. [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 * 모든 리소스 및 모든 리소스 그룹을 삭제합니다.
-* `AssignableScopes`에서 이 구독을 참조하는 사용자 지정 역할이 있는 경우 해당 사용자 지정 역할을 업데이트하여 구독을 제거해야 합니다. 구독을 취소한 후 사용자 지정 역할을 업데이트하려고 하면 오류가 발생할 수 있습니다. 자세한 내용은 [사용자 지정 역할과 관련된 문제 해결](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) 및 [Azure 리소스에 대한 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조하세요.
+* `AssignableScopes`에서 이 구독을 참조하는 사용자 지정 역할이 있는 경우 해당 사용자 지정 역할을 업데이트하여 구독을 제거해야 합니다. 구독을 취소한 후 사용자 지정 역할을 업데이트하려고 하면 오류가 발생할 수 있습니다. 자세한 내용은 [사용자 지정 역할 관련 문제 해결](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) 및 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조하세요.
 
 유료 Azure 지원 계획을 취소해도 남은 구독 기간에 대해 요금이 청구됩니다. 자세한 내용은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)을 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: 가상 네트워크에 대한 Azure PowerShell 샘플
-description: 가상 네트워크에 대한 Azure PowerShell 샘플입니다.
+description: 다중 계층 애플리케이션을 위한 가상 네트워크 만들기에 대한 샘플을 포함하여 가상 네트워크를 관리하는 Azure PowerShell 샘플에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 1e1bac855ef943bdddcc82966ff3b824bcbe2ad0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b3107d521fb79e3ea6cfe190abd2ec3fb7859cb3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232222"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288227"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>가상 네트워크에 대한 Azure PowerShell 샘플
 

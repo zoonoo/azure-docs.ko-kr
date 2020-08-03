@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ce3f775b7a72239fba7eb7c1538ec4f0831f1c74
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391828"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124569"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
-이 자습서에서는 Azure Digital Twins 인스턴스와 상호 작용을 위해 명령줄 클라이언트 애플리케이션을 구현하는 샘플 애플리케이션을 소개합니다. 클라이언트 앱은 [자습서: 클라이언트 앱 코딩](tutorial-code.md)에서 작성한 앱과 비슷합니다.
+이 자습서에서는 Azure Digital Twins 인스턴스와 상호 작용을 위해 명령줄 클라이언트 애플리케이션을 구현하는 샘플 애플리케이션을 소개합니다. 클라이언트 앱은 [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)에서 작성한 앱과 유사합니다.
 
 이 샘플을 사용하여 모델 업로드, 트윈 생성 및 수정, 관계 생성과 같은 필수 Azure Digital Twins 작업을 수행할 수 있습니다. 또한 샘플 코드를 보고 Azure Digital Twins API에 대해 배우고 원하는 대로 샘플 프로젝트를 수정하여 명령을 직접 구현해 볼 수 있습니다.
 
@@ -78,7 +78,7 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 > 모델을 직접 만들려는 경우 *AdtSampleApp\SampleClientApp\Models* 폴더에 *.json* 확장자로 저장하는 새 파일에 *Room* 모델 코드를 붙여 넣을 수 있습니다. 그런 다음, 속성과 관계를 추가하여 원하는 대로 구성합니다. 이 폴더의 다른 샘플 모델을 보고 아이디어를 얻을 수도 있습니다.
 
 > [!TIP] 
-> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [방법: 모델 구문 분석 및 유효성 검사](how-to-use-parser.md)를 참조하세요.
+> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [*방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)를 참조하세요.
 
 ### <a name="get-started-with-the-command-line-app"></a>명령줄 앱 시작
 
@@ -129,7 +129,7 @@ CreateModels Room
 ```
 
 모델을 덮어쓸 수 없으므로 이제 서비스 오류가 반환됩니다.
-기존 모델을 삭제하는 방법에 대한 자세한 내용은 [방법: 사용자 지정 모델 관리](how-to-manage-model.md)를 참조하세요.
+기존 모델을 삭제하는 방법에 대한 자세한 내용은 [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)를 참조하세요.
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -285,7 +285,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서의 프로젝트는 다음 자습서인 [자습서: 엔드투엔드 솔루션 연결](tutorial-end-to-end.md)의 기초를 마련합니다. 다음 자습서로 계속 진행할 계획인 경우 여기에서 설정한 리소스를 유지하여 이 Azure Digital Twins 인스턴스와 구성된 샘플 앱을 계속 사용할 수 있습니다.
+이 자습서의 프로젝트는 다음 자습서인 [*자습서: 엔드투엔드 솔루션 연결*](tutorial-end-to-end.md)의 기초를 형성합니다. 다음 자습서로 계속 진행할 계획인 경우 여기에서 설정한 리소스를 유지하여 이 Azure Digital Twins 인스턴스와 구성된 샘플 앱을 계속 사용할 수 있습니다.
 * 이 경우 샘플 앱의 `DeleteAllTwins` 명령과 `DeleteAllModels` 명령을 사용하여 인스턴스의 트윈과 모델을 각각 지울 수 있습니다. 이를 통해 다음 자습서를 위한 깨끗한 슬레이트를 준비할 수 있습니다.
 
 이 자습서에서 만든 리소스가 더 이상 필요하지 않은 경우 다음 절차에 따라 삭제합니다.
@@ -316,10 +316,10 @@ az ad app delete --id <your-application-ID>
 다음 자습서에서 다른 Azure 서비스와 함께 샘플 명령줄 앱을 사용하여 데이터 기반의 엔드투엔드 시나리오를 완성하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: 엔드투엔드 솔루션 연결](tutorial-end-to-end.md)
+> [*자습서: 엔드투엔드 솔루션 연결*](tutorial-end-to-end.md)
 
 또는 개념 설명서를 통해 자습서에서 작업한 요소에 대해 자세히 알아보세요.
-* [개념: 사용자 지정 모델](concepts-models.md)
+* [*개념: 사용자 지정 모델*](concepts-models.md)
 
 방법 문서로 시작하여 이 자습서의 프로세스에 대해 더 자세히 알아볼 수도 있습니다.
-* [방법: Azure Digital Twins CLI 사용](how-to-use-cli.md)
+* [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)

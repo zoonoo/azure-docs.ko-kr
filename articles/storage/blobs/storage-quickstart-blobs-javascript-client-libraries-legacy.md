@@ -6,21 +6,24 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 920d3d6c1cfc928efa5daa2d6c0aa3a6b4e81375
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0db110d02211323f64e7ffe795f72e3a5003ec91
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82161128"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282044"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>빠른 시작: 브라우저에서 JavaScript v10 SDK를 사용하여 Blob 관리
 
 이 빠른 시작에서는 브라우저에서 완전히 실행되는 JavaScript 코드를 사용하여 Blob을 관리하는 방법을 알아봅니다. Blob은 이미지, 문서, 스트리밍 미디어 및 보관 데이터를 포함하여 대량의 텍스트 또는 이진 데이터를 저장할 수 있는 개체입니다. 필요한 보안 조치를 사용하여 Blob Storage 계정에 대한 보호된 액세스를 보장합니다.
+
+> [!NOTE]
+> 이 빠른 시작에서는 Azure Blob 스토리지 클라이언트 라이브러리의 레거시 버전을 사용합니다. 최신 버전을 시작하려면 [빠른 시작: 브라우저에서 JavaScript v12 SDK를 사용하여 Blob 관리](quickstart-blobs-javascript-browser.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -40,7 +43,7 @@ Azure Portal로 돌아가서 스토리지 계정을 선택합니다. 새 CORS �
 
 다음 표에서는 각 CORS 설정을 설명하고 규칙을 정의하는 데 사용되는 값을 설명합니다.
 
-|설정  |값  | Description |
+|설정  |값  | 설명 |
 |---------|---------|---------|
 | 허용된 원본 | * | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `*`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
 | 허용된 메서드     | delete, get, head, merge, post, options, put | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
@@ -81,7 +84,7 @@ az storage account generate-sas \
 
 약간 복잡한 각 매개 변수 뒤에 일련의 값이 있습니다. 이 매개 변수 값은 해당 권한의 첫 문자에서 가져옵니다. 다음 표는 값이 발생한 위치를 설명합니다.
 
-| 매개 변수        | 값   | Description  |
+| 매개 변수        | 값   | 설명  |
 |------------------|---------|---------|
 | *사용 권한*    | racwdl  | 이 SAS는 *읽기*, *추가*, *만들기*, *쓰기*, *삭제* 및 *나열* 기능을 허용합니다. |
 | *resource-types* | sco     | SAS의 영향을 받는 리소스는 서비스  , 컨테이너  및 개체  입니다. |

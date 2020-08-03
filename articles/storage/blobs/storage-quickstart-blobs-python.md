@@ -3,32 +3,34 @@ title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - Python'
 description: 이 빠른 시작에서는 Python용 Azure Blob 스토리지 클라이언트 라이브러리버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c24b934af17dab4f263de504da81d5ccd22d7fb9
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 3df76d2ba4f091c1c9f7ac737c2830225b85649c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975315"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287167"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>빠른 시작: Python v12 SDK로 Blob 관리
 
 이 빠른 시작에서는 Python을 사용하여 Blob을 관리하는 방법을 알아봅니다. Blob은 이미지, 문서, 스트리밍 미디어 및 보관 데이터를 포함하여 대량의 텍스트 또는 이진 데이터를 저장할 수 있는 개체입니다. Blob을 업로드, 다운로드 및 나열하고 컨테이너를 만들고 삭제합니다.
 
-[API 참조 설명서](/python/api/azure-storage-blob) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-blob/) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+추가 리소스:
+
+* [API 참조 설명서](/python/api/azure-storage-blob)
+* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
+* [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-blob/)
+* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Azure Storage 계정. [스토리지 계정 만들기](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) 2.7, 3.5 이상.
-
-> [!NOTE]
-> 이전 SDK 버전을 시작하려면 [빠른 시작: Python v2.1 SDK로 Blob 관리](storage-quickstart-blobs-python-legacy.md)를 참조하세요.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

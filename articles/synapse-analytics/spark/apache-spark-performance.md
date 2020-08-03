@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics의 성능을 위한 Spark 작업 최적화
+title: 성능을 위한 Spark 작업 최적화
 description: 이 문서에서는 Azure Synapse Analytics의 Apache Spark와 다양한 개념을 소개합니다.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089263"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark 작업(미리 보기) 최적화
 

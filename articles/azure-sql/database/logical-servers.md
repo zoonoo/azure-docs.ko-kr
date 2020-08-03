@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367577"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498092"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse의 논리 SQL server는 무엇 인가요?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ SQL Database 및 Azure Synapse의 서버:
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 상위 리소스입니다.
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스에 대 한 네임 스페이스를 제공 합니다.
 - 강력한 수명 의미 체계를 사용 하는 논리적 컨테이너입니다. 서버를 삭제 하 고 해당 데이터베이스, 탄력적 풀 및 SQK 풀을 삭제 합니다.
-- [AZURE RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview) 에 참여-서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스는 서버에서 액세스 권한을 상속 합니다.
+- Azure [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview) 에 참여-서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스는 서버에서 액세스 권한을 상속 합니다.
 - Azure 리소스 관리를 위해 데이터베이스, 탄력적 풀 및 데이터 웨어하우스 데이터베이스 id의 상위 요소입니다 (데이터베이스 및 풀에 대 한 URL 구성표 참조).
 - 지역에 리소스 배치
 - 데이터베이스 액세스에 대한 연결 엔드포인트를 제공합니다(`<serverName>`.database.windows.net).
@@ -87,7 +87,7 @@ SQL Database 및 Azure Synapse의 서버:
 
 Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 PowerShell cmdlet을 사용 합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
-| Cmdlet | Description |
+| cmdlet | Description |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|데이터베이스 만들기 |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|하나 이상의 데이터베이스 가져오기|
@@ -112,7 +112,7 @@ Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 �
 
 [Azure CLI](/cli/azure)를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용 합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
-| Cmdlet | Description |
+| cmdlet | Description |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |데이터베이스 만들기|
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|서버에서 관리 하는 모든 데이터베이스 또는 탄력적 풀에 있는 모든 데이터베이스를 나열 합니다.|
@@ -145,7 +145,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 > [!IMPORTANT]
 > Transact-SQL을 사용하여 서버를 만들거나 삭제할 수 없습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Azure SQL Database에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 |[데이터베이스 만들기 (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Azure Synapse에서 새 데이터 웨어하우스 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
@@ -171,7 +171,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 
 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 이러한 REST API 요청을 사용 합니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[서버-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
 |[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|서버를 삭제 합니다.|

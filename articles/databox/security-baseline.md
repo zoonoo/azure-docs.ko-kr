@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d1de40944b4ab15268cda576f477c08fc179f1df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255904"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497327"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Azure Data Box에 대 한 Azure 보안 기준
 
@@ -216,7 +216,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: Azure Data Box에 대 한 관리 권한이 있는 사용자 계정의 인벤토리를 유지 관리 합니다. 구독에 대 한 Azure Portal의 IAM (Id 및 액세스 제어) 창을 사용 하 여 RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 RBAC (역할 기반 Access Control) 역할을 설정 하 여 Data Box 순서에 대 한 액세스를 제어 합니다. RBAC 역할은 작업의 하위 집합에 대 한 읽기/쓰기, 읽기 전용, 읽기/쓰기 권한 유형을 결정 합니다.
+**지침**: Azure Data Box에 대 한 관리 권한이 있는 사용자 계정의 인벤토리를 유지 관리 합니다. 구독에 대 한 Azure Portal의 IAM (Id 및 액세스 제어) 창을 사용 하 여 RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 Azure 역할을 설정 하 여 Data Box 주문에 대 한 액세스를 제어 합니다. Azure 역할은 작업의 하위 집합에 대 한 읽기-쓰기, 읽기 전용, 읽기/쓰기 액세스 유형을 결정 합니다.
 
 * [사용자 지정 역할 이해](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 

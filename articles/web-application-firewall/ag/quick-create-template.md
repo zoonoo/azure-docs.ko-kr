@@ -1,39 +1,41 @@
 ---
 title: '빠른 시작: Application Gateway에서 Azure WAF v2 만들기 - Azure Resource Manager 템플릿'
 titleSuffix: Azure Application Gateway
-description: Resource Manager 템플릿을 사용하여 Azure Application Gateway에서 웹 애플리케이션 방화벽 v2를 만드는 방법에 대해 알아봅니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Application Gateway에서 웹 애플리케이션 방화벽 v2를 만드는 방법에 대해 알아봅니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075516"
 ---
-# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>빠른 시작: Application Gateway에서 Azure WAF v2 만들기 - Azure Resource Manager 템플릿
+# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Application Gateway에서 Azure WAF v2 만들기
 
-이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Azure Application Gateway에서 Azure 웹 애플리케이션 방화벽 v2를 만듭니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Application Gateway에서 Azure 웹 애플리케이션 방화벽 v2를 만듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-web-application-firewall"></a>웹 애플리케이션 방화벽 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 이 템플릿은 Azure Application Gateway에서 간단한 웹 애플리케이션 방화벽 v2를 만듭니다. 여기에는 공용 IP 프런트 엔드 IP 주소, HTTP 설정, 포트 80의 기본 수신기가 있는 규칙 및 백 엔드 풀이 포함됩니다. IP 주소 일치 유형에 따라 백 엔드 풀로의 트래픽을 차단하기 위해 사용자 지정 규칙을 사용하는 WAF 정책이 만들어집니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
 
@@ -48,9 +50,9 @@ ms.locfileid: "81617984"
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): 가상 머신용으로 두 개
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions): IIS 및 웹 페이지 구성
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-Azure에 Resource Manager 템플릿 배포:
+Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 IIS를 실행하는 백 엔드 풀에 애플리케이션 게이트웨이, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
@@ -61,7 +63,7 @@ Azure에 Resource Manager 템플릿 배포:
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
-IIS는 애플리케이션 게이트웨이를 만드는 데 필요하지는 않지만 백 엔드 서버에 설치되어 Azure가 애플리케이션 게이트웨이에서 WAF v2를 성공적으로 만들었는지 확인합니다. 
+IIS는 애플리케이션 게이트웨이를 만드는 데 필요하지는 않지만 백 엔드 서버에 설치되어 Azure가 애플리케이션 게이트웨이에서 WAF v2를 성공적으로 만들었는지 확인합니다.
 
 IIS를 사용하여 애플리케이션 게이트웨이 테스트:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076388"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 작업 방법을 배웁니다.
@@ -98,6 +98,7 @@ Security Center의 검색 기능을 사용하여 손상된 시스템에 대한 �
 검색을 수행하려면 **Security Center** 대시보드를 열고, 왼쪽 탐색 창에서 **검색**을 클릭하고, 검색하려는 엔터티가 포함된 작업 영역을 선택하고, 검색 쿼리를 입력한 다음, 검색 단추를 클릭합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
+
 이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 이후의 빠른 시작과 자습서를 계속 사용하려면 표준 계층을 계속 실행하고 자동 프로비저닝을 설정된 상태로 유지합니다. 계속하지 않거나 체험 계층으로 되돌리려면 다음을 수행합니다.
 
 1. Security Center 주 메뉴로 돌아가서 **보안 정책**을 선택합니다.

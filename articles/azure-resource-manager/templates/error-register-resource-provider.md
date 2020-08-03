@@ -3,12 +3,13 @@ title: 리소스 공급자 등록 오류
 description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때 Azure 리소스 공급자 등록 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 02/15/2019
-ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 19b3fa661f25f72e80b4ecc5b8423d1931ce5e5c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706549"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499928"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>리소스 공급자 등록 오류 해결
 

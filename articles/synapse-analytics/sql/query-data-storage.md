@@ -1,5 +1,5 @@
 ---
-title: 개요 - SQL 주문형(미리 보기)을 사용하여 스토리지의 데이터 쿼리
+title: SQL 주문형(미리 보기)을 사용하여 스토리지의 데이터 쿼리
 description: 이 문서에서는 Azure Synapse Analytics 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7ef7a771442dba5c7f82196a13b77cb28b0d1ed8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259680"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386659"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일 쿼리
 
@@ -54,7 +54,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 
 ## <a name="query-csv-files"></a>CSV 파일 쿼리
 
-Parquet 원본 데이터를 쿼리하려면 FORMAT = 'CSV'를 사용합니다. CSV 파일을 쿼리할 때 다음과 같이 `OPENROWSET` 함수의 일부로 CSV 파일의 스키마를 지정할 수 있습니다.
+CSV 원본 데이터를 쿼리하려면 FORMAT = 'CSV'를 사용합니다. CSV 파일을 쿼리할 때 다음과 같이 `OPENROWSET` 함수의 일부로 CSV 파일의 스키마를 지정할 수 있습니다.
 
 ```sql
 SELECT * FROM
@@ -186,7 +186,7 @@ Struct와 같은 중첩된 열의 중첩된 요소에 액세스하려면 "점 �
 - 지정된 column_name에서 속성을 찾을 수 없는 경우 함수에서 오류를 반환합니다.
 - [경로 모드](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE)에 따라 지정된 column_path에서 속성을 찾을 수 없는 경우 함수에서 strict 모드인 경우 오류를 반환하거나 lax 모드인 경우 null을 반환합니다.
 
-쿼리 샘플은 [Parquet 중첩 형식 쿼리](query-parquet-nested-types.md#access-elements-from-nested-columns) 문서의 '중첩된 열의 요소에 액세스' 섹션을 검토합니다.
+쿼리 샘플은 [Parquet 중첩 형식 쿼리](query-parquet-nested-types.md#read-properties-from-nested-object-columns) 문서의 '중첩된 열의 요소에 액세스' 섹션을 검토합니다.
 
 #### <a name="access-elements-from-repeated-columns"></a>반복된 열의 요소에 액세스
 

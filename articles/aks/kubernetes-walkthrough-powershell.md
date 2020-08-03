@@ -1,15 +1,15 @@
 ---
-title: '빠른 시작: Azure Kubernetes Service 클러스터 배포'
+title: '빠른 시작: PowerShell을 사용하여 AKS 클러스터 배포'
 description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)에서 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e786b64554b5fbaf5bb7051e09daca8fb1eaf049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 503011f2b9c595feb4d2f94a60e61dcd217c52b0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251481"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057008"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Kubernetes Service 클러스터 배포
 

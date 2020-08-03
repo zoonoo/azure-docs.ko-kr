@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 65778d0a6ba3bd5cdc719609ae4c2d18bf05aab9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424412"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498955"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware와 Azure 간 재해 복구 아키텍처
 
@@ -30,9 +30,7 @@ ms.locfileid: "87424412"
 **VMware 서버** | VMware VM은 온-프레미스 vSphere ESXi 서버에서 호스트됩니다. 호스트를 관리하려면 vCenter 서버를 사용하는 것이 좋습니다. | Site Recovery 배포 중에 VMware 서버를e Recovery Services 자격 증명 모음에 추가합니다.
 **복제된 컴퓨터** | 복제한 각 VMware VM에 모바일 서비스가 설치됩니다. | 프로세스 서버에서 자동 설치를 수행할 수 있도록 하는 것이 좋습니다. 또는 서비스를 수동으로 설치 하거나 자동화 된 배포 방법 (예: Configuration Manager)을 사용할 수 있습니다.
 
-**VMware에서 Azure로 아키텍처**
-
-![구성 요소](./media/vmware-azure-architecture/arch-enhanced.png)
+![VMware에서 Azure로 복제 아키텍처 관계를 보여 주는 다이어그램](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>아웃 바운드 네트워크 연결 설정
 
@@ -71,9 +69,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
     - 프로세스 서버는 복제 데이터를 수신 하 고, 최적화 하 고, 암호화 하 고 포트 443 아웃 바운드를 통해 Azure storage로 보냅니다.
 5. 복제 데이터 로그는 먼저 Azure의 캐시 저장소 계정에 저장 됩니다. 이러한 로그는 처리 되 고 데이터는 Azure 관리 디스크 (asr seed disk)에 저장 됩니다. 이 디스크에는 복구 지점이 생성 됩니다.
 
-**VMware에서 Azure로 복제 프로세스**
-
-![복제 프로세스](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![VMware에서 Azure로 복제 프로세스를 표시 하는 다이어그램입니다.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>다시 동기화 프로세스
 
@@ -108,9 +104,8 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
     - 3단계: 워크로드가 장애 복구되면 온-프레미스 VM에 대한 복제를 다시 사용하도록 설정합니다.
     
  
-**Azure로부터 VMware 장애 복구**
 
-![장애 복구](./media/vmware-azure-architecture/enhanced-failback.png)
+![Azure에서 VMware 장애 복구를 보여 주는 다이어그램](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>다음 단계

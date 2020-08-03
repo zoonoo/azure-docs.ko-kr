@@ -3,16 +3,16 @@ title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - 브라우�
 description: 이 빠른 시작에서는 브라우저에서 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 버전 12를 사용하는 방법을 알아봅니다. 컨테이너와 개체를 Blob 스토리지에 만듭니다. 다음으로, 모든 Blob을 컨테이너에 나열하는 방법을 알아봅니다. 마지막으로, Blob과 컨테이너를 삭제하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/18/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 039aea76e5e59d43078c2fa884e192922ec50035
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833420"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276995"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,10 +20,12 @@ ms.locfileid: "85833420"
 
 Azure Blob 스토리지는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. Blob은 이미지, 문서, 스트리밍 미디어 및 보관 데이터를 포함하여 텍스트 또는 이진 데이터를 저장할 수 있는 개체입니다. 이 빠른 시작에서는 브라우저에서 JavaScript를 사용하여 Blob을 관리하는 방법에 대해 알아봅니다. Blob을 업로드하여 나열하고, 컨테이너를 만들고 삭제합니다.
 
-[API 참조 설명서](/javascript/api/@azure/storage-blob) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [패키지(npm)](https://www.npmjs.com/package/@azure/storage-blob) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+추가 리소스:
 
-> [!NOTE]
-> 이전 SDK 버전을 시작하려면 [빠른 시작: Node.js에서 JavaScript v10 SDK를 사용하여 Blob 관리](storage-quickstart-blobs-nodejs-legacy.md)를 참조하세요.
+* [API 참조 설명서](/javascript/api/@azure/storage-blob)
+* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+* [패키지(npm)](https://www.npmjs.com/package/@azure/storage-blob)
+* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

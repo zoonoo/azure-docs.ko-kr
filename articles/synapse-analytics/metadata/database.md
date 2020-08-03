@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496012"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385537"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 
@@ -34,7 +34,7 @@ Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 
 
 SQL주문형을 사용하여 Spark에서 만든 데이터베이스에 개체를 만들거나 데이터베이스를 삭제하려고 시도하면 작업이 성공합니다. 그러나 원래 Spark 데이터베이스는 변경되지 않습니다.
 
-## <a name="handling-of-name-conflicts"></a>이름 충돌 처리
+## <a name="how-name-conflicts-are-handled"></a>이름 충돌을 처리하는 방법
 
 Spark 데이터베이스 이름이 기존 SQL 주문형 데이터베이스 이름과 충돌하는 경우 SQL 주문형에서 Spark 데이터베이스에 접미사가 추가됩니다. SQL 주문형의 접미사는 `_<workspace name>-ondemand-DefaultSparkConnector`입니다.
 
@@ -55,9 +55,9 @@ Spark 데이터베이스와 테이블은 SQL 엔진에서 동기화되는 해당
 
 보안 주체가 데이터베이스에 개체를 만들거나 데이터베이스의 개체를 삭제할 수 있는 기능이 필요한 경우 `warehouse` 폴더의 폴더와 파일에 대한 추가 `W` 권한이 필요합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Spark 데이터베이스 만들기 및 연결 - SQL 주문형
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>SQL 주문형을 사용하여 Spark 데이터베이스 만들기 및 연결
 
 먼저 작업 영역에서 이미 만든 Spark 클러스터를 사용하여 `mytestdb`라는 새 Spark 데이터베이스를 만듭니다. 예를 들어 Spark C# Notebook을 사용하는 경우 다음 .NET for Spark 문을 사용하면 됩니다.
 

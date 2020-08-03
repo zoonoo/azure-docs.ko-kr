@@ -3,12 +3,13 @@ title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 2fe4fc956f52ab5229469e1f230aec056295f19a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e5b3e27110d5bd7941aad0209681d13f45fa66fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539281"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498874"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 

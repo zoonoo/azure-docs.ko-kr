@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop의 서비스 경고 설정 - Azure
-description: Windows Virtual Desktop에 대한 서비스 알림을 수신하도록 Azure Service Health를 설정하는 방법입니다.
+title: Windows Virtual Desktop(클래식)의 서비스 경고 설정 - Azure
+description: Windows Virtual Desktop(클래식)에 대한 서비스 알림을 수신하도록 Azure Service Health를 설정하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a3f938c6e4c9bb13794ddd01092f0e79077a89cc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259763"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283387"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>자습서: 서비스 경고 설정
+# <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)의 서비스 경고 설정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../set-up-service-alerts.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../set-up-service-alerts.md)를 참조하세요.
 
 Azure Service Health를 사용하여 Windows Virtual Desktop에 대한 서비스 문제 및 상태 권고를 모니터링할 수 있습니다. Azure Service Health는 이메일 또는 SMS와 같은 다양한 경고 유형을 사용하여 알려주므로 문제의 영향을 이해할 수 있고 문제가 해결되면 업데이트 사항을 알 수 있습니다. 또한 Azure Service Health는 가동 중지 시간을 완화하고 리소스의 가용성에 영향을 줄 수 있는 변경 내용 및 계획된 유지 관리를 준비하는 데 도움이 될 수 있습니다.
 

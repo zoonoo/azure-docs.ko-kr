@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: ba90cbc8bc0267f1fba8c9495886bdc8ce2ac5e3
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 722f2f5b86bd67df7c7250cdbfc44ebcc048c773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090793"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio 및 .NET Core
 
@@ -23,7 +23,7 @@ ms.locfileid: "83995907"
 - 독립적으로 별도의 두 서비스를 개발하고, Kubernetes의 DNS 서비스 검색을 사용하여 다른 서비스를 호출합니다.
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
-> [!Note]
+> [!NOTE]
 > **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하세요.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
@@ -36,7 +36,7 @@ Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>여러 Azure 구독이 있는 경우...
@@ -91,31 +91,31 @@ Azure Development 워크로드를 사용하여 Windows에 최신 버전의 [Visu
 
 Visual Studio에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 애플리케이션**이어야 합니다. 프로젝트의 이름을 '**webfrontend**'로 지정합니다.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
+!["새 프로젝트" 대화 상자는 C:\Source\Repos 위치에 "webfrontend"라는 C# 웹 애플리케이션의 생성을 보여줍니다. "솔루션" 드롭다운 목록에는 "새 솔루션 만들기"가 표시되고 "솔루션용 디렉터리 만들기" 확인란이 선택되어 있습니다.](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
 대화 상자의 상단에 있는 두 개의 드롭다운에서 **웹 애플리케이션 (모델-보기-컨트롤러)** 템플릿을 선택하고, **.NET Core** 및 **ASP.NET Core 2.0**을 대상으로 하고 있는지 확인합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
+!["새 A S P dot NET Core 웹 애플리케이션" 대화 상자에서 두 개의 드롭다운 목록 상자에 "dot NET Core" 및 "A S P dot NET Core 2 point 0"이 표시됩니다. 목록 상자 아래의 프로젝트 템플릿 단추 배열에서 "웹 애플리케이션(모델-뷰-컨트롤러)" 템플릿이 선택됩니다. "Docker 지원 사용" 확인란이 선택되어 있지 않습니다.](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>AKS 클러스터에 대한 개발 환경을 사용하도록 설정
 
 방금 만든 프로젝트를 사용하여 아래 그림과 같이 시작 설정 드롭다운에서 **Azure Dev Spaces**를 선택합니다.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![드롭다운 목록 상자는 Microsoft Visual Studio Int Preview 레이블이 지정된 창의 맨 위에 있습니다. "Azure Dev Spaces"가 선택되었습니다.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 다음에 표시되는 대화 상자에서 적절한 계정으로 로그인했는지 확인한 다음, 기존 Kubernetes 클러스터를 선택합니다.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
+![Azure Dev Spaces 대화 상자에는 다음과 같은 상자가 있습니다. "구독", "Azure Kubernetes Service 클러스터" 및 "공간".](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
 지금은 **공간** 드롭다운을 기본값 `default`로 둡니다. 나중에 이 옵션에 대해 자세히 알아보겠습니다. 공용 엔드포인트를 통해 웹앱에 액세스할 수 있도록 **공용 액세스 가능** 확인란을 선택합니다. 이 설정은 필요한 것은 아니지만 이 연습의 뒷부분에서 몇 가지 개념을 보여주는 데 도움이 될 것입니다. 두 경우 모두 Visual Studio를 사용하여 웹 사이트를 디버깅할 수는 있으니 걱정하지 마세요.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
+![공개적으로 액세스할 수 있는 확인란이 선택되어 있습니다.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
 클러스터를 선택하거나 만들려면 **확인**을 클릭합니다.
 
 Azure Dev Spaces에서 작동하도록 설정되지 않은 클러스터를 선택하면 구성할 것인지 묻는 메시지가 표시됩니다.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![메시지는 다음과 같습니다. "Azure Dev Spaces 리소스를 추가하시겠습니까? 선택한 A K S 클러스터를 사용하려면 먼저 Azure Dev Spaces를 사용하도록 구성해야 합니다. 이 작업을 수행하시겠습니까?" "확인" 및 "취소" 단추가 있습니다.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 **확인**을 선택합니다.
 
@@ -124,9 +124,9 @@ Azure Dev Spaces에서 작동하도록 설정되지 않은 클러스터를 선�
 
  이 작업을 수행하기 위한 백그라운드 작업이 시작됩니다. 완료하는 데 몇 분 정도 걸립니다. 아직 생성 중인지 확인하려면 다음 그림과 같이 상태 표시줄의 왼쪽 아래 모서리에 있는 **백그라운드 작업** 아이콘 위로 포인터를 이동합니다.
 
-![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
+![마우스로 가리키면 표시되는 팝업 창에 "리소스 그룹에 '내 A K S' 만들기"가 표시됩니다.](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
-> [!Note]
+> [!NOTE]
 > 개발 환경이 성공적으로 만들어질 때까지는 애플리케이션을 디버깅할 수 없습니다.
 
 ### <a name="look-at-the-files-added-to-project"></a>프로젝트에 추가된 파일 확인
@@ -138,7 +138,7 @@ Azure Dev Spaces에서 작동하도록 설정되지 않은 클러스터를 선�
 
 마지막으로 개발 환경에서 필요한 개발 시간 구성을 포함하는 `azds.yaml`라는 파일이 표시됩니다.
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+!["a z d s dot yaml" 파일은 솔루션 탐색기 창의 "webfrontend" 솔루션에 표시됩니다.](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Kubernetes에서 컨테이너 디버깅
 개발 환경이 성공적으로 만들어지면 애플리케이션을 디버깅할 수 있습니다. 코드에서 중단점을 설정합니다(예: `Message` 변수가 설정된 파일 `HomeController.cs`의 줄 20). **F5** 키를 클릭하여 디버깅을 시작합니다. 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 64a33b12da0e9b90eaeb7039f65b2493a839a0c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564200"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054112"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>자습서: VMware에서 Azure Data Box Gateway 프로비저닝
 
@@ -93,7 +93,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
   
 3. ESXi 서버에 VMDK를 업로드합니다. 탐색기 창에서 **스토리지**를 선택합니다.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![스토리지 옵션이 선택된 상태에서 탐색기 창을 보여주는 ESXi 서버 사이트의 페이지 스크린샷.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. 오른쪽 창의 **데이터 저장소**아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 
 

@@ -1,6 +1,5 @@
 ---
-title: '자습서 1: 신용 위험 예측'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio(클래식) 자습서: 신용 위험 예측 - Azure'
 description: Azure Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제1부입니다.  작업 영역을 만들고, 데이터를 업로드하고, 실험을 만드는 방법을 보여 줍니다.
 keywords: 신용 위험, 예측 분석 솔루션, 위험 평가
 author: sdgilley
@@ -10,14 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 2e2edd7930ba4555748791210ad303c54f93c347
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8e2d0cd0d9aa567cfab9e2fef66ad6363e59d53
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086112"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324899"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio(클래식)
+
+**적용 대상:** ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -38,7 +40,7 @@ ms.locfileid: "86086112"
 
 그런 다음, 이 실험을 사용하여 [2부 자습서에서 모델을 학습](tutorial-part2-credit-risk-train.md)하고, [3부 자습서에서 배포](tutorial-part3-credit-risk-deploy.md)할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 이전에 Machine Learning Studio(클래식)를 한 번 이상 사용한 경험이 있으며, 기계 학습 개념에 대해 어느 정도 이해하고 있다고 가정합니다. 그러나 어느 쪽이든 전문가는 아니라고 가정합니다.
 
@@ -175,7 +177,7 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 
 ### <a name="prepare-the-data"></a>데이터 준비
 
-데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다. 데이터 세트(맨 아래에 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택합니다.  
+데이터 세트(아래 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다.  
 
 데이터 파일에는 열 제목이 없으므로 Studio(클래식)에서 일반적인 제목(Col1, Col2 *등*)을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 이 모델을 웹 서비스에 게시할 때 제목을 사용하면 서비스 사용자에 대한 열을 식별할 수 있습니다.  
 
@@ -224,7 +226,7 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
    ![메타데이터 편집에 대한 속성](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) **메타데이터 편집** 모듈의 출력 포트를 클릭하고 [시각화][edit-metadata]를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
+   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화**를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
    > 
    > 
 
@@ -311,6 +313,6 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 > [자습서 2 - 모델 학습 및 평가](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
+[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: d8704c34d59a8f735d060a7c7ca6463034883714
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7cfd9de13057e859a49c37d7549f0c6db4d9ca2c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74083828"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073877"
 ---
-# <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅 스크립트 샘플
+# <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅 - Azure CLI 스크립트 샘플
 
 이 스크립트 샘플은 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 또한 두 서브넷 간에 트래픽을 라우팅할 수 있게 하는 IP 전달을 사용하여 VM을 만듭니다. 스크립트를 실행한 후에 방화벽 애플리케이션과 같은 네트워크 소프트웨어를 VM에 배포할 수 있습니다.
 

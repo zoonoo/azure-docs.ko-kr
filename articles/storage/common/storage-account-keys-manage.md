@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 79712c50a5ad46d7d435868606011f458fe48e2e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fda0384dacaf1183458e90688b1f6b63cc63a35
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370754"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501341"
 ---
 # <a name="manage-storage-account-access-keys"></a>저장소 계정 액세스 키 관리
 
@@ -65,7 +66,7 @@ az storage account keys list \
 
 두 키 중 하나를 사용 하 여 Azure Storage에 액세스할 수 있지만 일반적으로 첫 번째 키를 사용 하 고 키를 회전할 때 두 번째 키의 사용을 예약 하는 것이 좋습니다.
 
-계정의 액세스 키를 보거나 읽으려면 사용자가 서비스 관리자 이거나 **Microsoft. Storage/storageAccounts/listkeys/action**을 포함 하는 RBAC 역할을 할당 받아야 합니다. 이 작업을 포함 하는 일부 Azure 기본 제공 역할은 **소유자**, **참가자**및 **저장소 계정 키 운영자 서비스 역할** 역할입니다. 서비스 관리자 역할에 대 한 자세한 내용은 [클래식 구독 관리자 역할, AZURE RBAC 역할 및 AZURE AD 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요. Azure Storage의 기본 제공 역할에 대 한 자세한 내용은 [AZURE RBAC에 대 한 azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md#storage)의 **저장소** 섹션을 참조 하세요.
+계정의 액세스 키를 보거나 읽으려면 사용자가 서비스 관리자 이거나 **Microsoft. Storage/storageAccounts/listkeys/action**을 포함 하는 Azure 역할을 할당 받아야 합니다. 이 작업을 포함 하는 일부 Azure 기본 제공 역할은 **소유자**, **참가자**및 **저장소 계정 키 운영자 서비스 역할** 역할입니다. 서비스 관리자 역할에 대 한 자세한 내용은 [클래식 구독 관리자 역할, azure 역할 및 AZURE AD 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요. Azure Storage의 기본 제공 역할에 대 한 자세한 내용은 [AZURE RBAC에 대 한 azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md#storage)의 **저장소** 섹션을 참조 하세요.
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Azure Key Vault를 사용 하 여 액세스 키 관리
 
@@ -132,7 +133,7 @@ Azure CLI를 사용 하 여 저장소 계정 액세스 키를 회전 하려면:
 > [!NOTE]
 > 모든 애플리케이션에서 키 중 하나만 동시에 사용하는 것이 좋습니다. 어떤 경우에는 키 1을 사용하고, 다른 경우에는 키 2를 사용하면 어떤 애플리케이션이 액세스 권한을 상실해야만 키를 순환할 수 있게 됩니다.
 
-계정의 액세스 키를 회전 하려면 사용자가 서비스 관리자 이거나 **Microsoft. Storage/storageAccounts/regeneratekey/action**을 포함 하는 RBAC 역할을 할당 받아야 합니다. 이 작업을 포함 하는 일부 Azure 기본 제공 역할은 **소유자**, **참가자**및 **저장소 계정 키 운영자 서비스 역할** 역할입니다. 서비스 관리자 역할에 대 한 자세한 내용은 [클래식 구독 관리자 역할, AZURE RBAC 역할 및 AZURE AD 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요. Azure Storage에 대 한 Azure 기본 제공 역할에 대 한 자세한 내용은 azure [RBAC에 대 한 azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md#storage)의 **저장소** 섹션을 참조 하세요.
+계정의 액세스 키를 회전 하려면 사용자가 서비스 관리자 이거나 **Microsoft. Storage/storageAccounts/regeneratekey/action**을 포함 하는 Azure 역할을 할당 받아야 합니다. 이 작업을 포함 하는 일부 Azure 기본 제공 역할은 **소유자**, **참가자**및 **저장소 계정 키 운영자 서비스 역할** 역할입니다. 서비스 관리자 역할에 대 한 자세한 내용은 [클래식 구독 관리자 역할, azure 역할 및 AZURE AD 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요. Azure Storage에 대 한 Azure 기본 제공 역할에 대 한 자세한 내용은 azure [RBAC에 대 한 azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md#storage)의 **저장소** 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

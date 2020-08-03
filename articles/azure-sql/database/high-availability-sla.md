@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3abd6411197c9e7994e9ae642b07e72a0a24735
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033045"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496290"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,12 +95,19 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
 ## <a name="testing-application-fault-resiliency"></a>응용 프로그램 오류 복원 력 테스트
 
-고가용성은 데이터베이스 응용 프로그램에 대해 투명 하 게 작동 하는 SQL Database 및 SQL Managed Instance 플랫폼의 기본 부분입니다. 그러나 계획 된 이벤트 또는 계획 되지 않은 이벤트 중에 시작 된 자동 장애 조치 (failover) 작업이 프로덕션 환경에 배포 되기 전에 응용 프로그램에 영향을 주는지 확인 하는 것을 알 수 있습니다. 특수 API를 호출 하 여 데이터베이스 또는 탄력적 풀을 다시 시작할 수 있습니다. 그러면 장애 조치 (failover)가 트리거됩니다. 영역 중복 데이터베이스 또는 탄력적 풀의 경우 API 호출로 인해 이전 주 데이터베이스의 가용성 영역과 다른 가용성 영역에서 새 주 데이터베이스로 클라이언트 연결이 리디렉션됩니다. 따라서 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향을 테스트 하는 것 외에도 네트워크 지연 시간이 변경 되어 종단 간 성능이 변경 되는지 확인할 수 있습니다. 다시 시작 작업은 개입 하지 않으며 많은 수의 플랫폼에서 스트레스를 발생 시킬 수 있기 때문에 각 데이터베이스 또는 탄력적 풀에 대해 30 분 마다 하나의 장애 조치 (failover) 호출만 허용 됩니다.
+고가용성은 데이터베이스 응용 프로그램에 대해 투명 하 게 작동 하는 SQL Database 및 SQL Managed Instance 플랫폼의 기본 부분입니다. 그러나 계획 되거나 계획 되지 않은 이벤트 중에 시작 된 자동 장애 조치 (failover) 작업이 프로덕션 환경에 배포 되기 전에 응용 프로그램에 영향을 주는지 확인 하는 것을 알 수 있습니다. 특수 API를 호출 하 여 데이터베이스 또는 탄력적 풀을 다시 시작 하 여 장애 조치 (failover)를 수동으로 트리거할 수 있습니다. 영역 중복 데이터베이스 또는 탄력적 풀의 경우 API 호출로 인해 이전 주 데이터베이스의 가용성 영역과 다른 가용성 영역에서 새 주 데이터베이스로 클라이언트 연결이 리디렉션됩니다. 따라서 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향을 테스트 하는 것 외에도 네트워크 지연 시간이 변경 되어 종단 간 성능이 변경 되는지 확인할 수 있습니다. 다시 시작 작업은 개입 하지 않으며 많은 수의 플랫폼에서 스트레스를 발생 시킬 수 있기 때문에 각 데이터베이스 또는 탄력적 풀에 대해 30 분 마다 하나의 장애 조치 (failover) 호출만 허용 됩니다.
 
-장애 조치 (failover)는 REST API 또는 PowerShell을 사용 하 여 시작할 수 있습니다. REST API [데이터베이스 장애 조치](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) (failover) 및 [탄력적 풀 장애 조치 (failover](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover))를 참조 하세요. PowerShell의 경우 [AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) 및 [AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)를 참조 하세요. [Az REST](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest) 명령을 사용 하 여 Azure CLI에서 REST API 호출을 수행할 수도 있습니다.
+장애 조치 (failover)는 PowerShell, REST API 또는 Azure CLI를 사용 하 여 시작할 수 있습니다.
+
+|배포 유형|PowerShell|REST API| Azure CLI|
+|:---|:---|:---|:---|
+|데이터베이스|[AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[데이터베이스 장애 조치](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|탄력적 풀|[AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[탄력적 풀 장애 조치 (failover)](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|관리되는 인스턴스|[AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[관리 되는 인스턴스-장애 조치](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[az sql mi 장애 조치](/cli/azure/sql/mi/#az-sql-mi-failover)|
+
 
 > [!IMPORTANT]
-> 장애 조치 (Failover) 명령은 현재 Hyperscale service 계층 및 Managed Instance에서 사용할 수 없습니다.
+> 장애 조치 (Failover) 명령은 현재 Hyperscale 서비스 계층에서 사용할 수 없습니다.
 
 ## <a name="conclusion"></a>결론
 

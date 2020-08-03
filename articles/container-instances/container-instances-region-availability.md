@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.author: danlep
-ms.openlocfilehash: 119c1202fe59e02a1b6ff802e3dbdc4d52133abe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 591d7dd07ea3717303589cdc070623068c4d3864
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583875"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500609"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -54,9 +54,6 @@ Windows Server 2019 기반 컨테이너 (미리 보기)를 사용 하 여 컨테
 ## <a name="availability---gpu-resources-preview"></a>가용성 - GPU 리소스(미리 보기)
 
 [GPU 리소스](container-instances-gpu.md) (미리 보기)를 사용 하 여 배포 된 컨테이너 그룹에서 사용할 수 있는 지역 및 최대 리소스는 다음과 같습니다.
-
-> [!IMPORTANT]
-> GPU 리소스는 요청 시에만 사용할 수 있습니다. GPU 리소스에 대 한 액세스를 요청 하려면 [Azure 지원 요청][azure-support]을 제출 하세요.
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]

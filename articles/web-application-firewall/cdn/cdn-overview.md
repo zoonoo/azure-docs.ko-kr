@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754288"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278627"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Content Delivery Network의 Azure 웹 애플리케이션 방화벽
 
@@ -45,7 +45,7 @@ Azure CDN에서 호스트되는 웹 애플리케이션에는 한 번에 하나�
 
 WAF 정책은 다음 두 가지 모드에서 실행되도록 구성할 수 있습니다.
 
-- *탐지 모드*: 감지 모드로 실행하면 WAF는 모니터링 이외의 다른 작업을 수행하지 않고, 요청 및 일치하는 WAF 규칙을 WAF 로그에 기록합니다. Front Door에 대한 로깅 진단 기능을 켤 수 있습니다. 포털을 사용하는 경우 **진단** 섹션으로 이동하세요.
+- *탐지 모드*: 감지 모드로 실행하면 WAF는 모니터링 이외의 다른 작업을 수행하지 않고, 요청 및 일치하는 WAF 규칙을 WAF 로그에 기록합니다. CDN에 대한 로깅 진단 기능을 켤 수 있습니다. 포털을 사용하는 경우 **진단** 섹션으로 이동하세요.
 
 - *방지 모드*: 방지 모드에서는 요청이 규칙과 일치하면 WAF가 지정된 작업을 수행합니다. 일치하는 항목이 발견되면 우선 순위가 낮은 규칙이 더 이상 평가되지 않습니다. 일치하는 모든 요청은 WAF 로그에도 기록됩니다.
 

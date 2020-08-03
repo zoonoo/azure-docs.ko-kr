@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ba6f4bcaffbf9fa11c949853362485d524bec23a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510019"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495712"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 가지 질문에 답변해 야 합니다.
@@ -80,7 +81,7 @@ FileStorage 저장소 계정을 만들려면 **성능** 라디오 단추가 *프
 
 고급 탭에서 사용할 수 있는 다른 설정 (blob 일시 삭제, Azure Data Lake 저장소의 계층 구조 네임 스페이스 및 blob 저장소에 대 한 NFSv3)은 Azure Files에 적용 되지 않습니다.
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>태그들
 태그는 동일한 태그를 여러 개의 리소스 및 리소스 그룹에 적용하여 리소스를 범주화하고 통합된 청구를 볼 수 있는 이름/값 쌍입니다. 이러한 항목은 선택 사항이 며 저장소 계정을 만든 후에 적용할 수 있습니다.
 
 #### <a name="review--create"></a>검토 + 만들기

@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 68f10b02cec45863bc5dbdbc322adbfbdfbe38f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80127299"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323981"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>자습서: Google Cloud Messaging을 사용하여 특정 Android 디바이스에 푸시 알림 보내기(더 이상 사용되지 않음)
 
@@ -120,7 +120,7 @@ ms.locfileid: "80127299"
 
     `main_activity.xml` 그래픽 레이아웃은 다음 이미지와 같이 표시되어야 합니다.
 
-    ![][A1]
+    ![앱 화면이 보이는 개발 환경의 스크린샷. 앱에는 코드에 추가된 뉴스 범주가 나열됩니다.][A1]
 3. `MainActivity` 클래스와 동일한 패키지에서 `Notifications` 클래스를 만듭니다.
 
     ```java
@@ -338,8 +338,8 @@ ms.locfileid: "80127299"
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253

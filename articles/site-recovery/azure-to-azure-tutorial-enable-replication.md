@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a3cec6cb009e3d83d22f3f2a4140afe16db180a8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134496"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372929"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -94,7 +94,7 @@ Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기�
 
 - **Site Recovery 읽기 권한자** - 이 역할은 모든 Site Recovery 관리 작업을 볼 수 있는 권한을 갖습니다. 이 역할은 현재 보호 상태를 모니터링하고 지원 티켓을 발행할 수 있는 IT 모니터링 임원에게 가장 적합합니다.
 
-[Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 자세히 알아봅니다.
+[Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 자세히 알아봅니다.
 
 ## <a name="enable-replication-for-a-vm"></a>VM에 대한 복제 사용
 

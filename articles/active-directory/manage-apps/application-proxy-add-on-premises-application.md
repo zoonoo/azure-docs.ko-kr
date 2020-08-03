@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b225b6471dd59275b3963bc2de09607c97a21465
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: a7153200bc80f6e27a99123a1bba676d0188f607
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373406"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129035"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -47,7 +47,7 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 프로덕션 환경의 고가용성을 위해 둘 이상의 Windows Server를 사용하는 것이 좋습니다. 이 자습서에서는 하나의 Windows Server로 충분합니다.
 
 > [!IMPORTANT]
-> Windows Server 2019에 커넥터를 설치하는 경우 WinHttp 구성 요소에서 HTTP2 프로토콜 지원을 사용하지 않도록 설정해야 합니다. 이는 지원되는 운영 체제의 이전 버전에서는 기본적으로 사용되지 않습니다. 다음 레지스트리 키를 추가하고 서버를 다시 시작하면 Windows Server 2019에서 서버를 사용할 수 없게 됩니다. 이는 머신 전체 레지스트리 키입니다.
+> Windows Server 2019에 커넥터를 설치하는 경우 Kerberos 제한 위임이 제대로 작동하려면 WinHttp 구성 요소에서 HTTP2 프로토콜 지원을 사용하지 않도록 설정해야 합니다. 이는 지원되는 운영 체제의 이전 버전에서는 기본적으로 사용되지 않습니다. 다음 레지스트리 키를 추가하고 서버를 다시 시작하면 Windows Server 2019에서 서버를 사용할 수 없게 됩니다. 이는 머신 전체 레지스트리 키입니다.
 >
 > ```
 > Windows Registry Editor Version 5.00
@@ -88,12 +88,12 @@ TLS 1.2를 사용하도록 설정하려면:
 
 1. 서버를 다시 시작합니다.
 
-> [!IMPORTANT]
-> 고객에게 동급 최고의 암호화를 제공하기 위해 애플리케이션 프록시 서비스는 TLS 1.2 프로토콜에 대한 액세스만 제한합니다. 이러한 변경 내용은 2019년 8월 31일 이후에 점진적으로 롤아웃되고 유효합니다. TLS 1.2를 사용하여 애플리케이션 프록시 서비스에 대한 연결을 유지하도록 모든 클라이언트-서버 및 브라우저-서버 조합을 업데이트해야 합니다. 여기에는 사용자가 애플리케이션 프록시를 통해 게시된 애플리케이션에 액세스할 때 사용하는 클라이언트도 포함됩니다. [Office 365의 TLS 1.2](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365)에서 유용한 참고 자료 및 리소스를 확인하세요.
-
 ## <a name="prepare-your-on-premises-environment"></a>온-프레미스 환경 준비
 
 먼저 Azure 데이터 센터와 통신하도록 설정하여 Azure AD 애플리케이션 프록시를 위한 환경을 준비합니다. 경로에 방화벽이 있는 경우 열려 있는지 확인합니다. 방화벽이 열려 있으면 커넥터가 애플리케이션 프록시에 대해 HTTPS(TCP) 요청을 수행할 수 있습니다.
+
+> [!IMPORTANT]
+> Azure Government 클라우드용 커넥터를 설치하는 경우 [필수 구성 요소](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) 및 [설치 단계](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud)를 따릅니다. 이렇게 하려면 다른 URL 세트에 액세스하도록 설정하고 설치를 실행하기 위한 추가 매개 변수가 필요합니다.
 
 ### <a name="open-ports"></a>포트 열기
 
@@ -121,6 +121,7 @@ TLS 1.2를 사용하도록 설정하려면:
 ## <a name="install-and-register-a-connector"></a>커넥터 설치 및 등록
 
 애플리케이션 프록시를 사용하려면 애플리케이션 프록시 서비스에서 사용하려는 각 Windows Server에 커넥터를 설치합니다. 커넥터는 온-프레미스 애플리케이션 서버에서 Azure AD의 애플리케이션 프록시에 대한 아웃바운드 연결을 관리하는 에이전트입니다. 또한 Azure AD Connect와 같은 다른 인증 에이전트가 설치되어 있는 서버에 커넥터를 설치할 수 있습니다.
+
 
 커넥터를 설치하려면:
 
@@ -186,7 +187,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 4. **온-프레미스 애플리케이션** 섹션에서 **온-프레미스 애플리케이션 추가**를 선택합니다.
 5. **사용자 고유의 온-프레미스 애플리케이션 추가** 섹션에서 애플리케이션에 대해 다음 정보를 제공합니다.
 
-    | 필드 | Description |
+    | 필드 | 설명 |
     | :---- | :---------- |
     | **이름** | 액세스 패널 및 Azure Portal에 표시될 애플리케이션의 이름입니다. |
     | **내부 URL** | 프라이빗 네트워크 내부에서 애플리케이션에 액세스하기 위한 URL입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.<br><br>경로를 게시하는 경우 애플리케이션에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어 앱이 https:\//yourapp/app에 위치하고 https:\//yourapp/media에 있는 이미지를 사용하는 경우 https:\//yourapp/를 경로로 게시해야 합니다. 이 내부 URL은 사용자에게 표시되는 방문 페이지일 필요가 없습니다. 자세한 내용은 [게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요. |

@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b171c5ff5bc848a0005fad5a2e0b6c0ca548724
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372300"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496076"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스
 
@@ -36,7 +36,7 @@ Azure Storage는 Azure AD를 사용 하 여 Blob 및 큐 저장소에 대 한 �
 
 보안 주체에 RBAC 역할을 할당 하는 경우에는 해당 역할에서 부여 된 사용 권한이 적용 되는 범위도 표시 됩니다. 관리 작업의 경우 구독, 리소스 그룹 또는 저장소 계정의 수준에서 역할을 할당할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/)또는 [Azure Storage 리소스 공급자 REST API](/rest/api/storagerp)를 사용 하 여 보안 주체에 RBAC 역할을 할당할 수 있습니다.
 
-자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md) 을 참조 하세요. [클래식 구독 관리자 역할, AZURE RBAC 역할 및 AZURE AD 관리자 역할이](../../role-based-access-control/rbac-and-directory-admin-roles.md)있습니다.
+자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md) 을 참조 하세요. 및 [클래식 구독 관리자 역할, azure 역할 및 AZURE AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>관리 작업의 기본 제공 역할
 

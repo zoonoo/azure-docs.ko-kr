@@ -9,14 +9,14 @@ ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 391cc4c08b7067ef388c2130cb340fb5597c843f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 71bffe004ae8f2ac2060c1bfc12c4fff0be95c34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006214"
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>컨테이너 이름 접두사를 기준으로 컨테이너 삭제
+# <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Azure CLI 스크립트를 사용하여 컨테이너 이름 접두사를 기준으로 컨테이너 삭제
 
 이 스크립트는 Azure Blob Storage에서 몇 가지 샘플 컨테이너를 만들고 나서 컨테이너 이름의 접두사를 기준으로 일부 컨테이너를 삭제합니다.
 

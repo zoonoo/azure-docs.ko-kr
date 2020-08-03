@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034405"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -71,9 +71,9 @@ Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수
 - Azure AD 엔터프라이즈 애플리케이션에 할당(페더레이션, Single Sign-On 및/또는 프로비저닝을 지원하는 SaaS 애플리케이션 및 사용자 지정 통합 애플리케이션 포함)
 - SharePoint Online 사이트의 멤버 자격
 
-Azure AD 보안 그룹 또는 Microsoft 365 그룹을 사용 하는 다른 리소스에 대 한 액세스를 제어할 수도 있습니다.  예를 들면 다음과 같습니다.
+또한 Azure AD 보안 그룹 또는 Microsoft 365 그룹을 사용하는 다른 리소스에 대한 액세스를 제어할 수 있습니다.  예를 들면 다음과 같습니다.
 
-- 액세스 패키지의 Azure AD 보안 그룹을 사용 하 고 해당 그룹에 대 한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 구성 하 여 Microsoft 365에 대 한 라이선스를 사용자에 게 제공할 수 있습니다.
+- 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md)를 구성하여 사용자에게 Microsoft 365에 대한 라이선스를 제공할 수 있습니다.
 - 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 만들어 사용자에게 Azure 리소스를 관리할 수 있는 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="how-do-i-control-who-gets-access"></a>액세스 권한을 얻는 사용자를 제어하려면 어떻게 할까요?

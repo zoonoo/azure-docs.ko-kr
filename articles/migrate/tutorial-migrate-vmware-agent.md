@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 기반 마�
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 707a74d0e993625d32c60f7120bf69055dc9e885
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119262"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290201"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -177,7 +177,7 @@ Azure Migrate 프로젝트가 아직 없는 경우 지금 [설정](how-to-add-to
 
     ![VM 검색](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
-3. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMWare vSphere 하이퍼바이저 사용**을 클릭합니다.
+3. **머신 검색** > **머신이 가상화되어 있나요?** 에서 **예, VMware vSphere 하이퍼바이저 사용**을 클릭합니다.
 4. **원하는 마이그레이션 방법을 선택하세요.** 에서 **에이전트 기반 복제 사용**을 선택합니다.
 5. **대상 지역**에서 머신을 마이그레이션하려는 Azure 지역을 선택합니다.
 6. **마이그레이션의 대상 지역이 region-name인지 확인합니다.** 를 선택합니다.
@@ -195,7 +195,7 @@ Azure Migrate 프로젝트가 아직 없는 경우 지금 [설정](how-to-add-to
 
 OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016을 실행하는 VMware VM에 복제 애플리케이션을 만듭니다.
 
-1. VMWare vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
+1. VMware vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
 2. **파일** 메뉴에서 **OVF 템플릿 배포**를 선택하여 **OVF 템플릿 배포 마법사**를 시작합니다. 
 3. **원본 선택**에서 다운로드한 OVF의 위치를 입력합니다.
 4. **세부 정보 검토**에서 **다음**을 선택합니다.
@@ -209,7 +209,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 ### <a name="start-appliance-setup"></a>어플라이언스 설정 시작
 
-1. VMWare vSphere 클라이언트 콘솔에서 VM을 켭니다. VM이 Windows Server 2016 설치 환경으로 부팅됩니다.
+1. VMware vSphere 클라이언트 콘솔에서 VM을 켭니다. VM이 Windows Server 2016 설치 환경으로 부팅됩니다.
 2. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
 3. 설치가 완료되면 관리자 암호를 사용하여 관리자 권한으로 VM에 로그인합니다. 처음 로그인하면 복제 어플라이언스 설정 도구(Azure Site Recovery 구성 도구)가 몇 초 내에 시작됩니다.
 5. 어플라이언스를 Server Migration에 등록하는 데 사용할 이름을 입력합니다. 그런 후 **Next** 를 클릭합니다.

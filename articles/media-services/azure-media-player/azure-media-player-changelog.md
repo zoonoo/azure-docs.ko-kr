@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 07/27/2020
+ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698315"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281347"
 ---
 # <a name="changelog"></a>Changelog #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5(2020년 6월 1일 공식 업데이트)
+
+### <a name="bug-fixes-235"></a>버그 수정 2.3.5
+
+- [내게 필요한 옵션] 옵션 창의 Esc 키 수신기가 문서에 첨부됨
+- [내게 필요한 옵션] 컨트롤 막대 또는 옵션 메뉴에 포커스가 있는 경우 플레이어 UI가 사라지는 것을 방지
+- 실제 시간 표시 설정을 사용하면 컨트롤 막대가 잘못된 벽 시계 시간을 표시
+
+### <a name="changes-235"></a>변경된 기능 2.3.5
+
+- 오류 코드 0x00400005에 대한 오류 메시지를 추가하고 문서화
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4(2020년 3월 4일 공식 업데이트)
+
+### <a name="bug-fixes-234"></a>버그 수정 2.3.4
+
+- PlayReady overrideLicenseAcquistionUrl을 설정할 수 없음
+- 중단으로 인해 일부 콘텐츠를 재생할 수 없음
+- [내게 필요한 옵션] 화면 판독기 경고의 ID 특성 값이 고유해야 함
+- [내게 필요한 옵션] 선택 자막 설정 대화 상자를 탐색하는 동안 포커스가 대화 상자 밖으로 이동
+
+### <a name="changes-234"></a>변경된 기능 2.3.4
+
+- 암호 해독 오류 2.3.3(2019년 11월 12일 공식 업데이트) 분석을 돕기 위해 다운로드 성공 후 Content-Length 기록
+
+### <a name="features-234"></a>기능 2.3.4
+
+- 비디오의 실제 시간을 오버레이로 표시하거나 컨트롤 막대에 표시할 수 있도록 지원 추가
+
+### <a name="bug-fixes-234"></a>버그 수정 2.3.4
+
+- 오디오 트랙 스위치가 작동하지만 IE11 및 Windows7에서 '개체가 속성 또는 메서드 '사용'을 지원하지 않음' 오류 발생
+- 버퍼가 완전히 로드될 때 오디오 트랙 스위치에서 오류 발생
+- 사용자가 비디오를 일시 중지하고 오디오 트랙을 매우 빠르게 전환할 때 오디오 트랙 스위치에서 오류 발생
+- [내게 필요한 옵션] 비디오 플레이어에서 비디오 컨트롤에 대한 도구 설명이 정의되지 않음
+- 'loadstart'가 수신된 시간에 따라 Html5의 볼륨 단추가 없음
+- [내게 필요한 옵션] 포스터 이미지의 대체 텍스트를 설정하는 방법이 없음
+- [내게 필요한 옵션] 캡션 설정 대화 상자에서 '완료'를 선택한 후 애플리케이션의 포커스가 사라짐
+- [내게 필요한 옵션] '세그먼트 미리 보기'의 '비디오'에 대해 잘못된 ARIA 특성이 정의됨
+
+### <a name="changes-234"></a>변경된 기능 2.3.4
+
+- iOS 및 MacOS Safari에서 HLS를 재생할 때 빈 캡션 레이블/트랙 제거
+- IMSC1 캡션의 412s 수 축소
+- 라이브 디버깅을 도와주기 위해 빈 IMSC1 캡션 응답이 10회 연속될 경우 콘솔에 경고 출력
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2(2019년 10월 9일 공식 업데이트)
+
+### <a name="features"></a>기능
+
+Chromium Edge 브라우저의 DASH 재생을 위한 PlayReady 지원이 추가됨
+
+### <a name="bug-fixes-232"></a>버그 수정 2.3.2
+
+- 사용자가 수동으로 설정하지 않으면 현재 재생 속도가 재생 속도 메뉴에 시각적으로 표시되지 않음
+- [내게 필요한 옵션] 'Esc' 키를 눌러도 '설정' 창이 축소되지 않음
+- [내게 필요한 옵션] 내레이터가 켜져 있으면 AMP 바로 가기 키 'M'이 작동하지 않음
+
+### <a name="changes-232"></a>변경된 기능 2.3.2
+
+- E-AC3 오디오 코덱을 지원하지 않는 브라우저의 경우 오디오 트랙 메뉴에서 E-AC3 오디오 트랙이 숨겨집니다.
+- E-AC3 오디오 코덱을 지원하는 브라우저의 경우 기본적으로 E-AC3 오디오 트랙이 선택됩니다.
+- 오디오 코덱 전환을 지원하지 않는 브라우저의 경우 선택한 트랙의 오디오 트랙 중 다른 코덱을 사용하는 오디오 트랙이 오디오 트랙 메뉴에서 숨겨집니다.
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1(2019년 8월 12일 공식 업데이트)
+
+### <a name="features-231"></a>기능 2.3.1
+
+- DASH 재생에서 emsg 상자를 수신하면 이벤트 신호 표시 - ec-3를 지원하는 브라우저의 오디오 메뉴에 ec-3 오디오 트랙을 표시하고, Chromimum 기반 Edge 브라우저에서만 오디오 트랙을 aac에서 ec3로 또는 그 반대로 전환할 수 있도록 허용하는 지원 추가
+
+### <a name="bug-fixes-231"></a>버그 수정 2.3.1
+
+- ec-3 트랙을 제거한 후 오디오 트랙 메뉴가 손상됨
+- 현재 시간이 비디오 시간보다 클 수 있음
+- initialSpeed를 통해 재생 속도를 설정할 수 없음
+- 가끔 검색 후 플레이어가 작동하지 않음
+- 터치 스크린의 Edge 및 IE에서 페이지를 확대한 후 검색 바를 누르거나 가리켜도 비디오의 올바른 세그먼트가 정확하게 선택되지 않음
+- [내게 필요한 옵션] 재생/일시 중지에 대한 Aria 레이블이 비디오 플레이어 맵 라이브 세그먼트를 찾을 수 없음 오류를 자세히 설명하지 않아 올바른 amp 오류로 flashSS할 수 없음
+- [내게 필요한 옵션] 재생/일시 중지에 사용되는 Aria 역할이 유효한 값(.vjs-text-track-display)을 준수해야 함
+- [내게 필요한 옵션] 특정 ARIA 역할은 특정 부모에 포함되어야 함
+- [내게 필요한 옵션] 현재 비디오/오디오 버퍼 내에서 검색한 후 캡션이 사라질 수 비디오 플레이어 IMSC1의 재생/일시 중지 단추에 대해 정의된 도구 설명이 없음
+
+### <a name="changes-231"></a>변경된 기능 2.3.1
+
+- segmentDecryptError가 수신되고 플레이어가 이미 라이브 에지에 있는 경우 이제 플레이어가 다음 세그먼트를 시도하지 않고 매니페스트를 새로 고침
+- 진단에 대한 로깅 추가
+- iOS Safari에 대한 FairPlay 지원을 포함하도록 설명서 업데이트
+- IMSC1 옵션의 "srclang"에 대한 예제 추가
+- 텍스트 트랙의 안쪽 여백, textPadding, boxShadow 재정의 추가
+- 단순히 0x00200259를 throw하는 대신 인터넷에 연결되지 않아 실패한 세그먼트 다운로드를 구분할 수 있도록 오류 코드(0x0020025B) 추가
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0(2019년 4월 30일 공식 릴리스)
+
+### <a name="features-230"></a>기능 2.3.0
+
+- DASH에 대한 IMSC1 캡션 지원 추가
+- DASH에 대한 비디오 전용 자산 지원 추가
+- API presentationTimeOffsetInSec 추가
+
+### <a name="bug-fixes-230"></a>버그 수정 2.3.0
+
+- 일부 언어의 번역이 잘못 되어 AMP LowLatency 추론 프로필이 iOS 비디오 재생 "음소거" 및 "음소거 해제"를 방해
+- 진행률 표시줄 슬라이더의 aria-valuenow 값이 가끔 올바르지 않음
+- 텍스트 트랙 표시의 aria 역할 값이 올바르지 않음
+
+### <a name="changes-230"></a>변경된 기능 2.3.0
+
+- 이제 다운로드한 미디어 조각의 크기가 로그에 포함됨
+- IE 9 및 IE 10 지원 제거
+- 왼쪽 맞춤 캡션을 표시하도록 CEA708 샘플 업데이트
+- 재생 오류에 대한 로그에 MediaError.message 포함
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4(2019년 2월 22일 공식 업데이트) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "83698315"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3(2019년 1월 9일 공식 업데이트) ##
 
-### <a name="features"></a>기능 ###
+### <a name="features-223"></a>기능 2.2.3 ###
 
 - [기능][HLS] Safari HLS 재생을 위한 오디오 트랙 메뉴가 추가됨
 
@@ -72,7 +184,7 @@ ms.locfileid: "83698315"
 
 ### <a name="changes"></a>변경 ###
 
-- [변경][라이브 캡션] CEA 캡션에 대한 API 이름이 608에서 708로 변경됨. 자세한 내용은 [CEA708 캡션 설정](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->을 참조하세요.
+- [변경][라이브 캡션] CEA 캡션에 대한 API 이름이 608에서 708로 변경됨. 자세한 내용은 [CEA708 캡션 설정](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->을 참조하세요.
 
 ## <a name="220-official-release"></a>2.2.0(공식 릴리스) ##
 

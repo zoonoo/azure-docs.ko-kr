@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371042"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500881"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -33,9 +33,7 @@ Azure Lighthouse를 사용 하면 다른 테 넌 트의 다른 계정에 로그�
 
 포털에서 직접 또는 API 및 관리 도구(예: Azure CLI 및 Azure PowerShell)를 사용하여 위임된 리소스에서 관리 작업을 수행할 수 있습니다. 이 기능이 테넌트 간 관리에 대해 지원되고 사용자에게 적절 한 권한이 있는 한, 위임된 리소스를 사용할 때 기존의 모든 API를 사용할 수 있습니다.
 
-Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) 은 각 구독의를 표시 하 여 `tenantID` 반환 된 구독이 서비스 공급자 테 넌 트 또는 관리 되는 고객 테 넌 트에 속하는지 여부를 식별할 수 있도록 합니다.
-
-마찬가지로 [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list)와 같은 Azure CLI 명령은 **homeTenantId** 및 **managedByTenants** 특성 표시합니다.
+[Az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) 와 같은 Azure CLI 명령은 각 구독에 대 한 **homeTenantId** 및 **managedByTenants** 특성을 표시 하 여 반환 된 구독이 서비스 공급자 테 넌 트 또는 관리 되는 고객 테 넌 트에 속하는지 여부를 식별할 수 있습니다.
 
 > [!TIP]
 > Azure CLI를 사용하는 경우 이러한 값이 표시되지 않으면 `az account clear`를 실행하고 `az login --identity`를 실행하여 캐시를 지워봅니다.
@@ -70,7 +68,7 @@ Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSu
 
 [Azure Cost Management + 청구](../../cost-management-billing/index.yml):
 
-- 관리 테 넌 트에서 CSP 파트너는 Azure 요금제를 사용 하는 고객에 대 한 사전 세금 소비 비용 (구매를 포함 하지 않음)을 보고, 관리 하 고, 분석할 수 있습니다. 비용은 고객의 구독에 대해 파트너가 보유 하 고 있는 Azure RBAC (역할 기반 액세스 제어) 액세스 및 소매 요금에 따라 결정 됩니다.
+- 관리 테 넌 트에서 CSP 파트너는 Azure 요금제를 사용 하는 고객에 대 한 사전 세금 소비 비용 (구매를 포함 하지 않음)을 보고, 관리 하 고, 분석할 수 있습니다. 비용은 고객의 구독에 대 한 파트너의 azure RBAC (역할 기반 액세스 제어) 액세스 및 소매 요금에 따라 결정 됩니다.
 
 [AKS(Azure Kubernetes Service)](../../aks/index.yml):
 

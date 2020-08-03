@@ -5,13 +5,13 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 0c4c5ddfebe9e2b5b37a2c28ec4941f6c38668f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219230"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497582"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -235,3 +235,7 @@ Azure Red Hat OpenShift 4 클러스터의 경우 데이터는 기본적으로 �
 4.x 클러스터의 경우 Azure Disk (Premium_LRS)는 기본 저장소 클래스로 구성 됩니다. 추가 저장소 공급자 및 구성 세부 정보 (Azure 파일 포함)는 [영구 저장소](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html)에 대 한 red Hat 설명서를 참조 하세요.
 
 3.11 클러스터의 경우 기본적으로 두 개의 저장소 클래스 (예: Azure Disk (Premium_LRS)와 Azure File 용)가 제공 됩니다.
+
+## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>ARO는 고객 데이터를 클러스터 영역 외부에 저장 하나요?
+
+아니요. ARO 클러스터에서 생성 된 모든 데이터는 클러스터의 지역 내에서 유지 관리 됩니다.

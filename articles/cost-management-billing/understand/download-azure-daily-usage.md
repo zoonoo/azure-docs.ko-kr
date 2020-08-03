@@ -7,13 +7,13 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 3a7e1e8670911d361b3c59aacc0973eac035fb70
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065705"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322036"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금 보기 및 다운로드
 
@@ -21,7 +21,7 @@ Azure Portal에서 Azure 사용량 및 요금에 대한 일별 분석을 다운�
 
 MCA(Microsoft 고객 계약)가 있는 경우 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 Azure 사용량과 요금을 확인할 수 있습니다.  MPA(Microsoft 파트너 계약)가 있는 경우 파트너 조직의 글로벌 관리자 및 관리 에이전트 역할만 Microsoft에서 Azure 사용량과 요금을 보고 다운로드할 수 있습니다. [Azure Portal에서 청구 계정 유형을 확인합니다](#check-your-billing-account-type).
 
-사용하는 구독 유형에 따라 사용량 및 요금을 다운로드하는 옵션이 달라집니다. 
+사용하는 구독 유형에 따라 사용량 및 요금을 다운로드하는 옵션이 달라집니다.
 
 ## <a name="download-usage-from-the-azure-portal-csv"></a>Azure Portal에서 사용량 다운로드(.csv)
 
@@ -34,7 +34,6 @@ MCA(Microsoft 고객 계약)가 있는 경우 청구 프로필 소유자, 기여
 1. **다운로드 아이콘** 또는 오른쪽에 있는 줄임표(`...`)를 선택합니다.  
   ![사용량 + 요금 다운로드 위치를 보여주는 스크린샷](./media/download-azure-daily-usage/download-usage-others.png)  
 1. 오른쪽에 다운로드 창이 열립니다. **사용량 세부 정보** 섹션에서 **다운로드**를 선택합니다.  
-
 
 ## <a name="download-usage-for-ea-customers"></a>EA 고객의 사용량 다운로드
 
@@ -54,10 +53,9 @@ Microsoft 고객 계약이 있는 경우 현재 청구 기간에 대한 월간 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. *Cost Management + 청구*를 검색합니다.
 3. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 먼저 선택해야 할 수도 있습니다.
-4. **개요** 영역에서 월간 누계 요금 아래의 다운로드 링크를 찾습니다.
-5. **Azure 사용량 및 요금**을 선택합니다.
-
-    ![개요에서 다운로드를 보여 주는 스크린샷](./media/download-azure-daily-usage/open-usage01.png)
+4. **개요** 영역에서 최근 요금 아래의 다운로드 링크를 찾습니다.
+5. **사용량 및 가격 다운로드**를 선택합니다.  
+    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="개요에서 다운로드를 보여 주는 스크린샷" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::
 
 ## <a name="check-your-billing-account-type"></a>청구 계정 유형 확인
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

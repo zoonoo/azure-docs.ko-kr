@@ -14,19 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: bd28f949d35d38c9e64af7ff4196aa1754fbc37a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 5097a5dfa6dd9b8fd46e4bcbcee72319af51f86f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172662"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499367"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
 
 볼륨에 대해 원하는 [서비스 수준을](azure-netapp-files-service-levels.md) 사용 하는 다른 용량 풀로 볼륨을 이동 하 여 기존 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대 한이 내부 서비스 수준 변경에는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대 한 액세스에는 영향을 주지 않습니다.  
-
-> [!IMPORTANT] 
-> 이 기능을 사용 하려면 허용 목록가 필요 합니다. 이 기능을 요청하려면 구독 ID를 사용하여 anffeedback@microsoft.com으로 이메일을 보내세요.
 
 이 기능을 사용 하면 요구에 따라 워크 로드 요구 사항을 충족할 수 있습니다.  성능 향상을 위해 더 높은 서비스 수준을 사용 하도록 기존 볼륨을 변경 하거나 비용 최적화를 위해 더 낮은 서비스 수준을 사용할 수 있습니다. 예를 들어 볼륨이 현재 *표준* 서비스 수준을 사용 하는 용량 풀에 있고 해당 볼륨에서 *프리미엄* 서비스 수준을 사용 하려는 경우 *프리미엄* 서비스 수준을 사용 하는 용량 풀로 볼륨을 동적으로 이동할 수 있습니다.  
 
@@ -39,7 +36,24 @@ ms.locfileid: "87172662"
 * 볼륨을 상위 서비스 수준의 용량 풀로 이동 하는 경우 (예: *표준* 에서 *프리미엄* 또는 *Ultra* service 수준으로 이동), 더 낮은 서비스 수준의 용량 풀로 볼륨을 다시 이동 하려면 7 일 이상 기다려야 합니다 (예: *Ultra* 에서 *premium* 또는 *Standard*로 이동).  
 동일한 서비스 수준이 나 낮은 서비스 수준으로 볼륨을 용량 풀로 이동 하는 경우에는이 대기 기간이 적용 되지 않습니다.
 
-## <a name="steps"></a>단계
+## <a name="register-the-feature"></a>기능 등록
+
+1. 볼륨을 다른 용량 풀로 이동 하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+2. 기능 등록의 상태를 확인 합니다. 
+
+    > [!NOTE]
+    > 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+## <a name="move-a-volume-to-another-capacity-pool"></a>볼륨을 다른 용량 풀로 이동
 
 1.  볼륨 페이지에서 변경할 서비스 수준을 가진 볼륨을 마우스 오른쪽 단추로 클릭 합니다. **풀 변경**을 선택 합니다.
 

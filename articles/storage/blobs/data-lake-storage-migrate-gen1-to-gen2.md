@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfe5f763b3dedd68c5180f5a0a3c7a3f4ea3e93
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466020"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496426"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -81,7 +81,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
    
 6. 코드 파일 또는 Databricks 노트북의 문자열을 포함 하는 URI 참조를 검색 하거나 `adl://` , 작업의 일부로 사용 되는 노트북 APACHE HIVE HQL 파일 또는 다른 파일을 검색 합니다. 이러한 참조를 새 저장소 계정의 [Gen2 형식 URI](data-lake-storage-introduction-abfs-uri.md) 로 바꿉니다. 예: Gen1 URI:가 `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` 될 수 있습니다 `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
-7. 계정에 대 한 보안을 구성 하 여 [RBAC (역할 기반 액세스 제어) 역할](../common/storage-auth-aad-rbac-portal.md), [파일 및 폴더 수준 보안](data-lake-storage-access-control.md), [Azure Storage 방화벽 및 가상 네트워크](../common/storage-network-security.md)를 포함 합니다.
+7. 계정에 대 한 보안을 구성 하 여 [Azure 역할](../common/storage-auth-aad-rbac-portal.md), [파일 및 폴더 수준 보안](data-lake-storage-access-control.md), [Azure Storage 방화벽 및 가상 네트워크](../common/storage-network-security.md)를 포함 합니다.
 
 ### <a name="step-4-cutover-from-gen1-to-gen2"></a>4 단계: Gen1에서 Gen2로의 가공선
 
@@ -93,7 +93,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 이 표에서는 Gen1의 기능을 Gen2와 비교 합니다.
 
-|Area |1세대   |2세대 |
+|영역 |1세대   |2세대 |
 |---|---|---|
 |데이터 구성|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>파일 및 폴더 지원|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>컨테이너, 파일 및 폴더 지원 |
 |지리적 중복| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
@@ -207,4 +207,3 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 - 저장소 계정에 대 한 보안 설정의 다양 한 부분에 대해 알아봅니다. [Azure Storage 보안 가이드](../common/storage-security-guide.md)를 참조 하세요.
 - Data Lake Store에 대 한 성능을 최적화 합니다. [성능 최적화 Azure Data Lake Storage Gen2를](data-lake-storage-performance-tuning-guidance.md) 참조 하세요.
 - Data Lake Store 관리에 대 한 모범 사례를 검토 합니다. [Azure Data Lake Storage Gen2 사용에 대 한 모범 사례를](data-lake-storage-best-practices.md) 참조 하세요.
-

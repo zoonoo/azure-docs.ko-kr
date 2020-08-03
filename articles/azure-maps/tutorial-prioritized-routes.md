@@ -1,20 +1,20 @@
 ---
 title: '자습서: 여행 모드별 여러 경로 찾기 | Microsoft Azure Maps'
 description: 이 자습서에서는 Microsoft Azure Maps를 사용하여 다양한 여행 모드에 대한 경로를 찾는 방법을 알아봅니다.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: c7ed2421f468dfbb64c635683a7909b517105bc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333801"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289545"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -27,7 +27,7 @@ ms.locfileid: "80333801"
 > * 지도에 여러 경로 표시
 
 ## <a name="prerequisites"></a>사전 요구 사항
-계속하기 전에 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침을 수행하고, S1 가격 책정 계층을 선택합니다. [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정에 대한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
+계속하기 전에 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)의 지침을 수행하고, S1 가격 책정 계층을 선택합니다. [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 단계를 수행하여 계정에 대한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="create-a-new-map"></a>새 지도 만들기
 

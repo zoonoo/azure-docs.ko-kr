@@ -1,28 +1,26 @@
 ---
-title: '빠른 시작: Azure Key Vault에서 키 설정 및 검색'
+title: Azure Key Vault에서 키 특성 만들기 및 검색 - Azure PowerShell
 description: Azure PowerShell을 사용하여 Azure Key Vault에서 키를 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c407c10327a80de6b3df18a3db3978468c9f8da0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4ebd3cc605b396f72d063f3fc506df9020ec3a5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061001"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 키 설정 및 검색
 
 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure Key Vault에서 Key Vault를 만듭니다. Azure Key Vault는 보안 비밀 저장소로 작동하는 클라우드 서비스입니다. 키, 암호, 인증서 및 기타 비밀을 안전하게 저장할 수 있습니다. Key Vault에 대한 자세한 내용을 보려면 [개요](../general/overview.md)를 살펴보세요. Azure PowerShell은 명령 또는 스크립트를 사용하여 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 작업을 완료하면 키를 저장할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -60,8 +58,6 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 * **자격 증명 모음 URI**: 이 예제에서는 https://Contoso-Vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 자격 증명 모음을 만든 후 사용자의 Azure 계정은 이 새 자격 증명 모음에 대해 모든 작업을 수행할 수 있는 유일한 계정입니다.
-
-![Key Vault 만들기 명령이 완료된 후 출력](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="add-a-key-to-key-vault"></a>Key Vault에 키 추가
 

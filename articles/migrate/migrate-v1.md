@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306114"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
-이 문서에서는 이전 버전의 Azure Migrate 사용에 대한 정보를 제공합니다.
+이 문서에서는 이전 버전의 Azure Migrate 사용에 대한 정보를 제공합니다. 
 
 
 Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다.
 
 - **현재 버전**: 이 버전을 사용하여 Azure Migrate 프로젝트를 만들고, 온-프레미스 컴퓨터를 검색하고, 평가 및 마이그레이션을 오케스트레이션합니다. 이 버전의 새로운 기능에 대해 [자세히 알아보세요](whats-new.md).
-- **이전 버전**: 이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이전 버전에서 만든 Azure Migrate 프로젝트를 계속 사용해야 하는 경우 수행할 수 있는 작업과 할 수 없는 작업은 다음과 같습니다.
+- **이전 버전**: 이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이 문서에서는 이전 버전 프로젝트를 클래식 프로젝트라고 합니다. 이전 버전에서 만든 Azure Migrate 프로젝트를 계속 사용해야 하는 경우 수행할 수 있는 작업과 할 수 없는 작업은 다음과 같습니다.
     - 더 이상 마이그레이션 프로젝트를 만들 수 없습니다.
     - 새 검색은 수행하지 않는 것이 좋습니다.
     - 기존 프로젝트에 계속 액세스할 수 있습니다.
@@ -31,7 +31,7 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 
 ## <a name="upgrade-between-versions"></a>버전 간 업그레이드
 
-이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 만들고](how-to-add-tool-first-time.md) 평가 및 마이그레이션 도구를 추가해야 합니다.
+이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 생성](create-manage-projects.md)하고 [평가 및 마이그레이션 도구를 추가](how-to-add-tool-first-time.md)해야 합니다. 사용 가능한 평가 및 마이그레이션 도구를 사용하는 방법을 이해하려면 자습서를 사용하세요. 클래식 프로젝트에 연결된 Log Analytics 작업 영역이 있는 경우 클래식 프로젝트를 삭제한 후에 현재 버전의 프로젝트에 연결할 수 있습니다.
 
 ## <a name="find-projects-from-previous-version"></a>이전 버전에서 프로젝트 찾기
 
@@ -39,7 +39,16 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 
 1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색하여 선택합니다. 
 2. Azure Migrate 대시보드에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 알림 및 링크가 있습니다.
-3. v1 프로젝트를 열기 위한 링크를 클릭합니다.
+3. 링크를 클릭하여 클래식 프로젝트를 엽니다.
+
+## <a name="delete-projects-from-previous-version"></a>이전 버전에서 프로젝트 삭제
+
+다음과 같이 이전 버전에서 프로젝트를 찾아 삭제합니다.
+
+1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색하여 선택합니다. 
+2. Azure Migrate 대시보드에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 알림 및 링크가 있습니다.
+3. 링크를 클릭하여 클래식 프로젝트를 엽니다.
+4. 삭제하려는 프로젝트를 선택하여 삭제합니다. 
 
 
 ## <a name="create-an-assessment"></a>평가 만들기
@@ -118,7 +127,7 @@ Windows 클라이언트 7, 8, 10 | Azure는 [Visual Studio 구독만 지원합�
 Windows 10 Pro Desktop | Azure는 [다중 테넌트 호스팅 권한을 지원합니다.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | 조건부 Azure 준비 완료
 Windows Vista, XP Professional | 지원되지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Linux | Azure는 이러한 [Linux 운영 체제](../virtual-machines/linux/endorsed-distros.md)를 보증합니다. 다른 Linux 운영 체제도 Azure에서 부팅될 수 있지만, Azure로 마이그레이션하기 전에 OS를 보증된 버전으로 업그레이드하는 것이 좋습니다. | 버전이 보증되면 Azure 준비 완료입니다.<br/><br/>버전이 보증되지 않으면 조건부 준비 완료입니다.
-기타 운영 체제<br/><br/> 예: Oracle Solaris, Apple Mac OS, FreeBSD 등 | Azure는 이러한 운영 체제를 보증하지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 지원되는 OS를 설치하는 것이 좋습니다.  
+기타 운영 체제<br/><br/> 예: Oracle Solaris, Apple macOS, FreeBSD 등 | Azure는 이러한 운영 체제를 보증하지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 지원되는 OS를 설치하는 것이 좋습니다.  
 vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate가 OS를 식별할 수 없습니다. | 준비 상태 알 수 없음입니다. VM 내부에서 실행 중인 OS가 Azure에서 지원되는지 확인합니다.
 32비트 운영 체제 | Azure에서 컴퓨터가 부팅되더라도 Azure가 전체 지원을 제공하지 않을 수 있습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 컴퓨터의 OS를 32비트 OS에서 64비트 OS로 업그레이드하는 것이 좋습니다.
 
@@ -201,7 +210,7 @@ Azure Migrate에서는 성능 기반 크기 조정을 위해 다음이 필요합
 1. 프로젝트에 Log Analytics 작업 영역을 연결하려면 **개요** > **기본 정보**에서 **구성 필요**를 클릭합니다.
 2. 새 작업 영역을 만들거나 기존 작업 영역을 연결할 수 있습니다.
   - 새 작업 영역을 만들려면 이름을 지정합니다. 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 작업 영역이 작성됩니다.
-  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [지원되는 서비스 맵 지역](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)에서 만든 해당 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 '읽기 권한자' 액세스 권한이 있어야 합니다.
+  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [지원되는 서비스 맵 지역](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)에서 만든 해당 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 '읽기 권한자' 액세스 권한이 있어야 합니다.
 
 > [!NOTE]
 > 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.

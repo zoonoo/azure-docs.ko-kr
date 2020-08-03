@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: cd4128328ac0c3e9f03ecc80abb6e7b17537b2ee
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483060"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086798"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -497,7 +497,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>펜스 에이전트에 대한 사용자 지정 역할 만들기
 
-[Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role) 자습서를 따릅니다.
+자습서를 따라 [Azure CLI를 사용하여 Azure 사용자 지정 역할을 만듭니다](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 json 파일은 다음과 비슷해야 합니다.
 
@@ -951,17 +951,17 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 
 1. 이전에 선택한 환경에 따라 다음 명령 중 하나를 사용하여 가용성 그룹 `ag1`에서 `ag_cluster` 리소스를 만듭니다.
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. 다음 명령을 사용하기 전에 리소스를 확인하고 해당 리소스가 온라인 상태인지 확인합니다.
 

@@ -1,6 +1,5 @@
 ---
-title: '빠른 시작: 데이터 과학 실험 만들기'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio(클래식): 빠른 시작: 데이터 과학 실험 만들기 - Azure'
 description: 이 기계 학습 빠른 시작에서는 간단한 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 99332a8716ae137b8ea5fe69a53c7f8e4c46f095
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965147"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282554"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>빠른 시작: Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
+# <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>빠른 시작: Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
+
+**적용 대상:** ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

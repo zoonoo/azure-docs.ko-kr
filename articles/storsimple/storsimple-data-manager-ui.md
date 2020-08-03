@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78933755"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496443"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Azure Portal에서 StorSimple 데이터 관리자 서비스 관리
 
@@ -42,7 +42,7 @@ StorSimple 데이터 관리자 서비스를 만들려면 다음 단계를 수행
 
    2. 드롭다운 목록에서 **구독** 을 선택 합니다. 구독은 대금 청구 계정에 연결됩니다. 구독이 하나만 있는 경우 이 필드가 자동으로 채워집니다(선택할 수 없음).
 
-   3. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)을 참조하세요.
+   3. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](/azure/azure-resource-manager/management/manage-resource-groups-portal)을 참조하세요.
 
    4. 스토리지 계정 및 StorSimple 데이터 관리자 서비스를 저장하는 서비스의 **위치**를 지정합니다. StorSimple 디바이스 관리자 서비스, 데이터 관리자 서비스 및 연결된 스토리지 계정은 모두 지원되는 지역에 있어야 합니다.
     

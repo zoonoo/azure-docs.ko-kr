@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Synapse Studio를 사용하여 Synapse SQL 풀(미리 보기) 만들기'
+title: '빠른 시작: Synapse Studio를 사용하여 Synapse SQL 풀 만들기'
 description: 이 가이드의 단계에 따라 Synapse Studio를 사용하여 새 Synapse SQL 풀을 만듭니다.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f85731a7f3ffef0adf35812ee8da4e0bbd89124f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036576"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 Synapse SQL 풀(미리 보기) 만들기
+# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 Synapse SQL 풀 만들기
 
 Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. SQL 풀은 T-SQL 기반 컴퓨팅 및 스토리지 기능을 제공합니다. Synapse 작업 영역에서 SQL 풀을 만든 후 보다 빠른 인사이트를 위해 데이터를 로드, 모델링, 처리 및 전달할 수 있습니다.
 

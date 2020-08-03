@@ -9,12 +9,13 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: e8f8a333c880850b239fbaba1ea405b94a1460e8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7819b62fb92945a409cab0dff926e281620dd80c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076736"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496647"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리
 
@@ -48,12 +49,12 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
-- [키 자격 증명 모음 만들기](quick-create-cli.md)
+- [주요 자격 증명 모음 만들기](quick-create-cli.md)
 - [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md?tabs=azure-cli) 저장소 계정 이름에는 소문자와 숫자만 사용 해야 합니다. 이름의 길이는 3 자에서 24 자 사이 여야 합니다.
       
 ## <a name="manage-storage-account-keys"></a>저장소 계정 키 관리

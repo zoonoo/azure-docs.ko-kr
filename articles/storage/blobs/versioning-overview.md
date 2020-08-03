@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528403"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498602"
 ---
 # <a name="blob-versioning-preview"></a>Blob 버전 관리(미리 보기)
 
@@ -176,7 +177,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 RBAC 동작을 보여 줍니다.
 
-| 설명 | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
+| Description | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -189,7 +190,7 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| DELETE         | x              | Blob 버전을 삭제 합니다. |
+| 삭제         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 

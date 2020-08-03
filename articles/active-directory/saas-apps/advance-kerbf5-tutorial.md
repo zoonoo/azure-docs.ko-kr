@@ -1,5 +1,5 @@
 ---
-title: '자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: F5와 Azure Active Directory Single Sign-On 통합 | Microsoft Docs'
 description: Azure Active Directory와 F5 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fc56fe040528df5b4bd5e9217bd614c4a640c15
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e9a112f3f8cb7ba22201f4e5f05f21af30df039
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018639"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure AD(Active Directory) SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 F5를 통합하는 방법에 대해 알아봅니다. F5를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 

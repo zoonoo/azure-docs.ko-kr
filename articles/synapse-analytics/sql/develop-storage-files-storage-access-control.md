@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283455"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 스토리지 계정 액세스 제어
 
@@ -87,6 +87,11 @@ SAS 토큰을 사용한 액세스가 가능하려면 데이터베이스 범위 �
 | *관리 ID* | 지원됨      | 지원됨        | 지원됨     |
 | *사용자 ID*    | 지원됨      | 지원됨        | 지원됨     |
 
+
+> [!IMPORTANT]
+> 방화벽으로 보호되는 스토리지에 액세스하는 경우 관리 ID만 사용할 수 있습니다. 해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [RBAC 역할 할당](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 RBAC 역할에 해당합니다.
+>
+
 ## <a name="credentials"></a>자격 증명
 
 Azure Storage에 있는 파일을 쿼리하려면 SQL 주문형 엔드포인트에 인증 정보가 포함된 자격 증명이 필요합니다. 두 가지 유형의 자격 증명이 사용됩니다.
@@ -109,11 +114,7 @@ GRANT ALTER ANY CREDENTIAL TO [user_name];
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-원활한 Azure AD 통과 환경을 보장하기 위해 기본적으로 모든 사용자에게 `UserIdentity` 자격 증명을 사용할 수 있는 권한이 있습니다. 이 작업은 Azure Synapse 작업 영역을 프로비저닝할 때 다음 명령문을 자동으로 실행하여 수행됩니다.
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+원활한 Azure AD 통과 환경을 보장하기 위해 기본적으로 모든 사용자에게 `UserIdentity` 자격 증명을 사용할 수 있는 권한이 있습니다.
 
 ## <a name="server-scoped-credential"></a>서버 범위 자격 증명
 
@@ -203,7 +204,7 @@ GO
 
 ### <a name="public-access"></a>[공용 액세스](#tab/public-access)
 
-데이터베이스 범위 자격 증명은 공개적으로 사용 가능한 파일에 대한 액세스를 허용하는 데 필요하지 않습니다. Azure Storage에서 공개적으로 사용 가능한 파일에 액세스하려면 [데이터베이스 범위 자격 증명 없이 데이터 원본](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source)을 만듭니다.
+데이터베이스 범위 자격 증명은 공개적으로 사용 가능한 파일에 대한 액세스를 허용하는 데 필요하지 않습니다. Azure Storage에서 공개적으로 사용 가능한 파일에 액세스하려면 [데이터베이스 범위 자격 증명 없이 데이터 소스](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source)를 만듭니다.
 
 ---
 
@@ -216,7 +217,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 )
 ```
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 **공개적으로 사용 가능한 데이터 소스에 액세스**
 
@@ -243,7 +244,7 @@ SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
                                 DATA_SOURCE = [mysample],
-                                FORMAT=PARQUET) as rows;
+                                FORMAT='PARQUET') as rows;
 GO
 ```
 
@@ -288,7 +289,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet',
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
 GO
 ```
 

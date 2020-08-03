@@ -1,5 +1,5 @@
 ---
-title: 구독에 관리 디스크 복사 - PowerShell 샘플
+title: 구독에 관리 디스크 복사(Windows) - PowerShell 샘플
 description: Azure PowerShell 스크립트 샘플 - 같은 구독 또는 다른 구독으로 관리 디스크 복사 또는 이동
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: da9c7fe777b93b37de2f9b674717f4cad7e7b994
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6f191eaf5c0a02f77d267999c307d34e083b6cdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069188"
 ---
-# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크 복사
+# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell-windows"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크 복사(Windows)
 
 이 스크립트는 같은 구독 또는 다른 구독에 기존 관리 디스크의 복사본을 만듭니다. 새 디스크는 부모 관리 디스크와 같은 지역에 만들어집니다.   
 
@@ -41,14 +41,14 @@ ms.locfileid: "81459392"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 부모 디스크의 리소스 ID와 부모 디스크의 위치와 같은 위치를 포함합니다.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 매개 변수로 전달된 디스크 구성, 디스크 이름 및 리소스 그룹 이름을 사용하여 디스크를 만듭니다. |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 부모 디스크의 리소스 ID와 부모 디스크의 위치와 같은 위치를 포함합니다.  |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | 매개 변수로 전달된 디스크 구성, 디스크 이름 및 리소스 그룹 이름을 사용하여 디스크를 만듭니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
 [관리 디스크에서 가상 머신 만들기](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 추가 가상 머신 PowerShell 스크립트 샘플은 [Azure Windows VM 설명서](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.

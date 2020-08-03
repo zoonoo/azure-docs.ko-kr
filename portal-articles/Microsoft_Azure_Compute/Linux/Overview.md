@@ -1,5 +1,5 @@
 ---
-title: Linux Virtual Machines 개요 | Microsoft Docs
+title: Linux 가상 머신 개요 | Microsoft Docs
 description: Azure Portal 내에 있는 Linux 가상 머신의 도움말 콘텐츠 개요
 services: virtual-machines-linux
 author: sewatson
@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: ff439083ca9c648ceec95b89b041bb5b60785c91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf465cb6d391188b4110cca6d72deba6932af0a6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77603013"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282401"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Linux Virtual Machines 설명서
 
@@ -23,9 +23,10 @@ Azure Linux Virtual Machines는 Red Hat, Ubuntu 또는 원하는 Linux 배포를
 
 Ubuntu를 실행하는 Virtual Machine 내에 NGINX 웹 서버를 배포하는 방법을 알아봅니다.
 
-- [Azure Portal](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure CLI](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI](../../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure Portal](../../articles//virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure PowerShell](../../articles//virtual-machines/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
 
 ## <a name="step-by-step-tutorials"></a>단계별 자습서
 

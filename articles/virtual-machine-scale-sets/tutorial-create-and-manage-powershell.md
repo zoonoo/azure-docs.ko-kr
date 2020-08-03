@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리
+title: '자습서: Azure VM 확장 집합 만들기 및 관리 – Azure PowerShell'
 description: Azure PowerShell을 사용하여 인스턴스를 시작하고 중지하는 방법, 확장 집합 용량을 변경하는 방법 등의 몇 가지 일반적인 관리 작업과 함께 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a657f8a4fd7b92aeb858b919052ca732bf630ae9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091337"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
 
@@ -45,7 +45,7 @@ New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-먼저 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM 인스턴스에 대한 관리자 사용자 이름과 암호를 설정합니다.
+먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM 인스턴스에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -66,6 +66,9 @@ New-AzVmss `
 ```
 
 확장 집합 리소스와 VM 인스턴스를 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
+
+> [!IMPORTANT]
+> 확장 집합에 연결할 수 없는 경우 *[-SecurityGroupName "mySecurityGroup"](/powershell/module/az.compute/new-azvmss)* 매개 변수를 추가하여 네트워크 보안 그룹을 만들어야 할 수도 있습니다.
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>확장 집합의 VM 인스턴스 보기
@@ -202,12 +205,12 @@ VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 �
 
 | Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
-| [메모리에 최적화](../virtual-machines/windows/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
-| [Storage에 최적화](../virtual-machines/windows/sizes-storage.md)      | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
-| [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
-| [고성능](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
+| [범용](../virtual-machines/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
+| [컴퓨팅 최적화](../virtual-machines/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [메모리에 최적화](../virtual-machines/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [Storage에 최적화](../virtual-machines/sizes-storage.md)      | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
+| [GPU](../virtual-machines/sizes-gpu.md)          | NV, NC            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
+| [고성능](../virtual-machines/sizes-hpc.md) | H, A8-11          | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
 
 ### <a name="find-available-vm-instance-sizes"></a>사용 가능한 VM 인스턴스 크기 찾기
 특정 지역에서 사용할 수 있는 VM 인스턴스 크기의 목록을 보려면 [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) 명령을 사용합니다. 

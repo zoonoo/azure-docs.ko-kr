@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204303"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498806"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Azure Data Box에 대 한 추적 및 이벤트 로깅 및 Azure Data Box Heavy 가져오기 순서
 
@@ -24,7 +24,7 @@ Data Box 또는 Data Box Heavy 가져오기 순서는 순서, 설정, 데이터 
 | Data Box 가져오기 순서 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 주문 만들기               | [RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
-| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure Portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
+| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.                                              |
 | 장치에 데이터 복사        | 데이터 복사를 위한 [ *error.xml* 파일 보기](#view-error-log-during-data-copy)                                                             |
 | 배송 준비            | 장치에서 BOM 파일 또는 매니페스트 파일 [을 검사 합니다](#inspect-bom-during-prepare-to-ship) .                                      |
@@ -35,7 +35,7 @@ Data Box 또는 Data Box Heavy 가져오기 순서는 순서, 설정, 데이터 
 
 ## <a name="set-up-access-control-on-the-order"></a>주문에 대 한 액세스 제어 설정
 
-주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 RBAC (역할 기반 Access Control) 역할을 설정 하 여 Data Box 순서에 대 한 액세스를 제어 합니다. RBAC 역할은 작업의 하위 집합에 대 한 읽기/쓰기, 읽기 전용, 읽기/쓰기 권한 유형을 결정 합니다.
+주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 Azure 역할을 설정 하 여 Data Box 주문에 대 한 액세스를 제어 합니다. Azure 역할은 작업의 하위 집합에 대 한 읽기-쓰기, 읽기 전용, 읽기/쓰기 액세스 유형을 결정 합니다.
 
 Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다음과 같습니다.
 

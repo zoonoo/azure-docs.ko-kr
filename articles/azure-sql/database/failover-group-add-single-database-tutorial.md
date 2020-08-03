@@ -4,19 +4,19 @@ description: Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 Azure S
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: ad4ef93b34639abffaf15c806fd86d550e03f0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045266"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496341"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>자습서: autofailover 그룹에 Azure SQL Database 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,26 +29,26 @@ ms.locfileid: "87045266"
 > - 두 서버 간에 데이터베이스의 장애 조치 (failover) 그룹을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="the-portal"></a>[포털](#tab/azure-portal)
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - [Azure PowerShell](/powershell/azure/)
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 자습서를 완료 하려면 다음 항목이 있는지 확인 합니다.
 
-- Azure 구독. 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
+- Azure 구독 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/) .
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)입니다.
 
 ---

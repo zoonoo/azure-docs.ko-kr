@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.openlocfilehash: cb3b319c583422b32798fce9cef4c73a4aa1f8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090045"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500558"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Media Services v3을 사용 하 여 스트리밍 끝점 관리
 
@@ -30,7 +31,7 @@ Media Services 계정이 만들어지면 **기본** [스트리밍 끝점이](str
 > [!NOTE]
 > 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
     
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 검토: 
 

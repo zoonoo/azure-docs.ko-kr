@@ -7,20 +7,22 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5f4a90859831e6134530b94dfa80c11eb740301a
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 8066ba5c895ec5c3fdbf06ffc0a1f30117dcd4d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85113316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076818"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
-[Azure Cosmos DB](introduction.md)는 업무에 중요한 애플리케이션에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 [턴키 전역 분산](distribute-data-globally.md), 전 세계적으로 [처리량 및 스토리지의 탄력적인 확장](partition-data.md), 99번째 백분위수의 1자리 수 밀리초 크기 대기 시간, 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 또한 다중 모델 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다. 기본적으로 SQL API를 사용하여 Cosmos DB와 상호 작용할 수 있습니다. 또한 Cosmos DB 서비스는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 일반 NoSQL API를 위한 유선 프로토콜을 구현합니다. 따라서 고객은 익숙한 NoSQL 클라이언트 드라이버 및 도구를 사용하여 Cosmos 데이터베이스와 상호 작용할 수 있습니다.
+[Azure Cosmos DB](introduction.md)는 업무에 중요한 애플리케이션에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 [턴키 전역 분산](distribute-data-globally.md), 전 세계적으로 [처리량 및 스토리지의 탄력적인 확장](partition-data.md), 99번째 백분위수의 1자리 수 밀리초 크기 대기 시간, 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 다중 모델이며 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다. Azure Cosmos DB 서비스는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 일반적인 NoSQL API에 대한 유선 프로토콜을 구현합니다. 따라서 고객은 익숙한 NoSQL 클라이언트 드라이버 및 도구를 사용하여 Cosmos 데이터베이스와 상호 작용할 수 있습니다.
 
 ## <a name="wire-protocol-compatibility"></a>유선 프로토콜 호환성
 
-Cosmos DB는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 일반 NoSQL 데이터베이스를 위한 유선 프로토콜을 구현합니다. 기본적으로 Cosmos DB 내에서 유선 프로토콜을 직접, 효율적으로 구현하므로 NoSQL 데이터베이스의 기존 클라이언트 SDK, 드라이버 및 도구가 Cosmos DB와 투명하게 상호 작용할 수 있습니다. Cosmos DB는 NoSQL 데이터베이스에 유선 호환 API를 제공하기 위해 데이터베이스의 소스 코드를 사용하지 않습니다.
+Azure Cosmos DB는 MongoDB에 대한 유선 프로토콜을 구현합니다. 이 구현을 통해 네이티브 MongoDB 클라이언트 SDK, 드라이버 및 도구와 투명하게 호환됩니다. Azure Cosmos DB는 MongoDB 데이터베이스 엔진을 호스팅합니다. MongoDB에서 지원되는 기능에 대한 자세한 내용은 다음에서 확인할 수 있습니다. 
+- [Azure Cosmos DB의 API for Mongo DB 엔진 버전 3.6](mongodb-feature-support-36.md)
+- [Azure Cosmos DB의 API for Mongo DB 엔진 버전 3.2](mongodb-feature-support.md)
 
 기본적으로 Azure Cosmos DB의 API for MongoDB를 사용하여 만든 새 계정은 MongoDB의 유선 프로토콜 버전 3.6과 호환됩니다. 이 프로토콜 버전을 이해하는 모든 MongoDB 클라이언트 드라이버는 기본적으로 Cosmos DB에 연결할 수 있어야 합니다.
 
@@ -53,5 +55,7 @@ Cosmos DB는 Cassandra, MongoDB, Gremlin 및 Azure Table Storage를 비롯한 �
 * [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md) 자습서에 따라 Cosmos 데이터베이스로 데이터를 가져옵니다.
 * [Robo 3T](mongodb-robomongo.md)를 사용하여 Cosmos 계정에 연결
 * [전역적으로 분산되는 앱의 읽기 기본 설정 구성](../cosmos-db/tutorial-global-distribution-mongodb.md) 방법을 알아봅니다.
+* [문제 해결 가이드](mongodb-troubleshoot.md)에서 일반적으로 발견되는 오류에 대한 솔루션 찾기
+
 
 <sup>참고: 이 문서에서는 MongoDB 데이터베이스와 유선 프로토콜 호환성을 제공하는 Azure Cosmos DB 기능을 설명합니다. Microsoft는 이 서비스를 제공하기 위해 MongoDB 데이터베이스를 실행하지 않습니다. Azure Cosmos DB는 MongoDB, Inc.와 관련이 없습니다.</sup>

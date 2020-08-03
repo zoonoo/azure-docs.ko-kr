@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 691293d0f7ecf5bb2ad83a3f292ad2c9b873e31e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133875"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386534"
 ---
 ## <a name="limitations"></a>제한 사항
 
@@ -53,7 +53,7 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 
 특정 장애 도메인에서 호스트를 만들 수 있습니다. 확장 집합 또는 가용성 집합의 VM과 마찬가지로 다른 장애 도메인의 호스트는 데이터 센터의 서로 다른 물리적 랙에 배치 됩니다. 호스트 그룹을 만드는 경우 장애 도메인 수를 지정 해야 합니다. 호스트 그룹 내에서 호스트를 만들 때 각 호스트에 대해 장애 도메인을 할당 합니다. Vm에는 장애 도메인 할당이 필요 하지 않습니다.
 
-장애 도메인은 collocation과 동일 하지 않습니다. 두 호스트에 동일한 장애 도메인을 사용 하는 것은 서로 근접 하 고 있음을 의미 하지 않습니다.
+장애 도메인은 공동 위치와 동일 하지 않습니다. 두 호스트에 동일한 장애 도메인을 사용 하는 것은 서로 근접 하 고 있음을 의미 하지 않습니다.
 
 장애 도메인의 범위는 호스트 그룹으로 지정 됩니다. 서로 다른 가용성 영역에 있는 경우를 제외 하 고 두 호스트 그룹 간의 선호도에 대 한 가정을 해서는 안 됩니다.
 

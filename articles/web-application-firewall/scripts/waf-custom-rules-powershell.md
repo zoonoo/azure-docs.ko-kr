@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - WAF 사용자 지정 규칙 만들기
+title: WAF 사용자 지정 규칙을 사용하는 Azure PowerShell 스크립트 샘플
 description: Azure PowerShell 스크립트 샘플 - Application Gateway 사용자 지정 규칙에서 Web Application Firewall 만들기
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: sample
 ms.date: 09/30/2019
 ms.author: victorh
-ms.openlocfilehash: 950f71c284268a9aa2773eb57213e266622d85bd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b73b15e7f174868fa4c0a9518725a4585cf3dffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73509557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035590"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Azure PowerShell을 사용하여 WAF 사용자 지정 규칙 만들기
 
@@ -71,4 +71,4 @@ Remove-AzResourceGroup -Name CustomRulesTest
 ## <a name="next-steps"></a>다음 단계
 
 - WAF 사용자 지정 규칙에 대한 자세한 내용은 [웹 애플리케이션 방화벽에 대한 사용자 지정 규칙](../ag/custom-waf-rules-overview.md)을 참조하세요.
-- Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+- Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6234e9efe4f6dd122a22ee834ef9c35269eea95f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552635"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500983"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -58,7 +58,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 + Azure Blob 컨테이너
 + Azure 파일 공유
-+ Azure 데이터 레이크
++ Azure Data Lake
 + Azure Data Lake Gen2
 + Azure SQL Database
 + Azure Database for PostgreSQL
@@ -67,14 +67,17 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 ## <a name="datasets"></a>데이터 세트
 
-Azure Machine Learning 데이터 집합은 저장소 서비스의 데이터를 가리키는 참조입니다. 데이터의 복사본이 아니므로 추가 저장소 비용이 발생 하지 않습니다. 저장소에서 데이터와 상호 작용 하려면 기계 학습 작업을 위한 사용 가능 개체에 데이터를 패키지할 데이터 [집합을 만듭니다](how-to-create-register-datasets.md) . 데이터 집합을 작업 영역에 등록 하 여 데이터 수집 복잡성 없이 다른 실험에서 데이터 집합을 공유 하 고 다시 사용할 수 있습니다.
+Azure Machine Learning 데이터 집합은 저장소 서비스의 데이터를 가리키는 참조입니다. 데이터의 복사본이 아니므로 추가 저장소 비용이 발생 하지 않으며 원래 데이터 원본의 무결성이 위험 하지 않습니다.
+
+ 저장소에서 데이터와 상호 작용 하려면 기계 학습 작업을 위한 사용 가능 개체에 데이터를 패키지할 데이터 [집합을 만듭니다](how-to-create-register-datasets.md) . 데이터 집합을 작업 영역에 등록 하 여 데이터 수집 복잡성 없이 다른 실험에서 데이터 집합을 공유 하 고 다시 사용할 수 있습니다.
 
 데이터 집합은 로컬 파일, 공용 url, [Azure Open 데이터 집합](https://azure.microsoft.com/services/open-datasets/)또는 datastores를 통해 azure storage 서비스에서 만들 수 있습니다. In memory pandas 데이터 프레임에서 데이터 집합을 만들려면 parquet와 같은 로컬 파일에 데이터를 작성 하 고 해당 파일에서 데이터 집합을 만듭니다.  
 
 다음 두 가지 유형의 데이터 집합을 지원 합니다. 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 Pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
 
-+ [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
++ [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 데이터가 이미 정리 되어 학습 실험에서 사용할 준비가 된 경우 FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
+
++ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
 
 다음 설명서에서 추가 데이터 집합 기능을 찾을 수 있습니다.
 

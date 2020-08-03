@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035029"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정의 잠금을 해제하거나 암호를 다시 설정할 수 있도록 설정
 
 Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사용하면 관리자 또는 지원 센터에서 개입하지 않고도 사용자가 암호를 변경하거나 다시 설정할 수 있습니다. 사용자 계정이 잠겨 있거나 암호를 잊어버린 경우 프롬프트에 따라 자신을 차단 해제하여 작업을 다시 수행할 수 있습니다. 사용자가 디바이스 또는 애플리케이션에 로그인할 수 없는 경우 이 기능을 통해 지원 센터 호출 및 생산성 저하를 줄일 수 있습니다.
 
 > [!IMPORTANT]
-> 이 빠른 시작에서는 관리자가 셀프 서비스 암호 재설정을 사용하도록 설정하는 방법을 보여줍니다. 셀프 서비스 암호 재설정에 이미 등록된 최종 사용자가 계정으로 다시 이동해야 하는 경우 https://aka.ms/sspr 로 이동합니다.
+> 이 자습서에서는 관리자에게 셀프 서비스 암호 재설정을 사용하도록 설정하는 방법을 보여줍니다. 셀프 서비스 암호 재설정에 이미 등록된 최종 사용자가 계정으로 다시 이동해야 하는 경우 https://aka.ms/sspr 로 이동합니다.
 >
 > IT 팀이 자신의 암호를 재설정 하는 기능을 사용하도록 설정하지 않은 경우, 추가 지원이 필요 하면 기술 지원팀에 문의하세요.
 
@@ -41,9 +41,9 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * *글로벌 관리자* 권한이 있는 계정
 * 알고 있는 암호가 있는 관리자가 아닌 사용자(예: *testuser*). 이 자습서에서는 이 계정을 사용하여 최종 사용자 SSPR 환경을 테스트합니다.
-    * 사용자를 만들어야 하는 경우 [빠른 시작: Azure Active Directory에 새 사용자 추가](../add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다.
+    * 사용자를 만들어야 하는 경우 [빠른 시작: Azure Active Directory에 새 사용자 추가](../fundamentals/add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다.
 * 관리자가 아닌 사용자가 멤버인 그룹(예: *SSPR-Test-Group*). 이 자습서에서는 이 그룹에 대해 SSPR을 사용하도록 설정합니다.
-    * 그룹을 만들어야 하는 경우 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../active-directory-groups-create-azure-portal.md)를 참조하세요.
+    * 그룹을 만들어야 하는 경우 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 ## <a name="enable-self-service-password-reset"></a>셀프 서비스 암호 재설정 사용
 
@@ -78,8 +78,8 @@ Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든*
     * *모바일 앱 코드*
     * *Email*
     * *휴대폰*
-    * *사무실 전화*
-    * *본인 확인 질문*
+
+    *사무실 전화* 또는 *보안 질문*과 같은 추가 인증 방법을 비즈니스 요구 사항에 맞게 필요에 따라 활성화할 수 있습니다.
 
 1. 인증 방법을 적용하려면 **저장**을 선택합니다.
 
@@ -95,7 +95,7 @@ Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든*
 
 ## <a name="configure-notifications-and-customizations"></a>알림 및 사용자 지정 구성
 
-사용자에게 계정 활동에 대한 정보를 계속 제공하기 위해 SSPR 이벤트가 발생할 때 이메일 알림을 보내도록 구성할 수 있습니다. 이러한 알림에는 일반 사용자 계정과 관리자 계정이 모두 포함될 수 있습니다. 관리자 계정의 경우 이 알림은 SSPR을 사용하여 권한 있는 관리자 계정 암호가 다시 설정될 때 추가적인 인식 레이어를 제공합니다.
+사용자에게 계정 활동에 대한 정보를 계속 제공하기 위해 SSPR 이벤트가 발생할 때 이메일 알림을 보내도록 구성할 수 있습니다. 이러한 알림에는 일반 사용자 계정과 관리자 계정이 모두 포함될 수 있습니다. 관리자 계정의 경우 이 알림은 SSPR을 사용하여 권한 있는 관리자 계정 암호가 다시 설정될 때 추가적인 인식 레이어를 제공합니다. SSPR을 관리자 계정에서 사용하는 경우 모든 글로벌 관리자에게 통지됩니다.
 
 1. 왼쪽 메뉴의 **알림** 페이지에서 다음 옵션을 구성합니다.
 

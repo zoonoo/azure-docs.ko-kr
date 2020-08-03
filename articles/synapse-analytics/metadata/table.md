@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9efafdbc3545bebb3b90b3f64c14f45d8be82e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28f666fe295b2b49fb6795306e9fad489c867517
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496029"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387220"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
@@ -24,7 +24,7 @@ Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 �
 
 Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
 
-또한 Spark에서 만든 관리형 및 외부 테이블은 SQL 주문형의 해당 동기화된 데이터베이스에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#exposing-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
+또한 Spark에서 만든 관리형 및 외부 테이블은 SQL 주문형의 해당 동기화된 데이터베이스에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#expose-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
 
 테이블은 SQL 주문형에 비동기적으로 동기화되므로 표시될 때까지 지연됩니다.
 
@@ -34,9 +34,9 @@ Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 
 
 SQL 주문형에서 이러한 데이터베이스의 개체를 만들거나 데이터베이스를 삭제하려고 하면 이 작업이 성공하지만 원본 Spark 데이터베이스는 변경되지 않습니다.
 
-## <a name="exposing-a-spark-table-in-sql"></a>SQL에서 Spark 테이블 공개
+## <a name="expose-a-spark-table-in-sql"></a>SQL에서 Spark 테이블 공개
 
-### <a name="which-spark-tables-are-shared"></a>공유되는 Spark 테이블
+### <a name="shared-spark-tables"></a>공유 Spark 테이블
 
 Spark는 Azure Synapse를 통해 SQL에서 자동으로 공개되는 두 가지 유형의 테이블을 제공합니다.
 
@@ -50,7 +50,7 @@ Spark는 Azure Synapse를 통해 SQL에서 자동으로 공개되는 두 가지 
 
 Azure Synapse는 현재 데이터를 Parquet 형식으로 저장하는 관리형 테이블 및 외부 Spark 테이블만 SQL 엔진과 공유합니다. 다른 형식으로 지원되는 테이블은 자동으로 동기화되지 않습니다. SQL 엔진에서 테이블의 기본 형식을 지원하는 경우 이러한 테이블을 사용자의 SQL 데이터베이스에 있는 외부 테이블로 명시적으로 동기화할 수 있습니다.
 
-### <a name="how-are-spark-tables-shared"></a>Spark 테이블을 공유하는 방법
+### <a name="share-spark-tables"></a>Spark 테이블 공유
 
 공유 가능한 관리형 및 외부 Spark 테이블은 SQL 엔진에서 다음과 같은 속성이 있는 외부 테이블로 공개됩니다.
 
@@ -96,7 +96,7 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
 
 ### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Spark에서 Parquet로 지원되는 관리형 테이블 만들기 및 SQL 주문형에서 쿼리
 
-이 시나리오에는 `mytestdb`라는 Spark 데이터베이스가 있습니다. [Spark 데이터베이스 만들기 및 연결 - SQL 주문형](database.md#create--connect-to-spark-database---sql-on-demand)을 참조하세요.
+이 시나리오에는 `mytestdb`라는 Spark 데이터베이스가 있습니다. [SQL 주문형을 사용하여 Spark 데이터베이스 만들기 및 연결](database.md#create-and-connect-to-spark-database-with-sql-on-demand)을 참조하세요.
 
 다음 명령을 실행하여 SparkSQL을 통해 관리형 Spark 테이블을 만듭니다.
 
@@ -153,7 +153,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="creating-an-external-table-backed-by-parquet-in-spark-and-querying-it-from-sql-on-demand"></a>Spark에서 Parquet로 지원되는 외부 테이블 만들기 및 SQL 주문형에서 쿼리
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Spark에서 Parquet로 지원되는 외부 테이블 만들기 및 SQL 주문형에서 쿼리
 
 다음 예제에서는 관리형 테이블에 대해 이전 예제에서 만든 Parquet 데이터 파일에 외부 Spark 테이블을 만듭니다.
 

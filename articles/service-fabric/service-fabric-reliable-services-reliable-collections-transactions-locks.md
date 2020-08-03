@@ -4,12 +4,12 @@ description: Azure Service Fabric 신뢰할 수 있는 상태 관리자 및 신�
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245112"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500285"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 
@@ -77,7 +77,7 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 신뢰할 수 있는 컬렉션 Api의 시간 제한 인수는 교착 상태 검색에 사용 됩니다.
 예를 들어 두 트랜잭션(T1과 T2)은 K1을 읽고 업데이트하려고 합니다.
 둘 다 결국 공유된 잠금을 가지게 되기 때문에 교착 상태가 될 수 있습니다.
-이 경우 작업 중 하나 또는 둘 다의 시간이 초과 됩니다. 이 시나리오에서 업데이트 잠금이 이러한 교착 상태를 방지할 수 있습니다.
+이 경우 작업 중 하나 또는 둘 다의 시간이 초과 됩니다. 이 시나리오에서 업데이트 잠금은 이러한 교착 상태를 방지할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 03/26/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103707"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025594"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -45,9 +45,9 @@ Azure AD에서 디바이스를 가져올 수 있는 여러 가지 옵션이 있�
 - **Azure AD 조인**
    - Azure AD 조인 디바이스는 조직이 소유하며 조직에 속한 Azure AD 계정으로 로그인됩니다. 이 디바이스는 클라우드에만 존재합니다.
       - 윈도우 10 
-      - [Azure에서 실행되는 Windows Server 2019 Virtual Machines](./howto-vm-sign-in-azure-ad-windows.md)(서버 코어는 지원되지 않음)
+      - [Azure에서 실행되는 Windows Server 2019 Virtual Machines](howto-vm-sign-in-azure-ad-windows.md)(서버 코어는 지원되지 않음)
 - **하이브리드 Azure AD 조인**
-   - 하이브리드 Azure AD 조인 디바이스는 조직이 소유하며 조직에 속한 Azure AD 계정으로 로그인됩니다. 이 디바이스는 클라우드와 온-프레미스에 존재합니다.
+   - 하이브리드 Azure AD 조인 디바이스는 조직이 소유하며 해당 조직에 속한 Active Directory Domain Services 계정으로 로그인됩니다. 이 디바이스는 클라우드와 온-프레미스에 존재합니다.
       - Windows 7, 8.1 또는 10
       - Windows Server 2008 이상
 

@@ -10,15 +10,19 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: cb4afac3b1e73a95fa3fe703fc5bd9d3f621f23a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 53b1c22e93c342373cae2bbb14958f4810a79630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092323"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!IMPORTANT]
+> Azure Machine Learning R SDK는 현재 공개 미리 보기로 제공됩니다.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 자습서에서는 Azure Machine Learning R SDK(미리 보기)를 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다. Azure Machine Learning 클라우드 리소스가 R과 함께 작동하여 모델 교육 및 배포를 위한 확장 가능한 환경을 제공하는 방법을 살펴봅니다.  
 

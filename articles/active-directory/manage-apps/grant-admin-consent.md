@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848372"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501017"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -25,15 +25,22 @@ ms.locfileid: "85848372"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)으로 로그인 해야 합니다.
 
 > [!IMPORTANT]
 > 응용 프로그램에 테 넌 트 전체 관리자 동의가 부여 되 면 사용자 할당을 요구 하도록 구성 되지 않은 한 모든 사용자가 앱에 로그인 할 수 있습니다. 응용 프로그램에 로그인 할 수 있는 사용자를 제한 하려면 사용자 할당을 요구 하 고 응용 프로그램에 사용자 또는 그룹을 할당 합니다. 자세한 내용은 [사용자 및 그룹을 할당하는 메서드](methods-for-assigning-users-and-groups.md)를 참조하세요.
+>
+> 전역 관리자 역할은 Microsoft Graph API에 대 한 관리자 동의를 제공 하기 위해 필요 합니다.
+>
+
 
 > [!WARNING]
 > 응용 프로그램에 대 한 테 넌 트 전체 관리자 동의를 부여 하면 앱 및 앱의 게시자에 게 조직의 데이터에 대 한 액세스 권한이 부여 됩니다. 동의를 부여 하기 전에 응용 프로그램에서 요청 하는 권한을 신중 하 게 검토 합니다.
+>
+> 전역 관리자 역할은 Microsoft Graph API에 대 한 관리자 동의를 제공 하기 위해 필요 합니다.
+>
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Azure Portal에서 관리자 동의를 부여 합니다.
 
@@ -73,7 +80,7 @@ ms.locfileid: "85848372"
 https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 ```
 
-다음은 각 문자에 대한 설명입니다.
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 * `{client-id}`응용 프로그램의 클라이언트 ID (앱 ID 라고도 함)입니다.
 * `{tenant-id}`조직의 테 넌 트 ID 또는 확인 된 도메인 이름입니다.

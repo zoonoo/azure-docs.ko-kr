@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop 서비스 사용자 역할 할당 - Azure
-description: Windows Virtual Desktop에서 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법을 설명합니다.
+title: Windows Virtual Desktop(클래식) 서비스 사용자 역할 할당 - Azure
+description: Windows Virtual Desktop(클래식)에서 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법을 설명합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 015d0e0208b83cff3db3995383ce93ed6362ee49
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117719"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270093"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
+# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 PowerShell을 사용하여 서비스 주체 및 역할 할당 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
 
 서비스 주체는 특정 목적에 대한 역할 및 권한을 할당하도록 Azure Active Directory에서 만들 수 있는 ID입니다. Windows Virtual Desktop에서 다음을 수행할 서비스 주체를 만들 수 있습니다.
 

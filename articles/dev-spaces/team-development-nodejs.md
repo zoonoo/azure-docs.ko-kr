@@ -5,12 +5,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service의 Node.js 애플리케이션에서 팀 개발을 수행하는 방법을 보여줍니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: abcf4934af056d508ac136f80758597294d40b1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa168921f212f96f6e40ed062d2665e49202e86c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013595"
 ---
 # <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Azure Dev Spaces와 함께 Node.js 및 Visual Studio를 사용한 팀 개발
 
@@ -31,7 +31,7 @@ ms.locfileid: "78251927"
 * 일부 개발자는 서비스 종속성 대부분을 시뮬레이션하거나 모델링하는 데 의존합니다. 이 방법은 유용할 수 있지만 이러한 모의 개체 관리는 곧 개발 비용에 영향을 줄 수 있습니다. 또한 이 접근법은 개발 환경을 프로덕션과는 매우 다르게 보이게 하는데, 이로 인해 감지하기 힘든 버그들이 발생할 수 있습니다.
 * 따라서 모든 종류의 통합 테스트를 수행하는 것이 어려워집니다. 통합 테스트는 현실적으로 커밋 후에만 수행할 수 있습니다. 이는 나중에 개발 주기에서 문제가 발생한다는 것을 의미합니다.
 
-    ![](media/common/microservices-challenges.png)
+    ![앱 서비스와 해당 종속성 간의 관계를 보여줌으로써 통합 테스트의 복잡성을 보여주는 이미지입니다.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>공유 개발 공간에서 작업
 Azure Dev Spaces를 사용하면 Azure에서 *공유* 개발 공간을 설정할 수 있습니다. 각 개발자는 애플리케이션의 일부에만 집중할 수 있으며, 시나리오에 종속된 다른 모든 서비스와 클라우드 리소스가 이미 포함되어 있는 개발 공간에서 *사전 커밋 코드*를 반복적으로 개발할 수 있습니다. 종속성은 항상 최신이며, 개발자는 프로덕션을 미러하는 방식으로 작업합니다.
@@ -53,7 +53,7 @@ Scott은 Dev Spaces를 사용하지 _않고도_ 몇 가지 방법으로 자신�
 
 1. [Dev Spaces 샘플 애플리케이션](https://github.com/Azure/dev-spaces)을 복제합니다. `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. 원격 분기 *azds_updates*를 확인합니다. `git checkout -b azds_updates origin/azds_updates`
-1. _dev_ 공간을 선택합니다. `azds space select --name dev`. 부모 개발 공간을 선택하라는 메시지가 표시되면 _\<none\>_ 을 선택합니다.
+1. _dev_ 공간을 선택합니다. `azds space select --name dev`. 부모 개발 공간을 선택하라는 메시지가 표시되면 _\<none\>_ 를 선택합니다.
 1. _mywebapi_ 디렉터리로 이동하고 다음을 실행합니다. `azds up -d`
 1. _webfrontend_ 디렉터리로 이동하고 다음을 실행합니다. `azds up -d`
 1. `azds list-uris`를 실행하여 _webfrontend_에 대한 공개 엔드포인트를 확인합니다.
@@ -91,7 +91,7 @@ azds space select --name scott
 
 이 입문적인 가설에서는 동료들이 작동하는 사람을 식별할 수 있도록 _scott_이란 이름을 새 공간에 사용하였습니다. 하지만 마음에 드는 다른 이름으로 불러도 좋으며, _sprint4_나 _demo_처럼 그 의미에 대해서도 자유롭게 사용할 수 있습니다. 어떠한 사례든 _dev_는 이 애플리케이션 부분에서 작업하는 모든 개발자를 위한 기준으로 사용됩니다.
 
-![](media/common/ci-cd-space-setup.png)
+![간단한 개발 공간을 보여주는 다이어그램.](media/common/ci-cd-space-setup.png)
 
 `azds space list` 명령을 실행하면 개발 환경의 모든 공간 목록이 표시됩니다. _선택된_ 열은 현재 선택한 공간을 나타냅니다(true/false). 여러분의 경우 _dev/scott_이라는 공간이 만들어질 때 자동으로 선택되었습니다. 언제든지 `azds space select` 명령을 사용하여 다른 공간을 선택할 수 있습니다.
 
