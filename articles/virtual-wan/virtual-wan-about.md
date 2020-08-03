@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9e4c3615d16834a0517b46f1be7221eef28c602c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058737"
 ---
 # <a name="about-azure-virtual-wan"></a>Azure Virtual WAN 정보
 
@@ -110,7 +110,7 @@ Virtual WAN은 향상된 고급 라우팅 기능을 제공합니다. 사용자 �
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>글로벌 VNet 피어링
 
-글로벌 VNet 피어링은 서로 다른 지역의 두 VNet을 연결하는 메커니즘을 제공합니다. Virtual WAN에서 가상 네트워크 연결은 VNet을 가상 허브에 연결합니다. 사용자는 글로벌 VNet 피어링을 명시적으로 설정할 필요가 없습니다. 같은 지역의 가상 허브에 연결된 VNet의 경우 VNet 피어링 요금이 발생합니다. 다른 지역의 가상 허브에 연결된 VNet의 경우 글로벌 VNet 피어링 요금이 발생합니다.
+글로벌 VNet 피어링은 서로 다른 지역의 두 VNet을 연결하는 메커니즘을 제공합니다. Virtual WAN에서 가상 네트워크 연결은 VNet을 가상 허브에 연결합니다. 사용자는 글로벌 VNet 피어링을 명시적으로 설정할 필요가 없습니다. 같은 지역의 가상 허브에 연결된 VNet에는 VNet 피어링 요금이 발생합니다. 다른 지역의 가상 허브에 연결된 VNet의 경우 글로벌 VNet 피어링 요금이 발생합니다.
 
 ### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>ExpressRoute 트래픽 암호화
 

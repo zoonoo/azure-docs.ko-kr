@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496063"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387339"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics 공유 메타데이터
 
@@ -40,7 +40,7 @@ Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이
 
 개체 동기화는 비동기적으로 발생합니다. 개체가 SQL 컨텍스트에 나타날 때까지 몇 초의 지연이 발생합니다. 개체가 표시되면 개체를 쿼리할 수 있지만, 개체에 대한 액세스 권한이 있는 SQL 엔진에서 개체를 업데이트하거나 변경할 수는 없습니다.
 
-## <a name="which-metadata-objects-are-shared"></a>공유되는 메타데이터 개체
+## <a name="shared-metadata-objects"></a>공유 메타데이터 개체
 
 Spark를 사용하면 데이터베이스, 외부 테이블, 관리형 테이블 및 보기를 만들 수 있습니다. Spark 보기는 Spark SQL 문의 정의를 처리하는 Spark 엔진이 필요하며, SQL 엔진에서 처리할 수 없으므로 Parquet 스토리지 형식을 사용하는 데이터베이스와 데이터베이스에 포함된 외부 및 관리형 테이블만 작업 영역 SQL 엔진과 공유됩니다. Spark 보기는 Spark 풀 인스턴스 간에만 공유됩니다.
 

@@ -1,6 +1,6 @@
 ---
 title: VM 네트워크 트래픽 필터링 - Azure CLI 스크립트 샘플
-description: Azure CLI 스크립트 샘플 - 인바운드 및 아웃바운드 VM 네트워크 트래픽을 필터링합니다.
+description: Azure CLI 스크립트 샘플을 사용하여 인바운드 및 아웃바운드 VM(가상 머신) 네트워크 트래픽을 필터링합니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 71de6c9c3f742e006762fb8778948cff2e5d96af
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6832cf08abd179b6108f971227b5c054c5617337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74084042"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281636"
 ---
-# <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>인바운드 및 아웃바운드 VM 네트워크 트래픽 필터링 스크립트 샘플
+# <a name="filter-inbound-and-outbound-vm-network-traffic-using-an-azure-cli-script-sample"></a>Azure CLI 스크립트 샘플을 사용하여 인바운드 및 아웃바운드 VM 네트워크 트래픽 필터링
 
 이 스크립트 샘플은 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 인바운드 네트워크 트래픽은 HTTP, HTTPS 및 SSH로 제한되지만, 백 엔드 서브넷에서 인터넷으로의 아웃바운드 트래픽은 허용되지 않습니다. 스크립트를 실행한 후에는 두 개의 NIC가 있는 하나의 가상 머신이 있게 됩니다. 각 NIC는 서로 다른 서브넷에 연결됩니다.
 

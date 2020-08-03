@@ -3,23 +3,26 @@ title: '빠른 시작: .NET용 Azure Storage v11을 사용하여 큐 관리'
 description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 처리하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 807765aea66561abb5a8764f119d2be4632a56d5
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71700efecfc173392562327f6d150d79d1a9c84f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807553"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292690"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>빠른 시작: .NET용 Azure Storage SDK v11을 사용하여 큐 관리
 
 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리 버전 11을 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 처리하는 방법을 알아봅니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 이 빠른 시작에서는 Azure Queue storage 클라이언트 라이브러리의 레거시 버전을 사용합니다. 최신 버전을 시작하려면 [빠른 시작: .NET용 Azure Queue storage 클라이언트 라이브러리 v12](storage-quickstart-queues-dotnet.md)를 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

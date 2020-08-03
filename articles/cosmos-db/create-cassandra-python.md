@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dee07db85d8886ab44be096e405143ea0d881ba2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a388cde60e0d19aed1af9620f82b7baa6d5b08fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067310"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>빠른 시작: Python SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -137,9 +137,9 @@ ms.locfileid: "85118276"
 
 1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
 
-1. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-python/copy.png) 화면 오른쪽에 있는 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
+1. 화면 오른쪽에 있는 :::image type="icon" source="./media/create-cassandra-python/copy.png"::: 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다. 
 
-    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Azure Portal, 연결 문자열 블레이드에서 액세스 사용자 이름, 암호 및 접점 보기 및 복사":::
+   :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Azure Portal, 연결 문자열 블레이드에서 액세스 사용자 이름, 암호 및 접점 보기 및 복사":::
 
 1. *config.py* 파일을 엽니다. 
 

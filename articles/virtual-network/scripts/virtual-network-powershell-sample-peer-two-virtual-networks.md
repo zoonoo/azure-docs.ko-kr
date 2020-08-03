@@ -1,6 +1,6 @@
 ---
 title: 두 개 가상 네트워크 피어링 - Azure PowerShell 스크립트 샘플
-description: Azure PowerShell 스크립트 샘플 - 2개 가상 네트워크 피어링
+description: 동일한 지역에 두 개의 가상 네트워크를 만들고 연결합니다. 두 개의 피어 가상 네트워크에 Azure 스크립트를 사용하여 Azure 네트워크를 통해 네트워크를 연결합니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 4061997aa2efbae250b30fc58cef06b1249c2b8f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7cbcae51228e5bf722f3ea802a322483aed6c225
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091298"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286124"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>2개 가상 네트워크 피어링 스크립트 샘플
 
@@ -54,6 +54,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 추가 가상 네트워크 PowerShell 스크립트 샘플은 [가상 네트워크 PowerShell 샘플](../powershell-samples.md)에 나와 있습니다.

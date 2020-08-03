@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a38f4744b6a1f9b4ebd0112be07b2556f1c39
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034999"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>자습서: 사용자 로그인에 대한 위험 탐지를 사용하여 Azure Multi-Factor Authentication 또는 암호 변경 트리거
 
-사용자를 보호하기 위해 Azure AD(Active Directory)에서 위험한 동작에 자동으로 응답하는 위험 기반 정책을 구성할 수 있습니다. Azure AD ID 보호 정책은 로그인 시도를 자동으로 차단하거나 암호 변경 필요 또는 Azure Multi-Factor Authentication에 대한 프롬프트와 같은 추가 작업을 요구할 수 있습니다. 이러한 정책은 기존 Azure AD 조건부 액세스 정책에서 조직 구성에 대한 추가 계층으로 작동합니다. 사용자는 이러한 정책 중 하나에서 위험한 동작을 트리거하지 않을 수 있지만 보안을 손상시키려고 하면 조직을 보호합니다.
+사용자를 보호하기 위해 Azure AD(Active Directory)에서 위험한 동작에 자동으로 응답하는 위험 기반 정책을 구성할 수 있습니다. Azure AD ID 보호 정책은 로그인 시도를 자동으로 차단하거나 암호 변경 필요 또는 Azure Multi-Factor Authentication에 대한 프롬프트와 같은 추가 작업을 요구할 수 있습니다. 이러한 정책은 기존 Azure AD 조건부 액세스 정책에서 조직의 추가 보호 계층으로 작동합니다. 사용자는 이러한 정책 중 하나에서 위험한 동작을 트리거하지 않을 수 있지만 보안을 손상시키려고 하면 조직을 보호합니다.
+
+> [!IMPORTANT]
+> 이 자습서에서는 관리자에게 위험 기반 Azure Multi-Factor Authentication을 사용하도록 설정하는 방법을 보여줍니다.
+>
+> IT 팀이 Azure Multi-Factor Authentication을 사용하는 기능을 사용하도록 설정하지 않았거나 로그인하는 동안 문제가 발생한 경우 추가 지원을 받으려면 기술 지원팀에 문의하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

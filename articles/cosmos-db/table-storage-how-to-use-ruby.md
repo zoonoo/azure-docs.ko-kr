@@ -5,48 +5,59 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2229eea7b91168507ea9568a1e53930cf983b1df
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76770870"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171945"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>개요
-이 가이드에서는 Azure Table service 및 Azure Cosmos DB Table API를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Ruby로 작성되었으며 [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table)를 사용합니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리**등의 시나리오를 다룹니다.
+이 문서에서는 테이블을 만들고, 데이터를 저장하고, 데이터에 대한 CRUD 작업을 수행하는 방법을 보여줍니다. Azure Table 서비스 또는 Azure Cosmos DB Table API 중 하나를 선택합니다. 이 문서에서 설명하는 샘플은 Ruby로 작성되었으며 [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table)를 사용합니다. 테이블 만들기, 테이블 삭제, 엔터티 삽입 및 테이블에서 엔터티 쿼리가 포함된 시나리오를 다룹니다.
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
+
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
+**Azure 스토리지 계정 만들기**
+
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
+**Azure Cosmos DB 계정 만들기**
+
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Storage 또는 Azure Cosmos DB에 대한 액세스 추가
+## <a name="add-access-to-azure-storage-or-azure-cosmos-db"></a>Azure 스토리지 또는 Azure Cosmos DB에 대한 액세스 추가
+
 Azure Storage 또는 Azure Cosmos DB를 사용하려면 Table REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
+
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용합니다.
 2. 명령 창에서 **gem install azure-storage-table**을 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
+
 주로 사용하는 텍스트 편집기에서 스토리지를 사용할 Ruby 파일의 맨 위에 다음을 추가합니다.
 
 ```ruby
 require "azure/storage/table"
 ```
 
-## <a name="add-an-azure-storage-connection"></a>Azure Storage 연결 추가
+## <a name="add-your-connection-string"></a>연결 문자열 추가
+
+Azure 스토리지 계정 또는 Azure Cosmos DB Table API 계정에 연결할 수 있습니다. 사용 중인 계정 유형에 따라 연결 문자열을 가져옵니다.
+
+### <a name="add-an-azure-storage-connection"></a>Azure Storage 연결 추가
+
 Azure Storage 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::Storage::Table::TableService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 ```ruby
@@ -62,7 +73,8 @@ Azure 포털의 클래식 또는 Resource Manager 스토리지 계정에서 이�
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다.
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
+### <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
+
 Azure Cosmos DB에 연결하려면 Azure Portal에서 주 연결 문자열을 복사하고 복사한 연결 문자열을 사용하여 **Client** 개체를 만드세요. **TableService** 개체를 만들 때 **Client** 개체를 제공할 수 있습니다.
 
 ```ruby
@@ -71,6 +83,7 @@ table_client = Azure::Storage::Table::TableService.new(client: common_client)
 ```
 
 ## <a name="create-a-table"></a>테이블 만들기
+
 **Azure::Storage::Table::TableService** 개체를 통해 테이블 및 엔터티에 대한 작업을 할 수 있습니다. 테이블을 만들려면 **create_table()** 메서드를 사용합니다. 다음 예제는 테이블을 만들거나 테이블이 있으면 오류를 출력합니다.
 
 ```ruby
@@ -83,6 +96,7 @@ end
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
+
 엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 해시 개체를 만듭니다. 모든 엔터티에 대해 **PartitionKey** 및 **RowKey**를 지정해야 합니다. 이 두 키는 엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. Azure Storage는 **PartitionKey** 를 사용하여 여러 스토리지 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. **PartitionKey** 가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
 
 ```ruby
@@ -92,11 +106,12 @@ azure_table_service.insert_entity("testtable", entity)
 ```
 
 ## <a name="update-an-entity"></a>엔터티 업데이트
+
 다음과 같은 여러 메서드를 사용하여 기존 엔터티를 업데이트할 수 있습니다.
 
 * **update_entity():** 기존 엔터티를 바꿔서 업데이트합니다.
 * **merge_entity():** 새 속성 값을 기존 엔터티에 병합하여 기존 엔터티를 업데이트합니다.
-* **insert_or_merge_entity():** 기존 엔터티를 바꿔서 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
+* **insert_or_merge_entity():** 기존 엔터티를 바꾸어서 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 * **insert_or_replace_entity():** 새 속성 값을 기존 엔터티에 병합하여 기존 엔터티를 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 
 다음 예제에서는 **update_entity()** 를 사용하여 엔터티를 업데이트하는 방법을 보여 줍니다.
@@ -110,6 +125,7 @@ azure_table_service.update_entity("testtable", entity)
 **update_entity()** 및 **merge_entity()** 를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insert_or_replace_entity()** 또는 **insert_or_merge_entity()** 를 대신 사용해야 합니다.
 
 ## <a name="work-with-groups-of-entities"></a>엔터티 그룹 작업
+
 서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 먼저 **Batch** 개체를 만든 다음 **TableService**에서 **execute_batch()** 메서드를 사용합니다. 다음 예제에서는 RowKey 2와 3을 가진 두 엔터티를 일괄 제출하는 방법을 보여 줍니다. 동일한 PartitionKey를 가진 엔터티에 대해서만 작동합니다.
 
 ```ruby
@@ -123,6 +139,7 @@ results = azure_table_service.execute_batch(batch)
 ```
 
 ## <a name="query-for-an-entity"></a>엔터티 쿼리
+
 테이블에서 엔터티를 쿼리하려면 테이블 이름인 **PartitionKey** 및 **RowKey**를 전달하여 **get_entity()** 메서드를 사용합니다.
 
 ```ruby
@@ -131,6 +148,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 ```
 
 ## <a name="query-a-set-of-entities"></a>엔터티 집합 쿼리
+
 테이블에서 엔터티 집합을 쿼리하려면 쿼리 해시 개체를 만들고 **query_entities()** 메서드를 사용합니다. 다음 예제에서는 동일한 **PartitionKey**를 가진 엔터티를 모두 가져오는 방법을 보여 줍니다.
 
 ```ruby
@@ -140,10 +158,10 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 > [!NOTE]
 > 단일 쿼리에서 반환할 결과 집합이 너무 크면 후속 페이지를 가져오는 데 사용할 수 있는 연속 토큰이 반환됩니다.
->
->
+
 
 ## <a name="query-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 쿼리
+
 테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. “프로젝션”이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. select 절을 사용하고 가져올 속성의 이름을 클라이언트에 전달합니다.
 
 ```ruby
@@ -153,6 +171,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>엔터티 삭제
+
 엔터티를 삭제하려면 **delete_entity()** 메서드를 사용합니다. 엔터티, 엔터티의 PartitionKey 및 RowKey가 포함된 테이블의 이름을 전달합니다.
 
 ```ruby
@@ -160,6 +179,7 @@ azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 ```
 
 ## <a name="delete-a-table"></a>테이블 삭제
+
 테이블을 삭제하려면 **delete_table()** 메서드를 사용하고 삭제하려는 테이블의 이름을 전달합니다.
 
 ```ruby
@@ -170,5 +190,4 @@ azure_table_service.delete_table("testtable")
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Ruby 개발자 센터](https://azure.microsoft.com/develop/ruby/)
-* [Ruby용 Microsoft Azure Storage Table 클라이언트 라이브러리](https://github.com/azure/azure-storage-ruby/tree/master/table) 
-
+* [Ruby용 Microsoft Azure Storage Table 클라이언트 라이브러리](https://github.com/azure/azure-storage-ruby/tree/master/table)

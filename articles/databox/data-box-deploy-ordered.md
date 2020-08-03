@@ -2,18 +2,18 @@
 title: Azure Data Box 주문 자습서 | Microsoft 설명서
 description: 배포 필수 구성 요소 및 Azure Data Box를 주문하는 방법을 알아봅니다
 services: databox
-author: alkohli
+author: priestlg
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/23/2019
-ms.author: alkohli
-ms.openlocfilehash: cfb95f2fb02544197f9b2796a705844e33eca201
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/21/2020
+ms.author: v-grpr
+ms.openlocfilehash: fd841dee5f3a845d793255f5e13b416fb1add4f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007392"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -49,11 +49,15 @@ Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실
 
 이 자습서에서는 Windows PowerShell을 통해 Azure CLI를 사용하지만, 어떤 옵션을 선택해도 됩니다.
 
-### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
+### <a name="for-azure-cli"></a>Azure CLI의 경우
+
+시작하기 전에 다음 사항을 확인합니다.
+
+#### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 버전 2.0.67 이상을 설치합니다. 또는 [MSI를 사용하여 설치](https://aka.ms/installazurecliwindows)해도 됩니다.
 
-#### <a name="sign-in-to-azure"></a>Azure에 로그인
+**Azure에 로그인**
 
 Windows PowerShell 명령 창을 열고 [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure에 로그인합니다.
 
@@ -83,7 +87,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 ]
 ```
 
-#### <a name="install-the-azure-data-box-cli-extension"></a>Azure Data Box CLI 확장 설치
+**Azure Data Box CLI 확장 설치**
 
 Azure Data Box CLI 명령을 사용하려면 먼저 확장을 설치해야 합니다. Azure CLI 확장은 아직 핵심 CLI의 일부로 제공되지 않는 실험적 명령과 시험판 명령에 대한 액세스를 제공합니다. 확장에 대한 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
 
@@ -115,82 +119,90 @@ Azure Data Box 확장을 설치하려면 `az extension add --name databox` 명�
         Please let us know how we are doing: https://aka.ms/clihats
 ```
 
-### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
+#### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
-브라우저를 통해 Azure 호스팅 대화형 셸 환경인 [Azure Cloud Shell](https://shell.azure.com/)을 사용하여 CLI 명령을 실행할 수 있습니다. Azure Cloud Shell은 Azure 서비스에서 Bash 또는 Windows PowerShell을 지원합니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성됩니다. Azure Portal의 오른쪽 위 섹션에 있는 메뉴에서 Cloud Shell 단추를 클릭합니다.
+브라우저를 통해 Azure 호스팅 대화형 셸 환경인 [Azure Cloud Shell](https://shell.azure.com/)을 사용하여 CLI 명령을 실행할 수 있습니다. Azure Cloud Shell은 Azure 서비스에서 Bash 또는 Windows PowerShell을 지원합니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성됩니다. Azure Portal의 오른쪽 위 섹션에 있는 메뉴에서 Cloud Shell 단추를 선택합니다.
 
 ![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 이 단추는 이 방법 문서에 설명된 단계를 실행하는 데 사용할 수 있는 대화형 셸을 시작합니다.
 
-<!-- To start Azure Cloud Shell:
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
 
-| Option | Example/Link |
-|-----------------------------------------------|---|
-| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
-| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-To run the code in this article in Azure Cloud Shell:
+### <a name="for-azure-powershell"></a>Azure PowerShell의 경우
 
-1. Start Cloud Shell.
+시작하기 전에 다음을 수행합니다.
 
-2. Select the **Copy** button on a code block to copy the code.
+* Windows PowerShell 6.2.4 이상을 설치합니다.
+* Azure PowerShell(AZ) 모듈을 설치합니다.
+* Azure Data Box(Az.DataBox) 모듈을 설치합니다.
+* Azure에 로그인합니다.
 
-3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+#### <a name="install-azure-powershell-and-modules-locally"></a>Azure PowerShell 및 모듈을 로컬로 설치
 
-4. Select **Enter** to run the code.
+**Windows PowerShell 설치 또는 업그레이드**
 
-For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. -->
+Windows PowerShell version 6.2.4 이상이 설치되어 있어야 합니다. 설치한 PowerShell 버전을 확인하려면 `$PSVersionTable`을 실행합니다.
 
-<!-- This goes away, we'll show this later when we show how to order a Data Box. -->
-<!-- ## Change the output format type
+다음 출력이 표시됩니다.
 
-All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. -->
-
-<!-- ```azurecli
-
-az databox job <command> --output <output-format>
-
+```azurepowershell
+    PS C:\users\gusp> $PSVersionTable
+    
+    Name                           Value
+    ----                           -----
+    PSVersion                      6.2.3
+    PSEdition                      Core
+    GitCommitId                    6.2.3
+    OS                             Microsoft Windows 10.0.18363
+    Platform                       Win32NT
+    PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+    PSRemotingProtocolVersion      2.3
+    SerializationVersion           1.1.0.1
+    WSManStackVersion              3.0
 ```
 
-Azure Data Box CLI commands support the following output formats:
+버전이 6.2.4보다 낮은 경우 Windows PowerShell 버전을 업그레이드해야 합니다. PowerShell 최신 버전을 설치하려면 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7)를 참조하세요.
 
-* json (default setting)
-* jsonc
-* table
-* tsv
-* yaml
-* yamlc
-* none
+**Azure PowerShell 및 Data Box 모듈 설치**
 
-You can use the parameter `--output` with all Azure Data Box CLI commands. -->
+Azure PowerShell를 사용하여 Azure Data Box를 주문하려면 Azure PowerShell 모듈을 설치해야 합니다. Azure PowerShell 모듈을 설치하는 방법은 다음과 같습니다.
 
-<!-- To set the output format to yaml: -->
+1. [Azure PowerShell Az 모듈](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)을 설치합니다.
+2. 그런 다음, `Install-Module -Name Az.DataBox` 명령을 사용하여 Az.DataBox를 설치합니다.
 
-<!-- ```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+```azurepowershell
+PS C:\PowerShell\Modules> Install-Module -Name Az.DataBox
+PS C:\PowerShell\Modules> Get-InstalledModule -Name "Az.DataBox"
 
-``` -->
-<!-- 
-To set the out format to tabular form (easier to read):
+Version              Name                                Repository           Description
+-------              ----                                ----------           -----------
+0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
+```
 
-```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
+#### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-``` -->
+Windows PowerShell 명령 창을 열고 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) 명령을 사용하여 Azure에 로그인합니다.
 
-<!-- Here's the example output of `az databox job show` after changing the output format to table:
+```azurepowershell
+PS C:\Windows> Connect-AzAccount
+```
 
-```azurecli
-PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
-Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+다음은 성공적인 로그인의 출력입니다.
 
-DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
---------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
-NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+```output
+WARNING: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FSBFZMBKC to authenticate.
 
-``` -->
+Account              SubscriptionName                          TenantId                             Environment
+-------              ----------------                          --------                             -----------
+gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa AzureCloud
+
+PS C:\Windows\System32>
+```
+
+Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)을 참조하세요.
 
 ---
 
@@ -201,61 +213,87 @@ NonScheduled    True             True                       False          True 
 디바이스를 주문하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. Microsoft Azure 자격 증명을 사용하여 다음 URL에서 로그인합니다. [https://portal.azure.com](https://portal.azure.com)
-2. **+ 리소스 만들기**를 클릭하고 *Azure Data Box*를 검색합니다. **Azure Data Box**를 클릭합니다.
+2. **+ 리소스 만들기**를 선택하고 *Azure Data Box*를 검색합니다. **Azure Data Box**를 선택합니다.
 
-   [![Azure Data Box 1 검색](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
+   ![Azure Data Box 선택](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. **만들기**를 클릭합니다.
+3. **만들기**를 선택합니다.
+
+   ![Azure Data Box 선택](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. 해당 지역에서 Data Box 서비스를 사용할 수 있는지 확인합니다. 다음 정보를 입력하거나 선택하고 **적용**을 클릭합니다.
 
     |설정  |값  |
     |---------|---------|
-    |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
     |전송 형식     | **Azure로 가져오기**를 선택합니다.        |
+    |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
+    |리소스 그룹 | 기존 리소스 그룹을 선택합니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
     |원본 국가/지역    |    현재 데이터가 있는 국가/지역을 선택합니다.         |
-    |대상 Azure 지역     |     데이터를 전송하려는 Azure 지역을 선택합니다.        |
+    |대상 Azure 지역     |     데이터를 전송하려는 Azure 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.            |
+
+    [![Azure Data Box 가져오기 주문](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. **Data Box**를 선택합니다. 단일 주문의 최대 사용 가능한 용량은 80TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
 
-      [![Data Box 옵션 1 선택](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
+    ![Data Box 옵션 1 선택](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. **주문**에서 **주문 세부 정보**를 지정합니다. 다음 정보를 입력하거나 선택하고 **다음**을 클릭합니다.
+6. **주문**에서 **기본 사항** 탭으로 이동합니다. 다음 정보를 입력하거나 선택하고 **다음: 데이터 대상>** 을 선택합니다.
 
     |설정  |값  |
     |---------|---------|
-    |Name     |  주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
-    |Resource group     |    기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
-    |대상 Azure 지역     | 스토리지 계정에 대한 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.        |
-    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정된 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 하나 이상의 스토리지 계정을 선택합니다. Data Box는 최대 10개의 스토리지 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.|
+    |Subscription      | 이전에 선택한 내용에 따라 구독이 자동으로 채워집니다.|
+    |Resource group    | 이전에 선택한 리소스 그룹입니다. |
+    |주문 이름 가져오기 | 주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.    |
 
-    스토리지 계정을 스토리지 대상으로 사용하는 경우 다음 스크린샷을 참조하세요.
+    ![Data Box 옵션 1 선택](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    ![스토리지 계정에 대한 Data Box 주문](media/data-box-deploy-ordered/order-storage-account.png)
+    기본적으로 디바이스 잠금 해제 암호는 Microsoft 관리형 키를 사용하여 암호화됩니다. 주문을 완료한 후에는 고객 관리형 키를 추가할 수 있습니다. 고객 관리형 키를 사용하면 Azure Key 키 자격 증명 모음의 고유한 키를 사용하여 디바이스 잠금 해제 암호를 보호할 수 있습니다. 자세한 내용은 [Azure Data Box에 Azure Key Vault의 고객 관리형 키 사용](data-box-customer-managed-encryption-key-portal.md)를 참조하세요.
 
-    Data Box를 사용하여 온-프레미스 VHD(가상 하드 디스크)에서 관리 디스크를 만드는 경우에도 다음 정보를 제공해야 합니다.
+7. **데이터 대상** 탭에서 **데이터 대상**을 선택합니다.
+
+    **스토리지 계정**을 스토리지 대상으로 사용하는 경우 다음 스크린샷이 표시됩니다.
+
+    ![Azure Data Box 데이터 대상](media/data-box-deploy-ordered/select-data-box-import-07.png)
+
+    지정된 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 하나 이상의 스토리지 계정을 선택합니다. Data Box는 최대 10개의 스토리지 계정과 연결할 수 있습니다. 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다.
+
+    가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.
+
+    Data Box를 사용하여 온-프레미스 VHD(가상 하드 디스크)에서 **관리 디스크**를 만드는 경우에도 다음 정보를 제공해야 합니다.
 
     |설정  |값  |
     |---------|---------|
     |리소스 그룹     | 온-프레미스 VHD에서 관리형 디스크를 만들려는 경우 새 리소스 그룹을 만듭니다. 이전에 Data Box 서비스를 통해 관리형 디스크의 Data Box 주문을 만들 때 리소스 그룹을 만든 경우에만 기존 리소스 그룹을 사용할 수 있습니다. <br> 세미콜론으로 구분해서 여러 리소스 그룹을 지정합니다. 최대 10개의 리소스 그룹이 지원됩니다.|
 
-    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/order-managed-disks.png)
+    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 관리형 디스크로 변환한 후 리소스 그룹으로 이동하기 전에 페이지 Blob으로 스테이징 스토리지 계정에 업로드합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](data-box-deploy-picked-up.md#verify-data-upload-to-azure)을 참조하세요.
 
-7. **배송 주소**에 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 입력합니다. **주소 확인**을 클릭합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다.
+    완료되면 **다음: 연락처 정보**를 선택하여 계속 진행합니다.
+
+8. **연락처 정보**에서 **+ 배송 주소 추가**를 선택합니다.
+
+    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+
+9. **배송 주소**에 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 입력합니다. **주소 확인**을 선택합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다.
+
+   ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    주문이 성공적으로 발주된 후 자체 관리형 배송을 선택하면 이메일 알림을 받게 됩니다. 자체 관리형 배송에 대한 자세한 내용은 [자체 관리형 배송 사용](data-box-portal-customer-managed-shipping.md)을 참조하세요.
 
-8. 배송 정보가 성공적으로 확인되면 **다음**을 클릭합니다.
+10. 배송 정보가 성공적으로 확인되면 **배송 주소 추가**을 선택합니다. **연락처 정보** 탭으로 이동됩니다.
 
-9. **알림 세부 정보**에서 이메일 주소를 지정합니다. 서비스에서는 주문 상태에 대한 모든 업데이트와 관련된 이메일 알림을 지정한 이메일 주소로 보냅니다.
+11. **연락처 정보** 탭으로 이동되면 이메일 주소를 하나 이상 추가합니다. 서비스에서는 주문 상태에 대한 모든 업데이트와 관련된 이메일 알림을 지정한 이메일 주소로 보냅니다.
 
     그룹의 관리자가 떠나는 경우에도 계속 알림을 받으려면 그룹 이메일을 사용하는 것이 좋습니다.
 
-10. 주문, 연락처, 알림 및 개인 정보 처리 방침과 관련된 정보 **요약**을 검토합니다. 개인 정보 처리 방침에 대한 계약에 해당하는 확인란을 선택합니다.
+    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
-11. **주문**을 클릭합니다. 주문을 만드는 데 몇 분 정도 걸립니다.
+12. **검토 + 주문**에서 주문, 연락처, 알림 및 개인 정보 사용 약관과 관련된 정보를 검토합니다. 개인 정보 처리 방침에 대한 계약에 해당하는 확인란을 선택합니다.
+
+13. **주문**을 선택합니다. 주문을 만드는 데 몇 분 정도 걸립니다.
+
+    ![관리형 디스크에 대한 Data Box 주문](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -287,7 +325,7 @@ NonScheduled    True             True                       False          True 
    |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
    |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
 
-2. 원하는 터미널의 명령 프롬프트에서 [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create)를 사용하여 Azure Data Box 주문을 작성합니다.
+2. 원하는 명령 프롬프트 또는 터미널에서 [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create)를 사용하여 Azure Data Box 주문을 작성합니다.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -369,6 +407,64 @@ NonScheduled    True             True                       False          True 
     NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
 
     ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+디바이스를 주문하려면 Azure PowerShell을 사용하여 다음 단계를 수행합니다.
+
+1. 가져오기 주문을 작성하려면 스토리지 계정을 가져오고 스토리지 계정 개체를 변수에 저장해야 합니다.
+
+   ```azurepowershell
+    $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
+   ```
+
+2. Data Box 주문에 대한 설정을 적습니다. 이러한 설정에는 개인/회사 정보, 구독 이름, 디바이스 정보 및 배송 정보가 포함됩니다. PowerShell 명령을 실행하여 Data Box 주문을 작성할 때 이러한 설정을 매개 변수로 사용해야 합니다. 다음 표에서는 [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob)에 사용되는 매개 변수 설정을 보여줍니다.
+
+    | 설정(매개 변수) | Description |  샘플 값 |
+    |---|---|---|
+    |ResourceGroupName [필수]| 기존 리소스 그룹을 사용합니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+    |Name [필수]| 작성하는 주문의 이름입니다. | "mydataboxorder"|
+    |ContactName [필수]| 배송 주소와 연결된 이름입니다. | "Gus Poland"|
+    |PhoneNumber [필수]| 주문한 제품을 받을 사람 또는 회사의 전화 번호입니다.| "14255551234"
+    |Location [필수]| 디바이스를 배송할 가장 가까운 Azure 지역입니다.| "WestUS"|
+    |DataBoxType [필수]| 주문하는 특정 Data Box 디바이스입니다. 유효한 값은 다음과 같습니다. "DataBox", "DataBoxDisk" 및 "DataBoxHeavy"| "DataBox" |
+    |EmailId [필수]| 주문과 연결된 이메일 주소입니다.| "gusp@contoso.com" |
+    |StreetAddress1 [필수]| 주문한 제품이 배송되는 주소입니다. | "15700 NE 39th St" |
+    |StreetAddress2| 아파트 번호 또는 건물 번호와 같은 보조 주소 정보입니다. | "Bld 123" |
+    |StreetAddress3| 3차 주소 정보입니다. | |
+    |City [필수]| 디바이스가 배송될 도시입니다. | "Redmond" |
+    |StateOrProvinceCode [필수]| 디바이스가 배송될 시/도입니다.| "WA" |
+    |CountryCode [필수]| 디바이스가 배송될 국가입니다. | "미국" |
+    |PostalCode [필수]| 배송 주소와 연결된 우편 번호입니다.| "98052"|
+    |CompanyName| 근무하는 회사의 이름입니다.| "Contoso, LTD" |
+    |StorageAccountResourceId [필수]| 데이터를 가져올 Azure Storage 계정 ID입니다.| <AzStorageAccount>.id |
+
+3. 원하는 명령 프롬프트 또는 터미널에서 [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob)을 사용하여 Azure Data Box 주문을 작성합니다.
+
+   ```azurepowershell
+    PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
+    PS> New-AzDataBoxJob -Location "WestUS" \
+                         -StreetAddress1 "15700 NE 39th St" \
+                         -PostalCode "98052" \
+                         -City "Redmond" \
+                         -StateOrProvinceCode "WA" \
+                         -CountryCode "US" \
+                         -EmailId "gusp@contoso.com" \
+                         -PhoneNumber 4255551234 \
+                         -ContactName "Gus Poland" \
+                         -StorageAccount $storAcct.id \
+                         -DataBoxType DataBox \
+                         -ResourceGroupName "myresourcegroup" \
+                         -Name "myDataBoxOrderPSTest"
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+    jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+    ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+    myDataBoxOrderPSTest DataBox              DeviceOrdered      07-06-2020 05:25:30   westus               myresourcegroup
+   ```
 
 ---
 
@@ -469,13 +565,77 @@ az databox job list --resource-group <resource-group>
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
    ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
-   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
-   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
-   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
-                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
-                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        MyResGrp         2020-05-26T23:20:57.464075+00:00  Cancelled
+   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  MyResGrp         2020-05-27T00:04:16.640397+00:00  Cancelled
+   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       MyResGrp         2020-06-10T16:54:23.509181+00:00  Cancelled
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       MyResGrp         2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       MyResGrp         2020-06-18T03:48:00.905893+00:00  DeviceOrdered
    PS C:\WINDOWS\system32>
    ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+### <a name="track-a-single-order"></a>단일 주문 추적
+
+단일 기존 Azure Data Box 주문에 대한 추적 정보를 가져오려면 [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob)을 실행합니다. 이 명령은 이름, 리소스 그룹, 추적 정보, 구독 ID, 연락처 정보, 배송 유형, 디바이스 sku 등의 주문 정보를 표시합니다.
+
+> [!NOTE]
+> `Get-AzDataBoxJob`은 단일 주문과 여러 주문을 표시하는 데 모두 사용됩니다. 차이점은 단일 주문의 주문 이름을 지정한다는 것입니다.
+
+   ```azurepowershell
+    Get-AzDataBoxJob -ResourceGroupName <String> -Name <String>
+   ```
+
+   다음 표에서는 `Get-AzDataBoxJob`에 대한 매개 변수 정보를 보여줍니다.
+
+   | 매개 변수 | Description |  샘플 값 |
+   |---|---|---|
+   |ResourceGroup [필수]| 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+   |Name [필수]| 정보를 가져올 주문의 이름입니다. | "mydataboxorder"|
+   |ResourceId| 주문과 연결된 리소스 ID입니다. |  |
+
+   다음은 출력이 있는 명령의 예입니다.
+
+   ```azurepowershell
+    PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup" -Name "myDataBoxOrderPSTest"
+   ```
+
+   다음은 명령 실행의 출력입니다.
+
+   ```output
+   jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+   ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+   myDataBoxOrderPSTest DataBox              DeviceOrdered      7/7/2020 12:37:16 AM  WestUS               myResourceGroup
+   ```
+
+### <a name="list-all-orders"></a>모든 주문 나열
+
+여러 디바이스를 주문한 경우 [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob)을 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
+뿐만 아니라 이 명령은 각 주문의 타임스탬프를 표시합니다.
+
+```azurepowershell
+Get-AzDataBoxJob -ResourceGroupName <String>
+```
+
+다음은 명령의 예제입니다.
+
+```azurepowershell
+PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup"
+```
+
+다음은 명령 실행의 출력입니다.
+
+```output
+jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+----------------     -------------------- ------------------ --------------------- -------------------- -------------
+guspImportTest       DataBox              Cancelled          5/26/2020 11:20:57 PM WestUS               myResourceGroup
+mydataboxExportTest  DataBox              Cancelled          5/27/2020 12:04:16 AM WestUS               myResourceGroup
+mydataboximport1     DataBox              Cancelled          6/26/2020 11:00:34 PM WestUS               myResourceGroup
+myDataBoxOrderPSTest DataBox              Cancelled          7/07/2020 12:37:16 AM WestUS               myResourceGroup
+mydataboxtest2       DataBox              Cancelled          6/10/2020 4:54:23  PM WestUS               myResourceGroup
+mydataboxtest4       DataBox              DeviceOrdered      6/18/2020 3:48:00  AM WestUS               myResourceGroup
+PS C:\WINDOWS\system32>
+```
 
 ---
 
@@ -564,6 +724,74 @@ Azure Data Box 주문을 취소한 경우 [az databox job delete](https://docs.m
    command ran in 1.142 seconds.
    PS C:\Windows>
    ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+### <a name="cancel-an-order"></a>주문 취소
+
+Azure Data Box 주문을 취소하려면 [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob)을 실행합니다. 주문을 취소하는 이유를 지정해야 합니다.
+
+```azurepowershell
+Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
+```
+
+다음 표에서는 `Stop-AzDataBoxJob`에 대한 매개 변수 정보를 보여줍니다.
+
+| 매개 변수 | Description |  샘플 값 |
+|---|---|---|
+|ResourceGroup [필수]| 취소할 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+|Name [필수]| 삭제할 주문의 이름입니다. | "mydataboxorder"|
+|Reason [필수]| 주문을 취소하는 이유입니다. | "잘못된 정보를 입력하여 주문을 취소해야 합니다." |
+|Force | 사용자 확인 없이 cmdlet을 강제로 실행합니다. | -Force |
+
+다음은 출력이 있는 명령의 예입니다.
+
+```azurepowershell
+PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
+                                            -Name "myDataBoxOrderPSTest" \
+                                            -Reason "I entered erroneous information and had to cancel."
+```
+
+다음은 명령 실행의 출력입니다.
+
+```output
+Confirm
+"Cancelling Databox Job "myDataBoxOrderPSTest
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\WINDOWS\system32>
+```
+
+### <a name="delete-an-order"></a>주문 삭제
+
+Azure Data Box 주문을 취소한 경우 [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob)을 실행하여 주문을 삭제할 수 있습니다.
+
+```azurepowershell
+Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
+```
+
+다음 표에서는 `Remove-AzDataBoxJob`에 대한 매개 변수 정보를 보여줍니다.
+
+| 매개 변수 | Description |  샘플 값 |
+|---|---|---|
+|ResourceGroup [필수]| 삭제할 주문과 연결된 리소스 그룹의 이름입니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. | "myresourcegroup"|
+|Name [필수]| 삭제할 주문의 이름입니다. | "mydataboxorder"|
+|Force | 사용자 확인 없이 cmdlet을 강제로 실행합니다. | -Force |
+
+다음은 출력이 있는 명령의 예입니다.
+
+```azurepowershell
+PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
+                                   -Name "mydataboxtest3"
+```
+
+다음은 명령 실행의 출력입니다.
+
+```output
+Confirm
+"Removing Databox Job "mydataboxtest3
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\Windows>
+```
 
 ---
 

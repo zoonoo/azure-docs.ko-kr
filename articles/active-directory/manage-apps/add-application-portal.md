@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f93a25854bc8b93e9bd75ea71037f6363d143914
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145720"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338030"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: 애플리케이션을 Azure AD(Azure Active Directory) 테넌트에 추가
 
@@ -53,7 +53,7 @@ Azure AD 테넌트에 애플리케이션을 추가하려면 다음을 수행합�
 6. 추가하려는 애플리케이션의 갤러리를 찾아보거나 검색 상자에 해당 이름을 입력하여 애플리케이션을 검색할 수 있습니다. 그런 다음, 결과에서 애플리케이션을 선택합니다. 양식에서 조직의 요구에 맞게 애플리케이션 이름을 편집할 수 있습니다. 이 예제에서는 GitHub를 선택하고 이름을 **GitHub-test**로 변경했습니다.
     ![갤러리에서 애플리케이션을 추가하는 방법 표시](media/add-application-portal/create-application.png)
     >[!TIP]
-    >원하는 애플리케이션이 갤러리에 없는 경우 **사용자 고유의 애플리케이션 만들기** 링크를 클릭합니다. Microsoft는 이미 많은 애플리케이션 개발자와 협력하여 Azure AD와 작동하도록 미리 구성했습니다. 이러한 앱은 갤러리에 표시됩니다. 그러나 추가하려는 앱이 나열되지 않은 경우 새 일반 앱을 만든 다음, 직접 구성하거나 앱을 만든 개발자의 지침을 사용하여 구성할 수 있습니다.
+    >찾고 있는 애플리케이션이 갤러리에 없는 경우 **자체 애플리케이션 만들기** 링크를 클릭한 다음, **애플리케이션으로 어떤 작업을 하고 싶은가요?** 에서 **갤러리에 없는 다른 애플리케이션 통합**을 선택합니다. Microsoft는 이미 많은 애플리케이션 개발자와 협력하여 Azure AD와 작동하도록 미리 구성했습니다. 이러한 앱은 갤러리에 표시됩니다. 그러나 추가하려는 앱이 나열되지 않은 경우 새 일반 앱을 만든 다음, 직접 구성하거나 앱을 만든 개발자의 지침을 사용하여 구성할 수 있습니다.
 7. **만들기**를 선택합니다. 시작 페이지가 열리고 조직의 애플리케이션을 구성하는 옵션이 제공됩니다.
 
 애플리케이션 추가를 마쳤습니다. 다음 빠른 시작에서는 애플리케이션의 로고를 변경하고 다른 속성을 편집하는 방법을 보여줍니다.

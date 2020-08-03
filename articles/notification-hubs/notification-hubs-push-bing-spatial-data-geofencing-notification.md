@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116924"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>자습서: Notification Hubs 및 Bing Spatial Data를 사용하여 위치 기반 푸시 알림 보내기
 
@@ -63,7 +63,7 @@ ms.locfileid: "86223434"
 
     파이프 파일은 이 엔터티를 나타냅니다.
 
-    ![부두 영역을 나타내는 빨간색 다각형이 있는 샌프란시스코 해안가의 ap 스크린샷.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![부두 영역을 나타내는 빨간색 다각형이 있는 샌프란시스코 해안가 맵의 스크린샷.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. **데이터 원본 업로드** 페이지에서 다음 작업을 수행합니다.
    1. **데이터 형식**에 대해 **파이프**를 선택합니다.
    2. 이전 단계에서 만든 `NotificationHubGeofence.pipe` 파일을 찾아 선택합니다.
@@ -164,7 +164,7 @@ ms.locfileid: "86223434"
     }
     ```
 
-    UWP 앱에서 사용자의 위치 가져오기에 대해 자세히 알아보려면 [사용자의 위치 가져오기](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx)를 참조하세요.
+    UWP 앱에서 사용자의 위치 가져오기에 대해 자세히 알아보려면 [사용자의 위치 가져오기](/windows/uwp/maps-and-location/get-location)를 참조하세요.
 5. 위치 취득이 실제로 작동하는지 확인하려면 기본 페이지(`MainPage.xaml.cs`)의 코드 쪽을 엽니다. `MainPage` 생성자에서 `Loaded` 이벤트에 대한 새 이벤트 처리기를 만듭니다.
 
     ```csharp
@@ -393,7 +393,7 @@ ms.locfileid: "86223434"
 
 솔루션이 프로덕션을 준비하도록 수행해야 하는 두 가지 단계가 있습니다.
 
-1. 먼저 지역 구분이 동적인지 확인해야 합니다. 기존 데이터 원본 내에서 새 경계를 업로드할 수 있도록 Bing API와 함께 몇 가지 작업이 필요합니다. 자세한 내용은 [Bing 공간 Data Services API 설명서](https://msdn.microsoft.com/library/ff701734.aspx)를 참조하세요.
+1. 먼저 지역 구분이 동적인지 확인해야 합니다. 기존 데이터 원본 내에서 새 경계를 업로드할 수 있도록 Bing API와 함께 몇 가지 작업이 필요합니다. 자세한 내용은 [Bing 공간 Data Services API 설명서](/bingmaps/spatial-data-services/)를 참조하세요.
 2. 둘째, 맞는 참가자에게 배달했는지 확인하기 위해 작업을 수행하는 경우 [태그 지정](notification-hubs-tags-segment-push-message.md)을 통해 대상을 지정할 수 있습니다.
 
-이 자습서에 표시된 솔루션은 다양한 대상 플랫폼이 있을 수 있는 시나리오를 설명하므로 시스템 관련 기능에 대해 지역 구분을 제한하지 않습니다. 즉, 유니버설 Windows 플랫폼은 [지역 구분을 기본으로 검색](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)하는 기능을 제공합니다.
+이 자습서에 표시된 솔루션은 다양한 대상 플랫폼이 있을 수 있는 시나리오를 설명하므로 시스템 관련 기능에 대해 지역 구분을 제한하지 않습니다. 즉, 유니버설 Windows 플랫폼은 [지역 구분을 기본으로 검색](/windows/uwp/maps-and-location/set-up-a-geofence)하는 기능을 제공합니다.

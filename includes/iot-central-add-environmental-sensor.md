@@ -5,15 +5,15 @@ services: iot-central
 author: dominicbetts
 ms.service: iot-central
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 07/07/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: b32465091f82fec0aeae288ee9bfd5540bfe8b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002049"
 ---
 ## <a name="create-a-device-template"></a>디바이스 템플릿 만들기
 
@@ -79,12 +79,11 @@ Azure IoT Central 애플리케이션에서 실제 디바이스를 이전 섹션�
 
 1. **디바이스** 페이지에서 **환경 센서** 디바이스 템플릿을 선택합니다.
 
-    > [!TIP]
-    > **+ 새로 만들기**를 선택하기 전에 사용할 템플릿을 선택해야 합니다. 그렇지 않으면 연결되지 않은 디바이스를 만듭니다.
-
 1. **+새로 만들기**를 선택합니다.
 
-1. **시뮬레이션됨**이 **끄기**인지 확인합니다. 그런 다음 **만들기**를 선택합니다.
+1. **새 디바이스 만들기** 대화 상자에서 **환경 센서**가 템플릿 유형이고, **이 디바이스를 시뮬레이션하시겠습니까?** 가 **아니요**로 설정되어 있는지 확인합니다.
+
+1. 그런 다음 **만들기**를 선택합니다.
 
 디바이스 이름을 클릭한 다음, **연결**을 선택합니다. **디바이스 연결** 페이지에서 디바이스 연결 정보(**ID 범위**, **디바이스 ID** 및 **기본 키** )를 적어 둡니다. 이러한 값은 디바이스 코드를 만들 때 필요합니다.
 

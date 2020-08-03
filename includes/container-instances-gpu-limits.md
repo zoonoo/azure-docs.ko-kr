@@ -4,14 +4,14 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: danlep
-ms.openlocfilehash: e3aeababcd062e315c9d80a35f183173a6fd1273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad52317319a2da973c0cc1cdf34a1ada01238d95
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77117807"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387094"
 ---
-### <a name="resource-availability"></a>리소스 가용성
+### <a name="maximum-resources-per-sku"></a>SKU 당 최대 리소스
 
 | OS | GPU SKU | GPU 수 | 최대 CPU | 최대 메모리 (GB) | 스토리지(GB) |
 | --- | --- | --- | --- | --- | --- |

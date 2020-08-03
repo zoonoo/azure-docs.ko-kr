@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: 75529d03435e92dfff26dac81f4f7e59585b6fe9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 8afa0b1b068aa03bb1add7f029c731b4fc9a4724
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039690"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Azure Portal의 청구 계정 및 범위
 
@@ -39,7 +39,7 @@ Azure Portal에서는 다음과 같은 유형의 청구 계정을 지원합니�
 
 |범위  |정의  |
 |---------|---------|
-|청구 계정     | 고객이 Azure 사용을 수락하는 계약을 나타내며, 하나 이상의 구독을 포함합니다.  |
+|청구 계정     | 고객이 Azure 사용을 수락하는 계약을 나타내며, 하나 이상의 구독이 포함되어 있습니다.  |
 |Subscription     |  Azure 리소스의 그룹화를 나타냅니다. 이 범위에서 청구서가 생성됩니다. 지불 방법 및 사용 주소와 같은 기타 청구 정보가 이 범위에 연결됩니다.|
 
 ### <a name="enterprise-agreement"></a>기업 계약

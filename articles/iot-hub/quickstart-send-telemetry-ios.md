@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub에 원격 분석 전송 빠른 시작 | Microsoft Docs
-description: 이 빠른 시작에서는 샘플 iOS 애플리케이션을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
+title: Azure IoT Hub에 원격 분석 보내기 빠른 시작(iOS)
+description: 샘플 iOS 애플리케이션을 실행하여 시뮬레이션된 원격 분석을 IoT 허브로 보내고, 클라우드에서 처리할 원격 분석을 IoT 허브에서 읽습니다.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 ms.date: 04/03/2019
-ms.openlocfilehash: dd6ad0a3bc20821f51fcb4637dd4af18a6c3ec84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5df389d9bb22fca72f2ff3b65c417f592208d58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061568"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기(iOS)
 

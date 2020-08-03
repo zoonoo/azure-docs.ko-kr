@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 924654dace53b326e3a29bb834f773122b0476ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384367"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081120"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>자습서: Linux 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -134,7 +134,7 @@ Visual Studio Code 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루�
    | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
    | 모듈 템플릿 선택 | **C# 모듈**을 선택합니다. |
    | 모듈 이름 제공 | 기본값인 **SampleModule**을 그대로 사용합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/samplemodule과 같습니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<registry name\>.azurecr.io/samplemodule과 같습니다. |
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-develop-for-linux/image-repository.png)
 
@@ -212,13 +212,19 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 1. **보기** > **터미널**을 선택하여 Visual Studio Code 통합 터미널을 엽니다.
 
-2. 레지스트리를 만든 후 저장한 Azure Container Registry 자격 증명을 사용하여 Docker에 로그인합니다.
+2. 레지스트리를 만든 후 저장한 Azure Container 레지스트리 자격 증명을 사용하여 Docker에 로그인합니다.
 
    ```cmd/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
    `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   
+3. Azure Container Registry에 로그인
+
+   ```cmd/sh
+   az acr login -n <ACR registry name>
+   ```
 
 ### <a name="build-and-push"></a>빌드 및 푸시
 
@@ -262,7 +268,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 모듈 이미지를 빌드 및 푸시할 때 오류가 발생하는 경우 개발 머신의 Docker 구성과 관련이 있는 경우가 자주 있습니다. 다음 사항을 확인하여 구성을 검토합니다.
 
 * 컨테이너 레지스트리에서 복사한 자격 증명을 사용하여 `docker login` 명령을 실행했나요? 이러한 자격 증명은 Azure에 로그인하는 데 사용하는 자격 증명과 다릅니다.
-* 컨테이너 리포지토리가 올바른가요? 컨테이너 레지스트리 이름과 모듈 이름이 올바른가요? SampleModule 폴더에서 **module.json** 파일을 열어 확인합니다. 리포지토리 값은 **\<레지스트리 이름\>.azurecr.io/samplemodule**과 같습니다.
+* 컨테이너 리포지토리가 올바른가요? 컨테이너 레지스트리 이름과 모듈 이름이 올바른가요? SampleModule 폴더에서 **module.json** 파일을 열어 확인합니다. 리포지토리 값은 **\<registry name\>.azurecr.io/samplemodule**과 같아야 합니다.
 * 모듈에 **SampleModule** 이외의 이름을 사용한 경우 해당 이름이 솔루션 전체에서 일관되나요?
 * 머신에서 빌드하는 것과 같은 유형의 컨테이너가 실행되고 있나요? 이 자습서는 Linux IoT Edge 디바이스에 대한 내용을 제공하므로 Visual Studio Code는 사이드바에 **amd64** 또는 **arm32v7**을 표시해야 하고 Docker Desktop에서는 Linux 컨테이너가 실행되고 있어야 합니다.  
 

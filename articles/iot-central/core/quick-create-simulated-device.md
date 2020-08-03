@@ -3,17 +3,17 @@ title: 빠른 시작 - Azure IoT Central에 시뮬레이션된 디바이스 추�
 description: 이 빠른 시작에서는 디바이스 템플릿을 만들고 IoT Central 애플리케이션에 시뮬레이션된 디바이스를 추가하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 25e1742612c6fc8c326f2918a4d69c55a9888c97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81001132"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001957"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>빠른 시작: IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가
 
@@ -64,7 +64,7 @@ IoT Central 애플리케이션에 디바이스 기능 모델을 추가하는 여
 
 ### <a name="add-cloud-properties"></a>클라우드 속성 추가
 
-디바이스 템플릿에는 클라우드 속성이 포함될 수 있습니다. 클라우드 속성은 IoT Central 애플리케이션에만 있으며 디바이스에서 보내거나 받지 않습니다.
+디바이스 템플릿에는 클라우드 속성이 포함될 수 있습니다. 클라우드 속성은 IoT Central 애플리케이션에만 있으며 디바이스에서 보내거나 받지 않습니다. 클라우드 속성을 추가하려면 다음을 수행합니다.
 
 1. **클라우드 속성**, **+ 클라우드 속성 추가**를 차례로 선택합니다. 다음 표의 정보를 사용하여 디바이스 템플릿에 두 가지 클라우드 속성을 추가합니다.
 
@@ -136,15 +136,17 @@ IoT Central 애플리케이션에 디바이스 기능 모델을 추가하는 여
 
 1. **디바이스** 페이지에서 시뮬레이션된 디바이스를 선택합니다.
 
-1. **개요** 보기에는 시뮬레이션된 원격 분석 플롯이 표시됩니다.
+    * **개요** 보기에는 시뮬레이션된 원격 분석 플롯이 표시됩니다.
 
-    ![개요 보기](./media/quick-create-simulated-device/simulated-telemetry.png)
+        ![개요 보기](./media/quick-create-simulated-device/simulated-telemetry.png)
 
-1. **정보** 보기에는 보기에 추가된 클라우드 속성을 비롯한 속성 값이 표시됩니다.
+    * **정보** 보기에는 보기에 추가된 클라우드 속성을 비롯한 속성 값이 표시됩니다.
 
-1. **명령** 보기를 사용하면 디바이스에서 **blink** 같은 명령을 실행할 수 있습니다.
+    * **명령** 보기를 사용하면 디바이스에서 **blink** 같은 명령을 실행할 수 있습니다.
 
-1. **디바이스 관리** 보기는 운영자가 디바이스를 관리할 수 있도록 만든 양식입니다.
+    * **디바이스 관리** 보기는 운영자가 디바이스를 관리할 수 있도록 만든 양식입니다.
+
+    * **원시 데이터** 보기를 통해 디바이스에서 보낸 원시 원격 분석 및 속성 값을 볼 수 있습니다. 이 보기는 디바이스를 디버깅하는 데 유용합니다.
 
 ## <a name="use-a-simulated-device-to-improve-views"></a>시뮬레이션된 디바이스를 사용하여 보기 개선
 

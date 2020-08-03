@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181616"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058283"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -407,7 +407,7 @@ Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리
 
 ### <a name="view-application-results"></a>애플리케이션 결과 보기
 
-로그인한 후 사용자는 웹 사이트의 홈 페이지로 리디렉션됩니다. 홈페이지는 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL입니다. 홈페이지에는 *"Hello \<사용자>"* 시작 메시지, 로그아웃하기 위한 링크 및 사용자의 클레임을 보기 위한 링크가 포함되어 있습니다. 사용자의 클레임에 대한 링크는 앞에서 만든 Claims 컨트롤러에 연결됩니다.
+로그인한 후 사용자는 웹 사이트의 홈 페이지로 리디렉션됩니다. 홈페이지는 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL입니다. 홈페이지에는 *"Hello \<user>"* 시작 메시지, 로그아웃하기 위한 링크 및 사용자의 클레임을 보기 위한 링크가 포함되어 있습니다. 사용자의 클레임에 대한 링크는 앞에서 만든 Claims 컨트롤러에 연결됩니다.
 
 ### <a name="view-the-users-claims"></a>사용자의 클레임 보기
 
@@ -468,13 +468,13 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>옵션 3: 사용자 지정 메서드를 사용하여 발급자 유효성 검사
 
-**IssuerValidator** 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수를 사용하는 방법에 관한 자세한 내용은 [TokenValidationParameters 클래스](/previous-versions/visualstudio/dn464192(v=vs.114))를 참조하세요.
+**IssuerValidator** 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수를 사용하는 방법에 관한 자세한 내용은 [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters) 클래스를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 웹앱에서 웹 API를 호출하는 방법을 알아봅니다.
 
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>이 빠른 시작 가이드에서 사용되는 애플리케이션을 만드는 방법 알아보기
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에서 사용되는 애플리케이션을 만드는 방법 알아보기
 
 Microsoft ID 플랫폼을 사용하여 웹앱에서 웹 API를 호출하는 방법을 자세히 알아봅니다.
 

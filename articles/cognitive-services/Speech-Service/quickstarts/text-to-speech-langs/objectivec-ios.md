@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 합성, Objective-C - Speech Service'
+title: '빠른 시작: Speech SDK를 사용하여 Objective-C에서 음성 합성'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 iOS에서 Objective-C로 음성을 합성하는 방법 알아보기
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 7a1cc2c45988e0c5a8c757e4d280b48dbbe56daa
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fa1b62a987cb6c158c8d7f1fceb57bc47e5800eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084843"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 합성
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 Objective-C에서 iOS 앱을 생성하여 텍스트에서 음성을 합성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 필수 구성 요소 목록은 다음과 같습니다.
 

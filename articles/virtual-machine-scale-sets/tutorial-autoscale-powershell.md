@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7ba6a059a35bee0b122659d8fc70466595112fca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011036"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 
@@ -99,7 +99,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ## <a name="create-a-rule-to-autoscale-in"></a>자동 크기 축소 규칙 만들기
 저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
 
-평균 CPU 로드가 5분 동안 30% 미만일 경우 [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule)을 사용하여 확장 집합의 VM 인스턴스 수를 줄이는 다른 규칙을 만듭니다. 규칙이 트리거되면 VM 인스턴스 수가 1만큼 줄어듭니다. 다음 예제에서는 이 강화 규칙을 보유하는 *myRuleScaleDown*이라는 개체를 만듭니다. *-MetricResourceId*는 구독 ID, 리소스 그룹 이름 및 확장 집합 이름에 대해 이전에 정의된 변수를 사용합니다.
+평균 CPU 로드가 5분 동안 30% 미만일 경우 [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule)을 사용하여 확장 집합의 VM 인스턴스 수를 줄이는 다른 규칙을 만듭니다. 규칙이 트리거되면 VM 인스턴스 수가 하나씩 감소합니다. 다음 예제에서는 이 축소 규칙이 적용되는 *myRuleScaleDown*이라는 개체를 생성합니다. *-MetricResourceId*는 구독 ID, 리소스 그룹 이름 및 확장 집합 이름에 대해 이전에 정의된 변수를 사용합니다.
 
 ```azurepowershell-interactive
 $myRuleScaleIn = New-AzureRmAutoscaleRule `

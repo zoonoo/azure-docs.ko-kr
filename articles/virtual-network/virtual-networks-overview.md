@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network | Microsoft Docs
-description: Azure Virtual Network 개념 및 기능에 대해 알아봅니다.
+description: 주소 공간, 서브넷, 지역 및 구독을 포함하여 Azure Virtual Network 개념 및 기능에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040608"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386999"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -27,7 +27,7 @@ Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구�
 ## <a name="vnet-concepts"></a>VNet 개념
 
 - **주소 공간:** VNet을 만들 때 공용 및 프라이빗(RFC 1918) 주소를 사용하여 사용자 지정 프라이빗 IP 주소 공간을 지정해야 합니다. Azure는 가상 네트워크의 리소스에 사용자가 할당한 주소 공간의 개인 IP 주소를 할당합니다. 예를 들어 주소 공간인 10.0.0.0/16이 있는 VNet에 VM을 배포하는 경우 VM에는 10.0.0.4 같은 프라이빗 IP가 할당됩니다.
-- **서브넷:** 서브넷을 사용하면 가상 네트워크를 하나 이상의 하위 네트워크로 분할하고 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당합니다. 그런 다음, 특정 서브넷에 Azure 리소스를 배포할 수 있습니다. 기존 네트워크와 마찬가지로 서브넷을 사용하여 VNet 주소 공간을 조직의 내부 네트워크에 적합한 세그먼트로 분할할 수 있습니다. 주소 할당 효율성도 향상됩니다. 네트워크 보안 그룹을 사용하여 서브넷 내의 리소스에 보안을 지정할 수 있습니다. 자세한 내용은 [보안 그룹](security-overview.md)을 참조하세요.
+- **서브넷:** 서브넷을 사용하면 가상 네트워크를 하나 이상의 하위 네트워크로 분할하고 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당합니다. 그런 다음, 특정 서브넷에 Azure 리소스를 배포할 수 있습니다. 기존 네트워크와 마찬가지로 서브넷을 사용하여 VNet 주소 공간을 조직의 내부 네트워크에 적합한 세그먼트로 분할할 수 있습니다. 주소 할당 효율성도 향상됩니다. 네트워크 보안 그룹을 사용하여 서브넷 내의 리소스에 보안을 지정할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
 - **지역**: VNet은 단일 지역/위치로 범위가 제한되지만 가상 네트워크 피어링을 사용하여 여러 지역의 여러 가상 네트워크를 연결할 수 있습니다.
 - **구독:** VNet은 구독으로 범위가 제한됩니다. 각 Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 및 Azure [지역](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) 내에서 여러 가상 네트워크를 구현할 수 있습니다.
 
@@ -67,7 +67,7 @@ Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 
 
 다음 옵션 중 하나 또는 둘 다를 사용하여 서브넷 간의 네트워크 트래픽을 필터링할 수 있습니다.
 
-- **보안 그룹:** 네트워크 보안 그룹 및 애플리케이션 보안 그룹에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 리소스와 주고받는 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹](security-overview.md#network-security-groups) 또는 [애플리케이션 보안 그룹](security-overview.md#application-security-groups)을 참조하세요.
+- **네트워크 보안 그룹:** 네트워크 보안 그룹 및 애플리케이션 보안 그룹에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 리소스와 주고받는 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹](security-overview.md#network-security-groups) 또는 [애플리케이션 보안 그룹](security-overview.md#application-security-groups)을 참조하세요.
 - **네트워크 가상 어플라이언스:** 네트워크 가상 어플라이언스는 방화벽, WAN 최적화 또는 기타 네트워크 기능과 같은 네트워크 기능을 수행하는 VM입니다. Azure 가상 네트워크에 배포할 수 있는 네트워크 가상 어플라이언스 목록을 보려면 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요.
 
 ## <a name="route-network-traffic"></a>네트워크 트래픽 라우팅

@@ -5,29 +5,31 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: 0d24f5621786ce292d98ae1fc6dd8fafc5b69c55
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3e21cc7a66f09b5e759b3d3a53ab95dd9710900d
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556232"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171971"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Azure Table Storage 및 Azure Cosmos DB는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스로, 스키마 없이 디자인된 키/특성 저장소를 제공합니다. Table Storage 및 Azure Cosmos DB는 모두 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 및 Table API 데이터에 대한 액세스는 많은 애플리케이션 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
+Azure Table 스토리지 및 Azure Cosmos DB는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스로, 스키마 없이 디자인된 키/특성 저장소를 제공합니다. Table Storage 및 Azure Cosmos DB는 모두 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 테이블 스토리지 및 테이블 API 데이터에 대한 액세스는 많은 애플리케이션 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 기존 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 스토리지 계정에 포함할 수 있는 테이블의 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다.
+Table 스토리지 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트를 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 스토리지 계정에 포함할 수 있는 테이블의 수에는 스토리지 계정의 최대 용량 한도까지 제한이 없습니다.
 
 ### <a name="about-this-sample"></a>이 샘플 정보
+
 이 샘플에서는 몇 가지 일반적인 Azure Table Storage 시나리오에서 [Python용 Azure Cosmos DB Table SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)을 사용하는 방법을 보여 줍니다. SDK의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 SDK는 Azure Cosmos DB와 Azure Tables 스토리지 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 Python 예제를 통해 이러한 시나리오를 살펴보겠습니다.
+
 * 테이블 만들기 및 삭제
 * 엔터티 삽입 및 쿼리
 * 엔터티 수정
@@ -38,17 +40,20 @@ Table Storage 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션의 �
 
 이 샘플을 성공적으로 완료하려면 다음이 필요합니다.
 
-- [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 또는 3.6
-- [Python용 Azure Cosmos DB 테이블 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/) 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
-- [Azure Storage 계정](../storage/common/storage-account-create.md) 또는 [Azure Cosmos DB 계정](https://azure.microsoft.com/try/cosmosdb/)
+* [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 또는 3.6
+* [Python용 Azure Cosmos DB 테이블 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/) 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
+* [Azure Storage 계정](../storage/common/storage-account-create.md) 또는 [Azure Cosmos DB 계정](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
+
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
+**Azure 스토리지 계정 만들기**
+
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
+**Azure Cosmos DB Table API 계정 만들기**
+
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>Azure Cosmos DB Table SDK for Python 설치

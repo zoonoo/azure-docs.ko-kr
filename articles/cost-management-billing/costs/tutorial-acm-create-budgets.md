@@ -3,23 +3,23 @@ title: 자습서 - Azure 예산 만들기 및 관리
 description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용을 계획하고 설명하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 07/15/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 384be4599abadaada31cfc5b4993fff6705ec71d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3572cbb3f8c4a4f20c0141ac1fae5f0aa6fbd216
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044987"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
 Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 있습니다. 예산을 사용하여 특정 기간 중 사용자가 소비 또는 구독하는 Azure 서비스를 설명할 수 있습니다. 비용을 적극적으로 관리하고 지출이 진행되는 방식을 모니터링하기 위해 지출에 대해 다른 사람들에게 알리는 데 도움이 됩니다. 사용자가 만든 예산 임계값이 초과된 경우 알림만 트리거되고 리소스에는 영향을 미치지 않으며 소비도 중단되지 않습니다. 예산을 사용하여 비용 분석 시 지출을 비교하고 추적할 수 있습니다.
 
-비용 및 사용 현황 데이터는 일반적으로 12-16시간 이내에 사용할 수 있으며 예산은 4시간마다 이러한 비용에 대해 계산됩니다. 이메일 알림은 일반적으로 12-16시간 이내에 수신됩니다.
+비용 및 사용량 데이터는 일반적으로 20시간 이내에 사용할 수 있으며 예산은 12-14시간마다 이러한 비용에 대해 계산됩니다. 예산 임계값에 도달하면 일반적으로 계산 후 1시간 이내에 이메일 알림이 전송됩니다.
 
 예산은 미래의 만료 날짜를 선택한 경우 동일한 예산 금액에 대해 기간(월별, 분기별 또는 연간)이 끝나면 자동으로 다시 설정됩니다. 동일한 예산 금액으로 다시 설정하므로, 미래 기간에 대해 예산 책정된 통화 금액이 다를 경우 별도의 예산을 만들어야 합니다.
 
@@ -101,11 +101,13 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![월별 비용 데이터로 예산 생성을 보여주는 예제 ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-예산 금액을 구성한 후 **다음**을 선택하여 예산 경고를 구성합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 일반적으로 이메일 알림이 20시간 이내에 수신됩니다.
+예산 금액을 구성한 후 **다음**을 선택하여 예산 경고를 구성합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 일반적으로 계산 후 1시간 이내에 이메일 알림이 전송됩니다.
 
 이메일을 받으려면 이메일이 정크 메일 폴더로 이동하지 않도록 승인된 보낸 사람 목록에 azure-noreply@microsoft.com을 추가합니다. 알림에 대한 자세한 내용은 [비용 경고 사용](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
 
 아래 예제에서 예산의 90%에 도달했을 때 이메일 경고가 생성되었습니다. 예산 API를 사용하여 예산을 만드는 경우 사용자가 경고를 수신하도록 역할을 할당할 수도 있습니다. 사용자에게 역할을 할당하는 것은 Azure Portal에서 지원되지 않습니다. Azure 예산 API에 대한 자세한 내용은 [예산 API](/rest/api/consumption/budgets)를 참조하세요.
+
+경고 제한은 제공된 예산 임계값의 0.01~1000% 범위를 지원합니다.
 
 ![경고 조건을 보여주는 예제](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 

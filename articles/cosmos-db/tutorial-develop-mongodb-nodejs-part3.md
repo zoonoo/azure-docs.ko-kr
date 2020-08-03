@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ed552bfb37f01200a4dba38ea733a1189768d56a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067164"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Angular를 사용하여 UI 빌드
 
@@ -41,7 +41,7 @@ ms.locfileid: "85114387"
 
 ## <a name="build-the-ui"></a>UI 빌드
 
-1. Visual Studio Code에서 중지 단추를 클릭합니다. ![Visual Studio Code의 중지 단추는](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) 노드 앱을 중지합니다.
+1. Visual Studio Code에서 중지 단추 :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png":::를 클릭하여 Node 앱을 중지합니다. 
 
 2. Windows 명령 프롬프트 또는 Mac 터미널 창에서 Heroes 구성 요소를 생성하는 다음 명령을 입력합니다. 이 코드에서 g=생성, c=구성 요소, heroes=구성 요소 이름이며, 플랫 파일 구조(--flat)를 사용하므로 여기에 하위 폴더가 생성되지 않습니다.
 
@@ -486,7 +486,7 @@ ms.locfileid: "85114387"
 
     이제 앱을 실행하겠습니다.
 
-2. Visual Studio Code의 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)을 클릭하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png)을 클릭합니다.
+2. Visual Studio Code에서 왼쪽의 **디버그** 단추 :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png":::를 클릭한 다음, **디버깅 시작** 단추 :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png":::를 클릭합니다.
 
 3. 이제 인터넷 브라우저를 열고 **localhost:3000**으로 이동하고 로컬로 실행 중인 앱을 확인합니다.
 

@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027718"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373524"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -242,6 +242,8 @@ Azure Cloud Shell에서 작업하는 경우 *웹 미리 보기* 단추와 *구�
 ![웹 미리 보기 단추 찾기](./media/quickstarts/cloud-shell-web-preview.png)
 
 미리 보기에 대한 포트를 구성하라는 메시지가 표시되면 ‘5000’을 입력하고 *열기 및 찾기*를 선택합니다.  웹 페이지에서 “Azure App Configuration의 정보”를 읽습니다.
+
+![빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

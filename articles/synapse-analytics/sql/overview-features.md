@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse SQL의 T-SQL 기능 차이점
+title: Synapse SQL의 T-SQL 기능 차이점
 description: Synapse SQL에서 사용할 수 있는 Transact-SQL 기능 목록입니다.
 services: synapse analytics
 author: jovanpop-msft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43882316c1f8d3f52d434d916e8aea79226a3177
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e1223a9cd5bd3a092bc35c9ba03f7352c6ac7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059408"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 

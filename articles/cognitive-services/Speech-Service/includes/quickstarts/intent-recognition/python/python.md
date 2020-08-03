@@ -6,16 +6,16 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d819eaa5c90e304a642efd3a6f2458cab4eefe7f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421996"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298740"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에:
+시작하기 전에 다음을 수행합니다.
 
 * <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">개발 환경용 Speech SDK를 설치하고 빈 샘플 프로젝트를 만듭니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -68,6 +68,8 @@ Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. �
 > 이 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
+
+이 예제에서는 `add_intents()` 함수를 사용하여 명시적으로 정의된 의도 목록을 추가합니다. 모델에서 모든 의도를 추가하려면 `add_all_intents(model)`를 사용하고 모델을 전달합니다.
 
 ## <a name="recognize-an-intent"></a>의도 인식
 

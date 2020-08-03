@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Key Vault에서 키 설정 및 검색'
+title: Azure Key Vault에서 키 특성 만들기 및 검색 - Azure CLI
 description: Azure CLI를 사용하여 Azure Key Vault에서 키를 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: defc5317c127d771786989748e404285ca0c0584
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e9d56f0ad2da696eb683ea393ad75254ba3ce954
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061305"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 키 설정 및 검색
 

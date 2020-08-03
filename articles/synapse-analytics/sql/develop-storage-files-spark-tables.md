@@ -1,5 +1,5 @@
 ---
-title: SQL 주문형(미리 보기)에서 Synchronize Apache Spark for Azure Synapse 외부 테이블 정의 동기화
+title: SQL 주문형(미리 보기)에서 외부 테이블 정의에 대한 Apache Spark 동기화
 description: SQL 주문형(미리 보기)을 사용하여 Spark 테이블 쿼리하는 방법 개요
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e9f688a31d2847505e974ab6a1557aa6a7b2047
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046852"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>SQL 주문형(미리 보기)에서 Synchronize Apache Spark for Azure Synapse 외부 테이블 정의 동기화
 
@@ -22,7 +22,7 @@ SQL 주문형(미리 보기)은 Apache Spark for Azure Synapse 풀에서 메타�
 
 Parquet을 기반으로 하고 Azure Storage에 있는 각 Spark 외부 테이블에 대해 SQL 주문형 데이터베이스에 외부 테이블이 생성됩니다. 따라서 Spark 풀을 종료하고 SQL 주문형에서 Spark 외부 테이블을 계속 쿼리할 수 있습니다.
 
-테이블이 Spark에서 분할되면 스토리지의 파일은 폴더별로 구성됩니다. SQL 주문형은 파티션 메타데이터를 활용하고 쿼리에 관련된 폴더와 파일만 대상으로 합니다.
+테이블이 Spark에서 분할되면 스토리지의 파일은 폴더별로 구성됩니다. SQL 주문형은 파티션 메타데이터를 사용하고 쿼리에 관련된 폴더와 파일만 대상으로 합니다.
 
 Azure Synapse 작업 영역에서 프로비저닝된 각 Spark 풀에 대해 메타데이터 동기화가 자동으로 구성됩니다. Spark 외부 테이블을 즉시 쿼리할 수 있습니다.
 
@@ -35,14 +35,14 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> Spark 외부 테이블 열 추가, 삭제 또는 변경은 SQL 주문형의 외부 테이블에 반영되지 않습니다.
+> 열에 대한 Spark 외부 테이블 명령 추가, 삭제 또는 변경은 SQL 주문형의 외부 테이블에 반영되지 않습니다.
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Apache Spark 데이터 형식을 SQL 데이터 형식으로 매핑
 
 | Spark 데이터 형식 | SQL 데이터 형식               |
 | --------------- | --------------------------- |
 | ByteType        | smallint                    |
-| ShortType       | smallint                    |
+| Short 형식       | smallint                    |
 | IntegerType     | int                         |
 | LongType        | bigint                      |
 | FloatType       | real                        |

@@ -7,31 +7,30 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
-ms.date: 04/05/2018
-ms.openlocfilehash: dcea83b9452b33baef8d563c7776aa9bd258a5f4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/23/2020
+ms.openlocfilehash: f0a5c3df2359add9f896e05af6c8c77d9e006a2a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85389686"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171986"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>PHP에서 Azure Storage Table 서비스 또는 Azure Cosmos DB Table API를 사용하는 방법
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>개요
-이 가이드에서는 Azure Storage Table 서비스 및 Azure Cosmos DB Table API를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [Azure Storage Table PHP 클라이언트 라이브러리][download]를 사용합니다. 여기에서 다루는 시나리오에는 **테이블 만들기 및 삭제** 및 **테이블에서 엔터티 삽입, 삭제 및 쿼리**가 포함됩니다. Azure Table service에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
-
+이 문서에서는 테이블을 만들고, 데이터를 저장하고, 데이터에 대한 CRUD 작업을 수행하는 방법을 보여줍니다. Azure Table 서비스 또는 Azure Cosmos DB Table API 중 하나를 선택합니다. 샘플은 PHP로 작성되었으며 [Azure Storage Table PHP 클라이언트 라이브러리][download]를 사용합니다. 여기에서 다루는 시나리오에는 **테이블 만들기 및 삭제** 및 **테이블에서 엔터티 삽입, 삭제 및 쿼리**가 포함됩니다. Azure Table service에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
+**Azure 스토리지 계정 만들기**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
+**Azure Cosmos DB Table API 계정 만들기**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -58,8 +57,8 @@ Storage Table service 또는 Azure Cosmos DB Table API에 액세스하는 PHP �
    ```
    또는 GitHub에서 [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table)로 이동하여 소스 코드를 복제합니다.
 
-
 ## <a name="add-required-references"></a>필수 참조 추가
+
 Storage Table service 또는 Azure Cosmos DB API를 사용하려면 다음을 수행해야 합니다.
 
 * [require_once][require_once] 문을 사용하여 자동 로더 파일 참조 및
@@ -74,25 +73,32 @@ use MicrosoftAzure\Storage\Table\TableRestProxy;
 
 아래 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
 
-## <a name="add-a-storage-table-service-connection"></a>Storage Table service 연결 추가
+## <a name="add-your-connection-string"></a>연결 문자열 추가
+
+Azure 스토리지 계정 또는 Azure Cosmos DB Table API 계정에 연결할 수 있습니다. 사용 중인 계정 유형에 따라 연결 문자열을 가져옵니다.
+
+### <a name="add-a-storage-table-service-connection"></a>Storage Table service 연결 추가
+
 Storage Table service 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. Storage Table service 연결 문자열 형식은 다음과 같습니다.
 
 ```php
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
-Azure Cosmos DB Table 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
+### <a name="add-a-storage-emulator-connection"></a>스토리지 에뮬레이터 연결 추가
 
-```php
-$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
-```
-
-## <a name="add-a-storage-emulator-connection"></a>스토리지 에뮬레이터 연결 추가
 에뮬레이터 스토리지에 액세스하려면 다음을 수행합니다.
 
 ```php
 UseDevelopmentStorage = true
+```
+
+### <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
+
+Azure Cosmos DB Table 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
+
+```php
+$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
 Azure Table service 클라이언트 또는 Azure Cosmos DB 클라이언트를 만들려면 **TableRestProxy** 클래스를 사용해야 합니다. 다음을 수행할 수 있습니다.
@@ -113,6 +119,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## <a name="create-a-table"></a>테이블 만들기
+
 **TableRestProxy** 개체를 통해 **createTable** 메서드를 사용하여 테이블을 만들 수 있습니다. 테이블을 만드는 중에 Table service 제한 시간을 설정할 수 있습니다. (Table service 제한 시간에 대한 자세한 내용은 [Table service 작업의 제한 시간 설정][table-service-timeouts]을 참조하세요.)
 
 ```php
@@ -140,6 +147,7 @@ catch(ServiceException $e){
 테이블 이름의 제한 사항에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][table-data-model]를 참조하세요.
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
+
 테이블에 엔터티를 추가하려면 새 **항목** 개체를 만들어 **TableRestProxy->insertEntity**에 전달합니다. 엔터티를 만들 때 `PartitionKey` 및 `RowKey`를 지정해야 한다는 점에 주의하세요. 이 두 키는 엔터티의 고유한 식별자이며, 다른 엔터티 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. 시스템은 `PartitionKey`를 사용하여 여러 스토리지 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. 동일한 `PartitionKey` 의 엔터티는 동일한 노드에 저장됩니다. 동일한 노드에 저장된 여러 엔터티에 대해 작업을 수행하는 것이 여러 노드에 걸쳐 저장된 엔터티에 대해 작업을 수행하는 것보다 성능 면에서 우수합니다. `RowKey`는 파티션 내에서 엔터티의 고유한 ID입니다.
 
 ```php
@@ -219,6 +227,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="retrieve-a-single-entity"></a>단일 엔터티 검색
+
 **TableRestProxy->getEntity** 메서드를 사용하면 `PartitionKey` 및 `RowKey`를 쿼리하여 단일 엔터티를 검색할 수 있습니다. 아래 예제에서는 파티션 키 `tasksSeattle` 및 행 키 `1`이 **getEntity** 메서드에 전달됩니다.
 
 ```php
@@ -248,6 +257,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>파티션의 모든 엔터티 검색
+
 엔터티 쿼리는 필터를 사용하여 구성됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 파티션의 모든 엔터티를 검색하려면 "PartitionKey eq *partition_name*" 필터를 사용합니다. 다음 예제에서는 필터를 **queryEntities** 메서드에 전달하여 `tasksSeattle` 파티션의 모든 엔터티를 검색하는 방법을 보여 줍니다.
 
 ```php
@@ -281,6 +291,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>파티션의 엔터티 하위 집합 검색
+
 이전 예제에서 사용된 동일한 패턴을 파티션의 엔터티 하위 집합 검색에 사용할 수 있습니다. 검색되는 엔터티 하위 집합은 사용하는 필터에 의해 결정됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 다음 예제에서는 필터를 사용하여 특정 `Location`과 지정한 날짜보다 작은 `DueDate`를 갖는 모든 엔터티를 검색하는 방법을 설명합니다.
 
 ```php
@@ -314,6 +325,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 검색
+
 쿼리를 통해 엔터티 속성 하위 집합을 검색할 수 있습니다. *프로젝션*이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. 검색할 속성을 지정하려면 속성 이름을 **Query->addSelectField** 메서드에 전달합니다. 이 메서드를 여러 번 호출하여 더 많은 속성을 추가할 수 있습니다. **TableRestProxy->queryEntities**를 실행한 후에 반환된 엔터티에는 선택한 속성만 있게 됩니다. 테이블 엔터티 하위 집합을 반환하려는 경우에는 위의 쿼리와 같이 필터를 사용합니다.
 
 ```php
@@ -353,6 +365,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="update-an-entity"></a>엔터티 업데이트
+
 엔터티에 대해 **Entity->setProperty** 및 **Entity->addProperty** 메서드를 사용한 다음, **TableRestProxy->updateEntity**를 호출하면 기존 엔터티를 업데이트할 수 있습니다. 다음 예제에서는 엔터티를 검색한 후, 속성 1개를 수정하고 다른 속성을 제거하고 새 속성을 추가합니다. 참고로, 속성을 제거할 때는 속성 값을 **null**로 설정하면 됩니다.
 
 ```php
@@ -387,6 +400,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="delete-an-entity"></a>엔터티 삭제
+
 엔터티를 삭제하려면 테이블 이름과 엔터티의 `PartitionKey` 및 `RowKey`를 **TableRestProxy->deleteEntity** 메서드에 전달합니다.
 
 ```php
@@ -415,6 +429,7 @@ catch(ServiceException $e){
 동시성 검사의 경우 **DeleteEntityOptions->setEtag** 메서드를 사용하고 **DeleteEntityOptions** 개체를 네 번째 매개 변수로 **deleteEntity**에 전달하여 삭제될 엔터티에 대해 Etag를 설정할 수 있습니다.
 
 ## <a name="batch-table-operations"></a>테이블 일괄 작업
+
 **TableRestProxy->batch** 메서드를 통해 단일 요청으로 여러 작업을 실행할 수 있습니다. 여기에서 사용되는 패턴은 작업을 **BatchRequest** 개체에 추가한 후 **BatchRequest** 개체를 **TableRestProxy->batch** 메서드에 전달하는 것입니다. 작업을 **BatchRequest** 개체에 추가하려면 다음 메서드 중 하나를 여러 번 호출하면 됩니다.
 
 * **addInsertEntity** (insertEntity 작업 추가)
@@ -475,6 +490,7 @@ catch(ServiceException $e){
 테이블 일괄 작업에 대한 자세한 내용은 [엔터티 그룹 트랜잭션 수행][entity-group-transactions]을 참조하세요.
 
 ## <a name="delete-a-table"></a>테이블 삭제
+
 끝으로, 테이블을 삭제하려면 테이블 이름을 **TableRestProxy->deleteTable** 메서드에 전달합니다.
 
 ```php
@@ -501,6 +517,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 Azure Table service 및 Azure Cosmos DB의 기본 사항을 배웠으므로 다음 링크를 따라 더 자세히 알아보세요.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.

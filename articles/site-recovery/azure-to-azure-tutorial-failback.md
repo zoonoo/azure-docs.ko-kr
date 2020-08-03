@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134444"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289294"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 복구(failback)
 
@@ -58,7 +58,7 @@ VM이 다시 보호되면 필요에 따라 주 지역으로 장애 복구(failba
     ![주 지역 및 보조 지역의 VM](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> Site Recovery 확장 버전 9.28.x.x 이상을 실행하는 머신의 경우 [업데이트 롤업 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery는 장애 복구(failback)가 완료되고 VM이 다시 보호된 후 보조 재해 복구 지역에서 머신을 정리합니다. 보조 지역에서 VM 및 NIC를 수동으로 삭제할 필요가 없습니다. 장애 복구(failback) 후 복제를 완전히 사용하지 않도록 설정하는 경우 Site Recovery는 VM 및 NIC 외에 재해 복구 지역의 디스크를 정리합니다.
+> 관리 디스크를 사용하고 Site Recovery 확장 버전 9.28.x.x 이상을 실행하는 머신의 경우 [업데이트 롤업 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery는 장애 복구가 완료되고 VM이 다시 보호된 후 보조 재해 복구 지역에서 머신을 정리합니다. 보조 지역에서 VM 및 NIC를 수동으로 삭제할 필요가 없습니다. 관리되지 않는 디스크가 있는 VM은 정리되지 않습니다. 장애 복구(failback) 후 복제를 완전히 사용하지 않도록 설정하는 경우 Site Recovery는 VM 및 NIC 외에 재해 복구 지역의 디스크를 정리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

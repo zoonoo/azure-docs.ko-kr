@@ -1,5 +1,5 @@
 ---
-title: Synapse Analytics SQL 리소스 사용
+title: Synapse SQL 리소스 사용
 description: Azure Synapse Analytics의 Synapse SQL 사용 모델에 대해 알아봅니다.
 services: synapse analytics
 author: vvasic-msft
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112765"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369019"
 ---
-# <a name="azure-synapse-analytics-sql-resource-consumption"></a>Azure Synapse Analytics SQL 리소스 사용
+# <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
 이 문서에서는 Synapse SQL(미리 보기)의 리소스 사용 모델을 설명합니다.
 
@@ -99,7 +99,7 @@ SQL 풀은 데이터 양 조정이 가능한 대량의 컴퓨팅 및 쿼리를 �
 
 데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에 설명된 권한이 필요합니다.
 
-SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
+SQL DB 기여자 및 SQL Server 기여자와 같은 Azure 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
 
 #### <a name="view-current-dwu-settings"></a>현재 DWU 설정 보기
 

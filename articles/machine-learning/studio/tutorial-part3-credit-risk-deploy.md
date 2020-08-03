@@ -1,25 +1,25 @@
 ---
-title: '자습서 3: 신용 위험 모델 배포'
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 'ML Studio(클래식) 자습서 3: 신용 위험 모델 배포 - Azure'
 description: Azure Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제3부입니다. 이 자습서에서는 모델을 웹 서비스로 배포하는 방법을 보여줍니다.
 keywords: 신용 위험, 예측 분석 솔루션, 위험 평가, 배포, 웹 서비스
-author: sdgilley
-ms.author: sgilley
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: 21b2308fb931d1c0932184dcc7946e99d3551b13
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204156"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324865"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio(클래식)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**적용 대상:** ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) 
+
 
 이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부**입니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "79204156"
 > * 웹 서비스 관리
 > * 웹 서비스 액세스
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [이 자습서의 제2부](tutorial-part2-credit-risk-train.md)를 완료합니다.
 
@@ -227,7 +227,10 @@ Machine Learning 웹 서비스 포털에서만 새 웹 서비스를 테스트할
 웹 서비스는 다음 두 방법의 하나로 REST API를 사용하여 데이터를 받고 반환할 수 있는 Azure 웹 서비스입니다.  
 
 * **요청/응답** - 사용자가 HTTP 프로토콜을 사용하여 하나 이상의 신용 데이터 행을 서비스에 보내고 서비스에서는 하나 이상의 결과 집합으로 응답합니다.
-* **Batch 실행** - 사용자가 Azure Blob 신용 데이터 행 하나 이상을 저장한 다음 Blob 위치를 서비스에 보냅니다. 서비스에서는 입력 Blob의 모든 데이터 행에 대한 점수를 매기고 결과를 다른 Blob에 저장한 다음 해당 컨테이너의 URL을 반환합니다.  
+* **Batch 실행** - 사용자가 Azure Blob 신용 데이터 행 하나 이상을 저장한 다음 Blob 위치를 서비스에 보냅니다. 서비스에서는 입력 Blob의 모든 데이터 행에 대한 점수를 매기고 결과를 다른 Blob에 저장한 다음 해당 컨테이너의 URL을 반환합니다. 
+
+> [!NOTE]
+> Studio(클래식)의 기능 열 이름은 **대/소문자를 구분**합니다. 웹 서비스를 호출하기 위한 입력 데이터가 학습 데이터 세트와 동일한 열 이름을 갖는지 확인합니다.
 
 웹 서비스 액세스 및 사용에 대한 자세한 내용은 [웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용](/azure/machine-learning/studio/consume-web-services)을 참조하세요.
 

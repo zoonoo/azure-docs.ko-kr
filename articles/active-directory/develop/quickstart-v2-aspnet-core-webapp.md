@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6902e69ecfd0738a74e6d492b8ed4d2b2d525eaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554139"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026886"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
@@ -62,10 +62,10 @@ ms.locfileid: "85554139"
 #### <a name="step-2-download-your-aspnet-core-project"></a>2단계: ASP.NET Core 프로젝트 다운로드
 
 > [!div renderon="docs"]
-> [Visual Studio 2019 솔루션 다운로드](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+> [ASP.NET Core 솔루션 다운로드](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
+> 프로젝트를 실행합니다.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
@@ -76,9 +76,9 @@ ms.locfileid: "85554139"
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
-> #### <a name="step-3-run-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 실행
+> #### <a name="step-3-run-your-aspnet-core-project"></a>3단계: ASP.NET Core 프로젝트 실행
 > 1. Zip 파일을 루트 폴더 안의 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-> 1. Visual Studio에서 솔루션 열기
+> 1. IDE에서 솔루션 열기
 > 1. **appsettings.json** 파일을 편집합니다. `ClientId`를 찾아 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 `ClientId` 값을 업데이트합니다.
 >
 >    ```json

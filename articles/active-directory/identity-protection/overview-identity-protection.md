@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256659"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019614"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
@@ -71,7 +71,7 @@ Identity Protection은 다음과 같은 분류로 위험을 식별합니다.
 
 ## <a name="exporting-risk-data"></a>위험 데이터 내보내기
 
-Identity Protection의 데이터를 추가 조사 및 보관 및 추가 조사 및 관계 연구를 위해 다른 도구로 내보낼 수 있습니다. 조직에서는 Microsoft Graph 기반 API를 사용하여 SIEM 등의 도구에서 추가로 처리할 수 있도록 이 데이터를 수집할 수 있습니다. Identity Protection API에 액세스하는 방법에 대한 정보는 [Azure Active Directory Identity Protection 및 Microsoft Graph 시작](howto-identity-protection-graph-api.md) 문서에서 확인할 수 있습니다.
+Identity Protection의 데이터는 보관 및 추가 조사와 상관 관계를 위해 다른 도구로 내보낼 수 있습니다. 조직에서는 Microsoft Graph 기반 API를 사용하여 SIEM 등의 도구에서 추가로 처리할 수 있도록 이 데이터를 수집할 수 있습니다. Identity Protection API에 액세스하는 방법에 대한 정보는 [Azure Active Directory Identity Protection 및 Microsoft Graph 시작](howto-identity-protection-graph-api.md) 문서에서 확인할 수 있습니다.
 
 Identity Protection 정보를 Azure Sentinel과 통합하는 방법에 대한 정보는 [Azure AD Identity Protection에서 정보 연결](../../sentinel/connect-azure-ad-identity-protection.md) 문서에서 확인할 수 있습니다.
 

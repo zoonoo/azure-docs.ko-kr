@@ -3,17 +3,17 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849868"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372147"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -123,9 +123,9 @@ Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Azure 사용량 요금을 보는 정책 사용
 
-파트너는 다음 정보를 사용하여 고객에 대한 Azure 사용량 요금을 보는 정책을 사용하도록 설정할 수 있습니다.
+정책을 보고 업데이트하려면 **관리 에이전트** 그룹의 구성원이어야 합니다. 다음 정보를 사용하여 고객이 Azure 사용량 요금을 볼 수 있도록 허용하는 정책을 사용하도록 설정합니다.
 
-Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + 청구**를 선택합니다. 적절한 Microsoft 파트너 계약을 선택한 후 **고객**을 선택합니다. 고객 목록은 청구 계정과 연결되어 있습니다.
+Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + 청구**를 선택합니다. 청구 범위 영역에서 관련 청구 범위를 선택한 다음, **고객**을 선택합니다. 고객 목록은 청구 계정과 연결되어 있습니다.
 
 고객 목록에서 비용을 보도록 허용할 고객을 선택합니다.
 

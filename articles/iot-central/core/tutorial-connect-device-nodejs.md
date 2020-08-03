@@ -3,17 +3,17 @@ title: 자습서 - Azure IoT Central에 제네릭 Node.js 클라이언트 앱 �
 description: 이 자습서에서는 디바이스 개발자가 Node.js 클라이언트 앱을 실행하는 디바이스를 Azure IoT Central 애플리케이션에 연결하는 방법을 보여 줍니다. 디바이스 기능 모델을 가져와서 디바이스 템플릿을 만들고, 연결된 디바이스와 상호 작용할 수 있는 보기를 추가합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mqtt
-ms.openlocfilehash: 65f441425113d89010cc2d282758c5a042be9300
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: e20ab44f309fd9ff7f2d6d9b1ad2a4ca0bfa3223
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417908"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336093"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결(Node.js)
 
@@ -38,7 +38,7 @@ ms.locfileid: "84417908"
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-* **사용자 지정 애플리케이션** 템플릿을 사용하여 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+* **사용자 지정 애플리케이션** 템플릿을 사용하여 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요. 애플리케이션은 2020년 7월 14일 이후에 생성되어야 합니다.
 * [Node.js](https://nodejs.org/) 버전 10.0.0 이상이 설치된 개발 머신. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. 이 자습서의 지침에서는 Windows 명령 프롬프트에서 **node** 명령을 실행한다고 가정합니다. 하지만 여러 운영 체제에서 Node.js를 사용할 수 있습니다.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -121,7 +121,7 @@ ms.locfileid: "84417908"
 
     IoT Central은 디바이스 쌍을 사용하여 디바이스와 IoT Central 애플리케이션 간에 속성 값을 동기화합니다. 디바이스 속성 값은 디바이스 쌍 reported 속성을 사용합니다. 쓰기 가능한 속성은 디바이스 쌍 reported 속성과 desired 속성을 모두 사용합니다.
 
-1. 디바이스에서 응답하는 쓰기 가능한 속성을 정의하고 처리하려면 다음 코드를 추가합니다.
+1. 디바이스에서 응답하는 쓰기 가능한 속성을 정의하고 처리하려면 다음 코드를 추가합니다. [쓰기 가능한 속성 업데이트](concepts-telemetry-properties-commands.md#writeable-property-types)에 대한 응답으로 디바이스에서 보내는 메시지에는 `av` 및 `ac` 필드가 포함되어야 합니다. `ad` 필드는 선택 사항입니다.
 
     ```javascript
     // Add any writeable properties your device supports,
@@ -130,12 +130,12 @@ ms.locfileid: "84417908"
     var writeableProperties = {
       'name': (newValue, callback) => {
           setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
           }, 1000);
       },
       'brightness': (newValue, callback) => {
         setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
         }, 5000);
       }
     };
@@ -145,13 +145,14 @@ ms.locfileid: "84417908"
       twin.on('properties.desired', function (desiredChange) {
         for (let setting in desiredChange) {
           if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
-            writeableProperties[setting](desiredChange[setting].value, (newValue, status) => {
+            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
+            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
               var patch = {
                 [setting]: {
                   value: newValue,
-                  status: status,
-                  desiredVersion: desiredChange.$version
+                  ad: status,
+                  ac: code,
+                  av: desiredChange.$version
                 }
               }
               sendDeviceProperties(twin, patch);
@@ -280,7 +281,9 @@ ms.locfileid: "84417908"
           } else {
             // Send device properties once on device start up.
             var properties = {
-              state: 'true'
+              state: 'true',
+              processorArchitecture: 'ARM',
+              swVersion: '1.0.0'
             };
             sendDeviceProperties(twin, properties);
 
@@ -326,11 +329,14 @@ node environmentalSensor.js
 
 ![클라이언트 애플리케이션 관찰](media/tutorial-connect-device-nodejs/run-application-2.png)
 
+## <a name="view-raw-data"></a>원시 데이터 보기
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
 디바이스 개발자로서, Node.js를 사용하여 디바이스를 만드는 방법의 기본 사항을 배웠으므로 이제 다음 단계를 수행하는 것이 좋습니다.
 
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](./howto-connect-devkit.md) 방법 문서에서 실제 디바이스를 IoT Central에 연결하는 방법에 대해 알아봅니다.
 * 디바이스 코드를 구현할 때 디바이스 템플릿의 역할을 자세히 알아보려면 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
 * IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
 

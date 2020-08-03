@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115668"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 
@@ -81,10 +81,10 @@ Key Vault 인증서에 포함되는 특성은 다음과 같습니다.
 
 Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해야 합니다. 정책은 이 Key Vault 인증서 버전 또는 그 다음 Key Vault 인증서 버전을 만드는 방법을 지정합니다. 일단 정책이 설정되면 이후 버전에 대한 연속 만들기 작업에는 해당 정책이 필요하지 않습니다. Key Vault 인증서의 모든 버전에 대한 정책 인스턴스는 하나만 있습니다.  
 
-크게 보자면, 인증서 정책에 다음 정보가 포함됩니다.  
+크게 보자면, 인증서 정책에는 다음 정보가 포함됩니다(해당 정의는 [여기](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)에서 찾을 수 있음).  
 
 -   X509 인증서 속성: 주체 이름, 주체 대체 이름, x509 인증서 요청을 만드는 데 사용되는 기타 속성을 포함합니다.  
--   키 속성: 키 유형, 키 길이, 내보낼 수 있는 항목, 재사용 키 필드를 포함합니다. 이러한 필드는 키를 생성하는 방법을 키 자격 증명 모음에 지시합니다.  
+-   키 속성: 키 유형, 키 길이, 내보낼 수 있는 ReuseKeyOnRenewal 필드를 포함합니다. 이러한 필드는 키를 생성하는 방법을 키 자격 증명 모음에 지시합니다.  
 -   비밀 속성: 인증서를 비밀 번호로 검색하기 위해 비밀 값을 생성하기 위한 주소 지정 가능한 비밀의 콘텐츠 형식과 같은 비밀 속성을 포함합니다.  
 -   수명 작업: KV 인증서에 대한 수명 작업을 포함합니다. 각 수명 작업에 포함되는 항목은 다음과 같습니다.  
 

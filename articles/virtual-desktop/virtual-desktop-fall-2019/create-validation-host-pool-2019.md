@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop 호스트 풀 서비스 업데이트(2019년 가을) - Azure
-description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법을 알아봅니다.
+title: Windows Virtual Desktop(클래식) 호스트 풀 서비스 업데이트 - Azure
+description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 448f02990798869e3dd5a804d1b0e0038b810a24
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527592"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288677"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기(2019년 가을 릴리스)
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 서비스 업데이트의 유효성을 검사하는 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../create-validation-host-pool.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../create-validation-host-pool.md)를 참조하세요.
 
 호스트 풀은 Windows Virtual Desktop 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 호스트 풀을 프로덕션 환경에 배포하기 전에 유효성 검사 호스트 풀을 만드는 것이 좋습니다. 서비스 업데이트는 프로덕션 환경에 배포되기 전에 모니터링할 수 있도록 유효성 검사 호스트 풀에 먼저 적용됩니다. 유효성 검사 호스트 풀이 없으면 오류를 유발하는 변경을 감지하지 못하여 프로덕션 환경의 사용자에게 가동 중지 시간이 발생할 수 있습니다.
 

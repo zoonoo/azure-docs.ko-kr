@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 80393042191abc2a8eb74182cf18581d252222a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056458"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -33,7 +33,9 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 
 AKS 클러스터는 Kubernetes RBAC(역할 기반 액세스 제어)를 사용할 수 있습니다. 이러한 컨트롤을 통해 사용자에게 할당된 역할에 따라 리소스에 대한 액세스를 정의할 수 있습니다. 사용자에게 여러 역할이 할당된 경우 권한을 결합할 수 있으며, 권한의 범위를 단일 네임스페이스 또는 전체 클러스터로 지정할 수 있습니다. 기본적으로 Azure CLI는 사용자가 AKS 클러스터를 만들면 자동으로 RBAC를 사용하도록 설정합니다.
 
-[az aks create][] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서][aks-tutorial-prepare-acr]에서 만들었습니다. AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 주체가 지정되어 있지 않기 때문에 자동으로 생성됩니다. 여기에서 이 서비스 주체는 이전 자습서에서 만든 ACR(Azure Container Registry) 인스턴스에서 [이미지를 끌어올 수 있는 권한을 부여][container-registry-integration]했습니다. 관리를 용이하게 하기 위해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다.
+[az aks create][] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터를 만듭니다. 이 리소스 그룹은 *eastus* 지역의 [이전 자습서][aks-tutorial-prepare-acr]에서 만들었습니다. 다음 예제에서는 지역을 지정하지 않으므로 AKS 클러스터도 *eastus* 지역에서 생성됩니다. AKS에 대한 리소스 제한 및 지역 가용성에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성][quotas-skus-regions]을 참조하세요.
+
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 주체가 지정되어 있지 않기 때문에 자동으로 생성됩니다. 여기에서 이 서비스 주체는 이전 자습서에서 만든 ACR(Azure Container Registry) 인스턴스에서 [이미지를 끌어올 수 있는 권한을 부여][container-registry-integration]했습니다. 관리를 용이하게 하기 위해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다.
 
 ```azurecli
 az aks create \
@@ -108,3 +110,4 @@ aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md
+[quotas-skus-regions]: quotas-skus-regions.md

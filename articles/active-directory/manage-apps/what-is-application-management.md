@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055208"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386013"
 ---
 # <a name="what-is-application-management"></a>애플리케이션 관리란?
 
@@ -63,7 +63,7 @@ Azure AD는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID �
 
 - **사용자 지정 개발 애플리케이션** - 고유한 기간 업무 애플리케이션을 빌드할 경우 Azure AD와 통합하여 Single Sign-On을 지원할 수 있습니다. Azure AD에 애플리케이션을 등록하여 애플리케이션에 대한 인증 정책을 제어할 수 있습니다. 자세한 내용은 [개발자를 위한 지침](developer-guidance-for-integrating-applications.md)을 참조하세요.
 
-- **비 갤러리 애플리케이션** – 사용자 고유의 애플리케이션을 구현하세요! Azure AD에 추가하여 다른 앱에 대한 Single Sign-On을 지원합니다. 애플리케이션을 통합하는 방법에는 여러 가지가 있으며, 이 중 일부는 아래에 나열되어 있습니다. 자세한 내용은 [비 갤러리 앱에 대한 Single Sign-On 구성](configure-single-sign-on-non-gallery-applications.md)을 참조하세요.
+- **비 갤러리 애플리케이션** – 사용자 고유의 애플리케이션을 구현하세요! Azure AD에 추가하여 다른 앱에 대한 Single Sign-On을 지원합니다. 애플리케이션을 통합하는 방법에는 여러 가지가 있으며, 이 중 일부는 아래에 나열되어 있습니다. 자세한 내용은 [SAML Single Sign-On 구성](configure-saml-single-sign-on.md)을 참조하세요.
 
 >[!TIP]
 >Azure AD는 아직 미리 구성되지 않은 애플리케이션 및 앱 갤러리에도 통합할 수 있습니다. **Azure AD를 다음과 통합**할 수 있습니다.
@@ -93,8 +93,6 @@ Azure AD로 마이그레이션하면 비용을 절약하고 온-프레미스 인
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 테넌트에 이미 구성된 애플리케이션 보기](view-applications-portal.md)
-- [빠른 시작: Azure AD 테넌트에 갤러리 애플리케이션 추가](add-application-portal.md)
-- [Azure AD 조직에 갤러리 앱 추가](add-gallery-app.md)
+- [Azure AD의 앱 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
 - [애플리케이션 통합 시작](plan-an-application-integration.md)
 - [프로비저닝 자동화 방법 알아보기](../app-provisioning/user-provisioning.md)

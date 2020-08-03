@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401ca1a22b47555f530e1785e25653269403812c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1c16f83be4cd10f53705633b9c4f4eb522c8408e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058170"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whimsical"></a>자습서: Whimsical과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -37,7 +37,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Whimsical SSO(Single Sign-On)가 설정된 구독
+* Whimsical 팀 작업 영역.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -93,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://whimsical.com/@<TENANT_NAME>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Whimsical 클라이언트 지원 팀](mailto:help@whimsical.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. Whimsical 작업 영역 설정 내의 SAML 설정 화면에 특정 값이 표시됩니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. Whimsical 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -146,7 +146,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-whimsical-sso"></a>Whimsical SSO 구성
 
-**Whimsical** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Whimsical 지원 팀](mailto:help@whimsical.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Whimsical** 쪽에서 Single Sign-On을 구성하려면 방금 다운로드한 **페더레이션 메타데이터 XML**을 [작업 영역 설정](https://whimsical.com/workspace/settings)에 업로드해야 합니다.
+
+![Whimsical 작업 영역 SAML 설정](media/whimsical-tutorial/saml-setup.png)
+
+**페더레이션 메타데이터 XML**을 업로드하는 것이 SAML SSO 연결을 설정하기 위해 Whimsical에서 수행해야 하는 유일한 단계여야 합니다.
 
 ### <a name="create-whimsical-test-user"></a>Whimsical 테스트 사용자 만들기
 

@@ -1,6 +1,5 @@
 ---
-title: ML Studio(클래식)란?
-titleSuffix: Azure
+title: ML Studio(클래식)란? - Azure
 description: Azure Machine Learning Studio(클래식)는 알고리즘 및 모듈의 사용할 준비가 되어 있는 라이브러리에서 신속하게 모델을 빌드하기 위한 끌어서 놓기 도구입니다.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: c1772ceb514e46542129759711f2d45db39abf82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b0e09cfe855e017c297cbad1667eef81726d3da
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371953"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326208"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)란?
+
+**적용 대상:** ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

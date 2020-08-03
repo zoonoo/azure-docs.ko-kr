@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Node.js 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 3ee8ec8eb78ccb8a7405fd00654ee00ebba8b7c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 286f4f37b0f34614b560c9a1758c18f5f7c586bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854978"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044324"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Node.js
 
@@ -20,7 +20,7 @@ ms.locfileid: "85854978"
 - VS Code 및 명령줄을 사용하여 컨테이너에서 반복적으로 코드를 개발합니다.
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
-> [!Note]
+> [!NOTE]
 > **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하세요.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
@@ -33,7 +33,7 @@ Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>여러 Azure 구독이 있는 경우...
@@ -126,7 +126,7 @@ azds up
 - 컨테이너의 엔드포인트에 대한 정보가 표시됩니다. 이 예제에서는 공용 HTTP URL이 표시됩니다.
 - 위 단계가 성공적으로 완료되었다고 가정하면 컨테이너가 시작될 때 `stdout`(및 `stderr`) 출력이 표시되기 시작해야 합니다.
 
-> [!Note]
+> [!NOTE]
 > `up` 명령을 처음 실행할 때는 이러한 단계가 오래 걸리지만 후속 실행은 더 빨라집니다.
 
 ### <a name="test-the-web-app"></a>웹앱 테스트
@@ -142,7 +142,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 
 웹앱을 보려면 브라우저에서 공용 URL을 엽니다. 또한 웹앱을 조작할 때 `stdout` 및 `stderr` 출력이 *azds trace* 터미널 창으로 스트리밍됩니다. HTTP 요청이 시스템을 통과할 때 추적 정보도 표시됩니다. 이를 통해 개발하는 동안 복잡한 다중 서비스 호출을 보다 쉽게 추적할 수 있습니다. Dev Spaces에서 추가된 계측은 이 요청 추적을 제공합니다.
 
-> [!Note]
+> [!NOTE]
 > 공용 URL 외에도 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 Azure에서 실행되고 있습니다. Azure Dev Spaces는 Kubernetes *포트 전달* 기능을 사용하여 localhost 포트를 AKS에서 실행 중인 컨테이너에 매핑합니다. 로컬 컴퓨터에서 서비스 조작이 용이해집니다.
 
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
@@ -199,9 +199,9 @@ Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데�
 
 이 섹션에서는 VS Code를 사용하여 Azure에서 실행 중인 컨테이너를 직접 디버그합니다. 또한 편집-실행-테스트를 더 빠르게 반복하는 방법도 알아봅니다.
 
-![](media/common/edit-refresh-see.png)
+![다이어그램은 세 단계로 개발 루프를 보여줍니다. 코드 편집, 컨테이너 새로 고침 및 업데이트를 확인합니다.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>VS Code 확장을 사용하여 디버그 자산 초기화
@@ -211,15 +211,15 @@ Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데�
 
 이렇게 하면 `.vscode` 폴더 아래에 Azure Dev Spaces에 대한 디버그 구성이 추가됩니다. 이 명령은 배포 프로젝트를 구성하는 `azds prep` 명령과 혼동하면 안됩니다.
 
-![](media/common/command-palette.png)
+![스크린샷은 명령 팔레트 창에서 "Azure Dev Spaces: Azure Dev Spaces에 대한 구성 파일 준비" 명령의 선택을 보여줍니다.](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>AZDS 디버그 구성 선택
 1. 디버그 보기를 열려면 VS Code 측면의 **활동 표시줄**에서 디버그 아이콘을 클릭합니다.
 1. 활성 디버그 구성으로 **시작 프로그램(AZDS)** 을 선택합니다.
 
-![](media/get-started-node/debug-configuration-nodejs2.png)
+![스크린샷은 Visual Studio Code 창의 왼쪽 위 모서리에 있습니다. 디버그 아이콘이 강조 표시되고, 왼쪽 패널의 제목이 "DEBUG"이며, 제목 오른쪽에 있는 드롭다운 목록에는 "Launch Program(A Z D S)"이 표시됩니다.](media/get-started-node/debug-configuration-nodejs2.png)
 
-> [!Note]
+> [!NOTE]
 > 명령 팔레트에 Azure Dev Spaces 명령이 표시되지 않으면 [Azure Dev Spaces용 VS Code 확장이 설치되었는지](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code) 확인합니다.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Kubernetes에서 컨테이너 디버깅
@@ -227,10 +227,10 @@ Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데�
 
 `up` 명령과 마찬가지로 디버깅을 시작할 때 코드가 개발 환경에 동기화되고, 컨테이너가 빌드되어 Kubernetes에 배포됩니다. 이번에는 디버거가 원격 컨테이너에 연결됩니다.
 
-> [!Tip]
+> [!TIP]
 > VS Code 상태 표시줄이 주황색으로 바뀌면 디버거가 연결되었음을 나타냅니다. 신속하게 사이트를 여는 데 사용할 수 있는 클릭 가능한 URL도 표시됩니다.
 
-![](media/common/vscode-status-bar-url.png)
+![스크린샷은 Visual Studio Code 창의 하단을 보여줍니다. 주황색 상태 표시줄이 마지막 줄입니다. 여기에는 웹 사이트를 열기 위한 U R L이 포함됩니다.](media/common/vscode-status-bar-url.png)
 
 서버 측 코드 파일(예: [`server.js`의 줄 13](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13)에서 `app.get('/api'...`)에 중단점을 설정합니다. 
 
@@ -255,7 +255,7 @@ app.get('/api', function (req, res) {
 
 파일을 저장하고, **디버그 작업 창**에서 **다시 시작** 단추를 클릭합니다. 
 
-![](media/common/debug-action-refresh.png)
+![디버그 작업 창은 페이지 위쪽 가운데(페이지 제목 바로 아래)에 있는 작은 창입니다. 다시 시작 단추는 원형 화살표를 표시하고 강조 표시됩니다. 단추의 호버 이미지는 "다시 시작(control + shift + F 5)"입니다.](media/common/debug-action-refresh.png)
 
 코드 편집이 완료될 때마다 상당한 시간이 소요되는 새 컨테이너 이미지 다시 빌드 및 다시 배포 작업을 수행하는 대신 Azure Dev Spaces는 더 빠른 편집/디버그 루프를 제공하기 위해 디버그 세션 간에 Node.js 프로세스를 다시 시작합니다.
 

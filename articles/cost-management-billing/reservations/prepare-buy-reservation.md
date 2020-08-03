@@ -4,15 +4,15 @@ description: Azure 예약을 구매하는 데 도움이 되는 중요 사항에 
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807784"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287628"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -36,7 +36,10 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 - **단일 리소스 그룹 범위** — 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
 - **단일 구독 범위** — 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
-- **공유 범위** — 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. Microsoft 고객 계약 고객의 경우 청구 범위는 청구 프로필입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
+- **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다.
+    - 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 예약 공유 범위에는 등록 시 여러 Active Directory 테넌트가 포함됩니다.
+    - Microsoft 고객 계약 고객의 경우 청구 범위는 청구 프로필입니다.
+    - 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
 
 사용 요금에 예약 할인을 적용할 때 Azure는 다음과 같은 순서로 예약을 처리합니다.
 

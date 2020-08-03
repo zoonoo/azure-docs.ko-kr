@@ -5,23 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77154681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035063"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>자습서: Azure Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보호
 
 MFA(Multi-Factor Authentication)는 로그인 이벤트 중에 사용자에게 추가 형태의 식별을 요구하는 메시지를 표시하는 프로세스입니다. 이 프롬프트는 휴대폰에서 코드를 입력하거나 지문 검사를 제공하는 것일 수 있습니다. 두 번째 인증 형식이 필요한 경우 이 추가 요소는 공격자가 쉽게 얻거나 복제할 수 있는 것이 아니므로 보안이 향상됩니다.
 
 Azure Multi-Factor Authentication 및 조건부 액세스 정책은 특정 로그인 이벤트 중에 사용자에게 MFA를 사용하도록 설정할 수 있는 유연성을 제공합니다.
+
+> [!IMPORTANT]
+> 이 자습서에서는 관리자에게 Azure Multi-Factor Authentication을 사용하도록 설정하는 방법을 보여줍니다.
+>
+> IT 팀이 Azure Multi-Factor Authentication을 사용하는 기능을 사용하도록 설정하지 않았거나 로그인하는 동안 문제가 발생한 경우 추가 지원을 받으려면 기술 지원팀에 문의하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -38,9 +43,9 @@ Azure Multi-Factor Authentication 및 조건부 액세스 정책은 특정 로�
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * *글로벌 관리자* 권한이 있는 계정
 * 알고 있는 암호가 있는 관리자가 아닌 사용자(예: *testuser*). 이 자습서에서는 이 계정을 사용하여 최종 사용자 Azure Multi-Factor Authentication 환경을 테스트합니다.
-    * 사용자를 만들어야 하는 경우 [빠른 시작: Azure Active Directory에 새 사용자 추가](../add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다.
+    * 사용자를 만들어야 하는 경우 [빠른 시작: Azure Active Directory에 새 사용자 추가](../fundamentals/add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다.
 * 관리자가 아닌 사용자가 멤버인 그룹(예: *MFA-Test-Group*). 이 자습서에서는 이 그룹에 Azure Multi-Factor Authentication을 사용하도록 설정합니다.
-    * 그룹을 만들어야 하는 경우 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../active-directory-groups-create-azure-portal.md)를 참조하세요.
+    * 그룹을 만들어야 하는 경우 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 

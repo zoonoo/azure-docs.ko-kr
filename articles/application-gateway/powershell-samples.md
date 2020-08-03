@@ -7,20 +7,19 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d45fd7bf88e6988b83a621eda2689c10356441a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 045009f695197277ab576c8ff41f36af43957be7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74129738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067775"
 ---
-# <a name="azure-powershell-examples-for-azure-application-gateway"></a>Azure Application Gateway에 대한 Azure PowerShell 예제
+# <a name="azure-powershell-examples-for-azure-application-gateway-ag"></a>Azure AG(Application Gateway)에 대한 Azure PowerShell 예제
 
 다음 표에서는 Azure Application Gateway의 Azure PowerShell 스크립트 예제에 대한 링크를 포함합니다.
 
-| | |
-|---|---|
+| 예제 | Description |
+|-------- | ----------- |
 | [웹 트래픽 관리](./scripts/create-vmss-powershell.md) | Application Gateway 및 모든 관련 리소스를 만듭니다.|
 | [웹 트래픽 제한](./scripts/create-vmss-waf-powershell.md) | OWASP 규칙을 사용하여 트래픽을 제한하는 Application Gateway를 만듭니다.|
-|[WAF v2 사용자 지정 규칙](scripts/waf-custom-rules-powershell.md)|사용자 지정 규칙을 사용하여 Application Gateway 웹 애플리케이션 방화벽 v2를 만듭니다.
-| | |
+|[WAF v2 사용자 지정 규칙](scripts/waf-custom-rules-powershell.md)|사용자 지정 규칙을 사용하여 Application Gateway 웹 애플리케이션 방화벽 v2를 만듭니다.|

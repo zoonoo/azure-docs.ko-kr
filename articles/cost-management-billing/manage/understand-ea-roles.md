@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045147"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124343"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Azure Enterprise 역할 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "86045147"
 
 예를 들어 초기 인증 유형이 혼합으로 설정된 경우 EA가 Microsoft 계정으로 추가되고 청구 대상 담당자에게 읽기 전용 EA 관리자 권한이 부여됩니다. EA 관리자가 기존 청구 대상 담당자에 대한 Microsoft 계정 권한 부여에 동의하지 않는 경우, EA 관리자는 해당 사용자를 삭제하고 EA 포털의 등록 수준에서만 설정된 회사 또는 학교 계정을 사용하여 사용자를 읽기 전용 관리자로 추가하도록 고객에게 요청할 수 있습니다.
 
-이러한 역할은 Azure 기업계약 관리에만 적용되며, 리소스에 대한 액세스를 제어하기 위한 Azure의 기본 제공 역할 외에 추가로 제공됩니다. 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+이러한 역할은 Azure 기업계약 관리에만 적용되며, 리소스에 대한 액세스를 제어하기 위한 Azure의 기본 제공 역할 외에 추가로 제공됩니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 다음 섹션에서는 각 역할의 제한 사항 및 기능에 대해 설명합니다.
 
@@ -121,4 +121,4 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 
 - [Azure의 청구 정보에 대한 액세스 관리](manage-billing-access.md)
 - [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)
-- [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
+- [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)

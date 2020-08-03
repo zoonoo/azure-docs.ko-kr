@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9b9a7a5b3d92833a0f24f6bc646b19110dcfd66a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202133"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386081"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -27,7 +27,7 @@ Azure Key Vault의 일시 삭제 기능을 사용하면 삭제된 자격 증명 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 이상 - 설치하지 않은 경우 Azure PowerShell을 설치하고 Azure 구독에 연결합니다. [Azure PowerShell을 설치 및 구성하는 방법](https://docs.microsoft.com/powershell/azure/overview)을 참조하세요. 
+- Azure PowerShell 1.0.0 이상 - 설치하지 않은 경우 Azure PowerShell을 설치하고 Azure 구독에 연결합니다. [Azure PowerShell을 설치 및 구성하는 방법](https://docs.microsoft.com/powershell/azure/)을 참조하세요. 
 
 >[!NOTE]
 > 올바른 버전이 아니며 사용자 환경으로 로드될 **수도** 있는 Key Vault PowerShell 출력 서식 지정 파일의 오래된 버전이 있습니다. PowerShell의 업데이트된 버전에는 출력 서식 지정에 대한 필요한 수정 사항이 포함되고, 이 토픽은 해당 시점에 업데이트될 예정입니다. 이 서식 지정 문제에 대한 현재 해결 방법은 다음과 같습니다.
@@ -206,7 +206,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 
 다음 명령을 사용하여 인증서를 관리할 수 있습니다.
 
-- SQLPassword라는 인증서를 삭제합니다. 
+- 인증서 삭제: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
@@ -285,5 +285,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>기타 리소스
 
-- Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](overview-soft-delete.md)를 참조하세요).
+- Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md)를 참조하세요).
 - Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](overview.md)을 참조하세요).

@@ -8,26 +8,23 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362937"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291435"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 사용하여 2020년 봄 업데이트에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop 2019년 가을 릴리스를 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md)를 참조하세요. Windows Virtual Desktop Fall 2019로 만든 개체는 Azure Portal로 관리할 수 없습니다.
->
-> Windows Virtual Desktop 2020 봄 업데이트는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md)를 참조하세요. Windows Virtual Desktop(클래식)으로 만든 개체는 Azure Portal로 관리할 수 없습니다.
 
 호스트 풀은 Windows Virtual Desktop 환경 내에서 하나 이상의 동일한 VM(가상 머신) 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
 이 문서에서는 Azure Portal을 통해 Windows Virtual Desktop 환경에 대한 호스트 풀을 만들기 위한 설정 프로세스를 안내합니다. 이 방법은 Windows Virtual Desktop에 호스트 풀을 만들고, Azure 구독에서 VM으로 구성된 리소스 그룹을 만들고, 해당 VM을 Azure AD(Active Directory) 도메인에 조인하고, VM을 Windows Virtual Desktop에 등록하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 호스트 풀을 만들려면 다음 매개 변수를 입력해야 합니다.
 

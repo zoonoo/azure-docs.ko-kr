@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a8d27b77e210236216883bf630464324a47d2e80
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: c1406b5e7297b1d48b23d9dfa684e0d76b68139f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102856"
 ---
 <a name="HOLTop"></a>
 
@@ -70,7 +70,7 @@ Build succeeded.
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Computer Vision 클라이언트 라이브러리를 설치합니다.
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
 ```
 
 Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다운로드 가능한 NuGet 패키지로 제공됩니다.
@@ -211,7 +211,7 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
-Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 단원의 코드는 클라이언트 개체를 사용하여 이미지의 인쇄 텍스트 또는 필기 텍스트를 감지하고 추출하는 `ExtractTextUrl` 메서드를 정의합니다.
+Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 문자 인식)](../../concept-recognizing-text.md#read-api) 개념 문서를 참조하세요. 이 섹션의 코드는 클라이언트 개체를 사용하여 이미지의 텍스트를 감지하고 추출하는 `BatchReadFileUrl` 메서드를 정의합니다.
 
 `Main` 메서드에서 메서드 호출을 추가합니다.
 
@@ -219,7 +219,7 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
-**Program** 클래스에서 텍스트를 추출하려는 이미지의 참조 URL을 저장합니다.
+**Program** 클래스에서 텍스트를 추출하려는 이미지의 URL에 대한 참조를 저장합니다. 이 코드 조각에는 인쇄된 텍스트 및 필기 텍스트 모두에 대한 샘플 이미지가 포함되어 있습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
 
@@ -228,13 +228,13 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 ### <a name="call-the-read-api"></a>읽기 API 호출
 
-텍스트를 읽기 위한 새 메서드를 정의합니다. 지정된 이미지에 대해 **BatchReadFileAsync** 메서드를 호출하는 아래 코드를 추가합니다. 그러면 작업 ID가 반환되고 이미지의 콘텐츠를 읽는 비동기 프로세스가 시작됩니다.
+텍스트를 읽기 위한 새 메서드를 정의합니다. 지정된 이미지에 대해 **ReadAsync** 메서드를 호출하는 아래 코드를 추가합니다. 그러면 작업 ID가 반환되고 이미지의 콘텐츠를 읽는 비동기 프로세스가 시작됩니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
 
 ### <a name="get-read-results"></a>읽기 결과 가져오기
 
-다음으로 **BatchReadFileAsync** 호출에서 반환된 작업 ID를 가져와서 서비스의 작업 결과를 쿼리합니다. 다음 코드는 결과가 반환될 때까지 1초 간격으로 작업을 검사합니다. 그런 다음, 추출된 텍스트 데이터를 콘솔에 출력합니다.
+그런 다음, **ReadAsync** 호출에서 반환된 작업 ID를 가져와서 서비스의 작업 결과를 쿼리합니다. 다음 코드는 결과가 반환될 때까지 1초 간격으로 작업을 검사합니다. 그런 다음, 추출된 텍스트 데이터를 콘솔에 출력합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
 

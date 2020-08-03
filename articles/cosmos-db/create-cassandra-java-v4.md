@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Cassandra API를 사용하여 Java 앱 빌드
+title: Java 4.0 SDK를 사용하는 Azure Cosmos DB Cassandra API가 포함된 Java 앱
 description: 이 빠른 시작은 Azure Portal 및 Java와 함께 Azure Cosmos DB Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 ms.service: cosmos-db
 author: TheovanKraay
@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 59ea78fed27b41199699d5413f605288bbf1a608
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 4411c2d3b540423c1086fe8b45bd343870a72f5b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118392"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319204"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>빠른 시작: Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드(v4 드라이버)
 
@@ -155,7 +155,7 @@ ms.locfileid: "85118392"
 
     :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Azure Portal, 연결 문자열 페이지에서 사용자 이름 보기 및 복사":::
 
-2. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-java/copy-button-azure-portal.png) 단추를 사용하여 CONTACT POINT 값을 복사합니다.
+2. 화면 오른쪽에 있는 :::image type="icon" source="./media/create-cassandra-java/copy-button-azure-portal.png"::: 단추를 사용하여 CONTACT POINT 값을 복사합니다.
 
 3. *C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources* 폴더에서 *config.properties* 파일을 엽니다. 
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 07/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e6b752eab3f6a8f40fad8b2f947a82f86a8ccfe5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8f64bc81afb941e13dd310a7efd9432639ec281
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652055"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131840"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>자습서: Azure Stack Edge 배포 준비  
 
@@ -57,32 +57,35 @@ Azure Stack Edge를 배포하려면 다음 자습서를 지정된 순서대로 �
 
 * Azure Stack Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
 
-  * Azure Stack Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상) 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+  * 기여자 액세스 권한을 부여하려면 구독 수준에서 **소유자**여야 합니다. 다른 사용자에게 기여자 권한을 부여하려면 Azure Portal에서 **모든 서비스** > **구독** > **액세스 제어(IAM)**  >  **+추가** > **역할 할당 추가**로 이동합니다. 자세한 내용은 [자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)를 참조하세요.
+
+  * Azure Stack Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상) 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 리소스 공급자가 등록되어 있는지 확인해야 합니다. 리소스 공급자를 등록하는 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)을 참조하세요.
   * IoT Hub 리소스를 만들려면 해당 Microsoft.Devices 공급자가 등록되어 있는지 확인합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
   * 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
 * Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
 * 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
+* 시스템 관리자가 설정한 Azure 정책에 의해 차단되지 않습니다. 정책에 대한 자세한 내용은 [빠른 시작: 비규격 리소스를 식별하는 정책 할당 만들기](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal)를 참조하세요.
 
 ### <a name="for-the-azure-stack-edge-device"></a>Azure Stack Edge 디바이스
 
 물리적 디바이스를 배포하기 전에 먼저 다음 사항을 확인합니다.
 
-- 배송 패키지에 포함된 안전 정보를 검토했습니다.
-- 데이터 센터의 표준 19" 랙에 디바이스를 랙에 탑재할 수 있는 하나의 1U 슬롯이 있습니다.
-- 디바이스가 안전하게 있을 수 있는 평평하고 안정된 수평 작업대를 사용할 수 있습니다.
-- 디바이스를 설치하려는 사이트에 독립적인 전원의 표준 AC 전원 디바이스가 있거나 UPS(무정전 전원 공급 디바이스)가 장착된 PDU(랙 전원 분배 디바이스)가 있습니다.
-- 물리적 디바이스에 대한 액세스 권한이 있습니다.
+* 배송 패키지에 포함된 안전 정보를 검토했습니다.
+* 데이터 센터의 표준 19" 랙에 디바이스를 랙에 탑재할 수 있는 하나의 1U 슬롯이 있습니다.
+* 디바이스가 안전하게 있을 수 있는 평평하고 안정된 수평 작업대를 사용할 수 있습니다.
+* 디바이스를 설치하려는 사이트에 독립적인 전원의 표준 AC 전원 디바이스가 있거나 UPS(무정전 전원 공급 디바이스)가 장착된 PDU(랙 전원 분배 디바이스)가 있습니다.
+* 물리적 디바이스에 대한 액세스 권한이 있습니다.
 
 ### <a name="for-the-datacenter-network"></a>데이터 센터 네트워크의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- 데이터 센터의 네트워크가 Azure Stack Edge 디바이스의 네트워킹 요구 사항에 따라 구성되어 있습니다. 자세한 내용은 [Azure Stack Edge 시스템 요구 사항](azure-stack-edge-system-requirements.md)을 참조하세요.
+* 데이터 센터의 네트워크가 Azure Stack Edge 디바이스의 네트워킹 요구 사항에 따라 구성되어 있습니다. 자세한 내용은 [Azure Stack Edge 시스템 요구 사항](azure-stack-edge-system-requirements.md)을 참조하세요.
 
-- Azure Stack Edge가 정상 작동하기 위한 조건은 다음과 같습니다.
+* Azure Stack Edge가 정상 작동하기 위한 조건은 다음과 같습니다.
 
-    - 디바이스가 업데이트 상태를 유지하기 위한 10Mbps의 최소 다운로드 대역폭.
-    - 파일을 전송하기 위한 20Mbps의 최소 전용 업로드 및 다운로드 대역폭.
+  * 디바이스가 업데이트 상태를 유지하기 위한 10Mbps의 최소 다운로드 대역폭.
+  * 파일을 전송하기 위한 20Mbps의 최소 전용 업로드 및 다운로드 대역폭.
 
 ## <a name="create-a-new-resource"></a>새 리소스 만들기
 
@@ -173,6 +176,3 @@ Azure Stack Edge를 설치하는 방법을 알아보려면 다음 자습서를 �
 
 > [!div class="nextstepaction"]
 > [Azure Stack Edge 설치](./azure-stack-edge-deploy-install.md)
-
-
-

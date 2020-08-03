@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500605"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425013"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 
@@ -25,6 +25,8 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 
 - 현재 Azure Resource Manager 또는 SDK 지원으로 제한 되어 있습니다. 
 - 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
+
+공유 ultra disks는 기본적으로 ultra disks를 지 원하는 모든 지역에서 사용할 수 있으며, 사용 하기 위해 액세스에 등록 하지 않아도 됩니다.
 
 ### <a name="premium-ssds"></a>프리미엄 SSD
 
@@ -38,4 +40,4 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 - 일부 버전의 Windows Server 장애 조치 (failover) 클러스터에서는 기본 디스크만 사용할 수 있습니다. 자세한 내용은 [장애 조치 (Failover) 클러스터링 하드웨어 요구 사항 및 저장소 옵션](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)을 참조 하세요.
 - Azure Backup 및 Azure Site Recovery 지원 기능을 아직 사용할 수 없습니다.
 
-공유 디스크를 사용해 보려는 경우 [액세스를 위해 등록](https://aka.ms/AzureSharedDiskGASignUp)합니다.
+공유 premium Ssd를 시도 하는 경우 [액세스에 등록](https://aka.ms/AzureSharedDiskGASignUp)합니다.

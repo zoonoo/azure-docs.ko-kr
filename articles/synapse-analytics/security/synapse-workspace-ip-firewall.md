@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics에서 IP 방화벽 규칙 구성
+title: IP 방화벽 규칙 구성
 description: Azure Synapse Analytics에서 IP 방화벽 규칙을 구성하는 방법을 설명하는 문서입니다.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 255714fcf69a8ed72cf1f306e5aafabd49a199ca
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052426"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Azure Synapse Analytics IP 방화벽 규칙(미리 보기)
 
@@ -49,4 +49,4 @@ Synapse Studio를 사용하여 Synapse 작업 영역에 연결할 수 있습니�
 
 [Azure Synapse 작업 영역](../quickstart-create-workspace.md) 만들기
 
-[관리형 작업 영역 VNet](./synapse-workspace-managed-vnet.md)이 연결된 Azure Synapse 작업 영역 만들기
+[관리형 작업 영역 Virtual Network](./synapse-workspace-managed-vnet.md)를 사용하여 Azure Synapse 작업 영역 만들기

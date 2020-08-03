@@ -1,18 +1,18 @@
 ---
-title: Visual Studio에서 작업 워크플로 자동화
-description: Azure Logic Apps 및 Visual Studio를 사용하여 엔터프라이즈 통합을 위한 반복 워크플로 만들기, 예약 및 실행
+title: Visual Studio를 사용하여 작업 및 워크플로 자동화
+description: Azure Logic Apps 및 Visual Studio를 사용하여 엔터프라이즈 통합을 위한 자동화된 워크플로 만들기, 예약 및 실행
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
-ms.openlocfilehash: 4416c9f9d1c55a460cb983089706e984d90ba082
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520769"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132367"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
 
@@ -51,9 +51,15 @@ Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 
   
     Visual Studio Marketplace에서 직접 Azure Logic Apps 도구를 다운로드해 설치하거나 [Visual Studio 내에서 이 확장을 설치하는 방법](/visualstudio/ide/finding-and-using-visual-studio-extensions)을 알아볼 수 있습니다. 설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
 
+  * Visual Studio에서 Azure Government 구독을 사용하려면 추가 설치에 대한 다음 항목을 참조하세요.
+
+    * Visual Studio 2019: [빠른 시작: Visual Studio를 사용하여 Azure Government에 연결](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector)에서 다운로드하여 설치할 수 있는 [Azure 환경 선택기 Visual Studio 확장 소개](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).
+
 * 임베디드 논리 앱 디자이너를 사용하는 동안 웹에 액세스
 
-  디자이너가 Azure에서 리소스를 만들고 논리 앱의 커넥터에서 속성 및 데이터를 읽으려면 인터넷 연결이 필요합니다. 예를 들어, Dynamics CRM Online 커넥터의 경우 디자이너는 기본 및 사용자 지정 속성에 대한 CRM 인스턴스를 확인합니다.
+  디자이너가 Azure에서 리소스를 만들고 논리 앱의 커넥터에서 속성 및 데이터를 읽으려면 인터넷 연결이 필요합니다.
 
 * Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원하는 이메일 계정입니다. 다른 공급자에 대한 내용은 [여기서 커넥터 목록](/connectors/)을 검토하세요. 이 예에서는 Office 365 Outlook을 사용합니다. 다른 공급자를 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Dedicated HSM이란? - Azure 전용 HSM | Microsoft Docs
+title: Dedicated HSM 문제 해결 - Azure Dedicated HSM | Microsoft Docs
 description: Azure 전용 HSM 개요에서는 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
 services: dedicated-hsm
 author: msmbaldwin
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c398049cfe1d5ec2ee090d4fabf8008803efecb1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074991"
 ---
-# <a name="troubleshooting"></a>문제 해결
+# <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Azure Dedicated HSM 서비스 문제 해결
 
 Azure Dedicated HSM 서비스에는 고유한 두 가지 측면이 있습니다. 먼저, Azure에서 기본 네트워크 구성 요소를 사용하여 HSM 디바이스를 등록하고 배포합니다. 다음으로, 지정된 워크로드 또는 애플리케이션을 사용하고 통합하도록 준비하는 데 필요한 HSM 디바이스를 구성합니다. Thales Luna Network HSM 디바이스는 Thales에서 직접 구입하는 것처럼 Azure에서 동일하지만, Azure의 리소스라는 사실로 인해 몇 가지 고유한 고려 사항이 있습니다. 중요한 정보에 대한 높은 가시성과 액세스를 보장하기 위해 이러한 고려 사항과 이에 따른 문제 해결 인사이트 또는 모범 사례를 여기서 문서화하고 있습니다. 서비스를 사용하고 있으면 Microsoft 또는 Thales에 대한 지원 요청을 통해 최종 정보를 직접 사용할 수 있습니다. 
 

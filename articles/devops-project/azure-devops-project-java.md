@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Java 용 CI/CD 파이프라인 만들기-Azure DevOps 스타터'
+title: '빠른 시작: Java용 CI/CD 파이프라인 만들기 - Azure DevOps Starter'
 description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1afd9361149fbcaaf88a9cc10c62953d703f8204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 738822d2dd4a67ea0b5c83c6c5f6c289e93766c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327789"
 ---
-# <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 Java 앱에 대 한 CI/CD 파이프라인 설정
+# <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정
 
-이 빠른 시작에서는 간소화 된 Azure DevOps 시작 환경을 사용 하 여 Azure Pipelines에서 Java 앱에 대 한 CI (지속적인 통합) 및 CD (지속적인 업데이트) 파이프라인을 설정 합니다. Azure DevOps Starter를 사용하여 앱을 개발, 배포 및 모니터링하는 데 필요한 모든 항목을 설정할 수 있습니다. 
+이 빠른 시작에서는 간소화된 Azure DevOps Starter 환경을 사용하여 Azure Pipelines에서 Java 앱용 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정합니다. Azure DevOps Starter를 사용하여 앱을 개발, 배포 및 모니터링하는 데 필요한 모든 항목을 설정할 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -54,19 +54,19 @@ DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 
    1. 프로젝트의 이름을 선택합니다. 
    
    1. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 선택한 후 **완료**를 선택합니다.  
-   몇 분 후에 DevOps 스타터 대시보드가 Azure Portal 표시 됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
+   잠시 후에 DevOps Starter 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
    
 2. **찾아보기**를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
    
    ![Azure Portal에서 애플리케이션 대시보드 보기](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 
-DevOps 스타터는 CI 빌드 및 릴리스 트리거를 자동으로 구성 합니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Java 앱에서 팀과 협업할 준비가 되었습니다.
+DevOps Starter는 CI 빌드 및 릴리스 트리거를 자동으로 구성했습니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Java 앱에서 팀과 협업할 준비가 되었습니다.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
 DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
 
-1. DevOps 스타터 대시보드 왼쪽의 마스터 분기에 대 한 링크를 선택 합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
+1. DevOps Starter 대시보드 왼쪽에서 마스터 분기에 대한 링크를 선택합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
 
 1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제**를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 마스터 분기에 만들고 커밋할 수 있습니다.
 
@@ -86,7 +86,7 @@ DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭�
 
 1. DevOps Starter 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다. 이 링크를 클릭하면 브라우저 탭, 새 프로젝트에 대한 빌드 파이프라인이 열립니다.
 
-1. **상태** 필드를 가리킨 다음 줄임표 (...)를 선택 합니다. 이 작업을 수행 하면 새 빌드를 큐에 대기 하 고, 빌드를 일시 중지 하 고, 빌드 파이프라인을 편집 하는 등의 여러 작업을 시작할 수 있는 메뉴가 열립니다.
+1. **상태** 필드를 가리킨 후 줄임표(...)를 선택합니다. 이 작업은 새 빌드 큐, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 여러 활동을 시작할 수 있는 메뉴를 엽니다.
 
 1. **편집**을 선택합니다.
 
@@ -99,12 +99,12 @@ DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭�
 1. 빌드 파이프라인 이름에서 **기록**을 선택합니다.   
 **기록** 창에 빌드에 대한 최근 변경 내용의 감사 내역이 표시됩니다.  Azure Pipelines는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
-1. **트리거**를 선택합니다.  DevOps 스타터에서 자동으로 CI 트리거를 만들고 리포지토리에 대 한 모든 커밋을 새 빌드를 시작 합니다.  필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+1. **트리거**를 선택합니다.  DevOps Starter는 CI 트리거를 자동으로 생성했으며 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다.  필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
 1. **빌드 및 릴리스**를 선택한 다음, **릴리스**를 선택합니다.  
- DevOps 스타터는 Azure에 대 한 배포를 관리 하는 릴리스 파이프라인을 만듭니다.
+ DevOps Starter는 Azure에 대한 배포를 관리하는 릴리스 파이프라인을 만듭니다.
 
 1. 왼쪽에서 릴리스 파이프라인 옆의 줄임표(...)를 선택하고 **편집**을 선택합니다. 릴리스 파이프라인에는 릴리스 프로세스를 정의하는 파이프라인이 포함됩니다.  
     

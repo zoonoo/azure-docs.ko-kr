@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Key Vault에서 인증서 설정 및 검색'
+title: '빠른 시작: Azure Key Vault 인증서 설정 및 보기 – Azure PowerShell'
 description: Azure PowerShell을 사용하여 Azure Key Vault에서 인증서를 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: msmbaldwin
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecb9262a96d1c9857283de00224950d9bc7a583f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: efd73907a8ca691ceb451391477c9c8e2239c250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421027"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043905"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
 
@@ -61,8 +61,6 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 * **자격 증명 모음 URI**: 이 예제에서는 https://Contoso-Vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 자격 증명 모음을 만든 후 사용자의 Azure 계정은 이 새 자격 증명 모음에 대해 모든 작업을 수행할 수 있는 유일한 계정입니다.
-
-![Key Vault 만들기 명령이 완료된 후 출력](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="add-a-certificate-to-key-vault"></a>Key Vault에 인증서 추가
 

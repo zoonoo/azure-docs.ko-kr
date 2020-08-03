@@ -6,18 +6,18 @@ ms.topic: overview
 description: Azure Dev Spaces가 Azure Kubernetes Service 클러스터의 팀에게 신속하고 반복 가능한 Kubernetes 개발 환경을 제공하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: fd757d5392a7cefcacdd1d77807beb72e34c8f89
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 691845cd888e4d24c1144f2805402a3baf14a86e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006967"
 ---
 # <a name="what-is-azure-dev-spaces"></a>Azure Dev Spaces란?
 
 Azure Dev Spaces는 AKS(Azure Kubernetes Service) 클러스터의 팀에게 신속하고 반복 가능한 Kubernetes 개발 환경을 제공합니다. Azure Dev Spaces에서는 종속성을 복제하거나 모의로 실행하지 않고 최소의 시스템 설정만으로 AKS의 모든 애플리케이션 구성 요소를 디버그하고 테스트할 수 있습니다.
 
-![](media/azure-dev-spaces/collaborate-graphic.gif)
+![다이어그램은 독립적으로 개발된 두 가지 버전의 애플리케이션을 보여줍니다. 그런 다음, Azure Dev Spaces 개발 환경에서 하나로 결합됩니다.](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Azure Dev 공간이 Kubernetes 개발을 단순화하는 방법
 

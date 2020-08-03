@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85570212"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425074"
 ---
 이 단계에서는 필요한 Azure 파일 공유 수를 평가 합니다. 단일 Windows Server 인스턴스 (또는 클러스터)에서 최대 30 개의 Azure 파일 공유를 동기화 할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure File Sync는 단일 Azure 파일 공유에 대 한 최대 1억 항목 동�
 
 :::row:::
     :::column:::
-        [![](media/storage-files-migration-namespace-mapping/namespace-mapping.png "An example of a mapping table. Download the file below to experience and use the content of this image.")](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
+        [![매핑 테이블의 예입니다. 이 이미지의 내용을 경험 하 고 사용 하려면 아래 파일을 다운로드 하세요.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         이전 개념의 조합을 사용 하 여 필요한 Azure 파일 공유의 수와 Azure 파일 공유에 대 한 기존 데이터의 일부를 결정 하는 데 도움이 됩니다.

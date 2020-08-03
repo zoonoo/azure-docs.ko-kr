@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Python용 Azure Key Vault 클라이언트 라이브러리
+title: 빠른 시작 – Azure Key Vault Python 클라이언트 라이브러리 - 키 관리
 description: Python 클라이언트 라이브러리를 사용하여 Azure Key Vault에서 키를 생성, 검색 및 삭제하는 방법을 알아봅니다.
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 5335d629ef6778cbab7273200652c19998c9c19d
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: fe88cfc71959cfa0e78c9e6129853afee248fd37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125179"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060984"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 클라이언트 라이브러리
+# <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 키 클라이언트 라이브러리
 
 Python용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
 
@@ -33,7 +33,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Python 2.7, 3.5.3 이상
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/)
 
 이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 실행하고 있다고 가정합니다.
 

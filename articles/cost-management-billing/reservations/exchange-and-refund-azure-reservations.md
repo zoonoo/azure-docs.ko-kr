@@ -3,26 +3,25 @@ title: Azure Reservations의 셀프 서비스 교환 및 환불
 description: Azure Reservations을 교환하거나 환불하는 방법을 알아봅니다.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 07/01/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 3f41f26e6934e156ab38340a74e2c070b26cefb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807692"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287657"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
-Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 유연성을 제공합니다. 동일한 유형의 다른 예약에 대한 예약을 교환할 수 있습니다. 즉, 가상 머신 예약을 교환하여 가상 머신 크기나 지역에 대한 예약을 구매할 수 있습니다. 마찬가지로 SQL PaaS 데이터베이스 예약을 교환하여 모든 SQL PaaS 데이터베이스 유형 또는 지역에 대한 모든 예약을 구매할 수 있습니다. 예약을 상환할 수도 있지만 취소된 예약 약정의 총 합계는 12개월의 롤링 기간에서 USD 50,000을 초과할 수 없습니다. Azure Databricks 예약된 용량, Azure VMware solution by CloudSimple 예약, Azure Red Hat Open Shift 예약, Red Hat 플랜 및 SUSE Linux 플랜은 환불에 적합하지 않습니다.
+Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 유연성을 제공합니다. 예약을 동일한 유형의 다른 예약으로 교환할 수 있습니다. 예를 들어 가상 머신 예약을 교환하여 다른 VM 크기나 지역에 대한 다른 예약을 구입할 수 있습니다. 마찬가지로 SQL PaaS 데이터베이스 예약을 교환하여 SQL PaaS 데이터베이스 유형 또는 지역에 대한 다른 예약을 구입할 수 있습니다. 예약을 환불할 수도 있지만 청구 범위(예: EA, Microsoft 고객 계약 및 Microsoft 파트너 계약)에서 취소된 모든 예약 약정의 합계는 12개월 연속 기간 내에 50,000USD를 초과할 수 없습니다. Azure Databricks 예약된 용량, Azure VMware solution by CloudSimple 예약, Azure Red Hat Open Shift 예약, Red Hat 플랜 및 SUSE Linux 플랜은 환불에 적합하지 않습니다.
 
 US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능을 사용할 수 없습니다. 종량제와 CSP(클라우드 솔루션 공급자)를 비롯한 다른 US Government 구독 유형은 지원됩니다.
 
-기존 예약을 교환하거나 환불하려면 예약 주문에 대한 소유자 액세스 권한이 있어야 합니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation)할 수 있습니다.
-
 > [!NOTE]
-> Microsoft는 현재 예약 환불에 대해 조기 종료 수수료를 청구하지 않습니다. 향후에 환불에 대한 수수료가 부과될 수 있습니다. 현재 이 요금을 사용하도록 설정된 날짜가 없습니다.
+> - **기존 예약을 교환하거나 환불하려면 예약 주문에 대한 소유자 액세스 권한이 있어야 합니다**. [예약을 관리할 수 있는 사용자를 추가 또는 변경](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation)할 수 있습니다.
+> - Microsoft는 현재 예약 환불에 대해 조기 종료 수수료를 청구하지 않습니다. 향후에 환불에 대한 수수료가 부과될 수 있습니다. 현재 이 요금을 사용하도록 설정된 날짜가 없습니다.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>기존 예약을 교환하거나 환불하는 방법
 
@@ -76,7 +75,8 @@ Azure에는 취소, 교환 및 환불에 대해 다음과 같은 정책이 있�
 **환불 정책**
 
 - 현재는 조기 종료 수수료를 청구하지 않지만 향후에 취소 시 12%의 조기 종료 수수료가 있을 수 있습니다.
-- 취소한 총 약정은 12개월 롤링 기간 동안 50,000USD를 초과할 수 없습니다. 예제: 매월 100USD이고 18개월 내 환불된 3년 예약의 경우 취소된 약정은 1,800USD입니다. 환불 후 환불에 대한 사용 가능한 새 한도는 48,200USD가 됩니다. 이 환불에서 365일 내에 48,200USD 한도가 1,800USD로 증가하고 새 풀이 50,000USD가 됩니다. 다른 모든 예약 취소는 동일한 풀을 소진하고, 동일한 보급 논리가 적용됩니다.
+- 취소된 총 약정은 청구 프로필 또는 단일 등록에 대한 12개월 연속 기간 동안 50,000USD를 초과할 수 없습니다. 예를 들어 매월 100USD이고 18개월 내 환불된 3년 예약의 경우 취소된 약정은 1,800USD입니다. 환불 후 환불에 대한 사용 가능한 새 한도는 48,200USD가 됩니다. 환불로부터 365일 내에 48,200USD 한도가 1,800USD로 증가하고 새 풀이 50,000USD가 됩니다. 청구 프로필 또는 EA 등록에 대한 다른 모든 예약 취소는 동일한 풀을 소진하고, 동일한 보급 논리가 적용됩니다.
+- Azure는 청구 프로필 또는 EA 등록에 대해 12개월 기간 동안 50,000USD 한도를 초과하는 환불을 처리하지 않습니다.
 - 환불은 예약의 구매 가격 또는 현재 가격 중 가장 낮은 가격을 기준으로 계산됩니다.
 - 예약 주문 소유자만 환불을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

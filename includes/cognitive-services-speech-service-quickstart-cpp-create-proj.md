@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 53c9931e84a2338af2f51fc3a9937034e7f395a3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609314"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374793"
 ---
 C++ 데스크톱 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 프로젝트를 만들고, 대상 아키텍처를 선택하고, Speech SDK를 설치해야 합니다.
 
@@ -29,7 +29,7 @@ C++ 데스크톱 개발에 대한 Visual Studio 프로젝트를 만들려면 Vis
 
 1. **워크로드** 탭의 **Windows** 아래에서 **C++를 사용한 데스크톱 개발** 워크로드를 찾습니다. 해당 워크로드 옆의 확인란이 아직 선택되어 있지 않은 경우 선택합니다.
 
-1. **개별 구성 요소** 탭에서 **Nuget 패키지 관리자** 확인란을 찾습니다. 확인란이 아직 선택되어 있지 않으면 선택합니다.
+1. **개별 구성 요소** 탭에서 **NuGet 패키지 관리자** 확인란을 찾습니다. 확인란이 아직 선택되어 있지 않으면 선택합니다.
 
 1. **닫기** 또는 **수정**이라는 레이블이 지정된 모서리의 단추를 선택합니다. (단추 이름은 설치할 기능을 선택했는지 여부에 따라 달라집니다.) **수정**을 선택하는 경우 설치가 시작되며, 이는 다소 시간이 걸릴 수 있습니다.
 
@@ -77,4 +77,4 @@ C++ 데스크톱 개발에 대한 Visual Studio 프로젝트를 만들려면 Vis
 
 1. **변경 내용 미리 보기** 대화 상자에서 **확인**을 선택합니다.
 
-1. **라이선스 승인** 대화 상자에서 라이선스를 확인한 다음, **동의함**을 선택합니다. 패키지 설치가 시작되고 설치가 완료되면 **출력** 창에 `Successfully installed 'Microsoft.CognitiveServices.Speech 1.12.1' to helloworld`와 유사한 메시지가 표시됩니다.
+1. **라이선스 승인** 대화 상자에서 라이선스를 확인한 다음, **동의함**을 선택합니다. 패키지 설치가 시작되고 설치가 완료되면 **출력** 창에 `Successfully installed 'Microsoft.CognitiveServices.Speech 1.13.0' to helloworld`와 유사한 메시지가 표시됩니다.

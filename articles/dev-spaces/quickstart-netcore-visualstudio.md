@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 909e4638b3b0919919320a09cbfa0e8d9ac92f2e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8279a32ece16209c1dd5bca13d08e22b283677ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007007"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio 및 .NET Core - Azure Dev Spaces
 
@@ -84,15 +84,15 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 프로젝트에서, 아래 그림과 같이 시작 설정 드롭다운에서 **Azure Dev Spaces**를 선택합니다.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![IIS Express 옵션이 강조 표시되고 선택되었으며 Azure Dev Spaces 옵션이 강조 표시된 Visual Studio UI의 스크린샷.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 Azure Dev Spaces 대화 상자에서 *구독*과 *Azure Kubernetes Cluster*를 선택합니다. *공간*을 *기본*으로 설정하고 *공개적으로 액세스할 수 있음* 확인란을 사용하도록 설정합니다. *확인*을 클릭합니다.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
+![Azure Dev Spaces 대화 상자의 스크린샷.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
 이 프로세스는 공개적으로 액세스할 수 있는 URL을 사용하여 *기본* 개발 공간에 서비스를 배포합니다. Azure Dev Spaces와 함께 작동하도록 구성되지 않은 클러스터를 선택하면 구성할 것인지를 묻는 메시지가 표시됩니다. *확인*을 클릭합니다.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![Azure Spaces Resource 추가 대화 상자의 스크린샷.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 *기본* 개발 공간에서 실행 중인 서비스의 공용 URL은 *출력* 창에 표시됩니다.
 

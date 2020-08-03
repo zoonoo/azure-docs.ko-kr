@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop에 대한 앱 그룹 관리 - Azure
-description: Azure Active Directory에서 Windows Virtual Desktop 테넌트를 설정하는 방법을 설명합니다.
+title: Windows Virtual Desktop(클래식)에 대한 앱 그룹 관리 - Azure
+description: Azure Active Directory에서 Windows Virtual Desktop(클래식) 테넌트를 설정하는 방법을 설명합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 55c2ed5f9066d85643588f77806bbd41e92dd16b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fcf946c4bde89f3c14e78744305bc274ea67962f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613949"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284985"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에 대한 앱 그룹 관리
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에 대한 앱 그룹 관리
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다. 2020년 봄 업데이트에 도입된 Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../manage-app-groups.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../manage-app-groups.md)를 참조하세요.
 
 새 Windows Virtual Desktop 호스트 풀에 대해 생성된 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 **시작** 메뉴 앱을 게시합니다.
 

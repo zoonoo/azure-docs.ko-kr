@@ -1,6 +1,5 @@
 ---
-title: '자습서 2: 신용 위험 모델 학습'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio(클래식) 자습서 2: 신용 위험 모델 학습 - Azure'
 description: Azure Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제2부입니다. 이 자습서에서는 모델을 학습하고 평가하는 방법을 보여줍니다.
 keywords: 신용 위험, 예측 분석 솔루션, 위험 평가
 author: sdgilley
@@ -10,16 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c88a7e2a74d4ad7b9ee353b24c46e36d4365db5e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79217862"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324882"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>자습서 2: 신용 위험 모델 학습 - Azure Machine Learning Studio(클래식)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**적용 대상:** ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) 
+
 
 이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부**입니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "79217862"
 
 [이 자습서의 제3부](tutorial-part3-credit-risk-deploy.md)에서는 모델을 웹 서비스로 배포할 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [이 자습서의 제1부](tutorial-part1-credit-risk.md)를 완료합니다.
 
@@ -65,11 +65,11 @@ Azure Machine Learning Studio(클래식)를 사용하여 기계 학습 모델을
 
 1. 모듈 팔레트에서 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 찾고 캔버스로 끌어서 놓습니다.
 
-1. [모델 학습][train-model] 모듈을 찾고 캔버스로 끌고 나서 [2클래스 향상된 의사 결정 트리][train-model] 모듈의 출력을 [모델 학습][two-class-boosted-decision-tree] 모듈의 왼쪽 입력 포트에 연결합니다.
+1. [모델 학습][train-model] 모듈을 찾고 캔버스로 끌고 나서 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈의 출력을 [모델 학습][train-model] 모듈의 왼쪽 입력 포트에 연결합니다.
    
    [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈은 일반 모델을 초기화하고 [모델 학습][train-model]에서는 학습 데이터를 사용하여 모델을 학습합니다. 
 
-1. 왼쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력을 [모델 학습](#train) 모듈의 오른쪽 입력 포트에 연결합니다(이 자습서에서는 학습할 데이터 분할 모듈의 [왼쪽에서 오는 데이터를 사용함][train-model]).
+1. 왼쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력을 [모델 학습][train-model] 모듈의 오른쪽 입력 포트에 연결합니다(이 자습서에서는 학습할 데이터 분할 모듈의 [왼쪽에서 오는 데이터를 사용함](#train)).
    
    > [!TIP]
    > 이 실험에서는 [R 스크립트 실행][execute-r-script] 모듈의 입력 중 두 개와 출력 중 하나가 필요 없으므로 연결되지 않은 상태로 두면 됩니다. 
@@ -148,7 +148,7 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 1. [모델 점수 매기기][score-model] 모듈을 복사하고 붙여넣어 두 번째 복사본을 만듭니다.
 
-1. SVM 모델의 출력(즉, [2클래스 Support Vector Machine][score-model] 모듈에 연결된 [모델 학습][train-model] 모듈의 출력 포트)을 두 번째 [모델 점수 매기기][two-class-support-vector-machine] 모듈의 입력 부분에 연결합니다.
+1. SVM 모델의 출력(즉, [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈에 연결된 [모델 학습][train-model] 모듈의 출력 포트)을 두 번째 [모델 점수 매기기][score-model] 모듈의 입력 부분에 연결합니다.
 
 1. SVM 모델의 경우 학습 데이터에서 했던 것과 똑같이 테스트 데이터를 변환해야 합니다. 따라서 [데이터 정규화][normalize-data] 모듈을 복사하고 붙여넣고 두 번째 복사본을 만들고 오른쪽 [R 스크립트 실행][execute-r-script] 모듈에 연결합니다.
 

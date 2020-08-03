@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL 내에서 SQL 주문형(미리 보기)을 사용하여 스토리지의 파일에 액세스
+title: SQL 주문형(미리 보기)의 스토리지에서 파일에 액세스
 description: Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일을 쿼리하는 방법을 설명합니다.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f786e92ca99c4c1700d00adf396ba1127b66ea7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046871"
 ---
 # <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Synapse SQL(주문형)에서 외부 스토리지에 액세스
 
@@ -43,7 +43,7 @@ SELECT * FROM
 - Azure AD 사용자 - OPENROWSET는 호출자의 Azure AD ID를 사용하여 Azure Storage에 액세스하거나 익명 액세스를 사용하여 스토리지에 액세스합니다.
 - SQL 사용자 – OPENROWSET는 익명 액세스를 사용하여 스토리지에 액세스합니다.
 
-또한 SQL 보안 주체는 OPENROWSET를 사용하여 작업 영역의 관리 ID 또는 SAS 토큰으로 보호되는 파일을 직접 쿼리할 수 있습니다. SQL 사용자가 이 함수를 실행하면 ALTER ANY CREDENTIAL 권한을 가진 고급 사용자는 다음과 같이 함수의 URL과 일치하는 서버 범위 자격 증명을 만들고(스토리지 이름 및 컨테이너 사용) 이 자격 증명에 대한 REFERENCES 권한을 OPENROWSET 함수의 호출자에게 부여해야 합니다.
+또한 SQL 보안 주체는 OPENROWSET를 사용하여 작업 영역의 관리 ID 또는 SAS 토큰으로 보호되는 파일을 직접 쿼리할 수 있습니다. SQL 사용자가 이 함수를 실행하는 경우 `ALTER ANY CREDENTIAL` 권한을 가진 고급 사용자는 다음과 같이 함수의 URL과 일치하는 서버 범위 자격 증명을 만들고(스토리지 이름 및 컨테이너 사용) 이 자격 증명에 대한 REFERENCES 권한을 OPENROWSET 함수의 호출자에게 부여해야 합니다.
 
 ```sql
 EXECUTE AS somepoweruser
@@ -87,8 +87,8 @@ DATABASE SCOPED CREDENTIAL은 참조되는 데이터 원본의 파일에 액세�
 호출자가 OPENROWSET 함수를 실행하려면 다음 권한 중 하나가 필요합니다.
 
 - OPENROWSET를 실행하는 다음 권한 중 하나가 필요합니다.
-  - 로그인에서 OPENROWSET 함수를 실행할 수 있는 ADMINISTER BULK OPERATION
-  - 데이터베이스 범위 사용자가 OPENROWSET 함수를 실행할 수 있는 ADMINISTER DATABASE BULK OPERATION
+  - `ADMINISTER BULK OPERATIONS`는 로그인을 활성화하여 OPENROWSET 함수를 실행합니다.
+  - `ADMINISTER DATABASE BULK OPERATIONS`는 데이터베이스 범위 사용자가 OPENROWSET 함수를 실행할 수 있게 합니다.
 - EXTERNAL DATA SOURCE에서 참조되는 자격 증명에 대한 REFERENCES DATABASE SCOPED CREDENTIAL
 
 #### <a name="accessing-anonymous-data-sources"></a>익명 데이터 원본 액세스
@@ -151,13 +151,13 @@ FROM dbo.DimProductsExternal
 
 | 쿼리 | 필요한 사용 권한|
 | --- | --- |
-| 데이터 원본 없는 OPENROWSET(BULK) | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` 또는 SQL 로그인에는 SAS로 보호되는 스토리지에 대한 REFERENCES CREDENTIAL::\<URL>이 필요합니다. |
-| 자격 증명이 없고 데이터 원본이 있는 OPENROWSET(BULK) | `ADMINISTER BULK ADMIN` 또는 `ADMINISTER DATABASE BULK ADMIN` |
-| 자격 증명이 있고 데이터 원본이 있는 OPENROWSET(BULK) | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` 또는 `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| 데이터 원본 없는 OPENROWSET(BULK) | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` 또는 SQL 로그인에는 SAS로 보호되는 스토리지에 대한 REFERENCES CREDENTIAL::\<URL>이 필요합니다. |
+| 자격 증명이 없고 데이터 원본이 있는 OPENROWSET(BULK) | `ADMINISTER BULK OPERATIONS` 또는 `ADMINISTER DATABASE BULK OPERATIONS` |
+| 자격 증명이 있고 데이터 원본이 있는 OPENROWSET(BULK) | `REFERENCES DATABASE SCOPED CREDENTIAL` 및 `ADMINISTER BULK OPERATIONS` 또는 `ADMINISTER DATABASE BULK OPERATIONS` 중 하나 |
 | CREATE EXTERNAL DATA SOURCE | `ALTER ANY EXTERNAL DATA SOURCE` 및 `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CREATE EXTERNAL TABLE | `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY EXTERNAL FILE FORMAT` 및 `ALTER ANY EXTERNAL DATA SOURCE` |
 | SELECT FROM EXTERNAL TABLE | `SELECT TABLE` 및 `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CETAS | 테이블을 만들려면 `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` 및 `ALTER ANY EXTERNAL FILE FORMAT`이 필요합니다. 데이터를 읽으려면 쿼리의 각 테이블/보기/함수에 대한 `ADMIN BULK OPERATIONS`, `REFERENCES CREDENTIAL` 또는 `SELECT TABLE` 권한과 스토리지에 대한 읽기/쓰기 권한이 필요합니다. |
+| CETAS | 테이블을 만들려면 `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` 및 `ALTER ANY EXTERNAL FILE FORMAT`이 필요합니다. 데이터를 읽으려면 쿼리의 각 테이블/보기/함수에 대한 `ADMINISTER BULK OPERATIONS`, `REFERENCES CREDENTIAL` 또는 `SELECT TABLE` 권한과 스토리지에 대한 읽기/쓰기 권한이 필요합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

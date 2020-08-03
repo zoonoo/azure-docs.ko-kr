@@ -1,5 +1,5 @@
 ---
-title: VHD에서 스냅샷을 만들어 동일한 관리 디스크 여러 개 만들기 - PowerShell 샘플
+title: 동일한 관리 디스크를 여러 개 만들기 위한 VHD 스냅샷(Linux) - PowerShell
 description: Azure PowerShell 스크립트 샘플 - VHD에서 스냅샷을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기
 services: virtual-machines-linux
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: b163b5a1aad343382b9b2d22a91c1b07078c14df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8a80056ed3368f6a2a5c4ad7fa31424524e824b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079930"
 ---
-# <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>PowerShell을 사용하여 VHD에서 스냅샷을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기
+# <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell-linux"></a>PowerShell을 사용하여 VHD에서 스냅샷을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기(Linux)
 
 이 스크립트는 같은 구독 또는 다른 구독의 스토리지 계정에 VHD 파일의 스냅샷을 만듭니다. 이 스크립트를 사용하여 특수화된(일반화되지 않은/sysprep을 실행하지 않은) VHD를 스냅샷으로 가져온 다음, 스냅샷을 사용하여 약간의 시간 동안 같은 관리 디스크를 여러 개 만듭니다. 또한 이 스크립트를 사용하여 데이터 VHD를 스냅샷으로 가져온 다음, 스냅샷을 사용하여 약간의 시간 동안 관리 디스크를 여러 개 만듭니다.
 
@@ -39,13 +39,13 @@ ms.locfileid: "81459715"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 스토리지 형식, 위치, 부모 VHD가 저장된 스토리지 계정의 리소스 ID 및 부모 VHD의 VHD URI를 포함합니다. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 매개 변수로 전달된 디스크 구성, 디스크 이름 및 리소스 그룹 이름을 사용하여 디스크를 만듭니다. |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 스토리지 형식, 위치, 부모 VHD가 저장된 스토리지 계정의 리소스 ID 및 부모 VHD의 VHD URI를 포함합니다. |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | 매개 변수로 전달된 디스크 구성, 디스크 이름 및 리소스 그룹 이름을 사용하여 디스크를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 [스냅샷에서 관리 디스크 만들기](virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
 
 추가 가상 머신 PowerShell 스크립트 샘플은 [Azure Linux VM 설명서](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.

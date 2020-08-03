@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147009"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307202"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정 
 
@@ -37,11 +37,9 @@ ms.locfileid: "86147009"
 
 1. 왼쪽에 있는 **데이터 레이블 지정**을 선택하여 프로젝트를 찾습니다.  
 
-1. 목록에서 프로젝트 이름을 선택합니다.
-
 ## <a name="understand-the-labeling-task"></a>레이블 지정 작업 이해
 
-프로젝트를 선택한 후 페이지 맨 위에 있는 **레이블 데이터**를 선택합니다.
+데이터 레이블 지정 프로젝트 테이블에서 프로젝트에 대한 **레이블 링크**를 선택합니다.
 
 프로젝트와 관련된 지침이 표시됩니다. 직면하고 있는 데이터 형식, 의사 결정 방법 및 기타 관련 정보를 설명합니다. 이 정보를 읽은 후 페이지 맨 위에서 **작업**을 선택합니다.  또는 페이지 하단에서 **레이블 지정 시작**을 선택합니다.
 
@@ -65,6 +63,10 @@ Azure는 페이지의 모든 이미지에 태그를 지정한 후 **전송** 단
 현재 데이터에 대한 태그가 제출되면 Azure에서 페이지를 작업 큐의 새 이미지 세트로 새로 고칩니다.
 
 ### <a name="assisted-machine-learning-preview"></a>지원 기계 학습(미리 보기) 
+
+> [!IMPORTANT]
+> 지원 기계 학습은 현재 공개 미리 보기로 제공됩니다.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 기계 학습 알고리즘이 트리거될 수 있습니다. 프로젝트에서 이러한 알고리즘을 사용하는 경우 다음이 표시될 수 있습니다.
 

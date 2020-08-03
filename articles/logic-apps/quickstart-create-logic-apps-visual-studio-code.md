@@ -1,18 +1,18 @@
 ---
-title: Visual Studio Code를 사용하여 작업 자동화
-description: VS Code(Visual Studio Code)를 사용하여 논리 앱 기본 JSON 정의를 만들거나 편집합니다.
+title: Visual Studio Code를 사용하여 작업 및 워크플로 자동화
+description: VS Code(Visual Studio Code)를 사용하여 논리 앱 워크플로 정의 만들기 또는 편집
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, deli, logicappspm
+ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 3dccb596be2d97dd0f38d680537913a76ce09e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147057"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131483"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
@@ -50,9 +50,9 @@ ms.locfileid: "82147057"
 
     자세한 내용은 [확장 마켓플레이스](https://code.visualstudio.com/docs/editor/extension-gallery)를 참조하세요. 이 확장의 오픈 소스 버전에 참여하려면 [GitHub의 Visual Studio Code용 Azure Logic Apps 확장](https://github.com/Microsoft/vscode-azurelogicapps)을 방문합니다.
 
-<a name="sign-in-azure"></a>
+<a name="access-azure"></a>
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="access-azure-from-visual-studio"></a>Visual Studio에서 Azure에 액세스
 
 1. Visual Studio Code를 엽니다. Visual Studio Code 도구 모음에서 Azure 아이콘을 선택합니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "82147057"
 
 ## <a name="create-new-logic-app"></a>새 논리 앱 만들기
 
-1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#sign-in-azure).
+1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 
 1. Visual Studio Code의 **Logic Apps** 아래에서 구독의 바로 가기 메뉴를 열고 **로그 앱 만들기**를 선택합니다.
 
@@ -133,7 +133,7 @@ ms.locfileid: "82147057"
    > 이 논리 앱 정의 샘플을 다시 사용하려면 Office 365 조직 계정 (예 : @fabrikam.com)이 필요합니다. 가상 이메일 주소를 사용자 고유의 이메일 주소로 바꾸어야 합니다. Outlook.com 또는 Gmail과 같은 다른 이메일 커넥터를 사용하려면 `Send_an_email_action` 작업을 [Azure Logic Apps에서 지원하는 이메일 커넥터](../connectors/apis-list.md)에서 사용할 수 있는 비슷한 작업으로 바꿉니다.
    >
    > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. 
-   > Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 
+   > Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 
    > 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
    ```json
@@ -226,7 +226,7 @@ Azure Portal에서 논리 앱을 검토하려면 다음 단계를 수행합니�
 
 Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용을 저장하는 경우 이미 배포된 앱을 *덮어씁니다*. 프로덕션에서 논리 앱이 중단되지 않도록 방지하고 중단을 최소화하려면 먼저 논리 앱을 비활성화합니다. 그런 다음, 논리 앱이 여전히 작동하는지 확인한 후에 논리 앱을 다시 활성화할 수 있습니다.
 
-1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#sign-in-azure).
+1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 
 1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
 
@@ -247,7 +247,7 @@ Visual Studio Code에서는 이미 배포된 Azure 논리 앱의 워크플로 �
 > [!IMPORTANT] 
 > 프로덕션에서 활발하게 실행되는 논리 앱을 편집하려면 먼저 [논리 앱을 사용하지 않도록 설정](#disable-enable-logic-app)하여 해당 논리 앱을 중단시키는 위험을 피하고 중단을 최소화해야 합니다.
 
-1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#sign-in-azure).
+1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 
 1. Azure 창의 **Logic Apps** 아래에서 Azure 구독을 확장하고 원하는 논리 앱을 선택합니다.
 

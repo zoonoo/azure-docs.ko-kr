@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033645"
 ---
 # <a name="durable-orchestrations"></a>지속성 오케스트레이션
 
@@ -41,9 +41,9 @@ Durable Functions은 [Azure Functions](../functions-overview.md)의 확장입니
 
 ## <a name="reliability"></a>안정성
 
-오케스트레이터 함수는 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) 디자인 패턴을 사용하여 실행 상태를 안정적으로 유지합니다. 지속성 작업 프레임워크는 오케스트레이션의 현재 상태를 직접 저장하는 대신, 추가 전용 저장소를 사용하여 함수 오케스트레이션에서 수행하는 일련의 작업 전체를 기록합니다. 추가 전용 저장소는 전체 런타임 상태를 "덤프"하는 것에 비해 많은 이점을 누릴 수 있습니다. 즉 향상된 성능, 확장성 및 응답성을 얻을 수 있습니다. 또한 트랜잭션 데이터와 전체 감사 내역 및 기록에 대한 최종 일관성을 얻을 수 있습니다. 감사 내역은 안정적인 보정 작업을 지원합니다.
+오케스트레이터 함수는 [이벤트 소싱](/azure/architecture/patterns/event-sourcing) 디자인 패턴을 사용하여 실행 상태를 안정적으로 유지합니다. 지속성 작업 프레임워크는 오케스트레이션의 현재 상태를 직접 저장하는 대신, 추가 전용 저장소를 사용하여 함수 오케스트레이션에서 수행하는 일련의 작업 전체를 기록합니다. 추가 전용 저장소는 전체 런타임 상태를 "덤프"하는 것에 비해 많은 이점을 누릴 수 있습니다. 즉 향상된 성능, 확장성 및 응답성을 얻을 수 있습니다. 또한 트랜잭션 데이터와 전체 감사 내역 및 기록에 대한 최종 일관성을 얻을 수 있습니다. 감사 내역은 안정적인 보정 작업을 지원합니다.
 
-Durable Functions는 이벤트 소싱을 투명하게 사용합니다. 오케스트레이터 함수의 `await`(C#) 또는 `yield`(JavaScript) 연산자는 내부적으로 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 스토리지에 커밋합니다. 투명한 커밋 작업은 오케스트레이션 인스턴스의 실행 기록에 추가됩니다. 기록은 스토리지 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다.
+Durable Functions는 이벤트 소싱을 투명하게 사용합니다. 오케스트레이터 함수의 `await`(C#) 또는 `yield`(JavaScript/Python) 연산자는 내부적으로 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 스토리지에 커밋합니다. 투명한 커밋 작업은 오케스트레이션 인스턴스의 실행 기록에 추가됩니다. 기록은 스토리지 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다.
 
 오케스트레이션 함수에서 더 많은 작업을 수행하는 경우(예: 응답 메시지를 받거나 지속성 타이머가 만료되는 경우), 오케스트레이터는 전체 함수를 처음부터 다시 시작하고 다시 실행하여 로컬 상태를 다시 작성합니다. 재생 중에 코드에서 함수를 호출하거나 다른 비동기 작업을 수행하려고 하는 경우, 지속성 작업 프레임워크는 현재 오케스트레이션의 실행 기록을 참조합니다. [활동 함수](durable-functions-types-features-overview.md#activity-functions)가 이미 실행되어 결과를 생성한 경우, 해당 함수의 결과를 재생하고 오케스트레이터 코드가 계속 실행됩니다. 함수 코드가 완료되거나 새 비동기 작업이 예약될 때까지 재생이 계속됩니다.
 
@@ -91,9 +91,23 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity('SayHello', "Tokyo")
+    result2 = yield context.call_activity('SayHello', "Seattle")
+    result3 = yield context.call_activity('SayHello', "London")
+    return [result1, result2, result3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
-각 `await`(C#) 또는 `yield`(JavaScript) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 일부 지속성 스토리지 백 엔드(일반적으로 Azure Table 스토리지)에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
+각 `await`(C#) 또는 `yield`(JavaScript/Python) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 일부 지속성 스토리지 백 엔드(일반적으로 Azure Table 스토리지)에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
 
 ### <a name="history-table"></a>기록 테이블
 
@@ -110,7 +124,7 @@ module.exports = df.orchestrator(function*(context) {
 
 완료되면 앞에서 보여 준 함수의 기록은 Azure Table Storage에서 다음 표와 비슷합니다(예시를 위해 간략히 설명함).
 
-| PartitionKey(InstanceId)                     | EventType             | 타임스탬프               | 입력 | 속성             | 결과                                                    | 상태 |
+| PartitionKey(InstanceId)                     | EventType             | 타임스탬프               | 입력 | Name             | 결과                                                    | 상태 |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -133,8 +147,8 @@ module.exports = df.orchestrator(function*(context) {
 
 * **PartitionKey**: 오케스트레이션 인스턴스 ID를 포함합니다.
 * **EventType**: 이벤트 유형을 나타냅니다. 다음 유형 중 하나일 수 있습니다.
-  * **OrchestrationStarted**: 오케스트레이터 함수가 대기에서 다시 시작되었거나 처음부터 실행되고 있습니다. `Timestamp` 열은 `CurrentUtcDateTime`(.NET) 및 `currentUtcDateTime`(JavaScript) API에 대한 결정적 값을 채우는 데 사용됩니다.
-  * **ExecutionStarted**: 오케스트레이터 함수가 처음 실행되기 시작했습니다. 또한 이 이벤트의 `Input` 열에 함수 입력이 포함됩니다.
+  * **OrchestrationStarted**: 오케스트레이터 함수가 대기 상태에서 다시 시작되었거나 처음으로 실행되고 있습니다. `Timestamp` 열은 `CurrentUtcDateTime`(.NET), `currentUtcDateTime`(JavaScript) 및 `current_utc_datetime`(Python) API에 대한 결정적 값을 채우는 데 사용됩니다.
+  * **ExecutionStarted**: 오케스트레이터 함수가 처음으로 실행되기 시작했습니다. 또한 이 이벤트의 `Input` 열에 함수 입력이 포함됩니다.
   * **TaskScheduled**: 작업 함수가 예약되었습니다. `Name` 열에 작업 함수의 이름이 캡처됩니다.
   * **TaskCompleted**: 작업 함수가 완료되었습니다. `Result` 열에 함수 결과가 있습니다.
   * **TimerCreated**: 지속성 타이머가 만들어졌습니다. `FireAt` 열에 타이머가 만료되는 예약된 UTC 시간이 포함됩니다.
@@ -143,15 +157,15 @@ module.exports = df.orchestrator(function*(context) {
   * **OrchestratorCompleted**: 오케스트레이터 함수가 기다리고 있습니다.
   * **ContinueAsNew**: 오케스트레이터 함수가 완료되고 새 상태로 다시 시작되었습니다. `Result` 열에 다시 시작되는 인스턴스의 입력으로 사용되는 값이 포함됩니다.
   * **ExecutionCompleted**: 오케스트레이터 함수가 실행되어 완료되었거나 실패했습니다. `Result` 열에 함수 또는 오류 세부 정보의 출력이 저장됩니다.
-* **Timestamp**: 기록 이벤트의 UTC 타임스탬프입니다.
+* **타임스탬프**: 기록 이벤트의 UTC 타임스탬프입니다.
 * **Name**: 호출된 함수의 이름입니다.
-* **Input**: JSON 형식의 함수 입력입니다.
-* **Result**: 함수 출력, 즉 반환 값입니다.
+* **입력**: JSON 형식의 함수 입력입니다.
+* **결과**: 함수의 출력, 즉, 반환 값입니다.
 
 > [!WARNING]
 > 디버깅 도구로 유용하지만 이 테이블에 대한 종속성은 사용하지 마세요. 지속성 함수 확장이 진화함에 따라 변경될 수 있습니다.
 
-함수가 `await`(C#) 또는 `yield`(JavaScript)에서 다시 시작될 때마다 지속성 작업 프레임워크는 오케스트레이터 함수를 처음부터 다시 실행합니다. 다시 실행할 때마다 실행 기록을 참조하여 현재 비동기 작업이 수행되었는지 여부를 확인합니다.  작업이 수행되었으면 프레임워크에서 해당 작업의 결과를 즉시 재생하고 다음 `await`(C#) 또는 `yield`(JavaScript)로 이동합니다. 전체 기록이 재생될 때까지 이 프로세스가 계속됩니다. 현재 기록이 재생되면 로컬 변수가 이전 값으로 복원됩니다.
+함수가 `await`(C#) 또는 `yield`(JavaScript/Python)에서 다시 시작될 때마다 지속성 작업 프레임워크는 오케스트레이터 함수를 처음부터 다시 실행합니다. 다시 실행할 때마다 실행 기록을 참조하여 현재 비동기 작업이 수행되었는지 여부를 확인합니다.  작업이 수행되었으면 프레임워크에서 해당 작업의 결과를 즉시 재생하고 다음 `await`(C#) 또는 `yield`(JavaScript/Python)로 이동합니다. 전체 기록이 재생될 때까지 이 프로세스가 계속됩니다. 현재 기록이 재생되면 로컬 변수가 이전 값으로 복원됩니다.
 
 ## <a name="features-and-patterns"></a>기능 및 패턴
 
@@ -165,7 +179,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ### <a name="durable-timers"></a>지속형 타이머
 
-오케스트레이션에서는 *지속성 타이머*를 예약하여 지연을 구현하거나 비동기 작업에 대한 시간 제한 처리를 설정할 수 있습니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 대신 오케스트레이터 함수에서 사용합니다.
+오케스트레이션에서는 *지속성 타이머*를 예약하여 지연을 구현하거나 비동기 작업에 대한 시간 제한 처리를 설정할 수 있습니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 또는 `time.sleep()`(Python) 대신 오케스트레이터 함수에서 사용합니다.
 
 자세한 내용 및 예제는 [지속성 타이머](durable-functions-timers.md) 문서를 참조하세요.
 
@@ -252,6 +266,18 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    res = yield context.call_http('GET', url)
+    if res.status_code >= 400:
+        # handing of error code goes here
+```
 ---
 
 이 메서드는 기본 요청/응답 패턴을 지원하는 것 외에도 일반적인 비동기 HTTP 202 폴링 패턴을 자동으로 처리하도록 지원하고, [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용한 외부 서비스 인증도 지원합니다.
@@ -267,7 +293,7 @@ module.exports = df.orchestrator(function*(context) {
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-.NET에서는 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
+.NET에서는 [ValueTuples](/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -322,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="activity"></a>작업
+#### <a name="getweather-activity"></a>`GetWeather` 작업
 
 ```javascript
 module.exports = async function (context, location) {
@@ -330,6 +356,36 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="orchestrator"></a>오케스트레이터
+
+```python
+from collections import namedtuple
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    Location = namedtuple('Location', ['city', 'state'])
+    location = Location(city='Seattle', state= 'WA')
+
+    weather = yield context.call_activity("GetWeather", location)
+
+    # ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather` 작업
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
+    city, state = location
+    return f"Hello {city}, {state}!"
 ```
 
 ---

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 07/21/2020
+ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087784"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
 
@@ -30,6 +30,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 웹 브라우저를 열고 [Microsoft Azure Portal](https://portal.azure.com/)로 이동한 다음 자격 증명을 입력하여 포털에 로그인합니다.
 
 기본 보기는 서비스 대시보드입니다.
+
+> [!NOTE]
+> 구독당 최대 10개의 DMS 인스턴스를 만들 수 있습니다. 더 많은 수의 인스턴스가 필요한 경우 지원 티켓을 만드세요.
 
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
 

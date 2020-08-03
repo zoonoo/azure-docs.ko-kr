@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374783"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291241"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -29,7 +29,7 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 
 ## <a name="june-2020"></a>2020년 6월
 
-지난 달에는 Windows Virtual Desktop 2020 봄 업데이트가 미리 보기로 소개되었습니다. 이 업데이트에는 여러 흥미로운 새로운 기능들이 포함되어 있습니다. 2020 봄 업데이트에 대한 새로운 내용은 다음과 같습니다.
+지난달에는 Azure Resource Manager가 통합된 Windows Virtual Desktop을 미리 보기로 도입되었습니다. 이 업데이트에는 여러 흥미로운 새로운 기능들이 포함되어 있습니다. 이 Windows Virtual Desktop 버전의 새로운 기능은 다음과 같습니다.
 
 ### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>이제 Windows Virtual Desktop이 Azure Resource Manager(미리 보기)와 통합되었습니다.
 
@@ -39,22 +39,22 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 
 - 이제 Windows Virtual Desktop이 Azure Portal과 통합되었습니다. 즉, 포털에서 직접 모든 항목을 관리할 수 있습니다. PowerShell, 웹앱 또는 타사 도구는 필요하지 않습니다. 시작하려면 [Azure Portal을 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)에 있는 자습서를 확인하세요.
 
-- 2020 봄 업데이트 전에는 개별 사용자에게만 RemoteApps 및 Desktop을 게시할 수 있었습니다. 이제 Azure Resource Manager를 사용하면 Azure Active Directory 그룹에 리소스를 게시할 수 있습니다.
+- 이 업데이트 전에는 개별 사용자에게만 RemoteApps 및 데스크톱을 게시할 수 있었습니다. 이제 Azure Resource Manager를 사용하면 Azure Active Directory 그룹에 리소스를 게시할 수 있습니다.
 
 - 이전 버전의 Windows Virtual Desktop에는 테넌트 또는 호스트 풀에 할당할 수 있는 네 가지 기본 제공 관리자 역할이 있습니다. 이러한 역할은 이제 Azure [역할 기반 액세스 제어](../role-based-access-control/overview.md)에 있습니다. 모든 Windows Virtual Desktop Azure Resource Manager 개체에 이러한 역할을 적용할 수 있으며, 이를 통해 완전하고 다양한 위임 모델을 사용할 수 있습니다.
 
-- 2020 봄 업데이트에서는 더 이상 호스트 풀을 확장하기 위해 Azure Marketplace 또는 GitHub 템플릿을 반복적으로 실행할 필요가 없습니다. 호스트 풀을 확장하려면 Azure Portal의 호스트 풀로 이동하고 **+ 추가**를 선택하여 추가 세션 호스트를 배포하기만 하면 됩니다.
+- 이 업데이트에서는 더 이상 호스트 풀을 확장하기 위해 Azure Marketplace 또는 GitHub 템플릿을 반복적으로 실행할 필요가 없습니다. 호스트 풀을 확장하려면 Azure Portal의 호스트 풀로 이동하고 **+ 추가**를 선택하여 추가 세션 호스트를 배포하기만 하면 됩니다.
 
 - 이제 호스트 풀 배포가 [Azure 공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md)와 완전히 통합되었습니다. 공유 이미지 갤러리는 이미지 버전 관리를 비롯한 VM(가상 머신) 이미지 정의를 저장하는 별도의 Azure 서비스입니다. 또한 글로벌 복제를 사용하여 로컬 배포를 위해 이미지를 복사하여 다른 Azure 지역으로 보낼 수 있습니다.
 
 - PowerShell 또는 진단 서비스 웹앱을 통해 수행되는 함수 모니터링은 이제 Azure Portal의 Log Analytics로 이동되었습니다. 또한 이제 두 가지 옵션을 통해 보고서를 시각화할 수 있습니다. Kusto 쿼리를 실행하고 통합 문서를 사용하여 시각적 보고서를 만들 수 있습니다.
 
-- 더 이상 Windows Virtual Desktop을 사용하도록 Azure AD(Azure Active Directory) 동의를 완료할 필요가 없습니다. 2020 봄 업데이트에서 Azure 구독의 Azure AD 테넌트는 사용자를 인증하고 관리자를 위한 RBAC 제어를 제공합니다.
+- 더 이상 Windows Virtual Desktop을 사용하도록 Azure AD(Azure Active Directory) 동의를 완료할 필요가 없습니다. 이 업데이트에서 Azure 구독의 Azure AD 테넌트는 사용자를 인증하고 관리자를 위한 RBAC 제어를 제공합니다.
 
 
 ### <a name="powershell-support"></a>PowerShell 지원
 
-2020 봄 업데이트를 사용하여 Azure PowerShell Az 모듈에 새 AzWvd cmdlet을 추가했습니다. 이 새 모듈은 .NET Core에서 실행되는 PowerShell Core에서 지원됩니다.
+이 업데이트를 통해 Azure PowerShell Az 모듈에 새 AzWvd cmdlet을 추가했습니다. 이 새 모듈은 .NET Core에서 실행되는 PowerShell Core에서 지원됩니다.
 
 모듈을 설치하려면 [Windows Virtual Desktop용 PowerShell 모듈 설치](powershell-module.md)에 나온 지침을 따르세요.
 

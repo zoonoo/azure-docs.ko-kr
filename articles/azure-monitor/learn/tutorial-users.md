@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670358"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318405"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법 이해
 
@@ -36,9 +36,9 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 애�
     - ASP.NET 및 웹 개발
     - Azure 개발
 - [Visual Studio 스냅샷 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
-- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../../azure-monitor/app/asp-net.md)합니다. 
-- 사용자 지정 이벤트/페이지 보기 추가에 대한 [애플리케이션에서 원격 분석 전송](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app)
-- [사용자 컨텍스트](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../app/asp-net.md)합니다. 
+- 사용자 지정 이벤트/페이지 보기 추가에 대한 [애플리케이션에서 원격 분석 전송](../app/usage-overview.md#send-telemetry-from-your-app)
+- [사용자 컨텍스트](../app/usage-send-user-context.md)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
@@ -102,16 +102,16 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 1. 메뉴에서 **깔때기**를 선택한 다음 **새로 만들기**를 클릭합니다. 
 
-    ![](media/tutorial-users/funnelsnew.png)
+    ![새 유입 경로를 만드는 방법을 보여주는 스크린샷.](media/tutorial-users/funnelsnew.png)
 
 2. **깔때기 이름**에 입력합니다.
 3. 각 단계에 대한 작업을 선택하여 두 개 이상의 단계로 깔때기를 만듭니다.  작업 목록은 Application Insights에서 수집한 사용량 데이터에서 만들어집니다.
 
-    ![](media/tutorial-users/funnelsedit.png)
+    ![새 유입 경로에서 단계를 만드는 방법을 보여주는 스크린샷.](media/tutorial-users/funnelsedit.png)
 
 4. **저장**을 클릭하여 깔때기를 저장한 다음 해당 결과를 확인합니다.  깔때기의 오른쪽 창은 첫 번째 작업 전과 마지막 작업 후에 가장 일반적인 이벤트를 보여 주어 특정 시퀀스에 대한 사용자 경향을 이해할 수 있도록 돕습니다.
 
-    ![](media/tutorial-users/funnelsright.png)
+    ![새로 만든 유입 경로의 이벤트 결과를 보여주는 스크린샷.](media/tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>돌아오는 고객 알아보기
@@ -120,11 +120,11 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 1. 메뉴에서 **재방문 주기**를 선택합니다.
 2. 기본적으로 분석된 정보는 작업을 수행한 다음 작업을 수행하기 위해 돌아온 사용자를 포함합니다.  이 필터를 다음을 포함하도록, 예를 들어, 구매를 완료한 후 돌아온 사용자만 포함하도록 변경할 수 있습니다.
 
-    ![](media/tutorial-users/retentionquery.png)
+    ![보존 필터를 설정하는 방법을 보여주는 스크린샷.](media/tutorial-users/retentionquery.png)
 
 3. 조건과 일치하는 돌아온 사용자는 서로 다른 기간에 대한 그래픽 및 테이블 형식으로 표시됩니다.  일반적인 패턴은 시간에 따라 사용자가 돌아오는 점진적 하락에 대한 것입니다.  한 기간에서 다음 기간으로의 갑작스런 하락은 문제를 야기할 수 있습니다. 
 
-    ![](media/tutorial-users/retentiongraph.png)
+    ![보존 필터에 설정된 조건과 일치하는 사용자에 대한 그래프를 보여주는 스크린샷.](media/tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>사용자 탐색 분석
 **사용자 흐름**은 페이지와 애플리케이션의 기능 간에 사용자가 탐색하는 방법을 시각화합니다.  이 기능을 사용하면 사용자가 일반적으로 특정 페이지에서 이동하는 위치, 일반적으로 애플리케이션을 종료하는 방법 및 정기적으로 반복되는 작업이 있는지와 같은 질문에 답할 수 있습니다.
@@ -133,15 +133,15 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 2.  **새로 만들기**를 클릭하여 새 사용자 흐름을 만든 다음 **편집**을 클릭하여 해당 세부 정보를 편집합니다.
 3.  **시간 범위**를 7일로 증가시킨 다음 초기 이벤트를 선택합니다.  흐름은 해당 이벤트로 시작하는 사용자 세션을 추적합니다.
 
-    ![](media/tutorial-users/flowsedit.png)
+    ![새 사용자 흐름을 만드는 방법을 보여주는 스크린샷.](media/tutorial-users/flowsedit.png)
 
 4.  사용자 흐름이 표시되고 다른 사용자 경로 및 해당 세션 수를 볼 수 있습니다.  파란색 선은 현재 작업 후에 사용자가 수행한 작업을 나타냅니다.  빨간색 선은 사용자 세션의 끝을 나타냅니다.
 
-    ![](media/tutorial-users/flows.png)
+    ![사용자 흐름에 대한 사용자 경로 및 세션 수의 표시를 보여주는 스크린샷.](media/tutorial-users/flows.png)
 
 5.  흐름에서 이벤트를 제거하려면 작업 모서리에서 **x**를 클릭한 다음 **그래프 만들기**를 클릭합니다.  그래프가 제거된 해당 이벤트의 모든 인스턴스로 다시 그려집니다.  **편집**을 클릭하여 이벤트가 이제 **제외된 이벤트**에 추가되었는지 확인합니다.
 
-    ![](media/tutorial-users/flowsexclude.png)
+    ![사용자 흐름에 대해 제외된 이벤트 목록을 보여주는 스크린샷.](media/tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>사용량 데이터 통합
 **통합 문서**는 데이터 시각화, Analytics 쿼리 및 텍스트를 대화형 문서로 결합합니다.  통합 문서를 사용하여 일반적인 사용량 정보를 함께 그룹화하고, 특정 오류로부터 정보를 통합하거나 애플리케이션의 사용량에 대해 팀에게 다시 보고할 수 있습니다.
@@ -150,12 +150,12 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 2.  **새로 만들기**를 클릭하여 새 통합 문서를 만듭니다.
 3.  막대형 차트로 표시된 마지막 날짜의 모든 사용량 데이터를 포함하는 쿼리가 이미 제공됩니다.  이 쿼리를 사용하여 수동으로 편집하거나 **샘플 쿼리**를 클릭하여 다른 유용한 쿼리에서 선택할 수 있습니다.
 
-    ![](media/tutorial-users/samplequeries.png)
+    ![사용할 수 있는 샘플 쿼리 목록을 보여주는 스크린샷.](media/tutorial-users/samplequeries.png)
 
 4.  **편집 완료**를 클릭합니다.
 5.  위쪽 창에서 **편집**을 클릭하여 통합 문서 맨 위에 있는 텍스트를 편집합니다.  Markdown을 사용하여 형식이 지정됩니다.
 
-    ![](media/tutorial-users/markdown.png)
+    ![통합 문서 맨 위에 있는 텍스트를 편집하는 방법을 보여주는 스크린샷.](media/tutorial-users/markdown.png)
 
 6.  **사용자 추가**를 클릭하여 사용자 정보를 포함하는 그래프를 추가합니다.  원하는 경우 그래프의 세부 정보를 편집한 다음 **편집 완료**를 클릭하여 저장합니다.
 
@@ -164,4 +164,5 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 이제 사용자를 분석하는 방법을 배웠으므로 이 정보를 애플리케이션에 대한 다른 유용한 데이터와 결합하는 사용자 지정 대시보드를 만드는 방법을 알아보는 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 대시보드 만들기](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [사용자 지정 대시보드 만들기](./tutorial-app-dashboards.md)
+

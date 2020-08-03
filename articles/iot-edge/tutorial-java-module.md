@@ -11,12 +11,13 @@ ms.service: iot-edge
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: d8ea58dca8235b6dfc49c14c519dd44dabdf0592
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- devx-track-java
+ms.openlocfilehash: d40ab7a7173265812483e29127e9f8fd919dc4a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733078"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323335"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 Java IoT Edge 모듈 개발
 
@@ -79,7 +80,7 @@ Java에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소
    | 모듈 템플릿 선택 | **Java 모듈**을 선택합니다. |
    | groupId에 값 지정 | 그룹 ID 값을 입력하거나 기본값인 **com.edgemodule**을 그대로 적용합니다. |
    | 모듈 이름 제공 | 모듈 이름을 **JavaModule**로 지정합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br>마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/javamodule과 같습니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br>마지막 이미지 리포지토리는 \<registry name\>.azurecr.io/javamodule과 같습니다. |
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-java-module/repository.png)
 

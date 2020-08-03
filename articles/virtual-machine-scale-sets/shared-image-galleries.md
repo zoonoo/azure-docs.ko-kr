@@ -9,14 +9,14 @@ ms.subservice: imaging
 ms.date: 05/04/2020
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: c8e1f33f36b07a754620ad36aa60b00794291e59
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 77634b5e44f228142bef7b37faed2babb9f0e4de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011159"
 ---
-# <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
+# <a name="shared-image-galleries-for-vm-images"></a>VM 이미지용 공유 이미지 갤러리
 
 
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../includes/virtual-machines-common-shared-image-galleries.md)]

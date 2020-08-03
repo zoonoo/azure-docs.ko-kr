@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 4ed4f69ea3c994d9d1cc71e26e35b8d2b6021982
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0ce291a068a9dbb8f24a5e0a26fbae39cfc3a161
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056905"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -95,7 +95,7 @@ Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되�
 > [!TIP]
 > 이 빠른 시작에서는 애플리케이션 매니페스트를 수동으로 만들어 AKS 클러스터에 배포합니다. 더 많은 실제 시나리오에서는 [Azure Dev Spaces][azure-dev-spaces]를 사용하여 AKS 클러스터에서 직접 코드를 신속하게 반복하고 디버깅할 수 있습니다. OS 플랫폼 및 개발 환경 전반에서 Dev Spaces를 사용하고 다른 팀원과 함께 작업할 수 있습니다.
 
-Cloud Shell에서 `nano azure-vote.yaml` 또는 `vi azure-vote.yaml` 명령 중 하나를 사용하여 `azure-vote.yaml`이라는 파일을 만듭니다. 그런 다음, 다음 YAML 정의에 복사합니다.
+Cloud Shell에서 편집기를 사용하여 `azure-vote.yaml`(예: `code azure-vote.yaml`, `nano azure-vote.yaml` 또는 `vi azure-vote.yaml`)이라는 파일을 만듭니다. 그런 다음, 다음 YAML 정의에 복사합니다.
 
 ```yaml
 apiVersion: apps/v1

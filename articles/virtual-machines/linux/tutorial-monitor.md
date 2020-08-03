@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 02ebdfc0fe3fd39f29a64fdb49a3f0d37b007097
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dc4c348315dce59d5eaf58046c9a8d8f7f2e3725
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526965"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313679"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링
 
@@ -140,7 +140,7 @@ VM용 Azure Monitor를 사용하여 Azure VM의 모니터링을 사용하도록 
     이 목록은 구독에서 VM이 배포된 기본 작업 영역 및 위치를 미리 선택합니다. 
 
     >[!NOTE]
-    >VM의 모니터링 데이터를 저장할 새 Log Analytics 작업 영역을 만들려면 [Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. Log Analytics 작업 영역은 [지원 지역](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics) 중 하나에 속해야 합니다.
+    >VM의 모니터링 데이터를 저장할 새 Log Analytics 작업 영역을 만들려면 [Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. 작업 영역은 [지원 지역](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) 중 하나에 속해야 합니다.
 
 모니터링을 사용하도록 설정한 후 몇 분 정도 기다려야 VM에 대한 성능 메트릭을 볼 수 있습니다.
 

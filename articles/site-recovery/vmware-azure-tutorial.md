@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610686"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290667"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -84,7 +84,7 @@ ms.locfileid: "82610686"
 ## <a name="import-the-template-in-vmware"></a>VMware에서 템플릿 가져오기
 
 
-1. VMWare vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
+1. VMware vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
 2. **파일** 메뉴에서 **OVF 템플릿 배포**를 선택하여 **OVF 템플릿 배포 마법사**를 시작합니다.
 
      ![OVF 템플릿](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -113,7 +113,7 @@ ms.locfileid: "82610686"
 
 구성 서버를 설정한 후에는 자격 증명 모음에 구성 서버를 등록합니다.
 
-1. VMWare vSphere 클라이언트 콘솔에서 VM을 켭니다.
+1. VMware vSphere 클라이언트 콘솔에서 VM을 켭니다.
 2. VM이 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
 3. 설치가 완료되면 VM에 관리자 권한으로 로그인합니다.
 4. 처음으로 로그인하면 몇 초 내로 Azure Site Recovery 구성 도구가 시작됩니다.
@@ -169,6 +169,8 @@ ms.locfileid: "82610686"
 
 - 정책은 구성 서버와 자동으로 연결됩니다.
 - 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책은 **rep-policy-failback**이 됩니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.
+
+참고: VMware와 Azure 간 시나리오에서 크래시 일관성 스냅샷은 5분 간격으로 수행됩니다.
 
 ## <a name="enable-replication"></a>복제 사용
 

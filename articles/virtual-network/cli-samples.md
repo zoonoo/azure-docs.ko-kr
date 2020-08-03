@@ -1,6 +1,6 @@
 ---
 title: 가상 네트워크에 대한 Azure CLI 샘플
-description: 가상 네트워크에 대한 Azure CLI 샘플입니다.
+description: 다중 계층 애플리케이션을 위한 가상 네트워크 만들기를 포함하여 Azure CLI에서 작업을 완료하는 데 사용할 수 있는 다양한 샘플 스크립트에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 03041f7c0172312828487d934ab540972dc5e2c9
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 6f8d0bf40ac1a9c54796964b186f8871de58f201
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232103"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291945"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>가상 네트워크에 대한 Azure CLI 샘플
 

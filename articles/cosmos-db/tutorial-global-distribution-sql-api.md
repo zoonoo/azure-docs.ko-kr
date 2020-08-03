@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: 15f5ac1da6d24feceed3a9106b990ae31e3571e3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8d33756e1c28247c48d0b4c0a734e604c4e9eab0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851610"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280820"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -28,24 +28,22 @@ ms.locfileid: "85851610"
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a> SQL API를 사용하여 기본 설정 지역에 연결
 
-[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 애플리케이션은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. SQL SDK에서 Azure Cosmos DB 계정 구성, 현재 지역 가용성 및 지정된 기본 설정 목록을 기반으로 하여 쓰기 및 읽기 작업을 수행하는 데 가장 적합한 엔드포인트를 선택합니다.
+[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 애플리케이션은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. SQL SDK에서 Azure Cosmos DB 계정 구성, 현재 지역 가용성 및 지정된 기본 설정 목록을 기반으로 하여 쓰기 및 읽기 작업을 수행하는 데 가장 적합한 엔드포인트를 선택합니다.
 
-이 기본 설정 목록은 SQL SDK를 사용하여 연결을 초기화할 때 지정됩니다. SDK는 Azure 지역의 정렬된 목록인 "PreferredLocations"라는 선택적 매개 변수를 수락합니다.
+이 기본 설정 목록은 SQL SDK를 사용하여 연결을 초기화할 때 지정됩니다. SDK는 Azure 지역의 정렬된 목록인 선택적 매개 변수 `PreferredLocations`를 수락합니다.
 
-SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
+SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다. 모든 읽기는 기본 설정 위치 목록에서 사용 가능한 첫 번째 지역으로 전송됩니다. 요청이 실패하면 클라이언트는 목록을 다음 지역으로 옮겨갑니다.
 
-모든 읽기는 PreferredLocations 목록에서 첫 번째 사용 가능한 지역으로 전송됩니다. 요청이 실패하면 클라이언트는 목록의 다음 지역으로 옮겨갑니다.
+SDK는 기본 설정 위치에 지정된 지역에서만 읽기를 시도합니다. 따라서 예를 들어 Azure Cosmos 계정이 4개 지역에서 사용될 수 있지만 클라이언트가 `PreferredLocations` 내에서 2개의 읽기(쓰기 아님) 지역만 지정한 경우, `PreferredLocations`에 지정되지 않은 읽기 지역에서 읽기를 제공하지 않습니다. `PreferredLocations` 목록에 지정된 읽기 영역을 사용할 수 없는 경우 읽기는 쓰기 영역 외부로 처리됩니다.
 
-SDK는 PreferredLocations에 지정된 지역에서만 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 4개 지역에서 사용될 수 있지만 클라이언트는 PreferredLocations에 두 읽기(쓰기 아님) 지역만 지정했다면, PreferredLocations에 지정되지 않은 읽기 지역에서 읽기를 제공하지 않습니다. PreferredLocations에 지정된 읽기 영역을 사용할 수 없는 경우 읽기는 쓰기 영역 외부로 처리됩니다.
+애플리케이션은 SDK 버전 1.8 이상에서 사용 가능한 두 가지 속성(`WriteEndpoint` 및 `ReadEndpoint`)을 확인하여 SDK가 선택한 현재의 쓰기 엔드포인트와 읽기 엔드포인트를 확인할 수 있습니다. `PreferredLocations` 속성이 설정되지 않으면 모든 요청이 현재 쓰기 지역에서 제공됩니다.
 
-애플리케이션은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 엔드포인트와 읽기 엔드포인트를 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
-
-PreferredLocations 속성이 설정되지 않는다면 모든 요청은 현재 쓰기 지역에서 제공됩니다.
+기본 설정 위치를 지정하지 않고 `setCurrentLocation` 메서드를 사용하는 경우 SDK는 클라이언트가 실행 중인 현재 지역에 따라 기본 설정 위치를 자동으로 채웁니다. SDK는 현재 지역에 대한 지역의 근접성에 따라 지역을 정렬합니다.
 
 ## <a name="net-sdk"></a>.NET SDK
+
 SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기와 쓰기를 현재 쓰기 하위 지역에 자동으로 가져옵니다.
 
 .NET SDK의 1.8 버전 이상에서 DocumentClient 생성자의 ConnectionPolicy 매개 변수는 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations라는 속성이 있습니다. 이 속성은 컬렉션 `<string>` 형식이며 지역 이름 목록을 포함합니다. 문자열 값은 [Azure 지역][regions] 페이지의 지역 이름 열에 따라 서식이 지정되고 첫 글자와 마지막 글자 앞/뒤에 공백이 없습니다.
@@ -55,7 +53,10 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 > [!NOTE]
 > 엔드포인트의 URL은 수명이 긴 상수로 간주하지 말아야 합니다. 서비스는 언제든지 이 URL을 업데이트할 수 있습니다. SDK가 이런 변경 내용을 자동으로 처리합니다.
 >
->
+
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
+
+.NET V2 SDK를 사용하는 경우 `PreferredLocations` 속성을 사용하여 기본 설정 지역을 설정합니다.
 
 ```csharp
 // Getting endpoints from application settings or other configuration location
@@ -78,6 +79,54 @@ DocumentClient docClient = new DocumentClient(
 // connect to DocDB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
+
+또는 `SetCurrentLocation` 속성을 사용하고 SDK에서 근접성에 따라 기본 설정 위치를 선택하도록 할 수 있습니다.
+
+```csharp
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+  
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+
+connectionPolicy.SetCurrentLocation("West US 2"); /
+
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
+
+// connect to DocDB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
+
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
+
+.NET V3 SDK를 사용하는 경우 `ApplicationPreferredRegions` 속성을 사용하여 기본 설정 지역을 설정합니다.
+
+```csharp
+
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+options.ApplicationPreferredRegions = new List<string> {Regions.WestUS, Regions.WestUS2};
+
+CosmosClient client = new CosmosClient(connectionString, options);
+
+```
+
+또는 `ApplicationRegion` 속성을 사용하고 SDK에서 근접성에 따라 기본 설정 위치를 선택하도록 할 수 있습니다.
+
+```csharp
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+// If the application is running in West US
+options.ApplicationRegion = Regions.WestUS;
+
+CosmosClient client = new CosmosClient(connectionString, options);
+```
+
+---
 
 ## <a name="nodejsjavascript"></a>Node.js/JavaScript
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0814312bb12582dd9e9ebfafc60fba470f6a9a9
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: a3995395cfd6256689bedc7a4a3c83effc65c0b4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313543"
 ---
 # <a name="samples-for-external-identities-self-service-sign-up"></a>외부 ID 셀프 서비스 등록 샘플
 
@@ -43,5 +43,4 @@ ms.locfileid: "84905160"
 | 샘플                                                                                                            | Description                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | 이 샘플에서는 API 커넥터를 사용하여 IDology와 통합함으로써 셀프 서비스 등록의 일부로 사용자 ID를 확인하는 방법을 보여줍니다. |
-
-<!-- | [Experian](https://github.com/Azure-Samples/) | This sample shows how add identity verification to your self-service sign-up user flow by using an API connector to integrate with Experian. | -->
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | 이 샘플에서는 API 커넥터를 사용하여 Experian과 통합함으로써 셀프 서비스 등록의 일부로 사용자 ID를 확인하는 방법을 보여줍니다. |

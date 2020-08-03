@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central의 아키텍처 개념 - 에너지 | Microsoft Docs
+title: Azure IoT Central의 아키텍처 개념 - 스마트 미터 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central 에너지 앱 템플릿의 아키텍처와 관련된 주요 개념을 소개합니다.
 author: op-ravi
 ms.author: omravi
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77024316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001845"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - 스마트 미터 앱 아키텍처
 
