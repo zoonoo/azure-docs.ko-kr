@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 907258dbce9b4f942601935df472e3515ed2d956
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a92d73941aac045534b6708c4b92d741c39ff781
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020637"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494970"
 ---
 # <a name="table-data-types-in-synapse-sql"></a>Synapse SQL의 테이블 데이터 형식
 
 Synapse SQL에서 테이블 데이터 형식을 정의 하기 위한 권장 사항입니다. 
 
-## <a name="what-are-the-data-types"></a>데이터 형식은 무엇인가요?
+## <a name="data-types"></a>데이터 형식
 
 Synapse SQL은 가장 일반적으로 사용 되는 데이터 형식을 지원 합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문에서 [데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)을 참조하세요. 
 

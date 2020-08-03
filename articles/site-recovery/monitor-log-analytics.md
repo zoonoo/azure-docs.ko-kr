@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529033"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495066"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
@@ -36,7 +36,7 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 
 - Recovery Services 자격 증명 모음에 보호 된 컴퓨터가 하나 이상 있습니다.
 - Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/learn/quick-create-workspace.md) .
-- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아봅니다](../azure-monitor/log-query/get-started-portal.md).
+- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세한 정보를 알아보세요](../azure-monitor/log-query/get-started-portal.md).
 
 시작 하기 전에 [일반적인 모니터링 질문](monitoring-common-questions.md) 을 검토 하는 것이 좋습니다.
 
@@ -44,14 +44,14 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 
 1. 자격 증명 모음에서 **진단 설정**  >  **진단 설정 추가**를 클릭 합니다.
 
-    ![리소스 로깅 선택](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![진단 설정 추가 옵션을 보여 주는 스크린샷](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. **진단 설정**에서 이름을 지정 하 고 **Log Analytics로 보내기**상자를 선택 합니다.
 3. Azure Monitor 로그 구독 및 Log Analytics 작업 영역을 선택 합니다.
 4. 설정/해제에서 **Azure 진단** 를 선택 합니다.
 5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 다음, **확인**을 클릭합니다.
 
-    ![작업 영역 선택](./media/monitoring-log-analytics/select-workspace.png)
+    ![진단 설정 화면의 스크린샷](./media/monitoring-log-analytics/select-workspace.png)
 
 Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnostics**)에 피드를 시작 합니다.
 
@@ -125,7 +125,7 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![RPO 쿼리](./media/monitoring-log-analytics/example1.png)
+![Site Recovery로 복제 된 Azure Vm의 가로 막대형 차트를 보여 주는 스크린샷](./media/monitoring-log-analytics/example1.png)
 
 ### <a name="query-site-recovery-jobs"></a>Site Recovery 작업 쿼리
 
@@ -190,7 +190,7 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
-![컴퓨터 RPO 쿼리](./media/monitoring-log-analytics/example2.png)
+![특정 Azure VM의 RPO를 추적 하는 추세 그래프 스크린샷](./media/monitoring-log-analytics/example2.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Azure VM의 데이터 변경 률 (변동) 및 업로드 율 쿼리
 
@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
-![쿼리 데이터 변경](./media/monitoring-log-analytics/example3.png)
+![특정 Azure VM에 대 한 추세 그래프의 스크린샷](./media/monitoring-log-analytics/example3.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>VMware 또는 물리적 컴퓨터에 대 한 쿼리 데이터 변경 률 (변동) 및 업로드 빈도
 

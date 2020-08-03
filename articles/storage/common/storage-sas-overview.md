@@ -10,12 +10,12 @@ ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077867"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502174"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
 
@@ -58,7 +58,7 @@ Azure Storage는 다음과 같은 세 가지 유형의 공유 액세스 서명�
 
 - Azure Active Directory (Azure AD) 자격 증명을 사용 하 여 만든 *사용자 위임 키* . 사용자 위임 SAS는 사용자 위임 키로 서명 됩니다.
 
-    사용자 위임 키를 가져오고 SAS를 만들려면 Azure AD 보안 주체에 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 RBAC (역할 기반 액세스 제어) 역할을 할당 해야 합니다. 사용자 위임 키를 가져올 권한이 있는 RBAC 역할에 대 한 자세한 내용은 [사용자 위임 SAS 만들기 (REST API)](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
+    사용자 위임 키를 가져오고 SAS를 만들려면 Azure AD 보안 주체에 게 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 azure 역할을 할당 해야 합니다. 사용자 위임 키를 가져올 수 있는 권한이 있는 Azure 역할에 대 한 자세한 내용은 [사용자 위임 SAS 만들기 (REST API)](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
 
 - 저장소 계정 키를 사용 합니다. 서비스 SAS와 계정 SAS는 모두 저장소 계정 키로 서명 됩니다. 계정 키로 서명 된 SAS를 만들려면 응용 프로그램에 계정 키에 대 한 액세스 권한이 있어야 합니다.
 

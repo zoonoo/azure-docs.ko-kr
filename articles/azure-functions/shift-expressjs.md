@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
-ms.openlocfilehash: d035ef4bc90410cbf0899c038047dd5e6a001f10
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3e38fae84f63f4867befbc3695242dc62dc8dbe8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462361"
+ms.locfileid: "87502650"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Express.js에서 Azure Functions로 이동
 
@@ -24,7 +24,7 @@ Express.js는 웹 개발자를 위한 가장 인기 있는 Node.js 프레임 워
 
 - **기본 경로**: 기본적으로 Azure Functions 끝점은 경로 아래에 노출 됩니다 `api` . 라우팅 규칙은 [ `routePrefix` 파일 _의host.js_ ](./functions-bindings-http-webhook-output.md#hostjson-settings)를 통해 구성할 수 있습니다.
 
-- **구성 및 규칙**: 함수 앱은 파일 _에function.js_ 를 사용 하 여 HTTP 동사를 정의 하 고, 보안 정책을 정의 하 고, 함수의 [입력 및 출력](./functions-triggers-bindings.md)을 구성할 수 있습니다. 기본적으로 함수 파일을 포함 하는 폴더 이름은 끝점 이름을 정의 하지만 파일 [의function.js](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) 에 있는 경로 속성을 통해 이름을 변경할 수 있습니다.
+- **구성 및 규칙**: 함수 앱은 파일 _에function.js_ 를 사용 하 여 HTTP 동사를 정의 하 고, 보안 정책을 정의 하 고, 함수의 [입력 및 출력](./functions-triggers-bindings.md)을 구성할 수 있습니다. 기본적으로 함수 파일을 포함 하는 폴더 이름은 끝점 이름을 정의 하지만 `route` 파일 [의function.js](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) 에서 속성을 통해 이름을 변경할 수 있습니다.
 
 > [!TIP]
 > 대화형 자습서 [를 통해 Node.js 및 Express api를 사용 하 여 서버를 사용 하지 않는 api Azure Functions에](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/)대해 자세히 알아보세요.

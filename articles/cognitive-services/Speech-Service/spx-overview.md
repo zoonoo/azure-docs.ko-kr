@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
-ms.openlocfilehash: 3fb0b71cbb82b3b9acad1d1ce093baa86c700a51
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ab019250e03feb9a776d628c06e792b884252260
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800331"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501817"
 ---
-# <a name="what-is-the-speech-cli"></a>음성 CLI 란 무엇 인가요?
+# <a name="what-is-the-speech-cli"></a>Speech CLI란?
 
 음성 CLI는 코드를 작성 하지 않고도 음성 서비스를 사용 하는 명령줄 도구입니다. 음성 CLI에는 최소의 설정이 필요 하며, 음성 서비스의 주요 기능 실험을 바로 시작 하 여 사용 사례가 충족 될 수 있는지 확인 하는 것이 쉽습니다. 몇 분 내에 파일 디렉터리에서 일괄 처리 음성 인식과 같은 간단한 테스트 워크플로를 실행 하거나 파일에서 문자열 컬렉션에 대 한 텍스트-음성 변환 등의 간단한 테스트 워크플로를 실행할 수 있습니다. 간단한 워크플로 외에도, 음성 CLI는 프로덕션에 사용할 수 있으며 자동화 된 또는 셸 스크립트를 사용 하 여 더 큰 프로세스를 실행 하도록 확장할 수 있습니다 `.bat` .
 

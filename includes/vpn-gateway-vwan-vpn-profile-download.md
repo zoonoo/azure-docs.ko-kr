@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/13/2020
+ms.date: 07/31/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1d14ee849c89e6c3807636d0a728157abd9de97a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fc2393cfe87e2639ce40e66e6053d4d430518719
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650674"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515360"
 ---
 ## <a name="1-download-the-file"></a>1. 파일 다운로드
 
@@ -31,7 +31,7 @@ zip 파일의 압축을 풉니다. 이 파일에는 다음 폴더가 포함됩�
 
 * AzureVPN
 * 일반
-* OpenVPN(게이트웨이에서 OpenVPN 및 Azure AD 인증 설정을 사용하도록 설정한 경우) VPN Gateway의 경우 [테넌트 만들기](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)를 참조하세요. 가상 WAN의 경우 [테넌트 만들기 - VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md)을 참조하세요.
+* OpenVPN (게이트웨이에서 **Azure 인증서** 또는 **RADIUS 인증** 설정으로 openvpn을 사용 하도록 설정한 경우) VPN Gateway의 경우 [테넌트 만들기](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)를 참조하세요. 가상 WAN의 경우 [테넌트 만들기 - VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md)을 참조하세요.
 
 ## <a name="3-retrieve-information"></a>3. 정보 검색
 

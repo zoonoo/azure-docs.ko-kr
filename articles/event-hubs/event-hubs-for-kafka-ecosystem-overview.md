@@ -3,12 +3,12 @@ title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Micro
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94e0993c192cb735d6a4f0f3f7ec484c830902e9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002481"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501596"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 기존 Kafka 기반 애플리케이션이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 엔드포인트을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 애플리케이션과 작동합니다.  
@@ -26,7 +26,7 @@ Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 �
 | Kafka 개념 | Event Hubs 클러스터|
 | --- | --- |
 | 클러스터 | 네임스페이스 |
-| 토픽 | 이벤트 허브 |
+| 항목 | 이벤트 허브 |
 | 파티션 | 파티션|
 | 소비자 그룹 | 소비자 그룹 |
 | Offset | Offset|
@@ -65,6 +65,9 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!NOTE]
+> Kafka 클라이언트에서 SAS 인증을 사용 하는 경우 SAS 키가 다시 생성 되 면 설정 된 연결의 연결이 끊깁니다. 
 
 #### <a name="samples"></a>샘플 
 이벤트 허브를 만들고 SAS 또는 OAuth를 사용 하 여 액세스 하는 방법에 대 한 단계별 지침이 포함 된 **자습서** 는 [빠른 시작: kafka 프로토콜을 사용 하 여 Event Hubs 데이터 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)을 참조 하세요.

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958381"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494998"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>SQL 풀에서 저장 프로시저 사용
 
@@ -27,7 +27,7 @@ SQL 풀은 SQL Server에서 사용 되는 다양 한 T-sql 기능을 지원 합�
 
 그러나 SQL 풀의 규모와 성능을 유지 하기 위해 동작 차이가 있는 일부 기능과 기능 및 지원 되지 않는 다른 기능도 있습니다.
 
-## <a name="introducing-stored-procedures"></a>저장된 프로시저 소개
+## <a name="stored-procedures-in-sql-pool"></a>SQL 풀의 저장 프로시저
 
 저장된 프로시저는 SQL 코드를 캡슐화하여 데이터 웨어하우스의 데이터에 가까이 저장하는 좋은 방법입니다. 관리 가능한 단위로 코드를 캡슐화하여 저장 프로시저를 사용하면 개발자가 솔루션을 모듈화하여 코드의 더 큰 재유용성을 용이하게 합니다. 각 저장된 프로시저로 매개 변수를 더 유연하게 할 수도 있습니다.
 

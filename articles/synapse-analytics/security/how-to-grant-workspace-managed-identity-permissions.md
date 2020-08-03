@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1ddceff30b247caf3ecd9ee3bc21d5addb519
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b11f11ac8a0d4f3a0623c2903dfc9355e875d14
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089450"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501936"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>작업 영역 관리 id에 사용 권한 부여 (미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "87089450"
 >[!NOTE]
 >이 작업 영역 관리 ID는 이 문서의 나머지 부분에서 관리 ID라고 합니다.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>SQL 풀에 관리 id 사용 권한 부여
+## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>SQL 풀에 관리 id 권한 부여
 
 관리 id는 작업 영역의 SQL 풀에 권한을 부여 합니다. 권한이 부여 되 면 SQL 풀 관련 작업을 수행 하는 파이프라인을 오케스트레이션 할 수 있습니다. Azure Portal를 사용 하 여 Azure Synapse 작업 영역을 만들 때 SQL 풀에 관리 되는 id 제어 권한을 부여할 수 있습니다.
 

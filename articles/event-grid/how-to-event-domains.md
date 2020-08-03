@@ -3,12 +3,13 @@ title: Azure Event Grid를 사용 하 여 이벤트 도메인으로 이벤트 �
 description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규모 토픽 집합을 관리하고 토픽에 이벤트를 게시하는 방법을 보여줍니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ce1cc9c2b09dd6b0c9508ad6b0597428bd355d4b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460561"
+ms.locfileid: "87502038"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 

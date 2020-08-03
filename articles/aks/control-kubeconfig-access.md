@@ -4,12 +4,12 @@ description: 클러스터 관리자 및 클러스터 사용자의 Kubernetes 구
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255271"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501630"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용하여 AKS(Azure Kubernetes Service)의 Kubernetes 구성 파일에 대한 액세스 정의
 
@@ -27,7 +27,7 @@ ms.locfileid: "86255271"
 
 `kubectl` 도구를 사용하여 AKS 클러스터와 상호 작용할 때는 클러스터 연결 정보를 정의하는 구성 파일이 사용됩니다. 이 구성 파일은 일반적으로 *~/.kube/config*에 저장 됩니다. 이 *kubeconfig* 파일에 여러 클러스터를 정의할 수 있습니다. [kubectl config use-context][kubectl-config-use-context] 명령을 사용하여 클러스터 간에 전환할 수 있습니다.
 
-[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 AKS 클러스터의 액세스 자격 증명을 가져와 *kubeconfig* 파일에 병합할 수 있습니다. Azure 역할 기반 액세스 제어(RBAC)를 사용하여 이러한 자격 증명에 대한 액세스를 제어할 수 있습니다. 이러한 Azure RBAC 역할을 사용하여 *kubeconfig* 파일을 검색할 수 있는 사람과 그 사람이 클러스터 내에서 가지는 권한을 정의할 수 있습니다.
+[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 AKS 클러스터의 액세스 자격 증명을 가져와 *kubeconfig* 파일에 병합할 수 있습니다. Azure 역할 기반 액세스 제어(RBAC)를 사용하여 이러한 자격 증명에 대한 액세스를 제어할 수 있습니다. 이러한 Azure 역할을 사용 하 여 *kubeconfig* 파일을 검색할 수 있는 사용자 및 해당 클러스터 내에 포함 된 사용 권한을 정의할 수 있습니다.
 
 두 가지 기본 제공 역할은 다음과 같습니다.
 

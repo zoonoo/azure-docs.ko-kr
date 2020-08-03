@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 624b8e18f8c0fb523c27c41ce9c10af93c8b6190
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 865263d22d6f92dec74ef2820e80481e1a308804
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446669"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494556"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -30,17 +30,11 @@ ms.locfileid: "87446669"
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="storage-account-support"></a>스토리지 계정 지원
+## <a name="availability-and-pricing"></a>가용성 및 가격 책정
 
-수명 주기 관리 정책은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob storage 계정에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
-
-## <a name="pricing"></a>가격 책정
+수명 주기 관리 기능은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob 저장소 계정에 대 한 모든 Azure 지역에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
 수명 주기 관리 기능은 무료로 제공 됩니다. 고객에 게는 [Set Blob 계층](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대 한 일반 작업 비용이 청구 됩니다. 삭제 작업은 무료입니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
-
-## <a name="regional-availability"></a>국가별 가용성
-
-수명 주기 관리 기능은 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="add-or-remove-a-policy"></a>정책 추가 또는 제거
 
@@ -293,11 +287,11 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 | 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는를 지원 `blockBlob` 합니다. | 예 |
-| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 예 |
-| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
+| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아니요 |
+| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
 
 > [!NOTE]
-> Blob 인덱스는 퍼블릭 미리 보기로 제공되며 **프랑스 중부** 및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
+> Blob 인덱스는 공개 미리 보기 상태 이며 **캐나다 중부**, **캐나다 동부**, **프랑스 중부**및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
 
 ### <a name="rule-actions"></a>규칙 작업
 
@@ -316,12 +310,12 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 실행 조건은 age를 기준으로 합니다. 기본 Blob은 마지막으로 수정된 시간을 사용하여 보존 기간을 추적하고 Blob 스냅샷은 스냅샷 생성 시간을 사용하여 보존 기간을 추적합니다.
 
-| 작업 실행 조건             | 조건 값                          | Description                             |
+| 작업 실행 조건             | 조건 값                          | 설명                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 기본 blob 동작의 조건입니다.     |
 | daysAfterCreationGreaterThan     | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 스냅숏 작업 조건 |
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예는 수명 주기 정책 규칙을 사용하여 일반 시나리오를 해결하는 방법을 보여줍니다.
 

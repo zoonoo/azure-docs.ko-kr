@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: dc690e29129f5be68456e6a9dc075ba72f11b121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a013dd875fc5a97e5e2e619553cdeb8c6d729298
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318235"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502633"
 ---
 # <a name="payout-summaries"></a>지급 요약
 
 지급 요약에는 Microsoft에서 창출한 수익에 대한 세부 정보가 표시됩니다. 또한 결제되는 금액과 시기도 알려줍니다.
 
-Azure Marketplace에서 제품을 판매하는 경우 지급 요약에는 성공적인 지급에 대한 정보도 표시됩니다. 자세한 내용은 [Microsoft Azure Marketplace 참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy) 및 [Microsoft Azure Marketplace 게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)을 참조하세요.
+Azure Marketplace에서 제품을 판매하는 경우 지급 요약에는 성공적인 지급에 대한 정보도 표시됩니다. 자세한 내용은 [Microsoft Azure Marketplace 참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy) 및 [Microsoft Azure Marketplace 게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx)을 참조하세요.
 
 > [!NOTE]
 > 지급을 사용할 수 있으려면 수익이 $50의 [결제 임계값](payment-thresholds-methods-timeframes.md)에 도달해야 합니다. 결제 임계값에 대한 자세한 내용은 이 페이지를 참조하고 앱 개발자 계약을 검토하세요.

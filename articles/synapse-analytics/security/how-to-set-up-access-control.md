@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e66af8e55f7b60347d9577c64b7183c6ef8b44f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089314"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501919"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호
 
@@ -82,7 +82,7 @@ Azure Portal에서 다음과 같이 Synapse 작업 영역을 만듭니다.
   - **WS1\_SparkAdmins**를 Synapse Spark 관리자에게 할당
   - **WS1\_SQLAdmins**를 Synapse SQL 관리자에게 할당
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>4단계: Synapse 작업 영역에서 사용할 Data Lake Storage Gen2 구성
+## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>4 단계: Synapse 작업 영역에서 사용 하도록 Data Lake Storage Gen2 구성
 
 Synapse 작업 영역에서 파이프라인을 실행하고 시스템 작업을 수행할 수 있도록 STG1 및 CNT1에 대한 액세스 권한이 필요합니다.
 
@@ -100,7 +100,7 @@ Synapse 작업 영역에서 파이프라인을 실행하고 시스템 작업을 
 - **설정**에서 **SQL Active Directory 관리자** 클릭
 - **관리자 설정**을 클릭하고 WS1\_SQLAdmins 선택
 
-## <a name="step-6-maintaining-access-control"></a>6단계: 액세스 제어 유지 관리
+## <a name="step-6-maintain-access-control"></a>6 단계: 액세스 제어 유지 관리
 
 구성이 완료되었습니다.
 

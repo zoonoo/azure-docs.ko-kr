@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 0ef3135f572b00176ff2a114fd02db82c7a05bca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258398"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494488"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Azure Data Box 및 Azure Data Box Heavy 내보내기 주문에 대 한 추적 및 이벤트 로깅
 
@@ -34,7 +34,7 @@ Data Box 또는 Data Box Heavy 내보내기 순서는 순서, 설정, 데이터 
 
 ## <a name="set-up-access-control-on-the-order"></a>주문에 대 한 액세스 제어 설정
 
-주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 RBAC (역할 기반 Access Control) 역할을 설정 하 여 Data Box 순서에 대 한 액세스를 제어 합니다. RBAC 역할은 작업의 하위 집합에 대 한 읽기/쓰기, 읽기 전용, 읽기/쓰기 권한 유형을 결정 합니다.
+주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 Azure 역할을 설정 하 여 Data Box 주문에 대 한 액세스를 제어 합니다. Azure 역할은 작업의 하위 집합에 대 한 읽기-쓰기, 읽기 전용, 읽기/쓰기 액세스 유형을 결정 합니다.
 
 Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다음과 같습니다.
 
@@ -122,14 +122,14 @@ Data Box에서 데이터를 복사 하기 전에 **연결 및 복사** 페이지
 </CopyLog>    
 ```
 
-이러한 파일을 내보내려면 다음과 같은 옵션을 사용할 수 있습니다. 
+해당 파일을 내보낼 수 있는 다음과 같은 옵션이 있습니다. 
 
-- 네트워크를 통해 복사 하지 못한 파일을 전송할 수 있습니다. 
-- 데이터 크기가 사용 가능한 장치 용량 보다 큰 경우 부분 복사가 발생 하 고 복사 되지 않은 모든 파일이이 로그에 나열 됩니다. 이 로그를 입력 XML로 사용 하 여 새 Data Box 순서를 만든 다음 이러한 파일을 복사할 수 있습니다.
+- 네트워크를 통해 복사할 수 없는 파일을 전송할 수 있습니다. 
+- 데이터 크기가 사용 가능한 디바이스 용량보다 큰 경우 부분 복사가 발생하고 복사되지 않은 모든 파일이 이 로그에 나열됩니다. 이 로그를 입력 XML로 사용하여 새 Data Box 순서를 만든 다음, 이러한 파일을 복사할 수 있습니다.
 
 ### <a name="verbose-log"></a>자세한 정보 표시 로그
 
-*자세한 정보 표시 로그* 에는 Azure Storage 계정에서 성공적으로 내보낸 모든 파일의 목록이 포함 됩니다. 로그에는 파일 크기 및 체크섬 계산도 포함 됩니다.
+*자세한 정보 로그*에는 Azure Storage 계정에서 성공적으로 내보낸 모든 파일의 목록이 포함되어 있습니다. 로그에는 파일 크기 및 체크섬 계산도 포함됩니다.
 
 자세한 정보 표시 로그는 다음과 같은 형식으로 되어 있습니다.
 
@@ -306,7 +306,3 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ## <a name="next-steps"></a>다음 단계
 
 - [Data Box 및 Data Box Heavy에 대 한 문제를 해결](data-box-troubleshoot.md)하는 방법을 알아봅니다.
-
-
-
-

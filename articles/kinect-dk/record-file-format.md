@@ -7,17 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 레코드, 재생, matroska, .mkv
-ms.openlocfilehash: d0f7653afe3cc92e059b2615ebef18312faa716b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a78ed158c78df1c9a6eadcc0bfb2e40b22750bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276952"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501783"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Azure Kinect 센서 SDK를 사용 하 여 파일 형식 기록
 
-센서 데이터를 기록 하기 위해 여러 트랙을 저장할 수 있도록 하는 Matroska (.mkv) 컨테이너 형식이 사용 됩니다.
-다양 한 코덱을 사용 합니다. 기록 파일은 색, 깊이, IR 이미지 및 IMU를 저장 하기 위한 트랙을 포함 합니다.
+센서 데이터를 기록 하기 위해 Matroska (.mkv) 컨테이너 형식이 사용 됩니다 .이를 통해 다양 한 코덱을 사용 하 여 여러 트랙을 저장할 수 있습니다. 기록 파일은 색, 깊이, IR 이미지 및 IMU를 저장 하기 위한 트랙을 포함 합니다.
 
 .Mkv 컨테이너 형식에 대 한 하위 수준 세부 정보는 [Matroska 웹 사이트](https://www.matroska.org/index.html)에서 찾을 수 있습니다.
 
