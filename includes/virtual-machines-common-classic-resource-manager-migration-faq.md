@@ -8,13 +8,21 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 014d1ea4575b17b1d4017c9519bee6c5ea66ceb5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527214"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515363"
 ---
+## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>Azure Service Manager 란 무엇 이며 클래식에서 의미 하는 것은 무엇 인가요?
+
+IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manager)에서 관리 하는 Vm을 나타냅니다. ASM (azure Service Manager)은 Vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 azure의 이전 제어 평면입니다. 
+
+## <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
+
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) 은 vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 Azure의 최신 제어 평면입니다. 
+
 ## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 기간은 얼마인가요?
 
 마이그레이션의 계획 및 실행은 아키텍처의 복잡성에 따라 크게 달라지며 몇 개월이 걸릴 수 있습니다.  
