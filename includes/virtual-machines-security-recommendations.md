@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e64e6b6abc921b1db6614ed36ba2e9c04fc86b1f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838782"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451101"
 ---
 이 문서에는 Azure Virtual Machines에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 따라 공유 책임에 대 한 모델에 설명 된 보안 의무를 달성 합니다. 또한 권장 사항은 웹 앱 솔루션에 대 한 전반적인 보안을 개선 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)을 참조 하세요.
 
@@ -26,7 +26,7 @@ Azure Security Center에 대 한 일반 정보 [는 Azure Security Center 무엇
 | 권장 | 주석 | Security Center |
 |-|----|--|
 | 사용자 지정 VM 이미지를 빌드할 때 최신 업데이트를 적용 합니다. | 이미지를 만들기 전에 이미지에 포함 될 모든 응용 프로그램 및 운영 체제에 대 한 최신 업데이트를 설치 합니다.  | - |
-| 최신 상태로 VM 유지 | Azure Automation에서 [업데이트 관리](../articles/automation/automation-update-management.md) 솔루션을 사용 하 여 Azure에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리할 수 있습니다. | [예](../articles/security-center/security-center-apply-system-updates.md) |
+| 최신 상태로 VM 유지 | Azure Automation에서 [업데이트 관리](../articles/automation/update-management/update-mgmt-overview.md) 솔루션을 사용 하 여 Azure에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리할 수 있습니다. | [예](../articles/security-center/security-center-apply-system-updates.md) |
 | Vm을 백업 합니다. | [Azure Backup](../articles/backup/backup-overview.md) 는 응용 프로그램 데이터를 보호 하 고 운영 비용을 최소화 합니다. 애플리케이션 오류로 인해 데이터가 손상되고 사용자 오류로 인해 애플리케이션에 버그가 발생할 수 있습니다. Azure Backup는 Windows 및 Linux를 실행 하는 Vm을 보호 합니다. | - |
 | 복원 력 및 가용성 향상을 위해 여러 Vm을 사용 합니다. | VM에서 항상 사용 가능 해야 하는 응용 프로그램을 실행 하는 경우 여러 Vm 또는 [가용성 집합](../articles/virtual-machines/windows/manage-availability.md)을 사용 합니다. | - |
 | BCDR (비즈니스 연속성 및 재해 복구) 전략을 채택 합니다. | Azure Site Recovery를 사용 하면 비즈니스 연속성을 지원 하도록 설계 된 다양 한 옵션을 선택할 수 있습니다. 다른 복제 및 장애 조치 (failover) 시나리오를 지원 합니다. 자세한 내용은 [Site Recovery 정보](../articles/site-recovery/site-recovery-overview.md)를 참조 하세요. | - |

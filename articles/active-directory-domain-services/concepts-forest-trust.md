@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480648"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 리소스 포리스트에 대해 트러스트 관계가 작동 하는 방법
 
@@ -280,7 +280,7 @@ LSA 보안 하위 시스템은 개체에 대 한 액세스의 유효성을 검�
 
 리소스 포리스트에 대해 자세히 알아보려면 [Azure AD DS에서 포리스트 트러스트가 작동 하는 방법][concepts-trust] 을 참조 하세요.
 
-리소스 포리스트를 사용 하 여 관리 되는 도메인을 만드는 작업을 시작 하려면 [Azure AD DS 관리 되는 도메인 만들기 및 구성][tutorial-create-advanced]을 참조 하세요. 그런 다음, [온-프레미스 도메인(미리 보기)에 대한 아웃바운드 포리스트 트러스트를 만들 수 있습니다][create-forest-trust].
+리소스 포리스트를 사용 하 여 관리 되는 도메인을 만드는 작업을 시작 하려면 [Azure AD DS 관리 되는 도메인 만들기 및 구성][tutorial-create-advanced]을 참조 하세요. 그런 다음 [온-프레미스 도메인에 대 한 아웃 바운드 포리스트 트러스트를 만들][create-forest-trust]수 있습니다.
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

@@ -16,13 +16,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: 5d08dd2705c69f3fa8f8e0830e487833f7cf96f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2be9b5e6fd489b331982d31693bf810d488d92b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484150"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -35,7 +35,7 @@ ms.locfileid: "84689336"
 * 서브넷에서 리소스에 대한 액세스 확인
 * 서브넷 및 인터넷에서 리소스에 대한 액세스가 거부되는지 확인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

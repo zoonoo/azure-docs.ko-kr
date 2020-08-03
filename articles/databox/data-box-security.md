@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7b74c40ab504c08f5a19a1382c303530116c0fdf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200406"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483832"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -68,7 +68,7 @@ Data Box 서비스는 다음 기능을 통해 보호됩니다.
 
 - Data Box 서비스에 액세스하려면 조직에 Data Box를 포함하는 Azure 구독이 있어야 합니다. 구독은 Azure Portal에서 액세스할 수 있는 기능을 제어합니다.
 - Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다.
-- RBAC(역할 기반 액세스 제어) 역할을 사용하면 Data Box 주문에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [Data Box 주문의 액세스 제어 설정](data-box-logs.md#set-up-access-control-on-the-order)을 참조하세요.
+- Azure 역할을 사용 하 여 Data Box 주문에 대 한 액세스를 제어할 수 있습니다. 자세한 내용은 [Data Box 주문의 액세스 제어 설정](data-box-logs.md#set-up-access-control-on-the-order)을 참조하세요.
 - Data Box 서비스는 서비스에서 디바이스를 잠금 해제하는 데 사용되는 잠금 해제 암호를 저장합니다.
 - Data Box 서비스에는 주문 세부 정보 및 상태가 저장됩니다. 이 정보는 주문이 삭제될 때 삭제됩니다.
 
@@ -84,7 +84,7 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
   - 전화 번호
   - 메일
   - 주소
-  - 구/군/시
+  - 도시
   - 우편 번호
   - 시스템 상태
   - 국가/시/도/지역

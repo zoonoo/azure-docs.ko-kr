@@ -3,12 +3,13 @@ title: 변경을 방지하기 위해 리소스 잠그기
 description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용자가 중요한 Azure 리소스를 업데이트하거나 삭제하지 못하도록 합니다.
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 30a74960113951327f7f89eddc07f8f90a5028c6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057588"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484779"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165331"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479849"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -36,7 +36,7 @@ ms.locfileid: "86165331"
 
 트래픽 분석을 사용하려면 계정이 다음 중 하나를 충족해야 합니다.
 
-- 구독 범위에서 RBAC(역할 기반 액세스 제어) 역할인 소유자, 참가자, 독자 또는 네트워크 참가자 중 하나가 계정에 있어야 합니다.
+- 계정에는 소유자, 참가자, 독자 또는 네트워크 참가자의 구독 범위에서 다음 Azure 역할 중 하나가 있어야 합니다.
 - 계정이 이전에 나열된 역할 중 하나에 할당되지 않은 경우, 구독 수준에서 다음 작업이 할당된 사용자 지정 역할에 할당되어야 합니다.
             
     - Microsoft.Network/applicationGateways/read
@@ -401,4 +401,3 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_
 - 토폴로지 보기에서 강조 표시된 다른 노드로 이동하려면 `Shift+Right arrow` 키를 사용하여 앞으로 이동합니다. 
 - 강조 표시된 노드에서는 노드의 **정보 도구 상자**로 포커스가 이동됩니다. 기본적으로 포커스는 **정보 도구 상자**의 **자세한 정보** 단추로 이동합니다. **상자** 보기 내부에서 추가로 이동하려면 `Right arrow` 및 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. `Enter` 키를 누르면 **정보 도구 상자**에서 포커스가 있는 단추를 선택한 것과 동일한 효과가 적용됩니다.
 - 이러한 노드를 선택할 때 `Shift+Left arrow` 키를 눌러 해당 연결을 모두 하나씩 방문할 수 있습니다. 포커스가 해당 연결의 **정보 도구 상자**로 이동합니다. 언제든지 `Shift+Right arrow`를 다시 눌러 포커스를 다시 노드로 이동할 수 있습니다.    
-

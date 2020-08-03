@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/11/2019
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce4574870ad8c0bfd945e49f129b82177b3138a1
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 9c7f0ead3a2f93d7f390106b8e7471d58b709023
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115700"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481566"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호에 복잡성 요구 사항 구성
 
@@ -41,7 +41,7 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
-4. **사용자 흐름(정책)** 을 선택합니다.
+4. **사용자 흐름**을 선택합니다.
 2. 사용자 흐름을 선택하고, **속성**을 클릭합니다.
 3. **암호 복잡성**에서 이 사용자 흐름에 대한 암호 복잡성을 **단순**, **강력** 또는 **사용자 지정**으로 변경합니다.
 

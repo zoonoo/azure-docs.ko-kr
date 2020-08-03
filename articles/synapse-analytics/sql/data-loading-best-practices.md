@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6321fa484c883e196279ddf33661e78397bc3855
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: acfb2af7d482f9c0a51596818b1302584277defb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963889"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486819"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터웨어 하우징에 대한 데이터 로드 모범 사례
 
 데이터 로드에 대 한 권장 사항 및 성능 최적화
 
-## <a name="preparing-data-in-azure-storage"></a>Azure Storage에 데이터 준비
+## <a name="prepare-data-in-azure-storage"></a>Azure Storage에서 데이터 준비
 
 대기 시간을 최소화하려면 스토리지 계층과 데이터 웨어하우스를 함께 배치합니다.
 
@@ -34,13 +34,13 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
 
 대규모 압축 파일은 더 작은 크기의 압축 파일로 분할합니다.
 
-## <a name="running-loads-with-enough-compute"></a>충분한 컴퓨팅 리소스로 로드 실행
+## <a name="run-loads-with-enough-compute"></a>계산이 충분 한 실행 로드
 
 로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 SQL 풀을 확장 하는 것이 좋습니다.
 
 적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 리소스 클래스 또는 작업 그룹에 할당 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
-### <a name="example-of-creating-a-loading-user"></a>로드 사용자를 만드는 예제
+### <a name="create-a-loading-user"></a>로드 하는 사용자 만들기
 
 이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결**하고 로그인을 만드는 것입니다.
 
@@ -62,7 +62,7 @@ StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 
 
 동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [데이터 웨어하우스 단위](resource-consumption-models.md)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다. 동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
 
-## <a name="allowing-multiple-users-to-load"></a>여러 사용자가 로드하도록 허용
+## <a name="allow-multiple-users-to-load"></a>여러 사용자가 로드 하도록 허용
 
 여러 사용자가 데이터 웨어하우스에 데이터를 로드해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 로드하려면 데이터베이스에 대한 CONTROL 권한이 필요합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다. 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
 
@@ -75,13 +75,13 @@ StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 
 
 User_A 및 user_B은 이제 다른 dept의 스키마에서 잠깁니다.
 
-## <a name="loading-to-a-staging-table"></a>준비 테이블에 로드
+## <a name="load-to-a-staging-table"></a>준비 테이블에 로드
 
 데이터를 데이터 웨어하우스 테이블로 이동하는 로딩 속도를 가장 빠르게 만들려면 데이터를 준비 테이블에 로드합니다.  준비 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다.
 
 로드는 먼저 데이터를 준비 테이블로 로드한 다음 프로덕션 데이터 웨어하우스 테이블에 삽입하는 2단계 프로세스로 간주하는 것이 좋습니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 준비 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다. 준비 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
 
-## <a name="loading-to-a-columnstore-index"></a>columnstore 인덱스에 로드
+## <a name="load-to-a-columnstore-index"></a>Columnstore 인덱스에 로드
 
 columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 위해 대량의 메모리가 필요합니다. 최상의 압축 및 인덱스 효율성을 위해 columnstore 인덱스는 최대 1,048,576개의 행을 각 행 그룹으로 압축해야 합니다. 메모리 압박이 있는 경우 columnstore 인덱스는 최대 압축률을 달성하지 못할 수 있습니다. 쿼리 성능에 영향을 줍니다. 심층 분석은 [Columnstore 메모리 최적화](data-load-columnstore-compression.md)를 참조하세요
 
@@ -92,19 +92,19 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 앞서 언급 했 듯이 PolyBase를 사용 하 여 로드 하면 Synapse SQL 풀에서 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 SQLBulkCopy API (또는 BCP)를 사용 해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다. 좋은 방법은 100,000 개 행에서 100,000 개 사이의 일괄 처리 크기입니다.
 
-## <a name="handling-loading-failures"></a>로드 처리 실패
+## <a name="manage-loading-failures"></a>로드 오류 관리
 
 외부 테이블을 사용하는 로드가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."* 오류로 인해 실패할 수 있습니다. 이 메시지는 외부 데이터에 더티 레코드가 포함되어 있음을 나타냅니다. 열의 수와 데이터 형식이 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식을 준수하지 않는 경우 데이터 레코드가 더티한 것으로 간주됩니다.
 
 더티 레코드 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지와 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티한 경우 CREATE EXTERNAL TABLE의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
 
-## <a name="inserting-data-into-a-production-table"></a>프로덕션 테이블에 데이터 삽입
+## <a name="insert-data-into-a-production-table"></a>프로덕션 테이블에 데이터 삽입
 
 [INSERT 문](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하는 작은 테이블에 한 번만 로드하거나 정기적으로 조회를 다시 로드하는 경우, `INSERT INTO MyLookup VALUES (1, 'Type 1')`와 같은 명령문으로 충분히 수행할 수 있습니다.  하지만, singleton 삽입은 대량 로드 수행만큼 효율적이지 않습니다.
 
 하루 종일 수천 개 이상의 단일 삽입을 수행하는 경우 대량 로드할 수 있도록 로드를 일괄 처리합니다.  파일에 단일 삽입을 추가하는 프로세스를 개발하고 정기적으로 파일을 로드하는 다른 프로세스를 만듭니다.
 
-## <a name="creating-statistics-after-the-load"></a>로드 후 통계 만들기
+## <a name="create-statistics-after-the-load"></a>로드 후 통계 만들기
 
 쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  수동으로이 작업을 수행 하거나 [자동 생성 통계](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용 하도록 설정할 수 있습니다.
 
@@ -126,7 +126,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행합니다.
 
-예:
+예제:
 
 원래 키를 만드는 경우
 

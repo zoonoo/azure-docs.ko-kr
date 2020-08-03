@@ -7,21 +7,21 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460391"
+ms.locfileid: "87479815"
 ---
 # <a name="payout-summary-overview"></a>지급 요약 개요
 
 [지급 요약](./payout-summary.md)에는 Microsoft에서 창출한 수익에 대한 세부 정보가 표시됩니다. 또한 결제되는 금액과 시기도 알려줍니다.
 
-Azure Marketplace에서 제품을 판매하는 경우 지급 요약에는 성공적인 지급에 대한 정보도 표시됩니다. Azure Marketplace 결제에 대한 자세한 내용은 [Azure Marketplace 참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy) 및 [Microsoft Azure Marketplace 게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)을 참조하세요.
+Azure Marketplace에서 제품을 판매하는 경우 지급 요약에는 성공적인 지급에 대한 정보도 표시됩니다. Azure Marketplace 결제에 대한 자세한 내용은 [Azure Marketplace 참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy) 및 [Microsoft Azure Marketplace 게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx)을 참조하세요.
 
 > [!NOTE]
-> 지급을 사용할 수 있으려면 수익이 $50의 [결제 임계값](./payment-thresholds-methods-timeframes.md)에 도달해야 합니다. 지불 임계값에 대한 자세한 내용은 [Microsoft Azure Marketplace 게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)을 참조하세요.
+> 지급을 사용할 수 있으려면 수익이 $50의 [결제 임계값](./payment-thresholds-methods-timeframes.md)에 도달해야 합니다. 지불 임계값에 대한 자세한 내용은 [Microsoft Azure Marketplace 게시자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx)을 참조하세요.
 
 지급 세부 정보를 보려면 [파트너 센터](https://partner.microsoft.com/dashboard/home) 에 로그인 하 고 화면의 오른쪽 위 모퉁이에 있는 지급 아이콘을 선택 합니다.
 

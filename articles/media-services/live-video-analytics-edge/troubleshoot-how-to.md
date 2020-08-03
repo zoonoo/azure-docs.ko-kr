@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285461"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486445"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
 
@@ -234,7 +234,7 @@ HTTP 확장 프로세서를 통한 라이브 비디오 분석에서는 REST를 �
 
     ![Azure IoT Hub에서 모듈의 실행 상태를 표시 하는 스크린샷](./media/troubleshoot-how-to/iot-hub.png)
 
-* 올바른 URL 끝점에 이벤트를 전송 하 고 있는지 확인 하십시오. 외부 AI 컨테이너는 게시 요청에서 데이터를 수신 하 고 반환 하는 데 사용할 수 있는 URL 및 포트를 제공 합니다. 이 URL은 `endpoint: url` HTTP 확장 프로세서에 대 한 속성으로 지정 됩니다. [토폴로지 url](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json)에 표시 된 대로 끝점은 추론 url 매개 변수로 설정 됩니다. [매개 변수의](http://yolov3/score) 기본값이 나 전달 된 값이 정확한 지 확인 합니다. 클라이언트 URL (말아)을 사용 하 여 작동 하는지 테스트할 수 있습니다.  
+* 올바른 URL 끝점에 이벤트를 전송 하 고 있는지 확인 하십시오. 외부 AI 컨테이너는 게시 요청에서 데이터를 수신 하 고 반환 하는 데 사용할 수 있는 URL 및 포트를 제공 합니다. 이 URL은 `endpoint: url` HTTP 확장 프로세서에 대 한 속성으로 지정 됩니다. [토폴로지 url](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json)에 표시 된 대로 끝점은 추론 url 매개 변수로 설정 됩니다. 매개 변수의 기본값이 나 전달 된 값이 정확한 지 확인 합니다. 클라이언트 URL (말아)을 사용 하 여 작동 하는지 테스트할 수 있습니다.  
 
     예를 들어, 172.17.0.3 IP 주소를 사용 하 여 로컬 컴퓨터에서 실행 되는 Yolo v3 컨테이너는 다음과 같습니다. Docker 검사를 사용 하 여 IP 주소를 찾습니다.
 

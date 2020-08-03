@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116436"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486738"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -188,7 +188,7 @@ Azure AD B2C에서 회사 브랜딩을 구성할 때 다음 사항을 염두에 
 
 1. Azure Portal 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다.
 1. **정책**에서 **사용자 흐름(정책)** 을 선택합니다.
-1. 회사 브랜딩을 사용 하도록 설정할 사용자 흐름을 선택 합니다. 회사 브랜딩은 *로그인 v1* 및 *프로필 편집 v1* 사용자 흐름 유형에 대해 **지원 되지 않습니다** .
+1. 회사 브랜딩을 사용 하도록 설정할 사용자 흐름을 선택 합니다. 회사 브랜딩은 표준 *로그인* 및 표준 *프로필 편집* 사용자 흐름 유형에 대해 **지원 되지 않습니다** .
 1. **사용자 지정**에서 **페이지 레이아웃**을 선택한 다음 브랜드를 지정할 레이아웃을 선택 합니다. 예를 들어 **통합 등록 또는 로그인 페이지**를 선택 합니다.
 1. **페이지 레이아웃 버전 (미리 보기)** 의 경우 버전 **1.2.0** 이상을 선택 합니다.
 1. **저장**을 선택합니다.

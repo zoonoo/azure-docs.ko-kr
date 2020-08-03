@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d85ffca8c72e7a247d5bbd1e593335fd7995b594
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170149"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481688"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 JavaScript 및 페이지 레이아웃 버전
 
@@ -41,7 +41,7 @@ Azure AD B2C은 사용자 흐름 및 사용자 지정 정책의 사용자 인터
 
 ## <a name="select-a-page-layout-version"></a>페이지 레이아웃 버전 선택
 
-사용자 흐름의 속성에서 JavaScript를 사용 하도록 설정할지 여부에 관계 없이 사용자 흐름 페이지에 대 한 페이지 레이아웃 버전을 지정할 수 있습니다. 사용자 흐름을 열고 **페이지 레이아웃**을 선택 합니다. **레이아웃 이름**에서 사용자 흐름 페이지를 선택 하 고 **페이지 레이아웃 버전**을 선택 합니다.
+사용자 흐름의 속성에서 JavaScript를 사용 하도록 설정할지 여부에 관계 없이 사용자 흐름 페이지에 대 한 페이지 레이아웃 버전을 지정할 수 있습니다. 사용자 흐름을 열고 **페이지 레이아웃**을 선택 합니다. **레이아웃 이름**에서 사용자 흐름 페이지를 선택 하 고 **페이지 레이아웃 버전 (미리 보기)** 을 선택 합니다.
 
 여러 페이지 레이아웃 버전에 대 한 자세한 내용은 [페이지 레이아웃 버전 변경 로그](page-layout.md)를 참조 하세요.
 

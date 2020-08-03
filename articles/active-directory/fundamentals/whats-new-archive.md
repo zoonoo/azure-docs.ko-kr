@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111453b30a0c2fd7c0b2a2077b31b2cf16ebda06
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d981bad30bf57fde64d1f6e903039dda5007e526
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445660"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483912"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -2848,7 +2848,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
 
 일부 사용자에게 SAML 기반 Single Sign On에 대해 구성된 엔터프라이즈 애플리케이션에 대한 알림이 수신되지 않았습니다. 이 문제가 해결되었습니다. Azure AD는 7, 30 및 60일 후에 만료되는 인증서에 대한 알림을 보냅니다. 감사 로그에서 이 이벤트를 볼 수 있습니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
 - [Azure Active Directory 포털의 감사 활동 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
@@ -3407,7 +3407,7 @@ Azure RBAC (역할 기반 액세스 제어)에 대 한 PIM (Azure AD Privileged 
 
 * Just Enough Administration을 사용할 수 있습니다.
 * 리소스 역할을 활성화하기 위한 승인을 요청할 수 있습니다.
-* Azure AD 및 Azure RBAC 역할 모두에 대한 승인이 필요한 역할의 향후 활성화를 예약할 수 있습니다.
+* Azure AD 및 Azure 역할에 대 한 승인이 필요한 역할의 향후 활성화를 예약 합니다.
 
 자세한 내용은 [Azure 리소스용 Privileged Identity Management(미리 보기)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)를 참조하세요.
 

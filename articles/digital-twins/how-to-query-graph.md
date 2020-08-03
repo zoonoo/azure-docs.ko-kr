@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337605"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486660"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
 이 문서에서는 [Azure Digital Twins 쿼리 저장소 언어](concepts-query-language.md) 를 사용 하 여 정보에 대 한 쌍 [그래프](concepts-twins-graph.md) 를 쿼리 하는 방법에 대 한 예제 및 자세한 정보를 제공 합니다. Azure Digital Twins [**쿼리 api**](how-to-use-apis-sdks.md)를 사용 하 여 그래프에서 쿼리를 실행 합니다.
 
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+이 문서의 나머지 부분에서는 이러한 작업을 사용 하는 방법에 대 한 예제를 제공 합니다.
+
 ## <a name="query-syntax"></a>쿼리 구문
 
-다음은 쿼리 언어 구조를 설명 하 고 가능한 쿼리 작업을 수행 하는 몇 가지 샘플 쿼리입니다.
+이 섹션에는 쿼리 언어 구조를 설명 하 고 가능한 쿼리 작업을 수행 하는 예제 쿼리가 포함 되어 있습니다.
 
 속성 (ID 및 메타 데이터 포함)으로 [디지털](concepts-twins-graph.md) 쌍을 가져옵니다.
 ```sql
@@ -31,16 +35,55 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-[모델](concepts-models.md) 에 따라 디지털 쌍 가져오기
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > 디지털 쌍의 ID는 메타 데이터 필드를 사용 하 여 쿼리 됩니다 `$dtId` .
+
+또한 [디지털 쌍에 태그 추가](how-to-use-tags.md)에 설명 된 대로 *태그* 속성을 통해 쌍를 가져올 수 있습니다.
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### <a name="select-top-items"></a>상위 항목 선택
+
+절을 사용 하 여 쿼리에서 여러 "최상위" 항목을 선택할 수 있습니다 `Select TOP` .
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### <a name="query-by-model"></a>모델 별로 쿼리
+
+`IS_OF_MODEL`연산자를 사용 하 여 쌍의 [모델](concepts-models.md)을 기준으로 필터링 할 수 있습니다. 상속을 지원 하 고 여러 오버 로드 옵션을 포함 합니다.
+
+를 사용 하는 가장 간단한 방법은 매개 변수를 사용 하는 것 `IS_OF_MODEL` `twinTypeName` `IS_OF_MODEL(twinTypeName)` 입니다.
+이 매개 변수에 값을 전달 하는 쿼리 예제는 다음과 같습니다.
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+가 사용 되는 경우와 같이 두 개 이상 있을 때 검색할 쌍 컬렉션을 지정 하려면 `JOIN` `twinCollection` 매개 변수를 추가 `IS_OF_MODEL(twinCollection, twinTypeName)` 합니다.
+이 매개 변수에 대 한 값을 추가 하는 쿼리 예제는 다음과 같습니다.
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+정확히 일치 하는 항목을 수행 하려면 `exact` 매개 변수를 추가 `IS_OF_MODEL(twinTypeName, exact)` 합니다.
+이 매개 변수에 대 한 값을 추가 하는 쿼리 예제는 다음과 같습니다.
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+세 인수를 모두 함께 전달할 수도 있습니다 `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
+세 매개 변수 모두에 대해 값을 지정 하는 쿼리 예제는 다음과 같습니다.
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
 
 ### <a name="query-based-on-relationships"></a>관계를 기반으로 하는 쿼리
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 62645e6252256079e27792b1905d60a073c1fa3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c21dab8c1a4c2643db0a56b5052f33243f2f56
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080230"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460062"
 ---
 ## <a name="limitations"></a>제한 사항
 
@@ -36,63 +36,27 @@ ms.locfileid: "87080230"
 > [!IMPORTANT]
 > `maxShares`모든 vm에서 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오 `maxShares` .
 
-#### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
-
 az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
-
 ```
 
-#### <a name="powershell"></a>PowerShell
-```azurepowershell-interactive
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+```azurepowershell-interactive
 $dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
-
 ```
 
-#### <a name="azure-resource-manager"></a>Azure Resource Manager
+# <a name="resource-manager-template"></a>[Resource Manager 템플릿](#tab/azure-resource-manager)
+
 다음 템플릿을 사용 하기 전에,, `[parameters('dataDiskName')]` `[resourceGroup().location]` 및를 `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` 사용자 고유의 값으로 바꿉니다.
 
-```json
-{ 
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "dataDiskName": {
-      "type": "string",
-      "defaultValue": "mySharedDisk"
-    },
-    "dataDiskSizeGB": {
-      "type": "int",
-      "defaultValue": 1024
-    },
-    "maxShares": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Compute/disks",
-      "name": "[parameters('dataDiskName')]",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2019-07-01",
-      "sku": {
-        "name": "Premium_LRS"
-      },
-      "properties": {
-        "creationData": {
-          "createOption": "Empty"
-        },
-        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
-        "maxShares": "[parameters('maxShares')]"
-      }
-    }
-  ] 
-}
-```
+[프리미엄 SSD 공유 디스크 템플릿](https://aka.ms/SharedPremiumDiskARMtemplate)
+
+---
 
 ### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>공유 디스크로 ultra disk 배포
 
@@ -101,7 +65,11 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 > [!IMPORTANT]
 > `maxShares`모든 vm에서 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오 `maxShares` .
 
-#### <a name="cli"></a>CLI
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+##### <a name="regional-disk-example"></a>지역 디스크 예
+
 ```azurecli
 #Creating an Ultra shared Disk 
 az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1
@@ -113,93 +81,63 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 az disk show -g rg1 -n clidisk
 ```
 
-#### <a name="powershell"></a>PowerShell
-```azurepowershell-interactive
+##### <a name="zonal-disk-example"></a>영역 디스크 예
 
+이 예제는 가용성 영역 1에서 디스크를 만드는 것을 제외 하 고 이전 예제와 거의 동일 합니다.
+
+```azurecli
+#Creating an Ultra shared Disk 
+az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1 --zone 1
+
+#Updating an Ultra shared Disk 
+az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-write 300 --set diskIopsReadOnly=100 --set diskMbpsReadOnly=1
+
+#Show shared disk properties:
+az disk show -g rg1 -n clidisk
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+##### <a name="regional-disk-example"></a>지역 디스크 예
+
+```azurepowershell-interactive
 $datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
-
 ```
 
-#### <a name="azure-resource-manager"></a>Azure Resource Manager
+##### <a name="zonal-disk-example"></a>영역 디스크 예
 
-공유 디스크 기능이 사용 하도록 설정 된 관리 디스크를 배포 하려면 속성을 사용 하 `maxShares` 고 1 보다 큰 값을 정의 합니다. 이렇게 하면 여러 Vm에서 디스크를 공유할 수 있습니다.
+이 예제는 가용성 영역 1에서 디스크를 만드는 것을 제외 하 고 이전 예제와 거의 동일 합니다.
 
-> [!IMPORTANT]
-> `maxShares`모든 vm에서 디스크를 분리 하는 경우에만 값을 설정 하거나 변경할 수 있습니다. 에 대해 허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하십시오 `maxShares` .
+```azurepowershell-interactive
+$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5 -Zone 1
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+```
+
+# <a name="resource-manager-template"></a>[Resource Manager 템플릿](#tab/azure-resource-manager)
+
+##### <a name="regional-disk-example"></a>지역 디스크 예
 
 다음 템플릿을 사용 하기 전에,,,,,, `[parameters('dataDiskName')]` `[resourceGroup().location]` 및를 `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` 사용자 고유의 값으로 바꿉니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "diskName": {
-      "type": "string",
-      "defaultValue": "uShared30"
-    },
-    "location": {
-        "type": "string",
-        "defaultValue": "westus",
-        "metadata": {
-                "description": "Location for all resources."
-        }
-    },
-    "dataDiskSizeGB": {
-      "type": "int",
-      "defaultValue": 1024
-    },
-    "maxShares": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "diskIOPSReadWrite": {
-      "type": "int",
-      "defaultValue": 2048
-    },
-    "diskMBpsReadWrite": {
-      "type": "int",
-      "defaultValue": 20
-    },    
-    "diskIOPSReadOnly": {
-      "type": "int",
-      "defaultValue": 100
-    },
-    "diskMBpsReadOnly": {
-      "type": "int",
-      "defaultValue": 1
-    }    
-  }, 
-  "resources": [
-    {
-        "type": "Microsoft.Compute/disks",
-        "name": "[parameters('diskName')]",
-        "location": "[parameters('location')]",
-        "apiVersion": "2019-07-01",
-        "sku": {
-            "name": "UltraSSD_LRS"
-        },
-        "properties": {
-            "creationData": {
-                "createOption": "Empty"
-            },
-            "diskSizeGB": "[parameters('dataDiskSizeGB')]",
-            "maxShares": "[parameters('maxShares')]",
-            "diskIOPSReadWrite": "[parameters('diskIOPSReadWrite')]",
-            "diskMBpsReadWrite": "[parameters('diskMBpsReadWrite')]",
-            "diskIOPSReadOnly": "[parameters('diskIOPSReadOnly')]",
-            "diskMBpsReadOnly": "[parameters('diskMBpsReadOnly')]"
-        }
-    }
-  ]
-}
-```
+[지역 공유 ultra disks 템플릿](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Vm에서 Azure 공유 디스크 사용
+##### <a name="zonal-disk-example"></a>영역 디스크 예
+
+다음 템플릿을 사용 하기 전에,,,,,, `[parameters('dataDiskName')]` `[resourceGroup().location]` 및를 `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` 사용자 고유의 값으로 바꿉니다.
+
+[영역 공유 ultra disks 템플릿](https://aka.ms/SharedUltraDiskARMtemplateZonal)
+
+---
+
+## <a name="using-azure-shared-disks-with-your-vms"></a>Vm에서 Azure 공유 디스크 사용
 
 를 사용 하 여 공유 디스크를 배포한 후에 `maxShares>1` 는 하나 이상의 vm에 디스크를 탑재할 수 있습니다.
+
+> [!NOTE]
+> 울트라 디스크를 배포 하는 경우 필요한 요구 사항과 일치 하는지 확인 합니다. 자세한 내용은 ultra disk 문서의 [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) 또는 [CLI](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) 섹션을 참조 하세요.
 
 ```azurepowershell-interactive
 
@@ -259,3 +197,8 @@ PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_
 
 
 ## <a name="next-steps"></a>다음 단계
+
+Azure Resource Manager 템플릿을 사용 하 여 디스크를 배포 하려는 경우 다음 샘플 템플릿을 사용할 수 있습니다.
+- [프리미엄 SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
+- [지역 ultra 디스크](https://aka.ms/SharedUltraDiskARMtemplateRegional)
+- [영역 ultra 디스크](https://aka.ms/SharedUltraDiskARMtemplateZonal)

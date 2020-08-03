@@ -1,5 +1,6 @@
 ---
 title: Azure Active Directory B2C의 사용자 흐름 | Microsoft Docs
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 확장 가능한 정책 프레임워크 및 다양한 사용자 흐름을 만드는 방법을 자세히 알아봅니다.
 services: active-directory-b2c
 author: msmimart
@@ -7,24 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1dc0e297ca16bf2605993e36942de9d31c331680
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115850"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481600"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름
 
-Azure Active Directory B2C (Azure AD B2C)의 확장할 수 있는 정책 프레임 워크는 서비스의 핵심 수준입니다. 정책은 가입, 로그인 또는 프로필 편집과 같은 ID 환경을 완벽하게 설명합니다. 가장 일반적인 ID 작업을 설정하는 데 도움을 주기 위해 Azure AD B2C 포털은 **사용자 흐름**이라는 미리 정의되고 구성 가능한 정책을 포함합니다.
-
-## <a name="what-are-user-flows"></a>사용자 흐름이란?
-
-사용자 흐름을 사용하면 다음 설정을 구성하여 애플리케이션의 동작을 제어할 수 있습니다.
+응용 프로그램에 대 한 가장 일반적인 id 작업을 설정 하는 데 도움이 되도록 Azure AD B2C 포털에는 **사용자 흐름**이라고 하는 미리 정의 된 구성 가능한 정책이 포함 되어 있습니다. 사용자 흐름을 사용 하면 사용자가 로그인, 등록, 프로필 편집, 암호 재설정 등의 작업을 수행할 때 응용 프로그램과 상호 작용 하는 방법을 결정할 수 있습니다. 사용자 흐름을 사용 하 여 다음과 같은 기능을 제어할 수 있습니다.
 
 - Facebook 등의 소셜 계정 또는 로컬 계정과 같은 로그인에 사용되는 계정 유형
 - 소비자로부터 수집할 특성(예: 이름, 우편 번호 및 신발 크기)
@@ -62,13 +59,21 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>사용자 흐름 버전
 
-Azure Portal에서는 새 [버전의 사용자 흐름](user-flow-versions.md)이 항상 추가되고 있습니다. Azure AD B2C를 시작할 때 테스트된 사용자 흐름을 사용하도록 권장됩니다. 새 사용자 흐름을 만들 때 **권장** 탭에서 필요한 사용자 흐름을 선택합니다.
+Azure AD B2C에는 다음과 같은 여러 유형의 사용자 흐름이 포함 됩니다.
 
-다음 사용자 흐름이 현재 권장됩니다.
-
-- **가입 및 로그인** - 단일 구성으로 가입 및 로그인 환경을 둘 다 처리합니다. 사용자는 컨텍스트에 따라 올바른 경로로 안내됩니다. **가입** 사용자 흐름 또는 **로그인** 사용자 흐름 대신 이 사용자 흐름을 사용하는 것이 좋습니다.
+- **가입 및 로그인** - 단일 구성으로 가입 및 로그인 환경을 둘 다 처리합니다. 사용자는 컨텍스트에 따라 올바른 경로로 안내됩니다. 또한 별도의 **등록** 또는 **로그인** 사용자 흐름이 포함 됩니다. 그러나 일반적으로 결합 된 등록 및 로그인 사용자 흐름을 사용 하는 것이 좋습니다.
 - **프로필 편집** - 사용자가 해당 프로필 정보를 편집할 수 있습니다.
 - **암호 재설정** - 사용자가 암호를 재설정할 수 있는지 여부 및 방법을 구성할 수 있습니다.
+
+대부분의 사용자 흐름 유형에는 **권장** 버전과 **표준** 버전이 모두 있습니다. 자세한 내용은 [사용자 흐름 버전](user-flow-versions.md)을 참조 하세요.
+
+> [!IMPORTANT]
+> 이전에 Azure AD B2C 사용자 흐름으로 작업 한 경우 사용자 흐름 버전을 참조 하는 방법을 변경 했습니다. 이전에는 V1 (프로덕션 준비) 버전 및 V 1.1 및 V2 (preview) 버전이 제공 되었습니다. 이제 사용자 흐름을 두 가지 버전으로 통합 했습니다.
+>
+>- **권장** 사용자 흐름은 사용자 흐름의 새로운 미리 보기 버전입니다. 이러한 기능은 철저 하 게 테스트 되었으며 레거시 **V2** 및 **v 1.1** 버전의 모든 기능을 결합 합니다. 향후에는 새로운 권장 사용자 흐름이 유지 되 고 업데이트 됩니다. 이러한 새로운 권장 사용자 흐름으로 이동 하면 새 기능이 출시 될 때 새 기능에 액세스할 수 있습니다.
+>- 이전의 **V1**이라고 하는 **표준** 사용자 흐름이 일반적으로 사용 가능한 프로덕션 맞춤형 사용자 흐름입니다. 사용자 흐름이 중요 하 고 안정적인 버전에 따라 달라 지는 경우 표준 사용자 흐름을 계속 사용할 수 있으므로 이러한 버전이 유지 되 고 업데이트 되지 않습니다.
+>
+>모든 레거시 미리 보기 사용자 흐름 (V 1.1 및 V2)은 **2021 년 8 월 1 일부 터**사용 중단에 대 한 경로에 있습니다. 가능 하면 항상 최신 기능과 업데이트를 활용할 수 있도록 가능한 한 빨리 [새로운 **권장** 사용자 흐름으로 전환](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) 하는 것이 좋습니다.
 
 ## <a name="linking-user-flows"></a>사용자 흐름 연결
 
