@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: eaa00716e8f86552a077fb527993f619fc9756b5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275798"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533379"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -116,12 +116,20 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -Location $location -SkuName Standard_GRS -MinimumTlsVersion TLS1_1
+New-AzStorageAccount -ResourceGroupName $rgName \
+    -AccountName $accountName \
+    -Location $location \
+    -SkuName Standard_GRS \
+    -MinimumTlsVersion TLS1_1
+
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -MinimumTlsVersion TLS1_2
+Set-AzStorageAccount -ResourceGroupName $rgName \
+    -AccountName $accountName \
+    -MinimumTlsVersion TLS1_2
+
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 ```
@@ -140,11 +148,10 @@ az storage account create \
     --location <location> \
     --min-tls-version TLS1_1
 
-az resource show \
+az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.minimumTlsVersion \
+    --query minimumTlsVersion \
     --output tsv
 
 az storage account update \
@@ -152,11 +159,10 @@ az storage account update \
     --resource-group <resource-group> \
     --min-tls-version TLS1_2
 
-az resource show \
+az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.minimumTlsVersion \
+    --query minimumTlsVersion \
     --output tsv
 ```
 
@@ -166,7 +172,7 @@ az resource show \
 
 1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
 1. **Marketplace 검색**에서 **템플릿 배포**를 입력 하 고 **enter**키를 누릅니다.
-1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포)** 을 선택 하 고 **만들기**를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
+1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포) (미리 보기)** 를 선택 하 고 **만들기**를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
 1. 템플릿 편집기에서 다음 JSON을 붙여넣어 새 계정을 만들고 최소 TLS 버전을 TLS 1.2로 설정 합니다. 꺾쇠 괄호 안의 자리 표시자를 사용자 고유의 값으로 대체 해야 합니다.
 
     ```json
@@ -175,7 +181,7 @@ az resource show \
         "contentVersion": "1.0.0.0",
         "parameters": {},
         "variables": {
-            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
         },
         "resources": [
             {
@@ -187,6 +193,10 @@ az resource show \
                 "minimumTlsVersion": "TLS1_2"
             },
             "dependsOn": [],
+            "sku": {
+              "name": "Standard_GRS"
+            },
+            "kind": "StorageV2",
             "tags": {}
             }
         ]
@@ -215,8 +225,6 @@ resources
 | extend minimumTlsVersion = parse_json(properties).minimumTlsVersion
 | project subscriptionId, resourceGroup, name, minimumTlsVersion
 ```
-
----
 
 ### <a name="test-the-minimum-tls-version-from-a-client"></a>클라이언트에서 최소 TLS 버전 테스트
 

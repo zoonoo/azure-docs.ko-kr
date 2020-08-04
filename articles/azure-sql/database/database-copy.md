@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430248"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530380"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
@@ -133,7 +133,7 @@ T-sql을 사용 하 여 다른 구독에 있는 서버에 데이터베이스를 
 > [!IMPORTANT]
 > 원본 보다 훨씬 더 작은 서비스 목표가 포함 된 복사본을 만들어야 하는 경우 대상 데이터베이스에는 시드 프로세스를 완료 하는 데 충분 한 리소스가 없을 수 있으며이로 인해 copy operaion가 실패할 수 있습니다. 이 시나리오에서는 지역 복원 요청을 사용 하 여 다른 서버 및/또는 다른 지역에 복사본을 만듭니다. 자세한 내용은 [데이터베이스 백업을 사용 하 여 Azure SQL Database 복구](recovery-using-backups.md#geo-restore) 를 참조 하세요.
 
-## <a name="rbac-roles-to-manage-database-copy"></a>데이터베이스 복사본을 관리 하는 RBAC 역할
+## <a name="azure-roles-to-manage-database-copy"></a>데이터베이스 복사본을 관리 하기 위한 Azure 역할
 
 데이터베이스 복사본을 만들려면 다음 역할을 수행 해야 합니다.
 
@@ -155,7 +155,7 @@ Azure Portal를 사용 하 여 데이터베이스 복사를 관리 하려면 다
 
    Microsoft .Resources/subscription/resources/microsoft .resources/subscription/resources를 읽고, microsoft .resources/배포를 읽고, Microsoft .resources/배포를 읽고
 
-포털에서 리소스 그룹의 배포 아래에 있는 작업, SQL 작업을 비롯 한 여러 리소스 공급자의 작업을 확인 하려면 다음과 같은 추가 RBAC 역할이 필요 합니다.
+포털에서 리소스 그룹의 배포 아래에 있는 작업, SQL 작업을 비롯 한 여러 리소스 공급자의 작업을 확인 하려면 다음과 같은 추가 Azure 역할이 필요 합니다.
 
    Microsoft .Resources/subscription/resourcegroups/배포/작업/읽기 Microsoft .Resources/subscription/resourcegroups/배포/operationstatuses/읽기
 

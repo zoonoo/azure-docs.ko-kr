@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127539"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531215"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -95,7 +95,7 @@ Data Lake Analytics를 사용하여 네트워크 수준에서 Data Lake Analytic
 
 다른 Azure 서비스와 마찬가지로 RBAC(역할 기반 Access Control)를 사용하여 사용자가 서비스를 조작하는 방법을 제어할 수 있습니다.
 
-표준 RBAC 역할은 다음 기능이 있습니다.
+표준 Azure 역할에는 다음과 같은 기능이 있습니다.
 * **소유자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
 * **참가자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
 * **독자**: 작업을 모니터링할 수 있습니다.

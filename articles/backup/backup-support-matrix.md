@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091014"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531883"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -106,20 +106,17 @@ Azure Backup은 전송 중 및 정지 상태의 데이터에 대한 암호화를
 ### <a name="data-security"></a>데이터 보안
 
 - 백업 데이터는 암호화된 형식으로 Recovery Services 자격 증명 모음에 저장됩니다.
-- 사용자만 이 데이터의 잠금을 해제할 수 있는 암호를 보유합니다. Microsoft는 어떠한 경우에도 백업 데이터의 암호를 해독할 수 없습니다.
-
-    > [!WARNING]
-    > 자격 증명 모음이 설정되면 암호화 키에 대한 액세스 권한만 부여됩니다. Microsoft는 복사본을 유지 관리할 수 없으며, 키에 대한 액세스 권한도 없습니다. 키를 잃어버리면 Microsoft에서 백업 데이터를 복구할 수 없습니다.
+- MARS 에이전트를 사용 하 여 온-프레미스 서버에서 데이터를 백업 하는 경우 Azure Backup 업로드 하기 전에 암호를 사용 하 여 데이터를 암호화 한 후 Azure Backup에서 다운로드 한 후에만 암호를 해독 합니다.
 - Azure VM을 백업하고 있다면 가상 머신 *내에서* 암호화를 설정해야 합니다.
 - Azure Backup은 Azure Disk Encryption을 지원하며, Windows 가상 머신의 BitLocker와 Linux 가상 머신의 **dm-crypt**를 사용합니다.
 - 백 엔드에서 Azure Backup는 [Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 사용하여 미사용 데이터를 보호합니다.
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**온-프레미스 Windows 머신(DPM/MABS 사용 안 함)** | ![예][green] | ![예][green]
-**Azure VM** | ![예][green] | ![예][green]
-**DPM을 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![예][green] | ![예][green]
-**MABS를 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![예][green] | ![예][green]
+**온-프레미스 Windows 머신(DPM/MABS 사용 안 함)** | ![yes][green] | ![yes][green]
+**Azure VM** | ![yes][green] | ![예][green]
+**DPM을 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![yes][green] | ![예][green]
+**MABS를 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![yes][green] | ![예][green]
 
 ## <a name="compression-support"></a>압축 지원
 

@@ -3,13 +3,13 @@ title: Azure Portal를 사용 하 여 Vm 복원
 description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Machine 복원
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: e717a1c514e9ddc8a8c03dbf8d662ffb2f61eb61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/02/2020
+ms.openlocfilehash: 600979e56ac3e88b6530d833e930a9700fad2d9a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514267"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533715"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -27,7 +27,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 **지역 간(보조 지역)** | 지역 간 복원을 사용하여 보조 지역에서 Azure VM을 복원할 수 있으며, 이 보조 지역은 [Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)입니다.<br><br> 백업이 보조 지역에서 수행되는 경우 선택한 복구 지점에 대한 모든 Azure VM을 복원할 수 있습니다.<br><br> 이 기능은 아래 옵션에 사용할 수 있습니다.<br> <li> [VM 만들기](#create-a-vm) <br> <li> [디스크 복원](#restore-disks) <br><br> 현재 [기존 디스크 바꾸기](#replace-existing-disks) 옵션을 지원하지 않습니다.<br><br> 사용 권한<br> 보조 지역에 대한 복원 작업은 Backup Admins 및 App 관리자가 수행할 수 있습니다.
 
 > [!NOTE]
-> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세히 알아봅니다](backup-azure-restore-files-from-vm.md).
+> Azure VM에서 특정 파일과 폴더를 복구할 수도 있습니다. [자세히 알아보기](backup-azure-restore-files-from-vm.md).
 
 ## <a name="storage-accounts"></a>Storage 계정
 
@@ -51,37 +51,37 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 ## <a name="select-a-restore-point"></a>복원 지점 선택
 
-1. 복원 하려는 VM과 연결 된 자격 증명 모음에서 **Backup 항목**  >  **Azure Virtual Machine**을 클릭 합니다.
-2. VM을 클릭합니다. 기본적으로 VM 대시보드에는 지난 30일간의 복구 지점이 표시됩니다. 30일 이전의 복구 지점을 표시하거나, 날짜, 시간 범위 및 다양한 유형의 스냅샷 일관성을 기준으로 복구 지점을 찾도록 필터링할 수 있습니다.
-3. VM을 복원하려면 **VM 복원**을 클릭합니다.
+1. 복원 하려는 VM과 연결 된 자격 증명 모음에서 **Backup 항목**  >  **Azure Virtual Machine**을 선택 합니다.
+1. VM을 선택합니다. 기본적으로 VM 대시보드에는 지난 30일간의 복구 지점이 표시됩니다. 30일 이전의 복구 지점을 표시하거나, 날짜, 시간 범위 및 다양한 유형의 스냅샷 일관성을 기준으로 복구 지점을 찾도록 필터링할 수 있습니다.
+1. VM을 복원하려면 **VM 복원**을 클릭합니다.
 
     ![복원 지점](./media/backup-azure-arm-restore-vms/restore-point.png)
 
-4. 복구에 사용할 복원 지점을 선택합니다.
+1. 복구에 사용할 복원 지점을 선택합니다.
 
 ## <a name="choose-a-vm-restore-configuration"></a>VM 복원 구성 선택
 
-1. **복원 구성**에서 복원 옵션을 선택합니다.
+1. **가상 컴퓨터 복원**에서 복원 옵션을 선택 합니다.
     - **새로 만들기**: 새 VM을 만들려면이 옵션을 사용 합니다. 간단한 설정으로 VM을 만들거나, 디스크를 복원하고 사용자 지정된 VM을 만들 수 있습니다.
     - **기존**가상 컴퓨터 바꾸기: 기존 VM에서 디스크를 교체 하려면이 옵션을 사용 합니다.
 
         ![복원 구성 마법사](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
-2. 선택한 복원 옵션에 대한 설정을 지정합니다.
+1. 선택한 복원 옵션에 대한 설정을 지정합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
 [복원 옵션](#restore-options) 중 하나로, 복원 지점의 기본 설정을 사용하여 VM을 빠르게 만들 수 있습니다.
 
-1. **복원 구성**  >  **새**  >  **복원 유형**만들기에서 **가상 머신 만들기**를 선택 합니다.
-2. **가상 컴퓨터 이름**에 구독에 존재 하지 않는 VM을 지정 합니다.
-3. **리소스 그룹**에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
-4. **가상 네트워크**에서 VM을 배치할 VNet를 선택합니다. 구독과 연관된 모든 VNet가 표시됩니다. 서브넷을 선택합니다. 기본적으로 첫 번째 서브넷이 선택됩니다.
-5. **저장소 위치**에서 VM에 대 한 저장소 계정을 지정 합니다. [자세히 알아봅니다](#storage-accounts).
+1. **가상 컴퓨터 복원**  >  **새**  >  **복원 유형**만들기에서 **가상 머신 만들기**를 선택 합니다.
+1. **가상 컴퓨터 이름**에 구독에 존재 하지 않는 VM을 지정 합니다.
+1. **리소스 그룹**에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
+1. **가상 네트워크**에서 VM을 배치할 VNet를 선택합니다. 구독과 연관된 모든 VNet가 표시됩니다. 서브넷을 선택합니다. 기본적으로 첫 번째 서브넷이 선택됩니다.
+1. **준비 위치**에서 VM에 대 한 저장소 계정을 지정 합니다. [자세히 알아보기](#storage-accounts).
 
     ![복원 구성 마법사](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
-6. **복원 구성**에서 **확인**을 선택합니다. **복원**에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
+1. 복원 **을 선택 하** 여 복원 작업을 트리거합니다.
 
 ## <a name="restore-disks"></a>디스크 복원
 
@@ -92,12 +92,12 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 - PowerShell을 사용 하 여 복원 된 디스크에서 [새 VM을 만듭니다](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) .
 
 1. **복원 구성**  >  **새**  >  **복원 유형**만들기에서 **디스크 복원**을 선택 합니다.
-2. **리소스 그룹**에서 복원된 디스크에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다.
-3. **스토리지 계정**에서 VHD를 복사할 계정을 지정합니다. [자세히 알아봅니다](#storage-accounts).
+1. **리소스 그룹**에서 복원된 디스크에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다.
+1. **준비 위치**에서 vhd를 복사할 저장소 계정을 지정 합니다. [자세히 알아보기](#storage-accounts).
 
     ![복구 구성 완료](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
-4. **복원 구성**에서 **확인**을 선택합니다. **복원**에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
+1. 복원 **을 선택 하** 여 복원 작업을 트리거합니다.
 
 가상 머신에서 관리 디스크를 사용 하는 경우 **가상 머신 만들기** 옵션을 선택 하면 Azure Backup 지정 된 저장소 계정을 사용 하지 않습니다. **복원 디스크** 및 **인스턴트 복원**의 경우 저장소 계정은 템플릿을 저장 하는 데만 사용 됩니다. 지정 된 리소스 그룹에서 관리 디스크를 만듭니다.
 가상 컴퓨터가 관리 되지 않는 디스크를 사용 하는 경우 저장소 계정에 blob으로 복원 됩니다.
@@ -106,19 +106,19 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 디스크가 복원되면 복원 작업의 일부로 생성된 템플릿을 사용하여 새 VM을 사용자 지정하고 만듭니다.
 
-1. 관련 작업에 대한 **복원 작업 세부 정보**를 엽니다.
+1. **백업 작업**에서 관련 복원 작업을 선택 합니다.
 
-2. **복원 작업 세부 정보**에서 **템플릿 배포** 단추를 클릭하여 템플릿 배포를 시작합니다.
+1. **복원**에서 템플릿 배포 **를 선택 하** 여 템플릿 배포를 시작 합니다.
 
     ![복원 작업 드릴 다운](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
 
-3. 템플릿에 제공된 VM 설정을 사용자 지정하려면 **템플릿 편집**을 클릭합니다. 사용자 지정을 추가하려면 **매개 변수 편집**을 클릭합니다.
+1. 템플릿에 제공 된 VM 설정을 사용자 지정 하려면 **템플릿 편집**을 선택 합니다. 더 많은 사용자 지정을 추가 하려면 **매개 변수 편집**을 선택 합니다.
     - 사용자 지정 템플릿에서 리소스를 배포하는 방법에 대해 [자세히 알아보세요](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
     - 템플릿 작성에 대해 [자세히 알아보세요](../azure-resource-manager/templates/template-syntax.md).
 
    ![템플릿 배포 로드](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
-4. VM에 대한 사용자 지정 값을 입력하고, **사용 약관**에 동의하고, **구매**를 클릭합니다.
+1. VM에 대 한 사용자 지정 값을 입력 하 고 사용 **약관** 에 동의한 다음 **구매**를 선택 합니다.
 
    ![템플릿 배포 제출](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
@@ -126,9 +126,9 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 [복원 옵션](#restore-options) 중 하나로, 기존 VM 디스크를 선택한 복원 지점으로 바꿀 수 있습니다. 모든 복원 옵션을 [검토](#restore-options)합니다.
 
-1. **복원 구성**에서 **기존 항목 바꾸기**를 클릭합니다.
-2. **복원 유형**에서 **디스크 바꾸기**를 선택합니다. 이는 기존 VM 디스크를 바꾸는 데 사용할 복원 지점입니다.
-3. **준비 위치**에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세히 알아봅니다](#storage-accounts).
+1. **복원 구성**에서 **기존 바꾸기**를 선택 합니다.
+1. **복원 유형**에서 **디스크 바꾸기**를 선택합니다. 이는 기존 VM 디스크를 바꾸는 데 사용할 복원 지점입니다.
+1. **준비 위치**에서 복원 프로세스 중에 현재 관리 디스크의 스냅숏을 저장 해야 하는 위치를 지정 합니다. [자세히 알아보기](#storage-accounts).
 
    ![기존 항목을 바꾸는 구성 복원 마법사](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -145,11 +145,11 @@ CRR을 사용 하도록 설정 되어 있는지 확인 하려면 [지역 간 복
 CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습니다.
 
 1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목** 으로 이동 합니다.
-2. 보조 **지역을 클릭 하** 여 보조 지역의 항목을 봅니다.
+1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
 
-![보조 지역의 가상 컴퓨터](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+    ![보조 지역의 가상 컴퓨터](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 
-![보조 지역 선택](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+    ![보조 지역 선택](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### <a name="restore-in-secondary-region"></a>보조 지역에서 복원
 
@@ -173,13 +173,14 @@ CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습�
 >
 >- 복원이 트리거되고 데이터 전송 단계에서는 복원 작업을 취소할 수 없습니다.
 >- 지역 간 복원 기능은 cmk 사용 Recovery Services 자격 증명 모음에서 백업 되지 않은 CMK (고객 관리 키) 사용 Azure Vm을 보조 지역에서 CMK가 설정 된 Vm으로 복원 합니다.
+>- 보조 지역에서 복원 하는 데 필요한 RBAC (역할 기반 액세스 제어) 역할은 주 지역의 경우와 동일 합니다.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>보조 지역 복원 작업 모니터링
 
 1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 작업** 으로 이동 합니다.
-2. 보조 **지역을 클릭 하** 여 보조 지역의 항목을 봅니다.
+1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
 
-![필터링 된 백업 작업](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
+    ![필터링 된 백업 작업](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>관리 되지 않는 Vm 및 디스크를 관리 되는 것으로 복원
 
@@ -195,7 +196,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 --- | ---
 **하이브리드 사용 혜택을 사용하여 VM 복원** | Windows VM에서 [HUB(하이브리드 사용 혜택) 라이선스](../virtual-machines/windows/hybrid-use-benefit-licensing.md)를 사용하는 경우, 디스크를 복원하고 제공된 템플릿(**라이선스 유형 **이 **Windows_Server**로 설정됨) 또는 PowerShell을 사용하여 새 VM을 만듭니다.  이 설정은 VM을 만든 후에 적용할 수도 있습니다.
 **Azure 데이터 센터 재해 중 VM 복원** | 자격 증명 모음에서 GRS를 사용하고 VM에 대한 기본 데이터 센터의 작동이 중단되면, Azure Backup에서 쌍을 이루는 데이터 센터로 백업된 VM을 복원할 수 있습니다. 쌍을 이루는 데이터 센터에서 스토리지 계정을 선택하고 정상적으로 복원합니다. Azure Backup는 쌍을 이루는 지역에서 계산 서비스를 사용 하 여 복원 된 VM을 만듭니다. 데이터 센터 복원력에 대해 [자세히 알아보세요](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md).<br><br> 자격 증명 모음에서 GRS를 사용 하는 경우 새 기능인 [지역 간 복원](#cross-region-restore)을 선택할 수 있습니다. 이를 통해 전체 또는 부분 중단 시나리오에서 두 번째 지역으로 복원 하거나 가동 중단이 발생 하지 않을 수도 있습니다.
-**단일 도메인에서 단일 도메인 컨트롤러 VM 복원** | 다른 VM과 마찬가지로 VM을 복원합니다. 다음 사항에 유의하십시오.<br/><br/> Active Directory 관점에서 Azure VM은 다른 VM과 비슷합니다.<br/><br/> Active Directory 복원 모드(DSRM)도 사용할 수 있으므로 모든 Directory Services 복원 모드를 실행할 수 있습니다. 가상화된 도메인 컨트롤러에 대한 백업 및 복원 고려 사항에 대해 [자세히 알아보세요](#post-restore-steps).
+**단일 도메인에서 단일 도메인 컨트롤러 VM 복원** | 다른 VM과 마찬가지로 VM을 복원합니다. 다음 사항에 유의하세요.<br/><br/> Active Directory 관점에서 Azure VM은 다른 VM과 비슷합니다.<br/><br/> Active Directory 복원 모드(DSRM)도 사용할 수 있으므로 모든 Directory Services 복원 모드를 실행할 수 있습니다. 가상화된 도메인 컨트롤러에 대한 백업 및 복원 고려 사항에 대해 [자세히 알아보세요](#post-restore-steps).
 **단일 도메인에서 여러 도메인 컨트롤러 VM 복원** | 네트워크를 통해 동일한 도메인의 다른 도메인 컨트롤러에 연결할 수 있는 경우에는 모든 VM 처럼 도메인 컨트롤러를 복원할 수 있습니다. 도메인에서 마지막으로 남아 있는 도메인 컨트롤러이거나 격리된 네트워크에서 복구가 수행되면 [포리스트 복구](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용합니다.
 **단일 포리스트에 여러 도메인 복원** | [포리스트 복구](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용하는 것이 좋습니다.
 **완전 복원** | Azure VM과 온-프레미스 하이퍼바이저의 주요 차이점은 Azure에서 사용할 수 있는 VM 콘솔이 없다는 것입니다. BMR(완전 복구) 유형 백업을 사용한 복구와 같은 특정 시나리오에서는 콘솔이 필요합니다. 하지만 자격 증명 모음의 VM 복원이 BMR로 완전히 대체됩니다.
@@ -207,17 +208,17 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 
 ## <a name="track-the-restore-operation"></a>복원 작업 추적
 
-복원 작업이 트리거되면 백업 서비스에서 추적 작업을 만듭니다. Azure Backup에서 작업에 대한 알림을 포털에 표시합니다. 표시 되지 않는 경우 **알림** 기호를 선택한 다음 **모든 작업 보기** 를 선택 하 여 복원 프로세스 상태를 확인 합니다.
+복원 작업이 트리거되면 백업 서비스에서 추적 작업을 만듭니다. Azure Backup에서 작업에 대한 알림을 포털에 표시합니다. 표시 되지 않는 경우 **알림** 기호를 선택한 다음 **활동 로그에서 더 많은 이벤트** 를 선택 하 여 복원 프로세스 상태를 확인 합니다.
 
 ![트리거된 복원](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 
  다음과 같이 복원을 추적합니다.
 
-1. 작업에 대한 작업을 보려면 알림 하이퍼링크를 클릭합니다. 또는 자격 증명 모음에서 **백업 작업**을 클릭한 다음, 관련 VM을 클릭합니다.
+1. 작업에 대 한 작업을 보려면 알림 하이퍼링크를 선택 합니다. 또는 자격 증명 모음에서 **백업 작업**을 선택 하 고 관련 VM을 선택 합니다.
 
     ![자격 증명 모음의 VM 목록](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
-2. 복원 진행 상황을 모니터링하려면 상태가 **진행 중**인 복원 작업을 클릭합니다. 그러면 복원 진행률에 대 한 정보가 표시 되는 진행률 표시줄이 표시 됩니다.
+1. 복원 진행률을 모니터링 하려면 **진행**중 상태의 복원 작업을 선택 합니다. 그러면 복원 진행률에 대 한 정보가 표시 되는 진행률 표시줄이 표시 됩니다.
 
     - **예상 복원 시간**: 초기에 복원 작업을 완료 하는 데 걸린 시간을 제공 합니다. 작업이 진행됨에 따라 소요 시간이 감소하고, 복원 작업이 완료되면 0에 도달합니다.
     - **복원 비율**: 수행되는 복원 작업에 대한 백분율을 표시합니다.

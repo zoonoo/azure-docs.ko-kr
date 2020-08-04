@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 95a966799b4cb66b74d998df9c58958b9b89ecdb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374221"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534008"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
 Azure 센티널은 [RBAC (역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 Azure의 사용자, 그룹 및 서비스에 할당할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공   합니다.
 
-RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 할당 하 여 Azure 센티널에 적절 한 액세스 권한을 부여 합니다. 다양 한 역할을 통해 Azure 센티널의 사용자가 보고 수행할 수 있는 작업을 세밀 하 게 제어할 수 있습니다. RBAC 역할은 Azure 센티널 작업 영역에서 직접 할당 하거나 (아래 참고 참조) 작업 영역이 속한 구독 또는 리소스 그룹에 할당 하 여 Azure 센티널에서 상속할 수 있습니다.
+RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 할당 하 여 Azure 센티널에 적절 한 액세스 권한을 부여 합니다. 다양 한 역할을 통해 Azure 센티널의 사용자가 보고 수행할 수 있는 작업을 세밀 하 게 제어할 수 있습니다. Azure 역할은 azure 센티널 작업 영역에서 직접 할당 하거나 (아래 참고 참조) 작업 영역이 속해 있는 구독 또는 리소스 그룹에서 Azure 센티널이 상속할 수 있습니다.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Azure 센티널에서 작업 하기 위한 역할
 
@@ -64,7 +64,7 @@ RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 할당 �
 
 ### <a name="other-roles-you-might-see-assigned"></a>할당 된 다른 역할
 
-Azure 센티널 특정 RBAC 역할을 할당 하는 경우 다른 용도로 사용자에 게 할당 되었을 수 있는 다른 Azure 및 Log Analytics RBAC 역할을 통해 제공 될 수 있습니다. 이러한 역할은 Azure 센티널 작업 영역 및 기타 리소스에 대 한 액세스를 포함 하는 보다 광범위 한 사용 권한 집합을 부여 한다는 것을 알고 있어야 합니다.
+Azure 센티널 특정 Azure 역할을 할당 하는 경우 다른 용도로 사용자에 게 할당 되었을 수 있는 다른 Azure 및 Log Analytics Azure 역할을 통해 제공 될 수 있습니다. 이러한 역할은 Azure 센티널 작업 영역 및 기타 리소스에 대 한 액세스를 포함 하는 보다 광범위 한 사용 권한 집합을 부여 한다는 것을 알고 있어야 합니다.
 
 - **Azure 역할:** [소유자](../role-based-access-control/built-in-roles.md#owner), [참가자](../role-based-access-control/built-in-roles.md#contributor)및 [읽기 권한자](../role-based-access-control/built-in-roles.md#reader)입니다. Azure 역할은 Log Analytics 작업 영역 및 Azure 센티널 리소스를 포함 하 여 모든 Azure 리소스에 대 한 액세스 권한을 부여 합니다.
 

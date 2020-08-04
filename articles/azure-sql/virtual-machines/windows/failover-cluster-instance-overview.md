@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287357"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533821"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용 하 여 장애 조치 (Failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -98,7 +98,7 @@ Azure Vm에서 SQL Server는 SQL Server 장애 조치 (failover) 클러스터 �
 - 지속적인 디스크 복제로 인해 높은 성능을 얻으려면 높은 네트워크 대역폭이 필요 합니다. 
 - 저장소는 각 VM에 연결 되므로 VM 크기가 크고 저장소에 대해 두 배가 필요 합니다. 
 
-시작 하려면 [스토리지 공간 다이렉트를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스 SQL Server](failover-cluster-instance-azure-shared-disks-manually-configure.md)를 참조 하세요. 
+시작 하려면 [스토리지 공간 다이렉트를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스 SQL Server](failover-cluster-instance-storage-spaces-direct-manually-configure.md)를 참조 하세요. 
 
 ### <a name="premium-file-share"></a>프리미엄 파일 공유
 

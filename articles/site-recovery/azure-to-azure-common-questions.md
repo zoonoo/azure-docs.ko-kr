@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201215"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534025"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -70,6 +70,10 @@ Site Recovery 팀 및 Azure 용량 관리 팀은 충분한 인프라 용량을 �
 ### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>영역이 고정된 Azure VM을 다른 지역에 복제할 수 있나요?
 
 예, [영역이 고정된 VM](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region)을 다른 지역에 복제할 수 있습니다.
+
+### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>영역이 아닌 영역에서 영역 구성에 영역을 포함 하는 지역에서 Vm을 복제할 수 있나요?
+
+아니요. 현재는 지원 되지 않습니다. 해결 방법으로 ASR을 사용 하 여 VM을 다른 지역의 영역 구성에 복제 한 다음 복제를 사용 하지 않도록 설정할 수 있습니다. 그런 다음 해당 지역에서 원래 지역으로의 복제를 다시 사용 하도록 설정 하 고 장애 조치 (failover)에 대 한 영역 구성을 선택 합니다.
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f29ed1ad7ba0215e9b4193fd56dd3a32f3e9a2
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476174"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530149"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>클라우드 그룹을 사용 하 여 Azure Active Directory에서 역할 할당 관리 (미리 보기)
 
@@ -59,12 +59,13 @@ Azure AD를 사용 하면 그룹에 대해 isAssignableToRole 라는 새 속성�
 ## <a name="known-issues"></a>알려진 문제
 
 - 그룹을 통해 역할을 할당 하는 경우 동적 그룹을 만들거나 수정할 수 없습니다.
-- Azure Information Protection는 그룹을 통해 역할 멤버 자격을 인식 하지 못합니다. 직접 역할 할당은 여전히 작동 합니다. Azure Information Protection 포털 (클래식 포털)은 아직 그룹을 통해 역할 멤버 자격을 인식 하지 못합니다. 직접 역할 할당은 여전히 작동 합니다. [통합 민감도 레이블 플랫폼으로 마이그레이션한](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) 다음, Office 365 Security & 준수 센터를 사용 하 여 그룹 할당을 통해 역할을 관리할 수 있습니다.
 - **관리 되는 사용자 로그인 기능에 대해 준비 된 롤아웃 사용** 은 그룹을 통한 할당을 지원 하지 않습니다.
 - *AZURE Ad P2 사용이 허가 된 고객만*해당: azure ad와 Privileged Identity Management를 통해 역할에 그룹을 활성으로 할당 하지 마세요. 이렇게 하면 사용자가 PIM에서 활성 역할 할당을 볼 수 없는 문제가 발생 하 고 해당 PIM 할당을 제거할 수 없습니다. 적격 할당은이 시나리오에서 영향을 받지 않습니다. 이 할당을 수행 하려고 하면 다음과 같은 예기치 않은 동작이 발생할 수 있습니다.
   - 역할 할당의 종료 시간이 잘못 표시 될 수 있습니다.
   - PIM 포털에서 **내 역할** 은 하나 이상의 그룹을 통해 할당을 허용 하는 방법에 관계 없이 역할 할당을 하나만 표시할 수 있습니다.
-- *AZURE AD P2 라이선스 고객만* 그룹을 삭제 한 후에도 여전히 PIM UI에서 역할의 적격 멤버가 표시 됩니다. 기능적으로 문제가 발생 하지 않습니다. 단지 Azure Portal의 캐시 문제입니다.
+- *AZURE AD P2 라이선스 고객만* 그룹을 삭제 한 후에도 여전히 PIM UI에서 역할의 적격 멤버가 표시 됩니다. 기능적으로 문제가 발생 하지 않습니다. 단지 Azure Portal의 캐시 문제입니다.  
+- Exchange 관리 센터는 그룹을 통해 역할 멤버 자격을 인식 하지 않지만 PowerShell cmdlet이 작동 합니다.
+- Azure Information Protection 포털 (클래식 포털)은 아직 그룹을 통해 역할 멤버 자격을 인식 하지 못합니다. [통합 민감도 레이블 플랫폼으로 마이그레이션한](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) 다음, Office 365 Security & 준수 센터를 사용 하 여 그룹 할당을 통해 역할을 관리할 수 있습니다.
 
 이러한 문제를 해결 하 고 있습니다.
 

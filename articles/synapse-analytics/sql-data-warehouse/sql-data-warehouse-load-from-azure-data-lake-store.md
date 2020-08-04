@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fcebf66dba2fc13457ca359b81565fc5870032c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213298"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533940"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Synapse SQL용 Azure Data Lake Storage에서 데이터 로드
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서를 실행하려면 다음이 필요합니다.
 
 * SQL 풀. [SQL 풀 만들기 및 데이터 쿼리](create-data-warehouse-portal.md)를 참조하세요.
-* Data Lake Storage 계정. [Azure Data Lake Storage 시작](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. 이 저장소 계정에 대해 저장소 계정 키, SAS (공유 액세스 서명) 키, Azure Directory 응용 프로그램 사용자 또는 저장소 계정에 대 한 적절 한 RBAC 역할이 있는 AAD 사용자를 로드 하려면 다음 자격 증명 중 하나를 구성 하거나 지정 해야 합니다.
+* Data Lake Storage 계정. [Azure Data Lake Storage 시작](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. 이 저장소 계정에 대해 저장소 계정 키, SAS (공유 액세스 서명) 키, Azure Directory 응용 프로그램 사용자 또는 저장소 계정에 대 한 적절 한 Azure 역할이 있는 AAD 사용자를 로드 하려면 다음 자격 증명 중 하나를 구성 하거나 지정 해야 합니다.
 
 ## <a name="create-the-target-table"></a>대상 테이블 만들기
 

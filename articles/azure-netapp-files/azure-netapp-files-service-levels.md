@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 639f1e09fdb5603965209e5b5ee6c224ad238b76
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832576"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533124"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files에 대한 서비스 수준
 서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당 된 할당량을 기준으로 용량 풀의 볼륨에 허용 되는 최대 처리량으로 정의 되 고 구분 됩니다.
@@ -56,7 +56,8 @@ Azure NetApp Files은 *Ultra*, *Premium*및 *Standard*의 세 가지 서비스 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 여러 서비스 수준의 가격은 [Azure NetApp Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/netapp/)를 참조하세요.
-- 용량 풀의 용량 소비 계산에 대 [한 Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md) 을 참조 하세요. 
+- [가격 책정 페이지 Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md) 
 - [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
-- [Azure NetApp Files Service Level Agreement(서비스 수준 약정) (SLA)를](https://azure.microsoft.com/support/legal/sla/netapp/) 참조 하세요.
+- [Azure NetApp Files에 대 한 Service Level Agreement(서비스 수준 약정) (SLA)](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [볼륨의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md) 

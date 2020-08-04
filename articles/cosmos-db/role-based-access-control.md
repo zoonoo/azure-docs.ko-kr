@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 858e185a0e4fa406fb4645475673acc13a0d37f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086676"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530574"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
 
-Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 RBAC 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
+Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
 
 ## <a name="built-in-roles"></a>기본 제공 역할
 
@@ -39,13 +39,13 @@ Azure Portal의 **액세스 제어 (IAM)** 창은 Azure Cosmos 리소스에 대 
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 
-사용자는 기본 제공 역할 외에도 Azure에서 [사용자 지정 역할](../role-based-access-control/custom-roles.md) 을 만들고 해당 Active Directory 테 넌 트 내의 모든 구독에서 서비스 주체에 이러한 역할을 적용할 수 있습니다. 사용자 지정 역할은 사용자가 리소스 공급자 작업의 사용자 지정 집합을 사용 하 여 RBAC 역할 정의를 만들 수 있는 방법을 제공 합니다. Azure Cosmos DB에 대 한 사용자 지정 역할을 빌드하는 데 사용할 수 있는 작업에 대 한 자세한 내용은 [Azure Cosmos DB 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb) 을 참조 하세요.
+사용자는 기본 제공 역할 외에도 Azure에서 [사용자 지정 역할](../role-based-access-control/custom-roles.md) 을 만들고 해당 Active Directory 테 넌 트 내의 모든 구독에서 서비스 주체에 이러한 역할을 적용할 수 있습니다. 사용자 지정 역할은 사용자가 리소스 공급자 작업의 사용자 지정 집합을 사용 하 여 Azure 역할 정의를 만드는 방법을 제공 합니다. Azure Cosmos DB에 대 한 사용자 지정 역할을 빌드하는 데 사용할 수 있는 작업에 대 한 자세한 내용은 [Azure Cosmos DB 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb) 을 참조 하세요.
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Azure Cosmos DB Sdk에서 변경 방지
 
 계정 키를 사용 하 여 연결 하는 클라이언트에서 리소스를 변경 하는 것을 방지 하기 위해 Azure Cosmos DB 리소스 공급자를 잠글 수 있습니다. 즉, Azure Cosmos SDK를 통해 연결 하는 응용 프로그램입니다. 여기에는 Azure Portal에서 수행 된 변경 내용도 포함 됩니다. 이 기능은 프로덕션 환경에 대 한 제어 및 관리를 더 많이 원하는 사용자에 게 적합할 수 있습니다. SDK를 변경 하지 못하게 하면 제어 평면 작업에 대 한 리소스 잠금 및 진단 로그와 같은 기능을 사용할 수 있습니다. Azure Cosmos DB SDK에서 연결 하는 클라이언트는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 처리량에 대 한 속성을 변경할 수 없습니다. Cosmos 컨테이너 자체에 대 한 데이터 읽기 및 쓰기와 관련 된 작업은 영향을 받지 않습니다.
 
-이 기능을 사용 하도록 설정 하면 적절 한 RBAC 역할을 가진 사용자 및 관리 서비스 Id를 비롯 한 Azure Active Directory 자격 증명을 사용 하 여 모든 리소스를 변경할 수 있습니다.
+이 기능을 사용 하도록 설정 하면 올바른 Azure 역할이 있는 사용자만 리소스를 변경할 수 있으며 관리 되는 서비스 Id를 비롯 한 Azure Active Directory 자격 증명을 사용할 수 있습니다.
 
 > [!WARNING]
 > 이 기능을 사용 하도록 설정 하면 응용 프로그램에 영향을 줄 수 있습니다. 사용 하도록 설정 하기 전에 영향을 이해 해야 합니다.

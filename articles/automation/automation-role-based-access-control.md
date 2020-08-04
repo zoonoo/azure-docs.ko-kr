@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420484"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528671"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -19,7 +19,7 @@ RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세�
 
 ## <a name="roles-in-automation-accounts"></a>Automation 계정의 역할
 
-Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 액세스를 허용합니다. 다음은 Automation 계정에서 지원하는 기본 제공 역할입니다.
+Azure Automation Automation 계정 범위에서 사용자, 그룹 및 응용 프로그램에 적절 한 Azure 역할을 할당 하 여 액세스 권한을 부여 합니다. 다음은 Automation 계정에서 지원하는 기본 제공 역할입니다.
 
 | **역할** | **설명** |
 |:--- |:--- |
@@ -267,7 +267,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |Automation 계정    | 가상 머신 참가자        | 계정의 리소스 그룹        |
 |Log Analytics 작업 영역     | Log Analytics 참가자| Log Analytics 작업 영역        |
 |Log Analytics 작업 영역 |Log Analytics 독자| Subscription|
-|해결 방법     |Log Analytics 참가자         | 해결 방법|
+|솔루션     |Log Analytics 참가자         | 해결 방법|
 |Virtual Machine     | 가상 머신 참가자        | Virtual Machine        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Automation 계정에 대한 RBAC 구성
@@ -319,7 +319,7 @@ Automation 계정을 관리하지 않는 사용자 또는 더 이상 조직에�
 
 다음 [Azure PowerShell cmdlet](../role-based-access-control/role-assignments-powershell.md)을 사용하여 Automation 계정에 역할 기반 액세스를 구성할 수도 있습니다.
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0)에는 Azure Active Directory에서 사용할 수 있는 모든 RBAC 역할이 나열됩니다. 이 cmdlet을 `Name` 매개 변수와 함께 사용하여 특정 역할에서 수행할 수 있는 모든 작업을 나열할 수 있습니다.
+[AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) 에는 Azure Active Directory에서 사용할 수 있는 모든 Azure 역할이 나열 됩니다. 이 cmdlet을 `Name` 매개 변수와 함께 사용하여 특정 역할에서 수행할 수 있는 모든 작업을 나열할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'

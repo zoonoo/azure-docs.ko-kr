@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.openlocfilehash: 4bfd90be2a469c5ab94172769729095069f53cd7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4ad3800748330d5c3a6a32c6c0824bc72a05d0ef
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045657"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533090"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -42,10 +42,13 @@ ms.locfileid: "86045657"
 
     a. 먼저 Unix 또는 Linux VM에 볼륨을 탑재 합니다.  
     b. 볼륨에 `chmod 777` `chmod 775` 대해 또는 명령을 실행 합니다.  
-    다. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
+    c. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
+    
+5. NFS Kerberos 볼륨을 탑재 하려면 [nfsv 4.1 kerberos 암호화 구성](configure-kerberos-encryption.md) 에서 추가 정보를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files에 대한 NFSv4.1 기본 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFS FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
 * [네트워크 파일 시스템 개요](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [NFS Kerberos 볼륨 탑재](configure-kerberos-encryption.md#kerberos_mount)

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133166"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534283"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 차단
 
@@ -24,7 +24,7 @@ Azure Storage의 컨테이너 및 blob에 대 한 익명 공용 읽기 액세스
 
 저장소 계정에 대 한 공용 blob 액세스를 허용 하지 않을 경우 Azure Storage는 해당 계정에 대 한 모든 익명 요청을 거부 합니다. 계정에 대 한 공용 액세스를 허용 하지 않으면 해당 계정의 컨테이너는 나중에 공용 액세스를 사용 하도록 구성할 수 없습니다. 이미 공용 액세스를 사용 하도록 구성 된 모든 컨테이너는 더 이상 익명 요청을 수락 하지 않습니다. 자세한 내용은 [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성](anonymous-read-access-configure.md)을 참조 하세요.
 
-이 문서에서는 저장소 계정에 대 한 익명 요청을 분석 하는 방법과 전체 저장소 계정 또는 개별 컨테이너에 대해 익명 액세스를 방지 하는 방법을 설명 합니다.
+이 문서에서는 끌어서 (검색-재구성-관리) 프레임 워크를 사용 하 여 저장소 계정에 대 한 공용 액세스를 지속적으로 관리 하는 방법을 설명 합니다.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>클라이언트 응용 프로그램에서 익명 요청 검색
 
@@ -157,6 +157,126 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+### <a name="check-the-public-access-setting-for-multiple-accounts"></a>여러 계정에 대 한 공용 액세스 설정 확인
+
+최적의 성능을 가진 일련의 저장소 계정에서 공용 액세스 설정을 확인 하려면 Azure Portal에서 Azure 리소스 그래프 탐색기를 사용할 수 있습니다. 리소스 그래프 탐색기를 사용 하는 방법에 대해 자세히 알아보려면 [빠른 시작: Azure 리소스 그래프 탐색기를 사용 하 여 첫 번째 리소스 그래프 쿼리 실행](/azure/governance/resource-graph/first-query-portal)을 참조 하세요.
+
+리소스 그래프 탐색기에서 다음 쿼리를 실행 하면 저장소 계정 목록이 반환 되 고 각 계정에 대 한 공용 액세스 설정이 표시 됩니다.
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Azure Policy를 사용 하 여 규정 준수 감사
+
+저장소 계정이 많은 경우 감사를 수행 하 여 이러한 계정이 공용 액세스를 차단 하도록 구성 되어 있는지 확인 하는 것이 좋습니다. 준수를 위해 저장소 계정 집합을 감사 하려면 Azure Policy을 사용 합니다. Azure Policy은 Azure 리소스에 규칙을 적용 하는 정책을 만들고 할당 하 고 관리 하는 데 사용할 수 있는 서비스입니다. Azure Policy는 회사 표준 및 서비스 수준 계약을 준수 하는 리소스를 유지 하는 데 도움이 됩니다. 자세한 내용은 [Azure Policy 개요](../../governance/policy/overview.md)를 참조하세요.
+
+### <a name="create-a-policy-with-an-audit-effect"></a>감사 효과를 사용 하 여 정책 만들기
+
+Azure Policy은 리소스에 대해 정책 규칙을 평가할 때 발생 하는 작업을 결정 하는 효과를 지원 합니다. 감사 효과는 리소스가 호환 되지 않는 경우 경고를 생성 하지만 요청을 중지 하지는 않습니다. 효과에 대 한 자세한 내용은 [Azure Policy 효과 이해](../../governance/policy/concepts/effects.md)를 참조 하세요.
+
+Azure Portal 포함 된 저장소 계정에 대 한 공용 액세스 설정에 대 한 감사 효과를 사용 하 여 정책을 만들려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
+1. **제작** 섹션에서 **정의**를 선택 합니다.
+1. **정책 정의 추가** 를 선택 하 여 새 정책 정의를 만듭니다.
+1. **정의 위치** 필드의 경우 **자세히** 단추를 선택 하 여 감사 정책 리소스가 있는 위치를 지정 합니다.
+1. 정책의 이름을 지정 합니다. 설명 및 범주를 선택적으로 지정할 수 있습니다.
+1. **정책 규칙**에서 다음 정책 정의를 **policyrule** 섹션에 추가 합니다.
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. 해당 정책을 저장합니다.
+
+### <a name="assign-the-policy"></a>정책 할당
+
+그런 다음 리소스에 정책을 할당 합니다. 정책의 범위는 해당 리소스 및 그 아래에 있는 리소스에 해당 합니다. 정책 할당에 대 한 자세한 내용은 [Azure Policy 할당 구조](../../governance/policy/concepts/assignment-structure.md)를 참조 하세요.
+
+정책을 Azure Portal 할당 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
+1. **제작** 섹션에서 **할당**을 선택 합니다.
+1. **정책 할당** 을 선택 하 여 새 정책 할당을 만듭니다.
+1. **범위** 필드에서 정책 할당의 범위를 선택 합니다.
+1. **정책 정의** 필드에서 **자세히** 단추를 선택한 다음, 목록에서 이전 섹션에서 정의한 정책을 선택 합니다.
+1. 정책 할당의 이름을 제공 합니다. 설명은 선택 사항입니다.
+1. **정책 적용** 을 *사용*으로 설정 된 상태로 둡니다. 이 설정은 감사 정책에 영향을 주지 않습니다.
+1. **검토 + 만들기** 를 선택 하 여 할당을 만듭니다.
+
+### <a name="view-compliance-report"></a>준수 보고서 보기
+
+정책을 할당 한 후에는 준수 보고서를 볼 수 있습니다. 감사 정책에 대 한 준수 보고서는 정책을 준수 하지 않는 저장소 계정에 대 한 정보를 제공 합니다. 자세한 내용은 [정책 준수 데이터 가져오기](../../governance/policy/how-to/get-compliance-data.md)를 참조 하세요.
+
+정책 할당을 만든 후 준수 보고서를 사용할 수 있게 되는 데 몇 분 정도 걸릴 수 있습니다.
+
+Azure Portal에서 준수 보고서를 보려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 Azure Policy 서비스로 이동 합니다.
+1. **준수**를 선택 합니다.
+1. 이전 단계에서 만든 정책 할당의 이름에 대 한 결과를 필터링 합니다. 이 보고서에는 정책을 준수 하지 않는 리소스의 수가 표시 됩니다.
+1. 정책을 준수 하지 않는 저장소 계정 목록을 포함 하 여 추가 세부 정보에 대 한 보고서를 드릴 다운할 수 있습니다.
+
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Blob 공용 액세스에 대 한 감사 정책에 대 한 준수 보고서를 보여 주는 스크린샷":::
+
+## <a name="use-azure-policy-to-enforce-authorized-access"></a>Azure Policy를 사용 하 여 권한 있는 액세스 적용
+
+Azure Policy는 Azure 리소스가 요구 사항 및 표준을 준수 하도록 하 여 클라우드 거 버 넌 스를 지원 합니다. 조직의 저장소 계정이 권한 있는 요청만 허용 하도록 하려면 익명 요청을 허용 하는 공용 액세스 설정을 사용 하 여 새 저장소 계정을 만들 수 없도록 하는 정책을 만들 수 있습니다. 또한이 정책은 해당 계정에 대 한 공용 액세스 설정이 정책과 호환 되지 않는 경우 기존 계정에 대 한 모든 구성 변경을 방지 합니다.
+
+적용 정책은 거부 효과를 사용 하 여 저장소 계정을 만들거나 수정 하 여 공용 액세스를 허용 하는 요청을 방지 합니다. 효과에 대 한 자세한 내용은 [Azure Policy 효과 이해](../../governance/policy/concepts/effects.md)를 참조 하세요.
+
+익명 요청을 허용 하는 공용 액세스 설정에 대 한 거부 효과를 사용 하 여 정책을 만들려면 [Azure Policy를 사용 하 여 규정 준수 감사](#use-azure-policy-to-audit-for-compliance)에 설명 된 것과 동일한 단계를 수행 하지만 정책 정의의 **policyrule** 섹션에서 다음 JSON을 제공 합니다.
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+          "equals": "false"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+거부 효과를 사용 하 여 정책을 만들고 범위에 할당 한 후에는 사용자가 공용 액세스를 허용 하는 저장소 계정을 만들 수 없습니다. 사용자는 현재 공용 액세스를 허용 하는 기존 저장소 계정에 대 한 구성을 변경할 수 없습니다. 이렇게 하려고 하면 오류가 발생 합니다. 계정 만들기 또는 구성을 계속 하려면 저장소 계정에 대 한 공용 액세스 설정을 **false** 로 설정 해야 합니다.
+
+다음 이미지는 거부 효과가 있는 정책에서 공용 액세스가 허용 되지 않는 경우 공용 액세스를 허용 하는 저장소 계정 (새 계정에 대 한 기본값)을 만들려고 할 때 발생 하는 오류를 보여 줍니다.
+
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="정책을 위반 하 여 저장소 계정을 만들 때 발생 하는 오류를 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

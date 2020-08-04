@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 07/30/2020
+ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220306"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529503"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이 간 데이터 복사
 
@@ -36,7 +36,7 @@ ms.locfileid: "86220306"
 - 눈송이의 [copy를 [location] 명령으로](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) 활용 하는 눈송이의 데이터를 최상의 성능을 얻기 위해 복사 합니다.
 - 눈송이의 [copy to [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 명령을 사용 하 여 최상의 성능을 얻기 위해 데이터를 눈송이로 복사 합니다. Azure의 눈송이를 지원 합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "86220306"
 | 속성         | 설명                                                  | 필수 |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | Type 속성은 **눈송이**로 설정 되어야 합니다.              | 예      |
-| connectionString | [전체 계정 이름](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (지역 및 클라우드 플랫폼을 식별 하는 추가 세그먼트 포함), 사용자 이름, 암호, 데이터베이스 및 웨어하우스를 구성 합니다. 눈송이 인스턴스에 연결할 JDBC 연결 문자열을 지정 합니다. Azure Key Vault에 암호를 넣을 수도 있습니다. 자세한 내용은 테이블 아래의 예를 참조 하 고 [Azure Key Vault 문서의 저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요.| 예      |
+| connectionString | 눈송이 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. Azure Key Vault에 암호나 전체 연결 문자열을 배치 하도록 선택할 수 있습니다. 자세한 내용은 테이블 아래의 예를 참조 하 고 [Azure Key Vault 문서의 저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요.<br><br>일반적인 설정은 다음과 같습니다.<br>- **계정 이름:** 눈송이 계정 (지역 및 클라우드 플랫폼을 식별 하는 추가 세그먼트 포함)의 [전체 계정 이름](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (예: xy12345)입니다.<br/>- **사용자 이름:** 연결에 대 한 사용자의 로그인 이름입니다.<br>- **암호:** 사용자에 대 한 암호입니다.<br>- **데이터베이스:** 연결 되 면 사용할 기본 데이터베이스입니다. 지정 된 역할에 권한이 있는 기존 데이터베이스 여야 합니다.<br>- **웨어하우스:** 연결 된 후 사용할 가상 웨어하우스입니다. 지정 된 역할에 권한이 있는 기존 웨어하우스로 지정 해야 합니다.<br>- **역할:** 눈송이 세션에서 사용할 기본 액세스 제어 역할입니다. 지정 된 역할은 지정 된 사용자에 게 이미 할당 된 기존 역할 이어야 합니다. 기본 역할은 PUBLIC입니다. | 예      |
 | connectVia       | 데이터 저장소에 연결 하는 데 사용 되는 [통합 런타임](concepts-integration-runtime.md) 입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure integration runtime을 사용 합니다. | 예       |
 
 **예:**
@@ -60,7 +60,7 @@ ms.locfileid: "86220306"
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ ms.locfileid: "86220306"
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -143,12 +143,12 @@ ms.locfileid: "86220306"
 | 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성은 **SnowflakeSource**로 설정 해야 합니다. | 예      |
-| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다.<br>저장 프로시저 실행은 지원 되지 않습니다. | 아니요       |
-| exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요       |
+| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다.<br>저장 프로시저 실행은 지원 되지 않습니다. | 예       |
+| exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 예       |
 | ***에서 `exportSettings` 다음을 수행 합니다.*** |  |  |
 | 형식 | **SnowflakeExportCopyCommand**로 설정 된 내보내기 명령의 유형입니다. | 예 |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
-| additionalFormatOptions | 키-값 쌍의 사전으로 명령을 복사 하기 위해 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조 하세요. | 예 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 명령을 복사 하기 위해 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조 하세요. | 예 |
 
 #### <a name="direct-copy-from-snowflake"></a>눈송이에서 직접 복사
 
@@ -172,7 +172,7 @@ ms.locfileid: "86220306"
 - 복사 활동 원본에서 `additionalColumns` 가 지정 되지 않았습니다.
 - 열 매핑이 지정 되지 않았습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -223,7 +223,7 @@ ms.locfileid: "86220306"
 > [!NOTE]
 > 스테이징 Azure Blob 저장소 연결 된 서비스는 눈송이 복사 명령에 필요한 공유 액세스 서명 인증을 사용 해야 합니다. 
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -275,11 +275,11 @@ ms.locfileid: "86220306"
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 type 속성은 **SnowflakeSink**로 설정 됩니다. | 예                                           |
 | preCopyScript     | 각 실행 시 눈송이에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
-| importSettings | 데이터를 눈송이에 쓰는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 아니요 |
+| importSettings | 데이터를 눈송이에 쓰는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 예 |
 | ***에서 `importSettings` 다음을 수행 합니다.*** |                                                              |  |
 | 형식 | **SnowflakeImportCopyCommand**로 설정 된 가져오기 명령의 유형입니다. | 예 |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조 하세요. | 아니요 |
-| additionalFormatOptions | 키-값 쌍의 사전으로 제공 된 복사 명령에 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조 하세요. | 아니요 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공 되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [눈송이 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조 하세요. | 예 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 제공 된 복사 명령에 제공 되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [눈송이 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조 하세요. | 예 |
 
 #### <a name="direct-copy-to-snowflake"></a>눈송이로 직접 복사
 
@@ -307,7 +307,7 @@ ms.locfileid: "86220306"
    - 원본이 폴더인 경우 `recursive` 는 true로 설정 됩니다.
    - `prefix`, `modifiedDateTimeStart` `modifiedDateTimeEnd` 는 지정 되지 않습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[

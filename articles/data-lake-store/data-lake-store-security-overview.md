@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086575"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529979"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 
@@ -46,13 +46,13 @@ ms.locfileid: "82086575"
 
 기본적으로 네 가지 기본 역할이 Data Lake Storage Gen1에 대해 정의됩니다. 역할은 Azure Portal, PowerShell cmdlet 및 REST API를 통해 Data Lake Storage Gen1 계정에서 다양한 작업을 허용합니다. 소유자 및 참여자 역할은 해당 계정에 다양한 관리 기능을 수행할 수 있습니다. 계정 관리 데이터를 보기만 하는 사용자에게 읽기 권한자 역할을 할당할 수 있습니다.
 
-![RBAC 역할](./media/data-lake-store-security-overview/rbac-roles.png "RBAC 역할")
+![Azure 역할](./media/data-lake-store-security-overview/rbac-roles.png "Azure 역할")
 
 계정 관리에 대한 역할이 할당되어 있지만 일부 역할은 데이터 액세스에 영향을 줍니다. 파일 시스템에 대해 사용자가 수행할 수 있는 작업에 대한 액세스를 제어하기 위해 ACL을 사용해야 합니다. 다음 표는 관리 권한 및 기본 역할에 대한 데이터 액세스 권한의 요약을 보여 줍니다.
 
 | 역할 | 관리 권한 | 데이터 액세스 권한 | 설명 |
 | --- | --- | --- | --- |
-| 할당된 역할 없음 |None |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
+| 할당된 역할 없음 |없음 |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
 | 소유자 |모두 |모두 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
 | 판독기 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
 | 참가자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
@@ -117,7 +117,7 @@ Data Lake Storage Gen1과 함께 진단 로그를 사용하는 방법에 대한 
 
 Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내주세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)

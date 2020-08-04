@@ -3,12 +3,12 @@ title: Azure Event Hubs 리소스에 액세스 하는 응용 프로그램 인증
 description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하 Azure Active Directory 응용 프로그램 인증에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 37f76d99ac7f676b260b8a0e23f8a6e31792e835
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b4456f63ce6d50ab1187f65deb1ee3280487580
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413870"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531526"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용 하 여 응용 프로그램을 인증 Event Hubs 리소스에 액세스
 Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure Event Hubs에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은입니다 `https://eventhubs.azure.net/` . Kafka 클라이언트의 경우 토큰을 요청 하는 리소스가입니다 `https://<namespace>.servicebus.windows.net` . Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
@@ -28,7 +28,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 > [!IMPORTANT]
 > Preview 릴리스는 소유자 또는 참가자 역할에 Event Hubs 데이터 액세스 권한을 추가 하는 것을 지원 합니다. 그러나 소유자 및 참여자 역할에 대 한 데이터 액세스 권한은 더 이상 허용 되지 않습니다. 소유자 또는 참가자 역할을 사용 하는 경우 Azure Event Hubs 데이터 소유자 역할을 사용 하도록 전환 합니다.
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 RBAC 역할 할당  
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
 RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
 
 역할 할당에 적절 한 범위를 결정 한 후 Azure Portal에서 해당 리소스로 이동 합니다. 리소스에 대 한 액세스 제어 (IAM) 설정을 표시 하 고 다음 지침에 따라 역할 할당을 관리 합니다.

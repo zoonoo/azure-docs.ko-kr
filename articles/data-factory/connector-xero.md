@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263893"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529996"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Xero에서 데이터 복사
 
@@ -36,7 +36,8 @@ Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 특히 이 Xero 커넥터는 다음을 지원합니다.
 
 - Xero [프라이빗 애플리케이션](https://developer.xero.com/documentation/getting-started/getting-started-guide)(공용 애플리케이션은 제외)
-- "보고서"를 제외한 모든 Xero 테이블(API 엔드포인트) 
+- "보고서"를 제외한 모든 Xero 테이블(API 엔드포인트)
+- OAuth 1.0 및 OAuth 2.0 인증.
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
 
@@ -53,14 +54,19 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Xero**로 설정해야 합니다. | 예 |
-| host | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | 예 |
+| connectionProperties | Xero에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
+| ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
+| 호스트 | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | 예 |
+| authenticationType | 허용 되는 값은 `OAuth_2.0` 및 `OAuth_1.0` 입니다. | 예 |
 | consumerKey | Xero 애플리케이션과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| privateKey | Xero 프라이빗 애플리케이션에 대해 생성된 .pem 파일의 프라이빗 키는 [공개/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성**하려면 `openssl genrsa -out privatekey.pem 512`를 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| privateKey | Xero 프라이빗 애플리케이션에 대해 생성된 .pem 파일의 프라이빗 키는 [공개/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)를 참조하세요. 참고 512를 사용 하 여 **numbits 인 privatekey을 생성** 하려면 `openssl genrsa -out privatekey.pem 512` 1024이 지원 되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| tenantId | Xero 응용 프로그램에 연결 된 테 넌 트 ID입니다. OAuth 2.0 인증에 적용 됩니다.<br>[액세스 권한이 부여 된 테 넌 트 확인 섹션](https://developer.xero.com/documentation/oauth2/auth-flow)에서 테 넌 트 ID를 가져오는 방법에 대해 알아봅니다. | OAuth 2.0 인증의 경우 예 |
+| refreshToken | 액세스 토큰이 만료 될 때 액세스 토큰을 새로 고치는 데 사용 되는 Xero 응용 프로그램과 연결 된 OAuth 2.0 새로 고침 토큰입니다. OAuth 2.0 인증에 적용 됩니다. [이 문서](https://developer.xero.com/documentation/oauth2/auth-flow)에서 새로 고침 토큰을 가져오는 방법에 대해 알아봅니다.<br>새로 고침 토큰은 만료 되지 않습니다. 새로 고침 토큰을 가져오려면 [offline_access 범위](https://developer.xero.com/documentation/oauth2/scopes)를 요청 해야 합니다.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | OAuth 2.0 인증의 경우 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
-**예제:**
+**예: OAuth 2.0 인증**
 
 ```json
 {
@@ -68,15 +74,54 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
     "properties": {
         "type": "Xero",
         "typeProperties": {
-            "host" : "api.xero.com",
-            "consumerKey": {
-                 "type": "SecureString",
-                 "value": "<consumerKey>"
-            },
-            "privateKey": {
-                 "type": "SecureString",
-                 "value": "<privateKey>"
-            }
+            "connectionProperties": { 
+                "host": "api.xero.com",
+                "authenticationType":"OAuth_2.0", 
+                "consumerKey": {
+                    "type": "SecureString",
+                    "value": "<consumer key>"
+                },
+                "privateKey": {
+                    "type": "SecureString",
+                    "value": "<private key>"
+                },
+                "tenantId": "<tenant ID>", 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }            
+        }
+    }
+}
+```
+
+**예: OAuth 1.0 인증**
+
+```json
+{
+    "name": "XeroLinkedService",
+    "properties": {
+        "type": "Xero",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "api.xero.com", 
+                "authenticationType":"OAuth_1.0", 
+                "consumerKey": {
+                    "type": "SecureString",
+                    "value": "<consumer key>"
+                },
+                "privateKey": {
+                    "type": "SecureString",
+                    "value": "<private key>"
+                }, 
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
         }
     }
 }

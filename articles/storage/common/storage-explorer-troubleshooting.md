@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 61a281e5fa9e8d360b9b6e52cda9c54db49d93d0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406744"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534858"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -48,7 +48,7 @@ RBAC를 통해 저장소 리소스에 액세스 하는 데 문제가 발생 하�
 
 Azure Storage에는 _관리_ 및 _데이터_의 두 가지 액세스 계층이 있습니다. 구독 및 저장소 계정은 관리 계층을 통해 액세스 됩니다. 컨테이너, blob 및 기타 데이터 리소스는 데이터 계층을 통해 액세스 됩니다. 예를 들어 Azure에서 저장소 계정 목록을 가져오려는 경우 관리 끝점에 요청을 보냅니다. 계정에 blob 컨테이너 목록을 원하는 경우 적절 한 서비스 끝점에 요청을 보냅니다.
 
-RBAC 역할은 관리 또는 데이터 계층 액세스 권한을 부여할 수 있습니다. 예를 들어 판독기 역할은 관리 계층 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
+Azure 역할은 관리 또는 데이터 계층 액세스 권한을 부여할 수 있습니다. 예를 들어 판독기 역할은 관리 계층 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
 
 엄격히 말하면 읽기 권한자 역할은 데이터 계층 사용 권한을 제공 하지 않으며 데이터 계층에 액세스 하는 데 필요 하지 않습니다.
 

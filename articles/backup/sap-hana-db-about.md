@@ -3,12 +3,12 @@ title: Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 980278b3cdb9c97a5a483354a004a8278a745b3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503509"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533447"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 
@@ -60,7 +60,7 @@ Azure에서 데이터베이스 수준 백업 및 복구를 제공 하는 SAP HAN
 
 [백 정수 인증 Azure SAP HANA 백업 솔루션](#backup-architecture) 은 데이터베이스 백업 및 복구에 사용할 수 있습니다.
 
-[AZURE VM backup](backup-azure-vms-introduction.md) 을 사용 하 여 OS 및 기타 비 데이터베이스 디스크를 백업할 수 있습니다. VM 백업은 매일 한 번 수행 되며, **쓰기 가속기 (WA) 디스크** 및 **UltraDisks**를 제외한 모든 디스크를 백업 합니다. Azure SAP HANA backup 솔루션을 사용 하 여 데이터베이스를 백업 하므로 현재 미리 보기 상태인 디스크 제외 기능을 사용 하 여 OS 및 비 데이터베이스 디스크에 대 한 파일 일치 백업을 수행할 수 있습니다.
+[AZURE VM backup](backup-azure-vms-introduction.md) 을 사용 하 여 OS 및 기타 비 데이터베이스 디스크를 백업할 수 있습니다. VM 백업은 매일 한 번 수행 되 고 모든 디스크 ( **WA (쓰기 가속기) 디스크** 및 **ultra disks**제외)를 백업 합니다. Azure SAP HANA backup 솔루션을 사용 하 여 데이터베이스를 백업 하므로 [Azure vm에 대 한 선택적 디스크 백업 및 복원](selective-disk-backup-restore.md) 기능을 사용 하 여 OS 및 비 데이터베이스 디스크에 대 한 파일 일치 백업만 수행할 수 있습니다.
 
 >[!NOTE]
 > Azure VM 백업에 사전 사후 스크립트를 사용 하면 데이터베이스의 데이터 볼륨에 대 한 앱 일치 백업을 수행할 수 있습니다. 그러나 로그 영역이 WA 디스크에 있는 경우 이러한 디스크의 스냅숏을 만들면 로그 영역 일관성이 보장 되지 않을 수 있습니다. HANA에는이 정확한 이유로 로그 백업을 생성할 수 있는 명시적인 방법이 있습니다. SAP HANA에서 동일한 기능을 사용 하도록 설정 하 고 Azure SAP HANA 백업을 사용 하 여 백업할 수 있습니다.

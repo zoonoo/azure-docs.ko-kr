@@ -7,13 +7,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/24/2020
-ms.openlocfilehash: 6d990b94210383ba4b30569693f4471f43306ed2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 07/27/2020
+ms.openlocfilehash: 4a20a223932f82c80ad5831ef3a02bad803e26e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169845"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533213"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>NFS 볼륨에 대한 내보내기 정책 구성
 
@@ -37,20 +37,24 @@ Azure NetApp Files 볼륨에 대 한 액세스를 제어 하도록 내보내기 
         * IPv4 주소(예: `10.1.12.24`) 
         * 비트 수로 표현된 서브넷 마스크가 있는 IPv4 주소(예: `10.1.12.10/4`)
 
-    * **액세스**  
+    * **Access**  
         다음 액세스 유형 중 하나를 선택합니다.  
         * 액세스 권한 없음 
         * 읽기 및 쓰기
         * 읽기 전용
 
+    * **읽기** 전용 및 **읽기/쓰기**  
+        NFSv 4.1에서 Kerberos 암호화를 사용 하는 경우 [nfsv 4.1 kerberos 암호화 구성](configure-kerberos-encryption.md)의 지침을 따르세요.  Kerberos의 성능에 미치는 영향에 대 한 자세한 내용은 [nfsv 4.1의 Kerberos 성능 영향](configure-kerberos-encryption.md#kerberos_performance)을 참조 하세요. 
+
+        ![Kerberos 보안 옵션](../media/azure-netapp-files/kerberos-security-options.png) 
+
     * **루트 액세스**  
         `root`계정에서 볼륨에 액세스할 수 있는지 여부를 지정 합니다.  기본적으로 루트 액세스는 **On**으로 설정 되 고, 계정에는 볼륨에 대 한 액세스 권한이 있습니다 `root` .
 
-        ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
 
 ## <a name="next-steps"></a>다음 단계 
-* [볼륨 관리](azure-netapp-files-manage-volumes.md)
 * [가상 머신에 대한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [스냅샷 관리](azure-netapp-files-manage-snapshots.md)

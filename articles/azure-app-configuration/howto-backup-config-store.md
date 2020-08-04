@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ef777f235c85c423ea126fb7249f8e6a11492d3a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367774"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528551"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>자동으로 앱 구성 저장소 백업
 
@@ -32,7 +32,7 @@ ms.locfileid: "87367774"
 
 이 자습서에서는 지역 `centralus` 및 지역에 있는 다른 모든 리소스에 보조 저장소를 만듭니다 `westus` .
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/). Azure Cloud Shell을 사용할 수도 있습니다.
 - Azure 개발 워크 로드가 포함 된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) .
@@ -145,9 +145,9 @@ Azure Functions를 만드는 방법에 대 한 자세한 내용은 [Azure에서 
 ## <a name="create-azure-function-app-settings"></a>Azure 함수 앱 설정 만들기
 
 제공 된 Azure Functions를 사용 하는 경우 Azure 함수 앱에서 다음 앱 설정이 필요 합니다.
-- `PrimaryStoreEndpoint`: 기본 앱 구성 저장소의 끝점입니다. 예, `https://{primary_appconfig_name}.azconfig.io`
-- `SecondaryStoreEndpoint`: 보조 앱 구성 저장소의 끝점입니다. 예, `https://{secondary_appconfig_name}.azconfig.io`
-- `StorageQueueUri`: 저장소 큐 URI입니다. 예, `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
+- `PrimaryStoreEndpoint`: 기본 앱 구성 저장소의 끝점입니다. 예를 들어 `https://{primary_appconfig_name}.azconfig.io`
+- `SecondaryStoreEndpoint`: 보조 앱 구성 저장소의 끝점입니다. 예를 들어 `https://{secondary_appconfig_name}.azconfig.io`
+- `StorageQueueUri`: 저장소 큐 URI입니다. 예를 들어 `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
 
 다음 명령은 Azure 함수 앱에 필요한 앱 설정을 만듭니다. `<function_app_name>`을 Azure 함수 앱 이름으로 바꿉니다.
 
@@ -191,7 +191,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-다음 명령 또는 [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal) 를 사용 하 여 Azure 함수 앱의 관리 Id에 저장소 큐에 대 한 액세스 권한을 부여 합니다. 
+다음 명령 또는 [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) 를 사용 하 여 Azure 함수 앱의 관리 Id에 저장소 큐에 대 한 액세스 권한을 부여 합니다. 
 - `Storage Queue Data Contributor`저장소 큐에 역할을 할당 합니다.
 
 ```azurecli-interactive

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887887"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530268"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 일반 정보 및 지침
 
@@ -62,7 +62,7 @@ ms.locfileid: "84887887"
 계층적 이름 공간을 사용할 수 없는 경우:
 
 * 상속 된 사용 권한이 없습니다.
-* 작업 하는 파일 시스템 권한만 **저장소 데이터 XXXX** RBAC 역할 이며 Azure Portal에서 직접 사용자에 게 할당 됩니다.
+* 작업 하는 파일 시스템 권한만 **저장소 데이터 XXXX** Azure 역할로, Azure Portal에서 직접 사용자에 게 할당 될 수 있습니다.
 
 ### <a name="default-hdfs-permissions"></a>기본 HDFS 사용 권한
 

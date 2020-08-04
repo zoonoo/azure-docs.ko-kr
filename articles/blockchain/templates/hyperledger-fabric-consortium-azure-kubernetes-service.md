@@ -4,12 +4,12 @@ description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트
 ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286056"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533430"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -305,12 +305,12 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
   - `<anchorPeersList>`Peer1 노드만 앵커 피어로 설정 하려면 "peer1"로 설정 합니다.
   - `<anchorPeersList>`Peer1 및 peer3 노드를 앵커 피어로 설정 하려면 "peer1" "peer3"로 설정 합니다.
 
-### <a name="chaincode-management-commands"></a>Chaincode 관리 명령
+## <a name="chaincode-management-commands"></a>Chaincode 관리 명령
 
 >[!NOTE]
 > Chaincode 작업을 시작 하기 전에 클라이언트 응용 프로그램의 초기 설정이 완료 되었는지 확인 합니다.  
 
-**아래 chaincode 특정 환경 변수 설정**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>아래 chaincode 특정 환경 변수 설정
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -329,14 +329,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-아래 chaincode 작업을 수행할 수 있습니다.  
-
-- [Chaincode 설치](#install-chaincode)  
-- [Chaincode 인스턴스화](#instantiate-chaincode)  
-- [Chaincode 호출](#invoke-chaincode)
-- [Chaincode 쿼리](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Chaincode 설치  
 
@@ -358,13 +350,13 @@ ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 cha
 피어 클라이언트 응용 프로그램에서 아래 명령을 실행 하 여 채널에서 chaincode를 인스턴스화합니다.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 각각 및에서 인스턴스화 함수 이름 및 공백으로 구분 된 인수 목록을 전달 `<instantiateFunc>` `<instantiateFuncArgs>` 합니다. 예를 들어 chaincode_example02에서로 설정 된 chaincode을 `<instantiateFunc>` `init` `<instantiateFuncArgs>` "a" "2000" "b" "1000"로 설정 합니다.
 
 > [!NOTE]
 > 채널의 한 피어 조직에서 한 번 명령을 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 chaincode은 채널의 모든 피어 조직에 있는 모든 피어 노드에서 인스턴스화됩니다.  
-
 
 ### <a name="invoke-chaincode"></a>Chaincode 호출  
 

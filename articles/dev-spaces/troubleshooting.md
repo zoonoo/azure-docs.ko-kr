@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: cd242dc56e4a3215954fbe6703f47e29bd417ea8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232494"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534399"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -498,9 +498,9 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 ### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Dev Spaces 컨트롤러 및 API를 호출하기 위한 RBAC 권한이 올바르지 않음
 
-Azure Dev Spaces 컨트롤러에 액세스하는 사용자는 AKS 클러스터에서 관리자 *kubeconfig*를 읽을 수 있는 권한이 있어야 합니다. 예를 들어 이 권한은 [기본 제공 Azure Kubernetes Service 클러스터 관리자 역할](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)에서 사용할 수 있습니다. Azure Dev Spaces 컨트롤러에 액세스하는 사용자에게는 컨트롤러에 대한 *기자* 또는 *소유자* RBAC 역할이 있어야 합니다. AKS 클러스터에 대한 사용자 권한을 업데이트하는 방법에 대한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)를 참조하세요.
+Azure Dev Spaces 컨트롤러에 액세스하는 사용자는 AKS 클러스터에서 관리자 *kubeconfig*를 읽을 수 있는 권한이 있어야 합니다. 예를 들어 이 권한은 [기본 제공 Azure Kubernetes Service 클러스터 관리자 역할](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)에서 사용할 수 있습니다. 또한 Azure Dev Spaces 컨트롤러에 액세스 하는 사용자에 게는 컨트롤러에 대 한 *참가자* 또는 *소유자* Azure 역할이 있어야 합니다. AKS 클러스터에 대한 사용자 권한을 업데이트하는 방법에 대한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)를 참조하세요.
 
-컨트롤러에 대한 사용자의 RBAC 역할을 업데이트하려면
+컨트롤러에 대 한 사용자의 Azure 역할을 업데이트 하려면:
 
 1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. 일반적으로 AKS 클러스터와 동일한 컨트롤러를 포함 하는 리소스 그룹으로 이동합니다.

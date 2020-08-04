@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077850"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530064"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -71,8 +71,6 @@ spec:
 
 Taint를 적용할 경우 애플리케이션 개발자 및 소유자와 협력하여 해당 배포에서 필요한 toleration을 정의하도록 할 수 있습니다.
 
-taint 및 toleration에 대한 자세한 내용은 [taint 및 toleration 적용][k8s-taints-tolerations]을 참조하세요.
-
 AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용은 [AKS에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리][use-multiple-node-pools]를 참조 하세요.
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>AKS의 taints 및 tolerations 동작
@@ -80,6 +78,7 @@ AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용�
 AKS에서 노드 풀을 업그레이드 하는 경우 taints 및 tolerations는 새 노드에 적용 될 때 집합 패턴을 따릅니다.
 
 - **Virtual machine scale sets를 사용 하는 기본 클러스터**
+  - AKS API에서 [nodepool을 taint][taint-node-pool] 하 여 새로 확장 된 노드가 API 지정 노드 taints를 받도록 할 수 있습니다.
   - 2 개 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 보겠습니다 *.* 노드 풀을 업그레이드 합니다.
   - *Node3* 및 *node4*라는 두 개의 노드가 추가로 만들어지고 taints가 각각 전달 됩니다.
   - 원래 *node1* 및 *노드* 2가 삭제 됩니다.
@@ -198,3 +197,4 @@ Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가�
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

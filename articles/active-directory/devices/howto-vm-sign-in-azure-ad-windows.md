@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419787"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529112"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -144,7 +144,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>VM에 대한 역할 할당 구성
 
-이제 VM을 만들었으므로 VM에 로그인 할 수 있는 사용자를 결정 하는 Azure RBAC 정책을 구성 해야 합니다. 두 개의 RBAC 역할을 사용하여 VM 로그인 권한을 부여합니다.
+이제 VM을 만들었으므로 VM에 로그인 할 수 있는 사용자를 결정 하는 Azure RBAC 정책을 구성 해야 합니다. VM 로그인에 권한을 부여 하는 데 사용 되는 두 개의 Azure 역할:
 
 - **가상 컴퓨터 관리자 로그인**:이 역할이 할당 된 사용자는 관리자 권한으로 Azure 가상 컴퓨터에 로그인 할 수 있습니다.
 - **가상 머신 사용자 로그인**: 이 역할이 할당된 사용자는 일반 사용자 권한으로 Azure 가상 머신에 로그인할 수 있습니다.
@@ -208,7 +208,7 @@ Azure AD 로그인을 사용 하도록 설정 된 Azure에서 Windows Vm에 대 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Azure AD 자격 증명을 사용 하 여 Windows VM에 로그인
 
 > [!IMPORTANT]
-> Azure ad에 가입 된 Vm에 대 한 원격 연결은 Azure AD가 등록 된 Windows 10 Pc (최소 필요한 빌드는 20H1) 또는 Azure AD 조인 또는 하이브리드 Azure AD가 VM과 **동일한** 디렉터리에 조인 된 경우에만 허용 됩니다. 또한 Azure AD 자격 증명을 사용 하는 RDP에 대 한 사용자는 두 RBAC 역할, 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 중 하나에 속해야 합니다. Azure AD에서 등록 된 Windows 10 PC를 사용 하는 경우 AzureAD\UPN 형식으로 자격 증명을 입력 해야 합니다 (예: AzureAD\john@contoso.com ). 지금은 AADLoginForWindows 확장을 사용 하 여 Azure Active Directory 인증을 사용 하 여 로그인 하는 데 Azure 방호를 사용할 수 없습니다. 직접 RDP만 지원 됩니다.
+> Azure ad에 가입 된 Vm에 대 한 원격 연결은 Azure AD가 등록 된 Windows 10 Pc (최소 필요한 빌드는 20H1) 또는 Azure AD 조인 또는 하이브리드 Azure AD가 VM과 **동일한** 디렉터리에 조인 된 경우에만 허용 됩니다. 또한 Azure AD 자격 증명을 사용 하는 RDP의 경우 사용자는 두 개의 Azure 역할, 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 중 하나에 속해야 합니다. Azure AD에서 등록 된 Windows 10 PC를 사용 하는 경우 AzureAD\UPN 형식으로 자격 증명을 입력 해야 합니다 (예: AzureAD\john@contoso.com ). 지금은 AADLoginForWindows 확장을 사용 하 여 Azure Active Directory 인증을 사용 하 여 로그인 하는 데 Azure 방호를 사용할 수 없습니다. 직접 RDP만 지원 됩니다.
 
 Azure AD를 사용 하 여 Windows Server 2019 가상 컴퓨터에 로그인 하려면: 
 
@@ -315,13 +315,13 @@ AADLoginForWindows extension이 특정 오류 코드와 함께 실패 하는 경
 
 ### <a name="troubleshoot-sign-in-issues"></a>로그인 문제 해결
 
-Azure AD 자격 증명을 사용 하 여 RDP를 시도할 때 발생 하는 몇 가지 일반적인 오류에는 할당 된 RBAC 역할, 권한이 없는 클라이언트 또는 2FA 로그인 방법이 필요 합니다. 다음 정보를 사용 하 여 이러한 문제를 해결할 수 있습니다.
+Azure AD 자격 증명을 사용 하 여 RDP를 시도할 때 발생 하는 몇 가지 일반적인 오류에는 할당 된 Azure 역할, 권한 없는 클라이언트 또는 2FA 로그인 방법이 필요 하지 않습니다. 다음 정보를 사용 하 여 이러한 문제를 해결할 수 있습니다.
 
 장치 및 SSO 상태는를 실행 하 여 볼 수 있습니다 `dsregcmd /status` . 목표는 장치 상태를 표시 하 고 표시 하는 것입니다 `AzureAdJoined : YES` `SSO State` `AzureAdPrt : YES` .
 
 또한 Azure AD 계정을 사용 하는 RDP 로그인은 AAD\Operational 이벤트 로그 아래의 이벤트 뷰어에서 캡처됩니다.
 
-#### <a name="rbac-role-not-assigned"></a>RBAC 역할 할당되지 않음
+#### <a name="azure-role-not-assigned"></a>Azure 역할이 할당 되지 않음
 
 VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오류 메시지가 표시 되는 경우: 
 

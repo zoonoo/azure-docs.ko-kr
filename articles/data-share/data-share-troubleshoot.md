@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/30/2020
-ms.openlocfilehash: 2c67e2b72b7d35f5f7c8e9ccd136d7c10329f531
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 0fb2f9dd156d18705308b41ef8d6b015b3b6d71b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513607"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534450"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure 데이터 공유의 일반적인 문제 해결 
 
@@ -34,7 +34,7 @@ ms.locfileid: "87513607"
     1. DataShare를 검색 **합니다.**
     1. **등록**을 클릭합니다. 
 
-    이 단계를 완료하려면 [Azure Contributor RBAC 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)이 필요합니다. 
+    이러한 단계를 완료 하려면 [참여자 Azure 역할이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 있어야 합니다. 
 
 * **Azure 로그인 전자 메일 대신 초대가 전자 메일 별칭으로 전송 됩니다.** Azure 데이터 공유 서비스를 등록 했거나 Azure 테 넌 트에서 데이터 공유 리소스를 이미 만들었지만 아직 초대를 볼 수 없는 경우 공급자가 Azure 로그인 메일 주소 대신 받는 사람으로 메일 별칭을 입력 했기 때문일 수 있습니다. 데이터 공급자에 게 연락 하 여 전자 메일 별칭이 아닌 Azure 로그인 전자 메일 주소로 초대를 보냈는지 확인 합니다.
 

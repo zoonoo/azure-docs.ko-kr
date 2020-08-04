@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 99d8ab3b7edc2d32e580ec8de9132fef3ea3503a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 97eb3f4cbb4ac76823ebe43126db6b5c2a10010b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424344"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533974"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -78,7 +78,7 @@ PowerShell을 사용 하 여 로그인 하는 방법에 대 한 자세한 내용
 
 Azure PowerShell에서 사용자 위임 SAS를 만들려면 PowerShell에 로그인 하는 데 사용 되는 Azure AD 계정에 **Microsoft Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 포함 하는 역할을 할당 해야 합니다. 이 사용 권한을 통해 Azure AD 계정에서 *사용자 위임 키*를 요청할 수 있습니다. 사용자 위임 키는 사용자 위임 SAS에 서명 하는 데 사용 됩니다. 저장소 계정, 리소스 그룹 또는 구독 수준에서 **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** 작업을 제공 하는 역할을 할당 해야 합니다. 사용자 위임 SAS를 만드는 RBAC 권한에 대 한 자세한 내용은 [사용자 위임 Sas 만들기](/rest/api/storageservices/create-user-delegation-sas)의 **rbac를 사용 하 여 권한 할당** 섹션을 참조 하세요.
 
-Azure AD 보안 주체에 RBAC 역할을 할당할 수 있는 권한이 없는 경우 계정 소유자 또는 관리자에 게 필요한 권한을 할당 하도록 요청 해야 할 수 있습니다.
+Azure AD 보안 주체에 Azure 역할을 할당할 수 있는 권한이 없는 경우 계정 소유자 또는 관리자에 게 필요한 권한을 할당 하도록 요청 해야 할 수 있습니다.
 
 다음 예에서는 **저장소 Blob 데이터 참가자** 역할을 할당 합니다. 여기에는 **Microsoft Storage/Storageaccounts/Blobservices/generateUserDelegationKey** action이 포함 됩니다. 역할의 범위는 저장소 계정 수준에서 지정 됩니다.
 

@@ -3,12 +3,12 @@ title: 하이브리드 연결에 대한 진단 로그
 description: 이 문서에서는 Azure Relay에 사용할 수 있는 모든 활동 및 진단 로그에 대한 개요를 제공합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314901"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533005"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Azure Relay 하이브리드 연결에 진단 로그 사용
 Azure Relay 하이브리드 연결을 사용하기 시작하면 수신기와 송신기가 열리고 닫히는 방법과 시기, 그리고 하이브리드 연결이 생성되고 메시지가 전송되는 방법을 모니터링하는 것이 좋습니다. 이 문서에서는 Azure Relay 서비스가 제공하는 활동 및 진단 로그에 대한 개요를 제공합니다. 
@@ -46,7 +46,7 @@ Azure Relay 네임스페이스에 대한 활동 로그를 보려면 Azure Portal
         ![샘플 진단 설정](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. 도구 모음에서 **저장**을 선택하여 설정을 저장합니다.
 
-새 설정은 약 10분 후에 적용됩니다. 구성된 보관 대상의 **진단 로그** 창에 로그가 표시됩니다. 진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
+새 설정은 약 10분 후에 적용됩니다. 구성된 보관 대상의 **진단 로그** 창에 로그가 표시됩니다. 진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>하이브리드 연결 이벤트에 대한 스키마

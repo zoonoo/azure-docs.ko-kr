@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 06c10cffcfa5c68b1da8ba366ca270f1c2fa6ea4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de6311e786065bebe7399ccb3625798866e864df
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060976"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533345"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -325,7 +325,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 1. **역할 할당 추가** 아래에서 대상 리소스에 대한 필수 액세스 권한을 ID에 부여하는 **역할**을 선택합니다.
 
-   이 항목의 예에서는 ID에 [Azure Storage 컨테이너의 Blob에 액세스할 수 있는 역할](../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)이 필요합니다.
+   이 항목의 예에서는 ID에 [Azure Storage 컨테이너의 Blob에 액세스할 수 있는 역할](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 필요합니다.
 
    !["Storage Blob 데이터 기여자" 역할 선택](./media/create-managed-service-identity/select-role-for-identity.png)
 

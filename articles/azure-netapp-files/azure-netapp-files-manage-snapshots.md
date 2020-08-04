@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497599"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533294"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -49,7 +49,9 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 ### <a name="register-the-feature"></a>기능 등록
 
-1. **스냅숏 정책** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
+**스냅숏 정책** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용 하는 경우 먼저 기능을 등록 해야 합니다. 
+
+1. 기능을 등록 합니다. 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy

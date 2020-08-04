@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/27/2020
 ms.author: b-juche
-ms.openlocfilehash: f9552b82dc79e1edafb13fead5a07df3ecf1be3b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512961"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533141"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -97,11 +97,15 @@ Azure 전용 HSM을 사용 하 여 사용자 관리 키 (사용자 고유 키 �
 
 ### <a name="how-do-i-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 변경 어떻게 할까요??
 
-볼륨의 서비스 수준을 변경 하는 것은 현재 지원 되지 않습니다.
+볼륨에 대해 원하는 [서비스 수준을](azure-netapp-files-service-levels.md) 사용 하는 다른 용량 풀로 볼륨을 이동 하 여 기존 볼륨의 서비스 수준을 변경할 수 있습니다. [볼륨의 서비스 수준 동적 변경을](dynamic-change-volume-service-level.md)참조 하세요. 
 
 ### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>어떻게 할까요? Azure NetApp Files 성능 모니터링
 
 Azure NetApp Files는 볼륨 성능 메트릭을 제공 합니다. Azure NetApp Files에 대 한 사용 메트릭을 모니터링 하는 Azure Monitor 사용할 수도 있습니다.  Azure NetApp Files에 대 한 성능 메트릭 목록은 [Azure NetApp Files 메트릭](azure-netapp-files-metrics.md) 을 참조 하세요.
+
+### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>NFSv 4.1의 Kerberos에 대 한 성능 영향은 무엇 인가요?
+
+NFSv 4.1의 보안 옵션, 테스트 된 성능 벡터 및 예상 되는 성능 영향에 대 한 자세한 내용은 [nfsv 4.1의 Kerberos 성능에 미치는 영향](configure-kerberos-encryption.md#kerberos_performance) 을 참조 하세요. 
 
 ## <a name="nfs-faqs"></a>NFS FAQ
 
@@ -164,6 +168,15 @@ Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
+
+## <a name="dual-protocol-faqs"></a>이중 프로토콜 Faq
+
+### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>' Root ' 및 로컬 사용자를 사용 하 여 UNIX 시스템의 NTFS 보안 스타일로 이중 프로토콜 볼륨에 액세스 하려고 했습니다. "사용 권한이 거부 되었습니다." 오류가 발생 하는 이유는 무엇 인가요?   
+
+이중 프로토콜 볼륨은 NFS 및 SMB 프로토콜을 모두 지원 합니다.  UNIX 시스템의 탑재 된 볼륨에 액세스 하려고 하면 시스템에서 사용 하는 UNIX 사용자를 Windows 사용자에 매핑하려고 시도 합니다. 매핑이 발견 되지 않으면 "사용 권한이 거부 되었습니다." 오류가 발생 합니다.  이 상황은 액세스에 ' root ' 사용자를 사용 하는 경우에도 적용 됩니다.    
+
+"사용 권한이 거부 되었습니다." 문제를 방지 하려면 `pcuser` 탑재 지점에 액세스 하기 전에 Windows Active Directory에가 포함 되어 있는지 확인 합니다. `pcuser`"사용 권한이 거부 되었습니다." 문제가 발생 한 후를 추가 하는 경우 액세스를 다시 시도 하기 전에 캐시 항목을 제거 하기 위해 24 시간 동안 기다립니다.
+
 
 ## <a name="capacity-management-faqs"></a>용량 관리 Faq
 

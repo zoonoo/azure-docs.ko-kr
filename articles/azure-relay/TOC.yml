@@ -92,7 +92,7 @@
     - name: FAQ
       href: relay-faq.md
     - name: 블로그
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: 요금 계산기

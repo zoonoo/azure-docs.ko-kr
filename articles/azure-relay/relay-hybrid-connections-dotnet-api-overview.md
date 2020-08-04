@@ -3,12 +3,12 @@ title: Azure Relay .NET Standard API 개요 | Microsoft Docs
 description: 이 문서에서는 Azure Relay 하이브리드 연결 .NET Standard API에 대 한 개요를 요약 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 578d0fd2bbf8b9bb897a79e88399dee3711f5990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d5aeed2ea76f47608ef03103b11fa236ec0362e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316835"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532903"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure Relay 하이브리드 연결 .NET Standard API 개요
 
@@ -82,7 +82,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>데이터 수신
 
-[HybridConnectionStream][HCStream] 클래스를 사용하면 양방향 통신이 가능합니다. 대부분의 경우 스트림에서 지속적으로 수신합니다. 스트림에서 텍스트를 읽는 경우 데이터 구문 분석이 더 쉬운 [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) 개체를 사용하는 것이 좋을 수도 있습니다. 예를 들어 아닌 데이터를 `byte[]`가 아닌 텍스트로 읽을 수 있습니다.
+[HybridConnectionStream][HCStream] 클래스를 사용하면 양방향 통신이 가능합니다. 대부분의 경우 스트림에서 지속적으로 수신합니다. 스트림에서 텍스트를 읽는 경우 데이터 구문 분석이 더 쉬운 [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1) 개체를 사용하는 것이 좋을 수도 있습니다. 예를 들어 아닌 데이터를 `byte[]`가 아닌 텍스트로 읽을 수 있습니다.
 
 다음 코드는 취소가 요청될 때까지 스트림에서 개별 텍스트 줄을 읽습니다.
 
@@ -109,14 +109,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>데이터 전송
 
-연결을 설정하면 Relay 엔드포인트로 메시지를 보낼 수 있습니다. 연결 개체는 [스트림](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)을 상속하기 때문에 데이터를 `byte[]`로 전송합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+연결을 설정하면 Relay 엔드포인트로 메시지를 보낼 수 있습니다. 연결 개체는 [스트림](/dotnet/api/system.io.stream?view=netcore-3.1)을 상속하기 때문에 데이터를 `byte[]`로 전송합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-단, 매번 문자열을 인코딩할 필요 없이 텍스트를 직접 전송하려는 경우 `hybridConnectionStream` 개체를 [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) 개체로 래핑할 수 있습니다.
+단, 매번 문자열을 인코딩할 필요 없이 텍스트를 직접 전송하려는 경우 `hybridConnectionStream` 개체를 [StreamWriter](/dotnet/api/system.io.streamwriter?view=netcore-3.1) 개체로 래핑할 수 있습니다.
 
 ```csharp
 // The StreamWriter object only needs to be created once
@@ -129,7 +129,7 @@ await textWriter.WriteLineAsync("hello");
 Azure Relay에 대한 자세한 내용은 다음 링크를 방문하세요.
 
 * [Microsoft.Azure.Relay 참조](/dotnet/api/microsoft.azure.relay)
-* [Azure 릴레이란?](relay-what-is-it.md)
+* [Azure Relay란?](relay-what-is-it.md)
 * [사용 가능한 Relay API](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder

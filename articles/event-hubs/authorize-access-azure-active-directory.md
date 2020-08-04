@@ -3,12 +3,12 @@ title: Azure Active Directory를 사용하여 액세스 권한 부여
 description: 이 문서에서는 Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c6d1be2825ea716c72d70cd38babbb2d95083198
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af9278d801dfd858ce8bba5ec5786d521f72218c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413394"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534569"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여
 Azure Event Hubs는 Azure Active Directory (Azure AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여 합니다. Azure AD를 사용 하면 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
@@ -21,14 +21,14 @@ Azure Event Hubs는 Azure Active Directory (Azure AD)를 사용 하 여 Event Hu
 
 인증 단계를 수행 하려면 응용 프로그램 요청이 런타임에 OAuth 2.0 액세스 토큰을 포함 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 azure 함수 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 관리 id를 사용 하 여 리소스에 액세스할 수 있습니다. 관리 id에서 Event Hubs 서비스에 대 한 요청을 인증 하는 방법을 알아보려면 azure [리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 azure Event Hubs 리소스에 대 한 액세스 인증](authenticate-managed-identity.md)을 참조 하세요. 
 
-권한 부여 단계를 수행 하려면 하나 이상의 RBAC 역할을 보안 주체에 할당 해야 합니다. Azure Event Hubs는 Event Hubs 리소스에 대 한 권한 집합을 포함 하는 RBAC 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. RBAC 역할에 대 한 자세한 내용은 azure [Event Hubs에 대 한 azure 기본 제공 역할](#azure-built-in-roles-for-azure-event-hubs)을 참조 하세요. 
+권한 부여 단계를 수행 하려면 하나 이상의 Azure 역할을 보안 주체에 할당 해야 합니다. Azure Event Hubs는 Event Hubs 리소스에 대 한 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure 역할에 대 한 자세한 내용은 azure [Event Hubs에 대 한 azure 기본 제공 역할](#azure-built-in-roles-for-azure-event-hubs)을 참조 하세요. 
 
 Event Hubs에 대 한 요청을 하는 네이티브 응용 프로그램 및 웹 응용 프로그램은 Azure AD를 사용 하 여 권한을 부여할 수도 있습니다. 액세스 토큰을 요청 하 고이를 사용 하 여 Event Hubs 리소스에 대 한 요청을 인증 하는 방법을 알아보려면 [응용 프로그램에서 AZURE AD를 사용 하 여 azure Event Hubs에 대 한 액세스 인증](authenticate-application.md)을 참조 하세요. 
 
-## <a name="assign-rbac-roles-for-access-rights"></a>액세스 권한에 대 한 RBAC 역할 할당
+## <a name="assign-azure-roles-for-access-rights"></a>액세스 권한에 대 한 Azure 역할 할당
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Event Hubs는 이벤트 허브 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
-RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스의 범위는 구독, 리소스 그룹, Event Hubs 네임 스페이스 또는 그 아래에 있는 리소스의 수준으로 지정할 수 있습니다. Azure AD 보안 주체는 사용자 또는 응용 프로그램 서비스 사용자 이거나 [azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
+Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스의 범위는 구독, 리소스 그룹, Event Hubs 네임 스페이스 또는 그 아래에 있는 리소스의 수준으로 지정할 수 있습니다. Azure AD 보안 주체는 사용자 또는 응용 프로그램 서비스 사용자 이거나 [azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 azure 기본 제공 역할
 Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
@@ -38,11 +38,11 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 - [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver):이 역할을 사용 하 여 Event Hubs 리소스에 대 한 사용/수신 액세스를 제공 합니다.
 
 ## <a name="resource-scope"></a>리소스 범위 
-보안 주체에 RBAC 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례는 항상 가장 좁은 범위를 부여 하는 것이 가장 좋습니다.
+보안 주체에 게 Azure 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례는 항상 가장 좁은 범위를 부여 하는 것이 가장 좋습니다.
 
 다음 목록에서는 가장 좁은 범위에서 시작 하 여 Event Hubs 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 
-- **소비자 그룹**:이 범위에서 역할 할당은이 엔터티에만 적용 됩니다. 현재 Azure Portal는이 수준에서 보안 주체에 RBAC 역할을 할당 하는 것을 지원 하지 않습니다. 
+- **소비자 그룹**:이 범위에서 역할 할당은이 엔터티에만 적용 됩니다. 현재 Azure Portal는이 수준에서 보안 주체에 대 한 Azure 역할 할당을 지원 하지 않습니다. 
 - **이벤트 허브**: 역할 할당은 이벤트 허브 엔터티와 그 아래에 있는 소비자 그룹에 적용 됩니다.
 - **네임 스페이스**: 역할 할당은 네임 스페이스에 있는 Event Hubs의 전체 토폴로지 및 이와 연결 된 소비자 그룹에 적용 됩니다.
 - **리소스 그룹**: 역할 할당은 리소스 그룹 아래의 모든 Event Hubs 리소스에 적용 됩니다.
@@ -68,7 +68,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 
 
 ## <a name="next-steps"></a>다음 단계
-- 보안 주체에 대 한 기본 제공 RBAC 역할을 할당 하는 방법에 대해 알아봅니다. [Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증](authenticate-application.md)을 참조 하세요.
+- Azure 기본 제공 역할을 보안 주체에 할당 하는 방법에 대해 알아봅니다. [Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증](authenticate-application.md)을 참조 하세요.
 - [RBAC를 사용 하 여 사용자 지정 역할을 만드는 방법](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole)에 대해 알아봅니다.
 - [EH와 Azure Active Directory를 사용 하는 방법을](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK) 알아봅니다.
 

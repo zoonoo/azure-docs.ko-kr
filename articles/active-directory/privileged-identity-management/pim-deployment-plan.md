@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886099"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529792"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -115,7 +115,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>Privileged Identity Management 배포 하려는 각 구독 또는 리소스의 IT 소유자 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |
 | 이름 및 이메일 | **IT 지원 관리자 / 고객 지원팀**<br/>고객 지원팀 관점에서 이 변경의 지원 가능성에 대한 입력을 제공할 수 있는 IT 지원 조직 출신 담당자입니다. | R/I |
-| 파일럿 사용자에 대한 이름 및 이메일 | **RBAC 역할 사용자**<br/>권한 있는 ID 관리를 구현하는 사용자 그룹입니다. Privileged Identity Management 구현 될 때 역할을 활성화 하는 방법을 알고 있어야 합니다. | I |
+| 파일럿 사용자에 대한 이름 및 이메일 | **Azure 역할 사용자**<br/>권한 있는 ID 관리를 구현하는 사용자 그룹입니다. Privileged Identity Management 구현 될 때 역할을 활성화 하는 방법을 알고 있어야 합니다. | I |
 
 ### <a name="enable-privileged-identity-management"></a>Privileged Identity Management 사용
 
@@ -186,7 +186,7 @@ Privileged Identity Management로 보호할 역할을 선택 하는 것은 어�
 1. Intune 관리자
 1. 보안 판독기
 1. 서비스 관리자
-1. 대금 청구 관리자
+1. 청구 관리자
 1. 비즈니스용 Skype 관리자
 
 > [!TIP]
@@ -257,7 +257,7 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 다음 테이블에서 각 설정을 설명합니다.
 
-| Setting | 설명 |
+| 설정 | 설명 |
 | --- | --- |
 | 역할 | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 특히 역할에 게스트 사용자가 있는 경우 모든 관리자 역할에 대해 MFA를 적용 하는 것 **이 좋습니다** . |

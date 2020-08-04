@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 6923bb31e53493dd01f41cb0b0449f2093bc7e91
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092476"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532597"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -47,7 +47,7 @@ az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 
 [Az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) 를 사용 하 여 특정 저장소 대상에 대 한 세부 정보를 볼 수 있습니다. (이름별로 저장소 대상을 지정 합니다.)
 
-예:
+예제:
 
 ```azurecli
 $ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
@@ -118,7 +118,7 @@ Azure HPC 캐시는 [RBAC (역할 기반 액세스 제어)](https://docs.microso
 
 이렇게 하려면 나중에 또는 Blob 저장소 대상을 추가 하는 페이지의 링크를 클릭 하면 됩니다. 역할 설정이 Azure 환경을 통해 전파 되는 데 최대 5 분이 걸릴 수 있으므로 저장소 대상을 만들기 전에 역할을 추가한 후 몇 분 정도 기다려야 합니다.
 
-RBAC 역할을 추가 하는 단계:
+Azure 역할을 추가 하는 단계:
 
 1. 저장소 계정에 대 한 **액세스 제어 (IAM)** 페이지를 엽니다. ( **저장소 대상 추가** 페이지의 링크를 선택 하면 선택한 계정에 대해이 페이지가 자동으로 열립니다.)
 
@@ -220,9 +220,9 @@ NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 �
 
 | 사용 모델                   | 캐싱 모드 | 백 엔드 확인 | 최대 다시 쓰기 지연 |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기         | 안 함                 | None                     |
+| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기         | 안 함                 | 없음                     |
 | 쓰기 15% 초과       | 읽기/쓰기   | 안 함                 | 1시간                   |
-| 클라이언트에서 캐시 무시      | 읽기         | 30초            | None                     |
+| 클라이언트에서 캐시 무시      | 읽기         | 30초            | 없음                     |
 
 ### <a name="create-an-nfs-storage-target"></a>NFS 저장소 대상 만들기
 

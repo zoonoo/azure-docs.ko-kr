@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ab1cba455f93abe4d603f417f8d0a00dda0e315e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497650"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534586"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -79,7 +79,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 1. **+ 역할 할당 추가** 단추를 선택 하 여 새 역할을 추가 합니다.
 1. **역할 할당 추가** 창에서 **저장소 Blob 데이터 소유자** 역할을 선택 합니다. 그런 다음, 관리 ID 및 스토리지 계정이 있는 구독을 선택합니다. 다음으로, 앞에서 만든 사용자 할당 관리 ID를 검색하여 찾습니다. 마지막으로 관리 되는 id를 선택 하면 **선택한 구성원**아래에 나열 됩니다.
 
-    ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
+    ![Azure 역할을 할당 하는 방법을 보여 주는 스크린샷](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. **저장**을 선택합니다. 선택한 사용자 할당 id는 이제 선택한 역할 아래에 나열 됩니다.
 1. 이 초기 설정이 완료되면 포털을 통해 클러스터를 만들 수 있습니다. 클러스터가 스토리지 계정과 동일한 Azure 영역에 있어야 합니다. 클러스터 만들기 메뉴의 **저장소** 탭에서 다음 옵션을 선택 합니다.

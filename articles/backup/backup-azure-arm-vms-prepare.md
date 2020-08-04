@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup을 사용하여 Recovery Services 자격 증명 모음에 Azure VM을 백업하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439716"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533600"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -51,7 +51,8 @@ ms.locfileid: "87439716"
 1. 새 자격 증명 모음에서 **설정** 섹션의 **속성** 을 선택 합니다.
 2. **속성**의 **백업 구성**에서 **업데이트**를 선택 합니다.
 3. 저장소 복제 유형을 선택 하 고 **저장**을 선택 합니다.
-s ![ 새 자격 증명 모음에 대 한 저장소 구성을 설정 합니다.](./media/backup-azure-arm-vms-prepare/full-blade.png)
+
+      ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
    > 자격 증명 모음을 설정하고 백업 항목을 포함한 후에는 스토리지 복제 유형을 수정할 수 없습니다. 이 작업을 수행하려는 경우 자격 증명 모음을 다시 만들어야 합니다.
@@ -147,7 +148,7 @@ s ![ 새 자격 증명 모음에 대 한 저장소 구성을 설정 합니다.](
 
 **스냅샷** | **자격 증명 모음으로 데이터 전송** | **작업 상태**
 --- | --- | ---
-완료됨 | 진행 중 | 진행 중
+Completed | 진행 중 | 진행 중
 완료 | 건너뜀 | Completed
 Completed | Completed | Completed
 Completed | 실패 | 경고와 함께 완료
@@ -166,13 +167,6 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 --- | ---
 **Windows** | 1. 에이전트 MSI 파일을 [다운로드하여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.<br/><br/> 2. 컴퓨터의 관리자 권한으로 설치합니다.<br/><br/> 3. 설치를 확인합니다. VM의 *C:\WindowsAzure\Packages*에서 **WaAppAgent.exe** > **속성**을 마우스 오른쪽 단추로 클릭합니다. **세부 정보** 탭에서 **제품 버전**이 2.6.1198.718 이상이어야 합니다.<br/><br/> 에이전트를 업데이트하는 경우 백업 작업이 실행되고 있지 않은지 확인하고 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.
 **Linux** | 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용하여를 설치합니다. 이는 Azure Linux 에이전트를 설치 및 업그레이드하는 데 선호되는 방법입니다. 모든 [인증 배포 공급자](../virtual-machines/linux/endorsed-distros.md)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트하는 경우 백업 작업이 실행되고 있는지 확인하고 이진 파일을 업데이트합니다.
-
->[!NOTE]
-> **이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.**
->
->현재 Azure Backup은 Virtual Machine 백업 솔루션을 함께 사용하여 VM의 모든 디스크(운영 체제 및 데이터)를 백업하는 작업을 지원합니다. 디스크 제외 기능을 사용하면 VM의 여러 데이터 디스크에서 하나 또는 여러 개를 백업하는 옵션을 사용할 수 있습니다. 이는 사용자의 백업 및 복원 요구 사항을 충족하는 능률적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함된 디스크의 데이터가 포함되므로 복원 작업을 수행하는 동안 지정된 복구 지점에서 복원된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅샷과 자격 증명 모음의 복원 모두에 적용됩니다.
->
->미리 보기에 가입하려면 AskAzureBackupTeam@microsoft.com으로 문의해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

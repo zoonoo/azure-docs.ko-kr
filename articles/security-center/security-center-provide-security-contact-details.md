@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519289"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534637"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>보안 경고에 대 한 전자 메일 알림 설정 
 
 조직의 올바른 사람이 사용자 환경의 보안 경고에 대 한 알림을 받을 수 있도록 하려면 **전자 메일 알림** 설정 페이지에서 전자 메일 주소를 입력 합니다.
 
-알림을 설정할 때 특정 개인 이나 구독에 대 한 특정 RBAC 역할을 가진 사용자에 게 전자 메일을 보내도록 구성할 수 있습니다. 
+알림을 설정할 때 특정 개인 또는 구독에 대 한 특정 Azure 역할을 가진 사용자에 게 전자 메일을 보내도록 구성할 수 있습니다. 
 
 경고 피로을 방지 하기 위해 Security Center 보내는 메일의 볼륨을 제한 합니다. 각 구독에 대해 Security Center은 다음을 보냅니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "86519289"
 
 ## <a name="set-up-email-notifications-for-alerts"></a>경고에 대 한 전자 메일 알림 설정<a name="email"></a>
 
-개인 또는 특정 RBAC 역할의 모든 사용자에 게 전자 메일 알림을 보낼 수 있습니다.
+개인 또는 특정 Azure 역할의 모든 사용자에 게 전자 메일 알림을 보낼 수 있습니다.
 
 1. Security Center의 **가격 & 설정** 영역에서 관련 구독을 선택 하 고 **전자 메일 알림을**선택 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "86519289"
 1. 보안 연락처 정보를 구독에 적용 하려면 **저장**을 선택 합니다.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 보안 경고에 대 한 자세한 내용은 다음을 참조 하세요.
 
 * [보안 경고-참조 가이드](alerts-reference.md) --Azure Security Center의 위협 방지 모듈에서 볼 수 있는 보안 경고에 대해 알아봅니다.

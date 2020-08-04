@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d29bccdadeef44f1ae4cdae5875257f95395b96f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373286"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534042"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용 하 여 Azure Digital Twins 보호
 
@@ -33,7 +33,7 @@ Azure AD를 사용 하 여 액세스는 2 단계 프로세스로 진행 됩니�
 
 인증 단계에는 런타임에 OAuth 2.0 액세스 토큰을 포함 하는 응용 프로그램 요청이 필요 합니다. 응용 프로그램이 [Azure Functions](../azure-functions/functions-overview.md) 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 **관리 id** 를 사용 하 여 리소스에 액세스할 수 있습니다. 관리 되는 id에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
 
-권한 부여 단계를 수행 하려면 보안 주체에 RBAC 역할을 할당 해야 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Digital Twins는 Azure Digital Twins 리소스에 대 한 권한 집합을 포함 하는 RBAC 역할을 제공 합니다. 이러한 역할에 대해서는이 문서의 뒷부분에서 설명 합니다.
+권한 부여 단계를 수행 하려면 Azure 역할을 보안 주체에 할당 해야 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Digital Twins는 azure Digital Twins 리소스에 대 한 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 이러한 역할에 대해서는이 문서의 뒷부분에서 설명 합니다.
 
 Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용은 Azure RBAC 설명서의 [*여러 역할 이해*](../role-based-access-control/rbac-and-directory-admin-roles.md) 를 참조 하세요.
 
@@ -41,9 +41,9 @@ Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용�
 
 [Azure 리소스에 대 한 관리](../active-directory/managed-identities-azure-resources/overview.md) 되는 id는 응용 프로그램 코드가 실행 되는 배포와 관련 된 보안 id를 만들 수 있도록 하는 azure 간 기능입니다. 그런 다음 해당 id를 액세스 제어 역할과 연결 하 여 응용 프로그램에 필요한 특정 Azure 리소스에 액세스 하기 위한 사용자 지정 권한을 부여할 수 있습니다.
 
-관리 ID를 사용하는 경우 Azure 플랫폼에서 이 런타임 ID를 관리합니다. ID 자체 또는 액세스해야 하는 리소스에 대한 액세스 키를 애플리케이션 코드나 구성에 저장하고 보호할 필요가 없습니다. Azure App Service 응용 프로그램 내에서 실행 되는 Azure Digital Twins 클라이언트 앱은 SAS 규칙 및 키 또는 다른 액세스 토큰을 처리할 필요가 없습니다. 클라이언트 앱은 Azure Digital Twins 네임 스페이스의 끝점 주소만 필요 합니다. 앱이 연결 되 면 Azure Digital Twins는 관리 되는 엔터티의 컨텍스트를 클라이언트에 바인딩합니다. 관리 되는 id와 연결 되 면 Azure Digital Twins 클라이언트는 모든 권한 있는 작업을 수행할 수 있습니다. 그런 다음 관리 되는 엔터티를 Azure Digital Twins RBAC 역할에 연결 하 여 권한 부여를 부여 합니다 (아래 설명 참조).
+관리 ID를 사용하는 경우 Azure 플랫폼에서 이 런타임 ID를 관리합니다. ID 자체 또는 액세스해야 하는 리소스에 대한 액세스 키를 애플리케이션 코드나 구성에 저장하고 보호할 필요가 없습니다. Azure App Service 응용 프로그램 내에서 실행 되는 Azure Digital Twins 클라이언트 앱은 SAS 규칙 및 키 또는 다른 액세스 토큰을 처리할 필요가 없습니다. 클라이언트 앱은 Azure Digital Twins 네임 스페이스의 끝점 주소만 필요 합니다. 앱이 연결 되 면 Azure Digital Twins는 관리 되는 엔터티의 컨텍스트를 클라이언트에 바인딩합니다. 관리 되는 id와 연결 되 면 Azure Digital Twins 클라이언트는 모든 권한 있는 작업을 수행할 수 있습니다. 그런 다음 관리 되는 엔터티를 Azure Digital Twins Azure 역할에 연결 하 여 권한 부여를 부여 합니다 (아래 설명 참조).
 
-### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins의 RBAC 역할
+### <a name="authorization-azure-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins의 Azure 역할
 
 Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하는 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
 * *Azure 디지털 쌍 소유자 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 모든 권한을 부여 합니다.
@@ -62,7 +62,7 @@ Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하
 
 ## <a name="permission-scopes"></a>사용 권한 범위
 
-보안 주체에 RBAC 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례에 따라 가능한 가장 좁은 범위만 부여 하는 것이 좋습니다.
+보안 주체에 게 Azure 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례에 따라 가능한 가장 좁은 범위만 부여 하는 것이 좋습니다.
 
 다음 목록에서는 Azure Digital Twins 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 * 모델:이 리소스에 대 한 작업은 Azure Digital Twins에 업로드 된 [모델](concepts-models.md) 에 대 한 제어를 지시 합니다.

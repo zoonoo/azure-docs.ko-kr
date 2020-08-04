@@ -4,12 +4,12 @@ description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea3f91615a488a1013ac4821ce7ba14b2006c14a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494947"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531680"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -79,7 +79,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
     
     이전 섹션에서 설명한 대로 Azure에 대화형으로 로그인하면 자격 증명이 캐시되므로 Azure CLI에서 동일한 자격 증명을 사용하여 Batch 계정에 로그인할 수 있습니다. 서비스 주체를 사용하여 Azure에 로그인하는 경우에도 해당 자격 증명을 사용하여 Batch 계정에 로그인합니다.
 
-    Azure AD의 이점은 RBAC(역할 기반 액세스 제어)를 제공한다는 것입니다. RBAC를 사용하면 사용자의 액세스 권한이 계정 키 소유 여부에 관계 없이 할당된 역할에 따라 달라집니다. 계정 키를 관리하는 대신 RBAC 역할을 관리하고 Azure AD에서 액세스와 인증을 처리하도록 할 수 있습니다.  
+    Azure AD의 이점은 RBAC(역할 기반 액세스 제어)를 제공한다는 것입니다. RBAC를 사용하면 사용자의 액세스 권한이 계정 키 소유 여부에 관계 없이 할당된 역할에 따라 달라집니다. 계정 키를 관리 하는 대신 Azure 역할을 관리 하 고 Azure AD에서 액세스 및 인증을 처리 하도록 할 수 있습니다.  
 
      Azure AD를 사용하여 Batch 계정에 로그인하려면 [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령을 호출합니다. 
 

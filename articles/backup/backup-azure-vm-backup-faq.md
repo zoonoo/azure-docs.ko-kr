@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf09c4e56c3881987e14d27d5f2166c68e311ab3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538771"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533498"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -99,11 +99,7 @@ VM 또는 VM 리소스 그룹의 대/소문자를 변경 하는 경우 백업 �
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>VM에 연결 된 선택적 디스크를 백업 하거나 복원할 수 있나요?
 
-이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다.
-
-현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 사용자의 백업 및 복원 요구 사항을 충족하는 능률적이고 비용 효율적인 솔루션을 제공합니다. 각 복구 지점에는 백업 작업에 포함된 디스크의 데이터가 포함되므로 복원 작업을 수행하는 동안 지정된 복구 지점에서 복원된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅샷과 자격 증명 모음의 복원 모두에 적용됩니다.
-
-미리 보기에 가입하려면 AskAzureBackupTeam@microsoft.com으로 문의해 주세요.
+이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다. 자세한 내용은 [Azure vm의 선택적 디스크 백업 및 복원](selective-disk-backup-restore.md)을 참조 하세요.
 
 ## <a name="restore"></a>복원
 

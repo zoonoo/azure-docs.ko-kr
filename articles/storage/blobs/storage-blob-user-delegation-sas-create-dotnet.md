@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: d5e8f5e3939ade4e5344ef586a62b6a19082e34e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e499b27124ed5723fb19fecbe4091f17364aea5a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809034"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533991"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -25,9 +25,9 @@ ms.locfileid: "84809034"
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>데이터에 액세스 하기 위한 RBAC 역할 할당
+## <a name="assign-azure-roles-for-access-to-data"></a>데이터 액세스를 위한 Azure 역할 할당
 
-Azure AD 보안 주체가 blob 데이터에 액세스 하려고 할 때 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지에 관계 없이 보안 주체는 Azure Storage의 blob 데이터에 대 한 액세스 권한을 부여 하는 RBAC 역할을 할당 받아야 합니다. RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 Azure blob 및 큐에](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 RBAC 역할 할당** 섹션을 참조 하세요.
+Azure AD 보안 주체가 blob 데이터에 액세스 하려고 할 때 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지에 관계 없이 보안 주체는 Azure Storage의 blob 데이터에 대 한 액세스 권한을 부여 하는 Azure 역할을 할당 받아야 합니다. RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 azure blob 및 큐에](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 azure 역할 할당** 섹션을 참조 하세요.
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 

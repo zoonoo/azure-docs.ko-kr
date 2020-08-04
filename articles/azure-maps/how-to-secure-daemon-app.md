@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126774"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531374"
 ---
 # <a name="secure-a-daemon-application"></a>디먼 응용 프로그램 보안
 
@@ -109,7 +109,7 @@ Azure 리소스에서 실행 하는 경우 Azure 관리 id를 구성 하 여 저
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Azure Maps에 디먼 응용 프로그램에 대 한 역할 기반 액세스 권한 부여
 
-만든 관리 되는 Id 또는 서비스 주체를 하나 이상의 Azure Maps 액세스 제어 역할 정의에 할당 하 여 RBAC ( *역할 기반 액세스 제어* )를 부여 합니다. Azure Maps 사용할 수 있는 RBAC 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다. 이러한 Azure Maps 역할은 액세스 권한을 부여할 수 있는 역할입니다.
+만든 관리 되는 Id 또는 서비스 주체를 하나 이상의 Azure Maps 액세스 제어 역할 정의에 할당 하 여 RBAC ( *역할 기반 액세스 제어* )를 부여 합니다. Azure Maps 사용할 수 있는 Azure 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다. 이러한 Azure Maps 역할은 액세스 권한을 부여할 수 있는 역할입니다.
 
 > [!div class="mx-imgBorder"]
 > ![사용 가능한 역할 보기](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -124,7 +124,7 @@ Azure 리소스에서 실행 하는 경우 Azure 관리 id를 구성 하 여 저
     > [!div class="mx-imgBorder"]
     > ![역할 할당 추가](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자**와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. 다음 **에 대 한 액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 또는 관리 id **사용자 할당 관리 id**  /  **시스템 할당 관리 id**를 선택 합니다. 보안 주체를 선택 합니다. 그런 다음, **저장**을 선택합니다.
+3. **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자**와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. 다음 **에 대 한 액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 또는 관리 id **사용자 할당 관리 id**  /  **시스템 할당 관리 id**를 선택 합니다. 보안 주체를 선택 합니다. 그런 다음 **저장**을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![역할 할당 추가](./media/how-to-manage-authentication/how-to-add-role-assignment.png)

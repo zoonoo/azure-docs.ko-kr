@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: ba66716abe80a1b12bc64b739f498a0a01d54fe3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513080"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533175"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
-Azure NetApp Files는 NFS 및 SMBv3 볼륨을 지원합니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMBv3 볼륨을 만드는 방법을 보여줍니다. NFS 볼륨을 만들려는 경우 [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)를 참조하세요. 
+Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMBv3 볼륨을 만드는 방법을 보여줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 용량 풀을 설정해야 합니다.   
@@ -197,7 +197,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 2. **+ 볼륨 추가**를 클릭하여 볼륨을 만듭니다.  
     볼륨 만들기 창이 나타납니다.
 
-3. 볼륨 만들기 창에서 **만들기**를 클릭하고 다음 필드에 대한 정보를 제공합니다.   
+3. 볼륨 만들기 창에서 **만들기** 를 클릭 하 고 기본 사항 탭에서 다음 필드에 대 한 정보를 제공 합니다.   
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
@@ -230,7 +230,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
     * 볼륨에 기존 스냅숏 정책을 적용 하려면 **고급 섹션 표시** 를 클릭 하 여 확장 하 고 풀 다운 메뉴에서 스냅숏 정책을 선택 합니다. 
 
-        스냅숏 정책을 만드는 방법에 대 한 자세한 내용은 [스냅숏 관리](azure-netapp-files-manage-snapshots.md)를 참조 하세요.
+        스냅숏 정책을 만드는 방법에 대 한 자세한 내용은 [스냅숏 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)를 참조 하세요.
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

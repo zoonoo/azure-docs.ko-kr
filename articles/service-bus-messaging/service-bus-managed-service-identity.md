@@ -3,12 +3,12 @@ title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Service Bus 엔터티 (큐, 토픽 및 구독)를 통해 액세스 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7fbf0ec36f54f9ba5f8593094dbb0231881cbaef
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cdb4329f00138c51826ced1627ff316fc5fd4619
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423136"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534654"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -23,15 +23,15 @@ ms.locfileid: "87423136"
 
 인증 단계를 수행 하려면 응용 프로그램 요청이 런타임에 OAuth 2.0 액세스 토큰을 포함 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 azure 함수 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 관리 id를 사용 하 여 리소스에 액세스할 수 있습니다. 
 
-권한 부여 단계를 수행 하려면 하나 이상의 RBAC 역할을 보안 주체에 할당 해야 합니다. Azure Service Bus는 Service Bus 리소스에 대 한 권한 집합을 포함 하는 RBAC 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Service Bus에 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Service Bus에 대 한 Azure 기본 제공 역할](#azure-built-in-roles-for-azure-service-bus)을 참조 하세요. 
+권한 부여 단계를 수행 하려면 하나 이상의 Azure 역할을 보안 주체에 할당 해야 합니다. Azure Service Bus는 Service Bus 리소스에 대 한 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 부여 되는 사용 권한이 결정 됩니다. Azure Service Bus에 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Service Bus에 대 한 azure 기본 제공 역할](#azure-built-in-roles-for-azure-service-bus)을 참조 하세요. 
 
 Service Bus에 대 한 요청을 하는 네이티브 응용 프로그램 및 웹 응용 프로그램은 Azure AD를 사용 하 여 권한을 부여할 수도 있습니다. 이 문서에서는 액세스 토큰을 요청 하 고이를 사용 하 여 Service Bus 리소스에 대 한 요청에 권한을 부여 하는 방법을 보여 줍니다. 
 
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>액세스 권한에 대 한 RBAC 역할 할당
+## <a name="assigning-azure-roles-for-access-rights"></a>액세스 권한에 대 한 Azure 역할 할당
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Service Bus는 Service Bus 엔터티에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
-RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 범위는 구독, 리소스 그룹 또는 Service Bus 네임 스페이스의 수준으로 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 Azure 리소스에 대 한 관리 되는 id 일 수 있습니다.
+Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 범위는 구독, 리소스 그룹 또는 Service Bus 네임 스페이스의 수준으로 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 Azure 리소스에 대 한 관리 되는 id 일 수 있습니다.
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Azure Service Bus에 대 한 Azure 기본 제공 역할
 Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네임스페이스 및 관련된 모든 리소스의 관리는 이미 RBAC(*역할 기반 액세스 제어*) 모델을 사용하여 보호되고 있습니다. Azure는 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
@@ -41,11 +41,11 @@ Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통�
 - [Azure Service Bus 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver):이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여할 수 있습니다. 
 
 ## <a name="resource-scope"></a>리소스 범위 
-보안 주체에 RBAC 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례는 항상 가장 좁은 범위를 부여 하는 것이 가장 좋습니다.
+보안 주체에 게 Azure 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례는 항상 가장 좁은 범위를 부여 하는 것이 가장 좋습니다.
 
 다음 목록에서는 가장 좁은 범위에서 시작 하 여 Service Bus 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 
-- **큐**, **토픽**또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 RBAC 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. Azure CLI 명령을 사용 하는 예제는 다음과 같습니다. [az-role-create-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 를 사용 하 여 id를 Service Bus RBAC 역할에 할당 합니다. 
+- **큐**, **토픽**또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 Azure 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. 다음은 Azure CLI 명령을 사용 하는 예제입니다. [az-role-create-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 를 사용 하 여 id를 Service Bus Azure 역할에 할당 합니다. 
 
     ```azurecli
     az role assignment create \
@@ -72,9 +72,9 @@ Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 Service Bus 리�
 - [Azure Resource Manager 클라이언트 라이브러리](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Azure AD에서 관리 되는 id에 대 한 사용 권한 부여
-응용 프로그램의 관리 되는 id에서 Service Bus 서비스에 대 한 요청에 권한을 부여 하려면 먼저 관리 되는 id에 대 한 RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Service Bus Service Bus에서 전송 및 읽기 권한을 포함 하는 RBAC 역할을 정의 합니다. RBAC 역할이 관리 id에 할당 되 면 관리 되는 id에 적절 한 범위의 Service Bus 엔터티에 대 한 액세스 권한이 부여 됩니다.
+응용 프로그램의 관리 되는 id에서 Service Bus 서비스에 대 한 요청에 권한을 부여 하려면 먼저 관리 되는 id에 대 한 RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Service Bus Service Bus에서 전송 및 읽기 권한을 포함 하는 Azure 역할을 정의 합니다. Azure 역할이 관리 id에 할당 되 면 관리 되는 id에는 해당 범위에서 Service Bus 엔터티에 대 한 액세스 권한이 부여 됩니다.
 
-RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Service Bus 리소스에 대 한 액세스를 위해 Azure Active Directory 인증 및 권한 부여](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)를 참조 하세요.
+Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Service Bus 리소스에 대 한 액세스를 위해 Azure Active Directory 인증 및 권한 부여](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)를 참조 하세요.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus를 통해 Azure 리소스에 관리 ID 사용
 관리 id에 Service Bus를 사용 하려면 id를 역할과 적절 한 범위에 할당 해야 합니다. 이 섹션의 절차에서는 관리 되는 id로 실행 되 고 Service Bus 리소스에 액세스 하는 간단한 응용 프로그램을 사용 합니다.
@@ -93,7 +93,7 @@ RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Service Bus 
 
 이제 Service Bus 리소스에서 필요한 범위의 역할에이 서비스 id를 할당 합니다.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 RBAC 역할을 할당 하려면
+### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할을 할당 하려면
 Service Bus 네임 스페이스에 역할을 할당 하려면 Azure Portal에서 네임 스페이스로 이동 합니다. 리소스의 IAM (Access Control) 설정을 표시 하 고 다음 지침에 따라 역할 할당을 관리 합니다.
 
 > [!NOTE]

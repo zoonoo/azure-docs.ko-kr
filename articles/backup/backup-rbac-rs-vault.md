@@ -4,12 +4,12 @@ description: 역할 기반 Access Control을 사용하여 Recovery Services 자�
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445312"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533464"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 
@@ -28,9 +28,9 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Backup 기본 제공 역할을 관리 작업에 매핑
 
-다음 테이블은 Backup 관리 작업과 해당 작업을 수행하는 데 필요한 최소 RBAC 역할을 캡처한 것입니다.
+다음 표에서는 백업 관리 작업 및 해당 작업을 수행 하는 데 필요한 최소 Azure 역할을 캡처합니다.
 
-| 관리 작업 | 필요한 최소 RBAC 역할 | 필요한 범위 |
+| 관리 작업 | 필요한 최소 Azure 역할 | 필요한 범위 |
 | --- | --- | --- |
 | Recovery Services 자격 증명 모음 만들기 | Backup 참가자 | 자격 증명 모음을 포함하는 리소스 그룹 |
 | Azure VM의 백업 활성화 | Backup 운영자 | 자격 증명 모음을 포함하는 리소스 그룹 |

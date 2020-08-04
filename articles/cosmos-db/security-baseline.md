@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: edcecefab6243645c47af0ec1b8dd4b26fe22bb7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3431ad88a27da9d83b75ed3661d6129f157b9b1f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501119"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531509"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
 
@@ -286,7 +286,7 @@ Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리:https
 
 **지침**: AZURE PORTAL의 IAM (Id 및 액세스 제어) 창을 사용 하 여 RBAC (역할 기반 액세스 제어)를 구성 하 고 Azure Cosmos DB 리소스에 대 한 인벤토리를 유지 관리할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다.
 
-Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC를 제공 합니다. AD (Azure Active Directory)에 프로필이 있는 개인은 이러한 RBAC 역할을 사용자, 그룹, 서비스 주체 또는 관리 id에 할당 하 여 리소스에 대 한 리소스 및 Azure Cosmos DB 작업에 대 한 액세스를 부여 하거나 거부할 수 있습니다.
+Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC를 제공 합니다. AD (Azure Active Directory)에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스 권한을 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다.
 
 또한 Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색할 수 있습니다. 
 
@@ -528,7 +528,7 @@ Azure의 고객 데이터 보호 이해: https://docs.microsoft.com/azure/securi
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: Azure Cosmos DB에서는 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 RBAC 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
+**지침**: Azure Cosmos DB에서는 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
 
 Azure Cosmos DB에서 RBAC를 구현 하는 방법:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 

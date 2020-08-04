@@ -3,12 +3,12 @@ title: Azure Relay에 대한 네트워크 보안
 description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: a1ade21df39890b7f1c31a81fca1fffafe2acaa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322157"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532988"
 ---
 # <a name="network-security-for-azure-relay"></a>Azure Relay에 대한 네트워크 보안 
 이 문서에서는 Azure Relay에서 다음 보안 기능을 사용하는 방법을 설명합니다. 
@@ -23,7 +23,7 @@ ms.locfileid: "85322157"
 ## <a name="ip-firewall"></a>IP 방화벽 
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 릴레이 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
 
-이 기능은 잘 알려진 특정 사이트에서만 Azure Relay에 액세스할 수 있는 시나리오에서 유용합니다. 방화벽 규칙을 사용하면 특정 IPv4 주소에서 발생하는 트래픽을 허용하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services)와 함께 릴레이를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽만 허용하도록 **방화벽 규칙**을 만들 수 있습니다. 
+이 기능은 잘 알려진 특정 사이트에서만 Azure Relay에 액세스할 수 있는 시나리오에서 유용합니다. 방화벽 규칙을 사용하면 특정 IPv4 주소에서 발생하는 트래픽을 허용하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services)와 함께 릴레이를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽만 허용하도록 **방화벽 규칙**을 만들 수 있습니다. 
 
 IP 방화벽 규칙은 릴레이 네임스페이스 수준에 적용됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. 릴레이 네임스페이스에서 허용된 IP 규칙과 일치하지 않는 IP 주소의 모든 연결 시도는 권한이 없는 것으로 거부됩니다. 응답은 IP 규칙을 언급하지 않습니다. IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
 

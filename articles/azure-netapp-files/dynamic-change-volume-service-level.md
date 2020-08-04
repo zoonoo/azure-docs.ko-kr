@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 5097a5dfa6dd9b8fd46e4bcbcee72319af51f86f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499367"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533059"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
 
@@ -38,7 +38,9 @@ ms.locfileid: "87499367"
 
 ## <a name="register-the-feature"></a>기능 등록
 
-1. 볼륨을 다른 용량 풀로 이동 하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
+볼륨을 다른 용량 풀로 이동 하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우 먼저 기능을 등록 해야 합니다.
+
+1. 기능을 등록 합니다. 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange

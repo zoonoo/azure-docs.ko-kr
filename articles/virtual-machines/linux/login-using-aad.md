@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291145"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534739"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
@@ -113,7 +113,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>VM에 대한 역할 할당 구성
 
-Azure RBAC (역할 기반 액세스 제어) 정책은 VM에 로그인 할 수 있는 사용자를 결정 합니다. 두 개의 RBAC 역할을 사용하여 VM 로그인 권한을 부여합니다.
+Azure RBAC (역할 기반 액세스 제어) 정책은 VM에 로그인 할 수 있는 사용자를 결정 합니다. VM 로그인에 권한을 부여 하는 데 사용 되는 두 개의 Azure 역할:
 
 - **가상 머신 관리자 로그인**: 이 역할이 할당된 사용자는 Windows 관리자 또는 Linux 루트 사용자 권한으로 Azure 가상 머신에 로그인할 수 있습니다.
 - **가상 머신 사용자 로그인**: 이 역할이 할당된 사용자는 일반 사용자 권한으로 Azure 가상 머신에 로그인할 수 있습니다.
@@ -181,9 +181,9 @@ sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 
 
 ## <a name="troubleshoot-sign-in-issues"></a>로그인 문제 해결
 
-Azure AD 자격 증명을 사용하여 SSH하려고 할 때 발생하는 몇 가지 일반적인 오류에는 RBAC 역할이 할당되지 않거나 로그인하라는 프롬프트가 반복되는 문제가 있습니다. 이러한 문제를 해결하려면 다음 섹션을 사용합니다.
+Azure AD 자격 증명을 사용 하 여 SSH를 시도할 때 발생 하는 몇 가지 일반적인 오류에는 할당 된 Azure 역할 및 로그인에 대 한 반복적인 프롬프트가 포함 됩니다. 이러한 문제를 해결하려면 다음 섹션을 사용합니다.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>액세스 거부: RBAC 역할 할당되지 않음
+### <a name="access-denied-azure-role-not-assigned"></a>액세스 거부 됨: Azure 역할이 할당 되지 않았습니다.
 
 SSH 프롬프트에서 다음 오류를 표시하는 경우 사용자에게 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할을 부여한 VM에서 RBAC 정책을 구성했는지 확인합니다.
 

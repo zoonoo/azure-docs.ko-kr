@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9d4097e847417f56c9881a3e18237e97dfee465e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501409"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534178"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Azure Portal를 사용 하 여 blob 또는 큐 데이터에 액세스
 
@@ -29,7 +29,7 @@ Azure Portal에서 blob 또는 큐 데이터에 대 한 액세스 권한을 부�
 
 ### <a name="use-the-account-access-key"></a>계정 액세스 키 사용
 
-계정 액세스 키를 사용 하 여 blob 및 큐 데이터에 액세스 하려면 RBAC 작업을 포함 하는 RBAC 역할을 할당 해야 합니다 **. Storage/storageAccounts/listkeys/action**. 이 RBAC 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
+계정 액세스 키를 사용 하 여 blob 및 큐 데이터에 액세스 하려면 RBAC 작업을 포함 하는 Azure 역할을 사용자에 게 할당 해야 합니다 **. Storage/storageAccounts/listkeys/action**. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
 
 - Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
 - Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
@@ -47,7 +47,7 @@ Azure AD 계정을 사용 하 여 Azure Portal에서 blob 또는 큐 데이터�
 - 최소한 저장소 계정 수준으로 범위가 지정 된 Azure Resource Manager [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할이 할당 되었습니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다.
 - Blob 또는 큐 데이터에 대 한 액세스를 제공 하는 기본 제공 또는 사용자 지정 역할이 할당 되었습니다.
 
-사용자가 Azure Portal에서 저장소 계정 관리 리소스를 보고 탐색할 수 있도록 **읽기** 역할 할당 또는 다른 Azure Resource Manager 역할 할당이 필요 합니다. Blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 RBAC 역할은 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하지 않습니다. 포털에서 blob 또는 큐 데이터에 액세스 하려면 저장소 계정 리소스를 탐색할 수 있는 권한이 사용자에 게 필요 합니다. 이 요구 사항에 대 한 자세한 내용은 [포털 액세스를 위한 읽기 권한자 역할 할당](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access)을 참조 하세요.
+사용자가 Azure Portal에서 저장소 계정 관리 리소스를 보고 탐색할 수 있도록 **읽기** 역할 할당 또는 다른 Azure Resource Manager 역할 할당이 필요 합니다. Blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 Azure 역할은 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하지 않습니다. 포털에서 blob 또는 큐 데이터에 액세스 하려면 저장소 계정 리소스를 탐색할 수 있는 권한이 사용자에 게 필요 합니다. 이 요구 사항에 대 한 자세한 내용은 [포털 액세스를 위한 읽기 권한자 역할 할당](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access)을 참조 하세요.
 
 Blob 또는 큐 데이터에 대 한 액세스를 지 원하는 기본 제공 역할은 다음과 같습니다.
 
@@ -82,7 +82,7 @@ Blob 또는 큐 데이터에 대 한 액세스를 지 원하는 기본 제공 �
 
 ![현재 계정 키를 사용 하 여 컨테이너 데이터에 액세스](media/storage-access-blobs-queues-portal/auth-method-access-key.png)
 
-Azure AD 계정을 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 할당 된 RBAC 역할을 통해 적절 한 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 적절 한 권한이 없으면 다음과 같은 오류 메시지가 표시 됩니다.
+Azure AD 계정을 사용 하도록 전환 하려면 이미지에 강조 표시 된 링크를 클릭 합니다. 사용자에 게 할당 된 Azure 역할을 통해 적절 한 권한이 있는 경우 계속 진행할 수 있습니다. 그러나 적절 한 권한이 없으면 다음과 같은 오류 메시지가 표시 됩니다.
 
 ![Azure AD 계정이 액세스를 지원 하지 않는 경우 표시 되는 오류](media/storage-access-blobs-queues-portal/auth-error-azure-ad.png)
 

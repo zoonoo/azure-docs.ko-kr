@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1a5d302f63f57a142d014c8ef66d02405e119ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386217"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531169"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -38,16 +38,37 @@ Azure 리소스의 관리 ID에 대한 자세한 내용은 [관리 ID 개요](..
 
 Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문서에 설명된 대로 CLI, PowerShell, Resource Manager 템플릿 또는 REST를 통해 Key Vault를 만들고 관리합니다.
 
-- [CLI를 사용하여 Key Vault 만들기 및 관리](../secrets/quick-create-cli.md)
-- [PowerShell을 사용하여 Key Vault 만들기 및 관리](../secrets/quick-create-powershell.md)
-- [Azure Portal를 사용 하 여 키 자격 증명 모음 만들기 및 관리](../secrets/quick-create-portal.md)
-- [Python을 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-python.md)
-- [Java를 사용 하 여 주요 자격 증명 모음 만들기 및 관리](../secrets/quick-create-java.md)
-- [Node.js를 사용 하 여 키 자격 증명 모음 만들기 및 관리](../secrets/quick-create-node.md)
-- [.NET을 사용 하 여 주요 자격 증명 모음 만들기 및 관리 (v4 SDK)](../secrets/quick-create-net.md)
-- [Azure Resource Manager 템플릿을 통한 Key Vault 만들기 및 암호 추가](../secrets/quick-create-template.md)
-- [REST를 사용하여 Key Vault 만들기 및 관리](/rest/api/keyvault/)
+- [CLI를 사용하여 Key Vault 만들기 및 관리](quick-create-cli.md)
+- [PowerShell을 사용하여 Key Vault 만들기 및 관리](quick-create-powershell.md)
+- [Azure Portal를 사용 하 여 키 자격 증명 모음 만들기 및 관리](quick-create-portal.md)
+- [REST를 사용하여 Key Vault 만들기 및 관리](/rest/api/keyvault/vaults/createorupdate)
 
+### <a name="set-and-retrieve-secrets"></a>비밀 설정 및 검색
+
+- [CLI를 사용 하 여 암호 설정 및 검색](../secrets/quick-create-cli.md)
+- [PowerShell을 사용 하 여 암호 설정 및 검색](../secrets/quick-create-powershell.md)
+- [Azure Portal를 사용 하 여 암호 설정 및 검색](../secrets/quick-create-portal.md)
+- [REST를 사용한 비밀 작업](/rest/api/keyvault/#secret-operations)
+- [Python을 사용 하 여 암호 설정 및 검색](../secrets/quick-create-python.md)
+- [Java를 사용 하 여 암호 설정 및 검색](../secrets/quick-create-java.md)
+- [Node.js를 사용 하 여 암호 설정 및 검색](../secrets/quick-create-node.md)
+- [.NET을 사용 하 여 암호 설정 및 검색 (v4 SDK)](../secrets/quick-create-net.md)
+- [Azure Resource Manager 템플릿을 통한 Key Vault 만들기 및 암호 추가](../secrets/quick-create-template.md)
+
+### <a name="set-and-retrieve-keys"></a>키 설정 및 검색
+
+- [CLI를 사용 하 여 키 설정 및 검색](../keys/quick-create-cli.md)
+- [PowerShell을 사용 하 여 키 설정 및 검색](../keys/quick-create-powershell.md)
+- [Azure Portal 키를 설정 하 고 검색 합니다.](../keys/quick-create-portal.md)
+- [REST를 사용한 키 작업](/rest/api/keyvault/#key-operations)
+- [Python을 사용 하 여 키 설정 및 검색](../secrets/quick-create-python.md)
+
+### <a name="set-and-retrieve-certificates"></a>인증서 설정 및 검색
+- [CLI를 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-cli.md)
+- [PowerShell을 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-powershell.md)
+- [Azure Portal를 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-portal.md)
+- [REST를 사용한 키 작업](/rest/api/keyvault/#certificate-operations)
+- [Python을 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>주요 자격 증명 모음을 사용한 코딩
 
@@ -64,8 +85,6 @@ REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯�
 #### <a name="net"></a>.NET
 
 [Key Vault에 대한 .NET API 참조](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
-
-.NET SDK의 2.x 버전에 대한 자세한 내용은 [릴리스 정보](dotnet2api-release-notes.md)를 참조하세요.
 
 #### <a name="java"></a>Java
 
@@ -94,7 +113,6 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 애플리케이션에서 Key Vault를 사용하는 전체 예제는 다음을 참조하세요.
 
 - [Azure Key Vault 코드 샘플](https://azure.microsoft.com/resources/samples/?service=key-vault) - Azure Key Vault에 대한 코드 샘플입니다. 
-- [웹 애플리케이션에서 Azure Key Vault 사용](../secrets/quick-create-net.md) - Azure의 웹 애플리케이션에서 Azure Key Vault를 사용하는 방법을 제공하는 자습서입니다. 
 
 ## <a name="how-tos"></a>방법
 
@@ -124,7 +142,6 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 - [Key Vault 일시 삭제 동작](soft-delete-overview.md)) 삭제 된 개체를 실수로 또는 의도적으로 복구할 수 있는 기능에 대해 설명 합니다.
 - [Key Vault 클라이언트 제한](overview-throttling.md)에서는 제한의 기본 개념을 소개하고 앱에 맞는 접근 방식을 제공합니다.
-- [Key Vault 저장소 계정 키 개요](../secrets/overview-storage-keys.md)) 계정 키 Azure Storage Key Vault 통합에 대해 설명 합니다.
 - [Key Vault 보안 권역](overview-security-worlds.md)에서는 지역과 보안 영역 간의 관계를 설명합니다.
 
 ## <a name="social"></a>소셜

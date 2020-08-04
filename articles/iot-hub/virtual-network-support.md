@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090606"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534484"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -174,7 +174,7 @@ IoT Hub는 고객 소유 스토리지 계정으로 메시지를 라우팅할 수
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가**를 클릭합니다.
 
-2. **Storage Blob 데이터 기여자**를 **역할**로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체**를 **액세스 할당 중**으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
+2. **Storage Blob 데이터 기여자**를 **역할**로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체**를 **액세스 할당 중**으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
 
 3. 스토리지 계정의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다.
 
@@ -228,7 +228,7 @@ IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가**를 클릭합니다.
 
-2. **Storage Blob 데이터 기여자**를 **역할**로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체**를 **액세스 할당 중**으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
+2. **Storage Blob 데이터 기여자**를 **역할**로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체**를 **액세스 할당 중**으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
 
 3. 스토리지 계정의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다.
 
@@ -246,7 +246,7 @@ IoT Hub는 고객이 제공한 스토리지 Blob에서/(으)로 디바이스의 
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가**를 클릭합니다.
 
-2. **Storage Blob 데이터 기여자**를 **역할**로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체**를 **액세스 할당 중**으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
+2. **Storage Blob 데이터 기여자**를 **역할**로 선택하고([기여자나 스토리지 계정 기여자가 ‘아닌’](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)), **Azure AD 사용자, 그룹 또는 서비스 주체**를 **액세스 할당 중**으로 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 단추를 클릭합니다.
 
 3. 스토리지 계정의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다.
 

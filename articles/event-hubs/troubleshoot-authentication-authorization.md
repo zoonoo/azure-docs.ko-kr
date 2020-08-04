@@ -3,12 +3,12 @@ title: 인증 및 권한 부여 문제 해결-Azure Event Hubs
 description: 이 문서에서는 Azure Event Hubs 인증 및 권한 부여 문제를 해결 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502106"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533889"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>인증 및 권한 부여 문제 해결-Azure Event Hubs
 [연결 문제 해결](troubleshooting-guide.md) 문서에서는 Azure Event Hubs 연결 문제 해결에 대 한 팁을 제공 합니다. 이 문서에서는 Azure Event Hubs의 인증 및 권한 부여 문제를 해결 하기 위한 팁과 권장 사항을 제공 합니다. 
@@ -16,13 +16,13 @@ ms.locfileid: "87502106"
 ## <a name="if-you-are-using-azure-active-directory"></a>Azure Active Directory를 사용 하는 경우
 Azure AD (Azure Active Directory)를 사용 하 여 Azure Event Hubs 인증 하 고 권한을 부여 하는 경우, event hub에 액세스 하는 id가 올바른 **리소스 범위** (소비자 그룹, 이벤트 허브, 네임 스페이스, 리소스 그룹 또는 구독)에서 올바른 **Azure 역할** 의 멤버 인지 확인 합니다.
 
-### <a name="rbac-roles"></a>RBAC 역할
+### <a name="azure-roles"></a>Azure 역할
 - [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) 는 Event Hubs 리소스에 대 한 전체 액세스 권한을 가집니다.
 - 전송 액세스를 위한 [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) 입니다.
 - 수신 액세스를 위한 [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) 입니다.
 
 ### <a name="resource-scopes"></a>리소스 범위
-- **소비자 그룹**:이 범위에서 역할 할당은이 엔터티에만 적용 됩니다. 현재 Azure Portal는이 수준에서 보안 주체에 RBAC 역할을 할당 하는 것을 지원 하지 않습니다. 
+- **소비자 그룹**:이 범위에서 역할 할당은이 엔터티에만 적용 됩니다. 현재 Azure Portal는이 수준에서 보안 주체에 대 한 Azure 역할 할당을 지원 하지 않습니다. 
 - **이벤트 허브**: 역할 할당은 이벤트 허브 엔터티와 그 아래에 있는 소비자 그룹에 적용 됩니다.
 - **네임 스페이스**: 역할 할당은 네임 스페이스에 있는 Event Hubs의 전체 토폴로지 및 이와 연결 된 소비자 그룹에 적용 됩니다.
 - **리소스 그룹**: 역할 할당은 리소스 그룹 아래의 모든 Event Hubs 리소스에 적용 됩니다.

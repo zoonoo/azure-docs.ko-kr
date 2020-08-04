@@ -3,12 +3,12 @@ title: 관리형 서비스 ID를 사용하여 이벤트 전달
 description: 이 문서에서는 Azure Event Grid 토픽에 대해 관리형 서비스 ID를 사용하도록 설정하는 방법을 설명합니다. 이 ID를 사용하여 지원되는 대상에 이벤트를 전달합니다.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499826"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534246"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>관리 id를 사용 하 여 이벤트 배달
 이 문서에서는 Azure event grid 토픽 또는 도메인에 대해 [관리 서비스 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정 하는 방법을 설명 합니다. 이 ID를 사용하여 Service Bus 큐 및 토픽, Event Hubs, 스토리지 계정 등의 지원되는 대상으로 이벤트를 전달합니다.
@@ -63,20 +63,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 기존 도메인을 업데이트하는 명령은 유사합니다(`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-rbac-roles"></a>지원 되는 대상 및 RBAC 역할
+## <a name="supported-destinations-and-azure-roles"></a>지원 되는 대상 및 Azure 역할
 Event grid 토픽 또는 도메인에 대해 id를 사용 하도록 설정 하면 Azure에서 자동으로 Azure Active Directory에 id를 만듭니다. 토픽 또는 도메인에서 지원 되는 대상으로 이벤트를 전달할 수 있도록이 id를 적절 한 Azure 역할에 추가 합니다. 예를 들어 event grid 토픽에서 해당 네임 스페이스의 event Hubs로 이벤트를 전달할 수 있도록 Azure Event Hubs 네임 스페이스에 대 한 **azure Event Hubs 데이터 발신자** 역할에 id를 추가 합니다. 
 
 현재 Azure event grid는 시스템 할당 관리 id로 구성 된 토픽 또는 도메인을 지원 하 여 이벤트를 다음 대상으로 전달 합니다. 또한 이 테이블은 토픽이 이벤트를 전달하기 위해 ID가 속해야 하는 역할을 제공합니다.
 
-| 대상 | RBAC 역할 | 
+| 대상 | Azure 역할 | 
 | ----------- | --------- | 
 | Service Bus 큐 및 토픽 | [Azure Service Bus 데이터 보낸 사람](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Azure Event Hubs | [Azure Event Hubs 데이터 보내는 사람](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Azure Blob Storage | [Storage Blob 데이터 기여자](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Azure Queue 스토리지 |[Storage 큐 데이터 메시지 보내는 사람](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Azure Blob Storage | [Storage Blob 데이터 기여자](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure Queue 스토리지 |[Storage 큐 데이터 메시지 보내는 사람](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>대상의 RBAC 역할에 id 추가
-이 섹션에서는 토픽 또는 도메인의 ID를 RBAC 역할에 추가하는 방법을 설명합니다. 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>대상의 Azure 역할에 id 추가
+이 섹션에서는 Azure 역할에 토픽 또는 도메인의 id를 추가 하는 방법에 대해 설명 합니다. 
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 토픽 또는 도메인에서 대상으로 이벤트를 전달할 수 있도록 토픽 또는 도메인 id를 적절 한 역할에 할당 하는 Azure Portal를 사용할 수 있습니다. 
@@ -94,7 +94,7 @@ Event grid 토픽 또는 도메인에 대해 id를 사용 하도록 설정 하�
 이 단계는 테이블에 설명된 다른 역할에 ID를 추가하는 경우와 비슷합니다. 
 
 ### <a name="use-the-azure-cli"></a>Azure CLI 사용
-이 섹션의 예제에서는 Azure CLI를 사용 하 여 RBAC 역할에 id를 추가 하는 방법을 보여 줍니다. 샘플 명령은 Event Grid 토픽에 대한 것입니다. Event Grid 도메인에 대한 명령도 비슷합니다. 
+이 섹션의 예제에서는 Azure CLI를 사용 하 여 Azure 역할에 id를 추가 하는 방법을 보여 줍니다. 샘플 명령은 Event Grid 토픽에 대한 것입니다. Event Grid 도메인에 대한 명령도 비슷합니다. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>항목의 시스템 id에 대 한 보안 주체 ID를 가져옵니다. 
 먼저 토픽의 시스템 관리 ID에 대한 보안 주체 ID를 가져오고 해당 역할에 ID를 할당합니다.

@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091082"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532461"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -214,7 +214,7 @@ Microsoft는 어떠한 경우에도 백업 데이터를 암호 해독하지 않�
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>백업 데이터를 암호화 하는 데 사용 되는 암호화 키의 최소 길이는 어떻게 되나요?
 
-Azure 백업 에이전트를 사용하는 경우 암호화 키는 16자 이상이어야 합니다. Azure VM의 경우 Azure Key Vault에서 사용하는 키의 길이는 제한되지 않습니다.
+MARS (Microsoft Azure Recovery Services) 에이전트에서 사용 하는 암호화 키는 16 자 이상 이어야 하는 암호에서 파생 됩니다. Azure Vm의 경우 Azure KeyVault에 사용 되는 키의 길이에는 제한이 없습니다.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>암호화 키를 잃어버리면 어떻게 되나요? 데이터를 복구할 수 있나요? Microsoft에서 데이터를 복구할 수 있나요?
 

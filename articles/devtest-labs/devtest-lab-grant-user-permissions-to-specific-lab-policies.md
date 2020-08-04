@@ -3,12 +3,12 @@ title: 특정 랩 정책에 사용자 권한 부여| Microsoft 문서
 description: 각 사용자의 요구에 따라 DevTest Lab에서 특정 랩 정책에 사용자 권한을 부여하는 방법 알아보기
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cfacba2a7cdba20bd5a05c9ca5898194c31c2e68
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 1a0f46ed64bf360ceb990f1e91cb65ace76b5a9a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855776"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534552"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
 ## <a name="overview"></a>개요
@@ -17,7 +17,7 @@ ms.locfileid: "85855776"
 ## <a name="policies-as-resources"></a>리소스인 정책
 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md) 문서에 설명된 대로 RBAC를 사용하면 Azure 리소스에 대해 세밀한 리소스 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
-DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/** 를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
+DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/** 를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류의 리소스 이며 Azure 역할에 범위로 할당 될 수 있습니다.
 
 예를 들어 사용자에 게 허용 되는 **VM 크기** 정책에 대 한 읽기/쓰기 권한을 부여 하려면 **Microsoft. devtestlab/Labs/policysets/policy/** action으로 작동 하는 사용자 지정 역할을 만든 다음 microsoft의 범위에서 적절 한 사용자를이 사용자 지정 역할에 할당 합니다. **Devtestlab/labs/Policysets/policy/AllowedVmSizesInLab**.
 

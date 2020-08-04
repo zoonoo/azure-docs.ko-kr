@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 97168c95893ffdea99180c997265f259176ed07f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531537"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534603"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>가상 네트워크에 대 한 DPS (Azure IoT Hub 장치 프로 비전 서비스) 지원
 
@@ -43,7 +43,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 개인 끝점은 Azure 리소스에 액세스할 수 있는 고객 소유의 VNET 내에 할당 된 개인 IP 주소입니다. DPS 리소스에 대 한 개인 끝점을 사용 하 여 VNET 내에서 작동 하는 장치가 공용 끝점에 대 한 트래픽을 허용 하지 않고 DPS 리소스에의 한 프로 비전을 요청할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속하기 전에 다음과 같은 전제 조건을 충족하는지 확인하세요.
 
@@ -59,7 +59,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 
 * DPS 리소스와 연결 된 허브가 다른 클라우드에 있는 경우 개인 끝점은 DPS와 작동 하지 않습니다. 예를 들어 [Azure Government 및 글로벌 Azure](../azure-government/documentation-government-welcome.md)입니다.
 
-* 현재 DPS에 대 한 [Azure Functions를 사용 하는 사용자 지정 할당 정책은](how-to-use-custom-allocation-policies.md) VNET 및 개인 끝점에서 작동 하지 않습니다. 
+* 현재는 Azure function이 VNET 및 개인 끝점으로 잠긴 경우 DPS에 대 한 Azure Functions를 사용 하는 [사용자 지정 할당 정책이](how-to-use-custom-allocation-policies.md) 작동 하지 않습니다. 
 
 * 현재 DPS VNET 지원은 DPS로만 데이터를 수신 하는 데 사용할 수 있습니다. DPS에서 IoT Hub로 전송 되는 데이터 송신은 전용 VNET이 아닌 내부 서비스 간 메커니즘을 사용 합니다. DPS와 IoT Hub 간의 전체 VNET 기반 송신 잠금에 대 한 지원은 현재 사용할 수 없습니다.
 

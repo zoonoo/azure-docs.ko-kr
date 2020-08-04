@@ -12,12 +12,12 @@ ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bd641b57cfdd7f9481e17a90dbbd81d5e43f8ad2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bd34831beea4ce20f7abffb2eaac70e08decfd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311112"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529228"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -53,7 +53,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비
 이 종류의 권한 부여는 개인 Microsoft 계정을 가진 소비자 사용자가 소유한 데이터에 액세스해야 하는 디먼 및 서비스 계정에 일반적입니다. 조직에서 소유한 데이터의 경우 애플리케이션 사용 권한을 통해 필요한 권한 부여를 획득하는 것이 좋습니다.
 
 > [!NOTE]
-> 이 ACL 기반 권한 부여 패턴을 사용 하도록 설정 하기 위해 Azure AD에서는 응용 프로그램에 다른 응용 프로그램에 대 한 토큰을 가져올 수 있는 권한이 필요 하지 않으므로 클레임 없이 앱 전용 토큰을 발급할 수 있습니다 `rules` . Api를 노출 하는 응용 프로그램은 토큰을 허용 하기 위해 권한 확인을 구현 해야 합니다.
+> 이 ACL 기반 권한 부여 패턴을 사용 하도록 설정 하기 위해 Azure AD에서는 응용 프로그램에 다른 응용 프로그램에 대 한 토큰을 가져올 수 있는 권한이 필요 하지 않으므로 클레임 없이 앱 전용 토큰을 발급할 수 있습니다 `roles` . Api를 노출 하는 응용 프로그램은 토큰을 허용 하기 위해 권한 확인을 구현 해야 합니다.
 
 ### <a name="application-permissions"></a>애플리케이션 사용 권한
 
@@ -266,7 +266,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph
 
 Microsoft 인증 라이브러리에서 [클라이언트 자격 증명 개요 설명서](https://aka.ms/msal-net-client-credentials)를 읽어보세요.
 
-| 예제 | 플랫폼 |설명 |
+| 샘플 | 플랫폼 |설명 |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2.1 콘솔 | 사용자를 대신하지 않고 애플리케이션의 ID를 사용하여 Microsoft Graph를 쿼리하는 테넌트의 사용자를 표시하는 간단한 .NET Core 애플리케이션입니다. 샘플에는 인증에 인증서를 사용하는 다양한 사례도 설명되어 있습니다. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | 사용자를 대신하지 않고 애플리케이션의 ID를 사용하여 Microsoft Graph에서 데이터를 동기화하는 웹 애플리케이션입니다. |

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.custom: references_regions
-ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ce903271accd3f63df7634dc5045932655ac2a7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193224"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531152"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>IoT 필수 조건에 대 한 Azure Security Center
 
@@ -30,7 +30,7 @@ ms.locfileid: "84193224"
 ## <a name="minimum-requirements"></a>최소 요구 사항
 
 - IoT Hub 표준 계층
-  - RBAC 역할 **소유자** 수준 권한
+  - Azure 역할 **소유자** 수준 권한
 - [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Azure Security Center (권장)
   - Azure Security Center를 사용 하는 것은 요구 사항이 아니라 권장 사항입니다. Azure Security Center 하지 않으면 IoT Hub 내에서 다른 Azure 리소스를 볼 수 없습니다.

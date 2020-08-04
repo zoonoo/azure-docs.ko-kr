@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/14/2020
-ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4da2572e453339baa3f5e2663a7965fff2035e40
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087353"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531305"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -80,7 +80,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 
 다음 섹션에서는 PowerShell을 사용 하 여 장기 백업 보존을 구성 하 고, Azure storage에서 백업을 보고, Azure storage의 백업에서 복원 하는 방법을 보여 줍니다.
 
-### <a name="rbac-roles-to-manage-long-term-retention"></a>장기 보존을 관리하는 RBAC 역할
+### <a name="azure-roles-to-manage-long-term-retention"></a>장기 보존을 관리 하기 위한 Azure 역할
 
 **AzSqlDatabaseLongTermRetentionBackup** 및 **AzSqlDatabase**의 경우 다음 역할 중 하나가 있어야 합니다.
 

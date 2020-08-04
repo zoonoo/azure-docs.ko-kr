@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a9c3264a9a9d6ae27eee6da4338fa6fd401da461
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501375"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534059"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -536,7 +536,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 **지침**: Azure Active Directory (Azure AD)는 RBAC (역할 기반 액세스 제어)를 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다. 
 
-- [Azure Storage 계정에 대 한 RBAC 역할을 할당 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
+- [Azure Storage 계정에 대 한 Azure 역할을 할당 하는 방법](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Azure Storage 리소스 공급자를 사용 하 여 관리 리소스에 액세스](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 

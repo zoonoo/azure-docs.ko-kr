@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: ac351e688eba274c989b4b475c6d61607b9ea5c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219298"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529588"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,7 +27,7 @@ ms.locfileid: "84219298"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP HANA 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory를 사용하여 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에서 자세한 소개, 비교 및 지침을 참조하세요.
+>SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 각 sap 커넥터, comparsion 및 지침에 대 한 자세한 소개를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -69,7 +69,7 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SapHana**로 설정해야 합니다. | 예 |
 | connectionString | **기본 인증** 또는 **Windows 인증**을 사용 하 여 SAP HANA에 연결 하는 데 필요한 정보를 지정 합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수 (기본 포트는 30015)이 고, 기본 인증을 사용 하는 경우 사용자 이름 및 암호는 필수입니다. 고급 설정에 대 한 자세한 내용은 [SAP HANA ODBC 연결 속성](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>) 을 참조 하세요.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 암호 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault 문서의 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
-| userName | Windows 인증을 사용 하는 경우 사용자 이름을 지정 합니다. 예: `user@domain.com` | 아니요 |
+| userName | Windows 인증을 사용 하는 경우 사용자 이름을 지정 합니다. 예: `user@domain.com` | 예 |
 | password | 사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
@@ -152,7 +152,7 @@ SAP HANA에서 데이터를 복사 하기 위해 지원 되는 속성은 다음�
 | 스키마 | SAP HANA 데이터베이스의 스키마 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 | 테이블 | SAP HANA 데이터베이스에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -194,7 +194,7 @@ SAP HANA에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에�
 | partitionColumnName | 병렬 복사를 위해 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 인 경우에 적용 됩니다  `SapHanaDynamicRange` . 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfHanaDynamicRangePartitionCondition` WHERE 절에 후크 합니다. [SAP HANA의 병렬 복사](#parallel-copy-from-sap-hana) 섹션에서 예제를 참조 하세요. | 파티션을 사용 하는 경우에는 예 `SapHanaDynamicRange` 입니다. |
 | packetSize | 데이터를 여러 블록으로 분할 하는 네트워크 패킷 크기 (Kb)를 지정 합니다. 복사할 데이터가 많은 경우 패킷 크기를 늘리면 대부분의 경우 SAP HANA에서 읽기 속도를 높일 수 있습니다. 패킷 크기를 조정할 때 성능 테스트를 수행 하는 것이 좋습니다. | 아니요.<br>기본값은 2048 (2MB)입니다. |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[

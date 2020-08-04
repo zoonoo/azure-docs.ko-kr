@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 69dda537beda1d1bec4f019e1d5cadd16bdd5b39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126859"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531731"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -45,18 +45,18 @@ Azure Portal에서 인증 세부 정보를 볼 수 있습니다. 계정에서 **
 
 | 시나리오                                                                                    | 인증 | 권한 부여 | 개발 활동 | 운영 활동 |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | 공유 키     | N/A           | 중간             | 높음               |
-| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | Azure AD       | 높음          | 낮음                | 중간             |
+| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | 공유 키     | 해당 없음           | 중간             | 높은               |
+| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | Azure AD       | 높은          | 낮음                | 중간             |
 | [대화형 single sign-on을 사용 하는 웹 단일 페이지 응용 프로그램](./how-to-secure-spa-users.md) | Azure AD       | 높음          | 중간             | 중간             |
 | [비 대화형 sign-on을 사용 하는 웹 단일 페이지 응용 프로그램](./how-to-secure-spa-app.md)      | Azure AD       | 높음          | 중간             | 중간             |
-| [대화형 single sign-on을 사용 하는 웹 응용 프로그램](./how-to-secure-webapp-users.md)          | Azure AD       | 높음          | 높음               | 중간             |
+| [대화형 single sign-on을 사용 하는 웹 응용 프로그램](./how-to-secure-webapp-users.md)          | Azure AD       | 높은          | 높음               | 중간             |
 | [IoT 장치/입력 제한 장치](./how-to-secure-device-code.md)                     | Azure AD       | 높음          | 중간             | 중간             |
 
 이 표의 링크를 통해 각 시나리오에 대 한 자세한 구성 정보를 볼 수 있습니다.
 
 ## <a name="view-role-definitions"></a>역할 정의 보기
 
-Azure Maps 사용할 수 있는 RBAC 역할을 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다. 이러한 Azure Maps 역할은 액세스 권한을 부여할 수 있는 역할입니다.
+Azure Maps 사용할 수 있는 Azure 역할을 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다. 이러한 Azure Maps 역할은 액세스 권한을 부여할 수 있는 역할입니다.
 
 > [!div class="mx-imgBorder"]
 > ![사용 가능한 역할 보기](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

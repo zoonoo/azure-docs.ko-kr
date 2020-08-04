@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f6a64cf30ecc684e05675d366ff5c9fc6642126
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6ba0a599bcb0b058ce4902882df9459b177fb6b5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372164"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530411"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>VNet 및 방화벽 뒤의 스토리지 계정에 대한 감사 작성
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -117,7 +117,7 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL �
    }
    ```
 
-2. [Azure Portal](https://portal.azure.com)을 엽니다. 스토리지 계정으로 이동합니다. **액세스 제어(IAM)** 를 찾은 후, **역할 할당 추가**를 클릭합니다. 이전 단계에서와 같이 Azure Active Directory (Azure AD)에 등록 한 데이터베이스를 호스트 하는 서버에 **저장소 Blob 데이터 참가자** RBAC 역할을 할당 합니다.
+2. [Azure Portal](https://portal.azure.com)을 엽니다. 스토리지 계정으로 이동합니다. **액세스 제어(IAM)** 를 찾은 후, **역할 할당 추가**를 클릭합니다. 이전 단계에서와 같이 Azure Active Directory (Azure AD)에 등록 한 데이터베이스를 호스트 하는 서버에 **저장소 Blob 데이터 참가자** Azure 역할을 할당 합니다.
 
    > [!NOTE]
    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. 다양 한 Azure 기본 제공 역할에 대 한 자세한 내용은 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.

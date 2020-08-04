@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224624"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533413"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "86224624"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 Open Hub를 통해 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory를 사용하여 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에서 자세한 소개, 비교 및 지침을 참조하세요.
+>SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 각 sap 커넥터, comparsion 및 지침에 대 한 자세한 소개를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -42,6 +42,7 @@ Open Hub를 통해 SAP Business Warehouse에서 지원되는 모든 싱크 데�
 - Open Hub 대상 로컬 테이블(DSO, InfoCube, MultiProvider, DataSource 아래에 있을 수 있음)을 통해 데이터 복사
 - 기본 인증을 사용하여 데이터를 복사합니다.
 - SAP 응용 프로그램 서버 또는 SAP 메시지 서버에 연결 하는 중입니다.
+- RFC를 통해 데이터를 검색 합니다.
 
 ## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 통합 
 
@@ -74,7 +75,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 적절 한 델타 처리를 위해 동일한 열려 있는 허브 테이블에 있는 다른 DTPs의 요청 Id를 가질 수 없습니다. 따라서 각 OHD (개방형 허브 대상)에 대해 두 개 이상의 DTP를 만들지 않아야 합니다. 동일한 InfoProvider에서 전체 및 델타 추출을 필요로 하는 경우 동일한 InfoProvider에 대해 두 개의 OHDs를 만들어야 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 SAP Business Warehouse 커넥터를 사용하려면 다음 작업을 수행해야 합니다.
 
@@ -110,10 +111,10 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 | type | Type 속성은 **SapOpenHub** 로 설정 해야 합니다. | 예 |
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
-| messageServer | SAP 메시지 서버의 호스트 이름입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
-| messageServerService | 메시지 서버의 서비스 이름 또는 포트 번호입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
-| systemId | 테이블이 있는 SAP 시스템의 ID입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
-| logonGroup | SAP 시스템에 대 한 로그온 그룹입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
+| messageServer | SAP 메시지 서버의 호스트 이름입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
+| messageServerService | 메시지 서버의 서비스 이름 또는 포트 번호입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
+| systemId | 테이블이 있는 SAP 시스템의 ID입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
+| logonGroup | SAP 시스템에 대 한 로그온 그룹입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 예 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
 | language | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
@@ -189,14 +190,14 @@ SAP BW 열려 있는 허브에서 데이터를 복사 하려면 복사 작업 **
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource**로 설정 해야 합니다. | 예 |
 | excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | 아니요 (기본값은 **true**임) |
-| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아니요 |
+| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 예 |
 
 >[!TIP]
 >항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.
 
 데이터 로드 속도를 높이기 위해 복사 작업에서를 설정 하 여 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) SAP BW 열려 있는 허브에서 데이터를 병렬로 로드할 수 있습니다. 예를 들어를 4로 설정 하는 경우 `parallelCopies` Data Factory는 네 개의 rfc 호출을 동시에 실행 하 고 각 RFC 호출은 DTP 요청 id 및 패키지 id로 분할 된 SAP BW 열린 허브 테이블에서 데이터의 일부를 검색 합니다. 고유 DTP 요청 ID + 패키지 ID 수가의 값 보다 큰 경우에 적용 됩니다 `parallelCopies` . 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -235,14 +236,14 @@ SAP BW Open Hub에서 데이터를 복사할 때는 SAP BW 데이터 형식에�
 
 | SAP ABAP 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| C(문자열) | 문자열 |
+| C(문자열) | String |
 | I(정수) | Int32 |
 | F(부동) | Double |
-| D(날짜) | 문자열 |
-| T(시간) | 문자열 |
+| D(날짜) | String |
+| T(시간) | String |
 | P(BCD 압축, 통화, 10진수, 수량) | Decimal |
-| N(숫자) | 문자열 |
-| X(이진 및 원시) | 문자열 |
+| N(숫자) | String |
+| X(이진 및 원시) | String |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

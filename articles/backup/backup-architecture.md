@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514308"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532495"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -44,8 +44,8 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md).
-  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md).
+  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md).
+  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md).
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 
 ## <a name="backup-agents"></a>백업 에이전트
@@ -120,16 +120,15 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 - 자격 증명 모음을 만들면 "DefaultPolicy"도 만들어지고 리소스를 백업 하는 데 사용할 수 있습니다.
 - 백업 정책의 보존 기간에 대 한 변경 내용은 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
 
-### <a name="additional-reference"></a>추가 참조 
+### <a name="additional-reference"></a>추가 참조
 
--   Azure VM 컴퓨터: 정책을 [만들고](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) [수정](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) 하는 방법 
--   Azure VM 컴퓨터의 SQL Server 데이터베이스: 정책을 [만들고](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) [수정](./manage-monitor-sql-database-backup.md#modify-policy) 하는 방법 
--   Azure 파일 공유: 정책을 [만들고](./backup-afs.md#discover-file-shares-and-configure-backup) [수정](./manage-afs-backup.md#modify-policy) 하는 방법 
--   SAP HANA: 정책을 [만들고](./backup-azure-sap-hana-database.md#create-a-backup-policy) [수정](./sap-hana-db-manage.md#change-policy) 하는 방법 
--   MARS: 정책을 [만들고](./backup-windows-with-mars-agent.md#create-a-backup-policy) [수정](./backup-azure-manage-mars.md#modify-a-backup-policy) 하는 방법 
--   [워크 로드 유형에 따라 백업 예약에 대 한 제한이 있나요?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
-- [보존 정책을 변경 하는 경우 기존 복구 지점은 어떻게 되나요?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
-
+- Azure VM 컴퓨터: 정책을 [만들고](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) [수정](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) 하는 방법입니다.
+- Azure VM 컴퓨터의 SQL Server 데이터베이스: 정책을 [만들고](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) [수정](./manage-monitor-sql-database-backup.md#modify-policy) 하는 방법입니다.
+- Azure 파일 공유: 정책을 [만들고](./backup-afs.md) [수정](./manage-afs-backup.md#modify-policy) 하는 방법입니다.
+- SAP HANA: 정책을 [만들고](./backup-azure-sap-hana-database.md#create-a-backup-policy) [수정](./sap-hana-db-manage.md#change-policy) 하는 방법입니다.
+- MARS: 정책을 [만들고](./backup-windows-with-mars-agent.md#create-a-backup-policy) [수정](./backup-azure-manage-mars.md#modify-a-backup-policy) 하는 방법입니다.
+- [워크 로드 유형에 따라 백업 예약에 대 한 제한이 있나요?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [보존 정책을 변경하는 경우 기존 복구 지점은 어떻게 되나요?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>아키텍처: 기본 제공 Azure VM 백업
 

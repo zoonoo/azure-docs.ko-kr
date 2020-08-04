@@ -1,14 +1,14 @@
 ---
-title: RBAC 역할 및 사용 권한
+title: Azure 역할 및 사용 권한
 description: Azure RBAC (역할 기반 액세스 제어) 및 IAM (id 및 액세스 관리)을 사용 하 여 Azure container registry의 리소스에 대 한 세분화 된 사용 권한을 제공 합니다.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497752"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533311"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
@@ -85,7 +85,7 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 또는 기타 Azure 도구를 사용하여 Azure ID에 RBAC 역할을 할당하는 방법을 자세히 알아봅니다.
+* [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md)또는 기타 azure 도구를 사용 하 여 azure id에 azure 역할을 할당 하는 방법에 대해 자세히 알아보세요.
 
 * Azure Container Registry의 [인증 옵션](container-registry-authentication.md)에 대해 알아봅니다.
 

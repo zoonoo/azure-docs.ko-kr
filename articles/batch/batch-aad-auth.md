@@ -4,12 +4,12 @@ description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032462"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533515"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -130,9 +130,9 @@ Azure Portal에서 다음 단계를 따릅니다.
 1. **역할** 드롭다운에서 애플리케이션에 대한 *기여자* 또는 *읽기 권한자* 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
 1. **선택** 필드에서 애플리케이션의 이름을 입력합니다. 목록에서 애플리케이션을 선택하고 **저장**을 선택합니다.
 
-이제 액세스 제어 설정에서 RBAC 역할이 할당된 애플리케이션이 표시됩니다.
+이제 응용 프로그램이 Azure 역할이 할당 된 액세스 제어 설정에 표시 됩니다.
 
-![애플리케이션에 RBAC 역할 할당](./media/batch-aad-auth/app-rbac-role.png)
+![응용 프로그램에 Azure 역할 할당](./media/batch-aad-auth/app-rbac-role.png)
 
 ### <a name="assign-a-custom-role"></a>사용자 지정 역할 할당
 
