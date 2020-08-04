@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001828"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>자습서: 지속적인 환자 모니터링 앱 템플릿 배포 및 연습
 
@@ -85,7 +85,10 @@ ms.locfileid: "77021290"
 >[!div class="mx-imgBorder"] 
 >![스마트 바이탈 패치 디바이스 템플릿](media/smart-vitals-device-template.png)
 
-**디바이스 그룹** 탭을 클릭하면 해당 디바이스 템플릿에 디바이스 그룹이 자동으로 생성되는 것을 볼 수 있습니다.
+### <a name="device-groups"></a>디바이스 그룹 
+디바이스 그룹을 사용하면 디바이스 세트를 논리적으로 그룹화한 다음, 대량 쿼리 또는 작업을 수행할 수 있습니다. 
+
+디바이스 그룹 탭을 클릭하면 애플리케이션의 각 디바이스 템플릿에 대한 몇 가지 기본 디바이스 그룹이 생성된 것을 알 수 있습니다. '디바이스 프로비저닝' 및 '오래된 펌웨어가 있는 디바이스'라는 두 개의 추가 샘플 디바이스 그룹도 만들었습니다. 이러한 샘플 디바이스 그룹을 입력으로 사용하여 일부 [작업](#jobs)을 실행합니다.
 
 ### <a name="rules"></a>규칙
 
@@ -100,6 +103,13 @@ ms.locfileid: "77021290"
 >[!div class="mx-imgBorder"] 
 >![무릎 보호대 온도 높음 규칙](media/brace-temp-rule.png)
 
+### <a name="jobs"></a>작업
+
+작업을 사용하면 입력으로 [디바이스 그룹](#device-groups)을 사용하여 디바이스 세트에서 대량 작업을 실행할 수 있습니다. 솔루션 운영자가 디바이스의 수명 주기 시점에 실행해야 하는 두 개의 샘플 작업을 사용하여 애플리케이션 템플릿을 시드했습니다.
+* **무릎 보호대 펌웨어 업데이트**: 이 작업은 '오래된 펌웨어가 있는 디바이스' 디바이스 그룹에서 디바이스를 찾고, 명령을 실행하여 해당 디바이스를 무릎 보호대의 최신 펌웨어 버전으로 업데이트합니다. 이 샘플 작업에서는 디바이스에 '업데이트' 명령을 수신하고 클라우드에서 직접 펌웨어 파일을 가져오는 기능이 있다고 가정합니다.  
+
+* **디바이스 다시 프로비저닝**: 최근에 병원에 반환된 디바이스 세트가 있고 다음 환자 집합을 다시 프로비저닝해야 하는 경우 이 작업을 실행하여 프로비전 디바이스를 대량 업데이트할 수 있습니다. 이 경우 '디바이스 프로비저닝'이라고 하는 디바이스 그룹의 모든 디바이스를 가져오고, 명령을 실행하여 '다시 프로비저닝'합니다. 
+
 ### <a name="devices"></a>디바이스
 
 **디바이스** 탭을 클릭한 다음, **스마트 무릎 보호대** 인스턴스를 선택합니다. 선택한 특정 디바이스에 대한 정보를 살펴볼 수 있는 세 가지 보기가 표시됩니다. 이러한 보기는 디바이스에 대한 디바이스 템플릿을 작성할 때 생성 및 게시되며, 이는 연결하거나 시뮬레이션하는 모든 디바이스 간에 일관성이 있음을 의미합니다.
@@ -112,6 +122,10 @@ ms.locfileid: "77021290"
 
 >[!div class="mx-imgBorder"] 
 >![무릎 보호대 보기](media/knee-brace-dashboard.png)
+
+### <a name="data-export"></a>데이터 내보내기
+
+데이터 내보내기를 사용하면 IoT Central 디바이스 데이터를 다른 Azure 서비스(예: [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir))로 계속 내보낼 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

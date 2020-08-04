@@ -1,23 +1,24 @@
 ---
-title: Resource Manager 템플릿을 사용하여 Azure 데이터 팩터리 만들기
-description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
+title: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Data Factory 만들기
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
+tags: azure-resource-manager
 ms.workload: data-services
-ms.topic: quickstart
-ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
-manager: anandsub
-ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: maghan, jingwang
+ms.topic: quickstart
+ms.custom: subject-armqs
+ms.date: 07/16/2020
+ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419122"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283897"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Data Factory 만들기
+# <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Data Factory 만들기
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
@@ -25,678 +26,170 @@ ms.locfileid: "81419122"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure 데이터 팩터리를 만드는 방법을 보여 줍니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure 데이터 팩터리를 만드는 방법을 보여 줍니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-### <a name="azure-powershell"></a>Azure PowerShell
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="prerequisites"></a>필수 구성 요소
 
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+### <a name="azure-subscription"></a>Azure 구독
 
-## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+### <a name="create-a-file"></a>파일 만들기
 
-다음 섹션에서는 신속하게 자습서를 살펴보고 템플릿을 테스트할 수 있도록 데이터 팩터리 엔터티를 정의하기 위한 완전한 Resource Manager 템플릿을 제공합니다. 각 데이터 팩터리 엔터티를 정의하는 방법을 알아보려면 [템플릿의 데이터 팩터리 엔터티](#data-factory-entities-in-the-template) 섹션을 참조하세요.
+**메모장**과 같은 텍스트 편집기를 열고 다음 내용을 사용하여 **emp.txt**라는 파일을 만듭니다.
 
-템플릿에서 Data Factory 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.DataFactory 리소스 종류](/azure/templates/microsoft.datafactory/allversions)를 참조하세요.
-
-## <a name="data-factory-json"></a>Data Factory JSON
-
-**C:\ADFTutorial** 폴더(ADFTutorial 폴더가 없는 경우 지금 생성)에 다음과 같은 내용으로 **ADFTutorialARM.json**이라는 JSON 파일을 만듭니다.
-
-```json
-{  
-    "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion":"1.0.0.0",
-    "parameters":{  
-        "dataFactoryName":{  
-            "type":"string",
-            "metadata":"Data Factory Name"
-        },
-        "dataFactoryLocation":{  
-            "type":"string",
-            "defaultValue":"East US",
-            "metadata":{  
-                "description":"Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
-            }
-        },
-        "storageAccountName":{  
-            "type":"string",
-            "metadata":{  
-                "description":"Name of the Azure storage account that contains the input/output data."
-            }
-        },
-        "storageAccountKey":{  
-            "type":"securestring",
-            "metadata":{  
-                "description":"Key for the Azure storage account."
-            }
-        },
-        "triggerStartTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Start time for the trigger."
-            }
-        },
-        "triggerEndTime": {
-            "type": "string",
-            "metadata": {
-                "description": "End time for the trigger."
-            }
-        }
-    },      
-    "variables":{  
-        "factoryId":"[concat('Microsoft.DataFactory/factories/', parameters('dataFactoryName'))]"
-    },
-    "resources":[  
-        {  
-            "name":"[parameters('dataFactoryName')]",
-            "apiVersion":"2018-06-01",
-            "type":"Microsoft.DataFactory/factories",
-            "location":"[parameters('dataFactoryLocation')]",
-            "identity":{  
-                "type":"SystemAssigned"
-            },
-            "resources":[  
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateStorageLinkedService')]",
-                    "type":"Microsoft.DataFactory/factories/linkedServices",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "annotations":[  
-
-                        ],
-                        "type":"AzureBlobStorage",
-                        "typeProperties":{  
-                            "connectionString":"[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetIn')]",
-                    "type":"Microsoft.DataFactory/factories/datasets",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "linkedServiceName":{  
-                            "referenceName":"ArmtemplateStorageLinkedService",
-                            "type":"LinkedServiceReference"
-                        },
-                        "annotations":[  
-
-                        ],
-                        "type":"Binary",
-                        "typeProperties":{  
-                            "location":{  
-                                "type":"AzureBlobStorageLocation",
-                                "fileName":"emp.txt",
-                                "folderPath":"input",
-                                "container":"adftutorial"
-                            }
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetOut')]",
-                    "type":"Microsoft.DataFactory/factories/datasets",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "linkedServiceName":{  
-                            "referenceName":"ArmtemplateStorageLinkedService",
-                            "type":"LinkedServiceReference"
-                        },
-                        "annotations":[  
-
-                        ],
-                        "type":"Binary",
-                        "typeProperties":{  
-                            "location":{  
-                                "type":"AzureBlobStorageLocation",
-                                "folderPath":"output",
-                                "container":"adftutorial"
-                            }
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateSampleCopyPipeline')]",
-                    "type":"Microsoft.DataFactory/factories/pipelines",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "activities":[  
-                            {  
-                                "name":"MyCopyActivity",
-                                "type":"Copy",
-                                "dependsOn":[  
-
-                                ],
-                                "policy":{  
-                                    "timeout":"7.00:00:00",
-                                    "retry":0,
-                                    "retryIntervalInSeconds":30,
-                                    "secureOutput":false,
-                                    "secureInput":false
-                                },
-                                "userProperties":[  
-
-                                ],
-                                "typeProperties":{  
-                                    "source":{  
-                                        "type":"BinarySource",
-                                        "storeSettings":{  
-                                            "type":"AzureBlobStorageReadSettings",
-                                            "recursive":true
-                                        }
-                                    },
-                                    "sink":{  
-                                        "type":"BinarySink",
-                                        "storeSettings":{  
-                                            "type":"AzureBlobStorageWriteSettings"
-                                        }
-                                    },
-                                    "enableStaging":false
-                                },
-                                "inputs":[  
-                                    {  
-                                        "referenceName":"ArmtemplateTestDatasetIn",
-                                        "type":"DatasetReference",
-                                        "parameters":{  
-
-                                        }
-                                    }
-                                ],
-                                "outputs":[  
-                                    {  
-                                        "referenceName":"ArmtemplateTestDatasetOut",
-                                        "type":"DatasetReference",
-                                        "parameters":{  
-
-                                        }
-                                    }
-                                ]
-                            }
-                        ],
-                        "annotations":[  
-
-                        ]
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetIn')]",
-                        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetOut')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmTemplateTestTrigger')]",
-                    "type":"Microsoft.DataFactory/factories/triggers",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "annotations":[  
-
-                        ],
-                        "runtimeState":"Started",
-                        "pipelines":[  
-                            {  
-                                "pipelineReference":{  
-                                    "referenceName":"ArmtemplateSampleCopyPipeline",
-                                    "type":"PipelineReference"
-                                },
-                                "parameters":{  
-
-                                }
-                            }
-                        ],
-                        "type":"ScheduleTrigger",
-                        "typeProperties":{  
-                            "recurrence":{  
-                                "frequency":"Hour",
-                                "interval":1,
-                                "startTime":"[parameters('triggerStartTime')]",
-                                "endTime":"[parameters('triggerEndTime')]",
-                                "timeZone":"UTC"
-                            }
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/pipelines/ArmtemplateSampleCopyPipeline')]"
-                    ]
-                }
-            ]
-        }
-    ]
-}
-```
-## <a name="parameters-json"></a>매개 변수 JSON
-
-Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTutorialARM-Parameters.json**이라는 JSON 파일을 만듭니다.
-
-> [!IMPORTANT]
-> - 이 매개 변수 파일의 **storageAccountName** 및 **storageAccountKey** 매개 변수에 대한 Azure Storage 계정 이름과 키를 지정합니다. adftutorial 컨테이너를 만들고 이 Azure Blob Storage의 입력에 샘플 파일(emp.txt)을 업로드했습니다.
-> - **dataFactoryName** 매개 변수에 대한 데이터 팩터리의 전역적으로 고유한 이름을 지정합니다. 다음은 그 예입니다.  ARMTutorialFactoryJohnDoe11282017.
-> - **triggerStartTime**에는 현재 요일을 `2019-09-08T00:00:00` 형식으로 지정합니다.
-> - **triggerEndTime**에는 다음 요일을 `2019-09-09T00:00:00` 형식으로 지정합니다. 또한 현재 UTC 시간을 확인하고 종료 시간으로 그 다음 한두 시간을 지정할 수 있습니다. 예를 들어 UTC 시간이 오전 1시 32분이면 종료 시간으로 `2019-09-09:03:00:00`를 지정합니다. 이 예에서는 트리거가 파이프라인을 두 번 실행합니다(오전 2시와 오전 3시).
-
-```json
-{  
-    "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion":"1.0.0.0",
-    "parameters":{  
-        "dataFactoryName":{  
-            "value":"<datafactoryname>"
-        },
-        "dataFactoryLocation":{  
-            "value":"East US"
-        },
-        "storageAccountName":{  
-            "value":"<yourstorageaccountname>"
-        },
-        "storageAccountKey":{  
-            "value":"<yourstorageaccountkey>"
-        },
-        "triggerStartTime":{  
-            "value":"2019-09-08T11:00:00"
-        },
-        "triggerEndTime":{  
-            "value":"2019-09-08T14:00:00"
-        }
-    }
-}
+```emp.txt
+John, Doe
+Jane, Doe
 ```
 
-> [!IMPORTANT]
-> 개발, 테스트 및 프로덕션 환경에 별도의 매개 변수 JSON 파일을 두고 동일한 데이터 팩터리 JSON 템플릿을 사용할 수 있습니다. Power Shell 스크립트를 사용하여 이러한 환경에서 데이터 팩터리 엔터티 배포를 자동화할 수 있습니다.
+**C:\ADFv2QuickStartPSH** 폴더에 이 파일을 저장합니다. 이 폴더가 아직 없으면 만듭니다.
 
-## <a name="deploy-data-factory-entities"></a>Data Factory 엔터티 배포
+## <a name="review-template"></a>템플릿 검토
 
-리소스 그룹의 Data Factory 엔터티를 배포하려면(여기서는 ADFTutorialResourceGroup을 예로 사용) 이 빠른 시작의 앞부분에서 만든 Resource Manager 템플릿을 사용하여 PowerShell에서 다음 명령을 실행합니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/)에서 나온 것입니다.
 
-```powershell
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
+
+템플릿에 Azure 리소스가 정의되어 있습니다.
+
+- [Microsoft.Storage/storageAccounts](/azure/templates/Microsoft.Storage/storageAccounts): 스토리지 계정을 정의합니다.
+- [Microsoft.DataFactory/factories](/azure/templates/microsoft.datafactory/factories): Azure Data Factory를 만듭니다.
+- [Microsoft.DataFactory/factories/linkedServices](/azure/templates/microsoft.datafactory/factories/linkedservices): Azure Data Factory 연결된 서비스를 만듭니다.
+- [Microsoft.DataFactory/factories/datasets](/azure/templates/microsoft.datafactory/factories/datasets): Azure Data Factory 데이터 세트를 만듭니다.
+- [Microsoft.DataFactory/factories/pipelines](/azure/templates/microsoft.datafactory/factories/pipelines): Azure Data Factory 파이프라인을 만듭니다.
+
+더 많은 Azure Data Factory 템플릿 샘플은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
+
+## <a name="deploy-the-template"></a>템플릿 배포
+
+1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Azure Data Factory 계정, 스토리지 계정 및 Blob 컨테이너를 만듭니다.
+
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+
+2. 다음 값을 선택하거나 입력합니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-deploy-arm-template.png" alt-text="ADF ARM 템플릿 배포":::
+
+    지정되지 않은 경우 기본값을 사용하여 Azure Data Factory 리소스를 만듭니다.
+
+    - **구독**: Azure 구독을 선택합니다.
+    - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인**을 선택합니다.
+    - **지역**: 위치를 선택합니다.  예: *미국 동부*
+    - **Data Factory 이름**: 기본값을 사용합니다.
+    - **위치**: 기본값을 사용합니다.
+    - **스토리지 계정 이름**: 기본값을 사용합니다.
+    - **Blob 컨테이너**: 기본값을 사용합니다.
+
+## <a name="review-deployed-resources"></a>배포된 리소스 검토
+
+1. **리소스 그룹으로 이동**을 선택합니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="리소스 그룹":::
+
+2.  Azure Data Factory가 생성되었는지 확인합니다.
+    1. Azure Data Factory 이름은 - datafactory\<uniqueid\>형식입니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="샘플 Data Factory":::
+
+2. 스토리지 계정이 생성되었는지 확인합니다.
+    1. 스토리지 계정 이름은 - 스토리지\<uniqueid\> 형식입니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Storage 계정":::
+
+3. 생성한 스토리지 계정을 선택한 다음, **컨테이너**를 선택합니다.
+    1. **컨테이너** 페이지에서 원하는 Blob 컨테이너를 선택합니다.
+        1. Blob 컨테이너 이름은 - Blob\<uniqueid\>형식입니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Blob 컨테이너":::
+
+### <a name="upload-a-file"></a>파일 업로드
+
+1. **컨테이너** 페이지에서 **업로드**를 선택합니다.
+
+2. 오른쪽 창에서 **파일** 상자를 선택한 다음, 이전에 만든 **emp.txt** 파일을 찾아 선택합니다.
+
+3. **고급** 제목을 펼칩니다.
+
+4. **폴더에 업로드** 상자에서 *입력*을 입력합니다.
+
+5. **업데이트** 단추를 선택합니다. 목록에서 **emp.txt** 파일 및 업로드 상태를 참조하세요.
+
+6. **닫기** 아이콘(**X**)을 선택하여 **Blob 업로드** 페이지를 닫습니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="입력 폴더에 파일 업로드":::
+
+이 빠른 시작의 끝에서 출력을 확인하는 데 사용할 수 있으므로 컨테이너 페이지를 열어 둡니다.
+
+### <a name="start-trigger"></a>트리거 시작
+
+1. **데이터 팩터리** 페이지로 이동하여 이전에 만든 데이터 팩터리를 선택합니다. 
+
+2. **작성자 & 모니터** 타일을 선택합니다. 
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="작성자 및 모니터":::
+
+2. **작성자** 탭 :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::을 선택합니다.
+
+3. 만든 파이프라인 - ArmtemplateSampleCopyPipeline을 선택합니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="ARM 템플릿 파이프라인":::
+
+4. **트리거 추가** > **지금 트리거**를 선택합니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="트리거":::
+
+5. 오른쪽 창의 **파이프라인 실행**에서 **확인**을 선택합니다.
+
+### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
+
+1. **모니터** 탭 :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-monitor.png" border="false":::을 선택합니다.
+
+2. 파이프라인 실행과 연결된 작업 실행이 표시됩니다. 이 빠른 시작의 파이프라인에는 복사 유형의 작업 하나밖에 없습니다. 따라서 해당 작업에 대한 실행이 표시됩니다.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="실행 성공":::
+
+### <a name="verify-the-output-file"></a>출력 파일 확인
+
+파이프라인은 자동으로 Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
+
+1. Azure Portal의 **컨테이너** 페이지에서 **새로 고침**을 선택하여 출력 폴더를 확인합니다. 
+
+2. 폴더 목록에서 **출력**을 선택합니다.
+
+3. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="출력":::
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹을 삭제](../azure-resource-manager/management/delete-resource-group.md)할 수 있습니다. 다른 리소스를 그대로 유지하려면 이 자습서에서 만든 데이터 팩터리만 삭제합니다.
+
+리소스 그룹을 삭제하면 그 안에 포함된 데이터 팩터리를 포함한 모든 리소스가 삭제됩니다. 다음 명령을 실행하여 전체 리소스 그룹을 삭제합니다. 
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-다음 샘플과 비슷한 출력이 표시됩니다.
+전체 리소스 그룹이 아니라 데이터 팩터리만 삭제하려면 다음 명령을 실행합니다. 
 
-```console
-DeploymentName          : MyARMDeployment
-ResourceGroupName       : ADFTutorialResourceGroup
-ProvisioningState       : Succeeded
-Timestamp               : 9/8/2019 10:52:29 AM
-Mode                    : Incremental
-TemplateLink            : 
-Parameters              : 
-                          Name                   Type                       Value     
-                          =====================  =========================  ==========
-                          dataFactoryName        String                     <data factory name>
-                          dataFactoryLocation    String                     East US   
-                          storageAccountName     String                     <storage account name>
-                          storageAccountKey      SecureString                         
-                          triggerStartTime       String                     9/8/2019 11:00:00 AM
-                          triggerEndTime         String                     9/8/2019 2:00:00 PM
-                          
-Outputs                 : 
-DeploymentDebugLogLevel : 
+```azurepowershell-interactive
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
-
-## <a name="start-the-trigger"></a>트리거 시작
-
-템플릿은 다음 Data Factory 엔터티를 배포합니다.
-
-- Azure Storage 연결된 서비스
-- 이진 데이터 세트(입력 및 출력)
-- 복사 작업이 포함된 파이프라인
-- 파이프라인을 트리거하는 트리거
-
-배포된 트리거는 중지된 상태입니다. 트리거를 시작하는 방법 중 하나는 **Start-AzDataFactoryV2Trigger** PowerShell cmdlet을 사용하는 것입니다. 다음 절차에서는 자세한 단계를 설명합니다.
-
-1. PowerShell 창에서 리소스 그룹의 이름을 저장할 변수를 만듭니다. 다음 명령을 PowerShell 창에 복사하고 ENTER 키를 누릅니다. New-AzResourceGroupDeployment 명령에 다른 리소스 그룹 이름을 지정한 경우 여기서 값을 업데이트합니다.
-
-    ```powershell
-    $resourceGroupName = "ADFTutorialResourceGroup"
-    ```
-2. 데이터 팩터리의 이름을 저장할 변수를 만듭니다. ADFTutorialARM Parameters.json 파일에 지정한 것과 동일한 이름을 지정합니다.
-
-    ```powershell
-    $dataFactoryName = "<yourdatafactoryname>"
-    ```
-3. 트리거의 이름에 대한 변수를 설정합니다. 트리거 이름은 Resource Manager 템플릿 파일(ADFTutorialARM.json)에서 하드 코딩됩니다.
-
-    ```powershell
-    $triggerName = "ArmTemplateTestTrigger"
-    ```
-4. 데이터 팩터리 및 트리거 이름을 지정한 후 다음 PowerShell 명령을 실행하여 **트리거 상태**를 가져옵니다.
-
-    ```powershell
-    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
-    ```
-
-    샘플 출력은 다음과 같습니다.
-
-    ```json
-
-    TriggerName       : ArmTemplateTestTrigger
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ADFQuickstartsDataFactory0905
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-    RuntimeState      : Stopped
-    ```
-    
-    트리거의 런타임 상태가 **Stopped**입니다.
-5. **트리거를 시작합니다**. 트리거는 템플릿에 정의된 파이프라인을 정각에 실행합니다. 즉, 이 명령을 오후 2시 25분에 실행하면 트리거는 오후 3시에 처음으로 파이프라인을 실행합니다. 그런 다음, 트리거에 지정된 종료 시간까지 1시간마다 파이프라인을 실행합니다.
-
-    ```powershell
-    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
-    ```
-    
-    샘플 출력은 다음과 같습니다.
-    
-    ```console
-    Confirm
-    Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-    True
-    ```
-6. Get-AzDataFactoryV2Trigger 명령을 다시 실행하여 트리거가 시작되었는지 확인합니다.
-
-    ```powershell
-    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
-    ```
-    
-    샘플 출력은 다음과 같습니다.
-    
-    ```console
-    TriggerName       : ArmTemplateTestTrigger
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ADFQuickstartsDataFactory0905
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-    RuntimeState      : Started
-    ```
-
-## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **모든 서비스**를 클릭하고, **데이터 팩**과 같은 키워드를 사용하여 검색하고, **데이터 팩터리**를 선택합니다.
-
-2. **데이터 팩터리** 페이지에서 이전에 만든 데이터 팩터리를 클릭합니다. 필요한 경우 해당 데이터 팩터리의 이름으로 목록을 필터링합니다.
-
-3. Data Factory 페이지에서 **작성자 및 모니터링** 타일을 클릭합니다.
-
-4. **시작** 페이지에서 **모니터링 탭**을 선택합니다.  ![파이프라인 실행 모니터링](media/doc-common-process/get-started-page-monitor-button.png)
-
-    > [!IMPORTANT]
-    > 파이프라인이 정각(예: 오전 4시, 오전 5시, 오전 6시 등)에만 실행되는 것을 볼 수 있습니다. 그 다음 정각이 되면 도구 모음에서 **새로 고침**을 클릭하여 목록을 새로 고칩니다.
-
-5. **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다.
-
-    ![파이프라인 작업 링크](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-
-6. 파이프라인 실행과 연결된 작업 실행이 표시됩니다. 이 빠른 시작의 파이프라인에는 복사 유형의 작업 하나밖에 없습니다. 따라서 이 작업에 대한 실행이 표시됩니다.
-
-    ![작업 실행](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. [작업] 열에서 **출력** 링크를 클릭합니다. **출력** 창에 복사 작업의 출력이 표시됩니다. 최대화 단추를 클릭하면 전체 출력이 표시됩니다. 최대화된 출력 창을 닫을 수 있습니다.
-
-8. 트리거 성공/실패를 확인했으면 트리거를 중지합니다. 트리거는 1시간에 한 번씩 파이프라인을 실행합니다. 파이프라인은 출력 폴더의 동일한 파일을 각 실행의 출력 폴더로 복사합니다. 트리거를 중지하려면 PowerShell 창에서 다음 명령을 실행합니다.
-    
-    ```powershell
-    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
-    ```
-
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
-
-## <a name="json-definitions-for-entities"></a><a name="data-factory-entities-in-the-template"></a> 엔터티에 대한 JSON 정의
-
-다음 데이터 팩터리 엔터티는 JSON 템플릿에 정의됩니다.
-
-- [Azure Storage 연결된 서비스](#azure-storage-linked-service)
-- [이진 입력 데이터 세트](#binary-input-dataset)
-- [이진 출력 데이터 세트](#binary-output-dataset)
-- [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
-- [트리거](#trigger)
-
-#### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-
-AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 필수 구성 요소의 일부로 컨테이너를 만들고 이 스토리지 계정에 데이터를 업로드했습니다. 이 섹션의 Azure Storage 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties)를 참조하세요.
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateStorageLinkedService')]",
-    "type":"Microsoft.DataFactory/factories/linkedServices",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "annotations":[  
-
-        ],
-        "type":"AzureBlobStorage",
-        "typeProperties":{  
-            "connectionString":"[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]"
-    ]
-}
-```
-
-connectionString은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStorageLinkedService 및 dataFactoryName 변수를 사용합니다.
-
-#### <a name="binary-input-dataset"></a>이진 입력 데이터 세트
-
-Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure Storage 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 이진 데이터 세트 정의에서 입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정합니다. 이진 데이터 세트를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [이진 데이터 세트 속성](format-binary.md#dataset-properties)을 참조하세요.
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetIn')]",
-    "type":"Microsoft.DataFactory/factories/datasets",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "linkedServiceName":{  
-            "referenceName":"ArmtemplateStorageLinkedService",
-            "type":"LinkedServiceReference"
-        },
-        "annotations":[  
-
-        ],
-        "type":"Binary",
-        "typeProperties":{  
-            "location":{  
-                "type":"AzureBlobStorageLocation",
-                "fileName":"emp.txt",
-                "folderPath":"input",
-                "container":"adftutorial"
-            }
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-    ]
-}
-```
-
-#### <a name="binary-output-dataset"></a>이진 출력 데이터 세트
-
-입력 폴더에서 복사한 데이터를 저장하는 Azure Blob Storage의 폴더 이름을 지정합니다. 이진 데이터 세트를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [이진 데이터 세트 속성](format-binary.md#dataset-properties)을 참조하세요.
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetOut')]",
-    "type":"Microsoft.DataFactory/factories/datasets",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "linkedServiceName":{  
-            "referenceName":"ArmtemplateStorageLinkedService",
-            "type":"LinkedServiceReference"
-        },
-        "annotations":[  
-
-        ],
-        "type":"Binary",
-        "typeProperties":{  
-            "location":{  
-                "type":"AzureBlobStorageLocation",
-                "folderPath":"output",
-                "container":"adftutorial"
-            }
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-    ]
-}
-```
-
-#### <a name="data-pipeline"></a>데이터 파이프라인
-
-한 이진 데이터 세트에서 다른 이진 데이터 세트로 데이터를 복사하는 파이프라인을 정의합니다. 이 예에서 파이프라인을 정의하는 데 사용된 JSON 요소에 대한 자세한 설명은 [파이프라인 JSON](concepts-pipelines-activities.md#pipeline-json)을 참조하세요.
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateSampleCopyPipeline')]",
-    "type":"Microsoft.DataFactory/factories/pipelines",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "activities":[  
-            {  
-                "name":"MyCopyActivity",
-                "type":"Copy",
-                "dependsOn":[  
-
-                ],
-                "policy":{  
-                    "timeout":"7.00:00:00",
-                    "retry":0,
-                    "retryIntervalInSeconds":30,
-                    "secureOutput":false,
-                    "secureInput":false
-                },
-                "userProperties":[  
-
-                ],
-                "typeProperties":{  
-                    "source":{  
-                        "type":"BinarySource",
-                        "storeSettings":{  
-                            "type":"AzureBlobStorageReadSettings",
-                            "recursive":true
-                        }
-                    },
-                    "sink":{  
-                        "type":"BinarySink",
-                        "storeSettings":{  
-                            "type":"AzureBlobStorageWriteSettings"
-                        }
-                    },
-                    "enableStaging":false
-                },
-                "inputs":[  
-                    {  
-                        "referenceName":"ArmtemplateTestDatasetIn",
-                        "type":"DatasetReference",
-                        "parameters":{  
-
-                        }
-                    }
-                ],
-                "outputs":[  
-                    {  
-                        "referenceName":"ArmtemplateTestDatasetOut",
-                        "type":"DatasetReference",
-                        "parameters":{  
-
-                        }
-                    }
-                ]
-            }
-        ],
-        "annotations":[  
-
-        ]
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetIn')]",
-        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetOut')]"
-    ]
-}
-```
-
-#### <a name="trigger"></a>트리거
-
-파이프라인을 한 시간에 한 번 실행하는 트리거를 정의합니다. 배포된 트리거는 중지된 상태입니다. **Start-AzDataFactoryV2Trigger** cmdlet을 사용하여 트리거를 시작합니다. 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#trigger-execution) 문서를 참조하세요.
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmTemplateTestTrigger')]",
-    "type":"Microsoft.DataFactory/factories/triggers",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "annotations":[  
-
-        ],
-        "runtimeState":"Started",
-        "pipelines":[  
-            {  
-                "pipelineReference":{  
-                    "referenceName":"ArmtemplateSampleCopyPipeline",
-                    "type":"PipelineReference"
-                },
-                "parameters":{  
-
-                }
-            }
-        ],
-        "type":"ScheduleTrigger",
-        "typeProperties":{  
-            "recurrence":{  
-                "frequency":"Hour",
-                "interval":1,
-                "startTime":"[parameters('triggerStartTime')]",
-                "endTime":"[parameters('triggerEndTime')]",
-                "timeZone":"UTC"
-            }
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/pipelines/ArmtemplateSampleCopyPipeline')]"
-    ]
-}
-```
-
-## <a name="reuse-the-template"></a>템플릿 재사용
-
-이 자습서에서는 데이터 팩터리 엔터티를 정의하는 템플릿과 매개 변수 값을 전달하는 템플릿을 만들었습니다. 같은 템플릿을 사용하여 데이터 팩터리 엔터티를 다른 환경에 배포하는 데 사용하려면 각 환경에 대한 매개 변수 파일을 만들고 해당 환경에 배포할 때 사용합니다.
-
-예제:
-
-```powershell
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
-
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
-
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
-```
-
-첫 번째 명령은 개발 환경에 대한 매개 변수 파일, 두 번째 명령은 테스트 환경에 대한 매개 변수 파일, 세 번째 명령은 프로덕션 환경에 대한 매개 변수 파일을 사용합니다.
-
-또한 이 템플릿을 재사용하여 반복 작업을 수행할 수 있습니다. 예를 들어 동일한 논리를 구현하지만 각 데이터 팩터리가 서로 다른 Azure Storage 계정을 사용하는 파이프라인이 하나 이상 있는 데이터 팩터리를 여러 개 만듭니다. 이 경우 매개 변수가 서로 다른 동일한 환경(개발, 테스트 또는 프로덕션)에서 동일한 템플릿을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요.
+이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Data Factory를 만들고 배포의 유효성을 검사했습니다. Azure Data Factory 및 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
+
+- [Azure Data Factory 설명서](index.yml)
+- [Azure Resource Manager](../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
+- 다른 [Azure Data Factory ARM 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular) 가져오기

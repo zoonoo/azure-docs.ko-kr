@@ -4,14 +4,15 @@ description: 고성능 컴퓨팅을 위한 파일 액세스 가속기 솔루션�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 05/29/2020
+ms.date: 07/16/2020
 ms.author: v-erkel
-ms.openlocfilehash: c0d32beeedba61bc2ecdc444685f7e81073459be
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: references_regions
+ms.openlocfilehash: 8c8223872ec3ef1d875e10ead8f327db01a924c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433668"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053671"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
@@ -53,22 +54,16 @@ Azure HPC Cache 배포는 정량적 분석 계산, 위험 분석 워크로드 �
 
 ## <a name="region-availability"></a>지역 가용성
 
-Azure HPC Cache는 다음 Azure 지역에서 제공됩니다.
+지역별 [Azure 글로벌 인프라 제품](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) 페이지를 방문하여 Azure HPC Cache를 사용할 수 있는 위치를 알아봅니다.
 
-| 북아메리카      | 유럽         | 아시아            | 오스트레일리아      |
-|--------------------|----------------|-----------------|----------------|
-| 미국 동부            | 북유럽   | 한국 중부   | 오스트레일리아 동부 |
-| 미국 동부 2          | 서유럽    | 동남아시아  |               |
-| 미국 중남부 | | | |
-| 미국 서부 2        | | | |
-
-[고객 관리 키 기능](customer-keys.md)은 이러한 지역에서만 지원됩니다.
+[고객 관리형 키 기능](customer-keys.md)은 다음 Azure 지역에서만 지원됩니다.
 
 * 미국 동부
 * 미국 중남부
 * 미국 서부 2
-
-최신 가용성 정보를 보려면 [Azure HPC Cache 제품 페이지](https://azure.microsoft.com/services/hpc-cache)를 확인하세요.
+* 서유럽
+* US Gov 애리조나
+* US Gov 버지니아
 
 ## <a name="service-availability"></a>서비스 가용성
 
@@ -79,5 +74,5 @@ Azure HPC 캐시에서 사용할 각 구독에 대해 액세스를 요청해야 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure HPC Cache 제품 페이지](https://azure.microsoft.com/services/hpc-cache)에서 해당 기능 알아보기
-* 제품 [필수 조건](hpc-cache-prereqs.md) 알아보기
+* 제품 [필수 조건](hpc-cache-prerequisites.md) 알아보기
 * Azure Portal에서 [Azure HPC Cache 만들기](hpc-cache-create.md)

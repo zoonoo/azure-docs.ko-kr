@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083245"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -17,7 +17,7 @@ ms.locfileid: "82562307"
 
 - 트랜잭션에 대한 확인 이메일 보내기
 - Facebook 그룹에 사용자 추가
-- SAP, SalesForce 등과 같은 타사 시스템에 연결
+- SAP, Salesforce 등과 같은 타사 시스템에 연결
 - 표준 B2B 메시지 교환
 
 이 자습서에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 App Service 앱에서 Gmail을 통해 이메일을 보냅니다. 언어 프레임워크에서 제공하는 SMTP 구성과 같이 웹앱에서 이메일을 보내는 다른 방법이 있습니다. 그러나 Logic Apps는 복잡성을 코드에 추가하지 않고 App Service 앱에 훨씬 더 많은 기능을 제공합니다. Logic Apps는 가장 인기 있는 비즈니스 통합을 위한 간단한 구성 인터페이스를 제공하고, 앱에서 언제든지 HTTP 요청을 통해 이를 호출할 수 있습니다.
@@ -57,10 +57,10 @@ ms.locfileid: "82562307"
 1. [Azure Portal](https://portal.azure.com)에서 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app)의 지침에 따라 빈 논리 앱을 만듭니다. **Logic Apps 디자이너**가 표시되면 이 자습서로 돌아갑니다.
 1. Logic Apps 디자이너의 시작 페이지에서 **일반적인 트리거로 시작** 아래의 **HTTP 요청을 수신한 경우**를 선택합니다.
 
-    ![](./media/tutorial-send-email/receive-http-request.png)
+    ![H T T P 요청 수신 시 강조 표시되는 Logic Apps 디자이너의 시작 페이지를 보여주는 스크린샷.](./media/tutorial-send-email/receive-http-request.png)
 1. **HTTP 요청을 수신한 경우** 대화 상자에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
 
-    ![](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![H T T P 요청 대화 상자와 샘플 페이로드를 사용하여 선택한 스키마 옵션을 생성하는 경우를 보여주는 스크린샷. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. 다음 샘플 JSON을 텍스트 상자에 복사하고, **완료**를 선택합니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "82562307"
 
     이제 HTTP 요청 트리거의 URL을 볼 수 있습니다. 나중에 사용할 수 있도록 복사하려면 복사 아이콘을 선택합니다.
 
-    ![](./media/tutorial-send-email/http-request-url.png)
+    ![H T T P 요청 트리거의 U R L을 복사하는 복사 아이콘을 강조 표시하는 스크린샷.](./media/tutorial-send-email/http-request-url.png)
 
     이 HTTP 요청 정의는 이 논리 앱에서 수행하려는 작업(Gmail 등)에 대한 트리거입니다. 나중에 App Service 앱에서 이 URL을 호출합니다. 요청 트리거에 대한 자세한 내용은 [HTTP 요청/응답 참조](../connectors/connectors-native-reqres.md)를 참조하세요.
 
@@ -87,18 +87,18 @@ ms.locfileid: "82562307"
     > SendGrid, MailChimp, Office 365 및 SalesForce와 같은 다른 유형의 통합을 검색할 수 있습니다. 자세한 내용은 [Logic Apps 설명서](https://docs.microsoft.com/azure/logic-apps/)를 참조하세요.
 1. **Gmail** 대화 상자에서 **로그인**을 선택하고, 이메일을 보낼 Gmail 계정에 로그인합니다.
 
-    ![](./media/tutorial-send-email/gmail-sign-in.png)
+    ![이메일을 보내려는 Gmail 계정에 로그인하는 데 사용하는 Gmail 대화 상자를 보여주는 스크린샷.](./media/tutorial-send-email/gmail-sign-in.png)
 
 1. 로그인하면 **받는 사람** 텍스트 상자를 클릭합니다. 그러면 동적 콘텐츠 대화 상자가 자동으로 열립니다.
 
 1. **HTTP 요청을 수신한 경우** 작업 옆에 있는 **자세히 보기**를 선택합니다.
 
-    ![](./media/tutorial-send-email/expand-dynamic-content.png)
+    ![H T T P 요청이 수신되는 경우 옆에 있는 추가 정보 보기 단추를 보여주는 스크린샷.](./media/tutorial-send-email/expand-dynamic-content.png)
 
     이제 이전에 사용한 샘플 JSON 데이터의 세 가지 속성을 볼 수 있습니다. 이 단계에서는 HTTP 요청의 이러한 속성을 사용하여 이메일을 구성합니다.
 1. **받는 사람** 필드의 값을 선택하고 있으므로 **이메일**을 선택합니다. 원하는 경우 **동적 콘텐츠 추가**를 클릭하여 동적 콘텐츠 대화 상자를 해제합니다.
 
-    ![](./media/tutorial-send-email/hide-dynamic-content.png)
+    ![이메일 옵션 및 동적 경합 추가 옵션이 강조 표시된 스크린샷.](./media/tutorial-send-email/hide-dynamic-content.png)
 
 1. **새 매개 변수 추가** 드롭다운에서 **제목** 및 **본문**을 선택합니다.
 
@@ -109,15 +109,15 @@ ms.locfileid: "82562307"
     > [!TIP]
     > 이메일 본문에서 HTML 콘텐츠를 직접 편집하려면 Logic Apps 디자이너 창의 위쪽에서 **코드 보기**를 선택합니다. 단, 동적 콘텐츠 코드(예: `@{triggerBody()?['due']}`)는 유지해야 합니다.
     >
-    > ![](./media/tutorial-send-email/edit-rich-html-email.png) 
+    > ![이메일 본문에서 직접 H T M L 콘텐츠를 볼 수 있는 코드 보기를 보여주는 스크린샷.](./media/tutorial-send-email/edit-rich-html-email.png) 
 
 1. 다음으로, 비동기 HTTP 응답을 HTTP 트리거에 추가합니다. HTTP 트리거와 Gmail 작업 사이에 있는 **+** 기호를 클릭하고, **병렬 분기 추가**를 선택합니다.
 
-    ![](./media/tutorial-send-email/add-http-response.png)
+    ![\+ 기호 및 병렬 분기 추가 옵션이 강조 표시된 스크린샷.](./media/tutorial-send-email/add-http-response.png)
 
 1. 검색 상자에서 **응답**을 검색한 다음, **응답** 작업을 선택합니다.
 
-    ![](./media/tutorial-send-email/choose-response-action.png)
+    ![강조 표시된 검색 창과 응답 작업을 보여주는 스크린샷.](./media/tutorial-send-email/choose-response-action.png)
 
     기본적으로 응답 작업은 HTTP 200을 보냅니다. 이 자습서에는 이 작업으로 충분합니다. 자세한 내용은 [HTTP 요청/응답 참조](../connectors/connectors-native-reqres.md)를 참조하세요.
 
@@ -127,7 +127,7 @@ ms.locfileid: "82562307"
 
 이전에 지정한 HTTP 요청 트리거의 URL을 복사했는지 확인합니다. 중요한 정보가 포함되어 있으므로 코드에 직접 배치하지 않는 것이 좋습니다. App Service를 사용하면 앱 설정을 사용하여 환경 변수로 대신 참조할 수 있습니다. 
 
-[Cloud Shell](https://shell.azure.com)에서 다음 명령을 사용하여 앱 설정을 만듭니다( *\<app-name>* , *\<resource-group-name>* 및 *\<logic-app-url>* 을 바꿈).
+[Cloud Shell](https://shell.azure.com)에서 다음 명령을 사용하여 앱 설정을 만듭니다( *\<app-name>* , *\<resource-group-name>* 및 *\<logic-app-url>* 대체).
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"
@@ -152,7 +152,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-ASP.NET에서는 [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) 클래스를 사용하여 HTTP post를 보낼 수 있습니다. 다음은 그 예입니다.
+ASP.NET에서는 [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) 클래스를 사용하여 HTTP post를 보낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ var statusCode = result.StatusCode.ToString();
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-ASP.NET Core에서는 [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) 클래스를 사용하여 HTTP post를 보낼 수 있습니다. 다음은 그 예입니다.
+ASP.NET Core에서는 [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) 클래스를 사용하여 HTTP post를 보낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 // requires using System.Net.Http;
@@ -205,7 +205,7 @@ var statusCode = result.StatusCode.ToString();
 
 ### <a name="nodejs"></a>[Node.JS](#tab/node)
 
-Node.js에서는 [axios](https://www.npmjs.com/package/axios)와 같은 npm 패키지를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
+Node.js에서는 [axios](https://www.npmjs.com/package/axios)와 같은 npm 패키지를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 // Requires npm install --save axios
@@ -232,7 +232,7 @@ var jsonData = {
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-PHP에서는 [Guzzle](http://docs.guzzlephp.org/en/stable/index.html)을 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
+PHP에서는 [Guzzle](http://docs.guzzlephp.org/en/stable/index.html)을 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -264,7 +264,7 @@ Log::info(print_r($response, TRUE));
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Python에서는 [requests](https://pypi.org/project/requests/)를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
+Python에서는 [requests](https://pypi.org/project/requests/)를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
