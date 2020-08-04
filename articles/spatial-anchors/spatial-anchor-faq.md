@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9f6f428a930f03259986373ca70a95d5df1f7dc3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296672"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091490"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -88,9 +88,9 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 
 즉, 이 서비스에서 지원하는 컴퓨팅과 스토리지가 모두 이러한 지역에 있습니다. 다시 말하면, 클라이언트의 위치에는 제한이 없습니다. 
 
-**Q: Azure Spatial Anchors에 대해 요금을 부과하는가요? 혹은 청구되나요?**
+**Q: Azure Spatial Anchors에 대해 요금을 부과하나요?**
 
-**A:** 미리 보기 동안의 가격 책정에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/spatial-anchors/)에서 확인할 수 있습니다.
+**A:** 가격 책정에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/spatial-anchors/)에서 확인할 수 있습니다.
 
 ## <a name="technical-faqs"></a>기술 FAQ
 

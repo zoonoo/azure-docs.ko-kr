@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: beda097733228dbb23ccb607747742d93d606933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f31e238c705a4b03c400a38fa6eb5f42db7204b0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497616"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535028"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 이제 두 개의 DataFrame이 있으므로 다음 작업은 모델 수식을 만들고 학습 DataFrame에 대해 실행한 다음, DataFrame 테스트에 대해 유효성을 검사하는 것입니다. 모델 수식의 여러 버전을 실험하여 다양한 조합의 영향을 확인해야 합니다.
 
 > [!Note]
-> 모델을 저장하려면 Azure Storage Blob 데이터 기여자 RBAC 역할이 필요합니다. 스토리지 계정에서 IAM(액세스 제어)으로 이동하고 역할 할당 추가를 선택합니다. SQL Database 서버에 Storage Blob 데이터 기여자 RBAC 역할을 할당합니다. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. 다양 한 Azure 기본 제공 역할에 대 한 자세한 내용은이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조 하세요.
+> 모델을 저장 하려면 저장소 Blob 데이터 참가자 Azure 역할이 필요 합니다. 스토리지 계정에서 IAM(액세스 제어)으로 이동하고 역할 할당 추가를 선택합니다. 저장소 Blob 데이터 참가자 Azure 역할을 SQL Database 서버에 할당 합니다. 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. 다양 한 Azure 기본 제공 역할에 대 한 자세한 내용은이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조 하세요.
 
 ```python
 ## Create a new LR object for the model

@@ -3,20 +3,23 @@ title: '빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라
 description: JavaScript용 Azure Storage 클라이언트 라이브러리 v10을 통해 Node.js에서 blob 및 컨테이너 만들기, 업로드 및 삭제
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 01d9c2e2b822af607d7473206461b97dfa627c17
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78269493"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282027"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v10 SDK를 사용하여 Blob 관리
 
 이 빠른 시작에서는 Node.js를 사용하여 Blob을 관리하는 방법을 알아봅니다. Blob은 이미지, 문서, 스트리밍 미디어 및 보관 데이터를 포함하여 대량의 텍스트 또는 이진 데이터를 저장할 수 있는 개체입니다. Blob을 업로드, 다운로드, 나열 및 삭제하고 컨테이너를 관리합니다.
+
+> [!NOTE]
+> 이 빠른 시작에서는 Azure Blob 스토리지 클라이언트 라이브러리의 레거시 버전을 사용합니다. 최신 버전을 시작하려면 [빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob을 관리](storage-quickstart-blobs-nodejs.md)합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

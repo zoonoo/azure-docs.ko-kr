@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b11f11ac8a0d4f3a0623c2903dfc9355e875d14
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501936"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535045"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>작업 영역 관리 id에 사용 권한 부여 (미리 보기)
 
@@ -84,11 +84,11 @@ Azure Portal에서 ADLS Gen2 storage 계정을 열고 왼쪽 탐색 영역에서
 
 ![새 역할 할당 추가](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
-#### <a name="step-5-select-the-rbac-role"></a>5 단계: RBAC 역할 선택
+#### <a name="step-5-select-the-azure-role"></a>5 단계: Azure 역할 선택
 
 **저장소 Blob 데이터 참가자** 역할을 선택 합니다.
 
-![RBAC 역할 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
+![Azure 역할 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
 #### <a name="step-6-select-the-azure-ad-security-principal"></a>6 단계: Azure AD 보안 주체 선택
 

@@ -1,6 +1,6 @@
 ---
 title: 두 개 가상 네트워크 피어링 - Azure CLI 스크립트 샘플
-description: Azure CLI 스크립트 샘플 - 2개 가상 네트워크 피어링입니다.
+description: Azure CLI 스크립트 샘플을 사용하여 Azure 네트워크를 통해 동일한 지역에서 두 가상 네트워크를 만들고 연결합니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 2dd5336d66872cc8c56fd372e89b67ce9c892f3a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 88bdca4d37d97bd666cc24e403d6944690bff82f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74083833"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291915"
 ---
-# <a name="peer-two-virtual-networks-script-sample"></a>2개 가상 네트워크 피어링 스크립트 샘플
+# <a name="peer-two-virtual-networks-with-an-azure-cli-script-sample"></a>Azure CLI 스크립트 샘플로 두 개의 가상 네트워크 피어링
 
 이 스크립트 샘플은 Azure 네트워크를 통해 동일한 지역에서 두 가상 네트워크를 만들고 연결합니다. 스크립트를 실행한 후에는 두 개의 가상 네트워크 간에 피어링이 설정됩니다.
 

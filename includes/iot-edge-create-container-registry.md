@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75564681"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387621"
 ---
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -25,17 +25,18 @@ ms.locfileid: "75564681"
 
    | 필드 | 값 |
    | ----- | ----- |
-   | 레지스트리 이름 | 고유한 이름을 입력합니다. |
    | Subscription | 드롭다운 목록에서 구독을 선택합니다. |
    | Resource group | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
+   | 레지스트리 이름 | 고유한 이름을 입력합니다. |
    | 위치 | 가까운 위치를 선택합니다. |
-   | 관리 사용자 | **사용**으로 설정합니다. |
    | SKU | **기본**을 선택합니다. |
 
 3. **만들기**를 선택합니다.
 
 4. 컨테이너 레지스트리를 만든 후에 이를 찾아 왼쪽 창에서 **설정** 아래에 있는 메뉴에서 **액세스 키**를 선택합니다.
 
-5. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사하고 편리한 위치에 저장합니다. 이 자습서 전반에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다.
+5. 컨테이너 레지스트리의 **사용자 이름** 및 **암호**를 보려면 관리 사용자 사용을 클릭합니다.
+
+6. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사하고 편리한 위치에 저장합니다. 이 자습서 전반에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다.
 
    ![컨테이너 레지스트리의 로그인 서버, 사용자 이름 및 암호를 복사합니다.](./media/iot-edge-create-container-registry/registry-access-key.png)

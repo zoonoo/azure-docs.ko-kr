@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 1bed17084af39fa75fe01d68fbdd33c586d48e67
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: f77c20faa87adf28a2dda43412a59867309c7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066917"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Mongoose를 사용하여 Cosmos DB에 연결
 
@@ -230,7 +230,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 
 다음 단계에 따라 앱을 실행합니다.
 
-1. Visual Studio Code에서 모든 변경 내용을 저장합니다. 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)를 선택한 다음, **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)를 선택합니다.
+1. Visual Studio Code에서 모든 변경 내용을 저장합니다. 왼쪽에서 **디버그** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png":::를 선택한 다음 **디버깅 시작** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png":::를 선택합니다.
 
 1. 이제 브라우저로 전환합니다. **개발자 도구**를 열고 **네트워크 탭**을 엽니다. `http://localhost:3000`으로 이동하면 애플리케이션을 볼 수 있습니다.
 

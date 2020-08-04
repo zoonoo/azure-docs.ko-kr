@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: ec6165ba8ab33beba0b50d6b589b3d31269d7b1e
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e1b67a5fc7b687804eb30c615648ab06bc308ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067283"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Cosmos 계정 만들기
 
@@ -61,7 +61,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 
 Cosmos DB Azure 계정을 만들면:
 1. 새 브라우저 창을 열고 [https://portal.azure.com](https://portal.azure.com)으로 이동합니다.
-1. Azure Cosmos DB 로고를 클릭합니다. ![Azure Portal의 Azure Cosmos DB 아이콘](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) 왼쪽 모음에서 모든 Azure Cosmos DB를 표시합니다.
+1. 왼쪽 모음에서 모든 Azure Cosmos DB 로고:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png":::를 클릭하면 사용자가 보유한 모든 Azure Cosmos DB가 표시됩니다.
 1. 방금 만든 Azure Cosmos DB 계정을 클릭하고, **개요** 탭을 선택하고, 아래로 스크롤하여 데이터베이스가 위치한 맵을 봅니다. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Azure Portal의 새 Azure Cosmos DB 계정":::

@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 6e240a0c5d5d77489c92862238c2e5041bdeabe3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6d805dfc15264a34abe1f177f688dae96d4a49f7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171351"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369443"
 ---
 Node.js용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -25,7 +25,7 @@ Node.js용 LUIS(Language Understanding) 작성 클라이언트 라이브러리�
 * 앱 학습 및 게시
 * 앱 삭제
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [작성 패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [런타임 패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [작성 패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [런타임 패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,46 +36,7 @@ Node.js용 LUIS(Language Understanding) 작성 클라이언트 라이브러리�
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>LUIS(Language Understanding) 시작 키 가져오기
 
-LUIS 작성 리소스를 만들어 [스타터 키](../luis-how-to-azure-subscription.md#starter-key)를 가져옵니다. 다음 단계를 위해 키와 키의 엔드포인트를 유지합니다.
-
-### <a name="create-an-environment-variable"></a>환경 변수 만들기
-
-키와 키 영역을 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
-
-* `LUIS_AUTHORING_KEY` - 요청을 인증하기 위한 리소스 키입니다.
-* `LUIS_AUTHORING_ENDPOINT` - 키와 연결된 엔드포인트입니다.
-
-운영 체제에 대한 지침을 사용합니다.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
-setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
-```
-
-환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
-***
+LUIS 작성 리소스를 만들어 [작성 키](../luis-how-to-azure-subscription.md)를 가져옵니다. 키와 키의 엔드포인트를 유지하고, 코드 파일의 맨 위에 문자열을 추가해야 합니다.
 
 ### <a name="install-the-npm-library-for-luis-authoring"></a>LUIS 작성을 위한 NPM 라이브러리 설치
 
@@ -118,8 +79,6 @@ LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LU
 이름이 `luis_authoring_quickstart.js`인 기본 설정된 편집기 또는 IDE에서 새 텍스트 파일을 만듭니다. 그런 다음, 다음 종속성을 추가합니다.
 
 [!code-javascript[Create a new application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Dependencies)]
-
-리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다.
 
 [!code-javascript[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Variables)]
 

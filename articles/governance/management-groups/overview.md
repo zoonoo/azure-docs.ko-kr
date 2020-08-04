@@ -3,12 +3,12 @@ title: 관리 그룹으로 리소스 구성 - Azure Governance
 description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963685"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132928"
 ---
 # <a name="what-are-azure-management-groups"></a>Azure 관리 그룹이란?
 
@@ -100,9 +100,9 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 \*: MG 기여자 및 MG 읽기 권한자는 사용자가 관리 그룹 범위에서 이러한 작업만 수행하도록 허용합니다.  
 \*\*: 구독 또는 관리 그룹을 이동하기 위해 루트 관리 그룹에 대한 역할을 할당할 필요가 없습니다. 계층 내에서 항목을 이동하는 방법에 대한 세부 정보는 [관리 그룹을 사용하여 리소스 관리](manage.md)를 참조하세요.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>사용자 지정 RBAC 역할 정의 및 할당
+## <a name="azure-custom-role-definition-and-assignment"></a>Azure 사용자 지정 역할 정의 및 할당
 
-관리 그룹에 대한 사용자 지정 RBAC 역할 지원은 현재 몇 가지 [제한 사항](#limitations)과 함께 미리 보기에서 제공됩니다. 역할 정의의 할당 가능한 범위에서 관리 그룹 범위를 정의할 수 있습니다. 그 후 해당 관리 그룹 및 다른 관리 그룹, 구독, 리소스 그룹 또는 리소스 그룹의 리소스에 사용자 지정 RBAC 역할을 할당할 수 있습니다. 이 사용자 지정 역할은 기본 제공 역할과 마찬가지로 계층 구조를 상속합니다.  
+관리 그룹에 대한 Azure 사용자 지정 역할 지원은 현재 몇 가지 [제한 사항](#limitations)과 함께 미리 보기에서 제공됩니다. 역할 정의의 할당 가능한 범위에서 관리 그룹 범위를 정의할 수 있습니다. 그 후 해당 관리 그룹 및 다른 관리 그룹, 구독, 리소스 그룹 또는 리소스 그룹의 리소스에 Azure 사용자 지정 역할을 할당할 수 있습니다. 이 사용자 지정 역할은 기본 제공 역할과 마찬가지로 계층 구조를 상속합니다.  
 
 ### <a name="example-definition"></a>정의 예제
 

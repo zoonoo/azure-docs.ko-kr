@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563752"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384772"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -81,7 +81,7 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |트래픽 분할은 현재 지원되지 않습니다.|Office 365 및 Azure 퍼블릭 PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure 퍼블릭 PaaS 및 Office 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
 |지역당 하나의 보안 가상 허브.|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
 |기본 정책은 로컬 정책과 동일한 지역에 있어야 합니다.|기본 정책과 동일한 지역에 모든 로컬 정책을 만듭니다. 보안 허브의 한 지역에 생성된 정책을 다른 지역에서 계속 적용할 수 있습니다.|조사|
-|보안 Virtual Hub에서 허브 간 통신이 작동하지 않음|보안 Virtual Hub 간 통신은 아직 지원되지 않습니다.|조사|
+|보안 가상 허브에서 허브 간 통신이 작동하지 않음|보안 가상 허브-보안 가상 허브 통신은 아직 지원되지 않지만 허브-허브 통신은 계속 작동합니다.|조사|
 |동일한 가상 WAN을 공유하는 모든 보안 Virtual Hubs는 동일한 리소스 그룹에 있어야 합니다.|이 동작은 현재 Virtual WAN Hubs에 맞춰 조정됩니다.|여러 Virtual WAN을 만들어 다른 리소스 그룹에서 보안 Virtual Hubs를 만들 수 있도록 합니다.|
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,14 +6,14 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 58f771120c5c81e27751af66b64e146c79bb6508
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422374"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298754"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
@@ -68,6 +68,8 @@ Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. �
 > 이 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
+
+이 예제에서는 `addIntent()` 함수를 사용하여 개별적으로 의도를 추가합니다. 모델에서 모든 의도를 추가하려면 `addAllIntents(model)`을(를) 사용하고 모델을 전달합니다.
 
 ## <a name="recognize-an-intent"></a>의도 인식
 

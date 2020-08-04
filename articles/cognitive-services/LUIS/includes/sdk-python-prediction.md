@@ -6,23 +6,23 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 8aeb6b964ab38a68a6d8681a4e5c93e1650c6a69
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: db866da43310f5407ce4daae1cade2c7512b91ea
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171284"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369271"
 ---
 Python용 LUIS(Language Understanding) 예측 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
 * 슬롯별 예측 가져오기
 * 버전별 예측 가져오기
 
-[참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [예측 런타임 패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
+[참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [예측 런타임 패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,8 +35,6 @@ Python용 LUIS(Language Understanding) 예측 클라이언트 라이브러리를
 ### <a name="get-your-language-understanding-luis-runtime-key"></a>LUIS(Language Understanding) 런타임 키 가져오기
 
 LUIS 런타임 리소스를 만들어 [런타임 키](../luis-how-to-azure-subscription.md)를 가져옵니다. 다음 단계를 위해 키와 키의 엔드포인트를 유지합니다.
-
-[!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
 ### <a name="create-a-new-python-file"></a>새 Python 파일 만들기
 
@@ -73,20 +71,16 @@ LUIS(Language Understanding) 예측 런타임 클라이언트는 Azure를 인증
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-1. 사용자 고유의 필수 LUIS 정보에 대한 변수를 만듭니다.
-
-    `LUIS_RUNTIME_KEY`라는 환경 변수에서 끌어온 예측 키를 관리하는 변수를 추가합니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다. 메서드는 나중에 생성됩니다.
-
-    리소스 이름 `LUIS_RUNTIME_ENDPOINT`을 보유할 변수를 만듭니다.
+1. 사용자 고유의 필수 LUIS 정보에 대한 변수를 만듭니다(예측 키 및 엔드포인트).
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=AuthorizationVariables)]
 
-1. `LUIS_APP_ID`라는 환경 변수로 앱 ID에 대한 변수를 만듭니다. 환경 변수를 공용 IoT 앱 **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** 로 설정합니다. `production`의 게시된 슬롯을 설정하는 변수를 만듭니다.
+1. 공용 IoT 앱에 설정된 앱 ID에 대한 변수( **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** )를 만듭니다. `production`의 게시된 슬롯을 설정하는 변수를 만듭니다.
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=OtherVariables)]
 
 
-1. 키를 사용하여 자격 증명 개체를 만들고, 엔드포인트에서 이를 사용하여 [LUISRuntimeClientConfiguration]https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() 개체를 만듭니다.
+1. 키를 사용하여 자격 증명 개체를 만들고, 엔드포인트에서 이를 사용하여 [LUISRuntimeClientConfiguration](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python) 개체를 만듭니다.
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Client)]
 

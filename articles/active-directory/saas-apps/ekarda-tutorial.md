@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3790da8674732c50d55a85c84367f0d2fe3e08f5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: aacaec5ff632385a1f1686610370bb92eb63c349
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017553"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>자습서: Ekarda와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -151,12 +151,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리자** -> **내 계정**을 클릭합니다.
 
-    ![Ekarda 구성](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Ekarda 구성](./media/ekarda-tutorial/ekarda.png)    
 
 1. 페이지 하단을 보면 **SAML 설정** 섹션이 있는데, 이 섹션에서 SAML 통합을 구성할 것입니다.
 1. 다음 페이지에서 아래 단계를 수행합니다.
 
-    ![Ekarda 구성](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Ekarda 구성](./media/ekarda-tutorial/ekarda1.png)
 
     a. **서비스 공급자 메타데이터** 링크를 클릭하여 컴퓨터에 파일로 저장합니다.
 
@@ -186,15 +186,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 Ekarda 사용해보기](https://aad.portal.azure.com/)
 
+- [Ekarda의 엔터프라이즈 eCard 솔루션](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise)을 사용하여 회사 로고가 포함된 eCards를 클라이언트 및 동료에게 보낼 직원을 원하는 수만큼 프로비전할 수 있습니다. [Ekarda를 SSO 솔루션](https://support.ekarda.com/#SSO-Implementation)으로 프로비전하는 것에 대해 자세히 알아보세요.
+
 - [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [고급 표시 유형 및 컨트롤을 사용하여 Ekarda를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

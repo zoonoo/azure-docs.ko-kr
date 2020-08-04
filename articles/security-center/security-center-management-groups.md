@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423986"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534909"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 Azure 구독에 보안 정책을 적용 하 여 조직의 보안 상태를 대규모로 관리 하는 방법을 설명 합니다.
@@ -60,10 +60,10 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>테넌트 수준 가시성 및 정책을 할당하는 기능 부여
 
-Azure AD 테넌트에 등록된 모든 구독의 보안 상태로 가시성을 가져오려면 루트 관리 그룹에 할당될 충분한 읽기 권한이 있는 RBAC 역할이 필요합니다.
+Azure AD 테 넌 트에 등록 된 모든 구독의 보안 상태를 파악 하려면 루트 관리 그룹에서 충분 한 읽기 권한이 있는 Azure 역할을 할당 해야 합니다.
 
 ### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승
-Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액세스를 갖지 않습니다. 그러나 디렉터리 관리자로서 액세스 권한을 갖는 역할로 자체적으로 권한을 상승시킬 수 있습니다. Azure AD 테넌트 관리자는 RBAC 역할을 할당할 수 있도록 루트 관리 그룹 수준에서 사용자 액세스 관리자로 스스로를 승격해야 합니다. PowerShell 지침 및 추가 정보는 [Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승](../role-based-access-control/elevate-access-global-admin.md)을 참조하세요. 
+Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액세스를 갖지 않습니다. 그러나 디렉터리 관리자로서 액세스 권한을 갖는 역할로 자체적으로 권한을 상승시킬 수 있습니다. Azure AD 테 넌 트 관리자는 Azure 역할을 할당할 수 있도록 루트 관리 그룹 수준에서 사용자 액세스 관리자에 게 자신을 승격 해야 합니다. PowerShell 지침 및 추가 정보는 [Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승](../role-based-access-control/elevate-access-global-admin.md)을 참조하세요. 
 
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
@@ -87,11 +87,11 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 5. 권한이 상승된 액세스를 확인하는 데 필요한 작업을 수행합니다. 작업이 완료되면 스위치를 다시 **아니요**로 설정합니다.
 
 
-### <a name="assign-rbac-roles-to-users"></a>사용자에게 RBAC 역할 할당
-모든 구독에 대한 가시성을 확보하려면 테넌트 관리자가 루트 관리 그룹 수준에서 자신을 포함하여 테넌트 전체에 대한 가시성을 부여하려는 사용자에게 적절한 RBAC 역할을 할당해야 합니다. 권장되는 할당 역할은 **보안 관리자** 또는 **보안 읽기 권한자**입니다. 일반적으로 보안 관리자 역할은 루트 수준에서 정책을 적용해야 하며, 보안 읽기 권한자는 테넌트 수준 가시성을 제공하는 데 충분합니다. 이러한 역할로 부여되는 권한에 대한 자세한 내용은 [보안 관리자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-admin) 또는 [보안 읽기 권한자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-reader)을 참조하세요.
+### <a name="assign-azure-roles-to-users"></a>사용자에 게 Azure 역할 할당
+모든 구독을 표시 하려면 테 넌 트 관리자가 루트 관리 그룹 수준에서 자신을 포함 하 여 테 넌 트 전체 표시 유형을 부여 하려는 모든 사용자에 게 적절 한 Azure 역할을 할당 해야 합니다. 권장되는 할당 역할은 **보안 관리자** 또는 **보안 읽기 권한자**입니다. 일반적으로 보안 관리자 역할은 루트 수준에서 정책을 적용해야 하며, 보안 읽기 권한자는 테넌트 수준 가시성을 제공하는 데 충분합니다. 이러한 역할로 부여되는 권한에 대한 자세한 내용은 [보안 관리자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-admin) 또는 [보안 읽기 권한자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-reader)을 참조하세요.
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Azure Portal을 통해 사용자에게 RBAC 역할 할당: 
+#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Azure Portal를 통해 사용자에 게 Azure 역할을 할당 합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. 관리 그룹을 보려면 Azure 주 메뉴에서 **모든 서비스**를 선택한 다음, **관리 그룹**을 선택합니다.
@@ -108,7 +108,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
    ![보안 읽기 권한자 역할 추가 스크린샷](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>PowerShell을 사용하여 사용자에게 RBAC 역할 할당: 
+#### <a name="assign-azure-roles-to-users-with-powershell"></a>PowerShell을 사용 하 여 사용자에 게 Azure 역할을 할당 합니다. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
     ![구독 적용 범위 목록 스크린샷](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거 
-RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액세스 관리자 역할에서 스스로를 제거해야 합니다.
+Azure 역할이 사용자에 게 할당 된 후에는 테 넌 트 관리자가 사용자 액세스 관리자 역할에서 자신을 제거 해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
@@ -183,7 +183,7 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 4. 범위에 모든 구독을 추가할 때까지 1-3단계를 반복합니다.
 
    > [!NOTE]
-   > 관리 그룹은 구독 및 자식 관리 그룹 모두를 포함할 수 있습니다. 사용자에게 부모 관리 그룹에 대한 RBAC 역할을 할당하면 액세스는 자식 관리 그룹의 구독에서 상속됩니다. 부모 관리 그룹에서 설정된 정책도 자식에서 상속됩니다. 
+   > 관리 그룹은 구독 및 자식 관리 그룹 모두를 포함할 수 있습니다. 사용자를 부모 관리 그룹에 할당 하면 자식 관리 그룹의 구독에 의해 액세스 권한이 상속 됩니다. 부모 관리 그룹에서 설정된 정책도 자식에서 상속됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center에 대한 테넌트 수준 가시성을 얻는 방법을 배웠습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.

@@ -5,12 +5,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 다중 서비스 Node.js 애플리케이션을 디버깅하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: a5fa0aae3a966dd96ee95e6bcafc3b2eec4e6837
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2c87dedda1db97a033526c809de735fe036120ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438304"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006985"
 ---
 # <a name="running-multiple-dependent-services-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>여러 종속 서비스 실행: Azure Dev Spaces가 포함된 Node.js 및 Visual Studio Code
 
@@ -20,7 +20,7 @@ ms.locfileid: "75438304"
 
 이 섹션에서는 두 번째 서비스인 `mywebapi`를 만들고 `webfrontend`에서 이 서비스를 호출하도록 합니다. 각 서비스는 별도의 컨테이너에서 실행됩니다. 그런 다음, 두 컨테이너 모두에서 디버그합니다.
 
-![](media/common/multi-container.png)
+![이 다이어그램에서는 mywebapi 서비스를 호출하는(화살표로 표시 됨) 웹 프런트 엔드 서비스를 보여줍니다.](media/common/multi-container.png)
 
 ### <a name="open-sample-code-for-mywebapi"></a>*mywebapi* 샘플 코드 열기
 이 가이드에서 사용할 `mywebapi` 샘플 코드가 이미 `samples` 폴더에 있어야 합니다. 그렇지 않으면 https://github.com/Azure/dev-spaces 로 이동하고 **복제 또는 다운로드**를 선택하여 GitHub 리포지토리를 다운로드합니다. 이 섹션에서 사용할 코드는 `samples/nodejs/getting-started/mywebapi` 에 있습니다.

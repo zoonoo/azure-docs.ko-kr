@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b47d579a8b086f86194d7129f5289f9c5c839c85
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 70244f6709e35271f63834fd818ea7c72e52a419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987518"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032071"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-and-c"></a>빠른 시작: Computer Vision 3.0 REST API 및 C#을 사용하여 인쇄 및 필기 텍스트 추출
 
@@ -44,6 +44,7 @@ Visual Studio에서 샘플을 만들려면 다음을 수행합니다.
     2. **찾아보기** 탭을 클릭하고 **검색** 상자에 "Newtonsoft.Json"을 입력합니다.
     3. **Newtonsoft.Json**이 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치**를 클릭합니다.
 3. 아래 코드를 복사하여 솔루션의 Program.cs 파일에 붙여넣습니다.
+1. `imageFilePath`을(를) 사용자 고유의 이미지 경로로 설정합니다. [샘플 이미지](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg)를 다운로드하여 사용할 수 있습니다.
 4. 프로그램을 실행합니다.
 
 ```csharp

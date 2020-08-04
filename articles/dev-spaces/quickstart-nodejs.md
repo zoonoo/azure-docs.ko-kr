@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Node.js 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 18171a2f8d13bfcf3df76b1453c39c59cab89d7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 370d49b5287a4d5beafc8c2cc5d8f48c269715db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240192"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006947"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>빠른 시작: Visual Studio Code 및 Node.js를 사용하여 Kubernetes에서 디버깅 및 반복 - Azure Dev Spaces
 
@@ -108,7 +108,7 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 **서버 시작**을 다시 실행하면 됩니다. 다음은 그 예입니다. 
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 **서버 시작**을 다시 실행하면 됩니다. 예를 들면 다음과 같습니다.
 
 1. 애플리케이션이 여전히 실행되는 경우 **디버그**를 선택한 다음, **디버깅 중지**를 선택하여 중지합니다.
 1. [`server.js`의 13줄](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13)을 다음으로 업데이트합니다.
@@ -140,13 +140,13 @@ Visual Studio Code에서 공용 엔드포인트를 구성하라는 메시지를 
 
 디버그 모드를 **서버에 연결(AZDS)** 로 변경하고 서비스를 시작합니다.
 
-![](media/get-started-node/attach-nodejs.png)
+![서버에 연결(AZDS) 옵션이 선택된 VS Code UI의 스크린샷](media/get-started-node/attach-nodejs.png)
 
 이 명령은 Azure Dev Spaces의 서비스를 빌드하고 실행합니다. 또한, 서비스의 컨테이너에서 [nodemon](https://nodemon.io) 프로세스를 시작하여 VS Code를 연결합니다. *nodemon* 프로세스는 소스 코드가 변경되면 자동으로 재시작이 가능하기 때문에 로컬 머신에서 개발하는 것과 비슷하게 신속한 내부 루프 개발이 가능합니다.
 
 서비스가 시작되면 브라우저를 사용하여 서비스로 이동하여 상호 작용합니다.
 
-서비스가 실행되는 동안 VS Code로 돌아가서 *server.js*의 13줄을 업데이트합니다. 다음은 그 예입니다. 
+서비스가 실행되는 동안 VS Code로 돌아가서 *server.js*의 13줄을 업데이트합니다. 예를 들면 다음과 같습니다.
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

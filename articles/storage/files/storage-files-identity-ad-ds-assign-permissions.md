@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510622"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535096"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>2 부: id에 공유 수준 권한 할당
 
@@ -38,11 +38,11 @@ Azure 파일 공유에 대 한 AD DS 인증을 지원 하려면 AD DS의 동일�
 
 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다.
 
-## <a name="assign-an-rbac-role"></a>RBAC 역할 할당
+## <a name="assign-an-azure-role"></a>Azure 역할 할당
 
 ### <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](https://portal.azure.com)를 사용 하 여 Azure AD ID에 RBAC 역할을 할당 하려면 다음 단계를 수행 합니다.
+[Azure Portal](https://portal.azure.com)를 사용 하 여 azure AD Id에 azure 역할을 할당 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 파일 공유로 이동 하거나 [파일 공유를 만듭니다](storage-how-to-create-file-share.md).
 1. **Access Control(IAM)** 을 선택합니다.
@@ -52,7 +52,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 
 
 ### <a name="powershell"></a>PowerShell
 
-다음 PowerShell 샘플은 로그인 이름에 따라 Azure AD id에 RBAC 역할을 할당 하는 방법을 보여 줍니다. PowerShell을 사용하여 RBAC 역할을 할당하는 방법에 대한 자세한 내용은 [RBAC 및 Azure PowerShell을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
+다음 PowerShell 샘플은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 하는 방법을 보여 줍니다. PowerShell로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 사용자의 값으로 대체 합니다.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-다음 CLI 2.0 명령은 로그인 이름을 기반으로 하 여 Azure AD id에 RBAC 역할을 할당 합니다. Azure CLI에서 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [rbac 및 Azure CLI를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
+다음 CLI 2.0 명령은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 합니다. Azure CLI와 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC 및 Azure CLI를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 

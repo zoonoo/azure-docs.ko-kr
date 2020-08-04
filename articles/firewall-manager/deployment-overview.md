@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
-ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565806"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372368"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Azure Firewall Manager 배포 개요
 
@@ -65,6 +65,13 @@ Azure Firewall Manager를 배포하는 방법은 여러 가지가 있지만 다�
 > - 지역별 가상 WAN당 허브가 두 개 이상 있을 수 없습니다. 그러나 지역에서 가상 WAN을 더 추가할 수 있습니다.
 > - vWAN에서 허브의 IP 공간이 겹쳐서도 안 됩니다.
 > - 허브 VNet 연결은 허브와 같은 지역에 있어야 합니다.
+
+## <a name="convert-virtual-networks"></a>가상 네트워크 변환
+
+기존 가상 네트워크를 허브 가상 네트워크로 변환하는 경우 다음 정보가 적용됩니다.
+
+- 가상 네트워크에 기존 Azure Firewall이 있는 경우 기존 방화벽과 연결할 방화벽 정책을 선택합니다. 방화벽 정책이 방화벽 규칙을 대체하는 동안 방화벽 프로비전 상태가 업데이트됩니다. 프로비전 상태에서 방화벽은 트래픽을 계속 처리하고 가동 중지 시간이 발생하지 않습니다. 방화벽 관리자 또는 Azure PowerShell을 사용하여 기존 규칙을 방화벽 정책으로 가져올 수 있습니다.
+- 가상 네트워크에 연결된 Azure Firewall이 없는 경우 방화벽이 배포되고 방화벽 정책이 새 방화벽과 연결됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

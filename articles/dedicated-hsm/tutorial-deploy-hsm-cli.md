@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6c5484c421807f5657fe5fc460342d39d442bcda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79454315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048579"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>자습서: CLI를 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -63,15 +63,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-다음 명령은 Dedicated HSM 서비스에 필요한 네트워킹 기능을 확인합니다.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-두 명령은 모두 아래에 표시된 것처럼 "등록됨" 상태를 반환해야 합니다. 명령이 "등록됨" 상태를 반환하지 않을 경우 이 서비스에 등록해야 합니다. Microsoft 계정 담당자에게 문의하세요.
+이 명령은 아래에 표시된 것처럼 "등록됨" 상태를 반환해야 합니다. 명령이 "등록됨" 상태를 반환하지 않을 경우 Microsoft 계정 담당자에게 문의하여 이 서비스에 등록해야 합니다.
 
 ![구독 상태](media/tutorial-deploy-hsm-cli/subscription-status.png)
 

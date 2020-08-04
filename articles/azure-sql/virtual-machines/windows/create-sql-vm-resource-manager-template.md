@@ -1,30 +1,34 @@
 ---
-title: SQL Server VM 만들기(Azure Resource Manager 템플릿)
-description: Azure VM(Virtual Machine)에서 Azure Resource Manager 템플릿을 사용하여 SQL Server를 만드는 방법에 대해 알아봅니다.
+title: ARM 템플릿을 사용하여 SQL Server VM 만들기
+description: Azure VM(Virtual Machine)에서 Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 SQL Server를 만드는 방법에 대해 알아봅니다.
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 8b165f640548f28e5d94e5a791c0fe8545df4d78
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003868"
 ---
-# <a name="create-sql-server-vm-azure-resource-manager-template"></a>SQL Server VM 만들기(Azure Resource Manager 템플릿)
+# <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 SQL Server VM 만들기
 
-이 Azure Resource Manager 템플릿을 사용하여 Azure VM(Virtual Machine)에 SQL Server를 배포합니다. 
+이 Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 Azure VM(Virtual Machine)에 SQL Server를 배포합니다. 
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
+
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 SQL Server VM ARM 템플릿을 사용하려면 다음이 필요합니다.
 
-- 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 및/또는 [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7) 
+- 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli) 및/또는 [PowerShell](/powershell/scripting/install/installing-powershell) 
 - [가상 네트워크](../../../virtual-network/quick-create-portal.md) 및 [서브넷](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)이 준비된 미리 구성된 [리소스 그룹](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
 - Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
@@ -43,7 +47,7 @@ SQL Server VM ARM 템플릿을 사용하려면 다음이 필요합니다.
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Azure에서 가상 머신을 만듭니다. 
 - [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): 가상 머신을 SQL VM 리소스 공급자에 등록합니다. 
 
-더 많은 SQL Server Azure VM 템플릿 샘플은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine)에서 찾을 수 있습니다.
+더 많은 SQL Server Azure VM 템플릿 샘플은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
 
 ## <a name="deploy-the-template"></a>템플릿 배포
@@ -116,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [ 자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ 자습서: 첫 번째 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 SQL Server VM을 배포하는 다른 방법은 다음 문서를 참조하세요. 
 - [Azure Portal](create-sql-vm-portal.md)

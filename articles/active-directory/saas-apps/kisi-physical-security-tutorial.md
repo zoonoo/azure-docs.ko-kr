@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 65062b886000a9a0e19dec7d72bf27ab1e1790eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605035"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016924"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>자습서: Kisi Physical Security와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -85,9 +85,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://identity.kms.kisi.io/saml/<DOMAIN>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://api.kisi.io/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://identity.kms.kisi.io/saml/<DOMAIN>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://api.kisi.io/saml/consume/<DOMAIN>` 패턴을 사용하여 URL을 입력합니다.
+
+    > [!NOTE] 
+    > `DOMAIN`은(는) Kisi에 의해 조직에 할당된 소문자 영숫자 식별자입니다. 이는 조직의 DNS 도메인 이름과 동일하지 **않습니다***.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
@@ -101,7 +104,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![이미지](common/default-attributes.png)
 
 1. 위에서 언급한 특성 외에도 Kisi Physical Security 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
-    
+
     | Name | 원본 특성|
     | ---------------| --------- |
     | FirstName | user.givenname |
@@ -119,7 +122,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **이름** 필드에 `B.Simon`을 입력합니다.
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
@@ -150,7 +153,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Kisi Physical Security에서 Britta Simon이라는 사용자를 만듭니다. Kisi Physical Security는 Just-In-Time 사용자 프로비저닝을 지원하며, 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. Kisi Physical Security에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 

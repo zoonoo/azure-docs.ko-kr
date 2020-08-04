@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eb23f1e703c2e447c484ccb366914cb4b23c5bf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536552"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125193"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM의 부하를 분산하는 부하 분산 장치 만들기
 
@@ -111,7 +111,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | 비정상 임계값 | **비정상 임계값** 또는 VM이 비정상 상태로 간주되는 데 필요한 연속 프로브 오류 횟수로 **2**를 선택합니다.|
     | | |
 
-3. **확인**을 선택합니다.
+3. 나머지는 기본값으로 두고 **확인**을 선택합니다.
 
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
@@ -140,7 +140,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | 백 엔드 포트 | **80**을 입력합니다. |
     | 백 엔드 풀 | **myBackendPool**을 선택합니다.|
     | 상태 프로브 | **myHealthProbe**를 선택합니다. |
-    | 암시적 아웃바운드 규칙 만들기 | **예**를 선택합니다. </br> 자세한 내용 및 고급 아웃바운드 규칙 구성은 다음을 참조하세요. </br> [Azure에서 아웃바운드 연결](load-balancer-outbound-connections.md) </br> [Azure Portal을 사용하여 표준 Load Balancer에서 부하 분산 및 아웃바운드 규칙 구성](configure-load-balancer-outbound-portal.md)
+    | 암시적 아웃바운드 규칙 만들기 | **아니오**를 선택합니다.
 
 4. 나머지는 기본값으로 둔 다음, **확인**을 선택합니다.
 
@@ -179,7 +179,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
    
 2. **가상 머신 만들기**의 **기본** 탭에서 값을 입력하거나 선택합니다.
 
-    | 설정 | 값                                          |
+    | Setting | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
     | Subscription | Azure 구독 선택 |
@@ -201,7 +201,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     |-|-|
     | **네트워크 인터페이스** |  |
     | 가상 네트워크 | **myVNet** |
@@ -220,7 +220,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 6. **관리** 탭에서 다음을 선택하거나 입력합니다.
     
-    | 설정 | 값 |
+    | Setting | 값 |
     |-|-|
     | **Monitoring** |  |
     | 부트 진단 | **끄기**를 선택합니다. |
@@ -237,6 +237,49 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | 가용성 영역 | **2** |**3**|
     | 네트워크 보안 그룹 | 기존 **myNSG**를 선택합니다.| 기존 **myNSG**를 선택합니다.|
 
+## <a name="create-outbound-rule-configuration"></a>아웃바운드 규칙 구성 만들기
+부하 분산 디바이스 아웃바운드 규칙은 백 엔드 풀의 VM에 대한 아웃바운드 SNAT를 구성합니다. 
+
+아웃바운드 연결에 대한 자세한 내용은 [Azure의 아웃바운드 연결](load-balancer-outbound-connections.md)을 참조하세요.
+
+### <a name="create-outbound-rule"></a>아웃바운드 규칙 만들기
+
+1. 왼쪽 메뉴에서 **모든 서비스**를 선택하고 **모든 리소스**를 선택한 다음, 리소스 목록에서 **myLoadBalancer**를 선택합니다.
+
+2. **설정** 아래에서 **아웃바운드 규칙**을 선택한 다음 **추가**를 선택합니다.
+
+3. 다음 값을 사용하여 아웃바운드 규칙을 구성합니다.
+
+    | 설정 | 값 |
+    | ------- | ----- |
+    | 이름 | **myOutboundRule**을 입력합니다. |
+    | 프런트 엔드 IP 주소 | **새로 만들기**를 선택합니다. </br> **이름**에 **LoadBalancerFrontEndOutbound**를 입력합니다. </br> **IP 주소** 또는 **IP 접두사**를 선택합니다. </br> **공용 IP 주소** 또는 **공용 IP 접두사**에서 **새로 만들기**를 선택합니다. </br> 이름에 **myPublicIPOutbound** 또는 **myPublicIPPrefixOutbound**를 입력합니다. </br> **확인**을 선택합니다. </br> **추가**를 선택합니다.|
+    | 유휴 제한 시간(분) | 슬라이더를 **15분**으로 이동합니다.|
+    | TCP 재설정 | **사용**을 선택합니다.|
+    | 백 엔드 풀 | **새로 만들기**를 선택합니다. </br> **이름**에 **myBackendPoolOutbound**를 입력합니다. </br> **추가**를 선택합니다. |
+    | 포트 할당 -> 포트 할당 | **아웃바운드 포트 수 수동 선택** 선택 |
+    | 아웃바운드 포트 -> 선택 기준 | **인스턴스당 포트 수** 선택 |
+    | 아웃바운드 포트 -> 인스턴스당 포트 수 | **10000**을 입력합니다. |
+
+4. **추가**를 선택합니다.
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>아웃바운드 풀에 가상 머신 추가
+
+1. 왼쪽 메뉴에서 **모든 서비스**를 선택하고 **모든 리소스**를 선택한 다음, 리소스 목록에서 **myLoadBalancer**를 선택합니다.
+
+2. **설정**에서 **백 엔드 풀**을 선택합니다.
+
+3. **myBackendPoolOutbound**를 선택합니다.
+
+4. **가상 네트워크**에서 **myVNet**을 선택합니다.
+
+5. **가상 머신**에서 **추가**를 선택합니다.
+
+6. **myVM1**, **myVM2** 및 **myVM3** 옆에 있는 확인란을 선택합니다. 
+
+7. **추가**를 선택합니다.
+
+8. **저장**을 선택합니다.
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[옵션 2: 부하 분산 장치 만들기(기본 SKU)](#tab/option-1-create-load-balancer-basic)
 
@@ -253,7 +296,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 2. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
 
-    | Setting                 | 값                                              |
+    | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고, 텍스트 상자에서 **myResourceGroupLB**를 입력합니다.|
@@ -411,7 +454,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     |-|-|
     | **네트워크 인터페이스** |  |
     | 가상 네트워크 | **myVNet**을 선택합니다. |
@@ -441,9 +484,10 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | Name |  **myVM2** |**myVM3**|
     | 가용성 집합| **myAvailabilitySet**을 선택합니다. | **myAvailabilitySet**을 선택합니다.|
     | 네트워크 보안 그룹 | 기존 **myNSG**를 선택합니다.| 기존 **myNSG**를 선택합니다.|
+
 ---
 
-### <a name="install-iis"></a>IIS 설치
+## <a name="install-iis"></a>IIS 설치
 
 1. 왼쪽 메뉴에서 **모든 서비스**를 선택하고, **모든 리소스**를 선택한 다음, 리소스 목록에서 **myResourceGroupLB** 리소스 그룹에 있는 **myVM1**을 선택합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Private Link에서 프라이빗 엔드포인트 만들기
-description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 프라이빗 엔드포인트를 만듭니다.
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 프라이빗 엔드포인트를 만듭니다.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a60edde222a6200a0378cd8c9c4f4774da9c2e50
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817960"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071497"
 ---
-# <a name="quickstart-create-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 프라이빗 엔드포인트 만들기
+# <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 엔드포인트 만들기
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 프라이빗 엔드포인트를 만듭니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 프라이빗 엔드포인트를 만듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 [Azure Portal](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md) 또는 [Azure CLI](create-private-endpoint-cli.md)를 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
-## <a name="prerequisite"></a>필수 요소
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 활성 구독이 있는 Azure 계정이 필요합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
 이 템플릿은 Azure SQL Database의 인스턴스에 대한 프라이빗 엔드포인트를 만듭니다.
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
@@ -50,9 +52,9 @@ ms.locfileid: "84817960"
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): 가상 머신에 대한 네트워크 인터페이스입니다.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): SQL Database의 인스턴스에 대한 프라이빗 엔드포인트로 프라이빗 연결을 테스트하는 데 사용되는 가상 머신입니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 Azure에 배포하는 방법은 다음과 같습니다.
+Azure에 ARM 템플릿을 배포하는 방법은 다음과 같습니다.
 
 1. Azure에 로그인하고 템플릿을 열려면 **Azure에 배포**를 선택합니다. 템플릿은 프라이빗 엔드포인트, SQL Database의 인스턴스, 네트워크 인프라 및 유효성을 검사할 가상 머신을 만듭니다.
 
@@ -66,7 +68,7 @@ Azure Resource Manager 템플릿을 Azure에 배포하는 방법은 다음과 �
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
 > [!NOTE]
-> Azure Resource Manager 템플릿은 가상 머신 myVm<b>{uniqueid}</b> 리소스 및 SQL Database sqlserver<b>{uniqueid}</b> 리소스에 대한 고유한 이름을 생성합니다. **{uniqueid}** 에 대해 생성된 값으로 대체합니다.
+> ARM 템플릿은 가상 머신 myVm<b>{uniqueid}</b> 리소스 및 SQL Database sqlserver<b>{uniqueid}</b> 리소스에 대한 고유한 이름을 생성합니다. **{uniqueid}** 에 대해 생성된 값으로 대체합니다.
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 

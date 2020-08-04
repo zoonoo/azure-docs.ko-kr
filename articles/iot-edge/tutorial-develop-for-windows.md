@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 58a63c9e11cf86318f0e9f051d034cbbaf7c40a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6411ec5a7e5e8af146eb2e906ea3d1c6ce7693ac
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772260"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387622"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -133,7 +133,7 @@ Azure IoT Edge Tools 확장에서는 Visual Studio에서 지원되는 모든 IoT
    | ----- | ----- |
    | Visual Studio 템플릿 | **C# 모듈**을 선택합니다. |
    | 모듈 이름 | 기본값 **IotEdgeModule1**을 그대로 사용합니다. |
-   | 리포지토리 URL | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에 있는 컨테이너 레지스트리의 **개요 페이지**에서 **Login 서버** 값을 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/iotedgemodule1과 같습니다. |
+   | 리포지토리 URL | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 **로그인 서버** 값으로 바꿉니다. Azure Portal에 있는 컨테이너 레지스트리의 개요 페이지에서 Login 서버 값을 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<registry name\>.azurecr.io/iotedgemodule1과 같습니다. |
 
       ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대해 프로젝트 구성](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -179,7 +179,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 만든 솔루션 템플릿에는 IoT Edge 모듈용 샘플 코드가 포함되어 있습니다. 이 샘플 모듈은 메시지 수신한 후 전달합니다. 파이프라인 기능은 IoT Edge의 중요한 개념인 모듈이 서로 통신하는 방식을 보여 줍니다.
 
-각 모듈의 코드에는 여러 개의 *입력* 및 *출력* 큐가 선언될 수 있습니다. 디바이스에서 실행되는 IoT Edge 허브는 모듈 중 하나의 출력에 있는 메시지를 하나 이상의 모듈 입력으로 라우팅합니다. 입력 및 출력을 선언하는 특정 언어는 언어마다 다르지만 개념은 모든 모듈에서 동일합니다. 모듈 간 라우팅에 대한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
+각 모듈의 코드에는 여러 개의 *입력* 및 *출력* 큐가 선언될 수 있습니다. 디바이스에서 실행되는 IoT Edge 허브는 모듈 중 하나의 출력에 있는 메시지를 하나 이상의 모듈 입력으로 라우팅합니다. 입력 및 출력을 선언하는 특정 언어는 코드마다 다르지만 개념은 모든 모듈에서 동일합니다. 모듈 간 라우팅에 대한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
 
 프로젝트 템플릿과 함께 제공되는 샘플 C# 코드는 .NET용 IoT Hub SDK에서 [ModuleClient 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)를 사용합니다.
 
@@ -199,7 +199,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 6. $edgeAgent의 원하는 속성 중에서 **modules** 속성을 찾습니다.
 
-   여기에는 두 개의 모듈이 표시되어야 합니다. 첫 번째는 **SimulatedTemperatureSensor**로, 모듈을 테스트하는 데 사용할 수 있는 시뮬레이트된 온도 데이터를 제공하기 위해 기본적으로 모든 템플릿에 포함되어 있습니다. 두 번째는 프로젝트에서 만든 **IotEdgeModule1** 모듈입니다.
+   여기에는 두 개의 모듈이 표시되어야 합니다. 하나는 **SimulatedTemperatureSensor** 모듈로, 모듈을 테스트하는 데 사용할 수 있는 시뮬레이트된 온도 데이터를 제공하기 위해 기본적으로 모든 템플릿에 포함되어 있습니다. 다른 하나는 프로젝트에서 만든 **IotEdgeModule1** 모듈입니다.
 
    이 모듈 속성은 디바이스 배포에 어떤 모듈을 포함할 것인지 선언합니다.
 
@@ -267,7 +267,7 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 모듈 이미지를 빌드 및 푸시할 때 오류가 발생하는 경우 개발 머신의 Docker 구성과 관련이 있는 경우가 자주 있습니다. 다음 사항을 확인하여 구성을 검토합니다.
 
 * 컨테이너 레지스트리에서 복사한 자격 증명을 사용하여 `docker login` 명령을 실행했나요? 이러한 자격 증명은 Azure에 로그인하는 데 사용하는 자격 증명과 다릅니다.
-* 컨테이너 리포지토리가 올바른가요? 컨테이너 레지스트리 이름과 모듈 이름이 올바른가요? IotEdgeModule1 폴더에서 **module.json** 파일을 열어 확인합니다. 리포지토리 값은 **\<레지스트리 이름\>.azurecr.io/iotedgemodule1**과 같습니다.
+* 컨테이너 리포지토리가 올바른가요? 컨테이너 레지스트리 이름과 모듈 이름이 올바른가요? IotEdgeModule1 폴더에서 **module.json** 파일을 열어 확인합니다. 리포지토리 값은 **\<registry name\>.azurecr.io/iotedgemodule1**과 같습니다.
 * 모듈에 **IotEdgeModule1** 이외의 이름을 사용한 경우 해당 이름이 솔루션 전체에서 일관되나요?
 * 머신에서 빌드하는 것과 같은 유형의 컨테이너가 실행되고 있나요? 이 자습서는 Windows IoT Edge 디바이스용이므로 Visual Studio 파일에 **windows-amd64** 확장명이 있어야 하며 Docker Desktop이 Windows 컨테이너를 실행해야 합니다.
 
@@ -328,6 +328,14 @@ IotEdgeModule1 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 
    IoT Edge 모듈은 대/소문자를 구분하지 않습니다.
 
    SimulatedTemperatureSensor 및 IotEdgeModule1 로그는 처리 중인 메시지를 표시해야 합니다. edgeAgent 모듈은 다른 모듈을 시작하므로, 해당 로그는 배포 매니페스트 구현에 대한 정보를 포함합니다. 나열되지 않거나 실행되고 있지 않은 모듈이 있으면 edgeAgent 로그에 오류가 있을 수 있습니다. edgeHub 모듈은 모듈과 IoT Hub 간의 통신을 담당합니다. 모듈이 작동되고 실행 중이지만 IoT Hub에 메시지가 도착하지 않으면 edgeHub 로그에 오류가 있을 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다.
+
+그렇지 않은 경우 요금이 발생하지 않도록 이 문서에서 사용한 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다.
+
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

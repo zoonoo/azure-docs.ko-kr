@@ -8,18 +8,22 @@ ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9bb94ee63873dea321af252a4380a7aab10df6ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560930"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071479"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
 이 빠른 시작에서는 macOS, Ubuntu Linux 또는 Windows에서 Python을 사용하여 Azure Database for PostgreSQL로 작업합니다. 이 빠른 시작에서는 데이터베이스에 연결하고 SQL 문을 사용하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 사용자가 Python에 익숙하지만 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!TIP]
+> PostgreSQL을 사용하여 Django 애플리케이션을 빌드하려는 경우 자습서를 체크 아웃하고 [PostgreSQL 자습서를 사용하여 Django 웹앱을 배포](../app-service/containers/tutorial-python-postgresql-app.md)합니다.
+
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

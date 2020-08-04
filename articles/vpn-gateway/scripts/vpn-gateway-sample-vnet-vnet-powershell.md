@@ -3,20 +3,20 @@ title: Azure PowerShell 스크립트 샘플 - vnet 간 VPN 구성 | Microsoft Do
 description: 사이트 간 VPN을 구성합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: a4d23f34553881b6425514572f9122edf693a57a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a69df3893a3bf32ca2af1be62744991346ee048
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75862223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068367"
 ---
-# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
+# <a name="use-powershell-to-configure-a-vnet-to-vnet-vpn-gateway-connection"></a>PowerShell을 사용하여 VNet-VNet VPN 게이트웨이 연결 구성
 
 이 스크립트는 VNet-VNet 연결 형식을 사용하여 두 개의 가상 네트워크를 연결합니다.
 
@@ -167,4 +167,4 @@ Remove-AzResourceGroup -Name TestRG2
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
+Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.

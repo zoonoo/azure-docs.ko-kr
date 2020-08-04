@@ -4,12 +4,12 @@ description: Azure Migrate Server Assessment를 사용하여 Azure로 마이그�
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 6c395d7e2be151e97808fa9601ff6001801d243b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dd00f800003724b3a5c15d265a5428272e1762fb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110354"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290217"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>서버 평가를 사용하여 VMware VM 평가
 
@@ -75,7 +75,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
 ### <a name="download-the-ova-template"></a>OVA 템플릿 다운로드
 
 1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 선택합니다.
-2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMWare vSphere 하이퍼바이저 사용**을 선택합니다.
+2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다.
 3. **다운로드**를 선택하여 OVA 템플릿 파일을 다운로드합니다.
 
    ![OVA 파일 다운로드 선택](./media/tutorial-assess-vmware/download-ova.png)
@@ -146,7 +146,7 @@ Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를
      - HTTP 프록시만 지원됩니다.
    - **시간 동기화**: 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
    - **업데이트 설치**: 어플라이언스에서 최신 업데이트가 설치되어 있는지 확인합니다.
-   - **VDDK 설치**: 어플라이언스에서 VMWare vSphere VDDK(Virtual Disk Development Kit)가 설치되어 있는지 확인합니다. 설치되지 않은 경우 VMware에서 VDDK 6.7을 다운로드하고, 다운로드한 zip 콘텐츠를 어플라이언스의 지정된 위치에 추출합니다.
+   - **VDDK 설치**: 어플라이언스에서 VMware vSphere VDDK(Virtual Disk Development Kit)가 설치되어 있는지 확인합니다. 설치되지 않은 경우 VMware에서 VDDK 6.7을 다운로드하고, 다운로드한 zip 콘텐츠를 어플라이언스의 지정된 위치에 추출합니다.
 
      Azure Migrate 서버 마이그레이션에서 VDDK를 사용하여 Azure로 마이그레이션하는 동안 머신을 복제합니다.       
 

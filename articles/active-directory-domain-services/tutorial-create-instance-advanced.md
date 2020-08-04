@@ -1,6 +1,6 @@
 ---
-title: 자습서 - 고급 구성을 사용하여 Azure AD DS 관리형 도메인 만들기
-description: 이 자습서에서는 Azure Active Directory Domain Services 관리형 도메인을 만들고 구성하는 방법과 Azure Portal을 사용하여 고급 구성 옵션을 지정하는 방법에 대해 알아봅니다.
+title: 자습서 - 사용자 지정된 Azure Active Directory Domain Services 관리형 도메인 만들기 | Microsoft Docs
+description: 이 자습서에서는 사용자 지정된 Azure Active Directory Domain Services 관리형 도메인을 만들고 구성하는 방법과 Azure Portal을 사용하여 고급 구성 옵션을 지정하는 방법에 대해 알아봅니다.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b8eece33e13fca9fdef6b860513368f6c47a4628
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ead20713752b4eb28700541b4314241d86b6cc27
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518524"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278553"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>자습서: 고급 구성 옵션을 사용하여 Azure Active Directory Domain Services 관리형 도메인 만들기 및 구성
 
@@ -131,7 +131,7 @@ Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도�
     1. 가상 네트워크를 만들기로 선택하는 경우 가상 네트워크 이름(예: *myVnet*)을 입력한 다음, 주소 범위(예: *10.0.1.0/24*)를 입력합니다.
     1. *DomainServices*와 같이 이름이 명확한 전용 서브넷을 만듭니다. 주소 범위(예: *10.0.1.0/24*)를 입력합니다.
 
-    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
+    [ ![Azure AD Domain Services에서 사용할 가상 네트워크 및 서브넷 만들기](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     개인 IP 주소 범위 내의 주소 범위를 선택해야 합니다. 퍼블릭 주소 공간에 있는 IP 주소 범위를 소유하지 않으면 Azure AD DS 내에서 오류가 발생합니다.
 
@@ -159,7 +159,7 @@ Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도�
 
 ## <a name="configure-synchronization"></a>동기화 구성
 
-Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그룹을 *모두* 동기화하거나 특정 그룹으로만 *범위가 지정된* 동기화를 수행할 수 있습니다. 사용자와 그룹을 *모두* 동기화하도록 선택하면 나중에 범위가 지정된 동기화만 수행하도록 선택할 수 없습니다. 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화][scoped-sync]를 참조하세요.
+Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그룹을 *모두* 동기화하거나 특정 그룹으로만 *범위가 지정된* 동기화를 수행할 수 있습니다. 지금 동기화 범위를 변경하거나 관리되는 도메인이 배포된 후에 변경할 수 있습니다. 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화][scoped-sync]를 참조하세요.
 
 1. 이 자습서에서는 사용자 및 그룹을 **모두** 동기화하도록 선택합니다. 이 동기화 선택은 기본 옵션입니다.
 

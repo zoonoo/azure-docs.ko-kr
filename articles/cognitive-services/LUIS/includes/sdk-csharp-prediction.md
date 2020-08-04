@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 2ba136cd479da0cd394b5e5afe6ebe7c22b539d5
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 4bf86c616420bb049e1d7a82ad0e942e6eb7b36f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732059"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369272"
 ---
 .NET용 LUIS(Language Understanding) 예측 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -31,46 +31,6 @@ ms.locfileid: "81732059"
 * LUIS 앱 ID - `df67dcdb-c37d-46af-88e1-8b97951ca1c2`의 공용 IoT 앱 ID를 사용합니다. 빠른 시작 코드에 사용되는 사용자 쿼리는 해당 앱에만 적용됩니다.
 
 ## <a name="setting-up"></a>설치
-
-### <a name="create-an-environment-variable"></a>환경 변수 만들기
-
-키와 리소스 이름을 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
-
-* `LUIS_PREDICTION_KEY` - 요청을 인증하기 위한 리소스 키입니다.
-* `LUIS_ENDPOINT_NAME` - 키와 연결된 리소스 이름입니다.
-
-운영 체제에 대한 지침을 사용합니다.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
-setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
-```
-
-환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
-
-```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
-```
-
-환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
-
----
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
@@ -134,13 +94,7 @@ LUIS(Language Understanding) 예측 런타임 클라이언트는 Azure를 인증
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-1. 키, 이름 및 앱 ID에 대한 변수를 만듭니다.
-
-    `LUIS_PREDICTION_KEY`라는 환경 변수에서 끌어온 예측 키를 관리하는 변수입니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다. 메서드는 나중에 생성됩니다.
-
-    리소스 이름 `LUIS_ENDPOINT_NAME`을 보유할 변수를 만듭니다.
-
-    `LUIS_APP_ID`라는 환경 변수로 앱 ID에 대한 변수를 만듭니다. 환경 변수를 퍼블릭 IoT 앱으로 설정합니다.
+1. 키, 리소스 이름, 앱 ID 및 게시 슬롯에 대한 변수를 만듭니다. 앱 ID를 공용 IoT 앱으로 설정합니다.
 
     **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
 

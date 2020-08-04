@@ -2,17 +2,18 @@
 title: '빠른 시작: Azure Queue storage 라이브러리 v12 - Java'
 description: Azure Queue Java v12 라이브러리를 사용하여 큐를 만들고 큐에 메시지를 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 삭제하는 방법을 알아봅니다. 큐를 삭제하는 방법도 알아봅니다.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: a4c873e7ec1867b6ce53cd9f4c3d5c54242a6f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 753c245631d2fbdc8122f955c1db6562a1554031
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232341"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319374"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -27,9 +28,14 @@ Java용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 
 * 큐에서 메시지 수신 및 삭제
 * 큐 삭제
 
-[API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+추가 리소스:
 
-## <a name="prerequisites"></a>사전 요구 사항
+* [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
+* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+* [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), 버전 8 이상
 * [Apache Maven](https://maven.apache.org/download.cgi)

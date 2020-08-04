@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058149"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040514"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
@@ -102,7 +102,7 @@ ARM 템플릿 매개 변수 파일을 사용하여 환경별 매개 변수 값�
 
 이 작업을 수행하면 새 매개 변수 파일이 생성되고 이 파일이 만들어진 템플릿에 매핑됩니다. 템플릿이 선택된 상태에서 Visual Studio Code 상태 표시줄에서 현재 템플릿/매개 변수 파일 매핑을 확인하고 수정할 수 있습니다.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Visual Studio Code 상태 표시줄의 템플릿/매개 변수 파일 매핑을 보여 주는 이미지입니다.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 이제 매개 변수 파일이 템플릿에 매핑되었으므로 확장 기능이 템플릿과 매개 변수 파일 모두의 유효성을 검사합니다. 이 유효성 검사를 실제로 보려면 매개 변수 파일의 `storageAccountName` 매개 변수에 두 문자 값을 추가하고 파일을 저장합니다.
 

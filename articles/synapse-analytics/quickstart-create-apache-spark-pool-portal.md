@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Apache Spark 풀(미리 보기) 만들기'
+title: '빠른 시작: Azure Portal을 사용하여 Apache Spark 풀 만들기'
 description: 이 가이드의 단계에 따라 Azure Portal을 사용하여 새 Apache Spark 풀을 만듭니다.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006078"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 Apache Spark 풀(미리 보기) 만들기
+# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 Apache Spark 풀 만들기
 
 Azure Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 배포하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. Apache Spark 풀은 오픈 소스 빅 데이터 컴퓨팅 기능을 제공합니다. Synapse 작업 영역에서 Apache Spark 풀을 만든 후 보다 빠른 분석 인사이트를 위해 데이터를 로드, 모델링, 처리 및 배포할 수 있습니다.
 

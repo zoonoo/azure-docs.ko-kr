@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 198e07b80788629030b621dd3c5e235a91baaba3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076108"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -82,8 +82,9 @@ ms.locfileid: "86518914"
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>원본 지역을 제외한 모든 지역에 자격 증명 모음을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-1. **리소스 만들기** > **관리 도구** > **Backup 및 Site Recovery**를 선택합니다.
+1. [Azure 포털](https://portal.azure.com)
+1. 검색 시 Recovery Services를 입력하고 Recovery Services 자격 증명 모음을 클릭합니다.
+1. Recovery Services 자격 증명 모음 메뉴에서 +추가를 클릭합니다.
 1. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 1. **ContosoRG** 리소스 그룹을 만듭니다.
 1. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 합성, Swift - Speech Service'
+title: '빠른 시작: macOS에서 Swift로 음성 합성 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 macOS에서 Swift로 음성 합성 방법 알아보기
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 1ed68b2ba00a89ff7b20b8ed61457dfb268917e4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 6dae832b0777ca2caf993e126ddfea074919a0dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084792"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-macos-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Swift로 음성 합성
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 Swift에서 macOS 앱을 생성하여 텍스트에서 음성을 합성하고 기본 오디오 출력으로 재생하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 필수 구성 요소 목록은 다음과 같습니다.
 

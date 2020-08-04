@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248614"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386576"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
+# <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
 Windows Virtual Desktop은 클라우드에서 실행되는 데스크톱 및 앱 가상화 서비스입니다.
 
@@ -78,7 +78,7 @@ Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들�
   * Azure AD Connect(하이브리드 조직용)
   * Azure AD Domain Services(하이브리드 또는 클라우드 조직용)
 * Windows Server Active Directory를 포함하거나 그에 연결된 가상 네트워크를 포함하고 있는 Azure 구독
-  
+
 Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.
 
 * [표준 도메인에 조인](../active-directory-domain-services/active-directory-ds-comparison.md) 또는 [하이브리드 AD에 조인](../active-directory/devices/hybrid-azuread-join-plan.md). 가상 머신이 Azure AD에 조인되면 안 됩니다.
@@ -105,7 +105,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android(미리 보기)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > Windows Virtual Desktop은 RADC(RemoteApp 및 데스크톱 연결) 클라이언트 또는 원격 데스크톱 연결(MSTSC) 클라이언트를 지원하지 않습니다.
@@ -128,24 +128,24 @@ Windows Virtual Desktop은 다음 x64 운영 체제 이미지를 지원합니다
 
 Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows 10 Enterprise KN 운영 체제 이미지를 지원하지 않습니다. 또한 Windows 7은 섹터 크기 제한으로 인해 관리되는 Azure Storage에서 호스팅되는 VHD 또는 VHDX 기반 프로필 솔루션을 지원하지 않습니다.
 
-사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다. 
+사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다.
 
 |운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 다중 세션, 버전 1903|예|예|예|예|
-|Windows 10 다중 세션, 버전 1809|예|예|예|예|
-|Windows 10 Enterprise, 버전 1903|예|예|예|예|
-|Windows 10 Enterprise, 버전 1809|예|예|예|예|
-|Windows 7 Enterprise|예|예|예|예|
-|Windows Server 2019|예|예|예|예|
-|Windows Server 2016|예|예|예|예|
-|Windows Server 2012 R2|예|예|예|예|
+|Windows 10 다중 세션, 버전 1903|yes|yes|yes|예|
+|Windows 10 다중 세션, 버전 1809|yes|yes|예|아니요|
+|Windows 10 Enterprise, 버전 1903|yes|yes|yes|예|
+|Windows 10 Enterprise, 버전 1809|yes|yes|예|아니요|
+|Windows 7 Enterprise|yes|yes|예|아니요|
+|Windows Server 2019|yes|yes|예|예|
+|Windows Server 2016|yes|yes|yes|yes|
+|Windows Server 2012 R2|예|yes|예|아니요|
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows Virtual Desktop 2019년 가을 릴리스를 사용하는 경우 [Windows Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)에서 자습서를 시작할 수 있습니다.
+Windows Virtual Desktop(클래식)을 사용하는 경우 [Windows Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)에서 자습서를 시작할 수 있습니다.
 
-Windows Virtual Desktop 2020년 봄 릴리스를 사용하는 경우 호스트 풀을 대신 만들어야 합니다. 시작하려면 다음 자습서를 시작하세요.
+Azure Resource Manager가 통합된 Windows Virtual Desktop을 사용하는 경우 호스트 풀을 대신 만들어야 합니다. 시작하려면 다음 자습서를 시작하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Portal로 호스트 풀 만들기](create-host-pools-azure-marketplace.md)

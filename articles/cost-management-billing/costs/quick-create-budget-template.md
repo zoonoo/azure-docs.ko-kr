@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252439"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385785"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 예산 만들기
 
@@ -29,13 +29,31 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-ARM 템플릿은 EA(기업계약)용 Azure 구독만 지원합니다. 다른 구독 유형은 템플릿에서 지원되지 않습니다.
-
-예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다. Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다.
-
-예산을 작성한 후에는 적어도 Azure 계정에 대한 읽기 권한이 있어야만 예산을 볼 수 있습니다.
-
 새 구독이 있는 경우 즉시 예산을 만들거나 다른 Cost Management 기능을 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다.
+
+예산은 다음과 같은 유형의 Azure 계정 유형 및 범위에 대해 지원됩니다.
+
+- Azure 역할 기반 액세스 제어 범위
+    - 관리 그룹
+    - Subscription
+- 기업계약 범위
+    - 청구 계정
+    - department
+    - 등록 계정
+- 개별 계약
+    - 청구 계정
+- Microsoft 고객 계약 범위
+    - 청구 계정
+    - 청구 프로필
+    - 청구서 섹션
+    - Customer
+- AWS 범위
+    - 외부 계정
+    - 외부 구독
+
+예산을 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
+
+Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다.
 
 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 예산에 대한 구독에 따라 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
@@ -49,7 +67,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/create-budget)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
 
 템플릿에 다음과 같은 Azure 리소스 하나가 정의되어 있습니다.
 
@@ -63,27 +81,29 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 2. 다음 값을 선택하거나 입력합니다.
 
-   [![Resource Manager 템플릿, 예산 만들기, 배포 포털](./media/quick-create-budget-template/create-budget-using-template-portal.png)](./media/quick-create-budget-template/create-budget-using-template-portal.png#lightbox)
-
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager 템플릿, 예산 만들기, 배포 포털" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   
     * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인**을 클릭합니다.
-    * **위치**: 위치를 선택합니다. 예: **미국 중부**
+    * **리소스 그룹**: 필요한 경우 기존 리소스 그룹을 선택하거나 **새 리소스 그룹을 만듭니다**.
+    * **지역**: Azure 지역을 선택합니다. 예: **미국 중부**
     * **예산 이름**: 예산의 이름을 입력합니다. 리소스 그룹 내에서 고유해야 합니다. 영숫자, 밑줄 및 하이픈만 허용됩니다.
-    * **금액**: 예산을 추적하는 데 드는 총 비용 또는 사용량을 입력합니다.
-    * **예산 범주**: 예산 범주를 선택합니다. 예산에서 **비용** 또는 **사용량** 중에 무엇을 추적할지 선택합니다.
+    * **금액**: 예산을 추적하는 데 드는 총 비용을 입력합니다.
     * **시간 조직**: 예산이 적용되는 시간을 입력합니다. 허용되는 값은 매월, 매분기 또는 매년입니다. 시간 조직이 끝나면 예산이 초기화됩니다.
     * **시작 날짜**: 해당 월의 1일을 YYYY-MM-DD 형식의 시작 날짜로 입력합니다. 미래의 시작 날짜는 오늘부터 3개월 이내여야 합니다. 시간 조직 기간을 사용하여 과거의 시작 날짜를 지정할 수 있습니다.
-    * **종료 날짜**: 예산의 종료 날짜를 YYYY-MM-DD 형식으로 입력합니다. 입력하지 않으면 기본값인 시작 날짜로부터 10년으로 설정됩니다.
-    * **연산자**: 비교 연산자를 선택합니다. 가능한 값은 EqualTo, GreaterThan 또는 GreaterThanOrEqualTo입니다.
-    * **임계값**: 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
-    * **연락처 이메일** 임계값을 초과하면 예산 알림을 보낼 이메일 주소 목록을 입력합니다. 필요한 형식은 `["user1@domain.com","user2@domain.com"]`입니다.
+    * **종료 날짜**: 예산의 종료 날짜를 YYYY-MM-DD 형식으로 입력합니다. 
+    * **첫 번째 임계값**: 첫 번째 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
+    * **두 번째 임계값**: 두 번째 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
     * **연락처 역할** 임계값을 초과하면 예산 알림을 보낼 연락처 역할 목록을 입력합니다. 기본값은 소유자, 기여자 및 읽기 권한자입니다. 필요한 형식은 `["Owner","Contributor","Reader"]`입니다.
+    * **연락처 이메일** 임계값을 초과하면 예산 알림을 보낼 이메일 주소 목록을 입력합니다. 필요한 형식은 `["user1@domain.com","user2@domain.com"]`입니다.
     * **연락처 그룹**은 작업 그룹 리소스 ID 목록을 전체 리소스 URI로 입력하여 임계값 초과 시 예산 알림을 보냅니다. 문자열 배열을 허용합니다. 필요한 형식은 `["action group resource ID1","action group resource ID2"]`입니다. 작업 그룹을 사용하지 않으려면 `[]`를 입력합니다.
-    * **리소스 필터** 리소스의 필터 목록을 입력합니다. 필요한 형식은 `["Resource Filter Name1","Resource Filter Name2"]`입니다. 필터를 적용하지 않으려면 `[]`를 입력합니다. 리소스 필터를 입력하는 경우에는 **미터 필터** 값도 입력해야 합니다.
-    * **미터 필터** 미터 필터 목록을 입력합니다. 예산 범주로 **사용량**을 사용하는 예산에는 필수입니다. 필요한 형식은 `["Meter Filter Name1","Meter Filter Name2"]`입니다. **리소스 필터**를 입력하지 않았으면 `[]`를 입력합니다.
-    * **위에 명시된 사용 약관에 동의함**: 선택합니다.
+    * **리소스 그룹 필터 값** 필터링할 리소스 그룹 이름 목록을 입력합니다. 필요한 형식은 `["Resource Group Name1","Resource Group Name2"]`입니다. 필터를 적용하지 않으려면 `[]`를 입력합니다. 
+    * **측정기 범주 필터 값** Azure 서비스 측정기 범주 목록을 입력합니다. 필요한 형식은 `["Meter Category1","Meter Category2"]`입니다. 필터를 적용하지 않으려면 `[]`을(를) 입력합니다.
+   
+3. Azure 구독 유형에 따라 다음 작업 중 하나를 수행합니다.
+   - **검토 + 만들기**를 선택합니다.
+   - 사용 약관을 검토하고 **위에 명시된 사용 약관에 동의함**을 선택한 다음 **구매**를 선택합니다.
 
-3. **구매**를 선택합니다. 예산이 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
+4. **검토 + 만들기**를 선택한 경우 템플릿의 유효성이 검사됩니다. **만들기**를 선택합니다.  
 
    ![Resource Manager 템플릿, 예산, 배포 포털 알림](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 

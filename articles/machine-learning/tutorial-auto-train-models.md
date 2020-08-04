@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 595440dc727f3faf1fa475266825a671f00d9153
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 2e22ac4601384508869ff43d473dd191f405cd43
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092291"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -863,12 +863,12 @@ x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 
 ### <a name="define-training-settings"></a>학습 설정 정의
 
-학습을 위해 실험 매개 변수 및 모델 설정을 정의합니다. [설정](how-to-configure-auto-train.md)의 전체 목록을 확인합니다. 이러한 기본 설정을 사용하여 실험을 제출하는 데 약 5~20분이 걸리지만 짧은 실행 시간을 원하는 경우 `experiment_timeout_minutes` 매개 변수를 줄입니다.
+학습을 위해 실험 매개 변수 및 모델 설정을 정의합니다. [설정](how-to-configure-auto-train.md)의 전체 목록을 확인합니다. 이러한 기본 설정을 사용하여 실험을 제출하는 데 약 5~20분이 걸리지만 짧은 실행 시간을 원하는 경우 `experiment_timeout_hours` 매개 변수를 줄입니다.
 
 |속성| 이 자습서의 값 |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|2|각 반복에 대한 분 단위 시간 제한 총 런타임을 줄이기 위해 이 값을 줄입니다.|
-|**experiment_timeout_minutes**|20|실험을 종료하기까지 모든 반복 조합에 소요되는 최대 시간(분)입니다.|
+|**experiment_timeout_hours**|0.3|실험을 종료하기까지 모든 반복 조합에 소요되는 최대 시간(시간)입니다.|
 |**enable_early_stopping**|True|점수가 단기간에 개선되지 않는 경우 조기 종료를 활성화하는 플래그입니다.|
 |**primary_metric**| spearman_correlation | 최적화하려는 메트릭입니다. 이 메트릭에 따라 최적화된 모델이 선택됩니다.|
 |**기능화**| auto | **auto**를 사용하면 실험은 입력 데이터를 전처리할 수 있습니다(누락 데이터 처리, 텍스트를 숫자로 변환 등).|
@@ -880,7 +880,7 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "experiment_timeout_minutes": 20,
+    "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
     "featurization": 'auto',
@@ -984,7 +984,9 @@ print(fitted_model)
 최적 모델을 사용하여 테스트 데이터 세트에서 예측을 실행하여 택시 요금을 예측합니다. `predict` 함수는 최적 모델을 사용하고 `x_test` 데이터 세트에서 y(**운행 비용**) 값을 예측합니다. `y_predict`에서 첫 10개의 예측 비용 값을 인쇄합니다.
 
 ```python
-y_predict = fitted_model.predict(x_test.values)
+y_test = x_test.pop("totalAmount")
+
+y_predict = fitted_model.predict(x_test)
 print(y_predict[:10])
 ```
 

@@ -3,12 +3,12 @@ title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259408"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535011"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -69,7 +69,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
    - 구독 또는 관리 그룹을 다른 관리 그룹으로 이동하려면 [계층 구조에서 관리 그룹 및 구독 이동](#moving-management-groups-and-subscriptions)을 참조하세요.
 
-1. 관리 그룹(“소유자”, “참가자” 또는 “관리 그룹 참가자”)에 대한 쓰기 권한이 필요합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. RBAC 역할에 관한 자세한 내용은 다음을 참조하세요.  
+1. 관리 그룹(“소유자”, “참가자” 또는 “관리 그룹 참가자”)에 대한 쓰기 권한이 필요합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. Azure 역할에 대 한 자세한 내용은 다음을 참조 하세요.  
    [RBAC를 사용하여 액세스 및 권한 관리](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>포털에서 삭제
@@ -113,7 +113,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>관리 그룹 보기
 
-직접 또는 상속된 RBAC 역할이 있는 모든 관리 그룹을 볼 수 있습니다.  
+직접 또는 상속 된 Azure 역할이 있는 모든 관리 그룹을 볼 수 있습니다.  
 
 ### <a name="view-in-the-portal"></a>포털에서 보기
 
@@ -215,7 +215,7 @@ az account management-group show --name 'Contoso' -e -r
 
 구독의 소유자 역할이 현재 관리 그룹에서 상속되는 경우 이동 대상이 제한됩니다. 소유자 역할이 있는 다른 관리 그룹으로만 구독을 이동할 수 있습니다. 기여자인 관리 그룹으로는 이동할 수 없습니다. 구독의 소유권을 잃게 되기 때문입니다. 구독의 소유자 역할(관리 그룹에서 상속되지 않음)에 직접 할당되는 경우 기여자인 관리 그룹으로 이동할 수 있습니다.
 
-Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조하세요.
+Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. Azure 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="move-subscriptions"></a>구독 이동 
 

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: ba6f79fffe5287be7574d422f026489d4da2795e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807879"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287498"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
 
@@ -32,6 +32,8 @@ A: Azure Synapse는 BI, AI 및 지속적인 인텔리전스를 위한 통합 데
 - 모든 계층의 작업 영역 활동에서 발생하는 이벤트를 쉽게 모니터링하고 빠르게 최적화, 대응 및 디버그합니다.
 - 엔진 전체에서 메타데이터를 관리합니다. Spark 테이블을 만듭니다. 그러면 Azure Synapse 데이터베이스에서 자동으로 사용할 수 있습니다.
 - 통합 사용자 환경을 통해 데이터와 상호 작용합니다. Synapse Studio는 빅 데이터 개발자, 데이터 엔지니어, DBA, 데이터 분석가 및 데이터 과학자를 동일한 플랫폼에 제공합니다.
+
+자세한 내용은 [Azure Synapse Analytics란?](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is)을 참조하세요.
 
 ### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>Q: Azure Synapse Analytics의 주요 구성 요소는 무엇인가요?
 

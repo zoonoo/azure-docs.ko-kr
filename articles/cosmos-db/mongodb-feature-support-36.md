@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 API for MongoDB(3.6 버전) 지원 기능 및 �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 07/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 92c94b08602fb32ccebf6115306a5000665affe2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171704"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076832"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 
@@ -542,7 +542,32 @@ $polygon |  예 |
 
 ## <a name="unique-indexes"></a>고유 인덱스
 
-고유 인덱스를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 "_id" 키에서 고유성이 유지되는 방식과 유사합니다. '고유' 제약 조건을 포함하여 createIndex 명령을 사용하여 Cosmos DB에서 사용자 지정 인덱스를 만들 수 있습니다.
+[고유 인덱스](mongodb-indexing.md#unique-indexes)를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 "_id" 키에서 고유성이 유지되는 방식과 유사합니다. `createIndex` 명령을 `unique` 제약 조건 매개 변수와 함께 사용하여 Cosmos DB에서 고유 인덱스를 만들 수 있습니다.
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+```
+
+## <a name="compound-indexes"></a>복합 인덱스
+
+[복합 인덱스](mongodb-indexing.md#compound-indexes-mongodb-server-version-36)를 사용하면 필드 그룹에 대한 인덱스를 최대 8개까지 만들 수 있습니다. 이 유형의 인덱스는 기본 MongoDB 복합 인덱스와 다릅니다. Azure Cosmos DB 복합 인덱스는 여러 필드에 적용되는 정렬 작업에 사용됩니다. 복합 인덱스를 만들려면 두 개 이상의 속성을 매개 변수로 지정해야 합니다.
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
+{
+        "createdCollectionAutomatically" : false, 
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
 
 ## <a name="time-to-live-ttl"></a>TTL(Time to Live)
 

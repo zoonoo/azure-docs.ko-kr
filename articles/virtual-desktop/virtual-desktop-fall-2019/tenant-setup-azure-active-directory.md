@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop에서 테넌트 만들기 - Azure
-description: Azure Active Directory에서 Windows Virtual Desktop 테넌트를 설정하는 방법을 설명합니다.
+title: Windows Virtual Desktop(클래식)에서 테넌트 만들기 - Azure
+description: Azure Active Directory에서 Windows Virtual Desktop(클래식) 테넌트를 설정하는 방법을 설명합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a1e301b63eee348f59a1b9570c2c3ffcd78ecef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362393"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286362"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에서 테넌트 만들기
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 테넌트 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 2019년 가을 릴리스에 적용됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
 
 Windows Virtual Desktop에서 테넌트를 만드는 것은 데스크톱 가상화 솔루션을 빌드하기 위한 첫 번째 단계입니다. 테넌트는 하나 이상의 호스트 풀로 구성된 그룹입니다. 각 호스트 풀은 Azure에서 가상 머신으로 실행되고 Windows Virtual Desktop 서비스에 등록된 여러 세션 호스트로 구성됩니다. 또한 각 호스트 풀은 사용자에게 원격 데스크톱 및 원격 애플리케이션 리소스를 게시하는 데 사용되는 하나 이상의 앱 그룹으로 구성됩니다. 테넌트를 사용하여 호스트 풀을 빌드하고, 앱 그룹을 만들고, 사용자를 할당하고, 서비스를 통한 연결을 설정할 수 있습니다.
 

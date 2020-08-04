@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413105"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535079"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1 부: Azure 파일 공유에 대 한 AD DS 인증 사용 
 
@@ -30,7 +30,7 @@ AzFilesHybrid PowerShell 모듈의 cmdlet은 필요한 수정 작업을 수행 �
 
 - [AzFilesHybrid 모듈 다운로드 및 압축 풀기](https://github.com/Azure-Samples/azure-files-samples/releases) (GA 모듈: v 0.2.0 +)
 - 대상 AD에서 서비스 로그온 계정 또는 컴퓨터 계정을 만들 수 있는 권한이 있는 AD DS 자격 증명을 사용 하 여 온-프레미스 AD DS에 도메인에 가입 된 장치에 모듈을 설치 하 고 실행 합니다.
--  Azure AD에 동기화 된 온-프레미스 AD DS 자격 증명을 사용 하 여 스크립트를 실행 합니다. 온-프레미스 AD DS 자격 증명에는 저장소 계정 소유자 또는 참가자 RBAC 역할 권한이 있어야 합니다.
+-  Azure AD에 동기화 된 온-프레미스 AD DS 자격 증명을 사용 하 여 스크립트를 실행 합니다. 온-프레미스 AD DS 자격 증명에는 저장소 계정 소유자 또는 참가자 Azure 역할 권한이 있어야 합니다.
 
 ### <a name="run-join-azstorageaccountforauth"></a>AzStorageAccountForAuth 실행
 

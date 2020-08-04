@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849487"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043886"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Key Vault에서 CSR 만들기 및 병합
 
@@ -80,6 +80,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 9.  CA가 요청을 서명한 후, 동일한 인증서 작업 화면에서 인증서 파일을 **서명된 요청 병합**으로 다시 가져옵니다.
 
 이제 인증서 요청이 성공적으로 병합되었습니다.
+
+## <a name="adding-more-information-to-csr"></a>CSR에 자세한 내용 추가
+
+예를 들어, CSR을 만들 때 자세한 내용을 추가하려는 경우 
+    - 국가:
+    - 구/군/시:
+    - 시/도:
+    - 조직:
+    - 조직 구성 단위: CSR을 만들 때 SubjectName에서 해당 정보를 정의하여 모든 정보를 추가할 수 있습니다.
+
+예제
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+
+>[!Note]
+>CSR의 모든 세부 정보를 사용하여 DV 인증서를 요청하는 경우 CA에서 요청을 거부할 수 있습니다. 이는 CA가 요청에 있는 모든 정보를 확인하지 못할 수 있기 때문입니다. OV 인증서를 요청하는 경우 CSR에 있는 모든 정보를 추가하는 것이 더 적절할 수 있습니다.
+
 
 ## <a name="troubleshoot"></a>문제 해결
 

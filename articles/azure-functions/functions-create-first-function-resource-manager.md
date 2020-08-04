@@ -1,24 +1,28 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 첫 번째 함수 만들기
-description: Azure Resource Manager 템플릿을 사용하여 간단한 HTTP 트리거된 서버리스 함수를 만들고 Azure에 배포합니다.
+description: Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 간단한 HTTP 트리거된 서버리스 함수를 만들고 Azure에 배포합니다.
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 403ff6407105574c78b8e600c37efbe61d2f8b79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081715"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿에서 Azure Functions 리소스 만들기 및 배포
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>빠른 시작: ARM 템플릿에서 Azure Functions 리소스 만들기 및 배포
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 HTTP 요청에 응답하는 함수를 만듭니다. 
+이 문서에서는 Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 HTTP 요청에 응답하는 함수를 만듭니다. 
 
 이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,13 +52,11 @@ ms.locfileid: "84740201"
 
 프로젝트를 로컬로 만든 후에 Azure에서 새 함수를 실행하는 데 필요한 리소스를 만듭니다. 
 
-## <a name="create-a-serverless-function-app-in-azure"></a>Azure에서 서버리스 함수 앱 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/)에서 나온 것입니다.
 
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic)에서 나온 것입니다.
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
 
 이 템플릿에서 생성되는 네 가지 Azure 리소스는 다음과 같습니다.
 
@@ -63,7 +65,7 @@ ms.locfileid: "84740201"
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): 함수 앱을 만듭니다.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): 모니터링을 위한 Application Insights 인스턴스를 만듭니다.
 
-### <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-the-template"></a>템플릿 배포
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli-interactive

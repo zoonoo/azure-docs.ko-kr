@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063263"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,7 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 연결 확인
 > [!NOTE]
-> 클라이언트의 연결 문자열에 있는 서버의 **FQDN(정규화된 도메인 이름)** 을 사용합니다. IP 주소에 직접 로그인하려고 하면 실패합니다. 프라이빗 엔드포인트는 트래픽을 지역의 SQL 게이트웨이로 라우팅하고 로그인이 성공하려면 FQDN을 지정해야 하기 때문에 이 동작은 의도된 것입니다.
+> 클라이언트의 연결 문자열에 있는 서버의 **FQDN(정규화된 도메인 이름)** 을 사용합니다(`<server>.database.windows.net`). IP 주소에 직접 또는 개인 링크 FQDN(`<server>.privatelink.database.windows.net`)을 사용하여 수행된 모든 로그인 시도가 실패합니다. 프라이빗 엔드포인트는 트래픽을 지역의 SQL 게이트웨이로 라우팅하고 로그인이 성공하려면 올바른 FQDN을 지정해야 하기 때문에 이 동작은 의도된 것입니다.
 
 [SSMS를 사용하여 SQL Database에 연결](connect-query-ssms.md)하려면 여기의 단계를 따르세요. SSMS를 사용하여 SQL Database에 연결되면 다음 쿼리를 실행하여 Azure VM의 개인 IP 주소에서 연결하고 있는지 확인합니다.
 

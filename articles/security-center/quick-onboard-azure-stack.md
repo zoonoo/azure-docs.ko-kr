@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771158"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084010"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>빠른 시작: Azure Stack 가상 머신을 Security Center에 온보딩
 Azure 구독을 온보딩한 후 Azure Stack 마켓플레이스에서 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 추가하여 Azure Stack에서 실행 중인 가상 머신을 보호하도록 Security Center를 설정할 수 있습니다.

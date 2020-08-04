@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7819b62fb92945a409cab0dff926e281620dd80c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 727a5052b0531cc0a37cc631e11bc498498be5b3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496647"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534977"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리
 
@@ -49,7 +49,7 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
@@ -71,7 +71,7 @@ az login
 
 Azure CLI [az role 대입문 create](/cli/azure/role/assignment?view=azure-cli-latest) 명령을 사용 하 여 저장소 계정에 대 한 액세스 Key Vault 제공 합니다. 다음 매개 변수 값에 명령을 제공 합니다.
 
-- `--role`: "저장소 계정 키 운영자 서비스 역할" RBAC 역할을 전달 합니다. 이 역할은 저장소 계정에 대 한 액세스 범위를 제한 합니다. 클래식 저장소 계정의 경우 "클래식 저장소 계정 키 운영자 서비스 역할"을 대신 전달 합니다.
+- `--role`: "저장소 계정 키 운영자 서비스 역할" Azure 역할을 전달 합니다. 이 역할은 저장소 계정에 대 한 액세스 범위를 제한 합니다. 클래식 저장소 계정의 경우 "클래식 저장소 계정 키 운영자 서비스 역할"을 대신 전달 합니다.
 - `--assignee`: https://vault.azure.net Azure 공용 클라우드에서 Key Vault에 대 한 url 인 "" 값을 전달 합니다. (Azure 정부 클라우드의 경우 '--asingee-개체-i d '를 대신 사용 하세요. [서비스 사용자 응용 프로그램 id](#service-principal-application-id)를 참조 하세요.)
 - `--scope`: 형식으로 된 저장소 계정 리소스 ID를 전달 `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` 합니다. 구독 ID를 찾으려면 Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) 명령을 사용 합니다. 저장소 계정 이름 및 저장소 계정 리소스 그룹을 찾으려면 Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용 합니다.
 

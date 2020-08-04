@@ -5,38 +5,43 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73936133"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281279"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
-이 자습서에서는 Azure Site Recovery를 사용하여 Windows Server 2008 또는 2008 R2를 실행하는 온-프레미스 서버에서 Azure로 마이그레이션하는 방법을 보여줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 Azure Site Recovery를 사용하여 Windows Server 2008 또는 2008 R2를 실행하는 온-프레미스 서버에서 Azure로 마이그레이션하는 방법을 보여줍니다. 
+
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 마이그레이션을 위한 온-프레미스 환경 준비
-> * 대상 환경 설정
-> * 복제 정책 설정
-> * 복제 사용
-> * 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인
-> * Azure로 장애 조치(failover) 및 마이그레이션 완료
+> * 마이그레이션을 위한 온-프레미스 환경을 준비합니다.
+> * 대상 환경을 설정합니다.
+> * 복제 정책을 설정합니다.
+> * 복제를 활성화합니다.
+> * 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인합니다.
+> * Azure로 장애 조치(failover) 및 마이그레이션을 완료합니다.
 
-제한 사항 및 알려진 문제 섹션에서는 Windows Server 2008 머신을 Azure로 마이그레이션하는 동안 발생할 수 있는 알려진 문제에 대한 일부 제한 사항 및 해결 방법을 나열합니다. 
+## <a name="migrate-with-azure-migrate"></a>Azure Migrate로 마이그레이션
 
-> [!NOTE]
-> 이제 Azure Migrate 서비스를 사용하여 온-프레미스에서 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/migrate-services-overview.md).
+[Azure Migrate](../migrate/migrate-services-overview.md) 서비스를 사용하여 머신을 Azure로 마이그레이션하는 것이 좋습니다. Azure Migrate는 Azure Migrate, 기타 Azure 서비스 및 타사 도구를 사용하여 온-프레미스 머신을 Azure로 평가하고 마이그레이션하기 위한 중앙 집중식 허브를 제공합니다. Azure Site Recovery는 마이그레이션이 아닌 재해 복구에만 사용해야 합니다.
 
-
-## <a name="supported-operating-systems-and-environments"></a>지원되는 운영 체제 및 환경
+Azure Migrate는 Windows Server 2008을 실행하는 서버의 마이그레이션을 지원합니다.
 
 
-|운영 체제  | 온-프레미스 환경  |
+## <a name="migrate-with-site-recovery"></a>Site Recovery로 마이그레이션
+
+### <a name="supported-operating-systems"></a>지원되는 운영 체제
+
+
+|운영 체제  | Environment  |
 |---------|---------|
 |Windows Server 2008 SP2 - 32비트 및 64비트(IA-32 및 x86-64)</br>- 표준</br>- 엔터프라이즈</br>- 데이터 센터   |     VMware VM, Hyper-V VM 및 물리적 서버    |
 |Windows Server 2008 R2 SP1 - 64비트</br>- 표준</br>- 엔터프라이즈</br>- 데이터 센터     |     VMware VM, Hyper-V VM 및 물리적 서버|
@@ -46,7 +51,7 @@ ms.locfileid: "73936133"
 > - 마이그레이션하기 전에 최신 서비스 팩 및 Windows 업데이트가 설치되어 있는지 확인합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 [VMware 및 물리적 서버 마이그레이션](vmware-azure-architecture.md) 또는 [Hyper-V 가상 머신 마이그레이션](hyper-v-azure-architecture.md)에 대한 Azure Site Recovery 아키텍처를 검토하는 것이 좋습니다. 
 
@@ -57,7 +62,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 > VMware VM을 Azure로 마이그레이션할 에이전트가 없는 방법을 찾으시나요? [여기를 클릭](https://aka.ms/migrateVMs-signup)
 
 
-## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
+### <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
 - 구성 서버, 추가 프로세스 서버 및 Windows Server 2008 SP2 서버를 마이그레이션하는 데 사용되는 모바일 서비스는 Azure Site Recovery 소프트웨어의 버전 9.19.0.0 이상을 실행해야 합니다.
 
@@ -79,10 +84,10 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
   >
   >테스트 장애 조치(failover) 작업은 중단되지 않으며 원하는 격리된 네트워크에서 가상 머신을 만들어 마이그레이션을 테스트할 수 있도록 합니다. 장애 조치(failover) 작업과 달리 테스트 장애 조치(failover) 작업 중 데이터 복제는 계속해서 진행됩니다. 마이그레이션할 준비가 되기 전에 원하는 만큼 테스트 장애 조치(failover)를 수행할 수 있습니다. 
   >
-  >
+  
 
 
-## <a name="getting-started"></a>시작
+### <a name="get-started"></a>시작하기
 
 다음 작업을 수행하여 Azure 구독 및 온-프레미스 VMware/물리적 환경을 준비합니다.
 
@@ -90,7 +95,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 2. 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 준비
 
 
-## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
+### <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
 2. **리소스 만들기** > **관리 도구** > **Backup 및 Site Recovery**를 클릭합니다.
@@ -104,12 +109,12 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 **대시보드**의 **모든 리소스** 아래와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 추가됩니다.
 
 
-## <a name="prepare-your-on-premises-environment-for-migration"></a>마이그레이션을 위한 온-프레미스 환경 준비
+### <a name="prepare-your-on-premises-environment-for-migration"></a>마이그레이션을 위한 온-프레미스 환경 준비
 
 - VMware에서 실행 중인 Windows Server 2008 가상 머신을 마이그레이션하려면 [VMware에서 온-프레미스 구성 서버를 설정](vmware-azure-tutorial.md#set-up-the-source-environment)합니다.
 - 구성 서버를 VMware 가상 머신으로 설정할 수 없는 경우 [온-프레미스 실제 서버 또는 가상 머신에서 구성 서버를 설정](physical-azure-disaster-recovery.md#set-up-the-source-environment)합니다.
 
-## <a name="set-up-the-target-environment"></a>대상 환경 설정
+### <a name="set-up-the-target-environment"></a>대상 환경 설정
 
 대상 리소스를 선택하고 확인합니다.
 
@@ -118,7 +123,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 3. Site Recovery가 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
 
-## <a name="set-up-a-replication-policy"></a>복제 정책 설정
+### <a name="set-up-a-replication-policy"></a>복제 정책 설정
 
 1. 새 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** >  **+복제 정책**을 클릭합니다.
 2. **복제 정책 만들기**에서 정책 이름을 지정합니다.
@@ -133,7 +138,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
    ![복제 정책 만들기](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
-## <a name="enable-replication"></a>복제 사용
+### <a name="enable-replication"></a>복제 사용
 
 마이그레이션할 Windows Server 2008 SP2 / Windows Server 2008 R2 SP1 서버에 대해 [복제를 사용](physical-azure-disaster-recovery.md#enable-replication)합니다.
    
@@ -141,7 +146,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
    ![복제 사용](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
-## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
+### <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
 
 초기 복제가 완료되고 서버 상태가 **보호됨**으로 전환된 후 복제 서버의 테스트 장애 조치(failover)를 수행할 수 있습니다.
 
@@ -150,7 +155,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
    ![테스트 장애 조치](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
-## <a name="migrate-to-azure"></a>Azure로 마이그레이션
+### <a name="migrate-to-azure"></a>Azure로 마이그레이션
 
 마이그레이션할 컴퓨터에 대해 장애 조치(Failover)를 실행합니다.
 
@@ -168,3 +173,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 > [!WARNING]
 > **진행 중인 장애 조치(failover)는 취소하지 마세요**. 장애 조치(failover)가 시작되기 전에 서버 복제가 중지됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 서버는 계속 복제되지 않습니다.
+
+## <a name="next-steps"></a>다음 단계
+> [!div class="nextstepaction"]
+> Azure Migrate에 대한 [일반적인 질문을 검토](../migrate/resources-faq.md)합니다.

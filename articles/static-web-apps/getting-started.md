@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259255"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089501"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>빠른 시작: 첫 번째 정적 웹앱 빌드
 
@@ -20,7 +20,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 - **리소스 만들기**를 클릭합니다.
 - **Static Web Apps**를 검색합니다.
 - **Static Web Apps(미리 보기)** 를 클릭합니다.
-- **만들기**
+- **만들기**를 클릭합니다.
 
 ### <a name="basics"></a>기본 사항
 
@@ -96,6 +96,9 @@ GitHub로 로그인한 다음, 리포지토리 정보를 입력합니다.
 - **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
 
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="다음 빌드 단추":::
+
+> [!NOTE]
+>  리포지토리가 표시되지 않는 경우 GitHub에서 Azure Static Web Apps에 권한을 부여해야 할 수 있습니다. GitHub 리포지토리로 이동하여 **설정 > 애플리케이션 > 권한 부여된 OAuth 앱**으로 이동하고 **Azure Static Web Apps**를 선택한 다음 **권한 부여**를 선택합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
 
 ### <a name="build"></a>빌드
 

@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/15/2020
-ms.openlocfilehash: 238ede3e79b7d7c5a22d24dfc52530fe391b600b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076342"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -24,9 +24,9 @@ ms.locfileid: "86519629"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [ **.NET 클라이언트 라이브러리**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK | 다른 .NET 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 새 클라이언트 라이브러리입니다. 버전 11. | 일반 공급. </br> NuGet에서 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 설치합니다. |
-| [**Python 클라이언트 라이브러리**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK | 다른 Python 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 새 클라이언트 라이브러리입니다. 버전 11. | 일반 공급. </br> PyPI에서 [azure-search-documents 패키지](https://pypi.org/project/azure-search-documents/)를 설치합니다. |
-| [**JavaScript 클라이언트 라이브러리**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html)  | Azure SDK | 다른 JavaScript 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 새 클라이언트 라이브러리입니다. 버전 11. | 일반 공급. </br> npm에서 [@azure/search-documents 패키지](https://www.npmjs.com/package/@azure/search-documents)를 설치합니다. |
+| [Azure.Search.Documents 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK for .NET | 다른 .NET 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 .NET 클라이언트 라이브러리입니다. <br/><br/>버전 11은 검색 Search REST API 버전 2020-06-30을 대상으로 하지만 기술 자료 저장소, 지역 필터 또는 [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet)는 아직 지원하지 않습니다. | 일반 공급. </br> NuGet에서 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 설치합니다. |
+| [azure.search.documents 클라이언트 라이브러리](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Python용 Azure SDK| 다른 Python 클라이언트 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 Python 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> PyPI에서 [azure-search-documents 패키지](https://pypi.org/project/azure-search-documents/)를 설치합니다. |
+| [@azure/search-documents 클라이언트 라이브러리](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | JavaScript용 Azure SDK | 다른 JavaScript 라이브러리와의 일관성을 위해 설계된 Azure SDK 팀에서 릴리스한 JavaScript 클라이언트 라이브러리입니다. <br/><br/>버전 11은 Search REST API 2020-06-30을 대상으로 합니다. | 일반 공급. </br> npm에서 [@azure/search-documents 패키지](https://www.npmjs.com/package/@azure/search-documents)를 설치합니다. |
 
 ### <a name="june-2020"></a>2020년 6월
 

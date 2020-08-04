@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 6edc6facc884fc6469b75b63216d6e5036321ea8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ad9eb95c9e3a21cd33a367cc864a4d791888afb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277784"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124567"
 ---
 ## <a name="configure-the-sample-project"></a>샘플 프로젝트 구성
 
-다음으로, Azure Digital Twins 인스턴스와 상호 작용하는 샘플 클라이언트 애플리케이션을 설정합니다. 샘플 프로젝트를 아직 다운로드하지 않은 경우 [Azure Digital Twins 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) 방문 페이지에서 제목 아래에 있는 *Zip 다운로드* 단추를 선택하여 다운로드합니다.
+다음으로, Azure Digital Twins 인스턴스와 상호 작용하는 샘플 클라이언트 애플리케이션을 설정합니다. 샘플 프로젝트를 아직 다운로드하지 않은 경우 [*Azure Digital Twins 샘플*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) 방문 페이지에서 제목 아래에 있는 *Zip 다운로드* 단추를 선택하여 다운로드합니다.
 
 컴퓨터에서 다운로드된 파일을 찾아 압축을 풉니다.
 

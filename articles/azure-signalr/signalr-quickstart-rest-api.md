@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 707547cb39487111e2e9353de7e82c2409638324
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045015"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -126,7 +126,7 @@ Azure SignalR 서비스를 통해 타사 서비스를 시스템과 통합할 수
 
 각 특정 버전에 사용 가능한 API 목록은 다음 목록에서 확인할 수 있습니다.
 
-API | `1.0-preview` | `1.0`
+API | 1.0-미리 보기 | 1.0
 --- | --- | ---
 [모두에게 브로드캐스트](#broadcast) | **&#x2713;** | **&#x2713;**
 [그룹에 브로드캐스트](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -242,7 +242,7 @@ API 버전 | API HTTP 메서드 | 요청 URL
 응답 상태 코드 | Description
 ---|---
 `200` | 서비스 양호
-`503` | 서비스를 사용할 수 없음
+`5xx` | 서비스 오류
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

@@ -11,21 +11,25 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996485"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171568"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)란?
 
 클라우드 리소스에 대한 액세스 관리는 클라우드를 사용하는 모든 조직에서 중요한 기능입니다. Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 데 도움을 줍니다.
 
 Azure RBAC는 Azure 리소스에 대한 액세스를 세밀하게 관리할 수 있는 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 기반의 권한 부여 시스템입니다.
+
+이 비디오에서는 Azure RBAC에 대한 개요를 빠르게 제공합니다.
+
+>[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
 
 ## <a name="what-can-i-do-with-azure-rbac"></a>Azure RBAC로 어떤 작업을 할 수 있나요?
 
@@ -65,6 +69,10 @@ Azure에는 사용 가능한 [기본 제공 역할](built-in-roles.md)이 여러
 - [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) - Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 
 나머지 기본 제공 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor) 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
+
+이 비디오에서는 기본 제공 역할 및 사용자 지정 역할에 대한 간략한 개요를 제공합니다.
+
+>[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
 Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있는 데이터 작업이 있습니다. 예를 들어 사용자가 스토리지 계정에 대한 데이터 읽기 액세스 권한을 갖고 있는 경우 해당 스토리지 계정 내의 BLOB 또는 메시지를 읽을 수 있습니다. 자세한 내용은 [Azure 역할 정의 이해](role-definitions.md)를 참조하세요.
 

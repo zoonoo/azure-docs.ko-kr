@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 58332be22600620e7a3ff1f455f96fe0d786d846
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500047"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535113"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
@@ -29,7 +29,7 @@ ms.locfileid: "87500047"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-storsimple"></a>StorSimple에 대한 RBAC 역할
+## <a name="azure-roles-for-storsimple"></a>StorSimple 용 Azure 역할
 
 RBAC는 역할을 기반으로 할당할 수 있습니다. 이 역할은 환경에서 사용할 수 있는 리소스를 기준으로 특정 권한 수준을 보장합니다. StorSimple 사용자는 기본 제공 또는 사용자 지정의 두 가지 유형 중에서 역할을 선택할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Visual Studio에서 JSON 파일을 엽니다. 일반적인 RBAC 역할은 세 가지 주요 섹션, 즉, **Actions**, **NotActions**, **AssignableScopes**으로 구성되어 있습니다.
+4. Visual Studio에서 JSON 파일을 엽니다. 일반적인 Azure 역할은 **작업**, **Notactions**및 **AssignableScopes**의 세 가지 주요 섹션으로 구성 되어 있습니다.
 
     **Actions** 섹션에서는 이 역할에 대해 허용된 모든 작업이 나열됩니다. 각 작업은 리소스 공급자로부터 할당됩니다. StorSimple 인프라 관리자의 경우 `Microsoft.StorSimple` 리소스 공급자를 사용합니다.
 
@@ -68,9 +68,9 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
 
     또한 리소스 공급자를 관리하려면 사용 가능한 모든 PowerShell cmdlet을 확인할 수 있습니다.
 
-    **NotActions** 섹션에는 특정 RBAC 역할에 대해 제한된 모든 작업이 나열됩니다. 이 예제에서는 아무 작업도 제한되어 있지 않습니다.
+    **Notactions** 섹션에 특정 Azure 역할에 대 한 모든 제한 된 작업이 나열 됩니다. 이 예제에서는 아무 작업도 제한되어 있지 않습니다.
     
-    **AssignableScopes**에는 구독 ID가 나열됩니다. RBAC 역할에 사용된 명시적 구독 ID가 포함되어 있어야 합니다. 올바른 구독 ID를 지정하지 않은 경우 구독에 역할을 가져올 수 없습니다.
+    **AssignableScopes**에는 구독 ID가 나열됩니다. Azure 역할에 사용 되는 명시적 구독 ID가 포함 되어 있는지 확인 합니다. 올바른 구독 ID를 지정하지 않은 경우 구독에 역할을 가져올 수 없습니다.
 
     위의 사항에 주의하면서 파일을 편집합니다.
 
@@ -109,7 +109,7 @@ Azure Portal에서 StorSimple 디바이스 사용자에 대해 사용할 수 있
 
 이 역할은 이제 **액세스 제어** 블레이드의 역할 목록에 나타납니다.
 
-![RBAC 역할 보기](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![Azure 역할 보기](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 자세한 내용은 [사용자 지정 역할](../role-based-access-control/custom-roles.md)로 이동하세요.
 
@@ -167,7 +167,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 1. **액세스 제어 (IAM)** 로 이동 합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
 
-    ![RBAC 역할에 액세스 권한 추가](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Azure 역할에 대 한 액세스 추가](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
 2. 할당하려는 역할을 선택합니다. 이 경우는 **StorSimple 인프라 관리자**입니다.
 
@@ -175,7 +175,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 4. **저장**을 선택하여 할당을 만듭니다.
 
-    ![RBAC 역할에 사용 권한 추가](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Azure 역할에 권한 추가](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
 **사용자 추가** 알림은 진행 상태를 추적합니다. 사용자가 성공적으로 추가된 후 액세스 제어의 사용자 목록이 업데이트됩니다.
 

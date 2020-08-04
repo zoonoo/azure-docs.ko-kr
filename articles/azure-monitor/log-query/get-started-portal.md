@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075339"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>자습서: Log Analytics 쿼리 시작
 
@@ -189,7 +189,7 @@ Log Analytics에서 결과 테이블 또는 차트를 공유 Azure 대시보드�
    
    쿼리를 함수로 저장하려면 다른 쿼리에서 이 쿼리를 호출하는 데 사용할 짧은 이름인 **함수 별칭**을 제공합니다.
    
-1. 쿼리에 사용할 **쿼리 탐색기**에 **범주**를 제공합니다.
+1. Log Analytics 작업 영역에 있는 경우 쿼리에 사용할 **쿼리 탐색기** **범주**를 제공합니다 (Applications Insights 쿼리에는 범주를 사용할 수 없음).
    
 1. **저장**을 선택합니다.
    
@@ -202,6 +202,10 @@ Log Analytics에서 결과 테이블 또는 차트를 공유 Azure 대시보드�
 
 ### <a name="export-and-share-queries"></a>쿼리 내보내기 및 공유
 쿼리를 내보내려면 위쪽 표시줄에서 **내보내기**를 선택한 다음, 드롭다운 목록에서 **CSV로 내보내기 - 모든 열**, **CSV로 내보내기 - 표시된 열** 또는 **Power BI(M Query)로 내보내기**를 선택합니다.
+
+다음 비디오에서는 Log Analytics와 Excel을 통합하는 방법을 보여 줍니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 쿼리에 대한 링크를 공유하려면 위쪽 표시줄에서 **링크 복사**를 선택한 다음, **쿼리에 링크 복사**, **쿼리 텍스트 복사** 또는 **쿼리 결과 복사**를 선택하여 클립보드에 복사합니다. 쿼리 링크는 동일한 작업 영역에 액세스할 수 있는 다른 사용자에게 보낼 수 있습니다.
 

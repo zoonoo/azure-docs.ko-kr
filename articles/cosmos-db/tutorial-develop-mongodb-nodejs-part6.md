@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: c4d44b1bf645132f5c2d6e863dbe0c93f024c7ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066936"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - 앱에 CRUD 함수 추가
 
@@ -36,7 +36,7 @@ ms.locfileid: "85118970"
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>Hero 서비스에 게시 함수 추가
 
-1. Visual Studio Code에서 **분할 편집기** 단추 ![Visual Studio의 분할 편집기 단추](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png)를 눌러 **routes.js** 및 **hero.service.js**를 나란히 엽니다.
+1. Visual Studio Code에서 **분할 편집기** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png":::를 눌러 **routes.js** 및 **hero.service.js**를 나란히 엽니다.
 
     routes.js 7줄이 **hero.service.js**의 5줄에서 `getHeroes` 함수를 호출하는지 확인합니다.  게시, 배치 및 삭제 함수의 동일한 쌍을 만들어야 합니다. 
 
@@ -84,7 +84,7 @@ ms.locfileid: "85118970"
     });
     ```
 
-5. 앱을 실행하여 모두 제대로 작동하는지 확인합니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png)을 선택하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버깅 시작 아이콘](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png)을 선택합니다.
+5. 앱을 실행하여 모두 제대로 작동하는지 확인합니다. Visual Studio Code에서 모든 변경 내용을 저장하고 왼쪽에 있는 **디버그** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png":::를 선택한 다음 **디버깅 시작** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png":::를 선택합니다.
 
 6. 이제 인터넷 브라우저로 다시 이동하고 대부분의 컴퓨터에서 F12 키를 눌러 개발자 도구 네트워크 탭을 엽니다. `http://localhost:3000`으로 이동하여 네트워크를 통해 수행된 호출을 감시합니다.
 
@@ -169,7 +169,7 @@ ms.locfileid: "85118970"
     };
     ```
 
-4. 코드를 업데이트했으니, Visual Studio Code에서 **다시 시작** 단추 ![Visual Studio Code의 다시 시작 단추](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png)를 선택합니다.
+4. 이제 코드를 업데이트했으므로 Visual Studio Code에서 **다시 시작** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png":::를 선택합니다.
 
 5. 인터넷 브라우저에서 페이지를 새로 고치고 **새 Hero 추가** 단추를 선택합니다. ID로 "9", 이름으로 "Starlord", 설명으로 "Hi"를 포함한 새 Hero를 추가합니다. **저장** 단추를 선택하여 새 Hero를 저장합니다.
 

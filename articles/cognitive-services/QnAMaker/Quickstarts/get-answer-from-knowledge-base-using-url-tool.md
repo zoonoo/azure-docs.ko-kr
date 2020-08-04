@@ -3,20 +3,18 @@ title: '빠른 시작: URL 도구를 사용하여 기술 자료에서 답변 가
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 cURL 또는 Postman과 같은 URL 테스트 도구를 사용하여 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.author: diberry
-ms.openlocfilehash: 1f19337aea8b39bbc8c7dc11fba683bee3c2955a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 07/16/2020
+ms.openlocfilehash: 6d03870a24e25327b43c14e57715cdaea23e700d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203970"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132897"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>빠른 시작: 기술 자료에서 답변 가져오기
 
@@ -38,3 +36,7 @@ ms.locfileid: "82203970"
 
 > [!div class="nextstepaction"]
 > [배치 파일을 사용하여 기술 자료 테스트](batch-testing.md)
+
+메타데이터에 대해 자세히 알아봅니다.
+* [제작 - QnA 쌍에 메타데이터 추가](../How-To/edit-knowledge-base.md#add-metadata)
+* [쿼리 예측 - 메타데이터를 통한 응답 필터링](../How-To/metadata-generateanswer-usage.md#use-metadata-to-filter-answers-by-custom-metadata-tags)

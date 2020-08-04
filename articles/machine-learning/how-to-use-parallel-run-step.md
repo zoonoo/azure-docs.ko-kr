@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: bf0aa51c64eea0aa58e679c4f9f44686ce7b9ffb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 475c5b3073b25c79b57a2ab507af642a8af3547f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520632"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288869"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,13 +27,13 @@ ParallelRunStep을 사용하면 간단하게 오프라인 유추를 대규모 �
 
 이 문서에서는 다음 작업에 대해 알아봅니다.
 
-> * 기계 학습 리소스 설정
-> * 일괄 처리 유추 데이터 입력 및 출력을 구성합니다.
-> * [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) 데이터 세트를 기반으로 미리 학습된 이미지 분류 모델을 준비합니다. 
-> * 유추 스크립트를 작성합니다.
-> * ParallelRunStep을 포함하는 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 MNIST 테스트 이미지에서 일괄 처리 유추를 실행합니다. 
-> * 새로운 데이터 입력과 매개 변수를 사용하여 일괄 처리 유추 실행을 다시 전송합니다. 
-> * 결과를 확인합니다.
+> 1. 기계 학습 리소스 설정
+> 1. 일괄 처리 유추 데이터 입력 및 출력을 구성합니다.
+> 1. [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) 데이터 세트를 기반으로 미리 학습된 이미지 분류 모델을 준비합니다. 
+> 1.  유추 스크립트를 작성합니다.
+> 1. ParallelRunStep을 포함하는 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 MNIST 테스트 이미지에서 일괄 처리 유추를 실행합니다. 
+> 1. 새로운 데이터 입력과 매개 변수를 사용하여 일괄 처리 유추 실행을 다시 전송합니다. 
+> 1. 결과를 확인합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -100,6 +100,8 @@ else:
      # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ## <a name="configure-inputs-and-output"></a>입력 및 출력 구성
 
@@ -203,16 +205,16 @@ model = Model.register(model_path="models/",
 스크립트에 다음 두 함수가 *포함되어야 합니다*.
 - `init()`: 이후 유추를 위해 비용이 많이 드는 준비 또는 일반적인 준비에 이 함수를 사용합니다. 예를 들어 모델을 글로벌 개체에 로드하는 데 사용합니다. 이 함수는 프로세스를 시작할 때 한 번만 호출됩니다.
 -  `run(mini_batch)`: 이 함수는 각 `mini_batch` 인스턴스에 대해 실행됩니다.
-    -  `mini_batch`: ParallelRunStep은 run 메서드를 호출하고 목록 또는 Pandas DataFrame을 메서드에 인수로 전달합니다. 입력이 FileDataset이면 mini_batch의 각 항목이 파일 경로이고, 입력이 TabularDataset이면 Pandas 데이터 프레임입니다.
-    -  `response`: run() 메서드는 Pandas 데이터 프레임 또는 배열을 반환해야 합니다. append_row output_action의 경우 반환되는 요소가 공통 출력 파일에 추가됩니다. summary_only의 경우 요소의 내용이 무시됩니다. 모든 출력 작업의 경우 반환되는 각 출력 요소는 입력 미니 일괄 처리의 입력 요소에 대한 성공적인 실행 하나를 나타냅니다. 입력을 실행 출력 결과에 매핑하기에 충분한 데이터가 실행 결과에 포함되어 있는지 확인합니다. 실행 출력은 출력 파일에 기록되지만 순서대로 기록된다는 보장은 없으므로, 사용자는 출력의 키를 사용하여 입력에 매핑해야 합니다.
+    -  `mini_batch`: `ParallelRunStep`은(는) run 메서드를 호출하고 목록 또는 pandas `DataFrame`을(를) 메서드에 인수로 전달합니다. 입력이 `FileDataset`이면 mini_batch의 각 항목이 파일 경로가 되고 입력이 `TabularDataset`이면 Pandas `DataFrame`입니다.
+    -  `response`: run() 메서드는 Pandas `DataFrame` 또는 배열을 반환해야 합니다. append_row output_action의 경우 반환되는 요소가 공통 출력 파일에 추가됩니다. summary_only의 경우 요소의 내용이 무시됩니다. 모든 출력 작업의 경우 반환되는 각 출력 요소는 입력 미니 일괄 처리의 입력 요소에 대한 성공적인 실행 하나를 나타냅니다. 입력을 실행 출력 결과에 매핑하기에 충분한 데이터가 실행 결과에 포함되어 있는지 확인합니다. 실행 출력은 출력 파일에 기록되지만 순서대로 기록된다는 보장은 없으므로, 사용자는 출력의 키를 사용하여 입력에 매핑해야 합니다.
 
 ```python
+%%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
-%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -287,7 +289,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 `ParallelRunConfig`는 Azure Machine Learning 파이프라인 내에서 `ParallelRunStep` 인스턴스에 대한 주요 구성입니다. 스크립트를 래핑하고 다음 항목을 포함하여 필요한 매개 변수를 구성하는 데 사용됩니다.
 - `entry_script`: 여러 노드에서 병렬로 실행되는 로컬 파일 경로인 사용자 스크립트입니다. `source_directory`가 있으면 상대 경로를 사용합니다. 없으면 머신에서 액세스할 수 있는 아무 경로를 사용합니다.
-- `mini_batch_size`: 단일 `run()` 호출에 전달된 미니 일괄 처리의 크기입니다. (선택 사항입니다. 기본값은 FileDataset의 경우 `10` 파일이고, TabularDataset의 경우 `1MB`입니다.)
+- `mini_batch_size`: 단일 `run()` 호출에 전달된 미니 일괄 처리의 크기입니다. (선택 사항이며 기본값은 `FileDataset`의 경우 `10` 파일이고 `TabularDataset`의 경우 `1MB`임)
     - `FileDataset`의 경우 최솟값이 `1`인 파일 수입니다. 여러 파일을 한 미니 일괄 처리로 결합할 수 있습니다.
     - `TabularDataset`의 경우 데이터의 크기입니다. 예제 값은 `1024`, `1024KB`, `10MB` 및 `1GB`입니다. 권장 값은 `1MB`입니다. `TabularDataset`의 미니 일괄 처리는 파일 경계를 넘지 않습니다. 예를 들어 다양한 크기의 .csv 파일이 있는 경우 가장 작은 파일은 100KB이고 가장 큰 파일은 10MB입니다. `mini_batch_size = 1MB`를 설정하는 경우 크기가 1MB보다 작은 파일은 하나의 미니 일괄 처리로 취급됩니다. 크기가 1MB보다 큰 파일은 여러 개의 미니 일괄 처리로 분할됩니다.
 - `error_threshold`: 처리 중에 무시해야 하는 `FileDataset`에 대한 `TabularDataset` 및 파일 오류에 대한 레코드 실패 횟수입니다. 전체 입력의 오류 횟수가 이 값을 초과하면 작업이 중단됩니다. 오류 임계값은 `run()` 메서드로 전송되는 개별 미니 일괄 처리가 아닌 전체 입력에 적용됩니다. 범위는 `[-1, int.max]`입니다. `-1` 부분은 처리 중에 발생하는 모든 오류를 무시한다는 뜻입니다.
@@ -304,7 +306,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: `run()` 메서드 호출 시간 제한(초)입니다. (선택 사항이며 기본값은 `60`)
 - `run_max_try`: 미니 일괄 처리의 최대 `run()` 시도 횟수입니다. 예외가 throw되거나 `run_invocation_timeout`에 도달할 때 아무 것도 반환되지 않으면 `run()`이 실패합니다(선택 사항이며 기본값은 `3`). 
 
-`mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` 및 `run_max_try`를 `PipelineParameter`로 지정할 수 있습니다. 그러면 파이프라인 실행을 다시 제출할 때 매개 변수 값을 세밀하게 조정할 수 있습니다. 이 예제에서는 `mini_batch_size` 및 `Process_count_per_node`에 PipelineParameter를 사용하며, 나중에 실행을 다시 제출할 때 이 값을 변경할 것입니다. 
+`mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` 및 `run_max_try`를 `PipelineParameter`로 지정할 수 있습니다. 그러면 파이프라인 실행을 다시 제출할 때 매개 변수 값을 세밀하게 조정할 수 있습니다. 이 예제에서는 `mini_batch_size` 및 `Process_count_per_node`에 `PipelineParameter`을(를) 사용하며 나중에 실행을 다시 제출할 때 이 값을 변경할 것입니다. 
 
 이 예에서는 앞에서 설명한 `digit_identification.py` 스크립트를 사용한다고 가정합니다. 고유한 스크립트를 사용하는 경우 그에 따라 `source_directory` 및 `entry_script` 매개 변수를 변경합니다.
 
@@ -394,7 +396,7 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## <a name="view-the-results"></a>결과 보기
 
-위의 실행 결과는 PipelineData 개체에 지정된 DataStore에 출력 데이터로 기록됩니다. 이 경우 *추론*이라고 합니다. 결과는 기본 Bob 컨테이너에 저장되며, 스토리지 계정으로 이동하여 Storage Explorer를 통해 볼 수 있습니다. 파일 경로는 azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*입니다.
+위의 실행 결과는 `PipelineData` 개체에 지정된 `DataStore`에 출력 데이터로 기록됩니다. 이 경우 *추론*이라고 합니다. 결과는 기본 Bob 컨테이너에 저장되며, 스토리지 계정으로 이동하여 Storage Explorer를 통해 볼 수 있습니다. 파일 경로는 azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*입니다.
 
 이 데이터를 다운로드하여 결과를 볼 수도 있습니다. 아래는 처음 10개 행을 표시하는 샘플 코드입니다.
 

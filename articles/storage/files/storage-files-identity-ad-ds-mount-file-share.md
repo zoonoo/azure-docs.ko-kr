@@ -7,18 +7,18 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999601"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535062"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>4 부: 도메인에 가입 된 VM에서 파일 공유 탑재
 
 이 문서를 시작 하기 전에 이전 문서인 [SMB를 통해 디렉터리 및 파일 수준 권한 구성](storage-files-identity-ad-ds-configure-permissions.md)문서를 완료 해야 합니다.
 
-이 문서에서 설명 하는 프로세스는 파일 공유 및 액세스 권한이 올바르게 설정 되었는지 확인 하 고 도메인에 가입 된 VM에서 Azure 파일 공유에 액세스할 수 있는지 확인 합니다. 공유 수준 RBAC 역할 할당을 적용 하는 데 다소 시간이 걸릴 수 있습니다. 
+이 문서에서 설명 하는 프로세스는 파일 공유 및 액세스 권한이 올바르게 설정 되었는지 확인 하 고 도메인에 가입 된 VM에서 Azure 파일 공유에 액세스할 수 있는지 확인 합니다. 공유 수준 Azure 역할 할당은 적용 되는 데 다소 시간이 걸릴 수 있습니다. 
 
 다음 그림에 표시 된 것 처럼 권한이 부여 된 자격 증명을 사용 하 여 클라이언트에 로그인 합니다.
 

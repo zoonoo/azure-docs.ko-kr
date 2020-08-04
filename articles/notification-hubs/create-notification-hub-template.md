@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 Azure 알림 허브 만들기
-description: Azure Resource Manager 템플릿을 사용하여 Azure 알림 허브를 만드는 방법을 알아봅니다.
+description: Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 Azure 알림 허브를 만드는 방법을 알아봅니다.
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -10,37 +10,37 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a1e947c80ae48ae507d0712e62084538165918be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996672"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022449"
 ---
-# <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 알림 허브 만들기
+# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 알림 허브 만들기
 
 Azure Notification Hubs는 알림을 모든 백 엔드(클라우드 또는 온-프레미스)에서 모든 플랫폼(iOS, Android, Windows, Kindle 등)으로 보낼 수 있는 사용하기 쉽고 규모가 확장된 푸시 엔진을 제공합니다. 서비스에 대한 자세한 내용은 [Azure Notification Hubs란?](notification-hubs-push-notification-overview.md)을 참조하세요.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure Notification Hubs 네임스페이스 및 해당 네임스페이스 내에 **MyHub**라는 알림 허브를 만듭니다.
+이 빠른 시작에서는 Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 Azure Notification Hubs 네임스페이스 및 해당 네임스페이스 내에 **MyHub**라는 알림 허브를 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-없음
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="create-a-notification-hubs-namespace-and-hub"></a>Notification Hubs 네임스페이스 및 허브 만들기
+## <a name="review-the-template"></a>템플릿 검토
 
-### <a name="review-the-template"></a>템플릿 검토
-
-이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-notification-hub/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-notification-hub/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json" range="1-45" highlight="22-40":::
 
-* [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/2017-04-01/namespaces)
-* [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/2017-04-01/namespaces/notificationhubs)
+* [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
+* [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -86,4 +86,4 @@ Write-Host "Press [ENTER] to continue..."
 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: 첫 번째 Azure Resource Manager 템플릿을 만들고 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

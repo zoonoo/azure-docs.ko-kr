@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acfe4695b94fe9337296d70ef4a2864794730ec4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081732"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 함수 만들기
 
@@ -111,6 +111,9 @@ Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청
 `Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
 Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
+
+Azure에서 Java 11을 실행하려면 pom.xml 파일의 값을 수정해야 합니다. 자세히 알아보려면 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요. 
+
 ::: zone-end  
 프로젝트 폴더로 이동합니다.
 
@@ -157,6 +160,8 @@ cd fabrikam-functions
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 초기 배포 전에 `runtime.os`를 `windows`에서 `linux`로 변경하는 등의 방법으로 이러한 설정을 변경하면 Azure에서 리소스를 만드는 방식을 제어할 수 있습니다. Maven 플러그 인에서 지원하는 전체 설정 목록은 [구성 세부 정보](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details)를 참조하세요.
+
+Java 8 대신 Java 11에서 함수 앱을 실행하려는 경우 Java 11 값을 사용하여 pom.xml 파일을 수동으로 업데이트해야 합니다. 자세히 알아보려면 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요. Java 11에서 실행하는 경우 다음을 확인합니다.  
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 
