@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544184"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545210"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 id에 대 한 액세스 권한 할당
 
@@ -28,7 +28,7 @@ Id 기반 인증을 사용 하 여 Azure Files 리소스에 액세스 하려면 
 > [!IMPORTANT]
 > 파일 소유권을 가져오는 기능을 포함 하 여 파일 공유에 대 한 모든 관리 권한을 저장소 계정 키를 사용 해야 합니다. Azure AD 자격 증명으로는 관리 권한이 지원되지 않습니다.
 
-Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다. 공유 수준 RBAC 역할 할당은 적용 되는 데 다소 시간이 걸릴 수 있습니다. 
+Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한을 부여 하는 사용자의 Azure AD id에 기본 제공 역할을 할당할 수 있습니다. 공유 수준 Azure 역할 할당은 적용 되는 데 다소 시간이 걸릴 수 있습니다. 
 
 > [!NOTE]
 > 인증에 온-프레미스 AD DS를 사용 하려는 경우 [AD DS 자격 증명을 AZURE AD와 동기화](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) 해야 합니다. AD DS에서 Azure AD로 암호 해시 동기화는 선택 사항입니다. 공유 수준 권한은 온-프레미스 AD DS에서 동기화 되는 Azure AD id에 부여 됩니다.
@@ -36,7 +36,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한
 일반적인 권장 사항은 수준 높은 액세스 관리에 사용자 및 id 그룹을 나타내는 AD 그룹에 대 한 공유 수준 권한을 사용 하 고, 디렉터리/파일 수준에 대 한 세부적인 액세스 제어에 NTFS 권한을 활용 하는 것입니다. 
 
 #### <a name="azure-portal"></a>Azure portal
-[Azure Portal](https://portal.azure.com)를 사용 하 여 Azure AD ID에 RBAC 역할을 할당 하려면 다음 단계를 수행 합니다.
+[Azure Portal](https://portal.azure.com)를 사용 하 여 azure AD Id에 azure 역할을 할당 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 파일 공유로 이동 하거나 [파일 공유를 만듭니다](../articles/storage/files/storage-how-to-create-file-share.md).
 2. **Access Control(IAM)** 을 선택합니다.
@@ -46,7 +46,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 권한
 
 #### <a name="powershell"></a>PowerShell
 
-다음 PowerShell 샘플은 로그인 이름에 따라 Azure AD id에 RBAC 역할을 할당 하는 방법을 보여 줍니다. PowerShell을 사용하여 RBAC 역할을 할당하는 방법에 대한 자세한 내용은 [RBAC 및 Azure PowerShell을 사용하여 액세스 관리](../articles/role-based-access-control/role-assignments-powershell.md)를 참조하세요.
+다음 PowerShell 샘플은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 하는 방법을 보여 줍니다. PowerShell로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
@@ -61,7 +61,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-다음 CLI 2.0 명령은 로그인 이름을 기반으로 하 여 Azure AD id에 RBAC 역할을 할당 하는 방법을 보여 줍니다. Azure CLI에서 RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [rbac 및 Azure CLI를 사용 하 여 액세스 관리](../articles/role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
+다음 CLI 2.0 명령은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 하는 방법을 보여 줍니다. Azure CLI와 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC 및 Azure CLI를 사용 하 여 액세스 관리](../articles/role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
@@ -130,7 +130,7 @@ Icacls를 사용 하 여 NTFS 권한 및 지원 되는 다양 한 권한 유형�
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 도메인에 가입 된 VM에서 파일 공유 탑재
 
-다음 프로세스는 파일 공유 및 액세스 권한이 올바르게 설정 되었는지 확인 하 고 도메인에 가입 된 VM에서 Azure 파일 공유에 액세스할 수 있는지 확인 합니다. 공유 수준 RBAC 역할 할당은 적용 되는 데 다소 시간이 걸릴 수 있습니다. 
+다음 프로세스는 파일 공유 및 액세스 권한이 올바르게 설정 되었는지 확인 하 고 도메인에 가입 된 VM에서 Azure 파일 공유에 액세스할 수 있는지 확인 합니다. 공유 수준 Azure 역할 할당은 적용 되는 데 다소 시간이 걸릴 수 있습니다. 
 
 다음 그림에 표시 된 것 처럼 권한을 부여한 Azure AD id를 사용 하 여 VM에 로그인 합니다. Azure Files에 대해 온-프레미스 AD DS 인증을 사용 하도록 설정한 경우 AD DS 자격 증명을 사용 합니다. Azure AD DS 인증의 경우 Azure AD 자격 증명을 사용 하 여 로그인 합니다.
 

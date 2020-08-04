@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421742"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543455"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -151,7 +151,8 @@ Azure Cloud Shell은 개인 데이터를 중대하게 사용하며, Azure Cloud 
 ### <a name="export"></a>내보내기
 사용자 설정을 **내보내기** 위해 Cloud Shell은 다음 명령을 실행하여 기본 설정된 셸, 글꼴 크기 및 글꼴 종류 등을 저장합니다.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![시작 Azure Cloud Shell 레이블이 지정 된 단추를 표시 하는 이미지입니다.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Bash 또는 PowerShell에서 다음 명령을 실행합니다.
 
 Bash:
@@ -168,13 +169,14 @@ PowerShell:
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 사용자 설정을 **삭제하기** 위해 Cloud Shell은 다음 명령을 실행하여 기본 설정된 셸, 글꼴 크기 및 글꼴 종류 등을 저장합니다. 다음 번에 Cloud Shell을 시작하면 파일 공유를 다시 등록할지 묻는 메시지가 표시됩니다. 
 
 >[!Note]
 > 사용자 설정을 삭제하는 경우 실제 Azure Files 공유는 삭제되지 않습니다. 해당 작업을 완료하려면 Azure Files로 이동합니다.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![시작 Azure Cloud Shell 레이블이 지정 된 단추를 표시 하는 이미지입니다.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Bash 또는 PowerShell에서 다음 명령을 실행합니다.
 
 Bash:

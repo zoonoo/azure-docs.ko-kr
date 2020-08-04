@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: d1cfbe1db33661dd712dfbc53670fb8f0525a481
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507032"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543081"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -69,6 +69,7 @@ az provider register --namespace Microsoft.ContainerInstance
 * ACI의 exec에 대한 [인수](../container-instances/container-instances-exec.md#restrictions)
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets)는 가상 노드에 Pod를 배포하지 않습니다.
 * 가상 노드는 Linux Pod 예약을 지원합니다. 오픈 소스 [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) 공급자를 수동으로 설치하여 Windows Server 컨테이너를 ACI로 예약할 수 있습니다.
+* 가상 노드에는 Azure CNI 네트워킹을 사용 하는 AKS 클러스터가 필요 합니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 

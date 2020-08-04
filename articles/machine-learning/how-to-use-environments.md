@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: d39b5f414b1998a4c0eacbbf8fd792d27c70309c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9464544e8c80ad32269ad27ed3592871d0077713
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474583"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544033"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -376,6 +376,12 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
+```
+### <a name="retrieve-dockerfile-from-a-run"></a>실행에서 Dockerfile 검색
+
+Docker 사용 실행에 대 한 Dockerfile을 가져오려면 다음 코드를 사용 합니다.
+```python
+print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## <a name="use-environments-for-web-service-deployment"></a>웹 서비스 배포를 위한 환경 사용

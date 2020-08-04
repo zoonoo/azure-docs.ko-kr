@@ -1,6 +1,6 @@
 ---
 title: 세션 관리 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: 위협 모델링 도구에 노출되는 위협 완화
+description: Threat Modeling Tool에 노출 되는 위협에 대 한 세션 관리 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 7f9eb18e72c12a8585ea8bcd42d8d720af43dbaf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420552"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543693"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현](#logout-adal)</li></ul> |
-| IoT 디바이스 | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
+| **IoT 디바이스** | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[생성된 리소스 토큰에 대해 최소 토큰 수명 사용](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[ADFS를 사용하는 경우에 WsFederation 메서드를 사용하여 적절한 로그아웃 구현](#wsfederation-logout)</li></ul> |
 | **ID 서버** | <ul><li>[Id 서버를 사용 하는 경우 적절 한 로그 아웃 구현](#proper-logout)</li></ul> |

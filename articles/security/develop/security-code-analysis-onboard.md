@@ -1,6 +1,6 @@
 ---
 title: Microsoft 보안 코드 분석 온 보 딩 가이드
-description: 이 문서에서는 Microsoft 보안 코드 분석 확장을 설치 하는 방법을 설명 합니다.
+description: Microsoft 보안 코드 분석 확장을 등록 하 고 설치 하는 방법을 알아봅니다. 필수 구성 요소를 참조 하 고 추가 리소스를 봅니다.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: fd0057c5f5e365d6c91ae221a7add813855bb1ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323590"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543030"
 ---
 # <a name="onboarding-and-installing"></a>온보딩 및 설치
 

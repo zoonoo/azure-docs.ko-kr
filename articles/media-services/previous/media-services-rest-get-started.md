@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c15883f4e2a515e8c6015a39951a8729cf77274
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000145"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543999"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작  
 
@@ -34,7 +34,7 @@ ms.locfileid: "87000145"
 
 전체 크기로 보려면 이미지를 클릭합니다.  
 
-<a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
+[![주문형 비디오 응용 프로그램 개발을 위한 Azure Media Services 개체 데이터 모델에서 가장 일반적으로 사용 되는 개체 중 일부를 보여 주는 다이어그램입니다.](./media/media-services-rest-get-started/media-services-overview-object-model-small.png)](./media/media-services-rest-get-started/media-services-overview-object-model.png#lightbox)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 조건이 필요합니다.

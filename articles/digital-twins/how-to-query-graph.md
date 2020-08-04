@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486660"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543353"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
-이 문서에서는 [Azure Digital Twins 쿼리 저장소 언어](concepts-query-language.md) 를 사용 하 여 정보에 대 한 쌍 [그래프](concepts-twins-graph.md) 를 쿼리 하는 방법에 대 한 예제 및 자세한 정보를 제공 합니다. Azure Digital Twins [**쿼리 api**](how-to-use-apis-sdks.md)를 사용 하 여 그래프에서 쿼리를 실행 합니다.
+이 문서에서는 [Azure Digital Twins 쿼리 언어](concepts-query-language.md) 를 사용 하 여 정보에 대 한 쌍 [그래프](concepts-twins-graph.md) 를 쿼리 하는 방법에 대 한 예제 및 자세한 정보를 제공 합니다. Azure Digital Twins [**쿼리 api**](how-to-use-apis-sdks.md)를 사용 하 여 그래프에서 쿼리를 실행 합니다.
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -87,11 +87,11 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>관계를 기반으로 하는 쿼리
 
-디지털 쌍의 관계를 기반으로 쿼리 하는 경우 Azure Digital Twins 쿼리 저장소 언어에는 특별 한 구문이 있습니다.
+디지털 쌍의 관계를 기반으로 쿼리 하는 경우 Azure Digital Twins 쿼리 언어에는 특별 한 구문이 있습니다.
 
 관계는 절의 쿼리 범위로 끌어옵니다 `FROM` . "기존" SQL 형식 언어와의 중요 한 차이점은이 절의 각 식이 테이블이 아니라는 것입니다 .이 `FROM` `FROM` 절은 엔터티 간 관계 순회를 표현 하 고 Azure Digital twins 버전의를 사용 하 여 작성 됩니다 `JOIN` . 
 
-Azure Digital Twins [모델](concepts-models.md) 기능을 사용 하는 경우 관계는 twins와 독립적으로 존재 하지 않습니다. 즉, 이러한 관계는 독립적으로 쿼리할 수 없으며 쌍에 연결 되어야 하므로 Azure Digital Twins 쿼리 저장소 언어는 `JOIN` 일반 SQL과 약간 다릅니다 `JOIN` .
+Azure Digital Twins [모델](concepts-models.md) 기능을 사용 하는 경우 관계는 twins와 독립적으로 존재 하지 않습니다. 즉, 여기에서 관계는 독립적으로 쿼리할 수 없으며 쌍에 연결 되어야 하므로 Azure Digital Twins 쿼리 언어는 `JOIN` 일반 SQL과 약간 다릅니다 `JOIN` .
 이러한 차이를 반영 하기 위해 키워드는 `RELATED` 절에서 쌍의 `JOIN` 관계 집합을 참조 하는 데 사용 됩니다. 
 
 다음 섹션에서는이 처럼 표시 되는 몇 가지 예를 제공 합니다.
@@ -117,7 +117,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>관계 속성 쿼리
 
-디지털 쌍이 DTDL을 통해 설명 하는 속성을 갖는 방식과 마찬가지로 관계에도 속성이 있을 수 있습니다. Azure Digital Twins 쿼리 저장소 언어는 절 내의 관계에 별칭을 할당 하 여 관계 필터링 및 프로젝션을 허용 합니다 `JOIN` . 
+디지털 쌍이 DTDL을 통해 설명 하는 속성을 갖는 방식과 마찬가지로 관계에도 속성이 있을 수 있습니다. Azure Digital Twins 쿼리 언어를 사용 하면 절 내의 관계에 별칭을 할당 하 여 관계를 필터링 하 고 투영할 수 있습니다 `JOIN` . 
 
 예를 들어 *reportedCondition* 속성이 있는 *servicedBy* relationship을 고려 합니다. 아래 쿼리에서는 속성을 참조 하기 위해이 관계에 ' R '의 별칭이 지정 됩니다.
 

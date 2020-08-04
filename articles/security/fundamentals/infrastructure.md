@@ -1,6 +1,6 @@
 ---
 title: Azure 인프라 보안 | Microsoft Docs
-description: 이 문서에서는 Microsoft가 Azure 데이터 센터의 보안을 유지하는 방법을 설명합니다.
+description: Azure 데이터 센터를 보호 하기 위해 Microsoft가 어떻게 작동 하는지 알아보세요. 데이터 센터는 Microsoft 운영 담당자에 의해 관리되고 모니터링됩니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72595398"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543931"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 인프라 보안
 Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에서 실행됩니다. 지리적으로 분산된 데이터 센터는 보안 및 안정성을 위해 ISO/IEC 27001:2013 및 NIST SP 800-53과 같은 주요 산업 표준을 준수합니다. 데이터 센터는 Microsoft 운영 담당자에 의해 관리되고 모니터링됩니다. 운영 담당자는 연중 무휴로 사용하여 세계에서 가장 규모가 큰 온라인 서비스를 제공하는 환경을 경험했습니다.

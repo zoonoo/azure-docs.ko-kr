@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: 1e3d855d0860d8d9875e4a93091653cab18965f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcbe2bd038a3e27df86b281c51cf0a151c5b5af
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738535"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542911"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -60,11 +60,13 @@ Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 �
 
    **회로 공급자 상태: 프로 비전 되지 않음**
 
-    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [!["프로 비전 되지 않음"으로 설정 된 공급자 상태를 강조 표시 하는 빨강 상자가 있는 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
 
    **회로 공급자 상태: 프로 비전 됨**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [!["프로 비전 됨"으로 설정 된 공급자 상태를 강조 표시 하는 빨강 상자가 있는 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+
 2. 회로에 Microsoft 피어링을 구성합니다. 진행하기 전에 다음 정보가 있는지 확인합니다.
 
    * 기본 링크에 대한 /30 서브넷입니다. 사용자가 소유하고 RIR/IRR에 등록된 유효한 공용 IPv4 접두사여야 합니다. Microsoft에서 사용 가능한 두 번째 IP를 라우터에 사용하므로, 이 서브넷에서는 사용 가능한 첫 번째 IP 주소를 라우터에 할당하겠습니다.
@@ -113,7 +115,7 @@ Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 �
 
 ![피어 링 삭제](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
-## <a name="azure-private-peering"></a><a name="private"></a>Azure 개인 피어 링
+## <a name="azure-private-peering"></a><a name="private"></a>Azure 프라이빗 피어링
 
 이 섹션은 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
@@ -125,11 +127,11 @@ Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 �
 
    **회로 공급자 상태: 프로 비전 되지 않음**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+   [!["프로 비전 되지 않음"으로 설정 된 공급자 상태를 강조 표시 하는 빨강 상자가 있는 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **회로 공급자 상태: 프로 비전 됨**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+   [!["프로 비전 됨"으로 설정 된 공급자 상태를 강조 표시 하는 빨강 상자가 있는 Express 경로 데모 회로의 개요 페이지를 보여 주는 스크린샷](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. 회로에 Azure 프라이빗 피어링을 구성합니다. 다음 단계를 계속 진행하기 전에 다음 항목이 있는지 확인합니다.
 

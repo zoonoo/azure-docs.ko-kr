@@ -1,6 +1,6 @@
 ---
 title: Microsoft 보안 코드 분석 설명서 개요
-description: 이 문서는 Microsoft 보안 코드 분석 확장 프로그램에 대 한 개요입니다.
+description: Microsoft 보안 코드 분석 확장에 대해 알아봅니다. 이 확장을 사용 하 여 Azure DevOps CI/ID 파이프라인에 보안 코드 분석을 추가할 수 있습니다.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e42ea5c6863e769f6d2664b3bcd48d15f00b6b5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d9caabe3dfde34964f662dbf01316b2cbb0bcab
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361322"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543013"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
 

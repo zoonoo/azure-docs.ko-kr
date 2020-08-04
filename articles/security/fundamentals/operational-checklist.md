@@ -1,6 +1,6 @@
 ---
 title: Azure 운영 보안 검사 목록 | Microsoft Docs
-description: 이 문서에서는 Azure 운영 보안에 대한 일단의 검사 목록을 제공합니다.
+description: 이 검사 목록을 검토 하 여 기업에서 Azure 운영 보안 고려 사항을 고려 합니다.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c7c44018bb1a010298738d3e46b7b9e7b6c04292
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 656459c4a29a73732b8825e735719731a0979a0e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448304"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542928"
 ---
 # <a name="azure-operational-security-checklist"></a>Azure 운영 보안 검사 목록
 Azure에 애플리케이션을 배포하는 것이 빠르고, 쉽고, 비용 효율적입니다. 프로덕션 환경에 클라우드 애플리케이션을 배포하기 전에 고려해야 하는 필수 및 권장 운영 보안 작업 목록과 대조하여 애플리케이션을 평가하는 데 도움이 되는 검사 목록이 있으면 유용합니다.
@@ -37,7 +37,7 @@ Azure는 애플리케이션을 배포하는 데 사용할 수 있는 인프라 �
 
 이 검사 목록은 기업이 Azure에 정교한 엔터프라이즈 애플리케이션을 배포할 때 다양한 운영 보안 고려 사항을 검토할 수 있도록 돕기 위한 것입니다. 또한 조직의 보안 클라우드 마이그레이션 및 운영 전략을 계획하는 데에도 사용할 수 있습니다.
 
-|검사 목록 범주| Description|
+|검사 목록 범주| 설명|
 | ------------ | -------- |
 | [<br>보안 역할 & 액세스 제어](../../security-center/security-center-planning-and-operations-guide.md)|<ul><li>[RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 특정 범위의 사용자, 그룹 및 애플리케이션에 권한을 사용자별로 할당할 수 있습니다.</li></ul> |
 | [<br>저장소 & 데이터 수집](../../storage/blobs/security-recommendations.md)|<ul><li>관리 평면 보안을 사용하여 [RBAC(역할 기반 Access Control)](../../role-based-access-control/role-assignments-portal.md)를 통해 Storage 계정을 보호합니다.</li><li>데이터 평면 보안을 사용하여 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 및 저장된 액세스 정책을 통해 데이터에 대한 액세스를 보호합니다.</li><li>전송 수준 암호화 사용 - HTTPS 및 [Azure 파일 공유](../../storage/files/storage-dotnet-how-to-use-files.md)에 대해 [SMB(서버 메시지 블록 프로토콜) 3.0](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)에서 사용하는 암호화 사용</li><li>[클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)를 사용하여 스토리지 계정에 보내는 데이터를 보호합니다(암호화 키를 단독으로 제어해야 하는 경우). </li><li>[SSE(스토리지 서비스 암호화)](../../storage/common/storage-service-encryption.md)를 사용하여 Azure Storage의 데이터를 자동으로 암호화하고, [Azure Disk Encryption](../azure-security-disk-encryption-overview.md)을 사용하여 OS 및 데이터 디스크의 가상 머신 디스크 파일을 암호화합니다.</li><li>[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)을 사용하여 권한 부여 유형을 모니터링합니다. Blob Storage와 마찬가지로 사용자가 공유 액세스 서명 또는 스토리지 계정 키를 사용했는지 확인할 수 있습니다.</li><li>[CORS(Cross-Origin Resource Sharing)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)를 사용하여 다른 도메인의 스토리지 리소스에 액세스합니다.</li></ul> |

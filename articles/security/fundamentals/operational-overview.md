@@ -1,6 +1,6 @@
 ---
 title: Azure 운영 보안 개요 | Microsoft Docs
-description: 이 문서에서는 Azure 운영 보안 기능에 대한 개요를 제공합니다.
+description: 이 개요에서는 Azure 운영 보안에 대해 알아봅니다. 운영 보안은 asset protection 서비스, 제어 및 기능을 나타냅니다.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674234"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542894"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 

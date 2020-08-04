@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 953cdff1f3c067c2d5b9ebd284afe68083d43e66
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 66762fad18fda0f8aad922b82f014a05800f2f18
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86141777"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543506"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure Database 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -214,7 +214,7 @@ var builder = new MySqlConnectionStringBuilder
     Password = "yourpassword",
     Database = "quickstartdb",
     SslMode = MySqlSslMode.VerifyCA,
-    CACertificateFile = "BaltimoreCyberTrustRoot.crt.pem",
+    SslCa = "BaltimoreCyberTrustRoot.crt.pem",
 };
 using (var connection = new MySqlConnection(builder.ConnectionString))
 {

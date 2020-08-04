@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: fd4b94f6a99241ffddd7ae359059c3a4a918934a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52dfc285deaa84792e37d0f012abd7702d856113
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026944"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544084"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포 및 탐색합니다.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,13 +43,17 @@ ms.locfileid: "84026944"
 
 제공된 3개 테넌트에 대한 앱을 배포합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 배포 템플릿을 열려면 파란색의 각 **Azure에 배포** 단추를 클릭합니다. 각 템플릿에는 새 리소스 그룹의 이름 및 앱의 다른 배포와 이 배포를 구분하는 사용자 이름이 매개 변수 값으로 필요합니다. 다음 단계에서는 이러한 값을 설정하는 방법을 자세히 설명합니다.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
+1. [Azure Portal](https://portal.azure.com)에서 배포 템플릿을 열려면 파란색의 각 **Azure에 배포** 단추를 클릭합니다. 각 템플릿에는 새 리소스 그룹의 이름 및 앱의 다른 배포와 이 배포를 구분하는 사용자 이름이 매개 변수 값으로 필요합니다. 다음 단계에서는 이러한 값을 설정하는 방법을 자세히 설명합니다.
 
+   **Contoso Concert Hall**   
+   [!["Azure에 배포" 라는 레이블이 지정 된 단추를 표시 하는 이미지입니다.](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-contoso)
+
+   **Dogwood Dojo**   
+   [!["Azure에 배포" 라는 레이블이 지정 된 단추를 표시 하는 이미지입니다.](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-dogwood)
+
+   **Fabrikam 재즈 클럽**   
+   [!["Azure에 배포" 라는 레이블이 지정 된 단추를 표시 하는 이미지입니다.](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-fabrikam)
+ 
 2. 각각의 배포에 필요한 매개 변수 값을 입력합니다.
 
     > [!IMPORTANT]
@@ -102,7 +106,7 @@ ms.locfileid: "84026944"
 
 각 테넌트 데이터베이스는 50개의 DTU *독립형* 데이터베이스입니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

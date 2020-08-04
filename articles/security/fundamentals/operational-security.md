@@ -1,6 +1,6 @@
 ---
 title: Azure 운영 보안 | Microsoft Docs
-description: Microsoft Azure 모니터 로그, 해당 서비스 및 작동 방법에 대해 알아봅니다.
+description: 이 개요를 참조 하 여 로그, 해당 서비스 및 작동 방식에 대 한 Microsoft Azure를 소개 합니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c2a49c76e6fdb7f957c026e8f8220cd29a7b35d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448366"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543336"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -66,10 +66,10 @@ Azure Monitor 로그를 사용 하면 경쟁 솔루션 보다 저렴 한 비용�
 
 Azure Monitor 로그의 핵심 기능은 Azure에서 실행 되는 서비스 집합을 통해 제공 됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
-| 서비스  | Description|
+| 서비스  | 설명|
 | :------------- | :-------------|
 | Azure Monitor 로그 | 실제 컴퓨터와 가상 머신을 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
-|자동화 | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
+|Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
 | Backup | 중요한 데이터를 백업하고 복원합니다. |
 | Site Recovery | 중요한 애플리케이션에 고가용성을 제공합니다. |
 

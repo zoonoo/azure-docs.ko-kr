@@ -1,6 +1,6 @@
 ---
 title: Microsoft 보안 코드 분석 설명서 FAQ
-description: 이 문서에는 Microsoft 보안 코드 분석 확장 프로그램에 대 한 FAQ가 포함 되어 있습니다.
+description: Faq (질문과 대답)를 검토 하 여 Microsoft 보안 코드 분석 확장에 대해 알아봅니다.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: df995f60867cb2062330e19a2ccfb8c29f173653
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071441"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543047"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 질문이 있으신가요? 자세한 내용은 다음 FAQ를 확인 하세요.

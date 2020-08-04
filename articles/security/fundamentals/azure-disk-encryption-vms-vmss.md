@@ -1,20 +1,20 @@
 ---
-title: 가상 컴퓨터 및 가상 머신 확장 집합에 대 한 Azure Disk Encryption
-description: 이 문서에서는 Azure Disk Encryption에 대 한 개요를 제공 합니다.
+title: 가상 머신 및 가상 머신 확장 집합에 대한 Azure Disk Encryption
+description: Vm (가상 머신) 및 VM 확장 집합에 대 한 Azure Disk encryption에 대해 알아봅니다. Azure 디스크 암호화는 Linux 및 Windows Vm 모두에서 작동 합니다.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062118"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543676"
 ---
-# <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>가상 컴퓨터 및 가상 머신 확장 집합에 대 한 Azure Disk Encryption
+# <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>가상 머신 및 가상 머신 확장 집합에 대한 Azure Disk Encryption
 
 Azure 디스크 암호화는 Linux 및 Windows 가상 머신과 가상 머신 확장 집합에 모두 적용할 수 있습니다. 
 

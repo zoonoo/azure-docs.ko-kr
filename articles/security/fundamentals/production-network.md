@@ -1,6 +1,6 @@
 ---
 title: Azure 프로덕션 네트워크
-description: 이 문서에서는 Azure 프로덕션 네트워크에 대한 일반적인 설명을 제공합니다.
+description: Azure 프로덕션 네트워크에 대해 알아봅니다. 네트워크에 대 한 연결을 설정 하기 위한 보안 액세스 방법 및 보호 메커니즘을 참조 하세요.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724c2ee2d74ca9cab11280e92faac71c2cb2218e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68726703"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543812"
 ---
 # <a name="the-azure-production-network"></a>Azure 프로덕션 네트워크
 Azure 프로덕션 네트워크의 사용자에는 고유한 Azure 애플리케이션에 액세스하는 외부 고객과 프로덕션 네트워크를 관리하는 내부 Azure 지원 담당자가 포함됩니다. 이 문서에서는 보안 액세스 방법과 Azure 프로덕션 네트워크에 대한 연결을 설정하기 위한 보호 메커니즘을 설명합니다.

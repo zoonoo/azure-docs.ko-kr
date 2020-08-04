@@ -1,6 +1,6 @@
 ---
 title: Azure에서 고객 데이터 보호
-description: 이 문서에서는 Azure에서 고객 데이터를 보호하는 방법을 다룹니다.
+description: Azure가 데이터 분리, 데이터 중복성 및 데이터 소멸을 통해 고객 데이터를 보호 하는 방법에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: 4f3b4b5e26c8feab44a01d3714c194eee0fc98e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14589e4efe22d89468b069bf6ff7e3d9babcc714
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076294"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543795"
 ---
 # <a name="azure-customer-data-protection"></a>Azure 고객 데이터 보호   
 Microsoft 운영 및 지원 담당자의 고객 데이터 액세스는 기본적으로 거부됩니다. 지원 사례와 관련 된 데이터에 대 한 액세스 권한이 부여 되는 경우 준수 및 개인 정보 취급 방침에 대해 감사 되 고 점검 되었다는 정책을 사용 하는 JIT (just-in-time) 모델만 사용 하도록 허가 됩니다.  액세스 제어 요구 사항은 다음 Azure 보안 정책으로 설정됩니다.

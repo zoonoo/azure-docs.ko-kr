@@ -1,6 +1,6 @@
 ---
 title: Azure 인프라 무결성
-description: 이 문서에서는 Azure 인프라의 무결성을 확인합니다.
+description: 소프트웨어 구성 요소 빌드에 대 한 바이러스 검사와 같이 Microsoft에서 보안을 유지 하는 데 사용 하는 단계와 Azure 인프라 무결성에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0df14dfcf66f53e01989a27a95afa5e19fcb2fe
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68727183"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543642"
 ---
 # <a name="azure-infrastructure-integrity"></a>Azure 인프라 무결성
 

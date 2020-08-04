@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 30e70e56eb54815c26521829e4baf82dce574e43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432592"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543438"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 
@@ -25,7 +25,7 @@ Azure Stream Analytics 작업에서 UDF(사용자 정의 함수)로 기계 학�
 
 1. Azure Machine Learning을 사용하여 [모델을 웹 서비스로 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)합니다.
 
-2. 채점 스크립트에는 Azure Machine Learning에서 스키마 사양을 생성하는 데 사용되는 [샘플 입력 및 출력](../machine-learning/how-to-deploy-and-where.md#example-entry-script)이 있어야 합니다. Stream Analytics는 스키마를 사용하여 웹 서비스의 함수 시그니처를 이해합니다. 이 [샘플 swagger 정의](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) 를 참조로 사용 하 여 올바르게 설정 되었는지 확인할 수 있습니다.
+2. 채점 스크립트에는 Azure Machine Learning에서 스키마 사양을 생성하는 데 사용되는 [샘플 입력 및 출력](../machine-learning/how-to-deploy-and-where.md)이 있어야 합니다. Stream Analytics는 스키마를 사용하여 웹 서비스의 함수 시그니처를 이해합니다. 이 [샘플 swagger 정의](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) 를 참조로 사용 하 여 올바르게 설정 되었는지 확인할 수 있습니다.
 
 3. 웹 서비스가 JSON 직렬화된 데이터를 수락하고 반환하는지 확인합니다.
 
@@ -147,7 +147,7 @@ FROM input
 
 ## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Azure Machine Learning UDF의 성능 최적화
 
-모델을 Azure Kubernetes Service에 배포하는 경우 [모델을 프로파일링하여 리소스 사용률을 확인](../machine-learning/how-to-deploy-and-where.md#profilemodel)할 수 있습니다. 또한 [배포하기 위해 App Insights를 사용하도록 설정](../machine-learning/how-to-enable-app-insights.md)하여 요청 속도, 응답 시간 및 실패율을 이해할 수 있습니다.
+모델을 Azure Kubernetes Service에 배포하는 경우 [모델을 프로파일링하여 리소스 사용률을 확인](../machine-learning/how-to-deploy-profile-model.md)할 수 있습니다. 또한 [배포하기 위해 App Insights를 사용하도록 설정](../machine-learning/how-to-enable-app-insights.md)하여 요청 속도, 응답 시간 및 실패율을 이해할 수 있습니다.
 
 이벤트 처리량이 높은 시나리오에서는 Stream Analytics에서 다음 매개 변수를 변경하여 엔드투엔드 대기 시간을 단축하여 최적의 성능을 구현해야 할 수 있습니다.
 

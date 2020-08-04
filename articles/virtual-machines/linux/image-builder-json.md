@@ -3,17 +3,17 @@ title: Azure Image Builder 템플릿 만들기(미리 보기)
 description: Azure Image Builder에서 사용할 템플릿을 만드는 방법을 알아봅니다.
 author: danielsollondon
 ms.author: danis
-ms.date: 07/09/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: fe4ddeaadedc14e7e3d92a8b185920bf18bd142b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283302"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543608"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -142,12 +142,13 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 
 ## <a name="properties-source"></a>속성: source
 
-`source` 섹션에는 Image Builder에서 사용되는 원본 이미지에 대한 정보가 포함되어 있습니다.
+이미지 작성기는 현재 HyperV 1 이미지 및 Vm만 지원 하며,이 섹션에는 `source` 이미지 작성기에서 사용 되는 원본 이미지에 대 한 정보가 포함 되어 있습니다.
 
 API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필요합니다. 현재 세 가지 유형이 있습니다.
 - PlatformImage - 원본 이미지가 Marketplace 이미지 임을 나타냅니다.
 - ManagedImage - 일반 관리형 이미지에서 시작할 때 사용합니다.
 - SharedImageVersion - Shared Image Gallery의 이미지 버전을 원본으로 사용하는 경우에 사용됩니다.
+
 
 > [!NOTE]
 > 기존 Windows 사용자 지정 이미지를 사용 하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. 자세한 내용은 [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조 하십시오.
@@ -191,7 +192,10 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 ```
 ### <a name="managedimage-source"></a>ManagedImage 원본
 
-원본 이미지를 일반화된 VHD 또는 VM의 기존 관리형 이미지로 설정합니다. 원본 관리형 이미지는 지원되는 OS여야 하며 Azure Image Builder 템플릿과 동일한 지역에 있어야 합니다. 
+원본 이미지를 일반화된 VHD 또는 VM의 기존 관리형 이미지로 설정합니다.
+
+> [!NOTE]
+> 원본 관리 이미지는 지원 되는 OS 여야 하 고 이미지는 Azure 이미지 작성기 템플릿과 동일한 지역 이어야 합니다. 
 
 ```json
         "source": { 
@@ -204,7 +208,11 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 
 ### <a name="sharedimageversion-source"></a>SharedImageVersion 원본
-Shared Image Gallery에서 원본 이미지를 기존 이미지 버전으로 설정합니다. 이미지 버전은 지원되는 OS여야 하고 이미지는 Azure Image Builder 템플릿과 동일한 지역에 복제되어야 합니다. 
+Shared Image Gallery에서 원본 이미지를 기존 이미지 버전으로 설정합니다.
+
+> [!NOTE]
+> 원본 관리 이미지는 지원 되는 OS 여야 하 고 이미지는 Azure 이미지 작성기 템플릿과 동일한 지역 이어야 합니다. 그렇지 않은 경우 이미지 작성기 템플릿 영역에 이미지 버전을 복제 하세요.
+
 
 ```json
         "source": { 

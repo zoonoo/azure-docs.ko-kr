@@ -1,6 +1,6 @@
 ---
 title: Azure 데이터베이스 보안 검사 목록 | Microsoft Docs
-description: 이 문서에서는 Azure 데이터베이스 보안에 대한 일단의 검사 목록을 제공합니다.
+description: Azure 데이터베이스 보안 검사 목록을 사용 하 여 중요 한 클라우드 컴퓨팅 보안 문제를 해결 하세요.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8f15f7d1cf69824bfb9298d7ccf097e4893ea8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021843"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542979"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
 Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제한하고 제어하는 데 사용할 수 있는 다양한 기본 제공 보안 컨트롤이 포함되어 있습니다.
 
-내용은 다음과 같습니다.
+여기에는 다음이 포함됩니다.
 
 -    IP 주소로 연결을 제한하는 [방화벽 규칙](../../azure-sql/database/firewall-configure.md)을 만들 수 있는 방화벽
 -    Azure Portal에서 액세스할 수 있는 서버 수준 방화벽

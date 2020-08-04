@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c5369d63c0937605cc288e3a90466e723e69d163
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255441"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543370"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "86255441"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -47,6 +47,17 @@ Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다. 
 Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보다 큰 AKS 클러스터를 사용할 수 없습니다. AKS [가상 노드][virtual-nodes] 및 Azure 네트워크 정책은 *kubenet*에서 지원 되지 않습니다.  [Calico Network 정책은][calico-network-policies]kubenet에서 지원 되므로 사용할 수 있습니다.
 
 *Azure CNI*를 사용할 경우 각 pod는 IP 서브넷의 IP 주소를 받고, 다른 pod 및 서비스와 직접 통신할 수 있습니다. 클러스터는 사용자가 지정하는 IP 주소 범위만큼 클 수 있습니다. 그러나 IP 주소 범위를 미리 계획해야 하며, 모든 IP 주소는 AKS 노드가 지원할 수 있는 최대 pod 수에 따라 AKS 노드에서 사용됩니다. [가상 노드][virtual-nodes] 또는 네트워크 정책 (Azure 또는 calico)과 같은 고급 네트워크 기능 및 시나리오는 *azure cni*에서 지원 됩니다.
+
+### <a name="limitations--considerations-for-kubenet"></a>Kubenet에 대 한 제한 사항 & 고려 사항
+
+* Kubenet 디자인에서 추가 홉이 필요 하며,이는 pod 통신에 약간의 대기 시간을 추가 합니다.
+* 경로 테이블 및 사용자 정의 경로는 작업에 복잡성을 추가 하는 kubenet을 사용 하는 데 필요 합니다.
+* Kubenet 디자인으로 인해 kubenet에 대 한 직접 pod 주소 지정은 지원 되지 않습니다.
+* Azure CNI 클러스터와 달리 여러 kubenet 클러스터는 서브넷을 공유할 수 없습니다.
+* **Kubenet에서 지원 되지 않는** 기능은 다음과 같습니다.
+   * [Azure 네트워크 정책은](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy)kubenet에서 지원 됩니다.
+   * [Windows 노드 풀](windows-node-limitations.md)
+   * [가상 노드 추가 기능](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP 주소 가용성 및 고갈
 

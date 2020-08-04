@@ -1,6 +1,6 @@
 ---
 title: Azure 보안 소개 | Microsoft Docs
-description: Azure 보안, 해당 서비스 및 작동 방법에 대해 알아봅니다.
+description: 이 개요를 읽으면 Azure 보안, 다양 한 서비스 및 작동 방식에 대해 소개 합니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371399"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543829"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -142,7 +142,7 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
-RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. 저장소 계정 기여자와 같은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하는 저장소 계정의 저장소 키에 대 한 액세스는 RBAC (역할 기반 Access Control)를 통해 제어할 수 있습니다.
+RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 응용 프로그램에 적절 한 Azure 역할을 할당 하 여 이러한 액세스 권한을 부여 합니다. 저장소 계정 기여자와 같은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하는 저장소 계정의 저장소 키에 대 한 액세스는 RBAC (역할 기반 Access Control)를 통해 제어할 수 있습니다.
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 [SAS (공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
@@ -155,7 +155,7 @@ RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안
 
 -   클라이언트 쪽 암호화 - 데이터를 스토리지로 전송하기 전에 암호화하고, 스토리지에서 전송한 후에 암호를 해독합니다.
 
-### <a name="encryption-at-rest"></a>저장 데이터 암호화
+### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 많은 조직에서 미사용 데이터 암호화는 데이터 개인 정보 보호, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. &quot;미사용&quot; 데이터 암호화를 제공하는 세 가지 Azure Storage 보안 기능이 있습니다.
 
 -   [Storage 서비스 암호화](../../storage/common/storage-service-encryption.md) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.

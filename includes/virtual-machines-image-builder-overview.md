@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821496"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545154"
 ---
 조직에서는 표준화된 VM(가상 머신) 이미지를 사용하여 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필수 소프트웨어가 포함되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만, Azure VM Image Builder를 사용하면 이미지를 설명하는 간단한 구성을 제공하고, 서비스에 제출하고, 이미지를 빌드하고 배포하기만 하면 됩니다.
  
@@ -70,9 +70,9 @@ Azure Image Builder는 Azure 리소스 공급자가 액세스할 수 있는 완�
 ![Azure Image Builder 프로세스의 개념도](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. 이미지 템플릿을 .json 파일로 만듭니다. 이 .json 파일에는 이미지 원본, 사용자 지정 및 배포에 대한 정보가 포함되어 있습니다. [Azure Image Builder GitHub 리포지토리](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)에 여러 예제가 나와 있습니다.
-1. 서비스에 제출하면 지정한 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 백그라운드에서 Image Builder는 필요에 따라 원본 이미지나 ISO 및 스크립트를 다운로드합니다. 이러한 리소스는 다음과 같은 형식으로 구독에서 자동으로 생성되는 별도의 리소스 그룹에 저장됩니다. IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 백그라운드에서 Image Builder는 템플릿 및 원본 파일을 사용하여 VM(기본 크기: Standard_D1_v2), 네트워크, 퍼블릭 IP, NSG 및 스토리지를 IT_\<DestinationResourceGroup>_\<TemplateName> 리소스 그룹에 만듭니다.
-1. 이미지를 만드는 과정에서 Image Builder는 템플릿에 따라 이미지를 배포한 다음, 해당 프로세스에 대해 만들어진 IT_\<DestinationResourceGroup>_\<TemplateName> 리소스 그룹의 추가 리소스를 삭제합니다.
+1. 서비스에 제출하면 지정한 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 백그라운드에서 Image Builder는 필요에 따라 원본 이미지나 ISO 및 스크립트를 다운로드합니다. 이러한 리소스는 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_ _ 형식으로 되어 있습니다. \<DestinationResourceGroup> \<TemplateName> 
+1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경에서 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 VM (기본 크기: Standard_D1_v2), 네트워크, 공용 IP, NSG 및 IT_ \<DestinationResourceGroup> _ 리소스 그룹의 저장소를 만듭니다 \<TemplateName> .
+1. 이미지를 만들 때 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 \<DestinationResourceGroup> \<TemplateName> 프로세스에 대해 만들어진 IT_ _ 리소스 그룹의 추가 리소스를 삭제 합니다.
 
 
 ## <a name="permissions"></a>사용 권한
@@ -97,6 +97,9 @@ Azure Image Builder를 사용하여 이미지를 만들고, 빌드하고, 저장
 Image Builder는 VM에 필요한 D1v2 VM 크기, 스토리지 및 네트워킹을 사용하여 VM을 만듭니다. 이러한 리소스는 빌드 프로세스가 지속되는 동안 유지되며, Image Builder에서 이미지 만들기를 완료하면 삭제됩니다. 
  
 Azure Image Builder에서는 선택한 지역에 이미지를 배포하므로 네트워크 송신 요금이 발생할 수 있습니다.
+
+## <a name="hyper-v-generation"></a>Hyper-v 생성
+현재 이미지 작성기는 Hyper-v 1 세대 이미지 및 Vm을 지원 합니다.
  
 ## <a name="next-steps"></a>다음 단계 
  

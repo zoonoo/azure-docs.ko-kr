@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82929760"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543387"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -74,7 +74,7 @@ Azure Machine Learning 환경을 사용 하면 프로젝트의 소프트웨어 �
 ### <a name="profile-models"></a>모델 프로 파일링
 
 Azure Machine Learning은 모델을 배포할 때 생성 될 서비스의 CPU 및 메모리 요구 사항을 이해 하는 데 도움이 될 수 있습니다. 프로 파일링은 모델을 실행 하는 서비스를 테스트 하 고 CPU 사용량, 메모리 사용량, 응답 대기 시간 등의 정보를 반환 합니다. 또한 리소스 사용량에 따라 CPU 및 메모리 권장 사항을 제공 합니다.
-자세한 내용은 [모델 배포](how-to-deploy-and-where.md#profilemodel)의 프로 파일링 섹션을 참조 하세요.
+자세한 내용은 [모델 배포](how-to-deploy-profile-model.md)의 프로 파일링 섹션을 참조 하세요.
 
 ### <a name="package-and-debug-models"></a>패키지 및 디버그 모델
 
@@ -94,16 +94,16 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 학습 된 기계 학습 모델은 클라우드 또는 로컬에서 웹 서비스로 배포 됩니다. 또한 Azure IoT Edge 장치에 모델을 배포할 수 있습니다. 배포는 추론에 대 한 CPU, GPU 또는 FPGA (필드 프로그래밍 가능 게이트 배열)를 사용 합니다. Power BI에서 모델을 사용할 수도 있습니다.
 
-모델을 웹 서비스 또는 IoT Edge 장치로 사용 하는 경우 다음 항목을 제공 합니다.
+모델을 웹 서비스 또는 IoT Edge 디바이스로 사용하는 경우 다음 항목을 제공합니다.
 
 * 서비스/장치에 전송 된 데이터의 점수를 매기는 데 사용 되는 모델입니다.
 * 항목 스크립트. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 데이터의 점수를 매기고, 응답을 반환 합니다.
 * 모델 및 항목 스크립트에 필요한 pip 및 Conda 종속성을 설명 하는 Azure Machine Learning 환경입니다.
 * 모델 및 항목 스크립트에 필요한 텍스트, 데이터 등의 추가 자산입니다.
 
-또한 대상 배포 플랫폼의 구성을 제공 합니다. 예를 들어 Azure Kubernetes Service에 배포할 때 VM 제품군 유형, 사용 가능한 메모리 및 코어 수가 있습니다.
+또한 대상 배포 플랫폼의 구성도 제공합니다. 예를 들어 Azure Kubernetes Service에 배포할 때 VM 제품군 유형, 사용 가능한 메모리 및 코어 수가 있습니다.
 
-이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가 됩니다. 예를 들어, 웹 서비스를 실행 하 고 IoT Edge와 상호 작용 하는 데 필요한 자산이 있습니다.
+이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가됩니다. 예를 들어, 웹 서비스를 실행하고 IoT Edge와 상호 작용하는 데 필요한 자산이 있습니다.
 
 #### <a name="batch-scoring"></a>일괄 처리 점수 매기기
 일괄 처리 점수 매기기는 ML 파이프라인을 통해 지원 됩니다. 자세한 내용은 [빅 데이터의 일괄 처리 예측](how-to-use-parallel-run-step.md)을 참조 하세요.
@@ -217,6 +217,6 @@ Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 
 
 + [배포 된 모델을 사용](how-to-consume-web-service.md) 하는 클라이언트 만들기
 
-+ [대규모 Machine Learning](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
++ [대규모 기계 학습](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
 + [Azure AI 참조 아키텍처 & 모범 사례 담당자](https://github.com/microsoft/AI)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284679"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543285"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Linux VM이 Grub 복구로 부팅 됨
 
@@ -35,7 +35,7 @@ VM (가상 컴퓨터)에서 복구 콘솔을 입력 한 것으로 확인 되었�
 * **알 수 없는**오류 파일 시스템을 가져오는 경우이 오류는 부팅 파티션의 파일 시스템 손상 또는 잘못 된 커널 구성으로 인해 발생할 수 있습니다.
 
    * 파일 시스템 문제에 대 한 자세한 내용은 [Linux 복구: 파일 시스템 오류로 인해 LINUX VM에 SSH 할 수 없음 (fsck, inode)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes)문서의 단계를 따르세요.
-   * 커널 문제에 대 한 자세한 내용은 [Linux 복구: 커널 문제와 관련 된 비 부팅 문제 수동 수정](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)또는 [linux 복구: chroot를 사용 하 여 커널 문제와 관련 된 비 부팅 문제 해결](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)문서의 단계를 따르세요.
+   * 커널 문제에 대 한 자세한 내용은 [커널 관련 부팅 문제에서 Azure linux 가상 머신을 복구 하는 방법](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues)또는 [Linux 복구: chroot를 사용 하 여 커널 문제와 관련 된 부팅 이외의 문제 해결](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)문서의 단계를 따르세요.
    
 ### <a name="error---file-not-found"></a>오류-파일을 찾을 수 없음
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 19b8e91ce85bb80f78ec75ab14332464d6331904
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2c79566f51647492118f307e1c9737b98b1be484
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078147"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543591"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작  
 
@@ -57,7 +57,7 @@ ms.locfileid: "86078147"
 
 전체 크기로 보려면 이미지를 클릭합니다.  
 
-<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+[![주문형 비디오 응용 프로그램 개발을 위한 Azure Media Services 개체 데이터 모델에서 가장 일반적으로 사용 되는 개체 중 일부를 보여 주는 다이어그램입니다.](./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png)](./media/media-services-dotnet-get-started/media-services-overview-object-model.png#lightbox)
 
 전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.15)서 볼 수 있습니다 .  
 
@@ -158,7 +158,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 **Createfromfile** 메서드는 다음과 같은 자산 생성 옵션 중 하나를 지정할 수 있는 **assetcreationoptions.storageencrypted**를 사용 합니다.
 
-* **없음** - 암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
+* **없음** - 암호화가 사용되지 않습니다. 이것은 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
   MP4를 배달하려는 경우 이 옵션을 사용하세요.
 * **StorageEncrypted** - AES(Advanced Encryption Standard) 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음에 암호화되어 저장된 Azure Storage에 업로드하려면 이 옵션을 사용합니다. 스토리지 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 스토리지 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
 * **CommonEncryptionProtected** - 이미 암호화되어 일반적인 암호화 또는 PlayReady DRM(예: PlayReady DRM으로 보호되는 부드러운 스트리밍)으로 보호된 콘텐츠를 업로드하는 경우 이 옵션을 사용합니다.

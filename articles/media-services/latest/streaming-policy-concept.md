@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091949"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544016"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
 
@@ -40,7 +40,7 @@ Azure Media Services v3에서 [스트리밍 정책](/rest/api/media/streamingpol
 
 전체 크기로 보려면 이미지를 클릭합니다.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+[![시나리오에 대해 미리 정의 된 스트리밍 정책을 선택할 수 있도록 설계 된 의사 결정 트리를 보여 주는 다이어그램](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
 콘텐츠를 암호화 하는 경우 콘텐츠 [키 정책을](content-key-policy-concept.md)만들어야 합니다. **콘텐츠 키 정책을** 제거 하려면 스트리밍 또는 다운로드를 수행 하는 데 필요 하지 않습니다. 
 
@@ -50,7 +50,7 @@ Azure Media Services v3에서 [스트리밍 정책](/rest/api/media/streamingpol
 
 스트리밍 정책의 정의를 확인 하려면 [Get](/rest/api/media/streamingpolicies/get) 을 사용 하 여 정책 이름을 지정 합니다. 예를 들면 다음과 같습니다.
 
-### <a name="rest"></a>REST
+### <a name="rest"></a>REST (영문)
 
 요청:
 

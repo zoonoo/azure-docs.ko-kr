@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45d802456345eab857f571d2d52793c8be691eb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091932"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543064"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
 
@@ -52,7 +52,7 @@ ms.locfileid: "87091932"
 > [!NOTE]
 > Datetime 형식의 **변환** 및 **작업** 속성은 항상 UTC 형식입니다.
 
-## <a name="transforms"></a>변형
+## <a name="transforms"></a>변환
 
 **Transforms**는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환은** 비디오 또는 오디오 파일을 처리 하기 위한 조리법 또는 작업 워크플로를 설명 합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 미리 설정을 사용 하 여 입력 미디어 파일을 처리 하는 방법을 변환에 알립니다.
 
@@ -74,7 +74,7 @@ REST, CLI 또는 게시 된 Sdk를 사용 하 여 변환을 만들 수 있습니
 
 이미지를 선택 하 여 전체 크기를 확인 합니다.  
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
+[![개체 간의 클래스 파생 관계를 포함 하 여 변환 개체와이 개체가 참조 하는 개체를 보여 주는 다이어그램입니다.](./media/api-diagrams/transform-small.png)](./media/api-diagrams/transform-large.png#lightbox)
 
 ## <a name="jobs"></a>작업
 
@@ -102,7 +102,7 @@ Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태
 
 전체 크기로 보려면 이미지를 클릭합니다.  
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
+[![개체 간의 클래스 파생 관계를 포함 하 여 작업 개체와이 개체가 참조 하는 개체를 보여 주는 다이어그램입니다.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
 
 ## <a name="configure-media-reserved-units"></a>미디어 예약 단위 구성
 

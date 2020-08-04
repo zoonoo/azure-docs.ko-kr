@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: d61527a7a57c82c0e1485ef249306618def9a57c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077943"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543472"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -22,7 +22,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  프라이빗 엔드포인트는 다음 속성을 지정합니다. 
 
 
-|속성  |Description |
+|속성  |설명 |
 |---------|---------|
 |속성    |    리소스 그룹의 고유한 이름입니다.      |
 |서브넷    |  가상 네트워크에서 프라이빗 IP 주소를 배포하고 할당하는 서브넷입니다. 서브넷 요구 사항은 이 문서의 제한 사항 섹션을 참조하세요.         |
@@ -66,13 +66,13 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
 |**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | 자격 증명 모음 |
-|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
+|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | 관리 |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | 사용된 |
 |**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStores |
 |**Azure Backup** | Microsoft.RecoveryServices/vaults    | 자격 증명 모음 |
-|**Azure 이벤트 허브** | Microsoft.EventHub/namespaces    | 네임스페이스 |
-|**Azure Service Bus** | Microsoft.ServiceBus/namespaces | 네임스페이스 |
+|**Azure 이벤트 허브** | Microsoft.EventHub/namespaces    | namespace |
+|**Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
 |**Azure Relay** | Microsoft.Relay/namespaces | 네임스페이스 |
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | 토픽 |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | 도메인 |

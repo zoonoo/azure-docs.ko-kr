@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 965d5dd558d0da7a758db77330c9129ea0e8247c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073661"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543863"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Azure Monitor에 Linux 컴퓨터 연결
 
@@ -163,7 +163,8 @@ OMS 에이전트는 Linux에 대해 제한 된 사용자 지정 지원을 제공
 - 서명에
 
 다음은 계획 되었지만 아직 지원 되지 않습니다.
-- CIS-SELINUX
+- 들
+- SELINUX
 
 기타 강화 및 사용자 지정 방법은 지원 되지 않으며 OMS 에이전트에 대해 계획 되지 않았습니다.  
 

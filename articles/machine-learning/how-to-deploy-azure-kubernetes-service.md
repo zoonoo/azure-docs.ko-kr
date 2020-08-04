@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bc53a243a58522a76be63536aa721f269ed4759a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433233"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544050"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ AKS 클러스터 및 AML 작업 영역은 다른 리소스 그룹에 있을 수 
 
 - BLB (기본 Load Balancer) 대신 클러스터에 표준 Load Balancer (SLB)를 배포 해야 하는 경우 AKS portal/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 연결 하세요.
 
-- [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)있는 AKS 클러스터를 연결 하는 경우 AKS 클러스터에 대해 AML 연결 OL 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 추론 pod을 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 추론 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정 하는 경우 [쌍을 이루는 지역]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 대 한 [ip 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) 를 사용 합니다.
+- [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)있는 AKS 클러스터를 연결 하는 경우 AKS 클러스터에 대해 AML 제어 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 추론 pod을 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 추론 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정 하는 경우 [쌍을 이루는 지역]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 대 한 [ip 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) 를 사용 합니다.
 
 __인증 된 IP 범위는 표준 Load Balancer 에서만 작동 합니다.__
  
@@ -423,15 +423,12 @@ print(token)
 >
 > 토큰을 검색 하려면 Azure Machine Learning SDK 또는 [az ml service get-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) 명령을 사용 해야 합니다.
 
-## <a name="update-the-web-service"></a>웹 서비스 업데이트
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
 ## <a name="next-steps"></a>다음 단계
 
 * [가상 네트워크의 보안 실험 및 유추](how-to-enable-virtual-network.md)
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [웹 서비스 업데이트](how-to-deploy-update-web-service.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)

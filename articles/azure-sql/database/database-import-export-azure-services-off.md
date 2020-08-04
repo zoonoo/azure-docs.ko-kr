@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea6aec9ffcaf01c0db5b297d40783ce4690a8f0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031484"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543761"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Azure 서비스가 서버에 액세스할 수 있도록 허용 하지 않고 Azure SQL Database 가져오기 또는 내보내기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,9 +34,7 @@ ms.locfileid: "84031484"
 이 템플릿을 사용 하면 패치가 적용 된 최신 버전을 사용 하 여 Windows 버전에 대 한 몇 가지 다른 옵션을 사용 하 여 간단한 Windows 가상 머신을 배포할 수 있습니다. 그러면 리소스 그룹 위치에 A2 크기의 VM이 배포 되 고 VM의 정규화 된 도메인 이름이 반환 됩니다.
 <br><br>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[!["Azure에 배포" 라는 레이블이 지정 된 단추를 표시 하는 이미지입니다.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 자세한 내용은 [WINDOWS VM의 매우 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)를 참조 하세요.
 

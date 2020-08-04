@@ -1,7 +1,7 @@
 ---
 title: Microsoft Threat Modeling Tool에 대 한 통신 보안
 titleSuffix: Azure
-description: 위협 모델링 도구에 노출되는 위협 완화
+description: Threat Modeling Tool에서 노출 되는 통신 보안 위협에 대 한 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8cb74a020590fc55dcd1f046ba667be3d6640b3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73210da43c9919af1d92d0e8c354e1d7f9c77bed
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203746"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543948"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 아티클 |
@@ -31,7 +31,7 @@ ms.locfileid: "82203746"
 | **Azure Data Factory** | <ul><li>[온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
 | **ID 서버** | <ul><li>[Id 서버에 대 한 모든 트래픽이 HTTPS 연결을 초과 하는지 확인 합니다.](#identity-https)</li></ul> |
 | **웹 애플리케이션** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대 한 TLS/SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
-| **데이터베이스** | <ul><li>[SQL server 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
+| **Database** | <ul><li>[SQL server 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용 하도록 설정할 수 없는 경우 blob을 다운로드 한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용 하 여 Azure 파일 공유에 대 한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |

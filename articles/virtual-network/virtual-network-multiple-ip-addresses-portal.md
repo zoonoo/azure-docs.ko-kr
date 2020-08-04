@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 9cec3e3ad4934ce368baa44984d252dc981d5d81
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 135504ad4956836614bfc0f2cb107e610de17c0c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088209"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543489"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -48,7 +48,7 @@ ms.locfileid: "87088209"
 
 5. 선택한 NIC에 대해 표시되는 창에서 **IP 구성**을 클릭합니다. 추가 **를 클릭 하**고, 추가 하려는 IP 주소 유형에 따라 뒤에 나오는 섹션 중 하나의 단계를 완료 한 후 **확인**을 클릭 합니다. 
 
-### <a name="add-a-private-ip-address"></a>**개인 IP 주소 추가**
+### <a name="add-a-private-ip-address"></a>개인 IP 주소 추가
 
 새 개인 IP 주소를 추가하려면 다음 단계를 완료합니다.
 
