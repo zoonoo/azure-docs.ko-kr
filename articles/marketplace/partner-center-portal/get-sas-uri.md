@@ -7,12 +7,12 @@ ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c5c86f89882654e44f924ce0a19d4d71713144d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 2bc129fc37347bd108ad62409490c5ce31b7728f
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431684"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538934"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
@@ -31,10 +31,10 @@ VHD의 SAS URI를 생성할 때 다음 요구 사항을 따릅니다.
 
 SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 다음과 같습니다.
 
-* **Microsoft Storage 탐색기** – Azure Portal에서 사용할 수 있는 그래픽 도구입니다.
+* **Microsoft Azure Storage 탐색기** – Azure Portal에서 사용할 수 있는 그래픽 도구입니다.
 * **Microsoft Azure CLI** – 비 Windows 운영 체제 및 자동 또는 지속적인 통합 환경에 권장됨
 
-### <a name="use-microsoft-storage-explorer"></a>Microsoft Storage Explorer 사용
+### <a name="use-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기 사용
 
 1. Azure Portal의 저장소 계정으로 이동 합니다.
 2. 왼쪽 탐색기 창에서 **Storage 탐색기** (미리 보기) 도구를 엽니다.

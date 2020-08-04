@@ -1,7 +1,7 @@
 ---
 title: 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: 이 문서에서는 Azure SQL Database 및 Azure SQL의 일반적인 보안 요구 사항 및 모범 사례를 제공 Managed Instance
+description: 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에서 일반적인 보안 요구 사항 및 모범 사례를 제공 합니다.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371790"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541722"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -291,7 +291,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 시스템에 액세스 하는 사용자 (및 자동화 된 프로세스)의 포괄적인 계층 구조를 식별 합니다.
 
 - 필요한 사용자 그룹에 따라 역할을 만들고 역할에 사용 권한을 할당 합니다.
-  - Azure Portal 또는 PowerShell-automation을 통해 관리 수준 태스크의 경우 RBAC 역할을 사용 합니다. 요구 사항과 일치 하는 기본 제공 역할을 찾거나 사용 가능한 권한을 사용 하 여 Azure 사용자 지정 역할을 만듭니다.
+  - Azure Portal 또는 PowerShell 자동화를 통해 관리 수준 태스크의 경우 Azure 역할을 사용 합니다. 요구 사항과 일치 하는 기본 제공 역할을 찾거나 사용 가능한 권한을 사용 하 여 Azure 사용자 지정 역할을 만듭니다.
   - 관리 되는 인스턴스에서 서버 차원의 태스크 (새 로그인, 데이터베이스 만들기)에 대 한 서버 역할을 만듭니다.
   - 데이터베이스 수준 태스크에 대 한 데이터베이스 역할을 만듭니다.
 
@@ -318,7 +318,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 - 기본 제공 역할이 너무 많은 권한을 부여 하거나 권한이 부족 한 경우 사용자 정의 역할을 만들고 사용 합니다.
 
-- 또한 역할 할당을 일시적으로 수행할 수 있습니다 .이는 T-sql의 SQL 에이전트 작업 단계 내에서 또는 RBAC 역할에 대해 Azure PIM을 사용 하는 TD (동적 의무 분리) 라고도 합니다.
+- T-sql의 SQL 에이전트 작업 단계 내에서 또는 Azure 역할에 Azure PIM을 사용 하 여 역할 할당을 일시적으로 수행할 수도 있습니다 (DSD).
 
 - Dba에 게 암호화 키 또는 키 저장소에 대 한 액세스 권한이 없는지 확인 하 고 키에 대 한 액세스 권한이 있는 보안 관리자는 데이터베이스에 대 한 액세스 권한이 없습니다. [EKM (확장 가능 키 관리)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) 을 사용 하면 이러한 분리를 보다 쉽게 수행할 수 있습니다. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 를 사용 하 여 EKM을 구현할 수 있습니다.
 

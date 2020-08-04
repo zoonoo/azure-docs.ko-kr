@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165773"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541875"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 장치 배포 계획
 
@@ -34,11 +34,11 @@ Azure AD (Azure Active Directory)를 사용 하면 조직에서 장치 id 관리
 
 * 온-프레미스 Active Directory 및 Azure AD의 장치 간에 [하이브리드 AZURE AD 조인을 만듭니다](concept-azure-ad-join-hybrid.md) . 
 
-## <a name="learn"></a>학습
+## <a name="learn"></a>Learn
 
 시작 하기 전에 [장치 id 관리 개요](overview.md)에 대해 잘 알고 있는지 확인 합니다.
 
-### <a name="benefits"></a>혜택
+### <a name="benefits"></a>이점
 
 장치에 Azure AD id를 제공 하는 주요 이점은 다음과 같습니다.
 
@@ -66,7 +66,7 @@ Faq: [AZURE AD 장치 관리 faq](faq.md) 및 [설정 및 데이터 로밍 faq](
 
 이 계획의 경우 목록에 다음 관련자를 추가 합니다.
 
-| 역할| Description |
+| 역할| 설명 |
 | - | - |
 | 장치 관리자| 요금제가 조직의 장치 요구 사항을 충족 하는지 확인할 수 있는 장치 팀의 담당자입니다. |
 | 네트워크 관리자| 네트워크 요구 사항을 충족 하는지 확인할 수 있는 네트워크 팀의 담당자입니다. |
@@ -179,7 +179,7 @@ Windows 10 Professional 또는 Windows 10 Enterprise가 디바이스에 설치�
 
 Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가 이미 다른 상태에 있을 수 있습니다. 업그레이드 고려 사항은 다음과 같습니다.
 
-| 현재 장치 상태| 원하는 장치 상태| 사용 방법 |
+| 현재 장치 상태| 원하는 장치 상태| 방법 |
 | - | - | - |
 | 온-프레미스 도메인에 가입 됨| Azure AD 조인| Azure AD에 가입 하기 전에 온-프레미스 도메인에서 장치 가입 해제 |
 | 하이브리드 Azure AD 조인| Azure AD 조인| Azure AD에 가입 하기 전에 온-프레미스 도메인 및 Azure AD에서 장치 가입 해제 |
@@ -213,7 +213,7 @@ Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가
 
 하이브리드 Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가 이미 다른 상태에 있을 수 있음을 확인할 수 있습니다. 업그레이드 고려 사항은 다음과 같습니다.
 
-| 현재 장치 상태| 원하는 장치 상태| 사용 방법 |
+| 현재 장치 상태| 원하는 장치 상태| 방법 |
 | - | - | - |
 | 온-프레미스 도메인 가입| 하이브리드 Azure AD 조인| Azure AD connect 또는 AD FS를 사용 하 여 Azure에 가입 |
 | 온-프레미스 작업 그룹 조인 또는 신규| 하이브리드 Azure AD 조인| [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot)에서 지원 됩니다. 그렇지 않으면 하이브리드 Azure AD 조인 전에 장치가 온-프레미스 도메인에 가입 되어 있어야 합니다. |
@@ -227,10 +227,6 @@ Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가
 * [디바이스 설정 구성](device-management-azure-portal.md#configure-device-settings)
 * Windows 장치를 관리 하려면 로컬 관리자 여야 합니다. [AZURE ad는 AZURE ad 조인 장치에 대해이 멤버 자격을 업데이트](assign-local-admin.md)하 고, 장치 관리자 역할을 사용 하 여 연결 된 모든 장치에 관리자로 자동으로 추가 합니다.
 
-* [디바이스 찾기](device-management-azure-portal.md#locate-devices)
-
-* [장치 id 관리 작업 수행](device-management-azure-portal.md#device-identity-management-tasks)
-
 [오래 된 장치를 관리](manage-stale-devices.md)하 여 환경을 정리 하 고 현재 장치를 관리 하는 리소스에 집중 하도록 합니다.
 
 * [장치 관련 감사 로그 검토](device-management-azure-portal.md#audit-logs)
@@ -241,7 +237,7 @@ Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가
 
 통합 장치에 대해 지원 되는 플랫폼 및 지원 되지 않는 플랫폼 검토:
 
-| 장치 관리 도구| Azure AD 등록됨| Azure AD 조인| 하이브리드 Azure AD 조인|
+| 디바이스 관리 도구| Azure AD 등록됨| Azure AD 조인| 하이브리드 Azure AD 조인|
 | - | - | - | - |
 | [MDM (모바일 장치 관리)](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>예: Microsoft Intune| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)|  |
 | [Microsoft Intune 및 Microsoft 끝점을 사용 하 여 공동 관리 Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 이상)| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)|  |

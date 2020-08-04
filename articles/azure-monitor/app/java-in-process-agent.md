@@ -3,12 +3,12 @@ title: 모든 환경에서 Java 응용 프로그램 모니터링-Azure Monitor A
 description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f35d661761f1bea4dbd6b691fb0667c6dad3e72e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014340"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541858"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기
 
@@ -126,7 +126,22 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 마이크로 측정기, OpenTelemetry API 및 인기 있는 로깅 프레임 워크를 지원 합니다. Application Insights Java 3.0는 원격 분석을 자동으로 캡처하고 자동으로 수집 된 모든 원격 분석과 함께 상호 연결 합니다.
 
-이러한 이유로 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
+### <a name="supported-custom-telemetry"></a>지원 되는 사용자 지정 원격 분석
+
+다음 표에서는 Java 3.0 에이전트를 보완 하기 위해 사용할 수 있는 현재 지원 되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크를 통해 사용 하도록 설정할 수 있으며, 사용자 지정 원격 분석의 모든 유형은 [Java 2.X SDK Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#sending-custom-telemetry-using-application-insights-java-sdk-2x)을 통해 지원 됩니다. 
+
+
+|                 | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
+|-----------------|------------|---------------------|---------|
+| 사용자 지정 이벤트   |            |                     |  예    |
+| 사용자 지정 메트릭  |  예       |                     |  예    |
+| 종속성    |            |                     |  예    |
+| 예외      |            |  예                |  예    |   
+| 페이지 보기      |            |                     |  예    |
+| 요청        |            |                     |  예    |
+| 추적          |            |  예                |  예    |
+
+현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
 
 Application Insights Java 3.0는 Application Insights Java SDK 2.x로 전송 되는 원격 분석을 이미 수신 대기 하 고 있습니다. 이 기능은 기존 2.x 사용자를 위한 업그레이드 스토리의 중요 한 부분으로, OpenTelemetry API가 GA 될 때까지 사용자 지정 원격 분석 지원의 중요 한 격차를 채웁니다.
 

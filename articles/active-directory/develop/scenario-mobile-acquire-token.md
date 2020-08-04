@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098903"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541909"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱에 대 한 토큰 가져오기
 
@@ -221,7 +221,7 @@ Android에서를 사용 하 여 앱을 만들 때 부모 활동을 지정할 수
 
 `WithPrompt()`매개 변수는 프롬프트를 지정 하 여 사용자와의 상호 작용을 제어 합니다.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![프롬프트 구조의 필드를 표시 하는 이미지입니다. 이러한 상수 값은 WithPrompt () 매개 변수에서 표시 하는 프롬프트 형식을 정의 하 여 사용자와의 상호 작용을 제어 합니다.](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 클래스는 다음과 같은 상수를 정의합니다.
 

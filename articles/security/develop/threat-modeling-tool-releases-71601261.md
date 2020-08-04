@@ -1,19 +1,19 @@
 ---
 title: Microsoft Threat Modeling Tool 릴리스 1/29/2019
 titleSuffix: Azure
-description: Threat Modeling Tool 릴리스 정보 문서화
+description: 1/29/2019에서 출시 된 Microsoft Threat Modeling Tool에 대 한 릴리스 정보를 읽습니다. 이 메모에는 기능 변경 및 알려진 문제가 포함 되어 있습니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/25/2019
-ms.openlocfilehash: 7d0be8d7243331264c10a407e3d78370ea798928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17147d412bd888cdd3cd270829ad6d6103867b34
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78269768"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539053"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019/1/29
 
@@ -49,7 +49,7 @@ ms.locfileid: "78269768"
 
 ### <a name="unsupported-systems"></a>지원되지 않는 시스템
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 Windows 10 Enterprise LTSB(버전 1507)와 같이 .NET 4.7.1 이상을 설치할 수 없는 Windows 10 시스템 사용자는 업그레이드 후에 도구를 열 수 없습니다. 이러한 이전 버전 Windows는 Threat Modeling Tool용으로 더 이상 지원되지 않는 플랫폼이므로 최신 업데이트를 설치하면 안 됩니다.
 

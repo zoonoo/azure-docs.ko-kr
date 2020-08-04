@@ -1,6 +1,6 @@
 ---
 title: 예외 관리 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: 위협 모델링 도구에 노출되는 위협 완화
+description: Threat Modeling Tool의 예외 관리에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650092"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539937"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 완화 
 | 제품/서비스 | 아티클 |

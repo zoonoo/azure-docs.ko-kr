@@ -4,19 +4,19 @@ description: Azure SQL Database에 대 한 DTU 기반 구매 모델의 서비스
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382698"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541705"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | **풀당 최대 데이터베이스 수** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
+> 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](file-space-manage.md)를 참조 하세요.
 
@@ -118,7 +118,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |UPDATE, 대부분 메모리 외, 읽기-쓰기 |
 | 적은 삽입 작업 |INSERT, 메모리 내, 읽기-쓰기 |
 | 많은 삽입 작업 |INSERT, 대부분 메모리 외, 읽기-쓰기 |
-| 삭제 |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
+| DELETE |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
 | 많은 CPU 사용 |SELECT, 메모리 내, 상대적으로 많은 CPU 부하, 읽기 전용 |
 
 ### <a name="workload-mix"></a>워크로드 혼합
@@ -134,7 +134,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |3 |
 | 적은 삽입 작업 |3 |
 | 많은 삽입 작업 |2 |
-| 삭제 |2 |
+| DELETE |2 |
 | 많은 CPU 사용 |10 |
 
 ### <a name="users-and-pacing"></a>사용자 및 속도

@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7267da7db91e153190e98b09e9a3c505837bd042
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446315"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542096"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -154,6 +154,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
 8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
 9. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다.
+10. 명령을 사용 하 여 powershell을 통해 자세한 정보 로깅을 사용 하도록 설정할 수 있습니다 ```Set-AdfsProperties -LOGLevel Verbose``` .
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Windows Server 2016에서 AD FS에 대해 감사를 사용하도록 설정하려면
 

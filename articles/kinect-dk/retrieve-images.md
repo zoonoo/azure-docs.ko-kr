@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 검색, 센서, 카메라, sdk, 깊이, rgb, 이미지, 색, 캡처, 해상도, 버퍼
-ms.openlocfilehash: 84e678993f94c17bf58fb134234afaee4139aad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5c7340d287d9103ba35f0fd3d80c0fff6e3ec
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276909"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538917"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Azure Kinect 이미지 데이터 검색
 
-이 페이지에서는 Azure Kinect에서 이미지를 검색 하는 방법에 대 한 세부 정보를 제공 합니다. 이 문서에서는 장치의 색과 깊이 카메라 간에 조정 된 이미지를 캡처 및 액세스 하는 방법을 보여 줍니다. 이미지에 액세스 하려면 먼저 장치를 열고 구성 해야 하며, 그런 다음 이미지를 캡처할 수 있습니다.
+이 페이지에서는 Azure Kinect에서 이미지를 검색 하는 방법에 대 한 세부 정보를 제공 합니다. 이 문서에서는 장치의 색과 깊이를 조정 하 여 이미지를 캡처 및 액세스 하는 방법을 보여 줍니다. 이미지에 액세스 하려면 먼저 장치를 열고 구성 해야 하며, 그런 다음 이미지를 캡처할 수 있습니다.
 이미지를 구성 하 고 캡처하기 전에 [장치를 찾아 열어야](find-then-open-device.md)합니다.
 
 이 문서에서 함수를 사용 하는 방법을 보여 주는 [SDK 스트리밍 예제](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/streaming) 를 참조할 수도 있습니다.

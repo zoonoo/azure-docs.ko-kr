@@ -1,6 +1,6 @@
 ---
 title: 중요한 데이터 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: 위협 모델링 도구에 노출되는 위협 완화
+description: Threat Modeling Tool에서 중요 한 데이터 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 72d223e0a2052c8e33c12ad5c540f5f32f540a4d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8f8b18d36453ac65300a5dd19fa7e07b1449bc28
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420586"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538951"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 아티클 |

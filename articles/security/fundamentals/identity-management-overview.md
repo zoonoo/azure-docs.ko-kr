@@ -1,6 +1,6 @@
 ---
 title: ID 관리에 도움이 되는 Azure 보안 기능 | Microsoft Docs
-description: " 이 문서는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공합니다. Microsoft id 및 액세스 관리 솔루션을 사용 하 여 회사 데이터 센터에서 클라우드로 응용 프로그램 및 리소스에 대 한 액세스를 보호 하 여 Multi-Factor Authentication 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. "
+description: Id 관리에 도움이 되는 핵심 Azure 보안 기능에 대해 알아봅니다. Single Sign-On 및 역방향 프록시와 같은 항목에 대 한 정보를 참조 하세요.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384534"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542079"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 

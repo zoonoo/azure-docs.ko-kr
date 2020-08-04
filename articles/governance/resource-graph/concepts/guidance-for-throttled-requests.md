@@ -1,14 +1,14 @@
 ---
 title: 제한된 요청에 대한 지침
 description: Azure 리소스 그래프에 의해 제한되는 요청을 방지하기 위해 병렬로 그룹화하고, 시차를 두고, 페이지를 매기고, 쿼리하는 방법을 알아봅니다.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682054"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541841"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph의 제한된 요청에 대한 지침
 
@@ -29,6 +29,8 @@ Azure Resource Graph는 시간 범위를 기준으로 각 사용자에 대한 �
 
 - `x-ms-user-quota-remaining`(int): 사용자의 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
 - `x-ms-user-quota-resets-after`(hh:mm:ss): 사용자의 할당량 소비가 재설정될 때까지 남은 기간
+
+보안 주체가 테 넌 트 또는 관리 그룹 [쿼리 범위](./query-language.md#query-scope)내에서 5000 개 이상의 구독에 액세스할 수 있는 경우 응답은 첫 번째 5000 구독으로 제한 되 고 `x-ms-tenant-subscription-limit-hit` 헤더는로 반환 됩니다 `true` .
 
 헤더의 작동 방식을 설명하기 위해 `x-ms-user-quota-remaining: 10` 및 `x-ms-user-quota-resets-after: 00:00:03`의 헤더와 값이 있는 쿼리 응답을 살펴보겠습니다.
 
@@ -239,6 +241,6 @@ Azure Resource Graph가 단일 쿼리 응답에서 최대 1000개 항목을 반�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시작 쿼리](../samples/starter.md)에 사용되는 언어 알아보기
-- [고급 쿼리](../samples/advanced.md)의 고급 사용법 알아보기
+- [시작 쿼리](../samples/starter.md)에 사용되는 언어를 확인합니다.
+- [고급 쿼리](../samples/advanced.md)의 고급 사용법을 확인합니다.
 - [리소스 검색](explore-resources.md) 방법에 대해 자세히 알아보기

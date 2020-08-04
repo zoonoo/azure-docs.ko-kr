@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4c224f40996625ead4592a3bf50e02f0877c76db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051307"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540838"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -74,7 +74,7 @@ Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알림을 표
 ![로그인 프로세스를 완료하기 위한 Authenticator 앱 알림의 웹 브라우저 프롬프트 예시 스크린샷](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> 조직에서 중국에 근무하거나 출장을 가는 직원이 있을 경우 Android 디바이스에서 ‘모바일 앱을 통한 알림’ 방법은 해당 국가/지역에서 작동하지 않습니다. 이러한 사용자에 대해서는 다른 인증 방법을 사용하도록 해야 합니다.
+> 조직에서 근무 하는 직원이 있거나 중국으로 이동 하는 경우 Google play 서비스 (푸시 알림 포함)가 지역에서 차단 됨에 따라 Android 장치에서 *모바일 앱 메서드를 통한 알림이* 해당 국가/지역에서 작동 하지 않습니다. 그러나 iOS 알림이 작동 합니다. Android 장치의 경우 해당 사용자에 대해 대체 인증 방법을 사용할 수 있습니다.
 
 ### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 

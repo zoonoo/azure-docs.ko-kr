@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure SQL Database에서 단일 데이터베이
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/31/2020
-ms.openlocfilehash: 42a4d1288c7daeb4579e481f0258666d8e2cdbce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 39869e74fcb3e8f3deae1273721093f3f85e8d78
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502990"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541688"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -145,7 +145,7 @@ else {
 
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>최대 크기가 1tb 보다 큰 경우 P11 및 P15 제약 조건
 
-프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다. 다음 고려 사항 및 제한 사항은 최대 크기가 1TB보다 큰 P11 및 P15 데이터베이스에 적용됩니다.
+프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다. 다음 고려 사항 및 제한 사항은 최대 크기가 1TB보다 큰 P11 및 P15 데이터베이스에 적용됩니다.
 
 - P11 또는 P15 데이터베이스의 최대 크기가 1tb 보다 큰 값으로 설정 된 경우에는 해당 값을 P11 또는 P15 데이터베이스에만 복원 하거나 복사할 수 있습니다.  이후 크기 조정 작업 시 할당 된 공간 크기가 새 계산 크기의 최대 크기 제한을 초과 하지 않는 경우 데이터베이스를 다른 계산 크기로 재조정 수 있습니다.
 - 활성 지역 복제 시나리오의 경우:

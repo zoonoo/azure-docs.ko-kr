@@ -1,6 +1,6 @@
 ---
 title: 입력 유효성 검사 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: 위협 모델링 도구에 노출되는 위협 완화
+description: Threat Modeling Tool에서 입력 유효성 검사에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653119"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539801"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>보안 프레임: 입력 유효성 검사 | 완화 
 | 제품/서비스 | 아티클 |

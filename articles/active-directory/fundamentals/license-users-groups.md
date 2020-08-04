@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695a63705cce90bb0bf6b3cf787d9e6481b888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 121bf7ef05c2a5bee621ecddcb40033d54194fac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603896"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542113"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 라이선스 할당 또는 제거
 
@@ -35,7 +35,7 @@ ms.locfileid: "85603896"
 
 - Azure AD Premium P2
 
-각 라이선스 계획 및 관련 라이선스 세부 정보에 대 한 자세한 내용은 [필요한 라이선스는 무엇입니까?](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
+각 라이선스 계획 및 관련 라이선스 세부 정보에 대 한 자세한 내용은 [필요한 라이선스는 무엇입니까?](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요. Azure AD premium 라이선스 계획에 등록 하려면 [여기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)를 참조 하세요.
 
 일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 그룹에 라이선스를 할당하려면 먼저 모든 멤버에 대한 **사용 위치**를 지정해야 합니다. 이 값은 Azure AD의 **Azure Active Directory &gt; 사용자 &gt; 프로필 &gt; 설정** 영역에서 설정할 수 있습니다. 사용 위치가 지정 되지 않은 모든 사용자는 Azure AD 조직의 위치를 상속 합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "85603896"
     > [!NOTE]
     > 일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 **사용 위치**를 지정해야 합니다. 이 값은 Azure AD의 **Azure Active Directory &gt; 사용자 &gt; 프로필 &gt; 설정** 영역에서 설정할 수 있습니다. 사용 위치가 지정 되지 않은 모든 사용자는 Azure AD 조직의 위치를 상속 합니다.
 
-1. **할당**을 선택 합니다.
+1. **할당**을 선택합니다.
 
     사용자가 사용이 허가된 사용자 목록에 추가되며, 포함된 Azure AD 서비스에 액세스할 수 있습니다.
     > [!NOTE]
@@ -110,7 +110,7 @@ ms.locfileid: "85603896"
 
     **라이선스 할당** 페이지가 업데이트되어 사용자가 선택되고 할당이 구성되었음을 보여 줍니다.
 
-1. **할당**을 선택 합니다.
+1. **할당**을 선택합니다.
 
     그룹이 사용이 허가된 그룹 목록에 추가되며, 모든 멤버가 포함된 Azure AD 서비스에 액세스할 수 있습니다.
 

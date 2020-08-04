@@ -1,6 +1,6 @@
 ---
 title: 암호화 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: 위협 모델링 도구에 노출되는 위협 완화
+description: Threat Modeling Tool에 노출 되는 위협에 대 한 암호화 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68728199"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539954"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **웹 애플리케이션** | <ul><li>[승인 된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 안 함](#stream-ciphers)</li><li>[승인 된 MAC/HMAC/키 지정 해시 알고리즘 사용](#mac-hash)</li><li>[승인 된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
-| **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
+| **Database** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
 | **IoT 디바이스** | <ul><li>[IoT 장치에 안전 하 게 암호화 키 저장](#keys-iot)</li></ul> | 
 | **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub에 대 한 인증에 충분 한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
 | **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요 하 고 원격 지우기를 허용 하는 장치 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 

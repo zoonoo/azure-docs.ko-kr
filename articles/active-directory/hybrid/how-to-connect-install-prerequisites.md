@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33b3e406e21f5bc2a4128fdd7dc9930fa3e0c32
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447008"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542062"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -125,6 +125,7 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
         </system.net>
     ```
 
+* 프록시 구성이 기존 설정에서 수행 되는 경우 Azure AD Connect에서 프록시 구성을 읽고 behviour을 업데이트 하려면 **Microsoft Azure AD 동기화 서비스** 를 한 번 다시 시작 해야 합니다. 
 * Azure AD Connect에서 디렉터리 동기화의 일부로 웹 요청을 Azure AD로 보내면 Azure AD에서 응답하는 데 최대 5분이 걸릴 수 있습니다. 프록시 서버에서 연결 유휴 시간 제한 구성을 설정 하는 것이 일반적입니다. 구성이 6 분 이상으로 설정 되어 있는지 확인 합니다.
 
 자세한 내용은 MSDN의 [기본 프록시 요소](https://msdn.microsoft.com/library/kd3cf2ex.aspx)에 대 한 정보를 참조 하세요.

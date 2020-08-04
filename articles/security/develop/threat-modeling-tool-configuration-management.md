@@ -1,7 +1,7 @@
 ---
 title: Microsoft Threat Modeling Tool의 구성 관리
 titleSuffix: Azure
-description: 위협 모델링 도구에 노출되는 위협 완화
+description: Threat Modeling Tool에 대 한 구성 관리에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f911fced2ea40de359662eccf390e361dac18ff3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f34a98ccbe069a5cb9e2c26a88e486b27f016fe1
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424174"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540022"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 아티클 |
@@ -78,7 +78,7 @@ Example: var str="alert(1)"; eval(str);
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [XSS 보호 필터](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)(영문) |
-| **단계** | <p>X-XSS-Protection 응답 헤더 구성은 브라우저의 사이트 간 스크립트 필터를 제어합니다. 이 응답 헤더의 값은 다음과 같습니다.</p><ul><li>`0:` - 필터를 비활성화합니다.</li><li>`1: Filter enabled` - 사이트 간 스크립팅 공격이 감지되면 공격을 중지하도록 브라우저에서 페이지를 삭제합니다.</li><li>`1: mode=block : Filter enabled`입니다. XSS 공격이 감지되면 브라우저에서 페이지를 삭제하는 대신 페이지의 렌더링을 방해합니다.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`입니다. 브라우저에서 페이지를 삭제하고 위반을 보고합니다.</li></ul><p>이는 CSP 위반 보고서를 활용하여 선택한 URI에 세부 정보를 보내는 Chromium 함수입니다. 마지막 두 옵션은 안전한 값으로 간주됩니다.</p>|
+| **단계** | <p>X-XSS-Protection 응답 헤더 구성은 브라우저의 사이트 간 스크립트 필터를 제어합니다. 이 응답 헤더의 값은 다음과 같습니다.</p><ul><li>`0:` - 필터를 비활성화합니다.</li><li>`1: Filter enabled` - 사이트 간 스크립팅 공격이 감지되면 공격을 중지하도록 브라우저에서 페이지를 삭제합니다.</li><li>`1: mode=block : Filter enabled`. XSS 공격이 감지되면 브라우저에서 페이지를 삭제하는 대신 페이지의 렌더링을 방해합니다.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. 브라우저에서 페이지를 삭제하고 위반을 보고합니다.</li></ul><p>이는 CSP 위반 보고서를 활용하여 선택한 URI에 세부 정보를 보내는 Chromium 함수입니다. 마지막 두 옵션은 안전한 값으로 간주됩니다.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET 애플리케이션에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정
 

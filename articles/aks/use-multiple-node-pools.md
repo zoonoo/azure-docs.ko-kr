@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d007ec18a982d5327aa2ea0871bbe88f64786fce
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133098"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542028"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -489,6 +489,8 @@ Events:
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>노드 풀의 taint, 레이블 또는 태그 지정
 
+### <a name="setting-nodepool-taints"></a>Nodepool taints 설정
+
 노드 풀을 만들 때 해당 노드 풀에 taints, 레이블 또는 태그를 추가할 수 있습니다. Taint, label 또는 tag를 추가 하면 해당 노드 풀 내의 모든 노드에는 해당 taint, label 또는 tag도 표시 됩니다.
 
 Taint를 사용 하 여 노드 풀을 만들려면 [az aks nodepool add][az-aks-nodepool-add]를 사용 합니다. *Taintnp* 이름을 지정 `--node-taints` 하 고 매개 변수를 사용 하 여 *Sku = gpu: noschedule* for taint를 지정 합니다.
@@ -532,6 +534,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Taint 정보는 노드에 대 한 예약 규칙을 처리 하기 위해 Kubernetes에 표시 됩니다.
 
+### <a name="setting-nodepool-labels"></a>Nodepool 레이블 설정
+
 노드 풀을 만드는 동안 노드 풀에 레이블을 추가할 수도 있습니다. 노드 풀에 설정 된 레이블은 노드 풀의 각 노드에 추가 됩니다. 이러한 레이블은 노드에 대 한 일정 규칙을 처리 하 [는 Kubernetes에 표시 됩니다][kubernetes-labels] .
 
 레이블을 사용 하 여 노드 풀을 만들려면 [az aks nodepool add][az-aks-nodepool-add]를 사용 합니다. 이름 *labelnp* 를 지정 하 고 `--labels` 매개 변수를 사용 하 여 레이블에 대해 *dept = IT* 및 *costcenter = 9999* 를 지정 합니다.
@@ -574,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Nodepool Azure 태그 설정
+
 AKS 클러스터의 노드 풀에 Azure 태그를 적용할 수 있습니다. 노드 풀에 적용 되는 태그는 노드 풀 내의 각 노드에 적용 되며 업그레이드를 통해 유지 됩니다. 또한 확장 작업 중에 노드 풀에 추가 된 새 노드에 태그가 적용 됩니다. 태그를 추가 하면 정책 추적 또는 비용 예측과 같은 작업에 도움이 될 수 있습니다.
+
+Azure 태그에는 키를 검색 하 여 태그를 검색 하는 경우와 같이 작업에 대 한 대/소문자를 구분 하지 않는 키가 있습니다. 이 경우에는 대/소문자에 관계 없이 지정 된 키를 가진 태그가 업데이트 되거나 검색 됩니다. 태그 값은 대/소문자를 구분 합니다.
+
+AKS에서 여러 태그가 동일한 키로 설정 되 고 대/소문자가 다른 경우 사용 된 태그는 사전순으로 첫 번째 순서로 사용 됩니다. 예를 들어, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` `Key1` 및가 `val1` 설정 됩니다.
 
 [Az aks nodepool add][az-aks-nodepool-add]를 사용 하 여 노드 풀을 만듭니다. *Tagnodepool* 이름을 지정 `--tag` 하 고 매개 변수를 사용 하 여 *부서 = IT* 및 *costcenter = 9999* 를 태그에 지정 합니다.
 

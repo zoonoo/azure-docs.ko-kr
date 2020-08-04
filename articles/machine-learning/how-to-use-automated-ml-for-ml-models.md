@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1e87eec4384887ebd82d5f70c0897add250f31fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6e4ed8514cd99d42790296a58296a73696989b69
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320802"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539138"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "87320802"
 이 문서에서는 Azure Machine Learning studio에서 코드를 한 줄 사용 하지 않고 자동화 된 기계 학습 모델을 만들고 탐색 하 고 배포 하는 방법에 대해 알아봅니다.
 
 >[!IMPORTANT]
-> Azure Machine learning studio의 자동화 된 ML 환경은 미리 보기 상태입니다. 특정 기능은 지원 되지 않거나 기능이 제한 될 수 있습니다.
+> Azure Machine Learning Studio의 자동화된 ML 환경은 미리 보기로 제공됩니다. 특정 기능은 지원되지 않거나 기능이 제한될 수 있습니다.
 
  자동화된 Machine Learning은 특정 데이터에 사용할 가장 적합한 기계 학습 알고리즘을 선택하는 프로세스입니다. 이 프로세스를 통해 기계 학습 모델을 빠르게 생성할 수 있습니다. [자동화된 Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md).
  
@@ -108,7 +108,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     가상 컴퓨터 우선 순위| 낮은 우선 순위의 가상 머신은 저렴 하지만 계산 노드를 보장 하지 않습니다. 
     가상 머신 유형| 가상 컴퓨터 유형에 대해 CPU 또는 GPU를 선택 합니다.
     가상 머신 크기| 컴퓨팅에 사용할 가상 머신 크기를 선택합니다.
-    최소/최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다. 컴퓨팅에 사용할 최대 노드 수를 입력합니다. AML 컴퓨팅의 경우 기본값은 6개 노드입니다.
+    최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다. 컴퓨팅에 사용할 최대 노드 수를 입력합니다. AML 컴퓨팅의 경우 기본값은 6개 노드입니다.
     고급 설정 | 이러한 설정을 사용 하 여 실험에 사용할 사용자 계정 및 기존 가상 네트워크를 구성할 수 있습니다. 
     
     **만들기**를 선택합니다. 새 컴퓨팅을 만드는 데 몇 분 정도 걸릴 수 있습니다.
@@ -229,7 +229,7 @@ Included | 학습에 포함할 열을 지정 합니다.
     컴퓨팅 형식| 배포하려는 엔드포인트 유형으로 *AKS(Azure Kubernetes Service)* 또는 *ACI(Azure Container Instance)* 를 선택합니다.
     컴퓨팅 이름| *AKS에만 적용:* 배포하려는 AKS 클러스터의 이름을 선택합니다.
     인증 사용 | 토큰 기반 또는 키 기반 인증을 허용할지를 선택합니다.
-    사용자 지정 배포 자산 사용| 사용자 고유의 채점 스크립트 및 환경 파일을 업로드하려면 이 기능을 사용하도록 설정합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md#script).
+    사용자 지정 배포 자산 사용| 사용자 고유의 채점 스크립트 및 환경 파일을 업로드하려면 이 기능을 사용하도록 설정합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md).
 
     >[!Important]
     > 파일 이름은 32자 미만이어야 하며 영숫자로 시작하고 끝나야 합니다. 대시, 밑줄, 점 및 영숫자를 포함할 수 있습니다. 공백은 허용되지 않습니다.

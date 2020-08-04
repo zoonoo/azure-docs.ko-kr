@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085761"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542741"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>연결되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제 - Azure Portal
 
@@ -27,7 +27,7 @@ Azure에서 VM(가상 머신)을 삭제할 때 기본적으로 VM에 연결된 �
 
     **디스크** 블레이드에 모든 디스크의 목록이 표시됩니다. **소유자** 열에 " **-** "가 있는 디스크는 연결되지 않은 디스크입니다.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![관리 디스크 블레이드의 스크린샷, 디스크가 소유자 열에 있으면 연결 되지 않은 디스크입니다.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. 삭제할 연결되지 않은 디스크를 선택하면 해당 디스크의 블레이드가 열립니다.
 1. 디스크의 블레이드에서 디스크 상태가 연결되지 않음인지 확인하고 **삭제**를 선택합니다.

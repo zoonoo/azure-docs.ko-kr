@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3ec80b5d71bbdbf0f1b89606859dcc734d037e5
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415043"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542215"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -314,6 +314,9 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 
 ### <a name="using-the-rest-protocol"></a>REST 프로토콜 사용
 
+> [!NOTE]
+> “2017-09-01” API 버전을 사용하는 이 프로토콜의 이전 버전은 `X-IDENTITY-HEADER` 대신 `secret` 헤더를 사용했으며 사용자 할당을 위해 `clientid` 속성만 수락했습니다. 또한 타임스탬프 형식에 `expires_on`을 반환했습니다. MSI_ENDPOINT는 IDENTITY_ENDPOINT에 대한 별칭으로 사용할 수 있으며 MSI_SECRET은 IDENTITY_HEADER에 대한 별칭으로 사용할 수 있습니다. 이 프로토콜 버전은 현재 Linux 소비 호스팅 계획에 필요 합니다.
+
 관리 ID가 있는 앱에는 다음 두 가지 환경 변수가 정의되어 있습니다.
 
 - IDENTITY_ENDPOINT - 로컬 토큰 서비스의 URL입니다.
@@ -324,7 +327,7 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 > | 매개 변수 이름    | 그런 다음     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | 쿼리  | 토큰을 가져와야 하는 리소스의 Azure AD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.    |
-> | api-version       | 쿼리  | 사용할 토큰 API의 버전입니다. “2019-08-01” 이상을 사용하세요.                                                                                                                                                                                                                                                                 |
+> | api-version       | 쿼리  | 사용할 토큰 API의 버전입니다. 현재 "2017-09-01"만 제공 하는 Linux 사용을 사용 하지 않는 경우 "2019-08-01" 이상을 사용 하세요. 위의 note를 참조 하세요.                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | 헤더 | IDENTITY_HEADER 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.                                                                                                                                                                                                    |
 > | client_id         | 쿼리  | (선택 사항) 사용할 사용자 할당 ID의 클라이언트 ID입니다. `principal_id`, `mi_res_id` 또는 `object_id`를 포함하는 요청에 사용할 수 없습니다. 모든 ID 매개 변수(`client_id`, `principal_id`, `object_id` 및 `mi_res_id`)가 생략될 경우 시스템 할당 ID가 사용됩니다.                                             |
 > | principal_id      | 쿼리  | (선택 사항) 사용할 사용자 할당 ID의 보안 주체 ID입니다. `object_id`는 대신 사용할 수 있는 별칭입니다. client_id, mi_res_id 또는 object_id를 포함하는 요청에 사용할 수 없습니다. 모든 ID 매개 변수(`client_id`, `principal_id`, `object_id` 및 `mi_res_id`)를 생략하면 시스템 할당 ID가 사용됩니다. |
@@ -345,9 +348,6 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 > | token_type    | 토큰 유형 값을 나타냅니다. Azure AD는 FBearer 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 
 이 응답은 [Azure AD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)과 동일합니다.
-
-> [!NOTE]
-> “2017-09-01” API 버전을 사용하는 이 프로토콜의 이전 버전은 `X-IDENTITY-HEADER` 대신 `secret` 헤더를 사용했으며 사용자 할당을 위해 `clientid` 속성만 수락했습니다. 또한 타임스탬프 형식에 `expires_on`을 반환했습니다. MSI_ENDPOINT는 IDENTITY_ENDPOINT에 대한 별칭으로 사용할 수 있으며 MSI_SECRET은 IDENTITY_HEADER에 대한 별칭으로 사용할 수 있습니다.
 
 ### <a name="rest-protocol-examples"></a>REST 프로토콜 예제
 

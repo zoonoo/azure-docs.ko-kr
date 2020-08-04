@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e7c0a4cd6e44994c4b002fcc2e5fde441cf22283
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537717"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541654"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory 피벗 해제 변환
 
@@ -46,7 +46,7 @@ ms.locfileid: "86537717"
 
 예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값에서 새 열 값이 제공됩니다. 예: "25", "50", "1000", ... 그러나 접두사 값을 "Sales"로 설정 하면 "Sales"가 값 앞에 붙습니다.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+![과일 열을 unipivot 키로 사용 하 여 unipivot 변환 전후에 PO, 공급 업체 및 과일 열을 표시 하는 이미지입니다.](media/data-flow/unpivot3.png)
 
 열 정렬을 “기본”으로 설정하면 피벗된 모든 열이 집계된 값과 함께 그룹화됩니다. 열 정렬을 “횡적”으로 설정하면 열과 값이 교대로 지정됩니다.
 

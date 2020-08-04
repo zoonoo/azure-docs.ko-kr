@@ -3,12 +3,12 @@ title: Azure managed disks를 사용 하도록 클러스터 노드 업그레이�
 description: 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255900"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542864"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Azure managed disks를 사용 하도록 클러스터 노드 업그레이드
 
@@ -165,7 +165,7 @@ Get-ServiceFabricClusterHealth
 
 #### <a name="parameters"></a>매개 변수
 
-새 확장 집합의 인스턴스 이름, 개수 및 크기에 대 한 매개 변수를 추가 합니다. 는 `vmNodeType1Name` 새 확장 집합에 대해 고유 하지만 개수 및 크기 값은 원래 확장 집합과 동일 합니다.
+새 확장 집합의 인스턴스 이름에 대 한 매개 변수를 추가 합니다. 는 `vmNodeType1Name` 새 확장 집합에 대해 고유 하지만 개수 및 크기 값은 원래 확장 집합과 동일 합니다.
 
 **템플릿 파일**
 
@@ -174,18 +174,7 @@ Get-ServiceFabricClusterHealth
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-},
-"nt1InstanceCount": {
-    "type": "int",
-    "defaultValue": 5,
-    "metadata": {
-        "description": "Instance count for node type"
-    }
-},
-"vmNodeType1Size": {
-    "type": "string",
-    "defaultValue": "Standard_D2_v2"
-},
+}
 ```
 
 **매개 변수 파일**
@@ -193,12 +182,6 @@ Get-ServiceFabricClusterHealth
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
-},
-"nt1InstanceCount": {
-    "value": 5
-},
-"vmNodeType1Size": {
-    "value": "Standard_D2_v2"
 }
 ```
 
@@ -216,13 +199,13 @@ Get-ServiceFabricClusterHealth
 
 배포 템플릿 *리소스* 섹션에서 다음 사항을 염두에 둔 새 가상 머신 확장 집합을 추가 합니다.
 
-* 새 확장 집합은 원래와 동일한 노드 형식을 참조 합니다.
+* 새 확장 집합은 새 노드 형식을 참조 합니다.
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
     ```
 
-* 새 확장 집합은 동일한 부하 분산 장치 백 엔드 주소 및 서브넷을 참조 하지만 다른 부하 분산 장치 인바운드 NAT 풀을 사용 합니다.
+* 새 확장 집합은 원래와 동일한 부하 분산 장치 백 엔드 주소 및 서브넷을 참조 하지만 다른 부하 분산 장치 인바운드 NAT 풀을 사용 합니다.
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -253,6 +236,33 @@ Get-ServiceFabricClusterHealth
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
+
+다음으로 `nodeTypes` *ServiceFabric/클러스터* 리소스 목록에 항목을 추가 합니다. `name`새 노드 형식 (*vmNodeType1Name*)을 참조 해야 하는를 제외 하 고 원래 노드 형식 항목과 동일한 값을 사용 합니다.
+
+```json
+"nodeTypes": [
+    {
+        "name": "[parameters('vmNodeType0Name')]",
+        ...
+    },
+    {
+        "name": "[parameters('vmNodeType1Name')]",
+        "applicationPorts": {
+            "endPort": "[parameters('nt0applicationEndPort')]",
+            "startPort": "[parameters('nt0applicationStartPort')]"
+        },
+        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
+        "durabilityLevel": "Silver",
+        "ephemeralPorts": {
+            "endPort": "[parameters('nt0ephemeralEndPort')]",
+            "startPort": "[parameters('nt0ephemeralStartPort')]"
+        },
+        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
+        "isPrimary": true,
+        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+    }
+],
+```
 
 템플릿 및 매개 변수 파일의 모든 변경 내용을 구현한 후 다음 섹션으로 이동 하 여 Key Vault 참조를 가져오고 클러스터에 업데이트를 배포 합니다.
 

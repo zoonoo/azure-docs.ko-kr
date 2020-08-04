@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082121"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542232"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
@@ -52,7 +52,7 @@ ms.locfileid: "82082121"
 | userPrincipalName |X |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름 | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | 도우미 |X |X | | |
@@ -165,7 +165,7 @@ ms.locfileid: "82082121"
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |Azure AD에서 exchange online에 한 번만 동기화 된 후에는이 특성에 대 한 기관의 소스가 되 고 이후 변경 내용은 온-프레미스에서 동기화 될 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조 하세요.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
@@ -175,7 +175,7 @@ ms.locfileid: "82082121"
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름 | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | authOrig |X |X |X | |
@@ -247,7 +247,7 @@ ms.locfileid: "82082121"
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |Azure AD에서 exchange online에 한 번만 동기화 된 후에는이 특성에 대 한 기관의 소스가 되 고 이후 변경 내용은 온-프레미스에서 동기화 될 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조 하세요.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -257,7 +257,7 @@ ms.locfileid: "82082121"
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>팀 및 비즈니스용 Skype Online
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름 | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
@@ -298,14 +298,14 @@ ms.locfileid: "82082121"
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |Azure AD에서 exchange online에 한 번만 동기화 된 후에는이 특성에 대 한 기관의 소스가 되 고 이후 변경 내용은 온-프레미스에서 동기화 될 수 없습니다. 자세한 내용은 ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange))를 참조 하세요.|
 | title |X |X | | |
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름 | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | cn |X | |X |일반 이름 또는 별칭입니다. 대부분 [mail] 값의 접두사입니다. |
@@ -320,7 +320,7 @@ ms.locfileid: "82082121"
 | userPrincipalName |X | | |이 UPN은 사용자용 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="intune"></a>Intune
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름 | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ ms.locfileid: "82082121"
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름 | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
@@ -377,7 +377,7 @@ ms.locfileid: "82082121"
 
 이 그룹은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다. 일부 타사 응용 프로그램을 Single Sign-On 또는 프로 비전 하려면 여기에 설명 된 특성과 함께 특성 동기화를 구성 해야 합니다. 응용 프로그램 요구 사항은 각 응용 프로그램에 대 한 [SaaS 앱 자습서](../saas-apps/tutorial-list.md) 에 설명 되어 있습니다.
 
-| 특성 이름 | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름 | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | cn |X | |X | |
@@ -396,7 +396,7 @@ ms.locfileid: "82082121"
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## <a name="windows-10"></a>Windows 10
+## <a name="windows-10"></a>윈도우 10
 Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](../active-directory-azureadjoin-devices-group-policy.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
 | 특성 이름 | 디바이스 | 의견 |
@@ -422,7 +422,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 ## <a name="exchange-hybrid-writeback"></a>Exchange 하이브리드 쓰기 저장
 이 특성들은 **Exchange 하이브리드**를 사용하도록 설정할 때 Azure AD에서 온-프레미스 Active Directory로 다시 기록됩니다. Exchange 버전에 따라 더 적은 특성을 동기화 할 수 있습니다.
 
-| 특성 이름(온-프레미스 AD) | 특성 이름(Connect UI) | 사용자 | 연락처 | 그룹 | 의견 |
+| 특성 이름(온-프레미스 AD) | 특성 이름(Connect UI) | 사용자 | 연락처 | 그룹화 | 의견 |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Azure AD의 cloudAnchor에서 파생됩니다. 이 특성은 Exchange 2016 및 Windows Server 2016 AD의 새로운 기능입니다. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |온라인 보관: 고객의 메일을 보관합니다. |
@@ -466,7 +466,7 @@ Active Directory에 디바이스 개체를 만듭니다. 이러한 개체는 Azu
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 * 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
 * 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
 

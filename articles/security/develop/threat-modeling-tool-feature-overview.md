@@ -1,18 +1,18 @@
 ---
 title: Microsoft Threat Modeling Tool 기능 개요-Azure
-description: 위협 모델링 도구에서 사용할 수 있는 모든 기능에 대해 알아보기
+description: 분석 보기 및 보고서와 같은 Threat Modeling Tool에서 사용할 수 있는 모든 기능에 대해 알아봅니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75552120"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540005"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 
@@ -39,7 +39,7 @@ ms.locfileid: "75552120"
 
 ![메뉴 항목](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| 레이블                               | 설명      |
+| 레이블                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
 | **편집** | 작업을 실행 취소 및 다시 실행하고, 복사하고, 붙여넣고, 삭제합니다. |
@@ -50,7 +50,7 @@ ms.locfileid: "75552120"
 
 아이콘은 최상위 메뉴에 대한 바로 가기입니다.
 
-| 기호                               | 설명      |
+| Symbol                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **열기** | 새 파일을 엽니다. |
 | **저장** | 현재 파일을 저장합니다. |
@@ -79,7 +79,7 @@ ms.locfileid: "75552120"
 
 선택한 템플릿에 따라 사용 가능한 모든 스텐실을 찾을 수 있습니다. 적합한 요소를 찾을 수 없는 경우 다른 템플릿을 사용합니다. 또는 필요에 맞게 템플릿을 수정할 수 있습니다. 일반적으로 다음과 같은 범주의 조합을 찾을 수 있습니다.
 
-| 스텐실 이름                               | 설명      |
+| 스텐실 이름                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **Process** | 애플리케이션, 브라우저 플러그 인, 스레드, 가상 머신 |
 | **외부 작용** | 인증 공급자, 브라우저, 사용자, 웹 애플리케이션 |
@@ -89,7 +89,7 @@ ms.locfileid: "75552120"
 
 ### <a name="notesmessages"></a>참고 사항/메시지
 
-| 구성 요소                               | 설명      |
+| 구성 요소                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **메시지** | 요소 간 데이터 흐름 없음과 같은 오류가 발생할 때마다 사용자에게 알리는 내부 도구 논리입니다. |
 | **참고** | 수동 참고 사항은 디자인 및 검토 프로세스에 걸쳐 엔지니어링 팀에 의해 파일에 추가됩니다. |
@@ -98,7 +98,7 @@ ms.locfileid: "75552120"
 
 요소 속성은 선택한 요소에 따라 다릅니다. 신뢰 경계 외에도 다른 모든 요소에는 세 가지 일반 선택 항목이 포함되어 있습니다.
 
-| 요소 속성                               | 설명      |
+| 요소 속성                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **이름** | 프로세스, 저장소, 인자 및 흐름을 쉽게 인식하도록 이름을 지정하는 데 유용합니다. |
 | **범위 외** | 선택한 경우 요소는 위협 생성 매트릭스에서 제거됩니다(권장하지 않음). |
@@ -122,7 +122,7 @@ ms.locfileid: "75552120"
 
 **피드백, 제안 및 문제**를 선택하는 경우 SDL 도구에 관한 MSDN 포럼으로 이동합니다. 해결 방법 및 새로운 아이디어를 포함하여 도구에 대한 다른 사용자의 의견을 읽을 수 있습니다.
 
-![사용자 의견](./media/threat-modeling-tool-feature-overview/feedback.png)
+![피드백](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>디자인 보기
 
@@ -160,7 +160,7 @@ ms.locfileid: "75552120"
 
 ![메시지](./media/threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>참고
+### <a name="notes"></a>메모
 
 다이어그램에 메모를 추가하려면 **메시지** 탭에서 **메모** 탭으로 전환합니다.
 
@@ -174,7 +174,7 @@ ms.locfileid: "75552120"
 
 위협을 선택하면 세 가지 고유 함수를 사용할 수 있습니다.
 
-| 기능                               | 정보      |
+| 기능                               | 정보 산업      |
 | --------------------------------------- | ------------ |
 | **읽음 표시기** | <p>위협이 읽음으로 표시되며, 검토한 항목을 계속 추적할 수 있습니다.</p><p>![읽음/읽지 않음 표시기](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **상호 작용 포커스** | <p>위협에 속한 다이어그램의 상호 작용이 강조 표시됩니다.</p><p>![상호 작용 포커스](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |

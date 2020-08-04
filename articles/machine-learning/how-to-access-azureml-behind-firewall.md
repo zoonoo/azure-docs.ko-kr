@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407033"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540073"
 ---
-# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Azure Machine Learning 용 Azure 방화벽 뒤에 작업 영역 사용
+# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
 이 문서에서는 Azure Machine Learning 작업 영역에서 사용할 수 있도록 Azure 방화벽을 구성 하는 방법에 대해 알아봅니다.
+
+> [!IMPORTANT]
+> 이 문서의 정보는 Azure 방화벽 사용을 기반으로 하지만 다른 방화벽 제품과 함께 사용할 수 있습니다. 방화벽을 통한 통신을 허용 하는 방법에 대 한 질문이 있는 경우 사용 중인 방화벽에 대 한 설명서를 참조 하세요.
 
 Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 대 한 액세스를 제어 하는 데 사용할 수 있습니다. 올바르게 구성 되지 않은 경우 방화벽에서 작업 영역을 사용 하 여 문제를 일으킬 수 있습니다. 이 문서에서 설명 하는 Azure Machine Learning 작업 영역 둘 다에서 사용 되는 다양 한 호스트 이름이 있습니다.
 
@@ -53,6 +56,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 | **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | 기본 docker 이미지용 Microsoft Container Registry |
+| **your-acr-server-name.azurecr.io** | Azure Container Registry 가상 네트워크 뒤에 있는 경우에만 필요 합니다. 이 구성에서는 Microsoft 환경에서 구독의 ACR 인스턴스로 개인 링크를 만듭니다. Azure Machine Learning 작업 영역에 ACR 서버 이름을 사용 합니다. |
 
 ## <a name="python-hosts"></a>Python 호스트
 
