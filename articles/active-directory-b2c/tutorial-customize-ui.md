@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29a03f1d1b1007845c1df516192da22d74705af0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385028"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481736"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 사용자 환경 인터페이스 사용자 지정
 
@@ -139,7 +139,7 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 ## <a name="update-the-user-flow"></a>사용자 흐름 업데이트
 
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-2. **사용자 흐름(정책)** 을 선택한 다음, *B2C_1_signupsignin1* 사용자 흐름을 선택합니다.
+2. **사용자 흐름**, *B2C_1_signupsignin1* 사용자 흐름을 차례로 선택합니다.
 3. **페이지 레이아웃**을 선택한 다음, **통합 가입 또는 로그인 페이지** 아래에서 **사용자 지정 페이지 콘텐츠 사용**에 대해 **예**를 클릭합니다.
 4. **사용자 지정 페이지 URI**에서 이전에 기록한 *custom-ui.html* 파일의 URI를 입력합니다.
 5. 페이지 맨 위에서 **저장**을 선택합니다.

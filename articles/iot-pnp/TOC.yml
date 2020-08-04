@@ -37,6 +37,8 @@
       href: tutorial-multiple-components-node.md
     - name: 여러 구성 요소 디바이스 연결(Python)
       href: tutorial-multiple-components-python.md
+    - name: MQTT를 사용하여 디바이스 연결
+      href: tutorial-use-mqtt.md
 - name: 개념
   items:
     - name: Architecture

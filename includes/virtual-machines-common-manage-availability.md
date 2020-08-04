@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292394"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545105"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -53,7 +53,9 @@ Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA
 가용성 집합은 VM 중복성 및 가용성을 제공하는 또 다른 데이터 센터 구성입니다. 데이터 센터 내의 이러한 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 자세한 내용은 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요.
 
 > [!IMPORTANT]
-> 99.9% 이상의 가상 머신 연결을 위한 SLA를 충족하려면, 가용성 집합의 단일 인스턴스 가상 머신에서 순서의 모든 운영 체제 디스크 및 데이터 디스크에 대해 프리미엄 SSD 또는 울트라 SSD를 사용해야 합니다.
+> 99.9% 이상의 가상 머신 연결을 위한 SLA를 충족하려면, 가용성 집합의 단일 인스턴스 가상 머신에서 순서의 모든 운영 체제 디스크 및 데이터 디스크에 대해 프리미엄 SSD 또는 울트라 SSD를 사용해야 합니다. 
+> 
+> 표준 SSD를 사용하는 단일 인스턴스 가상 머신의 SLA는 99.5% 이상인 반면, 표준 HDD를 사용하는 단일 인스턴스 가상 머신의 SLA는 95% 이상입니다.  [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 참조
 
 기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 머신을 **업데이트 도메인** 및 **장애 도메인**에 할당합니다. 특정 가용성 집합의 경우 기본적으로 사용자가 구성할 수 없는 다섯 개의 업데이트 도메인이 할당되어(그런 다음 최대 20개의 업데이트 도메인을 제공하도록 Resource Manager 배포를 늘릴 수 있음) 동시에 재부팅할 수 있는 가상 머신 및 기본 물리적 하드웨어 그룹을 나타냅니다. 단일 가용성 집합 내에 5개 이상의 가상 머신을 구성한 경우 6번째 가상 머신은 동일한 업데이트 도메인에 첫 번째 가상 머신으로 배치되고, 7번째 가상 머신은 동일한 업데이트 도메인에 두 번째 가상 머신으로 배치되는 식입니다. 재부팅되는 업데이트 도메인의 순서는 계획된 유지 보수 중 순차적으로 진행할 수 없으며 한 번에 하나의 업데이트 도메인만이 재부팅됩니다. 다시 부팅된 업데이트 도메인을 복구할 시간으로 30분이 제공되며 이 시간이 지나면 다른 업데이트 도메인에서 유지 관리가 시작됩니다.
 

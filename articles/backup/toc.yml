@@ -123,6 +123,8 @@
               href: backup-azure-vms-encryption.md
             - name: Linux를 실행하는 Azure VM의 앱 일치 백업 구성
               href: backup-azure-linux-app-consistent.md
+            - name: 선택적 디스크 백업
+              href: selective-disk-backup-restore.md
         - name: 복원
           items:
             - name: Azure VM 복원 정보

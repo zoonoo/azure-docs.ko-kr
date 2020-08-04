@@ -3,12 +3,12 @@ title: 웹앱 사용 - Personalizer
 description: Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작업(기능 포함) 및 컨텍스트 기능에 따라 사용자에게 올바른 콘텐츠를 제공합니다.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133132"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446372"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>자습서: .NET 웹앱에 Personalizer 추가
 
@@ -41,7 +41,7 @@ Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작
 * 커피
 * 스프
 
-Personalizer에서 작업에 대해 이해할 수 있도록 각 순위 API 요청과 함께 _기능이 포함된 작업_ 및 _콘텍스트 기능_을 모두 보냅니다.
+Personalizer에서 작업을 이해할 수 있도록 지원하기 위해 각 순위 API 요청을 사용하여 _기능이 포함된 작업_ 및 _콘텍스트 기능_을 모두 보냅니다.
 
 모델의 **기능**은 웹앱 사용자 기반의 멤버 간에 집계(그룹화)할 수 있는 작업 또는 컨텍스트에 대한 정보입니다. 기능은 개별적으로 구체적(예: 사용자 ID)이거나 매우 구체적(예: 정확한 하루 중 시간)이지 _않습니다_.
 
