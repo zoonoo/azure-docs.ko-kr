@@ -2,27 +2,27 @@
 title: 파일 포함
 description: 포함 파일
 services: azure data share
-author: jife
+author: jifems
 ms.service: azure data share
 ms.topic: include
-ms.date: 02/07/2020
+ms.date: 07/30/2020
 ms.author: jife
 ms.custom: include file
-ms.openlocfilehash: e1416b8b99c66daa4a27fa7f9bd7a20dfa9519e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 7c11ace5983ee906ebb12ebb2c60f4567f40e430
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77087431"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515304"
 ---
-Azure 데이터 공유는 조직이 고객과 파트너와 데이터를 간단 하 고 안전 하 게 공유할 수 있도록 합니다.
+Azure Data Share를 사용하면 조직에서 여러 고객 및 파트너와 데이터를 간단하고 안전하게 공유할 수 있습니다.
 
 | **리소스** | **제한** |
 | --- | --- |
-| Azure 구독 당 최대 데이터 공유 리소스 수 |50 |
-| 데이터 공유 리소스 당 최대 전송 공유 수 |100 |
-| 데이터 공유 리소스 당 최대 수신 공유 수 |100 |
-| 보낸 공유 당 최대 초대 수 |100 |
-| 보낸 공유 당 최대 공유 구독 수 |100 |
-| 공유 당 최대 데이터 집합 수 |100 |
-| 공유 당 최대 스냅숏 일정 수 |1 |
+| Azure 구독당 Data Share 리소스의 최대 수 |100 |
+| Data Share 리소스당 최대 보낸 공유 수 |200 |
+| Data Share 리소스당 최대 받은 공유 수 |100 |
+| 보낸 공유당 최대 초대 수 |200 |
+| 보낸 공유당 최대 공유 구독 수 |200 |
+| 공유당 최대 데이터 세트 수 |200 |
+| 공유당 최대 스냅샷 일정 수 |1 |

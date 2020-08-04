@@ -13,12 +13,12 @@ metadata:
   ms.author: iainfou
   manager: daveba
   ms.date: 08/01/2019
-  ms.openlocfilehash: f5fa27e19da6bb64b7e214ec32cbfbf0a417118e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 72fda19e35792e25ba31de2c3d7d4882e9d0e0ef
+  ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70010573"
+  ms.lasthandoff: 07/31/2020
+  ms.locfileid: "87480376"
 landingContent:
 - title: Azure AD Domain Services 정보
   linkLists:
@@ -74,7 +74,7 @@ landingContent:
       url: check-health.md
     - text: 전자 메일 알림 구성
       url: notifications.md
-    - text: 보안 감사 활성화(미리 보기)
+    - text: 보안 감사 사용
       url: security-audit-events.md
 - title: 도메인 가입 VM
   linkLists:

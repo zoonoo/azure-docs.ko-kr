@@ -171,10 +171,10 @@
           href: media-services-metrics-diagnostic-logs.md
         - name: 진단 로그 스키마
           href: media-services-diagnostic-logs-schema.md
-    - name: 플레이어 클라이언트
+    - name: Azure Media Player
       items:
-        - name: Azure Media Player
-          href: use-azure-media-player.md
+        - name: Azure Media Player 개요
+          href: 'https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview'
     - name: v3 API를 사용하여 개발
       items:
         - name: 개요
@@ -285,7 +285,11 @@
           items:
             - name: .NET 사용
               displayName: 'encode, encoding, custom, transform'
-              href: customize-encoder-presets-how-to.md
+              items:
+                - name: 인코더 사전 설정 사용자 지정
+                  href: customize-encoder-presets-how-to.md
+                - name: 오버레이 변환 만들기
+                  href: how-to-create-overlay.md
             - name: CLI 사용
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
@@ -355,6 +359,14 @@
           href: download-results-howto.md
         - name: 신호 설명 오디오
           href: signal-descriptive-audio-howto.md
+    - name: 미디어 플레이어 사용
+      items:
+        - name: Azure Media Player 전체 설정
+          href: 'https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup'
+        - name: Video.js 플레이어 사용
+          href: how-to-video-js-player.md
+        - name: Shaka 비디오 플레이어 사용
+          href: how-to-shaka-player.md
 - name: 참조
   items:
     - name: OpenAPI 사양(Swagger)
