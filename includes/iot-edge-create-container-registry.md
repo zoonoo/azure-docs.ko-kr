@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387621"
+ms.locfileid: "87406720"
 ---
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "87387621"
 
 3. **만들기**를 선택합니다.
 
-4. 컨테이너 레지스트리를 만든 후에 이를 찾아 왼쪽 창에서 **설정** 아래에 있는 메뉴에서 **액세스 키**를 선택합니다.
+4. 컨테이너 레지스트리를 만든 후에 이를 찾아 왼쪽 창에서 **설정** 아래에 있는 메뉴에서 **액세스 키**를 선택합니다. 
 
 5. 컨테이너 레지스트리의 **사용자 이름** 및 **암호**를 보려면 관리 사용자 사용을 클릭합니다.
 

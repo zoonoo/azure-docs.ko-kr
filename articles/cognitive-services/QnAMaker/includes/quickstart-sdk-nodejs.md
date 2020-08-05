@@ -3,12 +3,13 @@ title: '빠른 시작: Node.js용 QnA Maker 클라이언트 라이브러리'
 description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 7b3c5e69e820951896cb00b82295dc07ba698c94
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 76d0587c68ac46253dbd937c661b06bdb8c495c8
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114548"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404086"
 ---
 Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
@@ -78,7 +79,7 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 QnA Maker는 다음과 같은 두 가지 개체 모델을 사용합니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하는 개체입니다.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** 은 GenerateAnswer API를 사용하여 기술 자료를 쿼리하고 Train API([활성 학습](../concepts/active-learning-suggestions.md)의 일부로)를 사용하여 새로 제안된 질문을 보내는 개체입니다.
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** 은 GenerateAnswer API를 사용하여 기술 자료를 쿼리하고 Train API([활성 학습](../concepts/active-learning-suggestions.md)의 일부로)를 사용하여 새로운 제안된 질문을 보내는 개체입니다.
 
 
 ### <a name="qnamakerclient-object-model"></a>QnAMakerClient 개체 모델
@@ -98,7 +99,7 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 이 코드 조각은 .NET용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
-* [작성 클라이언트 인증](#authenticate-the-client-for-authoring-the-knowledge-base)
+* [제작 클라이언트 인증](#authenticate-the-client-for-authoring-the-knowledge-base)
 * [기술 자료 만들기](#create-a-knowledge-base)
 * [기술 자료 업데이트](#update-a-knowledge-base)
 * [기술 자료 다운로드](#download-a-knowledge-base)

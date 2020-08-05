@@ -4,15 +4,15 @@ description: 자습서 - Azure Batch를 사용하여 Azure Data Factory를 통�
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 07/29/2020
 ms.author: komammas
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 165f688233ef03a390e8e1d5cccf2b2e45218c43
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851739"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407460"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>자습서: Azure Batch를 사용하여 Azure Data Factory를 통해 Python 스크립트 실행
 
@@ -99,7 +99,7 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_text(containerName, "iris_setosa.csv", "iris_setosa.csv")
+blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
 ```
 
 스크립트를 `main.py`로 저장하고 **Azure Storage** 컨테이너에 업로드합니다. Blob 컨테이너에 업로드하기 전에 해당 기능을 로컬로 테스트하고 확인해야 합니다.
