@@ -3,12 +3,13 @@ title: JavaScript(최신)를 사용하여 Azure Event Hubs에서 이벤트 보�
 description: 이 문서에서는 최신 azure/event-hubs 버전 5 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 JavaScript 애플리케이션을 만드는 과정을 연습할 수 있습니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ec97d07843a9844387ad1038c075ed55e304a2c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 098e9e4ff6da199c48acf8956049336049e8a58c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521890"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421215"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>JavaScript(azure/event-hubs 버전 5)를 사용하여 이벤트 허브에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **azure/event-hubs 버전 5** JavaScript 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 

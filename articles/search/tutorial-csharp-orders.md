@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 552f974b99b9430d82596a5a25265bb916cb4e25
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262194"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420637"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 검색 결과 정렬
 

@@ -9,12 +9,13 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: fcad9356f87e76b14e0ef636389c11fd4290e12a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.custom: devx-track-javascript
+ms.openlocfilehash: bf47ec0ca88d409c91b8acad25506c1cc8958e86
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "84870500"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422796"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>FHIR 서비스에서 데이터를 읽을 수 있는 JavaScript 앱 배포
 이 자습서에서는 FHIR 서비스에서 데이터를 읽는 작은 JavaScript 앱을 배포합니다. 이 자습서의 단계는 다음과 같습니다.

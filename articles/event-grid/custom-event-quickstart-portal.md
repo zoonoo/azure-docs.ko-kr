@@ -3,12 +3,12 @@ title: '빠른 시작: 웹 엔드포인트에 사용자 지정 이벤트 보내�
 description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115233"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421045"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>빠른 시작: Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 
@@ -44,7 +44,8 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 5. 배포가 완료되면 검색 창에 **Event Grid 토픽**을 다시 입력하고 이전에 수행한 것처럼 드롭다운 목록에서 **Event Grid 토픽**을 선택합니다. 
 6. 목록에서 만든 토픽을 선택합니다. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="목록에서 토픽 선택":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="목록에서 토픽 선택":::
+
 7. 토픽에 대한 **Event Grid 토픽** 페이지가 표시됩니다. 이 페이지를 열린 상태로 유지합니다. 나중에 빠른 시작에서 사용할 예정입니다. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Event Grid 토픽 홈페이지":::
@@ -54,7 +55,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
 1. 문서 페이지에서 **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 
     배포에 실패하면 오류 메시지를 확인합니다. 웹 사이트 이름이 이미 사용되었기 때문일 수 있습니다. 템플릿을 다시 배포하고 사이트에 대해 다른 이름을 선택합니다. 

@@ -3,12 +3,13 @@ title: '빠른 시작: 첫 번째 JavaScript 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 JavaScript용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
 ms.date: 06/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b2c8e17bb92dfcc91e8a65e5c113c0a72021a41
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: fc9809dbe615950b4f5c9e4dc66cefcd054f5ebf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323512"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415927"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>빠른 시작: JavaScript를 사용하여 첫 번째 Resource Graph 쿼리 실행
 

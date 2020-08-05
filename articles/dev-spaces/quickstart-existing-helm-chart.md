@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces 및 명령줄을 사용하여 Azure Kubernetes Service의 기존 Helm 차트로 애플리케이션을 개발하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c37ea0b04e99cf1bba555e098bdf33b8a8558cfa
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7d1d782203401607d3909d79d1f0f3a499712c32
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996674"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414312"
 ---
 # <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 기존 Helm 차트를 사용하여 애플리케이션 개발 - Azure Dev Spaces
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.

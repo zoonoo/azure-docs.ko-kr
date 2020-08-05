@@ -3,13 +3,13 @@ title: Azure의 Service Fabric에서 .NET 앱 만들기
 description: 이 자습서에서는 ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드를 사용하여 애플리케이션을 만들고 클러스터에 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc
-ms.openlocfilehash: dc869dce536449a901826db3b0d964bf17abbbec
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 03320fe41bcac8b99a3475b52fcf1b41ea5aed89
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257121"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428364"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 07/28/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-javascript
 ms.author: diberry
-ms.openlocfilehash: 19da911cbc662f47e7bbd16aaddf8803d4109d6a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cf75056cd045822e083a15f7590bf020db8cd5e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369273"
+ms.locfileid: "87425069"
 ---
 Node.js용 LUIS(Language Understanding) 런타임 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 

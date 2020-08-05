@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 7aa0889ab95cdac37f9fe0735c7ad58569621059
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205406"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421776"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -75,7 +75,7 @@ Load Balancer 규칙은 백 엔드 풀 내의 **모든** 인스턴스에 들어�
 예를 들어 포트 80에 대한 부하 분산 규칙을 사용하여 프런트 엔드 IP에서 백 엔드 인스턴스의 포트 80으로 트래픽을 라우팅합니다.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="부하 분산 규칙">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="부하 분산 규칙">
 </p>
 
 *그림: 부하 분산 규칙*
@@ -97,7 +97,7 @@ Load Balancer 규칙은 백 엔드 풀 내의 **모든** 인스턴스에 들어�
 HA 포트 부하 분산 규칙은 가상 네트워크 내 NVA(네트워크 가상 어플라이언스)의 고가용성 및 확장과 같은 중요한 시나리오를 지원합니다. 이 기능은 많은 수의 포트에서 부하를 분산시켜야 할 때 도움이 될 수 있습니다.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="HA 포트 규칙">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="HA 포트 규칙">
 </p>
 
 *그림: HA 포트 규칙*
@@ -111,7 +111,7 @@ HA 포트 부하 분산 규칙은 가상 네트워크 내 NVA(네트워크 가�
 예를 들어 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell) 세션에서 백 엔드 풀의 VM 인스턴스를 분리하려고 하는 경우입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 점프 상자 없이 VM을 원격으로 관리할 수 있습니다.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="인바운드 NAT 규칙">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="인바운드 NAT 규칙">
 </p>
 
 *그림: 인바운드 NAT 규칙*

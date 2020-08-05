@@ -4,14 +4,14 @@ description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사�
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-javascript
 ms.date: 04/30/2020
-ms.openlocfilehash: 64f86611e8a60cd3d1463cd2845c034551277bb2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d09cc1b1dbefa906e938a3721308222d4f63e131
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118463"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408053"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure에서 컨테이너 인스턴스 배포
 

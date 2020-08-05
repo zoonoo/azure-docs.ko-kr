@@ -3,12 +3,12 @@ title: '빠른 시작: Blob 스토리지 이벤트를 웹 엔드포인트에 전
 description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 Blob Storage 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fe942a4daa877088bd354352aa994e4e283f9be5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103639"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421606"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅
 
@@ -50,7 +50,7 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
 
 1. **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 2. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다. 
     1. **리소스 그룹**에서 스토리지 계정을 만들 때 생성된 것과 동일한 리소스 그룹을 선택합니다. 자습서를 완료한 후 리소스 그룹을 삭제하면 더 쉽게 정리할 수 있습니다.  
     2. **사이트 이름**에 웹앱의 이름을 입력합니다.

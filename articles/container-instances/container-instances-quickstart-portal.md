@@ -3,13 +3,13 @@ title: 빠른 시작 - 컨테이너 인스턴스에 Docker 컨테이너 배포 -
 description: 이 빠른 시작에서는 Azure Portal을 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 ms.topic: quickstart
 ms.date: 03/09/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: seodec18, mvc, devx-track-javascript
+ms.openlocfilehash: 5f36c81abd462f6dfd59c42da71e096e07206cae
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79087973"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408070"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure에서 컨테이너 인스턴스 배포
 

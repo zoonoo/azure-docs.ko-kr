@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 08f7554ed9648df8b225fe9f205ee13b0f693c44
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 898f63cbfba082f8c268587bcd2ea7f575d07f81
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170567"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420331"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -32,7 +32,7 @@ Azure Load Balancer는 OSI(Open Systems Interconnect) 모델의 계층 4에서 �
 **[내부(또는 개인) 부하 분산 장치](./components.md#frontend-ip-configurations)** 는 사설 IP가 프런트 엔드에서만 필요한 경우에 사용됩니다. 내부 부하 분산 장치는 트래픽 부하를 가상 네트워크 내에 분산하는 데 사용됩니다. 하이브리드 시나리오의 온-프레미스 네트워크에서 부하 분산 장치 프런트 엔드에 액세스할 수 있습니다.
 
 <p align="center">
-  <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
+  <img src="./media/load-balancer-overview/load-balancer.svg" alt="Figure depicts both public and internal load balancers directing traffic to port 80 on multiple servers on a Web tier and port 443 on multiple servers on a business tier." width="512" title="Azure Load Balancer">
 </p>
 
 *그림: 퍼블릭 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산*

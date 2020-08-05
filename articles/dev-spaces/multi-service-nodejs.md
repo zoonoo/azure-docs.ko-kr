@@ -5,12 +5,13 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 다중 서비스 Node.js 애플리케이션을 디버깅하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 2c87dedda1db97a033526c809de735fe036120ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7a8f97df976b7e989021308385ef930e539a1e56
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006985"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414856"
 ---
 # <a name="running-multiple-dependent-services-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>여러 종속 서비스 실행: Azure Dev Spaces가 포함된 Node.js 및 Visual Studio Code
 

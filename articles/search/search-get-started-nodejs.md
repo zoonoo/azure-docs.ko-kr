@@ -9,12 +9,13 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: bd64faf46f91c3b73d58f7c226748cd0ac083701
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 043d5224c9bfefb189e36c0f4b744c93b376ace0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562150"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420858"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

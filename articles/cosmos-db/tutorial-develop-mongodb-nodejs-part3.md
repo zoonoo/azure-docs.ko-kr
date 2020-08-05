@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: ed552bfb37f01200a4dba38ea733a1189768d56a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9cb30ca64fe697f9b8304f55381709083b8fbd2
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067164"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424242"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Angular를 사용하여 UI 빌드
 

@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 0757c5eb8639e4a864b049adc92c97a7cf69adba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d398e450175c9f97c419b397266cda0a52e7e21c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675499"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416114"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 애플리케이션과 통신(미리 보기)
 

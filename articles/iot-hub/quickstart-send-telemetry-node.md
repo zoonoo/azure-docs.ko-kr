@@ -13,13 +13,14 @@ ms.custom:
 - seo-javascript-september2019
 - mqtt
 - 'Role: Cloud Development'
+- devx-track-javascript
 ms.date: 06/21/2019
-ms.openlocfilehash: 7492374364826519857ad66a52e01851c22da3bb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ea15c0d810f0ce51a52bc883ee44a4a90391b1d3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320462"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420943"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Node.js)으로 읽습니다.
 

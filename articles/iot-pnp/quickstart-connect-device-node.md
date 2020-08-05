@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: f6a3190ec87c0b06aba8f065a3e7518f4a76cf24
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 00a748c3c372f1980042cff201edec720587a511
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352704"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422558"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-nodejs"></a>빠른 시작: 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub에 연결(Node.js)
 

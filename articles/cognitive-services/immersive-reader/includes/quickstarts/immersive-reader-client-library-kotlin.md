@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: 7db367222d96d7bc9dae48242992ee76a89c849d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0b4016d696231fd500f6b5e9b487fc4e0f984693
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86545086"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425195"
 ---
 [몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
 
