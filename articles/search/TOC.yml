@@ -335,6 +335,8 @@
           items:
             - name: 고객 관리형 키
               href: search-security-manage-encryption-keys.md
+            - name: 키 정보 가져오기
+              href: search-security-get-encryption-keys.md
         - name: 인바운드 보안
           items:
             - name: API 액세스 키

@@ -51,6 +51,12 @@
   items:
     - name: Network Watcher 구성
       href: network-watcher-create.md
+    - name: 연결 모니터 만들기(미리 보기)
+      items:
+        - name: Azure Portal 사용
+          href: connection-monitor-preview-create-using-portal.md
+        - name: ARMClient 사용
+          href: connection-monitor-preview-create-using-arm-client.md
     - name: VM 네트워크 문제 진단
       items:
         - name: VM 확장 설치

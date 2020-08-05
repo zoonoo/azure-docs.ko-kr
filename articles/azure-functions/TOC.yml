@@ -345,8 +345,8 @@
       items:
         - name: 스토리지 문제 해결
           href: functions-recover-storage-account.md
-        - name: Python 종속성 문제 해결
-          href: recover-module-not-found.md
+        - name: Python 함수 문제 해결
+          href: recover-python-functions.md
 - name: 참조
   items:
     - name: API 참조

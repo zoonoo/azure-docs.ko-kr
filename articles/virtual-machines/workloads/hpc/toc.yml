@@ -2,16 +2,16 @@
   items:
     - name: 개요
       items:
-        - name: H 시리즈 VM용 HPC
+        - name: H 시리즈 및 N 시리즈 VM용 HPC
           href: overview.md
     - name: 구성
       items:
-        - name: Linux용 최적화
+        - name: VM 구성 및 최적화
           href: configure.md
         - name: InfiniBand 사용
           href: enable-infiniband.md
-    - name: MPI 설정
-      href: setup-mpi.md
+        - name: MPI 설정
+          href: setup-mpi.md
     - name: 애플리케이션 크기 조정
       href: compiling-scaling-applications.md
     - name: 가상 머신
@@ -28,5 +28,5 @@
               href: hc-series-overview.md
             - name: 성능
               href: hc-series-performance.md
-        - name: HB 시리즈 및 HC 시리즈 VM의 알려진 문제
+        - name: H 시리즈 및 N 시리즈 VM의 알려진 문제
           href: hb-hc-known-issues.md

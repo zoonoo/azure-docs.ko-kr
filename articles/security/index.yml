@@ -4,7 +4,7 @@ summary: 보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌
 brand: azure
 metadata:
   title: Azure 보안 설명서
-  description: 보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 애플리케이션 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
+  description: Azure의 보안에 대해 알아보세요. 보안 기본 사항, 모범 사례 및 패턴 및 Azure Security Center에 대한 정보를 참조하세요.
   services: security
   ms.service: security
   ms.subservice: na
@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
-  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.openlocfilehash: de2b3baae0ab999c0e3eb8ed76194632e7b066e6
+  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81115357"
+  ms.lasthandoff: 08/03/2020
+  ms.locfileid: "87540855"
 highlightedContent:
   items:
   - title: Azure 보안 소개

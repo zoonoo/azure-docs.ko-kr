@@ -15,28 +15,6 @@
 - name: 자습서
   expanded: true
   items:
-    - name: 스튜디오
-      expanded: true
-      items:
-        - name: 디자이너(끌어서 놓기)
-          items:
-            - name: 1. 회귀 모델 학습
-              displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. 해당 모델 배포
-              displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
-        - name: 자동화된 ML(UI)
-          items:
-            - name: 자동화된 ML 실험 만들기
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-first-experiment-automated-ml.md
-            - name: 수요 예측(자전거 공유 데이터)
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-automated-ml-forecast.md
-        - name: 레이블 이미지 데이터
-          displayName: 'tag, tagging, images'
-          href: tutorial-labeling.md
     - name: Python SDK
       expanded: true
       items:
@@ -64,11 +42,33 @@
         - name: 코드 프로덕션 준비
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
+    - name: 스튜디오
+      expanded: true
+      items:
+        - name: 자동화된 ML(UI)
+          items:
+            - name: 자동화된 ML 실험 만들기
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: 수요 예측(자전거 공유 데이터)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
+        - name: 디자이너(끌어서 놓기)
+          items:
+            - name: 1. 회귀 모델 학습
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 2. 해당 모델 배포
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: 레이블 이미지 데이터
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: R SDK
       items:
         - name: 첫 번째 ML 실험 만들기(R)
           href: tutorial-1st-r-experiment.md
-    - name: Machine Learning CLI
+    - name: CLI
       items:
         - name: CLI를 사용하여 학습 및 배포
           href: tutorial-train-deploy-model-cli.md
@@ -226,9 +226,6 @@
         - name: 프라이빗 Python 패키지 사용
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-private-python-packages.md
-        - name: 로깅 사용
-          displayName: 'troubleshoot, log, files, tracing'
-          href: how-to-enable-logging.md
         - name: 입력 및 출력 디렉터리 설정
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
@@ -309,8 +306,12 @@
             - name: '시작, 모니터링 또는 실행 취소'
               displayName: 'cancel, fail, status, child run'
               href: how-to-manage-runs.md
-            - name: 학습 실행에 대한 메트릭 로그
+            - name: 로그 사용 설정
+              displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
+            - name: 로그 보기
+              displayName: 'troubleshoot, log, files, tracing'
+              href: how-to-monitor-view-training-logs.md
             - name: MLflow로 실험 추적
               displayName: 'log, monitor, metrics, Databricks'
               href: how-to-use-mlflow.md
@@ -363,7 +364,7 @@
         - name: 배포 위치 및 방법
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: 배포 시나리오
+        - name: 배포 대상
           items:
             - name: 기존 모델 사용
               displayName: publish existing model
@@ -394,19 +395,37 @@
               href: how-to-deploy-fpga-web-service.md
         - name: 문제 해결 및 디버그
           href: how-to-troubleshoot-deployment.md
-        - name: 클라이언트 만들기
+        - name: 웹 서비스 사용
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: 모델 모니터링
+        - name: 웹 서비스 업데이트
+          displayName: update hot reload model mounting
+          href: how-to-deploy-update-web-service.md
+        - name: 고급 항목 스크립트 작성
+          displayName: swagger inference schema binary cors
+          href: how-to-deploy-advanced-entry-script.md
+        - name: 웹 서비스 모니터링
           items:
             - name: 모델 데이터 수집 및 평가
               displayName: track production
               href: how-to-enable-data-collection.md
             - name: Application Insights로 모니터링
               href: how-to-enable-app-insights.md
+        - name: 지속적으로 모델 배포
+          displayName: ci cd azure devops models
+          href: how-to-deploy-continuously-deploy.md
         - name: 암호화된 추론 서비스 배포
           displayName: 'homomorhic,encryption,deployment'
           href: how-to-homomorphic-encryption-seal.md
+        - name: 모델 프로필
+          displayName: profile resource requirement
+          href: how-to-deploy-profile-model.md
+        - name: (미리 보기) 코드 배포 없음
+          displayName: no code
+          href: how-to-deploy-no-code-deployment.md
+        - name: 패키지 관리
+          displayName: docker file download
+          href: how-to-deploy-package-models.md
     - name: ML 파이프라인 작성 및 사용
       displayName: pipelines
       items:
@@ -423,6 +442,9 @@
           href: how-to-debug-pipelines.md
         - name: Application Insights에서 파이프라인 디버깅
           href: how-to-debug-pipelines-application-insights.md
+        - name: 디자이너 로그 메트릭
+          displayName: 'designer, logging'
+          href: how-to-track-designer-experiments.md
         - name: 디자이너 변환 데이터
           displayName: pipeline
           href: how-to-designer-transform-data.md

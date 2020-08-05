@@ -91,7 +91,7 @@
       items:
         - name: 권한 있는 액세스 개요
           href: groups-features.md
-        - name: 그룹 검색
+        - name: 관리 중인 그룹 가져오기
           href: groups-discover-groups.md
         - name: 멤버 또는 소유자 할당
           href: groups-assign-member-owner.md
