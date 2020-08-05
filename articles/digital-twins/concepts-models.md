@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131636"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562432"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -26,7 +26,7 @@ Azure Digital Twins의 주요 특징은 고유한 어휘를 정의 하 고 자�
 
 Azure Digital Twins의 모델은 DTDL (디지털 Twins 정의 언어)를 사용 하 여 정의 됩니다. DTDL은 JSON을 기반으로 하며 프로그래밍 언어와 독립적입니다. DTDL은 Azure 디지털 쌍에만 국한 되는 것이 아니라 [iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)와 같은 다른 iot 서비스에서 장치 데이터를 표시 하는 데도 사용 됩니다. 
 
-Azure Digital Twins는 DTDL *버전 2*를 사용 합니다. 이 DTDL 버전에 대 한 자세한 내용은 GitHub의 사양 설명서 [*(dtdl)-버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 참조 하세요.
+Azure Digital Twins는 **Dtdl _버전 2_** 를 사용 합니다. 이 DTDL 버전에 대 한 자세한 내용은 GitHub의 사양 설명서 [*(dtdl)-버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 참조 하세요. 이제 Azure Digital Twins에서 DTDL _버전 1_ 을 사용 하는 것은 더 이상 사용 되지 않습니다.
 
 > [!TIP] 
 > DTDL을 사용 하는 모든 서비스는 동일한 DTDL 기능을 구현 하지 않습니다. 예를 들어 IoT 플러그 앤 플레이는 그래프에 해당 하는 DTDL 기능을 사용 하지 않지만 Azure Digital Twins는 현재 DTDL 명령을 구현 하지 않습니다. Azure Digital Twins와 관련 된 DTDL 기능에 대 한 자세한 내용은이 문서의 뒷부분에 나오는 [Azure Digital TWINS dtdl 구현 세부](#azure-digital-twins-dtdl-implementation-specifics)사항 섹션을 참조 하세요.
@@ -116,7 +116,7 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 
 모델의 필드는 다음과 같습니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | `@id` | 모델에 대 한 식별자입니다. 형식 이어야 합니다 `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | 설명 하는 정보의 종류를 식별 합니다. 인터페이스의 경우 형식은 *interface*입니다. |

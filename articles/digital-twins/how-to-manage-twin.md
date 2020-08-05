@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061594"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563928"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -37,10 +37,10 @@ await client.CreateDigitalTwinAsync("myNewTwinID", initData);
 
 필요에 따라 디지털 쌍의 모든 속성에 대해 초기 값을 제공할 수 있습니다. 
 
-> [!TIP]
-> GetDigitalTwin를 사용 하 여 쌍을 검색할 때 한 번 이상 설정 된 속성만 반환 됩니다.  
-
 모델 및 초기 속성 값은 `initData` 관련 데이터를 포함 하는 JSON 문자열인 매개 변수를 통해 제공 됩니다.
+
+> [!TIP]
+> 쌍을 만들거나 업데이트 한 후에는 변경 내용이 [쿼리에](how-to-query-graph.md)반영 될 때까지 최대 10 초의 대기 시간이 있을 수 있습니다. 이 `GetDigitalTwin` [문서의 뒷부분에서](#get-data-for-a-digital-twin)설명 하는 api는 이러한 지연 시간을 발생 하지 않으므로 즉각적인 응답이 필요한 경우 쿼리 대신 api 호출을 사용 하 여 새로 만든 쌍를 확인 합니다. 
 
 ### <a name="initialize-properties"></a>속성 초기화
 
@@ -90,6 +90,9 @@ object result = await client.GetDigitalTwin(id);
 ```
 
 이 호출은 쌍 데이터를 JSON 문자열로 반환 합니다. 
+
+> [!TIP]
+> 를 사용 하 여 쌍을 검색할 때 한 번 이상 설정 된 속성만 반환 됩니다 `GetDigitalTwin` .
 
 단일 API 호출을 사용 하 여 여러 쌍을 검색 하려면 [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)의 쿼리 API 예를 참조 하세요.
 
@@ -148,7 +151,7 @@ object result = await client.GetDigitalTwin(id);
 디지털 쌍의 정의 된 속성은 디지털 쌍의 최상위 속성으로 반환 됩니다. DTDL 정의의 일부가 아닌 메타 데이터 또는 시스템 정보는 접두사와 함께 반환 됩니다 `$` . 메타 데이터 속성은 다음과 같습니다.
 * 이 Azure Digital Twins 인스턴스의 디지털 쌍 ID `$dtId` 입니다.
 * `$etag`-웹 서버에서 할당 한 표준 HTTP 필드인
-* 섹션의 기타 속성 `$metadata` 특수 Azure 지역은 다음과 같습니다.
+* 섹션의 기타 속성 `$metadata` 여기에는 다음이 포함됩니다.
     - 디지털 쌍 모델의 DTMI입니다.
     - 쓰기 가능한 각 속성의 동기화 상태입니다. 장치에 가장 유용 합니다 .이는 서비스와 장치에 분기 된 상태가 있을 수 있습니다 (예: 장치가 오프 라인 상태인 경우). 현재이 속성은 IoT Hub에 연결 된 물리적 장치에만 적용 됩니다. 메타 데이터 섹션의 데이터를 사용 하 여 마지막 수정 타임 스탬프 뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대 한 자세한 내용은 장치 상태 동기화에 대 한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md) 를 참조 하세요.
     - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타 데이터. 
@@ -174,7 +177,12 @@ foreach (string prop in twin.CustomProperties.Keys)
 
 디지털 쌍의 속성을 업데이트 하려면 [JSON 패치](http://jsonpatch.com/) 형식으로 대체 하려는 정보를 작성 합니다. 이러한 방식으로 여러 속성을 한 번에 바꿀 수 있습니다. 그런 다음 JSON 패치 문서를 메서드에 전달 합니다 `Update` .
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> 쌍을 만들거나 업데이트 한 후에는 변경 내용이 [쿼리에](how-to-query-graph.md)반영 될 때까지 최대 10 초의 대기 시간이 있을 수 있습니다. 이 `GetDigitalTwin` [문서 앞부분에서](#get-data-for-a-digital-twin)설명 하는 api는 이러한 지연 시간을 발생 하지 않으므로 즉각적인 응답이 필요한 경우 쿼리 대신 api 호출을 사용 하 여 새로 업데이트 된 쌍를 확인 합니다. 
 
 다음은 JSON 패치 코드의 예제입니다. 이 문서는 적용 되는 디지털 쌍의 *mass* 및 *radius* 속성 값을 대체 합니다.
 
@@ -249,7 +257,7 @@ await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
 
 이 작업은 패치로 수정 되는 디지털 쌍이 새 모델을 준수 하는 경우에만 성공 합니다. 
 
-다음 예제를 참조하세요.
+다음과 같은 예제를 참조하세요.
 1. *Foo_old*모델을 사용 하는 디지털 쌍을 생각해 보세요. *foo_old* 은 필요한 속성 *질량*을 정의 합니다.
 2. 새 모델 *foo_new* 는 속성 질량을 정의 하 고 새 필수 속성 *온도*를 추가 합니다.
 3. 패치 후에 디지털 쌍에는 질량 속성과 온도 속성이 모두 있어야 합니다. 

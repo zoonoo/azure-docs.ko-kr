@@ -148,7 +148,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -356,7 +356,7 @@
     - name: 모니터링
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Backup 및 복구
-      href: backup-recovery.md
+      href: ../backup-recovery.md
     - name: 클라우드 채택 프레임워크
       href: /azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 아키텍처 센터
@@ -915,7 +915,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: VM에 대한 포트 열기
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

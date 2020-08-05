@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: a92aa304d605242063e0d0484317bc8c051959e5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a41fe159f3ac7ef91ba943534aaa6baeeab83001
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317844"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552410"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -379,7 +379,7 @@ RunDetails(hyperdrive_run).show()
 
 [![하이퍼 매개 변수 튜닝 병렬 좌표](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-Azure 웹 포털에서도 모든 하이퍼 매개 변수 조정 실행을 시각화할 수 있습니다. 웹 포털에서 실험을 보는 방법에 대한 자세한 내용은 [실험을 추적하는 방법](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)을 참조하세요.
+Azure 웹 포털에서도 모든 하이퍼 매개 변수 조정 실행을 시각화할 수 있습니다. 웹 포털에서 실험을 보는 방법에 대한 자세한 내용은 [실험을 추적하는 방법](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)을 참조하세요.
 
 ## <a name="find-the-best-model"></a>최적 모델 찾기
 

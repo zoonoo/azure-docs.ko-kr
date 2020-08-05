@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: 920f53fa962cc30f2068d78c9d1907b93019fe34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bc560f6a0048377f2174805d7e015b55240d7a71
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055854"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564047"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -163,7 +163,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-* _ \_ _ \_ Py* 코드는 `func.ServiceBusMessage` 함수에서 큐 메시지를 읽을 수 있도록 매개 변수를로 선언 합니다.
+* _ \_ _ \_ Py* 코드는 `func.QueueMessage` 함수에서 큐 메시지를 읽을 수 있도록 매개 변수를로 선언 합니다.
 
 ```python
 import logging
@@ -363,7 +363,7 @@ public class QueueTriggerDemo {
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|형식|설명|
+|속성|Type|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . *function.json*|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|

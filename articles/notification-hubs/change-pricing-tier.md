@@ -9,16 +9,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/03/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656477"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562772"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Azure Notification Hubs 네임스페이스의 가격 책정 계층 변경
 
@@ -26,11 +26,11 @@ Notification Hubs는 **무료**, **기본** 및 **표준**의 세 가지 계층�
 
 ## <a name="overview"></a>개요
 
-Azure Notification Hubs에서 허브는 최소 리소스/엔터티입니다. 일반적으로 하나의 응용 프로그램에 매핑되고 앱에 지원 되는 각 플랫폼 알림 시스템 (PNS)에 대해 하나의 인증서를 보유할 수 있습니다. 응용 프로그램은 하이브리드 또는 네이티브 및 플랫폼 간 응용 프로그램 일 수 있습니다.
+Azure Notification Hubs에서 *알림 허브* 는 가장 작은 리소스/엔터티입니다. 일반적으로 하나의 응용 프로그램에 매핑되고 앱에 지원 되는 각 플랫폼 알림 시스템 (PNS)에 대해 하나의 인증서를 보유할 수 있습니다. 응용 프로그램은 하이브리드 또는 네이티브 및 플랫폼 간 응용 프로그램 일 수 있습니다.
 
-**네임스페이스**는 Notification Hubs 컬렉션입니다. 일반적으로 각 네임스페이스는 서로 관련이 있으며 특정 용도로 사용되는 허브로 구성됩니다. 예를 들어 개발, 테스트 및 프로덕션을 위해 각각 세 가지 네임 스페이스를 사용할 수 있습니다.
+*네임스페이스*는 Notification Hubs 컬렉션입니다. 일반적으로 각 네임스페이스는 서로 관련이 있으며 특정 용도로 사용되는 허브로 구성됩니다. 예를 들어 개발, 테스트 및 프로덕션을 위해 각각 세 가지 네임 스페이스를 사용할 수 있습니다.
 
-네임 스페이스를 **무료**, **기본**또는 **표준** 가격 책정 계층에 연결할 수 있습니다. 요구 사항에 맞는 네임스페이스용 계층을 사용할 수 있습니다. 다음 섹션에서는 Notification Hubs 네임스페이스의 가격 책정 계층을 변경하는 방법을 설명합니다.
+네임 스페이스를 **무료**, **기본**또는 **표준** 가격 책정 계층에 연결할 수 있습니다. 네임 스페이스의 경우 요구 사항에 적합 한 계층을 사용할 수 있습니다. 다음 섹션에서는 Notification Hubs 네임스페이스의 가격 책정 계층을 변경하는 방법을 설명합니다.
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
 
@@ -42,7 +42,7 @@ Azure Portal 사용 하는 경우 네임 스페이스 페이지 또는 허브 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모든 서비스** 를 선택 합니다.
-3. **사물 인터넷** 섹션에서 **Notification Hub Namespaces**를 선택합니다. 텍스트 옆의 별표 ()를 선택 하면 `*` **즐겨찾기**아래의 왼쪽 탐색 모음에 추가 됩니다. 이를 통해 앞으로 빠르게 네임 스페이스 페이지에 액세스할 수 있습니다. 즐겨찾기에 추가한 후 **알림 허브 네임 스페이스**를 선택 합니다.
+3. **사물 인터넷** 섹션에서 **Notification Hub Namespaces**를 선택합니다. 텍스트 옆의 별표 ()를 선택 하면 `*` **즐겨찾기**아래의 왼쪽 탐색 모음에 추가 됩니다. 이렇게 하면 나중에 네임 스페이스 페이지에 빠르게 액세스할 수 있습니다. **즐겨찾기에**추가한 후 **알림 허브 네임 스페이스**를 선택 합니다.
 
     ![모든 서비스 -> Notification Hub Namespaces](./media/change-pricing-tier/all-services-nhub.png)
 
@@ -51,7 +51,7 @@ Azure Portal 사용 하는 경우 네임 스페이스 페이지 또는 허브 �
 
     ![네임스페이스 페이지의 현재 가격 책정 계층](./media/change-pricing-tier/pricing-tier-before.png)
 
-6. 네임스페이스의 **Notification Hub Namespace** 페이지에서 **관리** 섹션의 **가격 책정 계층**을 선택합니다.
+6. 네임 스페이스에 대 한 **알림 허브 네임 스페이스** 페이지의 **관리** 섹션에서 **가격 책정 계층** 을 선택 합니다.
 
     ![네임스페이스 페이지에서 가격 책정 계층 선택](./media/change-pricing-tier/namespace-select-pricing-menu.png)
 
@@ -62,7 +62,7 @@ Azure Portal 사용 하는 경우 네임 스페이스 페이지 또는 허브 �
 
 ### <a name="change-tier-on-the-hub-page"></a>허브 페이지에서 계층 변경
 
-다음 절차에서는 허브 페이지에서 네임 스페이스에 대 한 가격 책정 계층을 변경 하는 방법을 보여 줍니다. 허브 페이지에서부터 이러한 단계를 수행하더라도 실제로는 네임스페이스 및 해당 네임스페이스의 모든 허브에서 가격 책정 계층이 변경됩니다.
+허브 페이지에서 네임 스페이스의 가격 책정 계층을 변경 하려면 다음 단계를 수행 합니다. 허브 페이지에서 이러한 단계를 수행 하는 경우에도 네임 스페이스 및 네임 스페이스의 모든 허브에 대 한 가격 책정 계층을 실제로 변경 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모든 서비스** 를 선택 합니다.

@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: f8d296e62be9571bdedd5acf40d5547bae8c864e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564580"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563061"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>AWS CloudTrail에 Azure 센티널 연결
 
-AWS 커넥터를 사용 하 여 모든 AWS CloudTrail 이벤트를 Azure 센티널로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 Azure 센티널에 대 한 액세스를 위임 하 여 AWS CloudTrail와 Azure 센티널 간의 트러스트 관계를 만듭니다. 이는 AWS 로그에 액세스할 수 있도록 Azure 센티널에 권한을 부여 하는 역할을 만들어 AWS에서 수행 됩니다.
+AWS 커넥터를 사용 하 여 AWS CloudTrail 관리 이벤트를 Azure 센티널로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 Azure 센티널에 대 한 액세스를 위임 하 여 AWS CloudTrail와 Azure 센티널 간의 트러스트 관계를 만듭니다. 이는 AWS 로그에 액세스할 수 있도록 Azure 센티널에 권한을 부여 하는 역할을 만들어 AWS에서 수행 됩니다.
 
 > [!NOTE]
 > AWS CloudTrail의 LookupEvents API에는 [기본 제공 되는 제한 사항이](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) 있습니다. 계정 당 초당 2 개 이상의 트랜잭션을 허용 하며 각 쿼리는 최대 50 개의 레코드를 반환할 수 있습니다. 따라서 한 지역에서 단일 테 넌 트가 초당 100 개 보다 많은 레코드를 생성 하는 경우에는 데이터 수집의 백로그 및 지연이 발생 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
 > [!NOTE]
-> Azure 센티널은 모든 지역에서 CloudTrail 이벤트를 수집 합니다. 한 지역에서 다른 지역으로 이벤트를 스트리밍하는 것이 좋습니다.
+> Azure 센티널은 모든 지역에서 CloudTrail 관리 이벤트를 수집 합니다. 한 지역에서 다른 지역으로 이벤트를 스트리밍하는 것이 좋습니다.
 
 ## <a name="connect-aws"></a>AWS 연결 
 

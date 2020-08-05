@@ -1,7 +1,7 @@
 ---
 title: Azure AD 앱에 선택적 클레임 제공
 titleSuffix: Microsoft identity platform
-description: Azure Active Directory에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)에 사용자 지정 또는 추가 클레임을 추가하는 방법입니다.
+description: Microsoft id 플랫폼에서 발급 한 SAML 2.0 및 JWT (JSON 웹 토큰) 토큰에 사용자 지정 또는 추가 클레임을 추가 하는 방법입니다.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445579"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552869"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 선택적 클레임 제공
+# <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
 애플리케이션 개발자는 Azure AD 애플리케이션에서 선택적 클레임을 사용하여 애플리케이션으로 전송된 토큰에서 원하는 클레임을 지정할 수 있습니다.
 
 선택적 클레임을 사용하여 다음을 수행할 수 있습니다.
 
 - 애플리케이션에 대한 토큰에 포함할 추가 클레임을 선택합니다.
-- Azure AD에서 토큰에 반환하는 특정 클레임의 동작을 변경합니다.
+- Microsoft id 플랫폼이 토큰에서 반환 하는 특정 클레임의 동작을 변경 합니다.
 - 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다.
 
 표준 클레임 목록은 [access token](access-tokens.md) 및 [ID_token](id-tokens.md) 클레임 설명서를 참조하세요.

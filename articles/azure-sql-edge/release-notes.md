@@ -9,17 +9,28 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 06/05/2020
-ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361645"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553413"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 릴리스 정보 
 
 이 문서에서는 Azure SQL Edge의 모든 새 빌드에서 새로 제공 되는 기능과 변경 된 사항에 대해 설명 합니다.
+
+## <a name="ctp-22"></a>CTP 2.2
+### <a name="sql-engine-build-number---15020001546"></a>SQL 엔진 빌드 번호-15.0.2000.1546
+### <a name="fixes"></a>수정 프로그램
+1. 루트가 아닌 컨테이너 지원 
+2. 사용 현황 및 진단 데이터 수집에 대 한 지원 
+3. T-sql 스트리밍 업데이트
+   - 스트림 개체 이름의 유니코드 문자 지원
+   - 프로세스 정리 기능 향상
+   - 로깅 및 진단 기능 향상
+4. 데이터 수집에 대 한 성능 향상
 
 ## <a name="ctp-21"></a>CTP 2.1 
 ### <a name="sql-engine-build-number---15020001545"></a>SQL 엔진 빌드 번호-15.0.2000.1545
@@ -31,7 +42,7 @@ ms.locfileid: "85361645"
 
 ## <a name="ctp-20"></a>CTP 2.0 
 ### <a name="sql-engine-build-number---15020001401"></a>SQL 엔진 빌드 번호-15.0.2000.1401
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1.  ' Azure SQL Edge '로 업데이트 된 제품 이름
 1.  Date_bucket 함수
 
@@ -60,7 +71,7 @@ ms.locfileid: "85361645"
 
 ## <a name="ctp-15"></a>CTP 1.5
 ### <a name="sql-engine-build-number---15020001331"></a>SQL 엔진 빌드 번호-15.0.2000.1331
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1. Date_bucket 함수
     
     i. DateTimeOffset 형식에 대 한 지원
@@ -70,7 +81,7 @@ ms.locfileid: "85361645"
  
 ## <a name="ctp-14"></a>CTP 1.4
 ### <a name="sql-engine-build-number---15020001247"></a>SQL 엔진 빌드 번호-15.0.2000.1247
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1.  ONNX 모델을 사용 하 여 예측
  
     i.  Varchar 지원
@@ -90,7 +101,7 @@ ms.locfileid: "85361645"
  
 ## <a name="ctp-13"></a>CTP 1.3
 ### <a name="sql-engine-build-number---15020001147"></a>SQL 엔진 빌드 번호-15.0.2000.1147
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새로운 기능은 무엇입니까?
 1. Azure IOT 포털 배포 
 
     i.   AMD64 및 ARM 이미지 배포 지원

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519736"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553974"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -61,9 +61,18 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방법으로 비용을 발생 시킬 수 있습니다.
 
 + 최소 구성 (파티션 및 복제본 하나)에서 연중 무휴 실행 되는 서비스 자체의 비용
+
 + 용량 (복제본 또는 파티션) 추가
-+ 대역폭 요금 (아웃 바운드 데이터 전송) 
-+ Ai 보강 (AI 처리를 정의 하거나 기술 자료 저장소에 대 한 Azure storage를 사용 하는 기술력과의 연결 Cognitive Services) 또는 개인 가상 네트워크에 검색 서비스를 배포 하는 추가 기능 서비스
+
++ 대역폭 요금 (아웃 바운드 데이터 전송)
+
++ 특정 기능 또는 기능에 필요한 추가 기능 서비스:
+
+  + AI 보강 ( [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)필요)
+  + 기술 자료 저장소 ( [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)필요)
+  + 증분 보강 ( [Azure Storage](https://azure.microsoft.com/pricing/details/storage/)필요, AI 보강에 적용 됨)
+  + 고객 관리 키 및 이중 암호화 ( [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)필요)
+  + 인터넷이 아닌 액세스 모델의 개인 끝점 ( [Azure 개인 링크](https://azure.microsoft.com/pricing/details/private-link/)필요)
 
 ### <a name="service-costs"></a>서비스 비용
 

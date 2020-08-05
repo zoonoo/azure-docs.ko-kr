@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: fd9433c2482c4ddd907f7e30c0028dc2a15faed2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ffbb81fa56b87281199309d61ab3e2e59c1a5acd
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187679"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563996"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
@@ -128,7 +128,7 @@ SQL Database는 Azure AD 사용자를 사용 하 여 데이터베이스를 만�
 
    명령이 성공적으로 완료되면 포함된 사용자에게 데이터베이스(SSISDB)를 만들 수 있는 기능이 부여됩니다.
 
-10. SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure-SSIS IR에 Azure AD 인증을 사용 하도록 전환 하려면 **ssisdb** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
+10. SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure-SSIS IR에 Azure AD 인증을 사용 하도록 전환 하려면 먼저 **master** 데이터베이스에 대 한 사용 권한을 부여 하는 단계가 성공적으로 완료 되었는지 확인 합니다. 그런 다음 **SSISDB** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
 
 11. 쿼리 창에서 다음 T-sql 명령을 입력 하 고 도구 모음에서 **실행** 을 선택 합니다.
 
@@ -176,7 +176,7 @@ SQL Managed Instance은 ADF에 대 한 관리 id를 사용 하 여 데이터베�
     
     명령이 성공적으로 완료되면 ADF에 대한 관리 ID에 데이터베이스(SSISDB)를 만들 수 있는 기능이 부여됩니다.
 
-6.  SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure-SSIS IR에 Azure AD 인증을 사용 하도록 전환 하려면 **ssisdb** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
+6.  SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure-SSIS IR에 Azure AD 인증을 사용 하도록 전환 하려면 먼저 **master** 데이터베이스에 대 한 사용 권한을 부여 하는 단계가 성공적으로 완료 되었는지 확인 합니다. 그런 다음 **SSISDB** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
 
 7.  쿼리 창에서 다음 T-sql 명령을 입력 하 고 도구 모음에서 **실행** 을 선택 합니다.
 

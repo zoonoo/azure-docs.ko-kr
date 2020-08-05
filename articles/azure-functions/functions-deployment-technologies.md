@@ -4,12 +4,12 @@ description: Azure Functions 코드를 배포할 수 있는 다양 한 방법을
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 1554469c59eb9931b6d8552f537328e440ec6aeb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388019"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562942"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -37,7 +37,7 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
 | 포털 편집 |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
-<sup>1</sup> [수동 트리거를 동기화](#trigger-syncing)해야 하는 배포 기술입니다.  
+<sup>1</sup> [수동 트리거를 동기화](#trigger-syncing)해야 하는 배포 기술입니다.
 <sup>2</sup> 포털 편집은 프리미엄 및 전용 요금제를 사용 하는 Linux의 함수에 대 한 HTTP 및 타이머 트리거에 대해서만 사용할 수 있습니다.
 
 ## <a name="key-concepts"></a>주요 개념
@@ -72,9 +72,9 @@ Linux에서 원격 빌드를 사용 하도록 설정 하려면 다음 [응용 �
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-기본적으로 [Azure Functions Core Tools](functions-run-local.md) 및 [Azure Functions Visual Studio Code 확장](functions-create-first-function-vs-code.md#publish-the-project-to-azure) 은 모두 Linux에 배포할 때 원격 빌드를 수행 합니다. 이로 인해 두 도구 모두 Azure에서 이러한 설정을 자동으로 만듭니다. 
+기본적으로 [Azure Functions Core Tools](functions-run-local.md) 및 [Azure Functions Visual Studio Code 확장](functions-create-first-function-vs-code.md#publish-the-project-to-azure) 은 모두 Linux에 배포할 때 원격 빌드를 수행 합니다. 이로 인해 두 도구 모두 Azure에서 이러한 설정을 자동으로 만듭니다.
 
-앱이 Linux에서 원격으로 빌드되면 [배포 패키지에서 실행](run-functions-from-deployment-package.md)됩니다. 
+앱이 Linux에서 원격으로 빌드되면 [배포 패키지에서 실행](run-functions-from-deployment-package.md)됩니다.
 
 ##### <a name="consumption-plan"></a>소비 계획
 
@@ -92,7 +92,7 @@ Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니�
 
 외부 패키지 URL을 사용 하 여 함수 앱이 포함 된 원격 패키지 (.zip) 파일을 참조할 수 있습니다. 파일이 제공 된 URL에서 다운로드 되 고 앱이 [패키지 모드에서 실행](run-functions-from-deployment-package.md) 될 때 실행 됩니다.
 
->__사용 방법:__ `WEBSITE_RUN_FROM_PACKAGE`응용 프로그램 설정에를 추가 합니다. 이 설정의 값은 URL (실행 하려는 특정 패키지 파일의 위치) 이어야 합니다. [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용 하](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)여 설정을 추가할 수 있습니다. 
+>__사용 방법:__ `WEBSITE_RUN_FROM_PACKAGE`응용 프로그램 설정에를 추가 합니다. 이 설정의 값은 URL (실행 하려는 특정 패키지 파일의 위치) 이어야 합니다. [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용 하](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)여 설정을 추가할 수 있습니다.
 >
 >Azure Blob storage를 사용 하는 경우 [공유 액세스 서명 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) 이 포함 된 개인 컨테이너를 사용 하 여 패키지에 대 한 액세스 기능을 제공 합니다. 응용 프로그램이 다시 시작 될 때마다 콘텐츠의 복사본을 페치합니다. 참조는 응용 프로그램의 수명 동안 유효 해야 합니다.
 
@@ -104,7 +104,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 
 >__사용 방법:__ 즐겨 사용 하는 클라이언트 도구를 사용 하 여 배포 합니다. [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)또는 [Azure Functions Core Tools](functions-run-local.md#project-file-deployment)를 사용 하 여 명령줄에서 배포 합니다. 기본적으로 이러한 도구는 zip 배포를 사용 하 고 [패키지에서 실행](run-functions-from-deployment-package.md)합니다. 핵심 도구와 Visual Studio Code 확장은 모두 Linux에 배포할 때 [원격 빌드](#remote-build) 를 사용 하도록 설정 합니다. .Zip 파일을 함수 앱에 수동으로 배포 하려면 [.zip 파일이 나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
 
->Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을로 설정 `1` 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다. 
+>Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을로 설정 `1` 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다.
 
 >__사용 시기:__ Zip 배포는 Azure Functions에 권장 되는 배포 기술입니다.
 
@@ -167,7 +167,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 포털 기반 편집기에서 함수 앱에 있는 파일 (기본적으로 변경 내용을 저장할 때마다 배포)을 직접 편집할 수 있습니다.
 
->__사용 방법:__ Azure Portal에서 함수를 편집 하려면 [포털에서 함수를 만들어야](functions-create-first-azure-function.md)합니다. 단일 원인을 보존 하기 위해 다른 배포 방법을 사용 하면 함수를 읽기 전용으로 설정 하 고 계속 해 서 포털을 편집할 수 없습니다. Azure Portal에서 파일을 편집할 수 있는 상태로 돌아가려면 편집 모드를 수동으로 다시 설정 하 `Read/Write` 고 배포 관련 응용 프로그램 설정 (예:)을 제거 하면 `WEBSITE_RUN_FROM_PACKAGE` 됩니다. 
+>__사용 방법:__ Azure Portal에서 함수를 편집 하려면 [포털에서 함수를 만들어야](functions-create-first-azure-function.md)합니다. 단일 원인을 보존 하기 위해 다른 배포 방법을 사용 하면 함수를 읽기 전용으로 설정 하 고 계속 해 서 포털을 편집할 수 없습니다. Azure Portal에서 파일을 편집할 수 있는 상태로 돌아가려면 편집 모드를 수동으로 다시 설정 하 `Read/Write` 고 배포 관련 응용 프로그램 설정 (예:)을 제거 하면 `WEBSITE_RUN_FROM_PACKAGE` 됩니다.
 
 >__사용 시기:__ 포털은 Azure Functions를 시작 하는 좋은 방법입니다. 보다 강력한 개발 작업을 수행 하려면 다음 클라이언트 도구 중 하나를 사용 하는 것이 좋습니다.
 >
@@ -177,7 +177,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 다음 표에서는 포털 편집을 지 원하는 운영 체제 및 언어를 보여 줍니다.
 
-| 언어 | Windows 사용량 | Windows Premium | Windows 전용 | Linux 소비 | Linux 프리미엄 | Linux 전용 |
+| Language | Windows 사용량 | Windows Premium | Windows 전용 | Linux 소비 | Linux 프리미엄 | Linux 전용 |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# 스크립트 |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -196,7 +196,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-함수 앱을 배포 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요. 
+함수 앱을 배포 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 + [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)
 + [Azure DevOps를 사용한 지속적인 업데이트](functions-how-to-azure-devops.md)

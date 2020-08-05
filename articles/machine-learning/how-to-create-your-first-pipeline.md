@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: dff86176bac56063c9b588fb27e3549069ed380e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3c247e5aebde7bd10be092c358320348645e2172
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326361"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564064"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -34,7 +34,7 @@ ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 �
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -471,7 +471,7 @@ response = requests.post(published_pipeline1.endpoint,
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
-published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+published_pipeline = PipelineEndpoint.get(workspace=ws, name="My_Published_Pipeline")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```

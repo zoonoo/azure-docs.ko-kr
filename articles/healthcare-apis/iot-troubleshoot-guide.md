@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/03/2020
 ms.author: jasteppe
-ms.openlocfilehash: 8c372a865e34b2cbd1b5b3e6d8619c3ef0f438e0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b404fa5322d3afa8cbf71741382d44dd0433d49c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460425"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553685"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
 
-이 문서에서는 오류 메시지 및 조건에 대 한 일반적인 Azure IoT 커넥터 문제를 해결 하는 단계를 제공 합니다.  
+이 문서에서는 일반적인 Azure IoT 커넥터의 오류 메시지 및 조건에 대 한 문제 해결 단계를 제공 합니다.  
 
 또한 Azure Portal 외부에서 편집 및 보관 하거나 지원 티켓을 열 때 Azure 기술 지원을 제공 하기 위해 FHIR JSON 매핑 파일용 Azure IoT 커넥터의 복사본을 만드는 방법에 대해 알아봅니다. 
 
@@ -72,7 +72,7 @@ FHIR 매핑 파일용 Azure IoT 커넥터를 복사 하는 것은 Azure Portal �
 FHIR 용 Azure IoT 커넥터에 대 한 자주 묻는 질문을 확인 합니다.
 
 >[!div class="nextstepaction"]
->[FHIR 용 Azure IoT 커넥터 (미리 보기) Faq](fhir-faq.md#iot-connector-preview)
+>[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
 * Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다.
 

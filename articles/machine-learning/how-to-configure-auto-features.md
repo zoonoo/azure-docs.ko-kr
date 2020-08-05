@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 31df880d9d6d586491d115d9b70de9f85bc980b2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502922"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552478"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 기능화
 
@@ -45,7 +45,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 다음 표에서는 `featurization` [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서에 대해 허용 되는 설정을 보여 줍니다.
 
-|기능화 구성 | 설명|
+|기능화 구성 | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails 및 기능화 단계](#featurization) 를 자동으로 수행 하도록 지정 합니다. 이 설정은 기본값입니다.|
 |`"featurization": 'off'`| 기능화 단계가 자동으로 수행 되지 않도록 지정 합니다.|
@@ -60,7 +60,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 > [!NOTE]
 > AutoML에서 만든 모델을 [onnx 모델로](concept-onnx.md)내보낼 계획인 경우 별표 ("*")로 표시 된 기능화 옵션만 onnx 형식으로 지원 됩니다. [모델을 ONNX로 변환](concept-automated-ml.md#use-with-onnx)하는 방법에 대해 자세히 알아보세요.
 
-|기능화 &nbsp; 단계| 설명 |
+|기능화 &nbsp; 단계| Description |
 | ------------- | ------------- |
 |**상위 카디널리티를 삭제 하거나 가변성 기능을 제거 합니다.*** |이러한 기능을 학습 및 유효성 검사 집합에서 삭제 합니다. 모든 행에서 동일한 값을 가진 모든 값이 누락 된 기능 또는 높은 카디널리티 (예: 해시, Id 또는 Guid)를 가진 기능에 적용 됩니다.|
 |**누락 값 돌립니다*** |숫자 기능의 경우 돌립니다는 열에 있는 값의 평균을 사용 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|
@@ -91,7 +91,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 데이터 guardrails 세 가지 상태 중 하나를 표시 합니다.
 
-|시스템 상태| 설명 |
+|주| Description |
 |----|---- |
 |**통과**| 데이터 문제가 검색 되지 않았으므로 사용자에 게 아무런 조치도 필요 하지 않습니다. |
 |**완료**| 변경 내용이 데이터에 적용되었습니다. 변경 내용이 예상 된 결과와 일치 하는지 확인 하기 위해 AutoML에서 수행한 정정 작업을 검토 하는 것이 좋습니다. |
@@ -161,7 +161,7 @@ text_transformations_used
 > [!NOTE]
 > BERT 구현에서는 학습 샘플의 총 텍스트 길이를 128 토큰으로 제한 합니다. 즉, 연결 될 때 모든 텍스트 열 길이가 최대 128 토큰 이어야 합니다. 이상적으로 여러 열이 있는 경우이 조건이 충족 되도록 각 열을 정리 해야 합니다. 예를 들어 데이터에 두 개의 텍스트 열이 있는 경우 두 텍스트 열 모두 64 토큰으로 정리 되어야 합니다 (두 열을 모두 최종 연결 된 텍스트 열에 동일 하 게 표시 하려는 경우). 128 토큰 >연결 된 열에 대해 BERT의 토크를 제거할 경우이 입력은 128 토큰으로 잘립니다.
 
-3. 기능 스윕 단계에서 automl은 데이터 샘플에 대 한 기준선 (BERT 기능 + 미리 학습 된 된 단어 포함)과 비교 하 여 정확성을 향상 시킬 수 있는지 여부를 확인 합니다. BERT가 기준선 보다 더 잘 작동 하는 것으로 확인 되 면 AutoML은 BERT를 사용 하 여 기능화을 최적의 기능화 전략으로 사용 하 고 전체 데이터를 기능화으로 진행 합니다. 이 경우 최종 모델에 "PretrainedTextDNNTransformer"이 표시 됩니다.
+3. 기능 스윕 단계에서 AutoML은 데이터 샘플에 대 한 기준선 (단어 모음 기능 모음)과 BERT을 비교 하 고 BERT가 정확성을 향상 시킬 수 있는지 여부를 확인 합니다. BERT가 기준선 보다 더 잘 작동 하는 것으로 확인 되 면 AutoML은 BERT를 사용 하 여 기능화을 최적의 기능화 전략으로 사용 하 고 전체 데이터를 기능화으로 진행 합니다. 이 경우 최종 모델에 "PretrainedTextDNNTransformer"이 표시 됩니다.
 
 BERT는 일반적으로 대부분의 다른 featurizers 보다 오래 실행 됩니다. 클러스터에서 더 많은 계산을 제공 하 여 sped를 수행할 수 있습니다. AutoML은 사용 가능한 경우 여러 노드에 BERT 교육을 분산 합니다 (최대 8 개 노드 사용). 이 작업은 [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 를 1 보다 높게 설정 하 여 수행할 수 있습니다. 성능 향상을 위해 RDMA 기능 (예: "STANDARD_NC24r" 또는 "STANDARD_NC24rs_V3")과 함께 sku를 사용 하는 것이 좋습니다.
 

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 71dcad908884351950c89b590523ffa91d6d47f9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424782"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552784"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>클레임에서 디렉터리 스키마 확장 특성 사용
 
@@ -41,7 +41,7 @@ ms.locfileid: "87424782"
 AD Connect를 사용 하 여 생성 및 동기화 된 디렉터리 스키마 확장 특성은 항상 AD Connect에서 사용 하는 응용 프로그램 ID와 연결 됩니다. 이러한 구성 요소는 갤러리를 사용 하 여 등록 된 SAML 응용 프로그램의 포털 UI에 있는 **엔터프라이즈** 응용 프로그램 구성에서 클레임으로 구성 하거나, **엔터프라이즈 응용**프로그램에서 비 갤러리 응용 프로그램 구성 환경으로 구성 하 고, 응용 프로그램 등록 환경을 통해 등록 된 응용 프로그램에 대 한 클레임 매핑 정책을 통해 클레임의 원본으로 사용할 수 있습니다.  AD Connect를 통해 만든 디렉터리 확장 특성이 디렉터리에 있으면 SAML SSO 클레임 구성 UI에 표시 됩니다.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>그래프 또는 PowerShell을 사용 하 여 응용 프로그램에 대해 만들어진 디렉터리 스키마 확장 특성의 데이터로 클레임 내보내기
-Microsoft Graph 또는 PowerShell을 사용 하 여 응용 프로그램에 대 한 디렉터리 스키마 확장 특성이 등록 된 경우 (예를 들어 응용 프로그램 초기 설정 또는 프로 비전 단계를 통해) 사용자가 로그인 할 때 클레임의 사용자 개체에서 해당 특성의 데이터를 받도록 동일한 응용 프로그램을 Azure Active Directory 구성할 수 있습니다.  [선택적 클레임](active-directory-optional-claims.md#configuring-directory-extension-optional-claims)을 사용 하 여 동일한 응용 프로그램에 등록 된 디렉터리 스키마 확장의 데이터를 수신 하도록 응용 프로그램을 구성할 수 있습니다.  응용 프로그램 매니페스트에서 설정할 수 있습니다.  이렇게 하면 다중 테 넌 트 응용 프로그램에서 고유한 용도에 대 한 디렉터리 스키마 확장 특성을 등록할 수 있습니다. 응용 프로그램이 테 넌 트로 프로 비전 되 면 해당 테 넌 트의 사용자에 대해 연결 된 디렉터리 스키마 확장을 설정 하 고 사용할 수 있게 됩니다.  테 넌 트에 구성 되 고 동의가 부여 되 면 그래프를 통해 데이터를 저장 하 고 검색 하는 데 사용할 수 있으며 Azure AD가 응용 프로그램에 내보내는 토큰의 클레임에 매핑할 수 있습니다.
+Microsoft Graph 또는 PowerShell을 사용 하 여 응용 프로그램에 대 한 디렉터리 스키마 확장 특성이 등록 된 경우 (예를 들어 응용 프로그램 초기 설정 또는 프로 비전 단계를 통해) 사용자가 로그인 할 때 클레임의 사용자 개체에서 해당 특성의 데이터를 받도록 동일한 응용 프로그램을 Azure Active Directory 구성할 수 있습니다.  [선택적 클레임](active-directory-optional-claims.md#configuring-directory-extension-optional-claims)을 사용 하 여 동일한 응용 프로그램에 등록 된 디렉터리 스키마 확장의 데이터를 수신 하도록 응용 프로그램을 구성할 수 있습니다.  응용 프로그램 매니페스트에서 설정할 수 있습니다.  이렇게 하면 다중 테 넌 트 응용 프로그램에서 고유한 용도에 대 한 디렉터리 스키마 확장 특성을 등록할 수 있습니다. 응용 프로그램이 테 넌 트로 프로 비전 되 면 해당 테 넌 트의 사용자에 대해 연결 된 디렉터리 스키마 확장을 설정 하 고 사용할 수 있게 됩니다.  테 넌 트에 구성 되 고 동의가 부여 되 면 graph를 통해 데이터를 저장 하 고 검색 하는 데 사용할 수 있으며 Microsoft id 플랫폼에서 응용 프로그램으로 내보내는 토큰의 클레임에 매핑할 수 있습니다.
 
 디렉터리 스키마 확장 특성은 모든 응용 프로그램에 대해 등록 되 고 채워질 수 있습니다.
 

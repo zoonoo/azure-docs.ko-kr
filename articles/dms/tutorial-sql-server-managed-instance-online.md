@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087665"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553311"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 온라인으로 Azure SQL Managed Instance SQL Server 마이그레이션
 
@@ -25,7 +25,7 @@ Azure Database Migration Service를 사용 하 여 가동 중지 시간을 최�
 
 이 자습서에서는 Azure Database Migration Service를 사용 하 여 가동 중지 시간을 최소화 하면서 SQL Server의 온-프레미스 인스턴스에서 SQL Managed Instance로 **Adventureworks2012** 데이터베이스를 마이그레이션합니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 >
 > * Azure Database Migration Service 인스턴스를 만듭니다.
@@ -262,6 +262,9 @@ SQL Managed Instance 대상 인스턴스에서 전체 데이터베이스 백업�
 4. **확인**과 **적용**을 차례로 선택합니다.
 
     ![중단 완료 준비](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
+
+    > [!IMPORTANT]
+    > 이 외에도 중요 비즈니스용 서비스 계층을 사용 하는 SQL Managed Instance의 가용성은 AlwaysOn 고가용성 그룹에 대 한 세 개의 보조 복제본이 시드 되어야 하기 때문에 일반적인 목적 보다 훨씬 더 오래 걸릴 수 있습니다. 이 작업 기간은 데이터의 크기에 따라 달라 집니다. 자세한 내용은 [관리 작업 기간](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration)을 참조 하세요.
 
 5. 데이터베이스 마이그레이션 상태가 **완료 됨**으로 표시 되 면 응용 프로그램을 SQL Managed Instance의 새 대상 인스턴스에 연결 합니다.
 

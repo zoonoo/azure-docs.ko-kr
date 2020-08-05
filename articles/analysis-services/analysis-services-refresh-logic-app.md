@@ -2,17 +2,17 @@
 title: Azure Analysis Services 모델에 대 한 Logic Apps를 사용 하 여 새로 고침 | Microsoft Docs
 description: 이 문서에서는 Azure Logic Apps를 사용 하 여 Azure Analysis Services에 대 한 비동기 새로 고침을 코딩 하는 방법을 설명 합니다.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 9d8c3c7668da939227b3e8aaef002b4292c7d962
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025322"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552240"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
 
@@ -65,7 +65,7 @@ HTTP 작업을 다음과 같이 구성 합니다.
 
 |속성  |값  |
 |---------|---------|
-|**메서드**     |POST         |
+|**방법**     |POST         |
 |**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https: \/ /westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**헤더**     |   Content-type, application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 [REST API-사후 게시/새로 고침을 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)을 참조 하세요. |

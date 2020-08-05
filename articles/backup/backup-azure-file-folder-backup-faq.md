@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) 에이전트-FAQ
 description: Azure Backup를 사용 하 여 파일과 폴더를 백업 하는 방법에 대 한 일반적인 질문을 해결 합니다.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533583"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563105"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>MARS (질문과 대답 Microsoft Azure Recovery Services) 에이전트
 
@@ -19,6 +19,12 @@ ms.locfileid: "87533583"
 ### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>최신 버전의 MARS 에이전트는 어디에서 다운로드할 수 있나요?
 
 Windows Server 컴퓨터, System Center DPM 및 Microsoft Azure Backup 서버를 백업할 때 사용 되는 최신 MARS 에이전트를 [다운로드할](https://aka.ms/azurebackup_agent)수 있습니다.
+
+### <a name="where-can-i-download-the-vault-credentials-file"></a>자격 증명 모음 자격 증명 파일은 어디에서 다운로드할 수 있나요?
+
+Azure Portal에서 자격 증명 모음에 대 한 **속성** 으로 이동 합니다. **백업 자격 증명**에서 **최신 Recovery Services 에이전트를 이미 사용 하 고 있는**확인란을 선택 합니다. **다운로드**를 선택합니다.
+
+![자격 증명 다운로드](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
 ### <a name="how-long-are-vault-credentials-valid"></a>자격 증명 모음 자격 증명의 유효 기간은 얼마 인가요?
 

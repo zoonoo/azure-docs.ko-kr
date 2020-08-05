@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532461"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553090"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -196,6 +196,10 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 - 보존이 확장 된 경우 기존 복구 지점이 새 정책에 따라 유지 되도록 표시 됩니다.
 - 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 결과적으로 삭제됩니다.
+
+### <a name="how-long-is-data-retained-when-stopping-backups-but-selecting-the-option-to-retain-backup-data"></a>백업을 중지할 때 데이터는 얼마나 오래 유지 되지만 백업 데이터를 유지 하는 옵션을 선택 하는 것은 어떻습니까?
+
+백업이 중지 되 고 데이터가 보존 되 면 데이터 정리를 위한 기존 정책 규칙이 중단 되 고 관리자가 삭제를 시작 하기 전까지 데이터가 무기한 보존 됩니다.
 
 ## <a name="encryption"></a>암호화
 

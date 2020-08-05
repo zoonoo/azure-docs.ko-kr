@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073617"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564098"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 방식 이해
 
@@ -104,13 +104,13 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 ### <a name="classic-compute-metrics"></a>클래식 계산 메트릭
 
-클래식 계산 리소스는 새 경고에서 아직 지원 되지 않으므로 클래식 계산 메트릭에 대 한 모든 경고는 마이그레이션 도구를 사용 하 여 마이그레이션되지 않습니다. 이러한 리소스 유형에 대 한 새 경고 지원은 나중에 추가 될 예정입니다. 이 기능을 사용할 수 있게 되 면 고객은 6 월 2020 이전에 기존 경고 규칙을 기반으로 하는 동등한 새 경고 규칙을 다시 만들어야 합니다.
+클래식 계산 리소스는 새 경고에서 아직 지원 되지 않으므로 클래식 계산 메트릭에 대 한 모든 경고는 마이그레이션 도구를 사용 하 여 마이그레이션되지 않습니다. 이러한 리소스 종류에 대 한 새 경고 지원은 현재 공개 미리 보기 상태 이며, 고객은 기존 경고 규칙에 따라 동등한 새 경고 규칙을 다시 만들 수 있습니다.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>사용 되지 않는 메트릭에 대 한 클래식 경고 규칙
 
 이러한 규칙은 이전에 지원 되었지만 결국 사용 되지 않았던 메트릭에 대 한 클래식 경고 규칙입니다. 일부 고객에 게는 이러한 메트릭에 대 한 잘못 된 클래식 경고 규칙이 있을 수 있습니다. 이러한 경고 규칙은 유효 하지 않으므로 마이그레이션되지 않습니다.
 
-| 리소스 종류| 사용 되지 않는 메트릭 |
+| 리소스 유형| 사용 되지 않는 메트릭 |
 |-------------|----------------- |
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
@@ -161,11 +161,11 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 | SASSuccess | 차원이 "ResponseType" = "Success" 및 "Authentication" = "SAS" 인 트랜잭션 메트릭 | |
 | ServerOtherError | 차원이 "ResponseType" = "ServerOtherError" 인 트랜잭션 메트릭 | |
 | ServerTimeOutError | 차원이 "ResponseType" = "ServerTimeOutError" 인 트랜잭션 메트릭  | |
-| 성공 | 차원이 "ResponseType" = "Success" 인 트랜잭션 메트릭 | |
-| TotalBillableRequests| 트랜잭션 | |
+| Success | 차원이 "ResponseType" = "Success" 인 트랜잭션 메트릭 | |
+| TotalBillableRequests| 의 | |
 | TotalEgress | 송신 | |
 | TotalIngress | 수신 | |
-| TotalRequests | 트랜잭션 | |
+| TotalRequests | 의 | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft 인 사이트/구성 요소
 

@@ -372,7 +372,7 @@
     - name: 모니터링
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Backup 및 복구
-      href: backup-recovery.md
+      href: ../backup-recovery.md
     - name: 클라우드 채택 프레임워크
       href: /azure/cloud-adoption-framework/get-started/
     - name: 아키텍처 센터

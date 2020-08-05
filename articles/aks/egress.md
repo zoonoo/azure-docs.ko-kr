@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용�
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517776"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563248"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)의 *기본* SKU 부하 분산 장치를 사용 하 여 송신 트래픽에 대 한 고정 공용 IP 주소 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "86517776"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Azure Basic Load Balancer를 사용 하 고 있다고 가정 합니다.  [Azure 표준 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)을 사용 하는 것이 좋지만 [AKS 송신 트래픽을 제어](https://docs.microsoft.com/azure/aks/limit-egress-traffic)하는 고급 기능을 사용할 수 있습니다.
+이 문서에서는 Azure Basic Load Balancer를 사용 하 고 있다고 가정 합니다.  [Azure 표준 Load Balancer](../load-balancer/load-balancer-overview.md)을 사용 하는 것이 좋지만 [AKS 송신 트래픽을 제어](./limit-egress-traffic.md)하는 고급 기능을 사용할 수 있습니다.
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 

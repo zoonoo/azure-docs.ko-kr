@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: fa9b99f1ad2a81e7edac4574324d9f883effe19c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6be41ab4b172a6d111d9ff648cfd85a2ab026b9a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318813"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553668"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -42,7 +42,7 @@ Azure Machine Learning의 최신 릴리스에 포함된 기능은 다음과 같�
 
 [아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 고려하여 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning 작업 영역](concept-workspace.md)만 있으면 됩니다. [Azure Portal](how-to-manage-workspace.md)에서 신속하게 작업 영역을 만들 수 있습니다. 작업 영역을 사용하면 여러 사용자가 학습 및 배포 컴퓨팅 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
 
-최신 릴리스에는 향상된 새 CLI와 SDK 클라이언트가 포함되어 있지만, 데스크톱 Workbench 애플리케이션 자체는 더 이상 사용되지 않습니다. 실험은 [Azure Machine Learning Studio의 작업 영역 대시보드](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)에서 관리할 수 있습니다. 대시보드를 사용하여 실험 기록을 가져오고, 작업 영역에 연결된 컴퓨팅 대상을 관리하고, 모델 및 Docker 이미지를 관리하고, 심지어 웹 서비스를 배포할 수 있습니다.
+최신 릴리스에는 향상된 새 CLI와 SDK 클라이언트가 포함되어 있지만, 데스크톱 Workbench 애플리케이션 자체는 더 이상 사용되지 않습니다. 실험은 [Azure Machine Learning Studio의 작업 영역 대시보드](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)에서 관리할 수 있습니다. 대시보드를 사용하여 실험 기록을 가져오고, 작업 영역에 연결된 컴퓨팅 대상을 관리하고, 모델 및 Docker 이미지를 관리하고, 심지어 웹 서비스를 배포할 수 있습니다.
 
 <a name="timeline"></a>
 

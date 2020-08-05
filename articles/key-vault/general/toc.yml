@@ -6,6 +6,8 @@
       href: overview.md
     - name: '키, 비밀 및 인증서 정보'
       href: about-keys-secrets-certificates.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   expanded: true
   items:

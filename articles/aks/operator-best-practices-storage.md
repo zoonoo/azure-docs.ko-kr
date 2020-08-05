@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 스토리지, 데이터 암호화
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80877901"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562841"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 스토리지 및 백업 모범 사례
 
@@ -36,7 +36,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 애
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | 공유 구성       | Azure 파일   | 예 | 예 | 예 | 예 |
 | 구조화된 앱 데이터        | Azure 디스크   | 예 | 아니요  | 예  | 예 |
-| 구조화되지 않은 데이터, 파일 시스템 작업 | [BlobFuse][blobfuse] | 예 | 예 | 예 | 아니요 |
+| 구조화되지 않은 데이터, 파일 시스템 작업 | [BlobFuse][blobfuse] | 예 | 예 | 예 | 예 |
 
 AKS에서 볼륨용으로 제공되는 두 가지 기본 유형의 스토리지는 Azure 디스크 또는 Azure 파일에서 지원됩니다. 보안을 강화하기 위해 두 가지 유형의 스토리지는 미사용 데이터를 암호화하는 Azure SSE(스토리지 서비스 암호화)를 기본적으로 사용합니다. 현재 AKS 노드 수준에서 Azure Disk Encryption을 사용하여 디스크를 암호화할 수 없습니다.
 
@@ -104,7 +104,7 @@ PVC(영구 볼륨 클레임)를 사용하면 필요에 따라 스토리지를 �
 
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [dynamic-disks]: azure-disks-dynamic-pv.md
 [dynamic-files]: azure-files-dynamic-pv.md
 [reclaim-policy]: concepts-storage.md#storage-classes

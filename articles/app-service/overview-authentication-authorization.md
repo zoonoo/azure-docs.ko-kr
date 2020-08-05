@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068205"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562381"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -22,15 +22,20 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 > [!IMPORTANT]
 > 인증 및 권한 부여에는이 기능을 사용할 필요가 없습니다. 선택한 웹 프레임 워크에서 번들로 제공 되는 보안 기능을 사용 하거나 사용자 고유의 유틸리티를 작성할 수 있습니다. 그러나 [Chrome 80은 쿠키에 대 한 SameSite 구현에 대 한 주요 변경 내용](https://www.chromestatus.com/feature/5088147346030592) (11 월 2020에 출시 된 릴리스 날짜)이 고, 사용자 지정 원격 인증 또는 사이트 간 쿠키 게시를 사용 하는 기타 시나리오는 클라이언트 Chrome 브라우저가 업데이트 될 때 중단 될 수 있다는 점에 유의 하세요. 해결 방법은 다양 한 브라우저에 대해 서로 다른 SameSite 동작을 지원 해야 하기 때문에 복잡 합니다. 
 >
-> App Service에서 호스팅하는 ASP.NET Core 2.1 이상 버전은이 주요 변경 내용에 대해 이미 패치 되었으며 Chrome 80 및 이전 브라우저를 적절 하 게 처리 합니다. 또한 ASP.NET Framework 4.7.2에 대 한 동일한 패치가 1 월 2020 전체에 App Service 인스턴스에 배포 됩니다. 앱이 패치를 받았는지 확인 하는 방법을 비롯 한 자세한 내용은 [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)를 참조 하십시오.
+> App Service에서 호스팅하는 ASP.NET Core 2.1 이상 버전은이 주요 변경 내용에 대해 이미 패치 되었으며 Chrome 80 및 이전 브라우저를 적절 하 게 처리 합니다. 또한 ASP.NET Framework 4.7.2에 대 한 동일한 패치가 1 월 2020 전체에 App Service 인스턴스에 배포 되었습니다. 자세한 내용은 [Azure App Service SameSite 쿠키 업데이트](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)를 참조 하세요.
 >
 
 > [!NOTE]
 > 인증/권한 부여 기능을 "Easy Auth" 라고도 합니다.
 
+> [!NOTE]
+> 이 기능을 사용 하도록 설정 하면 [https를 적용](configure-ssl-bindings.md#enforce-https)하는 App Service 구성 설정에 관계 없이 응용 프로그램에 대 한 **모든** 비보안 HTTP 요청이 https로 자동으로 리디렉션됩니다. 필요한 경우 `requireHttps` [인증 설정 구성 파일](app-service-authentication-how-to.md#configuration-file-reference)의 설정을 통해이를 사용 하지 않도록 설정할 수 있지만 보안 토큰이 비보안 HTTP 연결을 통해 전송 되지 않도록 주의 해야 합니다.
+
 기본 모바일 응용 프로그램과 관련된 자세한 내용은 [Azure App Service를 사용하여 모바일 응용 프로그램에 대한 사용자 인증 및 권한 부여](../app-service-mobile/app-service-mobile-auth.md)를 참조하세요.
 
 ## <a name="how-it-works"></a>작동 방법
+
+### <a name="on-windows"></a>Windows
 
 인증 및 권한 부여 모듈은 애플리케이션 코드와 동일한 샌드박스에서 실행됩니다. 이 기능이 활성화되면 애플리케이션 코드에 의해 처리되기 전에 들어오는 모든 HTTP 요청이 여기를 통과합니다.
 
@@ -44,6 +49,10 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 - 요청 헤더에 ID 정보 삽입
 
 모듈은 애플리케이션 코드와 별도로 실행되며 앱 설정을 사용하여 구성됩니다. SDK, 특정 언어 또는 애플리케이션 코드의 변경이 필요하지 않습니다. 
+
+### <a name="on-containers"></a>컨테이너에서
+
+인증 및 권한 부여 모듈은 응용 프로그램 코드와 분리 된 별도의 컨테이너에서 실행 됩니다. [특사 패턴](https://docs.microsoft.com/azure/architecture/patterns/ambassador)으로 알려진 기능을 사용 하면 들어오는 트래픽과 상호 작용 하 여 Windows에서와 비슷한 기능을 수행할 수 있습니다. In-process로 실행 되지 않으므로 특정 언어 프레임 워크와의 직접 통합이 가능 하지 않습니다. 그러나 앱에 필요한 관련 정보는 아래에 설명 된 대로 요청 헤더를 사용 하 여 전달 됩니다.
 
 ### <a name="userapplication-claims"></a>사용자/응용 프로그램 클레임
 

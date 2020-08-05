@@ -1,25 +1,21 @@
 ---
-title: Azure AD를 사용하는 앱에 대한 액세스 관리 | Microsoft Docs
+title: Azure AD를 사용하는 앱에 대한 액세스 관리
 description: Azure Active Directory는 조직이 앱을 각 사용자가 액세스할 수 있도록 지정하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f49db0455af02449c3bd087d323d9972d18d96f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 1b19f4aae7bf7477dbe5950f2d4df31e2de81372
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479728"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562568"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 

@@ -9,18 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 57589552af3b93d98733d4872b43a719703d501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285733"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551679"
 ---
 # <a name="create-a-data-source"></a>데이터 소스 만들기
 
 Azure Maps 웹 SDK는 데이터 원본에 데이터를 저장 합니다. 데이터 원본을 사용 하 여 쿼리 및 렌더링을 위한 데이터 작업을 최적화 합니다. 현재 다음과 같은 두 가지 유형의 데이터 원본이 있습니다.
 
-**GeoJSON 데이터 원본**
+- **GeoJSON source**: 로컬에서 GeoJSON 형식의 원시 위치 데이터를 관리 합니다. 중소 규모의 데이터 집합에 적합 합니다 (수천 개의 셰이프).
+- **벡터 타일 원본**: 지도 바둑판식 배열 시스템을 기반으로 현재 지도 보기의 벡터 타일로 형식이 지정 된 데이터를 로드 합니다. 대규모 데이터 집합 (수백만 또는 수십억 개의 도형)에 이상적입니다.
+
+## <a name="geojson-data-source"></a>GeoJSON 데이터 원본
 
 GeoJSON 기반 데이터 소스는 클래스를 사용 하 여 데이터를 로컬에서 로드 하 고 저장 `DataSource` 합니다. GeoJSON 네임 스페이스의 도우미 클래스를 사용 하 여 수동으로 데이터를 만들거나 만들 수 [있습니다.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) `DataSource`클래스는 로컬 또는 원격 GeoJSON 파일을 가져오기 위한 함수를 제공 합니다. 원격 GeoJSON 파일은 CORs 사용 끝점에서 호스팅되어야 합니다. `DataSource`클래스는 클러스터링 지점 데이터에 대 한 기능을 제공 합니다. 그리고 클래스를 사용 하 여 데이터를 쉽게 추가, 제거 및 업데이트할 수 있습니다 `DataSource` . 다음 코드는 Azure Maps에서 GeoJSON 데이터를 만드는 방법을 보여 줍니다.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > 의 모든 데이터를 덮어쓰도록 할 수 있습니다 `DataSource` . Then 함수를 호출 하면 `clear` `add` 맵이 두 번 다시 렌더링 되어 약간의 지연이 발생할 수 있습니다. 대신 함수를 사용 하 여 `setShapes` 데이터 원본의 모든 데이터를 제거 하 고 바꾸고 지도의 단일 다시 렌더링만 트리거합니다.
 
-**벡터 타일 원본**
+## <a name="vector-tile-source"></a>벡터 타일 원본
 
 벡터 타일 소스는 벡터 타일 계층에 액세스 하는 방법을 설명 합니다. [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) 클래스를 사용 하 여 벡터 타일 소스를 인스턴스화합니다. 벡터 타일 계층은 타일 계층과 비슷하지만 동일 하지는 않습니다. 타일 계층은 래스터 이미지입니다. 벡터 타일 계층은 압축 파일 ( **Pf** 형식)입니다. 이 압축 파일은 벡터 맵 데이터 및 하나 이상의 계층을 포함 합니다. 각 계층의 스타일에 따라 파일을 클라이언트에서 렌더링 하 고 스타일을 지정할 수 있습니다. 벡터 타일의 데이터에는 요소, 선 및 다각형 형식의 지리적 기능이 포함 되어 있습니다. 래스터 타일 계층 대신 벡터 타일 계층을 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
 

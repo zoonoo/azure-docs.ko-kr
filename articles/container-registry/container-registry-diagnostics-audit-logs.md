@@ -3,12 +3,12 @@ title: 리소스 로그 수집 & 분석
 description: 인증, 이미지 푸시, 이미지 풀 등의 Azure Container Registry에 대 한 리소스 로그 이벤트를 기록 하 고 분석 합니다.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252490"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553379"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>진단 평가 및 감사에 대 한 Azure Container Registry 로그
 
@@ -24,7 +24,7 @@ Azure Monitor를 사용 하 여 리소스 로그 데이터를 수집 하면 추�
 
 현재 이미지 및 기타 아티팩트에 대해 다음과 같은 리포지토리 수준 이벤트가 기록 됩니다.
 
-* **푸시**
+* **Push**
 * **끌어오기**
 * **태그 지정 해제**
 * **Delete** (리포지토리 삭제 이벤트 포함)
@@ -121,7 +121,7 @@ ContainerRegistryRepositoryEvents
 | project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
 ```
 
-### <a name="reposity-level-operation-failures"></a>Reposity 수준 작업 오류
+### <a name="repository-level-operation-failures"></a>리포지토리 수준 작업 오류
 
 ```kusto
 ContainerRegistryRepositoryEvents 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447710"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562687"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -34,7 +34,7 @@ Runbook에 대 한 추가 격리를 얻으려면 Azure virtual machines에서 �
 
 또는 특정 요구 사항이 있는 경우 Azure 방화벽을 충족 하는 데 사용할 수도 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](../virtual-machines/windows/network-overview.md)
+* [Azure의 가상 네트워크 및 가상 머신](../virtual-machines/network-overview.md)
 
 * [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
@@ -848,7 +848,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: azure 환경에 배포 된 위험도 높은 응용 프로그램은 가상 네트워크, 서브넷, 구독, 관리 그룹 등의 구문을 사용 하 여 별도의 네트워크 및 리소스 컨테이너를 사용 하 여 격리할 수 있으며, azure 방화벽, Waf (웹 응용 프로그램 방화벽) 또는 nsg (네트워크 보안 그룹)를 사용 하 여 충분히 안전 하 게 보호할 수 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](../virtual-machines/windows/network-overview.md)
+* [Azure의 가상 네트워크 및 가상 머신](../virtual-machines/network-overview.md)
 
 * [Azure 방화벽 개요](../firewall/overview.md)
 

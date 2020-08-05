@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960302"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563350"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Azure Static Web Apps에서 사용자 지정 도메인 설정 미리 보기
 
@@ -37,7 +37,7 @@ ms.locfileid: "85960302"
 
 ## <a name="map-a-cname-record"></a>CNAME 레코드 매핑
 
-CNAME 레코드는 하나의 도메인을 다른 도메인에 매핑합니다. CNAME 레코드를 사용하여 Azure Static Web Apps에서 제공하는 자동 생성된 도메인에 `www.example.com`을 매핑할 수 있습니다.
+CNAME 레코드는 하나의 도메인을 다른 도메인에 매핑합니다. CNAME 레코드를 사용 하 여 `www.example.com` , `blog.example.com` 또는 다른 하위 도메인을 Azure Static Web Apps에서 제공 하는 자동 생성 도메인에 매핑할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.
 

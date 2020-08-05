@@ -1,7 +1,7 @@
 ---
-title: Azure AD 앱 SAML 토큰 클레임 사용자 지정
+title: 앱 SAML 토큰 클레임 사용자 지정
 titleSuffix: Microsoft identity platform
-description: Azure AD의 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임을 사용자 지정하는 방법을 알아보세요.
+description: 엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 Microsoft id 플랫폼에 의해 발급 된 클레임을 사용자 지정 하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5cce985e3f63ade94fb626d18bded440caeff1fa
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274471"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552835"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
-오늘날 Azure Active Directory(Azure AD)는 사용자 지정 애플리케이션뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 애플리케이션 모두를 포함하여 대부분의 엔터프라이즈 애플리케이션에서 SSO(Single Sign-On)를 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 애플리케이션을 인증하면 Azure AD는 (HTTP POST를 통해) 애플리케이션에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임*이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
+현재 Microsoft identity platform은 Azure AD 앱 갤러리에 사전 통합 된 응용 프로그램과 사용자 지정 응용 프로그램을 포함 하 여 대부분의 엔터프라이즈 응용 프로그램에서 Single Sign-On (SSO)를 지원 합니다. 사용자가 SAML 2.0 프로토콜을 사용 하 여 Microsoft id 플랫폼을 통해 응용 프로그램에 인증 하는 경우 Microsoft id 플랫폼은 HTTP POST를 통해 응용 프로그램에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임*이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
 ‘클레임’은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](https://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
 
-기본적으로 Azure AD는 사용자를 고유하게 식별할 수 있는 사용자의 사용자 이름(또는 사용자 계정 이름) 값과 함께 `NameIdentifier` 클레임이 포함된 SAML 토큰을 애플리케이션에 발급합니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
+기본적으로 Microsoft id 플랫폼은 `NameIdentifier` 사용자를 고유 하 게 식별할 수 있는 사용자의 사용자 이름 (사용자 계정 이름이 라고도 함) 값이 포함 된 클레임을 포함 하는 응용 프로그램에 SAML 토큰을 발급 합니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
 
 SAML 토큰이 애플리케이션에 발급한 클레임을 보거나 편집하려면 Azure Portal에서 애플리케이션을 엽니다. 그런 다음, **사용자 특성 및 클레임** 섹션을 엽니다.
 
@@ -48,19 +48,19 @@ NameID(이름 식별자 값)를 편집하려면
 
 ### <a name="nameid-format"></a>NameID 형식
 
-SAML 요청에 특정 형식의 NameIDPolicy 요소가 포함된 경우 Azure AD는 요청에 해당 형식을 적용합니다.
+SAML 요청에 특정 형식의 NameIDPolicy 요소가 포함 된 경우 Microsoft id 플랫폼은 요청에 형식을 적용 합니다.
 
-SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Azure AD는 사용자가 지정한 형식으로 NameID를 발급합니다. 형식이 지정되지 않으면 Azure AD는 선택한 클레임 원본과 연결된 기본 원본 형식을 사용합니다.
+SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Microsoft identity platform은 사용자가 지정한 형식으로 NameID를 발급 합니다. 형식이 지정 되지 않은 경우 Microsoft id 플랫폼은 선택한 클레임 원본과 연결 된 기본 원본 형식을 사용 합니다.
 
 **이름 식별자 형식 선택** 드롭다운 목록에서 다음 옵션 중 하나를 선택할 수 있습니다.
 
 | NameID 형식 | Description |
 |---------------|-------------|
-| **기본값** | Azure AD는 기본 원본 형식을 사용합니다. |
-| **Persistent** | Azure AD는 NameID 형식으로 Persistent를 사용합니다. |
-| **EmailAddress** | Azure AD는 NameID 형식으로 EmailAddress를 사용합니다. |
-| **Unspecified** | Azure AD는 NameID 형식으로 Unspecified를 사용합니다. |
-| **Windows 도메인의 정규화된 이름** | Azure AD는 NameID 형식으로 WindowsDomainQualifiedName을 사용합니다. |
+| **기본값** | Microsoft id 플랫폼은 기본 원본 형식을 사용 합니다. |
+| **Persistent** | Microsoft id 플랫폼은 NameID 형식으로 영구를 사용 합니다. |
+| **EmailAddress** | Microsoft id 플랫폼은 EmailAddress를 NameID 형식으로 사용 합니다. |
+| **Unspecified** | Microsoft id 플랫폼은 지정 되지 않은를 NameID 형식으로 사용 합니다. |
+| **Windows 도메인의 정규화된 이름** | Microsoft id 플랫폼은 WindowsDomainQualifiedName를 NameID 형식으로 사용 합니다. |
 
 임시 NameID도 지원되지만 이 형식은 드롭다운에서 사용할 수 없으며 Azure 쪽에서 구성할 수 없습니다. NameIDPolicy 특성에 대한 자세한 내용은 [Single Sign-on SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조하세요.
 
@@ -169,9 +169,9 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Azure
 
 조건을 추가하는 순서는 중요합니다. Azure AD는 클레임에서 내보낼 값을 결정하기 위해 하향식으로 조건을 평가합니다. 
 
-예를 들어 Britta Simon는 Contoso 테넌트의 게스트 사용자입니다. 또한 Azure AD를 사용하는 다른 조직에도 속해 있습니다. Fabrikam 애플리케이션에 대해 아래 구성이 지정될 경우 Britta가 Fabrikam에 로그인하려고 하면 Azure AD는 다음과 같이 조건을 평가합니다.
+예를 들어 Britta Simon는 Contoso 테넌트의 게스트 사용자입니다. 또한 Azure AD를 사용하는 다른 조직에도 속해 있습니다. Fabrikam 응용 프로그램에 대 한 아래 구성을 고려 하 여 Britta가 Fabrikam에 로그인 하려고 하면 Microsoft identity platform에서 다음과 같이 조건을 평가 합니다.
 
-첫째, Azure AD는 Britta의 사용자 유형이 `All guests`인지 확인합니다. 이 경우 Azure AD는 클레임의 원본을 `user.extensionattribute1`으로 할당하기 때문입니다. 둘째, Azure AD는 Britta의 사용자 유형이 `AAD guests`인지 확인합니다. 이 경우에도 Azure AD는 클레임의 원본을 `user.mail`로 할당하기 때문입니다. 마지막으로 클레임은 Britta에 대해 값 `user.mail`을 사용해서 내보내집니다.
+먼저 Microsoft identity platform은 Britta의 사용자 형식이 인지 확인 `All guests` 합니다. 이는 true 이므로 Microsoft id 플랫폼은 클레임에 대 한 소스를에 할당 `user.extensionattribute1` 합니다. 두 번째로, Microsoft id 플랫폼은 Britta의 사용자 형식이 인지 확인 `AAD guests` 합니다 .이는 true 이기도 하므로 microsoft id 플랫폼에서 클레임에 대 한 소스를에 할당 `user.mail` 합니다. 마지막으로 클레임은 Britta에 대해 값 `user.mail`을 사용해서 내보내집니다.
 
 ![클레임 조건부 구성](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

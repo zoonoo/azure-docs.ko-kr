@@ -4,12 +4,12 @@ description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422949"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552988"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
 
@@ -32,6 +32,7 @@ Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 �
 > 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
 > - Azure App Service
 > - Azure 기능
+> - Azure Monitor(진단 설정)
 
 > [!IMPORTANT]
 > Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다.

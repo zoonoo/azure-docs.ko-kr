@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502480"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551696"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -195,8 +195,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 사용하지 마십시오. 이 역할은 Azure AD Connect 서비스에 자동으로 할당되고 다른 사용에 적합하거나 지원되지 않습니다.
 
 ### <a name="directory-writers"></a>[디렉터리 쓰기 권한자](#directory-writers-permissions)
-
-[동의 프레임워크](../develop/quickstart-register-app.md)를 지원하지 않는 애플리케이션에 할당될 레거시 역할입니다. 이 역할은 어느 사용자에게나 할당되면 안 됩니다.
+이 역할의 사용자는 사용자, 그룹 및 서비스 사용자의 기본 정보를 읽고 업데이트할 수 있습니다. [승인 프레임 워크](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)를 지원 하지 않는 응용 프로그램에만이 역할을 할당 합니다. 이 역할은 어느 사용자에게나 할당되면 안 됩니다.
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Dynamics 365 관리자/CRM 관리자](#crm-service-administrator-permissions)
 
@@ -1001,22 +1000,36 @@ Azure AD Connect에서만 사용됩니다.
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
-| microsoft.directory/groups/createAsOwner | Azure Active Directory에서 그룹을 만듭니다. 작성자는 첫 번째 소유자로 추가되고, 만들어진 개체는 작성자의 250개 개체 만들기 할당량과 대조하여 계산됩니다. |
 | microsoft.directory/groups/appRoleAssignments/update | Azure Active Directory에서 groups.appRoleAssignments 속성을 업데이트합니다. |
-| microsoft.directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
+| microsoft. 디렉터리/그룹/할당 라이선스 | Azure Active Directory의 그룹에 대 한 라이선스를 관리 합니다. |
+| microsoft.directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다.  |
+| microsoft. 디렉터리/그룹/분류/업데이트 | Azure Active Directory 그룹의 분류 속성을 업데이트 합니다. |
+| microsoft.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
+| microsoft. directory/groups/groupType/update | Azure Active Directory 그룹의 groupType 속성을 업데이트 합니다. |
 | microsoft.directory/groups/members/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
 | microsoft.directory/groups/owners/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft. directory/groups/reprocessLicenseAssignment | Azure Active Directory 그룹에 대 한 라이선스 할당을 다시 처리 합니다. |
+| microsoft. directory/groups/securityEnabled/update | Azure Active Directory 그룹의 secutiryEnabled 속성을 업데이트 합니다. |
 | microsoft.directory/groups/settings/update | Azure Active Directory에서 groups.settings 속성을 업데이트합니다. |
+| microsoft. 디렉터리/그룹/표시/업데이트 | 그룹의 표시 유형 속성 업데이트 |
 | microsoft.directory/groupSettings/basic/update | Azure Active Directory에서 groupSettings의 기본 속성을 업데이트합니다. |
 | microsoft.directory/groupSettings/create | Azure Active Directory에서 groupSettings를 만듭니다. |
 | microsoft.directory/groupSettings/delete | Azure Active Directory에서 groupSettings를 삭제합니다. |
+| microsoft. directory/oAuth2PermissionGrants/basic/update | Azure Active Directory에서 oAuth2PermissionGrants의 기본 속성을 업데이트 합니다. |
+| microsoft. directory/oAuth2PermissionGrants/create | Azure Active Directory에서 oAuth2PermissionGrants를 만듭니다. |
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage | 응용 프로그램 프로 비전 비밀 및 자격 증명을 관리 합니다. |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage | 응용 프로그램 프로 비전 동기화 작업을 시작, 다시 시작 및 일시 중지 합니다. |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | 응용 프로그램 프로 비전 동기화 작업 및 스키마를 만들고 관리 합니다. |
 | microsoft.directory/users/appRoleAssignments/update | Azure Active Directory에서 users.appRoleAssignments 속성을 업데이트합니다. |
 | microsoft.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
 | microsoft.directory/users/basic/update | Azure Active Directory에서 사용자의 기본 속성을 업데이트합니다. |
-| microsoft.directory/users/invalidateAllRefreshTokens | Azure Active Directory에서 모든 사용자 새로 고침 토큰을 무효화합니다. |
+| microsoft. 디렉터리/사용자/사용 안 함 | Azure Active Directory에서 사용자 계정을 사용 하지 않도록 설정 합니다. |
+| microsoft. 디렉터리/사용자/사용 | Azure Active Directory에서 사용자 계정 사용 |
+| microsoft.directory/users/invalidateAllRefreshTokens | 사용자가 다음 번에 로그인 할 때 다시 인증 하도록 요구 하는 Azure Active Directory의 모든 사용자 새로 고침 토큰을 무효화 합니다. |
 | microsoft.directory/users/manager/update | Azure Active Directory에서 users.manager 속성을 업데이트합니다. |
-| microsoft.directory/users/userPrincipalName/update | Azure Active Directory에서 users.userPrincipalName 속성을 업데이트합니다. |
+| microsoft. directory/users/reprocessLicenseAssignment | Azure Active Directory에서 사용자에 대 한 라이선스 할당을 다시 처리 합니다. |
+| microsoft. directory/users/userPrincipalName/update | Azure Active Directory에서 userPrincipalName 속성을 업데이트 합니다. |
+
 
 ### <a name="exchange-service-administrator-permissions"></a>Exchange 서비스 관리자 권한
 
@@ -1899,7 +1912,7 @@ CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787
 디바이스 사용자 | 사용되지 않음 | d405c6df-0af8-4e3b-95e4-4d06e542189e
 디렉터리 읽기 권한자 | 디렉터리 읽기 권한자 | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 디렉터리 동기화 계정 | 사용하면 안되므로 표시되지 않습니다. | d29b2b05-8046-44ba-8758-1e26182fcf32
-디렉터리 작성자 | 사용하면 안되므로 표시되지 않습니다. | 9360feb5-f418-4baa-8175-e2a00bac4301
+디렉터리 작성자 | 디렉터리 작성자 | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d097af3e4de
 외부 ID 사용자 흐름 관리자 | 외부 ID 사용자 흐름 관리자 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 외부 ID 사용자 흐름 특성 관리자 | 외부 ID 사용자 흐름 특성 관리자 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

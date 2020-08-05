@@ -3,12 +3,12 @@ title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft 
 description: 이 문서에서는 가상 네트워크에 Microsoft EventHub 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420460"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554076"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 
@@ -31,6 +31,7 @@ ms.locfileid: "87420460"
 > 다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
 > - Azure Web Apps
 > - Azure 기능
+> - Azure Monitor(진단 설정)
 
 
 > [!IMPORTANT]

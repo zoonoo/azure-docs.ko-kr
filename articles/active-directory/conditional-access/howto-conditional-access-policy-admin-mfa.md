@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/03/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a2830db6132e665d3f876a535fb645e936971b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cc38e576f53c3623bacc374a00adcb4cced01517
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283064"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552886"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>조건부 액세스: 관리자에 대해 MFA 필요
 
@@ -65,6 +65,10 @@ ms.locfileid: "87283064"
       * 보안 관리자
       * SharePoint 관리자
       * 사용자 관리자
+   
+      > [!WARNING]
+      > 조건부 액세스 정책은 사용자 [지정 역할](../users-groups-roles/roles-create-custom.md)을 사용 하는 것과 같이 개체에 직접 범위가 지정 된 [관리 단위나](../users-groups-roles/roles-admin-units-assign-roles.md) 디렉터리 역할로 범위가 지정 된 사용자를 지원 하지 않습니다.
+
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업** > **포함**에서 **모든 클라우드 앱**을 선택하고 **완료**를 선택합니다.

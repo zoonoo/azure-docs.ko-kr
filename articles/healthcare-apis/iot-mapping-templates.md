@@ -1,19 +1,19 @@
 ---
 title: '개념: azure API의 FHIR (미리 보기) 기능에 대 한 Azure IoT 커넥터에서 템플릿 매핑'
-description: FHIR (미리 보기) 용 Azure IoT 커넥터에서 두 가지 유형의 매핑 템플릿을 만드는 방법에 대해 알아봅니다. 장치 매핑 템플릿은 장치 데이터를 정규화 된 스키마로 변환 합니다. FHIR 매핑 템플릿은 정규화 된 메시지를 FHIR 기반 관찰 리소스로 변환 합니다.
+description: FHIR (미리 보기) 용 Azure IoT 커넥터에서 두 가지 유형의 매핑 템플릿을 만드는 방법에 대해 알아봅니다. 디바이스 매핑 템플릿은 디바이스 데이터를 정규화된 스키마로 변환합니다. FHIR 매핑 템플릿은 정규화된 메시지를 FHIR 기반 관찰 리소스로 변환합니다.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: cc8b7d46e1018974c6a88cef9e4f4a9f9a09caa7
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513352"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553650"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>FHIR (미리 보기) 매핑 템플릿에 대 한 Azure IoT 커넥터
 이 문서에서는 매핑 템플릿을 사용 하 여 FHIR * 용 Azure IoT 커넥터를 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -25,7 +25,7 @@ FHIR 용 Azure IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑 템�
 > [!NOTE]
 > 매핑 템플릿은 기본 blob 저장소에 저장 되 고 계산 실행 당 blob에서 로드 됩니다. 업데이트 되 면 즉시 적용 됩니다. 
 
-## <a name="device-mapping"></a>장치 매핑
+## <a name="device-mapping"></a>디바이스 매핑
 장치 매핑은 추가 평가를 위해 장치 콘텐츠를 공용 형식으로 추출 하는 매핑 기능을 제공 합니다. 받은 각 메시지는 모든 템플릿에 대해 평가 됩니다. 이 접근 방식을 사용 하면 단일 인바운드 메시지를 여러 아웃 바운드 메시지에 프로젝션 할 수 있으며 나중에이를 FHIR의 다른 관찰에 매핑할 수 있습니다. 결과는 템플릿에서 구문 분석 된 값을 나타내는 정규화 된 데이터 개체입니다. 정규화 된 데이터 모델에는 몇 가지 필수 속성을 찾아서 추출 해야 합니다.
 
 | 속성 | 설명 |
@@ -565,7 +565,7 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 Azure IoT 커넥터에서 FHIR (미리 보기)에 대 한 질문과 대답을 확인 하세요.
 
 >[!div class="nextstepaction"]
->[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md#iot-connector-preview)
+>[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
 * Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다.
 

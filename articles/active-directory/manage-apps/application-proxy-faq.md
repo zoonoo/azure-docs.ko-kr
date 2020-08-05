@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128933"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562415"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -44,6 +44,10 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 - Microsoft AAD 응용 프로그램 프록시 커넥터-WAPCSvc-네트워크 서비스
 - Microsoft AAD Application Proxy Connector Updater WAPCUpdaterSvc-NT 권한 없음
+
+### <a name="can-a-guest-user-with-the-global-administrator-or-the-application-administrator-role-register-the-connector-for-the-guest-tenant"></a>전역 관리자 또는 응용 프로그램 관리자 역할이 있는 게스트 사용자가 (게스트) 테 넌 트에 대해 커넥터를 등록할 수 있나요?
+
+아니요. 현재는 가능 하지 않습니다. 등록 시도는 항상 사용자의 홈 테 넌 트에 적용 됩니다.
 
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>백 엔드 응용 프로그램은 여러 웹 서버에서 호스팅되며 사용자 세션 지 속성 (유지)이 필요 합니다. 세션 유지를 실현 하려면 어떻게 해야 하나요? 
 

@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6be225c1384892dfdb94da3375707351887c8344
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170380"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564013"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -434,8 +434,8 @@ Azure에 Python 프로젝트를 게시 하는 데 지원 되는 세 가지 빌�
 
 ### <a name="remote-build"></a>원격 빌드
 
-원격 빌드를 사용 하는 경우 서버에서 복원 된 종속성과 기본 종속성이 프로덕션 환경과 일치 합니다. 이로 인해 더 작은 배포 패키지가 업로드 됩니다. Windows에서 Python 앱을 개발할 때 원격 빌드를 사용 합니다. 프로젝트에 사용자 지정 종속성이 있는 경우 [추가 인덱스 URL로 원격 빌드를 사용할](#remote-build-with-extra-index-url)수 있습니다. 
- 
+원격 빌드를 사용 하는 경우 서버에서 복원 된 종속성과 기본 종속성이 프로덕션 환경과 일치 합니다. 이로 인해 더 작은 배포 패키지가 업로드 됩니다. Windows에서 Python 앱을 개발할 때 원격 빌드를 사용 합니다. 프로젝트에 사용자 지정 종속성이 있는 경우 [추가 인덱스 URL로 원격 빌드를 사용할](#remote-build-with-extra-index-url)수 있습니다.
+
 종속성은 requirements.txt 파일의 내용에 따라 원격으로 가져옵니다. [원격 빌드](functions-deployment-technologies.md#remote-build)는 권장 빌드 방법입니다. 기본적으로 Azure Functions Core Tools는 다음과 같은 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용하여 Python 프로젝트를 Azure에 게시할 때 원격 빌드가 필요합니다.
 
 ```bash
@@ -456,7 +456,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 `<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다.
 
-`--build local` 옵션을 사용하면 requirements.txt 파일에서 프로젝트 종속성을 읽고 해당하는 종속 패키지를 로컬로 다운로드하여 설치합니다. 프로젝트 파일과 종속성은 로컬 컴퓨터에서 Azure로 배포됩니다. 결과적으로 더 큰 배포 패키지가 Azure에 업로드됩니다. 어떤 이유로 Core Tools가 requirements.txt 파일의 종속성이 얻을 수 없는 경우 사용자 지정 종속성 옵션을 사용해야 합니다. 
+`--build local` 옵션을 사용하면 requirements.txt 파일에서 프로젝트 종속성을 읽고 해당하는 종속 패키지를 로컬로 다운로드하여 설치합니다. 프로젝트 파일과 종속성은 로컬 컴퓨터에서 Azure로 배포됩니다. 결과적으로 더 큰 배포 패키지가 Azure에 업로드됩니다. 어떤 이유로 Core Tools가 requirements.txt 파일의 종속성이 얻을 수 없는 경우 사용자 지정 종속성 옵션을 사용해야 합니다.
 
 Windows에서 로컬로 개발 하는 경우에는 로컬 빌드를 사용 하지 않는 것이 좋습니다.
 
@@ -466,7 +466,7 @@ Windows에서 로컬로 개발 하는 경우에는 로컬 빌드를 사용 하�
 
 #### <a name="remote-build-with-extra-index-url"></a>추가 인덱스 URL을 사용 하 여 원격 빌드
 
-액세스할 수 있는 사용자 지정 패키지 인덱스에서 패키지를 사용할 수 있는 경우 원격 빌드를 사용 합니다. 게시 하기 전에 이라는 [앱 설정을 만들어야](functions-how-to-use-azure-function-app-settings.md#settings) `PIP_EXTRA_INDEX_URL` 합니다. 이 설정의 값은 사용자 지정 패키지 인덱스의 URL입니다. 이 설정을 사용 하면 옵션을 사용 하 여 원격 빌드가 실행 되도록 지시할 수 `pip install` `--extra-index-url` 있습니다. 자세히 알아보려면 [Python pip 설치 설명서](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)를 참조 하세요. 
+액세스할 수 있는 사용자 지정 패키지 인덱스에서 패키지를 사용할 수 있는 경우 원격 빌드를 사용 합니다. 게시 하기 전에 이라는 [앱 설정을 만들어야](functions-how-to-use-azure-function-app-settings.md#settings) `PIP_EXTRA_INDEX_URL` 합니다. 이 설정의 값은 사용자 지정 패키지 인덱스의 URL입니다. 이 설정을 사용 하면 옵션을 사용 하 여 원격 빌드가 실행 되도록 지시할 수 `pip install` `--extra-index-url` 있습니다. 자세히 알아보려면 [Python pip 설치 설명서](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)를 참조 하세요.
 
 추가 패키지 인덱스 Url을 사용 하 여 기본 인증 자격 증명을 사용할 수도 있습니다. 자세히 알아보려면 Python 설명서의 [기본 인증 자격 증명](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) 을 참조 하세요.
 
@@ -658,11 +658,14 @@ Python 표준 라이브러리에는 각 Python 배포와 함께 제공 되는 �
 
 함수 Python 작업자에는 특정 라이브러리 집합이 필요 합니다. 함수에서 이러한 라이브러리를 사용할 수도 있지만 Python 표준의 일부가 아닙니다. 함수가 이러한 라이브러리를 사용 하는 경우 Azure Functions 외부에서 실행 될 때 코드에서 사용 하지 못할 수 있습니다. [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) 파일의 **install \_ requires** 섹션에서 종속성의 자세한 목록을 찾을 수 있습니다.
 
+> [!NOTE]
+> 함수 앱의 requirements.txt에 항목이 포함 되어 있는 경우 `azure-functions-worker` 제거 합니다. 함수 작업자는 Azure Functions 플랫폼에 의해 자동으로 관리 되며 새로운 기능 및 버그 수정을 사용 하 여 정기적으로 업데이트 합니다. requirements.txt에 이전 버전의 작업자를 수동으로 설치 하면 예기치 않은 문제가 발생할 수 있습니다.
+
 ### <a name="azure-functions-python-library"></a>Python 라이브러리 Azure Functions
 
 모든 Python worker 업데이트에는 [Azure Functions Python 라이브러리 (Azure. 함수)](https://github.com/Azure/azure-functions-python-library)의 새 버전이 포함 되어 있습니다. 이 접근 방식을 사용 하면 각 업데이트가 이전 버전과 호환 되므로 Python 함수 앱을 계속 해 서 업데이트할 수 있습니다. 이 라이브러리의 릴리스 목록은 [azure-함수 PyPi](https://pypi.org/project/azure-functions/#history)에서 찾을 수 있습니다.
 
-런타임 라이브러리 버전은 Azure에서 수정 되며 requirements.txt로 재정의할 수 없습니다. `azure-functions`requirements.txt의 항목은 lint 및 고객 인식에만 해당 됩니다. 
+런타임 라이브러리 버전은 Azure에서 수정 되며 requirements.txt로 재정의할 수 없습니다. `azure-functions`requirements.txt의 항목은 lint 및 고객 인식에만 해당 됩니다.
 
 런타임에 Python 함수 라이브러리의 실제 버전을 추적 하려면 다음 코드를 사용 합니다.
 
@@ -689,7 +692,8 @@ CORS는 Python 함수 앱을 완벽하게 지원합니다.
 
 다음은 일반적인 문제에 대 한 문제 해결 가이드 목록입니다.
 
-* [ModuleNotFoundError 및 ImportError](recover-module-not-found.md)
+* [ModuleNotFoundError 및 ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
+* [' Cygrpc '를 가져올 수 없습니다.](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 모든 알려진 문제 및 기능 요청은 [GitHub 문제](https://github.com/Azure/azure-functions-python-worker/issues) 목록을 사용하여 추적됩니다. 문제가 발생하여 GitHub에서 해당 문제를 찾을 수 없는 경우 새 문제를 열고 해당 문제에 대한 자세한 설명을 제공해 주세요.
 

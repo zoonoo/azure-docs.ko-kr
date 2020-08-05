@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/19/2020
-ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/04/2020
+ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921167"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553005"
 ---
 # <a name="module-k-means-clustering"></a>모듈: K-클러스터링을 의미 합니다.
 
@@ -62,7 +62,7 @@ K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니�
   
 3.  **중심 수**에 대해 알고리즘을 시작 하려는 클러스터의 수를 입력 합니다.  
   
-     모델은 정확 하 게이 수의 클러스터를 생성 하는 것이 보장 되지 않습니다. 알고리즘은이 데이터 요소 수로 시작 하 고 최적의 구성을 찾기 위해 반복 됩니다.  
+     모델은 정확 하 게이 수의 클러스터를 생성 하는 것이 보장 되지 않습니다. 알고리즘은이 데이터 요소 수로 시작 하 고 최적의 구성을 찾기 위해 반복 됩니다. [소스 코드](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069)를 참조할 수 있습니다.
   
 4.  속성 **초기화** 는 초기 클러스터 구성을 정의 하는 데 사용 되는 알고리즘을 지정 하는 데 사용 됩니다.  
   

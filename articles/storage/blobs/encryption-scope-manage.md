@@ -1,20 +1,20 @@
 ---
 title: 암호화 범위 만들기 및 관리 (미리 보기)
-description: ''
+description: 암호화 범위를 만들어 컨테이너 또는 blob 수준에서 blob 데이터를 격리 하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531880"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564149"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>암호화 범위 만들기 및 관리 (미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "86531880"
 
 ## <a name="create-an-encryption-scope"></a>암호화 범위 만들기
 
-암호화 범위를 만들려면 먼저 Azure key vault를 만들고 범위에 사용 하려는 키를 추가 해야 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 속성이 모두 사용 하도록 설정 되어 있어야 하며, 저장소 계정과 동일한 지역에 있어야 합니다. 자세한 내용은 [Azure Key Vault를 통해 고객 관리 키를 사용하여 Azure Storage 암호화 관리](../common/encryption-customer-managed-keys.md)를 참조하세요.
+Microsoft에서 관리 하는 키 또는 Azure Key Vault에 저장 된 고객이 관리 하는 키를 사용 하 여 암호화 범위를 만들 수 있습니다. 고객 관리 키를 사용 하 여 암호화 범위를 만들려면 먼저 Azure key vault를 만들고 범위에 사용 하려는 키를 추가 해야 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 속성이 모두 사용 하도록 설정 되어 있어야 하며, 저장소 계정과 동일한 지역에 있어야 합니다. 자세한 내용은 [Azure Key Vault를 통해 고객 관리 키를 사용하여 Azure Storage 암호화 관리](../common/encryption-customer-managed-keys.md)를 참조하세요.
 
 암호화 범위는 만들 때 자동으로 사용 하도록 설정 됩니다. 암호화 범위를 만든 후에는 blob을 만들 때 지정할 수 있습니다. 컨테이너를 만들 때 기본 암호화 범위를 지정할 수도 있습니다. 컨테이너는 컨테이너의 모든 blob에 자동으로 적용 됩니다.
 

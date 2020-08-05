@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 4a6de0b2067cdc847b830fba7607be8cb8f265ab
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 14ae9103571d72b0a48ee8e1a9c9dc6bb008373b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981393"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552134"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -76,7 +76,7 @@ REST API를 사용하여 데이터 마스킹 정책 및 규칙을 프로그래�
 
 ### <a name="data-masking-policies"></a>데이터 마스킹 정책
 
-- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
+- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): 데이터베이스 데이터 마스킹 정책을 만들거나 업데이트 합니다.
 - [가져오기](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): 데이터베이스 데이터 마스킹 정책을 가져옵니다. 
 
 ### <a name="data-masking-rules"></a>데이터 마스킹 규칙

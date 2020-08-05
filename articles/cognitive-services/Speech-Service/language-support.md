@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457807"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554059"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -106,7 +106,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `te-IN` | 텔루구어(인도)                    | 언어 모델                                    |
 | `th-TH` | 태국어(태국)                   | 예                                                |
 | `tr-TR` | 터키어(터키)                  | 언어 모델                                    |
-| `zh-CN` | 중국어(북경어, 간체)    | 음향 모델<br>언어 모델                  |
+| `zh-CN` | 중국어 (북경어, 간체)    | 음향 모델<br>언어 모델                  |
 | `zh-HK` | 중국어(광둥어, 번체)  | 언어 모델                                    |
 | `zh-TW` | 중국어(대만어)      | 언어 모델                                    |
 
@@ -157,11 +157,11 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `ru-RU` | 러시아어(러시아)                | Female | `ru-RU-DariyaNeural`     | 일반 |
 | `sv-SE` | 스웨덴어(스웨덴)                | Female | `sv-SE-HilleviNeural`    | 일반 |
 | `th-TH` | 태국어(태국)                 | Female | `th-TH-AcharaNeural`     | 일반 |
-| `zh-CN` | 중국어(북경어, 간체)  | Female | `zh-CN-XiaoxiaoNeural`   | 일반, 여러 음성 스타일 사용 가능 |
+| `zh-CN` | 중국어 (북경어, 간체)  | Female | `zh-CN-XiaoxiaoNeural`   | 일반, 여러 음성 스타일 사용 가능 |
 |         |                                 | Female | `zh-CN-XiaoyouNeural`    | 어린이 음성, 이야기 내레이션에 최적화 |
 |         |                                 | Male   | `zh-CN-YunyangNeural`    | 뉴스 읽기에 최적화, 다양한 음성 스타일 사용 가능 |
 |         |                                 | Male   | `zh-CN-YunyeNeural`      | 이야기 내레이션에 최적화 |
-| `zh-HK` | 중국어 (광둥어, tranditional)   | Female | `zh-HK-HiuGaaiNeural`| 일반 |
+| `zh-HK` | 중국어(광둥어, 번체)   | Female | `zh-HK-HiuGaaiNeural`| 일반 |
 | `zh-TW` | 중국어(대만어)   | Female | `zh-TW-HsiaoYuNeural`    | 일반 |
 
 > [!IMPORTANT]
@@ -249,7 +249,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `th-TH` | 태국어 | Male |  "th-TH-Pattara" |
 | `tr-TR` | 터키어(터키) | Female | "tr-TR-SedaRUS" |
 | `vi-VN` | 베트남어 | Male |  "vi-VN-An" |
-| `zh-CN` | 중국어(북경어, 간체) | Female |  "zh-CN-HuihuiRUS" |
+| `zh-CN` | 중국어 (북경어, 간체) | Female |  "zh-CN-HuihuiRUS" |
 |  |  | Female | "zh-CN-Yaoyao-Apollo" |
 |  |  | Male | "zh-CN-Kangkang-Apollo" |
 | `zh-HK` | 중국어(광둥어, 번체) | Female |  "zh-HK-Tracy-Apollo" |

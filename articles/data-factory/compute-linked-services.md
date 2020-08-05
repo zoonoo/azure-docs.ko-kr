@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 3233292f0097330cc5e6ed07460de80934a278e4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849300"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563741"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 
@@ -109,7 +109,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 > [!IMPORTANT]
 > HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다. 
 >
-> 더 많은 작업이 실행될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
+> 더 많은 작업이 실행될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 와 같은 도구를 사용 하 여 Azure blob Storage에서 컨테이너를 삭제 합니다.
 
 #### <a name="properties"></a>속성
 

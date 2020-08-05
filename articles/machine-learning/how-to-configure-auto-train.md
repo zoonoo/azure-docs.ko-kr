@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 05/20/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 2d2eb9d95192e73d0a9bc4e7afbb993fccb17b94
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ec5776791f55a406b8015868dce83243b3f8efbd
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321516"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552393"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -342,7 +342,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 ### <a name="explore-model-metrics"></a>모델 메트릭 탐색
 
-Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있습니다. 자세한 내용은 [모델 추적 및 평가](how-to-track-experiments.md#view-run-details)를 참조하세요.
+Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있습니다. 자세한 내용은 [모델 추적 및 평가](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs)를 참조하세요.
 
 웹 서비스에 배포할 모델을 다운로드 하거나 등록 하는 방법에 대 한 자세한 내용은 모델을 배포 하는 [방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 

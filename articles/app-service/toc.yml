@@ -84,6 +84,9 @@
           href: overview-patch-os-runtime.md
         - name: 기본 제공 보안 컨트롤
           href: app-service-security-controls.md
+        - name: Azure Policy의 보안 컨트롤
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: 보안 개요
           href: overview-security.md
     - name: 네트워킹 기능

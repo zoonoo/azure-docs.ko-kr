@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b83c60182c311d9b04a205da4ab0c3477dc9b9e
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373246"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563707"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -43,7 +43,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 * **쿼리** -쿼리 범주를 통해 개발자는 관계 간에 쌍으로 된 쌍의 [디지털 쌍 집합을 찾을](how-to-query-graph.md) 수 있습니다.
 * **Eventroutes** - [eventroutes](concepts-route-events.md)범주는 시스템 및 다운스트림 서비스를 통해 데이터를 라우팅하는 api를 포함 합니다.
 
-공개 미리 보기에 대 한 최신 데이터 평면 API 버전은 _**2020-05-31-미리 보기**_ 입니다.
+공개 미리 보기에 대 한 최신 데이터 평면 API 버전은 _**2020-05-31-미리 보기**_ 입니다. 데이터 평면 작업에 대 한 _2020-03-01-preview_ API 버전은 이제 사용 되지 않습니다.
 
 데이터 평면 Api를 사용 하려면 다음을 수행 합니다.
 * Api는 다음을 통해 직접 호출할 수 있습니다.

@@ -301,7 +301,7 @@
     - name: 애플리케이션 개발 및 실행
       items:
         - name: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용(미리 보기)
-          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
         - name: Helm를 사용하여 기존 애플리케이션 설치
           href: kubernetes-helm.md
         - name: OpenFaaS 사용

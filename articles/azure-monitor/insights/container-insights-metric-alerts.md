@@ -2,13 +2,13 @@
 title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고 | Microsoft Docs
 description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: c8b75b0d9b22658253c4637bd6507144575934de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097799"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563367"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
 
@@ -18,7 +18,7 @@ ms.locfileid: "87097799"
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음을 확인 합니다.
 
@@ -33,13 +33,13 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
     표시 된 값은 **ciprod05262020**보다 이후 버전 이어야 합니다. 클러스터에 이전 버전이 있는 경우 [AKS 클러스터의 업그레이드 에이전트](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) 단계를 수행 하 여 최신 버전을 가져옵니다.
     
-    에이전트 릴리스와 관련 된 자세한 내용은 [에이전트 릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조 하세요. 메트릭이 수집 되 고 있는지 확인 하려면 메트릭 탐색기 Azure Monitor 사용 하 여 **정보** 를 표시 하는 **메트릭 네임 스페이스** 에서 확인할 수 있습니다. 이 경우 계속 진행 하 여 경고 설정을 시작할 수 있습니다.
+    에이전트 릴리스와 관련 된 자세한 내용은 [에이전트 릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조 하세요. 메트릭이 수집 되 고 있는지 확인 하려면 메트릭 탐색기 Azure Monitor 사용 하 여 **정보** 를 표시 하는 **메트릭 네임 스페이스** 에서 확인할 수 있습니다. 이 경우 계속 진행 하 여 경고 설정을 시작할 수 있습니다. 수집 된 메트릭이 표시 되지 않으면 클러스터 서비스 주체 또는 MSI에 필요한 사용 권한이 없는 것입니다. SPN 또는 MSI가 **모니터링 메트릭 게시자** 역할의 구성원 인지 확인 하려면 [Azure CLI를 사용 하 여 클러스터당 업그레이드](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) 섹션에 설명 된 단계를 수행 하 여 역할 할당을 확인 하 고 설정 합니다.
 
 ## <a name="alert-rules-overview"></a>경고 규칙 개요
 
 중요 한 사항에 대해 경고 하기 위해 컨테이너에 대 한 Azure Monitor는 AKS 클러스터에 대해 다음과 같은 메트릭 경고를 포함 합니다.
 
-|Name| Description |기본 임계값 |
+|이름| Description |기본 임계값 |
 |----|-------------|------------------|
 |평균 컨테이너 CPU (%) |컨테이너 당 사용 되는 평균 CPU를 계산 합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우| 
 |평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산 합니다.|컨테이너 당 평균 작업 집합 메모리 사용량이 95% 보다 큰 경우 |

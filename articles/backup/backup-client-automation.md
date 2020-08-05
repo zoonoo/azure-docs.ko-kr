@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 PowerShell을 사용 하 여 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 116bdd6b5f48a9d5abc0f9f0d9ce61f857196fd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513730"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564030"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -148,7 +148,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 Windows Server 또는 Windows 클라이언트 컴퓨터에서, [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) cmdlet을 실행하여 컴퓨터를 자격 증명 모음에 등록합니다.
-이 cmdlet 및 백업에 사용되는 다른 cmdlet은 Mars AgentInstaller에서 설치 과정의 일환으로 추가한 MSONLINE 모듈에서 비롯됩니다.
+이 및 백업에 사용 되는 다른 cmdlet은 설치 프로세스의 일부로 MARS AgentInstaller가 추가 된 MSONLINE 모듈에서 가져온 것입니다.
 
 에이전트 설치 관리자가 $Env:P SModulePath 변수를 업데이트 하지 않습니다. 즉, 모듈 자동 로드에 실패합니다. 이 문제를 해결하려면 다음을 수행하면 됩니다.
 

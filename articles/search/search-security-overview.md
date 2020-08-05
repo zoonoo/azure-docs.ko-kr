@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501494"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553957"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
-이 문서에서는 콘텐츠와 작업을 보호할 수 있는 Azure Cognitive Search의 주요 보안 기능을 설명 합니다. 
+이 문서에서는 콘텐츠와 작업을 보호할 수 있는 Azure Cognitive Search의 주요 보안 기능을 설명 합니다.
 
-+ 저장소 계층에서 미사용 암호화는 플랫폼 수준에서 제공 되지만 Cognitive Search 추가 암호화 계층에 대 한 Azure Key Vault를 통해 고객이 관리 하는 키를 제공할 수도 있습니다.
++ 저장소 계층에서 미사용 암호화는 인덱스, 동의어 맵, 인덱서, 데이터 원본 및 기술력과의 정의를 포함 하 여 디스크에 저장 된 모든 서비스 관리 콘텐츠에 대해 기본적으로 제공 됩니다. Azure Cognitive Search는 인덱싱된 콘텐츠의 보충 암호화를 위해 CMK (고객 관리 키) 추가도 지원 합니다. 8 월 1 2020 이후에 만들어진 서비스의 경우 CMK 암호화는 인덱싱된 콘텐츠의 전체 이중 암호화를 위해 임시 디스크의 데이터로 확장 됩니다.
 
 + 인바운드 보안은 요청에 대 한 API 키, 방화벽의 인바운드 규칙, 공용 인터넷에서 서비스를 완전히 보호 하는 개인 끝점에 대 한 보안 수준의 검색 서비스 끝점을 보호 합니다.
 
@@ -29,29 +30,41 @@ ms.locfileid: "87501494"
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>암호화 된 전송 및 저장소
 
-암호화는 연결 및 전송부터 디스크에 저장 된 콘텐츠로 확장 되는 Azure Cognitive Search에서 널리 사용 됩니다. 공용 인터넷에서 검색 서비스의 경우 Azure Cognitive Search는 HTTPS 포트 443에서 수신 대기 합니다. 모든 클라이언트-서비스 연결은 TLS 1.2 암호화를 사용 합니다. 이전 버전 (1.0 또는 1.1)은 지원 되지 않습니다.
+Azure Cognitive Search에서 암호화는 연결과 전송으로 시작 되 고 디스크에 저장 된 콘텐츠로 확장 됩니다. 공용 인터넷에서 검색 서비스의 경우 Azure Cognitive Search는 HTTPS 포트 443에서 수신 대기 합니다. 모든 클라이언트-서비스 연결은 TLS 1.2 암호화를 사용 합니다. 이전 버전 (1.0 또는 1.1)은 지원 되지 않습니다.
 
-### <a name="data-encryption-at-rest"></a>미사용 데이터 암호화
+검색 서비스에서 내부적으로 처리 되는 데이터의 경우 다음 표에서는 [데이터 암호화 모델](../security/fundamentals/encryption-atrest.md#data-encryption-models)에 대해 설명 합니다. 기술 자료 저장소, 증분 보강, 인덱서 기반 인덱싱 등의 일부 기능은 다른 Azure 서비스의 데이터 구조에서 읽거나 쓸 수 있습니다. 이러한 서비스에는 Azure Cognitive Search와 별도의 암호화 지원이 포함 됩니다.
 
-Azure Cognitive Search는 인덱스 정의와 콘텐츠, 데이터 원본 정의, 인덱서 정의, 기술 정의 및 동의어 맵을 저장 합니다.
+| 모델 | 키&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 사항이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 제한 사항 | 적용 대상 |
+|------------------|-------|-------------|--------------|------------|
+| 서버 쪽 암호화 | Microsoft 관리형 키 | 없음 (기본 제공) | 없음. 모든 지역에서 24 2018 년 1 월 이후에 만들어진 콘텐츠의 경우 모든 계층에서 사용할 수 있습니다. | 콘텐츠 (인덱스 및 동의어 맵) 및 정의 (인덱서, 데이터 원본, 기술력과) |
+| 서버 쪽 암호화 | 고객 관리 키 | Azure Key Vault | 청구 가능 계층의 모든 지역에서 2019 년 1 월 이후 생성 된 콘텐츠에 사용할 수 있습니다. | 데이터 디스크의 콘텐츠 (인덱스 및 동의어 맵) |
+| 서버 쪽 이중 암호화 | 고객 관리 키 | Azure Key Vault | 8 월 1 2020 이후의 검색 서비스에서 선택한 지역의 청구 가능 계층에서 사용 가능 합니다. | 데이터 디스크 및 임시 디스크에 대 한 콘텐츠 (인덱스 및 동의어 맵) |
 
-저장소 계층에서 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 디스크에서 암호화 됩니다. 포털에서 또는 프로그래밍 방식으로 암호화를 설정 또는 해제 하거나 암호화 설정을 볼 수 없습니다. 암호화는 완전 하 게 내부 화 되지만 인덱싱 시간 또는 인덱스 크기에는 상당한 영향을 주지 않습니다. 완전하게 암호화되지 않은 인덱스(2018년 1월 전에 생성됨)에 대한 증분 업데이트를 비롯한 모든 인덱싱에서 자동으로 수행됩니다.
+### <a name="service-managed-keys"></a>서비스 관리 키
 
-내부적으로 암호화는 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 [Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 기반으로 합니다.
+서비스 관리 암호화는 256 비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용 하 여 [Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 기반으로 하는 Microsoft 내부 작업입니다. 완전히 암호화 되지 않은 인덱스에 대 한 증분 업데이트 (1 월 2018 일 이전에 만들어짐)를 비롯 하 여 모든 인덱싱에서 자동으로 발생 합니다.
 
-> [!NOTE]
-> 미사용 암호화는 2018 년 1 월 24 일에 발표 되었으며 모든 지역에서 무료 계층을 포함 하 여 모든 서비스 계층에 적용 됩니다. 전체 암호화의 경우 해당 날짜 이전에 만든 인덱스를 삭제하고 암호화를 수행하기 위해 다시 빌드해야 합니다. 그렇지 않으면 1월 24일 이후에 추가된 새 데이터만이 암호화됩니다.
+### <a name="customer-managed-keys-cmk"></a>CMK (고객이 관리 하는 키)
 
-### <a name="customer-managed-key-cmk-encryption"></a>CMK (고객이 관리 하는 키) 암호화
+고객 관리 키에는 다른 지역에 있을 수 있지만 Azure Cognitive Search와 같은 구독에 있을 수 있는 추가 청구 가능 서비스 Azure Key Vault 필요 합니다. CMK 암호화를 사용 하면 인덱스 크기가 늘어나고 쿼리 성능이 저하 됩니다. 날짜에 대 한 관찰을 기준으로 쿼리 시간에 30%-60%가 증가 하는 것을 확인할 수 있습니다. 하지만 실제 성능은 인덱스 정의 및 쿼리 유형에 따라 달라 집니다. 이 성능에 영향을 주므로 정말 필요한 인덱스 에서만이 기능을 사용 하도록 설정 하는 것이 좋습니다. 자세한 내용은 [Azure Cognitive Search에서 고객이 관리 하는 암호화 키 구성](search-security-manage-encryption-keys.md)을 참조 하세요.
 
-추가 저장소 보호를 원하는 고객은 디스크에 데이터 및 개체를 저장 하 고 암호화 하기 전에 암호화할 수 있습니다. 이 접근 방식은 사용자 소유의 키를 기반으로 하며, Microsoft와는 별도로 Azure Key Vault를 통해 관리 및 저장 됩니다. 디스크에서 암호화 되기 전에 콘텐츠를 암호화 하는 것을 "이중 암호화" 라고 합니다. 현재 인덱스와 동의어 맵을 선택적으로 암호화할 수 있습니다. 자세한 내용은 [Azure에서 고객이 관리 하는 암호화 키 Cognitive Search](search-security-manage-encryption-keys.md)를 참조 하세요.
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> CMK 암호화는 2019 년 1 월에 생성 된 검색 서비스에 일반적으로 사용할 수 있습니다. 무료 (공유) 서비스에서는 지원 되지 않습니다. 
->
->이 기능을 사용 하도록 설정 하면 인덱스 크기가 늘어나고 쿼리 성능이 저하 됩니다. 날짜에 대 한 관찰을 기준으로 쿼리 시간에 30%-60%가 증가 하는 것을 확인할 수 있습니다. 하지만 실제 성능은 인덱스 정의 및 쿼리 유형에 따라 달라 집니다. 이 성능에 영향을 주므로 정말 필요한 인덱스 에서만이 기능을 사용 하도록 설정 하는 것이 좋습니다.
+### <a name="double-encryption"></a>이중 암호화 
+
+Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 2 배 암호화 (CMK에서 한 번, 서비스 관리 키에 의해 다시) 및 포괄적인 범위 (데이터 디스크에 기록 되는 장기 저장소 및 임시 디스크에 기록 된 단기 저장소)로 이루어진 포괄적인 암호화로 인식 됩니다. 1 2020 년 8 월 이전 CMK와 Azure Cognitive Search에서 CMK가 이중 암호화 기능을 수행 하는 것은 임시 디스크에 있는 미사용 데이터의 추가 암호화입니다.
+
+이중 암호화는 현재 8 월 1 일 이후에 이러한 지역에서 만든 새 서비스에서 사용할 수 있습니다.
+
++ 미국 서부 2
++ 미국 동부
++ 미국 중남부
++ US Gov 버지니아
++ US Gov 애리조나
 
 <a name="service-access-and-authentication"></a>
 
@@ -107,7 +120,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 검색 결과에 대 한 사용자 단위 제어를 세부적으로 요구 하는 경우 쿼리에 보안 필터를 빌드하여 지정 된 보안 id와 연결 된 문서를 반환할 수 있습니다. 미리 정의된 역할 및 역할 할당 대신 ID 기반 액세스 제어는 ID에 따라 문서 및 콘텐츠의 검색 결과를 잘라내는 *필터*로 구현됩니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | 설명 |
+| 접근 방식 | Description |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
 |[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 이전 문서에서 확장되어 Azure 클라우드 플랫폼에서 제공하는 [체험 서비스](https://azure.microsoft.com/free/) 중 하나인 AAD(Azure Active Directory)에서 ID를 검색하는 단계를 제공합니다. |

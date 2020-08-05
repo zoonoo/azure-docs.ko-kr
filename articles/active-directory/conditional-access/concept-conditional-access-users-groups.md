@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 08/03/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 127d76bedafd4c857686e93f21d3cccdc36b98dd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274666"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552903"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
@@ -44,6 +44,9 @@ ms.locfileid: "87274666"
 
 > [!WARNING]
 > 사용자 또는 그룹이 2048를 초과 하는 그룹의 구성원 인 경우 해당 액세스는 차단 될 수 있습니다. 이 제한은 직접 및 중첩 그룹 멤버 자격에 모두 적용 됩니다.
+
+> [!WARNING]
+> 조건부 액세스 정책은 사용자 [지정 역할](../users-groups-roles/roles-create-custom.md)을 사용 하는 것과 같이 개체에 직접 범위가 지정 된 [관리 단위나](../users-groups-roles/roles-admin-units-assign-roles.md) 디렉터리 역할로 범위가 지정 된 사용자를 지원 하지 않습니다.
 
 ## <a name="exclude-users"></a>사용자 제외
 

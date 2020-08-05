@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628796"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562449"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
@@ -49,7 +49,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 로컬 캐시는 예약된 앱 설정 조합을 사용하여 구성됩니다. 다음과 같은 방법으로 이러한 앱 설정을 구성할 수 있습니다.
 
 * [Azure Portal](#Configure-Local-Cache-Portal)
-* [Azure 리소스 관리자](#Configure-Local-Cache-ARM)
+* [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>방법: Azure 포털을 사용하여 로컬 캐시 구성
 <a name="Configure-Local-Cache-Portal"></a>
@@ -104,6 +104,9 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>방금 새 변경 내용을 게시했지만 앱에 없는 것 같습니다. 이유
 앱에서 로컬 캐시를 사용하는 경우 최신 변경 내용을 가져오려면 사이트를 다시 시작해야 합니다. 프로덕션 사이트에 변경 내용을 게시하고 싶지 않으신가요? 이전 모범 사례 섹션에서 슬롯 옵션을 참조하세요.
+
+> [!NOTE]
+> [패키지 배포에서 실행](deploy-run-package.md) 옵션은 로컬 캐시와 호환 되지 않습니다.
 
 ### <a name="where-are-my-logs"></a>내 로그는 어디에 있나요?
 로컬 캐시를 사용하는 경우 로그 폴더와 데이터 폴더가 서로 약간 다르게 표시됩니다. 그러나 하위 폴더의 구조는 하위 폴더가 "고유한 VM 식별자" + 타임스탬프 형식의 하위 폴더 아래에 중첩된다는 점을 제외하고는 동일하게 유지됩니다.

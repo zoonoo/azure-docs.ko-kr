@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, tracking-python
-ms.openlocfilehash: 6fa75c0c6ec6146ca59f6eaf4593b4912ae823c1
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 21254f5d7171d67614b212007aa33f4429505574
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372963"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553056"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -91,8 +91,8 @@ ms.locfileid: "87372963"
 
 | 라이브러리                    | Type   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md)<br>[azureml 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | 로그    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights 추적                | [Application Insights에서 파이프라인 디버깅](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python 로깅 cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>로깅 옵션 예제
@@ -167,7 +167,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. Visual Studio Code (VS Code) 및 Visual Studio용 Python 도구 (PTVSD)를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * __Azure Virtual Network__를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
 * 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.
@@ -180,7 +180,7 @@ ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버�
 
 Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 대 한 자세한 내용은 azure [Virtual Network 내에서 AZURE ML 실험 및 유추 작업 보호](how-to-enable-virtual-network.md)를 참조 하세요.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
 ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
     

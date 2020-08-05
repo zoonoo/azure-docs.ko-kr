@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 70ff1847548c1328a709cf17c02bba3dd25ba213
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 82639a19ef728c22a74381d24754992e0f647976
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486659"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562476"
 ---
 ## <a name="query-language-features"></a>쿼리 언어 기능
 
@@ -19,7 +19,7 @@ Azure Digital Twins는 쌍 그래프에 대해 광범위 한 쿼리 기능을 �
 > [!NOTE]
 > 모든 Azure Digital Twins 쿼리 작업은 대/소문자를 구분 합니다.
 
-Azure Digital Twins 쿼리 저장소 언어에서 사용할 수 있는 작업은 다음과 같습니다.
+Azure Digital Twins 쿼리 언어에서 사용할 수 있는 작업은 다음과 같습니다.
 
 디지털 쌍 가져오기 ...
 * model ( `IS_OF_MODEL` 연산자 사용)

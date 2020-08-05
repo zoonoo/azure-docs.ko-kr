@@ -6,24 +6,51 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: f43f17a0f3742831920836e448de3ef757f2dfa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568083"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553396"
 ---
 # <a name="scenario-isolating-vnets"></a>시나리오: Vnet 격리
 
-가상 WAN 가상 허브 라우팅으로 작업할 때 몇 가지 시나리오를 사용할 수 있습니다. 이 시나리오에서 목표는 Vnet 다른에 도달할 수 없도록 하는 것입니다. 이를 Vnet 격리 라고 합니다. VNet 내의 워크 로드는 격리 된 상태로 유지 되며 임의의 시나리오와 마찬가지로 다른 Vnet와 통신할 수 없습니다. 그러나 Vnet는 모든 분기 (VPN, ER 및 사용자 VPN)에 도달 하는 데 필요 합니다. 이 시나리오에서 모든 VPN, Express 경로 및 사용자 VPN 연결은 동일 하 고 하나의 경로 테이블에 연결 됩니다. 모든 VPN, Express 경로 및 사용자 VPN 연결은 경로를 동일한 경로 테이블 집합으로 전파 합니다. 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
+가상 WAN 가상 허브 라우팅으로 작업할 때 몇 가지 시나리오를 사용할 수 있습니다. 이 시나리오에서 목표는 Vnet 다른에 도달할 수 없도록 하는 것입니다. 이를 Vnet 격리 라고 합니다. 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>시나리오 워크플로
+## <a name="design"></a><a name="design"></a>디자인
+
+이 시나리오에서는 특정 VNet 내의 워크 로드가 격리 된 상태를 유지 하 고 다른 Vnet와 통신할 수 없습니다. 그러나 Vnet는 모든 분기 (VPN, ER 및 사용자 VPN)에 도달 하는 데 필요 합니다. 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음 표와 같습니다.
+
+| 시작 |   대상 |  *Vnet* | *분기* |
+| -------------- | -------- | ---------- | ---|
+| VNet     | &#8594;|           |     X    |
+| 분기   | &#8594;|    X     |     X    |
+
+위의 표에 나와 있는 각 셀은 특정 트래픽 흐름에 대 한 가상 WAN 연결 (흐름의 "From" 쪽, 행 머리글)이 대상 접두사 (흐름의 "대상" 쪽, 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다.
+
+이 연결 매트릭스는 두 개의 서로 다른 행 패턴을 제공 하며 두 개의 경로 테이블로 변환 됩니다. 가상 WAN에는 이미 기본 경로 테이블이 있으므로 다른 경로 테이블이 필요 합니다. 이 예에서는 경로 테이블의 이름을 **RT_VNET**로 합니다.
+
+Vnet는이 **RT_VNET** 경로 테이블에 연결 됩니다. 분기에 대 한 연결이 필요 하기 때문에 분기는 **RT_VNET** 로 전파 되어야 합니다. 그렇지 않으면 분기 접두사가 vnet. 분기는 항상 기본 경로 테이블에 연결 되므로 Vnet는 기본 경로 테이블에 전파 해야 합니다. 결과적으로 최종 설계는 다음과 같습니다.
+
+* 가상 네트워크:
+  * 연결 된 경로 테이블: **RT_VNET**
+  * 경로 테이블에 전파: **기본값**
+* 분기
+  * 연결 된 경로 테이블: **기본값**
+  * 경로 테이블에 전파: **RT_VNET** 및 **기본값**
+
+분기는 경로 테이블 **RT_VNET**에만 전파 되므로 vnet는 다른 vnet의 접두사가 아니라 유일한 접두사가 됩니다.
+
+가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
+
+## <a name="workflow"></a><a name="workflow"></a>워크플로
 
 이 시나리오를 구성 하려면 다음 단계를 고려해 야 합니다.
 
-1. 사용자 지정 경로 테이블을 만듭니다. 이 예에서는 경로 테이블을 **RT_VNet**합니다. 경로 테이블을 만들려면 [가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요. 경로 테이블에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
+1. 각 허브에서 사용자 지정 경로 테이블을 만듭니다. 이 예에서는 경로 테이블을 **RT_VNet**합니다. 경로 테이블을 만들려면 [가상 허브 라우팅을 구성 하는 방법](how-to-virtual-hub-routing.md)을 참조 하세요. 경로 테이블에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
 2. **RT_VNet** 경로 테이블을 만들 때 다음 설정을 구성 합니다.
 
    * **연결**: 격리할 vnet를 선택 합니다.

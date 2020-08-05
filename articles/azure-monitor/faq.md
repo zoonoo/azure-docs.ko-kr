@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318116"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563843"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -121,7 +121,7 @@ VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽기 
 
 
 ### <a name="what-is-an-action-rule"></a>작업 규칙은 무엇인가요?
-작업 규칙을 사용하면 특정 조건과 일치하는 경고 세트의 동작을 수정할 수 있습니다. 이를 통해 유지 관리 기간 동안 경고 작업 사용 안 함과 같은 요구 사항을 수행할 수 있습니다. 또한 작업 그룹을 경고 규칙에 직접 적용하는 대신 경고 세트에 적용할 수 있습니다. [작업 규칙](platform/alerts-action-rules.md)을 참조하세요.
+작업 규칙을 사용하면 특정 조건과 일치하는 경고 세트의 동작을 수정할 수 있습니다. 이렇게 하면 유지 관리 기간 동안 경고 작업을 사용 하지 않도록 설정 하는 등의 요구 사항을 수행할 수 있습니다. 또한 작업 그룹을 경고 규칙에 직접 적용하는 대신 경고 세트에 적용할 수 있습니다. [작업 규칙](platform/alerts-action-rules.md)을 참조하세요.
 
 ## <a name="agents"></a>에이전트
 
@@ -137,7 +137,7 @@ Azure 진단 확장은 Azure 가상 머신을 위한 것이며, 데이터를 Azu
 Azure Monitor로의 트래픽은 Microsoft 피어링 ExpressRoute 회로를 사용합니다. 다양한 유형의 ExpressRoute 트래픽에 대한 설명은 [ExpressRoute 설명서](../expressroute/expressroute-faqs.md#supported-services)를 참조하세요. 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Log Analytics 에이전트에서 Azure Monitor와 통신할 수 있는지 확인하려면 어떻게 해야 하나요?
-에이전트 컴퓨터의 [제어판]에서 **보안 및 설정**, **Microsoft Monitoring Agent**를 선택합니다. **Azure Log Analytics(OMS)** 탭 아래에서 녹색 확인 표시 아이콘은 에이전트에서 Azure 서비스와 통신할 수 있음을 나타냅니다. 노란색 경고 아이콘은 에이전트에 문제가 있음을 나타냅니다. 한 가지 일반적인 이유는 **Microsoft Monitoring Agent** 서비스가 중지되었다는 것입니다. 서비스 제어 관리자를 사용하여 서비스를 다시 시작합니다.
+에이전트 컴퓨터의 제어판에서 **보안 & 설정**, * * Microsoft Monitoring Agent를 선택 합니다. **Azure Log Analytics(OMS)** 탭 아래에서 녹색 확인 표시 아이콘은 에이전트에서 Azure 서비스와 통신할 수 있음을 나타냅니다. 노란색 경고 아이콘은 에이전트에 문제가 있음을 나타냅니다. 한 가지 일반적인 이유는 **Microsoft Monitoring Agent** 서비스가 중지되었다는 것입니다. 서비스 제어 관리자를 사용하여 서비스를 다시 시작합니다.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Log Analytics 에이전트에서 Azure Monitor와 통신하지 못하도록 중지하려면 어떻게 해야 하나요?
 Log Analytics에 직접 연결된 에이전트의 경우 [제어판]을 열고, **보안 및 설정**, **Microsoft Monitoring Agent**를 차례로 선택합니다. **Azure Log Analytics(OMS)** 탭 아래에서 나열된 모든 작업 영역을 제거합니다. System Center Operations Manager의 Log Analytics 관리형 컴퓨터 목록에서 컴퓨터를 제거합니다. Operations Manager는 Log Analytics에 더 이상 보고하지 않도록 에이전트의 구성을 업데이트합니다. 
@@ -207,7 +207,7 @@ WireData
 * [ASP.NET 서버 설정](app/monitor-performance-live-website-now.md)
 * [Java 서버 설정](app/java-agent.md)
 
-*배포해야 하는 Application Insights의 수는 얼마나 되나요?:*
+*배포 해야 하는 Application Insights 리소스 수:*
 
 * [Application Insights 배포를 설계하는 방법: 하나 또는 여러 개의 Application Insights 리소스인가요?](app/separate-resources.md)
 
@@ -272,7 +272,7 @@ WireData
 
 웹앱에서 Application Insights를 구성하기 위해 IIS 웹 서버에서 사용할 수 있는 데스크톱 앱입니다. 원격 분석을 수집하지 않으며 앱을 구성하지 않는 경우 중지할 수 있습니다. 
 
-[자세한 정보를 알아보세요](app/monitor-performance-live-website-now.md#questions).
+[자세히 알아보기](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>어떤 원격 분석이 Application Insights에서 수집되나요?
 
@@ -315,7 +315,7 @@ WireData
 
 * 브라우저 원격 분석: 보낸 사람의 IP 주소를 수집합니다.
 * 서버 원격 분석: Application Insights 모듈에서 클라이언트 IP 주소를 수집합니다. `X-Forwarded-For`가 설정된 경우에는 수집되지 않습니다.
-* Application Insights에서 IP 주소 및 지리적 위치 데이터를 수집하는 방법에 대한 자세한 내용은 이 [문서](./app/ip-collection.md)를 참조하세요.
+* IP 주소 및 지리적 위치 데이터를 수집 하는 방법에 대 한 자세한 내용은이 [문서](./app/ip-collection.md)를 참조 Application Insights.
 
 
 `ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -509,6 +509,15 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>HTTP 502 및 503 응답은 Application Insights에서 항상 캡처되지는 않습니다.
+
+"502 잘못 된 게이트웨이" 및 "503 서비스를 사용할 수 없음" 오류는 Application Insights에서 항상 캡처되지는 않습니다. 클라이언트 쪽 JavaScript만 모니터링에 사용 되는 경우 모니터링 JavaScript 코드 조각이 렌더링 되는 HTML 헤더를 포함 하는 페이지 보다 먼저 오류 응답이 반환 되기 때문에이 동작이 예상 됩니다. 
+
+서버 쪽 모니터링을 사용 하는 서버에서 502 또는 503 응답을 보낸 경우 Application Insights SDK에서 오류를 수집 합니다. 
+
+그러나 응용 프로그램의 웹 서버에서 서버 쪽 모니터링을 사용 하도록 설정한 경우에도 Application Insights에서 502 또는 503 오류가 캡처되지 않는 경우도 있습니다. 많은 최신 웹 서버에서는 클라이언트가 직접 통신할 수 없으며 대신 역방향 프록시와 같은 솔루션을 사용 하 여 클라이언트와 프런트 엔드 웹 서버 간에 정보를 전달 합니다. 
+
+이 시나리오에서는 역방향 프록시 계층에서 문제가 발생 하 여 502 또는 503 응답이 클라이언트에 반환 될 수 있으며이는 Application Insights 하 여 기본으로 캡처되지 않습니다. 이 계층에서 문제를 검색 하려면 역방향 프록시에서 Log Analytics로 로그를 전달 하 고 502/503 응답을 확인 하는 사용자 지정 규칙을 만들어야 할 수 있습니다. 502 및 503 오류의 일반적인 원인에 대해 자세히 알아보려면 ["502 잘못 된 게이트웨이" 및 "503 Service를 사용할 수 없음"에 대 한 Azure App Service 문제 해결 문서](../app-service/troubleshoot-http-502-http-503.md)를 참조 하세요.     
 
 ## <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
-ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 08/04/2020
+ms.openlocfilehash: c24a78413b09de04a10266f883e11617bb7a2f27
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428229"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554042"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -50,7 +50,7 @@ SQL Database와 SQL Managed Instance는 모두 SQL Server 기술을 사용 하 �
 
 다음 예제를 사용 하 여 백업 구성 및 복원 작업을 시도할 수 있습니다.
 
-| | Azure portal | Azure PowerShell |
+| | Azure Portal | Azure PowerShell |
 |---|---|---|
 | **백업 보존 변경** | [단일 데이터베이스](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [관리되는 인스턴스](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [단일 데이터베이스](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[관리되는 인스턴스](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **장기 백업 보존 변경** | [단일 데이터베이스](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>관리되는 인스턴스 - N/A  | [단일 데이터베이스](long-term-backup-retention-configure.md)<br/>관리되는 인스턴스 - N/A  |
@@ -120,7 +120,7 @@ LTR에 대한 자세한 내용은 [장기 백업 보존](long-term-retention-ove
 
 ## <a name="storage-costs"></a>스토리지 비용
 
-스토리지 가격은 사용하는 모델이 DTU 모델인지 또는 vCore 모델인지에 따라 달라집니다.
+백업 저장소의 가격은 DTU 모델을 사용 하는지 아니면 vCore 모델을 사용 하는지, 아니면 지역 에서도 사용 하는지에 따라 달라 집니다. 백업 저장소는 g b/월 단위로 청구 됩니다. 가격은 가격 책정 페이지 및 [AZURE SQL Managed Instance 가격](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) 책정 페이지를 [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) 참조 하세요.
 
 ### <a name="dtu-model"></a>DTU 모델
 

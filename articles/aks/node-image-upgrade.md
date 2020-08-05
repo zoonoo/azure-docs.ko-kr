@@ -6,12 +6,12 @@ ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 13842512c7d983a70b32132b4a16be37ac0b2b54
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 040f4378e01c3696b9a74bfcc27230503828f19a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050722"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562790"
 ---
 # <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Preview-AKS (Azure Kubernetes Service) 노드 이미지 업그레이드
 
@@ -47,7 +47,7 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-상태가 등록됨으로 표시되면 [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService

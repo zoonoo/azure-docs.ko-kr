@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 5520072ba16b117c33c2ad172030807e51c7cf7a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/3/2020
+ms.openlocfilehash: 9d4d862389a607b18ee5f2440069fa2eb6cf7bc4
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203889"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553039"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에 대한 연결 라이브러리
 이 문서에는 클라이언트 프로그램에서 MySQL용 Azure 데이터베이스에 연결하는 데 사용할 수 있는 각 라이브러리 또는 드라이버가 나열되어 있습니다.
@@ -28,7 +28,7 @@ MySQL은 산업 표준 ODBC 및 JDBC와 호환되는 애플리케이션 및 도�
 | Node.js | Windows, Linux, Mac OS X | [sidorares/node-mysql2](https://github.com/sidorares/node-mysql2/tree/master/documentation) | [다운로드](https://github.com/sidorares/node-mysql2) |
 | Python | Windows, Linux, Mac OS X | [MySQL 커넥터/Python 개발자 가이드](https://dev.mysql.com/doc/connector-python/en/) | [다운로드](https://dev.mysql.com/downloads/connector/python/) |
 | C++ | Windows, Linux, Mac OS X | [MySQL 커넥터/C++ 개발자 가이드](https://dev.mysql.com/doc/connector-cpp/en/) | [다운로드](https://dev.mysql.com/downloads/connector/python/) |
-| C | Windows, Linux, Mac OS X | [MySQL 커넥터/C 개발자 가이드](https://dev.mysql.com/doc/refman/8.0/en/c-api.html) | [다운로드](https://dev.mysql.com/downloads/connector/c/)
+| C | Windows, Linux, Mac OS X | [MySQL 커넥터/C 개발자 가이드](https://dev.mysql.com/doc/c-api/8.0/en/) | [다운로드](https://dev.mysql.com/downloads/connector/c/)
 | Perl | Windows, Linux, Mac OS X 및 Unix 플랫폼 | [DBD::MySQL](https://metacpan.org/pod/DBD::mysql) | [다운로드](https://metacpan.org/pod/DBD::mysql) |
 
 
@@ -37,7 +37,7 @@ MySQL은 산업 표준 ODBC 및 JDBC와 호환되는 애플리케이션 및 도�
 
 - [PHP](./connect-php.md)
 - [Java](./connect-java.md)
-- [.NET (C #)](./connect-csharp.md)
+- [.NET (C#)](./connect-csharp.md)
 - [Python](./connect-python.md)
 - [Node.JS](./connect-nodejs.md)
 - [Ruby](./connect-ruby.md)
