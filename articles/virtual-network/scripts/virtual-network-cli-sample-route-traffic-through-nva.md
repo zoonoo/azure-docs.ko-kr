@@ -15,12 +15,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 7cfd9de13057e859a49c37d7549f0c6db4d9ca2c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: cc539800cb9cb75ecc69f0d7ae923ed3edfd2ad0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073877"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492295"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅 - Azure CLI 스크립트 샘플
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: eefc8f1e9dcf6744e276d3cd911f325a8759fa30
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 67ce5f898f2f9b6be088a0d01aec908c93ce7418
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129120"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446887"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>자습서: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -60,10 +60,11 @@ GitHub의 [AzureAD/microsoft-authentication-library-for-js](https://github.com/A
 
 다음 npm 명령을 사용하여 새 Angular 애플리케이션을 생성합니다.
 
-```Bash
+```bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
-npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
+cd my-application                                # Change to the app directory
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
@@ -271,7 +272,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우가 가끔 있습니다. 예를 들면 다음과 같습니다.
+사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우가 가끔 있습니다. 다음은 그 예입니다.
 
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.

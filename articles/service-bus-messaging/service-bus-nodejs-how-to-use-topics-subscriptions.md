@@ -6,12 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: d4b382a0cf857f9cfe1065815e9b07b8260023a8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9d4a3a66d967bd003534c7931091979d1667526c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339797"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432807"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Node.js와 azure-sb 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
 이 자습서에서는 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 메시지를 받는 Node.js 애플리케이션을 만드는 방법에 대해 알아봅니다. 샘플은 JavaScript로 작성되었으며 내부적으로 `azure-sb` 패키지를 사용하는 Node.js [Azure 모듈](https://www.npmjs.com/package/azure)을 사용합니다.

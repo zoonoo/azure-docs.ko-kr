@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2020
 ms.author: tomfitz
-ms.openlocfilehash: 900f31ff87e6a588fc1d1e3efd854437d2c8c1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 915b8e13adaa440063f5db62b72fa39e1035d576
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76719945"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460782"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>PowerShell을 사용하여 Event Grid 사용자 지정 항목 만들기
 
@@ -36,9 +36,9 @@ ms.locfileid: "76719945"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Event Grid 사용자 지정 항목을 만듭니다. |
+| [New-AzEventGridTopic](/powershell/module/az.eventgrid/new-azeventgridtopic) | Event Grid 사용자 지정 항목을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.
+* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/get-started-azureps)를 참조하세요.

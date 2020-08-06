@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508321"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448859"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 변경 내용 및 업데이트 모니터링
 
-Azure [변경 내용 추적](../../automation/change-tracking.md) 및 [업데이트 관리](../../automation/automation-update-management.md)를 사용하면 Azure에서 Windows 가상 머신의 변경 내용을 쉽게 식별하고 해당 VM의 운영 체제 업데이트를 관리할 수 있습니다.
+Azure [변경 내용 추적](../../automation/change-tracking.md) 및 [업데이트 관리](../../automation/update-management/update-mgmt-overview.md)를 사용하면 Azure에서 Windows 가상 머신의 변경 내용을 쉽게 식별하고 해당 VM의 운영 체제 업데이트를 관리할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -112,10 +112,10 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리** 
 | --- | --- |
 | **이름** |업데이트 배포를 식별하는 고유 이름을 제공합니다. |
 |**운영 체제**| **Linux** 또는 **Windows**를 선택합니다.|
-| **업데이트할 그룹** |Azure에 호스팅되는 VM의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의합니다. 이 쿼리는 배포에 포함할 Azure 호스팅 VM의 동적 그룹을 만듭니다. </br></br>Azure에 호스팅되지 않는 VM의 경우 저장된 기존 검색을 선택합니다. 이 검색을 사용하여 배포에 포함할 VM 그룹을 선택할 수 있습니다. </br></br> 자세한 내용은 [동적 그룹](../../automation/automation-update-management-groups.md)을 참조하세요.|
+| **업데이트할 그룹** |Azure에 호스팅되는 VM의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의합니다. 이 쿼리는 배포에 포함할 Azure 호스팅 VM의 동적 그룹을 만듭니다. </br></br>Azure에 호스팅되지 않는 VM의 경우 저장된 기존 검색을 선택합니다. 이 검색을 사용하여 배포에 포함할 VM 그룹을 선택할 수 있습니다. </br></br> 자세한 내용은 [동적 그룹](../../automation/update-management/update-mgmt-groups.md)을 참조하세요.|
 | **업데이트할 머신** |**저장된 검색**, **가져온 그룹** 또는 **머신**을 선택합니다.<br/><br/>**머신**을 선택하는 경우 드롭다운 목록에서 개별 머신을 선택할 수 있습니다. 각 머신의 준비 상태는 테이블의 **업데이트 에이전트 준비** 열에 표시됩니다.</br></br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 참조하세요. |
 |**업데이트 분류**|필요한 모든 업데이트 분류를 선택합니다.|
-|**업데이트 포함/제외**|**포함/제외** 창을 열려면 이 옵션을 선택합니다. 포함할 업데이트와 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [업데이트 배포 예약](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment)을 참조하세요. |
+|**업데이트 포함/제외**|**포함/제외** 창을 열려면 이 옵션을 선택합니다. 포함할 업데이트와 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [업데이트 배포 예약](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment)을 참조하세요. |
 |**일정 설정**|시작 시간을 선택하고, **한 번** 또는 **정기**를 선택합니다.|
 | **사전 스크립트 + 사후 스크립트**|배포 전후에 실행할 스크립트를 선택합니다.|
 | **유지 관리 기간** | 업데이트에 설정할 시간(분)을 입력합니다. 유효한 값의 범위는 30~360분입니다. |

@@ -14,12 +14,13 @@ ms.workload: identity
 ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: azuread-video-2020
+ms.openlocfilehash: cb77bfb6173e94ea3cdaadf4456947de75676565
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171568"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761130"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)란?
 
@@ -136,7 +137,6 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작: 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기](check-access.md)
 - [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
 - [여러 역할의 이해](rbac-and-directory-admin-roles.md)
 - [클라우드 채택 프레임워크: Azure에서 리소스 액세스 관리](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

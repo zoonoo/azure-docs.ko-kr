@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4c501368dfbeb95be1c5d2af9ff7aae3850257b3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087829"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761147"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -131,4 +131,3 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 역할 목�
 - [Azure RBAC(Azure 역할 기반 액세스 제어)란?](overview.md)
 - [Azure Active Directory의 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Azure 클래식 구독 관리자](classic-administrators.md)
-- [클라우드 채택 프레임워크: Azure에서 리소스 액세스 관리](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

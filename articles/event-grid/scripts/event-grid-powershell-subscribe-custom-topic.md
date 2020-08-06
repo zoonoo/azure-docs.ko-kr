@@ -4,12 +4,12 @@ description: 이 문서에서는 사용자 지정 항목에 대한 Event Grid �
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 89917554da3d5b338ae17332ea8847d6313ca534
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: f37a90b84e5e55298efc0b3cd53812db95e4d86d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171179"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460731"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>PowerShell을 사용하여 사용자 지정 항목에 대한 이벤트 구독
 
@@ -37,9 +37,9 @@ ms.locfileid: "86171179"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Event Grid 구독을 만듭니다. |
+| [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) | Event Grid 구독을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.
+* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/get-started-azureps)를 참조하세요.

@@ -3,12 +3,12 @@ title: Blob 스토리지 이벤트를 웹 엔드포인트에 전송 - 템플릿
 description: Azure Event Grid 및 Azure Resource Manager 템플릿을 사용하여 Blob 스토리지 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 Webhook에 보냅니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103316"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460442"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>ARM 템플릿을 사용하여 Blob 스토리지 이벤트를 웹 엔드포인트로 라우팅
 
@@ -86,7 +86,7 @@ Blob Storage 계정에 대한 이벤트를 구독하기 전에 이벤트 메시�
 
 Azure Resource Manager 템플릿에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Resource Manager 설명서](/azure/azure-resource-manager)
+* [Azure Resource Manager 설명서](../azure-resource-manager/index.yml)
 * [Azure Resource Manager 템플릿에서 리소스 정의](/azure/templates/)
 * [Azure Quickstart 템플릿](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fe53f400c1e03f0f3bb9d5e85891769d58320d84
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 31a8457b4b1ac069cafbfd9713f15fdad7142d10
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501979"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445797"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
 
-Azure [변경 추적](../../automation/change-tracking.md)을 사용하면 변경 내용을 쉽게 식별할 수 있으며 [업데이트 관리](../../automation/automation-update-management.md)를 사용하면 Azure Linux VM의 운영 체제 업데이트를 관리할 수 있습니다.
+Azure [변경 추적](../../automation/change-tracking.md)을 사용하면 변경 내용을 쉽게 식별할 수 있으며 [업데이트 관리](../../automation/update-management/update-mgmt-overview.md)를 사용하면 Azure Linux VM의 운영 체제 업데이트를 관리할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -111,14 +111,14 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 
 
 새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. **새 업데이트 배포** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
-| 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](../../automation/automation-update-management-groups.md)을 참조하세요.|
+| 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](../../automation/update-management/update-mgmt-groups.md)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 참조하세요. |
 |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
-|업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [업데이트 배포 예약](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment)을 참조하세요. |
+|업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [업데이트 배포 예약](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment)을 참조하세요. |
 |일정 설정|시작 시간을 선택하고 되풀이에 대해 [한 번] 또는 [정기]를 선택합니다.|
 | 사전 스크립트 + 사후 스크립트|배포 전후에 실행할 스크립트를 선택합니다.|
 | 유지 관리 기간 |업데이트에 대해 설정되는 시간(분)입니다. 값은 30분 이상 6시간 이하여야 합니다. |

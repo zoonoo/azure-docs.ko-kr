@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 21b2308fb931d1c0932184dcc7946e99d3551b13
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 116d939368626cadab7be8b5295b1c74f446ac27
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324865"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431721"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio(클래식)
 
-**적용 대상:** ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) 
+**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부**입니다.

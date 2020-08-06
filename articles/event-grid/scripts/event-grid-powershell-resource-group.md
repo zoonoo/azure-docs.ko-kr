@@ -4,12 +4,12 @@ description: 이 문서에서는 리소스 그룹에 대한 Event Grid 이벤트
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 82f40b9971d89d96500887e2927a7b86246ce74d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c8e84fe12cf239e7dbb0e6a15088efda793ddec9
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171196"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460748"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>PowerShell을 사용하여 리소스 그룹에 대한 이벤트 구독
 
@@ -37,9 +37,9 @@ ms.locfileid: "86171196"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Event Grid 구독을 만듭니다. |
+| [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) | Event Grid 구독을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
-* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.
+* PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/get-started-azureps)를 참조하세요.

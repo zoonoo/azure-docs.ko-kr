@@ -1,21 +1,20 @@
 ---
 title: '빠른 시작: 음성 텍스트 변환, C#(UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
-ms.author: erhopf
+ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 62993b2e553630edd228228b4faa82de44997063
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 08da79afa14d883c6fe21ead7b3bca5f1aac5538
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671726"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87771077"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 

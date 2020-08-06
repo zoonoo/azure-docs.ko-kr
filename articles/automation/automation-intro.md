@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 �
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186183"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448071"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -43,7 +43,7 @@ Azure Automation의 구성 관리를 통해 다음과 같은 두 가지 기능�
 
 ## <a name="update-management"></a>업데이트 관리
 
-Azure Automation에는 하이브리드 환경의 Windows 및 Linux 시스템용 [업데이트 관리](automation-update-management.md) 기능이 포함되어 있습니다. 업데이트 관리는 Azure와 기타 클라우드 및 온-프레미스에서 업데이트 규정 준수에 대한 가시성을 제공합니다. 이 기능을 사용하면 정의한 유지 관리 기간 내에 업데이트 설치를 오케스트레이션하는 예약된 배포를 만들 수 있습니다. 특정 머신에 업데이트를 설치하지 않아야 하는 경우에는 업데이트 관리 기능을 사용하여 배포에서 제외할 수 있습니다.
+Azure Automation에는 하이브리드 환경의 Windows 및 Linux 시스템용 [업데이트 관리](update-management/update-mgmt-overview.md) 기능이 포함되어 있습니다. 업데이트 관리는 Azure와 기타 클라우드 및 온-프레미스에서 업데이트 규정 준수에 대한 가시성을 제공합니다. 이 기능을 사용하면 정의한 유지 관리 기간 내에 업데이트 설치를 오케스트레이션하는 예약된 배포를 만들 수 있습니다. 특정 머신에 업데이트를 설치하지 않아야 하는 경우에는 업데이트 관리 기능을 사용하여 배포에서 제외할 수 있습니다.
 
 ## <a name="shared-capabilities"></a>공유 기능
 

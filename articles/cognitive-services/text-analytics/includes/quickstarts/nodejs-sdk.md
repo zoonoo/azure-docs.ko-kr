@@ -9,12 +9,13 @@ ms.topic: include
 ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: cc5db825771369d35b447232b58a9e42b14efb4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b1a0425fba7dc8c6fb87f03305062f61fc431ca9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374867"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451175"
 ---
 <a name="HOLTop"></a>
 
@@ -265,7 +266,7 @@ Document ID: 3 , Language: Chinese_Simplified
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 > [!NOTE]
-> 버전 `3.0-preview`에서 다음을 수행합니다.
+> 버전 `3.0`에서 다음을 수행합니다.
 > * 엔터티 연결은 NER과 별개의 요청입니다.
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeEntities()` 메서드를 호출하고 `RecognizeEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, 형식, 하위 유형, 오프셋, 길이 및 점수를 인쇄합니다.
