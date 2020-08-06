@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2b3f9b0a4bec76f1f5f9b1f42ec33fdf5e2678bf
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284254"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760161"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -123,7 +123,7 @@ C # 및 REST API를 사용 하 여 OCR을 구현 하려면 [인쇄 및 필기 �
 
 ### <a name="printed-text-in-supported-languages"></a>지원 되는 언어로 인쇄 된 텍스트
 
-읽기 3.0 API는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 된 텍스트를 추출 하는 것을 지원 합니다. [Read 3.1-preview. 1 API 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 는 중국어 간체에 대 한 지원을 추가 합니다. 시나리오에서 더 많은 언어를 지원 해야 하는 경우이 문서의 OCR API 개요를 참조 하세요. 모든 [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 목록을 참조 하세요.
+읽기 3.0 API는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 된 텍스트를 추출 하는 것을 지원 합니다. [Read 3.1 API 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 는 중국어 간체에 대 한 지원을 추가 합니다. 시나리오에서 더 많은 언어를 지원 해야 하는 경우이 문서의 OCR API 개요를 참조 하세요. 모든 [OCR 지원 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 목록을 참조 하세요.
 
 ![회전 중인 이미지와 해당 텍스트를 읽고 구분 하 고 있습니다.](./Images/supported-languages-example.png)
 
@@ -149,5 +149,5 @@ C # 및 REST API를 사용 하 여 OCR을 구현 하려면 [인쇄 및 필기 �
 ## <a name="next-steps"></a>다음 단계
 
 - [읽기 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
-- 중국어 간체에 대 한 지원이 추가 된 [REST API 읽기 3.1-미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.
+- 중국어 간체에 대 한 지원이 추가 된 [REST API 읽기 3.1 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.
 - [텍스트 추출](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 따라 REST API와 함께 c #, Java, JavaScript 또는 Python을 사용 하 여 OCR을 구현 합니다.

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16bb5fa41389dcf1ddd8ee2e3434e15755bb0d8d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 649f1e6cf79aa17d053cc547debf5232120bb4fe
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290928"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760637"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대 한 언어 지원
 
@@ -25,7 +25,7 @@ Computer Vision의 일부 기능은 여러 언어를 지원 합니다. 여기서
 
 Computer Vision의 OCR Api는 여러 언어를 지원 합니다. 언어 코드를 지정 하지 않아도 됩니다. 자세한 내용은 [OCR (광학 문자 인식)](concept-recognizing-text.md) 을 참조 하세요.
 
-|언어| 언어 코드 | OCR API | V 3.0 읽기 | 읽기 v 3.1-미리 보기. 1 |
+|언어| 언어 코드 | OCR API | V 3.0 읽기 | 읽기 v 3.1 공개 미리 보기 |
 |:-----|:----:|:-----:|:---:|:---:|
 |아랍어 | `ar`|✔ | | |
 |중국어(간체) | `zh-Hans`|✔ | |✔ |

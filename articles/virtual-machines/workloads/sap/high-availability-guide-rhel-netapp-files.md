@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 62cabf06c5c0255437324acae43950cd13b96537
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a8503f701a36d7197f85f2c86e37272ccf1cab48
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065117"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760722"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대해 Azure NetApp Files을 사용 하는 Red Hat Enterprise Linux에서 SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성
 
@@ -199,7 +199,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **health.QAS.ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS ERS용 포트 621**01**
             * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621**01** 및 **health.QAS.ERS**)
    1. 부하 분산 규칙
@@ -210,7 +210,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
          * 위의 단계를 반복하여 ERS에 대한 부하 분산 규칙 만들기(예: **lb.QAS.ERS**)
 1. 또는 시나리오에 기본 부하 분산 장치(내부)가 필요한 경우 다음 단계를 수행합니다.  
    1. 프런트 엔드 IP 주소 만들기
@@ -233,7 +233,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **health.QAS.ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS ERS용 포트 621**01**
             * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621**01** 및 **health.QAS.ERS**)
    1. 부하 분산 규칙
@@ -589,9 +589,11 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
    
-   # Add the keep alive parameter
+   # Add the keep alive parameter, if using ENSA1
    enque/encni/set_so_keepalive = true
    ```
+
+   ENSA1 및 ENSA2 둘 다에 대해 `keepalive` SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명 된 대로 OS 매개 변수를 설정 해야 합니다.  
 
    * ERS 프로필
 
@@ -610,8 +612,6 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
 1. **[A]** 연결 유지 구성
 
    SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이를 방지 하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정 하 고 Linux 시스템 설정을 변경 해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
-
-   ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
    ```
    # Change the Linux system configuration

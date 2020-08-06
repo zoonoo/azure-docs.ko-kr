@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263367"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761198"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
 
@@ -51,7 +51,7 @@ SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 
 ## <a name="run-a-sql-query-and-output-to-a-pandas-dataframe"></a>SQL 쿼리를 실행하고 Pandas 데이터 프레임에 출력합니다.
 
-``%%sql`` 쿼리의 결과를 [Pandas 데이터 프레임](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe)에 출력할 수 있습니다. 다음 구문을 사용합니다. 
+``%%sql`` 쿼리의 결과를 [Pandas 데이터 프레임](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)에 출력할 수 있습니다. 다음 구문을 사용합니다. 
 
 ```python
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}

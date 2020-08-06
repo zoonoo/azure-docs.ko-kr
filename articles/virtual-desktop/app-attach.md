@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291505"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760671"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -202,12 +202,12 @@ Windows Virtual Desktop 환경에서 네트워크 공유를 만들고 여기로 
 
 1. 패키지를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 2. 창이 나타나면 **디지털 서명** 탭을 선택합니다. 다음 이미지와 같이, 탭의 목록에는 항목이 하나만 있어야 합니다. 해당 항목을 선택하여 항목을 강조 표시한 다음, **세부 정보**를 선택합니다.
-3. 디지털 서명 정보 창이 나타나면 **일반** 탭을 선택한 다음, **인증서 설치**를 선택합니다.
+3. 디지털 서명 정보 창이 표시 되 면 **일반** 탭을 선택한 다음 **인증서 보기**를 선택 하 고 **인증서 설치**를 선택 합니다.
 4. 설치 관리자가 열리면 **로컬 머신**을 스토리지 위치로 선택하고 **다음**을 선택합니다.
 5. 설치 관리자에 앱이 디바이스를 변경하도록 허용할지 묻는 메시지가 표시되면 **예**를 선택합니다.
 6. **모든 인증서를 다음 저장소에 저장**을 선택한 다음, **찾아보기**를 선택합니다.
 7. 인증서 저장소 선택 창이 나타나면 **신뢰할 수 있는 사용자**를 선택한 후 **확인**을 선택합니다.
-8. **마침**을 선택합니다.
+8. **다음** 을 선택 하 고 **마침**을 선택 합니다.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>MSIX app attach용 PowerShell 스크립트 준비
 

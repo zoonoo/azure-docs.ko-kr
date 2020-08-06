@@ -5,14 +5,14 @@ services: vpn-gateway
 author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 08/04/2020
 ms.author: alzam
-ms.openlocfilehash: cf978f9551e5b2db885ca28d14f66586c029d913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97620192fb645dd453d1479d1e755e87cf9afd5c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082225"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761181"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성: Azure AD 인증
 
@@ -88,11 +88,11 @@ ms.locfileid: "87082225"
 
 1. 삭제할 클라이언트 프로필 옆에 있는 줄임표를 선택 합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>연결 만들기
 
@@ -250,6 +250,15 @@ ms.locfileid: "87082225"
 </clientconfig>
 </azvpnprofile>
 ```
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>명령줄 프롬프트에서 프로필을 가져올 수 있나요?
+
+다운로드 한 **azurevpnconfig.xml** 파일을 **%Userprofile%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** 폴더에 배치 하 고 다음 명령을 실행 하 여 명령줄 프롬프트에서 프로필을 가져올 수 있습니다.
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+가져오기를 강제로 수행 하려면 **-f** 스위치도 사용 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: de6311e786065bebe7399ccb3625798866e864df
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f9c5de4fb4e38d3f9ccb79c89be988fe0bbebc3c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533345"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760297"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -197,7 +197,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
 * `type` 속성이 `UserAssigned`로 설정된 `identity` 개체
 
-* ID의 리소스 ID를 지정하는 자식 `userAssignedIdentities` 개체(`principalId` 및 `clientId` 속성이 있는 다른 자식 개체임)
+* `userAssignedIdentities`사용자 할당 리소스 및 이름을 지정 하는 자식 개체입니다.
 
 다음 예제에서는 HTTP PUT 요청에 대한 논리 앱 리소스 정의가 표시되며 매개 변수가 없는 `identity` 개체가 포함됩니다. PUT 요청 및 후속 GET 작업에 대한 응답에도 이 `identity` 개체가 있습니다.
 
@@ -215,10 +215,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {
-                  "principalId": "<principal-ID>",
-                  "clientId": "<client-ID>"
-               }
+               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {}
             }
          },
          "properties": {
@@ -231,12 +228,6 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
    "outputs": {}
 }
 ```
-
-| 속성(JSON) | 값 | Description |
-|-----------------|-------|-------------|
-| `principalId` | <*principal-ID*> | Azure AD 테넌트의 사용자가 할당한 관리 ID에 대한 GUID(Globally Unique Identifier) |
-| `clientId` | <*client-ID*> | 런타임 동안 호출에 사용되는 논리 앱의 새 ID에 대한 GUID(Globally Unique Identifier) |
-||||
 
 관리 ID의 리소스 정의도 템플릿에 포함되면 `identity` 개체를 매개 변수화할 수 있습니다. 다음 예제에서는 템플릿의 `variables` 섹션에서 정의한 자식 `userAssignedIdentities` 개체에서 `userAssignedIdentity` 변수를 참조하는 방법을 보여 줍니다. 이 변수는 사용자가 할당한 ID에 대한 리소스 ID를 참조합니다.
 
@@ -281,22 +272,11 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
          "name": "[parameters('Template_UserAssignedIdentityName')]",
          "location": "[resourceGroup().location]",
-         "properties": {
-            "tenantId": "<tenant-ID>",
-            "principalId": "<principal-ID>",
-            "clientId": "<client-ID>"
-         }
+         "properties": {}
       }
   ]
 }
 ```
-
-| 속성(JSON) | 값 | Description |
-|-----------------|-------|-------------|
-| `tenantId` | <*Azure-AD-tenant-ID*> | 사용자가 할당한 ID가 현재 멤버로 속해 있는 Azure AD 테넌트를 나타내는 GUID(Globally Unique Identifier). Azure AD 테넌트 내에서 서비스 주체는 사용자가 할당한 ID 이름과 동일합니다. |
-| `principalId` | <*principal-ID*> | Azure AD 테넌트의 사용자가 할당한 관리 ID에 대한 GUID(Globally Unique Identifier) |
-| `clientId` | <*client-ID*> | 런타임 동안 호출에 사용되는 논리 앱의 새 ID에 대한 GUID(Globally Unique Identifier) |
-||||
 
 <a name="access-other-resources"></a>
 
@@ -508,7 +488,7 @@ Azure Portal에서 먼저 [대상 리소스](#disable-identity-target-resource)�
 
 ### <a name="disable-managed-identity-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 관리 ID 사용 안 함
 
-Azure Resource Manager 템플릿을 사용하여 논리 앱의 관리 ID를 만든 경우 `identity` 개체의 `type` 자식 속성을 `None`으로 설정합니다. 시스템이 할당한 ID의 경우 이 작업은 Azure AD의 주체 ID도 삭제합니다.
+Azure Resource Manager 템플릿을 사용하여 논리 앱의 관리 ID를 만든 경우 `identity` 개체의 `type` 자식 속성을 `None`으로 설정합니다.
 
 ```json
 "identity": {
