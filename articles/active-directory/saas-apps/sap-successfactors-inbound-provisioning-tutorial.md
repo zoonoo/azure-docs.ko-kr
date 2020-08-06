@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 77b4336fd9430b523f4f9fa288b7451117f7e0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95c46550570d579af7ab8107686ad20838a3a62e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016975"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809955"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>자습서: 사용자 프로 비전을 Active Directory SAP SuccessFactors 구성 (미리 보기)
-이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../app-provisioning/sap-successfactors-attribute-reference.md) 검색을 지원 합니다.
+# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>자습서: 사용자 프로 비전 Active Directory SAP SuccessFactors 구성 
+이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 
 
 >[!NOTE]
 >SuccessFactors에서 프로 비전 하려는 사용자에 게 온-프레미스 AD 계정 및 선택적으로 Azure AD 계정이 필요한 경우이 자습서를 사용 합니다. SuccessFactors의 사용자에 게 Azure AD 계정 (클라우드 전용 사용자)만 필요한 경우 Azure AD 사용자 프로 비전 [에 SAP SuccessFactors 구성](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 의 자습서를 참조 하세요. 
@@ -82,7 +82,7 @@ SuccessFactors에서 AD로 클라우드 HR 구동 사용자 프로 비전을 구
 * 배포할 AD 사용자 프로 비전 앱에 대 한 SuccessFactors 수
 * 일치 하는 ID, 특성 매핑, 변환 및 범위 지정 필터
 
-이러한 항목에 대 한 포괄적인 지침은 [CLOUD HR 배포 계획](../app-provisioning/plan-cloud-hr-provision.md) 을 참조 하세요. 
+이러한 항목에 대 한 포괄적인 지침은 [CLOUD HR 배포 계획](../app-provisioning/plan-cloud-hr-provision.md) 을 참조 하세요. 지원 되는 엔터티, 처리 세부 정보 및 다른 HR 시나리오에 대 한 통합을 사용자 지정 하는 방법에 대 한 자세한 내용은 [SAP SuccessFactors integration 참조](../app-provisioning/sap-successfactors-integration-reference.md) 를 참조 하세요. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>통합을 위한 SuccessFactors 구성
 
@@ -236,9 +236,9 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
   
    ![종료 화면](./media/workday-inbound-tutorial/pa_install_screen_9.png "종료 화면")
    
-1. 에이전트 설치를 확인하고 “서비스” 스냅인을 열고 “Microsoft Azure AD Connect Provisioning Agent”라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
+1. 에이전트 설치를 확인하고 "서비스" 스냅인을 열고 "Microsoft Azure AD Connect Provisioning Agent"라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
   
-   ![서비스](./media/workday-inbound-tutorial/services.png)
+   ![Services](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>3 부: 프로 비전 앱에서 SuccessFactors 및 Active Directory에 대 한 연결 구성
 이 단계에서는 Azure Portal에서 SuccessFactors 및 Active Directory와의 연결을 설정 합니다. 
@@ -260,7 +260,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
         > [!NOTE]
         > 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
 
-   * **알림 전자 메일-** 전자 메일 주소를 입력 하 고 "오류가 발생 하는 경우 전자 메일 보내기" 확인란을 선택 합니다.
+   * **알림 메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
     > [!NOTE]
     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
 

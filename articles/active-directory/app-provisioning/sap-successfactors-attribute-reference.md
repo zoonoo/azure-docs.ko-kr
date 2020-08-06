@@ -2,36 +2,37 @@
 title: SAP SuccessFactors 특성 참조
 description: SuccessFactors-HR 기반 프로비저닝에서 지원하는 SuccessFactors의 특성 알아보기
 services: active-directory
-author: kenwith
+author: cmmdesai
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: kenwith
+ms.date: 08/05/2020
+ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781551"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808510"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>SAP SuccessFactors 특성 참조
 
 이 문서에서는 다음에 대 한 정보를 찾을 수 있습니다.
 
-- [지원 되는 SuccessFactors 엔터티 및 특성](#supported-successfactors-entities-and-attributes)
+- [SuccessFactors 엔터티 및 특성](#supported-successfactors-entities-and-attributes)
 - [기본 특성 매핑](#default-attribute-mapping)
 
 ## <a name="supported-successfactors-entities-and-attributes"></a>지원 되는 SuccessFactors 엔터티 및 특성
 
-아래 표에서는 다음 두 프로 비전 앱에서 지원 되는 SuccessFactors 특성 목록을 캡처합니다.
+아래 표에서는 다음과 같은 두 프로 비전 앱에 기본적으로 포함 된 SuccessFactors 특성 목록을 캡처합니다.
 
 - [SuccessFactors 사용자 프로 비전을 Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [Azure AD 사용자 프로 비전에 SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
+추가 특성에 대 한 스키마를 확장 하려면 [SAP SuccessFactors 통합 참조](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) 를 참조 하세요. 
 
 | \# | SuccessFactors 엔터티                  | SuccessFactors 특성     | 작업 유형 |
 |----|----------------------------------------|------------------------------|----------------|

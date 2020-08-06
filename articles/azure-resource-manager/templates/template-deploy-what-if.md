@@ -3,23 +3,23 @@ title: 템플릿 배포 정의 (미리 보기)
 description: Azure Resource Manager 템플릿을 배포 하기 전에 리소스에 대해 수행 되는 변경 내용을 확인 합니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888746"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810074"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM 템플릿 배포 가상 작업 (미리 보기)
 
-ARM (Azure Resource Manager) 템플릿을 배포 하기 전에 발생 하는 변경 내용을 미리 볼 수 있습니다. Azure Resource Manager은 템플릿을 배포할 때 리소스가 어떻게 변경 되는지 확인할 수 있는 가상 작업을 제공 합니다. 가상 작업은 기존 리소스를 변경 하지 않습니다. 대신, 지정 된 템플릿이 배포 되는 경우 변경 내용을 예측 합니다.
+Azure Resource Manager 템플릿 (ARM 템플릿)을 배포 하기 전에 발생 하는 변경 내용을 미리 볼 수 있습니다. Azure Resource Manager은 템플릿을 배포할 때 리소스가 어떻게 변경 되는지 확인할 수 있는 가상 작업을 제공 합니다. 가상 작업은 기존 리소스를 변경 하지 않습니다. 대신, 지정 된 템플릿이 배포 되는 경우 변경 내용을 예측 합니다.
 
 > [!NOTE]
 > 가상 작업 인 경우 현재 미리 보기 상태입니다. 미리 보기 릴리스로 인해 실제로 변경이 발생 하지 않을 때 리소스가 변경 되는 것을 보여 주는 경우도 있습니다. 이러한 문제를 줄이기 위해 노력 하 고 있지만 도움이 필요 합니다. 에서 이러한 문제를 보고 하세요 [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Azure PowerShell, Azure CLI 또는 REST API 작업을 사용 하 여 가상 작업을 사용할 수 있습니다. 가상은 리소스 그룹 및 구독 수준 배포에 대해 지원 됩니다.
+Azure PowerShell, Azure CLI 또는 REST API 작업을 사용 하 여 가상 작업을 사용할 수 있습니다. 가상은 리소스 그룹, 구독, 관리 그룹 및 테 넌 트 수준 배포에 대해 지원 됩니다.
 
 ## <a name="install-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
@@ -125,20 +125,23 @@ Resource changes: 1 to modify.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-템플릿을 배포 하기 전에 변경 내용을 미리 보려면 [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) 또는 [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if)를 사용 합니다.
+템플릿을 배포 하기 전에 변경 내용을 미리 보려면 다음을 사용 합니다.
 
-* `az deployment group what-if`리소스 그룹 배포의 경우
-* `az deployment sub what-if`구독 수준 배포의 경우
+* [az deployment group what-](/cli/azure/deployment/group#az-deployment-group-what-if) 리소스 그룹 배포의 경우
+* [az deployment sub what-](/cli/azure/deployment/sub#az-deployment-sub-what-if) 구독 수준 배포의 경우
+* [az deployment mg (](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) 관리 그룹 배포의 경우)
+* [az deployment 테 넌 트-](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) 테 넌 트 배포의 경우
 
-`--confirm-with-what-if`스위치 (또는 약식 `-c` )를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다. 이 스위치를 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) 또는 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)에 추가 합니다.
+`--confirm-with-what-if`스위치 (또는 약식 `-c` )를 사용 하 여 변경 내용을 미리 보고 배포를 계속 하 라는 메시지를 받을 수 있습니다. 다음에이 스위치를 추가 합니다.
 
-* `az deployment group create --confirm-with-what-if`또는 `-c` 리소스 그룹 배포의 경우
-* `az deployment sub create --confirm-with-what-if`또는 `-c` 구독 수준 배포의 경우
+* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
+* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-이전 명령은 수동으로 검사할 수 있는 텍스트 요약을 반환 합니다. 프로그래밍 방식으로 변경 내용을 검사할 수 있는 JSON 개체를 가져오려면 다음을 사용 합니다.
+예를 들어 `az deployment group create --confirm-with-what-if` `-c` 리소스 그룹 배포의 경우 또는를 사용 합니다.
 
-* `az deployment group what-if --no-pretty-print`리소스 그룹 배포의 경우
-* `az deployment sub what-if --no-pretty-print`구독 수준 배포의 경우
+이전 명령은 수동으로 검사할 수 있는 텍스트 요약을 반환 합니다. 프로그래밍 방식으로 변경 내용을 검사할 수 있는 JSON 개체를 가져오려면 스위치를 사용 `--no-pretty-print` 합니다. 예를 들어 `az deployment group what-if --no-pretty-print` 리소스 그룹 배포에는를 사용 합니다.
 
 색 없이 결과를 반환 하려는 경우 [Azure CLI 구성](/cli/azure/azure-cli-configuration) 파일을 엽니다. **No_color** 를 **예**로 설정 합니다.
 
@@ -147,7 +150,9 @@ Resource changes: 1 to modify.
 REST API의 경우 다음을 사용 합니다.
 
 * [배포-](/rest/api/resources/deployments/whatif) 리소스 그룹 배포에 대 한 What If
-* 배포-구독 수준 배포에 대 한 [구독 범위에서 What If](/rest/api/resources/deployments/whatifatsubscriptionscope)
+* 배포-구독 배포를 위한 [구독 범위에서 What If](/rest/api/resources/deployments/whatifatsubscriptionscope)
+* 배포-관리 그룹 배포에 대 한 [관리 그룹 범위에서 What If](/rest/api/resources/deployments/whatifatmanagementgroupscope)
+* 배포-테 넌 트 배포에 대 한 [테 넌 트 범위에서 What If](/rest/api/resources/deployments/whatifattenantscope) 합니다.
 
 ## <a name="change-types"></a>변경 유형
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 출력의 위쪽에서 색이 변경 형식을 나타내는 것으로 정의 됩니다.
 
-출력 아래쪽에는 태그 소유자가 삭제 되었음을 표시 합니다. 주소 접두사가 10.0.0.0/16에서 10.0.0.0/15로 변경 되었습니다. Subnet001 라는 서브넷이 삭제 되었습니다. 이러한 변경 내용은 실제로 배포 되지 않았습니다. 템플릿을 배포 하는 경우 발생 하는 변경 내용에 대 한 미리 보기가 표시 됩니다.
+출력 아래쪽에는 태그 소유자가 삭제 되었음을 표시 합니다. 주소 접두사가 10.0.0.0/16에서 10.0.0.0/15로 변경 되었습니다. Subnet001 라는 서브넷이 삭제 되었습니다. 이러한 변경 내용은 배포 되지 않습니다. 템플릿을 배포 하는 경우 발생 하는 변경 내용에 대 한 미리 보기가 표시 됩니다.
 
 삭제 된 것으로 표시 되는 일부 속성은 실제로 변경 되지 않습니다. 속성은 템플릿에 없을 때 삭제 된 것으로 잘못 보고 될 수 있지만 배포 중에 기본값으로 자동 설정 됩니다. 이 결과는 가상 응답에서 "노이즈"로 간주 됩니다. 최종 배포 된 리소스는 속성에 대해 설정 된 값을 갖습니다. 가상 작업이 완성 됨에 따라 이러한 속성은 결과에서 필터링 됩니다.
 

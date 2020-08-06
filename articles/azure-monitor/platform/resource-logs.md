@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077078"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800503"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
 Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
 
-진단 설정 만들기에 대 한 자세한 내용은 진단 설정 만들기를 참조 하 여 [다양 한 대상에 플랫폼 로그 및 메트릭을 전송](diagnostic-settings.md) 하는 방법에 대 한 자세한 내용은 Azure Policy [Azure Policy를 사용 하 여 규모에 따라 Azure Monitor 배포](deploy-scale.md) 를 참조 하세요.
+진단 설정 만들기에 대 한 자세한 내용은 진단 설정 만들기를 참조 하 여 [다양 한 대상에 플랫폼 로그 및 메트릭을 전송](diagnostic-settings.md) 하는 방법에 대 한 자세한 내용은 Azure Policy [Azure Policy를 사용 하 여 규모에 따라 Azure Monitor 배포](../deploy-scale.md) 를 참조 하세요.
 
 ## <a name="send-to-log-analytics-workspace"></a>Log Analytics 작업 영역으로 보내기
  다음을 포함 하는 [Azure Monitor 로그](data-platform-logs.md) 의 기능을 사용할 수 있도록 리소스 로그를 Log Analytics 작업 영역으로 보냅니다.

@@ -4,14 +4,21 @@ description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 95558f973041a086dc66d2bebb1ce54ee58c952a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 935579bdcb142969d9baf7ca24cf03268620bf46
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320785"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799687"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Azure Service Bus 및 AMQP 1.0와 함께 JMS (Java Message Service) 사용
+
+> [!WARNING]
+> 아래 가이드는 JMS (Java Message Service) 1.1 API에 대 한 **제한 된 지원과** Azure Service Bus 표준 계층에 대해서만 존재 합니다.
+>
+> JMS (Java Message Service) 2.0 API에 대 한 완전 한 지원은 [미리 보기의 Azure Service Bus 프리미엄 계층](how-to-use-java-message-service-20.md)에서만 사용할 수 있으며이는 매우 권장 됩니다.
+>
+
 이 문서에서는 널리 사용 되는 JMS (Java Message Service) API 표준을 사용 하 여 Java 응용 프로그램에서 Azure Service Bus 메시징 기능 (큐 및 게시/구독 토픽)을 사용 하는 방법을 설명 합니다. Azure Service Bus .NET API를 사용 하 여 동일한 작업을 수행 하는 방법을 설명 하는 [동반 문서가](service-bus-amqp-dotnet.md) 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
 
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
@@ -29,7 +36,7 @@ Azure Service Bus에서 AMQP 1.0에 대 한 지원은 효율적인 이진 프로
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리의 최신 버전을 다운로드 하는 위치에 대 한 자세한 내용은을 참조 [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html) 하세요.
 
-Service Bus를 사용하여 JMS 애플리케이션을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
+Service Bus를 사용 하 여 JMS 응용 프로그램을 빌드하고 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관의 다음 JAR 파일을 Java 클래스 경로에 추가 해야 합니다.
 
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[version].jar
@@ -377,4 +384,3 @@ Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 
 * [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Java 개발자 센터](https://azure.microsoft.com/develop/java/)
-

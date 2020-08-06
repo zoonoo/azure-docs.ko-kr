@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6f51f1c6901eaa18c1de9c1fc788ed583b7394
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004548"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809445"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>연결 된 컴퓨터 에이전트 연결 문제 해결
 
@@ -72,7 +72,7 @@ azcmagent connect \
 
 다음 표에는 알려진 오류 및 문제 해결 방법에 대 한 제안 사항이 정리 되어 있습니다.
 
-|메시지 |오류 |가능한 원인: |솔루션 |
+|메시지 |오류 |가능한 원인: |해결 방법 |
 |--------|------|---------------|---------|
 |권한 부여 토큰 장치 흐름을 획득 하지 못했습니다. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |끝점에 연결할 수 없음 `login.windows.net` | 끝점에 대 한 연결을 확인 합니다. |
 |권한 부여 토큰 장치 흐름을 획득 하지 못했습니다. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |프록시 또는 방화벽에서 끝점에 대 한 액세스를 차단 하 고 `login.windows.net` 있습니다. | 끝점에 대 한 연결을 확인 하 고 방화벽이 나 프록시 서버에 의해 차단 되지 않습니다. |
@@ -90,7 +90,7 @@ azcmagent connect \
 
 여기에 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 통해 추가 지원을 받으세요.
 
-* [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-arc.html)를 통해 Azure 전문가 로부터 답변을 받으세요.
+* [Microsoft Q&A](/answers/topics/azure-arc.html)를 통해 Azure 전문가 로부터 답변을 받으세요.
 
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
 

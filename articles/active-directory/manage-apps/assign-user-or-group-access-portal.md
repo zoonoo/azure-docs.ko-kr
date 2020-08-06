@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763740"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799505"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 
@@ -26,6 +26,9 @@ ms.locfileid: "84763740"
 더 많은 제어를 위해 특정 유형의 엔터프라이즈 애플리케이션을 [사용자 할당이 필요](#configure-an-application-to-require-user-assignment)하도록 구성할 수 있습니다. 
 
 [엔터프라이즈 앱에 사용자 또는 그룹을 할당](#assign-users-or-groups-to-an-app-via-the-azure-portal)하려면 전역 관리자, 애플리케이션 관리자, 클라우드 애플리케이션 관리자 또는 엔터프라이즈 앱의 할당된 소유자로 로그인해야 합니다.
+
+> [!IMPORTANT]
+> 응용 프로그램에 그룹을 할당 하는 경우 그룹의 사용자만 액세스할 수 있습니다. 할당이 중첩 된 그룹에 종속 되지 않습니다.
 
 > [!NOTE]
 > 그룹 기반 할당에는 Azure Active Directory Premium P1 또는 P2 버전이 필요합니다. 그룹 기반 할당은 보안 그룹에만 지원됩니다. 중첩된 그룹 멤버 자격 및 Office 365 그룹은 현재 지원되지 않습니다. 이 문서에서 설명하는 기능에 대한 추가 라이선스 요구 사항은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory)를 참조하세요. 

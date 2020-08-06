@@ -108,8 +108,6 @@
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: 연결된 로그온 구성
           href: configure-linked-sign-on.md
-        - name: MS Graph API를 사용하여 SAML 기반 Single Sign-On 자동화
-          href: application-saml-sso-configure-api.md
     - name: 사용자 할당 및 앱에 대한 액세스 관리
       items:
         - name: 사용자 동의 구성

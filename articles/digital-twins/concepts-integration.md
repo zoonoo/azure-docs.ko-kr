@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367439"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800486"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Azure Digital Twins를 다른 서비스와 통합
 
@@ -33,7 +33,7 @@ Azure Digital Twins는 연결 된 **끝점**에 데이터를 보낼 수 있습�
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-끝점은 관리 Api 또는 Azure Portal를 사용 하 여 Azure Digital Twins에 연결 됩니다. 끝점을 Azure Digital Twins에 연결 하는 방법에 대 한 자세한 내용은 [*방법: 끝점과 경로 관리*](how-to-manage-routes.md)를 확인 하세요.
+끝점은 관리 Api 또는 Azure Portal를 사용 하 여 Azure Digital Twins에 연결 됩니다. 끝점을 Azure Digital Twins에 연결 하는 방법에 대 한 자세한 내용은 [*방법: 끝점과 경로 관리*](how-to-manage-routes-apis-cli.md)를 확인 하세요.
 
 [Azure Storage](../storage/common/storage-introduction.md) 또는 [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md)와 같이 궁극적으로 데이터를 보낼 수 있는 다른 많은 서비스가 있습니다. 이러한 데이터를 이러한 서비스로 전송 하려면 대상 서비스를 끝점에 연결 합니다.
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: eed53725507325351dcf51fbe368331c2a4fd2f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e097692eade956446b46782bca5ecf3a17de75
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065139"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800265"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -125,7 +125,11 @@ ms.locfileid: "87065139"
 1. **[A]** 호스트 이름 확인 설정
 
    DNS 서버를 사용하거나 모든 노드의 /etc/hosts를 수정할 수 있습니다. 이 예에서는 /etc/hosts 파일 사용 방법을 보여줍니다.
-   다음 명령에서 IP 주소와 호스트 이름을 바꿉니다. /etc/hosts를 사용하는 장점은 클러스터가 단일 실패 지점이 될 수 있는 DNS와 무관하다는 점입니다.
+   다음 명령에서 IP 주소와 호스트 이름을 바꿉니다.  
+
+   >[!IMPORTANT]
+   > 클러스터 구성에서 호스트 이름을 사용 하는 경우 신뢰할 수 있는 호스트 이름 확인을 사용 하는 것이 중요 합니다. 이름을 사용할 수 없고 클러스터 장애 조치 (failover) 지연이 발생할 수 있는 경우 클러스터 통신이 실패 합니다.
+   > /etc/hosts를 사용하는 장점은 클러스터가 단일 실패 지점이 될 수 있는 DNS와 무관하다는 점입니다.  
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>

@@ -2,7 +2,7 @@
 title: 오스트레일리아 고객용 id 데이터 저장소-Azure AD
 description: Azure Active Directory 오스트레일리아 고객에 대 한 id 관련 데이터를 저장 하는 위치에 대해 알아보세요.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.author: ajburnle
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 7/21/2020
 ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749ee479f19b0855700cf1ca15aefd9b983dd7f7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 494b949594574a55df405ec0447fa6c59f386f7d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129545"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799040"
 ---
 # <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Azure Active Directory에서 오스트레일리아 및 뉴질랜드 고객을 위한 고객 데이터 저장소
 

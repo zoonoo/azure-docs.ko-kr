@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: d0ce7877ebd33385deb98977c9439bf8a05b5325
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447285"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808630"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -28,7 +28,7 @@ Azure에서 인프라 및 응용 프로그램 보호를 시작 하는 것은 쉽
 
 ![Azure Backup 아키텍처](./media/guidance-best-practices/azure-backup-architecture.png)
 
-### <a name="workloads"></a>워크로드
+### <a name="workloads"></a>작업
 
 Azure Backup를 사용 하면 다양 한 워크 로드 (온-프레미스 및 클라우드)에 대해 데이터를 보호할 수 있습니다. Azure의 안전 하 고 신뢰할 수 있는 기본 제공 데이터 보호 메커니즘입니다. 관리 오버 헤드 없이 여러 워크 로드에 걸쳐 보호를 원활 하 게 확장할 수 있습니다. PowerShell, CLI, Azure Resource Manager 템플릿 및 REST Api를 통해 여러 automation 채널을 사용 하도록 설정 하는 것도 가능 합니다.
 
@@ -62,7 +62,7 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 
 ### <a name="align-to-subscription-design-strategy"></a>구독 디자인 전략에 맞추기
 
-자격 증명 모음이 구독으로 범위가 지정 되므로 자격 증명 모음 디자인은 특정 응용 프로그램이 나 서비스에 따라 또는 응용 프로그램 archetype 줄을 따라 분리 된 *응용 프로그램 범주 전략과* 같은 구독 디자인 전략을 충족 하는 데 적합 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)를 참조하세요.
+자격 증명 모음이 구독으로 범위가 지정 되므로 자격 증명 모음 디자인은 특정 응용 프로그램이 나 서비스에 따라 또는 응용 프로그램 archetype 줄을 따라 분리 된 *응용 프로그램 범주 전략과* 같은 구독 디자인 전략을 충족 하는 데 적합 합니다. 자세한 내용은 [이 문서](/azure/cloud-adoption-framework/decision-guides/subscriptions/)를 참조하세요.
 
 ### <a name="single-or-multiple-vault"></a>단일 또는 여러 자격 증명 모음
 
@@ -72,7 +72,7 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 
 * 워크 로드가 여러 구독에 걸쳐 분산 된 경우 구독 당 하나 이상의 자격 증명 모음을 만들 수 있습니다.
   * 모든 자격 증명 모음, 구독 및 테 넌 트에서 작업 활동의 모니터링을 간소화 하기 위해 Backup 탐색기 및 보고서를 사용할 수 있습니다. 집계 보기를 보려면 [여기에서 자세히 알아보세요](monitor-azure-backup-with-backup-explorer.md) .
-  * 자격 증명 모음에서 일관 된 정책을 필요로 하는 경우 Azure policy를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. [' Deployifnotexists '](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) 효과를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파 하는 사용자 지정 [Azure Policy 정의](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure) 를 작성할 수 있습니다. 할당 하면이 Azure Policy 정의를 특정 범위 (subscription 또는 RG)에 [할당할](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) 수 있으므로 Azure Policy 할당 범위에서 모든 Recovery services 자격 증명 모음에 ' 백업 정책 ' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정 해야 합니다.
+  * 자격 증명 모음에서 일관 된 정책을 필요로 하는 경우 Azure policy를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. [' Deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파 하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md) 를 작성할 수 있습니다. 할당 하면이 Azure Policy 정의를 특정 범위 (subscription 또는 RG)에 [할당할](../governance/policy/assign-policy-portal.md) 수 있으므로 Azure Policy 할당 범위에서 모든 Recovery services 자격 증명 모음에 ' 백업 정책 ' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정 해야 합니다.
 
 * 조직의 공간이 증가 함에 따라 백업 정책에 따라 정렬, 자격 증명 모음 통합, 저렴 한 중복성에 대 한 절충 (GRS에서 LRS로 이동) 등의 이유로 작업을 구독 간에 이동 하는 것이 좋습니다.  Azure Backup는 Azure 구독에서 또는 동일한 구독 내의 다른 리소스 그룹으로 Recovery Services 자격 증명 모음 이동을 지원 합니다. [자세한 내용은 여기를 참조](backup-azure-move-recovery-services-vault.md)하세요.
 
@@ -175,21 +175,21 @@ Azure Backup 작업에서 Recovery Services 자격 증명 모음으로 데이터
 
 * *AZURE VM backup* -저장소와 Azure Backup 서비스 간의 모든 필수 통신 및 데이터 전송은 가상 네트워크에 액세스할 필요 없이 Azure 네트워크 내에서 발생 합니다. 따라서 보안 네트워크 내에 배치 된 Azure Vm을 백업 하는 경우 Ip 또는 Fqdn에 대 한 액세스를 허용할 필요가 없습니다.
 
-* Azure vm의 *SAP HANA 데이터베이스, AZURE vm의 SQL Server 데이터베이스* -Azure Backup 서비스, Azure Storage 및 Azure Active Directory에 대 한 연결이 필요 합니다. 프라이빗 엔드포인트를 사용하거나 필요한 공용 IP 주소 또는 FQDN에 대한 액세스를 허용하면 됩니다. 필요한 Azure 서비스에 대한 적절한 연결을 허용하지 않으면 데이터베이스 검색, 백업 구성, 백업 수행, 데이터 복원과 같은 작업 시 오류가 발생할 수 있습니다. NSG 태그, Azure 방화벽 및 HTTP 프록시를 사용 하는 동안 전체 네트워크 지침은 이러한 [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) 및 [SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#establish-network-connectivity) 문서를 참조 하세요.
+* Azure vm의 *SAP HANA 데이터베이스, AZURE vm의 SQL Server 데이터베이스* -Azure Backup 서비스, Azure Storage 및 Azure Active Directory에 대 한 연결이 필요 합니다. 프라이빗 엔드포인트를 사용하거나 필요한 공용 IP 주소 또는 FQDN에 대한 액세스를 허용하면 됩니다. 필요한 Azure 서비스에 대한 적절한 연결을 허용하지 않으면 데이터베이스 검색, 백업 구성, 백업 수행, 데이터 복원과 같은 작업 시 오류가 발생할 수 있습니다. NSG 태그, Azure 방화벽 및 HTTP 프록시를 사용 하는 동안 전체 네트워크 지침은 이러한 [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) 및 [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) 문서를 참조 하세요.
 
 * *하이브리드* -MARS (Microsoft Azure Recovery Services) 에이전트에는 모든 중요 작업 (설치, 구성, 백업 및 복원)을 위한 네트워크 액세스가 필요 합니다. MARS 에이전트는 공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링 [을 사용 하](install-mars-agent.md#private-endpoints) 여 [Azure express](install-mars-agent.md#use-azure-expressroute) 경로를 통해 Azure express 경로에 Azure Backup 연결할 수 [있습니다.](install-mars-agent.md#verify-internet-access)
 
 ### <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
-Azure [개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 은 Azure 개인 링크를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 하는 네트워크 인터페이스입니다. Azure Backup를 사용 하면 개인 끝점을 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 안전 하 게 백업 하 고 복원할 수 있습니다.
+Azure [개인 끝점](../private-link/private-endpoint-overview.md) 은 Azure 개인 링크를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 하는 네트워크 인터페이스입니다. Azure Backup를 사용 하면 개인 끝점을 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 안전 하 게 백업 하 고 복원할 수 있습니다.
 
 * 자격 증명 모음에 대 한 개인 끝점을 사용 하도록 설정 하는 경우 Azure VM 및 MARS 에이전트 백업의 SQL 및 SAP HANA 워크 로드의 백업 및 복원에만 사용 됩니다.  다른 워크 로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 단, 개인 끝점은 필요 하지 않습니다. MARS 에이전트를 사용 하 여 SQL 및 SAP HANA 작업과 백업 백업 외에도 개인 끝점은 Azure VM 백업 시 파일 복구를 수행 하는 데 사용 됩니다. [자세한 내용은 여기를 참조](private-endpoints.md#recommended-and-supported-scenarios)하세요.
 
-* Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 Azure Active Directory에 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다. [여기에서 필수 구성 요소](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start)에 대해 자세히 알아보세요.
+* Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 Azure Active Directory에 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다. [여기에서 필수 구성 요소](./private-endpoints.md#before-you-start)에 대해 자세히 알아보세요.
 
 ## <a name="governance-considerations"></a>거버넌스 고려 사항
 
-Azure의 거 버 넌 스는 주로 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) 및 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)를 사용 하 여 구현 됩니다. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다. 이 기능은 해당 리소스가 회사 표준을 준수하게 합니다. [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)를 사용하면 Azure 리소스 및 기타 클라우드 공급 기업에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다. 또한 [Azure Price 계산기](https://azure.microsoft.com/pricing/calculator/) 및 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) 같은 다음 도구는 cost management 프로세스에서 중요 한 역할을 합니다.
+Azure의 거 버 넌 스는 주로 [Azure Policy](../governance/policy/overview.md) 및 [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용 하 여 구현 됩니다. [Azure Policy](../governance/policy/overview.md)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다. 이 기능은 해당 리소스가 회사 표준을 준수하게 합니다. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용하면 Azure 리소스 및 기타 클라우드 공급 기업에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다. 또한 [Azure Price 계산기](https://azure.microsoft.com/pricing/calculator/) 및 [Azure Advisor](../advisor/advisor-overview.md) 같은 다음 도구는 cost management 프로세스에서 중요 한 역할을 합니다.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup 기본 제공 Azure Policy를 통해 두 가지 주요 시나리오를 지원 합니다.
 
@@ -237,9 +237,9 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리 하 고 BCD
   * 여러 세분성 수준에서 주요 추세를 확인합니다.
 
 * 기타
-  * **Log Analytics** 작업 영역에 데이터 (예: 작업, 정책 등)를 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용 하 여 Azure Monitor에서 수집 된 다른 모니터링 데이터와 데이터의 상관 관계를 설정 하 고, 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 하 고, 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 항목에 대 한 심층 통찰력을 얻을 [자세한 내용은 여기를 참조](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)하세요.
-  * 데이터를 이벤트 허브로 전송 하 여 타사 SIEM (보안 정보 및 이벤트 관리) 또는 다른 log analytics 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [자세한 내용은 여기를 참조](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to-azure-event-hubs)하세요.
-  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세한 정보를 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to--azure-storage).
+  * **Log Analytics** 작업 영역에 데이터 (예: 작업, 정책 등)를 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용 하 여 Azure Monitor에서 수집 된 다른 모니터링 데이터와 데이터의 상관 관계를 설정 하 고, 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 하 고, 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 항목에 대 한 심층 통찰력을 얻을 [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)하세요.
+  * 데이터를 이벤트 허브로 전송 하 여 타사 SIEM (보안 정보 및 이벤트 관리) 또는 다른 log analytics 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs)하세요.
+  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아보기](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>경고
 

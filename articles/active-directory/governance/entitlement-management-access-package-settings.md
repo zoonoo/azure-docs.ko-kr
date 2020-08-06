@@ -3,7 +3,7 @@ title: Azure AD 자격 관리에서 액세스 패키지를 요청 하는 공유 
 description: Azure Active Directory 자격 관리에서 액세스 패키지를 요청 하는 링크를 공유 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a29f0a0231cdea5a73b7798088002e63ec93324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32973d063c36a45eee79db0b4da4e7419cb70013
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078550"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798549"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지를 요청 하는 공유 링크
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: 4aac13bf34394c359837ecd7a85abd78495bc4b4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283115"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808459"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Azure Active Directory 프로비저닝이 SAP SuccessFactors와 통합 되는 방법 
 
@@ -33,7 +33,7 @@ Azure AD 프로 비전 서비스는 기본 인증을 사용 하 여 Employee Cen
 Azure AD 프로 비전 서비스와 SuccessFactors 간의 연결을 더욱 안전 하 게 보호 하기 위해 아래에 설명 된 단계를 사용 하 여 SuccessFactors IP 허용 목록에 Azure AD IP 범위를 추가할 수 있습니다.
 
 1. Azure 공용 클라우드의 [최신 IP 범위](https://www.microsoft.com/download/details.aspx?id=56519) 다운로드 
-1. 파일을 열고 **AzureActiveDirectory** 및 **AzureActiveDirectoryDomainServices** 태그를 검색 합니다. 
+1. 파일을 열고 **AzureActiveDirectory** 태그를 검색 합니다. 
 
    >[!div class="mx-imgBorder"] 
    >![Azure AD IP 범위](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)

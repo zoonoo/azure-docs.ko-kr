@@ -3,12 +3,12 @@ title: 템플릿 모범 사례
 description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248920"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809258"
 ---
 # <a name="arm-template-best-practices"></a>ARM 템플릿 모범 사례
 
@@ -226,7 +226,7 @@ ms.locfileid: "86248920"
    
      가상 머신에 연결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
    
-   * [Azure에서 N 계층 아키텍처에 대한 VM 실행](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Azure에서 N 계층 아키텍처에 대한 VM 실행](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Azure Resource Manager에서 VM에 대한 WinRM 액세스 설정](../../virtual-machines/windows/winrm.md)
    * [Azure Portal을 사용하여 VM에 대한 외부 액세스 허용](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [PowerShell을 사용하여 VM에 대한 외부 액세스 허용](../../virtual-machines/windows/nsg-quickstart-powershell.md)

@@ -263,7 +263,7 @@
         - name: 온-프레미스 함수
           href: functions-runtime-install.md
         - name: Jenkins 플러그 인을 사용하여 배포
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: 구성
       items:

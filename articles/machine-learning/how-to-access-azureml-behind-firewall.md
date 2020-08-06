@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540073"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808119"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -34,7 +34,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 > [!TIP]
 > 네트워크 규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를로 설정 `*` 합니다.
 >
-> Azure 방화벽 구성에 대 한 자세한 내용은 [Azure 방화벽 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)을 참조 하세요.
+> Azure 방화벽 구성에 대 한 자세한 내용은 [Azure 방화벽 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule)을 참조 하세요.
 
 ## <a name="microsoft-hosts"></a>Microsoft 호스트
 
@@ -57,7 +57,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | 기본 docker 이미지용 Microsoft Container Registry |
 | **your-acr-server-name.azurecr.io** | Azure Container Registry 가상 네트워크 뒤에 있는 경우에만 필요 합니다. 이 구성에서는 Microsoft 환경에서 구독의 ACR 인스턴스로 개인 링크를 만듭니다. Azure Machine Learning 작업 영역에 ACR 서버 이름을 사용 합니다. |
-
+| **\*. notebooks.azure.net** | Azure Machine Learning studio에서 노트북에 필요 합니다. |
 ## <a name="python-hosts"></a>Python 호스트
 
 이 섹션의 호스트는 Python 패키지를 설치 하는 데 사용 됩니다. 개발, 학습 및 배포 중에 필요 합니다. 

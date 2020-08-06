@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 5bf52606e6fa5de6a122a65432da87de1491e17f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324746"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809768"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -23,7 +23,7 @@ ms.locfileid: "87324746"
 
 ### <a name="step-1-check-azure-vm-health"></a>1 단계: Azure VM 상태 확인
 
-- **AZURE vm 프로 비전 상태가 ' 실행 중 ' 인지 확인**: [VM 프로 비전 상태가](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states) **중지 됨/할당 취소 됨/업데이트 중** 상태 이면 백업 작업에 방해가 됩니다. *Azure Portal > vm > 개요 >* 를 열고 vm 상태를 확인 하 여 **실행 중인지** 확인 하 고 백업 작업을 다시 시도 합니다.
+- **AZURE vm 프로 비전 상태가 ' 실행 중 ' 인지 확인**: [VM 프로 비전 상태가](../virtual-machines/windows/states-lifecycle.md#provisioning-states) **중지 됨/할당 취소 됨/업데이트 중** 상태 이면 백업 작업에 방해가 됩니다. *Azure Portal > vm > 개요 >* 를 열고 vm 상태를 확인 하 여 **실행 중인지** 확인 하 고 백업 작업을 다시 시도 합니다.
 - **보류 중인 os 업데이트 또는 다시 부팅 검토**: VM에서 보류 중인 os 업데이트 또는 다시 부팅이 보류 중인지 확인 합니다.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>2 단계: Azure VM 게스트 에이전트 서비스 상태 확인
@@ -31,18 +31,18 @@ ms.locfileid: "87324746"
 - **AZURE VM 게스트 에이전트 서비스가 시작 되 고 최신 상태 인지 확인 합니다**.
   - Windows VM에서:
     - **Services.msc** 로 이동 하 여 **Windows Azure VM 게스트 에이전트 서비스가** 실행 중인지 확인 합니다. 또한 [최신 버전이](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 설치 되어 있는지 확인 합니다. 자세한 내용은 [WINDOWS VM 게스트 에이전트 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)를 참조 하세요.
-    - Azure VM 에이전트는 포털, PowerShell, 명령줄 인터페이스 또는 Azure Resource Manager 템플릿에서 Azure Marketplace 이미지에서 배포 된 모든 Windows VM에 기본적으로 설치 됩니다. Azure에 배포 되는 사용자 지정 VM 이미지를 만들 때 [에이전트를 수동으로 설치](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows#manual-installation) 해야 할 수 있습니다.
+    - Azure VM 에이전트는 포털, PowerShell, 명령줄 인터페이스 또는 Azure Resource Manager 템플릿에서 Azure Marketplace 이미지에서 배포 된 모든 Windows VM에 기본적으로 설치 됩니다. Azure에 배포 되는 사용자 지정 VM 이미지를 만들 때 [에이전트를 수동으로 설치](../virtual-machines/extensions/agent-windows.md#manual-installation) 해야 할 수 있습니다.
     - 지원 매트릭스를 검토 하 여 [지원 되는 Windows 운영 체제](backup-support-matrix-iaas.md#operating-system-support-windows)에서 VM이 실행 되는지 확인 합니다.
   - Linux VM에서
-    - 명령을 실행 하 여 Azure VM 게스트 에이전트 서비스가 실행 중인지 확인 `ps-e` 합니다. 또한 [최신 버전이](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) 설치 되어 있는지 확인 합니다. 자세히 알아보려면 [LINUX VM 게스트 에이전트 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)를 참조 하세요.
-    - [시스템 패키지에 대 한 LINUX VM 에이전트 종속성](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) 의 구성이 지원 되는지 확인 합니다. 예: 지원 되는 Python 버전은 2.6 이상입니다.
+    - 명령을 실행 하 여 Azure VM 게스트 에이전트 서비스가 실행 중인지 확인 `ps-e` 합니다. 또한 [최신 버전이](../virtual-machines/extensions/update-linux-agent.md) 설치 되어 있는지 확인 합니다. 자세히 알아보려면 [LINUX VM 게스트 에이전트 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)를 참조 하세요.
+    - [시스템 패키지에 대 한 LINUX VM 에이전트 종속성](../virtual-machines/extensions/agent-linux.md#requirements) 의 구성이 지원 되는지 확인 합니다. 예: 지원 되는 Python 버전은 2.6 이상입니다.
     - 지원 매트릭스를 검토 하 여 [지원 되는 Linux 운영 체제](backup-support-matrix-iaas.md#operating-system-support-linux) 에서 VM이 실행 되는지 확인 합니다.
 
 ### <a name="step-3-check-azure-vm-extension-health"></a>3 단계: Azure VM 확장 상태 확인
 
 - **모든 AZURE VM 확장이 ' 프로 비전 성공 ' 상태 인지 확인**: 확장이 실패 상태 이면 백업을 방해할 수 있습니다.
 - *Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고* 모든 확장이 **프로 비전 성공** 상태에 있는지 확인 합니다.
-- 모든 [확장 문제가](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions) 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.
+- 모든 [확장 문제가](../virtual-machines/extensions/overview.md#troubleshoot-extensions) 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.
 - **COM + 시스템 응용 프로그램이** 실행 중인지 확인 합니다. 또한 **DTC(Distributed Transaction Coordinator) 서비스** 는 **네트워크 서비스 계정**으로 실행 되어야 합니다. 이 문서의 단계를 수행 하 여 [COM + 및 MSDTC 문제를 해결](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error)합니다.
 
 ### <a name="step-4-check-azure-backup-vm-extension-health"></a>4 단계: VM 확장 상태 Azure Backup 확인
@@ -57,9 +57,9 @@ Azure Backup VM 스냅숏 확장을 사용 하 여 Azure 가상 컴퓨터의 응
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세한 정보를 알아보세요](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+- **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세히 알아보기](../virtual-machines/extensions/features-windows.md#network-access).
   - 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
-  - 게스트 방화벽이 나 프록시를 사용 하 여에 대 한 액세스를 차단 하는 경우에 `168.63.129.16` 는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526이 필요 합니다. [자세한 정보](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+  - 게스트 방화벽이 나 프록시를 사용 하 여에 대 한 액세스를 차단 하는 경우에 `168.63.129.16` 는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526이 필요 합니다. [자세한 정보](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Dhcp를 게스트 vm 내에서 사용 하도록 설정**: IaaS vm 백업이 작동 하려면 dhcp에서 호스트 또는 패브릭 주소를 가져오는 데 필요 합니다. 정적 개인 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성 하 고 VM 내에서 DHCP 옵션을 사용 하도록 설정 하 여 [자세한 정보](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)를 확인 해야 합니다.
 

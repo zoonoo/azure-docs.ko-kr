@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506573"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810006"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -353,7 +353,7 @@ Application Gateway 특정 정보는 아래를 참조 하세요.
 해지 된 ICAs 중 하나에서 발급 한 인증서를 사용 하는 경우 응용 프로그램의 가용성이 중단 될 수 있으며 응용 프로그램에 따라 다음을 비롯 한 다양 한 오류 메시지를 받을 수 있습니다. 
 
 1.  잘못 된 인증서/해지 된 인증서
-2.  연결 시간이 초과 되었습니다.
+2.  연결 시간이 초과됨
 3.  HTTP 502
 
 이 문제로 인해 응용 프로그램의 중단을 방지 하거나 해지 된 CA를 다시 발급 하려면 다음 작업을 수행 해야 합니다. 
@@ -466,30 +466,6 @@ Application Gateway 액세스 로그에 널리 사용되는 [GoAccess](https://g
 - Application Gateway v2를 배포했습니다.
 - 애플리케이션 게이트웨이 서브넷에 NSG가 있습니다.
 - 이 NSG에서 NSG 흐름 로그를 사용하도록 설정했습니다.
-
-### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Application Gateway V2에서 개인 프런트 엔드 IP 주소만 사용하려면 어떻게 할까요?
-
-현재 Application Gateway V2는 사설 IP 전용 모드를 지원하지 않습니다. 지원되는 조합은 다음과 같습니다.
-* 사설 IP 및 공용 IP
-* 공용 IP 전용
-
-하지만 아래 프로세스를 수행하면 Application Gateway V2에서 사설 IP만 사용할 수 있습니다.
-1. 공용 및 개인 프런트 엔드 IP 주소를 모두 사용하는 Application Gateway를 만듭니다.
-2. 공용 프런트 엔드 IP 주소용 수신기를 만들지 않습니다. 공용 IP 주소용 수신기를 만들지 않으면 Application Gateway는 공용 IP 주소의 트래픽을 수신 대기하지 않습니다.
-3. 다음 구성을 우선 순위 순서대로 사용하여 Application Gateway 서브넷에 대한 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 만들고 연결합니다.
-    
-    a. 원본 **GatewayManager** 서비스 태그, 대상 **모두**, 대상 포트 **65200-65535**의 트래픽을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 인증서 인증을 통해 보호(잠금)됩니다. 게이트웨이 사용자 관리자를 비롯한 외부 엔터티는 적절한 인증서 없이는 엔드포인트에 대한 변경 작업을 시작할 수 없습니다.
-    
-    b. 원본 **AzureLoadBalancer** 서비스 태그, 대상 포트 **모두**의 트래픽을 허용합니다.
-    
-    다. 원본 **인터넷** 서비스 태그, 대상 포트 **모두**의 모든 인바운드 트래픽을 거부합니다. 인바운드 규칙에서 이 규칙에 *가장 낮은 우선 순위*를 지정합니다.
-    
-    d. 개인 IP 주소에 대한 액세스가 차단되지 않도록 VirtualNetwork 인바운드 허용과 같은 기본 규칙을 유지합니다.
-    
-    e. 아웃바운드 인터넷 연결은 차단할 수 없습니다. 차단할 경우 로깅, 메트릭 등에서 문제가 발생합니다.
-
-사설 IP 전용 액세스를 위한 NSG 구성 샘플: ![사설 IP 전용 액세스를 위한 Application Gateway V2 NSG 구성](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## <a name="next-steps"></a>다음 단계
 

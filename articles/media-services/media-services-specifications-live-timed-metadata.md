@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 37b3e5eff0baee736fc05760e19c31fdc513e23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060370"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800282"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터 
 
@@ -220,7 +220,7 @@ RTMP 프로토콜을 사용 하 여 업스트림 인코더, IP 카메라, 드 �
 - (b) HLS 또는 대시를 통해 CMAF 조각에서 배달을 위해 전달 하거나 
 - (c) 부드러운 스트리밍 [MS SSTR]를 통해 배달할 스파스 트랙 신호로 변환 합니다.
 
-HLS에 대 한 MPD (대역 외) ' emsg ' 형식 CMAF 또는 TS PE 패킷 외에도 대시 () 및 부드러운 스트리밍에 대 한 매니페스트는 대역 내 이벤트 스트림 (부드러운 스트리밍의 스파스 스트림 트랙 라고도 함)에 대 한 참조를 포함 합니다. 
+HLS에 대 한 MPD (대역 외) ' emsg ' 형식 CMAF 또는 TS PE 패킷 외에도 대시 () 및 부드러운 스트리밍에 대 한 매니페스트는 대역 내 이벤트 스트림 (부드러운 스트리밍의 스파스 스트림 트랙 라고도 함)에 대 한 참조를 포함 합니다.
 
 개별 이벤트 또는 해당 데이터 페이로드는 HLS, 대시 또는 부드러운 매니페스트에 직접 출력 되지 않습니다. 
 
@@ -239,11 +239,11 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 
 | 필드 이름 | 필드 형식 | 필수 여부 | 설명                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식       | String     | 필수  | 이벤트 메시지입니다.  단순 모드 스플라이스를 지정하려면 "SpliceOut"이어야 합니다.                                                                                                                                                                                                         |
+| type       | String     | 필수  | 이벤트 메시지입니다.  단순 모드 스플라이스를 지정하려면 "SpliceOut"이어야 합니다.                                                                                                                                                                                                         |
 | id         | String     | 필수  | 스플라이스 또는 세그먼트를 설명하는 고유 식별자입니다. 메시지의 이 인스턴스를 식별합니다.                                                                                                                                                                                       |
-| duration   | Number     | 필수  | 스플라이스의 재생 시간입니다. 단위는 소수 자릿수 초입니다.                                                                                                                                                                                                                           |
-| elapsed    | Number     | 선택 사항  | 선국(tune in)을 지원하기 위해 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. 단순 모드를 사용하는 경우, 이 값은 스플라이스의 원래 재생 시간을 초과하지 않아야 합니다. |
-| time       | Number     | 필수  | 프레젠테이션 시간에 있는 스플라이스의 시간이어야 합니다. 단위는 소수 자릿수 초입니다.                                                                                                                                                                                                |
+| duration   | 번호     | 필수  | 스플라이스의 재생 시간입니다. 단위는 소수 자릿수 초입니다.                                                                                                                                                                                                                           |
+| elapsed    | 번호     | 선택 사항  | 선국(tune in)을 지원하기 위해 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. 단순 모드를 사용하는 경우, 이 값은 스플라이스의 원래 재생 시간을 초과하지 않아야 합니다. |
+| time       | 번호     | 필수  | 프레젠테이션 시간에 있는 스플라이스의 시간이어야 합니다. 단위는 소수 자릿수 초입니다.                                                                                                                                                                                                |
 
 ---
  
@@ -255,7 +255,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 
 #### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Adobe RTMP simple 모드를 사용 하는 경우 HLS 매니페스트 출력 예제
 
-[Adobe simple 모드 및 EXT-CUE 태그를 사용 하는 예제 3.2.2 HLS 매니페스트를](#322-apple-hls-with-adobe-primetime-ext-x-cue-legacy) 참조 하세요.
+[Adobe simple 모드 및 EXT-CUE 태그를 사용 하는 예제 3.2.2 HLS 매니페스트를](#322-apple-hls-with-adobe-primetime-ext-x-cue) 참조 하세요.
 
 ## <a name="214-rtmp-ad-cue-signaling-with-onadcue---scte-35-mode"></a>2.1.4 RTMP ad 큐 신호를 "onAdCue"-SCTE-35 모드로 전환
 
@@ -268,19 +268,23 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 | 필드 이름 | 필드 형식 | 필수 여부 | 설명                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | cue        | String     | 필수  | 이벤트 메시지입니다.  [SCTE-35] 메시지의 경우 메시지를 HLS, Smooth 및 대시로 클라이언트에 보내려면이 메시지는 b a s e 64로 인코딩된 [RFC4648] 이진 splice_info_section () 이어야 합니다.                                                                                                                                                                                                                               |
-| 형식       | String     | 필수  | 메시지 구성표를 식별하는 URN 또는 URL입니다. [SCTE-35] 메시지의 경우 **"scte35"** 로 서 메시지를 HLS, Smooth 및 대시로 클라이언트에 전송 하려면 [Adobe-Primetime]를 준수 **해야** 합니다. 필요에 따라 URN "urn: scte: scte35:2013: bin"을 사용 하 여 [SCTE-35] 메시지에 신호를 보낼 수도 있습니다.                                                                                                        |
+| type       | String     | 필수  | 메시지 구성표를 식별하는 URN 또는 URL입니다. [SCTE-35] 메시지의 경우 **"scte35"** 로 서 메시지를 HLS, Smooth 및 대시로 클라이언트에 전송 하려면 [Adobe-Primetime]를 준수 **해야** 합니다. 필요에 따라 URN "urn: scte: scte35:2013: bin"을 사용 하 여 [SCTE-35] 메시지에 신호를 보낼 수도 있습니다.                                                                                                        |
 | id         | String     | 필수  | 스플라이스 또는 세그먼트를 설명하는 고유 식별자입니다. 메시지의 이 인스턴스를 식별합니다.  동일한 의미 체계를 갖는 메시지의 값은 동일해야 합니다.                                                                                                                                                                                                                                                       |
-| duration   | Number     | 필수  | 알려진 경우 이벤트 또는 광고 스플라이스 세그먼트의 재생 시간입니다. 알 수 없는 **경우 값은 0 이어야 합니다.**                                                                                                                                                                                                                                                                                                                    |
-| elapsed    | Number     | 선택 사항  | 선국(tune in)하기 위해 [SCTE-35] 광고 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. [SCTE-35] 모드에서 이 값은 스플라이스 또는 세그먼트의 지정된 원래 재생 시간을 초과할 수 있습니다.                                                                                                                   |
-| time       | Number     | 필수  | 이벤트 또는 광고 스플라이스의 프레젠테이션 시간입니다.  프레젠테이션 시간과 기간은 [ISO-14496-12] 부록 I에서 정의한 대로 유형 1 또는 2의 SAP (스트림 액세스 점수)와 일치 **해야 합니다** . HLS 송신의 경우 시간과 기간이 세그먼트 경계와 일치 **해야** 합니다. 동일한 이벤트 스트림 내의 다른 이벤트 메시지에 대한 프레젠테이션 시간과 재생 시간은 겹치지 않아야 합니다. 단위는 소수 자릿수 초입니다. |
+| duration   | 번호     | 필수  | 알려진 경우 이벤트 또는 광고 스플라이스 세그먼트의 재생 시간입니다. 알 수 없는 **경우 값은 0 이어야 합니다.**                                                                                                                                                                                                                                                                                                                    |
+| elapsed    | 번호     | 선택 사항  | 선국(tune in)하기 위해 [SCTE-35] 광고 신호가 반복되는 경우. 이 필드는 스플라이스가 시작된 이후 경과한 프레젠테이션 시간의 양이어야 합니다. 단위는 소수 자릿수 초입니다. [SCTE-35] 모드에서 이 값은 스플라이스 또는 세그먼트의 지정된 원래 재생 시간을 초과할 수 있습니다.                                                                                                                   |
+| time       | 번호     | 필수  | 이벤트 또는 광고 스플라이스의 프레젠테이션 시간입니다.  프레젠테이션 시간과 기간은 [ISO-14496-12] 부록 I에서 정의한 대로 유형 1 또는 2의 SAP (스트림 액세스 점수)와 일치 **해야 합니다** . HLS 송신의 경우 시간과 기간이 세그먼트 경계와 일치 **해야** 합니다. 동일한 이벤트 스트림 내의 다른 이벤트 메시지에 대한 프레젠테이션 시간과 재생 시간은 겹치지 않아야 합니다. 단위는 소수 자릿수 초입니다. |
 
 ---
 
-#### <a name="example-mpeg-dash-mpd-manifest-with-scte-35-mode"></a>SCTE-35 모드가 포함 된 mpd manifest의 예
-[3.3.3.2 예: SCTE를 사용 하 여 대시 매니페스트 섹션](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling) 을 참조 하세요.-35
+<!---
+#### Example MPEG DASH .mpd manifest with SCTE-35 mode
+See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+--->
 
 #### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>M3u8-aapl-v3 예: SCTE-35 mode 신호를 사용 하는 예제 HLS
-[3.2.1.1 예제 HLS manifest WITH SCTE-35 섹션을](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35) 참조 하세요.
+[3.2.1.1 예제 HLS manifest WITH SCTE-35 섹션을](#3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35) 참조 하세요.
+
+
 
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 RTMP Ad 신호를 "onCuePoint"로 사용
 
@@ -293,7 +297,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name       | 이름은 '**scte35**'이 고,                                                                                                                                                                              |
 | time       | 타임 라인 중 비디오 파일에서 큐 지점이 발생 하는 시간 (초)입니다.                                                                                                                                           |
-| 형식       | 큐 지점의 유형은 "**event**"로 설정 해야 합니다.                                                                                                                                                                             |
+| type       | 큐 지점의 유형은 "**event**"로 설정 해야 합니다.                                                                                                                                                                             |
 | 매개 변수 | Id 및 기간을 포함 하 여 SCTE-35 메시지의 정보를 포함 하는 이름/값 쌍 문자열의 결합형 배열입니다. 이러한 값은 Azure Media Services에 의해 구문 분석 되 고 매니페스트 장식 태그에 포함 됩니다. |
 
 
@@ -355,6 +359,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 </MPD>
 ~~~
 
+
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>HLS 재생 목록 예, Adobe Simple mode는 EXT--CUE 태그를 사용 하 여 신호를 보냅니다 (잘림 "..."). 간단 하 게
 
 다음 예에서는 Adobe "simple" 모드 신호 및 레거시 [Primetime] RTMP 태그를 사용 하 여 수집 스트림에 대 한 Media Services 동적 포장기의 출력을 보여 줍니다.  
@@ -409,7 +414,8 @@ Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 
 각 스파스 조각은 동영상 조각 상자 (' moof ') 및 미디어 Data Box (' mdat ')로 구성 되며 여기에서 ' mdat ' 상자는 이진 메시지입니다.
 
-프레임을 정확 하 게 표시 하기 위해 인코더는 큐를 삽입 해야 하는 프레젠테이션 시간에 조각을 분할 해야 합니다.  새로 만든 IDR 프레임으로 시작 하거나, [ISO-14496-12] 부록 I에서 정의한 대로 유형 1 또는 2의 스트림 액세스 요소 (SAP)로 시작 하는 새 조각을 만들어야 합니다. 이를 통해 Azure 미디어 패키지는 HLS 매니페스트와 새 기간이 프레임 정확한 스플라이스 조건 화 된 프레젠테이션 시간에서 시작 하는 대시 다중 기간 매니페스트를 제대로 생성할 수 있습니다.
+프레임을 정확 하 게 표시 하기 위해 인코더는 큐를 삽입 해야 하는 프레젠테이션 시간에 조각을 분할 해야 합니다.  새로 만든 IDR 프레임으로 시작 하거나, [ISO-14496-12] 부록 I에서 정의한 대로 유형 1 또는 2의 스트림 액세스 요소 (SAP)로 시작 하는 새 조각을 만들어야 합니다.
+<!--- This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time. --->
 
 ### <a name="221-live-server-manifest-box"></a>2.2.1 라이브 서버 매니페스트 상자
 
@@ -417,13 +423,13 @@ Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 
 | **특성 이름** | **필드 형식** | **필수 여부** | **설명**                                                                                                                                                                                                              |
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| systemBitrate      | Number         | 필수      | "0" 이어야 **합니다** . 알 수 없는 가변 비트 전송률이 있는 트랙을 나타냅니다.                                                                                                                                                          |
+| systemBitrate      | 번호         | 필수      | "0" 이어야 **합니다** . 알 수 없는 가변 비트 전송률이 있는 트랙을 나타냅니다.                                                                                                                                                          |
 | parentTrackName    | String         | 필수      | 는 스파스 트랙 시간 코드의 날짜/시간 정렬 기준이 되는 부모 트랙의 이름 이어야 **합니다** . 부모 트랙은 스파스 트랙이 될 수 없습니다.                                                                             |
-| manifestOutput     | Boolean        | 필수      | 스파스 트랙이 부드러운 클라이언트 매니페스트에 포함 될 것임을 나타내려면 "true" 여야 **합니다** .                                                                                                                        |
+| manifestOutput     | 부울        | 필수      | 스파스 트랙이 부드러운 클라이언트 매니페스트에 포함 될 것임을 나타내려면 "true" 여야 **합니다** .                                                                                                                        |
 | Subtype            | String         | 필수      | 4 자 코드 "DATA **" 여야 합니다** .                                                                                                                                                                                  |
 | 구성표             | String         | 필수      | 메시지 구성표를 식별 하는 URN 또는 **URL 이어야 합니다** . [SCTE-35] 메시지의 경우 "urn: scte: scte35:2013: bin"을 사용 하 여 메시지를 HLS, Smooth 및 파선 클라이언트에 게 전송 하려면 [SCTE-35]를 준수 **해야 합니다** . |
 | trackName          | String         | 필수      | 은 스파스 트랙의 이름 **이어야 합니다.** 같은 체계를 사용 하 여 여러 이벤트 스트림을 구별할 수 있습니다. 고유한 각 이벤트 스트림에는 고유한 트랙 이름이 **있어야** 합니다.                                |
-| timescale          | Number         | 선택 사항      | 부모 트랙의 시간 간격 **이어야** 합니다.                                                                                                                                                                               |
+| timescale          | 번호         | 선택 사항      | 부모 트랙의 시간 간격 **이어야** 합니다.                                                                                                                                                                               |
 
 ---
 
@@ -542,21 +548,182 @@ StreamIndex에는 "DATA"의 하위 형식이 **있어야** 하며 Customattribut
 
 Azure Media Services는 라이브 또는 요청 시 발생 하는 이벤트 중에 ad에서 사용할 수 있는 정보를 신호로 보내기 위해 다음과 같은 HLS 매니페스트 태그를 지원 합니다. 
 
-- Apple HLS에 정의 된 EXT-X-DATERANGE [RFC8216]
-- [Adobe-Primetime]에 정의 된 대로 EXT-큐는 "레거시"로 간주 됩니다. 가능 하면 고객이 DATERANGE 태그를 채택 해야 합니다.
+<!--- EXT-X-DATERANGE as defined in Apple HLS [RFC8216] --->
+- [Adobe-Primetime]에 정의 된 대로 EXT
+<!--- this mode is considered "legacy".  Customers should adopt the EXT-X-DATERANGE tag when possible. --->
 
 각 태그에 대 한 데이터 출력은 사용 된 수집 신호 모드에 따라 달라 집니다. 예를 들어 Adobe Simple 모드로 RTMP 수집에는 전체 SCTE-35 base64 인코딩 페이로드가 포함 되지 않습니다.
 
-## <a name="321-apple-hls-with-ext-x-daterange-recommended"></a>3.2.1-DATERANGE를 사용 하 여 Apple HLS 사용 (권장)
+<!---
+## 3.2.1 Apple HLS with EXT-X-DATERANGE (recommended)
 
-Apple HTTP 라이브 스트리밍 [RFC8216] 지정에서는 [SCTE-35] 메시지에 대 한 신호를 사용할 수 있습니다. 메시지는 "SCTE-35을 EXT-DATERANGE에 매핑" 이라는 [RFC8216] 섹션의 DATERANGE 태그에 있는 세그먼트 재생 목록에 삽입 됩니다.  클라이언트 응용 프로그램 계층은 M3U 재생 목록을 구문 분석 하 고 M3U 태그를 처리 하거나 Apple 플레이어 프레임 워크를 통해 이벤트를 받을 수 있습니다.  
+The Apple HTTP Live Streaming [RFC8216] specification allows for signaling of [SCTE-35] messages. The messages are inserted into the segment playlist in an EXT-X-DATERANGE tag per [RFC8216] section titled "Mapping SCTE-35 into EXT-X-DATERANGE".  The client application layer can parse the M3U playlist and process M3U tags, or receive the events through the Apple player framework.  
 
-Azure Media Services (버전 3 API)에서 **권장** 되는 방법은 [RFC8216]를 따르고 매니페스트에서 [SCTE35] ad의 사용 가능한 데코레이션에 대 한 X_DATERANGE EXT 태그를 사용 하는 것입니다.
+The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follow [RFC8216] and use the EXT-X_DATERANGE tag for [SCTE35] ad avail decoration in the manifest.
+--->
 
-## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35"></a>3.2.1.1 m3u8-aapl-v3의 DATERANGE 신호 35를 보여 주는 예제 HLS.
 
-Media Services 동적 패키지의 다음 예제 HLS 매니페스트 출력에서는 스트림의 SCTE-35 이벤트를 신호 하는 [RFC8216]에서 DATERANGE 태그를 사용 하는 방법을 보여 줍니다. 또한이 스트림에는 [Adobe-Primetime]에 대 한 "레거시" EXT-큐 태그가 포함 됩니다.
+## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35"></a>3.2.1.1 예 HLS m3u8-aapl-v3를 표시 하는 SCTE-35의 EXT-큐 신호를 표시 합니다.
 
+Media Services 동적 패키지 작성의 다음 예에서는 SCTE35 모드의 [Adobe-Primetime]에 대 한 EXT-큐 태그를 보여 줍니다. 
+
+~~~
+#EXTM3U
+#EXT-X-VERSION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:2
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-PROGRAM-DATE-TIME:2020-01-07T19:40:50Z
+#EXTINF:1.501500,no-desc
+Fragments(video=22567545,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22702680,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22837815,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22972950,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=23108085,format=m3u8-aapl-v8)
+#EXTINF:1.234567,no-desc
+Fragments(video=23243220,format=m3u8-aapl-v8)
+#EXTINF:0.016689,no-desc
+Fragments(video=23354331,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.000022
+#EXTINF:0.250244,no-desc
+Fragments(video=23355833,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.250267
+#EXTINF:0.850856,no-desc
+Fragments(video=23378355,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.101122
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=0.000000,TIME=260.610344,CUE="/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo="
+#EXTINF:0.650644,no-desc
+Fragments(video=23454932,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.751767
+#EXTINF:0.050044,no-desc
+Fragments(video=23513490,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.801811
+#EXTINF:1.451456,no-desc
+Fragments(video=23517994,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=3.253267
+#EXTINF:1.501500,no-desc
+Fragments(video=23648625,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=4.754767
+#EXTINF:1.501500,no-desc
+Fragments(video=23783760,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=6.256267
+#EXTINF:1.501500,no-desc
+Fragments(video=23918895,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=7.757767
+#EXTINF:1.501500,no-desc
+Fragments(video=24054030,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=9.259267
+#EXTINF:1.501500,no-desc
+Fragments(video=24189165,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=10.760767
+#EXTINF:1.501500,no-desc
+Fragments(video=24324300,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=12.262267
+#EXTINF:1.501500,no-desc
+Fragments(video=24459435,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=13.763767
+#EXTINF:1.501500,no-desc
+Fragments(video=24594570,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=15.265267
+#EXTINF:1.501500,no-desc
+Fragments(video=24729705,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=16.766767
+#EXTINF:1.501500,no-desc
+Fragments(video=24864840,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=18.268267
+#EXTINF:1.501500,no-desc
+Fragments(video=24999975,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=19.769767
+#EXTINF:1.501500,no-desc
+Fragments(video=25135110,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=21.271267
+#EXTINF:1.501500,no-desc
+Fragments(video=25270245,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=22.772767
+#EXTINF:1.501500,no-desc
+Fragments(video=25405380,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=24.274267
+#EXTINF:1.501500,no-desc
+Fragments(video=25540515,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=25.775767
+#EXTINF:1.501500,no-desc
+Fragments(video=25675650,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=27.277267
+#EXTINF:1.501500,no-desc
+Fragments(video=25810785,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=28.778767
+#EXTINF:1.501500,no-desc
+Fragments(video=25945920,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=30.280267
+#EXTINF:1.501500,no-desc
+Fragments(video=26081055,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=31.781767
+#EXTINF:1.501500,no-desc
+Fragments(video=26216190,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=33.283267
+#EXTINF:1.501500,no-desc
+Fragments(video=26351325,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=34.784767
+#EXTINF:1.501500,no-desc
+Fragments(video=26486460,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=36.286267
+#EXTINF:1.501500,no-desc
+Fragments(video=26621595,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=37.787767
+#EXTINF:1.501500,no-desc
+Fragments(video=26756730,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=39.289267
+#EXTINF:1.501500,no-desc
+Fragments(video=26891865,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=40.790767
+#EXTINF:1.501500,no-desc
+Fragments(video=27027000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=42.292267
+#EXTINF:1.501500,no-desc
+Fragments(video=27162135,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=43.793767
+#EXTINF:1.501500,no-desc
+Fragments(video=27297270,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=45.295267
+#EXTINF:1.501500,no-desc
+Fragments(video=27432405,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=46.796767
+#EXTINF:1.501500,no-desc
+Fragments(video=27567540,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=48.298267
+#EXTINF:1.501500,no-desc
+Fragments(video=27702675,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=49.799767
+#EXTINF:1.501500,no-desc
+Fragments(video=27837810,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=51.301267
+#EXTINF:1.501500,no-desc
+Fragments(video=27972945,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=52.802767
+#EXTINF:1.501500,no-desc
+Fragments(video=28108080,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=54.304267
+#EXTINF:1.501500,no-desc
+Fragments(video=28243215,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=55.805767
+#EXTINF:1.501500,no-desc
+Fragments(video=28378350,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=57.307267
+#EXTINF:1.501500,no-desc
+Fragments(video=28513485,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=58.808767
+#EXTINF:1.501500,no-desc
+Fragments(video=28648620,format=m3u8-aapl-v8)
+
+~~~
+
+
+<!---
+THIS VERSION HAS THE HLSv8 DATERANGE Tags in it
 ~~~
 #EXTM3U
 #EXT-X-VERSION:8
@@ -755,10 +922,11 @@ Fragments(video=28648620,format=m3u8-aapl-v8)
 
 ~~~
 
+--->
 
-## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue-legacy"></a>Adobe Primetime을 사용 하 여 Apple HLS 3.2.2 (레거시)
+## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue"></a>Adobe Primetime을 사용 하 여 Apple HLS 3.2.2
 
-[Primetime] "SCTE-35 Mode"에 정의 된 대로 EXT-CUE 태그를 사용 하는 Azure Media Services (버전 2 및 3 API)에서 제공 하는 "레거시" 구현도 있습니다. 이 모드에서 Azure Media Services는 b a s e 64로 인코딩된 [SCTE-35] splice_info_section ()를 EXT-CUE 태그에 포함 합니다.  
+Media Services (버전 2 및 3 API)는 [Adobe-Primetime] "SCTE-35 Mode"에 정의 된 대로 EXT-CUE 태그의 출력을 지원 합니다. 이 모드에서 Azure Media Services는 b a s e 64로 인코딩된 [SCTE-35] splice_info_section ()를 EXT-CUE 태그에 포함 합니다.  
 
 "레거시" EXT--CUE 태그는 아래와 같이 정의 되며 [Adobe-Primetime] 사양에서 표준 참조할 수도 있습니다. 이는 필요한 경우 레거시 SCTE35 신호에만 사용 해야 합니다. 그렇지 않으면 권장 태그는 [RFC8216]에서 EXT-DATERANGE로 정의 됩니다. 
 
@@ -771,12 +939,15 @@ Fragments(video=28648620,format=m3u8-aapl-v8)
 | ELAPSED            | 10진수 부동 소수점 숫자 | 선택 사항이지만, 슬라이딩 시간 범위에 필수임 | 슬라이딩 프레젠테이션 창을 지원 하기 위해 신호가 반복 되는 경우이 필드는 이벤트가 시작 된 이후 경과한 프레젠테이션 시간의 양 **이어야 합니다** . 단위는 소수 자릿수 초입니다. 이 값은 스플라이스 또는 세그먼트의 지정된 원래 재생 시간을 초과할 수 있습니다. |
 | TIME               | 10진수 부동 소수점 숫자 | 필수                                  | 이벤트의 프레젠테이션 시간입니다. 단위는 소수 자릿수 초입니다.                                                                                                                                                                                                                        |
 
-
 HLS 플레이어 애플리케이션 계층에서는 TYPE을 사용하여 메시지 형식을 식별하고, 메시지를 디코딩하며, 필요한 시간 변환을 적용하고, 이벤트를 처리합니다.  이벤트는 이벤트 타임스탬프에 따라 부모 트랙의 세그먼트 재생 목록에서 시간 동기화됩니다.  이러한 이벤트는 가장 가까운 세그먼트(#EXTINF 태그) 앞에 삽입됩니다.
 
-### <a name="323-hls-m3u8-manifest-example-using-legacy-adobe-primetime-ext-x-cue"></a>3.2.3 m3u8-aapl-v3 매니페스트 예제를 사용 하 여 "레거시" Adobe Primetime-X-큐
 
-다음 예제에서는 Adobe Primetime 태그를 사용 하 여 HLS 매니페스트 장식을 보여 줍니다.  "CUE" 매개 변수는 TYPE 및 Duration 속성만 포함 하며,이는 Adobe "simple" 모드 신호를 사용 하는 RTMP 원본입니다.  이 항목이 SCTE-35 모드 신호가 면 태그에 [3.2.1.1 예제](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)에 표시 된 것 처럼 base64 인코딩된 이진 scte-35 페이로드가 포함 됩니다.
+### <a name="323-hls-m3u8-manifest-example-using-adobe-primetime-ext-x-cue"></a>3.2.3 HLS. m3u8-aapl-v3 매니페스트 예제 Adobe Primetime-X-큐 사용
+
+다음 예제에서는 Adobe Primetime 태그를 사용 하 여 HLS 매니페스트 장식을 보여 줍니다.  "CUE" 매개 변수는 TYPE 및 Duration 속성만 포함 하며,이는 Adobe "simple" 모드 신호를 사용 하는 RTMP 원본입니다.  
+<!---If this was a SCTE-35 mode signal, the tag would include the base64 encoded binary SCTE-35 payload as seen in the [3.2.1.1 example](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
+--->
+
 
 ~~~
 #EXTM3U
@@ -839,7 +1010,7 @@ Fragments(video=4011702982,format=m3u8-aapl)
 
 ~~~
 
-### <a name="324-hls-message-handling-for-legacy-adobe-primetime-ext-x-cue"></a>"레거시" Adobe Primetime EXT-3.2.4 HLS 메시지 처리
+### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>Adobe Primetime EXT-X-큐에 대 한 3.2.4 HLS 메시지 처리
 
 이벤트는 각 비디오 및 오디오 트랙의 세그먼트 재생 목록에서 신호를 받을 수 있습니다. EXT-CUE 태그의 위치는 항상 첫 HLS 세그먼트 바로 앞 (스플라이스 out 또는 세그먼트 시작의 경우) 또는 시간 및 기간 특성이 참조 하는 마지막 HLS 세그먼트 (splice의 경우) 바로 앞 ([Adobe-Primetime]에 **필요 함)** 입니다.
 
@@ -855,7 +1026,7 @@ Fragments(video=4011702982,format=m3u8-aapl)
 2.  이벤트 메시지 상자 (' emsg ')를 사용 하 여 대역내 신호를 받은 이벤트
 3.  1과 2의 조합
 
-MPD EventStream에서 신호를 받는 이벤트는 클라이언트가 모든 이벤트에 액세스할 수 있기 때문에 MPD를 다운로드 하는 즉시 VOD 스트리밍에 유용 합니다. SSAI 신호에도 유용 합니다 .이 경우 다운스트림 SSAI 공급 업체는 여러 기간 MPD 매니페스트에서 신호를 구문 분석 하 고 ad 콘텐츠를 동적으로 삽입 해야 합니다.  대역내 (' emsg ') 솔루션은 클라이언트가 MPD를 다시 다운로드할 필요가 없는 라이브 스트리밍 또는 클라이언트와 원본 간에 SSAI 매니페스트 조작이 발생 하지 않는 라이브 스트리밍에 유용 합니다. 
+MPD EventStream에서 신호를 받는 이벤트는 클라이언트가 모든 이벤트에 액세스할 수 있기 때문에 MPD를 다운로드 하는 즉시 VOD 스트리밍에 유용 합니다. 이는 다운스트림 SSAI 공급 업체가 MPD 매니페스트에서 신호를 구문 분석 하 고 ad 콘텐츠를 동적으로 삽입 해야 하는 SSAI 신호에도 유용 합니다.  대역내 (' emsg ') 솔루션은 클라이언트가 MPD를 다시 다운로드할 필요가 없는 라이브 스트리밍 또는 클라이언트와 원본 간에 SSAI 매니페스트 조작이 발생 하지 않는 라이브 스트리밍에 유용 합니다. 
 
 대시의 기본 동작은 이벤트 메시지 상자 (' emsg ')를 사용 하 여 MPD EventStream와 대역내 모두에 신호를 보내는 것입니다. Azure Media Services
 
@@ -871,11 +1042,13 @@ MPD EventStream에서 신호를 받는 이벤트는 클라이언트가 모든 �
 
 Manifest (MPD) 이벤트의 데코레이션은 Period 요소 내에 표시 되는 EventStream 요소를 사용 하 여 MPD에서 신호를 받습니다. 사용 되는 schemeId는 "urn: scte: scte35:2014: xml + bin"입니다.
 
+
 > [!NOTE]
 > 간단히 하기 위해 [SCTE-35]을 사용 하면 완전히 구문 분석 된 큐 메시지의 캐리지에 대 한 대 안으로 신호. 이진 요소 (SpliceInfoSection 요소 대신)에서 base64 인코딩 섹션을 사용할 수 있습니다.
 > Azure Media Services는이 ' xml + bin ' 방식을 사용 하 여 MPD 매니페스트의 신호를 합니다.
 > [IOP]에 사용 되는 권장 방법 이기도 합니다. [IOP 안내선의 ' Ad 삽입 이벤트 스트림 ' 섹션을](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html#ads-insertion-event-streams) 참조 하세요.
 > 
+
 
 EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
@@ -909,12 +1082,14 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
     </EventStream>
 ~~~
 
+
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2 예 mpd 모드를 사용 하 35 여 RTMP 스트림의 매니페스트 신호
 
 다음 예제에서는 Adobe SCTE-35 모드 신호를 사용 하 여 RTMP 스트림에 대 한 Media Services 동적 패키지 작성의 발췌 한 EventStream를 보여 줍니다.
 
+[SCTE-214-1] 당 xml + bin 스타일 신호를 사용 하는 예제 EventStream 요소
+
 ~~~ xml
-<!-- Example EventStream element using xml+bin style signaling per [SCTE-214-1] -->
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -930,11 +1105,14 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
       </EventStream>
 ~~~
 
+
+
 > [!IMPORTANT]
 > PresentationTime은 메시지 도착 시간이 아니라 기간 시작 시간을 기준으로 변환 되는 [SCTE-35] 이벤트의 프레젠테이션 시간입니다.
 > [MPEGDASH]는 Event@presentationTime 마침표의 시작을 기준으로 이벤트의 프레젠테이션 시간을 지정 하는 "as"를 정의 합니다.
 > 프레젠테이션 시간 값 (초)은이 특성의 값과 특성 값의 나누기입니다 EventStream@timescale .
 > 표시 되지 않는 경우 프레젠테이션 시간 값은 0입니다.
+
 
 #### <a name="3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals"></a>3.3.3.1 단일 마침표를 사용 하는 MPD (MPEG 대시 매니페스트) 예제 Adobe simple mode 신호 사용
 
@@ -992,10 +1170,11 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
 ~~~
 
-#### <a name="3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling"></a>3.3.3.2 예: 다중 마침표를 사용 하는 MPD (MPEG 대시 매니페스트) 및 Adobe SCTE35 mode 신호 사용
+<!---
+#### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
 
-다음 예제에서는 Adobe SCTE35 모드 신호를 사용 하 여 원본 RTMP 스트림에 대 한 Media Services 동적 패키지 작성의 출력을 보여 줍니다.
-이 경우 출력 매니페스트는 EventStream 요소를 사용 하는 mpd 및 @schemeIdUri 속성이 "urn: scte: scte35:2014: xml + bin"으로 설정 되 고 @value 속성이 "scte35"로 설정 된 여러 마침표입니다. EventStream의 각 이벤트 요소는 전체 base64 인코딩된 이진 SCTE35 신호를 포함 합니다. 
+The following example shows the output from the Media Services dynamic packager for a source RTMP stream using the Adobe SCTE35 mode signaling.
+In this case, the output manifest is a multi-period DASH .mpd with an EventStream element, and @schemeIdUri property set to "urn:scte:scte35:2014:xml+bin" and a @value property set to "scte35". Each Event element in the EventStream contains the full base64 encoded binary SCTE35 signal 
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1028,9 +1207,6 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
                 <SegmentTimeline>
                     <S t="7417856" d="133120"/>
                     <S d="132096" r="1"/>
-                    
-                    <!--> ... aduio segments truncated for sample brevity </-->
-
                 </SegmentTimeline>
             </SegmentTemplate>
             <ProducerReferenceTime id="7417856" type="0" wallClockTime="2020-01-07T19:40:50.037Z" presentationTime="7417856"/>
@@ -1122,6 +1298,9 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 </MPD>
 
 ~~~
+
+--->
+
 ### <a name="334-mpeg-dash-in-band-event-message-box-signaling"></a>3.3.4 MPEG 파선 대역내 이벤트 메시지 상자 신호
 
 대역 내 이벤트 스트림을 사용하려면 MPD에 적응 설정 수준의 InbandEventStream 요소가 있어야 합니다.  이 요소에는 필수 schemeIdUri 특성과 선택적 시간 간격 특성이 있습니다 .이 특성은 이벤트 메시지 상자 (' emsg ')에도 표시 됩니다.  MPD에 정의 되지 않은 체계 식별자가 있는 이벤트 메시지 **상자가 없어야 합니다** .
@@ -1164,6 +1343,7 @@ EventStream 요소에 포함되는 특성은 다음과 같습니다.
 
 RTMP 수집의 경우 AMF 메시지의 cue 특성은 [SCTE-35]에 정의 된 b a s e 64로 인코딩된 **splice_info_section ()** 로 설정 됩니다.  
 
+
 메시지에 위에 설명 된 형식이 있는 경우 위에 정의 된 대로 HLS, 부드러운 및 대시 클라이언트에 전송 됩니다.  
 
 Azure Media Services 플랫폼을 사용 하 여 구현을 테스트할 때 인코딩 라이브 테스트로 이동 하기 전에 먼저 "통과" 라이브 테스트를 시작 하세요.
@@ -1174,9 +1354,10 @@ Azure Media Services 플랫폼을 사용 하 여 구현을 테스트할 때 인�
 
 | 날짜     | 변경                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| 07/2/19  | SCTE35 지원에 대 한 RTMP 수집을 수정 했습니다. 정령 Live의 RTMP "onCuePoint"를 추가 했습니다.                                  |
+| 07/2/19  | RTMP 수집 지원이 수정 되었으며, RTMP "onCuePoint"이 추가 되었습니다.                                            |
 | 08/22/19 | 사용자 지정 메타 데이터에 대 한 OnUserDataEvent를 RTMP에 추가 하도록 업데이트 되었습니다.                                                          |
 | 1/08/20  | RTMP Simple 및 RTMP SCTE35 모드에서 오류를 수정 했습니다. "OnCuePoint"에서 "onAdCue"로 변경 되었습니다. 단순 모드 테이블을 업데이트 했습니다. |
+| 08/4/20  | 프로덕션 서비스의 구현과 일치 하도록 DATERANGE 태그에 대 한 지원이 제거 되었습니다.    |
 
 ## <a name="next-steps"></a>다음 단계
 Media Services 학습 경로 보기.

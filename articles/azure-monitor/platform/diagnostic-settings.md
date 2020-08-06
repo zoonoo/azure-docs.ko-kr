@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505179"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799959"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -40,7 +40,7 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 > 특정 메트릭에 대 한 이러한 제한을 해결 하려면 [REST API 메트릭을](/rest/api/monitor/metrics/list) 사용 하 여 수동으로 추출 하 고 [AZURE MONITOR 데이터 수집기 API](data-collector-api.md)를 사용 하 여 Azure Monitor 로그로 가져오는 것이 좋습니다.  
 
 
-## <a name="destinations"></a>대상
+## <a name="destinations"></a>Destinations
 
 다음 표의 대상에 플랫폼 로그 및 메트릭을 보낼 수 있습니다. 대상에 데이터를 보내는 방법에 대 한 자세한 내용은 다음 표의 각 링크를 따르세요.
 
@@ -51,14 +51,14 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 | [Azure storage 계정](#azure-storage) | Azure storage 계정에 로그 및 메트릭을 보관 하는 것은 감사, 정적 분석 또는 백업에 유용 합니다. Azure Monitor 로그 및 Log Analytics 작업 영역에 비해 Azure storage는 비용이 적고 로그가 무기한으로 보관 될 수 있습니다. |
 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 조건
 필요한 사용 권한으로 진단 설정의 대상을 만들어야 합니다. 각 대상에 대 한 필수 조건 요구 사항은 아래 섹션을 참조 하세요.
 
 ### <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
 아직 없는 경우 [새 작업 영역을 만듭니다](../learn/quick-create-workspace.md) . 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 RBAC 액세스 권한이 있는 한,이 작업 영역은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다.
 
 ### <a name="event-hub"></a>이벤트 허브
-아직 없는 경우 [이벤트 허브를 만듭니다](../../event-hubs/event-hubs-create.md) . 설정을 구성하는 사용자에게 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있다면 Event Hubs 네임스페이스가 로그를 내보내는 구독과 동일한 구독에 위치하지 않아도 됩니다. 구독은 모두 동일한 AAD 테넌트에 위치합니다.
+아직 없는 경우 [이벤트 허브를 만듭니다](../../event-hubs/event-hubs-create.md) . 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 RBAC 액세스와 두 구독이 동일한 테 넌 트에 있는 경우, Event Hubs 네임 스페이스는 로그를 내보내는 구독과 동일한 구독을가지고 있지 않아도 됩니다.
 
 네임 스페이스에 대 한 공유 액세스 정책은 스트리밍 메커니즘이 포함 하는 사용 권한을 정의 합니다. Event Hubs로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요 합니다. Event Hubs 네임 스페이스의 구성 탭에 있는 Azure Portal에서 공유 액세스 정책을 만들거나 수정할 수 있습니다. 스트리밍을 포함 하도록 진단 설정을 업데이트 하려면 해당 Event Hubs 권한 부여 규칙에 대 한 ListKey 권한이 있어야 합니다. 
 
@@ -182,7 +182,7 @@ az monitor diagnostic-settings create  \
 [Azure Monitor REST API](/rest/api/monitor/)를 사용 하 여 진단 설정을 만들거나 업데이트 하려면 [진단 설정](/rest/api/monitor/diagnosticsettings) 을 참조 하세요.
 
 ## <a name="create-using-azure-policy"></a>Azure Policy를 사용 하 여 만들기
-각 Azure 리소스에 대 한 진단 설정을 만들어야 하기 때문에 각 리소스가 생성 될 때마다 진단 설정을 자동으로 만드는 데 Azure Policy 사용할 수 있습니다. 자세한 내용은 [Azure Policy를 사용 하 여 규모에 Azure Monitor 배포](deploy-scale.md) 를 참조 하세요.
+각 Azure 리소스에 대 한 진단 설정을 만들어야 하기 때문에 각 리소스가 생성 될 때마다 진단 설정을 자동으로 만드는 데 Azure Policy 사용할 수 있습니다. 자세한 내용은 [Azure Policy를 사용 하 여 규모에 Azure Monitor 배포](../deploy-scale.md) 를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537518"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800469"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -77,7 +77,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * 는 `endpoint-name` 이벤트 허브, Event Grid 또는 Service Bus 등의 끝점을 식별 합니다. 이러한 끝점은 구독에서 생성 되 고이 등록을 호출 하기 전에 제어 평면 Api를 사용 하 여 Azure Digital Twins에 연결 되어야 합니다.
 
-또한에 전달 되는 이벤트 경로 개체는 `EventRoutes.Add` [ **필터** 매개 변수](./how-to-manage-routes.md#filter-events)를 사용 하 여이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있습니다.
+또한에 전달 되는 이벤트 경로 개체는 `EventRoutes.Add` [ **필터** 매개 변수](./how-to-manage-routes-apis-cli.md#filter-events)를 사용 하 여이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있습니다.
 
 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용 하 여 경로를 만들 수도 있습니다.
 
@@ -90,7 +90,7 @@ IoT Hub의 다양 한 이벤트 유형 및 Azure Digital Twins는 아래에 설�
 ## <a name="next-steps"></a>다음 단계
 
 이벤트 경로를 설정 하 고 관리 하는 방법을 참조 하세요.
-* [*방법: 끝점과 경로 관리*](how-to-manage-routes.md)
+* [*방법: 끝점과 경로 관리*](how-to-manage-routes-apis-cli.md)
 
 또는 Azure Functions를 사용 하 여 Azure Digital Twins 내에서 이벤트를 라우팅하는 방법을 참조 하세요.
 * [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)

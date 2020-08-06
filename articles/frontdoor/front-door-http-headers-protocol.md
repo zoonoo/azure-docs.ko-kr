@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1060cbf1b2204c3feba413b8c8ce0cba58941c6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471679"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799126"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Azure 전면 도어의 HTTP 헤더에 대 한 프로토콜 지원
 이 문서에서는 프런트 도어가 호출 경로의 일부를 사용 하 여 지 원하는 프로토콜에 대해 간략하게 설명 합니다 (이미지 참조). 다음 섹션에서는 Front 도어가 지 원하는 HTTP 헤더에 대 한 자세한 정보를 제공 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "79471679"
 
 앞 도어에는 제한으로 인해 제거 되지 않는 한 들어오는 요청의 헤더가 포함 됩니다. 또한 앞 도어는 다음 헤더를 추가 합니다.
 
-| 헤더  | 예제 및 설명 |
+| header  | 예제 및 설명 |
 | ------------- | ------------- |
 | Via |  Via: 1.1 Azure </br> 프런트 도어는 클라이언트의 HTTP 버전을 Via 헤더에 대 한 *값으로 추가* 합니다. 이 헤더는 클라이언트의 HTTP 버전을 나타내며 Front 도어가 클라이언트와 백 엔드 간의 요청을 위한 중간 수신자 였습니다.  |
 | X-Azure-ClientIP | X-y: 127.0.0.1 </br> 처리 중인 요청과 연결 된 클라이언트 IP 주소를 나타냅니다. 예를 들어 프록시에서 들어오는 요청은 원본 호출자의 IP 주소를 나타내기 위해 X로 전달 된 헤더를 추가할 수 있습니다. |
@@ -44,12 +44,13 @@ ms.locfileid: "79471679"
 | X-Forwarded-Host | X 전달-호스트: contoso.azurefd.net </br> X 전달 된 호스트 HTTP 헤더 필드는 호스트 HTTP 요청 헤더에서 클라이언트에 의해 요청 된 원래 호스트를 식별 하는 데 사용 되는 일반적인 방법입니다. 이는 프런트 도어의 호스트 이름이 요청을 처리 하는 백 엔드 서버에 대해 다를 수 있기 때문입니다. |
 | X-Forwarded-Proto | X 전달-프로토콜: http </br> 구성에 따라 프런트 도어가 HTTPS를 사용 하 여 백 엔드와 통신할 수 있기 때문에 X-전달 된 프로토콜 HTTP 헤더 필드는 HTTP 요청의 원래 프로토콜을 식별 하는 데 종종 사용 됩니다. 역방향 프록시에 대 한 요청이 HTTP 인 경우에도 마찬가지입니다. |
 | X FD-HealthProbe | HealthProbe HTTP 헤더 필드는 전면 도어에서 상태 프로브를 식별 하는 데 사용 됩니다. 이 헤더가 1로 설정 되 면 요청이 상태 프로브입니다. X 전달-호스트 헤더 필드를 사용 하 여 특정 전방 도어에서 엄격한 액세스를 원할 때를 사용할 수 있습니다. |
+|X-Azure-FDID | 437c82cd-360a-4a54-94c3-5ff707647783 </br> 이 필드에는 들어오는 요청을 보낸 전방 도어를 식별 하는 데 사용할 수 있는 frontdoorID 포함 되어 있습니다. 이 필드는 Front 도어 서비스에 의해 채워집니다. | 
 
 ## <a name="front-door-to-client"></a>Front Door-클라이언트
 
 백 엔드에서 프런트 도어로 전송 되는 모든 헤더도 클라이언트에 전달 됩니다. 다음은 프런트 도어에서 클라이언트로 전송 되는 헤더입니다.
 
-| 헤더  | 예제 |
+| header  | 예제 |
 | ------------- | ------------- |
 | X-Azure-참조 |  *X-y-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Front Door에서 제공하는 요청을 참조하는 고유한 참조 문자열입니다. 액세스 로그를 검색 하는 데 사용 되므로 문제를 해결 하는 데 중요 합니다.|
 

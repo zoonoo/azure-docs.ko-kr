@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317730"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800339"
 ---
 # <a name="create-a-saas-offer"></a>SaaS 제품 만들기
 
@@ -282,12 +282,16 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 #### <a name="files-and-images"></a>파일 및 이미지
 
 - **Documents** (필수) – 제품에 대 한 관련 마케팅 문서를 하나 이상의 문서에 대 한 하나 이상의 문서 (PDF 형식)로 추가 합니다.
-- **이미지**(선택 사항) – 제품의 로고 이미지가 마켓플레이스의 여러 위치에 나타날 수 있으며, 다음 픽셀 크기의 PNG 형식이어야 합니다.
+- **이미지** (필수)-제품 로고 이미지가 marketplace 전체에 표시 될 수 있는 여러 위치가 있습니다. **큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다. **넓은** 로고 추가는 선택 사항입니다.
 
-  - **소형**(48 x 48, 필수)
-  - **중형**(90 x 90, 필수)
-  - **대형**(216 x 216, 필수)
-  - **와이드**(255 x 115)
+    목록의 다른 위치에서 사용 하려면 3 개의 로고 크기가 필요 합니다. 하나는 선택 사항입니다.
+
+    - **소형**(48 x 48)
+    - **중형**(90 x 90)
+    - **큼** (216 x 216 및 350 x 350)
+    - **와이드** (255 x 115), *선택 사항*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **스크린샷** (필수)-1280 x 720 픽셀로 크기를 지정 하 여 제품을 보여 주는 최대 5 개의 스크린샷을 추가 합니다. 모든 이미지는 .PNG 형식이어야 합니다.
 - **동영상**(선택 사항) – 제품을 보여 주는 동영상에 대한 링크를 추가합니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 또한 동영상 미리 보기 이미지를 입력해야 합니다. 이 이미지는 PNG 형식의 1280 x 720 픽셀로 크기가 지정됩니다. 제품당 최대 4개의 동영상을 표시할 수 있습니다.

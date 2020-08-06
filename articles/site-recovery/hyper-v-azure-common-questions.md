@@ -3,12 +3,12 @@ title: Azure Site Recovery의 Hyper-v 재해 복구에 대 한 일반적인 질�
 description: 이 문서에는 Azure Site Recovery 사이트를 사용하여 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 설정하는 방법과 관련된 일반적인 질문이 요약되어 있습니다.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132671"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799891"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -46,7 +46,7 @@ Hyper-V 호스트 서버에서 필요한 사항은 배포 시나리오에 따라
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Hyper-V 2세대 가상 머신을 Azure로 복제할 수 있습니까?
-예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히 알아보기](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히 알아봅니다](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>VMM 서버가 하나밖에 없는 경우 VMM을 사용하여 Site Recovery를 배포할 수 있습니까?
@@ -94,7 +94,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Hyper-V 클러스터에 있는 VM을 복제할 수 있나요?
 
-예, Site Recovery는 클러스터형 Hyper-V 호스트를 지원합니다. 다음 사항에 유의합니다.
+예, Site Recovery는 클러스터형 Hyper-V 호스트를 지원합니다. 다음 사항에 유의하세요.
 
 - 클러스터의 모든 노드는 동일한 자격 증명 모음에 등록되어야 합니다.
 - VMM을 사용하지 않는 경우 클러스터의 모든 Hyper-V 호스트를 동일한Hyper-V 사이트에 추가해야 합니다.
@@ -157,6 +157,10 @@ Azure에 복제 하는 경우 복제 트래픽은 Azure Storage 계정의 공용
 
 복제의 경우 Hyper-V VM에서 지원되는 운영 체제를 실행해야 합니다. 또한 VM에서 Azure VM에 대한 요구 사항을 충족해야 합니다. 지원 매트릭스에서 [자세히 알아보세요](hyper-v-azure-support-matrix.md#replicated-vms).
 
+### <a name="why-is-an-additional-standard-storage-account-required-if-i-replicate-my-virtual-machine-disks-to-premium-storage"></a>가상 머신 디스크를 premium storage에 복제 하는 경우 추가 표준 저장소 계정이 필요한 이유는 무엇 인가요?
+
+온-프레미스 가상 머신/물리적 서버를 premium storage에 복제 하는 경우 보호 된 컴퓨터의 디스크에 있는 모든 데이터가 premium storage 계정에 복제 됩니다. 복제 로그를 저장 하려면 추가 표준 저장소 계정이 필요 합니다. 디스크 데이터를 복제 하는 초기 단계가 완료 된 후에는 온-프레미스 디스크 데이터의 모든 변경 내용이 지속적으로 추적 되 고이 추가 표준 저장소 계정에 복제 로그로 저장 됩니다.
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 
 Hyper-v Vm은 30 초 마다 (premium storage 제외) 또는 5 분 마다 복제할 수 있습니다.
@@ -192,7 +196,7 @@ Site Recovery는 복제용으로 설정된 Hyper-V VM에서는 어떤 항목도 
 
 
 
-## <a name="failover-and-failback"></a>장애 조치 및 장애 복구
+## <a name="failover-and-failback"></a>장애 조치(failover) 및 장애 복구(failback)
 
 
 ### <a name="how-do-i-fail-over-to-azure"></a>Azure로 장애 조치(Failover)하려면 어떻게 해야 하나요?

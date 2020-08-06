@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037511"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800373"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -161,6 +161,21 @@ Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점�
 * 공식적인 안정적인 Pivotal 스프링 라이브러리를 사용 하는 것이 좋습니다. Pivotal 스프링 라이브러리의 비공식적, 베타 또는 분기 버전에는 SLA (서비스 수준 계약)가 지원 되지 않습니다.
 
 마이그레이션 후에는 CPU/RAM 메트릭과 네트워크 트래픽을 모니터링 하 여 응용 프로그램 인스턴스의 크기를 적절히 조정 해야 합니다.
+
+## <a name="trouble-shooting"></a>문제 해결
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>서비스 레지스트리의 영향을 거의 없는 경우는 어떻게 되나요?
+
+거의 발생 하지 않는 시나리오에서 다음과 같은 몇 가지 오류가 표시 될 수 있습니다. 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+응용 프로그램 로그에서 이 문제는 네트워크 불안정 또는 기타 네트워크 문제로 인 한 낮은 속도로 스프링 프레임 워크에서 도입 되었습니다. 
+
+사용자 환경에 영향을 주지 않아야 합니다. eureka client는 하트 비트 및 재시도 정책을 모두 포함 하 여이 작업을 처리 합니다. 하나의 일시적인 오류로 간주 하 고 안전 하 게 건너뛸 수 있습니다.
+
+이 부분을 개선 하 고 나중에 사용자 응용 프로그램에서이 오류를 방지 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

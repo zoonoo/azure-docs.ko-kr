@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/19/2020
+ms.date: 08/05/2020
 ms.author: abnarain
-ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023866"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800716"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -20,7 +20,7 @@ ms.locfileid: "87023866"
 
 이 문서에서는 Azure Data Factory에서 자체 호스팅 Integration Runtime에 대한 일반적인 문제 해결 방법을 살펴봅니다.
 
-## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 통합 런타임 로그 수집
+## <a name="gather-self-hosted-ir-logs-from-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 IR 로그 수집
 
 자체 호스팅 IR/공유 IR에서 실행 되는 실패 한 작업의 경우 Azure Data Factory에서 오류 로그 보기 및 업로드를 지원 합니다. 아래 단계에 따라 오류 보고서 ID를 가져온 다음 보고서 ID를 입력 하 여 관련 알려진 문제를 찾을 수 있습니다.
 
@@ -46,11 +46,369 @@ ms.locfileid: "87023866"
 > 로그 보기 및 업로드 요청은 모든 온라인 자체 호스팅 IR 인스턴스에서 실행 됩니다. 로그가 누락 되는 경우 자체 호스팅 IR 인스턴스가 모두 온라인 상태 인지 확인 하세요. 
 
 
-## <a name="common-errors-and-resolutions"></a>일반적인 오류 및 해결 방법
+## <a name="self-hosted-ir-general-failure-or-error"></a>자체 호스팅 IR 일반 오류 또는 오류
 
-### <a name="error-message"></a>오류 메시지: 
+### <a name="tlsssl-certificate-issue"></a>TLS/SSL 인증서 문제
 
-`Self-hosted integration runtime can't connect to cloud service`
+#### <a name="symptoms"></a>증상
+
+**자체 호스팅 Configuration Manager IR**에서 tls/ssl 인증서 (고급)를 사용 하도록 설정 하려는 경우  ->  **인트라넷에서 원격 액세스**를 사용 하도록 설정 하면 tls/ssl 인증서를 선택한 후 아래 오류가 표시 됩니다.
+
+`Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
+
+위의 경우 사용자는 마지막 항목으로 "microsoft.com"가 포함 된 인증서를 사용 합니다.
+
+#### <a name="cause"></a>원인
+
+이것은 WCF의 알려진 문제입니다. WCF TLS/SSL 유효성 검사는 SAN의 마지막 DNSName 확인 합니다. 
+
+#### <a name="resolution"></a>해결 방법
+
+와일드 카드 인증서는 Azure Data Factory v2 자체 호스팅 IR에서 지원 됩니다. 이 문제는 일반적으로 SSL 인증서가 올바르지 않기 때문에 발생 합니다. SAN의 마지막 DNSName는 유효 해야 합니다. 아래 단계를 수행 하 여 확인 합니다. 
+1.  관리 콘솔을 열고 인증서 세부 정보에서 *주체* 및 *주체 대체 이름* 둘 다를 두 번 확인 합니다. 예를 들어 위의 경우에는 "DNS 이름 = microsoft.com.com" 인 *주체 대체 이름의*마지막 항목이 합법적이 지 않습니다.
+2.  잘못 된 DNS 이름을 제거 하려면 인증서 문제 회사에 문의 하세요.
+
+### <a name="concurrent-jobs-limit-issue"></a>동시 작업 제한 문제
+
+#### <a name="symptoms"></a>증상
+
+Azure Data Factory UI에서 동시 작업 제한의 증가를 시도 하는 경우 *업데이트가* 영원히 중단 됩니다.
+동시 작업의 최대값은 24로 설정 되 고 작업을 더 빠르게 실행할 수 있도록 개수를 늘려야 합니다. 입력할 수 있는 최 솟 값은 3이 고 입력할 수 있는 최대값은 32입니다. 아래에서 볼 *수 있듯이 업데이트* 에 걸린 UI에서 24에서 32 사이의 값을 높이고 *업데이트* 단추를 누르면 됩니다. 새로 고친 후에도 고객은 값을 24로 확인 하 고 32으로 업데이트 되지 않습니다.
+
+![상태 업데이트 중](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
+
+#### <a name="cause"></a>원인
+
+값이 컴퓨터 logicCore 및 메모리에 따라 달라 지므로 설정에 제한이 있습니다. 24와 같은 작은 값으로 조정 하 고 결과를 볼 수 있습니다.
+
+> [!TIP] 
+> - 논리 코어 수와 컴퓨터의 논리 코어 수를 찾는 방법에 대 한 자세한 내용은 [이 문서](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/)를 참조 하세요.
+> - Math .log를 계산 하는 방법에 대 한 자세한 내용은 [이 문서](https://www.rapidtables.com/calc/math/Log_Calculator.html)를 참조 하세요.
+
+
+### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>자체 호스팅 IR HA SSL 인증서 문제
+
+#### <a name="symptoms"></a>증상
+
+자체 호스팅 IR 작업 노드가 아래 오류를 보고 했습니다.
+
+`Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
+
+#### <a name="cause"></a>원인
+
+SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 체인 확인과 관련 된 몇 가지 문제가 발생할 수 있습니다. 
+
+#### <a name="resolution"></a>해결 방법
+
+- 다음은 x.509 인증서 체인 빌드 실패 문제를 해결 하는 빠르고 직관적인 방법입니다.
+ 
+    1. 확인 해야 하는 인증서를 내보냅니다. 컴퓨터 인증서 관리로 이동 하 여 확인 하려는 인증서를 찾고 **모든 작업**내보내기를 마우스 오른쪽 단추로 클릭  ->  **Export**합니다.
+    
+        ![작업 내보내기](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
+
+    2. 내보낸 인증서를 클라이언트 컴퓨터에 복사 합니다. 
+    3. 클라이언트 쪽의 CMD에서 아래 명령을 실행 합니다. 아래 *\<certificate path>* 와 *\<output txt file path>* 자리 표시자를 관련 경로로 바꾸어야 합니다.
+    
+        ```
+        Certutil -verify -urlfetch    <certificate path>   >     <output txt file path> 
+        ```
+
+        예를 들면 다음과 같습니다.
+
+        ```
+        Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
+        ```
+    4. 출력 txt 파일에 오류가 있는지 확인 합니다. Txt 파일의 끝에서 오류 요약을 찾을 수 있습니다.
+
+        예를 들면 다음과 같습니다. 
+
+        ![오류 요약](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
+
+        아래와 같이 로그 파일의 끝에 오류가 표시 되지 않으면 클라이언트 컴퓨터에서 성공적으로 구축 된 인증서 체인을 고려할 수 있습니다.
+        
+        ![로그 파일에 오류가 없습니다.](media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png)      
+
+- 인증서 파일에 구성 된 AIA, CDP 및 OCSP가 있는 경우. 좀 더 직관적인 방법으로 확인할 수 있습니다.
+ 
+    1. 인증서의 세부 정보를 확인 하 여이 정보를 가져올 수 있습니다.
+    
+        ![인증서 세부 정보](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png)
+    1. 아래 명령을 실행 합니다. *\<certificate path>* 자리 표시자를 인증서의 관련 경로로 대체 했는지 확인 합니다.
+    
+        ```
+          Certutil   -URL    <certificate path> 
+        ```
+    1. 그런 다음 **URL 검색 도구** 를 엽니다. **검색** 단추를 클릭 하 여 AIA, CDP 및 OCSP에서 인증서를 확인할 수 있습니다.
+
+        ![검색 단추](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
+ 
+        AIA의 인증서가 "확인 됨"이 고 CDP 또는 OCSP의 인증서가 "확인 됨" 인 경우 인증서 체인을 성공적으로 구축할 수 있습니다.
+
+        AIA, CDP를 검색할 때 오류가 표시 되는 경우 네트워크 팀과 협력 하 여 클라이언트 컴퓨터를 대상 URL에 연결할 준비가 된 것입니다. Http 경로 또는 ldap 경로를 확인할 수 있으면 충분 합니다.
+
+### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>자체 호스팅 IR에서 파일 또는 어셈블리를 로드할 수 없습니다.
+
+#### <a name="symptoms"></a>증상
+
+`Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
+ 
+예를 들면 다음과 같습니다. 
+
+`Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
+
+#### <a name="cause"></a>원인
+
+프로세스 모니터를 사용 하는 경우 다음과 같은 결과를 볼 수 있습니다.
+
+[![프로세스 모니터](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox)
+
+> [!TIP] 
+> 아래 스크린샷에 표시 된 것 처럼 필터를 설정할 수 있습니다.
+> **System.valuetuple** DLL은 GAC 관련 폴더 또는 *C:\program Files\Microsoft integration Runtime\4.0\Gateway*또는 *c:\program Files\Microsoft integration Runtime\4.0\Shared* 폴더에 있지 않음을 나타냅니다.
+> 기본적으로는 먼저 *GAC* 폴더에서 dll을 로드 한 다음 *공유* 및 마지막으로 *게이트웨이* 폴더에서 로드 합니다. 따라서 유용 하 게 사용할 수 있는 경로에 dll을 배치할 수 있습니다.
+
+![필터 설정](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
+
+#### <a name="resolution"></a>해결 방법
+
+**System.ValueTuple.dll** *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan* 폴더에 있는 것을 확인할 수 있습니다. **System.ValueTuple.dll** 를 *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* 폴더에 복사 하 여 문제를 해결 합니다.
+
+동일한 방법을 사용 하 여 다른 파일 또는 어셈블리 누락 문제를 해결할 수 있습니다.
+
+#### <a name="more-information"></a>추가 정보
+
+*%Windir%\Microsoft.NET\assembly* 및 *%windir%\assembly* 아래에 System.ValueTuple.dll 표시 되는 이유는 .net 동작 이라고 하는 것입니다. 
+
+아래 오류에서 어셈블리 시스템을 명확 하 게 볼 수 있습니다 *. system.valuetuple* 가 없습니다. 이러한 문제는 응용 프로그램이 어셈블리 *System.ValueTuple.dll*를 확인 하려고 할 때 발생 합니다.
+ 
+`<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
+ 
+GAC에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/framework/app-domains/gac)를 참조 하세요.
+
+
+### <a name="how-to-audit-self-hosted-ir-key-missing"></a>자체 호스팅 IR 키 누락을 감사 하는 방법
+
+#### <a name="symptoms"></a>증상
+
+자체 호스팅 통합 런타임은 키 없이 갑자기 오프 라인으로 전환 되며, 아래 오류 메시지는 이벤트 로그에 표시 됩니다.`Authentication Key is not assigned yet`
+
+![인증 키가 없습니다.](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
+
+#### <a name="cause"></a>원인
+
+- 포털에서 자체 호스팅 IR 노드나 논리 자체 호스팅 IR이 삭제 됩니다.
+- 제거 작업이 완료 됩니다.
+
+#### <a name="resolution"></a>해결 방법
+
+위의 원인이 모두 적용 되지 않는 경우 *%Programdata%\Microsoft\Data Transfer\DataManagementGateway*폴더로 이동 하 여 **구성** 파일이 삭제 되었는지 여부를 확인할 수 있습니다. 삭제 된 경우 [여기](https://www.netwrix.com/how_to_detect_who_deleted_file.html) 에 있는 지침에 따라 파일을 삭제 하는 사람을 감사 합니다.
+
+![구성 파일 확인](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
+
+
+### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>자체 호스팅 IR을 사용 하 여 두 개의 온-프레미스 데이터 저장소에 연결할 수 없습니다.
+
+#### <a name="symptoms"></a>증상
+
+원본 및 대상 데이터 저장소에 대해 자체 호스트 된 IRs을 만든 후 두 IRs를 함께 연결 하 여 복사본을 완성 하려고 합니다. 데이터 저장소가 다른 Vnet에 구성 되어 있거나 게이트웨이 메커니즘을 이해할 수 없는 경우 다음과 같은 오류가 발생 합니다. *대상 IR에서 원본 드라이버를 찾을 수 없습니다*. *대상 IR에서 원본에 액세스할 수 없습니다*.
+ 
+#### <a name="cause"></a>원인
+
+자체 호스팅 IR은 각 데이터 저장소에 대해 설치 해야 하는 클라이언트 에이전트가 아니라 복사 작업의 중앙 노드로 설계 되었습니다.
+ 
+위의 경우에서 각 데이터 저장소에 대 한 연결 된 서비스는 동일한 IR을 사용 하 여 만들어야 하며 IR은 네트워크를 통해 두 데이터 저장소에 액세스할 수 있어야 합니다. 원본 데이터 저장소, 대상 데이터 저장소 또는 세 번째 컴퓨터에 IR을 설치 하는 것과 관계 없이 두 개의 연결 된 서비스가 다른 IRs으로 만들어졌지만 동일한 복사 작업에서 사용 되는 경우 대상 IR을 사용 하 고 두 데이터 저장소의 드라이버를 대상 IR 컴퓨터에 설치 해야 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+대상 IR에 원본 및 대상 모두에 대 한 드라이버를 설치 하 고 원본 데이터 저장소에 액세스할 수 있는지 확인 합니다.
+ 
+두 데이터 저장소 간에 네트워크를 통해 트래픽을 전달할 수 없는 경우 (예: 두 개의 Vnet에서 구성 된 경우) IR이 설치 된 경우에도 하나의 작업에서 복사를 완료할 수 없습니다. 이 경우 두 개의 IRs를 사용 하 여 두 개의 복사 작업을 만들 수 있습니다. 1 IR은 데이터 저장소 1에서 Azure Blob Storage로 복사 하 고 다른 하나는 Azure Blob Storage에서 데이터 저장소 2로 복사 합니다. 이 경우 IR을 사용 하 여 연결이 끊어진 두 데이터 저장소를 연결 하는 브리지를 만드는 요구 사항을 시뮬레이션할 수 있습니다.
+
+
+### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>자격 증명 동기화 문제로 인해 HA에서 자격 증명이 손실 됨
+
+#### <a name="symptoms"></a>증상
+
+Azure Portal에서 링크 서비스를 삭제 하거나 작업에 잘못 된 페이로드가 있으면 데이터 원본 자격 증명 "XXXXXXXXXX"이 (가) 현재 Integration Runtime 노드에서 삭제 됩니다. "자격 증명을 사용 하 여 새 링크 서비스를 다시 만드세요."를 참조 하세요.
+
+#### <a name="cause"></a>원인
+
+자체 호스팅 IR은 두 노드를 사용 하 여 HA 모드로 기본 제공 되지만 자격 증명 동기화 상태에 있지 않습니다. 즉, 디스패처 노드에 저장 된 자격 증명이 다른 작업자 노드와 동기화 되지 않습니다. 디스패처 노드에서 작업자 노드에 대 한 장애 조치 (failover)가 발생 하지만 자격 증명이 이전 디스패처 노드에만 존재 하는 경우 자격 증명에 액세스 하려고 하면 작업이 실패 하 고 위의 오류가 발생 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 문제를 방지 하는 유일한 방법은 두 노드가 자격 증명 동기화 상태에 있는지 확인 하는 것입니다. 그렇지 않으면 새 디스패처에 대 한 자격 증명을 다시 입력 해야 합니다.
+
+
+### <a name="cannot-choose-the-certificate-due-to-private-key-missing"></a>개인 키가 없어 인증서를 선택할 수 없습니다.
+
+#### <a name="symptoms"></a>증상
+
+1.  인증서 저장소에 PFX 파일을 가져옵니다.
+2.  IR Configuration Manager UI를 통해 인증서를 선택 하는 경우 아래 오류에 도달할 수 있습니다.
+
+    ![개인 키가 없음](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
+
+#### <a name="cause"></a>원인
+
+- 사용자 계정이 권한이 낮으므로 개인 키에 액세스할 수 없습니다.
+- 인증서가 서명으로 생성 되었지만 키 교환이 아닙니다.
+
+#### <a name="resolution"></a>해결 방법
+
+1.  UI를 작동 하기 위해 개인 키에 액세스할 수 있는 권한 있는 계정을 사용 합니다.
+2.  아래 명령을 실행 하 여 인증서를 가져옵니다.
+    
+    ```
+    certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
+    ```
+
+
+## <a name="self-hosted-ir-setup"></a>자체 호스팅 IR 설정
+
+### <a name="the-integration-runtime-registration-error"></a>Integration Runtime 등록 오류 
+
+#### <a name="symptoms"></a>증상
+
+다른 계정에서 다음과 같은 이유로 자체 호스팅 IR을 실행 하려는 경우가 있습니다.
+- 회사 정책은 서비스 계정을 허용 하지 않습니다.
+- 일부 인증이 필요 합니다.
+
+서비스 패널에서 서비스 계정을 변경한 후 Integration Runtime 작동이 중지 될 수 있습니다.
+
+![IR 등록 오류](media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png)
+
+#### <a name="cause"></a>원인
+
+서비스 계정에만 부여 되는 많은 리소스가 있습니다. 서비스 계정을 다른 계정으로 변경 하는 경우 모든 종속 리소스의 권한은 동일 하 게 유지 됩니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니다.
+
+![IR 이벤트 로그](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
+
+오류가 위의 *system.unauthorizedaccessexception*표시 되는 경우 아래 지침을 따르세요.
+
+
+1. Windows 서비스 패널에서 *Diahostservice* 로그온 서비스 계정을 확인 합니다.
+
+    ![로그온 서비스 계정](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+
+2. 로그온 서비스 계정에 *%programdata%\Microsoft\DataTransfer\DataManagementGateway*폴더에 대 한 R/W 권한이 있는지 확인 합니다.
+
+    - 기본적으로 서비스 로그온 계정이 변경 되지 않은 경우에는 R/W의 사용 권한이 있어야 합니다.
+
+        ![서비스 권한](media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png)
+
+    - 서비스 로그온 계정을 변경한 경우 아래 단계에 따라 문제를 완화 합니다.
+        1. 현재 자체 호스팅 IR을 완전히 제거 합니다.
+        1. 자체 호스팅 IR 비트를 설치 합니다.
+        1. 서비스 계정을 변경 하려면 아래 지침을 따르세요. 
+            1. Selfhosted IR의 설치 폴더로 이동 하 여 *Microsoft Integration Runtime\4.0\Shared*폴더로 전환 합니다.
+            1. 승격 된 권한을 사용 하 여 명령줄을 시작 합니다. 및를 사용자 *\<user>* *\<password>* 이름 및 암호로 바꾸고 아래 명령을 실행 합니다.
+                       
+                ```
+                dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"
+                ```
+            1. LocalSystem 계정으로 변경 하려면이 계정에 올바른 형식을 사용 해야 합니다. 다음은 올바른 형식의 예입니다.
+
+                ```
+                dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""
+                ```         
+                아래와 같이 형식을 사용 **하지** 마십시오.
+
+                ```
+                dmgcmd.exe -SwitchServiceAccount "LocalSystem" ""
+                ```              
+            1. 대신 로컬 시스템의 권한이 관리자 보다 높기 때문에 "서비스"에서 직접 변경할 수도 있습니다.
+            1. IR 서비스 로그온 계정에 로컬/도메인 사용자를 사용할 수 있습니다.            
+        1. Integration Runtime를 등록 합니다.
+
+오류가로 표시 되는 경우: *서비스 ' Integration Runtime 서비스 ' (DIAHostService)을 (를) 시작 하지 못했습니다. 시스템 서비스를 시작할 수 있는 권한이 있는지 확인*하 고 아래 지침을 따르세요.
+
+1. Windows 서비스 패널에서 *Diahostservice* 로그온 서비스 계정을 확인 합니다.
+   
+    ![로그온 서비스 계정](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+
+2. 로그온 서비스 계정에 Windows 서비스를 시작할 수 있는 **서비스로** 로그온 권한이 있는지 확인 합니다.
+
+    ![서비스로 로그온](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
+
+#### <a name="more-information"></a>추가 정보
+
+해당 하는 경우 위의 두 패턴 중 어느 것도 적용 되지 않으면 아래 Windows 이벤트 로그를 수집 해 보십시오. 
+- 응용 프로그램 및 서비스 로그-> Integration Runtime
+- Windows 로그-> 응용 프로그램
+
+### <a name="cannot-find-register-button-to-register-a-self-hosted-ir"></a>자체 호스팅 IR을 등록 하기 위한 등록 단추를 찾을 수 없습니다.    
+
+#### <a name="symptoms"></a>증상
+
+자체 호스팅 IR을 등록할 때 Configuration Manager UI에서 **등록** 단추를 찾을 수 없습니다.
+
+![등록 단추 없음](media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png)
+
+#### <a name="cause"></a>원인
+
+*3.0 Integration Runtime*릴리스 이후에는 기존 Integration Runtime 노드의 **등록** 단추가 제거 되어 더 깔끔하고 안전 하 게 환경을 사용할 수 있습니다. 노드가 온라인 상태 인지 여부에 관계 없이 Integration Runtime에 등록 되어 있는 경우 다른 Integration Runtime에 다시 등록 하려면 이전 노드를 제거한 다음 노드를 설치 하 고 등록 해야 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+1. 제어판으로 이동 하 여 기존 Integration Runtime를 제거 합니다.
+
+    > [!IMPORTANT] 
+    > 아래 프로세스에서 예를 선택 합니다. 제거 프로세스 동안 데이터를 유지 하지 않습니다.
+
+    ![데이터 삭제](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
+
+1. Integration runtime 설치 관리자 MSI가 없는 경우 [다운로드 센터](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) 로 이동 하 여 최신 Integration Runtime를 다운로드 합니다.
+1. MSI를 설치 하 고 Integration Runtime 등록 합니다.
+
+
+### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Localhost로 인해 자체 호스팅 IR을 등록할 수 없습니다.    
+
+#### <a name="symptoms"></a>증상
+
+Get_LoopbackIpOrName 때 새 컴퓨터에 자체 호스팅 IR을 등록할 수 없습니다.
+
+**디버그:** 런타임 오류가 발생 했습니다.
+' DataTransfer '에 대 한 형식 이니셜라이저가 예외를 throw 했습니다.
+데이터베이스 조회를 수행 하는 동안 복구할 수 없는 오류가 발생 했습니다.
+ 
+**예외 정보:** System.typeinitializationexception: ' DataTransfer. DataSourceCache '에 대 한 형식 이니셜라이저가 예외를 throw 했습니다. ---> GetAddrInfo: 시스템에서 데이터베이스를 조회 하는 동안 복구할 수 없는 오류가 발생 했습니다 (문자열 이름).
+
+#### <a name="cause"></a>원인
+
+이 문제는 일반적으로 localhost를 확인할 때 발생 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Localhost 127.0.0.1을 사용 하 여 파일을 호스트 하 고 이러한 문제를 해결 합니다.
+
+
+### <a name="self-hosted-setup-failed"></a>자체 호스팅 설치 실패    
+
+#### <a name="symptoms"></a>증상
+
+기존 IR을 제거 하거나 새 IR을 설치 하거나 기존 IR을 새 IR로 업그레이드할 수 없습니다.
+
+#### <a name="cause"></a>원인
+
+설치는 Windows Installer 서비스에 따라 달라 집니다. 설치 문제를 일으킬 수 있는 이유는 다음과 같습니다.
+- 디스크 공간이 부족 합니다.
+- 권한 부족
+- 어떤 이유로 NT 서비스가 잠겼습니다.
+- CPU 사용률이 너무 높습니다.
+- MSI 파일이 저속 네트워크 위치에서 호스트 됨
+- 일부 시스템 파일 또는 레지스트리를 실수로 작업 했습니다.
+
+
+## <a name="self-hosted-ir-connectivity-issues"></a>자체 호스팅 IR 연결 문제
+
+### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>자체 호스팅 integration runtime이 클라우드 서비스에 연결할 수 없음
+
+#### <a name="symptoms"></a>증상
 
 ![자체 호스팅 IR 연결 문제](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -114,8 +472,7 @@ ms.locfileid: "87023866"
 > *    프록시 서버에서 TLS/SSL 인증서 "wu2.frontend.clouddatahub.net/"을 신뢰할 수 있는지 확인합니다.
 > *    프록시에서 Active Directory 인증을 사용하는 경우 서비스 계정을 프록시에 "Integration Runtime Service"로 액세스할 수 있는 사용자 계정으로 변경합니다.
 
-### <a name="error-message"></a>오류 메시지: 
-`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
+### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>오류 메시지: 자체 호스팅 Integration Runtime 노드/논리적 SHIR이 비활성/"실행 중(제한됨)" 상태입니다.
 
 #### <a name="cause"></a>원인 
 
@@ -160,12 +517,11 @@ ms.locfileid: "87023866"
     - 모든 노드를 동일한 도메인에 배치 합니다.
     - 호스트 된 모든 VM의 호스트 파일에 있는 호스트에 IP를 추가 합니다.
 
-
-## <a name="troubleshoot-connectivity-issue"></a>연결 문제 해결
-
-### <a name="troubleshoot-connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>자체 호스팅 IR과 Data Factory 또는 자체 호스팅 IR 및 데이터 원본/싱크 간의 연결 문제 해결
+### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>자체 호스팅 IR과 Data Factory 또는 자체 호스팅 IR 및 데이터 원본/싱크에 대 한 연결 문제
 
 네트워크 연결 문제를 해결 하려면 [네트워크 추적을 수집](#how-to-collect-netmon-trace)하 고,이를 사용 하는 방법을 이해 하 고, 실제 사례에서 netmon 도구를 자체 호스팅 IR에서 적용 하기 전에 [netmon 추적을 분석](#how-to-analyze-netmon-trace) 하는 방법을 알고 있어야 합니다.
+
+#### <a name="symptoms"></a>증상
 
 경우에 따라 자체 호스팅 IR 및 Data Factory 간의 연결 문제를 해결 하는 경우는 다음과 같습니다. 
 
@@ -173,13 +529,13 @@ ms.locfileid: "87023866"
 
 또는 자체 호스팅 IR 및 데이터 원본/싱크 사이에 있는 경우 다음 오류가 발생 합니다.
 
-**오류 메시지:**
 `Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
 
-**오류 메시지:**
 `One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
 
-**해결 방법:** 위의 문제가 발생할 경우 다음 지침을 참조 하 여 문제를 해결 하십시오.
+#### <a name="resolution"></a>해결 방법:
+
+위의 문제가 발생할 경우 다음 지침을 참조 하 여 문제를 해결 하십시오.
 
 Netmon 추적을 사용 하 고 추가로 분석 합니다.
 - 먼저 필터를 설정 하 여 서버에서 클라이언트 쪽으로 다시 설정 하는 것을 볼 수 있습니다. 아래 예제에서 서버 쪽이 서버 Data Factory 것을 볼 수 있습니다.
@@ -299,6 +655,19 @@ Netmon 추적을 사용 하 고 추가로 분석 합니다.
     ![TCP 4 핸드셰이크](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
 
     ![TCP 4 핸드셰이크 워크플로](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
+
+
+## <a name="self-hosted-ir-sharing"></a>자체 호스팅 IR 공유
+
+### <a name="share-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>다른 테 넌 트에서 자체 호스팅 IR 공유는 지원 되지 않습니다. 
+
+#### <a name="symptoms"></a>증상
+
+Azure Data Factory UI에서 자체 호스팅 IR을 공유 하는 동안 다른 데이터 팩터리가 다른 테 넌 트에 있지만 다른 테 넌 트에 있는 데이터 팩터리에서 자체 호스팅 IR을 공유할 수는 없습니다.
+
+#### <a name="cause"></a>원인
+
+자체 호스팅 IR은 교차 테 넌 트를 공유할 수 없습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

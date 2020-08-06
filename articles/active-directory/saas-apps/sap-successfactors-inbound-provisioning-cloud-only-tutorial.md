@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97bda09870949846e333cc2845286512fd5d6386
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063225"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809904"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>자습서: Azure AD 사용자 프로 비전 (미리 보기)에 대 한 SAP SuccessFactors 구성
-이 자습서에서는 SuccessFactors Employee Central에서 Azure Active Directory로 작업자 데이터를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있습니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../app-provisioning/sap-successfactors-attribute-reference.md) 검색을 지원 합니다. 
+# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>자습서: Azure AD 사용자 프로 비전에 대 한 SAP SuccessFactors 구성
+이 자습서에서는 SuccessFactors Employee Central에서 Azure Active Directory로 작업자 데이터를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있습니다. 
 
 >[!NOTE]
 >SuccessFactors에서 프로 비전 하려는 사용자가 온-프레미스 AD 계정이 필요 하지 않은 클라우드 전용 사용자 인 경우이 자습서를 사용 합니다. 사용자에 게 온-프레미스 AD 계정 또는 AD와 Azure AD 계정이 모두 필요한 경우 [SAP SuccessFactors 구성](sap-successfactors-inbound-provisioning-tutorial.md#overview) 에 대 한 자습서를 참조 하 여 사용자 프로 비전을 Active Directory 하세요. 
@@ -79,7 +79,7 @@ SuccessFactors에서 Azure AD로 클라우드 HR 구동 사용자 프로 비전�
 * 특성 변환 
 * 범위 지정 필터
 
-이러한 항목에 대 한 포괄적인 지침은 [CLOUD HR 배포 계획](../app-provisioning/plan-cloud-hr-provision.md) 을 참조 하세요. 
+이러한 항목에 대 한 포괄적인 지침은 [CLOUD HR 배포 계획](../app-provisioning/plan-cloud-hr-provision.md) 을 참조 하세요. 지원 되는 엔터티, 처리 세부 정보 및 다른 HR 시나리오에 대 한 통합을 사용자 지정 하는 방법에 대 한 자세한 내용은 [SAP SuccessFactors integration 참조](../app-provisioning/sap-successfactors-integration-reference.md) 를 참조 하세요. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>통합을 위한 SuccessFactors 구성
 
@@ -175,7 +175,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
    * **테 넌 트 URL –** SuccessFactors OData API 서비스 끝점의 이름을 입력 합니다. Http 또는 https를 사용 하지 않고 서버의 호스트 이름만 입력 합니다. 이 값은 **api-server-name.successfactors.com**와 같습니다.
 
-   * **알림 전자 메일-** 전자 메일 주소를 입력 하 고 "오류가 발생 하는 경우 전자 메일 보내기" 확인란을 선택 합니다.
+   * **알림 메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
     > [!NOTE]
     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
 
