@@ -3,12 +3,12 @@ title: Azure Migrate의 검색, 평가 및 종속성 분석에 대 한 질문
 description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 일반적인 질문에 대 한 답변을 얻습니다.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385724"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829886"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석-일반적인 질문
 
@@ -31,9 +31,9 @@ ms.locfileid: "87385724"
 
 ## <a name="how-do-i-choose-the-assessment-type"></a>평가 유형을 선택하려면 어떻게 해야 하나요?
 
-- Azure vm으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가 하려는 경우 **azure vm 평가** 를 사용 합니다. [자세한 정보](concepts-assessment-calculation.md)
+- Azure vm으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가 하려는 경우 **azure vm 평가** 를 사용 합니다. [자세한 내용](concepts-assessment-calculation.md)
 
-- 이 평가 유형을 사용 하 여 [Azure Vmware 솔루션 (avs)](../azure-vmware/introduction.md) 으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가 하려는 경우에는 **azure vmware solution (avs)** 평가를 사용 합니다. [자세한 내용](concepts-azure-vmware-solution-assessment-calculation.md)
+- 이 평가 유형을 사용 하 여 [Azure Vmware 솔루션 (avs)](../azure-vmware/introduction.md) 으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가 하려는 경우에는 **azure vmware solution (avs)** 평가를 사용 합니다. [자세한 정보](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - 두 가지 유형의 평가를 실행하는 경우에만 VMware 컴퓨터에서 공통 그룹을 사용할 수 있습니다. Azure Migrate에서 AVS 평가를 처음 실행하는 경우 새 VMware 컴퓨터 그룹을 만드는 것이 좋습니다.
 
@@ -118,7 +118,7 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 
 ## <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
-종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 Vm 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세한 정보를 알아보세요](concepts-dependency-visualization.md).
+종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 Vm 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아보기](concepts-dependency-visualization.md).
 
 > [!NOTE]
 > 에이전트 기반 종속성 분석은 Azure Government에서 사용할 수 없습니다. 에이전트 없는 종속성 분석을 사용할 수 있습니다.
@@ -131,9 +131,9 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 --- | --- | ---
 지원 | 이 옵션은 현재 미리 보기 상태 이며 VMware Vm에 대해서만 사용할 수 있습니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 에이전트 | 교차 확인 하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | [MMA (Microsoft Monitoring agent)](../azure-monitor/platform/agent-windows.md)및 [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent)를 분석 하려는 각 온-프레미스 컴퓨터에 설치 되는 에이전트입니다. 
-필수 구성 요소 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
-Log Analytics | 필요하지 않음. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용합니다. [자세한 정보를 알아보세요](concepts-dependency-visualization.md#agent-based-analysis).
-작동 방식 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
+필수 조건 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
+Log Analytics | 필수 아님. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
+작동 방법 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
 데이터 | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 시각화 | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.
 데이터 내보내기 | 지난 30 일간의 데이터는 CSV 형식으로 다운로드할 수 있습니다. | Log Analytics를 사용 하 여 데이터를 쿼리할 수 있습니다.
@@ -169,7 +169,7 @@ Log Analytics | 필요하지 않음. | Azure Migrate는 종속성 시각화에 �
 
 에이전트 기반 종속성 시각화의 경우:
 
-- 스크립트를 사용 [하 여 종속성 에이전트를 설치](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)합니다.
+- 스크립트를 사용 [하 여 종속성 에이전트를 설치](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent)합니다.
 - MMA의 경우 [명령줄 또는 자동화를 사용](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)하거나 [스크립트](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)를 사용 합니다.
 - 스크립트 외에도 Microsoft Endpoint Configuration Manager 및 [Intigua](https://www.intigua.com/intigua-for-azure-migration) 와 같은 배포 도구를 사용 하 여 에이전트를 배포할 수 있습니다.
 

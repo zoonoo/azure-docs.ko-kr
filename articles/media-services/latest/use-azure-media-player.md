@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: bfc22862bc40679644d7dc9eddedf45fbacccab1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ca2da842d9a2d529cf5ea01211efaff2047a9e9a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292891"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836023"
 ---
 # <a name="playback-with-azure-media-player"></a>Azure Media Player 재생
 
@@ -47,7 +47,7 @@ Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트
 
 ## <a name="set-up-azure-media-player-in-your-html"></a>HTML에서 Azure Media Player 설정
 
-Azure Media Player는 설정하기 쉽습니다. Media Services 계정에서 미디어 콘텐츠의 기본 재생을 활용하려면 몇 분 정도 걸립니다. [Azure Media Player 설명서](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)에서 Azure Media Player를 설정 및 구성하는 방법에 대한 자세한 내용을 참조하세요.
+Azure Media Player는 설정하기 쉽습니다. Media Services 계정에서 미디어 콘텐츠의 기본 재생을 활용하려면 몇 분 정도 걸립니다. [Azure Media Player 설명서](../azure-media-player/azure-media-player-overview.md)에서 Azure Media Player를 설정 및 구성하는 방법에 대한 자세한 내용을 참조하세요.
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
 
@@ -55,5 +55,5 @@ Azure Media Player는 설정하기 쉽습니다. Media Services 계정에서 미
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Media Player 설명서](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)
+* [Azure Media Player 설명서](../azure-media-player/azure-media-player-overview.md)
 * [Azure Media Player 샘플](https://github.com/Azure-Samples/azure-media-player-samples)

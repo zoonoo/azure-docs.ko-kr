@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3301667c0ee6ad739b6fb734c2cea3aef4889bd9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051837"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832266"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -359,9 +359,9 @@ NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft Azure 파일 서비스 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Microsoft Azure 파일 서비스 소개](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Microsoft Azure 파일에 대한 연결 유지](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Microsoft Azure 파일에 대한 연결 유지](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 
 Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 디스크를 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에 제공된 설명은 Oracle Database를 사용한 배포에도 적용됩니다.
@@ -450,9 +450,9 @@ Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../windows/premium
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 
 
-- [Microsoft Azure 파일 서비스 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Microsoft Azure 파일 서비스 소개](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Microsoft Azure 파일에 대한 연결 유지](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Microsoft Azure 파일에 대한 연결 유지](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 디스크를 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에 제공된 설명은 Oracle Database를 사용한 배포에도 적용됩니다.
 

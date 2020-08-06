@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 31979854ad3f6bd6d1cf4e73fc3c993520ac423d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432682"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832249"
 ---
 # <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
 
-이 문서에서는 VM을 다른 [vm 크기로](sizes.md)이동 하는 방법을 보여 줍니다.
+이 문서에서는 VM을 다른 [vm 크기로](../sizes.md)이동 하는 방법을 보여 줍니다.
 
 VM(가상 머신)을 만든 후 VM 크기를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. 이는 현재 VM을 호스트하는 하드웨어 클러스터에서 새 크기를 사용할 수 없는 경우에 발생할 수 있습니다.
 

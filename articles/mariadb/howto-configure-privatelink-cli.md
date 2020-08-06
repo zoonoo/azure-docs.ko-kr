@@ -7,19 +7,19 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 794f9feaaa201ade6c824852e3609be6489a8513
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8f94c34281adbe274ad70425850e2ade4dc94ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504639"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833202"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>CLI를 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 문서에서는 azure 개인 끝점을 사용 하 여 Azure Virtual Network 및 Azure Database for MariaDB 서버에서 VM을 만드는 Azure CLI를 사용 하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 이 기능은 Azure Database for MariaDB 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
+> 개인 링크 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층의 Azure Database for MariaDB 서버에만 사용할 수 있습니다. 데이터베이스 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -173,7 +173,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
     | Hostname | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |

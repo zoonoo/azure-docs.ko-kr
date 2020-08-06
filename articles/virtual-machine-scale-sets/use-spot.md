@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491802"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832640"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -40,6 +40,11 @@ ms.locfileid: "87491802"
 
 사용자는 [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md)를 통해 VM 내 알림을 받도록 옵트인 (opt in) 할 수 있습니다. 이렇게 하면 Vm을 제거 하는 경우에 알림이 표시 되며, 제거 되기 전에 작업을 완료 하 고 종료 작업을 수행 하는 데 30 초 정도 걸립니다. 
 
+## <a name="placement-groups"></a>배치 그룹
+배치 그룹은 자체 장애 도메인 및 업그레이드 도메인을 포함 하는 Azure 가용성 집합과 비슷한 구문입니다. 기본적으로 확장 집합은 최대 100대의 VM을 갖춘 단일 배치 그룹으로 구성됩니다. 확장 집합 속성이 `singlePlacementGroup` *false*로 설정 된 경우 확장 집합은 여러 배치 그룹으로 구성 될 수 있으며 범위는 0 ~ 1000 인 vm입니다. 
+
+> [!IMPORTANT]
+> HPC와 함께 Infiniband를 사용 하지 않는 경우 확장 집합 속성을 false로 설정 하 여 `singlePlacementGroup` 여러 *false* 배치 그룹을 사용 하 여 지역 또는 영역 전체의 크기를 조정 하는 것이 좋습니다. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>확장 집합에 지점 Vm 배포
 
@@ -64,6 +69,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -89,14 +95,26 @@ $vmssConfig = New-AzVmssConfig `
 
 별색 Vm을 사용 하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에 설명 된 것과 동일 합니다. 
 
-별색 템플릿 배포의 경우 이상을 사용 `"apiVersion": "2019-03-01"` 합니다. `priority` `evictionPolicy` `billingProfile` 템플릿의 섹션에, 및 속성을 추가 합니다 `"virtualMachineProfile":` . 
+별색 템플릿 배포의 경우 이상을 사용 `"apiVersion": "2019-03-01"` 합니다. 
+
+`priority`, 및 속성을 섹션에 추가 하 `evictionPolicy` `billingProfile` `"virtualMachineProfile":` 고 `"singlePlacementGroup": false,` 속성을 `"Microsoft.Compute/virtualMachineScaleSets"` 템플릿의 섹션에 추가 합니다.
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 제거 된 인스턴스를 삭제 하려면 `evictionPolicy` 매개 변수를로 변경 `Delete` 합니다.

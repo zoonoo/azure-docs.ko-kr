@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3265e70159cd4c27f698d00d85dce7d4cb49b95
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286158"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836244"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Windows Vm 용 Azure AD Azure Disk Encryption (이전 릴리스)
 
@@ -74,7 +74,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
 
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a><a name="bkmk_RunningWinVMPSH"></a> Azure PowerShell을 통해 기존 또는 실행 중인 VM에서 암호화 사용 
-[AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet을 사용 하 여 Azure에서 실행 중인 IaaS 가상 컴퓨터에서 암호화를 사용 하도록 설정 합니다. PowerShell cmdlet을 사용하여 Azure Disk Encryption으로 암호화를 사용하는 방법은 블로그 게시물 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 1부](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) 및 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 2부](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)를 참조하세요.
+[AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet을 사용 하 여 Azure에서 실행 중인 IaaS 가상 컴퓨터에서 암호화를 사용 하도록 설정 합니다. PowerShell cmdlet을 사용하여 Azure Disk Encryption으로 암호화를 사용하는 방법은 블로그 게시물 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 1부](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell) 및 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 2부](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell-part-2)를 참조하세요.
 
 -  **클라이언트 암호를 사용 하 여 실행 중인 VM 암호화:** 아래 스크립트는 변수를 초기화 하 고 AzVMDiskEncryptionExtension cmdlet을 실행 합니다. 리소스 그룹, VM, 키 자격 증명 모음, AAD 응용 프로그램 및 클라이언트 비밀은 필수 구성 요소로 이미 만들어져 있어야 합니다. MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, Mysecurevm, 및 사용자의 값으로 대체 합니다.
      ```azurepowershell

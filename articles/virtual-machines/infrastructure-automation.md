@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 5567274fd9ee2cfaf41f9ff4c6e71bb2faab7b1d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292377"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830549"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 
@@ -34,9 +34,9 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 방법 배우기:
 
-- [Azure에서 사용하도록 Linux에 Ansible 설치 및 구성](../ansible/ansible-install-configure.md)
-- [Linux 가상 머신을 만듭니다](../ansible/ansible-create-vm.md).
-- [Linux 가상 머신 관리](../ansible/ansible-manage-linux-vm.md)
+- [Azure에서 사용하도록 Linux에 Ansible 설치 및 구성](/azure/developer/ansible/install-on-linux-vm)
+- [Linux 가상 머신을 만듭니다](/azure/developer/ansible/vm-configure).
+- [Linux 가상 머신 관리](/azure/developer/ansible/vm-manage)
 
 
 ## <a name="chef"></a>Chef
@@ -45,7 +45,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 방법 배우기:
 
 - [Azure Marketplace에서 Chef Automate 배포(영문)](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview)
-- [Windows에 Chef 설치 및 Azure VM 만들기](../chef/chef-automation.md)
+- [Windows에 Chef 설치 및 Azure VM 만들기](/azure/developer/chef/windows-vm-configure)
 
 
 ## <a name="puppet"></a>Puppet
@@ -81,7 +81,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 
 ## <a name="azure-custom-script-extension"></a>Azure 사용자 지정 스크립트 확장
-[Linux](./linux/extensions-customscript.md) 또는 [Windows](./windows/extensions-customscript.md)용 Azure 사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 VM을 만들 때 또는 VM 사용 중 언제든지 사용할 수 있습니다.
+[Linux](./extensions/custom-script-linux.md) 또는 [Windows](./extensions/custom-script-windows.md)용 Azure 사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 VM을 만들 때 또는 VM 사용 중 언제든지 사용할 수 있습니다.
 
 스크립트는 Azure Storage 또는 GitHub 리포지토리 등의 공개 위치에서 다운로드할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 원본 VM에서 실행되는 모든 언어로 스크립트를 작성할 수 있습니다. 이러한 스크립트는 애플리케이션을 설치하거나 필요에 따라 VM을 구성하는 데 사용할 수 있습니다. 자격 증명을 보호하기 위해 암호와 같은 중요한 정보를 보호된 구성에 저장할 수 있습니다. 이러한 자격 증명은 VM 내부에서만 암호 해독됩니다.
 
@@ -116,7 +116,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [PowerShell runbook을 만듭니다](../automation/automation-first-runbook-textual-powershell.md).
+- [PowerShell runbook을 만듭니다](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 - [Hybrid Runbook Worker를 사용하여 온-프레미스 리소스 관리](../automation/automation-hybrid-runbook-worker.md)
 - [Azure Automation DSC 사용](../automation/automation-dsc-getting-started.md)
 
@@ -126,7 +126,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 다음에 대해 자세히 알아봅니다.
 
-- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -134,7 +134,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기](../jenkins/tutorial-jenkins-github-docker-cicd.md)
+- [Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기](/azure/developer/jenkins/pipeline-with-github-and-docker)
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
@@ -149,4 +149,3 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 인프라 자동화 도구를 사용하기 위한 옵션은 다양합니다. 필요한 요구 사항과 환경에 가장 적합한 솔루션을 자유롭게 사용할 수 있습니다. Azure에 기본 제공된 일부 도구를 시작 및 사용하려면 [Linux](./linux/tutorial-automate-vm-deployment.md) 또는 [Windows](./windows/tutorial-automate-vm-deployment.md) VM의 사용자 지정을 자동화하는 방법을 참조하세요.
-

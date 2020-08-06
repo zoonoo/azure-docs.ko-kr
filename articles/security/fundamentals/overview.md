@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543829"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835938"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -336,7 +336,7 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 -   [토큰 기반 인증](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/)을 사용하여 Azure Active Directory를 통한 인증을 설정할 수 있습니다.
 
--   [RBAC(역할 기반 액세스 제어)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) - 사용자에게 할당된 역할에 따라 액세스 권한을 부여함으로써 사용자에게 자신의 업무를 수행하는 데 필요한 액세스 권한만 부여할 수 있게 합니다. 조직의 비즈니스 모델 및 위험 허용 범위에 따라 RBAC를 사용자 지정할 수 있습니다.
+-   Azure [RBAC (역할 기반 액세스 제어)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) 를 사용 하면 사용자의 할당 된 역할에 따라 액세스 권한을 부여 하 여 사용자에 게 작업 업무를 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 조직의 비즈니스 모델 및 위험 허용 범위에 따라 RBAC를 사용자 지정할 수 있습니다.
 
 -   [통합 ID 관리(하이브리드 ID)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) - 모든 리소스에 대한 인증 및 권한 부여를 위한 단일 사용자 ID를 만들어 내부 데이터 센터 및 클라우드 플랫폼에서 사용자 액세스에 대한 제어를 유지할 수 있게 합니다.
 

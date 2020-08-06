@@ -3,12 +3,12 @@ title: Azure Event Grid 파트너 토픽
 description: Azure Event Grid를 사용하여 타사 Event Grid SaaS 및 PaaS 파트너의 이벤트를 Azure 서비스로 직접 보냅니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115998"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831909"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Azure Event Grid의 파트너 항목 (미리 보기)
 파트너 토픽을 사용 하 여 타사 이벤트 원본을 Azure Event Grid에 직접 연결할 수 있습니다. 이러한 통합을 통해 Azure 서비스의 이벤트를 구독하는 것과 같은 방법으로 파트너의 이벤트를 구독할 수 있습니다. 
@@ -22,7 +22,7 @@ Event Grid 파트너 항목을 통해 제공 되는 첫 번째 파트너는 좋�
 파트너 토픽은 시스템 토픽과 동일한 작업 비율로 청구됩니다.
 
 ## <a name="limits"></a>제한
-파트너 토픽은 공개 미리 보기로 제공 됩니다. 공개 미리 보기 중에는 파트너 토픽에 시스템 항목 및 사용자 지정 항목과 [동일한 제한이](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) 적용 됩니다.
+파트너 토픽은 공개 미리 보기로 제공 됩니다. 공개 미리 보기 중에는 파트너 토픽에 시스템 항목 및 사용자 지정 항목과 [동일한 제한이](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) 적용 됩니다.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Event Grid 파트너가 되려면 어떻게 해야 하나요?
 이 출시를 지원하기 위해 만든 인프라를 통해 새 파트너는 이벤트 기능을 Event Grid와 쉽고 빠르게 통합할 수 있습니다. 자세한 내용은 [파트너 온 보 딩 설명서](partner-onboarding-overview.md)를 참조 하세요.

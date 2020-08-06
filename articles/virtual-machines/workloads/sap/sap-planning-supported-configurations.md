@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079811"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833337"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 가상 머신의 SAP 워크로드 지원 시나리오
 Azure에서 SAP NetWeaver, Business one `Hybris` 또는 S/4HANA 시스템 아키텍처를 디자인 하면 다양 한 아키텍처 및 도구를 사용 하 여 확장 가능 하 고 효율적 이며 가용성이 높은 배포를 수행할 수 있는 여러 가지 기회가 있습니다. 사용 된 운영 체제 또는 DBMS에 따라 다르지만 제한이 있습니다. 또한 온-프레미스에서 지원 되는 모든 시나리오가 Azure에서 동일한 방식으로 지원 되는 것은 아닙니다. 이 문서에서는 Azure Vm을 독점적으로 사용 하는 지원 되는 고가용성 구성과 고가용성 구성 및 아키텍처를 안내 합니다. [Hana Large instances](./hana-overview-architecture.md)에서 지원 되는 시나리오는 [hana large Instances에 대해 지원 되는 시나리오](./hana-supported-scenario.md)문서를 참조 하세요. 
@@ -246,7 +246,7 @@ VM은 전체 워크 로드 트래픽을 발생 시 지 않으므로 재해 복�
 - 여러 VM 제품군의 크기를 조정 하는 것은 여러 vm이 하나의 Azure 가용성 집합에서 수집 되거나 M 시리즈 패밀리와 Mv2 Vm 제품군 사이에서 다시 크기가 조정 되는 경우 문제가 될 수 있습니다.
 - 최소 지연 및 충분 한 CPU 및 메모리 리소스를 사용 하 여 변경 스트림을 수신 하 여 데이터에 대 한 최소 지연 시간으로 이러한 변경 내용을 적용할 수 있는 데이터베이스 인스턴스에 대 한 CPU 및 메모리 사용량  
 
-다양 한 VM 크기의 제한 사항에 대 한 자세한 내용은 여기를 참조 [하세요](../../linux/sizes.md) . 
+다양 한 VM 크기의 제한 사항에 대 한 자세한 내용은 여기를 참조 [하세요](../../sizes.md) . 
 
 DR 대상을 배포 하는 다른 지원 되는 방법은 비프로덕션 SAP 인스턴스의 비프로덕션 DBMS 인스턴스를 실행 하는 VM에 두 번째 DBMS 인스턴스를 설치 하는 것입니다. 이는 DR 시나리오에서 주 인스턴스로 작동 해야 하는 특정 대상 인스턴스에 필요한 메모리, CPU 리소스, 네트워크 대역폭 및 저장소 대역폭을 확인 해야 하기 때문에 좀 더 어려울 수 있습니다. 특히 HANA에서는 데이터가 DR 대상 인스턴스로 미리 로드 되지 않도록 공유 호스트에서 DR 대상으로 작동 하는 인스턴스를 구성 하는 것이 좋습니다.
 

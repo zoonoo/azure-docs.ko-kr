@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: d7aab7f5db6256d2f2525ff4a58c10ff5aa517f7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c3e8299a5acd7cbd3a6fd3cd76af33f4a798ad12
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553175"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832997"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요-Azure 파일 공유에 대 한 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
 
@@ -37,7 +37,7 @@ SMB를 통해 Azure 파일 공유에 대 한 AD DS를 사용 하도록 설정 �
 > - [온-프레미스 파일 서버를 Azure Files로 바꾸기 (파일 및 AD 인증을 위한 개인 링크의 설정 포함)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
 > - [Windows 가상 데스크톱에 대 한 프로필 컨테이너로 Azure Files 사용 (AD 인증 및 FsLogix 구성의 설정 포함)](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 
 Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 완료 했는지 확인 합니다. 
 
@@ -83,7 +83,7 @@ Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하면 �
 
 ![파일 광고 워크플로 다이어그램](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Azure 파일 공유에 액세스 하는 데 사용 되는 id는 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 모델을 통해 공유 수준 파일 사용 권한을 적용 하기 위해 azure AD에 동기화 되어야 합니다. 기존 파일 서버에서 전달 되는 파일/디렉터리의 [Windows 스타일 dacl](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) 은 유지 되 고 적용 됩니다. 이를 통해 엔터프라이즈 AD DS 환경과 원활한 통합이 가능 합니다. 온-프레미스 파일 서버를 Azure 파일 공유로 바꾸면 기존 사용자가 사용 중인 자격 증명을 변경 하지 않고 Single Sign-On 환경을 사용 하 여 현재 클라이언트에서 Azure 파일 공유에 액세스할 수 있습니다.  
+Azure 파일 공유에 액세스 하는 데 사용 되는 id를 azure AD에 동기화 하 여 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 모델을 통해 공유 수준 파일 권한을 적용 해야 합니다. 기존 파일 서버에서 전달 되는 파일/디렉터리의 [Windows 스타일 dacl](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) 은 유지 되 고 적용 됩니다. 이를 통해 엔터프라이즈 AD DS 환경과 원활한 통합이 가능 합니다. 온-프레미스 파일 서버를 Azure 파일 공유로 바꾸면 기존 사용자가 사용 중인 자격 증명을 변경 하지 않고 Single Sign-On 환경을 사용 하 여 현재 클라이언트에서 Azure 파일 공유에 액세스할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Service Bus 엔터티 (큐, 토픽 및 구독)를 통해 액세스 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cdb4329f00138c51826ced1627ff316fc5fd4619
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2e1c6127f3705adbf05cbfd8a92740651efe9048
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534654"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835666"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -29,7 +29,7 @@ Service Bus에 대 한 요청을 하는 네이티브 응용 프로그램 및 웹
 
 
 ## <a name="assigning-azure-roles-for-access-rights"></a>액세스 권한에 대 한 Azure 역할 할당
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Service Bus는 Service Bus 엔터티에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
+Azure AD (Azure Active Directory)는 azure [역할 기반 access control (AZURE RBAC)](../role-based-access-control/overview.md)을 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Service Bus는 Service Bus 엔터티에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
 Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 범위는 구독, 리소스 그룹 또는 Service Bus 네임 스페이스의 수준으로 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 Azure 리소스에 대 한 관리 되는 id 일 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통�
 - [Azure Service Bus 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver):이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여할 수 있습니다. 
 
 ## <a name="resource-scope"></a>리소스 범위 
-보안 주체에 게 Azure 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례는 항상 가장 좁은 범위를 부여 하는 것이 가장 좋습니다.
+Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여해야 하는 액세스 범위를 결정합니다. 모범 사례에 따르면 항상 가능한 가장 좁은 범위만 부여하는 것이 가장 좋습니다.
 
 다음 목록에서는 가장 좁은 범위에서 시작 하 여 Service Bus 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 

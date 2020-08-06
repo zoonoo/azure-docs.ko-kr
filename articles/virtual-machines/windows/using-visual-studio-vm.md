@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ec8e0f6448e725998628e41b917942966d3ef2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525537"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836159"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.
@@ -77,7 +77,7 @@ Azure에는 모든 범위의 가상 머신 크기가 제공됩니다. Visual Stu
    * Standard_D2S_v2
    * Standard_D3_v2
     
-최신 컴퓨터 크기에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터에 대한 크기](./sizes.md)를 참조하세요.
+최신 컴퓨터 크기에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터에 대한 크기](../sizes.md)를 참조하세요.
 
 Azure를 사용하면 VM의 크기를 조정하여 처음에 선택한 내용을 다시 조정할 수 있습니다. 좀 더 적절한 크기를 사용하여 새 VM을 프로비전할 수도 있고, 기존 VM의 크기를 다른 기본 하드웨어에 맞게 조정할 수도 있습니다. 자세한 내용은 [Windows VM 크기 조정](./resize-vm.md)을 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318388"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829597"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -42,7 +42,7 @@ Azure 메트릭 탐색기에서 차트 만들기, 사용자 지정 또는 해석
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>리소스에 대한 액세스 권한 부족
 
-Azure의 메트릭 액세스는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 제어됩니다. 리소스의 메트릭을 탐색하려면 [모니터링 읽기 권한자](../../role-based-access-control/built-in-roles.md#monitoring-reader), [모니터링 기여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 또는 [기여자](../../role-based-access-control/built-in-roles.md#contributor)의 구성원이어야 합니다.
+Azure에서 메트릭에 대 한 액세스는 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)에 의해 제어 됩니다. 리소스의 메트릭을 탐색하려면 [모니터링 읽기 권한자](../../role-based-access-control/built-in-roles.md#monitoring-reader), [모니터링 기여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 또는 [기여자](../../role-based-access-control/built-in-roles.md#contributor)의 구성원이어야 합니다.
 
 **해결 방법:** 메트릭을 탐색 하는 리소스에 대해 충분 한 권한이 있는지 확인 합니다.
 
@@ -118,4 +118,3 @@ Azure 메트릭 차트는 파선 스타일을 사용 하 여 두 개의 알려�
 * [메트릭 탐색기의 고급 기능에 대 한 자세한 정보](metrics-charts.md)
 * [Azure 서비스에 사용 가능한 메트릭 목록 보기](metrics-supported.md)
 * [구성된 차트 예제 보기](metric-chart-samples.md)
-

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: juliako
-ms.openlocfilehash: ab775e8d93111f7494d2bf321216e2725c438fc8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9c47488915997f054487d8343c7c3c032135dcdb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828502"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833082"
 ---
 # <a name="azure-media-services-v3-community"></a>Azure Media Services v3 커뮤니티  
 
@@ -40,7 +40,7 @@ ms.locfileid: "83828502"
 
 현재, MSDN은 Media Services 팀의 기본 커뮤니티 포럼입니다.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
+[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
 
 또한 이 팀은 Stack Overflow에서 'azure-media-services' 태그가 지정된 질문을 모니터링합니다.
 

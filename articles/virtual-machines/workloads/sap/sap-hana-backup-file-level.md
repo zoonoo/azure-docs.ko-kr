@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b9d66dc4f0e2e637ac8512022336f257f5d585a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035743"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833388"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>파일 수준의 SAP HANA Azure Backup
 
@@ -25,7 +25,7 @@ ms.locfileid: "87035743"
 
 이 문서는 Azure Backup 서비스 및 저장소 스냅숏에 대 한 시작 및 자세한 정보를 제공 하는 [Azure Virtual Machines에서 SAP HANA에 대 한 백업 가이드](./sap-hana-backup-guide.md)의 관련 문서입니다. 
 
-Azure의 VM 유형에 따라 서로 다른 개수의 VHD를 연결할 수 있습니다. 정확한 세부 정보는 [Azure에서 Linux 가상 머신에 대한 크기](../../linux/sizes.md)에 문서화되어 있습니다. 이 문서에서 참조 하는 테스트의 경우 64 연결 된 데이터 디스크를 허용 하는 GS5 Azure VM을 사용 했습니다. 대용량 SAP HANA 시스템의 경우 소프트웨어 스트라이프와 함께 이미 많은 수의 디스크를 데이터 및 로그 파일에 사용하여 디스크 IO 처리량을 최적화할 수 있습니다. Azure Vm에서 SAP HANA 배포에 대해 권장 되는 디스크 구성에 대 한 자세한 내용은 [azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md)문서를 참조 하세요. 권장 사항에는 로컬 백업에 대한 디스크 공간 권장 사항도 포함됩니다.
+Azure의 VM 유형에 따라 서로 다른 개수의 VHD를 연결할 수 있습니다. 정확한 세부 정보는 [Azure에서 Linux 가상 머신에 대한 크기](../../sizes.md)에 문서화되어 있습니다. 이 문서에서 참조 하는 테스트의 경우 64 연결 된 데이터 디스크를 허용 하는 GS5 Azure VM을 사용 했습니다. 대용량 SAP HANA 시스템의 경우 소프트웨어 스트라이프와 함께 이미 많은 수의 디스크를 데이터 및 로그 파일에 사용하여 디스크 IO 처리량을 최적화할 수 있습니다. Azure Vm에서 SAP HANA 배포에 대해 권장 되는 디스크 구성에 대 한 자세한 내용은 [azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md)문서를 참조 하세요. 권장 사항에는 로컬 백업에 대한 디스크 공간 권장 사항도 포함됩니다.
 
 파일 수준에서 백업/복원을 관리하는 표준 방법은 SAP HANA Studio 또는 SAP HANA SQL 문을 통해 파일 기반 백업을 수행하는 것입니다. 자세한 내용은 [SQL 및 시스템 뷰 참조 SAP HANA](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf)문서를 참조 하세요.
 

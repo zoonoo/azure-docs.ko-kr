@@ -1,5 +1,5 @@
 ---
-title: 인스턴스 및 인증 설정 (CLI)
+title: 인스턴스 및 인증 설정(CLI)
 titleSuffix: Azure Digital Twins
 description: CLI를 사용 하 여 Azure Digital Twins 서비스 인스턴스를 설정 하는 방법을 참조 하세요.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 287ee62acf3a078c4b47803060f61c9dd4134ab7
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408351"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832355"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
 
@@ -46,7 +46,7 @@ ms.locfileid: "87408351"
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### <a name="verify-success"></a>성공 확인
+### <a name="verify-success-and-collect-important-values"></a>성공 확인 및 중요 한 값 수집
 
 인스턴스가 성공적으로 만들어지면 Cloud Shell 결과가 다음과 같이 표시 되어 사용자가 만든 리소스에 대 한 정보를 출력 합니다.
 
@@ -71,12 +71,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 이 명령의 결과는 생성 된 역할 할당에 대 한 출력 된 정보입니다.
 
-> [!TIP]
-> 대신 *400: BadRequest* 오류가 발생 하는 경우 다음 명령을 실행 하 여 사용자의 *ObjectID* 를 가져옵니다.
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> 그런 다음 사용자의 전자 메일 대신 사용자의 *개체 ID* 를 사용 하 여 역할 할당 명령을 반복 합니다.
+> [!NOTE]
+> 이 명령을 실행할 때 CLI **가 graph 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수**없다는 오류를 반환 하는 경우:
+>
+> 전자 메일 대신 사용자의 *개체 ID* 를 사용 합니다. 이는 [MSAs (개인 Microsoft 계정)](https://account.microsoft.com/account)의 사용자에 게 발생할 수 있습니다. 
+>
+> 사용자 [Azure Active Directory의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 를 사용 하 여 사용자 계정을 선택 하 고 세부 정보를 엽니다. 사용자의 *ObjectID*를 복사 합니다.
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="' 개체 ID ' 필드에서 GUID를 강조 표시 하 Azure Portal의 사용자 페이지 보기" lightbox="media/includes/user-id.png":::
+>
+> 그런 다음 메일 대신 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다.
 
 ### <a name="verify-success"></a>성공 확인
 
@@ -117,7 +121,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 다음 명령을 실행 하 여 앱 등록을 만듭니다 (필요에 따라 자리 표시자 바꾸기).
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 다음은 사용자가 만든 등록에 대 한 정보를 보여 주는이 명령의 출력에 대 한 발췌입니다.

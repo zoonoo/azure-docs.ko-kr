@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: f05b70c8197283d9fa576d6ea464aa08554dd773
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 92d4fb638e41c668c557ef9e618d30677481585d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206773"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829852"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
 
@@ -20,7 +20,7 @@ ms.locfileid: "86206773"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!NOTE]
-> 이 기능은 Azure Database for PostgreSQL 단일 서버가 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
+> 개인 링크 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층의 Azure Database for PostgreSQL 서버에만 사용할 수 있습니다. 데이터베이스 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -107,7 +107,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **Azure Database for PostgreSQL 배포 옵션**에서 **단일 서버** 를 선택 하 고 다음 정보를 제공 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -118,7 +118,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 암호 | 선택한 암호를 입력합니다. 암호는 8자 이상이어야 하며 정의된 요구 사항을 충족해야 합니다. |
     | 위치 | PostgreSQL 서버를 배치 하려는 Azure 지역을 선택 합니다. |
     |버전  | 필요한 PostgreSQL 서버 데이터베이스 버전을 선택 합니다.|
-    | Compute + 저장소| 워크 로드에 따라 서버에 필요한 가격 책정 계층을 선택 합니다. |
+    | 컴퓨팅 + 스토리지| 워크 로드에 따라 서버에 필요한 가격 책정 계층을 선택 합니다. |
     |||
  
 7. **확인**을 선택합니다. 
@@ -137,7 +137,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **개인 끝점 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -226,7 +226,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | ------- | ----- |
     | 서버 유형| **PostgreSQL**를 선택 합니다.|
     | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |

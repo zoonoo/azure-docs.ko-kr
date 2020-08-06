@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870027637d9c45d0d5150db12046e454146ff169
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232117"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829632"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -97,7 +97,7 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 * 비즈니스 요구를 충족 하는 솔루션에 필요 합니다.
 * 비즈니스 요구를 충족 하는 데 유용 합니다.
-* 적용할 수 없음
+* 해당 없음
 
 |영역 |설명 |
 |-|-|
@@ -193,6 +193,4 @@ Azure AD 역할을 사용 하면 사용자의 역할에 따라 Azure AD 보고�
 
 구현 고려 사항 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 
-[RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 구현 고려
-
- 
+[Azure 역할 기반 access control 구현 고려 (AZURE RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688284"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836108"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Azure Virtual Network NAT 연결 문제 해결
 
@@ -195,6 +195,14 @@ _**해결 방법:**_
 NAT 게이트웨이 리소스에 대한 서브넷을 구성하는 가상 머신을 다시 부팅할 필요는 없습니다.  그러나 가상 머신이 다시 부팅되면 연결 상태가 플러시됩니다.  연결 상태가 플러시된 경우 모든 연결은 NAT 게이트웨이 리소스의 IP 주소를 사용하여 시작됩니다.  그러나 이는 가상 머신이 다시 부팅될 때의 부작용이므로, 다시 부팅이 필수라는 뜻은 아닙니다.
 
 여전히 문제가 발생하는 경우 지원 사례를 열어 추가 문제 해결을 확인하세요.
+
+### <a name="connection-setup-time"></a>연결 설정 시간
+
+Load Balancer 아웃 바운드 규칙은 특정 가상 컴퓨터에 SNAT 포트 풀을 정적으로 할당 하므로 Virtual Network NAT를 사용 하는 것 보다 새로운 아웃 바운드 흐름을 만드는 것이 더 빠릅니다. 따라서 Load Balancer 아웃 바운드 규칙에서 전환할 때 새 아웃 바운드 연결을 만들 때 대기 시간이 증가할 수 있습니다. 앞에서 설명한 대로 응용 프로그램의 성능을 최대화 하려면 수명이 긴 흐름 (예: 다시 사용 된 TCP 연결)을 사용 해야 합니다.
+
+_**해결 방법:**_
+
+주로 최소의 설정 대기 시간에 관심이 있는 경우 Load Balancer 아웃 바운드 규칙을 사용 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

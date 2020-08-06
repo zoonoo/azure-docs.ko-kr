@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082140"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836125"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
 
@@ -100,7 +100,7 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 2. 백 엔드 풀 **MyBackendPoolOfPublicILB**를 만들고 VM을 추가합니다.  
    1. 가상 네트워크를 선택합니다.  
    1. VM과 IP 주소를 선택한 다음, VM을 백 엔드 풀에 추가합니다.  
-3. [아웃바운드 규칙을 만듭니다](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). 현재는 Azure Portal에서 아웃바운드 규칙을 만들 수 없습니다. [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest)를 사용하여 아웃바운드 규칙을 만들 수 있습니다.  
+3. [아웃바운드 규칙을 만듭니다](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). 현재는 Azure Portal에서 아웃바운드 규칙을 만들 수 없습니다. [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest)를 사용하여 아웃바운드 규칙을 만들 수 있습니다.  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507882"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835530"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
 
@@ -76,7 +76,7 @@ IBM DB2 pureScale 환경은 Azure에 대 한 데이터베이스 클러스터를 
 
 메인프레임 워크 로드를 Azure IaaS (infrastructure as a service)로 마이그레이션하는 경우 Azure Vm을 포함 하 여 여러 유형의 주문형 확장 컴퓨팅 리소스에서 선택할 수 있습니다. Azure는 다양 한 [Linux](../../linux/overview.md) 및 [Windows](../../windows/overview.md) vm을 제공 합니다.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>컴퓨팅
 
 Azure 계산 전원은 잘를 메인프레임 용량과 비교 합니다. 메인프레임 워크 로드를 Azure로 이동 하는 것을 고려 하는 경우 100만 명령 (MIPS)의 메인프레임 메트릭을 가상 Cpu와 비교 합니다. 
 
@@ -90,7 +90,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 ### <a name="scalability"></a>확장성
 
-일반적으로 메인프레임은 규모를 강화 하는 반면, 클라우드 환경 규모는 확장 됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](../../linux/sizes.md) 및 [Windows](../../windows/sizes.md) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
+일반적으로 메인프레임은 규모를 강화 하는 반면, 클라우드 환경 규모는 확장 됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](../../sizes.md) 및 [Windows](../../sizes.md) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
 
 ### <a name="storage"></a>스토리지
 
@@ -98,7 +98,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 [메인프레임 저장소를 Azure로 이동](./concepts/mainframe-storage-azure.md)하는 방법을 알아봅니다.
 
-### <a name="backup-and-recovery"></a>백업 및 복구
+### <a name="backup-and-recovery"></a>Backup 및 복구
 
 자체 재해 복구 사이트를 유지 관리 하는 것은 비용이 많이 들 수 있습니다. Azure에는 로컬 또는 지역 수준에서 또는 지역 중복을 통해 [백업](../../../backup/backup-overview.md), [복구](../../../site-recovery/site-recovery-overview.md)및 [중복성](../../../storage/common/storage-redundancy.md) 을 위한 구현 하기 쉽고 비용 효율적인 옵션이 있습니다.
 

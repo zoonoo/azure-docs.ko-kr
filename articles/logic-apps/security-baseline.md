@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e547cf3f08e49ce707cd079778588fb6be5acb5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048421"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836329"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Logic Apps에 대 한 Azure 보안 기준
 
@@ -625,7 +625,7 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** 공유됨
+**책임**: 공유됨
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: 활성 검색 도구를 사용하여 중요한 데이터 식별
 
@@ -841,7 +841,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

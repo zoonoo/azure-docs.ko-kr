@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: d399a9f51eca6298cc829001a2da3b85ba001f27
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8889e7270127aa3991adb3c0575a4bce96090db2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528989"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830074"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여
 HMAC (해시 기반 MAC(메시지 인증 코드))를 사용 하는 것 외에도 Azure 앱 구성은 Azure Active Directory (Azure AD)를 사용 하 여 앱 구성 인스턴스에 대 한 요청을 인증 하도록 지원 합니다.  Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 권한을 부여할 수 있습니다.  보안 주체는 사용자, [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 또는 [응용 프로그램 서비스 사용자](../active-directory/develop/app-objects-and-service-principals.md)일 수 있습니다.  역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
@@ -26,7 +26,7 @@ HMAC (해시 기반 MAC(메시지 인증 코드))를 사용 하는 것 외에도
 권한 부여 단계를 수행 하려면 하나 이상의 Azure 역할을 보안 주체에 할당 해야 합니다. Azure 앱 구성은 앱 구성 리소스에 대 한 권한 집합을 포함 하는 Azure 역할을 제공 합니다. 보안 주체에 할당 된 역할에 따라 보안 주체에 제공 되는 사용 권한이 결정 됩니다. Azure 역할에 대 한 자세한 내용은 [Azure 앱 구성에 대 한 azure 기본 제공 역할](#azure-built-in-roles-for-azure-app-configuration)을 참조 하세요. 
 
 ## <a name="assign-azure-roles-for-access-rights"></a>액세스 권한에 대 한 Azure 역할 할당
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다.
+Azure AD (Azure Active Directory)는 azure [역할 기반 access control (AZURE RBAC)](../role-based-access-control/overview.md)을 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다.
 
 Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스는 앱 구성 리소스로 범위가 지정 됩니다. Azure AD 보안 주체는 사용자 또는 응용 프로그램 서비스 사용자 이거나 [azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 

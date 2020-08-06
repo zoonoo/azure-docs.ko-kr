@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1551bd3a6caedb61750b28120c222a57b491640e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372623"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830447"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -34,7 +34,7 @@ Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 
 
 ### <a name="supported-vms"></a>지원되는 VM
 
-Linux VM은 [다양한 크기](sizes.md)로 사용할 수 있습니다. Azure Disk Encryption은 [Basic, A 시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 또는 이러한 최소 메모리 요구 사항을 충족하지 않는 가상 머신에서는 사용할 수 없습니다.
+Linux VM은 [다양한 크기](../sizes.md)로 사용할 수 있습니다. Azure Disk Encryption은 [Basic, A 시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 또는 이러한 최소 메모리 요구 사항을 충족하지 않는 가상 머신에서는 사용할 수 없습니다.
 
 | 가상 머신 | 최소 메모리 요구 사항 |
 |--|--|

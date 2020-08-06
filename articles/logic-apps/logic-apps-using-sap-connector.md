@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086611"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833898"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -128,7 +128,7 @@ Sap 커넥터는 [NCo (sap .Net connector) 라이브러리](https://support.sap.
 
 * 기본적으로 SAP 설치 관리자는 기본 설치 폴더에 어셈블리 파일을 저장 합니다. 시나리오에 따라 다음과 같이 이러한 어셈블리 파일을 다른 위치에 복사 해야 합니다.
 
-  ISE에서 실행 되는 논리 앱의 경우 [integration service environment 필수 구성 요소](#sap-ise)에 설명 된 단계를 따릅니다. 다중 테 넌 트 Azure에서 실행 되 고 온-프레미스 데이터 게이트웨이를 사용 하는 논리 앱의 경우 기본 설치 폴더의 어셈블리 파일을 data gateway 설치 폴더로 복사 합니다. 데이터 게이트웨이에 문제가 발생 한 경우 다음 문제를 검토 하십시오.
+  * ISE에서 실행 되는 논리 앱의 경우 [integration service environment 필수 구성 요소](#sap-ise)에 설명 된 단계를 따릅니다. 다중 테 넌 트 Azure에서 실행 되 고 온-프레미스 데이터 게이트웨이를 사용 하는 논리 앱의 경우 기본 설치 폴더의 어셈블리 파일을 data gateway 설치 폴더로 복사 합니다. 데이터 게이트웨이에 문제가 발생 한 경우 다음 문제를 검토 하십시오.
 
   * 데이터 게이트웨이는 64 비트 시스템 에서만 실행 되므로 SAP 클라이언트 라이브러리에 대해 64 비트 버전을 설치 해야 합니다. 64비트 시스템이 아니면 데이터 게이트웨이 호스트 서비스가 32비트 어셈블리를 지원하지 않기 때문에 “잘못된 이미지” 오류가 표시됩니다.
 
@@ -431,7 +431,7 @@ SAP 커넥터는 간단한 문자열 및 숫자 입력과 함께 다음 테이�
 
 SAP 작업 필터링은 온-프레미스 데이터 게이트웨이에 대 한 SAP 어댑터 수준에서 발생 합니다. 자세한 내용은 [SAP에서 Logic Apps에 테스트 IDocs를 보내는 방법](#send-idocs-from-sap)을 참조 하세요.
 
-SAP에서 논리 앱의 트리거로 IDoc 패킷을 보낼 수 없는 경우 SAP tRFC 대화 상자 (T 코드 SM58)에서 트랜잭션 RFC (tRFC) 호출 거부 메시지를 참조 하세요. SAP 인터페이스에 다음과 같은 오류 메시지가 나타날 수 있습니다 .이 오류 메시지는 **상태 텍스트** 필드의 하위 문자열 제한으로 인해 잘립니다.
+SAP에서 논리 앱의 트리거로 IDoc 패킷을 보낼 수 없는 경우 SAP tRFC 대화 상자 (T 코드 SM58)에서 트랜잭션 RFC (tRFC) 호출 거부 메시지를 참조 하세요. SAP 인터페이스에 다음과 같은 오류 메시지가 나타날 수 있습니다 .이 오류 메시지는 **상태 텍스트** 필드의 부분 문자열 제한으로 인해 잘립니다.
 
 * `The RequestContext on the IReplyChannel was closed without a reply being`: 오류 때문에 채널에 대 한 모든 catch 처리기가 채널을 종료 하 고 다른 메시지를 처리 하기 위해 채널을 다시 작성 하는 경우 예기치 않은 오류가 발생 합니다.
 
@@ -532,7 +532,7 @@ SAP에서 논리 앱으로 IDocs를 보내려면 다음과 같은 최소 구성�
 
 1. 변경 내용을 저장합니다.
 
-1. 연결을 테스트 하려면 **연결 테스트** 를 선택 합니다.
+1. 연결을 테스트 하려면 **연결 테스트**를 선택 합니다.
 
 #### <a name="create-receiver-port"></a>받는 사람 포트 만들기
 
@@ -626,7 +626,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-from-sap)합니다.
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ![논리 앱에 SAP 트리거 추가](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -727,7 +727,10 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 ```
 
-다음 예제에서는 네임 스페이스에 대 한 접두사를 포함 합니다. 모든 접두사를 한 번에 선언 하거나 모든 접두사를 노드의 특성으로 선언할 수 있습니다. RFC 네임 스페이스 별칭은 `ns0` 기본 형식에 대 한 루트 및 매개 변수로 사용 됩니다. 복합 형식은 별칭을 사용 하 여 `ns3` 일반 rfc 네임 스페이스 대신 별칭을 사용 하는 rfc 형식의 다른 네임 스페이스에 선언 됩니다 `ns0` .
+다음 예제에서는 네임 스페이스에 대 한 접두사를 포함 합니다. 모든 접두사를 한 번에 선언 하거나 임의 개수의 접두사를 노드의 특성으로 선언할 수 있습니다. RFC 네임 스페이스 별칭은 `ns0` 기본 형식에 대 한 루트 및 매개 변수로 사용 됩니다.
+
+> [!NOTE]
+> 복합 형식은 별칭을 사용 하 여 `ns3` 일반 rfc 네임 스페이스 대신 별칭을 사용 하는 rfc 형식의 다른 네임 스페이스 아래에 선언 됩니다 `ns0` .
 
 ```xml
 
@@ -883,7 +886,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 ```
 
-다음 예는 그룹화 된 세그먼트가 있는 데이터 레코드입니다. 여기에는 그룹 부모 노드 및 `E2EDKT1002GRP` 및를 포함 한 여러 자식 노드가 포함 됩니다 `E2EDKT1002` `E2EDKT2001` . 
+다음 예는 그룹화 된 세그먼트가 있는 데이터 레코드입니다. 레코드에는 그룹 부모 노드 및 `E2EDKT1002GRP` 및를 포함 한 여러 자식 노드가 포함 되어 있습니다 `E2EDKT1002` `E2EDKT2001` . 
 
 ```xml
 
@@ -900,7 +903,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 ```
 
-TRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. `tid`SAP CONNECTOR API에서 [Send idoc 작업](https://docs.microsoft.com/connectors/sap/#send-idoc) 을 사용 하 여이 트랜잭션 식별자를 설정할 수 있습니다.
+TRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. `tid`SAP CONNECTOR API에서 [Send idoc 작업](/connectors/sap/#send-idoc) 을 사용 하 여이 트랜잭션 식별자를 설정할 수 있습니다.
 
 다음 예는 트랜잭션 식별자 또는를 설정 하는 다른 방법입니다 `tid` . 이 예에서는 마지막 데이터 레코드 세그먼트 노드와 IDoc 데이터 노드가 닫혀 있습니다. 그런 다음 GUID를 `guid` tRFC 식별자로 사용 하 여 중복 항목을 검색 합니다. 
 
@@ -1051,7 +1054,7 @@ TRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. `tid`S
 
    ![연결에서 SAP SNC 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------| ------------|
    | **SNC 라이브러리 경로** | NCo 설치 위치나 절대 경로를 기준으로 하는 SNC 라이브러리 이름 또는 경로입니다. 예를 들면 `sapsnc.dll` 또는 `.\security\sapsnc.dll` 또는 `c:\security\sapsnc.dll` 입니다. |
    | **SNC SSO** | SNC를 통해 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하는 데 사용 됩니다. 또 다른 옵션은를 재정의 하 여 호출자를 인증 하는 데 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 하는 것입니다. |
@@ -1157,7 +1160,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 1. Logic Apps 디자이너에서 작업 **Initialize 변수** 를 논리 앱에 추가 합니다. 
 1. Action **Initialize 변수에**대 한 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
-    1. **이름**에 변수의 이름을 입력 합니다. 예: `IDOCtransferID`.
+    1. **이름**에 변수의 이름을 입력 합니다. 예들 들어 `IDOCtransferID`입니다.
     2. **유형**에 대해 **문자열** 을 변수 유형으로 선택 합니다.
     3. **값**에 대해 텍스트 상자에 **초기 값 입력** 을 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **식** 탭을 선택 합니다. 함수 목록에서 함수를 입력 합니다 `guid()` . 그런 다음 **확인** 을 선택 하 여 변경 내용을 저장 합니다. 이제 **값** 필드가 GUID를 생성 하는 `guid()` 함수로 설정 됩니다.
 1. **변수 초기화** 작업 후에 **Send idoc**작업을 추가 합니다.
@@ -1166,11 +1169,11 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
     1. **Sap 릴리스 버전**의 경우 sap 구성 값을 선택 합니다.
     1. **레코드 종류 버전**에서 SAP 구성 값을 선택 합니다.
     1. **TID 확인**에 대해 **아니요**를 선택 합니다.
-    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID**추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예: `IDOCtransferID`.
+    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID**추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예들 들어 `IDOCtransferID`입니다.
 1. Action **SEND IDOC**의 제목 표시줄에서 **...**  >  를 선택 합니다. **설정**. **다시 시도 정책**에서 **없음**  >  **완료**를 선택 합니다.
 1. **IDOC**작업을 보낸 후 **트랜잭션 ID 확인**작업을 추가 합니다.
 1. **트랜잭션 ID 확인**작업의 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
-    1. **트랜잭션 ID**에 변수 이름을 다시 입력 합니다. 예: `IDOCtransferID`.
+    1. **트랜잭션 ID**에 변수 이름을 다시 입력 합니다. 예들 들어 `IDOCtransferID`입니다.
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 

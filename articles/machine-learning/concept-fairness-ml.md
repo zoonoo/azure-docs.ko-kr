@@ -1,5 +1,5 @@
 ---
-title: 기계 학습 모델 (미리 보기)의 공평 문제 평가 및 완화
+title: 기계 학습 모델 (미리 보기)의 공평 완화
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델의 공정성에 대한 내용과 Fairlearn Python 패키지로 보다 공정한 모델을 빌드하는 방법을 알아봅니다.
 services: machine-learning
@@ -8,22 +8,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207295"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829376"
 ---
-# <a name="build-fairer-machine-learning-models-preview"></a>Fairer machine learning 모델 빌드 (미리 보기)
+# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>기계 학습 모델 (미리 보기)의 공평 완화
 
-기계 학습에서 공평 하 고 [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지를 통해 보다 공평 하 게 모델을 빌드하는 방법을 알아보세요. 향상 된 문제를 이해 하 고 기계 학습 모델을 빌드할 때 공평 하 게 평가 하는 데 도움이 되지 않는 경우 불공정 거래법 결과를 생성 하는 모델을 작성할 수 있습니다. 
+기계 학습에서 공평 하 고 [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지가 기계 학습 모델의 공평 한 문제를 완화 하는 데 어떻게 도움이 될 수 있는지 알아보세요. 향상 된 문제를 이해 하 고 기계 학습 모델을 빌드할 때 공평 하 게 평가 하는 데 도움이 되지 않는 경우 불공정 거래법 결과를 생성 하는 모델을 작성할 수 있습니다.
 
 Fairlearn 오픈 소스 패키지에 대 한 [사용자 가이드](https://fairlearn.github.io/user_guide/index.html) 의 다음 요약에서는이를 사용 하 여 빌드하는 AI 시스템의 공평을 평가 하는 방법을 설명 합니다.  Fairlearn 오픈 소스 패키지는 관찰 되는 모든 문제를 완화 하는 데 도움이 되는 옵션을 제공할 수도 있습니다.  Azure Machine Learning 학습 중 AI 시스템의 공평 한 평가를 사용 하려면 [방법](how-to-machine-learning-fairness-aml.md) 및 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) 을 참조 하세요.
 
 
-## <a name="what-is-fairness-in-machine-learning-systems"></a>기계 학습 시스템의 공정성이란?
+## <a name="what-is-fairness-in-machine-learning-models"></a>기계 학습 모델에서 공평 한가요?
 
 >[!NOTE]
 > 공정성은 사회 기술적 과제입니다. 공평, 적법 절차 등 공정성의 여러 측면은 정량적 공정성 메트릭으로 캡처할 수 없습니다. 또한 여러 정성적 공정성 메트릭을 모두 동시에 만족할 수는 없습니다. Fairlearn 오픈 소스 패키지의 목표는 다른 영향 및 완화 전략을 평가할 수 있도록 하는 것입니다. 궁극적으로는 인공 지능 및 기계 학습 모델을 작성 하는 인적 사용자가 자신의 시나리오에 적합 한 장단점을 만듭니다.
@@ -38,7 +38,6 @@ AI와 기계 학습 시스템이 불공정한 동작을 보일 수 있습니다.
 
 AI 시스템의 불공정한 동작을 줄이려면 이러한 피해를 평가하고 완화해야 합니다.
 
-
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Fairlearn을 사용한 공정성 평가 및 완화
 
 Fairlearn은 기계 학습 시스템 개발자가 시스템의 공정성을 평가하고 관찰된 공정성 문제를 완화할 수 있는 오픈 소스 Python 패키지입니다.
@@ -50,7 +49,8 @@ Fairlearn 오픈 소스 패키지에는 두 가지 구성 요소가 있습니다
 
 두 구성 요소가 함께 작동하여 데이터 과학자 및 비즈니스 리더가 공정성과 성능 사이에서 적절히 타협하고, 요구 사항에 가장 적합한 완화 전략을 선택할 수 있도록 도와줍니다.
 
-## <a name="fairness-assessment"></a>공정성 평가
+## <a name="assess-fairness-in-machine-learning-models"></a>기계 학습 모델에서 공평 하 게 평가
+
 Fairlearn 오픈 소스 패키지에서 공평은 개념화가 위험에 노출 될 수 있는 개인 그룹을 요청 하는 **그룹**수준으로 알려진 방법입니다. 아집단이라고도 하는 관련 그룹은 **중요한 기능** 또는 중요한 특성을 통해 정의됩니다. 중요 한 기능은 Fairlearn의 벡터 또는 행렬로 평가기에 전달 됩니다 `sensitive_features` . 이 용어는 시스템 디자이너가 그룹 공정성을 평가할 때 이러한 기능을 중요하게 생각해야 한다는 의미입니다. 
 
 이러한 기능에는 개인 데이터 때문에 개인 정보 취급 방침이 포함 되어 있는지 여부를 염두에 두는 것이 좋습니다. 하지만 "중요한"이라는 단어는 이러한 기능을 예측에 사용하면 안 된다는 의미가 아닙니다.
@@ -72,7 +72,7 @@ Fairlearn 오픈 소스 패키지에서 공평은 개념화가 위험에 노출 
 
 - 선택 비율의 차이: 이 메트릭은 여러 하위 그룹 간의 선택 비율 차이를 포함합니다. 대출 승인율의 차이를 예로 들 수 있습니다. 선택 비율은 각 클래스에서 1로 분류된 데이터 요소의 비율(이진 분류) 또는 예측 값의 분포(회귀)를 의미합니다.
 
-## <a name="unfairness-mitigation"></a>불공정 완화
+## <a name="mitigate-unfairness-in-machine-learning-models"></a>기계 학습 모델의 공평 완화
 
 ### <a name="parity-constraints"></a>패리티 제약 조건
 

@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421895"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835955"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure Portal의 Azure Cognitive Search에 대 한 서비스 관리
 
@@ -56,7 +56,7 @@ Azure 구독 관리자 또는 공동 관리자는 서비스 자체를 프로비�
 * 서비스에 대 한 읽기 전용 액세스는 쿼리 권한 이며 일반적으로 URL 및 쿼리 api 키를 제공 하 여 클라이언트 응용 프로그램에 부여 됩니다.
 * 읽기/쓰기 액세스는 api 키, 인덱스, 인덱서, 데이터 원본 및 일정을 포함 하 여 서버 개체를 추가, 삭제 또는 수정 하는 기능을 제공 합니다. URL, 관리 API 키를 제공 하 여 읽기/쓰기 액세스 권한을 부여 합니다.
 
-서비스 프로 비전에 대 한 권한은 역할 할당을 통해 부여 됩니다. [RBAC (역할 기반 액세스)](../role-based-access-control/overview.md) 는 Azure 리소스의 프로 비전을 위해 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 기반으로 하는 권한 부여 시스템입니다. 
+서비스 프로 비전에 대 한 권한은 역할 할당을 통해 부여 됩니다. Azure [RBAC (역할 기반 access control)](../role-based-access-control/overview.md) 는 azure 리소스의 프로 비전을 위해 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 기반으로 구축 된 권한 부여 시스템입니다. 
 
 Azure Cognitive Search 컨텍스트에서 [azure 역할 할당](search-security-rbac.md) 은 [포털](search-manage.md), [PowerShell](search-manage-powershell.md)또는 [관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)를 사용 하는지에 관계 없이 작업을 수행할 수 있는 사람을 결정 합니다.
 

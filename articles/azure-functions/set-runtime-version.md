@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전을 대상으로 지정하는 방법
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. Azure에서 호스팅된 함수 앱의 런타임 버전을 지정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 3d4e40af1ba1e28bc9e9a433872e1315ffbe7747
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079658"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830872"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
@@ -16,12 +16,12 @@ ms.locfileid: "87079658"
 
 ## <a name="automatic-and-manual-version-updates"></a>자동 및 수동 버전 업데이트
 
-Azure Functions를 사용 하면 `FUNCTIONS_EXTENSION_VERSION` 함수 앱에서 응용 프로그램 설정을 사용 하 여 특정 버전의 런타임을 대상으로 지정할 수 있습니다. 함수 앱을 새 버전으로 변경하도록 명시적으로 선택할 때까지 지정된 주 버전에서 유지합니다.
+Azure Functions를 사용 하면 `FUNCTIONS_EXTENSION_VERSION` 함수 앱에서 응용 프로그램 설정을 사용 하 여 특정 버전의 런타임을 대상으로 지정할 수 있습니다. 함수 앱을 새 버전으로 변경하도록 명시적으로 선택할 때까지 지정된 주 버전에서 유지합니다. 주 버전만 지정 하는 경우 함수 앱은 사용할 수 있게 되 면 런타임의 새로운 부 버전으로 자동 업데이트 됩니다. 새 부 버전에는 주요 변경 내용이 도입 되지 않습니다. 
 
-주 버전만 지정 하는 경우 함수 앱은 사용할 수 있게 되 면 런타임의 새로운 부 버전으로 자동 업데이트 됩니다. 새 부 버전에는 주요 변경 내용이 도입 되지 않습니다. 부 버전(예: "2.0.12345")을 지정하면 버전을 명시적으로 변경할 때까지 함수 앱은 특정 버전으로 고정됩니다.
+부 버전(예: "2.0.12345")을 지정하면 버전을 명시적으로 변경할 때까지 함수 앱은 특정 버전으로 고정됩니다. 이전 부 버전은 프로덕션 환경에서 정기적으로 제거 됩니다. 이 경우 함수 앱은에 설정 된 버전 대신 최신 버전에서 실행 됩니다 `FUNCTIONS_EXTENSION_VERSION` . 따라서 주 버전을 대상으로 지정할 수 있도록 특정 부 버전이 필요한 함수 앱의 문제를 신속 하 게 해결 해야 합니다. 부 버전 제거는 [App Service 알림에서](https://github.com/Azure/app-service-announcements/issues)발표 됩니다.
 
 > [!NOTE]
-> Azure Functions의 특정 버전에 고정 한 후 Visual Studio를 사용 하 여 Azure에 게시 하려고 하면 최신 버전으로 업데이트 하거나 게시를 취소 하 라는 대화 상자가 표시 됩니다. 이를 방지 하려면 `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` 파일에 속성을 추가 `.csproj` 합니다.
+> Azure Functions의 특정 주 버전에 고정 한 후 Visual Studio를 사용 하 여 Azure에 게시 하려고 하면 최신 버전으로 업데이트 하거나 게시를 취소 하 라는 대화 상자가 표시 됩니다. 이를 방지 하려면 `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` 파일에 속성을 추가 `.csproj` 합니다.
 
 새 버전을 공개적으로 사용할 수 있으면 포털에서 메시지를 표시하여 해당 버전으로 업그레이드할 수 있는 기회를 제공합니다. 새 버전으로 변경한 후에 `FUNCTIONS_EXTENSION_VERSION` 애플리케이션 설정을 사용하여 이전 버전으로 다시 변경할 수 있습니다.
 

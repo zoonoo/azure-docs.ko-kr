@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2에서 HDFS CLI 사용
-description: Data Lake Storage Gen2용 HDFS CLI 소개
+description: Azure Data Lake Storage Gen2에 대 한 HDFS (Hadoop 분산 파일 시스템) CLI를 사용 합니다. 컨테이너를 만들고 파일 또는 디렉터리 목록을 가져옵니다.
 services: storage
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 36e6b39aaf481abaabe4fb5a4a71a527d1e74749
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109453"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836312"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
@@ -58,7 +58,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>`자리 표시자를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉니다.
 
-예: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+예를 들면 다음과 같습니다. `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
@@ -66,7 +66,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>`자리 표시자를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
 
-예: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+예를 들면 다음과 같습니다. `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>파일 또는 디렉터리 삭제
 
@@ -74,7 +74,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>` 자리 표시자를 삭제하려는 파일 또는 폴더의 URI로 바꿉니다.
 
-예: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+예를 들면 다음과 같습니다. `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>파일 및 디렉터리의 Access Control Lists(ACL) 표시
 

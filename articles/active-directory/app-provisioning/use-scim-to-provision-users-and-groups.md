@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051523"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829699"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -745,7 +745,7 @@ TLS 1.2 암호 도구 모음 최소 막대:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP 범위
-Azure AD 프로 비전 서비스는 현재 Azure IP 범위에서 작동할 수 있습니다. 서비스가 작동 하는 IP 범위 집합을 통합 하는 작업이 진행 중입니다. 이 문서는 IP 범위 목록이 통합 되 면 업데이트 됩니다. 
+Azure AD 프로 비전 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열 된 대로 AzureActiveDirectory 및 AzureActiveDirectoryDomainServices에 대 한 IP 범위에서 작동 합니다. AzureActiveDirectory 아래에 있는 IP 범위에만 통합 하는 작업이 진행 중입니다. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3단계: SCIM 엔드포인트 빌드
 

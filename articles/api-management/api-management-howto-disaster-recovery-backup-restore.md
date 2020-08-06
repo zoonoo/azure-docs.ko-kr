@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250454"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830260"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -147,7 +147,7 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-다음은 각 문자에 대한 설명입니다.
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
@@ -169,19 +169,24 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 백업은 완료하는 데 1분 이상 걸릴 수 있는 장기 실행 작업입니다. 요청이 성공하고 백업 프로세스가 시작된 경우 `Location` 헤더가 포함된 `202 Accepted` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 백업이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 백업 작업이 정상적으로 완료된 것입니다.
 
-백업 또는 복원 요청을 만들 때 다음 제약 조건을 확인 합니다.
+#### <a name="constraints-when-making-backup-or-restore-request"></a>백업 또는 복원 요청을 만들 때의 제약 조건
 
 -   요청 본문에 지정된 **Container**가 **있어야 합니다**.
 -   백업이 진행 중인 동안에는 SKU 업그레이드 또는 다운 그레이드, 도메인 이름 변경 등의 **서비스에서 관리를 변경 하지 않습니다** .
 -   백업 복원은 생성 시점부터 **30일 동안만 보장**됩니다.
--   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
--   또한 다음 항목은 백업 데이터에 포함 되지 않습니다. 사용자 지정 도메인 TLS/SSL 인증서 및 고객, 개발자 포털 콘텐츠 및 가상 네트워크 통합 설정에서 업로드 된 중간 또는 루트 인증서입니다.
--   서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API Management 서비스에 대한 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 -   백업 작업이 진행되는 동안 API, 정책 및 개발자 포털 모양 등의 서비스 구성을 **변경**하는 경우 **해당 내용이 백업에서 제외되고 손실될 수 있습니다**.
--   [방화벽이][azure-storage-ip-firewall] 사용 하도록 설정 된 경우 제어 평면에서 Azure Storage 계정으로의 액세스를 **허용** 합니다. 고객은 저장소 계정에서 백업 또는 복원에 대 한 [Azure API Management 제어 평면 IP 주소][control-plane-ip-address] 집합을 열어야 합니다. 
+-   [방화벽이][azure-storage-ip-firewall] 사용 하도록 설정 된 경우 제어 평면에서 Azure Storage 계정으로의 액세스를 **허용** 합니다. 고객은 저장소 계정에서 백업 또는 복원에 대 한 [Azure API Management 제어 평면 IP 주소][control-plane-ip-address] 집합을 열어야 합니다. 이는 Azure Storage에 대 한 요청이 계산 > (Azure Api Management 제어 평면)의 공용 IP에는 없는 것 이기 때문입니다. 지역 간 저장소 요청은 SNATed
 
-> [!NOTE]
-> 동일한 Azure 지역에서 [방화벽이][azure-storage-ip-firewall] 사용 하도록 설정 된 저장소 계정을 사용 하 여 API Management 서비스에서 백업/복원을 수행 하려고 하면이 작업이 작동 하지 않습니다. 이는 Azure Storage에 대 한 요청이 계산 > (Azure Api Management 제어 평면)의 공용 IP에는 없는 것 이기 때문입니다. 지역 간 저장소 요청은 SNATed
+#### <a name="what-is-not-backed-up"></a>백업 되지 않는 항목
+-   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
+-   [사용자 지정 도메인 TLS/SSL](configure-custom-domain.md) 인증서
+-   고객이 업로드 한 중간 또는 루트 인증서를 포함 하는 [사용자 지정 CA 인증서](api-management-howto-ca-certificates.md)
+-   [가상 네트워크](api-management-using-with-vnet.md) 통합 설정
+-   [관리 id](api-management-howto-use-managed-service-identity.md) 구성.
+-   [Azure Monitor 진단](api-management-howto-use-azure-monitor.md) 구성.
+-   [프로토콜 및 암호](api-management-howto-manage-protocols-ciphers.md) 설정
+
+서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API Management 서비스에 대한 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>API Management 서비스 복원
 
@@ -191,7 +196,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-다음은 각 문자에 대한 설명입니다.
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 -   `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 1714fac465531a2d3a5829e7080132510ccd1ec4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 2f10a6915a3edf673316ae9151b6052442678ef9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407479"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832354"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
@@ -24,7 +24,18 @@ Cloud Shell에서 다음 명령을 실행 하 여 사용 권한 수준을 확인
 az role assignment list --assignee <your-Azure-email>
 ```
 
-소유자 인 경우 `roleDefinitionName` 출력의 값은 *소유자*입니다.
+> [!NOTE]
+> 이 명령을 실행할 때 CLI **가 graph 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수**없다는 오류를 반환 하는 경우:
+>
+> 이 문서의 나머지 부분에서는 전자 메일 대신 사용자의 *개체 ID* 를 사용 합니다. 이는 [MSAs (개인 Microsoft 계정)](https://account.microsoft.com/account)의 사용자에 게 발생할 수 있습니다. 
+>
+> [Azure Active Directory 사용자의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 를 사용 하 여 사용자 계정을 선택 하 고 세부 정보를 엽니다. 사용자의 *ObjectID*를 복사 합니다.
+>
+> :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="' 개체 ID ' 필드에서 GUID를 강조 표시 하 Azure Portal의 사용자 페이지 보기" lightbox="../articles/digital-twins/media/includes/user-id.png":::
+>
+> 그런 다음 사용자의 전자 메일 대신 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다.
+
+역할 할당 목록 명령을 실행 한 후 소유자 인 경우 `roleDefinitionName` 출력의 값은 *소유자*입니다.
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/cloud-shell/owner-role.png" alt-text="Az role 대입문 list 명령의 출력을 보여 주는 Cloud Shell 창":::
 

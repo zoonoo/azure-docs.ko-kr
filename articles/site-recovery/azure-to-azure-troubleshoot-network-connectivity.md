@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421436"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835887"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 
@@ -51,7 +51,7 @@ VM에서 사용자 지정 DNS 설정을 사용 하는지 확인 하려면:
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>문제 2: Site Recovery 구성이 실패했습니다(151196).
 
 > [!NOTE]
-> Vm이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 기본적으로와 같은 Office 365 ip에 액세스할 수 없습니다 `login.microsoftonline.com` . [Azure CLI를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성](../load-balancer/configure-load-balancer-outbound-cli.md)문서에 설명 된 대로 **기본** 내부 부하 분산 장치 유형으로 변경 하거나 아웃 바운드 액세스를 만듭니다.
+> Vm이 **표준** 내부 부하 분산 장치 뒤에 있는 경우 기본적으로와 같은 Office 365 ip에 액세스할 수 없습니다 `login.microsoftonline.com` . [Azure CLI를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)문서에 설명 된 대로 **기본** 내부 부하 분산 장치 유형으로 변경 하거나 아웃 바운드 액세스를 만듭니다.
 
 #### <a name="possible-cause"></a>가능한 원인
 

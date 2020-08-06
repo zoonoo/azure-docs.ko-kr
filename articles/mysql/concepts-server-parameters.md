@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963209"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835989"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -110,7 +110,7 @@ Azure Database for MySQL는 단일 데이터 파일에서 최대 **1TB**를 지�
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|262144|128|268435455|
 |범용|4|262144|128|536870912|
@@ -159,7 +159,7 @@ MySQL에 대한 새 클라이언트 연결을 만들려면 시간이 필요하�
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|16777216|16384|268435455|
 |범용|4|16777216|16384|536870912|
@@ -184,7 +184,7 @@ MySQL에 대한 새 클라이언트 연결을 만들려면 시간이 필요하�
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|* * 최대 값 * *|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|0|0|16777216|
 |범용|4|0|0|33554432|
@@ -198,13 +198,28 @@ MySQL에 대한 새 클라이언트 연결을 만들려면 시간이 필요하�
 |메모리 최적화|16|0|0|134217728|
 |메모리 최적화|32|0|0|134217728|
 
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+Lower_case_table_name은 기본적으로 1로 설정 되며 MySQL 5.6 및 MySQL 5.7에서이 매개 변수를 업데이트할 수 있습니다.
+
+이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names)를 참조하세요.
+
+> [!NOTE]
+> MySQL 8.0에서 lower_case_table_name는 기본적으로 1로 설정 되며 변경할 수 없습니다.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+"행 크기 너무 큼 (> 8126)"과 유사한 오류가 표시 되는 경우 매개 변수 **innodb_strict_mode**를 해제할 수 있습니다. 행 데이터 크기가 8k 보다 크면 서버 매개 변수 **innodb_strict_mode** 를 서버 수준에서 전역적으로 수정할 수 없습니다. 데이터가 손실 될 수 있으므로 오류가 발생 하지 않고 데이터가 잘립니다. 페이지 크기 제한에 맞게 스키마를 수정 하는 것이 좋습니다. 
+
+이 매개 변수는를 사용 하 여 세션 수준에서 설정할 수 있습니다 `init_connect` . 세션 수준에서 **innodb_strict_mode** 설정 하려면 [나열 되지 않은 매개 변수 설정](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed)을 참조 하세요.
+
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
 이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size)를 참조하세요.
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|524288|32768|4194304|
 |범용|4|524288|32768|8388608|
@@ -224,7 +239,7 @@ MySQL에 대한 새 클라이언트 연결을 만들려면 시간이 필요하�
 
 |**가격 책정 계층**|**vCore**|**기본값 (바이트)**|**Min value (바이트)**|**Max 값 (바이트)**|
 |---|---|---|---|---|
-|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|N/A|
+|Basic|1|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |Basic|2|기본 계층에서 구성할 수 없음|해당 없음|해당 없음|
 |범용|2|16777216|1024|67108864|
 |범용|4|16777216|1024|134217728|

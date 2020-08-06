@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da583a1c884ddcae0815849c43dc0eb335005e53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072437"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832742"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 간에 변환하는 맵 만들기
 
@@ -36,7 +36,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 지금까지 필수 구성 요소를 살펴보았습니다. 이제 논리 앱을 만들 차례입니다.  
 
-1. 논리 앱을 만들고 맵을 포함 하는 [통합 계정에 연결](../logic-apps/logic-apps-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결 하는 방법 알아보기") 합니다.
+1. 논리 앱을 만들고 맵을 포함 하는 [통합 계정에 연결](./logic-apps-enterprise-integration-create-integration-account.md "논리 앱에 통합 계정을 연결 하는 방법 알아보기") 합니다.
 2. 논리 앱에 **요청** 트리거 추가  
    ![요청 트리거가 선택 된 "Microsoft 관리 Api 표시" 드롭다운의 스크린샷 드롭다운은 Visual Studio Enterprise Integration SDK를 사용 하 여 만든 논리 앱에 있습니다.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. 먼저 **작업 추가** 를 선택하여 **변환 XML** 작업을 추가합니다.  
@@ -136,4 +136,3 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 ## <a name="learn-more"></a>자세한 정보
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
 * [맵에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-maps.md "엔터프라이즈 통합 맵에 대해 알아보기")  
-

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247033"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836397"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -254,7 +254,9 @@ ACR은 다양한 수준의 권한을 제공하는 [사용자 지정 역할](cont
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>익명 풀 액세스를 사용하도록 설정하려면 어떻게 하나요?
 
-익명(퍼블릭) 풀 액세스에 대한 Azure 컨테이너 레지스트리 설정은 현재 미리 보기 기능입니다. 퍼블릭 액세스를 사용하도록 설정하려면 https://aka.ms/acr/support/create-ticket 에서 지원 티켓을 여세요. 자세한 내용은 [Azure 피드백 포럼](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)을 참조하세요.
+익명(퍼블릭) 풀 액세스에 대한 Azure 컨테이너 레지스트리 설정은 현재 미리 보기 기능입니다. 레지스트리에 [범위 맵 (사용자) 또는 토큰 리소스가](https://aka.ms/acr/repo-permissions) 있는 경우 지원 티켓을 발생 시키기 전에 삭제 하십시오 (시스템 범위 맵은 무시 될 수 있음). 퍼블릭 액세스를 사용하도록 설정하려면 https://aka.ms/acr/support/create-ticket 에서 지원 티켓을 여세요. 자세한 내용은 [Azure 피드백 포럼](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)을 참조하세요.
+
+
 
 
 ## <a name="diagnostics-and-health-checks"></a>진단 및 상태 검사
@@ -503,7 +505,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 예 |
 | Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | 예 | 예 |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 아니요 |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | 예 | 예 |
 | BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | 예 | 예 |
 
 ## <a name="run-error-message-troubleshooting"></a>실행 오류 메시지 문제 해결

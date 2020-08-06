@@ -6,20 +6,20 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: 0d1a6d5626e081ff50f65b3a4396e223b33f920d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 85b1b6c56221deaa03057a7ccb658b4bf67124eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433640"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830583"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Media Encoder Standard를 사용 하 여 오버레이를 만드는 방법
 
 미디어 인코더 표준을 사용하면 이미지를 기존 비디오에 오버레이할 수 있습니다. 현재 png, jpg, gif 및 bmp 형식이 지원됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-* 샘플에서 파일 *에appsettings.js* 를 구성 하는 데 필요한 계정 정보를 수집 합니다. 이 작업을 수행 하는 방법을 잘 모르는 경우 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)을 참조 하세요. 파일의 *appsettings.js* 에는 다음 값이 필요 합니다.
+* 샘플에서 파일 *에appsettings.js* 를 구성 하는 데 필요한 계정 정보를 수집 합니다. 이 작업을 수행 하는 방법을 잘 모르는 경우 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](../../active-directory/develop/quickstart-register-app.md)을 참조 하세요. 파일의 *appsettings.js* 에는 다음 값이 필요 합니다.
 
     ```json
     {
@@ -40,7 +40,7 @@ ms.locfileid: "87433640"
 
 * [Media Services를 사용 하 여 비디오 및 오디오 인코딩](encoding-concept.md) 읽기
 * [사용자 지정 변환-.net을 사용 하 여 인코딩하는 방법](customize-encoder-presets-how-to.md)을 참조 하세요. 이 문서의 단계에 따라 변환 작업에 필요한 .NET을 설정 하 고 여기로 돌아와서 오버레이 미리 설정 샘플을 사용해 보세요.
-* [참조 변환 문서](https://docs.microsoft.com/rest/api/media/transforms)를 참조 하세요.
+* [참조 변환 문서](/rest/api/media/transforms)를 참조 하세요.
 
 변형에 대해 잘 알고 있으면 오버레이 샘플을 다운로드 합니다.
 

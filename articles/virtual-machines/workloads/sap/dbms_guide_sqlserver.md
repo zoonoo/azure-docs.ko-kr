@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1771b0b55301fe4beaf2049859ebf3b9642fdd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077352"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831059"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -336,7 +336,7 @@ ms.locfileid: "87077352"
 
 
 * A 시리즈 VM, tempdb 데이터 및 로그 파일을 제외한 모든 SAP 인증 VM 유형(SAP Note [1928533] 참조)은 비영구 D:\ 드라이브에 배치할 수 있습니다. 
-* 그럼에도 불구하고 여러 tempdb 데이터 파일을 사용하는 것이 좋습니다. D:\ 드라이브 볼륨은 VM 유형에 따라 다릅니다. 여러 VM의 D:\ 드라이브에 대한 정확한 크기는 [Azure에서 Windows 가상 머신에 대한 크기](../../windows/sizes.md) 문서를 확인하세요.
+* 그럼에도 불구하고 여러 tempdb 데이터 파일을 사용하는 것이 좋습니다. D:\ 드라이브 볼륨은 VM 유형에 따라 다릅니다. 여러 VM의 D:\ 드라이브에 대한 정확한 크기는 [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md) 문서를 확인하세요.
 
 이러한 구성을 사용하면 tempdb에서 시스템 드라이브에서 제공할 수 있는 것보다 더 많은 공간을 사용할 수 있습니다. 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 적절한 tempdb 크기를 결정하기 위해 기존 시스템에서 tempdb 크기를 확인할 수 있습니다. 
 
@@ -379,7 +379,7 @@ SQL Server 2014 이상 릴리스에서는 VHD의 '래퍼' 없이 Azure Blob Stor
 
 * 사용된 Storage 계정이 SQL Server가 실행 중인 VM을 배포하는 데 사용된 것과 동일한 Azure 지역에 있어야 합니다.
 * 앞 부분에서 설명한 여러 Azure Storage 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure Storage 계정의 제한에 대한 I/O 작업 수를 의미합니다.
-* SQL Server 데이터 및 로그 파일을 나타내는 스토리지 Blob에 대한 트래픽은 VM의 스토리지 I/O 할당량을 계산하는 대신 특정 VM 유형의 VM 네트워크 대역폭으로 계산됩니다. 특정 VM 유형의 네트워크 및 스토리지 대역폭은 [Azure에서 Windows 가상 머신에 대한 크기](../../windows/sizes.md) 문서를 참조하세요.
+* SQL Server 데이터 및 로그 파일을 나타내는 스토리지 Blob에 대한 트래픽은 VM의 스토리지 I/O 할당량을 계산하는 대신 특정 VM 유형의 VM 네트워크 대역폭으로 계산됩니다. 특정 VM 유형의 네트워크 및 스토리지 대역폭은 [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md) 문서를 참조하세요.
 * 네트워크 할당량을 통해 파일 I/O 푸시의 결과로 스토리지 할당량을 주로 스트랜딩하고 이와 함께 VM의 전체 대역폭을 부분적으로만 사용합니다.
 * Azure Premium Storage에서 유지되는 다른 디스크 크기에 대한 IOPS 및 I/O 처리량 성능 목표는 더 이상 적용되지 않습니다. 만든 Blob이 Azure Premium Storage에 있는 경우에도 마찬가지입니다. 목표는 [VM의 고성능 Premium Storage 및 관리 디스크](../../windows/disks-types.md#premium-ssd) 문서에서 설명하고 있습니다. Azure Premium Storage에 저장된 Blob에 SQL Server 데이터 파일과 로그 파일을 직접 배치한 결과로 Azure Premium Storage의 VHD에 비해 성능 특성이 다를 수 있습니다.
 * Azure Premium Storage 디스크에 사용할 수 있는 호스트 기반 캐싱은 Azure Blob에서 SQL Server 데이터 파일을 직접 배치할 때 사용할 수 없습니다.

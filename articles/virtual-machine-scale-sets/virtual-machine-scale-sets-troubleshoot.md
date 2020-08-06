@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029436"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830685"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
 **문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 과 같은 템플릿을 배포했습니다. 정의된 크기 조정 규칙이 있으며, VM에 적용되는 로드의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고는 원활하게 작동합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "87029436"
 다음은 몇 가지 고려해야 할 사항입니다.
 
 * 각 VM에 얼마나 많은 vCPU가 있고 각 vCPU를 로드하고 있나요?
-  앞의 Azure 빠른 시작 템플릿 예제에는 단일 vCPU를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 vCPU VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 머신에 대한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 VM에 대한 vCPU 수 확인
+  앞의 Azure 빠른 시작 템플릿 예제에는 단일 vCPU를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 vCPU VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 머신에 대한 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 VM에 대한 vCPU 수 확인
 * 가상 머신 확장 집합에 얼마나 많은 VM이 있고 각각에서 작업을 수행하고 있나요?
   
     스케일 아웃 이벤트는 자동 크기 조정 규칙에서 내부 정의된 시간 동안 규모 집합에 있는 **모든** VM에 대해서 평균 CPU가 임계값을 초과했을 경우에만 수행됩니다.

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: f3876ad98bd937c4e0fcbd55ca2a2c0a5b497542
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0039480c24e96f39ec2b464984a84e672b5bffa1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288374"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832606"
 ---
 # <a name="m-series"></a>M 시리즈
 
@@ -66,7 +66,7 @@ Write Accelerator: [지원됨](./windows/how-to-enable-write-accelerator.md)
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+디스크 유형에 대 한 자세한 정보: [디스크 유형](./linux/disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>다음 단계

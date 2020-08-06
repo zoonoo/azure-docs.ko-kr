@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2용 Azure Blob 파일 시스템 드라이버
-description: ABFS Hadoop 파일 시스템 드라이버
+description: Hadoop에 대 한 전용 Azure Storage 드라이버만 Azure Blob 파일 시스템 드라이버 (ABFS)에 대해 알아봅니다. 이 드라이버를 사용 하 여 Azure Data Lake Storage Gen2의 데이터에 액세스 합니다.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75970285"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836363"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
 
@@ -53,7 +53,7 @@ ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애�
    > [!NOTE]
    > Azure Data Lake Storage Gen2는 Azure AD v 1.0 끝점만 지원 합니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 ABFS 드라이버에 대한 모든 구성은 <code>core-site.xml</code> 구성 파일에 저장됩니다. [Ambari](https://ambari.apache.org/)가 특징인 Hadoop 배포에서 웹 포털이나 Ambari REST API를 사용하여 구성을 관리할 수 있습니다.
 

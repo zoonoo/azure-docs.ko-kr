@@ -13,28 +13,28 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 763dd82c8263a5e180468f9fbd7f86526295a80d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
-ms.translationtype: HT
+ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279290"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830753"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Azure Portal을 사용하여 직접 메서드를 호출하는 방법
 
-IoT Hub를 사용하면 클라우드의 에지 디바이스에서 [직접 메서드](/azure/iot-hub/iot-hub-devguide-direct-methods#method-invocation-for-iot-edge-modules)를 호출할 수 있습니다. LVA(Live Video Analytics on IoT Edge) 모듈은 라이브 비디오를 분석하기 위해 여러 워크플로를 정의하고, 배포하고, 인스턴스화하는 데 사용할 수 있는 여러 [직접 메서드](/azure/media-services/live-video-analytics-edge/direct-methods)를 제공합니다.
+IoT Hub를 사용하면 클라우드의 에지 디바이스에서 [직접 메서드](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules)를 호출할 수 있습니다. LVA(Live Video Analytics on IoT Edge) 모듈은 라이브 비디오를 분석하기 위해 여러 워크플로를 정의하고, 배포하고, 인스턴스화하는 데 사용할 수 있는 여러 [직접 메서드](./direct-methods.md)를 제공합니다.
 
 이 문서에서는 Azure Portal을 통해 IoT Edge 모듈에 대해 Live Video Analytics에서 직접 메서드 호출을 호출하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 에지 디바이스에서 실행 중인 IoT Edge 모듈의 Live Video Analytics이 있으며, 이는 [빠른 시작: Live Video Analytics on IoT Edge](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart)에 설명된 메서드를 사용하거나 [포털](/azure/media-services/live-video-analytics-edge/deploy-iot-edge-device)을 사용합니다.
+* 에지 디바이스에서 실행 중인 IoT Edge 모듈의 Live Video Analytics이 있으며, 이는 [빠른 시작: Live Video Analytics on IoT Edge](./get-started-detect-motion-emit-events-quickstart.md)에 설명된 메서드를 사용하거나 [포털](./deploy-iot-edge-device.md)을 사용합니다.
 
-* [Live Video Analytics](/azure/media-services/live-video-analytics-edge/overview) 및 [미디어 그래프 개념](/azure/media-services/live-video-analytics-edge/media-graph-concept)를 이해하고 있습니다.
+* [Live Video Analytics](./overview.md) 및 [미디어 그래프 개념](./media-graph-concept.md)를 이해하고 있습니다.
 
 ## <a name="invoking-direct-methods-via-azure-portal"></a>Azure Portal을 통해 직접 메서드 호출
 
-LVA 모듈에 의해 노출된 각 [직접 메서드](/azure/media-services/live-video-analytics-edge/direct-methods)는 Azure Portal을 통해 호출할 수 있습니다. 아래 단계에서는 하나의 직접 메서드에 대한 세부 정보를 제공합니다. 비슷한 단계를 사용하여 다른 직접 메서드를 호출할 수 있습니다. 그러나 각 직접 메서드에는 특정 JSON 본문이 필요합니다.
+LVA 모듈에 의해 노출된 각 [직접 메서드](./direct-methods.md)는 Azure Portal을 통해 호출할 수 있습니다. 아래 단계에서는 하나의 직접 메서드에 대한 세부 정보를 제공합니다. 비슷한 단계를 사용하여 다른 직접 메서드를 호출할 수 있습니다. 그러나 각 직접 메서드에는 특정 JSON 본문이 필요합니다.
 
 `GraphTopologyList` 메서드 호출을 사용하여 IoT Edge 모듈의 Live Video Analytics에 현재 배포된 모든 그래프 토폴로지의 목록을 검색합니다. 다음 단계를 사용하여 이 직접 메서드를 호출합니다.
 
@@ -72,9 +72,9 @@ LVA 모듈에 의해 노출된 각 [직접 메서드](/azure/media-services/live
 
 ## <a name="next-steps"></a>다음 단계
 
-더 많은 직접 메서드는 [직접 메서드](/azure/media-services/live-video-analytics-edge/direct-methods) 페이지에서 찾을 수 있습니다.
+직접 [메서드](./direct-methods.md) 페이지에서 더 많은 직접 메서드를 찾을 수 있습니다.
 
 > [!NOTE]
 > 그래프 인스턴스는 특정 토폴로지를 인스턴스화하기 때문에 그래프 인스턴스를 만들기 전에 올바른 토폴로지가 설정되었는지 확인하세요.
 
-[빠른 시작: 모션 내보내기 이벤트 감지](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart)는 정확한 직접 메서드 호출 순서를 이해하기 위한 좋은 참고 자료입니다.
+[빠른 시작: 모션 내보내기 이벤트 감지](./get-started-detect-motion-emit-events-quickstart.md)는 정확한 직접 메서드 호출 순서를 이해하기 위한 좋은 참고 자료입니다.

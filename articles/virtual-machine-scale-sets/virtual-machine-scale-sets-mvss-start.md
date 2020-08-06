@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55c826b4baf38732684aaa0465aeaab6a45564db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503050"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831501"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md#template-deployment-process)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 확장 집합 템플릿을 만드는 방법 및 다양 한 시나리오에 맞게이 템플릿을 수정 하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.
@@ -115,7 +115,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ## <a name="specify-scale-set-properties"></a>확장 집합 속성 지정
 확장 집합에는 VM을 사용자 지정하기 위한 속성이 많이 있습니다. 이러한 속성의 전체 목록은 [템플릿 참조](/azure/templates/microsoft.compute/virtualmachinescalesets)에서 확인하세요. 이 자습서에서는 일반적으로 사용되는 몇 가지 속성만 설정됩니다.
 ### <a name="supply-vm-size-and-capacity"></a>VM 크기 및 용량 제공
-확장 집합은 만들 VM의 크기("sku 이름") 및 이러한 크기로 만들려는 VM의 수("sku 용량")를 알아야 합니다. 사용 가능한 VM 크기를 확인하려면 [VM 크기 설명서](../virtual-machines/windows/sizes.md)를 참조하세요.
+확장 집합은 만들 VM의 크기("sku 이름") 및 이러한 크기로 만들려는 VM의 수("sku 용량")를 알아야 합니다. 사용 가능한 VM 크기를 확인하려면 [VM 크기 설명서](../virtual-machines/sizes.md)를 참조하세요.
 
 ```json
        "sku": {

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 288a697339fc6f8b001b445840e3fa98ab92f9a4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d667ff3949fcf58affc72b5d75a40abd8ca0dcb6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292251"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830311"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 업로드 및 만들기
 
@@ -72,7 +72,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-대상 스토리지 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 클래식 CLI Resource Manager 매개 변수](../azure-cli-arm-commands.md#virtual-machines)에 대해 자세히 알아볼 수 있습니다.
+대상 스토리지 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 클래식 CLI Resource Manager 매개 변수](/previous-versions/azure/virtual-machines/azure-cli-arm-commands#virtual-machines)에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
 다음 단계를 완료하려면 다음이 필요합니다.

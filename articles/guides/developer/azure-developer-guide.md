@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 10c9e2c3ecefedded393d6949be1480f2f02973b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131058"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832810"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -92,7 +92,7 @@ VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 
 
 Azure Service Fabric는 분산 시스템 플랫폼입니다. 이 플랫폼을 사용 하면 확장 가능 하 고 안정적인 마이크로 서비스를 쉽게 빌드, 패키징, 배포 및 관리할 수 있습니다. 또한 다음과 같은 포괄적인 응용 프로그램 관리 기능을 제공 합니다.
 
-* 프로비저닝
+* 프로비전
 * 배포 중
 * 모니터링
 * 업그레이드/패치
@@ -233,7 +233,7 @@ Azure는 명령줄에서 응용 프로그램 및 서비스를 관리 하는 두 
 
 -   [Azure PowerShell](../../powershell-install-configure.md): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 [Azure Portal](https://portal.azure.com) 은 웹 기반 응용 프로그램입니다. Azure Portal를 사용 하 여 Azure 리소스 및 서비스를 만들고, 관리 하 고, 제거할 수 있습니다. 다음을 포함합니다.
 
@@ -259,7 +259,7 @@ REST Api와 함께 많은 Azure 서비스를 사용 하면 다음과 같은 개�
 
 [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) 및 [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md)와 같은 서비스는 웹 및 모바일 클라이언트 앱에서 서비스에 액세스할 수 있도록 해주는 클라이언트 쪽 SDK를 제공합니다.
 
-### <a name="azure-resource-manager"></a>Azure Resource Manager
+### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 Azure에서 앱을 실행 하는 경우 여러 Azure 서비스를 사용 하는 것이 포함 될 수 있습니다. 이러한 서비스는 동일한 수명 주기를 따르고 논리적 단위로 간주할 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
@@ -285,7 +285,7 @@ Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자*라고도 �
 
 ### <a name="manage-your-subscriptions"></a>구독 관리
 
-구독은 Azure 계정에 연결된 Azure 서비스의 논리적 그룹입니다. 단일 Azure 계정에 여러 구독이 포함될 수 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. 유형별로 제공되는 사용 가능한 구독 목록은 [Microsoft Azure 제안 세부 정보](https://azure.microsoft.com/support/legal/offer-details/)를 참조하세요. Azure 구독에는 구독에 대 한 모든 권한을 가진 계정 관리자가 있습니다. 또한 구독에 있는 모든 서비스를 제어 하는 서비스 관리자가 있습니다. 클래식 구독 관리자에 대한 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](../../cost-management-billing/manage/add-change-subscription-administrator.md)을 참조하세요. 개별 계정에는 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용 하 여 Azure 리소스에 대 한 자세한 제어 권한을 부여할 수 있습니다.
+구독은 Azure 계정에 연결된 Azure 서비스의 논리적 그룹입니다. 단일 Azure 계정에 여러 구독이 포함될 수 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. 유형별로 제공되는 사용 가능한 구독 목록은 [Microsoft Azure 제안 세부 정보](https://azure.microsoft.com/support/legal/offer-details/)를 참조하세요. Azure 구독에는 구독에 대 한 모든 권한을 가진 계정 관리자가 있습니다. 또한 구독에 있는 모든 서비스를 제어 하는 서비스 관리자가 있습니다. 클래식 구독 관리자에 대한 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](../../cost-management-billing/manage/add-change-subscription-administrator.md)을 참조하세요. Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용 하 여 azure 리소스에 대 한 자세한 제어 권한을 개별 계정에 부여할 수 있습니다.
 
 #### <a name="resource-groups"></a>리소스 그룹
 
@@ -307,7 +307,7 @@ Azure 리소스에 대 한 액세스를 허용 하는 경우 항상 지정 된 �
 
   > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우 자세한 내용은 [Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-#### <a name="tags"></a>태그
+#### <a name="tags"></a>태그들
 
 Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태그를 할당할 수 있습니다. 키-값 쌍인 태그는 청구 또는 모니터링에 대한 리소스를 구성해야 하는 경우에 유용할 수 있습니다. 태그는 여러 리소스 그룹에서 리소스를 추적하는 방법을 제공합니다. 태그는 다음과 같은 방식으로 할당할 수 있습니다.
 
@@ -319,7 +319,7 @@ Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태�
 
 각 리소스에 여러 태그를 할당할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../../resource-group-using-tags.md)을 참조하세요.
 
-### <a name="billing"></a>결제
+### <a name="billing"></a>청구
 
 온-프레미스 컴퓨팅에서 클라우드에 호스트된 서비스로 이동 시 서비스 사용량 및 관련 비용을 추적하고 예측하는 것은 중요합니다. 월 기준으로 실행 될 새 리소스의 비용을 예측 하는 것이 중요 합니다. 또한 현재 지출에 따라 특정 월에 대 한 대금 청구의 모양을 지정할 수 있습니다.
 

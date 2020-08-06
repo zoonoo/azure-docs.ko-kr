@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543608"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830345"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -116,7 +116,7 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
     "dependsOn": [],
 ```
 
-자세한 내용은 [리소스 종속성 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson)를 참조하세요.
+자세한 내용은 [리소스 종속성 정의](../../azure-resource-manager/templates/define-resource-dependency.md#dependson)를 참조하세요.
 
 ## <a name="identity"></a>ID
 
@@ -137,8 +137,8 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 * 단일 id만 지원 합니다.
 * 사용자 지정 도메인 이름을 지원 하지 않습니다.
 
-자세히 알아보려면 [Azure 리소스에 대한 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
-이 기능을 배포하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)을 참조하세요.
+자세히 알아보려면 [Azure 리소스에 대한 관리 ID란?](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+이 기능을 배포하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)을 참조하세요.
 
 ## <a name="properties-source"></a>속성: source
 
@@ -151,10 +151,10 @@ API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필�
 
 
 > [!NOTE]
-> 기존 Windows 사용자 지정 이미지를 사용 하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. 자세한 내용은 [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조 하십시오.
+> 기존 Windows 사용자 지정 이미지를 사용 하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. 자세한 내용은 [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조 하십시오.
 
 ### <a name="platformimage-source"></a>PlatformImage 원본 
-Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support)를 참조하세요. 
+Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](../windows/image-builder-overview.md#os-support)를 참조하세요. 
 
 ```json
         "source": {
@@ -373,7 +373,7 @@ OS 지원: Windows 및 Linux
 - **validExitCodes** – 선택 사항. 스크립트/인라인 명령에서 반환될 수 있는 유효한 코드입니다. 이를 지정하면 스크립트/인라인 명령의 오류를 보고하지 않습니다.
 - **runElevated** – 선택 사항, 부울. 상승된 권한으로 명령 및 스크립트를 실행하기 위한 지원입니다.
 - **sha256Checksum** - 파일의 sha256 체크섬 값. 이 값을 로컬로 생성하면 Image Builder가 체크섬 및 유효성 검사를 수행합니다.
-    * sha256Checksum을 생성하려면 Windows에서 PowerShell을 사용하여 [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)를 실행합니다.
+    * sha256Checksum을 생성하려면 Windows에서 PowerShell을 사용하여 [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)를 실행합니다.
 
 
 ### <a name="file-customizer"></a>파일 사용자 지정자
@@ -567,7 +567,7 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 - 이미지 정의 - 이미지에 대한 개념적 그룹화입니다. 
 - 이미지 버전 - VM 또는 확장 집합을 배포하는 데 사용되는 이미지 형식입니다. 이미지 버전은 VM을 배포해야 하는 다른 지역으로 복제할 수 있습니다.
  
-이미지 갤러리에 배포하려면 먼저 갤러리 및 이미지 정의를 만들어야 합니다. [공유 이미지](shared-images.md)를 참조하세요. 
+이미지 갤러리에 배포하려면 먼저 갤러리 및 이미지 정의를 만들어야 합니다. [공유 이미지](../shared-images-cli.md)를 참조하세요. 
 
 ```json
 {

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ac95fa81fdbee237cacaa1541e333bb70c370fa
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323301"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829444"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -33,7 +33,7 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 |주요 이점|설명|
 |----|----|
 |생산성|Azure Machine Learning studio에서 통합 된 노트북 및 다음 도구를 사용 하 여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (미리 보기)<br/>계산 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합 됩니다. 작업 영역의 다른 데이터 과학자와 전자 필기장 및 데이터를 공유할 수 있습니다. [SSH](how-to-set-up-vs-code-remote.md) 를 사용 하 여 원격 개발 VS Code를 설정할 수도 있습니다. |
-|관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [RBAC(역할 기반 액세스 제어)](/azure/role-based-access-control/overview)<br/>- [가상 네트워크 지원](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
+|관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [Azure 역할 기반 access control (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [가상 네트워크 지원](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
 |&nbsp;ML 용으로 미리 구성 된 &nbsp;|사전 구성된 최신 ML 패키지, 딥 러닝 프레임워크 및 GPU 드라이버를 통해 설치 작업에 드는 시간을 절약할 수 있습니다.|
 |완전한 사용자 지정 기능|GPU를 비롯한 Azure VM 형식에 대한 광범위한 지원과 패키지 및 드라이버 설치와 같은 지속형의 하위 수준 사용자 지정을 통해 고급 시나리오를 간편하게 만들 수 있습니다. |
 
@@ -41,7 +41,7 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 
 > [!IMPORTANT]
 > 아래 표시 된 (미리 보기) 도구는 현재 공개 미리 보기로 제공 됩니다.
-> 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Machine Learning 컴퓨팅 인스턴스를 사용하면 작업 영역의 완전 통합형 Notebook 환경에서 모델을 작성, 학습 및 배포할 수 있습니다.
 
@@ -149,7 +149,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 |가상 머신 유형 |  CPU 또는 GPU를 선택 합니다. 이 형식을 만든 후에는 변경할 수 없습니다.     |
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |SSH 액세스 사용/사용 안 함     |   SSH 액세스는 기본적으로 사용 되지 않습니다.  SSH 액세스는 일 수 없습니다. 만든 후 변경 됩니다. [VS Code 원격](how-to-set-up-vs-code-remote.md) 으로 대화형으로 디버깅 하려는 경우 액세스를 사용 하도록 설정 해야 합니다.   |
-|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.        |
+|고급 설정     |  선택 사항입니다. 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.        |
 
 인스턴스를 만들 수도 있습니다.
 * [통합 된 노트북 환경](tutorial-1st-experiment-sdk-setup.md#azure) 에서 직접

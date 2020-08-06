@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: how-to
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: b649a1b3c3dc0d8dd5f7056f36714f831509b82d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 908c258dab5625cda7f2fa020257b08e68102a1d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266863"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835564"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
@@ -326,4 +326,4 @@ azure.ResourceGroups.DeleteByName(groupName);
 ## <a name="next-steps"></a>다음 단계
 
 * 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../../azure-resource-manager/templates/common-deployment-errors.md)을 살펴봅니다.
-* [C#를 사용하여 Azure Virtual Machine 배포](csharp.md)를 검토하여 가상 머신 및 지원 리소스 배포 방법에 대해 알아 봅니다.
+* [C#를 사용하여 Azure Virtual Machine 배포](../../azure-resource-manager/templates/deploy-rest.md)를 검토하여 가상 머신 및 지원 리소스 배포 방법에 대해 알아 봅니다.

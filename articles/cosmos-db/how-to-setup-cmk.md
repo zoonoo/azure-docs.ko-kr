@@ -4,14 +4,14 @@ description: Azure Key Vault를 사용하여 Azure Cosmos DB 계정에 대한 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092616"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836513"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 
@@ -64,6 +64,8 @@ Azure Cosmos DB에 고객 관리형 키를 사용하려면 암호화 키를 호�
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Azure Cosmos DB 보안 주체 선택":::
 
 1. **추가**를 선택하여 새로운 액세스 정책을 추가합니다.
+
+1. Key Vault 인스턴스에서 **저장** 을 선택 하 여 모든 변경 내용을 저장 합니다.
 
 ## <a name="generate-a-key-in-azure-key-vault"></a>Azure Key Vault에서 새 키 생성
 

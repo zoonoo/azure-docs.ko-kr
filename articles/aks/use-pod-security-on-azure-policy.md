@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050459"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830226"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Azure Policy를 사용 하 여 pod 보호 (미리 보기)
 
@@ -47,7 +47,7 @@ Azure Policy를 통해 AKS pod를 보호 하려면 AKS 클러스터에 AKS 용 �
 
 AKS 클러스터에서 허용 컨트롤러는 리소스를 만들고 업데이트할 때 API 서버에 대 한 요청을 가로채는 데 사용 됩니다. 그러면 허용 컨트롤러는 생성 되어야 하는지 여부에 대 한 규칙 집합에 대해 리소스 요청의 *유효성을 검사할* 수 있습니다.
 
-이전에는 Kubernetes 프로젝트를 통해 기능 [pod 보안 정책 (미리 보기)](use-pod-security-policies.md) 을 사용 하 여 배포할 수 있는 pod를 제한 했습니다. 이 기능은 Kubernetes 프로젝트에서 더 이상 개발 되지 않습니다.
+이전에는 Kubernetes 프로젝트를 통해 기능 [pod 보안 정책 (미리 보기)](use-pod-security-policies.md) 을 사용 하 여 배포할 수 있는 pod를 제한 했습니다.
 
 AKS 클러스터는 Azure Policy 추가 기능을 사용 하 여 이전에 pod 보안 정책과 유사한 pod 및 기타 Kubernetes 리소스를 보호 하는 기본 제공 Azure 정책을 사용할 수 있습니다. AKS 용 Azure Policy 추가 기능에서는 유효성 검사 허용 컨트롤러인 관리 되는 [게이트 키퍼](https://github.com/open-policy-agent/gatekeeper)를 설치 합니다. Kubernetes에 대 한 Azure Policy은 [Rego 정책 언어](../governance/policy/concepts/policy-for-kubernetes.md#policy-language)를 사용 하는 오픈 소스 개방 정책 에이전트를 기반으로 합니다.
 
@@ -100,8 +100,8 @@ Kubernetes에 대 한 Azure Policy는 pod, [기준선](https://portal.azure.com/
 
 |[Pod 보안 정책 컨트롤](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy 정의 링크| 기준 이니셔티브 외에도 적용 | 제한 된 이니셔티브 외에도 적용 |
 |---|---|---|---|
-|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 옵션 | 옵션 |
-|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 옵션 | 옵션 |
+|컨테이너에서 사용 하는 AppArmor 프로필 정의|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | 선택 사항 | 선택 사항 |
+|읽기 전용이 아닌 탑재 허용|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | 선택 사항 | 선택 사항 |
 |특정 vervolume 드라이버로 제한|[공용 클라우드](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | 선택 사항-상대 볼륨 드라이버만 제한 하 고 "정의 된 볼륨 유형의 사용 제한"으로 설정 하지 않은 경우에만 사용 합니다. | 해당 없음-제한 된 이니셔티브에는 모든 vervolume 드라이버를 허용 하지 않는 "정의 된 볼륨 유형의 사용 제한"이 포함 됩니다. |
 
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>관리 되는 AKS 클러스터에 대해 지원 되지 않는 기본 제공 정책

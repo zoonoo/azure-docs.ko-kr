@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319238"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832980"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "87319238"
 > [!NOTE]
 > 또는 계정에 대 한 작업을 자동화 하려면 @outlook.com @hotmail.com [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md)를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다. 
 
@@ -48,7 +48,7 @@ ms.locfileid: "87319238"
 1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Office 365 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 있는 경우 트리거의 속성에 대 한 정보를 제공 합니다.
 
    > [!NOTE]
-   > 로그인 자격 증명을 변경 하더라도 해지 될 때까지 연결이 만료 되지 않습니다. 자세한 내용은 [Azure Active Directory에서 구성 가능한 토큰 수명](../active-directory/active-directory-configurable-token-lifetimes.md)을 참조하세요.
+   > 로그인 자격 증명을 변경 하더라도 해지 될 때까지 연결이 만료 되지 않습니다. 자세한 내용은 [Azure Active Directory에서 구성 가능한 토큰 수명](../active-directory/develop/active-directory-configurable-token-lifetimes.md)을 참조하세요.
 
    이 예에서는 트리거가 확인 하는 달력을 선택 합니다. 예를 들면 다음과 같습니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "87319238"
 1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Office 365 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 존재 하는 경우 작업의 속성에 대 한 정보를 제공 합니다.
 
    > [!NOTE]
-   > 로그인 자격 증명을 변경 하더라도 해지 될 때까지 연결이 만료 되지 않습니다. 자세한 내용은 [Azure Active Directory에서 구성 가능한 토큰 수명](../active-directory/active-directory-configurable-token-lifetimes.md)을 참조하세요.
+   > 로그인 자격 증명을 변경 하더라도 해지 될 때까지 연결이 만료 되지 않습니다. 자세한 내용은 [Azure Active Directory에서 구성 가능한 토큰 수명](../active-directory/develop/active-directory-configurable-token-lifetimes.md)을 참조하세요.
 
    이 예제에서는 작업에서 새 연락처를 만드는 연락처 폴더를 선택 합니다. 예를 들면 다음과 같습니다.
 

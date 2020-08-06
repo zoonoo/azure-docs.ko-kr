@@ -1,18 +1,18 @@
 ---
 title: Linux에서 Azure Files 사용 | Microsoft Docs
-description: Linux에서 SMB를 통해 Azure 파일 공유를 탑재하는 방법을 알아봅니다.
+description: Linux에서 SMB를 통해 Azure 파일 공유를 탑재하는 방법을 알아봅니다. 사전 요구 사항 목록을 참조 하세요. Linux 클라이언트에서 SMB 보안 고려 사항을 검토 합니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0270cebec21ca10327a86ea5efebef9a52455930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bc0390ba9bf8d0f80d1533fe6e40b42df0cb5359
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089348"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835717"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -246,7 +246,7 @@ Linux에서 Azure 파일 공유를 탑재 하려면 포트 445에 액세스할 �
 
 Linux 커널 4.18부터 레거시 이유로 호출 되는 SMB 커널 모듈은 `cifs` 라는 새 모듈 매개 변수 (종종 다양 한 외부 설명서로 *parm* 라고도 함)를 노출 `disable_legacy_dialects` 합니다. Linux 커널 4.18에 도입 되었지만 일부 공급 업체는이 변경 내용을 지원 되는 이전 커널로 변경 했습니다. 편의를 위해 다음 표에서는 일반적인 Linux 배포판에서이 모듈 매개 변수의 가용성을 자세히 설명 합니다.
 
-| 배포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
+| 분포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | 아니요 |
 | Ubuntu 18.04 | 예 |

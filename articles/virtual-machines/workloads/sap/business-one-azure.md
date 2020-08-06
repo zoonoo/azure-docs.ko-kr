@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f119acc06883dc077218c56accd31c805092db85
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 293a0fcd1211739be07e58f414bd6861bf47eb76
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088294"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831110"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -149,7 +149,7 @@ SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버
 이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
 
-- [Azure에서 Windows 가상 머신에 대한 크기](../../windows/sizes.md)
+- [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 필요한 CPU 수와 메모리를 Microsoft에서 문서화된 내용과 비교합니다. VM을 선택할 때 네트워크 처리량도 고려하세요.

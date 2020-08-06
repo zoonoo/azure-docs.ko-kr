@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 3f4846947b18adb1d3f33f1d46482b5c02ee831e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509157"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831365"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>사전에 GRUB 및 sysrq에 액세스할 수 있게 하면 가동 중지 시간을 상당히 단축할 수 있습니다.
 
@@ -437,4 +437,4 @@ GRUB에 액세스할 수 있으면 초기화 프로세스를 중단할 수 있�
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 직렬 콘솔]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)에 관한 자세한 정보
+[Azure 직렬 콘솔]( ./serial-console-linux.md)에 관한 자세한 정보

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420841"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833456"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>JIT (just-in-time) VM 액세스 이해
 
@@ -44,7 +44,7 @@ Just-in-time VM 액세스를 사용 하도록 설정 하면 인바운드 트래�
 
 선택한 포트에 대 한 다른 규칙이 이미 존재 하는 경우 기존 규칙은 새 "모든 인바운드 트래픽 거부" 규칙 보다 우선적으로 적용 됩니다. 선택한 포트에 기존 규칙이 없는 경우 새 규칙은 NSG 및 Azure 방화벽에서 가장 높은 우선 순위를 사용 합니다.
 
-사용자가 VM에 대 한 액세스를 요청 하면 Security Center 사용자에 게 해당 VM에 대 한 [RBAC (역할 기반 Access Control)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 권한이 있는지 확인 합니다. 요청이 승인 되 면 지정 된 시간 동안 관련 IP 주소 또는 범위에서 선택한 포트에 대 한 인바운드 트래픽을 허용 하도록 NSGs와 Azure 방화벽을 구성 Security Center 합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 이미 설정 된 연결은 중단 되지 않습니다.
+사용자가 VM에 대 한 액세스를 요청 하면 Security Center 사용자에 게 해당 VM에 대 한 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 권한이 있는지 확인 합니다. 요청이 승인 되 면 지정 된 시간 동안 관련 IP 주소 또는 범위에서 선택한 포트에 대 한 인바운드 트래픽을 허용 하도록 NSGs와 Azure 방화벽을 구성 Security Center 합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 이미 설정 된 연결은 중단 되지 않습니다.
 
 > [!NOTE]
 > JIT는 [Azure 방화벽 관리자](https://docs.microsoft.com/azure/firewall-manager/overview)에서 제어 하는 azure 방화벽으로 보호 되는 vm을 지원 하지 않습니다.

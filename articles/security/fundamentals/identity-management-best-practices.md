@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367404"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835904"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -195,7 +195,7 @@ Multi-Factor Authentication을 사용할 위치를 확인하려면 [우리 조�
 
 ## <a name="use-role-based-access-control"></a>역할 기반 액세스 제어 사용
 
-클라우드 리소스에 대한 액세스 관리는 클라우드를 사용하는 모든 조직에서 중요한 부분입니다. [RBAC(역할 기반 액세스 제어)](/azure/role-based-access-control/overview)는 Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 데 도움을 줍니다.
+클라우드 리소스에 대한 액세스 관리는 클라우드를 사용하는 모든 조직에서 중요한 부분입니다. Azure [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview)를 통해 azure 리소스에 대 한 액세스 권한이 있는 사용자, 해당 리소스에서 수행할 수 있는 작업 및 해당 리소스에 액세스할 수 있는 영역을 관리할 수 있습니다.
 
 Azure에서 특정 기능을 담당하는 그룹이나 개별 역할을 지정하면 사람 및 자동화 오류로 인해 보안 위험이 발생할 수 있는 혼동을 피할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다.
 

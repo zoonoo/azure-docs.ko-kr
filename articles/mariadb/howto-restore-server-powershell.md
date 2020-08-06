@@ -8,18 +8,18 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46ea77b26bb0c31a10cfac11c389ea5a21a8f4ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502541"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833252"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for MariaDB 서버를 백업 및 복원하는 방법
 
 Azure Database for MariaDB 서버는 정기적으로 백업 되어 복원 기능을 사용 하도록 설정 합니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -133,4 +133,4 @@ Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzMariaDbServer` �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용 하 여 Azure Database for MariaDB 서버 매개 변수 사용자 지정](howto-configure-server-parameters-using-powershell.md)
+> [PowerShell을 사용 하 여 Azure Database for MariaDB 연결 문자열을 생성 하는 방법](howto-connection-string-powershell.md)

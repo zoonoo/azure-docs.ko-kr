@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b100676cd8cfbffd273ea6ad50b63545f2d6037a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657176"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836227"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
-이 문서에서는 Azure Portal을 사용하여 새롭게 관리되는 데이터 디스크를 Windows VM(가상 머신)에 연결하는 방법을 보여 줍니다. VM 크기에 따라 연결할 수 있는 데이터 디스크 개수가 결정됩니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md)를 참조 하세요.
+이 문서에서는 Azure Portal을 사용하여 새롭게 관리되는 데이터 디스크를 Windows VM(가상 머신)에 연결하는 방법을 보여 줍니다. VM 크기에 따라 연결할 수 있는 데이터 디스크 개수가 결정됩니다. 자세한 내용은 [가상 컴퓨터의 크기](../sizes.md)를 참조 하세요.
 
 
 ## <a name="add-a-data-disk"></a>데이터 디스크 추가

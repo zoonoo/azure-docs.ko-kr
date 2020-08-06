@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa15b656f061d812b29ded99d55da13294f9800
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73622425"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835853"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Azure 가상 머신 장애 복구에서 가속화된 네트워킹
 
@@ -24,7 +24,7 @@ ms.locfileid: "73622425"
 
 Azure Site Recovery를 사용하면 다른 Azure 지역에 장애 조치된 Azure 가상 머신에 대한 가속화된 네트워킹의 이점을 활용할 수 있습니다. 이 문서에서는 Azure Site Recovery를 사용하여 복제된 Azure 가상 머신에 대해 가속화된 네트워킹을 사용하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 이해해야 합니다.
 -   Azure 가상 머신 [복제 아키텍처](azure-to-azure-architecture.md)
@@ -45,7 +45,7 @@ Azure Site Recovery는 원본 가상 머신에 가속화된 네트워킹이 활�
 
 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
-VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="accelerated-networking-with-linux-vms"></a>Linux VM에서 가속화된 네트워킹
 
@@ -66,7 +66,7 @@ Azure Site Recovery는 원본 가상 머신에 가속화된 네트워킹이 활�
 
 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 계열은 D/DSv3, E/ESv3, Fsv2 및 Ms/Mms입니다.
 
-VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="enabling-accelerated-networking-for-replicated-vms"></a>복제된 VM에 대해 가속화된 네트워킹 활성화
 

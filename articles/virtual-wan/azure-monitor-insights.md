@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8553a809173d955a21e6730de35c70de5b69e81b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: e3316b4a2255652972a0b9deef813f894f993589
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136260"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836074"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>가상 WAN (미리 보기)에 대 한 Azure Monitor 정보
 
@@ -21,7 +21,7 @@ ms.locfileid: "87136260"
 가상 wan, 허브, 게이트웨이 및 연결 수준의 메트릭을 표시 하는 미리 패키지 된 가상 WAN 메트릭 통합 문서를 통해 가상 WAN 리소스 수준 메트릭이 수집 되 고 표시 됩니다. 이 문서에서는 가상 WAN에 대 한 Azure Monitor Insights를 사용 하 여 가상 WAN 토폴로지와 메트릭을 모두 단일 위치로 보는 단계를 안내 합니다.
 
 > [!NOTE]
-> Insights 메뉴가이 미리 보기에 대해 롤아웃 되는 중입니다.
+> 가상 WAN 포털의 Insights 메뉴 옵션은 롤아웃 중입니다. 가상 WAN에 대 한 Insights 메뉴가 롤아웃 되는 동안 네트워크에 대 한 Azure Montor 사용 하 여 가상 WAN 토폴로지 및 메트릭 통합 문서에 직접 액세스할 수 있습니다. 자세한 내용은 [Azure Monitor](../azure-monitor/insights/network-insights-overview.md) 정보를 참조 하세요. 
 >
 
 ## <a name="before-you-begin"></a>시작하기 전에

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077480"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832521"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대 한 Azure Active Directory 인증 구성
 
@@ -23,13 +23,13 @@ ms.locfileid: "87077480"
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * WAN 만들기
-> * 허브 만들기
-> * P2S 구성 만들기
-> * VPN 클라이언트 프로필 다운로드
-> * P2S 구성을 허브에 적용
-> * 허브에 VNet 연결
-> * VPN 클라이언트 구성 다운로드 및 적용
+> * 가상 WAN 만들기
+> * 가상 허브 만들기
+> * 사용자 VPN 구성 만들기
+> * 가상 WAN 사용자 VPN 프로필 다운로드
+> * 가상 허브에 사용자 VPN 구성 적용
+> * 가상 허브에 VNet 연결
+> * 사용자 VPN 클라이언트 구성 다운로드 및 적용
 > * 가상 WAN 보기
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwanp2s.png)
@@ -46,7 +46,7 @@ ms.locfileid: "87077480"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-virtual-wan"></a><a name="wan"></a>Virtual WAN 만들기
+## <a name="create-a-virtual-wan"></a><a name="wan"></a>가상 WAN 만들기
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
@@ -81,9 +81,9 @@ ms.locfileid: "87077480"
 3. **검토 + 만들기**를 클릭합니다.
 4. **유효성 검사 통과** 페이지에서 **만들기**를 클릭 합니다.
 
-## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>새 P2S 구성 만들기
+## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>새 사용자 VPN 구성 만들기
 
-P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합니다.
+사용자 VPN 구성은 원격 클라이언트 연결에 대 한 매개 변수를 정의 합니다.
 
 1. 가상 WAN 아래에서 **사용자 VPN 구성**을 선택합니다.
 
@@ -93,7 +93,16 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
    ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. 정보를 입력하고 **만들기**를 클릭합니다.
+3. 정보를 입력 하 고 **만들기**를 클릭 합니다.
+
+   * **구성 이름** -사용자 VPN 구성을 호출 하려는 이름을 입력 합니다.
+   * **터널 유형** -openvpn을 선택 합니다.
+   * **인증 방법** -Azure Active Directory를 선택 합니다.
+   * **대상** -azure AD 테 넌 트에 등록 된 [Azure VPN](openvpn-azure-ad-tenant.md) 엔터프라이즈 응용 프로그램의 응용 프로그램 ID를 입력 합니다. 
+   * **발행** - `https://sts.windows.net/<your Directory ID>/`
+   * **AAD 테 넌 트** - `https://login.microsoftonline.com/<your Directory ID>`
+  
+
 
    ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
@@ -111,11 +120,11 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 6. **확인**을 클릭합니다.
 7. 작업이 완료될 때까지 최대 30분이 걸릴 수 있습니다.
 
-## <a name="download-vpn-profile"></a><a name="device"></a>VPN 프로필 다운로드
+## <a name="download-user-vpn-profile"></a><a name="device"></a>사용자 VPN 프로필 다운로드
 
 VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
-1. 가상 WAN에 대한 페이지에서 **사용자 VPN 구성**을 클릭합니다.
+1. 가상 WAN에 대 한 페이지에서 **사용자 VPN 구성**을 클릭 합니다.
 2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드**를 클릭합니다.
 3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
 4. 프로필 파일을 사용하여 VPN 클라이언트를 구성합니다.
@@ -158,11 +167,11 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제 진단
 
@@ -188,13 +197,12 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 2. 개요 페이지의 맵에 있는 각 점은 허브를 나타냅니다.
 3. 허브 및 연결 섹션에서 허브 상태, 사이트, 지역, VPN 연결 상태 및 입/출력 바이트를 볼 수 있습니다.
 
-
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
 
-리소스가 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
+이러한 리소스가 더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹과 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

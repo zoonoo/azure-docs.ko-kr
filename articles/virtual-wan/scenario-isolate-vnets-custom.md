@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553464"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831025"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>시나리오: Vnet에 대 한 사용자 지정 격리
 
 가상 WAN 가상 허브 라우팅으로 작업할 때 몇 가지 시나리오를 사용할 수 있습니다. Vnet에 대 한 사용자 지정 격리 시나리오에서 목표는 특정 Vnet 집합이 다른 특정 Vnet 집합에 도달할 수 없도록 하는 것입니다. 그러나 Vnet는 모든 분기 (VPN/ER/User VPN)에 연결 하는 데 필요 합니다. 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
 
-## <a name="scenario-design"></a><a name="design"></a>시나리오 디자인
+## <a name="design"></a><a name="design"></a>디자인
 
 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음과 같습니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "87553464"
 
 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
 
-## <a name="scenario-workflow"></a><a name="architecture"></a>시나리오 워크플로
+## <a name="workflow"></a><a name="architecture"></a>워크플로
 
 **그림 1**에는 파란색 및 빨강 VNet 연결이 있습니다.
 

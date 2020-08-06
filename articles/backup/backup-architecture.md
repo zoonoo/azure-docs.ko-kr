@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532495"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835734"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -42,7 +42,7 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 - 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다.
 - 각 Azure 구독에서 최대 500개의 자격 증명 모음을 만들 수 있습니다.
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
-- Azure [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
+- Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
   - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md).
   - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md).
@@ -52,7 +52,7 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 
 Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업 에이전트를 제공 합니다.
 
-**에이전트** | **세부 정보**
+**에이전트** | **설명**
 --- | ---
 **MARS 에이전트** | <ul><li>는 개별 온-프레미스 Windows Server 컴퓨터에서 실행 되어 파일, 폴더 및 시스템 상태를 백업 합니다.</li> <li>Azure Vm에서를 실행 하 여 파일, 폴더 및 시스템 상태를 백업 합니다.</li> <li>Dpm/mabs 서버를 실행 하 여 DPM/MABS 로컬 저장소 디스크를 Azure에 백업 합니다.</li></ul>
 **Azure VM 확장** | 자격 증명 모음에 백업하기 위해 Azure VM에서 실행됩니다.

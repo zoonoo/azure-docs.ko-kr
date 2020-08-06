@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: d26e1edb53f963d591b1ee1fba58b87fd454e898
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288568"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830651"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 가용성 옵션
 
@@ -47,11 +47,11 @@ ms.locfileid: "87288568"
 
 ## <a name="virtual-machines-scale-sets"></a>Virtual Machines 크기 집합 
 
-Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 크기 집합은 응용 프로그램에 고가용성을 제공 하 고 다양 한 Vm을 중앙에서 관리, 구성 및 업데이트할 수 있도록 합니다. 항상 사용 가능한 응용 프로그램을 제공 하 고 [99.95% AZURE SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족 하기 위해 확장 집합 내에서 두 개 이상의 vm을 만드는 것이 좋습니다. 크기 집합 자체에 대 한 비용은 없으며 만든 각 VM 인스턴스에만 요금을 지불 합니다. 단일 VM이 [Azure 프리미엄 SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd)를 사용하는 경우, 계획되지 않은 유지 관리 이벤트에 대해 Azure SLA가 적용됩니다. 규모 집합의 가상 머신은 여러 업데이트 도메인 및 장애 도메인에 배포 하 여 데이터 센터 중단, 계획 되거나 계획 되지 않은 유지 관리 이벤트로 인해 중단에 대 한 가용성 및 복원 력을 최대화할 수 있습니다. 확장 집합의 가상 머신은 단일 가용성 영역 또는 지역적으로 배포할 수도 있습니다. 가용성 영역 배포 옵션은 오케스트레이션 모드에 따라 다를 수 있습니다.
+Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 크기 집합은 응용 프로그램에 고가용성을 제공 하 고 다양 한 Vm을 중앙에서 관리, 구성 및 업데이트할 수 있도록 합니다. 항상 사용 가능한 응용 프로그램을 제공 하 고 [99.95% AZURE SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족 하기 위해 확장 집합 내에서 두 개 이상의 vm을 만드는 것이 좋습니다. 크기 집합 자체에 대 한 비용은 없으며 만든 각 VM 인스턴스에만 요금을 지불 합니다. 단일 VM이 [Azure 프리미엄 SSD](./windows/disks-types.md#premium-ssd)를 사용하는 경우, 계획되지 않은 유지 관리 이벤트에 대해 Azure SLA가 적용됩니다. 규모 집합의 가상 머신은 여러 업데이트 도메인 및 장애 도메인에 배포 하 여 데이터 센터 중단, 계획 되거나 계획 되지 않은 유지 관리 이벤트로 인해 중단에 대 한 가용성 및 복원 력을 최대화할 수 있습니다. 확장 집합의 가상 머신은 단일 가용성 영역 또는 지역적으로 배포할 수도 있습니다. 가용성 영역 배포 옵션은 오케스트레이션 모드에 따라 다를 수 있습니다.
 
 **장애 도메인 및 업데이트 도메인**
 
-가상 머신 확장 집합은 장애 도메인 및 업데이트 도메인을 정렬 하 여 고가용성을 위한 설계를 간소화 합니다. 확장 집합에 대 한 장애 도메인 수를 정의 하기만 하면 됩니다. 확장 집합에 사용할 수 있는 장애 도메인 수는 지역에 따라 다를 수 있습니다. [Azure에서 가상 머신의 가용성 관리](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)를 참조 하세요.
+가상 머신 확장 집합은 장애 도메인 및 업데이트 도메인을 정렬 하 여 고가용성을 위한 설계를 간소화 합니다. 확장 집합에 대 한 장애 도메인 수를 정의 하기만 하면 됩니다. 확장 집합에 사용할 수 있는 장애 도메인 수는 지역에 따라 다를 수 있습니다. [Azure에서 가상 머신의 가용성 관리](./windows/manage-availability.md)를 참조 하세요.
 
 
 ## <a name="availability-sets"></a>가용성 집합
@@ -72,4 +72,3 @@ Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹�
 
 ## <a name="next-steps"></a>다음 단계
 이제 이러한 가용성 및 중복 기능을 사용하여 Azure 환경을 빌드하기 시작할 수 있습니다. 모범 사례 정보는 [Azure 가용성 모범 사례](/azure/architecture/checklist/resiliency-per-service)를 참조하세요.
-

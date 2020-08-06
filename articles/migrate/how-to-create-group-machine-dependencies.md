@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 �
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c41f8eb82cf912fc566975f833fc73589f17be98
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321210"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829920"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -76,7 +76,7 @@ ms.locfileid: "87321210"
 Windows 컴퓨터에 에이전트를 설치하려면
 
 1. 다운로드한 에이전트를 두 번 클릭합니다.
-2. **Welcome** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의** 함을 클릭 하 여 라이선스에 동의 합니다.
+2. **Welcome** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의함**을 클릭하여 라이선스에 동의합니다.
 3. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다.
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
@@ -104,7 +104,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
+- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
 - 종속성 에이전트에서 지 원하는 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
 
 
@@ -208,5 +208,3 @@ VMConnection
 ## <a name="next-steps"></a>다음 단계
 
 그룹에 대 한 [평가를 만듭니다](how-to-create-assessment.md) .
-
-

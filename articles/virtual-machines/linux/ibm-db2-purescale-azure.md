@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268036"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831416"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure의 IBM DB2 pureScale
 
@@ -67,7 +67,7 @@ Azure에서 고가용성 및 확장성을 지원하기 위해 DB2 pureScale에 �
 
 -   DB2 pureScale 클러스터 Azure에서 필요한 컴퓨팅 리소스의 유형은 설정에 따라 달라집니다. 일반적으로 다음 두 가지 방법을 사용할 수 있습니다.
 
-    -   중소규모 인스턴스가 공유 스토리지에 액세스하는 다중 노드, HPC(고성능 컴퓨팅) 스타일 네트워크를 사용합니다. 이 HPC 유형의 구성에서 Azure 메모리 최적화 E 시리즈 또는 스토리지 최적화 L 시리즈 [가상 머신](../windows/sizes.md)은 필요한 컴퓨팅 성능을 제공합니다.
+    -   중소규모 인스턴스가 공유 스토리지에 액세스하는 다중 노드, HPC(고성능 컴퓨팅) 스타일 네트워크를 사용합니다. 이 HPC 유형의 구성에서 Azure 메모리 최적화 E 시리즈 또는 스토리지 최적화 L 시리즈 [가상 머신](../sizes.md)은 필요한 컴퓨팅 성능을 제공합니다.
 
     -   데이터 엔진에 대해 더 적은 수의 대형 가상 머신 인스턴스를 사용합니다. 대규모 인스턴스의 경우 가장 큰 메모리 최적화 [M 시리즈](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 가상 머신이 메모리 내 워크로드가 과도한 경우에 적합합니다. DB2를 실행하는 데 사용하는 논리 파티션(LPAR)의 크기에 따라 전용 인스턴스가 필요할 수 있습니다.
 

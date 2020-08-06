@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b6e2e3cedcc8eca84644562639e0436e48245d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035862"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833320"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
 이 문서에서는 한 Azure 지역 내의 여러 가용성 시나리오에 대해 설명합니다. Azure에는 전 세계에 걸쳐 많은 지역이 있습니다. Azure 지역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. Azure 지역 내의 VM에 SAP HANA를 배포하는 경우 Microsoft는 HANA 인스턴스가 있는 단일 VM의 배포를 제공합니다. 가용성을 높이기 위해 HANA 시스템 복제를 가용성 용도로 사용하는 [Azure 가용성 집합](../../windows/tutorial-availability-sets.md) 내에 두 개의 HANA 인스턴스가 있는 두 개의 VM을 배포할 수 있습니다. 
@@ -82,7 +82,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 이 설정은 중요한 RPO(복구 지점 목표) 및 RTO(복구 시간목표) 시간을 달성하는 데 적합하지 않습니다. 특히 RTO 시간은 복사된 백업을 사용하여 전체 데이터베이스를 완전히 복원해야 하므로 어려움을 겪습니다. 그러나 이 설정은 주 인스턴스에서 의도하지 않은 데이터 삭제를 복구하는 데 유용합니다. 이 설정을 사용하면 언제든지 특정 시점으로 복원하고, 데이터를 추출하며, 삭제된 데이터를 주 인스턴스로 가져올 수 있습니다. 따라서 다른 고가용성 기능과 함께 백업 복사본 방법을 사용해야 합니다. 
 
-백업이 복사되는 동안 SAP HANA 인스턴스가 실행되는 주 VM보다 더 작은 VM을 사용할 수 있습니다. 적은 수의 VHD를 더 작은 VM에 연결할 수 있다는 점에 유의해야 합니다. 개별 VM 유형의 제한에 대한 자세한 내용은 [Azure에서 Linux 가상 머신에 대한 크기](../../linux/sizes.md)를 참조하세요.
+백업이 복사되는 동안 SAP HANA 인스턴스가 실행되는 주 VM보다 더 작은 VM을 사용할 수 있습니다. 적은 수의 VHD를 더 작은 VM에 연결할 수 있다는 점에 유의해야 합니다. 개별 VM 유형의 제한에 대한 자세한 내용은 [Azure에서 Linux 가상 머신에 대한 크기](../../sizes.md)를 참조하세요.
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>자동 장애 조치가 없는 SAP HANA 시스템 복제
 

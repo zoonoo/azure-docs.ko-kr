@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: ayshak
-ms.openlocfilehash: 7732f83dfd44cbf686e2d076c665c980962b19d5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292361"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831450"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Azure의 가상 머신 격리
 
@@ -59,7 +59,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 **A**: 격리 된 크기의 공식 사용 중단 전에 미리 알림을 12 개월 후에 제공 합니다.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>Q: 실버 또는 골드 내구성 계층에 의존 하는 Azure Service Fabric 고객입니다. 이 변경 내용이 영향을 미칩니까?
-**A**: 아니요. 이 변경 후에도 Service Fabric의 [내구성 계층](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) 에서 제공 하는 보장은 계속 작동 합니다. 다른 이유로 인해 물리적 하드웨어 격리가 필요한 경우에도 위에서 설명한 작업 중 하나를 수행 해야 할 수 있습니다. 
+**A**: 아니요. 이 변경 후에도 Service Fabric의 [내구성 계층](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) 에서 제공 하는 보장은 계속 작동 합니다. 다른 이유로 인해 물리적 하드웨어 격리가 필요한 경우에도 위에서 설명한 작업 중 하나를 수행 해야 할 수 있습니다. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>Q: D15_v2 또는 DS15_v2 격리 사용 중지에 대 한 마일스 톤은 무엇 인가요? 
 **A**: 

@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 2667ff571070b2e62dcfa4af6e202f1851aa3e80
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525775"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835547"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>여러 NIC가 있는 Windows 가상 컴퓨터 만들기 및 관리
-Azure의 VM(가상 머신)에는 여러 가상 NIC(네트워크 인터페이스 카드)가 연결될 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 대한 다른 서브넷을 포함하는 것입니다. VM의 여러 NIC를 여러 서브넷에 연결할 수 있지만 해당 서브넷은 모두 동일한 가상 네트워크(vNet)에 상주해야 합니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 방법을 설명합니다. 또한 기존 VM에서 NIC를 추가하거나 제거하는 방법을 알아봅니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
+Azure의 VM(가상 머신)에는 여러 가상 NIC(네트워크 인터페이스 카드)가 연결될 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 대한 다른 서브넷을 포함하는 것입니다. VM의 여러 NIC를 여러 서브넷에 연결할 수 있지만 해당 서브넷은 모두 동일한 가상 네트워크(vNet)에 상주해야 합니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 방법을 설명합니다. 또한 기존 VM에서 NIC를 추가하거나 제거하는 방법을 알아봅니다. [VM 크기](../sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
@@ -73,7 +73,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
 또한 일반적으로 VM에 대한 네트워크 트래픽을 필터링하기 위해 [네트워크 보안 그룹](../../virtual-network/security-overview.md)을 만들고, 여러 VM 간에 트래픽을 분산하기 위해 [부하 분산 장치](../../load-balancer/load-balancer-overview.md)를 만듭니다.
 
 ### <a name="create-the-virtual-machine"></a>가상 머신 만들기
-이제 VM 구성 빌드를 시작합니다. VM 크기마다 VM에 추가할 수 있는 NIC의 총수가 제한되어 있습니다. 자세한 내용은 [Windows VM 크기](sizes.md)를 참조하세요.
+이제 VM 구성 빌드를 시작합니다. VM 크기마다 VM에 추가할 수 있는 NIC의 총수가 제한되어 있습니다. 자세한 내용은 [Windows VM 크기](../sizes.md)를 참조하세요.
 
 1. 다음과 같이 `$cred` 변수에 VM 자격 증명을 설정합니다.
 
@@ -119,7 +119,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
 6. [여러 NIC에 대한 운영 체제 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 OS에 보조 NIC에 대한 경로를 추가합니다.
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>기존 VM에 NIC 추가
-기존 VM에 가상 NIC를 추가하고 VM을 할당 취소하고 가상 NIC를 추가한 다음 VM을 시작합니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](resize-vm.md)할 수 있습니다.
+기존 VM에 가상 NIC를 추가하고 VM을 할당 취소하고 가상 NIC를 추가한 다음 VM을 시작합니다. [VM 크기](../sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](resize-vm.md)할 수 있습니다.
 
 1. [Stop-AzVM](/powershell/module/az.compute/stop-azvm)을 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myResourceGroup*에서 *myVM*이라는 VM의 할당을 취소합니다.
 
@@ -288,4 +288,4 @@ Azure에서는 가상 머신에 연결된 첫 번째(기본) 네트워크 인터
     **게이트웨이** 아래에 *192.168.1.1*로 나열된 경로는 기본적으로 기본 네트워크 인터페이스용 경로입니다. **게이트웨이** 아래에서 *192.168.2.1*인 경로가 추가한 경로입니다.
 
 ## <a name="next-steps"></a>다음 단계
-여러 NIC가 있는 VM을 만들 때 [Windows VM 크기](sizes.md)를 검토합니다. 각 VM 크기가 지원하는 NIC의 최대 수에 유의합니다. 
+여러 NIC가 있는 VM을 만들 때 [Windows VM 크기](../sizes.md)를 검토합니다. 각 VM 크기가 지원하는 NIC의 최대 수에 유의합니다. 
