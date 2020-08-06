@@ -3,12 +3,12 @@ title: Azure Event Grid 파트너로 온보딩
 description: Azure Event Grid 파트너 토픽 유형으로 등록 합니다. 파트너 항목에 대 한 리소스 모델 및 게시 흐름을 이해 합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461258"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826792"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Azure Event Grid 파트너로 온보딩
 
@@ -91,7 +91,7 @@ Event Grid 파트너로 게시 이벤트와 연결된 Event Grid 리소스 유�
 ### <a name="partner-topic-types"></a>파트너 항목 유형
 * 리소스: `partnerTopicTypes`
 * 사용 대상: 고객
-* 설명: 파트너 토픽 유형은 고객이 승인 된 파트너 토픽 유형 목록을 검색할 수 있도록 하는 tenantwide resource 유형입니다. URL은 다음과 같습니다.https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* 설명: 파트너 토픽 유형은 고객이 승인 된 파트너 토픽 유형 목록을 검색할 수 있도록 하는 테 넌 트 전체 리소스 유형입니다. URL은 다음과 같습니다.https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * 범위: Global
 
 ## <a name="publish-events-to-event-grid"></a>Event Grid에 이벤트 게시
@@ -105,7 +105,7 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 1.  게시 서비스가 `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`에 대한 HTTP POST를 수행합니다.
 1.  요청에 인증을 위한 키를 포함하며 이름이 aeg-sas-key인 헤더를 포함합니다. 이 키는 파트너 네임 스페이스를 만드는 동안 프로 비전 됩니다. 예를 들어 유효한 헤더 값은 aeg-sas-key (VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==)입니다.
 1.  콘텐츠 형식 헤더를 "application/cloudevents-batch + json;으로 설정 합니다. charset = 8a ".
-1.  해당 지역에 해당 하는 이벤트 일괄 처리를 사용 하 여 게시 URL에 HTTP POST를 수행 합니다. 예를 들면 다음과 같습니다.
+1.  해당 지역에 해당 하는 이벤트 일괄 처리를 사용 하 여 게시 URL에 HTTP POST를 수행 합니다. 예를 들어:
 
 ``` json
 [
@@ -153,7 +153,7 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 ## <a name="references"></a>참고 자료
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
-  * [ARM 템플릿](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
+  * [ARM 템플릿](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM 템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST API](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [CLI 확장](/cli/azure/ext/eventgrid/?view=azure-cli-latest)

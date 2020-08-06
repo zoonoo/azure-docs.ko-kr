@@ -1,6 +1,6 @@
 ---
 title: Azure 스토리지 분석 메트릭(클래식)
-description: Azure Storage에서 스토리지 분석 메트릭을 사용하는 방법에 대해 알아봅니다.
+description: Azure Storage에서 스토리지 분석 메트릭을 사용하는 방법에 대해 알아봅니다. 트랜잭션 및 용량 메트릭에 대해 알아보고, 메트릭을 저장 하 고, 메트릭을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d7db5a756e5d75cb4f9719f54d95f9cee1e8d2f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087274"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828050"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 스토리지 분석 메트릭(클래식)
 
@@ -154,7 +154,7 @@ Azure Portal에서 스토리지 계정의 메뉴 창의 **모니터링(클래식
 
 해당 테이블의 스키마에 대한 전체 세부 정보는 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)를 참조하세요. 다음 샘플 행에는 사용 가능한 열 중 일부만 나와 있습니다. 그러나 스토리지 메트릭에서 해당 메트릭을 저장하는 방식과 관련한 몇 가지 중요한 기능을 확인할 수 있습니다.  
 
-|PartitionKey|RowKey|Timestamp|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|가용성|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
+|PartitionKey|RowKey|타임스탬프|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|사용 가능성|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
 |-|-|-|-|-|-|-|-|-|-|-|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  

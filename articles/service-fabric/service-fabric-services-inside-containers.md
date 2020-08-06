@@ -4,12 +4,12 @@ description: Windows에서 Service Fabric Reliable Services 및 Reliable Actors 
 ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186afb87b4668ad575208beeeb19643e6a11cedd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75466178"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824548"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Windows에서 Service Fabric Reliable Services 및 Reliable Actors 컨테이너화
 
@@ -93,7 +93,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
    </Policies>
    ```
 
-9. 컨테이너 격리 모드 구성에 대해 알아보려면 [격리 모드 구성]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)을 참조하세요. Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
+9. 컨테이너 격리 모드 구성에 대해 알아보려면 [격리 모드 구성]( ./service-fabric-get-started-containers.md#configure-isolation-mode)을 참조하세요. Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
 
    ```xml
    <Policies>

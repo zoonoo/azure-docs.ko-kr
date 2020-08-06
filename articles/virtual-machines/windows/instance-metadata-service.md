@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 071baacd375cb5595bc99eeead7e818a35c4539b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d074c3f806b36ff530396fbafcb3c7c6f9661fcf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500415"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827574"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -226,7 +226,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 Metadata Service에는 서로 다른 데이터 원본을 나타내는 여러 Api가 포함 되어 있습니다.
 
-API | 설명 | 도입된 버전
+API | Description | 도입된 버전
 ----|-------------|-----------------------
 /attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 /identity | [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) 참조 | 2018-02-01
@@ -262,7 +262,7 @@ tagsList | 원활한 프로그래매틱 구문 분석을 위해 JSON 배열로 �
 버전 | VM 이미지의 버전 | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../../virtual-machine-scale-sets/overview.md) | 2017-12-01
-vmSize | [VM 크기](sizes.md) | 2017-04-02
+vmSize | [VM 크기](../sizes.md) | 2017-04-02
 영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01
 
 ### <a name="sample-1-tracking-vm-running-on-azure"></a>샘플 1: Azure에서 실행 중인 VM 추적

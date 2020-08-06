@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660751"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827863"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Azure 파일 공유로 마이그레이션
 
@@ -81,7 +81,7 @@ Azure [AD 인증](storage-files-identity-auth-active-directory-enable.md) 및 az
 | 원본 | 대상: </br>하이브리드 배포 | 대상: </br>클라우드 전용 배포 |
 |:---|:--|:--|
 | | 도구 조합:| 도구 조합: |
-| Windows Server 2012 R2 이상 | <ul><li>[Azure 파일 동기화](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync 및 Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Azure File Sync 및 저장소 마이그레이션 서비스</li></ul> | <ul><li>Azure 파일 동기화</li><li>Azure File Sync 및 Data Box</li><li>Azure File Sync 및 저장소 마이그레이션 서비스</li><li>RoboCopy</li></ul> |
+| Windows Server 2012 R2 이상 | <ul><li>[Azure 파일 동기화](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync 및 Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[클라우드에서 Azure File Sync 및 미리 시드 된 파일](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Azure File Sync 및 저장소 마이그레이션 서비스</li></ul> | <ul><li>Azure 파일 동기화</li><li>Azure File Sync 및 Data Box</li><li>Azure File Sync 및 저장소 마이그레이션 서비스</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 및 이전 버전 | <ul><li>Azure File Sync 및 Data Box</li><li>Azure File Sync 및 저장소 마이그레이션 서비스</li></ul> | <ul><li>Azure File Sync 및 저장소 마이그레이션 서비스</li><li>RoboCopy</li></ul> |
 | NAS (네트워크 연결 저장소) | <ul><li>[Azure File Sync 및 RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux 또는 Samba | <ul><li>[Azure File Sync 및 RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
@@ -152,5 +152,5 @@ Azure File Sync는 주로 항목 (파일 및 폴더) 수를 사용 하 여 크�
 이 문서에서 설명 하는 Azure Files 기술에 대 한 자세한 내용은 다음과 같습니다.
 
 * [Azure 파일 공유 개요](storage-files-introduction.md)
-* [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+* [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
 * [Azure File Sync: 클라우드 계층화](storage-sync-cloud-tiering.md)

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261173"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824599"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 용량 계획 및 크기 조정
 
@@ -18,8 +18,8 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 노드 유형 및 클러스터 특성을 고려 하는 것 외에도 프로덕션 환경에 대 한 크기 조정 작업을 완료 하는 데 1 시간 이상 소요 될 것으로 예측할 수 있습니다. 이 고려 사항은 추가 하는 Vm의 수에 관계 없이 적용 됩니다.
 
-## <a name="autoscaling"></a>자동 크기 조정
-[리소스 구성을 코드로]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)처리 하는 것이 가장 좋은 방법 이므로 Azure Resource Manager 템플릿을 통해 크기 조정 작업을 수행 해야 합니다. 
+## <a name="autoscaling"></a>자동 확장
+[리소스 구성을 코드로](./service-fabric-best-practices-infrastructure-as-code.md)처리 하는 것이 가장 좋은 방법 이므로 Azure Resource Manager 템플릿을 통해 크기 조정 작업을 수행 해야 합니다. 
 
 가상 머신 확장 집합을 통해 자동 크기 조정을 사용 하면 버전이 지정 된 리소스 관리자 템플릿이 가상 머신 확장 집합의 인스턴스 수를 정확 하 게 정의 하 게 됩니다. 부정확 한 정의는 향후 배포에서 의도 하지 않은 크기 조정 작업을 야기 하는 위험을 늘립니다. 일반적으로 다음과 같은 경우 자동 크기 조정을 사용 해야 합니다.
 
@@ -38,7 +38,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 ## <a name="vertical-scaling-considerations"></a>수직 크기 조정 관련 고려 사항
 
-Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-scale-set-scale-node-type-scale-out.md) 하려면 여러 단계와 고려 사항이 필요 합니다. 예:
+Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-scale-set-scale-node-type-scale-out.md) 하려면 여러 단계와 고려 사항이 필요 합니다. 예를 들어:
 
 * 크기 조정 전에 클러스터가 정상 상태여야 합니다. 그렇지 않으면 클러스터를 추가로 불안정 하 게 됩니다.
 * 상태 저장 서비스를 호스트 하는 모든 Service Fabric 클러스터 노드 형식에는 실버 내구성 수준 이상이 필요 합니다.
@@ -72,7 +72,7 @@ Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-sc
 5. 모든 Vm이 사라진 후 ("Down"으로 표시 됨) fabric:/System/InfrastructureService/[node name]에 오류 상태가 표시 됩니다. 그런 다음 클러스터 리소스를 업데이트 하 여 노드 유형을 제거할 수 있습니다. ARM 템플릿 배포를 사용 하거나 [Azure resource manager](https://resources.azure.com)를 통해 클러스터 리소스를 편집할 수 있습니다. 그러면 오류 상태인 fabric:/System/InfrastructureService/[node type] 서비스가 제거 되는 클러스터 업그레이드가 시작 됩니다.
  6. 그런 다음 필요에 따라 VMScaleSet를 삭제할 수 있습니다. 그러나이 경우에도 노드는 Service Fabric Explorer 보기에서 "다운"으로 표시 됩니다. 마지막 단계는 명령으로 정리 하는 것입니다 `Remove-ServiceFabricNodeState` .
 
-## <a name="horizontal-scaling"></a>수평적 크기 조정
+## <a name="horizontal-scaling"></a>수평 크기 조정
 
 [수동](./service-fabric-cluster-scale-in-out.md) 또는 [프로그래밍 방식으로](./service-fabric-cluster-programmatic-scaling.md)수평 크기 조정을 수행할 수 있습니다.
 
@@ -123,7 +123,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 }
 ```
 
-프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예:
+프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예를 들어:
 
 ```csharp
 using (var client = new FabricClient())

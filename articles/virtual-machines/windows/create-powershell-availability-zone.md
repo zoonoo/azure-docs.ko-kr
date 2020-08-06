@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 58f77eaba7cd0c29899a81352f5550becb0e4128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 95d97605f00a3a80c097eb16695c9d296e17c33d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508596"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825245"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>PowerShell을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
 
@@ -32,7 +32,7 @@ Connect-AzAccount
 ```
 
 ## <a name="check-vm-sku-availability"></a>VM SKU 가용성 확인
-VM 크기 또는 SKU의 가용성은 지역 및 영역에 따라 다를 수 있습니다. 가용성 영역 사용을 계획하는 데 도움이 되도록 Azure 지역 및 영역별로 사용 가능한 VM SKU를 나열할 수 있습니다. 이 기능을 사용하면 적절한 VM 크기를 선택하고 영역 간에 원하는 복원력을 얻을 수 있습니다. 다른 VM 유형 및 크기에 대한 자세한 내용은 [VM 크기 개요](sizes.md)를 참조하세요.
+VM 크기 또는 SKU의 가용성은 지역 및 영역에 따라 다를 수 있습니다. 가용성 영역 사용을 계획하는 데 도움이 되도록 Azure 지역 및 영역별로 사용 가능한 VM SKU를 나열할 수 있습니다. 이 기능을 사용하면 적절한 VM 크기를 선택하고 영역 간에 원하는 복원력을 얻을 수 있습니다. 다른 VM 유형 및 크기에 대한 자세한 내용은 [VM 크기 개요](../sizes.md)를 참조하세요.
 
 [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) 명령을 사용하여 사용 가능한 VM SKU를 볼 수 있습니다. 다음 예제에서는 *eastus2* 지역에서 사용 가능한 VM SKU를 나열합니다.
 
@@ -170,4 +170,4 @@ Tags               : {}
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](availability.md) 에 대해 자세히 알아보세요.
+이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](../availability.md) 에 대해 자세히 알아보세요.

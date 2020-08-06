@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가의 Azure VM 평가
 description: Azure Migrate Server 평가의 평가에 대 한 자세한 정보
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108004"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825993"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Azure Migrate에서 Azure VM 평가: 서버 평가
 
@@ -27,15 +27,15 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 
 **평가 유형** | **세부 정보**
 --- | --- 
-**Azure VM** | 온-프레미스 서버를 Azure virtual machines로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다.
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [Azure VMware 솔루션 (AVS)](../azure-vmware/introduction.md)으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용 하 여 Azure VMware 솔루션 (AVS)으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 Azure로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md), [Hyper-V VM](how-to-set-up-appliance-hyper-v.md) 및 [ 물리적 서버](how-to-set-up-appliance-physical.md)를 평가할 수 있습니다.
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 서버 평가를 사용 하 여 만든 평가는 데이터의 특정 시점 스냅숏입니다. 서버 평가에서 Azure VM 평가는 다음과 같은 두 가지 크기 조정 기준 옵션을 제공 합니다.
 
 **평가 유형** | **세부 정보** | **Data**
 --- | --- | ---
-**성능 기반** | 수집 된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | VM 크기 권장 사항은 CPU 및 RAM 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항은 온-프레미스 디스크의 IOPS (초당 입/출력 작업 수) 및 처리량을 기반으로 합니다. 디스크 유형은 Azure 표준 HDD, Azure 표준 SSD 및 Azure Premium 디스크입니다.
-**온-프레미스 인 경우** | 성능 데이터를 사용 하 여 권장 사항을 적용 하지 않는 평가 | VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 되는 디스크 유형은 평가를 위해 선택한 저장소 유형을 기반으로 합니다.
+**성능 기반** | 수집된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | VM 크기 권장 사항은 CPU 및 RAM 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항은 온-프레미스 디스크의 IOPS (초당 입/출력 작업 수) 및 처리량을 기반으로 합니다. 디스크 유형은 Azure 표준 HDD, Azure 표준 SSD 및 Azure Premium 디스크입니다.
+**온-프레미스인 경우** | 성능 데이터를 사용 하 여 권장 사항을 적용 하지 않는 평가 | VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 되는 디스크 유형은 평가를 위해 선택한 저장소 유형을 기반으로 합니다.
 
 ## <a name="how-do-i-run-an-assessment"></a>평가를 실행할 어떻게 할까요? 있나요?
 
@@ -118,13 +118,13 @@ CSV 파일을 사용 하 여 서버를 평가 하는 경우 기기가 필요 하
 **대상 저장소 디스크 (있는 그대로 크기 조정)** | Azure에서 저장소에 사용할 디스크의 유형입니다. <br/><br/> 대상 저장소 디스크를 프리미엄 관리, 표준 SSD 관리 또는 표준 HDD 관리로 지정 합니다.
 **대상 저장소 디스크 (성능 기반 크기 조정)** | 대상 저장소 디스크의 유형을 자동, 프리미엄 관리, 표준 HDD 관리 또는 표준 SSD 관리로 지정 합니다.<br/><br/> **자동**: 디스크 권장 사항은 IOPS 및 처리량을 의미 하는 디스크의 성능 데이터를 기반으로 합니다.<br/><br/>**프리미엄 또는 표준**: 평가에서 선택한 저장소 유형 내의 디스크 SKU를 권장 합니다.<br/><br/> 단일 인스턴스 VM SLA (서비스 수준 계약)를 99.9% 사용 하려면 프리미엄 관리 디스크를 사용 하는 것이 좋습니다. 이렇게 하면 평가의 모든 디스크를 프리미엄 관리 디스크로 사용 하는 것이 좋습니다.<br/><br/> Azure Migrate는 마이그레이션 평가를 위해 managed disks만 지원 합니다.
 **Azure Reserved VM Instances** | 평가의 비용 예측이이를 고려 하도록 [예약 된 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/) 를 지정 합니다.<br/><br/> ' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다.<br/><br/> 현재 Azure Migrate는 종 량 제 제품에 대해서만 Azure Reserved VM Instances를 지원 합니다.
-**크기 조정 조건** | Azure VM의 크기를 조정 하는 데 사용 됩니다.<br/><br/> 크기 조정 또는 성능 기반 크기 조정을 그대로 사용 합니다.
+**크기 조정 기준** | Azure VM의 크기를 조정 하는 데 사용 됩니다.<br/><br/> 크기 조정 또는 성능 기반 크기 조정을 그대로 사용 합니다.
 **성능 기록** | 성능 기반 크기 조정에 사용 됩니다. 성능 기록은 성능 데이터를 평가할 때 사용 되는 기간을 지정 합니다.
 **백분위 수 사용률** | 성능 기반 크기 조정에 사용 됩니다. 백분위 수 사용률은 rightsizing 조정에 사용 되는 성능 샘플의 백분위 수 값을 지정 합니다.
 **VM 시리즈** | Rightsizing 조정에 대해 고려할 Azure VM 시리즈입니다. 예를 들어 Azure에서 A 시리즈 Vm이 필요한 프로덕션 환경이 없는 경우 계열 목록에서 A 시리즈를 제외할 수 있습니다.
 **쾌적 인자** | 평가 중에 사용 되는 버퍼입니다. Vm의 CPU, RAM, 디스크 및 네트워크 사용률 데이터에 적용 됩니다. 이는 계절 사용량, 짧은 성능 기록 및 향후 사용에 대 한 성능 향상 등의 문제를 해결 합니다.<br/><br/> 예를 들어 20% 사용률이 있는 10 코어 VM은 일반적으로 2 코어 VM을 생성 합니다. 2.0의 편안 함에 따라서 결과는 4 코어 VM입니다.
-**제안** | 등록 하는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 입니다. 서버 평가는 해당 제품에 대 한 비용을 예상 합니다.
-**Currency** | 계정에 대 한 청구 통화입니다.
+**제품** | 등록 하는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 입니다. 서버 평가는 해당 제품에 대 한 비용을 예상 합니다.
+**최신** | 계정에 대 한 청구 통화입니다.
 **할인(%)** | Azure 제품을 기반으로 받는 모든 구독 관련 할인 기본 설정은 0%입니다.
 **VM 작동 시간** | 지속적으로 실행 되지 않는 Azure Vm의 일일 기간 (일) 및 시간입니다. 예상 비용은 해당 기간을 기준으로 합니다.<br/><br/> 기본값은 매월 31 일, 하루 24 시간입니다.
 **Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)자격이 있는지 여부를 지정 합니다. 설정 값이 기본값인 "예" 인 경우 Windows 이외의 운영 체제에 대 한 Azure 가격은 Windows Vm에서 고려 됩니다.
@@ -152,7 +152,7 @@ Azure VM 평가의 경우 서버 평가는 온-프레미스 VM의 다음 속성�
 --- | --- | ---
 **부팅 유형** | Azure는 UEFI가 아닌 부팅 유형의 BIOS를 사용 하는 Vm을 지원 합니다. | 부팅 유형이 UEFI 인 경우 조건적으로 준비 됨
 **코어 수** | 각 컴퓨터에는 Azure VM에서 지원 되는 최대 수 인 128 코어가 없어야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 평가 설정에서 편안 하 게 요소를 지정 하는 경우 사용 되는 코어 수를 편안 하 게 곱합니다.<br/><br/> 성능 기록이 없는 경우 Azure Migrate는 편안 하 게 요소를 적용 하지 않고 할당 된 코어를 사용 합니다. | 코어 수가 한도 내에 있으면 준비
-**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](../virtual-machines/windows/sizes.md).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없는 경우에는 할당 된 RAM이 편안 하 게 응용 프로그램 없이 사용 됩니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
+**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](../virtual-machines/sizes.md).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없는 경우에는 할당 된 RAM이 편안 하 게 응용 프로그램 없이 사용 됩니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
 **스토리지 디스크** | 할당 된 디스크 크기는 32 TB이 하 여야 합니다. Azure는 Azure 울트라 SSD 디스크를 사용 하 여 64-TB 디스크를 지원 하지만 Azure Migrate: 서버 평가는 현재 울트라 SSD를 지원 하지 않으므로 디스크 크기 제한으로 32 TB를 확인 합니다. <br/><br/> OS 디스크를 포함 하 여 컴퓨터에 연결 된 디스크 수는 65 미만 이어야 합니다. | 디스크 크기와 숫자가 한도 내에 있으면 준비
 **네트워킹** | 컴퓨터에는 32 개의 Nic (네트워크 인터페이스)가 연결 되어 있어야 합니다. | Nic 수가 한도 내에 있으면 준비
 

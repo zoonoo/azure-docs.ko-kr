@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: d4ad1c46aa023f30a2d33ef11e576aa29607b273
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6c4ee08c1679abd54b98d2804ab120c9330f6968
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325426"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827489"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -413,7 +413,7 @@ input.nextLine();
 
 ### <a name="resize-the-vm"></a>VM 크기 조정
 
-가상 머신의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](sizes.md)를 참조하세요.  
+가상 머신의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](../sizes.md)를 참조하세요.  
 
 가상 머신의 크기를 변경하려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 

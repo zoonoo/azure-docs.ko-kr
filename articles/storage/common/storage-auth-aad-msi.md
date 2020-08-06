@@ -1,7 +1,7 @@
 ---
 title: 관리 id를 사용 하 여 데이터에 대 한 액세스 권한 부여
 titleSuffix: Azure Storage
-description: Azure 리소스에 관리 되는 id를 사용 하 여 Azure virtual machines, 함수 앱, 가상 머신 확장 집합 등에서 실행 되는 응용 프로그램의 blob 및 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 알아봅니다.
+description: Azure 리소스에 관리 되는 id를 사용 하 여 Azure Vm, 함수 앱 등에서 실행 되는 응용 프로그램에서 blob 및 큐 데이터 액세스에 권한을 부여 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 17d19d0b87812ec1f38b43c1b26dbd5c19b4efc8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8273be760b37c12f3db7a393e59ab8ead291ec02
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534212"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827999"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 id를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한 부여
 

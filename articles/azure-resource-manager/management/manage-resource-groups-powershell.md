@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 79674b359bc2058f11895b3291c0ce16ef5b1a16
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8457925479e3c28e062f87dbb830969d66523ec7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326837"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827079"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -217,7 +217,7 @@ Export-AzResourceGroup `
 
 ## <a name="manage-access-to-resource-groups"></a>리소스 그룹에 대 한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

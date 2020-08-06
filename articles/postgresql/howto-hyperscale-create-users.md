@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116967"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825959"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자 만들기
 
 > [!NOTE]
-> "사용자" 라는 용어는 Citus (Hyperscale) 서버 그룹 내의 사용자를 의미 합니다. Azure 구독 사용자 및 해당 권한에 대 한 자세한 내용은 [AZURE RBAC (역할 기반 액세스 제어) 문서](../role-based-access-control/built-in-roles.md) 를 참조 하거나 [역할을 사용자 지정 하는 방법을](../role-based-access-control/custom-roles.md)검토 하세요.
+> "사용자" 라는 용어는 Citus (Hyperscale) 서버 그룹 내의 사용자를 의미 합니다. Azure 구독 사용자 및 해당 권한에 대 한 자세한 내용은 azure [역할 기반 access control (AZURE RBAC) 문서](../role-based-access-control/built-in-roles.md) 를 참조 하거나 [역할을 사용자 지정 하는 방법을](../role-based-access-control/custom-roles.md)검토 하세요.
 
 ## <a name="the-server-admin-account"></a>서버 관리자 계정
 
@@ -89,4 +89,4 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 * [데이터베이스 역할 및 권한](https://www.postgresql.org/docs/current/static/user-manag.html)
 * [GRANT 구문](https://www.postgresql.org/docs/current/static/sql-grant.html)
-* [권한](https://www.postgresql.org/docs/current/static/ddl-priv.html)
+* [부여](https://www.postgresql.org/docs/current/static/ddl-priv.html)

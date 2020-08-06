@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c49286f370691c39c3d14d589f2657d6e0bb3c04
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dfa1c790dc0f2e229b3bfa19616e5760c3d3d02e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542334"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825143"
 ---
-# <a name="configure-and-optimize-vms"></a>Vm 구성 및 최적화
+# <a name="configure-and-optimize-vms"></a>VM 구성 및 최적화
 
 이 문서에서는 InfiniBand 사용 가능한 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) vm for HPC를 구성 하 고 최적화 하는 알려진 기술을 공유 합니다.
 
 ## <a name="vm-images"></a>VM 이미지
-InfiniBand 사용 Vm에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. 적절 한 드라이버 및 구성을 사용 하 여 [사용자 지정 VM 이미지](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) 를 만들고 해당 recurringly를 다시 사용 하는 것도 좋습니다.
+InfiniBand 사용 Vm에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. 적절 한 드라이버 및 구성을 사용 하 여 [사용자 지정 VM 이미지](../../linux/tutorial-custom-images.md) 를 만들고 해당 recurringly를 다시 사용 하는 것도 좋습니다.
 
 ### <a name="centos-hpc-vm-images"></a>CentOS-HPC VM 이미지
 SR-IOV를 사용 하도록 설정 되지 않은 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances), CentOS 버전 6.5 이상 버전의 경우 Marketplace에서 최대 7.5까지 적합 합니다. 예를 들어 [H16 시리즈 vm](../../h-series.md)의 경우 7.1 ~ 7.5 버전을 권장 합니다. 이러한 VM 이미지는 RDMA 및 Intel MPI 버전 5.1에 대 한 네트워크 다이렉트 드라이버를 사용 하 여 미리 로드 됩니다.
@@ -53,7 +53,7 @@ Hpc에 대 한 SLES 12 SP3, hpc 용 SLES 12 SP3 (프리미엄), HPC 용 SLES 12 
 
 ### <a name="update-lis"></a>LIS 업데이트
 
-기능이 나 성능에 필요한 경우에는 지원 되는 OS 배포판에서 [LIS (Linux Integration Services) 드라이버](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 를 설치 하거나 업데이트할 수 있습니다. 특히 사용자 지정 이미지 또는 이전 버전의 RHEL와 같은 이전 OS 버전을 사용 하 여 배포 합니다.
+기능이 나 성능에 필요한 경우에는 지원 되는 OS 배포판에서 [LIS (Linux Integration Services) 드라이버](../../linux/endorsed-distros.md) 를 설치 하거나 업데이트할 수 있습니다. 특히 사용자 지정 이미지 또는 이전 버전의 RHEL와 같은 이전 OS 버전을 사용 하 여 배포 합니다.
 
 ```bash
 wget https://aka.ms/lis

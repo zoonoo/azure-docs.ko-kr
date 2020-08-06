@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082633"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829087"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -36,7 +36,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 - Windows용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](dsc-overview.md)을 참조하세요.
 - Log Analytics 에이전트 VM 확장을 사용 하 여 VM 모니터링을 구성 합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../azure-monitor/learn/quick-collect-azurevm.md)을 참조 하세요.
-- Chef를 사용하여 Azure VM을 구성합니다. 자세한 내용은 [Chef를 사용하여 Azure VM 배포 자동화](../../chef/chef-automation.md)를 참조하세요.
+- Chef를 사용하여 Azure VM을 구성합니다. 자세한 내용은 [Chef를 사용하여 Azure VM 배포 자동화](/azure/developer/chef/windows-vm-configure)를 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 
 
@@ -140,7 +140,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzVMExtension 참조](/powershell/module/az.compute/set-azvmextension)를 참조하세요.
 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장**을 선택한 다음, **추가**를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
@@ -421,7 +421,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. **제거**를 선택합니다.
 
 ## <a name="common-vm-extensions-reference"></a>일반 VM 확장 참조
-| 확장 이름 | Description | 추가 정보 |
+| 확장 이름 | 설명 | 추가 정보 |
 | --- | --- | --- |
 | Windows용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Windows용 사용자 지정 스크립트 확장](custom-script-windows.md) |
 | Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Windows용 DSC 확장](dsc-overview.md) |

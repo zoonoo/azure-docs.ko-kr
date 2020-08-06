@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 10c4f0ba4bfc88017304c228ca1afce4ba863118
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328453"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828560"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대 한 Log Analytics 작업 영역 구성
 VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상에서 데이터를 수집 합니다. 에이전트를 온 보 딩 하기 전에 작업 영역을 만들고 구성 해야 합니다. 이 문서에서는 작업 영역에 대 한 요구 사항을 설명 하 고 VM용 Azure Monitor에 대해 구성 합니다.
@@ -40,10 +40,10 @@ VM용 Azure Monitor Azure Monitor의 Log Analytics 작업 영역 하나 이상�
 
 * [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
-## <a name="supported-regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a>지원되는 지역
 
 모든 지역에서 가상 컴퓨터를 모니터링할 수는 있지만 VM용 Azure Monitor은 다음 지역에서 Log Analytics 작업 영역을 지원 합니다. 가상 컴퓨터 자체는 Log Analytics 작업 영역에서 지원 되는 지역으로 제한 되지 않습니다.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326072"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825364"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
@@ -35,7 +35,7 @@ ms.locfileid: "87326072"
 ## <a name="enable-service-map"></a>서비스 맵 사용
 
 1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) 또는 [솔루션 갤러리에서 모니터링 솔루션 추가](solutions.md)에 설명 된 프로세스를 사용 하 여 서비스 맵 솔루션을 사용 하도록 설정 합니다.
-1. [Windows에 종속성 에이전트를 설치](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) 하거나 데이터를 가져오려는 각 컴퓨터에 [Linux에 종속성 에이전트를 설치](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) 합니다. 종속성 에이전트는 모든 컴퓨터에서 에이전트를 필요로 하지 않도록 바로 인접한 연결을 모니터링할 수 있습니다.
+1. [Windows에 종속성 에이전트를 설치](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) 하거나 데이터를 가져오려는 각 컴퓨터에 [Linux에 종속성 에이전트를 설치](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) 합니다. 종속성 에이전트는 모든 컴퓨터에서 에이전트를 필요로 하지 않도록 바로 인접한 연결을 모니터링할 수 있습니다.
 
 Log Analytics 작업 영역의 Azure Portal에서 서비스 맵에 액세스하고 왼쪽 창에서 **솔루션** 옵션을 선택합니다.<br><br> ![작업 영역에서 솔루션 옵션을 선택합니다](./media/service-map/select-solution-from-workspace.png).<br> 솔루션의 목록에서 **ServiceMap(workspaceName)** 을 선택하고 서비스 맵 솔루션 개요 페이지에서 서비스 맵 요약 타일을 클릭합니다.<br><br> ![서비스 맵 요약 타일](./media/service-map/service-map-summary-tile.png).
 
@@ -571,7 +571,7 @@ Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리�
 
 다음 테이블에는 코드 번호 및 제안된 해결 방법이 나와 있습니다.
 
-| 코드 | 설명 | 해결 방법 |
+| 코드 | Description | 해결 방법 |
 |:--|:--|:--|
 | 0x17 | 라이브러리 설치 관리자에는 설치하지 않은 Windows 업데이트가 필요합니다. | 가장 최근의 라이브러리 설치 관리자 로그를 확인합니다.<br><br>에 대 한 참조 `Windows8.1-KB2999226-x64.msu` 다음에 줄이 나오면 `Error 0x80240017: Failed to execute MSU package,` k b 2999226를 설치 하기 위한 필수 구성 요소가 없습니다. [Windows의 유니버설 C 런타임](https://support.microsoft.com/kb/2999226) 문서의 필수 구성 요소 섹션 지침을 따릅니다. 필수 구성 요소를 설치하려면 Windows Update를 실행하고 여러 번 다시 부팅해야 할 수 있습니다.<br><br>Microsoft 종속성 에이전트 설치 관리자를 다시 실행합니다. |
 
@@ -603,4 +603,3 @@ Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리�
 ## <a name="suggestions"></a>제안
 
 서비스 맵 또는 이 설명서에 대한 의견이 있습니까?  기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
-

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514387"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827897"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Azure DataBox를 사용하여 대량 데이터를 Azure 파일 동기화로 마이그레이션
 다음 두 가지 방법으로 대량 데이터를 Azure File Sync로 마이그레이션할 수 있습니다.
@@ -88,6 +88,13 @@ Azure File Sync 사용 하는 대량 마이그레이션 도구가 처음에 Acl�
 
 > [!IMPORTANT]
 > 오프 라인 데이터 전송 모드를 사용 하지 않도록 설정한 후에는 다시 사용 하도록 설정할 수 없습니다. 대량 마이그레이션의 준비 공유를 계속 사용할 수 있는 경우에도 마찬가지입니다.
+
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>클라우드에서 Azure File Sync 및 미리 시드 된 파일
+
+DataBox이 아닌 다른 방법으로 Azure 파일 공유에 파일을 기반으로 하는 경우 (예: AzCopy를 통해, 클라우드 백업 또는 다른 방법에서 RoboCopy)이 문서에 설명 된 [오프 라인 데이터 전송 프로세스](#process-for-offline-data-transfer) 를 계속 수행 해야 합니다. 파일이 클라우드로 이동 하는 방법으로 DataBox를 무시 하기만 하면 됩니다. 그러나 파일을 *준비 공유* 로 시드 하는 프로세스를 계속 수행 하는 것이 가장 중요 하며, 최종 Azure File Sync 연결 된 공유는 아닙니다.
+
+> [!WARNING]
+> 최종 연결 Azure File Sync 공유 **하지 않고 파일을 준비 공유로 시드 하는 프로세스를 따릅니다**. 그렇지 않은 경우 파일 충돌이 발생할 수 있으며 (두 파일 버전이 모두 저장 됨) 라이브 서버에서 삭제 된 파일이 이전에 시드 된 파일 집합에 여전히 있는 경우 다시 돌아올 수 있습니다. 또한 폴더 변경 내용이 서로 병합 되므로 이러한 실수로 인해 네임 스페이스를 구분 하기가 매우 어렵습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)

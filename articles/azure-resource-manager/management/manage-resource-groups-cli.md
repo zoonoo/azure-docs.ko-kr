@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9eaca2ac394e58f45c7a7a0e7920fcb86f2278b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2b6abcaf7f774b576a4850cd523bca27adfec488
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484592"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827115"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -145,7 +145,7 @@ az group export --name $resourceGroupName
 
 ## <a name="manage-access-to-resource-groups"></a>리소스 그룹에 대 한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure CLI](../../role-based-access-control/role-assignments-cli.md)을 참조 하세요.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure CLI](../../role-based-access-control/role-assignments-cli.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

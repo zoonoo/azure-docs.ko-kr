@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 82c0fbb62f411ccc3056d782518c6c3b570106d2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529792"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828628"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -82,7 +82,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 **AZURE AD 역할** – 이러한 역할은 모두 Azure Active Directory (전역 관리자, Exchange 관리자 및 보안 관리자)에 있습니다. [Azure Active Directory의 관리자 역할 사용 권한](../users-groups-roles/directory-assign-admin-roles.md)에서 역할 및 해당 역할의 기능에 대해 더 자세히 읽을 수 있습니다. 관리자에게 할당하는 역할을 결정하는 데 도움이 필요한 경우 [작업별 최소 권한 있는 역할](../users-groups-roles/roles-delegate-by-task.md)을 참조하세요.
 
-**Azure 리소스 역할** – 이 역할은 Azure 리소스, 리소스 그룹, 구독 또는 관리 그룹에 연결됩니다. Privileged Identity Management는 소유자, 사용자 액세스 관리자 및 참가자와 같은 기본 제공 역할 및 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)에 대 한 just-in-time 액세스를 제공 합니다. Azure 리소스 역할에 대한 자세한 내용은 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 참조하세요.
+**Azure 리소스 역할** – 이 역할은 Azure 리소스, 리소스 그룹, 구독 또는 관리 그룹에 연결됩니다. Privileged Identity Management는 소유자, 사용자 액세스 관리자 및 참가자와 같은 기본 제공 역할 및 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)에 대 한 just-in-time 액세스를 제공 합니다. Azure 리소스 역할에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
 
 자세한 내용은 [Privileged Identity Management에서 관리할 수 없는 역할](pim-roles.md)을 참조 하세요.
 
@@ -100,7 +100,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>관련자: Azure AD 역할에 대 한 Privileged Identity Management
 
-| 이름 | 역할 | 작업 |
+| 이름 | Role | 작업 |
 | --- | --- | --- |
 | 이름 및 이메일 | **설계자 또는 Azure 글로벌 관리자 식별**<br/>이 변경을 조직의 핵심 ID 관리 인프라와 일치시키는 방법을 정의할 책임이 있는 ID 관리 팀 출신 담당자입니다. | SO/R/I |
 | 이름 및 이메일 | **서비스 소유자 / 라인 관리자**<br/>서비스 또는 서비스 그룹의 IT 소유자 출신 담당자입니다. 이는 결정을 내리는 데 중요 하며 팀에 대 한 Privileged Identity Management를 롤아웃 하는 데 도움이 됩니다. | SO/R/I |
@@ -110,7 +110,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>관련자: Azure 리소스 역할에 대 한 Privileged Identity Management
 
-| 이름 | 역할 | 작업 |
+| 이름 | Role | 작업 |
 | --- | --- | --- |
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>Privileged Identity Management 배포 하려는 각 구독 또는 리소스의 IT 소유자 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |
@@ -241,7 +241,7 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Azure AD 역할에 대 한 Privileged Identity Management 설정
 
-| 역할 | MFA 요구 | 알림 | 인시던트 티켓 | 승인 필요 | 승인자 | 활성화 기간 | 영구 관리자 |
+| Role | MFA 요구 | 알림 | 인시던트 티켓 | 승인 필요 | 승인자 | 활성화 기간 | 영구 관리자 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 전역 관리자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 기타 글로벌 관리자 | 1시간 | 응급 액세스 계정 |
 | Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | 없음 | 2시간 | 없음 |
@@ -249,7 +249,7 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Azure 리소스 역할에 대 한 Privileged Identity Management 설정
 
-| 역할 | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
+| Role | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | 해당 없음 | 3개월 |
 | 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | 해당 없음 | 3개월 |
@@ -257,9 +257,9 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 다음 테이블에서 각 설정을 설명합니다.
 
-| 설정 | 설명 |
+| Setting | 설명 |
 | --- | --- |
-| 역할 | 설정을 정의하는 역할의 이름입니다. |
+| Role | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 특히 역할에 게스트 사용자가 있는 경우 모든 관리자 역할에 대해 MFA를 적용 하는 것 **이 좋습니다** . |
 | 알림 | True로 설정하는 경우 자격이 있는 사용자가 해당 역할을 활성화하면 글로벌 관리자, 권한 있는 역할 관리자 및 조직의 보안 관리자가 이메일 알림을 받습니다.<br/><br/>**참고:** 일부 조직에는 관리자 계정에 연결 된 전자 메일 주소가 없으므로 이러한 전자 메일 알림을 받으려면 관리자가 이러한 전자 메일을 받을 수 있도록 대체 전자 메일 주소를 설정 해야 합니다. |
 | 인시던트 티켓 | 자격이 있는 사용자가 자신의 역할을 활성화할 때 인시던트 티켓 번호를 기록해야 하는지 여부입니다. 이 설정은 조직이 원치 않는 활성화를 완화하기 위해 내부 문제 번호를 통해 각 활성화를 식별하는 데 도움이 됩니다.<br/><br/> : heavy_check_mark: Microsoft는 인시던트 티켓 번호를 활용 하 여 Privileged Identity Management 내부 시스템에 연결 하는 것 **이 좋습니다** . 이 방법은 활성화에 대한 컨텍스트가 필요한 승인자에게 특히 유용합니다. |
@@ -319,7 +319,7 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 이 단계를 사용하여 역할에 대해 설정한 모든 구성이 올바르게 작동하는지 여부를 확인하는 것이 좋습니다. 다음 테이블을 사용하여 테스트를 문서화하세요. 또한 이 단계를 사용하여 영향을 받는 사용자와의 통신을 최적화하는 것이 좋습니다.
 
-| 역할 | 활성화하는 동안 예상되는 동작 | 실제 결과 |
+| Role | 활성화하는 동안 예상되는 동작 | 실제 결과 |
 | --- | --- | --- |
 | 전역 관리자 | (1) MFA 요구<br/>(2) 승인 요구<br/>(3) 승인자가 알림을 수신하고 승인할 수 있음<br/>(4) 미리 설정된 시간이 경과한 후 역할 만료 |  |
 | 구독 *X*의 소유자 | (1) MFA 요구<br/>(2) 구성된 기간이 경과한 후 자격이 있는 할당 만료 |  |

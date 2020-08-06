@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: bd7619f000d16a55e1cfb31cc3b9cfb3b6d33502
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7f9c5afbeed0c772f76e013a37dd870ed2185be7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432613"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827676"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>근접 배치 그룹에서 실행되는 Azure 가상 머신을 다른 지역에 복제
 
@@ -42,7 +42,7 @@ ms.locfileid: "87432613"
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>근접 배치 그룹 내 가상 머신에 Site Recovery 설정
 
 > [!NOTE]
-> 대상 근접 배치 그룹의 고유 ID가 유용한 지 확인 합니다. 새 근접 배치 그룹을 만드는 경우 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) 에서 명령을 확인 하 고 기존 근접 배치 그룹을 사용 하는 경우 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups)에서 명령을 사용 합니다.
+> 대상 근접 배치 그룹의 고유 ID가 유용한 지 확인 합니다. 새 근접 배치 그룹을 만드는 경우 [여기](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) 에서 명령을 확인 하 고 기존 근접 배치 그룹을 사용 하는 경우 [여기](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups)에서 명령을 사용 합니다.
 
 ### <a name="azure-to-azure"></a>Azure 간
 

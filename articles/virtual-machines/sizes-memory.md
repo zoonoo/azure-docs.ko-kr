@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 688508df8b13e00b21da78c1274400ea4b18484a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ea58eeac5a77f2e1eaf2a7756de6d36a3fc0626b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421334"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825500"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 머신 크기
 
@@ -57,4 +57,4 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
-Azure에서 Vm의 이름을 지정 하는 방법에 대 한 자세한 내용은 [azure virtual machine 크기 명명 규칙](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)을 참조 하세요.
+Azure에서 Vm의 이름을 지정 하는 방법에 대 한 자세한 내용은 [azure virtual machine 크기 명명 규칙](./vm-naming-conventions.md)을 참조 하세요.

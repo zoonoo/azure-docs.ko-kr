@@ -1,7 +1,7 @@
 ---
 title: 보안 컨트롤
 titleSuffix: Azure Storage
-description: Azure Storage 평가를 위한 보안 컨트롤의 검사 목록입니다.
+description: Azure Storage 평가를 위한 보안 제어 검사 목록을 봅니다. 다루는 영역은 데이터 보호, 네트워크, 모니터링 및 로깅, id 및 구성입니다.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128028"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826520"
 ---
 # <a name="security-controls-for-azure-storage"></a>Azure Storage에 대 한 보안 제어
 

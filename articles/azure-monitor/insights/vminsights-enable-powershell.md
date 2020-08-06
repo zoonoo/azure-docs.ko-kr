@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f71e52fd1fd40015ff93e189495daef0e2c333e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a2cdcab08bba76cb385666956b7663324f32c669
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328231"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824582"
 ---
 # <a name="enable-azure-monitor-for-vms-using-powershell"></a>PowerShell을 사용 하 여 VM용 Azure Monitor 사용
 이 문서에서는 PowerShell을 사용 하 여 Azure virtual machines에서 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
@@ -19,7 +19,7 @@ ms.locfileid: "87328231"
 - Azure 가상 머신
 - Azure 가상 머신 확장 집합
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
@@ -35,7 +35,7 @@ ms.locfileid: "87328231"
 
 스크립트는 각 가상 머신 또는 가상 머신 확장 집합에 대해 Log Analytics 에이전트 및 종속성 에이전트의 VM 확장이 이미 설치 되어 있는지 여부를 확인 합니다. 두 확장을 모두 설치 하는 경우 스크립트에서 다시 설치 하려고 시도 합니다. 두 확장이 모두 설치 되어 있지 않으면 스크립트에서 해당 확장을 설치 합니다.
 
-호환성 별칭을 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 `Enable-AzureRM` 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+호환성 별칭을 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 `Enable-AzureRM` 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 스크립트의 인수 세부 정보 및 사용법 예제 목록을 가져오려면 `Get-Help`를 실행합니다.
 

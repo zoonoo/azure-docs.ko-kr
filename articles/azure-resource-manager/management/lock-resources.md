@@ -4,12 +4,12 @@ description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 30a74960113951327f7f89eddc07f8f90a5028c6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484779"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827285"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -22,7 +22,7 @@ ms.locfileid: "87484779"
 
 부모 범위에서 잠금을 적용하면 해당 범위 내 모든 리소스가 동일한 잠금을 상속합니다. 나중에 추가하는 리소스도 부모의 잠금을 상속합니다. 상속의 가장 제한적인 잠금이 우선 적용됩니다.
 
-역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대 한 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어, SQL Database에 대해 ReadOnly 잠금이 지정되면 데이터베이스를 삭제하거나 수정하지 못합니다. 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제하지 못하게 됩니다. 이러한 작업이 `https://management.azure.com`로 전송되지 않기 때문에 데이터 트랜잭션이 허용됩니다.
 

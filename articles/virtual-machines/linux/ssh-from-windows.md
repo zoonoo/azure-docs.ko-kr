@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: dcb5277773be1fc45a3d2b0901cf9fda177b7054
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512655"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825568"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -45,7 +45,7 @@ Linux VM에 연결 하는 경우 VM은 SSH 클라이언트를 테스트 하 여 
 
 [Azure Cloud Shell](../../cloud-shell/overview.md) 에서 Bash를 사용 하 여 VM에 연결할 수도 있습니다. [Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)을 사용 하 여 [웹 브라우저](https://shell.azure.com/bash), [Azure Portal](https://portal.azure.com)또는 터미널 Visual Studio Code에서 Cloud Shell를 사용할 수 있습니다.
 
-또한 [Linux 용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about) 을 설치 하 여 SSH를 통해 VM에 연결 하 고 Bash 셸 내에서 다른 네이티브 linux 도구를 사용할 수 있습니다.
+또한 [Linux 용 Windows 하위 시스템](/windows/wsl/about) 을 설치 하 여 SSH를 통해 VM에 연결 하 고 Bash 셸 내에서 다른 네이티브 linux 도구를 사용할 수 있습니다.
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 

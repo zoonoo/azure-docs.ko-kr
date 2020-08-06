@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323947"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824769"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>VM용 Azure Monitor 개요 사용
 
@@ -30,7 +30,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용 하 여 지정 된 구독 또는 리소스 그룹에서 여러 Azure Vm, Azure Arc Vm, Azure VMSS 또는 Azure Arc 컴퓨터를 사용 하도록 설정 합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -90,7 +90,7 @@ Log Analytics 작업 영역이 없는 경우 리소스 중 하나를 사용 하 
 |Windows Server 2008 R2 | X | X|
 |Windows 10 1803 | X | X |
 |Windows 8.1 | X | X |
-|Windows 8 | X | X |
+|Windows 8 | X | X |
 |Windows 7 SP1 | X | X |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
 |Ubuntu 18.04, 16.04 | X | X |
@@ -159,7 +159,7 @@ VM용 Azure Monitor는 Arc 확장 서비스를 사용할 수 있는 지역에서
 |:--|:--|:--|
 | Windows 에이전트 | 예 | [Windows에 대 한 Log Analytics 에이전트](../platform/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
 | Linux 에이전트 | 예 | Linux [에 대 한 Log Analytics 에이전트](../platform/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| System Center Operations Manager 관리 그룹 | 예 | |
+| System Center Operations Manager 관리 그룹 | 아니요 | |
 
 ## <a name="agents"></a>에이전트
 VM용 Azure Monitor 하려면 모니터링할 가상 컴퓨터 또는 가상 컴퓨터 확장 집합에 다음 두 에이전트를 설치 해야 합니다. 이러한 에이전트를 설치 하 고 작업 영역에 연결 하는 것은 리소스를 등록 하기 위한 유일한 요구 사항입니다.
@@ -172,12 +172,12 @@ VM용 Azure Monitor 하려면 모니터링할 가상 컴퓨터 또는 가상 컴
 
 다음은 이러한 에이전트를 배포 하는 여러 가지 방법입니다. 
 
-| 메서드 | 설명 |
+| 메서드 | Description |
 |:---|:---|
-| [Azure Portal](vminsights-enable-single-vm.md) | 단일 가상 머신, 가상 머신 확장 집합 또는 Azure Arc와 연결 된 하이브리드 가상 머신에 두 에이전트를 모두 설치 합니다. |
+| [Azure Portal](./vminsights-enable-portal.md) | 단일 가상 머신, 가상 머신 확장 집합 또는 Azure Arc와 연결 된 하이브리드 가상 머신에 두 에이전트를 모두 설치 합니다. |
 | [리소스 관리자 템플릿](vminsights-enable-powershell.md) | 지원 되는 방법 중 하나를 사용 하 여 CLI 및 PowerShell을 비롯 한 리소스 관리자 템플릿을 배포 하는 두 에이전트를 모두 설치 합니다. |
-| [Azure Policy](vminsights-enable-at-scale-policy.md) | 가상 머신 또는 가상 머신 확장 집합을 만들 때 에이전트를 자동으로 설치 하도록 Azure Policy 이니셔티브를 할당 합니다. |
-| [수동 설치](vminsights-enable-hybrid-cloud.md) | 데이터 센터 또는 다른 클라우드 환경을 포함 하 여 Azure 외부에 호스트 된 컴퓨터에 게스트 운영 체제에 에이전트를 설치 합니다. |
+| [Azure Policy](./vminsights-enable-policy.md) | 가상 머신 또는 가상 머신 확장 집합을 만들 때 에이전트를 자동으로 설치 하도록 Azure Policy 이니셔티브를 할당 합니다. |
+| [수동 설치](./vminsights-enable-hybrid.md) | 데이터 센터 또는 다른 클라우드 환경을 포함 하 여 Azure 외부에 호스트 된 컴퓨터에 게스트 운영 체제에 에이전트를 설치 합니다. |
 
 
 
@@ -200,4 +200,3 @@ Microsoft는 Azure Monitor 서비스를 사용하여 사용 현황 및 성능 �
 ## <a name="next-steps"></a>다음 단계
 
 성능 모니터링 기능을 사용 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 성능 보기](vminsights-performance.md)를 참조 하세요. 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
-

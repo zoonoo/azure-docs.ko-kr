@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ef3c2161e5a032983a2cbc9e4ccdf60af6920a7d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323114"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824990"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>작업 영역 기반 Application Insights 리소스(미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "87323114"
 또한 리소스에서 일반적인 RBAC(역할 기반 액세스 제어)를 사용할 수 있으며 앱 간/작업 영역 간 쿼리가 필요하지 않습니다.
 
 > [!NOTE]
-> 작업 영역 기반 Application Insights 리소스에 대한 데이터 수집 및 보존 비용은 데이터가 있는 Log Analytics 작업 영역을 통해 청구됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( https://docs.microsoft.com/azure/azure-monitor/app/pricing#workspace-based-application-insights).
+> 작업 영역 기반 Application Insights 리소스에 대한 데이터 수집 및 보존 비용은 데이터가 있는 Log Analytics 작업 영역을 통해 청구됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights).
 
 새 환경을 테스트하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 Application Insights 리소스를 만듭니다.
 
@@ -204,4 +204,3 @@ Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../platform/metrics-charts.md
 [start]: ./app-insights-overview.md
-

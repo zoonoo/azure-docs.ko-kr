@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44a41f43aa31c15b71d7b35ebd29bf935c7df966
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525469"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827421"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -174,7 +174,7 @@ Azure Storage 계정은 관리 구성 요소일뿐 아니라 제한의 대상이
 
 Standard Storage의 경우 스토리지 계정당 IOPS에 제한이 있다는 점에 주의하세요. [Azure Storage 확장성 및 성능 목표](../../../storage/common/scalability-targets-standard-account.md) 문서에서 **총 요청 비율**이 포함된 행을 참조하세요. Azure 구독당 스토리지 계정 수의 초기 제한도 있습니다. 이러한 스토리지 계정의 제한에 도달하지 않도록 다른 스토리지 계정에서 더 큰 SAP 환경에 맞게 VHD의 균형을 조정합니다. 이는 1,000개가 넘는 VHD가 있는 수백 개의 가상 머신에 대해 설명하는 것은 지루한 작업입니다.
 
-SAP 워크로드와 함께 DBMS 배포에 Standard Storage를 사용하지 않는 것이 좋으므로 Standard Storage에 대한 참조 및 권장 사항은 이 간략한 [문서](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)로 제한됩니다.
+SAP 워크로드와 함께 DBMS 배포에 Standard Storage를 사용하지 않는 것이 좋으므로 Standard Storage에 대한 참조 및 권장 사항은 이 간략한 [문서](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)로 제한됩니다.
 
 Microsoft는 2017년에 서로 다른 Azure Storage 계정에서 VHD를 계획하고 배포하는 관리 작업을 방지하기 위해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 도입했습니다. 관리 디스크는 Standard Storage 및 Premium Storage에 사용할 수 있습니다. 관리 디스크의 주요 이점은 다음과 같은 관리되지 않는 디스크 목록과 비교됩니다.
 
@@ -327,7 +327,7 @@ DBMS VM과 SAP 애플리케이션 계층 간의 트래픽은 항상 부하 분�
 
 SAP 애플리케이션 계층과 DBMS 계층 사이에 배치되는 부하 분산 장치와 함께 DirectServerReturn을 구성하는 것이 좋습니다. 이 구성은 두 계층 간의 네트워크 대기 시간을 줄입니다.
 
-SQL Server Always On을 사용하여 이 구성을 설정하는 방법에 대한 예는 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener)을 참조하세요.
+SQL Server Always On을 사용하여 이 구성을 설정하는 방법에 대한 예는 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener)을 참조하세요.
 
 Azure에서 게시된 GitHub JSON 템플릿을 SAP 인프라 배포에 대한 참조로 사용하는 경우 이 [SAP 3계층 시스템용 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md)을 연구합니다. 이 템플릿에서 부하 분산 장치에 대한 올바른 설정을 볼 수 있습니다.
 

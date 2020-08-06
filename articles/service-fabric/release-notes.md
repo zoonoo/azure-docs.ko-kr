@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 08808fa0577077b642d0f21e3995931726d4d8a3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423544"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826282"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
@@ -51,9 +51,9 @@ Service Fabric의 다음 릴리스를 발표 하 게 되어 기쁘게 생각 합
 ### <a name="improve-application-life-cycle-experience"></a>응용 프로그램 수명 주기 환경 개선
 
 - **[미리 보기: 요청 드레이닝](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: 서비스 업그레이드 또는 노드 비활성화와 같은 계획 된 서비스 유지 관리를 수행 하는 동안 서비스에서 연결을 정상적으로 드레이닝 하는 것을 허용 하려고 합니다. 이 기능은 서비스 구성에서 인스턴스 종결 지연 기간을 추가 합니다. 계획 된 작업을 수행 하는 동안 SF는 검색에서 서비스의 주소를 제거 하 고 서비스를 종료 하기 전에이 기간을 기다립니다.
-- **[자동 Subcluster 검색 및 분산](/azure/service-fabric/cluster-resource-manager-subclustering )**: 배치 제약 조건이 서로 다른 서비스에 공통 [부하 메트릭이](./service-fabric-cluster-resource-manager-metrics.md)있는 경우 하위 클러스터링이 발생 합니다. 다른 노드 집합에 대 한 부하가 현저 하 게 다를 경우 Service Fabric 클러스터 리소스 관리자 배치 제약 조건으로 인해 클러스터가 불균형 하 게 분산 된 것으로 간주 합니다. 결과적으로 클러스터의 균형을 다시 조정 하 고 잠재적으로 불필요 한 서비스 이동을 발생 시킵니다. "불균형"은 크게 향상 될 수 없기 때문입니다. 이 릴리스부터 클러스터 리소스 관리자는 이제 이러한 종류의 구성을 자동으로 감지 하 고 움직임을 통해 불균형을 수정할 수 있는 경우를 이해 하 고, 대신 성능을 크게 향상 시킬 수 없기 때문에 작업을 단독으로 유지 해야 합니다.  
+- **[자동 Subcluster 검색 및 분산](./cluster-resource-manager-subclustering.md)**: 배치 제약 조건이 서로 다른 서비스에 공통 [부하 메트릭이](./service-fabric-cluster-resource-manager-metrics.md)있는 경우 하위 클러스터링이 발생 합니다. 다른 노드 집합에 대 한 부하가 현저 하 게 다를 경우 Service Fabric 클러스터 리소스 관리자 배치 제약 조건으로 인해 클러스터가 불균형 하 게 분산 된 것으로 간주 합니다. 결과적으로 클러스터의 균형을 다시 조정 하 고 잠재적으로 불필요 한 서비스 이동을 발생 시킵니다. "불균형"은 크게 향상 될 수 없기 때문입니다. 이 릴리스부터 클러스터 리소스 관리자는 이제 이러한 종류의 구성을 자동으로 감지 하 고 움직임을 통해 불균형을 수정할 수 있는 경우를 이해 하 고, 대신 성능을 크게 향상 시킬 수 없기 때문에 작업을 단독으로 유지 해야 합니다.  
 - [**보조 복제본에 대 한 다양 한 이동 비용**](./service-fabric-cluster-resource-manager-movement-cost.md): 보조 복제본에 대해 별도의 이동 비용을 사용 해야 하는지 여부를 정의 하는 몇 가지 시나리오에서 추가 유연성을 제공 하는 새 이동 비용 값 VeryHigh 도입 되었습니다.
-- 컨테이너 화 된 응용 프로그램에 대해 [**선거의 프로브**](/azure/service-fabric/probes-codepackage ) 메커니즘을 사용 하도록 설정 했습니다. 선거의 프로브는 컨테이너 화 된 응용 프로그램의 선거의을 발표 하는 데 도움이 되며, 적시에 응답 하지 않으면 다시 시작 됩니다.
+- 컨테이너 화 된 응용 프로그램에 대해 [**선거의 프로브**](./probes-codepackage.md) 메커니즘을 사용 하도록 설정 했습니다. 선거의 프로브는 컨테이너 화 된 응용 프로그램의 선거의을 발표 하는 데 도움이 되며, 적시에 응답 하지 않으면 다시 시작 됩니다.
 - [**서비스에 대해 완료까지 실행**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Image Store 개선 사항

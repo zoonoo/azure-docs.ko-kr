@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563843"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828509"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -670,7 +670,7 @@ Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다.
 ### <a name="can-i-onboard-to-a-new-workspace"></a>새 작업 영역에 온보딩할 수 있나요? 
 현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다. Azure Portal을 통해 VM용 Azure Monitor에 대해 단일 Azure VM을 구성한 경우 새 기본 작업 영역을 만드는 작업이 자동으로 수행됩니다.
 
-스크립트 기반 방법을 사용하도록 선택하는 경우 이러한 단계는 [Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 VM용 Azure Monitor 사용](insights/vminsights-enable-at-scale-powershell.md) 문서에서 설명합니다. 
+스크립트 기반 방법을 사용하도록 선택하는 경우 이러한 단계는 [Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 VM용 Azure Monitor 사용](./insights/vminsights-enable-powershell.md) 문서에서 설명합니다. 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>내 VM에서 이미 기존 작업 영역에 보고하는 경우 어떻게 해야 하나요?
 이미 가상 머신의 데이터를 수집하는 경우 기존 Log Analytics 작업 영역에 데이터를 보고하도록 이미 구성되었을 수 있습니다.  해당 작업 영역이 지원되는 지역 중 하나라면 기존 작업 영역에 VM용 Azure Monitor를 사용하도록 설정할 수 있습니다.  이미 사용하고 있는 작업 영역이 지원되는 지역 중 하나가 아닌 경우 지금은 VM용 Azure Monitor에 온보딩할 수 없습니다.  본사에서는 추가 지역을 지원하기 위해 적극적으로 노력하고 있습니다.
@@ -691,7 +691,7 @@ Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>내 VM의 성능 차트에 일부 또는 모든 데이터가 표시되지 않습니다
 성능 차트에서 *InsightsMetrics* 테이블에 저장된 데이터를 사용하도록 업데이트되었습니다.  이러한 차트의 데이터를 보려면 새 VM 인사이트 솔루션을 사용하도록 업그레이드해야 합니다.  자세한 내용은 [GA FAQ](insights/vminsights-ga-release-faq.md)를 참조하세요.
 
-디스크 테이블 또는 일부 성능 차트에 성능 데이터가 표시되지 않는 경우 작업 영역에서 성능 카운터가 구성되지 않을 수 있습니다. 이 문제를 해결하려면 다음 [PowerShell 스크립트](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell)를 실행합니다.
+디스크 테이블 또는 일부 성능 차트에 성능 데이터가 표시되지 않는 경우 작업 영역에서 성능 카운터가 구성되지 않을 수 있습니다. 이 문제를 해결하려면 다음 [PowerShell 스크립트](./insights/vminsights-enable-powershell.md)를 실행합니다.
 
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>VM용 Azure Monitor 맵 기능과 서비스 맵이 어떻게 다른가요?

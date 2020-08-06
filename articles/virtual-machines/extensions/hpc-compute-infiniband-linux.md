@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: 9085549486333968b98b4d34679c8616282d960f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099358"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829053"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Linux 용 InfiniBand 드라이버 확장
 
 이 확장은 Linux를 실행 하는 InfiniBand 및 SR-IOV 사용 (' r ' 크기) [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) vm에 InfiniBand OFED 드라이버를 설치 합니다. VM 제품군에 따라 확장은 연결-X NIC에 적절 한 드라이버를 설치 합니다.
 
-OFED 드라이버의 수동 설치에 대 한 지침은 [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband#manually-install-mellanox-ofed)에서 제공 됩니다.
+OFED 드라이버의 수동 설치에 대 한 지침은 [여기](../workloads/hpc/enable-infiniband.md#manual-installation)에서 제공 됩니다.
 
 확장은 [Windows vm](hpc-compute-infiniband-windows.md)용 InfiniBand 드라이버를 설치 하는 데도 사용할 수 있습니다.
 
@@ -74,7 +74,7 @@ InfiniBand 드라이버를 Microsoft Azure 확장 하려면 대상 VM이에 연�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | 문자열 |
 | type | InfiniBandDriverLinux | 문자열 |
-| typeHandlerVersion | 1.1 | int |
+| typeHandlerVersion | 1.1 | Int |
 
 
 

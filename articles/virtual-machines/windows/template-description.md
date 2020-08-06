@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: cd96fe550a508e54c467ca52cd36322581029654
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283234"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827455"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -274,7 +274,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 
 몇 가지 프로필 요소는 가상 머신 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    
-- [size](sizes.md)
+- [size](../sizes.md)
 - [이름](/azure/architecture/best-practices/resource-naming) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
 - [네트워크 인터페이스](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
@@ -353,7 +353,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 
 ### <a name="attach-data-disks"></a>데이터 디스크 연결
 
-필요에 따라 VM에 데이터 디스크를 추가할 수 있습니다. [디스크 수](sizes.md)는 사용하는 운영 체제 디스크의 크기에 따라 달라집니다. Standard_DS1_v2로 설정된 VM의 크기를 사용하면 추가될 수 있는 데이터 디스크의 최대 수는 2입니다. 이 예제에서는 하나의 관리되는 데이터 디스크를 각 VM에 추가합니다.
+필요에 따라 VM에 데이터 디스크를 추가할 수 있습니다. [디스크 수](../sizes.md)는 사용하는 운영 체제 디스크의 크기에 따라 달라집니다. Standard_DS1_v2로 설정된 VM의 크기를 사용하면 추가될 수 있는 데이터 디스크의 최대 수는 2입니다. 이 예제에서는 하나의 관리되는 데이터 디스크를 각 VM에 추가합니다.
 
 ```json
 "dataDisks": [

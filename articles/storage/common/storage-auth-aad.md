@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 76b9b965ab7fb5ffda66bd77dba6d9ab5381e6fd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3b29c5b4b1bf682e0f43a0bf9b0c8fcb40d70433
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534365"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827880"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -43,7 +43,7 @@ Azure Blob 또는 큐 서비스에 요청 하는 네이티브 응용 프로그�
 
 ## <a name="assign-azure-roles-for-access-rights"></a>액세스 권한에 대 한 Azure 역할 할당
 
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 및 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다. Blob 및 큐 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
+Azure AD (Azure Active Directory)는 azure [역할 기반 access control (AZURE RBAC)](../../role-based-access-control/overview.md)을 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Storage는 blob 및 큐 데이터에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 합니다. Blob 및 큐 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
 Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 

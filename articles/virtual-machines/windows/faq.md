@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: a21fbcd04c5916e686f13e375bc1854935d1c4fe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d5dda567d0cfa89863731a3e8e651aede4ab5957
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500347"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825194"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows Virtual Machines에 대한 자주 묻는 질문과 대답
 이 문서에서는 Azure에서 리소스 관리자 배포 모델을 사용하여 만든 Windows 가상 머신에 대한 일부 일반적인 질문을 해결합니다. 이 항목의 Linux 버전에 대해서는 [Linux Virtual Machines에 대 한 질문과 대답](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조 하세요.
@@ -23,7 +23,7 @@ ms.locfileid: "86500347"
 Windows 7, Windows 8.1 및 Windows 10의 특정 버전은 MSDN Azure 혜택 구독자와 MSDN 개발 및 테스트 종량제 구독자가 개발 및 테스트 작업을 위해 사용할 수 있습니다. 지침과 제한 사항을 포함한 자세한 내용은 [MSDN 구독자를 위한 Windows 클라이언트 이미지](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)를 참조하세요. 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>가상 컴퓨터에 얼마나 많은 용량의 스토리지를 사용할 수 있습니까?
-각 데이터 디스크는 최대 32767 GiB 수 있습니다. 사용할 수 있는 데이터 디스크의 수는 가상 머신의 크기에 따라 달라집니다. 자세한 내용은 [Virtual Machines의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
+각 데이터 디스크는 최대 32767 GiB 수 있습니다. 사용할 수 있는 데이터 디스크의 수는 가상 머신의 크기에 따라 달라집니다. 자세한 내용은 [Virtual Machines의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
 
 Azure Managed Disks는 데이터 영구 저장을 위해 Azure Virtual Machines와 함께 사용하기 적합한 디스크 스토리지 제품입니다. 각 Virtual Machine과 함께 여러 Managed Disks를 사용할 수 있습니다. Managed Disks는 프리미엄 Managed Disks와 표준 Managed Disks 등 내구성이 뛰어난 두 가지 스토리지 옵션을 제공합니다. 가격 책정 정보는 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)을 참조하세요.
 

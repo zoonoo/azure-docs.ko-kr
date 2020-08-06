@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e68dbbf86c5bda1758a6331f4c6fc0797df4557
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 964d2b5d89fd91aca68e9b47b0049529fe284848
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368356"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829002"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "87368356"
 
 
 ## <a name="check-vm-sku-availability"></a>VM SKU 가용성 확인
-VM 크기 또는 SKU의 가용성은 지역 및 영역에 따라 다를 수 있습니다. 가용성 영역 사용을 계획하는 데 도움이 되도록 Azure 지역 및 영역별로 사용 가능한 VM SKU를 나열할 수 있습니다. 이 기능을 사용하면 적절한 VM 크기를 선택하고 영역 간에 원하는 복원력을 얻을 수 있습니다. 다른 VM 유형 및 크기에 대한 자세한 내용은 [VM 크기 개요](sizes.md)를 참조하세요.
+VM 크기 또는 SKU의 가용성은 지역 및 영역에 따라 다를 수 있습니다. 가용성 영역 사용을 계획하는 데 도움이 되도록 Azure 지역 및 영역별로 사용 가능한 VM SKU를 나열할 수 있습니다. 이 기능을 사용하면 적절한 VM 크기를 선택하고 영역 간에 원하는 복원력을 얻을 수 있습니다. 다른 VM 유형 및 크기에 대한 자세한 내용은 [VM 크기 개요](../sizes.md)를 참조하세요.
 
 [az vm list-skus](/cli/azure/vm) 명령으로 사용 가능한 VM SkU를 볼 수 있습니다. 다음 예제에서는 *eastus2* 지역에서 사용 가능한 VM SKU를 나열합니다.
 
@@ -189,7 +189,3 @@ IP 주소를 보여 주는 출력은 VM과 동일한 가용성 영역에 있습�
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure Vm의 [가용성](../availability.md) 에 대해 자세히 알아보세요.
-
-
-
-

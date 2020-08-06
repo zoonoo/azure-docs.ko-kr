@@ -3,12 +3,12 @@ title: Azure 활동 로그를 확인 하 여 리소스 모니터링
 description: 활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. PowerShell, Azure CLI 및 REST Azure Portal 표시 합니다.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75478137"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827064"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링
 
@@ -34,7 +34,7 @@ ms.locfileid: "75478137"
 
     ![모니터 선택](./media/view-activity-logs/select-monitor-from-menu.png)
 
-1. **활동 로그**를 선택합니다.
+1. **활동 로그**를 선택 합니다.
 
     ![활동 로그 선택](./media/view-activity-logs/select-activity-log.png)
 
@@ -191,7 +191,7 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationNam
 ## <a name="next-steps"></a>다음 단계
 
 * Power BI와 함께 Azure 활동 로그를 사용하면 구독의 작업을 면밀하게 살펴볼 수 있습니다. [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)을 참조하세요.
-* 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+* 보안 정책 설정에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 * 응용 프로그램 배포에 대 한 인프라 계층에서 응용 프로그램 변경 내용에 대 한 자세한 내용을 보려면 [Azure Monitor에서 응용 프로그램 변경 분석 사용](../../azure-monitor/app/change-analysis.md)을 참조 하세요.
 * 배포 작업을 보는 명령에 대해 자세히 알아보려면 [배포 작업 보기](../templates/deployment-history.md)를 참조하세요.
 * 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](lock-resources.md)를 참조하세요.

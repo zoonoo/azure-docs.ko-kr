@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 99419a73386f39492d78ee93aeb61f432ac9c690
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421062"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827625"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Azure에서 가상 머신에 대한 크기
 
@@ -31,7 +31,7 @@ ms.locfileid: "87421062"
 - 다양 한 크기의 가격 책정에 대 한 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) 또는 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)에 대 한 가격 책정 페이지를 참조 하세요.
 - Azure 지역의 VM 크기 가용성에 대해서는 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 - Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
-- Azure에서 Vm의 이름을 지정 하는 방법에 대 한 자세한 내용은 [azure virtual machine 크기 명명 규칙](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)을 참조 하세요.
+- Azure에서 Vm의 이름을 지정 하는 방법에 대 한 자세한 내용은 [azure virtual machine 크기 명명 규칙](./vm-naming-conventions.md)을 참조 하세요.
 
 ## <a name="rest-api"></a>REST API
 

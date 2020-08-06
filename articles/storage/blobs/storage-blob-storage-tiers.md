@@ -1,6 +1,6 @@
 ---
 title: Blob에 대 한 핫, 쿨 및 archive 액세스 계층-Azure Storage
-description: Azure storage 계정에 대 한 핫, 쿨 및 보관 액세스 계층.
+description: Azure Blob 저장소에 대 한 핫, 쿨 및 보관 액세스 계층에 대해 읽어 보세요. 계층화를 지 원하는 저장소 계정을 검토 합니다. 블록 블로그 저장소 옵션을 비교 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011348"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828275"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층
 
@@ -118,10 +118,10 @@ Blob이 핫 계층으로 이동 하면 (archive->쿨, archive->핫 또는 쿨 >�
 |                                           | **프리미엄 성능**   | **핫 계층** | **쿨 계층**       | **보관 계층**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **가용성**                          | 99.9%                     | 99.9%        | 99%                 | 오프라인           |
-| **가용성** <br> **(RA-GRS 읽기)**  | N/A                       | 99.99%       | 99.9%               | 오프라인           |
+| **가용성** <br> **(RA-GRS 읽기)**  | 해당 없음                       | 99.99%       | 99.9%               | 오프라인           |
 | **사용 요금**                         | 더 높은 저장소 비용, 낮은 액세스 및 트랜잭션 비용 | 스토리지 비용 더 높음, 액세스 및 트랜잭션 비용 더 낮음 | 스토리지 비용 더 낮음, 액세스 및 트랜잭션 비용 더 높음 | 스토리지 비용 가장 낮음, 액세스 및 트랜잭션 비용 가장 높음 |
-| **최소 개체 크기**                   | N/A                       | N/A          | N/A                 | N/A               |
-| **최소 스토리지 기간**              | N/A                       | N/A          | 30 일<sup>1</sup> | 180일
+| **최소 개체 크기**                   | 해당 없음                       | 해당 없음          | 해당 없음                 | 해당 없음               |
+| **최소 스토리지 기간**              | 해당 없음                       | 해당 없음          | 30 일<sup>1</sup> | 180일
 | **대기 시간** <br> **(첫 번째 바이트 까지의 시간)** | 1 자리 밀리초 | 밀리초 | 밀리초        | 시간<sup>2</sup> |
 
 <sup>1</sup> GPv2 계정의 쿨 계층에 있는 개체의 최소 보존 기간은 30 일입니다. Blob storage 계정에는 쿨 계층에 대 한 최소 보존 기간이 없습니다.

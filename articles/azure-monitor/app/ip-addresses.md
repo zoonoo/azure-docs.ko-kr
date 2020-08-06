@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/18/2020
-ms.openlocfilehash: cf4ac48cfbb969ae617551f13b43c15819510f7b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 57087548d0a594789f11858c4732ff34c4d79ce4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322655"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824973"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](./app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -29,14 +29,14 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 | 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
-| 원격 분석 |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64  | 443 |
+| 원격 분석 |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255  | 443 |
 | 라이브 메트릭 스트림(미국 동부) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
 | 라이브 메트릭 스트림(미국 중남부) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
 
 ## <a name="status-monitor"></a>상태 모니터
 상태 모니터 구성 - 변경하는 경우에만 필요합니다.
 
-| 용도 | URL | IP | 포트 |
+| 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
 | 구성 |`management.core.windows.net` | |`443` |
 | 구성 |`management.azure.com` | |`443` |
@@ -191,7 +191,7 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="application-insights-analytics"></a>Application Insights 분석
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | 분석 포털 | analytics.applicationinsights.io | 동적 | 80,443 |
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
@@ -201,7 +201,7 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="log-analytics-portal"></a>Log Analytics 포털
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | 포털 | portal.loganalytics.io | 동적 | 80,443 |
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
@@ -210,14 +210,14 @@ Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 ## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure Portal 확장
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | Application Insights 확장 | stamp2.app.insightsportal.visualstudio.com | 동적 | 80,443 |
 | Application Insights 확장 CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | 동적 | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Application Insights SDK
 
-| 용도 | URI | IP | 포트 |
+| 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | 동적 | 80,443 |
 

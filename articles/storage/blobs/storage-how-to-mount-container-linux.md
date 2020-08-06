@@ -1,6 +1,6 @@
 ---
 title: Azure Blob Storage를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
-description: Linux에 FUSE가 있는 Azure Blob Storage 컨테이너를 탑재합니다.
+description: Linux의 가상 파일 시스템 드라이버용 blobfuse를 사용 하 여 Azure Blob 저장소 컨테이너를 탑재 하는 방법에 대해 알아봅니다.
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dc7c16b83816d2b408cef7ade06767bfe2a4582
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465476"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826551"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 

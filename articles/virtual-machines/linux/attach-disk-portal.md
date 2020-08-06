@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: c5be90cfd107dfa66eb31597818d93ef092b5258
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8bafde086febce78ca2715ab77c8a071467b986b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502863"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825466"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
 
 VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
-* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * 가상 머신에 연결된 디스크는 실제로 Azure에 저장된 .vhd 파일입니다. 자세한 내용은 [관리 디스크 소개](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * 디스크를 연결한 후 [Linux VM에 연결하여 새 디스크를 탑재](#connect-to-the-linux-vm-to-mount-the-new-disk)해야 합니다.
 

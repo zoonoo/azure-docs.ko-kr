@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115922"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828934"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -187,5 +187,5 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 
 ## <a name="next-steps"></a>다음 단계
 * Azure PowerShell를 사용 하 여 [서비스 주체를 만드는](howto-authenticate-service-principal-powershell.md)방법을 알아봅니다.
-* 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.  
+* 보안 정책을 지정 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.  
 * 권한이 부여되거나 사용자에 대해 거부될 수 있는 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요.

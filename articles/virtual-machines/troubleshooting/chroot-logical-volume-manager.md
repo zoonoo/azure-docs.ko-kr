@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526880"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825687"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -272,6 +272,6 @@ VM을 실행 하는 경우 디스크 교환이 종료 되 고 디스크 교환 �
 ## <a name="next-steps"></a>다음 단계
 자세한 정보
 
- [Azure 직렬 콘솔]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+ [Azure 직렬 콘솔]( ./serial-console-linux.md)
 
 [단일 사용자 모드](./serial-console-grub-single-user-mode.md)

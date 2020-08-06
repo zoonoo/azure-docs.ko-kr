@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc7c256ca6866e5b981f8740c9953534d830316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359163"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828798"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.
@@ -104,7 +104,7 @@ Azure Active Directory Domain Services용 Azure AD Connect Health:
 
 [//]: # (RBAC 섹션의 시작)
 ## <a name="manage-access-with-role-based-access-control"></a>역할 기반 Access Control로 액세스 관리
-Azure AD Connect Health에 대한 [RBAC(역할 기반 Access Control)](../../role-based-access-control/role-assignments-portal.md)는 전역 관리자 이외의 사용자 및 그룹에 액세스 권한을 부여합니다. RBAC는 의도한 사용자 및 그룹에 역할을 할당하고 디렉터리 내의 전역 관리자를 제한하는 메커니즘을 제공합니다.
+Azure AD Connect Health에 대 한 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md) 는 전역 관리자가 아닌 사용자 및 그룹에 대 한 액세스를 제공 합니다. RBAC는 의도한 사용자 및 그룹에 역할을 할당하고 디렉터리 내의 전역 관리자를 제한하는 메커니즘을 제공합니다.
 
 ### <a name="roles"></a>역할
 Azure AD Connect Health는 다음과 같은 기본 제공 역할을 지원합니다.

@@ -6,16 +6,16 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057622"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824497"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
-[EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)의 Azure 고객은 고객의 계정으로 청구되는 구독을 만들 수 있는 권한을 다른 사용자 또는 서비스 주체에게 부여할 수 있습니다. 이 문서에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 구독을 만드는 기능을 공유하고 구독 생성을 감사하는 방법을 배웁니다. 공유하려는 계정에 대해 소유자 역할이 있어야 합니다.
+[EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)의 Azure 고객은 고객의 계정으로 청구되는 구독을 만들 수 있는 권한을 다른 사용자 또는 서비스 주체에게 부여할 수 있습니다. 이 문서에서는 azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 구독을 만드는 기능을 공유 하는 방법과 구독 만들기를 감사 하는 방법에 대해 알아봅니다. 공유하려는 계정에 대해 소유자 역할이 있어야 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

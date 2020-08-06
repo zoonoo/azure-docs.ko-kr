@@ -2,7 +2,7 @@
 title: 기존 Azure 구독을 테 넌 트에 추가-Azure AD
 description: Azure Active Directory 테넌트에 기존 Azure 구독을 추가하는 방법에 대한 지침입니다.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494437"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825024"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -31,7 +31,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 모든 사용자에 게는 인증을 위한 단일 *홈* 디렉터리가 있습니다. 사용자는 다른 디렉터리의 게스트가 될 수도 있습니다. Azure AD에서 각 사용자의 홈 디렉터리와 게스트 디렉터리를 모두 확인할 수 있습니다.
 
 > [!Important]
-> 구독을 다른 디렉터리에 연결 하면 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 역할을 할당 받은 사용자의 액세스 권한이 손실 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
+> 구독을 다른 디렉터리에 연결 하는 경우 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
 >
 > 구독을 다른 디렉터리와 연결하는 경우에도 구독에서 정책 할당이 제거됩니다.
 >

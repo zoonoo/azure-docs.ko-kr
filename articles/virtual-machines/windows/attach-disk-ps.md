@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6be91be4d1189fb99ffa39ec96d555d4534cdb2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005738"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825449"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 
@@ -20,7 +20,7 @@ ms.locfileid: "87005738"
 
 먼저 다음 팁을 검토합니다.
 
-* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
+* 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
 * 프리미엄 SSD를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신과 같은 [Premium Storage 지원 VM 유형](../sizes-memory.md)이 필요합니다.
 
 이 문서에서는 최신 버전으로 지속적으로 업데이트 되는 [Azure Cloud Shell](../../cloud-shell/overview.md)내에서 PowerShell을 사용 합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.

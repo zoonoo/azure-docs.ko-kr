@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321108"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828458"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
@@ -190,7 +190,7 @@ Azure 활동 로그의 다음 샘플 이벤트는 지속적으로 실패 하 여
 
 ## <a name="alert-rule-quota-was-reached"></a>경고 규칙 할당량에 도달 했습니다.
 
-구독 및 리소스 당 로그 검색 경고 규칙 수에는 [여기](https://docs.microsoft.com/azure/azure-monitor/service-limits)에 설명 된 할당량 한도가 적용 됩니다.
+구독 및 리소스 당 로그 검색 경고 규칙 수에는 [여기](../service-limits.md)에 설명 된 할당량 한도가 적용 됩니다.
 
 ### <a name="recommended-steps"></a>권장되는 단계
     
@@ -201,7 +201,7 @@ Azure 활동 로그의 다음 샘플 이벤트는 지속적으로 실패 하 여
 
     - 할당량 한도를 늘려야 하는 구독 ID
     - 할당량 증가 이유
-    - 할당량 증가에 대 한 리소스 유형: **Log Analytics**, **Application Insights** ect
+    - 할당량 증가에 대 한 리소스 유형: **Log Analytics**, **Application Insights**등
     - 요청된 할당량 한도
 
 
@@ -226,4 +226,3 @@ Azure 활동 로그의 다음 샘플 이벤트는 지속적으로 실패 하 여
 - [Azure의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
 - [Application Insights](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.
 - [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요.
-

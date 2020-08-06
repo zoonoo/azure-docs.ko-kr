@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417117"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828407"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대 한 VM용 Azure Monitor 사용
 이 문서에서는 온-프레미스 및 기타 클라우드 환경을 포함 하 여 Azure 외부에서 가상 머신에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "87417117"
 > [!IMPORTANT]
 > 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대해 Azure Arc](../../azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 azure vm과 유사한 프로세스를 사용 하 VM용 Azure Monitor vm을 사용할 수 있도록 하는 것입니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
@@ -92,7 +92,7 @@ Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 
-| Files | 위치 |
+| 파일 | 위치 |
 |:--|:--|
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
@@ -158,7 +158,7 @@ configuration VMInsights {
 
     **Linux**: 실행 중인 프로세스 "microsoft-종속성-에이전트"를 찾습니다.
 
-2. [Log Analytics의 무료 가격 책정 계층](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에 있나요? 무료 요금제에서는 최대 5 개의 고유 컴퓨터를 사용할 수 있습니다. 이전 5 개에서 더 이상 데이터를 전송 하지 않는 경우에도 모든 후속 컴퓨터가 맵에 표시 되지 않습니다.
+2. [Log Analytics의 무료 가격 책정 계층](./solutions.md)에 있나요? 무료 요금제에서는 최대 5 개의 고유 컴퓨터를 사용할 수 있습니다. 이전 5 개에서 더 이상 데이터를 전송 하지 않는 경우에도 모든 후속 컴퓨터가 맵에 표시 되지 않습니다.
 
 3. 컴퓨터에서 로그 및 성능 데이터를 Azure Monitor 로그에 보내고 있나요? 컴퓨터에 대해 다음 쿼리를 수행 합니다.
 

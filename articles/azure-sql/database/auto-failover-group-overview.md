@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: 00b7f675e7dd8fb347399ee7740318e129f12746
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504180"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826537"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -135,7 +135,7 @@ ms.locfileid: "87504180"
   
 ## <a name="permissions"></a>사용 권한
 
-장애 조치 (failover) 그룹에 대 한 권한은 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 관리 됩니다. [SQL Server 참여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할에는 장애 조치 (failover) 그룹을 관리 하는 데 필요한 모든 권한이 있습니다.
+장애 조치 (failover) 그룹에 대 한 사용 권한은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 통해 관리 됩니다. [SQL Server 참여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할에는 장애 조치 (failover) 그룹을 관리 하는 데 필요한 모든 권한이 있습니다.
 
 ### <a name="create-failover-group"></a>장애 조치 그룹 만들기
 
@@ -425,7 +425,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="rest-api"></a>[Rest API](#tab/rest-api)
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -463,7 +463,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="rest-api"></a>[Rest API](#tab/rest-api)
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 장애 조치 (failover) 그룹의 구성을 만들거나 업데이트 합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 인스턴스에서 장애 조치 (failover) 그룹을 제거 합니다. |

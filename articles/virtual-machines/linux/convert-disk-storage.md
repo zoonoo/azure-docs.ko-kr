@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 51ebecf784b7a3ec38f84703a74e96d277afa70c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf16ee0af1c5816822f6a201ad1d5a70127082db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658200"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825381"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Azure 관리 디스크 저장소를 표준에서 프리미엄 또는 프리미엄으로 표준으로 변환
 
@@ -30,7 +30,7 @@ Azure managed disks에는 Azure ultra Ssd (미리 보기), 프리미엄 SSD, 표
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>프리미엄 및 표준 간에 VM의 모든 관리 디스크 전환
 
-이 예제에서는 모든 VM의 디스크를 표준에서 프리미엄 저장소로 또는 프리미엄에서 표준 저장소로 변환 하는 방법을 보여 줍니다. 프리미엄 managed disks를 사용 하려면 VM이 Premium storage를 지 원하는 [vm 크기](sizes.md) 를 사용 해야 합니다. 또한이 예제에서는 Premium storage를 지 원하는 크기로 전환 합니다.
+이 예제에서는 모든 VM의 디스크를 표준에서 프리미엄 저장소로 또는 프리미엄에서 표준 저장소로 변환 하는 방법을 보여 줍니다. 프리미엄 managed disks를 사용 하려면 VM이 Premium storage를 지 원하는 [vm 크기](../sizes.md) 를 사용 해야 합니다. 또한이 예제에서는 Premium storage를 지 원하는 크기로 전환 합니다.
 
  ```azurecli
 
@@ -67,7 +67,7 @@ az vm start --name $vmName --resource-group $rgName
 ```
 ## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Standard와 Premium 간에 개별 관리 디스크 전환
 
-개발/테스트 워크 로드의 경우 비용을 줄이기 위해 표준 및 프리미엄 디스크를 혼합 하 여 사용할 수 있습니다. 더 나은 성능이 필요한 디스크만 업그레이드 하도록 선택할 수 있습니다. 이 예제에서는 단일 VM 디스크를 표준에서 프리미엄 저장소로 또는 프리미엄에서 표준 저장소로 변환 하는 방법을 보여 줍니다. 프리미엄 managed disks를 사용 하려면 VM이 Premium storage를 지 원하는 [vm 크기](sizes.md) 를 사용 해야 합니다. 또한이 예제에서는 Premium storage를 지 원하는 크기로 전환 합니다.
+개발/테스트 워크 로드의 경우 비용을 줄이기 위해 표준 및 프리미엄 디스크를 혼합 하 여 사용할 수 있습니다. 더 나은 성능이 필요한 디스크만 업그레이드 하도록 선택할 수 있습니다. 이 예제에서는 단일 VM 디스크를 표준에서 프리미엄 저장소로 또는 프리미엄에서 표준 저장소로 변환 하는 방법을 보여 줍니다. 프리미엄 managed disks를 사용 하려면 VM이 Premium storage를 지 원하는 [vm 크기](../sizes.md) 를 사용 해야 합니다. 또한이 예제에서는 Premium storage를 지 원하는 크기로 전환 합니다.
 
  ```azurecli
 
@@ -129,7 +129,7 @@ az vm start --ids $vmId
 
 ## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>Azure Portal에서 Standard와 Premium 간에 관리 디스크 전환
 
-아래 단계를 수행합니다.
+다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **가상 머신**목록에서 VM을 선택 합니다.

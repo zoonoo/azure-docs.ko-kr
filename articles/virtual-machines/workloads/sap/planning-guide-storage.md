@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042308"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825007"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure에는 용량, 처리량, 대기 시간 및 가격이 크게 다른 많은 저장소 유형이 있습니다. 일부 저장소 유형은 또는 SAP 시나리오에 사용할 수 있는 제한 되지 않습니다. 반면, 몇 가지 Azure storage 유형은 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 특히 SAP HANA의 경우 일부 Azure storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양 한 유형의 저장소를 살펴보고 SAP 워크 로드 및 SAP 구성 요소에 대 한 기능 및 유용성을 설명 합니다.
@@ -90,15 +90,15 @@ S/4HANA의 SAP NetWeaver/응용 프로그램 계층에 대 한 Azure storage 형
 
 | 사용 시나리오 | 표준 HDD | 표준 SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| 처리량/IOPS SLA | 아니요 | no | 예 | 예 | 예 |
+| 처리량/IOPS SLA | no | no | 예 | 예 | 예 |
 | 대기 시간 읽기 | high | 중간에서 높음 | low | 하위 밀리초 | 하위 밀리초 |
 | 대기 시간 쓰기 | high | 중간에서 높음  | 낮음 (1-밀리초<sup>1</sup>) | 하위 밀리초 | 하위 밀리초 |
-| HANA 지원 | 아니요 | 아니요 | 예<sup>1</sup> | 예 | 예 |
+| HANA 지원 | no | no | 예<sup>1</sup> | 예 | 예 |
 | 디스크 스냅숏 가능 | 예 | 예 | 예 | no | 예 |
 | 가용성 집합을 사용 하는 경우 다른 저장소 클러스터에 디스크 할당 | 관리 디스크를 통해 | 관리 디스크를 통해 | 관리 디스크를 통해 | 가용성 집합을 통해 배포 된 Vm에서 지원 되지 않는 디스크 유형 | 아니요<sup>3</sup> |
 | 가용성 영역 정렬 | 예 | 예 | 예 | 예 | Microsoft 참여 요구 |
-| 영역 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 아니요 | 아니요 |
-| 지리적 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 아니요 | 아니요 | 아니요 |
+| 영역 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | no | no |
+| 지리적 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | no | no | no |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대 한 M/Mv2 VM 제품군에 대해 [Azure 쓰기 가속기](../../windows/how-to-enable-write-accelerator.md) 사용
@@ -146,7 +146,7 @@ SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 | 대기 시간 | 낮음-보통 | - |
 | IOPS SLA | YES | - |
 | IOPS 선형-용량 | 대괄호 안의 반 선형  | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| 디스크당 최대 IOPS | 2만 [디스크 크기에 종속](https://azure.microsoft.com/pricing/details/managed-disks/) | [VM 제한](../../linux/sizes.md) 도 고려 |
+| 디스크당 최대 IOPS | 2만 [디스크 크기에 종속](https://azure.microsoft.com/pricing/details/managed-disks/) | [VM 제한](../../sizes.md) 도 고려 |
 | 처리량 SLA | YES | - |
 | 처리량 선형-용량 | 대괄호 안의 반 선형 | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA 인증 | YES | [특별히 SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -284,7 +284,7 @@ Azure standard HDD 저장소에 비해 Azure standard SSD 저장소는 더 나�
 | --- | --- | --- | 
 | OS 기본 VHD | 적절 한 제한 됨 | 비프로덕션 시스템 |
 | 데이터 디스크 | 적절 한 제한 됨 | 낮은 IOPS 및 대기 시간 요구가 있는 일부 비프로덕션 시스템 |
-| SAP 전역 전송 디렉터리 | 아니요 | [지원되지 않음](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP 전역 전송 디렉터리 | 아니요 | [지원 안 됨](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | 적절 한 제한 됨 | 비프로덕션 시스템 |
 | 백업 저장소 | 낫지만 | - |
 | 공유/공유 디스크 | 사용할 수 없음 | 타사 필요 |
@@ -311,8 +311,8 @@ Azure 표준 HDD 저장소는 2014 년에 SAP NetWeaver 워크 로드에 대 한
 | --- | --- | --- | 
 | OS 기본 VHD | 적합 하지 않음 | - |
 | 데이터 디스크 | 적합 하지 않음 | - |
-| SAP 전역 전송 디렉터리 | 아니요 | [지원되지 않음](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | 아니요 | 지원되지 않음 |
+| SAP 전역 전송 디렉터리 | 아니요 | [지원 안 됨](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | 아니요 | 지원 안 함 |
 | 백업 저장소 | 낫지만 | - |
 | 공유/공유 디스크 | 사용할 수 없음 | Azure Files 또는 타사 필요 |
 | 복원력 | LRS, GRS | 디스크에 사용할 수 있는 ZRS 없음 |
@@ -335,11 +335,11 @@ Azure 표준 HDD 저장소는 2014 년에 SAP NetWeaver 워크 로드에 대 한
 
 | 스토리지 유형| Linux | Windows | 주석 |
 | --- | --- | --- | --- |
-| 표준 HDD | [Azure에서 Linux Vm에 대 한 크기](../../linux/sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../windows/sizes.md) | 보통 또는 큰 Vm의 저장소 제한을 터치 하기 어려울 가능성이 높습니다. |
-| 표준 SSD | [Azure에서 Linux Vm에 대 한 크기](../../linux/sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../windows/sizes.md) | 보통 또는 큰 Vm의 저장소 제한을 터치 하기 어려울 가능성이 높습니다. |
-| Premium Storage | [Azure에서 Linux Vm에 대 한 크기](../../linux/sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../windows/sizes.md) | 저장소 구성으로 적중 IOPS 또는 저장소 처리량 VM 제한에 대해 알아보기 |
-| Ultra disk 저장소 | [Azure에서 Linux Vm에 대 한 크기](../../linux/sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../windows/sizes.md) | 저장소 구성으로 적중 IOPS 또는 저장소 처리량 VM 제한에 대해 알아보기 |
-| Azure NetApp Files | [Azure에서 Linux Vm에 대 한 크기](../../linux/sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../windows/sizes.md) | 저장소 트래픽이 저장소 대역폭이 아닌 네트워크 처리량 대역폭을 사용 하 고 있습니다. |
+| 표준 HDD | [Azure에서 Linux Vm에 대 한 크기](../../sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../sizes.md) | 보통 또는 큰 Vm의 저장소 제한을 터치 하기 어려울 가능성이 높습니다. |
+| 표준 SSD | [Azure에서 Linux Vm에 대 한 크기](../../sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../sizes.md) | 보통 또는 큰 Vm의 저장소 제한을 터치 하기 어려울 가능성이 높습니다. |
+| Premium Storage | [Azure에서 Linux Vm에 대 한 크기](../../sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../sizes.md) | 저장소 구성으로 적중 IOPS 또는 저장소 처리량 VM 제한에 대해 알아보기 |
+| Ultra disk 저장소 | [Azure에서 Linux Vm에 대 한 크기](../../sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../sizes.md) | 저장소 구성으로 적중 IOPS 또는 저장소 처리량 VM 제한에 대해 알아보기 |
+| Azure NetApp Files | [Azure에서 Linux Vm에 대 한 크기](../../sizes.md) | [Azure에서 Windows Vm에 대 한 크기](../../sizes.md) | 저장소 트래픽이 저장소 대역폭이 아닌 네트워크 처리량 대역폭을 사용 하 고 있습니다. |
 
 제한 사항으로 다음을 확인할 수 있습니다.
 

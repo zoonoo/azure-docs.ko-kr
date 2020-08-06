@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326004"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824786"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -192,7 +192,6 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft에서 모니터링 솔루션 목록](/azure/azure-monitor/monitor-reference)을 가져옵니다.
+* [Microsoft에서 모니터링 솔루션 목록](../monitor-reference.md)을 가져옵니다.
 * 모니터링 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-query/log-query-overview.md) 방법을 알아봅니다.
 * [Azure Monitor에 대 한 모든 Azure CLI 명령을](/cli/azure/azure-cli-reference-for-monitor)참조 하세요.
-

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 1e844934852f3eb45f665a67bbdb7087a8ba0202
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039162"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826214"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>논리 앱 리소스를 다른 Azure 리소스 그룹, 지역 또는 구독으로 이동
 
@@ -31,7 +31,7 @@ ms.locfileid: "87039162"
 
 * 이동 하려는 논리 앱 또는 통합 계정을 만드는 데 사용 된 것과 동일한 Azure 구독
 
-* 리소스 소유자 권한을 사용 하 여 원하는 리소스를 이동 하 고 설정할 수 있습니다. [RBAC (역할 기반 액세스 제어)](../role-based-access-control/built-in-roles.md#owner)에 대해 자세히 알아보세요.
+* 리소스 소유자 권한을 사용 하 여 원하는 리소스를 이동 하 고 설정할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/built-in-roles.md#owner)에 대해 자세히 알아보세요.
 
 <a name="move-subscription"></a>
 
@@ -88,7 +88,7 @@ ms.locfileid: "87039162"
 * [Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 만들기](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Azure Logic Apps에 대한 Azure Resource Manager 템플릿 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
-### <a name="related-resources"></a>관련 참고 자료
+### <a name="related-resources"></a>관련 리소스
 
 Azure의 온-프레미스 데이터 게이트웨이 리소스와 같은 일부 Azure 리소스는 해당 리소스를 사용 하는 논리 앱과 다른 지역에 있을 수 있습니다. 그러나 연결 된 통합 계정과 같은 다른 Azure 리소스는 논리 앱과 동일한 지역에 있어야 합니다. 시나리오에 따라 논리 앱이 동일한 지역에 있는 것으로 간주 되는 리소스에 액세스할 수 있는지 확인 합니다.
 

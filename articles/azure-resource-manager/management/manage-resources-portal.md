@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 5e3cd30f2ed523584ae827f51d19c6acebf72abf
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 051361860a6a2d9ad70aa81e313857ec86cacfb4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055528"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827049"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 리소스 관리
 
@@ -114,7 +114,7 @@ Azure 리소스는 Azure 서비스 및 리소스 그룹별로 구성 됩니다. 
 
 ## <a name="manage-access-to-resources"></a>리소스에 대 한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

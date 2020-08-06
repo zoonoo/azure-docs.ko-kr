@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532597"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826707"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -47,7 +47,7 @@ az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 
 [Az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) 를 사용 하 여 특정 저장소 대상에 대 한 세부 정보를 볼 수 있습니다. (이름별로 저장소 대상을 지정 합니다.)
 
-예제:
+예:
 
 ```azurecli
 $ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
@@ -112,7 +112,7 @@ Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>계정에 액세스 제어 역할 추가
 
-Azure HPC 캐시는 [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/index) 를 사용 하 여 azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 캐시 서비스에 권한을 부여 합니다.
+Azure HPC 캐시는 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/index) 를 사용 하 여 azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 캐시 서비스에 권한을 부여 합니다.
 
 저장소 계정 소유자는 "HPC 캐시 리소스 공급자" 사용자에 대 한 역할 [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
 
@@ -147,7 +147,7 @@ Azure 역할을 추가 하는 단계:
 
 Blob 저장소 대상을 추가 하기 전에 저장소 계정에 액세스 하기 위한 올바른 역할이 캐시에 있는지 확인 하 고, 방화벽 설정에서 저장소 대상을 만들 수 있도록 허용 하는지 확인 합니다.
 
-Azure HPC 캐시는 [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 캐시 서비스에 권한을 부여 합니다.
+Azure HPC 캐시는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 캐시 서비스에 권한을 부여 합니다.
 
 저장소 계정 소유자는 "HPC 캐시 리소스 공급자" 사용자에 대 한 역할 [저장소 계정 참가자](../role-based-access-control/built-in-roles.md#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
 

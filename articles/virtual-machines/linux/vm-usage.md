@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04536836c4d061249201c82f738aa41501f0847e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387713"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828866"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
 Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../../cost-management-billing/understand/review-individual-bill.md)로 이동합니다.
@@ -35,7 +35,7 @@ Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리�
 | 사용| 해당 날짜에 사용된 리소스의 양입니다. Compute의 경우 일정 시간동안 실행된 VM에 대해 분마다 비용을 청구합니다(최대 소수점 6자리의 정확도).| `1, 0.5`|
 | 리소스 위치  | 리소스가 실행되고 있는 데이터 센터를 식별합니다.| `JA East`|
 | 사용되는 서비스 | 사용한 Azure 플랫폼 서비스입니다.| `Microsoft.Compute`|
-| 리소스 그룹 | 배포된 리소스가 실행되는 리소스 그룹입니다. 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)를 참조하세요.|`MyRG`|
+| 리소스 그룹 | 배포된 리소스가 실행되는 리소스 그룹입니다. 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.|`MyRG`|
 | 인스턴스 ID | 리소스에 대한 식별자입니다. 식별자를 만들 때 리소스에 대해 지정한 이름을 포함합니다. VM의 경우 인스턴스 ID는 SubscriptionId, ResourceGroupName 및 VMName(또는 확장 집합 사용에 대한 확장 집합 이름)을 포함합니다.| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>또는<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | 태그들| 리소스에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. [Virtual Machines에 태그를 지정하는 방법](tag.md)을 알아봅니다. Resource Manager VM에만 사용할 수 있습니다.| `{"myDepartment":"RD","myUser":"myName"}`|
 | 추가 정보 | 서비스 특정 메타데이터입니다. VM에 대해 추가 정보 필드에 다음 데이터를 채웁니다. <br><br> 이미지 형식 - 실행한 특정 이미지. 이미지 형식 아래에서 지원되는 문자열의 전체 목록을 찾습니다.<br><br> 서비스 형식: 배포한 크기입니다.<br><br> VMName: VM 이름입니다. 이 필드는 확장 집합 VM에 대해서만 채워집니다. 확장 집합 VM에 VM 이름이 필요한 경우 위의 인스턴스 ID 문자열에서 확인할 수 있습니다.<br><br> UsageType: 이 항목이 나타내는 사용 유형을 지정합니다.<br><br> ComputeHR은 Standard_D1_v2 같은 기본 VM의 컴퓨팅 시간 사용입니다.<br><br> ComputeHR_SW는 Microsoft R Server처럼 VM이 프리미엄 소프트웨어를 사용할 경우 프리미엄 소프트웨어 요금입니다. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>프리미엄 소프트웨어<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |

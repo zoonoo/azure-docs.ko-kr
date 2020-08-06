@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: 5bddb1d141b461eec794de0849b6234c6a5c6102
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 02a1db47a194f4604534f0b96eb836a33009be85
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284458"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827472"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -464,7 +464,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="resize-the-vm"></a>VM 크기 조정
 
-가상 머신의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](sizes.md)를 참조하세요.
+가상 머신의 크기를 결정할 때 배포의 여러 측면을 고려해야 합니다. 자세한 내용은 [VM 크기](../sizes.md)를 참조하세요.
 
 1. 가상 머신의 크기를 변경하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 

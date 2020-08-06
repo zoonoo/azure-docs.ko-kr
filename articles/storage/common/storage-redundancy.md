@@ -1,7 +1,7 @@
 ---
 title: 데이터 중복
 titleSuffix: Azure Storage
-description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 중복성 구성에는 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소), RA-GRS(읽기 액세스 지역 중복 저장소), GZRS(지역 영역 중복 저장소) 및 RA-GZRS(읽기 액세스 지역 영역 중복 저장소)가 포함됩니다.
+description: Azure Storage의 데이터 중복성을 이해 합니다. Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036729"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827846"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -165,8 +165,8 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 |:-|:-|:-|:-|:-|
 | 데이터 센터 내의 노드를 사용할 수 없게 됨 | 예 | 예 | 예 | 예 |
 | 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨 | 예 | 예 | 예<sup>1</sup> | 예 |
-| 지역 전체 중단이 기본 지역에서 발생함 | 예 | 아니요 | 예<sup>1</sup> | 예<sup>1</sup> |
-| 기본 지역을 사용할 수 없는 경우에는 보조 지역에 대한 읽기 액세스가 가능함 | 아니요 | 아니요 | 예(RA-GRS 사용) | 예(RA-GZRS 사용) |
+| 지역 전체 중단이 기본 지역에서 발생함 | 예 | 예 | 예<sup>1</sup> | 예<sup>1</sup> |
+| 기본 지역을 사용할 수 없는 경우에는 보조 지역에 대한 읽기 액세스가 가능함 | 예 | 예 | 예(RA-GRS 사용) | 예(RA-GZRS 사용) |
 
 <sup>1</sup> 기본 지역을 사용할 수 없는 경우 쓰기 가용성을 복원하려면 계정 장애 조치(failover)가 필요합니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](storage-disaster-recovery-guidance.md)를 참조하세요.
 
