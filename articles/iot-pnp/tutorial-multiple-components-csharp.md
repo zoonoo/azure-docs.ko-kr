@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cf2662bef194bc2b7afdb07f55809ba63f40fd6e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 67b71399332fb29a277381a8c2806dbe7fb31d85
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351905"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552141"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>자습서: Windows에서 실행되는 IoT 플러그 앤 플레이 다중 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(C#)
 
@@ -60,7 +60,7 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 선택한 디렉터리에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [Azure IoT C# SDK 및 라이브러리](https://github.com/Azure/azure-iot-sdk-csharp) GitHub 리포지토리를 이 위치에 복제합니다.
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-c.git
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
 ## <a name="build-the-code"></a>코드 빌드

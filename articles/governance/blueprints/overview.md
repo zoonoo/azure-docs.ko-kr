@@ -3,12 +3,12 @@ title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970929"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530402"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -103,7 +103,7 @@ Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수
 
 다음과 같은 기본 제공 역할을 사용할 수 있습니다.
 
-|RBAC 역할 | Description |
+|Azure 역할 | Description |
 |-|-|
 |[소유자](../../role-based-access-control/built-in-roles.md#owner) | 다른 권한 외에도 모든 Azure Blueprint 관련 권한이 포함됩니다. |
 |[기여자](../../role-based-access-control/built-in-roles.md#contributor) | 다른 권한 외에도 청사진 정의를 만들고 삭제할 수 있지만 청사진 할당 권한은 없습니다. |
