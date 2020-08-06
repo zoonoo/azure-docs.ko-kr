@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3097dcb0444bc8b73d89b42d73ad1f5b9306ab09
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1b4c16dd276f9f564963fdefe8d16dbc92c1303d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502820"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810448"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>프로그래밍 방식으로 Azure 구독 만들기 (미리 보기)
 
@@ -27,7 +27,7 @@ Azure 구독을 프로그래밍 방식으로 만드는 경우 해당 구독은 M
 
 다음 섹션의 정보를 사용 하 여 EA 구독을 만들 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 구독을 만들려면 등록 계정에 대 한 소유자 역할이 있어야 합니다. 다음 두 가지 방법으로 역할을 가져올 수 있습니다.
 
@@ -157,7 +157,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | 예      | String | 구독의 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
 | `owners`      | 예       | String | 만들 때 구독에서 RBAC 소유자로 추가하려는 모든 사용자의 개체 ID입니다.  |
 
-헤더의 일부로 응답에서 `Location` 구독 만들기 작업의 상태를 쿼리할 수 있는 url을 다시 가져옵니다. 구독 생성이 완료 되 면 GET `Location` url은 구독 ID를 포함 하는 개체를 반환 합니다 `subscriptionLink` . 자세한 내용은 [구독 API 설명서](https://docs.microsoft.com/rest/api/subscription/) 를 참조 하세요.
+헤더의 일부로 응답에서 `Location` 구독 만들기 작업의 상태를 쿼리할 수 있는 url을 다시 가져옵니다. 구독 생성이 완료 되 면 GET `Location` url은 구독 ID를 포함 하는 개체를 반환 합니다 `subscriptionLink` . 자세한 내용은 [구독 API 설명서](/rest/api/subscription/) 를 참조 하세요.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -191,7 +191,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| 요소 이름  | 필수 | Type   | Description                                                                                               |
+| 요소 이름  | 필수 | Type   | 설명                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | 예      | String | 구독의 표시 이름입니다. 지정되지 않은 경우 “Microsoft Azure 엔터프라이즈”와 같은 제품의 이름으로 설정됩니다.                                 |
 | `offer-type`   | 예      | String | 구독의 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
@@ -214,7 +214,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 ## <a name="create-subscriptions-for-an-mca-account"></a>MCA 계정에 대 한 구독 만들기
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 구독을 만들려면 청구 프로필 또는 청구 계정에 대 한 청구서 섹션 또는 소유자 또는 참가자 역할에 소유자, 참가자 또는 Azure 구독 작성자 역할이 있어야 합니다. 자세한 내용은 [구독 청구 역할 및 작업](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.
 
@@ -355,7 +355,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ## <a name="create-subscriptions-for-an-mpa-billing-account"></a>MPA 청구 계정에 대 한 구독 만들기
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 청구 계정에 대 한 구독을 만들려면 조직의 클라우드 솔루션 공급자 계정에 전역 관리자 또는 관리 에이전트 역할이 있어야 합니다. 자세한 내용은 [파트너 센터-사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조 하세요.
 

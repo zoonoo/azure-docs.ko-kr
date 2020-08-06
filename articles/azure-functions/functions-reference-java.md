@@ -4,12 +4,12 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 121a3263a28da5e17b1ab918529aa9f285089687
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372419"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810091"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -19,7 +19,7 @@ Java 개발자로 서 Azure Functions를 처음 접하는 경우 먼저 다음 �
 
 | 시작 | 개념| 
 | -- | -- |  
-| <ul><li>[Visual Studio Code를 사용 하는 Java 함수](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[터미널/명령 프롬프트를 사용 하는 Java/Maven 함수](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Gradle를 사용 하는 Java 함수](functions-create-first-java-gradle.md)</li><li>[Eclipse를 사용 하는 Java 함수](functions-create-maven-eclipse.md)</li><li>[IntelliJ 아이디어를 사용 하는 Java 함수](functions-create-maven-intellij.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> |
+| <ul><li>[Visual Studio Code를 사용 하는 Java 함수](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[터미널/명령 프롬프트를 사용 하는 Java/Maven 함수](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Gradle를 사용 하는 Java 함수](functions-create-first-java-gradle.md)</li><li>[Eclipse를 사용 하는 Java 함수](functions-create-maven-eclipse.md)</li><li>[IntelliJ 아이디어를 사용 하는 Java 함수](functions-create-maven-intellij.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Java 함수 기본 사항
 
