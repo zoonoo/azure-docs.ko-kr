@@ -1,14 +1,14 @@
 ---
 title: 캐나다 연방 PBMM 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 비롯한 캐나다 연방 PBMM 청사진 샘플을 배포하는 단계를 설명합니다.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 5cbca772212f361fb7020dbfbdca20ca236c1ff0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0b7e0467fbc43ea83a0aa4ff40e9b0be4c69b41e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045011"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500115"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>캐나다 연방 PBMM 청사진 샘플 배포
 

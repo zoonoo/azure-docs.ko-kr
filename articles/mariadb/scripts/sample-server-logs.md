@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: a6d4ed70418f39b24a68362d5006f3f374693cb6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5212f4eb17ef7b4ed1b89604fc12a1e13bae78f4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74777364"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502191"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버의 느린 쿼리 로그 사용 및 다운로드
 이 샘플 CLI 스크립트는 단일 Azure Database for MariaDB 서버의 느린 쿼리 로그를 사용하도록 설정하고 다운로드합니다.
@@ -33,7 +33,7 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 ## <a name="script-explanation"></a>스크립트 설명
 이 스크립트에는 다음 표에 설명된 명령이 사용됩니다.
 
-| **명령** | **참고** |
+| **명령** | **참고 사항** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | 데이터베이스를 호스팅하는 MariaDB 서버를 만듭니다. |

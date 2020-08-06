@@ -3,19 +3,19 @@ title: 'Azure CLI: Azure SQL Database에서 데이터베이스 백업'
 description: Azure SQL 단일 데이터베이스를 Azure 스토리지 컨테이너에 백업하는 Azure CLI 예제 스크립트
 services: sql-database
 ms.service: sql-database
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 33ac44f4910c858dd4d5cfc9d4288ce4970f7f4c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022712"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501987"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>CLI를 사용하여 Azure SQL 단일 데이터베이스를 Azure 스토리지 컨테이너에 백업
 

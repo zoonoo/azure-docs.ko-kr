@@ -5,12 +5,13 @@ ms.date: 06/23/2020
 ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 5340ec8d3d7a479fb349ce5ed1d32f917668d0d8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340997"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500456"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>자습서: CLI 및 토픽/구독을 사용하여 재고 업데이트
 

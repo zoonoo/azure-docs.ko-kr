@@ -7,12 +7,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 34a9858ffbec2360a347b8c765d53551fd2d9fc0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fdf78c0a3dd2f7a130d827751ce93c5539575df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76935422"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502958"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 프라이빗 DNS 영역 만들기
 

@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 67949cef755bb2dbefb62a69e6b394ebd74ea7f0
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: b424213a1041c426653e5cb455615111c265746a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739541"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500064"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>자습서: PowerShell을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인
 

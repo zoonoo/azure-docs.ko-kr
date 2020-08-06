@@ -3,12 +3,13 @@ title: Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플
 description: 클러스터, 애플리케이션 및 서비스 관리에 대한 Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플.
 ms.topic: sample
 ms.date: 04/09/2018
-ms.openlocfilehash: b54efcf6ca6ef66beb655c423283ea1ad0a59d72
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 12a48c525d1458b2d920f6a25d91d67e58749a96
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182817"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502429"
 ---
 # <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플
 

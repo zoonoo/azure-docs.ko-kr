@@ -7,12 +7,13 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.author: robinsh
-ms.openlocfilehash: b9c2fc636b08e872b9ea5288eb6205d905885f0e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 35359c63b79d9eea6f8f6ad688bd040428a39eb8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120486"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503449"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기
 
@@ -24,12 +25,12 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션
 
 * 활성화된 Azure 구독. 구독이 없는 경우 [체험 Azure 계정을 만들](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
-* Office 365 Outlook, Outlook.com 또는 Gmail과 같은 Azure Logic Apps에서 지원하는 이메일 공급자의 이메일 계정입니다. 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다. 지원되는 Logic App 커넥터의 전체 목록은 [커넥터 개요](https://docs.microsoft.com/connectors/)를 참조하세요.
+* Office 365 Outlook, Outlook.com 또는 Gmail과 같은 Azure Logic Apps에서 지원하는 이메일 공급자의 이메일 계정입니다. 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다. 지원되는 Logic App 커넥터의 전체 목록은 [커넥터 개요](/connectors/)를 참조하세요.
 
   > [!IMPORTANT]
-  > Gmail을 사용하기 전에 G Suite 비즈니스 계정(사용자 지정 도메인이 있는 이메일 주소) 또는 Gmail 소비자 계정(@gmail.com 또는 @googlemail.com이 있는 이메일 주소)이 있는지 확인합니다. G Suite 비즈니스 계정만 논리 앱에서 제한 없이 다른 커넥터와 함께 Gmail 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 Gmail 커넥터를 사용하거나 [인증에 사용할 Google 클라이언트 앱을 만들](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
+  > Gmail을 사용하기 전에 G Suite 비즈니스 계정(사용자 지정 도메인이 있는 이메일 주소) 또는 Gmail 소비자 계정(@gmail.com 또는 @googlemail.com이 있는 이메일 주소)이 있는지 확인합니다. G Suite 비즈니스 계정만 논리 앱에서 제한 없이 다른 커넥터와 함께 Gmail 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 Gmail 커넥터를 사용하거나 [인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
-* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](../iot-hub/iot-hub-csharp-csharp-getstarted.md)을 참조하세요.
+* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](../iot-hub/quickstart-send-telemetry-dotnet.md)을 참조하세요.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 
@@ -247,7 +248,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-Azure Portal을 사용하는 대신 Azure 명령줄 인터페이스를 사용하여 Azure IoT Hub 단계를 수행할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
+Azure Portal을 사용하는 대신 Azure 명령줄 인터페이스를 사용하여 Azure IoT Hub 단계를 수행할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/ext/azure-iot/iot/hub/device-identity)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

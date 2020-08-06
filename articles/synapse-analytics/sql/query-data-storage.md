@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7ef7a771442dba5c7f82196a13b77cb28b0d1ed8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386659"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489744"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일 쿼리
 
@@ -90,7 +90,7 @@ WITH (
 ```
 
 열마다 `WITH` 절에서 열 이름과 형식을 지정해야 합니다.
-샘플은 [모든 열을 지정하지 않고 CSV 파일 읽기](query-single-csv-file.md#returning-subset-of-columns)를 참조하세요.
+샘플은 [모든 열을 지정하지 않고 CSV 파일 읽기](query-single-csv-file.md#return-a-subset-of-columns)를 참조하세요.
 
 ## <a name="schema-inference"></a>스키마 유추
 

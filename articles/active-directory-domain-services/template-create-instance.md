@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 880ccf9a69d5898da98aeabcfd89d05ff94e3b43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223009"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489812"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Active Directory Domain Services 관리형 도메인 만들기
 
@@ -126,7 +126,7 @@ Resource Manager 리소스 정의의 일환으로 다음 구성 매개 변수가
 | domainName              | 이름 지정 접두사 및 충돌과 관련된 이전 사항을 고려한 관리되는 도메인의 DNS 도메인 이름입니다. |
 | filteredSync            | Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그룹을 *모두* 동기화하거나 특정 그룹으로만 *범위가 지정된* 동기화를 수행할 수 있습니다.<br /><br /> 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화][scoped-sync]를 참조하세요.|
 | notificationSettings    | 관리되는 도메인에서 생성된 경고가 있으면 이메일 알림을 보낼 수 있습니다. <br /><br />Azure 테넌트의 전역 관리자와 *AAD DC Administrators* 그룹의 멤버에게는 이 알림을 *Enabled*로 설정할 수 있습니다.<br /><br /> 필요하면, 주의가 필요한 경고가 있을 때 알림을 받을 수신자를 추가할 수 있습니다.|
-| domainConfigurationType | 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 포리스트를 만들기 위해 *domainConfiguration* 값을 지정할 필요가 없습니다.<br /><br /> *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 값을 *ResourceTrusting*으로 설정하여 리소스 포리스트를 만듭니다.<br /><br />온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.|
+| domainConfigurationType | 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 포리스트를 만들기 위해 *domainConfiguration* 값을 지정할 필요가 없습니다.<br /><br /> *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 값을 *ResourceTrusting*으로 설정하여 리소스 포리스트를 만듭니다.<br /><br />온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.|
 
 다음 압축 매개 변수 정의는 이러한 값이 선언되는 방법을 보여줍니다. *aaddscontoso.com*이라는 사용자 포리스트가 생성되어 Azure AD의 모든 사용자가 관리되는 도메인에 동기화됩니다.
 
