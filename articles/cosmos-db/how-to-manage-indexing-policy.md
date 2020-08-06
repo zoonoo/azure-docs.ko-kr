@@ -4,15 +4,15 @@ description: 인덱싱 정책을 관리 하 고, 인덱싱에서 속성을 포�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: tracking-python, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: ccee172f4b8df8d930bc06faca929e5206f8765e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b3234d524adc8256373acce7480319a8fd4b76ac
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498449"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761109"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -344,7 +344,7 @@ Azure Cosmos DB에서 인덱싱 정책은 아래 방법 중 하나를 사용 하
 [인덱싱 정책 업데이트](index-policy.md#modifying-the-indexing-policy)는 인덱스 변환을 트리거합니다. 이 변환의 진행률을 SDK에서 추적할 수도 있습니다.
 
 > [!NOTE]
-> 인덱싱 정책을 업데이트할 때 Azure Cosmos DB에 대 한 쓰기는 중단 되지 않습니다. 인덱스를 업데이트 하는 동안 쿼리는 다시 인덱싱하는 동안 일부 결과를 반환할 수 있습니다.
+> 인덱싱 정책을 업데이트할 때 Azure Cosmos DB에 대 한 쓰기는 중단 되지 않습니다. [인덱싱 변환](indexing-policy.md#modifying-the-indexing-policy) 에 대 한 자세한 정보
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 

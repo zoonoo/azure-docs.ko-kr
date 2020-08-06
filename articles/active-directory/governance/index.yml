@@ -2,7 +2,7 @@
 title: Azure Active Directory Identity Governance 설명서
 summary: Azure AD(Azure Active Directory) Identity Governance를 사용하면 중요한 자산에 대한 액세스를 보호, 모니터링 및 감사하면서 직원의 생산성을 보장할 수 있습니다.
 metadata:
-  author: msaburnley
+  author: ajburnle
   description: 중요한 자산에 대한 액세스를 보호, 모니터링 및 감사하면서 직원 생산성을 보장할 수 있습니다.
   manager: daveba
   ms.author: ajburnle
@@ -12,12 +12,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 98b634b7aba20fc79e2bae15a5786aae4d1a0bd1
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 4bff55dbc2be4ae34ed9385bc41726919a5e86c4
+  ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73173045"
+  ms.lasthandoff: 08/05/2020
+  ms.locfileid: "87798395"
 landingContent:
 - title: ID 거버넌스 정보
   linkLists:

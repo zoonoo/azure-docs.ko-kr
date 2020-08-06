@@ -7,20 +7,27 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202216"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760953"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
 Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서비스에 대한 참조입니다. [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md) 뒤에 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 vnet에서 개인용으로 액세스할 수 있습니다. 고객은 자신의 VNet 내에서 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 이 문서에서는 서비스 공급자 쪽과 관련 된 개념을 설명 합니다. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="개인 링크 서비스 워크플로" border="true":::
+
+*그림: Azure 개인 링크 서비스.*
+
 ## <a name="workflow"></a>워크플로
 
 ![개인 링크 서비스 워크플로](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*그림: Azure 개인 링크 서비스 워크플로.*
 
 ### <a name="create-your-private-link-service"></a>개인 링크 서비스 만들기
 
@@ -59,7 +66,7 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 |||
 
 
-### <a name="details"></a>설명
+### <a name="details"></a>세부 정보
 
 - 개인 링크 서비스는 모든 공용 지역의 승인 된 개인 끝점에서 액세스할 수 있습니다. 개인 VPN 또는 Express 경로 연결을 사용 하 여 동일한 가상 네트워크, 지역적으로 피어 링 Vnet, 글로벌 피어 링 Vnet 및 온-프레미스에서 개인 끝점에 연결할 수 있습니다. 
  
@@ -104,9 +111,9 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 
 사용자 지정 TLV 세부 정보:
 
-|필드 |길이 (8 진수)  |Description  |
+|필드 |길이 (8 진수)  |설명  |
 |---------|---------|----------|
-|Type  |1        |PP2_TYPE_AZURE (0xEE)|
+|형식  |1        |PP2_TYPE_AZURE (0xEE)|
 |길이  |2      |값의 길이|
 |값  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 바이트)-개인 끝점의 LINKID을 나타냅니다. Little endian 형식으로 인코딩됩니다.|

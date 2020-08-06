@@ -3,7 +3,7 @@ title: 액세스 관리를 위임 하 여 Azure AD 자격 관리에서 패키지
 description: IT 관리자의 액세스 관리를 위임 하 여 액세스를 관리할 수 있도록 패키지 관리자 및 프로젝트 관리자에 액세스 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acea7503e5cdde9ff55c27f16351b21453fe521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e81389ec953829115062a31a019caf040850cbea
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078333"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798643"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>액세스 관리를 위임 하 여 Azure AD 자격 관리의 패키지 관리자 액세스
 

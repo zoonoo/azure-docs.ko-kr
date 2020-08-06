@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 07/28/2020
-ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386438"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798072"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -180,7 +180,7 @@ ms.locfileid: "87386438"
 
 ### <a name="marketplace-details"></a>마켓플레이스 세부 정보
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>속성
 
 여기에 입력한 이름은 고객에게 제품 목록의 제목으로 표시됩니다. 이 필드는 제품을 만들 때 **제품 별칭** 상자에 입력한 이름으로 자동으로 채워집니다. 이 이름은 나중에 변경할 수 있습니다. 이름은 다음과 같습니다.
 
@@ -245,16 +245,17 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 >[!NOTE]
 >파일을 업로드하는 데 문제가 있으면 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스가 로컬 네트워크에서 차단되지 않는지 확인합니다.
 
-#### <a name="azure-marketplace-logos"></a>Azure Marketplace 로고
+#### <a name="store-logos"></a>스토어 로고
 
-제품 로고의 PNG 파일에 다음과 같은 4가지 이미지 치수를 제공합니다.
+**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
 
-- **작음** (48&times;48 픽셀)
-- **보통** (90&times;90 픽셀)
-- **큼** (216&times;216 픽셀)
-- **넓음** (255&times;115 픽셀)
+목록의 다른 위치에서 사용 하려면 세 가지 로고 크기가 모두 필요 합니다.
 
-4개의 로고가 모두 필요하며, 다양한 Azure Marketplace 목록에 표시됩니다.
+- **소형**(48 x 48)
+- **중형**(90 x 90)
+- **큼** (216 x 216 및 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 
@@ -565,7 +566,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. Name
+1. 이름
 2. 설명
 3. 유용한 링크
 4. 스크린샷/비디오

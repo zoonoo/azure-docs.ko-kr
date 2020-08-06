@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809474"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760416"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -30,7 +30,7 @@ ms.locfileid: "84809474"
 
 ### <a name="what-is-azure-front-door"></a>Azure Front Door란?
 
-Azure Front 도어는 ADN (애플리케이션 전달 네트워크) 서비스로, 응용 프로그램에 대 한 다양 한 계층 7 부하 분산 기능을 제공 합니다. 거의 실시간 장애 조치 (failover)를 통해 글로벌 부하 분산과 함께 DSA (동적 사이트 가속)를 제공 합니다. Azure에서 완전히 관리 되는 고가용성 및 확장성 있는 서비스입니다.
+Azure Front 도어는 ADN (애플리케이션 전달 네트워크) 서비스로, 응용 프로그램에 대 한 다양 한 계층 7 부하 분산 기능을 제공 합니다. 근 실시간 장애 조치(failover)를 통해 전역 부하 분산과 함께 DSA(동적 사이트 가속)를 제공합니다. Azure에서 완전히 관리하는 고가용성 및 확장 가능한 서비스입니다.
 
 ### <a name="what-features-does-azure-front-door-support"></a>Azure Front 도어가 지 원하는 기능은 무엇 인가요?
 
@@ -123,7 +123,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 경로 또는 백 엔드 풀 등의 모든 업데이트는 원활 하 게 작동 하며 가동 중지 시간 (새 구성이 올바른 경우)을 발생 시킵니다. ' AFD 관리 '에서 ' 자신의 인증서 사용 '으로 전환 하거나 그 반대로 전환 하지 않는 한 인증서 업데이트도 원자성 이며 중단 되지 않습니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 
@@ -159,9 +159,12 @@ Azure 전면 도어는 응용 프로그램의 확장성 요구를 충족 하기 
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Azure Front 도어가 지 원하는 현재 암호 그룹은 무엇 인가요?
 
-TLS 1.2의 경우 다음 암호 그룹이 지원 됩니다.
+TLS 1.2의 경우 지원 되는 암호 그룹은 다음과 같습니다. 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 TLS 1.0/1.1을 사용 하는 사용자 지정 도메인을 사용 하는 경우 다음 암호 그룹이 지원 됩니다.
 

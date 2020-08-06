@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 1f6624c454364ca19c8ce112cb1cbbef134f162d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/04/2020
-ms.locfileid: "87567976"
+ms.locfileid: "87759617"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge 사용량 및 진단 데이터 구성
 
@@ -87,7 +87,7 @@ Azure SQL Edge 사용량 및 진단 데이터 수집의 로컬 감사 구성 요
 
 Azure SQL Edge에서 로컬 감사 사용 및 진단 데이터를 사용 하도록 설정 하려면
 
-1. 새 로컬 감사 로그 저장소에 대 한 대상 디렉터리를 만듭니다. 이 대상 디렉터리는 SQL Edge의/var/opt/mssql/path에 매핑되는 동일한 탑재 볼륨에 만들어야 합니다.
+1. 새 로컬 감사 로그 저장소에 대 한 대상 디렉터리를 만듭니다. 이 대상 디렉터리는 호스트에 있거나 컨테이너 내에 있을 수 있습니다. 아래 예제에서 대상 디렉터리는 SQL Edge의/var/opt/mssql/path에 매핑되는 동일한 탑재 볼륨에 생성 됩니다.
 
    ```bash
    sudo mkdir <host mount path>/audit
@@ -95,14 +95,14 @@ Azure SQL Edge에서 로컬 감사 사용 및 진단 데이터를 사용 하도�
 
 2. 환경 변수 또는 mssql 파일을 사용 하 여 사용 현황 및 진단 데이터 감사를 구성 합니다.
 
-   - 환경 변수 사용-SQL Edge 배포에 다음 환경 변수를 추가 합니다.
+   - 환경 변수 사용-SQL Edge 배포에 다음 환경 변수를 추가 하 고 감사 파일의 대상 디렉터리를 지정 합니다.
    
-     `*MSSQL_TELEMETRY_DIR = /var/opt/mssql/audit*`
+     `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Mssql 파일 사용-mssql 파일에 다음 줄을 추가 합니다.
+   - Mssql 파일 사용-mssql 파일에 다음 줄을 추가 하 고 감사 파일의 대상 디렉터리를 지정 합니다.
        ```ini
        [telemetry]
-       userrequestedlocalauditdirectory  = /var/opt/mssql/audit
+       userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405248"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798191"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
@@ -133,23 +133,17 @@ ms.locfileid: "87405248"
 >[!NOTE]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
 
-#### <a name="marketplace-logos"></a>마켓플레이스 로고
+#### <a name="store-logos"></a>스토어 로고
 
-제품 로고를 네 가지 픽셀 크기로 제공합니다.
+**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
+
+목록의 다른 위치에서 사용 하려면 세 가지 로고 크기가 모두 필요 합니다.
 
 - **소형**(48 x 48)
 - **중형**(90 x 90)
-- **대형**(216 x 216)
-- **와이드**(255 x 115)
+- **큼** (216 x 216 및 350 x 350)
 
-로고에 대해서는 다음 지침을 따르세요.
-
-- Azure 디자인은 단순한 색 팔레트를 사용합니다. 로고의 기본 색상과 보조 색상 수를 제한합니다.
-- 포털의 테마 색은 흰색과 검은색입니다. 로고의 배경색으로 이러한 색을 사용하지 마십시오. 포털에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다.
-- 투명한 배경을 사용하는 경우 로고 및 텍스트는 흰색, 검은색 또는 파란색이 아니어야 합니다.
-- 로고의 모양과 느낌은 평면적이어야 하며 그라데이션은 사용하지 마십시오. 로고의 배경에 그라데이션 효과를 사용하지 마십시오.
-- 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 마십시오.
-- 로고가 늘어나지 않았는지 확인합니다.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

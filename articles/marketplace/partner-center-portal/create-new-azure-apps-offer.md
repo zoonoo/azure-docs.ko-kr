@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326678"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797896"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -247,14 +247,15 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 #### <a name="store-logos"></a>스토어 로고
 
-제품 로고의 PNG 파일을 다음 세 가지 픽셀 크기로 제공합니다.
+**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
+
+목록의 다른 위치에서 사용할 수 있는 세 가지 로고 크기가 모두 필요 합니다.
 
 - **소형**(48 x 48)
 - **중형**(90 x 90)
-- **대형**(216 x 216)
-- **와이드**(255 x 115)
+- **큼** (216 x 216 및 350 x 350)
 
-세 가지 로고가 모두 필요하며 목록의 여러 위치에서 사용됩니다.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

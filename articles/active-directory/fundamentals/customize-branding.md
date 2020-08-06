@@ -2,7 +2,7 @@
 title: 조직의 로그인 페이지에 브랜딩 추가-Azure AD
 description: Azure Active Directory 로그인 페이지에 조직의 브랜딩을 추가하는 방법에 대한 지침입니다.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e1e84fa96b1e6b686d039abedd38e080b5720e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f664f55f2870f4f0e06f3a96a3f2b7ae91e7a378
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603913"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796797"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Office 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -50,7 +50,7 @@ ms.locfileid: "85603913"
 
         ![일반 설정을 완료한 회사 브랜딩 구성 페이지](media/customize-branding/configure-company-branding-general-settings.png)
 
-        - **Language:** 언어는 기본값으로 자동 설정되고 변경될 수 없습니다.
+        - **언어도.** 언어는 기본값으로 자동 설정되고 변경될 수 없습니다.
         
         - **로그인 페이지 배경 이미지** .png 또는 .jpg 이미지 파일을 선택하여 로그인 페이지의 배경으로 표시합니다. 이미지는 브라우저의 중앙에 고정 되 고 볼 수 있는 공간의 크기에 맞게 조정 됩니다. 크기 1920 x 1080 픽셀 보다 큰 이미지를 선택할 수 없거나 파일 크기가 300 KB 보다 큰 이미지를 선택할 수 없습니다.
         

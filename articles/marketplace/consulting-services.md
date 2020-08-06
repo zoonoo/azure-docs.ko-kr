@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280956"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797868"
 ---
 # <a name="consulting-service-offers"></a>컨설팅 서비스 제품
 
@@ -86,12 +86,12 @@ AppSource의 경우 적격 역량은 다음 표와 같습니다.
 먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다. 등록 요구 사항의 전체 검사 목록은 [마켓플레이스에서 게시자 되기](become-publisher.md)를 참조하세요. 
 
 ## <a name="prepare-your-publishing-artifacts"></a>게시 아티팩트 준비
-등록하기 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다. 
+등록하기 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다.
 
 |새 게시자에 대한 설정  |
 |---------|
 |MPN ID     |
-|회사 로고(48 x 48픽셀, 216 x 216픽셀)     |
+|회사 로고: 48 x 48 픽셀 (옵션), 216 x 216 픽셀 – 350 x 350 픽셀 (필수)  |
 |잠재 대상 고객     |
 ||
 

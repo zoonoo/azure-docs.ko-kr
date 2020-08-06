@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6d3d4c791cebdee02d7d2c739be3b32b8086ec
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617323"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760892"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -199,7 +199,7 @@ ms.locfileid: "77617323"
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 WSFC(Windows Server 장애 조치(failover) 클러스터) 및 스케일 아웃 파일 서버를 사용하여 Azure에 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
@@ -323,6 +323,7 @@ SAP ASCS/SCS 인스턴스 프로필 \<SID> _ascs/scs \<Nr> _의 매개 변수를
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
+매개 변수 `enque/encni/set_so_keepalive` 는 ENSA1를 사용 하는 경우에만 필요 합니다.  
 SAP ASCS/SCS 인스턴스를 다시 시작 합니다. `KeepAlive`SAP ascs/scs 클러스터 노드 둘 다에 대 한 매개 변수 설정 지침에 따라 [SAP ascs/scs 인스턴스의 클러스터 노드에 대 한 레지스트리 항목을 설정][high-availability-guide]합니다. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치

@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: fe05a474f4f6ee70c07e0e19621487d51d92966d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5862654dac99bea7755eab41cf3c1bd6cdd84526
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87490629"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760314"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 문서 인덱싱
 
 > [!IMPORTANT] 
-> Azure Data Lake Storage Gen2 지원은 현재 공개 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)작성 하 여 미리 보기에 대 한 액세스를 요청할 수 있습니다. [REST API 버전 2020-06-30-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
+> Azure Data Lake Storage Gen2 지원은 현재 공개 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)작성 하 여 미리 보기에 대 한 액세스를 요청할 수 있습니다. [REST API 버전 2020-06-30-미리 보기](search-api-preview.md) 및 포털에서이 기능을 제공 합니다. 현재 .NET SDK는 지원되지 않습니다.
 
 
 Azure storage 계정을 설정할 때 [계층적 네임 스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용 하도록 설정 하는 옵션이 있습니다. 이를 통해 계정의 콘텐츠 컬렉션을 디렉터리 및 중첩 된 하위 디렉터리의 계층 구조로 구성할 수 있습니다. 계층적 네임 스페이스를 사용 하도록 설정 하 여 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)를 사용 하도록 설정 합니다.
@@ -38,7 +38,7 @@ Data Lake Storage Gen2에서 콘텐츠를 색인화 하려면 몇 가지 단계�
 
 미리 보기 등록에 성공 했음을 확인 한 후에는 인덱싱 파이프라인을 만들 준비가 완료 된 것입니다.
 
-[REST API 버전 2020-06-30-Preview](search-api-preview.md)를 사용 하 여 Data Lake Storage Gen2에서 콘텐츠 및 메타 데이터를 인덱싱할 수 있습니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
+[REST API 버전 2020-06-30-미리 보기](search-api-preview.md) 또는 포털을 사용 하 여 Data Lake Storage Gen2에서 콘텐츠 및 메타 데이터를 인덱싱할 수 있습니다. 지금은 .NET SDK 지원이 없습니다.
 
 Data Lake Storage Gen2의 인덱싱 콘텐츠는 Azure Blob Storage에서 콘텐츠를 인덱싱하는 것과 동일 합니다. Data Lake Storage Gen2 데이터 원본, 인덱스 및 인덱서를 설정 하는 방법을 이해 하려면 [Azure Cognitive Search를 사용 하 여 Azure Blob Storage 문서를 인덱싱하는 방법](search-howto-indexing-azure-blob-storage.md)을 참조 하세요. 또한 Blob storage 문서는 지원 되는 문서 형식, 추출 되는 blob 메타 데이터 속성, 증분 인덱싱 등에 대 한 정보를 제공 합니다. 이 정보는 Data Lake Storage Gen2에 대해 동일 합니다.
 

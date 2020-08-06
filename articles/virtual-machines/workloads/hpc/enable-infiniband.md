@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 88f1c120ac4578e077e1c51f59bcaf53b1de2083
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538900"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797988"
 ---
 # <a name="enable-infiniband"></a>InfiniBand 사용
 
@@ -42,11 +42,12 @@ VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azu
 [OFED (Mellanox openfabrics 드라이버)](https://www.mellanox.com/products/InfiniBand-VPI-Software) 는 [sr-iov 사용](../../sizes-hpc.md#rdma-capable-instances) [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) vm에 수동으로 설치할 수 있습니다.
 
 ### <a name="linux"></a>Linux
-아래 예제를 사용 하 여 [Linux 용 OFED 드라이버](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) 를 설치할 수 있습니다. 여기에 나와 있는 예제는 RHEL/CentOS에 대 한 것 이지만 일반적인 단계 이며 Ubuntu (16.04, 18.04 19.04, 20.04) 및 SLES (12 SP4 및 15)와 같은 호환 되는 Linux 운영 체제에 사용할 수 있습니다. 수신함 드라이버도 작동 하지만, Mellanox OFED 드라이버는 더 많은 기능을 제공 합니다.
+아래 예제를 사용 하 여 [Linux 용 OFED 드라이버](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) 를 설치할 수 있습니다. 여기에 나와 있는 예제는 RHEL/CentOS에 대 한 것 이지만 일반적인 단계 이며 Ubuntu (16.04, 18.04 19.04, 20.04) 및 SLES (12 SP4 및 15)와 같은 호환 되는 Linux 운영 체제에 사용할 수 있습니다. 다른 사용자에 대 한 추가 예제는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh)에 있습니다. 또한 수신함 드라이버도 작동 하지만, Mellanox OFED 드라이버는 더 많은 기능을 제공 합니다.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
-# Optinally verify checksum
+# Optionally verify checksum
+wget --retry-connrefused --tries=3 --waitretry=5 $MLNX_OFED_DOWNLOAD_URL
 tar zxvf MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
 
 KERNEL=( $(rpm -q kernel | sed 's/kernel\-//g') )

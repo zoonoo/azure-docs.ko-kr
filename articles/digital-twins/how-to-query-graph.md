@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543353"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760399"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -172,7 +172,7 @@ catch (RequestFailedException e)
 미리 보기 중에는를 사용 하는 경우 추가 제한 사항이 있습니다 `JOIN` .
 * 문 내에서 하위 쿼리를 지원 하지 않습니다 `FROM` .
 * `OUTER JOIN`의미 체계가 지원 되지 않습니다. 즉, 관계의 순위가 0 이면 전체 "row"가 출력 결과 집합에서 제거 됩니다.
-* 공개 미리 보기 중에는 그래프 트래버스 깊이가 제한 됩니다. `JOIN` 쿼리 당 하나만 허용 됩니다.
+* 미리 보기 중에는 그래프 트래버스 깊이가 쿼리당 5 개 수준으로 제한 됩니다 `JOIN` .
 * 작업의 소스가 `JOIN` 제한 되어 있습니다. 쿼리는 쿼리가 시작 되는 위치를 선언 해야 합니다.
 
 ## <a name="query-best-practices"></a>쿼리 모범 사례

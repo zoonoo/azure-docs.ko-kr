@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373490"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759702"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,19 +29,22 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
 ### <a name="september-2020"></a>2020년 9월
 
-새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
+새 SQL 게이트웨이가 다음 지역에 추가 되 고 있습니다. 이러한 SQL 게이트웨이는 2020 9 월 10 일에 고객 트래픽 수락을 시작 합니다.
+
+- 미국 서 부 중부: 13.78.248.43 
+- 남아프리카 공화국 북부: 102.133.120.2  
+
+새 SQL 게이트웨이가 다음 지역에 추가 되 고 있습니다. 이러한 SQL 게이트웨이는 1 월 2020 일에 고객 트래픽을 수락 하기 시작 합니다.
 
 - 북아메리카 유럽: 13.74.104.113 
 - 서 부 미국: 40.78.248.10 
 - 유럽 서부: 52.236.184.163 
 - 미국 중부 중부: 20.45.121.1, 20.49.88.1 
 
-기존 SQL 게이트웨이는 다음 지역에서 트래픽을 허용 하기 시작 합니다.
+기존 SQL 게이트웨이는 다음 지역에서 트래픽을 수락 하기 시작 합니다. 이러한 SQL 게이트웨이는 1 월 2020 일에 고객 트래픽을 수락 하기 시작 합니다. :
 - 일본 동부: 40.79.184.8, 40.79.192.5
 
-이러한 SQL 게이트웨이는 1 월 2020 일에 고객 트래픽을 수락 하기 시작 합니다. 
-
-### <a name="august-2020"></a>8 월 2020
+### <a name="august-2020"></a>2020년 8월
 
 새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
 
@@ -51,7 +54,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 
 이러한 SQL 게이트웨이는 2020 8 월 10 일에 고객 트래픽 수락을 시작 합니다. 
 
-# <a name="completed"></a>[완료됨](#tab/completed-ip)
+# <a name="completed"></a>[Completed](#tab/completed-ip)
 
 다음 게이트웨이 마이그레이션이 완료 되었습니다. 
 
@@ -82,7 +85,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 - 데이터베이스에 대 한 [영역 중복 구성](high-availability-sla.md#zone-redundant-configuration) 사용
 
 다음이 있는 경우에는 영향을 받지 않습니다.
-
+ 
 - 연결 정책으로 리디렉션
 - Azure 내부에서 SQL Database 하 고 서비스 태그를 사용 하 여 연결
 - SQL Server에 대해 지원 되는 버전의 JDBC 드라이버를 사용 하 여 만든 연결은 영향을 받지 않습니다. 지원 되는 JDBC 버전은 [SQL Server 용 MICROSOFT JDBC Driver 다운로드](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)를 참조 하세요.

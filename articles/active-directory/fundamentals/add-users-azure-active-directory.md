@@ -2,7 +2,7 @@
 title: 사용자 추가 또는 삭제 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory를 사용하여 새 사용자를 추가하거나 기존 사용자를 삭제하는 방법에 대한 지침입니다.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30730f685945d129ababb27040f34bf8ab2f790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603862"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797103"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 
@@ -40,9 +40,9 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
 1. **사용자** 페이지에서이 사용자에 대 한 정보를 입력 합니다.
 
-   - **이름** - 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker*입니다.
+   - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker*입니다.
 
-   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
+   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예들 들어 `mary@contoso.com`입니다.
 
      사용자 이름의 도메인 부분에는 초기 기본 도메인 이름 * \<yourdomainname> onmicrosoft.com*을 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*)을 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
 

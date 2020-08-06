@@ -12,12 +12,12 @@ ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9bd34831beea4ce20f7abffb2eaac70e08decfd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529228"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759073"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -64,19 +64,11 @@ Acl을 사용 하는 대신 Api를 사용 하 여 **응용 프로그램 사용 �
 * 모든 사용자로 메일 보내기
 * 디렉터리 데이터 읽기
 
-응용 프로그램 사용 권한에 대 한 자세한 내용은 [동의 및 사용 권한 설명서](v2-permissions-and-consent.md#permission-types)를 참조 하세요.
+사용자 고유의 API를 사용 하 여 응용 프로그램 사용 권한을 사용 하려면 (Microsoft Graph와 반대) 먼저 Azure Portal의 API 앱 등록에서 범위를 정의 하 여 [api를 노출](quickstart-configure-app-expose-web-apis.md) 해야 합니다. 그런 다음 클라이언트 응용 프로그램의 앱 등록에서 해당 권한을 선택 하 여 [API에](quickstart-configure-app-access-web-apis.md) 대 한 액세스를 구성 합니다. API의 앱 등록에서 범위를 노출 하지 않은 경우 Azure Portal의 클라이언트 응용 프로그램의 앱 등록에서 해당 API에 대 한 응용 프로그램 권한을 지정할 수 없습니다.
 
-앱에서 애플리케이션 사용 권한을 사용하려면 다음 섹션에서 설명하는 단계를 수행합니다.
+사용자가 아닌 응용 프로그램으로 인증 하는 경우 *위임 된 권한* -사용자가 부여 하는 범위를 사용할 수 없습니다. 응용 프로그램에 대 한 관리자가 부여 하거나 웹 API의 사전 인증을 통해 부여 되는 응용 프로그램 사용 권한 (역할이 라고도 함)을 사용 해야 합니다.
 
-> [!NOTE]
-> 사용자와는 달리 응용 프로그램으로 인증 하는 경우 "위임 된 권한" (사용자가 부여 하는 범위)을 사용할 수 없습니다.  "역할"이 라고도 하는 "응용 프로그램 사용 권한"을 사용 해야 합니다 .이는 응용 프로그램에 대 한 관리자가 부여 하거나 웹 API의 사전 인증을 통해 부여 됩니다.
-
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>앱 등록 포털에서 사용 권한 요청
-
-1. 새 [앱 등록 (미리 보기) 환경을](quickstart-register-app.md)통해 앱을 등록 하 고 만듭니다.
-2. 앱 등록 (미리 보기) 환경에서 응용 프로그램으로 이동 합니다. **인증서 & 암호** 섹션으로 이동 하 여 토큰을 요청 하는 클라이언트 암호가 하나 이상 필요 하므로 **새 클라이언트 암호**를 추가 합니다.
-3. **API 사용 권한** 섹션으로 이동한 다음, 앱에 필요한 **애플리케이션 사용 권한**을 추가합니다.
-4. 앱 등록을 **저장**합니다.
+응용 프로그램 사용 권한에 대 한 자세한 내용은 [사용 권한 및 동의](v2-permissions-and-consent.md#permission-types)를 참조 하세요.
 
 #### <a name="recommended-sign-the-user-into-your-app"></a>권장: 사용자를 앱에 로그인 합니다.
 
@@ -123,7 +115,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
@@ -137,7 +129,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `error` | 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |

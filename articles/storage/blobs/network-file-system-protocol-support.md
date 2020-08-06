@@ -1,24 +1,24 @@
 ---
 title: Azure Blob storage (미리 보기)의 네트워크 파일 시스템 3.0 지원 | Microsoft Docs
-description: 이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다.
+description: 이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 Windows 및 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스를 실행 하는 컴퓨터에서 Blob storage에 컨테이너를 탑재할 수 있습니다.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372895"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760926"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
 
-이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 
+이제 Blob storage는 NFS (네트워크 파일 시스템) 3.0 프로토콜을 지원 합니다. 이 지원을 통해 Windows 또는 Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨터에서 Blob 저장소에 컨테이너를 탑재할 수 있습니다. 
 
 > [!NOTE]
 > NFS 3.0 Azure Blob storage의 프로토콜 지원은 공개 미리 보기 상태 이며 미국 동부, 미국 중부 및 캐나다 중부 지역에서 사용할 수 있습니다.
@@ -41,7 +41,7 @@ ms.locfileid: "87372895"
 
 7. 컨테이너를 탑재 합니다.
 
-단계별 지침은 [NFS (네트워크 파일 시스템) 3.0 프로토콜을 사용 하 여 Linux에서 Blob Storage 탑재 (미리 보기)](network-file-system-protocol-support-how-to.md)를 참조 하세요.
+단계별 지침은 [NFS (네트워크 파일 시스템) 3.0 프로토콜을 사용 하 여 Blob Storage 탑재 (미리 보기)](network-file-system-protocol-support-how-to.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > 이러한 작업을 순서 대로 완료 하는 것이 중요 합니다. 계정에서 NFS 3.0 프로토콜을 사용 하도록 설정 하기 전에 만든 컨테이너를 탑재할 수 없습니다. 또한 계정에서 NFS 3.0 프로토콜을 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.
@@ -113,7 +113,7 @@ ms.locfileid: "87372895"
 
 ## <a name="next-steps"></a>다음 단계
 
-시작 하려면 [NFS (네트워크 파일 시스템) 3.0 프로토콜 (미리 보기)을 사용 하 여 Linux에서 Blob Storage 탑재](network-file-system-protocol-support-how-to.md)를 참조 하세요.
+시작 하려면 [NFS (네트워크 파일 시스템) 3.0 프로토콜을 사용 하 여 Blob 저장소 탑재 (미리 보기)](network-file-system-protocol-support-how-to.md)를 참조 하세요.
 
 
 

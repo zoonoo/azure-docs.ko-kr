@@ -4,15 +4,15 @@ description: Azure에서 가용성과 복원력이 높은 애플리케이션을 
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: b031b2a26f81c34f1699e530c8d0bb8839454c89
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e13d7a1cb35d2b0c9544a8be36f834efc6970501
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543880"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759651"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Azure에서 가용성 영역를 지 원하는 지역
 
@@ -58,12 +58,11 @@ ms.locfileid: "87543880"
 또한 Azure는 다음 지역에서 가용성 영역 지원을 제공 합니다.
 
 - US Gov 버지니아
-- 오스트레일리아 동부
 - 남아프리카 북부
 - 미국 중남부
 - 캐나다 중부
 
-이러한 5 개 지역에서 가용성 영역 지원에 대 한 자세한 내용을 보려면 Microsoft 영업 담당자나 고객 담당자에 게 문의 하거나 기술 지원 요청을 여세요.
+이러한 4 개 지역에서 가용성 영역 지원에 대 한 자세한 내용을 보려면 Microsoft 영업 담당자나 고객 담당자에 게 문의 하거나 기술 지원 요청을 여세요.
 
 ## <a name="next-steps"></a>다음 단계
 

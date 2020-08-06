@@ -3,7 +3,7 @@ title: Azure AD 자격 관리에서 카탈로그 작성자에 게 액세스 관�
 description: 액세스를 관리할 수 있도록 IT 관리자의 액세스 관리를 카탈로그 작성자 및 프로젝트 관리자에 게 위임 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02f44543f78789284e7b8d39471d1346ca7b8e74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078366"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798429"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 카탈로그 작성자에 게 액세스 관리 위임
 

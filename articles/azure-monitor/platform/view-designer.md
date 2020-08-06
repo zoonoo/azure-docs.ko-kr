@@ -5,27 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/10/2019
-ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: f3ae081c8657a3ee6a27b0f9208c3eb4e4e745cc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289090"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759736"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure Monitor에서 뷰 디자이너를 사용 하 여 사용자 지정 보기 만들기
 Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 될 수 있는 다양 한 사용자 지정 보기를 Azure Portal 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
 
 > [!IMPORTANT]
-> Azure Monitor 뷰는 단계적으로 진행 되며 추가 기능을 제공 하는 [통합 문서로](workbooks-overview.md) 대체 됩니다. 기존 보기를 통합 문서로 변환 하는 방법에 대 한 자세한 내용은 [Azure Monitor 뷰 디자이너에서 통합 문서 전환 가이드를](view-designer-conversion-overview.md) 참조 하세요. 다음 몇 개월 동안 수행 될 단계는 다음 표를 참조 하세요.
-> 
-> | 변경 | 이것은 무엇을 의미 합니다. | 예상 날짜 |
-> |:---|:---|:---|
-> | 뷰 디자이너를 통해 만든 새 뷰를 만들 사용 하지 않도록 설정 합니다. | 더 이상 Azure Portal에서 새 사용자 지정 보기를 만들고 저장할 수 없게 됩니다.| 11 월 2020 |
-> | 뷰 디자이너를 사용 하 여 기존 뷰에 대해 편집 함수를 사용 하지 않도록 설정 합니다. | 더 이상 기존 사용자 지정 보기에 대 한 변경 내용을 수정 하 고 저장할 수 없습니다. | 11 월 2020 |
-> | Log Analytics 작업 영역에 대 한 보기 배포 사용 안 함 | 이제는 ARM을 사용 하 여 작업 영역을 Log Analytics 사용자 지정 보기를 배포할 수 없습니다. | 3 월 2021 |
-> | 보기 디자이너는 Azure Portal에서 더 이상 사용할 수 없습니다. | 포털 환경에서 더 이상 뷰 디자이너를 지원 하지 않습니다. | 6 월 2021 |
-> | 작업 영역 요약에서 제거 된 사용자 지정 보기 | 사용자 지정 보기 데이터에 더 이상 액세스할 수 없게 됩니다. | 12 월 2021 |
+> Azure Monitor의 뷰는 추가 기능을 제공 하는 [통합 문서로](workbooks-overview.md) 전환 되었습니다. 기존 보기를 통합 문서로 변환 하는 방법에 대 한 자세한 내용은 [Azure Monitor 뷰 디자이너에서 통합 문서 전환 가이드를](view-designer-conversion-overview.md) 참조 하세요.
  
 
 
@@ -42,13 +34,13 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 뷰 디자이너로 만든 보기에는 다음 표에 설명된 요소가 포함됩니다.
 
-| 부분 | Description |
+| 파트 | 설명 |
 |:--- |:--- |
 | 타일 | Azure Monitor **개요** 페이지에 표시 됩니다. 각 타일에는 해당 타일이 나타내는 사용자 지정 보기의 시각적 요약이 표시됩니다. 각 타일 유형은 레코드의 다른 시각화를 제공합니다. 사용자 지정 보기를 표시하려면 타일을 선택합니다. |
 | 사용자 지정 보기 | 타일을 선택하면 표시됩니다. 각 보기는 시각화 요소를 하나 이상 포함합니다. |
 | 시각화 요소 | 하나 이상의 [로그 쿼리](../log-query/log-query-overview.md)를 기반으로 Log Analytics 작업 영역에 데이터 시각화를 제공 합니다. 대부분의 요소는 대략적인 시각화를 제공하는 헤더와 상위 결과를 표시하는 목록을 포함합니다. 각 요소 유형은 Log Analytics 작업 영역에 레코드의 다른 시각화를 제공합니다. 파트에서 요소를 선택 하 여 자세한 레코드를 제공 하는 로그 쿼리를 수행 합니다. |
 
-## <a name="required-permissions"></a>필수 사용 권한
+## <a name="required-permissions"></a>필요한 사용 권한
 보기를 만들거나 수정 하려면 Log Analytics 작업 영역에서 [참가자 수준 이상의 권한이](manage-access.md#manage-access-using-azure-permissions) 필요 합니다. 이 권한이 없으면 뷰 디자이너 옵션이 메뉴에 표시 되지 않습니다.
 
 

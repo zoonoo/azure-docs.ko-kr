@@ -5,26 +5,17 @@ author: austonli
 ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 977dcc71fd25b19e09cfa9126bf01d380f581aca
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289121"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759430"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor 뷰 디자이너에서 통합 문서로 전환 가이드
-[뷰 디자이너](view-designer.md) 는 Azure Monitor 기능으로, 차트, 목록 및 타임 라인을 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 사용자 지정 보기를 만들 수 있습니다. 이러한 기능은 추가 기능을 제공 하는 통합 문서로 단계적으로 교체 됩니다. 이 문서에서는 기존 보기를 통합 문서로 변환 하는 프로세스에 대 한 개요를 제공 합니다.
+[뷰 디자이너](view-designer.md) 는 Azure Monitor 기능으로, 차트, 목록 및 타임 라인을 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 사용자 지정 보기를 만들 수 있습니다. 이러한 보고서는 통합 문서로 전환 되어 Azure Portal 내에서 풍부한 시각적 보고서를 데이터 분석 하 고 만들 수 있는 유연한 캔버스를 제공 합니다. 이 문서는 뷰 디자이너에서 통합 문서로 전환 하는 데 도움이 됩니다. 
 
-## <a name="retirement-schedule"></a>사용 중지 일정
-
-| 변경 | 이것은 무엇을 의미 합니다. | 예상 날짜 |
-|:---|:---|:---|
-| 뷰 디자이너를 통해 만든 새 뷰를 만들 사용 하지 않도록 설정 합니다. | 더 이상 Azure Portal에서 새 사용자 지정 보기를 만들고 저장할 수 없게 됩니다.| 11 월 2020 |
-| 뷰 디자이너를 사용 하 여 기존 뷰에 대해 편집 함수를 사용 하지 않도록 설정 합니다. | 더 이상 기존 사용자 지정 보기에 대 한 변경 내용을 수정 하 고 저장할 수 없습니다. | 11 월 2020 |
-| Log Analytics 작업 영역에 대 한 보기 배포 사용 안 함 | 이제는 ARM을 사용 하 여 작업 영역을 Log Analytics 사용자 지정 보기를 배포할 수 없습니다. | 3 월 2021 |
-| 보기 디자이너는 Azure Portal에서 더 이상 사용할 수 없습니다. | 포털 환경에서 더 이상 뷰 디자이너를 지원 하지 않습니다. | 6 월 2021 |
-| 작업 영역 요약에서 제거 된 사용자 지정 보기 | 사용자 지정 보기 데이터에 더 이상 액세스할 수 없게 됩니다. | 12 월 2021 |
 
 ## <a name="workbooks-overview"></a>통합 문서 개요
 [통합 문서](../insights/vminsights-workbooks.md) 는 텍스트, [로그 쿼리](../log-query/query-language.md), 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. Azure 리소스에 대 한 동일한 액세스 권한이 있는 팀 구성원도 통합 문서를 편집할 수 있습니다.

@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559303"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760093"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진 참조
 
@@ -43,7 +43,7 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 - 처리 된 요청 수: 백만 requets 당 $0.60
 - 처음 5 개의 규칙은 무료로 유지 됩니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 규칙에서 특수 문자를 처리 하는 방법은 서로 다른 일치 조건 및 작업에서 텍스트 값을 처리 하는 방법에 따라 달라 집니다. 일치 조건 또는 작업은 다음 방법 중 하나로 텍스트를 해석할 수 있습니다.
 
@@ -59,15 +59,7 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 
 ### <a name="wildcard-values"></a>와일드카드 값
 
-와일드 카드 값으로 해석 되는 텍스트는 특수 문자에 추가적인 의미를 할당 합니다. 다음 표에서는 표준 규칙 엔진에서 특정 특수 문자를 해석 하는 방법을 설명 합니다.
-
-문자 | Description
-----------|------------
-\ | 백슬래시는 이 테이블에 지정된 문자를 이스케이프하는 데 사용됩니다. 백슬래시는 이스케이프해야 하는 특수 문자 바로 앞에 지정되어야 합니다. 예를 들어 다음 구문은 별표를 이스케이프합니다.`\*`
-% | 백분율 기호는 URL 인코딩을 나타내는 데 사용 됩니다 (예: `%20` ).
-\* | 별표는 하나 이상의 문자를 나타내는 와일드카드입니다.
-space | 공백 문자는 지정 된 값 또는 패턴 중 하나에서 일치 조건을 만족할 수 있음을 나타냅니다.
-작은따옴표 | 작은따옴표는 특별 한 의미가 없습니다. 그러나 작은따옴표 집합은 값을 리터럴 값으로 처리 해야 함을 나타냅니다. 작은따옴표는 다음과 같은 방법으로 사용할 수 있습니다.<ul><li>지정 된 값이 비교 값의 부분과 일치할 때마다 일치 조건을 충족 시킬 수 있도록 합니다.  예를 들어 `'ma'`는 다음 문자열 중 하나와 일치합니다. <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template.**ma**p</li></ul><li>특수 문자를 리터럴 문자로 지정할 수 있습니다. 예를 들어 공백 문자를 작은따옴표 (또는) 집합으로 묶어 리터럴 공백 문자를 지정할 수 있습니다 `' '` `'<sample value>'` .</li><li>빈 값을 지정할 수 있도록 하려면입니다. 작은따옴표 (**' '**) 집합을 지정 하 여 빈 값을 지정 합니다.</li></ul>**중요**:<br /><ul><li>지정 된 값이 와일드 카드를 포함 하지 않으면 값이 자동으로 리터럴 값으로 간주 됩니다. 리터럴 값에 대 한 작은따옴표 집합을 지정할 필요가 없습니다.</li><li>이 테이블의 다른 문자를 이스케이프 하는 데 백슬래시가 사용 되지 않는 경우에는 백슬래시를 작은따옴표 집합에 지정할 때 무시 됩니다.</li><li>특수 문자를 리터럴 문자로 지정 하는 또 다른 방법은 백슬래시 ()를 사용 하 여 이스케이프 하는 것입니다 `\` .</li></ul>
+현재 표준 규칙 엔진의 **Urlpath 일치 조건** 에 와일드 카드 문자를 지원 합니다. \*문자는 하나 이상의 문자를 나타내는 별표입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

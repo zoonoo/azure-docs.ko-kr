@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417515d6f3c293368868e380ac53f0c524b872d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85798156"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760875"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
 
@@ -173,7 +173,6 @@ Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
 * 위의 쿼리는 인덱스를 사용하여 firstName = "Andrew"인 항목에 대해 먼저 필터링합니다. 그런 다음, 모든 firstName = "Andrew" 항목을 후속 파이프라인을 통해 전달하여 CONTAINS 필터 조건자를 평가합니다.
 
 * 인덱스를 사용하지 않는 함수(예: CONTAINS)를 사용할 때 인덱스를 사용하는 다른 필터 조건자를 추가하여 쿼리 속도를 높이고 전체 컨테이너 검사를 방지할 수 있습니다. 필터 절의 순서는 중요하지 않습니다. 쿼리 엔진이 더 선택적인 조건자를 파악하고 그에 따라 쿼리를 실행합니다.
-
 
 ## <a name="querying-with-indexes"></a>인덱스를 사용한 쿼리
 

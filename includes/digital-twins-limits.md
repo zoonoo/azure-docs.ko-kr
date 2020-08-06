@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 64b3bf87df7d0b10f8a69e8303010f64b3e68f79
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507327"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87771122"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
@@ -31,7 +31,7 @@ ms.locfileid: "87507327"
 | 쿼리 | `AND`  /  `OR` 쿼리의 식 수 | 50 | 예 |
 | 쿼리 | 절의 배열 항목 수 `IN`  /  `NOT IN` | 50 | 예 |
 | 쿼리 | 쿼리의 문자 수 | 8,000 | 예 |
-| 쿼리 | 쿼리의 수 `JOINS` | 1 | 예 |
+| 쿼리 | 쿼리의 수 `JOINS` | 5 | 예 |
 
 ### <a name="rate-limits"></a>속도 제한
 
