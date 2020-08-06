@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d1ec61bf18248ea56c8ee5e430a671af7f39d732
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9310fd5c9a66fbd39e32c4756c5037567963912d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458672"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841958"
 ---
 실행 하는 응용 프로그램에 대 한 VM (가상 머신)을 안전 하 게 유지 하는 것이 중요 합니다. VM 보안은 VM에 대한 보안 액세스 및 데이터의 보안 스토리지를 포함하는 하나 이상의 Azure 서비스 및 기능을 포함할 수 있습니다. 이 문서에서는 VM 및 애플리케이션을 안전하게 유지할 수 있도록 하는 정보를 제공합니다.
 
@@ -63,7 +63,7 @@ Azure AD(Azure Active Directory)의 Azure 리소스에 대한 관리 ID 기능�
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-[RBAC(역할 기반 액세스 제어)](../articles/role-based-access-control/overview.md)를 사용하면 팀 내에서 업무를 분리하고 VM에서 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. [Azure CLI](https://docs.microsoft.com/cli/azure/role) 또는[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md)을 사용하여 [Azure Portal](../articles/role-based-access-control/role-assignments-portal.md)에서 VM에 대한 액세스 제어를 구성할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](../articles/role-based-access-control/overview.md)를 사용 하 여 팀 내에서 업무를 분리 하 고 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. [Azure CLI](https://docs.microsoft.com/cli/azure/role) 또는[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md)을 사용하여 [Azure Portal](../articles/role-based-access-control/role-assignments-portal.md)에서 VM에 대한 액세스 제어를 구성할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

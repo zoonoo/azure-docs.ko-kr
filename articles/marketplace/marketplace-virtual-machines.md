@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065645"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837347"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>가상 컴퓨터 제품 게시 가이드
 
@@ -29,7 +29,7 @@ VM (가상 컴퓨터) 이미지 게시는 Azure Marketplace에 솔루션을 게�
 
 IaaS (infrastructure as a service) 또는 SaaS (software as a service) 앱을 통해 하나 이상의 가상 머신을 배포할 수 있습니다. *테스트 드라이브* 게시 옵션의 혜택은 파트너 호스팅 둘러보기에 의해 가상 머신 또는 전체 솔루션의 자동화 된 설정입니다. 시험 사용을 통해 고객은 추가 비용 없이 Vm을 평가할 수 있습니다. 고객이 평가판 환경에 참여 하기 위해 기존 Azure 고객이 아니어도 됩니다. 
 
-시작 하려면 [amp-testdrive](mailto:amp-testdrive@microsoft.com)에서 전자 메일을 통해 문의해 주세요. 
+테스트 드라이브에 대 한 자세한 내용은 [테스트 드라이브 란?](what-is-test-drive.md) 을 참조 하세요.
 
 |요구 사항  |세부 정보 |
 |---------|---------|

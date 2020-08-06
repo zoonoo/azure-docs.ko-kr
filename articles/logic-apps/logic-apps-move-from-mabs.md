@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 975dcc357e244469f33385f84f2e15a89997597b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078212"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837383"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps 앱 및 솔루션 마이그레이션
 
@@ -103,7 +103,7 @@ BizTalk Services 처리에서 보강 단계는 받은 데이터와 관련된 메
 
 ### <a name="run-custom-code"></a>사용자 지정 코드 실행
 
-BizTalk Services를 사용하면 사용자 고유의 어셈블리에 업로드된 [사용자 지정 코드를 실행](/previous-versions/azure/dn232389(v=azure.100))할 수 있습니다. 이 기능은 [IMessageInspector](/azure/logic-apps/logic-apps-move-from-mabs) 인터페이스에 의해 구현됩니다. 브리지의 각 단계에는 이 인터페이스를 구현하기 위해 만든 .NET 형식을 제공하는 두 개의 속성(On Enter Inspector 및 On Exit Inspector)이 있습니다. 사용자 지정 코드를 사용하면 데이터에 대해 더 복잡한 처리를 수행할 수 있으며, 일반적인 비즈니스 논리를 수행하는 어셈블리에서 기존 코드를 다시 사용할 수 있습니다. 
+BizTalk Services를 사용하면 사용자 고유의 어셈블리에 업로드된 [사용자 지정 코드를 실행](/previous-versions/azure/dn232389(v=azure.100))할 수 있습니다. 이 기능은 [IMessageInspector]() 인터페이스에 의해 구현됩니다. 브리지의 각 단계에는 이 인터페이스를 구현하기 위해 만든 .NET 형식을 제공하는 두 개의 속성(On Enter Inspector 및 On Exit Inspector)이 있습니다. 사용자 지정 코드를 사용하면 데이터에 대해 더 복잡한 처리를 수행할 수 있으며, 일반적인 비즈니스 논리를 수행하는 어셈블리에서 기존 코드를 다시 사용할 수 있습니다. 
 
 Logic Apps는 사용자 지정 코드를 실행하는 두 가지 기본 방법인 Azure Functions 및 API Apps를 제공합니다. Azure Functions는 Logic Apps에서 만들고 호출할 수 있습니다. [Azure Functions를 통해 Logic Apps에 대한 사용자 지정 코드 추가 및 실행](../logic-apps/logic-apps-azure-functions.md)을 참조하세요. Azure App Service의 일부인 API Apps를 사용하여 고유한 트리거 및 작업을 만듭니다. [Logic Apps에서 사용할 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)에 대해 자세히 알아보세요. 
 

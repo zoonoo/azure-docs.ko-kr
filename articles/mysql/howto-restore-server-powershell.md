@@ -8,12 +8,12 @@ ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f85283ad90f219dfbf404c437a843e1191b19fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498738"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837281"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for MySQL 서버를 백업 및 복원하는 방법
 
@@ -133,4 +133,4 @@ Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzMySqlServer` 다�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용 하 여 Azure Database for MySQL 서버 매개 변수 사용자 지정](howto-configure-server-parameters-using-powershell.md)
+> [PowerShell을 사용 하 여 Azure Database for MySQL 연결 문자열을 생성 하는 방법](howto-connection-string-powershell.md)

@@ -1,6 +1,6 @@
 ---
 title: 데이터 전송을 위한 Azure 솔루션 선택 | Microsoft Docs
-description: 사용자 환경에서 사용 가능한 네트워크 대역폭 및 데이터 크기에 따라 데이터 전송을 위한 Azure 솔루션을 선택하는 방법을 알아봅니다.
+description: 사용자 환경에서 데이터 크기 및 사용 가능한 네트워크 대역폭을 기반으로 데이터를 전송 하기 위한 Azure 솔루션을 선택 하는 방법에 대해 알아봅니다.
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 123fa86714ae3cefe7de5bebda9e0fccd385ecb4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514434"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836601"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>데이터 전송을 위한 Azure 솔루션 선택
 

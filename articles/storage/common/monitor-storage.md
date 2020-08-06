@@ -1,6 +1,6 @@
 ---
 title: Azure Storage 모니터링 | Microsoft Docs
-description: Azure Storage의 성능 및 가용성을 모니터링하는 방법을 알아봅니다.
+description: Azure Storage의 성능 및 가용성을 모니터링하는 방법을 알아봅니다. Azure Storage 데이터를 모니터링 하 고, 구성에 대해 알아보고, 메트릭 및 로그 데이터를 분석 합니다.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182715"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836669"
 ---
 # <a name="monitor-azure-storage"></a>Azure Storage 모니터링
 
@@ -86,9 +86,9 @@ Azure Portal에서 진단 설정을 만드는 경우 목록에서 리소스를 �
 
 | 범주 | Description |
 |:---|:---|
-| StorageRead | BLOB에 대한 읽기 작업입니다. |
-| StorageWrite | BLOB에 대한 쓰기 작업입니다. |
-| StorageDelete | BLOB에 대한 삭제 작업입니다. |
+| StorageRead | 개체에 대 한 읽기 작업입니다. |
+| StorageWrite | 개체에 대 한 쓰기 작업입니다. |
+| StorageDelete | 개체에 대 한 삭제 작업입니다. |
 
 ## <a name="analyze-metric-data"></a>메트릭 데이터 분석
 

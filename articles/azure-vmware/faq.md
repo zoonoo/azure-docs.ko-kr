@@ -4,12 +4,12 @@ description: AVS(Azure VMware Solution)에 대한 일반적인 질문에 대한 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003426"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836584"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>AVS(Azure VMware Solution) 미리 보기에 대한 질문과 대답
 
@@ -25,7 +25,7 @@ AVS(Azure VMware Solution)에 대해 자주 묻는 질문에 대답합니다.
 
 **현재 AVS를 사용할 수 있는 곳은 어디인가요?**
 
-미리 보기 기간에는 북아메리카의 미국 동부와 서유럽의 암스테르담에서 사용할 수 있습니다.
+서비스는 계속 해 서 새 지역에 추가 되므로 [최신 서비스 가용성 정보](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) 를 확인 하 여 자세한 내용을 확인 하세요. 
 
 **AVS(Azure VMware Solution) 인스턴스에서 실행되는 워크로드가 Azure 서비스를 사용하거나 Azure 서비스와 통합할 수 있나요?**
 
@@ -57,7 +57,7 @@ AVS 솔루션 고객은 모든 Azure 서비스를 사용할 수 있습니다. �
 
 **Azure VMware Solution by CloudSimple과 어떻게 다른가요?**
 
-새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새 솔루션을 설계, 빌드, 지원하는 일은 전적으로 Microsoft의 책임이고, VMware는 제품을 보증합니다. Azure 전용 인프라에서 실행되는 VMware 기술 스택을 사용하므로 솔루션의 아키텍처는 동일합니다.
+새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새로운 솔루션은 Microsoft에서 완전히 설계, 구축 및 지원 되며 VMware에 의해 보증 됩니다. Azure 전용 인프라에서 실행되는 VMware 기술 스택을 사용하므로 솔루션의 아키텍처는 동일합니다.
 
 **기존 Azure VMware Solution 고객에게 이 미리 보기는 어떤 의미인가요?**
 
@@ -65,7 +65,7 @@ AVS 솔루션 고객은 모든 Azure 서비스를 사용할 수 있습니다. �
 
 **Azure VMware Solution by CloudSimple에서 이 새 솔루션으로 마이그레이션할 수 있나요?**
 
-예, Azure VMware Solution은 HCX와 같은 익숙한 VMware 도구를 사용하여 마이그레이션하는 것을 지원합니다. 새 솔루션으로 마이그레이션하는 데 관심이 있는 고객은 담당 Microsoft 계정 팀과 함께 옵션 및 사용 가능한 지원을 살펴보세요.
+예, Azure VMware Solution은 HCX와 같은 익숙한 VMware 도구를 사용하여 마이그레이션하는 것을 지원합니다. 새 솔루션으로 마이그레이션하는 데 관심이 있는 고객의 경우 Microsoft 계정 팀과 협력 하 여 옵션 및 사용 가능한 지원을 살펴보세요.
 
 
 
@@ -89,7 +89,7 @@ AVS 솔루션 고객은 모든 Azure 서비스를 사용할 수 있습니다. �
 
 **각 ESXi 호스트에서 사용할 수 있는 네트워크 대역폭은 얼마나 되나요?**
 
-ESXi 호스트는 최대 25Gbps의 연결 대역폭을 지원합니다.
+각 ESXi 호스트는 ESXi 시스템 트래픽에 대해 프로 비전 된 두 개의 Nic와 워크 로드 트래픽에 대해 프로 비전 된 두 개의 nic를 사용 하 여 4 25 Gbps Nic로 구성 됩니다. 
 
 **미사용 암호화 된 vSAN 데이터 저장소에 저장 된 데이터 입니까?**
 
@@ -197,11 +197,11 @@ NSX-T에 대한 모든 관리자 권한이 부여되며 NSX-T 데이터 센터 �
 
 **AVS가 미리 보기로 제공되는 기간에는 가격 책정 구조가 어떻게 되나요?**
 
-가격 책정에 대한 일반적인 질문은 Azure VMware 솔루션Solution [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조하세요. 미리 보기 가격 책정 정보는 요청하신 분들에게 제공되며, 담당 계정 팀에 문의하거나 가격 책정 페이지의 링크를 따라 판매 담당자에게 문의하세요.
+가격 책정에 대한 일반적인 질문은 Azure VMware 솔루션Solution [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조하세요. 요청에 따라 미리 보기 가격 책정을 사용할 수 있습니다. 계정 팀에 문의 하거나 가격 책정 페이지의 링크를 따라 판매 담당자에 게 문의 하세요.
 
 **AVS를 지원하는 사람은 누구인가요?**
 
-AVS 지원은 Microsoft에서에서 제공합니다. 미리 보기 지침에 따라 월~금요일 오전 9시부터 오후 5시 영업 시간(PST)에 지원을 제공할 예정입니다. [이 링크](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 티켓을 제출할 수 있습니다.
+AVS 지원은 Microsoft에서에서 제공합니다. 미리 보기 지침에 따라 9 ~ 5 pm PST 업무 시간 월요일-금요일에 지원을 제공 합니다. [이 링크](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 티켓을 제출할 수 있습니다.
 
 **AVS 프라이빗 클라우드를 만들려면 어떤 계정이 필요한가요?**
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 07fde5a8e7e3d542ed3fa3bc54b761d5434ac710
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284866"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836888"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure에서 OpenSUSE Linux를 실행하는 가상 머신에 MySQL 설치
 
@@ -32,7 +32,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-VM을 만듭니다. 이 예제에서 VM은 *myVM*으로 이름이 지정되고 VM 크기는 *Standard_D2s_v3*이지만 워크로드에 가장 적합한 것으로 생각되는 [VM 크기](sizes.md)를 선택해야 합니다.
+VM을 만듭니다. 이 예제에서 VM은 *myVM*으로 이름이 지정되고 VM 크기는 *Standard_D2s_v3*이지만 워크로드에 가장 적합한 것으로 생각되는 [VM 크기](../sizes.md)를 선택해야 합니다.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -157,7 +157,3 @@ quit
 
 ## <a name="next-steps"></a>다음 단계
 MySQL에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc)를 참조하세요.
-
-
-
-

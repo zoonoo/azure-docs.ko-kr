@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d9b4766b42704da8c81704822f263a6ddf46ce5a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052850"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836448"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법 
 
@@ -282,7 +282,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 위의 모든 예제는 이미지만을 생성하는 인코딩 작업을 전송하는 방법을 설명했지만 미리 보기 생성으로 동영상/오디오 인코딩을 결합할 수도 있습니다. 다음 JSON 및 XML 사전 설정은 **Media Encoder Standard**에서 인코딩하는 동안 미리 보기를 생성하도록 합니다.
 
 ### <a name="json-preset"></a><a id="json"></a>JSON 사전 설정
-스키마에 대한 자세한 내용은 [이 문서](/azure/media-services/previous/media-services-mes-schema)를 참조하세요.
+스키마에 대한 자세한 내용은 [이 문서](./media-services-mes-schema.md)를 참조하세요.
 
 ```json
     {
@@ -347,7 +347,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>XML 사전 설정
-스키마에 대한 자세한 내용은 [이 문서](/azure/media-services/previous/media-services-mes-schema)를 참조하세요.
+스키마에 대한 자세한 내용은 [이 문서](./media-services-mes-schema.md)를 참조하세요.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
-ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042632"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837312"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -29,6 +29,28 @@ ms.locfileid: "87042632"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="july-2020"></a>2020년 7월
+
+### <a name="ga-for-multi-language-identification"></a>다중 언어 식별을 위한 GA
+
+다중 언어 id는 미리 보기에서 GA로 이동 하 여 생산적으로 사용할 준비가 되었습니다.
+
+"GA로 미리 보기" 전환과 관련 된 가격에는 영향을 주지 않습니다.
+
+### <a name="video-indexer-website-improvements"></a>Video Indexer 웹 사이트 개선 사항
+
+#### <a name="adjustments-in-the-video-gallery"></a>비디오 갤러리의 조정
+
+추가 필터링 기능이 있는 심층 통찰력 검색에 대 한 새 검색 표시줄이 추가 되었습니다. 검색 결과도 향상 되었습니다.
+
+여러 파일을 사용 하 여 비디오 보관 파일을 정렬 및 관리할 수 있는 새 목록 보기입니다.
+
+#### <a name="new-panel-for-easy-selection-and-configuration"></a>간편한 선택 및 구성을 위한 새 패널
+
+간편한 선택 및 사용자 구성에 대 한 보조 패널이 추가 되어 간단 하 고 빠른 계정 만들기 및 공유와 구성을 설정할 수 있습니다.
+
+사이드 패널은 사용자 기본 설정 및 도움말에도 사용 됩니다.
 
 ## <a name="june-2020"></a>2020년 6월
 

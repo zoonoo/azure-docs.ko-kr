@@ -1,5 +1,5 @@
 ---
-title: 인스턴스 및 인증 설정 (포털)
+title: 인스턴스 및 인증 설정(포털)
 titleSuffix: Azure Digital Twins
 description: Azure Portal를 사용 하 여 Azure Digital Twins 서비스 인스턴스를 설정 하는 방법을 참조 하세요.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73b7171b89b26926992e95f77e376e7bb7731eff
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408414"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836941"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -62,7 +62,7 @@ Azure Portal의 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azu
 
 완료 되 면 _검토 + 만들기_를 선택 합니다. 그러면 입력 한 인스턴스 세부 정보를 검토 하 고 _만들기_를 누르면 요약 페이지로 이동 합니다. 
 
-### <a name="verify-success"></a>성공 확인
+### <a name="verify-success-and-collect-important-values"></a>성공 확인 및 중요 한 값 수집
 
 *만든*후에는 포털 아이콘 표시줄을 따라 Azure 알림에서 인스턴스의 배포 상태를 볼 수 있습니다. 배포에 성공 하면 알림이 표시 되 고, _리소스로 이동_ 단추를 선택 하 여 생성 된 인스턴스를 볼 수 있습니다.
 

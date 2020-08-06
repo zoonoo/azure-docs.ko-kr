@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080440"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837179"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -122,7 +122,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus**아래에 다음 속성이 반환 됩니다. 
 
-| 값 | Description   |
+| 값 | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -153,7 +153,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 각 VM 인스턴스에 대 한 **MaintenanceRedeployStatus** 아래에 다음 속성이 반환 됩니다. 
 
-| 값 | Description   |
+| 값 | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -181,7 +181,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** 가용성 집합이나 가상 머신 확장 집합에 배포된 가상 머신은 업데이트 도메인을 사용합니다. 유지 관리를 수행할 때 Azure는 업데이트 도메인 제약 조건을 준수하고 동일한 가용성 집합 내의 다른 업데이트 도메인에서 VM을 다시 부팅하지 않습니다. 또한 Azure는 다음 VM 그룹으로 이동하기 전에 30분 이상 기다립니다. 
 
-고가용성에 대한 자세한 내용은 [Azure에서 가상 머신의 지역 및 가용성](../virtual-machines/windows/availability.md)을 참조하세요.
+고가용성에 대한 자세한 내용은 [Azure에서 가상 머신의 지역 및 가용성](../virtual-machines/availability.md)을 참조하세요.
 
 **Q: 계획된 유지 관리에 관한 알림을 받으려면 어떻게 해야 하나요?**
 

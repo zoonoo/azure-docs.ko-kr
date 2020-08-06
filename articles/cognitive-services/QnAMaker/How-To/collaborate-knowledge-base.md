@@ -3,18 +3,18 @@ title: 기술 자료에 대 한 공동 작업-QnA Maker
 description: QnA Maker를 사용하면 여러 사용자가 기술 자료를 공동으로 작업할 수 있습니다. 이 기능은 azure RBAC (역할 기반 액세스 제어)와 함께 제공 됩니다.
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 20eb58f346322cb78bff85af3d6a0d366090763d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 86c8d919618b37223e51a23635a1322a4e0d780c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446940"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837434"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>작성자 및 편집기와 공동 작업
 
 공동 작업은 QnA Maker 리소스 수준에서 제공 되므로 협력자의 역할에 따라 협력자 액세스를 제한할 수 있습니다. QnA Maker 협력자 인증 [개념](../Concepts/role-based-access-control.md)에 대해 자세히 알아보세요.
 
-## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>QnA Maker 리소스에 RBAC (역할 기반 액세스) 추가
+## <a name="add-azure-role-based-access-control-azure-rbac-to-your-qna-maker-resource"></a>Azure RBAC (역할 기반 액세스 제어)를 QnA Maker 리소스에 추가
 
 QnA Maker를 사용 하면 여러 사용자가 동일한 QnA Maker 리소스의 모든 기술 자료에 대해 공동 작업할 수 있습니다. 이 기능은 Azure [역할 기반 액세스 제어](../../../active-directory/role-based-access-control-configure.md)를 통해 제공됩니다.
 
@@ -42,7 +42,7 @@ QnA Maker 서비스에서는 특정 기술 자료를 공유할 수 없습니다.
 
 1. 다음 목록에서 역할을 선택 합니다.
 
-    |역할|
+    |Role|
     |--|
     |소유자|
     |참가자|

@@ -3,12 +3,12 @@ title: 용어집-LUIS
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056381"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836414"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 LUIS (Language Understanding) 용어집에서는 LUIS 서비스에서 작업할 때 발생할 수 있는 용어에 대해 설명 합니다.
@@ -72,7 +72,7 @@ LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-
 
 동물 일괄 처리 테스트에 대 한 예는 총 동물 수 (양 및 하 한가)로 나누어 예측 된 양입니다.
 
-### <a name="recall"></a>회수
+### <a name="recall"></a>회차
 
 일괄 테스트에서 재현율(민감도라고도 함)은 LUIS가 일반화하는 기능입니다.
 
@@ -94,11 +94,11 @@ True 음수는 앱에서 일치 하는 항목을 올바르게 예측 하지 못�
 
 ## <a name="collaborator"></a>협력자
 
-협력자는 개념적으로 [기여자](#contributor)와 동일 합니다. 소유자가 RBAC (역할 기반 액세스)로 제어 되지 않는 앱에 협력자의 전자 메일 주소를 추가할 때 협력자에 게 액세스 권한이 부여 됩니다. 아직 협력자를 사용 하는 경우 LUIS 계정을 마이그레이션하고 LUIS authoring 리소스를 사용 하 여 RBAC로 참가자를 관리 해야 합니다.
+협력자는 개념적으로 [기여자](#contributor)와 동일 합니다. 소유자가 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 제어 되지 않은 앱에 협력자의 전자 메일 주소를 추가할 때 협력자에 게 액세스 권한이 부여 됩니다. 아직 협력자를 사용 하는 경우 LUIS 계정을 마이그레이션하고 LUIS authoring 리소스를 사용 하 여 RBAC로 참가자를 관리 해야 합니다.
 
 ## <a name="contributor"></a>참가자
 
-참가자는 앱의 [소유자](#owner) 가 아니지만 의도, 엔터티, 길이 발언를 추가, 편집 및 삭제할 수 있는 권한이 있습니다. 참가자는 LUIS 앱에 RBAC (역할 기반 액세스)를 제공 합니다.
+참가자는 앱의 [소유자](#owner) 가 아니지만 의도, 엔터티, 길이 발언를 추가, 편집 및 삭제할 수 있는 권한이 있습니다. 참가자는 LUIS 앱에 대 한 Azure RBAC (역할 기반 액세스 제어)를 제공 합니다.
 
 참고 항목:
 * 참가자를 추가 하 [는 방법](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource)
@@ -285,7 +285,7 @@ LUIS [list 엔터티](reference-entity-list.md)에서 정규화 된 값을 만�
 |--|--|
 |작음| 작은 1, 8 온스|
 |중간| 일반, 12 온스|
-|대형| 큼, 16 온스|
+|큼| 큼, 16 온스|
 |Xtra 큼| 가장 큰 1, 24 온스|
 
 모델은 입력에 동의어가 표시 될 때 엔터티에 대 한 정규화 된 값을 반환 합니다.
@@ -305,7 +305,7 @@ LUIS 앱을 [테스트](luis-concept-test.md) 하면 모델 예측을 볼 것입
 
 **영어**의 경우 토큰은 문자 및 숫자의 연속 범위 (공백 또는 문장 부호 없음)입니다. 공백이 토큰이 아닙니다.
 
-|문장을|토큰 수|설명|
+|문구|토큰 수|설명|
 |--|--|--|
 |`Dog`|1|문장 부호가 나 공백이 없는 단일 단어입니다.|
 |`RMT33W`|1|레코드 로케이터 번호입니다. 숫자와 문자를 포함할 수 있지만 문장 부호는 없습니다.|

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534008"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836771"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
-Azure 센티널은 [RBAC (역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 Azure의 사용자, 그룹 및 서비스에 할당할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공   합니다.
+Azure 센티널은 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 azure의 사용자, 그룹 및 서비스에 할당할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공   합니다.
 
 RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 할당 하 여 Azure 센티널에 적절 한 액세스 권한을 부여 합니다. 다양 한 역할을 통해 Azure 센티널의 사용자가 보고 수행할 수 있는 작업을 세밀 하 게 제어할 수 있습니다. Azure 역할은 azure 센티널 작업 영역에서 직접 할당 하거나 (아래 참고 참조) 작업 영역이 속해 있는 구독 또는 리소스 그룹에서 Azure 센티널이 상속할 수 있습니다.
 
@@ -76,7 +76,7 @@ Azure 센티널 특정 Azure 역할을 할당 하는 경우 다른 용도로 사
 
 다음 표에는 Azure 센티널의 역할 및 허용 되는 작업이 요약 되어 있습니다. 
 
-| 역할 | 플레이 북 만들기 및 실행| 통합 문서, 분석 규칙 및 기타 Azure 센티널 리소스 만들기 및 편집 | 인시던트 관리 (해제, 할당 등) | 데이터, 인시던트, 통합 문서 및 기타 Azure 센티널 리소스 보기 |
+| Role | 플레이 북 만들기 및 실행| 통합 문서, 분석 규칙 및 기타 Azure 센티널 리소스 만들기 및 편집 | 인시던트 관리 (해제, 할당 등) | 데이터, 인시던트, 통합 문서 및 기타 Azure 센티널 리소스 보기 |
 |---|---|---|---|---|
 | Azure Sentinel 읽기 권한자 | -- | -- | -- | &#10003; |
 | Azure Sentinel 응답자 | -- | -- | &#10003; | &#10003; |
