@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260685"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475654"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -33,42 +33,12 @@ Azure Red Hat OpenShift 클러스터를 만들려면 Azure 구독, Azure Active 
 |**사용자 액세스 관리자**|X|X| |
 |**기여자**|X|X|X|
 
-### <a name="install-the-az-aro-extension"></a>`az aro` 확장 설치
-`az aro` 확장을 설치하면 Azure CLI를 사용하여 명령줄에서 바로 Azure Red Hat OpenShift 클러스터를 만들고, 액세스하고, 삭제할 수 있습니다.
-
-`az aro` 확장을 설치하려면 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-확장이 이미 설치되어 있는 경우 다음 명령을 실행하여 업데이트할 수 있습니다.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
-
 ### <a name="register-the-resource-provider"></a>리소스 공급자 등록
 
 다음으로, `Microsoft.RedHatOpenShift` 리소스 공급자를 구독에 등록해야 합니다.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-확장이 등록되었는지 확인하세요.
-
-```azurecli-interactive
-az -v
-```
-
-  아래와 비슷한 출력이 표시됩니다.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Red Hat 풀 비밀 가져오기(선택 사항)

@@ -3,12 +3,12 @@ title: Azure Event Grid의 사용자 지정 항목에 대한 재해 복구
 description: 이 자습서에서는 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 1ee9c9566a70ba104f6c12866a631061672cb0c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115083"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461683"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 이 자습서에서는 특정 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "86115083"
 
 1. **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 
 1. 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 나중에 필요하므로 이 URL을 메모해 두세요.
@@ -207,4 +207,4 @@ namespace EventGridFailoverPublisher
 
 - [http 엔드포인트에서 이벤트를 수신](./receive-events.md)하는 방법 알아보기
 - [하이브리드 연결로 이벤트를 라우팅](./custom-event-to-hybrid-connection.md)하는 방법 알아보기
-- [Azure DNS 및 Traffic Manager를 사용한 재해 복구](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)에 대해 알아보기
+- [Azure DNS 및 Traffic Manager를 사용한 재해 복구](../networking/disaster-recovery-dns-traffic-manager.md)에 대해 알아보기

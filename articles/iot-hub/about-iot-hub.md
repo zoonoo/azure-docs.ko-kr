@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: b5b92de195e4ff4d5b00de041f5b021ee75f9800
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307695"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428983"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
@@ -68,7 +68,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔�
 
 * [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/)를 사용하여 비즈니스 프로세스를 자동화합니다.
 
-* [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/)을 사용하여 컴퓨터 학습 및 AI 모델을 솔루션에 추가합니다.
+* [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)을 사용하여 컴퓨터 학습 및 AI 모델을 솔루션에 추가합니다.
 
 * [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)를 사용하여 디바이스에서 스트림하는 데이터에 대해 실시간 분석 계산을 실행합니다.
 

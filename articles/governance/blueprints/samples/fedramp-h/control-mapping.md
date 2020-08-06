@@ -1,14 +1,14 @@
 ---
 title: FedRAMP High 청사진 샘플 컨트롤
 description: FedRAMP High 청사진 샘플의 컨트롤 매핑 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 05/12/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: cf9db71a18654f973306637831ae1bcdf8dbef9e
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: ae534248196dec30c087ff4b529e699ef082426e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517204"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484235"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>FedRAMP High 청사진 샘플의 컨트롤 매핑
 
