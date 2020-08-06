@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8eb95644db5b1cb00ef6e245db6197cf2a2f301b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: d0872657bbca169ab1671b1f44c36c967e71fa63
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80044764"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495487"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Azure CLI를 사용하여 Docker 허브에서 Docker 컨테이너에 ASP.NET Core 앱 만들기
 

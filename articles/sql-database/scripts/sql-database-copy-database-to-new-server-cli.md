@@ -4,19 +4,19 @@ description: Azure SQL Database의 데이터베이스를 새 서버에 복사하
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3f180f075a32ac193ed003b58a99483ea3210cc7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e22d28215c06de96d31faec71f4fb595bb74a4a6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528904"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495270"
 ---
 # <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>CLI를 사용하여 Azure SQL Database의 데이터베이스를 새 서버에 복사
 

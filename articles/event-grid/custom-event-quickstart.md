@@ -3,12 +3,13 @@ title: '빠른 시작: Event Grid 및 Azure CLI를 사용하여 사용자 지정
 description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: ecf7e753df4f6fb3de6095ba295a07fd57b458cf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 46341a9cd4f7880333cb2653691328f4969f1fb4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101718"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497378"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 

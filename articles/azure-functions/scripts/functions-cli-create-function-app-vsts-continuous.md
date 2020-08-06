@@ -3,13 +3,13 @@ title: DevOps 배포를 사용하여 함수 앱 만들기 - Azure CLI
 description: 함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 ms.date: 07/03/2018
 ms.topic: sample
-ms.custom: mvc
-ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 773a08646f7a69e1ed828621bad48a6c6729eb88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75922649"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498530"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Azure에서 Azure DevOps로부터 배포되는 함수 만들기
 

@@ -7,12 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146803"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496579"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: Azure CLI 명령인 az postgres up(미리 보기)을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 

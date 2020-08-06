@@ -1,18 +1,18 @@
 ---
 title: 'Kubernetes 개발 공간 만들기: Visual Studio 및 .NET Core'
 services: azure-dev-spaces
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-azurecli
 ms.workload: azure-vs
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio를 사용하여 Azure Kubernetes Service에서 .NET Core 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 722f2f5b86bd67df7c7250cdbfc44ebcc048c773
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ce2647e89915dd581b0b5ad9fc75a9f2fe840de
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090793"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499112"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio 및 .NET Core
 

@@ -3,12 +3,13 @@ title: Python 함수 앱에 파일 공유 탑재 - Azure CLI
 description: 서버리스 Python 함수 앱을 만들고 Azure CLI를 사용하여 기존 파일 공유를 탑재합니다.
 ms.topic: sample
 ms.date: 03/01/2020
-ms.openlocfilehash: 3d66f84d124b36f1be335c3a2204f21690510ee8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 63ab9ba3219dc600187e73bbf124d62d3f51317a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79086290"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498211"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Azure CLI를 사용하여 Python 함수 앱에 파일 공유 탑재
 

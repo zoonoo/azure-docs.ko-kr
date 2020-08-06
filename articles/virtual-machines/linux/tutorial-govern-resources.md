@@ -11,13 +11,13 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
-ms.custom: mvc
-ms.openlocfilehash: b2e7153cfe9e355ae86beae66723ec0b44513001
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 487342fdacfcf8e321bb2a65b6bd6577fc67be36
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010617"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497956"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 관리에 대해 알아보기
 

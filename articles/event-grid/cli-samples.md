@@ -3,12 +3,13 @@ title: Azure CLI 샘플 - Event Grid | Microsoft Docs
 description: 이 문서에서는 Event Grid용 Azure CLI(명령줄 인터페이스) 스크립트 샘플에 대한 링크를 포함하는 표를 제공합니다.
 ms.topic: sample
 ms.date: 07/07/2020
-ms.openlocfilehash: 1b8fd66d42de3694ed93275e5ceb45c5fd14d0e5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0cddb8b9ba6a4a06667696fdf5eda8e1896f20de
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103112"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498777"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Event Grid에 대한 Azure CLI 샘플
 

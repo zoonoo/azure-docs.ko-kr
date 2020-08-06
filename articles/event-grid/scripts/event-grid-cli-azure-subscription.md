@@ -4,12 +4,13 @@ description: 이 문서에서는 Azure CLI를 사용하여 Azure Event Grid 이�
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 04d69d440dc971908b1fe2931721c50e671cd7d9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: fe81be64ea4672d233564726cfdae5b60951057d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171400"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494335"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Azure CLI를 사용하여 Azure 구독에 대한 이벤트 구독
 
@@ -41,4 +42,4 @@ ms.locfileid: "86171400"
 ## <a name="next-steps"></a>다음 단계
 
 * 구독 쿼리에 대한 정보는 [쿼리 Event Grid 구독](../query-event-subscriptions.md)을 참조하세요.
-* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.

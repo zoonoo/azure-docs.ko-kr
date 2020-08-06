@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95d7abca27ec9db46a72140bc8a61b2841c63fcb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77598598"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495778"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure CLI를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 

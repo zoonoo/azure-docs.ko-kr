@@ -1,14 +1,14 @@
 ---
 title: FedRAMP Moderate 청사진 샘플 컨트롤
 description: FedRAMP Moderate 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: c95b47034fbf18f2588e2c4134729162c9bb7cc5
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 0115e3018b0e2510625f4eea6e163b51e1beb6d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816270"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495848"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플의 컨트롤 매핑
 

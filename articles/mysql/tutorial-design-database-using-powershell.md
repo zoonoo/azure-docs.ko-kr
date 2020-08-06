@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: mvc
-ms.openlocfilehash: 6bb3c25d4d4d24e626ad210c78c6ac64c560e43e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 32efda0c97bec10f2c8aa29d6f83a28538d64468
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613909"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496783"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>자습서: PowerShell을 사용하여 Azure Database for MySQL 디자인
 
@@ -28,7 +28,7 @@ Azure Database for MySQL은 MySQL Community Edition 데이터베이스 엔진을
 > - 데이터 업데이트
 > - 데이터 복원
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

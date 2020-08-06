@@ -8,12 +8,13 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: f8047ebeb8e47f609db79e3ac1235b5cd65a4fd4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: dc65bedc8b008d9628d09ef3e4bfc7cc6ea12e95
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "84819978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495253"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 오픈 소스 FHIR 서버 배포
 
@@ -44,7 +45,7 @@ az group deployment create -g $servicename --template-uri https://raw.githubuser
 
 다음을 사용하여 FHIR 서버에서 기능 문을 가져옵니다.
 
-```console
+```azurecli-interactive
 metadataurl="https://${servicename}.azurewebsites.net/metadata"
 curl --url $metadataurl
 ```

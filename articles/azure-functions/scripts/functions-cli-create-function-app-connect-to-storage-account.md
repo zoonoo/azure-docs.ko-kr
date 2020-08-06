@@ -3,13 +3,13 @@ title: 연결된 스토리지로 함수 앱 만들기 - Azure CLI
 description: Azure CLI 스크립트 샘플 - Azure Storage에 연결하는 Azure Function 만들기
 ms.topic: sample
 ms.date: 04/20/2017
-ms.custom: mvc
-ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3eec4e22f80d1efd180dc6770a781ee14db680be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75922679"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498551"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>명명된 스토리지 계정 연결로 함수 앱 만들기 
 

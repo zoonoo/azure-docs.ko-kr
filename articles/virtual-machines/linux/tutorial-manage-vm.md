@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: c233ef9cfb6ded6f3d4e96b893970d4282dfc22e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 6e4f71be1dc3cdaeb01069f234531da29a7b4977
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526982"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498704"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서 - Azure CLI로 Linux VM 만들기 및 관리
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서: Azure CLI로 Linux VM 만들기 및 관리
 
 Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법을 알아봅니다.
 
@@ -153,7 +153,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 일반적인 크기           |    Description       |
+| Type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
 | [컴퓨팅 최적화](../sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
@@ -227,7 +227,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
+원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업이 일어날 수 있기 때문에 미리 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupVM --name myVM

@@ -6,17 +6,18 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 5433eeff4c01c136e62cb71a53fafcae3a81859b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: abfac23ad37d750a6d7ef84e5dec2559904ebb1f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081375"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496307"
 ---
 # <a name="azure-monitor-cli-samples"></a>Azure Monitor CLI 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli) 지침을 따릅니다. 또한 [Azure Cloud Shell](/azure/cloud-shell)을 사용하여 브라우저에서 CLI를 대화형 환경으로 실행할 수 있습니다. [Azure Monitor CLI 참조](/cli/azure/monitor?view=azure-cli-latest)에서 사용 가능한 모든 명령의 전체 참조를 확인하세요. 
 

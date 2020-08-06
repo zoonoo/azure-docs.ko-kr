@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 5a84a44a4ea941bf3b77f0762fc764ec069919c7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 748e85a967025d053083bb249614eada012ab71a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74771331"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495202"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 서버 복원
 이 샘플 CLI 스크립트는 단일 Azure Database for MySQL 서버를 이전 시점으로 복원합니다.
@@ -42,4 +42,4 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
-- 추가 스크립트 시도: [MySQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- 추가 스크립트 시도: [MySQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)

@@ -3,13 +3,13 @@ title: Azure Cosmos DB를 사용하여 함수 앱 만들기 - Azure CLI
 description: Azure CLI 스크립트 샘플 - Azure Cosmos DB에 연결하는 Azure Function 만들기
 ms.topic: sample
 ms.date: 07/03/2018
-ms.custom: mvc
-ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 440767159ec1321d9b157f53408dbff8f9706eec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75922708"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498568"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Azure Cosmos DB에 연결하는 Azure Function 만들기
 

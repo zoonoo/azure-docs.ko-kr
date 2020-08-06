@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ceaca3b7d91bf27262f1326000796cd605b0c3c4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84738297"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494590"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -110,7 +110,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 + __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, __Azure HDInsight__ 등의 컴퓨팅 대상. 컴퓨팅 대상에 대한 자세한 내용은 [컴퓨팅 대상이란?](concept-compute-target.md)을 참조하세요.
 + __Azure Event Grid__. 자세한 내용은 [Azure Machine Learning 이벤트 사용](concept-event-grid-integration.md)을 참조하세요.
 + __Azure Monitor__ 자세한 내용은 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
-+ __Azure Storage 계정__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, __Azure Open Datasets__ 등의 데이터 저장소. 자세한 내용은 [Azure 스토리지 서비스에서 데이터 액세스](how-to-access-data.md) 및 [Azure Open Datasets로 데이터 세트 만들기](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets)를 참조하세요.
++ __Azure Storage 계정__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, __Azure Open Datasets__ 등의 데이터 저장소. 자세한 내용은 [Azure 스토리지 서비스에서 데이터 액세스](how-to-access-data.md) 및 [Azure Open Datasets로 데이터 세트 만들기](how-to-create-register-datasets.md)를 참조하세요.
 + __Azure Virtual Network__. 자세한 내용은 [가상 네트워크에서 실험 및 유추 보호](how-to-enable-virtual-network.md)를 참조하세요.
 + __Azure Pipelines__. 자세한 내용은 [기계 학습 모델의 학습 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 참조하세요.
 + __Git 리포지토리 로그__. 자세한 내용은 [Git 통합](concept-train-model-git-integration.md)을 참조하세요.

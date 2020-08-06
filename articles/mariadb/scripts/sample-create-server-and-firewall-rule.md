@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 11/28/2018
-ms.openlocfilehash: 3e0c17bbb413c2036ad1a3794dc029aaef0fe68c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3a646e7f59f4002892edf9210658a966cbc051f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74771741"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498653"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Azure CLI를 사용하여 MariaDB 서버 만들기 및 방화벽 규칙 구성
 이 샘플 CLI 스크립트는 Azure Database for MariaDB 서버를 만들고 서버 수준 방화벽 규칙을 구성합니다. 스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 MariaDB 서버에 액세스할 수 있습니다.
@@ -33,7 +33,7 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 ## <a name="script-explanation"></a>스크립트 설명
 이 스크립트에는 다음 표에 설명된 명령이 사용됩니다.
 
-| **명령** | **참고 사항** |
+| **명령** | **참고** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | 데이터베이스를 호스팅하는 MariaDB 서버를 만듭니다. |

@@ -3,7 +3,7 @@ title: ID 거버넌스 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory ID 거버넌스를 사용하면 올바른 프로세스와 표시 유형을 사용하여 조직의 보안과 직원 생산성 간에 적절한 균형을 유지할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65cd11f61c25af205fa1b6400a8243382673e47
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: dcb7ab566d861e0c4256acda8f8facd1e94d4ad6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077884"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796780"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 

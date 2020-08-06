@@ -4,16 +4,16 @@ description: Azure CLI 스크립트 샘플 - PostgreSQL 서버용 Azure Database
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: 14bb46d8917aedb3ea5a625db2489c97a4fd0ba3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80d5135f036f7498223cf2bd7bf1e720eb71f89d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66122059"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496528"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Azure CLI를 사용하여 PostgreSQL 서버용 Azure Database 만들기 및 방화벽 규칙 구성
 이 샘플 CLI 스크립트는 PostgreSQL 서버용 Azure Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. 스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 PostgreSQL 서버에 액세스할 수 있습니다.
@@ -41,5 +41,5 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 | [az group delete](/cli/azure/group) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
-- 추가 스크립트 시도: [PostgreSQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- Azure CLI에 대한 자세한 내용: [Azure CLI 설명서](/cli/azure)
+- 추가 스크립트 시도: [PostgreSQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)

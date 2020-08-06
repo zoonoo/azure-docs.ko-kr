@@ -6,12 +6,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0c2fc3dc4e76f295dff94ebda71d54bad425b621
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a9912f5134c3596740ef53f23531d57fe9467682
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056126"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497871"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Azure CLI를 사용하여 서비스 카탈로그에 대한 관리되는 애플리케이션 배포
 

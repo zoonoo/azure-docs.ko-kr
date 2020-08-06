@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 11cb8bd25f82e480ddbb23151d8a7622fedc828a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 2b03363e12c599398bb4eb715bd278e883dbed27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80044823"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495525"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Azure CLI를 사용하여 로컬 Git 리포지토리에서 App Service 앱을 만들고 코드 배포
 

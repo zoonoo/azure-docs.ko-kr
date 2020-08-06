@@ -3,12 +3,13 @@ title: '빠른 시작: Event Hubs에 사용자 지정 이벤트 보내기 - Even
 description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Event Hub는 엔드포인트에 사용됩니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 77268dde90959298c76813fb146e972ecfa3685d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0965963e6527e625d0684821b977b05cb9f28657
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104098"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497358"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅
 
@@ -97,8 +98,8 @@ done
 
 일반적으로 Event Hub에서 이벤트를 검색하는 애플리케이션을 만듭니다. Event Hub에서 메시지를 가져오는 애플리케이션을 만들려면 다음을 참조하세요.
 
-* [.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Java를 사용하여 Azure Event Hubs에서 이벤트 수신](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Java를 사용하여 Azure Event Hubs에서 이벤트 수신](../event-hubs/event-hubs-java-get-started-send.md)
 * [Apache Storm을 사용하여 Event Hubs에서 이벤트 수신](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## <a name="clean-up-resources"></a>리소스 정리

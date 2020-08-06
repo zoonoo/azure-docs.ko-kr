@@ -4,12 +4,13 @@ description: 이 문서에서는 리소스 그룹에 대한 Azure Event Grid 이
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 33f377fc4101aaba34629d94b7bcb2bc9a53f0c3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: f655ed3f2b6a3cef89c493137bd34732a60e414a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171281"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494097"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Azure CLI를 사용하여 리소스 그룹에 대한 이벤트 구독
 
@@ -35,10 +36,10 @@ ms.locfileid: "86171281"
 
 | 명령 | 메모 |
 |---|---|
-| [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Event Grid 구독을 만듭니다. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Event Grid 구독을 만듭니다. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - 확장 버전 | Event Grid 구독을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * 구독 쿼리에 대한 정보는 [쿼리 Event Grid 구독](../query-event-subscriptions.md)을 참조하세요.
-* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+* Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.

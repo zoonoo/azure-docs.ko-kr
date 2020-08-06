@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
-ms.openlocfilehash: d2b54d1173b9591de2482f4b3368d3dde8b8c766
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 097b7692c5088a0860b8778fe8f315a84cf6b147
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71947789"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496562"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL의 구성 나열 및 업데이트
 이 샘플 CLI 스크립트는 사용 가능한 모든 구성 매개 변수와 Azure Database for PostgreSQL에 대해 허용되는 값을 나열하고 *log_retention_days*를 기본값 이외의 값으로 설정합니다.
@@ -33,7 +33,7 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 ## <a name="script-explanation"></a>스크립트 설명
 이 스크립트에는 다음 표에 설명된 명령이 사용됩니다.
 
-| **명령** | **참고 사항** |
+| **명령** | **참고** |
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az postgres server create](/cli/azure/postgres/server) | 데이터베이스를 호스팅하는 PostgreSQL 서버를 만듭니다. |
@@ -44,5 +44,5 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
-- 추가 스크립트 시도: [PostgreSQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- 추가 스크립트 시도: [PostgreSQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
 - 서버 매개 변수에 대한 자세한 내용은 [Azure Portal에서 서버 매개 변수를 구성하는 방법](../howto-configure-server-parameters-using-portal.md)을 참조하세요.
