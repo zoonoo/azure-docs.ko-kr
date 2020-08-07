@@ -5,19 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 08/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: f22f81d69d746764af43d9167874aabedbd56f51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 475b2aa99296995c3adb51eca2d6bdb53616670e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765326"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903598"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Express 경로 직접 만들기
 
 이 문서에서는 Azure Portal를 사용 하 여 Express 경로 직접을 만드는 방법을 보여 줍니다.
 Express 경로 직접 사용을 통해 전 세계에 분산 된 피어 링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결할 수 있습니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
+
+## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+
+**Microsoft. 네트워크** 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다.
+
+1. [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)에 설명 된 대로 구독 설정에 액세스 합니다.
+1. 구독에서 **리소스 공급자**에 대해 **Microsoft 네트워크** 공급자가 **등록** 된 상태를 표시 하는지 확인 합니다. 등록 된 공급자 목록에 Microsoft 네트워크 리소스 공급자가 없는 경우 추가 합니다.
 
 ## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. Express 경로 직접 만들기
 

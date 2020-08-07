@@ -3,18 +3,18 @@ title: HCX(하이브리드 클라우드 확장) 설치
 description: AVS(Azure VMware 솔루션) 프라이빗 클라우드에 대한 VMware HCX(하이브리드 클라우드 확장) 솔루션 설정
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84388c3ec53d9067df2580aabb21ca5885d154b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475450"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904996"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Azure VMware 솔루션용 HCX 설치
 
 이 문서에서는 Azure VMWare 솔루션 (AVS) 사설 클라우드에 대해 VMWare HCX (하이브리드 클라우드 확장) 솔루션을 설정 하는 절차를 안내 합니다. HCX를 사용 하면 VMware 워크 로드를 클라우드로, 다른 연결 된 사이트를 다양 한 기본 제공 HCX 지원 마이그레이션 유형을 통해 마이그레이션할 수 있습니다.
 
-HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 개 이상이 필요한 경우 고객은 지원을 통해 HCX Enterprise 추가 기능을 사용 하도록 설정 하는 옵션을 사용할 수 있습니다. HCX Enterprise 설치는 GA (일반 공급) 후 고객에 게 추가 요금을 제공 하지만 [추가 기능](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)을 제공 합니다.
+HCX Advanced, 기본 설치는 최대 3 개의 사이트 연결 (온-프레미스 또는 클라우드-클라우드)을 지원 합니다. 3 개 이상의 사이트 연결이 필요한 경우 고객은 현재 미리 보기로 제공 되는 지원을 통해 HCX Enterprise 추가 기능을 사용 하도록 설정할 수 있습니다. HCX Enterprise는 GA(일반 공급) 후 [추가 기능](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)도 제공합니다. 단, 고객에게 추가 요금이 발생합니다.
 
 
 [시작하기 전에](#before-you-begin), [소프트웨어 버전 요구 사항](#software-version-requirements) 및 [필수 구성 요소](#prerequisites)를 철저하게 검토합니다. 
@@ -22,7 +22,7 @@ HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 �
 그런 다음, 다음을 수행 하는 데 필요한 모든 절차를 살펴보겠습니다.
 
 > [!div class="checklist"]
-> * 온-프레미스 HCX OVA 배포
+> * 온-프레미스 HCX OVA (커넥터) 배포
 > * HCX 활성화 및 구성
 > * 네트워크 업링크 및 서비스 메시 구성
 > * 어플라이언스 상태를 확인하여 설치 완료
@@ -36,11 +36,14 @@ HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 �
 * Vmware 문서 [vmware HCX로 Virtual Machines 마이그레이션을](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)검토 합니다.
 * 필요에 따라 [VMware HCX 배포 고려 사항을](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)검토 합니다.
 * 필요에 따라 HCX의 VMware vSphere [블로그 시리즈](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)와 같은 HCX의 관련 VMware 자료 검토 
-* AVS 지원 채널을 통해 AVS HCX Enterprise 활성화 주문
+* AVS 지원 채널을 통해 AVS HCX Enterprise 정품 인증을 요청 합니다.
 
-컴퓨팅 및 스토리지 리소스에 대한 워크로드 크기 조정은 AVS 프라이빗 클라우드 HCX 솔루션을 사용하기 위한 준비를 할 때 필수적인 계획 단계입니다. 초기 사설 클라우드 환경 계획의 일부로 크기 조정 단계를 처리 합니다.   
+계산 및 저장소 리소스에 대해 워크 로드를 크기 조정 하는 것은 AVS 사설 클라우드 HCX 솔루션 사용을 준비 하는 경우에 필수적인 계획 단계입니다. 초기 사설 클라우드 환경 계획의 일부로 크기 조정 단계를 처리 합니다. 
+
+Azure Migrate 포털 ()에서 AVS 평가를 완료 하 여 워크 로드의 크기를 지정할 수도 있습니다 https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
 
 ## <a name="software-version-requirements"></a>소프트웨어 버전 요구 사항
+
 인프라 구성 요소는 필요한 최소 버전을 실행해야 합니다. 
                                                          
 | 구성 요소 유형    | 원본 환경 요구 사항    | 대상 환경 요구 사항   |
@@ -50,7 +53,7 @@ HCX Advanced, 기본 설치는 최대 3 개의 vCenters을 지원 합니다. 3 �
 | NSX    | 원본에서 논리 스위치의 HCX 네트워크 확장의 경우: NSXv 6.2 + 또는 NSX-T 2.4 +   | NSXv 6.2+ 또는 NSX-T 2.4+<br/><br/>HCX 근접 라우팅의 경우: NSXv 6.4 + (NSX에서 근접 라우팅이 지원 되지 않음) |
 | vCloud Director   | 필요하지 않음 - 원본 사이트에서 vCloud Director와의 상호 운용성 없음 | 대상 환경을 vCloud Director와 통합 하는 경우 최소값은 9.1.0.2입니다.  |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Express 경로 Global Reach은 온-프레미스 및 AVS SDDC Express 경로 회로 간에 구성 되어야 합니다.
 

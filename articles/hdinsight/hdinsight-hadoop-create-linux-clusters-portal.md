@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 95756e9951b384c779f61651555482b3c8cb7321
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083375"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874030"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
-|속성 |Description |
+|속성 |설명 |
 |---|---|
 |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
 |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택합니다.|
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |클러스터 로그인 사용자 이름|사용자 이름을 입력합니다. 기본값은 **admin**입니다.|
 |클러스터 로그인 암호|암호를 입력합니다.|
 |클러스터 로그인 암호 확인|암호 다시 입력|
-|SSH(보안 셸) 사용자 이름|사용자 이름을 입력합니다. 기본값은 **sshuser**입니다.|
+|SSH(Secure Shell) 사용자 이름|사용자 이름을 입력합니다. 기본값은 **sshuser**입니다.|
 |SSH에 클러스터 로그인 암호 사용|이전에 지정한 관리자 암호와 동일한 SSH 암호를 **사용 하려면 ssh에 대 한 클러스터 로그인 암호 사용** 확인란을 선택 합니다. 그렇지 않으면 SSH 사용자를 인증할 수 있는 **암호** 또는 **공개 키**를 제공합니다. 공개 키는 추천되는 방법입니다. 아래쪽에서 **선택**을 클릭하여 자격 증명 구성을 저장합니다.  자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.|
 
 다음 **: 저장소 >>** 를 선택 하 여 다음 탭으로 이동 합니다.
@@ -85,6 +85,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="metastore-settings"></a>Metastore 설정
 
 선택 사항: 기존 SQL Database를 지정 하 여 클러스터 외부에 Apache Hive, Apache Oozie 및 Apache Ambari 메타 데이터를 저장 합니다. Metastore에 사용 되는 Azure SQL Database는 Azure HDInsight를 비롯 한 다른 Azure 서비스에 대 한 연결을 허용 해야 합니다. metastore를 만드는 경우 데이터베이스 이름은 대시 또는 하이픈을 사용하여 지정하지 않습니다. 이러한 문자로 인해 클러스터 만들기 프로세스가 실패할 수 있습니다.
+
+> [!IMPORTANT]
+> Metastore를 지 원하는 클러스터 셰이프의 경우 기본 metastore는 기본 **계층 5 DTU 제한 (업그레이드할 수 없음)** 을 사용 하는 Azure SQL Database 제공 합니다. 기본 테스트 목적으로 적합 합니다. 대량 또는 프로덕션 워크 로드의 경우 외부 metastore 마이그레이션하는 것이 좋습니다.
 
 다음 **: 보안 + 네트워킹 >>** 를 선택 하 여 다음 탭으로 이동 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Storage Explorer 시작 | Microsoft Docs
-description: Storage Explorer로 Azure 스토리지 리소스 관리
+description: Storage 탐색기를 사용 하 여 Azure storage 리소스 관리를 시작 합니다. Azure Storage 탐색기를 다운로드 하 여 설치 하 고, 저장소 계정 또는 서비스에 연결 합니다.
 services: storage
 author: cawaMS
 ms.service: storage
@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975268"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905349"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
 
@@ -23,14 +23,14 @@ Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
 다음 버전의 Windows에서는 Storage 탐색기을 지원 합니다.
 
 * Windows 10(권장)
-* Windows 8
+* Windows 8
 * Windows 7
 
 모든 버전의 Windows에서는 Storage 탐색기에 최소한 .NET Framework 4.7.2 필요 합니다.
@@ -123,7 +123,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 1. **Azure Active Directory (AZURE AD)를 통해 리소스 추가**를 선택 하 고 **다음**을 선택 합니다.
 
-1. Azure 계정 및 테 넌 트를 선택 합니다. 이러한 값에는 연결 하려는 저장소 리소스에 대 한 액세스 권한이 있어야 합니다. **새로 만들기**를 선택합니다.
+1. Azure 계정 및 테 넌 트를 선택 합니다. 이러한 값에는 연결 하려는 저장소 리소스에 대 한 액세스 권한이 있어야 합니다. **다음**을 선택합니다.
 
 1. 연결 하려는 리소스 종류를 선택 합니다. 연결에 필요한 정보를 입력 합니다. 
 
@@ -147,7 +147,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 연결이 성공적으로 추가 되 면 리소스 트리는 연결을 나타내는 노드로 이동 합니다. 리소스는 **로컬 & 연결 된**  >  **저장소 계정**아래에 나타납니다. Storage 탐색기 연결을 추가할 수 없거나 연결을 성공적으로 추가한 후 데이터에 액세스할 수 없는 경우 [Azure Storage 탐색기 문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)를 참조 하세요.
 
-#### <a name="use-a-shared-access-signature-uri"></a>공유 액세스 서명 URI 사용
+#### <a name="use-a-shared-access-signature-uri"></a>SAS(공유 액세스 서명) URI 사용
 
 1. **연결** 기호를 선택 하 여 **Azure Storage에 대 한 연결을**엽니다.
 
@@ -155,7 +155,7 @@ Storage 탐색기에서 리소스에 연결 하는 방법에는 여러 가지가
 
 1. **SAS (공유 액세스 서명) URI 사용**을 선택 하 고 **다음**을 선택 합니다.
 
-1. 연결에 대 한 표시 이름을 선택 하 고 공유 액세스 서명 URI를 입력 합니다. 연결 중인 리소스의 형식에 대 한 서비스 끝점은 자동으로 자동 채우기 되어야 합니다. 사용자 지정 끝점을 사용 하는 경우에는 그렇지 않을 수 있습니다. **새로 만들기**를 선택합니다.
+1. 연결에 대 한 표시 이름을 선택 하 고 공유 액세스 서명 URI를 입력 합니다. 연결 중인 리소스의 형식에 대 한 서비스 끝점은 자동으로 자동 채우기 되어야 합니다. 사용자 지정 끝점을 사용 하는 경우에는 그렇지 않을 수 있습니다. **다음**을 선택합니다.
 
 1. **연결 요약** 을 검토 하 여 모든 정보가 올바른지 확인 합니다. 있는 경우 **연결**을 선택 합니다. 그렇지 않은 경우 **뒤로** 를 선택 하 여 이전 페이지로 돌아가 잘못 된 정보를 수정 합니다.
 

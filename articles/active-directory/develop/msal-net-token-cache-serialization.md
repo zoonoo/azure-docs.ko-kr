@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e86b89fbf325eb0af5e4127e7fe113b87b1b70c2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890570"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874268"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET에서 토큰 캐시 직렬화
 [획득한 토큰](msal-acquire-cache-tokens.md)은 MSAL(Microsoft 인증 라이브러리)을 사용하여 캐시됩니다.  애플리케이션 코드는 캐시에서 토큰을 가져오려고 시도한 후 다른 방법으로 토큰을 획득해야 합니다.  이 문서에서는 MSAL.NET에서 제공하는 토큰 캐시의 기본 및 사용자 지정 직렬화에 대해 설명합니다.
@@ -271,12 +271,15 @@ namespace CommonCacheMsalV3
 
 ### <a name="token-cache-for-a-web-app-confidential-client-application"></a>웹앱의 토큰 캐시(기밀 클라이언트 애플리케이션)
 
-웹앱 또는 웹 API에서 캐시는 세션, Redis 캐시 또는 데이터베이스를 활용할 수 있습니다.
+웹 앱 또는 웹 Api에서 캐시는 세션, Redis 캐시 또는 데이터베이스를 활용할 수 있습니다. 웹 앱 또는 웹 Api의 계정 마다 하나의 토큰 캐시를 유지 해야 합니다. 
 
-웹 앱 또는 web Api에서 계정 당 하나의 토큰 캐시를 유지 합니다.  웹 앱의 경우 계정 ID로 토큰 캐시를 키로 지정 해야 합니다.  웹 Api의 경우 API를 호출 하는 데 사용 되는 토큰의 해시를 사용 하 여 계정에 키를 지정 해야 합니다. MSAL.NET는 .NET Framework 및 .NET Core subplatforms에서 사용자 지정 토큰 캐시 serialization을 제공 합니다. 이벤트는 캐시에 액세스할 때 발생 합니다. 앱은 캐시를 직렬화 하거나 deserialize 할지 여부를 선택할 수 있습니다. 사용자를 처리 하는 기밀 클라이언트 응용 프로그램 (사용자를 로그인 하 고 웹 Api를 호출 하는 웹 앱 및 다운스트림 웹 Api를 호출 하는 웹 Api)에서 많은 사용자가 동시에 처리 될 수 있습니다. 보안 및 성능상의 이유로 사용자 당 캐시 하나를 직렬화 하는 것이 좋습니다. Serialization 이벤트는 처리 된 사용자의 id를 기반으로 캐시 키를 계산 하 고 해당 사용자에 대 한 토큰 캐시를 serialize/deserialize 합니다.
+웹 앱의 경우 계정 ID로 토큰 캐시를 키로 지정 해야 합니다.
+
+웹 Api의 경우 API를 호출 하는 데 사용 되는 토큰의 해시를 사용 하 여 계정에 키를 지정 해야 합니다.
+
+MSAL.NET는 .NET Framework 및 .NET Core subplatforms에서 사용자 지정 토큰 캐시 serialization을 제공 합니다. 이벤트는 캐시에 액세스할 때 발생 합니다. 앱은 캐시를 직렬화 하거나 deserialize 할지 여부를 선택할 수 있습니다. 사용자를 처리 하는 기밀 클라이언트 응용 프로그램 (사용자를 로그인 하 고 웹 Api를 호출 하는 웹 앱 및 다운스트림 웹 Api를 호출 하는 웹 Api)에서 많은 사용자가 동시에 처리 될 수 있습니다. 보안 및 성능상의 이유로 사용자 당 캐시 하나를 직렬화 하는 것이 좋습니다. Serialization 이벤트는 처리 된 사용자의 id를 기반으로 캐시 키를 계산 하 고 해당 사용자에 대 한 토큰 캐시를 serialize/deserialize 합니다.
 
 [Microsoft. identity. 웹](https://github.com/AzureAD/microsoft-identity-web) 라이브러리는 토큰 캐시 직렬화 [를 포함 하](https://www.nuget.org/packages/Microsoft.Identity.Web) 는 미리 보기 NuGet 패키지를 제공 합니다.
-
 
 | 확장 메서드 | Microsoft Identity. 웹 네임 스페이스 | 설명  |
 | ---------------- | --------- | ------------ |
@@ -284,7 +287,7 @@ namespace CommonCacheMsalV3
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | 토큰 캐시가 사용자 세션에 바인딩됩니다. 이 옵션은 쿠키의 크기가 너무 커서 ID 토큰에 많은 클레임이 포함 된 경우에는 적합 하지 않습니다.
 | `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | 토큰 캐시는 ASP.NET Core 구현에 대 한 어댑터로 `IDistributedCache` , 따라서 분산 메모리 캐시, Redis 캐시, 분산 NCache 또는 SQL Server 캐시 중에서 선택할 수 있습니다. 구현에 대 한 자세한 `IDistributedCache` 내용은을 참조 하십시오 https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
-메모리 내 캐시를 사용 하는 간단한 사례:
+ASP.NET Core 응용 프로그램에서 [Startup](/aspnet/core/fundamentals/startup) 클래스의 [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) 메서드에 메모리 내 캐시를 사용 하는 예제는 다음과 같습니다.
 
 ```C#
 // or use a distributed Token Cache by adding
@@ -292,7 +295,6 @@ namespace CommonCacheMsalV3
     services.AddWebAppCallsProtectedWebApi(Configuration, new string[] { scopesToRequest })
             .AddInMemoryTokenCaches();
 ```
-
 
 가능한 분산 캐시의 예:
 
@@ -329,7 +331,7 @@ services.AddDistributedSqlServerCache(options =>
 
 다음 샘플은 토큰 캐시 직렬화를 보여줍니다.
 
-| 예제 | 플랫폼 | 설명|
+| 샘플 | 플랫폼 | 설명|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | 데스크톱(WPF) | Microsoft Graph API를 호출하는 Windows 데스크톱 .NET(WPF) 애플리케이션 ![토폴로지](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | 데스크톱(콘솔) | MSAL.NET를 사용 하 여 Azure AD v1.0 응용 프로그램 (ADAL.NET 사용)을 Microsoft id 플랫폼 응용 프로그램으로 마이그레이션하는 방법을 보여 주는 Visual Studio 솔루션 집합입니다. 특히 [토큰 캐시 마이그레이션](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md) 을 참조 하세요.|

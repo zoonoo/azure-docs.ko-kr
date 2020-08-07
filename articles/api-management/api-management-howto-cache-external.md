@@ -1,6 +1,6 @@
 ---
 title: Azure API Management에서 외부 캐시 사용 | Microsoft Docs
-description: Azure API Management에서 외부 캐시를 구성하고 사용하는 방법을 알아봅니다.
+description: Azure API Management에서 외부 캐시를 구성하고 사용하는 방법을 알아봅니다. 외부 캐시를 사용 하면 기본 제공 캐시에 대 한 몇 가지 제한 사항을 극복할 수 있습니다.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,18 +11,18 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 3f1f3d0fd0164a37c8011dc82a95337c89e103df
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250637"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904958"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Azure API Management에서 외부 Redis 호환 캐시 사용
 
 Azure API Management는 기본 제공 캐시를 활용 하는 것 외에도 외부 Redis 호환 캐시 (예: Redis 용 Azure Cache)에서 응답을 캐시할 수 있습니다.
 
-외부 캐시를 사용 하면에서 기본 제공 캐시에 대 한 몇 가지 제한 사항을 극복할 수 있습니다.
+외부 캐시를 사용 하면 기본 제공 캐시에 대 한 몇 가지 제한 사항을 극복할 수 있습니다.
 
 * API Management 업데이트 중에 캐시를 주기적으로 지우지 않도록 방지
 * 캐시 구성에 대한 더 자세한 제어

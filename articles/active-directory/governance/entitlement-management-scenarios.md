@@ -3,7 +3,7 @@ title: 자격 관리의 일반적인 시나리오-Azure AD
 description: Azure Active Directory 자격 관리의 일반적인 시나리오에 대해 수행 해야 하는 개략적인 단계를 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72a9dc504edac01654fb21ec3386a596e03492c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19bf54e6289472fe36dbf6b029f959545a65d1c8
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077796"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796611"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 일반적인 시나리오
 

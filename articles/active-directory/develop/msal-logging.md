@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 300b7e4fe3e3c150a78fee5b63458feab266aafe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558667"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846227"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 응용 프로그램 로그인
 
@@ -80,7 +80,7 @@ class Program
  }
  ```
 
-## <a name="android"></a>[OWA(Outlook Web Access)](#tab/android)
+## <a name="android"></a>[Android](#tab/android)
 
 ## <a name="logging-in-msal-for-android-using-java"></a>Java를 사용 하 여 Android 용 MSAL 로그인
 

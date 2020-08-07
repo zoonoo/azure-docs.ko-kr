@@ -1,6 +1,6 @@
 ---
 title: 프리미엄 Azure 파일 공유 만들기
-description: 이 문서에서는 프리미엄 Azure 파일 공유를 만드는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 프리미엄 Azure 파일 공유를 만드는 방법에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,19 +8,19 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5bdfbbc505f6abe4fee021df014e32d3ccae074
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: adeb1635489441b30c15fee69922e3abef0a53f9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497633"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903819"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>프리미엄 Azure 파일 공유를 만드는 방법
 프리미엄 파일 공유는 SSD (반도체 디스크) 저장소 미디어에 제공 되며, 호스팅 데이터베이스 및 HPC (고성능 컴퓨팅)를 포함 한 IO 집약적 작업에 유용 합니다. 프리미엄 파일 공유는 FileStorage 계정 이라고 하는 특수 한 용도의 저장소 계정 종류에서 호스팅됩니다. 프리미엄 파일 공유는 높은 성능 및 엔터프라이즈급 응용 프로그램을 위한 것으로, 일관성 낮은 대기 시간, 높은 IOPS 및 높은 처리량의 공유를 제공 합니다.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/), Azure PowerShell 및 Azure CLI를 사용 하 여이 새 계정 유형을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 프리미엄 Azure 파일 공유를 포함 하 여 Azure 리소스에 액세스 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9274e147bcaec4b3e63a6720e369946d64e94628
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ae3e72dc6e79b252c79c78fd5fac27bff8d4740
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809887"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905230"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -24,7 +24,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Azure Portal](https://portal.azure.com)를 통해 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -104,11 +104,11 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 이벤트 경로는 데이터 평면 Api를 사용 하 여 정의 됩니다. 
 
 경로 정의에는 다음 요소가 포함 될 수 있습니다.
-* 사용 하려는 경로 ID
+* 사용 하려는 경로 이름
 * 사용 하려는 끝점의 이름입니다.
 * 끝점으로 전송 되는 이벤트를 정의 하는 필터입니다. 
 
-경로 ID가 없는 경우 메시지는 Azure 디지털 쌍 외부에서 라우팅됩니다. 경로 ID가 있고 필터가 이면 `true` 모든 메시지가 끝점으로 라우팅됩니다. 경로 ID가 있고 다른 필터가 추가 된 경우 필터를 기반으로 메시지가 필터링 됩니다.
+경로 이름이 없으면 메시지가 Azure 디지털 쌍 외부에서 라우팅되지 않습니다. 경로 이름이 있고 필터가 이면 `true` 모든 메시지가 끝점으로 라우팅됩니다. 경로 이름이 있고 다른 필터가 추가 된 경우 필터를 기반으로 메시지가 필터링 됩니다.
 
 하나의 경로에서 여러 알림과 이벤트 유형을 선택할 수 있어야 합니다. 
 

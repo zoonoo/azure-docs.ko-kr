@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561461"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903410"
 ---
 # <a name="request-limits-for-translator"></a>번역기에 대 한 요청 제한
 
@@ -23,18 +23,18 @@ ms.locfileid: "85561461"
 
 ## <a name="character-and-array-limits-per-request"></a>요청당 문자 및 배열 제한
 
-각 번역 요청은 번역 하는 모든 대상 언어에서 5000 자로 제한 됩니다. 예를 들어 3 개의 다른 언어로 변환 하기 위해 1500 자의 변환 요청을 보내는 경우 요청 크기가 1, 500x3 = 4500 자인 요청 한도가 충족 됩니다. 요청 수가 아닌 문자당 요금이 청구됩니다. 짧은 요청을 보내는 것이 좋습니다.
+각 번역 요청은 번역 하는 모든 대상 언어에서 1만 자로 제한 됩니다. 예를 들어, 3 개의 다른 언어로 변환 하기 위해 3000 자의 변환 요청을 보내면 요청 크기가 3000x3 = 9000 자인 요청 한도가 충족 됩니다. 요청 수가 아닌 문자당 요금이 청구됩니다. 짧은 요청을 보내는 것이 좋습니다.
 
 다음 표에서는 변환기의 각 작업에 대 한 배열 요소 및 문자 제한을 나열 합니다.
 
-| 작업(Operation) | 배열 요소의 최대 크기 |    최대 배열 요소 수 |    최대 요청 크기 (문자) |
+| 연산 | 배열 요소의 최대 크기 |    최대 배열 요소 수 |    최대 요청 크기 (문자) |
 |:----|:----|:----|:----|
-| Translate | 5,000    | 100    | 5,000 |
-| Transliterate | 5,000    | 10    | 5,000 |
-| Detect | 10000 |    100 |    50,000 |
-| BreakSentence | 10000    | 100 |    50,000 |
-| 사전 조회| 100 |    10    | 1,000 |
-| 사전 예제 | 100 for text 및 100 (200 total)| 10|    2,000 |
+| Translate | 10000    | 100   | 10000 |
+| Transliterate | 5,000 | 10    | 5,000 |
+| Detect | 10000 | 100 |   50,000 |
+| BreakSentence | 50,000    | 100 | 50,000 |
+| 사전 조회| 100 |  10  | 1,000 |
+| 사전 예제 | 100 for text 및 100 (200 total)| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>시간당 문자 제한
 
@@ -64,7 +64,7 @@ ms.locfileid: "85561461"
 
 [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) 함수를 사용하는 경우 문장 길이는 275자로 제한됩니다. 이러한 언어에 대한 예외가 있습니다.
 
-| 언어 | 코드 | 문자 제한 |
+| Language | 코드 | 문자 제한 |
 |----------|------|-----------------|
 | 중국어 | zh | 166 |
 | 독일어 | de | 800 |

@@ -1,26 +1,29 @@
 ---
-title: .NET에서 Azure Cognitive Search 사용
+title: .NET에서 v10 (Microsoft. * 검색) 사용
 titleSuffix: Azure Cognitive Search
-description: 'C # 및 .NET SDK를 사용 하 여 .NET 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법을 알아봅니다. 코드 기반 작업에는 서비스에 연결, 콘텐츠 인덱싱 및 인덱스 쿼리가 포함됩니다.'
+description: '.Net SDK의 c # 및 버전 10을 사용 하 여 .NET 응용 프로그램에서 검색 개체를 만들고 관리 하는 방법에 대해 알아봅니다. 코드 조각은 서비스에 연결 하 고 인덱스 및 쿼리를 만드는 과정을 보여 줍니다.'
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 929241d7bc5db5476bab84d00fde90d4db55aedc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 08/05/2020
+ms.openlocfilehash: 820ce3078b642f2cc672cd6906895f818c06f5b7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146912"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905426"
 ---
-# <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>.NET 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법
+# <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>.NET 응용 프로그램에서 v10 (Microsoft. Search)를 사용 하는 방법
 
-이 문서는 [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용 하 여 작업을 시작 하 고 실행 하는 연습입니다. .NET SDK를 사용 하 여 Azure Cognitive Search를 사용 하 여 응용 프로그램에서 풍부한 검색 환경을 구현할 수 있습니다.
+이 문서에서는 c # 및 [Azure Cognitive Search (v10) .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용 하 여 검색 개체를 만들고 관리 하는 방법을 설명 합니다. 버전 10은 Microsoft의 최신 버전입니다. 앞으로는 Azure SDK 팀의 [Azure.Search.Documents](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) 에서 새로운 기능이 출시 될 예정입니다.
 
-## <a name="whats-in-the-azure-cognitive-search-sdk"></a>Azure Cognitive Search SDK의 기능
+기존 또는 처리 중인 개발 프로젝트가 있는 경우 버전 10을 계속 사용 합니다. 새 프로젝트의 경우 또는 새 기능을 사용 하려면 기존 검색 솔루션을 새 라이브러리로 전환 해야 합니다.
+
+## <a name="whats-in-version-10"></a>버전 10의 기능
+
 SDK는 HTTP와 JSON의 세부 정보를 처리하지 않고도 인덱스, 데이터 원본, 인덱서, 동의어 맵을 관리할 뿐만 아니라 문서를 업로드 및 관리하고 쿼리를 실행할 수 있는 클라이언트 라이브러리 몇 개로 구성되어 있습니다. 이러한 클라이언트 라이브러리는 모두 NuGet 패키지로 배포됩니다.
 
 기본 NuGet 패키지는 `Microsoft.Azure.Search`이며, 이는 다른 모든 패키지를 종속 항목으로 포함하는 메타 패키지입니다. 방금 시작한 경우 또는 응용 프로그램에 Azure Cognitive Search의 모든 기능이 필요 하다 고 생각 하는 경우이 패키지를 사용 합니다.

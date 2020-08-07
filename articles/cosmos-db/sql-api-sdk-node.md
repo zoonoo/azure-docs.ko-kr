@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f280e6754d40ad5dc8cbfa4b760e090d0b5b81aa
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461360"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846482"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ ms.locfileid: "87461360"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
@@ -57,7 +59,7 @@ ms.locfileid: "87461360"
 * 사용자가 부분 다시 시도 옵션을 제공했을 때의 버그 수정
 
 ### <a name="303"></a><a name="3.0.3"></a>3.0.3
-* Webpack이 필수로 호출된 모듈을 확인하는 것 방지
+* Webpack에서 필수로 호출 된 모듈을 확인 하지 못하도록 방지
 
 ### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * RU가 집계 쿼리에 대해 항상 0으로 보고되는 장기 미해결 버그 수정
@@ -183,7 +185,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>향상된 브라우저 환경
-브라우저에서 v2 SDK를 사용할 수 있었지만 이상적인 환경은 아니었습니다. 여러 node.js 기본 제공 라이브러리를 보충하고 Webpack 또는 Parcel와 같은 번들러를 사용해야 합니다. v3 SDK를 사용하면 브라우저 사용자에게 가장 적합한 환경을 사용할 수 있습니다.
+브라우저에서 v2 SDK를 사용할 수 있었지만 이상적인 환경은 아니었습니다. 여러 node.js 기본 제공 라이브러리를 safehtml 하 고 webpack 또는 Parcel와 같은 번들러을 사용 해야 합니다. v3 SDK를 사용하면 브라우저 사용자에게 가장 적합한 환경을 사용할 수 있습니다.
 
 * 요청 내부 구조를 fetch로 바꿈(#245)
 * 버퍼 사용 제거(#330)

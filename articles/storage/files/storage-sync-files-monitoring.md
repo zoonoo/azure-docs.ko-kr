@@ -1,18 +1,18 @@
 ---
 title: Azure 파일 동기화 모니터링 | Microsoft Docs
-description: Azure 파일 동기화를 모니터링하는 방법을 설명합니다.
+description: Azure Monitor, Storage 동기화 서비스 및 Windows Server를 사용 하 여 Azure File Sync 배포를 모니터링 하는 방법을 검토 합니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832623"
+ms.locfileid: "87903530"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
@@ -23,7 +23,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 이 가이드에서 다루는 시나리오는 다음과 같습니다. 
 - Azure Monitor에서 Azure File Sync 메트릭을 봅니다.
 - Azure Monitor에서 경고를 만들어 중요 상태를 사전에 알려 줍니다.
-- Azure Portal를 사용 하 여 Azure File Sync 배포의 상태를 모니터링 합니다.
+- Azure Portal를 사용 하 여 Azure File Sync 배포의 상태를 확인 합니다.
 - Windows 서버에서 이벤트 로그 및 성능 카운터를 사용 하 여 Azure File Sync 배포의 상태를 모니터링 하는 방법입니다. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -34,7 +34,9 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 Azure 파일 동기화의 메트릭은 기본적으로 사용하도록 설정되며 15분마다 Azure Monitor로 전송됩니다.
 
-Azure Monitor에서 Azure File Sync 메트릭을 보려면 **저장소 동기화 서비스** 리소스 종류를 선택 합니다.
+**Azure Monitor에서 Azure File Sync 메트릭을 보는 방법**
+- **Azure Portal** 에서 **저장소 동기화 서비스로** 이동 하 고 **메트릭**을 클릭 합니다.
+- **메트릭** 드롭다운을 클릭 하 고 보려는 메트릭을 선택 합니다.
 
 Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다음과 같습니다.
 
@@ -82,7 +84,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 ### <a name="registered-server-health"></a>등록 된 서버 상태
 
 - 등록 된 **서버** 상태가 **온라인**인 경우 서버는 서비스와 성공적으로 통신 하 고 있는 것입니다.
-- 등록 된 **서버** 상태가 **오프 라인으로 표시**되는 경우 서버의 저장소 동기화 모니터 (AzureStorageSyncMonitor.exe) 프로세스가 실행 중인지 확인 합니다. 서버가 방화벽이 나 프록시 뒤에 있는 경우 [이 문서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) 를 참조 하 여 방화벽 및 프록시를 구성 합니다.
+- 등록 된 **서버** 상태가 **오프 라인으로 표시**되는 경우 AzureStorageSyncMonitor.exe (저장소 동기화 모니터 프로세스)가 실행 되 고 있지 않거나 서버에서 Azure File Sync 서비스에 액세스할 수 없습니다. 지침은 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) 를 참조 하세요.
 
 ### <a name="server-endpoint-health"></a>서버 끝점 상태
 
@@ -116,16 +118,18 @@ Windows Server에서 클라우드 계층화, 등록 된 서버 및 동기화 상
 
 동기화 상태:
 
-- 이벤트 ID 9102은 동기화 세션이 완료 된 후에 기록 됩니다. 이 이벤트를 사용 하 여 동기화 세션의 성공 여부 (**HResult = 0**) 및 항목당 동기화 오류가 있는지 여부를 확인 합니다. 자세한 내용은 [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 및 [항목 별 오류](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 설명서를 참조 하세요.
+- 동기화 시스템이 완료되면 이벤트 ID 9102가 기록됩니다. 이 이벤트를 사용 하 여 동기화 세션의 성공 여부 (**HResult = 0**) 및 항목당 동기화 오류가 있는지 여부를 확인 합니다. 자세한 내용은 [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 및 [항목 별 오류](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 설명서를 참조 하세요.
 
   > [!Note]  
   > 동기화 세션이 전반적으로 실패 하거나 0이 아닌 PerItemErrorCount을 포함 하는 경우도 있습니다. 그러나 계속 해 서 진행 하 고 일부 파일은 성공적으로 동기화 됩니다. AppliedFileCount, AppliedDirCount, AppliedTombstoneCount 및 AppliedSizeBytes와 같은 적용 된 필드에서이를 확인할 수 있습니다. 이러한 필드는 성공한 세션의 양을 알려줍니다. 한 행에서 여러 동기화 세션이 실패 하 고 적용 되는 개수가 늘어나면 동기화 시간을 제공 하 여 지원 티켓을 열기 전에 다시 시도 하세요.
+
+- 동기화 세션이 완료 되 면 각 항목당 오류에 대해 이벤트 ID 9121이 기록 됩니다. 이 이벤트를 사용 하 여이 오류와 동기화 되지 않는 파일 수를 확인 합니다 (**PersistentCount** 및 **TransientCount**). 영구적 항목 별 오류를 조사 해야 합니다. [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
 
 - 활성 동기화 세션이 있으면 5~10분마다 이벤트 ID 9302가 기록됩니다. 이 이벤트를 사용 하 여 현재 동기화 세션이 진행 되 고 있는지 여부를 확인할 수 있습니다 (**AppliedItemCount > 0**). 동기화가 진행 되 고 있지 않으면 동기화 세션이 실패 하 고 이벤트 ID 9102이 오류로 기록 됩니다. 자세한 내용은 [동기화 진행률 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조 하세요.
 
 등록 된 서버 상태:
 
-- 서버가 서비스에 작업을 쿼리하면 30초마다 이벤트 ID 9301이 기록됩니다. GetNextJob가 **status = 0**으로 완료 되 면 서버는 서비스와 통신할 수 있습니다. 오류가 발생 하 여 GetNextJob이 완료 되 면 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) 에서 지침을 확인 합니다.
+- 서버가 서비스에 작업을 쿼리하면 30초마다 이벤트 ID 9301이 기록됩니다. GetNextJob가 **status = 0**으로 완료 되 면 서버는 서비스와 통신할 수 있습니다. 오류가 발생 하 여 GetNextJob이 완료 되 면 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) 에서 지침을 확인 합니다.
 
 클라우드 계층화 상태:
 

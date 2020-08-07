@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552120"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874778"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용하여 인증 세션 관리를 구성합니다.
 
@@ -106,8 +106,6 @@ Azure AD 조인, 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치�
 ![로그인 빈도로 구성 된 조건부 액세스 정책](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 Azure AD에서 등록 된 Windows 장치에는 장치에 로그인 하는 것으로 간주 됩니다. 예를 들어 Office 앱에 대해 로그인 빈도를 24 시간으로 구성한 경우 Azure AD에 등록 된 Windows 장치의 사용자는 장치에 로그인 하 여 로그인 빈도 정책을 충족 하 고 Office 앱을 열 때 메시지가 다시 표시 되지 않습니다.
-
-동일한 브라우저 세션에서 실행 되는 다른 웹 앱에 대해 서로 다른 로그인 빈도를 구성한 경우 동일한 브라우저 세션에서 실행 되는 모든 앱이 단일 세션 토큰을 공유 하므로 가장 엄격한 정책이 두 앱 모두에 적용 됩니다.
 
 ### <a name="policy-2-persistent-browser-session"></a>정책 2: 영구 브라우저 세션
 

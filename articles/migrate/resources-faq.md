@@ -3,12 +3,12 @@ title: Azure Migrate FAQ
 description: Azure Migrate 서비스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090011"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847468"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -19,7 +19,7 @@ ms.locfileid: "87090011"
 
 ## <a name="what-is-azure-migrate"></a>Azure Migrate란?
 
-Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세한 정보를 알아보세요](migrate-services-overview.md).
+Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세히 알아봅니다](migrate-services-overview.md).
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Azure Migrate로 무엇을 할 수 있나요?
 
@@ -29,13 +29,19 @@ Azure Migrate를 사용 하 여 온-프레미스 인프라, 응용 프로그램 
 
 [Azure Migrate](migrate-services-overview.md) 는 Azure로의 평가 및 마이그레이션에 대 한 중앙 집중식 허브를 제공 합니다. 
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) 은 재해 복구 솔루션입니다. 
+- Azure Migrate를 사용 하 여 Azure Migrate 도구, 다른 Azure 서비스 및 타사 도구와의 상호 운용성 및 향후 확장성을 제공 합니다.
+- Azure Migrate: 서버 마이그레이션 도구는 Azure로의 서버 마이그레이션을 위해 작성 되었습니다. 마이그레이션에 최적화 되어 있습니다. 마이그레이션과 직접적인 관련이 없는 개념 및 시나리오에 대해 알 필요가 없습니다. 
+- VM에 대 한 복제가 시작 된 시간부터 180 일간의 마이그레이션에 대 한 도구 사용 요금은 없습니다. 마이그레이션을 완료 하는 데 걸리는 시간을 제공 합니다. 복제에 사용 되는 저장소 및 네트워크 리소스와 테스트 마이그레이션 중 사용 된 계산 요금에 대해서만 비용을 지불 합니다.
+- Azure Migrate은 Site Recovery에서 지원 되는 모든 마이그레이션 시나리오를 지원 합니다. 또한 VMware Vm의 경우 Azure Migrate는 에이전트 없는 마이그레이션 옵션을 제공 합니다.
+- Azure Migrate에 대 한 새로운 마이그레이션 기능에 우선 순위를 정 합니다. 서버 마이그레이션 도구에만 해당 됩니다. 이러한 기능은 Site Recovery 대상이 아닙니다.
+
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) 은 재해 복구에만 사용 해야 합니다.
 
 Azure Migrate: 서버 마이그레이션 도구는 일부 온-프레미스 컴퓨터의 리프트 앤 시프트 마이그레이션에 백 엔드 Site Recovery 기능을 사용 합니다.
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Azure Migrate의 이전 클래식 환경을 갖춘 프로젝트가 있습니다. 새 버전을 사용 하 여 시작 어떻게 할까요??
 
-이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 만들고이 프로젝트](create-manage-projects.md)에 [평가 및 마이그레이션 도구를 추가](how-to-add-tool-first-time.md) 해야 합니다. 사용 가능한 평가 및 마이그레이션 도구를 사용 하는 방법을 이해 하려면 자습서를 사용 하세요. 클래식 프로젝트에 연결 된 Log Analytics 작업 영역이 있는 경우 클래식 프로젝트를 삭제 한 후에 현재 버전의 프로젝트에 연결할 수 있습니다.
+이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 생성](create-manage-projects.md)하고 [평가 및 마이그레이션 도구를 추가](how-to-add-tool-first-time.md)해야 합니다. 사용 가능한 평가 및 마이그레이션 도구를 사용하는 방법을 이해하려면 자습서를 사용하세요. 클래식 프로젝트에 연결된 Log Analytics 작업 영역이 있는 경우 클래식 프로젝트를 삭제한 후에 현재 버전의 프로젝트에 연결할 수 있습니다.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>서버 평가와 맵 도구 키트 Azure Migrate 간의 차이점은 무엇 인가요?
 

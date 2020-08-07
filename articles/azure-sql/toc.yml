@@ -984,7 +984,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: 수동으로 구성
                       items:
-                        - name: 사전 요구 사항
+                        - name: 필수 구성 요소
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: 자습서
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -998,7 +998,7 @@
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
                     - name: FCI 만들기
                       items:
-                        - name: Azure 공유 디스크(SQL2019+)
+                        - name: Azure 공유 디스크
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
                         - name: 스토리지 공간 다이렉트(Win2016+)
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
@@ -1044,7 +1044,7 @@
               href: 'https://azure.microsoft.com/roadmap/?category=compute'
             - name: MSDN 포럼
               href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server'
-            - name: 스택 오버플로
+            - name: Stack Overflow
               href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
     - name: Linux
       items:
@@ -1088,7 +1088,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM
@@ -1142,7 +1142,7 @@
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
     - name: 문제 해결
       items:

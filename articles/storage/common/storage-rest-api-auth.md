@@ -1,6 +1,6 @@
 ---
 title: 공유 키 인증을 사용 하 여 REST API 작업 호출
-titleSuffix: Azure Storage
+titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Azure Storage REST API를 사용 하 여 공유 키 권한 부여를 통해 Blob 저장소에 대 한 요청을 수행할 수 있습니다.
 services: storage
 author: tamram
@@ -10,18 +10,18 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509186"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905383"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증을 사용 하 여 REST API 작업 호출
 
 이 문서에서는 인증 헤더를 구성 하는 방법을 비롯 하 여 Azure Storage REST Api를 호출 하는 방법을 보여 줍니다. REST에 대해 알지 못하는 개발자의 관점에서 작성 되었으며 REST 호출을 수행 하는 방법을 알 수 없습니다. REST 작업을 호출 하는 방법을 파악 한 후에는이 정보를 활용 하 여 다른 Azure Storage REST 작업을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 샘플 응용 프로그램은 저장소 계정에 대 한 blob 컨테이너를 나열 합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "85509186"
 
 애플리케이션 예제는 C#으로 작성된 콘솔 애플리케이션입니다.
 
-[Git](https://git-scm.com/) 을 사용 하 여 개발 환경에 응용 프로그램의 복사본을 다운로드 합니다.
+[git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
@@ -569,7 +569,7 @@ Content-Length: 1135
 
 ## <a name="next-steps"></a>다음 단계
 
-- [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)
-- [파일 서비스 REST API](/rest/api/storageservices/file-service-rest-api)
-- [큐 서비스 REST API](/rest/api/storageservices/queue-service-rest-api)
+- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
+- [File Service REST API](/rest/api/storageservices/file-service-rest-api)
+- [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api)
 - [Table Service REST API](/rest/api/storageservices/table-service-rest-api)

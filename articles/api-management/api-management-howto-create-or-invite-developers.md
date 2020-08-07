@@ -1,6 +1,6 @@
 ---
-title: Azure API Management에서 사용자 계정을 관리하는 방법 | Microsoft Docs
-description: Azure API Management에서 사용자를 만들거나 초대하는 방법에 대해 알아봅니다.
+title: Azure API Management에서 사용자 계정을 관리 하는 방법 | Microsoft Docs
+description: Azure API Management에서 사용자를 만들거나 초대 하는 방법에 대해 알아봅니다. 개발자 계정을 만든 후 사용할 추가 리소스를 봅니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d8f7d7f7707add22d700421b229f6dbe725db465
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9ec482af2878ba302a4658314723b96fb9a42999
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250461"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904890"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
 

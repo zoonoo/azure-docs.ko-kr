@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3a648b11e795a7d5c8680ac8c3df95e7d0c6bb7d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c1d2613661421ae95c34edef3caafe4c6fb3d4a9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406778"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905077"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트에 대 한 자동 언어 검색
 
@@ -26,7 +26,7 @@ ms.locfileid: "87406778"
 이 문서에서는를 사용 하 여 `AutoDetectSourceLanguageConfig` 개체를 생성 하 `SpeechRecognizer` 고 검색 된 언어를 검색 하는 방법을 배웁니다.
 
 > [!IMPORTANT]
-> 이 기능은 c #, c + +, Java, Python 및 객관적인-C를 사용 하는 음성 SDK에만 사용할 수 있습니다.
+> 이 기능은 c #, c + +, Java, Python, JavaScript 및 객관적인-C를 사용 하는 음성 SDK에만 사용할 수 있습니다.
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 자동 언어 검색
 
@@ -240,4 +240,24 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech SDK 참조 설명서](speech-sdk.md)
+::: zone pivot="programming-language-csharp"
+* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) 를 참조 하세요.
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) 를 참조 하세요.
+::: zone-end
+
+::: zone pivot="programming-language-java"
+* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) 를 참조 하세요.
+::: zone-end
+
+::: zone pivot="programming-language-python"
+* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) 를 참조 하세요.
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) 를 참조 하세요.
+::: zone-end
+
+* [Speech SDK 참조 설명서](speech-sdk.md)
