@@ -58,6 +58,8 @@
       href: network-best-practices.md
     - name: DDoS Protection
       href: ddos-best-practices.md
+    - name: DDoS Protection 보안 기준
+      href: ddos-protection-security-baseline.md
     - name: 현수 DNS 및 하위 도메인 인수
       href: subdomain-takeover.md
     - name: 하이브리드 네트워크 아키텍처 보안

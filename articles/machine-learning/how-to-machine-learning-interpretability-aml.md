@@ -10,13 +10,13 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7f2ca2a84123d3bb7dd92a797d517a2490544efa
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307015"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853401"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측 (미리 보기)을 설명 합니다.
 
@@ -244,7 +244,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예들 들어 `train_explain.py`입니다.
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예: `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient

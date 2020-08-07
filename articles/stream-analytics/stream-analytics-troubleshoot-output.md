@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc35e6a723afab3f230aa91e4b6895aead35e141
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037072"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903190"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "86037072"
 1. 각 출력에 대해 **테스트 연결** 단추를 사용하여 출력에 대한 연결을 확인합니다.
 1. **모니터** 탭에서 [모니터링 메트릭](stream-analytics-monitoring.md)을 확인합니다. 값을 집계하기 때문에 메트릭이 몇 분 동안 지연됩니다.
 
-   * **입력 이벤트** 값이 0보다 크면 작업에서 입력 데이터를 읽을 수 있습니다. **입력 이벤트** 값이 0보다 크지 않은 경우 작업의 입력에 문제가 있습니다. 자세한 내용은 [입력 연결 문제 해결](stream-analytics-troubleshoot-input.md)을 참조하세요.
+   * **입력 이벤트** 값이 0보다 크면 작업에서 입력 데이터를 읽을 수 있습니다. **입력 이벤트** 값이 0보다 크지 않은 경우 작업의 입력에 문제가 있습니다. 자세한 내용은 [입력 연결 문제 해결](stream-analytics-troubleshoot-input.md)을 참조하세요. 작업에 참조 데이터 입력이 있는 경우 **입력 이벤트** 메트릭을 볼 때 논리적 이름으로 분할을 적용 합니다. 참조 데이터의 입력 이벤트만이 없으면이 입력 소스가 올바른 참조 데이터 집합을 인출 하도록 올바르게 구성 되지 않은 것일 수 있습니다.
    * **데이터 변환 오류**가 값이 0보다 크고 증가하는 경우 데이터 변환 오류에 대한 자세한 내용은 [Azure Stream Analytics 데이터 오류](data-errors.md)를 참조하세요.
    * **런타임 오류**가 값이 0보다 크면 작업에서 데이터를 받지만 쿼리를 처리하는 동안 오류가 생성됩니다. 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동한 다음, **실패** 상태를 필터링합니다.
    * **입력 이벤트** 값이 0보다 크고 **출력 이벤트** 값이 0이면 다음 명령문 중 하나가 true입니다.

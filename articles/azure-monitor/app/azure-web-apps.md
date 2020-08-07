@@ -2,14 +2,14 @@
 title: Azure App Services 성능 모니터링 | Microsoft Docs
 description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373167"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876396"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -94,7 +94,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 App Service 웹 앱 내의 **설정**에서  >  **Application Insights**  >  **사용**을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
 
@@ -144,7 +144,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 ![응용 프로그램 설정 UI의 스크린샷](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](./javascript.md)해야 합니다.
 
@@ -169,7 +169,7 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 |앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`입니다. |
+|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended` |
 |InstrumentationEngine_EXTENSION_VERSION | 이진 재작성 엔진을 켤 지 여부를 제어 `InstrumentationEngine` 합니다. 이 설정은 성능에 영향을 주며 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL & Azure 테이블 텍스트가 종속성 호출과 함께 캡처될 수 있는지 여부를 제어 합니다. 성능 경고: 응용 프로그램 콜드 시작 시간이 영향을 받습니다. 이 설정에는가 필요 합니다 `InstrumentationEngine` . | `~1` |
 
@@ -377,7 +377,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 아래 표에서는 이러한 값의 의미, 기본적인 원인 및 권장 픽스를 보다 자세히 설명 합니다.
 
-|문제 값|설명|Fix
+|문제 값|설명|수정
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 이 값은 확장에서 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 감지 했음을 나타냅니다. `System.Diagnostics.DiagnosticSource`, 또는에 대 한 참조로 인 한 것일 수 있습니다. `Microsoft.AspNet.TelemetryCorrelation``Microsoft.ApplicationInsights`  | 참조를 제거 합니다. 이러한 참조 중 일부는 특정 Visual Studio 템플릿에서 기본적으로 추가 되며 이전 버전의 Visual Studio는에 대 한 참조를 추가할 수 있습니다 `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | 응용 프로그램이 .NET Core 2.1 또는 2.2를 대상으로 하 고 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 를 참조 하는 경우에는 Application Insights를 가져오고 확장이 백오프 됩니다. | .NET Core 2.1, 2.2의 고객은 AspNetCore를 대신 사용 하는 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/287) .|
@@ -396,6 +396,12 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 이는 APPINSIGHTS_JAVASCRIPT_ENABLED 응용 프로그램 설정이 true로 설정 되 고 콘텐츠 인코딩이 동시에 표시 되기 때문입니다. 이 시나리오는 아직 지원 되지 않습니다. 해결 방법은 응용 프로그램 설정에서 APPINSIGHTS_JAVASCRIPT_ENABLED를 제거 하는 것입니다. 그러나이는 클라이언트/브라우저 쪽 JavaScript 계측이 여전히 필요한 경우 웹 페이지에 대 한 수동 SDK 참조가 필요 함을 의미 합니다. JavaScript SDK를 사용한 수동 계측에 대 한 [지침](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) 을 따르세요.
 
 Application Insights 에이전트/확장에 대 한 최신 정보는 [릴리스](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)정보를 확인 하세요.
+
+### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>웹 앱으로 배포 된 기본 웹 사이트에서 자동 클라이언트 쪽 모니터링을 지원 하지 않음
+
+Azure 앱 Services에서 또는 런타임을 사용 하 여 웹 앱을 만들 때 `ASP.NET` `.NET Core` 단일 정적 HTML 페이지가 스타터 웹 사이트로 배포 됩니다. 또한 정적 웹 페이지는 IIS에서 .NET 관리 웹 파트를 로드 합니다. 이를 통해 코드 없는 서버 쪽 모니터링을 테스트할 수 있지만 자동 클라이언트 쪽 모니터링은 지원 하지 않습니다.
+
+코드 없는 서버 및 ASP.NET Core ASP.NET에 대 한 클라이언트 쪽 모니터링을 테스트 하려는 경우 Azure 앱 Services 웹 앱에서 [ASP.NET Core 웹 앱](../../app-service/app-service-web-get-started-dotnet.md) 을 만들고 [ASP.NET Framework 웹 앱을 만든](../../app-service/app-service-web-get-started-dotnet-framework.md) 다음 현재 문서의 지침을 사용 하 여 모니터링을 사용 하도록 설정 하는 공식 가이드를 따르는 것이 좋습니다.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP 및 WordPress는 지원 되지 않습니다.
 

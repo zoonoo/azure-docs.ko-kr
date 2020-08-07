@@ -2,18 +2,18 @@
 title: Azure AD에서 서비스 앱 등록-FHIR 용 Azure API
 description: 토큰을 인증 하 고 가져오는 데 사용할 수 있는 Azure Active Directory에 서비스 클라이언트 응용 프로그램을 등록 하는 방법에 대해 알아봅니다.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 83514ea13ca51e6980a1b4b60d4555974db5a240
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 34eec3ad0d2fc193744898b6f08cbe50c261c945
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871083"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853027"
 ---
 # <a name="register-a-service-client-application-in-azure-active-directory"></a>Azure Active Directory에 서비스 클라이언트 응용 프로그램 등록
 

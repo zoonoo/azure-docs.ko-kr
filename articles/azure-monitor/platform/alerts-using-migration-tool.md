@@ -6,19 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: ab5c16995a2d2bad6e44f0f9d1187ca3d66be1b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114261"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852126"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙 마이그레이션
 
-[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 9 월 2019 (원래 7 월 2019 일)에 사용 중지 됩니다. 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 사용할 수 있습니다. 이 문서에서는 9 월 2019에 자동 마이그레이션을 시작 하기 전에 마이그레이션 도구를 사용 하 여 기존 경고 규칙을 자발적으로 마이그레이션하는 방법을 설명 합니다.
-
-> [!NOTE]
-> 마이그레이션 도구의 롤아웃 지연으로 인해 클래식 경고 마이그레이션의 사용 중지 날짜가 원래 발표 된 날짜 6 월 30 일까 지 [2019 년 8 월 31](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) 2019 일로 연장 되었습니다.
+[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 사용 중지 되지만 아직 새 경고를 지원 하지 않는 리소스에 대해서는 제한적으로 사용 됩니다. 마이그레이션 도구는 기존 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 제공 되었습니다. 이 문서에서는이 마이그레이션 도구를 사용 하는 방법에 대해 설명 합니다 .이 도구는 추가 알림 보류 중인 경고에도 사용 됩니다.
 
 ## <a name="benefits-of-new-alerts"></a>새 경고의 이점
 
@@ -37,7 +34,7 @@ ms.locfileid: "81114261"
 
 - 알림 페이로드 형식과 새 경고 규칙을 만들고 관리 하는 Api는 모두 더 많은 기능을 지원 하기 때문에 기존 경고 규칙의 형식과 다릅니다. [마이그레이션을 준비 하는 방법을 알아봅니다](alerts-prepare-migration.md).
 
-- 일부 클래식 경고 규칙은 도구를 사용 하 여 마이그레이션할 수 없습니다. [마이그레이션할 수 없는 규칙과 수행할 작업에 대해 알아봅니다](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- 일부 클래식 경고 규칙은 도구를 사용 하 여 마이그레이션할 수 없습니다. [마이그레이션할 수 없는 규칙과 수행할 작업에 대해 알아봅니다](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > 마이그레이션 프로세스는 클래식 경고 규칙의 평가에 영향을 주지 않습니다. 이러한 작업은 마이그레이션할 때까지 계속 실행 되 고 경고를 보냅니다.
@@ -76,7 +73,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
 1. 마이그레이션이 완료 되거나 사용자의 조치가 필요한 경우 앞에서 제공한 주소로 전자 메일을 받게 됩니다. 포털의 마이그레이션 방문 페이지에서 상태를 주기적으로 확인할 수도 있습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>내 구독이 마이그레이션 준비 되지 않은 것으로 표시 되는 이유는 무엇 인가요?
 

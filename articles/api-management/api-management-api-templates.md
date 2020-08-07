@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.custom: tracking-python
-ms.openlocfilehash: 193dc7a953bc746ec7211433f846343969176c96
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-python
+ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243701"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851717"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
 
@@ -90,7 +90,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|설명|  
+|속성|Type|설명|  
 |--------------|----------|-----------------|  
 |`apis`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
@@ -345,14 +345,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|Description|  
+|속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`apiId`|문자열|현재 API의 ID입니다.|  
-|`apiName`|문자열|API 이름입니다.|  
-|`apiDescription`|문자열|API에 대한 설명입니다.|  
+|`apiName`|string|API 이름입니다.|  
+|`apiDescription`|string|API에 대한 설명입니다.|  
 |`api`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
 |`operation`|[연산](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
-|`sampleUrl`|문자열|현재 작업의 URL입니다.|  
+|`sampleUrl`|string|현재 작업의 URL입니다.|  
 |`operationMenu`|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
 |`consoleUrl`|URI|**시도** 버튼에 대한 URI입니다.|  
 |`samples`|[코드 샘플](api-management-template-data-model-reference.md#Sample) 엔터티의 컬렉션입니다.|현재 작업에 대한 코드 샘플입니다.|  

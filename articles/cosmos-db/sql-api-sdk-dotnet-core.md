@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
-ms.openlocfilehash: afd68f9c71281deb3752e29eb57f53227999c01a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ec67691e63e93927723192dc9b93e40cb0dbf263
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283931"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846567"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>SQL API 용 Azure Cosmos DB .NET Core SDK v2: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -25,6 +25,8 @@ ms.locfileid: "87283931"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [비동기 Java SDK v2](sql-api-sdk-async-java.md)
 > * [동기 Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * 단계 (/rest/api
 > * [REST 리소스 공급자](/azure/azure-resource-manager/management/azure-services-resource-providers)
