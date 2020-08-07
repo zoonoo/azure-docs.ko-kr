@@ -1,7 +1,7 @@
 ---
 title: API Management에서 OAuth 2.0을 사용 하 여 개발자 계정에 권한 부여
 titleSuffix: Azure API Management
-description: API Management에서 OAuth 2.0을 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아봅니다.
+description: API Management에서 OAuth 2.0을 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아봅니다. OAuth 2.0은 사용자가 자격이 있는 리소스에만 액세스할 수 있도록 API를 보호 합니다.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499786"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902261"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 

@@ -1,44 +1,33 @@
 ---
-title: Azure Monitor 경고에 대 한 마이그레이션 도구 이해
-description: 경고 마이그레이션 도구의 작동 원리를 이해 하 고 문제를 해결 합니다.
+title: Azure Monitor 경고 마이그레이션 이해
+description: 경고 마이그레이션의 작동 원리를 이해 하 고 문제를 해결 합니다.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564098"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852398"
 ---
-# <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 방식 이해
+# <a name="understand-migration-options-to-newer-alerts"></a>최신 경고에 대 한 마이그레이션 옵션 이해
 
-[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 2019 년 8 월 31 일에 사용 중지 됩니다 (원래 년 6 월 30 2019 일). 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 사용할 수 있습니다.
+아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다. 새 날짜는 남은 경고 마이그레이션, [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)및 [Azure 중국 21vianet](https://docs.azure.cn/)에 대해 곧 발표 될 예정입니다.
 
-이 문서에서는 자발적 마이그레이션 도구의 작동 방식을 설명 합니다. 또한 몇 가지 일반적인 문제에 대 한 해결 방법을 설명 합니다.
-
-> [!NOTE]
-> 마이그레이션 도구의 롤아웃 지연으로 인해 클래식 경고 마이그레이션의 사용 중지 날짜가 원래 발표 된 날짜 6 월 30 일까 지 [2019 년 8 월 31](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) 2019 일로 연장 되었습니다.
-
-## <a name="classic-alert-rules-that-will-not-be-migrated"></a>마이그레이션되지 않는 클래식 경고 규칙
+이 문서에서는 수동 마이그레이션 및 자발적 마이그레이션 도구가 작동 하는 방법을 설명 합니다 .이 도구는 남은 경고 규칙을 마이그레이션하는 데 사용 됩니다. 또한 몇 가지 일반적인 문제에 대 한 해결 방법을 설명 합니다.
 
 > [!IMPORTANT]
 > 활동 로그 경고 (서비스 상태 경고 포함) 및 로그 경고는 마이그레이션의 영향을 받지 않습니다. 마이그레이션은 [여기](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)에 설명 된 클래식 경고 규칙에만 적용 됩니다.
 
-이 도구는 거의 모든 [클래식 경고 규칙](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)을 마이그레이션할 수 있지만 몇 가지 예외가 있습니다. 다음 경고 규칙은 도구를 사용 하거나 9 월 2019 일부 터 자동으로 마이그레이션하는 동안 마이그레이션되지 않습니다.
-
-- 가상 컴퓨터 게스트 메트릭에 대 한 클래식 경고 규칙 (Windows 및 Linux) 이 문서의 뒷부분에 나오는 [새 메트릭 알림에서 이러한 경고 규칙을 다시 만드는 방법에 대 한 지침](#guest-metrics-on-virtual-machines) 을 참조 하세요.
-- 클래식 저장소 메트릭에 대 한 클래식 경고 규칙입니다. [클래식 저장소 계정 모니터링에 대 한 지침](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/)을 참조 하세요.
-- 일부 저장소 계정 메트릭에 대 한 클래식 경고 규칙입니다. 이 문서의 뒷부분에 있는 [세부 정보](#storage-account-metrics) 를 참조 하세요.
-- 일부 Cosmos DB 메트릭에 대 한 클래식 경고 규칙입니다. 이 문서의 뒷부분에 있는 [세부 정보](#cosmos-db-metrics) 를 참조 하세요.
-- 모든 클래식 가상 머신 및 클라우드 서비스 메트릭에 대 한 클래식 경고 규칙 (Microsoft.classiccompute/virtualMachines 및 Microsoft.classiccompute/domainNames/슬롯/역할). 이 문서의 뒷부분에 있는 [세부 정보](#classic-compute-metrics) 를 참조 하세요.
-
-구독에 이러한 클래식 규칙이 있는 경우 수동으로 마이그레이션해야 합니다. 자동 마이그레이션을 제공할 수 없으므로 이러한 유형의 기존 클래식 메트릭 경고는 6 월 2020 일까 지 계속 작동 합니다. 이 확장은 새 경고로 이동 하는 시간을 제공 합니다. 또한 6 월 2020 일까지 위에 나열 된 예외에 대 한 새 클래식 경고를 계속 만들 수 있습니다. 그러나 다른 모든 항목의 경우 8 월 2019 일 이후에는 새로운 클래식 경고를 만들 수 없습니다.
-
 > [!NOTE]
-> 위의 예외 외에도 클래식 경고 규칙이 잘못 된 경우 (예: [사용 되지 않는 사용 되지 않는 메트릭](#classic-alert-rules-on-deprecated-metrics) 또는 삭제 된 리소스에 있는 경우) 마이그레이션되지 않으며 서비스가 중지 된 후에는 사용할 수 없게 됩니다.
+> 기존 경고 규칙이 잘못 된 경우 (예: [사용 되지 않는 사용 되지 않는 메트릭](#classic-alert-rules-on-deprecated-metrics) 또는 삭제 된 리소스에 있는 경우) 마이그레이션되지 않으며 서비스가 사용 중지 된 후에는 사용할 수 없게 됩니다.
+
+## <a name="manually-migrating-classic-alerts-to-newer-alerts"></a>기존 경고를 최신 경고로 수동으로 마이그레이션
+
+나머지 경고를 수동으로 마이그레이션하는 데 관심이 있는 고객은 다음 섹션을 사용 하 여 이미이 작업을 수행할 수 있습니다. 또한이 섹션에서는 리소스 공급자가 사용 중지 하 고, 현재 직접 마이그레이션할 수 없는 메트릭을 정의 합니다.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>가상 컴퓨터의 게스트 메트릭
 

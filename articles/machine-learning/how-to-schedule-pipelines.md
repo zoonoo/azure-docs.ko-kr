@@ -9,21 +9,21 @@ ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: c076ceafc35a11f172ff35b7ab5ce89d1bf99f17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 351d52128660c25c557c536f2835e0e71c0115f7
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319561"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842963"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 예약
 
 이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들도록 선택할 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
 * Python 용 Azure Machine Learning SDK가 설치 된 Python 환경 자세한 내용은 [Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 재사용 가능한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
 

@@ -8,21 +8,21 @@ ms.subservice: core
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 03/05/2020
+ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, contperfq4, tracking-python
-ms.openlocfilehash: 4741c6348c2a4077776d2d79bee56de26f62e2d1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: troubleshooting, contperfq4, devx-track-python
+ms.openlocfilehash: 3f8a3c705878e212e6a26670e20b5a81a3f2a6ba
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540940"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904380"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Azure Kubernetes Service 및 Azure Container Instances를 사용 하 여 모델의 Docker 배포 문제 해결 
 
 Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)와의 일반적인 Docker 배포 오류를 해결 하 고 해결 하거나 해결 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
@@ -286,175 +286,7 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 ## <a name="advanced-debugging"></a>고급 디버깅
 
-경우에 따라 모델 배포에 포함된 Python 코드를 대화형으로 디버그해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. Visual Studio Code 및 PTVSD(Visual Studio용 Python 도구)를 사용하면 Docker 컨테이너 내에서 실행되는 코드에 연결할 수 있습니다.
-
-> [!IMPORTANT]
-> `Model.deploy()` 및 `LocalWebservice.deploy_configuration`을 사용하여 모델을 로컬로 배포하는 경우 이 디버깅 방법이 작동하지 않습니다. 대신 [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) 메서드를 사용하여 이미지를 만들어야 합니다.
-
-로컬 웹 서비스를 배포하려면 로컬 시스템에서 작동하는 Docker를 설치해야 합니다. Docker를 사용하는 방법에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요.
-
-### <a name="configure-development-environment"></a>개발 환경 구성
-
-1. PTVSD(Visual Studio용 Python 도구)를 로컬 VS Code 개발 환경에 설치하려면 다음 명령을 사용합니다.
-
-    ```
-    python -m pip install --upgrade ptvsd
-    ```
-
-    VS Code에서 PTVSD를 사용하는 방법에 대한 자세한 내용은 [원격 디버깅](https://code.visualstudio.com/docs/python/debugging#_remote-debugging)을 참조하세요.
-
-1. Docker 이미지와 통신하도록 VS Code를 구성하려면 새 디버그 구성을 만듭니다.
-
-    1. VS Code에서 __디버그__ 메뉴를 선택한 다음, __구성 열기__를 선택합니다. __launch.json__이라는 파일이 열립니다.
-
-    1. __launch.json__ 파일에서 `"configurations": [`가 포함된 줄을 찾고, 다음 텍스트를 이 줄 뒤에 삽입합니다.
-
-        ```json
-        {
-            "name": "Azure Machine Learning: Docker Debug",
-            "type": "python",
-            "request": "attach",
-            "port": 5678,
-            "host": "localhost",
-            "pathMappings": [
-                {
-                    "localRoot": "${workspaceFolder}",
-                    "remoteRoot": "/var/azureml-app"
-                }
-            ]
-        }
-        ```
-
-        > [!IMPORTANT]
-        > 이미 다른 항목이 구성 섹션에 있으면 삽입한 코드 뒤에 쉼표(,)를 추가합니다.
-
-        이 섹션에서는 5678 포트를 사용하여 Docker 컨테이너에 연결됩니다.
-
-    1. __launch.json__ 파일을 저장합니다.
-
-### <a name="create-an-image-that-includes-ptvsd"></a>PTVSD가 포함된 이미지 만들기
-
-1. PTVSD를 포함하도록 배포에 대한 conda 환경을 수정합니다. 다음 예제에서는 `pip_packages` 매개 변수를 사용하여 추가하는 방법을 보여 줍니다.
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies 
-
-
-    # Usually a good idea to choose specific version numbers
-    # so training is made on same packages as scoring
-    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
-                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
-                                 pip_packages = ['azureml-defaults==1.0.45', 'ptvsd'])
-
-    with open("myenv.yml","w") as f:
-        f.write(myenv.serialize_to_string())
-    ```
-
-1. PTVSD를 시작하고 서비스가 시작될 때 연결을 기다리려면 다음을 `score.py` 파일의 위쪽에 추가합니다.
-
-    ```python
-    import ptvsd
-    # Allows other computers to attach to ptvsd on this IP address and port.
-    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
-    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
-    ptvsd.wait_for_attach(timeout = 30)
-    print("Debugger attached...")
-    ```
-
-1. 환경 정의를 기반으로 하는 이미지를 만들고, 이 이미지를 로컬 레지스트리로 끌어옵니다. 디버그하는 동안 이미지의 파일을 다시 만들지 않고도 변경할 수 있습니다. 텍스트 편집기(vim)를 Docker 이미지에 설치하려면 `Environment.docker.base_image` 및 `Environment.docker.base_dockerfile` 속성을 사용합니다.
-
-    > [!NOTE]
-    > 다음 예제에서는 `ws`에서 Azure Machine Learning 작업 영역을 가리키고 `model`이 배포할 모델이라고 가정합니다. `myenv.yml` 파일에는 1단계에서 만든 conda 종속성이 포함되어 있습니다.
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
-
-
-    myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-    myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    package = Model.package(ws, [model], inference_config)
-    package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
-    package.pull()
-    ```
-
-    이미지가 만들어지고 다운로드되면 이미지 경로(리포지토리, 이름 및 태그 포함, 이 경우 digest이기도 함)가 다음과 비슷한 메시지에 표시됩니다.
-
-    ```text
-    Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
-    ```
-
-1. 이미지 작업을 더 쉽게 수행하려면 다음 명령을 사용하여 태그를 추가합니다. `myimagepath`를 이전 단계의 위치 값으로 바꿉니다.
-
-    ```bash
-    docker tag myimagepath debug:1
-    ```
-
-    나머지 단계에서는 전체 이미지 경로 값 대신 로컬 이미지를 `debug:1`로 참조할 수 있습니다.
-
-### <a name="debug-the-service"></a>서비스 디버깅
-
-> [!TIP]
-> `score.py` 파일에서 PTVSD 연결에 대한 시간 제한을 설정하는 경우 시간 제한이 만료되기 전에 VS Code를 디버그 세션에 연결해야 합니다. VS Code를 시작하고, `score.py`의 로컬 복사본을 열고, 중단점을 설정하고, 이 섹션의 단계를 사용하기 전에 이동할 수 있도록 준비합니다.
->
-> 디버깅 및 중단점 설정에 대한 자세한 내용은 [디버깅](https://code.visualstudio.com/Docs/editor/debugging)을 참조하세요.
-
-1. 이미지를 사용하여 Docker 컨테이너를 시작하려면 다음 명령을 사용합니다.
-
-    ```bash
-    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
-    ```
-
-1. VS Code를 컨테이너 내부의 PTVSD에 연결하려면 VS Code를 열고, F5 키를 사용하거나 __디버그__를 선택합니다. 메시지가 표시되면 __Azure Machine Learning: Docker 디버그__ 구성을 선택합니다. 또한 사이드바에서 디버그 아이콘을 선택하고, [디버그] 드롭다운 메뉴에서 __Azure Machine Learning: Docker 디버그__ 항목을 선택한 다음, 녹색 화살표를 사용하여 디버거를 연결할 수도 있습니다.
-
-    ![디버그 아이콘, 디버깅 시작 단추 및 구성 선택기](./media/how-to-troubleshoot-deployment/start-debugging.png)
-
-이 시점에서 VS Code는 Docker 컨테이너 내의 PTVSD에 연결하고 이전에 설정한 중단점에서 중지합니다. 이제 실행되는 코드를 단계별로 실행하고 변수를 보는 등의 작업을 수행할 수 있습니다.
-
-VS Code를 사용하여 Python을 디버그하는 방법에 대한 자세한 내용은 [Python 코드 디버그](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019)를 참조하세요.
-
-<a id="editfiles"></a>
-### <a name="modify-the-container-files"></a>컨테이너 파일 수정
-
-이미지의 파일을 변경하려면 실행 중인 컨테이너에 연결하고 bash 셸을 실행할 수 있습니다. 여기서 vim을 사용하여 파일을 편집할 수 있습니다.
-
-1. 실행 중인 컨테이너에 연결하고 컨테이너에서 bash 셸을 시작하려면 다음 명령을 사용합니다.
-
-    ```bash
-    docker exec -it debug /bin/bash
-    ```
-
-1. 서비스에서 사용하는 파일을 찾으려면 기본 디렉터리가 `/var/azureml-app`과 다른 경우 컨테이너의 bash 셸에서 다음 명령을 사용합니다.
-
-    ```bash
-    cd /var/azureml-app
-    ```
-
-    여기서 vim을 사용하여 `score.py` 파일을 편집할 수 있습니다. vim을 사용하는 방법에 대한 자세한 내용은 [Vim 편집기 사용](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)을 참조하세요.
-
-1. 컨테이너에 대한 변경 내용은 일반적으로 유지되지 않습니다. 변경 내용을 저장하려면 위의 단계에서 시작한 셸을 종료하기 전에(즉, 다른 셸에서) 다음 명령을 사용합니다.
-
-    ```bash
-    docker commit debug debug:2
-    ```
-
-    이 명령은 편집한 내용이 포함된 `debug:2`라는 새 이미지를 만듭니다.
-
-    > [!TIP]
-    > 변경 내용을 적용하려면 먼저 현재 컨테이너를 중지하고 새 버전 사용을 시작해야 합니다.
-
-1. 컨테이너의 파일에 대한 변경 내용은 VS Code에서 사용하는 로컬 파일과 동기화된 상태로 유지해야 합니다. 그렇지 않으면 디버거 환경이 예상대로 작동하지 않습니다.
-
-### <a name="stop-the-container"></a>컨테이너 중지
-
-컨테이너를 중지하려면 다음 명령을 사용합니다.
-
-```bash
-docker stop debug
-```
+경우에 따라 모델 배포에 포함된 Python 코드를 대화형으로 디버그해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. Visual Studio Code 및 debugpy를 사용 하 여 Docker 컨테이너 내에서 실행 되는 코드에 연결할 수 있습니다. 자세한 내용은 [VS Code의 대화형 디버깅 가이드](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

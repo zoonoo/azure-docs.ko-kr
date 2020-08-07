@@ -2,14 +2,14 @@
 title: JavaScript 웹 앱에 대 한 Azure 애플리케이션 정보
 description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA (단일 페이지 응용 프로그램)를 가져오고 사용 패턴을 추적 합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531322"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905828"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -107,10 +107,10 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 | 이름 | Type | 설명
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
-| name | 문자열 *[선택 사항]* | 초기화 된 SDK의 전역 이름이 며 기본값은 appInsights입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
+| name | 문자열 *[선택 사항]* | 초기화 된 SDK에 대 한 전역 이름 `appInsights` 입니다. 기본값은입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
 | ld | 시간 (밀리초 *) [선택 사항]* | SDK 로드를 시도 하기 전에 대기 하는 로드 지연 시간을 정의 합니다. 기본값은 0ms 같고 이며, 음수 값은 페이지의 헤드 영역에 스크립트 태그를 즉시 추가 합니다 &lt; &gt; . 그러면 스크립트가 로드 되거나 실패할 때까지 페이지 로드 이벤트가 차단 됩니다.
 | useXhr | 부울 *[선택 사항]* | 이 설정은 보고 SDK 로드 오류에만 사용 됩니다. 보고는 사용 가능한 경우 fetch ()를 먼저 사용 하려고 시도 하 고 XHR로 대체 합니다 .이 값을 true로 설정 하면 인출 확인만 무시 됩니다. 반입이 오류 이벤트를 보내지 못하는 환경에서 응용 프로그램을 사용 하는 경우에만이 값을 사용 해야 합니다.
-| 위치 원점 | 문자열 *[선택 사항]* | 이 설정을 포함 하 여 SDK를 다운로드 하는 데 추가 된 스크립트 태그에는이 문자열 값을 포함 하는 간 원본 특성이 포함 됩니다. 정의 되지 않은 경우 (기본값) 간 원본 특성이 추가 되지 않습니다. 권장 값은 정의 되지 않습니다 (기본값). ""; 또는 "anonymous" (모든 유효한 값에 대해서는 [HTML 특성: 간 원본](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) 설명서 참조)
+| 위치 원점 | 문자열 *[선택 사항]* | 이 설정을 포함 하 여 SDK를 다운로드 하는 데 추가 된 스크립트 태그에는이 문자열 값을 포함 하는 간 원본 특성이 포함 됩니다. 정의 되지 않은 경우 (기본값) 간 원본 특성이 추가 되지 않습니다. 권장 값은 정의 되지 않습니다 (기본값). ""; 또는 "anonymous" (모든 유효한 값의 경우 [HTML 특성: `crossorigin` ](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) 문서 참조)
 | cfg | 개체 **[필수]** | 초기화 하는 동안 Application Insights SDK에 전달 되는 구성입니다.
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
@@ -195,9 +195,9 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | enableResponseHeaderTracking | false | True 이면 AJAX & Fetch 요청의 응답 헤더가 추적 되 고 기본값은 false입니다.
 | distributedTracingMode | `DistributedTracingModes.AI` | 분산 추적 모드를 설정 합니다. AI_AND_W3C 모드 또는 W3C 모드가 설정 된 경우 W3C 추적 컨텍스트 헤더 (traceparent/tracestate)가 생성 되 고 나가는 모든 요청에 포함 됩니다. AI_AND_W3C은 레거시 Application Insights 계측 된 서비스와의 이전 버전과의 호환성을 위해 제공 됩니다. 예제는 [여기](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps)를 참조 하세요.
 | enableAjaxErrorStatusText | false | 기본값은 false입니다. True 이면 실패 한 AJAX 요청에 대 한 종속성 이벤트에 응답 오류 데이터 텍스트를 포함 합니다.
-| enableAjaxPerfTracking | false | 기본값은 false입니다. 추가 브라우저 창을 조회 하 고 포함 하는 데 사용 되는 플래그입니다. 보고 된 ajax (XHR 및 fetch)의 성능 타이밍에서 메트릭을 보고 했습니다.
+| enableAjaxPerfTracking | false | 기본값은 false입니다. 추가 브라우저 창을 조회 하 고 포함 하는 데 사용할 플래그입니다. 보고 된 `ajax` (xhr 및 fetch)의 성능 타이밍이 보고 된 메트릭을 보고 합니다.
 | maxAjaxPerfLookupAttempts | 3 | 기본값은 3입니다. 창을 찾을 수 있는 최대 횟수입니다. 성능 타이밍 (사용할 수 있는 경우)은 모든 브라우저에서 창을 채우지 않기 때문에 필요 합니다. XHR 요청의 끝을 보고 하기 전의 성능 및 인출 요청에 대 한 성능이 완료 된 후에 추가 됩니다.
-| ajaxPerfLookupDelay | 25 | 기본값은 25 밀리초입니다. Windows 성능 타이밍을 다시 시도 하기 전에 대기 하는 시간입니다. ajax 요청에 대 한 성능 타이밍은 밀리초 단위 이며 setTimeout ()에 직접 전달 됩니다.
+| ajaxPerfLookupDelay | 25 | 기본값은 25 밀리초입니다. Windows 성능 타이밍을 다시 시도 하기 전에 대기 하는 시간입니다. 요청에 대 한 성능 타이밍 ( `ajax` 밀리초 단위)이 고 setTimeout ()에 직접 전달 됩니다.
 | enableUnhandledPromiseRejectionTracking | false | True 이면 처리 되지 않은 약속 거부는 자동으로 수집 되 고 JavaScript 오류로 보고 됩니다. DisableExceptionTracking이 true 이면 (예외를 추적 하지 않음) 구성 값이 무시 되 고 처리 되지 않은 약속 거부는 보고 되지 않습니다.
 
 ## <a name="single-page-applications"></a>단일 페이지 응용 프로그램
@@ -219,6 +219,38 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+
+## <a name="correlation"></a>상관 관계
+
+클라이언트와 서버 쪽 간 상관 관계는 다음에 대해 지원 됩니다.
+
+- XHR/AJAX 요청 
+- 인출 요청 
+
+클라이언트와 서버 쪽 간 상관 관계는 및 요청에 대해 **지원 되지 않습니다** `GET` `POST` .
+
+### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>클라이언트 AJAX와 서버 요청 간에 구성 요소 간 상관 관계 사용
+
+상관 관계를 사용 하도록 설정 하려면 `CORS` 클라이언트에서 두 개의 추가 요청 헤더 `Request-Id` 와를 전송 해야 `Request-Context` 하며, 서버 쪽에서 해당 헤더와의 연결을 허용할 수 있어야 합니다. JavaScript SDK 구성 내에서를 설정 하 여 이러한 헤더를 보낼 수 `enableCorsCorrelation: true` 있습니다. 
+
+`Access-Control-Allow-Headers`서버 쪽의 구성에 따라 및를 수동으로 추가 하 여 서버 쪽 목록을 확장 해야 하는 경우가 많습니다 `Request-Id` `Request-Context` .
+
+액세스 제어-허용 헤더: `Request-Id` , `Request-Context` ,`<your header>`
+
+클라이언트에서 통신 하는 타사 서버에서 및 헤더를 수락할 수 없고 해당 서버 `Request-Id` 에서 `Request-Context` 구성을 업데이트할 수 없는 경우 구성 속성을 통해 제외 목록에 해당 서버를 배치 해야 `correlationHeaderExcludeDomains` 합니다. 이 속성은 와일드 카드를 지원 합니다.
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    enableCorsCorrelation: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
 
 ## <a name="explore-browserclient-side-data"></a>브라우저/클라이언트 쪽 데이터 탐색
 
@@ -281,7 +313,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. 특정 원격 분석 유형 (예:, 등)을 전송 하는 Api는 `trackTrace` `trackException` 이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track` 입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/topics/applicationinsights-js-demo) 을 참조 하세요.
 

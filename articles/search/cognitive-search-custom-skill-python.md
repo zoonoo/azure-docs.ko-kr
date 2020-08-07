@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: aac184b9dc7eae8afcf796376d2f7dca684b4367
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604697"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852789"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>예: Python을 사용 하 여 사용자 지정 기술 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "84604697"
 
 사용자 지정 기술은 Python의 사용자 지정 기술 개발에 사용 되는 도구와 기술에 집중할 수 있도록 디자인 (두 문자열 연결)에 따라 간단 합니다. 간단한 기술을 성공적으로 완료 한 후에는 더 복잡 한 시나리오로 분기할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 대 한 소개를 보려면 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 를 검토 합니다.
 
@@ -30,11 +30,11 @@ ms.locfileid: "84604697"
 
   + [Python 3.75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
-  + [Visual Studio Code 용 Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions 핵심 도구](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
-  + [Visual Studio Code Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+  + [Visual Studio Code용 Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Visual Studio Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
-## <a name="create-an-azure-function"></a>Azure Function 만들기
+## <a name="create-an-azure-function"></a>Azure Functions 만들기
 
 이 예제에서는 Azure 함수를 사용 하 여 web API를 호스트 하는 개념을 보여 주지만 다른 방법이 가능 합니다. [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
 

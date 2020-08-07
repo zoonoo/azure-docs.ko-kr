@@ -7,26 +7,28 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 402eda92d5cc8e5c2566345d31c9ae625b82695c
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0376a57e3f2c1158e9da97fb291a28c99ce2463c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809404"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903965"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
 Azure Digital Twins는 리소스의 상태에 대 한 정보를 제공 하는 서비스 인스턴스에 대 한 [메트릭을](troubleshoot-metrics.md) 수집 합니다. 이러한 메트릭을 사용 하 여 Azure Digital Twins 서비스의 전반적인 상태와 연결 된 리소스를 평가할 수 있습니다. 이러한 사용자 지향 통계는 azure 지원에 문의 하지 않고도 문제에 대 한 근본 원인 분석을 수행 하는 데 도움이 되는 Azure Digital Twins의 기능을 확인 하는 데 도움이 됩니다.
 
-이 문서에서는 Azure Digital Twins 인스턴스에서 메트릭 데이터에 대 한 **진단 로깅을** 설정 하는 방법을 보여 줍니다. 이러한 로그를 사용 하 여 서비스 문제를 해결할 수 있습니다.
+이 문서에서는 Azure Digital Twins 인스턴스에서 메트릭 데이터에 대 한 **진단 로깅을** 설정 하는 방법을 보여 줍니다. 이러한 로그를 사용 하 여 서비스 문제를 해결 하 고 진단 설정을 구성 하 여 Azure Digital Twins 메트릭을 다른 대상으로 보낼 수 있습니다. 진단 설정 만들기에서 이러한 설정에 대 한 자세한 내용을 참조 [*하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보낼*](../azure-monitor/platform/diagnostic-settings.md)수 있습니다.
 
 ## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>Azure Portal를 사용 하 여 진단 설정 켜기
+
+Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 설정 하는 방법은 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure Digital twins 인스턴스로 이동 합니다. 포털 검색 표시줄에 이름을 입력 하 여 찾을 수 있습니다. 
 
 2. 메뉴에서 **진단 설정** 을 선택 하 고 **진단 설정을 추가**합니다.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷":::
 
 3. 뒤에 나오는 페이지에서 다음 값을 입력 합니다.
      * **진단 설정 이름**: 진단 설정에 이름을 지정 합니다.
@@ -53,3 +55,4 @@ Azure Digital Twins는 리소스의 상태에 대 한 정보를 제공 하는 �
 
 * 진단을 구성 하는 방법에 대 한 자세한 내용은 [*Azure 리소스에서 로그 데이터 수집 및 사용*](../azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.
 * Azure Digital Twins 메트릭에 대 한 자세한 내용은 [*문제 해결: Azure Monitor 사용 하 여 메트릭 보기*](troubleshoot-metrics.md)를 참조 하세요.
+* 메트릭에 대 한 경고를 사용 하도록 설정 하는 방법을 보려면 [*문제 해결: 경고 설정*](troubleshoot-alerts.md)을 참조 하세요.

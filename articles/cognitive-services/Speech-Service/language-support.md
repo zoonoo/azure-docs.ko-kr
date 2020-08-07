@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554059"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902048"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -128,7 +128,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 |Locale  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
 | `ar-EG` | 아랍어(이집트)                  | Female | `ar-EG-SalmaNeural`      | 일반 |
-| `ar-SA` | 아랍어(사우디아라비아)           | Female | `ar-SA-ZariyahNeura`     | 일반 |
+| `ar-SA` | 아랍어(사우디아라비아)           | Female | `ar-SA-ZariyahNeural`    | 일반 |
 | `ca-ES` | 카탈로니아어(스페인)                 | Female | `ca-ES-AlbaNeural`       | 일반 |
 | `da-DK` | 덴마크어(덴마크)                | Female | `da-DK-ChristelNeural`   | 일반 |
 | `de-DE` | 독일어(독일)                | Female | `de-DE-KatjaNeural`      | 일반 |

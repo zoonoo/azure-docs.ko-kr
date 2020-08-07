@@ -2,7 +2,7 @@
 title: 그룹을 사용 하 여 앱 & 리소스 액세스 관리-Azure AD
 description: Azure Active Directory 그룹을 사용하여 조직의 클라우드 기반 앱, 온-프레미스 앱 및 리소스에 대한 액세스를 관리하는 방법에 대해 알아봅니다.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25dace3ad7d467d6add236782c5e39f85d6462a6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982602"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797310"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리
 Azure Active Directory (Azure AD)를 사용 하면 그룹을 사용 하 여 클라우드 기반 앱, 온-프레미스 앱 및 리소스에 대 한 액세스를 관리할 수 있습니다. 리소스는 azure ad의 역할을 통해 개체를 관리 하는 권한, SaaS (Software as a Service) 앱, Azure 서비스, SharePoint 사이트 및 온-프레미스 리소스와 같은 조직 외부에 있는 Azure AD 조직의 일부일 수 있습니다.
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD)를 사용 하면 그룹을 사용 하 여 클�
 
 ## <a name="how-access-management-in-azure-ad-works"></a>Azure AD에서 액세스 관리를 작동 하는 방법
 
-Azure AD는 단일 사용자 또는 전체 Azure AD 그룹에게 액세스 권한을 제공하여 조직의 리소스에 액세스하는 데 유용합니다. 그룹을 사용하면 리소스 소유자(또는 Azure AD 디렉터리 소유자)가 구성원 한 명씩에게 권한을 제공하는 대신 액세스 권한 집합을 그룹의 모든 구성원에게 할당할 수 있습니다. 리소스 또는 디렉터리 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 담당자에게 구성원 목록에 대한 관리 권한을 부여하면서, 해당 담당자가 필요에 따라 구성원을 추가하고 제거하도록 할 수 있습니다. 그룹 소유자 관리 방법에 대한 자세한 내용은 [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)를 참조
+Azure AD는 단일 사용자 또는 전체 Azure AD 그룹에게 액세스 권한을 제공하여 조직의 리소스에 액세스하는 데 유용합니다. 그룹을 사용하면 리소스 소유자(또는 Azure AD 디렉터리 소유자)가 각 구성원의 권한을 하나씩 제공하는 대신, 그룹의 모든 구성원에게 액세스 권한 집합을 할당할 수 있습니다. 리소스 또는 디렉터리 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 담당자에게 구성원 목록에 대한 관리 권한을 부여하면서, 해당 담당자가 필요에 따라 구성원을 추가하고 제거하도록 할 수 있습니다. 그룹 소유자 관리 방법에 대한 자세한 내용은 [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)를 참조
 
 ![Azure Active Directory 액세스 관리 다이어그램](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 

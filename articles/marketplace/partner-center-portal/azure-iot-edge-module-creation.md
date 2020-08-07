@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808714"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876634"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -197,17 +197,16 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
 
-#### <a name="store-logos"></a>스토어 로고
+#### <a name="store-logos"></a>Store 로고
 
-**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
+다음 4가지 픽셀 크기로 각각 제품 로고의 PNG 파일을 제공합니다.
 
-목록의 다른 위치에서 사용 하려면 세 가지 로고 크기가 모두 필요 합니다.
+- **작음(48 x 48)**
+- **보통(90 x 90)**
+- **큼(216 x 216)**
+- **넓음(255 x 115)**
 
-- **소형**(48 x 48)
-- **중형**(90 x 90)
-- **큼** (216 x 216 및 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+4개의 로고가 모두 필요하며 Marketplace 목록의 서로 다른 위치에서 사용됩니다.
 
 #### <a name="screenshots-optional"></a>스크린샷(선택 사항)
 

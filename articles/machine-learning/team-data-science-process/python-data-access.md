@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 486b89e5c93de7444758638ad36743ff2f0bcb37
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026341"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852364"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python 클라이언트 라이브러리를 사용하여 Python으로 데이터 세트에 액세스
 Microsoft Azure Machine Learning Python 클라이언트 라이브러리 미리보기를 사용하면 로컬 Python 환경에서 Azure Machine Learning 데이터 세트로 안전하게 액세스할 수 있고, 작업 영역에 데이터 세트를 생성하여 관리할 수 있습니다.

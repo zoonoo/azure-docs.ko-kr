@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 06/23/2020
-  ms.openlocfilehash: 8b559591255a9856f644de5482ccec6b7d34a7f8
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.openlocfilehash: 15f484665a74b7960908d2b430210fe921c33d5d
+  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85314916"
+  ms.lasthandoff: 08/06/2020
+  ms.locfileid: "87836788"
 landingContent:
 - title: Event Hubs 정보
   linkLists:
@@ -142,7 +142,7 @@ landingContent:
     - text: Stream Analytics를 사용하여 Apache Kafka 이벤트에 대한 Event Hubs 처리
       url: event-hubs-kafka-stream-analytics.md
     - text: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
-      url: ../azure-databricks/databricks-stream-from-eventhubs.md
+      url: /azure/databricks/scenarios/databricks-stream-from-eventhubs
 - title: 모니터링 및 관리
   linkLists:
   - linkListType: how-to-guide

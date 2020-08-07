@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/17/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090861"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903989"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0: 변환
 
@@ -104,7 +104,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필요한 요청 헤더</em>입니다.<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
@@ -136,7 +136,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 다음과 같은 제한 사항이 적용됩니다.
 
 * 배열에는 최대 100개 요소가 있을 수 있습니다.
-* 요청에 포함된 전체 텍스트는 공백을 포함하여 5,000자를 초과할 수 없습니다.
+* 요청에 포함 된 전체 텍스트는 공백을 포함 하 여 1만 자를 초과할 수 없습니다.
 
 ## <a name="response-body"></a>응답 본문
 
@@ -182,7 +182,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>Description</th>
+  <th>설명</th>
     <tr>
     <td>X-RequestId</td>
     <td>요청을 식별하기 위해 서비스에서 생성한 값입니다. 문제 해결을 위해 사용됩니다.</td>
@@ -391,7 +391,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
   </tr>
 </table> 
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"

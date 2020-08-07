@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 3fcf26670ec03b1d3a496574e58ae706acdf5c53
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559100"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853294"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -204,8 +204,8 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 |매개 변수 |설명  |
 |---------|---------|
-|**_app-name_** | 강제로 함수 앱의 이름입니다. |
-|_**slot-name**_ | 필드 배포 하려는 [배포 슬롯](functions-deployment-slots.md) 의 이름입니다. 슬롯은 함수 앱에 이미 정의 되어 있어야 합니다. |
+|**_앱 이름_** | 강제로 함수 앱의 이름입니다. |
+|_**슬롯-이름**_ | 필드 배포 하려는 [배포 슬롯](functions-deployment-slots.md) 의 이름입니다. 슬롯은 함수 앱에 이미 정의 되어 있어야 합니다. |
 
 
 다음 예에서는의 버전 1을 사용 합니다 `functions-action` .
@@ -223,4 +223,4 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 전체 워크플로. yaml 파일을 보려면 이름에 있는 [Azure GitHub 작업 워크플로 샘플 리포지토리의](https://aka.ms/functions-actions-samples) 파일 중 하나를 참조 하세요. `functionapp` 이러한 샘플을 워크플로의 시작 지점으로 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [GitHub 동작에 대 한 자세한 정보](https://help.github.com/en/articles/about-github-actions)
+> [GitHub Actions에 대한 자세한 정보](https://help.github.com/en/articles/about-github-actions)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ff2c7c0d72dff318c7582d9ae5339682bc95
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028230"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903343"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
@@ -26,7 +26,7 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 
 앱 또는 비즈니스가 양식 인식기 사용자 지정 모델 사용에 따라 달라 지는 경우 다른 지역의 다른 폼 인식기 계정으로 모델을 복사 하는 것이 좋습니다. 지역 가동 중단이 발생 하면 복사 된 지역에서 모델에 액세스할 수 있습니다.
 
-##  <a name="prerequisites"></a>사전 요구 사항
+##  <a name="prerequisites"></a>필수 구성 요소
 
 1. 서로 다른 Azure 지역에 있는 두 가지 양식 인식기 Azure 리소스입니다. 없는 경우 Azure Portal로 이동 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" 새 양식 인식기 리소스를 만듭니다 " target="_blank"> . 새 양식 인식기 리소스를 만듭니다 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
 1. 양식 인식기 리소스의 구독 키, 끝점 URL 및 구독 ID입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.
@@ -54,7 +54,7 @@ Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 HTTP/1.1 201 Created
 Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
-{"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+{"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 ```
 
 ## <a name="start-copy-operation"></a>복사 작업 시작
@@ -62,7 +62,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0
 다음 HTTP 요청은 소스 리소스에 대 한 복사 작업을 시작 합니다. 원본 리소스의 끝점과 키를 헤더로 입력 해야 합니다. 요청 URL에는 복사 하려는 원본 모델의 모델 ID가 포함 되어 있습니다.
 
 ```
-POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
+POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/<your model ID>/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -72,7 +72,7 @@ Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 {
    "targetResourceId": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}",  
    "targetResourceRegion": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}",
-   "copyAuthorization": {"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+   "copyAuthorization": {"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 }
 ```
 
@@ -86,7 +86,7 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
 |Error|해결 방법|
 |:--|:--|
@@ -110,7 +110,7 @@ Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
 |Error|해결 방법|
 |:--|:--|
