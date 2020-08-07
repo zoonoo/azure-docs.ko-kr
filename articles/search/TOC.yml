@@ -312,9 +312,15 @@
         - name: 미리 보기 기능 목록
           href: search-api-preview.md
         - name: .NET으로 작성된 개발
-          href: search-howto-dotnet-sdk.md
+          items:
+            - name: Microsoft.Azure.Search(v10) 사용
+              href: search-howto-dotnet-sdk.md
+            - name: 시작(v10)
+              href: search-get-started-dotnet-v10.md
         - name: SDK 업그레이드
           items:
+            - name: .NET SDK 11.0
+              href: search-dotnet-sdk-migration-version-11.md
             - name: .NET SDK 10.0
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
@@ -349,7 +355,7 @@
           items:
             - name: 보안 필터
               href: search-security-trimming-for-azure-search.md
-            - name: AAD ID에 대한 필터링
+            - name: 사용자 ID 필터링
               href: search-security-trimming-for-azure-search-with-aad.md
     - name: 관리
       items:

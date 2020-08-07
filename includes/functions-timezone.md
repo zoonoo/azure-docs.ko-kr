@@ -13,7 +13,7 @@ CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)
 |운영 체제 |계획 |값 |
 |-|-|-|
 | **Windows** |모두 | [Microsoft 표준 시간대 인덱스] ()에 표시 된 대로 값을 원하는 표준 시간대의 이름으로 설정 https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10) 합니다. |
-| **Linux** |프리미엄<br/>전용 |[Tz 데이터베이스](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)에 표시 된 대로 값을 원하는 표준 시간대의 이름으로 설정 합니다. |
+| **Linux** |Premium<br/>전용 |[Tz 데이터베이스](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)에 표시 된 대로 값을 원하는 표준 시간대의 이름으로 설정 합니다. |
 
 > [!NOTE]
 > `WEBSITE_TIME_ZONE`는 Linux 소비 계획에서 현재 지원 되지 않습니다.

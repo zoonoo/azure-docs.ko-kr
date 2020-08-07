@@ -171,10 +171,14 @@
         - name: Azure 가상 머신 모니터링
           href: insights/monitor-vm-azure.md
           displayname: VM
+    - name: 배포
+      items:
+        - name: Azure Monitor 배포
+          href: deploy.md
+        - name: 대규모 배포
+          href: deploy-scale.md
     - name: 관리 및 구성
       items:
-        - name: 대규모 배포
-          href: platform/deploy-scale.md
         - name: 역할 권한 및 보안
           href: platform/roles-permissions-security.md
         - name: IP 주소
@@ -1120,7 +1124,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

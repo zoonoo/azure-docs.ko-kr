@@ -3,12 +3,12 @@ title: CAF Foundation 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 청사진 샘플의 개요 및 아키텍처입니다.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901294"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852347"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 
@@ -35,7 +35,7 @@ CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하
   - Azure Storage 계정 보안 전송 암호화 필요
   - 리소스 유형 거부(배포 중 선택)  
 - 이니셔티브
-  - Azure Security Center에서 모니터링 사용(89 정책)
+  - Azure Security Center에서 모니터링 사용(100개 이상 정책 정의)
 
 이러한 모든 요소는 [Azure 아키텍처 센터 - 참조 아키텍처](/azure/architecture/reference-architectures/)에 게시된 검증된 사례를 따릅니다.
 

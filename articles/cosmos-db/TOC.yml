@@ -1248,7 +1248,7 @@
           href: sql-api-sdk-dotnet-changefeed.md
         - name: .NET 대량 실행기 라이브러리 v2
           href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java SDK
+    - name: Java SDK 및 커넥터
       items:
         - name: Java SDK v4
           href: sql-api-sdk-java-v4.md
@@ -1256,6 +1256,10 @@
           href: sql-api-sdk-async-java.md
         - name: 동기 Java SDK v2
           href: sql-api-sdk-java.md
+        - name: SQL API용 Spring Data 커넥터
+          href: sql-api-sdk-java-spring.md
+        - name: SQL API용 Spark 커넥터
+          href: sql-api-sdk-java-spark.md
         - name: Java 대량 실행기 라이브러리 v2
           href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js

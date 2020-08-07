@@ -28,6 +28,12 @@
           href: configure-azure-ad-cli.md
         - name: Azure Active Directory 인증 구성(포털)
           href: configure-azure-ad-ui.md
+    - name: Velero를 사용하여 백업 만들기 및 애플리케이션 복원
+      items:
+        - name: Velero를 사용하여 클러스터 애플리케이션의 백업 만들기
+          href: howto-create-a-backup.md
+        - name: Velero를 사용하여 클러스터 애플리케이션의 복원 만들기
+          href: howto-create-a-restore.md
     - name: Azure Red Hat OpenShift 4 모니터링 및 로깅
       items:
         - name: Azure Red Hat OpenShift 4의 컨테이너용 Azure Monitor(미리 보기)

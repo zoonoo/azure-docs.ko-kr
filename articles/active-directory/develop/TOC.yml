@@ -13,10 +13,10 @@
       items:
         - name: 앱 등록
           href: quickstart-register-app.md
-        - name: 웹 API에 액세스하도록 앱 구성
-          href: quickstart-configure-app-access-web-apis.md
         - name: 웹 API를 공개하도록 앱 구성
           href: quickstart-configure-app-expose-web-apis.md
+        - name: 웹 API에 액세스하도록 앱 구성
+          href: quickstart-configure-app-access-web-apis.md
         - name: 앱에서 지원되는 계정 수정
           href: quickstart-modify-supported-accounts.md
         - name: 앱 제거
