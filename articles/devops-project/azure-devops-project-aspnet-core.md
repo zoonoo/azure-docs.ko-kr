@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure DevOps 스타터를 사용 하 여 .NET 용 CI/CD 파이프라인 만들기'
-description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 .NET 앱을 시작할 수 있습니다.
+title: '빠른 시작: Azure DevOps 스타터를 사용하여 .NET 용 CI/CD 파이프라인 만들기'
+description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 몇 단계로 빠르게 원하는 Azure 서비스에서 .NET 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
 services: azure-devops-project
@@ -24,9 +24,9 @@ ms.locfileid: "82233308"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 .NET 용 CI/CD 파이프라인 만들기
 
-DevOps 스타터를 사용 하 여 .NET core 또는 ASP.NET 응용 프로그램에 대 한 CI (지속적인 통합) 및 CD (지속적인 업데이트)를 구성 합니다. DevOps 스타터는 Azure Pipelines에서 빌드 및 릴리스 파이프라인의 초기 구성을 간소화 합니다.
+DevOps 스타터를 사용하여 .NET core 또는 ASP.NET 응용 프로그램에 대한 CI (지속적인 통합) 및 CD (지속적인 업데이트)를 구성 합니다. DevOps 스타터는 Azure Pipelines에서 빌드 및 릴리스 파이프라인의 초기 구성을 간소화 합니다.
 
-Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독을 구할 수 있습니다.
+Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독할 수 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -54,9 +54,9 @@ DevOps 스타터는 Azure DevOps에서 CI/CD 파이프라인을 만듭니다. �
 
 2. 새 무료 **Azure DevOps 조직**을 만들거나 드롭다운에서 기존 조직을 선택합니다.
 
-3. **Azure 구독**을 선택하고, **웹앱**에 대한 이름을 입력하거나 기본값을 선택한 다음, **완료**를 선택합니다. 몇 분 후에 DevOps 스타터 배포 개요가 Azure Portal에 표시 됩니다. 
+3. **Azure 구독**을 선택하고, **웹앱**에 대한 이름을 입력하거나 기본값을 선택한 다음, **완료**를 선택합니다. 몇 분 후에 DevOps 스타터 배포 개요가 Azure Portal에 표시됩니다. 
 
-4. **리소스로 이동** 을 선택 하 여 Devops 스타터 대시보드를 표시 합니다. 오른쪽 위 모서리에서 빠른 액세스를 위해 **프로젝트**를 대시보드에 고정합니다. 샘플 앱은 **Azure DevOps 조직**의 리포지토리에서 설정됩니다. 빌드가 실행되고, 앱이 Azure에 배포됩니다.
+4. **리소스로 이동** 을 선택하여 Devops 스타터 대시보드를 표시합니다. 오른쪽 위 모서리에서 빠른 액세스를 위해 **프로젝트**를 대시보드에 고정합니다. 샘플 앱은 **Azure DevOps 조직**의 리포지토리에서 설정됩니다. 빌드가 실행되고, 앱이 Azure에 배포됩니다.
 
 5. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다. Azure 리소스의 오른쪽에서 **찾아보기**를 선택하여 실행 중인 앱을 확인합니다.
 
@@ -64,29 +64,29 @@ DevOps 스타터는 Azure DevOps에서 CI/CD 파이프라인을 만듭니다. �
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
-DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만들었습니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
+DevOps 스타터는 Azure Repos 또는 GitHub에 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
 
-1. DevOps 스타터 대시보드 왼쪽의 **마스터** 분기에 대 한 링크를 선택 합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
+1. DevOps 스타터 대시보드 왼쪽의 **마스터** 분기에 대한 링크를 선택 합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
 
 2. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 **마스터** 분기에 만들고 커밋할 수 있습니다. 리포지토리 페이지의 오른쪽 위에서 **복제**를 선택하여 즐겨찾는 IDE에 Git 리포지토리를 복제할 수도 있습니다. 
 
 3. 왼쪽에서 애플리케이션 파일 구조를 **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**로 이동합니다.
 
-4. **편집**을 선택하고 h2 제목을 변경합니다. 예를 들어 **Azure DevOps 스타터를 사용 하 여 바로 시작** 을 입력 하거나 다른 변경을 수행 합니다.
+4. **편집**을 선택하고 h2 제목을 변경합니다. 예를 들어 **Azure DevOps 스타터를 사용하여 바로 시작** 을 입력 하거나 다른 변경을 수행 합니다.
 
       ![코드 편집](_img/azure-devops-project-aspnet-core/codechange.png)
 
 5. **커밋**을 선택하여 의견을 남기고 **커밋**을 다시 선택합니다.
 
-6. 브라우저에서 Azure DevOps 스타터 대시보드로 이동 합니다.  이제 빌드가 진행되고 있음을 확인해야 합니다. 변경한 내용은 자동으로 빌드되며 CI/CD 파이프라인을 통해 배포됩니다.
+6. 브라우저에서 Azure DevOps 스타터 대시보드로 이동합니다. 이제 빌드가 진행되고 있음을 확인해야 합니다. 변경한 내용은 자동으로 빌드되며 CI/CD 파이프라인을 통해 배포됩니다.
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 
-이전 단계에서 Azure DevOps 스타터는 전체 CI/CD 파이프라인을 자동으로 구성 합니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. Azure DevOps 빌드 및 릴리스 파이프라인을 숙지하려면 다음을 수행합니다.
+이전 단계에서 Azure DevOps 스타터는 전체 CI/CD 파이프라인을 자동으로 구성합니다. 필요에 따라 파이프라인을 탐색하고 사용자화합니다. Azure DevOps 빌드 및 릴리스 파이프라인을 숙지하려면 다음을 수행합니다.
 
 1. DevOps Starter 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 빌드 파이프라인을 엽니다.
 
-1. 줄임표(...)를 선택합니다.  이 작업은 새 빌드 큐, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 여러 활동을 시작할 수 있는 메뉴를 엽니다.
+1. 줄임표(...)를 선택합니다.  이 작업은 새로운 빌드 큐에 대기, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 여러 활동을 시작할 수 있는 메뉴를 엽니다.
 
 1. **편집**을 선택합니다.
 
@@ -101,7 +101,7 @@ DevOps 스타터는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만�
 1. 빌드 파이프라인 이름에서 **기록**을 선택합니다.   
 **기록** 창에 빌드에 대한 최근 변경 내용의 감사 내역이 표시됩니다.  Azure Pipelines는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
 
-1. **트리거**를 선택합니다. DevOps 스타터에서 자동으로 CI 트리거를 만들고 리포지토리에 대 한 모든 커밋을 새 빌드를 시작 합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+1. **트리거**를 선택합니다. DevOps 스타터에서 자동으로 CI 트리거를 만들고 리포지토리에 대한 모든 커밋은 새 빌드를 시작 합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 1. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 
