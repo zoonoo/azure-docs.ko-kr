@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554528"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873724"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
-암호 스프레이, 재생 및 피싱 같은 일반적인 ID 관련 공격이 점점 더 많이 확산되게 되면 보안 관리가 어려울 수 있습니다. 보안 기본값을 사용하면 미리 구성된 보안 설정을 사용하여 조직을 이러한 공격에서 쉽게 보호할 수 있습니다.
+암호 스프레이, 재생, 피싱 등의 일반적인 id 관련 공격이 점점 더 인기 있는 것으로 보안을 관리 하는 것이 어려울 수 있습니다. 보안 기본값을 사용하면 미리 구성된 보안 설정을 사용하여 조직을 이러한 공격에서 쉽게 보호할 수 있습니다.
 
 - 모든 사용자에게 Azure Multi-Factor Authentication에 등록하도록 요구
 - 관리자에게 다단계 인증을 수행하도록 요구

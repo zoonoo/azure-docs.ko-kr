@@ -2,18 +2,18 @@
 title: Azure에서 지원 되는 FHIR 기능-FHIR 용 Azure API
 description: 이 문서에서는 Azure API for FHIR에서 구현 되는 FHIR 사양의 기능을 설명 합니다.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808032"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843507"
 ---
 # <a name="features"></a>기능
 
@@ -36,10 +36,10 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | update (조건부)           | 예       | 예       | 예       |                                                     |
 | 패치나                          | 아니요        | 아니요        | 아니요        |                                                     |
 | delete                         | 예       | 예       | 예       |                                                     |
-| delete (조건부)           | 아니요        | 아니요        | 아니요        |                                                     |
+| delete (조건부)           | 아니요        | 아니요        | 예        |                                                     |
 | create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
 | create (조건부)           | 예       | 예       | 예       |                                                     |
-| 검색                         | Partial   | Partial   | Partial   | 아래 참조                                           |
+| search                         | Partial   | Partial   | Partial   | 아래 참조                                           |
 | 연결 된 검색                 | 아니요        | 예       | 아니요        |                                           |
 | 역방향 연결 된 검색         | 아니요        | 아니요        | 아니요        |                                            |
 | capabilities                   | 예       | 예       | 예       |                                                     |
@@ -55,11 +55,11 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 | 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
 |-----------------------|-----------|-----------|-----------|---------|
-| number                | 예       | 예       | 예       |         |
+| 번호                | 예       | 예       | 예       |         |
 | Date/DateTime         | 예       | 예       | 예       |         |
 | String                | 예       | 예       | 예       |         |
 | 토큰                 | 예       | 예       | 예       |         |
-| 참고             | 예       | 예       | 예       |         |
+| 참조             | 예       | 예       | 예       |         |
 | 복합             | 예       | 예       | 예       |         |
 | 수량              | 예       | 예       | 예       |         |
 | URI                   | 예       | 예       | 예       |         |
@@ -90,8 +90,8 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_security`             | 예       | 예       | 예       |         |
 | `_text`                 | 아니요        | 아니요        | 아니요        |         |
 | `_content`              | 아니요        | 아니요        | 아니요        |         |
-| `_list`                 | 예        | 예       | 예       |         |
-| `_has`                  | 아니요        | 아니요        | 예        |         |
+| `_list`                 | 아니요        | 예       | 예       |         |
+| `_has`                  | 아니요        | 아니요        | 아니요        |         |
 | `_type`                 | 예       | 예       | 예       |         |
 | `_query`                | 아니요        | 아니요        | 아니요        |         |
 
@@ -99,10 +99,10 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | 아니요        | 아니요        | 아니요        |         |
 | `_sort`                 | 아니요        | 아니요        | 아니요        |         |
-| `_score`                | 아니요        | 아니요        | 예        |         |
+| `_score`                | 아니요        | 아니요        | 아니요        |         |
 | `_count`                | 예       | 예       | 예       |         |
-| `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
-| `_include`              | 예        | 예       | 아니요        |         |
+| `_summary`              | 부분   | Partial   | Partial   | `_summary=count`가 지원됨 |
+| `_include`              | 아니요        | 예       | 아니요        |         |
 | `_revinclude`           | 아니요        | 아니요        | 아니요        |         |
 | `_contained`            | 아니요        | 아니요        | 아니요        |         |
 | `_elements`             | 아니요        | 아니요        | 아니요        |         |

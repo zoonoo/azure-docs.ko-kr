@@ -1,6 +1,6 @@
 ---
 title: 쿼리를 위한 Azure Table storage 디자인 | Microsoft Docs
-description: Azure 테이블 저장소의 쿼리에 대 한 테이블을 디자인 합니다.
+description: Azure 테이블 저장소의 쿼리에 대 한 테이블을 디자인 합니다. 적절 한 파티션 키를 선택 하 고, 쿼리를 최적화 하 고, Table service에 대 한 데이터를 정렬 합니다.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457634"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903207"
 ---
 # <a name="design-for-querying"></a>쿼리를 위한 디자인
 Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나, 이 두 가지가 혼합되어 있을 수 있습니다. 이 아티클에서는 읽기 작업을 효율적으로 지원하기 위해 Table service를 디자인할 때 기억해야 할 사항에 중점을 둡니다. 일반적으로 읽기 작업을 효율적으로 지원하는 디자인은 쓰기 작업에도 효율적입니다. 그러나 쓰기 작업을 지원하기 위해 디자인 시 기억해야 할 추가 고려 사항이 [데이터 수정을 위한 디자인](table-storage-design-for-modification.md) 아티클에서 설명됩니다.
@@ -41,7 +41,7 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 | **RowKey** (직원 Id) |String |
 | **FirstName** |String |
 | **LastName** |String |
-| **Age** |정수 |
+| **연령** |정수 |
 | **EmailAddress** |String |
 
 [Azure Table Storage 개요](table-storage-overview.md) 아티클에서는 쿼리를 디자인하는 데 직접적인 영향을 주는 Azure Table service의 주요 기능 중 일부에 대해 설명합니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/Query-Entities)참조).  

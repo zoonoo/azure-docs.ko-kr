@@ -1,6 +1,6 @@
 ---
 title: Azure API Management의 사용자 지정 캐싱
-description: Azure API Management에서 키로 항목을 캐시하는 방법을 알아봅니다
+description: Azure API Management에서 키로 항목을 캐시 하는 방법을 알아봅니다. 요청 헤더를 사용 하 여 키를 수정할 수 있습니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a366cf6d4e17e83fd89ae21631ad5b40e8971c1b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249719"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903445"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Azure API Management의 사용자 지정 캐싱
-Azure API Management 서비스에서는 리소스 URL을 키로 사용하는 [HTTP 응답 캐싱](api-management-howto-cache.md) 에 대한 기본 제공 지원을 포함합니다. `vary-by` 속성을 사용하여 요청 헤더에서 키를 수정할 수 있습니다. 전체 HTTP 응답(즉, 표현)을 캐싱하는 데 유용하지만 때때로 표현의 일부를 캐싱하는 데 유용합니다. 새 [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) 및 [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) 정책은 임의의 정책 정의 내에서 데이터를 저장하고 검색하는 기능을 제공합니다. 이제 외부 서비스에서 나오는 응답을 캐시할 수 있기 때문에 이 기능은 이전에 도입된 [보내기 요청](./api-management-advanced-policies.md#SendRequest) 정책에 값을 추가합니다.
+Azure API Management 서비스에서는 리소스 URL을 키로 사용하는 [HTTP 응답 캐싱](api-management-howto-cache.md) 에 대한 기본 제공 지원을 포함합니다. `vary-by` 속성을 사용하여 요청 헤더에서 키를 수정할 수 있습니다. 이는 전체 HTTP 응답 (표현이 라고도 함)을 캐싱하는 데 유용 하지만 경우에 따라 표현의 일부를 캐시 하는 것이 유용할 수 있습니다. 새 [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) 및 [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) 정책은 임의의 정책 정의 내에서 데이터를 저장하고 검색하는 기능을 제공합니다. 이제 외부 서비스에서 나오는 응답을 캐시할 수 있기 때문에 이 기능은 이전에 도입된 [보내기 요청](./api-management-advanced-policies.md#SendRequest) 정책에 값을 추가합니다.
 
 ## <a name="architecture"></a>Architecture
 API Management 서비스는 테넌트 단위 공유 데이터 캐시를 사용하므로 여러 단위까지 확장되어 동일하게 캐시된 데이터에 대한 액세스를 얻습니다. 그러나 다중 하위 지역 배포로 작업할 때 각 지역 내에 독립적인 캐시가 있습니다. 일부 정보가 유일한 원본인 경우 소스 캐시를 데이터 저장소로 처리하지 않는 것이 중요합니다. 이렇게 하고 이후 다중 지역 배포를 활용하기로 결정한 경우 출장 중인 사용자와 고객은 캐시된 데이터에 액세스를 하지 못할 수 있습니다.

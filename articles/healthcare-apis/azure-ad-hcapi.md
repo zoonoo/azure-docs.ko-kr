@@ -3,18 +3,18 @@ title: FHIR 용 Azure API에 대 한 Azure Active Directory id 구성
 description: Azure FHIR 서버에 대 한 id, 인증 및 권한 부여 원리를 알아보세요.
 services: healthcare-apis
 author: caitlinv39
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
-ms.openlocfilehash: 53adf974a3af4a2cc3e5c89156fe4b50571c7b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdb73670996341e9219230bb277e087009266f32
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84870913"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846023"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 Azure Active Directory id 구성
 
