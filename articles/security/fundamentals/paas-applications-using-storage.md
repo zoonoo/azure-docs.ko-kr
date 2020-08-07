@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 645d92a214f88985e1427ab24d350a6f85c0a076
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371382"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925807"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
 이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
@@ -56,7 +56,7 @@ SAS를 사용하여 Storage 계정 키를 제공하지 않고도 공유하려는
 공유 액세스 서명에 대해 자세히 알아보려면 [공유 액세스 서명 사용](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)을 참조하세요. 
 
 ## <a name="use-role-based-access-control"></a>역할 기반 액세스 제어 사용
-액세스를 관리하는 또 다른 방법은 RBAC([역할 기반 액세스 제어](/azure/role-based-access-control/overview))를 사용하는 것입니다. RBAC를 사용하는 경우 알아야 할 사항 및 최소 권한 보안 원칙에 따라 직원들에게 필요한 정확한 권한을 부여하는 데 주안점을 둡니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. 이는 데이터 액세스에 대한 보안 정책을 적용하려는 조직에 필수적입니다.
+액세스를 관리 하는 또 다른 방법은 azure [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview)를 사용 하는 것입니다. RBAC를 사용하는 경우 알아야 할 사항 및 최소 권한 보안 원칙에 따라 직원들에게 필요한 정확한 권한을 부여하는 데 주안점을 둡니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다. 이는 데이터 액세스에 대한 보안 정책을 적용하려는 조직에 필수적입니다.
 
 Azure에서 Azure 기본 제공 역할을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. 예를 들어 스토리지 계정을 관리해야 하는 클라우드 운영자의 경우 스토리지 계정 참가자 역할과 클래식 스토리지 계정 관리용 클래식 스토리지 계정 참가자 역할을 할당할 수 있습니다. VM을 관리해야 하지만 VM이 연결된 가상 네트워크 또는 스토리지 계정은 관리할 필요가 없는 클라우드 운영자의 경우 Virtual Machine 참가자 역할에 추가할 수 있습니다.
 

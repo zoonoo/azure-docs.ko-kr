@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131704"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923886"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유
 
-대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. Azure RBAC ( [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md) )를 사용 하 여 다른 사용자가 대시보드를 볼 수 있도록 허용 합니다. 사용자 또는 사용자 그룹을 역할에 할당 합니다. 해당 역할은 해당 사용자가 게시 된 대시보드를 보거나 수정할 수 있는지 여부를 정의 합니다.
+대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 다른 사용자가 대시보드를 볼 수 있도록 허용 합니다. 사용자 또는 사용자 그룹을 역할에 할당 합니다. 해당 역할은 해당 사용자가 게시 된 대시보드를 보거나 수정할 수 있는지 여부를 정의 합니다.
 
 모든 게시 된 대시보드는 Azure 리소스로 구현 됩니다. 이러한 항목은 구독 내에서 관리 가능한 항목으로 존재 하며 리소스 그룹에 포함 되어 있습니다. 액세스 제어 관점에서 대시보드는 가상 머신 또는 스토리지 계정과 같은 다른 리소스와 차이가 없습니다.
 

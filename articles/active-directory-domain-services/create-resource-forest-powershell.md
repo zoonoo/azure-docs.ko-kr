@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505771"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921999"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 온-프레미스 도메인에 대 한 Azure Active Directory Domain Services 리소스 포리스트 및 아웃 바운드 포리스트 트러스트 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 > [!IMPORTANT]
 > 관리 되는 도메인 리소스 포리스트는 현재 Azure HDInsight 또는 Azure Files을 지원 하지 않습니다. 기본 관리 되는 도메인 사용자 포리스트는 이러한 추가 서비스를 모두 지원 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -102,9 +102,9 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. 스크립트에 필요한 다음 매개 변수를 검토 `New-AzureAaddsForest` 합니다. 필수 구성 요소 **Azure PowerShell** 및 **Azure AD PowerShell** 모듈도 있는지도 확인 합니다. 응용 프로그램 및 온-프레미스 연결을 제공 하기 위한 가상 네트워크 요구 사항을 계획 했는지 확인 합니다.
 
-    | Name                         | 스크립트 매개 변수          | Description |
+    | Name                         | 스크립트 매개 변수          | 설명 |
     |:-----------------------------|---------------------------|:------------|
-    | Subscription                 | *-azureSubscriptionId*    | Azure AD DS 청구에 사용 되는 구독 ID입니다. [Get-azurermsubscription][Get-AzureRMSubscription] cmdlet을 사용 하 여 구독 목록을 가져올 수 있습니다. |
+    | 구독                 | *-azureSubscriptionId*    | Azure AD DS 청구에 사용 되는 구독 ID입니다. [Get-azurermsubscription][Get-AzureRMSubscription] cmdlet을 사용 하 여 구독 목록을 가져올 수 있습니다. |
     | 리소스 그룹               | *-aaddsResourceGroupName* | 관리 되는 도메인 및 관련 리소스에 대 한 리소스 그룹의 이름입니다. |
     | 위치                     | *-aaddsLocation*          | 관리 되는 도메인을 호스트 하는 Azure 지역입니다. 사용 가능한 지역에 대해서는 [Azure AD DS에 대해 지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) 을 참조 하세요. |
     | Azure AD DS 관리자    | *-aaddsAdminUser*         | 첫 번째 관리 되는 도메인 관리자의 사용자 계정 이름입니다. 이 계정은 Azure Active Directory의 기존 클라우드 사용자 계정 이어야 합니다. 사용자와 스크립트를 실행 하는 사용자가 *AAD DC 관리자* 그룹에 추가 됩니다. |
@@ -112,7 +112,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
     `New-AzureAaddsForest`이러한 리소스가 아직 없는 경우 스크립트는 azure 가상 네트워크 및 azure AD DS 서브넷을 만들 수 있습니다. 이 스크립트는 다음과 같이 지정 된 경우 작업 서브넷을 선택적으로 만들 수 있습니다.
 
-    | Name                              | 스크립트 매개 변수                  | Description |
+    | Name                              | 스크립트 매개 변수                  | 설명 |
     |:----------------------------------|:----------------------------------|:------------|
     | 가상 네트워크 이름              | *-aaddsVnetName*                  | 관리 되는 도메인에 대 한 가상 네트워크의 이름입니다.|
     | 주소 공간                     | *-aaddsVnetCIDRAddressSpace*      | 가상 네트워크의 주소 범위가 CIDR 표기법으로 되어 있습니다 (가상 네트워크를 만드는 경우).|
@@ -148,8 +148,8 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. Azure VPN 또는 Azure Express 경로 연결을 사용 하 여 온-프레미스 네트워크에 대 한 하이브리드 연결을 Azure에 만듭니다. 하이브리드 네트워크 구성은이 설명서의 범위를 벗어나 사용자 환경에 이미 있을 수 있습니다. 특정 시나리오에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-    * [Azure 사이트 간 VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Azure express 경로 개요](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure 사이트 간 VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure express 경로 개요](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > 관리 되는 도메인의 가상 네트워크에 직접 연결을 만드는 경우 별도의 게이트웨이 서브넷을 사용 합니다. 관리 되는 도메인의 서브넷에서 게이트웨이를 만들지 마세요.
@@ -193,7 +193,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 이제 스크립트에 다음 정보를 제공 합니다.
 
-| Name                               | 스크립트 매개 변수     | Description |
+| Name                               | 스크립트 매개 변수     | 설명 |
 |:-----------------------------------|:---------------------|:------------|
 | Azure AD DS 도메인 이름            | *-ManagedDomainFqdn* | 관리 되는 도메인의 FQDN (예: *aaddscontoso.com* ) |
 | 온-프레미스 AD DS 도메인 이름      | *-TrustFqdn*         | 트러스트 된 포리스트의 FQDN (예: *onprem.contoso.com* ) |

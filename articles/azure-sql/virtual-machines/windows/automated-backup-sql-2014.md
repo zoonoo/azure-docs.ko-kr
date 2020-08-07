@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2089fcd6e774fd735aa4709b072caafe092b46a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e563e53ad0d5ec90fb9b728c8ffe2d239cf0763
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669446"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920603"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 가상 머신에서 자동화된 백업(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -276,7 +276,7 @@ SQL Server 2014에서 자동화된 백업을 모니터링하려면 두 가지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자동화된 Backup은 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [SQL Server 2014의 관리 백업에 대한 설명서를 검토](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx)하는 것이 중요합니다.
+자동화된 Backup은 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [SQL Server 2014의 관리 백업에 대한 설명서를 검토](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)하는 것이 중요합니다.
 
 Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machine에서 SQL Server의 백업 및 복원](backup-restore.md) 문서를 참조하세요.
 

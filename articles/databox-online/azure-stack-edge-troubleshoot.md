@@ -1,6 +1,6 @@
 ---
 title: Azure Portal를 사용 하 여 Azure Stack에 지 문제 해결 | Microsoft Docs
-description: Azure Stack에 지 문제를 해결 하는 방법을 설명 합니다.
+description: Azure Stack Edge에서 문제를 해결 하는 방법에 대해 알아봅니다. 진단을 실행 하 고, 지원 정보를 수집 하 고, 로그를 사용 하 여 문제를 해결할 수 있습니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 03/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 00aae3386b3f648eafdef31dccb640d8120f7ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b80b47a1be67a9771d138c43178d50156a6f1a95
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563995"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926436"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-issues"></a>Azure Stack에 지 문제 해결
 

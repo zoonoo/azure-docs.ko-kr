@@ -3,16 +3,16 @@ title: Azure Advisor의 사용 권한
 description: Advisor 권한 및 구독을 구성 하는 기능을 차단 하는 방법 및 권장 사항을 연기 또는 해제할 수 있습니다.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057588"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927388"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure Advisor의 사용 권한
 
-Azure Advisor은 Azure 리소스 및 구독의 사용량 및 구성에 따라 권장 사항을 제공 합니다. Advisor는 RBAC ( [역할 기반 Access Control](../role-based-access-control/overview.md) )에서 제공 하는 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 사용 하 여 권장 사항 및 Advisor 기능에 대 한 액세스를 관리 합니다. 
+Azure Advisor은 Azure 리소스 및 구독의 사용량 및 구성에 따라 권장 사항을 제공 합니다. Advisor는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 에서 제공 하는 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 사용 하 여 권장 사항 및 Advisor 기능에 대 한 액세스를 관리 합니다. 
 
 ## <a name="roles-and-their-access"></a>역할 및 해당 액세스
 

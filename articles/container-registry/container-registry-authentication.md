@@ -3,12 +3,12 @@ title: 레지스트리 인증 옵션
 description: Azure Active Directory id를 사용 하 여 로그인 하 고, 서비스 주체를 사용 하 고, 선택적 관리 자격 증명을 사용 하는 등 개인 Azure container registry에 대 한 인증 옵션입니다.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 0d44a97e01eef709dff47342e4503d1e0263a225
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760586"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926323"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Azure Container Registry로 인증
 
@@ -44,7 +44,7 @@ az acr login --name <acrName>
 
 레지스트리 액세스의 경우에서 사용 하는 토큰은 `az acr login` **3 시간**동안 유효 하므로 명령을 실행 하기 전에 항상 레지스트리에 로그인 하는 것이 좋습니다 `docker` . 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. 
 
-Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 제공합니다. 일부 시나리오의 경우 Azure AD에서 고유한 개별 id를 사용 하 여 레지스트리에 로그인 하거나 특정 [RBAC 역할 및 사용 권한을](container-registry-roles.md)사용 하 여 다른 azure 사용자를 구성할 수 있습니다. 서비스 간 시나리오의 경우 또는 개별 액세스를 관리 하지 않으려는 작업 그룹 또는 개발 워크플로의 요구를 처리 하려는 경우에 [는 Azure 리소스에 대 한 관리 id](container-registry-authentication-managed-identity.md)로 로그인 할 수도 있습니다.
+Azure id를 사용 하 여 azure `az acr login` [역할 기반 액세스 제어 (azure RBAC)](../role-based-access-control/role-assignments-portal.md)를 제공 합니다. 일부 시나리오의 경우 Azure AD에서 고유한 개별 id를 사용 하 여 레지스트리에 로그인 하거나 특정 [azure 역할 및 사용 권한을](container-registry-roles.md)사용 하 여 다른 azure 사용자를 구성할 수 있습니다. 서비스 간 시나리오의 경우 또는 개별 액세스를 관리 하지 않으려는 작업 그룹 또는 개발 워크플로의 요구를 처리 하려는 경우에 [는 Azure 리소스에 대 한 관리 id](container-registry-authentication-managed-identity.md)로 로그인 할 수도 있습니다.
 
 ### <a name="az-acr-login-with---expose-token"></a>--노출 토큰을 사용 하 여 az acr login
 
@@ -73,7 +73,7 @@ docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-0000000000
 
 ## <a name="service-principal"></a>서비스 주체
 
-레지스트리에 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 할당하면 애플리케이션 또는 서비스에서 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 주체는 레지스트리에 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 허용하며 사용자는 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 애플리케이션에 대한 다양한 액세스를 정의할 수 있습니다.
+레지스트리에 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 할당하면 애플리케이션 또는 서비스에서 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 사용자는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 를 레지스트리에 허용 하 고 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 애플리케이션에 대한 다양한 액세스를 정의할 수 있습니다.
 
 컨테이너 레지스트리에 사용할 수 있는 역할은 다음과 같습니다.
 
@@ -97,7 +97,7 @@ Azure container registry를 사용 하 여 인증 하기 위한 서비스 주체
 > 관리자 계정은 주로 테스트 용도로 단일 사용자가 레지스트리에 액세스하도록 설계되었습니다. 관리자 계정 자격 증명을 여러 사용자 간에 공유 하지 않는 것이 좋습니다. 관리자 계정으로 인증하는 모든 사용자는 레지스트리에 대한 푸시 및 풀 액세스 권한이 있는 단일 사용자로 나타납니다. 이 계정을 변경하거나 사용하지 않도록 설정하면 해당 자격 증명을 사용하는 모든 사용자의 레지스트리 액세스는 허용되지 않습니다. 헤드리스 시나리오의 경우 사용자 및 서비스 주체는 개별 ID를 사용하는 것이 좋습니다.
 >
 
-관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증 메시지가 표시될 때 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예를 들어:
+관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증 메시지가 표시될 때 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예:
 
 ```
 docker login myregistry.azurecr.io 

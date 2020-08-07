@@ -1,6 +1,6 @@
 ---
 title: Azure 가용성 영역에서 영역 중복 가상 네트워크 게이트웨이 만들기
-description: 가용성 영역에 VPN Gateway 및 ExpressRoute 게이트웨이 배포
+description: VNet 게이트웨이에 복원 력, 확장성 및 고가용성을 추가 하 여 Azure 가용성 영역에서 VPN 및 Express 경로 게이트웨이를 배포 하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6cd0b2f31af187d881fe650c0829bb28e353dcbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccb6050ae4d56d2f8e57b4a590d01fb6acd9bd8a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987620"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925159"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure 가용성 영역에서 영역 중복 가상 네트워크 게이트웨이 만들기
 

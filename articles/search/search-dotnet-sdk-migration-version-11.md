@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 644184f5bb51d049d890655ada5be5ebd4c11bf7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 03d40dcaeaefe01fecbc201cf28dc20c8634af9d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909918"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926674"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
@@ -48,7 +48,7 @@ ms.locfileid: "87909918"
 | 인덱서, 데이터 원본, 기술력과에 사용 되는 클라이언트 | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**신규**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
-> 버전 11에서는 버전 10의 이름을 `SearchIndexClient` 로 바꾼 `SearchClient` 다음 인덱스, 분석기 및 동의어 맵 개체와 함께 작동 하는 클라이언트의 이름을 다시 사용 합니다. 클라이언트 참조를 업데이트할 때 검색 및 바꾸기 도중 혼동을 피하기 위해 [업그레이드 단계](#UpgradeSteps) 단계를 따릅니다.
+> `SearchIndexClient`는 두 버전에 모두 존재 하지만 다른 작업을 지원 합니다. 버전 10에서 `SearchIndexClient` 인덱스 및 기타 개체를 만듭니다. 버전 11에서는 `SearchIndexClient` 기존 인덱스와 함께 작동 합니다. 코드를 업데이트할 때 혼동을 피하려면 클라이언트 참조가 업데이트 되는 순서에 주의 해야 합니다. [업그레이드 단계](#UpgradeSteps) 에서 순서를 따라 문자열 대체 문제를 완화할 수 있습니다.
 
 <a name="naming-differences"></a>
 
@@ -125,7 +125,7 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
 
 다음 버전 10 기능은 버전 11에서 아직 사용할 수 없습니다. 이러한 기능을 사용 하는 경우 지원 될 때까지 마이그레이션을 보류 합니다.
 
-+ [지리 공간적 형식](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.serialization.geojsonextensions)
++ 지리 공간적 형식
 + [Fieldbuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) ( [이 해결 방법을](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)사용할 수 있음).
 + [지식 저장소](knowledge-store-concept-intro.md)
 

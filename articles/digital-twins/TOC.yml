@@ -92,6 +92,8 @@
           href: troubleshoot-metrics.md
         - name: 진단 로그 사용
           href: troubleshoot-diagnostics.md
+        - name: 경고 사용
+          href: troubleshoot-alerts.md
         - name: 알려진 문제
           href: troubleshoot-known-issues.md
         - name: 문제 해결

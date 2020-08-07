@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9f517eb5bd113d8d54714b75bea4c8436882d0f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836346"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924430"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -74,7 +74,7 @@ ms.locfileid: "87836346"
 4.  기초 서비스 디자인. 이 디자인에는 다음 항목이 포함 되어야 합니다.
     - Active Directory 및 DNS 디자인
     - Azure 내의 네트워크 토폴로지와 다른 SAP 시스템에 대 한 할당입니다.
-    - Azure에서 인프라 및 SAP 응용 프로그램을 관리 하는 팀을 위한 [역할 기반 액세스](../../../role-based-access-control/overview.md) 구조.
+    - Azure에서 인프라 및 SAP 응용 프로그램을 관리 하는 팀을 위한 azure [RBAC (역할 기반 액세스 제어)](../../../role-based-access-control/overview.md) 구조.
     - 리소스 그룹 토폴로지.
     - [태그 지정 전략](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Vm 및 기타 인프라 구성 요소 및/또는 논리적 이름의 명명 규칙

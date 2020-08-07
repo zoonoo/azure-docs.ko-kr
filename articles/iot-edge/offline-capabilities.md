@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725247"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926657"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 디바이스, 모듈 및 자식 디바이스용 확장 오프라인 기능을 이해합니다.
 
@@ -95,7 +95,7 @@ az iot hub device-identity add-children \
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>옵션 3: IoT Hub 서비스 SDK 사용
 
-마지막으로 C#, Java 또는 Node.js IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 부모 자식 관계를 관리할 수 있습니다. 다음은 C# SDK를 사용하여 [자식 디바이스를 할당하는 예](https://aka.ms/set-child-iot-device-c-sharp)입니다.
+마지막으로 C#, Java 또는 Node.js IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 부모 자식 관계를 관리할 수 있습니다. 다음은 C# SDK를 사용하여 [자식 디바이스를 할당하는 예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs)입니다.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>부모 디바이스를 게이트웨이로 설정
 

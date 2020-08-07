@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: fbf996a66bf76520002a22169903c7961080e38b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131534"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920503"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "87131534"
 
 DNS 영역 및 레코드는 중요한 리소스입니다. DNS 영역 또는 단일 DNS 레코드를 삭제 하면 서비스가 중단 될 수 있습니다. DNS 영역 및 레코드를 무단 또는 실수로 변경 하지 않도록 보호 하는 것이 중요 합니다.
 
-이 문서에서는 이러한 변경 내용 으로부터 개인 DNS 영역 및 레코드를 보호 하는 Azure DNS 방법을 설명 합니다.  Azure Resource Manager에서 제공 하는 강력한 두 가지 강력한 기능인 [역할 기반 액세스 제어](../role-based-access-control/overview.md) 및 [리소스 잠금](../azure-resource-manager/management/lock-resources.md)을 적용 합니다.
+이 문서에서는 이러한 변경 내용 으로부터 개인 DNS 영역 및 레코드를 보호 하는 Azure DNS 방법을 설명 합니다.  [Azure 역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/overview.md) 및 [리소스 잠금](../azure-resource-manager/management/lock-resources.md)Azure Resource Manager에서 제공 하는 강력한 두 가지 강력한 기능을 적용 합니다.
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 

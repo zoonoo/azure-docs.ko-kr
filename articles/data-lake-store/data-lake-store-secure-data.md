@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 1ae93dad9a18c18e330b4ff65924dd1db7a1faf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1da644d8aca0b197e21ec03c7d0ac0b454f92a9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515256"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926300"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
 Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니다.  사용자 및 보안 그룹의 데이터에 대한 액세스를 완전히 가능하게 하려면 RBAC(역할 기반 액세스 제어) 및 ACL(액세스 제어 목록) 모두를 설정해야 합니다.
 
-1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure Portal에서 RBAC(역할 기반 액세스 제어)를 구현하는데 사용됩니다. 자세한 내용은 [Microsoft Azure의 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure Portal에서 azure RBAC (역할 기반 액세스 제어)를 구현 하는 데 사용 됩니다. 자세한 내용은 [AZURE RBAC](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 2. AAD 보안 그룹을 Data Lake Storage Gen1 계정에 할당합니다. 이는 포털에서 Data Lake Storage Gen1 계정에 대한 액세스 및 포털이나 API에서의 관리 작업을 제어합니다.
 3. AAD 보안 그룹을 Data Lake Storage Gen1 파일 시스템에 ACL(액세스 제어 목록)로 할당합니다.
 4. 또한 Data Lake Storage Gen1의 데이터에 액세스할 수 있는 클라이언트에 대한 IP 주소 범위를 설정할 수 있습니다.
@@ -74,7 +74,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
    
     ![보안 그룹 추가](./media/data-lake-store-secure-data/adl.add.user.2.png "보안 그룹 추가")
    
-5. **저장**을 클릭합니다. 아래와 같이 추가된 보안 그룹을 확인해야 합니다.
+5. **Save**을 클릭합니다. 아래와 같이 추가된 보안 그룹을 확인해야 합니다.
    
     ![추가된 보안 그룹](./media/data-lake-store-secure-data/adl.add.user.3.png "추가된 보안 그룹")
 
@@ -147,7 +147,7 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
    
     ![그룹에 권한 할당](./media/data-lake-store-secure-data/adl.remove.acl.png "그룹에 권한 할당")
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -155,4 +155,3 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
 * [PowerShell을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)
 * [.NET SDK를 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
-

@@ -1,18 +1,18 @@
 ---
 title: Azure VPN Gateway 메트릭에 대 한 경고 설정
-description: VPN Gateway 메트릭에 대 한 경고를 구성 하는 단계
+description: Azure VPN Gateway 메트릭에 대 한 경고를 설정 하는 방법에 대해 알아봅니다. Azure Monitor를 사용 하 여 VPN 유형의 가상 네트워크 게이트웨이에 대 한 경고를 설정 합니다.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: c2c44720853500ad6a9a4af1c8d93d6c8bc3eea2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3819f653cba80854a65a08f92a10f82057abb0fd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075525"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923070"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>VPN Gateway 메트릭에 대 한 경고 설정
 
@@ -46,7 +46,7 @@ ms.locfileid: "87075525"
 
 1. 가상 네트워크 게이트웨이 리소스로 이동 하 여 **모니터링** 탭에서 **경고** 를 선택 합니다. 그런 다음 새 경고 규칙을 만들거나 기존 경고 규칙을 편집 합니다.
 
-   ![경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "만들기")
+   ![경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "생성")
 
 2. VPN gateway를 리소스로 선택 합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "87075525"
 
     b. **Condition**: 메트릭 값을 평가 하는 작업입니다.
 
-    c. **시간**: 메트릭 데이터의 세분성과 경고를 평가할 기간을 지정 합니다.
+    다. **시간**: 메트릭 데이터의 세분성과 경고를 평가할 기간을 지정 합니다.
 
    ![신호 논리를 구성 하는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "선택")
 
