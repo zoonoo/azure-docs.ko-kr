@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1a516374e0ac478b24fa1c3ced1627c4814f9bbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0538902897d088c8ce271487b3f30698af0bb1eb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367600"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926555"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>자습서: Juno Journey에 자동 사용자 프로비저닝 구성
 
@@ -151,7 +151,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 * [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-* [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+* [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

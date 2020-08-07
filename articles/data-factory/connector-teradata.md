@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418034"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926895"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata 유리한에서 데이터 복사
+
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-onprem-teradata-connector.md)
@@ -59,11 +60,11 @@ Teradata 유리한에서 지원 되는 모든 싱크 데이터 저장소로 데�
 
 Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **Teradata**로 설정 되어야 합니다. | 예 |
 | connectionString | Teradata 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `password` . 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. | 예 |
-| 사용자 이름 | Teradata에 연결할 사용자 이름을 지정 합니다. Windows 인증을 사용 하는 경우 적용 됩니다. | 아니요 |
+| 사용자 이름 | Teradata에 연결할 사용자 이름을 지정 합니다. Windows 인증을 사용 하는 경우 적용 됩니다. | 예 |
 | password | 사용자 이름에 대해 지정한 사용자 계정의 암호를 지정 합니다. [Azure Key Vault에 저장 된 비밀을 참조](store-credentials-in-key-vault.md)하도록 선택할 수도 있습니다. <br>Windows 인증을 사용 하거나 기본 인증을 위해 Key Vault의 암호를 참조 하는 경우에 적용 됩니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -71,8 +72,9 @@ Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 기본값 |
 |:--- |:--- |:--- |
-| CharacterSet | 세션에 사용할 문자 집합입니다. `CharacterSet=UTF16`예:,.<br><br/>이 값은 사용자 정의 문자 집합 또는 미리 정의 된 다음 문자 집합 중 하나일 수 있습니다. <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-jis (Windows, DOS 호환, KANJISJIS_0S)<br/>-EUC (Unix 호환, KANJIEC_0U)<br/>-IBM 메인프레임 (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | 기본값은 `ASCII`입니다. |
-| MaxRespSize |SQL 요청에 대 한 응답 버퍼의 최대 크기 (kb)입니다 (Kb). `MaxRespSize=‭10485760‬`예:,.<br/><br/>Teradata 데이터베이스 버전 16.00 이상에서는 최대 값이 7361536입니다. 이전 버전을 사용 하는 연결의 경우 최대값은 1048576입니다. | 기본값은 `65536`입니다. |
+| UseDataEncryption | Teradata 데이터베이스와의 모든 통신을 암호화할지 여부를 지정 합니다. 허용 되는 값은 0 또는 1입니다.<br><br/>- **0 (사용 안 함, 기본값)**: 인증 정보만 암호화 합니다.<br/>- **1 (사용)**: 드라이버와 데이터베이스 간에 전달 되는 모든 데이터를 암호화 합니다. | 아니요 |
+| CharacterSet | 세션에 사용할 문자 집합입니다. `CharacterSet=UTF16`예:,.<br><br/>이 값은 사용자 정의 문자 집합 또는 미리 정의 된 다음 문자 집합 중 하나일 수 있습니다. <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-jis (Windows, DOS 호환, KANJISJIS_0S)<br/>-EUC (Unix 호환, KANJIEC_0U)<br/>-IBM 메인프레임 (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | 기본값은 `ASCII`여야 합니다. |
+| MaxRespSize |SQL 요청에 대 한 응답 버퍼의 최대 크기 (kb)입니다 (Kb). `MaxRespSize=‭10485760‬`예:,.<br/><br/>Teradata 데이터베이스 버전 16.00 이상에서는 최대 값이 7361536입니다. 이전 버전을 사용 하는 연결의 경우 최대값은 1048576입니다. | 기본값은 `65536`여야 합니다. |
 
 **기본 인증을 사용 하는 예제**
 
@@ -146,13 +148,13 @@ Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 
 Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성을로 설정 해야 합니다 `TeradataTable` . | 예 |
 | 데이터베이스 | Teradata 인스턴스의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 | 테이블 | Teradata 인스턴스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -200,13 +202,13 @@ Teradata에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
 Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을로 설정 해야 합니다 `TeradataSource` . | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 (데이터 집합의 테이블이 지정 된 경우) |
-| partitionOptions | Teradata에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 값은 **None** (기본값), **Hash** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Teradata에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 아니요 |
+| partitionOptions | Teradata에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 값은 **None** (기본값), **Hash** 및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Teradata에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>파티션 옵션이 `None`이 아닌 경우에 적용합니다. | 예 |
-| partitionColumnName | 병렬 복사를 위해 범위 파티션 또는 해시 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 주 인덱스가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 인 경우에 적용 됩니다 `Hash` `DynamicRange` . 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는 `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 아니요 |
+| partitionColumnName | 병렬 복사를 위해 범위 파티션 또는 해시 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 주 인덱스가 자동으로 검색 되어 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 인 경우에 적용 됩니다 `Hash` `DynamicRange` . 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는 `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용합니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`을 후크합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 예 |
 | partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
 
@@ -320,7 +322,7 @@ Teradata에서 데이터를 복사 하는 경우 다음 매핑이 적용 됩니�
 | Interval Second |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | Interval Year |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | Interval Year To Month |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
-| number |Double |
+| 번호 |Double |
 | 기간 (Date) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | 기간 (시간) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |
 | 기간 (표준 시간대가 포함 된 시간) |지원 안 됨 원본 쿼리에서 명시적 캐스트를 적용 합니다. |

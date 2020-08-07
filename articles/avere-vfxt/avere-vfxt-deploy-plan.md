@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754385"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922679"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
@@ -73,7 +73,7 @@ Avere vFXT 클러스터의 네트워크 인프라를 계획 하는 경우 다음
 
   | 리소스 | 기존를 사용 하 시겠습니까? | 요구 사항 |
   |----------|-----------|----------|
-  | Resource group | 예 (비어 있는 경우) | 비어 있어야 합니다.|
+  | 리소스 그룹 | 예 (비어 있는 경우) | 비어 있어야 합니다.|
   | 스토리지 계정 | 클러스터를 만든 후 기존 Blob 컨테이너를 연결 하는 경우 **예** <br/>  클러스터를 만드는 동안 새 Blob 컨테이너를 만드는 경우 **아니요** | 기존 Blob 컨테이너는 비어 있어야 합니다. <br/> &nbsp; |
   | 가상 네트워크 | 예 | 새 Azure Blob 컨테이너를 만드는 경우 저장소 서비스 끝점을 포함 해야 합니다. |
   | 서브넷 | 예 | 다른 리소스를 포함할 수 없음 |
@@ -166,7 +166,7 @@ Avere vFXT for Azure 클러스터는 프라이빗 서브넷에 있으며 공용 
 
 ## <a name="vm-access-roles"></a>VM 액세스 역할
 
-Azure는 RBAC ( [역할 기반 액세스 제어](../role-based-access-control/index.yml) )를 사용 하 여 특정 작업을 수행 하도록 클러스터 vm에 권한을 부여 합니다. 예를 들어 클러스터 컨트롤러에는 클러스터 노드 Vm을 만들고 구성 하기 위한 권한 부여가 필요 합니다. 클러스터 노드는 다른 클러스터 노드에 IP 주소를 할당 하거나 다시 할당할 수 있어야 합니다.
+Azure는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 특정 작업을 수행 하도록 클러스터 vm에 권한을 부여 합니다. 예를 들어 클러스터 컨트롤러에는 클러스터 노드 Vm을 만들고 구성 하기 위한 권한 부여가 필요 합니다. 클러스터 노드는 다른 클러스터 노드에 IP 주소를 할당 하거나 다시 할당할 수 있어야 합니다.
 
 Avere vFXT virtual machines에는 두 개의 기본 제공 Azure 역할이 사용 됩니다.
 

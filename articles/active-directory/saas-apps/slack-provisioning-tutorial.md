@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9aa97595f9a6ab2a866a8c8ebccde7e53854dbd1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016323"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924549"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "87016323"
 
 Azure AD 응용 프로그램 갤러리에서 여유 시간을 추가 하 여 시간에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 여유를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
-## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>3단계. 프로비저닝 범위에 있는 사용자 정의 
+## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>3단계: 프로비저닝 범위에 있는 사용자 정의 
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
@@ -166,7 +166,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁

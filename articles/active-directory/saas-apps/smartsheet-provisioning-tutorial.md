@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 699eb37176d6737744fb0ba01f9f3f4a2d4e55b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c23c57e77f69cd7043e09ff5e2809d8329d62da3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318750"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925521"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Smartsheet 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "85318750"
 > [!NOTE]
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -135,7 +135,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션에서 **사용자 Azure Active Directory 사용자를 Smartsheet에 동기화를**선택 합니다.
 
@@ -155,7 +155,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |역할 [primary eq "True"]. display|String|
    |역할 [primary eq "True"]. 형식|String|
    |역할 [primary eq "True"]. 값|String|
-   |roles|String|
+   |역할|String|
    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
@@ -182,7 +182,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항

@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058094"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923733"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
 Azure AD 조인은 클라우드 우선 또는 클라우드 전용으로 사용하려는 조직을 위한 것입니다. 모든 조직에서 규모 또는 업계에 관계없이 Azure AD 조인 디바이스를 배포할 수 있습니다. Azure AD 조인은 하이브리드 환경에서도 작동하므로 클라우드 및 온-프레미스 앱과 리소스 모두에 액세스할 수 있습니다.
 
-| Azure AD 조인 | Description |
+| Azure AD 조인 | 설명 |
 | --- | --- |
 | **정의** | 조직 계정에서 디바이스에 로그인하는 데 필요한 Azure AD에만 조인됩니다. |
 | **기본 대상 그룹** | 클라우드 전용 및 하이브리드 조직 모두에 적합합니다. |
 |   | 조직의 모든 사용자에게 적용됩니다. |
 | **디바이스 소유권** | 조직 |
-| **운영 체제** | 모든 Windows 10 디바이스 |
-|   | [Azure에서 실행 되는 Windows server 2019 Virtual Machines](howto-vm-sign-in-azure-ad-windows.md) (Server core는 지원 되지 않음) |
+| **운영 체제** | Windows 10 Home을 제외한 모든 Windows 10 장치 |
+|   | [Azure에서 실행되는 Windows Server 2019 Virtual Machines](howto-vm-sign-in-azure-ad-windows.md)(서버 코어는 지원되지 않음) |
 | **프로비전** | 셀프 서비스: Windows OOBE 또는 설정 |
 |   | 대량 등록 |
 |   | Windows Autopilot |
@@ -62,7 +62,7 @@ Azure AD 가입은 기본적으로 온-프레미스 Windows Server Active Direct
 - Active Directory 대신 Azure AD에서 사용자 그룹을 관리하고자 합니다. 예를 들어 이 시나리오는 계절 노동자, 계약자 또는 학생에게 적용할 수 있습니다.
 - 제한된 온-프레미스 인프라를 사용하는 원격 지사에서 작업자에게 조인 기능을 제공하려고 합니다.
 
-Windows 10 디바이스에 대한 Azure AD 가입 디바이스를 구성할 수 있습니다.
+Windows 10 Home을 제외한 모든 Windows 10 장치에 대해 Azure AD 조인 장치를 구성할 수 있습니다.
 
 Azure AD 가입 디바이스의 목표는 단순화하는 것입니다.
 

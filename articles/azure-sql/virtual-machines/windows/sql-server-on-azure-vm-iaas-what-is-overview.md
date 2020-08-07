@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f1786123808371601467926c2a114c676e898330
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 161722d1f80e4bada35548b4e2b4e903c56215ec
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668630"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926695"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines에서 SQL Server (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -132,7 +132,7 @@ Azure Portal은 SQL 가상 머신을 포함하여 [모든 Azure SQL 리소스](h
 Azure는 지원되는 각 운영 체제, 버전 및 버전 조합에 대한 하나의 가상 머신 이미지만 유지 관리합니다. 즉, 시간이 지남에 따라 이미지를 새로 고치고 이전 이미지는 제거됩니다. 자세한 내용은 [SQL Server VM FAQ](frequently-asked-questions-faq.md#images)의 **이미지** 섹션을 참조하세요.
 
 ## <a name="customer-experience-improvement-program-ceip"></a>CEIP(사용자 환경 개선 프로그램)
-CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement)을 참조하세요.
+CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](https://docs.microsoft.com/sql/sql-server/sql-server-privacy)을 참조하세요.
 
 ## <a name="related-products-and-services"></a>관련 제품 및 서비스
 ### <a name="windows-virtual-machines"></a>Windows 가상 머신

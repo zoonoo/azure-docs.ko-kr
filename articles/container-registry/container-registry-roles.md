@@ -3,23 +3,23 @@ title: Azure 역할 및 사용 권한
 description: Azure RBAC (역할 기반 액세스 제어) 및 IAM (id 및 액세스 관리)을 사용 하 여 Azure container registry의 리소스에 대 한 세분화 된 사용 권한을 제공 합니다.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533311"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920078"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
-Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 다른 수준의 사용 권한을 제공 하는 [기본 제공 azure 역할](../role-based-access-control/built-in-roles.md) 집합을 지원 합니다. Azure [역할 기반 액세스 제어](../role-based-access-control/index.yml) (RBAC)를 사용 하 여 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 다른 id에 특정 권한을 할당 합니다. 
+Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 다른 수준의 사용 권한을 제공 하는 [기본 제공 azure 역할](../role-based-access-control/built-in-roles.md) 집합을 지원 합니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 다른 id에 특정 권한을 할당 합니다. 
 
 | 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [이미지 데이터 삭제](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 소유자 | x | x | x | x | x | x |  |  
-| 참가자 | x | x | x |  x | x | X |  |  
-| 판독기 | X |  |  | x |  |  |  |
-| AcrPush |  |  | x | x | |  |  |  
+| 소유자 | X | X | X | X | X | X |  |  
+| 참가자 | X | X | X |  X | X | X |  |  
+| 판독기 | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |

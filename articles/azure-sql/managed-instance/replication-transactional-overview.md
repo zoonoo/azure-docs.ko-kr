@@ -12,17 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504070"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920129"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-트랜잭션 복제는 azure sql Managed Instance 및 SQL Server의 기능으로, Azure SQL Managed Instance의 테이블 또는 SQL Server 인스턴스의 데이터를 원격 데이터베이스에 배치 된 테이블로 복제할 수 있습니다. 이 기능을 사용하면 서로 다른 데이터베이스의 여러 테이블을 동기화할 수 있습니다.
+트랜잭션 복제는 azure sql Managed Instance 및 SQL Server의 기능으로, Azure SQL Managed Instance의 테이블 또는 SQL Server 인스턴스의 데이터를 원격 데이터베이스에 배치 된 테이블로 복제할 수 있습니다. 이 기능을 사용하면 서로 다른 데이터베이스의 여러 테이블을 동기화할 수 있습니다. 
+
+트랜잭션 복제는 현재 SQL Managed Instance에 대 한 공개 미리 보기로 제공 됩니다. 
 
 ## <a name="overview"></a>개요
 
@@ -43,9 +45,9 @@ ms.locfileid: "86504070"
 
 | 역할 | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| **게시자** | 예 | 예 |
-| **배포자** | 예 | 예|
-| **끌어오기 구독자** | 예 | 예|
+| **게시자** | 아니요 | 예 |
+| **배포자** | 아니요 | 예|
+| **끌어오기 구독자** | 아니요 | 예|
 | **밀어넣기 구독자**| 예 | 예|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -76,7 +78,7 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 | [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
 | [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
 | [**피어 투 피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
-| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 예 | 예|
+| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아니요 | 예|
 | [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 아니요|
 | &nbsp; | &nbsp; | &nbsp; |
 

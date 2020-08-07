@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3441a540cb00dc9b85de54543484b1723fa4226e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e83e6df26a2b3e8eabda142ee6cd89320c59ad8a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080773"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922645"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -84,7 +84,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
    1. C#에서 다음 코드는 애플리케이션 대신 토큰을 가져올 수 있습니다. Gen1 환경에서 데이터를 쿼리 하는 방법에 대 한 전체 예제는 [c #을 사용 하 여 쿼리 데이터](time-series-insights-query-data-csharp.md)를 참조 하세요.
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
+        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
 
    1. 그런 다음 `Authorization` 응용 프로그램에서 AZURE TIME SERIES INSIGHTS API를 호출할 때 헤더에서 토큰을 전달할 수 있습니다.
 

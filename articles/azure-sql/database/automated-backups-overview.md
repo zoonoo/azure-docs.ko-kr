@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810281"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921948"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -66,7 +66,7 @@ GRS 저장소 blob은 [쌍을 이루는 지역](../../best-practices-availabilit
 
 다음 예제를 사용 하 여 백업 구성 및 복원 작업을 시도할 수 있습니다.
 
-| 작업(Operation) | Azure portal | Azure PowerShell |
+| 연산 | Azure portal | Azure PowerShell |
 |---|---|---|
 | **백업 보존 변경** | [SQL 데이터베이스](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 데이터베이스](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **장기 백업 보존 변경** | [SQL 데이터베이스](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance-해당 없음  | [SQL 데이터베이스](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
@@ -111,7 +111,7 @@ VCore 데이터베이스의 경우 각 백업 유형 (전체, 차등 및 로그)
 
 - [백업 보존 기간](#change-the-pitr-backup-retention-period-by-using-the-azure-portal)을 사용자 요구에 따라 가능한 최소 기간으로 줄입니다.
 - 인덱스 다시 빌드와 같은 대량 쓰기 작업은 수행하지 않는 것이 좋습니다.
-- 대량 데이터 로드 작업의 경우에는 [클러스터형 columnstore 인덱스](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) 와 관련 된 [모범 사례](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)를 사용 하 고 클러스터 되지 않은 인덱스의 수를 줄이는 것이 좋습니다.
+- 대량 데이터 로드 작업의 경우에는 [클러스터형 columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 와 관련 된 [모범 사례](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)를 사용 하 고 클러스터 되지 않은 인덱스의 수를 줄이는 것이 좋습니다.
 - 범용 서비스 계층에서 프로 비전 된 데이터 저장소는 백업 저장소의 가격 보다 저렴 합니다. 과도 한 백업 저장소 비용이 지속적으로 증가 하는 경우 백업 저장소에 저장 하기 위해 데이터 저장소를 늘릴 수 있습니다.
 - 임시 결과 및/또는 임시 데이터를 저장 하기 위해 응용 프로그램 논리에서 영구 테이블 대신 TempDB를 사용 합니다.
 - 가능 하면 항상 로컬 중복 백업 저장소 사용 (예: 개발/테스트 환경)

@@ -3,12 +3,12 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: df8543d7f083dd2bf9d2421b4808de5b60a51e30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513781"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922900"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -40,7 +40,7 @@ ms.locfileid: "86513781"
 시작하기 전에 다음을 확인합니다.
 
 1. Azure에서 실행되는 SQL Server 인스턴스가 있는지 확인합니다. [SQL Server 인스턴스를 마켓플레이스에 빠르게 만들](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) 수 있습니다.
-2. [기능 고려 사항](sql-support-matrix.md#feature-consideration-and-limitations) 및 [시나리오 지원](sql-support-matrix.md#scenario-support)을 검토합니다.
+2. [기능 고려 사항](sql-support-matrix.md#feature-considerations-and-limitations) 및 [시나리오 지원](sql-support-matrix.md#scenario-support)을 검토 합니다.
 3. 이 시나리오에 대한 [일반적인 질문을 검토](faq-backup-sql-server.md)합니다.
 
 ## <a name="set-vm-permissions"></a>VM 권한 설정

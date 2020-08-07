@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 Ultra Disks를 �
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 46be67a415f67e260262e5b80e5a1dad534aea79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531601"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926742"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure ultra disks 사용 (미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "86531601"
 > [!IMPORTANT]
 > Azure ultra disks에는 특정 VM 시리즈 뿐만 아니라 해당 디스크를 지 원하는 가용성 영역 및 지역에 배포 된 nodepools 필요 합니다. [**Ultra DISKS GA 범위 및 제한 사항**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)을 참조 하세요.
 
-### <a name="prerequisites"></a>사전 준비 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - `EnableUltraSSD`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.
 - 최신 `aks-preview` [CLI 확장이][az-extension-add] 설치 되어 있는지 확인 합니다.
@@ -97,7 +97,7 @@ Ultra disks를 지 원하는 클러스터에 새 노드 풀을 추가 하 여 �
 
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Ultra disks를 지원 하지 않고 새 노드 풀을 만들려는 경우 사용자 지정 매개 변수를 생략 하 여 수행할 수 있습니다 `--aks-custom-headers` .

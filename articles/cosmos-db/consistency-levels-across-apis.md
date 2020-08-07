@@ -5,22 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 08/6/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af777efda769315019ecee41d4053f5ab82f3047
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119310"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920435"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
-Azure Cosmos DB는 널리 사용 되는 데이터베이스에 대 한 유선 프로토콜 호환 Api를 기본적으로 지원 합니다. 여기에는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table storage가 포함 됩니다. 이러한 데이터베이스는 일관성 수준에 대해 정확 하 게 정의 된 일관성 모델 또는 SLA 지원 보장을 제공 하지 않습니다. 이러한 데이터베이스는 일반적으로 Azure Cosmos DB에서 제공된 5가지 일관성 모델의 하위 집합만 제공합니다. 
+Azure Cosmos DB는 널리 사용 되는 데이터베이스에 대 한 유선 프로토콜 호환 Api를 기본적으로 지원 합니다. 여기에는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table storage가 포함 됩니다. 이러한 데이터베이스는 일관성 수준에 대해 정확 하 게 정의 된 일관성 모델 또는 SLA 지원 보장을 제공 하지 않습니다. 이러한 데이터베이스는 일반적으로 Azure Cosmos DB에서 제공된 5가지 일관성 모델의 하위 집합만 제공합니다.
 
 SQL API, Gremlin API 및 Table API 사용 하는 경우 Azure Cosmos 계정에 구성 된 기본 일관성 수준이 사용 됩니다. 
 
 MongoDB에 대 한 Cassandra API 또는 Azure Cosmos DB의 API를 사용 하는 경우 응용 프로그램은 더 강력한 일관성 및 내구성 보증을 통해 각각 Apache Cassandra 및 MongoDB에서 제공 하는 일관성 수준의 전체 집합을 얻습니다. 이 문서에서는 Apache Cassandra 및 MongoDB 일관성 수준에 대 한 해당 Azure Cosmos DB 일관성 수준을 보여 줍니다.
+
+> [!NOTE]
+> Azure Cosmos DB에 대 한 기본 일관성 모델은 Session입니다. Session은 Cassandra 또는 MongoDB에서 기본적으로 지원 하지 않는 클라이언트 중심의 일관성 모델입니다. 선택할 일관성 모델에 대 한 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md) 을 참조 하십시오.
 
 ## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>Apache Cassandra 및 Azure Cosmos DB 일관성 수준 간 매핑
 
@@ -36,14 +39,14 @@ Azure Cosmos DB와 달리 Apache Cassandra는 기본적으로 정확 하 게 정
 
 ## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>MongoDB 및 Azure Cosmos DB 일관성 수준 간 매핑
 
-Azure Cosmos DB와 달리 native MongoDB는 정확 하 게 정의 된 일관성 보장을 제공 하지 않습니다. 대신, 네이티브 MongoDB를 사용 하면 쓰기 우려, 읽기 관심사 및 isMaster 지시어를 사용 하 여 읽기 작업을 주 복제본 또는 보조 복제본으로 전달 하 여 원하는 일관성 수준을 달성할 수 있습니다. 
+Azure Cosmos DB와 달리 native MongoDB는 정확 하 게 정의 된 일관성 보장을 제공 하지 않습니다. 대신, 네이티브 MongoDB를 사용 하면 쓰기 우려, 읽기 관심사 및 isMaster 지시어를 사용 하 여 읽기 작업을 주 복제본 또는 보조 복제본으로 전달 하 여 원하는 일관성 수준을 달성할 수 있습니다.
 
 MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 MongoDB 드라이버는 쓰기 지역을 주 복제본으로 처리 하 고 다른 모든 지역은 읽기 복제본입니다. Azure Cosmos 계정에 연결 된 영역을 주 복제본으로 선택할 수 있습니다. 
 
 MongoDB에 Azure Cosmos DB API를 사용 하는 동안:
 
 * 쓰기 문제는 Azure Cosmos 계정에 구성 된 기본 일관성 수준에 매핑됩니다.
- 
+
 * Azure Cosmos DB은 MongoDB 클라이언트 드라이버에 지정 된 읽기 문제를 읽기 요청에 대해 동적으로 구성 된 Azure Cosmos DB 일관성 수준 중 하나로 동적으로 매핑합니다.  
 
 * Azure Cosmos 계정에 연결 된 특정 지역에는 해당 지역을 쓰기 가능한 첫 번째 지역으로 만들어 주석을 달 수 있습니다. 

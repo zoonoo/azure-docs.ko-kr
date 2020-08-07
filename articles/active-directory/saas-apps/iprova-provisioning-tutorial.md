@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 799713c237d8a528b7e458da1e26695484ca1080
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448823"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923172"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 iProva 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "87448823"
 > * IProva에서 그룹 및 그룹 멤버 자격 프로 비전
 > * IProva에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -114,7 +114,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션에서 **Azure Active Directory 사용자를 iprova에 동기화를**선택 합니다.
 
@@ -182,7 +182,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
 ## <a name="change-log"></a>로그 변경

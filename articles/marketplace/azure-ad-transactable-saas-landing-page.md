@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 1ff366e24adb82a0d7d4660d4afaffa0bbca0b3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328477"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921269"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 불가능 SaaS 제품에 대 한 방문 페이지 빌드
 
@@ -56,7 +56,7 @@ Id를 사용 하는 첫 번째 단계는 방문 페이지가 Azure AD 응용 프
 
 Microsoft Graph API를 쿼리하려면 [웹 api에 액세스 하도록 새 응용 프로그램을 구성](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis)합니다. 이 응용 프로그램에 대 한 API 사용 권한을 선택 하는 경우에는 기본적으로 사용자의 기본 정보를 수집 하 여 온 보 딩 프로세스를 원활 하 고 자동으로 설정할 수 있습니다 **.** 모든 관리자가 아닌 사용자가 방문 페이지를 방문 하지 못하도록 차단 하므로 관리자 **동의가 필요 하다**고 표시 된 API 권한은 요청 하지 마세요.
 
-등록 또는 프로 비전 프로세스의 일환으로 상승 된 권한이 필요한 경우 marketplace에서 보낸 모든 구매자가 처음 방문 페이지와 상호 작용할 수 있도록 Azure AD의 [증분 승인](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) 기능을 사용 하는 것이 좋습니다.
+등록 또는 프로 비전 프로세스의 일환으로 상승 된 권한이 필요한 경우 marketplace에서 보낸 모든 구매자가 처음 방문 페이지와 상호 작용할 수 있도록 Azure AD의 [증분 승인](https://aka.ms/incremental-consent) 기능을 사용 하는 것이 좋습니다.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>코드 샘플을 시작 지점으로 사용
 
@@ -90,16 +90,7 @@ SaaS 처리 Api를 사용 하 여 응용 프로그램을 인증 하려면 Azure 
 
 ### <a name="call-the-resolve-endpoint"></a>Resolve 끝점 호출
 
-SaaS 처리 Api는 marketplace 토큰의 유효성을 확인 하 고이 테이블에 표시 된 값을 포함 하 여 구독에 대 한 정보를 반환 하기 위해 호출할 수 있는 [resolve](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) 끝점을 구현 합니다.
-
-| 값 | 설명 |
-| ------------ | ------------- |
-| Id | 이 구독의 고유 식별자 (GUID)입니다. 향후 SaaS 처리 Api에 대 한 호출에서이 값이 필요 합니다. |
-| subscriptionName | 제품이 파트너 센터에 추가 될 때 설정 된 구독의 이름입니다. |
-| offerId | 특정 제안에 대 한 식별자입니다 (제품이 추가 된 경우 설정). |
-| planId | 제품에 대 한 특정 요금제에 대 한 식별자입니다 (제품이 추가 된 경우 설정). |
-| 수량 | 구매 중 구매자의 수량 입력. |
-|||
+SaaS 처리 Api는 marketplace 토큰의 유효성을 확인 하 고 구독에 대 한 정보를 반환 하기 위해 호출 될 수 있는 [resolve](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) 끝점을 구현 합니다.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>ID 토큰에서 인코딩된 클레임에서 정보를 읽습니다.
 

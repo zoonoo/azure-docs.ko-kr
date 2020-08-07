@@ -10,15 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 1b2d707569221a79ad53f04bcc379f5067ed9b04
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 210b2935cd2df81b0ff079c9a1c945fe770933f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905536"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926521"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>HPC에 대 한 메시지 전달 인터페이스 설정
 
@@ -95,11 +95,24 @@ ${INSTALL_PREFIX}/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml 
 
 ## <a name="intel-mpi"></a>Intel MPI
 
-[INTEL MPI를 다운로드](https://software.intel.com/mpi-library/choose-download)합니다.
+선택한 버전의 [INTEL MPI](https://software.intel.com/mpi-library/choose-download)를 다운로드 합니다. 버전에 따라 I_MPI_FABRICS 환경 변수를 변경 합니다. Intel MPI 2018의 경우 `I_MPI_FABRICS=shm:ofa` 2019에 및를 사용 하 고를 사용 `I_MPI_FABRICS=shm:ofi` 합니다.
 
-버전에 따라 I_MPI_FABRICS 환경 변수를 변경 합니다. Intel MPI 2018의 경우 `I_MPI_FABRICS=shm:ofa` 2019에 및를 사용 하 고를 사용 `I_MPI_FABRICS=shm:ofi` 합니다.
+### <a name="non-sr-iov-vms"></a>비 sr-iov Vm
+SR-IOV를 [사용](https://registrationcenter.intel.com/en/forms/?productid=1740) 하지 않는 vm의 경우에는 다음을 수행 합니다.
+```bash
+wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
+```
+설치 단계에 대해서는 [Intel MPI Library 설치 가이드](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html)를 참조하세요.
+필요에 따라 루트가 아닌 비 디버거 프로세스에 대해 ptrace를 사용 하도록 설정할 수 있습니다 (최신 버전의 Intel MPI에 필요).
+```bash
+echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+```
 
-프로세스 고정은 기본적으로 15, 30 및 60 PPN에 대해 제대로 작동 합니다.
+### <a name="suse-linux"></a>SUSE Linux
+SUSE Linux Enterprise Server VM 이미지 버전-HPC 용 12 SP3, hpc 용 SLES 12 SP3 (프리미엄), hpc 용 SLES 12 SP1, hpc 용 SLES 12 SP1 (Premium), SLES 12 SP4 및 SLES 15, RDMA 드라이버가 설치 되 고 Intel MPI 패키지가 VM에 배포 됩니다. 다음 명령을 실행 하 여 Intel MPI를 설치 합니다.
+```bash
+sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+```
 
 ## <a name="mpich"></a>MPICH
 

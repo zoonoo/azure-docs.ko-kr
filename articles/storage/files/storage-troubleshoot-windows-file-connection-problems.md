@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901745"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927218"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -305,27 +305,27 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
  
 예를 들어 0x100000으로 설정하고 성능이 향상되는지 확인할 수 있습니다.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>오류 Aaddsten\notnon Azure Files "에 대해 AAD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정 했습니다." 테 넌 트 Id를 사용 하 여 활성 테 넌 트 Id를 찾을 수 없습니다. "
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>오류 aaddsten\notnononenotnenonenotnenenenotnenenenenonenenenenenenoneneneneneneneneneneneneneAzure Files AD DS Azure Active Directory nonenene
 
 ### <a name="cause"></a>원인
 
-오류 Aaddsten앤틸리스 Notfound는 aad [도메인 서비스 (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 가 연결 된 구독의 aad 테 넌 트에서 만들어지지 않는 저장소 계정에서 [Azure Files에서 Azure Active Directory Domain Services (Azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
+오류 AadDsTenantNotFound는 azure [Ad 도메인 서비스 (azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 가 연결 된 구독의 azure ad 테 넌 트에 만들어지지 않는 저장소 계정의 [Azure Files에서 Azure Active Directory Domain Services (azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
 
 ### <a name="solution"></a>해결 방법
 
-스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
+저장소 계정이 배포 된 구독의 Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 합니다. 관리 되는 도메인을 만들려면 Azure AD 테 넌 트의 관리자 권한이 있어야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>오류 ' 시스템 오류 1359이 발생 했습니다. AAD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정한 상태에서 파일 공유에 대 한 SMB 액세스를 통해 수신 된 내부 오류
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>오류 ' 시스템 오류 1359이 발생 했습니다. Azure AD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정한 상태에서 파일 공유에 대 한 SMB 액세스를 통해 수신 된 내부 오류
 
 ### <a name="cause"></a>원인
 
-오류 ' 시스템 오류 1359이 발생 했습니다. 도메인 DNS 이름이 숫자 문자로 시작 하는 AAD DS에 대해 사용 하도록 설정 된 AAD DS 인증을 사용 하 여 파일 공유에 연결 하려고 하면 내부 오류가 발생 합니다. 예를 들어 AAD DS 도메인 DNS 이름이 "1domain" 이면 AAD 자격 증명을 사용 하 여 파일 공유를 탑재 하려고 할 때이 오류가 발생 합니다. 
+오류 ' 시스템 오류 1359이 발생 했습니다. 도메인 DNS 이름이 숫자 문자로 시작 하는 Azure AD DS에 대해 Azure AD DS 인증을 사용 하도록 설정 하 여 파일 공유에 연결 하려고 하면 내부 오류가 발생 합니다. 예를 들어 Azure AD DS 도메인 DNS 이름이 "1domain" 이면 Azure AD 자격 증명을 사용 하 여 파일 공유를 탑재 하려고 할 때이 오류가 발생 합니다. 
 
 ### <a name="solution"></a>해결 방법
 
-현재 아래 규칙과 함께 적용 되는 새 도메인 DNS 이름을 사용 하 여 AAD DS를 다시 배포 하는 것을 고려할 수 있습니다.
+현재 아래 규칙과 함께 적용 되는 새 도메인 DNS 이름을 사용 하 여 Azure AD DS를 다시 배포 하는 것을 고려할 수 있습니다.
 - 이름은 숫자로 시작할 수 없습니다.
 - 이름은 3 ~ 63 자 길이 여야 합니다.
 
@@ -350,7 +350,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 4. CheckGetKerberosTicket: 저장소 계정에 연결 하기 위해 Kerberos 티켓을 가져오려고 시도 합니다. 
 5. CheckADObjectPasswordIsCorrect: 저장소 계정을 나타내는 AD id에 구성 된 암호가 storage 계정 kerb1 또는 kerb2 key와 일치 하는지 확인 합니다.
 6. CheckSidHasAadUser: 로그온 한 AD 사용자가 Azure AD와 동기화 되었는지 확인 합니다. 특정 AD 사용자가 Azure AD에 동기화 되었는지 여부를 확인 하려면 입력 매개 변수에서-UserName 및-Domain을 지정 하면 됩니다.
-7. CheckAadUserHasSid: Azure AD 사용자에 게 AD의 SID가 있는지 확인 합니다 .이 검사를 수행 하려면 사용자가 매개 변수-ObjectId를 사용 하 여 Azure AD 사용자의 개체 Id를 입력 해야 합니다. 
+7. CheckAadUserHasSid: Azure AD 사용자에 게 AD의 SID가 있는지 확인 합니다 .이 검사를 수행 하려면 사용자가 매개 변수-ObjectId를 사용 하 여 Azure AD 사용자의 개체 ID를 입력 해야 합니다. 
 8. CheckStorageAccountDomainJoined: 저장소 계정의 속성을 확인 하 여 AD 인증을 사용 하도록 설정 하 고 계정의 AD 속성이 채워지는지 확인 합니다.
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 여 디렉터리/파일 수준 사용 권한 (Windows Acl)을 구성할 수 없습니다.

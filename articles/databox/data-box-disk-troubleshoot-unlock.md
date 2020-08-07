@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Disk 디스크 잠금 해제 문제 해결 | Microsoft Docs
-description: Azure Data Box Disk에서 발견된 문제 해결 방법을 설명합니다.
+description: Azure Data Box Disk 사용 하 여 잠금 해제 도구에 대 한 문제를 해결 하는 워크플로에 대해 알아봅니다. Data Box Disk 잠금 해제 도구 오류를 참조 하세요.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 08/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 61f6da7df09f9569af1746563dc3be2922f4e2c1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 866cf01243983863292ada0b086f8f5b2f94e412
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833571"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925564"
 ---
 # <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Azure Data Box Disk의 디스크 잠금 해제 문제 해결
 

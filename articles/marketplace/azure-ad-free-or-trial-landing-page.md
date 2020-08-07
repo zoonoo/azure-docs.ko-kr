@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: d360b890023c1a14f80d9fc8efc703abd7544710
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328501"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921387"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드
 
@@ -53,7 +53,7 @@ Id를 사용 하는 첫 번째 단계는 방문 페이지가 Azure AD 응용 프
 
 Microsoft Graph API를 쿼리하려면 [웹 api에 액세스 하도록 새 응용 프로그램을 구성](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis)합니다. 이 응용 프로그램에 대 한 API 사용 권한을 선택 하는 경우 **사용자** 의 기본값은 사용자에 대 한 기본 정보를 수집 하 여 온 보 딩 프로세스를 원활 하 고 자동으로 설정 하는 데 충분 합니다. 모든 관리자가 아닌 사용자가 방문 페이지를 방문 하지 못하도록 차단 하므로 관리자 **동의가 필요 하다**고 표시 된 API 권한은 요청 하지 마세요.
 
-등록 또는 프로 비전 프로세스의 일부로 상승 된 권한이 필요한 경우 marketplace에서 전송 되는 모든 사용자가 처음 방문 페이지와 상호 작용할 수 있도록 Azure AD의 [증분 승인](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) 기능을 사용 하는 것이 좋습니다.
+등록 또는 프로 비전 프로세스의 일부로 상승 된 권한이 필요한 경우 marketplace에서 전송 되는 모든 사용자가 처음 방문 페이지와 상호 작용할 수 있도록 Azure AD의 [증분 승인](https://aka.ms/incremental-consent) 기능을 사용 하는 것이 좋습니다.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>코드 샘플을 시작 지점으로 사용
 

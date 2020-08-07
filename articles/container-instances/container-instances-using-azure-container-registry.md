@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169615"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927439"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
 [Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Instances에 배포할 때 Azure container registry에 저장 된 컨테이너 이미지를 가져오는 방법을 설명 합니다. 레지스트리 액세스를 구성 하는 권장 방법은 Azure Active Directory 서비스 주체와 암호를 만들고 Azure key vault에 로그인 자격 증명을 저장 하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 **Azure container registry**:이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
@@ -25,7 +25,7 @@ ms.locfileid: "86169615"
 
 ## <a name="configure-registry-authentication"></a>레지스트리 인증 구성
 
-"헤드리스" 서비스 및 응용 프로그램에 대 한 액세스를 제공 하는 프로덕션 시나리오에서는 [서비스 주체](../container-registry/container-registry-auth-service-principal.md)를 사용 하 여 레지스트리 액세스를 구성 하는 것이 좋습니다. 서비스 주체를 사용 하면 컨테이너 이미지에 대 한 [역할 기반 액세스 제어](../container-registry/container-registry-roles.md) 를 제공할 수 있습니다. 예를 들어, 레지스트리에 대해 끌어오기 전용 액세스 권한을 가지는 서비스 주체를 구성할 수 있습니다.
+"헤드리스" 서비스 및 응용 프로그램에 대 한 액세스를 제공 하는 프로덕션 시나리오에서는 [서비스 주체](../container-registry/container-registry-auth-service-principal.md)를 사용 하 여 레지스트리 액세스를 구성 하는 것이 좋습니다. 서비스 주체를 사용 하면 azure [RBAC (역할 기반 액세스 제어)](../container-registry/container-registry-roles.md) 를 컨테이너 이미지에 제공할 수 있습니다. 예를 들어, 레지스트리에 대해 끌어오기 전용 액세스 권한을 가지는 서비스 주체를 구성할 수 있습니다.
 
 Azure Container Registry는 추가 [인증 옵션](../container-registry/container-registry-authentication.md)을 제공 합니다.
 
@@ -83,8 +83,8 @@ az keyvault secret set \
 
 Azure Key Vault를 만들고 다음 두 비밀을 저장했습니다.
 
-* `$ACR_NAME-pull-usr`: 서비스 주체 ID로, 컨테이너 레지스트리 **username**으로 사용됩니다.
-* `$ACR_NAME-pull-pwd`: 서비스 주체 암호로, 컨테이너 레지스트리 **password**로 사용됩니다.
+* `$ACR_NAME-pull-usr`: **username** 컨테이너 레지스트리로 사용할 서비스 주체 ID입니다.
+* `$ACR_NAME-pull-pwd`: **password** 컨테이너 레지스트리로 사용할 서비스 주체 암호입니다.
 
 이제 사용자나 애플리케이션 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0bed20dfd087783e865dd2e68897870ad56507c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b9792ce25541917bfde3291b3864f58d70d6d03
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294406"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924022"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Webroot 보안 인식 교육 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "87294406"
 > * Azure AD와 Webroot 보안 인식 교육 간에 사용자 특성을 동기화 된 상태로 유지
 > * Webroot 보안 인식 교육에서 그룹 및 그룹 멤버 자격 프로 비전
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "87294406"
 
 4. **비밀 토큰**을 복사 하 고 저장 합니다. 이 값은 Azure Portal에서 Webroot 보안 인식 학습 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
 
-5. **Done**을 클릭합니다.
+5. **완료**를 클릭합니다.
 
     ![비밀 토큰 복사](./media/webroot-security-awareness-training-provisioning-tutorial/copy-secret-token.png)
 
@@ -121,9 +121,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |attribute|Type|필터링에 지원 됨|
    |---|---|---|
    |externalId|String|&check;|
-   |name.givenName|문자열|
-   |name.familyName|문자열|
-   |emails[type eq "work"].value|문자열|
+   |name.givenName|String|
+   |name.familyName|String|
+   |emails[type eq "work"].value|String|
 
 10. **매핑** 섹션 아래에서 **프로 비전 Azure Active Directory 그룹**을 선택 합니다.
 
@@ -131,7 +131,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
       |attribute|Type|필터링에 지원 됨|
       |---|---|---|
-      |displayName|문자열|&check;|
+      |displayName|String|&check;|
       |members|참조|
       |externalId|String|
 
@@ -155,7 +155,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
 ## <a name="additional-resources"></a>추가 리소스

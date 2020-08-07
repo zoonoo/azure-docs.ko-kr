@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292837"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924583"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>CSP(클라우드 솔루션 공급자) 프로그램을 사용하여 다중 테넌트 환경에서 VMware 재해 복구 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "87292837"
 
 이 아티클에서는 파트너로써 다중 테넌트 VMware 복제 시나리오에서 CSP를 통해 테넌트 구독을 만들고 관리하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 VMware 복제를 설정하려면 다음을 수행해야 합니다.
 
@@ -98,7 +98,7 @@ Microsoft 파트너 센터 대시보드를 통해 테넌트 구독에 액세스�
 이 아티클에 설명된 대로 테넌트 구독을 설정하여 고객을 신속하게 관련 다중 테넌트 모델에서 사용하도록 설정하기 시작할 수 있습니다. [여기](vmware-azure-multi-tenant-overview.md)에서 다양한 다중 테넌트 모델 및 온-프레미스 액세스를 사용하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- Azure Site Recovery 배포를 관리하는 [역할 기반 액세스 제어](site-recovery-role-based-linked-access-control.md)에 대해 자세히 알아봅니다.
+- Azure [RBAC (역할 기반 액세스 제어)](site-recovery-role-based-linked-access-control.md) 를 사용 하 여 Azure Site Recovery 배포를 관리 하는 방법에 대해 자세히 알아보세요.
 - VMware에서 Azure로 [복제 아키텍처](vmware-azure-architecture.md)에 대해 자세히 알아보세요.
 - VMware VM을 Azure에 복제하는 [자습서를 검토합니다](vmware-azure-tutorial.md).
 VMware VM을 Azure에 복제하는 방법은 [다중 테넌트 환경](vmware-azure-multi-tenant-overview.md)에 대해 알아봅니다.
