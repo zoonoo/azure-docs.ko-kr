@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: df4d1b98eac782641fb36c614d2df9508c6131ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4e63ec864da9a6e7ce5448b322e0452503e2493c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498670"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853435"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 위임된 액세스
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md)를 참조하세요.
 
 Windows 가상 데스크톱에는 특정 사용자에 게 역할을 할당 하 여 허용 되는 액세스 권한을 정의할 수 있는 위임 된 액세스 모델이 있습니다. 역할 할당에는 보안 주체, 역할 정의 및 범위의 세 가지 구성 요소가 있습니다. Windows 가상 데스크톱 위임 된 액세스 모델은 Azure RBAC 모델을 기반으로 합니다. 특정 역할 할당 및 해당 구성 요소에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어 개요](../role-based-access-control/built-in-roles.md)를 참조 하세요.
 
 Windows 가상 데스크톱 위임 된 액세스는 역할 할당의 각 요소에 대해 다음 값을 지원 합니다.
 
-* 할당할 수 있습니다.
+* 보안 주체
     * 사용자
     * 사용자 그룹
     * 서비스 주체
 * 역할 정의
     * 기본 제공 역할
     * 사용자 지정 역할
-* 범위
+* Scope
     * 호스트 풀
     * 앱 그룹
     * 작업 영역
@@ -45,13 +45,13 @@ Windows 가상 데스크톱은 사용자 또는 사용자 그룹에 앱 그룹�
 앱 그룹에 Azure Active Directory 사용자를 추가 하려면 다음 cmdlet을 실행 합니다.
 
 ```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
 ```
 
 앱 그룹에 사용자 그룹 Azure Active Directory 추가 하려면 다음 cmdlet을 실행 합니다.
 
 ```powershell
-New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
 ## <a name="next-steps"></a>다음 단계

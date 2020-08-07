@@ -5,14 +5,18 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: 93a86bc035803517ff61c79ae4b8a7fc46dd811f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 613620ddf4889efb7cf3df95150be97f79724a98
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322383"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852143"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
+
+> [!WARNING]
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다.
+>
 
 Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나가 임계값을 초과할 경우 알림을 받을 수 있습니다. 클래식 메트릭 경고는 무차원 메트릭에 대해서만 경고하는 이전 기능입니다. 클래식 메트릭 경고보다 향상된 기능을 가진, 메트릭 경고라는 최신 기능도 있습니다. [메트릭 경고 개요](./alerts-metric-overview.md)에서 새로운 메트릭 경고 기능에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 Azure Portal, Azure CLI 및 Powershell을 통해 클래식 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명합니다.
 

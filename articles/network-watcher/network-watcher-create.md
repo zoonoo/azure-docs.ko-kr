@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6b7453a0100233896e3d01769897ed224a0b2618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737549"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846856"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
@@ -27,7 +27,7 @@ Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher가 자동으로 사용하도록 설정됨
-구독에서 가상 네트워크를 만들거나 업데이트하면 가상 네트워크 지역에서 Network Watcher가 자동으로 사용하도록 설정됩니다. Network Watcher가 자동으로 사용하도록 설정되어도 리소스에 영향을 주지 않으며 관련된 요금도 없습니다.
+구독에서 가상 네트워크를 만들거나 업데이트하면 가상 네트워크 지역에서 Network Watcher가 자동으로 사용하도록 설정됩니다. Network Watcher가 자동으로 사용되어도 리소스에 영향을 주지 않으며 청구되는 관련 요금도 없습니다.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Network Watcher 자동 사용 옵트아웃
 Network Watcher 자동 사용을 옵트아웃하려면 다음 명령을 실행하여 옵트아웃할 수 있습니다.
@@ -57,7 +57,7 @@ az provider register -n Microsoft.Network
 
 Network Watcher 인스턴스가 *NetworkWatcherRG*라는 리소스 그룹에 자동으로 생성됩니다. 리소스 그룹은 아직 존재하지 않는 경우 만들어집니다.
 
-Network Watcher 인스턴스와 이 인스턴스가 배치된 리소스 그룹의 이름을 사용자 지정하려면 다음 섹션에 설명된 Powershell, Azure CLI, REST API 또는 ARMClient 메서드를 사용할 수 있습니다. 각 옵션에서 Network Watcher를 배치하려면 리소스 그룹이 있어야 합니다.  
+Network Watcher 인스턴스와 해당 인스턴스가 배치 된 리소스 그룹의 이름을 사용자 지정 하려는 경우 다음 섹션에 설명 된 PowerShell, Azure CLI, REST API 또는 ARMClient 메서드를 사용할 수 있습니다. 각 옵션에서 Network Watcher를 배치하려면 리소스 그룹이 있어야 합니다.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>PowerShell을 사용하여 Network Watcher 만들기
 
@@ -100,6 +100,10 @@ $requestBody = @"
 
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
+
+## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>Azure 빠른 시작 템플릿을 사용 하 여 Network Watcher 만들기
+
+인스턴스 Network Watcher 만들려면이 [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/) 을 참조 하세요.
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 삭제
 

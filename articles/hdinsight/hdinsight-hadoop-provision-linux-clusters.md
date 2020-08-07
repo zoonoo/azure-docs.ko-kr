@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 04/30/2020
-ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889250"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873605"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -32,7 +32,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 다음 표는 HDInsight 클러스터를 설정하기 위해 사용할 수 있는 다양한 방법을 보여줍니다.
 
-| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령줄 | REST API | SDK) |
+| 다음을 사용하여 만든 클러스터 | 웹 브라우저 | 명령줄 | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -72,11 +72,11 @@ HDInsight 클러스터 이름에는 다음 제한 사항이 있습니다.
 Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 모음을 포함하는 다음과 같은 클러스터 유형을 제공합니다.
 
 > [!IMPORTANT]  
-> HDInsight 클러스터는 각 단일 워크로드 또는 기술에 다양한 유형으로 사용 가능합니다. 하나의 클러스터에서 Storm 및 HBase 등의 여러 유형을 결합하는 클러스터를 만들기 위해 지원되는 메서드가 없습니다. 사용자 솔루션에 여러 유형의 HDInsight 클러스터에 분산되어 있는 기술이 필요한 경우, [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network)는 필요한 클러스터 유형을 연결할 수 있습니다.
+> HDInsight 클러스터는 각 단일 워크로드 또는 기술에 다양한 유형으로 사용 가능합니다. 하나의 클러스터에서 Storm 및 HBase 등의 여러 유형을 결합하는 클러스터를 만들기 위해 지원되는 메서드가 없습니다. 솔루션에 여러 HDInsight 클러스터 유형에 걸쳐 분산 된 기술이 필요한 경우 [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network) 에서 필요한 클러스터 유형을 연결할 수 있습니다.
 
 | 클러스터 유형 | 기능 |
 | --- | --- |
-| [Hadoop은](hadoop/apache-hadoop-introduction.md) |저장된 데이터의 일괄 처리 쿼리 및 분석 |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |저장된 데이터의 일괄 처리 쿼리 및 분석 |
 | [HBase](hbase/apache-hbase-overview.md) |많은 양의 스키마 없는 NoSQL 데이터에 대한 처리 |
 | [대화형 쿼리](./interactive-query/apache-interactive-query-get-started.md) |대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱 |
 | [Kafka](kafka/apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 애플리케이션을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
@@ -149,6 +149,9 @@ HDInsight 클러스터를 삭제한 후 Hive 테이블을 유지하려는 경우
 
 하나의 HDInsight 클러스터 버전에 대해 생성 된 An HDInsight metastore는 다른 HDInsight 클러스터 버전 간에 공유할 수 없습니다. HDInsight 버전 목록은 [지원되는 HDInsight 버전](hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
 
+> [!IMPORTANT]
+> 기본 metastore **기본 계층 5 DTU 제한 (업그레이드할 수 없음)** 을 사용 하는 Azure SQL Database를 제공 합니다. 기본 테스트 목적으로 적합 합니다. 대량 또는 프로덕션 워크 로드의 경우 외부 metastore 마이그레이션하는 것이 좋습니다.
+
 #### <a name="sql-database-for-oozie"></a>Oozie 용 SQL database
 
 Oozie 사용 시 성능을 높이려면 사용자 지정 Metastore를 사용합니다. 또한 Metastore는 클러스터를 삭제 한 후 Oozie 작업 데이터에 액세스를 제공할 수도 있습니다.
@@ -166,7 +169,7 @@ Ambari는 HDInsight 클러스터를 모니터링 하 고, 구성을 변경 하 �
 
 ### <a name="enterprise-security-package"></a>엔터프라이즈 보안 패키지
 
-Hadoop, Spark, HBase, Kafaka 및 대화형 쿼리 클러스터 형식의 경우 **Enterprise Security Package**를 사용하도록 선택할 수 있습니다. 이 패키지는 Apache Ranger를 사용하고 Azure Active Directory와 통합하여 보다 안전한 클러스터를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure HDInsight의 엔터프라이즈 보안 개요](./domain-joined/hdinsight-security-overview.md)를 참조 하세요.
+Hadoop, Spark, HBase, Kafaka 및 Interactive Query 클러스터 유형의 경우 **Enterprise Security Package**를 사용하도록 선택할 수 있습니다. 이 패키지는 Apache Ranger를 사용하고 Azure Active Directory와 통합하여 보다 안전한 클러스터를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure HDInsight의 엔터프라이즈 보안 개요](./domain-joined/hdinsight-security-overview.md)를 참조 하세요.
 
 엔터프라이즈 보안 패키지를 사용하면 Active Directory 및 Apache Ranger와 HDInsight를 통합할 수 있습니다. Enterprise Security Package를 사용하여 여러 사용자를 만들 수 있습니다.
 
@@ -178,7 +181,7 @@ Hadoop, Spark, HBase, Kafaka 및 대화형 쿼리 클러스터 형식의 경우 
 
 ### <a name="virtual-network"></a>가상 네트워크
 
-사용자 솔루션에 여러 유형의 HDInsight 클러스터에 분산되어 있는 기술이 필요한 경우, [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network)는 필요한 클러스터 유형을 연결할 수 있습니다. 이 구성은 클러스터를 허용하며, 배포하는 임의의 코드가 서로 직접 통신하도록 허용합니다.
+솔루션에 여러 HDInsight 클러스터 유형에 걸쳐 분산 된 기술이 필요한 경우 [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network) 에서 필요한 클러스터 유형을 연결할 수 있습니다. 이 구성은 클러스터를 허용하며, 배포하는 임의의 코드가 서로 직접 통신하도록 허용합니다.
 
 HDInsight에서 Azure virtual network를 사용 하는 방법에 대 한 자세한 내용은 [hdinsight에 대 한 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
 
@@ -206,7 +209,7 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| 형식 | 노드 | 다이어그램 |
+| Type | 노드 | 다이어그램 |
 | --- | --- | --- |
 | Hadoop은 |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

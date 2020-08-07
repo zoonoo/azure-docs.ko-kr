@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: caaf1a2622d4642850d0d981e813ee438eb4eca8
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: acd030d8108ef3983be29fe85de6d7b3caf620af
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513777"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849338"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "87513777"
 
 Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), 하이퍼 [드라이브](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md) [같은 Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py)교육 제품과 원활한 통합을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 

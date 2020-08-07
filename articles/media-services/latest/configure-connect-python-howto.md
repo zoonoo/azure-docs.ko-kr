@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.custom: tracking-python
-ms.openlocfilehash: b283d04c7d9ddf7639c198625ea69ca958170210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 834d87f607ca65a9d9e0ebee12d2772f5baf7949
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001182"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849644"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Media Services v3 API에 연결-Python
 
 이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 Python SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Python.org](https://www.python.org/downloads/) 에서 Python 다운로드
 - 환경 변수를 설정 해야 합니다. `PATH`

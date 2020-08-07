@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fe9fdd68f9419a9f730ea64b5aea19f583d751c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496749"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902034"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for PostgreSQL 서버를 백업 및 복원하는 방법
 
@@ -133,4 +133,4 @@ Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzPostgreSqlServer`
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용 하 여 Azure Database for PostgreSQL 서버 매개 변수 사용자 지정](howto-configure-server-parameters-using-powershell.md)
+> [PowerShell을 사용 하 여 Azure Database for PostgreSQL 연결 문자열을 생성 하는 방법](howto-connection-string-powershell.md)

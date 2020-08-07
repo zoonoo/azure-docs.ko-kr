@@ -46,7 +46,7 @@
       items:
         - name: 1 - 데이터베이스 설계
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: tutorial-design-database-using-azure-portal.md
             - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
@@ -231,13 +231,13 @@
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
         - name: 방화벽 관리
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-firewall-using-portal.md
             - name: Azure CLI
               href: howto-manage-firewall-using-cli.md
         - name: 서버 복원
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restore-server-portal.md
             - name: Azure CLI
               href: howto-restore-server-cli.md
@@ -255,9 +255,11 @@
           items:
             - name: TLS 구성
               href: howto-tls-configurations.md
+            - name: Azure PowerShell
+              href: howto-connection-string-powershell.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
             - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
@@ -265,7 +267,7 @@
               href: howto-configure-server-parameters-using-powershell.md
         - name: 자동 증가 스토리지
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
@@ -293,19 +295,19 @@
               href: howto-database-threat-protection-portal.md
         - name: Virtual Network
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-vnet-using-portal.md
             - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
         - name: Private Link
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-privatelink-portal.md
             - name: Azure CLI
               href: howto-configure-privatelink-cli.md
         - name: 데이터 암호화
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
@@ -317,7 +319,7 @@
               href: howto-double-encryption.md
         - name: 서버 다시 시작
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md

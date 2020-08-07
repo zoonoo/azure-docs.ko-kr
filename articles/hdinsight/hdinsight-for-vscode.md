@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-python
+ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087132"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876787"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -21,7 +21,7 @@ Visual Studio Code에 & Hive 도구 Apache Spark를 사용 하는 방법에 대�
 
 Spark & Hive 도구는 Visual Studio Code에서 지 원하는 플랫폼에 설치할 수 있습니다. 다른 플랫폼에 대 한 다음 필수 구성 요소를 확인 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
@@ -331,7 +331,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
     **사후 배치/일괄 처리** 요청 본문
 
-    | name | description | 형식 |
+    | name | description | type |
     | --- | --- | --- |
     | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
     | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
@@ -352,7 +352,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
     응답 본문 생성 된 일괄 처리 개체입니다.
 
-    | name | description | 형식 |
+    | name | description | type |
     | --- | ---| --- |
     | ID | 세션 ID | Int |
     | appId | 이 세션의 응용 프로그램 ID | String |

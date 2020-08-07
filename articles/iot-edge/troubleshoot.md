@@ -8,12 +8,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82858602"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902459"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
 
@@ -141,7 +141,7 @@ Windows에서:
   * 시스템 수준 환경 변수를 추가 합니다.
 
       ```powershell
-      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "edgelet=debug", [EnvironmentVariableTarget]::Machine)
+      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
       ```
 
   * IoT Edge 보안 디먼을 다시 시작합니다.

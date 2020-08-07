@@ -1,6 +1,6 @@
 ---
 title: Azure Service Management 인증서 업로드 | Microsoft Docs
-description: Azure Portal에 대한 Service Management 인증서를 업로드하는 방법을 알아봅니다.
+description: Azure Portal에 대한 Service Management 인증서를 업로드하는 방법을 알아봅니다. 관리 인증서를 사용 하면 클래식 배포 모델을 사용 하 여 인증할 수 있습니다.
 services: cloud-services
 documentationcenter: .net
 author: georgewallace
@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d2436b524ba6df68b12206bcb545e54a405b731
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78329122"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848556"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Azure Service Management 인증서 업로드
 관리 인증서를 사용하면 Azure에서 제공하는 클래식 배포 모델로 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 

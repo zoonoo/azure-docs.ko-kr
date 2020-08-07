@@ -4,15 +4,15 @@ description: Azure 가상 네트워크로 Azure App Service와 앱 통합
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7b6b310cdc03cb45fba6ba06dbcf2add9818f6cf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 88801e3f79884bbf3e7cd15e61572edf7763f83f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857039"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874217"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
@@ -172,6 +172,33 @@ Group
 Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
+
+지역 VNet 통합에 대 한 Powershell 지원도 사용할 수 있지만 서브넷 resourceID의 속성 배열을 사용 하 여 제네릭 리소스를 만들어야 합니다.
+
+```azurepowershell
+# Parameters
+$sitename="myWebApp"
+$resourcegroupname="myRG"
+$VNetname="myVNet"
+$location="myRegion"
+$integrationsubnetname = "myIntegrationSubnet"
+$subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+
+#Property array with the SubnetID
+$properties = @{
+      "subnetResourceId" = "/subscriptions/"+$subscriptionID+"/resourceGroups/"+$resourcegroupname+"/providers/Microsoft.Network/virtualNetworks/"+$VNetname+"/subnets/"+$integrationsubnetname;
+      }
+      
+#Creation of the VNet integration
+$resourceID = $sitename+"/VirtualNetwork"
+New-AzResource -ResourceName $resourceID `
+-Location $location  `
+-ResourceGroupName $resourcegroupname `
+-ResourceType Microsoft.Web/sites/networkConfig `
+-PropertyObject $properties 
+
+```
+
 
 필수 게이트웨이 VNet 통합의 경우, PowerShell을 사용하여 Azure 가상 네트워크와 App Service를 통합할 수 있습니다. 실행 준비 스크립트의 경우, [Azure App Service에서 Azure Virtual Network에 앱 연결](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)을 참조하세요.
 

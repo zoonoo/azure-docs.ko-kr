@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494788"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876719"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -29,25 +29,17 @@ DSC (필요한 상태 구성)는 구성을 사용 하 여 IT 및 개발 인프�
 
 DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI 및 DSC 에이전트를 Azure 가상 머신에 설치합니다. DSC 확장은 다음 작업을 수행할 수도 있습니다.
 
-
 - Azure Automation 계정에 Linux VM을 등록 하 여 Azure Automation 서비스 (ExtensionAction 등록)에서 구성을 가져옵니다.
 - Linux VM에 MOF 구성을 푸시합니다 (푸시 ExtensionAction).
 - 노드 구성을 끌어오기 위해 끌어오기 서버를 구성 하려면 메타 MOF 구성을 Linux VM에 적용 합니다 (끌어오기 ExtensionAction).
 - Linux VM에 사용자 지정 DSC 모듈을 설치 합니다 (ExtensionAction 설치).
 - Linux VM에서 사용자 지정 DSC 모듈을 제거 합니다 (ExtensionAction 제거).
 
- 
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
-DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](../linux/endorsed-distros.md)을 지원합니다.
-
-| 배포 | 버전 |
-|---|---|
-| Debian | 모든 버전 |
-| Ubuntu| 18.04 |
+Linux를 실행 하는 노드의 경우 DSC Linux 확장은 [POWERSHELL dsc 설명서](/powershell/scripting/dsc/getting-started/lnxgettingstarted)에 나열 된 모든 Linux 배포를 지원 합니다.
  
 ### <a name="internet-connectivity"></a>인터넷 연결
 

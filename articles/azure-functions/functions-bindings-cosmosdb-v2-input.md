@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 2c3e872dee06ac4fa0c8c37ce8fb77bd34dc78bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 896ffb148ec781280d103b27a4dddddb1f9ef4b0
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041862"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874659"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대 한 Azure Cosmos DB 입력 바인딩
 
@@ -43,8 +43,12 @@ namespace CosmosDBSamplesV2
 {
     public class ToDoItem
     {
+        [JsonProperty("id")]
         public string Id { get; set; }
+        
+        [JsonProperty("partitionKey")]
         public string PartitionKey { get; set; }
+        
         public string Description { get; set; }
     }
 }
@@ -1435,7 +1439,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
-|**id**    | **ID** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. `id`및 **sqlQuery** 속성을 모두 설정 하지 마세요. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
+|**ID**    | **ID** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. `id`및 **sqlQuery** 속성을 모두 설정 하지 마세요. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
 |**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). 및 속성을 모두 설정 하지 마세요 `id` `sqlQuery` . 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다. |
 |**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다. [분할](../cosmos-db/partition-data.md#logical-partitions) 된 컬렉션에서 조회를 수행 하는 데 필요 합니다.|

@@ -9,24 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415040"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852296"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 REST 엔드포인트에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
-이 REST 커넥터와 [HTTP 커넥터](connector-http.md)와 [웹 테이블 커넥터](connector-web-table.md)의 차이점은 다음과 같습니다.
+이 REST 커넥터, [HTTP 커넥터](connector-http.md)및 [웹 테이블 커넥터](connector-web-table.md) 간의 차이점은 다음과 같습니다.
 
 - **REST 커넥터** 는 RESTful api에서 데이터를 복사 하는 것을 구체적으로 지원 합니다. 
-- **HTTP 커넥터**는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). 이 REST 커넥터를 사용할 수 있게 되기 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
+- **Http 커넥터** 는 파일을 다운로드 하는 등 모든 http 끝점에서 데이터를 검색 하는 데 일반적입니다. 이 REST 커넥터를 사용할 수 있게 되기 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
 - **웹 테이블 커넥터**는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
@@ -57,19 +57,19 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 REST 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **RestService**로 설정 해야 합니다. | 예 |
 | url | REST 서비스의 기본 URL입니다. | 예 |
 | enableServerCertificateValidation | 끝점에 연결할 때 서버 쪽 TLS/SSL 인증서의 유효성을 검사할지 여부입니다. | 아니요<br /> 기본값은 **true**입니다. |
-| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
+| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용 되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal**및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
 
 **authenticationType** 속성을 **Basic**으로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -102,12 +102,13 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **AadServicePrincipal**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
-| aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
+| aadResourceId | 권한 부여를 요청 하는 AAD 리소스 (예:)를 지정 `https://management.core.windows.net` 합니다.| 예 |
+| azureCloudType | 서비스 주체 인증의 경우 AAD 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부**및 **AzureGermany**입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
 
 **예제**
 
@@ -139,9 +140,9 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **ManagedServiceIdentity**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
+| aadResourceId | 권한 부여를 요청 하는 AAD 리소스 (예:)를 지정 `https://management.core.windows.net` 합니다.| 예 |
 
 **예제**
 
@@ -171,14 +172,14 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **RestResource**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service]/[relative URL specified in dataset]` 합니다. | 아니요 |
 
 데이터 집합에서, 및를 설정 하는 경우 계속 해 서 `requestMethod` `additionalHeaders` 는 그대로 지원 되지만 `requestBody` `paginationRules` 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -207,7 +208,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **RestSource**로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
@@ -312,17 +313,17 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | 키 | Description |
 |:--- |:--- |
 | AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 url 또는 상대 url**일 수 있습니다. |
-| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. |
-| Headers.*request_header* OR Headers['request_header'] | "request_header"는 다음 HTTP 요청에 있는 하나의 헤더 이름을 참조하는 사용자 정의 항목입니다. |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에서 하나의 쿼리 매개 변수 이름을 참조 하는 사용자 정의입니다. |
+| Headers.*request_header* OR Headers['request_header'] | "request_header"는 다음 HTTP 요청에서 헤더 이름을 하나 참조 하는 사용자 정의입니다. |
 
 페이지 매김 규칙의 **지원되는 값**은 다음과 같습니다.
 
 | 값 | 설명 |
 |:--- |:--- |
-| Headers.*response_header* OR Headers['response_header'] | "response_header"는 현재 HTTP 요청에 있는 하나의 헤더 이름을 참조하는 사용자 정의 항목으로, 다음 요청을 실행하는 데 해당 값이 사용됩니다. |
+| Headers.*response_header* OR Headers['response_header'] | "response_header"은 현재 HTTP 응답의 헤더 이름 하나를 참조 하는 사용자 정의입니다 .이 값은 다음 요청을 발급 하는 데 사용 됩니다. |
 | "$"(응답 본문의 루트를 나타냄)로 시작하는 JSONPath 식 | 응답 본문은 JSON 개체를 하나만 포함해야 합니다. JSONPath 식은 다음 요청을 실행하는 데 사용되는 단일 기본 값을 반환해야 합니다. |
 
-**예제:**
+**예:**
 
 Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다음 페이지의 URL은 ***paging.next***에 표시됩니다.
 
@@ -409,7 +410,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
     | 속성 | 설명 |
     |:--- |:--- |:--- |
-    | URL |OAuth 전달자 토큰을 검색할 url을 지정 합니다. 예: 예제에서https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |OAuth 전달자 토큰을 검색할 url을 지정 합니다. 예를 들어 여기 샘플에서는https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | 메서드 | HTTP 메서드입니다. 허용 되는 값은 **Post** 및 **Get**입니다. | 
     | 헤더 | 헤더는 HTTP 요청에서 헤더 이름을 하나 참조 하는 사용자 정의입니다. | 
     | 본문 | HTTP 요청의 본문입니다. | 
@@ -418,7 +419,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
 6. **데이터 복사** 작업에서 *원본* 탭을 선택 하면, 이전 단계에서 검색 된 전달자 토큰 (access_token)이 추가 헤더의 **권한 부여** 로 데이터 복사 작업에 전달 되는 것을 볼 수 있습니다. 파이프라인 실행을 시작 하기 전에 다음 속성의 설정을 확인 합니다.
 
-    | 속성 | Description |
+    | 속성 | 설명 |
     |:--- |:--- |:--- | 
     | 요청 메서드 | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 
     | 추가 헤더 | 추가 HTTP 요청 헤더입니다.| 

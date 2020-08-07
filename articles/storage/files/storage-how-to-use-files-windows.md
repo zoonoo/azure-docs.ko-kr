@@ -1,18 +1,18 @@
 ---
 title: Windows에서 Azure 파일 공유 사용 | Microsoft Docs
-description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하는 방법을 알아봅니다.
+description: Windows 및 Windows Server에서 Azure 파일 공유를 사용 하는 방법에 대해 알아봅니다. 온-프레미스 또는 Azure Vm에서 실행 되는 Windows 설치에서 SMB 3.0에 Azure 파일 공유를 사용 합니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcc79a0763d7441a8a3c04723578ccc27cf5fe4e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509781"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905757"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -59,7 +59,7 @@ Azure Portal은 파일 공유를 호스트에 직접 탑재 하는 데 사용할
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 탑재 하려는 파일 공유가 포함 된 저장소 계정으로 이동 합니다.
-1. **파일 공유**를 선택 합니다.
+1. **파일 공유**를 선택합니다.
 1. 탑재할 파일 공유를 선택 합니다.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="예 들어":::

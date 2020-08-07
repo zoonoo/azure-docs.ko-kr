@@ -1,6 +1,6 @@
 ---
 title: PowerShell에서 Azure Queue storage 작업 수행
-description: PowerShell을 사용하여 Azure Queue Storage에서 작업을 수행하는 방법
+description: PowerShell을 사용 하 여 Azure Queue storage에 대 한 작업을 수행 합니다. Azure Queue storage를 사용 하 여 HTTP/HTTPS에서 액세스할 수 있는 많은 수의 메시지를 저장할 수 있습니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/15/2019
@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a3de37f6442900f600f3c6a3efaf75141d151bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873f1bd0187eb5609456592b7dc37a48671b7e42
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808980"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905706"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
-Azure Queue Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 자세한 내용은 [Azure 큐 소개](storage-queues-introduction.md)를 참조하세요. 이 방법 문서에서는 일반 Queue Storage 작업을 설명합니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+Azure Queue Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 자세한 내용은 [Azure 큐 소개](storage-queues-introduction.md)를 참조하세요. 이 방법 문서에서는 일반 Queue Storage 작업을 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >

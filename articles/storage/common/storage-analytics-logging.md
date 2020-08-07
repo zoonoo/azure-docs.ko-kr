@@ -1,6 +1,6 @@
 ---
 title: Azure 스토리지 분석 로깅
-description: Azure Storage에 대해 수행된 요청에 대한 세부 정보를 기록하는 방법에 대해 알아봅니다.
+description: 스토리지 분석를 사용 하 여 Azure Storage 요청에 대 한 세부 정보를 기록 합니다. 어떤 요청이 로깅되는 지, 로그를 저장 하는 방법, 저장소 로깅을 사용 하도록 설정 하는 방법 등을 참조 하세요.
 author: normesta
 ms.service: storage
 ms.subservice: common
@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 98c8bc07e1f5bb790c2f907bbc3c2125cae383a5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87276791"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903224"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 스토리지 분석 로깅
 

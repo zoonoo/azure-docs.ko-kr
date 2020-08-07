@@ -3,12 +3,12 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502684"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850715"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -70,6 +70,18 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 <sup>2</sup>확장에 따라 특정 이름이 설정됩니다.
 
 액세스 키에 대해 자세히 알아보려면 [HTTP 트리거 바인딩 문서](functions-bindings-http-webhook-trigger.md#obtaining-keys)를 참조하세요.
+
+
+#### <a name="secret-repositories"></a>비밀 리포지토리
+
+기본적으로 키는 설정에서 제공 하는 계정의 Blob 저장소 컨테이너에 저장 됩니다 `AzureWebJobsStorage` . 특정 응용 프로그램 설정을 사용 하 여이 동작을 재정의 하 고 다른 위치에 키를 저장할 수 있습니다.
+
+|위치  |Setting | 값 | 설명  |
+|---------|---------|---------|---------|
+|다른 저장소 계정     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | 제공 된 SAS URL에 따라 두 번째 저장소 계정의 Blob 저장소에 키를 저장 합니다. 키는 함수 앱에 고유한 암호를 사용 하 여 저장 하기 전에 암호화 됩니다. |
+|파일 시스템   | `AzureWebJobsSecretStorageType`   |  `files`       | 키는 함수 앱에 고유한 암호를 사용 하 여 저장소 전에 암호화 된 상태로 파일 시스템에 유지 됩니다. |
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | 자격 증명 모음에는 호스팅 리소스의 시스템 할당 관리 id에 해당 하는 액세스 정책이 있어야 합니다. 액세스 정책은 `Get` ,, `Set` `List` 및의 비밀 권한을 id에 부여 해야 `Delete` 합니다. <br/>로컬로 실행 하는 경우 개발자 id가 사용 되며, 설정은 [파일의local.settings.js](functions-run-local.md#local-settings-file)에 있어야 합니다. | 
+|Kubernetes 비밀  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName`(선택 사항) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Kubernetes에서 함수 런타임을 실행 하는 경우에만 지원 됩니다. 가 `AzureWebJobsKubernetesSecretName` 설정 되지 않은 경우 리포지토리는 읽기 전용으로 간주 됩니다. 이 경우 값은 배포 전에 생성 되어야 합니다. Azure Functions Core Tools는 Kubernetes에 배포할 때 값을 자동으로 생성 합니다.|
 
 ### <a name="authenticationauthorization"></a>인증/권한 부여
 

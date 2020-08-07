@@ -3,22 +3,22 @@ title: Azure Event Hubs에 대한 연결
 description: Azure Event Hubs 및 Azure Logic Apps를 사용 하 여 이벤트를 모니터링 하 고 관리 하는 자동화 된 작업 및 워크플로 만들기
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284101"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848846"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Azure Event Hubs 및 Azure Logic Apps를 사용하여 이벤트 모니터링, 수신 및 전송
 
 이 아티클에서는 Azure Event Hubs 커넥터를 사용하여 논리 앱 내에서 [Azure Event Hubs](../event-hubs/event-hubs-about.md)로 전송된 이벤트를 모니터링하고 관리하는 방법을 보여줍니다. 이런 방식으로 Event Hubs에서 이벤트를 검사하고, 전송하고, 수신하는 작업 및 워크플로를 자동화하는 논리 앱을 만들 수 있습니다. 커넥터 관련 기술 정보는 [Azure Event Hubs 커넥터 참조](/connectors/eventhubs/)를 참조 </a> 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -62,6 +62,9 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 이 예제에서는 새 이벤트를 Event Hub로 보내는 경우 논리 앱 워크플로를 시작할 수 있는 방법을 보여줍니다. 
 
+> [!NOTE]
+> 모든 이벤트 허브 트리거는 *긴 폴링* 트리거입니다. 즉, 트리거가 모든 이벤트를 처리 한 다음 이벤트 허브에 더 많은 이벤트가 나타날 때까지 파티션당 30 초를 대기 합니다. 따라서 트리거가 4 개의 파티션으로 설정 된 경우이 지연 시간은 트리거가 모든 파티션 폴링을 완료 하기까지 최대 2 분이 걸릴 수 있습니다. 이 지연 시간 안에 이벤트가 수신 되지 않으면 트리거 실행을 건너뜁니다. 그렇지 않으면 트리거는 Event Hub가 빈 상태가 될 때까지 이벤트를 계속 읽습니다. 다음 트리거 폴링은 트리거의 속성에 지정한 되풀이 간격을 기준으로 발생합니다.
+
 1. Azure Portal 또는 Visual Studio에서 빈 논리 앱을 만들어 논리 앱 디자이너를 엽니다. 이 예에서는 Azure Portal을 사용합니다.
 
 1. 검색 상자에 필터로 “event hubs”를 입력합니다. 트리거 목록에서 **이벤트 허브에서 이벤트를 사용할 수 있는 경우** 트리거를 선택 합니다.-Event Hubs
@@ -100,11 +103,6 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 1. 이제 트리거 결과와 함께 수행하려는 작업에 대한 논리 앱에 하나 이상의 작업을 계속해서 추가합니다. 
 
    예를 들어 특정 값 (예: 범주)에 따라 이벤트를 필터링 하려면 **전송 이벤트** 작업에서 조건에 맞는 이벤트만 보내도록 조건을 추가할 수 있습니다. 
-
-> [!NOTE]
-> 모든 Event Hub 트리거는 *긴 폴링* 트리거입니다. 즉, 이 트리거는 발생될 때 모든 이벤트를 처리한 다음, 더 많은 이벤트가 Event Hub에 나타날 때까지 30초 동안 기다립니다.
-> 30초 후에 이벤트가 수신되지 않으면 트리거 실행을 건너뜁니다. 그렇지 않으면 트리거는 Event Hub가 빈 상태가 될 때까지 이벤트를 계속 읽습니다.
-> 다음 트리거 폴링은 트리거의 속성에 지정한 되풀이 간격을 기준으로 발생합니다.
 
 <a name="add-action"></a>
 
@@ -152,13 +150,13 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결 정보에 대한 메시지가 표시되면 다음과 같은 세부 정보를 입력합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> | 연결에 만들 이름 |
    | **Event Hubs 네임 스페이스** | 예 | <*이벤트 허브-네임 스페이스*> | 사용하려는 Event Hubs 네임스페이스를 선택합니다. |
    |||||  
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ![Event Hub 연결 만들기](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
