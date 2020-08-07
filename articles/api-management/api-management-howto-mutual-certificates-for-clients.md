@@ -1,7 +1,7 @@
 ---
 title: API Management에서 클라이언트 인증서 인증을 사용 하 여 Api 보안
 titleSuffix: Azure API Management
-description: 클라이언트 인증서를 사용하여 API에 대한 액세스의 보안을 유지하는 방법을 알아봅니다.
+description: 클라이언트 인증서를 사용 하 여 Api에 대 한 액세스를 보호 하는 방법을 알아봅니다. 정책 식을 사용 하 여 들어오는 인증서의 유효성을 검사할 수 있습니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 19e0d741d959eba704f26e7e8f7b5d311aa77775
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250076"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904868"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>API Management에서 클라이언트 인증서 인증을 사용하여 API를 보호하는 방법
 

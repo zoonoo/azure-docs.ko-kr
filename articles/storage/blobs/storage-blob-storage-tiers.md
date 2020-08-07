@@ -1,6 +1,6 @@
 ---
 title: Blob에 대 한 핫, 쿨 및 archive 액세스 계층-Azure Storage
-description: Azure Blob 저장소에 대 한 핫, 쿨 및 보관 액세스 계층에 대해 읽어 보세요. 계층화를 지 원하는 저장소 계정을 검토 합니다. 블록 블로그 저장소 옵션을 비교 합니다.
+description: Azure Blob 저장소에 대 한 핫, 쿨 및 보관 액세스 계층에 대해 읽어 보세요. 계층화를 지 원하는 저장소 계정을 검토 합니다. 블록 blob 저장소 옵션을 비교 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828275"
+ms.locfileid: "87849729"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층
 

@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044569"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901694"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Azure Stream Analytics에 대 한 이벤트 순서 정책 구성
 
@@ -75,6 +75,11 @@ Stream Analytics 작업은 *이벤트 시간* 또는 *도착 시간*을 기준�
 이 메시지는 입력에 있는 하나 이상의 파티션이 비어 있음을 알려 주고 지연 도착 임계값에 따라 출력을 지연 시킵니다. 이를 해결 하려면 다음 중 하나를 수행 하는 것이 좋습니다.  
 1. 이벤트 허브/IoT Hub의 모든 파티션이 입력을 수신 하는지 확인 합니다. 
 2. 쿼리에 Partition by PartitionID 절을 사용 합니다. 
+
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>지연 도착 정책이 0으로 설정 된 경우에도 5 초 지연 시간이 표시 되는 이유는 무엇 인가요?
+이는 입력이 수신 되지 않은 입력 파티션이 있는 경우에 발생 합니다. 파티션당 입력 메트릭을 확인 하 여이 동작의 유효성을 검사할 수 있습니다. 
+
+파티션이 구성 된 지연 도착 임계값을 초과 하는 데이터를 포함 하지 않는 경우 stream analytics는 이벤트 순서 고려 사항 섹션에 설명 된 대로 응용 프로그램 타임 스탬프를 이동 합니다. 이 경우 예상 도착 시간이 필요 합니다. 파티션에 데이터가 전혀 없는 경우 stream analytics는 도착 시간을 *현지 시간-5 초로*추정 합니다. 이 파티션에는 데이터가 전혀 없는 경우 워터 마크 지연 시간이 5 초인 것으로 표시 될 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 * [시간 처리 고려 사항](stream-analytics-time-handling.md)

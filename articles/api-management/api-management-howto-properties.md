@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 정책에서 명명된 값을 사용하는 방법
-description: Azure API Management 정책에서 명명된 값을 사용하는 방법을 알아봅니다.
+description: Azure API Management 정책에서 명명된 값을 사용하는 방법을 알아봅니다. 명명된 값에는 리터럴 문자열 및 정책 식이 포함될 수 있습니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f317276ae92e6121d519553b7883677dab89705
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243480"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852194"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에서 명명된 값을 사용하는 방법
 

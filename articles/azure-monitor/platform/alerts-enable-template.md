@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324100"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849022"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
+
 > [!WARNING]
-> 
-> 이 문서에서는 Resource Manager 템플릿을 사용하여 **클래식 메트릭 경고** 만들기를 설명합니다. 클래식 경고는 2019 년 8 월에 사용이 중지 되었으며 6 월 2020에 완전히 사용 되지 않도록 설정 되었습니다. 새 클래식 경고 공용 Azure를 만들 수 없습니다. 일부 지역 버전의 Azure는 여전히 옵션을 사용할 수 있지만 가능 하면 템플릿을 사용 하 여 [최신 메트릭 경고](./alerts-metric-near-real-time.md) 를 만드는 것이 좋습니다. [이 문서](alerts-metric-create-templates.md) 에서는 세부 정보를 제공 합니다.
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다.
 >
 
 이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 Azure 클래식 메트릭 경고를 구성 하는 방법을 보여 줍니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.

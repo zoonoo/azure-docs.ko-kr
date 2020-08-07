@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 캐싱 정책 | Microsoft Docs
-description: Azure API Management에 사용할 수 있는 캐싱 정책에 대해 알아봅니다.
+description: Azure API Management에 사용할 수 있는 캐싱 정책에 대해 알아봅니다. 예제를 참조 하 고 사용 가능한 추가 리소스를 봅니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: e58cd8f19ab98601d37df185656038dbd5679eb2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fc5298b85af4eaa6cd84c871d38ea1c773abe0b4
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255050"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851599"
 ---
 # <a name="api-management-caching-policies"></a>API Management 캐싱 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -56,7 +56,7 @@ ms.locfileid: "86255050"
 </cache-lookup>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -112,7 +112,7 @@ ms.locfileid: "86255050"
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | allow-private-response-caching | `true`로 설정하면 Authorization 헤더를 포함하는 요청의 캐싱을 허용합니다.                                                                                                                                                                                                                                                                        | 아니요       | false             |
 | 캐싱-형식               | 다음 특성 값 중에서 선택합니다.<br />- `internal` 기본 제공 API Management 캐시를 사용합니다.<br />- `external`[Azure API Management에서 외부 Azure Cache for Redis 사용](api-management-howto-cache-external.md)에 설명된 대로 외부 캐시를 사용합니다.<br />- `prefer-external` 구성된 경우 외부 캐시를 사용하고 그렇지 않으면 내부 캐시를 사용합니다. | 아니요       | `prefer-external` |
-| downstream-caching-type        | 이 특성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> -   none - 다운스트림 캐싱이 허용되지 않습니다.<br />-   private - 다운스트림 프라이빗 캐싱이 허용됩니다.<br />-   public - 프라이빗 및 공유 다운스트림 캐싱이 허용됩니다.                                                                                                          | 아니요       | 없음              |
+| downstream-caching-type        | 이 특성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> -   none - 다운스트림 캐싱이 허용되지 않습니다.<br />-   private - 다운스트림 프라이빗 캐싱이 허용됩니다.<br />-   public - 프라이빗 및 공유 다운스트림 캐싱이 허용됩니다.                                                                                                          | 아니요       | none              |
 | must-revalidate                | 다운스트림 캐싱을 사용하는 경우 이 특성이 게이트웨이 응답에서 `must-revalidate` 캐시 제어 지시문을 설정 또는 해제합니다.                                                                                                                                                                                                                      | 아니요       | true              |
 | vary-by-developer              | [구독 키](./api-management-subscriptions.md)별 캐시 응답을 위해서는 `true`로 설정합니다.                                                                                                                                                                                                                                                                                                         | 예      |         거짓          |
 | vary-by-developer-groups       | [사용자 그룹](./api-management-howto-create-groups.md)별 캐시 응답을 위해서는 `true`로 설정합니다.                                                                                                                                                                                                                                                                                                             | 예      |       거짓            |
@@ -135,7 +135,7 @@ ms.locfileid: "86255050"
 <cache-store duration="seconds" />
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 

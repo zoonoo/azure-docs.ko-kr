@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247781"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904822"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 
@@ -155,7 +155,7 @@ Bronze 내구성으로 실행되는 노드 형식은 권한 없음이 됩니다.
 
 #### <a name="virtual-machine-sizing"></a>가상 머신 크기 조정
 
-**프로덕션 워크 로드의 경우 권장 되는 VM 크기 (SKU)는 50 GB 이상의 로컬 SSD를 포함 하는 표준 D2_V2 (또는 이와 동등한)입니다.** 최소 50 GB의 로컬 SSD를 권장 하지만 일부 작업 (예: Windows 컨테이너를 실행 하는 작업)에는 더 큰 디스크가 필요 합니다. 프로덕션 워크 로드에 대해 다른 [VM 크기](../virtual-machines/sizes-general.md) 를 선택할 때는 다음 제약 조건을 염두에 두어야 합니다.
+**프로덕션 워크 로드의 경우 권장 되는 VM 크기 (SKU)는 최소 50 GB의 로컬 SSD, 2 개 코어 및 4 GiB의 메모리를 포함 하는 [표준 D2_V2](../virtual-machines/dv2-dsv2-series.md) (또는 동등한)입니다.** 최소 50 GB의 로컬 SSD를 권장 하지만 일부 작업 (예: Windows 컨테이너를 실행 하는 작업)에는 더 큰 디스크가 필요 합니다. 프로덕션 워크 로드에 대해 다른 [VM 크기](../virtual-machines/sizes-general.md) 를 선택할 때는 다음 제약 조건을 염두에 두어야 합니다.
 
 - 표준 A0와 같은 부분 코어 VM 크기는 지원 되지 않습니다.
 - *A-시리즈* VM 크기는 성능상의 이유로 지원 되지 않습니다.

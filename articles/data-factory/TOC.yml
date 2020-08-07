@@ -209,14 +209,14 @@
       items:
         - name: 데이터 팩터리 시각화
           href: author-visually.md
+        - name: 반복 개발 및 디버깅
+          href: iterative-development-debugging.md
         - name: 관리 허브
           href: author-management-hub.md
         - name: 원본 제어
           href: source-control.md
         - name: 지속적인 통합 및 업데이트
           href: continuous-integration-deployment.md
-        - name: 반복 개발 및 디버깅
-          href: iterative-development-debugging.md
     - name: 커넥터
       items:
         - name: 커넥터 개요
@@ -562,6 +562,8 @@
       items:
         - name: 연결된 서비스 매개 변수화
           href: parameterize-linked-services.md
+        - name: 글로벌 매개 변수
+          href: author-global-parameters.md
         - name: 식 언어
           href: control-flow-expression-language-functions.md
         - name: 시스템 변수

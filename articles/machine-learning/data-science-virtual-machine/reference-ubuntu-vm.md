@@ -5,16 +5,16 @@ description: Ubuntu에 포함 된 도구에 대 한 세부 정보 Data Science V
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 247840fe4719dc83be8048826ac4defc76d7ef9d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955542"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852228"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -85,7 +85,7 @@ Torch는 기계 학습 알고리즘을 광범위하게 지원하는 공학용 �
 
 PyTorch는 루트 Anaconda 환경에서도 사용할 수 있습니다. 예제는 /dsvm/samples/pytorch에 있습니다.
 
-## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning 서버
+## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server
 
 R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중 하나입니다. R을 분석에 사용하려는 경우 VM에서 Microsoft R Open 및 Math Kernel Library가 있는 Microsoft Machine Learning Server를 사용합니다. Math Kernel Library는 분석 알고리즘에서 일반적인 수학 연산을 최적화합니다. Microsoft R Open은 CRAN-R과 완벽하게 호환되며, CRAN에 게시된 모든 R 라이브러리는 Microsoft R Open에 설치할 수 있습니다. 
 
@@ -255,7 +255,7 @@ R 및 Python의 모델을 Azure Machine Learning에 배포하는 방법에 대�
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 내용은 다음과 같습니다.
+VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 여기에는 다음이 포함됩니다.
 
 * **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
 * **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.

@@ -1,7 +1,7 @@
 ---
 title: Azure API Management에서 그룹을 사용 하 여 개발자 계정 관리
 titleSuffix: Azure API Management
-description: Azure API Management에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다.
+description: Azure API Management에서 그룹을 사용 하 여 개발자 계정을 관리 하는 방법을 알아봅니다. 그룹을 만든 다음 제품 또는 개발자에 게 연결 합니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 16ab72a67a021338bd8e186c32015c271240d224
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250535"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851225"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 

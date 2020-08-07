@@ -174,7 +174,7 @@
     - name: Azure Media Player
       items:
         - name: Azure Media Player 개요
-          href: 'https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview'
+          href: ../azure-media-player/azure-media-player-overview.md
     - name: v3 API를 사용하여 개발
       items:
         - name: 개요
@@ -362,7 +362,7 @@
     - name: 미디어 플레이어 사용
       items:
         - name: Azure Media Player 전체 설정
-          href: 'https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup'
+          href: ../azure-media-player/azure-media-player-full-setup.md
         - name: Video.js 플레이어 사용
           href: how-to-video-js-player.md
         - name: Shaka 비디오 플레이어 사용
@@ -373,7 +373,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
       displayName: schema
     - name: REST (영문)
-      href: 'https://docs.microsoft.com/rest/api/media/'
+      href: /rest/api/media/
     - name: Azure CLI
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: SDK

@@ -63,6 +63,8 @@
           href: security-center-policy-definitions.md
         - name: 권장 사항을 사용하여 보안 강화
           href: security-center-using-recommendations.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 위협 방지 및 보안 경고
       items:
         - name: Security Center의 위협 방지 개요

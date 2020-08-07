@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 고급 정책 | Microsoft Docs
-description: Azure API Management에 사용할 수 있는 고급 정책에 대해 알아봅니다.
+description: Azure API Management에 사용할 수 있는 고급 정책에 대해 알아봅니다. 예제를 참조 하 고 사용 가능한 추가 리소스를 봅니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243735"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851684"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 
@@ -63,9 +63,9 @@ ms.locfileid: "86243735"
 
 제어 흐름 정책에는 `<when/>` 요소가 하나 이상 포함되어 있어야 합니다. `<otherwise/>` 요소는 선택적입니다. 정책 내에 표시되는 순서대로 `<when/>` 요소의 조건이 평가됩니다. 조건 특성이 `true`인 첫 번째 `<when/>` 요소 내에 포함된 정책 문이 적용됩니다. 모든 `<when/>` 요소 조건 특성이 `false`인 경우 `<otherwise/>` 요소 내에 포함된 정책(있는 경우)이 적용됩니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
-#### <a name="example"></a><a name="ChooseExample"></a> 예
+#### <a name="example"></a><a name="ChooseExample"></a> 예제
 
 다음 예제에서는 [set-variable](api-management-advanced-policies.md#set-variable) 정책과 제어 흐름 정책 두 개를 보여 줍니다.
 
@@ -159,7 +159,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 <forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -276,7 +276,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 </limit-concurrency>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -304,7 +304,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 | attribute | 설명                                                                                        | 필수 | 기본값 |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | 문자열입니다. 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다. | 예      | 해당 없음     |
+| key       | 문자열 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다. | 예      | 해당 없음     |
 | max-count | 정수입니다. 정책에 들어올 수 있는 요청의 최대 수를 지정합니다.           | 예      | 해당 없음     |
 
 ### <a name="usage"></a>사용
@@ -380,7 +380,7 @@ Event Hubs에 기록할 값으로 모든 문자열을 사용할 수 있습니다
 
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```xml
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
@@ -402,8 +402,8 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute    | 설명                                                                                           | 필수 | 기본값 |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| status-code  | 응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.                 | 아니요       | 200     |
-| content-type | `Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다. | 아니요       | None    |
+| status-code  | 응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.                 | 예       | 200     |
+| content-type | `Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다. | 예       | None    |
 
 ### <a name="usage"></a>사용
 
@@ -584,7 +584,7 @@ status code and media type. If no example or schema found, the content is empty.
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | 루트 요소입니다.                                                                                               | 예                             |
 | url                        | 요청의 URL입니다.                                                                                     | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
-| method                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
+| 메서드                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
 | header                     | 요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.                                  | 아니요                              |
 | 본문                       | 요청 본문.                                                                                           | 아니요                              |
 | 인증-인증서 | [클라이언트 인증에 사용할 인증서](api-management-authentication-policies.md#ClientCertificate) | 아니요                              |
@@ -593,8 +593,8 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 신규      |
-| 이름          | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
+| mode="string" | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 단추를 사용하여 새      |
+| name          | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
 | exists-action | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 아니요       | override |
 
 ### <a name="usage"></a>사용
@@ -668,7 +668,7 @@ status code and media type. If no example or schema found, the content is empty.
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | 루트 요소입니다.                                                                                               | 예                             |
 | url                        | 요청의 URL입니다.                                                                                     | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
-| method                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
+| 메서드                     | 요청에 대한 HTTP 메서드입니다.                                                                            | mode=copy인 경우 아니요이고 그렇지 않은 경우 예입니다. |
 | header                     | 요청 헤더. 여러 요청 헤더에 여러 헤더 요소를 사용합니다.                                  | 아니요                              |
 | 본문                       | 요청 본문.                                                                                           | 아니요                              |
 | 인증-인증서 | [클라이언트 인증에 사용할 인증서](api-management-authentication-policies.md#ClientCertificate) | 아니요                              |
@@ -677,11 +677,11 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 신규      |
+| mode="string"                   | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 단추를 사용하여 새      |
 | response-variable-name="string" | 응답 개체를 받을 컨텍스트 변수의 이름입니다. 변수가 없는 경우 정책이 성공적으로 실행 될 때 생성 되며 컬렉션을 통해 액세스할 수 있게 됩니다 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) .                                                                                                                                                                                                                                                                                                                          | 예      | 해당 없음      |
 | timeout="integer"               | URL 호출이 실패하는 시간 초과 간격(초)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 아니요       | 60       |
 | ignore-error                    | true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -응답이 지정 된 경우 null 값을 포함 하는 변수 이름입니다.<br />-응답-변수 이름이 지정 되지 않은 경우 컨텍스트입니다. 요청은 업데이트 되지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                   | 아니요       | false    |
-| 이름                            | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
+| name                            | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
 | exists-action                   | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 아니요       | override |
 
 ### <a name="usage"></a>사용
@@ -848,7 +848,7 @@ status code and media type. If no example or schema found, the content is empty.
 <set-variable name="variable name" value="Expression | String literal" />
 ```
 
-### <a name="example"></a><a name="set-variableExample"></a> 예
+### <a name="example"></a><a name="set-variableExample"></a> 예제
 
 다음 예는 인바운드 섹션에 변수 설정 정책이 있는 것을 보여 줍니다. 이 set-variable 정책은 `isMobile` 요청 헤더에 `User-Agent` 또는 `iPad` 텍스트가 있으면 true로 설정되는 `iPhone` Boolean [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수를 만듭니다.
 
@@ -931,7 +931,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ```
 
-### <a name="example"></a><a name="traceExample"></a> 예
+### <a name="example"></a><a name="traceExample"></a> 예제
 
 ```xml
 <trace source="PetStore API" severity="verbose">
@@ -954,7 +954,7 @@ status code and media type. If no example or schema found, the content is empty.
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | 추적 뷰어에 의미있고 메시지 원본을 지정하는 문자열 리터럴입니다.                                   | 예      | 해당 없음     |
 | severity  | 추적의 심각도 수준을 지정 합니다. 허용 되는 값은 `verbose` , `information` , `error` (가장 낮은 값에서 가장 높은 값)입니다. | 아니요       | 자세히 |
-| 이름      | 속성의 이름입니다.                                                                                                     | 예      | 해당 없음     |
+| name      | 속성의 이름입니다.                                                                                                     | 예      | 해당 없음     |
 | 값     | 속성의 값입니다.                                                                                                    | 예      | 해당 없음     |
 
 ### <a name="usage"></a>사용

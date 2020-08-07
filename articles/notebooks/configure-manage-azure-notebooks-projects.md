@@ -3,13 +3,13 @@ title: Azure Notebooks 미리 보기 구성 및 관리
 description: Azure Notebooks UI와 직접 터미널 액세스를 통해 프로젝트 메타 데이터, 프로젝트 파일, 프로젝트 환경 및 설정 단계를 관리 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834083"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852806"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Azure Notebooks 미리 보기에서 프로젝트 관리 및 구성
 
@@ -76,7 +76,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 | 명령 | 바로 가기 키 | 작업 |
 | --- | --- | --- |
-| Run | r(또는 클릭) | Notebook 파일을 실행합니다. 다른 파일 형식은 보는 용도로 열립니다.  |
+| 실행 | r(또는 클릭) | Notebook 파일을 실행합니다. 다른 파일 형식은 보는 용도로 열립니다.  |
 | 링크 복사 | y | 파일 링크를 클립보드에 복사합니다. |
 | Jupyter 랩에서 실행 | j | Jupyter가 일반적으로 제공하는 환경보다 개발자 중심의 인터페이스인 JupyterLab에서 Notebook을 실행합니다. |
 | 미리 보기 | p | 파일의 HTML 미리 보기를 엽니다. Notebook의 경우 미리 보기는 Notebook의 읽기 전용 렌더링입니다. 자세한 내용은 [미리 보기](#preview) 섹션을 참조하세요. |
@@ -96,7 +96,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 | --- | --- | --- |
 | 공유 | s | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
 | 복제 | c  | Notebook을 계정에 복제합니다. |
-| Run | r | 실행 권한이 있는 경우 Notebook을 실행합니다. |
+| 실행 | r | 실행 권한이 있는 경우 Notebook을 실행합니다. |
 | 다운로드 | 일 | Notebook의 복사본을 다운로드합니다. |
 
 ## <a name="configure-the-project-environment"></a>프로젝트 환경 구성
@@ -134,7 +134,7 @@ Notebook이 실행되는 기본 가상 머신의 환경을 구성하는 세 가�
 - **환경 .yml**: 두 번째 드롭다운 목록에서 conda 환경을 사용 하 여 Python 프로젝트용 *환경 .yml* 파일을 선택 합니다.
 
    > [!WARNING]
-   > 이는 개발 중인 미리 보기 서비스 이므로 현재 `Environment.yml` 설정이 프로젝트에 예상 대로 적용 되지 않는 알려진 문제가 있습니다. 에서 프로젝트와 Jupyter 노트북은 현재 지정 된 환경 파일을 로드 하지 않습니다.
+   > 이는 개발 중인 미리 보기 서비스이므로 현재는 `Environment.yml` 설정이 프로젝트에 예상대로 적용되지 않는 알려진 문제가 있습니다. 프로젝트와 Jupyter 노트북은 현재 지정된 환경 파일을 로드하지 않습니다.
 
 단계 추가를 마쳤으면 **저장**을 선택합니다.
 

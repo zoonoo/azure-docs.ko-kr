@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372946"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846737"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 리소스에 대한 할당량 관리 및 늘리기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,13 +46,9 @@ ms.locfileid: "87372946"
 > 한도는 변경될 수 있습니다. 언제든지 모든 Azure의 서비스 수준 할당량 [문서](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/)에서 최신 정보를 확인할 수 있습니다.
 
 ### <a name="virtual-machines"></a>가상 머신
-각 Azure 구독별로 서비스에 또는 독립 실행형으로 보유할 수 있는 가상 머신 수가 제한됩니다. 이 제한은 총 코어 수 및 제품군 별로 영역 수준에서 적용됩니다.
-
-가상 머신 코어에는 개별적으로 적용되는 지역별 총 한도와 지역별 크기당 시리즈(Dv2, F 등) 한도가 있습니다. 미국 동부 총 VM 코어 한도가 30이고, A 시리즈 코어 한도 30이며, D 시리즈 코어 한도는 30인 구독을 예로 들 수 있습니다. 이러한 구독은 A1 VM 30개 또는 D1 VM 30개 또는 총 코어가 30개를 초과하지 않는 두 가지의 조합(예: A1 VM 10, D1 VM 20)을 배포하도록 허용됩니다.
+각 Azure 구독에 대해 서비스 또는 독립 실행형에서 가상 컴퓨터의 수에 제한이 있습니다. 가상 머신 코어에는 개별적으로 적용되는 지역별 총 한도와 지역별 크기당 시리즈(Dv2, F 등) 한도가 있습니다. 미국 동부 총 VM 코어 한도가 30이고, A 시리즈 코어 한도 30이며, D 시리즈 코어 한도는 30인 구독을 예로 들 수 있습니다. 이러한 구독은 A1 VM 30개 또는 D1 VM 30개 또는 총 코어가 30개를 초과하지 않는 두 가지의 조합(예: A1 VM 10, D1 VM 20)을 배포하도록 허용됩니다.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-좀 더 구체적인 최신 할당량 한도 목록은 [Azure 전체 할당량 문서](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)를 참조하세요.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
 [Azure Machine Learning 컴퓨팅](concept-compute-target.md#azure-machine-learning-compute-managed)의 경우 구독의 영역당 허용되는 코어 수 및 고유한 컴퓨팅 리소스 수의 기본 할당량 한도가 있습니다. 이 할당량은 위의 VM 코어 할당량과는 별개이며, AmlCompute는 Hosted-On-Behalf-Of 모델에서 리소스를 배포하는 관리형 서비스이므로 두 리소스 유형 간에 코어 제한이 공유되지 않습니다.
@@ -84,16 +80,10 @@ ms.locfileid: "87372946"
 - 파이프라인에서 허용되는 최대 단계 수는 30,000개입니다.
 - 구독당 월별로 게시된 파이프라인의 블로그 트리거 일정에 대한 일정 기반 실행 및 Blob 끌어오기의 최대 합계는 100,000입니다.
 
-> [!NOTE]
-> 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
-
 ### <a name="container-instances"></a>Container instances
 
 특정 기간에(시간 단위로 범위 지정) 또는 전체 구독에서 작동할 수 있는 컨테이너 인스턴스의 수에도 제한이 있습니다.
-
-[!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)서 Azure 전체 할당량 문서를 참조하세요.
+제한 사항은 [Container Instances 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)을 참조 하세요.
 
 ### <a name="storage"></a>스토리지
 영역당 및 특정 구독당 스토리지 계정의 수가 제한되어 있습니다. 기본 제한은 250이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 스토리지 계정이 250개 이상 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
@@ -126,7 +116,7 @@ Azure Machine Learning 컴퓨팅은 구독의 다른 Azure 리소스 할당량�
 1. 구독을 선택하여 할당량 한도를 확인합니다. 관심 있는 영역으로 필터링해야 합니다.
 
 1. 이제 구독 수준 보기와 작업 영역 수준 보기 사이를 전환할 수 있습니다.
-    + **구독 보기:** VM 제품군별로 코어 할당량 사용량을 보고, 작업 영역별로 확장하고, 실제 클러스터 이름별로 추가 확장할 수 있습니다. 이 보기를 통해 특정 VM 제품군의 코어 사용량에 대한 세부 정보를 신속하게 파악하여 작업 영역별 정보를 보고, 이러한 각 작업 영역의 기본 클러스터별 정보를 볼 수도 있습니다. 이 보기의 일반 규칙은 (사용량/할당량)입니다. 여기서 사용량은 현재 스케일 업된 코어 수이고, 할당량은 리소스를 확장할 수 있는 논리적 최대 코어 수입니다. 각 **작업 영역**의 할당량은 위에서 설명한 대로 작업 영역 수준 할당량으로, 특정 VM 제품군별로 확장할 수 있는 최대 코어 수를 나타냅니다. 마찬가지로, **클러스터**의 할당량은 실제로 클러스터를 확장할 수 있는 최대 노드 수(max_nodes 속성에 정의됨)에 해당하는 코어 수입니다.
+    + **구독 뷰:** VM 제품군의 코어 할당량 사용을 표시 하 고 작업 영역으로 확장 한 다음 실제 클러스터 이름으로 확장 합니다. 특정 VM 제품군의 코어 사용에 대 한 세부 정보를 신속 하 게 확인 하 여 각 작업 영역에 대 한 기본 클러스터에서 작업 영역 및 추가 작업 영역에 대 한 분할을 확인할 수 있습니다. 이 보기의 일반 규칙은 (사용량/할당량)입니다. 여기서 사용량은 현재 스케일 업된 코어 수이고, 할당량은 리소스를 확장할 수 있는 논리적 최대 코어 수입니다. 각 **작업 영역**의 할당량은 위에서 설명한 대로 작업 영역 수준 할당량으로, 특정 VM 제품군별로 확장할 수 있는 최대 코어 수를 나타냅니다. 마찬가지로, **클러스터**의 할당량은 실제로 클러스터를 확장할 수 있는 최대 노드 수(max_nodes 속성에 정의됨)에 해당하는 코어 수입니다.
 
     + **작업 영역 보기:** 작업 영역별로 코어 할당량 사용량을 보고, VM 제품군별로 확장하고, 실제 클러스터 이름별로 추가 확장할 수 있습니다. 이 보기는 특정 작업 영역의 코어 사용량에 대한 세부 정보를 신속하게 파악하여 VM 제품군별 정보를 보고, 이러한 각 작업 영역의 기본 클러스터별 정보를 볼 수도 있습니다.
 
@@ -149,8 +139,4 @@ Virtual Machines, Storage, Network 등의 다양한 다른 Azure 리소스에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서 자세한 내용을 알아보세요.
-
 + [Azure Machine Learning의 비용 계획 및 관리](concept-plan-manage-cost.md)
-
-+ [할당량을 늘리는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)
