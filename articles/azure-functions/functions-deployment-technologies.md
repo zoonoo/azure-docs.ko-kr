@@ -4,22 +4,36 @@ description: Azure Functions 코드를 배포할 수 있는 다양 한 방법을
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562942"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905128"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
-몇 가지 다른 기술을 사용 하 여 Azure Functions 프로젝트 코드를 Azure에 배포할 수 있습니다. 이 문서에서는 이러한 기술의 완전 한 목록을 제공 하 고, 다양 한 기능을 사용할 수 있는 기술을 설명 하 고, 각 방법을 사용할 때 발생 하는 상황을 설명 하 고, 다양 한 시나리오에서 가장 적합 한 방법에 대 한 권장 사항을 제공 합니다. Azure Functions에 대 한 배포를 지 원하는 다양 한 도구는 해당 컨텍스트에 따라 올바른 기술으로 조정 됩니다. 일반적으로 zip 배포는 Azure Functions에 권장 되는 배포 기술입니다.
+몇 가지 다른 기술을 사용 하 여 Azure Functions 프로젝트 코드를 Azure에 배포할 수 있습니다. 이 문서에서는 사용자에 게 제공 되는 배포 방법에 대해 간략하게 설명 하 고 다양 한 시나리오에서 사용 하기에 가장 좋은 방법에 대 한 권장 사항을 제공 합니다. 또한 여기에는 포괄 l기능 g 배포 기술에 대 한 자세한 목록과 주요 세부 정보가 제공 됩니다. 
+
+## <a name="deployment-methods"></a>배포 방법
+
+Azure에 코드를 게시 하는 데 사용 하는 배포 기술은 일반적으로 앱을 게시 하는 방법에 따라 결정 됩니다. 적절 한 배포 방법은 특정 요구 사항 및 개발 주기의 시점에 따라 결정 됩니다. 예를 들어 개발 및 테스트 중에 Visual Studio Code와 같은 개발 도구에서 직접 배포할 수 있습니다. 앱이 프로덕션 환경에 있는 경우 추가 유효성 검사 및 테스트를 포함 하는 자동화 된 게시 파이프라인을 사용 하거나 소스 제어에서 지속적으로를 게시할 가능성이 높습니다.  
+
+다음 표에서는 함수 프로젝트에 사용할 수 있는 배포 방법에 대해 설명 합니다.
+
+| 배포 &nbsp; 유형 | 메서드 | 최적 ... |
+| -- | -- | -- |
+| 도구 기반 | &bull;&nbsp;[Visual &nbsp; Studio &nbsp; Code &nbsp; 게시](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio 게시](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[핵심 도구 게시](functions-run-local.md#publish) | 개발 및 기타 ad hock 배포 중 배포. 배포는 도구를 통해 로컬로 관리 됩니다. | 
+| App Service 관리| &bull;&nbsp;[배포 &nbsp; 센터 &nbsp; (CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[컨테이너 &nbsp; 배포](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  원본 제어 또는 컨테이너 레지스트리에서 CI/CD (연속 배포) 배포는 Kudu (App Service 플랫폼)에 의해 관리 됩니다.|
+| 외부 파이프라인|&bull;&nbsp;[DevOps 파이프라인](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub 작업](functions-how-to-github-actions.md) | 추가 유효성 검사, 테스트 및 기타 작업을 포함 하는 프로덕션 및 DevOps 파이프라인은 자동화 된 배포의 일부로 실행 됩니다. 배포는 파이프라인을 통해 관리 됩니다. |
+
+특정 함수 배포는 해당 컨텍스트를 기반으로 하는 최고의 기술을 사용 하지만 대부분의 배포 방법은 [zip 배포](#zip-deploy)를 기반으로 합니다.
 
 ## <a name="deployment-technology-availability"></a>배포 기술 가용성
 
 Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호스팅을 지원 합니다. 현재 세 가지 호스팅 요금제를 사용할 수 있습니다.
 
-+ [Consumption](functions-scale.md#consumption-plan)
++ [소비](functions-scale.md#consumption-plan)
 + [Premium](functions-scale.md#premium-plan)
 + [전용 (App Service)](functions-scale.md#app-service-plan)
 

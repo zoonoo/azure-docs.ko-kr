@@ -3,12 +3,12 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072813"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901983"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -74,7 +74,26 @@ Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 �
 
 사용자 지정 가상 머신 이미지는 위의 표에 나오는 운영 체제 중 하나의 이미지인 경우 게스트 구성 정책에서 지원됩니다.
 
-## <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
+## <a name="network-requirements"></a>네트워크 요구 사항
+
+Azure의 가상 머신은 해당 로컬 네트워크 어댑터나 개인 링크를 사용 하 여 게스트 구성 서비스와 통신할 수 있습니다.
+
+Azure Arc 컴퓨터는 온-프레미스 네트워크 인프라를 사용 하 여 Azure 서비스에 연결 하 고 규정 준수 상태를 보고 합니다.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Azure에서 가상 네트워크를 통해 통신
+
+통신을 위해 가상 네트워크를 사용 하는 가상 머신에는 포트의 Azure 데이터 센터에 대 한 아웃 바운드 액세스가 필요 `443` 합니다. 아웃 바운드 트래픽을 허용 하지 않는 Azure에서 개인 가상 네트워크를 사용 하는 경우 네트워크 보안 그룹 규칙을 사용 하 여 예외를 구성 합니다. 서비스 태그 "GuestAndHybridManagement"를 게스트 구성 서비스를 참조하는 데 사용할 수 있습니다.
+
+### <a name="communicate-over-private-link-in-azure"></a>Azure에서 개인 링크를 통해 통신
+
+가상 머신은 게스트 구성 서비스에 대 한 통신에 [개인 링크](../../../private-link/private-link-overview.md) 를 사용할 수 있습니다. `EnablePrivateNeworkGC`이 기능을 사용 하도록 설정 하려면 이름과 값을 사용 하 여 태그를 적용 `TRUE` 합니다. 태그는 게스트 구성 정책을 컴퓨터에 적용 하기 전이나 후에 적용할 수 있습니다.
+
+Azure platform 리소스를 사용 하 여 안전 하 고 인증 된 채널을 설정 하기 위해 Azure [가상 공용 IP 주소](../../../virtual-network/what-is-ip-address-168-63-129-16.md) 를 사용 하 여 트래픽을 라우팅합니다.
+
+### <a name="azure-arc-connected-machines"></a>Azure Arc 연결 된 컴퓨터
+
+Azure에 연결 된 azure 외부에 있는 노드에는 게스트 구성 서비스에 대 한 연결이 필요 합니다.
+[Azure Arc 설명서](../../../azure-arc/servers/overview.md)에서 제공 되는 네트워크 및 프록시 요구 사항에 대해 자세히 설명 합니다.
 
 Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **443** 포트에서 아웃바운드로 Azure 데이터 센터에 액세스할 수 있어야 합니다. Azure의 네트워크에서 아웃바운드 트래픽을 허용하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용하여 예외를 구성합니다. [서비스 태그](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement"를 게스트 구성 서비스를 참조하는 데 사용할 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d73492110703e64df5f948ad8a2a1ed8d2c63b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489880"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904541"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,6 +36,9 @@ Azure Machine Learning 작업 영역을 인증 하 고 웹 서비스로 배포 �
 * Azure Machine Learning SDK를 설치하거나 SDK가 이미 설치되어 있는 [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance)을 사용하도록 [개발 환경을 구성](how-to-configure-environment.md)합니다.
 
 ## <a name="interactive-authentication"></a>대화형 인증
+
+> [!IMPORTANT]
+> 대화형 인증은 브라우저를 사용 하며 쿠키 (타사 쿠키 포함)가 필요 합니다. 쿠키를 사용 하지 않도록 설정한 경우 "로그인 할 수 없습니다."와 같은 오류가 표시 될 수 있습니다. 이 오류는 [Azure multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks)을 사용 하도록 설정한 경우에도 발생할 수 있습니다.
 
 설명서 및 샘플에서 대부분의 예제는 대화형 인증을 사용 합니다. 예를 들어 SDK를 사용 하는 경우 UI 기반 인증 흐름을 자동으로 표시 하는 두 개의 함수 호출이 있습니다.
 

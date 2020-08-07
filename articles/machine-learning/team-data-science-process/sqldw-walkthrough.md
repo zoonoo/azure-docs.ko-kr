@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d5a332acbf6550fcc3a4256e1bc0531b31dd6c6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 21bede74ee265ffbe530c7697817186ac0e8dd3b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012258"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845700"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>실행 중인 팀 데이터 과학 프로세스: Azure Synapse Analytics 사용
 이 자습서에서는 [NYC Taxi 여행](https://www.andresmh.com/nyctaxitrips/) 데이터 집합을 사용 하 여 공개적으로 사용 가능한 데이터 집합에 대해 Azure Synapse Analytics를 사용 하 여 기계 학습 모델을 빌드하고 배포 하는 과정을 안내 합니다. 생성 된 이진 분류 모델은 여행에 대해 팁이 지불 되었는지 여부를 예측 합니다.  모델에는 다중 클래스 분류 (팁이 있는지 여부) 및 회귀 (tip 금액의 분포)가 포함 됩니다.
@@ -805,7 +805,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
 ![가로 막대형 그림 출력][3]
 
-및
+and
 
 ```sql
 pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
@@ -1012,7 +1012,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 ### <a name="license-information"></a>라이선스 정보
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참고 자료
 - [Andrés Monroy NYC Taxi 여행 다운로드 페이지](https://www.andresmh.com/nyctaxitrips/)
 - [Chris Whong의 별 FOILing NYC의 Taxi 여행 데이터](https://chriswhong.com/open-data/foil_nyc_taxi/)
 - [NYC Taxi 및 리무진 위원회 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

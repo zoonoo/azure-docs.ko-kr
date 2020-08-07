@@ -6,17 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 01/29/2020
-ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 07/29/2020
+ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387441"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902102"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업용 마켓플레이스의 지리적 가용성 및 통화 지원
 
-상업용 마켓플레이스 제품은 고객의 청구 주소에서 정의된 대로 141개 지역에서 구매할 수 있으며 트랜잭션은 17개 통화로 완료할 수 있습니다. 아래 표에는 지원되는 각 지리적 위치, 해당 [ISO 3166 2자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) 및 할당된 통화가 나와 있습니다.
+## <a name="supported-geographic-locations"></a>지원 되는 지리적 위치
+
+상업용 마켓플레이스 제품은 고객의 청구 주소에서 정의된 대로 141개 지역에서 구매할 수 있으며 트랜잭션은 17개 통화로 완료할 수 있습니다. 다음 표에서는 지원 되는 각 지리적 위치, [ISO 3166 2 자리의 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당 된 통화를 나열 합니다.
 
 |   국가/지역 이름               |   ISO-2   |   통화   |
 |-------------------------------------|-----------|--------------|
@@ -167,3 +169,34 @@ ms.locfileid: "87387441"
 \* 브라질 고객의 경우 CSP(클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용합니다.
 
 \** 무료 및 BYOL VM 이미지만 해당합니다.
+
+## <a name="how-we-convert-currency"></a>통화를 변환 하는 방법
+
+모든 유료 제품 형식에 대해 Isv는 USD로 가격을 입력 하거나 현지 통화로 가격을 업로드 하는 옵션을 제공 합니다. USD에 입력 된 가격은 페이지가 저장 될 때 자동으로 현지 통화로 변환 됩니다. 파트너 센터에서 사용 하는 요금은 매일 업데이트 됩니다. Isv는 가격을 내보내고 변환 된 항목을 검토할 수 있습니다.
+
+게시 하기 전에 가격을 조정 하려면 가격 책정 스프레드시트를 내보내고 수정한 다음 변경 내용으로 업로드 하면 됩니다.
+
+> [!NOTE]
+> 플랜의 시장 가격이 게시된 후에는 나중에 변경할 수 없습니다. 가격을 게시하기 직전에 가격이 적절한지 확인하려면 가격 책정 스프레드시트를 내보내고 각 시장의 가격을 검토합니다.
+
+## <a name="rate-changes"></a>변경 률
+
+현지 가격을 계산 하는 데 사용 하는 요금은 매일 업데이트 됩니다. 이 계산은 ISV가 페이지를 저장할 때 수행 되며 게시 전에 가격을 내보내고 검토 하 여 모든 요금을 검토할 수 있습니다.
+
+### <a name="retrieving-currency-information-by-api"></a>API로 통화 정보 검색
+
+API를 사용 하 여 개별 가격 (설정 된 방법에 따라, 저장 된 날짜의 환율에 따라 영향을 받을 수 있음)은 API를 사용 하 여 검색할 수 있습니다. 통화 정보는 사용할 수 없습니다.
+
+특정 제품 유형에 대 한 가격을 입력 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+
+- [Azure 애플리케이션 제품 만들기](partner-center-portal/create-new-azure-apps-offer.md)
+- [Azure 컨테이너 제안 만들기](partner-center-portal/create-azure-container-offer.md)
+- [Azure 가상 머신 제품 만들기](partner-center-portal/azure-vm-create-offer.md)
+- [컨설팅 서비스 제품 만들기](partner-center-portal/create-consulting-service-offer.md)
+- [고객 Engagement & PowerApps 제품에 대 한 Dynamics 365 만들기](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Dynamics 365 for Operations 제품 만들기](partner-center-portal/create-new-operations-offer.md)
+- [Dynamics 365 Business Central 제품 만들기](partner-center-portal/create-new-business-central-offer.md)
+- [IoT Edge 모듈 제품 만들기](partner-center-portal/azure-iot-edge-module-creation.md)
+- [관리되는 서비스 제품 만들기](partner-center-portal/create-new-managed-service-offer.md)
+- [Power BI 앱 만들기](partner-center-portal/create-power-bi-app-offer.md)
+- [SaaS 제품 만들기](partner-center-portal/create-new-saas-offer.md)

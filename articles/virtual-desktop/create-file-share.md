@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027395"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842912"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files 및 AD DS를 사용 하 여 프로필 컨테이너 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "86027395"
 
 이 프로세스는 온-프레미스 디렉터리 서비스인 Active Directory Domain Services (AD DS)를 사용 합니다. Azure AD DS를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법에 대 한 자세한 내용은 [Azure Files를 사용 하 여 fslogix 프로필 컨테이너 만들기](create-profile-container-adds.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 도메인 컨트롤러가 Azure에 동기화 되 고 세션 호스트가 연결 된 Azure VNET (가상 네트워크)에서 확인할 수 있는지 확인 합니다.
 
@@ -35,11 +35,11 @@ ms.locfileid: "86027395"
 
 2. 검색 창에서 **저장소 계정을** 검색 합니다.
 
-3. **+ 추가**를 선택 합니다.
+3. **+추가**를 선택합니다.
 
 4. **저장소 계정 만들기** 페이지에 다음 정보를 입력 합니다.
 
-    - 새 리소스 그룹을 만듭니다.
+    - 새 리소스 그룹 만들기
     - 스토리지 계정에 고유한 이름을 입력합니다.
     - **위치의**경우 Windows 가상 데스크톱 호스트 풀과 동일한 위치를 선택 하는 것이 좋습니다.
     - **성능**은 **표준**을 선택합니다. (IOPS 요구 사항에 따라 달라 집니다. 자세한 내용은 [Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
@@ -133,7 +133,7 @@ UNC 경로를 가져오는 방법은 다음과 같습니다.
     - 슬래시를 백슬래시로 바꿉니다 `/` `\` .
     - [Azure 파일 공유 만들기](#create-an-azure-file-share) 에서 만든 파일 공유의 이름을 UNC의 끝에 추가 합니다.
 
-        예: `\\customdomain.file.core.windows.net\<fileshare-name>`
+        예를 들면 다음과 같습니다. `\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>스토리지 계정 키 가져오기
 
@@ -189,8 +189,6 @@ NTFS 사용 권한을 구성 하려면:
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. **적용**을 선택합니다.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>세션 호스트 Vm에서 FSLogix 구성
 

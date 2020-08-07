@@ -5,17 +5,17 @@ description: Windows Data Science Virtual Machine에서 데이터 탐색 및 모
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 82e7cd67da6b64788d597e84c723d797138ac608
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959282"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848539"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -41,7 +41,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure에 이미 저�
 > 
 > 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 필요합니다. [무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
@@ -130,7 +130,7 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>R 모델 빌드 및 운영
-Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 수행하는 단계는 다음과 같습니다.
+Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방식과 유사한 방식으로 Azure Machine Learning에 배포할 수 있습니다. 단계는 다음과 같습니다.
 
 1. 파일에 settings.js를 만들어 작업 영역 ID 및 인증 토큰을 제공 합니다. 
 2. 모델의 예측 함수에 대 한 래퍼를 작성 합니다.
@@ -138,7 +138,7 @@ Data Science Virtual Machine에서 작성 된 R 모델을 Python의 작업 방�
 
 다음 절차 및 코드 조각을 사용 하 여 Azure Machine Learning에서 모델을 웹 서비스로 설정, 빌드, 게시 및 사용할 수 있습니다.
 
-#### <a name="set-up"></a>설치
+#### <a name="set-up"></a>설정
 
 홈 디렉터리 아래에 라는 디렉터리 아래의 파일에 settings.js를 만듭니다 ```.azureml``` . Azure Machine Learning 작업 영역에서 매개 변수를 입력 합니다.
 
@@ -260,10 +260,10 @@ Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 다�
 Git을 사용 하 여 github.com에서 사용할 수 있는 리소스에서 GitHub 리포지토리로 작업 하는 방법에 대 한 자세한 내용을 확인할 수 있습니다. [참고 자료](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
 
 ## <a name="access-azure-data-and-analytics-services"></a>Azure 데이터 및 분석 서비스에 액세스
-### <a name="azure-blob-storage"></a>Azure Blob 스토리지
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제적인 클라우드 저장소 서비스입니다. 이 섹션에서는 Blob 저장소로 데이터를 이동 하 고 Azure blob에 저장 된 데이터에 액세스 하는 방법을 설명 합니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 
@@ -367,7 +367,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-data-lake"></a>Azure 데이터 레이크
 Azure Data Lake Storage는 빅 데이터 분석 워크 로드에 대 한 하이퍼 확장 리포지토리 이며, HDFS (Hadoop 분산 파일 시스템)와 호환 됩니다. Hadoop, Spark 및 Azure Data Lake Analytics와 작동합니다. 이 섹션에서는 Azure Data Lake Analytics를 사용 하 여 데이터를 Azure Data Lake Storage로 이동 하 고 분석을 실행 하는 방법을 알아봅니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Data Lake Analytics 인스턴스를 만듭니다.
 
@@ -515,7 +515,7 @@ DSVM에 미리 작성 된 도구는 많은 일반 데이터 분석 요구 사항
 
 이 문서에서 프로 파일링 한 다른 Azure 데이터 및 분석 서비스를 사용 하 여 분석 환경을 향상 시킬 수 있습니다. 일부 경우에는 일부 독점 파트너 도구를 비롯 한 추가 도구가 필요할 수 있습니다. 가상 컴퓨터에 대 한 모든 관리 권한을 보유 하 여 필요한 새 도구를 설치할 수 있습니다. 또한 사전 설치되지 않은 추가 패키지를 Python 및 R에 설치할 수 있습니다. Python의 경우 또는 중 하나를 사용할 수 있습니다 ```conda``` ```pip``` . R의 경우 ```install.packages()``` r 콘솔에서을 사용 하거나, IDE를 사용 하 고 **패키지**  >  **설치 패키지**를 선택할 수 있습니다.
 
-## <a name="deep-learning"></a>딥러닝
+## <a name="deep-learning"></a>딥 러닝
 
 프레임 워크 기반 샘플 외에도 DSVM에서 유효성이 확인 된 일련의 포괄적인 연습을 얻을 수 있습니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같은 도메인에서 심층 학습 응용 프로그램 개발을 바로 시작할 수 있습니다.   
 

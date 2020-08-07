@@ -3,12 +3,12 @@ title: CAF Migration 방문 영역 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 방문 영역의 개요 및 아키텍처입니다.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044824"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852313"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플의 개요
 
@@ -26,7 +26,6 @@ CAF Migration 방문 영역 청사진 샘플은 조직에서 가상 머신을 �
 
 - 공유 서비스 환경에 배포된 인증서, 키 및 비밀에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/general/overview.md) 인스턴스
 - [Log Analytics](../../../../azure-monitor/overview.md) 배포 - 마이그레이션을 시작하는 순간부터 모든 작업과 서비스가 중앙 위치에 기록되도록 배포됩니다.
-- [Azure Security Center](../../../../security-center/security-center-intro.md)(표준 버전) 배포 - 마이그레이션된 워크로드에 대한 위협 방지 기능을 제공합니다.
 - [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) 배포 - 가상 머신에 대한 격리된 네트워크 및 서브넷을 제공합니다.
 - [Azure Migrate 프로젝트](../../../../migrate/migrate-services-overview.md) 배포 - 검색 및 평가용입니다. 서버 평가, 서버 마이그레이션, 데이터베이스 평가 및 데이터베이스 마이그레이션을 위한 도구를 추가하고 있습니다.  
 

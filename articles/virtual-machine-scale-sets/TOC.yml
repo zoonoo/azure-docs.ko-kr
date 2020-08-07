@@ -117,7 +117,7 @@
     - name: 이미지
       href: shared-image-galleries.md
     - name: VM 유형 및 크기
-      href: ../virtual-machines/windows/sizes.md
+      href: ../virtual-machines/sizes.md
       items:
         - name: 범용 가상 컴퓨터
           href: ../virtual-machines/sizes-general.md
@@ -193,10 +193,10 @@
           href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
     - name: 네트워킹
-      href: ../virtual-machines/windows/network-overview.md
+      href: ../virtual-machines/network-overview.md
       maintainContext: true
     - name: 인프라 자동화
-      href: ../virtual-machines/windows/infrastructure-automation.md
+      href: ../virtual-machines/infrastructure-automation.md
       maintainContext: true
     - name: 보안
       items:
@@ -378,13 +378,13 @@
     - name: Ansible 사용
       items:
         - name: 확장 집합 만들기 및 관리
-          href: /azure/ansible/ansible-create-configure-vmss
+          href: /azure/developer/ansible/vm-scale-set-configure
           maintainContext: true
         - name: 확장 집합에 앱 배포
-          href: /azure/ansible/ansible-deploy-app-vmss
+          href: /azure/developer/ansible/vm-scale-set-deploy-app
           maintainContext: true
         - name: 확장 집합 자동 크기 조정
-          href: /azure/ansible/ansible-auto-scale-vmss
+          href: /azure/developer/ansible/vm-scale-set-auto-scale
           maintainContext: true
 - name: 참조
   items:

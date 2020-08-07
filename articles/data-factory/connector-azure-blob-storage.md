@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 8862de0ba36d0731fff0e47ab51f828ff69af201
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/05/2020
+ms.openlocfilehash: 7296ec52f8bede86b73e7494af3a784526b639c3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220425"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849117"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -88,7 +88,7 @@ Data Factory는 저장소 계정 키 인증에 대 한 다음 속성을 지원 �
 >[!NOTE]
 >"AzureStorage" 형식 연결 된 서비스를 사용 하는 경우 아직 그대로 지원 됩니다. 그러나 앞으로 새 "AzureBlobStorage" 연결 된 서비스 유형을 사용 하는 것이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -155,7 +155,7 @@ Data Factory는 공유 액세스 서명 인증을 사용 하는 다음 속성을
 >[!NOTE]
 >"AzureStorage" 형식 연결 된 서비스를 사용 하는 경우 아직 그대로 지원 됩니다. 그러나 앞으로 새 "AzureBlobStorage" 연결 된 서비스 유형을 사용 하는 것이 좋습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -237,12 +237,13 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모퉁이를 가리켜 검색 합니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 AAD 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부**및 **AzureGermany**입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
 
 >[!NOTE]
 >서비스 사용자 인증은 이전 "AzureStorage" 형식 연결 된 서비스가 아닌 "AzureBlobStorage" 유형의 연결 된 서비스 에서만 지원 됩니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -293,7 +294,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 > [!NOTE]
 > Azure 리소스 인증에 대 한 관리 되는 id는 이전의 "AzureStorage" 형식 연결 된 서비스가 아닌 "AzureBlobStorage" 유형의 연결 된 서비스 에서만 지원 됩니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -324,7 +325,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | type       | 데이터 집합에 있는 위치의 **type** 속성은 **Azureblobstoragelocation**으로 설정 해야 합니다. | 예      |
 | container  | Blob 컨테이너입니다.                                          | 예      |
 | folderPath | 지정 된 컨테이너 아래에 있는 폴더의 경로입니다. 와일드 카드를 사용 하 여 폴더를 필터링 하려면이 설정을 건너뛰고 작업 원본 설정에서 지정 합니다. | 예       |
-| fileName   | 지정 된 컨테이너 및 폴더 경로 아래에 있는 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정을 건너뛰고 작업 원본 설정에서 지정 합니다. | 아니요       |
+| fileName   | 지정 된 컨테이너 및 폴더 경로 아래에 있는 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정을 건너뛰고 작업 원본 설정에서 지정 합니다. | 예       |
 
 **예:**
 
@@ -371,12 +372,12 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | 옵션 2: Blob 접두사<br>- prefix | 원본 blob을 필터링 하기 위해 데이터 집합에 구성 된 지정 된 컨테이너 아래의 blob 이름에 대 한 접두사입니다. 이름이로 시작 하 `container_in_dataset/this_prefix` 는 blob이 선택 됩니다. Blob 저장소에 대 한 서비스 쪽 필터를 활용 하 여 와일드 카드 필터 보다 더 나은 성능을 제공 합니다. | 예                                                          |
 | 옵션 3: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링 하기 위해 데이터 집합에 구성 된 지정 된 컨테이너 아래에 와일드 카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 처리 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
 | 옵션 3: 와일드카드<br>- wildcardFileName | 소스 파일을 필터링 하기 위해 지정 된 컨테이너 및 폴더 경로 (또는 와일드 카드 폴더 경로) 아래에 와일드 카드 문자가 있는 파일 이름입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
-| 옵션 4: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 지정합니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리키고, 데이터 집합에 구성 된 경로에 대 한 상대 경로인 한 줄에 하나씩 파일을 표시 합니다.<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마십시오. [파일 목록 예](#file-list-examples)에서 더 많은 예를 참조하세요. |아니요 |
+| 옵션 4: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 지정합니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리키고, 데이터 집합에 구성 된 경로에 대 한 상대 경로인 한 줄에 하나씩 파일을 표시 합니다.<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마십시오. [파일 목록 예](#file-list-examples)에서 더 많은 예를 참조하세요. |예 |
 | ***추가 설정:*** |  | |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **Recursive** 를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. <br>허용되는 값은 **true**(기본값) 및 **false**입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
-| deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 복사 시나리오 에서만 유효 합니다. 여기에서 데이터 원본 저장소는 Blob, ADLS Gen1, ADLS Gen2, S3, Google 클라우드 저장소, 파일, Azure 파일, SFTP 또는 FTP입니다. 기본값은 false입니다. |아니요 |
-| modifiedDatetimeStart    | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 "2018-12-01T05:00:00Z" 형식의 UTC 표준 시간대에 적용 됩니다. <br> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 아니요                                            |
-| modifiedDatetimeEnd      | 위와 동일합니다.                                               | 아니요                                            |
+| deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 복사 시나리오 에서만 유효 합니다. 여기에서 데이터 원본 저장소는 Blob, ADLS Gen1, ADLS Gen2, S3, Google 클라우드 저장소, 파일, Azure 파일, SFTP 또는 FTP입니다. 기본값은 false입니다. |예 |
+| modifiedDatetimeStart    | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 "2018-12-01T05:00:00Z" 형식의 UTC 표준 시간대에 적용 됩니다. <br> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
+| modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
 | maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요                                            |
 
 > [!NOTE]
@@ -433,8 +434,8 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | 아래의 **type** 속성은 `storeSettings` **Azureblobstoragewritesettings**로 설정 되어야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
-| blockSizeInMB | 블록 blob에 데이터를 쓰는 데 사용 되는 블록 크기 (mb)를 지정 합니다. [블록 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 자세한 내용을 알아보세요. <br/>허용 되는 값은 *4mb에서 100 mb 사이*입니다. <br/>기본적으로 Data Factory는 원본 저장소 형식 및 데이터를 기반으로 블록 크기를 자동으로 결정 합니다. Blob storage로 복사 하는 이진이 아닌의 경우 기본 블록 크기는 100 이며 최대 4.95 TB의 데이터에 맞출 수 있습니다. 특히 작업 시간 초과 또는 성능 문제를 초래 하는 네트워크 연결이 좋지 않은 자체 호스팅 통합 런타임을 사용 하는 경우 데이터가 크지 않은 경우에는 최적이 아닐 수 있습니다. 블록 크기를 명시적으로 지정 하는 동시에 `blockSizeInMB*50000` 데이터를 저장 하기에 충분 한 크기를 보장할 수 있습니다. 그렇지 않으면 복사 작업 실행이 실패 합니다. | 아니요 |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요       |
+| blockSizeInMB | 블록 blob에 데이터를 쓰는 데 사용 되는 블록 크기 (mb)를 지정 합니다. [블록 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 자세한 내용을 알아보세요. <br/>허용 되는 값은 *4mb에서 100 mb 사이*입니다. <br/>기본적으로 Data Factory는 원본 저장소 형식 및 데이터를 기반으로 블록 크기를 자동으로 결정 합니다. Blob storage로 복사 하는 이진이 아닌의 경우 기본 블록 크기는 100 이며 최대 4.95 TB의 데이터에 맞출 수 있습니다. 특히 작업 시간 초과 또는 성능 문제를 초래 하는 네트워크 연결이 좋지 않은 자체 호스팅 통합 런타임을 사용 하는 경우 데이터가 크지 않은 경우에는 최적이 아닐 수 있습니다. 블록 크기를 명시적으로 지정 하는 동시에 `blockSizeInMB*50000` 데이터를 저장 하기에 충분 한 크기를 보장할 수 있습니다. 그렇지 않으면 복사 작업 실행이 실패 합니다. | 예 |
+| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예       |
 
 **예:**
 
@@ -514,7 +515,7 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 매핑 데이터 흐름에서 데이터를 변환 하는 경우 Azure Blob storage에서 다음과 같은 형식으로 파일을 읽고 쓸 수 있습니다.
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties)
-* [델타](format-delta.md#mapping-data-flow-properties)
+* [삼각](format-delta.md#mapping-data-flow-properties)
 * [Excel](format-excel.md#mapping-data-flow-properties)
 * [JSON](format-json.md#mapping-data-flow-properties)
 * [Parquet](format-parquet.md#mapping-data-flow-properties)
@@ -620,16 +621,16 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 |:--- |:--- |:--- |
 | type | 데이터 집합의 **type** 속성은 **azureblob**으로 설정 해야 합니다. |예 |
 | folderPath | Blob 저장소의 컨테이너 및 폴더에 대 한 경로입니다. <br/><br/>컨테이너 이름을 제외 하 고 경로에 와일드 카드 필터가 지원 됩니다. 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. <br/><br/>예: myblobcontainer/myblobcontainer/. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. |복사 또는 조회 작업의 경우 예, GetMetadata 작업의 경우 아니요 |
-| fileName | 지정 된 **folderPath** 값 아래의 blob에 대 한 이름 또는 와일드 카드 필터입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 Blob을 가리킵니다. <br/><br/>필터의 경우 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (는 0 또는 단일 문자와 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`파일 이름에 와일드 카드 또는이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 복사 작업은 다음 패턴으로 blob 이름을 자동으로 생성 합니다. "*Data. [ 작업 실행 ID입니다. [GUID if FlattenHierarchy]입니다. [구성 된 경우 형식]. [압축이 구성 된 경우]*". 예: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. release.tar.gz". <br/><br/>쿼리 대신 테이블 이름을 사용 하 여 테이블 형식 원본에서 복사 하는 경우 이름 패턴은 "*[table name]. [ format]. [압축이 구성 된 경우]*". 예를 들면 "MyTable.csv"입니다. |아니요 |
-| modifiedDatetimeStart | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 이 설정을 사용 하면 대량의 파일을 필터링 하려는 경우 데이터 이동의 전반적인 성능에 영향을 줍니다. <br/><br/> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.| 아니요 |
-| modifiedDatetimeEnd | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 이 설정을 사용 하면 대량의 파일을 필터링 하려는 경우 데이터 이동의 전반적인 성능에 영향을 줍니다. <br/><br/> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.| 아니요 |
+| fileName | 지정 된 **folderPath** 값 아래의 blob에 대 한 이름 또는 와일드 카드 필터입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 Blob을 가리킵니다. <br/><br/>필터의 경우 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 `?` (는 0 또는 단일 문자와 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`파일 이름에 와일드 카드 또는이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 복사 작업은 다음 패턴으로 blob 이름을 자동으로 생성 합니다. "*Data. [ 작업 실행 ID입니다. [GUID if FlattenHierarchy]입니다. [구성 된 경우 형식]. [압축이 구성 된 경우]*". 예: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. release.tar.gz". <br/><br/>쿼리 대신 테이블 이름을 사용 하 여 테이블 형식 원본에서 복사 하는 경우 이름 패턴은 "*[table name]. [ format]. [압축이 구성 된 경우]*". 예를 들면 "MyTable.csv"입니다. |예 |
+| modifiedDatetimeStart | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 이 설정을 사용 하면 대량의 파일을 필터링 하려는 경우 데이터 이동의 전반적인 성능에 영향을 줍니다. <br/><br/> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.| 예 |
+| modifiedDatetimeEnd | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 이 설정을 사용 하면 대량의 파일을 필터링 하려는 경우 데이터 이동의 전반적인 성능에 영향을 줍니다. <br/><br/> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.| 예 |
 | format | 파일 기반 저장소(이진 복사본) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 format 섹션을 건너뜁니다.<br/><br/>특정 형식의 파일을 구문 분석하거나 생성하려는 경우, 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat**입니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON 형식](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs-legacy.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>**Optimal** 및 **Fastest** 수준이 지원됩니다. |예 |
 
 >[!TIP]
 >폴더 아래에서 모든 Blob을 복사하려면 **folderPath**만을 지정합니다.<br>지정 된 이름의 단일 blob을 복사 하려면 파일 이름 **에 대 한 폴더 및 파일** 이름에 대해 **folderPath** 를 지정 합니다.<br>폴더 아래에 있는 blob의 하위 집합을 복사 하려면 와일드 카드 필터를 사용 하 여 폴더 파트 및 **파일 이름** 에 대해 **folderPath** 를 지정 합니다. 
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -665,7 +666,7 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **blobsource**로 설정 해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **Recursive** 를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false**입니다. | 예 |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요 |
+| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
 
 **예:**
 
@@ -705,7 +706,7 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **blobsink**로 설정 해야 합니다. |예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예 |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요 |
+| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
 
 **예:**
 

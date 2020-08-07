@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43538ec7fa17764e8d9d53aad305480bd3ab4f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dde9d8b50233c3c4033daf618e0e626c0174b0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419804"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903156"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
 
@@ -77,7 +77,7 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 
 VM (가상 머신) 스냅숏을 사용 하 여 추가 Vm을 만드는 경우, Azure AD에 이미 등록 된 VM의 스냅숏이 하이브리드 Azure AD 조인으로 사용 되지 않는지 확인 합니다.
 
-비영구 VDI를 배포 하는 경우 IT 관리자는 Azure AD에서 오래 된 장치를 관리 하는 데 주의를 기울여야 합니다. IT 관리자는 아래 지침을 구현 하는 것이 좋습니다. 이렇게 하지 않으면 영구적이 지 않은 VDI 플랫폼에서 등록 된 오래 된 하이브리드 Azure AD 조인 장치가 많은 디렉터리에 생성 됩니다.
+비 영구적인 VDI에 대 한 하이브리드 Azure AD 조인은 Windows 현재 버전에서 지원 되지 않습니다. Windows 하위 수준에 대해 비영구 VDI를 배포 하는 경우 IT 관리자는 Azure AD에서 오래 된 장치를 관리 하는 데 주의를 기울여야 합니다. IT 관리자는 아래 지침을 구현 하는 것이 좋습니다. 이렇게 하지 않으면 영구적이 지 않은 VDI 플랫폼에서 등록 된 오래 된 하이브리드 Azure AD 조인 장치가 많은 디렉터리에 생성 됩니다.
 
 - 데스크톱을 VDI 기반으로 표시 하는 컴퓨터의 표시 이름에 접두사를 만들고 사용 합니다.
 - 다음 명령을 로그 오프 스크립트의 일부로 구현 합니다. 이 명령은 Azure AD에 대 한 최상의 노력을 트리거하여 장치를 삭제 합니다.

@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: da549a54773365d39e3a19179acd6495a6ac1ce5
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: d6f78b4494a16a0522f93658b063d157819c519e
+  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87023367"
+  ms.lasthandoff: 08/06/2020
+  ms.locfileid: "87826146"
 highlightedContent:
   items:
   - title: Azure Media Services v3 정보
@@ -38,7 +38,7 @@ highlightedContent:
     url: ./live-video-analytics-edge/overview.md
   - title: Azure Media Player
     itemType: overview
-    url: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview
+    url: ./azure-media-player/azure-media-player-overview.md
   - title: Azure Media Services v2 정보(레거시)
     itemType: overview
     url: ./previous/media-services-overview.md
@@ -126,10 +126,10 @@ additionalContent:
   - items:
     - title: Azure Storage
       summary: 블록 Blob 및 컨테이너에 대해 알아봅니다.
-      url: https://docs.microsoft.com/azure/storage/
+      url: ../storage/index.yml
     - title: CDN
       summary: Azure CDN의 기능을 사용하여 Akamai 및 Verizon의 서비스를 통해 규모에 맞게 콘텐츠를 스트림하거나 여러 콘텐츠 배달 네트워크에서 부하를 분산시킵니다.
-      url: https://docs.microsoft.com/azure/cdn
+      url: ../cdn/index.yml
     - title: Event Grid
       summary: Azure Event Grid를 사용하여 관련 이벤트에 대응하는 방법을 알아봅니다.
       url: ../event-grid/index.yml

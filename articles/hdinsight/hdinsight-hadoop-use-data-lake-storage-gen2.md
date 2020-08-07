@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 21b09e6b7a2be6b87288d973b40c566fb6217841
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534586"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849984"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -106,6 +106,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 | `<RESOURCEGROUPNAME>` | 새 클러스터 및 저장소 계정을 만들 리소스 그룹입니다. |
 | `<MANAGEDIDENTITYNAME>` | Azure Data Lake Storage Gen2 계정에 대 한 권한을 부여 받을 관리 id의 이름입니다. |
 | `<STORAGEACCOUNTNAME>` | 생성 될 새 Azure Data Lake Storage Gen2 계정입니다. |
+| `<FILESYSTEMNAME>`  | 저장소 계정에서이 클러스터가 사용 해야 하는 파일 시스템의 이름입니다. |
 | `<CLUSTERNAME>` | HDInsight 클러스터의 이름입니다. |
 | `<PASSWORD>` | SSH 및 Ambari 대시보드를 사용 하 여 클러스터에 로그인 할 때 선택한 암호입니다. |
 
@@ -138,7 +139,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 그런 다음 포털에 로그인 합니다. 저장소 계정의 **저장소 Blob 데이터 참가자** 역할에 새 사용자 할당 관리 id를 추가 합니다. 이 단계는 [Azure Portal 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)의 3 단계에서 설명 합니다.
 
-사용자 할당 관리 id의 역할을 할당 한 후에는 다음 코드 조각을 사용 하 여 템플릿을 배포 합니다.
+ > [!IMPORTANT]
+ > 저장소 계정에 **저장소 Blob 데이터 참가자** 역할 권한이 있는 사용자 할당 id가 있는지 확인 합니다. 그렇지 않으면 클러스터 만들기가 실패 합니다.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \

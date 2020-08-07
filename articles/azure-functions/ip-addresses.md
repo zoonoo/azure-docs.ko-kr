@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656778"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874081"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -49,12 +49,13 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 함수 앱의 크기를 조정하는 경우 새로운 아웃바운드 IP 주소 범위를 할당할 수 있습니다. 소비 계획에서 실행하는 경우 전체 데이터 센터를 허용 목록에 추가해야 합니다.
+> [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 함수 앱의 크기를 조정하는 경우 새로운 아웃바운드 IP 주소 범위를 할당할 수 있습니다. 소비 계획에서 실행 하는 경우 전체 데이터 센터를 허용 목록에 추가 해야 할 수 있습니다.
 
 ## <a name="data-center-outbound-ip-addresses"></a>데이터 센터 아웃바운드 IP 주소
 
-함수 앱에서 사용하는 아웃바운드 IP 주소를 허용 목록에 추가해야 하는 경우, 함수 앱의 데이터 센터(Azure 지역)를 허용 목록에 추가할 수 있습니다. [모든 Azure 데이터 센터의 IP 주소를 나열하는 JSON 파일을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=56519)할 수 있습니다. 그런 다음, 함수 앱이 실행되는 지역에 적용되는 JSON 조각을 찾습니다.
+함수 앱에서 사용 하는 아웃 바운드 IP 주소를 허용 목록에 추가 해야 하는 경우 다른 옵션은 함수 앱의 데이터 센터 (Azure 지역)를 허용 목록에 추가 하는 것입니다. [모든 Azure 데이터 센터의 IP 주소를 나열하는 JSON 파일을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=56519)할 수 있습니다. 그런 다음, 함수 앱이 실행되는 지역에 적용되는 JSON 조각을 찾습니다.
 
 예를 들어, 유럽 서부 JSON 조각은 다음과 같습니다.
 

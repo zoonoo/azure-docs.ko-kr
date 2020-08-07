@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797896"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904517"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -56,12 +56,12 @@ Azure 애플리케이션 제품을 디자인, 빌드 및 테스트하려면 Azur
 
 [Azure Marketplace용 관리형 애플리케이션 및 솔루션 템플릿 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603) 동영상에서는 Azure 애플리케이션 제품 유형을 포괄적으로 소개합니다.
 
-* 사용 가능한 제품 유형,
-* 필요한 기술 자산,
-* Azure Resource Manager 템플릿을 작성하는 방법,
-* 앱 UI 개발 및 테스트,
-* 앱 제품을 게시하는 방법,
-* 애플리케이션 검토 프로세스.
+* 제공 되는 제품 유형
+* 필요한 기술 자산
+* Azure Resource Manager 템플릿을 제작 하는 방법
+* 앱 UI 개발 및 테스트
+* 앱 제공을 게시 하는 방법
+* 응용 프로그램 검토 프로세스
 
 ### <a name="suggested-tools"></a>권장되는 도구
 
@@ -247,15 +247,14 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 #### <a name="store-logos"></a>스토어 로고
 
-**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
-
-목록의 다른 위치에서 사용할 수 있는 세 가지 로고 크기가 모두 필요 합니다.
+제품 로고의 PNG 파일을 다음 세 가지 픽셀 크기로 제공합니다.
 
 - **소형**(48 x 48)
 - **중형**(90 x 90)
-- **큼** (216 x 216 및 350 x 350)
+- **대형**(216 x 216)
+- **와이드**(255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+세 가지 로고가 모두 필요하며 목록의 여러 위치에서 사용됩니다.
 
 #### <a name="screenshots"></a>스크린샷
 
@@ -324,7 +323,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 ***플랜 ID*** – 이 제품에서 각 플랜의 고유한 플랜 ID를 만듭니다. 이 ID는 고객에게 제품 URL로 표시됩니다.  소문자 영숫자, 대시 또는 밑줄만 사용합니다. 이 플랜 ID에는 최대 50자를 사용할 수 있습니다. 만들기를 선택한 후에는 이 ID를 수정할 수 없습니다.
 
-***플랜 이름*** - 고객이 제품 내에서 선택할 플랜을 결정할 때 이 이름이 표시됩니다. 이 제품의 각 플랜에 고유한 제품 이름을 만듭니다. 플랜 이름은 동일한 제품에 포함될 수 있는 소프트웨어 플랜을 구분하는 데 사용됩니다(예: 제품 이름: Windows Server, 플랜: Windows Server 2016, Windows Server 2019).
+***계획 이름*** – 제품 내에서 선택할 계획을 결정할 때 고객에 게이 이름이 표시 됩니다. 이 제품의 각 플랜에 고유한 제품 이름을 만듭니다. 플랜 이름은 동일한 제품에 포함될 수 있는 소프트웨어 플랜을 구분하는 데 사용됩니다(예: 제품 이름: Windows Server, 플랜: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>플랜 설정
 
@@ -335,7 +334,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 #### <a name="re-use-technical-configuration"></a>기술 구성 다시 사용
 
-동일한 유형의 플랜이 둘 이상 있고 해당 플랜의 패키지가 동일한 경우 **이 플랜은 다른 플랜의 패키지를 다시 사용합니다.** 를 선택할 수 있습니다.  이 옵션을 선택하면 이 제품에서 패키지를 다시 사용할 동일한 유형의 다른 플랜 중 하나를 선택할 수 있습니다. 
+동일한 유형의 플랜이 둘 이상 있고 해당 플랜의 패키지가 동일한 경우 **이 플랜은 다른 플랜의 패키지를 다시 사용합니다.** 를 선택할 수 있습니다.  이 옵션을 선택하면 이 제품에서 패키지를 다시 사용할 동일한 유형의 다른 플랜 중 하나를 선택할 수 있습니다.
 
 >[!Note]
 >다른 플랜의 패키지를 다시 사용하면 전체 기술 구성 탭이 해당 플랜에 표시되지 않습니다. 향후 적용할 업데이트를 포함하여 다른 플랜의 기술 구성 세부 정보가 해당 플랜에도 사용됩니다.<br><br>해당 플랜이 게시된 후에는 이 설정을 변경할 수 없습니다.
@@ -416,9 +415,9 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 이 플랜의 월별 가격을 제공합니다.  이 가격은 이 솔루션을 통해 배포된 리소스에 의해 발생하는 Azure 인프라 또는 종량제 소프트웨어 비용에 추가됩니다.
 
-또한 월별 가격 외에 [요금 청구](./azure-app-metered-billing.md)를 사용하여 비표준 단위의 사용량에 해당하는 가격을 설정할 수 있습니다.  월별 가격을 0으로 설정하고 원하는 경우 요금 청구를 사용하여 전용 요금을 청구할 수 있습니다. 
+또한 월별 가격 외에 [요금 청구](./azure-app-metered-billing.md)를 사용하여 비표준 단위의 사용량에 해당하는 가격을 설정할 수 있습니다.  월별 가격을 0으로 설정하고 원하는 경우 요금 청구를 사용하여 전용 요금을 청구할 수 있습니다.
 
-USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용하여 선택한 모든 시장의 현지 통화로 변환됩니다. 가격 책정 스프레드시트를 내보내고 각 시장에서 가격을 검토하여 게시하기 전에 해당 가격의 유효성을 검사합니다. 개별 시장에서 사용자 지정 가격을 설정하려면 가격 책정 스프레드시트를 수정하고 가져옵니다. 
+USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용하여 선택한 모든 시장의 현지 통화로 변환됩니다. 가격 책정 스프레드시트를 내보내고 각 시장에서 가격을 검토하여 게시하기 전에 해당 가격의 유효성을 검사합니다. 개별 시장에서 사용자 지정 가격을 설정하려면 가격 책정 스프레드시트를 수정하고 가져옵니다.
 
 >[!Note]
 >가격 책정 데이터를 내보낼 수 있도록 먼저 가격 책정 변경 내용을 저장해야 합니다.
@@ -442,8 +441,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 >[!Note]
 >사설 제안은 클라우드 솔루션 공급자 프로그램 (CSP)의 대리점을 통해 설정 된 Azure 구독에서 지원 되지 않습니다.
 
-
-### <a name="technical-configuration"></a>기술 구성 
+### <a name="technical-configuration"></a>기술 구성
 
 이 탭에서 고객이 플랜을 배포할 수 있도록 하는 배포 패키지를 업로드할 수 있습니다.
 
@@ -501,15 +499,15 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 #### <a name="customize-allowed-customer-actions"></a>허용되는 고객 작업 사용자 지정
 
-기본적으로 사용할 수 있는 “`*/read`” 작업 외에 관리되는 리소스에서 고객이 할 수 있는 작업을 지정하려면 이 옵션을 선택합니다. 
+기본적으로 사용할 수 있는 “`*/read`” 작업 외에 관리되는 리소스에서 고객이 할 수 있는 작업을 지정하려면 이 옵션을 선택합니다.
 
-고객이 여기에서 수행할 수 있도록 할 추가 작업을 세미콜론으로 구분하여 나열합니다.  자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](../../role-based-access-control/deny-assignments.md)를 참조하세요.  사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
+고객이 여기에서 수행할 수 있도록 할 추가 작업을 세미콜론으로 구분하여 나열합니다.  자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](../../role-based-access-control/deny-assignments.md)를 참조하세요. 사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
 
 #### <a name="global-azure--azure-government-cloud"></a>글로벌 Azure/Azure Government 클라우드
 
-지원되는 각 클라우드에서 이 관리형 애플리케이션에 대한 관리 액세스 권한이 있는 사용자를 표시합니다. 관리되는 리소스 그룹에 대한 권한을 부여하려는 사용자, 그룹 또는 애플리케이션은 AAD(Azure Active Directory) ID를 사용하여 식별됩니다.
+지원되는 각 클라우드에서 이 관리형 애플리케이션에 대한 관리 액세스 권한이 있는 사용자를 표시합니다. 관리 되는 리소스 그룹에 대 한 사용 권한을 부여 하려는 사용자, 그룹 또는 응용 프로그램은 AD (Azure Active Directory) id를 사용 하 여 식별 됩니다.
 
-**Azure Active Directory 테넌트 ID** – 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 ID가 포함된 AAD 테넌트 ID입니다(디렉터리 ID라고도 함). Azure Portal의 [Azure Active Directory 속성](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에서 AAD 테넌트 ID를 찾을 수 있습니다.
+**Azure Active Directory 테 넌 트 id** – 사용 권한을 부여 하려는 사용자, 그룹 또는 응용 프로그램의 id를 포함 하는 Azure AD 테 넌 트 id (디렉터리 ID 라고도 함)입니다. Azure Portal에서 [Azure Active Directory 속성](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)의 Azure AD 테 넌 트 ID를 찾을 수 있습니다.
 
 **권한 부여** – 관리되는 리소스 그룹에 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 Azure Active Directory 개체 ID를 추가합니다. 사용자를 해당 보안 주체 ID로 식별하며, 이 ID는 [Azure Portal의 Azure Active Directory 사용자 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)에서 찾을 수 있습니다.
 
@@ -579,9 +577,9 @@ CSP([클라우드 솔루션 공급자](https://azure.microsoft.com/offers/ms-azr
 제품의 필수 섹션을 모두 완료한 후에 포털의 오른쪽 위에서 **검토 및 게시**를 선택합니다.
 
 제품의 각 섹션에 대한 완료 상태를 검토합니다.
-    - ‘시작되지 않음’ - 섹션이 작업되지 않았으므로 완료해야 합니다.
-    - ‘완료되지 않음’ – 섹션에 수정해야 하는 오류가 있거나 추가 정보를 입력해야 합니다. 섹션으로 돌아가서 업데이트합니다.
-    - ‘완료됨’ – 섹션이 완료되고 필요한 모든 데이터가 입력되었으며 오류가 발생하지 않습니다. 제품을 제출하려면 먼저 제품의 모든 섹션이 완료됨 상태여야 합니다.
+    - *시작 되지 않음* -섹션이 작업 되지 않아 완료 해야 함을 의미 합니다.
+    - *불완전* -섹션에 수정 해야 하는 오류가 있거나 추가 정보를 제공 해야 함을 의미 합니다. 섹션으로 돌아가서 업데이트합니다.
+    - *Complete* – 섹션이 완료 되었고 필요한 모든 데이터가 제공 되었으며 오류가 없음을 의미 합니다. 제품을 제출하려면 먼저 제품의 모든 섹션이 완료됨 상태여야 합니다.
 
 이 제품을 처음 게시하는 경우 앱을 이해하는 데 도움이 되는 추가 정보뿐만 아니라 앱이 올바르게 테스트되는지 확인하는 테스트 지침을 인증 팀에 제공할 수 있습니다.
 
