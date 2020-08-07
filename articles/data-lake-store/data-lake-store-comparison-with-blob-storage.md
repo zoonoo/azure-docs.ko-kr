@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9a03b5636af4a60c4abf563e073e22c970b8a02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075048"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921780"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Azure Data Lake Storage Gen1과 Azure Blob Storage 비교
 
@@ -33,7 +33,7 @@ ms.locfileid: "87075048"
 | 데이터 작업 - 인증 |POSIX Access Control 목록(ACL)입니다.  Azure Active Directory ID를 기반으로 하는 ACL은 파일 및 폴더 수준에서 설정할 수 있습니다. |계정 수준 인증의 경우 - [계정 액세스 키](../storage/common/storage-account-keys-manage.md) 사용.<br>계정, 컨테이너 또는 Blob 권한 부여의 경우 - [공유 액세스 서명 키](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 사용. |
 | 데이터 작업 - 감사 |사용 가능. 자세한 내용은 [여기](data-lake-store-diagnostic-logs.md) 를 참조 하세요. |사용 가능 |
 | 미사용 암호화 데이터 |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용</li></ul></ul> |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용(미리 보기)</li></ul><li>클라이언트 쪽 암호화</li></ul> |
-| 관리 작업 (예: 계정 만들기) |[역할 기반 액세스 제어](../role-based-access-control/overview.md) ) |[역할 기반 액세스 제어](../role-based-access-control/overview.md) ) |
+| 관리 작업 (예: 계정 만들기) |계정 관리를 위한 [AZURE RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) |계정 관리를 위한 [AZURE RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) |
 | 개발자 SDK |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | 분석 워크로드 성능 |병렬 분석 워크로드에 대해 최적화된 성능입니다. 높은 처리량 및 IOPS. |병렬 분석 워크로드에 대해 최적화된 성능입니다. |
 | 크기 한도 |계정 크기, 파일 크기 또는 파일 수에 대 한 제한 없음 |특정 한도에 대해서는 [standard storage 계정에 대 한 확장성 목표](../storage/common/scalability-targets-standard-account.md) 및 [Blob storage의 확장성 및 성능 목표](../storage/blobs/scalability-targets.md)를 참조 하세요. [Azure 지원](https://azure.microsoft.com/support/faq/)에 연결해 사용할 수 있는 더 큰 계정 한도 |
@@ -41,5 +41,3 @@ ms.locfileid: "87075048"
 | 서비스 상태 |일반 공급 |일반 공급 |
 | 국가별 가용성 |[여기](https://azure.microsoft.com/regions/#services) 를 참조 하세요. |모든 Azure 지역에서 사용가능 |
 | 가격 |[가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/) 참조 |[가격 책정](https://azure.microsoft.com/pricing/details/storage/) 참조 |
-
-

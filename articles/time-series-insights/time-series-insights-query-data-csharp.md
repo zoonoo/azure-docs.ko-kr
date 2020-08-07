@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c794cfb5f0d652e25007131d9ca39fb73e2218e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 98077209e8245753bb9dae79fafd6c6a10f3eafb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080678"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920724"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c"></a>C를 사용 하 여 Azure Time Series Insights Gen1 환경에서 데이터 쿼리 #
 
@@ -75,10 +75,11 @@ ms.locfileid: "87080678"
 
 ## <a name="c-sample-code"></a>C# 샘플 코드
 
-[!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs)]
+[!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
 
 ## <a name="next-steps"></a>다음 단계
 
 - 쿼리에 대해 자세히 알아보려면 [Query API 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)를 참조하세요.
 
 - [클라이언트 SDK를 사용하여 JavaScript 앱을](https://github.com/microsoft/tsiclient) Time Series Insights에 연결하는 방법을 읽어보세요.
+Azure-Samples/Azure-Time 시리즈-Insights/gen1-sample/csharp-gen1-sample/Program .cs

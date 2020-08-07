@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: 경로 기반 게이트웨이 만들기: PowerShell'
-description: PowerShell을 사용하여 빠르게 경로 기반 VPN 게이트웨이 만들기
+description: PowerShell을 사용 하 여 경로 기반 Azure VPN gateway를 만드는 방법에 대해 알아봅니다. VPN gateway를 사용 하 여 온-프레미스 네트워크에 연결 합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5cd0971b04d1bad140cf3aac29a8c153977cfa62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e6c8ec12927afbabd6c6d41ab348bad9814e82c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987641"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923206"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기
 

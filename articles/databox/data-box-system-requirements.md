@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box 시스템 요구 사항 | Microsoft Docs
-description: Azure Data Box의 소프트웨어 및 네트워킹 요구 사항에 대해 알아보기
+description: Azure Data Box 및 Data Box에 연결 하는 클라이언트에 대 한 중요 한 시스템 요구 사항에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 496069ebf64340bc55f03df8dc15304b4888bec0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 71f499e1cdd7ccf22d90b21ce04299798978a828
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200322"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926606"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box 시스템 요구 사항
 

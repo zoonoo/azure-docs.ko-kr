@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
-ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/06/2020
+ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446539"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925790"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드의 가상 머신, 온-프레미스 머신 및 [System Center Operations Manager](/system-center/scom/)에서 모니터링하는 가상 머신의 포괄적인 관리를 위해 개발되었습니다. Windows 에이전트와 Linux 에이전트는 모니터링 솔루션에 정의된 고유한 로그 또는 메트릭뿐만 아니라 다른 소스에서 수집한 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다.
@@ -122,11 +122,19 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
  - Ubuntu, Debian:`apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-Python2 실행 파일은 다음 명령을 사용 하 여 "python"으로 별칭을 지정 해야 합니다.
+Python2 실행 파일은 다음 절차를 사용 하 여 *python* 으로 별칭을 지정 해야 합니다.
 
-```
-alternatives --set python `which python2`
-```
+1. 다음 명령을 실행 하 여 현재 python 별칭 (있는 경우)을 확인 합니다. 이 경우 다음 단계에 대 한 우선 순위를 기록해 둡니다.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. 다음 명령을 실행합니다. *\<priority\>* 기존 링크의 우선 순위 보다 큰 숫자로 대체 하거나 현재 링크가 없는 경우 1을 사용 합니다.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
 
 ### <a name="supported-distros"></a>지원되는 배포판
 
@@ -194,7 +202,7 @@ Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Azure Monitor 서�
 |\*.blob.core.windows.net |포트 443 |아웃바운드|예 |
 |\* .azure-automation.net |포트 443 |아웃바운드|예 |
 
-Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs)를 참조하세요. 
+Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../../azure-government/compare-azure-government-global-azure.md#azure-monitor)를 참조하세요. 
 
 Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook이나 관리 솔루션을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
 
