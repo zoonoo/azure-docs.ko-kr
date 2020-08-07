@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a468b5f43e8b024dd1da6e382049f8cce6de295
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 77ba802d5e337851b3b5141695e5b2f0c6456719
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797368"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902357"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
 
@@ -28,7 +28,7 @@ Azure AD (Azure Active Directory)에서 사용자 중 한 명에 게 Azure AD �
 
 ## <a name="assign-roles"></a>역할 할당
 
-사용자에 게 Azure AD 역할을 할당 하는 일반적인 방법은 사용자에 **게 할당 된 역할** 페이지를 사용 하는 것입니다. Privileged Identity Management (PIM)를 사용 하 여 역할에 대 한 자격을 적시에 승격 시킬 수도 있습니다. PIM을 사용 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)를 참조 하세요.
+사용자에 게 Azure AD 역할을 할당 하는 일반적인 방법은 사용자에 **게 할당 된 역할** 페이지를 사용 하는 것입니다. 또한 PIM (Privileged Identity Management)을 사용 하 여 사용자 자격을 역할로 승격 되도록 구성할 수 있습니다. PIM을 사용 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)를 참조 하세요.
 
 > [!Note]
 > Azure AD Premium P2 라이선스 계획이 있고 PIM을 이미 사용 하는 경우 모든 역할 관리 작업은 [Privileged Identity Management 환경](../users-groups-roles/directory-manage-roles-portal.md)에서 수행 됩니다.

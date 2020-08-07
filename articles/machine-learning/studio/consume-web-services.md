@@ -7,18 +7,18 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18, tracking-python, devx-track-javascript
+ms.custom: seodec18, devx-track-python, devx-track-javascript
 ms.date: 05/29/2020
-ms.openlocfilehash: 4d72a811f018bb17a6a7bb7c129d52e6232f7caa
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bbecafbbd988530231d71892fb12a55c1a605442
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432907"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844374"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Machine Learning Studio (클래식) 웹 서비스를 사용 하는 방법
 
-**적용 대상:** ![ 예 ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Azure Machine Learning Studio (클래식) 예측 모델을 웹 서비스로 배포 하면 REST API를 사용 하 여 it 데이터를 전송 하 고 예측을 얻을 수 있습니다. 데이터를 실시간으로 또는 일괄 처리 모드로 보낼 수 있습니다.
@@ -45,7 +45,7 @@ Machine Learning 웹 서비스에 대 한 자세한 내용은 [Machine Learning 
 실험을 배포할 때 웹 서비스에 API 키가 생성됩니다. 여러 위치에서 키를 검색할 수 있습니다.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Microsoft Azure Machine Learning 웹 서비스 포털에서
-[Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인합니다.
+[Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인 합니다.
 
 새 Machine Learning 웹 서비스에 대한 API 키를 가져오려면 다음을 수행합니다.
 

@@ -3,12 +3,12 @@ title: 모든 환경에서 Java 응용 프로그램 모니터링-Azure Monitor A
 description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: f35d661761f1bea4dbd6b691fb0667c6dad3e72e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e1442d1b1fb1bf8fbef82354b8aa1d2354640aa9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541858"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902085"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기
 
@@ -128,18 +128,17 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 ### <a name="supported-custom-telemetry"></a>지원 되는 사용자 지정 원격 분석
 
-다음 표에서는 Java 3.0 에이전트를 보완 하기 위해 사용할 수 있는 현재 지원 되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크를 통해 사용 하도록 설정할 수 있으며, 사용자 지정 원격 분석의 모든 유형은 [Java 2.X SDK Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#sending-custom-telemetry-using-application-insights-java-sdk-2x)을 통해 지원 됩니다. 
+다음 표에서는 Java 3.0 에이전트를 보완 하기 위해 사용할 수 있는 현재 지원 되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크를 통해 사용 하도록 설정할 수 있으며, 사용자 지정 원격 분석의 모든 유형은 [Java 2.X SDK Application Insights](#sending-custom-telemetry-using-application-insights-java-sdk-2x)을 통해 지원 됩니다. 
 
-
-|                 | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
-|-----------------|------------|---------------------|---------|
-| 사용자 지정 이벤트   |            |                     |  예    |
-| 사용자 지정 메트릭  |  예       |                     |  예    |
-| 종속성    |            |                     |  예    |
-| 예외      |            |  예                |  예    |   
-| 페이지 보기      |            |                     |  예    |
-| 요청        |            |                     |  예    |
-| 추적          |            |  예                |  예    |
+|                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
+|---------------------|------------|---------------------|---------|
+| **사용자 지정 이벤트**   |            |                     |  예    |
+| **사용자 지정 메트릭**  |  예       |                     |  예    |
+| **종속성**    |            |                     |  예    |
+| **예외**      |            |  예                |  예    |
+| **페이지 보기**      |            |                     |  예    |
+| **요청**        |            |                     |  예    |
+| **아니라**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
 

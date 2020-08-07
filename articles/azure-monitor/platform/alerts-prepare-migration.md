@@ -6,19 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 09db7684c84bbde038c67f9ccfb3f27f6b61bee6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24897826c6a70d0810b239b9b8f639787c3dac2a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539553"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843388"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
 
-[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 9 월 2019 (원래 7 월 2019 일)에 사용 중지 됩니다. 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 사용할 수 있습니다.
-
 > [!NOTE]
-> 마이그레이션 도구의 롤아웃 지연으로 인해 클래식 경고 마이그레이션의 사용 중지 날짜가 원래 발표 된 날짜 6 월 30 일까 지 2019 년 8 월 31 2019 일로 연장 되었습니다.
+> [이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 사용 중지 되지만 아직 새 경고를 지원 하지 않는 리소스에 대해서는 제한적으로 사용 됩니다. 이러한 경고의 사용 중지 날짜는 추가로 확장 되었습니다. 새 날짜는 곧 발표 될 예정입니다.
+>
 
 기존 경고 규칙을 자발적으로 새 경고 규칙으로 마이그레이션하기를 선택 하는 경우 두 시스템 간에 몇 가지 차이점이 있습니다. 이 문서에서는 이러한 차이점과 변경을 준비 하는 방법을 설명 합니다.
 
@@ -71,7 +70,7 @@ ms.locfileid: "86539553"
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>메트릭 경고 알림을 받도록 논리 앱 수정
 
-클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행하세요.
+클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행합니다.
 
 1. 새 논리 앱을 만듭니다.
 

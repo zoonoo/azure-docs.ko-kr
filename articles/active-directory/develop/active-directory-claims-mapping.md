@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428007"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902476"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -261,13 +261,15 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 **데이터 형식:** 하나 이상의 클레임 스키마 항목이 있는 JSON Blob입니다.
 
 **요약:** 이 속성은 기본 클레임 집합 및 핵심 클레임 집합 외에도 정책의 영향을 받는 토큰에 포함될 클레임을 정의합니다.
-이 속성에 정의된 각 클레임 스키마 항목의 경우 특정 정보가 필요합니다. 데이터의 출처(**Value** 또는 **Source/ID 쌍**) 및 데이터를 내보내는 클레임(**클레임 유형**)을 지정합니다.
+이 속성에 정의된 각 클레임 스키마 항목의 경우 특정 정보가 필요합니다. 데이터를 가져올 위치를 지정 합니다 (**값**, **원본/i d 쌍**또는 **원본/i d id 쌍**). 그리고 데이터를 내보낼 클레임 (**클레임 유형**)을 지정 합니다.
 
 ### <a name="claim-schema-entry-elements"></a>클레임 스키마 항목 요소
 
 **Value:** Value 요소는 클레임에 내보내질 데이터로 정적 값을 정의합니다.
 
-**Source/ID 쌍:** : Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다. 
+**Source/ID 쌍:** : Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다.  
+
+**원본/ExtensionID 쌍:** 원본 및 ExtensionID 요소는 클레임의 데이터가 원본으로 지정 되는 디렉터리 스키마 확장 특성을 정의 합니다. 자세한 내용은 [클레임에서 디렉터리 스키마 확장 특성 사용](active-directory-schema-extensions.md)을 참조 하세요.
 
 Source 요소는 다음 중 하나로 설정합니다. 
 
@@ -385,7 +387,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 
-|원본|ID|설명|
+|원본|ID|Description|
 |-----|-----|-----|
 | 사용자 | mail|메일 주소|
 | 사용자 | userprincipalname|사용자 계정 이름|

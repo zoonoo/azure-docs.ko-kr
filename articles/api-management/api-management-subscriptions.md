@@ -1,6 +1,6 @@
 ---
 title: Azure API Management의 구독 | Microsoft Docs
-description: Azure API Management의 구독 개념에 대해 알아봅니다.
+description: Azure API Management의 구독 개념에 대해 알아봅니다. 소비자는 Azure API Management에서 구독을 사용 하 여 Api에 액세스할 수 있습니다.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: b4a3e8c71757417240af2719c317bbbd49cef9fc
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: d1ab8990d0e5c389e0454c23a31989a71b0cd9a2
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475773"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843779"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management의 구독
 

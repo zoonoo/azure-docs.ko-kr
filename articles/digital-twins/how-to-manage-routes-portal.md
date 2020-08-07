@@ -7,12 +7,12 @@ ms.author: v-lakast
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7786f970f612d2856948e2286ed234e2b0895072
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836968"
+ms.locfileid: "87902206"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 
@@ -24,7 +24,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Eventroutes api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -129,44 +129,49 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 ### <a name="create-an-event-route"></a>이벤트 경로 만들기 
 
-이벤트 경로 정의에는 다음 요소가 포함 될 수 있습니다.
-* 사용 하려는 경로 ID
+이벤트 경로 정의에는 다음 요소가 포함 됩니다.
+* 사용 하려는 경로 이름
 * 사용 하려는 끝점의 이름입니다.
 * 끝점으로 전송 되는 이벤트를 정의 하는 필터입니다.
+    - 이벤트를 보내지 않도록 경로를 사용 하지 않도록 설정 하려면의 필터 값을 사용 합니다.`false`
+    - 특정 필터링이 없는 경로를 사용 하도록 설정 하려면의 필터 값을 사용 합니다.`true`
+    - 다른 유형의 필터에 대 한 자세한 내용은 아래의 [*필터 이벤트*](#filter-events) 섹션을 참조 하십시오.
 
-경로 ID가 없는 경우 메시지는 Azure 디지털 쌍 외부에서 라우팅됩니다.
-경로 ID가 있고 필터가 이면 `true` 모든 메시지가 끝점으로 라우팅됩니다.
-경로 ID가 있고 다른 필터가 추가 된 경우 필터를 기반으로 메시지가 필터링 됩니다.
-
-하나의 경로에서 여러 알림과 이벤트 유형을 선택할 수 있어야 합니다.
+단일 경로를 사용 하 여 여러 알림과 이벤트 유형을 선택할 수 있습니다.
 
 이벤트 경로를 만들려면 [Azure Portal](https://portal.azure.com) 에서 Azure Digital twins 인스턴스에 대 한 세부 정보 페이지로 이동 합니다. 포털 검색 표시줄에 해당 이름을 입력 하 여 인스턴스를 찾을 수 있습니다.
 
 인스턴스 메뉴에서 _이벤트 경로_를 선택 합니다. 그런 다음 아래의 *이벤트 경로* 페이지에서 *+ 이벤트 경로 만들기*를 선택 합니다. 
 
-열리는 *이벤트 경로 만들기* 페이지에서 _이름_ 필드의 경로에 대 한 최소 이름을 선택 하 고 드롭다운에서 경로를 만드는 데 사용할 _끝점_ 을 선택 합니다.
+열리는 *이벤트 경로 만들기* 페이지에서 최소한 다음을 선택 합니다.
+* _이름_ 필드에 있는 경로 이름
+* 경로를 만드는 데 사용할 _끝점_ 입니다. 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="인스턴스에 대 한 이벤트 경로를 만드는 스크린샷":::
+경로를 사용 하려면 최소한의 **이벤트 경로 필터도 추가** 해야 합니다 `true` . 의 기본값을 그대로 두면 `false` 경로가 만들어지지만 이벤트는 전달 되지 않습니다. 이렇게 하려면 _고급 편집기_ 의 스위치를 설정 하 여 사용 하도록 설정 하 고 `true` *필터* 상자에를 작성 합니다.
+
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="인스턴스에 대 한 이벤트 경로를 만드는 스크린샷" lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 완료 되 면 _저장_ 단추를 눌러 이벤트 경로를 만듭니다.
 
 ### <a name="filter-events"></a>이벤트 필터링
 
-필터링이 없으면 끝점은 Azure Digital Twins에서 다양 한 이벤트를 수신 합니다.
+위에서 설명한 것 처럼 경로에는 **필터** 필드가 있습니다. 경로의 필터 값이 이면 `false` 끝점으로 전송 되는 이벤트가 없습니다. 
+
+최소 필터를 사용 하도록 설정 하 고 나면 `true` 끝점은 Azure Digital Twins에서 다양 한 이벤트를 수신 합니다.
 * Azure digital 쌍 서비스 API를 사용 하 여 [디지털](concepts-twins-graph.md) 쌍에서 발생 하는 원격 분석
 * 쌍 속성 변경 알림, Azure Digital Twins 인스턴스의 모든 쌍에 대 한 속성 변경 시 발생
 * 쌍 또는 관계가 만들어지거나 삭제 될 때 발생 하는 수명 주기 이벤트
 * Azure Digital Twins 인스턴스에서 구성 된 [모델이](concepts-models.md) 추가 되거나 삭제 될 때 발생 하는 모델 변경 이벤트
 
-이벤트 경로에 끝점에 대 한 **필터** 를 추가 하 여 전송 되는 이벤트를 제한할 수 있습니다.
+보다 구체적인 필터를 정의 하 여 전송 되는 이벤트 유형을 제한할 수 있습니다.
 
-이벤트 경로를 만드는 동안 필터를 추가 하려면 *이벤트 경로 만들기* 페이지의 _이벤트 경로 필터 추가_ 섹션을 사용 합니다. 
+이벤트 경로를 만드는 동안 이벤트 필터를 추가 하려면 *이벤트 경로 만들기* 페이지의 _이벤트 경로 필터 추가_ 섹션을 사용 합니다. 
 
 몇 가지 기본 일반 필터 옵션 중에서 선택 하거나 고급 필터 옵션을 사용 하 여 사용자 지정 필터를 작성할 수 있습니다.
 
 #### <a name="use-the-basic-filters"></a>기본 필터 사용
 
-기본 필터를 사용 하려면 _이벤트 유형_ 옵션을 확장 하 고 필터링 할 이벤트에 해당 하는 확인란을 선택 합니다. 
+기본 필터를 사용 하려면 _이벤트 유형_ 옵션을 확장 하 고 끝점에 보내려는 이벤트에 해당 하는 확인란을 선택 합니다. 
 
 :::row:::
     :::column:::

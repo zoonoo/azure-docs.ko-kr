@@ -1,18 +1,18 @@
 ---
 title: Azure API Management에 대 한 보안 제어
-description: API Management 평가를 위한 보안 컨트롤의 검사 목록
+description: API Management 평가를 위한 보안 컨트롤의 검사 목록을 검토 합니다. 여기에는 네트워크, id 및 데이터 보호 컨트롤이 포함 됩니다.
 services: api-management
 author: vladvino
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
-ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751130"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902578"
 ---
 # <a name="security-controls-for-api-management"></a>API Management에 대 한 보안 제어
 
@@ -24,7 +24,7 @@ ms.locfileid: "75751130"
 
 | 보안 컨트롤 | 예/아니요 | 메모 | 문서화 |
 |---|---|--|--|
-| 서비스 엔드포인트 지원| 아니요 | |  |
+| 서비스 엔드포인트 지원| 예 | |  |
 | VNet 삽입 지원| 예 | |  |
 | 네트워크 격리 및 방화벽 지원| 예 | NSG (네트워킹 보안 그룹) 및 Azure 애플리케이션 게이트웨이 (또는 다른 소프트웨어 어플라이언스)를 각각 사용 합니다. |  |
 | 강제 터널링 지원| 예 | Azure 네트워킹은 강제 터널링을 제공합니다. |  |

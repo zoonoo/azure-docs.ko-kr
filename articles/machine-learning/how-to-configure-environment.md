@@ -10,13 +10,13 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: f0ac64fa184382f3939530565caa93f87da0fbf6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321482"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844476"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -136,7 +136,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 ## <a name="local-computer"></a><a id="local"></a>로컬 컴퓨터
 
-로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 Anaconda 환경을 만들고 SDK를 설치 합니다. 예는 다음과 같습니다.
+로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 Anaconda 환경을 만들고 SDK를 설치 합니다. 예를 들면 다음과 같습니다.
 
 1. 아직 없는 경우 [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 버전)을 다운로드 하 여 설치 합니다.
 
@@ -285,7 +285,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 다음 설정을 사용합니다.
 
-| 설정 |적용 대상| 값 |
+| Setting |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |always| yourclustername |
 | Databricks Runtime |always|비 ML 런타임 6.5 (scala 2.11, spark 2.4.3) |

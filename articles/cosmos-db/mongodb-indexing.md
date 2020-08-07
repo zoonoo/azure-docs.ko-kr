@@ -1,20 +1,20 @@
 ---
 title: MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
-description: 이 문서에서는 MongoDB API를 사용 하 여 Azure Cosmos DB 인덱싱 기능에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 MongoDB 용 Azure Cosmos DB API를 사용 하 여 Azure Cosmos DB 인덱싱 기능의 개요를 제공 합니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761164"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843813"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
 
@@ -315,7 +315,7 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
    }
    ```
 
-### <a name="background-index-updates"></a>백그라운드 인덱스 업데이트
+## <a name="background-index-updates"></a>백그라운드 인덱스 업데이트
 
 **백그라운드** 인덱스 속성에 대해 지정 된 값에 관계 없이 인덱스 업데이트는 항상 백그라운드에서 수행 됩니다. 인덱스 업데이트는 다른 데이터베이스 작업 보다 낮은 우선 순위로 요청 단위 (RUs)를 사용 하므로 인덱스를 변경 해도 쓰기, 업데이트 또는 삭제에 대 한 가동 중지 시간이 발생 하지 않습니다.
 

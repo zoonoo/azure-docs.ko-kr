@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538652"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872415"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -27,7 +27,7 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 백업 옵션은 에이전트가 설치 된 위치에 따라 달라 집니다. 자세한 내용은 [MARS 에이전트를 사용 하는 Azure Backup 아키텍처](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)를 참조 하세요. MABS 및 DPM 백업 아키텍처에 대 한 자세한 내용은 [dpm 또는 MABS에 백업](backup-architecture.md#architecture-back-up-to-dpmmabs)을 참조 하세요. 백업 아키텍처에 대 한 [요구](backup-support-matrix-mabs-dpm.md) 사항도 참조 하세요.
 
-**설치** | **세부 정보**
+**설치** | **설명**
 --- | ---
 최신 MARS 에이전트 다운로드 | 자격 증명 모음에서 최신 버전의 에이전트를 다운로드하거나 [직접 다운로드](https://aka.ms/azurebackup_agent)할 수 있습니다.
 머신에 직접 설치 | 온-프레미스 Windows server 또는 [지원 되는 운영 체제](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)중 하나를 실행 하는 windows VM에 MARS 에이전트를 직접 설치할 수 있습니다.
@@ -54,7 +54,7 @@ MARS 에이전트를 사용 하 여 데이터를 백업 하는 경우 에이전�
 
 MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
@@ -69,7 +69,7 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 ### <a name="azure-expressroute-support"></a>Azure Express 경로 지원
 
-공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링을 통한 백업은 지원 되지 않습니다.
+공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링에 대 한 백업은 지원 되지 않습니다.
 
 공용 피어 링 사용: 다음 도메인/주소에 대 한 액세스를 확인 합니다.
 
@@ -79,7 +79,7 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 - `.microsoftonline.com`
 - `.windows.net`
 
-Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
+Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.
 
 - Azure Active Directory(12076:5060)
 - Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
@@ -89,6 +89,16 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 
 >[!NOTE]
 >공용 피어 링은 새 회로에서 사용 되지 않습니다.
+
+### <a name="private-endpoint-support"></a>개인 끝점 지원
+
+이제 개인 끝점을 사용 하 여 서버에서 Recovery Services 자격 증명 모음으로 데이터를 안전 하 게 백업할 수 있습니다. Azure Active Directory는 현재 개인 끝점을 지원 하지 않으므로 Azure Active Directory 하는 데 필요한 Ip 및 Fqdn은 별도의 아웃 바운드 액세스를 허용 해야 합니다.
+
+MARS 에이전트를 사용 하 여 온-프레미스 리소스를 백업 하는 경우 온-프레미스 네트워크 (백업할 리소스 포함)가 자격 증명 모음에 대 한 개인 끝점을 포함 하는 Azure VNet과 피어 링 확인 합니다. 그러면 MARS 에이전트를 계속 설치 하 고 백업을 구성할 수 있습니다. 그러나 백업에 대 한 모든 통신은 피어 링 네트워크를 통해 수행 되어야 합니다.
+
+MARS 에이전트를 등록 한 후에 자격 증명 모음에 대 한 개인 끝점을 제거 하는 경우 컨테이너를 자격 증명 모음에 다시 등록 해야 합니다. 보호를 중지할 필요가 없습니다.
+
+[Azure Backup에 대 한 전용 끝점](private-endpoints.md)에 대해 자세히 알아보세요.
 
 ### <a name="throttling-support"></a>제한 지원
 
@@ -162,13 +172,13 @@ Windows 7| 1,700GB
 Compressed | 지원됨.
 스파스 | 지원됨.
 압축 및 스파스 |지원됨.
-하드 링크| 지원되지 않습니다. 건너뜁니다.
-재분석 지점| 지원되지 않습니다. 건너뜁니다.
-암호화 및 스파스 |지원되지 않습니다. 건너뜁니다.
-압축된 스트림| 지원되지 않습니다. 건너뜁니다.
-스파스 스트림| 지원되지 않습니다. 건너뜁니다.
-OneDrive (동기화 된 파일이 스파스 스트림)| 지원되지 않습니다.
-DFS 복제 사용 하도록 설정 된 폴더 | 지원되지 않습니다.
+하드 링크| 지원 안 됨 건너뜁니다.
+재분석 지점| 지원 안 됨 건너뜁니다.
+암호화 및 스파스 |지원 안 됨 건너뜁니다.
+압축된 스트림| 지원 안 됨 건너뜁니다.
+스파스 스트림| 지원 안 됨 건너뜁니다.
+OneDrive (동기화 된 파일이 스파스 스트림)| 지원 안 됨
+DFS 복제 사용 하도록 설정 된 폴더 | 지원 안 됨
 
 \*MARS 에이전트가 암호화 된 파일에 액세스 하는 데 필요한 인증서에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 파일은 건너뜁니다.
 
@@ -176,12 +186,12 @@ DFS 복제 사용 하도록 설정 된 폴더 | 지원되지 않습니다.
 
 **드라이브/볼륨** | **지원** | **세부 정보**
 --- | --- | ---
-읽기 전용 볼륨| 지원되지 않음 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
-오프라인 볼륨| 지원되지 않음 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
-네트워크 공유| 지원되지 않음 |볼륨은 서버에서 로컬 이어야 합니다.
-BitLocker 잠김 볼륨| 지원되지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
-파일 시스템 id| 지원되지 않음 |NTFS만 지원 됩니다.
-이동식 미디어| 지원되지 않음 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
+읽기 전용 볼륨| 지원 안 함 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
+오프라인 볼륨| 지원 안 함 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
+네트워크 공유| 지원 안 함 |볼륨은 서버에서 로컬 이어야 합니다.
+BitLocker 잠김 볼륨| 지원 안 함 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
+파일 시스템 id| 지원 안 함 |NTFS만 지원 됩니다.
+이동식 미디어| 지원 안 함 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
 중복 제거된 드라이브 | 지원됨 | Azure Backup에서 중복 제거된 데이터를 일반 데이터로 변환합니다. 이는 데이터를 최적화, 암호화, 저장 및 자격 증명 모음으로 전송 합니다.
 
 ## <a name="support-for-initial-offline-backup"></a>오프라인 초기 백업 지원

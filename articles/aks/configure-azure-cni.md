@@ -4,12 +4,12 @@ description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배�
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416854"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872432"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "84416854"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * AKS 클러스터 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 는 Kubernetes 서비스 주소 범위에 대해,, 또는를 사용할 수 없습니다.
@@ -87,7 +87,7 @@ AKS 클러스터에서 노드당 최대 pod 수는 250입니다. 노드당 *기�
 
 ### <a name="configure-maximum---existing-clusters"></a>최댓값 구성 - 기존 클러스터
 
-새 노드 풀을 만들 때 노드당 maxPod 설정을 정의할 수 있습니다. 기존 클러스터에서 노드 당 maxPod 설정을 늘려야 하는 경우 새로운 원하는 maxPod 수로 새 노드 풀을 추가 합니다. Pod를 새 풀로 마이그레이션한 후에는 이전 풀을 삭제 합니다. 클러스터의 이전 풀을 삭제 하려면 [시스템 노드 풀 문서[시스템-노드 풀]에 정의 된 대로 노드 풀 모드를 설정 해야 합니다.
+새 노드 풀을 만들 때 노드당 maxPod 설정을 정의할 수 있습니다. 기존 클러스터에서 노드 당 maxPod 설정을 늘려야 하는 경우 새로운 원하는 maxPod 수로 새 노드 풀을 추가 합니다. Pod를 새 풀로 마이그레이션한 후에는 이전 풀을 삭제 합니다. 클러스터에서 이전 풀을 삭제 하려면 [시스템 노드 풀 문서][system-node-pools]에 정의 된 대로 노드 풀 모드를 설정 해야 합니다.
 
 ## <a name="deployment-parameters"></a>배포 매개 변수
 
@@ -106,7 +106,7 @@ AKS 클러스터를 만들 때 Azure CNI 네트워킹에서 다음 매개 변수
 
 기술적으로 클러스터와 동일한 가상 네트워크 내의 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 자세한 내용은 Kubernetes 설명서의 [서비스][services]를 참조하세요.
 
-**Kubernetes DNS 서비스 IP 주소**: 클러스터의 DNS 서비스의 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위*에 속해야 합니다. .1과 같은 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다.
+**Kubernetes DNS 서비스 IP 주소**: 클러스터의 DNS 서비스의 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위* 내에 있어야 합니다. .1과 같은 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다.
 
 **Docker 브리지 주소**: docker 브리지 네트워크 주소는 모든 docker 설치에 있는 기본 *docker0* 브리지 네트워크 주소를 나타냅니다. *Docker0* BRIDGE는 AKS 클러스터 또는 pod 자체에서 사용 되지 않지만 AKS 클러스터 내에서 *docker 빌드와* 같은 시나리오를 계속 지원 하려면이 주소를 설정 해야 합니다. 달리 Docker는 다른 CIDRs와 충돌할 수 있는 서브넷을 자동으로 선택 하기 때문에 Docker 브리지 네트워크 주소에 대 한 CIDR을 선택 해야 합니다. 클러스터의 서비스 CIDR 및 pod CIDR을 포함 하 여 네트워크에서 CIDRs의 나머지 부분과 충돌 하지 않는 주소 공간을 선택 해야 합니다.
 
@@ -145,7 +145,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 ![Azure Portal의 고급 네트워킹 구성][portal-01-networking-advanced]
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 다음과 같은 질문과 대답은 **Azure CNI** 네트워킹 구성에 적용됩니다.
 
@@ -214,4 +214,4 @@ AKS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
-[시스템 노드 풀]: use-system-pools.md
+[system-node-pools]: use-system-pools.md

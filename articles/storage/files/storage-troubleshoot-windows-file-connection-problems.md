@@ -1,18 +1,18 @@
 ---
 title: Windows에서 Azure Files 문제 해결 | Microsoft Docs
-description: Windows에서 Azure Files 문제 해결
+description: Windows의 Azure Files 문제 해결 Windows 클라이언트에서 연결할 때 Azure Files와 관련 된 일반적인 문제를 확인 하 고 가능한 해결 방법을 참조 하세요.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e855ed169a0c4eca7dda696c03deedb9e519e9bf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259981"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901745"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -137,7 +137,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets)을 참조하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조 하세요.
 
@@ -176,7 +176,7 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="cause"></a>원인
 이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
 
@@ -222,7 +222,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx) 을 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -232,7 +232,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -253,7 +253,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 솔루션 중 하나를 사용하세요.
 
@@ -294,7 +294,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -311,7 +311,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 오류 Aaddsten앤틸리스 Notfound는 aad [도메인 서비스 (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 가 연결 된 구독의 aad 테 넌 트에서 만들어지지 않는 저장소 계정에서 [Azure Files에서 Azure Active Directory Domain Services (Azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
@@ -323,7 +323,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 오류 ' 시스템 오류 1359이 발생 했습니다. 도메인 DNS 이름이 숫자 문자로 시작 하는 AAD DS에 대해 사용 하도록 설정 된 AAD DS 인증을 사용 하 여 파일 공유에 연결 하려고 하면 내부 오류가 발생 합니다. 예를 들어 AAD DS 도메인 DNS 이름이 "1domain" 이면 AAD 자격 증명을 사용 하 여 파일 공유를 탑재 하려고 할 때이 오류가 발생 합니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 현재 아래 규칙과 함께 적용 되는 새 도메인 DNS 이름을 사용 하 여 AAD DS를 다시 배포 하는 것을 고려할 수 있습니다.
 - 이름은 숫자로 시작할 수 없습니다.
@@ -361,7 +361,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 - 보안 탭에서 편집 권한을 클릭 하면 권한 마법사가 로드 되지 않습니다. 
 - 새 사용자 또는 그룹을 선택 하려고 하면 도메인 위치에 올바른 AD DS 도메인이 표시 되지 않습니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 [Icacls 도구](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 를 사용 하 여 디렉터리/파일 수준 사용 권한을 해결 방법으로 구성 하는 것이 좋습니다. 
 

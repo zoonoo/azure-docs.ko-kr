@@ -6,17 +6,17 @@ keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 7d3ab058d76186f73fa1a985d7e8af38dbd7a6f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a73336ba0a324c65ee0de764d81a8e69ab6079c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536184"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843269"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -62,7 +62,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
   Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 형식은 python 3.7에 대해 python _[Conda Root]_ 로 설정 하 고 python 2.7의 경우 Python _[Conda env: python2]_ 로 설정할 수 있습니다.
 
-* Python 패키지 설치:
+* Python 패키지를 설치합니다.
 
   DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 `activate` 관리자 권한으로 명령을 사용 하 여 root 또는 python2 환경을 활성화 합니다. 그런 다음 또는와 같은 패키지 관리자를 사용 `conda` `pip` 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 
@@ -100,7 +100,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
   Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. Python 3.5 환경에 대해 python 2.7 및 **python [Conda env: py35]** 에 대해 커널 유형을 **Python [Conda Root]** 로 설정할 수 있습니다. 
 
-* Python 패키지 설치:
+* Python 패키지를 설치합니다.
 
   DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환경입니다. 하지만 관리자만 전역 패키지를 작성 하 고 설치할 수 있습니다. 전역 환경에 패키지를 설치 하려면 `source activate` 관리자 권한으로 명령을 사용 하거나 sudo 권한이 있는 사용자로 사용 하 여 root 또는 py35 환경을 활성화 합니다. 그런 다음 또는와 같은 패키지 관리자를 사용 `conda` `pip` 하 여 패키지를 설치 하거나 업데이트할 수 있습니다.
 

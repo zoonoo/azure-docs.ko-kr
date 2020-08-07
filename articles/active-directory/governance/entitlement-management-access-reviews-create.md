@@ -3,7 +3,7 @@ title: Azure AD 자격 관리에서 액세스 패키지에 대 한 액세스 검
 description: Azure Active Directory 액세스 검토 (미리 보기)에서 자격 관리 액세스 패키지에 대 한 액세스 검토 정책을 만드는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,18 +16,18 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7aed942058a922fc8da504fe14c5ad8e0bed59a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078591"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798514"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 액세스 검토 만들기
 
 부실 액세스의 위험을 줄이려면 Azure AD 자격 관리에서 액세스 패키지에 대 한 활성 할당을 사용 하는 사용자를 정기적으로 검토 해야 합니다. 새 액세스 패키지를 만들거나 기존 액세스 패키지를 편집 하는 경우 리뷰를 사용 하도록 설정할 수 있습니다. 이 문서에서는 액세스 패키지의 액세스 검토를 사용 하도록 설정 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 액세스 패키지의 검토를 사용 하도록 설정 하려면 액세스 패키지를 만들기 위한 필수 구성 요소를 충족 해야 합니다.
 - Azure AD Premium P2
