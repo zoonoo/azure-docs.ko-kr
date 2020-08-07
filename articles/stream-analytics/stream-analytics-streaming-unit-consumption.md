@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704185"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903564"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -27,7 +27,7 @@ Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 
 
 2. 리소스 목록에서 확장할 Stream Analytics 작업을 찾은 후 엽니다. 
 
-3. 작업 페이지의 **구성** 제목 아래 **크기 조정**을 선택합니다. 
+3. 작업 페이지의 **구성** 제목 아래 **크기 조정**을 선택합니다.작업을 만들 때 기본 SUs 수는 3입니다.
 
     ![Azure Portal Stream Analytics 작업 구성][img.stream.analytics.preview.portal.settings.scale]
     

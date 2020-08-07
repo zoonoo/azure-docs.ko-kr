@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085908"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873095"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -38,10 +38,10 @@ HDInsight의 Apache Hive 메타스토어는 Apache Hadoop 아키텍처의 핵심
 
 * 기본 metastore을 다른 클러스터와 공유할 수 없습니다.
 
-* 기본 metastore는 5 개의 DTU (데이터베이스 트랜잭션 단위) 제한이 있는 기본 Azure SQL Database를 사용 합니다.
-이 기본 metastore 일반적으로 비교적 간단한 작업에 사용 됩니다. 여러 클러스터가 필요 하지 않으며 클러스터의 수명 주기 이상으로 유지 되는 메타 데이터가 필요 하지 않은 워크 로드입니다.
+* 기본 metastore 간단한 워크 로드에만 권장 됩니다. 여러 클러스터가 필요 하지 않으며 클러스터의 수명 주기 이상으로 유지 되는 메타 데이터가 필요 하지 않은 워크 로드입니다.
 
-* 프로덕션 워크 로드의 경우 외부 metastore 마이그레이션하는 것이 좋습니다. 자세한 내용은 아래 섹션을 참조 하세요.
+> [!IMPORTANT]
+> 기본 metastore **기본 계층 5 DTU 제한 (업그레이드할 수 없음)** 을 사용 하는 Azure SQL Database를 제공 합니다. 기본 테스트 목적으로 적합 합니다. 대량 또는 프로덕션 워크 로드의 경우 외부 metastore 마이그레이션하는 것이 좋습니다.
 
 ## <a name="custom-metastore"></a>사용자 지정 metastore
 
@@ -81,9 +81,8 @@ SQL 저장소에 대 한 개인 끝점은 지원 되지 않습니다.
 
 ## <a name="hive-metastore-guidelines"></a>Hive metastore 지침
 
-* 컴퓨팅 리소스(실행 중인 클러스터)와 metastore에 저장된 메타데이터를 구분할 수 있도록 가능하면 항상 사용자 지정 metastore를 사용합니다.
-
-* 50 DTU 및 250GB의 스토리지를 제공하는 S2 계층으로 시작합니다. 병목 상태가 발생하는 경우 데이터베이스를 확장할 수 있습니다.
+> [!NOTE]
+> 컴퓨팅 리소스(실행 중인 클러스터)와 metastore에 저장된 메타데이터를 구분할 수 있도록 가능하면 항상 사용자 지정 metastore를 사용합니다. 50 DTU 및 250 GB의 저장소를 제공 하는 S2 계층으로 시작 합니다. 병목 상태가 발생하는 경우 데이터베이스를 확장할 수 있습니다.
 
 * 여러 HDInsight 클러스터가 별개의 데이터에 액세스하도록 하려는 경우에는 각 클러스터의 metastore용으로 별도의 데이터베이스를 사용합니다. 여러 HDInsight 클러스터에서 metastore 하나를 공유하는 경우 클러스터는 같은 메타데이터 및 기본 사용자 데이터 파일을 사용합니다.
 

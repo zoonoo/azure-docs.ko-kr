@@ -4,12 +4,12 @@ description: AVS(Azure VMware Solution)에 대한 일반적인 질문에 대한 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836584"
+ms.locfileid: "87872330"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>AVS(Azure VMware Solution) 미리 보기에 대한 질문과 대답
 
@@ -45,7 +45,7 @@ AVS 솔루션 고객은 모든 Azure 서비스를 사용할 수 있습니다. �
 
 **온-프레미스 환경의 vSphere VM을 AVS 프라이빗 클라우드로 마이그레이션할 수 있나요?**
 
-예. 표준 교차 vCenter [vMotion 요구 사항][https://kb.vmware.com/s/article/210695 ]을 충족하는 경우 VM 마이그레이션 및 vMotion을 사용하여 VM을 프라이빗 클라우드로 이동할 수 있습니다.
+예. 표준 cross vCenter [vMotion 요구 사항이](https://kb.vmware.com/s/article/210695) 충족 되는 경우 vm 마이그레이션 및 vMotion를 사용 하 여 사설 클라우드로 vm을 이동할 수 있습니다.
 
 **온-프레미스 환경에서 특정 버전의 vSphere가 필요한가요?**
 

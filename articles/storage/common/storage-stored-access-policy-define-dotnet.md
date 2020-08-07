@@ -1,7 +1,7 @@
 ---
 title: .NET을 사용 하 여 저장 된 액세스 정책 만들기
 titleSuffix: Azure Storage
-description: .NET 클라이언트 라이브러리를 사용 하 여 저장 된 액세스 정책을 만드는 방법에 대해 알아봅니다.
+description: Azure Storage 및 .NET을 사용 하 여 저장 된 액세스 정책을 만듭니다. 서버에서 서비스 수준 공유 액세스 서명에 대 한 제어 수준을 추가로 실행 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f4a0d69f3687f0dcc174a2d8a1275a2bf55d9ecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a08929c4affbd6eeb4d66a82d787ec5eba122e5b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504392"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903768"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>.NET을 사용 하 여 저장 된 액세스 정책 만들기
 
@@ -125,7 +125,7 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 
 ---
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)
 - [저장된 액세스 정책 정의](/rest/api/storageservices/define-stored-access-policy)

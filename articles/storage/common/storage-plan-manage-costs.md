@@ -9,20 +9,20 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 90aa2b9504008783649662019179a5998d534746
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543098"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760739"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob 저장소에 대 한 비용 계획 및 관리
 
 이 문서는 Azure Blob 저장소에 대 한 비용을 계획 하 고 관리 하는 데 도움이 됩니다. 첫째, Azure 가격 계산기를 사용 하 여 비용을 예측 합니다. 저장소 계정을 만든 후에는 필요한 만큼만 지불 하도록 계정을 최적화 합니다. 비용 관리 기능을 사용 하 여 예산 및 모니터링 비용을 설정 합니다. 예상 비용을 검토 하 고 지출 추세를 모니터링 하 여 작업할 수 있는 영역을 식별할 수도 있습니다.
 
-Azure Storage에 대 한 비용은 Azure 청구서의 월별 비용 중 일부일 뿐입니다. 이 문서에서는 Azure Storage에 대 한 비용을 예측 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다. Azure Storage에 대 한 비용 관리에 익숙해 졌으 면 구독에 사용 되는 모든 Azure 서비스에 대 한 비용을 관리 하는 비슷한 방법을 적용할 수 있습니다.
+Blob 저장소에 대 한 비용은 Azure 청구서의 월별 비용 중 일부일 뿐입니다. 이 문서에서는 Blob 저장소에 대 한 비용을 예측 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다. Blob 저장소에 대 한 비용 관리에 익숙한 후에는 구독에 사용 되는 모든 Azure 서비스에 대 한 비용을 관리 하는 비슷한 방법을 적용할 수 있습니다.
 
-## <a name="estimate-costs"></a>비용 추정
+## <a name="estimate-costs"></a>비용 예측
 
 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 를 사용 하 여 Azure Storage 계정으로 데이터 전송을 만들고 시작 하기 전에 비용을 예측 합니다.
 

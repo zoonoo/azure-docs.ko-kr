@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052491"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904261"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -58,6 +58,13 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨테이너/파일 형식](../latest/media-encoder-standard-formats.md#input-containerfile-formats) 문서를 참조하세요.
 
+## <a name="video-files-storage"></a>비디오 파일 저장소
+
+- 유료 Video Indexer 계정을 사용 하면 Azure 구독 및 Azure Media Services 계정에 연결 된 Video Indexer 계정을 만들 수 있습니다. 자세한 내용은 [Azure에 연결 된 Video Indexer 계정 만들기](connect-to-azure.md)를 참조 하세요.
+- 비디오 파일은 Azure Media Services 하 여 Azure storage에 저장 됩니다. 시간 제한이 없습니다.
+- Video Indexer 하 여 비디오 및 오디오 파일 뿐만 아니라 해당 파일에서 추출 된 메타 데이터 및 정보를 언제 든 지 삭제할 수 있습니다. Video Indexer에서 파일을 삭제하면 파일과 해당 메타데이터 및 인사이트가 Video Indexer에서 영구적으로 제거됩니다. 그러나 Azure Storage에 사용자 고유의 백업 솔루션을 구현한 경우에는 파일이 Azure Storage에 유지됩니다.
+- Video Indexer 웹 사이트가 나 업로드 API를 사용 하 여 업로드를 수행 하는지 여부에 관계 없이 비디오의 지 속성 동일 합니다.
+   
 ## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Video Indexer 웹 사이트를 사용 하 여 비디오 업로드 및 인덱싱
 
 > [!NOTE]
@@ -141,6 +148,9 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 비디오가 업로드되면 Video Indexer에서 필요에 따라 비디오를 인코딩합니다. 그런 다음, 비디오 인덱싱 및 분석을 계속 진행합니다. Video Indexer에서 분석이 완료되면 비디오 ID가 있는 알림을 받게 됩니다.  
 
 [비디오 업로드 ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 또는 [비디오 재인덱싱](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API를 사용하는 경우 선택적 매개 변수 중 하나는 `streamingPreset`입니다. `streamingPreset`을 `Default`, `SingleBitrate` 또는 `AdaptiveBitrate`로 설정하면 인코딩 프로세스가 트리거됩니다. 인덱싱 및 인코딩 작업이 완료되면 비디오를 스트림할 수 있도록 비디오가 게시됩니다. 비디오를 스트림하려는 스트리밍 엔드포인트는 **실행 중** 상태여야 합니다.
+
+SingleBitrate 전송률의 경우 출력 마다 표준 인코더 비용이 적용 됩니다. 비디오 높이가 720 보다 크거나 같으면 Video Indexer 1280x720로 인코딩합니다. 그렇지 않으면 640x468입니다.
+기본 설정은 [콘텐츠 인식 인코딩입니다](../latest/content-aware-encoding.md).
 
 인덱싱 및 인코딩 작업을 실행하려면 [Video Indexer 계정에 연결된 Azure Media Services 계정](connect-to-azure.md)에 예약 단위가 필요합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요. 이러한 작업은 컴퓨팅 집약적 작업이므로 S3 단위 유형을 사용하는 것이 좋습니다. RU의 수는 병렬로 실행할 수 있는 작업의 최대 수를 정의합니다. 기본 추천 사항은 10개의 S3 RU입니다. 
 
