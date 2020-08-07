@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/29/2020
 ms.author: aahi
-ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413334"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986171"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>텍스트 분석 API v3 언어 지원 
 
@@ -113,7 +113,7 @@ ms.locfileid: "85413334"
 | 영어  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | 스페인어  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
 
-#### <a name="language-detection"></a>[언어 검색](#tab/language-detection)
+#### <a name="language-detection"></a>[언어 감지](#tab/language-detection)
 
 텍스트 분석 API은 다양 한 언어, 변형, 언어 및 일부 지역/문화 언어를 검색할 수 있습니다.  언어 감지는 언어의 "스크립트"를 반환합니다. 예를 들어, "I have a dog" 구에 대해서는 `en-US` 대신 `en`을 반환합니다. 유일한 특수 사례는 중국어로, 해당 언어 감지 기능은 제공된 텍스트가 지정된 스크립트를 확인할 수 있는 경우 `zh_CHS` 또는 `zh_CHT`를 반환합니다. 중국어 문서에 대해 특정 스크립트를 식별할 수 없는 경우 간단히 `zh`가 반환됩니다.
 
@@ -123,6 +123,6 @@ ms.locfileid: "85413334"
 
 ---
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [텍스트 분석 API 이란?](overview.md)   

@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 07/10/2020
 author: jluk
-ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056589"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986715"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>근접 배치 그룹을 사용 하 여 대기 시간 단축 (미리 보기)
 
@@ -26,11 +26,7 @@ Azure에서 응용 프로그램을 배포할 때 지역 또는 가용성 영역�
 * 노드 풀은 Virtual Machine Scale Sets를 사용 하 여 근접 배치 그룹을 연결 해야 합니다.
 * 노드 풀은 노드 풀을 만들 때만 근접 배치 그룹을 연결할 수 있습니다.
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기는 "있는 그대로" "사용 가능한 상태로" 제공되며, 서비스 수준 계약 및 제한적 보증에서 제외됩니다. AKS 미리 보기의 일부는 고객 지원팀에서 최선을 다해 지원합니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 자세한 내용은 다음 지원 문서를 참조하세요.
->
-> - [AKS 지원 정책](support-policies.md)
-> - [Azure 지원 FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

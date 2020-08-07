@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08e36f8ef31114b18a166e7a14d6d7ad8385582c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850375"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985906"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -320,6 +320,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 > [!WARNING]
 > Docker 이미지에 일부 Python 종속성을 설치 하 고 user_managed_dependencies = True로 설정 하는 것을 잊은 경우 해당 패키지는 실행 환경에 존재 하지 않아 런타임 오류가 발생 합니다. 기본적으로 Azure ML은 사용자가 지정한 종속성이 있는 Conda 환경을 빌드하고 기본 이미지에 설치한 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다.
 
+### <a name="retrieve-image-details"></a>이미지 세부 정보 검색
+
+등록 된 환경의 경우 다음 코드를 사용 하 여 이미지 세부 정보를 검색할 수 있습니다 `details` . 여기서는 [Dockerimagedetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1.11)의 인스턴스이고 dockerfile, registry 및 image 이름과 같은 환경 이미지에 대 한 모든 정보를 제공 합니다.
+
+```python
+details = environment.get_image_details()
+```
+
 ## <a name="use-environments-for-training"></a>교육용 환경 사용
 
 학습 실행을 제출하려면 환경, [컴퓨팅 대상](concept-compute-target.md), 학습 Python 스크립트를 실행 구성으로 결합해야 합니다. 이 구성은 실행을 전송하는 데 사용되는 래퍼 개체입니다.
@@ -376,12 +384,6 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
-```
-### <a name="retrieve-dockerfile-from-a-run"></a>실행에서 Dockerfile 검색
-
-Docker 사용 실행에 대 한 Dockerfile을 가져오려면 다음 코드를 사용 합니다.
-```python
-print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## <a name="use-environments-for-web-service-deployment"></a>웹 서비스 배포를 위한 환경 사용

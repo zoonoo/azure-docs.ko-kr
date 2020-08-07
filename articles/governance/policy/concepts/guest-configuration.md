@@ -1,14 +1,14 @@
 ---
 title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
-ms.date: 05/20/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8c0f5d4df640fa29f88b3c4c6c0403ad9de97dea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921693"
+ms.locfileid: "87987106"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -35,8 +35,9 @@ Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 �
 컴퓨터 내의 설정을 감사 하려면 [가상 머신 확장](../../../virtual-machines/extensions/overview.md) 을 사용 하도록 설정 하 고 컴퓨터에 시스템 관리 id가 있어야 합니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다. Id는 게스트 구성 서비스를 읽고 쓸 때 컴퓨터를 인증 하는 데 사용 됩니다. 연결 된 컴퓨터 에이전트에 포함 되어 있으므로 연결 된 컴퓨터에 대 한 확장이 필요 하지 않습니다.
 
 > [!IMPORTANT]
-> Azure 가상 머신을 감사 하려면 게스트 구성 확장 및 관리 id가 필요 합니다. > 하려면 Azure virtual machines에서 감사를 수행 하는 데 게스트 구성 확장이 필요 합니다. 확장을 대규모로 배포 하려면 다음 정책 이니셔티브를 할당 합니다. > 확장을 배포 하 고 다음 정책 정의를 할당 합니다. 
->  - [필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> Azure 가상 머신을 감사 하려면 게스트 구성 확장 및 관리 id가 필요 합니다. 확장을 대규모로 배포 하려면 다음 정책 이니셔티브를 할당 합니다.
+> 
+> - [필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>확장에 설정된 제한
 
@@ -99,7 +100,7 @@ Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **
 
 ## <a name="managed-identity-requirements"></a>관리 ID 요구 사항
 
-[가상 머신에서 게스트 구성 정책을 사용 하도록 설정 하기 위한 필수 구성 요소 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) 의 정책은 시스템 할당 관리 id (있는 경우)를 사용 하도록 설정 합니다. 이니셔티브에는 id 만들기를 관리 하는 두 가지 정책 정의가 있습니다. 정책 정의의 IF 조건은 Azure에서 컴퓨터 리소스의 현재 상태에 따라 올바른 동작을 보장 합니다.
+[가상 머신에서 게스트 구성 정책을 사용 하도록 설정 하기 위한 필수 구성 요소 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) 이니셔티브의 정책 정의는 시스템 할당 관리 id (있는 경우)를 사용 하도록 설정 합니다. 이니셔티브에는 id 만들기를 관리 하는 두 가지 정책 정의가 있습니다. 정책 정의의 IF 조건은 Azure에서 컴퓨터 리소스의 현재 상태에 따라 올바른 동작을 보장 합니다.
 
 컴퓨터에 현재 관리 되는 id가 없는 경우에는 유효한 정책: [ \[ 미리 보기 \] : id가 없는 가상 컴퓨터에 대 한 게스트 구성 할당을 사용 하도록 시스템 할당 관리 id 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
@@ -201,8 +202,8 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 - [게스트 구성 규정 준수 보기](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)에서 각 설정에 대한 세부 정보를 보는 방법을 알아봅니다.
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
-- [Azure Policy 정의 구조](definition-structure.md)를 검토합니다.
-- [정책 효과 이해](effects.md)를 검토합니다.
+- [Azure Policy 정의 구조](./definition-structure.md)를 검토합니다.
+- [정책 효과 이해](./effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md) 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](../how-to/get-compliance-data.md) 방법을 알아봅니다.
 - [규정 비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.

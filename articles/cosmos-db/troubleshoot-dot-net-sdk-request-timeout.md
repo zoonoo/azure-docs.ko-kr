@@ -3,16 +3,16 @@ title: .NET SDK를 사용 하 여 HTTP 408 Azure Cosmos DB 또는 요청 시간 
 description: .NET SDK 요청 시간 제한 예외를 진단 하 고 해결 하는 방법
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a0469feed391025f8dd50a7f8b11b96265b0df29
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417610"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987412"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>.NET SDK 요청 시간 제한 Azure Cosmos DB 진단 및 문제 해결
 HTTP 408 오류는 SDK가 시간 제한이 발생 하기 전에 요청을 완료할 수 없는 경우에 발생 합니다.
@@ -45,9 +45,12 @@ SDK를 사용 하는 클라이언트 응용 프로그램을 확장/축소 해야
 Azure에서 실행 하는 경우 .NET SDK를 사용 하는 클라이언트는 Azure SNAT (PAT) 포트 고갈에 도달할 수 있습니다.
 
 #### <a name="solution-1"></a>해결 방법 1:
-[SNAT 포트 소모 가이드](troubleshoot-dot-net-sdk.md#snat)를 따르세요.
+Azure Vm에서 실행 하는 경우 [SNAT 포트 소모 가이드](troubleshoot-dot-net-sdk.md#snat)를 따르세요.
 
 #### <a name="solution-2"></a>해결 방법 2:
+Azure App Service에서 실행 하는 경우 [연결 오류 문제 해결 가이드](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) 를 따르고 [App Service 진단을 사용](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html)합니다.
+
+#### <a name="solution-3"></a>해결 방법 3:
 HTTP 프록시를 사용하는 경우 SDK `ConnectionPolicy`에서 구성된 연결 수를 지원할 수 있는지 확인합니다.
 그렇지 않으면 연결 문제가 발생할 수 있습니다.
 

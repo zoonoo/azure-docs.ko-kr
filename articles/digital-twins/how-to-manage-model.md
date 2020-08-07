@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281364"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987327"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -67,9 +67,7 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 
 ### <a name="validate-syntax"></a>구문 유효성 검사
 
-DTDL의 구문 분석 및 유효성 검사에 사용할 수 있는 클라이언트 쪽 라이브러리가 있습니다. UI 요소 생성과 같은 모델 기반 개발 시나리오에서 사용할 수 있는 DTDL 콘텐츠의 c # 개체 모델을 생성 합니다. 이 라이브러리를 사용 하 여 모델을 업로드 하기 전에 모델에 구문 오류가 없는지 확인할 수도 있습니다. 
-
-이 라이브러리에 대 한 자세한 내용 및 DTDL 유효성 검사기 용으로 빌드된 샘플에 대 한 액세스 [*는 방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)를 참조 하세요.
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="manage-models-with-apis"></a>Api를 사용 하 여 모델을 관리 합니다.
 
@@ -86,7 +84,7 @@ DTDL의 구문 분석 및 유효성 검사에 사용할 수 있는 클라이언�
 모델을 만든 후에는 Azure Digital Twins 인스턴스에 업로드할 수 있습니다.
 
 > [!TIP]
-> Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다. 방법: 모델을 서비스에 업로드 하기 전에 모델을 검사 하기 위해 [*모델을 구문 분석 및 유효성 검사*](how-to-use-parser.md) 에 설명 된 [dtdl 클라이언트 쪽 파서 라이브러리](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 및 [dtdl 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) 을 사용할 수 있습니다.
+> Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다. 방법: 모델을 서비스에 업로드 하기 전에 모델을 검사 하기 위해 [*모델을 구문 분석 및 유효성 검사*](how-to-parse-models.md) 에 설명 된 [dtdl 클라이언트 쪽 파서 라이브러리](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 및 [dtdl 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) 을 사용할 수 있습니다.
 
 모델을 업로드할 준비가 되 면 다음 코드 조각을 사용할 수 있습니다.
 
@@ -115,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예:
 
 ```json
 [

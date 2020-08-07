@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 06ab819065f96508bcc4ebd26371c743c89b9220
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5ddd4fc368a4e479d3d720698c7447d2b3cdf3cc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87487805"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986565"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -750,6 +750,32 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
+
+### <a name="virtual-network-not-linked-to-private-dns-zone"></a>개인 DNS 영역에 연결 되지 않은 가상 네트워크
+
+개인 끝점을 사용 하 여 작업 영역을 만들 때 템플릿은 __privatelink.api.azureml.ms__이라는 사설 DNS 영역을 만듭니다. __가상 네트워크 링크가__ 이 개인 DNS 영역에 자동으로 추가 됩니다. 링크는 리소스 그룹에서 만든 첫 번째 작업 영역 및 개인 끝점에 대해서만 추가 됩니다. 동일한 리소스 그룹에서 개인 끝점을 사용 하 여 다른 가상 네트워크 및 작업 영역을 만드는 경우 두 번째 가상 네트워크는 개인 DNS 영역에 추가 되지 않을 수 있습니다.
+
+개인 DNS 영역에 대해 이미 존재 하는 가상 네트워크 링크를 보려면 다음 Azure CLI 명령을 사용 합니다.
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+다른 작업 영역 및 개인 끝점을 포함 하는 가상 네트워크를 추가 하려면 다음 단계를 사용 합니다.
+
+1. 추가 하려는 네트워크의 가상 네트워크 ID를 찾으려면 다음 명령을 사용 합니다.
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    이 명령은 ' "/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet" '와 비슷한 값을 반환 합니다. 이 값을 저장 하 고 다음 단계에서 사용 합니다.
+
+2. Privatelink.api.azureml.ms 사설 DNS 영역에 가상 네트워크 링크를 추가 하려면 다음 명령을 사용 합니다. `--virtual-network`매개 변수의 경우 이전 명령의 출력을 사용 합니다.
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>다음 단계

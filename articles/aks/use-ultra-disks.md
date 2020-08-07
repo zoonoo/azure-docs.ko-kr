@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 Ultra Disks를 �
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926742"
+ms.locfileid: "87986834"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure ultra disks 사용 (미리 보기)
 
@@ -49,11 +49,7 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/E
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
->
-> - [AKS 지원 정책](support-policies.md)
-> - [Azure 지원 FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
@@ -95,9 +91,8 @@ Ultra disk 지원 없이 클러스터를 만들려는 경우 사용자 지정 �
 
 Ultra disks를 지 원하는 클러스터에 새 노드 풀을 추가 하 여 기존 클러스터에서 ultra disks를 사용 하도록 설정할 수 있습니다. 플래그를 사용 하 여 호스트 기반 암호화를 사용 하도록 새 노드 풀을 구성 `--aks-custom-headers` 합니다.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Ultra disks를 지원 하지 않고 새 노드 풀을 만들려는 경우 사용자 지정 매개 변수를 생략 하 여 수행할 수 있습니다 `--aks-custom-headers` .

@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: c3f3e7540f837722d4dd730c5635ac30c699ccd3
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8b29708dbcc6bbb0d127b4277fd4b2d962da6e6a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184364"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986392"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -129,11 +129,11 @@ Express 사용자 지정을 사용 하 여 Azure-SSIS IR를 프로 비전 하거
 
    * **사용 허가된 구성 요소 설치** 유형을 선택하는 경우 **구성 요소 이름** 드롭다운 목록에서 ISV 파트너의 통합 구성 요소를 선택할 수 있습니다.
 
-     * **SentryOne의 Task Factory** 구성 요소를 선택하는 경우 **라이선스 키** 상자에서 구매한 제품 라이선스 키를 입력하여 SentryOne의 [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) 구성 요소 제품군을 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **2019.4.3**입니다.
+     * **SentryOne의 Task Factory** 구성 요소를 선택하는 경우 **라이선스 키** 상자에서 구매한 제품 라이선스 키를 입력하여 SentryOne의 [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) 구성 요소 제품군을 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **2020.1.3**입니다.
 
-     * **oh22의 HEDDA.IO** 구성 요소를 선택하는 경우 서비스를 구매한 후 oh22의 [HEDDA.IO](https://hedda.io/ssis-component/) 데이터 품질/정리 구성 요소를 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **1.0.13**입니다.
+     * **oh22의 HEDDA.IO** 구성 요소를 선택하는 경우 서비스를 구매한 후 oh22의 [HEDDA.IO](https://hedda.io/ssis-component/) 데이터 품질/정리 구성 요소를 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **1.0.14**입니다.
 
-     * **oh22의 SQLPhonetics.NET** 구성 요소를 선택하는 경우 **라이선스 키** 상자에서 구입한 제품 라이선스 키를 입력하여 oh22의 [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) 데이터 품질/일치 구성 요소를 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **1.0.43**입니다.
+     * **oh22의 SQLPhonetics.NET** 구성 요소를 선택하는 경우 **라이선스 키** 상자에서 구입한 제품 라이선스 키를 입력하여 oh22의 [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) 데이터 품질/일치 구성 요소를 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **1.0.45**입니다.
 
      * **KingswaySoft의 SSIS Integration Toolkit** 구성 요소를 선택하는 경우 **라이선스 키** 상자에서 구매한 제품 라이선스 키를 입력하여 KingswaySoft의 CRM/ERP/마케팅/협업 앱(예: Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud 등)용 [SSIS 통합 도구 키트](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) 커넥터 제품군을 Azure-SSIS IR에 설치할 수 있습니다. 현재 통합 버전은 **2019.2**입니다.
 

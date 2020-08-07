@@ -8,24 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371127"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986301"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
 
-## <a name="july-2020"></a>2020년 7월
+## <a name="august-2020"></a>2020년 8월
+
+* `2020-07-01`V3 및 끝점에 대 한 모델 버전은 `/keyphrases` `/pii` 다음을 추가 합니다 `/languages` .
+    * 명명 된 엔터티 인식을 위한 추가 정부 및 국가 별 [엔터티 범주](named-entity-types.md?tabs=personal) 입니다.
+* 이제 게시 된 [데이터 제한을](concepts/data-limits.md)초과 하는 v3 API 요청에 대해 HTTP 400 오류가 반환 됩니다. 
+
+## <a name="july-2020"></a>2020년 7월 
 
 ### <a name="text-analytics-for-health-container---public-gated-preview"></a>상태 컨테이너에 대 한 Text Analytics-공용 제어 된 미리 보기
 
-상태 컨테이너에 대 한 Text Analytics는 이제 환자 흡입구 양식, 의사 (정보), 연구 용지 및 방전 요약 등의 임상 문서에서 구조화 되지 않은 영어 텍스트의 정보를 추출할 수 있는 공용 제어 미리 보기입니다. 현재 상태 컨테이너 사용에 대 한 Text Analytics에 대해서는 요금이 청구 되지 않습니다. 
+상태 컨테이너에 대 한 Text Analytics는 이제 환자 흡입구 양식, 의사 (정보), 연구 용지 및 방전 요약 등의 임상 문서에서 구조화 되지 않은 영어 텍스트의 정보를 추출할 수 있는 공용 제어 미리 보기입니다. 현재 상태 컨테이너 사용에 대 한 Text Analytics에 대해서는 요금이 청구 되지 않습니다.
 
 컨테이너는 다음과 같은 기능을 제공 합니다.
 

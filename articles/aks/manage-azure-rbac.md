@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 064a62b030a1fd9f3c875fce646ad8553b75d513
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799364"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986630"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
@@ -25,13 +25,9 @@ ms.locfileid: "87799364"
 
 Azure에서 Kubernetes 리소스에 대 한 RBAC를 관리 하는 기능을 통해 Azure 또는 기본 Kubernetes 메커니즘을 사용 하 여 클러스터 리소스에 대 한 RBAC를 관리할 수 있습니다. 사용 하도록 설정 되 면 azure AD 보안 주체는 Azure RBAC에 의해 독점적으로 유효성이 검사 되 고, regular Kubernetes 사용자 및 서비스 계정은 Kubernetes RBAC에 의해 독점적으로 유효성이 검사 됩니다. 인증, 권한 부여 및 RBAC에 대 한 자세한 내용은 [여기](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)를 참조 하세요. AKS.
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기는 "있는 그대로" "사용 가능한 상태로" 제공되며, 서비스 수준 계약 및 제한적 보증에서 제외됩니다. AKS 미리 보기의 일부는 고객 지원팀에서 최선을 다해 지원합니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 자세한 내용은 다음 지원 문서를 참조하세요.
->
-> - [AKS 지원 정책](support-policies.md)
-> - [Azure 지원 FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>사전 요구 사항 
+### <a name="prerequisites"></a>필수 구성 요소 
 - 미리 보기에 등록 <https://aka.ms/aad-rbac-sign-up-form> 합니다.
 - Azure CLI 버전 2.9.0 이상 인지 확인 합니다.
 - `EnableAzureRBACPreview`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850259"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987259"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -107,7 +107,7 @@ TCP 프로토콜에서 실행 하는 경우 클라이언트는 HTTPS 프로토�
 
 스파스 액세스가 있고 게이트웨이 모드 액세스와 비교할 때 더 높은 연결 수를 확인 하는 시나리오에서 다음을 수행할 수 있습니다.
 
-* [CosmosClientOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) 를로 구성 합니다 `PrivatePortPool` (프레임 워크 버전>= 4.6.1 및 .net core 버전 >= 2.0) .이 속성을 사용 하면 SDK에서 다른 Azure Cosmos DB 대상 끝점에 대 한 삭제 포트의 작은 풀을 사용할 수 있습니다.
+* [CosmosClientOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) 를로 구성 합니다 `PrivatePortPool` (프레임 워크 버전>= 4.6.1 및 .net Core 버전 >= 2.0) .이 속성을 사용 하면 SDK에서 다른 Azure Cosmos DB 대상 끝점에 대 한 삭제 포트의 작은 풀을 사용할 수 있습니다.
 * [IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) 속성을 구성 하는 데 10 분 보다 크거나 같아야 합니다. 권장 값은 20 분에서 24 시간 사이입니다.
 
 <a id="same-region"></a>
@@ -149,7 +149,7 @@ Azure Functions 작업할 때 인스턴스도 기존 [지침](../azure-functions
 
 **쓰기 작업에 대 한 콘텐츠 응답 사용 안 함**
 
-모든 작업의 경우에는 EnableContentResponseOnWrite request 옵션을 false로 설정 합니다. 서비스는 더 이상 생성 되거나 업데이트 된 리소스를 SDK로 반환 하지 않습니다. 일반적으로 응용 프로그램은 생성 되는 개체를 포함 하므로 서비스에서 반환 하지 않아도 됩니다. 헤더 값은 여전히 요청 요금 처럼 액세스할 수 있습니다. 이렇게 하면 SDK가 더 이상 메모리를 할당 하거나 응답의 본문을 serialize 할 필요가 없기 때문에 성능이 향상 될 수 있습니다. 이를 통해 네트워크 대역폭 사용량을 줄여 성능을 향상 시킬 수 있습니다.  
+높은 생성 페이로드가 있는 워크 로드의 경우 EnableContentResponseOnWrite request 옵션을 false로 설정 합니다. 서비스는 더 이상 생성 되거나 업데이트 된 리소스를 SDK로 반환 하지 않습니다. 일반적으로 응용 프로그램은 생성 되는 개체를 포함 하므로 서비스에서 반환 하지 않아도 됩니다. 헤더 값은 여전히 요청 요금 처럼 액세스할 수 있습니다. 이렇게 하면 SDK가 더 이상 메모리를 할당 하거나 응답의 본문을 serialize 할 필요가 없기 때문에 성능이 향상 될 수 있습니다. 이를 통해 네트워크 대역폭 사용량을 줄여 성능을 향상 시킬 수 있습니다.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
