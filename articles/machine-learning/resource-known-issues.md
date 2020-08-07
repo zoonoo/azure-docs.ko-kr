@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373694"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905499"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -123,7 +123,7 @@ ms.locfileid: "87373694"
 
 * **패키지를 설치할 때 Databricks 오류 발생**
 
-    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -131,7 +131,7 @@ ms.locfileid: "87373694"
 
     또는 Python 라이브러리와의 연결을 유지 하는 경우 init 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)를 참조 하세요.
 
-* **Databricks 가져오기 오류: ' pandas _libs. tslibs '에서 ' Timedelta ' 이름을 가져올 수 없습니다**. 자동화 된 machine learning을 사용 하는 경우이 오류가 표시 되 면 노트북에서 다음 두 줄을 실행 합니다.
+* **Databricks 가져오기 오류: `Timedelta` 에서 `pandas._libs.tslibs` 이름을 가져올 수 없습니다 **. 자동화 된 machine learning을 사용 하는 경우이 오류가 표시 되 면 노트북에서 다음 두 줄을 실행 합니다.
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -219,7 +219,7 @@ ms.locfileid: "87373694"
     | 범주 | string, bool, int, float | 이 기능의 고유 값 수는 100 보다 작고 행 수의 5% 미만입니다. | Null은 고유한 범주로 처리 됩니다. | 
     | 숫자 | int, float | 기능의 값은 숫자 데이터 형식이 며 범주 기능의 조건을 충족 하지 않습니다. | 값의 15% >null 인 경우 기능이 삭제 됩니다. | 
 
-* [Datadrift 모니터를 만들었지만](how-to-monitor-datasets.md) Azure Machine Learning studio의 데이터 **집합 모니터** 페이지에서 데이터를 볼 수 없는 경우 다음을 시도 합니다.
+* [데이터 드리프트 모니터를 만들었지만](how-to-monitor-datasets.md) Azure Machine Learning studio의 데이터 **집합 모니터** 페이지에서 데이터를 볼 수 없는 경우 다음을 시도 합니다.
 
     1. 페이지 맨 위에서 올바른 날짜 범위를 선택 했는지 확인 합니다.  
     1. **데이터 집합 모니터** 탭에서 실험 링크를 선택 하 여 실행 상태를 확인 합니다.  이 링크는 테이블의 오른쪽 끝에 있습니다.
@@ -283,7 +283,7 @@ time.sleep(600)
 
 ## <a name="automated-machine-learning"></a>자동화된 기계 학습
 
-* **TensorFlow**: SDK 버전 1.5.0을 기준으로 자동화 된 machine learning은 기본적으로 TensorFlow 모델을 설치 하지 않습니다. Tensorflow를 설치 하 고 자동 ML 실험에서 사용 하려면 tensorflow = = 1.12.0 via CondaDependecies를 설치 합니다. 
+* **TensorFlow**: SDK 버전 1.5.0을 기준으로 자동화 된 machine learning은 기본적으로 TensorFlow 모델을 설치 하지 않습니다. TensorFlow를 설치 하 고 자동 ML 실험에서 사용 하려면 TensorFlow = = 1.12.0 via CondaDependecies를 설치 합니다. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -373,7 +373,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 Azure 역할 기반 액세스 제어를 사용 하 여 Azure Machine Learning에서 수행할 수 있는 작업을 제한할 수 있습니다. 이러한 제한으로 인해 Azure Machine Learning studio에서 사용자 인터페이스 항목이 표시 되지 않을 수 있습니다. 예를 들어 계산 인스턴스를 만들 수 없는 역할이 할당 된 경우 계산 인스턴스를 만드는 옵션은 스튜디오에 표시 되지 않습니다.
 
-자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조 하세요.
+자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -382,5 +382,5 @@ Azure Machine Learning에 대 한 자세한 문제 해결 문서를 참조 하�
 * [Azure Machine Learning에서 Docker 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Machine learning 파이프라인 디버그](how-to-debug-pipelines.md)
 * [Azure Machine Learning SDK에서 ParallelRunStep 클래스 디버그](how-to-debug-parallel-run-step.md)
-* [VS Code 사용 하 여 machine learning 계산 인스턴스의 대화형 디버깅](how-to-set-up-vs-code-remote.md)
+* [VS Code 사용 하 여 machine learning 계산 인스턴스의 대화형 디버깅](how-to-debug-visual-studio-code.md)
 * [Application Insights를 사용 하 여 기계 학습 파이프라인 디버그](how-to-debug-pipelines-application-insights.md)

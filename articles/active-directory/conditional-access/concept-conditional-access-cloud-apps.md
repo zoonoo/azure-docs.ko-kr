@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be80ff95cc03f8cf2a08e9ce92146fe5028dcb9c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: defb959a56446da337c4c7c16ee118ceecd3e674
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275275"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846312"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>조건부 액세스: 클라우드 앱 또는 작업
 
@@ -117,7 +117,7 @@ Microsoft 앱 외에도 관리자는 Azure AD에 등록된 애플리케이션을
 - [갤러리에서 추가된 애플리케이션](../manage-apps/add-application-portal.md)
 - [갤러리에 없는 사용자 지정 애플리케이션](../manage-apps/add-non-gallery-app.md)
 - [앱 제공 컨트롤러 및 네트워크를 통해 게시된 레거시 애플리케이션](../manage-apps/secure-hybrid-access.md)
-- [암호 기반 single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md) 을 사용 하는 응용 프로그램
+- [암호 기반 Single Sign-On](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md) 를 사용 하는 응용 프로그램
 
 > [!NOTE]
 > 조건부 액세스 정책은 서비스에 액세스하기 위한 요구 사항을 설정하므로 클라이언트(퍼블릭/네이티브) 애플리케이션에 적용할 수 없습니다. 다시 말해, 정책은 클라이언트(퍼블릭/네이티브) 애플리케이션에 직접 설정되지 않으며 다만 클라이언트가 서비스를 호출할 때 적용됩니다. 예를 들어, SharePoint 서비스에서 설정된 정책은 SharePoint를 호출하는 클라이언트에 적용됩니다. Exchange에 설정된 정책은 Outlook 클라이언트를 사용하여 이메일에 액세스하려고 할 때 적용됩니다. 따라서 클라우드 앱 선택기에서 클라이언트(퍼블릭/네이티브) 애플리케이션을 사용할 수 없으며, 테넌트에 등록된 클라이언트(퍼블릭/네이티브) 애플리케이션의 애플리케이션 설정에서 조건부 액세스 옵션을 사용할 수 없습니다. 

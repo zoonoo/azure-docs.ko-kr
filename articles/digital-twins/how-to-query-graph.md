@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760399"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905598"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -130,6 +130,22 @@ AND R.reportedCondition = 'clean'
 ```
 
 위의 예제에서 *reportedCondition* 는 *servicedBy* 관계 자체의 속성 ( *servicedBy* 관계가 있는 일부 디지털 쌍이 아님)을 확인 합니다.
+
+### <a name="query-with-multiple-joins"></a>여러 조인이 있는 쿼리
+
+현재 미리 보기 상태인 단일 쿼리에서 최대 5 개까지 `JOIN` 지원 됩니다. 이렇게 하면 여러 수준의 관계를 한 번에 트래버스할 수 있습니다.
+
+다음은 대화방 1과 2의 라이트 패널에 포함 된 모든 라이트 전구을 가져오는 다중 조인 쿼리의 예입니다.
+
+```sql
+SELECT LightBulb 
+FROM DIGITALTWINS Room 
+JOIN LightPanel RELATED Room.contains 
+JOIN LightBulb RELATED LightPanel.contains 
+WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
+AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
+AND Room.$dtId IN [‘room1’, ‘room2’] 
+```
 
 ## <a name="run-queries-with-an-api-call"></a>API 호출을 사용 하 여 쿼리 실행
 

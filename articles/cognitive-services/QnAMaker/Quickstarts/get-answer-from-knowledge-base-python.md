@@ -3,14 +3,14 @@ title: '빠른 시작: 기술 자료에서 답변 찾기 - REST, Python - QnA Ma
 description: 이 Python REST 기반 빠른 시작은 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, tracking-python
+ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: d985bafe3303acdaf8b47e70a9d5368e3b26335c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2d693a63360890b9f658baa1a37d251f311d5617
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610137"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875016"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>빠른 시작: Python을 사용 하 여 기술 자료에서 질문에 대 한 답변 가져오기
 

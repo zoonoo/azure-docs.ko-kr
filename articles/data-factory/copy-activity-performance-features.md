@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/15/2020
-ms.openlocfilehash: dfd439affe488805b4645211477c6d32bbbe7489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/05/2020
+ms.openlocfilehash: 45cecccd88b0b84b478bc6fc7346cb9ef9c2f454
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770937"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846346"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
 
@@ -35,14 +35,14 @@ ms.locfileid: "84770937"
 |:--- |:--- |---- |
 | 파일 저장소 간 |- **단일 파일에서 복사**: 2-4 <br>- 파일의 수와 크기에 따라 **여러 파일에 복사**: 2-256 <br><br>예를 들어 파일 크기가 4 개인 폴더에서 데이터를 복사 하 고 계층을 보존 하도록 선택 하는 경우 최대 유효 DIU는 16입니다. 파일 병합을 선택 하면 최대 유효 DIU가 4입니다. |파일의 수와 크기에 따라 4에서 32 사이 |
 | 파일 저장소에서 비 파일 저장소로 |- **단일 파일에서 복사**: 2-4 <br/>- **여러 파일에서 복사**: 2-256 파일의 수와 크기에 따라 달라 집니다. <br/><br/>예를 들어 파일 크기가 4 개인 폴더에서 데이터를 복사 하는 경우 최대 유효 DIU는 16입니다. |- **Azure SQL Database 또는 Azure Cosmos DB에 복사**: 싱크 계층 (Dtu/RUs) 및 소스 파일 패턴에 따라 4에서 16 사이입니다.<br>- PolyBase 또는 COPY 문을 사용 하 여 **Azure Synapse Analytics에 복사** : 2<br>-기타 시나리오: 4 |
-| 파일이 아닌 저장소에서 파일 저장소로 |- **파티션 옵션 사용 데이터 저장소** ( [Oracle](connector-oracle.md#oracle-as-source)Netezza Teradata 포함)에서 복사 하 여 / [Netezza](connector-netezza.md#netezza-as-source) / [Teradata](connector-teradata.md#teradata-as-source)폴더에 쓸 때 2-256을 사용 하 고 단일 파일 하나에 쓸 때 2-4을 사용 합니다. 참고로 원본 데이터 파티션만 최대 4 개의 DIUs를 사용할 수 있습니다.<br>- **기타 시나리오**: 2-4 |- **REST에서 복사 또는 HTTP**: 1<br/>- UNLOAD를 사용 하 여 **Amazon Redshift에서 복사** : 2<br>- **기타 시나리오**: 4 |
-| 파일이 아닌 저장소 간 |- **파티션 옵션 사용 데이터 저장소** ( [Oracle](connector-oracle.md#oracle-as-source)Netezza Teradata 포함)에서 복사 하 여 / [Netezza](connector-netezza.md#netezza-as-source) / [Teradata](connector-teradata.md#teradata-as-source)폴더에 쓸 때 2-256을 사용 하 고 단일 파일 하나에 쓸 때 2-4을 사용 합니다. 참고로 원본 데이터 파티션만 최대 4 개의 DIUs를 사용할 수 있습니다.<br/>- **기타 시나리오**: 2-4 |- **REST에서 복사 또는 HTTP**: 1<br>- **기타 시나리오**: 4 |
+| 파일이 아닌 저장소에서 파일 저장소로 |- **파티션 옵션 사용 데이터 저장소** ( [AZURE SQL DATABASE](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Teradata](connector-teradata.md#teradata-as-source)등)에서 복사 하 여 폴더에 쓸 때 2-256 및 2-4를 단일 파일에 쓸 때 참고로 원본 데이터 파티션만 최대 4 개의 DIUs를 사용할 수 있습니다.<br>- **기타 시나리오**: 2-4 |- **REST에서 복사 또는 HTTP**: 1<br/>- UNLOAD를 사용 하 여 **Amazon Redshift에서 복사** : 2<br>- **기타 시나리오**: 4 |
+| 파일이 아닌 저장소 간 |- **파티션 옵션 사용 데이터 저장소** ( [AZURE SQL DATABASE](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Teradata](connector-teradata.md#teradata-as-source)등)에서 복사 하 여 폴더에 쓸 때 2-256 및 2-4를 단일 파일에 쓸 때 참고로 원본 데이터 파티션만 최대 4 개의 DIUs를 사용할 수 있습니다.<br/>- **기타 시나리오**: 2-4 |- **REST에서 복사 또는 HTTP**: 1<br>- **기타 시나리오**: 4 |
 
 복사 작업 모니터링 보기 또는 작업 출력에서 각 복사 실행에 사용 되는 DIUs를 볼 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-monitoring.md)을 참조 하세요. 이 기본값을 재정의 하려면 다음과 같이 속성의 값을 지정 `dataIntegrationUnits` 합니다. 런타임 시 복사 작업에서 사용하는 *실제 DIU 수*는 데이터 패턴에 따라 구성된 값보다 작거나 같습니다.
 
 **사용 된 DIUs \* 복사 기간 \* 단가/dius 시간에 대 한**요금이 청구 됩니다. [여기](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)에서 현재 가격을 참조 하세요. 로컬 통화 및 별도의 크기 구독 유형별로 적용 될 수 있습니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -74,7 +74,7 @@ ms.locfileid: "84770937"
 참고 다음 시나리오에서 단일 복사 작업 실행은 자체 호스팅 IR 노드를 여러 개 활용할 수 있습니다.
 
 - 파일의 수와 크기에 따라 파일 기반 저장소에서 데이터를 복사 합니다.
-- 데이터 파티션 수에 따라 파티션-옵션 사용 데이터 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)포함)에서 데이터를 복사 합니다.
+- 데이터 파티션 수에 따라 파티션 옵션 사용 데이터 저장소 ( [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [sap Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source)및 [Teradata](connector-teradata.md#teradata-as-source))에서 데이터를 복사 합니다.
 
 ## <a name="parallel-copy"></a>병렬 복사
 
@@ -93,14 +93,14 @@ ms.locfileid: "84770937"
 | --- | --- |
 | 파일 저장소 간 | `parallelCopies`**파일 수준에서**병렬 처리를 결정 합니다. 각 파일 내의 청크는 자동으로 투명 하 게 발생 합니다. 지정 된 데이터 저장소 형식에 가장 적합 한 청크 크기를 사용 하 여 데이터를 병렬로 로드 하도록 설계 되었습니다. <br/><br/>런타임에 사용 되는 병렬 복사 복사 작업의 실제 수는 사용자가 보유 한 파일 수를 초과할 수 없습니다. 복사 동작이 파일 싱크에 대 한 **Mergefile** 인 경우 복사 작업은 파일 수준 병렬 처리를 사용할 수 없습니다. |
 | 파일 저장소에서 비 파일 저장소로 | -Azure SQL Database 또는 Azure Cosmos DB 데이터를 복사 하는 경우 기본 병렬 복사도 싱크 계층 (Dtu/RUs 수)에 따라 달라 집니다.<br>-Azure 테이블에 데이터를 복사 하는 경우 기본 병렬 복사본은 4입니다. |
-| 파일이 아닌 저장소에서 파일 저장소로 | -파티션 옵션 사용 데이터 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)포함)에서 데이터를 복사할 때 기본 병렬 복사본은 4입니다. 런타임에 사용 되는 병렬 복사 복사 작업의 실제 수는 데이터 파티션 수를 초과 하지 않습니다. 자체 호스팅 Integration Runtime 사용 하 여 Azure Blob/ADLS Gen2에 복사 하는 경우 최대 유효 병렬 복사는 IR 노드당 4 또는 5입니다.<br>-다른 시나리오의 경우 병렬 복사는 적용 되지 않습니다. 병렬 처리를 지정 하더라도이는 적용 되지 않습니다. |
-| 파일이 아닌 저장소 간 | -Azure SQL Database 또는 Azure Cosmos DB 데이터를 복사 하는 경우 기본 병렬 복사도 싱크 계층 (Dtu/RUs 수)에 따라 달라 집니다.<br/>-파티션 옵션 사용 데이터 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)포함)에서 데이터를 복사할 때 기본 병렬 복사본은 4입니다.<br>-Azure 테이블에 데이터를 복사 하는 경우 기본 병렬 복사본은 4입니다. |
+| 파일이 아닌 저장소에서 파일 저장소로 | -파티션 옵션 사용 데이터 저장소에서 데이터를 복사 하는 경우 ( [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [sap Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source)및 [Teradata](connector-teradata.md#teradata-as-source)포함) 기본 병렬 복사본은 4입니다. 런타임에 사용 되는 병렬 복사 복사 작업의 실제 수는 데이터 파티션 수를 초과 하지 않습니다. 자체 호스팅 Integration Runtime 사용 하 여 Azure Blob/ADLS Gen2에 복사 하는 경우 최대 유효 병렬 복사는 IR 노드당 4 또는 5입니다.<br>-다른 시나리오의 경우 병렬 복사는 적용 되지 않습니다. 병렬 처리를 지정 하더라도이는 적용 되지 않습니다. |
+| 파일이 아닌 저장소 간 | -Azure SQL Database 또는 Azure Cosmos DB 데이터를 복사 하는 경우 기본 병렬 복사도 싱크 계층 (Dtu/RUs 수)에 따라 달라 집니다.<br/>-파티션 옵션 사용 데이터 저장소에서 데이터를 복사 하는 경우 ( [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [sap Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source)및 [Teradata](connector-teradata.md#teradata-as-source)포함) 기본 병렬 복사본은 4입니다.<br>-Azure 테이블에 데이터를 복사 하는 경우 기본 병렬 복사본은 4입니다. |
 
 데이터 저장소를 호스트 하는 컴퓨터에서 로드를 제어 하거나 복사 성능을 조정 하려면 기본값을 재정의 하 고 속성에 대 한 값을 지정할 수 있습니다 `parallelCopies` . 값은 1 이상의 정수여야 합니다. 런타임 시 최상의 성능을 위해 복사 작업은 사용자가 설정한 값 보다 작거나 같은 값을 사용 합니다.
 
 속성의 값을 지정 하는 경우 `parallelCopies` 원본 및 싱크 데이터 저장소에 대 한 부하 증가를 고려 합니다. 또한 복사 작업을 통해 권한을 부여 하는 경우 자체 호스팅 통합 런타임에 대 한 부하 증가를 고려해 야 합니다. 이러한 부하가 증가 하는 것은 특히 동일한 데이터 저장소에 대해 실행 되는 동일한 활동의 여러 활동 또는 동시 실행이 있는 경우에 발생 합니다. 데이터 저장소 또는 자체 호스팅 통합 런타임이 부하가 많은 경우에는 값을 줄여서 `parallelCopies` 로드를 완화 합니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -140,16 +140,16 @@ ms.locfileid: "84770937"
 
 현재 다른 자체 호스팅 IRs을 통해 연결 된 두 데이터 저장소 간에 데이터를 복사할 수 없습니다. 이러한 시나리오의 경우 원본에서 준비로 복사 하 고 스테이징에서 싱크로 복사 하기 위해 명시적으로 연결 된 복사 활동 두 개를 구성할 수 있습니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 복사 작업에서 **Enablestaging** 설정을 구성 하 여 데이터를 대상 데이터 저장소에 로드 하기 전에 Blob 저장소에 준비 해야 하는지 여부를 지정 합니다. **Enablestaging** 을로 설정 하는 경우 `TRUE` 다음 표에 나열 된 추가 속성을 지정 합니다. 또한 준비에 대 한 Azure Storage 또는 저장소 공유 액세스 서명 연결 된 서비스가 없는 경우 만들어야 합니다.
 
-| 속성 | 설명 | 기본값 | 필요한 공간 |
+| 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | linkedServiceName |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드 하는 데 공유 액세스 서명이 포함 된 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| 경로 |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |예 |
-| enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니요 |
+| path |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |예 |
+| enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
 >[!NOTE]
 > 압축을 사용 하는 준비 된 복사를 사용 하는 경우 스테이징 blob 연결 된 서비스에 대 한 서비스 주체 또는 MSI 인증이 지원 되지 않습니다.

@@ -1,18 +1,18 @@
 ---
 title: Azure 파일 동기화 서버 엔드포인트 추가/제거 | Microsoft Docs
-description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
+description: Azure File Sync를 사용 하 여 서버 끝점을 추가 하거나 제거 하는 방법을 알아봅니다. 서버 끝점은 서버 볼륨의 폴더와 같이 등록 된 서버의 특정 위치입니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70cdf01cb327d1be6b2ac4b9cae414f87e27964f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9273ca66c0304afc5df58ace5dd584c20c90abfd
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509475"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905060"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Azure 파일 동기화 서버 엔드포인트 추가/제거
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -73,5 +73,5 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화에 서버 등록/등록 취소](storage-sync-files-server-registration.md)
-- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

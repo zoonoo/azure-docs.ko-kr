@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999301"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903326"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics 솔루션 패턴
 
@@ -86,17 +86,12 @@ Azure Stream Analytics ' 기본 제공 [변칙 검색 모델](stream-analytics-m
 
 ![GLOBAL.ASA Machine Learning 앱](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
-## <a name="near-real-time-data-warehousing"></a>거의 실시간 데이터 웨어하우징
+## <a name="real-time-data-warehousing"></a>실시간 데이터 웨어하우징
 
-또 다른 일반적인 패턴은 스트리밍 데이터 웨어하우스 라고도 하는 실시간 데이터 웨어하우징입니다. 응용 프로그램에서 Event Hubs 및 IoT Hub에 도착 하는 이벤트 외에도 [IoT Edge에서 실행](stream-analytics-edge.md) 되는 Azure Stream Analytics를 사용 하 여 데이터 정리, 데이터 감소, 데이터 저장소 및 전달 요구 사항을 충족할 수 있습니다. IoT Edge에서 실행 되는 Stream Analytics 시스템에서 대역폭 제한 및 연결 문제를 정상적으로 처리할 수 있습니다. SQL 출력 어댑터를 사용 하 여 SQL Data Warehouse에 출력할 수 있습니다. 그러나 최대 처리량은 10mb/s로 제한 됩니다.
+또 다른 일반적인 패턴은 스트리밍 데이터 웨어하우스 라고도 하는 실시간 데이터 웨어하우징입니다. 응용 프로그램에서 Event Hubs 및 IoT Hub에 도착 하는 이벤트 외에도 [IoT Edge에서 실행](stream-analytics-edge.md) 되는 Azure Stream Analytics를 사용 하 여 데이터 정리, 데이터 감소, 데이터 저장소 및 전달 요구 사항을 충족할 수 있습니다. IoT Edge에서 실행 되는 Stream Analytics 시스템에서 대역폭 제한 및 연결 문제를 정상적으로 처리할 수 있습니다. Azure Synapse Analytics에 쓰는 동안 Stream Analytics 최대 200MB/초의 처리량 속도를 지원할 수 있습니다.
 
 ![GLOBAL.ASA 데이터 웨어하우징](media/stream-analytics-solution-patterns/data-warehousing.png)
 
-약간의 대기 시간으로 처리량을 향상 시키는 한 가지 방법은 이벤트를 Azure Blob storage에 보관 한 다음 [Polybase를 사용 하 여 SQL Data Warehouse로 가져오는](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)것입니다. Stream Analytics의 출력을 blob 저장소에 수동으로 연결 하 고, [타임 스탬프를 통해 데이터를 보관](stream-analytics-custom-path-patterns-blob-storage-output.md) 하 고 주기적으로 가져와서 blob storage에서 SQL Data Warehouse로 입력 해야 합니다.
-
-이 사용 패턴에서 Azure Stream Analytics은 거의 실시간 ETL 엔진으로 사용 됩니다. 새로 도착 한 이벤트는 계속 변환 되어 다운스트림 분석 서비스 사용을 위해 저장 됩니다.
-
-![GLOBAL.ASA 높은 처리량 데이터 웨어하우징](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>분석에 대 한 실시간 데이터 보관
 

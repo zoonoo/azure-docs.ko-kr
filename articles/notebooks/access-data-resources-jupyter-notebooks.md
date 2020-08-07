@@ -3,13 +3,13 @@ title: Jupyter 노트북에서 데이터 액세스-Azure Notebooks 미리 보기
 description: Jupyter 노트북에서 파일, REST Api, 데이터베이스 및 다른 Azure Storage 리소스에 액세스 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: b2254e6d966ca3281cd9c8b0771cb77fb6dede33
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833488"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846618"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
 

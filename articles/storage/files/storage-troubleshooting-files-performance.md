@@ -1,18 +1,18 @@
 ---
 title: Azure Files 성능 문제 해결 가이드
-description: Azure 파일 공유와 관련 된 해결 방법의 알려진 성능 문제
+description: Azure 파일 공유의 알려진 성능 문제를 해결 합니다. 이러한 문제가 발생할 경우 잠재적 원인과 관련 해결 방법을 검색 합니다.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511956"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905017"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "85511956"
 
 1. **모든 서비스** 를 선택한 다음 **메트릭을**검색 합니다.
 
-1. **메트릭**을 선택 합니다.
+1. **메트릭**을 선택합니다.
 
 1. 저장소 계정을 리소스로 선택 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "85511956"
 > [!NOTE]
 > 파일 공유를 제한 하는 경우 경고를 수신 하려면 [파일 공유를 제한 하는 경우 경고를 만드는 방법](#how-to-create-an-alert-if-a-file-share-is-throttled)을 참조 하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 공유에서 더 높은 할당량을 지정 하 여 공유 프로 비전 된 용량을 늘립니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "85511956"
 
 고객이 사용 하는 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라 허용 되는 최대 크기 보다 훨씬 낮은 IOPS/처리량이 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 고객은 Windows 클라이언트의 AzCopy 또는 RoboCopy를 사용 하거나 Linux 클라이언트에서 **parallel** 명령을 사용할 수 있습니다.
@@ -77,7 +77,7 @@ ms.locfileid: "85511956"
 
 클라이언트 VM은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 

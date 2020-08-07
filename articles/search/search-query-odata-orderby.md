@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 333e48ff963ec42dd2ee00956fa046a5a038c099
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203108"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903785"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $orderby 구문
 
@@ -50,7 +50,9 @@ sortable_function ::= geo_distance_call | 'search.score()'
 > [!NOTE]
 > 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-각 절에는 정렬 기준이 있으며, 필요에 따라 정렬 방향 ( `asc` 오름차순 또는 `desc` 내림차순)이 있습니다. 방향을 지정 하지 않는 경우 기본값은 오름차순입니다. 정렬 기준은 필드의 경로 `sortable` 이거나 또는 함수를 호출할 수 있습니다 [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) .
+각 절에는 정렬 기준이 있으며, 필요에 따라 정렬 방향 ( `asc` 오름차순 또는 `desc` 내림차순)이 있습니다. 방향을 지정 하지 않는 경우 기본값은 오름차순입니다. 필드에 null 값이 있는 경우 정렬이 이면 먼저 null 값이 표시 되 `asc` 고 정렬이 이면 마지막으로 표시 됩니다 `desc` .
+
+정렬 기준은 필드의 경로 `sortable` 이거나 또는 함수를 호출할 수 있습니다 [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) .
 
 여러 문서에 동일한 정렬 기준이 있고 `search.score` 함수를 사용 하지 않는 경우 (예를 들어 숫자 필드를 기준으로 정렬 하 `Rating` 고 세 개의 문서에 등급이 4 인 경우)에는 문서 점수가 내림차순으로 분할 됩니다. 문서 점수가 동일한 경우 (예: 요청에 전체 텍스트 검색 쿼리가 지정 되지 않은 경우) 연결 된 문서의 상대 순서는 결정 되지 않습니다.
 
