@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542079"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002674"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 * SSO(Single sign-on)
 * 역방향 프록시
 * Multi-Factor Authentication
-* RBAC(역할 기반 액세스 제어)
+* Azure 역할 기반 access control (Azure RBAC)
 * 보안 모니터링, 경고 및 기계 학습 기반 보고서
 * 소비자 ID 및 액세스 관리
 * 디바이스 등록
@@ -87,9 +87,9 @@ Azure Multi-Factor Authentication은 1 초과 인증 방법을 사용해야 하�
 * [Azure Multi-Factor Authentication이란?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Azure Multi-Factor Authentication 작동 방법](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="rbac"></a>RBAC
+## <a name="azure-rbac"></a>Azure RBAC
 
-RBAC는 Azure의 리소스에 대한 액세스를 세밀하게 관리할 수 있는 Azure Resource Manager를 기반으로 하는 권한 부여 시스템입니다. RBAC를 사용하면 사용자의 액세스 수준을 세부적으로 제어할 수 있습니다. 예를 들어 어떤 사용자는 가상 네트워크만 관리하도록 제한하고 다른 사용자는 리소스 그룹의 모든 리소스를 관리하도록 제한할 수 있습니다. Azure에는 사용할 수 있는 기본 제공 역할이 여러 개 있습니다. 다음은 네 가지 기본 제공 역할입니다. 처음 세 개는 모든 리소스 종류에 적용됩니다.
+Azure RBAC는 Azure에서 리소스에 대 한 세분화 된 액세스 관리를 제공 하는 Azure Resource Manager을 기반으로 하는 권한 부여 시스템입니다. Azure RBAC를 사용 하면 사용자가 보유 한 액세스 수준을 세부적으로 제어할 수 있습니다. 예를 들어 어떤 사용자는 가상 네트워크만 관리하도록 제한하고 다른 사용자는 리소스 그룹의 모든 리소스를 관리하도록 제한할 수 있습니다. Azure에는 사용할 수 있는 기본 제공 역할이 여러 개 있습니다. 다음은 네 가지 기본 제공 역할입니다. 처음 세 개는 모든 리소스 종류에 적용됩니다.
 
 - [소유자](/azure/role-based-access-control/built-in-roles#owner) - 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다. 
 - [기여자](/azure/role-based-access-control/built-in-roles#contributor) - 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수 없습니다.

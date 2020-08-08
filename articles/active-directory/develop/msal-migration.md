@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/16/2020
+ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 32a1440bb641f0cbe8e3f3b8ada42e0841d9aa67
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4672c5cab5977b000bd5095f3868864ae0c267ed
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922492"
+ms.locfileid: "88005757"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)로 응용 프로그램 마이그레이션
 
@@ -52,13 +52,13 @@ ADAL 대신 MSAL 사용:
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
 __Q: ADAL이 사용 되지 않나요?__  
-A: 예. 2020 6 월 30 일부 터 더 이상 ADAL에 새 기능을 추가 하지 않습니다. 2022 년 6 월 30 일까 야 ADAL에 중요 보안 픽스를 계속 해 서 추가 합니다. 이 시간이 지나면 ADAL을 사용 하는 앱이 작동 하지만, 최신 기능을 활용 하 고 보안을 유지 하기 위해 MSAL으로 업그레이드 하는 것이 좋습니다.
+A: 예. 2020 6 월 30 일부 터 더 이상 ADAL에 새 기능을 추가 하지 않습니다. 2022 년 6 월 30 일까 야 ADAL에 중요 보안 픽스를 계속 해 서 추가 합니다. 이 날짜 이후에 ADAL을 사용 하는 앱은 계속 작동 하지만 최신 기능을 활용 하 고 보안을 유지 하기 위해 MSAL으로 업그레이드 하는 것이 좋습니다.
+
+__Q: 기존 ADAL 앱이 작동을 중지 하나요?__  
+A: 아니요. 기존 앱은 수정 하지 않고 계속 해 서 작업 합니다. 2022 년 6 월 30 일까 지 유지 하려는 경우 안전 하 게 유지 하기 위해 앱을 MSAL으로 업데이트 하는 것이 좋습니다. 그러나 기존 기능을 유지 관리 하기 위해 MSAL으로 마이그레이션하는 것은 필요 하지 않습니다.
 
 __Q: 어떤 앱이 ADAL을 사용 하 고 있는지 알 어떻게 할까요? 있나요?__  
 A: 응용 프로그램에 대 한 소스 코드가 있는 경우 위의 마이그레이션 가이드를 참조 하 여 앱에서 사용 하는 라이브러리와 MSAL으로 마이그레이션하는 방법을 확인할 수 있습니다. ISV와 파트너 관계를 맺고 있는 경우 해당 사용자에 게 직접 연락 하 여 MSAL에 대 한 마이그레이션 경험을 이해 하는 것이 좋습니다. 응용 프로그램의 소스 코드에 액세스할 수 없는 경우 [지원 요청을 열어](developer-support-help-options.md#open-a-support-request) 등록 된 응용 프로그램의 목록과 각 응용 프로그램에서 사용 하는 라이브러리를 가져올 수 있습니다.
-
-__Q: 기존 ADAL 앱이 계속 작동 하나요?__  
-A: 기존 앱은 수정 하지 않고 계속 해 서 작동 합니다. 2022 년 6 월 30 일 이상으로 유지 하려는 경우에는 보안을 유지 하기 위해 MSAL으로 업데이트 하는 것이 좋습니다. 그러나 기존 기능을 유지 관리 하기 위해 MSAL으로 마이그레이션하는 것은 필요 하지 않습니다.
 
 __Q: MSAL으로 이동 하는 데 투자 해야 하는 이유는 무엇 인가요?__  
 A: MSAL에는 증분 동의, Single Sign-On 및 토큰 캐시 관리를 포함 하 여 ADAL에 없는 새로운 기능이 포함 되어 있습니다. 또한 ADAL과 달리 MSAL은 2022 년 6 월 30 일까 지 보안 패치를 계속 받을 수 있습니다. [자세히 알아보기](msal-overview.md).

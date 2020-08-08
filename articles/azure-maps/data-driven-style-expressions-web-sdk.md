@@ -1,6 +1,6 @@
 ---
 title: Azure Maps 웹 SDK의 데이터 기반 스타일 식 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK에서 데이터 기반 스타일 식을 사용 하는 방법에 대해 알아봅니다.
+description: 데이터 기반 스타일 식에 대해 알아봅니다. Azure Maps 웹 SDK에서 이러한 식을 사용 하 여 맵의 스타일을 조정 하는 방법을 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285716"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009140"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -83,13 +83,13 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['at', number, array]` | object | 배열에서 항목을 검색 합니다. |
+| `['at', number, array]` | 개체 | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
-| `['get', string]` | value | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
-| `['get', string, object]` | value | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
-| `['id']` | value | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
+| `['id']` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
 | `['length', string | array]` | 숫자 | 문자열이 나 배열의 길이를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `['in', substring, string]` | boolean | 문자열에 부분 문자열이 있는지 여부를 확인 합니다. |

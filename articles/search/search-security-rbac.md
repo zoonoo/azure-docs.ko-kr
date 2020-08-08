@@ -1,26 +1,26 @@
 ---
 title: Azure 관리 액세스에 대 한 Azure 역할 설정
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 관리에 대 한 관리 작업을 제어 하 고 위임할 Azure Portal의 RBAC (역할 기반 관리 제어).
+description: Azure Cognitive Search 관리에 대 한 관리 작업을 제어 하 고 위임할 Azure Portal의 RBAC (역할 기반 액세스 제어).
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d1b2576eb42cbe25919eb77fc30e2720ed812ca4
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c01806194156fb43524e2db5f4c9bf636186de95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534433"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009208"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 관리 액세스를 위한 Azure 역할 설정
 
 Azure에서는 포털 또는 Resource Manager API를 통해 관리되는 모든 서비스에 대해 [전역 역할 기반 권한 부여 모델](../role-based-access-control/role-assignments-portal.md) 을 제공합니다. 소유자, 참가자 및 읽기 권한자 역할은 사용자, 그룹 및 각 역할에 할당 된 보안 주체의 Active Directory에 대 한 *서비스 관리* 수준을 결정 합니다. 
 
 > [!Note]
-> 인덱스의 일부 또는 문서의 하위 집합을 보호하기 위한 역할 기반 액세스 제어가 있습니다. 검색 결과에 대한 ID 기반 액세스의 경우 보안 필터를 만들어서 ID를 기준으로 결과를 잘라 요청자에게 액세스 권한이 없어야 하는 문서를 제거할 수 있습니다. 자세한 내용은 [보안 필터](search-security-trimming-for-azure-search.md) 및 [Active Directory로 보안](search-security-trimming-for-azure-search-with-aad.md)을 참조하세요.
+> 인덱스의 일부 또는 문서 하위 집합을 보호 하기 위한 RBAC (역할 기반 액세스 제어)는 없습니다. 검색 결과에 대한 ID 기반 액세스의 경우 보안 필터를 만들어서 ID를 기준으로 결과를 잘라 요청자에게 액세스 권한이 없어야 하는 문서를 제거할 수 있습니다. 자세한 내용은 [보안 필터](search-security-trimming-for-azure-search.md) 및 [Active Directory로 보안](search-security-trimming-for-azure-search-with-aad.md)을 참조하세요.
 
 ## <a name="management-tasks-by-role"></a>역할별 관리 작업
 
@@ -39,7 +39,7 @@ Azure Cognitive Search의 경우 역할은 다음 관리 작업을 지 원하는
 
 다음 표에서는 Azure Cognitive Search에서 허용 되는 작업과 특정 작업에 액세스 하는 키 잠금 해제를 요약 합니다.
 
-| 작업(Operation) | 사용 권한 |
+| 연산 | 사용 권한 |
 |-----------|-------------------------|
 | 서비스 만들기 | Azure 구독 소유자 |
 | 서비스 크기 조정 | 리소스의 관리 키, RBAC 소유자 또는 참가자  |
@@ -50,7 +50,7 @@ Azure Cognitive Search의 경우 역할은 다음 관리 작업을 지 원하는
 | 관리자 키 관리 | 관리자 키, 리소스에 대한 RBAC 소유자 또는 참가자 |
 | 쿼리 키 관리 |  관리자 키, 리소스에 대한 RBAC 소유자 또는 참가자  |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Powershell을 사용하여 관리](search-manage-powershell.md) 
 + [Azure Cognitive Search의 성능 및 최적화](search-performance-optimization.md)

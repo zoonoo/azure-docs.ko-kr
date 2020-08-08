@@ -1,26 +1,24 @@
 ---
 title: MacOS에서 Windows 가상 데스크톱 (클래식)에 연결-Azure
 description: MacOS 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결 하는 방법입니다.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a4aac80f7e4ef93b6503398c225b2aeffe566dbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a0d2bd6a07cfc9e5ebe205322550c9e898022846
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270569"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008443"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>MacOS 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결
 
 > 적용 대상: macOS 10.12 이상
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../connect-macos.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-macos.md)를 참조하세요.
 
 다운로드 가능한 클라이언트를 사용 하 여 macOS 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 이 가이드에서는 클라이언트를 설정 하는 방법을 설명 합니다.
 

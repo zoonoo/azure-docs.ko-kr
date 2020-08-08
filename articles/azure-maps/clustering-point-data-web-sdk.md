@@ -1,6 +1,6 @@
 ---
 title: 맵에서 요소 데이터 클러스터링 | Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용하여 맵에서 요소 데이터를 클러스터하고 렌더링하는 방법을 알아봅니다.
+description: 지도에서 point 데이터를 클러스터링 하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 데이터를 클러스터링 하 고, 클러스터 마우스 이벤트에 대응 하 고, 클러스터 집계를 표시 하는 방법을 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 05e21e63b104a21757c63b9ad8d2954ed778d4b8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 207106d8daab4d5d2a6d8d681aad5a20923a5a48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285750"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009055"
 ---
 # <a name="clustering-point-data"></a>요소 데이터 클러스터링
 
@@ -92,7 +92,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 클러스터형 데이터 요소를 포함하는 계층에서 마우스 이벤트가 발생하면 클러스터형 데이터 요소는 이벤트를 GeoJSON 요소 기능 개체로 반환합니다. 이 요소 기능에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | Description   |
+| 속성 이름             | Type    | 설명   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 메서드에 사용할 수 있는 클러스터의 고유 ID입니다. |

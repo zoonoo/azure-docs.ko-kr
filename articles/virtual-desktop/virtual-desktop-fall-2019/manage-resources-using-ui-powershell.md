@@ -1,24 +1,22 @@
 ---
 title: 서비스 주체를 사용 하 여 Windows 가상 데스크톱 (클래식)에 대 한 관리 도구 배포-Azure
 description: PowerShell을 사용 하 여 Windows 가상 데스크톱 (클래식)에 대 한 관리 도구를 배포 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6947e5ebf91ee65145c7a5042fb1ee6968c19c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284968"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005774"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 (클래식) 관리 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
 
 이 문서에서는 PowerShell을 사용하여 관리 도구를 배포하는 방법을 보여줍니다.
 

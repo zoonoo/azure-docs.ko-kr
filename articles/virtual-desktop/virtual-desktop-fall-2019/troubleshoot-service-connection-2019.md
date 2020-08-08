@@ -1,24 +1,22 @@
 ---
 title: 서비스 연결 문제 해결 Windows 가상 데스크톱 (클래식)-Azure
 description: Windows 가상 데스크톱 (클래식) 테 넌 트 환경에서 클라이언트 연결을 설정할 때 발생 하는 문제를 해결 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 213f7843e4896f8c7c9234e2c94433afbed1d565
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a034cb8371972c2c7908cdba4dd491c17d8cc9f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292511"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008545"
 ---
 # <a name="windows-virtual-desktop-classic-service-connections"></a>Windows 가상 데스크톱 (클래식) 서비스 연결
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../troubleshoot-service-connection.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-service-connection.md)를 참조하세요.
 
 이 문서를 사용하여 Windows Virtual Desktop 클라이언트 연결 문제를 해결합니다.
 

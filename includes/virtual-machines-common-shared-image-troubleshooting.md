@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: axayjo
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52569f3cec26432970606b31fe831bb6459839d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507262"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011025"
 ---
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. 디버그 모드는 `--debug` CLI 및 PowerShell로 스위치를 전달 하 여 활성화 됩니다 `-Debug` . 오류를 찾은 후에는 이 문서의 지침에 따라 오류를 해결합니다.
 
@@ -88,7 +88,7 @@ VM 또는 가상 머신 확장 집합을 만들려는 이미지 버전의 **OSTy
 
 ## <a name="unable-to-share-resources"></a>리소스를 공유할 수 없음
 
-RBAC ( [역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) )를 사용 하 여 구독 간에 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스를 공유할 수 있습니다. 
+Azure [역할 기반 액세스 제어 (AZURE RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)를 사용 하 여 구독 간에 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스를 공유할 수 있습니다. 
 
 ## <a name="replication-is-slow"></a>복제 속도가 느림
 

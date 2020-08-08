@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 4f200457bd327a6f2ce74794bb28dd16c38e6fdd
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856330"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004763"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 클러스터링을 구성하는 방법에 대해 설명합니다.
-
-다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
 ## <a name="what-is-redis-cluster"></a>Redis 클러스터란?
 Azure Cache for Redis는 [Redis에서 구현된](https://redis.io/topics/cluster-tutorial) Redis 클러스터를 제공합니다. Redis 클러스터를 사용하면 다음과 같은 이점을 얻을 수 있습니다. 
@@ -26,7 +24,7 @@ Azure Cache for Redis는 [Redis에서 구현된](https://redis.io/topics/cluster
 * 처리량 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 
 * 메모리 크기 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 선형으로 늘어납니다.  
 
-클러스터링은 클러스터형 캐시에 사용할 수 있는 연결 수를 늘리지 않습니다. 프리미엄 캐시의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
+클러스터링은 클러스터형 캐시에 사용할 수 있는 연결 수를 늘리지 않습니다. 프리미엄 캐시의 크기, 처리량 및 대역폭에 대 한 자세한 내용은 [올바른 계층 선택](cache-overview.md#choosing-the-right-tier) 을 참조 하세요.
 
 Azure에서 Redis 클러스터는 주/복제본 모델로 제공됩니다. 이 경우 각 분할에는 Azure Cache for Redis 서비스에서 관리하는 복제가 있는 주/복제 쌍이 있습니다. 
 
@@ -91,7 +89,7 @@ Azure Cache for Redis 클러스터링에 대해 자주 묻는 질문과 대답�
   자세한 내용은 [Redis 클러스터 사양 - 구현된 하위 집합](https://redis.io/topics/cluster-spec#implemented-subset)을 참조하세요.
 * [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)를 사용하는 경우 1.0.481 이상을 사용해야 합니다. 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [엔드포인트, 포트 및 키](cache-configure.md#properties) 를 사용하여 캐시에 연결합니다. 유일한 차이점은 데이터베이스 0에 모든 읽기 및 쓰기를 수행해야 한다는 점입니다.
   
-  * 다른 클라이언트는 다른 요구 사항이 있을 수 있습니다. [모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)
+  다른 클라이언트는 다른 요구 사항이 있을 수 있습니다. [모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)
 * 애플리케이션이 단일 명령으로 배치되는 다중 키 작업을 사용하면 동일한 분할에 모든 키가 위치해야 합니다. 동일한 분할된 데이터베이스에서 키를 찾으려면 [클러스터에서 키를 분산하는 방법](#how-are-keys-distributed-in-a-cluster)을 참조하세요.
 * Redis ASP.NET 세션 상태 제공자를 사용하는 경우 2.0.1 이상을 사용해야 합니다. [Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
@@ -156,9 +154,9 @@ TLS의 경우를 `1300N` 로 바꿉니다 `1500N` .
 StackExchange.Redis를 사용하고 있으며 클러스터링을 사용할 때 `MOVE` 예외가 발생하는 경우 [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) 이상을 사용하고 있는지 확인합니다. StackExchange.Redis를 사용하도록 .NET 애플리케이션을 구성하는 방법에 대한 자세한 내용은 [캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
+Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-* [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)
+* [Redis Premium 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

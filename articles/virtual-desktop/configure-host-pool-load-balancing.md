@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 부하 분산 구성-Azure
 description: Windows 가상 데스크톱 환경에 대 한 부하 분산 방법을 구성 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204349"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010109"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Windows Virtual Desktop 부하 분산 방법 구성
 
@@ -22,7 +20,7 @@ ms.locfileid: "85204349"
 >[!NOTE]
 > 사용자에 게는 항상 호스트 풀 내의 세션 호스트에 대 한 1:1 매핑이 있으므로 영구 데스크톱 호스트 풀에는이 내용이 적용 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 PowerShell 모듈을 다운로드 및 설치 하 고 Azure 계정에 로그인 하기 위해 [Windows 가상 데스크톱 powershell 모듈 설정](powershell-module.md) 의 지침을 따르고 있다고 가정 합니다.
 

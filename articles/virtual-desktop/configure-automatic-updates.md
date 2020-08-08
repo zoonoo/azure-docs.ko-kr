@@ -1,26 +1,24 @@
 ---
 title: Microsoft Endpoint Configuration Manager 구성-Azure
 description: Windows 가상 데스크톱에서 Windows 10 Enterprise 다중 세션에 소프트웨어 업데이트를 배포 하도록 Microsoft Endpoint Configuration Manager를 구성 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: lizross
-ms.openlocfilehash: 100e269bb995f86d0721cd6de28cd4b933b58ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204390"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010126"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Microsoft Endpoint Configuration Manager 구성
 
 이 문서에서는 Windows 10 Enterprise 다중 세션을 실행 하는 Windows 가상 데스크톱 호스트에 업데이트를 자동으로 적용 하도록 Microsoft Endpoint Configuration Manager를 구성 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 설정을 구성 하려면 다음 항목이 필요 합니다.
 

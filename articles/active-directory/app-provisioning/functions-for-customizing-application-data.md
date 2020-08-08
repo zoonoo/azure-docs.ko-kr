@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 42dcbf693b6ec685849b1523480506e9c8f5b54b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8afe6ad23f0e23e2b9ab772f5526c63d307fa88b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202886"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003242"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>방법: Azure AD에서 특성 매핑에 대 한 식 작성
 
@@ -27,20 +27,21 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 * 전체 식은 <br>
   *FunctionName ( `<<argument 1>>` , `<<argument N>>` )*
-* 서로 함수를 중첩할 수 있습니다. 예를 들면 다음과 같습니다. <br> *FunctionOne (Functionone ( `<<argument1>>` ))*
+* 서로 함수를 중첩할 수 있습니다. 예: <br> *FunctionOne (Functionone ( `<<argument1>>` ))*
 * 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
   
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
   2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예: "미국"
   3. 기타 함수 예: FunctionOne ( `<<argument1>>` , functionone ( `<<argument2>>` ))
 * 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \\ " Contoso \\ ""
+* 구문은 대/소문자를 구분 합니다. 함수 vs 복사는 여기에서 직접 붙여 넣는 것입니다. 
 
 ## <a name="list-of-functions"></a>함수 목록
 
 [Append](#append) &nbsp; &nbsp; 추가 &nbsp; &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; Bitand &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; Cbool &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; 병합 &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; [Count](#count) &nbsp; &nbsp; 개수 &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; CStr &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; Formatdatetime &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; Guid &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; IIF &nbsp; &nbsp; [InStr](#instr) &nbsp; &nbsp; InStr &nbsp; &nbsp; [IsNull](#isnull) &nbsp; &nbsp; IsNull &nbsp; &nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp; &nbsp; IsNullOrEmpty &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; &nbsp; IsPresent &nbsp; &nbsp; [IsString](#isstring) &nbsp; &nbsp; Isstring &nbsp; &nbsp; [Item](#item) &nbsp; &nbsp; 항목 &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; 조인 &nbsp; &nbsp; [Left](#left) &nbsp; &nbsp; 왼쪽 &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp; &nbsp; &nbsp; &nbsp; [removeduplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; [Replace](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [singleapproleassignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [분할](#split) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word)
 
 ---
-### <a name="append"></a>Append
+### <a name="append"></a>추가
 
 **칩셋용으로**<br>  Append(source, suffix)
 
@@ -48,10 +49,10 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-| **접미어** |필수 |문자열 |원본 값의 끝에 추가하려는 문자열입니다. |
+| **source** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+| **접미어** |필수 |String |원본 값의 끝에 추가하려는 문자열입니다. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -66,12 +67,12 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **value1** |필수 |num |Value2로 AND'ed 해야 하는 숫자 값입니다.|
 | **value2** |필수 |num |Value1으로 AND'ed 해야 하는 숫자 값입니다.|
 
-**예제:**<br>
+**예:**<br>
 BitAnd(&HF, &HF7)                                                                                
 11110111 및 00000111 = 00000111, BitAnd는 7, 이진 값 00000111을 반환 합니다.
 
@@ -83,11 +84,11 @@ BitAnd(&HF, &HF7)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 | 식 | 모든 유효한 식 |
 
-**예제:**<br>
+**예:**<br>
 CBool ([attribute1] = [attribute2])                                                                    
 두개의 속성이 같은 동일한 값을 가지면 True로 반환합니다.
 
@@ -99,9 +100,9 @@ CBool ([attribute1] = [attribute2])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source1  … sourceN** | 필수 | 문자열 |필수, 가변적인 횟수 대개는 원본 개체의 특성 이름입니다. |
+| **source1  … sourceN** | 필수 | String |필수, 가변적인 횟수 대개는 원본 개체의 특성 이름입니다. |
 | **defaultValue** | 선택 | 문자열 | 모든 원본 값이 NULL 일 때 사용할 기본값입니다. 빈 문자열("")일 수 있습니다.
 
 ---
@@ -112,11 +113,11 @@ CBool ([attribute1] = [attribute2])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |64 기본으로 변환 될 문자열|
+| **source** |필수 |String |64 기본으로 변환 될 문자열|
 
-**예제:**<br>
+**예:**<br>
 ConvertToBase64("Hello world!")                                                                                                        
 "SABlAGwAbABvACAAdwBvAHIAbABkACEA"를 반환합니다.
 
@@ -128,11 +129,11 @@ ConvertToBase64("Hello world!")
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |UTF8 Hex로 변환할 문자열|
+| **source** |필수 |String |UTF8 Hex로 변환할 문자열|
 
-**예제:**<br>
+**예:**<br>
 ConvertToUTF8Hex("Hello world!")                                                                                                         
 48656C6C6F20776F726C6421을 반환합니다.
 
@@ -144,7 +145,7 @@ ConvertToUTF8Hex("Hello world!")
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **특성도** |필수 |특성 |요소가 계산 될 다중값 특성|
 
@@ -156,11 +157,11 @@ ConvertToUTF8Hex("Hello world!")
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **value** |필수 | 숫자, 참조 또는 부울 | 숫자 값, 참조 특성 또는 부울입니다. |
 
-**예제:**<br>
+**예:**<br>
 CStr([dn])                                                            
 "Cn = Joe, dc = contoso, dc = com"을 반환 합니다.
 
@@ -172,11 +173,11 @@ CStr([dn])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **value** |필수 | 날짜 | DateTime 형식으로 변환 될 광고 날짜 |
 
-**예제:**<br>
+**예:**<br>
 DateFromNum([lastLogonTimestamp])                                                                                                   
 DateFromNum(129699324000000000)                                                            
 2012-01-01 23:00:00을 나타내는 날짜/시간을 반환합니다.
@@ -189,14 +190,14 @@ DateFromNum(129699324000000000)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-| **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원 되는 형식에 대해서는을 참조 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) 하세요. |
-| **outputFormat** |필수 |문자열 |출력 날짜의 형식입니다. |
+| **source** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
+| **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원 되는 형식에 대해서는을 참조 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) 하세요. |
+| **outputFormat** |필수 |String |출력 날짜의 형식입니다. |
 
 ---
-### <a name="guid"></a>Guid
+### <a name="guid"></a>GUID
 **칩셋용으로**<br> Guid()
 
 **설명:**<br> 함수 Guid는 임의의 GUID를 새로 생성합니다.
@@ -209,13 +210,13 @@ DateFromNum(129699324000000000)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **조건** |필수 |변수 또는 식 |true 또는 false로 평가될 수 있는 값 또는 식입니다. |
 | **valueIfTrue** |필수 |변수 또는 문자열 | 조건이 true로 평가되는 경우 반환된 값입니다. |
 | **valueIfFalse** |필수 |변수 또는 문자열 |조건이 false로 평가되는 경우 반환된 값입니다.|
 
-**예제:**<br>
+**예:**<br>
 IIF ([country] = "USA", [country], [학과])
 
 ---
@@ -226,14 +227,14 @@ IIF ([country] = "USA", [country], [학과])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **value1** |필수 |문자열 |검색할 문자열입니다. |
-| **value2** |필수 |문자열 |찾을 문자열 |
+| **value1** |필수 |String |검색할 문자열입니다. |
+| **value2** |필수 |String |찾을 문자열 |
 | **start** |선택 |정수 |하위 문자열을 찾을 시작 위치입니다.|
 | **compareType** |선택 사항 |열거형 |VbTextCompare 또는 Vbtextcompare 일 수 있습니다. |
 
-**예제:**<br>
+**예:**<br>
 InStr("The quick brown fox","quick")                                                                             
 5로 계산합니다.
 
@@ -248,11 +249,11 @@ InStr("repEated","e",3,vbBinaryCompare)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |식 |평가할 식입니다. |
 
-**예제:**<br>
+**예:**<br>
 IsNull([displayName])                                                                                                
 특성이 없는 경우 True를 반환 합니다.
 
@@ -265,11 +266,11 @@ IsNull([displayName])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |식 |평가할 식입니다. |
 
-**예제:**<br>
+**예:**<br>
 IsNullOrEmpty ([displayName])                                               
 특성이 없거나 빈 문자열인 경우 True를 반환 합니다.
 
@@ -281,11 +282,11 @@ IsNullOrEmpty ([displayName])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |식 |평가할 식입니다. |
 
-**예제:**<br>
+**예:**<br>
 Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
 
 ---
@@ -296,7 +297,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **expression** |필수 |식 |평가할 식입니다. |
 
@@ -308,12 +309,12 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **특성도** |필수 |attribute |검색할 다중 값 특성 |
 | **index** |필수 |정수 | 다중값 문자열의 항목에 대 한 인덱스|
 
-**예제:**<br>
+**예:**<br>
 Item ([proxyAddresses], 1)
 
 ---
@@ -326,10 +327,10 @@ Item ([proxyAddresses], 1)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **separator** |필수 |문자열 |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| **source1  … sourceN** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
+| **separator** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
+| **source1  … sourceN** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
 
 ---
 ### <a name="left"></a>왼쪽
@@ -342,12 +343,12 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **String** |필수 |attribute | 문자를 반환할 문자열입니다. |
 | **NumChars** |필수 |정수 | 문자열의 시작 (왼쪽)부터 반환할 문자 수를 나타내는 숫자입니다.|
 
-**예제:**<br>
+**예:**<br>
 Left ("John Doe", 3)                                                            
 "Joh"를 반환 합니다.
 
@@ -359,9 +360,9 @@ Left ("John Doe", 3)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |일반적으로 특성 이름입니다. |
+| **source** |필수 |String |일반적으로 특성 이름입니다. |
 | **start** |필수 |integer |하위 문자열이 시작되어야 하는 **source** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
 | **length** |필수 |integer |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
 
@@ -373,9 +374,9 @@ Left ("John Doe", 3)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 | 일반적으로 이름 또는 성 특성입니다. |
+| **source** |필수 |String | 일반적으로 이름 또는 성 특성입니다. |
 
 ---
 ### <a name="not"></a>Not
@@ -385,7 +386,7 @@ Left ("John Doe", 3)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |부울 문자열 |필요한 **source** 값은 "True"나 "False"입니다. |
 
@@ -397,11 +398,11 @@ Left ("John Doe", 3)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **value** |필수 | 문자열 | 지원 되는 형식의 날짜/시간 문자열입니다. 지원되는 형식은 https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx를 참조하세요. |
+| **value** |필수 | String | 지원 되는 형식의 날짜/시간 문자열입니다. 지원되는 형식은 https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx를 참조하세요. |
 
-**예제:**<br>
+**예:**<br>
 * Workday 예제 <br>
   *ContractEndDate* 특성을 사용 하 여 *2020-12-31-08:00* Workday에서 AD의 *accountexpires* 필드에 있는 특성을 매핑하려는 경우,이 함수를 사용 하 여 로캘과 일치 하도록 표준 시간대 오프셋을 변경 하는 방법은 다음과 같습니다. 
   `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
@@ -419,16 +420,16 @@ Left ("John Doe", 3)
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **특성도** |필수 |다중값 특성 |중복 항목을 제거 하는 다중값 특성|
 
-**예제:**<br>
+**예:**<br>
 RemoveDuplicates([proxyAddresses])                                                                                                       
 모든 중복 값이 제거 된 삭제 된 proxyAddress 특성을 반환 합니다.
 
 ---
-### <a name="replace"></a>Replace
+### <a name="replace"></a>바꾸기
 **칩셋용으로**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **설명:**<br>
@@ -453,9 +454,9 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |일반적으로 **소스** 개체의 특성 이름입니다. |
+| **source** |필수 |String |일반적으로 **소스** 개체의 특성 이름입니다. |
 | **oldValue** |선택 |문자열 |**원본** 또는 **템플릿**에서 대체될 값입니다. |
 | **regexPattern** |선택 |문자열 |**source**에서 바뀔, 값의 Regex 패턴입니다. 또는 **replacementPropertyName**을 사용하는 경우 **replacementPropertyName**에서 값을 추출하는 패턴입니다. |
 | **regexGroupName** |선택 |문자열 |**regexPattern**내 그룹의 이름입니다. **replacementPropertyName**을 사용하는 경우에만 **replacementPropertyName**에서 이 그룹의 값을 **replacementValue**로 추출합니다. |
@@ -478,9 +479,9 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록입니다. |
+| **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |String | 평가할 고유한 값 생성 규칙 목록입니다. |
 
 
 ---
@@ -491,9 +492,9 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |필수 |문자열 |**[appRoleAssignments]** 개체. |
+| **[appRoleAssignments]** |필수 |String |**[appRoleAssignments]** 개체. |
 
 ---
 ### <a name="split"></a>분할
@@ -503,10 +504,10 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |업데이트할 **source** 값입니다. |
-| **문자가** |필수 |문자열 |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
+| **source** |필수 |String |업데이트할 **source** 값입니다. |
+| **문자가** |필수 |String |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -516,9 +517,9 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |업데이트할 **source** 값입니다. |
+| **source** |필수 |String |업데이트할 **source** 값입니다. |
 
 ---
 ### <a name="switch"></a>스위치
@@ -528,12 +529,12 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |**Source** 값입니다. |
+| **source** |필수 |String |**Source** 값입니다. |
 | **defaultValue** |선택 |문자열 |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-| **key** |필수 |문자열 |**원본** 값과 비교할 **Key**입니다. |
-| **value** |필수 |문자열 |키와 일치하는 **원본** 의 대체 값입니다. |
+| **key** |필수 |String |**원본** 값과 비교할 **Key**입니다. |
+| **value** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -543,9 +544,9 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
+| **source** |필수 |String |대개는 원본 개체의 특성 이름 |
 | **culture** |선택 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
@@ -556,9 +557,9 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **source** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
+| **source** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
 | **culture** |선택 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
@@ -573,13 +574,13 @@ RemoveDuplicates([proxyAddresses])
 
 **변수의**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| Name | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **String** |필수 |다중값 특성 |단어를 반환할 문자열입니다.|
 | **WordNumber** |필수 | 정수 | 반환할 단어 번호를 식별 하는 번호|
-| **구분 기호** |필수 |문자열| 단어를 식별 하는 데 사용 해야 하는 구분 기호를 나타내는 문자열입니다.|
+| **구분 기호** |필수 |String| 단어를 식별 하는 데 사용 해야 하는 구분 기호를 나타내는 문자열입니다.|
 
-**예제:**<br>
+**예:**<br>
 Word ("quick 갈색 fox", 3, "")                                                                                       
 "brown"을 반환합니다.
 
