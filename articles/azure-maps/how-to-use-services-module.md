@@ -1,6 +1,6 @@
 ---
 title: Azure Maps Services 모듈 사용 | Microsoft Azure 맵
-description: 이 문서에서는 Azure Maps services 모듈을 사용 하 여 Microsoft Azure Maps REST 서비스를 활용 하는 방법을 알아봅니다.
+description: Azure Maps services 모듈에 대해 알아봅니다. 이 도우미 라이브러리를 로드 하 고 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST 서비스에 액세스 하는 방법을 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 69ca43021ff2c45733375e14d87d0ed65d8962e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f8d41c8248ab761c6d781263f3978937ad01e22
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287058"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004148"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Azure Maps services 모듈 사용
 

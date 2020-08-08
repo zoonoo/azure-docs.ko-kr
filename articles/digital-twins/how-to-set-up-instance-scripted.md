@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 82ddba67a6bd9fcc56b74c3f830663228feb945b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407490"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009701"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -24,8 +24,9 @@ ms.locfileid: "87407490"
 * 백그라운드에서 스크립트를 실행 하는 수동 CLI 단계를 보려면이 문서의 CLI 버전 [*(방법: 인스턴스 및 인증 (CLI) 설정)*](how-to-set-up-instance-cli.md)을 참조 하세요.
 * Azure Portal에 따라 수동 단계를 보려면이 문서의 포털 버전 [*(방법: 인스턴스 및 인증 설정) (포털)*](how-to-set-up-instance-portal.md)을 참조 하세요.
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="run-the-deployment-script"></a>배포 스크립트 실행
 

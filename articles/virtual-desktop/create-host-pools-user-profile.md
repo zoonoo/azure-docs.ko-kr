@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 FSLogix 프로필 컨테이너 공유-Azure
 description: 가상 컴퓨터 기반 파일 공유를 사용 하 여 Windows 가상 데스크톱 호스트 풀에 대해 FSLogix 프로필 컨테이너를 설정 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b692033cc16f276b48bc6d973b27d994c1082a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211836"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002578"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
 
@@ -66,7 +64,7 @@ FSLogix 소프트웨어를 사용 하 여 가상 머신을 구성 하려면 호�
 6. **프로필**이라는 키를 만듭니다.
 7. 프로필 키에 대해 다음 값을 만듭니다.
 
-| 이름                | Type               | 데이터/값                        |
+| Name                | Type               | 데이터/값                        |
 |---------------------|--------------------|-----------------------------------|
 | 사용             | DWORD              | 1                                 |
 | VHDLocations        | 다중 문자열 값 | "파일 공유의 네트워크 경로"     |

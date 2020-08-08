@@ -8,26 +8,26 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9c05753b44b0c644b121eb3ccd3316633f9e5964
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119738"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009531"
 ---
-# <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>상용 marketplace에 제품 검토 및 게시
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>상용 marketplace에 제품 검토 및 게시
 
 이 문서에서는 파트너 센터를 사용 하 여 미리 보기에 제품을 제출 하 고 제품을 미리 본 다음 Microsoft 상용 marketplace에 게시 하는 방법을 보여 줍니다. 게시 단계를 진행 하면서 게시 상태를 확인 하는 방법에 대해서도 설명 합니다. 게시 하려는 제품이 이미 만들어져 있어야 합니다.
 
-## <a name="go-to-your-offer-in-commercial-marketplace"></a>상업적 marketplace의 제품으로 이동
+## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>상업적 marketplace의 제품으로 이동
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요**를 선택 합니다.
 1. **개요** 탭의 **제안**에서 다음 상태 표시기 중 하나가 각 제안의 **상태** 열에 표시 됩니다.
  
-    | 상태 | Description |
+    | 상태 | 설명 |
     | ------------ | ------------- |
-    | 초안 | 제안이 만들어졌지만 게시 되 고 있지 않습니다. |
+    | Draft | 제안이 만들어졌지만 게시 되 고 있지 않습니다. |
     | 게시 진행 중 | 제안은 게시 프로세스를 통해 작동 합니다. |
     | 주의가 필요함 | 인증 하는 동안 이나 다른 게시 단계 중에 중요 한 문제가 발견 되었습니다. |
     | 미리 보기 | 이제 게시자가 최종 확인을 기다립니다 제품을 인증 했습니다. **라이브 전환** 을 선택 하 여 제품을 라이브 게시 합니다. |
@@ -53,7 +53,7 @@ ms.locfileid: "86119738"
 
 **게시**를 선택 하면 유효성 검사 및 게시 프로세스가 순서 대로 진행 됩니다. 가장 일반적인 게시 프로세스가 다음 표에 나와 있습니다.
 
-| 단계 | 발생하는 동작 | 
+| 단계 | 수행되는 작업 | 
 | ------------ | ------------- | ------------- |
 | 자동 유효성 검사 | 자동 유효성 검사 집합을 처리 합니다. | 
 | 인증 | 수동 유효성 검사를 수행 합니다. | 

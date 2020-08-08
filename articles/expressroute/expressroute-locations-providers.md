@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: d26861c9d3a98c219389cde76ecd30c3d58da4c3
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e066f810dca9c1b824c5eb30bb9f938df856a819
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902136"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002695"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -116,14 +116,14 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | 해당 없음 | 10G, 100G | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **뭄바이** | Tata Communications | 2 | 인도 서부 | 10G | Gcx x, GCX (Global), Jio, Sify, Tata 통신, Verizon |
 | **뭄바이2** | Airtel | 2 | 인도 서부 | 해당 없음 | Airtel, Sify, Vodafone Idea |
-| **뮌헨** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | 해당 없음 | 10G | DE-CIX |
+| **뮌헨** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | 해당 없음 | 10G | DE-CIX |
 | **뉴욕** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | 해당 없음 | 10G, 100G | CenturyLink Cloud Connect, Colt, Coresite, \CIX, Megaport, Packet, Zayo |
 | **뉴포트(웨일스)** | [Next Generation Data](https://www.nextgenerationdata.co.uk) | 1 | 영국 서부 | 해당 없음 | British Telecom, Colt, Level 3 Communications, Next Generation Data |
 | **오사카** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | 일본 서부 | 10G, 100G | 도쿄, Colt, 고 간, 인터넷 이니셔티브 일본 Inc..-IIJ, Megaport, NTT Communications, NTT SmartConnect, 소프트 은행 |
 | **오슬로** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | 노르웨이 동부 | 10G, 100G | 전역 Connect, Megaport, 통신 회사 |
 | **파리** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | 프랑스 중부 | 10G, 100G | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **퍼스** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | 해당 없음 | 10G | Megaport, NextDC |
-| **Phoenix** | [EdgeConnext PHX01](https://www.edgeconnex.com/locations/north-america/phoenix-az/) | 1 | 해당 없음 | 10G | |
+| **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/north-america/phoenix-az/) | 1 | 해당 없음 | 10G | |
 | **퀘벡 시티** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | 캐나다 동부 | 해당 없음 | Bell Canada, Megaport |
 | **Queretaro (멕시코)** | [KIO Networks QR01](https://www.kionetworks.com/es-mx/) | 4 | 해당 없음 | 10G | Transtelco|
 | **퀸시** | [Sabey Datacenter-빌드](https://sabeydatacenters.com/data-center-locations/central-washington-data-centers/quincy-data-center) | 1 | 미국 서부 2 | 10G, 100G | | 

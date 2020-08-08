@@ -1,19 +1,17 @@
 ---
 title: 마스터 VHD 이미지에 Office 설치-Azure
 description: Windows 가상 데스크톱 마스터 이미지에서 Office를 설치 하 고 Azure에 사용자 지정 하는 방법을 설명 합니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e53d8bf8f7cb024b468983f596d3d1bd5c91ee7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200531"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007304"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>마스터 VHD 이미지에 Office 설치
 

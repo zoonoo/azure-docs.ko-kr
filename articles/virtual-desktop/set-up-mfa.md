@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱에 대 한 Azure Multi-Factor Authentication 설정-Azure
 description: Windows 가상 데스크톱의 보안 강화를 위해 Azure Multi-Factor Authentication를 설정 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291378"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009463"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대해 Azure Multi-Factor Authentication을 사용하도록 설정
 
@@ -26,7 +24,7 @@ Windows 용 windows 클라이언트 가상 데스크톱은 로컬 컴퓨터와 W
 
 자격 증명을 기억 하는 것은 편리 하지만 엔터프라이즈 시나리오 또는 개인 장치에 대 한 배포는 보안 수준이 떨어질 수도 있습니다. 사용자를 보호 하려면 클라이언트가 MFA (Azure Multi-Factor Authentication) 자격 증명을 계속 요청 하는지 확인 해야 합니다. 이 문서에서는 Windows 가상 데스크톱에 대 한 조건부 액세스 정책을 구성 하 여이 설정을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하는 데 필요한 항목은 다음과 같습니다.
 
@@ -59,7 +57,7 @@ Windows 가상 데스크톱에 연결할 때 multi-factor authentication을 요�
 
    >[!IMPORTANT]
    > Windows 가상 데스크톱 클라이언트 앱은 웹 클라이언트에 사용 됩니다. 그러나 Windows 가상 데스크톱 Azure Resource Manager 공급자 (50e95039-b200-4007-bc97-8d5790743a63) 라는 앱은 선택 하지 마십시오. 이 앱은 사용자 피드를 검색 하는 데만 사용 되며 MFA를 포함 해서는 안 됩니다.
-  
+
 1. 앱을 선택한 후 **선택**을 선택 하 고 **완료**를 선택 합니다.
 
    > [!div class="mx-imgBorder"]

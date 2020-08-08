@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 50a7fe866d236a7edb30b3cae5ef076d3ebbca56
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832355"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009718"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
 
@@ -24,8 +24,8 @@ ms.locfileid: "87832355"
 * Azure Portal를 사용 하 여 이러한 단계를 수동으로 진행 하려면이 문서의 포털 버전 [*(방법: 인스턴스 및 인증 설정 (포털))*](how-to-set-up-instance-portal.md)을 참조 하세요.
 * 배포 스크립트 샘플을 사용 하 여 자동화 된 설치를 실행 하려면이 문서의 스크립팅된 버전 [*(방법: 인스턴스 및 인증 설정 (스크립팅된))*](how-to-set-up-instance-scripted.md)을 참조 하세요.
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-cloud-shell-session"></a>Cloud Shell 세션 설정
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
@@ -63,7 +63,7 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-다음 명령을 사용 하 여 역할을 할당 합니다 (Azure 구독의 소유자가 실행 해야 함).
+다음 명령을 사용 하 여 역할을 할당 합니다 (Azure 구독에서 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 실행 해야 함).
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"

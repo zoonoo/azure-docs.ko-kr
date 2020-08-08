@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8cff5ec6886c0aceff5270418f9feeb145f6fd17
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836550"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002217"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "87836550"
 
 Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure 리소스와 마찬가지로 새 Azure Machine Learning 작업 영역을 만들 때 세 가지 기본 역할이 제공됩니다. 사용자를 작업 영역에 추가 하 고 이러한 기본 제공 역할 중 하나에 할당할 수 있습니다.
 
-| Role | 액세스 수준 |
+| 역할 | 액세스 수준 |
 | --- | --- |
 | **판독기** | 작업 영역의 읽기 전용 작업입니다. 독자는 작업 영역에서 [데이터 저장소](how-to-access-data.md) 자격 증명을 포함 하 여 자산을 나열 하 고 볼 수 있습니다. 판독기는 이러한 자산을 만들거나 업데이트할 수 없습니다. |
 | **기여자** | 작업 영역에서 자산을 보거나, 만들거나, 편집 하거나, 삭제 합니다 (해당 하는 경우). 예를 들어 기여자는 실험을 만들고, 컴퓨팅 클러스터를 만들거나 연결하고, 실행을 제출하고, 웹 서비스를 배포할 수 있습니다. |
@@ -382,9 +382,9 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하는 동안 알아야 �
 Amlcompute 클러스터에 사용자 할당 id를 할당 하려면 계산을 만들기 위한 쓰기 권한과 [관리 Id 운영자 역할이](/azure/role-based-access-control/built-in-roles#managed-identity-operator)있어야 합니다. 관리 Id를 사용 하는 RBAC에 대 한 자세한 내용은 [사용자 할당 id를 관리 하는 방법](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 을 참조 하세요.
 
 
-### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>17. 스튜디오 포털에서 역할 기반 액세스 제어를 지원 하나요?
+### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>17. 스튜디오 포털에서 역할 기반 액세스 제어를 지원 하나요?
 
-Azure Machine Learning Studio는 역할 기반 액세스 제어를 지원 합니다. 
+Azure Machine Learning Studio는 azure 역할 기반 액세스 제어 (Azure RBAC)를 지원 합니다. 
 
 > [!IMPORTANT]
 > 작업 영역의 데이터 과학자에 대 한 특정 사용 권한이 있는 사용자 지정 역할을 할당 한 후에는 해당 작업 (예: 계산 단추 추가)이 자동으로 사용자에 게 숨겨집니다. 이러한 항목을 숨기면 혼동을 통해 서비스에서 무단 액세스 알림을 반환 하는 컨트롤을 사용할 때 볼 수 없습니다.

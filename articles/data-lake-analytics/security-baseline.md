@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075077"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005125"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Data Lake Analytics에 대 한 Azure 보안 기준
 
@@ -256,7 +256,7 @@ Data Lake Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: 기본 암호 변경(해당하는 경우)
 
-**지침**Data Lake Analytics: 인증은 Azure Active Directory와 함께 제공 되 고 RBAC (역할 기반 액세스 제어)를 통해 보호 되므로 기본 암호의 개념이 없습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 및 보안을 통해 인증이 제공 되므로 Data Lake Analytics는 기본 암호의 개념이 없습니다.
 
 * [Azure Data Lake Analytics 개요](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
 
@@ -376,7 +376,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **Azure Security Center 모니터링**: 예
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: 지원 시나리오에서 관련 고객 데이터에 대한 액세스 권한을 Microsoft에 제공
 
@@ -572,7 +572,7 @@ Microsoft는 Azure Data Lake Analytics을 지 원하는 기본 시스템에서 �
 
 **Azure Security Center 모니터링**: 예
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: 권한 없는 Azure 리소스 삭제
 
@@ -642,7 +642,7 @@ Microsoft는 Azure Data Lake Analytics을 지 원하는 기본 시스템에서 �
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: 승인된 Azure 서비스만 사용
 
-**지침**: Azure Policy에서 다음 기본 제공 정책 정의를 사용한 고객 구독에 만들 수 있는 리소스 종류에 대한 제한을 설정할 수 있습니다.
+**지침**: Azure Policy에서 다음 기본 제공 정책 정의를 사용하여 고객 구독에서 만들 수 있는 리소스 종류를 제한합니다.
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
@@ -743,7 +743,7 @@ Microsoft는 Azure Data Lake Analytics을 지 원하는 기본 시스템에서 �
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: 사용자 지정 운영 체제 이미지를 안전하게 저장
 
@@ -955,7 +955,7 @@ App Service, Data Lake Analytics, Blob Storage 등의 Azure 리소스에 업로�
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 

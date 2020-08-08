@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010310"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009616"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -47,7 +47,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [Virtual Network](#virtual-network)
     * [방화벽](#firewall)
     * [속성](#properties)
-    * [중지](#locks)
+    * [잠금](#locks)
     * [자동화 스크립트](#automation-script)
 * 관리
     * [데이터 가져오기](#importexport)
@@ -74,7 +74,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 **액세스 제어(IAM)** 섹션에서는 Azure Portal의 RBAC(역할 기반 액세스 제어)에 대한 지원을 제공합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>태그
 
 **태그** 섹션은 리소스 구성에 도움이 됩니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
@@ -99,7 +99,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [Virtual Network](#virtual-network)
 * [방화벽](#firewall)
 * [속성](#properties)
-* [중지](#locks)
+* [잠금](#locks)
 * [자동화 스크립트](#automation-script)
 
 
@@ -185,12 +185,12 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 | Azure Cache for Redis 메트릭 | 추가 정보 |
 | --- | --- |
-| 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](cache-faq.md#cache-performance) |
+| 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | 연결된 클라이언트 |[기본 Redis 서버 구성 - maxclients](#maxclients) |
 | 서버 부하 |[사용 현황 차트 - Redis 서버 부하](cache-how-to-monitor.md#usage-charts) |
-| 메모리 사용량 |[캐시 성능 - 크기](cache-faq.md#cache-performance) |
+| 메모리 사용량 |[캐시 성능 - 크기](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
-캐시를 업그레이드 하려면 **지금 업그레이드** 를 클릭 하 여 가격 책정 계층을 변경 하 고 캐시 [크기를 조정](#scale) 합니다. 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
+캐시를 업그레이드 하려면 **지금 업그레이드** 를 클릭 하 여 가격 책정 계층을 변경 하 고 캐시 [크기를 조정](#scale) 합니다. 가격 책정 계층을 선택 하는 방법에 대 한 자세한 내용은 [올바른 계층 선택](cache-overview.md#choosing-the-right-tier) 을 참조 하세요.
 
 
 ### <a name="scale"></a>확장
@@ -258,13 +258,13 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 >
 
-### <a name="firewall"></a>Firewall
+### <a name="firewall"></a>방화벽
 
 방화벽 규칙 구성은 모든 Azure Cache for Redis 계층에서 사용할 수 있습니다.
 
 **방화벽**을 클릭하여 Cache에 대한 방화벽 규칙을 보고 구성합니다.
 
-![Firewall](./media/cache-configure/redis-firewall-rules.png)
+![방화벽](./media/cache-configure/redis-firewall-rules.png)
 
 시작 및 끝 IP 주소 범위를 사용하여 방화벽 규칙을 지정할 수 있습니다. 방화벽 규칙이 구성되면 지정된 IP 주소 범위의 클라이언트 연결만 캐시에 연결할 수 있습니다. 방화벽 규칙이 저장되면 잠시 지연되었다가 규칙이 적용됩니다. 이러한 지연 시간은 일반적으로 1분 미만입니다.
 
@@ -414,7 +414,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
   * P4(53GB-530GB)-최대 64개의 데이터베이스
   * Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [Select](https://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-데이터베이스에 대한 자세한 내용은 [Redis 데이터베이스란?](cache-faq.md#what-are-redis-databases)을 참조하세요.
+데이터베이스에 대한 자세한 내용은 [Redis 데이터베이스란?](cache-development-faq.md#what-are-redis-databases)을 참조하세요.
 
 > [!NOTE]
 > `databases` 설정은 캐시를 만드는 동안에만 PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 구성할 수 있습니다. PowerShell을 사용하여 캐시를 만드는 동안 `databases`를 구성하는 예제는 [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases)를 참조하세요.
@@ -505,4 +505,4 @@ shard1>get myKey
 한 리소스 그룹에서 다른 리소스 그룹으로, 그리고 한 구독에서 다른 구독으로 리소스를 이동하는 방법에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* Redis 명령을 사용 하는 방법에 대 한 자세한 내용은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands) 를 참조 하세요.
+* Redis 명령을 사용 하는 방법에 대 한 자세한 내용은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.md#how-can-i-run-redis-commands) 를 참조 하세요.

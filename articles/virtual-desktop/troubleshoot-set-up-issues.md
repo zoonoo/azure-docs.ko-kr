@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 환경 호스트 풀 만들기-Azure
 description: Windows 가상 데스크톱 환경을 설치 하는 동안 테 넌 트 및 호스트 풀 문제를 해결 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a36e21d346e08ebe09f8c4b34f6af529d2a0f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292569"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006165"
 ---
 # <a name="host-pool-creation"></a>호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md)를 참조하세요.
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 및 관련 세션 호스트 풀 인프라의 초기 설정 중에 발생 하는 문제에 대해 설명 합니다.
 
@@ -37,13 +35,13 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 > [!div class="mx-imgBorder"]
 > !["무료 계정 만들기" 메시지를 표시 하 Azure Portal를 보여 주는 이미지](media/create-new-account.png)
 
-**원인**: Azure에 로그인 한 계정에 활성 구독이 없거나, 계정에 구독을 볼 수 있는 권한이 없습니다. 
+**원인**: Azure에 로그인 한 계정에 활성 구독이 없거나, 계정에 구독을 볼 수 있는 권한이 없습니다.
 
 **수정**: 참가자 수준 액세스 권한이 있는 계정으로 세션 호스트 vm (가상 머신)을 배포 하는 구독에 로그인 합니다.
 
 ### <a name="error-exceeding-quota-limit"></a>오류: "할당량 한도 초과"
 
-작업이 할당량 한도를 초과 하는 경우 다음 작업 중 하나를 수행할 수 있습니다. 
+작업이 할당량 한도를 초과 하는 경우 다음 작업 중 하나를 수행할 수 있습니다.
 
 - 동일한 매개 변수를 사용 하지만 vm 및 VM 코어 수가 작은 새 호스트 풀을 만듭니다.
 
@@ -119,9 +117,9 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 원시 오류의 예:
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -138,10 +136,10 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -162,7 +160,7 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱에서 Windows 10 Vm에 언어 팩 설치-Azure
 description: Windows 가상 데스크톱에서 Windows 10 다중 세션 Vm 용 언어 팩을 설치 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 542163511a1b4fc0acde9b44d73be6ffc042d5d3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361305"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008766"
 ---
 # <a name="install-language-packs"></a>언어 팩 설치
 

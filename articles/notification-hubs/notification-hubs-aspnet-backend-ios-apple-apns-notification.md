@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530179"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004171"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 사용자에 게 푸시 알림 보내기
 
@@ -50,7 +50,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 1. [Azure Notification Hubs을 사용 하 여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md) 자습서에서 만든 단일 페이지 보기 앱을 엽니다.
 
    > [!NOTE]
-   > 이 섹션에서는 빈 조직 이름을 사용하여 프로젝트를 구성했다고 가정합니다. 이렇게 구성하지 않았으면 모든 클래스 이름 앞에 조직 이름을 추가해야 합니다.
+   > 이 섹션에서는 빈 조직 이름을 사용하여 프로젝트를 구성했다고 가정합니다. 그렇지 않은 경우 모든 클래스 이름 앞에 조직 이름을 추가 합니다.
 
 2. `Main.storyboard` 파일에서 개체 라이브러리에서 스크린샷에 표시된 구성 요소를 추가합니다.
 
@@ -66,7 +66,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 
      일부 구성 요소는 [Azure Notification Hubs 자습서를 사용 하 여 iOS 앱에 푸시 알림 보내기](ios-sdk-get-started.md) 에서 추가 되었습니다.
 
-3. 보기의 구성 요소에서 **Ctrl** 키를 누른 채로 `ViewController.h`로 끌어서 이 새 콘센트를 추가합니다.
+3. **Ctrl 키** 를 누른 채로 보기의 구성 요소에서 `ViewController.h` 다음 새 콘센트를 추가 합니다.
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. `ViewController.h`에서 다음 `#define`을 import 문 뒤에 추가합니다. `<Enter Your Backend Endpoint>` 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예들 들어 `http://your_backend.azurewebsites.net`입니다.
+4. `ViewController.h`에서 다음 `#define`을 import 문 뒤에 추가합니다. `<Your backend endpoint>` 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예: `http://your_backend.azurewebsites.net`
 
     ```objc
-    #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    #define BACKEND_ENDPOINT @"<Your backend endpoint>"
     ```
 
-5. 프로젝트에서 사용자가 만든 ASP.NET 백 엔드를 사용하여 `RegisterClient`라는 새 Cocoa Touch 클래스를 인터페이스에 만듭니다. `NSObject`에서 상속하는 클래스를 만듭니다. 그런 다음, 다음 코드를 `RegisterClient.h`에 추가합니다.
+5. 프로젝트에서 사용자가 만든 ASP.NET 백 엔드를 사용하여 `RegisterClient`라는 새 Cocoa Touch 클래스를 인터페이스에 만듭니다. `NSObject`에서 상속하는 클래스를 만듭니다. 그런 후에 다음 코드를 추가 합니다 `RegisterClient.h` .
 
     ```objc
     @interface RegisterClient : NSObject
@@ -494,7 +494,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 등록에 태그가 연결된 특정 사용자에게 알림을 푸시하는 방법을 배웠습니다. 위치 기반 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 등록에 태그가 연결된 특정 사용자에게 알림을 푸시하는 방법을 배웠습니다. 위치 기반 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[위치 기반 알림 푸시](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

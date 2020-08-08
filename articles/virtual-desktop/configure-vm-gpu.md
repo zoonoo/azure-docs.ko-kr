@@ -1,23 +1,21 @@
 ---
 title: Windows Virtual Desktop용 GPU 구성 - Azure
 description: Windows Virtual Desktop에서 GPU 가속 렌더링 및 인코딩을 사용하도록 설정하는 방법입니다.
-services: virtual-desktop
 author: gundarev
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291502"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007779"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md)를 참조하세요.
 
 Windows Virtual Desktop은 향상된 앱 성능 및 확장성을 위해 GPU 가속 렌더링 및 인코딩을 지원합니다. GPU 가속은 특히 그래픽이 많은 앱에 매우 중요합니다.
 
@@ -58,7 +56,7 @@ Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 구성
 
 원격 데스크톱은 원격 데스크톱 클라이언트에 전송하기 위해 앱 및 데스크톱에 의해 렌더링된 모든 그래픽(GPU 또는 CPU를 사용하여 렌더링됨)을 인코딩합니다. 화면 일부가 자주 업데이트 되는 경우 화면의이 부분은 비디오 코덱 (h.264/AVC)로 인코딩됩니다. 기본적으로 원격 데스크톱은 이 인코딩에 대해 사용 가능한 GPU를 활용하지 않습니다. 세션 호스트에 대한 그룹 정책을 구성하여 GPU 가속 프레임 인코딩을 사용하도록 설정합니다. 위의 단계를 계속합니다.
- 
+
 >[!NOTE]
 >GPU 가속 프레임 인코딩은 NVv4 시리즈 Vm에서 사용할 수 없습니다.
 

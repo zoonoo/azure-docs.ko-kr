@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 안전 URL 목록-Azure
 description: Windows 가상 데스크톱 배포가 의도 한 대로 작동 하도록 차단 해야 하는 Url 목록입니다.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075605"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009480"
 ---
 # <a name="safe-url-list"></a>안전 URL 목록
 
@@ -33,7 +31,7 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows 정품 인증|인터넷|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal 지원|AzureCloud|
-| 169.254.169.254 | 80 | [Azure Instance Metadata service 끝점](../virtual-machines/windows/instance-metadata-service.md) | N/A |
+| 169.254.169.254 | 80 | [Azure Instance Metadata service 끝점](../virtual-machines/windows/instance-metadata-service.md) | 해당 없음 |
 
 >[!IMPORTANT]
 >이제 Windows Virtual Desktop에서 FQDN 태그를 지원합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](../firewall/protect-windows-virtual-desktop.md)를 참조하세요.

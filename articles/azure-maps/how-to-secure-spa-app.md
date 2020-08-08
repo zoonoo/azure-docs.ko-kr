@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0aa688d6e56629ca376844ce2d0669197b1bb2b7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 83fbf6fa9190953d902ab60a8a5ce131f1fd8a0e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531348"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006420"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>비 대화형 로그인을 사용 하 여 단일 페이지 응용 프로그램을 보호 하는 방법
 
@@ -102,12 +102,12 @@ Azure AD에 대 한 인증을 담당 하는 보안 웹 서비스 응용 프로�
 
 ## <a name="grant-role-based-access"></a>역할 기반 액세스 권한 부여
 
-하나 이상의 Azure 역할 정의에 시스템 할당 id를 할당 하 여 RBAC ( *역할 기반 액세스 제어* )를 부여 합니다. Azure Maps 사용할 수 있는 Azure 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다.
+하나 이상의 Azure 역할 정의에 시스템 할당 id를 할당 하 여 azure *RBAC (역할 기반 액세스 제어)* 액세스 권한을 부여 합니다. Azure Maps 사용할 수 있는 Azure 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다.
 
 1. **Azure Maps 계정**으로 이동 합니다. **액세스 제어 (IAM)**  >  **역할 할당**을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![RBAC 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Azure RBAC를 사용 하 여 액세스 권한 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. **역할 할당** 탭의 **역할**에서 **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자**와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. **액세스 할당**대상에서 **함수 앱**을 선택 합니다. 이름으로 보안 주체를 선택 합니다. 그런 다음 **저장**을 선택합니다.
 

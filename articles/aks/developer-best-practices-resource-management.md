@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281568"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005315"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 리소스를 관리하기 위한 애플리케이션 개발자 모범 사례
 
@@ -74,7 +74,7 @@ spec:
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>AKS 클러스터에서 애플리케이션 개발 및 디버그
 
-**모범 사례 가이드** - 개발 팀은 Dev Spaces를 사용하여 AKS 클러스터에서 배포 및 디버그해야 합니다. 이 개발 모델에서는 앱이 프로덕션 환경에 배포되기 전에 역할 기반 액세스 제어, 네트워크 또는 스토리지 요구 사항이 구현되도록 합니다.
+**모범 사례 가이드** - 개발 팀은 Dev Spaces를 사용하여 AKS 클러스터에서 배포 및 디버그해야 합니다. 이 개발 모델은 앱을 프로덕션 환경에 배포 하기 전에 RBAC (역할 기반 액세스 제어), 네트워크 또는 저장소 요구 사항을 구현 하는지 확인할 수 있습니다.
 
 Azure Dev Spaces를 사용하면 AKS 클러스터에서 직접 애플리케이션을 개발, 디버그 및 테스트합니다. 팀 내의 개발자들은 애플리케이션 수명 주기 내내 함께 빌드하고 테스트합니다. Visual Studio 또는 Visual Studio Code와 같은 기존 도구를 계속 사용할 수 있습니다. AKS 클러스터에서 응용 프로그램을 실행 하 고 디버그 하는 옵션을 제공 하는 개발 공간에 대해 확장이 설치 됩니다.
 

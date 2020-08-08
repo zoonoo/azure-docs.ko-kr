@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식)에 대 한 진단 도구 배포-Azure
 description: Windows 가상 데스크톱에 대 한 진단 UX 도구 (클래식)를 배포 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285104"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009191"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows 가상 데스크톱 (클래식) 진단 도구 배포
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
 
 >[!IMPORTANT]
 >2020 년 3 월 16 일부 터 서비스에 대 한 수요 증가로 인해 사용자 환경에 영향을 주는 진단 쿼리를 일시적으로 사용 하지 않도록 설정 했습니다. 이렇게 하면 해당 쿼리가 작동 하는 데 의존 하므로 도구가 작동을 중지 합니다. 진단 쿼리를 다시 사용할 수 있게 되 면이 문서를 업데이트 합니다.
@@ -34,7 +32,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -193,7 +191,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 4.  왼쪽 패널의 관리 섹션에서 **인증**을 선택 합니다.
 5.  **리디렉션 uri** 텍스트 상자에 원하는 리디렉션 uri를 입력 한 다음 메뉴의 왼쪽 위 모서리에서 **저장** 을 선택 합니다.
 6. 유형 아래의 드롭다운 메뉴에서 **웹** 을 선택 합니다.
-7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예를 들면 `https://<yourappname>.azurewebsites.net/security/signin-callback`과 다음과 같습니다.
+7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![URI 리디렉션 페이지](../media/redirect-uri-page.png)

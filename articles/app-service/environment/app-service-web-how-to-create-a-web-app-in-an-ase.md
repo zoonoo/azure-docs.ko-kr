@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0407bde00c703663227230a0b6ff2de287f6650c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220697"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007066"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "86220697"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서는 App Service Environment를 만든 적이 있는 개발자를 대상으로 합니다. 만들어 본 적이 없는 경우 [App Service Environment 만들기](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
@@ -40,7 +40,7 @@ ms.locfileid: "86220697"
     여러 구독이 있는 경우 App Service Environment의 앱을 만들려면 환경을 만드는 데 사용한 동일한 구독을 사용해야 한다는 점에 주의합니다. 
 3. 리소스 그룹을 선택하거나 만듭니다.
    
-    *리소스 그룹* 을 사용 하면 관련 된 Azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대 한 RBAC ( *역할 기반 액세스 제어* ) 규칙을 설정할 때 유용 합니다. 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요. 
+    *리소스 그룹* 을 사용 하면 관련 된 azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대 한 *azure RBAC (역할 기반 액세스 제어)* 규칙을 설정할 때 유용 합니다. 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요. 
 4. App Service 계획을 선택하거나 만듭니다.
    
     *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 컴퓨팅 인스턴스가 아니라 ASE에 할당된 컴퓨팅 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md) 를 참조 하세요.

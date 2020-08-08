@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 064a62b030a1fd9f3c875fce646ad8553b75d513
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: c1222f671c95d4475de93b9c9e085a94f864b2ae
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986630"
+ms.locfileid: "88003082"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
@@ -44,7 +44,7 @@ Kubernetes 권한 부여를 위해 Azure RBAC를 사용 하는 AKS 클러스터�
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+플래그가 성공적으로 등록 되려면 위의 미리 보기 양식을 제출한 후 승인을 받아야 합니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"

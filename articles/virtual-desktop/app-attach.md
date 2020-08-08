@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop MSIX app attach - Azure
 description: Windows Virtual Desktop에 맞게 MSIX app attach을 설정하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f68ee9854b40c8174fe8808fc82639b79629c0c8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e461bbf8c3a6cd845744fc0e17b5d1f0eb9bef58
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987157"
+ms.locfileid: "88010160"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 

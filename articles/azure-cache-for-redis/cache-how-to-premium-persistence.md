@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 84a5b4784a36fb22ae50a7a1ec4fcb7e5ef5b7c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80245279"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004811"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 지속성을 구성하는 방법에 대해 설명합니다.
-
-다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
 ## <a name="what-is-data-persistence"></a>데이터 지속성이란?
 [Redis 지속성](https://redis.io/topics/persistence)을 사용하면 Redis에 저장된 데이터를 유지할 수 있습니다. 또한 스냅샷을 만들고, 하드웨어 오류 시 로드할 수 있게 데이터를 백업할 수 있습니다. 기본 또는 표준 계층보다 훨씬 큰 이러한 혜택은 모든 데이터가 메모리에 저장되기 때문에 가능하며 캐시 노드 다운 시 데이터 손실 가능성이 있습니다. 
@@ -179,9 +177,9 @@ AOF 파일에 저장된 데이터는 스토리지에 데이터를 저장하는 �
 
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
+Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-* [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)
+* [Redis Premium 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

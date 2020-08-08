@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6902d1420090b81c933f07f7e929aa86c052404
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609353"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009242"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
-**OCR (광학 문자 인식)** 기술은 이미지 파일에서 인쇄 된 텍스트 및 필기 텍스트를 인식 합니다. 이 기술은 Cognitive Services의 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)에서 제공하는 기계 학습 모델을 사용합니다. **OCR** 기술은 다음 기능에 해당됩니다.
+**OCR (광학 문자 인식)** 기술은 이미지 파일에서 인쇄 된 텍스트 및 필기 텍스트를 인식 합니다. 이 기술은 Cognitive Services에서 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 이 제공 하는 기계 학습 모델을 사용 합니다. **OCR** 기술은 다음 기능에 해당됩니다.
 
-+ ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) API는 영어 이외의 언어에 사용 됩니다. 
-+ 영어의 경우 새 ["읽기"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API가 사용 됩니다.
++ 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어의 경우 새로운 ["읽기"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API가 사용 됩니다.
++ 다른 모든 언어의 경우에는 ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) API가 사용 됩니다.
 
 **OCR** 기술은 이미지 파일에서 텍스트를 추출합니다. 지원 파일 형식은 다음과 같습니다.
 

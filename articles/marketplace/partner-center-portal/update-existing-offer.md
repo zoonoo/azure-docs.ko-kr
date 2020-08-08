@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086339"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006794"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 기존 제품 업데이트
 
@@ -43,7 +43,7 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 
 1. 기존 제품에 대 한 **제품 개요** 페이지를 열고 **계획 개요** 페이지로 이동한 다음 **새 계획 만들기**를 선택 합니다.
 1. **기존 계획 가격 책정 모델**을 사용 하 여 [지침](./create-new-saas-offer.md#plan-overview) 에 따라 새 계획을 만듭니다.
-1. 계획 이름을 변경한 후에는 **초안 저장** 을 선택 합니다. 
+1. 계획 이름을 변경한 후에는 **초안 저장** 을 선택 합니다.
 1. 업데이트를 게시할 준비가 되 면 **게시** 를 선택 합니다. **[검토 및 게시](#review-and-publish-an-updated-offer)** 페이지가 열리고 업데이트에 대 한 완료 상태를 제공 합니다.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>기존 제품 내에서 요금제 업데이트
@@ -55,6 +55,24 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 1. 계획 이름, 설명 또는 대상 그룹의 가용성을 변경한 후에는 **초안 저장** 을 선택 합니다.
 1. 업데이트를 게시할 준비가 되 면 **검토 및 게시** 를 선택 합니다. **[검토 및 게시](#review-and-publish-an-updated-offer)** 페이지가 열리고 업데이트에 대 한 완료 상태를 제공 합니다.
 1. **게시**를 선택 하 여 게시에 대 한 업데이트 된 계획을 제출 합니다. 업데이트 된 제품의 미리 보기 버전을 검토 하 고 로그 오프 하는 경우 전자 메일을 보내 드리겠습니다.
+
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>새 가격으로 가상 머신 요금제 제공
+
+가상 머신 요금제를 게시 한 후에는 가격을 변경할 수 없습니다. 동일한 계획을 다른 가격으로 제공 하려면 계획을 숨기고 업데이트 된 가격으로 새 계획을 만들어야 합니다. 먼저 변경 하려는 가격이 포함 된 계획을 숨깁니다.
+
+1. 기존 제품에 대 한 **제품 개요** 페이지를 열고 변경 하려는 계획을 선택 합니다. 계획 **개요** 목록에서 요금제에 액세스할 수 없는 경우 **모든 계획 보기**를 선택 합니다.
+1. **계획 숨기기** 확인란을 선택 합니다. 계속 하기 전에 초안을 저장 합니다.
+
+이전 가격으로 계획을 만들었으므로 업데이트 된 가격으로 해당 계획의 복사본을 만듭니다.
+
+1. 파트너 센터에서 **계획 개요**로 돌아갑니다.
+2. **새 플랜 만들기**를 선택합니다. **계획 ID** 와 **계획 이름을**입력 하 고 **만들기**를 선택 합니다.
+1. 숨겨진 계획에서 기술 구성을 다시 사용 하려면 **기술 구성 다시 사용** 확인란을 선택 합니다. 자세한 내용은 [계획 개요](azure-vm-create-offer.md#plan-overview) 를 참조 하세요.
+    > [!IMPORTANT]
+    > 이 계획을 선택 하 여 **다른 계획의 기술 구성**다시 사용할 경우 나중에 부모 계획의 판매를 중지할 수 없습니다. 부모 계획의 판매를 중지 하려면이 옵션을 사용 하지 마세요.
+3. 새 가격을 포함 하 여 새 계획에 대 한 모든 필수 섹션을 완료 합니다.
+1. **초안 저장**을 선택합니다.
+1. 새 계획에 대 한 모든 필수 섹션을 완료 한 후 **검토 및 게시**를 선택 합니다. 그러면 검토 및 게시에 대 한 제안이 제출 됩니다. 자세한 내용은 [상업적 marketplace에 대 한 제품 검토 및 게시를](../review-publish-offer.md) 참조 하세요.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Marketplace 제품에 대 한 변경 내용 비교
 

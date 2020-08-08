@@ -1,19 +1,17 @@
 ---
 title: 도메인 컨트롤러를 사용 하 여 Azure Files 파일 공유 만들기-Azure
 description: Active Directory 도메인을 사용 하 여 기존 Windows 가상 데스크톱 호스트 풀의 Azure 파일 공유에 FSLogix 프로필 컨테이너를 설정 합니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842912"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009225"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files 및 AD DS를 사용 하 여 프로필 컨테이너 만들기
 
@@ -181,7 +179,7 @@ NTFS 사용 권한을 구성 하려면:
      - <탑재 된 드라이브 문자>를 드라이브를 매핑하는 데 사용한 드라이브의 문자로 바꿉니다.
      - 사용자 전자 메일> <을 공유에 대 한 액세스 권한이 필요한 사용자를 포함 하는 사용자 또는 Active Directory 그룹의 UPN으로 바꿉니다.
 
-     예를 들어:
+     예:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

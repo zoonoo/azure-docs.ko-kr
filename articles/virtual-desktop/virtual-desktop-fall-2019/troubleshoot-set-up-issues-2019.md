@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) 테 넌 트 호스트 풀 만들기-Azure
 description: Windows 가상 데스크톱 (클래식) 테 넌 트 환경을 설치 하는 동안 테 넌 트 및 호스트 풀 문제를 해결 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269600"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009259"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에서 테 넌 트 및 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../troubleshoot-set-up-issues.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-set-up-issues.md)를 참조하세요.
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 및 관련 세션 호스트 풀 인프라의 초기 설정 중에 발생 하는 문제에 대해 설명 합니다.
 
@@ -43,9 +41,9 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
@@ -124,12 +122,12 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 1. 현재 Azure Marketplace 배포 제품을 종료 합니다.
 2. 위쪽 검색 창에서 **활동 로그**를 검색 하 고 선택 합니다.
 3. 상태가 **실패** 인 **배포 유효성 검사** 라는 작업을 찾아 작업을 선택 합니다.
-   
+
    > [!div class="mx-imgBorder"]
    > ![* * 배포 유효성 검사 * * 작업 (* * 실패 * * 상태)의 스크린샷](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. JSON을 선택 하 고 "statusMessage" 필드가 표시 될 때까지 화면 아래쪽으로 스크롤합니다.
-   
+
    > [!div class="mx-imgBorder"]
    > ![JSON 텍스트의 statusMessage 속성 주위에 빨간색 상자가 있는 실패 한 작업의 스크린샷](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
@@ -260,7 +258,7 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n
