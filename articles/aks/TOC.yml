@@ -290,8 +290,8 @@
           href: windows-container-powershell.md
         - name: 원격으로 연결
           href: rdp.md
-        - name: 알려진 제한 사항
-          href: windows-node-limitations.md
+        - name: Windows Server 컨테이너 FAQ
+          href: windows-faq.md
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
         - name: Windows Server 컨테이너용 Dockerfiles 만들기

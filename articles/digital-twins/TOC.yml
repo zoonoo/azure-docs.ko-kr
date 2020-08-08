@@ -55,7 +55,7 @@
         - name: 사용자 지정 모델 관리
           href: how-to-manage-model.md
         - name: 모델 구문 분석 및 유효성 검사
-          href: how-to-use-parser.md
+          href: how-to-parse-models.md
         - name: 태그 추가
           href: how-to-use-tags.md
     - name: 라이브 실행 환경 사용

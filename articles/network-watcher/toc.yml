@@ -7,14 +7,14 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: ARM 템플릿을 사용하여 NSG 흐름 로그 구성
-      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: VM 트래픽 필터 문제 진단 - Portal
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: VM 트래픽 필터 문제 진단 - PowerShell
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: VM 트래픽 필터 문제 진단 - Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
+    - name: ARM 템플릿을 사용하여 NSG 흐름 로그 구성
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: 자습서
   items:
     - name: VM 라우팅 문제 진단

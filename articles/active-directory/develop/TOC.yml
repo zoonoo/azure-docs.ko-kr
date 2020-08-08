@@ -298,6 +298,9 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: 단일 및 다중 계정 퍼블릭 클라이언트 앱
               href: single-multi-account.md
+            - name: 오류 및 예외 처리
+              href: msal-android-handling-exceptions.md
+              displayName: 'android, mobile'
             - name: 로깅
               href: msal-logging.md?tabs=android
         - name: iOS 및 macOS
