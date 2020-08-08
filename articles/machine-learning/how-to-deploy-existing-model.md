@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fc3c03fa3368d87857ed91c720a92aacecf6eb89
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04442ad2c6f12960a6c27cc96b52eae20b046851
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843167"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008205"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 기존 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "87843167"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
-  + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다.
+  + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다. 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING SDK 설명서](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#workspace)를 참조 하세요.
   
   + CLI 예제에서는 및의 자리 표시자 `myworkspace` `myresourcegroup` 를 사용 합니다 .이 자리 표시자는 작업 영역 이름 및이를 포함 하는 리소스 그룹으로 바꾸어야 합니다.
 

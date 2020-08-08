@@ -1,19 +1,17 @@
 ---
 title: FSLogix 프로필 컨테이너 NetApp Windows 가상 데스크톱-Azure
 description: Windows 가상 데스크톱에서 Azure NetApp Files를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362988"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002818"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Azure NetApp Files 및 AD DS를 사용 하 여 프로필 컨테이너 만들기
 
@@ -33,7 +31,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 >[!NOTE]
 >Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 호스트 풀에 대해 FSLogix 프로필 컨테이너를 만들려면 먼저 다음을 수행 해야 합니다.
 

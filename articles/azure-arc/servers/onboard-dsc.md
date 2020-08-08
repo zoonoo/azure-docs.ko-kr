@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02661ff3c21fa27367cc9f2c399341ed2b86db3f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809615"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003893"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전트를 설치 하는 방법
 
@@ -49,7 +49,7 @@ ms.locfileid: "87809615"
 
 이 모듈의 리소스는 Azure 연결 된 컴퓨터 에이전트 구성을 관리 하도록 설계 되었습니다. 또한 폴더에 있는 PowerShell 스크립트도 포함 되어 `AzureConnectedMachineAgent.ps1` `AzureConnectedMachineDsc\examples` 있습니다. 커뮤니티 리소스를 사용 하 여 다운로드 및 설치를 자동화 하 고 Azure Arc와의 연결을 설정 합니다. 이 스크립트는 [Azure Portal에서 Azure에 하이브리드 컴퓨터 연결](onboard-portal.md) 문서에 설명 된 유사한 단계를 수행 합니다.
 
-컴퓨터가 프록시 서버를 통해 서비스와 통신 해야 하는 경우 에이전트를 설치한 후 [여기](onboard-portal.md#configure-the-agent-proxy-setting)에 설명 된 명령을 실행 해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다. 명령을 수동으로 실행 하는 대신 [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) 모듈을 사용 하 여 DSC에서이 단계를 수행할 수 있습니다.
+컴퓨터가 프록시 서버를 통해 서비스와 통신 해야 하는 경우 에이전트를 설치한 후 [여기](manage-agent.md#update-or-remove-proxy-settings)에 설명 된 명령을 실행 해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다. 명령을 수동으로 실행 하는 대신 [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) 모듈을 사용 하 여 DSC에서이 단계를 수행할 수 있습니다.
 
 >[!NOTE]
 >DSC를 실행할 수 있도록 허용 하려면 localhost 구성을 실행 하는 경우에도 PowerShell 원격 명령을 받도록 Windows를 구성 해야 합니다. 환경을 올바르게 구성하려면 관리자 권한 PowerShell 터미널에서 `Set-WsManQuickConfig -Force`를 실행하면 됩니다.

@@ -3,15 +3,15 @@ title: AKS(Azure Kubernetes Service)의 클러스터 구성
 description: AKS(Azure Kubernetes Service)에서 클러스터를 구성하는 방법 알아보기
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1329aa056e8d1db951e01555634cf1ea709608b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252014"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008800"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -233,6 +233,67 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 일반 Gen1 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여이 작업을 수행할 수 있습니다 `--aks-custom-headers` .
 
+
+## <a name="ephemeral-os-preview"></a>임시 OS (미리 보기)
+
+기본적으로 Azure 가상 컴퓨터에 대 한 운영 체제 디스크는 Azure storage에 자동으로 복제 되어 데이터 손실을 방지 하 고 VM을 다른 호스트에 재배치 해야 합니다. 그러나 컨테이너는 로컬 상태를 유지 하도록 설계 되지 않았으므로이 동작은 제한 된 값을 제공 하 고, 느린 노드 프로 비전 및 낮은 읽기/쓰기 대기 시간을 비롯 한 몇 가지 단점을 제공 합니다.
+
+이와 반대로 삭제 된 OS 디스크는 임시 디스크와 마찬가지로 호스트 컴퓨터에만 저장 됩니다. 이를 통해 더 빠른 노드 크기 조정 및 클러스터 업그레이드와 함께 읽기/쓰기 대기 시간이 줄어듭니다.
+
+임시 디스크와 마찬가지로, 임시 OS 디스크는 가상 컴퓨터의 가격에 포함 되어 있으므로 추가 저장소 비용이 발생 하지 않습니다.
+
+`EnableEphemeralOSDiskPreview` 기능을 등록합니다.
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합니다.
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Aks-preview CLI 확장을 업데이트 하려면 다음 Azure CLI 명령을 사용 합니다.
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-ephemeral-os-on-new-clusters-preview"></a>새 클러스터에서 사용 후 삭제 OS 사용 (미리 보기)
+
+클러스터를 만들 때 사용 후 삭제 OS 디스크를 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`새 클러스터에 대 한 os 디스크 유형으로 사용 후 삭제 os를 설정 하려면 플래그를 사용 합니다.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+네트워크에 연결 된 OS 디스크를 사용 하 여 일반 클러스터를 만들려는 경우 사용자 지정 태그를 생략 하 여 수행할 수 있습니다 `--aks-custom-headers` . 또한 아래와 같이 더 많은 임시 OS 노드 풀을 추가 하도록 선택할 수 있습니다.
+
+### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>기존 클러스터에서 사용 후 삭제 OS 사용 (미리 보기)
+새 노드 풀을 구성 하 여 사용 후 삭제 OS 디스크를 사용 합니다. 플래그를 사용 `--aks-custom-headers` 하 여 os 디스크 유형으로 해당 노드 풀의 os 디스크 유형으로 설정 합니다.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+> [!IMPORTANT]
+> 사용 후 삭제 OS를 사용 하면 vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니다. AKS의 경우 기본 노드 OS 디스크 구성은 100GiB을 사용 합니다. 즉, 캐시가 100 GiB 보다 큰 VM 크기가 필요 합니다. 기본 Standard_DS2_v2의 캐시 크기는 86 GiB입니다 .이는 충분히 크지 않습니다. Standard_DS3_v2의 캐시 크기가 172 GiB입니다 .이는 크기가 충분 합니다. 또한를 사용 하 여 OS 디스크의 기본 크기를 줄일 수 있습니다 `--node-osdisk-size` . AKS 이미지의 최소 크기는 30GiB입니다. 
+
+네트워크에 연결 된 OS 디스크를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여 그렇게 할 수 있습니다 `--aks-custom-headers` .
+
 ## <a name="custom-resource-group-name"></a>사용자 지정 리소스 그룹 이름
 
 Azure에서 Azure Kubernetes Service 클러스터를 배포하면 작업자 노드에 대한 두 번째 리소스 그룹이 생성됩니다. 기본적으로 AKS는 노드 리소스 그룹 이름을 `MC_resourcegroupname_clustername_location`으로 지정하지만 사용자 고유의 이름을 제공할 수도 있습니다.
@@ -259,6 +320,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --node-resour
 - 클러스터를 최신 버전의 Kubernetes로 업그레이드하는 방법을 알아보려면 [AKS(Azure Kubernetes Service) 클러스터 업그레이드](upgrade-cluster.md)를 참조하세요.
 - [ `containerd` 및 Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/) 에 대해 자세히 알아보세요.
 - 몇 가지 일반적인 AKS 질문에 대한 답변을 확인하려면 [AKS에 대한 질문과 대답](faq.md) 목록을 참조하세요.
+- [임시 OS 디스크](../virtual-machines/ephemeral-os-disks.md)에 대해 자세히 알아보세요.
 
 
 <!-- LINKS - internal -->

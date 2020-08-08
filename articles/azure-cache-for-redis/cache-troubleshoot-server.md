@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698081"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008919"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Azure Cache for Redis 서버 쪽 문제 해결
 
@@ -76,7 +76,7 @@ CPU 또는 서버 부하와 같은 [메트릭을 모니터링](cache-how-to-moni
 ## <a name="additional-information"></a>추가 정보
 
 - [Azure Cache for Redis 클라이언트 쪽 문제 해결](cache-troubleshoot-client.md)
-- [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
-- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [올바른 계층 선택](cache-overview.md#choosing-the-right-tier)
+- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md)
-- [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)
+- [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.md#how-can-i-run-redis-commands)

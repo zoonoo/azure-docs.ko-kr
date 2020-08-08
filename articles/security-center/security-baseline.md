@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9bd0f1cbe1f4797a0187952b94ca48077bb3134c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854418"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004479"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Security Center에 대 한 Azure 보안 기준
 
@@ -190,7 +190,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다. Azure Security Center에는 사용자가 보안 정책을 읽고 업데이트 하 고 경고 및 권장 사항을 해제할 수 있게 해 주는 ' 보안 읽기 권한자 ' 또는 ' 보안 Admin '의 기본 제공 역할이 있습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다. Azure Security Center에는 사용자가 보안 정책을 읽고 업데이트 하 고 경고 및 권장 사항을 해제할 수 있게 해 주는 ' 보안 읽기 권한자 ' 또는 ' 보안 Admin '의 기본 제공 역할이 있습니다.
 
 - [Azure Security Center의 권한](security-center-permissions.md)
 
@@ -344,7 +344,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure Active Directory RBAC를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
+**지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
 
 기본적으로 Azure Security Center 데이터는 Security Center 백엔드 서비스에 저장 됩니다. 사용자의 리소스에이 데이터를 저장 하기 위한 요구 사항이 조직에 추가 된 경우 Log Analytics 작업 영역을 구성 하 여 Security Center 데이터, 경고 및 권장 사항을 저장할 수 있습니다. 사용자 고유의 작업 영역을 사용 하는 경우 데이터가 시작 된 환경에 따라 서로 다른 작업 영역을 구성 하 여 추가로 분리를 추가할 수 있습니다.
 
@@ -376,15 +376,15 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **책임**: 공유됨
 
-### <a name="46-use-role-based-access-controls-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다. 
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어 
 
-**지침**: Azure 역할 기반 액세스 제어를 사용 하 여 Azure Security Center 관련 된 데이터 및 리소스에 대 한 액세스를 관리 합니다. Azure Security Center에는 사용자가 보안 정책을 읽고 업데이트 하 고 경고 및 권장 사항을 해제할 수 있게 해 주는 ' 보안 읽기 권한자 ' 또는 ' 보안 Admin '의 기본 제공 역할이 있습니다. Security Center에 의해 수집 된 데이터를 저장 하는 Log Analytics 작업 영역에는 ' Log Analytics 읽기 권한자 ', ' Log Analytics 기여자 ' 등과 같은 사용자가 지정할 수 있는 기본 제공 역할도 있습니다. 사용자가 필요한 작업을 완료 하는 데 필요한 최소 허용 역할을 할당 합니다. 예를 들어, 리소스의 보안 상태에 대한 정보를 보기만 하고 권장 사항 적용이나 정책 편집 등의 조치는 취하지 않는 사용자에게 독자 역할을 할당합니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Security Center 관련 된 데이터 및 리소스에 대 한 액세스를 관리 합니다. Azure Security Center에는 사용자가 보안 정책을 읽고 업데이트 하 고 경고 및 권장 사항을 해제할 수 있게 해 주는 ' 보안 읽기 권한자 ' 또는 ' 보안 Admin '의 기본 제공 역할이 있습니다. Security Center에 의해 수집 된 데이터를 저장 하는 Log Analytics 작업 영역에는 ' Log Analytics 읽기 권한자 ', ' Log Analytics 기여자 ' 등과 같은 사용자가 지정할 수 있는 기본 제공 역할도 있습니다. 사용자가 필요한 작업을 완료 하는 데 필요한 최소 허용 역할을 할당 합니다. 예를 들어, 리소스의 보안 상태에 대한 정보를 보기만 하고 권장 사항 적용이나 정책 편집 등의 조치는 취하지 않는 사용자에게 독자 역할을 할당합니다.
 
 - [Azure Log Analytics 작업 영역에 대 한 사용 권한](../role-based-access-control/built-in-roles.md#log-analytics-reader)
 
 - [Azure Security Center의 권한](security-center-permissions.md)
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

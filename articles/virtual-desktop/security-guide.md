@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 보안 모범 사례-Azure
 description: Windows 가상 데스크톱 환경을 안전 하 게 유지 하기 위한 모범 사례입니다.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736675"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002298"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -36,7 +34,7 @@ Windows 가상 데스크톱 배포에서 담당 하는 보안 요구 사항은 �
 |앱 보안|예|
 |세션 호스트 OS|예|
 |배포 구성|예|
-|네트워크 컨트롤|예|
+|네트워크 제어|예|
 |가상화 제어 평면|아니요|
 |물리적 호스트|아니요|
 |실제 네트워크|아니요|
@@ -103,7 +101,7 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 
 ### <a name="enable-endpoint-protection"></a>Endpoint protection 사용
 
-알려진 악성 소프트웨어에서 배포를 보호 하려면 모든 세션 호스트에서 endpoint protection을 사용 하도록 설정 하는 것이 좋습니다. Windows Defender 바이러스 백신 또는 타사 프로그램을 사용할 수 있습니다. 자세히 알아보려면 [VDI 환경에서 Windows Defender 바이러스 백신 배포 가이드](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus)를 참조 하세요. 
+알려진 악성 소프트웨어에서 배포를 보호 하려면 모든 세션 호스트에서 endpoint protection을 사용 하도록 설정 하는 것이 좋습니다. Windows Defender 바이러스 백신 또는 타사 프로그램을 사용할 수 있습니다. 자세히 알아보려면 [VDI 환경에서 Windows Defender 바이러스 백신 배포 가이드](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus)를 참조 하세요.
 
 FSLogix 또는 VHD 파일을 탑재 하는 기타 솔루션과 같은 프로필 솔루션의 경우 VHD 파일 확장명을 제외 하는 것이 좋습니다.
 

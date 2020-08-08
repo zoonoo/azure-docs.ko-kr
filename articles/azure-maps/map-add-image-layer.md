@@ -1,6 +1,6 @@
 ---
 title: 지도에 이미지 계층 추가 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지도에 이미지를 오버레이 하는 방법에 대해 알아봅니다.
+description: 지도에 이미지를 추가 하는 방법을 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 고정 된 좌표 집합에서 이미지 레이어 및 오버레이 이미지를 사용자 지정 하는 방법을 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 6ffec1afc44c6b920a64b4b92b384b6ce3829488
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a804272a92d98156122397ee7427dcb467fbdf0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286948"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010228"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 

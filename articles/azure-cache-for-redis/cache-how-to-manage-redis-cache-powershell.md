@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 74308ae79b899a55db4682474e3dcd9dab26db98
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856930"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004868"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 > [!div class="op_single_selector"]
@@ -655,7 +655,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](https://docs.micr
 `Import-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스에 데이터를 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> Import/Export는 [프리미엄 계층](cache-premium-tier-intro.md) 캐시에만 제공됩니다. Import/Export에 대한 자세한 내용은 [Azure Cache for Redis에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)를 참조하세요.
+> Import/Export는 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다. Import/Export에 대한 자세한 내용은 [Azure Cache for Redis에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)를 참조하세요.
 > 
 > 
 
@@ -719,7 +719,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](https://docs.micr
 `Export-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스에서 데이터를 내보낼 수 있습니다.
 
 > [!IMPORTANT]
-> Import/Export는 [프리미엄 계층](cache-premium-tier-intro.md) 캐시에만 제공됩니다. Import/Export에 대한 자세한 내용은 [Azure Cache for Redis에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)를 참조하세요.
+> Import/Export는 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다. Import/Export에 대한 자세한 내용은 [Azure Cache for Redis에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)를 참조하세요.
 > 
 > 
 
@@ -784,7 +784,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](https://docs.micr
 `Reset-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스를 재부팅할 수 있습니다.
 
 > [!IMPORTANT]
-> 재부팅은 [프리미엄 계층](cache-premium-tier-intro.md) 캐시에만 사용할 수 있습니다. 캐시를 재부팅하는 방법에 대한 자세한 내용은 [캐시 관리 - 재부팅](cache-administration.md#reboot)을 참조하세요.
+> 다시 부팅은 [프리미엄 계층](cache-overview.md#service-tiers) 캐시에만 사용할 수 있습니다. 캐시를 재부팅하는 방법에 대한 자세한 내용은 [캐시 관리 - 재부팅](cache-administration.md#reboot)을 참조하세요.
 > 
 > 
 

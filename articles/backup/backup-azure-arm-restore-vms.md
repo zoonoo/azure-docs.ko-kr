@@ -4,12 +4,12 @@ description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Mach
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809187"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006335"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -45,7 +45,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 RBAC (역할 기반 액세스 제어) [권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있는지 확인 합니다.
+Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 Azure RBAC (역할 기반 액세스 제어) [권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있는지 확인 합니다.
 
 사용 권한이 없는 경우 [디스크를 복원한](#restore-disks)다음 디스크가 복원 된 후 복원 작업의 일부로 생성 된 [템플릿을 사용](#use-templates-to-customize-a-restored-vm) 하 여 새 VM을 만들 수 있습니다.
 
@@ -173,7 +173,7 @@ CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습�
 >
 >- 복원이 트리거되고 데이터 전송 단계에서는 복원 작업을 취소할 수 없습니다.
 >- 지역 간 복원 기능은 cmk 사용 Recovery Services 자격 증명 모음에서 백업 되지 않은 CMK (고객 관리 키) 사용 Azure Vm을 보조 지역에서 CMK가 설정 된 Vm으로 복원 합니다.
->- 보조 지역에서 복원 하는 데 필요한 RBAC (역할 기반 액세스 제어) 역할은 주 지역의 경우와 동일 합니다.
+>- 보조 지역에서 복원 하는 데 필요한 Azure 역할은 주 지역의 경우와 동일 합니다.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>보조 지역 복원 작업 모니터링
 

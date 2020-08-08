@@ -3,12 +3,12 @@ title: Azure Relay 네임스페이스에 대한 IP 방화벽 구성
 description: 이 문서에서는 특정 IP 주소에서 Azure Relay 네임스페이스로의 연결을 허용하도록 방화벽 규칙을 사용하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cd788475ebe54c0316b8c37bd00aa186123fbf1
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b8d1adef30eea0af9efdb51c31390c33a14b62e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533060"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009021"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Azure Relay 네임스페이스에 대한 IP 방화벽 구성
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 릴레이 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
@@ -33,7 +33,6 @@ IP 방화벽 규칙은 네임스페이스 수준에 적용됩니다. 따라서 �
 1. 특정 네트워크 및 IP 주소에 대한 액세스를 제한하려면 **선택한 네트워크** 옵션을 선택합니다. **방화벽** 섹션에서 다음 단계를 수행합니다.
     1. **클라이언트 IP 주소 추가** 옵션을 선택하여 현재 클라이언트 IP에 네임스페이스에 대한 액세스 권한을 부여합니다. 
     2. **주소 범위**에 CIDR 표기법으로 특정 IPv4 주소 또는 IPv4 주소 범위를 입력합니다. 
-    3. **신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 바이패스하도록 허용**할지 여부를 지정합니다. 
 
         ![방화벽 - 모든 네트워크 옵션 선택됨](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. 도구 모음에서 **저장**을 선택하여 설정을 저장합니다. 포털 알림에 확인이 표시될 때가지 몇 분 정도 기다립니다.

@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 진단 log analytics-Azure
 description: Windows 가상 데스크톱 진단 기능을 사용 하 여 log analytics를 사용 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85cd94c9ba0cf8909e2013a49d43a473a313db8b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4b1207f85f87755c8c0f2b8e9935f7e88118df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292607"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005108"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md)를 참조하세요.
 
 Windows 가상 데스크톱은 다른 여러 Azure 서비스와 같은 모니터링 및 경고에 [Azure Monitor](../azure-monitor/overview.md) 를 사용 합니다. 이를 통해 관리자는 단일 인터페이스를 통해 문제를 식별할 수 있습니다. 서비스는 사용자 및 관리 작업 모두에 대 한 활동 로그를 만듭니다. 각 활동 로그는 다음과 같은 범주에 속합니다.
 
@@ -134,7 +132,7 @@ Azure Monitor Log Analytics UI를 통해 쿼리 예제에 액세스 합니다.
 1. Log Analytics 작업 영역으로 이동한 다음 **로그**를 선택 합니다. 예제 쿼리 UI가 자동으로 표시 됩니다.
 1. 필터를 **Category**로 변경 합니다.
 1. **Windows 가상 데스크톱** 을 선택 하 여 사용 가능한 쿼리를 검토 합니다.
-1. **실행** 을 선택 하 여 선택한 쿼리를 실행 합니다. 
+1. **실행** 을 선택 하 여 선택한 쿼리를 실행 합니다.
 
 [Azure Monitor Log Analytics에서 저장 된 쿼리의](../azure-monitor/log-query/saved-queries.md)샘플 쿼리 인터페이스에 대해 자세히 알아보세요.
 

@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 FAQ-Azure
 description: Windows 가상 데스크톱에 대 한 질문과 대답 및 모범 사례입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504418"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007491"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
 
@@ -25,7 +23,7 @@ ms.locfileid: "87504418"
 
 앱 그룹에 사용자 액세스 관리자 역할을 할당 하 여 사용자 또는 사용자 그룹에 앱 그룹을 게시 해야 합니다.
 
-사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예를 들면 다음과 같습니다. 
+사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예:
 
 ```powershell
 "actions": [
@@ -62,7 +60,7 @@ Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 
 
 PowerShell cmdlet을 실행 하면 리소스 이름과 위치만 표시 됩니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -74,7 +72,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 리소스의 모든 속성을 보려면 `format-list` `fl` cmdlet의 끝에 또는를 추가 합니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -82,7 +80,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 특정 속성을 보려면 또는 뒤에 특정 속성 이름을 추가 `format-list` 합니다 `fl` .
 
-예를 들면 다음과 같습니다.
+예:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -116,7 +114,7 @@ Windows 가상 데스크톱은 현재 팀에 최적화 되어 있습니다. Micr
 
 FSLogix의 제한 또는 할당량은 사용자 프로필 VHD (X) 파일을 저장 하는 데 사용 되는 저장소 패브릭에 따라 다릅니다.
 
-다음 표에서는 FSLogix 프로필에서 각 사용자를 지 원하는 데 필요한 리소스의 예를 보여 줍니다. 요구 사항은 각 프로필의 사용자, 응용 프로그램 및 작업에 따라 크게 달라질 수 있습니다. 
+다음 표에서는 FSLogix 프로필에서 각 사용자를 지 원하는 데 필요한 리소스의 예를 보여 줍니다. 요구 사항은 각 프로필의 사용자, 응용 프로그램 및 작업에 따라 크게 달라질 수 있습니다.
 
 | 리소스 | 요구 사항 |
 |---|---|
