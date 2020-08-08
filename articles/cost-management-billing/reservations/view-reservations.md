@@ -1,18 +1,18 @@
 ---
 title: Azure 리소스에 대한 예약 보기 | Microsoft Docs
-description: Azure Portal에서 Azure 예약을 보는 방법을 알아봅니다.
+description: Azure Portal에서 Azure 예약을 보는 방법을 알아봅니다. API, PowerShell, CLI 및 Power BI를 사용하여 예약 및 사용률을 봅니다.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: fd5d4248e9b1e645628ac8b87df3b4b0a16e2049
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 04c38f7445dc0405add88fd61cc6e4943a4fda96
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288956"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459269"
 ---
 # <a name="view-azure-reservations"></a>Azure 예약 보기
 

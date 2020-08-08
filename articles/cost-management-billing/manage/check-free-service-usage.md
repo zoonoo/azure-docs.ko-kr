@@ -1,18 +1,18 @@
 ---
 title: Azure 무료 서비스 사용량 모니터링 및 추적
-description: Azure Portal에서 무료 서비스 사용량을 확인하는 방법에 대해 알아봅니다.
+description: Azure Portal에서 무료 서비스 사용량을 확인하는 방법에 대해 알아봅니다. 서비스 한도를 넘지 않는 이상 체험 계정에 포함된 서비스에 대한 요금이 청구되지 않습니다.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0a62deecc6f70bb21059ae3ddda9eea173de65fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03efb7e4d0aa06e4c33a94f15621d58330e52e50
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199809"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461870"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 계정 업데이트
-description: Azure 계정을 업그레이드하는 방법을 설명합니다.
+description: Azure 체험 계정 또는 Azure for Students Starter 계정을 업그레이드하는 방법을 알아봅니다. Azure 지원 플랜에 대한 추가 정보를 알아봅니다.
 keywords: 종량제 업그레이드
 author: bandersmsft
 ms.reviewer: sasrin
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29454bc5edb02ff571e06be3e9f203792d473aed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 596fd166153f9d1a319d428b3fe44388acc48efa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199452"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460595"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Azure 체험 계정 또는 Azure for Students Starter 계정 업그레이드
 
@@ -27,7 +27,7 @@ ms.locfileid: "77199452"
 
 ## <a name="upgrade-your-azure-free-account"></a>Azure 체험 계정 업그레이드
 
-Azure 체험 계정을 업그레이드할 때 가입할 때부터 30일 동안 남은 크레딧을 유지합니다. 다음은 그 예입니다.  11월 1일에 가입하고 11월 5일에 업그레이드하면 미사용 크레딧을 11월 30일까지 사용할 수 있습니다. 업그레이드 후 12개월 동안 무료 서비스에도 액세스할 수 있습니다.
+Azure 체험 계정을 업그레이드할 때 가입할 때부터 30일 동안 남은 크레딧을 유지합니다. 예를 들면 다음과 같습니다. 11월 1일에 가입하고 11월 5일에 업그레이드하면 미사용 크레딧을 11월 30일까지 사용할 수 있습니다. 업그레이드 후 12개월 동안 무료 서비스에도 액세스할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)
 1. **구독**을 검색합니다.

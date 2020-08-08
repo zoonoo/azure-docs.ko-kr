@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077161"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501528"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -93,8 +93,8 @@ Cost Management는 아래의 각 범위에서 다음과 같은 기본 제공 역
 
 EA 청구 범위는 다음 역할을 지원합니다.
 
-- **엔터프라이즈 관리자** – 청구 계정 설정 및 액세스 권한을 관리하고, 모든 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 EA 청구 범위는 [Cost Management 기여자 Azure RBAC 역할](../../role-based-access-control/built-in-roles.md#cost-management-contributor)과 동일합니다.
-- **엔터프라이즈 읽기 전용 사용자** – 청구 계정 설정, 비용 데이터 및 비용 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 EA 청구 범위는 [Cost Management 읽기 권한자 Azure RBAC 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
+- **엔터프라이즈 관리자** – 청구 계정 설정 및 액세스 권한을 관리하고, 모든 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 EA 청구 범위는 [Cost Management 기여자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-contributor)과 동일합니다.
+- **엔터프라이즈 읽기 전용 사용자** – 청구 계정 설정, 비용 데이터 및 비용 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 EA 청구 범위는 [Cost Management 읽기 권한자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
 - **부서 관리자** – 비용 센터와 같은 부서 설정을 관리하고, 모든 비용에 액세스하여 살펴보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다.  부서 관리자 및 읽기 전용 사용자가 비용을 볼 수 있도록 **DA 요금 보기** 청구 계정 설정을 사용하도록 설정해야 합니다. **DA 요금 보기**를 사용하지 않으면 부서 사용자는 계정 또는 구독 소유자인 경우에도 어떤 수준에서도 비용을 볼 수 없습니다.
 - **부서 읽기 전용 사용자** – 부서 설정, 비용 데이터 및 비용 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. **DA 요금 보기**를 사용하지 않으면 부서 사용자는 계정 또는 구독 소유자인 경우에도 어떤 수준에서도 비용을 볼 수 없습니다.
 - **계정 소유자** – 등록 계정 설정(예: 비용 센터)을 관리하고, 모든 비용을 보고, 등록 계정의 비용 구성(예: 예산 및 내보내기)을 관리할 수 있습니다. 계정 소유자 및 RBAC 사용자가 비용을 볼 수 있도록 **AO 요금 보기** 청구 계정 설정을 사용하도록 설정해야 합니다.
@@ -141,10 +141,10 @@ EA 청구 범위와 달리, 고객 계약 청구 계정은 단일 디렉터리�
 
 고객 계약 청구 범위는 다음 역할을 지원합니다.
 
-- **소유자** – 청구 설정 및 액세스 권한을 관리하고, 모든 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 기여자 Azure RBAC 역할](../../role-based-access-control/built-in-roles.md#cost-management-contributor)과 동일합니다.
-- **기여자** – 액세스 권한을 제외한 청구 설정을 관리하고, 모든 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 기여자 Azure RBAC 역할](../../role-based-access-control/built-in-roles.md#cost-management-contributor)과 동일합니다.
-- **읽기 권한자** – 청구 설정, 비용 데이터 및 비용 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 읽기 권한자 Azure RBAC 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
-- **청구서 관리자** – 청구서를 살펴보고 결제할 수 있으며 비용 데이터 및 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 읽기 권한자 Azure RBAC 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
+- **소유자** – 청구 설정 및 액세스 권한을 관리하고, 모든 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 기여자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-contributor)과 동일합니다.
+- **기여자** – 액세스 권한을 제외한 청구 설정을 관리하고, 모든 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 기여자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-contributor)과 동일합니다.
+- **읽기 권한자** – 청구 설정, 비용 데이터 및 비용 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 읽기 권한자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
+- **청구서 관리자** – 청구서를 살펴보고 결제할 수 있으며 비용 데이터 및 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 읽기 권한자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
 - **Azure 구독 작성자** – Azure 구독을 만들고, 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 EA 등록 계정 소유자 역할과 동일합니다.
 
 Azure 구독은 EA 등록 계정 아래에 중첩되듯이 청구서 섹션 아래에 중첩됩니다. 청구 사용자는 각각 해당 범위에 속하는 구독 및 리소스 그룹의 비용 데이터에 액세스할 수 있습니다. 하지만 Azure Portal에서 리소스를 보거나 관리할 수 있는 액세스 권한은 없습니다. 청구 사용자는 Azure Portal 서비스 목록에서 **Cost Management + 청구**로 이동하여 비용을 볼 수 있습니다. 그런 다음, 보고해야 하는 특정 구독 및 리소스 그룹으로 비용을 필터링할 수 있습니다.

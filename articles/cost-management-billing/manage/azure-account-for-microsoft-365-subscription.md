@@ -1,6 +1,6 @@
 ---
 title: Azure 계정으로 Microsoft 365 가입
-description: Azure 계정을 사용하여 Microsoft 365 구독을 만드는 방법 알아보기
+description: Azure 계정을 사용하여 Microsoft 365 구독을 만드는 방법을 알아봅니다. 기존 Azure 및 Microsoft 365 계정을 서로 연결할 수도 있습니다.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,14 +8,14 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 006f8edc81ec19647ff6173a4c786c6d7e93fadc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 050bd9c420ccecdb91a6c438782d9be1c6c23b88
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810383"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461887"
 ---
-# <a name="sign-up-for-a-microsoft--365-subscription-with-your-azure-account"></a>Azure 계정으로 Microsoft 365 구독에 등록
+# <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Azure 계정으로 Microsoft 365 구독에 가입
 
 Azure 구독자인 경우 Azure 계정을 사용하여 Microsoft 365 구독에 등록할 수 있습니다. Azure 구독이 있는 조직의 일부인 경우 기존 Azure AD(Azure Active Directory)에서 사용자를 위한 Microsoft 365 구독을 만들 수 있습니다. Azure Active Directory 테넌트에서 전역 관리자 또는 대금 청구 관리자 권한이 있는 계정을 사용하여 Microsoft 365에 등록합니다. 자세한 내용은 [Azure AD에서 계정 권한 확인](#RoleInAzureAD) 및 [Azure Active Directory에서 관리자 역할 할당](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 

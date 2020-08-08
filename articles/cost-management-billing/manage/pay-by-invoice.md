@@ -1,6 +1,6 @@
 ---
 title: 청구서로 Azure 구독 비용 지불
-description: 청구서로 Azure 구독 비용을 지불하는 방법을 설명합니다.
+description: 청구서로 Azure 구독 비용을 지불하는 방법을 알아봅니다. 질문과 대답을 확인하고 추가 리소스를 봅니다.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 5fb8a9cd5e00bf3a6ebeddaf44a09ac48b94fe7c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1e5e49cf90fcf69312b1805f2d4186a9e43f3da7
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849090"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460476"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 

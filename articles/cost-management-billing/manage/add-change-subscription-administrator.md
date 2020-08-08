@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126128"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530013"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
@@ -33,7 +33,7 @@ RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습
 
 ## <a name="assign-a-subscription-administrator"></a>구독 관리자 할당
 
-사용자를 Azure 구독의 관리자로 지정하려면 기존 관리자는 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할(RBAC 역할)을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다. 이러한 단계는 다른 역할 할당과 동일합니다.
+사용자를 Azure 구독의 관리자로 지정하려면 기존 관리자는 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할(Azure 역할)을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다. 이러한 단계는 다른 역할 할당과 동일합니다.
 
 구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
 

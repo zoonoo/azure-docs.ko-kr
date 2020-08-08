@@ -1,18 +1,18 @@
 ---
 title: 필요에 따른 청구서 구성 - Azure
-description: 청구서의 비용을 구성하는 방법을 알아봅니다.
+description: 청구서의 비용을 구성하는 방법을 알아봅니다. 청구 프로필 및 청구서 섹션을 만들어 청구 계정을 사용자 지정할 수 있습니다.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 553263ebac3c64e27a7711b4407a7d4ba573998c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200747"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460034"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>청구 계정을 사용자 지정하여 비용 구성
 
@@ -118,7 +118,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
     |필드  |정의  |
     |---------|---------|
-    |속성     | Azure Portal에서 청구 프로필을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+    |Name     | Azure Portal에서 청구 프로필을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
     |PO 번호    | 선택적 구매 주문 번호입니다. PO 번호는 청구 프로필에 대해 생성된 청구서에 표시됩니다. |
     |청구 주소   | 청구 주소는 청구 프로필에 대해 생성된 청구서에 표시됩니다. |
     |이메일 청구서   | 이메일 청구서 상자를 선택하면 이 청구 프로필에 대한 청구서를 이메일로 받습니다. 옵트인하지 않은 경우 Azure Portal에서 청구서를 보고 다운로드할 수 있습니다.|

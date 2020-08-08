@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 9e5657211e640c741dbf1bf2b5473a3ea5e10487
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287301"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759899"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>구매할 예약 결정
 
@@ -91,6 +91,8 @@ Azure Portal의 예약으로 이동하여 100 DWU의 배수로 Azure Synapse Ana
 권장 사항 엔진에서 계산된 예약 구매는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs)의 **권장** 탭에 표시됩니다. 다음은 예제 이미지입니다.
 
 ![권장 사항을 보여주는 이미지](./media/determine-reservation-purchase/select-product-ri.png)
+
+[권장 사항](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal)에 대해 자세히 알아봅니다.
 
 ## <a name="recommendations-in-the-cost-management-power-bi-app"></a>Cost Management Power BI 앱의 권장 사항
 

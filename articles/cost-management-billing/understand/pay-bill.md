@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure에 대한 청구서 지불 | Microsoft Docs
-description: Azure Portal에서 청구서를 지불하는 방법을 설명합니다.
+description: Azure Portal에서 청구서 대금을 결제하는 방법을 알아봅니다. 포털에서 대금을 결제하려면 청구 프로필 소유자, 기여자 또는 청구서 관리자여야 합니다.
 keywords: 청구, 기한 초과, 잔액, 지금 지불
 author: banders
 ms.reviewer: judupont
@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 8db50a25d98f5e4dc2ae96c708a5da49709f9ed5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bb3c9686ca734bb800f090af44f56643e07c6833
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200149"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459303"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft Azure에 대한 청구서를 지불하는 방법
 

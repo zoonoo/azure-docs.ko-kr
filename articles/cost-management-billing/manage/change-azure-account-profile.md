@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286600"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553481"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Azure 계정의 연락처 정보 변경
 
@@ -24,7 +24,7 @@ ms.locfileid: "87286600"
 
 *청구 주소* - 청구 주소는 청구 계정에 대해 생성되는 청구서를 받을 조직 또는 개인의 주소와 연락처 정보입니다. MOSP(Microsoft 온라인 구독 프로그램)에 대한 청구 계정의 경우 청구 주소가 하나 있으며, 계정에 대해 생성되는 모든 청구서에 표시됩니다. MCA(Microsoft 고객 계약)에 대한 청구 계정의 경우 청구 프로필마다 청구 주소가 하나씩 있으며 청구 프로필에 대해 생성되는 청구서에 표시됩니다.
 
-*서비스 및 마케팅 이메일의 연락처 이메일 주소* - 로그인에 사용하는 이메일 주소와 다른 이메일 주소를 지정하여 중요한 대금 청구, 서비스 및 Azure 계정에 대한 권장 사항 관련 알림을 받을 수 있습니다.  
+*서비스 및 마케팅 이메일의 연락처 이메일 주소* - 로그인에 사용하는 이메일 주소와 다른 이메일 주소를 지정하여 중요한 대금 청구, 서비스 및 Azure 계정에 대한 권장 사항 관련 알림을 받을 수 있습니다. 긴급 보안 문제, 가격 변경 또는 계정에서 사용하는 서비스의 주요 변경 내용 등의 서비스 알림 이메일은 항상 로그인 주소로 전송됩니다.
 
 ## <a name="update-an-mosp-billing-account-address"></a>MOSP 청구 계정 주소 업데이트
 

@@ -1,18 +1,18 @@
 ---
 title: Azure App Service에 대한 예약 할인
-description: Azure App Service 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다.
+description: Azure App Service 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다. 할인은 해당 지역의 인지세에 자동으로 적용됩니다.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 97a0b63200951a30d1b5576fddbb5aa044a91a62
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a4229d60a31d61caf050dabf632c8718ef3c9f3
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460340"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Azure App Service 격리 스탬프에 예약 할인이 적용되는 방법
 
