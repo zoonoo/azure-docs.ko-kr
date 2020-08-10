@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 1ba8977272817d41334ccf0d9ad01d4d751bfb17
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439212"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041700"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -136,6 +136,8 @@ Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewa
 아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>와일드카드는 애플리케이션 규칙 대상 FQDN에서 어떻게 작동하나요?
+
+와일드 카드는 현재 FQDN의 왼쪽에만 사용할 수 있습니다. 예: ***. contoso.com** 및 ***contoso.com**.
 
 * **.contoso.com**을 구성하면 *anyvalue*.contoso.com은 허용되지만 contoso.com(도메인 정점)은 허용되지 않습니다. 도메인 정점을 허용하려면 대상 FQDN으로 명시적으로 구성해야 합니다.
 

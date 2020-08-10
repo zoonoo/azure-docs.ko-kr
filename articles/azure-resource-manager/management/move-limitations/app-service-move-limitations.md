@@ -2,13 +2,13 @@
 title: Azure App Service 리소스 이동
 description: Azure Resource Manager를 사용 하 여 App Service 리소스를 새 리소스 그룹 또는 구독으로 이동 합니다.
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655779"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042061"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>App Service 리소스에 대 한 이동 지침
 
@@ -23,7 +23,8 @@ ms.locfileid: "80655779"
     - App Service 계획
     - 업로드 되거나 가져온 TLS/SSL 인증서
     - App Service Environment
-- 리소스 그룹의 모든 App Service 리소스는 함께 이동해야 합니다. App Service 환경은 새 리소스 그룹 또는 새 구독으로 이동할 수 없습니다.
+- 리소스 그룹의 모든 App Service 리소스는 함께 이동해야 합니다.
+- App Service 환경은 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. 그러나 App Service Environment 이동 하지 않고 웹 앱 및 app service 계획을 새 구독으로 이동할 수 있습니다. 이동 후에는 웹 앱이 더 이상 App Service Environment에서 호스트 되지 않습니다.
 - 인증서가 리소스 그룹의 다른 모든 리소스와 함께 이동 하는 한 TLS 바인딩을 삭제 하지 않고 웹에 바인딩된 인증서를 이동할 수 있습니다.
 - App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래 리소스 그룹에 더 이상 없는 경우 다시 원래 리소스 그룹으로 이동 합니다. 그런 다음 구독 간에 리소스를 이동 합니다.
 

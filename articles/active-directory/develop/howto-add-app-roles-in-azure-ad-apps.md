@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058629"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041462"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에 앱 역할 추가 및 토큰으로 수신
 
@@ -74,7 +74,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 ```
 
 > [!NOTE]
->`displayName`에는 공백을 포함할 수 없습니다.
+>에는 `displayName` 공백이 포함 될 수 있습니다.
 
 앱 역할은 `users`, `applications` 또는 둘 다를 대상으로 정의할 수 있습니다. 에서 사용할 수 있는 경우 `applications` 앱 역할은 api 권한 > **관리** 섹션에서 응용 프로그램 권한으로 표시 **> Api > 사용 권한 추가 > api > 응용 프로그램 사용 권한을 선택**합니다. 다음 예제는 `Application`을 대상으로 하는 앱 역할을 보여줍니다.
 

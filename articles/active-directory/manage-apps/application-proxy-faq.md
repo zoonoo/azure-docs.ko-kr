@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562415"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042108"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -31,6 +31,9 @@ ms.locfileid: "87562415"
 ### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시을 사용 하는 데 필요한 라이선스는 무엇 인가요?
 
 Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 또는 P2 라이선스가 있어야 합니다. 라이선스에 대 한 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/) 을 참조 하세요.
+
+### <a name="what-happens-to-azure-ad-application-proxy-in-my-tenant-if-my-license-expires"></a>내 라이선스가 만료 된 경우 내 테 넌 트의 Azure AD 응용 프로그램 프록시는 어떻게 되나요?
+라이선스가 만료 되 면 응용 프로그램 프록시가 자동으로 사용 하지 않도록 설정 됩니다. 응용 프로그램 정보는 최대 1 년 동안 저장 됩니다.
 
 ### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>"응용 프로그램 프록시 사용 단추가 회색으로 표시 되는 이유는 무엇 인가요?
 

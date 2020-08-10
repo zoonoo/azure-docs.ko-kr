@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032131"
+ms.locfileid: "88042482"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -68,7 +68,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 > 클라이언트 앱 조건의 동작은 8 월 2020에 업데이트 되었습니다. 기존 조건부 액세스 정책이 있는 경우 변경 되지 않은 상태로 유지 됩니다. 그러나 기존 정책을 클릭 하면 구성 토글이 제거 되 고 정책이 적용 되는 클라이언트 앱이 선택 됩니다.
 
 > [!IMPORTANT]
-> 레거시 인증 클라이언트의 로그인은 MFA를 지원 하지 않으며, 장치 상태 정보를 Azure AD에 전달 하지 않으므로 MFA 또는 규격 장치 요구와 같은 조건부 액세스 권한 부여 컨트롤에 의해 차단 됩니다. 레거시 인증을 사용 해야 하는 계정이 있는 경우 정책에서 해당 계정을 제외 하거나 최신 인증 클라이언트에만 적용 되도록 정책을 구성 합니다.
+> 레거시 인증 클라이언트의 로그인은 MFA를 지원 하지 않으며, 장치 상태 정보를 Azure AD에 전달 하지 않으므로 MFA 또는 규격 장치 요구와 같은 조건부 액세스 권한 부여 컨트롤에 의해 차단 됩니다. 레거시 인증을 사용 해야 하는 계정이 있는 경우 정책에서 해당 계정을 제외 하거나 최신 인증 클라이언트에만 적용 되도록 정책을 구성 해야 합니다.
 
 **예** 로 설정 된 경우 토글 **구성** 은 선택 된 항목에 적용 되 고, **아니요** 로 설정 하면 최신 및 레거시 인증 클라이언트를 비롯 한 모든 클라이언트 앱에 적용 됩니다. 이 토글은 8 월 2020 일 이전에 만든 정책에 표시 되지 않습니다.
 

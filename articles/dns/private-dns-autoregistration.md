@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71961231"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042754"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Azure DNS 개인 영역의 이라고 기능
 
@@ -29,6 +29,7 @@ Azure DNS 개인 영역 자동 등록 기능을 사용 하면 가상 네트워�
 
 * 이라고는 가상 컴퓨터에 대해서만 작동 합니다. 내부 부하 분산 장치와 같은 다른 모든 리소스의 경우 가상 네트워크에 연결 된 개인 DNS 영역에서 DNS 레코드를 수동으로 만들 수 있습니다.
 * DNS 레코드는 주 가상 컴퓨터 NIC에 대해서만 자동으로 생성 됩니다. 가상 컴퓨터에 NIC가 둘 이상 있는 경우 다른 네트워크 인터페이스에 대 한 DNS 레코드를 수동으로 만들 수 있습니다.
+* DNS 레코드는 주 가상 컴퓨터 NIC에서 DHCP를 사용 하는 경우에만 자동으로 생성 됩니다. [Azure에서 여러 ip 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)를 사용 하는 등의 방법으로 고정 ip 주소를 구성 하는 경우 이라고는 해당 가상 컴퓨터에 대 한 레코드를 만들지 않습니다.
 * 이라고 for IPv6 (AAAA 레코드)는 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계

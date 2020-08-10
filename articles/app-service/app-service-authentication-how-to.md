@@ -4,12 +4,12 @@ description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424259"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042618"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "87424259"
 
 **요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
-로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들면 다음과 같습니다.
+로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 다음은 그 예입니다.
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -56,7 +56,7 @@ ms.locfileid: "87424259"
 
 클라이언트 리디렉션 로그인에 애플리케이션은 사용자가 수동으로 공급자에 로그인한 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다([인증 흐름](overview-authentication-authorization.md#authentication-flow) 참조). 이 유효성 검사 자체는 실제로 원하는 앱 리소스에 대한 액세스 권한을 부여하지 않지만, 유효성 검사가 성공하면 앱 리소스에 액세스하는 데 사용할 수 있는 세션 토큰이 제공됩니다. 
 
-공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들면 다음과 같습니다. 
+공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 다음은 그 예입니다. 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -67,7 +67,7 @@ Content-Type: application/json
 
 토큰 형식은 공급자에 따라 약간 다릅니다. 자세한 내용은 다음 표를 참조하세요.
 
-| 공급자 값 | 요청 본문에 필요 | 의견 |
+| 공급자 값 | 요청 본문에 필요 | 주석 |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 속성은 선택 사항입니다. <br/>Live 서비스에서 토큰을 요청하는 경우 항상 `wl.basic` 범위를 요청합니다. |
@@ -87,7 +87,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들면 다음과 같습니다. 
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 다음은 그 예입니다. 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -108,7 +108,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들면 다음과 같습니다.
+기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 다음은 그 예입니다.
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -270,7 +270,7 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 ### <a name="identity-provider-level"></a>Id 공급자 수준
 
-Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들면 다음과 같습니다.
+Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 다음은 그 예입니다.
 
 - [Azure App Service](configure-authentication-provider-aad.md)의 경우 Azure AD에서 직접 [엔터프라이즈 수준의 액세스를 관리할](../active-directory/manage-apps/what-is-access-management.md) 수 있습니다. 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](../active-directory/manage-apps/methods-for-removing-user-access.md)을 참조 하세요.
 - [Google](configure-authentication-provider-google.md)의 경우 조직에 속한 google API 프로젝트는 조직의 사용자 에게만 액세스를 허용 하도록 구성할 [수 있습니다 (](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) [Google의 **OAuth 2.0 지원 설정** 페이지](https://support.google.com/cloud/answer/6158849?hl=en)참조).
@@ -468,6 +468,67 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
     }
 }
 ```
+
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>앱을 특정 인증 런타임 버전에 고정
+
+인증/권한 부여를 사용 하도록 설정 하면 [기능 개요](overview-authentication-authorization.md#how-it-works)에 설명 된 대로 플랫폼 미들웨어가 HTTP 요청 파이프라인에 삽입 됩니다. 이 플랫폼 미들웨어는 정기적인 플랫폼 업데이트의 일부로 새로운 기능 및 향상 된 기능으로 정기적으로 업데이트 됩니다. 기본적으로 웹 또는 함수 앱은이 플랫폼 미들웨어의 최신 버전에서 실행 됩니다. 이러한 자동 업데이트는 항상 이전 버전과 호환 됩니다. 그러나이 자동 업데이트에서 웹 또는 함수 앱에 대 한 런타임 문제가 발생 하는 드문 경우 이지만 이전 미들웨어 버전으로 일시적으로 롤백할 수 있습니다. 이 문서에서는 특정 버전의 인증 미들웨어에 앱을 일시적으로 고정 하는 방법을 설명 합니다.
+
+### <a name="automatic-and-manual-version-updates"></a>자동 및 수동 버전 업데이트 
+
+앱에 대 한 설정을 설정 하 여 특정 버전의 플랫폼 미들웨어에 앱을 고정할 수 있습니다 `runtimeVersion` . 앱은 특정 버전에 명시적으로 다시 고정 하도록 선택 하지 않는 한 항상 최신 버전에서 실행 됩니다. 한 번에 몇 가지 버전이 지원 됩니다. 더 이상 지원 되지 않는 잘못 된 버전에 고정 하면 앱에서 최신 버전을 대신 사용 합니다. 항상 최신 버전을 실행 하려면 `runtimeVersion` ~ 1로 설정 합니다. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>현재 런타임 버전 확인 및 업데이트
+
+앱에서 사용 하는 런타임 버전을 변경할 수 있습니다. 앱을 다시 시작한 후 새 런타임 버전이 적용 됩니다. 
+
+#### <a name="view-the-current-runtime-version"></a>현재 런타임 버전 보기
+
+Azure CLI를 사용 하거나 앱의 built0 버전 HTTP 끝점 중 하나를 통해 플랫폼 인증 미들웨어의 현재 버전을 볼 수 있습니다.
+
+##### <a name="from-the-azure-cli"></a>Azure CLI에서
+
+Azure CLI를 사용 하 여 [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) 명령을 사용 하 여 현재 미들웨어 버전을 확인 합니다.
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+이 코드에서를 `<my_app_name>` 앱 이름으로 바꿉니다. 또한를 `<my_resource_group>` 앱에 대 한 리소스 그룹의 이름으로 바꿉니다.
+
+`runtimeVersion`CLI 출력에 필드가 표시 됩니다. 명확성을 위해 잘린 다음 예제 출력과 유사 합니다. 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>버전 끝점에서
+
+앱에서/.auth/version 끝점을 적중 하 여 앱이 실행 되 고 있는 현재 미들웨어 버전을 볼 수도 있습니다. 다음 예제 출력과 유사 합니다.
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>현재 런타임 버전을 업데이트 합니다.
+
+Azure CLI를 사용 하 여 `runtimeVersion` [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) 명령을 사용 하 여 앱에서 설정을 업데이트할 수 있습니다.
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+를 `<my_app_name>` 앱의 이름으로 바꿉니다. 또한를 `<my_resource_group>` 앱에 대 한 리소스 그룹의 이름으로 바꿉니다. 또한을 (를 `<version>` ) 1.x 런타임의 유효한 버전 또는 최신 버전으로 바꿉니다 `~1` . https://github.com/Azure/app-service-announcements)에 고정할 버전을 결정 하는 데 도움이 되는 다양 한 런타임 버전 [여기] (릴리스 정보)을 찾을 수 있습니다.
+
+앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하면 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836805"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041989"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>위협 보호 및 Azure Security Center
 
@@ -112,14 +112,15 @@ App Service 계획에 대한 자세한 내용은 [App Service 계획](https://az
 
 ## <a name="threat-protection-for-containers"></a>컨테이너에 대 한 위협 방지<a name="azure-containers"></a>
 
-### <a name="availability"></a>사용 가능성
+### <a name="availability"></a>가용성
 
-- 릴리스 상태: **일반** 공급
-- 필수 역할: **보안 관리자** 가 경고를 해제할 수 있습니다. **보안 읽기 권한자**는 발견 사항을 볼 수 있습니다.
-- 클라우드:<br>
-    ✔ 상용 클라우드<br>
-    ✘ US Gov<br>
-    ✘ 중국 .Gov, 기타 .Gov
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|일반 공급|
+|결정|표준 계층|
+|필요한 역할 및 사용 권한:|**보안 관리자** 는 경고를 해제할 수 있습니다.<br>**보안 읽기 권한자**는 발견 사항을 볼 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -148,16 +149,15 @@ Azure SQL Database 및 SQL에 대 한 advanced Threat Protection은 Azure Virtua
 
 ## <a name="threat-protection-for-azure-storage"></a>Azure Storage에 대한 위협 방지 <a name="azure-storage"></a>
 
-### <a name="availability"></a>사용 가능성
+### <a name="availability"></a>가용성
 
-- 릴리스 상태:
-    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)
-    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (미리 보기)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (미리 보기)
-- 클라우드:<br>
-    ✔ 상용 클라우드<br>
-    ✔ US Gov<br>
-    ✘ 중국 .Gov, 기타 .Gov
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (미리 보기)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (미리 보기)|
+|결정|표준 계층|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|||
+
 
 ### <a name="whats-protected"></a>보호 되는 항목
 

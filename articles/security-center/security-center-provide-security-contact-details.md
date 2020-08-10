@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534637"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042278"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>보안 경고에 대 한 전자 메일 알림 설정 
 
@@ -34,9 +34,15 @@ ms.locfileid: "87534637"
 
 ## <a name="availability"></a>가용성
 
-- 릴리스 상태: **일반 공급**
-- 필수 역할: **보안 관리자** 또는 **구독 소유자** 
-- 클라우드: ✔ 상용 클라우드 ✔ US Gov (부분) ✘ 국가/소 버린 (중국 .Gov, 기타 .Gov)
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|일반 공급|
+|결정|무료 계층|
+|필요한 역할 및 사용 권한:|**보안 관리자**<br>**구독 소유자** |
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov (부분)<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|||
+
+
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>경고에 대 한 전자 메일 알림 설정<a name="email"></a>

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0eac72832d75c0c26addaef283015155c09b3935
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529372"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041677"
 ---
 # <a name="workflow-automation"></a>워크플로 자동화
 
@@ -28,19 +28,14 @@ ms.locfileid: "86529372"
 
 ## <a name="availability"></a>가용성
 
-- 릴리스 상태: **일반 공급**
-- 필요한 역할 및 사용 권한:
-    - 내보내기 구성이 포함 된 구독의 **판독기** 입니다.
-    - 리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**
-    - 또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.
-    - 또한 Azure Logic Apps 워크플로를 사용 하려면 다음과 같은 Logic Apps 역할/권한이 있어야 합니다.
-        - [논리 앱 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) 권한은 필수 또는 논리 앱 읽기/트리거 액세스입니다 .이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 항목만 *실행* 합니다.
-        - 논리 앱을 만들고 수정 하려면 [논리 앱 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) 권한이 필요 합니다.
-        - 논리 앱 커넥터를 사용 하려는 경우 해당 서비스 (예: Outlook/팀/여유 시간 인스턴스)에 로그인 하려면 추가 자격 증명이 필요할 수 있습니다.
-- 클라우드: 
-    - ✔ 상용 클라우드
-    - 미국 정부 클라우드 ✔
-    - ✘ 중국 정부 클라우드, 기타 .gov 클라우드
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|일반 공급|
+|결정|무료 계층|
+|필요한 역할 및 사용 권한:|내보내기 구성이 포함 된 구독의 **판독기** 입니다.<br>리소스 그룹에 대 한 **보안 관리자 역할** 또는 **소유자**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.<br><br>Azure Logic Apps 워크플로를 사용 하려면 다음과 같은 Logic Apps 역할/권한도 있어야 합니다.<br> - [논리 앱 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) 권한은 필수 또는 논리 앱 읽기/트리거 액세스입니다 .이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 항목만 *실행* 합니다.<br> - 논리 앱을 만들고 수정 하려면 [논리 앱 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) 권한이 필요 합니다.<br>논리 앱 커넥터를 사용 하려는 경우 해당 서비스 (예: Outlook/팀/여유 시간 인스턴스)에 로그인 하려면 추가 자격 증명이 필요할 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|||
+
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>논리 앱을 만들고 자동으로 실행 되는 시기를 정의 합니다. 

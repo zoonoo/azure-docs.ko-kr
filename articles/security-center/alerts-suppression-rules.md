@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089943"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042503"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Azure Security Center의 위협 방지에 대 한 경고 표시 안 함
 
@@ -21,9 +21,15 @@ ms.locfileid: "87089943"
 
 ## <a name="availability"></a>가용성
 
-- 릴리스 상태: **미리 보기**
-- 필요한 역할: **보안 관리자** 및 **소유자**는 규칙을 만들거나 삭제할 수 있습니다. **보안 읽기 권한자** 및 **읽기 권한자**는 규칙을 볼 수 있습니다.
-- 클라우드: ✔ 상용 클라우드 ✔ 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|미리 보기|
+|결정|무료 계층<br>(대부분의 보안 경고는 표준 계층에만 해당)|
+|필요한 역할 및 사용 권한:|**보안 관리자** 및 **소유자** 는 규칙을 만들거나 삭제할 수 있습니다.<br>**보안 읽기 권한자** 및 **읽기 권한자**는 규칙을 볼 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|||
+
+
 
 
 ## <a name="what-are-suppression-rules"></a>비 표시 규칙 이란?
@@ -32,9 +38,9 @@ Azure Security Center의 위협 방지 구성 요소는 사용자 환경의 모�
 
 관심 없거나 관련 없는 경고를 직접 해제할 수 있습니다. 또는 중복된 경고 제거 규칙 기능을 사용하여 나중에 유사한 경고를 자동으로 해제할 수 있습니다. 일반적으로 중복된 경고 제거 규칙은 다음과 같은 용도로 사용합니다.
 
-- 거짓 긍정으로 식별한 경고를 표시 안 함
+- 거짓 긍정으로 식별 한 경고 표시 안 함
 
-- 너무 자주 트리거되는 경고 표시 안 함
+- 너무 자주 트리거되는 경고를 표시 하지 않습니다.
 
 중복된 경고 제거 규칙은 경고를 자동으로 해제할 조건을 정의합니다.
 

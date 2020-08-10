@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 39dbf7d9ad933dd47f0a566f02b5e276e4b615a3
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87514449"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041751"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>SSH 키를 생성 하 고 Azure Portal에 저장 합니다.
 
@@ -22,17 +22,17 @@ ms.locfileid: "87514449"
 
 기존 키가 있는 경우 포털에서이 키를 사용 하면 해당 키를 업로드 하 고 Azure에 저장 하 여 다시 사용할 수 있습니다.
 
-Linux Vm에서 SSH 키를 만들고 사용 하는 방법에 대 한 자세한 내용은 (SSH 키를 사용 하 여 Linux Vm에 연결) [./linux/ssh-from-windows.md]를 참조 하세요.
+Linux Vm에서 SSH 키를 만들고 사용 하는 방법에 대 한 자세한 내용은 [ssh 키를 사용 하 여 Linux vm에 연결](./linux/ssh-from-windows.md)을 참조 하세요.
 
 ## <a name="generate-new-keys"></a>새 키 생성
 
-1. [Azure Portal] (를 엽니다 https://portal.azure.com .
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
 
 1. 페이지 맨 위에 있는 *SSH* 를 입력 하 여 검색 합니다. **Marketplace*에서 **SSH 키**를 선택 합니다.
 
 1. **SSH 키** 페이지에서 **만들기**를 선택 합니다.
 
-:::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="새 리소스 그룹을 만들고 SSH 키 쌍을 생성 합니다.":::
+   :::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="새 리소스 그룹을 만들고 SSH 키 쌍을 생성 합니다.":::
 
 1. **리소스 그룹** 에서 **새로 만들기** 를 선택 하 여 키를 저장할 새 리소스 그룹을 만듭니다. 리소스 그룹의 이름을 입력 하 고 **확인**을 선택 합니다.
 
@@ -48,7 +48,7 @@ Linux Vm에서 SSH 키를 만들고 사용 하는 방법에 대 한 자세한 �
 
 1. 그런 다음 팝업 창이 표시 되 면 **개인 키 다운로드 및 리소스 만들기**를 선택 합니다. 그러면 SSH 키가 pem 파일로 다운로드 됩니다.
 
-:::image type="content" source="./media/ssh-keys/download-key.png" alt-text="개인 키를 pem 파일로 다운로드":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="개인 키를 pem 파일로 다운로드":::
 
 1. Pem 파일을 다운로드 한 후에는 SSH 클라이언트에서 쉽게 가리킬 수 있는 컴퓨터의 위치로 이동할 수 있습니다.
 
@@ -66,15 +66,15 @@ ssh -i <path to the .pem file> username@<ipaddress of the VM>
 
 ## <a name="upload-an-ssh-key"></a>SSH 키 업로드
 
-또한 Azure에 저장할 공용 SSH 키를 업로드할 수 있습니다. SSH 키 쌍을 만드는 방법에 대 한 자세한 내용은 [ssh 키를 사용 하 여 Linux vm에 연결 ](./linux/ssh-from-windows.md)을 참조 하세요.
+또한 Azure에 저장할 공용 SSH 키를 업로드할 수 있습니다. SSH 키 쌍을 만드는 방법에 대 한 자세한 내용은 [ssh 키를 사용 하 여 Linux vm에 연결](./linux/ssh-from-windows.md)을 참조 하세요.
 
-1. [Azure Portal] (를 엽니다 https://portal.azure.com .
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
 
 1. 페이지 맨 위에 있는 *SSH* 를 입력 하 여 검색 합니다. **Marketplace*에서 **SSH 키**를 선택 합니다.
 
 1. **SSH 키** 페이지에서 **만들기**를 선택 합니다.
 
-:::image type="content" source="./media/ssh-keys/upload.png" alt-text="Azure에 저장할 SSH 공개 키 업로드":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Azure에 저장할 SSH 공개 키 업로드":::
 
 1. **리소스 그룹** 에서 **새로 만들기** 를 선택 하 여 키를 저장할 새 리소스 그룹을 만듭니다. 리소스 그룹의 이름을 입력 하 고 **확인**을 선택 합니다.
 
@@ -92,4 +92,4 @@ ssh -i <path to the .pem file> username@<ipaddress of the VM>
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Vm에서 SSH 키를 사용 하는 방법에 대 한 자세한 내용은 (SSH 키를 사용 하 여 Linux Vm에 연결) [./linux/ssh-from-windows.md]를 참조 하세요.
+Azure Vm에서 SSH 키를 사용 하는 방법에 대해 자세히 알아보려면 [ssh 키를 사용 하 여 Linux vm에 연결](./linux/ssh-from-windows.md)을 참조 하세요.
