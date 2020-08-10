@@ -1,19 +1,19 @@
 ---
 title: Always On VPN 터널 구성
 titleSuffix: Azure VPN Gateway
-description: 사용자 로그인, 네트워크 상태 변경, 장치 화면 활성 등의 트리거를 기반으로 VPN 연결을 유지 관리 하는 Always On를 구성 하는 방법에 대해 알아봅니다.
+description: Windows 10 Always On에서 게이트웨이를 사용 하 여 Azure에 대 한 영구 장치 터널을 설정 하 고 구성 하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 24043576fca4910631ccddb3924303dd642c6842
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e64d2223740942fe35ae8a730303bee8893c2489
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927064"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035606"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Always On VPN 디바이스 터널 구성
 

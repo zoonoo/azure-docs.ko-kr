@@ -1,6 +1,6 @@
 ---
 title: 맵에 트래픽 표시 | Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 트래픽 데이터를 표시하는 방법에 대해 알아봅니다.
+description: 지도에 트래픽 데이터를 추가 하는 방법을 알아보세요. 흐름 데이터에 대해 알아보고 Azure Maps 웹 SDK를 사용 하 여 지도에 인시던트 데이터 및 흐름 데이터를 추가 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 5bb088c4650cfdfec59383a7bcf8f340952e5d55
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 063fbd2ad4f2f5d427fd2cb39b8ce9b231eba374
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273017"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036428"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
 

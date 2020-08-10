@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449132"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037034"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -39,7 +39,7 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
 
 별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli) 해야 합니다. 
 
@@ -191,7 +191,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init`는 다음과 같은 옵션을 지원 합니다 .이 옵션은 다른 설명이 없는 경우 버전 3(sp3)/x-only입니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | 버전 1.x 동작인 .NET 함수를 c # 스크립트로 만듭니다. 에만 유효 `--worker-runtime dotnet` 합니다. |
 | **`--docker`** | 선택한을 기반으로 하는 기본 이미지를 사용 하 여 컨테이너에 대 한 Dockerfile을 만듭니다 `--worker-runtime` . 사용자 지정 Linux 컨테이너에 게시하려는 경우 이 옵션을 사용합니다. |
@@ -205,7 +205,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > 기본적으로 버전 2.x 이상 버전의 핵심 도구는 .NET 런타임에 대 한 함수 앱 프로젝트를 [c # 클래스 프로젝트](functions-dotnet-class-library.md) (.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 중에/Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>확장 등록
+
+HTTP 및 타이머 트리거를 제외 하 고 런타임 버전 2.x 이상에서 함수 바인딩은 확장 패키지로 구현 됩니다. HTTP 바인딩 및 타이머 트리거에는 확장이 필요 하지 않습니다. 
+
+다양 한 확장 패키지 간의 비 호환성을 줄이기 위해 함수를 사용 하 여 프로젝트 파일의 host.js확장 번들을 참조할 수 있습니다. 확장 번들을 사용 하지 않도록 선택 하는 경우 .NET Core 2.x SDK를 로컬에 설치 하 고 함수 프로젝트를 사용 하 여 확장명 .csproj를 유지 해야 합니다.  
+
+버전 2.x 및 Azure Functions 런타임 이외에 함수에 사용 되는 바인딩 형식에 대 한 확장을 명시적으로 등록 해야 합니다. 바인딩 확장을 개별적으로 설치 하도록 선택 하거나 프로젝트 파일의 host.js에 확장 번들 참조를 추가할 수 있습니다. 확장 번들은 여러 바인딩 유형을 사용 하는 경우 패키지 호환성 문제가 발생할 가능성을 제거 합니다. 바인딩 확장을 등록 하는 데 권장 되는 방법입니다. 또한 확장 번들은 .NET Core 2.x SDK를 설치 하는 요구 사항을 제거 합니다. 
+
+### <a name="use-extension-bundles"></a>확장 번들 사용
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+자세히 알아보려면 [Azure Functions 바인딩 확장 등록](functions-bindings-register.md#extension-bundles)을 참조 하세요. 파일의 function.js에 바인딩을 추가 하기 전에 host.js에 확장 번들을 추가 해야 합니다.
+
+### <a name="explicitly-install-extensions"></a>명시적으로 확장 설치
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -289,7 +305,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 다음 인수를 사용하는 명령에서 이러한 옵션을 지정할 수도 있습니다.
 
-| 인수     | Description                            |
+| 인수     | 설명                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (버전 2.x 이상 버전) 버전 1.x 및 포털에서 사용 되는 동일한 c # 스크립트 (csx) 템플릿을 생성 합니다. |
 | **`--language`**, **`-l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x 이상 버전에서는이 옵션을 사용 하거나 작업자 런타임과 일치 하는 언어를 선택 하지 마세요. |
@@ -349,7 +365,7 @@ npm start
 
 `func start`은 다음 옵션을 지원합니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 1.x에는 지원 되지 않습니다. |
 | **`--cors-credentials`** | 버전 1.x에 대해 지원 되지 않는 크로스-원본 인증 된 요청 (즉, 쿠키 및 인증 헤더)을 허용 합니다. |
@@ -458,7 +474,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 
 `func run`은 다음 옵션을 지원합니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | 인라인 콘텐츠입니다. |
 | **`--debug`**, **`-d`** | 함수를 실행하기 전에 호스트 프로세스에 디버거를 연결합니다.|
@@ -497,14 +513,14 @@ func azure functionapp publish <FunctionAppName>
 
 다음 게시 옵션은 모든 버전에 적용 됩니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. Microsoft Azure Storage 에뮬레이터 사용 하는 경우 먼저 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경 합니다. |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
 
 다음 게시 옵션은 버전 2.x 이상 버전 에서만 지원 됩니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |
@@ -512,7 +528,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
 | **`--build`**, **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local` . |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예를 들면 `python3-dev libevent-dev`과 다음과 같습니다. |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | 게시 하는 동안 프로젝트가 빌드되지 않습니다. Python의 경우가 `pip install` 수행 되지 않습니다. |
@@ -528,7 +544,7 @@ func deploy
 
 다음과 같은 사용자 지정 컨테이너 배포 옵션을 사용할 수 있습니다.
 
-| 옵션     | Description                            |
+| 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 현재 사용자가 로그인되어 있는 Docker 레지스트리의 이름입니다. |
 | **`--platform`** | 함수 앱의 호스팅 플랫폼입니다. 유효한 옵션은 `kubernetes`입니다. |

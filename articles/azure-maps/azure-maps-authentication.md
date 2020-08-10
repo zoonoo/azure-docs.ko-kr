@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure 맵으로 인증
 titleSuffix: Azure Maps
-description: 이 문서에서는 Azure Active Directory 및 공유 키 인증에 대해 알아봅니다.
+description: Azure Maps에서 요청을 인증 하는 두 가지 방법, 즉 공유 키 인증 및 Azure Active Directory (Azure AD) 인증에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4aaa729ffd272c886bf5c545574d99c9de5842f9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922254"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036847"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 

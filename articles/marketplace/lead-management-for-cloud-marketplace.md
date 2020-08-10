@@ -1,5 +1,5 @@
 ---
-title: 상업용 Marketplace에 대한 잠재 고객 관리 | Azure Marketplace 및 AppSource
+title: 상업적 marketplace에 대 한 리드 관리 | Azure Marketplace 및 AppSource
 description: Azure Marketplace 및 AppSource에 제안 및 기술 아티팩트를 게시하는 것과 관련된 다양한 주제의 개요
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119449"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035181"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>상업용 Marketplace에 대한 잠재 고객 관리
+# <a name="lead-management-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 리드 관리
 
 성공적인 비즈니스를 위한 핵심은 고객입니다. 오늘날 제품 구매 과정에서 마케터는 고객과 직접 연결하고 관계를 구축하는 데 주력해야 합니다. 고품질의 리드를 생성하는 것이 판매 주기에 중요한 수단인 이유입니다. [파트너 센터](https://partner.microsoft.com/)에 제품을 나열한 후 고객이 Marketplace에서 흥미를 나타내거나 제품을 배포한 직후에 프로그래밍 방식으로 고객 연락처 정보를 받는 도구가 제공됩니다. 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Maps를 사용 하 여 맵 만들기 Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 웹 페이지에서 지도를 렌더링 하는 방법을 알아봅니다.
+description: Azure Maps 웹 SDK를 사용 하 여 웹 페이지에 맵을 추가 하는 방법에 대해 알아봅니다. 애니메이션, 스타일, 카메라, 서비스 및 사용자 상호 작용에 대 한 옵션에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 77eaa3e1f4390182ad210ae3aa2ce6a1427d8b0f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 9566bcc329b4d148fe9454fe70b556a9010fc4ac
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551900"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036473"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -130,7 +130,7 @@ map.setCamera({
 
 ## <a name="request-transforms"></a>변환 요청
 
-때로는 맵 컨트롤에서 만든 HTTP 요청을 수정할 수 있는 것이 유용할 수 있습니다. 예를 들면 다음과 같습니다.
+때로는 맵 컨트롤에서 만든 HTTP 요청을 수정할 수 있는 것이 유용할 수 있습니다. 다음은 그 예입니다.
 
 - 타일 요청에 헤더를 추가 합니다. 이 작업은 암호로 보호 된 서비스에 대해 수행 되는 경우가 많습니다.
 - 프록시 서비스를 통해 요청을 실행 하는 Url을 수정 합니다.

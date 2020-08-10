@@ -8,12 +8,12 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 737fe4b334e60f1b51e8f60f39e8821588a6841c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f51630154b77233aeb2587ac3a2d603c1da6fa4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010313"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036558"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>데이터 내보내기를 사용 하 여 IoT 데이터를 클라우드 대상으로 내보내기 (미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "88010313"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 권한이 있어야 합니다.
+데이터 내보내기 (미리 보기)를 사용 하려면 V3 응용 프로그램이 있어야 하며 데이터 내보내기 권한이 있어야 합니다.
 
 ## <a name="set-up-export-destination"></a>내보내기 대상 설정
 
@@ -80,9 +80,9 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
     |성능 계층|계정 유형|
     |-|-|
-    |Standard|범용 V2|
-    |Standard|범용 V1|
-    |Standard|Blob Storage|
+    |표준|범용 V2|
+    |표준|범용 V1|
+    |표준|Blob Storage|
     |Premium|블록 Blob 저장소|
 
 2. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 맨 위에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.
@@ -150,15 +150,22 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
 ## <a name="export-contents-and-format"></a>콘텐츠 내보내기 및 형식
 
-Event Hubs 및 Service Bus 대상의 경우 데이터를 거의 실시간으로 내보냅니다. 데이터는 메시지 본문에 있고 JSON 형식으로 u t f-8로 인코딩됩니다. 예제는 아래를 참조 하세요.
+### <a name="azure-blob-storage-destination"></a>Azure Blob Storage 대상
 
-Blob storage의 경우 데이터는 분당 한 번 내보내집니다. 각 파일은 마지막으로 내보낸 파일 이후의 변경 내용 일괄 처리를 포함 합니다. 내보낸 데이터는 JSON 형식으로 3 개의 폴더에 배치 됩니다. 스토리지 계정의 기본 경로는 다음과 같습니다.
+데이터는 분당 한 번 내보내집니다. 각 파일은 마지막으로 내보낸 파일 이후의 변경 내용 일괄 처리를 포함 합니다. 내보낸 데이터는 JSON 형식으로 3 개의 폴더에 배치 됩니다. 스토리지 계정의 기본 경로는 다음과 같습니다.
 
 - 원격 분석: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 - 속성 변경: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 
 Azure Portal에서 내보낸 파일을 찾아보려면 파일로 이동 하 여 **Blob 편집** 탭을 선택 합니다.
 
+### <a name="azure-event-hubs-and-azure-service-bus-destinations"></a>Azure Event Hubs 및 Azure Service Bus 대상
+
+데이터는 거의 실시간으로 내보내집니다. 데이터는 메시지 본문에 있고 JSON 형식으로 u t f-8로 인코딩됩니다. 
+
+메시지의 주석 또는 시스템 속성 모음에서 `iotcentral-device-id` `iotcentral-application-id` `iotcentral-message-source` `iotcentral-message-type` 메시지 본문의 해당 필드와 동일한 값을 갖는,, 및를 찾을 수 있습니다.
+
+### <a name="webhook-destination"></a>Webhook 대상
 웹 후크 대상의 경우 데이터도 거의 실시간으로 내보내집니다. 메시지 본문에 있는 데이터의 형식은 Event Hubs 및 Service Bus와 동일 합니다.
 
 
@@ -169,7 +176,7 @@ Azure Portal에서 내보낸 파일을 찾아보려면 파일로 이동 하 여 
 - `messageSource`원격 분석 데이터를 내보내기 위한 *원격 분석* 인
 - `deviceId`원격 분석 메시지를 보낸 장치의
 - `schema`는 페이로드 스키마의 이름 및 버전입니다.
-- `templateId`장치에 연결 된 장치 템플릿 Id입니다.
+- `templateId`장치에 연결 된 장치 템플릿 ID입니다.
 - `enrichments`내보내기에 설정 된 모든 강화
 - `messageProperties`장치에서 메시지와 함께 전송 되는 추가 데이터 부분입니다. 이를 *응용 프로그램 속성*이 라고도 하며, [IoT Hub 문서에서 자세히 알아보세요](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -217,7 +224,7 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
 - `messageType`*Cloudpropertychange* 또는 *devicePropertyDesiredChange*, *devicePropertyReportedChange*
 - `deviceId`속성이 변경 된 장치의
 - `schema`는 페이로드 스키마의 이름 및 버전입니다.
-- `templateId`장치에 연결 된 장치 템플릿 Id입니다.
+- `templateId`장치에 연결 된 장치 템플릿 ID입니다.
 - `enrichments`내보내기에 설정 된 모든 강화
 
 Event Hubs 및 Service Bus의 경우 IoT Central 새 메시지 데이터를 이벤트 허브 또는 Service Bus 큐 또는 토픽에 거의 실시간으로 내보냅니다.
@@ -251,9 +258,10 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
 | 기능  | 레거시 데이터 내보내기 | 새 데이터 내보내기 |
 | :------------- | :---------- | :----------- |
 | 사용 가능한 데이터 형식 | 원격 분석, 장치, 장치 템플릿 | 원격 분석, 속성 변경 |
-| 필터링 | 없음 | 내보내는 데이터 형식에 따라 달라 집니다. 원격 분석, 원격 분석을 통한 필터링, 메시지 속성, 속성 값 |
-| 강화 | 없음 | 사용자 지정 문자열 또는 장치에서 속성 값을 사용 하 여 보강 |
+| 필터링 | None | 내보내는 데이터 형식에 따라 달라 집니다. 원격 분석, 원격 분석을 통한 필터링, 메시지 속성, 속성 값 |
+| 강화 | None | 사용자 지정 문자열 또는 장치에서 속성 값을 사용 하 여 보강 |
 | Destinations | Azure Event Hubs, Azure Service Bus 큐 및 토픽 Azure Blob Storage | 레거시 데이터 내보내기 및 웹 후크에 대 한 것과 동일| 
+| 지원되는 앱 | V2, V3 | V3만 |
 | 주목할 만한 제한 | 앱 당 내보내기 5 개, 내보내기 당 하나의 대상 | 10 개의 내보내기-앱 당 대상 연결 | 
 
 ## <a name="next-steps"></a>다음 단계

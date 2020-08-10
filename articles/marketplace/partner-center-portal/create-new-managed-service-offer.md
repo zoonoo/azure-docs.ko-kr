@@ -3,16 +3,16 @@ title: Microsoft 상업용 마켓플레이스에서 관리형 서비스 제품 �
 description: 파트너 센터의 상업용 마켓플레이스 포털을 사용하여 Azure Marketplace에 나열할 새로운 관리형 서비스 제품을 만드는 방법입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
-ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798191"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036609"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
@@ -130,20 +130,23 @@ ms.locfileid: "87798191"
 
 이 섹션에서 제품을 고객에게 표시할 때 사용되는 로고 및 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식이어야 합니다.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
 
-#### <a name="store-logos"></a>스토어 로고
+#### <a name="marketplace-logos"></a>마켓플레이스 로고
 
-**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
-
-목록의 다른 위치에서 사용 하려면 세 가지 로고 크기가 모두 필요 합니다.
+제품 로고를 네 가지 픽셀 크기로 제공합니다.
 
 - **소형**(48 x 48)
 - **중형**(90 x 90)
-- **큼** (216 x 216 및 350 x 350)
+- **대형**(216 x 216)
+- **와이드**(255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+이러한 로고는 Azure Marketplace의 다양 한 위치에서 사용 됩니다.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

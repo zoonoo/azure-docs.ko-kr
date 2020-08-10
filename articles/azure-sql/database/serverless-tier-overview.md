@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206936"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037306"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,8 +67,8 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 | | **서버리스 컴퓨팅** | **프로비저닝된 컴퓨팅** |
 |:---|:---|:---|
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 | 시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
-| **성능 관리 작업** |더 적음|더 많음|
-|**컴퓨팅 크기 조정**|자동|Manual|
+| **성능 관리 작업** |더 낮음|더 높음|
+|**컴퓨팅 크기 조정**|자동|설명서|
 |**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
 |**청구 세분성**|초당|시간당|
 
@@ -76,7 +76,7 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 
 SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어에 대한 범용 계층에서만 지원됩니다.
 
-## <a name="autoscaling"></a>자동 크기 조정
+## <a name="autoscaling"></a>자동 확장
 
 ### <a name="scaling-responsiveness"></a>크기 조정 응답성
 
@@ -88,7 +88,7 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 #### <a name="cache-reclamation"></a>캐시 재사용
 
-프로 비전 된 계산 데이터베이스와 달리 SQL 캐시의 메모리는 CPU 또는 활성 캐시 사용률이 낮을 때 서버 리스 데이터베이스에서 회수 됩니다.  CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.
+프로 비전 된 계산 데이터베이스와 달리 SQL 캐시의 메모리는 CPU 또는 활성 캐시 사용률이 낮을 때 서버 리스 데이터베이스에서 회수 됩니다.
 
 - 가장 최근에 사용한 캐시 항목의 전체 크기가 일정 시간 동안 임계값 미만이 되 면 활성 캐시 사용률은 낮은 것으로 간주 됩니다.
 - 캐시 재사용이 트리거되면 대상 캐시 크기가 점차적으로 이전 크기의 분수로 줄어들고 사용량이 낮은 경우에만 회수 됩니다.
@@ -96,6 +96,8 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 - 캐시 크기는 구성할 수 있는 최소 vCores에 정의 된 최소 메모리 제한 아래로 축소 되지 않습니다.
 
 서버 리스 서버와 프로 비전 된 계산 데이터베이스 모두에서 사용 가능한 모든 메모리를 사용 하는 경우 캐시 항목이 제거 될 수 있습니다.
+
+CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.  또한 이전 사용자 작업에 응답 하는 정기적인 백그라운드 프로세스로 인해 사용자 작업이 중지 된 후에는 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업은 삭제 하도록 표시 된 고스트 레코드를 생성 하지만, 데이터 페이지를 캐시로 읽을 수 있는 고스트 정리 프로세스를 실행할 때까지 물리적으로 삭제 되지 않습니다.
 
 #### <a name="cache-hydration"></a>캐시 하이드레이션
 

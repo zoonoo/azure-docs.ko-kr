@@ -3,12 +3,12 @@ title: REST API를 사용 하 여 Azure 파일 공유 백업
 description: REST API를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055020"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036745"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Rest API를 통해 Azure Backup를 사용 하 여 Azure 파일 공유 백업
 
@@ -106,9 +106,9 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 보호할 수 있는 저장소 계정 목록 가져오기
+### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 백업할 수 있는 파일 공유를 사용 하 여 저장소 계정 목록을 가져옵니다.
 
-"캐싱"이 완료 되었는지 확인 하려면 구독에서 보호 가능한 모든 저장소 계정을 나열 합니다. 그런 다음 응답에서 원하는 저장소 계정을 찾습니다. 이 작업은 [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list) 작업을 사용 하 여 수행 됩니다.
+"캐싱"이 완료 되었는지 확인 하려면 Recovery Services 자격 증명 모음으로 백업할 수 있는 파일 공유를 사용 하 여 구독의 모든 저장소 계정을 나열 합니다. 그런 다음 응답에서 원하는 저장소 계정을 찾습니다. 이 작업은 [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list) 작업을 사용 하 여 수행 됩니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -467,7 +467,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-| 이름       | 유형                       | 설명                       |
+| 속성       | Type                       | 설명                       |
 | ---------- | -------------------------- | --------------------------------- |
 | 속성 | AzurefilesharebackupReques | BackupRequestResource 속성 |
 

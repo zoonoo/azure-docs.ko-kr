@@ -1,17 +1,17 @@
 ---
 title: Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
 description: Microsoft Azure Cosmos DB 트랜잭션(행 기반) 및 분석(열 기반) 저장소에 대해 알아봅니다. 분석 저장소의 이점, 대규모 워크로드 성능에 미치는 영향 및 트랜잭션 저장소에서 분석 저장소로 데이터 자동 동기화
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116029"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037102"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
 

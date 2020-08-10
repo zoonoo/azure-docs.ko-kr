@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 Azure Maps 계정 관리 | Microsoft Azure 맵
-description: 이 문서에서는 Azure Portal 사용 하 여 Microsoft Azure Maps 계정을 관리 하는 방법을 알아봅니다.
+description: Azure Portal를 사용 하 여 Azure Maps 계정을 관리 하는 방법을 알아봅니다. 새 계정을 만드는 방법 및 기존 계정을 삭제 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/27/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3317b063b5b05a57f08bbd15be827cd83075de34
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 5717e48683234e55638393d232d931bc50cb59b1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126961"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037323"
 ---
 # <a name="manage-your-azure-maps-account"></a>Azure Maps 계정 관리
 

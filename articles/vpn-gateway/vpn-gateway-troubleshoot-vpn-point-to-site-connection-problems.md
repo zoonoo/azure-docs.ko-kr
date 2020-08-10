@@ -1,19 +1,19 @@
 ---
 title: Azure 지점 및 사이트 간 연결 문제 해결
 titleSuffix: Azure VPN Gateway
-description: 다양 한 VPN 클라이언트 오류를 포함 하 여 Azure에서 경험할 수 있는 일반적인 지점 및 사이트 간 연결 문제를 해결 하는 방법을 알아봅니다.
+description: 일반적인 지점 및 사이트 간 연결 문제 및 기타 가상 개인 네트워크 오류 및 문제를 해결 하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 8fd32cb99db115484c913e1a0f00b038b62367e9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920656"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035953"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 

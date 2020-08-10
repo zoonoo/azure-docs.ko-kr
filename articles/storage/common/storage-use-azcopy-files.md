@@ -1,18 +1,18 @@
 ---
 title: AzCopy v10를 사용 하 여 Azure Files에서 데이터 전송 Microsoft Docs
-description: AzCopy 및 file storage를 사용 하 여 데이터를 전송 합니다.
+description: AzCopy 및 file storage를 사용 하 여 데이터를 전송 합니다. AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 수 있는 명령줄 도구입니다. Azure Files와 함께 AzCopy를 사용 합니다.
 author: normesta
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e75ea5a8f5fdeaf7c3562e50d9493341d41ce393
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292719"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037153"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송 
 

@@ -5,21 +5,21 @@ keywords: Azure Key Vault 인증 로컬 자격 증명
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 06/30/2020
+ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 6edb6f026f3062dfb2beafd863cf090519f6b66a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d48e9ac71ba12ecd2eaadb8ba333f5440c68af4b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875986"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034790"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
 > [!NOTE]
-> **Microsoft. Azure. AppAuthentication** 은 새로운 Key Vault SDK와 함께 사용 하는 것이 더 이상 권장 되지 않습니다. .NET, Java, TypeScript 및 Python에 사용할 수 있는 새 Azure Identity library **DefaultAzureCredentials** 로 대체 되었으며 모든 새 개발에 사용 해야 합니다. 자세한 내용은 [인증 및 AZURE SDK에서](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)찾을 수 있습니다.
+> **Microsoft. Azure. AppAuthentication** 은 새로운 Key Vault SDK와 함께 사용 하는 것이 더 이상 권장 되지 않습니다. .NET, Java, TypeScript 및 Python에 사용할 수 있는 새 Azure Identity library **DefaultAzureCredentials** 로 대체 되었으며 모든 새 개발에 사용 해야 합니다. 자세한 내용은 [인증 및 AZURE SDK에서](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/)찾을 수 있습니다.
 
 Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Active Directory (Azure AD) 자격 증명이 필요 합니다.
 

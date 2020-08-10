@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 553fd4e49d274fcf4c25356764182d54b91149e4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798259"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036643"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
 
@@ -186,19 +186,19 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 
 이 섹션에서 제품을 고객에게 표시할 때 사용되는 로고 및 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식이어야 합니다.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
 
 #### <a name="store-logos"></a>스토어 로고
 
-**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
+두 픽셀 크기의 제품 로고를 제공합니다.
 
-목록의 다른 위치에서 사용 하려면 두 로고 크기가 모두 필요 합니다.
+- **작음**(48 x 48)
+- **대형**(216 x 216)
 
-- **소형**(48 x 48)
-- **큼** (216 x 216 및 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

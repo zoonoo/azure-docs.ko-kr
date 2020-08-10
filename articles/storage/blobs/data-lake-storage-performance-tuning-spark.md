@@ -1,6 +1,6 @@
 ---
 title: '성능 조정: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2의 Spark 성능 튜닝에 대한 지침입니다.
+description: Azure HDInsight 및 Azure Data Lake Storage Gen2를 사용 하 여 Spark의 성능을 조정 하기 위한 지침을 이해 합니다.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 06fe2670e5ee0d95df8985c9777d3ad9741336b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8ae9f96b42c0eb36a9380589780d141711c7ae4d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106121"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034736"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Spark, HDInsight & Azure Data Lake Storage Gen2
 

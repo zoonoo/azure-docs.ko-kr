@@ -1,7 +1,7 @@
 ---
 title: Storage 계정 개요
 titleSuffix: Azure Storage
-description: Azure Storage 계정의 만들기 및 사용을 위한 옵션을 이해합니다.
+description: Azure Storage의 저장소 계정 개요를 참조 하세요. 계정 이름, 성능 계층, 액세스 계층, 중복성, 암호화, 끝점 등을 검토 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043644"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034654"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -78,7 +78,7 @@ FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을
 
 스토리지 계정의 이름을 지정할 때는 다음 규칙에 유의하세요.
 
-- Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
+- 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
 - 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 두 개의 스토리지 계정이 같은 이름을 사용할 수 없습니다.
 
 ## <a name="performance-tiers"></a>성능 계층

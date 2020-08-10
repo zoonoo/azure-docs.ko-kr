@@ -1,6 +1,6 @@
 ---
 title: GeoJSON에 대 한 데이터 형식 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps에 사용할 수 있는 지 오 펜스 데이터를 준비 하는 방법에 대해 알아봅니다.
+description: Azure Maps 지 오 오 데이터 데이터에 대해 알아봅니다. 지 오를 기준으로 하는 좌표의 위치를 검색할 때 고 지 오를 사용 하는 방법 및 지 오, 포스트 지 오 Api
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131308"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037408"
 ---
 # <a name="geofencing-geojson-data"></a>지오펜싱 GeoJSON 데이터
 
@@ -30,7 +30,7 @@ Azure Maps [GET 지오펜스](/rest/api/maps/spatial/getgeofence) 및 [POST 지�
 * `expiredTime`은 지오펜싱 데이터의 만료 날짜 및 시간입니다. 요청의 `userTime` 값이 이 값보다 이후이면 해당 지오펜스 데이터는 만료된 데이터로 간주되며 쿼리되지 않습니다. 이 경우 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `expiredGeofenceGeometryId` 배열에 포함됩니다.
 * `validityPeriod`는 지오펜스의 유효 기간 목록입니다. 요청의 `userTime` 값이 유효 기간을 벗어난 경우 해당 지오펜스 데이터는 잘못된 데이터로 간주되며 쿼리되지 않습니다. 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `invalidPeriodGeofenceGeometryId` 배열에 포함됩니다. 다음 표에는 validityPeriod 요소의 속성이 나와 있습니다.
 
-| 이름 | 유형 | 필수  | 설명 |
+| 속성 | Type | 필수  | 설명 |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | 유효 기간의 시작 날짜/시간입니다. |
 | endTime   | DateTime  | true |  유효 기간의 종료 날짜/시간입니다. |

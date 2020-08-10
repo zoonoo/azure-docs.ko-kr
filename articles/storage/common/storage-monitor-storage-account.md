@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 Azure Storage 계정을 모니터링하는 방법 | Microsoft Docs
-description: Azure 포털을 사용하여 Azure에서 스토리지 계정을 모니터링하는 방법에 대해 알아봅니다.
+description: Azure Portal 및 Azure 스토리지 분석를 사용 하 여 Azure에서 저장소 계정을 모니터링 하는 방법에 대해 알아봅니다.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 4c78938e2f70342822a4009ed9195196ca486fe0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474362"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034671"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 스토리지 계정 모니터링
 

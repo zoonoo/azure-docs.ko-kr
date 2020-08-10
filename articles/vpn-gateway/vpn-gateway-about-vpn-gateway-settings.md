@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: 구성 설정'
-description: 각각 구성 가능한 설정을 포함 하는 여러 리소스를 사용 하는 Azure에서 VPN gateway 연결을 구성 하는 방법에 대해 알아봅니다.
+description: 리소스 관리자 배포 모델에서 만든 가상 네트워크에 대 한 VPN Gateway 리소스 및 설정에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5fef54e4fff442f1c9eae523d7d278f193b84171
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6f801b94a16ae6fcee6896dd70510469c5e20098
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926929"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036915"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -41,7 +41,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
 
-예:
+예제:
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -173,7 +173,7 @@ VPN Gateway를 구성하기 위해 REST API, PowerShell cmdlet 또는 Azure CLI�
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| 지원 안 함 | [Azure CLI](/cli/azure/network/vnet-gateway)|
+| 지원되지 않음 | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
 title: Android maps에 타일 계층 추가 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 지도에서 타일 계층을 렌더링 하는 방법을 알아봅니다.
+description: 지도에 타일 계층을 추가 하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용 하 여 날씨 레이더 오버레이를 지도에 추가 하는 예제를 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e7480ba3befaf560eace2cae4ef4a822012373a2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bae1d06f1b5a96ad99d970613d957ce75a0c1393
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126978"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037357"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 타일 계층 추가
 

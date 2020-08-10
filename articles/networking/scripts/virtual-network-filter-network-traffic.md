@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 스크립트 샘플 - VM 네트워크 트래픽 필터링 | Microsoft Docs
-description: Azure CLI 스크립트를 사용 하 여 인바운드 및 아웃 바운드 VM (가상 컴퓨터) 네트워크 트래픽을 필터링 합니다.
+description: 프런트 엔드 및 백 엔드 서브넷을 사용 하 여 인바운드 및 아웃 바운드 VM (가상 머신) 네트워크 트래픽을 필터링 하는 Azure CLI 스크립트를 사용 합니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: d685da261a917b2d7b6432da65d1c1600ca07961
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61f2441d68954a167b9887a4dfd4b99a53c14166
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281653"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037221"
 ---
 # <a name="use-an-azure-cli-script-to-filter-inbound-and-outbound-vm-network-traffic"></a>Azure CLI 스크립트를 사용 하 여 인바운드 및 아웃 바운드 VM 네트워크 트래픽 필터링
 

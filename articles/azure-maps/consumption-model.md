@@ -1,6 +1,6 @@
 ---
 title: 라우팅에 대 한 차량 소비 모델 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps에서 라우팅하는 차량 소비 모델에 대해 알아봅니다.
+description: Azure Maps에서 지 원하는 소비 모델에 대해 알아봅니다. combustion 및 전기. 각 모델에서 사용 하는 매개 변수를 확인 하 고 매개 변수 제약 조건을 확인 합니다.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b44186d783a249192a8c13ee97063034ee319df7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190241"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036762"
 ---
 # <a name="consumption-model"></a>소비 모델
 

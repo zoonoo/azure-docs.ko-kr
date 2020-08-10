@@ -1,6 +1,6 @@
 ---
 title: 맵 이벤트 처리 | Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용하여 맵 이벤트로 대화형 웹 SDK 맵을 만드는 방법을 알아봅니다.
+description: 사용자가 지도와 상호 작용할 때 발생 하는 이벤트에 대해 알아봅니다. 지원 되는 모든 맵 이벤트 목록을 봅니다. Azure Maps 웹 SDK를 사용 하 여 이벤트를 처리 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 667ab684ef4a453d210af36c0221d350b25c9829
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282894"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036445"
 ---
 # <a name="interact-with-the-map"></a>맵과 상호 작용
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090164"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035807"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Media Services API에 액세스할 수 있는 자격 증명 가져오기  
 
@@ -45,7 +45,7 @@ Azure AD 인증을 사용하여 Azure Media Services API에 액세스할 때 두
 **API 액세스** 페이지에서 API에 연결하는 데 사용할 인증 방법을 선택할 수 있습니다. 또한 이 페이지는 API에 연결하는 데 필요한 값을 제공합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
-2. Media Services API에 연결하는 방법을 선택합니다.
+2. 왼쪽 탐색 모음에서 **API 액세스 (새)** 블레이드를 선택 합니다.
 3. **Media Services API에 연결**에서 연결하려는 Media Services API 버전(V3이 서비스의 최신 버전)을 선택합니다.
 
 ### <a name="service-principal-authentication--recommended"></a>서비스 주체 인증(권장)

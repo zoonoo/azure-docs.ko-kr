@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090147"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036575"
 ---
-# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 일반적인 질문
+# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
 이 문서에서는 상업용 마켓플레이스에 대해 자주 묻는 질문에 답합니다.
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace 란 무엇 인가요?
 
 상업용 마켓플레이스는 파트너가 빌드한 솔루션과 기업 및 정부 기관을 연결합니다. 파트너는 파트너 센터에서 제품을 만들고 관리하며 고객은 Microsoft AppSource, Azure Marketplace, 클라우드 솔루션 공급자 프로그램의 재판매인 및 공동 판매 프로그램을 통한 영업 팀과 같은 제품 내 경험을 통해 솔루션을 찾고 구매할 수 있습니다.
 
@@ -60,7 +60,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 - 자동으로 제공되는 솔루션의 경우 유료, BYOL(Bring-You-Own-License) 또는 무료 여부에 관계없이 고객은 ‘지금 구매’해야 합니다.
 - 테스트 드라이브(데모)를 지원하는 제품을 통해 고객에게 ‘테스트 드라이브’를 요청합니다. 
-- SaaS(Software as a Service)는 상업용 마켓플레이스 외부에서 ‘평가판’을 제공하는 제품입니다.
+- SaaS (Software as a service)는 상용 marketplace 외부의 평가판을 제공 하는 *무료 평가판*을 제공 합니다.
 - 간단한 목록을 통해 고객은 ‘연락처’를 요청할 수 있습니다.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 제품을 만들려면 어떻게 해야 하나요?
@@ -77,7 +77,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>상업용 마켓플레이스에서 조직에 제공되는 분석은 무엇인가요?
 
-상업용 마켓플레이스 내에서 귀하의 제품에 대한 보고를 제공합니다. 고객, 주문, 스토어 참여 등에 대한 데이터에 액세스하려면 [파트너 센터에서 상업용 마켓플레이스에 대한 분석](partner-center-portal/analytics.md)으로 이동합니다.
+상업적 marketplace 내에서 귀하의 제품에 대 한 보고 기능을 제공 합니다. 고객, 주문, 스토어 참여 등에 대한 데이터에 액세스하려면 [파트너 센터에서 상업용 마켓플레이스에 대한 분석](partner-center-portal/analytics.md)으로 이동합니다.
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>내 고객과 Microsoft는 어떤 관계인가요?
 
@@ -124,7 +124,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>상업용 마켓플레이스의 잠재 고객이란 무엇이며 어떻게 해야 하나요?
 
-고객이 Microsoft AppSource 및 Azure Marketplace 스토어의 제품을 사용하는 경우 정보가 캡처됩니다. 고객이 충분한 관심을 보인 후 잠재 고객이 생성되고 선택한 시스템으로 영업 기회가 전송됩니다. 상업용 마켓플레이스로 성공한 게시자는 잠재 고객을 안내하고, 관계를 개발하며, 관심을 거래로 전환시키는 경우가 많습니다.
+고객이 Microsoft AppSource 및 Azure Marketplace 스토어의 제품을 사용하는 경우 정보가 캡처됩니다. 고객이 충분한 관심을 보인 후 잠재 고객이 생성되고 선택한 시스템으로 영업 기회가 전송됩니다. 상업적 marketplace를 성공적으로 완료 한 게시자는 잠재 고객을 안내 하 고 관계를 개발 하며 관심을 계산 하는 경우가 많습니다.
 
 자세한 내용은 [마켓플레이스 제품의 잠재 고객](partner-center-portal/commercial-marketplace-get-customer-leads.md)을 참조하세요.
 
@@ -285,7 +285,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>어떤 국가/지역에서 사용자 본인을 대신하여 세금이 관리되나요?
 
-고객은 전 세계 상업용 마켓플레이스에서 솔루션을 찾을 수 있으며 Microsoft는 많은 지역에서 세금을 관리합니다. 
+고객은 전 세계의 상용 marketplace에서 솔루션을 찾을 수 있으며 여러 위치에서 세금을 관리 합니다. 
 
 전체 위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](partner-center-portal/tax-details-paid-transactions.md)로 이동하세요.
 
