@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506488"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031128"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
-Azure Functions 버전 2.x에서 [바인딩은](./functions-triggers-bindings.md) 함수 런타임과 별도의 패키지로 사용할 수 있습니다. .NET 함수는 NuGet 패키지를 통해 바인딩에 액세스 하지만, 확장 번들을 사용 하면 다른 함수에서 구성 설정을 통해 모든 바인딩에 액세스할 수 있습니다.
+Azure Functions 버전 2.x부터 [바인딩은](./functions-triggers-bindings.md) 함수 런타임과 별도의 패키지로 사용할 수 있습니다. .NET 함수는 NuGet 패키지를 통해 바인딩에 액세스 하지만, 확장 번들을 사용 하면 다른 함수에서 구성 설정을 통해 모든 바인딩에 액세스할 수 있습니다.
 
 바인딩 확장과 관련 된 다음 항목을 고려 합니다.
 
@@ -24,30 +24,38 @@ Azure Functions 버전 2.x에서 [바인딩은](./functions-triggers-bindings.md
 
 다음 표는 바인딩을 등록 하는 시기와 방법을 나타냅니다.
 
-| 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
+| 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> 함수 3(sp3)의  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure portal|자동|자동|
+|Azure portal|자동|자동 번역<sup>*</sup>|
 |Non-.NET 언어 또는 로컬 Azure 핵심 도구 개발|자동|[Azure Functions Core Tools 및 확장 번들 사용](#extension-bundles)|
 |Visual Studio를 사용 하는 c # 클래스 라이브러리|[NuGet 도구 사용](#vs)|[NuGet 도구 사용](#vs)|
-|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#vs-code)|
+|Visual Studio Code를 사용하는 C# 클래스 라이브러리|N/A|[.NET Core CLI 사용](#vs-code)|
 
-## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>로컬 개발용 확장 번들
+<sup>*</sup>포털은 확장 번들을 사용 합니다.
 
-확장 번들은 함수 앱에 호환 되는 함수 바인딩 확장 집합을 추가할 수 있는 배포 기술입니다. 앱을 빌드할 때 미리 정의 된 확장 집합이 추가 됩니다. 번들에 정의 된 확장 패키지는 서로 호환 되므로 패키지 간의 충돌을 방지할 수 있습니다. 응용 프로그램의 host.js파일에서 확장 번들을 사용 하도록 설정 합니다.  
+## <a name="extension-bundles"></a><a name="extension-bundles"></a>확장 번들
 
-버전 2.x 이상 버전의 함수 런타임에서 확장 번들을 사용할 수 있습니다. 로컬로 개발 하는 경우 최신 버전의 [Azure Functions Core Tools](functions-run-local.md#v2)을 사용 하 고 있는지 확인 합니다.
+확장 번들은 함수 앱에 호환 되는 함수 바인딩 확장 집합을 추가 하는 방법입니다. 번들을 사용 하는 경우 앱을 빌드할 때 미리 정의 된 확장 집합이 추가 됩니다. 번들에 정의 된 확장 패키지는 서로 호환 되는 것으로 확인 되므로 패키지 간의 충돌을 방지할 수 있습니다. 확장 번들을 사용 하면 non-.NET 함수 프로젝트를 사용 하 여 .NET 프로젝트 코드를 게시 하지 않아도 됩니다. 응용 프로그램의 host.js파일에서 확장 번들을 사용 하도록 설정 합니다.  
 
-원격으로 빌드할 때 Azure Functions Core Tools, Visual Studio Code 및를 사용 하 여 로컬 개발을 위해 확장 번들을 사용 합니다.
+버전 2.x 이상 버전의 함수 런타임에서 확장 번들을 사용할 수 있습니다. 
 
-확장 번들을 사용 하지 않는 경우 바인딩 확장을 설치 하기 전에 로컬 컴퓨터에 .NET Core 2.x SDK를 설치 해야 합니다. 확장 번들은 로컬 개발을 위한 이러한 요구 사항을 제거 합니다. 
+원격으로 빌드할 때 Azure Functions Core Tools, Visual Studio Code 및를 사용 하 여 로컬 개발을 위해 확장 번들을 사용 합니다. 로컬로 개발 하는 경우 최신 버전의 [Azure Functions Core Tools](functions-run-local.md#v2)을 사용 하 고 있는지 확인 합니다. 확장 번들은 Azure Portal에서 함수를 개발 하는 경우에도 사용 됩니다. 
+
+확장 번들을 사용 하지 않는 경우 [명시적으로 바인딩 확장을 설치](#explicitly-install-extensions)하기 전에 로컬 컴퓨터에 .net CORE 2.x SDK를 설치 해야 합니다. 필요한 확장을 명시적으로 정의 하는 확장명 .csproj 파일이 프로젝트에 추가 됩니다. 확장 번들은 로컬 개발을 위한 이러한 요구 사항을 제거 합니다. 
 
 확장 번들을 사용 하려면에 대 한 다음 항목을 포함 하도록 파일 *의host.js* 를 업데이트 합니다 `extensionBundle` .
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+## <a name="explicitly-install-extensions"></a>명시적으로 확장 설치
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Visual Studio를 사용 하는 C 클래스 라이브러리
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+
+## <a name="nuget-packages"></a><a name="local-csharp"></a>NuGet 패키지
+
+C # 클래스 라이브러리 기반 함수 프로젝트의 경우에는 클래스가 아닌 프로젝트용으로 특별히 디자인 된 확장 번들을 설치 해야 합니다. 
+
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Visual Studio를 사용 하는 C 클래스 라이브러리
 
 다음 예제와 같이 **Visual Studio**에서 패키지 관리자 콘솔을 사용 하 여 패키지 [를 설치할 수](/nuget/tools/ps-ref-install-package) 있습니다.
 

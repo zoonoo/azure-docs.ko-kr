@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2의 액세스 제어에 대한 개요 | Microsoft Docs
-description: Azure Data Lake Storage Gen2에서 액세스 제어가 작동하는 방식을 알아봅니다.
+description: Azure Data Lake Storage Gen2에서 액세스 제어가 작동 하는 방식을 이해 합니다. Azure RBAC (역할 기반 액세스 제어) 및 POSIX와 같은 Acl이 지원 됩니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 54867278b583124473b5b41c164714bf91f2f631
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543302"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030489"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -123,7 +123,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 저장소 계정에서 특정 작업을 수행 하는 데 필요한 사용 권한을 이해 하는 데 도움이 되는 몇 가지 일반적인 시나리오를 보여 줍니다.
 
-|    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    연산             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -347,6 +347,6 @@ ACL은 상속되지 않습니다. 그러나 기본 ACL을 사용하여 부모 �
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Data Lake Storage Gen2 개요](../blobs/data-lake-storage-introduction.md)

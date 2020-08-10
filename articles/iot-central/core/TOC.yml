@@ -105,8 +105,10 @@
           href: howto-run-a-job.md
     - name: 변환
       items:
-        - name: Azure에서 대상으로 데이터 내보내기
+        - name: Azure에서 대상으로 데이터 내보내기(레거시)
           href: howto-export-data.md
+        - name: 클라우드 대상으로 데이터 내보내기(미리 보기)
+          href: howto-use-data-export.md
         - name: 규칙에서 웹후크 만들기
           href: howto-create-webhooks.md
         - name: 워크플로를 사용하여 다른 서비스와 통합

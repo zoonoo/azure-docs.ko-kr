@@ -1,6 +1,6 @@
 ---
 title: 라우팅 적용 범위 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps에 대 한 라우팅 범위를 사용 하는 지역에 대해 알아봅니다.
+description: 라우팅, 트래픽 라우팅 및 트럭 라우팅을 위해 다양 한 지역에서 제공 하는 범위 Azure Maps에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d581380bed3cb0cbc50a0b763a1dc7fe7ee1d04e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 160e8182a2de56b494e8f37bbedf4a8cec66c608
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129528"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030897"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps 라우팅 적용 범위
 

@@ -8,7 +8,7 @@
   items:
     - name: 라이선스 요구 사항
       href: subscription-requirements.md
-    - name: 관리할 수 없는 역할
+    - name: PIM으로 관리할 수 없는 역할
       href: pim-roles.md
     - name: 권한 있는 액세스 보호
       href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -18,7 +18,7 @@
       href: pim-resource-roles-overview-dashboards.md
     - name: 이메일 알림
       href: pim-email-notifications.md
-    - name: Microsoft Graph API
+    - name: Microsoft Graph API 및 PIM
       href: pim-apis.md
 - name: 방법 가이드
   expanded: true
@@ -33,7 +33,7 @@
           href: pim-security-wizard.md
         - name: Azure 리소스 검색
           href: pim-resource-roles-discover-resources.md
-        - name: 다른 사람에게 PIM을 관리하는 액세스 권한 부여
+        - name: PIM에 대한 액세스 위임
           href: pim-how-to-give-access-to-pim.md
         - name: 모든 구독을 관리하도록 액세스 권한 상승
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json

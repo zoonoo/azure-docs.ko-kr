@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 물리적 서버의 평가/마이그�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113254"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420790"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>물리적 서버의 평가 및 Azure로 마이그레이션 준비
 
@@ -138,7 +138,7 @@ Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가�
 
 Azure Migrate에는 온-프레미스 서버를 검색할 수 있는 권한이 필요합니다.
 
-- **Windows:** 검색하려는 모든 Windows 서버의 도메인 관리자 또는 로컬 관리자여야 합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
+- **Windows:** 도메인에 조인된 서버를 검색하려면 도메인 계정이 필요하고, 도메인에 조인되지 않은 머신을 검색하려면 로컬 계정이 필요합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
 - **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다.
 
 ## <a name="prepare-for-physical-server-migration"></a>물리적 서버 마이그레이션 준비

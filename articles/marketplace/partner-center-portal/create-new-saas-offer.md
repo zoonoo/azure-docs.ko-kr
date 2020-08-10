@@ -3,18 +3,18 @@ title: SaaS 제품, Azure Marketplace 및 Microsoft AppSource를 만듭니다.
 description: Microsoft 파트너 센터의 Microsoft 상업적 Marketplace 프로그램을 사용 하 여 Microsoft AppSource, Azure Marketplace 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위한 SaaS (Software as a Service) 제품을 만드는 방법입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800339"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031033"
 ---
-# <a name="create-a-saas-offer"></a>SaaS 제품 만들기
+# <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 SaaS 제품 만들기
 
 상업용 Marketplace에서 SaaS(Software as a Service) 제품을 만들기 시작하려면 먼저 [파트너 센터 계정을 만든](./create-account.md) 다음 **개요** 탭이 선택된 상태에서 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
 
@@ -83,7 +83,7 @@ SaaS 솔루션을 게시자의 Azure 구독에서 실행하는 경우 고객이 
 
 SaaS는 요금 청구 서비스를 사용하여 정액 요금, 사용자당 요금 또는 사용량 요금을 기준으로 월별 또는 연간 청구를 지원합니다. Microsoft의 상업용 Marketplace는 에이전시 모델을 기반으로 작동합니다. 즉, 게시자가 가격을 설정하고, Microsoft가 고객에게 요금을 청구하고, Microsoft가 에이전시 수수료를 공제 후 게시자에게 수익을 지급합니다.
 
-다음은 에이전시 모델을 설명 하는 비용 및 지급의 샘플 분석입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하기 위한 것이 아닙니다.
+다음은 에이전시 모델을 설명 하는 비용 및 지급의 샘플 분석입니다. 나열 된 가격은 실제 비용을 반영 하기 위한 것이 아니라 목적 으로만 사용 됩니다.
 
 |**라이선스 비용**|**매월 $100**|
 |:---|:---|
@@ -282,16 +282,18 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 #### <a name="files-and-images"></a>파일 및 이미지
 
 - **Documents** (필수) – 제품에 대 한 관련 마케팅 문서를 하나 이상의 문서에 대 한 하나 이상의 문서 (PDF 형식)로 추가 합니다.
-- **이미지** (필수)-제품 로고 이미지가 marketplace 전체에 표시 될 수 있는 여러 위치가 있습니다. **큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다. **넓은** 로고 추가는 선택 사항입니다.
+- **이미지** – PNG 형식의 로고 이미지를 업로드 합니다.
 
-    목록의 다른 위치에서 사용 하려면 3 개의 로고 크기가 필요 합니다. 하나는 선택 사항입니다.
+  - **작음** (48 x 48 픽셀, 필수)
+  - **중간** (90 x 90 픽셀, 필수)
+  - **큼** (216 x 216 픽셀, 필수)
+  - **와이드** (255 x 115 픽셀) (선택 사항)
 
-    - **소형**(48 x 48)
-    - **중형**(90 x 90)
-    - **큼** (216 x 216 및 350 x 350)
-    - **와이드** (255 x 115), *선택 사항*
+   이 세 가지 로고 크기는 상점의 다른 위치에서 사용 됩니다.
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   -   작은 로고 (48 x 48 픽셀)가 Azure Marketplace 검색 결과 및 Microsoft AppSource 기본 페이지 및 검색 결과 페이지에 표시 됩니다. 
+   -   Microsoft Azure에서 새 리소스를 만들 때 중간 로고 (90 x 90 픽셀)가 나타납니다.
+   -   Azure Marketplace 및 Microsoft AppSource의 제품 목록 페이지에 긴 로고 (216 x 216 및 350 x 350 픽셀)가 표시 됩니다.
 
 - **스크린샷** (필수)-1280 x 720 픽셀로 크기를 지정 하 여 제품을 보여 주는 최대 5 개의 스크린샷을 추가 합니다. 모든 이미지는 .PNG 형식이어야 합니다.
 - **동영상**(선택 사항) – 제품을 보여 주는 동영상에 대한 링크를 추가합니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 또한 동영상 미리 보기 이미지를 입력해야 합니다. 이 이미지는 PNG 형식의 1280 x 720 픽셀로 크기가 지정됩니다. 제품당 최대 4개의 동영상을 표시할 수 있습니다.

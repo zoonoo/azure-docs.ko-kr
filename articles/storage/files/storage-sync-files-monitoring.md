@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1d7b29bbd508223888c6f205e25008c0b29fecea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922937"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031084"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
@@ -81,17 +81,32 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ## <a name="storage-sync-service"></a>스토리지 동기화 서비스
 
-등록 된 서버 상태, 서버 끝점 상태 및 메트릭을 보려면 Azure Portal의 저장소 동기화 서비스로 이동 합니다. **등록 된 서버 블레이드 및** **동기화 그룹** 블레이드에서 서버 끝점 상태에서 등록 된 서버 상태를 볼 수 있습니다.
+**Azure Portal**에서 Azure File Sync 배포의 상태를 보려면 **저장소 동기화 서비스로** 이동 하 여 다음 정보를 사용할 수 있습니다.
+
+- 등록 된 서버 상태
+- 서버 끝점 상태
+    - 동기화 상태가 아닌 파일
+    - 동기화 활동
+    - 클라우드 계층화 효율성
+    - 계층화 되지 않은 파일
+    - 회수 오류
+- 메트릭
 
 ### <a name="registered-server-health"></a>등록 된 서버 상태
+
+포털에서 **등록 된 서버 상태** 를 보려면 **저장소 동기화 서비스**의 **등록 된 서버** 섹션으로 이동 합니다.
 
 - 등록 된 **서버** 상태가 **온라인**인 경우 서버는 서비스와 성공적으로 통신 하 고 있는 것입니다.
 - 등록 된 **서버** 상태가 **오프 라인으로 표시**되는 경우 AzureStorageSyncMonitor.exe (저장소 동기화 모니터 프로세스)가 실행 되 고 있지 않거나 서버에서 Azure File Sync 서비스에 액세스할 수 없습니다. 지침은 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) 를 참조 하세요.
 
 ### <a name="server-endpoint-health"></a>서버 끝점 상태
 
-- 포털의 서버 엔드포인트 상태는 서버의 원격 분석 이벤트 로그에 기록되는 동기화 이벤트(ID 9102 및 9302)를 기준으로 합니다. 오류 취소와 같은 일시적인 오류로 인해 동기화 세션이 실패 한 경우 현재 동기화 세션이 진행 되는 동안에도 여전히 포털에서 동기화가 정상적으로 나타날 수 있습니다. 이벤트 ID 9302은 파일이 적용 되 고 있는지 여부를 확인 하는 데 사용 됩니다. 자세한 내용은 [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 및 [동기화 진행률](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)을 참조 하세요.
-- 동기화가 진행 되 고 있지 않으므로 포털에서 동기화 오류가 표시 되는 경우 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) 에서 지침을 참조 하세요.
+포털에서 **서버 끝점** 의 상태를 보려면 **저장소 동기화 서비스** 의 **동기화 그룹** 섹션으로 이동 하 여 **동기화 그룹**을 선택 합니다.
+
+- 포털의 **서버 끝점 상태** 및 **동기화 작업** 은 서버의 원격 분석 이벤트 로그에 기록 되는 동기화 이벤트 (ID 9102 및 9302)를 기반으로 합니다. 오류 취소와 같은 일시적인 오류로 인해 동기화 세션이 실패 하면 현재 동기화 세션이 진행 중인 동안 (파일이 적용 됨) 동기화가 여전히 포털에서 정상 상태로 표시 됩니다. 동기화 세션이 완료 되 면 이벤트 ID 9302이 동기화 진행률 이벤트 및 이벤트 ID 9102가 기록 됩니다.  자세한 내용은 [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 및 [동기화 진행률](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)을 참조 하세요. 동기화가 진행 되지 않기 때문에 포털에 오류가 표시 되 면 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) 에서 지침을 참조 하세요.
+- 포털에서 **동기화 되지 않는 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9121을 기반으로 합니다. 이 이벤트는 동기화 세션이 완료 되 면 각 항목당 오류에 대해 기록 됩니다. 항목별 오류를 해결 하려면 [동기화 되지 않는 특정 파일이 나 폴더가 있는지 어떻게 할까요? 참조](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)하십시오.
+- 포털에서 **클라우드 계층화 효율성** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. 클라우드 계층화 효율성을 위해 제공 되는 데이터는 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 ID 9071을 기반으로 합니다. 자세한 내용은 [클라우드 계층화 개요](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering)를 참조하세요.
+- 포털에서 계층화 및 **회수 오류가 발생** **하지 않은 파일** 을 보려면 **서버 끝점 속성** 으로 이동 하 여 **클라우드 계층화** 섹션으로 이동 합니다. **계층화 되지 않은 파일** 은 서버의 원격 분석 이벤트 로그에 기록 된 이벤트 id 9003을 기반으로 하며, **회수 오류** 는 이벤트 id 9006을 기반으로 합니다. 계층 또는 회수에 실패 한 파일을 조사 하려면 [계층에 실패 한 파일의 문제를 해결 하는 방법](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) 및 [회수에 실패 한 파일의 문제를 해결](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled)하는 방법을 참조 하세요.
 
 ### <a name="metric-charts"></a>메트릭 차트
 
@@ -112,13 +127,13 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ## <a name="windows-server"></a>Windows Server
 
-Azure File Sync 에이전트가 설치 된 Windows Server에서 클라우드 계층화, 등록 된 서버 및 동기화 상태를 볼 수 있습니다.
+Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤트 로그** 및 **성능 카운터**를 사용 하 여 해당 서버에서 서버 끝점의 상태를 볼 수 있습니다.
 
 ### <a name="event-logs"></a>이벤트 로그
 
 서버의 원격 분석 이벤트 로그를 사용하여 등록된 서버, 동기화 및 클라우드 계층화 상태를 모니터링합니다. 원격 분석 이벤트 로그는 *응용 프로그램 및 Services\Microsoft\FileSync\Agent*아래 이벤트 뷰어에 있습니다.
 
-동기화 상태:
+상태 동기화
 
 - 동기화 시스템이 완료되면 이벤트 ID 9102가 기록됩니다. 이 이벤트를 사용 하 여 동기화 세션의 성공 여부 (**HResult = 0**) 및 항목당 동기화 오류가 있는지 여부를 확인 합니다. 자세한 내용은 [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 및 [항목 별 오류](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 설명서를 참조 하세요.
 
@@ -129,11 +144,11 @@ Azure File Sync 에이전트가 설치 된 Windows Server에서 클라우드 계
 
 - 활성 동기화 세션이 있으면 5~10분마다 이벤트 ID 9302가 기록됩니다. 이 이벤트를 사용 하 여 현재 동기화 세션이 진행 되 고 있는지 여부를 확인할 수 있습니다 (**AppliedItemCount > 0**). 동기화가 진행 되 고 있지 않으면 동기화 세션이 실패 하 고 이벤트 ID 9102이 오류로 기록 됩니다. 자세한 내용은 [동기화 진행률 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조 하세요.
 
-등록 된 서버 상태:
+등록 된 서버 상태
 
 - 서버가 서비스에 작업을 쿼리하면 30초마다 이벤트 ID 9301이 기록됩니다. GetNextJob가 **status = 0**으로 완료 되 면 서버는 서비스와 통신할 수 있습니다. 오류가 발생 하 여 GetNextJob이 완료 되 면 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) 에서 지침을 확인 합니다.
 
-클라우드 계층화 상태:
+클라우드 계층화 상태
 
 - 서버에서 계층화 작업을 모니터링 하려면 *응용 프로그램 및 Services\Microsoft\FileSync\Agent*아래 이벤트 뷰어에 있는 원격 분석 이벤트 로그에서 이벤트 ID 9003, 9016 및 9029를 사용 합니다.
 

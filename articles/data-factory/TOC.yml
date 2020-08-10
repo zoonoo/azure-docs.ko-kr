@@ -620,6 +620,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
         - name: 자체 호스팅 통합 런타임의 자동화 스크립트
           href: self-hosted-integration-runtime-automation-scripts.md
+        - name: Windows 컨테이너에서 자체 호스팅 통합 런타임 실행
+          href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
     - name: Azure에서 SSIS 패키지 실행
       items:
         - name: Azure에 배포된 SSIS 패키지를 SSDT에서 실행

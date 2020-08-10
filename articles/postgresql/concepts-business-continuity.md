@@ -1,17 +1,17 @@
 ---
 title: 비즈니스 연속성-Azure Database for PostgreSQL-단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원)을 설명 합니다.
+description: 이 문서에서는 Azure Database for PostgreSQL를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원, 복제본)을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: b14eba63d848b5f583e16b39f3ade6bd7e7ba83f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245309"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031203"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
 
@@ -23,19 +23,21 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **Basic** | **일반 용도** | **메모리 최적화** |
+| **기능** | **기본** | **일반 용도** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
 
-> [!IMPORTANT]
-> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
+또한 [읽기 복제본](concepts-read-replicas.md)을 사용 하는 것을 고려할 수 있습니다.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>사용자 또는 애플리케이션 오류가 발생한 후 서버 복구
 
 서비스의 백업을 사용하여 다양한 중단 이벤트에서 서버를 복구할 수 있습니다. 사용자가 실수로 데이터를 삭제할 수도 있고, 의도치 않게 중요한 테이블을 삭제할 수도 있고, 전체 데이터베이스를 삭제할 수도 있습니다. 애플리케이션에서 결함으로 인해 양호한 데이터를 잘못된 데이터로 덮어쓸 수도 있습니다.
 
 지정 **시간 복원을** 수행 하 여 알려진 양호한 시점으로 서버 복사본을 만들 수 있습니다. 이 특정 시점은 서버에 대해 구성한 백업 보존 기간 내에 있어야 합니다. 데이터가 새 서버로 복원된 후에는 원래 서버를 새로 복원된 서버로 바꾸거나 복원된 서버에서 원래 서버로 필요한 데이터를 복사할 수 있습니다.
+
+> [!IMPORTANT]
+> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Azure 데이터 센터 가동 중단에서 복구
 
