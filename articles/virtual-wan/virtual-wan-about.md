@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 9e4c3615d16834a0517b46f1be7221eef28c602c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 713e980eb84032c98ccf08c52e68dab36eadd659
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058737"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513148"
 ---
 # <a name="about-azure-virtual-wan"></a>Azure Virtual WAN 정보
 
@@ -124,9 +124,9 @@ Azure Virtual WAN은 ExpressRoute 트래픽을 암호화하는 기능을 제공�
 
 이제 경로 테이블은 연결 및 전파 기능을 제공합니다. 기존 경로 테이블은 이러한 기능이 없는 경로 테이블입니다. 허브 라우팅에 기존 경로를 사용 중이고 새 기능을 사용하려는 경우 다음 사항을 고려하세요.
 
-* **가상 허브에서 기존 경로를 사용 중인 표준 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 셋째 주까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 새 경로 테이블을 만들어야 합니다(Azure Portal의 허브에 대한 경로 테이블 섹션에서 사용 가능).
+* **가상 허브에서 기존 경로를 사용 중인 표준 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 17일까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 새 경로 테이블을 만들어야 합니다(Azure Portal의 허브에 대한 경로 테이블 섹션에서 사용 가능).
 
-* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 셋째 주까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
+* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 17일까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 

@@ -3,12 +3,12 @@ title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 열 작업, 사용된 태그 나열 및 정규식과 일치하는 리소스를 비롯한 일부 고급 쿼리를 실행합니다.
 ms.date: 07/14/2020
 ms.topic: sample
-ms.openlocfilehash: 38013be583c74e968160cb7ec3a4dd32ede213b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3277d904ebf955c9f924e60dbf6df12eac138a15
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087495"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534790"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>고급 Resource Graph 쿼리 샘플
 
@@ -322,7 +322,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="list-virtual-machines-with-their-network-interface-and-public-ip"></a><a name="join-vmpip"></a>네트워크 인터페이스 및 공용 IP를 사용하여 가상 머신 나열
 
-이 쿼리는 두 개의 **leftouter** `join` 명령을 사용하여 가상 머신, 해당 네트워크 인터페이스 및 해당 네트워크 인터페이스와 관련된 공용 IP 주소를 함께 가져옵니다.
+이 쿼리는 두 개의 **leftouter** `join` 명령을 사용하여 Resource Manager 배포 모델을 통해 만든 가상 머신, 관련 네트워크 인터페이스 및 해당 네트워크 인터페이스와 관련된 공용 IP 주소를 함께 가져옵니다.
 
 ```kusto
 Resources

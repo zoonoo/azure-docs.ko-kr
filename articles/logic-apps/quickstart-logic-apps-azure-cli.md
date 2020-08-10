@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/09/2020
-ms.openlocfilehash: aabb42dc8d86e500875819cbfc169bcc86733219
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/30/2020
+ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101242"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499554"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 논리 앱 만들기 및 관리
 
@@ -271,3 +271,11 @@ Expecting value: line 1 column 1 (char 0)
 | 디버그 | `--debug` | 모든 디버그 로그를 표시합니다. |
 | 도움말 메시지 | `--help -h` | 도움말 대화 상자를 표시합니다. |
 | 쿼리 | `--query` | JSON 출력에 대한 JMESPath 쿼리 문자열을 설정합니다. |
+
+## <a name="next-steps"></a>다음 단계
+
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/?view=azure-cli-latest)를 참조하세요.
+
+CLI를 통해 기본 논리 앱을 만드는 방법에 대한 예제는 [샘플 스크립트 및 워크플로 정의](sample-logic-apps-cli-script.md)를 참조하세요.
+
+[Microsoft 코드 샘플 브라우저](/samples/browse/?products=azure-logic-apps)에서 더 많은 Logic Apps CLI 스크립트 샘플을 찾을 수 있습니다.

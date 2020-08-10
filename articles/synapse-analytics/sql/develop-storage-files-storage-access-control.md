@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283455"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534773"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>SQL 주문형(미리 보기) 스토리지 계정 액세스 제어
 
@@ -89,7 +89,7 @@ SAS 토큰을 사용한 액세스가 가능하려면 데이터베이스 범위 �
 
 
 > [!IMPORTANT]
-> 방화벽으로 보호되는 스토리지에 액세스하는 경우 관리 ID만 사용할 수 있습니다. 해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [RBAC 역할 할당](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 RBAC 역할에 해당합니다.
+> 방화벽으로 보호되는 스토리지에 액세스하는 경우 관리 ID만 사용할 수 있습니다. 해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [Azure 역할 할당](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
 >
 
 ## <a name="credentials"></a>자격 증명
@@ -219,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>예
 
-**공개적으로 사용 가능한 데이터 소스에 액세스**
+### <a name="access-a-publicly-available-data-source"></a>**공개적으로 사용 가능한 데이터 원본에 액세스**
 
 다음 스크립트를 사용하여 공개적으로 사용 가능한 데이터 원본에 액세스하는 테이블을 만듭니다.
 
@@ -248,7 +248,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**자격 증명을 사용하여 데이터 원본에 액세스**
+### <a name="access-a-data-source-using-credentials"></a>**자격 증명을 사용하여 데이터 원본에 액세스**
 
 다음 스크립트를 수정하여 SAS 토큰, 사용자의 Azure AD ID 또는 작업 영역의 관리 ID를 사용하여 Azure 스토리지에 액세스하는 외부 테이블을 만듭니다.
 

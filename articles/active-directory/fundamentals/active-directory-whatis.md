@@ -2,7 +2,7 @@
 title: Azure Active Directory란? - Azure Active Directory | Microsoft Docs
 description: 용어, 사용 가능한 라이선스, 자세한 정보를 제공하는 링크가 포함된 관련 기능 목록을 포함하여 Azure Active Directory에 대한 개요 및 개념 정보를 제공합니다.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6b7d40512fe3537610efa42ccc33c9f8e80212
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484382"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796628"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 
@@ -90,9 +90,9 @@ Azure AD 및 설명서를 보다 정확하게 이해하려면 다음 용어를 �
 |ID| 인증을 받을 수 있는 대상입니다. ID는 사용자 이름과 암호를 사용하는 사용자일 수 있습니다. ID에는 비밀 키나 인증서를 통해 인증을 필요로 할 수 있는 다른 서버나 애플리케이션도 포함됩니다.|
 |계정| 연결된 데이터가 있는 ID입니다. ID가 없는 계정은 있을 수 없습니다.|
 |Azure AD 계정| Azure AD 또는 Office 365 같은 다른 Microsoft 클라우드 서비스를 통해 만들어진 ID입니다. ID는 Azure AD에 저장되고 조직의 클라우드 서비스 구독에 액세스할 수 있습니다. 이 계정을 회사 또는 학교 계정이라고도 합니다.|
-|계정 관리자|이 클래식 구독 관리자 역할은 개념적으로 구독의 청구 소유자입니다. 이 역할은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 액세스할 수 있으며 계정의 모든 구독을 관리할 수 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure RBAC(역할 기반 액세스 제어) 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
-|서비스 관리자|이 클래식 구독 관리자 역할은 액세스를 포함하여 모든 Azure 리소스를 관리할 수 있습니다. 이 역할은 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
-|소유자|이 역할은 액세스를 포함하여 모든 Azure 리소스를 관리할 수 있습니다. 이 역할은 Azure 리소스에 대한 세밀한 액세스 관리를 제공하는 RBAC(역할 기반 액세스 제어)라고 하는 최신 권한 부여 시스템 기반입니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
+|계정 관리자|이 클래식 구독 관리자 역할은 개념적으로 구독의 청구 소유자입니다. 이 역할은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 액세스할 수 있으며 계정의 모든 구독을 관리할 수 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
+|서비스 관리자|이 클래식 구독 관리자 역할은 액세스를 포함하여 모든 Azure 리소스를 관리할 수 있습니다. 이 역할은 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
+|소유자|이 역할은 액세스를 포함하여 모든 Azure 리소스를 관리할 수 있습니다. 이 역할은 Azure 리소스에 대한 세밀한 액세스 관리를 제공하는 RBAC(역할 기반 액세스 제어)라고 하는 최신 권한 부여 시스템 기반입니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
 |Azure AD 전역 관리자|이 관리자 역할은 Azure AD 테넌트를 만든 모든 사람에게 자동으로 할당됩니다. 글로벌 관리자는 Exchange Online, SharePoint Online, 비즈니스용 Skype Online 등의 서비스에 페더레이션되는 서비스 및 Azure AD에 대한 모든 관리 기능을 수행할 수 있습니다. 글로벌 관리자를 여러 명 둘 수 있지만, 글로벌 관리자만이 사용자에게 관리자 역할을 할당(다른 글로벌 관리자 할당 포함)할 수 있습니다. 이 관리자 역할은 Azure Portal에서 전역 관리자라고 하지만 Microsoft Graph API 및 Azure AD PowerShell에서 **회사 관리자**라고 합니다. 다양한 관리자 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 사용 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.|
 |Azure 구독| Azure 클라우드 서비스 요금을 지불하는 데 사용됩니다. 여러 구독을 한 신용 카드에 연결할 수 있습니다.|
 |Azure 테넌트| 조직이 Microsoft Azure, Microsoft Intune 또는 Office 365 같은 Microsoft 클라우드 서비스 구독에 등록할 때 자동으로 생성되는 Azure AD의 신뢰할 수 있는 전용 인스턴스입니다. 한 Azure 테넌트는 단일 조직을 나타냅니다.|

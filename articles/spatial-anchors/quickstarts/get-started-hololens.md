@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 582bb3e0f98535ccdc7be059de904e152db6ac77
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e6d728647bb654ee2645bb1e3eb5968dcab337a8
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870977"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810354"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Spatial Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -54,7 +54,7 @@ Visual Studio에서 `HoloLens\DirectX\SampleHoloLens.sln`을 엽니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
-`case DemoStep::ConfigSession:`을 찾아 이전 버전의 계정 도메인으로 대체하는 `configuration.AccountDomain("MyAccountDomain");` 줄을 추가합니다.
+`SpatialAnchorsAccountDomain` 필드를 찾아 `Set me`를 계정 도메인으로 바꿉니다.
 
 ## <a name="deploy-the-app-to-your-hololens"></a>HoloLens에 앱 배포
 

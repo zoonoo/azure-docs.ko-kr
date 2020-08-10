@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: punagpal
-ms.openlocfilehash: bc85765666ba3baeae7ec795118f615f6b4b4368
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95f5b5f13401c224ccf67c5f013deedf00379de7
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101361"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446804"
 ---
 # <a name="quickstart-deploy-iot-connector-preview-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 IoT Connector(미리 보기) 배포
 
@@ -181,7 +181,7 @@ IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬�
 Postman을 사용하여 Azure API for FHIR에서 IoT Connector를 통해 만든 FHIR 기반 관찰 리소스를 볼 수 있습니다. 심박수 값을 사용하여 관찰 FHIR 리소스를 보려면 [Azure API for FHIR에 액세스](access-fhir-postman-tutorial.md)하여 `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4`에 대한 `GET` 요청을 수행하도록 Postman을 설정합니다. 
 
 > [!TIP]
-> 사용자에게 Azure API for FHIR 데이터 평면에 액세스할 수 있는 적절한 권한이 있어야 합니다. [Azure 역할 기반 액세스 제어](configure-azure-rbac.md)를 사용하여 필요한 데이터 평면 역할을 할당합니다.
+> 사용자에게 Azure API for FHIR 데이터 평면에 액세스할 수 있는 적절한 권한이 있어야 합니다. [Azure RBAC(Azure 역할 기반 액세스 제어)](configure-azure-rbac.md)를 사용하여 필요한 데이터 평면 역할을 할당합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

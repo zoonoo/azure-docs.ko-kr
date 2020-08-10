@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207805"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445906"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -143,7 +143,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
     }
     ```
 
-    이 코드는 **RemoteRenderingCoordinator** 구성 요소에 세 개의 추가 문자열 변수를 추가합니다.\
+    이 코드는 **RemoteRenderingCoordinator** 구성 요소에 세 개의 추가 문자열 변수를 추가합니다.
     ![연결된 모델](./media/storage-account-linked-model.png)
 
 1. **RemoteRenderingCoordinator** 구성 요소에 값을 추가합니다. [모델 변환을 위한 빠른 시작](../../../quickstarts/convert-model.md)을 완료하면 값이 다음과 같습니다.
@@ -156,7 +156,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
     > "-UseContainerSas" 인수 [없이 **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) 스크립트를 실행하면 이 스크립트는 SAS 토큰 대신 위의 모든 값을 출력합니다. ![연결된 모델](./media/converted-output.png)
 1. 한동안 GameObject **TestModel**을 제거 또는 비활성화하여 사용자 지정 모델을 로드하는 데 필요한 공간을 확보합니다.
 1. 장면을 재생하고 원격 세션에 연결합니다.
-1. **RemoteRenderingCoordinator**를 마우스 오른쪽 단추로 클릭하고 **연결된 사용자 지정 모델 로드**를 선택합니다.\
+1. **RemoteRenderingCoordinator**를 마우스 오른쪽 단추로 클릭하고 **연결된 사용자 지정 모델 로드**를 선택합니다.
     ![연결된 모델 로드](./media/load-linked-model.png)
 
 로컬 애플리케이션에서 SAS 토큰을 제거하여 애플리케이션의 보안을 강화하는 단계를 수행했습니다.
@@ -176,16 +176,13 @@ AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개
 1. [방법: 인증 구성 - 배포된 애플리케이션에 대한 인증](../../../how-tos/authentication.md#authentication-for-deployed-applications)을 따르세요. 특히, Azure Spatial Anchors 설명서 [Azure AD 사용자 인증](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication)에 나열된 지침을 따릅니다. 여기에는 새 Azure Active Directory 애플리케이션을 등록하고 ARR 인스턴스에 대한 액세스를 구성하는 작업이 포함됩니다.
 1. 새 AAD 애플리케이션을 구성한 후에는 AAD 애플리케이션이 다음 이미지와 비슷한지 확인합니다.
 
-    **AAD 애플리케이션 -> 인증**\
-    ![앱 인증](./media/app-authentication-public.png)
+    **AAD 애플리케이션 -> 인증** ![앱 인증](./media/app-authentication-public.png)
 
-    **AAD 애플리케이션 -> API 권한**\
-    ![앱 API](./media/request-api-permissions-step-five.png)
+    **AAD 애플리케이션 -> API 권한** ![App API](./media/request-api-permissions-step-five.png)
 
 1. Remote Rendering 계정을 구성한 후에는 구성이 다음 이미지와 비슷한지 확인합니다.
 
-    **AAR -> AccessControl(IAM)** \
-    ![ARR 역할](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR -> AccessControl(IAM)** ![ARR 역할](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > *소유자* 역할은 클라이언트 애플리케이션을 통해 세션을 관리하기에 충분하지 않습니다. 세션 관리 기능을 부여하려는 모든 사용자에게 **Remote Rendering 클라이언트** 역할을 제공해야 합니다. 세션을 관리하고 모델을 변환하는 기능을 부여하려는 모든 사용자에게 **Remote Rendering 관리자** 역할을 제공해야 합니다.
@@ -356,10 +353,8 @@ Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작
 
 1. Unity 편집기에서 재생을 누르고 세션 실행에 동의합니다.
     **AADAuthentication** 구성 요소에는 보기 컨트롤러가 있으므로, 세션 권한 부여 모달 패널 뒤에 프롬프트를 표시하도록 자동으로 연결됩니다.
-1. **AppMenu**의 오른쪽 패널에 있는 지침을 따르세요.\
-    다음과 비슷한 내용이 표시됩니다.\
-    ![AAD 인증 구성 요소](./media/device-flow-instructions.png)\
-    보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
+1. **AppMenu**의 오른쪽 패널에 있는 지침을 따르세요.
+    다음과 유사한 내용이 표시되어야 합니다. ![AAD 인증 구성 요소](./media/device-flow-instructions.png) 보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
 1. 이 시점 이후로 애플리케이션의 모든 것이 정상적으로 진행됩니다. 스테이지가 예상대로 진행되지 않으면 Unity 콘솔에서 오류를 확인합니다.
 
 ## <a name="build-to-device"></a>디바이스에 빌드

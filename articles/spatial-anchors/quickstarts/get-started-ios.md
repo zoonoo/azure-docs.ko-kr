@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: iOS 앱 만들기'
-description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 iOS 앱을 빌드하는 방법을 알아봅니다.
+description: Swift 또는 Objective-C에서 Azure Spatial Anchors를 사용하여 프로그래밍 방식으로 iOS 앱을 만드는 방법을 알아봅니다.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 542b5168bb70d876d91f8a747a230f2b754568e9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2df66979d1e8f400f2630f5e531cd201244fdc6d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873115"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809989"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>빠른 시작: Swift 또는 Objective-C에서 Azure Spatial Anchors를 사용하여 iOS 앱 만들기
 
@@ -101,7 +101,7 @@ open ./SampleObjC.xcworkspace
 
 `spatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
-`startSession()`을 찾아 이전 버전의 계정 도메인으로 대체하는 `cloudSession!.configuration.accountDomain = "MyAccountDomain";` 줄을 추가합니다.
+`spatialAnchorsAccountDomain` 필드를 찾아 `Set me`를 계정 도메인으로 바꿉니다.
 
 # <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
@@ -111,7 +111,7 @@ open ./SampleObjC.xcworkspace
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
-`startSession()`을 찾아 이전 버전의 계정 도메인으로 대체하는 `_cloudSession.configuration.accountDomain = @"MyAccountDomain";` 줄을 추가합니다.
+`SpatialAnchorsAccountDomain` 필드를 찾아 `Set me`를 계정 도메인으로 바꿉니다.
 
 ---
 

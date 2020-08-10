@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5cf23a9c66c76f778dbd5d2b126b28a5a577c978
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46119b9f7cdac47920d4bba8e00c3fc56b0edc78
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82098002"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494522"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure 포털에서 Windows 가상 머신 만들기
 
@@ -32,32 +32,32 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. **가상 머신** 페이지에서 **추가**를 선택합니다. 
 1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기**를 선택합니다. 이름으로 *myResourceGroup*을 입력합니다. 
 
-    ![VM에 대한 새 리소스 그룹 만들기](./media/quick-create-portal/project-details.png)
+    ![가상 머신에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여주는 프로젝트 세부 정보 섹션의 스크린샷](./media/quick-create-portal/project-details.png)
 
 1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택한 후, **이미지**에 대해 *Windows Server 2019 Datacenter*를 선택합니다. 다른 기본값을 그대로 둡니다.
 
-    ![인스턴스 세부 정보 섹션](./media/quick-create-portal/instance-details.png)
+    ![가상 머신의 이름을 입력하고 해당 지역, 이미지 및 크기를 선택하는 인스턴스 세부 정보 섹션의 스크린샷](./media/quick-create-portal/instance-details.png)
 
 1. **관리자 계정**에서 *azureuser*와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
 
-    ![사용자 이름 및 암호 입력](./media/quick-create-portal/administrator-account.png)
+    ![관리자 사용자 이름 및 암호를 입력하는 관리자 계정 섹션의 스크린샷](./media/quick-create-portal/administrator-account.png)
 
 1. **인바운드 포트 규칙**에서 **선택한 포트 허용**을 선택한 다음, 드롭다운에서 **RDP(3389)** 및 **HTTP(80)** 를 선택합니다.
 
-    ![RDP 및 HTTP에 대한 포트 열기](./media/quick-create-portal/inbound-port-rules.png)
+    ![인바운드 연결이 허용되는 포트를 선택하는 인바운드 포트 규칙 섹션의 스크린샷](./media/quick-create-portal/inbound-port-rules.png)
 
 1. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
 
-    ![검토 및 만들기](./media/quick-create-portal/review-create.png)
+    ![페이지 맨 아래에 있는 검토 및 만들기 단추를 보여주는 스크린샷](./media/quick-create-portal/review-create.png)
 
 
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 
 가상 머신에 대한 원격 데스크톱 연결을 만듭니다. 이러한 지침은 Windows 컴퓨터에서 VM에 연결하는 방법을 알려줍니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)와 같은 RDP 클라이언트가 필요합니다.
 
-1. 가상 머신의 개요 페이지에서 **연결** 단추를 클릭합니다. 
+1. 가상 머신의 개요 페이지에서 **연결** 단추를 선택합니다. 
 
-    ![포털에서 Azure VM에 연결](./media/quick-create-portal/portal-quick-start-9.png)
+    ![연결 단추의 위치를 보여주는 가상 머신 개요 페이지의 스크린샷](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. **가상 머신에 연결** 페이지에서, 3389 포트를 통해 IP 주소로 연결하는 기본 옵션을 유지하고 **RDP 파일 다운로드**를 클릭합니다.
 
@@ -82,7 +82,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 포털에서 VM을 선택하고, VM 개요에서 IP 주소 오른쪽에 있는 **복사하려면 클릭** 단추를 사용하여 복사한 후 브라우저 탭에 붙여넣습니다. 기본 IIS 시작 페이지가 열리고, 다음과 비슷한 모습입니다.
 
-![IIS 기본 사이트](./media/quick-create-powershell/default-iis-website.png)
+![브라우저의 IIS 기본 사이트 스크린샷](./media/quick-create-powershell/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

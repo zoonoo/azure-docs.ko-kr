@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034999"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419634"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>자습서: 사용자 로그인에 대한 위험 탐지를 사용하여 Azure Multi-Factor Authentication 또는 암호 변경 트리거
 
@@ -39,7 +39,7 @@ ms.locfileid: "87034999"
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* Azure AD Premium P2 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트
+* Azure AD Premium P2 또는 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * *글로벌 관리자* 권한이 있는 계정
 * 셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication을 사용하도록 구성된 Azure AD

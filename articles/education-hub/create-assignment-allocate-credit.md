@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: e0d0804ce1f43d246dc4e87e222cbfbaf7db58aa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101250"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534093"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>과제 생성 및 학점 할당
 
@@ -31,7 +31,7 @@ Azure Education Hub는 _____@___의 모든 이메일 주소를 수락합니다._
 > [!IMPORTANT]
 > 회사 및 학교 계정은 조직이 아닌 도메인의 이메일 주소(예: @school.edu 도메인에 student2@outlook.com 추가)를 허용할지 여부를 포함하여 고유한 정책을 적용합니다. 새 사용자를 추가하기 전에 이러한 정책을 확인해야 합니다.
 
-회사 또는 학교 계정(예: student1@school.edu)이 교육자 스폰서 포털 또는 [Azure Portal](https://portal.azure.com)에서 RBAC(역할 기반 액세스 제어)로 추가되는 경우 Azure는 자동으로 수신자에게 이메일을 보냅니다. 이 이메일을 사용하려면 구독에 대한 액세스를 받기 전에 사용자가 새 계정 및 RBAC 역할을 수락해야 합니다. 강좌 TA(교육 도우미) 또는 교수인 경우 해당 구독이 예상대로 Azure Portal에 표시되도록 학생에게 알려야 합니다. 이메일은 다음과 유사합니다.
+회사 또는 학교 계정(예: student1@school.edu)이 교육자 스폰서 포털 또는 [Azure Portal](https://portal.azure.com)에서 RBAC(역할 기반 액세스 제어)로 추가되는 경우 Azure는 자동으로 수신자에게 이메일을 보냅니다. 이 이메일을 사용하려면 구독에 대한 액세스를 받기 전에 사용자가 새 계정 및 Azure 역할을 수락해야 합니다. 강좌 TA(교육 도우미) 또는 교수인 경우 해당 구독이 예상대로 Azure Portal에 표시되도록 학생에게 알려야 합니다. 이메일은 다음과 유사합니다.
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Azure Active Directory 시작" border="false":::
 

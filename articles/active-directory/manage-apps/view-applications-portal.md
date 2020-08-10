@@ -12,13 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055395"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808374"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>빠른 시작: ID 관리를 위해 Azure AD(Azure Active Directory) 테넌트를 사용하는 애플리케이션 목록 보기
 
@@ -68,11 +67,17 @@ Azure AD 테넌트에 등록된 애플리케이션은 Azure Portal의 **엔터�
 3. 애플리케이션 이름의 처음 몇 글자를 입력해 보세요. 이 예제는 **Sales**로 시작하는 모든 애플리케이션을 보여줍니다.
     ![Sales로 시작하는 모든 앱을 보여주는 예](media/view-applications-portal/search-by-prefix.png)
 
+
+> [!TIP]
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서는 새 리소스를 만들지 않았으므로 정리할 리소스가 없습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure AD 테넌트의 애플리케이션을 보는 방법을 배웠습니다. 애플리케이션 종류, 상태 및 표시 여부에 따라 애플리케이션 목록을 필터링하는 방법을 알아보았습니다. 특정 애플리케이션을 검색하는 방법도 배웠습니다.
-
-- [앱 추가](add-application-portal.md)
-- [앱 구성](add-application-portal-configure.md)
-- [Single Sign-On 설정](add-application-portal-setup-sso.md)
-- [앱 삭제](delete-application-portal.md)
+앱의 ID 공급자로 Azure AD를 사용하는 방법에 대한 다음 문서를 진행하세요.
+> [!div class="nextstepaction"]
+> [앱 추가](add-application-portal.md)

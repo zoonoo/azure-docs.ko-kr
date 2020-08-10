@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: ba9ff0ead1131b091aa1a5ece2ecf94d2319a968
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800700"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542198"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -41,9 +41,8 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/m
 * Azure Storage 계정 2개
 
 기존 키 자격 증명 모음 및 스토리지 계정이 없는 경우 아래의 배포 링크를 사용할 수 있습니다.
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+
+[!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. **리소스 그룹**에서 **새로 만들기**를 선택합니다. 그룹 이름을 **akvrotation**으로 지정하고 **확인**을 클릭합니다.
 1. **검토+만들기**를 선택합니다.
@@ -79,10 +78,9 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 - 이벤트 트리거와 http 트리거를 사용하는 스토리지 계정 키 순환 함수(주문형 순환)
 - **SecretNearExpiry** 이벤트에 대한 EventGrid 이벤트 구독
 
-1. Azure 템플릿 배포 링크를 선택합니다.
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Azure 템플릿 배포 링크를 선택합니다. 
+
+   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. **리소스 그룹** 목록에서 **akvrotation**을 선택합니다.
 1. 순환할 액세스 키가 포함된 스토리지 계정 이름을 **스토리지 계정 이름**에 입력합니다.
@@ -154,10 +152,9 @@ az storage account keys list -n akvrotationstorage
 - 스토리지 계정 키 운영자 서비스 역할을 함수 앱에 할당하여 스토리지 계정 액세스 키에 액세스
 - **SecretNearExpiry** 이벤트에 대한 EventGrid 이벤트 구독
 
-1. Azure 템플릿 배포 링크를 선택합니다.
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Azure 템플릿 배포 링크를 선택합니다. 
+
+   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
 1. **리소스 그룹** 목록에서 **akvrotation**을 선택합니다.
 1. 순환할 액세스 키가 포함된 스토리지 계정 이름을 **스토리지 계정 이름**에 입력합니다.

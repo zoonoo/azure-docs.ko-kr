@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035063"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419549"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>자습서: Azure Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보호
 
@@ -39,7 +39,7 @@ Azure Multi-Factor Authentication 및 조건부 액세스 정책은 특정 로�
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* Azure AD Premium 또는 평가판 라이선스를 사용하도록 설정된 작업 Azure AD 테넌트
+* Azure AD Premium P1 또는 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * *글로벌 관리자* 권한이 있는 계정
 * 알고 있는 암호가 있는 관리자가 아닌 사용자(예: *testuser*). 이 자습서에서는 이 계정을 사용하여 최종 사용자 Azure Multi-Factor Authentication 환경을 테스트합니다.
@@ -65,7 +65,7 @@ Azure Multi-Factor Authentication을 사용하도록 설정하고 이를 사용�
 1. **사용자 및 그룹** 확인란, **선택**을 차례로 선택하여 사용 가능한 Azure AD 사용자 및 그룹을 찾습니다.
 1. Azure AD 그룹(예: *MFA-Test-Group*)을 찾아서 선택한 다음, **선택**을 선택합니다.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [ ![조건부 액세스 정책에 사용할 Azure AD 그룹 선택](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. 조건부 액세스 정책을 그룹에 적용하려면 **완료**를 선택합니다.
 

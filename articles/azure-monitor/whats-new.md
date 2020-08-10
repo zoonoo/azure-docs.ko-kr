@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b36469a89c7bae39ae3c2d62792c2ccde0fcfda9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498511"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799330"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
@@ -20,7 +20,7 @@ ms.locfileid: "86498511"
 ## <a name="june-2020"></a>2020년 6월
 
 ### <a name="general"></a>일반
-- [Azure Monitor 배포](platform/deploy-scale.md) - 새 문서.
+- [Azure Monitor 배포](deploy-scale.md) - 새 문서.
 - [Azure Monitor 고객 관리형 키](platform/customer-managed-keys.md) - 업데이트된 billingtype 속성. PowerShell 명령이 추가되었습니다.
 
 ### <a name="agents"></a>에이전트
@@ -54,7 +54,7 @@ ms.locfileid: "86498511"
 - [Azure Log Analytics 작업 영역 삭제 및 복구](platform/delete-workspace.md) - PowerShell 명령이 추가되었습니다. 문제 해결이 업데이트되었습니다.
 - [Azure Monitor에서 Log Analytics 작업 영역 관리](platform/manage-access.md) - RBAC 섹션에 허용되지 않는 테이블에 대한 예제가 추가되었습니다.
 - [Azure Monitor 로그의 사용량 및 비용 관리](platform/manage-cost-storage.md) - 데이터 크기 계산에 대한 추가 세부 정보. 데이터 볼륨 경고 구성을 업데이트했습니다. Azure Sentinel에서 수집한 보안 데이터에 대한 세부 정보. 데이터 캡에 대한 설명.
-- [Azure Logic Apps와 Power Automate로 Azure Monitor 로그 사용](platform/logicapp-flow-connector.md) - 연결선 제한이 추가되었습니다.
+- [Azure Logic Apps와 Power Automate로 Azure Monitor 로그 사용](platform/logicapp-flow-connector.md) - 커넥터 제한이 추가되었습니다.
 
 ### <a name="metrics"></a>메트릭
 - [리소스 종류별 Azure Monitor 지원 메트릭](platform/metrics-supported.md) - SQL Server 메트릭이 업데이트되었습니다.

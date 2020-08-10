@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130979"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498993"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Hyper-V 재해 복구를 위한 Azure 리소스 준비
 
@@ -63,7 +63,7 @@ Azure 체험 계정을 방금 만든 경우 본인이 해당 구독의 관리자
 9. **위치**에서 스토리지 계정에 대한 지리적 위치를 선택합니다. 이 자습서에서는 **서유럽**를 사용합니다.
 10. **만들기**를 선택하여 스토리지 계정을 만듭니다.
 
-   ![스토리지 계정 만들기](media/tutorial-prepare-azure/create-storageacct.png)
+   ![스토리지 계정 만들기 옵션의 스크린샷](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
 
@@ -74,7 +74,7 @@ Azure 체험 계정을 방금 만든 경우 본인이 해당 구독의 관리자
 3. **위치**에서 자격 증명 모음을 배치할 지역을 선택합니다. 이 자습서에서는 **서유럽**를 사용합니다.
 4. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **만들기**를 선택합니다.
 
-![새 자격 증명 모음 만들기](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Recovery Services 자격 증명 모음 만들기 페이지의 스크린샷](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 새 자격 증명 모음이 **대시보드** > **모든 리소스** 및 주 **Recovery Services 자격 증명 모음** 페이지에 표시됩니다.
 
@@ -91,7 +91,7 @@ Azure 체험 계정을 방금 만든 경우 본인이 해당 구독의 관리자
 7. 네트워크에 서비스 엔드포인트가 없는 기본 DDoS 보호의 기본 옵션을 그대로 둡니다.
 8. **만들기**를 선택합니다.
 
-![가상 네트워크 만들기](media/tutorial-prepare-azure/create-network.png)
+![가상 네트워크 만들기 옵션의 스크린샷](media/tutorial-prepare-azure/create-network.png)
 
 가상 네트워크를 만드는 데 몇 초 정도 걸립니다. 가상 네트워크가 만들어지면 Azure Portal 대시보드에 표시됩니다.
 

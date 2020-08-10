@@ -6,14 +6,14 @@ author: hansenms
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/07/2019
+ms.date: 08/03/2020
 ms.author: mihansen
-ms.openlocfilehash: 72e199e45047e1b425b2587c6b4028efb84060df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6673759afb605184e3e80bb0e6bc438814a6fbe7
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087444"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553107"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Azure API for FHIR&reg;이란?
 
@@ -67,7 +67,7 @@ Azure API for FHIR을 사용하면 FHIR API를 활용하여 읽기, 쓰기, 검�
 
 FHIR 서버는 의료 데이터의 상호 운용성을 위한 핵심 도구입니다.  Azure API for FHIR은 빠르게 만들고, 배포하고, 사용할 수 있는 API 및 서비스로 설계되었습니다.  FHIR 표준이 의료 분야에서 확장됨에 따라 사용 사례가 계속 증가하지만, Azure API for FHIR이 유용한 초기 고객 애플리케이션 중 일부는 다음과 같습니다. 
 
-- **시작/IOT 및 앱 개발:**  환자 또는 공급자 중심 앱(모바일 또는 웹)을 개발하는 고객은 Azure API for FHIR을 완전 관리형 백 엔드 서비스로 활용할 수 있습니다. Azure API for FHIR은 고객이 의료 데이터를 위해 설계된 보안 클라우드 환경에서 데이터를 관리하고, 데이터를 교환하며, SMART on FHIR 구현 지침을 활용하고, 모든 공급자 시스템에서 해당 기술을 활용할 수 있도록 하는(예 : 대부분의 EHR에서 FHIR 읽기 API를 사용하도록 설정) 유용한 리소스를 제공합니다.   
+- **시작/IoT 및 앱 개발:**  환자 또는 공급자 중심 앱(모바일 또는 웹)을 개발하는 고객은 Azure API for FHIR을 완전 관리형 백 엔드 서비스로 활용할 수 있습니다. Azure API for FHIR은 고객이 의료 데이터를 위해 설계된 보안 클라우드 환경에서 데이터를 관리하고, 데이터를 교환하며, SMART on FHIR 구현 지침을 활용하고, 모든 공급자 시스템에서 해당 기술을 활용할 수 있도록 하는(예 : 대부분의 EHR에서 FHIR 읽기 API를 사용하도록 설정) 유용한 리소스를 제공합니다.   
 - **의료 에코시스템:**  EHR은 많은 임상 설정에서 기본 '진실의 원본'으로 존재하지만, 공급자가 서로 연결되지 않은 여러 데이터베이스를 보유하거나 데이터를 다른 형식으로 저장하는 것은 일반적이지 않습니다.  이러한 시스템을 기반으로 하는 서비스로 Azure API for FHIR을 활용하면 데이터를 FHIR 형식으로 표준화할 수 있습니다.  이를 통해 데이터를 일관된 데이터 형식으로 여러 시스템에서 교환할 수 있습니다. 
 
 - **연구:** 일반적인 FHIR 데이터 모델을 기반으로 하여 데이터를 표준화하고 기계 학습 및 데이터 공유에 대한 워크로드를 줄일 수 있으므로 의료 연구원은 일반적인 FHIR 표준 및 Azure API for FHIR이 유용함을 확인할 수 있습니다.
@@ -82,19 +82,19 @@ Microsoft의 FHIR 기능은 다음 두 가지 구성으로 제공됩니다.
 
 FHIR 서버를 확장하거나 사용자 지정해야 하거나 FHIR API를 거치지 않고 데이터베이스와 같은 기본 서비스에 액세스해야 하는 사용 사례의 경우 개발자는 오픈 소스 FHIR Server for Azure를 선택해야 합니다.   FHIR API를 통해서만 지속형 데이터에 액세스해야 하는 턴키 방식의 프로덕션 지원 FHIR API 및 백 엔드 서비스를 구현하는 경우 개발자는 Azure API for FHIR을 선택해야 합니다.
 
-## <a name="iot-connector-preview"></a>IoT 커넥터(미리 보기)
+## <a name="azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)
 
-IoT Connector는 IoMT(의료 사물 인터넷) 디바이스에서 데이터를 수집하는 기능을 제공하는 Azure API for FHIR의 선택적 기능입니다. 의료 사물 인터넷은 네트워크를 통해 다른 의료 IT 시스템과 상태 및 건강 데이터를 캡처하고 교환하는 IoT 디바이스 범주입니다. IoMT 디바이스에는 피트니스 및 임상 착용식 디바이스, 모니터링 센서, 활동 추적기, 의료 키오스크 지점 또는 스마트 약 등이 있습니다. IoT 커넥터 기능을 사용하면 확장 가능하고 안전하며 규정을 준수하는 방식으로 IoMT 데이터를 Azure API for FHIR에 수집하는 서비스를 신속하게 설정할 수 있습니다.
+Azure IoT Connector for FHIR*는 IoMT(의료 사물 인터넷) 디바이스에서 데이터를 수집하는 기능을 제공하는 Azure API for FHIR의 선택적 기능입니다. 의료 사물 인터넷은 네트워크를 통해 다른 의료 IT 시스템과 상태 및 건강 데이터를 캡처하고 교환하는 IoT 디바이스 범주입니다. IoMT 디바이스에는 피트니스 및 임상 착용식 디바이스, 모니터링 센서, 활동 추적기, 의료 키오스크 지점 또는 스마트 약 등이 있습니다. Azure IoT Connector for FHIR 기능을 사용하면 확장 가능하고 안전하며 규정을 준수하는 방식으로 IoMT 데이터를 Azure API for FHIR에 수집하는 서비스를 신속하게 설정할 수 있습니다.
 
-IoT 커넥터는 IoMT 디바이스에서 보낸 모든 JSON 기반 메시지를 수락할 수 있습니다. 이 데이터는 먼저 적절한 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환된 다음 Azure API for FHIR에 유지됩니다. 데이터 변환 논리는 메시지 스키마 및 FHIR 요구 사항에 따라 구성하는 매핑 템플릿 쌍을 통해 정의됩니다. 디바이스 데이터는 IoT 커넥터로 직접 푸시되거나 다른 Azure IoT 솔루션([Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 및 [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/))과 함께 사용될 때 원활하게 사용될 수 있습니다. IoT 커넥터는 보안 데이터 파이프라인을 제공하지만 Azure IoT 솔루션은 물리적 디바이스의 프로비전 및 유지 관리를 관리할 수 있습니다.
+Azure IoT Connector for FHIR는 IoMT 디바이스에서 보낸 모든 JSON 기반 메시지를 수락할 수 있습니다. 이 데이터는 먼저 적절한 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환된 다음 Azure API for FHIR에 유지됩니다. 데이터 변환 논리는 메시지 스키마 및 FHIR 요구 사항에 따라 구성하는 매핑 템플릿 쌍을 통해 정의됩니다. 디바이스 데이터를 Azure IoT Connector for FHIR로 직접 푸시하거나 다른 Azure IoT 솔루션([Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 및 [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/))과 함께 원활하게 사용할 수 있습니다. Azure IoT Connector for FHIR는 보안 데이터 파이프라인을 제공하지만 Azure IoT 솔루션은 물리적 디바이스의 프로비저닝 및 유지 관리를 관리할 수 있습니다.
 
-### <a name="applications-of-iot-connector-preview"></a>IoT 커넥터의 애플리케이션(미리 보기)
+### <a name="applications-of-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)의 애플리케이션
 
-IoMT 디바이스의 사용은 의료 분야에서 빠르게 증가할 수 있으며 IoT 커넥터는 보안 및 규정 준수를 통해 여러 디바이스 데이터를 Azure API for FHIR로 가져오는 격차를 줄이도록 설계되었습니다. IoMT 데이터를 FHIR 서버에 가져오면 전체적인 데이터 정보 및 혁신적인 임상 워크플로를 사용할 수 있습니다. IoT 커넥터에 대한 몇 가지 일반적인 시나리오는 다음과 같습니다.
-- **원격 환자 모니터링/원격 진료:** 원격 환자 모니터링은 기존 의료 설정 외부에서 환자 건강 데이터를 수집하는 기능을 제공합니다. 의료 기관은 IoT 커넥터를 사용하여 원격 디바이스에서 생성된 건강 데이터를 Azure API for FHIR로 가져올 수 있습니다. 이 데이터를 사용하면 환자 건강 상태를 면밀하게 추적하고, 환자의 치료 계획 준수 여부를 모니터링하고, 맞춤형 치료를 제공할 수 있습니다.
-- **연구 및 생명 과학:** 임상 실험은 바이오센서, 착용식 디바이스, 모바일 앱과 같은 IoMT 디바이스를 신속하게 채택하여 실험 데이터를 캡처합니다. 이러한 실험은 IoT 커넥터를 활용하여 안전하고 효율적이고 효과적인 방식으로 디바이스 데이터를 Azure API for FHIR에 전송할 수 있습니다. Azure API for FHIR에서 실험 데이터를 사용하여 실험 데이터의 실시간 분석을 실행할 수 있습니다.
-- **고급 분석:** IoMT 디바이스는 대용량 볼륨 및 다양한 데이터를 고속으로 제공할 수 있으므로, 기계 학습 모델에 학습 및 테스트 데이터를 제공하는 데 적합합니다. IoT 커넥터는 기본적으로 다양한 데이터 주파수, 유연한 데이터 스키마 및 짧은 대기 시간으로 클라우드 크기를 조정할 수 있도록 제공됩니다. 이러한 특성 덕분에 IoT 커넥터는 고급 분석 요구 사항에 맞게 디바이스 데이터를 캡처하기 위한 탁월한 선택입니다.
-- **스마트 병원/클리닉:** 오늘날 스마트 병원 및 클리닉은 상호 연결된 디지털 자산 인프라를 설정합니다. IoT 커넥터를 사용하여 연결된 구성 요소에서 데이터를 캡처하고 통합할 수 있습니다. 이러한 데이터 세트의 실행 가능한 인사이트를 통해 환자 치료와 운영 효율성을 향상시킬 수 있습니다.
+IoMT 디바이스가 의료 분야에서 빠르게 전파되고 있으며 Azure IoT Connector for FHIR은 보안 및 규정 준수를 통해 여러 디바이스 데이터를 Azure API for FHIR로 가져오는 격차를 줄이도록 설계되었습니다. IoMT 데이터를 FHIR 서버에 가져오면 전체적인 데이터 정보 및 혁신적인 임상 워크플로를 사용할 수 있습니다. Azure IoT Connector for FHIR에 대한 몇 가지 일반적인 시나리오는 다음과 같습니다.
+- **원격 환자 모니터링/원격 진료:** 원격 환자 모니터링은 기존 의료 설정 외부에서 환자 건강 데이터를 수집하는 기능을 제공합니다. 의료 기관은 Azure IoT Connector for FHIR을 사용하여 원격 디바이스에서 생성된 의료 데이터를 Azure API for FHIR로 가져올 수 있습니다. 이 데이터를 사용하면 환자 건강 상태를 면밀하게 추적하고, 환자의 치료 계획 준수 여부를 모니터링하고, 맞춤형 치료를 제공할 수 있습니다.
+- **연구 및 생명 과학:** 임상 시험에서는 바이오센서, 착용식 디바이스, 모바일 앱과 같은 IoMT 디바이스를 신속하게 채택하여 시험 데이터를 캡처합니다. 이러한 시험에서는 Azure IoT Connector for FHIR을 활용하여 안전하고 효율적이고 효과적인 방식으로 디바이스 데이터를 Azure API for FHIR에 전송할 수 있습니다. Azure API for FHIR에서 실험 데이터를 사용하여 실험 데이터의 실시간 분석을 실행할 수 있습니다.
+- **고급 분석:** IoMT 디바이스는 대용량 볼륨 및 다양한 데이터를 고속으로 제공할 수 있으므로, 기계 학습 모델에 학습 및 테스트 데이터를 제공하는 데 적합합니다. Azure IoT Connector for FHIR은 기본적으로 다양한 데이터 주파수, 유연한 데이터 스키마 및 짧은 대기 시간으로 클라우드 크기를 조정할 수 있도록 제공됩니다. 이러한 특성 덕분에 Azure IoT Connector for FHIR은 고급 분석 요구 사항에 맞게 디바이스 데이터를 캡처하기 위한 탁월한 선택입니다.
+- **스마트 병원/클리닉:** 오늘날 스마트 병원 및 클리닉은 상호 연결된 디지털 자산 인프라를 설정합니다. Azure IoT Connector for FHIR을 사용하여 연결된 구성 요소에서 데이터를 캡처하고 통합할 수 있습니다. 이러한 데이터 세트의 실행 가능한 인사이트를 통해 환자 치료와 운영 효율성을 향상시킬 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -103,10 +103,11 @@ Azure API for FHIR 작업을 시작하려면 5분 빠른 시작에 따라 Azure 
 >[!div class="nextstepaction"]
 >[Azure API for FHIR 배포](fhir-paas-portal-quickstart.md)
 
-IoT 커넥터 기능을 사용해 보려면 빠른 시작을 체크 아웃하고 Azure Portal를 사용하여 IoT 커넥터 배포합니다.
+Azure IoT Connector for FHIR 기능을 사용해 보려면 Azure Portal을 사용하여 Azure IoT Connector for FHIR을 배포하는 빠른 시작을 확인하세요.
 
 >[!div class="nextstepaction"]
->[IoT 커넥터 배포](iot-fhir-portal-quickstart.md)
+>[Azure IoT Connector for FHIR 배포](iot-fhir-portal-quickstart.md)
 
+*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
 
 FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092935"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496919"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ SQL 인증을 사용하여 사용자를 추가하려면,
 Azure Active Directory 인증을 사용하려면 포함된 데이터베이스 사용자로 만들어야 합니다. 포함된 데이터베이스 사용자는 데이터베이스와 연결된 Azure AD 디렉터리의 ID에 매핑되며, *master* 데이터베이스에는 로그인할 수 없습니다. Azure AD ID는 개별 사용자 또는 그룹에 대한 것일 수 있습니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 이식 가능한 데이터베이스 만들기](/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 참조하고, Azure AD를 사용하여 인증하는 방법은 [Azure AD 자습서](authentication-aad-configure.md)를 검토하세요.
 
 > [!NOTE]
-> 데이터베이스 사용자(관리자 예외)는 Azure Portal을 사용하여 만들 수 없습니다. Azure RBAC 역할은 SQL 서버, 데이터베이스 또는 데이터 웨어하우스에 전파되지 않습니다. 이러한 역할은 Azure 리소스를 관리하는 데만 사용되며 데이터베이스 권한에는 적용되지 않습니다.
+> 데이터베이스 사용자(관리자 예외)는 Azure Portal을 사용하여 만들 수 없습니다. Azure 역할은 SQL 서버, 데이터베이스 또는 데이터 웨어하우스에 전파되지 않습니다. 이러한 역할은 Azure 리소스를 관리하는 데만 사용되며 데이터베이스 권한에는 적용되지 않습니다.
 >
 > 예를 들어 *SQL Server 기여자* 역할은 데이터 웨어하우스 또는 데이터 웨어하우스에 연결할 수 있는 액세스 권한을 부여하지 않습니다. 이 권한은 데이터베이스 내에서 T-SQL 문을 사용하여 부여해야 합니다.
 

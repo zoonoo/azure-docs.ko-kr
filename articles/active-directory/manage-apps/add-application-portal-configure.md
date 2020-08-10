@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338047"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808408"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성
 
@@ -95,9 +95,17 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
    > [!NOTE]
    > 이 **속성** 창에 표시되는 썸네일은 즉시 업데이트되지 않습니다. **속성** 창을 닫았다가 다시 열면 업데이트된 아이콘을 볼 수 있습니다.
 
+
+> [!TIP]
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작 시리즈를 더 이상 사용하지 않을 생각이면 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 앱 삭제에 대한 내용은 이 시리즈의 마지막 빠른 시작에서 다룹니다. [앱 삭제](delete-application-portal.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-애플리케이션 속성을 구성했으므로, Single Sign-On 설정을 계속 진행할 수 있습니다.
-
-- [Single Sign-On 설정](add-application-portal-setup-sso.md)
-- [앱 삭제](delete-application-portal.md)
+앱에 대한 Single Sign-On을 지정하는 방법에 대한 다음 문서를 진행하세요.
+> [!div class="nextstepaction"]
+> [Single Sign-On 설정](add-application-portal-setup-sso.md)

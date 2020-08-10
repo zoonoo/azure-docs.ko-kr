@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529627"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554025"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
@@ -29,9 +29,9 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 다음 서비스 속성은 서비스의 수명 동안 고정되어 있습니다. 이 중 하나를 변경하려면 새로운 서비스가 필요합니다. 이러한 속성은 고정되어 있으므로 각 속성을 입력할 때 사용하는 영향을 고려합니다.
 
-* 서비스 이름은 URL 엔드포인트의 일부가 됩니다(유용한 서비스 이름에 대한 [검토 팁](#name-the-service)).
-* 서비스 계층은 [청구에 영향](search-sku-tier.md)을 주고 용량의 상향 제한을 설정합니다.
-* 서비스 지역은 특정 시나리오의 가용성을 확인할 수 있습니다. 지식 마이닝 및 AI 보강에 관심이 있는 경우 Azure Cognitive Search와 동일한 지역에서 Cognitive Services 및 Azure Machine Learning이 필요합니다.
+* 서비스 이름은 URL 엔드포인트의 일부가 됩니다. 유용한 서비스 이름에 대한 [팁을 검토](#name-the-service)하세요.
+* 서비스 계층은 [청구에 영향](search-sku-tier.md)을 주고 용량의 상향 제한을 설정합니다. 일부 기능은 체험 계층에서 사용할 수 없습니다.
+* 서비스 지역에 따라 특정 시나리오의 가용성이 달라질 수 있습니다. [강력한 보인 기능](search-security-overview.md) 또는 [AI 보강](cognitive-search-concept-intro.md)이 필요한 경우 다른 서비스와 동일한 지역 또는 필요한 기능을 제공하는 지역에 Azure Cognitive Search를 배치해야 합니다. 
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 
@@ -51,7 +51,7 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 ## <a name="choose-a-subscription"></a>구독을 선택합니다.
 
-구독이 둘 이상 있는 경우 검색 서비스에 대해 하나의 구독을 선택합니다.
+구독이 둘 이상 있는 경우 검색 서비스에 대해 하나의 구독을 선택합니다. [이중 암호화](search-security-overview.md#double-encryption) 또는 관리되는 서비스 ID를 사용하는 다른 기능을 구현하는 경우 Azure Key Vault에 사용되는 것과 동일한 구독 또는 관리 ID가 사용되는 다른 서비스를 선택합니다.
 
 ## <a name="set-a-resource-group"></a>리소스 그룹 설정
 
@@ -89,6 +89,8 @@ Azure Cognitive Search는 대부분의 지역에서 사용할 수 있습니다. 
 
 > [!Note]
 > 인도 중부 및 아랍에미리트 북부는 현재 새 서비스에 사용할 수 없습니다. 해당 지역에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 제한 사항은 일시적이며 새로운 서비스만 제한됩니다. 이 내용은 제한이 더 이상 적용되지 않을 때 삭제됩니다.
+>
+> 이중 암호화는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [이중 암호화](search-security-overview.md#double-encryption)를 참조하세요.
 
 ### <a name="requirements"></a>요구 사항
 

@@ -4,17 +4,17 @@ description: 이 자습서에서는 Azure Machine Learning을 만든 다음, Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5bfbf4a432f720b683ded4c85530135d86b24eba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae76fab6359675a87ad252a08ebb199bf724f129
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772995"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439377"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -33,7 +33,7 @@ Azure Notebooks를 사용하여 기계 학습 모듈을 개발하고 Azure IoT E
 > * Azure Machine Learning 모듈 만들기
 > * Azure 컨테이너 레지스트리에 모듈 컨테이너 푸시
 > * Azure Machine Learning 모듈을 IoT Edge 디바이스에 배포
-> * 생성된 데이터 보기
+> * 생성된 데이터를 봅니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -94,13 +94,13 @@ Notebook의 모든 단계를 완료하여 변칙 검색 모델을 학습하고, 
 
 2. **개요** 섹션에는 작업 영역 세부 정보는 물론 연결된 리소스가 나열됩니다. **레지스트리** 값을 선택합니다. 이 값은 작업 영역 이름 뒤에 난수가 와야 합니다.
 
-3. 컨테이너 레지스트리에서 **리포지토리**를 선택합니다. 이전 섹션에서 실행한 Notebook에 의해 생성된 **tempanomalydetection**라는 리포지토리가 표시됩니다.
+3. 컨테이너 레지스트리의 **서비스** 아래에서 **리포지토리**를 선택합니다. 이전 섹션에서 실행한 Notebook에 의해 생성된 **tempanomalydetection**라는 리포지토리가 표시됩니다.
 
 4. **tempanomalydetection**을 선택합니다. 리포지토리에 태그가 하나 표시됩니다. **1**.
 
-   레지스트리 이름, 리포지토리 이름 및 태그를 알았으니, 컨테이너의 전체 이미지 경로를 알 수 있습니다. 이미지 경로는 **\<registry_name\>.azurecr.io/tempanomalydetection:1**와 같은 모양입니다. 이미지 경로를 사용하여 이 컨테이너를 IoT Edge 디바이스에 배포할 수 있습니다.
+   레지스트리 이름, 리포지토리 이름 및 태그를 알았으니, 컨테이너의 전체 이미지 경로를 알 수 있습니다. 이미지 경로는 **\<registry_name\>.azurecr.io/tempanomalydetection:1** 형식입니다. 이미지 경로를 사용하여 이 컨테이너를 IoT Edge 디바이스에 배포할 수 있습니다.
 
-5. 컨테이너 레지스트리에서 **액세스 키**를 선택합니다. **로그인 서버** 및 관리 사용자의 **사용자 이름**과 **암호**를 비롯한 다수의 액세스 자격 증명이 표시됩니다.
+5. 컨테이너 레지스트리의 **설정** 아래에서 **액세스 키**를 선택합니다. **로그인 서버** 및 관리 사용자의 **사용자 이름**과 **암호**를 비롯한 다수의 액세스 자격 증명이 표시됩니다.
 
    이러한 자격 증명은 레지스트리에서 컨테이너 이미지를 가져올 수 있는 액세스 권한을 IoT Edge 디바이스에 부여하기 위해 배포 매니페스트에 포함될 수 있습니다.
 
@@ -134,17 +134,11 @@ IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 �
 
 다음 단계에서는 IoT 허브에 도착한 디바이스-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여줍니다.
 
-1. Visual Studio Code에서 **IoT Hub 디바이스**를 선택합니다.
+1. Visual Studio Code 탐색기의 **Azure IoT Hub** 섹션에서 **디바이스**를 확장하여 IoT 디바이스 목록을 표시합니다.
 
-2. **...** 를 선택하고 나서 메뉴에서 **IoT Hub 연결 문자열 설정**을 선택합니다.
+2. IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
 
-   ![IoT Hub 연결 문자열 설정](./media/tutorial-deploy-machine-learning/set-connection.png)
-
-3. 페이지의 맨 위에 열리는 텍스트 상자에 IoT Hub의 iothubowner 연결 문자열을 입력합니다. IoT Edge 디바이스가 IoT Hub 디바이스 목록에 표시됩니다.
-
-4. **...** 을 다시 선택한 다음, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
-
-5. 5초마다 tempSensor에서 보낸 메시지를 관찰합니다. 메시지 본문에 machinelearningmodule이 true 또는 false 값을 제공하는 **anomaly**라는 속성이 포함되어 있습니다. **AzureMLResponse** 속성에는 모델이 성공적으로 실행된 경우 값 "OK"가 포함됩니다.
+3. 5초마다 tempSensor에서 보낸 메시지를 관찰합니다. 메시지 본문에는 machinelearningmodule이 true 또는 false 값으로 제공하는 **변칙**이라는 속성이 포함되어 있습니다. **AzureMLResponse** 속성에는 모델이 성공적으로 실행된 경우 값 "OK"가 포함됩니다.
 
    ![메시지 본문의 Azure Machine Learning 응답](./media/tutorial-deploy-machine-learning/ml-output.png)
 

@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 3f124e94398e53e3ab8ff7eb4b054d252129128b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 437344d1a0e3cc1178c21efb4bfa26f192d23e5c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986997"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760042"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -20,7 +20,7 @@ Azure Reservations는 여러 제품의 1년 또는 3년 플랜에 따라 비용�
 
 예약 요금을 선결제할 수도 있고 매달 결제할 수도 있습니다. 선불과 월별 예약의 총 비용은 동일하며, 매달 지불하기로 선택하면 추가 요금이 청구되지 않습니다. 월간 결제는 타사 제품이 아닌 Azure 예약에 사용할 수 있습니다.
 
-예약은 Azure Portal([https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade))에서 구매할 수 있습니다.
+예약은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 구입할 수 있습니다.
 
 ## <a name="why-buy-a-reservation"></a>예약을 구입하는 이유
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052426"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503925"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Azure Synapse Analytics IP 방화벽 규칙(미리 보기)
 
@@ -35,7 +35,7 @@ Synapse 작업 영역에 IP 방화벽 규칙을 추가하는 방법에는 두 �
 
 ![Azure Portal의 Azure Synapse 작업 영역 IP 구성](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## <a name="connecting-to-synapse-from-your-own-network"></a>사용자 고유의 네트워크에서 Synapse에 연결
+## <a name="connect-to-synapse-from-your-own-network"></a>자체 네트워크에서 Synapse에 연결
 
 Synapse Studio를 사용하여 Synapse 작업 영역에 연결할 수 있습니다. SSMS(SQL Server Management Studio)를 사용하여 작업 영역의 SQL 리소스(SQL 풀 및 SQL 주문형)에 연결할 수도 있습니다.
 

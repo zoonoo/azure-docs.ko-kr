@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 625a1a256ec5f1668c97e74c37e567a4ceb3612f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 12fb644430d4bfd6444c6bbf09d37b4662ca6fd1
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871147"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810108"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Xamarin iOS 앱 만들기
 
@@ -55,9 +55,7 @@ Visual Studio에서 `Xamarin/SampleXamarin.sln`을 엽니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
-`Xamarin/SampleXamarin.iOS/ViewControllers/DemoViewControllerBase.cs` 열기
-
-`StartSession()`을 찾아 이전 버전의 계정 도메인으로 대체하는 `this.cloudSession.Configuration.AccountDomain = "MyAccountDomain";` 줄을 추가합니다.
+`SpatialAnchorsAccountDomain` 필드를 찾아 `Set me`를 계정 도메인으로 바꿉니다.
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>iOS 디바이스에 앱 배포
 

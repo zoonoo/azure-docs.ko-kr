@@ -7,12 +7,13 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 70a0620369792c1aaf2c11867fd468f42d6bb9ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521091"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494692"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Azure Private Link와 Key Vault 통합
 
@@ -233,6 +234,38 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-key-vault-name>.vault.azure.net
           <your-key-vault-name>.privatelink.vaultcore.azure.net
 ```
+
+## <a name="troubleshooting-guide"></a>문제 해결 가이드
+
+* 프라이빗 엔드포인트가 승인된 상태인지 확인합니다. 
+    1. Azure Portal에서 확인하고 수정할 수 있습니다. Key Vault 리소스를 열고 [네트워킹] 옵션을 클릭합니다. 
+    2. 그런 다음, [프라이빗 엔드포인트 연결] 탭을 선택합니다. 
+    3. 연결 상태가 [승인됨]이고 프로비저닝 상태가 [성공]인지 확인합니다. 
+    4. 프라이빗 엔드포인트 리소스로 이동하여 동일한 속성을 검토하고, 가상 네트워크가 사용 중인 가상 네트워크와 일치하는지 다시 한 번 확인할 수도 있습니다.
+
+* 프라이빗 DNS 영역 리소스가 있는지 확인합니다. 
+    1. 이름이 정확하게 privatelink.vaultcore.azure.net인 프라이빗 DNS 영역 리소스가 있어야 합니다. 
+    2. 설정 방법은 다음 링크를 참조하세요. [프라이빗 DNS 영역](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    
+* 프라이빗 DNS 영역이 가상 네트워크에 연결되면 안 됩니다. 반환된 공용 IP 주소를 계속 가져오는 경우에 문제가 발생할 수 있습니다. 
+    1. 프라이빗 영역 DNS가 가상 네트워크에 연결되어 있지 않으면 가상 네트워크에서 시작되는 DNS 쿼리는 키 자격 증명 모음의 공용 IP 주소를 반환합니다. 
+    2. Azure Portal에서 프라이빗 DNS 영역 리소스로 이동하여 가상 네트워크 링크 옵션을 클릭합니다. 
+    4. 키 자격 증명 모음에 대한 호출을 수행할 가상 네트워크가 나열되어야 합니다. 
+    5. 나열되지 않으면 추가합니다. 
+    6. 자세한 단계는 [가상 네트워크를 프라이빗 DNS 영역에 연결](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) 문서를 참조하세요.
+
+* 프라이빗 DNS 영역에서 키 자격 증명 모음에 대한 A 레코드가 누락되지 않았는지 확인합니다. 
+    1. 프라이빗 DNS 영역 페이지로 이동합니다. 
+    2. [개요]를 클릭하고 키 자격 증명 모음의 간단한 이름(예: fabrikam)을 사용하는 A 레코드가 있는지 확인합니다. 접미사를 지정하지 마세요.
+    3. 철자를 확인하고 A 레코드를 만들거나 수정합니다. TTL 3600(1시간)을 사용할 수 있습니다. 
+    4. 올바른 개인 IP 주소를 지정합니다. 
+    
+* A 레코드의 IP 주소가 올바른지 확인합니다. 
+    1. Azure Portal에서 프라이빗 엔드포인트 리소스를 열어 IP 주소를 확인할 수 있습니다. 
+    2. Azure Portal에서 Microsoft.Network/privateEndpoints 리소스로 이동합니다(Key Vault 리소스 아님).
+    3. 개요 페이지에서 네트워크 인터페이스를 찾아 해당 링크를 클릭합니다. 
+    4. 이 링크는 속성 개인 IP 주소를 포함하고 있는 NIC 리소스의 개요를 보여줍니다. 
+    5. 이 주소가 A 레코드에 지정된 올바른 IP 주소인지 확인합니다.
 
 ## <a name="limitations-and-design-considerations"></a>제한 사항 및 디자인 고려 사항
 

@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a3cec6cb009e3d83d22f3f2a4140afe16db180a8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 50bf1ec7f21ccbc3a3fa8feaea02e45bd08a158a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372929"
+ms.locfileid: "87421419"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -66,12 +66,12 @@ Site Recovery가 예상대로 작동하려면 복제하려는 VM에서 아웃바
 
 URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
-| **URL** | **세부 정보** |
-| ------- | ----------- |
-| `*.blob.core.windows.net` | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
-| `login.microsoftonline.com` | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
-| `*.hypervrecoverymanager.windowsazure.com` | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
-| `*.servicebus.windows.net` | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
+| **이름**                  | **상업용**                               | **정부**                                 | **설명** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| 스토리지                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
+| 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 

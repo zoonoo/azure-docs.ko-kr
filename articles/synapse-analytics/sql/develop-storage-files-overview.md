@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c33e2152fc120d406886d89adda26603126a8ba
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046871"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483555"
 ---
-# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Synapse SQL(주문형)에서 외부 스토리지에 액세스
+# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Synapse SQL(주문형)에서 외부 스토리지에 액세스
 
 이 문서에서는 사용자가 Synapse SQL(주문형)의 Azure Storage에 저장된 파일의 데이터를 읽는 방법에 대해 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
 
@@ -59,7 +59,7 @@ URL과 일치하는 서버 수준 자격 증명이 없거나 SQL 사용자에게
 > [!NOTE]
 > 이 버전의 OPENROWSET는 기본 인증을 사용하여 쉽고 빠르게 데이터를 탐색할 목적으로 설계되었습니다. 가장 또는 관리 ID를 활용하려면 다음 섹션에서 설명하는 DATASOURCE가 있는 OPENROWSET를 사용하세요.
 
-### <a name="querying-data-sources-using-openrowset"></a>OPENROWSET를 사용하여 데이터 원본 쿼리
+### <a name="query-data-sources-using-openrowset"></a>OPENROWSET를 사용하여 데이터 원본 쿼리
 
 OPENROWSET를 사용하면 사용자가 외부 데이터 원본에 배치된 파일을 쿼리할 수 있습니다.
 
@@ -91,7 +91,7 @@ DATABASE SCOPED CREDENTIAL은 참조되는 데이터 원본의 파일에 액세�
   - `ADMINISTER DATABASE BULK OPERATIONS`는 데이터베이스 범위 사용자가 OPENROWSET 함수를 실행할 수 있게 합니다.
 - EXTERNAL DATA SOURCE에서 참조되는 자격 증명에 대한 REFERENCES DATABASE SCOPED CREDENTIAL
 
-#### <a name="accessing-anonymous-data-sources"></a>익명 데이터 원본 액세스
+#### <a name="access-anonymous-data-sources"></a>익명 데이터 원본 액세스
 
 사용자는 공용 액세스 스토리지를 참조하거나 Azure AD 통과 인증을 사용하는 CREDENTIAL이 없는 EXTERNAL DATA SOURCE를 만들 수 있습니다.
 
@@ -132,7 +132,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 
 DATABASE SCOPED CREDENTIAL은 참조되는 데이터 원본의 파일에 액세스하는 방법을 지정합니다.
 
-### <a name="reading-external-files-with-external-table"></a>EXTERNAL TABLE을 사용하여 외부 파일 읽기
+### <a name="read-external-files-with-external-table"></a>EXTERNAL TABLE을 사용하여 외부 파일 읽기
 
 EXTERNAL TABLE을 사용하면 표준 SQL SELECT 문을 사용하는 데이터 원본을 통해 참조되는 파일의 데이터를 읽을 수 있습니다.
 

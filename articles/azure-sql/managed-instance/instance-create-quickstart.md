@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086690"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533872"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>빠른 시작: SQL Managed Instance의 관리형 인스턴스 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -124,7 +124,9 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 > 3. 진행 중인 SQL Managed Instance 배포 작업을 선택합니다.
 
 > [!IMPORTANT]
-> 관리형 인스턴스 만들기 상태를 가져오려면 리소스 그룹에 대해 **읽기 권한**이 있어야 합니다. 관리형 인스턴스가 생성되는 동안 이 권한이 없거나 취소되면 SQL Managed Instance가 리소스 그룹 배포 목록에 표시되지 않을 수 있습니다.
+> - SQL Managed Instance 만들기는 상황에 따라 한 번에 몇 시간이 걸릴 수 있는 장기 실행 작업입니다. 일반적인 생성 시간은 [관리 작업 기간](management-operations-overview.md#management-operations-duration)을 참조하세요.
+> - 동일한 서브넷의 다른 Managed Instance에 대한 장기 실행 복원 또는 스케일링 작업과 같이 영향을 주는 다른 작업이 있는 경우 SQL Managed Instance 만들기 시작이 지연될 수 있습니다. 자세한 내용은 [관리 작업 상호 영향](management-operations-overview.md#management-operations-cross-impact)을 참조하세요.
+> - 관리형 인스턴스 만들기 상태를 가져오려면 리소스 그룹에 대해 **읽기 권한**이 있어야 합니다. 관리형 인스턴스가 생성되는 동안 이 권한이 없거나 취소되면 SQL Managed Instance가 리소스 그룹 배포 목록에 표시되지 않을 수 있습니다.
 >
 
 ## <a name="view-resources-created"></a>만든 리소스 보기

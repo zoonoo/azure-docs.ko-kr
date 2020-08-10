@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ca13cbd8bdba911882f7452e34c45cbc7918dd7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b02296d5d9aed5866c0efcdf85fa1c9946617d0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077709"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501902"
 ---
 # <a name="introduction"></a>소개
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 import 문은 필요하지 않습니다. Notebook 환경용으로 미리 가져오기됩니다.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>작업 영역과 연결된 SQL 풀과 데이터 전송
+### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>작업 영역과 연결된 SQL 풀과 데이터 주고 받기
 
 > [!NOTE]
 > **Notebook 환경에서 가져올 필요 없음**
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>작업 영역 외부의 SQL 풀 또는 데이터베이스와 데이터를 주고 받는 경우
+### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>작업 영역 외부의 SQL 풀 또는 데이터베이스와 데이터를 주고 받는 경우
 
 > [!NOTE]
 > Notebook 환경에서 가져올 필요 없음
@@ -160,7 +160,7 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-sql-auth-instead-of-aad"></a>AAD 대신 SQL 인증 사용
+### <a name="use-sql-auth-instead-of-aad"></a>AAD 대신 SQL 인증 사용
 
 #### <a name="read-api"></a>읽기 API
 
@@ -184,7 +184,7 @@ option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-the-pyspark-connector"></a>PySpark 커넥터 사용
+### <a name="use-the-pyspark-connector"></a>PySpark 커넥터 사용
 
 > [!NOTE]
 > 이 예제는 노트북 환경만을 고려하여 제공됩니다.
@@ -208,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 마찬가지로 읽기 시나리오에서는 Scala를 사용하여 데이터를 읽고 임시 테이블에 쓰고, PySpark에서 Spark SQL을 사용하여 임시 테이블을 데이터 프레임으로 쿼리합니다.
 
-## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>다른 사용자가 작업 영역에서 Synapse SQL 커넥터에 Azure Synapse Apache Spark를 사용할 수 있도록 허용
+## <a name="allow-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>다른 사용자가 작업 영역에서 Synapse SQL 커넥터에 Azure Synapse Apache Spark를 사용할 수 있도록 허용
 
 다른 사용자에 대한 누락된 사용 권한을 변경하려면 작업 영역에 연결된 ADLS Gen2 스토리지 계정에서 Storage Blob 데이터 소유자여야 합니다. 사용자에게 작업 영역에 대한 액세스 권한과 Notebook을 실행할 수 있는 권한이 있는지 확인합니다.
 

@@ -3,12 +3,13 @@ title: 자습서 - 프라이빗 기본 이미지 업데이트에서 이미지 �
 description: 이 자습서에서는 다른 프라이빗 Azure 컨테이너 레지스트리의 기본 이미지가 업데이트될 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 Azure Container Registry 작업을 구성합니다.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77617686"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407135"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>자습서: 다른 프라이빗 컨테이너 레지스트리에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 

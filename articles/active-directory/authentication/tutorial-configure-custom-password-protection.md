@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518542"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419668"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>자습서: Azure Active Directory 암호 보호를 위한 사용자 지정 금지 암호 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "86518542"
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* 적어도 평가판 라이선스가 설정된 작동 중인 Azure AD 테넌트
+* Azure AD Premium P1 또는 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * *글로벌 관리자* 권한이 있는 계정
 * 알고 있는 암호가 있는 관리자가 아닌 사용자(예: *testuser*). 이 자습서에서는 이 계정을 사용하여 암호 변경 이벤트를 테스트합니다.
@@ -77,7 +77,7 @@ Azure AD에는 글로벌 금지 암호 목록이 포함되어 있습니다. 글�
 
     다음 예와 같이 사용자 고유의 사용자 지정 금지 암호를 지정합니다.
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [ ![Azure Portal의 인증 방법에서 사용자 지정 금지 암호 목록 수정](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. **Windows Server Active Directory에 대한 암호 보호를 사용하도록 설정** 옵션을 *아니요*로 둡니다.
 1. 사용자 지정 금지 암호 및 항목을 사용하도록 설정하려면 **저장**을 선택합니다.

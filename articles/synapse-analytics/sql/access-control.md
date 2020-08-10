@@ -9,19 +9,19 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6dc0bb08e3d824c1d3fea155d1b3d4c52e1af4a6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765083"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499843"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>작업 영역, 데이터 및 파이프라인에 대한 액세스 관리
 
 Azure Synapse Analytics 작업 영역(미리 보기)에서 작업 영역, 데이터 및 파이프라인에 대한 액세스 제어를 관리하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> GA를 위해 Synapse 관련 Azure RBAC 역할을 도입하여 RBAC를 더욱 개량할 예정입니다.
+> GA를 위해 Synapse 관련 Azure 역할을 도입하여 RBAC를 더욱 개량할 예정입니다.
 
 ## <a name="access-control-for-workspace"></a>작업 영역 액세스 제어
 

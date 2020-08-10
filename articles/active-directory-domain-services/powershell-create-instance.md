@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2d291af3cc6175b371f71fb63402ecb45afcba34
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9c2345c93a163464ea735400c9269e2e3fc27ecf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223468"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488179"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 
@@ -154,9 +154,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
     * DNS를 구성하려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
-* 가용성 영역을 지원하는 지역에 관리형 도메인을 만든 경우 가상 네트워크의 트래픽을 관리되는 도메인으로 제한하는 네트워크 보안 그룹을 만듭니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
-    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성할 것인지 묻는 메시지가 표시됩니다.
-* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
+* 네트워크 보안 그룹을 만들어 관리되는 도메인에 대한 가상 네트워크의 트래픽을 제한합니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
+    * 네트워크 보안 그룹 및 필수 규칙을 만들려면 `Install-Script -Name New-AaddsNetworkSecurityGroup` 명령을 사용하여 `New-AzureAddsNetworkSecurityGroup` 스크립트를 설치한 다음, `New-AaddsNetworkSecurityGroup` 명령을 실행합니다. 관리되는 도메인의 필수 규칙이 자동으로 생성됩니다.
+* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD DS에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
 
 ## <a name="complete-powershell-script"></a>전체 PowerShell 스크립트
 
@@ -241,9 +241,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
     * DNS를 구성하려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 DNS 설정을 자동으로 구성하라는 메시지가 표시됩니다.
-* 가용성 영역을 지원하는 지역에 관리되는 도메인을 만든 경우 가상 네트워크의 트래픽을 관리되는 도메인으로 제한하는 네트워크 보안 그룹을 만듭니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
-    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 관리되는 도메인을 선택합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성할 것인지 묻는 메시지가 표시됩니다.
-* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD Domain Services에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
+* 네트워크 보안 그룹을 만들어 관리되는 도메인에 대한 가상 네트워크의 트래픽을 제한합니다. 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다.
+    * 네트워크 보안 그룹 및 필수 규칙을 만들려면 `Install-Script -Name New-AaddsNetworkSecurityGroup` 명령을 사용하여 `New-AzureAddsNetworkSecurityGroup` 스크립트를 설치한 다음, `New-AaddsNetworkSecurityGroup` 명령을 실행합니다. 관리되는 도메인의 필수 규칙이 자동으로 생성됩니다.
+* 최종 사용자가 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있도록 [Azure AD DS에 대한 암호 동기화를 사용하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

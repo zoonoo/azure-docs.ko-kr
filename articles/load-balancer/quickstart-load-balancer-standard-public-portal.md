@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125193"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475809"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM의 부하를 분산하는 부하 분산 장치 만들기
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
 Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장치와 세 개의 가상 머신을 만듭니다.
 
@@ -36,7 +36,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
 
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[옵션 1(기본값): 부하 분산 장치 만들기(표준 SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[옵션 1(기본값): 공용 부하 분산 장치 만들기(표준 SKU)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
@@ -76,7 +76,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
 
 * 백 엔드 주소 풀에 대한 부하 분산 장치 설정
 * 상태 프로브
-* 부하 분산 장치 규칙 및 자동 아웃바운드 규칙
+* 부하 분산 장치 규칙
 
 ### <a name="create-a-backend-pool"></a>백 엔드 풀 만들기
 
@@ -281,7 +281,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 8. **저장**을 선택합니다.
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[옵션 2: 부하 분산 장치 만들기(기본 SKU)](#tab/option-1-create-load-balancer-basic)
+# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[옵션 2: 공용 부하 분산 장치 만들기(기본 SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
@@ -468,8 +468,9 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 5. **관리** 탭을 선택하거나 **다음** > **관리**를 선택합니다.
 
 6. **관리** 탭에서 다음을 선택하거나 입력합니다.
+    
     | Setting | 값 |
-    |-|-|
+    |---|---|
     | **Monitoring** | |
     | 부트 진단 | **끄기**를 선택합니다. |
 
@@ -484,6 +485,24 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | Name |  **myVM2** |**myVM3**|
     | 가용성 집합| **myAvailabilitySet**을 선택합니다. | **myAvailabilitySet**을 선택합니다.|
     | 네트워크 보안 그룹 | 기존 **myNSG**를 선택합니다.| 기존 **myNSG**를 선택합니다.|
+
+### <a name="add-virtual-machines-to-the-backend-pool"></a>백 엔드 풀에 가상 머신 추가
+
+이전 단계에서 만든 VM은 **myLoadBalancer**의 백 엔드 풀에 추가해야 합니다.
+
+1. 왼쪽 메뉴에서 **모든 서비스**를 선택하고 **모든 리소스**를 선택한 다음, 리소스 목록에서 **myLoadBalancer**를 선택합니다.
+
+2. **설정**에서 **백 엔드 풀**을 선택한 다음, **myBackendPool**을 선택합니다.
+
+3. **다음에 연결됨**에서 **가상 머신**을 선택합니다.
+
+4. **가상 머신** 섹션에서 **+ 추가**를 선택합니다.
+
+5. **myVM1**, **myVM2** 및 **myVM3** 옆에 있는 확인란을 선택합니다.
+
+6. **추가**를 선택합니다.
+
+7. **저장**을 선택합니다.
 
 ---
 

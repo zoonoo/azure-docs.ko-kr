@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f4b42f2ed43da68daabb3bd334a362071202be42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 619b5f16f5a913a4ec9bb1ebe2e7060fcac28d7d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073731"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421810"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
@@ -31,11 +31,11 @@ App Service의 주요 기능은 다음과 같습니다.
 * **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP), SaaS 서비스(예: Salesforce) 및 인터넷 서비스(예: Facebook)를 위해 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](app-service-hybrid-connections.md) 및 [Azure Virtual Networks](web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/en-us/trustcenter)입니다. [Azure Active Directory](configure-authentication-provider-aad.md) 또는 소셜 로그인([Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) 및 [Microsoft](configure-authentication-provider-microsoft.md))을 사용하여 사용자를 인증합니다. [IP 주소 제한](app-service-ip-restrictions.md)을 만들고 [서비스 ID를 관리](overview-managed-identity.md)합니다.
 * **애플리케이션 템플릿** - [Azure Marketplace](https://azure.microsoft.com/marketplace/)(예: WordPress, Joomla 및 Drupal)의 광범위한 애플리케이션 템플릿 목록에서 선택합니다.
-* **Visual Studio 통합** - Visual Studio의 전용 도구는 생성, 배포, 디버깅 작업을 간소화합니다.
+* **Visual Studio와 Visual Studio Code 통합** - Visual Studio 및 Visual Studio Code의 전용 도구는 생성, 배포, 디버깅 작업을 간소화합니다.
 * **API 및 모바일 기능** - App Service는 RESTful API 시나리오에 대한 턴키 방식 CORS 지원을 제공하며, 인증, 오프라인 데이터 동기화, 푸시 알림 등을 활성화하여 모바일 앱 시나리오를 간소화합니다.
 * **서버리스 코드** - 인프라를 명시적으로 프로비전하거나 관리하지 않고도 요청 시에 코드 조각이나 스크립트를 실행하고, 코드에서 실제로 사용하는 컴퓨팅 시간에 대해서만 비용을 지불합니다([Azure Functions](/azure/azure-functions/) 참조).
 
-Azure는 App Service 뿐만 아니라 웹 사이트와 웹 애플리케이션 호스팅에 사용할 수 있는 다른 서비스를 제공합니다. 대부분의 시나리오의 경우 App Service를 사용하는 것이 좋습니다.  마이크로 서비스 아키텍처의 경우 [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)을 사용하는 것이 좋습니다. 코드가 실행되는 VM을 자세히 제어해야 하는 경우 [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)를 사용하는 것이 좋습니다. 이러한 Azure 서비스 중에서 하나를 선택하는 방법에 대한 자세한 내용은 [Azure App Service, Virtual Machines, 서비스 패브릭 및 Cloud Services 비교](overview-compare.md)를 참조하세요.
+Azure는 App Service 뿐만 아니라 웹 사이트와 웹 애플리케이션 호스팅에 사용할 수 있는 다른 서비스를 제공합니다. 대부분의 시나리오의 경우 App Service를 사용하는 것이 좋습니다.  마이크로 서비스 아키텍처의 경우 [Azure Spring-Cloud Service](/azure/spring-cloud/) 또는 [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)을 사용하는 것이 좋습니다.  코드가 실행되는 VM을 보다 정밀하게 제어해야 하는 경우 [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)를 사용하는 것이 좋습니다. 이러한 Azure 서비스 중에서 하나를 선택하는 방법에 대한 자세한 내용은 [Azure App Service, Virtual Machines, 서비스 패브릭 및 Cloud Services 비교](overview-compare.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,19 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/15/2020
-ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 60efc645b1b5824306c1d4aa3e763eb9d2bc745d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076342"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553933"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
 ## <a name="feature-announcements-in-2020"></a>2020년 기능 공지
+
+### <a name="august-2020"></a>2020년 8월
+
+|기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
+|---------|------------------|-------------|---------------|
+| [이중 암호화](search-security-overview.md#encryption) | 보안 | 새 검색 서비스에서 CMK(고객 관리형 키) 암호화를 구성하여 스토리지 레이어에서 이중 암호화를 사용하도록 설정합니다. 새 서비스를 만들고, [고객 관리형 키를 구성하여 인덱스 또는 동의어 맵에 적용](search-security-manage-encryption-keys.md)하고, 해당 콘텐츠에 이중 암호화 기능을 활용합니다. | 2020년 8월 1일 이후에 미국 서부 2, 미국 동부, 미국 중부, US Gov 버지니아, US Gov 애리조나 지역에서 만든 모든 검색 서비스에 일반 공급됩니다. 포털, 관리 REST API 또는 SDK를 사용하여 서비스를 만들어야 합니다. |
 
 ### <a name="july-2020"></a>2020년 7월
 

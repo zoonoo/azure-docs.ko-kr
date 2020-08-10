@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281347"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432665"
 ---
 # <a name="changelog"></a>Changelog #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281347"
 
 ### <a name="changes-234"></a>변경된 기능 2.3.4
 
-- iOS 및 MacOS Safari에서 HLS를 재생할 때 빈 캡션 레이블/트랙 제거
+- iOS 및 macOS Safari에서 HLS를 재생할 때 빈 캡션 레이블/트랙 제거
 - IMSC1 캡션의 412s 수 축소
 - 라이브 디버깅을 도와주기 위해 빈 IMSC1 캡션 응답이 10회 연속될 경우 콘솔에 경고 출력
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2(2019년 10월 9일 공식 업데이트)
 
-### <a name="features"></a>기능
+### <a name="features-232"></a>기능 2.3.2
 
 Chromium Edge 브라우저의 DASH 재생을 위한 PlayReady 지원이 추가됨
 

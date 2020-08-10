@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 608b488a04eafd01e6702850445801705f6dac81
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77615436"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810360"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity Android 앱 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "77615436"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- Android 빌드 지원 및 Android SDK & NDK 도구 모듈을 포함하여 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 또는 2019.2</a>가 설치된 Windows 또는 macOS 머신
+- Android 빌드 지원 및 Android SDK & NDK 도구 모듈을 포함하여 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a>가 설치된 Windows 또는 macOS 머신
   - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 필요합니다.
   - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git` 및 `brew install git-lfs`를 실행합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
@@ -50,19 +50,13 @@ ms.locfileid: "77615436"
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>계정 식별자 및 키 구성
-
-**프로젝트** 창에서 `Assets/AzureSpatialAnchors.Examples/Scenes`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-**파일** -> **저장**을 선택하여 장면을 저장합니다.
 
 ## <a name="export-the-android-studio-project"></a>Android Studio 프로젝트 내보내기
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-**디바이스 실행**에서 디바이스를 선택하고 **빌드 및 실행**을 클릭합니다. 이름을 선택할 수 있는 `.apk` 파일을 저장하라는 메시지가 표시됩니다.
+**디바이스 실행**에서 디바이스를 선택한 다음, **빌드 및 실행**을 선택합니다. 이름을 선택할 수 있는 `.apk` 파일을 저장하라는 메시지가 표시됩니다.
 
 앱의 지침에 따라 앵커를 배치하고 회수합니다.
 
@@ -72,13 +66,12 @@ ms.locfileid: "77615436"
 
 앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
 
-### <a name="unity-20193"></a>Unity 2019.3
-
-호환성이 손상되는 변경으로 인해 Unity 2019.3은 현재 지원되지 않습니다. Unity 2019.1 또는 2019.2를 사용하세요.
-
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
 > [자습서: 여러 디바이스에서 Spatial Anchors 공유](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [방법: Unity 프로젝트에서 Azure Spatial Anchors 구성](../how-tos/setup-unity-project.md)

@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: fd85b66894afbd239954f5f32b8297757caddc44
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74227526"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513318"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>자습서: Freshservice와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -45,6 +44,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Freshservice에서 **SP** 시작 SSO를 지원합니다.
+* Freshservice가 구성되면 세션 제어를 적용하여 조직의 중요 데이터에 대한 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-freshservice-from-the-gallery"></a>갤러리에서 Freshservice 추가
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<democompany>.freshservice.com` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그인 URL** 텍스트 상자에서 `https://<democompany>.freshservice.com` 패턴을 사용하여 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<democompany>.freshservice.com` 패턴을 사용하는 URL을 입력합니다.
 
@@ -92,20 +92,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
-
-1. SSO가 작동하려면 Freshservice에 SHA-256 지문이 필요합니다. SHA-256 지문을 가져오려면 다음 단계를 수행합니다.
-
-    ![FingerPrint](./media/freshservice-tutorial/ic790821.png "FingerPrint")
-
-    1. 다른 웹 브라우저에서 [링크](https://www.samltool.com/fingerprint.php)를 엽니다.
-
-    1. 다운로드한 인증서(Base64)를 메모장에서 열고, **X.509 인증서** 텍스트 상자에 콘텐츠를 붙여넣습니다.
-
-    1. 알고리즘의 경우 드롭다운에서 **sha256**을 선택합니다.
-
-    1. **지문 계산**을 클릭합니다.
-
-    1. 복사 아이콘을 클릭하여 생성된 **지문**을 복사하고 컴퓨터에 저장합니다.
 
 1. **Azure Portal**의 **Freshservice 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -119,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -143,41 +129,38 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-freshservice-sso"></a>Freshservice SSO 구성
 
-1. Freshservice 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+1. 새 웹 브라우저 창을 열고, Freshservice 회사 사이트에 관리자 권한으로 로그인합니다.
 
-    ![내 앱 확장](common/install-myappssecure-extension.png)
+1. 왼쪽 메뉴에서 **관리자**를 클릭하고, **일반 설정**에서 **기술 지원팀 보안**을 선택합니다.
 
-2. 브라우저에 확장을 추가한 후 **Freshservice 설정**을 클릭하면 Freshservice 애플리케이션으로 이동됩니다. 애플리케이션에서 관리자 자격 증명을 입력하여 Freshservice에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+    ![관리자](./media/freshservice-tutorial/configure-1.png "Admin")
 
-    ![설정 구성](common/setup-sso.png)
+1. **보안**에서 **Freshworks 360 보안으로 이동**을 클릭합니다.
 
-3. Freshservice를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Freshservice 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
+    ![보안](./media/freshservice-tutorial/configure-2.png "보안")
 
-4. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
+1. **보안** 섹션에서 다음 단계를 수행합니다.
 
-    ![관리자](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Single Sign-On](./media/freshservice-tutorial/configure-3.png "Single Sign On")
+  
+    a. **Single Sign On**에서 **켬**을 선택합니다.
 
-5. **고객 포털**에서 **보안**을 클릭합니다.
+    b. **로그인 방법**에서 **SAML SSO**를 선택합니다.
 
-    ![보안](./media/freshservice-tutorial/ic790815.png "보안")
+    다. Azure Portal에서 복사한 **엔터티 ID** 값을 **IDP에서 제공한 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-6. **보안** 섹션에서 다음 단계를 수행합니다.
+    d. **SAML SSO URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    ![Single Sign-On](./media/freshservice-tutorial/ic790816.png "Single Sign On")
+    e. **서명 옵션**의 드롭다운에서 **서명된 어설션만**을 선택합니다.
 
-    a. **Single Sign On**을 전환합니다.
+    f. **로그아웃 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
 
-    b. **SAML SSO**를 선택합니다.
+    g. 앞에서 얻은 **인증서(Base64)** 값을 **보안 인증서** 텍스트 상자에 붙여넣습니다.
+  
+    h. **저장**을 클릭합니다.
 
-    다. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-
-    e. 앞에서 생성한 **지문** 값을 **보안 인증서 지문** 텍스트 상자에 붙여넣습니다.
-
-    f. 페이지 맨 아래에 있는 **저장**
-
-### <a name="create-freshservice-test-user"></a>Freshservice 테스트 사용자 만들기
+## <a name="create-freshservice-test-user"></a>Freshservice 테스트 사용자 만들기
 
 Azure AD 사용자가 FreshService에 로그인할 수 있도록 하려면 FreshService로 프로비저닝되어야 합니다. FreshService의 경우 프로비전은 수동 작업입니다.
 
@@ -185,32 +168,25 @@ Azure AD 사용자가 FreshService에 로그인할 수 있도록 하려면 Fresh
 
 1. **FreshService** 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
-
-    ![관리자](./media/freshservice-tutorial/ic790814.png "Admin")
+2. 왼쪽 메뉴에서 **관리자**를 클릭합니다.
 
 3. **사용자 관리**섹션에서 **요청자**를 클릭합니다.
 
-    ![요청자](./media/freshservice-tutorial/ic790818.png "요청자")
+    ![요청자](./media/freshservice-tutorial/create-user-1.png "요청자")
 
 4. **새 요청자**를 클릭합니다.
 
-    ![새 요청자](./media/freshservice-tutorial/ic790819.png "새 요청자")
+    ![새 요청자](./media/freshservice-tutorial/create-user-2.png "새 요청자")
 
-5. **새 요청자** 섹션에서 다음 단계를 수행합니다.
-
-    ![새 요청자](./media/freshservice-tutorial/ic790820.png "새 요청자")  
-
-    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **이름** 및 **전자 메일** 특성을 입력합니다.
-
-    b. **저장**을 클릭합니다.
+5. **새 요청자** 섹션에서 필요한 필드를 입력하고 **저장**을 클릭합니다.
+    ![새 요청자](./media/freshservice-tutorial/create-user-3.png "새 요청자")  
 
     > [!NOTE]
     > Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크가 포함된 전자 메일을 받습니다.
     >  
 
-> [!NOTE]
-> 다른 FreshService 사용자 계정 생성 도구 또는 FreshService가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
+    > [!NOTE]
+    > 다른 FreshService 사용자 계정 생성 도구 또는 FreshService가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

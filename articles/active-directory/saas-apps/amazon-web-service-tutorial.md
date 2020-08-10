@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b6ba110264ae3826093222e9cd3c4073bc17f0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683587"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416577"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -105,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 애플리케이션이 미리 구성되어 있으며, 이미 Azure에서 필요한 URL이 미리 채워져 있습니다. 사용자가 **저장**을 선택하여 구성을 저장해야 합니다.
+1. **기본 SAML 구성** 섹션에서 **식별자(엔터티 ID)** 및 **회신 URL**을 동일한 기본값 `https://signin.aws.amazon.com/saml`으로 업데이트합니다. **저장**을 클릭하여 구성 변경을 저장합니다.
 
 1. 둘 이상의 인스턴스를 구성하는 경우 식별자 값을 제공합니다. 두 번째 인스턴스 이후부터 **#** 기호를 포함한 다음 형식을 사용하여 고유한 SPN 값을 지정합니다.
 
@@ -123,7 +123,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | 역할            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessionDuration             | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서**(3단계) 대화 상자에서 **인증서 추가**를 선택합니다.
+
+    ![새 SAML 인증서 만들기](common/add-saml-certificate.png)
+
+1. 새 SAML 서명 인증서를 생성한 다음, **새 인증서**를 선택합니다. 인증서 알림에 사용할 이메일 주소를 입력합니다.
+   
+    ![새 SAML 인증서](common/new-saml-certificate.png) 
+
+1. **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -140,7 +148,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

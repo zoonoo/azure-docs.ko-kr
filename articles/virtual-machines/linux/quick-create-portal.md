@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5189a9dc8cd83877b4797fd828e9c9f6da8d1b93
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392853"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499979"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
@@ -32,11 +32,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **가상 머신** 페이지에서 **추가**를 선택합니다. **가상 머신 만들기** 페이지가 열립니다.
 1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기**를 선택합니다. 이름으로 *myResourceGroup*을 입력합니다.* 
 
-    ![VM에 대한 새 리소스 그룹 만들기](./media/quick-create-portal/project-details.png)
+    ![가상 머신에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여주는 프로젝트 세부 정보 섹션의 스크린샷](./media/quick-create-portal/project-details.png)
 
 1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택한 후 **이미지**로 *Ubuntu 18.04 LTS*를 선택합니다. 다른 기본값을 그대로 둡니다.
 
-    ![인스턴스 세부 정보 섹션](./media/quick-create-portal/instance-details.png)
+    ![가상 머신의 이름을 입력하고 해당 지역, 이미지 및 크기를 선택하는 인스턴스 세부 정보 섹션의 스크린샷](./media/quick-create-portal/instance-details.png)
 
 1. **관리자 계정**에서 **SSH 공개 키**를 선택합니다.
 
@@ -44,11 +44,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **SSH 공개 키 원본**의 경우 기본값인 **새 키 쌍 생성**을 그대로 둔 다음, **키 쌍 이름**에 *myKey*를 입력합니다.
 
-    ![관리자 계정](./media/quick-create-portal/administrator-account.png)
+    ![인증 유형을 선택하고 관리자 자격 증명을 입력하는 관리자 계정 섹션의 스크린샷](./media/quick-create-portal/administrator-account.png)
 
 1. **인바운드 포트 규칙** > **공용 인바운드 포트**에서 **선택된 포트 허용을** 선택한 다음, 드롭다운에서 **SSH(22)** 및 **HTTP(80)** 를 선택합니다. 
 
-    ![RDP 및 HTTP에 대한 포트 열기](./media/quick-create-portal/inbound-port-rules.png)
+    ![인바운드 연결이 허용되는 포트를 선택하는 인바운드 포트 규칙 섹션의 스크린샷](./media/quick-create-portal/inbound-port-rules.png)
 
 1. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 새 VM에 대한 페이지에서 공용 IP 주소를 선택하고 클립보드에 복사합니다.
 
 
-    ![공용 IP 주소 복사](./media/quick-create-portal/ip-address.png)
+    ![가상 머신의 IP 주소를 복사하는 방법을 보여주는 스크린샷](./media/quick-create-portal/ip-address.png)
 
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 
@@ -94,7 +94,7 @@ sudo apt-get -y install nginx
 
 원하는 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 봅니다. VM의 공용 IP 주소를 웹 주소로 입력합니다. 공용 IP 주소는 VM 개요 페이지나, 앞서 사용한 SSH 구성 문자열 부분에 있습니다.
 
-![NGINX 기본 사이트](./media/quick-create-portal/nginx.png)
+![브라우저에서 NGINX 기본 사이트를 보여주는 스크린샷](./media/quick-create-portal/nginx.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

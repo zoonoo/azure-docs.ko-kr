@@ -2,14 +2,14 @@
 title: Azure의 서버리스 컨테이너
 description: Azure Container Instances 서비스는 가상 머신을 관리하지 않고 또 더 높은 수준의 오케스트레이터를 채택하지 않고도 Azure에서 격리된 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/28/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259509"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498687"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -20,6 +20,11 @@ Azure Container Instances는 간단한 애플리케이션, 작업 자동화 및 
 ## <a name="fast-startup-times"></a>빠른 시작 시간
 
 컨테이너는 VM(가상 머신)에 비해 상당한 시작 이점을 제공합니다. Azure Container Instances는 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
+
+Docker Hub, 프라이빗 [Azure 컨테이너 레지스트리](../container-registry/index.yml) 또는 다른 클라우드 기반 docker 레지스트리에서 Linux 또는 Windows 컨테이너 이미지를 가져옵니다. Azure Container Instances는 여러 가지 일반적인 기본 OS 이미지를 캐시하여 사용자 지정 애플리케이션 이미지의 배포 속도를 향상합니다.
+
+> [!NOTE]
+> 현재는 온-프레미스 레지스트리의 이미지를 Azure Container Instances에 배포할 수 없습니다.
 
 ## <a name="container-access"></a>컨테이너 액세스
 
@@ -68,7 +73,7 @@ Azure Container Instances는 호스트 컴퓨터, 로컬 네트워크, 스토리
 
 ## <a name="virtual-network-deployment"></a>가상 네트워크 배포
 
-현재 Azure 지역의 하위 집합에서 프로덕션 워크로드에 사용할 수 있는 Azure Containers Instances의 이 기능을 통해 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)하도록 설정할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 컨테이너 인스턴스를 포함하여 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
+Azure Containers Instances를 사용하면 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 컨테이너 인스턴스는 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 리소스를 비롯한 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

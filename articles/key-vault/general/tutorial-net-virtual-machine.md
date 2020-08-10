@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e77701e17ef1b47aa6b8e3b8f2d10e93bf5e054e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093641"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513114"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>자습서: .NET에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -56,21 +56,15 @@ Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 az login
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>리소스 그룹 및 키 자격 증명 모음 만들기
+## <a name="create-a-resource-group-and-key-vault"></a>리소스 그룹 및 키 자격 증명 모음 만들기
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="populate-your-key-vault-with-a-secret"></a>비밀로 키 자격 증명 모음 채우기
+## <a name="populate-your-key-vault-with-a-secret"></a>비밀로 키 자격 증명 모음 채우기
 
-이제 [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 명령을 사용하여 키 자격 증명 모음에 비밀을 추가합니다. 키 자격 증명 모음에 **mySecret**이라는 비밀을 만들려면 다음 명령을 입력합니다.
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
-```azurecli
-az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
-```
-
-이 비밀에는 값 **MySecret**이 저장됩니다.
-
-### <a name="create-a-virtual-machine"></a>가상 머신 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 다음 방법 중 하나를 사용하여 Windows 또는 Linux 가상 머신을 만듭니다.
 
 | Windows | Linux |
@@ -79,7 +73,7 @@ az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySec
 | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
 | [Azure Portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) |
 
-### <a name="assign-an-identity-to-the-vm"></a>VM에 ID 할당
+## <a name="assign-an-identity-to-the-vm"></a>VM에 ID 할당
 [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 명령으로 가상 머신에 대한 시스템 할당 ID를 만듭니다.
 
 ```azurecli
@@ -95,16 +89,16 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 }
 ```
 
-### <a name="assign-permissions-to-the-vm-identity"></a>VM ID에 사용 권한을 할당합니다.
+## <a name="assign-permissions-to-the-vm-identity"></a>VM ID에 사용 권한을 할당합니다.
 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령으로 키 자격 증명 모음에 이전에 만든 ID 사용 권한을 할당합니다.
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-### <a name="sign-in-to-the-virtual-machine"></a>가상 머신에 로그인
+## <a name="sign-in-to-the-virtual-machine"></a>가상 머신에 로그인
 
-가상 머신에 로그인하려면 [Windows를 실행하는 Azure 가상 머신에 연결 및 로그인](../../virtual-machines/windows/connect-logon.md) 또는 [Linux를 실행하는 Azure 가상 머신에 연결 및 로그인](../../virtual-machines/linux/login-using-aad.md)의 지침을 따르세요.
+가상 머신에 로그인하려면 [Azure Windows 가상 머신에 연결 및 로그인](../../virtual-machines/windows/connect-logon.md) 또는 [Azure Linux 가상 머신에 연결 및 로그인](../../virtual-machines/linux/login-using-aad.md)의 지침을 따르세요.
 
 ## <a name="set-up-the-console-app"></a>콘솔 앱 설정
 

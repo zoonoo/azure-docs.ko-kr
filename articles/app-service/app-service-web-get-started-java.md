@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ca3c7d6bc6621c4b82a44431ae313384c1653f79
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0ae304763718f649d7895394d67c2aec307f14af
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324236"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799993"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>빠른 시작: Windows의 App Service에서 Java 앱 만들기
 
@@ -49,13 +49,19 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Maven 플러그 인 구성
 
-Azure App Service에 대한 배포 프로세스는 Azure CLI에서 Azure 자격 증명을 자동으로 적용할 수 있습니다. Azure CLI가 설치되어 있지 않으면 Maven 플러그 인은 Oauth 또는 디바이스 로그인으로 로그인합니다. 필요한 경우 [Maven 플러그 인으로 인증](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)에 대한 세부 정보를 확인합니다.
+Azure App Service에 대한 배포 프로세스는 Azure CLI에서 Azure 자격 증명을 자동으로 적용할 수 있습니다. Azure CLI가 로컬로 설치되어 있지 않으면 Maven 플러그 인은 Oauth 또는 디바이스 로그인으로 사용자를 로그인합니다. 필요한 경우 [Maven 플러그 인으로 인증](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)에 대한 세부 정보를 확인합니다.
 
-명령 프롬프트에서 다음 maven 명령을 실행하여 배포를 구성하고 첫 번째 단계에서 **windows** OS에 대해 **'2'** 를 선택한 후, **확인(Y/N)** 프롬프트가 표시될 때까지 **ENTER**를 눌러 기본 구성을 승인한 다음, **'y'** 를 누르면 구성이 완료됩니다. 
-
+아래의 maven 명령을 실행하여 배포를 구성할 수 있습니다.
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+다음 중 선택하라는 메시지가 표시됩니다. 
+* **OS(기본값: `linux`)**
+* **Java 버전(기본값: `1.8`)**
+* **웹 컨테이너(기본값: `tomcat 8.5`)** 
+
+첫 번째 단계에서 **`2`** 를 입력하여 **Windows** OS를 선택해야 합니다. 나머지 다른 구성은 **ENTER** 키를 눌러 기본값으로 두면 됩니다. 마지막으로 **확인(Y/N)** 프롬프트에서 **`Y`** 를 눌러 구성을 완료합니다.
 
 샘플 프로세스는 다음과 같습니다.
 
@@ -143,7 +149,7 @@ code pom.xml
 
 필요한 경우 App Service에 대한 구성을 pom 파일에서 직접 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
- 속성 | 필수 | Description | 버전
+ 속성 | 필수 | 설명 | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
@@ -153,8 +159,11 @@ code pom.xml
 `<runtime>` | true | 런타임 환경 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 `<deployment>` | true | 배포 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 
+`<appName>` 및 `<resourceGroup>`값을 잘 보어야 합니다(이 데모에서는 `helloworld-1590394316693` 및 `helloworld-1590394316693-rg`). 나중에 사용됩니다.
+
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## <a name="deploy-the-app"></a>앱 배포
 
@@ -169,13 +178,14 @@ az login
 mvn package azure-webapp:deploy
 ```
 
-배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 애플리케이션으로 이동합니다(예: `http://<webapp>.azurewebsites.net/`).
+배포가 완료되면 애플리케이션이 `http://<appName>.azurewebsites.net/`(이 데모에서는 `http://helloworld-1590394316693.azurewebsites.net`)에 준비됩니다. 로컬 웹 브라우저에서 url을 열면 다음이 표시됩니다.
 
 ![Azure App Service에서 실행 중인 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **축하합니다.** Windows의 App Service에 첫 번째 Java 앱이 배포되었습니다.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

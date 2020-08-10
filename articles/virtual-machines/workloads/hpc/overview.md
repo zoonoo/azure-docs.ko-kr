@@ -1,54 +1,50 @@
 ---
-title: H 시리즈 VM의 고성능 컴퓨팅 - Azure Virtual Machines
-description: HPC에 최적화된 H 시리즈 VM의 기능에 대해 알아봅니다.
+title: InfiniBand 지원 H 시리즈 및 N 시리즈 VM의 고성능 컴퓨팅 - Azure Virtual Machines
+description: HPC에 최적화된 InfiniBand 지원 H 시리즈 및 N 시리즈 VM의 특징과 기능에 대해 알아봅니다.
 author: vermagit
 ms.author: amverma
-tags: azure-resource-manager
 ms.service: virtual-machines
+ms-subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: overview
-ms.date: 07/02/2019
-ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/29/2020
+ms.openlocfilehash: f9a672777fbc8a75cb6af10ba25232f8a274c894
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083432"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543727"
 ---
-# <a name="high-performance-computing-on-h-series-vms"></a>H 시리즈 VM의 고성능 컴퓨팅
+# <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>InfiniBand 지원 H 시리즈 및 N 시리즈 VM의 고성능 컴퓨팅
 
-HB 시리즈 및 HC 시리즈 VM의 HPC(고성능 컴퓨팅)를 통해 Azure에서 모든 VM의 HPC 성능을 최적화할 수 있습니다. HPC에 최적화된 VM은 유체 역학, 석유 및 가스 시뮬레이션 및 날씨 모델링과 같은 가장 어려운 수학 문제를 해결하는 데 사용됩니다.
+Azure의 InfiniBand 지원 H 시리즈 및 N 시리즈 VM은 다양한 실제 HPC 및 AI 워크로드에 최상의 성능, MPI(메시지 전달 인터페이스) 확장성 및 비용 효율성을 제공하도록 설계되었습니다. 이러한 HPC(고성능 컴퓨팅) 최적화 VM은 유체역학, 지구 모델링, 날씨 시뮬레이션 등과 같이 과학 및 엔지니어링 분야의 가장 계산 집약적인 문제를 해결하는 데 사용됩니다.
 
-이 문서에서는 HB 시리즈 및 HC 시리즈 VM의 주요 기능, 이러한 VM이 HPC 시나리오에서 잘 작동하는 이유 그리고 시작하는 방법을 설명합니다.
+이 문서에서는 Azure에서 InfiniBand 지원 H 시리즈 및 N 시리즈 VM을 시작하는 방법과 확장이 가능하도록 VM에서 HPC 및 AI 워크로드 구성을 최적화하는 방법을 설명합니다.
 
 ## <a name="features-and-capabilities"></a>특징과 기능
 
-HB 시리즈 및 HC 시리즈 VM은 최고의 HPC 성능, MPI(메시지 전달 인터페이스) 확장성 및 HPC 워크로드에 대한 비용 효율성을 제공하도록 설계되었습니다.
-
-### <a name="message-passing-interface"></a>메시지 전달 인터페이스
-
-HB 시리즈 및 HC 시리즈는 거의 모든 MPI 형식과 버전을 지원합니다. 가장 일반적으로 지원되는 MPI 형식은 다음과 같습니다. OpenMPI, MVAPICH2, Platform MPI, Intel MPI 및 모든 RDMA(원격 직접 메모리 액세스) 동사가 포함됩니다. 자세한 내용은 [HPC를 위한 메시지 전달 인터페이스 설정](setup-mpi.md)을 참조하세요.
+InfiniBand 지원 H 시리즈 및 N 시리즈 VM은 최고의 HPC 성능, MPI 확장성 및 HPC 워크로드에 대한 비용 효율성을 제공하도록 설계되었습니다. VM의 특징 및 기능에 대한 자세한 내용은 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM을 참조하세요.
 
 ### <a name="rdma-and-infiniband"></a>RDMA 및 InfiniBand
 
-RDMA 인터페이스는 HB 시리즈 및 HC 시리즈 VM의 표준입니다. RDMA 지원 인스턴스는 InfiniBand 네트워크를 통해 통신하며 HB 시리즈 및 HC 시리즈 가상 머신에 대해 EDR(Enhanced Data Rate)로 작동합니다. RDMA 지원 인스턴스는 일부 MPI 애플리케이션의 확장성 및 성능을 높일 수 있습니다.
+[RDMA 지원](../../sizes-hpc.md#rdma-capable-instances) [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM은 낮은 대기 시간과 높은 대역폭 InfiniBand 네트워크를 통해 통신합니다. 이러한 상호 연결에 대한 RDMA 기능은 분산 노드 HPC 및 AI 워크로드의 확장성과 성능을 향상하는 데 매우 중요합니다. InfiniBand 지원 H 시리즈 및 N 시리즈 VM은 최적화되고 일관적인 RDMA 성능을 제공하기 위해 지름이 작은 비중단 팻 트리에서 연결됩니다.
+InfiniBand 지원 VM에서 InfiniBand를 설정하는 방법에 대한 자세한 내용은 [InfiniBand 사용](enable-infiniband.md)을 참조하세요.
 
-HB 시리즈 및 HC 시리즈 VM을 지원하는 InfiniBand 구성은 일관된 RDMA 성능을 위한 지름이 작은 디자인의 비중단 팻 트리입니다.
+### <a name="message-passing-interface"></a>메시지 전달 인터페이스
 
-HB 시리즈나 HC 시리즈 VM에서 InfiniBand를 설정하는 방법에 대한 자세한 내용은 [InfiniBand 사용](enable-infiniband.md)을 참조하세요.
+SR-IOV 지원 H 시리즈 및 N 시리즈는 거의 모든 MPI 라이브러리 및 버전을 지원합니다. 가장 일반적으로 지원되는 MPI 라이브러리는 Intel MPI, OpenMPI, MPICH, MVAPICH2, Platform MPI 및 모든 RDMA(원격 직접 메모리 액세스) 동사입니다.
+지원되는 다양한 MPI 라이브러리 설치 및 최적의 구성에 대한 자세한 내용은 [MPI 설정](setup-mpi.md)을 참조하세요.
 
 ## <a name="get-started"></a>시작하기
 
-먼저 어떤 H 시리즈 VM을 사용할지 결정합니다. HPC에 최적화된 VM에 대한 자세한 내용은 [HB 시리즈 개요](hb-series-overview.md)와 [HC 시리즈 개요](hc-series-overview.md)를 참조하세요. 사양은 [고성능 컴퓨팅 VM 크기](../../sizes-hpc.md)를 참조하세요.
-
-애플리케이션을 위한 VM을 선택하고 만든 후에는 InfiniBand를 활성화하여 VM을 구성해야 합니다. Windows 및 Linux VM 모두에서 InfiniBand를 사용하도록 설정하는 방법은 [InfiniBand 사용](enable-infiniband.md)을 참조하세요.
-
-HPC 워크로드의 중요한 구성 요소는 MPI입니다. HB 시리즈 및 HC 시리즈는 거의 모든 MPI 형식과 버전을 지원합니다. 자세한 내용은 [HPC를 위한 메시지 전달 인터페이스 설정](setup-mpi.md)을 참조하세요.
-
-VM 시리즈를 선택하고 Infiniband 및 MPI를 설정했으면 HPC 워크로드를 구축할 준비가 되었습니다.
+첫 번째 단계는 VM 사양 및 [RDMA 기능](../../sizes-hpc.md#rdma-capable-instances)에 따라 워크로드에 가장 적합한 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM 유형을 선택하는 것입니다.
+두 번째로, InfiniBand를 사용하도록 설정하여 VM을 구성합니다. 최적화된 VM 이미지와 드라이버 굽기를 사용하는 방법을 포함하여 다양한 방법으로 이 작업을 수행할 수 있습니다. 자세한 내용은 [Linux 최적화](configure.md) 및 [InfiniBand 사용](enable-infiniband.md)를 참조하세요.
+세 번째로, 분산 노드 워크로드의 경우 MPI를 선택하고 구성하는 것이 중요합니다. 자세한 내용은 [MPI 설정](setup-mpi.md)을 참조하세요.
+네 번째로, 성능과 확장성을 높일 수 있도록 [HB 시리즈 개요](hb-series-overview.md), [HC 시리즈 개요](hc-series-overview.md) 등의 VM 제품군과 관련된 지침에 따라 워크로드를 최적으로 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [HB 시리즈 개요](hb-series-overview.md)와 [HC 시리즈 개요](hc-series-overview.md)를 검토하고 주요 차이점 및 사양에 대해 알아봅니다.
-
-- HPC 워크로드를 실행하는 상위 수준의 아키텍처 뷰는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.
+- InfiniBand 지원 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM의 [구성 및 최적화](configure.md)에 대해 자세히 알아보세요.
+- [HB 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토하여 성능 및 확장성을 높일 수 있도록 워크로드를 최적으로 구성하는 방법을 알아보세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

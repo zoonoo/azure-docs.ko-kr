@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a5e2a3569c70404d64d24ecfc35a8258ea864a4f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054494"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480427"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>자습서: Marketplace에서 Azure 관리형 애플리케이션 게시
 
@@ -98,7 +98,7 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
 
      사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다. `*/read` 작업은 자동으로 허용되므로 해당 설정을 포함할 필요가 없습니다.
    * **PrincipalId**: 이 속성은 고객 구독에서 리소스에 대한 액세스 권한이 부여된 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD(Azure Active Directory) 식별자입니다. 역할 정의는 권한을 설명합니다.
-   * **역할 정의**: 이 속성은 Azure AD가 제공한 모든 기본 제공 RBAC(역할 기반 액세스 제어) 역할 목록입니다. 고객을 대신하여 리소스를 관리하는 데 사용할 가장 적합한 역할을 선택할 수 있습니다.
+   * **역할 정의**: 이 속성은 Azure AD가 제공한 모든 기본 제공 역할 목록입니다. 고객을 대신하여 리소스를 관리하는 데 사용할 가장 적합한 역할을 선택할 수 있습니다.
    * **정책 설정**: 배포된 솔루션에 대한 규정 준수 요구 사항을 지정하려면 [Azure Policy](../../governance/policy/overview.md)를 관리되는 애플리케이션에 적용합니다. 사용 가능한 옵션에서 적용할 정책을 선택합니다. **정책 매개 변수**의 경우 JSON 문자열에 매개 변수 값을 제공합니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](../../governance/policy/samples/index.md)을 참조하세요.
 
 여러 권한 부여를 추가할 수 있습니다. AD 사용자 그룹을 만들고 **PrincipalId**에서 해당 ID를 지정하는 것이 좋습니다. 이러한 방식으로 SKU를 업데이트할 필요 없이 사용자 그룹에 더 많은 사용자를 추가할 수 있습니다.

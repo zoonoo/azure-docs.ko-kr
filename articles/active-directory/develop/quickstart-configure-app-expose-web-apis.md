@@ -12,12 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76704224"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799415"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
 
@@ -75,6 +75,13 @@ UI를 통해 새 범위를 공개하려면
 
 1. **상태**를 설정하고 마치면 **범위 추가**를 선택합니다.
 
+1. (선택 사항) 관리자가 정의한 범위에 동의하도록 요청하는 메시지를 앱 사용자에게 표시하지 않으려면 웹 API에 액세스하도록 클라이언트 애플리케이션에 "미리 권한을 부여"하면 됩니다. 사용자가 동의를 거부할 기회가 없기 때문에 신뢰할 수 있는 클라이언트 애플리케이션*에만* 미리 권한을 부여해야 합니다.
+    1. **권한 있는 클라이언트 애플리케이션**에서 **클라이언트 애플리케이션 추가**를 선택합니다.
+    1. 미리 권한을 부여하려는 클라이언트 애플리케이션의 **애플리케이션(클라이언트) ID**를 입력합니다. 예를 들어 앞에서 등록한 웹 애플리케이션의 ID를 입력합니다.
+    1. **권한 있는 모든 범위**에서 동의 메시지를 표시하지 않을 범위를 선택한 다음, **애플리케이션 추가**를 선택합니다.
+
+    클라이언트 앱은 이제 PCA(미리 권한이 부여된 클라이언트 앱)이며, 사용자가 클라이언트 앱에 로그인할 때 동의 여부를 묻는 메시지가 표시되지 않습니다.
+
 1. [웹 API가 다른 애플리케이션에 공개되는지 확인](#verify-the-web-api-is-exposed-to-other-applications)하기 위한 단계를 따릅니다.
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>애플리케이션 매니페스트를 통해 새 범위 또는 역할 공개
@@ -84,7 +91,7 @@ UI를 통해 새 범위를 공개하려면
 애플리케이션 매니페스트를 통해 새 범위 또는 역할을 공개하려면
 
 1. 앱의 **개요** 페이지에서 **매니페스트** 섹션을 선택합니다. 웹 기반 매니페스트 편집기가 열리면 포털 내에서 매니페스트를 **편집**할 수 있습니다. 필요에 따라 **다운로드**를 선택하고 로컬로 매니페스트를 편집하고 **업로드**를 사용하여 애플리케이션에 다시 적용할 수 있습니다.
-    
+
     다음 예제에서는 `oauth2Permissions` 컬렉션에 다음 JSON 요소를 추가하여 리소스/API에서 `Employees.Read.All`이라는 새 범위를 공개합니다.
 
       ```json
@@ -110,14 +117,17 @@ UI를 통해 새 범위를 공개하려면
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>웹 API가 다른 애플리케이션에 공개되는지 확인합니다.
 
-1. Azure AD 테넌트로 돌아가서 **앱 등록**을 다시 선택한 다음, 구성하려는 클라이언트 애플리케이션을 찾아 선택합니다.
+1. Azure AD 테넌트로 돌아가서 **앱 등록**을 선택한 다음, 구성하려는 클라이언트 애플리케이션을 찾아 선택합니다.
 1. [웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)에서 개요로 설명한 단계를 반복합니다.
-1. [API 선택](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-) 단계가 되면 리소스를 선택합니다. 클라이언트 권한 요청에 사용할 수 있는 새 범위가 표시되어야 합니다.
+1. [API 선택](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis) 단계가 되면 리소스(웹 API 앱 등록)를 선택합니다.
+    * Azure Portal을 사용하여 웹 API 앱 등록을 만든 경우 API 리소스가 **내 API** 탭에 나열됩니다.
+    * 프로젝트를 만드는 동안 Visual Studio에서 웹 API 앱 등록을 만들 수 있도록 허용한 경우 API 리소스가 **내 조직에서 사용하는 API** 탭에 표시됩니다.
+
+웹 API를 선택하면 클라이언트 권한 요청에 사용할 수 있는 새 범위가 표시됩니다.
 
 ## <a name="more-on-the-application-manifest"></a>애플리케이션 매니페스트에 대한 추가 정보
 
-애플리케이션 매니페스트는 Azure AD 애플리케이션의 ID 구성의 모든 특성을 정의하는 애플리케이션 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 애플리케이션 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 애플리케이션 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 이 문서에는 다음을 비롯하여 API에 대한 사용 권한을 지정하는 데 사용되는 애플리케이션 엔터티 멤버에 대한 전체 참조 정보가 포함됩니다.  
+애플리케이션 매니페스트는 Azure AD 애플리케이션의 ID 구성의 모든 특성을 정의하는 애플리케이션 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 애플리케이션 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 애플리케이션 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 이 문서에는 다음을 비롯하여 API에 대한 사용 권한을 지정하는 데 사용되는 애플리케이션 엔터티 멤버에 대한 전체 참조 정보가 포함됩니다.
 
 * 웹 API에 대한 [애플리케이션 권한](developer-glossary.md#permissions)을 정의하는 데 사용되는 [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) 엔터티의 컬렉션인 appRoles 멤버
 * 웹 API에 대한 [위임된 권한](developer-glossary.md#permissions)을 정의하는 데 사용되는 [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) 엔터티의 컬렉션인 oauth2Permissions 멤버

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3cd8b18358128c8566c0cde668c084a22dd261d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320700"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528834"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>빠른 시작: Java에서 Azure Cache for Redis 사용
 
@@ -30,12 +30,24 @@ ms.locfileid: "87320700"
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-**호스트 이름** 및 **기본** 액세스 키에 대한 환경 변수를 추가합니다. 코드에 직접 중요한 정보를 포함하는 대신 사용자 코드에서 이러한 변수를 사용합니다.
+## <a name="setting-up-the-working-environment"></a>작업 환경 설정 
+
+운영 체제에 따라 **호스트 이름** 및 **기본 액세스 키**의 환경 변수를 추가합니다. 명령 프롬프트 또는 터미널 창을 열고 다음 값을 설정합니다.
 
 ```CMD 
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
+
+```bash
+export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+```
+
+자리 표시자를 다음 값으로 바꿉니다.
+
+- `<YOUR_HOST_NAME>`: Azure Portal에서 Azure Cache for Redis 리소스의 *속성* 섹션에서 얻은 DNS 호스트 이름.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: Azure Portal에서 Azure Cache for Redis 리소스의 *액세스 키* 섹션에서 얻은 기본 액세스 키.
 
 ## <a name="create-a-new-java-app"></a>새 Java 앱 만들기
 

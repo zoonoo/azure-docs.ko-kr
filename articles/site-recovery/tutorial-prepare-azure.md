@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130920"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498976"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Azure에 대한 온-프레미스 재해 복구를 위한 Azure 준비
 
@@ -62,7 +62,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 6. **지역**에서 자격 증명 모음을 배치할 지역을 선택합니다. **서유럽**를 사용합니다.
 7. **검토 + 만들기**를 선택합니다.
 
-   ![새 자격 증명 모음 만들기](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Recovery Services 자격 증명 모음 만들기 페이지의 스크린샷](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    이제 **대시보드** > **모든 리소스**와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 표시됩니다.
 
@@ -81,7 +81,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 9. 네트워크에 서비스 엔드포인트 또는 방화벽이 없는 기본 DDoS 보호의 기본 옵션을 그대로 둡니다.
 9. **만들기**를 선택합니다.
 
-   ![가상 네트워크 만들기](media/tutorial-prepare-azure/create-network.png)
+   ![가상 네트워크 만들기 옵션의 스크린샷](media/tutorial-prepare-azure/create-network.png)
 
 가상 네트워크를 만드는 데 몇 초 정도 걸립니다. 가상 네트워크가 만들어지면 Azure Portal 대시보드에 표시됩니다.
 

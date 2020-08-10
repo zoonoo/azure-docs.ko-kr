@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667314"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439564"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Azure FarmBeats 개요(미리 보기)
 
 Azure FarmBeats는 Azure Marketplace에서 사용할 수 있는 B2B(Business-to-Business) 제품입니다. 여러 공급자의 농업 데이터 세트를 집계할 수 있습니다. Azure FarmBeats를 통해 융합된 데이터 세트를 기반으로 AI(인공 지능) 또는 ML(기계 학습) 모델을 구축할 수 있습니다. Azure FarmBeats를 사용하면 농업 비즈니스가 미분화된 데이터 엔지니어링 대신 핵심 부가 가치에 중점을 둘 수 있습니다.
 
 > [!NOTE]
-> Azure FarmBeats는 현재 퍼블릭 미리 보기로 제공됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Azure FarmBeats는 서비스 수준 계약 없이 제공됩니다. 지원을 받으려면 [Azure FarmBeats 포럼](https://aka.ms/FarmBeatsMSDN )을 사용합니다.
+> Azure FarmBeats는 현재 퍼블릭 미리 보기로 제공됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Azure FarmBeats는 서비스 수준 계약 없이 제공됩니다. 지원을 받으려면 [Azure FarmBeats 지원 포럼](https://aka.ms/farmbeatssupport)을 사용하세요.
 
 ![Farm Beats 프로젝트](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 

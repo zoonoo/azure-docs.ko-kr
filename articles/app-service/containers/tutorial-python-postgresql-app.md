@@ -10,12 +10,13 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 - tracking-python
-ms.openlocfilehash: 718c9a62cc867e5d65cc3c79e78ce3282f1037c7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+- devx-track-azurecli
+ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285852"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799467"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -31,13 +32,16 @@ ms.locfileid: "87285852"
 > * 진단 로그 보기
 > * Azure Portal에서 웹앱 관리
 
+[이 자습서의 Azure Portal 버전](/azure/developer/python/tutorial-python-postgresql-app-portal)을 사용할 수도 있습니다.
+
+
 ## <a name="set-up-your-initial-environment"></a>초기 환경 설정
 
 1. 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 이상</a>을 설치합니다.
 1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
 
-터미널 창을 열고, Python 버전이 3.6 이상인지 확인합니다.
+터미널 창을 열고 Python 버전이 3.6 이상인지 확인합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -71,7 +75,7 @@ az --version
 az login
 ```
 
-이 명령은 로그인 정보를 수집하는 브라우저를 엽니다. 명령이 완료되면 구독 관련 정보가 포함된 JSON 출력이 표시됩니다.
+이 명령은 로그인 정보를 수집하는 브라우저를 엽니다. 명령이 완료되면 구독에 대한 정보가 포함된 JSON 출력이 표시됩니다.
 
 로그인하면 Azure CLI에서 Azure 명령을 실행하여 구독의 리소스를 사용할 수 있습니다.
 

@@ -5,19 +5,19 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 10/17/2018
+ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3d400726bfb65b2548bc773ffb460fe1ad426a0
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510330"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513454"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기
 
-PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Canonical의 Ubuntu 16.04 LTS 마켓플레이스 이미지를 사용합니다. VM 작동을 확인하기 위해 VM에 대해 SSH를 수행하고 NGINX 웹 서버도 설치합니다.
+PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Canonical의 Ubuntu 18.04 LTS 마켓플레이스 이미지를 사용합니다. VM 작동을 확인하기 위해 VM에 대해 SSH를 수행하고 NGINX 웹 서버도 설치합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -29,17 +29,18 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 
-이 빠른 시작을 완료하려면 SSH 키 쌍이 필요합니다. SSH 키 쌍이 이미 있는 경우 이 단계를 건너뜁니다.
+[ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여 SSH 키 쌍을 만듭니다. SSH 키 쌍이 이미 있는 경우 이 단계를 건너뜁니다.
 
-Bash 셸을 열고 [ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여 SSH 키 쌍을 만듭니다. 로컬 컴퓨터에 Bash 셸이 없는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수 있습니다.  
 
 ```azurepowershell-interactive
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요.
+키 쌍의 파일 이름을 입력하라는 메시지가 표시됩니다. 또는 **Enter** 키를 눌러 기본 위치 `/home/<username>/.ssh/id_rsa`를 사용할 수 있습니다. 원하는 경우 키의 암호를 만들 수도 있습니다.
 
-Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 스토리지 계정](../../cloud-shell/persisting-shell-storage.md)의 컨테이너 이미지에 저장됩니다. 키를 검색할 때까지 스토리지 계정이나 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
+SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요.
+
+Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 만들어지는 스토리지 계정](../../cloud-shell/persisting-shell-storage.md)에 저장됩니다. 키를 검색할 때까지 스토리지 계정을 삭제하거나 스토리지 계정의 파일 공유를 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -147,7 +148,7 @@ Set-AzVMOperatingSystem `
 Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "16.04-LTS" `
+  -Skus "18.04-LTS" `
   -Version "latest" | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
@@ -178,7 +179,7 @@ VM 배포에는 몇 분 정도 걸립니다. 배포가 완료되면 다음 섹�
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-SSH 키 쌍을 만들 때와 같은 Bash 셸을 사용하여(예: [Azure Cloud Shell](https://shell.azure.com/bash) 또는 로컬 Bash 셸) SSH 연결 명령을 셸에 붙여 넣어 SSH 세션을 만듭니다.
+SSH 키 쌍을 만드는 데 사용한 것과 동일한 셸을 사용하여 다음 명령을 셸에 붙여넣어 SSH 세션을 만듭니다. *10.111.12.123*을 VM의 IP 주소로 바꿉니다.
 
 ```bash
 ssh azureuser@10.111.12.123

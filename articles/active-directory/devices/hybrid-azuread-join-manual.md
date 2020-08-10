@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 007763d65021b0730c6e4e81ada33790d3cf4c02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025781"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428380"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -59,6 +59,9 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
 * 조직의 STS(페더레이션된 도메인용)가 사용자의 로컬 인트라넷 설정에 포함되어야 합니다.
+
+> [!WARNING]
+> 조직에서 데이터 손실 방지 또는 Azure AD 테넌트 제한과 같은 시나리오에 대한 SSL 트래픽을 가로채는 프록시 서버를 사용하는 경우 'https://device.login.microsoftonline.com '에 대한 트래픽을 TLS 중단-검사에서 제외해야 합니다. 'https://device.login.microsoftonline.com '을 제외하지 않으면 클라이언트 인증서 인증에 방해가 되어 디바이스 등록 및 디바이스 기반 조건부 액세스에 문제가 발생할 수 있습니다.
 
 조직에서 Seamless SSO를 사용할 계획인 경우 조직 내 컴퓨터에서 다음 URL에 연결할 있어야 합니다. 사용자의 로컬 인트라넷 영역에도 추가해야 합니다.
 

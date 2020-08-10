@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7f840d4a75be72a4317860dcf4a6708642369a24
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: fb618f155e659ecd1fa5760117193a9045e6da35
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274223"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535130"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Synapse SQL을 사용하여 대량 로드
 
@@ -28,7 +28,7 @@ Synapse Studio에서 대량 로드 마법사를 사용하는 것보다 더 쉽�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 이 마법사는 인증을 AAD 통과를 사용하는 COPY 문을 생성합니다. ADLS Gen2 계정에 대한 Storage Blob 데이터 기여자 RBAC 역할 이상이 있는 작업 영역에 대한 [액세스 권한은 AAD 사용자에게 있어야 합니다](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad).
+- 이 마법사는 인증을 AAD 통과를 사용하는 COPY 문을 생성합니다. ADLS Gen2 계정에 대한 Storage Blob 데이터 기여자 Azure 역할 이상이 있는 작업 영역에 대한 [액세스 권한은 AAD 사용자에게 있어야 합니다](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad).
 
 - 데이터를 로드할 테이블을 새로 만들려면 [COPY 문 사용 권한](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) 및 테이블 만들기 권한이 필요합니다.
 
