@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304142"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037527"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 등록 Api
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 등록 Api
 
 SaaS 처리 Api는 Isv (독립 소프트웨어 공급 업체) 라고도 하는 게시자를 사용 하 여 Microsoft AppSource, Azure Marketplace 및 Azure Portal에서 SaaS 응용 프로그램을 게시 하 고 판매할 수 있습니다. 이러한 Api를 통해 ISV 응용 프로그램은 direct, 파트너-led (대리점) 및 현장 led와 같은 모든 상거래 사용 채널에 참여할 수 있습니다.  이러한 Api와 통합 하는 것은 파트너 센터에서 불가능 SaaS 제품을 만들고 게시 하기 위한 요구 사항입니다.
 
@@ -31,7 +31,7 @@ Isv는 Isv 및 Microsoft 모두에 대해 동일한 구독 상태를 유지 하�
 SaaS 처리 Api와의 올바른 통합은 다음을 확인 하는 데 중요 합니다.
 
 * 게시자의 SaaS 제품을 구매한 최종 고객은 Microsoft에 의해 올바르게 청구 됩니다.
-* 최종 고객은 Marketplace에서 구매한 SaaS 구독을 구매, 구성, 사용 및 관리 하는 데 올바른 사용자 환경을 제공 하 고 있습니다.
+* 최종 고객은 marketplace에서 구매한 SaaS 구독을 구매, 구성, 사용 및 관리 하는 데 올바른 사용자 환경을 제공 하 고 있습니다.
 
 이러한 Api를 통해 게시자의 제안은 모든 상거래 사용 채널에 참여할 수 있습니다.
 

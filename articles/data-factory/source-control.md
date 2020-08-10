@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f2f5a8a87d4ac4936f25e7ece2a34b518c09a063
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674601"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037629"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -211,11 +211,11 @@ Azure Data Factory는 게시 분기를 한 번에 하나만 포함할 수 있습
 
 ### <a name="permissions"></a>사용 권한
 
-일반적으로 팩터리를 업데이트할 권한이 모든 팀 멤버에게 필요하지는 않습니다. 다음과 같은 권한 설정을 사용하는 것이 좋습니다.
+일반적으로 모든 팀 멤버에 게 Data Factory를 업데이트할 수 있는 권한이 필요 하지 않습니다. 다음과 같은 권한 설정을 사용하는 것이 좋습니다.
 
-*   모든 팀 멤버는 데이터 팩터리에 대한 읽기 권한이 있어야 합니다.
-*   선택된 사용자 집합만 팩터리에 게시할 수 있어야 합니다. 이렇게 하려면 해당 사용자에게 팩터리가 속한 리소스 그룹에 대한 **Data Factory 기여자** 역할이 있어야 합니다. 권한에 대한 자세한 내용은 [Azure Data Factory의 역할 및 권한](concepts-roles-permissions.md)을 참조하세요.
-   
+*   모든 팀 멤버에 게 Data Factory에 대 한 읽기 권한이 있어야 합니다.
+*   선택 된 사용자 집합만 Data Factory에 게시할 수 있도록 허용 해야 합니다. 이렇게 하려면 Data Factory를 포함 하는 **리소스 그룹** 에 대 한 **Data Factory 참가자** 역할이 있어야 합니다. 권한에 대한 자세한 내용은 [Azure Data Factory의 역할 및 권한](concepts-roles-permissions.md)을 참조하세요.
+
 협업 분기에 대한 직접 체크 인은 허용하지 않는 것이 좋습니다. 이렇게 제한하면 [기능 분기 만들기](source-control.md#creating-feature-branches)의 설명대로 모든 체크 인이 끌어오기 요청 검토 프로세스를 거치기 때문에 버그를 방지하는 데 유용할 수 있습니다
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Azure Key Vault의 암호 사용

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Maps 검색 서비스 지 오 코딩 검사
-description: 이 문서에서는 다양 한 국가/지역에서 Microsoft Azure 지도 지 오 코딩 검사에 대해 알아봅니다.
+description: 검색에서 다루는 지역 Azure Maps 확인 합니다. 지 오 코딩 범주에는 주소 점수, 집 번호, 주소 수준, 도시 수준 및 관심 지점이 포함 됩니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/28/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386914"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037442"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 

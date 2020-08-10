@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 1e4539dcec1f3f57f7fcc0ca0b8d8c266dc1bc99
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121506"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037510"
 ---
-# <a name="support-for-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace에 대한 지원
+# <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 지원
 
 Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질문이 있나요? 다음은 상업용 Marketplace에 대한 지원 옵션 목록입니다. 다음 리소스 외의 [C+AI 커뮤니티 포럼의 Marketplace 채널](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222)에서도 많은 질문에 대한 답변을 확인할 수 있습니다.  
 

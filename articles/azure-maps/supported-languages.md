@@ -1,6 +1,6 @@
 ---
 title: 지역화 지원 | Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure Maps의 서비스에 대해 지원되는 언어를 알아봅니다.
+description: 지도, 검색, 라우팅, 날씨 및 트래픽 인시던트와 같은 서비스를 지 원하는 Azure Maps 지역을 확인 하세요. View 매개 변수를 설정 하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127896"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037697"
 ---
 # <a name="localization-support-in-azure-maps"></a>Azure Maps의 지역화 지원
 
@@ -110,37 +110,37 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
 > 2019년 8월 1일 이후에 **View** 매개 변수는 위에 나열된 새 지역/국가에 대해 반환되는 지도 콘텐츠를 정의합니다. Azure Maps **View** 매개 변수("사용자 지역 매개 변수"라고도 함)는 해당 국가/지역에 대한 올바른 지도를 표시하고 지도에 표시되는 경계 및 레이블을 포함하여 Azure Maps 서비스를 통해 반환되는 지정학적 분쟁 콘텐츠를 지정하는 두 문자로 된 ISO-3166 국가 코드입니다. 
 
 서비스에서 사용하는 REST API 및 SDK에 필요한 대로 **View** 매개 변수를 설정해야 합니다.
->  
->
->  **Rest API:**
->  
->  필요에 따라 View 매개 변수를 설정했는지 확인합니다. View 매개 변수는 Azure Maps 서비스를 통해 반환되는 지정학적 분쟁 콘텐츠를 지정합니다. 
->
->  영향을 받는 Azure Maps REST 서비스:
->    
->    * Get Map Tile
->    * Get Map Image 
->    * Get Search Fuzzy
->    * Get Search POI
->    * Get Search POI Category
->    * Get Search Nearby
->    * Get Search Address
->    * Get Search Address Structured
->    * Get Search Address Reverse
->    * Get Search Address Reverse Cross Street
->    * Post Search Inside Geometry
->    * Post Search Address Batch Preview
->    * Post Search Address Reverse Batch Preview
->    * Post Search Along Route
->    * Post Search Fuzzy Batch Preview
->
->    
->  **SDK:**
->
->  필요에 따라 **View** 매개 변수를 설정하고 최신 버전의 Web SDK 및 Android SDK를 설치했는지 확인합니다. 영향을 받는 SDK:
->
->    * Azure Maps 웹 SDK
->    * Azure Maps Android SDK
+  
+
+### <a name="rest-apis"></a>Rest Api
+  
+필요에 따라 View 매개 변수를 설정했는지 확인합니다. View 매개 변수는 Azure Maps 서비스를 통해 반환되는 지정학적 분쟁 콘텐츠를 지정합니다. 
+
+영향을 받는 Azure Maps REST 서비스:
+    
+ * Get Map Tile
+ * Get Map Image 
+ * Get Search Fuzzy
+ * Get Search POI
+ * Get Search POI Category
+ * Get Search Nearby
+ * Get Search Address
+ * Get Search Address Structured
+ * Get Search Address Reverse
+ * Get Search Address Reverse Cross Street
+ * Post Search Inside Geometry
+ * Post Search Address Batch Preview
+ * Post Search Address Reverse Batch Preview
+ * Post Search Along Route
+ * Post Search Fuzzy Batch Preview
+
+ 
+### <a name="sdks"></a>SDK
+
+필요에 따라 **View** 매개 변수를 설정하고 최신 버전의 Web SDK 및 Android SDK를 설치했는지 확인합니다. 영향을 받는 SDK:
+
+ * Azure Maps 웹 SDK
+ * Azure Maps Android SDK
 
 기본적으로 View 매개 변수는 요청에서 정의하지 않은 경우에도 **Unified**로 설정됩니다. 사용자의 위치를 확인합니다. 그런 다음, 해당 위치에 대한 **View** 매개 변수를 올바르게 설정합니다. 또는 'View=Auto'를 설정할 수 있습니다. 이 경우 요청의 IP 주소를 기준으로 지도 데이터를 반환합니다.  Azure Maps의 **View** 매개 변수는 Azure Maps를 통해 사용자에게 액세스 권한이 부여된 지도, 이미지 및 기타 데이터와 타사 콘텐츠를 사용할 수 있는 국가/지역의 지도 관련 법률을 포함하는 해당 법률에 따라 사용해야 합니다.
 
