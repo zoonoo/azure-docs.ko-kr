@@ -1,18 +1,18 @@
 ---
 title: Azure 파일 동기화 클라우드 계층화 이해 | Microsoft Docs
-description: Azure 파일 동기화의 기능인 클라우드 계층화에 대해 알아봅니다.
+description: 선택적 Azure File Sync 기능인 클라우드 계층화에 대해 읽어 보세요. 자주 액세스 하는 파일은 서버에서 로컬로 캐시 됩니다. 다른 항목은 Azure Files로 계층화 됩니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460085"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033124"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
@@ -63,7 +63,7 @@ Azure File Sync는 Windows Server 2012 R2 이상 버전의 NTFS 볼륨에서 지
 |32TB – 64 TB   | 16KB         |
 |64TB – 128 TB  | 32KB         |
 |128TB – 256 TB | 64KB         |
-|> 256 TB       | 지원 안 함 |
+|> 256 TB       | 지원되지 않음 |
 
 볼륨을 만들 때 다른 클러스터 크기의 볼륨에 수동으로 포맷 했을 수 있습니다. 이전 버전의 Windows에서 볼륨을 분석 하는 경우 기본 클러스터 크기도 다를 수 있습니다. [이 문서에는 기본 클러스터 크기에 대 한 자세한 내용이 포함 되어 있습니다.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) 4kb 보다 작은 클러스터 크기를 선택 하더라도 계층화 될 수 있는 가장 작은 파일 크기로 8kb 제한이 적용 됩니다. 기술적으로 두 클러스터 크기가 8kb 보다 작은 경우에도 마찬가지입니다.
 
@@ -123,7 +123,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
    *  **파일의 파일 특성을 확인합니다.**
      파일을 마우스 오른쪽 단추로 클릭하고 **세부 정보**로 이동한 다음 아래쪽의 **특성** 속성으로 스크롤합니다. 계층화된 파일에는 다음과 같은 특성 집합이 적용됩니다.     
         
-        | 특성 문자 | attribute | 정의 |
+        | 특성 문자 | 특성 | 정의 |
         |:----------------:|-----------|------------|
         | A | 보관 | 파일을 백업 소프트웨어로 백업해야 함을 나타냅니다. 이 특성은 파일이 계층화되는지 또는 디스크에 완전히 저장되는지에 관계없이 항상 설정됩니다. |
         | P | 스파스 파일 | 파일이 스파스 파일인지를 나타냅니다. 스파스 파일은 디스크 스트림의 파일이 대부분 비어 있을 때 효율적으로 사용하기 위해 NTFS가 제공하는 특수한 형식의 파일입니다. Azure 파일 동기화는 파일이 완전히 계층화되거나 부분적으로 회수되기 때문에 스파스 파일을 사용합니다. 완전히 계층화된 파일에서 파일 스트림은 클라우드에 저장됩니다. 부분적으로 회수된 파일에서 파일의 해당 부분은 이미 디스크에 있습니다. 파일이 디스크에 완전히 회수되면 Azure 파일 동기화는 스파스 파일에서 일반 파일로 변환합니다. 이 특성은 Windows Server 2016 이상 에서만 설정 됩니다.|

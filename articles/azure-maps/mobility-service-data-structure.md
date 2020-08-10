@@ -1,6 +1,6 @@
 ---
 title: Azure Maps의 모바일 서비스 데이터 구조 Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure 지도 모바일 서비스를 통해 반환 되는 공통 필드 및 데이터 구조에 대해 설명 합니다.
+description: Azure Maps 모바일 서비스에서 데이터를 metro 영역으로 구성 하는 방법을 이해 합니다. 공용 전송 중지 및 줄에 대 한 정보를 저장 하는 필드를 확인 합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5c2033557d14a25c786f3f6b08dc5bd54956f7e1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131279"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033226"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스의 데이터 구조
 

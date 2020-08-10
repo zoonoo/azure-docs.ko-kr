@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283013"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032087"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -36,8 +36,8 @@ ms.locfileid: "87283013"
    1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업**에서 **모든 클라우드 앱**을 선택합니다.
    1. **완료**를 선택합니다.
-1. **조건**  >  **클라이언트 앱 (미리 보기)** 의 아래에서 **이 정책이 적용 되는 클라이언트 앱을 선택 합니다**.
-   1. **모바일 앱 및 데스크톱 클라이언트** > **기타 클라이언트** 확인란만 선택합니다.
+1. **조건**  >  **클라이언트 앱**에서 **구성** 을 **예**로 설정 합니다.
+   1. **Exchange ActiveSync 클라이언트** 및 **다른 클라이언트만**확인란을 선택 합니다.
    1. **완료**를 선택합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 차단**을 선택합니다.
    1. **선택**을 선택합니다.

@@ -1,19 +1,19 @@
 ---
 title: '경로 기반 VPN gateway 만들기: 포털'
 titleSuffix: Azure VPN Gateway
-description: Azure Portal를 사용 하 여 경로 기반 Azure VPN gateway를 만드는 방법을 알아봅니다. VPN gateway를 사용 하 여 온-프레미스 네트워크에 연결 합니다.
+description: 온-프레미스 네트워크에 대 한 VPN 연결 또는 가상 네트워크 연결에 대 한 경로 기반 Azure VPN gateway를 빠르게 만들려면 Azure Portal를 사용 합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: d78dff60c08a67305824139ba11f336380b0a018
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e6d44c9a92ad239c37620ee2e19efcc1777ec3de
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923377"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032632"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
 

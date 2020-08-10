@@ -3,16 +3,16 @@ title: Azure Marketplace에서 파트너 센터를 사용하여 Azure IoT Edge �
 description: 파트너 센터를 사용 하 여 Azure Marketplace에서 IoT Edge 모듈 제품을 만들고 구성 하 고 게시 하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/07/2020
+ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876634"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032835"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -194,6 +194,8 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 흐린 이미지는 거부됩니다.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
 
@@ -207,6 +209,8 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 - **넓음(255 x 115)**
 
 4개의 로고가 모두 필요하며 Marketplace 목록의 서로 다른 위치에서 사용됩니다.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>스크린샷(선택 사항)
 
@@ -229,7 +233,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 3. 지원 주소 (링크)
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
-6. 이름
+6. 속성
 7. 요약
 8. 설명
 9. 유용한 링크
@@ -251,7 +255,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. 이름
+1. 속성
 2. 설명
 3. 유용한 링크
 4. 스크린샷
@@ -445,14 +449,14 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 - 이름 #2: FromContosoModuleToCloud
 - 값 #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**기본 모듈 쌍 desired 속성**입니다. 모듈 쌍은 desired 속성을 비롯하여 모듈 인스턴스에 대한 상태 정보를 저장하는 IoT Hub의 JSON 문서입니다. 원하는 속성은 reported 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드에서 desired 속성을 설정하고, 모듈에서 이 속성을 읽을 수 있습니다. 모듈은 desired 속성에서 변경 알림을 받을 수 있습니다. desired 속성은 최대 5개의 이름/값 쌍을 사용하여 생성되며 각 기본값은 512자 미만이어야 합니다. 최대 5개의 이름/값 쌍 desired 속성을 정의할 수 있습니다. 쌍 desired 속성의 값은 최대 4개 수준의 중첩된 계층 구조의 배열이 없는 이스케이프되지 않은 유효한 JSON이어야 합니다. 기본값에 필요한 매개 변수가 적합하지 않은 시나리오에서(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가할 수 있습니다. 쌍 desired 속성에 대해 자세히 알아보려면 [desired 속성 정의 또는 업데이트](../../iot-edge/module-composition.md#define-or-update-desired-properties)를 참조 하세요.
+**기본 모듈 쌍 desired 속성**입니다. 모듈 쌍은 desired 속성을 비롯하여 모듈 인스턴스에 대한 상태 정보를 저장하는 IoT Hub의 JSON 문서입니다. 원하는 속성은 reported 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드에서 desired 속성을 설정하고, 모듈에서 이 속성을 읽을 수 있습니다. 모듈은 desired 속성에서 변경 알림을 받을 수 있습니다. Desired 속성은 최대 5 개의 이름/값 쌍을 사용 하 여 생성 되며 각 기본값은 512 자 미만 이어야 합니다. 최대 5개의 이름/값 쌍 desired 속성을 정의할 수 있습니다. 쌍 desired 속성의 값은 최대 4개 수준의 중첩된 계층 구조의 배열이 없는 이스케이프되지 않은 유효한 JSON이어야 합니다. 기본값에 필요한 매개 변수가 적합하지 않은 시나리오에서(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가할 수 있습니다. 쌍 desired 속성에 대해 자세히 알아보려면 [desired 속성 정의 또는 업데이트](../../iot-edge/module-composition.md#define-or-update-desired-properties)를 참조 하세요.
 
 예를 들어 모듈이 쌍 desired 속성을 사용하여 동적으로 구성할 수 있는 새로 고침 빈도를 지원하는 경우 다음 기본 쌍 desired 속성을 정의하는 것이 좋습니다.
 
 - 이름 #1: RefreshRate
 - 값 #1: 60
 
-**기본 환경 변수**. 환경 변수는 구성 프로세스를 돕는 모듈에 보충 정보를 제공합니다. 환경 변수는 이름/값 쌍을 사용하여 만들어집니다. 각 기본 환경 변수 이름 및 값은 512자 미만이어야 하며 최대 5개까지 정의할 수 있습니다. 기본값에 필요한 매개 변수가 적합하지 않은 경우(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가합니다.
+**기본 환경 변수**. 환경 변수는 구성 프로세스를 돕는 모듈에 보충 정보를 제공합니다. 환경 변수는 이름/값 쌍을 사용하여 만들어집니다. 각 기본 환경 변수 이름 및 값은 512 자 미만 이어야 하며 최대 5 개까지 정의할 수 있습니다. 기본값에 필요한 매개 변수가 적합하지 않은 경우(예: 고객 서버의 IP 주소) 매개 변수를 기본값으로 추가합니다.
 
 예를 들어 모듈을 시작하기 전에 사용 약관에 동의해야 하는 경우 다음 환경 변수를 정의할 수 있습니다.
 

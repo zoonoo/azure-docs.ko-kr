@@ -1,18 +1,18 @@
 ---
 title: Azure Data Box를 사용 하 여 데이터를 Azure File Sync으로 마이그레이션
-description: Azure File Sync와 호환 되는 방식으로 대량 데이터를 마이그레이션합니다.
+description: Azure File Sync와 호환 되는 대량 데이터를 오프 라인으로 마이그레이션합니다. 동기화를 사용 하도록 설정한 후 파일 충돌을 방지 하 고 파일 및 폴더 Acl과 타임 스탬프를 유지 합니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827897"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034348"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Azure DataBox를 사용하여 대량 데이터를 Azure 파일 동기화로 마이그레이션
 다음 두 가지 방법으로 대량 데이터를 Azure File Sync로 마이그레이션할 수 있습니다.

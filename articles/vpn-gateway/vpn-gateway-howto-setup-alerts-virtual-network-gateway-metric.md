@@ -1,18 +1,18 @@
 ---
 title: Azure VPN Gateway 메트릭에 대 한 경고 설정
-description: Azure VPN Gateway 메트릭에 대 한 경고를 설정 하는 방법에 대해 알아봅니다. Azure Monitor를 사용 하 여 VPN 유형의 가상 네트워크 게이트웨이에 대 한 경고를 설정 합니다.
+description: Azure Portal를 사용 하 여 가상 네트워크 VPN 게이트웨이의 메트릭에 따라 Azure Monitor 경고를 설정 하는 방법을 알아봅니다.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: 3819f653cba80854a65a08f92a10f82057abb0fd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14bb407cb12e24ca789085e954aaabff2333da7b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923070"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033498"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>VPN Gateway 메트릭에 대 한 경고 설정
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275482"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032196"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -49,7 +49,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 - 이전 Microsoft Office 앱
 - POP, IMAP 및 SMTP와 같은 메일 프로토콜을 사용하는 앱
 
-요즘에는 단일 단계 인증(예: 사용자 이름 및 암호)만으로도 충분하지 않습니다. 추측하기 쉬운 암호는 적합하지 않으며, 인간이 적합한 암호를 선택하는 데도 서투릅니다. 또한 암호는 피싱 또는 암호 스프레이와 같은 다양한 공격에도 취약합니다. 암호 위협으로부터 보호하기 위해 수행할 수 있는 가장 쉬운 방법 중 하나는 MFA를 구현하는 것입니다. MFA를 사용하면 공격자가 사용자의 암호를 획득하더라도 암호만으로 데이터를 성공적으로 인증하고 액세스하기에는 충분하지 않습니다.
+요즘에는 단일 단계 인증(예: 사용자 이름 및 암호)만으로도 충분하지 않습니다. 추측하기 쉬운 암호는 적합하지 않으며, 인간이 적합한 암호를 선택하는 데도 서투릅니다. 또한 암호는 피싱 또는 암호 스프레이와 같은 다양한 공격에도 취약합니다. 암호 위협 으로부터 보호 하기 위해 수행할 수 있는 가장 쉬운 작업 중 하나는 MFA (multi-factor authentication)를 구현 하는 것입니다. MFA를 사용하면 공격자가 사용자의 암호를 획득하더라도 암호만으로 데이터를 성공적으로 인증하고 액세스하기에는 충분하지 않습니다.
 
 레거시 인증을 사용하는 애플리케이션에서 테넌트의 리소스에 액세스하지 못하도록 방지하려면 어떻게 해야 할까요? 단지 조건부 액세스 정책을 사용하여 액세스를 차단하는 것이 좋습니다. 필요한 경우 특정 사용자 및 특정 네트워크 위치만 레거시 인증을 기반으로 하는 애플리케이션을 사용하도록 허용합니다.
 
@@ -91,46 +91,24 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 이러한 로그에는 레거시 인증에 여전히 의존하는 사용자와 레거시 프로토콜을 사용하여 인증 요청을 수행하는 애플리케이션이 표시됩니다. 이러한 로그에 표시되지 않고 레거시 인증을 사용하지 않도록 확인된 사용자의 경우에만 이러한 사용자 전용 조건부 액세스 정책을 구현합니다.
 
-### <a name="block-legacy-authentication"></a>레거시 인증 차단 
+## <a name="block-legacy-authentication"></a>레거시 인증 차단 
 
-조건부 액세스 정책에서 리소스에 액세스하는 데 사용되는 클라이언트 앱과 연결된 조건을 설정할 수 있습니다. **모바일 앱 및 데스크톱 클라이언트**에서 **Exchange ActiveSync 클라이언트** 및 **기타 클라이언트**를 선택하여 레거시 인증을 사용하는 앱으로 앱의 범위를 좁힐 수 있습니다.
+조건부 액세스 정책을 사용 하 여 레거시 인증을 차단 하는 두 가지 방법이 있습니다.
 
-![기타 클라이언트](./media/block-legacy-authentication/01.png)
-
-이러한 앱에 대한 액세스를 차단하려면 **액세스 차단**을 선택해야 합니다.
-
-![액세스 차단](./media/block-legacy-authentication/02.png)
-
-### <a name="select-users-and-cloud-apps"></a>사용자 및 클라우드앱 선택
-
-조직의 레거시 인증을 차단하려면 다음을 선택하여 이 작업을 수행할 수 있습니다.
-
-- 모든 사용자가 액세스할 수 있습니다.
-- 모든 클라우드 앱
-- 액세스 차단
-
-![할당](./media/block-legacy-authentication/03.png)
-
-이 구성이 조건부 액세스 정책의 [모범 사례](best-practices.md)를 위반하므로 Azure에는 이와 같은 정책을 만들지 못하게 하는 보아 기능이 있습니다.
+- [레거시 인증 직접 차단](#directly-blocking-legacy-authentication)
+- [간접적으로 레거시 인증 차단](#indirectly-blocking-legacy-authentication)
  
-![지원되지 않는 정책 구성](./media/block-legacy-authentication/04.png)
+### <a name="directly-blocking-legacy-authentication"></a>레거시 인증 직접 차단
 
-*모든 사용자 및 모든 클라우드 앱 차단*은 전체 조직에서 테넌트에 로그인하지 못하도록 차단할 수 있으므로 보안 기능이 필요합니다. 최소 모범 사례 요구 사항을 충족하려면 한 명 이상의 사용자를 제외해야 합니다. 디렉터리 역할을 제외할 수도 있습니다.
+전체 조직에서 레거시 인증을 차단 하는 가장 쉬운 방법은 레거시 인증 클라이언트에만 적용 되 고 액세스를 차단 하는 조건부 액세스 정책을 구성 하는 것입니다. 사용자 및 응용 프로그램을 정책에 할당 하는 경우 레거시 인증을 사용 하 여 여전히 로그인 해야 하는 사용자 및 서비스 계정을 제외 해야 합니다. **Exchange ActiveSync 클라이언트** 및 **기타 클라이언트**를 선택 하 여 클라이언트 앱 조건을 구성 합니다. 이러한 클라이언트 앱에 대 한 액세스를 차단 하려면 액세스를 차단 하도록 액세스 제어를 구성 합니다.
 
-![지원되지 않는 정책 구성](./media/block-legacy-authentication/05.png)
+![레거시 인증을 차단 하도록 구성 된 클라이언트 앱 조건](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-정책에서 한 명의 사용자를 제외하여 이 보안 기능을 충족할 수 있습니다. [Azure AD에서 몇 개의 응급 액세스 관리 계정](../users-groups-roles/directory-emergency-access.md)을 정의하고 정책에서 이를 제외하는 것이 좋습니다.
+### <a name="indirectly-blocking-legacy-authentication"></a>간접적으로 레거시 인증 차단
 
-정책을 사용하도록 설정하여 레거시 인증을 차단할 때 [보고서 전용](concept-conditional-access-report-only.md) 모드를 사용하면 조직에서 정책의 영향을 모니터링할 수 있습니다.
+조직이 전체 조직에서 레거시 인증을 차단할 준비가 되지 않은 경우에도 레거시 인증을 사용 하는 로그인은 multi-factor authentication 또는 규격/하이브리드 Azure AD 조인 장치 요구와 같은 부여 제어가 필요한 정책을 무시 하지 않도록 해야 합니다. 인증 하는 동안 레거시 인증 클라이언트는 MFA, 장치 준수 또는 연결 상태 정보를 Azure AD에 전송 하는 기능을 지원 하지 않습니다. 따라서 권한 부여 컨트롤을 충족 시킬 수 없는 레거시 인증 기반 로그인이 차단 되도록 모든 클라이언트 응용 프로그램에 grant 컨트롤이 있는 정책을 적용 합니다. 8 월 2020에 클라이언트 앱 조건의 일반 공급으로 새로 만든 조건부 액세스 정책은 기본적으로 모든 클라이언트 앱에 적용 됩니다.
 
-## <a name="policy-deployment"></a>정책 배포
-
-정책을 프로덕션에 적용하기 전에 다음 사항에 주의하세요.
- 
-- **서비스 계정** - 회의실 전화와 같이 서비스 계정으로 사용되거나 디바이스별로 사용되는 사용자 계정을 식별합니다. 이러한 계정에 강력한 암호가 있는지 확인하고 제외된 그룹에 추가합니다.
-- **로그인 보고서** - 로그인 보고서를 검토하고 **다른 클라이언트** 트래픽을 찾습니다. 상위 사용량을 식별하고 사용 중인 이유를 조사합니다. 일반적으로 트래픽은 최신 인증 또는 일부 타사 메일 앱을 사용하지 않는 이전의 Office 클라이언트에서 생성됩니다. 이러한 앱에서 사용량을 이동시키려고 계획하거나, 영향력이 적은 경우 사용자에게 해당 앱을 더 이상 사용할 수 없음을 알립니다.
- 
-자세한 내용은 [새 정책을 배포하려면 어떻게 해야 합니까?](best-practices.md#how-should-you-deploy-a-new-policy)를 참조하세요.
+![클라이언트 앱 조건 기본 구성](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
@@ -141,14 +119,6 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 정책이 적용되려면 최대 24시간까지 걸릴 수 있습니다.
 
 **다른 클라이언트** 조건에 사용할 수 있는 모든 권한 부여 제어를 선택할 수 있지만, 최종 사용자 환경은 항상 동일합니다(액세스 차단).
-
-**다른 클라이언트** 조건을 사용하여 레거시 인증을 차단하는 경우 디바이스 플랫폼 및 위치 조건을 설정할 수도 있습니다. 예를 들어 모바일 디바이스에 대한 레거시 인증만 차단하려면 다음을 선택하여 **디바이스 플랫폼** 조건을 설정합니다.
-
-- Android
-- iOS
-- Windows Phone
-
-![지원되지 않는 정책 구성](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>다음 단계
 

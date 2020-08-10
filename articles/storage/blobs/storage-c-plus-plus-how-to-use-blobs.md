@@ -1,18 +1,18 @@
 ---
 title: C++에서 개체(Blob) 스토리지를 사용하는 방법 - Azure | Microsoft Docs
-description: Azure Blob(개체) 스토리지를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
+description: C + +를 사용 하 여 Azure Blob (개체) 저장소로 클라우드의 구조화 되지 않은 데이터 (blob)를 저장 하는 방법에 대해 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: d21d37e366e0f34c896d76ee53c49c4ca30a18db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021140"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033634"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob Storage를 사용하는 방법
 

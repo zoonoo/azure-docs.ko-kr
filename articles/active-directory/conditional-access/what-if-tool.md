@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253140"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032886"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용 하 여 문제 해결
 
@@ -32,7 +32,7 @@ ms.locfileid: "85253140"
 
 ## <a name="how-it-works"></a>작동 방법
 
-**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 이러한 설정은 다음과 같습니다.
+**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 설정에는 다음이 포함됩니다.
 
 - 테스트하려는 사용자 
 - 사용자가 액세스하려고 하는 클라우드 앱
@@ -76,7 +76,7 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 ### <a name="client-apps"></a>클라이언트 앱
 
-이 설정은 [클라이언트 앱 조건](concept-conditional-access-conditions.md#client-apps-preview)을 모방합니다.
+이 설정은 [클라이언트 앱 조건](concept-conditional-access-conditions.md#client-apps)을 모방합니다.
 기본적으로 이 설정을 사용하면 **브라우저** 또는 **모바일 앱 및 데스크톱 클라이언트**가 따로 또는 둘 다 선택되어 있는 모든 정책이 평가됩니다. 또한 **EAS(Exchange ActiveSync)** 를 적용하는 정책도 감지됩니다. 다음을 선택하여 이 설정의 범위를 좁힐 수 있습니다.
 
 - **브라우저**: 하나 이상의 **브라우저**가 선택된 모든 정책을 평가합니다. 

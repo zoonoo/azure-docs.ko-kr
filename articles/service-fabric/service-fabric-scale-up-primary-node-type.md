@@ -4,12 +4,12 @@ description: 노드 유형을 추가 하 여 Service Fabric 클러스터의 크�
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: 01f6c90f9f7d7679f5b108138e2d2318eb6b9e18
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5cabe7e377c29812252074336d7c5e9c9d3ba259
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010834"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031984"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Service Fabric 클러스터 주 노드 형식 강화
 이 문서에서는 클러스터에 노드 유형을 추가 하 여 Service Fabric 클러스터 주 노드 유형을 확장 하는 방법을 설명 합니다. Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 가상 머신 확장 집합은 가상 머신의 모음을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 컴퓨팅 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다.
@@ -62,9 +62,6 @@ New-AzResourceGroupDeployment `
 ### <a name="add-a-new-primary-node-type-to-the-cluster"></a>클러스터에 새 주 노드 형식 추가
 > [!Note]
 > 다음 단계에서 만든 리소스는 크기 조정 작업이 완료 되 면 클러스터의 새 주 노드 유형이 됩니다. 초기 서브넷, 공용 IP, Load Balancer, 가상 컴퓨터 확장 집합 및 노드 형식에서 고유한 이름을 사용 해야 합니다. 
-
-> [!Note]
-> 표준 SKU 공용 IP 및 표준 SKU LB를 이미 사용 중인 경우에는 새 네트워킹 리소스를 만들 필요가 없습니다. 
 
 [Service Fabric-새 노드 형식 클러스터](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-2.json)에서 완료 한 다음 단계를 모두 사용 하 여 템플릿을 찾을 수 있습니다. 다음 단계에는 새 리소스의 변경 내용을 강조 표시 하는 부분 리소스 조각이 포함 되어 있습니다.  
 
@@ -162,7 +159,40 @@ New-AzResourceGroupDeployment `
 ### <a name="remove-the-existing-node-type"></a>기존 노드 형식 제거 
 리소스 배포가 완료 되 면 원래 주 노드 유형의 노드를 사용 하지 않도록 설정할 수 있습니다. 노드가 사용 하지 않도록 설정 되 면 시스템 서비스는 위 단계에서 배포 된 새 주 노드 유형으로 마이그레이션됩니다.
 
-1. 노드 유형 0에서 노드를 사용 하지 않도록 설정 합니다. 
+1. Service Fabric 클러스터 리소스의 주 노드 유형 속성을 false로 설정 합니다. 
+```json
+{
+    "name": "[variables('vmNodeType0Name')]",
+    "applicationPorts": {
+        "endPort": "[variables('nt0applicationEndPort')]",
+        "startPort": "[variables('nt0applicationStartPort')]"
+    },
+    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
+    "durabilityLevel": "Bronze",
+    "ephemeralPorts": {
+        "endPort": "[variables('nt0ephemeralEndPort')]",
+        "startPort": "[variables('nt0ephemeralStartPort')]"
+    },
+    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+    "isPrimary": false,
+    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
+    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+}
+```
+2. 원래 노드 형식에 업데이트 된 isPrimary 속성을 사용 하 여 템플릿을 배포 합니다. 원본 노드 형식에 대 한 기본 플래그가 false로 설정 된 템플릿을 찾을 수 있습니다. [Service Fabric-주 노드 형식 false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
+```powershell
+# deploy the updated template files to the existing resource group
+$templateFilePath = "C:\AzureDeploy-3.json"
+$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+```
+
+3. 노드 유형 0에서 노드를 사용 하지 않도록 설정 합니다. 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
     -KeepAliveIntervalInSec 10 `
@@ -196,7 +226,7 @@ foreach($node in $nodes)
 > [!Note]
 > 이 단계를 완료 하는 데 다소 시간이 걸릴 수 있습니다. 
 
-2. 노드 유형 0에서 데이터를 중지 합니다. 
+4. 노드 유형 0에서 데이터를 중지 합니다. 
 ```powershell
 foreach($node in $nodes)
 {
@@ -208,62 +238,18 @@ foreach($node in $nodes)
   }
 }
 ```
-3. 원본 가상 머신 확장 집합에서 노드 할당 취소 
+5. 원본 가상 머신 확장 집합에서 노드 할당 취소 
 ```powershell
 $scaleSetName="nt1vm"
 $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
+> [!Note]
+> 표준 SKU 공용 IP 및 표준 SKU 부하 분산 장치를 이미 사용 중인 경우에는 6 단계와 7 단계를 선택할 수 있습니다. 이 경우 동일한 부하 분산 장치에서 여러 가상 머신 확장 집합/노드 유형을 가질 수 있습니다. 
 
-4. 노드 유형 0에서 노드 상태를 제거 합니다.
-```powershell
-foreach($node in $nodes)
-{
-  if ($node.NodeType -eq $nodeType)
-  {
-    $node.NodeName
+6. 이제 원래 IP 및 Load Balancer 리소스를 삭제할 수 있습니다. 이 단계에서는 DNS 이름도 업데이트 합니다. 
 
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
-  }
-}
-```
-5. Service Fabric 클러스터 리소스의 주 노드 유형 속성을 false로 설정 합니다. 
-
-```json
-{
-    "name": "[variables('vmNodeType0Name')]",
-    "applicationPorts": {
-        "endPort": "[variables('nt0applicationEndPort')]",
-        "startPort": "[variables('nt0applicationStartPort')]"
-    },
-    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-    "durabilityLevel": "Bronze",
-    "ephemeralPorts": {
-        "endPort": "[variables('nt0ephemeralEndPort')]",
-        "startPort": "[variables('nt0ephemeralStartPort')]"
-    },
-    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
-    "isPrimary": false,
-    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-}
-```
-
-5. 원래 노드 형식에 업데이트 된 isPrimary 속성을 사용 하 여 템플릿을 배포 합니다. 원본 노드 형식에 대 한 기본 플래그가 false로 설정 된 템플릿을 찾을 수 있습니다. [Service Fabric-주 노드 형식 false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
-
-```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-3.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
-
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
-```
-
-7. 이제 원래 IP 및 Load Balancer 리소스를 삭제할 수 있습니다. 이 단계에서는 DNS 이름도 업데이트 합니다. 
 ```powershell
 $lbname="LB-cluster-name-nt1vm"
 $lbResourceType="Microsoft.Network/loadBalancers"
@@ -283,11 +269,24 @@ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
-6. 새 IP를 참조 하도록 클러스터의 관리 끝점을 업데이트 합니다. 
+
+7. 새 IP를 참조 하도록 클러스터의 관리 끝점을 업데이트 합니다. 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-7. ARM 템플릿의 Service Fabric 리소스에서 원래 노드 형식 참조를 제거 합니다. 
+8. 노드 유형 0에서 노드 상태를 제거 합니다.
+```powershell
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+  }
+}
+```
+9. ARM 템플릿의 Service Fabric 리소스에서 원래 노드 형식 참조를 제거 합니다. 
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -338,13 +337,10 @@ Set-AzPublicIpAddress -PublicIpAddress $PublicIP
  } 
 }
 ```
+10. ARM 템플릿에서 원래 노드 유형과 관련 된 다른 모든 리소스를 제거 합니다. 이러한 모든 원본 리소스가 제거 된 템플릿에 대 한 [Service Fabric-새 노드 형식 클러스터](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) 를 참조 하세요.
 
-8. ARM 템플릿에서 원래 노드 유형과 관련 된 다른 모든 리소스를 제거 합니다. 이러한 모든 원본 리소스가 제거 된 템플릿에 대 한 [Service Fabric-새 노드 형식 클러스터](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) 를 참조 하세요.
-
-9. 수정 된 Azure Resource Manager 템플릿을 배포 합니다. * *이 단계는 시간이 오래 걸립니다 (일반적으로 최대 2 시간). 이 업그레이드는 설정이 InfrastructureService 변경 되므로 노드를 다시 시작 해야 합니다. 이 경우 forceRestart은 무시 됩니다. UpgradeReplicaSetCheckTimeout 매개 변수는 아직 안전 상태가 아닌 경우 파티션이 안전한 상태가 될 때까지 Service Fabric 대기 하는 최대 시간을 지정 합니다. 안전 검사가 노드의 모든 파티션에 대해 통과 하면 Service Fabric는 해당 노드에서의 업그레이드를 진행 합니다. UpgradeTimeout 매개 변수에 대 한 값을 6 시간으로 줄일 수 있지만 최대 보안을 12 시간으로 사용 해야 합니다.
-그런 후 다음을 확인 합니다.
-
-* 포털의 Service Fabric 리소스에 준비 됨이 표시 됩니다.
+11. 수정 된 Azure Resource Manager 템플릿을 배포 합니다. * *이 단계는 시간이 오래 걸립니다 (일반적으로 최대 2 시간). 이 업그레이드는 설정이 InfrastructureService 변경 되므로 노드를 다시 시작 해야 합니다. 이 경우 forceRestart은 무시 됩니다. UpgradeReplicaSetCheckTimeout 매개 변수는 아직 안전 상태가 아닌 경우 파티션이 안전한 상태가 될 때까지 Service Fabric 대기 하는 최대 시간을 지정 합니다. 안전 검사가 노드의 모든 파티션에 대해 통과 하면 Service Fabric는 해당 노드에서의 업그레이드를 진행 합니다. UpgradeTimeout 매개 변수에 대 한 값을 6 시간으로 줄일 수 있지만 최대 보안을 12 시간으로 사용 해야 합니다.
+그런 다음 포털의 Service Fabric 리소스가 준비 된 것으로 표시 되는지 확인 합니다. 
 
 ```powershell
 # deploy the updated template files to the existing resource group
