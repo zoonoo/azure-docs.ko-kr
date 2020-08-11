@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279307"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056553"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 전환 하는 방법에 대 한 질문과 대답
 
@@ -25,7 +25,7 @@ Cloud 파트너 포털 파트너 센터로 전환 되었습니다. 파트너 센
 | 영역<img src="" width=200px> | 변경 |
 | --- | --- |
 | 계정 | 새 파트너 센터 계정을 만들 필요가 없습니다. 기존 Cloud 파트너 포털 자격 증명을 사용 하 여 파트너 센터에 로그인 할 수 있습니다. 그러면 이제 계정, 사용자, 사용 권한 및 청구를 관리할 수 있습니다. 게시 계약과 회사 프로필 정보는 지급 프로필 정보, 사용자 계정 및 사용 권한, 활성 제품 등의 새 파트너 센터 계정으로 마이그레이션됩니다. [파트너 센터의 상업 마켓플레이스 계정 관리](partner-center-portal/manage-account.md)에서 자세히 알아보세요. |
-| 제공 게시 및 제공 관리 환경 | 제품 데이터를 Cloud 파트너 포털에서 파트너 센터로 이동 했습니다. 이제 향상 된 사용자 환경 및 직관적인 인터페이스를 제공 하는 파트너 센터에서 귀하의 제품에 액세스 합니다. [상업적 Marketplace에서 기존 제품을 업데이트](partner-center-portal/update-existing-offer.md)하는 방법을 알아봅니다. |
+| 제공 게시 및 제공 관리 환경 | 제품 데이터를 Cloud 파트너 포털에서 파트너 센터로 이동 했습니다. 이제 향상 된 사용자 환경 및 직관적인 인터페이스를 제공 하는 파트너 센터에서 귀하의 제품에 액세스 합니다. [상업적 marketplace에서 기존 제품을 업데이트](partner-center-portal/update-existing-offer.md)하는 방법을 알아봅니다. |
 | 상업적 marketplace에서 제품의 가용성 | 변경 내용이 없습니다. 제품이 상업적 marketplace에 살고 있는 경우 계속 해 서 라이브 상태로 유지 됩니다. |
 | 새로운 구매 및 배포 | 변경 내용이 없습니다. 고객은 중단 없이 제품을 계속 구매 하 고 배포할 수 있습니다. |
 | 지급 | 모든 구매 및 배포는 정상적으로 계속 청구 됩니다. [상업적 marketplace에서 지불 하는](partner-center-portal/get-paid.md)방법에 대해 자세히 알아보세요. |
@@ -143,7 +143,7 @@ Cloud 파트너 포털와 파트너 센터 간의 차이점은 다음과 같습�
 
 ### <a name="enhanced-preview-options"></a>향상된 미리 보기 옵션
 
-파트너 센터에는 향상된 필터링 옵션을 사용하는 [비교 기능](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers)이 포함되어 있습니다. 이를 통해 제품의 미리 보기 및 라이브 버전과 비교할 수 있습니다.
+파트너 센터에는 향상된 필터링 옵션을 사용하는 [비교 기능](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers)이 포함되어 있습니다. 이를 통해 제품의 미리 보기 및 라이브 버전과 비교할 수 있습니다.
 
 [![스크린샷 파트너 센터 비교 기능을 보여 줍니다.](media/cpp-pc-faq/compare.png "파트너 센터 비교 기능을 표시 합니다.")](media/cpp-pc-faq/compare.png#lightbox)
 

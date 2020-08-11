@@ -1,5 +1,5 @@
 ---
-title: '자습서: NAT 게이트웨이 만들기 및 테스트 - Azure CLI'
+title: NAT 게이트웨이 만들기 및 테스트 - Azure CLI
 titlesuffix: Azure Virtual Network NAT
 description: 이 자습서에서는 Azure CLI를 사용하여 NAT 게이트웨이를 만들고 NAT 서비스를 테스트하는 방법을 보여 줍니다.
 services: virtual-network
@@ -10,17 +10,17 @@ Customer intent: I want to test a NAT gateway for outbound connectivity for my v
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1cd3f9aa429e02bd3666e47acf2f4c58761b0d81
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7d4467e557105100fc32940c05fa349722689867
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494658"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054377"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>자습서: Azure CLI를 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 

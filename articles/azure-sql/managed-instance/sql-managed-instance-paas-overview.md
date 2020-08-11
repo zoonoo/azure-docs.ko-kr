@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073355"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055224"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance 이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure sql Managed Instance 제품군의 일부는 광범위 하 게 관리 되 고 있는 플랫폼 서비스의 모든 이점과 가장 광범위 한 SQL Server 데이터베이스 엔진 호환성을 결합 하는 확장 가능한 인텔리전트 클라우드 데이터베이스 서비스입니다. SQL Managed Instance는 최신 SQL Server (Enterprise Edition) 데이터베이스 엔진과 100% 호환성을 제공 하 고, 일반적인 보안 문제를 해결 하는 기본 [VNet (가상 네트워크](../../virtual-network/virtual-networks-overview.md) ) 구현을 제공 하 고, 기존 SQL Server 고객에 게 적합 한 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/) 을 제공 합니다. SQL Managed Instance를 사용 하면 기존 SQL Server 고객이 응용 프로그램 및 데이터베이스를 최소한으로 변경 하 여 온-프레미스 응용 프로그램을 클라우드로 리프트 앤 시프트 할 수 있습니다. 동시에 SQL Managed Instance는 관리 오버 헤드 및 TCO를 크게 줄이는 모든 PaaS 기능 (자동 패치 및 버전 업데이트, [자동화 된 백업](../database/automated-backups-overview.md), [고가용성](../database/high-availability-sla.md))을 유지 합니다.
+Azure SQL Managed Instance는 광범위 하 게 관리 되 고 있는 플랫폼의 모든 이점에 가장 SQL Server 광범위 한 데이터베이스 엔진 호환성을 제공 하는 효율적이 고 확장 가능한 클라우드 데이터베이스 서비스입니다. SQL Managed Instance는 최신 SQL Server (Enterprise Edition) 데이터베이스 엔진과 100% 호환성을 제공 하 고, 일반적인 보안 문제를 해결 하는 기본 [VNet (가상 네트워크](../../virtual-network/virtual-networks-overview.md) ) 구현을 제공 하 고, 기존 SQL Server 고객에 게 적합 한 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/) 을 제공 합니다. SQL Managed Instance를 사용 하면 기존 SQL Server 고객이 응용 프로그램 및 데이터베이스를 최소한으로 변경 하 여 온-프레미스 응용 프로그램을 클라우드로 리프트 앤 시프트 할 수 있습니다. 동시에 SQL Managed Instance는 관리 오버 헤드 및 TCO를 크게 줄이는 모든 PaaS 기능 (자동 패치 및 버전 업데이트, [자동화 된 백업](../database/automated-backups-overview.md), [고가용성](../database/high-availability-sla.md))을 유지 합니다.
 
 > [!IMPORTANT]
 > SQL Managed Instance 현재 사용할 수 있는 지역 목록은 [지원 되는 지역](resource-limits.md#supported-regions)을 참조 하세요.
@@ -50,7 +50,7 @@ SQL Managed Instance Azure SQL Database와 SQL Server 데이터베이스 엔진 
 
 다음 표에서는 SQL Managed Instance의 주요 기능을 보여 줍니다.
 
-|기능 | Description|
+|기능 | 설명|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진 (안정적인 최신) |
 | 관리되는 자동 백업 | 예 |
@@ -60,7 +60,7 @@ SQL Managed Instance Azure SQL Database와 SQL Server 데이터베이스 엔진 
 | 데이터베이스당 데이터 파일(행) 수 | 여러 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니요 |
+| VNet - 클래식 배포 모델 | 예 |
 | 포털 지원 | 예|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)입니다. |
@@ -192,7 +192,7 @@ SQL Managed Instance은 온-프레미스 또는 IaaS 데이터베이스 구현�
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-Azure Database Migration Service은 가동 중지 시간을 최소화 하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활 하 게 마이그레이션할 수 있도록 설계 된 완전히 관리 되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure VM의 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server로 이동 하는 데 필요한 작업을 간소화 합니다. [Database Migration Service를 사용 하 여 온-프레미스 데이터베이스를 SQL Managed Instance로 마이그레이션하는 방법을](https://aka.ms/migratetoMIusingDMS)참조 하세요.
+Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure VM의 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server로 이동 하는 데 필요한 작업을 간소화 합니다. [Database Migration Service를 사용 하 여 온-프레미스 데이터베이스를 SQL Managed Instance로 마이그레이션하는 방법을](https://aka.ms/migratetoMIusingDMS)참조 하세요.
 
 ## <a name="sql-features-supported"></a>지원되는 SQL 기능
 
@@ -227,7 +227,7 @@ SQL Managed Instance 클라우드에서 항상 최신 상태를 유지 하는 �
 
 다음 표에서는 Transact-sql을 통해 액세스할 수 있는 몇 가지 속성을 보여 줍니다 .이 속성을 사용 하 여 응용 프로그램이 SQL Managed Instance를 사용 하 고 있는지 검색 하 고 중요 한 속성을 검색할 수 있습니다.
 
-|속성|값|의견|
+|속성|값|주석|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다. 이 **는** SQL 엔진 버전 12 (SQL Server 2014)를 나타내지 않습니다. SQL Managed Instance는 항상 사용 가능한 최신 RTM 버전의 SQL Server 보다 같거나 높은 안정적인 최신 SQL 엔진 버전을 항상 실행 합니다.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|이 값은 SQL Database와 같습니다.|

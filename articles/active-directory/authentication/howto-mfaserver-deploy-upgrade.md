@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653107"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054003"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -41,7 +41,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 4. 각 MFA 서버에서 새 설치 관리자를 실행합니다. 하위 서버는 마스터에 의해 복제되는 이전 데이터 파일을 읽을 수 있으므로 먼저 업그레이드합니다.
 
    > [!NOTE]
-   > 서버를 업그레이드하는 경우 부하 분산 또는 다른 MFA 서버와 공유하는 트래픽에서 제거해야 합니다.
+   > 서버를 업그레이드 하는 경우 다른 MFA 서버와의 부하 분산 또는 트래픽 공유에서 제거 해야 합니다.
    >
    > 설치 관리자를 실행하기 전에 현재 MFA 서버를 제거할 필요는 없습니다. 설치 관리자는 전체 업그레이드를 수행합니다. 설치 경로는 이전 설치의 레지스트리에서 선택되므로 동일한 위치(예: C:\Program Files\PhoneFactor)에 설치됩니다.
   

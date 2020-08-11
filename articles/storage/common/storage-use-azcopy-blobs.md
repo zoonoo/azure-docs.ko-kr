@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4bf3974cd561626c280dc65aa5fc78d0c9a159b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282452"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056502"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 
@@ -31,7 +31,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`과 다음과 같습니다.
+> 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -283,7 +283,7 @@ AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block
 >
 > |시나리오|플래그|
 > |---|---|
-> |추가 Blob 또는 페이지 Blob으로 파일을 복사 합니다.|**--blob-형식** = \[ BlockBlob \| pageblob \| appendblob\]|
+> |블록, 페이지 또는 추가 Blob으로 blob을 복사 합니다.|**--blob-형식** = \[ BlockBlob \| pageblob \| appendblob\]|
 > |특정 액세스 계층 (예: 보관 계층)에 복사 합니다.|**--블록-blob 계층** = \[ 없음 \| 핫 \| 쿨 \| 아카이브\]|
 > |자동으로 파일의 압축을 해제 합니다.|**--압축 풀기** = \[ gzip \| deflate\]|
 > 

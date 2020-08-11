@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 9804992aee318fdc34815bdbe4187144704cd667
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099774"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053919"
 ---
 # <a name="what-is-batch-transcription"></a>일괄 처리 기록 이란?
 
@@ -31,7 +31,7 @@ ms.locfileid: "85099774"
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
 |    오프 라인 상태에서 지원 되는 로캘 목록을 가져옵니다.              |    GET       |    speechtotext/v 3.0//및 로캘    |
 |    ID로 식별 되는 기록의 변경 가능한 세부 정보를 업데이트 합니다.    |    패치     |    speechtotext/v 3.0//{id}       |
-|    지정 된 기록 작업을 삭제 합니다.                                 |    Delete    |    speechtotext/v 3.0//{id}       |
+|    지정 된 기록 작업을 삭제 합니다.                                 |    DELETE    |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록을 가져옵니다.                        |    GET       |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록의 결과 파일을 가져옵니다.    |    GET       |    speechtotext/v 3.0//{id}/파일 |
 
@@ -44,7 +44,7 @@ ms.locfileid: "85099774"
 
 사용 하기 쉬운 API 옆에 사용자 지정 끝점을 배포할 필요가 없으며 관찰할 동시성 요구 사항이 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="subscription-key"></a>구독 키
 
@@ -63,7 +63,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 
 Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
-| 형식 | Codec | Bitrate | 샘플링 주기                     |
+| 서식 | Codec | Bitrate | 샘플링 주기                     |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
 | MP3    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
@@ -319,7 +319,7 @@ Diarization를 요청 하려면 아래와 같이 HTTP 요청에 관련 매개 �
 
 기록 서비스는 많은 수의 제출 된 많은 서비스를 처리할 수 있습니다. Get the Get을 통해의 상태를 쿼리할 수 있습니다 `GET` . [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) 결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 속성을 적절 한 값으로 설정 하 여 결과의 최종 삭제를 확인 합니다.
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 전체 샘플은 [GitHub 샘플 리포지토리에서](https://aka.ms/csspeech/samples) 하위 디렉터리 내에서 사용할 수 있습니다 `samples/batch` .
 
@@ -346,4 +346,4 @@ Diarization를 요청 하려면 아래와 같이 HTTP 요청에 관련 매개 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [음성 텍스트 v3 API 참조](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)

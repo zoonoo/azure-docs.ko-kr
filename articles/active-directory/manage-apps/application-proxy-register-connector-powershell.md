@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea90c80d9edbefe9df05a5d64da612a89c3b251f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850814"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054837"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 스크립트 만들기
 
@@ -37,6 +37,9 @@ ms.locfileid: "85850814"
 [응용 프로그램 프록시 커넥터가](application-proxy-connectors.md) 작동 하려면 응용 프로그램 관리자 및 암호를 사용 하 여 Azure AD 디렉터리에 등록 해야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
 무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다.
+
+> [!IMPORTANT]
+> Azure Government 클라우드 용 커넥터를 설치 하는 경우 [필수](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) 구성 요소 및 [설치 단계](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud)를 검토 합니다. 이렇게 하려면 다른 URL 세트에 액세스하도록 설정하고 설치를 실행하기 위한 추가 매개 변수가 필요합니다.
 
 ## <a name="install-the-connector"></a>커넥터 설치
 등록 없이 커넥터를 설치하려면 다음 단계를 사용합니다.

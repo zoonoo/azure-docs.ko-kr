@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902048"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053578"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -361,20 +361,20 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 로캘 | 언어 | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
 |----|----|----|----|----|
 | ko-KR | 영어(미국) | 예 | 예 | 예 |
-|zh-CN  |중국어(북경어, 간체)|    해당 없음|    예|    예|
-|de-DE  |독일어(독일)   |해당 없음    |예    |예|
-|en-GB  |영어(영국)   |해당 없음    |예    |예|
-|fr-FR  |프랑스어(프랑스)    |해당 없음    |예    |예|
-|en-AU  |영어(오스트레일리아)    |해당 없음    |예    |예|
-|en-CA  |영어(캐나다)   |해당 없음|   예|    예|
-|fr-CA  |프랑스어(캐나다)    |해당 없음    |예|   예|
-|it-IT  |이탈리아어|   해당 없음 |예|   예|
-|es-ES| 스페인어(스페인) |해당 없음    |예|   예|
-|es-MX  |스페인어(멕시코)   |해당 없음|   예|    예|
-|ja-JP| 일본어    |해당 없음    |예    |예|
-|pt-BR| 포르투갈어(브라질)|    해당 없음|    예|    예|
+|zh-CN    |중국어(북경어, 간체)|    해당 없음|    예|    예|
+|de-DE    |독일어(독일)    |해당 없음    |예    |예|
+|en-GB    |영어(영국)    |해당 없음    |예    |예|
+|fr-FR    |프랑스어(프랑스)    |해당 없음    |예    |예|
+|en-AU    |영어(오스트레일리아)    |해당 없음    |예    |예|
+|en-CA    |영어(캐나다)    |해당 없음|    예|    예|
+|fr-CA    |프랑스어(캐나다)    |해당 없음    |예|    예|
+|it-IT    |이탈리아어|    해당 없음    |예|    예|
+|es-ES|    스페인어(스페인)    |해당 없음    |예|    예|
+|es-MX    |스페인어(멕시코)    |해당 없음|    예|    예|
+|ja-JP|    일본어    |해당 없음    |예    |예|
+|pt-BR|    포르투갈어(브라질)|    해당 없음|    예|    예|
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech Service 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

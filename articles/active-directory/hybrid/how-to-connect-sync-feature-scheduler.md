@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146999"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053051"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
 이 항목에서는 Azure AD Connect sync (동기화 엔진)의 기본 제공 스케줄러에 대해 설명 합니다.
@@ -171,7 +171,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 스케줄러가 아직 활성화되어 있으며 다음에 다시 시작합니다.
 
 ## <a name="custom-scheduler"></a>사용자 지정 스케줄러
-이 섹션에서 설명하는 cmdlet은 빌드 [1.1.130.0](reference-connect-version-history.md#111300) 이상에서만 사용할 수 있습니다.
+이 섹션에서 설명하는 cmdlet은 빌드 [1.1.130.0](reference-connect-version-history.md) 이상에서만 사용할 수 있습니다.
 
 기본 제공 스케줄러가 요구 사항을 충족하지 않으면 PowerShell을 사용하여 커넥터를 예약할 수 있습니다.
 

@@ -1,24 +1,24 @@
 ---
-title: 기존 상업적 Marketplace 제품 업데이트
-description: 편집, 초안 삭제, 게시 요청 취소, 제품 또는 요금제 판매 중지, 개인 사용자 동기화 등 기존 상용 Marketplace 제품을 업데이트 하는 방법을 설명 합니다.
+title: 기존 상업적 marketplace 제품 업데이트
+description: 편집, 초안 삭제, 게시 요청 취소, 제품 또는 요금제 판매 중지, 개인 사용자 동기화 등 기존 상용 marketplace 제품을 업데이트 하는 방법을 설명 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006794"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056145"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 기존 제품 업데이트
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 기존 제품 업데이트
 
 파트너 센터의 [상용 Marketplace 포털](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) 의 **개요** 탭에서 기존 제품을 볼 수 있습니다.
 
-Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다음을 수행 합니다.
+상업적 marketplace에서 현재 살고 있는 기존 제품을 업데이트 하려면 다음을 수행 합니다.
 
 1. 업데이트 하려는 제품의 이름을 선택 합니다. 제품의 상태는 **미리 보기**, **라이브**, **게시 진행 중**, **초안**, **주의가 필요한**경우 또는 **사용할 수 없음** (이전에 제품 판매를 중지 하도록 선택한 경우)으로 표시 될 수 있습니다. 이를 선택 하면 해당 제품에 대 한 **제품 개요** 페이지가 열립니다.
 2. 제품 개요 페이지의 카드에서 **업데이트** 를 선택 하거나 업데이트 하려는 영역에 대 한 왼쪽 탐색 영역에서 메뉴 항목을 선택 합니다. **제품 설정**, **속성**, **제품 목록**, **미리 보기**, **기술 구성**, **계획 개요**또는 **테스트 드라이브**를 업데이트 해야 할 수 있습니다.
@@ -74,7 +74,7 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 1. **초안 저장**을 선택합니다.
 1. 새 계획에 대 한 모든 필수 섹션을 완료 한 후 **검토 및 게시**를 선택 합니다. 그러면 검토 및 게시에 대 한 제안이 제출 됩니다. 자세한 내용은 [상업적 marketplace에 대 한 제품 검토 및 게시를](../review-publish-offer.md) 참조 하세요.
 
-## <a name="compare-changes-to-marketplace-offers"></a>Marketplace 제품에 대 한 변경 내용 비교
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>상업적 marketplace 제품에 대 한 변경 내용 비교
 
 **비교**를 사용 하 여 [게시](#compare-changes-to-published-offer) 또는 [미리 보기](#compare-changes-to-a-preview-offer) 제품에 대 한 변경 내용을 라이브 상태로 만들기 전에 감사할 수 있습니다.
 
@@ -161,15 +161,17 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 
 ## <a name="stop-selling-an-offer-or-plan"></a>제품 또는 요금제 판매 중지
 
+다양 한 이유로 Microsoft 상업적 marketplace에서 제품 목록을 제거 하도록 결정할 수 있습니다. 제품을 제거 하면 새 고객이 제품을 더 이상 구입 하거나 배포할 수 없지만 기존 고객에 게는 영향을 주지 않습니다.
+
 게시 한 후 제품 판매를 중지 하려면 **제품 개요** 페이지에서 **판매 중지** 를 선택 합니다.
 
-제품 판매를 중지 하는 것을 확인 하면 몇 시간 내에 더 이상 marketplace에 표시 되지 않으며 새 고객이 다운로드할 수 없게 됩니다.
+제품 판매를 중지 하는 것을 확인 한 후 몇 시간 내에 더 이상 상업적 marketplace에 표시 되지 않으며 새 고객이 다운로드할 수 없게 됩니다.
 
-요금제 판매를 중지 하려면 **계획 개요** 페이지에서 **판매 중지** 를 선택 합니다. 요금제 판매를 중지 하는 옵션은 제안에 계획이 둘 이상 있는 경우에만 사용할 수 있습니다. 제품 내의 다른 계획에 영향을 주지 않고 한 요금제의 판매를 중지 하도록 선택할 수 있습니다. 요금제의 판매를 중지 하는 것을 확인 한 후에는 제품을 다시 게시 하 여 변경 내용을 적용 해야 합니다. 제품이 다시 게시 되 면 요금제는 더 이상 marketplace에 표시 되지 않으며 새 고객이 다운로드할 수 없게 됩니다.
+요금제 판매를 중지 하려면 **계획 개요** 페이지에서 **판매 중지** 를 선택 합니다. 요금제 판매를 중지 하는 옵션은 제안에 계획이 둘 이상 있는 경우에만 사용할 수 있습니다. 제품 내의 다른 계획에 영향을 주지 않고 한 요금제의 판매를 중지 하도록 선택할 수 있습니다. 요금제의 판매를 중지 하는 것을 확인 한 후에는 제품을 다시 게시 하 여 변경 내용을 적용 해야 합니다. 제품이 다시 게시 된 후에는 더 이상 상업적 marketplace에서 요금제가 표시 되지 않으며 새 고객이 다운로드할 수 없게 됩니다.
 
 이전에 제품 또는 계획을 획득 한 고객은 계속 해 서 사용할 수 있습니다. 다시 다운로드할 수는 있지만 나중에 제품 또는 계획을 업데이트 하 고 다시 게시 하는 경우 업데이트를 받지 못합니다.
 
-제품/계획의 판매 중지 요청이 완료 된 후에도 **사용할 수 없음** 상태의 파트너 센터에서 상업적 Marketplace 포털에 표시 됩니다.
+제품/계획의 판매 중지 요청이 완료 된 후에도 **사용할 수 없음** 상태의 파트너 센터에서 상업적 marketplace 포털에 표시 됩니다.
 
 이 제품 또는 계획을 다시 나열 하거나 판매 하기로 결정 한 경우 지침에 따라 [기존 제품을 업데이트](#update-an-existing-offer-in-the-commercial-marketplace)합니다. 변경 후에는 제품 또는 계획을 다시 **게시** 해야 합니다.
 
@@ -190,4 +192,4 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업적 Marketplace 제안의 게시 상태를 확인 합니다.](./publishing-status.md)
+- [상업적 marketplace 제안의 게시 상태를 확인 합니다.](./publishing-status.md)

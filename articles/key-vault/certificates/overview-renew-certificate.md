@@ -10,18 +10,21 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c6999b67a5c0a0f4ca7cb943ae8de3afd8b6a11e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098276"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056281"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>인증서 갱신 Azure Key Vault 정보
 
 Azure Key Vault를 사용하여 네트워크에 대한 디지털 인증서를 쉽게 프로비저닝, 관리 및 배포하고 애플리케이션에 대한 보안 통신을 사용하도록 설정할 수 있습니다. 인증서에 대 한 일반적인 정보는 [Azure Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) 를 참조 하세요.
 
 수명이 짧은 인증서를 보유 하거나 인증서 회전 빈도를 높이면 악의적 사용자의 손상 범위를 제한 합니다.
+
+## <a name="certificate-expiration-notifications"></a>인증서 만료 알림
+먼저 인증서가 만료 될 때 알리도록 인증서 연락처를 Key Vault에 추가 해야 합니다 (예: [AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)) Second를 사용 하 여 인증서 만료에 대 한 통지를 받을 시기를 구성 합니다. 수명 시간 작업을 구성 하려면 [여기](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate) 를 따르세요.
 
 키 자격 증명 모음에는 세 가지 범주의 인증서를 만듭니다. 이 가이드는 인증서 갱신을 달성할 수 있는 방법을 이해 하는 데 도움이 됩니다.
 -   통합 CA (DigiCert 또는 GlobalSign)를 사용 하 여 만든 인증서
@@ -56,6 +59,10 @@ Azure 키 자격 증명 모음을 통해 사용자는 모든 CA에서 인증서�
 ### <a name="troubleshoot"></a>문제 해결
 발급 된 인증서가 Azure Portal의 ' 사용 안 함 ' 상태 이면 인증서 작업 보기로 이동 하 여 해당 인증서에 대 한 오류 메시지를 확인 합니다.
 
-### <a name="see-also"></a>참고 항목
+### <a name="frequently-asked-questions"></a>질문과 대답
+인증서 자동 갱신 후 태그가 복제 되나요?
+아니요. 사용자가 수동으로 태그를 복사 하지 않는 한 태그는 복제 되지 않습니다.
+
+### <a name="see-also"></a>관련 항목
 *   [DigiCert 인증 기관과 Key Vault 통합](how-to-integrate-certificate-authority.md)
 *   [자습서: Key Vault에서 인증서 자동 회전 구성](tutorial-rotate-certificates.md)

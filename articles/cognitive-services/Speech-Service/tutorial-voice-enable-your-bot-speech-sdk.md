@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041787"
+ms.locfileid: "88056655"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -60,7 +60,7 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
 - 마이크 및 스피커가 작동 하는 Windows 10 PC
 - **ASP.NET 및 웹 개발** 워크 로드가 설치 된 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 이상
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) 이상
-- Azure 계정. [무료로 등록](https://azure.microsoft.com/free/ai/)하세요.
+- Azure 계정. [무료 등록](https://azure.microsoft.com/free/cognitive-services/)
 - [GitHub](https://github.com/) 계정
 - [Windows 용 Git](https://git-scm.com/download/win)
 
@@ -83,7 +83,6 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
 
 * [지원 되는 Azure 지역을](regions.md#voice-assistants)사용 하는지 확인 합니다.
 * 직접 선 음성 채널은 표준 및 신경망을 사용 하는 텍스트 음성 변환 서비스를 사용 합니다. 신경망은 [특정 Azure 지역으로 제한](regions.md#standard-and-neural-voices)됩니다.
-* 무료 평가판 키는 특정 지역으로 제한 될 수 있습니다.
 
 지역에 대 한 자세한 내용은 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.
 

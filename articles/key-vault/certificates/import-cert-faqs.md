@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 402672d8eeaae8a5097e2ab2905997eb1f646ad6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445779"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056349"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>질문과 대답-인증서 가져오기 Azure Key Vault
 
@@ -32,6 +32,10 @@ ms.locfileid: "87445779"
 ### <a name="how-can-i-resolve-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-in-key-vault"></a>' 잘못 된 매개 변수 오류 '는 어떻게 해결할 수 있나요? Key Vault에서 가져오기에 대해 지원되는 인증서 형식은 무엇인가요?
 
 인증서를 가져올 때 키가 파일 자체에 포함 되어 있는지 확인 해야 합니다. 개인 키가 다른 형식에 별도로 있는 경우 해당 키를 인증서와 결합 해야 합니다. 일부 인증 기관은 인증서를 다양 한 형식으로 제공 하므로 인증서를 가져오기 전에 해당 인증서가 pem 또는 .pfx 형식 이어야 하며 사용 된 키가 RSA 또는 ECC 인지 확인 합니다. [인증서 요구 사항](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) 및 [인증서 키 요구 사항](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection)에 대 한 검토를 참조 하세요.
+
+###  <a name="can-i-import-certificate-using-arm-template"></a>ARM 템플릿을 사용 하 여 인증서를 가져올 수 있나요?
+
+아니요, ARM 템플릿을 사용 하 여 인증서 작업을 수행할 수 없습니다. 권장 해결 방법은 API 또는 CLI 또는 PowerShell에서 인증서 가져오기 방법을 사용 하는 것입니다. 기존의 인증서가 있는 경우 암호로 가져올 수 있습니다.
 
 ### <a name="error-when-importing-certificate-via-portal-something-went-wrong-how-can-i-investigate-further"></a>포털을 통해 인증서를 가져오는 동안 "오류가 발생했습니다"라는 메시지가 표시됩니다. 자세히 조사 하려면 어떻게 해야 하나요?
     

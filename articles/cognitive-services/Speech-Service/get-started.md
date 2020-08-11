@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656137"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056468"
 ---
-# <a name="try-the-speech-service-for-free"></a>음성 서비스를 무료로 사용해 보세요. ' '
+# <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
 이 문서에서는 서비스에서 수행할 수 있는 작업을 검색 하 고 요구 사항에 적합 한지 여부를 결정할 수 있도록 음성 서비스를 무료로 쉽게 테스트 하는 옵션을 선택 합니다. 상황 및 사용 사례에 따라 다음 두 가지 옵션 중 하나를 선택 합니다.
 
@@ -96,5 +96,5 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 10분 빠른 시작 중 하나를 수행하거나 SDK 샘플을 확인합니다.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: c #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [음성 SDK 샘플](speech-sdk.md#sample-source-code) 의 음성 인식
+> [빠른 시작: 음성 CLI](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programmer-tool-spx) 
+>  를 사용 하 여 음성 인식 [SPEECH SDK 샘플](speech-sdk.md#sample-source-code)

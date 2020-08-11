@@ -16,15 +16,15 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359010"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053289"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
-이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
+이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
 
 ## <a name="overview"></a>개요
 **자동 업그레이드** 기능을 통해 아주 쉽게 Azure AD Connect 설치를 항상 최신 상태로 유지할 수 있습니다. 이 기능은 Express 설치 및 DirSync 업그레이드에 대해 기본적으로 사용되도록 설정되어 있습니다. 새 버전이 출시되면 설치가 자동으로 업그레이드됩니다.
@@ -71,7 +71,7 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 
 결과 코드의 상태 개요 앞에는 접두사가 붙습니다.
 
-| 결과 코드 접두사 | 설명 |
+| 결과 코드 접두사 | Description |
 | --- | --- |
 | Success |설치가 성공적으로 업그레이드되었습니다. |
 | UpgradeAborted |일시적인 현상으로 업그레이드가 중지되었습니다. 다시 시도하면 나중에 업그레이드됩니다. |

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518439"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055380"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>조건부 액세스 정책에서 위치 조건 사용 
 
@@ -190,7 +190,7 @@ Azure AD로 프록시를 가져오는 대부분의 IPv6 트래픽은 Microsoft E
 
 클라우드 호스티드 프록시 또는 VPN 솔루션을 사용하면 정책을 평가하는 동안 Azure AD가 사용하는 IP 주소는 프록시의 IP 주소입니다. 사용자의 공용 IP 주소를 포함하는 XFF(X-Forwarded-For) 헤더는 신뢰할 수 있는 원본에서 가져왔다는 확인이 없어서 IP 주소를 속이는 방법을 제공할 수 있으므로 사용되지 않습니다.
 
-클라우드 프록시가 있는 경우 도메인 가입 디바이스를 요구하는 데 사용되는 정책이나 AD FS의 내부 회사 네트워크 클레임이 사용될 수 있습니다.
+클라우드 프록시를 사용 하는 경우 하이브리드 Azure AD 조인 장치를 요구 하는 데 사용 되는 정책이 나 AD FS의 내부 corpnet 클레임이 사용 될 수 있습니다.
 
 ### <a name="api-support-and-powershell"></a>API 지원 및 PowerShell
 

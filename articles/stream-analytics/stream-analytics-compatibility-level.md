@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087854"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056519"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -121,11 +121,11 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 예를 들어:
+**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 다음은 그 예입니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예: `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예를 들면 다음과 같습니다. `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름의 대/소문자 구분 유지
 
@@ -142,11 +142,11 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 **1.1 수준:** CREATE TABLE를 사용 하면 강력한 스키마를 지정할 수 있습니다. Stream Analytics 엔진은 데이터가 이 스키마를 준수하는지 확인합니다. 이 모델을 사용하면 이 명령으로 NaN 값을 사용하는 이벤트를 필터링할 수 있습니다.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>JSON에서 datetime 문자열에 대해 자동 업 캐스트 사용 안 함
+### <a name="disable-automatic-conversion-of-datetime-strings-to-datetime-type-at-ingress-for-json"></a>JSON에 대 한 수신 시 datetime 문자열을 DateTime 형식으로 자동 변환 사용 안 함
 
-**1.0 수준:** JSON 파서는 자동으로 날짜/시간/영역 정보를 포함 하는 문자열 값을 DateTime 형식으로 업 캐스트 다음 UTC로 변환 합니다. 이 동작으로 인해 표준 시간대 정보가 손실 되었습니다.
+**1.0 수준:** JSON 파서는 날짜/시간/영역 정보를 포함 하는 문자열 값을 수신 시 DATETIME 형식으로 자동으로 변환 하므로 값이 원래 서식 지정 및 표준 시간대 정보를 즉시 잃게 됩니다. 이는 수신 시 수행 되기 때문에 쿼리에서이 필드가 사용 되지 않은 경우에도 UTC 날짜/시간으로 변환 됩니다.
 
-**1.1 수준:** 날짜/시간/영역 정보를 포함 하는 문자열 값을 DateTime 형식으로 자동으로 업 캐스트 수 없습니다. 따라서 표준 시간대 정보가 유지됩니다.
+**1.1 수준:** 날짜/시간/영역 정보를 포함 하는 문자열 값을 DATETIME 형식으로 자동으로 변환할 수 없습니다. 따라서 표준 시간대 정보 및 원본 서식 지정이 유지 됩니다. 그러나 쿼리에서 NVARCHAR (MAX) 필드를 DATETIME 식의 일부로 사용 하는 경우 (예: DATEADD 함수), 계산을 수행 하기 위해 DATETIME 형식으로 변환 되 고 원래 폼이 손실 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

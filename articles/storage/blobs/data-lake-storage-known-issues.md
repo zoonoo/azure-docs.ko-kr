@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 44d58b4e68e9f846b6bdb87765e96bcab90274a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083602"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056081"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -54,8 +54,6 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 * [페이지 범위 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Blob 증분 복사](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [URL에서 페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Blob 배치(추가)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [추가 블록](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [URL에서 블록 추가](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 비관리형 VM 디스크는 계층 구조 네임스페이스가 있는 계정에서 지원되지 않습니다. 스토리지 계정에서 계층 구조 네임스페이스를 활성화하려면, 계층 구조 네임스페이스 기능을 활성화하지 않은 스토리지 계정에 비관리형 VM 디스크를 배치합니다.
@@ -98,7 +96,7 @@ REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 �
 
 ### <a name="diagnostic-logs"></a>진단 로그
 
-진단 로그는 아직 Azure Portal을 사용하여 활성화할 수 없습니다. PowerShell을 사용하여 활성화할 수 있습니다. 예를 들면 다음과 같습니다.
+진단 로그는 아직 Azure Portal을 사용하여 활성화할 수 없습니다. PowerShell을 사용하여 활성화할 수 있습니다. 다음은 그 예입니다.
 
 ```powershell
 #To login

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/30/2020
+ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074028"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053442"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -305,7 +305,7 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 
 데이터 및 로그에 대한 SAP 최소 처리량 요구 사항을 충족하기 위해 또한 `/hana/shared`에 대한 지침에 따라 권장 크기는 다음과 같습니다.
 
-| 볼륨 | Size<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
+| 볼륨 | 크기<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 | 지원되는 NFS 프로토콜 |
 | --- | --- | --- |
 | /hana/log/ | 4TiB | 2TiB | v4.1 |
 | /hana/data | 6.3TiB | 3.2TiB | v4.1 |
@@ -321,6 +321,44 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 > 볼륨을 `unmount`하거나 가상 머신을 중지하거나 SAP HANA를 중지하지 않고도 Azure NetApp Files 볼륨의 크기를 동적으로 조정할 수 있습니다. 그러므로 애플리케이션이 예상된 처리량 수요와 예측하지 못한 처리량 수요를 모두 충족할 수 있습니다.
 
 ANF에서 호스트되는 NFS v4.1 볼륨을 사용하는 대기 노드로 SAP HANA 스케일 아웃 구성을 배포하는 방법에 대한 설명서는 [SUSE Linux Enterprise Server의 Azure NetApp Files를 사용하여 Azure VM의 대기 노드로 SAP HANA 스케일 아웃](./sap-hana-scale-out-standby-netapp-files-suse.md)에 게시되어 있습니다.
+
+
+## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Azure premium storage를 사용 하는 비용에 민감한 솔루션
+지금까지이 문서에 설명 된 azure premium storage 솔루션은 [premium storage를 사용 하는 솔루션 섹션의 Azure M 시리즈 가상 컴퓨터에 대 한 azure 쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) 에 설명 되어 SAP HANA 프로덕션 지원 시나리오를 위한 것입니다. 프로덕션 지원 가능 구성의 특성 중 하나는 SAP HANA 데이터에 대 한 볼륨을 분리 하 고 두 개의 서로 다른 볼륨으로 다시 실행 하는 것입니다. 이러한 분리의 이유는 볼륨의 워크 로드 특성이 서로 다르기 때문입니다. 그리고 제안 된 프로덕션 구성을 사용 하는 경우 다양 한 유형의 캐싱 또는 다양 한 유형의 Azure 블록 저장소가 필요할 수 있습니다. Azure 블록 저장소 대상을 사용 하는 프로덕션 지원 구성은 [azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 를 준수 합니다.  비프로덕션 시나리오의 경우 프로덕션 시스템에 대해 수행 되는 몇 가지 고려 사항은 더 낮은 프로덕션 이외의 시스템에 적용 되지 않을 수 있습니다. 따라서 HANA 데이터 및 로그 볼륨을 결합할 수 있습니다. 궁극적으로는 궁극적으로는 프로덕션 시스템에 필요한 특정 처리량 또는 대기 시간 Kpi를 충족 하지 원인 합니다. 이러한 환경에서 비용을 절감 하는 또 다른 측면은 [Azure 표준 SSD storage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage)를 사용 하는 것입니다. 그러나 [Azure Virtual Machines에 대 한 단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 무효화 하는 선택이 있습니다. 
+
+이러한 구성에 대 한 비용이 저렴 한 대안은 다음과 같습니다.
+
+
+| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data 및 /hana/log<br /> (LVM 또는 MDADM으로 스트라이프됨) | /hana/shared | /root 볼륨 | /usr/sap | comments |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 112GiB | 768MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| E16v3 | 128GiB | 384MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | VM 유형 HANA 인증 안 됨 <br /> 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| M32ts | 192GiB | 500MB/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 5000<sup>2</sup> 로 제한 됩니다. |
+| E20ds_v4 | 160 GiB | 480MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| E32v3 | 256GiB | 768MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | VM 유형 HANA 인증 안 됨 <br /> 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| E32ds_v4 | 256GiB | 768MBps | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| M32ls | 256GiB | 500MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 5000<sup>2</sup> 로 제한 됩니다. |
+| E48ds_v4 | 384 GiB | 1152 MBps | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| E64v3 | 432GiB | 1,200MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| E64ds_v4 | 504 GiB | 1200MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | 1ms 저장소 대기 시간<sup>1</sup> 보다 더 작은 값을 얻지 못합니다. |
+| M64ls | 512GiB | 1,000MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 1만<sup>2</sup> 로 제한 됩니다. |
+| M64s | 1,000GiB | 1,000MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 1만<sup>2</sup> 로 제한 됩니다. |
+| M64ms | 1,750GiB | 1,000MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 1만<sup>2</sup> 로 제한 됩니다. |
+| M128s | 2,000GiB | 2,000MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 2만<sup>2</sup> 로 제한 됩니다. |
+| M208s_v2 | 2,850GiB | 1,000MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 1만<sup>2</sup> 로 제한 됩니다. |
+| M128ms | 3,800GiB | 2,000MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 2만<sup>2</sup> 로 제한 됩니다. |
+| M208ms_v2 | 5,700GiB | 1,000MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 1만<sup>2</sup> 로 제한 됩니다. |
+| M416s_v2 | 5,700GiB | 2,000MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 2만<sup>2</sup> 로 제한 됩니다. |
+| M416ms_v2 | 11400GiB | 2,000MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 2만<sup>2</sup> 로 제한 됩니다. |
+
+
+<sup>1</sup> [Azure 쓰기 가속기](../../linux/how-to-enable-write-accelerator.md) 는 Ev4 및 Ev4 VM 제품군에서 사용할 수 없습니다. Azure premium storage를 사용 하면 i/o 대기 시간이 1ms 미만이 됩니다.
+
+<sup>2</sup> VM 제품군은 [Azure 쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)을 지원 하지만 Write Accelerator의 iops 제한으로 인해 디스크 구성 iops 기능이 제한 될 가능성이 있습니다.
+
+SAP HANA에 대 한 데이터 및 로그 볼륨을 결합 하는 경우 스트라이프 볼륨을 구성 하는 디스크에서 읽기 캐시 또는 읽기/쓰기 캐시를 사용 하도록 설정 하지 않아야 합니다.
+
+SAP를 사용 하 여 인증 되지 않은 VM 유형 및 [SAP HANA 하드웨어 디렉터리](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에 나열 되지 않은 것 처럼 나열 된 VM 유형이 있습니다. 고객의 의견은 나열 되지 않은 VM 유형이 일부 비프로덕션 작업에 성공적으로 사용 된 것 이었습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

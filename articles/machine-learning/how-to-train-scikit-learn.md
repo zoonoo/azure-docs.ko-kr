@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d023fa5786375f8fb4dbcdfe01e32da0400088f8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 4221ed6a927d0c589407dc38b5371ad8a65d2174
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849389"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054394"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "87849389"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
@@ -60,7 +60,7 @@ ws = Workspace.from_config()
 
 이 자습서에서는 학습 스크립트 **train_iris py** 이미 제공 [되어 있습니다](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py). 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
 
-참고:
+메모:
 - 제공 된 학습 스크립트는 `Run` 스크립트 내에서 개체를 사용 하 여 AZURE ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
 - 제공 된 학습 스크립트는 함수의 예제 데이터를 사용 `iris = datasets.load_iris()` 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
 
@@ -86,6 +86,7 @@ dependencies:
 from azureml.core import Environment
 
 myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklearn-env.yml")
+myenv.docker.enabled = True
 ```
 
 #### <a name="use-a-curated-environment"></a>큐 레이트 환경 사용
@@ -104,7 +105,7 @@ env = Environment.get(workspace=ws, name="AzureML-Tutorial")
 from azureml.core import ScriptRunConfig
 
 sklearnconfig = ScriptRunConfig(source_directory='.', script='train_iris.py')
-src.run_config.environment = myenv
+sklearnconfig.run_config.environment = myenv
 ```
 
 원격 클러스터에 대해 전송 하려는 경우 run_config을 원하는 계산 대상으로 변경할 수 있습니다.

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 08/10/2020
 ms.author: iainfou
-ms.openlocfilehash: f77d9cd72476f9f2c30ca22bb2296efe1fd6cf9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051673"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054292"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure Active Directory Domain Services 마이그레이션
 
@@ -145,7 +145,7 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 | 단계    | 수행한  | 예상 시간  | 가동 중지 시간  | 롤백/복원 할까요? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure 포털 | 15분 | 가동 중지 시간 없음 | N/A |
+| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | N/A |
 | [2 단계-마이그레이션에 대 한 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능. |
 | [3 단계-관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
 | [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |
@@ -197,6 +197,12 @@ Azure PowerShell는 마이그레이션에 대 한 관리 되는 도메인을 준
     ```powershell
     $creds = Get-Credential
     ```
+    
+1. Azure 구독 ID에 대 한 변수를 정의 합니다. 필요한 경우 [AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet을 사용 하 여 구독 id를 나열 하 고 볼 수 있습니다. 다음 명령에서 사용자 고유의 구독 ID를 제공 합니다.
+
+   ```powershell
+   $subscriptionId = 'yourSubscriptionId'
+   ```
 
 1. 이제 `Migrate-Aadds` *-Prepare* 매개 변수를 사용 하 여 cmdlet을 실행 합니다. *Aaddscontoso.com*와 같은 자체 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
 
@@ -204,7 +210,8 @@ Azure PowerShell는 마이그레이션에 대 한 관리 되는 도메인을 준
     Migrate-Aadds `
         -Prepare `
         -ManagedDomainFqdn aaddscontoso.com `
-        -Credentials $creds
+        -Credentials $creds `
+        -SubscriptionId $subscriptionId
     ```
 
 ## <a name="migrate-the-managed-domain"></a>관리 되는 도메인 마이그레이션
@@ -224,7 +231,8 @@ Migrate-Aadds `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 스크립트가 관리 되는 도메인의 마이그레이션을 위해 준비 되었는지 확인 한 후 *Y* 를 입력 하 여 마이그레이션 프로세스를 시작 합니다.
@@ -310,7 +318,8 @@ Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 ### <a name="restore"></a>복원

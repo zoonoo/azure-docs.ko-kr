@@ -1,5 +1,5 @@
 ---
-title: '자습서: NAT 게이트웨이 만들기 - Azure CLI'
+title: NAT 게이트웨이 만들기 - Azure CLI
 titlesuffix: Azure Virtual Network NAT
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 NAT 게이트웨이를 만드는 방법을 보여 줍니다.
 services: virtual-network
@@ -10,19 +10,19 @@ Customer intent: I want to create a NAT gateway for outbound connectivity for my
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e0fcf4a973be1fe2c753e7606c6628eaeefaae8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486785"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054026"
 ---
-# <a name="tutorial-create-a-nat-gateway-using-azure-cli"></a>자습서: Azure CLI를 사용하여 NAT 게이트웨이 만들기
+# <a name="create-a-nat-gateway-using-azure-cli"></a>Azure CLI를 사용하여 NAT 게이트웨이 만들기
 
 이 자습서에서는 Azure Virtual Network NAT 서비스를 사용하는 방법을 보여줍니다. Azure에서 가상 머신에 대한 아웃바운드 연결을 제공하는 NAT 게이트웨이를 만듭니다. 
 

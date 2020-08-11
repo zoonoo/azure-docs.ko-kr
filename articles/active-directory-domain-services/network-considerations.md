@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0b857cb853add1920e6933a9f1ebfd7a0f61b57f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488655"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054275"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -91,7 +91,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 관리 되는 도메인은 배포 중에 일부 네트워킹 리소스를 만듭니다. 이러한 리소스는 관리 되는 도메인의 성공적인 작업 및 관리에 필요 하며 수동으로 구성할 수 없습니다.
 
-| Azure 리소스                          | Description |
+| Azure 리소스                          | 설명 |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
 | 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
@@ -108,11 +108,11 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 다음 네트워크 보안 그룹 규칙은 관리 되는 도메인에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. 관리 되는 도메인이 배포 된 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
-| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 용도 |
+| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 목적 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | Azure AD 테 넌 트와 동기화. |
-| 3389        | TCP      | CorpNetSaw                         | 모두         | 허용  | 예      | 도메인 관리. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | 도메인 관리. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | Azure AD 테 넌 트와 동기화. |
+| 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | 예      | 도메인 관리. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | 도메인 관리. |
 
 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다. 이 네트워크 보안 그룹을 삭제 하지 마세요. 부하 분산 장치가 없으면 제대로 작동 하지 않습니다.
 
@@ -142,6 +142,10 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 > [!NOTE]
 > 이 네트워크 보안 그룹 규칙을 편집 하려고 하면 포털에서 *CorpNetSaw* service 태그를 수동으로 선택할 수 없습니다. *CorpNetSaw* service 태그를 사용 하는 규칙을 수동으로 구성 하려면 Azure PowerShell 또는 Azure CLI를 사용 해야 합니다.
+>
+> 예를 들어 다음 스크립트를 사용 하 여 RDP를 허용 하는 규칙을 만들 수 있습니다. 
+>
+> `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
 
 ### <a name="port-5986---management-using-powershell-remoting"></a>포트 5986-PowerShell 원격을 사용 하 여 관리
 

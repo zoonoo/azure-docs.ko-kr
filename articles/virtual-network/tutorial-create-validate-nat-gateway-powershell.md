@@ -1,5 +1,5 @@
 ---
-title: '자습서: NAT 게이트웨이 만들기 및 테스트 - Azure PowerShell'
+title: NAT 게이트웨이 만들기 및 테스트 - Azure PowerShell
 titlesuffix: Azure Virtual Network NAT
 description: 이 자습서에서는 Azure PowerShell을 사용하여 NAT 게이트웨이를 만들고 NAT 서비스를 테스트하는 방법을 보여 줍니다.
 services: virtual-network
@@ -10,17 +10,17 @@ Customer intent: I want to test a NAT gateway for outbound connectivity for my v
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
-ms.openlocfilehash: 059d1f99bafe656aaaf4dbab69e437728b9afdfb
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3eaade678142a26be562d6c216f9932bcbaf2c39
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735305"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054037"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 

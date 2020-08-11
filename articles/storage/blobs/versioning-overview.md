@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498602"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056536"
 ---
 # <a name="blob-versioning-preview"></a>Blob 버전 관리(미리 보기)
 
@@ -24,6 +24,8 @@ Blob storage 버전 관리 (미리 보기)를 사용 하도록 설정 하 여 �
 Blob 버전 관리는 저장소 계정에서 사용 하도록 설정 되며 저장소 계정의 모든 blob에 적용 됩니다. 저장소 계정에 대해 blob 버전 관리를 사용 하도록 설정 하면 Azure Storage는 저장소 계정의 모든 blob에 대 한 버전을 자동으로 유지 관리 합니다.
 
 뛰어난 데이터 보호를 위해 blob 버전 관리를 사용 하 여 이전 버전의 blob을 유지 하는 것이 좋습니다. 가능 하면 blob 스냅숏 대신 blob 버전 관리를 사용 하 여 이전 버전을 유지 관리 합니다. Blob 스냅숏은 이전 버전의 blob을 유지 하는 것과 유사한 기능을 제공 하지만 응용 프로그램에서 스냅숏을 수동으로 유지 관리 해야 합니다.
+
+Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [blob 버전 관리 사용 및 관리](versioning-enable.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > Blob 버전 관리를 통해 저장소 계정이 나 컨테이너를 실수로 삭제 하는 경우를 복구할 수 없습니다. 저장소 계정이 실수로 삭제 되지 않도록 하려면 저장소 계정 리소스에 대해 **Cannotdelete** 잠금을 구성 합니다. Azure 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
@@ -177,7 +179,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 RBAC 동작을 보여 줍니다.
 
-| Description | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
+| 설명 | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -190,7 +192,7 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| 삭제         | x              | Blob 버전을 삭제 합니다. |
+| DELETE         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
@@ -204,7 +206,8 @@ Blob 버전 관리는 다음 지역에서 미리 보기로 제공 됩니다.
 - 캐나다 동부
 - 캐나다 중부
 
-이 미리 보기는 프로덕션 이외 용도로 사용해야 합니다.
+> [!IMPORTANT]
+> Blob 버전 관리 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
 
 2019-10-10 이상의 Azure Storage REST API는 blob 버전 관리를 지원 합니다.
 
@@ -226,7 +229,7 @@ Blob 버전 관리 미리 보기에 등록 하려면 PowerShell 또는 Azure CLI
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell에 등록 하려면 [AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) 명령을 호출 합니다.
+PowerShell에 등록 하려면 [AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) 명령을 호출 합니다.
 
 ```powershell
 # Register for blob versioning (preview)
@@ -242,8 +245,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Azure CLI 등록 하려면 [az feature register](/cli/azure/feature#az-feature-register) 명령을 호출 합니다.
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -266,8 +269,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 Azure CLI 등록 상태를 확인 하려면 [az feature](/cli/azure/feature#az-feature-show) 명령을 호출 합니다.
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---
@@ -318,7 +320,7 @@ Blob 버전 관리를 사용 하는 경우 다음 사항을 고려해 야 합니
 
 ![Azure Storage 리소스](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [BLOB 버전 관리 사용](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

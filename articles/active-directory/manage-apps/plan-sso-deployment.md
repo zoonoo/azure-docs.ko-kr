@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387781"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054803"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -32,7 +32,7 @@ SSO (Single sign-on)는 사용자가 Azure Active Directory (Azure AD)에서 응
 
 Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이상의 응용 프로그램이 있으므로 테 넌 트에 쉽게 통합할 수 있습니다.
 
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 - **AZURE AD 라이선스** -미리 통합 된 SaaS 응용 프로그램에 대 한 SSO는 무료입니다. 그러나 디렉터리의 개체 수와 배포 하려는 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항에 대 한 전체 목록은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조 하세요.
 - **응용 프로그램 라이선스** -비즈니스 요구 사항에 맞게 SaaS 응용 프로그램에 대 한 적절 한 라이선스가 필요 합니다. 응용 프로그램 소유자와 협력 하 여 응용 프로그램에 할당 된 사용자에 게 응용 프로그램 내에서 해당 역할에 대 한 적절 한 라이선스가 있는지 확인 합니다. Azure AD에서 역할에 따라 자동 프로 비전을 관리 하는 경우 Azure AD에서 할당 된 역할은 응용 프로그램 내에서 소유 하는 라이선스 수와 일치 해야 합니다. 응용 프로그램에서 소유 하는 라이선스 수가 잘못 되어 사용자의 프로 비전/업데이트 중에 오류가 발생할 수 있습니다.
@@ -60,7 +60,7 @@ Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이�
 
 ### <a name="considerations-for-password-based-sso"></a>암호 기반 SSO에 대 한 고려 사항
 
-암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 다음 옵션을 사용할 수 있습니다.
+암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 표시되는 옵션은 다음과 같습니다.
 
 - [Internet Explorer에 대 한 그룹 정책](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 - [Internet Explorer에 대 한 Configuration Manager](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
@@ -235,11 +235,11 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 | Persona| 역할 | Azure AD 역할 (필요한 경우) |
 |--------|-------|-----------------------------|
-| 지원 센터 관리자 | 계층 1 지원 | 없음 |
-| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 전역 관리자 |
-| 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
-| 인프라 관리자 | 인증서 롤오버 소유자 | 전역 관리자 |
-| 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
+| 지원 센터 관리자 | 계층 1 지원 | None |
+| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 글로벌 관리자 |
+| 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | None |
+| 인프라 관리자 | 인증서 롤오버 소유자 | 글로벌 관리자 |
+| 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | None |
 
 디렉터리 사용 권한을 가진 사용자에 대 한 추가 감사, 제어 및 액세스 검토를 제공 하기 위해 PIM ( [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) )을 사용 하 여 역할을 관리 하는 것이 좋습니다.
 
@@ -324,3 +324,5 @@ SaaS 앱 보안의 다양 한 측면을 검토 하 고 필요한 수정 작업�
 [SSO 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [응용 프로그램 SSO 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[백서 다운로드-Single sign-on 배포 계획](https://aka.ms/SSODeploymentPlan)

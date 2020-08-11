@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550977"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055771"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅숏
 
@@ -33,7 +33,7 @@ Blob URI에 스냅샷이 만들어진 시점의 시간을 나타내는 Blob URI�
 > 모든 스냅샷은 기본 Blob의 URI를 공유합니다. 기본 Blob와 스냅샷의 유일한 차이는 추가된 **DateTime** 값입니다.
 >
 
-Blob 하나에 여러 스냅샷이 있을 수 있습니다. 스냅숏은 명시적으로 삭제 될 때까지 유지 됩니다. 즉, 스냅숏은 기본 blob을 사용할 수 없습니다. 기본 Blob와 연결된 스냅샷을 열거하여 현재 스냅샷을 추적할 수 있습니다.
+Blob 하나에 여러 스냅샷이 있을 수 있습니다. 스냅숏은 독립적으로 또는 기본 blob에 대 한 Blob 삭제 작업의 일부로 명시적으로 삭제 될 때까지 유지 됩니다. 기본 Blob와 연결된 스냅샷을 열거하여 현재 스냅샷을 추적할 수 있습니다.
 
 Blob의 스냅샷을 만들면 blob의 시스템 속성이 같은 값으로 스냅샷에 복사됩니다. 만들 때 스냅샷에 대한 별도의 메타데이터를 지정하지 않으면 기본 Blob의 메타데이터가 스냅샷에 복사됩니다. 스냅샷을 만든 후에 읽기, 복사 또는 삭제할 수 있지만 수정할 수 없습니다.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d268358f2f80cc9d347fa722d5027e1a87894b20
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034399"
+ms.locfileid: "88056264"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -47,7 +47,7 @@ Windows Server 2012 R2에서 서버 엔드포인트를 만든 후 볼륨에 액�
 driveletter:\에 액세스할 수 없습니다.  
 매개 변수가 올바르지 않습니다.
 
-이 문제를 해결하려면 Windows Server 2012 R2에 대한 최신 업데이트를 설치하고 서버를 다시 시작합니다.
+이 문제를 해결 하려면 [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) 를 설치 하 고 서버를 다시 시작 합니다. 이후 업데이트가 이미 설치 되어 있으므로이 업데이트를 설치 하지 않으면 Windows 업데이트으로 이동 하 여 Windows Server 2012 r 2의 최신 업데이트를 설치 하 고 서버를 다시 시작 합니다.
 
 <a id="server-registration-missing-subscriptions"></a>**서버 등록에 모든 Azure 구독이 나열되지 않음**  
 ServerRegistration.exe를 사용하여 서버를 등록하는 경우 Azure 구독 드롭다운을 클릭하면 구독이 누락됩니다.
@@ -338,7 +338,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 충돌 파일이 최대 수에 도달했기 때문에 파일을 동기화할 수 없습니다. Azure 파일 동기화는 파일당 100개의 충돌 파일을 지원합니다. 파일 충돌에 대해 자세히 알아보려면 Azure 파일 동기화 [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution)를 참조하세요. | 이 문제를 해결하려면 충돌 파일 수를 줄입니다. 충돌 파일 수가 100 미만이면 파일이 동기화됩니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
-지원되지 않는 문자로 인해 **FileSyncErrorsReport.ps1** PowerShell 스크립트에서 오류(오류 코드 0x8007007b 또는 0x80c80255)가 표시되면 각 파일 이름에서 오류가 있는 문자를 제거하거나 이름을 변경해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-cmdlet)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다.
+**FileSyncErrorsReport.ps1** PowerShell 스크립트에 지원 되지 않는 문자 (오류 코드 0x8007007b 또는 0x80c80255)로 인 한 항목당 동기화 오류가 표시 되는 경우 해당 파일 이름에서 오류 시 문자를 제거 하거나 이름을 바꾸어야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-cmdlet)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다. 데이터 집합에 잘못 된 문자를 포함 하는 파일이 여러 개 있는 경우 [Scanunsupportedchars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) 스크립트를 사용 하 여 지원 되지 않는 문자가 포함 된 파일의 이름을 바꿉니다.
 
 아래 표에서 Azure 파일 동기화에서 지원하지 않는 모든 유니코드 문자가 포함되어 있습니다.
 

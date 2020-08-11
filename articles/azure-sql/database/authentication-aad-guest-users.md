@@ -9,19 +9,19 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: b3abda9787654734b24cc27987921ef40d8070fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294205"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053765"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Azure AD 게스트 사용자 만들기 및 Azure AD 관리자로 설정
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> 이 문서는 **공개 미리 보기**상태입니다.
+> 이 문서는 **공개 미리 보기**에 있습니다.
 
 Azure Active Directory (Azure AD)의 게스트 사용자는 다른 Azure Active Directory 또는 그 외부에서 현재 Azure AD로 가져온 사용자입니다. 예를 들어 게스트 사용자는 다른 Azure Active directory의 사용자 또는 * \@ outlook.com*, * \@ hotmail.com*, * \@ live.com*, * \@ gmail.com*등의 계정을 포함할 수 있습니다. 이 문서에서는 azure ad 게스트 사용자를 만들고 해당 게스트 사용자가 Azure AD 내에서 그룹의 일부가 될 필요 없이 azure SQL 논리 서버에 대 한 Azure AD 관리자로 설정 하는 방법을 보여 줍니다.
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD)의 게스트 사용자는 다른 Azure Active 
 
 Azure AD 그룹을 사용 하는 게스트 사용자에 대 한 기존 지원에 대 한 자세한 내용은 [multi-factor Azure Active Directory 인증 사용](authentication-mfa-ssms-overview.md)을 참조 하세요.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 - Azure SQL 논리 서버에 대 한 Azure AD 관리자로 PowerShell을 사용 하 여 게스트 사용자를 설정 하는 경우 [Az. Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module 이상이 필요 합니다.
 
@@ -103,7 +103,7 @@ Azure AD 게스트 사용자를 SQL 논리 서버에 대 한 Azure AD 관리자�
 1. 다음 PowerShell 명령을 실행 하 여 게스트 사용자를 Azure SQL 논리 서버에 대 한 Azure AD 관리자로 추가 합니다.
 
     - `<ResourceGroupName>`을 AZURE SQL 논리 서버를 포함 하는 Azure 리소스 그룹 이름으로 바꿉니다.
-    - `<ServerName>`을 AZURE SQL 논리 서버 이름으로 바꿉니다. 서버 이름이 인 경우 `myserver.database.windows.net` 을로 바꿉니다 `<Server Name>` `myserver` .
+    - `<ServerName>`을 AZURE SQL 논리 서버 이름으로 바꿉니다. 서버 이름이 `myserver.database.windows.net`인 경우 `<Server Name>`을 `myserver`로 바꿉니다.
     - `<DisplayNameOfGuestUser>`을 게스트 사용자 이름으로 바꿉니다.
 
     ```powershell
@@ -133,9 +133,9 @@ Azure AD 게스트 사용자를 SQL 논리 서버에 대 한 Azure AD 관리자�
 
 ## <a name="limitations"></a>제한 사항
 
-Azure AD 게스트 사용자를 SQL Database, SQL Managed Instance 및 Azure Synapse에 대 한 Azure AD 관리자로 선택할 수 없도록 하는 Azure Portal에는 제한이 있습니다. * \@ Outlook.com*, * \@ hotmail.com*, * \@ live.com*또는 * \@ gmail.com*와 같은 Azure ad 외부의 게스트 계정의 경우 AD 관리 선택기는 이러한 계정을 표시 하지만 회색으로 표시 되며 선택할 수 없습니다. 위에 나열 된 [PowerShell 또는 CLI 명령을](#setting-a-guest-user-as-an-azure-ad-admin) 사용 하 여 Azure AD 관리자를 설정 합니다. 또는 게스트 사용자를 포함 하는 Azure AD 그룹을 SQL 논리 서버에 대 한 Azure AD 관리자로 설정할 수 있습니다.
+Azure AD 게스트 사용자를 SQL Managed Instance에 대 한 Azure AD 관리자로 선택할 수 없도록 하는 Azure Portal에는 제한이 있습니다. * \@ Outlook.com*, * \@ hotmail.com*, * \@ live.com*또는 * \@ gmail.com*와 같은 Azure ad 외부의 게스트 계정의 경우 AD 관리 선택기는 이러한 계정을 표시 하지만 회색으로 표시 되며 선택할 수 없습니다. 위에 나열 된 [PowerShell 또는 CLI 명령을](#setting-a-guest-user-as-an-azure-ad-admin) 사용 하 여 Azure AD 관리자를 설정 합니다. 또는 게스트 사용자를 포함 하는 Azure AD 그룹을 SQL Managed Instance에 대 한 Azure AD 관리자로 설정할 수 있습니다.
 
-이 기능은이 기능을 일반 공급 하기 전에 SQL Database 및 Azure Synapse에 대해 사용 하도록 설정 됩니다.
+이 기능은이 기능을 일반 공급 하기 전에 SQL Managed Instance 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

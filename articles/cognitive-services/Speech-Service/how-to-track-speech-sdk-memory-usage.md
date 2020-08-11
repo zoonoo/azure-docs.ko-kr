@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da5103317a2215aca68cec14ba8a0951258c9b89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6be6ca00b2bc5d7b35fb71437809754f129df96
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75462386"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054638"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>음성 SDK 메모리 사용을 추적 하는 방법
 
@@ -40,7 +40,7 @@ Speech SDK는 일련의 상호 운용성 계층을 통해 여러 프로그래밍
 
 경고 임계값을 만드는 옵션을 사용할 수 있으며,이 임계값을 초과 하는 경우 (로깅이 사용 되는 경우) 경고 메시지가 기록 됩니다. 경고 메시지에는 해당 수와 함께 존재 하는 모든 개체의 덤프가 포함 됩니다. 이 정보를 사용 하 여 문제를 보다 잘 이해할 수 있습니다. 
 
-경고 임계값을 사용 하려면 `SpeechConfig` 개체에 대해 경고 임계값을 지정 해야 합니다. 새 인식기를 만들 때이 개체를 확인 합니다. 다음 예에서는 `SpeechConfig` 라는 `config`인스턴스를 만들었다고 가정해 보겠습니다.
+경고 임계값을 사용 하려면 개체에 대해 경고 임계값을 지정 해야 합니다 `SpeechConfig` . 새 인식기를 만들 때이 개체를 확인 합니다. 다음 예에서는 라는 인스턴스를 만들었다고 가정해 보겠습니다 `SpeechConfig` `config` .
 
 ::: zone pivot="programming-language-csharp"
 
@@ -69,7 +69,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -102,7 +102,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-오류 임계값을 사용 하려면 `SpeechConfig` 개체에 지정 해야 합니다. 새 인식기를 만들 때이 개체를 확인 합니다. 다음 예에서는 `SpeechConfig` 라는 `config`인스턴스를 만들었다고 가정해 보겠습니다.
+오류 임계값을 사용 하려면 개체에 지정 해야 합니다 `SpeechConfig` . 새 인식기를 만들 때이 개체를 확인 합니다. 다음 예에서는 라는 인스턴스를 만들었다고 가정해 보겠습니다 `SpeechConfig` `config` .
 
 ::: zone pivot="programming-language-csharp"
 
@@ -131,7 +131,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -145,9 +145,8 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 ::: zone-end
 
 > [!TIP]
-> 이 속성의 기본값은 `size_t` 데이터 형식의 플랫폼별 최 댓 값입니다. 일반적인 인식은 7 개에서 10 개 사이의 내부 개체를 사용 합니다.
+> 이 속성의 기본값은 데이터 형식의 플랫폼별 최 댓 값입니다 `size_t` . 일반적인 인식은 7 개에서 10 개 사이의 내부 개체를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 서비스 평가판 구독 가져오기](get-started.md)
-* [마이크를 사용 하 여 음성을 인식 하는 방법을 알아봅니다.](quickstarts/speech-to-text-from-microphone.md)
+* [Speech SDK에 대해 자세히 알아보기](speech-sdk.md)
