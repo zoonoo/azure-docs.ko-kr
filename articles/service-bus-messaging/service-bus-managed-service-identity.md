@@ -3,12 +3,12 @@ title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Service Bus 엔터티 (큐, 토픽 및 구독)를 통해 액세스 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b33f4e9b38d55ef3ed709df8d09f1ffd62a8bca8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066290"
+ms.locfileid: "88079861"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -79,7 +79,7 @@ Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Service Bus
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus를 통해 Azure 리소스에 관리 ID 사용
 관리 id에 Service Bus를 사용 하려면 id를 역할과 적절 한 범위에 할당 해야 합니다. 이 섹션의 절차에서는 관리 되는 id로 실행 되 고 Service Bus 리소스에 액세스 하는 간단한 응용 프로그램을 사용 합니다.
 
-여기서는 [Azure App Service](https://azure.microsoft.com/services/app-service/)에서 호스트 되는 샘플 웹 응용 프로그램을 사용 하 고 있습니다. 웹 응용 프로그램을 만드는 방법에 대 한 단계별 지침은 [Azure에서 ASP.NET Core 웹 앱 만들기](../app-service/app-service-web-get-started-dotnet.md) 를 참조 하세요.
+여기서는 [Azure App Service](https://azure.microsoft.com/services/app-service/)에서 호스트 되는 샘플 웹 응용 프로그램을 사용 하 고 있습니다. 웹 응용 프로그램을 만드는 방법에 대 한 단계별 지침은 [Azure에서 ASP.NET Core 웹 앱 만들기](../app-service/quickstart-dotnetcore.md) 를 참조 하세요.
 
 응용 프로그램을 만든 후에는 다음 단계를 수행 합니다. 
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876583"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080901"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -40,10 +40,9 @@ Cognitive Services 리소스를 보호 하려면 먼저 기본적으로 모든 �
 
 ## <a name="supported-regions-and-service-offerings"></a>지원 되는 지역 및 서비스 제공
 
-아래에 나열 된 Cognitive Services은 상용 클라우드 및 US Gov 클라우드의 가상 네트워크를 지원 합니다. 서비스가 여기에 나열 되지 않은 경우 가상 네트워크를 아직 지원 하지 않습니다.
+Vnet (가상 네트워크)는 [Cognitive Services을 사용할 수 있는 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 지원 됩니다. 인식 서비스가 나열 되지 않은 경우 현재 가상 네트워크를 지원 하지 않습니다.
 
 > [!div class="checklist"]
-
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -59,8 +58,8 @@ Cognitive Services 리소스를 보호 하려면 먼저 기본적으로 모든 �
 ## <a name="service-tags"></a>서비스 태그
 
 Cognitive Services는 네트워크 규칙 구성에 대 한 서비스 태그를 지원 합니다. 아래 나열 된 서비스는 **CognitiveServicesManagement** service 태그에 포함 되어 있습니다.
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)

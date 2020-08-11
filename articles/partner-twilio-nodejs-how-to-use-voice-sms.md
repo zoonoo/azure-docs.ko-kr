@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 6ac47bec2f14e14fcb83f79ea26b1514abc36f8f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c4b1c506ff0e78e5e304ceb1682c73f9cd784c95
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519833"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080544"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
 이 가이드에서는 Azure에서 Twilio 및 node.js와 통신하는 앱을 빌드하는 방법을 보여 줍니다.
@@ -242,7 +242,7 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
 [purchase_phone]: https://www.twilio.com/console/phone-numbers/search
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: https://ahoy.twilio.com/azure
-[azure_new_site]: app-service/app-service-web-get-started-nodejs.md
+[azure_new_site]: app-service/quickstart-nodejs.md
 [twilio_console]: https://www.twilio.com/console
 [npm]: https://npmjs.org
 [express]: https://expressjs.com

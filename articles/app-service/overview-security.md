@@ -5,12 +5,12 @@ keywords: azure app service, 웹앱, 모바일 앱, API 앱, 함수 앱, 보안,
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a6c8aeeaded659fb7fd37409c3d9e495aa711fa6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649040"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080303"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -22,7 +22,7 @@ ms.locfileid: "83649040"
 
 ## <a name="https-and-certificates"></a>HTTPS 및 인증서
 
-App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱을 만들 때 기본 도메인 이름(\<app_name>.azurewebsites.net)은 이미 HTTPS를 사용하여 액세스할 수 있습니다. [앱에 대해 사용자 지정 도메인을 구성](app-service-web-tutorial-custom-domain.md)한 경우 클라이언트 브라우저에서 사용자 지정 도메인에 보안 HTTPS를 연결할 수 있도록 [TLS/SSL 인증서로도 보안을 설정](configure-ssl-bindings.md)해야 합니다. App Service에서 지원하는 여러 유형의 인증서가 있습니다.
+App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱을 만들 때 해당 기본 도메인 이름 ( \<app_name> . azurewebsites.net)은 이미 HTTPS를 사용 하 여 액세스할 수 있습니다. [앱에 대해 사용자 지정 도메인을 구성](app-service-web-tutorial-custom-domain.md)한 경우 클라이언트 브라우저에서 사용자 지정 도메인에 보안 HTTPS를 연결할 수 있도록 [TLS/SSL 인증서로도 보안을 설정](configure-ssl-bindings.md)해야 합니다. App Service에서 지원하는 여러 유형의 인증서가 있습니다.
 
 - 체험 App Service 관리형 인증서
 - App Service 인증서
@@ -43,7 +43,7 @@ App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니�
 
 기본적으로 App Service 앱은 인터넷의 모든 IP 주소로부터 요청을 수락하지만, IP 주소의 작은 하위 집합에만 액세스하도록 제한할 수 있습니다. Windows에서 App Service를 사용하면 앱에 액세스할 수 있는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에서 정의된 개별 IP 주소 또는 IP 주소 범위가 포함될 수 있습니다. 자세한 내용은 [Azure App Service 고정 IP 제한](app-service-ip-restrictions.md)을 참조하세요.
 
-Windows에 App Service가 있는 경우 _web.config_를 구성하여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안 \<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)를 참조하세요.
+Windows에서 App Service _web.config_를 구성 하 여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안 \<dynamicIpSecurity> ](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)을 참조 하세요.
 
 ## <a name="client-authentication-and-authorization"></a>클라이언트 인증 및 권한 부여
 
@@ -56,7 +56,7 @@ App Service 인증 및 권한 부여는 Azure Active Directory, Microsoft 계정
 App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 다음 두 가지 메커니즘을 제공합니다.
 
 - **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](/azure/sql-database/) 또는 [Azure Key Vault](/azure/key-vault/))에서 인증하는 데 사용할 수 있는 [관리 ID](overview-managed-identity.md)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 엔드투엔드 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
-- **OBO(On-Behalf-Of)** - 원격 리소스에 대해 사용자를 대신하도록 위임된 액세스 권한을 만듭니다. Azure Active Directory를 인증 공급자로 사용하면 App Service 앱에서 App Service의 원격 서비스(예: [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) 또는 원격 API 앱)에 위임된 로그인을 수행할 수 있습니다. 이 방법에 대한 엔드투엔드 자습서는 [Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)를 참조하세요.
+- **OBO(On-Behalf-Of)** - 원격 리소스에 대해 사용자를 대신하도록 위임된 액세스 권한을 만듭니다. Azure Active Directory를 인증 공급자로 사용하면 App Service 앱에서 App Service의 원격 서비스(예: [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) 또는 원격 API 앱)에 위임된 로그인을 수행할 수 있습니다. 이 방법에 대한 엔드투엔드 자습서는 [Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](tutorial-auth-aad.md)를 참조하세요.
 
 ## <a name="connectivity-to-remote-resources"></a>원격 리소스에 대한 연결
 

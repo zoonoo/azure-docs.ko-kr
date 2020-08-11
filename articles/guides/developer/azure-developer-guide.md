@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832810"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080320"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -64,7 +64,7 @@ App Service는 DevOps를 염두에 두고 설계되었습니다. 게시 및 연�
 
 > **사용 시기**: 기존 웹 응용 프로그램을 Azure로 마이그레이션하는 경우 및 웹 앱에 대해 완전히 관리 되는 호스팅 플랫폼이 필요한 경우에 App Service를 사용 합니다. 앱에서 모바일 클라이언트를 지원하거나 REST API를 노출해야 하는 경우에도 App Service를 사용할 수 있습니다.
 >
-> **시작하기**: App Service를 사용하면 첫 번째 [웹앱](../../app-service/app-service-web-get-started-dotnet.md), [모바일 앱](../../app-service-mobile/app-service-mobile-ios-get-started.md) 또는 [API 앱](../../app-service/app-service-web-tutorial-rest-api.md)을 쉽게 만들고 배포할 수 있습니다.
+> **시작하기**: App Service를 사용하면 첫 번째 [웹앱](../../app-service/quickstart-dotnetcore.md), [모바일 앱](../../app-service-mobile/app-service-mobile-ios-get-started.md) 또는 [API 앱](../../app-service/app-service-web-tutorial-rest-api.md)을 쉽게 만들고 배포할 수 있습니다.
 >
 > **지금 사용해 보기**: App Service를 사용하면 Azure 계정에 등록하지 않고도 사용 시간이 짧은 앱을 프로비전하여 플랫폼을 사용해 볼 수 있습니다. 플랫폼을 사용해 보고 [Azure App Service 앱을 만듭니다](https://tryappservice.azure.com/).
 
@@ -307,7 +307,7 @@ Azure 리소스에 대 한 액세스를 허용 하는 경우 항상 지정 된 �
 
   > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우 자세한 내용은 [Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-#### <a name="tags"></a>태그들
+#### <a name="tags"></a>Tags
 
 Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태그를 할당할 수 있습니다. 키-값 쌍인 태그는 청구 또는 모니터링에 대한 리소스를 구성해야 하는 경우에 유용할 수 있습니다. 태그는 여러 리소스 그룹에서 리소스를 추적하는 방법을 제공합니다. 태그는 다음과 같은 방식으로 할당할 수 있습니다.
 
@@ -319,7 +319,7 @@ Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태�
 
 각 리소스에 여러 태그를 할당할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../../resource-group-using-tags.md)을 참조하세요.
 
-### <a name="billing"></a>청구
+### <a name="billing"></a>결제
 
 온-프레미스 컴퓨팅에서 클라우드에 호스트된 서비스로 이동 시 서비스 사용량 및 관련 비용을 추적하고 예측하는 것은 중요합니다. 월 기준으로 실행 될 새 리소스의 비용을 예측 하는 것이 중요 합니다. 또한 현재 지출에 따라 특정 월에 대 한 대금 청구의 모양을 지정할 수 있습니다.
 

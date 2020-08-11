@@ -4,12 +4,12 @@ description: Azure App Service에서 ASP.NET 앱을 구성 하는 방법에 대�
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908001"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080150"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET 앱 구성
 
@@ -18,7 +18,7 @@ ms.locfileid: "84908001"
 
 ASP.NET apps를 컴파일된 이진 파일로 Azure App Service에 배포 해야 합니다. Visual Studio 게시 도구는 솔루션을 빌드한 다음 컴파일된 이진 파일을 직접 배포 하는 반면, App Service 배포 엔진은 코드 리포지토리를 먼저 배포한 다음 이진 파일을 컴파일합니다.
 
-이 가이드에서는 ASP.NET 개발자를 위한 주요 개념 및 지침을 제공 합니다. Azure App Service 사용한 적이 없는 경우 먼저 [ASP.NET 퀵 스타트](app-service-web-get-started-dotnet-framework.md) 및 [ASP.NET with SQL Database 자습서](app-service-web-tutorial-dotnet-sqldatabase.md) 를 따르세요.
+이 가이드에서는 ASP.NET 개발자를 위한 주요 개념 및 지침을 제공 합니다. Azure App Service 사용한 적이 없는 경우 먼저 [ASP.NET 퀵 스타트](quickstart-dotnet-framework.md) 및 [ASP.NET with SQL Database 자습서](app-service-web-tutorial-dotnet-sqldatabase.md) 를 따르세요.
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>지원 되는 .NET Framework 런타임 버전 표시
 
@@ -82,7 +82,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들어:
+ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <system.web>

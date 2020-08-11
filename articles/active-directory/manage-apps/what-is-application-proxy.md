@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d120973939dd1efabee868fc75e9f6c1352bf3
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 4d9583e08591e8ea5792aad28e247dff178f1c08
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562636"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080663"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 

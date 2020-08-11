@@ -3,12 +3,12 @@ title: Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs �
 description: 파이프라인 빌드 및 릴리스 Azure Pipelines에서 Azure DevTest Labs를 사용 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483077"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080337"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
 이 문서에서는 Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs를 사용 하는 방법에 대 한 정보를 제공 합니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "85483077"
 
 필요한 프레미스 중 하나는 테스트 된 에코 시스템을 다시 만드는 데 필요한 모든 정보를 Azure 리소스의 구성을 포함 하 여 빌드 아티팩트 내에서 사용할 수 있다는 것입니다. Azure 리소스를 사용 하는 경우 비용이 발생 하므로 회사는 이러한 리소스의 사용을 제어 하거나 추적 하려고 합니다. 경우에 따라 리소스를 만들고 구성 하는 데 사용 되는 Azure Resource Manager 템플릿을 같은 다른 부서에서 관리할 수 있습니다. 이러한 템플릿은 다른 리포지토리에 저장 될 수 있습니다. 빌드를 만들고 테스트 하는 흥미로운 상황이 발생 하며, 프로덕션 환경에서 시스템을 제대로 다시 만들려면 코드와 구성을 모두 빌드 아티팩트 내에 저장 해야 합니다. 
 
-빌드/테스트 단계 중에 DevTest Labs를 사용 하 여 빌드 소스에 템플릿 및 지원 파일 Azure Resource Manager 추가할 수 있습니다. 그러면 릴리스 단계 중에 테스트 하는 데 사용 된 정확한 구성이 프로덕션 환경에 배포 됩니다. 적절 한 구성을 사용 하 여 **Azure DevTest Labs 환경 만들기** 작업을 통해 빌드 아티팩트 내에 리소스 관리자 템플릿이 저장 됩니다. 이 예제에서는 [자습서: Azure App Service의 .Net Core 및 SQL Database 웹 앱 빌드](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)에서 코드를 사용 하 여 Azure에서 웹 앱을 배포 하 고 테스트 합니다.
+빌드/테스트 단계 중에 DevTest Labs를 사용 하 여 빌드 소스에 템플릿 및 지원 파일 Azure Resource Manager 추가할 수 있습니다. 그러면 릴리스 단계 중에 테스트 하는 데 사용 된 정확한 구성이 프로덕션 환경에 배포 됩니다. 적절 한 구성을 사용 하 여 **Azure DevTest Labs 환경 만들기** 작업을 통해 빌드 아티팩트 내에 리소스 관리자 템플릿이 저장 됩니다. 이 예제에서는 [자습서: Azure App Service의 .Net Core 및 SQL Database 웹 앱 빌드](../app-service/tutorial-dotnetcore-sqldb-app.md)에서 코드를 사용 하 여 Azure에서 웹 앱을 배포 하 고 테스트 합니다.
 
 ![전체 흐름](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: "85483077"
 빌드 파이프라인은 DevTest Labs 환경을 만들고 테스트를 위한 코드를 배포 합니다.
 
 ## <a name="set-up-a-build-pipeline"></a>빌드 파이프라인 설정
-Azure Pipelines [자습서: Azure App Service에서 .Net Core 및 SQL Database 웹 앱 빌드](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)의 코드를 사용 하 여 빌드 파이프라인을 만듭니다. **ASP.NET Core** 템플릿을 사용 하면 코드를 빌드, 테스트 및 게시 하는 데 필요한 작업을 채울 수 있습니다.
+Azure Pipelines [자습서: Azure App Service에서 .Net Core 및 SQL Database 웹 앱 빌드](../app-service/tutorial-dotnetcore-sqldb-app.md)의 코드를 사용 하 여 빌드 파이프라인을 만듭니다. **ASP.NET Core** 템플릿을 사용 하면 코드를 빌드, 테스트 및 게시 하는 데 필요한 작업을 채울 수 있습니다.
 
 ![ASP.NET 템플릿 선택](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 

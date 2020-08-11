@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562381"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080731"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -56,7 +56,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 ### <a name="userapplication-claims"></a>사용자/응용 프로그램 클레임
 
-모든 언어 프레임 워크에 대해 App Service는 들어오는 토큰의 클레임 (인증 된 최종 사용자 또는 클라이언트 응용 프로그램에서 온 것이 든 관계 없이)을 요청 헤더에 삽입 하 여 코드에서 사용할 수 있도록 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서블릿에서 클레임에 액세스할 수](containers/configure-language-java.md#authenticate-users-easy-auth)있습니다.
+모든 언어 프레임 워크에 대해 App Service는 들어오는 토큰의 클레임 (인증 된 최종 사용자 또는 클라이언트 응용 프로그램에서 온 것이 든 관계 없이)을 요청 헤더에 삽입 하 여 코드에서 사용할 수 있도록 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서블릿에서 클레임에 액세스할 수](configure-language-java.md#authenticate-users-easy-auth)있습니다.
 
 [Azure Functions](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` .net 코드에 대해 채워지지 않지만 요청 헤더에서 사용자 클레임을 찾거나 `ClaimsPrincipal` 요청 컨텍스트에서 또는 바인딩 매개 변수를 통해 개체를 가져올 수 있습니다. 자세한 내용은 [클라이언트 id 작업](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) 을 참조 하세요.
 
@@ -149,7 +149,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 
 ## <a name="more-resources"></a>추가 리소스
 
-[자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)  
+[자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](tutorial-auth-aad.md)  
 [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)  
 App Service에서 인증 [및 권한 부여 사용자 지정](app-service-authentication-how-to.md) 
  [Azure AppService EasyAuth (타사)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 

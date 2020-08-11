@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056927"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079589"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 | 모든 유형의 실행 제출 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | 파이프라인 끝점 게시 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | AKS/ACI 리소스에 등록 된 모델 배포 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| 배포 된 AKS 끝점에 대 한 점수 매기기 | 필요 없음 | 필요 없음 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (AAD 인증을 사용 하지 않는 경우) 또는 `"/workspaces/read"` (토큰 인증을 사용 하는 경우) |
+| 배포 된 AKS 끝점에 대 한 점수 매기기 | 필요 없음 | 필요 없음 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (Azure Active Directory auth를 사용 하지 않는 경우) 또는 `"/workspaces/read"` (토큰 인증을 사용 하는 경우) |
 | 대화형 전자 필기장을 사용 하 여 저장소 액세스 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | 새 사용자 지정 역할 만들기 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할`Microsoft.Authorization/roleDefinitions/write` | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할:`/workspaces/computes/write` |
 
@@ -374,10 +374,14 @@ az provider operation show –n Microsoft.MachineLearningServices
 Azure RBAC (역할 기반 액세스 제어)를 사용 하는 동안 알아야 할 몇 가지 사항은 다음과 같습니다.
 
 - 작업 영역 이라고 하는 Azure에서 리소스를 만들 때 작업 영역의 소유자가 아닙니다. 사용자의 역할은 해당 구독에 대해 권한이 부여 된 가장 높은 범위 역할에서 상속 됩니다. 예를 들어 네트워크 관리자이 고 Machine Learning 작업 영역을 만들 수 있는 권한이 있는 경우 소유자 역할이 아니라 해당 작업 영역에 대 한 네트워크 관리자 역할이 할당 됩니다.
-- 작업/NotActions의 충돌 하는 섹션을 사용 하는 동일한 AAD 사용자에 두 개의 역할 할당이 있는 경우 한 역할의 NotActions에 나열 된 작업은 다른 역할의 작업으로도 나열 될 경우 적용 되지 않을 수 있습니다. Azure에서 역할 할당을 구문 분석 하는 방법에 대 한 자세한 내용은 [AZURE RBAC에서 사용자에 게 리소스 액세스 권한이 있는지 확인 하는 방법](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource) 을 참조 하세요.
-- VNet 내에서 계산 리소스를 배포 하려면 해당 VNet 리소스에서 "Microsoft. Network/virtualNetworks/join/action"에 대 한 권한을 명시적으로 부여 해야 합니다.
-- 경우에 따라 새 역할 할당이 스택에 캐시 된 사용 권한에 적용 되는 데 1 시간 정도 걸릴 수 있습니다.
+- 작업/NotActions의 충돌 하는 섹션을 사용 하 여 동일한 Azure Active Directory 사용자에 게 두 개의 역할 할당이 있는 경우 한 역할의 NotActions에 나열 된 작업은 다른 역할에서 작업으로 나열 되는 경우 적용 되지 않을 수 있습니다. Azure에서 역할 할당을 구문 분석 하는 방법에 대 한 자세한 내용은 [AZURE RBAC에서 사용자에 게 리소스 액세스 권한이 있는지 확인 하는 방법](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource) 을 참조 하세요.
+- VNet 내에서 계산 리소스를 배포 하려면 다음 작업에 대 한 권한을 명시적으로 부여 해야 합니다.
+    - VNet 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
+    - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
+    
+    네트워크를 사용 하는 RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking)을 참조 하세요.
 
+- 경우에 따라 새 역할 할당이 스택에 캐시 된 사용 권한에 적용 되는 데 1 시간 정도 걸릴 수 있습니다.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>17. 사용자 할당 관리 id를 내 Amlcompute 클러스터와 함께 사용 하는 데 필요한 권한은 무엇 인가요?
 

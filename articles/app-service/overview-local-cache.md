@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 739eb4e7968cb140e49f1baee777b48140811936
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034960"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080714"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
 > [!NOTE]
-> [Windows 컨테이너](app-service-web-get-started-windows-container.md) 또는 [Linux의 App Service](containers/app-service-linux-intro.md)와 같이 함수 앱 또는 컨테이너 화 된 App Service 앱에서 로컬 캐시는 지원 되지 않습니다.
+> [Windows 컨테이너](quickstart-custom-container.md?pivots=container-windows) 또는 [Linux의 App Service](overview.md#app-service-on-linux)와 같이 함수 앱 또는 컨테이너 화 된 App Service 앱에서 로컬 캐시는 지원 되지 않습니다.
 
 
 Azure App Service 콘텐츠는 Azure Storage에 저장 되며 콘텐츠 공유로 지속적으로 노출 됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  

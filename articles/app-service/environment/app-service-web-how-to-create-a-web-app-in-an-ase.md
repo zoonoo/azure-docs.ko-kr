@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0407bde00c703663227230a0b6ff2de287f6650c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9359fe07818b3c5fbc08082cdf1f96195a7836ab
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007066"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080612"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
@@ -24,11 +24,11 @@ ms.locfileid: "88007066"
 이 자습서는 [ASE(App Service Environment) v1](app-service-app-service-environment-intro.md)에서 웹앱 및 App Service 계획을 만드는 방법을 보여 줍니다. 
 
 > [!NOTE]
-> 웹앱을 만드는 방법을 알아보지만 App Service Environment가 아니어도 된다면 [.NET 웹앱 만들기](../app-service-web-get-started-dotnet.md) 또는 기타 언어와 프레임워크에 관련된 자습서 중 하나를 참조하세요.
+> 웹앱을 만드는 방법을 알아보지만 App Service Environment가 아니어도 된다면 [.NET 웹앱 만들기](../quickstart-dotnetcore.md) 또는 기타 언어와 프레임워크에 관련된 자습서 중 하나를 참조하세요.
 > 
 > 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서는 App Service Environment를 만든 적이 있는 개발자를 대상으로 합니다. 만들어 본 적이 없는 경우 [App Service Environment 만들기](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 
 
 ## <a name="create-a-web-app"></a>웹앱 만들기

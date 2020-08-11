@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 85990aee5143c9ccc0362a00597a748763977204
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533294"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080218"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -60,7 +60,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 2. 기능 등록의 상태를 확인 합니다. 
 
     > [!NOTE]
-    > 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+    > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy

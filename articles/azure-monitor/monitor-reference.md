@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447323"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080867"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -142,27 +142,27 @@ ms.locfileid: "87447323"
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
 |Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 아니요 | 아니요 | 아니요 |  |
+|Resource Graph | 예 | 아니요 | 예 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
-|검색 | 예 | yes | 예 |  |
+|검색 | 예 | 예 | 예 |  |
 |Service Bus | 예 | 예 | 예 |  |
 |Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
-|등록 포털 | 아니요 | 예 | 아니요 |  |
-|Site Recovery | 예 | yes | 예 |  |
+|등록 포털 | 예 | 예 | 예 |  |
+|Site Recovery | 예 | 예 | 예 |  |
 |Spring Cloud Service | 예 | 아니요 | 예 |  |
-|SQL Data Warehouse | 예 | yes | 예 |  |
+|SQL Data Warehouse | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 아니요 | 아니요 | 예 |  |
-|스토리지 | yes | 예 | [예](insights/storage-insights-overview.md) |  |
-|스토리지 캐시 | 아니요 | 예 | 아니요 |  |
+|스택 | 예 | 아니요 | 예 |  |
+|스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
+|스토리지 캐시 | 예 | 예 | 예 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
-|Stream Analytics | 예 | yes | 예 |  |
+|Stream Analytics | 예 | 예 | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 아니요 | 아니요 | 예 |  |
-|Traffic Manager | 예 | yes | 예 |  |
-|유니버설 인쇄 | 아니요 | 아니요 | 예 |  |
+|TINA | 예 | 아니요 | 예 |  |
+|Traffic Manager | 예 | 예 | 예 |  |
+|유니버설 인쇄 | 예 | 아니요 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
@@ -220,7 +220,7 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 | 리소스 | 방법 |
 |:---|:---|
 | 애플리케이션 | Application Insights를 사용하여 Azure 외부의 웹 애플리케이션을 모니터링합니다. [Application Insights란?](./app/app-insights-overview.md)을 참조하세요. |
-| 가상 머신 | Log Analytics 에이전트를 사용하여 다른 클라우드 환경이나 온-프레미스에 있는 가상 머신의 게스트 운영 체제에서 데이터를 수집합니다. [Log Analytics 에이전트를 사용하여 로그 데이터 수집](platform/log-analytics-agent.md)을 참조하세요. |
+| 가상 머신 | 에이전트를 사용 하 여 다른 클라우드 환경 또는 온-프레미스에 있는 가상 머신의 게스트 운영 체제에서 데이터를 수집 합니다. [Azure Monitor 에이전트 개요를](platform/agents-overview.md)참조 하세요. |
 | REST API 클라이언트 | 별도의 API를 사용하여 REST API 클라이언트의 Azure Monitor 로그 및 메트릭에 데이터를 쓸 수 있습니다. 로그의 경우 [HTTP 데이터 수집기 API를 사용하여 로그 데이터를 Azure Monitor로 보내기](platform/data-collector-api.md)를, 메트릭의 경우 [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기](platform/metrics-store-custom-rest-api.md)를 참조하세요. |
 
 

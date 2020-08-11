@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d5497f50f9e868338541143a18ab0c83f32c1d1b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053442"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080527"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -133,7 +133,7 @@ Azure premium storage 디스크의 용량을 512 GiB 하는 경우 버스트 기
 > Azure M 시리즈 가상 머신에 대한 SAP HANA 인증은 **/hana/log** 볼륨에 대해 Azure Write Accelerator를 독점적으로 사용하는 것입니다. 결과적으로, Azure M 시리즈 가상 머신에 프로덕션 시나리오 SAP HANA 배포는 **/hana/log** 볼륨에 대해 Azure Write Accelerator를 사용하여 구성되어야 합니다.  
 
 > [!NOTE]
-> Azure premium storage를 포함 하는 시나리오에서는 구성에 버스트 기능을 구현 합니다. 어떤 모양이 나 폼의 저장소 테스트 도구를 사용 하 든 관계 없이 [Azure premium disk 버스트](../../linux/disk-bursting.md) 작동 방식을 염두에 두십시오. SAP HWCCT 또는 HCMT 도구를 통해 전달 된 저장소 테스트를 실행 하는 경우 일부 테스트는 축적 된 버스트 크레딧을 초과 하므로 모든 테스트에서 조건을 전달 하는 것은 아닙니다. 특히 모든 테스트가 중단 없이 순차적으로 실행 되는 경우입니다.
+> Azure premium storage를 포함 하는 시나리오에서는 구성에 버스트 기능을 구현 합니다. 어떤 모양이 나 폼의 저장소 테스트 도구를 사용 하는 경우 [Azure premium disk 버스트의 작동](../../linux/disk-bursting.md) 방식을 염두에 두십시오. SAP HWCCT 또는 HCMT 도구를 통해 전달 된 저장소 테스트를 실행 하는 경우 일부 테스트는 축적 된 버스트 크레딧을 초과 하므로 모든 테스트에서 조건을 전달 하는 것은 아닙니다. 특히 모든 테스트가 중단 없이 순차적으로 실행 되는 경우입니다.
 
 
 > [!NOTE]

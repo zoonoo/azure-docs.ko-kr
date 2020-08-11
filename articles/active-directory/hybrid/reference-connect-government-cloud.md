@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0120bf3f2bd347ae60677b89ec658f08140af49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356358"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080184"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 하이브리드 ID 고려 사항
 
@@ -42,7 +42,7 @@ ms.locfileid: "85356358"
 |-----|-----|
 |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|에이전트는 다음과 같은 URL을 사용하여 Azure AD 클라우드 서비스와 통신합니다. |
 |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| 에이전트는 다음과 같은 URL을 사용하여 인증서를 확인합니다.|
-|login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| 에이전트는 등록 프로세스 동안 다음과 같은 URL을 사용합니다.
+|login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| 에이전트는 등록 프로세스 동안 다음과 같은 URL을 사용합니다.
 
 ### <a name="install-the-agent-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 에이전트를 설치합니다.
 

@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Azure Arc를 사용하여 Azure Arc가 지원되는 Kubernetes 클러스터 연결
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050088"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080493"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Azure Arc가 지원되는 Kubernetes 클러스터 연결(미리 보기)
 
@@ -172,6 +172,41 @@ AzureArcTest1  eastus      AzureArcTest
 > [!NOTE]
 > 클러스터를 등록 한 후 Azure Portal에서 Azure Arc enabled Kubernetes 리소스의 개요 페이지에 표시 되는 클러스터 메타 데이터 (클러스터 버전, 에이전트 버전, 노드 수)가 5 ~ 10 분 정도 소요 됩니다.
 
+## <a name="connect-using-an-outbound-proxy-server"></a>아웃 바운드 프록시 서버를 사용 하 여 연결
+
+클러스터가 아웃 바운드 프록시 서버 뒤에 있는 경우 Azure CLI 하 고 Arc enabled Kubernetes 에이전트는 아웃 바운드 프록시 서버를 통해 해당 요청을 라우팅해야 합니다. 다음 구성은 이러한 작업을 수행 하는 데 도움이 됩니다.
+
+1. `connectedk8s`다음 명령을 실행 하 여 컴퓨터에 설치 된 확장의 버전을 확인 합니다.
+
+    ```bash
+    az -v
+    ```
+
+    `connectedk8s`아웃 바운드 프록시를 사용 하 여 에이전트를 설정 하려면 >= 0.2.3 확장 버전이 필요 합니다. 컴퓨터에 < 0.2.3 버전이 있으면 [업데이트 단계](#before-you-begin) 를 따라 컴퓨터에서 최신 버전의 확장을 가져옵니다.
+
+2. Azure CLI에 필요한 환경 변수를 설정 합니다.
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. 프록시 매개 변수를 지정 하 여 connect 명령을 실행 합니다.
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. --Proxy-skip 범위에서 excludedCIDR을 지정 하는 것이 에이전트에 대해 클러스터 간 통신이 끊어지지 않았는지 확인 하는 데 중요 합니다.
+> 2. 위의 프록시 사양은 현재 Arc 에이전트에만 적용 되 고 sourceControlConfiguration에서 사용 되는 flux pod는 적용 되지 않습니다. Arc enabled Kubernetes 팀은이 기능에서 적극적으로 작업 중 이며 곧 사용할 수 있게 될 예정입니다.
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Kubernetes용 Azure Arc 에이전트
+
 Azure Arc가 지원되는 Kubernetes는 `azure-arc` 네임스페이스에 소수의 연산자를 배포합니다. 이러한 배포 및 Pod는 다음에서 확인할 수 있습니다.
 
 ```console
@@ -199,8 +234,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## <a name="azure-arc-agents-for-kubernetes"></a>Kubernetes용 Azure Arc 에이전트
 
 Azure Arc가 지원되는 Kubernetes는 `azure-arc` 네임스페이스에 배포된 클러스터에서 실행되는 소수의 에이전트(운영자)로 구성됩니다.
 
