@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: 바인딩 확장 등록
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: 바인딩 식 패턴
           href: functions-bindings-expressions-patterns.md
         - name: 바인딩 반환 값 사용
@@ -272,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: 런타임 버전 설정
           href: set-runtime-version.md
-        - name: 확장 수동 등록
-          href: install-update-binding-extensions-manual.md
         - name: 기능 사용 안 함
           href: disable-function.md
         - name: 지리적 재해 복구
