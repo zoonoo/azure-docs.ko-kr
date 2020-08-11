@@ -320,7 +320,7 @@ Blob 버전 관리를 사용 하는 경우 다음 사항을 고려해 야 합니
 
 ![Azure Storage 리소스](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [BLOB 버전 관리 사용](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
