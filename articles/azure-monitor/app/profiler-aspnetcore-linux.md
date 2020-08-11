@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f01eaf879e70406c6dbe17e6fc544f7aed367e8b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a21d48787a39c491a2ab1ace1bf42ff85bd34993
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324117"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078090"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -106,7 +106,7 @@ ms.locfileid: "87324117"
 
     ![Git 리포지토리 설정](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-더 많은 배포 옵션은 [이 문서](../../app-service/containers/choose-deployment-type.md)를 참조하세요.
+배포 옵션에 대 한 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service)를 참조 하세요.
 
 ## <a name="deploy-your-project"></a>프로젝트 배포
 

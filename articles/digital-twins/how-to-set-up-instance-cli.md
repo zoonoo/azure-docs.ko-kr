@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 50a7fe866d236a7edb30b3cae5ef076d3ebbca56
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009718"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078515"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
 
@@ -63,10 +63,10 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-다음 명령을 사용 하 여 역할을 할당 합니다 (Azure 구독에서 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 실행 해야 함).
+다음 명령을 사용 하 여 역할을 할당 합니다 (Azure 구독에 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 실행 해야 함). 명령을 사용 하려면 역할을 할당 해야 하는 사용자에 대 한 Azure AD 계정의 *사용자 계정 이름을* 전달 해야 합니다. 대부분의 경우이는 Azure AD 계정의 사용자 전자 메일과 일치 합니다.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 이 명령의 결과는 생성 된 역할 할당에 대 한 출력 된 정보입니다.
@@ -74,13 +74,13 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 > [!NOTE]
 > 이 명령을 실행할 때 CLI **가 graph 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수**없다는 오류를 반환 하는 경우:
 >
-> 전자 메일 대신 사용자의 *개체 ID* 를 사용 합니다. 이는 [MSAs (개인 Microsoft 계정)](https://account.microsoft.com/account)의 사용자에 게 발생할 수 있습니다. 
+> 대신 사용자의 *개체 ID* 를 사용 하 여 역할을 할당 합니다. 이는 [MSAs (개인 Microsoft 계정)](https://account.microsoft.com/account)의 사용자에 게 발생할 수 있습니다. 
 >
 > 사용자 [Azure Active Directory의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 를 사용 하 여 사용자 계정을 선택 하 고 세부 정보를 엽니다. 사용자의 *ObjectID*를 복사 합니다.
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="' 개체 ID ' 필드에서 GUID를 강조 표시 하 Azure Portal의 사용자 페이지 보기" lightbox="media/includes/user-id.png":::
 >
-> 그런 다음 메일 대신 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다.
+> 그런 다음 위의 매개 변수에 대 한 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다 `assignee` .
 
 ### <a name="verify-success"></a>성공 확인
 

@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: a17d2de24aadfbab218d2b28a157f19e2e845fa9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073549"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078889"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -51,7 +51,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
     b. **연산자**를 **보다 작음**으로 설정합니다.
 
-    c. **임계값**을 **20**으로 설정합니다.
+    다. **임계값**을 **20**으로 설정합니다.
 
     d. **작업**을 **다음을 기준으로 개수 줄이기**로 설정합니다.
 
@@ -59,7 +59,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
    ![CPU 기준 크기 조정][8]
 1. **저장**을 클릭합니다.
 
-지금까지 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
+축하합니다! 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
 
 > [!NOTE]
 > 가상 머신 확장 집합 또는 Cloud Service 역할의 크기 조정을 시작하려는 경우에도 동일한 단계를 적용할 수 있습니다.
@@ -121,7 +121,7 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 [1]:https://portal.azure.com
 [2]: ./media/autoscale-get-started/azure-monitor-launch.png
 [3]: ./media/autoscale-get-started/discover-autoscale-azure-monitor.png
-[4]: ../../app-service/app-service-web-get-started-dotnet.md
+[4]: ../../app-service/quickstart-dotnetcore.md
 [5]: ./media/autoscale-get-started/scale-setting-new-web-app.png
 [6]: ./media/autoscale-get-started/create-scale-setting-web-app.png
 [7]: ./media/autoscale-get-started/scale-in-recommendation.png

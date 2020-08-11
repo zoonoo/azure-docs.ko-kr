@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 1efaa178c2abda316cfad3e375dfdd38b41d75e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835700"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077036"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -284,7 +284,7 @@ Service cannot be started.
 
 [관리 id](../aks/use-managed-identity.md) 및 [pod 관리 id](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) 가 설치 된 AKS 클러스터에서 Azure Dev Spaces로 서비스를 실행 하는 경우 *차트 설치* 단계 후 프로세스가 응답 하지 않을 수 있습니다. *azds* 이름 공간에서 *azds-injector-webhook*를 검사하면 이 오류가 표시될 수 있습니다.
 
-Azure Dev Spaces가 클러스터에서 실행하는 서비스는 클러스터의 관리 ID를 활용하여 클러스터 외부의 Azure Dev Spaces 백 엔드 서비스와 통신합니다. Pod 관리 ID가 설치되면 클러스터의 노드에서 관리 ID 자격 증명에 대한 모든 호출을 [클러스터에 설치된 NMI(Node Managed Identity) DaemonSet](https://github.com/Azure/aad-pod-identity#node-managed-identity)로 리디렉션하는 네트워킹 규칙이 구성됩니다. 이 NMI DaemonSet은 호출 pod를 식별하고 pod에 요청된 관리 ID에 액세스하도록 적절히 레이블이 지정되었는지 확인합니다. Azure Dev Spaces는 클러스터에 pod 관리 ID가 설치되어 있는지와 Azure Dev Spaces 서비스에서 클러스터의 관리 ID에 액세스할 수 있도록 하는 데 필요한 구성을 수행할 수 없는지를 확인할 수 없습니다. Azure Dev Spaces 서비스는 클러스터의 관리 ID에 액세스하도록 구성되지 않았기 때문에 NMI DaemonSet은 관리 ID에 대한 AAD 토큰을 가져오도록 허용하지 않으며 Azure Dev Spaces 백 엔드 서비스와 통신하지 못합니다.
+Azure Dev Spaces가 클러스터에서 실행하는 서비스는 클러스터의 관리 ID를 활용하여 클러스터 외부의 Azure Dev Spaces 백 엔드 서비스와 통신합니다. Pod 관리 ID가 설치되면 클러스터의 노드에서 관리 ID 자격 증명에 대한 모든 호출을 [클러스터에 설치된 NMI(Node Managed Identity) DaemonSet](https://github.com/Azure/aad-pod-identity#node-managed-identity)로 리디렉션하는 네트워킹 규칙이 구성됩니다. 이 NMI DaemonSet은 호출 pod를 식별하고 pod에 요청된 관리 ID에 액세스하도록 적절히 레이블이 지정되었는지 확인합니다. Azure Dev Spaces는 클러스터에 pod 관리 ID가 설치되어 있는지와 Azure Dev Spaces 서비스에서 클러스터의 관리 ID에 액세스할 수 있도록 하는 데 필요한 구성을 수행할 수 없는지를 확인할 수 없습니다. Azure Dev Spaces 서비스는 클러스터의 관리 id에 액세스 하도록 구성 되지 않았기 때문에 NMI DaemonSet는 관리 되는 id에 대 한 Azure AD 토큰을 가져오는 것을 허용 하지 않으며 Azure Dev Spaces 백엔드 서비스와 통신 하지 못합니다.
 
 이 이슈를 해결하려면 *azds-injector-webhook*에 [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)을 적용하고 Azure Dev Spaces에서 관리 ID에 액세스하기 위해 계측하는 pod를 업데이트합니다.
 
@@ -416,7 +416,7 @@ Visual Studio Code 디버거를 실행할 때 이 오류가 표시될 수 있습
 
 Visual Studio Code 디버거를 실행할 때 이 오류가 표시될 수 있습니다. 개발 머신에 설치된 Azure Dev Spaces용 VS Code 확장이 없습니다.
 
-이 이슈를 해결하려면 [Azure Dev Spaces용 VS Code 확장](get-started-netcore.md)을 설치합니다.
+이 이슈를 해결하려면 Azure Dev Spaces용 VS Code 확장을 설치합니다.
 
 ### <a name="error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>오류 "'cwd' 값 '/src'가 잘못되었습니다. 시스템은 지정된 파일을 찾을 수 없습니다." 또는 "launch: program '/src/[프로젝트 이진 경로]'이(가) 존재하지 않습니다."가 발생합니다.
 

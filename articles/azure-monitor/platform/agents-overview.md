@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/14/2020
-ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/05/2020
+ms.openlocfilehash: e6a4c7fe739bd517646f8401e5c812a557441e9f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445287"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076900"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -29,22 +29,37 @@ ms.locfileid: "87445287"
 
 ### <a name="windows-agents"></a>Windows 에이전트
 
-| | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
-|:---|:---|:---|:---|
-| **지원 되는 환경** | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
-| **에이전트 요구 사항**  | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
-| **수집되는 데이터** | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<IIS logs><br>파일 기반 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
-| **데이터 전송 대상** | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그 |
+| | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
+|:---|:---|:---|:---|:---|
+| **지원 되는 환경** | Azure<br>기타 클라우드<br>온-프레미스 | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
+| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
+| **수집되는 데이터** | 이벤트 로그<br>성능 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<IIS logs><br>파일 기반 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
+| **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<br>Azure Storage<br>이벤트 허브 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그 |
 
 
 ### <a name="linux-agents"></a>Linux 에이전트
 
-| | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
-|:---|:---|:---|:---|:---|
-| **지원 되는 환경** | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
-| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
-| **수집되는 데이터** | syslog<br>성능 | 성능 | syslog<br>성능| 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
-| **데이터 전송 대상** | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그 |
+| | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
+|:---|:---|:---|:---|:---|:---|
+| **지원 되는 환경** | Azure | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
+| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
+| **수집되는 데이터** | syslog<br>성능 | syslog<br>성능 | 성능 | syslog<br>성능| 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
+| **데이터 전송 대상** | Azure Monitor 로그<br>Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그 |
+
+## <a name="azure-monitor-agent-preview"></a>Azure Monitor 에이전트 (미리 보기)
+[Azure Monitor 에이전트](azure-monitor-agent-overview.md) 는 현재 미리 보기로 제공 되며 Windows 및 Linux 가상 컴퓨터에 대 한 Log Analytics 에이전트, 진단 확장 및 Telegraf 에이전트를 대체 합니다. Azure Monitor 로그와 Azure Monitor 메트릭 모두에 데이터를 보낼 수 있으며, 각 에이전트에 대 한 데이터 수집 및 대상을 구성 하는 보다 확장성 있는 방법을 제공 하는 [DCR (데이터 수집 규칙)](data-collection-rule-overview.md) 를 사용 합니다.
+
+다음 작업을 수행 해야 하는 경우 Azure Monitor 에이전트를 사용 합니다.
+
+- Azure의 모든 가상 컴퓨터, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집 합니다. (Azure는 미리 보기로만 제공 됩니다.)
+- Azure Monitor를 사용 하 여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭에 데이터를 보냅니다. 
+- 데이터를 보관을 위해 Azure Storage 보냅니다.
+- [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md)를 사용 하 여 타사 도구로 데이터를 보냅니다.
+- [Azure Security Center](../../security-center/security-center-intro.md) 또는 [Azure 센티널](../../sentinel/overview.md)을 사용 하 여 가상 컴퓨터의 보안을 관리 합니다. (미리 보기에서는 사용할 수 없습니다.)
+
+Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
+
+- 현재 공개 미리 보기로 제공 됩니다. 공개 미리 보기 중 제한 사항 목록은 [현재 제한 사항](azure-monitor-agent-overview.md#current-limitations) 을 참조 하세요.
 
 ## <a name="log-analytics-agent"></a>Log Analytics 에이전트
 

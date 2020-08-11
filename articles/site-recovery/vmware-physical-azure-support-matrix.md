@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 595f12f9204dff58af0bfebb60402cc89ffb386a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7bb4422eb17353dc4e1895de8dcb2c427c6d0d15
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826248"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079402"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -29,7 +29,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**Server** | **요구 사항** | **설명**
+**서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 7.0, 6.7, 6.5, 6.0 또는 5.5 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
 vSphere 호스트 | 버전 7.0, 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행됩니다. [자세히 알아보기](vmware-physical-azure-config-process-server-overview.md).
@@ -63,7 +63,7 @@ IP 주소 유형 | 정적
 
 Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다.
 
-**구성 요소** | **설명**
+**구성 요소** | **세부 정보**
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](https://aka.ms/asr_workload).
@@ -169,6 +169,9 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 복제된 VM에서 디스크 크기 조정 | 장애 조치 (failover) 전에 원본 VM에서 VM 속성에 직접 지원 됩니다. 복제를 해제/다시 설정할 필요가 없습니다.<br/><br/> 장애 조치 (failover) 후 원본 VM을 변경 하면 변경 내용이 캡처 되지 않습니다.<br/><br/> 장애 조치 (failover) 후 Azure VM에서 디스크 크기를 변경 하는 경우 장애 복구 (failback)를 수행 하면 업데이트를 사용 하 여 새 VM을 만들 Site Recovery.
 복제된 VM에 디스크 추가 | 지원 안 됨<br/> VM에 대해 복제를 사용 하지 않도록 설정 하 고, 디스크를 추가한 다음, 복제를 다시 사용 하도록 설정 합니다.
 
+> [!NOTE]
+> 디스크 id를 변경 하는 것은 지원 되지 않습니다. 예를 들어 디스크 분할이 GPT에서 MBR로 또는 그 반대로 변경 된 경우 디스크 id가 변경 됩니다. 이러한 시나리오에서는 복제가 중단 되 고 새로 설치가 필요 합니다. 
+
 ## <a name="network"></a>네트워크
 
 **구성 요소** | **지원됨**
@@ -271,7 +274,7 @@ HUB | 예
 
 Azure로 복제 된 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. Site Recovery에서 복제에 대 한 필수 구성 요소 확인을 실행 하면 일부 요구 사항이 충족 되지 않은 경우 검사가 실패 합니다.
 
-**구성 요소** | **요구 사항** | **설명**
+**구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | 복제된 컴퓨터에 대해 [지원되는 운영 체제](#replicated-machines)를 확인합니다. | 지원되지 않는 경우 확인이 실패합니다.
 게스트 운영 체제 아키텍처 | 64비트. | 지원되지 않는 경우 확인이 실패합니다.
@@ -327,7 +330,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기
 
-**이름** | **설명** | **설명**
+**이름** | **설명** | **세부 정보**
 --- | --- | ---
 구성 서버 | 온-프레미스에 설치 됩니다.<br/> 온-프레미스 VMware 서버 또는 물리적 컴퓨터와 Azure 간의 통신을 조정 합니다. | - 구성 서버 [에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> - 최신 버전으로 업그레이드 하는 방법 [에 대해 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) .<br/> - 구성 서버를 설정 하는 [방법에 대해 알아봅니다](vmware-azure-deploy-configuration-server.md) .
 프로세스 서버 | 기본적으로 구성 서버에 설치합니다.<br/> 복제 데이터를 수신 하 고, 캐싱, 압축 및 암호화를 사용 하 여 최적화 하 고, Azure로 전송 합니다.<br/> 배포가 커지면 추가 프로세스 서버를 추가 하 여 더 많은 볼륨의 복제 트래픽을 처리할 수 있습니다. | - 프로세스 서버 [에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> - 최신 버전으로 업그레이드 하는 방법 [에 대해 알아봅니다](vmware-azure-manage-process-server.md#upgrade-a-process-server) .<br/> - 스케일 아웃 프로세스 서버를 설정 하는 [방법에 대해 알아봅니다](vmware-physical-large-deployment.md#set-up-a-process-server) .

@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스와 라우팅의 작동 방식에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512472"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077668"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>라우팅이 Azure Dev Spaces와 작동 하는 방식
 
@@ -49,7 +49,7 @@ HTTP가 아닌 다른 모든 TCP 트래픽은 수신 컨트롤러 및 devspaces 
 
 ## <a name="sharing-a-dev-space"></a>개발 공간 공유
 
-팀으로 작업할 때 [전체 팀에서 개발 공간을 공유](how-to/share-dev-spaces.md) 하 고 파생 된 개발 공간을 만들 수 있습니다. 개발 공간의 리소스 그룹에 대 한 참가자 액세스 권한이 있는 사용자는 dev 공간을 사용할 수 있습니다.
+팀으로 작업할 때 전체 팀에서 개발 공간을 공유 하 고 파생 된 개발 공간을 만들 수 있습니다. 개발 공간의 리소스 그룹에 대 한 참가자 액세스 권한이 있는 사용자는 dev 공간을 사용할 수 있습니다.
 
 다른 개발 공간에서 파생 된 새 개발 공간을 만들 수도 있습니다. 파생 된 dev 공간을 만들 때 *azds.io/parent-space=PARENT-SPACE-NAME* 레이블이 파생 된 dev 공간의 네임 스페이스에 추가 됩니다. 또한 부모 개발 공간의 모든 응용 프로그램은 파생 된 개발 공간과 공유 됩니다. 파생 된 개발 공간에 업데이트 된 버전의 응용 프로그램을 배포 하는 경우 파생 된 dev 공간에만 존재 하며 부모 개발 공간은 영향을 받지 않습니다. 최대 세 수준의 파생 된 개발 공간 또는 *최상위* 공간을 사용할 수 있습니다.
 

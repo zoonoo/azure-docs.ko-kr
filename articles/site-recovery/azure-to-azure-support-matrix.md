@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 09b7fe1cc4f871d1f94844a8551479fabc0e22ff
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c8890afcdab1b6247fe072f2e34437d790185e58
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008851"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076931"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -163,7 +163,9 @@ SUSE Linux Enterprise Server 15 및 15 SP1 | 9.32 | 기본적으로 모든 [Stoc
 
 * 파일 시스템: ext3, ext4, XFS, BTRFS
 * 볼륨 관리자: LVM2
-* 다중 경로 소프트웨어: 디바이스 매퍼
+
+> [!NOTE]
+> 다중 경로 소프트웨어는 지원 되지 않습니다. 
 
 
 ## <a name="replicated-machines---compute-settings"></a>복제된 머신 - 컴퓨팅 설정
@@ -236,7 +238,7 @@ ZRS | 지원되지 않음 |
 범용 V2 스토리지 계정(핫 및 쿨 계층 모두) | 지원됨 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 2세대(UEFI 부팅) | 지원됨
 NVMe 디스크 | 지원되지 않음
-Azure 공유 디스크 | 지원 안 함
+Azure 공유 디스크 | 지원되지 않음
 보안 전송 옵션 | 지원됨
 
 >[!IMPORTANT]
