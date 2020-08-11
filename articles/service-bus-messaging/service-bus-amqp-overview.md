@@ -3,15 +3,15 @@ title: Azure Service Bus의 AMQP 1.0 개요
 description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083874"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066341"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
-Azure Service Bus 클라우드 서비스와 온-프레미스 [Windows Server용 Service Bus(Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 둘 다 AMQP(Advanced Message Queueing Protocol) 1.0을 지원합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다. 다른 언어 및 프레임워크로 빌드된 구성 요소를 사용하며 다른 운영 체제에서 실행되는 애플리케이션을 생성할 수 있습니다. 이러한 구성 요소는 모두 Service Bus에 연결할 수 있으며 구조화된 비즈니스 메시지를 효율적이고 완벽하며 원활하게 교환할 수 있습니다.
+Azure Service Bus 클라우드 서비스와 온-프레미스 [Windows Server용 Service Bus(Service Bus 1.1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) 둘 다 AMQP(Advanced Message Queueing Protocol) 1.0을 지원합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 애플리케이션을 빌드할 수 있습니다. 다른 언어 및 프레임워크로 빌드된 구성 요소를 사용하며 다른 운영 체제에서 실행되는 애플리케이션을 생성할 수 있습니다. 이러한 구성 요소는 모두 Service Bus에 연결할 수 있으며 구조화된 비즈니스 메시지를 효율적이고 완벽하며 원활하게 교환할 수 있습니다.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>소개: AMQP 1.0이란 무엇이며 왜 중요한가요?
 일반적으로 메시지 지향 미들웨어 제품은 클라이언트 애플리케이션과 브로커 간에 통신하는 데 소유 프로토콜을 사용했습니다. 일단 특정 공급업체의 메시징 브로커를 선택했으면 그 공급업체의 라이브러리를 사용하여 클라이언트 애플리케이션을 해당 브로커에 연결해야 합니다. 이런 경우 애플리케이션을 다른 제품에 이식하려면 연결되어 있는 모든 애플리케이션에서 코드를 변경해야 하므로 해당 공급업체에 많이 의존하게 됩니다. 
@@ -60,7 +60,7 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 현재 Service Bus에서 사용할 수 있는 클라이언트 라이브러리는 다음과 같습니다.
 
-| Language | 라이브러리 |
+| 언어 | 라이브러리 |
 | --- | --- |
 | Java |Apache Qpid JMS(Java Message Service) 클라이언트<br/>IIT Software SwiftMQ Java 클라이언트 |
 | C |Apache Qpid Proton-C |
@@ -80,10 +80,10 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 * [AMQP를 사용하여 .NET에서 Service Bus 사용]
 * [AMQP를 사용하여 Java에서 Service Bus 사용]
 * [Azure Linux VM에 Apache Qpid Proton-C 설치]
-* [Windows Server용 Service Bus의 AMQP]
+* [Windows Server 용 Service Bus의 AMQP]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [AMQP를 사용하여 .NET에서 Service Bus 사용]: service-bus-amqp-dotnet.md
-[AMQP를 사용하여 Java에서 Service Bus 사용]: service-bus-amqp-java.md
-[Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
-[Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
+[AMQP를 사용하여 Java에서 Service Bus 사용]: ./service-bus-java-how-to-use-jms-api-amqp.md
+[Azure Linux VM에 Apache Qpid Proton-C 설치]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

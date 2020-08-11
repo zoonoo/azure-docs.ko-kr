@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071626"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064556"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>RabbitMQ와 Azure Service Bus를 통합 하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "87071626"
 
 다음은 이러한 기능을 사용할 수 있는 몇 가지 시나리오입니다.
 
-- **Edge**설정: RabbitMQ에 메시지를 전송 하는 edge 설정이 있지만 추가 처리를 위해 이러한 메시지를 [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) 전달 하려고 하므로 많은 [Azure 빅 데이터 기능](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data)을 사용할 수 있습니다.
+- **Edge**설정: RabbitMQ에 메시지를 전송 하는 edge 설정이 있지만 추가 처리를 위해 이러한 메시지를 [Azure Service Bus](./service-bus-messaging-overview.md) 전달 하려고 하므로 많은 [Azure 빅 데이터 기능](/azure/architecture/guide/architecture-styles/big-data)을 사용할 수 있습니다.
 - **하이브리드 클라우드**: 회사는 자신의 메시징 요구에 RabbitMQ를 사용 하는 제 3 자를 획득 한 것입니다. 서로 다른 클라우드에 있습니다. Azure로 전환 하는 동안에는 RabbitMQ를 사용 하 여 Azure Service Bus를 브리징 하 여 데이터 공유를 시작할 수 있습니다.
 - 타사 **통합**: 제 3 자는 RabbitMQ을 broker로 사용 하 고 데이터를 microsoft에 전송 하려고 하지만 조직 외부에 있습니다. 메시지를 전달할 수 있는 제한 된 Azure Service Bus 큐 집합에 대 한 액세스 권한을 제공 하는 SAS 키를 제공할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "87071626"
 
 먼저 [여기](https://azure.microsoft.com/free/) 에서 등록 하 여 무료 Azure 계정을 만들어야 합니다.
 
-계정에 로그인 하 고 나면 [Azure Portal](https://portal.azure.com/) 로 이동 하 여 새 Azure Service Bus [네임 스페이스](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)를 만듭니다. 네임 스페이스는 큐 및 항목과 같이 메시징 구성 요소가 라이브 되는 범위 지정 컨테이너입니다.
+계정에 로그인 하 고 나면 [Azure Portal](https://portal.azure.com/) 로 이동 하 여 새 Azure Service Bus [네임 스페이스](./service-bus-create-namespace-portal.md)를 만듭니다. 네임 스페이스는 큐 및 항목과 같이 메시징 구성 요소가 라이브 되는 범위 지정 컨테이너입니다.
 
 ## <a name="adding-a-new-azure-service-bus-namespace"></a>새 Azure Service Bus 네임 스페이스 추가
 
@@ -40,7 +40,7 @@ Azure Portal에서 큼 더하기 단추를 클릭 하 여 새 리소스를 추�
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Azure Service bus 선택":::
 
-네임 스페이스 정보를 입력 하 라는 메시지가 표시 됩니다. 사용할 Azure 구독을 선택합니다. 리소스 그룹이 없는 경우 새 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)을 만들 수 있습니다.
+네임 스페이스 정보를 입력 하 라는 메시지가 표시 됩니다. 사용할 Azure 구독을 선택합니다. 리소스 그룹이 없는 경우 새 [리소스 그룹](../azure-resource-manager/management/manage-resource-groups-portal.md)을 만들 수 있습니다.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="네임스페이스 만들기":::
 
@@ -76,7 +76,7 @@ rabbitmq-plugins enable rabbitmq_shovel_management
 
 ## <a name="connecting-rabbitmq-to-azure-service-bus"></a>Azure Service Bus에 RabbitMQ 연결
 
-RabbitMQ에서 메시지를 게시할 수 있도록 큐에 대 한 SAS ( [공유 액세스 정책](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) )를 만들어야 합니다. SAS 정책을 사용 하면 리소스에서 수행할 수 있는 외부 파티가 무엇 인지 지정할 수 있습니다. RabbitMQ는 메시지를 보낼 수 있지만 큐를 수신 하거나 관리 하지는 않습니다.
+RabbitMQ에서 메시지를 게시할 수 있도록 큐에 대 한 SAS ( [공유 액세스 정책](../storage/common/storage-sas-overview.md) )를 만들어야 합니다. SAS 정책을 사용 하면 리소스에서 수행할 수 있는 외부 파티가 무엇 인지 지정할 수 있습니다. RabbitMQ는 메시지를 보낼 수 있지만 큐를 수신 하거나 관리 하지는 않습니다.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="SAS 정책 추가":::
 

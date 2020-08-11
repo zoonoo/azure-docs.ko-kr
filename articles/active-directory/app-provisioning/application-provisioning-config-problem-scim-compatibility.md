@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: da458b8aaf1ace7b87e98ded59a4bf90e4158e0f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054089"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065491"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -43,14 +43,14 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 | 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | customappSSO로 다운 그레이드 |
 | 다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | customappSSO로 다운 그레이드 |
 | 그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  customappSSO로 다운 그레이드 |
-| 규정 준수를 보장 하기 위해 패치 동작 업데이트 | 예 | TBD| 미리 보기 플래그 사용 |
+| 규정 준수를 보장 하기 위해 패치 동작 업데이트 (예: 부울로 활성 및 적절 한 그룹 멤버 자격 제거) | 아니요 | TBD| 미리 보기 플래그 사용 |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>SCIM 동작을 변경 하기 위한 플래그
 기본 SCIM 클라이언트 동작을 변경 하려면 응용 프로그램의 테 넌 트 URL에서 아래 플래그를 사용 합니다.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대 한 SCIM 플래그입니다.":::
 
-* 다음 URL을 사용 하 여 패치 동작을 업데이트 하 고 SCIM 준수를 확인 합니다. 이 동작은 현재 플래그를 사용 하는 경우에만 사용할 수 있지만 다음 몇 달 동안 기본 동작이 됩니다.
+* 다음 URL을 사용 하 여 패치 동작을 업데이트 하 고 SCIM 준수를 보장 합니다 (예:를 부울로 활성화 하 고 적절 한 그룹 멤버 자격 제거). 이 동작은 현재 플래그를 사용 하는 경우에만 사용할 수 있지만 다음 몇 달 동안 기본 동작이 됩니다.
   * **URL (SCIM 규격):** AzureAdScimPatch062020
   * **SCIM RFC 참조:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2

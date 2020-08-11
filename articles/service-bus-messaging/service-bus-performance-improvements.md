@@ -3,12 +3,12 @@ title: Azure Service Bus를 사용 하 여 성능 향상을 위한 모범 사례
 description: broker 저장 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e0a6e54c1e941d7b7ff244ac40066a564e2ebbc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a81e6fa1c6097f46bbfa3016beb1b7780ad3c351
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341109"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065304"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -40,7 +40,7 @@ AMQP는 Service Bus에 대 한 연결을 유지 하기 때문에 가장 효율�
 | <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">ServiceBus<span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>유니버설 Windows 플랫폼 10.0.16299 | AMQP<br>HTTP |
 | <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">Windowsazure.servicebus. ServiceBus<span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
-최소 .NET Standard 플랫폼 지원에 대 한 자세한 내용은 [.net 구현 지원](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support)을 참조 하세요.
+최소 .NET Standard 플랫폼 지원에 대 한 자세한 내용은 [.net 구현 지원](/dotnet/standard/net-standard#net-implementation-support)을 참조 하세요.
 
 ## <a name="reusing-factories-and-clients"></a>팩터리 및 클라이언트 다시 사용
 
@@ -180,7 +180,7 @@ Service Bus는 수신 및 삭제 작업에 대한 트랜잭션을 지원하지 �
 
 기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
 
-일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예를 들어:
+일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 var settings = new MessagingFactorySettings

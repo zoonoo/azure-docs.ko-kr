@@ -158,8 +158,10 @@
           items:
             - name: 버전 관리
               href: versioning-overview.md
-            - name: 일시 삭제
-              href: soft-delete-overview.md
+            - name: Blob에 대한 일시 삭제
+              href: soft-delete-blob-overview.md
+            - name: 컨테이너에 대한 일시 삭제
+              href: soft-delete-container-overview.md
             - name: 스냅샷
               href: snapshots-overview.md
             - name: 변경 피드
@@ -423,8 +425,10 @@
           items:
             - name: BLOB 버전 관리 사용
               href: versioning-enable.md
-            - name: 일시 삭제 사용
-              href: soft-delete-enable.md
+            - name: Blob에 일시 삭제를 사용하도록 설정
+              href: soft-delete-blob-enable.md
+            - name: 컨테이너에 대해 일시 삭제 사용
+              href: soft-delete-container-enable.md
             - name: 스냅샷 만들기(.NET)
               href: snapshots-manage-dotnet.md
             - name: 변경 피드 로그 처리

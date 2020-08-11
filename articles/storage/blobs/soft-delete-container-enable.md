@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8d8b558ebc49a009548afe9a8527985b9e4f5c75
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057276"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066664"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>컨테이너에 대해 일시 삭제 사용 및 관리 (미리 보기)
 
 컨테이너 일시 삭제 (미리 보기)는 데이터를 실수로 또는 실수로 수정 또는 삭제 하지 않도록 보호 합니다. 저장소 계정에 대해 컨테이너 일시 삭제를 사용 하도록 설정 하면 컨테이너와 해당 콘텐츠가 삭제 된 후 지정 된 보존 기간 내에 복구 될 수 있습니다.
 
-응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 데이터를 수정 하거나 삭제할 수 있는 경우 컨테이너 일시 삭제를 설정 하는 것이 좋습니다. 이 문서에서는 컨테이너에 대해 일시 삭제를 사용 하도록 설정 하는 방법을 보여 줍니다. 컨테이너 일시 삭제에 대 한 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](soft-delete-container-overview.md)를 참조 하세요.
+응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 데이터를 수정 하거나 삭제할 수 있는 경우 컨테이너 일시 삭제를 설정 하는 것이 좋습니다. 이 문서에서는 컨테이너에 대해 일시 삭제를 사용 하도록 설정 하는 방법을 보여 줍니다. 미리 보기에 등록 하는 방법을 비롯 하 여 컨테이너 일시 삭제에 대 한 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](soft-delete-container-overview.md)를 참조 하세요.
 
 종단 간 데이터 보호의 경우 blob 및 blob 버전 관리 (미리 보기)에 대해 일시 삭제를 사용 하도록 설정 하는 것이 좋습니다. Blob에 대해 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [blob에 대 한 일시 삭제 설정 및 관리](soft-delete-blob-enable.md)를 참조 하세요. Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [blob 버전 관리 (미리 보기)](versioning-overview.md)를 참조 하세요.
 

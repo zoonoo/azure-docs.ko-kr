@@ -3,12 +3,12 @@ title: Azure Service Bus 토픽 필터 | Microsoft Docs
 description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b722c040248c199782f6c8dea020ae582762e102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339964"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066749"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
@@ -58,10 +58,8 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 > Azure Portal는 이제 Service Bus 탐색기 기능을 지원 하므로 포털에서 구독 필터를 만들거나 편집할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-다음 샘플을 참조 하세요. 
+다음 샘플을 참조하세요. 
 
 - [.NET-필터가 포함 된 기본 송신 및 수신 자습서](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [.NET 토픽 필터](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
-
-
+- [Azure Resource Manager 템플릿](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)

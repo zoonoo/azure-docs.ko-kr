@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6151bb915298cc4f771b6d49628f39c8d27b62b4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800351"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064369"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -45,6 +45,7 @@ Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서
     - [HANA(대규모 인스턴스)의 지원되는 시나리오](./hana-supported-scenario.md)
 - 여러 Azure 지역에서 사용할 수 있는 Azure 서비스, Azure VM 유형 및 Azure 스토리지 서비스에 대한 정보는 [지역별 제공 제품](https://azure.microsoft.com/global-infrastructure/services/) 사이트에서 확인할 수 있습니다. 
 - 타사 HA 프레임은 Windows 및 Pacemaker 지원 되는 것 외에도 작동 하나요? [SAP support note](https://launchpad.support.sap.com/#/notes/1928533) 의 아래쪽 부분을 확인 #1928533
+- 시나리오에 가장 적합 한 Azure storage는 무엇 인가요? [SAP 워크 로드에 대 한 Azure Storage 형식](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 읽기
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -59,23 +60,7 @@ Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Azure 가상 머신에서 배포된 SAP NetWeaver
-이 섹션에서는 Azure의 SAP NetWeaver 및 Business One에 대한 계획 및 배포 설명서를 나열합니다. 이 설명서에서는 Azure의 SAP 워크로드에서 HANA가 아닌 데이터베이스의 기본 사항 및 사용에 중점을 둡니다. 고가용성에 대한 문서는 다음과 같은 Azure의 HANA 고가용성에 대한 기반이기도 합니다.
-
-- [Azure 계획 가이드](./planning-guide.md). 
-- [Azure 가상 머신의 SAP Business One](./business-one-azure.md)
-- [Site Recovery를 사용하여 다중 계층 SAP NetWeaver 애플리케이션 배포 보호](../../../site-recovery/site-recovery-sap.md)
-- [Azure용 SAP LaMa 커넥터](./lama-installation.md)
-
-Azure의 SAP 워크로드에서 HANA가 아닌 데이터베이스에 대한 자세한 내용은 다음을 참조하세요.
-
-- [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](./dbms_guide_general.md)
-- [SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포](./dbms_guide_sqlserver.md)
-- [SAP 워크로드에 대한 Oracle Azure Virtual Machines DBMS 배포](./dbms_guide_oracle.md)
-- [SAP 워크로드에 대한 IBM DB2 Azure Virtual Machines DBMS 배포](./dbms_guide_ibm.md)
-- [SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포](./dbms_guide_sapase.md)
-- [Azure VM에서 SAP MaxDB, Live Cache 및 Content Server 배포](./dbms_guide_maxdb.md)
-
-Azure의 SAP HANA 데이터베이스에 대한 내용은 “Azure 가상 머신에서 SAP HANA 섹션”을 확인하세요.
+이 섹션에서는 Azure의 SAP NetWeaver 및 Business One에 대한 계획 및 배포 설명서를 나열합니다. 이 설명서에서는 Azure의 SAP 워크로드에서 HANA가 아닌 데이터베이스의 기본 사항 및 사용에 중점을 둡니다. 고가용성을 위한 문서와 문서는 Azure의 HANA 고가용성에 대 한 기초 이기도 합니다.
 
 Azure에서 SAP 워크로드의 고가용성에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -104,6 +89,7 @@ SAP 구성 요소에 Azure 서비스를 통합하는 방법에 대한 자세한 
 
 ## <a name="change-log"></a>변경 로그
 
+- 08/10/2020: azure [가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 에서 저장소 구성을 SAP HANA 하 고 Azure에서 SAP 워크 로드에 대 한 몇 가지 업데이트를 수행 합니다 [. 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: Pacemaker 클러스터에 대 한 신뢰할 수 있는 이름 확인의 중요성을 강조 하기 위해 azure에서 [SLES의 Pacemaker](./high-availability-guide-suse-pacemaker.md) 설정 및 AZURE에서 [RHEL 설정 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 변경
 - 08/04/2020: [파일 공유를 사용 하 여 WFCS에서 SAP NW ha](./sap-high-availability-installation-wsfc-file-share.md)를 변경 하 고, [공유 디스크를 사용 하는 WFCS의](./sap-high-availability-installation-wsfc-shared-disk.md)Sap Nw ha, [azure vm의 sap Nw Ha](./high-availability-guide.md), [SLES의 azure vm에서 sap nw에 대 한 ha](./high-availability-guide-suse.md)SLES의 azure vm에 있는 azure vm의 azure VM에 [대 한](./high-availability-guide-suse-netapp-files.md)ha, [SLES 다중 sid 가이드의 azure](./high-availability-guide-suse-multi-sid.md)vm에서 sap nw에 대 한 ha, [RHEL의](./high-availability-guide-rhel.md)azure vm에서 sap의 azure vm에 대 한 ha, RHEL의 azure vm에 대 한 [ha](./high-availability-guide-rhel-netapp-files.md) (RHEL의 azure vm에서 azure vm에 대 한 ha [)](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
 - 07/23/2020: SAP HANA(대규모 인스턴스) 예약을 구입 하기 전에 알고 있어야 하는 내용과 구매를 수행 하는 방법을 설명 하는 [Azure 예약 문서와 함께 SAP HANA(대규모 인스턴스) 저장](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) 을 추가 했습니다.
