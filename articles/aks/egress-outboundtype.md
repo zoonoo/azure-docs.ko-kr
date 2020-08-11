@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244449"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067361"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정
 
@@ -60,7 +60,7 @@ AKS에 의해 수행 되는 구성은 다음과 같습니다.
 
 `userDefinedRouting`가 설정 된 경우 AKS는 자동으로 송신 경로를 구성 하지 않습니다. 송신 설정은 사용자가 수행 해야 합니다.
 
-표준 부하 분산 장치 (SLB) 아키텍처를 사용 하는 경우에는 명시적 송신을 설정 해야 하므로 이전에 구성 된 서브넷을 사용 하 여 AKS 클러스터를 기존 가상 네트워크에 배포 해야 합니다. 따라서이 아키텍처를 사용 하려면 방화벽, 게이트웨이, 프록시 등의 어플라이언스로 송신 트래픽을 명시적으로 전송 하거나 표준 부하 분산 장치 또는 어플라이언스에 할당 된 공용 IP에서 NAT (Network Address Translation)를 수행할 수 있도록 해야 합니다.
+SLB (표준 부하 분산 장치) 아키텍처를 사용 하지 않을 경우에는 명시적 송신을 설정 해야 하기 때문에 이전에 구성 된 서브넷을 사용 하 여 AKS 클러스터를 기존 가상 네트워크에 배포 해야 합니다. 따라서이 아키텍처를 사용 하려면 방화벽, 게이트웨이, 프록시 등의 어플라이언스로 송신 트래픽을 명시적으로 전송 하거나 표준 부하 분산 장치 또는 어플라이언스에 할당 된 공용 IP에서 NAT (Network Address Translation)를 수행할 수 있도록 해야 합니다.
 
 AKS 리소스 공급자는 SLB(표준 Load Balancer)를 배포합니다. 부하 분산 장치는 규칙을 사용 하 여 구성 되지 않으며 [규칙이 배치 될 때까지 요금이 부과 되지 않습니다](https://azure.microsoft.com/pricing/details/load-balancer/). AKS는 SLB 프런트 엔드에 대 한 공용 IP 주소를 자동으로 프로 비전 하지 않으며 부하 분산 장치 백 엔드 풀을 자동으로 구성 **하지 않습니다** .
 

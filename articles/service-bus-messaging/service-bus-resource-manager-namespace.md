@@ -7,16 +7,16 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336840"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067395"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Service Bus 네임 스페이스 만들기
 
-Azure Resource Manager 템플릿을 배포 하 여 Service Bus 네임 스페이스를 만드는 방법에 대해 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 설명서](/azure/azure-resource-manager/)를 참조 하세요.
+Azure Resource Manager 템플릿을 배포 하 여 Service Bus 네임 스페이스를 만드는 방법에 대해 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 설명서](../azure-resource-manager/index.yml)를 참조 하세요.
 
 다음 템플릿은 Service Bus 네임 스페이스를 만드는 데에도 사용할 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 템플릿을 배포 하 여 service bus 네임 스페이스를 만들려면 다음을 수행 합니다.
 
-1. 다음 코드 블록에서 **사용해보기**를 선택한 다음, 지침에 따라 Azure Cloud 셸에 로그인합니다.
+1. 다음 코드 블록에서 **시도** 를 선택 하 고 지침에 따라 Azure Cloud shell에 로그인 합니다.
 
     ```azurepowershell-interactive
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"

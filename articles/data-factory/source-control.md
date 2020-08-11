@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: f2f5a8a87d4ac4936f25e7ece2a34b518c09a063
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d171edb23b482ad1871990dcffd979d2125c4406
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037629"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067412"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -93,7 +93,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>다른 Azure Active Directory 테넌트 사용
 
-Azure Repos Git 리포지토리는 다른 Azure Active Directory 테넌트에 있을 수 없습니다. 다른 Azure AD 테넌트를 지정하려면 사용하고 있는 Azure 구독에 대한 관리자 권한이 있어야 합니다.
+Azure Repos Git 리포지토리는 다른 Azure Active Directory 테넌트에 있을 수 없습니다. 다른 Azure AD 테넌트를 지정하려면 사용하고 있는 Azure 구독에 대한 관리자 권한이 있어야 합니다. 자세한 내용은 [구독 관리자 변경](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator) 을 참조 하세요.
 
 ### <a name="use-your-personal-microsoft-account"></a>개인 Microsoft 계정 사용
 

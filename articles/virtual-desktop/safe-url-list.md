@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 안전 URL 목록-Azure
 description: Windows 가상 데스크톱 배포가 의도 한 대로 작동 하도록 차단 해야 하는 Url 목록입니다.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009480"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067208"
 ---
 # <a name="safe-url-list"></a>안전 URL 목록
 
@@ -76,4 +76,6 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 |query.prod.cms.rt.microsoft.com|443|클라이언트 업데이트|Windows Desktop|
 
 >[!IMPORTANT]
->이러한 URL을 여는 것은 신뢰할 수 있는 클라이언트 환경을 위해 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 클라이언트 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+>이러한 URL을 여는 것은 신뢰할 수 있는 클라이언트 환경을 위해 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다.
+>
+>이러한 Url은 클라이언트 사이트 및 리소스에만 해당 됩니다. 이 목록에는 Azure Active Directory와 같은 다른 서비스에 대 한 Url이 포함 되지 않습니다. Azure Active Directory Url은 [Office 365 url 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에서 ID 56에서 찾을 수 있습니다.

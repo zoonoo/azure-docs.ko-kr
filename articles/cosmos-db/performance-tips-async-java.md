@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa55f864319146c4d3237eb9e6725da2a68035f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308987"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067613"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Azure Cosmos DB Async Java SDK v2에 대한 성능 팁
 
@@ -239,28 +239,6 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     ```
     * - nofile 100000
     ```
-
-* **Netty에 네이티브 TLS/SSL 구현 사용**
-
-    Netty는 TLS 구현 스택에 OpenSSL을 직접 사용하여 성능을 향상시킬 수 있습니다. 이 구성이 없으면 Netty는 Java의 기본 TLS 구현으로 돌아갑니다.
-
-    Ubuntu의 경우:
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
-    ```
-
-    프로젝트 maven 종속성에 다음 종속성을 추가합니다.
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-    ```
-
-기타 플랫폼(Red Hat, Windows, Mac 등)의 경우 이러한 지침(https://netty.io/wiki/forked-tomcat-native.html )을 참조하세요.
 
 ## <a name="indexing-policy"></a>인덱싱 정책
  

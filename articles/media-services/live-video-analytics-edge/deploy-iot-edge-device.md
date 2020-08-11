@@ -3,12 +3,12 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074447"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067915"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
@@ -86,8 +86,8 @@ IoT Edge의 Live Video Analytics는 [모듈 쌍 구성 스키마](module-twin-co
 
 ### <a name="deploy-using-the-azure-portal"></a>Azure Portal을 사용하여 배포
 
-Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 푸시하는 과정을 안내 합니다.
-디바이스 선택
+Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 푸시하는 과정을 안내 합니다.  
+#### <a name="select-your-device-and-set-modules"></a>장치를 선택 하 고 모듈을 설정 합니다.
 
 1. [Azure Portal](https://ms.portal.azure.com/)에 로그인하고 IoT Hub로 이동합니다.
 1. 메뉴에서 **IoT Edge**를 선택합니다.
@@ -112,23 +112,12 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
     > [!TIP]
     > 이 절차에 설명 된 대로 **모듈 설정**, **컨테이너 만들기 옵션**및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge는 대/소문자를 구분 합니다. 모듈 이름으로 사용 하는 정확한 문자열을 기록해 둡니다.
 
 1. **환경 변수** 탭을 엽니다.
    
-   응용 프로그램 데이터와 비디오 출력을 저장 하는 데 사용할 사용자 ID 및 그룹 ID를 제공 하려면 다음 JSON을 복사 하 여 상자에 붙여넣습니다.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   환경 변수가 표시 되는 입력 상자에 다음 값을 추가 합니다. ![](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. **컨테이너 만들기 옵션** 탭을 엽니다.
 
@@ -201,8 +190,8 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   쌍 속성 **allowUnsecuredEndpoints** 는 자습서 및 빠른 시작의 목적으로 true로 설정 됩니다.   
+   > [!Note]
+   > 쌍 속성 **allowUnsecuredEndpoints** 는 자습서 및 빠른 시작의 목적으로 true로 설정 됩니다.   
    프로덕션 환경에서 실행 하는 경우이 속성을 **false** 로 설정 해야 합니다. 이렇게 하면 응용 프로그램이 보안 되지 않은 모든 끝점을 차단 하 고 그래프 토폴로지를 실행 하기 위해 유효한 연결 자격 증명이 필요 합니다.  
    
     추가를 선택 하 여 모듈 쌍 속성을 추가 합니다.
@@ -239,7 +228,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 1. 직접 메서드 메뉴 옵션을 클릭 합니다.
 
     > [!NOTE] 
-    > 현재 페이지에서 볼 수 있는 것 처럼 연결 문자열 섹션에 값을 추가 해야 합니다. **설정 이름** 섹션에서 아무것도 숨기 거 나 변경할 필요가 없습니다. 공용이 되도록 하는 것은 정상입니다.
+    > 현재 페이지에서 볼 수 있는 것 처럼 연결 문자열 섹션에 값을 추가 해야 합니다. **설정 이름** 섹션에서 아무것도 숨기 거 나 변경할 필요가 없습니다. 공개하는 것도 괜찮습니다.
 
     ![직접 메서드](./media/deploy-iot-edge-device/module-details.png)
 1. 그런 다음 메서드 이름 상자에 "GraphTopologyList"를 입력 합니다.
@@ -258,5 +247,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
     ![상태 200 메시지](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>다음 단계
+[빠른 시작: IoT Edge 시작 하기-라이브 비디오 분석을](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device) 수행 합니다.
 
-[빠른 시작: 시작 - IoT Edge의 Live Video Analytics](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> 명령에서 다음을 실행 하 고 기본값 대신을 사용 `device-id` `lva-sample-device` 합니다.

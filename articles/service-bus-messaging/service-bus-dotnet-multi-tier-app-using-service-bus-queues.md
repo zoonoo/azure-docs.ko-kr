@@ -4,12 +4,12 @@ description: Azure에서 Service Bus 큐를 사용하여 계층 간에 통신하
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 044d0698f1ea181e8f508f92ad2c30ec29b6490b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083942"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067837"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 애플리케이션
 
@@ -24,7 +24,7 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 애플리케이션을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 Service Bus 큐를 사용하는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 애플리케이션(프런트 엔드 포함)을 만들 수 있습니다. [.NET 온-프레미스/클라우드 하이브리드 애플리케이션](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) 자습서를 시도해 볼 수 있습니다.
+이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 애플리케이션을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 Service Bus 큐를 사용하는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 애플리케이션(프런트 엔드 포함)을 만들 수 있습니다. [.NET 온-프레미스/클라우드 하이브리드 애플리케이션](../azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) 자습서를 시도해 볼 수 있습니다.
 
 다음 스크린샷은 완료 된 응용 프로그램을 보여 줍니다.
 
