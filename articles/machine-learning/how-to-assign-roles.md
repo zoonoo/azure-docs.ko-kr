@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002217"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056927"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,6 +146,8 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 | 대화형 전자 필기장을 사용 하 여 저장소 액세스 | 필요 없음 | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | 새 사용자 지정 역할 만들기 | 허용 되는 소유자, 참가자 또는 사용자 지정 역할`Microsoft.Authorization/roleDefinitions/write` | 필요 없음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할:`/workspaces/computes/write` |
 
+> [!TIP]
+> 작업 영역을 처음 만들 때 오류가 발생 하는 경우 역할에서을 허용 하는지 확인 `Microsoft.MachineLearningServices/register/action` 합니다. 이 작업을 통해 Azure 구독에 Azure Machine Learning 리소스 공급자를 등록할 수 있습니다.
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>17. Machine Learning 서비스에 대 한 Azure 기본 제공 역할을 게시 하 고 있나요?
 

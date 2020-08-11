@@ -2,18 +2,18 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842029"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057699"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>추가 프리미엄 파일 공유 수준 제한
 
-|영역  |대상  |
+|Area  |대상  |
 |---------|---------|
 |최소 크기 증가/감소    |GiB 1      |
 |기준 IOPS    |GiB 당 IOPS 1 개, 최대 10만|
@@ -23,11 +23,11 @@ ms.locfileid: "87842029"
 
 #### <a name="file-level-limits"></a>파일 수준 제한
 
-|영역  |프리미엄 파일  |표준 파일 |
+|Area  |표준 파일  |프리미엄 파일  |
 |---------|---------|---------|
-|크기                  |4TiB         |1TiB|
-|파일당 최대 IOPS     |5,000         |1,000|
-|동시 핸들    |2,000         |2,000|
-|송신  |300 MiB/초|      표준 파일 처리량 값 참조|
-|수신  |200MiB/초| 표준 파일 처리량 값 참조|
-|처리량| 프리미엄 파일 수신/송신 값 참조| 최대 60MiB/초|
+|크기     |1TiB         |4TiB         |
+|파일당 최대 IOPS      |1,000         |5,000         |
+|동시 핸들     |2,000         |2,000         |
+|송신     |표준 파일 처리량 값 참조         |300 MiB/초         |
+|수신     |표준 파일 처리량 값 참조         |200MiB/초         |
+|처리량     |최대 60MiB/초         |프리미엄 파일 수신/송신 값 참조         |

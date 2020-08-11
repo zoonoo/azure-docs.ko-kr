@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856379"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056893"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -132,6 +132,9 @@ Azure 가상 WAN 허브는 하이브리드 네트워크에서 모든 네트워�
 ![Azure 방화벽으로 보호 된 가상 허브](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **그림 5: Azure 방화벽으로 보호 된 가상 허브**
+
+> [!NOTE]
+> 방화벽이 있는 허브 간은 현재 지원 되지 않습니다. 허브 간의 트래픽은 각 허브에서 Azure 방화벽을 직접 우회 하 여 이동 합니다.
 
 가상 WAN에 대 한 Azure 방화벽은 다음과 같은 글로벌 보안 전송 연결 경로를 지원 합니다. 괄호 안의 문자는 그림 5에 매핑됩니다.
 

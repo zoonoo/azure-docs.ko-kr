@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b9ac473c3864b4be06c978e7d6a3555bb4550d2a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725536"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056842"
 ---
 # <a name="what-is-custom-speech"></a>Custom Speech 이란?
 
@@ -48,7 +48,7 @@ Custom Speech를 사용 하 여 모든 작업을 수행 하려면 Azure 계정 �
 [Custom Speech 포털](https://speech.microsoft.com/customspeech) 을 사용 하 여 사용자 지정 모델을 만들려면 먼저 음성 서비스 구독이 필요 합니다. 표준 음성 서비스 구독을 만들려면 다음 지침을 따르세요. [음성 구독을 만듭니다](get-started.md#new-resource).
 
 > [!NOTE]
-> 표준 (S0) 구독을 만들어야 합니다. F0 (무료 평가판) 구독은 지원 되지 않습니다.
+> 표준 (S0) 구독을 만들어야 합니다. 무료 (F0) 구독은 지원 되지 않습니다.
 
 Azure 계정과 음성 서비스 구독을 만든 후에는 [Custom Speech 포털](https://speech.microsoft.com/customspeech) 에 로그인 하 여 구독을 연결 해야 합니다.
 

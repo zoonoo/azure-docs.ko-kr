@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471747"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056961"
 ---
 # <a name="caching-with-azure-front-door"></a>Azure Front 도어를 사용 하 여 캐싱
 다음 문서는 캐싱을 허용하고 회람 규칙을 사용하는 Front Door의 동작을 설명합니다. 프런트 도어는 CDN (최신 Content Delivery Network) 이며 동적 사이트 가속 및 부하 분산과 더불어 다른 CDN과 마찬가지로 캐싱 동작도 지원 합니다.
@@ -82,7 +82,7 @@ Front Door는 콘텐츠를 에지에서 동적으로 압축하므로 클라이�
 자산에 대한 요청이 압축을 지정하고 캐시의 요청 결과가 누락된 경우 Front Door는 POP 서버에서 직접 자산의 압축을 수행합니다. 이후 압축된 파일은 캐시에서 제공됩니다. 결과 항목은 transfer-encoding: chunked를 사용하여 반환됩니다.
 
 ## <a name="query-string-behavior"></a>쿼리 문자열 동작
-Front Door를 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예: `http://www.contoso.com/content.mov?field1=value1&field2=value2`. 요청의 쿼리 문자열에 둘 이상의 키-값 쌍이 있는 경우 해당 순서는 중요하지 않습니다.
+Front Door를 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예들 들어 `http://www.contoso.com/content.mov?field1=value1&field2=value2`입니다. 요청의 쿼리 문자열에 둘 이상의 키-값 쌍이 있는 경우 해당 순서는 중요하지 않습니다.
 - **쿼리 문자열 무시**: 기본 모드입니다. 이 모드에서는 Front Door가 첫 번째 요청에서 요청자의 쿼리 문자열을 백엔드로 전달하고 자산을 캐시합니다. 캐시된 자산이 만료될 때까지 Front Door 환경에서 제공되는 해당 자산의 모든 후속 요청은 쿼리 문자열을 무시합니다.
 
 - **각 고유한 URL 캐시**: 이 모드에서는 쿼리 문자열을 포함하여 고유한 URL이 있는 각 요청이 고유 캐시가 있는 고유 자산으로 처리됩니다. 예를 들어 `www.example.ashx?q=test1`에 대한 요청의 경우 백엔드에서의 응답이 Front Door 환경에서 캐시되고 그와 동일한 쿼리 문자열을 가진 후속 캐시에 대해 반환됩니다. `www.example.ashx?q=test2`에 대한 요청은 자체 TTL(Time To Live) 설정과 함께 별도의 자산으로 캐시됩니다.
@@ -111,6 +111,12 @@ Front Door의 캐시 제거에서는 대/소문자를 구분하지 않습니다.
 캐싱을 사용하는 경우 다음 요청 헤더는 백엔드로 전달되지 않습니다.
 - Content-Length
 - Transfer-Encoding
+
+## <a name="cache-duration"></a>캐시 기간
+
+캐시 기간은 Front 도어 디자이너와 규칙 엔진에서 모두 구성할 수 있습니다. Frontdoor 디자이너에 설정 된 캐시 기간은 최소 캐시 기간입니다. 원본에서 캐시 컨트롤 헤더의 TTL이 재정의 값 보다 크면이 재정의가 작동 하지 않습니다. 
+
+규칙 엔진을 통해 설정 된 캐시 기간은 진정한 캐시 재정의입니다. 즉, 원본 응답 헤더에 관계 없이 재정의 값을 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 5dc0a7fc9797948e834b8b3cb802bb92fce0eb59
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 79f7924b021de9426eeb66adf2ec12f8033efcea
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610764"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056859"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -125,5 +125,5 @@ Speech SDK는 음성 서비스의 많은 기능을 다룹니다. 일부 시나�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [C#에서 음성을 인식하는 방법 참조](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
