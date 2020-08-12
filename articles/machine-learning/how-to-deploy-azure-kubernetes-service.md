@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758886"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120833"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ AKS 클러스터 및 AML 작업 영역은 다른 리소스 그룹에 있을 수 
 
 - 이 문서의 __CLI__ 코드 조각은 문서를 만든 것으로 가정 합니다 `inferenceconfig.json` . 이 문서를 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- BLB (기본 Load Balancer) 대신 클러스터에 표준 Load Balancer (SLB)를 배포 해야 하는 경우 AKS portal/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 연결 하세요.
+- BLB (기본 Load Balancer) 대신 클러스터에 표준 Load Balancer (SLB)를 배포 해야 하는 경우 AKS portal/CLI/SDK에서 클러스터를 만든 다음 AML 작업 영역에 연결 합니다.
 
 - [API 서버에 액세스할 수 있는 권한이 부여 된 IP 범위가](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)있는 AKS 클러스터를 연결 하는 경우 AKS 클러스터에 대해 AML 제어 평면 IP 범위를 사용 하도록 설정 합니다. AML 컨트롤 평면은 쌍을 이루는 지역에 배포 되 고 AKS 클러스터에 추론 pod을 배포 합니다. API 서버에 대 한 액세스 권한이 없으면 추론 pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용 하도록 설정 하는 경우 [쌍을 이루는 지역]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 대 한 [ip 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) 를 사용 합니다.
 
@@ -109,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -267,7 +274,7 @@ VS Code 사용에 대 한 자세한 내용은 [VS Code 확장을 통해 AKS에 �
 
 ### <a name="understand-the-deployment-processes"></a>배포 프로세스 이해
 
-단어 "deployment"는 Kubernetes 및 Azure Machine Learning 모두에 사용 됩니다. 이러한 두 컨텍스트에서는 "배포"의 의미가 매우 다릅니다. Kubernetes에서는 `Deployment` 선언적 YAML 파일을 사용 하 여 지정 된 구체적인 엔터티입니다. Kubernetes에는 `Deployment` 및와 같은 다른 Kubernetes 엔터티와의 정의 된 수명 주기와 구체적 관계가 있습니다 `Pods` `ReplicaSets` . 문서 및 비디오의 Kubernetes에 대 한 자세한 내용은 [Kubernetes?를](https://aka.ms/k8slearning)살펴보세요.
+단어 "deployment"는 Kubernetes 및 Azure Machine Learning 모두에 사용 됩니다. 이러한 두 컨텍스트에서는 "배포"의 의미가 다릅니다. Kubernetes에서는 `Deployment` 선언적 YAML 파일을 사용 하 여 지정 된 구체적인 엔터티입니다. Kubernetes에는 `Deployment` 및와 같은 다른 Kubernetes 엔터티와의 정의 된 수명 주기와 구체적 관계가 있습니다 `Pods` `ReplicaSets` . 문서 및 비디오의 Kubernetes에 대 한 자세한 내용은 [Kubernetes?를](https://aka.ms/k8slearning)살펴보세요.
 
 Azure Machine Learning에서 "배포"는 보다 일반적으로 사용 가능 하 고 프로젝트 리소스를 정리 하는 데 사용 됩니다. 배포의 일부를 고려 하 Azure Machine Learning 단계는 다음과 같습니다.
 

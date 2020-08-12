@@ -12,12 +12,12 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: c2673552638c1829b1640724634e365dc6595703
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284424"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118266"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
@@ -42,7 +42,7 @@ Azure AD로 전송된 `LogoutRequest` 요소에는 다음 특성이 필요합니
 
 * `ID` - 로그아웃 요청을 식별합니다. `ID` 값은 숫자로 시작할 수 없습니다. 일반적인 방법은 **id** 를 GUID의 문자열 표현에 추가하는 것입니다.
 * `Version` - 이 요소의 값을 **2.0**으로 설정합니다. 이 값은 필수입니다.
-* `IssueInstant` - UTC(Coordinate Universal Time) 값과 [왕복 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)이 포함된 `DateTime` 문자열입니다. Azure AD에는 이 형식의 값이 필요하지만 적용되지는 않습니다.
+* `IssueInstant` - UTC(Coordinate Universal Time) 값과 [왕복 형식("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings)이 포함된 `DateTime` 문자열입니다. Azure AD에는 이 형식의 값이 필요하지만 적용되지는 않습니다.
 
 ### <a name="issuer"></a>발급자
 `LogoutRequest`의 `Issuer` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 애플리케이션 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.

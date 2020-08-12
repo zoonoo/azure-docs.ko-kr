@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6a20bbeef83072b6fb76bd4e9214e63f094736a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b76e77d6d8575fa086f74c956594a344076f7c74
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172621"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118844"
 ---
 # <a name="add-your-application-to-the-azure-active-directory-application-gallery"></a>응용 프로그램을 Azure Active Directory 응용 프로그램 갤러리에 추가
 
@@ -32,7 +32,7 @@ ms.locfileid: "87172621"
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 페더레이션된 응용 프로그램 (Open ID 및 SAML/WS 급지됨)의 경우 응용 프로그램은 Azure AD 앱 갤러리에 나열 하기 위해 SaaS (software as a service) 모델을 지원 해야 합니다. Enterprise gallery 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원 해야 합니다.
 - Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](consent-framework.md) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
@@ -89,14 +89,14 @@ ms.locfileid: "87172621"
 
 Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현해야 합니다. 또한 Azure AD 응용 프로그램 갤러리 사용 약관에 동의 해야 합니다. [이 웹 사이트](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)에서 Azure AD 응용 프로그램 갤러리의 사용 약관을 읽습니다.
 
-- **Openid connect connect**: Open ID connect 프로토콜을 사용 하 여 응용 프로그램을 Azure AD와 통합 하려면 [개발자의 지침](v1-authentication-scenarios.md)을 따르세요.
+- **Openid connect connect**: Open ID connect 프로토콜을 사용 하 여 응용 프로그램을 Azure AD와 통합 하려면 [개발자의 지침](../azuread-dev/v1-authentication-scenarios.md)을 따르세요.
 
     ![갤러리에서 Openid connect Connect 응용 프로그램 나열](./media/howto-app-gallery-listing/openid.png)
 
     * Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 다음과 같이 **Openid connect Connect & OAuth 2.0** 을 선택 합니다.
     * 액세스에 문제가 있는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
 
-- **Saml 2.0** 또는 **WS-급지되지**않음: 앱이 saml 2.0을 지 원하는 경우 지침에 따라 [사용자 지정 응용 프로그램을 추가](../active-directory-saas-custom-apps.md)하 여 Azure AD 테 넌 트와 직접 통합할 수 있습니다.
+- **Saml 2.0** 또는 **WS-급지되지**않음: 앱이 saml 2.0을 지 원하는 경우 지침에 따라 [사용자 지정 응용 프로그램을 추가](../manage-apps/view-applications-portal.md)하 여 Azure AD 테 넌 트와 직접 통합할 수 있습니다.
 
   ![갤러리에 SAML 2.0 또는 WS-급지됨 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 

@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696421"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120901"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS와 ADAL JS의 차이점
 
@@ -30,7 +30,7 @@ MSAL.js(JavaScript용 Microsoft 인증 라이브러리) 및 ADAL.js(JavaScript�
 
 대부분의 경우 Microsoft ID 플랫폼 및 최신 세대의 Microsoft 인증 라이브러리인 MSAL.js를 사용하려고 합니다. MSAL.js를 사용하면 Azure AD(회사 및 학교 계정), MSA(Microsoft (개인) 계정) 또는 Azure AD B2C를 사용하여 애플리케이션에 로그인하는 사용자에 대한 토큰을 획득할 수 있습니다.
 
-v1.0 엔드포인트(및 ADAL.js)에 이미 익숙한 경우 [v2.0 엔드포인트와의 차이점은?](active-directory-v2-compare.md)을 참조하는 것이 좋습니다.
+v1.0 엔드포인트(및 ADAL.js)에 이미 익숙한 경우 [v2.0 엔드포인트와의 차이점은?](../azuread-dev/azure-ad-endpoint-comparison.md)을 참조하는 것이 좋습니다.
 
 그러나 애플리케이션에서 이전 버전의 [ADFS(Active Directory Federation Services)](/windows-server/identity/active-directory-federation-services)를 사용하여 사용자를 로그인해야 하는 경우에도 여전히 ADAL.js를 사용해야 합니다.
 
@@ -73,7 +73,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
 * 증분 동의에 대한 동적 범위
 
-    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예를 들어:
+    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```javascript
     var request = {
@@ -96,4 +96,4 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
     ```
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [v1.0 및 v2.0 비교](active-directory-v2-compare.md)를 참조하세요.
+자세한 내용은 [v1.0 및 v2.0 비교](../azuread-dev/azure-ad-endpoint-comparison.md)를 참조하세요.

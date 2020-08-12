@@ -1,16 +1,16 @@
 ---
-title: Azure Lighthouse에 고객 등록
+title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133459"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118878"
 ---
-# <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 등록
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
 이 문서에서는 서비스 공급자로 고객을 Azure Lighthouse에 등록할 수 있는 방법을 설명 합니다. 이렇게 하면 [azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용 하 여 고객의 위임 된 리소스 (구독 및/또는 리소스 그룹)를 자체 Azure Active Directory (azure AD) 테 넌 트를 통해 액세스 하 고 관리할 수 있습니다.
 
@@ -86,7 +86,7 @@ az account show
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id

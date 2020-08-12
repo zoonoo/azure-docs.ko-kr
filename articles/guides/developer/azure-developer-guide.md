@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080320"
+ms.locfileid: "88120578"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -35,7 +35,7 @@ Azure에서 애플리케이션을 호스트하면 작은 애플리케이션부�
 
 Azure에서 제공 하는 모든 서비스를 사용 하 여 솔루션 아키텍처를 지 원하는 데 필요한 서비스를 파악 하는 것이 어려울 수 있습니다. 이 섹션에서는 개발자가 일반적으로 사용하는 Azure 서비스를 중점적으로 설명합니다. 모든 Azure 서비스 목록은 [Azure 설명서](../../index.yml)를 참조하세요.
 
-먼저, Azure에서 애플리케이션을 호스트하는 방법을 결정해야 합니다. 전체 인프라를 VM(가상 머신)으로 관리해야 하나요? Azure에서 제공하는 플랫폼 관리 기능을 사용할 수 있나요? 코드 실행만 호스트하는 서버를 사용하지 않는 프레임워크가 필요한가요?
+먼저, Azure에서 애플리케이션을 호스트하는 방법을 결정해야 합니다. 전체 인프라를 VM (가상 머신)으로 관리 해야 하나요? Azure에서 제공하는 플랫폼 관리 기능을 사용할 수 있나요? 코드 실행만 호스트하는 서버를 사용하지 않는 프레임워크가 필요한가요?
 
 애플리케이션에 Azure에서 몇 가지 옵션을 제공하는 클라우드 스토리지가 필요합니다. Azure의 엔터프라이즈 인증을 활용할 수 있습니다. 또한 클라우드 기반 개발 및 모니터링을 위한 도구가 있으며 대부분의 호스팅 서비스는 DevOps 통합을 제공합니다.
 

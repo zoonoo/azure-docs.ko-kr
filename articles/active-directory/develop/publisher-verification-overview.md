@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682430"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120782"
 ---
 # <a name="publisher-verification-preview"></a>게시자 확인(미리 보기)
 
@@ -42,13 +42,13 @@ Microsoft ID 플랫폼과 통합하는 애플리케이션 개발자의 신뢰성
 
 -  [확인](/partner-center/verification-responses) 프로세스를 완료한 유효한 [Microsoft 파트너 네트워크 계정](https://partner.microsoft.com/membership)의 MPN ID. MPN 계정은 조직의 [PGA(파트너 글로벌 계정)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga)여야 합니다. 
 
--  DNS가 확인된 [사용자 지정 도메인](/azure/active-directory/fundamentals/add-custom-domain)을 사용하는 Azure AD 테넌트. 사용자 지정 도메인은 이전 단계에서 확인하는 동안 사용된 이메일 주소의 도메인과 일치해야 합니다. 
+-  DNS가 확인된 [사용자 지정 도메인](../fundamentals/add-custom-domain.md)을 사용하는 Azure AD 테넌트. 사용자 지정 도메인은 이전 단계에서 확인하는 동안 사용된 이메일 주소의 도메인과 일치해야 합니다. 
 
 -  이전에 사용한 것과 동일한 도메인을 사용하여 구성된 [게시자 도메인](howto-configure-publisher-domain.md)을 사용하여 Azure AD 테넌트에 등록된 앱 
 
 -  확인을 수행하는 사용자는 Azure AD의 앱 등록과 파트너 센터의 MPN 계정을 변경할 수 있는 권한이 있어야 합니다. 
 
-    -  Azure AD에서 이 사용자는 앱의 소유자이거나 [역할](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)로 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 글로벌 관리자 중 하나가 할당되어야 합니다. 
+    -  Azure AD에서 이 사용자는 앱의 소유자이거나 [역할](../users-groups-roles/directory-assign-admin-roles.md)로 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 글로벌 관리자 중 하나가 할당되어야 합니다. 
 
     -  파트너 센터에서 이 사용자는 [역할](/partner-center/permissions-overview)로 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할) 중 하나가 할당되어야 합니다.
     
@@ -67,7 +67,7 @@ Microsoft ID 플랫폼과 통합하는 애플리케이션 개발자의 신뢰성
 
   또한 Microsoft 365와 통합하는 개발자는 이러한 프로그램의 추가 혜택을 얻을 수 있습니다. 자세한 내용은 [Microsoft 365 게시자 증명](/microsoft-365-app-certification/docs/attestation) 및 [Microsoft 365 앱 인증](/microsoft-365-app-certification/docs/certification)을 참조하세요. 
 
-- **Azure AD 애플리케이션 갤러리와 똑같은 것인가요?** 아니요, 게시자 확인은 [Azure Active Directory 애플리케이션 갤러리](/azure/active-directory/azuread-dev/howto-app-gallery-listing)를 보완하기는 하지만 별개의 프로그램입니다. 위의 조건을 충족하는 개발자는 해당 프로그램 참여 여부에 관계없이 게시자 확인 프로세스를 완료해야 합니다. 
+- **Azure AD 애플리케이션 갤러리와 똑같은 것인가요?** 아니요, 게시자 확인은 [Azure Active Directory 애플리케이션 갤러리](../azuread-dev/howto-app-gallery-listing.md)를 보완하기는 하지만 별개의 프로그램입니다. 위의 조건을 충족하는 개발자는 해당 프로그램 참여 여부에 관계없이 게시자 확인 프로세스를 완료해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [앱을 게시자 확인으로 표시](mark-app-as-publisher-verified.md)하는 방법을 알아봅니다.

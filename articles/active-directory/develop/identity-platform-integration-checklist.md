@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 9a1f86a78eaac96f2a6202b4ec29e99a0a978ff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554370"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116804"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft id 플랫폼 모범 사례 및 권장 사항
 
@@ -25,7 +25,7 @@ ms.locfileid: "85554370"
 
 방금 시작한 경우 [microsoft id 플랫폼 설명서](index.yml) 를 확인 하 여 인증 기본 사항, microsoft id 플랫폼의 응용 프로그램 시나리오 등에 대해 알아보세요.
 
-다음 검사 목록을 사용 하 여 응용 프로그램이 [Microsoft id 플랫폼과](https://docs.microsoft.com/azure/active-directory/develop/)효과적으로 통합 되었는지 확인 합니다.
+다음 검사 목록을 사용 하 여 응용 프로그램이 [Microsoft id 플랫폼과](./index.yml)효과적으로 통합 되었는지 확인 합니다.
 
 > [!TIP]
 > Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant (미리 보기)** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
@@ -58,9 +58,9 @@ ms.locfileid: "85554370"
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 사용자 이름/암호를 넘어 이동 합니다. 사용자 암호를 직접 처리 하는 [ROPC (리소스 소유자 암호 자격 증명 흐름)](v2-oauth-ropc.md)를 사용 하지 마세요. 이 흐름에는 높은 수준의 신뢰 및 사용자 노출이 필요 하며, 더 안전 하 고 다른 흐름을 사용할 수 없는 경우에만 사용 해야 합니다. 이 흐름은 DevOps와 같은 일부 시나리오에서는 여전히 필요하지만, 이 흐름을 사용하면 애플리케이션에 제약이 발생합니다.  최신 접근 방법은 [인증 흐름 및 응용 프로그램 시나리오](authentication-flows-app-scenarios.md)를 참조 하세요.
 
-![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 웹 앱, 웹 api 및 디먼 앱에 대 한 비밀 앱 자격 증명을 보호 하 고 관리 합니다. 암호 자격 증명 (클라이언트 암호)이 아닌 [인증서 자격 증명](active-directory-certificate-credentials.md)을 사용 합니다. 암호 자격 증명을 사용 해야 하는 경우 수동으로 설정 하지 마세요. 자격 증명은 코드 또는 구성에 저장 하지 않으며, 이러한 자격 증명은 사람이 처리할 수 없습니다. 가능 하면 Azure 리소스 또는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하 여 자격 증명을 저장 하 고 정기적으로 회전 합니다.
+![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 웹 앱, 웹 api 및 디먼 앱에 대 한 비밀 앱 자격 증명을 보호 하 고 관리 합니다. 암호 자격 증명 (클라이언트 암호)이 아닌 [인증서 자격 증명](active-directory-certificate-credentials.md)을 사용 합니다. 암호 자격 증명을 사용 해야 하는 경우 수동으로 설정 하지 마세요. 자격 증명은 코드 또는 구성에 저장 하지 않으며, 이러한 자격 증명은 사람이 처리할 수 없습니다. 가능 하면 Azure 리소스 또는 [Azure Key Vault](../../key-vault/general/basic-concepts.md) [관리 되는 id](../managed-identities-azure-resources/overview.md) 를 사용 하 여 자격 증명을 저장 하 고 정기적으로 회전 합니다.
 
-![확인란 ](./media/active-directory-integration-checklist/checkbox-two.svg) 응용 프로그램에서 최소 권한 권한을 요청 하는지 확인 합니다. 응용 프로그램에 필요한 권한만 필요한 경우에만 요청 합니다. 여러 [사용 권한 유형을](v2-permissions-and-consent.md#permission-types)이해 합니다. 필요한 경우 응용 프로그램 권한만 사용 합니다. 가능한 경우 위임 된 사용 권한을 사용 합니다. Microsoft Graph 사용 권한의 전체 목록은이 [권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
+![확인란 ](./media/active-directory-integration-checklist/checkbox-two.svg) 응용 프로그램에서 최소 권한 권한을 요청 하는지 확인 합니다. 응용 프로그램에 필요한 권한만 필요한 경우에만 요청 합니다. 여러 [사용 권한 유형을](v2-permissions-and-consent.md#permission-types)이해 합니다. 필요한 경우 응용 프로그램 권한만 사용 합니다. 가능한 경우 위임 된 사용 권한을 사용 합니다. Microsoft Graph 사용 권한의 전체 목록은이 [권한 참조](/graph/permissions-reference)를 참조 하세요.
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) Microsoft id 플랫폼을 사용 하 여 API를 보호 하는 경우 노출 해야 하는 사용 권한을 신중 하 게 고려해 야 합니다. 솔루션에 대 한 올바른 세분성과 관리자 동의가 필요한 권한을 고려 합니다. 권한 부여를 결정 하기 전에 들어오는 토큰에 필요한 권한이 있는지 확인 하십시오.
 
@@ -68,7 +68,7 @@ ms.locfileid: "85554370"
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)최신 인증 솔루션 (OAuth 2.0, [openid connect Connect](v2-protocols-oidc.md))을 사용 하 여 안전 하 게 사용자에 게 로그인 합니다.
 
-![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 OAuth 2.0 및 OPEN ID와 같은 프로토콜에 대해 직접 프로그래밍할 필요가 없습니다. 대신 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 활용 하세요. MSAL 라이브러리는 사용 하기 쉬운 라이브러리에서 보안 프로토콜을 안전 하 게 래핑하고 [조건부 액세스](/azure/active-directory/conditional-access/overview) 시나리오, 장치 차원의 [SSO (Single Sign-On](/azure/active-directory/manage-apps/what-is-single-sign-on)) 및 기본 제공 토큰 캐싱 지원에 대 한 지원을 기본적으로 제공 합니다. 자세한 내용은 Microsoft 지원 되는 [클라이언트 라이브러리](reference-v2-libraries.md#microsoft-supported-client-libraries) 및 [미들웨어 라이브러리](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) 목록과 [호환 되는 타사 클라이언트 라이브러리](reference-v2-libraries.md#compatible-client-libraries)목록을 참조 하십시오.<br/><br/>인증 프로토콜에 대 한 코드를 직접 실행 해야 하는 경우 [MICROSOFT SDL](https://www.microsoft.com/sdl/default.aspx)과 같은 방법을 따라야 합니다. 각 프로토콜에 대 한 표준 사양에서 보안 고려 사항에 주의 하세요.
+![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 OAuth 2.0 및 OPEN ID와 같은 프로토콜에 대해 직접 프로그래밍할 필요가 없습니다. 대신 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 활용 하세요. MSAL 라이브러리는 사용 하기 쉬운 라이브러리에서 보안 프로토콜을 안전 하 게 래핑하고 [조건부 액세스](../conditional-access/overview.md) 시나리오, 장치 차원의 [SSO (Single Sign-On](../manage-apps/what-is-single-sign-on.md)) 및 기본 제공 토큰 캐싱 지원에 대 한 지원을 기본적으로 제공 합니다. 자세한 내용은 Microsoft 지원 되는 [클라이언트 라이브러리](reference-v2-libraries.md#microsoft-supported-client-libraries) 및 [미들웨어 라이브러리](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) 목록과 [호환 되는 타사 클라이언트 라이브러리](reference-v2-libraries.md#compatible-client-libraries)목록을 참조 하십시오.<br/><br/>인증 프로토콜에 대 한 코드를 직접 실행 해야 하는 경우 [MICROSOFT SDL](https://www.microsoft.com/sdl/default.aspx)과 같은 방법을 따라야 합니다. 각 프로토콜에 대 한 표준 사양에서 보안 고려 사항에 주의 하세요.
 
 ![확인란 ](./media/active-directory-integration-checklist/checkbox-two.svg) [ADAL (Azure Active Directory Authentication library)](../azuread-dev/active-directory-authentication-libraries.md) 에서 [Microsoft 인증 라이브러리로](msal-overview.md)기존 앱을 마이그레이션합니다. MSAL은 Microsoft의 최신 id 플랫폼 솔루션 이며 ADAL에서 선호 됩니다. 이 버전은 .NET, JavaScript, Android, iOS, macOS에서 사용할 수 있으며 Python 및 Java에 대 한 공개 미리 보기에도 있습니다. [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), [ADAL.NET 및 iOS broker](msal-net-migration-ios-broker.md) 앱 마이그레이션에 대해 자세히 알아보세요.
 

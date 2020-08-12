@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885585"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115478"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
 
@@ -28,10 +28,10 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
 
 동의란 사용자가 자신을 대신해 보호되는 리소스에 액세스하기 위해 애플리케이션에 권한을 부여하는 프로세스를 말합니다. 관리자 또는 사용자에게 조직/개인 데이터에 대한 액세스를 허용하도록 동의를 요청할 수 있습니다.
 
-동의를 부여하는 실제 사용자 환경은 사용자의 테넌트, 사용자의 권한(또는 역할) 범위 및 클라이언트 애플리케이션에서 요청한 [사용 권한](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) 형식에 따라 달라집니다. 즉, 애플리케이션 개발자와 테넌트 관리자는 동의 환경을 어느 정도 제어할 수 있습니다. 관리자는 테넌트에서 동의 환경을 제어하기 위해 테넌트 또는 앱에서 정책을 유연하게 사용 및 사용하지 않도록 설정할 수 있습니다. 애플리케이션 개발자는 어떤 유형의 사용 권한을 요청하는지 및 사용자 동의 흐름 또는 관리자 동의 흐름을 통해 사용자를 안내하려는지 여부를 결정할 수 있습니다.
+동의를 부여하는 실제 사용자 환경은 사용자의 테넌트, 사용자의 권한(또는 역할) 범위 및 클라이언트 애플리케이션에서 요청한 [사용 권한](../azuread-dev/v1-permissions-consent.md) 형식에 따라 달라집니다. 즉, 애플리케이션 개발자와 테넌트 관리자는 동의 환경을 어느 정도 제어할 수 있습니다. 관리자는 테넌트에서 동의 환경을 제어하기 위해 테넌트 또는 앱에서 정책을 유연하게 사용 및 사용하지 않도록 설정할 수 있습니다. 애플리케이션 개발자는 어떤 유형의 사용 권한을 요청하는지 및 사용자 동의 흐름 또는 관리자 동의 흐름을 통해 사용자를 안내하려는지 여부를 결정할 수 있습니다.
 
 - **사용자 동의 흐름** - 애플리케이션 개발자가 현재 사용자만의 동의를 기록하려는 목적으로 권한 부여 엔드포인트로 사용자를 안내하는 경우입니다.
-- **관리자 동의 흐름** - 애플리케이션 개발자가 전체 테넌트의 동의를 기록하려는 목적으로 관리자 동의 엔드포인트로 사용자를 안내하는 경우입니다. 관리자 동의 흐름이 제대로 작동되도록 하려면 애플리케이션 개발자는 애플리케이션 매니페스트의 `RequiredResourceAccess` 속성에서 모든 사용 권한을 나열해야 합니다. 자세한 내용은 [애플리케이션 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)를 참조하세요.
+- **관리자 동의 흐름** - 애플리케이션 개발자가 전체 테넌트의 동의를 기록하려는 목적으로 관리자 동의 엔드포인트로 사용자를 안내하는 경우입니다. 관리자 동의 흐름이 제대로 작동되도록 하려면 애플리케이션 개발자는 애플리케이션 매니페스트의 `RequiredResourceAccess` 속성에서 모든 사용 권한을 나열해야 합니다. 자세한 내용은 [애플리케이션 매니페스트](./reference-app-manifest.md)를 참조하세요.
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>동의 확인 프롬프트의 구성 요소
 
@@ -81,6 +81,6 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
     1. 비관리 사용자에게는 위에 표시된 2.ii와 동일한 화면이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure AD 동의 프레임워크가 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에 대한 단계별 개요 확인
-- 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 동의 프레임워크를 사용하여](active-directory-devhowto-multi-tenant-overview.md) "user" 및 "admin" 동의를 구현하고 좀 더 수준 높은 다중 계층 애플리케이션 패턴을 지원하는 방법 알아보기
+- [Azure AD 동의 프레임워크가 동의를 구현하는 방법](./quickstart-register-app.md)에 대한 단계별 개요 확인
+- 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 동의 프레임워크를 사용하여](./howto-convert-app-to-be-multi-tenant.md) "user" 및 "admin" 동의를 구현하고 좀 더 수준 높은 다중 계층 애플리케이션 패턴을 지원하는 방법 알아보기
 - [앱의 게시자 도메인을 구성 하는 방법](howto-configure-publisher-domain.md)에 대해 알아봅니다.

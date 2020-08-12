@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067633"
+ms.locfileid: "88120646"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -105,7 +105,9 @@ Azure Storage는 데이터베이스의 모든 데이터 파일을 포함 합니�
 
 ## <a name="backup-and-restore"></a>백업 및 복원
 
-백업은 파일-스냅숏 기반 이므로 거의 즉각적입니다. 저장소 및 계산 분리를 사용 하면 백업/복원 작업을 저장소 계층에 푸시하여 기본 계산 복제본의 처리 부담을 줄일 수 있습니다. 따라서 데이터베이스 백업은 기본 계산 노드의 성능에 영향을 주지 않습니다. 마찬가지로 복원은 파일 스냅숏으로 되돌리고 데이터 작업의 크기와는 다른 방식으로 수행 됩니다. 복원은 일정 시간 작업이 며 몇 시간 또는 며칠이 아닌 몇 분만에 여러 테라바이트 데이터베이스를 복원할 수 있습니다. 기존 백업을 복원 하 여 새 데이터베이스를 만들면이 기능이 활용 됩니다. 또한 1tb 크기의 데이터베이스를 포함 하 여 개발 또는 테스트 목적으로 데이터베이스 복사본을 만드는 작업은 몇 분 안에 심지어 됩니다.
+백업은 파일-스냅숏 기반 이므로 거의 즉각적입니다. 저장소 및 계산 분리를 사용 하면 백업/복원 작업을 저장소 계층에 푸시하여 기본 계산 복제본의 처리 부담을 줄일 수 있습니다. 따라서 데이터베이스 백업은 기본 계산 노드의 성능에 영향을 주지 않습니다. 마찬가지로 PITR (지정 시간 복구)는 파일 스냅숏으로 되돌리고 데이터 작업의 크기가 아니라는 것입니다. 동일한 Azure 지역에 있는 하이퍼 규모의 데이터베이스 복원은 일정 시간 작업이 며 몇 시간 또는 며칠이 아닌 몇 분 안에 여러 테라바이트 데이터베이스를 복원할 수 있습니다. 기존 백업을 복원 하 여 새 데이터베이스를 만들면이 기능이 활용 됩니다. 또한 1tb 크기의 데이터베이스를 포함 하 여 개발 또는 테스트 목적으로 데이터베이스 복사본을 만드는 작업은 몇 분 안에 심지어 됩니다.
+
+하이퍼 규모의 데이터베이스에 대 한 지역 복원의 경우 [다른 지역으로 hyperscale 데이터베이스 복원](#restoring-a-hyperscale-database-to-a-different-region)을 참조 하세요.
 
 ## <a name="scale-and-performance-advantages"></a>확장 및 성능상의 이점
 
@@ -156,7 +158,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Hyperscale 데이터베이스에 대 한 재해 복구
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>다른 지리로 Hyperscale 데이터베이스 복원
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>다른 지역으로 Hyperscale 데이터베이스 복원
 
 Azure SQL Database의 Hyperscale 데이터베이스를 현재 호스트 되는 지역이 아닌 다른 지역으로 복원 해야 하는 경우 재해 복구 작업 또는 드릴, 재배치 또는 기타 이유로 인해 주 방법은 데이터베이스의 지역 복원을 수행 하는 것입니다. 여기에는 SQL Database의 다른 데이터베이스를 다른 지역으로 복원 하는 데 사용 하는 것과 정확히 같은 단계가 포함 됩니다.
 
@@ -216,7 +218,7 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 
 이는 GA를 기준으로 하는 Hyperscale 서비스 계층에 대 한 현재 제한 사항입니다.  가능한 한 많은 제한 사항을 제거 하기 위해 적극적으로 노력 하 고 있습니다.
 
-| 문제 | 설명 |
+| 문제 | Description |
 | :---- | :--------- |
 | 서버에 대 한 백업 관리 창에는 Hyperscale 데이터베이스가 표시 되지 않습니다. 이러한 필터는 뷰에서 필터링 됩니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있으므로 장기 보존 및 지정 시간 백업 보존 설정이 적용 되지 않습니다. 따라서 Hyperscale 데이터베이스는 백업 관리 창에 표시 되지 않습니다.<br><br>다른 Azure SQL Database 서비스 계층에서 Hyperscale으로 마이그레이션된 데이터베이스의 경우 마이그레이션 전 백업은 원본 데이터베이스의 [백업 보존](automated-backups-overview.md#backup-retention) 기간 동안 유지 됩니다. 이러한 백업은 마이그레이션 전 시점으로 원본 데이터베이스를 [복원](recovery-using-backups.md#programmatic-recovery-using-automated-backups) 하는 데 사용할 수 있습니다.|
 | 지정 시간 복원 | Hyperscale이 아닌 데이터베이스를 하이퍼 규모의 데이터베이스로 복원할 수 없으며 Hyperscale 데이터베이스를 비 Hyperscale 데이터베이스로 복원할 수 없습니다. 서비스 계층을 변경 하 여 Hyperscale으로 마이그레이션된 비 Hyperscale 데이터베이스의 경우 마이그레이션 전 지정 시간으로 복원 하 고 데이터베이스의 백업 보존 기간 내에서 [프로그래밍 방식으로](recovery-using-backups.md#programmatic-recovery-using-automated-backups)데이터베이스를 실행 합니다. 복원 된 데이터베이스는 Hyperscale이 아닙니다. |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 9388ef4aa320147815bec79c2fa4b90bce3cdac1
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 56d2e01d35f25ac469e808a805382463d2b23ceb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846142"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121105"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 데스크톱 앱: 코드 구성
 
@@ -107,8 +107,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법에 대 한 자세한 내용은 다음과 같습니다.
 
-- 에서 사용할 수 있는 모든 한정자 목록은 `PublicClientApplicationBuilder` 참조 설명서 [Publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)를 참조 하세요.
-- 에서 제공 하는 모든 옵션에 대 한 설명은 `PublicClientApplicationOptions` 참조 설명서의 [Publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) 를 참조 하세요.
+- 에서 사용할 수 있는 모든 한정자 목록은 `PublicClientApplicationBuilder` 참조 설명서 [Publicclientapplicationbuilder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)를 참조 하세요.
+- 에서 제공 하는 모든 옵션에 대 한 설명은 `PublicClientApplicationOptions` 참조 설명서의 [Publicclientapplicationoptions](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) 를 참조 하세요.
 
 ### <a name="complete-example-with-configuration-options"></a>구성 옵션을 사용 하는 전체 예제
 

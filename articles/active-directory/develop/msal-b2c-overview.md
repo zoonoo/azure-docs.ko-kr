@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f43711652bb205c75870fdb969c44298087a2b07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308580"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119793"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>JavaScript 용 Microsoft 인증 라이브러리를 사용 하 여 Azure AD B2C 작업
 
@@ -44,7 +44,7 @@ Id 관리 서비스로 Azure AD B2C를 사용 하 여 고객이 응용 프로그
 
 ### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 
-Azure AD B2C를 사용 하 여 web API를 보호 하려면 먼저 등록 해야 합니다. 자세한 단계는 [애플리케이션 등록](../../active-directory-b2c/add-web-application.md)을 참조하세요.
+Azure AD B2C를 사용 하 여 web API를 보호 하려면 먼저 등록 해야 합니다. 자세한 단계는 [애플리케이션 등록](../../active-directory-b2c/add-web-api-application.md)을 참조하세요.
 
 ### <a name="step-2-download-the-sample-application"></a>2 단계: 샘플 응용 프로그램 다운로드
 

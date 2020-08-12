@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: damendo
-ms.openlocfilehash: 14b4d3568c129c77260b00d554db520809dfd670
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dff5519c1b36a0a7738cb2529c2f4460ecf61e48
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068294"
+ms.locfileid: "88117838"
 ---
-# <a name="data-residency-for-the-azure-network-watcher"></a>Azure Network Watcher에 대 한 데이터 상주
+# <a name="data-residency-for-azure-network-watcher"></a>Azure Network Watcher에 대 한 데이터 상주
 Azure Network Watcher는 연결 모니터 (미리 보기) 서비스를 제외 하 고 고객 데이터를 저장 하지 않습니다.
 
 

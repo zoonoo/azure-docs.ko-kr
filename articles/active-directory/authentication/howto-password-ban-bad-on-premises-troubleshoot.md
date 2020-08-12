@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035488"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116464"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>문제 해결: 온-프레미스 Azure AD 암호 보호
 
@@ -72,7 +72,20 @@ Azure AD 암호 보호는 Microsoft 키 배포 서비스에서 제공 하는 암
 
    KDS 보안 픽스는 KDS 암호화 된 버퍼의 형식을 수정 하는 Windows Server 2016에서 도입 되었습니다. 이러한 버퍼는 Windows Server 2012 및 Windows Server 2012 r 2에서 암호 해독에 실패할 수 있습니다. 역방향은 Windows server 2012에서 KDS 암호화 된 정상 버퍼 이며 windows server 2012 r 2는 windows Server 2016 이상에서 항상 암호를 해독 합니다. Active Directory 도메인의 도메인 컨트롤러에서 이러한 운영 체제를 혼합 하 여 실행 하는 경우 Azure AD 암호 보호 암호 해독 실패가 가끔 보고 될 수 있습니다. 보안 수정의 특성에 따라 이러한 오류의 타이밍 또는 증상을 정확 하 게 예측할 수 없으며, 지정 된 시간에 도메인 컨트롤러에서 데이터를 암호화 하는 Azure AD 암호 보호 DC 에이전트가 명확 하지 않을 수 있습니다.
 
-   Microsoft는이 문제에 대 한 픽스를 조사 하지만 아직 에타를 사용할 수 없습니다. 그 동안에는 Active Directory 도메인에서 호환 되지 않는 이러한 운영 체제를 혼합 하 여 실행 하지 않도록 하는 것 외에이 문제에 대 한 해결 방법이 없습니다. 즉, windows Server 2012 및 Windows Server 2012 R2 도메인 컨트롤러만 실행 하거나 Windows Server 2016 이상 도메인 컨트롤러만 실행 해야 합니다.
+   Active Directory 도메인에서 호환 되지 않는 이러한 운영 체제를 혼합 하 여 실행 하지 않는 것이 아니라이 문제에 대 한 해결 방법이 없습니다. 즉, windows Server 2012 및 Windows Server 2012 R2 도메인 컨트롤러만 실행 하거나 Windows Server 2016 이상 도메인 컨트롤러만 실행 해야 합니다.
+
+## <a name="dc-agent-thinks-the-forest-has-not-been-registered"></a>DC 에이전트는 포리스트가 등록 되지 않은 것으로 간주 합니다.
+
+이 문제의 증상은 다음과 같이 Agent\Admin 채널에 기록 되는 30016 이벤트입니다.
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+이 문제에 대 한 두 가지 원인이 있을 수 있습니다.
+
+1. 포리스트가 실제로 등록 되지 않았습니다. 이 문제를 해결 하려면 [배포 요구 사항](howto-password-ban-bad-on-premises-deploy.md)에 설명 된 대로 AzureADPasswordProtectionForest 명령을 실행 하세요.
+1. 포리스트가 등록 되었지만 DC 에이전트가 포리스트 등록 데이터를 해독할 수 없습니다. 이 경우 위에 나열 된 문제 #2의 근본 원인이 [DC 에이전트에서 암호 정책 파일을 암호화 하거나 암호 해독할 수 없습니다](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). 이 이론적으로 확인 하는 쉬운 방법은 windows server 2012 또는 Windows Server 2012R2 도메인 컨트롤러에서 실행 되는 DC 에이전트에만이 오류가 표시 되 고, Windows Server 2016 이상 도메인 컨트롤러에서 실행 되는 DC 에이전트는 잘 표시 된다는 것입니다. 해결 방법은 모든 도메인 컨트롤러를 Windows Server 2016 이상으로 업그레이드 하는 것과 같습니다.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>약한 암호는 허용 되지만
 

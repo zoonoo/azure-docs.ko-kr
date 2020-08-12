@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fc4de3ef934e2d1b9dcff46c78f45e7d0f3b6d8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845462"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117739"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -105,7 +105,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
 | grant_type |required | 토큰 요청의 형식입니다. OBO 요청은 JWT(JSON Web Token)을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | 어설션 |required | 요청에 사용된 액세스 토큰 값입니다. |
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
 | grant_type |required | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | 어설션 |required | 요청에 사용된 토큰 값입니다. |
@@ -177,7 +177,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 성공 응답은 다음 매개 변수가 있는 JSON OAuth 2.0 응답입니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 | scope |토큰에 부여된 액세스 범위입니다. |
@@ -249,7 +249,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
 | grant_type |required | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | 어설션 |required | 요청에 사용된 액세스 토큰 값입니다.|
@@ -264,11 +264,11 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 - **OBO 호출에 기반한 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에서 **SubjectConfirmationData**의 받는 사람 값이 필요한 경우 이 값은 리소스 애플리케이션 구성의 비 와일드카드 회신 URL이어야 합니다.
 - **SubjectConfirmationData 노드**: 이 노드는 SAML 응답의 일부가 아니므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
 
-- **동의**: OAuth 흐름에서 사용자 데이터가 포함된 SAML 토큰을 받으려면 동의를 부여해야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent)를 참조하세요.
+- **동의**: OAuth 흐름에서 사용자 데이터가 포함된 SAML 토큰을 받으려면 동의를 부여해야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](./v1-permissions-consent.md)를 참조하세요.
 
 ### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 | scope |토큰에 부여된 액세스 범위입니다. |

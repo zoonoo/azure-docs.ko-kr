@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: fc71ebe61fba8c1bdb6b7625b16a50d8995a581a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8de6a7aafdd402e4ee75862e69ac60af3af0e041
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883356"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114934"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대한 토큰 수명 기본값을 변경하는 방법
 
@@ -29,5 +29,5 @@ ms.locfileid: "80883356"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 조직의 모든 앱, 다중 테넌트 앱 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성하는 방법을 비롯하여 Azure AD에서 발급하는 토큰 수명을 구성하는 방법을 알아보려면 [Azure AD에서 구성 가능한 토큰 수명](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)을 참조하세요. 
-* [Azure AD 토큰 참조](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* 조직의 모든 앱, 다중 테넌트 앱 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성하는 방법을 비롯하여 Azure AD에서 발급하는 토큰 수명을 구성하는 방법을 알아보려면 [Azure AD에서 구성 가능한 토큰 수명](./active-directory-configurable-token-lifetimes.md)을 참조하세요. 
+* [Azure AD 토큰 참조](./id-tokens.md)

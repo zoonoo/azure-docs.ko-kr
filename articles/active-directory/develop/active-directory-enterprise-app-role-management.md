@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478623"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116090"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
@@ -88,7 +88,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       ![수정해야 하는 서비스 사용자 가져오기에 대한 쿼리](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    예: 서비스 주체 개체에서 **Approles** 속성을 추출 합니다.
+    g. 서비스 주체 개체에서 **Approles** 속성을 추출 합니다.
 
       ![appRoles 속성의 세부 정보](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
@@ -265,7 +265,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 단계는 [앱 설명서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)를 참조하세요.
+추가 단계는 [앱 설명서](../saas-apps/tutorial-list.md)를 참조하세요.
 
 <!--Image references-->
 <!--Image references-->

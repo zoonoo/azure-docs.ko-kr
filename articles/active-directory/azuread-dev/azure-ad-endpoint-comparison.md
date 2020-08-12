@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034910"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116396"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Microsoft ID 플랫폼(v2.0)으로 업데이트하는 이유
 
@@ -33,9 +33,9 @@ ms.locfileid: "87034910"
 
 * v1.0 엔드포인트의 경우 회사 및 학교 계정만 애플리케이션(Azure AD)에 로그인할 수 있습니다.
 * Microsoft id 플랫폼 끝점을 사용 하면 Azure AD의 회사 및 학교 계정과 hotmail.com, outlook.com 및 msn.com와 같은 개인 Microsoft 계정 (MSA)을 사용 하 여 로그인 할 수 있습니다.
-* 두 끝점은 *[단일 테 넌](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* 트로 구성 된 응용 프로그램에 대 한 Azure AD 디렉터리의 *[게스트 사용자](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* 에 대 한 로그인 이나 테 넌 트 별 끝점 ()을 가리키도록 구성 된 *다중 테 넌 트* 응용 프로그램의 로그인도 허용 `https://login.microsoftonline.com/{TenantId_or_Name}` 합니다.
+* 두 끝점은 *[단일 테 넌](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* 트로 구성 된 응용 프로그램에 대 한 Azure AD 디렉터리의 *[게스트 사용자](../external-identities/what-is-b2b.md)* 에 대 한 로그인 이나 테 넌 트 별 끝점 ()을 가리키도록 구성 된 *다중 테 넌 트* 응용 프로그램의 로그인도 허용 `https://login.microsoftonline.com/{TenantId_or_Name}` 합니다.
 
-Microsoft id 플랫폼 끝점을 사용 하 여 개인 Microsoft 계정, 회사 및 학교 계정에서의 로그인을 허용 하는 앱을 작성할 수 있습니다. 따라서 완전히 계정에 제약이 없는 앱을 작성할 수 있습니다. 예를 들어 앱이 [Microsoft Graph](https://graph.microsoft.io)를 호출하는 경우 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 회사 계정에서 사용할 수 있습니다. 단, [사용자의 이메일 읽기](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0)와 같은 많은 작업에서 동일한 코드가 개인 계정과 회사 및 학교 계정 이메일 모두에 액세스할 수 있습니다.
+Microsoft id 플랫폼 끝점을 사용 하 여 개인 Microsoft 계정, 회사 및 학교 계정에서의 로그인을 허용 하는 앱을 작성할 수 있습니다. 따라서 완전히 계정에 제약이 없는 앱을 작성할 수 있습니다. 예를 들어 앱이 [Microsoft Graph](https://graph.microsoft.io)를 호출하는 경우 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 회사 계정에서 사용할 수 있습니다. 단, [사용자의 이메일 읽기](/graph/api/user-list-messages?view=graph-rest-1.0)와 같은 많은 작업에서 동일한 코드가 개인 계정과 회사 및 학교 계정 이메일 모두에 액세스할 수 있습니다.
 
 Microsoft id 플랫폼 끝점의 경우 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 소비자, 교육 및 엔터프라이즈에 대 한 액세스 권한을 얻을 수 있습니다. Azure AD v1.0 엔드포인트는 회사 및 학교 계정에서만 로그인을 허용합니다.
 
@@ -141,7 +141,7 @@ Microsoft id 플랫폼 끝점과 통합 하려는 각 앱에 대해 Azure Portal
 
 ### <a name="restrictions-on-redirect-urls"></a>리디렉션 URI에 대한 제한
 
-Microsoft id 플랫폼용으로 등록 된 앱에 대 한 리디렉션 Url의 제한 사항에 대 한 최신 정보는 Microsoft id 플랫폼 설명서의 [리디렉션 URI/회신 URL 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/develop/reply-url) 을 참조 하세요.
+Microsoft id 플랫폼용으로 등록 된 앱에 대 한 리디렉션 Url의 제한 사항에 대 한 최신 정보는 Microsoft id 플랫폼 설명서의 [리디렉션 URI/회신 URL 제한 및 제한 사항](../develop/reply-url.md) 을 참조 하세요.
 
 Microsoft id 플랫폼에서 사용 하기 위해 앱을 등록 하는 방법을 알아보려면 [새로운 앱 등록 환경을 사용 하 여 앱 등록](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조 하세요.
 

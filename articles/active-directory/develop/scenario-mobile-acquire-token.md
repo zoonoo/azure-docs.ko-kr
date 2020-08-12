@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541909"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121088"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱에 대 한 토큰 가져오기
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`에는 필수 매개 변수가 `scopes` 하나만 있습니다. `scopes`매개 변수는 토큰을 필요로 하는 범위를 정의 하는 문자열을 열거 합니다. Microsoft Graph에 대 한 토큰의 경우 각 Microsoft Graph API에 대 한 API 참조에서 필요한 범위를 찾을 수 있습니다. 참조에서 "사용 권한" 섹션으로 이동 합니다.
 
-예를 들어 [사용자의 연락처를 나열](https://docs.microsoft.com/graph/api/user-list-contacts)하려면 "User. read", "Contact. read" 범위를 사용 합니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)를 참조하세요.
+예를 들어 [사용자의 연락처를 나열](/graph/api/user-list-contacts)하려면 "User. read", "Contact. read" 범위를 사용 합니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)를 참조하세요.
 
 Android에서를 사용 하 여 앱을 만들 때 부모 활동을 지정할 수 있습니다 `PublicClientApplicationBuilder` . 이때 부모 활동을 지정 하지 않으면 나중에 `.WithParentActivityOrWindow` 다음 섹션에서와 같이을 사용 하 여 지정할 수 있습니다. 부모 작업을 지정 하는 경우 토큰은 상호 작용 후 해당 부모 작업으로 돌아갑니다. 지정 하지 않으면 `.ExecuteAsync()` 호출에서 예외가 throw 됩니다.
 
@@ -234,7 +234,7 @@ Android에서를 사용 하 여 앱을 만들 때 부모 활동을 지정할 수
 - `ForceLogin`프롬프트가 필요 하지 않은 경우에도 서비스에서 사용자에 게 자격 증명을 묻는 메시지를 표시 하도록 합니다.
 
     이 옵션은 토큰 획득에 실패 하 고 사용자가 다시 로그인 할 수 있도록 하려는 경우에 유용할 수 있습니다. 이 경우 MSAL이 ID 공급자에게 `prompt=login`을 보냅니다. 조직의 거 버 넌 스에서 사용자가 응용 프로그램의 특정 부분에 액세스할 때마다 로그인 해야 하는 보안 중심 응용 프로그램에서이 옵션을 사용 하는 것이 좋습니다.
-- `Never`는 .NET 4.5 및 Windows 런타임 (WinRT)에만 해당 됩니다. 이 상수는 사용자에 게 메시지를 표시 하지 않지만 숨겨진 포함 된 웹 보기에 저장 된 쿠키를 사용 하려고 합니다. 자세한 내용은 [MSAL.NET에서 웹 브라우저 사용](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers)을 참조 하세요.
+- `Never`는 .NET 4.5 및 Windows 런타임 (WinRT)에만 해당 됩니다. 이 상수는 사용자에 게 메시지를 표시 하지 않지만 숨겨진 포함 된 웹 보기에 저장 된 쿠키를 사용 하려고 합니다. 자세한 내용은 [MSAL.NET에서 웹 브라우저 사용](./msal-net-web-browsers.md)을 참조 하세요.
 
     이 옵션을 `AcquireTokenInteractive` 사용할 수 없는 경우에서는 UI 조작이 필요 하다는 메시지를 표시 하는 예외를 throw 합니다. 그런 다음 다른 매개 변수를 사용 해야 `Prompt` 합니다.
 - `NoPrompt`는 id 공급자에 게 프롬프트를 보내지 않습니다.

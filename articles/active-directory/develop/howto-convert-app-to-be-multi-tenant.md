@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d3810d3998f82127fc32327f696a2784382b4537
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201959"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117042"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -47,7 +47,7 @@ ms.locfileid: "86201959"
 기본적으로 Azure Portal을 통해 만든 앱에는 해당 앱을 만들 때 고유한 글로벌 앱 ID URI가 설정되지만 이 값은 변경할 수 있습니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 `https://contoso.onmicrosoft.com/myapp`이 될 것입니다. 테넌트가 확인된 도메인 `contoso.com`를 가진 경우, 유효한 앱 ID URI은 또한 `https://contoso.com/myapp`이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 애플리케이션을 다중 테넌트로 설정하지 못합니다.
 
 > [!NOTE]
-> 네이티브 클라이언트 등록 및 [Microsoft id 플랫폼 응용 프로그램](./active-directory-appmodel-v2-overview.md) 은 기본적으로 다중 테 넌 트입니다. 따라서 이러한 애플리케이션 등록을 다중 테넌트에 지정하는 작업은 수행할 필요가 없습니다.
+> 네이티브 클라이언트 등록 및 [Microsoft id 플랫폼 응용 프로그램](./v2-overview.md) 은 기본적으로 다중 테 넌 트입니다. 따라서 이러한 애플리케이션 등록을 다중 테넌트에 지정하는 작업은 수행할 필요가 없습니다.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>/common에 요청을 보내도록 코드를 업데이트합니다.
 
@@ -155,7 +155,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 애플리케이션의 다른 계층이 다른 테넌트에 등록되어 있다면 유사한 사례가 발생합니다. 예를 들어 Office 365 Exchange Online API를 호출하는 네이티브 클라이언트 애플리케이션을 빌드하는 경우를 생각해 보겠습니다. 네이티브 애플리케이션을 개발하고, 그 후 네이티브 애플리케이션이 고객 테넌트에서 실행되도록 하려면 Exchange Online 서비스 주체가 있어야 합니다. 이 경우에 개발자 및 고객이 자신의 테넌트에 서비스 주체가 생성되도록 하려면 Exchange Online를 구매해야 합니다.
 
-Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
+Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 이렇게 하려면 다음을 수행합니다.
 
 1. 이전 섹션에 따라 API에서 다중 테넌트 애플리케이션 등록/코드 요구 사항을 구현하는지 확인합니다.
 2. API의 범위/역할을 노출 하는 것 외에, 등록에 "로그인 및 사용자 프로필 읽기" 권한이 포함 되어 있는지 확인 합니다 (기본적으로 제공 됨).
@@ -188,7 +188,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 * [다중 테 넌 트 응용 프로그램 샘플](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [애플리케이션에 대한 브랜딩 지침][AAD-App-Branding]
 * [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
-* [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
+* [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
 * [동의 프레임워크 개요][AAD-Consent-Overview]
 * [Microsoft Graph API 권한 범위][MSFT-Graph-permission-scopes]
 
@@ -201,7 +201,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
+[AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
@@ -226,9 +226,9 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
+[O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
+[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6

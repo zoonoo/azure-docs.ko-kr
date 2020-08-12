@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848739"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117025"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -110,6 +110,11 @@ Azure AD 사용자가 MFA를 사용하도록 설정하려면 [클라우드에서
 계정에서 MFA를 사용하도록 설정하면 2단계 인증을 사용하여 인증한 두 번째 인증 요소에 사용할 신뢰할 수 있는 디바이스를 성공적으로 구성할 때까지는 MFA 정책이 적용되는 리소스에 로그인할 수 없습니다.
 
 [Azure Multi-Factor Authentication은 무엇을 의미하나요?](../user-help/multi-factor-authentication-end-user.md)의 단계에 따라 사용자 계정으로 MFA용 디바이스를 이해하고 제대로 구성하세요.
+
+> [!IMPORTANT]
+> 원격 데스크톱 게이트웨이에 대 한 로그인 동작은 Azure Multi-Factor Authentication에서 확인 코드를 입력 하는 옵션을 제공 하지 않습니다. 휴대폰 확인 또는 푸시 알림이 있는 Microsoft Authenticator 앱에 대해 사용자 계정을 구성 해야 합니다.
+>
+> 이러한 두 인증 방법 중 하나가 사용자에 대해 구성 되지 않은 경우 Azure Multi-Factor Authentication 챌린지를 완료 하 고 원격 데스크톱 게이트웨이에 로그인 할 수 없습니다.
 
 ## <a name="install-and-configure-nps-extension"></a>NPS 확장 설치 및 구성
 

@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: bae052e06aae4881dd7203a5616b35e9c96997fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551730"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117790"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -59,7 +59,7 @@ https://<mynamespace>.accesscontrol.windows.net
 
 이에 대한 예외는 모든 `https://accounts.accesscontrol.windows.net` 트래픽입니다. 이 URL로 전달되는 트래픽은 다른 서비스에 의해 처리되기 때문에 Access Control 사용 중지의 영향을 받지 **않습니다**. 
 
-Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)](https://msdn.microsoft.com/library/hh147631.aspx)을 참조하세요.
+Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)](/previous-versions/azure/azure-services/hh147631(v=azure.100))을 참조하세요.
 
 ## <a name="find-out-which-of-your-apps-will-be-impacted"></a>어떤 앱이 영향을 받을지 확인합니다.
 
@@ -129,13 +129,13 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 
 | 서비스 | 지침 |
 | ------- | -------- |
-| Azure Service Bus | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure Service Bus Relay | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Azure Cache for Redis로 마이그레이션](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Cognitive Services API로 마이그레이션](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Azure App Service의 Logic Apps 기능으로 마이그레이션](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Service Bus | [공유 액세스 서명으로 마이그레이션](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Azure Service Bus Relay | [공유 액세스 서명으로 마이그레이션](../../azure-relay/relay-migrate-acs-sas.md) |
+| Azure Managed Cache | [Azure Cache for Redis로 마이그레이션](../../azure-cache-for-redis/cache-faq.md) |
+| Azure DataMarket | [Cognitive Services API로 마이그레이션](https://azure.microsoft.com/services/cognitive-services/) |
+| BizTalk Services | [Azure App Service의 Logic Apps 기능으로 마이그레이션](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Azure AD 인증으로 마이그레이션](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Azure Backup 에이전트 업그레이드](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Azure Backup | [Azure Backup 에이전트 업그레이드](../../backup/backup-azure-file-folder-backup-faq.md) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -150,10 +150,10 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 클라우드, 온-프레�
 
 | 기능 | 지침 |
 | ------- | -------- |
-| Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제 [온-프레미스 앱의 Azure AD 앱 갤러리 sharepoint를 사용 하 여 sharepoint를 AZURE AD에 직접 연결할](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)수 있습니다. |
-| [SharePoint 온-프레미스에서 서버 간 인증 & 앱 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
-| [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
-| [SharePoint 클라우드 하이브리드 검색](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
+| Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제 [온-프레미스 앱의 Azure AD 앱 갤러리 sharepoint를 사용 하 여 sharepoint를 AZURE AD에 직접 연결할](../saas-apps/sharepoint-on-premises-tutorial.md)수 있습니다. |
+| [SharePoint 온-프레미스에서 서버 간 인증 & 앱 인증](/SharePoint/security-for-sharepoint-server/authentication-overview) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
+| [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
+| [SharePoint 클라우드 하이브리드 검색](/archive/blogs/spses/cloud-hybrid-search-service-application) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>수동 인증을 사용하는 웹 애플리케이션
 
@@ -190,31 +190,31 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | 기능 | Access Control 지원 | Azure AD 지원 |
 | ---------- | ----------- | ---------------- |
 | **계정 유형** | | |
-| Microsoft 회사 또는 학교 계정 | 지원 여부 | 지원됨 |
+| Microsoft 회사 또는 학교 계정 | 지원됨 | 지원됨 |
 | Windows Server Active Directory 및 AD FS의 계정 |- Azure AD 테넌트와의 페더레이션을 통해 지원 <br />- AD FS와의 직접 페더레이션을 통해 지원 | Azure AD 테넌트와의 페더레이션을 통해서만 지원 | 
 | 다른 엔터프라이즈 ID 관리 시스템의 계정 |- Azure AD 테넌트와의 페더레이션을 통해 지원 <br />- 직접 페더레이션을 통해 지원 | Azure AD 테넌트와의 페더레이션을 통해 지원 |
 | 개인용 Microsoft 계정 | 지원됨 | Azure AD v2.0 OAuth 프로토콜을 통해 지원(다른 프로토콜은 지원 불가) | 
 | Facebook, Google, Yahoo 계정 | 지원됨 | 지원되지 않음 |
 | **프로토콜 및 SDK 호환성** | | |
 | WIF | 지원됨 | 지원됨(제한된 명령만 사용 가능) |
-| WS-Federation | 지원 여부 | 지원됨 |
+| WS-Federation | 지원됨 | 지원됨 |
 | OAuth 2.0 | 초안 13 지원 | 최신 사양인 RFC 6749 지원 |
 | WS-Trust | 지원됨 | 지원되지 않음 |
 | **토큰 형식** | | |
 | JWT | 베타에서 지원 | 지원됨 |
 | SAML 1.1 | 지원됨 | 미리 보기 |
-| SAML 2.0 | 지원 여부 | 지원됨 |
+| SAML 2.0 | 지원됨 | 지원됨 |
 | SWT | 지원됨 | 지원되지 않음 |
 | **사용자 지정** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 지원되지 않음 |
-| 사용자 지정 토큰 서명 인증서 업로드 | 지원 여부 | 지원됨 |
+| 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 지원됨 |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- 페더레이션된 ID 공급자의 클레임 전달 불가<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행 불가<br />- 상수 값을 사용하여 출력 클레임 발행 가능<br />- Azure AD에 동기화된 사용자의 속성을 바탕으로 출력 클레임 발행 가능 |
 | **Automation** | | |
 | 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph API를 사용 하 여 지원 |
 
 Azure AD가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
 
-WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 애플리케이션에 대한 페더레이션된 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
+WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 애플리케이션에 대한 페더레이션된 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
 
 - Azure AD 토큰 사용자 지정의 유연성이 제공됩니다. Access Control에서 발행한 클레임과 일치하도록 Azure AD에서 발행한 클레임을 사용자 지정할 수 있습니다. 특히 사용자 ID 또는 이름 식별자 클레임이 포함됩니다. 기술을 변경한 다음에도 사용자들이 전과 동일하게 사용자 식별자를 받기 위해서는 Azure AD에서 발행한 사용자 ID가 Access Control에서 발생한 사용자 ID와 일치해야 합니다.
 - 사용자가 직접 수명을 제어하는 애플리케이션에 맞게 토큰 서명 인증서를 구성할 수 있습니다.
@@ -224,7 +224,7 @@ WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러�
 
 또 다른 방법은 [이 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)을 따르는 것입니다. 코드 샘플에서는 Ws-Federation을 설정하는 다른 방법을 설명합니다. 코드 샘플에서는 WIF가 아닌 ASP.NET 4.5 OWIN 미들웨어를 사용하지만 WIF를 사용하는 앱에서도 유효한 앱 등록 방법을 사용할 수 있으며, 이때 Azure AD Premium 라이선스가 필요하지 않습니다. 
 
-이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
+이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](../develop/active-directory-signing-key-rollover.md)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](/previous-versions/azure/dn641920(v=azure.100))를 참조하세요.
 
 OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 애플리케이션에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
 
@@ -244,7 +244,7 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | Microsoft 회사 또는 학교 계정 | 지원됨 | 사용자 지정 정책을 통한 지원  |
 | Windows Server Active Directory 및 AD FS의 계정 | AD FS를 사용한 직접 페더레이션을 통해 지원 | 사용자 지정 정책을 사용하여 SAML 페더레이션을 통해 지원 |
 | 다른 엔터프라이즈 ID 관리 시스템의 계정 | Ws-Federation을 바탕으로 직접 페더레이션을 통해 지원 | 사용자 지정 정책을 사용하여 SAML 페더레이션을 통해 지원 |
-| 개인용 Microsoft 계정 | 지원 여부 | 지원됨 | 
+| 개인용 Microsoft 계정 | 지원됨 | 지원됨 | 
 | Facebook, Google, Yahoo 계정 | 지원됨 | Facebook 및 Google은 기본적으로 지원, Yahoo는 사용자 지정 정책을 사용하여 OpenID Connect 페더레이션을 통해 지원 |
 | **프로토콜 및 SDK 호환성** | | |
 | WIF(Windows Identity Foundation) | 지원됨 | 지원되지 않음 |
@@ -265,8 +265,8 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 
 Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 다음 리소스를 살펴보세요.
 
-- [Azure AD B2C 설명서](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
-- [사용자 지정 정책 Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Azure AD B2C 설명서](../../active-directory-b2c/overview.md)
+- [사용자 지정 정책 Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
 - [Azure AD B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping ID 또는 Auth0로 마이그레이션

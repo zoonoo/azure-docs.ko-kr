@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229451"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121870"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
@@ -32,7 +32,7 @@ ms.locfileid: "86229451"
 
 사용 중인 제품, 시나리오 및 marketplace의 유형에 따라 상업용 marketplace에서 선택할 수 있는 다양 한 테스트 드라이브가 있습니다.
 
-- Azure Resource Manager
+- Azure 리소스 관리자
 - 호스트 된 테스트 드라이브
     - Dynamics 365 for Business Central
     - Dynamics 365 for Customer Engagement
@@ -44,7 +44,17 @@ ms.locfileid: "86229451"
 
 ### <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
-이 배포 템플릿에는 솔루션을 구성 하는 모든 Azure 리소스가 포함 되어 있습니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. 이는 가상 머신 또는 Azure 앱 제안에 대 한 유일한 테스트 드라이브 옵션입니다.
+이 배포 템플릿에는 솔루션을 구성 하는 모든 Azure 리소스가 포함 되어 있습니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. 이러한 제안 유형에는 Azure Resource Manager 테스트 드라이브를 사용할 수 있습니다. 
+
+- Azure 애플리케이션
+- Dynamics 365 for Business Central
+- 고객 Engagement & PowerApps의 Dynamics 365
+- Dynamics 365 for Operations
+- SaaS
+- 가상 머신
+
+>[!NOTE]
+>가상 컴퓨터 및 Azure 응용 프로그램 제품에 대 한 유일한 테스트 드라이브 옵션입니다.
 
 ### <a name="hosted-test-drive"></a>호스트 된 테스트 드라이브
 
@@ -78,7 +88,7 @@ ms.locfileid: "86229451"
 
 시험 사용 리드를 사용 하 여 처리를 종료 하는 경우 [Microsoft 파트너 판매 연결](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect)에 등록 해야 합니다. 또한 테스트 드라이브가 역할을 수행 하는 고객의 wins에 대해 알아보겠습니다.
 
-## <a name="other-resources"></a>관련 자료
+## <a name="other-resources"></a>기타 리소스
 
 추가 시험 사용 리소스:
 

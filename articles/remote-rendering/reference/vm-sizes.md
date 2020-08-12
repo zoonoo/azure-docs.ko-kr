@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: aab914caa2647146639aa366f558c80bebcfde54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809940"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121615"
 ---
 # <a name="vm-sizes"></a>VM 크기
 
@@ -76,7 +76,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 
 크기 VM의 예산 제한에 영향을 주는 모델 또는 장면의 다각형 수를 결정 하는 방법에는 두 가지가 있습니다 `standard` .
 * 모델 변환 쪽에서 [변환 출력 json 파일](../how-tos/conversion/get-information.md)을 검색 하 고 `numFaces` [ *inputstatistics* 섹션](../how-tos/conversion/get-information.md#the-inputstatistics-section) 의 항목을 확인 합니다.
-* 응용 프로그램에서 동적 콘텐츠를 처리 하는 경우 렌더링 된 다각형의 수를 런타임에 동적으로 쿼리할 수 있습니다. [성능 평가 쿼리](../overview/features/performance-queries.md#performance-assessment-queries) 를 사용 하 여 `polygonsRendered` 구조체의 멤버를 확인 `FrameStatistics` 합니다. 이 비동기 쿼리 후 사용자 작업을 수행할 수 있도록 바둑판 배경은 항상 약간의 지연 시간으로 페이드 인 됩니다. 사용자 작업은 인스턴스에서 모델 인스턴스를 숨기 거 나 삭제할 수 있습니다.
+* 응용 프로그램에서 동적 콘텐츠를 처리 하는 경우 렌더링 된 다각형의 수를 런타임에 동적으로 쿼리할 수 있습니다. [성능 평가 쿼리](../overview/features/performance-queries.md#performance-assessment-queries) 를 사용 하 여 `polygonsRendered` 구조체의 멤버를 확인 `FrameStatistics` 합니다. `polygonsRendered` `bad` 렌더러가 다각형 제한에 도달 하면 필드가로 설정 됩니다. 이 비동기 쿼리 후 사용자 작업을 수행할 수 있도록 바둑판 배경은 항상 약간의 지연 시간으로 페이드 인 됩니다. 사용자 작업은 인스턴스에서 모델 인스턴스를 숨기 거 나 삭제할 수 있습니다.
 
 ## <a name="pricing"></a>가격 책정
 

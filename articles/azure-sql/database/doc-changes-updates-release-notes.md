@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533362"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121462"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에는 현재 공개 미리 보기로 제공 되는 Azure SQL Database 및 Azure SQL Managed Instance 기능이 나열 되어 있습니다. SQL Database 및 SQL Managed Instance 업데이트 및 개선 사항에 대해서는 [SQL Database & sql Managed Instance 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)를 참조 하세요. 다른 Azure 서비스에 대한 개선 사항 및 업데이트는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="whats-new"></a>새로운 기능은 무엇입니까?
+## <a name="whats-new"></a>새로운 기능
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 설명서는 개별 섹션으로 분할 되었습니다. 또한 관리 되는 인스턴스를 *Azure SQL Database 관리* 되는 인스턴스에서 *Azure SQL Managed Instance*로 참조 하는 방법도 업데이트 했습니다.
 
@@ -52,7 +52,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 | ---| --- |
 | 단일 데이터베이스와 탄력적 풀을 통한 데이터베이스 복구 가속화 | 자세한 내용은 [데이터베이스 복구 가속화](../accelerated-database-recovery.md)를 참조하세요.|
 | 데이터 검색 및 분류  |자세한 내용은 [Azure SQL Database 및 Azure Synapse Analytics 데이터 검색 & 분류](data-discovery-and-classification-overview.md)를 참조 하세요.|
-| 탄력적 데이터베이스 작업 | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
+| 탄력적 데이터베이스 작업 (미리 보기) | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
 | 탄력적 쿼리 | 자세한 내용은 [탄력적 쿼리 개요](elastic-query-overview.md)를 참조하세요. |
 | 탄력적 트랜잭션 | [클라우드 데이터베이스의 분산 트랜잭션](elastic-transactions-overview.md). |
 | Azure Portal의 쿼리 편집기 |자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](connect-query-portal.md)를 참조하세요.|

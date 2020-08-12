@@ -13,12 +13,12 @@ ms.date: 05/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194044"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119898"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시
 
@@ -30,7 +30,7 @@ MSAL은 획득 된 토큰을 캐시 합니다. 응용 프로그램 코드는 먼
 
 ## <a name="scopes-when-acquiring-tokens"></a>토큰 획득 시 범위
 
-[범위](v2-permissions-and-consent.md) 는 웹 API가 클라이언트 응용 프로그램에서에 대 한 액세스를 요청할 수 있는 권한을 노출 하는 권한입니다. 클라이언트 애플리케이션은 웹 API에 액세스하기 위해 토큰을 가져오도록 인증 요청을 할 때 이러한 범위에 대한 사용자의 동의를 요청합니다. MSAL을 사용하면 토큰에서 개발자용 Azure AD(v1.0) 및 Microsoft ID 플랫폼(v2.0) API에 액세스하기 위한 토큰을 가져올 수 있습니다. v2.0 프로토콜은 요청에서 리소스 대신 범위를 사용합니다. 자세한 내용은 [v1.0 및 v2.0 비교](active-directory-v2-compare.md)를 참조하세요. v2.0 엔드포인트는 허용하는 토큰 버전에 대한 웹 API의 구성에 따라 액세스 토큰을 MSAL에 반환합니다.
+[범위](v2-permissions-and-consent.md) 는 웹 API가 클라이언트 응용 프로그램에서에 대 한 액세스를 요청할 수 있는 권한을 노출 하는 권한입니다. 클라이언트 애플리케이션은 웹 API에 액세스하기 위해 토큰을 가져오도록 인증 요청을 할 때 이러한 범위에 대한 사용자의 동의를 요청합니다. MSAL을 사용하면 토큰에서 개발자용 Azure AD(v1.0) 및 Microsoft ID 플랫폼(v2.0) API에 액세스하기 위한 토큰을 가져올 수 있습니다. v2.0 프로토콜은 요청에서 리소스 대신 범위를 사용합니다. 자세한 내용은 [v1.0 및 v2.0 비교](../azuread-dev/azure-ad-endpoint-comparison.md)를 참조하세요. v2.0 엔드포인트는 허용하는 토큰 버전에 대한 웹 API의 구성에 따라 액세스 토큰을 MSAL에 반환합니다.
 
 몇 가지 MSAL 토큰 획득 메서드에는 `scopes` 매개 변수가 필요 합니다. `scopes`매개 변수는 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열 목록입니다. 잘 알려진 범위는 [Microsoft Graph 권한](/graph/permissions-reference)입니다.
 

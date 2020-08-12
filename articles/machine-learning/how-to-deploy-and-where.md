@@ -12,12 +12,12 @@ ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 5e73744f3d467d08944d0e8800dd6d8824857abd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 439bf51aac4d04ee12968588a4e38c4643b4808a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846992"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120351"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,15 +35,17 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
 
- 
-::: zone pivot="cli"
-[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
-::: zone-end
-
 ::: zone pivot="py-sdk"
+
 [!INCLUDE [SDK quickstart](../../includes/machine-learning-how-to-deploy-and-where-sdk.md)]
+
 ::: zone-end
 
+::: zone pivot="cli"
+
+[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
+
+::: zone-end
 
 ### <a name="understanding-service-state"></a>서비스 상태 이해
 
@@ -51,7 +53,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | 설명 | 최종 상태?
+| 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
 | 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
 | Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |

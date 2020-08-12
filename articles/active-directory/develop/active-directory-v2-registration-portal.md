@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552716"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115580"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 
@@ -26,7 +26,7 @@ ms.locfileid: "87552716"
 
 ## <a name="my-applications-or-converged-applications"></a>내 애플리케이션 또는 수렴된 애플리케이션
 
-이 목록에는 Microsoft ID 플랫폼(v2.0) 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. ID 플랫폼 엔드포인트에 대해 자세히 알아보려면 [v2.0 개요](active-directory-appmodel-v2-overview.md)를 참조하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
+이 목록에는 Microsoft ID 플랫폼(v2.0) 엔드포인트에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. ID 플랫폼 엔드포인트에 대해 자세히 알아보려면 [v2.0 개요](./v2-overview.md)를 참조하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
 
 ## <a name="azure-ad-only-applications"></a>Azure AD 전용 애플리케이션
 

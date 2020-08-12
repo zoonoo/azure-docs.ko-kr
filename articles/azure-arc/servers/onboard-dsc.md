@@ -1,19 +1,14 @@
 ---
 title: Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전트 설치
 description: 이 문서에서는 Windows PowerShell DSC를 사용 하 여 서버 (미리 보기) 용 Azure Arc를 사용 하 여 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cdda3e6681d3e6912d031c45f5c6da9e92814e8f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003893"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121003"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전트를 설치 하는 방법
 
