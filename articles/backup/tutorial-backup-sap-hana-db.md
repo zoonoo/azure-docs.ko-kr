@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f89d21a252870befae7807d2dda96828aaaa1326
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: e892bf2b943d35728b15a9354308e149af2e478e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439669"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810210"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -73,7 +73,7 @@ NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 �
 
 1. **추가**를 클릭하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
 
-마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)를 참조하세요.
+마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](../virtual-network/service-tags-overview.md)를 참조하세요.
 
 ### <a name="azure-firewall-tags"></a>Azure Firewall 태그
 

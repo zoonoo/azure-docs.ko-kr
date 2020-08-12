@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a62cb11e862bb8733e2758297d82aa7732b2d739
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c24989c73aa4343fea2b719a5b1e8c63c06af010
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082467"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835632"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신
 
@@ -45,7 +45,7 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | Description |
+| 방법 | 설명 |
 | --- | --- |
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
@@ -56,7 +56,7 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 Azure는 모든 디스크에 프리미엄 스토리지를 사용하여 VM을 배포하는 경우 업계 최고의 99.9% 단일 인스턴스 가상 머신 Service Level Agreement(서비스 수준 약정)를 발표했습니다.  배포에서 표준 99.95% VM 서비스 수준 약정을 충족하려면 가용성 집합 내부에서 워크로드를 실행하는 VM을 둘 이상 계속 배포해야 합니다. 가용성 집합을 사용하면 VM이 Azure 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ## <a name="vm-size"></a>VM 크기
-사용할 VM의 [크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 스토리지 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
+사용할 VM의 [크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 스토리지 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
 
 Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 스토리지는 가격이 책정되며 개별적으로 청구됩니다.
 

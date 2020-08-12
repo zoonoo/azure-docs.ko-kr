@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: b3b57cd2a2e5d5502f3865eddcdddfac67460dc7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ad610339d79eb0fd77403957c252a36e8243eb87
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495035"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837264"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 
@@ -82,7 +82,7 @@ Standard Storage는 HDD에서 지원되며, 비용 효율적인 스토리지 및
 | 디스크당 최대 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
 디스크당 처리량 | 25MB/초 | 50MB/초 | 100MB/초 | 150MB/초 | 200MB/s | 250MB/초 | 250MB/초 |
 
-위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 Standard_GS5 VM은 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md)를 참조하세요.
+위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 Standard_GS5 VM은 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/sizes.md)를 참조하세요.
 
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결

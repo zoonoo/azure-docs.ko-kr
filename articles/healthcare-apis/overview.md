@@ -2,18 +2,18 @@
 title: Azure API for FHIR이란? - Azure API for FHIR
 description: Azure API for FHIR을 사용하면 FHIR API를 통해 데이터를 빠르게 교환할 수 있습니다. 관리형 클라우드 서비스를 사용하여 PHI(보호된 상태 정보)를 수집, 관리 및 유지합니다.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 08/03/2020
-ms.author: mihansen
-ms.openlocfilehash: 6673759afb605184e3e80bb0e6bc438814a6fbe7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.author: matjazl
+ms.openlocfilehash: 78dec9180da2a78903ae5d5e87bca515b212f167
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553107"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843439"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Azure API for FHIR&reg;이란?
 

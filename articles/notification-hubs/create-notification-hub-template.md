@@ -7,15 +7,15 @@ ms.service: notification-hubs
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sethm
-ms.date: 05/15/2020
+ms.date: 08/04/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: a1e947c80ae48ae507d0712e62084538165918be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9fe363da0fa5e451aaee83e895d539a0741a174
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022449"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830736"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 알림 허브 만들기
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 2193bd85265103957c5cafad10a243b266f7e5bc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836907"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -76,7 +76,7 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 다음 API를 사용하여 모델을 학습시키고 양식에서 정형 데이터를 추출합니다.
 
-|Name |Description |
+|속성 |Description |
 |---|---|
 | **사용자 지정 모델 학습**| 동일한 형식의 5개 양식을 사용하여 양식을 분석하는 새 모델을 학습시킵니다. _useLabelFile_ 매개 변수를 `true`로 설정하여 수동 레이블 지정 데이터로 학습합니다. |
 | **양식 분석** |스트림으로 전달된 단일 문서를 분석하여 사용자 지정 모델을 통해 양식에서 텍스트, 키/값 쌍 및 테이블을 추출합니다.  |

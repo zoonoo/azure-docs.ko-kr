@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f7f3e0dfd7da98cade0183825463c6b17f49dc1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69d346d554ee6f30e4ef578bacf358aaba722b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077450"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825177"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -40,7 +40,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 **운영 체제 디스크** - 운영 체제 디스크는 최대 4TB까지 가능하며 VM 운영 체제를 호스트합니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/) 이미지에서 새 VM(가상 머신)을 만드는 경우 일반적으로 127GB(하지만 일부 이미지는 더 작은 OS 디스크 크기임)입니다. OS 디스크는 기본적으로 *C:* 드라이브 문자가 할당됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. OS 디스크는 애플리케이션 또는 데이터를 호스트해서는 **안 됩니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다.
 
-**임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 [VM 크기](sizes.md)에 따라 결정됩니다. 임시 디스크는 기본적으로 *D:* 드라이브 문자가 할당됩니다.
+**임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 [VM 크기](../sizes.md)에 따라 결정됩니다. 임시 디스크는 기본적으로 *D:* 드라이브 문자가 할당됩니다.
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
@@ -57,7 +57,7 @@ Azure는 두 가지 형식의 디스크를 제공합니다.
 ### <a name="premium-disk-performance"></a>프리미엄 디스크 성능
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 64 데이터 디스크는 Standard_GS5 VM에 연결할 수 있습니다. 이러한 각 디스크는 P30에 해당하는 크기이며 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [VM 유형 및 크기](./sizes.md)를 참조하세요.
+위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 64 데이터 디스크는 Standard_GS5 VM에 연결할 수 있습니다. 이러한 각 디스크는 P30에 해당하는 크기이며 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [VM 유형 및 크기](../sizes.md)를 참조하세요.
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 

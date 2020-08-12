@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306114"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836006"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -101,7 +101,7 @@ Azure를 사용할 준비 안 됨 |  VM이 Azure에서 부팅되지 않습니다
 --- | --- | ---
 **부팅 유형** | BIOS는 지원됩니다. UEFI는 지원되지 않습니다. | 부팅 유형이 UEFI인 경우 조건부 준비 완료입니다.
 **코어 수** | Azure VM에 대해 최대 코어 수(128)보다 작거나 같은 시스템 코어가 지원됩니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수를 고려합니다.<br/>쾌적 인자가 평가 설정에 지정되어 있는 경우 사용된 코어 수와 쾌적 인자를 곱합니다.<br/><br/> 성능 기록이 없으면 Azure Migrate는 쾌적 인자를 적용하지 않고 할당된 코어 수를 사용합니다. | 제한보다 작거나 같은 경우 준비 완료입니다.
-**메모리** | Azure VM에 대해 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)보다 작거나 같은 컴퓨터 메모리 크기 [자세히 알아보기](../virtual-machines/windows/sizes.md).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기를 고려합니다.<br/><br/>쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
+**메모리** | Azure VM에 대해 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)보다 작거나 같은 컴퓨터 메모리 크기 [자세히 알아보기](../virtual-machines/sizes.md).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기를 고려합니다.<br/><br/>쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
 **스토리지 디스크** | 할당된 디스크 크기는 4TB(4,096GB) 이하여야 합니다.<br/><br/> 컴퓨터에 연결되는 디스크의 수는 OS 디스크를 포함하여 65개 이하여야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 **네트워킹** | 컴퓨터에는 32개 이하의 NIC가 연결되어야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 
@@ -263,7 +263,7 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Windows 및 Linux 운영 체제에 대한 [종속성 에이전트 지원](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)에 대해 자세히 알아보세요.
-- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
+- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
 
 >[!NOTE]
 > 시스템 필수 구성 요소 및 종속성 에이전트를 배포하는 방법에 대한 개요를 제공하기 위해 참조되는 VM용 Azure Monitor 문서는 서비스 맵 솔루션에도 적용됩니다.

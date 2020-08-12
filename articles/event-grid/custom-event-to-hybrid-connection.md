@@ -4,12 +4,12 @@ description: '자습서: Azure Event Grid 및 Azure CLI를 사용하여 토픽�
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 679cccf892d7b30964881d9a6146e02f3ee5dc90
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 77633a717478ff143c3b084adc0b69019abb203f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503177"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832130"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>자습서: Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 
@@ -17,7 +17,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure R
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 이미 하이브리드 연결 및 수신기 애플리케이션이 있는 것으로 가정합니다. 하이브리드 연결을 시작하려면 [Relay 하이브리드 연결 시작 - .NET](/azure/azure-relay/relay-hybrid-connections-dotnet-get-started) 또는 [Relay 하이브리드 연결 시작 - 노드](/azure/azure-relay/relay-hybrid-connections-node-get-started)를 참조하세요.
+이 문서에서는 이미 하이브리드 연결 및 수신기 애플리케이션이 있는 것으로 가정합니다. 하이브리드 연결을 시작하려면 [Relay 하이브리드 연결 시작 - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) 또는 [Relay 하이브리드 연결 시작 - 노드](../azure-relay/relay-hybrid-connections-node-get-started.md)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

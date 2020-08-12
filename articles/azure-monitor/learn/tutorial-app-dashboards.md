@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553277"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829682"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "87553277"
 - Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../app/asp-net.md)합니다.
 
 > [!NOTE]
-> 대시보드를 사용하는 데 필요한 권한은 [대시보드에 대한 액세스 제어 이해](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards) 문서에 설명되어 있습니다.
+> 대시보드를 사용하는 데 필요한 권한은 [대시보드에 대한 액세스 제어 이해](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards) 문서에 설명되어 있습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
@@ -131,4 +131,3 @@ Azure Applications Insights Logs(Analytics)는 별도 서비스이므로 로그 
 
 > [!div class="nextstepaction"]
 > [심층 진단](../app/devops.md)
-

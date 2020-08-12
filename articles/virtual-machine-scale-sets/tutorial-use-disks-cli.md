@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: a26eb3ae1dbe426da11e9ade4af90f4e01c3405a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a4be498b25aee7c5a50b2f35fe06be3763eb4732
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492108"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825857"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -70,7 +70,7 @@ Standard Storage는 HDD에서 지원되며, 비용 효율적인 스토리지 및
 | 디스크당 최대 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
 디스크당 처리량 | 25MB/초 | 50MB/초 | 100MB/초 | 150MB/초 | 200MB/s | 250MB/초 | 250MB/초 |
 
-위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 Standard_GS5 VM은 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/linux/sizes.md)를 참조하세요.
+위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 Standard_GS5 VM은 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/sizes.md)를 참조하세요.
 
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결

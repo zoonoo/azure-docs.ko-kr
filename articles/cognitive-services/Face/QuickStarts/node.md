@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0c893609d81abbe1ea1bdfab2d3d0c6e49bf98f4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 44bd0a766574889334601a354b47946a80fc475a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406659"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833701"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>빠른 시작: Face REST API 및 Node.js를 사용하여 이미지에서 얼굴 감지
 

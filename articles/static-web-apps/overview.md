@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 47140bccc8c2a1b69f083502d031a9db6d21294e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488922"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835785"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기란?
 
@@ -44,7 +44,7 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Static Web Apps로 수행할 수 있는 작업
 
-- [Azure Functions](https://azure.microsoft.com/services/functions/) 백 엔드를 통해 [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/) 등의 프레임워크 및 라이브러리를 사용하여 **최신 JavaScript 애플리케이션을 빌드**합니다.
+- [Azure Functions](apis.md) 백 엔드를 통해 [Angular](getting-started.md#tabpanel_CeZOj-G++Q_angular), [React](getting-started.md#tabpanel_CeZOj-G++Q_react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md#tabpanel_CeZOj-G++Q_vue) 등의 프레임워크 및 라이브러리를 사용하여 **최신 JavaScript 애플리케이션을 빌드**합니다.
 - [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md)와 같은 프레임워크를 사용하여 **정적 사이트를 게시**합니다.
 - [Next.js](deploy-nextjs.md) 및 [Nuxt.js](deploy-nuxtjs.md)와 같은 프레임워크를 사용하여 **웹 애플리케이션**을 배포합니다.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: f43db986f70e64e55225465223b7e324450541a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec4b771387854c40045f2b57afe7ead6c52f2c7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084340"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836040"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>자습서: Azure Notification Hubs(버전 3.0.0-preview1)를 사용하여 iOS 앱에 푸시 알림 보내기
 
@@ -317,7 +317,7 @@ ms.locfileid: "87084340"
 
 알림을 보내기 위해 검토할 수 있는 다른 자습서 목록은 다음과 같습니다.
 
-- Azure Mobile Apps: Notification Hubs와 통합된 Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [iOS 앱에 푸시 알림 추가](/azure/app-service-mobile/app-service-mobile-ios-get-started-push)를 참조하세요.
+- Azure Mobile Apps: Notification Hubs와 통합된 Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [iOS 앱에 푸시 알림 추가](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push)를 참조하세요.
 - ASP.NET: [Notification Hubs를 사용하여 사용자에게 푸시 알림 보내기](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)를 참조하세요.
 - Azure Notification Hubs Java SDK: Java에서 알림을 보내는 방법은 [Java에서 Notification Hubs를 사용하는 방법](notification-hubs-java-push-notification-tutorial.md)을 참조하세요. 이는 Eclipse for Android Development에서 테스트되었습니다.
 - PHP: [PHP에서 Notification Hubs를 사용하는 방법](notification-hubs-php-push-notification-tutorial.md)을 참조하세요.

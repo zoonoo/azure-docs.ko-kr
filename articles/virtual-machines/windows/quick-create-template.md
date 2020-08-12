@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 11e5d4e31f388dcffe7f1292afa223562d44b20a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087285"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832300"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 플랫폼을 사용하여 Windows 가상 머신 만들기
 
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - **관리자 암호**: 관리자 계정에 사용할 암호를 제공합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
     - **DNS 레이블 접두사**: DNS 레이블의 일부로 사용할 고유 식별자를 입력합니다.
     - **Windows OS 버전**: VM에서 실행하려는 Windows 버전을 선택합니다.
-    - **VM 크기**: VM에 사용할 [크기](sizes.md)를 선택합니다.
+    - **VM 크기**: VM에 사용할 [크기](../sizes.md)를 선택합니다.
     - **위치**: 기본값은 리소스 그룹과 같은 위치입니다(이미 있는 경우).
 1. **검토 + 만들기**를 선택합니다. 유효성 검사가 완료된 후 **만들기**를 선택하여 VM을 만들고 배포합니다.
 
