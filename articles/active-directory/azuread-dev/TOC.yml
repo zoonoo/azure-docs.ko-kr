@@ -149,7 +149,7 @@
         - name: Azure AD App Gallery에 게시
           href: howto-app-gallery-listing.md
         - name: Office 365 판매자 대시보드에 게시
-          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
+          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Azure Access Control Service
       displayName: ACS
       items:
@@ -160,7 +160,7 @@
     - name: Microsoft Graph API 사용
       href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: 개발자용 AD FS
-      href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/ad-fs-overview'
+      href: /windows-server/identity/ad-fs/ad-fs-overview
 - name: 참조
   items:
     - name: 인증 라이브러리
@@ -192,4 +192,4 @@
       displayName: 'support, help options'
       href: ../develop/developer-support-help-options.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Azure 리소스에 대한 관리 ID
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
+      href: ../managed-identities-azure-resources/overview.md

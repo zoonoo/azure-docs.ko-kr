@@ -49,6 +49,8 @@
       items:
         - name: 보안 기준
           href: security-baseline.md
+    - name: 데이터 상주
+      href: data-residency.md
 - name: 방법 가이드
   items:
     - name: Network Watcher 구성
@@ -81,7 +83,7 @@
               href: network-watcher-connectivity-powershell.md
             - name: Azure CLI
               href: network-watcher-connectivity-cli.md
-            - name: REST (영문)
+            - name: REST
               href: network-watcher-connectivity-rest.md
         - name: 패킷 캡처 및 분석
           items:
@@ -93,7 +95,7 @@
                   href: network-watcher-packet-capture-manage-powershell.md
                 - name: Azure CLI
                   href: network-watcher-packet-capture-manage-cli.md
-                - name: REST (영문)
+                - name: REST
                   href: network-watcher-packet-capture-manage-rest.md
             - name: 패킷 캡처 분석
               items:
@@ -113,7 +115,7 @@
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
               href: network-watcher-nsg-flow-logging-cli.md
-            - name: REST (영문)
+            - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure 리소스 관리자
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
@@ -146,7 +148,7 @@
               href: network-watcher-security-group-view-powershell.md
             - name: Azure CLI
               href: network-watcher-security-group-view-cli.md
-            - name: REST (영문)
+            - name: REST
               href: network-watcher-security-group-view-rest.md
         - name: 네트워크 규정 준수 및 감사 수행
           href: network-watcher-nsg-auditing-powershell.md

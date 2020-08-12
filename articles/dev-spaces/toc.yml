@@ -25,38 +25,8 @@
           href: quickstart-existing-helm-chart.md
     - name: 자습서
       items:
-        - name: Java(VS 코드 & CLI)
-          items:
-            - name: 1 - 시작하기
-              href: get-started-java.md
-            - name: 2 - 다중 서비스 개발
-              href: multi-service-java.md
-            - name: 3 - 팀 개발
-              href: team-development-java.md
-        - name: .NET Core(VS 코드 & CLI)
-          items:
-            - name: 1 - 시작하기
-              href: get-started-netcore.md
-            - name: 2 - 다중 서비스 개발
-              href: multi-service-netcore.md
-            - name: 3 - 팀 개발
-              href: team-development-netcore.md
-        - name: .NET Core(Visual Studio)
-          items:
-            - name: 1 - 시작하기
-              href: get-started-netcore-visualstudio.md
-            - name: 2 - 다중 서비스 개발
-              href: multi-service-netcore-visualstudio.md
-            - name: 3 - 팀 개발
-              href: team-development-netcore-visualstudio.md
-        - name: Node.js(VS 코드 & CLI)
-          items:
-            - name: 1 - 시작하기
-              href: get-started-nodejs.md
-            - name: 2 - 다중 서비스 개발
-              href: multi-service-nodejs.md
-            - name: 3 - 팀 개발
-              href: team-development-nodejs.md
+        - name: Visual Studio 시작
+          href: get-started-netcore-visualstudio.md
     - name: 개념
       items:
         - name: Dev Spaces의 작동 방식
@@ -83,8 +53,6 @@
           href: how-to/install-dev-spaces.md
         - name: Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기
           href: how-to/create-cluster-cloud-shell.md
-        - name: Azure Dev Spaces 공유
-          href: how-to/share-dev-spaces.md
         - name: 비밀 관리
           href: how-to/manage-secrets.md
         - name: 사용자 지정 NuGet 피드 사용

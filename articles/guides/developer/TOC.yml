@@ -7,7 +7,7 @@
 - name: 빠른 시작
   items:
     - name: Web Apps
-      href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html'
+      href: 'https://docs.microsoft.com/azure/app-service/quickstart-html'
     - name: 가상 머신
       items:
         - name: Linux
@@ -29,9 +29,9 @@
         - name: SQL DB를 사용하는 .NET
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase'
         - name: Mongo DB를 사용하는 Node.js
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app'
+          href: 'https://docs.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app'
         - name: MySQL을 사용하는 PHP
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql'
+          href: 'https://docs.microsoft.com/azure/app-service/tutorial-php-mysql-app'
         - name: MySQL을 사용하는 Java
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql'
     - name: 복잡한 VM 템플릿 배포

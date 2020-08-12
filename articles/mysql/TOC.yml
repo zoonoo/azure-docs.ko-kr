@@ -57,10 +57,10 @@
     - name: 2 - Web App 만들기
       items:
         - name: MySQL이 있는 컨테이너의 Wordpress
-          href: ../app-service/containers/tutorial-multi-container-app.md
+          href: ../app-service/tutorial-multi-container-app.md
           maintainContext: true
         - name: MySQL을 사용하는 PHP
-          href: ../app-service/app-service-web-tutorial-php-mysql.md
+          href: ../app-service/tutorial-php-mysql-app.md
           maintainContext: true
 - name: 샘플
   items:

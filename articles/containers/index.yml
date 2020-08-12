@@ -6,12 +6,12 @@ metadata:
   title: Microsoft Azure 컨테이너 서비스 설명서 | Microsoft Docs
   description: Azure 컨테이너 서비스를 사용하여 클라우드 기반 컨테이너 애플리케이션을 관리 및 개발하는 방법을 알아봅니다.
   ms.topic: hub-page
-  ms.openlocfilehash: 7618bedf711554fbd4428ceb6c88817477b82e6d
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: a7b1480061a1482e5a7980fd89d9d28d89561d31
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87031884"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88080850"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -61,7 +61,7 @@ conceptualContent:
     - url: ../app-service/configure-ssl-bindings.md
       itemType: tutorial
       text: SSL 바인딩으로 사용자 지정 도메인 보호
-    - url: ../app-service/app-service-web-get-started-windows-container.md
+    - url: ../app-service/quickstart-custom-container.md
       itemType: get-started
       text: 사용자 지정 Windows 컨테이너 실행
     - url: ../app-service/containers/quickstart-docker.md
