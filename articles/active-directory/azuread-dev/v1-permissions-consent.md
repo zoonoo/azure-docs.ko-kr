@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154477"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117620"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -33,8 +33,8 @@ Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위
 
 Azure AD는 두 종류의 권한을 정의합니다.
 
-* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의 하지 못할 수 있으며 대신 ["관리자 동의"를 제공 하는 관리자가 필요](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)합니다.
-* **애플리케이션 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력 하 고 사용자 경계 또는 관리자에 게 제한 되는 데이터를 통해 데이터에 대 한 액세스를 허용 하기 때문에 [관리자만 동의한](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) 수 있습니다. 리소스 응용 프로그램 소유자 (예: 사용 권한을 게시 하는 API)로 정의 된 사용자는 자신이 소유 하는 Api에 대 한 응용 프로그램 사용 권한도 부여할 수 있습니다.
+* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의 하지 못할 수 있으며 대신 ["관리자 동의"를 제공 하는 관리자가 필요](../develop/howto-convert-app-to-be-multi-tenant.md)합니다.
+* **애플리케이션 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력 하 고 사용자 경계 또는 관리자에 게 제한 되는 데이터를 통해 데이터에 대 한 액세스를 허용 하기 때문에 [관리자만 동의한](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) 수 있습니다. 리소스 응용 프로그램 소유자 (예: 사용 권한을 게시 하는 API)로 정의 된 사용자는 자신이 소유 하는 Api에 대 한 응용 프로그램 사용 권한도 부여할 수 있습니다.
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 
 
@@ -75,12 +75,12 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
 * **고정적인 사용자 동의** - 앱이 상호작용하려는 리소스를 지정하는 [OAuth 2.0 인증 흐름](v1-protocols-oauth-code.md#request-an-authorization-code) 중에 자동으로 이루어집니다. 고정적 사용자 동의 시나리오에서 앱은 Azure Portal의 앱 구성에 필요한 모든 권한을 이미 지정했어야 합니다. 사용자(또는 해당하는 경우 관리자)가 이 앱에 대한 동의를 받지 못한 경우, Azure AD는 사용자에게 지금 동의를 제공하라는 메시지를 표시합니다. 
 
     고정적 API 집합에 액세스를 요청하는 Azure AD 앱 등록에 대해 자세히 알아봅니다.
-* **동적 사용자 동의** - v2 Azure AD 앱 모델의 기능입니다. 이 시나리오에서 앱은 [v2 앱에 대한 OAuth 2.0 권한 흐름](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent)에서 필요한 권한 집합을 요청합니다. 사용자가 아직 동의하지 않은 경우 지금 동의하라는 메시지가 표시됩니다. [동적 동의에 대해 자세히 알아봅니다](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **동적 사용자 동의** - v2 Azure AD 앱 모델의 기능입니다. 이 시나리오에서 앱은 [v2 앱에 대한 OAuth 2.0 권한 흐름](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent)에서 필요한 권한 집합을 요청합니다. 사용자가 아직 동의하지 않은 경우 지금 동의하라는 메시지가 표시됩니다. [동적 동의에 대해 자세히 알아봅니다](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > 동적 동의는 편리할 수 있지만 권한에 대해 관리자 동의가 필요한데 관리자 동의 환경은 동의 시간에 해당 권한에 대해 인식하지 못한다는 큰 문제가 있습니다. 관리자 권한이 필요하거나 앱에 동적 동의가 사용되는 경우에는 Azure Portal에 관리자 동의가 필요한 권한의 하위 집합뿐만 아니라 모든 권한을 등록해야 합니다. 이렇게 하면 테넌트 관리자가 모든 사용자를 대신하여 동의할 수 있습니다.
   
-* **관리자 동의** - 앱이 높은 권한의 특정 사용 권한에 액세스해야 하는 경우 필요합니다. 관리자 동의는 관리자가 몇몇 추가 제어를 포함해야 앱 또는 사용자가 조직의 높은 권한 데이터에 액세스하는 것을 인증합니다. [관리자 동의를 부여하는 방법에 대해 자세히 알아봅니다](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **관리자 동의** - 앱이 높은 권한의 특정 사용 권한에 액세스해야 하는 경우 필요합니다. 관리자 동의는 관리자가 몇몇 추가 제어를 포함해야 앱 또는 사용자가 조직의 높은 권한 데이터에 액세스하는 것을 인증합니다. [관리자 동의를 부여하는 방법에 대해 자세히 알아봅니다](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>모범 사례
 
@@ -102,7 +102,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
   - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
     
-    예:
+    예를 들면 다음과 같습니다.
   - Mail.Read - 사용자가 메일을 읽도록 허용합니다.
   - Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
   - Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.

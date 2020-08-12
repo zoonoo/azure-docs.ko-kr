@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383583"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116141"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
@@ -104,4 +104,4 @@ Azure AD와 대상 응용 프로그램 간에 SAML 기반 Single Sign-On를 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 응용 프로그램에 대 한 Single Sign-On 작업 중 이므로 [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전](../manage-apps/user-provisioning.md) 해제를 자동화 하거나 [조건부 액세스를 시작할](../conditional-access/app-based-conditional-access.md)수 있습니다.
+이제 응용 프로그램에 대 한 Single Sign-On 작업 중 이므로 [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 자동화 하거나 [조건부 액세스를 시작할](../conditional-access/app-based-conditional-access.md)수 있습니다.

@@ -1,19 +1,14 @@
 ---
 title: 서버 에이전트 연결 문제에 대 한 Azure Arc 문제 해결
 description: 이 문서에서는 서비스에 연결 하려고 할 때 서버 (미리 보기) 용 Azure Arc에서 발생 하는 연결 된 컴퓨터 에이전트의 문제를 해결 하 고 문제를 해결 하는 방법을 설명 합니다.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a6f51f1c6901eaa18c1de9c1fc788ed583b7394
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809445"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118011"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>연결 된 컴퓨터 에이전트 연결 문제 해결
 

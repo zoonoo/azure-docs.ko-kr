@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8923cb19c24b0e392026dc0f4b8f67c31956894a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902476"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115937"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -418,7 +418,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 ### <a name="custom-signing-key"></a>사용자 지정 서명 키
 
-클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다. 사용자 지정 서명 키를 추가하기 위해 Azure PowerShell cmdlet `new-azureadapplicationkeycredential`을 사용하여 애플리케이션 개체에 대한 대칭 키 자격 증명을 만들 수 있습니다. 이 Azure PowerShell cmdlet에 대한 자세한 내용은 [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)을 참조하세요.
+클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다. 사용자 지정 서명 키를 추가하기 위해 Azure PowerShell cmdlet `new-azureadapplicationkeycredential`을 사용하여 애플리케이션 개체에 대한 대칭 키 자격 증명을 만들 수 있습니다. 이 Azure PowerShell cmdlet에 대한 자세한 내용은 [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)을 참조하세요.
 
 클레임 매핑을 사용하도록 설정된 앱은 [OpenID Connect 메타데이터 요청](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)에 `appid={client_id}`를 추가하여 토큰 서명 키의 유효성을 검사해야 합니다. 사용해야 하는 OpenID Connect 메타데이터 문서의 형식은 다음과 같습니다. 
 

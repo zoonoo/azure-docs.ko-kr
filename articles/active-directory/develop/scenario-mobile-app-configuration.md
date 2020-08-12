@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe084d931ee735f9eaecc58ca5445ae56a951cc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904799"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121054"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱 구성
 
@@ -102,9 +102,9 @@ var pca = PublicClientApplicationBuilder
 
 ##### <a name="find-more-app-building-parameters"></a>더 많은 앱 빌드 매개 변수 찾기
 
-에서 사용할 수 있는 모든 방법의 목록은 `PublicClientApplicationBuilder` [메서드 목록을](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)참조 하세요.
+에서 사용할 수 있는 모든 방법의 목록은 `PublicClientApplicationBuilder` [메서드 목록을](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)참조 하세요.
 
-에서 제공 하는 모든 옵션에 대 한 설명은 `PublicClientApplicationOptions` [참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)를 참조 하세요.
+에서 제공 하는 모든 옵션에 대 한 설명은 `PublicClientApplicationOptions` [참조 설명서](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)를 참조 하세요.
 
 ## <a name="tasks-for-xamarin-ios"></a>Xamarin iOS에 대 한 작업
 

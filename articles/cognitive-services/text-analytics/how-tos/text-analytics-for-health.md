@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 9b76dac0734985b01a4a73ad4fc7f2a5f35838db
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 71cbf03a36dd95eb66c3dcbaffbf4b63d889f507
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986902"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121581"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
+
+> [!NOTE]
+> 상태 컨테이너에 대 한 Text Analytics 최근에 업데이트 되었습니다. 최근 변경 내용에 대 한 자세한 내용은 [새로운 기능](../whats-new.md) 을 참조 하세요. 최신 컨테이너를 끌어와 나열 된 업데이트를 사용 해야 합니다.
 
 > [!IMPORTANT] 
 > 상태 Text Analytics은 "있는 그대로" 및 "모든 오류를 포함 하 여" 제공 되는 미리 보기 기능입니다. 따라서 **상태 (미리 보기)에 대 한 Text Analytics는 프로덕션 환경에서 구현 하거나 배포 해서는** 안 됩니다. 상태에 대 한 Text Analytics는 질병 또는 기타 조건에 대 한 진단, 치료, 완화, 처리 또는 방지에 사용 하기 위한 의료 장치, 임상 지원, 진단 도구 또는 기타 기술로 사용할 수 없으며, Microsoft가 이러한 목적을 위해이 기능을 사용할 수 있는 라이선스 또는 권한이 부여 되지 않습니다. 이 기능은 의료 전문가의 전문 의료 통지, 의료 보험 통지, 진단, 처리 또는 임상를 위한 대체 방법으로 설계 되거나 구현 하거나 배포 하기 위한 것이 아니며, 사용 하지 않아야 합니다. 고객은 상태에 대 한 Text Analytics의 사용만을 담당 합니다. Microsoft는 의료 목적을 위해이 기능을 사용 하 여 제공 되는 Text Analytics 또는 모든 사람의 의료 요구 사항을 충족 하는 경우에만이 기능을 제공 합니다. 
@@ -229,7 +232,7 @@ docker-compose up
 아래 예제 말아 예를 사용 하 여 배포 된 컨테이너에 쿼리를 제출 하 고 `serverURL` 변수를 적절 한 값으로 바꿉니다.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -269,8 +272,8 @@ example.json
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -283,8 +286,8 @@ example.json
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -292,8 +295,8 @@ example.json
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -339,50 +342,35 @@ example.json
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> 부정 감지를 사용 하는 경우에는 단일 부정 단어가 한 번에 여러 용어를 처리할 수 있습니다. 인식 된 엔터티의 부정은 플래그의 부울 값으로 JSON 출력에 표시 됩니다 `isNegated` .
+### <a name="negation-detection-output"></a>부정 감지 출력
+
+부정 감지를 사용 하는 경우, 경우에 따라 단일 부정 단어가 한 번에 여러 용어를 해결할 수 있습니다. 인식 된 엔터티의 부정은 플래그의 부울 값으로 JSON 출력에 표시 됩니다 `isNegated` .
 
 ```json
 {
@@ -390,7 +378,7 @@ example.json
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -403,6 +391,33 @@ example.json
       "id": "0000023593"
     },
     ...
+```
+
+### <a name="relation-extraction-output"></a>관계 추출 출력
+
+관계 추출 출력에는 관계의 *원본* 및 *대상*에 대 한 URI 참조가 포함 됩니다. 관계 역할이 인 엔터티 `ENTITY` 는 필드에 할당 됩니다 `target` . 관계 역할이 인 엔터티 `ATTRIBUTE` 는 필드에 할당 됩니다 `source` . 약어 관계는 양방향 `source` 및 `target` 필드를 포함 하며 `bidirectional` 로 설정 됩니다 `true` . 
+
+```json
+"relations": [
+  {
+      "relationType": "DosageOfMedication",
+      "score": 1.0,
+      "bidirectional": false,
+      "source": "#/documents/2/entities/0",
+      "target": "#/documents/2/entities/1",
+      "entities": [
+          {
+              "id": "0",
+              "role": "ATTRIBUTE"
+          },
+          {
+              "id": "1",
+              "role": "ENTITY"
+          }
+      ]
+  },
+...
+]
 ```
 
 ## <a name="see-also"></a>참고 항목

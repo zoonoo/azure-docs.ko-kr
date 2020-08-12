@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 204bc7dd8cc31f48fdc09eae6b00247023de64f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563315"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120969"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호된 웹 API: 범위 및 앱 역할 확인
 
@@ -88,7 +88,7 @@ public class TodoListController : Controller
 
 #### <a name="verify-the-scopes-more-globally"></a>전체적으로 범위 확인
 
-웹 API에 대 한 세분화 된 범위를 정의 하 고 각 컨트롤러 작업의 범위를 확인 하는 것이 권장 되는 방법입니다. 그러나 ASP.NET Core를 사용 하 여 응용 프로그램 또는 컨트롤러 수준에서 범위를 확인할 수도 있습니다. 자세한 내용은 ASP.NET core 설명서에서 [클레임 기반 권한 부여](https://docs.microsoft.com/aspnet/core/security/authorization/claims) 를 참조 하세요.
+웹 API에 대 한 세분화 된 범위를 정의 하 고 각 컨트롤러 작업의 범위를 확인 하는 것이 권장 되는 방법입니다. 그러나 ASP.NET Core를 사용 하 여 응용 프로그램 또는 컨트롤러 수준에서 범위를 확인할 수도 있습니다. 자세한 내용은 ASP.NET core 설명서에서 [클레임 기반 권한 부여](/aspnet/core/security/authorization/claims) 를 참조 하세요.
 
 ### <a name="net-mvc"></a>.NET MVC
 
@@ -96,7 +96,7 @@ ASP.NET의 경우 `HttpContext.User`를 `ClaimsPrincipal.Current`로 바꾸고 �
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>디먼 앱에서 호출된 API의 앱 역할 확인
 
-웹 API가 [디먼 앱](scenario-daemon-overview.md)에 의해 호출되는 경우 해당 앱에서 웹 API에 대한 애플리케이션 권한을 요구해야 합니다. [애플리케이션 사용 권한(앱 역할) 노출](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles)에 나온 것처럼 API는 이러한 사용 권한을 노출합니다. 한 가지 예는 `access_as_application` 앱 역할입니다.
+웹 API가 [디먼 앱](scenario-daemon-overview.md)에 의해 호출되는 경우 해당 앱에서 웹 API에 대한 애플리케이션 권한을 요구해야 합니다. [애플리케이션 사용 권한(앱 역할) 노출](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles)에 나온 것처럼 API는 이러한 사용 권한을 노출합니다. 한 가지 예는 `access_as_application` 앱 역할입니다.
 
 이제 API에서 받은 토큰에 `roles` 클레임이 포함되어 있고 이 클레임에 예상한 값이 있는지 확인하도록 해야 합니다. 확인 코드는 컨트롤러 작업이 범위 대신 역할을 테스트한다는 것을 제외하면 위임된 권한을 확인하는 코드와 비슷합니다.
 

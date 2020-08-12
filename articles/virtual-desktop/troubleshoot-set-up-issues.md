@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 환경 호스트 풀 만들기-Azure
 description: Windows 가상 데스크톱 환경을 설치 하는 동안 테 넌 트 및 호스트 풀 문제를 해결 하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006165"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121377"
 ---
 # <a name="host-pool-creation"></a>호스트 풀 만들기
 
@@ -252,6 +252,12 @@ the VM.\\\"
 **원인:** 이 오류는 Azure Resource Manager 템플릿에 연결 된 zip 파일의 다운로드를 차단 하는 고정 경로, 방화벽 규칙 또는 NSG 때문입니다.
 
 **해결 방법:** 차단 고정 경로, 방화벽 규칙 또는 NSG를 제거 합니다. 필요에 따라 텍스트 편집기에서 Azure Resource Manager 템플릿 json 파일을 열고 zip 파일에 대 한 링크를 가져온 다음 허용 된 위치에 리소스를 다운로드 합니다.
+
+### <a name="error-cant-delete-a-session-host-from-the-host-pool-after-deleting-the-vm"></a>오류: VM을 삭제 한 후에는 호스트 풀에서 세션 호스트를 삭제할 수 없습니다.
+
+**원인:** VM을 삭제 하기 전에 세션 호스트를 삭제 해야 합니다.
+
+**해결 방법:** 세션 호스트를 드레이닝 모드로 전환 하 고, 세션 호스트에서 모든 사용자를 로그 아웃 한 다음, 호스트를 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

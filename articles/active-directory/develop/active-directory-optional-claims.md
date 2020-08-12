@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552869"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115733"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -31,7 +31,7 @@ ms.locfileid: "87552869"
 
 표준 클레임 목록은 [access token](access-tokens.md) 및 [ID_token](id-tokens.md) 클레임 설명서를 참조하세요.
 
-선택적 클레임은 v1.0 및 v2.0 형식 토큰 뿐만 아니라 SAML 토큰에서도 지원되지만, v1.0에서 v2.0으로 전환할 때 대부분의 값을 제공합니다. [v2.0 Microsoft ID 플랫폼 엔드포인트](active-directory-appmodel-v2-overview.md)의 목표 중 하나는 클라이언트의 최적 성능을 보장하기 위해 토큰 크기를 좀 더 작게 유지하는 것입니다. 따라서, 이전에 액세스 및 ID 토큰에 포함되어 있던 일부 클레임이 v 2.0 토큰에는 더 이상 존재하지 않으며, 애플리케이션 기준으로 특수하게 요청되어야 합니다.
+선택적 클레임은 v1.0 및 v2.0 형식 토큰 뿐만 아니라 SAML 토큰에서도 지원되지만, v1.0에서 v2.0으로 전환할 때 대부분의 값을 제공합니다. [v2.0 Microsoft ID 플랫폼 엔드포인트](./v2-overview.md)의 목표 중 하나는 클라이언트의 최적 성능을 보장하기 위해 토큰 크기를 좀 더 작게 유지하는 것입니다. 따라서, 이전에 액세스 및 ID 토큰에 포함되어 있던 일부 클레임이 v 2.0 토큰에는 더 이상 존재하지 않으며, 애플리케이션 기준으로 특수하게 요청되어야 합니다.
 
 **표 1: 적용 가능성**
 
@@ -61,10 +61,10 @@ ms.locfileid: "87552869"
 | `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
 | `ctry`                     | 사용자의 국가/지역 | JWT |  | Azure AD는 표시되고 클레임의 값이 FR, JP, SZ 등과 같은 표준 두 글자 국가/지역 번호인 경우 `ctry` 선택적 클레임을 반환합니다. |
 | `tenant_ctry`              | 리소스 테넌트의 국가/지역 | JWT | | |
-| `xms_pdl`             | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 기본 데이터 위치는 사용자가 거주하는 지리적 지역을 나타내는 세 문자로 된 코드입니다. 자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)를 참조합니다.<br/>예를 들어 아시아 태평양의 경우 `APC`입니다. |
+| `xms_pdl`             | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 기본 데이터 위치는 사용자가 거주하는 지리적 지역을 나타내는 세 문자로 된 코드입니다. 자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md)를 참조합니다.<br/>예를 들어 아시아 태평양의 경우 `APC`입니다. |
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us")입니다. |
 | `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다. 형식이 지정된 LL("en")입니다. |
-| `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 디바이스 ID |
+| `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 디바이스 ID |
 | `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, Azure AD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부 사용자)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|
 | `acct`                | 테 넌 트의 사용자 계정 상태 | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `groups`| 그룹 클레임에 대한 선택적 서식 지정 |JWT, SAML| |함께 설정해야 하는 [애플리케이션 매니페스트](reference-app-manifest.md)의 GroupMembershipClaims 설정과 함께 사용됩니다. 자세한 내용은 아래 [그룹 클레임](#configuring-groups-optional-claims)을 참조하세요. 그룹 클레임에 대한 자세한 내용은 [그룹 클레임을 구성하는 방법](../hybrid/how-to-connect-fed-group-claims.md)을 참조하세요.
@@ -191,7 +191,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 ### <a name="optionalclaim-type"></a>OptionalClaim 형식
 
-애플리케이션 또는 서비스 사용자와 연결된 선택적 클레임을 포함합니다. [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) 형식의 idToken, accessToken 및 saml2Token 속성은 OptionalClaim의 컬렉션입니다.
+애플리케이션 또는 서비스 사용자와 연결된 선택적 클레임을 포함합니다. [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) 형식의 idToken, accessToken 및 saml2Token 속성은 OptionalClaim의 컬렉션입니다.
 특정 클레임에서 지원될 경우, AdditionalProperties 필드를 사용하여 OptionalClaim의 동작을 수정할 수도 있습니다.
 
 **표 6: OptionalClaim 형식 속성**
@@ -205,7 +205,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 ## <a name="configuring-directory-extension-optional-claims"></a>디렉터리 확장 선택적 클레임 구성
 
-표준 선택적 클레임 세트 외에도 확장을 포함하도록 토큰을 구성할 수 있습니다. 자세한 내용은 [Microsoft Graph extensionProperty 설명서](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0)를 참조하세요.
+표준 선택적 클레임 세트 외에도 확장을 포함하도록 토큰을 구성할 수 있습니다. 자세한 내용은 [Microsoft Graph extensionProperty 설명서](/graph/api/resources/extensionproperty?view=graph-rest-1.0)를 참조하세요.
 
 스키마 및 오픈 확장은 선택적 클레임에서 지원되지 않으며, AAD-Graph 스타일 디렉터리 확장만 지원됩니다. 이 기능은 앱이 사용할 수 있는 추가 사용자 정보(예: 추가 식별자 또는 사용자가 설정한 중요 구성 옵션)를 추가하는 데 유용합니다. 예제를 보려면 페이지의 맨 아래를 참조하세요.
 
@@ -362,8 +362,8 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 애플리케이션 ID 구성에서 속성을 업데이트하여 선택적 클레임을 사용하도록 설정하고 구성하는 데 여러 옵션을 사용할 수 있습니다.
 
 - **토큰 구성** UI를 사용할 수 있습니다(아래 예제 참조).
-- **매니페스트**를 사용할 수 있습니다(아래 예제 참조). 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)를 읽으세요.
-- 또한 [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0)를 사용하는 애플리케이션을 작성하여 애플리케이션을 업데이트할 수 있습니다. Microsoft Graph API 참조 가이드의 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) 형식은 선택적 클레임을 구성하는 데 유용할 수 있습니다.
+- **매니페스트**를 사용할 수 있습니다(아래 예제 참조). 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](./reference-app-manifest.md)를 읽으세요.
+- 또한 [Microsoft Graph API](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0)를 사용하는 애플리케이션을 작성하여 애플리케이션을 업데이트할 수 있습니다. Microsoft Graph API 참조 가이드의 [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) 형식은 선택적 클레임을 구성하는 데 유용할 수 있습니다.
 
 **예:**
 
@@ -404,7 +404,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 찾아서 선택합니다.
 1. **관리** 섹션에서 **매니페스트**를 선택하여 인라인 매니페스트 편집기를 엽니다.
-1. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 매니페스트는 [애플리케이션 엔터티](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)의 스키마를 따르며, 저장된 매니페스트의 서식을 자동으로 지정합니다. 새 요소가 `OptionalClaims` 속성에 추가됩니다.
+1. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 매니페스트는 [애플리케이션 엔터티](./reference-app-manifest.md)의 스키마를 따르며, 저장된 매니페스트의 서식을 자동으로 지정합니다. 새 요소가 `OptionalClaims` 속성에 추가됩니다.
 
     ```json
     "optionalClaims": {

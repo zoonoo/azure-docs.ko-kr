@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 호스트 풀 PowerShell 만들기 - Azure
 description: PowerShell cmdlet을 사용하여 Windows Virtual Desktop에서 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3e4b326b5a78f4b14bdd87e842d8ca485f56831
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002592"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121156"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기
 
@@ -116,6 +116,32 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
 
 >[!IMPORTANT]
 >Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](../security-center/security-center-just-in-time.md)를 사용하는 것이 좋습니다. 또한 VM을 공용 IP에 할당하지 않는 것이 좋습니다.
+
+## <a name="update-the-agent"></a>에이전트 업데이트
+
+다음 상황 중 하나에 해당 하는 경우 에이전트를 업데이트 해야 합니다.
+
+- 이전에 등록 한 세션을 새 호스트 풀로 마이그레이션하려고 합니다.
+- 업데이트 후에도 호스트 풀에 세션 호스트가 나타나지 않음
+
+에이전트를 업데이트 하려면:
+
+1. 관리자 권한으로 VM에 로그인 합니다.
+2. **서비스**로 이동한 다음 **Rdagent** 및 **원격 데스크톱 에이전트 로더** 프로세스를 중지 합니다.
+3. 그런 다음 에이전트 및 부팅 로더 Msi을 찾습니다. 이 폴더는 **C:\deployagent** 폴더에 있거나 설치할 때 저장 한 위치에 있습니다.
+4. 다음 파일을 찾아 제거 합니다.
+     
+     - RDInfra-64-verx. x. x. x
+     - RDInfra. 설치 관리자-x64
+
+   이러한 파일을 제거 하려면 각 파일 이름을 마우스 오른쪽 단추로 클릭 한 다음 **제거**를 선택 합니다.
+5. 필요에 따라 다음 레지스트리 설정을 제거할 수도 있습니다.
+     
+     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
+     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+
+6. 이러한 항목을 제거한 후에는 이전 호스트 풀과의 모든 연결을 제거 해야 합니다. 이 호스트를 서비스에 등록 하려면 [WIndows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a3e6d918f4ab94c4533e930ea73b5267deb53a4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027256"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115529"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
@@ -82,7 +82,7 @@ Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 �
 
 이 예제 시나리오는 다음과 같이 이루어져 있습니다.
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|-------------|
 | 1    | 애플리케이션의 홈 테넌트에서 애플리케이션 및 서비스 주체 개체를 만드는 과정입니다. |
 | 2    | Contoso 관리자와 Fabrikam 관리자가 전적으로 동의한 경우 서비스 주체 개체가 회사의 Azure AD 테넌트에 생성되고 관리자가 부여한 사용 권한이 할당됩니다. 또한 사용자가 개별 사용에 대한 동의를 할 수 있게 HR 앱이 구성/설계될 수 있습니다. |
@@ -91,12 +91,12 @@ Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 사용 하 여 응용 프로그램 및 서비스 주체 개체를 모두 쿼리할 수 있습니다.
-- OData [응용 프로그램 엔터티로][MS-Graph-App-Entity]표시 되는 Microsoft Graph API, [Azure Portal의][AZURE-Portal] 응용 프로그램 매니페스트 편집기 또는 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0)을 사용 하 여 응용 프로그램의 응용 프로그램 개체에 액세스할 수 있습니다.
-- OData [serviceprincipal 엔터티][MS-Graph-Sp-Entity]를 통해 표시 된 대로 Microsoft Graph API 또는 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0)을 통해 응용 프로그램의 서비스 주체 개체에 액세스할 수 있습니다.
+- OData [응용 프로그램 엔터티로][MS-Graph-App-Entity]표시 되는 Microsoft Graph API, [Azure Portal의][AZURE-Portal] 응용 프로그램 매니페스트 편집기 또는 [Azure AD PowerShell cmdlet](/powershell/azure/?view=azureadps-2.0)을 사용 하 여 응용 프로그램의 응용 프로그램 개체에 액세스할 수 있습니다.
+- OData [serviceprincipal 엔터티][MS-Graph-Sp-Entity]를 통해 표시 된 대로 Microsoft Graph API 또는 [Azure AD PowerShell cmdlet](/powershell/azure/?view=azureadps-2.0)을 통해 응용 프로그램의 서비스 주체 개체에 액세스할 수 있습니다.
 
 <!--Image references-->
 
 <!--Reference style links -->
-[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: /graph/api/resources/application
+[MS-Graph-Sp-Entity]: /graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

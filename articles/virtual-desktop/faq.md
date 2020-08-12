@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 FAQ-Azure
 description: Windows 가상 데스크톱에 대 한 질문과 대답 및 모범 사례입니다.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007491"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121122"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
 
@@ -23,7 +23,7 @@ ms.locfileid: "88007491"
 
 앱 그룹에 사용자 액세스 관리자 역할을 할당 하 여 사용자 또는 사용자 그룹에 앱 그룹을 게시 해야 합니다.
 
-사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예:
+사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 "actions": [
@@ -48,8 +48,6 @@ ms.locfileid: "88007491"
 
 Active Directory를 동일한 VNET (가상 네트워크)에서 사용자의 Azure AD와 동기화 하는 경우 다른 Azure AD에서 Vm (가상 머신)을 만들 수 있습니다.
 
-Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 지원 하지 않습니다. Lighthouse는 현재 Azure AD 테 넌 트 사용자 관리를 지원 하지 않으므로, Lighthouse 고객은 고객이 사용자를 관리 하는 데 사용 하는 Azure AD에 여전히 로그인 해야 합니다.
-
 ## <a name="what-are-location-restrictions"></a>위치 제한은 무엇 인가요?
 
 모든 서비스 리소스에는 연결 된 위치가 있습니다. 호스트 풀의 위치는 호스트 풀의 서비스 메타 데이터가 저장 되는 지리를 결정 합니다. 호스트 풀이 없으면 앱 그룹을 사용할 수 없습니다. RemoteApp 앱 그룹에 앱을 추가 하는 경우 시작 메뉴 앱을 결정 하는 세션 호스트도 필요 합니다. 모든 앱 그룹 작업의 경우 호스트 풀에 관련 된 데이터 액세스 권한도 필요 합니다. 여러 위치 간에 데이터가 전송 되지 않도록 하려면 앱 그룹의 위치가 호스트 풀의 위치와 동일 해야 합니다.
@@ -60,7 +58,7 @@ Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 
 
 PowerShell cmdlet을 실행 하면 리소스 이름과 위치만 표시 됩니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -72,7 +70,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 리소스의 모든 속성을 보려면 `format-list` `fl` cmdlet의 끝에 또는를 추가 합니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -80,7 +78,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 특정 속성을 보려면 또는 뒤에 특정 속성 이름을 추가 `format-list` 합니다 `fl` .
 
-예:
+예를 들면 다음과 같습니다.
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -132,3 +130,11 @@ FSLogix의 제한 또는 할당량은 사용자 프로필 VHD (X) 파일을 저�
 - 지역 및 구독 당 만들 수 있는 코어 수에는 제한이 있습니다. 예를 들어 기업계약 구독이 있는 경우 350 코어를 만들 수 있습니다. 템플릿을 실행할 때마다 만들 수 있는 Vm 수를 결정 하려면 VM 당 기본 코어 수 또는 고유한 코어 제한으로 350을 나누어야 합니다. [Virtual Machines 한도 Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager)에서 자세히 알아보세요.
 
 - VM 접두사 이름과 Vm 수가 15 자 미만입니다. 자세히 알아보려면 [Azure 리소스에 대 한 명명 규칙 및 제한 사항](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute)을 참조 하세요.
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Azure Lighthouse를 사용 하 여 Windows 가상 데스크톱 환경을 관리할 수 있나요?
+
+Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 지원 하지 않습니다. Lighthouse는 현재 Azure AD 테 넌 트 사용자 관리를 지원 하지 않으므로, Lighthouse 고객은 고객이 사용자를 관리 하는 데 사용 하는 Azure AD에 여전히 로그인 해야 합니다.
+
+또한 Windows 가상 데스크톱 서비스에서 CSP 샌드박스 구독을 사용할 수 없습니다. 자세히 알아보려면 [Integration sandbox 계정](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account)을 참조 하세요.
+
+마지막으로, CSP 소유자 계정에서 리소스 공급자를 사용 하도록 설정한 경우 CSP 고객 계정은 리소스 공급자를 수정할 수 없습니다.

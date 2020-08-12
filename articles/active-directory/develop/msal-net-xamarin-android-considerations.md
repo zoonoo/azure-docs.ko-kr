@@ -13,12 +13,12 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652681"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118691"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>MSAL.NET와 함께 Xamarin Android 사용에 대 한 고려 사항
 이 문서에서는 Microsoft Authentication Library for .NET (MSAL.NET)과 함께 Xamarin Android를 사용할 때 고려해 야 할 사항을 설명 합니다.
@@ -92,7 +92,7 @@ protected override void OnActivityResult(int requestCode,
 
 Azure Portal에서 등록 한 패키지 이름을 값으로 대체 합니다 `android:host=` . Azure Portal에서 등록 한 키 해시를 값으로 대체 합니다 `android:path=` . 서명 *해시는 URL 인코딩되지 않아야 합니다* . 선행 슬래시 ( `/` )가 서명 해시의 시작 부분에 표시 되는지 확인 합니다.
 
-또는 *AndroidManifest.xml*를 수동으로 편집 하 [는 대신 코드에서 작업을 만듭니다](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) . 코드에서 활동을 만들려면 먼저 특성 및 특성을 포함 하는 클래스를 만듭니다 `Activity` `IntentFilter` . 
+또는 *AndroidManifest.xml*를 수동으로 편집 하 [는 대신 코드에서 작업을 만듭니다](/xamarin/android/platform/android-manifest#the-basics) . 코드에서 활동을 만들려면 먼저 특성 및 특성을 포함 하는 클래스를 만듭니다 `Activity` `IntentFilter` . 
 
 XML 파일의 값을 나타내는 클래스의 예는 다음과 같습니다.
 
@@ -160,6 +160,6 @@ var authResult = AcquireTokenInteractive(scopes)
 
 자세한 내용은 [Microsoft id 플랫폼을 사용 하는 Xamarin mobile 응용 프로그램](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)샘플을 참조 하세요. 다음 표에서는 추가 정보 파일의 관련 정보를 요약 하 여 보여 줍니다.
 
-| 예제 | 플랫폼 | Description |
+| 샘플 | 플랫폼 | Description |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.ios, Android, UWP | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 Microsoft Graph 액세스 하 고 결과 토큰을 표시 하는 방법을 보여 줍니다. <br>![토폴로지](media/msal-net-xamarin-android-considerations/topology.png) |

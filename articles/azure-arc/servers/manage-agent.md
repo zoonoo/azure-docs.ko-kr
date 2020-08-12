@@ -1,19 +1,14 @@
 ---
 title: 서버용 Azure Arc(미리 보기) 에이전트 관리
 description: 이 문서에서는 서버용 Azure Arc Connected Machine 에이전트의 수명 주기 동안 일반적으로 수행하는 다양한 관리 작업에 대해 설명합니다.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73ece3f1bc8d5e88d4c1c37e1040f2494230e4ee
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b7fcaca2188ef0e1e3c8c65226f8b383576082ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809598"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121292"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 

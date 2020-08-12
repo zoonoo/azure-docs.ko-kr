@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041462"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117076"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에 앱 역할 추가 및 토큰으로 수신
 
@@ -95,7 +95,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 "availableToOtherTenants": false,
 ```
 
-정의된 역할 수는 애플리케이션 매니페스트에 포함된 제한에 영향을 줍니다. 이 내용은 [매니페스트 제한](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) 페이지에서 자세히 설명합니다.
+정의된 역할 수는 애플리케이션 매니페스트에 포함된 제한에 영향을 줍니다. 이 내용은 [매니페스트 제한](./reference-app-manifest.md#manifest-limits) 페이지에서 자세히 설명합니다.
 
 ### <a name="assign-users-and-groups-to-roles"></a>역할에 사용자 및 그룹 할당
 
@@ -128,6 +128,6 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 - [ASP.NET Core 웹앱에 앱 역할 및 역할 클레임을 사용하는 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Microsoft id 플랫폼을 사용 하 여 응용 프로그램에서 권한 부여 구현 (비디오)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Azure Active Directory 앱 매니페스트](./reference-app-manifest.md)
 - [AAD 액세스 토큰](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

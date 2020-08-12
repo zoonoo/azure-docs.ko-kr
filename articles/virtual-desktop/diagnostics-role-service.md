@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 진단 문제 - Azure
 description: Windows Virtual Desktop 진단 기능을 사용하여 문제를 진단하는 방법.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a985ce4f93b04e4065b5189b2a406b54729720c3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005088"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121411"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Windows 가상 데스크톱 문제 식별 및 진단
 
@@ -60,6 +60,14 @@ Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제�
 |8|ConnectionBroken|클라이언트와 게이트웨이 또는 서버 사이의 연결이 끊어졌습니다. 예기치 않게 발생한 경우가 아닌 이상 조치가 필요하지 않습니다.|
 |14|UnexpectedNetworkDisconnect|네트워크 연결이 끊어졌습니다. 사용자에게 다시 연결하라고 요청하세요.|
 |24|ReverseConnectFailed|호스트 가상 머신에 RD 게이트웨이에 대한 직접적인 시야가 없습니다. 게이트웨이 IP 주소를 확인할 수 있는지 확인하세요.|
+
+## <a name="error-cant-add-user-assignments-to-an-app-group"></a>오류: 앱 그룹에 사용자 할당을 추가할 수 없습니다.
+
+앱 그룹에 사용자를 할당 한 후 Azure Portal에 "세션 종료" 또는 "인증 문제 발생-확장 Microsoft_Azure_WVD" 이라는 경고가 표시 됩니다. 그러면 할당 페이지가 로드 되지 않고, 그 후에는 Azure Portal 전체에서 페이지 로드를 중지 합니다 (예: Azure Monitor, Log Analytics, Service Health 등).
+
+**원인:** 조건부 액세스 정책에 문제가 있습니다. Azure Portal는 SharePoint Online에 종속 된 Microsoft Graph에 대 한 토큰을 가져오려고 합니다. 고객에 게는 사용자가 데이터 저장소에 액세스 하는 데 사용 약관에 동의 해야 하는 "Microsoft Office 365 데이터 저장소 사용 약관" 이라는 조건부 액세스 정책이 있습니다. 그러나 아직 로그인 하지 않았으므로 Azure Portal는 토큰을 가져올 수 없습니다.
+
+**해결 방법:** Azure Portal에 로그인 하기 전에 먼저 관리자가 SharePoint에 로그인 하 고 사용 약관에 동의 해야 합니다. 그 후에는 평상시와 같이 Azure Portal에 로그인 할 수 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

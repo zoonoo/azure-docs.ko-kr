@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383872"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116345"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -99,7 +99,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
     * Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 다음과 같이 **Openid connect Connect & OAuth 2.0** 을 선택 합니다.
     * 액세스에 문제가 있는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
 
-- **Saml 2.0** 또는 **WS-급지되지**않음: 앱이 saml 2.0을 지 원하는 경우 지침에 따라 [사용자 지정 응용 프로그램을 추가](../active-directory-saas-custom-apps.md)하 여 Azure AD 테 넌 트와 직접 통합할 수 있습니다.
+- **Saml 2.0** 또는 **WS-급지되지**않음: 앱이 saml 2.0을 지 원하는 경우 지침에 따라 [사용자 지정 응용 프로그램을 추가](../manage-apps/view-applications-portal.md)하 여 Azure AD 테 넌 트와 직접 통합할 수 있습니다.
 
   ![갤러리에 SAML 2.0 또는 WS-급지됨 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 

@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 20a158aac6a03dfe0bd8929de9fa66ea215aa29c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 9d703eab97b087ed6b3e4d9c3519a7e3ee7489cd
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194114"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117416"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -78,7 +78,7 @@ Microsoft ID 플랫폼을 사용하여 애플리케이션을 빌드하는 방법
 
 다음에 대해 자세히 알아봅니다.
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure 독일](https://docs.microsoft.com/azure/germany/)
-- [Azure AD 인증 기본 사항](authentication-scenarios.md)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure 독일](../../germany/index.yml)
+- [Azure AD 인증 기본 사항](./authentication-vs-authorization.md)

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 28ace84f9a80b71209d7963d02b66317292b151b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882542"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121037"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>프로덕션을 위해 모바일 앱 준비
 
@@ -36,7 +36,7 @@ ms.locfileid: "80882542"
 
 ## <a name="mitigate-and-investigate-issues"></a>문제 완화 및 조사
 
-앱에서 문제를 더 잘 진단 하려면 데이터를 수집 합니다. 수집할 수 있는 데이터의 종류에 대 한 자세한 내용은 [MSAL 응용 프로그램의 로깅](https://docs.microsoft.com/azure/active-directory/develop/msal-logging)을 참조 하세요.
+앱에서 문제를 더 잘 진단 하려면 데이터를 수집 합니다. 수집할 수 있는 데이터의 종류에 대 한 자세한 내용은 [MSAL 응용 프로그램의 로깅](./msal-logging.md)을 참조 하세요.
 
 다음은 데이터 수집에 대 한 몇 가지 제안 사항입니다.
 

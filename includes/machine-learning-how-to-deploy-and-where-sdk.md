@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 624824f5b6b8f7154ccd7b50da49f3f4bb179bb9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 97f0412141f15ad0a72c02b92cfcf089b61db0cf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542799"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120350"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -100,12 +100,11 @@ SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한
 
 Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에 대 한 자세한 내용은 [기존 모델을 배포 하는 방법](../articles/machine-learning/how-to-deploy-existing-model.md)을 참조 하세요.
 
-
 ## <a name="define-an-entry-script"></a>항목 스크립트 정의
 
 [!INCLUDE [write entry script](machine-learning-entry-script.md)]
 
-## <a name="define-an-inference-configuration"></a>유추 구성 정의
+## <a name="define-an-inferenceconfig"></a>InferenceConfig 정의
 
 유추 구성은 모델을 포함 하는 웹 서비스를 설정 하는 방법을 설명 합니다. 나중에 모델을 배포할 때 사용 됩니다.
 
@@ -162,12 +161,9 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
 
 ## <a name="choose-a-compute-target"></a>계산 대상 선택
 
-
 [!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
 
-
-
-## <a name="define-a-deployment-configuration"></a>배포 구성 정의
+## <a name="define-a-deploymentconfiguration"></a>DeploymentConfiguration 정의
 
 모델을 배포 하기 전에 배포 구성을 정의 해야 합니다. *배포 구성은 웹 서비스를 호스팅하는 계산 대상에만 적용 됩니다.* 예를 들어 모델을 로컬로 배포 하는 경우 서비스에서 요청을 수락 하는 포트를 지정 해야 합니다. 배포 구성은 입력 스크립트의 일부가 아닙니다. 모델 및 항목 스크립트를 호스팅할 계산 대상의 특성을 정의 하는 데 사용 됩니다.
 
@@ -187,7 +183,6 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-
 ## <a name="deploy-your-model"></a>모델 배포
 
 이제 모델을 배포할 준비가 되었습니다. 아래 예제에서는 로컬 배포를 보여 줍니다. 구문은 이전 단계에서 선택한 계산 대상에 따라 달라 집니다.
@@ -203,11 +198,9 @@ print(service.state)
 
 자세한 내용은 [Localwebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py)에 대 한 설명서를 참조 하세요.
 
-
 ## <a name="delete-resources"></a>리소스 삭제
 
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
 
 자세한 내용은 [WebService. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) 및 [Model. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)설명서를 참조 하십시오.
-

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050924"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116651"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Active Directory Domain Services에 대 한 온-프레미스 Azure AD 암호 보호 적용
 
@@ -87,6 +87,9 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어는 DC에 설치 된 경�
 AD DS 포리스트에 Azure AD 암호 보호를 배포 하려면 Azure AD에 해당 포리스트를 등록 해야 합니다. 또한 배포 된 각 프록시 서비스는 Azure AD에 등록 되어야 합니다. 이러한 포리스트 및 프록시 등록은 등록 중에 사용 되는 자격 증명으로 암시적으로 식별 되는 특정 Azure AD 테 넌 트와 연결 됩니다.
 
 포리스트 내의 AD DS 포리스트와 모든 배포 된 프록시 서비스는 동일한 테 넌 트에 등록 되어야 합니다. 다른 Azure AD 테 넌 트에 등록 되는 AD DS 포리스트 또는 해당 포리스트의 프록시 서비스는 지원 되지 않습니다. 잘못 구성 된 배포의 증상으로는 암호 정책을 다운로드할 수 없습니다.
+
+> [!NOTE]
+> 따라서 여러 Azure AD 테 넌 트가 있는 고객은 Azure AD 암호 보호를 위해 각 포리스트를 등록 하기 위해 하나의 고유 테 넌 트를 선택 해야 합니다.
 
 ## <a name="download"></a>다운로드
 

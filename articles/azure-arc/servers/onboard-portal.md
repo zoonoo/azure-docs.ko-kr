@@ -1,20 +1,15 @@
 ---
 title: Azure Portal에서 Azure에 하이브리드 머신 연결
 description: 이 문서에서는 Azure Portal에서 서버용 Azure Arc(미리 보기)를 사용하여 에이전트를 설치하고 머신을 Azure에 연결하는 방법을 설명합니다.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: f88fc4a1fd5c44b515ab44b604ebf9a885165ddc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 08f2563aaa67cdd45760af34ef3bef3e8e472ae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008002"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120986"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 

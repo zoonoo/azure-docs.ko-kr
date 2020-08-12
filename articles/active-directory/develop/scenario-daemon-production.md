@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e5d25169aa3daee33a9f02e605cbff91776dc7f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72e6d0a8677f7a8175223b80541c99026a9eb16f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885432"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119167"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 디먼 앱-프로덕션으로 이동
 
@@ -41,8 +41,8 @@ ms.locfileid: "80885432"
 
 - 빠른 시작: [응용 프로그램의 id를 사용 하 여 콘솔 앱에서 토큰을 획득 하 고 MICROSOFT GRAPH API를 호출](./quickstart-v2-netcore-daemon.md)합니다.
 - 참조 설명서:
-  - [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)인스턴스화.
-  - [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)를 호출 합니다.
+  - [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)인스턴스화.
+  - [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)를 호출 합니다.
 - 기타 샘플/자습서:
   - [microsoft-](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) --platform-디먼 기능 Microsoft Graph 쿼리 하는 테 넌 트의 사용자를 표시 하는 간단한 .net Core 디먼 콘솔 응용 프로그램입니다.
 

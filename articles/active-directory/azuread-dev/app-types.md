@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154953"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116447"
 ---
 # <a name="application-types-in-v10"></a>v1.0의 애플리케이션 유형
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)는 모두 업계 표준 프로토콜 OAuth 2.0 
 코드 작업을 시작하기 전에 링크를 따라 각 앱 유형에 대해 자세히 알아보고 대략적인 시나리오를 파악하세요. v1.0 엔드포인트 또는 v2.0 엔드포인트에서 작동하는 특정 앱을 작성할 때 알아야 할 차이점을 살펴볼 수도 있습니다.
 
 > [!NOTE]
-> v2.0 엔드포인트는 일부 Azure AD 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](../develop/active-directory-v2-limitations.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조하세요.
+> v2.0 엔드포인트는 일부 Azure AD 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json)을 참조하세요.
 
 다양한 언어 및 플랫폼을 사용하여 여기에 설명된 앱과 시나리오를 개발할 수 있습니다. 코드 샘플 가이드 [시나리오별 v1.0 코드 샘플](sample-v1-code.md) 및 [시나리오별 v2.0 코드 샘플](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)에 있는 전체 코드 샘플에서 모두 지원됩니다. 해당 [GitHub 샘플 리포지토리](https://github.com/Azure-Samples?q=active-directory)에서 바로 코드 샘플을 다운로드할 수도 있습니다.
 

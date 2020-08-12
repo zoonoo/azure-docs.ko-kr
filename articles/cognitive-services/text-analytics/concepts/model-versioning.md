@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: b3e8c2c8a5e95cc5c862112410f5073a5e600651
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 7d008dc0f7ed90397ac07e12320d861b107f0f46
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986766"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120935"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>텍스트 분석 API의 모델 버전 관리
 
@@ -38,15 +38,17 @@ ms.locfileid: "87986766"
 
 이러한 모델에 대 한 업데이트에 대 한 세부 정보는 [새로운 기능](../whats-new.md)에서 찾을 수 있습니다.
 
-## <a name="text-analytics-for-health"></a>상태에 대한 Text Analytics
+## <a name="text-analytics-for-health"></a>의료 분야 Text Analytics
 
 [상태 컨테이너의 Text Analytics](../how-tos/text-analytics-for-health.md) 는 위의 API 끝점과 별도의 모델 버전 관리를 사용 합니다.  컨테이너 이미지 마다 하나의 모델 버전만 사용할 수 있습니다.
 
 | 엔드포인트                        | 컨테이너 이미지 태그                     | 모델 버전 |
 |---------------------------------|-----------------------------------------|---------------|
-| `/domains/health`               | `1.1.012640001-amd64-preview`또는 최신 | `2020-05-08`  |
+| `/domains/health`               | `1.1.013150001-amd64-preview`또는 최신 | `2020-07-24`  |
+| `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-07-24`  |
 
 
 

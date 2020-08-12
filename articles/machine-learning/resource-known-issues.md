@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/06/2020
-ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905499"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120765"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -302,12 +302,53 @@ time.sleep(600)
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
+* **automl_setup 실패**: 
+    * Windows에서는 Anaconda 프롬프트에서 automl_setup를 실행 합니다. Miniconda를 설치 하려면 [여기](https://docs.conda.io/en/latest/miniconda.html)를 클릭 하세요.
+    * 명령을 실행 하 여 32 비트가 아닌 conda 64 비트를 설치 했는지 확인 `conda info` 합니다. 는 `platform` `win-64` Windows 또는 Mac 용 이어야 합니다 `osx-64` .
+    * Conda 4.4.10 이상이 설치 되어 있는지 확인 합니다. 명령을 사용 하 여 버전을 확인할 수 있습니다 `conda -V` . 이전 버전이 설치 되어 있는 경우 명령을 사용 하 여 업데이트할 수 있습니다 `conda update conda` .
+    * 용`gcc: error trying to exec 'cc1plus'`
+      *  `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`오류가 발생 하면 해당 명령을 사용 하 여 build essentials를 설치 `sudo apt-get install build-essential` 합니다.
+      * 새 이름을 automl_setup에 대 한 첫 번째 매개 변수로 전달 하 여 새 conda 환경을 만듭니다. 를 사용 하 여 기존 conda 환경을 보고 `conda env list` 제거 `conda env remove -n <environmentname>` 합니다.
+      
+* **automl_setup_linux sh 실패**: automl_setup_linus. sh가 오류가 발생 한 Ubuntu Linux에서 실패 합니다.`unable to execute 'gcc': No such file or directory`-
+  1. 아웃 바운드 포트 53 및 80을 사용 하도록 설정 했는지 확인 합니다. Azure VM에서 VM을 선택 하 고 네트워킹을 클릭 하 여 Azure Portal에서이 작업을 수행할 수 있습니다.
+  2. `sudo apt-get update` 명령을 실행합니다.
+  3. `sudo apt-get install build-essential --fix-missing` 명령을 실행합니다.
+  4. `automl_setup_linux.sh`다시 실행
+
+* **구성. ipynb 실패**:
+  * 로컬 conda의 경우 먼저 automl_setup susccessfully를 실행 했는지 확인 합니다.
+  * Subscription_id 올바른지 확인 하십시오. 모든 서비스를 선택 하 고 구독을 선택 하 여 Azure Portal에서 subscription_id를 찾습니다. 문자 "<" 및 ">"는 subscription_id 값에 포함 되지 않아야 합니다. 예를 들어에는 `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 유효한 형식이 있습니다.
+  * 구독에 대 한 참가자 또는 소유자의 액세스 권한이 있는지 확인 합니다.
+  * 지역이 지원 되는 지역,,,,,,, 중 하나 인지 확인 `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` `southcentralus` 합니다.
+  * Azure Portal을 사용 하 여 지역에 대 한 액세스를 보장 합니다.
+  
+* **AutoMLConfig 가져오기 실패**: 자동화 된 machine learning 버전 1.0.76에서 패키지 변경 내용이 있습니다 .이는 새 버전으로 업데이트 하기 전에 이전 버전을 제거 해야 합니다. `ImportError: cannot import name AutoMLConfig`V 1.0.76에서 v 1.0.76 이상으로 업그레이드 한 후에이 발생 하면을 실행 하 여 오류를 해결 한 다음를 실행 `pip uninstall azureml-train automl` `pip install azureml-train-auotml` 합니다. Automl_setup 스크립트는이를 자동으로 수행 합니다. 
+
+* **작업 영역. from_config 실패**: Ws = 작업 영역. from_config () ' 호출이 실패 합니다.
+  1. 구성. ipynb 노트북이 성공적으로 실행 되었는지 확인 합니다.
+  2. 가 실행 된 폴더에 없는 폴더에서 노트북을 실행 하는 경우 `configuration.ipynb` 폴더 aml_config 폴더를 복사 하 고 해당 폴더에 포함 된 config.js파일을 새 폴더에 복사 합니다. 작업 영역. from_config 노트북 폴더 또는 해당 부모 폴더에 대 한 config.js를 읽습니다.
+  3. 새 구독, 리소스 그룹, 작업 영역 또는 지역이 사용 중인 경우에는 다시 노트북을 실행 해야 `configuration.ipynb` 합니다. 지정 된 구독에서 지정 된 리소스 그룹에 작업 영역이 이미 있는 경우에만 config.js의 변경 내용이 적용 됩니다.
+  4. 지역을 변경 하려면 작업 영역, 리소스 그룹 또는 구독을 변경 하세요. `Workspace.create`는 이미 있는 경우 작업 영역을 만들거나 업데이트 하지 않습니다. 지정 된 지역이 다른 경우에도 마찬가지입니다.
+  
+* **샘플 노트북 실패**: 샘플 노트북에 오류가 발생 하면 preperty, method 또는 library가 존재 하지 않습니다.
+  * Correctcorrect 커널이 jupyter 노트북에서 선택 되었는지 확인 합니다. 커널은 노트북 페이지의 오른쪽 위에 표시 됩니다. 기본값은 azure_automl입니다. 커널은 노트북의 일부로 저장 됩니다. 따라서 새 conda 환경으로 전환 하는 경우 노트북에서 새 커널을 선택 해야 합니다.
+      * Azure Notebooks의 경우 Python 3.6 이어야 합니다. 
+      * 로컬 conda 환경의 경우에는 automl_setup에서 지정한 conda envioronment 이름 이어야 합니다.
+  * 사용 중인 SDK 버전에 대 한 노트북이 있는지 확인 합니다. Jupyter 노트북 셀에서를 실행 하 여 SDK 버전을 확인할 수 있습니다 `azureml.core.VERSION` . 단추를 클릭 하 `Branch` `Tags` 고 탭을 선택한 다음 버전을 선택 하 여 GitHub에서 이전 버전의 샘플 노트북을 다운로드할 수 있습니다.
+
+* **Windows에서 Numpy 가져오기 실패**: 일부 windows 환경에서는 최신 Python 버전 3.6.8를 사용 하 여 Numpy를 로드 하는 동안 오류가 발생 합니다. 이 문제가 표시 되는 경우 Python 버전 3.6.7으로 시도 하세요.
+
+* **Numpy 가져오기 실패**: 자동화 된 ml conda 환경에서 tensorflow 버전을 확인 합니다. 지원 되는 버전은 < 1.13입니다. 버전이 >= 1.13 인 경우 환경에서 tensorflow를 제거 합니다. tensorflow의 버전을 확인 하 고 다음과 같이 제거할 수 있습니다.
+  1. 명령 셸을 시작 하 고 자동 ml 패키지가 설치 된 conda 환경을 활성화 합니다.
+  2. 을 입력 `pip freeze` 하 고 검색 `tensorflow` 하는 경우 나열 된 버전 < 1.13 이어야 합니다.
+  3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall tensorflow` 명령 셸에서 y를 입력 하 여 확인 합니다.
 
 ## <a name="deploy--serve-models"></a>모델 배포 및 제공
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|Error  | 해결 방법  |
+|오류  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |
