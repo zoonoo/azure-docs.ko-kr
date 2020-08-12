@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 1dabadfe30a28fdae409f8452aac2cca4b765418
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313492"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115988"
 ---
 # <a name="accounts--tenant-profiles-android"></a>계정 및 테넌트 프로필(Android)
 
@@ -69,7 +69,7 @@ Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
   - 에 대 한 테 넌 트 프로필은 `tom@live.com` 이러한 각 테 넌 트에 존재 합니다.
 - 다른 테 넌 트의 Tom 및 Bob에 대 한 정보는 레코드 시스템의 정보에 따라 다를 수 있습니다. 작업 제목, 사무실 위치 등의 특성에 따라 달라질 수 있습니다. 각 조직 (Azure Active Directory 테 넌 트) 내에 있는 그룹 및/또는 역할의 멤버일 수 있습니다. 이 정보는 bob@contoso.com 테 넌 트 프로필로 참조 됩니다.
 
-다이어그램에서 및는 bob@contoso.com tom@live.com 다른 Azure Active Directory 테 넌 트의 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)를 참조 하세요.
+다이어그램에서 및는 bob@contoso.com tom@live.com 다른 Azure Active Directory 테 넌 트의 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../external-identities/add-users-administrator.md)를 참조 하세요.
 
 ## <a name="accounts-and-single-sign-on-sso"></a>계정 및 Single Sign-On (SSO)
 
@@ -118,10 +118,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> 계정 개체에서 사용할 수 있는 클레임 목록을 보려면 [id_token의 클레임](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token) 을 참조 하세요.
+> 계정 개체에서 사용할 수 있는 클레임 목록을 보려면 [id_token의 클레임](./id-tokens.md#claims-in-an-id_token) 을 참조 하세요.
 
 > [!TIP]
-> Id_token에 추가 클레임을 포함 하려면 [방법: AZURE AD 앱에 선택적 클레임 제공](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) 의 선택적 클레임 설명서를 참조 하세요.
+> Id_token에 추가 클레임을 포함 하려면 [방법: AZURE AD 앱에 선택적 클레임 제공](./active-directory-optional-claims.md) 의 선택적 클레임 설명서를 참조 하세요.
 
 ### <a name="access-tenant-profile-claims"></a>테 넌 트 프로필 클레임 액세스
 
@@ -140,7 +140,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 계정에 대 한 새로 고침 토큰은 B2C 정책 간에 공유 되지 않습니다. 따라서 토큰을 사용 하는 Single Sign-On를 사용할 수 없습니다. 이는 Single Sign-On 가능 하지 않음을 의미 하지 않습니다. Single Sign-On을 사용 하도록 설정 하는 데 쿠키를 사용할 수 있는 대화형 환경을 사용 해야 Single Sign-On 의미 합니다.
 
-즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 를 사용 하 여 토큰을 요청 하는 계정을 사용 하려는 경우 `acquireTokenSilent` 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예를 들어:
+즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 를 사용 하 여 토큰을 요청 하는 계정을 사용 하려는 경우 `acquireTokenSilent` 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예:
 
 ```java
 // Get Account For Policy

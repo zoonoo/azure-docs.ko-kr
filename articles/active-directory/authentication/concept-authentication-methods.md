@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054071"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116770"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -45,6 +45,8 @@ Azure AD의 많은 계정은 SSPR(셀프 서비스 암호 재설정) 및 Azure M
 | [본인 확인 질문](#security-questions) | 예 | SSPR 전용 |
 | [전자 메일 주소](#email-address) | 예 | SSPR 전용 |
 | [앱 암호](#app-passwords) | 예 | 특정 경우 MFA만 |
+
+이러한 인증 방법은 Azure Portal에서 구성 하 고 [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 사용 하 여 점점 더 사용할 수 있습니다.
 
 이 문서에서는 Azure AD에서 사용할 수 있는 다양한 인증 및 확인 방법과 특정 한도 또는 제한 사항을 간략하게 설명합니다.
 
@@ -297,6 +299,8 @@ SSPR에 등록하는 동안 사용자는 사용할 메일 주소를 제공합니
 SSPR 개념에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정 작동 방법][concept-sspr]을 참조하세요.
 
 MFA 옵션에 대해 자세히 알아보려면 [Azure Multi-Factor Authentication 작동 방법][concept-mfa]을 참조하세요.
+
+[Microsoft Graph REST API 베타](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 사용 하 여 인증 방법 구성에 대해 자세히 알아보세요.
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

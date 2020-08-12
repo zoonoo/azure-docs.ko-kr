@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 1caddf2fba8544bfbb1108865a459f4166af680b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c394a3e84982db31b5727d170c143e9c07636d62
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846074"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121071"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>필수 매개 변수
 
-`AcquireTokenInteractive`에는 오직 하나의 필수 매개 변수 ``scopes``가 있습니다. 이 매개 변수에는 토큰이 필요한 범위를 정의하는 문자열 열거형이 포함되어 있습니다. 토큰이 Microsoft Graph용인 경우, 필요한 범위는 각 Microsoft Graph API의 API 참조의 “권한” 섹션에서 확인할 수 있습니다. 예를 들어, [사용자 연락처를 나열하려면](https://docs.microsoft.com/graph/api/user-list-contacts) “User.Read”, “Contacts.Read” 범위를 사용해야 합니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)를 참조하세요.
+`AcquireTokenInteractive`에는 오직 하나의 필수 매개 변수 ``scopes``가 있습니다. 이 매개 변수에는 토큰이 필요한 범위를 정의하는 문자열 열거형이 포함되어 있습니다. 토큰이 Microsoft Graph용인 경우, 필요한 범위는 각 Microsoft Graph API의 API 참조의 “권한” 섹션에서 확인할 수 있습니다. 예를 들어, [사용자 연락처를 나열하려면](/graph/api/user-list-contacts) “User.Read”, “Contacts.Read” 범위를 사용해야 합니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)를 참조하세요.
 
 Android에서는 예에서 볼 수 있듯이 `.WithParentActivityOrWindow`를 사용하여 부모 작업도 지정해야 합니다. 이렇게 해야 토큰이 이 상호 작용 후에 부모 작업으로 돌아갑니다. 부모 작업을 지정하지 않으면 `.ExecuteAsync()`를 호출할 때 예외가 발생합니다.
 
@@ -278,7 +278,7 @@ MSAL.NET 팀은 UI 테스트가 이 확장성 메커니즘을 사용할 수 있�
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>SystemWebViewOptions를 사용하여 우수한 환경 제공하기
 
-MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet)에서 다음을 지정할 수 있습니다.
+MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet)에서 다음을 지정할 수 있습니다.
 
 - 시스템 웹 브라우저에서 로그인 또는 동의 오류가 발생한 경우 이동할 URI(`BrowserRedirectError`) 또는 표시할 HTML 조각(`HtmlMessageError`).
 - 성공적인 로그인 또는 동의가 이루어진 경우 이동할 URI(`BrowserRedirectSuccess`) 또는 표시할 HTML 조각(`HtmlMessageSuccess`).
@@ -433,13 +433,13 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
   - 또는 테넌트 관리자자 사전에 테넌트의 모든 사용자에 대해 애플리케이션 사용을 동의했어야 합니다.
   - 다시 말하면,
     - 개발자가 직접 Azure Portal에서 **권한 부여** 단추를 선택했어야 합니다.
-    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지**를 선택했어야 합니다. 자세한 내용은 [웹 API 액세스 권한 추가](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis)를 참조하세요.
-    - 또는 사용자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [개별 사용자의 동의 요청](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent)을 참조하세요.
-    - 또는 테넌트 관리자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [관리자 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)를 참조하세요.
+    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지**를 선택했어야 합니다. 자세한 내용은 [웹 API 액세스 권한 추가](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조하세요.
+    - 또는 사용자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [개별 사용자의 동의 요청](./v2-permissions-and-consent.md#requesting-individual-user-consent)을 참조하세요.
+    - 또는 테넌트 관리자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [관리자 동의](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)를 참조하세요.
 
 - 이 흐름은 .NET 데스크톱, .NET Core 및 UWP 앱에 대해 사용하도록 설정됩니다.
 
-동의에 대한 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)를 참조하세요.
+동의에 대한 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](./v2-permissions-and-consent.md)를 참조하세요.
 
 ### <a name="learn-how-to-use-it"></a>사용 방법 알아보기
 

@@ -3,16 +3,12 @@ title: 서버에 대 한 Azure Arc를 사용 하는 VM 확장 관리
 description: 서버 (미리 보기) 용 azure Arc는 비 Azure Vm을 사용 하 여 배포 후 구성 및 자동화 작업을 제공 하는 가상 머신 확장의 배포를 관리할 수 있습니다.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.openlocfilehash: eb1de0c2a5b995231c2972fca7279195cbaea9e7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809632"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121309"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>서버에 대 한 Azure Arc를 사용 하 여 가상 머신 확장 관리 (미리 보기)
 
@@ -32,7 +28,7 @@ VM (가상 컴퓨터) 확장은 Azure Vm에서 배포 후 구성 및 자동화 �
 
 * 사용자 지정 스크립트 확장을 사용 하 여 하이브리드 연결 컴퓨터에서 스크립트를 다운로드 하 여 실행 합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성 또는 관리 작업에 유용합니다.
 
-## <a name="availability"></a>사용 가능성
+## <a name="availability"></a>가용성
 
 VM 확장 기능은 지원 되는 [지역](overview.md#supported-regions)목록 에서만 사용할 수 있습니다. 이러한 지역 중 하나에서 컴퓨터를 등록 했는지 확인 합니다.
 
@@ -40,7 +36,7 @@ VM 확장 기능은 지원 되는 [지역](overview.md#supported-regions)목록 
 
 이 미리 보기에서는 Windows 및 Linux 컴퓨터에서 다음 VM 확장을 지원 합니다.
 
-|확장 |OS |Publisher |추가 정보 |
+|확장 |OS |게시자 |추가 정보 |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Windows 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Windows PowerShell DSC 확장](../../virtual-machines/extensions/dsc-windows.md)|
@@ -55,7 +51,7 @@ VM 확장은 Azure Resource Manager 템플릿, Azure Portal 또는 서버 (미�
 
 Azure 연결 된 컴퓨터 에이전트 패키지 및 확장 에이전트 구성 요소에 대 한 자세한 내용은 [에이전트 개요](agent-overview.md#agent-component-details)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 구독에 있는 다음 Azure 리소스 공급자에 따라 달라 집니다.
 

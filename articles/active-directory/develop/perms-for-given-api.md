@@ -11,22 +11,21 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 2735403ff02914213d68db27e2635e7329261f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9b84f2eace9ec268c6ff0942d19b47402e19bde
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883893"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120731"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>지정된 API에 대한 사용 권한을 선택하는 방법 
 
 ## <a name="recommended-documents"></a>권장되는 문서
 
-- 클라이언트 애플리케이션에서 [위임된 권한 및 애플리케이션 권한 요청](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions)을 사용하여 리소스에 액세스하는 방법을 알아보세요.
-- [클라이언트 애플리케이션의 권한 요청 구성](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) 방법에 관한 단계별 지침을 참조하세요.
-- 리소스 애플리케이션에서 Azure Portal에 각각 위임된 권한 및 애플리케이션 권한으로 나타나는 [범위](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) 및 [애플리케이션 역할](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles)을 클라이언트 애플리케이션에 표시하는 방법을 알아보세요. 
+- 클라이언트 애플리케이션에서 [위임된 권한 및 애플리케이션 권한 요청](./developer-glossary.md#permissions)을 사용하여 리소스에 액세스하는 방법을 알아보세요.
+- [클라이언트 애플리케이션의 권한 요청 구성](./quickstart-register-app.md) 방법에 관한 단계별 지침을 참조하세요.
+- 리소스 애플리케이션에서 Azure Portal에 각각 위임된 권한 및 애플리케이션 권한으로 나타나는 [범위](./developer-glossary.md#scopes) 및 [애플리케이션 역할](./developer-glossary.md#roles)을 클라이언트 애플리케이션에 표시하는 방법을 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
-

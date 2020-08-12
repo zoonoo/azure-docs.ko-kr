@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204629"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120952"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>MSAL 예외 및 오류 처리
 
@@ -236,7 +236,7 @@ Python용 MSAL에서 대부분의 오류는 API 호출의 반환 값으로 전�
 * 성공적인 응답에는 `"access_token"` 키가 포함됩니다. 응답의 형식은 OAuth2 프로토콜로 정의됩니다. 자세한 내용은 [5.1 성공 응답](https://tools.ietf.org/html/rfc6749#section-5.1)을 참조하세요.
 * 오류 응답은 는 `"error"`를 포함되며 일반적으로 `"error_description"`입니다. 응답의 형식은 OAuth2 프로토콜로 정의됩니다. 자세한 내용은 [5.2 오류 응답](https://tools.ietf.org/html/rfc6749#section-5.2)을 참조하세요.
 
-오류가 반환되면 `"error_description"` 키에 인간 판독 가능 메시지가 포함되며 여기에는 일반적으로 Microsoft ID 플랫폼 오류 코드가 포함됩니다. 다양한 오류 코드에 대한 자세한 내용은 [인증 및 권한 부여 오류 코드](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes)를 참조하세요.
+오류가 반환되면 `"error_description"` 키에 인간 판독 가능 메시지가 포함되며 여기에는 일반적으로 Microsoft ID 플랫폼 오류 코드가 포함됩니다. 다양한 오류 코드에 대한 자세한 내용은 [인증 및 권한 부여 오류 코드](./reference-aadsts-error-codes.md)를 참조하세요.
 
 Python용 MSAL에서는 대부분의 오류가 오류 값을 반환하여 처리되기 때문에 예외가 드물게 발생합니다. `ValueError` 예외는 API 매개 변수의 형식이 잘못된 경우처럼 라이브러리를 사용하는 방법에 문제가 있는 경우에만 throw됩니다.
 

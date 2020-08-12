@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771080"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120629"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 이 문서에서는 Azure AD용 앱을 개발하는 개발자를 위해 조건부 액세스를 사용하는 방법을 보여 주고, 조건부 액세스 정책을 적용할 수 있는 제어 권한이 없는 리소스에 액세스하는 경우의 영향에 대해서도 알아봅니다. 또한 이 문서에서는 On-Behalf-Of 흐름, 웹앱, Microsoft Graph 액세스 및 API 호출에 수행되는 조건부 액세스의 영향도 알아봅니다.
 
-[단일](quickstart-register-app.md) 및 [다중 테넌트](howto-convert-app-to-be-multi-tenant.md) 앱과 [일반 인증 패턴](authentication-scenarios.md)에 대해 알고 있다고 가정합니다.
+[단일](quickstart-register-app.md) 및 [다중 테넌트](howto-convert-app-to-be-multi-tenant.md) 앱과 [일반 인증 패턴](./authentication-vs-authorization.md)에 대해 알고 있다고 가정합니다.
 
 > [!NOTE]
 > 이 기능을 사용하려면 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
@@ -52,7 +52,7 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 * MSAL.js를 사용하는 단일 페이지 앱
 * 리소스를 호출하는 Web Apps
 
-조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법을 자세히 알아보려면 [빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](../conditional-access/app-based-mfa.md)를 참조하세요.
+조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법을 자세히 알아보려면 [빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](../authentication/tutorial-enable-azure-mfa.md)를 참조하세요.
 
 시나리오에 따라 기업 고객은 언제든지 조건부 액세스 정책을 적용하고 제거할 수 있습니다. 새 정책이 적용될 때 앱이 계속 작동하도록 하려면 “챌린지” 처리를 구현해야 합니다. 다음 예에서는 챌린지 처리를 보여 줍니다.
 
@@ -93,7 +93,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-Azure AD 조건부 액세스는 [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)에 포함된 기능입니다. [Microsoft 365 Business 라이선스](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다.
+Azure AD 조건부 액세스는 [Azure AD Premium](../fundamentals/active-directory-whatis.md)에 포함된 기능입니다. [Microsoft 365 Business 라이선스](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다.
 
 ### <a name="considerations-for-specific-scenarios"></a>특정 시나리오에 대한 고려 사항
 
@@ -180,7 +180,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>참고 항목
 
-* 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](/azure/active-directory/conditional-access/overview)를 참조하세요.
+* 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](../conditional-access/overview.md)를 참조하세요.
 * 더 많은 Azure AD 샘플 코드를 보려면 [샘플](sample-v2-code.md)을 참조하세요.
 * MSAL SDK에 대한 자세한 내용을 보고 참조 설명서에 액세스하려면 [Microsoft 인증 라이브러리 개요](msal-overview.md)를 참조하세요.
 * 다중 테넌트 시나리오에 대한 자세한 내용은 [다중 테넌트 패턴을 사용하여 사용자를 로그인하는 방법](howto-convert-app-to-be-multi-tenant.md)을 참조하세요.

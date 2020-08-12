@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584312"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117484"
 ---
 # <a name="application-model"></a>애플리케이션 모델
 
@@ -86,4 +86,4 @@ Microsoft id 플랫폼에서 응용 프로그램 [개체](developer-glossary.md#
 
 * Microsoft id 플랫폼의 응용 프로그램 개체 및 서비스 사용자에 대 한 자세한 내용은 [AZURE AD에 응용 프로그램을 추가 하는 방법과 이유](active-directory-how-applications-are-added.md) 를 참조 하세요.
 * 단일 테 넌 트 앱 및 다중 테 넌 트 앱에 대 한 자세한 내용은 [Azure Active Directory의 테 넌](single-and-multi-tenant-apps.md) 트를 참조 하세요.
-* 조직에서 사용자에 게 로그인 할 수 있도록 Azure AD에서 Azure Active Directory B2C 제공 하는 방법에 대 한 자세한 내용은 [Azure Active Directory B2C 설명서](https://docs.microsoft.com/azure/active-directory-b2c) 를 참조 하세요.
+* 조직에서 사용자에 게 로그인 할 수 있도록 Azure AD에서 Azure Active Directory B2C 제공 하는 방법에 대 한 자세한 내용은 [Azure Active Directory B2C 설명서](../../active-directory-b2c/index.yml) 를 참조 하세요.
