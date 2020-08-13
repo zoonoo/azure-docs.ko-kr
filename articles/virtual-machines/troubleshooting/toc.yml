@@ -56,7 +56,7 @@
     - name: VM 시작이 중단됨
       href: troubleshoot-vm-boot-configure-update.md
     - name: VM 수명 주기 및 상태
-      href: ../windows/states-lifecycle.md
+      href: ../states-lifecycle.md
 - name: VM이 부팅되지 않음
   items:
     - name: Linux
