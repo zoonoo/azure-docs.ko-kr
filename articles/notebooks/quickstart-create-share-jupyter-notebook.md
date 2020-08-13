@@ -3,13 +3,13 @@ title: Azure Notebooks 미리 보기에서 Jupyter Notebook 만들기 및 공유
 description: Azure Notebooks 미리 보기에서 Jupyter Notebook을 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: ec1a03cb1c05248458a47ec4b22a0243b31bafcd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-python
+ms.openlocfilehash: 19773a6857d58f5b6af2a02ac28a3414c51fc917
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423289"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849404"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 만들기 및 공유
 

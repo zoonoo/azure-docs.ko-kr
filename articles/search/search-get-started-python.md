@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 04/01/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 304d0a689b30b0e900d07b4654c4f5cd6db7b9ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: 8e8f10b07d47f7aebd8482b8dae995bd50050162
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496726"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852211"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
 

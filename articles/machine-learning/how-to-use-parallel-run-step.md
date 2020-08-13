@@ -10,13 +10,13 @@ ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
 ms.date: 07/16/2020
-ms.custom: Build2020, tracking-python
-ms.openlocfilehash: 475c5b3073b25c79b57a2ab507af642a8af3547f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: Build2020, devx-track-python
+ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288869"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847707"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

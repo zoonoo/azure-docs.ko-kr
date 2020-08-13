@@ -2,19 +2,19 @@
 title: '빠른 시작: Azure CLI를 사용하여 Azure API for FHIR 배포'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure에서 Azure API for FHIR을 배포하는 방법을 알아봅니다.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
-ms.author: mihansen
+ms.author: matjazl
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2fdd4c4298946d943ee8a806ebc53966c8dd624
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e1aa3362217a4edcfcf547c69b9effde00459f7e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500898"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850562"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure API for FHIR 배포
 
