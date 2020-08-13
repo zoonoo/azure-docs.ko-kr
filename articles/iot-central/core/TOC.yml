@@ -139,6 +139,8 @@
               href: howto-monitor-application-health.md
             - name: 애플리케이션 정보
               href: howto-get-app-info.md
+            - name: Roll X.509 인증서
+              href: how-to-roll-x509-certificates.md
         - name: 다른 장소에서 관리
           items:
             - name: Azure Portal에서 관리

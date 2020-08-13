@@ -161,11 +161,8 @@
             - name: 사용자 및 역할 관리
               href: how-to-assign-roles.md
             - name: 가상 네트워크 사용
-              displayName: 'vnet, blob'
+              displayName: 'vnet, blob, private endpoint, private link'
               href: how-to-enable-virtual-network.md
-            - name: Private Link 사용
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             - name: TLS로 웹 서비스 보호
               displayName: ssl
               href: how-to-secure-web-service.md
@@ -457,8 +454,8 @@
         - name: 파이프라인 디버그 및 문제 해결
           displayName: designer
           href: how-to-debug-pipelines.md
-        - name: Application Insights에서 파이프라인 디버깅
-          href: how-to-debug-pipelines-application-insights.md
+        - name: Application Insights에 파이프라인 데이터 기록
+          href: how-to-log-pipelines-application-insights.md
         - name: 병렬 실행 단계 사용
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md

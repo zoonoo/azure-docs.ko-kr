@@ -22,6 +22,8 @@
   items:
     - name: 수동으로 앱 스케일링
       href: spring-cloud-tutorial-scale-manual.md
+    - name: 앱 자동 크기 조정
+      href: spring-cloud-tutorial-setup-autoscale.md
     - name: 경고 및 작업 그룹
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: IntelliJ를 사용하여 앱 배포
@@ -38,8 +40,6 @@
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
     - name: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
-      href: spring-cloud-tutorial-setup-autoscale.md
 - name: 샘플
   items:
     - name: Azure Policy 기본 제공 기능

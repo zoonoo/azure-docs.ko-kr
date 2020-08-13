@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 127604264850f9845846d0bb6a2768cac23cdc8c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 0613b4c444b9eacaaf2b9d3e0795f4872cb903f3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169157"
+ms.locfileid: "88182949"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>가상 머신 수명 주기 및 상태
 
@@ -23,137 +23,195 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 
 전원 상태는 VM의 마지막 알려진 상태를 나타냅니다.
 
-![VM 전원 상태 다이어그램](./media/vm-power-states.png)
+![VM 전원 상태 다이어그램](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
 다음 표에서는 각 인스턴스 상태를 설명하고 인스턴스 사용량에 대해 요금이 청구되는지 여부를 나타냅니다.
 
-<table>
-<tr>
-<th>
-시스템 상태
-</th>
-<th>
-Description
-</th>
-<th>
-인스턴스 사용량 청구
-</th>
-</tr>
-<tr>
-<td>
-<p><b>시작 중</b></p>
-</td>
-<td>
-<p>VM이 시작되고 있습니다.</p>
-<code>"statuses": [<br>
-   {<br>
-      "code": "PowerState/starting",<br>
-       "level": "Info",<br>
-        "displayStatus": "VM starting"<br>
-    }<br>
-    ]</code><br>
-</td>
-<td>
-<p><b>청구되지 않음</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>실행 중</b></p>
-</td>
-<td>
-<p>VM의 정상적인 작동 상태</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/running",<br>
- "level": "Info",<br>
- "displayStatus": "VM running"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>청구</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>중지 중</b></p>
-</td>
-<td>
-<p>전환 상태입니다. 작업이 완료되면 **중지됨**으로 표시됩니다.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopping",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopping"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>청구</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>중지됨</b></p>
-</td>
-<td>
-<p>게스트 OS 내에서 또는 PowerOff API를 사용하여 VM이 종료되었습니다.</p>
-<p>하드웨어가 여전히 VM에 할당되고 호스트에서 유지됩니다. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopped",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopped"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>청구됨&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>할당 취소 중</b></p>
-</td>
-<td>
-<p>전환 상태입니다. 작업이 완료되면 VM은 **할당 취소됨**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocating",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocating"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>청구되지 않음</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>할당 취소됨</b></p>
-</td>
-<td>
-<p>VM이 성공적으로 중지되고 호스트에서 제거됩니다. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocated",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocated"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>청구되지 않음</b></p>
-</td>
-</tr>
-</tbody>
-</table>
+:::row:::
+   :::column span="":::
+
+   **State**
+   
+   :::column-end:::
+   :::column span="":::
+
+   **설명**
+
+   :::column-end:::
+   :::column span="":::
+
+   **인스턴스 사용량 청구 됨**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **시작 중**
+
+   :::column-end:::
+   :::column span="":::
+
+   VM이 시작되고 있습니다.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/starting",
+    "level": "Info",
+    "displayStatus": "VM starting"
+    }
+   ]
+   ```
+   :::column-end:::
+   :::column span="":::
+
+   **청구되지 않음**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **실행 중**
+
+   :::column-end:::
+   :::column span="":::
+
+   VM의 정상적인 작동 상태
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/running",
+    "level": "Info",
+    "displayStatus": "VM running"
+    }
+  ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **청구**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **중지 중**
+
+   :::column-end:::
+   :::column span="":::
+
+   전환 상태입니다. 작업이 완료되면 **중지됨**으로 표시됩니다.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopping",
+    "level": "Info",
+    "displayStatus": "VM stopping"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **청구**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **중지됨**
+
+   :::column-end:::
+   :::column span="":::
+
+   게스트 OS 내에서 또는 PowerOff API를 사용하여 VM이 종료되었습니다.
+
+   하드웨어가 여전히 VM에 할당되고 호스트에서 유지됩니다.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopped",
+    "level": "Info",
+    "displayStatus": "VM stopped"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **청구***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **할당 취소 중**
+
+   :::column-end:::
+   :::column span="":::
+
+   전환 상태입니다. 작업이 완료되면 VM은 **할당 취소됨**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocating",
+    "level": "Info",
+    "displayStatus": "VM deallocating"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **청구 되지 않음***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **할당 취소됨**
+
+   :::column-end:::
+   :::column span="":::
+
+   VM이 성공적으로 중지되고 호스트에서 제거됩니다.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocated",
+    "level": "Info",
+    "displayStatus": "VM deallocated"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **청구되지 않음**
+
+   :::column-end:::
+:::row-end:::
 
 
-&#42;일부 Azure 리소스(예: 디스크 및 네트워킹)에는 요금이 부과됩니다. 인스턴스의 소프트웨어 라이선스에는 요금이 부과되지 않습니다.
+일부 Azure 리소스 (예: 디스크 및 네트워킹)에는 요금이 부과 됩니다. &#42; 인스턴스의 소프트웨어 라이선스에는 요금이 부과되지 않습니다.
 
 ## <a name="provisioning-states"></a>프로비전 상태
 
@@ -171,86 +229,159 @@ Description
 
 플랫폼이 사용자 시작 작업을 허용한 후에 전환 작업 상태는 다음과 같습니다.
 
-<br>
+:::row:::
+   :::column span="":::
 
-<table>
-<tbody>
-<tr>
-<td width="162">
-<p><b>상태</b></p>
-</td>
-<td width="366">
-<p>Description</p>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>만드는 중</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating",<br>
- "level": "Info",<br>
- "displayStatus": "Creating"<br>
- }</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>업데이트</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/updating",<br>
- "level": "Info",<br>
- "displayStatus": "Updating"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>삭제 중</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/deleting",<br>
- "level": "Info",<br>
- "displayStatus": "Deleting"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>OS 프로비전 상태</b></p>
-</td>
-<td width="366">
-<p>특수화된 이미지가 아닌 OS 이미지를 사용하여 VM을 만든 경우 다음 하위 상태를 관찰할 수 있습니다.</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; VM이 실행되고 있으며 게스트 OS의 설치가 진행 중입니다. <p /> 
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning In progress"<br>
- }<br>
-]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; 일시적인 상태입니다. 확장을 설치할 필요가 없으면 VM은 **성공**으로 신속하게 전환됩니다. 확장을 설치하는 데 시간이 걸릴 수 있습니다. <br />
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning Complete"<br>
- }<br>
-]</code><br>
-<p><b>참고</b>: OS 오류가 발생하지 않거나 OS를 시간 내에 설치하지 않으면 OS 프로비전은 **실패됨**으로 전환될 수 있습니다. 인프라에 배포된 VM에 대해 고객에게 비용이 청구됩니다.</p>
-</td>
-</tr>
-</table>
+   **State**
+   
+   :::column-end:::
+   :::column span="2":::
 
+   **설명**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **만드는 중**
+
+   :::column-end:::
+   :::column span="2":::
+
+  ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating",
+    "level": "Info",
+    "displayStatus": "Creating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **업데이트**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/updating",
+    "level": "Info",
+    "displayStatus": "Updating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **삭제 중**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/deleting",
+    "level": "Info",
+    "displayStatus": "Deleting"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OS 프로비전 상태**
+   
+   :::column-end:::
+   :::column span="2":::
+
+   **설명**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+
+
+   :::column-end:::
+   :::column span="2":::
+
+   특수화된 이미지가 아닌 OS 이미지를 사용하여 VM을 만든 경우 다음 하위 상태를 관찰할 수 있습니다.
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningInprogress**
+
+   :::column-end:::
+   :::column span="2":::
+
+   VM이 실행 중 이며 게스트 OS 설치가 진행 중입니다.
+ 
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningInprogress",
+    "level": "Info",
+    "displayStatus": "OS Provisioning In progress"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningComplete**
+
+   :::column-end:::
+   :::column span="2":::
+   
+   단기 상태. 확장을 설치할 필요가 없으면 VM은 **성공**으로 신속하게 전환됩니다. 확장을 설치하는 데 시간이 걸릴 수 있습니다.
+   
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningComplete",
+    "level": "Info",
+    "displayStatus": "OS Provisioning Complete"
+    }
+   [
+   ```
+   
+   **참고**: OS 오류가 발생하지 않거나 OS를 시간 내에 설치하지 않으면 OS 프로비전은 **실패됨**으로 전환될 수 있습니다. 인프라에 배포된 VM에 대해 고객에게 비용이 청구됩니다.
+
+   :::column-end:::
+
+:::row-end:::
 
 작업이 완료되면 VM은 다음 중 하나의 상태로 전환됩니다.
 

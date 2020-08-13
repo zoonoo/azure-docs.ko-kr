@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: db2e493f04d74308b21e8a63222f26b1e2af8546
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e6f3a541f1e9dbca2c9949fb0c5cde28cd43e8e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038239"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183036"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Azure Open 데이터 집합에서 Azure Machine Learning 데이터 집합 만들기
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Azure Open Datasets는 기계 학습 솔루션에 시나리오별 기능을 추�
 
 자세한 내용은 [개방형 데이터 집합 이란?](overview-what-are-open-datasets.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -75,19 +75,21 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 ## <a name="create-datasets-with-the-studio"></a>Studio를 사용 하 여 데이터 집합 만들기
 
-[Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 개방형 데이터 집합에서 데이터 집합을 만들 수도 있습니다. 작업 영역의 **자산**아래에서 **데이터 집합** 탭을 선택 합니다. **데이터 집합 만들기** 드롭다운 메뉴에서 **개방형 데이터 집합에서**를 선택 합니다.
+[Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 개방형 데이터 집합에서 데이터 집합을 만들 수도 있습니다.
 
-![UI를 사용 하 여 데이터 집합 열기](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
+1. 작업 영역의 **자산**아래에서 **데이터 집합** 탭을 선택 합니다. **데이터 집합 만들기** 드롭다운 메뉴에서 **개방형 데이터 집합에서**를 선택 합니다.
 
-해당 타일을 선택 하 여 데이터 집합을 선택 합니다. 검색 창을 사용 하 여 필터링 할 수 있는 옵션이 있습니다. **다음**을 선택 합니다.
+    ![UI를 사용 하 여 데이터 집합 열기](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
-![데이터 집합 선택](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
+1. 해당 타일을 선택 하 여 데이터 집합을 선택 합니다. 검색 창을 사용 하 여 필터링 할 수 있는 옵션이 있습니다. **다음**을 선택 합니다.
 
-데이터 집합을 등록할 이름을 선택 하 고 필요에 따라 사용 가능한 필터를 사용 하 여 데이터를 필터링 합니다. 이 경우 공용 휴일 데이터 집합에 대해 기간을 1 년으로, 국가 코드를 미국 으로만 필터링 합니다. **만들기**를 선택합니다.
+    ![데이터 집합 선택](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-![데이터 집합 매개 변수 설정 및 데이터 집합 만들기](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+1. 데이터 집합을 등록할 이름을 선택 하 고 필요에 따라 사용 가능한 필터를 사용 하 여 데이터를 필터링 합니다. 이 경우 **공용 휴일** 데이터 집합에 대해 기간을 1 년으로, 국가 코드를 미국 으로만 필터링 합니다. **만들기**를 선택합니다.
 
-이제 **데이터 집합의**작업 영역에서 데이터 집합을 사용할 수 있습니다. 만든 다른 데이터 집합과 동일한 방법으로 사용할 수 있습니다.
+    ![데이터 집합 매개 변수 설정 및 데이터 집합 만들기](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+
+    이제 **데이터 집합의**작업 영역에서 데이터 집합을 사용할 수 있습니다. 만든 다른 데이터 집합과 동일한 방법으로 사용할 수 있습니다.
 
 
 ## <a name="access-datasets-for-your-experiments"></a>실험에 대 한 데이터 집합 액세스

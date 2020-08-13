@@ -258,6 +258,8 @@
               href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: NCv3 시리즈
               href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NCasT4_v3 시리즈
+              href: ../nct4-v3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: ND 시리즈
               href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: NDv2 시리즈
@@ -494,8 +496,6 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: VM 만들기
                   items:
-                    - name: 특수화
-                      href: ../vm-specialized-image-version-cli.md
                     - name: 일반화
                       href: ../vm-generalized-image-version-cli.md
                 - name: 이미지 리소스 업데이트
@@ -547,8 +547,20 @@
               href: ../image-version-encryption.md
         - name: 이미지 작성기(미리 보기)
           items:
+            - name: 개요
+              href: image-builder-overview.md
             - name: Azure CLI 사용
               href: image-builder.md
+            - name: VNET을 사용하여 VM 만들기 - CLI
+              href: image-builder-vnet.md
+            - name: 권한 구성 - CLI
+              href: image-builder-permissions-cli.md
+            - name: 권한 구성 - PowerShell
+              href: image-builder-permissions-powershell.md
+            - name: 네트워킹 옵션
+              href: image-builder-networking.md
+            - name: DevOps 작업
+              href: image-builder-devops-task.md
             - name: ARM 템플릿 참조
               displayName: 'ARM,Resource Manager'
               href: image-builder-json.md
@@ -557,7 +569,7 @@
             - name: 기존 이미지 업데이트
               href: image-builder-gallery-update-image-version.md
             - name: 문제 해결
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: image-builder-troubleshoot.md
         - name: 이미지 검색 및 사용
           href: cli-ps-findimage.md
         - name: 구매 계획 정보

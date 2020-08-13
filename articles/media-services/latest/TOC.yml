@@ -290,12 +290,16 @@
                   href: customize-encoder-presets-how-to.md
                 - name: 오버레이 변환 만들기
                   href: how-to-create-overlay.md
+                - name: .NET으로 썸네일 생성
+                  href: media-services-generate-thumbnails-dotnet.md
             - name: CLI 사용
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: REST 사용
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+            - name: REST로 썸네일 생성
+              href: media-services-generate-thumbnails-rest.md
         - name: 비디오 서브클립
           items:
             - name: .NET 사용

@@ -12,6 +12,8 @@
       href: quick-create-powershell.md
     - name: 가상 네트워크 만들기 - Azure CLI
       href: quick-create-cli.md
+    - name: 가상 네트워크 만들기 - ARM 템플릿
+      href: quick-create-template.md
   expanded: true
 - name: 자습서
   items:

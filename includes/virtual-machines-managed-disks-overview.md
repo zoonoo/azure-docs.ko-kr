@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ba9147aefb793387b429702623639bbccf0beea
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 26d6ca641c03395996fdeaa4e54d2a001cf02bef
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507455"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162845"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -53,7 +53,7 @@ vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](../articles/virtual
 
 ### <a name="private-links"></a>Private Link
 
-관리 디스크는 Private Link를 사용하여 네트워크 내부의 관리 디스크를 가져오거나 내보낼 수 있도록 지원합니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../articles/private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
+관리 디스크에 대한 Private Link 지원은 현재 미리 보기로 제공되며, 관리 디스크를 네트워크 내부로 가져오거나 내보내는 데 사용할 수 있습니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../articles/private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
 
 관리 디스크를 가져오거나 내보내는 데 Private Link를 사용하도록 설정하는 방법에 대한 자세한 내용은 [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) 또는 [포털](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) 문서를 참조하세요.
 

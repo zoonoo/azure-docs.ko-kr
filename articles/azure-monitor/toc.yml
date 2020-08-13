@@ -196,7 +196,21 @@
               href: app/pricing.md
             - name: 로그 데이터 사용량 및 비용
               href: platform/manage-cost-storage.md
-        - name: Log Analytics 작업 영역
+    - name: 플랫폼 로그
+      items:
+        - name: 개요
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: 활동 로그
+          href: platform/activity-log.md
+        - name: 리소스 로그
+          href: platform/resource-logs.md
+        - name: 진단 설정
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
+    - name: Log Analytics
+      items:
+        - name: 작업 영역
           items:
             - name: 작업 영역 배포 디자인
               href: platform/design-logs-deployment.md
@@ -218,119 +232,6 @@
               href: platform/service-providers.md
             - name: 액세스 관리
               href: platform/manage-access.md
-        - name: 가상 머신 에이전트
-          items:
-            - name: 개요
-              href: platform/agents-overview.md
-            - name: FAQ
-              href: faq.md#agents
-            - name: Azure Diagnostics 확장
-              items:
-                - name: 개요
-                  href: platform/diagnostics-extension-overview.md
-                - name: Windows
-                  displayname: diagnostics extension
-                  items:
-                    - name: 설치 및 구성
-                      items:
-                        - name: 설치 옵션
-                          href: platform/diagnostics-extension-windows-install.md
-                        - name: PowerShell
-                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
-                        - name: Resource Manager 템플릿
-                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
-                    - name: Azure Monitor 메트릭에 보내기
-                      items:
-                        - name: Virtual Machine
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                        - name: VM 확장 집합
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                        - name: VM 클래식
-                          href: platform/collect-custom-metrics-guestos-vm-classic.md
-                        - name: 클라우드 서비스
-                          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: Event Hubs로 보내기
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: 로그에 보내기
-                      href: platform/diagnostics-extension-logs.md
-                    - name: Application Insights로 보내기
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: 버전 기록
-                      href: platform/diagnostics-extension-versions.md
-                    - name: 문제 해결
-                      href: platform/diagnostics-extension-troubleshooting.md
-                - name: Linux
-                  displayname: diagnostics extension
-                  items:
-                    - name: 개요
-                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-                    - name: Telegraf를 사용하여 메트릭 수집
-                      href: platform/collect-custom-metrics-linux-telegraf.md
-            - name: Log Analytics 에이전트
-              items:
-                - name: 개요
-                  href: platform/log-analytics-agent.md
-                - name: Windows 에이전트
-                  href: platform/agent-windows.md
-                - name: Linux 에이전트
-                  href: platform/agent-linux.md
-                - name: Windows용 VM 확장
-                  href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-                - name: Linux용 VM 확장
-                  href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-                - name: Log Analytics 게이트웨이
-                  href: platform/gateway.md
-                - name: 에이전트 관리
-                  href: platform/agent-manage.md
-                - name: 에이전트 상태
-                  href: insights/solution-agenthealth.md
-                - name: 데이터 원본
-                  items:
-                    - name: 개요
-                      href: platform/agent-data-sources.md
-                    - name: Windows 이벤트
-                      href: platform/data-sources-windows-events.md
-                    - name: 사용자 지정 JSON 데이터
-                      href: platform/data-sources-json.md
-                    - name: 수집된 성능 데이터
-                      href: platform/data-sources-collectd.md
-                    - name: syslog
-                      href: platform/data-sources-syslog.md
-                    - name: 성능 카운터
-                      href: platform/data-sources-performance-counters.md
-                    - name: Linux 애플리케이션 성능
-                      href: platform/data-sources-linux-applications.md
-                    - name: IIS 로그
-                      href: platform/data-sources-iis-logs.md
-                    - name: 사용자 지정 로그
-                      href: platform/data-sources-custom-logs.md
-                    - name: 사용자 지정 필드
-                      href: platform/custom-fields.md
-            - name: 문제 해결
-              items:
-                - name: Log Analytics VM 확장
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/vmext-troubleshoot.md
-                - name: Log Analytics Windows 에이전트
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-windows-troubleshoot.md
-                - name: Log Analytics Linux 에이전트
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-linux-troubleshoot.md
-    - name: 플랫폼 로그
-      items:
-        - name: 개요
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: 활동 로그
-          href: platform/activity-log.md
-        - name: 리소스 로그
-          href: platform/resource-logs.md
-        - name: 진단 설정
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
-      items:
         - name: 로그 쿼리 개요
           displayname: 'log query, log queries, query, queries'
           href: log-query/log-query-overview.md
@@ -424,6 +325,135 @@
           href: platform/metric-chart-samples.md
         - name: 메트릭 차트 문제 해결
           href: platform/metrics-troubleshoot.md
+    - name: 데이터 수집
+      items:
+        - name: 데이터 수집 규칙
+          href: platform/data-collection-rule-overview.md
+        - name: 사용자 지정 메트릭
+          items:
+            - name: 사용자 지정 메트릭
+              href: platform/metrics-custom-overview.md
+            - name: 메트릭 REST API
+              href: platform/metrics-store-custom-rest-api.md
+        - name: 사용자 지정 로그
+          items:
+            - name: Log Analytics 데이터 수집기 API
+              href: platform/data-collector-api.md
+            - name: Log Analytics 데이터 수집기 API 파이프라인 예제
+              href: platform/create-pipeline-datacollector-api.md
+        - name: Logic Apps
+          items:
+            - name: Azure Monitor 로그 커넥터
+              href: platform/logicapp-flow-connector.md
+            - name: Application Insights 커넥터
+              href: app/automate-with-logic-apps.md
+    - name: 에이전트
+      items:
+        - name: 개요
+          href: platform/agents-overview.md
+        - name: FAQ
+          href: faq.md#agents
+        - name: Azure Monitor 에이전트
+          items:
+            - name: 개요
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-overview.md
+            - name: 데이터 수집
+              displayname: 'data collection rule,Azure Monitor agent'
+              href: platform/data-collection-rule-azure-monitor-agent.md
+        - name: Azure Diagnostics 확장
+          items:
+            - name: 개요
+              href: platform/diagnostics-extension-overview.md
+            - name: Windows
+              displayname: diagnostics extension
+              items:
+                - name: 설치 및 구성
+                  items:
+                    - name: 설치 옵션
+                      href: platform/diagnostics-extension-windows-install.md
+                    - name: PowerShell
+                      href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                    - name: Resource Manager 템플릿
+                      href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                - name: Azure Monitor 메트릭에 보내기
+                  items:
+                    - name: Virtual Machine
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                    - name: VM 확장 집합
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                    - name: VM 클래식
+                      href: platform/collect-custom-metrics-guestos-vm-classic.md
+                    - name: 클라우드 서비스
+                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                - name: Event Hubs로 보내기
+                  href: platform/diagnostics-extension-stream-event-hubs.md
+                - name: 로그에 보내기
+                  href: platform/diagnostics-extension-logs.md
+                - name: Application Insights로 보내기
+                  href: platform/diagnostics-extension-to-application-insights.md
+                - name: 버전 기록
+                  href: platform/diagnostics-extension-versions.md
+                - name: 문제 해결
+                  href: platform/diagnostics-extension-troubleshooting.md
+            - name: Linux
+              displayname: diagnostics extension
+              items:
+                - name: 개요
+                  href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                - name: Telegraf를 사용하여 메트릭 수집
+                  href: platform/collect-custom-metrics-linux-telegraf.md
+        - name: Log Analytics 에이전트
+          items:
+            - name: 개요
+              href: platform/log-analytics-agent.md
+            - name: Windows 에이전트
+              href: platform/agent-windows.md
+            - name: Linux 에이전트
+              href: platform/agent-linux.md
+            - name: Windows용 VM 확장
+              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Linux용 VM 확장
+              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Log Analytics 게이트웨이
+              href: platform/gateway.md
+            - name: 에이전트 관리
+              href: platform/agent-manage.md
+            - name: 에이전트 상태
+              href: insights/solution-agenthealth.md
+            - name: 데이터 원본
+              items:
+                - name: 개요
+                  href: platform/agent-data-sources.md
+                - name: Windows 이벤트
+                  href: platform/data-sources-windows-events.md
+                - name: 사용자 지정 JSON 데이터
+                  href: platform/data-sources-json.md
+                - name: 수집된 성능 데이터
+                  href: platform/data-sources-collectd.md
+                - name: syslog
+                  href: platform/data-sources-syslog.md
+                - name: 성능 카운터
+                  href: platform/data-sources-performance-counters.md
+                - name: Linux 애플리케이션 성능
+                  href: platform/data-sources-linux-applications.md
+                - name: IIS 로그
+                  href: platform/data-sources-iis-logs.md
+                - name: 사용자 지정 로그
+                  href: platform/data-sources-custom-logs.md
+                - name: 사용자 지정 필드
+                  href: platform/custom-fields.md
+        - name: 문제 해결
+          items:
+            - name: Log Analytics VM 확장
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/vmext-troubleshoot.md
+            - name: Log Analytics Windows 에이전트
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/agent-windows-troubleshoot.md
+            - name: Log Analytics Linux 에이전트
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/agent-linux-troubleshoot.md
     - name: 자동 크기 조정
       items:
         - name: 개요
@@ -1128,7 +1158,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:
@@ -1148,29 +1178,6 @@
               href: log-query/dashboard-upgrade.md
         - name: 데이터를 Grafana에 보내기
           href: platform/grafana-plugin.md
-    - name: 사용자 지정 데이터 수집 및 분석
-      items:
-        - name: 사용자 지정 메트릭
-          items:
-            - name: 사용자 지정 메트릭
-              href: platform/metrics-custom-overview.md
-            - name: 메트릭 REST API
-              href: platform/metrics-store-custom-rest-api.md
-        - name: 사용자 지정 로그
-          items:
-            - name: Log Analytics 데이터 수집기 API
-              href: platform/data-collector-api.md
-            - name: Log Analytics 데이터 수집기 API 파이프라인 예제
-              href: platform/create-pipeline-datacollector-api.md
-        - name: Logic Apps
-          items:
-            - name: Azure Monitor 로그 커넥터
-              href: platform/logicapp-flow-connector.md
-            - name: Application Insights 커넥터
-              href: app/automate-with-logic-apps.md
-        - name: REST API
-          displayname: 'metrics, analyze'
-          href: platform/rest-api-walkthrough.md
     - name: System Center 통합
       items:
         - name: Operations Manager 연결
@@ -1274,6 +1281,9 @@
           href: /rest/api/monitor/
         - name: Azure Monitor 로그
           href: /rest/api/loganalytics
+        - name: REST API 연습
+          displayname: 'metrics, analyze'
+          href: platform/rest-api-walkthrough.md
     - name: 리소스 관리자 템플릿
       items:
         - name: Azure Monitor
