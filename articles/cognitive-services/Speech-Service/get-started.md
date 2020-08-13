@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056468"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167813"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
@@ -87,7 +87,7 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
 ## <a name="about-regions"></a>영역 정보
 
-- 애플리케이션에서 [Speech SDK](speech-sdk.md)를 사용하는 경우 Speech 구성을 만들 때 `westus`와 같은 지역 코드를 제공합니다.
+- 응용 프로그램에서 [음성 SDK](speech-sdk.md)를 사용 하는 경우 음성 구성을 만들 때와 같은 지역 식별자를 제공 `westus` 합니다.
 - 애플리케이션에서 Speech 서비스의 [REST API](rest-apis.md) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
 - 지역에 대해 만든 키는 해당 지역에서만 유효합니다. 다른 지역에서 사용하려고 하면 인증 오류가 발생합니다.
 

@@ -3,12 +3,12 @@ title: Azure Marketplace에 관리 서비스 제품 게시
 description: Azure Lighthouse에 고객에 게 제공 하는 관리 서비스 제품을 게시 하는 방법에 대해 알아봅니다.
 ms.date: 07/28/2020
 ms.topic: how-to
-ms.openlocfilehash: e86cec16cc377470f255c8b677d7462dee6b3573
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ab12238bac7e479766b3e328c02f73521d08ad96
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407067"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167224"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
 

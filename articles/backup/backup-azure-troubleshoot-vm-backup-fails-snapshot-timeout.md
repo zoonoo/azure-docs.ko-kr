@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809768"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167932"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -23,7 +23,7 @@ ms.locfileid: "87809768"
 
 ### <a name="step-1-check-azure-vm-health"></a>1 단계: Azure VM 상태 확인
 
-- **AZURE vm 프로 비전 상태가 ' 실행 중 ' 인지 확인**: [VM 프로 비전 상태가](../virtual-machines/windows/states-lifecycle.md#provisioning-states) **중지 됨/할당 취소 됨/업데이트 중** 상태 이면 백업 작업에 방해가 됩니다. *Azure Portal > vm > 개요 >* 를 열고 vm 상태를 확인 하 여 **실행 중인지** 확인 하 고 백업 작업을 다시 시도 합니다.
+- **AZURE vm 프로 비전 상태가 ' 실행 중 ' 인지 확인**: [VM 프로 비전 상태가](../virtual-machines/states-lifecycle.md#provisioning-states) **중지 됨/할당 취소 됨/업데이트 중** 상태 이면 백업 작업에 방해가 됩니다. *Azure Portal > vm > 개요 >* 를 열고 vm 상태를 확인 하 여 **실행 중인지** 확인 하 고 백업 작업을 다시 시도 합니다.
 - **보류 중인 os 업데이트 또는 다시 부팅 검토**: VM에서 보류 중인 os 업데이트 또는 다시 부팅이 보류 중인지 확인 합니다.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>2 단계: Azure VM 게스트 에이전트 서비스 상태 확인
@@ -101,7 +101,7 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 **오류 코드**: UserErrorVmProvisioningStateFailed<br>
 **오류 메시지**: VM이 프로 비전 실패 상태에 있습니다.<br>
 
-이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다. 자세히 알아보려면 [프로 비전 상태](../virtual-machines/windows/states-lifecycle.md#provisioning-states)를 참조 하세요.
+이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다. 자세히 알아보려면 [프로 비전 상태](../virtual-machines/states-lifecycle.md#provisioning-states)를 참조 하세요.
 
 - VMSnapshot 확장이 실패 상태 이면 실패 한 확장을 마우스 오른쪽 단추로 클릭 하 고 제거 합니다. 주문형 백업을 트리거합니다. 이 작업은 확장을 다시 설치 하 고 백업 작업을 실행 합니다.  <br>
 - 다른 확장이 실패 상태 이면 백업을 방해할 수 있습니다. 이러한 확장 문제가 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.

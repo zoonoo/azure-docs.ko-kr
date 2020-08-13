@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e6e4b8d7cc3b22737e7e76c31fd1377912fe28cb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985906"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167150"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "87985906"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -248,6 +248,9 @@ build.wait_for_completion(show_output=True)
 ```
 
 먼저 메서드를 사용 하 여 이미지를 로컬로 빌드하는 것이 유용 [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) 합니다. 선택적 매개 변수를 설정 하면 `pushImageToWorkspaceAcr = True` 결과 이미지가 AZURE ML 작업 영역 컨테이너 레지스트리로 푸시됩니다. 
+
+> [!WARNING]
+>  환경에서 종속성 또는 채널의 순서를 변경 하면 새 환경이 생성 되 고 새 이미지 빌드가 필요 합니다.
 
 ## <a name="enable-docker"></a>Docker 사용
 

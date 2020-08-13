@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbee9881addf66d762f1eadb837e5a4e41bf79de
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515375"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167898"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -70,7 +70,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 
   이 패키지는 응용 프로그램이 실행 되는 위치에 관계 없이 구성 파일에서 연결 문자열을 구문 분석 하기 위한 클래스를 제공 합니다.
 
-NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 아래 단계를 수행합니다.
+NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다.
 1. **NuGet 패키지 관리자**에서 **찾아보기**를 선택합니다. 그런 다음를 검색 하 고 **Microsoft Azure. Blob**을 선택 하 고 **설치**를 선택 합니다.
@@ -99,7 +99,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 아래 단
 ```
 
 > [!NOTE]
-> 최신 버전의 Azure Storage 에뮬레이터는 Azure Files를 지원하지 않습니다. Azure Files를 사용하려면 연결 문자열이 클라우드에 있는 Azure Storage 계정을 대상으로 해야 합니다.
+> 최신 버전의 Azure Storage 에뮬레이터에서는 Azure Files를 지원 하지 않습니다. Azure Files를 사용하려면 연결 문자열이 클라우드에 있는 Azure Storage 계정을 대상으로 해야 합니다.
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 
@@ -494,10 +494,10 @@ Azure Files에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 * [AzCopy 시작](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Windows에서 Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>참고
+### <a name="reference"></a>참조
 
 * [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)
-* [파일 서비스 REST API](/rest/api/storageservices/File-Service-REST-API)
+* [File Service REST API](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>블로그 게시물
 
