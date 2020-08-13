@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3d5dbd5c831b4e3cf2ab63796165dc6bad005a5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67107510"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>자습서: Absorb LMS와 Azure Active Directory 통합
 
@@ -41,6 +41,9 @@ Absorb LMS와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 * Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Absorb LMS Single Sign-On이 설정된 플랜
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -163,7 +166,7 @@ Absorb LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     b. **Method**(메서드)로 **SAML**을 선택합니다.
 
-    다. 메모장에서 Azure Portal에서 다운로드한 인증서를 엽니다. **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거합니다. 그런 다음 **키** 상자에 나머지 콘텐츠를 붙여넣습니다.
+    c. 메모장에서 Azure Portal에서 다운로드한 인증서를 엽니다. **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거합니다. 그런 다음 **키** 상자에 나머지 콘텐츠를 붙여넣습니다.
 
     d. **모드** 상자에서 **ID 공급자 시작됨**을 선택합니다.
 
@@ -256,7 +259,7 @@ Azure AD 사용자가 Absorb LMS에 로그인하려면 Absorb LMS에서 해당 �
 
     b. **성** 텍스트 상자에 **Simon** 등의 성을 입력합니다.
 
-    다. **사용자 이름** 텍스트 상자에 **Britta Simon** 등의 성명을 입력합니다.
+    c. **사용자 이름** 텍스트 상자에 **Britta Simon** 등의 성명을 입력합니다.
 
     d. **Password**(암호) 상자에 사용자 암호를 입력합니다.
 

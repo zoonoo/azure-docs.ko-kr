@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop(클래식)에서 테넌트 만들기 - Azure
 description: Azure Active Directory에서 Windows Virtual Desktop(클래식) 테넌트를 설정하는 방법을 설명합니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286362"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005621"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 테넌트 만들기
 
@@ -82,12 +80,12 @@ TenantCreator 애플리케이션 역할을 할당하려면 다음을 수행합�
    > ![Azure Portal의 엔터프라이즈 애플리케이션 검색 스크린샷](../media/azure-portal-enterprise-applications.png)
 
 2. **엔터프라이즈 애플리케이션** 내에서 **Windows Virtual Desktop**을 검색합니다. 이전 섹션에서 동의를 제공한 두 애플리케이션이 표시됩니다. 이러한 두 앱 중 **Windows Virtual Desktop**을 선택합니다.
-   
+
    > [!div class="mx-imgBorder"]
    > !["엔터프라이즈 애플리케이션"에서 "Windows Virtual Desktop"을 검색하는 경우의 검색 결과 스크린샷입니다. "Windows Virtual Desktop"이라는 앱이 강조 표시됩니다.](../media/tenant-enterprise-app.png)
 
 3. **사용자 및 그룹**을 선택합니다. 애플리케이션에 대한 동의를 부여한 관리자가 **기본 액세스** 역할이 할당된 상태로 목록에 표시되는 것을 볼 수 있습니다. 이것만으로는 Windows Virtual Desktop 테넌트를 만드는 데 충분하지 않습니다. 사용자에게 **TenantCreator** 역할을 추가하려면 다음 지침에 따라 계속 진행합니다.
-   
+
    > [!div class="mx-imgBorder"]
    > !["Windows Virtual Desktop" 엔터프라이즈 애플리케이션을 관리하도록 할당된 사용자 및 그룹 스크린샷입니다. 이 스크린샷은 "기본 액세스"에 대한 할당을 하나만 표시합니다.](../media/tenant-default-access.png)
 
@@ -126,13 +124,13 @@ Azure Active Directory 테넌트 ID(또는 **디렉터리 ID**)를 찾으려면 
 
 Azure 구독 ID를 찾으려면
 1. 동일한 [Azure Portal](https://portal.azure.com) 세션에서 **구독**을 검색하여 선택합니다.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Azure Portal에서 "Azure Active Directory"를 검색한 결과의 스크린샷입니다. “서비스” 아래의 검색 결과가 강조 표시됩니다.](../media/tenant-search-subscription.png)
 
 2. Windows Virtual Desktop 서비스 알림을 수신하는 데 사용할 Azure 구독을 선택합니다.
 3. **구독 ID**를 검색한 후 클립보드 아이콘이 나타날 때까지 값 위로 마우스를 가져갑니다. 클립보드 아이콘을 선택하고 나중에 **AzureSubscriptionId** 값으로 사용할 수 있게 편리한 위치에 붙여넣습니다.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Azure 구독 속성의 스크린샷입니다. 복사하여 붙여넣을 "구독 ID"의 클립보드 아이콘 위로 마우스를 가져가고 있습니다.](../media/tenant-subscription-id.png)
 

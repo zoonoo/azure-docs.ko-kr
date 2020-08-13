@@ -1,7 +1,7 @@
 ---
 title: 자습서 - 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
 titleSuffix: Azure Storage
-description: 스토리지 계정이 RA-GZRS(읽기 액세스 지역 중복 스토리지)용으로 구성된 경우 주 지역에서 데이터를 읽는 동안 발생하는 오류를 시뮬레이션합니다. 오류가 발생한 후에는 보조 지역에서 데이터를 읽습니다.
+description: 스토리지 계정이 RA-GZRS(읽기 액세스 지역 중복 스토리지)용으로 구성된 경우 주 지역에서 데이터를 읽는 동안 발생하는 오류를 시뮬레이션합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,12 +11,12 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a9aa58ec990170df99f330f67991fff7b61c2b49
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 59eb826d8d17ed2adb3027f0aab11a6933b47ae5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429850"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905740"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>자습서: 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
 

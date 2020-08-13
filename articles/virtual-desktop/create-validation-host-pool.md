@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop 호스트 풀 서비스 업데이트 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 177763e7939de082faa0c83d2ab661292f0758b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8eac40ad958a10b8c853304ee2be8b2dc27af1a2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292650"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008715"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -62,7 +60,7 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
     HostPoolName        : hostpoolname
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty   : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -77,7 +75,7 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 유효성 검사 호스트 풀을 만들었으므로 Azure Service Health를 사용하여 Windows Virtual Desktop 배포를 모니터링하는 방법을 배울 수 있습니다. 
+이제 유효성 검사 호스트 풀을 만들었으므로 Azure Service Health를 사용하여 Windows Virtual Desktop 배포를 모니터링하는 방법을 배울 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [서비스 경고 설정](./set-up-service-alerts.md)

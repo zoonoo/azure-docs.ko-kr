@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a6182159275236f023a1647275ed1fb8c8f4112
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72026258"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905791"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -39,6 +39,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Cisco Webex Meetings SSO(Single Sign-On)가 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -138,7 +141,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
     1. **이름** 필드에 `B.Simon`을 입력합니다.  
-    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
     1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
     1. **만들기**를 클릭합니다.
 
@@ -176,7 +179,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **SAML 메타데이터 가져오기** 링크를 클릭하여, Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
-    다. **내보내기** 단추를 클릭하여 서비스 공급자 메타데이터 파일을 다운로드한 후 Azure Portal의 **기본 SAML 구성** 섹션에서 업로드합니다.
+    c. **내보내기** 단추를 클릭하여 서비스 공급자 메타데이터 파일을 다운로드한 후 Azure Portal의 **기본 SAML 구성** 섹션에서 업로드합니다.
 
     d. **AuthContextClassRef** 텍스트 상자에 `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`를 입력하고 Azure AD를 사용하여 MFA를 사용 설정하려는 경우 두 개의 값(예: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`)을 입력합니다.
 

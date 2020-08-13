@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 2c02f6858711173a2ddd2217bbb9e241a5a2109d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 55b704fec6722209aebc03979cfa348b08e8af5c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201462"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003762"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>빠른 시작: .NET Core 앱에서 Azure Cache for Redis 사용
 
@@ -194,7 +194,7 @@ static void Main(string[] args)
 
 *Program.cs*를 저장합니다.
 
-Azure Cache for Redis에는 Azure Cache for Redis 내에서 데이터를 논리적으로 분리하는 데 사용할 수 있는 구성 가능한 수의 데이터베이스(기본값 16)가 있습니다. 이 코드에서는 기본 데이터베이스인 DB 0에 연결합니다. 자세한 내용은 [Redis 데이터베이스란?](cache-faq.md#what-are-redis-databases) 및 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.
+Azure Cache for Redis에는 Azure Cache for Redis 내에서 데이터를 논리적으로 분리하는 데 사용할 수 있는 구성 가능한 수의 데이터베이스(기본값 16)가 있습니다. 이 코드에서는 기본 데이터베이스인 DB 0에 연결합니다. 자세한 내용은 [Redis 데이터베이스란?](cache-development-faq.md#what-are-redis-databases) 및 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.
 
 캐시 항목은 `StringSet` 및 `StringGet` 메서드를 사용하여 저장하고 검색할 수 있습니다.
 

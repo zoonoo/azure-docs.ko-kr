@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 API for MongoDB(3.6 버전) 지원 기능 및 �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b389b71e15edcf0558b2ce60290c1ad7b171eab
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076832"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030545"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 
@@ -495,10 +495,10 @@ $nearSphere |  예 |
 $geometry |  예 |
 $minDistance | 예 |
 $maxDistance | 예 |
-$center | 예 |
-$centerSphere | 예 |
-$box | 예 |
-$polygon |  예 |
+$center | 아니요 |
+$centerSphere | 아니요 |
+$box | 아니요 |
+$polygon |  아니요 |
 
 ## <a name="cursor-methods"></a>커서 메서드
 

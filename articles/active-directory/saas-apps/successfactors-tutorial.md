@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b141f3722a722a57e5ec7c5662ded4b9a8c790
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1de6af0f30453d40348e9e836b2a5989652f49f1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170431"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925107"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>자습서: SuccessFactors와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -116,7 +116,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     - `https://<companyname>.sapsf.cn/<companyname>`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [SuccessFactors 클라이언트 지원 팀](https://www.successfactors.com/content/ssf-site/en/support.html)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [SuccessFactors 클라이언트 지원 팀](https://www.sap.com/support.html)에 문의하세요.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
 
@@ -227,7 +227,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 Azure AD 사용자가 SuccessFactors에 로그인할 수 있도록 하려면 SuccessFactors로 프로비저닝되어야 합니다. SuccessFactors의 경우 프로비전은 수동 작업입니다.
 
-SuccessFactors에서 사용자를 생성하려면 [SuccessFactors 지원 팀](https://www.successfactors.com/content/ssf-site/en/support.html)에 문의해야 합니다.
+SuccessFactors에서 사용자를 생성하려면 [SuccessFactors 지원 팀](https://www.sap.com/support.html)에 문의해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop 호스트 풀 - Azure Portal - Azure
 description: Azure Portal을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291435"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002661"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -61,7 +59,7 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 6. 호스트 풀에 대한 고유한 이름을 입력합니다.
 
 7. [위치] 필드의 드롭다운 메뉴에서 호스트 풀을 만들려는 지역을 선택합니다.
-   
+
    선택한 지역과 연결된 Azure 지역은 이 호스트 풀 및 관련 개체에 대한 메타데이터가 저장되는 위치입니다. 서비스 메타데이터를 저장하려는 지리적 위치 내의 지역을 선택해야 합니다.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
     > [!div class="mx-imgBorder"]
     > ![드롭다운 메뉴의 사용 가능한 포트 목록을 보여주는 보안 그룹 페이지의 스크린샷.](media/available-ports.png)
-    
+
     **고급**을 선택하는 경우 이미 구성한 기존 네트워크 보안 그룹을 선택합니다.
 
 10. 그런 다음, 가상 머신을 특정 도메인 및 조직 구성 단위에 조인할지 여부를 선택합니다. **예**를 선택하는 경우 조인할 도메인을 지정합니다. 가상 머신을 배치하려는 특정 조직 구성 단위를 추가할 수도 있습니다.
@@ -153,7 +151,7 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
 ## <a name="workspace-information"></a>작업 영역 정보
 
-호스트 풀 설정 프로세스는 기본적으로 데스크톱 애플리케이션 그룹을 만듭니다. 호스트 풀이 의도한 대로 작동하려면 이 앱 그룹을 사용자 또는 사용자 그룹에 게시해야 하고 해당 앱 그룹을 작업 영역에 등록해야 합니다. 
+호스트 풀 설정 프로세스는 기본적으로 데스크톱 애플리케이션 그룹을 만듭니다. 호스트 풀이 의도한 대로 작동하려면 이 앱 그룹을 사용자 또는 사용자 그룹에 게시해야 하고 해당 앱 그룹을 작업 영역에 등록해야 합니다.
 
 데스크톱 앱 그룹을 작업 영역에 등록하려면 다음을 수행합니다.
 
@@ -167,10 +165,10 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
     여기서는 관리자가 작업을 더 쉽게 수행할 수 있도록 태그를 추가하여 개체를 메타데이터로 그룹화할 수 있습니다.
 
-4. 완료되면 **검토 + 만들기**를 선택합니다. 
+4. 완료되면 **검토 + 만들기**를 선택합니다.
 
      >[!NOTE]
-     >검토 + 만들기 유효성 검사 프로세스에서는 암호가 보안 표준을 충족하는지 또는 아키텍처가 올바른지 확인하지 않으므로 이러한 항목 중 하나에 문제가 있는지 직접 확인해야 합니다. 
+     >검토 + 만들기 유효성 검사 프로세스에서는 암호가 보안 표준을 충족하는지 또는 아키텍처가 올바른지 확인하지 않으므로 이러한 항목 중 하나에 문제가 있는지 직접 확인해야 합니다.
 
 5. 배포 정보를 검토하여 모든 것이 올바르게 표시되는지 확인합니다. 완료되면 **만들기**를 선택합니다. 그러면 배포 프로세스가 시작되어 다음과 같은 개체가 만들어집니다.
 

@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c2ef52669a0bc5cd29bdcebf920beb1f409e65d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533107"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987514"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기 
 
@@ -132,7 +132,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     > [!NOTE]
     > 지원되는 지역 목록은 [지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)을 참조하세요.
-    > 명령줄 도구에서 지원되는 지역 이름을 가져오려면 `az account list-locations -query "[].{Region:name}" --out table`을 사용하세요.
+    > 명령줄 도구에서 지원되는 지역 이름을 가져오려면 `az account list-locations --query "[].{Region:name}" --out table`을 사용하세요.
     >
 
 2. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 새 리소스 그룹을 만듭니다.
