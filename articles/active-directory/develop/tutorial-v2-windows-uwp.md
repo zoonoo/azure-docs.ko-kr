@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7193affad3da212a6a40c0d9479473ec597e86f6
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 38bd83f8bd713f2d5bda658e052c919dd3d7625d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807624"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119711"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -27,7 +27,7 @@ ms.locfileid: "85807624"
 이 가이드의 끝에서 애플리케이션은 개인 계정을 사용하여 보호된 API를 호출합니다. outlook.com, live.com 및 기타를 예로 듭니다. 또한 애플리케이션은 Azure AD(Azure Active Directory)가 있는 회사 또는 조직의 회사 및 학교 계정을 호출합니다.
 
 >[!NOTE]
-> 이 가이드에는 유니버설 Windows 플랫폼 개발이 설치된 Visual Studio가 필요합니다. 유니버설 Windows 플랫폼 앱을 개발하기 위해 Visual Studio를 다운로드하고 구성하는 방법에 대한 지침은 [설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)을 참조하세요.
+> 이 가이드에는 유니버설 Windows 플랫폼 개발이 설치된 Visual Studio가 필요합니다. 유니버설 Windows 플랫폼 앱을 개발하기 위해 Visual Studio를 다운로드하고 구성하는 방법에 대한 지침은 [설정](/windows/uwp/get-started/get-set-up)을 참조하세요.
 
 >[!NOTE]
 > Microsoft ID 플랫폼을 처음 접하는 경우 [UWP(유니버설 Windows 플랫폼) 애플리케이션에서 Microsoft Graph API 호출 빠른 시작](quickstart-v2-uwp.md)을 먼저 진행하세요.
