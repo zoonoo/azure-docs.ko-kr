@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 9d29d83ed92ee0fa2217bb1c27fbf6c2fbb3584c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/12/2020
+ms.openlocfilehash: e6fd405d1969a2f40a5f0c3466a57fbec60723e9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170891"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141162"
 ---
 # <a name="supported-data-types"></a>지원되는 데이터 형식
 
@@ -31,7 +31,7 @@ ms.locfileid: "87170891"
 
 ## <a name="sending-mixed-data-types"></a>혼합 데이터 형식 보내기
 
-Azure Time Series Insights Gen2 환경은 강력 하 게 형식화 되어 있습니다. 장치 또는 태그가 장치 속성에 대해 서로 다른 유형의 데이터를 전송 하는 경우 값은 두 개의 분리 된 열에 저장 되며, API 호출에서 시계열 모델 변수 식을 정의할 때 [병합 () 함수](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) 를 사용 해야 합니다.
+Azure Time Series Insights Gen2 환경은 강력 하 게 형식화 되어 있습니다. 장치 또는 태그가 장치 속성에 대해 서로 다른 유형의 데이터를 전송 하는 경우 값은 두 개의 분리 된 열에 저장 되며, API 호출에서 시계열 모델 변수 식을 정의할 때 [병합 () 함수](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions) 를 사용 해야 합니다.
 
 Azure Time Series Insights 탐색기는 동일한 장치 속성의 개별 열을 자동으로 병합 하는 방법을 제공 합니다. 아래 예제에서 센서는 `PresentValue` Long 또는 Double 일 수 있는 속성을 보냅니다. 속성의 모든 저장 된 값 (데이터 형식에 상관 없음)에 대해 쿼리하려면를 `PresentValue` 선택 `PresentValue (Double | Long)` 합니다. 그러면 열이 병합 됩니다.
 

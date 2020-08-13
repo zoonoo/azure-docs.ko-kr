@@ -3,12 +3,12 @@ title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
 ms.date: 08/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 9842ad91c059fe4da70221d8c7c5570084bcc6b9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63b8ec60ecf2f2e5655e3253db7aef01c003fc63
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119014"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163342"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
@@ -173,6 +173,9 @@ else {
 1. 화면 위쪽의 필터에서 **디렉터리 작업** 이 선택 되어 있는지 확인 합니다.
 
 위임 변경의 목록이 표시 됩니다. **열 편집** 을 선택 하 여 **상태**, **이벤트 범주**, 시간, **타임 스탬프**, **구독**, **이벤트 시작** **시간**, **리소스 그룹**, 리소스 **종류**및 **리소스** 값을 표시 하거나 숨길 수 있습니다.
+
+> [!TIP]
+> 이 항목의 서비스 공급자 및 고객을 참조 하지만 [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

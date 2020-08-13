@@ -1,21 +1,21 @@
 ---
-title: App Service 플랜
+title: App Service 계획
 description: Azure App Service에서 App Service 계획의 작동 방식, 고객에 게 요금을 청구 하는 방법 및 요구에 맞게 크기를 조정 하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, 규모, 확장 가능, 확장성, App Service 계획, App Service 비용
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068194"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141587"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
-App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. 이러한 계산 리소스는 기존 웹 호스팅의 [_서버 팜과_](https://wikipedia.org/wiki/Server_farm) 유사 합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
+App Service (Web Apps, API Apps 또는 Mobile Apps)에서 앱은 항상 _App Service 계획_으로 실행 됩니다. 또한 [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) 에는 _App Service 계획_에서 실행 하는 옵션도 있습니다. App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. 이러한 계산 리소스는 기존 웹 호스팅의 [_서버 팜과_](https://wikipedia.org/wiki/Server_farm) 유사 합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
 
 특정 영역(예: 서유럽)에서 App Service 계획을 만들 때 해당 지역에서 해당 계획에 대한 컴퓨팅 리소스 세트를 만듭니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 컴퓨팅 리소스에서 실행됩니다. 각 App Service 계획은 다음을 정의합니다.
 

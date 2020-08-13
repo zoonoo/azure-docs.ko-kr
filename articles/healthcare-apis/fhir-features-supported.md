@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843507"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142522"
 ---
 # <a name="features"></a>기능
 
@@ -27,7 +27,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 ## <a name="rest-api"></a>REST API
 
-| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견                                             |
+| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | 읽기                           | 예       | 예       | 예       |                                                     |
 | vread                          | 예       | 예       | 예       |                                                     |
@@ -53,7 +53,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 모든 검색 매개 변수 유형이 지원 됩니다. 
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-----------------------|-----------|-----------|-----------|---------|
 | 번호                | 예       | 예       | 예       |         |
 | Date/DateTime         | 예       | 예       | 예       |         |
@@ -95,15 +95,15 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_type`                 | 예       | 예       | 예       |         |
 | `_query`                | 아니요        | 아니요        | 아니요        |         |
 
-| 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | 아니요        | 아니요        | 아니요        |         |
 | `_sort`                 | 아니요        | 아니요        | 아니요        |         |
 | `_score`                | 아니요        | 아니요        | 아니요        |         |
 | `_count`                | 예       | 예       | 예       |         |
-| `_summary`              | 부분   | Partial   | Partial   | `_summary=count`가 지원됨 |
+| `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
 | `_include`              | 아니요        | 예       | 아니요        |         |
-| `_revinclude`           | 아니요        | 아니요        | 아니요        |         |
+| `_revinclude`           | 아니요        | 예       | 아니요        | 포함 된 항목은 100 개로 제한 됩니다. |
 | `_contained`            | 아니요        | 아니요        | 아니요        |         |
 | `_elements`             | 아니요        | 아니요        | 아니요        |         |
 

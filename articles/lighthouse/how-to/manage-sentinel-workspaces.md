@@ -3,12 +3,12 @@ title: 대규모로 Azure 센티널 작업 영역 관리
 description: 위임 된 고객 리소스에서 Azure 센티널을 효과적으로 관리 하는 방법을 알아봅니다.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105271"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163240"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모로 Azure 센티널 작업 영역 관리
 
@@ -17,6 +17,9 @@ ms.locfileid: "86105271"
 Azure 센티널은 보안 분석과 위협 인텔리전스를 제공 하 여 경고 검색, 위협 가시성, 자동 관리 검색 및 위협 대응을 위한 단일 솔루션을 제공 합니다. Azure Lighthouse를 사용 하면 대규모 테 넌 트 간에 여러 Azure 센티널 작업 영역을 관리할 수 있습니다. 이렇게 하면 여러 작업 영역에서 쿼리를 실행 하거나 통합 문서를 만들어 연결 된 데이터 원본의 데이터를 시각화 하 고 모니터링 하 여 통찰력을 얻을 수 있습니다. 쿼리 및 플레이 북와 같은 IP는 관리 테 넌 트에 남아 있지만 고객 테 넌 트의 보안 관리를 수행 하는 데 사용할 수 있습니다.
 
 이 항목에서는 테 넌 트 간 표시 유형 및 관리 되는 보안 서비스에 대해 확장 가능한 방법으로 [Azure 센티널](../../sentinel/overview.md) 을 사용 하는 방법에 대 한 개요를 제공 합니다.
+
+> [!TIP]
+> 이 항목의 서비스 공급자 및 고객을 참조 하지만이 지침은 [Azure Lighthouse를 사용 하 여 여러 테 넌 트를 관리](../concepts/enterprise.md)하는 기업에도 적용 됩니다.
 
 ## <a name="architectural-considerations"></a>아키텍처 고려 사항
 

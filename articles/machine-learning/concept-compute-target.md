@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f8b532716e14a8a90b0be061f7d93abf43e55e38
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321992"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141928"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -85,7 +85,9 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 | D | 없음 |
 | Dv2 | 없음 |  
 | DSv2 | 없음 |  
-| FSv2 | 없음 |  
+| FSv2 | 없음 | 
+| HBv2 | 승인 필요 |  
+| HCS | 승인 필요 |  
 | M | 승인 필요 |
 | NC | 없음 |    
 | NCsv2 | 승인 필요 |

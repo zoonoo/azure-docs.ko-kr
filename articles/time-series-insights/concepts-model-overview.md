@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289971"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141723"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
 
@@ -75,7 +75,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 [![시계열 모델 개요 차트](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-시계열 모델은 [Azure Time Series Insights Gen2 탐색기](/azure/time-series-insights/concepts-model-overview)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)를 통해 관리할 수 있습니다.
+시계열 모델은 [Azure Time Series Insights Gen2 탐색기](/azure/time-series-insights/concepts-model-overview)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis)를 통해 관리할 수 있습니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 
@@ -129,7 +129,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 ```
 
 > [!TIP]
-> 인스턴스 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)를 참조 하세요.
+> 인스턴스 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) 문서 및 [인스턴스 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api)를 참조 하세요.
 
 ## <a name="time-series-model-hierarchies"></a>시계열 모델 계층 구조
 
@@ -186,7 +186,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 * `ManufactureDate`부모 및 자식 계층을 정의 `year` `month` 합니다. 각에는 `ManufactureDate` 여러가 있을 수 있으며 `years` ,이 경우에는 여러가 있을 수 있습니다 `months` .
 
 > [!TIP]
-> 계층 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [계층 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)를 참조 하세요.
+> 계층 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [계층 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api)를 참조 하세요.
 
 ### <a name="hierarchy-example"></a>계층 예
 
@@ -231,7 +231,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 [![시계열 모델 유형 예](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> 형식 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)를 참조 하세요.
+> 형식 API 만들기, 읽기, 업데이트 및 삭제 (CRUD) 지원에 대 한 자세한 내용은 [데이터 쿼리](concepts-query-overview.md#time-series-model-query-tsm-q-apis) 문서 및 [형식 API REST 설명서](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api)를 참조 하세요.
 
 ### <a name="type-properties"></a>형식 속성
 
@@ -288,7 +288,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 ## <a name="next-steps"></a>다음 단계
 
-* Api를 통해 모델을 편집 하는 방법에 대 한 자세한 내용은 [Time Series 모델](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) 참조 설명서를 참조 하세요.
+* Api를 통해 모델을 편집 하는 방법에 대 한 자세한 내용은 [Time Series 모델](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) 참조 설명서를 참조 하세요.
 
 * 시계열 [모델 변수](./concepts-variables.md) 를 사용 하 여 만들 수 있는 수식 및 계산 살펴보기
 

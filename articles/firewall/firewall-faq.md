@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 1ba8977272817d41334ccf0d9ad01d4d751bfb17
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 1dc9521555f2eb158209b494e43fd815e6bab6e8
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041700"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141196"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -95,8 +95,8 @@ Set-AzFirewall -AzureFirewall $azfw
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
-$azfw.Allocate($vnet,$publicip)
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName "RG Name"
+$azfw.Allocate($vnet, $publicip)
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
@@ -121,7 +121,7 @@ Azure Firewall 서비스 제한 사항은 [Azure 구독 및 서비스 제한, �
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>네트워크 가상 어플라이언스에 대한 강제 터널링/체이닝이 지원되나요?
 
-강제 터널링은 새 방화벽을 만들 때 지원됩니다. 강제 터널링을 위해 기존 방화벽을 구성할 수는 없습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요. 
+강제 터널링은 새 방화벽을 만들 때 지원됩니다. 강제 터널링을 위해 기존 방화벽을 구성할 수는 없습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
 
 Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 
@@ -194,7 +194,7 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 ## Or Update FQDNs and IpAddresses separately
 
 $fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
-$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses )
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)
 $fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
 
 
