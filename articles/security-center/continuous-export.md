@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d101acd3e72e68efd9198cb273fd352967a0cd54
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042328"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192374"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>보안 경고 및 권장 사항 내보내기
 
@@ -35,8 +35,8 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 |----|:----|
 |릴리스 상태:|일반 공급|
 |결정|무료 계층|
-|필요한 역할 및 사용 권한:|내보내기 구성이 포함 된 구독의 **판독기** 입니다.<br>리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|필요한 역할 및 사용 권한:|리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 

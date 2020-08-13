@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 5ddd4fc368a4e479d3d720698c7447d2b3cdf3cc
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6d1042ea21308dd0f82165c288824aaef000e36d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986565"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192339"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -380,7 +380,7 @@ New-AzResourceGroupDeployment `
 연결 된 리소스가 가상 네트워크 뒤에 있지 않은 경우 **privateEndpointType** 매개 변수를 또는로 설정 `AutoAproval` 하 여 `ManualApproval` 개인 끝점 뒤에 작업 영역을 배포할 수 있습니다. 새 작업 영역과 기존 작업 영역 모두에 대해이 작업을 수행할 수 있습니다. 기존 작업 영역을 업데이트할 때 기존 작업 영역의 정보를 사용 하 여 템플릿 매개 변수를 입력 합니다.
 
 > [!IMPORTANT]
-> 배포는 전용 끝점을 지 원하는 지역 에서만 유효 합니다.
+> Azure 개인 링크를 사용 하 여 Azure Machine Learning 작업 영역에 대 한 개인 끝점을 만드는 작업은 현재 공개 미리 보기 상태입니다. 이 기능은 **미국 동부** 및 **미국 서 부 2** 지역 에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

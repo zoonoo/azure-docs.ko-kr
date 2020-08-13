@@ -1,14 +1,14 @@
 ---
 title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474906"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191807"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -56,6 +56,10 @@ ms.locfileid: "87474906"
 Batch 풀에서 Azure의 가동 중지 시간 이벤트를 경험할 수 있습니다. Batch 시나리오 또는 워크플로를 계획하고 개발하는 경우 이 점을 명심해야 합니다.
 
 노드가 실패하면 Batch에서 자동으로 사용자를 대신하여 이러한 컴퓨팅 노드를 복구하려고 시도합니다. 이 경우 복구된 노드에서 실행되는 모든 태스크를 다시 예약하는 작업이 트리거될 수 있습니다. 중단되는 태스크에 대한 자세한 내용은 [다시 시도 디자인](#design-for-retries-and-re-execution)을 참조하세요.
+
+### <a name="custom-image-pools"></a>사용자 지정 이미지 풀
+
+Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원 되는 Azure Marketplace 이미지를 사용 하 여 풀을 만들거나 [공유 이미지 갤러리 이미지를 사용 하 여 사용자 지정 이미지를 만들](batch-sig-images.md)수 있습니다. [관리 되는 이미지](batch-custom-images.md) 를 사용 하 여 사용자 지정 이미지 풀을 만들 수도 있지만 가능 하면 항상 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지를 만드는 것이 좋습니다. 공유 이미지 갤러리를 사용 하면 풀을 더 빠르게 프로 비전 하 고, 많은 양의 Vm을 확장 하 고, Vm을 프로 비전 할 때 안정성을 높일 수 있습니다.
 
 ### <a name="third-party-images"></a>타사 이미지
 

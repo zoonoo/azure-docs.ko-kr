@@ -3,12 +3,12 @@ title: Microsoft Azure Backup Server의 새로운 기능
 description: Microsoft Azure Backup Server에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032445"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190836"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>MABS (Microsoft Azure Backup Server)의 새로운 기능
 
@@ -25,7 +25,7 @@ MABS V2는 저장소 사용률 및 성능을 개선 하는 [Modern Backup Storag
 
 MB로 크기 조정 및 성능을 얻으려면 MABS V3 UR1를 사용 하는 플래시 저장소 (SSD)의 작은 백분율 (전체 저장소의 4%)을 DPM HDD 저장소와 함께 계층화 된 볼륨으로 사용 하는 것이 좋습니다. 계층화 된 저장소를 사용 하는 MABS V3 UR1는 50-70% 더 빠른 백업을 제공 합니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 [TIERED STORAGE](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) DPM 문서를 참조 하세요.
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>중복 제거를 사용 하는 ReFS 볼륨 및 ReFS 볼륨에 대 한 지원
+### <a name="support-for-refs-volumes"></a>ReFS 볼륨에 대한 지원
 
 MABS V3 UR1를 사용 하 여 refs 볼륨에 배포 된 ReFS 볼륨 및 워크 로드를 백업할 수 있습니다. ReFS 볼륨에 배포 된 다음 워크 로드를 백업할 수 있습니다.
 
@@ -36,6 +36,8 @@ MABS V3 UR1를 사용 하 여 refs 볼륨에 배포 된 ReFS 볼륨 및 워크 �
 
 >[!NOTE]
 > ReFS 볼륨에 저장 된 Hyper-v Vm의 백업은 MABS V3에서 지원 됩니다.
+
+>중요 한 중복 제거 된 ReFS 볼륨의 백업에 대 한 몇 가지 문제를 확인 했습니다. 이와 같은 문제를 해결하기 위해 노력하고 있으며 해결책이 마련되는 대로 이 섹션을 업데이트할 예정입니다. 그때 까지는 MABSv3 UR1에서 중복 제거 된 ReFS 볼륨의 백업에 대 한 지원을 제거 합니다.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Azure VMware 솔루션 보호 지원
 

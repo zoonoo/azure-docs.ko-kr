@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 자동 TLS 인증
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: b25c431c7771e3c72280e936b2275f2fd10165b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 485fda708c089fe253ee7ae82edc14275c67b971
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056848"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192193"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "87056848"
 
 또한이 문서에서는 AKS 클러스터와 동일한 리소스 그룹에 [DNS 영역][dns-zone] 을 사용 하는 [사용자 지정 도메인이][custom-domain] 있다고 가정 합니다.
 
-이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러 및 인증서 관리자를 설치 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
+이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러 및 인증서 관리자를 설치 합니다. 최신 버전의 투구를 사용 하 고 있고 *안정화* 및 *jetstack* 투구 리포지토리에 액세스할 수 있는지 확인 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
 
 또한이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -263,7 +263,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 다음 예제에서는 hello-수신 주소에 대 한 트래픽 *입니다. MY_CUSTOM_DOMAIN* *aks-helloworld* 서비스로 라우팅됩니다. 주소 hello-수신에 대 한 트래픽 *. MY_CUSTOM_DOMAIN/hello-world-two* 는 *aks* 서비스로 라우팅됩니다. Hello-수신에 대 한 트래픽 *. MY_CUSTOM_DOMAIN/static* 은 정적 자산에 대 한 *aks-helloworld* 라는 서비스로 라우팅됩니다.
 
 > [!NOTE]
-> 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대 한 FQDN을 구성한 경우 hello-수신 대신 FQDN을 사용 *합니다. MY_CUSTOM_DOMAIN*. 예를 들어 FQDN이 *demo-aks-ingress.eastus.cloudapp.azure.com*인 경우 *hello-수신을 대체 합니다. *에서 *demo-aks-ingress.eastus.cloudapp.azure.com* 를 사용 하 여 MY_CUSTOM_DOMAIN `hello-world-ingress.yaml` 합니다.
+> 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대 한 FQDN을 구성한 경우 hello-수신 대신 FQDN을 사용 *합니다. MY_CUSTOM_DOMAIN*. 예를 들어 FQDN이 *demo-aks-ingress.eastus.cloudapp.azure.com*인 경우 *hello-수신을 대체 합니다. * 에서 *demo-aks-ingress.eastus.cloudapp.azure.com* 를 사용 하 여 MY_CUSTOM_DOMAIN `hello-world-ingress.yaml` 합니다.
 
 `hello-world-ingress.yaml`아래 예제 YAML을 사용 하 여 라는 파일을 만듭니다. *hosts* 및 *host*를 이전 단계에서 만든 DNS 이름으로 업데이트합니다.
 
@@ -338,7 +338,7 @@ tls-secret   True    tls-secret   11m
 
 ## <a name="test-the-ingress-configuration"></a>수신 구성 테스트
 
-웹 브라우저를 열고 *hello-수신 합니다. *Kubernetes 수신 컨트롤러의 MY_CUSTOM_DOMAIN입니다. HTTPS를 사용 하도록 리디렉션하고 인증서를 신뢰 하 고 데모 응용 프로그램이 웹 브라우저에 표시 되는지 확인 합니다. */Hello-world-two* 경로를 추가 하 고 두 번째 데모 응용 프로그램이 사용자 지정 제목을 표시 하는지 확인 합니다.
+웹 브라우저를 열고 *hello-수신 합니다. * Kubernetes 수신 컨트롤러의 MY_CUSTOM_DOMAIN입니다. HTTPS를 사용 하도록 리디렉션하고 인증서를 신뢰 하 고 데모 응용 프로그램이 웹 브라우저에 표시 되는지 확인 합니다. */Hello-world-two* 경로를 추가 하 고 두 번째 데모 응용 프로그램이 사용자 지정 제목을 표시 하는지 확인 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

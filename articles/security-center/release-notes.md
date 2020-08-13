@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 034e72238375750651a1374a94b844d36fd97d03
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: caad034c2cc3403bc88ee5f50d101702ec692c35
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166453"
+ms.locfileid: "88192246"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -67,7 +67,7 @@ Security Center Vm을 검사 하 여 취약성 평가 솔루션을 실행 중인
 
 |정책|범위|
 |----|:----|
-|**가상 컴퓨터에서 취약성 평가를 사용 하도록 설정 해야 합니다.**<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|기본 제공|
+|**가상 머신에서 취약성 평가를 사용하도록 설정해야 함**<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|기본 제공|
 |**취약성 평가 솔루션에서 취약성을 재구성 해야 함**<br>정책 ID: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
 ||||
 

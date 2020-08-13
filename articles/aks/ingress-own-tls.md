@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고유한 인증�
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 7588614f615e7aa7dee00fa7553ad986f2e26b37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 070414537f203e1bcfa5de158efd2ad9f215d4bf
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056963"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191078"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "87056963"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러를 설치 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
+이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러를 설치 합니다. 최신 투구 릴리스를 사용 하 고 있고 *안정적인* 투구 리포지토리에 액세스할 수 있는지 확인 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
 
 또한이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 

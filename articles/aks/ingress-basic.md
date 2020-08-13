@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 �
 services: container-service
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 2c75d41d827ad1838898736ba8ff41aaef0b6f13
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6a34649bba275fa4b11a4c5a0c0084235d83fd4a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927055"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190769"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "87927055"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러를 설치 합니다.
+이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러를 설치 합니다. 최신 투구 릴리스를 사용 하 고 있고 *안정적인* 투구 리포지토리에 액세스할 수 있는지 확인 합니다.
 
 또한이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167728"
+ms.locfileid: "88192408"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ __가상 네트워크__는 공용 인터넷에서 Azure 리소스를 격리하�
 + [Azure Virtual Network 서비스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 및 [IP 네트워킹](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)에 대한 일반적인 실무 지식
 
 + 컴퓨팅 리소스에 사용할 기존 가상 네트워크 및 서브넷
+
++ 가상 네트워크 또는 서브넷에 리소스를 배포 하려면 사용자 계정에 Azure 역할 기반 액세스 제어 (RBAC)에서 다음 작업을 수행할 수 있는 권한이 있어야 합니다.
+
+    - 가상 네트워크 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
+    - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
+
+    네트워크를 사용 하는 RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
 
 ## <a name="private-endpoints"></a>프라이빗 엔드포인트
 
@@ -79,7 +86,7 @@ Studio 액세스 권한을 부여 하지 못한 경우이 오류가 표시 되 `
 * Azure Blob
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Azure SQL 데이터베이스
+* Azure SQL Database
 
 ### <a name="add-resources-to-the-virtual-network"></a>가상 네트워크에 리소스 추가 
 
@@ -203,7 +210,7 @@ SQL 포함 된 사용자를 만든 후에는 [Grant t-sql 명령을](https://doc
 - Azure Blob Storage
 - Azure 파일 공유
 - PostgreSQL
-- Azure SQL 데이터베이스
+- Azure SQL Database
 
 다음 코드 샘플은 새 Azure Blob 데이터 저장소 및 집합을 만듭니다 `skip_validation=True` .
 

@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 08/12/2020
-ms.openlocfilehash: faef8c29b2a5e75745e36c5d826b4feee2d60a98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169143"
+ms.locfileid: "88191196"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
 
@@ -31,6 +31,9 @@ ms.locfileid: "88169143"
 - 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향 테스트
 - 네트워크 대기 시간의 변경으로 인해 장애 조치 (failover)에서 종단 간 성능을 변경 하는지 확인 합니다.
 - Query performance 저하의 경우 수동 장애 조치 (failover)를 통해 성능 문제를 완화할 수 있습니다.
+
+> [!NOTE]
+> 프로덕션 환경에 배포 하기 전에 응용 프로그램을 장애 조치 (failover) 하는 것을 확인 하면 프로덕션 환경에서 응용 프로그램 오류의 위험을 완화 하 고 고객의 응용 프로그램 가용성에 영향을 줍니다.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 수동 장애 조치 (failover) 시작
 

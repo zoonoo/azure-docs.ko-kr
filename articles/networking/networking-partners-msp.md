@@ -1,18 +1,18 @@
 ---
 title: '네트워킹 파트너: Azure 네트워킹 | Microsoft Docs'
-description: 이 문서에서는 MSP 네트워킹 파트너 목록을 제공합니다.
+description: Azure 네트워킹 관리 서비스 공급자 파트너 프로그램에 대해 알아보고 클라우드 및 하이브리드 네트워킹 서비스를 제공 하는 파트너 목록을 찾습니다.
 services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 69129ad0ecda6b5893a5f758b8cac9a30dd0b093
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 841c4d85dee829eeebaef17e6ff12343d9940d03
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282112"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192049"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 

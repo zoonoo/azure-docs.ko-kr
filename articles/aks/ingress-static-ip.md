@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP �
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 38caddeece7b8e2a49d09e25a22e9996cf65d069
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 61996aed50861d60064a8a5c0b691bb9d7ae9ceb
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87335956"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192105"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "87335956"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러 및 인증서 관리자를 설치 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
+이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러 및 인증서 관리자를 설치 합니다. 최신 버전의 투구를 사용 하 고 있고 *안정화* 및 *jetstack* 투구 리포지토리에 액세스할 수 있는지 확인 합니다. 업그레이드 지침은 [투구 설치 문서][helm-install]를 참조 하세요. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
 
 또한이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 

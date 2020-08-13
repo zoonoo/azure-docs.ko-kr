@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142437"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189933"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,4 +117,5 @@ Azure SQL Database 및 Azure SQL Managed Instance 기능은 Azure 플랫폼과 �
 - [Azure 가용성 영역](../../availability-zones/az-overview.md) 알아보기
 - [Service Fabric](../../service-fabric/service-fabric-overview.md) 에 대해 알아보기
 - [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) 알아보기
+- [SQL Managed Instance에서 수동 장애 조치 (failover)를 시작 하는 방법을](../managed-instance/user-initiated-failover.md) 알아봅니다.
 - 고가용성 및 재해 복구의 추가 옵션은 [비즈니스 연속성](business-continuity-high-availability-disaster-recover-hadr-overview.md)을 참조하세요.

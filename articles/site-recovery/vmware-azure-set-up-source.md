@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 13972a1afd0860202eab7a3e3f9c4b9273c44e38
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: afd3979690b8952c915a49099ee04b3d416031fd
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185675"
+ms.locfileid: "88189734"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
 이 아티클에서는 VMware VM을 Azure에 복제하도록 원본 온-프레미스 환경을 설정하는 방법을 설명합니다. 이 문서에는 복제 시나리오를 선택 하 고, 온-프레미스 컴퓨터를 Site Recovery 구성 서버로 설정 하 고, 온-프레미스 Vm을 자동으로 검색 하는 단계가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
 
@@ -83,7 +83,7 @@ OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-�
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. 부하가 분산 된 프로세스 서버 설치 디렉터리 Azure Site Recovery 예: C:\Program Files (x86) \Microsoft Azure Site Recovery
 
-## <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Linux 마스터 대상에서 바이러스 백신 소프트웨어가 활성 상태인 경우
+### <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Linux 마스터 대상에서 바이러스 백신 소프트웨어가 활성 상태인 경우
 
 바이러스 백신 소프트웨어에서 다음 폴더를 제외합니다.
 

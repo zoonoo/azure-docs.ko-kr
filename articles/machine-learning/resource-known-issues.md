@@ -3,20 +3,20 @@ title: 알려진 문제 및 문제 해결
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 오류 또는 오류를 찾고 수정 하는 데 도움을 받으세요. 알려진 문제, 문제 해결 및 해결 방법에 대해 알아봅니다.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
-ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/13/2020
+ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120765"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190510"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -203,7 +203,7 @@ ms.locfileid: "88120765"
 |이미지를 검토할 때 새로 레이블이 지정 된 이미지는 표시 되지 않습니다.     |   레이블이 지정 된 모든 이미지를 로드 하려면 **첫 번째** 단추를 선택 합니다. **첫 번째** 단추는 목록 맨 앞으로 다시 이동 하지만 레이블이 지정 된 모든 데이터를 로드 합니다.      |
 |개체 검색에 대 한 레이블을 지정 하는 동안 Esc 키를 누르면 왼쪽 위 모퉁이에 크기가 0 인 레이블이 생성 됩니다. 이 상태의 레이블 전송에 실패 합니다.     |   옆의 십자 표시를 클릭 하 여 레이블을 삭제 합니다.  |
 
-### <a name="data-drift-monitors"></a><a name="data-drift"></a>데이터 드리프트 모니터
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> 데이터 드리프트 모니터
 
 데이터 드리프트 모니터의 제한 사항 및 알려진 문제:
 
@@ -248,6 +248,27 @@ ms.locfileid: "88120765"
 ```python
 import time
 time.sleep(600)
+```
+
+* **실시간 끝점에 대 한 로그:**
+
+실시간 끝점의 로그는 고객 데이터입니다. 실시간 끝점 문제 해결을 위해 다음 코드를 사용 하 여 로그를 사용 하도록 설정할 수 있습니다. 
+
+[이 문서](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models)에서 웹 서비스 끝점 모니터링에 대 한 자세한 내용을 참조 하세요.
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+여러 테 넌 트가 있는 경우 다음 인증 코드를 추가 해야 할 수 있습니다. `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## <a name="train-models"></a>모델 학습
@@ -306,11 +327,11 @@ time.sleep(600)
     * Windows에서는 Anaconda 프롬프트에서 automl_setup를 실행 합니다. Miniconda를 설치 하려면 [여기](https://docs.conda.io/en/latest/miniconda.html)를 클릭 하세요.
     * 명령을 실행 하 여 32 비트가 아닌 conda 64 비트를 설치 했는지 확인 `conda info` 합니다. 는 `platform` `win-64` Windows 또는 Mac 용 이어야 합니다 `osx-64` .
     * Conda 4.4.10 이상이 설치 되어 있는지 확인 합니다. 명령을 사용 하 여 버전을 확인할 수 있습니다 `conda -V` . 이전 버전이 설치 되어 있는 경우 명령을 사용 하 여 업데이트할 수 있습니다 `conda update conda` .
-    * 용`gcc: error trying to exec 'cc1plus'`
+    * 용 `gcc: error trying to exec 'cc1plus'`
       *  `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`오류가 발생 하면 해당 명령을 사용 하 여 build essentials를 설치 `sudo apt-get install build-essential` 합니다.
       * 새 이름을 automl_setup에 대 한 첫 번째 매개 변수로 전달 하 여 새 conda 환경을 만듭니다. 를 사용 하 여 기존 conda 환경을 보고 `conda env list` 제거 `conda env remove -n <environmentname>` 합니다.
       
-* **automl_setup_linux sh 실패**: automl_setup_linus. sh가 오류가 발생 한 Ubuntu Linux에서 실패 합니다.`unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux sh 실패**: automl_setup_linus. sh가 오류가 발생 한 Ubuntu Linux에서 실패 합니다. `unable to execute 'gcc': No such file or directory`-
   1. 아웃 바운드 포트 53 및 80을 사용 하도록 설정 했는지 확인 합니다. Azure VM에서 VM을 선택 하 고 네트워킹을 클릭 하 여 Azure Portal에서이 작업을 수행할 수 있습니다.
   2. `sudo apt-get update` 명령을 실행합니다.
   3. `sudo apt-get install build-essential --fix-missing` 명령을 실행합니다.
@@ -329,7 +350,7 @@ time.sleep(600)
   1. 구성. ipynb 노트북이 성공적으로 실행 되었는지 확인 합니다.
   2. 가 실행 된 폴더에 없는 폴더에서 노트북을 실행 하는 경우 `configuration.ipynb` 폴더 aml_config 폴더를 복사 하 고 해당 폴더에 포함 된 config.js파일을 새 폴더에 복사 합니다. 작업 영역. from_config 노트북 폴더 또는 해당 부모 폴더에 대 한 config.js를 읽습니다.
   3. 새 구독, 리소스 그룹, 작업 영역 또는 지역이 사용 중인 경우에는 다시 노트북을 실행 해야 `configuration.ipynb` 합니다. 지정 된 구독에서 지정 된 리소스 그룹에 작업 영역이 이미 있는 경우에만 config.js의 변경 내용이 적용 됩니다.
-  4. 지역을 변경 하려면 작업 영역, 리소스 그룹 또는 구독을 변경 하세요. `Workspace.create`는 이미 있는 경우 작업 영역을 만들거나 업데이트 하지 않습니다. 지정 된 지역이 다른 경우에도 마찬가지입니다.
+  4. 지역을 변경 하려면 작업 영역, 리소스 그룹 또는 구독을 변경 하세요. `Workspace.create` 는 이미 있는 경우 작업 영역을 만들거나 업데이트 하지 않습니다. 지정 된 지역이 다른 경우에도 마찬가지입니다.
   
 * **샘플 노트북 실패**: 샘플 노트북에 오류가 발생 하면 preperty, method 또는 library가 존재 하지 않습니다.
   * Correctcorrect 커널이 jupyter 노트북에서 선택 되었는지 확인 합니다. 커널은 노트북 페이지의 오른쪽 위에 표시 됩니다. 기본값은 azure_automl입니다. 커널은 노트북의 일부로 저장 됩니다. 따라서 새 conda 환경으로 전환 하는 경우 노트북에서 새 커널을 선택 해야 합니다.
