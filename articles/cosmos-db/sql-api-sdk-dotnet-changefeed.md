@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/05/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5f0d66a515ed13f96645e5916af2b01841950375
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846601"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135745"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 
@@ -49,6 +49,9 @@ ms.locfileid: "87846601"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="232"></a><a name="2.3.2"/>2.3.2
+* 핫 마이그레이션 경로를 사용 하도록 설정 하는 [V3 SDK](sql-api-sdk-dotnet-standard.md) 와의 임대 저장소 호환성이 추가 되었습니다. 응용 프로그램은 V3 SDK로 마이그레이션하고 상태를 잃지 않고 변경 피드 프로세서 라이브러리로 다시 마이그레이션할 수 있습니다.
 
 ### <a name="231"></a><a name="2.3.1"/>2.3.1
 * `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` `FeedProcessing.IChangeFeedObserver.CloseAsync` 파티션을 찾을 수 없거나 대상 복제본이 읽기 세션에서 최신 상태가 아닌 경우 close 이유가로 전송 되는 경우를 수정 했습니다. 이러한 경우에 `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` 는 이제 닫는 이유가 사용 됩니다.
@@ -193,6 +196,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |2020 년 8 월 11 일 |--- |
 | [2.3.1](#2.3.1) |2020 년 7 월 30 일 |--- |
 | [2.3.0](#2.3.0) |2020년 4월 2일 |--- |
 | [2.2.8](#2.2.8) |2019년 10월 28일 |--- |

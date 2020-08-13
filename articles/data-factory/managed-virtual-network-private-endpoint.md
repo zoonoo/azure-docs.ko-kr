@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406285"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135966"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -25,7 +25,7 @@ ms.locfileid: "87406285"
 이 문서에서는 Azure Data Factory에서 관리 되는 Virtual Network 및 관리 되는 개인 끝점을 설명 합니다.
 
 
-## <a name="managed-virtual-network"></a>관리 되는 가상 네트워크
+## <a name="managed-virtual-network"></a>관리형 가상 네트워크
 
 Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Integration Runtime)을 만들면 Integration Runtime이 관리 되는 Virtual Network 프로 비전 되 고 개인 끝점을 활용 하 여 지원 되는 데이터 저장소에 안전 하 게 연결 됩니다. 
 
@@ -49,7 +49,7 @@ Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Inte
 
 ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure SQL Data Warehouse)에 액세스할 수 있습니다.
+Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (이전의 Azure SQL Data Warehouse))에 액세스할 수 있습니다.
 
 개인 링크를 사용 하는 경우 데이터 저장소와 관리 되는 Virtual Network 간의 트래픽이 Microsoft 백본 네트워크를 통해 완전히 트래버스 됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
 
@@ -79,7 +79,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure 파일
 - Azure Data Lake Gen2
 - Azure SQL Database (Azure SQL Managed Instance를 포함 하지 않음)
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure Private Link

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6e03b8f89ec22b74ad7dd14d9225c11fde78ec7f
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387407"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135626"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케일(Citus) 만들기
 
@@ -115,7 +115,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-지금까지 살펴본 쿼리는 오직 github\_events만 사용했지만, 이 정보를 github\_users와 결합할 수 있습니다. 사용자와 이벤트를 동일한 식별자(`user_id`)에 분할했기 때문에 사용자 ID가 일치하는 두 테이블의 행은 동일한 데이터베이스 노드에 [공동 배치](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation)되며, 따라서 쉽게 조인할 수 있습니다.
+지금까지 살펴본 쿼리는 오직 github\_events만 사용했지만, 이 정보를 github\_users와 결합할 수 있습니다. 사용자와 이벤트를 동일한 식별자(`user_id`)에 분할했기 때문에 사용자 ID가 일치하는 두 테이블의 행은 동일한 데이터베이스 노드에 [공동 배치](concepts-hyperscale-colocation.md)되며, 따라서 쉽게 조인할 수 있습니다.
 
 `user_id`에 조인하는 경우 하이퍼스케일은 조인 실행을 분할된 데이터베이스로 보내 여러 작업자 노드에서 병렬로 실행할 수 있습니다. 예를 들어 리포지토리를 가장 많이 만든 사용자를 찾아보겠습니다.
 

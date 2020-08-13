@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/11/2020
 ms.author: juliako
-ms.openlocfilehash: 2226d7a769caf049af30bbca81ca3079d72970b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d8a60d6c4b3fb66b46742fbd99e3a73a63fff45
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023129"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136085"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "87023129"
 - [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)를 검토합니다.
 - [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
 - [API에 액세스](./access-api-howto.md)하는 데 필요한 정보 가져오기
-- [Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)을 검토하여 [.NET SDK 사용을 시작](stream-files-tutorial-with-api.md#start_using_dotnet)하는 방법을 확인합니다.
+- [Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)을 검토하여 [.NET SDK 사용을 시작](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)하는 방법을 확인합니다.
 
 ## <a name="define-a-filter"></a>필터 정의  
 

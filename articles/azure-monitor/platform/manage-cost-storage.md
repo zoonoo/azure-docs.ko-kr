@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: e6e1c6a02979ff6621961e17378c7fe2c9a1592b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 391a5f054c5d80b255fd333ea416900c8c5ab6d1
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926351"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135422"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -266,8 +266,7 @@ Heartbeat
 지난 24시간 내 데이터를 전송하는 노드의 수를 가져오려면 다음과 같이 쿼리를 사용합니다. 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodes = dcount(computerName)
@@ -276,15 +275,14 @@ union *
 데이터를 전송하는 노드 목록(및 각 노드에서 전송된 데이터의 양)을 가져오려면 다음 쿼리를 사용하세요.
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
 > [!TIP]
-> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane)하기 때문에 이러한 `union *` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식(아래 참조)을 쿼리합니다.
+> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식(아래 참조)을 쿼리합니다.
 
 ## <a name="understanding-ingested-data-volume"></a>수집된 데이터 볼륨을 파악
 
@@ -346,8 +344,7 @@ Usage
 `Usage` 데이터 형식에는 컴퓨터 수준의 정보가 포함되지 않습니다. 컴퓨터당 수집된 데이터의 **크기**를 보려면 바이트 단위의 크기를 제공하는 `_BilledSize` [ 속성](log-standard-properties.md#_billedsize)을 사용합니다.
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName 
@@ -359,8 +356,7 @@ union *
 컴퓨터당 청구 가능한 이벤트 **수**를 보려면 다음을 사용합니다. 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
@@ -368,15 +364,14 @@ union *
 ```
 
 > [!TIP]
-> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane)하기 때문에 이러한 `union  *` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식을 쿼리합니다.
+> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식을 쿼리합니다.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독별 데이터 볼륨
 
 Azure에서 호스트되는 노드의 데이터에 대해서는 __컴퓨터별__로 수집된 데이터의 **크기**를 가져올 수 있으며 _ResourceId [속성](log-standard-properties.md#_resourceid)을 사용할 수 있는데 이는 리소스에 대한 전체 경로를 제공합니다.
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
@@ -384,22 +379,20 @@ union *
 Azure에서 호스트 되는 노드의 데이터의 경우 __azure 구독 당__수집 데이터의 **크기** 를 가져올 수 있습니다. 구독 ID는 `_ResourceId` 다음과 같이 가져옵니다.
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend subscriptionId = split(_ResourceId, "/")[2] 
+| extend subscriptionId = tostring(split(_ResourceId, "/")[2]) 
 | summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
 ```
 
 마찬가지로, 리소스 그룹별로 데이터 볼륨을 가져오려면 다음을 수행 합니다.
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend resourceGroup = split(_ResourceId, "/")[4] 
+| extend resourceGroup = tostring(split(_ResourceId, "/")[4] )
 | summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
 ```
 
@@ -411,7 +404,7 @@ union *
 ```
 
 > [!TIP]
-> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane)하기 때문에 이러한 `union  *` 쿼리는 자주 사용하지 않도록 합니다. 구독별, 리소스 그룹별 또는 리소스 이름별 결과가 필요하지 않다면 사용량 데이터 형식에 대해 쿼리합니다.
+> 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. 구독별, 리소스 그룹별 또는 리소스 이름별 결과가 필요하지 않다면 사용량 데이터 형식에 대해 쿼리합니다.
 
 > [!WARNING]
 > 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터**일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
@@ -458,8 +451,7 @@ union *
 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우, 노드로 요금이 청구되는 컴퓨터 목록을 가져오려면 **청구된 데이터 형식**(일부 데이터 형식은 무료)을 전송하는 노드를 찾습니다. 이렇게 하려면 `_IsBillable` [속성](log-standard-properties.md#_isbillable)을 사용하고 정규화된 도메인 이름(FQDN)의 맨 왼쪽 필드를 사용합니다. 이는 (노드 수를 계산하고 그 요금이 청구되는 단위인) 시간당 데이터 요금이 청구되는 컴퓨터의 수를 다음과 같이 반환합니다.
 
 ```kusto
-union * 
-| where _IsBillable == true 
+find where TimeGenerated > ago(24h) project Computer, TimeGenerated
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc

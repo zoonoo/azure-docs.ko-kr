@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533141"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134499"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -177,6 +177,11 @@ Yes, Azure NetApp Files supports LDAP signing by default. This functionality ena
 
 "사용 권한이 거부 되었습니다." 문제를 방지 하려면 `pcuser` 탑재 지점에 액세스 하기 전에 Windows Active Directory에가 포함 되어 있는지 확인 합니다. `pcuser`"사용 권한이 거부 되었습니다." 문제가 발생 한 후를 추가 하는 경우 액세스를 다시 시도 하기 전에 캐시 항목을 제거 하기 위해 24 시간 동안 기다립니다.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>이중 프로토콜 볼륨을 만들려고 할 때 "LDAP 구성의 유효성을 검사 하지 못했습니다." 라는 오류와 함께 만들기 프로세스가 실패 하는 이유는 무엇 인가요?  
+
+DNS 서버에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드가 없을 수 있습니다. DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에서 AD 호스트 컴퓨터의 PTR 레코드를 추가 해야 합니다.
+
+예를 들어 AD 컴퓨터의 IP 주소가이 고 `1.1.1.1` , 명령을 사용 하 여 발견 된 ad 컴퓨터의 호스트 이름이이 `hostname` `AD1` 고, 도메인 이름이 인 것으로 가정 합니다 `myDomain.com` .  역방향 조회 영역에 추가 된 PTR 레코드는 이어야 합니다 `1.1.1.1`  ->  `AD1.myDomain.com` .
 
 ## <a name="capacity-management-faqs"></a>용량 관리 Faq
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 93ce3b02ef8963a33e485b6560516e1d2b9c1ef5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
-ms.translationtype: HT
+ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424020"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135813"
 ---
 # <a name="what-is-virtual-network-nat"></a>Virtual Network NAT란?
 
@@ -153,7 +153,6 @@ NAT는 일반적인 지원 채널을 통해 지원됩니다.
 
 * NAT는 표준 SKU 공용 IP, 공용 IP 접두사 및 부하 분산 장치 리소스와 호환됩니다. 기본 리소스(예: 기본 부하 분산 장치) 및 이러한 리소스에서 파생된 제품은 NAT와 호환되지 않습니다.  기본 리소스는 NAT에서 구성되지 않은 서브넷에 배치해야 합니다.
 * IPv4 주소 패밀리가 지원됩니다.  IPv6 주소 패밀리는 NAT와 상호 작용하지 않습니다.  NAT는 IPv6 접두사가 있는 서브넷에 배포할 수 없습니다.
-* NAT를 사용하는 경우 NSG 흐름 로깅이 지원되지 않습니다.
 * NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

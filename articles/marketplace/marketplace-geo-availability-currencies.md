@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902102"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136340"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업용 마켓플레이스의 지리적 가용성 및 통화 지원
 
@@ -179,11 +179,7 @@ ms.locfileid: "87902102"
 > [!NOTE]
 > 플랜의 시장 가격이 게시된 후에는 나중에 변경할 수 없습니다. 가격을 게시하기 직전에 가격이 적절한지 확인하려면 가격 책정 스프레드시트를 내보내고 각 시장의 가격을 검토합니다.
 
-## <a name="rate-changes"></a>변경 률
-
-현지 가격을 계산 하는 데 사용 하는 요금은 매일 업데이트 됩니다. 이 계산은 ISV가 페이지를 저장할 때 수행 되며 게시 전에 가격을 내보내고 검토 하 여 모든 요금을 검토할 수 있습니다.
-
-### <a name="retrieving-currency-information-by-api"></a>API로 통화 정보 검색
+## <a name="retrieving-currency-information-by-api"></a>API로 통화 정보 검색
 
 API를 사용 하 여 개별 가격 (설정 된 방법에 따라, 저장 된 날짜의 환율에 따라 영향을 받을 수 있음)은 API를 사용 하 여 검색할 수 있습니다. 통화 정보는 사용할 수 없습니다.
 

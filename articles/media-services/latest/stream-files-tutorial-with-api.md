@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 5f8fb98b1032111eb55197fa5b7d561019be9de3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c2d55b15fb69fe4c1aea21bb2183f0e40c3586c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074484"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136493"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>자습서: Media Services v3를 사용하여 비디오 업로드, 인코딩 및 스트리밍
 
@@ -72,7 +72,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 6. **스트리밍 로케이터**를 만듭니다.
 7. 스트리밍 URL을 빌드합니다.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />.NET SDK로 Media Services API 사용하기
+### <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
 
 .NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아티클의 시작 부분에서 복제한 코드에서 **GetCredentialsAsync** 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다.
 
