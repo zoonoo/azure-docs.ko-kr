@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4d2a884bd6fd4cb62aa7cae5f3e53b865082fde8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036609"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166606"
 ---
 # <a name="create-a-managed-service-offer"></a>관리되는 서비스 제품 만들기
 
@@ -86,7 +86,7 @@ ms.locfileid: "88036609"
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 
@@ -175,6 +175,8 @@ ms.locfileid: "88036609"
 ## <a name="plan-overview"></a>플랜 개요
 
 각 제품에는 하나 이상의 계획 (이전의 Sku)이 있어야 합니다. 여러 플랜을 추가하여 다양한 가격으로 다양한 기능 세트를 지원하거나, 제한된 특정 고객 대상 그룹을 위한 특정 플랜을 사용자 지정할 수 있습니다. 고객은 상위 제품 아래에서 사용할 수 있는 플랜을 볼 수 있습니다.
+
+각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
 
 **플랜 개요** 페이지에서 **+ 새 플랜 만들기**를 선택합니다. 그런 다음, **플랜 ID**와 **플랜 이름**을 입력합니다. 이 값은 모두 소문자 영숫자, 대시 및 밑줄만 포함할 수 있으며 최대 50자로 제한됩니다. 이 값은 고객에게 표시될 수 있으며 제품을 게시한 후에는 변경할 수 없습니다.
 

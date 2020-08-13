@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/12/2020
+ms.openlocfilehash: 6524128cb5bccfefe37d605b406210a91e78cac8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491972"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163971"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 
@@ -33,34 +33,34 @@ ms.locfileid: "87491972"
 
 > [!IMPORTANT]
 >
-> * Azure Time Series Insights Gen2 환경에 이벤트 원본을 연결할 때 초기 대기 시간이 길어질 수 있습니다.
-> 이벤트 원본 대기 시간은 현재 IoT Hub 또는 Event Hub에 있는 이벤트 수에 따라 달라집니다.
-> * 이벤트 원본 데이터가 처음 수집된 후에는 대기 시간이 줄어듭니다. 대기 시간이 계속 긴 경우 Azure Portal을 통해 지원 티켓을 제출하세요.
+> - Azure Time Series Insights Gen2 환경에 이벤트 원본을 연결할 때 초기 대기 시간이 길어질 수 있습니다.
+> - 이벤트 원본 대기 시간은 현재 IoT Hub 또는 Event Hub에 있는 이벤트 수에 따라 달라집니다.
+> - 이벤트 원본 데이터가 처음 수집된 후에는 대기 시간이 줄어듭니다. 대기 시간이 계속 긴 경우 Azure Portal을 통해 지원 티켓을 제출하세요.
 
 ## <a name="streaming-ingestion-best-practices"></a>스트리밍 수집 모범 사례
 
-* 항상 Azure Time Series Insights Gen2 환경을 위한 고유한 소비자 그룹을 만들어 이벤트 원본의 데이터를 사용 합니다. 소비자 그룹을 다시 사용 하면 임의 연결이 끊길 수 있으며 데이터가 손실 될 수 있습니다.
+- 항상 Azure Time Series Insights Gen2 환경을 위한 고유한 소비자 그룹을 만들어 이벤트 원본의 데이터를 사용 합니다. 소비자 그룹을 다시 사용 하면 임의 연결이 끊길 수 있으며 데이터가 손실 될 수 있습니다.
 
-* 동일한 Azure 지역에서 Azure Time Series Insights Gen2 환경과 IoT Hub 및/또는 Event Hubs를 구성 합니다. 별도의 지역에 이벤트 원본을 구성할 수는 있지만이 시나리오는 지원 되지 않으며 고가용성을 보장할 수 없습니다.
+- 동일한 Azure 지역에서 Azure Time Series Insights Gen2 환경과 IoT Hub 및/또는 Event Hubs를 구성 합니다. 별도의 지역에 이벤트 원본을 구성할 수는 있지만이 시나리오는 지원 되지 않으며 고가용성을 보장할 수 없습니다.
 
-* 사용자 환경의 [처리량 속도 제한](./concepts-streaming-ingress-throughput-limits.md) 또는 파티션 당 제한을 초과 하지 마세요.
+- 사용자 환경의 [처리량 속도 제한](./concepts-streaming-ingress-throughput-limits.md) 또는 파티션 당 제한을 초과 하지 마세요.
 
-* 환경에서 데이터를 처리 하는 데 문제가 발생 하는 경우 알림을 받도록 지연 [경고](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) 를 구성 합니다.
+- 환경에서 데이터를 처리 하는 데 문제가 발생 하는 경우 알림을 받도록 지연 [경고](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) 를 구성 합니다.
 
-* 거의 실시간 및 최근 데이터에만 스트리밍 수집을 사용합니다. 기록 데이터 스트리밍은 지원되지 않습니다.
+- 거의 실시간 및 최근 데이터에만 스트리밍 수집을 사용합니다. 기록 데이터 스트리밍은 지원되지 않습니다.
 
-* 속성을 이스케이프 하 고 JSON 데이터를 [결합 하 고 저장](./concepts-json-flattening-escaping-rules.md) 하는 방법을 이해 합니다.
+- 속성을 이스케이프 하 고 JSON 데이터를 [결합 하 고 저장](./concepts-json-flattening-escaping-rules.md) 하는 방법을 이해 합니다.
 
-* 이벤트 원본 연결 문자열을 제공할 때 최소 권한의 원칙을 따릅니다. Event Hubs의 경우, *보내기* 클레임만 사용 하 여 공유 액세스 정책을 구성 하 고 IoT Hub에 대해서는 *서비스 연결* 권한만 사용 합니다.
+- 이벤트 원본 연결 문자열을 제공할 때 최소 권한의 원칙을 따릅니다. Event Hubs의 경우, *보내기* 클레임만 사용 하 여 공유 액세스 정책을 구성 하 고 IoT Hub에 대해서는 *서비스 연결* 권한만 사용 합니다.
 
 ### <a name="historical-data-ingestion"></a>기록 데이터 수집
 
 스트리밍 파이프라인을 사용 하 여 기록 데이터를 가져오는 Azure Time Series Insights Gen2에서 현재 지원 되지 않습니다. 이전 데이터를 사용자 환경으로 가져와야 하는 경우 아래 지침을 따릅니다.
 
-* 라이브 데이터와 기록 데이터를 동시에 스트림하지 않습니다. 순서가 잘못된 데이터를 수집하면 쿼리 성능이 저하됩니다.
-* 최상의 성능을 위해 기록 데이터를 지정된 시간 순서대로 수집합니다.
-* 아래의 수집 처리량 속도 제한 내에서 유지합니다.
-* 데이터가 웜 저장소 보존 기간보다 오래된 경우 웜 저장소를 사용하지 않도록 설정합니다.
+- 라이브 데이터와 기록 데이터를 동시에 스트림하지 않습니다. 순서가 잘못된 데이터를 수집하면 쿼리 성능이 저하됩니다.
+- 최상의 성능을 위해 기록 데이터를 지정된 시간 순서대로 수집합니다.
+- 아래의 수집 처리량 속도 제한 내에서 유지합니다.
+- 데이터가 웜 저장소 보존 기간보다 오래된 경우 웜 저장소를 사용하지 않도록 설정합니다.
 
 ## <a name="event-source-timestamp"></a>이벤트 원본 타임 스탬프
 
@@ -82,10 +82,6 @@ ms.locfileid: "87491972"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 이벤트를 저장 하는 방법을 이해 하려면 [JSON 평면화 및 이스케이프 규칙](./concepts-json-flattening-escaping-rules.md) 을 참조 하세요. 
+- 이벤트를 저장 하는 방법을 이해 하려면 [JSON 평면화 및 이스케이프 규칙](./concepts-json-flattening-escaping-rules.md) 을 참조 하세요.
 
-* 사용자 환경의 [처리량 제한 사항](./concepts-streaming-ingress-throughput-limits.md) 이해
-
-
-
-
+- 사용자 환경의 [처리량 제한 사항](./concepts-streaming-ingress-throughput-limits.md) 이해

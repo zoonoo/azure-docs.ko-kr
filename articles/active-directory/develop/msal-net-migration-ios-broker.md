@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 75b6559117420ad75b79c58b219400690b25b4cb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: bc94c7be4e3979cf9aa7624a9aeadf156cc48035
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117875"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166079"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
 
@@ -118,7 +118,7 @@ MSAL.NET에서 iOS에 대 한 개체 창을 설정 하는 두 가지 작업을 �
 1. 에서를 `AppDelegate.cs` `App.RootViewController` 새으로 설정 `UIViewController()` 합니다. 이 할당을 통해 broker에 대 한 호출을 사용 하 여 UIViewController가 있는지 확인할 수 있습니다. 올바르게 설정 되지 않은 경우 다음 오류가 발생할 수 있습니다.`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. AcquireTokenInteractive 호출에서를 사용 하 여 `.WithParentActivityOrWindow(App.RootViewController)` 사용할 개체 창에 대 한 참조를 전달 합니다.
 
-**예를 들면 다음과 같습니다.**
+**예를 들어:**
 
 `App.cs`의 경우
 ```csharp
@@ -159,7 +159,7 @@ Component
 
 접두사로 사용한 다음`CFBundleURLName`
 
-`$"msauth.(BundleId")`
+예: `$"msauth.(BundleId")`
 
 ```csharp
  <key>CFBundleURLTypes</key>
@@ -224,14 +224,14 @@ ADAL.NET 및 MSAL.NET 모두 broker를 대상으로 하는 경우 리디렉션 U
 
 `"<app-scheme>://<your.bundle.id>"`
 
-예: 
+예제: 
 
 `mytestiosapp://com.mycompany.myapp`
 </td><td>
 
 `$"msauth.{BundleId}://auth"`
 
-예:
+예제:
 
 `public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; `
 

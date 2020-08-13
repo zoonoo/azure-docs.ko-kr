@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 8d27594b33db72303c71ceb39de92b1d4340b9be
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3e8822462cd7989f6bc1f051b3868d6241f591b1
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037272"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166708"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -292,6 +292,8 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 파트너 센터의 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 제품에는 수익 화 대상 그룹, Azure 지역, 기능 또는 VM 이미지에 따라 달라질 수 있는 하나 이상의 계획 (이전의 SKU)이 필요 합니다.
 
+각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
+
 플랜이 만들어지면 **플랜 개요** 탭을 선택하여 다음 항목을 표시합니다.
 
 - 플랜 이름
@@ -538,7 +540,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
-7. 설명
+7. Description
 8. 유용한 링크
 9. 스크린샷/비디오
 
@@ -570,7 +572,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 속성
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷/비디오
 

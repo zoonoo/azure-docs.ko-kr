@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031501"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166691"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -188,7 +188,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. 설명
+8. Description
 9. 스크린샷/비디오
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
@@ -198,7 +198,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 
@@ -315,6 +315,8 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 ## <a name="plan-overview"></a>플랜 개요
 
 이 탭에서 동일한 제품 내에서 여러 가지 플랜 옵션을 제공할 수 있습니다. 이러한 요금제 (이전의 Sku)는 계획 유형 (솔루션 템플릿 및 관리 되는 응용 프로그램), 수익 화 또는 대상의 측면에서 다를 수 있습니다. 마켓플레이스에 제품을 나열하기 위해 하나 이상의 플랜을 구성합니다.
+
+각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
 
 플랜이 만들어지면 이 탭에 플랜 이름, ID, 플랜 유형, 가용성(퍼블릭 또는 프라이빗), 현재 게시 상태 및 사용 가능한 작업이 표시됩니다.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 94595bac2febdef1d3739703f0fa49c9ef15f218
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552478"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166623"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 기능화
 
@@ -91,7 +91,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 데이터 guardrails 세 가지 상태 중 하나를 표시 합니다.
 
-|주| Description |
+|시스템 상태| Description |
 |----|---- |
 |**통과**| 데이터 문제가 검색 되지 않았으므로 사용자에 게 아무런 조치도 필요 하지 않습니다. |
 |**완료**| 변경 내용이 데이터에 적용되었습니다. 변경 내용이 예상 된 결과와 일치 하는지 확인 하기 위해 AutoML에서 수행한 정정 작업을 검토 하는 것이 좋습니다. |
@@ -106,7 +106,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 **누락된 기능 값 대체** |통과 <br><br><br> 완료| 학습 데이터에서 누락된 기능 값이 검색되지 않았습니다. [누락 값 대체](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) 에 대해 자세히 알아보세요. <br><br> 학습 데이터에서 누락 된 기능 값이 발견 되어 귀속 되었습니다.
 **높은 카디널리티 기능 처리** |통과 <br><br><br> 완료| 입력이 분석 되었으며, 높은 카디널리티 기능이 검색 되지 않았습니다. <br><br> 사용자 입력에서 높은 카디널리티 기능이 검색 되었으며 처리 되었습니다.
 **유효성 검사 분할 처리** |완료| 유효성 검사 구성이로 설정 되었고 `'auto'` 학습 데이터에 *2만 개 미만의 행*이 포함 되어 있습니다. <br> 교차 유효성 검사를 사용 하 여 학습 된 모델의 각 반복의 유효성을 검사 했습니다. [유효성 검사 데이터](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data)에 대해 자세히 알아보세요. <br><br> 유효성 검사 구성이로 설정 되었으며 `'auto'` 학습 데이터에 *2만 개 이상의 행*이 포함 되어 있습니다. <br> 모델의 유효성 검사를 위해 입력 데이터가 학습 데이터 세트와 유효성 검사 데이터 세트로 분할되었습니다.
-**클래스 분산 검색** |통과 <br><br><br><br><br> 알림 <br><br><br><br> 완료| 입력이 분석되었으며, 학습 데이터에서 모든 클래스가 균형을 유지하고 있습니다. 데이터 집합에는 샘플의 수와 비율을 기준으로 하 여 데이터 집합에 적절 한 표현이 있는 경우 데이터 집합의 균형을 유지 하는 것으로 간주 됩니다. <br><br> 입력에서 불균형 클래스가 검색되었습니다. 모델 바이어스를 해결 하려면 분산 문제를 해결 하십시오. [불균형 있는 데이터](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)에 대해 자세히 알아보세요. <br><br> 사용자 입력에서 불균형 클래스가 검색 되었으며 스윕 논리가 분산을 적용 하도록 결정 되었습니다.
+**클래스 분산 검색** |통과 <br><br>알림 <br><br>완료 | 입력이 분석되었으며, 학습 데이터에서 모든 클래스가 균형을 유지하고 있습니다. 데이터 집합에는 샘플의 수와 비율을 기준으로 하 여 데이터 집합에 적절 한 표현이 있는 경우 데이터 집합의 균형을 유지 하는 것으로 간주 됩니다. <br><br><br> 입력에서 불균형 클래스가 검색되었습니다. 모델 바이어스를 해결 하려면 분산 문제를 해결 하십시오. [불균형 있는 데이터](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)에 대해 자세히 알아보세요.<br><br><br> 사용자 입력에서 불균형 클래스가 검색 되었으며 스윕 논리가 분산을 적용 하도록 결정 되었습니다.
 **메모리 문제 검색** |통과 <br><br><br><br> 완료 |<br> 선택한 값 (가로, 지연, 롤링 창)이 분석 되었으며 메모리 부족 문제가 감지 되었습니다. 시계열 [예측 구성](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)에 대해 자세히 알아보세요. <br><br><br>선택한 값 (가로, 지연, 롤링 창)이 분석 되어 실험의 메모리가 부족 해질 수 있습니다. 지연 또는 창 롤링 구성이 해제 되었습니다.
 **빈도 검색** |통과 <br><br><br><br> 완료 |<br> 시계열이 분석 되 고 모든 데이터 요소가 검색 된 빈도로 정렬 됩니다. <br> <br> 시계열이 분석 되었으며 검색 된 빈도로 일치 하지 않는 데이터 요소가 검색 되었습니다. 데이터 세트에서 이러한 데이터 요소가 제거되었습니다. 시계열 [예측에 대 한 데이터 준비](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)에 대해 자세히 알아보세요.
 

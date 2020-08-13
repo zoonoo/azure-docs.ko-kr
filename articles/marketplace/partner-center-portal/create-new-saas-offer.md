@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031033"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166725"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 SaaS 제품 만들기
 
@@ -134,7 +134,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명
+9. Description
 10. 스크린샷/비디오
 11. 문서
 
@@ -145,7 +145,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 
@@ -351,6 +351,8 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 ## <a name="plan-overview"></a>플랜 개요
 
 이 페이지를 통해 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 플랜(SKU라고도 함)은 버전, 수익화 또는 서비스 계층 측면에서 다를 수 있습니다. 마켓플레이스에서 제품을 판매하려면 플랜을 하나 이상 설정해야 합니다.
+
+각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
 
 플랜이 만들어지면 플랜 이름, ID, 가격 책정 모델, 가용성(공개 또는 비공개), 현재 게시 상태 및 사용 가능한 작업이 표시됩니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032784"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166742"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure container 제품을 만듭니다.
 
@@ -252,9 +252,11 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 계속하기 전에 **초안 저장**을 선택합니다.
 
-### <a name="plan-overview"></a>플랜 개요
+## <a name="plan-overview"></a>플랜 개요
 
 이 탭에서 동일한 제품 내에서 다른 플랜 옵션을 제공할 수 있습니다. 요금제 (이전의 Sku)는 글로벌 클라우드, 정부 클라우드 및 계획에서 참조 하는 이미지와 같은 사용 가능한 클라우드 측면에서 다를 수 있습니다. 상업용 Marketplace에서 제품을 나열하려면 하나 이상의 플랜을 설정해야 합니다.
+
+각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
 
 플랜을 만들면 **플랜 개요** 탭에 다음과 같은 항목이 표시됩니다.
 
@@ -269,7 +271,7 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 - **초안 삭제** – 플랜 상태가 초안인 경우입니다.
 - **판매 플랜 중지** – 플랜 상태가 실시간으로 게시된 경우입니다.
 
-#### <a name="create-new-plan"></a>새 플랜 만들기
+### <a name="create-new-plan"></a>새 플랜 만들기
 
 **새 플랜 만들기**를 선택합니다. **새 플랜** 대화 상자가 표시됩니다.
 
@@ -301,7 +303,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 이러한 프로그램에 대한 인증서를 표시하기 위해 해당 프로그램을 설명하는 최대 100개의 링크를 제공할 수 있습니다. 이러한 링크는 프로그램의 목록에 직접 연결하거나 자신의 웹 사이트에 연결할 수 있습니다. 이러한 링크는 Azure Government 고객만 볼 수 있습니다.
 
-## <a name="plan-listing"></a>플랜 목록
+### <a name="plan-listing"></a>플랜 목록
 
 이 탭에는 현재 제품 내의 서로 다른 각 플랜에 대한 특정 정보가 표시됩니다.
 
@@ -331,7 +333,7 @@ Azure Portal에 대한 플랜 세부 정보는 다음과 같습니다.
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Azure Portal에 대한 플랜 정보를 보여 줍니다.":::
 
-## <a name="plan-availability"></a>플랜 가용성
+### <a name="plan-availability"></a>플랜 가용성
 
 고객이 Marketplace에서 검색하거나 찾아보거나 구매할 수 없도록 게시된 제품을 숨기려면 **가용성** 탭에서 **플랜 숨기기** 확인란을 선택합니다.
 

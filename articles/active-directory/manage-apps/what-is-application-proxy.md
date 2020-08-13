@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4d9583e08591e8ea5792aad28e247dff178f1c08
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080663"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164583"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -99,7 +99,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 * [**폼 또는 암호 기반 인증**](application-proxy-configure-single-sign-on-password-vaulting.md). 이 인증 메서드를 사용하는 경우 사용자는 애플리케이션에 처음 액세스할 때 사용자 이름 및 암호를 사용하여 애플리케이션에 로그온합니다. 첫 번째 로그온 후에는 Azure AD가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 이 시나리오에서는 Azure AD가 인증을 처리합니다.
 * [**SAML 인증**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML 기반 Single Sign-On은 SAML 2.0 또는 WS-Federation 프로토콜을 사용하는 애플리케이션에 지원됩니다. SAML Single Sign-On을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다.
 
-지원되는 방법에 대한 자세한 내용은 [Single Sign-On 방법 선택](what-is-single-sign-on.md#choosing-a-single-sign-on-method)을 참조하세요.
+지원되는 방법에 대한 자세한 내용은 [Single Sign-On 방법 선택](sso-options.md#choosing-a-single-sign-on-method)을 참조하세요.
 
 ### <a name="security-benefits"></a>보안 이점
 
