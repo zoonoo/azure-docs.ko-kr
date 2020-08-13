@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
-ms.openlocfilehash: c59ff344cc3e24387c764ba2f23bc3fe0065b371
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 78d44310420558d2f57d2b652f8453028b20c433
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559794"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077686"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -142,7 +142,7 @@ To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
 
 로컬 리포지토리에서 _wwwroot/index.html_을 엽니다.
 
-51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_ 을 App Service의 앱 이름으로 바꿉니다.
+51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_ 를 App Service의 앱 이름으로 바꿉니다.
 
 로컬 터미널 창에서 샘플 앱을 다시 실행합니다.
 
@@ -203,4 +203,4 @@ az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-
 사용자를 인증하고 사용자 권한을 부여하는 방법에 대해 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 엔드투엔드 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여](tutorial-auth-aad.md)

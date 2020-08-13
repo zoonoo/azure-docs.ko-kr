@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500456"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067599"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>자습서: CLI 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 Java를 사용하여 Service Bus 앱을 개발하려면 다음이 설치되어 있어야 합니다.
 
 - [Java Development Kit](https://aka.ms/azure-jdks) 최신 버전
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
