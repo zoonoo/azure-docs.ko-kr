@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075339"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874234"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>자습서: Log Analytics 쿼리 시작
 
@@ -32,7 +32,7 @@ ms.locfileid: "87075339"
 ## <a name="open-log-analytics"></a>Log Analytics 열기
 Log Analytics를 사용하려면 Azure 계정에 로그인해야 합니다. Azure 계정이 없는 경우 [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-이 자습서의 단계 대부분을 완료하려면 많은 샘플 데이터가 있는 [이 데모 환경](https://portal.loganalytics.io/demo)을 사용할 수 있습니다. 데모 환경에서는 쿼리를 저장하거나 결과를 대시보드에 고정할 수 없습니다.
+이 자습서의 단계 대부분을 완료하려면 많은 샘플 데이터가 있는 [이 데모 환경](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)을 사용할 수 있습니다. 데모 환경에서는 쿼리를 저장하거나 결과를 대시보드에 고정할 수 없습니다.
 
 또한 Azure Monitor를 사용하여 하나 이상의 Azure 리소스에 대한 로그 데이터를 수집하는 경우 사용자 고유의 환경을 사용할 수도 있습니다. Log Analytics 작업 영역을 열려면 Azure Monitor의 왼쪽 탐색 영역에서 **로그**를 선택합니다. 
 

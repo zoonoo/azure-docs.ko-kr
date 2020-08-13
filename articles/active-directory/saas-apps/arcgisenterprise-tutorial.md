@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e21b1c72f191f3644975afd511a900667a04ce9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 57eda7e1d5ffedf7d5b867bfa7a59850fbadaf99
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157908"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>자습서: ArcGIS Enterprise와 Azure Active Directory 통합
 
@@ -41,6 +41,9 @@ ArcGIS Enterprise와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
 * ArcGIS Enterprise Single Sign-On을 사용하도록 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -151,7 +154,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     b. **URL** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 붙여넣습니다.
 
-    다. **고급 설정 표시**를 클릭하고 **엔터티 ID** 값을 복사하여, Azure Portal의 **ArcGIS Enterprise 도메인 및 URL** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
+    c. **고급 설정 표시**를 클릭하고 **엔터티 ID** 값을 복사하여, Azure Portal의 **ArcGIS Enterprise 도메인 및 URL** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
     
     ![ArcGIS Enterprise 구성](./media/arcgisenterprise-tutorial/configure5.png)
 

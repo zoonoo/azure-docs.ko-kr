@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 84353dd3c8b803f27073d113d6946152f059d9be
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68988201"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873418"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Azure Active Directory 모니터링이란?
 
@@ -33,6 +33,8 @@ ms.locfileid: "68988201"
 - Azure Storage 계정.
 - Azure 이벤트 허브. 따라서 Splunk 및 Sumologic 인스턴스와 통합할 수 있습니다.
 - Azure Log Analytics 작업 영역. 여기서 데이터를 분석하고, 대시보드를 만들고, 특정 이벤트에 대해 경고할 수 있습니다.
+
+**필수 역할**: 전역 관리자
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 

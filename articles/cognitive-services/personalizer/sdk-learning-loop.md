@@ -3,14 +3,14 @@ title: '빠른 시작: SDK를 통한 학습 루프 만들기 및 사용 - Person
 description: 이 빠른 시작에서는 클라이언트 SDK를 사용하여 기술 자료를 만들고 관리하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 07/30/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 05657d350616502c3d32b500a32b394a748ab2f6
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 480e860952c2659d053f8a5659e312feacff2d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461128"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874489"
 ---
 # <a name="quickstart-personalizer-client-library"></a>빠른 시작: Personalizer 클라이언트 라이브러리
 

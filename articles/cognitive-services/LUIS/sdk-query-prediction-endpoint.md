@@ -3,14 +3,14 @@ title: '빠른 시작: SDK 쿼리 예측 엔드포인트 - LUIS'
 description: 이 빠른 시작에서는 SDK를 사용하여 Azure Cognitive Services LUIS 애플리케이션으로 사용자 발화를 전송하고 예측을 수신하는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c4929f73add9c5d9aabd8ddd3c4878e88c9a9b27
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5a435892c828c7239793f4060d642459947d972f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369270"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876957"
 ---
 # <a name="quickstart-query-v3-prediction-endpoint-with-sdk"></a>빠른 시작: SDK를 사용하여 V3 예측 엔드포인트 쿼리
 
