@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3973e94c9d3add25dba0af7a6b0c0deb18b77440
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 20a85c17ccd4167b29e167c55df1bd8a8cc4d56e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850443"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185658"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -328,8 +328,9 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
-    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
+    enable_default_model_output=False,
+    enable_default_metrics_output=False,
     allow_reuse=True)
 ```
 이 코드 조각에서는에서 일반적으로 사용 되는 방법을 보여 줍니다 `AutoMLConfig` . 변경 가능성이 낮은 값은 생성자에서 직접 지정 되는 반면, 유체 (하이퍼 매개 변수-길쭉한) 인 인수는 별도 사전에 지정 됩니다 `AutoMLConfig` . 이 경우에는 `automl_settings` 짧은 실행을 지정 합니다. 실행은 두 번의 반복 또는 15 분 중 먼저 발생 한 후에 중지 됩니다.
@@ -346,7 +347,7 @@ train_step = AutoMLStep(name='AutoML_Classification',
 자체는를 `AutoMLStep` 사용 하 `AutoMLConfig` 고, `PipelineData` 메트릭과 모델 데이터를 저장 하기 위해 만든 개체를 출력으로 사용 합니다. 
 
 >[!Important]
-> `passthru_automl_config` `False` 에서 `AutoMLStep` `PipelineOutputTabularDataset` 입력에 대 한 개체를 사용 하는 경우를로 설정 해야 합니다.
+> 을 사용 하 `enable_default_model_output` `enable_default_metrics_output` 는 경우를 제외 하 고는로 설정 해야 합니다 `False` `AutoMLStep` .
 
 이 예에서는 자동화 된 ML 프로세스가에서 교차 유효성 검사를 수행 합니다 `training_data` . 인수를 사용 하 여 교차 유효성 검사의 수를 제어할 수 있습니다 `n_cross_validations` . 데이터 준비 단계 중에 학습 데이터를 이미 분할 한 경우 `validation_data` 해당 데이터를 자체로 설정할 수 있습니다 `Dataset` .
 

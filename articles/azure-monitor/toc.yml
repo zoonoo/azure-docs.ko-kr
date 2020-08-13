@@ -935,6 +935,10 @@
               href: app/sharepoint.md
             - name: Windows 데스크톱
               href: app/windows-desktop.md
+        - name: 기타 도구
+          items:
+            - name: 변경 분석
+              href: app/change-analysis.md
     - name: VM용 Azure Monitor
       items:
         - name: 개요
@@ -1062,10 +1066,6 @@
           href: insights/resource-group-insights.md
         - name: 인사이트 문제 해결
           href: insights/troubleshoot-workbooks.md
-    - name: 변경 분석
-      items:
-        - name: 변경 분석
-          href: app/change-analysis.md
     - name: 솔루션
       items:
         - name: 개요
@@ -1158,7 +1158,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

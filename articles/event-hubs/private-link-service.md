@@ -3,12 +3,12 @@ title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421107"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185471"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>개인 끝점을 통해 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트**를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -18,21 +18,19 @@ Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗
 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원 됩니다. 
-
->[!WARNING]
-> 프라이빗 엔드포인트를 사용하여 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 할 수 있습니다.
+> 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원 됩니다. **기본** 계층에서는 지원 되지 않습니다.
 >
-> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks를 사용할 때 지원되지 않습니다.
+> 프라이빗 엔드포인트를 사용하여 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 할 수 있습니다.  차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 
+> 
+> 다음은 개인 끝점을 사용 하는 경우 Event Hubs 리소스에 액세스할 수 없는 서비스의 일부입니다. 목록은 완전 **하지 않습니다** .
 >
-> Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
 > - Azure Stream Analytics
 > - Azure IoT Hub 경로
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (진단 설정)
 >
-> 다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
-> - Azure Web Apps
-> - Azure 기능
+> 단, 개인 끝점을 사용 하는 경우에도 신뢰할 수 있는 특정 서비스의 리소스 Event Hubs에 대 한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조 하세요.
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Azure Portal을 사용하여 프라이빗 엔드포인트 추가
 
@@ -105,6 +103,10 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 12. 만든 프라이빗 엔드포인트 연결이 엔드포인트 목록에 표시되는지 확인합니다. 이 예에서는 디렉터리의 Azure 리소스에 연결할 수 있고 충분한 사용 권한이 있으므로 프라이빗 엔드포인트가 자동으로 승인됩니다. 
 
     ![만든 프라이빗 엔드포인트](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+트러스트 된 서비스에서 네임 스페이스에 액세스할 수 있도록 하려면 **네트워킹** 페이지에서 **방화벽 및 가상 네트워크** 탭으로 전환 하 고 **신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 우회 하도록 허용 하 시겠습니까?** 에서 **예** 를 선택 합니다. 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>PowerShell을 사용하여 프라이빗 엔드포인트 추가
 다음 예에서는 Azure PowerShell을 사용하여 프라이빗 엔드포인트 연결을 만드는 방법을 보여 줍니다. 자동으로 전용 클러스터를 만들지 않습니다. 이 [문서](event-hubs-dedicated-cluster-create-portal.md)의 단계에 따라 전용 Event Hubs 클러스터를 만듭니다. 

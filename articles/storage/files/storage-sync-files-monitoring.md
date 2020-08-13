@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031084"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185624"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
@@ -156,12 +156,13 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
   - 이벤트 ID 9016은 볼륨에 대한 고스팅 결과를 제공합니다. 예: 사용 가능한 공간 백분율은, 세션에서 고스트 된 파일 수 및 고스트에 실패 한 파일 수입니다.
   - 이벤트 ID 9029는 서버 엔드포인트의 고스팅 세션 정보를 제공합니다. 예: 세션에서 시도 된 파일 수, 세션에서 계층화 된 파일 수 및 이미 계층화 된 파일 수입니다.
   
-- 서버에서 회수 활동을 모니터링 하려면 원격 분석 이벤트 로그에서 이벤트 ID 9005, 9006, 9009 및 9059을 사용 합니다 .이 로그는 *응용 프로그램 및 Services\Microsoft\FileSync\Agent*아래 이벤트 뷰어에 있습니다.
+- 서버에서 회수 활동을 모니터링 하려면 원격 분석 이벤트 로그에서 이벤트 ID 9005, 9006, 9009, 9059 및 9071을 사용 합니다 .이 로그는 *응용 프로그램 및 Services\Microsoft\FileSync\Agent*아래 이벤트 뷰어에 있습니다.
 
   - 9005 이벤트 ID는 서버 엔드포인트에 대한 회수 안정성을 제공합니다. 예: 액세스 된 총 고유 파일 및 실패 한 액세스의 총 고유 파일.
   - 이벤트 ID 9006은 서버 엔드포인트에 대한 회수 오류 분포를 제공합니다. 예: 실패 한 총 요청 및 ErrorCode. 오류 코드 당 하나의 이벤트가 기록 됩니다.
   - 이벤트 ID 9009는 서버 엔드포인트의 회수 세션 정보를 제공합니다. 예: DurationSeconds, CountFilesRecallSucceeded 및 Countfilesrecallsucceeded.
   - 이벤트 ID 9059는 서버 엔드포인트의 애플리케이션 회수 분포를 제공합니다. 예: ShareId, 응용 프로그램 이름, TotalEgressNetworkBytes.
+  - 이벤트 ID 9071은 서버 끝점에 대 한 클라우드 계층화 효율성을 제공 합니다. 예: TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes 및 TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>성능 카운터
 

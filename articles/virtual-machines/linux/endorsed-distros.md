@@ -3,7 +3,7 @@ title: Azure 보증 Linux 배포판
 description: Ubuntu, CentOS, Oracle 및 SUSE 관련 지침을 포함하여 Azure에서 Linux의 인증 배포를 수행하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: gbowerman
+author: danielsollondon
 manager: gwallace
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: fd21170c4edc1ed0587ea4d4e067e61590530623
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 83a5289e17243fc7d89dd463b10916fb73046947
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283319"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184995"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 Linux 배포판 보증
 
@@ -74,6 +74,14 @@ Microsoft에는 CoreOS 사용자를 위한 2 개의 마이그레이션 채널이
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 Credativ는 독립적인 컨설팅 및 서비스 회사로, 주요 사업 분야는 무료 소프트웨어를 사용하여 전문 솔루션을 개발하고 구현하는 것입니다. 시장을 선도하는 오픈 소스 전문 회사인 Credative는 지원을 받는 많은 IT 부서들로부터 국제적인 명성을 얻고 있습니다. 현재 Credativ는 Microsoft와 협력 관계를 맺고 Debian 8(Jessie) 및 Debian 7(Wheezy) 이전 버전에 해당하는 Debian 이미지를 준비 중입니다. 두 이미지 모두 Azure에서 실행하도록 특별히 설계되었으며 플랫폼을 통해 쉽게 관리할 수 있습니다. Credativ는 또한 자체적인 오픈 소스 지원 센터를 통해 장기적인 유지 및 Azure의 Debian 이미지 업데이트를 지원합니다.
+
+### <a name="kinvolk"></a>Kinvolk
+[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+
+Kinvolk는 Flatcar Container Linux를 기반으로 하는 회사 이며, 컨테이너 화 된 응용 프로그램에 대해 변경 불가능 하 고 자동 업데이트 기반을 최소화 하기 위해 원래 CoreOS 비전을 계속 합니다. 최소 배포판 Flatcar에는 컨테이너를 배포 하는 데 필요한 패키지만 포함 되어 있습니다. 변경 불가능 한 파일 시스템은 일관성과 보안을 보장 하는 반면 자동 업데이트 기능을 사용 하면 최신 보안 픽스를 사용 하 여 항상 최신 상태를 유지할 수 있습니다. 
+
+Flatcar Container Linux는 연중 무휴 지원 채널을 비롯 하 여 연중 무휴 응답, 보안 및 기술적 경고, 전용 Azure에 최적화 된 이미지를 포함 하는 선택적 상업적 지원 구독을 제공 하는 Kinvolk의 전세계 Linux 및 컨테이너 기술 전문가에 의해 백업 됩니다.
+
 
 ### <a name="oracle"></a>Oracle
 

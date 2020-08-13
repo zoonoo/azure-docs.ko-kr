@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8b74fa39c47f9032e57d2b6630be1a3ef45990a3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317287"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185182"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -62,7 +62,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 요소 | 설명 |
+| 요인 | 설명 |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -127,17 +127,25 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
 
 ## <a name="ingestion-volume-rate-limit"></a>수집 볼륨 률 제한
 
-Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 기본 수집 율 임계값은 작업 영역 당 **6gb/분** 으로 설정 됩니다. 실제 크기는 로그 길이와 압축 비율에 따라 데이터 형식에 따라 달라질 수 있으므로이 값은 근사치입니다. 이 제한은 에이전트 또는 [데이터 수집기 API](data-collector-api.md)에서 전송 된 데이터에는 적용 되지 않습니다.
+Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. Volume rate 제한은 배포할지에 환경의 갑작스러운 수집 급증에서 고객이 Azure Monitor를 보호 합니다. 기본 수집 볼륨 비율 임계값 500 MB (압축)는 작업 영역에 적용 됩니다. 약 **6gb/최소** 압축 해제-실제 크기는 로그 길이와 압축 비율에 따라 데이터 형식에 따라 달라질 수 있습니다. 이 임계값은 [진단 설정](diagnostic-settings.md), [데이터 수집기 API](data-collector-api.md) 또는 에이전트를 사용 하 여 Azure 리소스에서 전송 되었는지 여부에 관계 없이 모든 수집 데이터에 적용 됩니다.
 
-데이터를 더 높은 속도로 단일 작업 영역으로 보내는 경우 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨이 계속 해 서 속도 제한을 초과 하거나 곧 도달할 것으로 예상 되는 경우에는 전자 메일을 보내거나 지원 요청을 열어 작업 영역에 대 한 증가를 요청할 수 있습니다 LAIngestionRate@microsoft.com .
- 
-작업 영역에서 이러한 이벤트에 대해 알리려면 0 보다 많은 결과 클 경고 논리 기반을 사용 하는 다음 쿼리를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다.
+작업 영역에 구성 된 임계값의 80% 보다 높은 볼륨 속도로 작업 영역에 데이터를 전송 하는 경우 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨 속도가 임계값 보다 높으면 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨 요금이 계속 해 서 임계값을 초과 하거나 곧 도착할 것으로 예상 되는 경우 지원 요청을 열어 작업 영역에서 증가 하도록 요청할 수 있습니다. 
 
-``` Kusto
+작업 영역에서 이러한 이벤트에 대 한 알림을 받으려면 0 보다 많은 결과를 클 경고 논리 기반, 5 분의 평가 기간 및 5 분의 빈도를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다.
+
+수집 볼륨 비율이 임계값의 80%에 도달 했습니다.
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
+
+수집 볼륨 비율이 임계값에 도달 했습니다. 임계값:
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 
 ## <a name="recommendations"></a>권장 사항

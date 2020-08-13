@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 37106517c47c86f4a4a562eebd6d120e31e22334
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a19ced1cb9496bddd1f9aa7ea9e3eb58ba7eea3d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564529"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185692"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Azure Active Directory에서 데이터 연결 (Azure AD)
 
@@ -28,9 +28,9 @@ ms.locfileid: "85564529"
 
 Azure 센티널을 사용 하면 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 에서 데이터를 수집 하 고 azure 센티널로 스트리밍할 수 있습니다. [로그인 로그](../active-directory/reports-monitoring/concept-sign-ins.md) 및 [감사 로그](../active-directory/reports-monitoring/concept-audit-logs.md) 를 스트리밍하기를 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-- Azure AD에서 로그인 데이터를 내보내려면 Azure AD P1 또는 P2 라이선스가 있어야 합니다.
+- 모든 Azure AD 라이선스 (Free/O365/P1/P2)는 Azure Monitor와 통합 되어 로그인 로그를 Azure 센티널에 수집할 수 있습니다. Azure Monitor 또는 Azure 센티널에 대해 추가 기가바이트 요금이 적용 됩니다.
 
 - 로그를 스트리밍할 테 넌 트에 대 한 전역 관리자 또는 보안 관리자 권한이 있는 사용자입니다.
 

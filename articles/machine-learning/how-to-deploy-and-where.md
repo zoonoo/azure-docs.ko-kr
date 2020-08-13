@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e8aa87eecc29a5b664520cb1be2cbc5e65b2969e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134550"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185420"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,13 +39,13 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에 제공 된 모델 및 종속성 파일을 사용할 수 있습니다.
-- [Machine Learning 서비스에 대 한 AZURE CLI (명령줄 인터페이스) 확장](reference-azure-machine-learning-cli.md)
+- [Machine Learning 서비스에 대 한 AZURE CLI (명령줄 인터페이스) 확장](reference-azure-machine-learning-cli.md)입니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에 제공 된 모델 및 종속성 파일을 사용할 수 있습니다.
-- [Python 용 AZURE MACHINE LEARNING SDK (소프트웨어 개발 키트)](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- [Python 용 AZURE MACHINE LEARNING SDK (소프트웨어 개발 키트)](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ---
 
@@ -242,7 +242,7 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-Azure Machine Learning를 사용 하 여 Python 환경을 사용자 지정 하 고 사용자 지정 하는 방법에 대 한 자세한 내용은 [에서 소프트웨어 환경 만들기 & 사용](how-to-use-environments.md) 을 참조 하세요 Azure Machine Learning
+Azure Machine Learning를 사용 하 여 Python 환경을 사용자 지정 하 고 사용자 지정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](how-to-use-environments.md)을 참조 하세요.
 
 유추 구성과 함께 사용자 지정 Docker 이미지를 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)을 참조 하세요.
 
@@ -348,7 +348,7 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | Description | 최종 상태?
+| 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
 | 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
 | Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
@@ -373,7 +373,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 
 작업 영역에서 등록 된 모델을 삭제 하려면 다음을 사용 합니다.`az ml model delete <model id>`
 
-[Webservice를 삭제](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) 하 고 [모델을 삭제](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete) 하는 방법에 대해 자세히 알아보세요.
+[웹 서비스를 삭제](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) 하 고 [모델을 삭제](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)하는 방법에 대해 자세히 알아보세요.
 
 # <a name="python"></a>[Python](#tab/python)
 

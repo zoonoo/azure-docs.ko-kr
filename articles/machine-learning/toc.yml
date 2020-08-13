@@ -161,8 +161,11 @@
             - name: 사용자 및 역할 관리
               href: how-to-assign-roles.md
             - name: 가상 네트워크 사용
-              displayName: 'vnet, blob, private endpoint, private link'
+              displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
+            - name: Private Link 사용
+              displayName: private endpoint
+              href: how-to-configure-private-link.md
             - name: TLS로 웹 서비스 보호
               displayName: ssl
               href: how-to-secure-web-service.md
