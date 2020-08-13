@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388066"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192849"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -106,7 +106,7 @@ Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후
 
 비활성 리소스를 보려면 **최적화** 탭으로 이동 하 여 **비활성 리소스** 타일을 클릭 합니다. 이 타일을 클릭 하면 선택한 범위에 존재 하는 모든 비활성 리소스의 세부 정보가 포함 된 표가 표시 됩니다. 기본적으로 그리드는 지난 7 일 동안 복구 지점이 없는 항목을 표시 합니다. 다른 시간 범위에 대 한 비활성 리소스를 찾으려면 탭 위쪽에서 **시간 범위** 필터를 조정 하면 됩니다.
 
-비활성 리소스를 확인 한 후에는 해당 리소스에 대 한 Azure 리소스 블레이드 또는 해당 리소스에 대 한 Azure 리소스 블레이드로 이동 하 여 문제를 자세히 조사할 수 있습니다. 시나리오에 따라 컴퓨터에 대 한 백업을 중지 (더 이상 존재 하지 않는 경우) 하거나 보호 된 인스턴스 비용을 절약 하도록 선택 하거나, 컴퓨터의 문제를 해결 하 여 백업이 안정적으로 수행 되도록 할 수 있습니다.
+비활성 리소스를 확인 한 후에는 해당 리소스에 대 한 Azure 리소스 블레이드 또는 해당 리소스에 대 한 Azure 리소스 블레이드로 이동 하 여 문제를 자세히 조사할 수 있습니다. 시나리오에 따라 컴퓨터에 대 한 백업을 중지 하 고 (더 이상 존재 하지 않는 경우) 불필요 한 백업을 삭제 하 여 비용을 절감 하거나, 컴퓨터의 문제를 해결 하 여 백업이 안정적으로 수행 되는지 확인할 수 있습니다.
 
 ![최적화 탭-비활성 리소스](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
@@ -119,7 +119,7 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 
 ![탭 보존 최적화 최적화](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
-###### <a name="databases-configured-for-daily-full-backup"></a>매일 전체 백업에 대해 구성 된 데이터베이스
+###### <a name="databases-configured-for-daily-full-backup"></a>매일 전체 백업을 위해 구성된 데이터베이스 
 이 뷰를 사용 하 여 매일 전체 백업에 대해 구성 된 데이터베이스 작업을 식별할 수 있습니다. 주로 주간 전체 백업과 함께 매일 차등 백업을 사용 하는 것이 더 비용 효율적입니다. 
 
 **정책 최적화** 타일을 클릭 한 후 **백업 일정 최적화** 타일을 클릭 하면 매일 전체 백업 정책이 있는 모든 데이터베이스가 포함 된 표가 표시 됩니다. 특정 백업 항목으로 이동 하 고 주간 전체 백업을 사용 하 여 매일 차등 백업을 사용 하도록 정책을 수정 하도록 선택할 수 있습니다.
