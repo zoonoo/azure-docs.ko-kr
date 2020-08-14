@@ -2,14 +2,15 @@
 title: ASP.NET apps 구성
 description: Azure App Service에서 ASP.NET 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 67816544e173c19cbc85c5779ffeba92578e00b2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080150"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211867"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET 앱 구성
 
@@ -82,7 +83,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들면 다음과 같습니다.
+ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들어:
 
 ```xml
 <system.web>
@@ -94,7 +95,7 @@ ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브�
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-[진단을](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace)사용 하 여 응용 프로그램 코드에 진단 메시지를 추가할 수 있습니다. 예를 들면 다음과 같습니다. 
+[진단을](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace)사용 하 여 응용 프로그램 코드에 진단 메시지를 추가할 수 있습니다. 다음은 그 예입니다. 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

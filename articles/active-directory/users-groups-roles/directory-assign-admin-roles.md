@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 06/15/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 03a51cc8aa86f40b5333bd79e95e6d02be1adfc4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066069"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213851"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -89,11 +89,11 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 다음은 그 예입니다.
 >
->- 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 사용 권한이 부여되었을 수 있으며, 다른 위치에서는 인증 관리자에 권한이 부여되지 않습니다. 이 경로를 통해 인증 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
->- Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
->- 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
->- Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
->- 중요한 프라이빗 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자.
+>* 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 사용 권한이 부여되었을 수 있으며, 다른 위치에서는 인증 관리자에 권한이 부여되지 않습니다. 이 경로를 통해 인증 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
+>* Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
+>* 그룹 멤버 자격을 관리할 수 있는 보안 그룹 및 Microsoft 365 그룹 소유자입니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
+>* Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
+>* 중요한 프라이빗 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자.
 
 ### <a name="azure-devops-administrator"></a>[Azure DevOps 관리자](#azure-devops-administrator-permissions)
 
@@ -206,7 +206,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="exchange-administrator"></a>[Exchange 관리자](#exchange-service-administrator-permissions)
 
-이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Exchange Online 내에서 글로벌 사용 권한을 갖습니다. 또한 모든 Office 365 그룹을 만들고 관리하는 기능, 지원 티켓을 관리하는 기능 및 서비스 상태를 모니터링하는 기능도 포함합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Exchange Online 내에서 글로벌 사용 권한을 갖습니다. 또한에는 모든 Microsoft 365 그룹을 생성 및 관리 하 고, 지원 티켓을 관리 하 고, 서비스 상태를 모니터링할 수 있는 기능이 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
 > [!NOTE]
 > Microsoft Graph API 및 Azure AD PowerShell에서 이 역할은 "Exchange 서비스 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Exchange 관리자"입니다. [Exchange 관리 센터](https://go.microsoft.com/fwlink/p/?LinkID=529144)의 "Exchange Online 관리자"입니다.
@@ -277,7 +277,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >
 >- 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 권한이 부여되었을 수 있으며, 다른 위치에서는 기술 지원 팀 관리자에 권한이 부여되지 않습니다. 이 경로를 통해 기술 지원 팀 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
 >- Azure 구독 소유자: Azure의 중요한 정보나 개인 정보 또는 중요한 구성에 액세스할 수 있습니다.
->- 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
+>- 그룹 멤버 자격을 관리할 수 있는 보안 그룹 및 Microsoft 365 그룹 소유자입니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
 >- Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
 >- 중요한 프라이빗 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자.
 
@@ -331,7 +331,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 **최신 상거래 사용자 역할은 언제 할당 되나요?**
 
 * **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스 구매를 수행 하는 사용자에 게는 상거래 시스템의 역할과 최신 상거래 사용자 역할이 할당 되므로 관리 센터에서 해당 구매를 관리할 수 있습니다. 관리자는 [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide)을 참조하세요.  
-* **Microsoft 상업적 marketplace에서 구매** – 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품이 나 서비스를 구입 하는 경우에는 전역 관리자 또는 청구 관리자 역할이 없는 경우 최신 상거래 사용자 역할이 할당 됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
+* **Microsoft 상업적 marketplace에서 구매**  – 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품이 나 서비스를 구입 하는 경우에는 전역 관리자 또는 청구 관리자 역할이 없는 경우 최신 상거래 사용자 역할이 할당 됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
 * **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락 하는 사용자에 게 Azure AD의 전역 관리자 또는 청구 관리자 역할이 없는 경우, 관리자 센터에 액세스 하려면 제안서를 완료 하 고 최신 상거래 사용자 역할을 모두 할당 합니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
 * **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 사용자가 전역 또는 대금 청구 관리자가 아니면 관리 센터에 액세스할 수 있도록 최신 상거래 사용자 역할을 받게 됩니다.  
 
@@ -467,7 +467,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 ### <a name="sharepoint-administrator"></a>[SharePoint 관리자](#sharepoint-service-administrator-permissions)
 
-이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft SharePoint Online 내에서 글로벌 사용 권한을 가질 뿐만 아니라 모든 Office 365 그룹을 생성 및 관리하고, 지원 티켓을 관리하고, 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+이 역할을 가진 사용자는 서비스가 있는 경우 Microsoft SharePoint Online 내에서 전역 사용 권한을 가지 며, 모든 Microsoft 365 그룹을 생성 및 관리 하 고, 지원 티켓을 관리 하 고, 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
 > [!NOTE]
 > Microsoft Graph API 및 Azure AD PowerShell에서 이 역할은 "SharePoint 서비스 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "SharePoint 관리자"입니다.
@@ -496,7 +496,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 ### <a name="teams-service-administrator"></a>[Teams 서비스 관리자](#teams-service-administrator-permissions)
 
-이 역할의 사용자는 Microsoft Teams 및 비즈니스용 Skype 관리 센터와 해당하는 PowerShell 모듈을 통해 Microsoft Teams 워크로드의 모든 측면을 관리할 수 있습니다. 여기에는 다른 영역 중 전화 통신, 메시징, 회의 및 팀 자체와 관련된 모든 관리 도구가 포함됩니다. 이 역할은 추가적으로 모든 Office 365 그룹 만들기 및 관리 기능뿐만 아니라 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능도 부여합니다.
+이 역할의 사용자는 Microsoft Teams 및 비즈니스용 Skype 관리 센터와 해당하는 PowerShell 모듈을 통해 Microsoft Teams 워크로드의 모든 측면을 관리할 수 있습니다. 여기에는 다른 영역 중 전화 통신, 메시징, 회의 및 팀 자체와 관련된 모든 관리 도구가 포함됩니다. 이 역할은 모든 Microsoft 365 그룹을 생성 및 관리 하 고, 지원 티켓을 관리 하 고, 서비스 상태를 모니터링 하는 기능을 추가로 부여 합니다.
 
 ### <a name="user-administrator"></a>[사용자 관리자](#user-administrator-permissions)
 
@@ -513,7 +513,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 >
 >- 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 권한이 부여되었을 수 있으며, 다른 위치에서는 사용자 관리자에게 권한이 부여되지 않습니다. 이 경로를 통해 사용자 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
 >- Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
->- 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
+>- 그룹 멤버 자격을 관리할 수 있는 보안 그룹 및 Microsoft 365 그룹 소유자입니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
 >- Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
 >- 중요한 프라이빗 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자.
 
@@ -1030,7 +1030,6 @@ Azure AD Connect에서만 사용됩니다.
 | microsoft. directory/users/reprocessLicenseAssignment | Azure Active Directory에서 사용자에 대 한 라이선스 할당을 다시 처리 합니다. |
 | microsoft. directory/users/userPrincipalName/update | Azure Active Directory에서 userPrincipalName 속성을 업데이트 합니다. |
 
-
 ### <a name="exchange-service-administrator-permissions"></a>Exchange 서비스 관리자 권한
 
 Exchange 제품의 모든 측면을 관리할 수 있습니다.
@@ -1045,11 +1044,11 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/basic/update | Office 365 그룹의 기본 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/create | Office 365 그룹을 만듭니다. |
-| microsoft.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
-| microsoft.directory/groups/unified/members/update | Office 365 그룹의 멤버 자격을 업데이트합니다. |
-| microsoft.directory/groups/unified/owners/update | Office 365 그룹의 소유권을 업데이트합니다. |
+| microsoft.directory/groups/unified/basic/update | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
+| microsoft.directory/groups/unified/create | Microsoft 365 그룹을 만듭니다. |
+| microsoft.directory/groups/unified/delete | Microsoft 365 그룹을 삭제 합니다. |
+| microsoft.directory/groups/unified/members/update | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
+| microsoft.directory/groups/unified/owners/update | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
 | microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.network/performance/allProperties/read | M365 관리 센터의 네트워크 성능 페이지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
@@ -1759,11 +1758,11 @@ SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/basic/update | Office 365 그룹의 기본 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/create | Office 365 그룹을 만듭니다. |
-| microsoft.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
-| microsoft.directory/groups/unified/members/update | Office 365 그룹의 멤버 자격을 업데이트합니다. |
-| microsoft.directory/groups/unified/owners/update | Office 365 그룹의 소유권을 업데이트합니다. |
+| microsoft.directory/groups/unified/basic/update | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
+| microsoft.directory/groups/unified/create | Microsoft 365 그룹을 만듭니다. |
+| microsoft.directory/groups/unified/delete | Microsoft 365 그룹을 삭제 합니다. |
+| microsoft.directory/groups/unified/members/update | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
+| microsoft.directory/groups/unified/owners/update | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
 | microsoft.office365.network/performance/allProperties/read | M365 관리 센터의 네트워크 성능 페이지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
@@ -1834,11 +1833,11 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.directory/groups/hiddenMembers/read | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/basic/update | Office 365 그룹의 기본 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/create | Office 365 그룹을 만듭니다. |
-| microsoft.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
-| microsoft.directory/groups/unified/members/update | Office 365 그룹의 멤버 자격을 업데이트합니다. |
-| microsoft.directory/groups/unified/owners/update | Office 365 그룹의 소유권을 업데이트합니다. |
+| microsoft.directory/groups/unified/basic/update | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
+| microsoft.directory/groups/unified/create | Microsoft 365 그룹을 만듭니다. |
+| microsoft.directory/groups/unified/delete | Microsoft 365 그룹을 삭제 합니다. |
+| microsoft.directory/groups/unified/members/update | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
+| microsoft.directory/groups/unified/owners/update | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
 | microsoft.office365.network/performance/allProperties/read | M365 관리 센터의 네트워크 성능 페이지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |

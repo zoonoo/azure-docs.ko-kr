@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053919"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214056"
 ---
 # <a name="what-is-batch-transcription"></a>일괄 처리 기록 이란?
 
@@ -31,7 +31,7 @@ ms.locfileid: "88053919"
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
 |    오프 라인 상태에서 지원 되는 로캘 목록을 가져옵니다.              |    GET       |    speechtotext/v 3.0//및 로캘    |
 |    ID로 식별 되는 기록의 변경 가능한 세부 정보를 업데이트 합니다.    |    패치     |    speechtotext/v 3.0//{id}       |
-|    지정 된 기록 작업을 삭제 합니다.                                 |    DELETE    |    speechtotext/v 3.0//{id}       |
+|    지정 된 기록 작업을 삭제 합니다.                                 |    Delete    |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록을 가져옵니다.                        |    GET       |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록의 결과 파일을 가져옵니다.    |    GET       |    speechtotext/v 3.0//{id}/파일 |
 
@@ -63,7 +63,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 
 Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
-| 서식 | Codec | Bitrate | 샘플링 주기                     |
+| 서식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
 | MP3    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |

@@ -9,14 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038429"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208734"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
+
+![인덱서 단계](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "인덱서 단계")
 
 Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대상 인덱스의 스키마와 일치 하지 않는 경우가 종종 있습니다. 이러한 경우 인덱싱 프로세스 중에 **필드 매핑을** 사용 하 여 데이터의 모양을 변경할 수 있습니다.
 
@@ -201,7 +203,7 @@ Azure Cognitive Search는 URL 안전 base64 인코딩 및 일반 base64 인코�
 `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` 인코딩 및 디코딩에 대 한 또는 매개 변수가 각각로 설정 된 경우는 HttpServerUtility와 같은 동작을 수행 하 `true` `base64Encode` [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 고 `base64Decode` [HttpServerUtility UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)처럼 동작 합니다.
 
 > [!WARNING]
-> `base64Encode`키 값을 생성 하는 데를 사용 하는 경우에는를 `useHttpServerUtilityUrlTokenEncode` true로 설정 해야 합니다. 키 값에는 URL 안전 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대 한 전체 제한 사항 집합은 [Azure Cognitive Search&#41;&#40;명명 규칙](https://docs.microsoft.com/rest/api/searchservice/naming-rules) 을 참조 하세요.
+> `base64Encode`키 값을 생성 하는 데를 사용 하는 경우에는를 `useHttpServerUtilityUrlTokenEncode` true로 설정 해야 합니다. 키 값에는 URL 안전 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대 한 전체 제한 사항 집합은 [Azure Cognitive Search&#41;&#40;명명 규칙 ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) 을 참조 하세요.
 
 Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제공 하는 전체 .NET Framework를 가정 합니다. `useHttpServerUtilityUrlTokenEncode`및 `useHttpServerUtilityUrlTokenDecode` 옵션은이 기본 제공 기능을 활용 합니다. .NET Core 또는 다른 프레임 워크를 사용 하는 경우 해당 옵션을로 설정 하 `false` 고 프레임 워크의 인코딩 및 디코딩 함수를 직접 호출 하는 것이 좋습니다.
 

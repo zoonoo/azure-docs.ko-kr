@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067361"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214216"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정
 
@@ -71,7 +71,8 @@ AKS 리소스 공급자는 SLB(표준 Load Balancer)를 배포합니다. 부하 
 > [!IMPORTANT]
 > UDR의 아웃 바운드 형식에는 0.0.0.0/0의 경로와 NVA (네트워크 가상 어플라이언스)의 다음 홉 대상이 경로 테이블에 있어야 합니다.
 > 경로 테이블에는 인터넷에 대 한 기본 0.0.0.0/0이 이미 있지만,이 경로를 추가 하는 것 처럼 SNAT에 대 한 공용 IP가 없으면 송신을 제공 하지 않습니다. AKS는 인터넷을 가리키는 0.0.0.0/0 경로를 만들지 않고 NVA 또는 게이트웨이 등으로 만들지를 확인 합니다.
-
+> 
+> 아웃 바운드 형식의 UDR을 사용 하는 경우 부하 분산 장치 공용 IP 주소는 *loadbalancer* 형식의 서비스가 구성 되지 않은 경우에만 생성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

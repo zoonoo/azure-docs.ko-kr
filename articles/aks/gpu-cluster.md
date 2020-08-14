@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 고성능 컴퓨팅 또는 그�
 services: container-service
 ms.topic: article
 ms.date: 03/27/2020
-ms.openlocfilehash: 30cbac0984236717581c994700483b85829c4571
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244296"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213180"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -52,7 +52,7 @@ az aks create \
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>NVIDIA 드라이버 설치
+## <a name="install-nvidia-device-plugin"></a>NVIDIA 장치 플러그 인 설치
 
 노드의 Gpu를 사용 하려면 먼저 NVIDIA 장치 플러그 인에 대 한 DaemonSet를 배포 해야 합니다. 이 DaemonSet는 각 노드에서 Pod를 실행하여 GPU에 필요한 드라이버를 제공합니다.
 
@@ -188,7 +188,7 @@ GPU가 실제로 작동하는 모습을 보려면 적절한 리소스 요청을 
 *samples-tf-mnist-demo.yaml*이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 다음 작업 매니페스트에는 `nvidia.com/gpu: 1`의 리소스 제한이 포함되어 있습니다.
 
 > [!NOTE]
-> 드라이버를 호출할 때 버전 불일치 오류가 발생 하는 경우, 예를 들어, verda 드라이버 버전은 verda 런타임 버전용으로 충분 하지 않은 경우 NVIDIA 드라이버 매트릭스 호환성 차트를 검토 합니다.[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> 드라이버를 호출할 때 버전 불일치 오류가 발생 하는 경우, 예를 들어, verda 드라이버 버전은 verda 런타임 버전용으로 충분 하지 않은 경우 NVIDIA 드라이버 매트릭스 호환성 차트를 검토 합니다. [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

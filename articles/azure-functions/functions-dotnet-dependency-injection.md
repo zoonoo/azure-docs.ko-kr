@@ -3,15 +3,16 @@ title: .NET Azure Functions에서 종속성 주입 사용
 description: .NET 함수의 서비스를 등록하고 사용할 때 종속성 주입을 사용하는 방법에 대해 알아보기
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500467"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206101"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -187,7 +188,7 @@ namespace MyNamespace
 
 |서비스 유형|수명|Description|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|런타임 구성|
+|`Microsoft.Extensions.Configuration.IConfiguration`|싱글톤|런타임 구성|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|싱글톤|호스트 인스턴스의 ID 제공 담당|
 
 종속성으로 사용하려는 다른 서비스가 있는 경우 [문제를 만들고 GitHub에서 제안합니다](https://github.com/azure/azure-functions-host).

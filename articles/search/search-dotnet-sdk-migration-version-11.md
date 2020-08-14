@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 03d40dcaeaefe01fecbc201cf28dc20c8634af9d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 390376216700b760e96c2348b1ad61bb4561aad2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926674"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211506"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
@@ -26,7 +26,7 @@ ms.locfileid: "87926674"
 
 + 여러 패키지가 아닌 패키지 및 라이브러리 하나
 + 새 패키지 이름입니다 ( `Azure.Search.Documents` 대신) `Microsoft.Azure.Search` .
-+ 2 대신 세 개의 클라이언트: `SearchClient` , `SearchIndexClient` ,`SearchIndexerClient`
++ 2 대신 세 개의 클라이언트: `SearchClient` , `SearchIndexClient` , `SearchIndexerClient`
 + 일부 작업을 단순화 하는 다양 한 Api 및 작은 구조적 차이로 인 한 명명의 차이점
 
 ## <a name="package-and-library-consolidation"></a>패키지 및 라이브러리 통합
@@ -48,7 +48,7 @@ ms.locfileid: "87926674"
 | 인덱서, 데이터 원본, 기술력과에 사용 되는 클라이언트 | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**신규**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
-> `SearchIndexClient`는 두 버전에 모두 존재 하지만 다른 작업을 지원 합니다. 버전 10에서 `SearchIndexClient` 인덱스 및 기타 개체를 만듭니다. 버전 11에서는 `SearchIndexClient` 기존 인덱스와 함께 작동 합니다. 코드를 업데이트할 때 혼동을 피하려면 클라이언트 참조가 업데이트 되는 순서에 주의 해야 합니다. [업그레이드 단계](#UpgradeSteps) 에서 순서를 따라 문자열 대체 문제를 완화할 수 있습니다.
+> `SearchIndexClient` 는 두 버전에 모두 존재 하지만 다른 작업을 지원 합니다. 버전 10에서 `SearchIndexClient` 인덱스 및 기타 개체를 만듭니다. 버전 11에서는 `SearchIndexClient` 기존 인덱스와 함께 작동 합니다. 코드를 업데이트할 때 혼동을 피하려면 클라이언트 참조가 업데이트 되는 순서에 주의 해야 합니다. [업그레이드 단계](#UpgradeSteps) 에서 순서를 따라 문자열 대체 문제를 완화할 수 있습니다.
 
 <a name="naming-differences"></a>
 
@@ -61,7 +61,7 @@ ms.locfileid: "87926674"
 | 버전 10 | 버전 11 동급 |
 |------------|-----------------------|
 | [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials) | [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) |
-| `EncryptionKey`( [미리 보기 SDK](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) 에 일반 기능으로 제공 됨) | [SearchResourceEncryptionKey](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
+| `EncryptionKey` ( [미리 보기 SDK](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) 에 일반 기능으로 제공 됨) | [SearchResourceEncryptionKey](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
 
 ### <a name="indexes-analyzers-synonym-maps"></a>인덱스, 분석기, 동의어 맵
 
@@ -71,7 +71,7 @@ ms.locfileid: "87926674"
 | [필드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field) | [SearchField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield) |
 | [DataType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datatype) | [SearchFieldDataType](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype) |
 | [ItemError](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.itemerror) | [SearchIndexerError](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexererror) |
-| [분석기나](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lexicalanalyze) (도 `AnalyzerName` `LexicalAnalyzerName` ) |
+| [분석기나](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (도 `AnalyzerName` `LexicalAnalyzerName` ) |
 | [AnalyzeRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzerequest) | [AnalyzeTextOptions](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.analyzetextoptions) |
 | [StandardAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.standardanalyzer) | [LuceneStandardAnalyzer](https://docs.microsoft.com//dotnet/api/azure.search.documents.indexes.models.lucenestandardanalyzer) |
 | [StandardTokenizer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (도 `StandardTokenizerV2` `LuceneStandardTokenizerV2` ) |
@@ -88,7 +88,7 @@ ms.locfileid: "87926674"
 | [인덱서](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) | [SearchIndexer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexer) |
 | [DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) | [SearchIndexerDataSourceConnection](https://docs.microsoft.com//dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) |
 | [레벨](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.skill) | [SearchIndexerSkill](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
-| [기술 집합](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.skillset) | [SearchIndexerSkillset](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerskillse) |
+| [기술 집합](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.skillset) | [SearchIndexerSkillset](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
 | [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype) | [SearchIndexerDataSourceType](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) |
 
 ### <a name="data-import"></a>데이터 가져오기
@@ -153,7 +153,7 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
 
 1. 쿼리 및 데이터 가져오기에 대 한 클라이언트 참조를 업데이트 합니다. [Searchindexclient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) 인스턴스는 [searchclient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient)로 변경 해야 합니다. 이름 혼동을 방지 하려면 다음 단계로 진행 하기 전에 모든 인스턴스를 catch 해야 합니다.
 
-1. 인덱스, 인덱서, 동의어 맵 및 분석기 개체에 대 한 클라이언트 참조를 업데이트 합니다. [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) 인스턴스는 [searchindexclient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchindexclient)로 변경 해야 합니다. 
+1. 인덱스, 인덱서, 동의어 맵 및 분석기 개체에 대 한 클라이언트 참조를 업데이트 합니다. [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) 인스턴스는 [searchindexclient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient)로 변경 해야 합니다. 
 
 1. 가능 하면 클래스, 메서드 및 속성을 업데이트 하 여 새 라이브러리의 Api를 사용 합니다. [명명 차이점](#naming-differences) 섹션은 시작할 장소 이지만 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)를 검토할 수도 있습니다.
 

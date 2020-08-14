@@ -3,13 +3,14 @@ title: Azure Functions에 대 한 PowerShell 개발자 참조
 description: PowerShell을 사용 하 여 함수를 개발 하는 방법을 이해 합니다.
 author: eamonoreilly
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506131"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207418"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -76,8 +77,8 @@ $TriggerMetadata.sys
 | 속성   | 설명                                     | 형식     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 트리거된 경우        | DateTime |
-| MethodName | 트리거된 함수의 이름     | 문자열   |
-| RandGuid   | 이 함수 실행에 대 한 고유 guid입니다. | 문자열   |
+| MethodName | 트리거된 함수의 이름     | string   |
+| RandGuid   | 이 함수 실행에 대 한 고유 guid입니다. | string   |
 
 모든 트리거 형식에는 서로 다른 메타 데이터 집합이 있습니다. 예를 들어의에는 `$TriggerMetadata` `QueueTrigger` ,, 등이 포함 `InsertionTime` `Id` `DequeueCount` 됩니다. 큐 트리거의 메타 데이터에 대 한 자세한 내용은 [큐 트리거의 공식 설명서](functions-bindings-storage-queue-trigger.md#message-metadata)로 이동 하세요. 작업 중인 [트리거에](functions-triggers-bindings.md) 대 한 설명서를 확인 하 여 트리거 메타 데이터 내에 있는 항목을 확인 합니다.
 
@@ -113,7 +114,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding`는에 대해 지정 된 값에 따라 다르게 동작 합니다 `-Name` .
+`Push-OutputBinding` 는에 대해 지정 된 값에 따라 다르게 동작 합니다 `-Name` .
 
 * 지정 된 이름을 유효한 출력 바인딩으로 확인할 수 없으면 오류가 throw 됩니다.
 
@@ -125,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| Name | 유형 | 위치 | Description |
+| Name | Type | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -175,7 +176,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>푸시 OutputBinding 예: 큐 출력 바인딩
 
-`Push-OutputBinding`는 [Azure Queue storage 출력 바인딩과](functions-bindings-storage-queue-output.md)같은 출력 바인딩에 데이터를 전송 하는 데 사용 됩니다. 다음 예제에서는 큐에 기록 된 메시지의 값이 "output #1"입니다.
+`Push-OutputBinding` 는 [Azure Queue storage 출력 바인딩과](functions-bindings-storage-queue-output.md)같은 출력 바인딩에 데이터를 전송 하는 데 사용 됩니다. 다음 예제에서는 큐에 기록 된 메시지의 값이 "output #1"입니다.
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -212,7 +213,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding`또한에는 `-Name` 다음 예제와 같이 반환 된 바인딩을 필터링 하는 데 사용할 수 있는 라는 매개 변수가 포함 되어 있습니다.
+`Get-OutputBinding` 또한에는 `-Name` 다음 예제와 같이 반환 된 바인딩을 필터링 하는 데 사용할 수 있는 라는 매개 변수가 포함 되어 있습니다.
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -232,8 +233,8 @@ PowerShell 함수의 로깅은 일반적인 PowerShell 로깅과 같은 방식�
 
 | 함수 로깅 수준 | 로깅 cmdlet |
 | ------------- | -------------- |
-| Error | **`Write-Error`** |
-| Warning | **`Write-Warning`**  | 
+| 오류 | **`Write-Error`** |
+| 경고 | **`Write-Warning`**  | 
 | 정보 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 정보 | _정보_ 수준 로깅에 씁니다. |
 | 디버그 | **`Write-Debug`** |
 | 추적 | **`Write-Progress`** <br /> **`Write-Verbose`** |
@@ -275,7 +276,7 @@ Azure Functions를 사용 하면 함수에서 로그에 쓰는 방식을 쉽게 
 모든 트리거와 바인딩은 코드에서 몇 가지 실제 데이터 형식으로 표현 됩니다.
 
 * Hashtable
-* 문자열
+* string
 * byte[]
 * int
 * double
@@ -296,14 +297,14 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 속성  | 설명                                                    | 형식                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body`는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | object |
+| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | object |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전<문자열, 문자열><sup>*</sup> |
-| **`Method`** | 요청의 HTTP 메서드입니다.                                | 문자열                    |
+| **`Method`** | 요청의 HTTP 메서드입니다.                                | string                    |
 | **`Params`**  | 요청의 라우팅 매개 변수를 포함하는 개체입니다. | 사전<문자열, 문자열><sup>*</sup> |
 | **`Query`** | 쿼리 매개 변수를 포함하는 개체입니다.                  | 사전<문자열, 문자열><sup>*</sup> |
-| **`Url`** | 요청의 URL입니다.                                        | 문자열                    |
+| **`Url`** | 요청의 URL입니다.                                        | string                    |
 
-<sup>*</sup>모든 `Dictionary<string,string>` 키는 대/소문자를 구분 하지 않습니다.
+<sup>*</sup> 모든 `Dictionary<string,string>` 키는 대/소문자를 구분 하지 않습니다.
 
 #### <a name="response-object"></a>응답 개체
 
@@ -312,7 +313,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 | 속성      | 설명                                                 | 형식                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
-| **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |
+| **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | string                    |
 | **`Headers`** | 응답 헤더를 포함하는 개체입니다.               | 사전 또는 해시 테이블   |
 | **`StatusCode`**  | 응답의 HTTP 상태 코드입니다.                       | 문자열 또는 int             |
 
@@ -422,9 +423,9 @@ requirements.psd1 파일을 업데이트 하는 경우 다시 시작한 후 업�
 
 | 함수 앱 설정              | 기본값             | 설명                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00`(7 일)     | 각 PowerShell 작업자 프로세스는 프로세스 시작 시와 그 이후에 PowerShell 갤러리에서 모듈 업그레이드 확인을 시작 `MDMaxBackgroundUpgradePeriod` 합니다. PowerShell 갤러리에서 새 모듈 버전을 사용할 수 있는 경우이 버전은 파일 시스템에 설치 되며 PowerShell 작업자에 게 제공 됩니다. 이 값을 줄이면 함수 앱에서 최신 모듈 버전을 보다 빨리 가져올 수 있지만, 앱 리소스 사용량 (네트워크 i/o, CPU, 저장소)도 늘어납니다. 이 값을 늘려도 앱의 리소스 사용량이 줄어들지만 앱에 새 모듈 버전을 전달 하는 작업이 지연 될 수도 있습니다. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00`(1 시간)       | 새 모듈 버전이 파일 시스템에 설치 된 후에는 모든 PowerShell 작업자 프로세스를 다시 시작 해야 합니다. PowerShell 작업자를 다시 시작 하면 현재 함수 실행을 중단할 수 있으므로 앱 사용 가능성에 영향을 줍니다. 모든 PowerShell 작업자 프로세스가 다시 시작 될 때까지 함수 호출은 이전 또는 새 모듈 버전을 사용할 수 있습니다. 내에서 완료 되는 모든 PowerShell 작업자를 다시 시작 `MDNewSnapshotCheckPeriod` 합니다. 이 값을 늘리면 중단 빈도가 줄어들지만 함수 호출로 인해 이전 또는 새 모듈 버전이 명확 하지 않은 경우에도 시간이 길어질 수 있습니다. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00`(1 일)     | 자주 실행 하는 작업자를 다시 시작할 때 과도 한 모듈 업그레이드가 발생 하지 않도록 하기 위해 작업자 중 마지막에 체크 인을 이미 시작한 경우에는 모듈 업그레이드를 확인 하지 않습니다 `MDMinBackgroundUpgradePeriod` . |
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 일)     | 각 PowerShell 작업자 프로세스는 프로세스 시작 시와 그 이후에 PowerShell 갤러리에서 모듈 업그레이드 확인을 시작 `MDMaxBackgroundUpgradePeriod` 합니다. PowerShell 갤러리에서 새 모듈 버전을 사용할 수 있는 경우이 버전은 파일 시스템에 설치 되며 PowerShell 작업자에 게 제공 됩니다. 이 값을 줄이면 함수 앱에서 최신 모듈 버전을 보다 빨리 가져올 수 있지만, 앱 리소스 사용량 (네트워크 i/o, CPU, 저장소)도 늘어납니다. 이 값을 늘려도 앱의 리소스 사용량이 줄어들지만 앱에 새 모듈 버전을 전달 하는 작업이 지연 될 수도 있습니다. | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 시간)       | 새 모듈 버전이 파일 시스템에 설치 된 후에는 모든 PowerShell 작업자 프로세스를 다시 시작 해야 합니다. PowerShell 작업자를 다시 시작 하면 현재 함수 실행을 중단할 수 있으므로 앱 사용 가능성에 영향을 줍니다. 모든 PowerShell 작업자 프로세스가 다시 시작 될 때까지 함수 호출은 이전 또는 새 모듈 버전을 사용할 수 있습니다. 내에서 완료 되는 모든 PowerShell 작업자를 다시 시작 `MDNewSnapshotCheckPeriod` 합니다. 이 값을 늘리면 중단 빈도가 줄어들지만 함수 호출로 인해 이전 또는 새 모듈 버전이 명확 하지 않은 경우에도 시간이 길어질 수 있습니다. |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 일)     | 자주 실행 하는 작업자를 다시 시작할 때 과도 한 모듈 업그레이드가 발생 하지 않도록 하기 위해 작업자 중 마지막에 체크 인을 이미 시작한 경우에는 모듈 업그레이드를 확인 하지 않습니다 `MDMinBackgroundUpgradePeriod` . |
 
 사용자 고유의 사용자 지정 모듈을 활용 하는 것은 일반적으로 수행 하는 방법과 약간 다릅니다.
 
@@ -517,7 +518,7 @@ Azure PowerShell은 몇 가지 _프로세스 수준_ 컨텍스트 및 상태를 
 
 일부 작업에는 상당한 시간이 걸릴 수 있으므로 Azure PowerShell 동시성에 때 엄청난 값이 있습니다. 그러나 주의 해야 합니다. 경합 상태가 발생 한 것으로 의심 되는 경우 PSWorkerInProcConcurrencyUpperBound 앱 설정을로 설정 하 `1` 고 대신 동시성에 대해 [언어 작업자 프로세스 수준 격리](functions-app-settings.md#functions_worker_process_count) 를 사용 합니다.
 
-## <a name="configure-function-scriptfile"></a>Configure 함수`scriptFile`
+## <a name="configure-function-scriptfile"></a>Configure 함수 `scriptFile`
 
 기본적으로 PowerShell 함수는 `run.ps1` 해당와 동일한 부모 디렉터리를 공유 하는 파일에서 실행 됩니다 `function.json` .
 
@@ -595,7 +596,7 @@ PowerShell 함수를 사용 하는 경우 다음 섹션의 고려 사항에 유�
 
 서버를 사용 하지 않는 [호스팅 모델](functions-scale.md#consumption-plan)에서 Azure Functions를 개발 하는 경우 콜드 시작은 현실입니다. *콜드 시작* 은 함수 앱이 요청을 처리 하기 위해 실행 되기 시작 하는 데 걸리는 시간을 나타냅니다. 비활성 기간 동안 함수 앱이 종료 되기 때문에 소비 계획에서 콜드 시작이 더 자주 발생 합니다.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>를 사용 하는 대신 번들 모듈`Install-Module`
+### <a name="bundle-modules-instead-of-using-install-module"></a>를 사용 하는 대신 번들 모듈 `Install-Module`
 
 모든 호출에서 스크립트가 실행 됩니다. `Install-Module`스크립트에서를 사용 하지 마십시오. 대신 `Save-Module` 함수에서 모듈 다운로드 시간을 낭비 하지 않아도 되도록 게시 하기 전에를 사용 합니다. 콜드 시작이 함수에 영향을 주는 경우에는 *always on* 또는 [프리미엄 계획](functions-scale.md#premium-plan)으로 설정 된 [App Service 계획](functions-scale.md#app-service-plan) 에 함수 앱을 배포 하는 것이 좋습니다.
 

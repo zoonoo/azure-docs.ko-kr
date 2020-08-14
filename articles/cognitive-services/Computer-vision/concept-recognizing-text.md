@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e2226f70ed3318bb370f0afee003fd9f91153a45
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9f9ebff77f54d86c3c4ed45fb5190de1900934e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167874"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207226"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -28,7 +28,18 @@ Computer Vision [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/d
 
 ![OCR에서 이미지와 문서를 추출 된 텍스트로 구조화 된 출력으로 변환 하는 방법](./Images/how-ocr-works.svg)
 
-**읽기 API는 읽기 및 읽기** **결과 가져오기**와 같은 두 가지 작업을 통해 OCR 기능을 제공 합니다.
+## <a name="input-requirements"></a>입력 요구 사항
+읽기 API의 **읽기** 작업은 이미지와 문서를 입력으로 사용 합니다. 이러한 요구 사항은 다음과 같습니다.
+
+* 지원 되는 파일 형식: JPEG, PNG, BMP, PDF 및 TIFF
+* PDF 및 TIFF의 경우 최대 2000 페이지가 처리 됩니다. 무료 계층 구독자의 경우 처음 두 페이지만 처리 됩니다.
+* 파일 크기는 50 MB 미만 이어야 하 고 크기는 50 x 50 픽셀 이상, 최대 1만 x 1만 픽셀 이어야 합니다.
+* PDF 차원은 legal 또는 A3 용지 크기에 해당 하는 17 x 17 인치 여야 합니다.
+
+> [!NOTE]
+> **언어 입력** 
+>
+> [읽기 작업](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 에는 언어에 대 한 선택적 요청 매개 변수가 있습니다. 문서에 있는 텍스트의 BCP-47 언어 코드입니다. 읽기는 자동 언어 식별 및 다국어 문서를 지원 하므로 문서를 특정 언어로 강제로 처리 하려는 경우에만 언어 코드를 제공 합니다.
 
 ## <a name="the-read-operation"></a>읽기 작업
 
@@ -36,13 +47,13 @@ Computer Vision [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/d
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
-|Operation-Location | https://cognitiveservice/vision/v3.0-preview/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f |
+|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-read-results-operation"></a>읽기 결과 가져오기 작업
 
 두 번째 단계는 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -112,19 +123,6 @@ Computer Vision [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/d
 
 C # 및 REST API를 사용 하 여 OCR을 구현 하려면 [인쇄 및 필기 텍스트 추출](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 따르세요.
 
-## <a name="input-requirements"></a>입력 요구 사항
-
-입력 이미지와 문서에는 다음과 같은 요구 사항이 있습니다.
-* 지원 되는 파일 형식: JPEG, PNG, BMP, PDF 및 TIFF
-* PDF 및 TIFF의 경우 최대 2000 페이지가 처리 됩니다. 무료 계층 구독자의 경우 처음 두 페이지만 처리 됩니다.
-* 파일 크기는 50 MB 미만 이어야 하 고 크기는 50 x 50 픽셀 이상, 최대 1만 x 1만 픽셀 이어야 합니다.
-* PDF 차원은 legal 또는 A3 용지 크기에 해당 하는 17 x 17 인치 여야 합니다.
-
-> [!NOTE]
-> **언어 입력** 
->
-> [읽기 작업](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 에는 언어에 대 한 선택적 요청 매개 변수가 있습니다. 문서에 있는 텍스트의 BCP-47 언어 코드입니다. 읽기는 자동 언어 식별 및 다국어 문서를 지원 하므로 문서를 특정 언어로 강제로 처리 하려는 경우에만 언어 코드를 제공 합니다.
-
 ## <a name="language-support"></a>언어 지원
 
 ### <a name="printed-text"></a>인쇄 된 텍스트
@@ -184,6 +182,9 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.micros
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 
 모든 인식 서비스와 마찬가지로 읽기/OCR 서비스를 사용 하는 개발자는 고객 데이터에 대 한 Microsoft 정책을 인식 해야 합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/trust-center/product-overview) 의 Cognitive Services 페이지를 참조 하세요.
+
+> [!NOTE]
+> 컴퓨터 Vison 2.0 RecognizeText 작업은이 문서에서 다루는 새로운 읽기 API를 사용 하 여 더 이상 사용 되지 않습니다. 기존 고객은 [읽기 작업을 사용 하도록 전환](upgrade-api-versions.md)해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

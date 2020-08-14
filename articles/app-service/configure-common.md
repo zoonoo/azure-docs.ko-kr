@@ -5,13 +5,13 @@ keywords: azure app service, 웹 앱, 앱 설정, 환경 변수
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077376"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213579"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -96,11 +96,11 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 런타임에 연결 문자열은 환경 변수로 사용할 수 있으며, 다음 연결 형식이 접두사로 사용 됩니다.
 
-* SQLServer`SQLCONNSTR_`  
+* SQLServer `SQLCONNSTR_`  
 * MySQL: `MYSQLCONNSTR_` 
-* SQLAzure`SQLAZURECONNSTR_` 
+* SQLAzure `SQLAZURECONNSTR_` 
 * 사용자 지정: `CUSTOMCONNSTR_`
-* PostgreSQL`POSTGRESQLCONNSTR_`  
+* PostgreSQL `POSTGRESQLCONNSTR_`  
 
 예를 들어 *connectionstring1* 라는 MySql 연결 문자열을 환경 변수로 액세스할 수 있습니다 `MYSQLCONNSTR_connectionString1` . 언어 스택 관련 단계는 다음을 참조 하세요.
 
