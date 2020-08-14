@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145625"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212623"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -34,6 +34,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 ## <a name="note-before-you-migrate"></a>마이그레이션 전 주의 사항
 
+* **2020 년 11 월 2**일부 터 제작 환경을 마이그레이션해야 합니다. 
 * 마이그레이션은 단방향 프로세스입니다. 마이그레이션한 후에는 뒤로 이동할 수 없습니다.
 * 응용 프로그램의 소유자 인 경우 응용 프로그램은 자동으로 마이그레이션됩니다.
 * 소유자는 마이그레이션할 앱의 하위 집합을 선택할 수 없으며 프로세스를 되돌릴 수 없습니다.

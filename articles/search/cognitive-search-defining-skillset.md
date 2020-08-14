@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557452"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214067"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search에서 AI 보강 파이프라인에 기술를 만드는 방법 
 
-AI 보강는 Azure Cognitive Search에서 검색할 수 있도록 데이터를 추출 하 고 강화 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술는 [기본 제공 기술](cognitive-search-predefined-skills.md) 또는 사용자 지정 기술을 사용할 수 있습니다 (자세한 내용은 [AI 보강 파이프라인에서 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md) 참조).
+![인덱서 단계](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "인덱서 단계")
+
+기술는 검색 가능 하도록 데이터를 추출 하 고 보강 하는 작업을 정의 합니다. 기술는 소스 문서에서 텍스트 및 이미지 콘텐츠를 추출한 후와 원본 문서의 모든 필드가 인덱스 또는 기술 자료 저장소의 대상 필드에 매핑된 후에 실행 됩니다.
+
+기술에는 텍스트 번역, 키 구 추출, 이미지 파일에서 광학 문자 인식 등 특정 보강 작업을 나타내는 하나 이상의 *인식 기술이* 포함 되어 있습니다. 기술를 만들려면 Microsoft에서 제공 하는 [기본 제공 기술](cognitive-search-predefined-skills.md) 또는 사용자가 제공 하는 모델 또는 처리 논리를 포함 하는 사용자 지정 기술 ( [예: 자세한 내용은 AI 보강 파이프라인에서 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md) 참조)를 사용할 수 있습니다.
 
 이 문서에서는 사용하려는 기술에 대한 보강 파이프라인을 만드는 방법을 알아 봅니다. 기술는 Azure Cognitive Search [인덱서에](search-indexer-overview.md)연결 됩니다. 이 문서에서 다루는 파이프라인 디자인의 한 부분은 기술 집합 자체를 생성하는 것입니다. 
 
@@ -235,7 +239,7 @@ Content-Type: application/json
 
 ## <a name="add-structure"></a>구조 추가
 
-기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예제를 참조하세요.
+기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음과 같은 예제를 참조하세요.
 
 *"네 번째 분기에서 Microsoft는 작년의 수익에서 $11억을 기록 하 고 작년에 구매한 소셜 네트워킹 회사를 구매 했습니다. 이를 통해 Microsoft는 LinkedIn 기능과 해당 CRM 및 Office 기능을 결합할 수 있습니다. 주주는 지금까지 진행 되 고 있습니다. "*
 

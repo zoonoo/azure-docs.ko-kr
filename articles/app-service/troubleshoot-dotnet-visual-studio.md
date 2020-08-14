@@ -5,13 +5,13 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: seodec18
-ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079810"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211980"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -72,7 +72,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
-**오류가 발생했습니다.**
+**오류가 발생 했습니다.**
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 

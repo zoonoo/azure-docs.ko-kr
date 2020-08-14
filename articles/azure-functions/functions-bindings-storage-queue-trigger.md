@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 4abe3a46c854e0856e4db9a60fa7cd6fc9f8b3c8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
+ms.openlocfilehash: 2b44728d1f5b2a6985e7e636d9e3593b09d009ba
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844901"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212958"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -363,7 +363,7 @@ public class QueueTriggerDemo {
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|Type|설명|
+|속성|형식|설명|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . *function.json*|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
@@ -404,7 +404,7 @@ public class QueueTriggerDemo {
 
 ## <a name="hostjson-properties"></a>속성 host.js
 
-[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [설정에](functions-bindings-storage-queue-output.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
+[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [ 설정에](functions-bindings-storage-queue-output.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

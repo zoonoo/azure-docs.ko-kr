@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: f9eb573573ef70c8e5336ea6cca5f247e9ec0041
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: fd0d425f00e001071f5c9021068ca2f038371a36
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086520"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212820"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -34,9 +34,9 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 |[HDInsight에 대한 실시간 데이터 통합을 위한 Striim](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striim(“스트림”으로 발음)은 엔드투엔드 데이터 통합 + 인텔리전스 플랫폼으로, 서로 다른 데이터 스트림을 연속으로 수집, 처리, 분석할 수 있습니다. |
 |[Jumbune 엔터프라이즈 - 빅 데이터 분석 가속화](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |높은 수준에서 Jumbune은 엔터프라이즈를 지원합니다. 1. Tez, MapReduce 및 Spark 엔진 기반 Hive, Java, Scala 워크로드 성능 가속화. 2. 자동 관리 Hadoop 클러스터 모니터링. 3. 분산 파일 시스템에 데이터 품질 관리 설정. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Apache Kylin에서 제공하는 Kyligence Enterprise는 빅 데이터를 기반으로 BI를 가능하게 합니다. Hadoop의 엔터프라이즈 OLAP 엔진인 Kyligence Enterprise는 산업 표준 데이터 웨어하우스 및 BI 방법론을 사용하여 Hadoop에서 BI를 설계하는 비즈니스 분석가의 역량을 강화합니다. |
-|[Azure HDInsight용 Starburst Presto](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop은 |Presto는 빠르고 확장 가능한 분산 SQL 쿼리 엔진입니다. 스토리지 및 컴퓨팅을 분리하기 위해 설계된 Presto는 Azure Data Lake Storage, Azure Blob Storage, SQL 및 NoSQL 데이터베이스와 기타 데이터 원본의 데이터를 쿼리하는 데 이상적입니다. |
+|[Azure HDInsight용 Starburst Presto](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |Hadoop은 |Presto는 빠르고 확장 가능한 분산 SQL 쿼리 엔진입니다. 스토리지 및 컴퓨팅을 분리하기 위해 설계된 Presto는 Azure Data Lake Storage, Azure Blob Storage, SQL 및 NoSQL 데이터베이스와 기타 데이터 원본의 데이터를 쿼리하는 데 이상적입니다. |
 |[HDInsight Cloud용 StreamSets Data Collector](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets Data Collector는 데이터를 실시간으로 스트림하는 간단하고 강력한 엔진입니다. Data Collector를 사용하여 데이터 스트림에서 데이터를 라우팅하고 처리합니다. 30일 평가판 라이선스가 함께 제공됩니다. |
-|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |HDInsight용 Trifacta Wrangler Enterprise는 모든 규모의 데이터에 대해 엔터프라이즈 전체 데이터 랭글링를 지원합니다. Azure에서 Trifacta를 실행하는 비용은 Trifacta 구독 비용과 가상 머신에 대한 Azure 인프라 비용의 조합입니다. |
+|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark, HBase |HDInsight용 Trifacta Wrangler Enterprise는 모든 규모의 데이터에 대해 엔터프라이즈 전체 데이터 랭글링를 지원합니다. Azure에서 Trifacta를 실행하는 비용은 Trifacta 구독 비용과 가상 머신에 대한 Azure 인프라 비용의 조합입니다. |
 |[Unifi 데이터 플랫폼](https://unifisoftware.com/platform/) |Hadoop, HBase, Storm, Spark |Unifi 데이터 플랫폼은 원활하게 통합되는 셀프 서비스 데이터 도구 제품군으로, 비즈니스 사용자가 데이터 과제를 해결하여 수익을 높이고 비용 또는 운영 복잡성을 줄일 수 있도록 설계되었습니다. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |HDInsight Spark 클러스터용 Unravel Data 앱입니다. |
 |[Waterline AI 기반 데이터 카탈로그](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline은 자동으로 데이터에 비즈니스 용어를 태그로 지정하는 AI를 사용하여 데이터를 범주화, 정리 및 관리합니다. Waterline의 비즈니스에 익숙한 카탈로그는 셀프 서비스 분석, 규정 준수 및 거버넌스, IT 관리 이니셔티브에 중요한 성공 구성 요소입니다. |

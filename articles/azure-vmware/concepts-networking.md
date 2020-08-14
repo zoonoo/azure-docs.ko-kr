@@ -3,14 +3,14 @@ title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션 (AVS)에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f1f1f5a089781f1f7e882c9c8692f0c845ae485
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062840"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214101"
 ---
-# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 (AVS) 미리 보기 네트워킹 및 상호 연결과 개념
+# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>AVS(Azure VMware 솔루션) 미리 보기 네트워킹 및 상호 연결 개념
 
 Azure의 Azure VMware 솔루션 (AVS) 사설 클라우드와 온-프레미스 환경 또는 가상 네트워크 간의 네트워크 상호 연결과을 통해 사설 클라우드를 액세스 하 고 사용할 수 있습니다. 이 문서에서는 네트워킹 및 상호 연결과의 기본 사항을 설정 하는 몇 가지 주요 개념을 다룹니다.
 
@@ -46,7 +46,7 @@ AVS 사설 클라우드의 사용 사례는 다음과 같습니다.
 
 ## <a name="routing-and-subnet-requirements"></a>라우팅 및 서브넷 요구 사항
 
-라우팅은 각 사설 클라우드 배포에 대해 기본적으로 자동으로 프로 비전 되 고 사용 하도록 설정 된 BGP (Border Gateway Protocol)를 기반으로 합니다. AVS 사설 클라우드의 경우 아래 표에 표시 된 서브넷에 대 한 최소/22 개의 접두사 길이 CIDR 네트워크 주소 블록을 사용 하 여 사설 클라우드 네트워크 주소 공간을 계획 해야 합니다. 주소 블록은 구독과 온-프레미스 네트워크에 있는 다른 가상 네트워크에서 사용 되는 주소 블록과 겹칠 수 없습니다. 이 주소 블록 내에서 관리, 프로 비전 및 vMotion 네트워크는 자동으로 프로 비전 됩니다.
+라우팅은 각 사설 클라우드 배포에 대해 기본적으로 자동으로 프로 비전 되 고 사용 하도록 설정 된 BGP (Border Gateway Protocol)를 기반으로 합니다. AVS 사설 클라우드의 경우 아래 표에 표시 된 서브넷에 대 한 최소/22 개의 접두사 길이 CIDR 네트워크 주소 블록을 사용 하 여 사설 클라우드 네트워크 주소 공간을 계획 해야 합니다. 주소 블록은 구독과 온-프레미스 네트워크에 있는 다른 가상 네트워크에서 사용되는 주소 블록과 겹칠 수 없습니다. 이 주소 블록 내에서 관리, 프로 비전 및 vMotion 네트워크는 자동으로 프로 비전 됩니다.
 
 `/22` CIDR 네트워크 주소 블록의 예: `10.10.0.0/22`
 

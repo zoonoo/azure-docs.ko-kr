@@ -2,15 +2,16 @@
 title: ASP.NET Core 앱 구성
 description: Azure App Service에서 네이티브 Windows 인스턴스 또는 미리 빌드된 Linux 컨테이너의 ASP.NET Core 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 77bff369e2af09921a2065a031166c017128f008
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d6e85bad7705647164fb1010f6c782729e20596b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080167"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211916"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET Core 앱 구성
 

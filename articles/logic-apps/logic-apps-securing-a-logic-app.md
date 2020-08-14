@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c7b4cf688d02ebbcb099f116c0eb7b4ebe7c6074
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066732"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212427"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -240,7 +240,7 @@ Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설�
 ],
 ```
 
-섹션에 대 한 자세한 내용은 `accessControl` [Azure Resource Manager 템플릿에서 인바운드 IP 범위 제한](#restrict-inbound-ip-template) 및 [Microsoft 논리 워크플로 템플릿 참조](/templates/microsoft.logic/2019-05-01/workflows)를 참조 하세요.
+섹션에 대 한 자세한 내용은 `accessControl` [Azure Resource Manager 템플릿에서 인바운드 IP 범위 제한](#restrict-inbound-ip-template) 및 [Microsoft 논리 워크플로 템플릿 참조](/azure/templates/microsoft.logic/2019-05-01/workflows)를 참조 하세요.
 
 <a name="restrict-inbound-ip"></a>
 
@@ -786,8 +786,8 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 
 다음 표에서는 사용자가 인증 유형을 선택할 수 있는 트리거와 작업에서 사용할 수 있는 인증 유형을 식별 합니다.
 
-| 인증 유형 | 가용성 |
-|---------------------|--------------|
+| 인증 유형 | 지원 되는 트리거 및 작업 |
+|---------------------|--------------------------------|
 | [기본](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
@@ -952,7 +952,7 @@ Authorization: OAuth realm="Photos",
 
 ### <a name="managed-identity-authentication"></a>관리 ID 인증
 
-[관리 id](../active-directory/managed-identities-azure-resources/overview.md) 옵션을 사용할 수 있는 경우 논리 앱은 로그인 하지 않고 Azure Active Directory (Azure AD)로 보호 되는 다른 리소스에 대 한 액세스를 인증 하기 위해 시스템이 할당 한 id 또는 수동으로 만든 사용자 할당 *id를 사용할* 수 있습니다. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 유용합니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
+[관리 id](../active-directory/managed-identities-azure-resources/overview.md) 옵션을 [특정 트리거 또는 동작](#add-authentication-outbound)에서 사용할 수 있는 경우 논리 앱은 로그인 하지 않고 Azure Active Directory (Azure AD)로 보호 되는 다른 리소스에 대 한 액세스를 인증 하기 위해 시스템이 할당 한 id 또는 수동으로 만들어진 *단일* 사용자 할당 id를 사용할 수 있습니다. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 유용합니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
 
 1. 논리 앱이 관리 ID를 사용할 수 있으려면 그 전에 [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](../logic-apps/create-managed-service-identity.md)의 단계를 따르세요. 이 단계는 논리 앱에서 관리 ID를 사용하도록 설정하고 대상 Azure 리소스에 대한 해당 ID의 액세스 권한을 설정합니다.
 

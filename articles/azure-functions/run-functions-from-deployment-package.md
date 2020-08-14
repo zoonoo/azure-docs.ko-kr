@@ -3,21 +3,18 @@ title: 패키지에서 Azure Functions 실행
 description: 함수 앱 프로젝트 파일을 포함하는 배포 패키지 파일을 탑재하여 Azure Functions 런타임이 함수를 실행하게 합니다.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79365274"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214231"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
 Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 수 있습니다. 다른 옵션은 함수 앱의 `d:\home\site\wwwroot` 디렉터리에 파일을 배포하는 것입니다.
 
 이 문서에서는 패키지에서 함수를 실행하는 이점에 대해 설명합니다. 또한 함수 앱에서 이 기능을 사용하도록 설정하는 방법을 보여줍니다.
-
-> [!IMPORTANT]
-> [프리미엄 계획](functions-scale.md#premium-plan)에서 Linux 함수 앱에 함수를 배포할 때는 항상 패키지 파일에서를 실행 하 고 [Azure Functions Core Tools를 사용 하 여 앱을 게시](functions-run-local.md#project-file-deployment)해야 합니다.
 
 ## <a name="benefits-of-running-from-a-package-file"></a>패키지 파일에서 실행하는 이점
   

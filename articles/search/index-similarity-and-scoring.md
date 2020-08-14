@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4c725fe74185088dea55b7506493fe667e71b7ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b3df38e8feef2a7b9bbc090e11a669164010f32
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806638"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213195"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Azure Cognitive Search의 유사성 및 점수 매기기
 
@@ -103,6 +103,7 @@ Azure Cognitive Search는 두 가지 유사성 순위 알고리즘인 *클래식
 ```
 
 [사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial) 에서 이러한 데이터 요소를 사용 하거나 정보를 사용 하 여 검색 관련성 문제를 디버그할 수 있습니다.
+
 
 ## <a name="see-also"></a>참고 항목
 
