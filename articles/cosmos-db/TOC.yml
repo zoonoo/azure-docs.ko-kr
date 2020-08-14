@@ -554,7 +554,7 @@
       items:
         - name: 보안 개요
           href: database-security.md
-        - name: 데이터 암호화.
+        - name: 데이터 암호화
           href: database-encryption-at-rest.md
         - name: 데이터에 안전하게 액세스
           displayName: 'master key, resource token, users, roles'
