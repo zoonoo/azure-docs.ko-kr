@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d73782d9de7da2c5daacbff5397d9a365ff9ae03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f93df91f87f8119a503f2f7c452b61e3af5924f8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038412"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208789"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -38,7 +38,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 ## <a name="permissions"></a>사용 권한
 
-상태 또는 정의에 대 한 GET 요청을 포함 하 여 인덱서와 관련 된 모든 작업에는 [관리 api 키](search-security-api-keys.md)가 필요 합니다. 
+상태 또는 정의에 대 한 GET 요청을 포함 하 여 인덱서와 관련 된 모든 작업에는 [관리 api 키](search-security-api-keys.md)가 필요 합니다.
 
 <a name="supported-data-sources"></a>
 
@@ -51,10 +51,47 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database 및 SQL Managed Instance](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Virtual Machines의 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Azure Virtual Machines에서 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
+## <a name="indexer-stages"></a>인덱서 단계
+
+초기 실행 시 인덱스가 비어 있으면 테이블이 나 컨테이너에 제공 된 모든 데이터에서 인덱서가 읽혀집니다. 후속 실행에서 인덱서는 일반적으로 변경 된 데이터만 검색 하 고 검색할 수 있습니다. Blob 데이터의 경우 변경 검색은 자동으로 검색 됩니다. Azure SQL 또는 Cosmos DB 같은 다른 데이터 원본의 경우 변경 내용 검색을 사용 하도록 설정 해야 합니다.
+
+수집 하는 각 문서에 대해 인덱서는 인덱싱에 대 한 문서 검색에서 최종 검색 엔진 "전달"까지 여러 단계를 구현 하거나 조정 합니다. 필요에 따라 기술 실행 및 출력을 구동 하는 경우에도 인덱서가 지정 됩니다. 기술가 정의 되어 있다고 가정 합니다.
+
+![인덱서 단계](./media/search-indexer-overview/indexer-stages.png "인덱서 단계")
+
+### <a name="stage-1-document-cracking"></a>1 단계: 문서 크랙
+
+문서 크랙은 파일을 열고 콘텐츠를 추출 하는 프로세스입니다. 데이터 원본 유형에 따라 인덱서는 잠재적으로 인덱싱 가능한 콘텐츠를 추출 하기 위해 다른 작업을 수행 합니다.  
+
+예제:  
+
+* 문서가 [AZURE SQL 데이터 원본의](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)레코드인 경우 인덱서는 레코드에 대 한 각 필드를 추출 합니다.
+* 문서가 [Azure Blob Storage 데이터 원본의](search-howto-indexing-azure-blob-storage.md)PDF 파일이 면 인덱서가 파일의 텍스트, 이미지 및 메타 데이터를 추출 합니다.
+* 문서가 [Cosmos DB 데이터 원본의](search-howto-index-cosmosdb.md)레코드인 경우 인덱서는 Cosmos DB 문서에서 필드 및 하위 필드를 추출 합니다.
+
+### <a name="stage-2-field-mappings"></a>2 단계: 필드 매핑 
+
+인덱서는 원본 필드에서 텍스트를 추출 하 여 인덱스나 정보 저장소의 대상 필드에 보냅니다. 필드 이름과 형식이 일치 하는 경우 경로는 명확 하지 않습니다. 그러나 출력에 다른 이름이 나 형식이 필요할 수 있으며,이 경우에 필드를 매핑하는 방법을 인덱서에 알려야 합니다. 이 단계는 문서를 크랙 한 후, 변환 전에 인덱서가 소스 문서에서 읽을 때 발생 합니다. [필드 매핑을](search-indexer-field-mappings.md)정의할 때 원본 필드의 값은 수정 없이 대상 필드에 그대로 보내집니다. 필드 매핑은 선택적입니다.
+
+### <a name="stage-3-skillset-execution"></a>3 단계: 기술 실행
+
+기술 실행은 기본 제공 또는 사용자 지정 AI 처리를 호출 하는 선택적 단계입니다. 이미지 분석의 형태로 OCR (광학 문자 인식)에 필요할 수도 있고 언어 번역이 필요할 수도 있습니다. 변환이 무엇이 든, 기술 실행은 보강 발생 합니다. 인덱서가 파이프라인 인 경우 [기술](cognitive-search-defining-skillset.md) 를 "파이프라인 내의 파이프라인" 이라고 생각할 수 있습니다. 기술에는 기술 이라는 고유한 단계 시퀀스가 있습니다.
+
+### <a name="stage-4-output-field-mappings"></a>4 단계: 출력 필드 매핑
+
+기술의 출력은 사실 보강 문서 라고 하는 정보의 트리입니다. 출력 필드 매핑을 사용 하 여 인덱스의 필드에 매핑할이 트리의 파트를 선택할 수 있습니다. [출력 필드 매핑을 정의](cognitive-search-output-field-mapping.md)하는 방법에 대해 알아봅니다.
+
+축 자 값을 원본에서 대상 필드에 연결 하는 필드 매핑과 마찬가지로 출력 필드 매핑은 보강 문서의 변환 된 값을 인덱스의 대상 필드에 연결 하는 방법을 인덱서에 알려 줍니다. 선택적인 것으로 간주 되는 필드 매핑과 달리, 인덱스에 상주해 야 하는 변형 된 콘텐츠에 대해서는 항상 출력 필드 매핑을 정의 해야 합니다.
+
+다음 이미지는 문서 크랙, 필드 매핑, 기술 실행 및 출력 필드 매핑과 같은 인덱서 단계의 샘플 인덱서 [디버그 세션](cognitive-search-debug-session.md) 표현을 보여 줍니다.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="샘플 디버그 세션" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+
 ## <a name="basic-configuration-steps"></a>기본 구성 단계
+
 인덱서는 데이터 원본에 고유한 기능을 제공할 수 있습니다. 이러한 점에서 인덱서 또는 데이터 원본 구성의 일부 측면은 인덱서 유형에 따라 달라집니다. 그러나 인덱서는 모두 동일한 기본 구성 및 요구 사항을 공유합니다. 인덱서 모두에 공통되는 단계는 아래에서 다룹니다.
 
 ### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기

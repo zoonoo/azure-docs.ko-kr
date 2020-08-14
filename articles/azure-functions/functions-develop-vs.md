@@ -1,15 +1,15 @@
 ---
 title: Visual Studio를 사용하여 Azure Functions 개발
 description: Visual Studio 2019 용 Azure Functions 도구를 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 0df65c4cdbf40b49bc265f4accafde67f41dafb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81de0af335e0a233ac568921b298c9bb168eb174
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731036"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209979"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -27,7 +27,7 @@ Visual Studio는 함수를 개발할 때 다음과 같은 이점을 제공 합�
 
 별도로 언급 하지 않는 한, 표시 되는 프로시저와 예제는 Visual Studio 2019에 대 한 것입니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Functions 도구. Azure 함수 도구를 추가 하려면 Visual Studio 설치에 **azure 개발** 워크 로드를 포함 합니다. Azure Functions 도구는 Visual Studio 2017부터 Azure 개발 워크 로드에서 사용할 수 있습니다.
 

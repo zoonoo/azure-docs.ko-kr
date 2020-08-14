@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476113"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208199"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당 된 역할 문제 해결
 
@@ -51,7 +51,7 @@ ms.locfileid: "87476113"
 
 **A:** 네 당신은 할 수 있어요. 전역 관리자 및 사용자 관리자는 액세스 패키지에 모든 그룹을 배치할 수 있습니다. 전역 관리자에 대 한 변경 사항은 없지만 사용자 관리자 역할 사용 권한은 약간 변경 됩니다. 액세스 패키지에 역할 할당 가능 그룹을 추가 하려면 사용자 관리자 및 역할 할당 가능 그룹의 소유자 여야 합니다. 엔터프라이즈 라이선스 관리에서 액세스 패키지를 만들 수 있는 사람을 보여 주는 전체 표는 다음과 같습니다.
 
-Azure AD 디렉터리 역할 | 자격 관리 역할 | 보안 그룹을 추가할 수 있음\* | Office 365 그룹을 추가할 수 있습니다.\* | 앱 추가 가능 | SharePoint Online 사이트 추가 가능
+Azure AD 디렉터리 역할 | 자격 관리 역할 | 보안 그룹을 추가할 수 있음\* | Microsoft 365 그룹 추가 가능\* | 앱 추가 가능 | SharePoint Online 사이트 추가 가능
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 전역 관리자 | 해당 없음 | ✔️ | ✔️ | ✔️  | ✔️
 사용자 관리자  | 해당 없음  | ✔️  | ✔️  | ✔️

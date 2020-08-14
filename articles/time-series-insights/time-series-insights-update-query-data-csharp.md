@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 902dfc924fdac28c0aed46745604c5d4d19f084b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 158715a312af5d368b6f1125a7f1acc36dbefe51
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920333"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207511"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c"></a>C를 사용 하 여 Azure Time Series Insights Gen2 환경에서 데이터 쿼리 #
 
 이 c # 예제에서는 Azure Time Series Insights Gen2 환경에서 [Gen2 Data Access api](https://docs.microsoft.com/rest/api/time-series-insights/preview) 의 데이터를 쿼리 하는 방법을 보여 줍니다.
 
 > [!TIP]
-> 에서 Gen2 c # 코드 샘플을 봅니다 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample) .
+> 에서 Gen2 c # 코드 샘플을 봅니다 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
 
 ## <a name="summary"></a>요약
 
@@ -50,7 +50,7 @@ ms.locfileid: "87920333"
 
 1. [Gen2 Azure Time Series Insights 환경을 프로 비전](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) 합니다.
 1. [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)에 설명된 대로 Azure Active Directory에 대한 Azure Time Series Insights 환경을 구성합니다. 
-1. [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) 에 지정 된 대로 [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) 를 실행 하 여 Azure Time Series Insights Gen2 client 종속성을 생성 합니다.
+1. [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) 에 지정 된 대로 [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) 를 실행 하 여 Azure Time Series Insights Gen2 client 종속성을 생성 합니다.
 1. `TSIPreviewDataPlaneclient.sln` 솔루션을 열고 `DataPlaneClientSampleApp`를 Visual Studio의 기본 프로젝트로 설정합니다.
 1. [아래](#project-dependencies)에 설명된 단계를 사용하여 필요한 프로젝트 종속성을 설치하고 예제를 `.exe` 실행 파일로 컴파일합니다.
 1. `.exe` 파일을 두 번 클릭하여 실행합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "87920333"
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - 버전 16.4.2+
 
-예제 코드에는 [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) 파일에서 볼 수 있는 몇 가지 필수 종속성이 있습니다.
+예제 코드에는 [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/packages.config) 파일에서 볼 수 있는 몇 가지 필수 종속성이 있습니다.
 
 **빌드** > **솔루션 빌드** 옵션을 선택하여 Visual Studio 2019에서 패키지를 다운로드합니다. 
 
