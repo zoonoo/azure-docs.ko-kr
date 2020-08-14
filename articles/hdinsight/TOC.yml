@@ -1,3 +1,5 @@
+- name: Azure HDInsight 설명서
+  href: index.yml
 - name: HDInsight 서비스
   expanded: true
   items:
@@ -74,7 +76,7 @@
               href: overview-data-lake-storage-gen1.md
             - name: Azure Data Lake Storage Gen2 개요
               href: overview-data-lake-storage-gen2.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 클러스터 만들기
           items:
@@ -342,7 +344,7 @@
               href: ./spark/optimize-cluster-configuration.md
         - name: Spark 2.3 또는 2.4로 마이그레이션
           href: ./spark/migrate-versions.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 도구 사용
           items:
@@ -471,7 +473,7 @@
           href: ./hdinsight-hadoop-create-linux-clusters-adf.md
         - name: Apache Hadoop 작업 제출
           href: ./hadoop/submit-apache-hadoop-jobs-programmatically.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 도구 사용
           items:
@@ -616,7 +618,7 @@
           href: ./kafka/apache-kafka-performance-tuning.md
         - name: Kafka FAQ
           href: ./kafka/kafka-faq.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 개발
           items:
@@ -667,7 +669,7 @@
       items:
         - name: HDInsight에서 Apache HBase 사용
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 개발
           items:
@@ -746,7 +748,7 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: 크기 조정 지침
           href: ./interactive-query/sizing-guidelines.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 개발
           items:
@@ -843,7 +845,7 @@
           href: ./r-server/ml-services-tutorial-spark-compute.md
         - name: Visual Studio용 R 도구 사용
           href: ./r-server/r-server-submit-jobs-r-tools-vs.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 개발
           items:
@@ -875,7 +877,7 @@
           href: ./storm/apache-storm-write-data-lake-store.md
         - name: Apache Kafka 및 Apache Storm(Java)
           href: ./hdinsight-apache-storm-with-kafka.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: Spark로 Storm 마이그레이션
           href: ./storm/migrate-storm-to-spark.md
@@ -943,7 +945,7 @@
           href: ./disk-encryption.md
         - name: Ranger 및 Apache Ambari의 LDAP 동기화
           href: ./domain-joined/ldap-sync.md
-    - name: 방법
+    - name: 방법 가이드
       items:
         - name: 자격 증명 관리에 ID 브로커 사용
           href: ./domain-joined/identity-broker.md
