@@ -5,6 +5,7 @@
     - name: 데이터 카탈로그란?
       href: overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: Azure Data Catalog 만들기
       href: data-catalog-get-started.md
@@ -20,8 +21,6 @@
       href: data-catalog-dsr.md
     - name: Azure 데이터 카탈로그 도입
       href: data-catalog-adopting-data-catalog.md
-    - name: 사전 요구 사항
-      href: data-catalog-prerequisites.md
     - name: FAQ
       href: data-catalog-frequently-asked-questions.md
 - name: 방법

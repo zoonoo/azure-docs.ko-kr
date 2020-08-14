@@ -117,30 +117,16 @@
   items:
     - name: 텍스트 음성 변환 설명서
       href: index-text-to-speech.yml
-    - name: 개요
-      items:
-        - name: 텍스트 음성 변환이란?
-          href: text-to-speech.md
-        - name: 텍스트 음성 변환 기본 사항
-          href: text-to-speech-basics.md
-    - name: 빠른 시작
-      items:
-        - name: 스피커로 음성 합성
-          href: quickstarts/text-to-speech.md
-        - name: 오디오 파일로 음성 합성
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: 긴 형식의 오디오로 음성 합성
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: 텍스트 음성 변환이란?
+      href: text-to-speech.md
+    - name: 텍스트 음성 변환 빠른 시작
+      href: get-started-text-to-speech.md
     - name: 방법 가이드
       items:
         - name: SSML을 사용하여 합성 향상
           href: speech-synthesis-markup.md
         - name: 긴 오디오 API를 사용하여 음성 합성
           href: long-audio-api.md
-        - name: REST를 사용하여 음성 목록 가져오기(Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: REST을 사용하여 텍스트 음성 변환(Python)
-          href: quickstart-python-text-to-speech.md
     - name: 사용자 지정
       items:
         - name: 신뢰할 수 있는 배포

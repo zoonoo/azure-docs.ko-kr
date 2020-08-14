@@ -72,7 +72,7 @@
               items:
                 - name: Azure AD 인증 구성
                   href: database/authentication-aad-configure.md
-                - name: 다단계 AAD 인증
+                - name: Multi-Factor Azure AD 인증
                   href: database/authentication-mfa-ssms-overview.md
                 - name: Multi-Factor Auth 구성
                   href: database/authentication-mfa-ssms-configure.md
@@ -891,8 +891,10 @@
           href: managed-instance/threat-detection-configure.md
         - name: 애플리케이션 연결
           href: managed-instance/connect-application-instance.md
-        - name: 경고 만들기
+        - name: 관리형 인스턴스에 대한 경고 만들기
           href: managed-instance/alerts-create.md
+        - name: 관리형 인스턴스에서 수동으로 장애 조치(failover) 시작
+          href: managed-instance/user-initiated-failover.md
     - name: 샘플
       items:
         - name: Azure CLI
@@ -1064,7 +1066,7 @@
               href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
             - name: SQL Server 드라이버
               href: 'https://docs.microsoft.com/sql/connect/sql-connection-libraries'
-            - name: REST
+            - name: REST (영문)
               href: /rest/api/
         - name: 리소스
           items:
@@ -1128,7 +1130,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM
@@ -1137,7 +1139,7 @@
       href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
       href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SQL Server Data Tools(SSDT)
+    - name: SSDT(SQL Server Data Tools)
       href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
       href: /sql/tools/bcp-utility

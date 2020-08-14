@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bc278ea3cbd14690f1a9ac9263872536b5b174
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031128"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224784"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
@@ -29,9 +29,9 @@ Azure Functions 버전 2.x부터 [바인딩은](./functions-triggers-bindings.md
 |Azure portal|자동|자동 번역<sup>*</sup>|
 |Non-.NET 언어 또는 로컬 Azure 핵심 도구 개발|자동|[Azure Functions Core Tools 및 확장 번들 사용](#extension-bundles)|
 |Visual Studio를 사용 하는 c # 클래스 라이브러리|[NuGet 도구 사용](#vs)|[NuGet 도구 사용](#vs)|
-|Visual Studio Code를 사용하는 C# 클래스 라이브러리|N/A|[.NET Core CLI 사용](#vs-code)|
+|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#vs-code)|
 
-<sup>*</sup>포털은 확장 번들을 사용 합니다.
+<sup>*</sup> 포털은 확장 번들을 사용 합니다.
 
 ## <a name="extension-bundles"></a><a name="extension-bundles"></a>확장 번들
 
@@ -43,7 +43,7 @@ Azure Functions 버전 2.x부터 [바인딩은](./functions-triggers-bindings.md
 
 확장 번들을 사용 하지 않는 경우 [명시적으로 바인딩 확장을 설치](#explicitly-install-extensions)하기 전에 로컬 컴퓨터에 .net CORE 2.x SDK를 설치 해야 합니다. 필요한 확장을 명시적으로 정의 하는 확장명 .csproj 파일이 프로젝트에 추가 됩니다. 확장 번들은 로컬 개발을 위한 이러한 요구 사항을 제거 합니다. 
 
-확장 번들을 사용 하려면에 대 한 다음 항목을 포함 하도록 파일 *의host.js* 를 업데이트 합니다 `extensionBundle` .
+확장 번들을 사용 하려면에 대 한 다음 항목을 포함 하도록 파일 * 의host.js* 를 업데이트 합니다 `extensionBundle` .
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
@@ -53,7 +53,7 @@ Azure Functions 버전 2.x부터 [바인딩은](./functions-triggers-bindings.md
 
 ## <a name="nuget-packages"></a><a name="local-csharp"></a>NuGet 패키지
 
-C # 클래스 라이브러리 기반 함수 프로젝트의 경우에는 클래스가 아닌 프로젝트용으로 특별히 디자인 된 확장 번들을 설치 해야 합니다. 
+C # 클래스 라이브러리 기반 함수 프로젝트의 경우 확장을 직접 설치 해야 합니다. 확장 번들은 c # 클래스 라이브러리를 기반으로 하지 않는 프로젝트를 위해 특별히 설계 되었습니다.
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Visual Studio를 사용 하는 C 클래스 라이브러리
 
@@ -69,7 +69,7 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 
 `Install-Package`를 사용 하 여 바인딩을 참조 하는 경우에는 [확장 번들](#extension-bundles)을 사용할 필요가 없습니다. 이 방법은 Visual Studio에서 빌드된 클래스 라이브러리에만 적용 됩니다.
 
-## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Visual Studio Code를 사용 하는 c # 클래스 라이브러리
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Visual Studio Code를 사용 하는 c # 클래스 라이브러리
 
 **Visual Studio Code**에서 .NET Core CLI의 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 사용 하 여 명령 프롬프트에서 c # 클래스 라이브러리 프로젝트에 대 한 패키지를 설치 합니다. 다음 예제에서는 바인딩을 추가 하는 방법을 보여 줍니다.
 

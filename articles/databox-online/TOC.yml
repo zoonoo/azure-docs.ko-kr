@@ -117,10 +117,14 @@
               href: azure-stack-edge-manage-access-power-connectivity-mode.md
             - name: PowerShell을 통해
               href: azure-stack-edge-connect-powershell-interface.md
-        - name: 문제 해결
-          href: azure-stack-edge-troubleshoot.md
-        - name: Microsoft 지원에 문의
-          href: azure-stack-edge-contact-microsoft-support.md
+            - name: 문제 해결
+              items:
+                - name: 로그를 통해
+                  href: azure-stack-edge-troubleshoot.md
+                - name: 문제 정렬
+                  href: azure-stack-edge-troubleshoot-ordering.md
+                - name: Microsoft 지원에 문의
+                  href: azure-stack-edge-contact-microsoft-support.md
         - name: 모니터
           href: azure-stack-edge-monitor.md
         - name: 디바이스 반환

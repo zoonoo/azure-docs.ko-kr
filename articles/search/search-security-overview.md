@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829291"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225277"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
@@ -36,7 +36,7 @@ ms.locfileid: "87829291"
 
 Azure Cognitive Search에서 암호화는 연결과 전송으로 시작 되 고 디스크에 저장 된 콘텐츠로 확장 됩니다. 공용 인터넷에서 검색 서비스의 경우 Azure Cognitive Search는 HTTPS 포트 443에서 수신 대기 합니다. 모든 클라이언트-서비스 연결은 TLS 1.2 암호화를 사용 합니다. 이전 버전 (1.0 또는 1.1)은 지원 되지 않습니다.
 
-검색 서비스에서 내부적으로 처리 되는 데이터의 경우 다음 표에서는 [데이터 암호화 모델](../security/fundamentals/encryption-atrest.md#data-encryption-models)에 대해 설명 합니다. 기술 자료 저장소, 증분 보강, 인덱서 기반 인덱싱 등의 일부 기능은 다른 Azure 서비스의 데이터 구조에서 읽거나 쓸 수 있습니다. 이러한 서비스에는 Azure Cognitive Search와 별도의 암호화 지원이 포함 됩니다.
+검색 서비스에서 내부적으로 처리 되는 데이터의 경우 다음 표에서는 [데이터 암호화 모델](../security/fundamentals/encryption-models.md)에 대해 설명 합니다. 기술 자료 저장소, 증분 보강, 인덱서 기반 인덱싱 등의 일부 기능은 다른 Azure 서비스의 데이터 구조에서 읽거나 쓸 수 있습니다. 이러한 서비스에는 Azure Cognitive Search와 별도의 암호화 지원이 포함 됩니다.
 
 | 모델 | 키&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 사항이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 제한 | 적용 대상 |
 |------------------|-------|-------------|--------------|------------|
@@ -54,7 +54,7 @@ Azure Cognitive Search에서 암호화는 연결과 전송으로 시작 되 고 
 
 <a name="double-encryption"></a>
 
-### <a name="double-encryption"></a>이중 암호화 
+### <a name="double-encryption"></a>이중 암호화
 
 Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 2 배 암호화 (CMK에서 한 번, 서비스 관리 키에 의해 다시) 및 포괄적인 범위 (데이터 디스크에 기록 되는 장기 저장소 및 임시 디스크에 기록 된 단기 저장소)로 이루어진 포괄적인 암호화로 인식 됩니다. 1 2020 년 8 월 이전 CMK와 Azure Cognitive Search에서 CMK가 이중 암호화 기능을 수행 하는 것은 임시 디스크에 있는 미사용 데이터의 추가 암호화입니다.
 
@@ -74,7 +74,7 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 
 ### <a name="public-access-using-api-keys"></a>API 키를 사용 하 여 공용 액세스
 
-기본적으로 검색 서비스는 관리에 대 한 키 기반 인증 또는 검색 서비스 끝점에 대 한 쿼리 액세스를 사용 하 여 공용 클라우드를 통해 액세스 됩니다. api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. 키의 형식(관리자 또는 쿼리)은 액세스 수준을 결정합니다. 유효한 키를 제출하면 요청이 신뢰할 수 있는 엔터티에서 시작되었다는 증명으로 간주됩니다. 
+기본적으로 검색 서비스는 관리에 대 한 키 기반 인증 또는 검색 서비스 끝점에 대 한 쿼리 액세스를 사용 하 여 공용 클라우드를 통해 액세스 됩니다. api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. 키의 형식(관리자 또는 쿼리)은 액세스 수준을 결정합니다. 유효한 키를 제출하면 요청이 신뢰할 수 있는 엔터티에서 시작되었다는 증명으로 간주됩니다.
 
 검색 서비스에 액세스 하는 두 가지 수준은 다음과 같은 API 키로 설정 됩니다.
 
@@ -92,15 +92,15 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 
 검색 서비스에 대 한 액세스를 세부적으로 제어 하기 위해 특정 IP 주소 또는 IP 주소 범위에 대 한 액세스를 허용 하는 인바운드 방화벽 규칙을 만들 수 있습니다. 모든 클라이언트 연결은 허용 된 IP 주소를 통해 수행 되어야 합니다. 그렇지 않으면 연결이 거부 됩니다.
 
-포털을 사용 하 여 [인바운드 액세스를 구성할](service-configure-firewall.md)수 있습니다. 
+포털을 사용 하 여 [인바운드 액세스를 구성할](service-configure-firewall.md)수 있습니다.
 
-또는 관리 REST Api를 사용할 수 있습니다. [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) 매개 변수를 사용 하는 API 버전 2020-03-13은 검색 서비스에 대 한 액세스 권한을 부여 하려는 IP 주소를 개별적으로 식별 하 여 서비스에 대 한 액세스를 제한할 수 있습니다. 
+또는 관리 REST Api를 사용할 수 있습니다. [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) 매개 변수를 사용 하는 API 버전 2020-03-13은 검색 서비스에 대 한 액세스 권한을 부여 하려는 IP 주소를 개별적으로 식별 하 여 서비스에 대 한 액세스를 제한할 수 있습니다.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>개인 끝점 (인터넷 트래픽 없음)
 
-Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하면 [가상 네트워크](../virtual-network/virtual-networks-overview.md) 의 클라이언트가 [개인 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전 하 게 액세스할 수 있습니다. 
+Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하면 [가상 네트워크](../virtual-network/virtual-networks-overview.md) 의 클라이언트가 [개인 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전 하 게 액세스할 수 있습니다.
 
-개인 끝점은 검색 서비스에 대 한 연결을 위해 가상 네트워크 주소 공간의 IP 주소를 사용 합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크 및 Microsoft 백본 네트워크의 개인 링크를 순회 하 여 공용 인터넷에서 노출 되는 것을 제거 합니다. VNET은 온-프레미스 네트워크와 인터넷을 통해 리소스 간 보안 통신을 허용 합니다. 
+개인 끝점은 검색 서비스에 대 한 연결을 위해 가상 네트워크 주소 공간의 IP 주소를 사용 합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크 및 Microsoft 백본 네트워크의 개인 링크를 순회 하 여 공용 인터넷에서 노출 되는 것을 제거 합니다. VNET은 온-프레미스 네트워크와 인터넷을 통해 리소스 간 보안 통신을 허용 합니다.
 
 이 솔루션은 가장 안전 하지만, 추가 서비스를 사용 하는 것이 추가 비용 이므로,이에 대해서는 살펴보기 전에 혜택을 명확 하 게 이해 하 고 있어야 합니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/private-link/)를 참조 하세요. 이러한 구성 요소가 함께 작동 하는 방법에 대 한 자세한 내용은이 문서의 맨 위에 있는 비디오를 시청 하세요. 개인 끝점 옵션은 5:48에서 시작 하 여 비디오에 적용 됩니다. 끝점을 설정 하는 방법에 대 한 지침은 [Azure Cognitive Search에 대 한 개인 끝점 만들기](service-create-private-endpoint.md)를 참조 하세요.
 
@@ -140,11 +140,11 @@ Azure Cognitive Search는 공용 클라우드와 Azure Government에 대 한 여
 
 규정 준수를 위해 [Azure Policy](../governance/policy/overview.md) 를 사용 하 여 [Azure 보안 벤치 마크](../security/benchmarks/introduction.md)에 대 한 높은 수준의 보안 모범 사례를 구현할 수 있습니다. Azure 보안 벤치 마크는 서비스 및 데이터에 대 한 위협을 완화 하기 위해 수행 해야 하는 주요 작업에 매핑되는 보안 변환 된에 대 한 보안 권장 사항의 모음입니다. 현재는 [네트워크 보안](../security/benchmarks/security-control-network-security.md), [로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 비롯 하 여 몇 가지 보안 제어와 이름에 대 한 [데이터 보호 기능이](../security/benchmarks/security-control-data-protection.md) 있습니다.
 
-Azure Policy는 azure에 기본 제공 되는 기능으로, Azure 보안 벤치 마크를 비롯 한 여러 표준에 대 한 규정 준수를 관리 하는 데 도움이 됩니다. 잘 알려진 벤치 마크의 경우 Azure Policy는 두 조건을 모두 제공 하는 기본 제공 정의 및 비준수를 해결 하는 조치 가능한 응답을 제공 합니다. 
+Azure Policy는 azure에 기본 제공 되는 기능으로, Azure 보안 벤치 마크를 비롯 한 여러 표준에 대 한 규정 준수를 관리 하는 데 도움이 됩니다. 잘 알려진 벤치 마크의 경우 Azure Policy는 두 조건을 모두 제공 하는 기본 제공 정의 및 비준수를 해결 하는 조치 가능한 응답을 제공 합니다.
 
 Azure Cognitive Search의 경우 현재 기본 제공 정의가 하나 있습니다. 진단 로깅에 대 한 것입니다. 이 기본 제공 기능을 사용 하면 진단 로깅이 누락 된 검색 서비스를 식별 하는 정책을 할당 한 후이를 켤 수 있습니다. 자세한 내용은 [Azure Cognitive Search에 대 한 규정 준수 제어 Azure Policy](security-controls-policy.md)를 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure 보안 기본 사항](../security/fundamentals/index.yml)
 + [Azure 보안](https://azure.microsoft.com/overview/security)

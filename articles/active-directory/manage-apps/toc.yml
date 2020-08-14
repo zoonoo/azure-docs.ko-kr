@@ -47,16 +47,10 @@
           href: access-panel-deployment-plan.md
         - name: 개발자를 위한 지침
           href: developer-guidance-for-integrating-applications.md
-    - name: SSO(Single sign-on)
+    - name: Single Sign-On
       items:
-        - name: 다중 테넌트 애플리케이션용 SSO 사용
-          href: isv-sso-content.md
-        - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
-          href: isv-tenant-multi-tenant-app.md
-        - name: 다중 테넌트 페더레이션 선택
-          href: isv-choose-multi-tenant-federation.md
-        - name: 다중 테넌트 애플리케이션용 설명서 만들기
-          href: isv-create-sso-documentation.md
+        - name: Single Sign-On 옵션
+          href: sso-options.md
         - name: Single Sign-On 배포 계획
           href: plan-sso-deployment.md
         - name: 한 번 클릭 SSO
@@ -97,6 +91,16 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: 원격 액세스 솔루션 비교
           href: application-proxy-migration.md
+    - name: Market으로 앱 가져오기
+      items:
+        - name: 다중 테넌트 애플리케이션용 SSO 사용
+          href: isv-sso-content.md
+        - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
+          href: isv-tenant-multi-tenant-app.md
+        - name: 다중 테넌트 페더레이션 선택
+          href: isv-choose-multi-tenant-federation.md
+        - name: 다중 테넌트 애플리케이션용 설명서 만들기
+          href: isv-create-sso-documentation.md
 - name: 방법 가이드
   expanded: false
   items:

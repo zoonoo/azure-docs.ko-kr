@@ -169,14 +169,16 @@
               href: howto-move-regions-portal.md
     - name: 하이퍼스케일(Citus)
       items:
-        - name: 노드
-          href: concepts-hyperscale-nodes.md
         - name: 분선 데이터
-          href: concepts-hyperscale-distributed-data.md
-        - name: 배포 열 선택
-          href: concepts-hyperscale-choose-distribution-column.md
-        - name: 테이블 공동 배치
-          href: concepts-hyperscale-colocation.md
+          items:
+            - name: 노드 및 테이블
+              href: concepts-hyperscale-nodes.md
+            - name: 애플리케이션 유형 확인
+              href: concepts-hyperscale-app-type.md
+            - name: 배포 열 선택
+              href: concepts-hyperscale-choose-distribution-column.md
+            - name: 테이블 공동 배치
+              href: concepts-hyperscale-colocation.md
         - name: 데이터 액세스 및 보안
           items:
             - name: 방화벽 규칙
@@ -341,12 +343,16 @@
       items:
         - name: 사용자 만들기
           href: howto-hyperscale-create-users.md
-        - name: 확장
+        - name: 서버 그룹 크기
           href: howto-hyperscale-scaling.md
         - name: 방화벽 관리
           items:
             - name: Azure portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: 분산 데이터
+          items:
+            - name: 테이블 분산 및 수정
+              href: howto-hyperscale-modify-distributed-tables.md
         - name: 고가용성
           href: howto-hyperscale-high-availability.md
         - name: 모니터
@@ -361,12 +367,22 @@
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: 참조
   items:
-    - name: Azure CLI
-      href: /cli/azure/postgres
-    - name: REST API
-      href: /rest/api/postgresql
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: 단일 서버
+      items:
+        - name: Azure CLI
+          href: /cli/azure/postgres
+        - name: REST API
+          href: /rest/api/postgresql
+        - name: Resource Manager 템플릿
+          href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: 하이퍼스케일(Citus)
+      items:
+        - name: SQL API 함수
+          href: reference-hyperscale-functions.md
+        - name: 서버 매개 변수
+          href: reference-hyperscale-parameters.md
+        - name: 시스템 테이블
+          href: reference-hyperscale-metadata.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

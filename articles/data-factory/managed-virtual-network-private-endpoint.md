@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135966"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225685"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -82,15 +82,11 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
-- Azure Private Link
+- Azure 개인 링크 서비스
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
 - 아웃 바운드 통신용 포트 443만 열립니다.
 - Azure Storage 및 Azure Data Lake Gen2는 ADF 관리 Virtual Network의 공용 끝점을 통해 연결할 수 없습니다.
-
-### <a name="other-known-issues"></a>기타 알려진 문제
-CosmosDB 연결에 대 한 디버그 실행은 데이터 흐름 디버그와 파이프라인 디버그를 포함 하 여 작동 하지 않습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,6 +4,8 @@
   items:
     - name: Azure API for FHIR 정보
       href: overview.md
+    - name: Azure IoT Connector for FHIR(미리 보기) 정보
+      href: overview.md#azure-iot-connector-for-fhir-preview
 - name: 빠른 시작
   expanded: true
   items:

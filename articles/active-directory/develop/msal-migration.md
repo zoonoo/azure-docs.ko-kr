@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fd19b451638eacbf0d6174154a2688b3523ca4d2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ac9264ea8d6cc71d19d2c9bbd23b2123bdf1f924
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183873"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224359"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)로 응용 프로그램 마이그레이션
 
@@ -62,6 +62,9 @@ A: 응용 프로그램에 대 한 소스 코드가 있는 경우 위의 마이�
 
 __Q: MSAL으로 이동 하는 데 투자 해야 하는 이유는 무엇 인가요?__  
 A: MSAL에는 증분 동의, Single Sign-On 및 토큰 캐시 관리를 포함 하 여 ADAL에 없는 새로운 기능이 포함 되어 있습니다. 또한 ADAL과 달리 MSAL은 2022 년 6 월 30 일까 지 보안 패치를 계속 받을 수 있습니다. [자세히 알아보기](msal-overview.md).
+
+__Q: Microsoft는 자신의 앱을 MSAL으로 업데이트 하나요?__  
+예. Microsoft는 지원 종료 최종 기한에 의해 응용 프로그램을 MSAL로 마이그레이션하는 과정을 진행 하 여 MSAL의 지속적인 보안 및 기능 향상을 활용할 수 있도록 합니다.
 
 __Q: 앱을 ADAL에서 MSAL으로 이동 하는 데 도움이 되는 도구를 릴리스할 예정 인가요?__  
 A: 아니요. 라이브러리 간의 차이점으로 인해 MSAL을 개선 하는 데 사용할 수 있는 도구를 개발 하 고 유지 관리 하는 데에는 전용 리소스가 필요 합니다. 그러나 응용 프로그램에서 필요한 변경을 수행 하는 데 도움이 되는 이전 마이그레이션 가이드 집합을 제공 합니다.

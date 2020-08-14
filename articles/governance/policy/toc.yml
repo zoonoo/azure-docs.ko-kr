@@ -10,16 +10,22 @@
   items:
     - name: 정책 할당 - 포털
       displayName: 'assign, compliance'
-      href: assign-policy-portal.md
-    - name: 정책 할당 - Azure PowerShell
-      displayName: 'assign, compliance'
-      href: assign-policy-powershell.md
+      href: ./assign-policy-portal.md
     - name: 정책 할당 - Azure CLI
       displayName: 'assign, compliance'
-      href: assign-policy-azurecli.md
+      href: ./assign-policy-azurecli.md
+    - name: 정책 할당 - Azure PowerShell
+      displayName: 'assign, compliance'
+      href: ./assign-policy-powershell.md
+    - name: 정책 할당 - Python
+      displayName: 'assign, compliance'
+      href: ./assign-policy-python.md
+    - name: 정책 할당 - REST
+      displayName: 'armclient, postman'
+      href: ./assign-policy-rest-api.md
     - name: 정책 할당 - ARM 템플릿
       displayName: 'assign, compliance, resource manager'
-      href: assign-policy-template.md
+      href: ./assign-policy-template.md
 - name: 자습서
   items:
     - name: Azure 정책 만들기 및 관리

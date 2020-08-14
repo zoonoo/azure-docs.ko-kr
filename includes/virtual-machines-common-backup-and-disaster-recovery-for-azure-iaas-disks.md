@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: a3a2474b491abd31b750a15aad7860666c7bd02e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84124590"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186353"
 ---
 이 문서에서는 Azure에서 IaaS VM(가상 머신) 및 디스크의 백업 및 DR(재해 복구)을 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
 
@@ -257,9 +257,6 @@ Azure에 있는 스토리지 계정의 경우 재해 복구와 관련하여 세 
 심각한 중단으로 판명되면 Azure 팀에서 지리적 장애 조치를 트리거하고 기본 DNS 항목을 보조 스토리지를 가리키도록 변경할 수 있습니다. 이 시점에서 지역 중복 스토리지 또는 읽기 액세스 지역 중복 스토리지를 사용하도록 설정한 경우에는 보조 데이터 센터였던 지역의 데이터에 액세스할 수 있습니다. 즉 스토리지 계정이 지역 중복 스토리지이고 문제가 있을 때 지리적 장애 조치가 있는 경우에만 보조 스토리지에 액세스할 수 있습니다.
 
 자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](../articles/storage/common/storage-disaster-recovery-guidance.md)을 참조하세요.
-
->[!NOTE] 
->Microsoft는 장애 조치가 발생하는지 여부를 제어합니다. 장애 조치는 스토리지 계정별로 제어되지 않으므로 개별 고객이 결정할 수는 없습니다. 특정 스토리지 계정 또는 가상 머신 디스크에 대한 재해 복구를 구현하려면 이 문서의 앞부분에서 설명한 기술을 사용해야 합니다.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

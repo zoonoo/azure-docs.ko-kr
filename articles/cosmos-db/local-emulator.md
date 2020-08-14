@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119524"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225974"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -114,12 +114,13 @@ Azure Cosmos DB와 마찬가지로 Azure Cosmos Emulator는 TLS를 통한 보안
 
 ### <a name="sql-api"></a>SQL API
 
-Azure Cosmos Emulator를 데스크톱에서 실행하면, 지원되는 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/cosmos-db/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. Azure Cosmos Emulator에는 코드를 작성하지 않고도 SQL API용 컨테이너 또는 Mongodb API용 Cosmos DB를 만들어서 항목을 확인하고 편집할 수 있는 기본 제공 Data Explorer도 포함되어 있습니다.
+Azure Cosmos Emulator를 데스크톱에서 실행하면, 지원되는 [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) 또는 [Azure Cosmos DB REST API](/rest/api/cosmos-db/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. Azure Cosmos Emulator에는 코드를 작성하지 않고도 SQL API용 컨테이너 또는 Mongodb API용 Cosmos DB를 만들어서 항목을 확인하고 편집할 수 있는 기본 제공 Data Explorer도 포함되어 있습니다.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -428,7 +429,7 @@ Linux 도커 컨테이너에서 실행되는 .NET 클라이언트 애플리케�
 
 ## <a name="running-on-mac-or-linux"></a>Mac 또는 Linux에서 실행<a id="mac"></a>
 
-현재 Cosmos Emulator는 Windows에서만 실행할 수 있습니다. Mac 또는 Linux를 실행 중인 사용자는 Parallels 또는 VirtualBox 등 하이퍼바이저가 호스트된 Windows 가상 머신에서 에뮬레이터를 실행할 수 있습니다. 이 기능을 사용하도록 설정하는 단계는 다음과 같습니다.
+현재 Cosmos Emulator는 Windows에서만 실행할 수 있습니다. Mac 또는 Linux를 실행 하는 사용자는 위 도선 또는 VirtualBox와 같은 하이퍼바이저에서 호스트 되는 Windows 가상 컴퓨터에서 에뮬레이터를 실행할 수 있습니다. 이 기능을 사용하도록 설정하는 단계는 다음과 같습니다.
 
 Windows VM 내에서 아래 명령을 실행하고 IPv4 주소를 기록해 둡니다.
 
@@ -444,7 +445,36 @@ ipconfig.exe
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-마지막으로, 에뮬레이터 CA 인증서를 Linux 또는 Mac 환경으로 가져와야 합니다.
+마지막으로 Linux 또는 Mac 환경 및 에뮬레이터에서 실행 되는 응용 프로그램 간의 인증서 신뢰 프로세스를 확인 해야 합니다. 다음 두 가지 옵션이 있습니다.
+
+1. 응용 프로그램에서 SSL 유효성 검사를 사용 하지 않도록 설정 합니다.
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1 이상](#tab/ssl-netstd21)
+
+   .NET Standard 2.1 이상과 호환 되는 프레임 워크에서 실행 되는 응용 프로그램의 경우를 활용할 수 있습니다 `CosmosClientOptions.HttpClientFactory` .
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+   .NET Standard 2.0와 호환 되는 프레임 워크에서 실행 되는 응용 프로그램의 경우를 활용할 수 있습니다 `CosmosClientOptions.HttpClientFactory` .
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
+
+   Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZED` 응용 프로그램을 시작 하는 동안를 설정 하도록 파일을 수정할 수 있습니다.
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> SSL 유효성 검사를 사용 하지 않도록 설정 하는 것은 개발 목적 으로만 권장 되며 프로덕션 환경에서 실행 하는 경우에는 수행할 수 없습니다.
+
+2. Linux 또는 Mac 환경으로 에뮬레이터 CA 인증서를 가져옵니다.
 
 ### <a name="linux"></a>Linux
 

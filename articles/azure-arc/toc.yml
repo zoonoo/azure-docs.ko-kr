@@ -6,6 +6,16 @@
       href: ./kubernetes/overview.md
     - name: Azure Arc 지원 서버 정보
       href: ./servers/overview.md
+- name: 빠른 시작
+  items:
+    - name: 서버 에이전트용 Arc 사용
+      href: ./servers/learn/quick-enable-hybrid-vm.md
+- name: 자습서
+  items:
+    - name: 규정 준수를 평가하는 정책 할당
+      href: ./servers/learn/tutorial-assign-policy-portal.md
+    - name: 컴퓨터 모니터링
+      href: ./servers/learn/tutorial-enable-vm-insights.md
 - name: 샘플
   items:
     - name: Azure Policy 기본 제공 기능

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056281"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224563"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>인증서 갱신 Azure Key Vault 정보
 
@@ -60,9 +60,12 @@ Azure 키 자격 증명 모음을 통해 사용자는 모든 CA에서 인증서�
 발급 된 인증서가 Azure Portal의 ' 사용 안 함 ' 상태 이면 인증서 작업 보기로 이동 하 여 해당 인증서에 대 한 오류 메시지를 확인 합니다.
 
 ### <a name="frequently-asked-questions"></a>질문과 대답
-인증서 자동 갱신 후 태그가 복제 되나요?
-아니요. 사용자가 수동으로 태그를 복사 하지 않는 한 태그는 복제 되지 않습니다.
+* 인증서의 autorotation 기능을 테스트 하려면 어떻게 해야 하나요?
+  유효 기간이 1 월 인 인증서를 만든 다음 1%에 대 한 회전에 대 한 수명 시간 작업을 설정 합니다. 이 설정은 인증서를 7.2 시간 안에 회전 합니다.
+  
+* 인증서 자동 갱신 후 태그가 복제 되나요?
+  아니요. 사용자가 수동으로 태그를 복사 하지 않는 한 태그는 복제 되지 않습니다.
 
-### <a name="see-also"></a>관련 항목
+### <a name="see-also"></a>참고 항목
 *   [DigiCert 인증 기관과 Key Vault 통합](how-to-integrate-certificate-authority.md)
 *   [자습서: Key Vault에서 인증서 자동 회전 구성](tutorial-rotate-certificates.md)

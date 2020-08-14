@@ -19,6 +19,8 @@
       href: terminology.md
     - name: 역할 및 요구 사항
       href: concepts-roles-permissions.md
+    - name: 가격 책정 이해
+      href: concepts-pricing.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -29,12 +31,12 @@
   items:
     - name: 모니터
       href: how-to-monitor.md
-    - name: 데이터 세트 매핑 구성
-      href: how-to-configure-mapping.md
     - name: 문제 해결
       href: data-share-troubleshoot.md
     - name: 데이터 세트 추가
       href: how-to-add-datasets.md
+    - name: 데이터 세트 매핑 구성
+      href: how-to-configure-mapping.md
     - name: 수신자 추가
       href: how-to-add-recipients.md
     - name: 초대 삭제

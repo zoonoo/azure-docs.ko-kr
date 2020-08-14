@@ -24,7 +24,7 @@
       href: tutorial-backup-vm-at-scale.md
     - name: PowerShell을 사용하여 Azure VM 백업
       href: tutorial-backup-azure-vm.md
-    - name: 디스크 복원
+    - name: Azure CLI를 사용하여 VM 복원
       href: tutorial-restore-disk.md
     - name: 개별 파일 복원
       href: tutorial-restore-files.md
