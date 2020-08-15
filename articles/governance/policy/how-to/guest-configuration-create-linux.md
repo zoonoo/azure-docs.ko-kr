@@ -3,12 +3,12 @@ title: Linux용 게스트 구성 정책을 만드는 방법
 description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026715"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236593"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -50,6 +50,10 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)
 - Linux
 - macOS
 - Windows
+
+> [!NOTE]
+> ' GuestConfigurationPackage ' cmdlet에는 OMI에 대 한 종속성으로 인해 OpenSSL 버전 1.0이 필요 합니다.
+> 이로 인해 OpenSSL 1.1 이상의 환경에서 오류가 발생 합니다.
 
 게스트 구성 리소스 모듈에는 다음 소프트웨어가 필요합니다.
 
@@ -260,6 +264,8 @@ $uri = publish `
 - **버전**: 정책 버전입니다.
 - **경로**: 정책 정의가 만들어지는 대상 경로입니다.
 - **Platform**: 게스트 구성 정책 및 콘텐츠 패키지용 대상 플랫폼(Windows/Linux)입니다.
+- **Tag**는 정책 정의에 하나 이상의 태그 필터를 추가합니다.
+- **Category**는 정책 정의의 범주 메타데이터 필드를 설정합니다.
 
 다음 예제에서는 사용자 지정 정책 패키지에서 지정된 경로에 정책 정의를 만듭니다.
 
@@ -281,14 +287,6 @@ New-GuestConfigurationPolicy `
 - **Initiative.json**
 
 cmdlet 출력은 정책 파일의 이니셔티브 표시 이름과 경로가 포함된 개체를 반환합니다.
-
-> [!Note]
-> 최신 게스트 구성 모듈에는 다음의 새 매개 변수가 포함됩니다.
-> - **Tag**는 정책 정의에 하나 이상의 태그 필터를 추가합니다.
->   - [태그를 사용하여 게스트 구성 정책 필터링](#filtering-guest-configuration-policies-using-tags) 섹션을 참조하세요.
-> - **Category**는 정책 정의의 범주 메타데이터 필드를 설정합니다.
->   - 매개 변수가 포함되지 않은 경우 범주가 게스트 구성으로 기본 설정됩니다.
-> 이러한 기능은 현재 미리 보기로 제공되며 `Install-Module GuestConfiguration -AllowPrerelease`를 사용하여 설치할 수 있는 게스트 구성 모듈 버전 1.20.1이 필요합니다.
 
 마지막으로 `Publish-GuestConfigurationPolicy` cmdlet을 사용하여 정책 정의를 게시합니다.
 cmdlet에는 `New-GuestConfigurationPolicy`에서 만든 JSON 파일의 위치를 가리키는 **Path** 매개 변수만 있습니다.
@@ -404,9 +402,6 @@ Configuration AuditFilePathExists
 
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>태그를 사용하여 게스트 구성 정책 필터링
-
-> [!Note]
-> 이 기능은 현재 미리 보기로 제공되며 `Install-Module GuestConfiguration -AllowPrerelease`를 사용하여 설치할 수 있는 게스트 구성 모듈 버전 1.20.1이 필요합니다.
 
 게스트 구성 모듈에서 cmdlet에 의해 만들어진 정책에는 선택적으로 태그에 대한 필터가 포함될 수 있습니다. `New-GuestConfigurationPolicy`의 **-Tag** 매개 변수는 개별 태그 전체를 포함하는 해시 테이블의 배열을 지원합니다. 태그는 정책 정의의 `If` 섹션에 추가되며 정책 할당으로 수정할 수 없습니다.
 

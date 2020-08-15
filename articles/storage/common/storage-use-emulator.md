@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 3bef3ba1e993d91fee8b6f6ef2734f008c91d1a1
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447147"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236831"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -42,7 +42,7 @@ Microsoft Azure 저장소 에뮬레이터는 로컬 개발 목적으로 Azure Bl
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>스토리지 에뮬레이터 시작 및 초기화
 
-Azure Storage 에뮬레이터를 시작하려면:
+Azure Storage 에뮬레이터를 시작 하려면:
 
 1. **시작** 단추를 선택하거나 **Windows** 키를 누릅니다.
 2. `Azure Storage Emulator`를 입력하여 시작합니다.
@@ -51,7 +51,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 스토리지 에뮬레이터가 시작되면 명령 프롬프트 창이 표시됩니다. 이 콘솔 창을 사용 하 여 저장소 에뮬레이터를 시작 하 고 중지할 수 있습니다. 또한 명령 프롬프트에서 데이터를 지우고, 상태를 가져오고, 에뮬레이터를 초기화할 수 있습니다. 자세한 내용은 이 문서 뒷부분에 나오는 [스토리지 에뮬레이터 명령줄 도구 참조](#storage-emulator-command-line-tool-reference) 섹션을 참조하세요.
 
 > [!NOTE]
-> Azurite와 같은 다른 저장소 에뮬레이터가 시스템에서 실행 되는 경우 Azure 저장소 에뮬레이터가 제대로 시작 되지 않을 수 있습니다.
+> Azurite와 같은 다른 저장소 에뮬레이터가 시스템에서 실행 되는 경우 Azure Storage 에뮬레이터가 제대로 시작 되지 않을 수 있습니다.
 
 에뮬레이터를 실행 하는 경우 Windows 작업 표시줄 알림 영역에 아이콘이 표시 됩니다.
 
@@ -182,7 +182,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | Description | 명령 | 인수 |
+| 옵션 | 설명 | 명령 | 인수 |
 | --- | --- | --- | --- |
 | **시작** |스토리지 에뮬레이터를 시작합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
 | **중지** |스토리지 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |

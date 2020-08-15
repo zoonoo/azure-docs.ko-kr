@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829699"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235471"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -751,7 +751,7 @@ Azure AD 프로 비전 서비스는 현재 [여기](https://www.microsoft.com/do
 
 스키마를 디자인하고 Azure AD SCIM 구현을 이해했으므로 이제 SCIM 엔드포인트 개발을 시작할 수 있습니다. 처음부터 시작하여 구현을 완전히 빌드하지 않고도 SCIM 커뮤니티에서 게시한 여러 오픈 소스 SCIM 라이브러리를 사용할 수 있습니다.
 
-Azure AD 프로비저닝 팀이 게시한 오픈 소스 .NET Core [참조 코드](https://aka.ms/SCIMReferenceCode)는 개발을 바로 시작할 수 있는 리소스 중 하나입니다. SCIM 엔드포인트를 빌드하면 테스트를 수행할 수 있습니다. 참조 코드의 일부로 제공된 [postman 테스트](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) 컬렉션을 사용하거나 [위의](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)에서 제공된 샘플 요청/응답을 실행할 수 있습니다.  
+Azure AD 프로비저닝 팀이 게시한 오픈 소스 .NET Core [참조 코드](https://aka.ms/SCIMReferenceCode)는 개발을 바로 시작할 수 있는 리소스 중 하나입니다. SCIM 엔드포인트를 빌드하면 테스트를 수행할 수 있습니다. 참조 코드의 일부로 제공된 [postman 테스트](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) 컬렉션을 사용하거나 [위의](#user-operations)에서 제공된 샘플 요청/응답을 실행할 수 있습니다.  
 
    > [!Note]
    > 참조 코드는 SCIM 엔드포인트 빌드를 시작하도록 고안되었으며 “현재 상태로” 제공됩니다. 커뮤니티에서의 기여는 코드 빌드 및 유지 관리에 도움이 됩니다.
@@ -799,7 +799,7 @@ SCIM 서비스에는 루트 인증 기관의 이름이 다음 중 하나인 HTTP
 * Microsoft.SCIM.WebHostSample: https://localhost:5001
 * IIS Express: https://localhost:44359/
 
-ASP.NET Core의 HTTPS에 대한 자세한 내용은 다음 링크를 참조하세요. [ASP.NET Core에서 HTTPS 적용](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+ASP.NET Core의 HTTPS에 대한 자세한 내용은 다음 링크를 참조하세요. [ASP.NET Core에서 HTTPS 적용](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>엔드포인트 인증 처리
 
@@ -1168,12 +1168,12 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>5단계: Azure AD 애플리케이션 갤러리에 애플리케이션 게시
 
-둘 이상의 테넌트가 사용할 애플리케이션을 빌드하는 경우 Azure AD 애플리케이션 갤러리에서 사용하도록 할 수 있습니다. 그러면 조직은 쉽게 애플리케이션을 찾고 프로비저닝을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시하고 다른 사용자가 프로비저닝을 쉽게 사용할 수 있도록 합니다. [여기](../develop/howto-app-gallery-listing.md)서 단계를 확인하세요. Microsoft는 사용자와 협력하여 애플리케이션을 갤러리에 통합하고, 엔드포인트를 테스트하며, 고객이 사용할 수 있도록 온보딩 [설명서](../saas-apps/tutorial-list.md)를 제공합니다. 
+둘 이상의 테넌트가 사용할 애플리케이션을 빌드하는 경우 Azure AD 애플리케이션 갤러리에서 사용하도록 할 수 있습니다. 그러면 조직은 쉽게 애플리케이션을 찾고 프로비저닝을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시하고 다른 사용자가 프로비저닝을 쉽게 사용할 수 있도록 합니다. [여기](../azuread-dev/howto-app-gallery-listing.md)서 단계를 확인하세요. Microsoft는 사용자와 협력하여 애플리케이션을 갤러리에 통합하고, 엔드포인트를 테스트하며, 고객이 사용할 수 있도록 온보딩 [설명서](../saas-apps/tutorial-list.md)를 제공합니다. 
 
 ### <a name="gallery-onboarding-checklist"></a>갤러리 온보딩 검사 목록
 아래의 검사 목록에 따라 애플리케이션이 빠르게 온보드되고 고객이 원활한 배포 환경을 갖추도록 하세요. 갤러리에 온보딩하면 해당 정보가 수집됩니다. 
 > [!div class="checklist"]
-> * [SCIM 2.0 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 엔드포인트 지원(하나만 필요하지만 둘 다 권장됨)
+> * [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 엔드포인트 지원(하나만 필요하지만 둘 다 권장됨)
 > * 테넌트당 25개 이상의 요청 지원(필수)
 > * 고객이 갤러리 온보딩을 게시할 수 있도록 엔지니어링 및 지원 연락처 설정(필수)
 > * 3 애플리케이션에 대해 만료되지 않은 테스트 자격 증명(필수)

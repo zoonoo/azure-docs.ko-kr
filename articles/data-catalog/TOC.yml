@@ -1,4 +1,4 @@
-- name: Data Catalog 설명서
+- name: Azure Data Catalog 설명서
   href: index.yml
 - name: 개요
   items:
@@ -23,7 +23,7 @@
       href: data-catalog-adopting-data-catalog.md
     - name: FAQ
       href: data-catalog-frequently-asked-questions.md
-- name: 방법
+- name: 방법 가이드
   items:
     - name: 데이터 원본 등록
       href: data-catalog-how-to-register.md

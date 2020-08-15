@@ -2,18 +2,18 @@
 title: Azure 테이블 저장소 디자인에서 관계 모델링 | Microsoft Docs
 description: Azure 테이블 저장소 솔루션을 설계할 때 모델링 프로세스를 이해 합니다. 일 대 다, 일 대 일 및 상속 관계에 대해 읽어 보세요.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8c803a7b11aee3d57d6145bed296bd40ddd9bb5e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a7316bc60ea26968e30bb11ef97d63bddb33895a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036048"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235964"
 ---
 # <a name="modeling-relationships"></a>관계 모델링
 이 아티클에서는 Azure Table Storage 솔루션을 디자인할 수 있도록 모델링 프로세스를 설명합니다.

@@ -4,12 +4,12 @@ description: Sdk, REST Api, CLI는 프로그래밍 언어로 LUIS (Language Unde
 ms.topic: reference
 ms.date: 05/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a7769d04d3cf41cee9f28b49d38e80deeaddcf9
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 01cbaf5a7e8eb733680381da21a7b1f9aa5c2cea
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404993"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235998"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
 
@@ -86,11 +86,11 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 |언어 |참조 설명서|패키지|빠른 시작|
 |--|--|--|--|
-|C#|[작성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[작성](sdk-authoring.md?pivots=programming-language-csharp)<br>[쿼리 예측](sdk-query-prediction-endpoint.md?pivots=programming-language-csharp)|
+|C#|[작성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[작성](quickstart-sdk.md?pivots=programming-language-csharp)<br>[쿼리 예측](quickstart-sdk.md?pivots=programming-language-csharp)|
 |Go|[작성 및 예측](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[작성 및 예측](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[작성](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[작성](sdk-query-prediction-endpoint.md?pivots=programming-language-javascript)<br>[예측](sdk-query-prediction-endpoint.md?pivots=programming-language-javascript)|
-|Python|[작성 및 예측](sdk-authoring.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](sdk-authoring.md?pivots=programming-language-python)<br>[예측](sdk-query-prediction-endpoint.md?pivots=programming-language-python)|
+|JavaScript|[작성](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[작성](quickstart-sdk.md?pivots=programming-language-javascript)<br>[예측](quickstart-sdk.md?pivots=programming-language-javascript)|
+|Python|[작성 및 예측](quickstart-sdk.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](quickstart-sdk.md?pivots=programming-language-python)<br>[예측](quickstart-sdk.md?pivots=programming-language-python)|
 
 
 ### <a name="containers"></a>컨테이너

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533552"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236304"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -85,6 +85,9 @@ Linux에서 복구 지점의 볼륨은 스크립트가 실행되는 폴더에 �
 디스크가 분리되면 메시지가 표시됩니다. 디스크를 제거할 수 있도록 연결을 새로 고치는 데 몇 분이 소요될 수 있습니다.
 
 Linux에서 복구 지점에 대한 연결이 단절된 후 OS는 해당 탑재 경로를 자동으로 제거하지 않습니다. 탑재 경로는 "분리된" 볼륨으로 존재하고 사용자가 볼 수 있지만, 파일에 액세스하거나 파일에 데이터를 쓰려고 시도할 때 오류가 throw됩니다. 수동으로 제거할 수도 있습니다. 스크립트는 실행 시 모든 이전 복구 지점에서 존재하는 이러한 볼륨을 식별하고 승인 시 정리합니다.
+
+> [!NOTE]
+> 필요한 파일이 복원 된 후 연결이 닫 혔는 지 확인 합니다. 이는 특히 스크립트가 실행 되는 컴퓨터도 백업용으로 구성 된 시나리오에서 중요 합니다. 연결이 열린 상태에서 후속 백업은 "UserErrorUnableToOpenMount" 오류로 인해 실패할 수 있습니다. 이는 탑재 된 드라이브/볼륨을 사용할 수 있는 것으로 간주 하 고 액세스 하는 경우 기본 저장소 (즉, iSCSI 대상 서버를 사용할 수 없기 때문에 실패할 수 있음)로 인해 발생 합니다. 연결을 정리 하면 이러한 드라이브/볼륨이 제거 되므로 백업 중에 사용할 수 없습니다.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>스크립트를 실행할 적절한 머신을 선택합니다.
 
@@ -262,7 +265,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
 | Windows Server 2019    | 윈도우 10 |
-| Windows Server 2016    | 윈도우 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -300,7 +303,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 - `download.microsoft.com`
 - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Azure 공용 지역의 경우)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Azure 공용 지역의 경우)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Azure 미국 정부의 경우)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de`(Azure 독일의 경우)

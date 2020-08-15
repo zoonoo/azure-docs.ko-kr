@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073860"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236746"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -423,7 +423,6 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
       ...
     </conditions>
     ```
-- 일부 [IP 제한 규칙](app-service-ip-restrictions.md) 은 교환 작업에서 응용 프로그램에 HTTP 요청을 보내지 못하도록 할 수 있습니다. 로 시작 하 `10.` 고 `100.` 배포에 내부적으로 사용 되는 IPv4 주소 범위입니다. 앱에 연결 하도록 허용 해야 합니다.
 
 - 슬롯 교체 후에는 앱에서 예기치 않은 다시 시작이 발생할 수 있습니다. 이는 교환 후 호스트 이름 바인딩 구성이 동기화 되지 않아 자체적으로 다시 시작 되지 않기 때문입니다. 그러나 특정 기본 저장소 이벤트 (예: 저장소 볼륨 장애 조치 (failover))는 이러한 불일치를 감지 하 여 모든 작업자 프로세스를 강제로 다시 시작할 수 있습니다. 이러한 유형의 다시 시작을 최소화 하려면 *모든 슬롯*에서 [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` 앱 설정을](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) 설정 합니다. 그러나이 앱 설정은 WCF (Windows Communication Foundation) 앱에서 작동 *하지* 않습니다.
 

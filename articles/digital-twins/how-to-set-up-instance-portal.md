@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009666"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234995"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -126,6 +126,9 @@ Azure Portal에서 [Azure Active Directory](https://portal.azure.com/#blade/Micr
 다음에 나오는 *api 권한 요청* 페이지에서 *내 조직* 에서 tab 키를 사용 하 고 *azure digital 쌍*를 검색 하는 api로 전환 합니다. Azure Digital Twins Api에 대 한 권한 할당을 진행 하려면 검색 결과에서 *Azure Digital Twins* 를 선택 합니다.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Azure Digital Twins를 표시 하는 ' API 권한 요청 ' 페이지 검색 결과 보기":::
+
+>[!NOTE]
+> 서비스의 이전 공개 미리 보기 (7 월 2020 이전)에서 기존 Azure Digital Twins 인스턴스가 아직 구독에 있는 경우 *Azure 스마트 공간 서비스* 를 대신 찾아야 합니다. 이는 동일한 Api 집합의 이전 이름 이며이 단계를 벗어나 사용자 환경을 변경 하지 않습니다.
 
 다음으로 이러한 Api에 부여할 사용 권한을 선택 합니다. **읽기 (1)** 권한을 확장 하 고 *읽기. 쓰기* 확인란을 선택 하 여이 앱 등록 판독기 및 작성기 권한을 부여 합니다.
 

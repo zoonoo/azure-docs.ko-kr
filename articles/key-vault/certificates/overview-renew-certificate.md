@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bbd65cdfc7c8ebbc08b914158577337cc49ec887
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224563"
+ms.locfileid: "88236066"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>인증서 갱신 Azure Key Vault 정보
 
@@ -64,7 +64,7 @@ Azure 키 자격 증명 모음을 통해 사용자는 모든 CA에서 인증서�
   유효 기간이 1 월 인 인증서를 만든 다음 1%에 대 한 회전에 대 한 수명 시간 작업을 설정 합니다. 이 설정은 인증서를 7.2 시간 안에 회전 합니다.
   
 * 인증서 자동 갱신 후 태그가 복제 되나요?
-  아니요. 사용자가 수동으로 태그를 복사 하지 않는 한 태그는 복제 되지 않습니다.
+  예, 자동 갱신 후 태그가 복제 됩니다.
 
 ### <a name="see-also"></a>참고 항목
 *   [DigiCert 인증 기관과 Key Vault 통합](how-to-integrate-certificate-authority.md)
