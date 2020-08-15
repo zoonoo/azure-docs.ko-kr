@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2055730505b360ef8d5bf50cd83532627fb8e08
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051282"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245420"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -120,7 +120,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 | 공급자 | 연락처 |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
-| Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
+| Feitian | [https://shop.ftsafe.us/pages/microsoft](https://shop.ftsafe.us/pages/microsoft) |
 | 숨겼습니다 | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | TrustKey 솔루션 | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
@@ -167,7 +167,7 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 
 다음 표를 사용 하 여 요구 사항 및 사용자를 지원할 방법을 선택할 수 있습니다.
 
-|Persona|시나리오|환경|Passwordless 기술|
+|Persona|시나리오|Environment|Passwordless 기술|
 |:-|:-|:-|:-|
 |**관리자**|관리 작업을 위해 장치에 안전 하 게 액세스|할당 된 Windows 10 장치|비즈니스용 Windows Hello 및/또는 FIDO2 보안 키|
 |**관리자**|Windows가 아닌 장치에 대 한 관리 작업| 모바일 또는 비 windows 장치|Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인|

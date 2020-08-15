@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: b29fa17c21b2cdb2e764c905af3819142d8c341e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844068"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244349"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 Cognitive Services 피가
 
@@ -30,10 +30,10 @@ ms.locfileid: "87844068"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Spark 풀](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool) 로 구성 된 [Azure Synapse 작업 영역](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설치
 
 ### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
@@ -100,9 +100,9 @@ df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 
 | timestamp           |   값 | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
-| 2020-05-01 18:33:51 |    3174 | 개발-7      | 거짓       |
-| 2020-05-01 18:33:52 |    2976 | 개발-7      | 거짓       |
-| 2020-05-01 18:33:53 |    2714 | 개발-7      | 거짓       |
+| 2020-05-01 18:33:51 |    3174 | 개발-7      | 아니요       |
+| 2020-05-01 18:33:52 |    2976 | 개발-7      | 아니요       |
+| 2020-05-01 18:33:53 |    2714 | 개발-7      | 아니요       |
 
 
  ## <a name="visualize-anomalies-for-one-of-the-devices"></a>장치 중 하나에 대 한 변칙 시각화

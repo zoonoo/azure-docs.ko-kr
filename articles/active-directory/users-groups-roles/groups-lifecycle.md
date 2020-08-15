@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0a1fb386776a3ab1a3b7689c69dea7dc717d1e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: afc9a32c4f0fa5b4b6a2f6c0ec56bbc35b6dde68
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213772"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244498"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대 한 만료 정책 구성
 
@@ -79,7 +79,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 3. **만료** 페이지에서 다음을 수행할 수 있습니다.
 
-    - 일 단위로 그룹 수명을 설정합니다. 미리 설정된 값 중 하나 또는 사용자 지정 값을 선택할 수 있습니다(31일 이상이어야 함).
+    - 일 단위로 그룹 수명을 설정합니다. 미리 설정 된 값 중 하나를 선택 하거나 사용자 지정 값 (30 일 이상 이어야 함)을 선택할 수 있습니다.
     - 그룹에 소유자가 없는 경우 갱신 및 만료 알림이 전송되어야 하는 전자 메일 주소를 지정합니다.
     - 만료 되는 Microsoft 365 그룹을 선택 합니다. 다음에 대 한 만료를 설정할 수 있습니다.
       - **모두** Microsoft 365 그룹

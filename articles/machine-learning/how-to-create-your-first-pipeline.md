@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 12/05/2019
+ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a8bb3ff3d1fc36d4213c6d1a8ea402833bd915e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852942"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244043"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -24,13 +24,13 @@ ms.locfileid: "87852942"
 
 이 문서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만든 후 나중에 액세스 하거나 다른 사용자와 공유 하기 위해 해당 파이프라인을 Azure Machine Learning 작업 영역에 게시 합니다.  ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다.
 
-ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역 내에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
+ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
 
 데이터 준비 및 모델 교육과 같은 ML 파이프라인의 각 단계에는 하나 이상의 단계가 포함 될 수 있습니다.
 
 만든 ML 파이프라인은 Azure Machine Learning [작업 영역의](how-to-manage-workspace.md)구성원에 게 표시 됩니다. 
 
-ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 파이프라인과 연결 된 중간 및 최종 데이터의 저장소를 사용 합니다. 지원 되는 [Azure Storage](https://docs.microsoft.com/azure/storage/) 위치에서 데이터를 읽고 쓸 수 있습니다.
+ML 파이프라인은 해당 파이프라인과 연결 된 계산 및 임시 데이터에 원격 계산 대상을 사용 합니다. 지원 되는 [Azure Storage](https://docs.microsoft.com/azure/storage/) 위치에서 데이터를 읽고 쓸 수 있습니다.
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -94,7 +94,7 @@ def_blob_store.upload_files(
 
 파이프라인에서 단계의 입력으로 참조할 수 있는 데이터 원본을 방금 만들었습니다. 파이프라인에 데이터를 제공 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) 개체입니다. `Dataset`개체는 데이터 저장소 또는 웹 URL에서 액세스할 수 있거나 액세스할 수 있는 데이터를 가리킵니다. `Dataset`클래스는 추상 클래스 이므로 하나 이상의 파일 `FileDataset` 을 참조 하는 (하나 이상의 파일 참조) 또는 `TabularDataset` 구분 기호로 분리 된 열이 있는 하나 이상의 파일에서 만든의 인스턴스를 만듭니다.
 
-`Dataset`개체는 버전 관리, 차이 및 요약 통계를 지원 합니다. `Dataset`은 (는) 지연 평가 (예: Python 생성기) 되며 분할 또는 필터링을 통해 하위 집합을 효율적으로 사용할 수 있습니다. 
+`Dataset` 개체는 버전 관리, 차이 및 요약 통계를 지원 합니다. `Dataset`은 (는) 지연 평가 (예: Python 생성기) 되며 분할 또는 필터링을 통해 하위 집합을 효율적으로 사용할 수 있습니다. 
 
 `Dataset` [From_file](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 또는 [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-)와 같은 메서드를 사용 하 여를 만듭니다.
 
@@ -115,11 +115,11 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
-데이터 집합 및 파이프라인 데이터를 사용 하는 방법에 대 한 자세한 내용 및 샘플 코드는 [ML 파이프라인 단계 (Python) 간에 데이터 이동](how-to-move-data-in-out-of-pipelines.md)에서 찾을 수 있습니다.
+데이터 집합 및 파이프라인 데이터를 사용 하기 위한 자세한 내용 및 샘플 코드는 [ML 파이프라인 단계 (Python)로 데이터를 이동](how-to-move-data-in-out-of-pipelines.md)하는 것입니다.
 
 ## <a name="set-up-a-compute-target"></a>컴퓨팅 대상 설정
 
-Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다.   컴퓨팅 대상의 전체 목록 및 컴퓨팅 대상을 만들고 작업 영역에 연결하는 방법에 대해서는 [모델 학습을 위한 컴퓨팅 대상](how-to-set-up-training-targets.md)을 참조하세요.  모델을 학습하든 파이프라인 단계를 실행하든 상관 없이 컴퓨팅 모델을 만들고 연결하는 프로세스는 동일합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
+Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다. 컴퓨팅 대상의 전체 목록 및 컴퓨팅 대상을 만들고 작업 영역에 연결하는 방법에 대해서는 [모델 학습을 위한 컴퓨팅 대상](how-to-set-up-training-targets.md)을 참조하세요. 계산 대상을 만들거나 연결 하는 프로세스는 모델을 학습 하거나 파이프라인 단계를 실행 하는 경우와 동일 합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
 
 > [!IMPORTANT]
 > 컴퓨팅 대상에 대한 관리 작업 수행은 원격 작업 내에서 지원되지 않습니다. 기계 학습 파이프라인은 원격 작업으로 제출되므로 파이프라인 내부에서 컴퓨팅 대상에 관리 작업을 사용하지 마십시오.
@@ -269,27 +269,93 @@ except ComputeTargetException:
 > [!TIP]
 > Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) 하 여 학습 전에 데이터를 복사할 수 있습니다.
 
+## <a name="configure-the-training-runs-environment"></a>학습 실행 환경 구성
+
+다음 단계는 원격 학습 실행에 학습 단계에 필요한 모든 종속성이 있는지 확인 하는 것입니다. 개체를 만들고 구성 하 여 종속성 및 런타임 컨텍스트를 설정 `RunConfiguration` 합니다. 
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
+
+aml_run_config = RunConfiguration()
+# `compute_target` as defined in "Azure Machine Learning compute" section above
+aml_run_config.target = compute_target
+
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
+```
+
+위의 코드는 종속성을 처리 하는 두 가지 옵션을 보여 줍니다. 에서 설명한 대로 `USE_CURATED_ENV = True` 구성은 큐 레이트 환경을 기반으로 합니다. 큐 레이트 환경은 일반적인 상호 종속 라이브러리를 포함 하는 "prebaked" 이며 온라인으로 전환 하는 데 훨씬 더 빠르게 수행할 수 있습니다. 큐 레이트 환경은 [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner)에 미리 빌드된 Docker 이미지를 포함 합니다. 로 변경 하면 `USE_CURATED_ENV` `False` 종속성을 명시적으로 설정 하는 패턴이 표시 됩니다. 이 시나리오에서는 새 사용자 지정 Docker 이미지가 만들어지고 리소스 그룹 내의 Azure Container Registry에 등록 됩니다 ( [Azure의 개인 Docker 컨테이너 레지스트리 소개](https://docs.microsoft.com/azure/container-registry/container-registry-intro)참조). 이 이미지를 빌드하고 등록 하려면 몇 분 정도 걸릴 수 있습니다.
+
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>파이프라인 단계 구성
 
-컴퓨팅 대상을 만들고 작업 영역에 연결하면 파이프라인 단계를 정의할 준비가 된 것입니다. Azure Machine Learning SDK를 통해 사용할 수 있는 여러 가지 기본 제공 단계가 있습니다. 이러한 단계의 가장 기본적인 방법은 지정 된 계산 대상에서 Python 스크립트를 실행 하는 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)입니다.
+계산 리소스 및 환경을 만들었으면 파이프라인의 단계를 정의할 준비가 된 것입니다. [ `azureml.pipeline.steps` 패키지에 대 한 참조 설명서](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py)에서 볼 수 있듯이 Azure Machine Learning SDK를 통해 사용할 수 있는 여러 가지 기본 제공 단계가 있습니다. 가장 유연한 클래스는 Python 스크립트를 실행 하는 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)입니다.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
 
+dataprep_source_dir = "./dataprep_src"
+entry_point = "prepare.py"
+
+# `my_dataset` as defined above
 ds_input = my_dataset.as_named_input('input1')
 
-trainStep = PythonScriptStep(
-    script_name="train.py",
+# `output_data1`, `compute_target`, `aml_run_config` as defined above
+data_prep_step = PythonScriptStep(
+    script_name=entry_point,
+    source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
     inputs=[ds_input],
     outputs=[output_data1],
     compute_target=compute_target,
-    source_directory=project_folder,
+    runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-이전 결과 ()를 다시 사용 `allow_reuse` 하는 것은 불필요 한 다시 정렬을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 키입니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. `allow_reuse`가 false로 설정 된 경우 파이프라인 실행 중에이 단계에 대 한 새 실행이 항상 생성 됩니다. 
+위의 코드는 일반적인 초기 파이프라인 단계를 보여 줍니다. 데이터 준비 코드는 하위 디렉터리에 있습니다 (이 예제에서는 `"prepare.py"` 디렉터리에 `"./dataprep.src"` 있습니다). 파이프라인 생성 프로세스의 일환으로이 디렉터리는로 압축 되 고에 업로드 되 `compute_target` 고 단계는에 대 한 값으로 지정 된 스크립트를 실행 합니다 `script_name` .
+
+`arguments`, `inputs` 및 값은 `outputs` 단계의 입력과 출력을 지정 합니다. 위의 예제에서 기준선 데이터는 데이터 `my_dataset` 집합입니다. 해당 데이터는 코드에서로 지정 되므로 계산 리소스에 다운로드 됩니다 `as_download()` . 이 스크립트는 `prepare.py` 작업에 적절 한 데이터 변환 태스크를 수행 하 고 데이터를 형식의로 출력 합니다 `output_data1` `PipelineData` . 자세한 내용은 [ML 파이프라인 단계 간 데이터 이동 (Python)](how-to-move-data-in-out-of-pipelines.md)을 참조 하세요. 
+
+단계는 구성을 사용 하 여에 정의 된 컴퓨터에서 실행 됩니다 `compute_target` `aml_run_config` . 
+
+이전 결과 ()를 다시 사용 `allow_reuse` 하는 것은 불필요 한 다시 정렬을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 키입니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 다시 사용이 허용 되는 경우 이전 실행의 결과가 다음 단계로 즉시 전송 됩니다. `allow_reuse`가로 설정 된 경우 `False` 파이프라인 실행 중에이 단계에 대해 새 실행이 항상 생성 됩니다.
+
+단일 단계를 사용 하 여 파이프라인을 만들 수는 있지만, 대부분의 경우 전체 프로세스를 여러 단계로 분할 하도록 선택할 수 있습니다. 예를 들어 데이터 준비, 학습, 모델 비교 및 배포 단계가 있을 수 있습니다. 예를 들어 위에 지정 된 후에 `data_prep_step` 다음 단계가 학습 될 수 있다고 가정할 수 있습니다.
+
+```python
+train_source_dir = "./train_src"
+train_entry_point = "train.py"
+
+training_results = PipelineData(
+    "training_results",
+    datastore=def_blob_store,
+    output_name="training_results")
+
+train_step = PythonScriptStep(
+    script_name=train_entry_point,
+    source_directory=train_source_dir,
+    arguments=["--prepped_data", output_data1, "--training_results", training_results],
+    inputs=[output_data1],
+    outputs=[training_results],
+    compute_target=compute_target,
+    runconfig=aml_run_config,
+    allow_reuse=True
+)
+```
+
+위의 코드는 데이터 준비 단계와 매우 비슷합니다. 학습 코드는 데이터 준비 코드와는 별개의 디렉터리에 있습니다. `PipelineData`데이터 준비 단계의 출력은 `output_data1` 학습 단계에 대 한 _입력_ 으로 사용 됩니다. `PipelineData` `training_results` 이후 비교 또는 배포 단계에 대 한 결과를 저장 하기 위해 새 개체가 만들어집니다. 
 
 단계를 정의한 후 일부 또는 모든 단계를 사용하여 파이프라인을 빌드합니다.
 
@@ -297,13 +363,13 @@ trainStep = PythonScriptStep(
 > 단계를 정의 하거나 파이프라인을 빌드할 때 파일 또는 데이터가 Azure Machine Learning 업로드 되지 않습니다.
 
 ```python
-# list of steps to run
-compareModels = [trainStep, extractStep, compareStep]
+# list of steps to run (`compare_step` definition not shown)
+compare_models = [data_prep_step, train_step, compare_step]
 
 from azureml.pipeline.core import Pipeline
 
 # Build the pipeline
-pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
+pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
 다음 예제에서는 앞서 만든 Azure Databricks 컴퓨팅 대상을 사용합니다. 

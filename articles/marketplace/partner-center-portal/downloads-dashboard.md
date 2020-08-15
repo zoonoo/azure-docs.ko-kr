@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317572"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245675"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 다운로드 대시보드
 
@@ -25,9 +25,7 @@ ms.locfileid: "87317572"
 
 ## <a name="downloads-dashboard"></a>다운로드 대시보드
 
-**분석** 메뉴의 **다운로드** 대시보드에는 1000 행 이상의 고객 또는 주문 데이터가 포함 된 다운로드에 대 한 요청이 표시 됩니다.
-
-1000 개 이상의 데이터 행으로 다운로드를 요청할 때마다 **다운로드** 대시보드에 대 한 링크가 포함 된 팝업 알림 및 전자 메일을 받게 됩니다. 이러한 데이터 다운로드는 30 일 동안 사용할 수 있게 된 후 제거 됩니다.
+**분석** 메뉴의 **다운로드** 대시보드에는 1000 행 이상의 고객 또는 주문 데이터가 포함 된 다운로드에 대 한 요청이 표시 됩니다. 이러한 데이터 다운로드는 30 일 동안 사용할 수 있게 되 고 제거 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,12 +4,12 @@ description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배�
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 93cbe6d2a682009ee883d11bdd99fd69b693c5c4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872432"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246015"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -152,6 +152,10 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 * *내 클러스터 서브넷에 VM을 배포할 수 있나요?*
 
   예.
+
+* *외부 시스템에서 Azure CNI 사용 pod에서 발생 하는 트래픽에 대해 어떤 원본 IP를 사용 하나요?*
+
+  AKS 클러스터와 동일한 가상 네트워크에 있는 시스템은 pod에서 들어오는 트래픽에 대 한 원본 주소로 pod IP를 확인 합니다. AKS 클러스터 가상 네트워크 외부의 시스템은 pod에서 들어오는 트래픽에 대 한 원본 주소로 노드 IP를 확인 합니다. 
 
 * *Pod 별 네트워크 정책을 구성할 수 있나요?*
 
