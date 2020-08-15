@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7464d1788101eef7bdad95545056bb32e46c395
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167813"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245471"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
@@ -29,7 +29,7 @@ ms.locfileid: "88167813"
 
 30 일 무료 평가판을 활성화 하 고 API 키를 가져오려면 다음 단계를 완료 합니다. 다음 단계가 완료 되 면 즉시 평가 기간이 시작 됩니다.
 
-1. [인식 서비스 시도](https://azure.microsoft.com/try/cognitive-services/)로 이동 합니다.
+1. [인식 서비스 시도](https://azure.microsoft.com/free/cognitive-services)로 이동 합니다.
 1. **Speech API** 탭을 선택합니다.
 1. **API 키 가져오기**를 선택 합니다.
 

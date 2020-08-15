@@ -1,14 +1,9 @@
 ---
 title: 'Azure의 SAP: 계획 및 구현 가이드'
 description: SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: MSSedusch
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
-ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cd335d34a67cc5a102bde11366813c53770266e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fdce2890de1594635e9302260dc4036cb7c58707
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036338"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245522"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -259,7 +254,7 @@ ms.locfileid: "87036338"
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
-[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
+[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines/windows/index.yml
 [virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
@@ -550,7 +545,7 @@ Azure 내에서 디스크/VHD 이름은 Azure 내에서 VHD에 고유한 이름�
 
 
 #### <a name="azure-persisted-storage-types"></a>Azure 지속형 저장소 유형
-Azure는 SAP 워크 로드 및 특정 SAP stack 구성 요소에 사용할 수 있는 다양 한 지속형 저장소 옵션을 제공 합니다. 자세한 내용은 [SAP 워크 로드에 대 한 Azure storage](./planning-guide-storage.md)문서를 참조 하세요.
+Azure는 SAP 워크 로드 및 특정 SAP stack 구성 요소에 사용할 수 있는 다양 한 지속형 저장소 옵션을 제공 합니다. 자세한 내용은  [SAP 워크 로드에 대 한 Azure storage](./planning-guide-storage.md)문서를 참조 하세요.
 
 
 ### <a name="microsoft-azure-networking"></a><a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure 네트워킹
@@ -1262,7 +1257,7 @@ Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>인터넷을 통해 SAP 시스템 및 SAP GUI 연결 구성
 
-이 항목에 대 한 세부 정보를 설명 하는이 문서를 참조 하세요.<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+이 항목에 대 한 세부 정보를 설명 하는이 문서를 참조 하세요. <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>VM 내의 방화벽 설정 변경
 
@@ -1572,7 +1567,7 @@ SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역,
 | --- | --- | --- | --- | --- |
 | 디스패처 |sapdp`<nn>` 참조: * |3201 |3200 - 3299 |SAP 디스패처, Windows 및 Java용 SAP GUI에서 사용 |
 | 메시지 서버 |sapms`<sid`> 참조: ** |3600 |제한 없는 sapms`<anySID`> |sid = SAP-System-ID |
-| 게이트웨이 |sapgw`<nn`> 참조: * |3301 |free |SAP 게이트웨이, CPIC 및 RFC 통신에 사용 |
+| 게이트웨이 |sapgw`<nn`> 참조: * |3301 |제한 없음 |SAP 게이트웨이, CPIC 및 RFC 통신에 사용 |
 | SAP 라우터 |sapdp99 |3299 |제한 없음 |CI(중앙 인스턴스) 서비스 이름만 설치한 후에 /etc/services에서 임의 값으로 재할당될 수 있습니다. |
 
 *) nn = SAP 인스턴스 번호
@@ -1607,7 +1602,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 > ![Linux][Logo_Linux] Linux
 >
 > * Windows의 경우처럼 네트워크 프린터를 설치하는 표준 절차를 따릅니다.
-> * [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) 또는 [Red Hat 및 Oracle Linux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html)의 공용 Linux 가이드에서 프린터 추가 방법을 따르세요.
+> * [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) 또는 [Red Hat 및 Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration)의 공용 Linux 가이드에서 프린터 추가 방법을 따르세요.
 >
 >
 
@@ -1953,7 +1948,7 @@ SAP 인스턴스의 자동 시작과 관련된 자세한 내용은 다음 항목
 선택한 SAP 구성(2계층 또는 3계층)에 따라, 백업이 필요할 수도 있습니다. 데이터베이스의 백업 외에 VM 자체의 내용도 있습니다. DBMS 관련 백업은 데이터베이스 메서드로 수행됩니다. 다른 데이터베이스에 대한 자세한 설명은 [DBMS 가이드][dbms-guide]에 있습니다. SAP 데이터는 이 섹션에 설명되는 오프라인 방식으로(데이터베이스 콘텐츠도 포함) 또는 다음 섹션에 설명되는 온라인 방식으로 백업될 수 있습니다.
 
 오프라인 백업에서는 기본적으로 Azure Portal을 통해 VM을 종료해야 하며, VM에 연결된 모든 디스크 외의 기본 VM 디스크 복사본이 있어야 합니다. 이 경우 VM 및 관련 디스크의 지정 시간 이미지가 보존됩니다. '백업'을 다른 Azure Storage 계정으로 복사하는 것이 좋습니다. 따라서 이 문서의 [Azure Storage 계정 간 디스크 복사][planning-guide-5.4.2] 챕터에서 설명한 절차가 적용됩니다.
-Azure Portal 사용을 종료하는 것 외에도, <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>에 설명된 대로 PowerShell 또는 CLI를 사용하여 이 작업을 수행할 수 있습니다.
+
 
 해당 상태가 복원될 때는 기본 VM뿐 아니라 기본 VM의 원본 디스크와 장착된 디스크도 삭제되고, 저장된 디스크가 관리 디스크의 리소스 그룹 또는 원래 Storage 계정으로 다시 복사된 후에 시스템이 다시 배포됩니다.
 이 프로세스를 PowerShell에서 스크립트로 실행하는 방법의 예제는 <http://www.westerndevs.com/azure-snapshots/> 문서에 나와 있습니다.
