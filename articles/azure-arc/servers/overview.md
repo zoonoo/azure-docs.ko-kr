@@ -1,20 +1,16 @@
 ---
 title: 서버용 Azure Arc(미리 보기) 개요
 description: 서버용 Azure Arc를 사용하여 마치 Azure 리소스인 것처럼 Azure 외부에 호스팅되는 머신을 관리하는 방법에 대해 알아봅니다.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 03/24/2020
+ms.custom: references_regions
+ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482193"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121802"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>서버용 Azure Arc(미리 보기)란?
 
@@ -28,10 +24,15 @@ Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공�
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-서버용 Azure Arc(미리 보기)는 연결된 머신에서 다음과 같은 시나리오를 지원합니다.
+서버용 Azure Arc(미리 보기)에 머신을 연결하면 다음과 같은 구성 관리 작업을 수행할 수 있습니다.
 
 - Azure 가상 머신의 정책 할당과 동일한 환경을 사용하여 [Azure Policy 게스트 구성](../../governance/policy/concepts/guest-configuration.md)을 할당합니다.
-- 머신이 등록된 Log Analytics 작업 영역에 저장된 Log Analytics 에이전트에 의해 수집된 로그 데이터입니다. 이제 하이브리드 머신의 로그 데이터에는 [리소스 컨텍스트](../../azure-monitor/platform/design-logs-deployment.md#access-mode) 로그 액세스를 지원하는 데 사용할 수 있는 리소스 ID와 같은 머신 관련 속성이 포함되어 있습니다.
+
+- 연결된 머신 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 [VM용 Azure Monitor](../../azure-monitor/insights/vminsights-overview.md)를 통해 애플리케이션에서 통신하는 다른 리소스의 프로세스 및 종속성을 모니터링합니다.
+
+- 비 Azure Windows 또는 Linux 머신에 대해 지원되는 [Azure VM 확장](manage-vm-extensions.md)을 사용하여 Azure Automation 상태 구성 및 Azure Monitor Log Analytics 작업 영역과 같은 다른 Azure 서비스와의 배포를 간소화합니다. 여기에는 사용자 지정 스크립트 확장을 사용하여 배포 후 구성 또는 소프트웨어 설치를 수행하는 작업이 포함됩니다.
+
+하이브리드 머신에서 Log Analytics 작업 영역에 수집되어 저정된 로그 데이터에는 이제 리소스 ID와 같은 머신 관련 속성이 포함되어 있습니다. [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) 로그 액세스를 지원하는 데 사용할 수 있습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
@@ -42,7 +43,7 @@ Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공�
 - WestEurope
 - SoutheastAsia
 
-대부분의 경우 설치 스크립트를 만들 때 선택한 위치는 머신의 위치와 지리적으로 가장 가까운 Azure 지역이어야 합니다. 미사용 데이터는 사용자가 지정한 지역을 포함하는 Azure 지리 내에 저장되며, 데이터 상주 요구 사항이 있는 경우 선택한 지역에 영향을 줄 수도 있습니다. 머신이 연결된 Azure 지역이 작동 중단의 영향을 받는 경우 연결된 머신에는 영향을 주지 않지만 Azure를 사용하는 관리 작업은 완료하지 못할 수 있습니다. 지역 가동 중단 시 복원력을 위해 지리적으로 중복된 서비스를 제공하는 여러 위치가 있는 경우 각 위치의 머신을 다른 Azure 지역에 연결하는 것이 가장 좋습니다.
+대부분의 경우 설치 스크립트를 만들 때 선택한 위치는 머신의 위치와 지리적으로 가장 가까운 Azure 지역이어야 합니다. 미사용 데이터는 사용자가 지정한 지역을 포함하는 Azure 지리 내에 저장되며, 데이터 상주 요구 사항이 있는 경우 선택한 지역에 영향을 줄 수도 있습니다. 머신이 연결된 Azure 지역이 작동 중단의 영향을 받는 경우 연결된 머신에는 영향을 주지 않지만 Azure를 사용하는 관리 작업은 완료하지 못할 수 있습니다. 지역 가동 중단 시 지리적으로 중복된 서비스를 제공하는 여러 위치가 있는 경우 각 위치의 머신을 다른 Azure 지역에 연결하는 것이 가장 좋습니다.
 
 ### <a name="agent-status"></a>에이전트 상태
 

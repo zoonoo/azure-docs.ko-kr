@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142370"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986817"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Text Analytics API에 대한 데이터 및 속도 제한
 <a name="data-limits"></a>
@@ -38,10 +38,7 @@ ms.locfileid: "84142370"
 
 #### <a name="version-3"></a>[버전 3](#tab/version-3)
 
-> [!NOTE]
-> v3 API 요청이 이러한 제한을 초과하지만 v2 제한 내에 있으면 API 응답에 경고가 반환됩니다. 2020년 7월 15일부터 400개의 오류 코드가 대신 반환됩니다. 
-
-API의 v3에서 다음과 같은 제한 사항이 변경되었습니다. 아래 제한을 초과하면 API 응답에 경고가 생성됩니다.
+API의 v3에서 다음과 같은 제한 사항이 변경되었습니다. 아래 제한을 초과하면 HTTP 400 오류 코드가 생성됩니다.
 
 
 | 기능 | 요청당 최대 문서 수 | 

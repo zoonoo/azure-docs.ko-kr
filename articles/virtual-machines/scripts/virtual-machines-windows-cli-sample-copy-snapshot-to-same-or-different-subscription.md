@@ -1,6 +1,6 @@
 ---
-title: 관리 디스크의 스냅샷을 구독에 복사 - CLI 샘플
-description: Azure CLI 스크립트 샘플 - CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
+title: 관리 디스크의 스냅샷을 구독에 복사 - CLI 샘플, Windows VM
+description: Azure CLI 스크립트 샘플 - Windows VM에서 CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 54029e2ccbf592dfcde484728fa9cb969a668edd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05b73bf62bfce456e65fde153379690bc9823e6a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010100"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056740"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-windows-vm"></a>Windows VM에서 CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사
 
 이 스크립트는 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사합니다. 다음 시나리오에서 이 스크립트를 사용하세요.
 

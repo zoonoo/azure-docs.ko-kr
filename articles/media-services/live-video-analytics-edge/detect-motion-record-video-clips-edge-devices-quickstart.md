@@ -3,12 +3,12 @@ title: 에지 디바이스에서 동작을 감지하고 비디오 녹화 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하고, 동작이 있는지 감지하고, 해당하는 경우 에지 디바이스의 로컬 파일 시스템에 MP4 비디오 클립을 녹화하는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 14dcc7b298244a1d53a9b820c641ea87c4f9a016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 796def7cad3632dd50184bea751dc9f348569216
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091864"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067710"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>빠른 시작: 에지 디바이스에서 동작을 감지하고 비디오 녹화
  
@@ -89,11 +89,20 @@ ms.locfileid: "87091864"
 
 [IoT Edge 배포 매니페스트 생성 및 배포](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) 단계에서 Visual Studio Code의 **AZURE IOT HUB**(왼쪽 하단 섹션) 아래에서 **lva-sample-device** 노드를 확장합니다. 다음 모듈이 배포된 것을 볼 수 있습니다.
 
-* **lvaEdge**라는 이름의 Live Video Analytics 모듈
-* RTSP 서버를 시뮬레이션하고 라이브 비디오 피드의 원본으로 작동하는 **rtspsim** 모듈
+* `lvaEdge`라는 이름의 Live Video Analytics 모듈
+* RTSP 서버를 시뮬레이션하고 라이브 비디오 피드의 원본으로 작동하는 `rtspsim` 모듈
 
   ![모듈](./media/quickstarts/lva-sample-device-node.png)
 
+> [!NOTE]
+> 설치 스크립트를 통해 프로비저닝된 에지 디바이스 대신 사용자 고유의 에지 디바이스를 사용하는 경우 에지 디바이스로 이동하고, **관리자 권한**으로 다음 명령을 실행하여 이 빠른 시작에 사용되는 샘플 비디오 파일을 가져와 저장합니다.  
+
+```
+mkdir /home/lvaadmin/samples
+mkdir /home/lvaadmin/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+chown -R lvaadmin /home/lvaadmin/samples/  
+```
 
 ## <a name="review---prepare-for-monitoring-events"></a>검토 - 이벤트 모니터링 준비
 [이벤트 모니터링 준비](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events) 단계를 완료했는지 확인합니다.
@@ -105,61 +114,62 @@ ms.locfileid: "87091864"
 1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 몇 가지 메시지가 출력됩니다.
 1. *operations.json* 코드가 `GraphTopologyList` 및 `GraphInstanceList` 직접 메서드를 호출합니다. 이전 빠른 시작을 완료한 후에 리소스를 정리했다면 이 프로세스가 빈 목록을 반환한 다음, 일시 중지됩니다. Enter 키를 선택합니다.
 
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+  "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+  "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
 
-    **터미널** 창에 직접 메서드 호출의 다음 세트가 표시됩니다.
+  **터미널** 창에 직접 메서드 호출의 다음 세트가 표시됩니다.  
+  * `topologyUrl`을 사용하는 `GraphTopologySet` 호출 
+  * 다음 본문을 사용하는 `GraphInstanceSet` 호출
 
-     * `topologyUrl`을 사용하는 `GraphTopologySet` 호출 
-     * 다음 본문을 사용하는 `GraphInstanceSet` 호출
+```
+{
+  "@apiVersion": "1.0",
+  "name": "Sample-Graph",
+  "properties": {
+    "topologyName": "EVRToFilesOnMotionDetection",
+    "description": "Sample graph description",
+    "parameters": [
+      {
+        "name": "rtspUrl",
+        "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+      },
+      {
+        "name": "rtspUserName",
+        "value": "testuser"
+      },
+      {
+        "name": "rtspPassword",
+        "value": "testpassword"
+      }
+    ]
+  }
+}
+```
 
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph",
-           "properties": {
-             "topologyName": "EVRToFilesOnMotionDetection",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
-               }
-             ]
-           }
-         }
-         ```
-     * 그래프 인스턴스 및 비디오 흐름을 시작하는 `GraphInstanceActivate` 호출
-     * 그래프 인스턴스가 실행 중 상태임을 보여주는 두 번째 `GraphInstanceList` 호출
-1. **터미널** 창의 출력이 `Press Enter to continue`에서 일시 중지됩니다. 아직 Enter 키를 선택하지 마세요. 위로 스크롤하면 호출한 직접 메서드에 대한 JSON 응답 페이로드가 보입니다.
+  * 그래프 인스턴스 및 비디오 흐름을 시작하는 `GraphInstanceActivate`에 대한 호출
+  * 그래프 인스턴스가 실행 중 상태임을 보여 주는 `GraphInstanceList`에 대한 두 번째 호출  
+
+3. **터미널** 창의 출력이 `Press Enter to continue`에서 일시 중지됩니다. 아직 Enter 키를 선택하지 마세요. 위로 스크롤하면 호출한 직접 메서드에 대한 JSON 응답 페이로드가 보입니다.
 1. Visual Studio Code에서 **출력** 창으로 전환합니다. Live Video Analytics on IoT Edge 모듈에서 IoT 허브에 보내는 메시지가 표시됩니다. 이 빠른 시작의 다음 섹션에서는 이러한 메시지를 설명합니다.
 
 1. 미디어 그래프가 계속 실행되어 결과를 출력합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 미디어 그래프를 중지하려면 **터미널** 창으로 돌아가서 Enter 키를 선택합니다. 
 
     일련의 다음 호출은 리소스를 정리합니다.
      * `GraphInstanceDeactivate` 호출은 그래프 인스턴스를 비활성화합니다.
-     * `GraphInstanceDelete` 호출은 인스턴스를 삭제합니다.
+     * `GraphInstanceDelete`에 대한 호출은 인스턴스를 삭제합니다.
      * `GraphTopologyDelete` 호출은 토폴로지를 삭제합니다.
      * 마지막 `GraphTopologyList` 호출은 목록이 비어 있음을 보여줍니다.
 
@@ -239,7 +249,7 @@ ms.locfileid: "87091864"
 
 ## <a name="play-the-mp4-clip"></a>MP4 클립 재생
 
-MP4 파일은 OUTPUT_VIDEO_FOLDER_ON_DEVICE를 사용하여 *.env* 파일에서 구성한 에지 디바이스의 디렉터리에 기록됩니다. 기본값을 사용했다면 결과는 */home/lvaadmin/samples/output/* 폴더에 있습니다.
+MP4 파일은 OUTPUT_VIDEO_FOLDER_ON_DEVICE를 사용하여 *.env* 파일에서 구성한 에지 디바이스의 디렉터리에 기록됩니다. 기본값을 사용한 경우 결과는 */var/media/* 폴더에 있어야 합니다.
 
 MP4 클립을 재생하는 방법은 다음과 같습니다.
 
@@ -250,7 +260,7 @@ MP4 클립을 재생하는 방법은 다음과 같습니다.
     ![VM](./media/quickstarts/virtual-machine.png)
 
 1. [Azure 리소스 설정](detect-motion-emit-events-quickstart.md#set-up-azure-resources) 과정에서 생성된 자격 증명을 사용하여 로그인합니다. 
-1. 명령 프롬프트에서 관련 디렉터리로 이동합니다. 기본 위치는 */home/lvaadmin/samples/output*입니다. 이 디렉터리에 MP4 파일이 있습니다.
+1. 명령 프롬프트에서 관련 디렉터리로 이동합니다. 기본 위치는 */var/media*입니다. 이 디렉터리에 MP4 파일이 있습니다.
 
     ![출력](./media/quickstarts/samples-output.png) 
 

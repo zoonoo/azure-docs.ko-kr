@@ -1,23 +1,23 @@
 ---
-title: Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한(미리 보기)
-description: Azure CLI를 사용하여 관리 디스크에 대한 Private Links(미리 보기)를 사용하도록 설정합니다. 가상 네트워크 내에서만 디스크를 안전하게 내보내고 가져올 수 있습니다.
+title: Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
+description: Azure CLI를 사용하여 관리 디스크에 대한 Private Links를 사용하도록 설정합니다. 가상 네트워크 내에서만 디스크를 안전하게 내보내고 가져올 수 있습니다.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5df11e704987098d61ced7afbff5e6234d4d5f04
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 009f8ec69261103faaa4de1e27ae7383257a13ca
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420290"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136408"
 ---
-# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한(미리 보기)
+# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 
-[프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md)(미리 보기)를 사용하여 관리 디스크의 내보내기 및 가져오기를 제한하고 Azure 가상 네트워크의 클라이언트에서 [Private Link](../../private-link/private-link-overview.md)를 통해 안전하게 데이터에 액세스할 수 있습니다. 프라이빗 엔드포인트는 관리 디스크 서비스에 대해 가상 네트워크 주소 공간의 IP 주소를 사용합니다. 가상 네트워크의 클라이언트와 관리 디스크 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통과하여 공용 인터넷으로부터의 노출을 제거합니다. 
+관리 디스크를 사용하는 Private Links에 대한 지원은 현재 미리 보기로 제공됩니다. [프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md)를 사용하여 관리 디스크의 내보내기 및 가져오기를 제한하고 Azure 가상 네트워크의 클라이언트에서 [Private Link](../../private-link/private-link-overview.md)를 통해 안전하게 데이터에 액세스할 수 있습니다. 프라이빗 엔드포인트는 관리 디스크 서비스에 대해 가상 네트워크 주소 공간의 IP 주소를 사용합니다. 가상 네트워크의 클라이언트와 관리 디스크 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크만 통과하여 공용 인터넷으로부터의 노출을 제거합니다.
 
 Private Links를 사용하여 관리 디스크를 내보내거나 가져오려면 먼저 디스크 액세스 리소스를 만들고, 프라이빗 엔드포인트를 만들어 동일한 구독의 가상 네트워크에 연결합니다. 그런 다음, 디스크 또는 스냅샷을 디스크 액세스 인스턴스와 연결합니다. 마지막으로 디스크 또는 스냅샷의 NetworkAccessPolicy 속성을 `AllowPrivate`으로 설정합니다. 그러면 가상 네트워크에 대한 액세스가 제한됩니다. 
 

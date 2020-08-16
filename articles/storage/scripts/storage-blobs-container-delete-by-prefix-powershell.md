@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - 접두사별 컨테이너 삭제 | Microsoft Docs
-description: 컨테이너 이름 접두사를 기준으로 Azure Storage Blob 컨테이너를 삭제합니다.
+description: Azure PowerShell을 사용하여 컨테이너 이름의 접두사를 기반으로 Azure Blob 스토리지를 삭제하는 방법을 보여주는 예제를 읽습니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 6069c51b27d7f8f11155a72613c04566d1c7b64d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 18827beeb606694e2c9089f27570216d413aabd9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006095"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033560"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>컨테이너 이름 접두사를 기준으로 컨테이너 삭제
 

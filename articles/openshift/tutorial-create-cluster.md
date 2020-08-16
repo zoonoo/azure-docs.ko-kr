@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475654"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904193"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -49,9 +49,9 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
 
    회사 이메일로 Red Hat 계정에 로그인하거나 새 Red Hat 계정을 만들고 사용 약관에 동의해야 합니다.
 
-2. **풀 비밀 다운로드를 클릭합니다.**
+2. 클러스터를 처음 만드는 경우 [**OpenShift 제품 페이지**](https://developers.redhat.com/products/codeready-containers)로 이동합니다. 등록 후 [**Red Hat OpenShift Cluster Manager 페이지**](https://cloud.redhat.com/openshift/)로 이동하여 **끌어오기 비밀 다운로드**를 클릭하고 ARO 클러스터에 사용할 끌어오기 비밀을 다운로드할 수 있습니다.
 
-저장된 `pull-secret.txt` 파일을 안전한 위치에 보관해 두세요. 각 클러스터 만들기에 사용됩니다.
+저장된 `pull-secret.txt` 파일을 안전한 위치에 보관합니다. Red Hat 또는 인증된 파트너에 대한 샘플 또는 연산자를 포함하는 클러스터를 만들어야 하는 경우 각 클러스터 만들기에 파일이 사용됩니다.
 
 `az aro create` 명령을 실행하는 경우 `--pull-secret @pull-secret.txt` 매개 변수를 사용하여 풀 비밀을 참조할 수 있습니다. `pull-secret.txt` 파일을 저장한 디렉터리에서 `az aro create`를 실행합니다. 그렇지 않으면 `@pull-secret.txt`를 `@<path-to-my-pull-secret-file>`로 바꿉니다.
 

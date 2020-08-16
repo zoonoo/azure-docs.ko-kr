@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921567"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902000"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -71,7 +71,7 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. 만든 AKS 클러스터의 메타데이터를 표시하려면 다음 명령을 사용합니다. 나중에 사용할 수 있도록 **principalId**, **clientId**, **subscriptionId** 및 **nodeResourceGroup**을 복사합니다.
+1. 만든 AKS 클러스터의 메타데이터를 표시하려면 다음 명령을 사용합니다. 나중에 사용할 수 있도록 **principalId**, **clientId**, **subscriptionId** 및 **nodeResourceGroup**을 복사합니다. 관리 ID를 사용하도록 설정하여 ASK 클러스터를 만들지 않은 경우 **principalId** 및 **clientId**는 null이 됩니다. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -166,7 +166,7 @@ spec:
 
 ### <a name="assign-a-service-principal"></a>서비스 주체 할당
 
-서비스 주체를 사용하는 경우 키 자격 증명 모음에 액세스하고 비밀을 검색할 수 있는 권한을 부여합니다. 다음을 수행하여 *읽기 권한자* 역할을 할당하고, 키 자격 증명 모음에서 비밀을 가져올 수 있는 서비스 주체 권한(*get*)을 부여합니다.
+서비스 주체를 사용하는 경우 키 자격 증명 모음에 액세스하고 비밀을 검색할 수 있는 권한을 부여합니다. *Reader* 역할을 할당하고 다음 명령을 수행하여 키 자격 증명 모음에서 비밀을 *가져올* 수 있는 서비스 주체 권한을 부여합니다.
 
 1. 서비스 주체를 기존 키 자격 증명 모음에 할당합니다. **$AZURE _CLIENT_ID** 매개 변수는 서비스 주체를 만든 후에 복사한 **appId**입니다.
     ```azurecli
@@ -204,10 +204,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 관리 ID를 사용하는 경우 특정 역할을 사용자가 만든 AKS 클러스터에 할당합니다. 
 
-1. 사용자가 할당한 관리 ID를 만들거나, 나열하거나 읽으려면 [관리 ID 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할을 AKS 클러스터에 할당해야 합니다. **$clientId**가 Kubernetes 클러스터의 clientId인지 확인합니다.
+1. 사용자가 할당한 관리 ID를 만들거나, 나열하거나 읽으려면 [관리 ID 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할을 AKS 클러스터에 할당해야 합니다. **$clientId**가 Kubernetes 클러스터의 clientId인지 확인합니다. 범위의 경우 Azure 구독 서비스, 특히 AKS 클러스터를 만들 때 생성한 노드 리소스 그룹 아래에 있게 됩니다. 이 범위는 해당 그룹 내의 리소스만 아래에 할당된 역할의 영향을 받을 수 있도록 합니다. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 AWS VM을 Azure�
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534835"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066647"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -99,7 +99,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 다음과 같이 어플라이언스 배포를 준비합니다.
 
 - 복제 어플라이언스를 호스팅하는 별도의 EC2 VM을 설정합니다. 이 인스턴스는 Windows Server 2012 R2 또는 Windows Server 2016을 실행해야 합니다. 어플라이언스에 대한 하드웨어, 소프트웨어 및 네트워킹 요구 사항을 [검토](./migrate-replication-appliance.md#appliance-requirements)합니다.
-- 복제하려는 원본 VM에 어플라이언스를 설치하지 않아야 합니다. 이는 다른 VM에 배포해야 합니다.
+- 복제하려는 원본 VM 또는 이전에 설치한 Azure Migrate 검색 및 평가 어플라이언스에 어플라이언스를 설치하면 안 됩니다. 이는 다른 VM에 배포해야 합니다.
 - 마이그레이션할 원본 AWS VM에는 복제 어플라이언스에 대한 네트워크 가시선이 있어야 합니다. 이를 사용하도록 설정하는 데 필요한 보안 그룹 규칙을 구성합니다. 복제 어플라이언스는 마이그레이션할 원본 VM과 동일한 VPC에 배포하는 것이 좋습니다. 복제 어플라이언스가 다른 VPC에 있어야 하는 경우 VPC 피어링을 통해 VPC를 연결해야 합니다.
 - 원본 AWS VM은 복제 관리 및 복제 데이터 전송을 위해 443 HTTPS(제어 채널 오케스트레이션) 및 9443 TCP(데이터 전송) 인바운드 포트에서 복제 어플라이언스와 통신합니다. 이에 따라 복제 어플라이언스는 복제 데이터를 오케스트레이션하고 443 HTTPS 아웃바운드 포트를 통해 Azure로 보냅니다. 이러한 규칙을 구성하려면 적절한 포트 및 원본 IP 정보를 사용하여 보안 그룹 인바운드/아웃바운드 규칙을 편집합니다.
 
