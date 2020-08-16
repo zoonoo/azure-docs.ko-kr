@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057572"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257458"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -20,7 +20,7 @@ Azure Traffic Manager 프로필에 대 한 [ttl (time-to-live) 설정을](../tra
 
 Azure Advisor는 더 긴 TTL이 구성 된 Traffic Manager 프로필을 식별 합니다. [빠른 장애 조치(Failover)](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/)에 대해 프로필이 구성 되었는지 여부에 따라 TTL을 20 초 또는 60 초로 구성 하는 것이 좋습니다.
 
-## <a name="improve-database-performance-by-using-sql-database-advisor"></a>SQL Database Advisor를 사용 하 여 데이터베이스 성능 향상
+## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>SQL Database Advisor를 사용 하 여 데이터베이스 성능 향상 (일시적으로 사용 안 함)
 
 Azure Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Advisor와 통합 되어 데이터베이스의 성능을 향상 시키기 위한 권장 사항을 제공 합니다.SQL Database Advisor은 사용 기록을 분석 하 여 데이터베이스의 성능을 평가 합니다. 그런 다음 데이터베이스의 일반적인 워크 로드를 실행 하는 데 가장 적합 한 권장 사항을 제공 합니다.
 
@@ -151,6 +151,22 @@ Advisor는 기본 인덱싱 정책을 사용 하는 Azure Cosmos DB 컨테이너
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB 쿼리 페이지 크기 (MaxItemCount)를-1로 설정 
 
 Azure Advisor 쿼리 페이지 크기 100를 사용 하는 Azure Cosmos DB 컨테이너를 식별 합니다. 빠른 검색을 위해 페이지 크기-1을 사용 하는 것이 좋습니다. [MaxItemCount에 대해 자세히 알아보세요.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>클러스터 성능을 향상 시키기 위해 HBase 클러스터에서 가속 쓰기 기능을 사용 하는 것이 좋습니다.
+Azure Advisor는 지난 7 일간 시스템 로그를 분석 하 고 클러스터에 다음 시나리오가 발생 했는지 확인 합니다.
+1. 긴 WAL 동기화 대기 시간 
+2. 많은 쓰기 요청 수(1시간에 avg_write_requests/second/node 1000건 초과가 3번 이상)
+
+이러한 상태는 클러스터의 쓰기 대기 시간이 길다는 것을 나타냅니다. 이는 클러스터에서 많은 작업을 수행 했기 때문일 수 있습니다. 클러스터의 성능을 향상 시키기 위해 Azure HDInsight HBase에서 제공 하는 가속화 된 쓰기 기능을 활용 하는 것을 고려할 수 있습니다. HDInsight Apache HBase 클러스터의 가속 쓰기 기능은 클라우드 스토리지를 사용하는 대신 모든 RegionServer(작업자 노드)에 프리미엄 SSD 관리 디스크를 연결합니다. 따라서 애플리케이션의 쓰기 대기 시간이 단축되고 복원력이 향상됩니다. 이 기능에 대 한 자세한 내용을 보려면 자세히 [알아보세요](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight) .
+
+## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>성능 향상을 위해 Azure 데이터 탐색기 테이블 캐시 기간 (정책) 검토 (미리 보기)
+이 권장 사항은 구성된 캐시 기간(정책)을 초과하여 가장 많은 수의 쿼리를 포함하는 Azure Data Explorer 테이블을 표시합니다(캐시 외부 데이터에 액세스하는 쿼리 비율별로 상위 10개의 테이블이 표시됨). 클러스터의 성능을 향상시키기 위한 권장 조치: 이 테이블에 대한 쿼리를 필요한 최소 시간 범위(정의된 정책 내)로 제한합니다. 또는 전체 시간 범위의 데이터가 필요한 경우 캐시 기간을 권장 값으로 늘립니다.
+
+## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>MySQL 임시 테이블 크기 조정을 최적화하여 성능 향상
+Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세히 알아보기](https://aka.ms/azure_mysql_tmp_table)
+
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>서버 그룹에 데이터를 배포 하 여 노드 간에 작업 분산
+Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor의 성능 권장 사항에 액세스 하는 방법
 

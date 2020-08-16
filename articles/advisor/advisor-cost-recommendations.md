@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284373"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258532"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감
 
@@ -96,6 +96,8 @@ Advisor는 Azure Blob 저장소 개체 수, 총 크기 및 트랜잭션에 대 �
 
 수명이 짧은 IaaS Vm 또는 상태 비저장 워크 로드를 사용 하는 Vm에 대해서는 사용 후 삭제 OS 디스크를 사용 하는 것이 좋습니다. Advisor는 임시 OS 디스크를 사용할 수 있는 리소스에 대 한 권장 사항을 제공 합니다.
 
+## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>클러스터 비용 최적화 (미리 보기)에 대 한 Azure 데이터 탐색기 테이블 캐시-기간 (정책) 줄이기
+Advisor는 테이블 캐시 정책을 줄이면 CPU 사용률, 메모리 및 높은 캐시 크기 구성이 있는 Azure 데이터 탐색기 클러스터 노드를 해제할 수 있는 리소스를 식별 합니다.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
 

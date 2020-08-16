@@ -4,12 +4,12 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0921d7bbba90fa2199ea212bae6ad4c35e0fb051
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 33ad4503b744b4737c2d63f74e146a79d36080e1
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245488"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258734"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -94,7 +94,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 App Service 웹 앱 내의 **설정**에서  >  **Application Insights**  >  **사용**을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
 
@@ -123,8 +123,6 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
    * 설정을 **저장**하고 앱을 **다시 시작**합니다.
 
-![응용 프로그램 설정 UI의 스크린샷](./media/azure-web-apps/appinsights-javascript-enabled.png)
-
 클라이언트 쪽 모니터링을 사용 하지 않도록 설정 하려면 응용 프로그램 설정에서 연결 된 키 값 쌍을 제거 하거나 값을 false로 설정 합니다.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
@@ -142,9 +140,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
    * 설정을 **저장**하고 앱을 **다시 시작**합니다.
 
-![응용 프로그램 설정 UI의 스크린샷](./media/azure-web-apps/appinsights-javascript-disabled.png)
-
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](./javascript.md)해야 합니다.
 

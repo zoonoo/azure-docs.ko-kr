@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 90b4ffb273fc314a7c92971490fb09b6f0c131ee
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987259"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258349"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -71,15 +71,12 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
      응용 프로그램이 엄격한 방화벽 제한을 사용 하는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다. 그러나 성능 단점은 데이터를 Azure Cosmos DB에서 읽거나 쓸 때마다 게이트웨이 모드에 추가 네트워크 홉이 포함 된다는 것입니다. 따라서 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공 합니다. 또한 소켓 연결 수가 제한 된 환경에서 응용 프로그램을 실행할 때 게이트웨이 연결 모드를 권장 합니다.
 
      특히 [소비 계획](../azure-functions/functions-scale.md#consumption-plan)에서 Azure Functions SDK를 사용 하는 경우 [연결에 대 한 현재 제한](../azure-functions/manage-connections.md)사항을 알고 있어야 합니다. 이 경우 Azure Functions 응용 프로그램 내에서 다른 HTTP 기반 클라이언트를 사용 하는 경우에도 게이트웨이 모드가 더 좋을 수 있습니다.
-
-
-게이트웨이 모드에서 Azure Cosmos DB는 MongoDB 용 Azure Cosmos DB API를 사용 하는 경우 포트 443 및 포트 10250, 10255 및 10256을 사용 합니다. 포트 10250는 지역에서 복제를 사용 하지 않고 기본 MongoDB 인스턴스에 매핑됩니다. 포트 10255 및 10256는 지역에서 복제를 포함 하는 MongoDB 인스턴스에 매핑됩니다.
      
-직접 모드에서 TCP를 사용 하는 경우 게이트웨이 2만 1만 포트 외에도 Azure Cosmos DB에서 동적 TCP 포트를 사용 해야 합니다 ( [전용 끝점](./how-to-configure-private-endpoints.md)에서 직접 모드를 사용 하는 경우, tcp 포트의 전체 범위-0에서 65535로 열림). 포트는 표준 Azure VM 구성에 대해 기본적으로 열립니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용 하려고 하면 503 서비스를 사용할 수 없음 오류가 표시 됩니다. 다음 표에서는 각 API에 사용 되는 다양 한 Api 및 서비스 포트에 사용할 수 있는 연결 모드를 보여 줍니다.
+직접 모드에서 TCP를 사용 하는 경우 게이트웨이 포트 외에도 Azure Cosmos DB에서 동적 TCP 포트를 사용 하므로 1만과 2만 사이의 포트 범위가 열려 있는지 확인 해야 합니다. [전용 끝점](./how-to-configure-private-endpoints.md)에서 직접 모드를 사용 하는 경우 TCP 포트의 전체 범위 (0 ~ 65535)가 열려 있어야 합니다. 포트는 표준 Azure VM 구성에 대해 기본적으로 열립니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용 하려고 하면 503 서비스를 사용할 수 없음 오류가 표시 됩니다. 다음 표에서는 각 API에 사용 되는 다양 한 Api 및 서비스 포트에 사용할 수 있는 연결 모드를 보여 줍니다.
 
 |연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
 |---------|---------|---------|---------|
-|게이트웨이  |   HTTPS    |  모든 Sdk    |   SQL (443), MongoDB (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443)    |
+|게이트웨이  |   HTTPS    |  모든 Sdk    |   SQL (443), MongoDB (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443) <br> 10250 포트는 지역에서 복제를 사용 하지 않고 MongoDB 인스턴스에 대 한 기본 Azure Cosmos DB API에 매핑됩니다. 반면에 포트 10255 및 10256은 지역에서 복제를 포함 하는 인스턴스에 매핑됩니다.   |
 |직접    |     TCP    |  .NET SDK    | 공개/서비스 끝점을 사용 하는 경우: 1만 ~ 2만 범위의 포트<br>개인 끝점을 사용 하는 경우: 0-65535 범위의 포트 |
 
 Azure Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공 합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. TCP 프로토콜은 초기 인증 및 암호화 트래픽에 TLS를 사용 합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
@@ -167,8 +164,8 @@ Azure Cosmos DB 요청은 게이트웨이 모드를 사용 하는 경우 HTTPS/R
 **분할 된 컬렉션에 대 한 병렬 쿼리 조정**
 
 SQL .NET SDK는 병렬 쿼리를 지원 하므로 분할 된 컨테이너를 병렬로 쿼리할 수 있습니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs)을 참조하세요. 병렬 쿼리는 일련의 대응 보다 더 나은 쿼리 대기 시간 및 처리량을 제공 하도록 설계 되었습니다. 병렬 쿼리는 요구 사항에 맞게 튜닝할 수 있는 두 가지 매개 변수를 제공 합니다. 
-- `MaxConcurrency`병렬로 쿼리할 수 있는 최대 파티션 수를 제어 합니다. 
-- `MaxBufferedItemCount`미리 인출 된 결과의 수를 제어 합니다.
+- `MaxConcurrency` 병렬로 쿼리할 수 있는 최대 파티션 수를 제어 합니다. 
+- `MaxBufferedItemCount` 미리 인출 된 결과의 수를 제어 합니다.
 
 ***동시성 튜닝 수준***
 

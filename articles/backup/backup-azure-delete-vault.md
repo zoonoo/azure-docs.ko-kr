@@ -3,18 +3,18 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 Azure Backup Recovery Services 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055206"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257954"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
 이 문서에서는 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음을 삭제 하는 방법을 설명 합니다. 종속성을 제거한 후 자격 증명 모음을 삭제 하는 방법에 대 한 지침이 포함 되어 있습니다.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 다음과 같은 종속성이 있는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "87055206"
 ## <a name="proper-way-to-delete-a-vault"></a>자격 증명 모음을 삭제 하는 적절 한 방법
 
 >[!WARNING]
->다음 작업은 소거식 이며 실행 취소할 수 없습니다. 보호 된 서버와 연결 된 모든 백업 데이터 및 백업 항목은 영구적으로 삭제 됩니다. 이러한 작업은 주의해서 진행합니다.
+>다음 작업은 소거식 이며 실행 취소할 수 없습니다. 보호 된 서버와 연결 된 모든 백업 데이터 및 백업 항목은 영구적으로 삭제 됩니다. 주의하여 진행하세요.
 
 자격 증명 모음을 제대로 삭제 하려면 다음 순서 대로 단계를 수행 해야 합니다.
 
@@ -43,8 +43,9 @@ ms.locfileid: "87055206"
 - **3 단계**: 다음 세 위치를 모두 확인 하 여 보호 된 항목이 있는지 확인 해야 합니다.
 
   - **클라우드 보호 항목**: **백업 항목**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. 백업 데이터와 함께 백업 **중지** 또는 백업 **데이터를 삭제** 하 여 여기에 나열 된 모든 항목을 제거 해야 합니다.  이러한 항목을 제거 하려면 [다음 단계를 수행](#delete-protected-items-in-the-cloud) 합니다.
+  - **SQL Server 인스턴스**: 자격 증명 모음 대시보드 메뉴로 이동 하 여 **백업 인프라**  >  **보호 된 서버**> 합니다. 보호된 서버에서 등록을 취소할 서버를 선택합니다. 자격 증명 모음을 삭제 하려면 모든 서버의 등록을 취소 해야 합니다. 보호 된 서버를 마우스 오른쪽 단추로 클릭 하 고 **등록 취소**를 선택 합니다.
   - **MARS로 보호 된 서버**: **백업 인프라**  >  **보호 된 서버**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. MARS로 보호 된 서버가 있는 경우 여기에 나열 된 모든 항목은 해당 백업 데이터와 함께 삭제 되어야 합니다. MARS 보호 된 서버를 삭제 하려면 [다음 단계를 수행](#delete-protected-items-on-premises) 합니다.
-  - **Mabs 또는 DPM 관리 서버**: **백업 인프라**  >  **백업 관리 서버**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. DPM 또는 MABS (Azure Backup Server)를 사용 하는 경우 여기에 나열 된 모든 항목을 백업 데이터와 함께 삭제 하거나 등록을 취소 해야 합니다. 관리 서버를 삭제 하려면 [다음 단계를 수행](#delete-protected-items-on-premises) 합니다.
+   - **Mabs 또는 DPM 관리 서버**: **백업 인프라**  >  **백업 관리 서버**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. DPM 또는 MABS (Azure Backup Server)를 사용 하는 경우 여기에 나열 된 모든 항목을 백업 데이터와 함께 삭제 하거나 등록을 취소 해야 합니다. 관리 서버를 삭제 하려면 [다음 단계를 수행](#delete-protected-items-on-premises) 합니다.
 
 - **4 단계**: 등록 된 모든 저장소 계정이 삭제 되었는지 확인 해야 합니다. **백업 인프라**  >  **저장소 계정**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. 여기에 나열 된 저장소 계정이 있는 경우 모든 항목의 등록을 취소 해야 합니다. 계정 등록을 취소 하는 방법을 알아보려면 [저장소 계정 등록 취소](manage-afs-backup.md#unregister-a-storage-account)를 참조 하세요.
 
@@ -84,7 +85,7 @@ ms.locfileid: "87055206"
 1. 자격 증명 모음 대시보드 메뉴에서 **백업 인프라**를 선택 합니다.
 2. 온-프레미스 시나리오에 따라 다음 옵션 중 하나를 선택 합니다.
 
-      - MARS의 경우 **보호 된 서버** 를 선택한 다음 **에이전트를 Azure Backup**합니다. 그런 다음 삭제 하려는 서버를 선택 합니다.
+      - MARS의 경우 **보호 된 서버** 를 선택한 다음  **에이전트를 Azure Backup**합니다. 그런 다음 삭제 하려는 서버를 선택 합니다.
 
         ![MARS의 경우 자격 증명 모음을 선택 하 여 해당 대시보드를 엽니다.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -235,7 +236,7 @@ MABS 또는 DPM 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할
 
     다음 프롬프트가 표시 되는 게시:
 
-    *이 백업 정책을 제거 하 시겠습니까 Microsoft Azure Backup? 삭제 된 백업 데이터는 14 일 동안 보존 됩니다. 이 시간 후에는 백업 데이터가 영구적으로 삭제 됩니다. <br/>[Y] 예 [A] 예 [N] 아니요 [S] 아니요 모두 [S] 일시 중지 [?] 도움말 (기본값: "Y"):*
+    *이 백업 정책을 제거 하 시겠습니까 Microsoft Azure Backup? 삭제 된 백업 데이터는 14 일 동안 보존 됩니다. 이 시간 후에는 백업 데이터가 영구적으로 삭제 됩니다. <br/> [Y] 예 [A] 예 [N] 아니요 [S] 아니요 모두 [S] 일시 중지 [?] 도움말 (기본값: "Y"):*
 
 - MABS (Microsoft Azure Backup Server) 또는 DPM (System Center Data Protection Manager)을 사용 하 여 보호 되는 온-프레미스 컴퓨터를 azure에서 삭제 하려면 다음 명령을 사용 하 여 Azure에서 백업 된 데이터를 삭제 합니다.
 

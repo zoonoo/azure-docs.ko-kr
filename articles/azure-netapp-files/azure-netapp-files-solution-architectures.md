@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 8ed9f6565da55d3ffbe522bbdf404265c487f67c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 79ad95179f4ad6d332a848e59ca341b8a9f90b1f
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225617"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258228"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -85,7 +85,7 @@ ms.locfileid: "88225617"
 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
-* [Azure NetApp Files와 함께 Windows 가상 데스크톱 사용](solutions-windows-virtual-desktop.md)
+* [Windows 가상 데스크톱에서 Azure NetApp Files 사용의 이점](solutions-windows-virtual-desktop.md)
 * [Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [엔터프라이즈 규모의 Windows 가상 데스크톱](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
