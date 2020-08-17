@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8038ace4469123e50d98d9296a1aecf0107efbf2
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1609fc720474f92b3a3fa8c0631452164a7e4d0f
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262554"
+ms.locfileid: "88272029"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 
@@ -181,6 +181,7 @@ Security Center 권장 사항은 모범 사례를 기반으로 합니다. 일부
 |**구독에 최대 3명의 소유자를 지정해야 합니다.**|보안이 침해된 소유자의 위반 가능성을 줄이려면 구독 소유자를 3명 미만으로 지정합니다.<br>(관련 정책: 구독 소유자를 3명 이하로 지정해야 함)|높음|N|Subscription|
 |**Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함**|Azure Security Center에는 Azure Key Vault에 대한 Azure 네이티브 고급 위협 방지 기능이 포함되어 있으며, 추가 보안 인텔리전스를 계층에 제공합니다.<br>중요:이 권장 사항을 수정 AKV 자격 증명 모음을 보호 하는 요금이 부과 됩니다. 이 구독에 AKV 자격 증명 모음이 없으면 요금이 발생 하지 않습니다. 나중에이 구독에서 AKV 자격 증명 모음을 만드는 경우 자동으로 보호 되 고 해당 시간에 요금이 청구 됩니다.<br>(관련 정책: [Azure Key Vault 자격 증명 모음에서 Advanced threat protection을 사용 하도록 설정 해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047))|높음|**예**|Subscription|
 |**Key Vault의 진단 로그를 사용하도록 설정해야 함**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: Key Vault에서 진단 로그를 사용하도록 설정해야 함)|낮음|**예**|Key Vault|
+|**관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.**|관리 인증서를 사용 하 여 인증 하는 모든 사용자가 연결 된 구독을 관리할 수 있습니다. 보다 안전 하 게 구독을 관리 하려면 인증서가 손상 되는 경우에는 리소스 관리자에서 서비스 주체를 사용 하 여 폭발 한 반경을 제한 하는 것이 좋습니다. 또한 리소스 관리를 자동화 합니다.|보통|예|Subscription|
 ||||||
 
 

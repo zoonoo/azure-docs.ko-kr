@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d6a25e7c36118f6a11bd1a177159bc9050ee69ca
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8d48a8a9f52c3edb4350c16a25deda9894dcdda1
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431017"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271161"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps 미리 보기에 API 추가
 
@@ -28,7 +28,7 @@ Azure Functions와의 통합을 통해 Azure Static Web Apps에 서버리스 API
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) 확장
 - API 앱을 로컬로 실행 하는 [Node.js](https://nodejs.org/download/)
 
-## <a name="create-a-git-repository"></a>git 리포지토리 만들기
+## <a name="create-a-git-repository"></a>Git 리포지토리 만들기
 
 다음 단계에서는 새 리포지토리를 만들고 파일을 컴퓨터에 복제하는 방법을 보여 줍니다.
 

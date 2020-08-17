@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 08/12/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 127629cb0102c2736995364db9202cd837d99a17
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214286"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271008"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -66,9 +66,11 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 - 중첩 그룹 프로 비전은 지원 되지 않습니다. 
 - 테 넌 트의 크기 때문에 B2C 테 넌 트에 프로 비전이 지원 되지 않습니다. 
 
+**프로 비전 간격이 고정 되어 있습니다** . 프로 비전 주기 사이의 [시간은](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) 현재 구성할 수 없습니다. 
+
 **대상 앱에서 Azure AD로 이동 하지 않는 변경 내용**
 
-앱 프로 비전 서비스는 외부 앱에서 변경한 내용을 인식 하지 못합니다. 따라서 롤백하는 동작이 수행 되지 않습니다. 앱 프로 비전 서비스는 Azure AD에서 변경 된 내용을 따릅니다.  
+앱 프로 비전 서비스는 외부 앱에서 변경한 내용을 인식 하지 못합니다. 따라서 롤백하는 동작이 수행 되지 않습니다. 앱 프로 비전 서비스는 Azure AD에서 변경 된 내용을 따릅니다. 
 
 **프로 비전 주기는 완료 될 때까지 계속 됩니다.**
 

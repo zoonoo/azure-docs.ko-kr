@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b6984e16d1ddcee7d3f276ddcdf8c89609f14fe5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080731"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271025"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -33,7 +33,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 기본 모바일 응용 프로그램과 관련된 자세한 내용은 [Azure App Service를 사용하여 모바일 응용 프로그램에 대한 사용자 인증 및 권한 부여](../app-service-mobile/app-service-mobile-auth.md)를 참조하세요.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 ### <a name="on-windows"></a>Windows
 
@@ -77,7 +77,7 @@ App Service는 웹앱, API 또는 기본 모바일 앱의 사용자와 연결된
 
 ID 토큰, 액세스 토큰 및 새로 고침 토큰은 인증 된 세션에 대해 캐시 되며 연결 된 사용자만 액세스할 수 있습니다.  
 
-앱에서 토큰을 사용할 필요가 없는 경우 토큰 저장소를 사용하지 않도록 설정할 수 있습니다.
+앱에서 토큰을 사용할 필요가 없는 경우 앱의 **인증/권한 부여** 페이지에서 토큰 저장소를 사용 하지 않도록 설정할 수 있습니다.
 
 ### <a name="logging-and-tracing"></a>로깅 및 추적
 

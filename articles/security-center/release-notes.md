@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: caad034c2cc3403bc88ee5f50d101702ec692c35
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: a635f32c5e5f1132d70fb503058267c8b33beb7c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192246"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272063"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -31,6 +31,30 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 
 
 ## <a name="august-2020"></a>2020년 8월
+
+8 월의 업데이트는 다음과 같습니다.
+
+- [자산 인벤토리-자산의 보안 상태에 대 한 강력한 새 뷰입니다.](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [추가 된 서비스 주체 권장 사항](#service-principals-recommendation-added)
+- [Vm에 대 한 취약성 평가-통합 권장 사항 및 정책 통합](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+
+
+### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>자산 인벤토리-자산의 보안 상태에 대 한 강력한 새 뷰입니다.
+
+Security Center의 자산 인벤토리는 Security Center 연결 된 리소스의 보안 상태를 확인 하는 방법을 제공 합니다.
+
+Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 이러한 취약성을 해결 하는 방법에 대 한 권장 사항을 제공 합니다. 리소스에 해결 되지 않은 권장 사항이 있는 경우 인벤토리에 표시 됩니다.
+
+보기와 해당 필터를 사용 하 여 보안 상태 데이터를 탐색 하 고 검색 결과에 따라 추가 작업을 수행할 수 있습니다.
+
+[자산 인벤토리에](asset-inventory.md)대해 자세히 알아보세요.
+
+
+### <a name="service-principals-recommendation-added"></a>추가 된 서비스 주체 권장 사항
+
+관리 인증서를 사용 하 여 구독을 관리 하는 Security Center 고객에 대 한 새로운 권장 사항입니다.
+
+권장 사항으로, 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 **보호 하는 데 서비스** 사용자 또는 Azure Resource Manager을 사용 하 여 구독을 보다 안전 하 게 관리 하는 것이 좋습니다. 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Vm에 대 한 취약성 평가-통합 권장 사항 및 정책 통합
 

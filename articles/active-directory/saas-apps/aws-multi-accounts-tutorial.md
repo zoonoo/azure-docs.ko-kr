@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 08/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6857fba86aebbcfd7b20326e4a4a268467e4fc3
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81603836"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>자습서: Amazon Web Services와 Azure Active Directory 통합 (AWS) (레거시 자습서)
 
@@ -69,7 +69,7 @@ AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 �
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * AWS(Amazon Web Services)에서 **SP 및 IDP** 시작 SSO 지원
-* AWS(Amazon Web Services)를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Amazon Web Services (AWS)를 구성한 후에는 세션 제어를 적용 하 여 조직에서 중요 한 데이터의 반출 및 침입를 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>갤러리에서 AWS(Amazon Web Services) 추가
 
@@ -86,7 +86,7 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 
     ![결과 목록의 AWS(Amazon Web Services)](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
 
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
@@ -120,7 +120,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 4. **기본 SAML 구성** 섹션에서 앱이 Azure와 이미 사전 통합 되었으므로 사용자는 아무 단계도 수행할 필요가 없습니다. **저장**을 클릭 합니다.
 
-5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML을 사용 하 여 Single Sign-on 설정** 페이지에서 **편집** 단추를 클릭 하 여 **클레임 & 사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -277,13 +277,13 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Microsoft Graph 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **개체 ID** 를 사용 하 여 다음 쿼리를 사용 하 여 해당 서비스 주체에 액세스할 수 있습니다.
+    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **서비스 사용자 개체 ID** 를 사용 하 여 다음 쿼리를 사용 하 여 해당 서비스 주체에 액세스할 수 있습니다.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
     ![Microsoft Graph 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    예: 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
+    g. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
 
     ![Microsoft Graph 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
