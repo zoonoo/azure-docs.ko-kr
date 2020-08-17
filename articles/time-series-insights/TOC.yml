@@ -67,7 +67,9 @@
       items:
         - name: 인증 및 권한 부여
           href: time-series-insights-authentication-and-authorization.md
-        - name: C#을 사용하여 데이터 쿼리
+        - name: C#을 사용하여 데이터 쿼리 - Gen2
+          href: time-series-insights-update-query-data-csharp.md
+        - name: C#을 사용하여 데이터 쿼리 - Gen1
           href: time-series-insights-query-data-csharp.md
         - name: C#으로 작성된 참조 데이터 관리
           href: time-series-insights-manage-reference-data-csharp.md

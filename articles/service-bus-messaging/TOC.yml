@@ -44,6 +44,8 @@
           items:
             - name: Azure portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Azure CLI
+              href: service-bus-tutorial-topics-subscriptions-cli.md
             - name: ARM 템플릿
               href: service-bus-resource-manager-namespace-topic.md
         - name: 메시지 게시 및 구독
@@ -62,12 +64,8 @@
               href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: 자습서
   items:
-    - name: 인벤토리 업데이트 - PowerShell
-      href: service-bus-tutorial-topics-subscriptions-powershell.md
-    - name: 인벤토리 업데이트 - 포털
+    - name: 인벤토리 업데이트
       href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: 인벤토리 업데이트 - CLI
-      href: service-bus-tutorial-topics-subscriptions-cli.md
     - name: Event Grid를 통해 이벤트에 응답
       href: service-bus-to-event-grid-integration-example.md
 - name: 샘플

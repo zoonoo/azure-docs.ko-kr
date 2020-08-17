@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: 동적 임계값 사용
               href: platform/alerts-dynamic-thresholds.md
+            - name: 여러 시계열에 대한 단일 경고
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: 로그에 대한 메트릭 경고
               href: platform/alerts-metric-logs.md
             - name: Resource Manager 템플릿 사용
@@ -1158,7 +1160,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

@@ -148,6 +148,12 @@
         - name: 문제 해결
           expanded: false
           items:
+            - name: 로그인 문제 해결
+              href: container-registry-troubleshoot-login.md
+            - name: 네트워크 문제 해결
+              href: container-registry-troubleshoot-access.md
+            - name: 쿼리 성능 문제 해결
+              href: container-registry-troubleshoot-performance.md
             - name: 일반적인 문제 검색
               href: container-registry-check-health.md
             - name: FAQ

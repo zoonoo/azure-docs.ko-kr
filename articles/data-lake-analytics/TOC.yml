@@ -32,7 +32,7 @@
           href: ./security-controls-policy.md
         - name: Azure Security Benchmark에 대한 보안 기준
           href: security-baseline.md
-- name: 방법
+- name: 방법 가이드
   items:
     - name: Data Lake Analytics 관리
       items:
@@ -158,7 +158,7 @@
       href: 'https://www.npmjs.com/package/azure-arm-datalake-analytics'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/datalakeanalytics/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.datalakeanalytics/allversions

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 268146430a71cca4e620381ec4ce8666f808fefd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 03e2f004fa54ee235eabc49afd6abd7532a6ee44
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190889"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262775"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -100,6 +100,10 @@ VM 또는 VM 리소스 그룹의 대/소문자를 변경 하는 경우 백업 �
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>VM에 연결 된 선택적 디스크를 백업 하거나 복원할 수 있나요?
 
 이제 Azure Backup은 Azure Virtual Machine 백업 솔루션을 사용한 선택적 디스크 백업 및 복원을 지원합니다. 자세한 내용은 [Azure vm의 선택적 디스크 백업 및 복원](selective-disk-backup-restore.md)을 참조 하세요.
+
+### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>백업 하는 동안 테 넌 트 변경이 발생 하는 경우 관리 되는 id가 유지 되나요?
+
+[테 넌 트가 변경](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) 되 면 백업이 다시 작동 하도록 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다.
 
 ## <a name="restore"></a>복원
 

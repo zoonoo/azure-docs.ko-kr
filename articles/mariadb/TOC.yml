@@ -1,4 +1,4 @@
-- name: Azure DB for MariaDB 문서
+- name: Azure DB for MariaDB 설명서
   href: index.yml
 - name: 개요
   items:

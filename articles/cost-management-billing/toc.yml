@@ -248,6 +248,8 @@
           href: manage/cost-management-budget-scenario.md
         - name: 비용 경고 사용
           href: costs/cost-mgt-alerts-monitor-usage-spending.md
+        - name: 비용 할당
+          href: costs/allocate-costs.md
         - name: Power BI Desktop을 사용하여 연결
           href: /power-bi/desktop-connect-azure-cost-management
         - name: Power BI 템플릿 앱을 사용하여 Azure 비용 분석

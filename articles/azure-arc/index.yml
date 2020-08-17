@@ -7,20 +7,20 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
+  ms.date: 08/13/2020
   ms.author: magoedte
-  ms.openlocfilehash: f9d4da85185d3a8541c165b407d276af0a25ccc6
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: afb1dd4986220bcf3f244532a730faf6b80e6074
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87008492"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88212781"
 landingContent:
-- title: Azure Arc 개요
+- title: Azure Arc 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Azure Arc에 대해 자세히 알아보기
+    - text: Azure Arc란?
       url: https://aka.ms/Azure-Arc-Info
 - title: Azure Arc 지원 서버를 사용하여 Azure에 머신 연결
   linkLists:
@@ -30,12 +30,18 @@ landingContent:
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
+    - text: Arc 지원 서버 에이전트 사용
+      url: ./servers/learn/quick-enable-hybrid-vm.md
+  - linkListType: how-to-guide
+    links:
     - text: Azure Portal에서 Azure Arc에 머신 연결
       url: ./servers/onboard-portal.md
     - text: 서비스 주체를 사용하여 규모에 맞게 머신 연결
       url: ./servers/onboard-service-principal.md
     - text: PowerShell DSC를 사용하여 Azure에 머신 연결
       url: ./servers/onboard-dsc.md
+    - text: Azure VM 확장 관리 및 사용
+      url: ./servers/manage-vm-extensions.md
 - title: Azure Arc를 사용하여 Kubernetes 클러스터를 Azure에 연결
   linkLists:
   - linkListType: overview

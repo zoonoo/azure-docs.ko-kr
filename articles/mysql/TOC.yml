@@ -1,4 +1,4 @@
-- name: MySQL Docs용 Azure DB
+- name: Azure DB for MySQL 설명서
   href: index.yml
 - name: 개요
   items:

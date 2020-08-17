@@ -531,6 +531,8 @@
               items:
                 - name: 빈 에지 노드 사용
                   href: ./hdinsight-apps-use-edge-node.md
+                - name: 에지 노드를 사용하여 HiveServer2 크기 조정
+                  href: ./hdinsight-apps-install-hiveserver2.md
         - name: 문제 해결
           items:
             - name: 일반적인 문제

@@ -57,7 +57,9 @@
           href: export-import-provisioning-configuration.md
     - name: 애플리케이션 프로비저닝 문제 해결
       items:
-        - name: 앱 프로비전 문제 해결
+        - name: 알려진 문제
+          href: known-issues.md
+        - name: 구성 문제 해결
           href: application-provisioning-config-problem.md
         - name: 격리 상태
           href: application-provisioning-quarantine-status.md

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236304"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262673"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -32,7 +32,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
 3. 백업 대시보드 메뉴에서 **파일 복구**를 선택 합니다.
 
-    ![파일 복구 단추](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![파일 복구 선택](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     **파일 복구** 메뉴가 열립니다.
 
@@ -42,7 +42,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
 5. 복구 지점에서 파일을 복사 하는 데 사용 되는 소프트웨어를 다운로드 하려면 **실행 파일 다운로드** (Windows azure vm의 경우) 또는 **스크립트 다운로드** (Linux azure vm의 경우 python 스크립트가 생성 됨)를 선택 합니다.
 
-    ![생성된 암호](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![다운로드 실행 파일](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure가 실행 파일 또는 스크립트를 로컬 컴퓨터로 다운로드합니다.
 
@@ -56,7 +56,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
 7. 스크립트를 실행하는 데 [적합한 머신](#selecting-the-right-machine-to-run-the-script)이 필요합니다. 적합한 머신이 스크립트를 다운로드한 머신인 경우 다운로드 섹션을 계속 진행하면 됩니다. 다운로드 위치(일반적으로 *Downloads* 폴더)에서 실행 파일 또는 스크립트를 마우스 오른쪽 단추로 클릭하고 관리자 자격 증명을 사용하여 실행합니다. 메시지가 표시되면 암호를 입력하거나 메모리의 암호를 붙여넣고 **Enter** 키를 누릅니다. 올바른 암호를 입력하면 스크립트가 복구 지점에 연결됩니다.
 
-    ![파일 복구 메뉴](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![실행 파일 출력](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. Linux 머신의 경우 python 스크립트가 생성됩니다. 스크립트를 다운로드하여 관련/호환 Linux 서버에 복사해야 합니다. 스크립트를 실행하려면 ```chmod +x <python file name>```을 사용하여 권한을 수정해야 할 수도 있습니다. 그런 다음, ```./<python file name>```을 사용하여 python 파일을 실행합니다.
 

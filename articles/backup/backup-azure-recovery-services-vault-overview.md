@@ -2,19 +2,17 @@
 title: Recovery Services 자격 증명 모음 개요
 description: Recovery Services 자격 증명 모음 및 Azure Backup 자격 증명 모음 간의 개요 및 비교입니다.
 ms.topic: conceptual
-ms.date: 08/10/2018
-ms.openlocfilehash: 0e1d061c6baf31fad2e937a604098f0baff6086d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 08/17/2020
+ms.openlocfilehash: 2b292a39e38ef5e298f45c2babbee9fbd20c39ea
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041904"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261874"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
 이 문서에서는 Recovery Services 자격 증명 모음의 기능을 설명합니다. Recovery Services 자격 증명 모음은 Azure에서 데이터를 저장하는 스토리지 엔터티입니다. 데이터는 일반적으로 데이터의 복사본 또는 가상 머신(VM), 워크로드, 서버 또는 워크스테이션에 대한 구성 정보입니다. Recovery Services 자격 증명 모음을 사용하여 IaaS VM(Linux 또는 Windows) 및 Azure SQL 데이터베이스와 같은 다양한 Azure 서비스에 대한 백업 데이터를 저장할 수 있습니다. Recovery Services 자격 증명 모음은 System Center DPM, Windows Server, Azure Backup Server 등을 지원합니다. Recovery Services 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다. Recovery Services 자격 증명 모음은 다음과 같은 기능을 제공 하는 Azure의 Azure Resource Manager 모델을 기반으로 합니다.
-
-## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Recovery Services 자격 증명 모음 및 Backup 자격 증명 모음 비교
 
 - **백업 데이터 보호 기능 향상**: Recovery Services 자격 증명 모음에서 Azure Backup은 클라우드 백업을 보호하는 보안 기능을 제공합니다. 이러한 보안 기능을 통해 백업을 보호하고 프로덕션 및 백업 서버가 손상된 경우에도 데이터를 안전하게 복구할 수 있습니다. [자세히 알아보기](backup-azure-security-feature.md)
 

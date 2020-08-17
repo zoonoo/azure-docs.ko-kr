@@ -1,4 +1,4 @@
-- name: PostgreSQL Docs용 Azure DB
+- name: Azure DB for PostgreSQL 설명서
   href: index.yml
 - name: 개요
   items:
@@ -163,10 +163,6 @@
               href: concepts-read-replicas.md
             - name: 논리 디코딩
               href: concepts-logical.md
-        - name: 영역 간 이동
-          items:
-            - name: Azure portal
-              href: howto-move-regions-portal.md
     - name: 하이퍼스케일(Citus)
       items:
         - name: 분선 데이터
@@ -339,6 +335,10 @@
               href: howto-read-replicas-cli.md
             - name: Azure PowerShell 읽기 복제본 관리
               href: howto-read-replicas-powershell.md
+        - name: 영역 간 이동
+          items:
+            - name: Azure portal
+              href: howto-move-regions-portal.md
     - name: 하이퍼스케일(Citus)
       items:
         - name: 사용자 만들기
@@ -349,7 +349,7 @@
           items:
             - name: Azure portal
               href: howto-hyperscale-manage-firewall-using-portal.md
-        - name: 분산 데이터
+        - name: 분선 데이터
           items:
             - name: 테이블 분산 및 수정
               href: howto-hyperscale-modify-distributed-tables.md

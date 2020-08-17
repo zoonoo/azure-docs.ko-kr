@@ -25,7 +25,7 @@ ms.locfileid: "88244495"
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell은 사용하지 않도록 합니다.
 
-* Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services)을 만드세요.
+* Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services)을 만듭니다.
 * 이 절차에서 사용되는 [샘플](https://github.com/Azure-Samples/cognitive-services-containers-samples)을 복제할 수 있도록 사용하는 운영 체제용 [Git](https://git-scm.com/downloads)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
