@@ -1,6 +1,6 @@
 ---
 title: Azure SSO(Single Sign-On)란?
-description: Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. Single Sign-On을 사용하므로 사용자는 모든 애플리케이션에 대한 암호를 기억할 필요가 없어 계정 관리가 간소화됩니다.
+description: Azure Active Directory에서 SSO(Single Sign-On)가 작동하는 방법에 대해 알아봅니다. 사용자가 모든 애플리케이션에 대한 암호를 기억할 필요가 없도록 SSO를 사용합니다. 또한 SSO를 사용하여 계정 관리를 간소화합니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,23 +11,39 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387543"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121513"
 ---
 # <a name="what-is-single-sign-on-sso"></a>SSO(Single Sign-On)란?
 
-SSO(Single Sign-On)는 사용자가 Azure AD(Azure Active Directory)의 애플리케이션에 로그인할 때 보안 및 편리함을 제공합니다. 이 문서는 Single Sign-On 방법을 설명하고, 애플리케이션을 구성할 때 가장 적합한 SSO 방법을 선택하는 데 유용합니다.
+Single Sign-On은 사용자가 사용하는 모든 애플리케이션에 로그인할 필요가 없음을 의미합니다. 사용자가 한 번 로그인하면 다른 앱에도 해당 자격 증명이 사용됩니다.
+
+최종 사용자인 경우 SSO 세부 정보에 대해 크게 신경 쓰지 않을 수 있습니다. 암호를 입력하지 않고도 생산적으로 만드는 앱을 사용하려고 합니다. https://myapps.microsoft.com 에서 앱을 찾을 수 있습니다.
+ 
+관리자 또는 IT 전문가인 경우 Azure에서 SSO를 구현하는 방법에 대해 자세히 알아보세요.
+
+## <a name="single-sign-on-basics"></a>Single Sign-On 기본 사항
+Single Sign-On은 사용자가 로그인하고 애플리케이션을 사용하는 방법에 큰 도약을 제공합니다. Single Sign-On 기반 인증 시스템을 종종 "최신 인증"이라고 합니다. Single Sign-On의 가능 여부를 이해하려면 이 비디오를 확인하세요.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+## <a name="understanding-where-an-app-is-hosted"></a>앱이 호스트되는 위치 이해
+앱에 대한 Single Sign-On를 구현하는 방법은 앱이 호스트되는 위치와 다를 수 있습니다. 앱에 액세스하기 위해 네트워크 트래픽이 라우팅되는 방식 때문에 호스팅에 문제가 있습니다. 앱이 호스트되고 온-프레미스 앱이라고 하는 로컬 네트워크를 통해 액세스되는 경우 사용자가 인터넷에 액세스하여 앱을 사용할 필요가 없습니다. 앱이 클라우드 호스팅 앱이라고 하는 다른 곳에서 호스트되는 경우 사용자는 앱을 사용하기 위해 인터넷에 액세스해야 합니다.
+
+> [!TIP]
+> 클라우드 앱은 SaaS(Software as a Service) 앱이라고도 합니다. 
+
+> [!TIP]
+> 클라우드 및 인터넷이라는 용어는 종종 교환 가능한 방식으로 사용됩니다. 그 이유는 네트워크 다이어그램과 관련이 있습니다. 모든 구성 요소를 그리는 것은 불가능하기 때문에 다이어그램에서 클라우드 도형이 포함된 대형 컴퓨터 네트워크를 나타내는 것이 일반적입니다. 인터넷은 가장 잘 알려진 네트워크이므로 상호 교환이 쉽습니다. 그러나 모든 컴퓨터 네트워크를 클라우드로 연결할 수 있습니다.
+
+## <a name="choosing-a-single-sign-on-method"></a>Single Sign-On 방법 선택
 
 - **Single Sign-On을 사용하면** 사용자는 하나의 계정으로 한 번 로그인으로 도메인 가입 디바이스, 회사 리소스, SaaS(Software as a Service) 애플리케이션 및 웹 애플리케이션에 액세스할 수 있습니다. 로그인한 후 사용자는 Office 365 포털 또는 Azure AD MyApps 액세스 패널에서 애플리케이션을 시작할 수 있습니다. 관리자는 사용자 계정 관리를 중앙 집중화하고, 그룹 멤버 자격에 따라 애플리케이션에 대한 사용자 액세스를 자동으로 추가하거나 제거할 수 있습니다.
 
 - **Single Sign-On을 사용하지 않으면** 사용자는 애플리케이션별 암호를 기억하고 각 애플리케이션마다 로그인해야 합니다. IT 직원은 Office 365, Box 및 Salesforce와 같은 각 애플리케이션에 대한 사용자 계정을 만들고 업데이트해야 합니다. 사용자가 암호를 기억해야 하는 것과 동시에 각 애플리케이션에 로그인하는 시간도 소비됩니다.
-
-## <a name="choosing-a-single-sign-on-method"></a>Single Sign-On 방법 선택
 
 Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가지가 있습니다. Single Sign-On 방법을 선택하는 것은 애플리케이션이 인증에 대해 어떻게 구성되었는지에 따라 달라집니다.
 
@@ -42,7 +58,7 @@ Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가
 
 | Single Sign-On 방법 | 애플리케이션 형식 | 사용 시기 |
 | :------ | :------- | :----- |
-| [OpenID Connect 및 OAuth](#openid-connect-and-oauth) | 클라우드 전용 | 새 애플리케이션을 개발하는 경우 OpenID Connect 및 OAuth를 사용합니다. 이 프로토콜은 애플리케이션 구성을 간소화하고, 사용하기 쉬운 SDK를 보유하며, 애플리케이션에서 MS Graph를 사용하도록 설정합니다.
+| [OpenID Connect 및 OAuth](#openid-connect-and-oauth) | 클라우드 및 온-프레미스 | 새 애플리케이션을 개발하는 경우 OpenID Connect 및 OAuth를 사용합니다. 이 프로토콜은 애플리케이션 구성을 간소화하고, 사용하기 쉬운 SDK를 보유하며, 애플리케이션에서 MS Graph를 사용하도록 설정합니다.
 | [SAML](#saml-sso) | 클라우드 및 온-프레미스 | OpenID Connect 또는 OAuth를 사용하지 않는 기존 애플리케이션에 대해 언제나 사용 가능한 SAML을 선택합니다. SAML은 SAML 프로토콜 중 하나를 사용하여 인증하는 애플리케이션에 대해 작동합니다.|
 | [암호 기반](#password-based-sso) | 클라우드 및 온-프레미스 | 애플리케이션이 사용자 이름 및 암호를 사용하여 인증하는 경우 암호 기반을 선택합니다. 암호 기반 Single Sign-On을 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 스토리지하고 재생할 수 있습니다. 이 방법은 애플리케이션에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있습니다. |
 | [연결됨](#linked-sign-on) | 클라우드 및 온-프레미스 | 애플리케이션이 다른 ID 공급자 서비스에서 Single Sign-On으로 구성된 경우 연결된 로그온을 선택합니다. 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 하지만 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수도 있습니다.|
@@ -197,10 +213,5 @@ Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용�
 
 자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="next-steps"></a>다음 단계
 * [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
-* [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
-* [암호 기반 Single Sign-On 구성](configure-password-single-sign-on-non-gallery-applications.md)
-* [연결된 로그온 구성](configure-linked-sign-on.md)
-* [애플리케이션에 대한 액세스 관리 소개](what-is-access-management.md)
-* 다운로드 링크: [Single Sign-On 배포 계획](https://aka.ms/SSODeploymentPlan)
