@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167932"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262860"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -96,7 +96,7 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 **원인 5: [응용 프로그램 제어 솔루션이 차단 IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
-## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-VM이 프로 비전 실패 상태에 있습니다.
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVMProvisioningStateFailed - VM이 실패한 프로비저닝 상태입니다.
 
 **오류 코드**: UserErrorVmProvisioningStateFailed<br>
 **오류 메시지**: VM이 프로 비전 실패 상태에 있습니다.<br>
@@ -140,7 +140,7 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 **[스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 
-## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot 확장 작업이 실패 했습니다.
+## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot 확장 작업이 실패했습니다.
 
 **오류 코드**: ExtensionOperationFailedForManagedDisks <br>
 **오류 메시지**: VMSnapshot 확장 작업이 실패했습니다.<br>
@@ -175,36 +175,36 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 기존 백업 작업이 진행 중 이므로 최근 백업 작업에 실패 했습니다. 현재 작업이 완료될 때까지 새 백업 작업을 시작할 수 없습니다. 현재 진행 중인 백업 작업이 완료된 후 다른 백업 작업을 트리거 또는 예약해야 합니다. 백업 작업 상태를 확인 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에 로그인 하 고 **모든 서비스**를 클릭 합니다. Recovery Services를 클릭하고 **Recovery Services 자격 증명 모음**을 클릭합니다. 복구 서비스 자격 증명 모음의 목록이 표시됩니다.
+1. Azure Portal에 로그인 하 고 **모든 서비스**를 선택 합니다. Recovery Services를 입력 하 고 **Recovery Services 자격 증명 모음**을 선택 합니다. 복구 서비스 자격 증명 모음의 목록이 표시됩니다.
 2. 복구 서비스 자격 증명 모음 목록에서 백업이 구성된 자격 증명 모음을 선택합니다.
-3. 자격 증명 모음 대시보드 메뉴에서 **백업 작업**을 클릭하여 모든 백업 작업을 표시합니다.
+3. 자격 증명 모음 대시보드 메뉴에서 **백업 작업** 을 선택 하 여 모든 백업 작업을 표시 합니다.
    - 백업 작업이 진행 중이면 백업 작업이 완료될 때까지 기다리거나 취소합니다.
-     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)사용을 클릭 합니다.
+     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)사용을 선택 합니다.
    - 다른 자격 증명 모음에서 백업을 다시 구성한 경우 이전 자격 증명 모음에서 실행 중인 백업 작업이 없는지 확인 합니다. 존재 하는 경우 백업 작업을 취소 합니다.
-     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) 사용을 클릭 합니다.
+     - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) 사용을 선택 합니다.
 4. 백업 작업을 다시 시도합니다.
 
 예약 된 백업 작업이 더 오래 걸리고 다음 백업 구성과 충돌 하는 경우 [최선의 구현 방법](backup-azure-vms-introduction.md#best-practices), [백업 성능](backup-azure-vms-introduction.md#backup-performance)및 [복원 고려 사항](backup-azure-vms-introduction.md#backup-and-restore-considerations)을 검토 합니다.
 
-## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError-오류로 인해 백업 하지 못했습니다. 자세한 내용은 작업 오류 메시지 세부 정보를 참조 하세요.
+## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError - 오류로 인해 백업하지 못했습니다. 자세한 내용은 작업 오류 메시지 세부 정보를 참조하세요.
 
 **오류 코드**: usererrorcrpreportedusererror <br>
 **오류 메시지**: 오류로 인해 백업 하지 못했습니다. 자세한 내용은 작업 오류 메시지 세부 정보를 참조 하세요.
 
-이 오류는 IaaS VM에서 보고 됩니다. 문제의 근본 원인을 확인 하려면 Recovery Services 자격 증명 모음 설정으로 이동 합니다. **모니터링** 섹션에서 **백업 작업** 을 선택 하 여 필터링 하 고 상태를 확인 합니다. **실패** 를 클릭 하 여 기본 오류 메시지 정보를 검토 합니다. 오류 정보 페이지의 권장 사항에 따라 추가 작업을 수행 합니다.
+이 오류는 IaaS VM에서 보고 됩니다. 문제의 근본 원인을 확인 하려면 Recovery Services 자격 증명 모음 설정으로 이동 합니다. **모니터링** 섹션에서 **백업 작업** 을 선택 하 여 필터링 하 고 상태를 확인 합니다. **실패** 를 선택 하 여 기본 오류 메시지 정보를 검토 합니다. 오류 정보 페이지의 권장 사항에 따라 추가 작업을 수행 합니다.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent-백업 실패:이 가상 머신은 Azure Backup로 보호 되 고 있지 않습니다.
 
 **오류 코드**: UserErrorBcmDatasourceNotPresent <br>
 **오류 메시지**: 백업 실패:이 가상 머신은 Azure Backup로 보호 되 고 있지 않습니다.
 
-지정 된 가상 컴퓨터가 Azure Backup로 보호 되 고 있는지 (일시 중지 상태가 아님) 확인 하세요. 이 문제를 해결 하려면 가상 컴퓨터가 활성 상태 인지 확인 한 후 작업을 다시 시도 하세요.
+지정 된 가상 컴퓨터가 Azure Backup에 의해 보호 되 고 있는지 확인 합니다 (일시 중지 상태 아님). 이 문제를 해결 하려면 가상 컴퓨터가 활성 상태 인지 확인 한 후 작업을 다시 시도 하세요.
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution-for-this-error"></a>이 오류에 대 한 해결 방법
 
 VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하면 최신 버전을 가져올 수 있습니다. 또한 서비스와의 통신을 다시 시작하는 데도 도움이 됩니다.
 
@@ -252,13 +252,13 @@ Waagent에 대 한 자세한 정보 로깅이 필요한 경우 다음 단계를 
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>VM-에이전트 구성 옵션이 설정 되지 않음 (Linux Vm의 경우)
 
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 구성 파일 옵션 **확장명. Enable** 을 **y** 로 설정 하 고 **프로 비전 해야 합니다.** 백업이 작동 하려면 에이전트를 **auto** 로 설정 해야 합니다.
-VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세요.<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세요. <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>응용 프로그램 제어 솔루션이 차단 IaaSBcdrExtension.exe
 
 [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) 또는 다른 응용 프로그램 제어 솔루션을 실행 하는 경우 규칙은 게시자 또는 경로를 기반으로 하며, **IaaSBcdrExtension.exe** 실행 파일이 실행 되지 못하도록 차단할 수 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution-to-this-issue"></a>이 문제에 대 한 해결 방법
 
 `/var/lib`AppLocker (또는 다른 응용 프로그램 제어 소프트웨어)에서 경로 또는 **IaaSBcdrExtension.exe** 실행 파일을 제외 합니다.
 
@@ -266,7 +266,7 @@ VM 에이전트 구성 파일 옵션의 전체 목록은 다음을 참조 하세
 
 VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사용합니다. 스토리지 계정에 액세스할 수 없거나 스냅샷 작업의 실행이 지연되기 때문에 백업이 실패할 수 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution-for-this-issue"></a>이 문제에 대 한 해결 방법
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
@@ -280,11 +280,11 @@ VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 리소스 옵션**으로 이동 하 고, AzureBackupRG_ _ 형식으로 복원 지점 수집 리소스 그룹을 선택 합니다 `<Geo>` `<number>` .
 3. **설정** 섹션에서 **잠금**을 선택하여 잠금을 표시합니다.
-4. 잠금을 제거하려면 줄임표를 선택하고 **삭제**를 클릭합니다.
+4. 잠금을 제거 하려면 줄임표를 선택 하 고 **삭제**를 선택 합니다.
 
     ![잠금 삭제](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a>복원 지점 컬렉션 정리
+### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a> 복원 지점 컬렉션 정리
 
 잠금을 제거한 후 복원 지점을 정리해야 합니다.
 
@@ -307,16 +307,16 @@ VM의 리소스 그룹 또는 VM 자체를 삭제 하는 경우 관리 디스크
 리소스 그룹에 대 한 잠금으로 인해 지워지지 않는 복원 지점의 컬렉션을 수동으로 지우려면 다음 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **허브** 메뉴에서 **모든 리소스**를 클릭하고 사용자 VM이 있는, AzureBackupRG_`<Geo>`_`<number>` 형식의 리소스 그룹을 선택합니다.
+2. **허브** 메뉴에서 **모든 리소스**를 선택 하 고, `<Geo>` VM이 있는 AzureBackupRG_ _ 형식으로 리소스 그룹을 선택 `<number>` 합니다.
 
-    ![잠금 삭제](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![리소스 그룹 선택](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. 리소스 그룹을 클릭 하면 **개요** 창이 표시 됩니다.
+3. 리소스 그룹을 선택 하면 **개요** 창이 표시 됩니다.
 4. 숨겨진 리소스를 모두 표시하려면 **숨겨진 유형 표시** 옵션을 선택합니다. AzureBackupRG_`<VMName>`_`<number>` 형식의 복원 지점 컬렉션을 선택합니다.
 
-    ![잠금 삭제](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![복원 지점 컬렉션 선택](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. 복원 지점 컬렉션을 정리 하려면 **삭제** 를 클릭 합니다.
+5. 복원 지점 컬렉션을 정리 하려면 **삭제** 를 선택 합니다.
 6. 백업 작업을 다시 시도합니다.
 
 > [!NOTE]
