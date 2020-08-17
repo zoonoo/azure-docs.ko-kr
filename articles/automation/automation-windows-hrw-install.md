@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 90b16f10cfa94ce427a9f6249c72842f8ef6278a
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448052"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270583"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -117,11 +117,11 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 다음 방법 중 �
 | --------- | ------ | ----------- |
 | `AAResourceGroupName` | 필수 | Automation 계정과 연결된 리소스 그룹의 이름입니다. |
 | `AutomationAccountName` | 필수 | Automation 계정의 이름입니다.
-| `Credential` | 선택 사항 | Azure 환경에 로그인할 때 사용할 자격 증명입니다. |
+| `Credential` | 옵션 | Azure 환경에 로그인할 때 사용할 자격 증명입니다. |
 | `HybridGroupName` | 필수 | 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름입니다. |
-| `OMSResourceGroupName` | 선택 사항 | Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정하지 않으면 `AAResourceGroupName` 값이 사용됩니다. |
+| `OMSResourceGroupName` | 옵션 | Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정하지 않으면 `AAResourceGroupName` 값이 사용됩니다. |
 | `SubscriptionID` | 필수 | Automation 계정과 연결된 Azure 구독의 식별자입니다. |
-| `TenantID` | 선택 사항 | Automation 계정과 연결된 테넌트 조직의 식별자입니다. |
+| `TenantID` | 옵션 | Automation 계정과 연결된 테넌트 조직의 식별자입니다. |
 | `WorkspaceName` | 옵션 | Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다. |
 
 > [!NOTE]
@@ -138,9 +138,15 @@ PowerShell 명령줄 셸에서 다운로드한 스크립트가 포함된 폴더�
 스크립트를 실행한 후에 Azure 인증을 요청하는 메시지가 나타납니다. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 로그인해야 합니다.
 
 ```powershell-interactive
-.\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <nameOfAutomationAccount> -AAResourceGroupName <nameOfResourceGroup>`
--OMSResourceGroupName <nameOfOResourceGroup> -HybridGroupName <nameOfHRWGroup> `
--SubscriptionID <subscriptionId> -WorkspaceName <nameOfLogAnalyticsWorkspace>
+$NewOnPremiseHybridWorkerParameters = @{
+  AutomationAccountName = <nameOfAutomationAccount>
+  AAResourceGroupName   = <nameOfResourceGroup>
+  OMSResourceGroupName  = <nameOfResourceGroup>
+  HybridGroupName       = <nameOfHRWGroup>
+  SubscriptionID        = <subscriptionId>
+  WorkspaceName         = <nameOfLogAnalyticsWorkspace>
+}
+.\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
 ```
 
 ### <a name="step-4---install-nuget"></a>4단계 - NuGet 설치
