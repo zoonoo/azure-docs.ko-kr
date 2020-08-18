@@ -654,13 +654,19 @@
                   href: app/opencensus-python-dependency.md
                 - name: 요청
                   href: app/opencensus-python-request.md
-            - name: 웹 페이지
+            - name: JavaScript
               items:
                 - name: 클라이언트 쪽 JavaScript
                   displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: JavaScript 소스 맵
                   href: app/source-map-support.md
+                - name: 플러그 인
+                  items:
+                    - name: 플러그인 반응
+                      href: app/javascript-react-plugin.md
+                    - name: React Native 플러그인
+                      href: app/javascript-react-native-plugin.md
                 - name: 문제 해결
                   items:
                     - name: SDK 로드 실패

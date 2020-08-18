@@ -236,7 +236,7 @@
       items:
         - name: 프라이빗 엔드포인트 구성
           href: configure-private-endpoints.md
-        - name: IP 방화벽 구성(미리 보기)
+        - name: IP 방화벽 구성
           href: configure-firewall.md
         - name: AAD를 사용한 보안 웹후크
           href: secure-webhook-delivery.md

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555261"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507436"
 ---
 # <a name="what-is-risk"></a>위험 이란?
 
@@ -66,6 +66,12 @@ Id 보호를 사용 하면 조직에서 강력한 리소스에 액세스 하 여
 
 ## <a name="common-questions"></a>일반적인 질문
 
+### <a name="risk-levels"></a>위험 수준
+
+Id 보호는 위험을 낮음, 중간 및 높음의 3 가지 계층으로 분류 합니다. 
+
+Microsoft에서는 위험을 계산 하는 방법에 대 한 구체적인 정보를 제공 하지 않지만 각 수준에는 사용자 또는 로그인이 손상 된 것으로 확신 하는 신뢰도가 높아집니다. 예를 들어 사용자에 대 한 익숙하지 않은 로그인 속성의 한 인스턴스가 다른 사용자에 대 한 유출 된 자격 증명으로 인 한 것이 아닐 수 있습니다.
+
 ### <a name="leaked-credentials"></a>유출된 자격 증명
 
 #### <a name="where-does-microsoft-find-leaked-credentials"></a>Microsoft에서 유출 된 자격 증명은 어디에서 찾을 까 요?
@@ -78,7 +84,7 @@ Microsoft는 다음을 비롯 한 다양 한 위치에서 유출 된 자격 증�
 
 #### <a name="why-arent-i-seeing-any-leaked-credentials"></a>누출 된 자격 증명이 표시 되지 않는 이유는 무엇 인가요?
 
-Microsoft에서 공개적으로 사용 가능한 새 일괄 처리를 찾을 때마다 유출 된 자격 증명이 처리 됩니다. 중요 한 특성으로 인해 처리 후에 유출 된 자격 증명이 즉시 삭제 됩니다. PHS (암호 해시 동기화)를 사용 하도록 설정한 후에 발견 된 새 유출 된 자격 증명만 테 넌 트에 대해 처리 됩니다. 이전에 찾은 자격 증명 쌍을 확인 하는 것은 수행 되지 않습니다. 
+Microsoft에서 공개적으로 사용 가능한 새 일괄 처리를 찾을 때마다 유출 된 자격 증명이 처리 됩니다. 중요 한 특성으로 인해 처리 후에 유출 된 자격 증명이 즉시 삭제 됩니다. PHS (암호 해시 동기화)를 사용 하도록 설정한 후에 발견 된 새 유출 된 자격 증명만 테 넌 트에 대해 처리 됩니다. 이전에 찾은 자격 증명 쌍에 대한 확인은 수행되지 않습니다. 
 
 #### <a name="i-havent-seen-any-leaked-credential-risk-events-for-quite-some-time"></a>상당한 시간 동안 유출 된 자격 증명 위험 이벤트를 보지 못했습니다.
 

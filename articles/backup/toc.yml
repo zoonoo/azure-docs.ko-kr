@@ -146,7 +146,11 @@
         - name: 개요
           href: backup-azure-sql-database.md
         - name: Backup
-          href: backup-sql-server-database-azure-vms.md
+          items:
+            - name: 자격 증명 모음에서 여러 SQL Server VM 백업
+              href: backup-sql-server-database-azure-vms.md
+            - name: VM 창에서 SQL Server VM 백업
+              href: backup-sql-server-vm-from-vm-pane.md
         - name: 복원
           href: restore-sql-database-azure-vm.md
         - name: 관리

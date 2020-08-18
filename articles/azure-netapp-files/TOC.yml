@@ -43,7 +43,7 @@
               href: solutions-benefits-azure-netapp-files-oracle-database.md
             - name: 전자 디자인 자동화에 Azure NetApp Files 사용의 이점
               href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
-            - name: Azure NetApp Files와 함께 Windows Virtual Desktop 사용
+            - name: Windows Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점
               href: solutions-windows-virtual-desktop.md
     - name: Azure NetApp Files에 대한 FAQ
       href: azure-netapp-files-faqs.md
