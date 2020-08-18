@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888296"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510796"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
-변환기를 사용 하 여 60 개 이상의 텍스트 번역 언어로 번역 합니다. NMT (신경망 변환)는 고품질 AI 기반 컴퓨터 번역을 위한 새로운 표준 이며, 신경망을 사용할 수 있을 때 변환기의 V3을 사용 하 여 기본값으로 사용할 수 있습니다.
+Translator를 사용 하 여 70 개 이상의 텍스트 번역 언어로 번역 합니다. NMT (신경망 변환)는 고품질 AI 기반 컴퓨터 번역을 위한 새로운 표준 이며, 신경망을 사용할 수 있을 때 변환기의 V3을 사용 하 여 기본값으로 사용할 수 있습니다.
 
 또한 사용자 지정 변환기와 함께 번역기를 사용 하 여 사용자의 비즈니스 및 업계에서 사용 되는 용어를 이해 하 고 Microsoft Speech Service를 사용 하 여 앱에 음성 번역을 추가 하는 신경망을 빌드할 수 있습니다.
 
@@ -47,6 +47,7 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 |중국어 번체|   `zh-Hant`       |
 |크로아티아어|  `hr`    |
 |체코어| `cs`    |
+|다리어|  `prs`   |
 |덴마크어|    `da`        |
 |네덜란드어| `nl`|
 |영어|   `en`    |
@@ -83,6 +84,8 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 |마오리어| `mi`  |
 |마라티어| `mr`  |
 |노르웨이어| `nb`    |
+|오리야어|  `or`    |
+|파슈토어|    `ps`    |
 |페르시아어|   `fa`    |
 |폴란드어|    `pl`    |
 |포르투갈어(브라질)|   `pt-br` |
@@ -331,7 +334,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 선택한 텍스트 언어로 번역 하기 위해 음성을 텍스트로 변환 합니다. 음성 텍스트 변환은 음성 합성과 함께 사용 될 경우 음성 변환 또는 음성 변환에 사용 됩니다.
 
-| 언어    |
+| Language    |
 |:----------- |
 |아랍어|
 |광둥어(번체)|
@@ -365,7 +368,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 텍스트를 음성으로 변환 합니다. 텍스트 음성 변환은 번역 결과의 가청 출력을 추가 하거나 음성-텍스트와 함께 사용 하는 경우 음성-음성 변환에 사용 됩니다. 
 
-| 언어    |
+| Language    |
 |:----------- |
 |아랍어|
 |불가리아어|

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563269"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509283"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -105,7 +105,7 @@ Hololens에서 [MRC(Mixed Reality Capture)](https://docs.microsoft.com/windows/m
 
 **모델이 선택한 VM의 제한, 특히 최대 다각형 수를 초과하는 경우:**
 
-특정 [VM 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조 하세요.
+특정 [서버 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조 하세요.
 
 **모델이 카메라의 하 한을 포함 하지 않습니다.**
 
@@ -148,7 +148,7 @@ Azure Remote Rendering은 Unity 렌더링 파이프라인에 후크하여 비디
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>바둑판 패턴은 모델을 로드 한 후 렌더링 됩니다.
 
-렌더링 된 이미지가 다음과 같이 표시 되 면 ![ ](../reference/media/checkerboard.png) 렌더러가 [표준 VM 크기에 대 한 다각형 한도](../reference/vm-sizes.md)에 도달 합니다. 이를 완화 하려면 **프리미엄 VM** 크기로 전환 하거나 보이는 다각형의 수를 줄이십시오.
+렌더링 된 이미지가 다음과 같이 표시 되 면 ![ ](../reference/media/checkerboard.png) 렌더러가 [표준 구성 크기에 대 한 다각형 한도에](../reference/vm-sizes.md)도달 합니다. 이를 완화 하려면 **프리미엄** 구성 크기로 전환 하거나 보이는 다각형의 수를 줄이십시오.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Unity에서 렌더링 된 이미지가 거꾸로 작동 합니다.
 

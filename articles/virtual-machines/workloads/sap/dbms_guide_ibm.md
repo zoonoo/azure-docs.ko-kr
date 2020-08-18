@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 08/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ea95603ea630a1320db5698092f6748e36a9934
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 3db8ece7cd1d3ef57b51b164fad3340b80882369
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245760"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510201"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
 
@@ -73,7 +73,7 @@ SAP 설치 가이드의 ‘데이터베이스 디렉터리의 데이터 보안 �
 
 sapdata 및 saptmp 디렉터리에 대한 DB2 스토리지 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다. Windows 스토리지 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 스토리지 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
 
-Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 또한 DB2 트랜잭션 로그의 볼륨을 구성하는 VHD용 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](../../windows/how-to-enable-write-accelerator.md) 문서에서 참조할 수 있습니다.
+Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 또한 DB2 트랜잭션 로그의 볼륨을 구성하는 VHD용 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md) 문서에서 참조할 수 있습니다.
 
 ## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>IBM Db2 배포를 위한 VM 및 디스크 구조에 대 한 권장 사항
 

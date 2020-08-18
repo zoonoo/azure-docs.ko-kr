@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506477"
+ms.locfileid: "88516302"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>보안 경고에 대 한 전자 메일 알림 설정 
 
@@ -42,7 +42,7 @@ ms.locfileid: "88506477"
 |릴리스 상태:|일반 공급|
 |결정|무료 계층|
 |필요한 역할 및 사용 권한:|**보안 관리자**<br>**구독 소유자** |
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov (부분)<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov (부분)<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 
@@ -65,4 +65,4 @@ ms.locfileid: "88506477"
 
 * [보안 경고-참조 가이드](alerts-reference.md) --Azure Security Center의 위협 방지 모듈에서 볼 수 있는 보안 경고에 대해 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) --보안 경고를 관리 하 고 대응 하는 방법을 알아봅니다.
-- [워크플로 자동화](workflow-automation.md) -사용자 지정 알림 논리를 사용 하 여 경고에 대 한 응답 자동화
+* [워크플로 자동화](workflow-automation.md) -사용자 지정 알림 논리를 사용 하 여 경고에 대 한 응답 자동화

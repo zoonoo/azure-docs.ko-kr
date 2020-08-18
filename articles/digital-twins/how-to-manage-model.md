@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 919db9338917a9c2bedd7806eb251a2e5ef6187b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987327"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509997"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예:
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들어:
 
 ```json
 [
@@ -160,7 +160,7 @@ Pageable<ModelData> pmd3 = client.GetModels(null, true);
 Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `ModelData`이름, DTMI 및 모델 생성 날짜와 같이 Azure Digital Twins 인스턴스에 저장 된 모델에 대 한 메타 데이터를 포함 합니다. `ModelData`또한 개체는 모델 자체를 선택적으로 포함 합니다. 매개 변수에 따라 검색 호출을 사용 하 여 메타 데이터만 검색할 수 있습니다 (예를 들어 사용 가능한 도구의 UI 목록을 표시 하려는 시나리오 또는 전체 모델).
+API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `ModelData` 이름, DTMI 및 모델 생성 날짜와 같이 Azure Digital Twins 인스턴스에 저장 된 모델에 대 한 메타 데이터를 포함 합니다. `ModelData`또한 개체는 모델 자체를 선택적으로 포함 합니다. 매개 변수에 따라 검색 호출을 사용 하 여 메타 데이터만 검색할 수 있습니다 (예를 들어 사용 가능한 도구의 UI 목록을 표시 하려는 시나리오 또는 전체 모델).
 
 이 호출은 요청 된 모델 뿐만 아니라 `RetrieveModelWithDependencies` 요청 된 모델이 종속 된 모든 모델을 반환 합니다.
 
@@ -174,7 +174,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `Mo
 
 이러한 기능은 개별 기능이 며 서로에 게 영향을 주지 않지만 모델을 점진적으로 제거 하는 데 함께 사용할 수 있습니다. 
 
-### <a name="decommissioning"></a>서비스 해제
+#### <a name="decommissioning"></a>서비스 해제
 
 모델을 서비스 해제 하는 코드는 다음과 같습니다.
 

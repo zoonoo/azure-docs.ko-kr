@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcff550b5411ac00dc54d2103278812f32f56543
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552698"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509980"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>인증을 위해 Azure Frontend API 사용
 
@@ -64,7 +64,7 @@ struct AzureFrontendAccountInfo
 
 열려 있거나 생성된 각 ```AzureSession```은 생성된 프런트 엔드에 대한 참조를 유지합니다. 완전히 종료하려면 프런트 엔드를 할당 취소하기 전에 모든 세션을 할당 취소해야 합니다.
 
-세션의 할당을 취소해도 Azure에서 VM이 중지되지 않으므로 `AzureSession.StopAsync`를 명시적으로 호출해야 합니다.
+세션의 할당을 취소 하면 Azure에서 서버를 중지 하지 않으므로를 `AzureSession.StopAsync` 명시적으로 호출 해야 합니다.
 
 세션이 생성되고 해당 상태가 준비된 것으로 표시되면 `AzureSession.ConnectToRuntime`을 사용하여 원격 렌더링 런타임에 연결할 수 있습니다.
 

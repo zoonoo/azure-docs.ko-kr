@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827421"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510235"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -221,7 +221,7 @@ Premium Storage의 경우 캐싱 옵션은 다음과 같습니다.
 
 Premium Storage의 경우 SAP 데이터베이스의 **데이터 파일 읽기 캐싱**을 사용하고 **로그 파일의 디스크에 대한 캐싱 없음**을 선택하는 것이 좋습니다.
 
-M 시리즈 배포의 경우 DBMS 배포에 Azure Write Accelerator를 사용하는 것이 좋습니다. Azure Write Accelerator에 대한 세부 정보, 제한 및 배포는 [Write Accelerator 사용](../../windows/how-to-enable-write-accelerator.md)을 참조하세요.
+M 시리즈 배포의 경우 DBMS 배포에 Azure Write Accelerator를 사용하는 것이 좋습니다. Azure Write Accelerator에 대한 세부 정보, 제한 및 배포는 [Write Accelerator 사용](../../how-to-enable-write-accelerator.md)을 참조하세요.
 
 
 ### <a name="azure-nonpersistent-disks"></a>Azure 비영구 디스크

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681247"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509844"
 ---
 # <a name="use-the-session-management-rest-api"></a>세션 관리 REST API 사용
 
@@ -71,15 +71,15 @@ $token = $response.AccessToken;
 
 **요청 본문:**
 
-* maxLeaseTime (timespan): VM이 자동으로 해제 되는 시간 제한 값
+* maxLeaseTime (timespan): 세션을 자동으로 해제 하는 시간 제한 값
 * 모델 (배열): 미리 로드할 자산 컨테이너 Url
-* 크기 (문자열): VM 크기 (**"표준"** 또는 **"프리미엄"**)입니다. 특정 [VM 크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조하세요.
+* size (string): 구성할 서버 크기 ([**"standard"**](../reference/vm-sizes.md) 또는 [**"premium"**](../reference/vm-sizes.md))입니다. 특정 [크기 제한](../reference/limits.md#overall-number-of-polygons)을 참조 하세요.
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 의견 |
+| 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | 성공 |
+| 202 | -sessionId: GUID | Success |
 
 ### <a name="example-script-create-a-session"></a>예제 스크립트: 세션 만들기
 
@@ -130,11 +130,11 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 
 **요청 본문:**
 
-* maxLeaseTime (timespan): VM이 자동으로 해제 되는 시간 제한 값
+* maxLeaseTime (timespan): 세션을 자동으로 해제 하는 시간 제한 값
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 의견 |
+| 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
 | 200 | | Success |
 
@@ -170,7 +170,7 @@ RawContentLength  : 0
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 의견 |
+| 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
 | 200 | -sessions: 세션 속성의 배열입니다. | 세션 속성에 대 한 설명은 "세션 속성 가져오기" 섹션을 참조 하세요. |
 
@@ -213,7 +213,7 @@ RawContentLength  : 2
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 의견 |
+| 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
 | 200 | -message: 문자열<br/>-sessionElapsedTime: timespan<br/>-sessionHostname: 문자열<br/>-sessionId: string<br/>-sessionMaxLeaseTime: timespan<br/>-sessionSize: enum<br/>-sessionStatus: enum | enum sessionStatus {시작, 준비, 중지, 중지, 만료, 오류}<br/>상태가 ' 오류 ' 또는 ' 만료 됨 ' 이면 메시지에 추가 정보가 포함 됩니다. |
 
@@ -256,9 +256,9 @@ RawContentLength  : 60
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 의견 |
+| 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
-| 204 | | 성공 |
+| 204 | | Success |
 
 ### <a name="example-script-stop-a-session"></a>예제 스크립트: 세션 중지
 

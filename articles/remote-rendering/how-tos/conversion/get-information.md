@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805003"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509300"
 ---
 # <a name="get-information-about-a-converted-model"></a>변환된 모델에 대한 정보 가져오기
 
@@ -100,7 +100,7 @@ ms.locfileid: "84805003"
 이 섹션에서는 원본 장면에 대 한 정보를 제공 합니다. 이 섹션의 값과 원본 모델을 만든 도구의 해당 값 사이에는 종종 차이가 있습니다. 이러한 차이는 내보내기 및 변환 단계에서 모델이 수정 되기 때문에 예상 됩니다.
 
 * `numMeshes`: 각 파트가 단일 자료를 참조할 수 있는 메시 파트의 수입니다.
-* `numFaces`: 전체 모델에 있는 _삼각형_ 의 총 수입니다. 변환 하는 동안 메시를 삼각 측정 합니다. 이 숫자는 [표준 렌더링 VM 크기](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons)의 polygon 한도에 기여 합니다.
+* `numFaces`: 전체 모델에 있는 _삼각형_ 의 총 수입니다. 변환 하는 동안 메시를 삼각 측정 합니다. 이 숫자는 [표준 렌더링 서버 크기](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons)의 polygon 한도에 기여 합니다.
 * `numVertices`: 전체 모델의 총 꼭 짓 점 수입니다.
 * `numMaterial`: 전체 모델에 있는 총 자료 수입니다.
 * `numFacesSmallestMesh`: 모델의 가장 작은 메쉬의 삼각형의 수입니다.

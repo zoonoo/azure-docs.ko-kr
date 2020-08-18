@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825007"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510864"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure에는 용량, 처리량, 대기 시간 및 가격이 크게 다른 많은 저장소 유형이 있습니다. 일부 저장소 유형은 또는 SAP 시나리오에 사용할 수 있는 제한 되지 않습니다. 반면, 몇 가지 Azure storage 유형은 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 특히 SAP HANA의 경우 일부 Azure storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양 한 유형의 저장소를 살펴보고 SAP 워크 로드 및 SAP 구성 요소에 대 한 기능 및 유용성을 설명 합니다.
@@ -84,7 +84,7 @@ S/4HANA의 SAP NetWeaver/응용 프로그램 계층에 대 한 Azure storage 형
 | DBMS 로그 볼륨 비-M o M/Mv2 VM 제품군 | 지원되지 않음 | 제한 된 적합 (비-prod) | 최대 중간 규모의 워크 로드에 적합 | 권장 | 지원되지 않음 |
 
 
-<sup>1</sup> 로그/다시 실행 로그 볼륨에 대 한 M/Mv2 VM 제품군에 대해 [Azure 쓰기 가속기](../../windows/how-to-enable-write-accelerator.md) 를 <sup>사용 하는</sup> 경우 anf를 사용 하려면/hana/data와/hana/log를 사용 해야 합니다. 
+<sup>1</sup> 로그/다시 실행 로그 볼륨에 대 한 M/Mv2 VM 제품군에 대해 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 를 <sup>사용 하는</sup> 경우 anf를 사용 하려면/hana/data와/hana/log를 사용 해야 합니다. 
 
 다음과 같은 다양 한 저장소 유형 목록에서 짐작할 수 있는 특징이 있습니다.
 
@@ -101,7 +101,7 @@ S/4HANA의 SAP NetWeaver/응용 프로그램 계층에 대 한 Azure storage 형
 | 지리적 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | no | no | no |
 
 
-<sup>1</sup> 로그/다시 실행 로그 볼륨에 대 한 M/Mv2 VM 제품군에 대해 [Azure 쓰기 가속기](../../windows/how-to-enable-write-accelerator.md) 사용
+<sup>1</sup> 로그/다시 실행 로그 볼륨에 대 한 M/Mv2 VM 제품군에 대해 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 사용
 
 <sup>2</sup> 비용은 프로 비전 된 IOPS 및 처리량에 따라 달라 집니다.
 
@@ -137,7 +137,7 @@ SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 | 기능| 의견| 노트/링크 | 
 | --- | --- | --- | 
 | OS 기본 VHD | 낫지만 | 모든 시스템 |
-| 데이터 디스크 | 낫지만 | 모든 시스템- [특히 SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| 데이터 디스크 | 낫지만 | 모든 시스템- [특히 SAP HANA](../../how-to-enable-write-accelerator.md) |
 | SAP 전역 전송 디렉터리 | YES | [지원됨](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | 낫지만 | 모든 시스템 |
 | 백업 저장소 | 낫지만 | 백업에 대 한 단기 저장 |
@@ -149,12 +149,12 @@ SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 | 디스크당 최대 IOPS | 2만 [디스크 크기에 종속](https://azure.microsoft.com/pricing/details/managed-disks/) | [VM 제한](../../sizes.md) 도 고려 |
 | 처리량 SLA | YES | - |
 | 처리량 선형-용량 | 대괄호 안의 반 선형 | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA 인증 | YES | [특별히 SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| HANA 인증 | YES | [특별히 SAP HANA](../../how-to-enable-write-accelerator.md) |
 | 디스크 스냅숏 가능 | YES | - |
-| Azure Backup VM 스냅숏 가능 | YES | [쓰기 가속기](../../windows/how-to-enable-write-accelerator.md) 캐시 된 디스크 제외  |
+| Azure Backup VM 스냅숏 가능 | YES | [쓰기 가속기](../../how-to-enable-write-accelerator.md) 캐시 된 디스크 제외  |
 | 비용 | MEDIUM | - |
 
-Azure premium storage는 Azure premium storage와 함께 제공 되는 일반적인 캐싱 유형을 사용 하는 SAP HANA 저장소 대기 시간 Kpi를 충족 하지 않습니다. SAP HANA 로그 쓰기에 대 한 저장소 대기 시간 Kpi를 충족 하기 위해 [쓰기 가속기 사용](../../windows/how-to-enable-write-accelerator.md)문서에 설명 된 대로 Azure 쓰기 가속기 캐싱을 사용 해야 합니다. Azure 쓰기 가속기는 트랜잭션 로그 쓰기 및 다시 실행 로그 쓰기에 대해 다른 모든 DBMS 시스템을 활용 합니다. 따라서 모든 SAP DBMS 배포에서 사용 하는 것이 좋습니다. SAP HANA azure premium storage와 함께 Azure 쓰기 가속기를 사용 하는 것은 필수입니다.
+Azure premium storage는 Azure premium storage와 함께 제공 되는 일반적인 캐싱 유형을 사용 하는 SAP HANA 저장소 대기 시간 Kpi를 충족 하지 않습니다. SAP HANA 로그 쓰기에 대 한 저장소 대기 시간 Kpi를 충족 하기 위해 [쓰기 가속기 사용](../../how-to-enable-write-accelerator.md)문서에 설명 된 대로 Azure 쓰기 가속기 캐싱을 사용 해야 합니다. Azure 쓰기 가속기는 트랜잭션 로그 쓰기 및 다시 실행 로그 쓰기에 대해 다른 모든 DBMS 시스템을 활용 합니다. 따라서 모든 SAP DBMS 배포에서 사용 하는 것이 좋습니다. SAP HANA azure premium storage와 함께 Azure 쓰기 가속기를 사용 하는 것은 필수입니다.
 
 
 
@@ -312,7 +312,7 @@ Azure 표준 HDD 저장소는 2014 년에 SAP NetWeaver 워크 로드에 대 한
 | OS 기본 VHD | 적합 하지 않음 | - |
 | 데이터 디스크 | 적합 하지 않음 | - |
 | SAP 전역 전송 디렉터리 | 아니요 | [지원 안 됨](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | 아니요 | 지원 안 함 |
+| SAP sapmnt | 아니요 | 지원되지 않음 |
 | 백업 저장소 | 낫지만 | - |
 | 공유/공유 디스크 | 사용할 수 없음 | Azure Files 또는 타사 필요 |
 | 복원력 | LRS, GRS | 디스크에 사용할 수 있는 ZRS 없음 |

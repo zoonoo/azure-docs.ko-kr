@@ -1,14 +1,14 @@
 ---
 title: 대규모로 Azure 센티널 작업 영역 관리
 description: 위임 된 고객 리소스에서 Azure 센티널을 효과적으로 관리 하는 방법을 알아봅니다.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163240"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511255"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모로 Azure 센티널 작업 영역 관리
 
@@ -69,9 +69,9 @@ MSSP에서 관리 하는 각 고객 구독은 [Azure Lighthouse로 등록](onboa
 
 해당 고객과 관련 된 시나리오에 대해 관리 하는 개별 테 넌 트에 직접 통합 문서를 배포할 수도 있습니다.
 
-## <a name="run-queries-across-azure-sentinel-workspaces"></a>Azure 센티널 작업 영역에서 쿼리 실행
+## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Azure 센티널 작업 영역에서 Log Analytics 및 구하기 쿼리를 실행 합니다.
 
-관리 테 넌 트에서 중앙에서 위협 검색을 위한 Log Analytics 쿼리를 만들고 저장할 수 있습니다. 이러한 쿼리는 Union 연산자와 workspace () 식을 사용 하 여 모든 고객의 Azure 센티널 작업 영역에서 실행할 수 있습니다. 자세한 내용은 [작업 영역 간 쿼리](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying)를 참조 하세요.
+검색 [쿼리](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting)를 포함 하 여 관리 테 넌 트에서 중앙에서 위협 검색을 위한 Log Analytics 쿼리를 만들고 저장할 수 있습니다. 이러한 쿼리는 Union 연산자와 workspace () 식을 사용 하 여 모든 고객의 Azure 센티널 작업 영역에서 실행할 수 있습니다. 자세한 내용은 [작업 영역 간 쿼리](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying)를 참조 하세요.
 
 ## <a name="use-automation-for-cross-workspace-management"></a>작업 영역 간 관리를 위한 자동화 사용
 

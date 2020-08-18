@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26179dd2491a8b8cbc2ef3eb0ad66fa61722d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82dbb73da06097407d91f23d4d372aaa4cc76e99
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525265"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510898"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
 
@@ -59,7 +59,7 @@ Linux Vm에서 프로필을 사용 하 여 실행 `saptune` SAP-ASE Linux는 기
 
 ## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>SAP ASE 배포를 위한 VM 및 디스크 구조에 대 한 권장 사항
 
-Sap NetWeaver 응용 프로그램에 대 한 SAP ASE는 [sap support #1928533 note](https://launchpad.support.sap.com/#/notes/1928533) 에 나열 된 모든 vm 유형에 대해 지원 됩니다. 보통 크기의 sap ASE 데이터베이스 서버에 사용 되는 일반적인 Vm 유형은 Esv3를 포함 합니다.  초대형 다중 테라바이트 데이터베이스는 M 시리즈 VM 유형을 활용할 수 있습니다. M 시리즈 쓰기 가속기를 사용 하 여 SAP ASE 트랜잭션 로그 디스크 쓰기 성능을 향상 시킬 수 있습니다. Sap ase에서 로그 쓰기를 수행 하는 방식 때문에 SAP ASE를 사용 하 여 신중 하 게 테스트 해야 쓰기 가속기.  [SAP support note #2816580](../../windows/how-to-enable-write-accelerator.md) 검토 하 고 성능 테스트를 실행 하는 것이 좋습니다.  
+Sap NetWeaver 응용 프로그램에 대 한 SAP ASE는 [sap support #1928533 note](https://launchpad.support.sap.com/#/notes/1928533) 에 나열 된 모든 vm 유형에 대해 지원 됩니다. 보통 크기의 sap ASE 데이터베이스 서버에 사용 되는 일반적인 Vm 유형은 Esv3를 포함 합니다.  초대형 다중 테라바이트 데이터베이스는 M 시리즈 VM 유형을 활용할 수 있습니다. M 시리즈 쓰기 가속기를 사용 하 여 SAP ASE 트랜잭션 로그 디스크 쓰기 성능을 향상 시킬 수 있습니다. Sap ase에서 로그 쓰기를 수행 하는 방식 때문에 SAP ASE를 사용 하 여 신중 하 게 테스트 해야 쓰기 가속기.  [SAP support note #2816580](../../how-to-enable-write-accelerator.md) 검토 하 고 성능 테스트를 실행 하는 것이 좋습니다.  
 쓰기 가속기은 트랜잭션 로그 디스크만을 위해 설계 되었습니다. 디스크 수준 캐시를 NONE으로 설정 해야 합니다. Azure 쓰기 가속기에 다른 DBMS와 유사한 향상 된 기능이 표시 되지 않는 경우에는 걱정할 필요가 없습니다. SAP ASE가 트랜잭션 로그에 기록 하는 방법에 따라 Azure 쓰기 가속기에서 가속이 거의 발생 하지 않을 수 있습니다.
 데이터 장치 및 로그 장치에는 별도의 디스크를 권장 합니다.  시스템 데이터베이스는 `saptools` synonoa 이며 전용 디스크가 필요 하지 않으며 SAP 데이터베이스 데이터와 로그 장치를 포함 하는 디스크에 배치할 수 있습니다. 
 
