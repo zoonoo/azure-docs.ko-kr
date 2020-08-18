@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 385086bd46145be717ee5a14a10f889ec811e17e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681702"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505654"
 ---
 # <a name="rendering-modes"></a>렌더링 모드
 
@@ -50,7 +50,7 @@ MSAA 아티팩트는 다음 이미지에서 설명 합니다. ![ DepthBasedCompo
 
 ## <a name="setting-the-render-mode"></a>렌더링 모드 설정
 
-원격 렌더링 VM에서 사용 되는 렌더링 모드는 `AzureSession.ConnectToRuntime` 를 통해에서 지정 됩니다 `ConnectToRuntimeParams` .
+원격 렌더링 서버에서 사용 되는 렌더링 모드는 `AzureSession.ConnectToRuntime` 를 통해에서 지정 됩니다 `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)

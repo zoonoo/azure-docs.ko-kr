@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5209ffb0328e90fb2ca9b91773cbf18dd4ed2916
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163627"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505328"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -24,10 +24,10 @@ Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 예를 계속 하기 전에 다음 필수 구성 요소를 완료 해야 합니다.
-* **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md) 시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
-* 디지털 쌍 인스턴스를 호출 하기 위한 올바른 권한이 있는 **Azure 함수** 입니다. 자세한 내용은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md) 을 참조 하세요. 
-* 장치 원격 분석을 받는 **Digital Twins 인스턴스입니다** . [ *방법: Azure Digital twins 인스턴스 및 인증 설정을* 참조 하세요.](./how-to-set-up-instance-portal.md) 
+이 예를 계속 하기 전에 다음 리소스를 필수 조건으로 설정 해야 합니다.
+* **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
+* 디지털 쌍 인스턴스를 호출 하기 위한 올바른 권한이 있는 **Azure 함수** 입니다. 자세한 내용은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)을 참조 하세요. 
+* 장치 원격 분석을 수신 하는 **Azure Digital Twins 인스턴스입니다** . 자세한 내용은 [*방법: Azure Digital Twins 인스턴스 및 인증 설정*](./how-to-set-up-instance-portal.md)을 참조 하세요.
 
 ### <a name="example-telemetry-scenario"></a>원격 분석 시나리오 예제
 

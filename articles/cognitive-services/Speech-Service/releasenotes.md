@@ -11,17 +11,63 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8985d8ab0b5fa8477a636254d1a5179cd2187963
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185318"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505808"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
+## <a name="text-to-speech-2020-august-release"></a>텍스트 음성 변환 2020-8 월 릴리스
+
+### <a name="new-features"></a>새로운 기능
+
+* **신경망: 새 말하기 스타일 `en-US` Aria 음성**. AriaNeural는 뉴스를 읽을 때 newscaster 처럼 들릴 수 있습니다. ' Newscast-공식 ' 스타일은 더 심각 하 게 들리지만 ' newscast-일반 ' 스타일은 더 낮은 수준에서 비공식적입니다. [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md)참조 하세요.
+
+* **사용자 지정 음성: 학습 데이터 품질을 자동으로 확인 하기 위해 새로운 기능이 출시 되었습니다**. 데이터를 업로드 하는 경우 데이터 검사 기능은 오디오 및 성적의 다양 한 측면을 검사 하 고, 학습 된 음성 모델의 품질을 향상 시키기 위해 문제를 포함 하는 데이터를 자동으로 수정 하거나 필터링 합니다. 오디오의 볼륨, 노이즈 수준, 음성의 발음 정확도, 표준화 된 텍스트를 사용한 음성 맞춤, 오디오 및 스크립트 형식 외에 오디오의 무음을 다룹니다. 
+
+* **오디오 콘텐츠 생성: 강력한 음성 조정 및 오디오 관리 기능을 제공 하는 새로운 기능 집합**입니다.
+
+    * 발음: 음성 조정 기능이 최신 음소 집합으로 업데이트 됩니다. 라이브러리에서 right 음소 요소를 선택 하 고 선택한 단어의 발음을 구체화할 수 있습니다. 
+
+    * 다운로드: 오디오 "다운로드"/"내보내기" 기능이 각 단락에서 지 수 os 생성을 지원 하도록 향상 되었습니다. 여러 오디오 출력을 생성 하는 동안 동일한 파일/SSML에서 다양 한 콘텐츠를 쉽게 편집할 수 있습니다. "다운로드"의 파일 구조도 구체화 됩니다. 이제 단일 폴더에 있는 모든 오디오 os를 쉽게 가져올 수 있습니다. 
+
+    * 작업 상태: 다중 파일 내보내기 환경이 향상 되었습니다. 과거에 여러 파일을 내보낼 때 파일 중 하나가 실패 하면 전체 작업이 실패 합니다. 그러나 이제 다른 모든 파일은 성공적으로 내보내집니다. 작업 보고서는 보다 상세 하 고 구조화 된 정보로 보강 됩니다. 이제 보고서를 사용 하 여 실패 한 모든 파일 및 문장의 로그를 확인할 수 있습니다. 
+
+    * SSML 설명서: 모든 튜닝 기능을 사용 하는 방법에 대 한 규칙을 확인 하는 데 도움이 되는 SSML 문서에 연결 됩니다.
+
+* **음성 목록 API는 사용자에 게 친숙 한 표시 이름과 신경망에 대해 지원 되는 말하는 스타일을 포함 하도록 업데이트 됩니다**.
+
+### <a name="general-tts-voice-quality-improvements"></a>일반 TTS 음성 품질 향상
+
+* 단어 수준 발음 오류% 감소 `ru-RU` (오류 56% 감소) 및 `sv-SE` (오류 감소 (49%)
+
+* 신경망에서 polyphony 단어가 `en-US` 40%까지 향상 되었습니다. Polyphony 단어의 예로는 "읽기", "라이브", "콘텐츠", "레코드", "개체" 등이 있습니다. 
+
+* 에서 발신음의 naturalness 향상 `fr-FR` 되었습니다. MOS (평균 의견 점수) 이득: + 0.28
+
+* Vocoders는 다음과 같은 음성에 대해 향상 된 기능 및 전반적인 성능 속도를 40%로 업데이트 했습니다.
+
+    | Locale | 음성 |
+    |---|---|    
+    | `en-GB` | Mia |
+    | `es-MX` | Dalia |
+    | `fr-CA` | Sylvie |
+    | `fr-FR` | Denise |
+    | `ja-JP` | Nanami |
+    | `ko-KR` | Sun-Hi |
+
+### <a name="bug-fixes"></a>버그 수정
+
+* 오디오 콘텐츠 생성 도구를 사용 하 여 많은 버그 수정 
+    * 자동 새로 고침 문제를 해결 했습니다. 
+    * 남부 동아시아 지역의 zh-cn에서 스타일 음성 관련 문제 해결
+    * ' Break ' 태그가 있는 내보내기 오류, 문장 부호의 오류를 포함 하 여 안정성 문제를 해결 했습니다.    
+
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>새 음성 텍스트 로캘: 2020-8 월 릴리스
-8 월에는 음성 텍스트에서 26 개의 새 로캘이 출시 됨: 2 유럽 언어 cs-CZ 및 hu-hu-HU-HU, 영어 (미국) 로캘, 영어 (미국)에 해당 하는 스페인어 로캘을 포함 합니다. 다음은 새 로캘의 목록입니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)에서 전체 언어 목록을 참조 하세요.
+8 월에는 음성 텍스트에서 26 개의 새 로캘이 출시 되었습니다. 2 유럽 언어 `cs-CZ` 와 `hu-HU` , 영어 (미국) 로캘, 영어 (미국)를 포함 하는 스페인어 로캘이 모두 포함 됩니다. 다음은 새 로캘의 목록입니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)에서 전체 언어 목록을 참조 하세요.
 
 | Locale  | 언어                          |
 |---------|-----------------------------------|
@@ -118,7 +164,7 @@ ms.locfileid: "88185318"
 
 * 5 개 언어로 된 단어 수준 음성 정확도 향상
 
-    | 언어 | 음성 오류 감소 |
+    | Language | 음성 오류 감소 |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -131,7 +177,7 @@ ms.locfileid: "88185318"
 * 통화 판독값
     * 및에 대 한 통화 읽기와 관련 된 문제를 해결 했습니다. `es-ES``es-MX`
      
-    | 언어 | 입력 | 개선 후의 기능 |
+    | Language | 입력 | 개선 후의 기능 |
     |---|---|---|
     | `es-MX` | $1.58 | un 페소 cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
@@ -217,8 +263,8 @@ ms.locfileid: "88185318"
 - C #, c + +: `UtteranceId` `ConversationTranscriptionResult` 모든 intermediates 및 최종 음성 인식 결과에서 일관 된 ID를에 추가 했습니다. [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)에 대 한 세부 정보입니다.
 - Python:에 대 한 지원이 추가 되었습니다 `Language ID` . [GitHub 리포지토리의](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)speech_sample py를 참조 하세요.
 - Windows: 모든 win32 콘솔 응용 프로그램에 대해 Windows 플랫폼에서 압축 된 오디오 입력 형식 지원을 추가 했습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)를 참조 하세요. 
-- JavaScript: NodeJS에서 음성 합성 (텍스트-음성)을 지원 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech)를 참조하세요. 
-- JavaScript: 모든 송신 및 수신 메시지를 검사할 수 있도록 새 API를 추가 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript)를 참조하세요. 
+- JavaScript: NodeJS에서 음성 합성 (텍스트-음성)을 지원 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech)에서 자세한 내용을 알아보세요. 
+- JavaScript: 모든 송신 및 수신 메시지를 검사할 수 있도록 새 API를 추가 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript)에서 자세한 내용을 알아보세요. 
         
 **버그 수정**
 - C #, c + +: `SendMessageAsync` 이제 이진 메시지를 이진 형식으로 전송 하는 문제가 해결 되었습니다. [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)에 대 한 세부 정보입니다.

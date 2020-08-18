@@ -3,12 +3,12 @@ title: ASP.NET Core 응용 프로그램에 대 한 Azure 애플리케이션 정�
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475518"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270923"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -103,18 +103,22 @@ ms.locfileid: "87475518"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들면 다음과 같습니다.
+    예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    * `APPINSIGHTS_INSTRUMENTATIONKEY`는 일반적으로 [Azure Web Apps](./azure-web-apps.md?tabs=net)에서 사용 되지만이 SDK가 지원 되는 모든 위치에서 사용 될 수도 있습니다. 코드 없는 웹 앱 모니터링을 수행 하는 경우 연결 문자열을 사용 하지 않는 경우이 형식이 필요 합니다.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` 는 일반적으로 [Azure Web Apps](./azure-web-apps.md?tabs=net)에서 사용 되지만이 SDK가 지원 되는 모든 위치에서 사용 될 수도 있습니다. 코드 없는 웹 앱 모니터링을 수행 하는 경우 연결 문자열을 사용 하지 않는 경우이 형식이 필요 합니다.
 
     계측 키를 설정 하는 대신 [연결 문자열](./sdk-connection-string.md?tabs=net)도 사용할 수 있습니다.
 
     > [!NOTE]
     > 코드에 지정 된 계측 키가 `APPINSIGHTS_INSTRUMENTATIONKEY` 다른 옵션을 통해 적용 되는 환경 변수를 통해 이깁니다.
+
+### <a name="user-secrets-and-other-configuration-providers"></a>사용자 암호 및 기타 구성 공급자
+
+계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예들 들어 `services.AddApplicationInsightsTelemetry(Configuration);`입니다.
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 
@@ -143,7 +147,7 @@ ASP.NET Core의 [성능 카운터](./web-monitor-performance.md) 에 대 한 지
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`는 기본적으로 사용 하도록 설정 되며 .NET Core 2.x 앱에서 기본 카운터 집합을 수집 합니다. [Eventcounter](eventcounters.md) 자습서에는 수집 된 카운터의 기본 집합이 나열 됩니다. 또한 목록을 사용자 지정 하는 방법에 대 한 지침도 있습니다.
+`EventCounterCollectionModule` 는 기본적으로 사용 하도록 설정 되며 .NET Core 2.x 앱에서 기본 카운터 집합을 수집 합니다. [Eventcounter](eventcounters.md) 자습서에는 수집 된 카운터의 기본 집합이 나열 됩니다. 또한 목록을 사용자 지정 하는 방법에 대 한 지침도 있습니다.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>웹 응용 프로그램에 대 한 클라이언트 쪽 원격 분석 사용
 
@@ -199,16 +203,16 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-의 전체 설정 목록`ApplicationInsightsServiceOptions`
+의 전체 설정 목록 `ApplicationInsightsServiceOptions`
 
-|설정 | Description | 기본값
+|설정 | 설명 | 기본값
 |---------------|-------|-------
-|EnablePerformanceCounterCollectionModule  | 사용/사용 안 함`PerformanceCounterCollectionModule` | true
-|EnableRequestTrackingTelemetryModule   | 사용/사용 안 함`RequestTrackingTelemetryModule` | true
-|EnableEventCounterCollectionModule   | 사용/사용 안 함`EventCounterCollectionModule` | true
-|EnableDependencyTrackingTelemetryModule   | 사용/사용 안 함`DependencyTrackingTelemetryModule` | true
-|EnableAppServicesHeartbeatTelemetryModule  |  사용/사용 안 함`AppServicesHeartbeatTelemetryModule` | true
-|EnableAzureInstanceMetadataTelemetryModule   |  사용/사용 안 함`AzureInstanceMetadataTelemetryModule` | true
+|EnablePerformanceCounterCollectionModule  | 사용/사용 안 함 `PerformanceCounterCollectionModule` | true
+|EnableRequestTrackingTelemetryModule   | 사용/사용 안 함 `RequestTrackingTelemetryModule` | true
+|EnableEventCounterCollectionModule   | 사용/사용 안 함 `EventCounterCollectionModule` | true
+|EnableDependencyTrackingTelemetryModule   | 사용/사용 안 함 `DependencyTrackingTelemetryModule` | true
+|EnableAppServicesHeartbeatTelemetryModule  |  사용/사용 안 함 `AppServicesHeartbeatTelemetryModule` | true
+|EnableAzureInstanceMetadataTelemetryModule   |  사용/사용 안 함 `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
 |EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true
 |EnableHeartbeat 비트 | 하트 비트 기능 사용/사용 안 함-주기적 (15 분 기본값)은 ' HeartbeatState ' 라는 사용자 지정 메트릭을 .NET 버전, Azure 환경 정보 (해당 하는 경우) 등의 런타임에 대 한 정보로 보냅니다. | true
@@ -281,13 +285,13 @@ Application Insights 원격 분석 모듈을 사용 하 여 사용자별 수동 
 
 다음 자동 컬렉션 모듈은 기본적으로 사용 하도록 설정 되어 있습니다. 이러한 모듈은 원격 분석을 자동으로 수집 합니다. 기본 동작을 변경 하도록 사용 하지 않도록 설정 하거나 구성할 수 있습니다.
 
-* `RequestTrackingTelemetryModule`-들어오는 웹 요청에서 RequestTelemetry 분석을 수집 합니다.
-* `DependencyTrackingTelemetryModule`-나가는 http 호출 및 sql 호출에서 [DependencyTelemetry](./asp-net-dependencies.md) 을 수집 합니다.
-* `PerformanceCollectorModule`-Windows PerformanceCounters을 수집 합니다.
-* `QuickPulseTelemetryModule`-라이브 메트릭 포털에 표시 하기 위한 원격 분석을 수집 합니다.
-* `AppServicesHeartbeatTelemetryModule`-응용 프로그램이 호스트 되는 Azure App Service 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
-* `AzureInstanceMetadataTelemetryModule`-응용 프로그램이 호스트 되는 Azure VM 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
-* `EventCounterCollectionModule`- [Eventcounters를 수집 합니다.](eventcounters.md) 이 모듈은 새로운 기능이 며 SDK 버전 2.8.0 이상에서 사용할 수 있습니다.
+* `RequestTrackingTelemetryModule` -들어오는 웹 요청에서 RequestTelemetry 분석을 수집 합니다.
+* `DependencyTrackingTelemetryModule` -나가는 http 호출 및 sql 호출에서 [DependencyTelemetry](./asp-net-dependencies.md) 을 수집 합니다.
+* `PerformanceCollectorModule` -Windows PerformanceCounters을 수집 합니다.
+* `QuickPulseTelemetryModule` -라이브 메트릭 포털에 표시 하기 위한 원격 분석을 수집 합니다.
+* `AppServicesHeartbeatTelemetryModule` -응용 프로그램이 호스트 되는 Azure App Service 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
+* `AzureInstanceMetadataTelemetryModule` -응용 프로그램이 호스트 되는 Azure VM 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
+* `EventCounterCollectionModule` - [Eventcounters를 수집 합니다.](eventcounters.md) 이 모듈은 새로운 기능이 며 SDK 버전 2.8.0 이상에서 사용할 수 있습니다.
 
 기본값을 구성 하려면 `TelemetryModule` `ConfigureTelemetryModule<T>` `IServiceCollection` 다음 예제와 같이에 확장 메서드를 사용 합니다.
 

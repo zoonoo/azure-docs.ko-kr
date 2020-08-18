@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: f86400f1fb45217133bbd715788986994f5f77cc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f6dc732a512368b007a289c3aaabc3123a696d96
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836261"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505260"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -28,7 +28,7 @@ Premium Storage 캐싱: 지원 됨
 
 메모리 보존 업데이트: 지원되지 않음
 
-쓰기 가속기: [지원 됨](./windows/how-to-enable-write-accelerator.md)
+쓰기 가속기: [지원 됨](./how-to-enable-write-accelerator.md)
 
 |크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|

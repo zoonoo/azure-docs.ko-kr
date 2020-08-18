@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831059"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505562"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -355,7 +355,7 @@ SQL Server와 SAP 데이터베이스를 실행하고 tempdb 데이터 및 tempdb
 
 
 ### <a name="special-for-m-series-vms"></a>M 시리즈 VM에 대한 특별 고려 사항
-Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 트랜잭션 로그에 대한 대기 시간 기록을 요인별로 줄일 수 있습니다. 따라서 SQL Server 트랜잭션 로그에 대한 볼륨을 만드는 VHD에 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](../../windows/how-to-enable-write-accelerator.md) 문서에서 참조할 수 있습니다.
+Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 트랜잭션 로그에 대한 대기 시간 기록을 요인별로 줄일 수 있습니다. 따라서 SQL Server 트랜잭션 로그에 대한 볼륨을 만드는 VHD에 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md) 문서에서 참조할 수 있습니다.
   
 
 ### <a name="formatting-the-disks"></a>디스크 형식 설정

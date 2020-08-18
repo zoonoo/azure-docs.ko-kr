@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e01eecf24802bc43aebfa7b02105a2b1aa679a52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93587c6bbed20982bd96d04f58106ec1617542d3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051940"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506433"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -259,7 +259,7 @@ M64-32ms VM에는 많은 메모리가 있으므로 특히 읽기 집약적인 �
 
 특히 워크로드가 읽기 집약적인 경우 데이터베이스 소프트웨어의 데이터 볼륨에 대한 권장 사항에 따라 IO 성능을 높여 Azure 호스트 캐시를 "read-only(읽기 전용)"로 설정할 수 있습니다. 반면에 트랜잭션 로그의 경우 Azure 호스트 디스크 캐시는 "none"이어야 합니다. 
 
-로그 볼륨의 크기와 관련하여 권장되는 시작점은 데이터 크기의 15%로 추론됩니다. 로그 볼륨은 비용 및 처리량 요구 사항에 따라 다양한 Azure 디스크 유형을 사용하여 만들 수 있습니다. 로그 볼륨의 경우 높은 I/O 처리량이 필요합니다.  VM 형식 M64-32ms를 사용하는 경우 [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)를 사용하도록 설정해야 합니다. Azure Write Accelerator는 트랜잭션 로그에 대한 최적 디스크 쓰기 대기 시간을 제공합니다(M 시리즈에서만 사용 가능). VM 유형별 최대 디스크 수와 같이 고려해야 할 몇 가지 항목도 있습니다. Write Accelerator에 대한 자세한 정보는 [여기](../../windows/how-to-enable-write-accelerator.md)를 참조할 수 있습니다.
+로그 볼륨의 크기와 관련하여 권장되는 시작점은 데이터 크기의 15%로 추론됩니다. 로그 볼륨은 비용 및 처리량 요구 사항에 따라 다양한 Azure 디스크 유형을 사용하여 만들 수 있습니다. 로그 볼륨의 경우 높은 I/O 처리량이 필요합니다.  VM 형식 M64-32ms를 사용하는 경우 [쓰기 가속기](../../how-to-enable-write-accelerator.md)를 사용하도록 설정해야 합니다. Azure Write Accelerator는 트랜잭션 로그에 대한 최적 디스크 쓰기 대기 시간을 제공합니다(M 시리즈에서만 사용 가능). VM 유형별 최대 디스크 수와 같이 고려해야 할 몇 가지 항목도 있습니다. Write Accelerator에 대한 자세한 정보는 [여기](../../how-to-enable-write-accelerator.md)를 참조할 수 있습니다.
 
 
 로그 볼륨의 크기 조정에 대한 몇 가지 예는 다음과 같습니다.

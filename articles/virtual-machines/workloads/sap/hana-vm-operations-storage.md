@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5497f50f9e868338541143a18ab0c83f32c1d1b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4e1b510ed970b253adedef0fb6efb4abe0c3b65b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080527"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506399"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -42,7 +42,7 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 
 다양한 스토리지 유형에 대한 최소 SAP HANA 인증 조건은 다음과 같습니다. 
 
-- Azure [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)에서 지원 되려면 azure premium storage- **/hana/log** 가 필요 합니다. **/Hana/data** 볼륨은 Azure 쓰기 가속기 또는 Ultra disk 없이 premium storage에 배치 될 수 있습니다.
+- Azure [쓰기 가속기](../../how-to-enable-write-accelerator.md)에서 지원 되려면 azure premium storage- **/hana/log** 가 필요 합니다. **/Hana/data** 볼륨은 Azure 쓰기 가속기 또는 Ultra disk 없이 premium storage에 배치 될 수 있습니다.
 - 최소 **/hana/log** 볼륨에 대 한 Azure Ultra disk. **/Hana/data** 볼륨은 Azure 쓰기 가속기 없는 premium storage에 배치 하거나 Ultra disk를 더 빠르게 다시 시작 하는 데 사용할 수 있습니다.
 - **/Hana/log 및/hana/data**에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨 /Hana/shared 볼륨은 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다.
 
@@ -75,7 +75,7 @@ Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux �
 Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에 따라 기능의 목적은 Azure premium storage에 대 한 쓰기의 i/o 대기 시간을 개선 하는 것입니다. SAP HANA의 경우 Write Accelerator는 **/hana/log** 볼륨에 대해서만 사용해야 합니다. 따라서 **/hana/data**와 **/hana/log**는 별개의 볼륨입니다(Azure 쓰기 가속기가 **/hana/log** 볼륨만 지원하기 때문). 
 
 > [!IMPORTANT]
-> Azure premium storage를 사용 하는 경우 **/hana/log** 볼륨에 대 한 azure [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md) 를 사용 하는 것은 필수입니다. 쓰기 가속기는 premium storage 및 M 시리즈 및 Mv2 시리즈 Vm에만 사용할 수 있습니다. 쓰기 가속기 Esv3 또는 Edsv4와 같은 다른 Azure VM 제품군과 함께 작동 하지 않습니다.
+> Azure premium storage를 사용 하는 경우 **/hana/log** 볼륨에 대 한 azure [쓰기 가속기](../../how-to-enable-write-accelerator.md) 를 사용 하는 것은 필수입니다. 쓰기 가속기는 premium storage 및 M 시리즈 및 Mv2 시리즈 Vm에만 사용할 수 있습니다. 쓰기 가속기 Esv3 또는 Edsv4와 같은 다른 Azure VM 제품군과 함께 작동 하지 않습니다.
 
 아래의 Azure premium 디스크에 대 한 캐싱 권장 사항은 다음과 같이 SAP HANA에 대 한 i/o 특성을 가정 합니다.
 
@@ -194,7 +194,7 @@ SAP **/hana/data** 볼륨에 대 한 구성:
 
 제안된 다른 볼륨에 대한 스토리지 처리량이 실행하려는 워크로드를 충족하는지 여부를 확인합니다. 워크 로드에 **/hana/data** 및 **/hana/log**에 대 한 더 높은 볼륨이 필요한 경우 Azure premium storage vhd의 수를 늘려야 합니다. 나열된 것보다 더 많은 VHD로 볼륨을 크기 조정하면 Azure 가상 머신 유형의 한도 내 IOPS 및 I/O 처리량이 증가합니다.
 
-Azure Write Accelerator는 [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/)와만 함께 작동합니다. 따라서 최소한 **/hana/log** 볼륨을 형성 하는 Azure premium storage 디스크를 관리 디스크로 배포 해야 합니다. Azure 쓰기 가속기에 대 한 자세한 지침 및 제한은 [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)문서에서 찾을 수 있습니다.
+Azure Write Accelerator는 [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/)와만 함께 작동합니다. 따라서 최소한 **/hana/log** 볼륨을 형성 하는 Azure premium storage 디스크를 관리 디스크로 배포 해야 합니다. Azure 쓰기 가속기에 대 한 자세한 지침 및 제한은 [쓰기 가속기](../../how-to-enable-write-accelerator.md)문서에서 찾을 수 있습니다.
 
 Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) 제품군 및 [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)의 HANA 인증 vm에 대해 **/hana/data** 및 **/hana/log** 볼륨에 대해 anf를 수행 해야 합니다. 또는 **/hana/log** 볼륨에 대해서만 azure premium Storage 대신 azure Ultra disk storage를 활용 해야 합니다. 결과적으로, Azure premium storage의 **/hana/data** 볼륨에 대 한 구성은 다음과 같습니다.
 
@@ -352,9 +352,9 @@ ANF에서 호스트되는 NFS v4.1 볼륨을 사용하는 대기 노드로 SAP H
 | M416ms_v2 | 11400GiB | 2,000MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | 결합 된 데이터 및 로그 볼륨에 쓰기 가속기를 사용 하면 IOPS 비율이 2만<sup>2</sup> 로 제한 됩니다. |
 
 
-<sup>1</sup> [Azure 쓰기 가속기](../../linux/how-to-enable-write-accelerator.md) 는 Ev4 및 Ev4 VM 제품군에서 사용할 수 없습니다. Azure premium storage를 사용 하면 i/o 대기 시간이 1ms 미만이 됩니다.
+<sup>1</sup> [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 는 Ev4 및 Ev4 VM 제품군에서 사용할 수 없습니다. Azure premium storage를 사용 하면 i/o 대기 시간이 1ms 미만이 됩니다.
 
-<sup>2</sup> VM 제품군은 [Azure 쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)을 지원 하지만 Write Accelerator의 iops 제한으로 인해 디스크 구성 iops 기능이 제한 될 가능성이 있습니다.
+<sup>2</sup> VM 제품군은 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md)을 지원 하지만 Write Accelerator의 iops 제한으로 인해 디스크 구성 iops 기능이 제한 될 가능성이 있습니다.
 
 SAP HANA에 대 한 데이터 및 로그 볼륨을 결합 하는 경우 스트라이프 볼륨을 구성 하는 디스크에서 읽기 캐시 또는 읽기/쓰기 캐시를 사용 하도록 설정 하지 않아야 합니다.
 

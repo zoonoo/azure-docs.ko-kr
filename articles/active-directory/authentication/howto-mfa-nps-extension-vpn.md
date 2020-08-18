@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848728"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507181"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -308,17 +308,23 @@ Multi-Factor Authentication에 대한 사용자를 구성할 때 도움이 필�
 
 이 섹션에서는 VPN 서버에서 클라이언트 인증에 MFA를 사용하도록 VPN을 구성하는 방법에 대해 설명합니다.
 
+> [!NOTE]
+> REQUIRE_USER_MATCH 레지스트리 키는 대/소문자를 구분 합니다. 모든 값은 대문자 형식으로 설정 해야 합니다.
+>
+
 NPS 확장을 설치하고 구성한 후에 MFA를 사용하려면 이 서버에서 모든 RADIUS 기반 클라이언트 인증을 처리해야 합니다. 모든 VPN 사용자가 Azure Multi-Factor Authentication에 등록되지는 않은 경우 다음 중 하나를 수행할 수 있습니다.
 
 * MFA를 사용하도록 구성되지 않은 사용자를 인증하도록 다른 RADIUS 서버를 설정합니다.
 
 * Microsoft Azure Multi-Factor Authentication에 등록된 경우에만 문제가 있는 사용자가 두 번째 인증 요소를 제공할 수 있도록 레지스트리 항목을 만듭니다.
 
-_HKLM\SOFTWARE\Microsoft\AzureMfa에 REQUIRE_USER_MATCH_라는 새 문자열 값을 만들고 이 값을 *True* 또는 *False*로 설정합니다.
+_만들고이에 REQUIRE_USER_MATCH_라는 새 문자열 값을 만들고이 값을 *TRUE* 또는 *FALSE*로 설정 합니다.
 
 ![“사용자 일치 필요” 설정](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-값이 *True*로 설정되거나 비어 있으면 모든 인증 요청은 MFA 챌린지의 영향을 받습니다. 값을 *False*로 설정하면 MFA 챌린지가 Azure Multi-Factor Authentication에 등록된 사용자에게만 발급됩니다. 등록 기간 동안 테스트 환경 또는 프로덕션 환경에서만 *False* 설정을 사용합니다.
+값이 *TRUE* 로 설정 되거나 비어 있으면 모든 인증 요청은 MFA 챌린지의 영향을 받습니다. 값이 *FALSE*로 설정 된 경우 MFA 문제는 Azure Multi-Factor Authentication에 등록 된 사용자 에게만 발급 됩니다. 등록 기간 동안에는 테스트 또는 프로덕션 환경 에서만 *FALSE* 설정을 사용 합니다.
+
+
 
 ### <a name="obtain-the-azure-active-directory-tenant-id"></a>Azure Active Directory 테 넌 트 ID 가져오기
 

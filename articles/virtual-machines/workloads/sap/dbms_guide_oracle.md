@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832266"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504945"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -404,7 +404,7 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 
 #### <a name="write-accelerator"></a>Write Accelerator
-Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage와 비교할 때 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../linux/how-to-enable-write-accelerator.md)를 참조하세요.
+Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage와 비교할 때 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md)를 참조하세요.
 
 
 ### <a name="backuprestore"></a>백업/복원
@@ -498,7 +498,7 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 
 #### <a name="write-accelerator"></a>Write Accelerator
-Azure M 시리즈 VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../linux/how-to-enable-write-accelerator.md)를 참조하세요.
+Azure M 시리즈 VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md)를 참조하세요.
 
 
 ### <a name="backuprestore"></a>백업/복원

@@ -418,7 +418,7 @@
         - name: 마이그레이션 개요
           href: migration-classic-resource-manager-overview.md
         - name: 마이그레이션에 대한 고찰
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md
         - name: 마이그레이션 계획
           href: migration-classic-resource-manager-plan.md
         - name: CLI를 사용하여 마이그레이션
@@ -428,7 +428,7 @@
         - name: 마이그레이션을 위한 커뮤니티 도구
           href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: FAQ
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md
     - name: 이미지 사용
       displayName: 'SIG, AMI, image'
       items:
@@ -954,7 +954,7 @@
           href: detach-disk.md
         - name: ARM 템플릿을 사용하여 디스크 배포
           displayName: 'Azure Resource Manager, ARM'
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md
         - name: 공유 디스크 사용
           href: disks-shared-enable.md
         - name: 디스크에 VHD 업로드 - CLI
@@ -1004,7 +1004,7 @@
         - name: 성능
           items:
             - name: 쓰기 가속기 사용
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md
             - name: 울트라 디스크 사용
               href: disks-enable-ultra-ssd.md
             - name: 디스크 벤치마크
@@ -1143,7 +1143,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       displayName: ARM

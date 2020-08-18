@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192408"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506501"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ Studio 액세스 권한을 부여 하지 못한 경우이 오류가 표시 되 `
 
 동일한 가상 네트워크에 작업 영역 및 저장소 계정을 추가 하 여 서로 액세스할 수 있도록 합니다.
 
-1. 작업 영역을 가상 네트워크에 연결 하려면 [Azure 개인 링크를 사용 하도록 설정](how-to-configure-private-link.md)합니다. 이 기능은 현재 미리 보기 상태 이며 미국 동부, 미국 서 부 2, 미국 남부 중부 지역에서 사용할 수 있습니다.
+1. 작업 영역을 가상 네트워크에 연결 하려면 [Azure 개인 링크를 사용 하도록 설정](how-to-configure-private-link.md)합니다. 이 기능은 현재 미리 보기 상태 이며 미국 동부 및 미국 서 부 2 지역에서 사용할 수 있습니다.
 
 1. 저장소 계정을 가상 네트워크에 연결 하려면 [방화벽 및 가상 네트워크 설정을 구성](#use-a-storage-account-for-your-workspace)합니다.
 

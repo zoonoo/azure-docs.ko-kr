@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: a74fae74a2d0ebbb71d65420475e5772e44a8d84
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758863"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507096"
 ---
 # <a name="remote-rendering-sessions"></a>Remote Rendering 세션
 
@@ -40,10 +40,10 @@ Azure Remote Rendering은 복잡한 렌더링 작업을 클라우드로 오프�
 
 ARR에 [새 세션을 만들도록](../how-tos/session-rest-api.md#create-a-session) 요청하면 먼저 세션 [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)가 반환됩니다. 이 UUID를 사용하여 세션에 대한 정보를 쿼리할 수 있습니다. UUID와 세션에 대한 일부 기본 정보는 30일 동안 유지되므로 세션이 중지된 후에도 해당 정보를 쿼리할 수 있습니다. 이때 **세션 상태**는 **시작 중**으로 보고됩니다.
 
-다음으로, Azure Remote Rendering이 세션을 호스트할 수 있는 서버를 찾으려고 합니다. 이 검색에는 2개의 매개 변수가 사용됩니다. 먼저 [지역](../reference/regions.md)의 서버만 예약됩니다. 지역 간의 네트워크 대기 시간이 너무 길어서 적절한 환경을 보장할 수 없기 때문입니다. 두 번째 요소는 사용자가 지정한 원하는 *크기*입니다. 각 지역에는 *표준* 또는 *프리미엄* 크기 요청을 수행할 수 있는 제한된 수의 서버가 있습니다. 따라서 요청된 크기의 서버가 지역에서 모두 현재 사용 중인 경우 세션을 만들지 못합니다. 실패 이유를 [쿼리](../how-tos/session-rest-api.md#get-sessions-properties)할 수 있습니다.
+다음으로, Azure Remote Rendering이 세션을 호스트할 수 있는 서버를 찾으려고 합니다. 이 검색에는 2개의 매개 변수가 사용됩니다. 먼저 [지역](../reference/regions.md)의 서버만 예약됩니다. 지역 간의 네트워크 대기 시간이 너무 길어서 적절한 환경을 보장할 수 없기 때문입니다. 두 번째 요소는 사용자가 지정한 원하는 *크기*입니다. 각 지역에는 [*표준*](../reference/vm-sizes.md) 또는 [*프리미엄*](../reference/vm-sizes.md) 크기 요청을 수행할 수 있는 제한 된 수의 서버가 있습니다. 따라서 요청된 크기의 서버가 지역에서 모두 현재 사용 중인 경우 세션을 만들지 못합니다. 실패 이유를 [쿼리](../how-tos/session-rest-api.md#get-sessions-properties)할 수 있습니다.
 
 > [!IMPORTANT]
-> *표준* VM 크기를 요청하고 수요가 많아 요청이 실패한다고 해서 *프리미엄* 서버 요청도 실패하는 것은 아닙니다. 따라서 가능한 경우 *프리미엄* VM을 대신 사용해 볼 수 있습니다.
+> *표준* 서버 크기를 요청 하는 경우 요청에 따라 요청이 실패 하 고, *프리미엄* 서버를 요청 하는 것도 실패 합니다. 따라서 사용자가 선택할 수 있는 경우 *프리미엄* 서버 크기로 다시 대체 해 볼 수 있습니다.
 
 서비스에서 적합한 서버를 찾으면 적절한 VM(가상 머신)을 복사하여 Azure Remote Rendering 호스트로 전환해야 합니다. 이 프로세스는 몇 분 정도 걸립니다. 이후에 VM이 부팅되고 **세션 상태**가 **준비**로 전환됩니다.
 
@@ -72,7 +72,7 @@ ARR에 [새 세션을 만들도록](../how-tos/session-rest-api.md#create-a-sess
 모든 경우에 세션이 중지되면 더 이상 요금이 청구되지 않습니다.
 
 > [!WARNING]
-> 세션 연결 여부와 기간은 청구에 영향을 주지 않습니다. 서비스 요금은 서버가 사용자를 위해 독점적으로 예약된 시간인 *세션 기간*과 요청된 하드웨어 기능(VM 크기)에 따라 다릅니다. 세션을 시작하는 경우 5분 동안 연결한 후 임대가 만료될 때까지 계속 실행되도록 세션을 중지하지 않으면 전체 세션 임대 시간에 대한 요금이 청구됩니다. 반대로 *최대 임대 시간*는 대부분 보안 네트워크입니다. 임대 시간이 8시간인 세션을 요청하는지 여부는 중요하지 않습니다. 나중에 세션을 수동으로 중지하는 경우 5분 동안만 사용합니다.
+> 세션 연결 여부와 기간은 청구에 영향을 주지 않습니다. 서비스에 대 한 비용을 지불 하는 것은 *세션 기간*에 따라 달라 집니다. 즉, 서버가 사용자를 위해 단독으로 예약 된 시간과 요청 된 하드웨어 기능 ( [할당 된 크기](../reference/vm-sizes.md))이 사용 됩니다. 세션을 시작하는 경우 5분 동안 연결한 후 임대가 만료될 때까지 계속 실행되도록 세션을 중지하지 않으면 전체 세션 임대 시간에 대한 요금이 청구됩니다. 반대로 *최대 임대 시간*는 대부분 보안 네트워크입니다. 임대 시간이 8시간인 세션을 요청하는지 여부는 중요하지 않습니다. 나중에 세션을 수동으로 중지하는 경우 5분 동안만 사용합니다.
 
 #### <a name="extend-a-sessions-lease-time"></a>세션의 임대 시간 연장
 
