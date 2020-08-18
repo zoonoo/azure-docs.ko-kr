@@ -3,12 +3,12 @@ title: ASP.NET Core 응용 프로그램에 대 한 Azure 애플리케이션 정�
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270923"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518087"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -36,6 +36,8 @@ ms.locfileid: "88270923"
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>서버 쪽 원격 분석 Application Insights 사용 (Visual Studio)
+
+Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-telemetry-no-visual-studio)을 사용 합니다. Windows 버전의 Visual Studio 에서만이 프로시저를 지원 합니다.
 
 1. Visual Studio에서 프로젝트를 엽니다.
 
@@ -103,7 +105,7 @@ ms.locfileid: "88270923"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들어 다음과 같은 가치를 제공해야 합니다.
+    예를 들어:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -118,7 +120,7 @@ ms.locfileid: "88270923"
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>사용자 암호 및 기타 구성 공급자
 
-계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예들 들어 `services.AddApplicationInsightsTelemetry(Configuration);`입니다.
+계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 
