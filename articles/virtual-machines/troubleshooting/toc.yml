@@ -232,6 +232,8 @@
       href: ../extensions/troubleshoot.md
     - name: Windows VM 에이전트 오프라인 설치
       href: install-vm-agent-offline.md
+    - name: Windows VM 에이전트 문제 해결
+      href: windows-azure-guest-agent.md
 - name: 백업 및 복원
   items:
     - name: Azure VM의 백업 오류 문제 해결

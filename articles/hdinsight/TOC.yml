@@ -356,6 +356,8 @@
               href: ./set-up-pyspark-interactive-environment.md
         - name: 개발
           items:
+            - name: SparkCruise를 사용하여 쿼리 최적화
+              href: ./spark/spark-cruise.md
             - name: 대화형 Apache Spark Shell 사용
               href: ./spark/apache-spark-shell.md
             - name: Apache Livy를 사용하는 원격 작업

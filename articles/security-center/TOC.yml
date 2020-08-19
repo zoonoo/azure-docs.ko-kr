@@ -151,6 +151,8 @@
           href: workflow-automation.md
         - name: 권장 사항 내보내기
           href: continuous-export.md
+    - name: 자산 인벤토리로 리소스 관리
+      href: asset-inventory.md
     - name: 다른 도구 및 서비스와 통합
       items:
         - name: Windows Admin Center와 통합

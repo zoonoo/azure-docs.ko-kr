@@ -47,6 +47,8 @@
       href: ./policy-samples.md
 - name: 개념
   items:
+    - name: 앱 및 배포 이해
+      href: spring-cloud-concept-understand-app-and-deployment.md
     - name: 할당량 및 한도 이해
       href: spring-cloud-quotas.md
     - name: 메트릭 이해
