@@ -1,6 +1,6 @@
 ---
 title: Azure 앱 구성 모범 사례 | Microsoft Docs
-description: Azure 앱 구성을 최대한 활용 하는 방법 알아보기
+description: Azure 앱 구성을 사용 하는 동안 모범 사례를 알아봅니다. 이 항목에서는 키 그룹화, 키-값 컴퍼지션, 앱 구성 부트스트랩 등을 다룹니다.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d97626d5eed96a3debb41c86f6dab6fbaf1953cd
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206676"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588061"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 앱 구성 모범 사례
 

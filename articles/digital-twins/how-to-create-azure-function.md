@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d9f9957209c6df91185059085f57636a16a3961c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124309"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589404"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -83,8 +83,8 @@ namespace FunctionSample
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Azure 함수 앱에 Azure Digital Twins SDK 추가
 
 함수 앱은 [.net 용 Azure IoT 디지털 쌍 클라이언트 라이브러리 (c #)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)를 사용 하 여 Azure Digital twins와 상호 작용 합니다. SDK를 사용 하려면 프로젝트에 다음 패키지를 포함 해야 합니다.
-* `Azure.DigitalTwins.Core`(버전 `1.0.0-preview.2` )
-* `Azure.Identity`
+* `Azure.DigitalTwins.Core` (버전 `1.0.0-preview.2` )
+* `Azure.Identity` (버전 `1.1.1` )
 
 Azure Functions에 대해 올바르게 설정 하도록 Azure SDK 파이프라인을 구성 하려면 다음이 필요 합니다.
 * `Azure.Net.Http`

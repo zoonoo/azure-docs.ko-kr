@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: a635f32c5e5f1132d70fb503058267c8b33beb7c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272063"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586897"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -35,6 +35,7 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 8 월의 업데이트는 다음과 같습니다.
 
 - [자산 인벤토리-자산의 보안 상태에 대 한 강력한 새 뷰입니다.](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Azure Active Directory 보안 기본값 (multi-factor authentication의 경우)에 대 한 지원이 추가 됨](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [추가 된 서비스 주체 권장 사항](#service-principals-recommendation-added)
 - [Vm에 대 한 취약성 평가-통합 권장 사항 및 정책 통합](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 
@@ -50,11 +51,27 @@ Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 �
 [자산 인벤토리에](asset-inventory.md)대해 자세히 알아보세요.
 
 
+### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Azure Active Directory 보안 기본값 (multi-factor authentication의 경우)에 대 한 지원이 추가 됨
+
+Security Center는 Microsoft의 무료 id 보안 보호를 위해 [보안 기본값](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)에 대 한 완전 한 지원을 추가 했습니다.
+
+보안 기본값은 일반적인 id 관련 공격 으로부터 조직을 보호 하기 위해 미리 구성 된 id 보안 설정을 제공 합니다. 보안 기본값은 이미 500만 개 이상의 테 넌 트를 보호 합니다. 5만 테 넌 트는 Security Center에 의해 보호 됩니다.
+
+이제 Security Center는 보안 기본값을 사용 하지 않고 Azure 구독을 식별할 때마다 보안 권장 사항을 제공 합니다. 지금 까지는 Azure Active Directory (AD) premium 라이선스의 일부인 조건부 액세스를 사용 하 여 multi-factor authentication을 사용 하도록 권장 Security Center. Azure AD free를 사용 하는 고객의 경우 이제 보안 기본값을 사용 하는 것이 좋습니다. 
+
+Microsoft의 목표는 더 많은 고객이 MFA를 사용 하 여 클라우드 환경을 보호 하 고 [보안 점수](https://docs.microsoft.com/azure/security-center/secure-score-security-controls)를 가장 많이 사용 하는 위험 중 하나를 완화 하는 것입니다.
+
+[보안 기본값](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)에 대해 자세히 알아보세요.
+
+
 ### <a name="service-principals-recommendation-added"></a>추가 된 서비스 주체 권장 사항
 
-관리 인증서를 사용 하 여 구독을 관리 하는 Security Center 고객에 대 한 새로운 권장 사항입니다.
+관리 인증서를 사용 하 여 서비스 주체에 대 한 구독을 관리 하는 고객이 관리 인증서를 사용 하는 Security Center 권장 하는 새로운 권장 사항이 추가 되었습니다.
 
 권장 사항으로, 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 **보호 하는 데 서비스** 사용자 또는 Azure Resource Manager을 사용 하 여 구독을 보다 안전 하 게 관리 하는 것이 좋습니다. 
+
+[Azure Active Directory에서 응용 프로그램 및 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)에 대해 자세히 알아보세요.
+
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Vm에 대 한 취약성 평가-통합 권장 사항 및 정책 통합
 

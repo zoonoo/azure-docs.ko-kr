@@ -3,12 +3,12 @@ title: 보안 기능 개요
 description: 백업 데이터를 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure Backup의 보안 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319306"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589387"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure Backup의 보안 기능 개요
 
@@ -48,9 +48,9 @@ Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여�
 
 * Azure 내에서 Azure storage와 자격 증명 모음 간의 전송 데이터는 [HTTPS에 의해 보호](backup-support-matrix.md#network-traffic-to-azure)됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
 
-* 백업 데이터는 [Microsoft 관리 키](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)를 사용 하 여 자동으로 암호화 되며이를 사용 하도록 설정 하기 위해 명시적인 조치를 취할 필요가 없습니다. Azure Key Vault에 저장 된 [고객 관리 키](encryption-at-rest-with-cmk.md) 를 사용 하 여 백업 된 데이터를 암호화할 수도 있습니다. Recovery Services 자격 증명 모음에 백업되는 모든 워크로드에 적용됩니다.
+* 백업 데이터는 [플랫폼 관리 키](backup-encryption.md)를 사용 하 여 자동으로 암호화 되며이를 사용 하도록 설정 하기 위해 명시적인 조치를 취할 필요가 없습니다. Azure Key Vault에 저장 된 [고객 관리 키](encryption-at-rest-with-cmk.md) 를 사용 하 여 백업 된 데이터를 암호화할 수도 있습니다. Recovery Services 자격 증명 모음에 백업되는 모든 워크로드에 적용됩니다.
 
-* Azure Backup은 [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) 로 암호화 된 OS/데이터 디스크와 [cmk 암호화 된 디스크가 있는 vm](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys)을 포함 하는 Azure vm의 백업 및 복원을 지원 합니다. 자세한 내용은 [암호화 된 Azure vm 및 Azure Backup에 대해 자세히 알아보세요](./backup-azure-vms-encryption.md).
+* Azure Backup은 [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) 로 암호화 된 OS/데이터 디스크와 [cmk 암호화 된 디스크가 있는 vm](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys)을 포함 하는 Azure vm의 백업 및 복원을 지원 합니다. 자세한 내용은 [암호화 된 Azure vm 및 Azure Backup에 대해 자세히 알아보세요](./backup-azure-vms-encryption.md).
 
 * MARS 에이전트를 사용 하 여 온-프레미스 서버에서 데이터를 백업 하는 경우 Azure Backup 업로드 하기 전에 암호를 사용 하 여 데이터를 암호화 한 후 Azure Backup에서 다운로드 한 후에만 암호를 해독 합니다. [하이브리드 백업을 보호 하는 데 도움이 되는 보안 기능](#security-features-to-help-protect-hybrid-backups)에 대해 자세히 알아보세요.
 

@@ -3,20 +3,20 @@ title: Azure Lab Services에 대 한 Cost management 가이드
 description: Lab Services에 대 한 비용을 볼 수 있는 다양 한 방법을 이해 합니다.
 author: rbest
 ms.author: rbest
-ms.date: 06/26/2020
+ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: fbbaf4a3646260fc09467e214b82fd0213415635
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ce4d5e82d65d911984dc45615253ddcae33ae1
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445307"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589876"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Azure Lab Services에 대 한 Cost management
 
 Cost management는 비용 예측 및 비용 분석의 두 가지 고유한 영역으로 나눌 수 있습니다.  랩을 설정할 때 랩의 초기 구조가 예상 된 예산에 맞는지 확인 하는 데 드는 비용 예측이 발생 합니다.  비용 분석은 일반적으로 해당 월의 끝에 비용을 분석 하 고 다음 달에 필요한 작업을 결정 하는 데 발생 합니다.
 
-## <a name="estimating-the-lab-costs"></a>랩 비용 예측
+## <a name="estimate-the-lab-costs"></a>랩 비용 예측
 
 각 랩 대시보드에는 해당 월에 발생 하는 랩의 비용에 대 한 대략적인 추정치를 제공 하는 **비용 & 청구** 섹션이 있습니다.  비용 예상치는 시간당 예상 비용을 기준으로 최대 사용자 수를 사용 하 여 시간 사용량을 요약 합니다.  [일정](how-to-create-schedules.md)을 포함 하 여 랩에 대 한 가장 정확한 예상 값을 얻으려면 대시보드는 예상 비용을 반영 합니다.  
 
@@ -25,7 +25,7 @@ Cost management는 비용 예측 및 비용 분석의 두 가지 고유한 영�
 > [!div class="mx-imgBorder"]
 > ![대시보드 비용 예측](./media/cost-management-guide/dashboard-cost-estimation.png)
 
-## <a name="analyzing-previous-months-usage"></a>이전 달 사용량 분석
+## <a name="analyze-previous-months-usage"></a>이전 달 사용량 분석
 
 비용 분석은 이전 달 사용량을 검토 하 여 랩에 대 한 조정을 결정 하는 데 사용 됩니다.  과거의 비용 [분석은 구독 비용 분석](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis)에서 찾을 수 있습니다.  Azure Portal 위쪽 검색 필드에 "구독"을 입력 한 다음 구독 옵션을 선택할 수 있습니다.  
 
@@ -39,14 +39,14 @@ Cost management는 비용 예측 및 비용 분석의 두 가지 고유한 영�
 
  왼쪽 창에서 **Cost Management**의 "비용 분석"을 선택 합니다.
 
- > [!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![구독 비용 분석](./media/cost-management-guide/subscription-cost-analysis.png)
 
 이 대시보드는 일정에 따라 다양 한 파일 형식으로 내보내는 기능을 포함 하 여 심층 비용 분석을 가능 하 게 합니다.  Cost Management에는 다양 한 기능이 포함 되어 있습니다. 자세한 내용은 [Cost Management 청구 개요](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview) 를 참조 하세요.
 
 리소스 유형별로 필터링: `microsoft.labservices/labaccounts` Lab Services와 관련 된 비용을 표시 합니다.
 
-## <a name="understanding-the-usage"></a>사용 이해
+## <a name="understand-the-usage"></a>사용법 이해
 
 다음은 비용 분석의 샘플입니다.
 
@@ -68,9 +68,69 @@ Cost management는 비용 예측 및 비용 분석의 두 가지 고유한 영�
 
 클래스 유형에 따라 컴퓨터를 사용 하는 학생이 없어도 Vm이 실행 되는 것을 줄이기 위해 비용을 관리 하는 방법이 있습니다.
 
-### <a name="auto-shutdown-on-disconnect"></a>연결 끊기 시 자동 종료
+### <a name="maximize-cost-control-with-auto-shutdown-settings"></a>자동 종료 설정을 사용 하 여 비용 제어 최대화
 
-랩 생성 시 랩 소유자는 [vm에 대 한 RDP 연결의 연결이 끊어질 때](how-to-enable-shutdown-disconnect.md)랩의 vm이 종료 되도록 설정할 수 있습니다.  이 설정은 학생이 연결을 끊은 후 VM을 중지 하는 것을 잊은 시나리오를 줄입니다.
+자동 종료 비용 제어 기능을 사용 하면 랩 내에서 가상 컴퓨터 사용 시간이 낭비 되는 것을 방지할 수 있습니다. 다음 세 가지 자동 종료 및 연결 끊기 기능의 조합은 사용자가 실수로 가상 컴퓨터를 실행 하는 대부분의 경우를 포착 합니다.
+
+> [!div class="mx-imgBorder"]
+> ![구독 비용 분석](./media/cost-management-guide/auto-shutdown-disconnect.png)
+
+이러한 설정은 랩 계정 수준과 랩 수준에서 구성할 수 있습니다. 설정이 랩 계정 수준에서 설정 된 경우 랩 계정 내의 모든 랩에 적용 됩니다. 이러한 설정은 모든 새 랩 계정에 대해 기본적으로 설정 되어 있습니다. 
+
+#### <a name="details-about-auto-shutdown-settings"></a>자동 종료 설정에 대 한 세부 정보
+
+* OS가 유휴 상태를 하다 고 판단 가상 머신에서 사용자의 연결을 자동으로 끊습니다 (Windows 전용).
+
+    > [!NOTE]
+    > 이 설정은 Windows 가상 컴퓨터에만 사용할 수 있습니다.
+
+    설정이 켜져 있으면 Windows OS가 세션을 유휴 상태로 하다 고 판단 때 (템플릿 가상 컴퓨터 포함) 사용자가 랩의 모든 컴퓨터에서 연결이 끊어집니다. [유휴의 WINDOWS OS 정의](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) 는 다음 두 가지 기준을 사용 합니다. 
+
+    * 사용자 부재 – 키보드 또는 마우스 입력이 없습니다.
+    * 리소스 사용 부족-모든 프로세서 및 모든 디스크가 특정 시간 (%) 동안 유휴 상태 였습니다.
+
+    사용자는 연결을 끊기 전에 가상 컴퓨터 내부에 다음과 같은 메시지를 표시 합니다. 
+
+    > [!div class="mx-imgBorder"]
+    > ![구독 비용 분석](./media/cost-management-guide/idle-timer-expired.png)
+    
+    사용자의 연결이 끊어질 때 가상 컴퓨터가 계속 실행 되 고 있습니다. 사용자가 로그인 하 여 가상 컴퓨터에 다시 연결 하는 경우에는 연결 끊기 이전에 열려 있거나 저장 되지 않은 windows 또는 파일이 계속 남아 있습니다. 이 상태에서 가상 머신이 실행 되 고 있기 때문에 여전히 활성 및 발생 비용으로 계산 됩니다. 
+    
+    연결이 끊긴 Windows 가상 머신을 자동으로 종료 하려면 **가상 머신이 유휴 상태일 때 사용자 연결 끊기 사용자** 의 조합을 사용 하 고 **사용자가 설정의 연결을 끊을 때 가상 머신을 종료** 합니다.
+
+    예를 들어 다음과 같이 설정을 구성 합니다.
+    
+    * 가상 컴퓨터가 유휴 상태일 때 사용자 연결 끊기 – 유휴 상태가 검색 된 후 15 분
+    * 사용자가 연결을 끊은 후 5 분 후에 가상 컴퓨터를 종료 합니다.
+    
+    Windows 가상 머신은 사용자가 사용을 중지 한 후 자동으로 20 분 후에 종료 됩니다. 
+    
+    > [!div class="mx-imgBorder"]
+    > ![구독 비용 분석](./media/cost-management-guide/vm-idle-diagram.png)
+* 사용자가 연결을 끊을 때 자동으로 가상 컴퓨터 종료 (Windows & Linux)
+    
+    이 설정은 Windows 및 Linux 가상 컴퓨터를 모두 지원 합니다. 이 설정이 켜져 있으면 다음과 같은 경우 자동 종료가 수행 됩니다.
+    
+    * Windows의 경우 RDP (원격 데스크톱) 연결의 연결이 끊깁니다.
+    * Linux의 경우 SSH 연결의 연결이 끊깁니다.
+    
+    > [!NOTE]
+    > [특정 배포 및 Linux 버전만](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) 지원 됩니다.
+    
+    가상 컴퓨터가 자동으로 종료 되기 전에 사용자가 다시 연결 될 때까지 대기 해야 하는 기간을 지정할 수 있습니다. 
+* 시작 되었지만 사용자가 연결 하지 않는 가상 컴퓨터를 자동으로 종료 합니다.
+     
+    랩 내에서 사용자는 가상 컴퓨터를 시작할 수는 있지만 연결할 수는 없습니다. 예를 들면 다음과 같습니다.
+    
+    * 랩의 일정은 클래스 세션의 모든 가상 컴퓨터를 시작 하지만 일부 학생은 표시 되지 않고 컴퓨터에 연결 되지 않습니다.  
+    * 사용자가 가상 컴퓨터를 시작 하지만 연결을 잊어버린 경우 
+    
+    "사용자가 연결 하지 않을 때 가상 컴퓨터 종료" 설정은 이러한 경우를 포착 하 고 가상 컴퓨터를 자동으로 종료 합니다.  
+    
+연결을 끊을 때 Vm의 자동 종료를 구성 하 고 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+
+* [랩 계정의 연결 해제 설정에서 VM의 자동 종료 구성](how-to-configure-lab-accounts.md)
+* [연결 해제 시 VM 자동 종료 사용](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="quota-vs-scheduled-time"></a>할당량 및 예약 된 시간
 

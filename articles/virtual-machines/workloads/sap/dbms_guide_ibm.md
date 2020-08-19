@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/13/2020
+ms.date: 08/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3db8ece7cd1d3ef57b51b164fad3340b80882369
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 947f50c1a92985c057f39a5efb1be250bf8ef06c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510201"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587160"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
 
@@ -85,8 +85,8 @@ Sap NetWeaver 용 IBM Db2 응용 프로그램은 SAP support note [1928533]에 �
 | VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3.500  |170  ||  |
-|vCPU: 4 |/db2/ <SID> 형식이 며/sapdata |P6 |4 |960  |200  |256  |14.000  |680  |256KB |ReadOnly |
-|RAM: 32 GiB |/db2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7.000  |340  |128KB ||
+|vCPU: 4 |/db2/ <SID> 형식이 며/sapdata |P10 |2 |1.000  |200  |256  |7.000  |340  |256KB |ReadOnly |
+|RAM: 32 GiB |/db2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3.500  |170  | ||
 | |/db2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7.000  |340  |64KB ||
 | |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3.500  |170  || |
 

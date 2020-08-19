@@ -1,24 +1,24 @@
 ---
-title: Azure AD 자격 증명을 사용 하 여 Azure CLI 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
+title: Azure CLI를 사용 하 여 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 titleSuffix: Azure Storage
 description: Azure CLI를 사용 하 여 blob 또는 큐 데이터에 대해 데이터 작업에 권한을 부여 하는 방법을 지정 합니다. Azure AD 자격 증명을 사용 하 여 계정 액세스 키를 사용 하거나 공유 액세스 서명 (SAS) 토큰을 사용 하 여 데이터 작업에 권한을 부여할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5ab346af1516c29b1638811217b779e11f120043
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a089ffb7631ded7bd36a4eee5fb862ced3fd2ad0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183397"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589065"
 ---
-# <a name="run-azure-cli-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Azure AD 자격 증명을 사용 하 여 Azure CLI 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Azure CLI를 사용 하 여 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
 Azure Storage는 blob 또는 큐 데이터에 대해 작업 권한을 부여 하는 방법을 지정할 수 있는 Azure CLI에 대 한 확장을 제공 합니다. 다음과 같은 방법으로 데이터 작업에 권한을 부여할 수 있습니다.
 

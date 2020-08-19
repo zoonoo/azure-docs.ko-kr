@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d0a6b6561b5d0995d7794993608a4991b1da2718
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 72c038bda88ecc9b7518f1f764a41bd4c49f52c6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810142"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589421"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -350,7 +350,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 - [Azure AD 로그인을 사용 하도록 Azure Backup를 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [AAD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -902,7 +902,7 @@ Azure Key Vault 내에서 고객 관리 키를 백업 합니다.
 
 - [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Azure Backup의 암호화 이해](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
+- [Azure Backup의 암호화 이해](./backup-encryption.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

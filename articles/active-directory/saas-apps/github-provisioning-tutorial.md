@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: cfcf68b1e00e9f3333a8cd1fdb21ec71712f0e95
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7408d7609cbceb4ac39298680b6d3854a2d71306
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550673"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589217"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
@@ -29,6 +29,7 @@ ms.locfileid: "88550673"
 * [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
 * 조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
 * [여기](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization) 에 설명 된 대로 조직에 대 한 OAuth 액세스가 제공 되었는지 확인 합니다.
+* 단일 조직에 대 한 SCIM 프로 비전은 조직 수준에서 SSO를 사용 하도록 설정한 경우에만 지원 됩니다.
 
 > [!NOTE]
 > Azure AD 프로 비전 통합은 github 엔터프라이즈 [청구 계획](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)의 Github [enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) 고객이 사용할 수 있는 [github scim API](https://developer.github.com/v3/scim/)를 사용 합니다.

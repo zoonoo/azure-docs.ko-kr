@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c144442ecd93ca87683179adef496a5d68cce98e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c48c48ef438f99f3b144c3300cb2415e4d387e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525900"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586684"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Azure Files 네트워크 엔드포인트 구성
 
@@ -136,7 +136,7 @@ Address: 192.168.0.5
 
 #### <a name="disable-access-to-the-public-endpoint"></a>퍼블릭 엔드포인트에 대한 액세스 제한
 
-퍼블릭 엔드포인트에 대한 모든 액세스가 제한된 경우에도 프라이빗 엔드포인트를 통해 스토리지 계정에 액세스할 수 있습니다. 그렇지 않으면 스토리지 계정의 퍼블릭 엔드포인트에 대한 유효한 요청이 거부됩니다. 
+퍼블릭 엔드포인트에 대한 모든 액세스가 제한된 경우에도 프라이빗 엔드포인트를 통해 스토리지 계정에 액세스할 수 있습니다. 그렇지 않으면 [특별히 허용 된 원본](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)에서 온 경우를 제외 하 고는 저장소 계정의 공용 끝점에 대 한 유효한 요청이 거부 됩니다. 
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]

@@ -3,12 +3,12 @@ title: Azure VM을 만들 때 백업 사용
 description: Azure Backup를 사용 하 여 Azure VM을 만들 때 백업을 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032853"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586701"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
@@ -16,7 +16,7 @@ Azure Backup 서비스를 사용 하 여 Azure Vm (가상 머신)을 백업 합�
 
 이 문서에서는 Azure Portal에서 VM (가상 머신)을 만들 때 백업을 사용 하도록 설정 하는 방법에 대해 자세히 설명 합니다.  
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 - VM을 만들 때 백업을 사용 하도록 설정 하는 경우 지원 되는 운영 체제를 [확인](backup-support-matrix-iaas.md#supported-backup-actions) 합니다.
 
@@ -47,6 +47,9 @@ Azure Backup 서비스를 사용 하 여 Azure Vm (가상 머신)을 백업 합�
     - 즉시 복원 기능에 [대해 자세히 알아보세요](backup-instant-restore-capability.md) .
 
       ![기본 백업 정책](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE 및 PMK는](backup-encryption.md) Azure vm에 대 한 기본 암호화 방법입니다. Azure Backup은 이러한 Azure Vm의 백업 및 복원을 지원 합니다.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Virtual Machines에 대 한 Azure Backup 리소스 그룹
 

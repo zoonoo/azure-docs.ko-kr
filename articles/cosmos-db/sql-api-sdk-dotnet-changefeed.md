@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6d25eb2965e31211c0d30ec8d5e3e376176147c0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135745"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590050"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 
@@ -27,7 +27,8 @@ ms.locfileid: "88135745"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * 단계 (/rest/api
@@ -196,7 +197,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.3.2](#2.3.2) |2020 년 8 월 11 일 |--- |
+| [2.3.2](#2.3.2) |2020년 8월 11일 |--- |
 | [2.3.1](#2.3.1) |2020 년 7 월 30 일 |--- |
 | [2.3.0](#2.3.0) |2020년 4월 2일 |--- |
 | [2.2.8](#2.2.8) |2019년 10월 28일 |--- |

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/12/2020
-ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 08/18/2020
+ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191196"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589506"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
 
@@ -126,9 +126,12 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 이제는 BC에 대해 표시 된 것과 동일한 GP 서비스 계층을 사용 하 여 출력을 볼 수 없습니다. 이는 GP 서비스 계층이 단일 노드만 기반으로 하기 때문입니다. GP 서비스 계층에 대 한 t-sql 쿼리 출력은 장애 조치 (failover) 전후에 단일 노드만 표시 합니다. 장애 조치 (failover) 중에 일반적으로 1 분 이내에 지속 되는 클라이언트의 연결이 끊어지면 장애 조치 (failover) 실행을 나타냅니다.
 
+> [!NOTE]
+> **높은 강도** 워크 로드의 경우에는 장애 조치 (failover) 프로세스를 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 이는 장애 조치 (failover)를 수행 하기 전에 인스턴스 엔진이 주 서버의 모든 현재 트랜잭션을 처리 하 고 보조 노드에서 처리 하기 때문입니다.
+
 > [!IMPORTANT]
 > 사용자가 시작한 수동 장애 조치 (failover)의 기능 제한 사항은 다음과 같습니다.
-> - 30 분 마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
+> - **30 분**마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
 > - BC 인스턴스의 경우 장애 조치 (failover) 요청이 허용 되려면 복제본의 쿼럼이 있어야 합니다.
 > - BC 인스턴스의 경우 장애 조치 (failover)를 시작할 읽을 수 있는 보조 복제본을 지정할 수 없습니다.
 

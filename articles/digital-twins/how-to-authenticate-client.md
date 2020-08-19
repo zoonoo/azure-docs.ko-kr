@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1eebacefa2e91970263c301de4ff160ea7c9f2eb
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 008d5f22a48fdd31c90e63643adc94b26a975ca2
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420348"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589370"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -34,8 +34,8 @@ Azure digital Twins의 Api 및 Sdk에 대 한 자세한 내용은 [*방법: Azur
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>인증 및 클라이언트 만들기: .NET (c #) SDK
 
 먼저 .NET SDK 및 인증 도구를 사용 하기 위해 프로젝트에 다음 패키지를 포함 합니다.
-* `Azure.DigitalTwins.Core`(버전 `1.0.0-preview.2` )
-* `Azure.Identity`
+* `Azure.DigitalTwins.Core` (버전 `1.0.0-preview.2` )
+* `Azure.Identity` (버전 `1.1.1` )
 
 선택한 도구에 따라 Visual Studio 패키지 관리자 또는 명령줄 도구를 사용 하 여 패키지를 포함할 수 있습니다 `dotnet` . 
 
