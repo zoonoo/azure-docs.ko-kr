@@ -1,17 +1,17 @@
 ---
 title: 고가용성-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 고가용성에 대 한 정보를 제공 합니다.
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 33c66fff681b0458d1cff1ff6176c34f4771b38e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508467"
+ms.locfileid: "88547684"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Azure Database for PostgreSQL에서 고가용성 – 단일 서버
 Azure Database for PostgreSQL – 단일 서버 서비스는 재정적 지원 되는 SLA (서비스 수준 계약) [99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) 가동 시간을 보장 하는 높은 수준의 가용성을 제공 합니다. Azure Database for PostgreSQL은 사용자가 제공 하는 크기 조정 계산 작업 등의 계획 된 이벤트 중에 고가용성을 제공 하며, 기본 하드웨어, 소프트웨어 또는 네트워크 오류와 같은 계획 되지 않은 이벤트가 발생 하는 경우에도 제공 합니다. 이 서비스를 사용 하는 경우 응용 프로그램 작동 중단 시간이 거의 없도록 하 여 대부분의 중요 한 상황에서 신속 하 게 복구할 수 Azure Database for PostgreSQL.
@@ -61,7 +61,7 @@ Azure Database for PostgreSQL는 계획 된 가동 중지 시간 동안 고가�
 
 | **시나리오** | **자동 복구** |
 | ---------- | ---------- |
-| <B>데이터베이스 서버 오류 | 일부 기본 하드웨어 오류로 인해 데이터베이스 서버 작동이 중지 되 면 활성 연결이 삭제 되 고 모든 처리 중인 트랜잭션이 중단 됩니다. 새 데이터베이스 서버는 자동으로 배포 되 고 원격 데이터 저장소는 새 데이터베이스 서버에 연결 됩니다. 데이터베이스 복구가 완료 된 후 클라이언트는 게이트웨이를 통해 새 데이터베이스 서버에 연결할 수 있습니다. <br /> <br /> RTO (복구 시간)는 대용량 트랜잭션과 같이 오류가 발생 한 시점의 작업과 데이터베이스 서버 시작 프로세스 중에 수행할 복구 양을 비롯 한 다양 한 요인에 따라 달라 집니다. <br /> <br /> PostgreSQL 데이터베이스를 사용 하는 응용 프로그램은 삭제 된 연결과 실패 한 트랜잭션을 검색 하 고 다시 시도 하는 방식으로 빌드해야 합니다.  응용 프로그램을 다시 시도할 때 게이트웨이는 새로 만든 데이터베이스 서버로의 연결을 투명 하 게 리디렉션합니다. |
+| <B>데이터베이스 서버 오류 | 일부 기본 하드웨어 오류로 인해 데이터베이스 서버 작동이 중지 되 면 활성 연결이 삭제 되 고 모든 처리 중인 트랜잭션이 중단 됩니다. 새 데이터베이스 서버는 자동으로 배포 되 고 원격 데이터 저장소는 새 데이터베이스 서버에 연결 됩니다. 데이터베이스 복구가 완료 된 후 클라이언트는 게이트웨이를 통해 새 데이터베이스 서버에 연결할 수 있습니다. <br /> <br /> RTO (복구 시간)는 오류가 발생 한 시점의 작업 (예: 대용량 트랜잭션 및 데이터베이스 서버 시작 프로세스 중에 수행할 복구 용량)을 비롯 한 다양 한 요인에 따라 달라 집니다. <br /> <br /> PostgreSQL 데이터베이스를 사용 하는 응용 프로그램은 삭제 된 연결과 실패 한 트랜잭션을 검색 하 고 다시 시도 하는 방식으로 빌드해야 합니다.  응용 프로그램을 다시 시도할 때 게이트웨이는 새로 만든 데이터베이스 서버로의 연결을 투명 하 게 리디렉션합니다. |
 | <B>저장소 오류 | 응용 프로그램에는 디스크 오류 또는 물리적 블록 손상과 같은 저장소 관련 문제에 대 한 영향이 표시 되지 않습니다. 데이터는 3 개의 복사본에 저장 되므로 데이터의 복사본은 활성 저장소로 제공 됩니다. 블록 손상이 자동으로 수정 됩니다. 데이터의 복사본이 손실 되 면 데이터의 새 복사본이 자동으로 생성 됩니다. |
 
 다음은 사용자 작업이 복구 되어야 하는 몇 가지 오류 시나리오입니다.

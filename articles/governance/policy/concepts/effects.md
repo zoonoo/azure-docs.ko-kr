@@ -1,14 +1,14 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
-ms.date: 06/15/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791421"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544726"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -32,7 +32,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 > [!IMPORTANT]
 > **EnforceOPAConstraint** 또는 **EnforceRegoPolicy** 효과 대신 리소스 공급자 모드에서 _감사_ 및 _거부_ 를 사용 `Microsoft.Kubernetes.Data` 합니다. 기본 제공 정책 정의가 업데이트 되었습니다. 이러한 기본 제공 정책 정의의 기존 정책 할당을 수정 하는 경우에는 _효과_ 매개 변수를 업데이트 된 _allowedvalues_ 목록의 값으로 변경 해야 합니다.
 
-## <a name="order-of-evaluation"></a>평가 순서
+## <a name="order-of-evaluation"></a>계산 순서
 
 리소스를 만들거나 업데이트 하는 요청은 Azure Policy에서 먼저 평가 됩니다. Azure Policy는 리소스에 적용한 다음, 각 정의에 대해 리소스를 평가하는 모든 할당 목록을 만듭니다. [리소스 관리자 모드](./definition-structure.md#resource-manager-modes)의 경우 Azure Policy는 적절 한 리소스 공급자에 게 요청을 전달 하기 전에 몇 가지 효과를 처리 합니다. 이 순서는 리소스가 Azure Policy의 디자인 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에의 한 불필요 한 처리를 방지 합니다. 리소스 [공급자 모드](./definition-structure.md#resource-provider-modes)를 사용 하 여 리소스 공급자는 평가 및 결과를 관리 하 고 결과를 다시 Azure Policy으로 보고 합니다.
 

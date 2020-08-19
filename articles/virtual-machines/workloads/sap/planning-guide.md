@@ -8,15 +8,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61401fc15f6f1003f6969787854fad65bfb6a5ab
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511238"
+ms.locfileid: "88547412"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -766,6 +766,8 @@ Microsoft Azure는 VM 및 관련 디스크를 배포하기 위한 여러 가지 
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a><a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동
 
 온-프레미스에서 Azure로 특정 SAP 시스템을 이동하려고 합니다. 이 작업은 OS, SAP 바이너리 및 DBMS 바이너리를 포함하는 VHD와 DBMS 데이터와 로그 파일이 있는 VHD를 Azure에 업로드하여 수행할 수 있습니다. [아래의 시나리오 2][planning-guide-5.1.2]와 달리 온-프레미스 환경에서 구성한 대로 Azure VM에서 호스트 이름, SAP SID 및 SAP 사용자 계정을 유지합니다. 그러므로 이미지 일반화는 필요하지 않습니다. 일반화되지 않은 VM 또는 VHD를 온-프레미스에서 준비하는 단계와 Azure로 업로드하는 방법에 대해서는 이 문서의 [일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비][planning-guide-5.2.1] 챕터를 참조하세요. Azure에서 이러한 이미지를 배포하는 자세한 단계에 대해서는 [시나리오 3: SAP][deployment-guide-3.4]에서 일반화되지 않은 Azure VHD를 사용하여 온-프레미스에서 VM 이동[(배포 가이드)][deployment-guide] 장을 읽어보세요.
+
+이 가이드에 자세히 설명 하지 않을 또 다른 옵션은 Azure Site Recovery를 사용 하 여 SAP NetWeaver 응용 프로그램 서버 및 SAP NetWeaver Central Services를 Azure에 복제 하는 것입니다. 데이터베이스 계층에는 Azure Site Recovery를 사용 하지 않는 것이 좋으며, HANA 시스템 복제와 같은 데이터베이스 특정 복제 메커니즘을 사용 하는 것은 권장 되지 않습니다. 자세한 내용은 [온-프레미스 앱에 대 한 재해 복구에 대](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) 한 [SAP 보호](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) 챕터 가이드를 참조 하세요.
 
 #### <a name="deploying-a-vm-with-a-customer-specific-image"></a><a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>고객별 이미지를 사용하여 VM 배포
 

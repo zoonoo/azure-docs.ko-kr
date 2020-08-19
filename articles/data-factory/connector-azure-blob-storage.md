@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: 7296ec52f8bede86b73e7494af3a784526b639c3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/18/2020
+ms.openlocfilehash: e9561c0b54d256d5f24dc02c6f46d84821b9708c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849117"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548449"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -150,7 +150,7 @@ Data Factory는 공유 액세스 서명 인증을 사용 하는 다음 속성을
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **azureblobstorage** (제안) 또는 **azurestorage** 로 설정 해야 합니다 (다음 참고 참조). |예 |
 | sasUri | Blob 또는 컨테이너와 같은 저장소 리소스에 대 한 공유 액세스 서명 URI를 지정 합니다. <br/>이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 합니다. SAS 토큰을 Azure Key Vault에 배치 하 여 자동 회전을 사용 하 고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조 하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |예 |
 
 >[!NOTE]
 >"AzureStorage" 형식 연결 된 서비스를 사용 하는 경우 아직 그대로 지원 됩니다. 그러나 앞으로 새 "AzureBlobStorage" 연결 된 서비스 유형을 사용 하는 것이 좋습니다.
@@ -237,7 +237,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모퉁이를 가리켜 검색 합니다. | 예 |
-| azureCloudType | 서비스 주체 인증의 경우 AAD 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부**및 **AzureGermany**입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
+| azureCloudType | 서비스 사용자 인증의 경우 Azure Active Directory 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부**및 **AzureGermany**입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
 
 >[!NOTE]
@@ -267,7 +267,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 }
 ```
 
-### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a>Azure 리소스 인증에 대 한 관리 되는 id
+### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a> Azure 리소스 인증에 대 한 관리 되는 id
 
 특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. 사용자 고유의 서비스 주체를 사용 하는 것과 비슷한 Blob storage 인증에 대해이 관리 되는 id를 직접 사용할 수 있습니다. 이 지정 된 팩터리에서 Blob 저장소에서 데이터에 액세스 하 고 복사할 수 있습니다.
 
@@ -426,7 +426,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob Storage를 싱크 형식으로
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 형식 기반 복사 싱크의 설정에서 Azure Blob storage에 대해 지원 되는 속성은 다음과 `storeSettings` 같습니다.
 
@@ -534,15 +534,15 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 
 와일드카드 예제:
 
-* ```*```모든 문자 집합을 나타냅니다.
-* ```**```재귀 디렉터리 중첩을 나타냅니다.
-* ```?```한 문자를 대체 합니다.
-* ```[]```대괄호에서 하나 이상의 문자를 찾습니다.
+* ```*``` 모든 문자 집합을 나타냅니다.
+* ```**``` 재귀 디렉터리 중첩을 나타냅니다.
+* ```?``` 한 문자를 대체 합니다.
+* ```[]``` 대괄호에서 하나 이상의 문자를 찾습니다.
 
-* ```/data/sales/**/*.csv```/Data/sales. 아래의 모든 .csv 파일을 가져옵니다.
-* ```/data/sales/20??/**/```20 세기의 모든 파일을 가져옵니다.
-* ```/data/sales/*/*/*.csv```/Data/sales.에서 .csv 파일을 두 수준으로 가져옵니다.
-* ```/data/sales/2004/*/12/[XY]1?.csv```X 또는 Y 접두사가 2 자리 숫자로 시작 하는 12 월 2004의 모든 .csv 파일을 가져옵니다.
+* ```/data/sales/**/*.csv``` /Data/sales. 아래의 모든 .csv 파일을 가져옵니다.
+* ```/data/sales/20??/**/``` 20 세기의 모든 파일을 가져옵니다.
+* ```/data/sales/*/*/*.csv``` /Data/sales.에서 .csv 파일을 두 수준으로 가져옵니다.
+* ```/data/sales/2004/*/12/[XY]1?.csv``` X 또는 Y 접두사가 2 자리 숫자로 시작 하는 12 월 2004의 모든 .csv 파일을 가져옵니다.
 
 **파티션 루트 경로:** 파일 원본에 형식으로 분할 된 폴더가 있는 경우 ```key=value``` (예: `year=2019` ) 해당 파티션 폴더 트리의 최상위 수준을 데이터 흐름의 데이터 스트림에 있는 열 이름에 할당할 수 있습니다.
 
