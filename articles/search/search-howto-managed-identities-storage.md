@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dacfeeff06d58a084d4313ca50b51f262cf61381
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084078"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553083"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정(미리 보기)
 
 > [!IMPORTANT] 
-> 관리 ID를 사용하는 데이터 원본 연결 설정 지원은 현재 제어된 공개 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
-> [이 양식](https://aka.ms/azure-cognitive-search/mi-preview-request)을 작성하여 미리 보기에 대한 액세스를 요청할 수 있습니다.
+> 관리 id를 사용 하 여 데이터 원본에 대 한 연결을 설정 하는 기능은 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
 
 이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법을 설명합니다.
 
@@ -34,11 +33,11 @@ ms.locfileid: "87084078"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
 
-시스템 할당 관리 ID를 사용하도록 설정하면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중에 데이터 액세스를 허용하는 RBAC(역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
+시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중에 데이터 액세스를 허용하는 RBAC(역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
-**저장**을 선택하면 검색 서비스에 할당된 개체 ID가 표시됩니다.
+**저장**을 선택한 후 검색 서비스에 할당된 개체 ID가 표시됩니다.
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
  
@@ -56,7 +55,7 @@ ms.locfileid: "87084078"
     1. Azure Blob storage를 사용 하려면 **저장소 Blob 데이터 판독기** 역할에 검색 서비스를 추가 해야 합니다.
     1. Azure Data Lake Storage Gen2 하려면 **저장소 Blob 데이터 판독기** 역할에 검색 서비스를 추가 해야 합니다.
     1. Azure 테이블 저장소를 사용 하려면 검색 서비스를 **판독기 및 데이터 액세스** 역할에 추가 해야 합니다.
-5.  **액세스 할당**을 **Azure AD 사용자, 그룹 또는 서비스 사용자**로 둡니다.
+5.  **액세스 할당**을 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**로 둡니다.
 6.  검색 서비스를 검색하고 선택한 다음 **저장**을 선택합니다.
 
     Azure Blob storage 및 Azure Data Lake Storage Gen2에 대 한 예제:
@@ -68,6 +67,8 @@ ms.locfileid: "87084078"
     ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
+
+[REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 저장소 계정에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
 
 스토리지 계정에서 인덱싱할 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
@@ -96,8 +97,6 @@ api-key: [admin key]
     "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 }   
 ```
-
-Azure Portal 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)는 관리 ID 연결 문자열 또한 지원합니다. Azure Portal에는 이 페이지 상단의 링크를 사용하여 미리 보기에 등록할 때 제공되는 기능 플래그가 필요합니다. 
 
 ### <a name="4---create-the-index"></a>4 - 인덱스 만들기
 
