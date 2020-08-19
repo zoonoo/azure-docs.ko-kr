@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98ce4d5e82d65d911984dc45615253ddcae33ae1
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0aaa454df05cd8981b314abe238163caced7864c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589876"
+ms.locfileid: "88604599"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Azure Lab Services에 대 한 Cost management
 
@@ -120,7 +120,7 @@ Cost management는 비용 예측 및 비용 분석의 두 가지 고유한 영�
     가상 컴퓨터가 자동으로 종료 되기 전에 사용자가 다시 연결 될 때까지 대기 해야 하는 기간을 지정할 수 있습니다. 
 * 시작 되었지만 사용자가 연결 하지 않는 가상 컴퓨터를 자동으로 종료 합니다.
      
-    랩 내에서 사용자는 가상 컴퓨터를 시작할 수는 있지만 연결할 수는 없습니다. 예를 들면 다음과 같습니다.
+    랩 내에서 사용자는 가상 컴퓨터를 시작할 수는 있지만 연결할 수는 없습니다. 다음은 그 예입니다. 
     
     * 랩의 일정은 클래스 세션의 모든 가상 컴퓨터를 시작 하지만 일부 학생은 표시 되지 않고 컴퓨터에 연결 되지 않습니다.  
     * 사용자가 가상 컴퓨터를 시작 하지만 연결을 잊어버린 경우 
@@ -129,8 +129,8 @@ Cost management는 비용 예측 및 비용 분석의 두 가지 고유한 영�
     
 연결을 끊을 때 Vm의 자동 종료를 구성 하 고 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-* [랩 계정의 연결 해제 설정에서 VM의 자동 종료 구성](how-to-configure-lab-accounts.md)
-* [연결 해제 시 VM 자동 종료 사용](how-to-enable-shutdown-disconnect.md)
+* [랩 계정에 대 한 Vm의 자동 종료 구성](how-to-configure-lab-accounts.md)
+* [랩에 대 한 Vm의 자동 종료 구성](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="quota-vs-scheduled-time"></a>할당량 및 예약 된 시간
 

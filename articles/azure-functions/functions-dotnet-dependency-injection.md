@@ -4,15 +4,15 @@ description: .NET 함수의 서비스를 등록하고 사용할 때 종속성 �
 author: craigshoemaker
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 09/05/2019
+ms.date: 08/15/2020
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4919dc8f08a745a029eb6c3755f8cfc9c39f827f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206101"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603860"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -226,10 +226,10 @@ public class MyOptions
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
-                .Configure<IConfiguration>((settings, configuration) =>
-                                           {
-                                                configuration.GetSection("MyOptions").Bind(settings);
-                                           });
+    .Configure<IConfiguration>((settings, configuration) =>
+    {
+        configuration.GetSection("MyOptions").Bind(settings);
+    });
 ```
 
 `Bind`를 호출하면 구성의 속성 이름과 일치하는 값이 사용자 지정 인스턴스로 복사됩니다. 이제 옵션 인스턴스가 IoC 컨테이너에 제공되며 함수에 주입할 수 있습니다.
@@ -253,8 +253,57 @@ public class HttpTrigger
 
 옵션을 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
-> [!WARNING]
-> 사용 계획의 *local.settings.json* 또는 *appsettings.{environment}.json* 같은 파일에서 값을 읽지 않도록 합니다. 트리거 연결과 관련 된 이러한 파일에서 읽은 값은 크기 조정 컨트롤러에서 앱의 새 인스턴스를 만들 때 구성 정보에 대 한 액세스 권한이 없기 때문에 앱 크기 조정에 사용할 수 없습니다.
+### <a name="customizing-configuration-sources"></a>구성 원본 사용자 지정
+
+> [!NOTE]
+> 구성 원본 사용자 지정은 Azure Functions 호스트 버전 2.0.14192.0 및 3.0.14191.0부터 사용할 수 있습니다.
+
+추가 구성 소스를 지정 하려면 `ConfigureAppConfiguration` 함수 앱의 클래스에서 메서드를 재정의 `StartUp` 합니다.
+
+다음 샘플에서는 기본 및 선택적 환경 특정 앱 설정 파일의 구성 값을 추가 합니다.
+
+```csharp
+using System.IO;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
+
+namespace MyNamespace
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+        {
+            FunctionsHostBuilderContext context = builder.GetContext();
+
+            builder.ConfigurationBuilder
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+        }
+    }
+}
+```
+
+구성 공급자를 `ConfigurationBuilder` 의 속성에 추가 `IFunctionsConfigurationBuilder` 합니다. 구성 공급자 사용에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers)을 참조 하세요.
+
+는 `FunctionsHostBuilderContext` 에서 가져옵니다 `IFunctionsConfigurationBuilder.GetContext()` . 이 컨텍스트를 사용 하 여 현재 환경 이름을 검색 하 고 함수 앱 폴더에서 구성 파일의 위치를 확인 합니다.
+
+기본적으로 *appsettings.js* 와 같은 구성 파일은 함수 앱의 출력 폴더에 자동으로 복사 되지 않습니다. 다음 샘플과 일치 하도록 *.csproj* 파일을 업데이트 하 여 파일이 복사 되었는지 확인 합니다.
+
+```xml
+<None Update="appsettings.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>      
+</None>
+<None Update="appsettings.Development.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+</None>
+```
+
+> [!IMPORTANT]
+> 소비 또는 프리미엄 계획에서 실행 되는 함수 앱의 경우 트리거에 사용 되는 구성 값을 수정 하면 크기 조정 오류가 발생할 수 있습니다. 클래스에서 이러한 속성을 변경 `FunctionsStartup` 하면 함수 앱 시작 오류가 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

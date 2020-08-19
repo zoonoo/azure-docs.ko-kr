@@ -3,12 +3,12 @@ title: Azure Lab Services에서 랩에 대 한 Vm의 자동 종료 구성
 description: 원격 데스크톱 연결이 끊어질 때 VM 자동 종료를 사용하거나 사용하지 않도록 설정하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 7941a3eed502f2329f5d2acf244eec7cef322615
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3188117ac651f31057b4db88e32dfb42c45abb60
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589771"
+ms.locfileid: "88604882"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>랩에 대 한 Vm의 자동 종료 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "88589771"
 
 [자동 종료 설정을 사용 하 여 비용 제어 최대화](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) 섹션에서 자동 종료 기능에 대 한 자세한 내용을 검토 합니다.
 
-랩 계정 관리자는 랩을 만드는 랩 계정에 대해 이 설정을 구성할 수 있습니다. 자세한 내용은 [랩 계정의 연결 해제 시 VM 자동 종료 구성](how-to-configure-lab-accounts.md)을 참조하세요. 랩 소유자는 랩을 만들 때 또는 랩을 만든 후 설정을 재정의할 수 있습니다. 
+랩 계정 관리자는 랩을 만드는 랩 계정에 대해 이 설정을 구성할 수 있습니다. 자세한 내용은 [랩 계정에 대 한 vm의 자동 종료 구성](how-to-configure-lab-accounts.md)을 참조 하세요. 랩 소유자는 랩을 만들 때 또는 랩을 만든 후 설정을 재정의할 수 있습니다. 
 
 ## <a name="configure-for-the-lab-level"></a>랩 수준 구성
 

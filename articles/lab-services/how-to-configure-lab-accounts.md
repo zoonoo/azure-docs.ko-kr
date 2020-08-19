@@ -3,12 +3,12 @@ title: Azure Lab Services에서 VM의 자동 종료 구성
 description: 이 문서에서는 랩 계정에서 VM의 자동 종료를 구성하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9fd93d383ba6a2d57057a3b45f8b517c84990043
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589805"
+ms.locfileid: "88603876"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>랩 계정에 대 한 Vm의 자동 종료 구성
 
@@ -35,4 +35,4 @@ ms.locfileid: "88589805"
 
 ## <a name="next-steps"></a>다음 단계
 
-랩 소유자가 랩 수준에서이 설정을 구성 하거나 재정의 하는 방법에 대 한 자세한 내용은 [연결 끊기 시 vm의 자동 종료 사용](how-to-enable-shutdown-disconnect.md) 을 참조 하세요.
+랩 소유자가 랩 수준에서이 설정을 구성 하거나 재정의 하는 방법에 대 한 자세한 내용은 [랩에 대 한 vm의 자동 종료 구성](how-to-enable-shutdown-disconnect.md) 을 참조 하세요.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166725"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604743"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 SaaS 제품 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "88166725"
    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 스토어에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
+> 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 됩니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 ## <a name="new-offer"></a>새 제안
 
@@ -134,7 +134,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 11. 문서
 
@@ -145,7 +145,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
@@ -185,7 +185,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 - 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
 - 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
 
-[제안 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 각 Storefront에 적용 되는 범주 및 하위 범주에 대 한 전체 목록을 확인 하세요.
+[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)의 각 온라인 스토어에 적용 되는 범주 및 하위 범주에 대 한 전체 목록을 확인 하세요.
 
 ### <a name="industries"></a>산업
 
@@ -282,14 +282,14 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 #### <a name="files-and-images"></a>파일 및 이미지
 
 - **Documents** (필수) – 제품에 대 한 관련 마케팅 문서를 하나 이상의 문서에 대 한 하나 이상의 문서 (PDF 형식)로 추가 합니다.
-- **이미지** – PNG 형식의 로고 이미지를 업로드 합니다.
+- **이미지**  – PNG 형식의 로고 이미지를 업로드 합니다.
 
   - **작음** (48 x 48 픽셀, 필수)
   - **중간** (90 x 90 픽셀, 필수)
   - **큼** (216 x 216 픽셀, 필수)
   - **와이드** (255 x 115 픽셀) (선택 사항)
 
-   이 세 가지 로고 크기는 상점의 다른 위치에서 사용 됩니다.
+   이 세 가지 로고 크기는 온라인 상점에서 다른 위치에 사용 됩니다.
 
    -   작은 로고 (48 x 48 픽셀)가 Azure Marketplace 검색 결과 및 Microsoft AppSource 기본 페이지 및 검색 결과 페이지에 표시 됩니다. 
    -   Microsoft Azure에서 새 리소스를 만들 때 중간 로고 (90 x 90 픽셀)가 나타납니다.
