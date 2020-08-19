@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 73b568057bbb846958b6fe95f11c285326fe3688
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bfc18332553d1aee713ccb8fc269ba63d2b5af12
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495185"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540599"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -175,15 +175,18 @@ az login
 원본 및 대상 스토리지 계정에서 blob 버전 관리를 사용하도록 설정하고 원본 계정에서 변경 피드를 사용하도록 설정합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
 ```
@@ -191,17 +194,30 @@ az storage blob service-properties update --resource-group <resource-group> \
 각 스토리지 계정에 원본 및 대상 컨테이너를 만듭니다.
 
 ```azurecli
-az storage container create --account-name <source-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <source-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 
-az storage container create --account-name <dest-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <dest-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 ```
 
 대상 계정에 새 복제 정책 및 연결된 규칙을 만듭니다.
 
 ```azurecli
-az storage account or-policy create --account-name <dest-storage-account> \
+az storage account or-policy create \
+    --account-name <dest-storage-account> \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
@@ -210,7 +226,8 @@ az storage account or-policy create --account-name <dest-storage-account> \
     --min-creation-time '2020-05-10T00:00:00Z' \
     --prefix-match a
 
-az storage account or-policy rule add --account-name <dest-storage-account> \
+az storage account or-policy rule add \
+    --account-name <dest-storage-account> \
     --destination-container dest-container4 \
     --policy-id <policy-id> \
     --resource-group <resource-group> \
@@ -221,7 +238,8 @@ az storage account or-policy rule add --account-name <dest-storage-account> \
 정책 ID를 사용하여 원본 계정에 정책을 만듭니다.
 
 ```azurecli
-az storage account or-policy show --resource-group <resource-group> \
+az storage account or-policy show \
+    --resource-group <resource-group> \
     --name <dest-storage-account> \
     --policy-id <policy-id> |
     --az storage account or-policy create --resource-group <resource-group> \
