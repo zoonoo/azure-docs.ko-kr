@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: f42509390c3ca850162c804b45f132bfe30bde22
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d567a4f7d9b9429887d6396cb2b03dfc34c6ac93
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539160"
+ms.locfileid: "88602353"
 ---
 <!-- Create a resource group -->
 
-다음 명령에서 Media Services 계정에 사용할 Azure 구독 ID를 제공합니다. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)으로 이동하면 액세스 권한이 있는 구독 목록을 볼 수 있습니다.
+다음 명령을 사용 하 여 리소스 그룹을 만듭니다. Media Services 계정에 대 한 메타 데이터 레코드 및 미디어를 저장 하는 데 사용할 지역을 선택 합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다.
 
 ```azurecli
-az account set --subscription mySubscriptionId
+az group create --name amsResourceGroup --location westus2
 ```

@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262860"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585563"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -65,7 +65,7 @@ Azure Backup VM 스냅숏 확장을 사용 하 여 Azure 가상 컴퓨터의 응
 
 - **Vss 기록기 서비스가 실행 중인지 확인**: [Vss 기록기 문제를 해결](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state)하려면 다음 단계를 수행 합니다.
 - **백업 모범 사례 지침 따르기**: [모범 사례를 검토 하 여 Azure VM backup을 사용 하도록 설정](backup-azure-vms-introduction.md#best-practices)합니다.
-- **암호화 된 디스크에 대 한 지침 검토**: 암호화 된 디스크가 있는 vm에 대 한 백업을 사용 하도록 설정 하는 경우 필요한 모든 권한을 제공 했는지 확인 합니다. 자세히 알아보려면 [암호화 된 AZURE VM 백업 및 복원](backup-azure-vms-encryption.md#encryption-support)을 참조 하세요.
+- **암호화 된 디스크에 대 한 지침 검토**: 암호화 된 디스크가 있는 vm에 대 한 백업을 사용 하도록 설정 하는 경우 필요한 모든 권한을 제공 했는지 확인 합니다. 자세히 알아보려면 [암호화 된 AZURE VM 백업 및 복원](backup-azure-vms-encryption.md)을 참조 하세요.
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 에이전트가 Azure Backup과 통신할 수 없습니다.
 
@@ -220,7 +220,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
@@ -270,7 +270,7 @@ VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
-| 원인 | 해결 방법 |
+| 원인 | 솔루션 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않은 경우 VM 대시보드의 **종료** 옵션을 사용 하 여 포털에서 vm을 종료 합니다. |
 | VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP가 필요한 경우 **Azure Portal** 또는 **PowerShell** 을 통해 구성 하 고 VM 내의 DHCP 옵션이 사용 하도록 설정 되어 있는지 확인 해야 합니다. PowerShell을 사용 하 여 고정 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) .

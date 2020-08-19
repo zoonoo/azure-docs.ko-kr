@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bfc18332553d1aee713ccb8fc269ba63d2b5af12
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540599"
+ms.locfileid: "88566066"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -45,7 +45,7 @@ Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니�
 
 1. Azure Portal의 원본 스토리지 계정으로 이동합니다.
 1. **Blob service**에서 **개체 복제**를 선택 합니다.
-1. **복제 설정**을 선택합니다.
+1. **복제 규칙 설정**을 선택 합니다.
 1. 대상 구독 및 스토리지 계정을 선택합니다.
 1. **컨테이너 쌍** 섹션에서 원본 계정에서 원본 컨테이너를 선택하고 대상 계정에서 대상 컨테이너를 선택합니다. 복제 정책에 따라 최대 10개의 컨테이너 쌍을 만들 수 있습니다.
 

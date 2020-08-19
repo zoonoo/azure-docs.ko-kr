@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 54408b20ebba60de2e1a696e5bd9b06f55e860ba
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513158"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584882"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Azure Open 데이터 집합에서 Azure Machine Learning 데이터 집합 만들기
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Azure Open 데이터 집합은 예측 솔루션을 보강 하 고 정확성을 �
 개방형 데이터 집합은 Microsoft Azure의 클라우드에 있으며 [Azure Machine Learning PYTHON SDK](#create-datasets-with-the-sdk) 및 [Azure Machine Learning studio](#create-datasets-with-the-studio)에 모두 포함 되어 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 다음이 필요 합니다.
 
@@ -75,7 +75,7 @@ tabular_dataset = MNIST.get_tabular_dataset()
 file_dataset = MNIST.get_file_dataset()
 ```
 
-이 예제에서는 당뇨병 클래스를 `opendatasets` 으로만 사용할 수 `TabularDataset` 있으므로를 사용 합니다. `get_tabular_dataset()`
+이 예제에서는 당뇨병 클래스를 `opendatasets` 으로만 사용할 수 `TabularDataset` 있으므로를 사용 합니다 `get_tabular_dataset()` .
 
 ```python
 
@@ -98,7 +98,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-with-the-studio"></a>Studio를 사용 하 여 데이터 집합 만들기
 
-모든 기술 수준의 데이터 과학 전문가 데이터 과학 시나리오를 수행 하기 위한 기계 학습 도구를 포함 하는 통합 웹 인터페이스인 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 개방형 데이터 집합에서 데이터 집합을 만들 수도 있습니다.
+또한 모든 기술 수준의 데이터 과학 전문가 데이터 과학 시나리오를 수행 하기 위한 기계 학습 도구를 포함 하는 통합 웹 인터페이스인 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 Azure Open 데이터 집합에서 Azure Machine Learning 데이터 집합을 만들 수 있습니다.
 
 > [!Note]
 > Azure Machine Learning studio를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다.
@@ -111,7 +111,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
     ![데이터 집합 선택](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. 데이터 집합을 등록할 이름을 선택 하 고 필요에 따라 사용 가능한 필터를 사용 하 여 데이터를 필터링 합니다. 이 경우 **공용 휴일** 데이터 집합에 대해 기간을 1 년으로, 국가 코드를 미국 으로만 필터링 합니다. **만들기**를 선택합니다.
+1. 데이터 집합을 등록할 이름을 선택 하 고 필요에 따라 사용 가능한 필터를 사용 하 여 데이터를 필터링 합니다. 이 경우 **공용 휴일** 데이터 집합에 대해 기간을 1 년으로, 국가 코드를 미국 으로만 필터링 합니다. 필드 설명 및 날짜 범위와 같은 데이터 정보는 [Azure Open 데이터 집합 카탈로그](https://azure.microsoft.com/services/op[en-datasets/catalog/) 를 참조 하세요. **만들기**를 선택합니다.
 
     ![데이터 집합 매개 변수 설정 및 데이터 집합 만들기](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

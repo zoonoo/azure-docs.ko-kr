@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c7b4cf688d02ebbcb099f116c0eb7b4ebe7c6074
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212427"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566083"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -159,7 +159,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 이 인증을 사용하도록 설정하기 전에 다음 사항을 검토하십시오.
 
-* 논리 앱에 대한 인바운드 호출은 권한 부여 스키마를 Azure AD OAuth 또는 [SAS(공유 액세스 서명)](#sas) 중 하나만 사용할 수 있습니다. 요청 트리거에 대해서만 지원 되는 OAuth 토큰에는 [전달자 유형](../active-directory/develop/active-directory-v2-protocols.md#tokens) 인증 스키마만 지원 됩니다.
+* 논리 앱에 대한 인바운드 호출은 권한 부여 스키마를 Azure AD OAuth 또는 [SAS(공유 액세스 서명)](#sas) 중 하나만 사용할 수 있습니다. 한 가지 체계를 사용 하면 다른 체계를 사용 하지 않도록 설정 하는 것이 아니라, 서비스에서 선택할 체계를 알 수 없기 때문에 두 가지를 동시에 사용 하면 오류가 발생 합니다 요청 트리거에 대해서만 지원 되는 OAuth 토큰에는 [전달자 유형](../active-directory/develop/active-directory-v2-protocols.md#tokens) 인증 스키마만 지원 됩니다.
 
 * 논리 앱은 최대 권한 부여 정책 수로 제한됩니다. 각 권한 부여 정책에도 최대 [클레임](../active-directory/develop/developer-glossary.md#claim) 수가 있습니다. 자세한 내용은 [Azure Logic Apps에 대한 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#authentication-limits)을 참조하세요.
 

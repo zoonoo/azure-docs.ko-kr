@@ -2,24 +2,29 @@
 title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 07/29/2020
-ms.openlocfilehash: a5c12f9f9177c4495a82ced2b3c7d0c5edcdd78e
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 08/18/2020
+ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262792"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585334"
 ---
-# <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화 된 Azure VM 백업 및 복원
+# <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
 
-이 문서에서는 [Azure Backup](backup-overview.md) 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure vm (가상 머신)을 백업 하 고 복원 하는 방법을 설명 합니다.
+이 문서에서는 [Azure Backup](backup-overview.md) 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure vm (가상 머신)을 백업 하 고 복원 하는 방법을 설명 합니다. 자세한 내용은 [AZURE VM 백업 암호화](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)를 참조 하세요.
 
-시작 하기 전에 Azure Backup Azure Vm과 상호 작용 하는 방법에 대해 자세히 알아보려면 다음 리소스를 검토 합니다.
+## <a name="encryption-using-platform-managed-keys"></a>플랫폼 관리 키를 사용 하 여 암호화
 
-- Azure VM 백업 아키텍처를 [검토](backup-architecture.md#architecture-built-in-azure-vm-backup)합니다.
-- [자세한 정보](backup-azure-vms-introduction.md) Azure VM 백업 및 Azure Backup 확장.
+기본적으로 Vm의 모든 디스크는 [storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 사용 하는 플랫폼 관리 키 (PMK)를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다. 최종에서 암호화를 지 원하는 데 필요한 특정 작업 없이 Azure Backup를 사용 하 여 이러한 Vm을 백업할 수 있습니다. 플랫폼 관리 키를 사용 하 여 암호화 하는 방법에 대 한 자세한 내용은 [이 문서를 참조](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys)하세요.
 
-## <a name="encryption-support"></a>암호화 지원
+![암호화된 디스크](./media/backup-encryption/encrypted-disks.png)
+
+## <a name="encryption-using-customer-managed-keys"></a>고객 관리형 키를 사용하여 암호화
+
+CMK (사용자 지정 관리 키)를 사용 하 여 디스크를 암호화 하는 경우 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. CMK를 사용 하는 SSE (저장소 서비스 암호화)는 Azure Disk Encryption (ADE) 암호화와 다릅니다. ADE는 운영 체제의 암호화 도구를 사용 합니다. SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다. 고객이 관리 하는 키를 사용 하 여 관리 디스크를 암호화 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)를 참조 하세요.
+
+## <a name="encryption-support-using-ade"></a>ADE를 사용 하 여 암호화 지원
 
 Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스크가 있는 Azure Vm의 백업을 지원 합니다. ADE는 Windows Vm 암호화를 위해 BitLocker를 사용 하 고 Linux Vm의 경우 dm 기능을 사용 합니다. ADE는 Azure Key Vault와 통합 되어 디스크 암호화 키 및 비밀을 관리 합니다. KEKs (Key Vault 키 암호화 키)를 사용 하 여 추가 보안 계층을 추가 하 고 암호화 암호를 Key Vault에 쓸 수 있습니다.
 
@@ -119,11 +124,6 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 1. **액세스**정책  >  **추가 액세스 정책**을 선택 합니다.
 
     ![액세스 정책 추가](./media/backup-azure-vms-encryption/add-access-policy.png)
-
-1. **보안 주체 선택**을 선택 하 고 **백업 관리**를 입력 합니다.
-1. **백업 관리 서비스**  >  **선택**을 선택 합니다.
-
-    ![백업 서비스 선택](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 1. **액세스 정책 추가**  >  **템플릿에서 구성 (선택 사항)** 에서 **Azure Backup**를 선택 합니다.
     - **키 권한** 및 **비밀 권한**에서 필요한 권한이 미리 입력됩니다.
