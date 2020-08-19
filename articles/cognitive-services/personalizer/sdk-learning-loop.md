@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/30/2020
 ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 480e860952c2659d053f8a5659e312feacff2d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 76504da214a3777dba7b2356bea160e86999bb45
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874489"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207556"
 ---
 # <a name="quickstart-personalizer-client-library"></a>빠른 시작: Personalizer 클라이언트 라이브러리
 
@@ -48,4 +48,4 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [Personalizer란?](what-is-personalizer.md)
 * [Personalizer를 사용할 수 있는 위치](where-can-you-use-personalizer.md)
 * [문제 해결](troubleshooting.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)에서 확인할 수 있습니다.
+* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)에서 확인할 수 있습니다.

@@ -3,13 +3,13 @@ title: '자습서: Logic Apps를 사용하여 이메일 보내기'
 description: App Service 앱에서 비즈니스 프로세스를 호출하는 방법을 알아봅니다. 이메일, 트윗, Facebook 게시물을 보내고 메일 그룹에 추가하는 등의 작업을 수행합니다.
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 9d4136099a8cadc43a53298f367f6eeb784e5ce1
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080969"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212852"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 

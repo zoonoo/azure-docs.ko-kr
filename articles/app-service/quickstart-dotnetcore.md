@@ -4,14 +4,14 @@ description: 첫 번째 ASP.NET Core 앱을 배포하여 Azure App Service에서
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 08/01/2020
-ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 61ab915ed709ab86e8420816b48036e915e5cfb5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b7402dc3f7c1e5c7ff5552b2f454156ef1539711
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084232"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212669"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 

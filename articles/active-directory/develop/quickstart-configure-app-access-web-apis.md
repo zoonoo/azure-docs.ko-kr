@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120867"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140805"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>빠른 시작: 웹 API에 액세스하도록 클라이언트 애플리케이션 구성
 
@@ -148,7 +148,7 @@ ms.locfileid: "88120867"
 
 ## <a name="add-permissions-to-access-web-apis"></a>웹 API 액세스 권한 추가
 
-[Graph API 로그인 및 읽기 사용자 프로필 권한](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions)은 기본적으로 선택됩니다. 각 웹 API에서 다음과 같은 [두 가지 권한 형식](developer-glossary.md#permissions) 중에 선택할 수 있습니다.
+[Graph API 로그인 및 읽기 사용자 프로필 권한](/graph/permissions-reference#user-permissions)은 기본적으로 선택됩니다. 각 웹 API에서 다음과 같은 [두 가지 권한 형식](developer-glossary.md#permissions) 중에 선택할 수 있습니다.
 
 * **애플리케이션 권한**. 클라이언트 애플리케이션이 직접 웹 API에 액세스해야 합니다(사용자 컨텍스트 없음). 이 유형의 권한은 관리자의 동의가 필요합니다. 이 권한은 데스크톱 및 모바일 클라이언트 애플리케이션에 사용할 수 없습니다.
 * **위임된 권한**. 클라이언트 애플리케이션이 로그인된 사용자로 웹 API에 액세스해야 하지만 이 액세스는 선택한 권한에 따라 제한됩니다. 이 형식의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수 있습니다.

@@ -1,14 +1,14 @@
 ---
 title: HIPAA HITRUST 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 HIPAA HITRUST 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 12/03/2019
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: b3101d67e281f3b613b95e3f3ef5f620ae44cec7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f41827d687beb583ea6402d517e88b8cf69903a0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044841"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211525"
 ---
 # <a name="deploy-the-hipaa-hitrust-blueprint-sample"></a>HIPAA HITRUST 청사진 샘플 배포
 
@@ -106,6 +106,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |SQL Server에 감사 배포 |정책 할당 |SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름 |감사에서는 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 씁니다(스토리지 계정은 각 지역에 만들어지고, 각 지역에 만들어지는 SQL Server를 해당 지역의 모든 서버가 공유). 중요 - 적절한 감사 작업을 위해 리소스 그룹 또는 스토리지 계정을 삭제하거나 이름을 바꾸지 마세요. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사 |이 접두사와 네트워크 보안 그룹 위치가 결합되어 스토리지 계정 이름이 구성됩니다. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정의 리소스 그룹 이름(있어야 함) |스토리지 계정이 만들어지는 리소스 그룹. 이 리소스 그룹은 이미 있어야 합니다. |
+|\[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포 |정책 할당 |Linux VMSS(VM Scale Sets)용 Log Analytics 작업 영역 |이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다. |
+|\[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포 |정책 할당 |Linux VMSS(VM Scale Sets)용 Log Analytics 작업 영역 |이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

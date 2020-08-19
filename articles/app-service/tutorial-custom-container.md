@@ -5,14 +5,14 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
-ms.custom: mvc, seodec18, devx-track-python
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c589ceecdd946b9c9ff17dd459654d066a1167e4
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082628"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212943"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 

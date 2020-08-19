@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6933321ad402104fa5529af2b7fdf38e329e0168
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830954"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212742"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -76,7 +76,7 @@ Azure Maps Mobility Service는 교통 라우팅, 가까운 대중 교통 정류�
 
 ### <a name="render-service"></a>Render Service
 
-현재 미리 보기로 제공되는 [Render Service V2](https://docs.microsoft.com/est/api/maps/renderv2)에는 새 버전의 [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)가 도입되었습니다. 이제 고객은 Get Map Tile V2 API에서 Azure Maps Creator를 사용하여 만들어진 Azure Maps 도로 타일, 날씨 타일 또는 맵 타일을 요청할 수 있습니다. 새 Get Map Tile V2 API를 사용하는 것이 좋습니다.  
+현재 미리 보기로 제공되는 [Render Service V2](https://docs.microsoft.com/rest/api/maps/renderv2)에는 새 버전의 [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)가 도입되었습니다. 이제 고객은 Get Map Tile V2 API에서 Azure Maps Creator를 사용하여 만들어진 Azure Maps 도로 타일, 날씨 타일 또는 맵 타일을 요청할 수 있습니다. 새 Get Map Tile V2 API를 사용하는 것이 좋습니다.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Render Service V2의 맵 예제":::
 

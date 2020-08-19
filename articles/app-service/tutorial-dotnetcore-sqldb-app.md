@@ -4,14 +4,14 @@ description: SQL Database에 연결하여 Azure App Service에서 .NET Core 앱�
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 148b22e7abc4fca7b9cb104f3616562b74c73004
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 10182abb99788e4974e08c9bfc5c9c53df2a201b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082478"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212931"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -155,7 +155,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) 명령을 사용하여 연결 문자열을 가져옵니다.
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
+az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
 ```
 
 명령 출력에서 *\<username>* 및 *\<password>* 를 이전에 사용한 데이터베이스 관리자 자격 증명으로 바꿉니다.
