@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c57f23a5cad2f47311b54728d576eb810ad88a4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506025"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586574"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -131,6 +131,10 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
     현재 연결 된 사용자가 없는 경우에만 연결 된 조직을 삭제할 수 있습니다.
 
     ![연결 된 조직 삭제 단추](./media/entitlement-management-organization/organization-delete.png)
+
+## <a name="managing-a-connected-organization-programmatically"></a>프로그래밍 방식으로 연결 된 조직 관리
+
+또한 Microsoft Graph를 사용 하 여 연결 된 조직을 만들고, 나열 하 고, 업데이트 하 고, 삭제할 수 있습니다. 위임 된 권한이 있는 응용 프로그램을 사용 하는 적절 한 역할의 사용자는 `EntitlementManagement.ReadWrite.All` API를 호출 하 여 [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) 개체를 관리 하 고 스폰서를 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
