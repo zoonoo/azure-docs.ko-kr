@@ -3,12 +3,12 @@ title: 대규모로 자격 증명 모음 진단 설정 구성
 description: Azure Policy를 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대 한 Log Analytics 진단 설정 구성
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498052"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612506"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>대규모로 자격 증명 모음 진단 설정 구성
 
@@ -34,17 +34,17 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
 1. Azure Portal에 로그인 하 여 **정책** 대시보드로 이동 합니다.
 2. 왼쪽 메뉴에서 **정의** 를 선택 하 여 Azure 리소스의 모든 기본 제공 정책 목록을 가져옵니다.
-3. **범주 = 모니터링**에 대 한 목록을 필터링 합니다. **[Preview]: Recovery Services 자격 증명 모음에 대 한 진단 설정을 배포 하 여 리소스 특정 범주에 대 한 Log Analytics 작업 영역**에 지정 합니다.
+3. **범주 = 모니터링**에 대 한 목록을 필터링 합니다. **[Preview]: Recovery Services 자격 증명 모음에 대 한 진단 설정을 배포 하 여 리소스 관련 범주의 Log Analytics 작업 영역을**찾습니다.
 
-    ![정책 정의 블레이드](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![정책 정의 창](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. 정책의 이름을 클릭 합니다. 이 정책에 대 한 세부 정의로 리디렉션됩니다.
+4. 정책 이름을 선택 합니다. 이 정책에 대 한 세부 정의로 리디렉션됩니다.
 
     ![세부 정책 정의](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. 블레이드 맨 위에 있는 **할당** 단추를 클릭 합니다. 그러면 **정책 할당** 블레이드에 리디렉션됩니다.
+5. 창 위쪽에서 **할당** 단추를 선택 합니다. 그러면 **정책 할당** 창으로 리디렉션됩니다.
 
-6. **기본**에서 **범위** 필드 옆에 있는 세 개의 점을 클릭 합니다. 그러면 적용할 정책의 구독을 선택할 수 있는 올바른 컨텍스트 블레이드가 열립니다. 또한 필요에 따라 리소스 그룹을 선택 하 여 특정 리소스 그룹의 자격 증명 모음에만 정책이 적용 되도록 할 수 있습니다.
+6. **기본**에서 **범위** 필드 옆에 있는 세 개의 점을 선택 합니다. 그러면 적용할 정책의 구독을 선택할 수 있는 올바른 컨텍스트 창이 열립니다. 또한 필요에 따라 리소스 그룹을 선택 하 여 특정 리소스 그룹의 자격 증명 모음에만 정책이 적용 되도록 할 수 있습니다.
 
     ![정책 할당 기본 사항](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -53,7 +53,7 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
     * **프로필 이름** -정책에 의해 생성 된 진단 설정에 할당 되는 이름입니다.
     * **Log Analytics 작업 영역** -진단 설정이 연결 되어야 하는 Log Analytics 작업 영역입니다. 정책 할당 범위에서 모든 자격 증명 모음의 진단 데이터는 지정 된 LA 작업 영역으로 푸시됩니다.
 
-    * **제외 태그 이름 (선택 사항) 및 제외 태그 값 (선택 사항)** -정책 할당에서 특정 태그 이름 및 값을 포함 하는 자격 증명 모음을 제외 하도록 선택할 수 있습니다. 예를 들어 ' isTest ' 태그가 ' 예 ' 값으로 설정 된 자격 증명 모음에 진단 설정을 추가 **하지 않으려면 제외** **태그 이름** 필드에 ' istest '를 입력 하 고 **제외 태그 값** 필드에 ' y e s '를 입력 해야 합니다. 이러한 두 필드 중 하나 (또는 둘 다)를 비워 두면 정책이 포함 된 태그에 관계 없이 모든 관련 자격 증명 모음에 정책이 적용 됩니다.
+    * **제외 태그 이름 (선택 사항) 및 제외 태그 값 (선택 사항)** -정책 할당에서 특정 태그 이름 및 값을 포함 하는 자격 증명 모음을 제외 하도록 선택할 수 있습니다. 예를 들어 ' isTest ' 태그가 ' 예 ' 값으로 설정 된 자격 증명 모음에 진단 설정을 추가 **하지 않으려면 제외** **태그 이름** 필드에 ' istest '를 입력 하 고 **제외 태그 값** 필드에 ' y e s '를 입력 해야 합니다. 이러한 두 필드 중 하나 (또는 둘 다)를 비워 두면 정책이 포함 하는 태그에 관계 없이 모든 관련 자격 증명 모음에 정책이 적용 됩니다.
 
     ![정책 할당 매개 변수](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
@@ -61,18 +61,18 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
     ![정책 할당 수정](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. **검토 + 만들기** 탭으로 이동 하 여 **만들기**를 클릭 합니다.
+9. **검토 + 만들기** 탭으로 이동 하 여 **만들기**를 선택 합니다.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>재구성 작업이 자격 증명 모음에 적용 되는 조건은 무엇입니까?
 
 수정 작업은 정책 정의에 따라 비규격 자격 증명 모음에 적용 됩니다. 다음 조건 중 하나를 충족 하는 경우 자격 증명 모음이 비규격 상태입니다.
 
 * 자격 증명 모음에 대 한 진단 설정이 없습니다.
-* 자격 증명 모음에 대 한 진단 설정이 있지만이 설정에는 LA를 대상으로 사용 하도록 설정 된 **모든** 리소스 관련 이벤트와 설정/해제에서 선택한 **리소스가** 없습니다.
+* 자격 증명 모음에 대 한 진단 설정이 있지만이 설정에는 LA를 대상으로 하는 **모든** 리소스 관련 이벤트와 설정/해제에서 선택한 **리소스가** 없습니다.
 
 따라서 사용자가 AzureDiagnostics 모드에서 AzureBackupReport 이벤트를 사용 하는 자격 증명 모음을 사용 하는 경우에도 (백업 보고서에서 지원 됨), 리소스 특정 모드가 진단 설정 [생성에 권장](./backup-azure-diagnostic-events.md#legacy-event)되는 방법 이므로 수정 작업은이 자격 증명 모음에 계속 적용 됩니다.
 
-또한 사용자에 게 6 개의 리소스 특정 이벤트 중 일부만 사용 하도록 설정 된 자격 증명 모음이 있는 경우에는 6 개의 리소스 특정 이벤트를 모두 사용 하도록 설정한 경우에만 백업 보고서가 예상 대로 작동 하므로이 자격 증명 모음에 대 한 수정 작업이 적용 됩니다.
+또한 사용자에 게 6 개의 리소스 관련 이벤트 중 일부만 사용 하도록 설정 된 자격 증명 모음이 있는 경우에는 6 개의 리소스 관련 이벤트를 모두 사용 하도록 설정한 경우에만 백업 보고서가 예상 대로 작동 하므로이 자격 증명 모음에 대 한 수정 작업이 적용 됩니다.
 
 > [!NOTE]
 >

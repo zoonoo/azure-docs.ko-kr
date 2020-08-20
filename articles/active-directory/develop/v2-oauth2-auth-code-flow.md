@@ -13,12 +13,12 @@ ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6cf9f7a005a80ab34e05ee293c20209e9d0b3f01
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258584"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612319"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -233,6 +233,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `interaction_required` | 비 비표준. OIDC 사양은 끝점 에서만이를 호출 합니다 `/authorize` . 요청에는 사용자 조작이 필요 합니다. 예를 들어 추가 인증 단계가 필요합니다. | 동일한 범위를 사용 하 여 요청을 다시 시도 하세요 `/authorize` . |
 | `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 약간의 지연 후 요청을 다시 시도 합니다. 클라이언트 애플리케이션이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
 |`consent_required` | 요청에는 사용자 동의가 필요 합니다. 이 오류는 일반적으로 OIDC 사양에 따라 끝점 에서만 반환 되므로 비표준입니다 `/authorize` . `scope`클라이언트 앱에 요청할 권한이 없는 코드 상환 흐름에서 매개 변수가 사용 된 경우 반환 됩니다.  | 클라이언트는 `/authorize` 동의를 트리거하기 위해 올바른 범위의 끝점으로 사용자를 다시 보내야 합니다. |
+|`invalid_scope` | 앱에서 요청 된 범위가 잘못 되었습니다.  | 인증 요청에서 범위 매개 변수 값을 유효한 값으로 업데이트 합니다. |
 
 > [!NOTE]
 > 단일 페이지 앱에는 '단일 페이지 애플리케이션' 클라이언트 유형에 대해서만 원본 간 토큰 상환이 허용됨을 나타내는 `invalid_request` 오류가 표시될 수 있습니다.  이것은 토큰을 요청하는 데 사용되는 리디렉션 URI가 `spa` 리디렉션 URI로 표시되지 않았음을 나타냅니다.  이 흐름을 사용하도록 설정하는 방법에 대해서는 [애플리케이션 등록 단계](#redirect-uri-setup-required-for-single-page-apps)를 검토합니다.

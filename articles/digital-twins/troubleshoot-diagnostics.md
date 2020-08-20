@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003583"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612404"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
@@ -57,7 +57,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 
 진단 설정을 설정할 때 **범주 세부 정보** 에서 선택할 수 있는 로그 범주에 대 한 자세한 내용은 다음과 같습니다.
 
-| 로그 범주 | 설명 |
+| 로그 범주 | Description |
 | --- | --- |
 | ADTModelsOperation | 모델과 관련 된 모든 API 호출을 기록 합니다. |
 | ADTQueryOperation | 쿼리와 관련 된 모든 API 호출을 기록 합니다. |
@@ -70,7 +70,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 | --- | --- |
 | 쓰기 | PUT 및 PATCH |
 | 읽기 | GET |
-| 삭제 | DELETE |
+| DELETE | Delete |
 | 작업 | POST |
 
 다음은 각 범주에 기록 되는 작업 및 해당 [Azure Digital Twins REST API 호출](https://docs.microsoft.com/rest/api/azure-digitaltwins/) 의 포괄적인 목록입니다. 
@@ -78,7 +78,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 >[!NOTE]
 > 각 로그 범주에는 여러 개의 작업/REST API 호출이 포함 됩니다. 아래 표에서 각 로그 범주는 다음 로그 범주가 나열 될 때까지 그 아래의 모든 작업/REST API 호출에 매핑됩니다. 
 
-| 로그 범주 | 연산 | REST API 호출 및 기타 이벤트 |
+| 로그 범주 | 작업(Operation) | REST API 호출 및 기타 이벤트 |
 | --- | --- | --- |
 | ADTModelsOperation | DigitalTwins/모델/쓰기 | 디지털 쌍 모델 업데이트 API |
 |  | DigitalTwins/모델/읽기 | Id 및 List Api를 통해 가져오는 디지털 쌍 모델 |
@@ -88,7 +88,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 | ADTEventRoutesOperation | DigitalTwins/eventroutes/write | 이벤트 경로 API 추가 |
 |  | DigitalTwins/eventroutes/읽기 | Id로 Get 이벤트 경로 및 목록 Api |
 |  | DigitalTwins/eventroutes/삭제 | 이벤트 경로 Delete API |
-|  | DigitalTwins/eventroutes/작업 | 끝점 서비스로 이벤트 송신 (API 호출이 아님) |
+|  | DigitalTwins/eventroutes/작업 | API 호출이 아닌 끝점 서비스에 이벤트를 게시 하는 동안 오류가 발생 했습니다. |
 | ADTDigitalTwinsOperation | DigitalTwins/DigitalTwins/write | Digital Twins 추가, 관계 추가, 업데이트, 업데이트 구성 요소 |
 |  | DigitalTwins/DigitalTwins/읽기 | 디지털 쌍 Id로 가져오기, 구성 요소 가져오기, Id로 관계 가져오기, 들어오는 관계 나열, 관계 나열 |
 |  | DigitalTwins/DigitalTwins/delete | 디지털 쌍 삭제, 관계 삭제 |

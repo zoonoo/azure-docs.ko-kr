@@ -3,12 +3,12 @@ title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585334"
+ms.locfileid: "88611299"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
 
@@ -69,7 +69,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 1. **Backup goal**  >  **워크 로드가 실행 되는** 백업 목표에서 **Azure**를 선택 합니다.
 1. **백업할 항목** 에서 **가상 컴퓨터**를 선택 합니다. 그런 다음 **백업**을 선택 합니다.
 
-      ![시나리오 블레이드](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![시나리오 창](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. **백업 정책**에서  >  **백업 정책을 선택**하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 다음, **확인**을 선택합니다.
     - 백업 정책은 백업이 수행 되는 시기와 저장 기간을 지정 합니다.

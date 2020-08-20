@@ -3,12 +3,12 @@ title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263268"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612659"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -92,7 +92,7 @@ Vault에서 DPM 서버를 등록하는 경우 자격 증명 모음의 자격 증
   - 자격 증명을 제어할 수 없으면 보관 자격 증명을 사용하여 다른 머신을 자격 증명 모음에 등록할 수 있습니다.
   - 그러나 백업 데이터는 고객이 소유한 암호를 사용하여 암호화되므로 기존 백업 데이터는 손상되지 않습니다.
 - 파일이 DPM 서버에서 액세스할 수 있는 위치에 저장 되어 있는지 확인 합니다. 파일 공유/s s s에 저장 된 경우 액세스 권한이 있는지 확인 합니다.
-- 자격 증명 모음의 자격 증명은 48시간이 지나면 만료됩니다. 필요에 따라 새로운 자격 증명 모음의 자격 증명을 여러 번 다운로드할 수 있습니다. 그러나 등록 워크플로 중에 최신 보관 자격 증명 파일만 사용할 수 있습니다.
+- 자격 증명 모음 자격 증명은 48시간이 지나면 만료됩니다. 필요에 따라 새로운 자격 증명 모음의 자격 증명을 여러 번 다운로드할 수 있습니다. 그러나 등록 워크플로 중에 최신 보관 자격 증명 파일만 사용할 수 있습니다.
 - Azure Backup 서비스는 인증서의 프라이빗 키를 인식하지 않으며 프라이빗 키는 포털 또는 서비스에서 사용할 수 없습니다.
 
 다음과 같이 자격 증명 모음의 자격 증명 파일을 로컬 컴퓨터에 다운로드합니다.
@@ -127,7 +127,7 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 7. Azure Backup 에이전트가 .NET Framework 4.5 및 Windows PowerShell(설치되지 않은 경우)을 설치하여 설치를 완료합니다.
 8. 에이전트가 설치되면 창을 **닫습니다**.
 
-    ![닫기](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![닫습니다](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>자격 증명 모음에 VMM 서버 등록
 
@@ -182,4 +182,4 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 잘못 된 자격 증명 모음 자격 증명 오류 (예: "잘못 된 자격 증명 모음 자격 증명을 제공 했습니다.")가 발생 한 경우 파일이 손상 되었거나 복구 서비스와 연결 된 최신 자격 증명이 없습니다.
 
 - 포털에서 새 자격 증명 모음 자격 증명 파일을 다운로드한 후에 작업을 다시 시도합니다.
-- 이 오류는 일반적으로 Azure Portal에서 **자격 증명 모음 다운로드** 옵션을 선택 하는 경우에 나타납니다. 이 경우 두 번째 자격 증명 모음 자격 증명 파일만 유효합니다.
+- 이 오류는 일반적으로 Azure Portal에서 자격 증명 **모음 다운로드** 옵션을 선택 하는 경우에 나타납니다. 이 경우 두 번째 자격 증명 모음 자격 증명 파일만 유효합니다.

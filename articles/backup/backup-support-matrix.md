@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922319"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612523"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -79,8 +79,8 @@ Linux 머신을 백업하려는 경우 지원되는 사항은 다음과 같습�
 --- | ---
 **Linux를 실행하는 온-프레미스 머신 직접 백업** | 지원되지 않습니다. MARS 에이전트는 Windows 머신에만 설치할 수 있습니다.
 **에이전트 확장을 사용하여 Linux를 실행하는 Azure VM 백업** | [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용하는 앱 일치 백업입니다.<br/><br/> 파일 수준 복구입니다.<br/><br/> 복구 지점 또는 디스크에서 VM을 만들어 복원합니다.
-**DPM을 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업입니다.<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원입니다.
-**MABS를 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업입니다.<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원입니다.
+**DPM을 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-v 및 VMware에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMware Linux 게스트 Vm의 VM 복원
+**MABS를 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-v 및 VMware에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMware Linux 게스트 Vm의 VM 복원
 **MABS 또는 DPM을 사용하여 Linux Azure Vm 백업** | 지원되지 않습니다.
 
 ## <a name="daylight-saving-time-support"></a>일광 절약 시간 지원

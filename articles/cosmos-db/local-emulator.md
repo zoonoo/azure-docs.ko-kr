@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
-ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 08/19/2020
+ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225974"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607534"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -35,12 +35,13 @@ Azure Cosmos Emulator는 로컬 개발자 워크스테이션에서 실행되는 
 
 * 현재 에뮬레이터의 Data Explorer는 SQL API에 대한 클라이언트를 지원합니다. Data Explorer 보기 및 Azure Cosmos DB API에 대한 작업(예: MongoDB, Table, Graph 및 Cassandra API)은 완전히 지원되지 않습니다.
 * Azure Cosmos Emulator는 고정된 단일 계정 및 알려진 마스터 키만 지원합니다. Azure Cosmos Emulator에서는 키 재생성이 불가능하지만 명령줄 옵션을 사용하여 기본 키를 변경할 수 있습니다.
+* Azure Cosmos Emulator는 [프로 비전 된 처리량](set-throughput.md) 모드에서 azure Cosmos 계정을 지원 합니다. 현재 [서버](serverless.md) 리스 모드에서는 Azure Cosmos 계정을 지원 하지 않습니다.
 * Azure Cosmos Emulator는 확장성 있는 서비스가 아니며 많은 수의 컨테이너를 지원하지 않습니다.
 * Azure Cosmos Emulator는 다양한 [Azure Cosmos DB 일관성 수준](consistency-levels.md)을 제공하지 않습니다.
 * Azure Cosmos Emulator는 [다중 지역 복제](distribute-data-globally.md)를 제공하지 않습니다.
 * Azure Cosmos Emulator의 복사본은 항상 Azure Cosmos DB 서비스의 최신 변경 사항이 적용된 최신 상태로 유지되지 않을 수도 있으므로 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner)를 사용하여 애플리케이션에 요구되는 프로덕션 처리량(RU)을 정확하게 예측해야 합니다.
 * Azure Cosmos Emulator를 사용하는 경우, 기본적으로, 고정 크기 컨테이너를 25개까지 만들거나(Azure Cosmos DB SDK를 통해서만 지원됨) Azure Cosmos Emulator를 사용하여 무제한 컨테이너 5개를 만들 수 있습니다. 이 값을 변경하는 방법에 대한 자세한 내용은 [PartitionCount 값 설정](#set-partitioncount)을 참조하세요.
-* 에뮬레이터는 254자의 최대 ID 속성 크기를 지원합니다.
+* 에뮬레이터는 최대 ID 속성 크기인 254 자를 지원 합니다.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
@@ -461,7 +462,7 @@ Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
 
-# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
 
    Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZED` 응용 프로그램을 시작 하는 동안를 설정 하도록 파일을 수정할 수 있습니다.
 

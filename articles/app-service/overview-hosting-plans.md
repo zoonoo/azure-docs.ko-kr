@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141587"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611452"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -65,11 +65,11 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 이 섹션에서는 App Service 앱의 요금 지불 방법을 설명합니다. 자세한 지역 특정 가격 책정 정보는 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
-**체험** 계층을 제외하고 App Service 계획이 사용하는 컴퓨팅 리소스에 대한 시간당 요금을 사용합니다.
+**무료** 계층을 제외 하 고 App Service 요금제는 사용 하는 계산 리소스에 대 한 요금을 부과 합니다.
 
-- **공유** 계층에서 각 앱은 CPU 시간(분)의 할당량을 수신하므로 _각 앱_은 CPU 할당량에 대한 시간당 요금이 부과됩니다.
-- 전용 계산 계층 (**기본**, **표준**, **프리미엄**, **PremiumV2**)에서 App Service 계획은 앱의 크기를 조정 하는 vm 인스턴스 수를 정의 합니다. 따라서 App Service 계획의 _각 vm 인스턴스_ 는 매시간 요금이 청구 됩니다. 이러한 VM 인스턴스는 여기에서 실행되는 앱의 개수에 관계 없이 동일한 요금이 청구됩니다. 예기치 않은 요금을 방지하려면 [App Service 계획 정리](app-service-plan-manage.md#delete)를 참조하세요.
-- **격리** 계층에서 App Service 환경은 앱을 실행하는 격리된 작업자의 수를 정의하고 _각 작업자_는 시간당 요금이 부과됩니다. 또한 App Service 환경 자체를 실행하기 위한 시간 기반 요금이 있습니다.
+- **공유** 계층에서 각 앱은 cpu 분의 할당량을 수신 하므로 _각 앱_ 은 cpu 할당량에 대 한 요금이 부과 됩니다.
+- 전용 계산 계층 (**기본**, **표준**, **프리미엄**, **PremiumV2**)에서 App Service 계획은 앱 크기를 조정 하는 vm 인스턴스 수를 정의 합니다. 따라서 App Service 계획의 _각 vm 인스턴스에_ 대 한 요금이 부과 됩니다. 이러한 VM 인스턴스는 여기에서 실행되는 앱의 개수에 관계 없이 동일한 요금이 청구됩니다. 예기치 않은 요금을 방지하려면 [App Service 계획 정리](app-service-plan-manage.md#delete)를 참조하세요.
+- **격리** 계층에서 App Service Environment는 앱을 실행 하는 격리 된 작업자 수를 정의 하 고 _각 작업자_ 는 요금이 부과 됩니다. 또한 App Service Environment 자체를 실행 하는에 대 한 플랫 스탬프 요금이 있습니다.
 
 사용자가 사용할 수 있는 App Service 기능 (사용자 지정 도메인, TLS/SSL 인증서, 배포 슬롯, 백업 등) 사용에 대 한 요금은 청구 되지 않습니다. 예외는 다음과 같습니다.
 
