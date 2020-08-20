@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: 0c5302f35665b034bffa343ee90fd4fd609f56e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c73e09e241baff7c4719acfd4257f537e27b010a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290158"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236190"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
@@ -33,9 +33,9 @@ Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="prerequisites"></a>사전 요구 사항
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
@@ -237,7 +237,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. **리소스 그룹** 페이지의 목록에서 **myResourceGroupAG**를 검색하여 선택합니다.
 3. **리소스 그룹** 페이지에서 **리소스 그룹 삭제**를 선택합니다.
-4. **리소스 그룹 이름 입력**에 *myResourceGroupAG*를 입력하고 **삭제**를 선택합니다.
+4. **리소스 그룹 이름 입력**에 *myResourceGroupAG*를 입력한 다음, **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
