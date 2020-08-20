@@ -3,20 +3,20 @@ title: 로컬 파일에서 Azure Media Services 작업 입력 만들기 | Micros
 description: 이 문서에서는 로컬 파일에서 Azure Media Services 작업 입력을 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/26/2020
-ms.author: juliako
-ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 4d7e6d9daa5d30c5cbf5b198a147564d0c05c074
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001131"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607235"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>로컬 파일에서 작업 입력 만들기
 
@@ -25,7 +25,6 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 ## <a name="prerequisites"></a>사전 요구 사항 
 
 * [Media Services 계정 만들기](./create-account-howto.md)
-* [자산 관리](manage-asset-concept.md)를 검토합니다.
 
 ## <a name="net-sample"></a>.NET 샘플
 

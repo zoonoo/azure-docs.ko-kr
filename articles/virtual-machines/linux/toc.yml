@@ -894,6 +894,8 @@
           href: docker-compose-quickstart.md
     - name: 애플리케이션 실행
       items:
+        - name: Red Hat
+          href: ../workloads/redhat/overview.md
         - name: Cloud Foundry
           href: ../../cloudfoundry/index.yml
         - name: Cassandra
@@ -1143,7 +1145,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       displayName: ARM

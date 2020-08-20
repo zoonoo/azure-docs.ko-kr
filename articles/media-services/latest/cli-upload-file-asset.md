@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 예제 - 파일 컨테이너에 업로드 | Micros
 description: 이 문서에서는 Azure CLI 스크립트를 사용하여 로컬 파일을 스토리지 컨테이너에 업로드하는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a28cabfbc5cbba906a8c16451de801818b3fbed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2441aba7c7b83b379a9c80192fe72736ecebab8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489965"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606646"
 ---
 # <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Azure CLI 예제: 컨테이너에 로컬 파일 업로드
 
@@ -29,7 +29,6 @@ ms.locfileid: "87489965"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [Media Services 계정 만들기](./create-account-howto.md)
-* [자산 관리](manage-asset-concept.md)를 검토합니다.
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

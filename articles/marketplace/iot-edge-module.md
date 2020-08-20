@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2020
-ms.openlocfilehash: 0b707b2aed68359f8c04f6cd6bee6c95b495178b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 168d343ea4582d8c19a577cedadf6f1bc3c39971
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119483"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607363"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -38,9 +38,9 @@ IoT Edge 모듈 제품 유형은 IoT Edge 디바이스에서 실행되는 특정
 
 ## <a name="publishing-your-iot-edge-module"></a>IoT Edge 모듈 게시
 
-**적절한 상점 선택**
+**올바른 온라인 저장소 선택**
 
-IoT Edge 모듈은 Azure Marketplace에만 게시되며 AppSource는 적용되지 않습니다.  상점 간의 차이점과 각 상점의 대상 사용자에 대한 자세한 내용은 [솔루션 게시 옵션 결정](determine-your-listing-type.md)을 참조하세요.
+IoT Edge 모듈은 Azure Marketplace에만 게시되며 AppSource는 적용되지 않습니다.  온라인 상점에서의 차이점과 대상 사용자에 대 한 자세한 내용은 [게시 옵션 결정](determine-your-listing-type.md)을 참조 하세요.
  
 **청구 옵션**
 
@@ -73,17 +73,9 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
 
 IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위한 기본적인 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비](./partner-center-portal/create-iot-edge-module-asset.md)에 자세히 나와 있습니다.
 
-## <a name="documentation-and-resources"></a>설명서 및 리소스
-
-[IoT Edge 모듈 제품 만들기](./partner-center-portal/azure-iot-edge-module-creation.md) - 파트너 센터에서 새 IoT Edge 모듈 제품을 게시하는 단계가 나와 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행하지 않았다면
-
-- 마켓플레이스에 대해 [알아봅니다](https://azuremarketplace.microsoft.com/sell).
-
-파트너 센터에 등록하고 새 제품을 만들거나 기존 제품에서 작업하는 경우
-
+- 상업적 marketplace에 [대해 알아보세요](https://azuremarketplace.microsoft.com/sell) .
+- [파트너 센터]에서 [IoT Edge 모듈 제안 만들기]
 - 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
 - IoT Edge 모듈 제품을 게시하는 방법에 대한 정보는 [IoT Edge 모듈 제품 만들기](./partner-center-portal/azure-iot-edge-module-creation.md)를 참조하세요.

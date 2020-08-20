@@ -4,8 +4,6 @@
   items:
     - name: Azure Load Balancer란?
       href: load-balancer-overview.md
-    - name: 새로운 기능
-      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: 퍼블릭 부하 분산 장치 만들기 - 포털
@@ -45,6 +43,8 @@
       href: powershell-samples.md
 - name: 개념
   items:
+    - name: 새로운 기능
+      href: whats-new.md
     - name: 구성 요소
       href: components.md
     - name: 개념

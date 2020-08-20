@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f62483880d2572b6487c87bbd73e0dd7033238d3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166691"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606180"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -103,7 +103,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
 >[!NOTE]
->제품이 게시된 후 파트너 센터에서 해당 제품의 편집 내용은 제품을 다시 게시할 때까지 상점에 표시되지 않습니다. 변경한 후에는 항상 제품을 다시 게시해야 합니다.
+>제품을 게시 한 후에는 제품을 다시 게시할 때까지 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 되지 않습니다. 변경한 후에는 항상 제품을 다시 게시해야 합니다.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 
@@ -188,7 +188,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. Description
+8. 설명
 9. 스크린샷/비디오
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
@@ -198,7 +198,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 

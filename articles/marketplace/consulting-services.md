@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797868"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607457"
 ---
 # <a name="consulting-service-offers"></a>컨설팅 서비스 제품
 
@@ -22,7 +22,7 @@ ms.locfileid: "87797868"
 
 ## <a name="compare-consulting-services"></a>컨설팅 서비스 비교
 
-상업용 Marketplace 상점인 Microsoft AppSource 및 Azure Marketplace는 고객이 필요한 항목을 찾을 수 있도록 대상 그룹 및 클라우드 제품에 맞춰 정렬됩니다. 각 상점은 전문화된 게시 옵션을 제공하여 게시 투자를 극대화하는 데 도움을 줍니다. 두 상점 간의 차이에 대 한 자세한 내용은 [Microsoft AppSource 비교 및 Azure Marketplace](comparing-appsource-azure-marketplace.md)를 참조 하세요.
+상용 marketplace online 매장, Microsoft AppSource 및 Azure Marketplace은 고객이 필요한 항목을 찾을 수 있도록 대상 및 클라우드 제품에 맞춰 정렬 됩니다. 각 온라인 스토어에는 게시 투자를 극대화 하는 데 도움이 되는 특수 게시 옵션이 있습니다. 두 온라인 상점 간의 차이점에 대 한 자세한 내용은 [Microsoft AppSource 비교 및 Azure Marketplace](comparing-appsource-azure-marketplace.md)를 참조 하세요.
 
 Dynamics 365, Power Apps 및 Power BI를 기반으로 하는 컨설팅 서비스 제품은 AppSource에 나열될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 나열 지침](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF 파일을 다운로드하세요.
 
@@ -34,7 +34,7 @@ Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 
 > AppSource의 컨설팅 서비스는 Dynamics 365, Power BI 또는 Power Apps용 고품질 솔루션을 제공하는 전문성을 갖춘 사용자를 위한 제품에 집중해야 합니다.
  
 > [!TIP]
-> Azure Marketplace 상점에 게시하려면 파트너 센터 **기본 제품** 드롭다운 목록에서 **Azure**를 선택합니다.
+> Azure Marketplace에 게시 하려면 파트너 센터 **주 제품** 드롭다운 목록에서 **Azure**를 선택 합니다.
 >
 > AppSource에 게시하려면 파트너 센터 **기본 제품** 드롭다운 목록에서 **Dynamics 365**, **Power BI** 또는 **Power Apps**를 선택합니다.
 
@@ -86,12 +86,12 @@ AppSource의 경우 적격 역량은 다음 표와 같습니다.
 먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다. 등록 요구 사항의 전체 검사 목록은 [마켓플레이스에서 게시자 되기](become-publisher.md)를 참조하세요. 
 
 ## <a name="prepare-your-publishing-artifacts"></a>게시 아티팩트 준비
-등록하기 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다.
+등록하기 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다. 
 
 |새 게시자에 대한 설정  |
 |---------|
 |MPN ID     |
-|회사 로고: 48 x 48 픽셀 (옵션), 216 x 216 픽셀 – 350 x 350 픽셀 (필수)  |
+|회사 로고(48 x 48픽셀, 216 x 216픽셀)     |
 |잠재 대상 고객     |
 ||
 

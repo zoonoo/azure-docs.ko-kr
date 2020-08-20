@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120579"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606497"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>관리 ID를 사용하여 Azure Database for MySQL에 연결
 
-이 문서에서는 Azure VM(Virtual Machine)에 대한 사용자가 할당한 ID를 사용하여 Azure Database for MySQL 서버에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법을 알아봅니다.
+이 문서에서는 Azure VM(Virtual Machine)에 대한 사용자가 할당한 ID를 사용하여 Azure Database for MySQL 서버에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 
 
-> [!div class="checklist"]
-> * Azure Database for MySQL 서버에 대한 액세스 권한을 VM에 부여
-> * VM의 사용자가 할당한 ID를 나타내는 사용자를 데이터베이스에 만들기
-> * VM ID를 사용하여 액세스 토큰을 가져와서 Azure Database for MySQL 서버를 쿼리하는 데 사용
-> * C# 예제 애플리케이션에서 토큰 검색 구현
+다음 방법을 알아봅니다.
+
+- Azure Database for MySQL 서버에 대한 액세스 권한을 VM에 부여
+- VM의 사용자가 할당한 ID를 나타내는 사용자를 데이터베이스에 만들기
+- VM ID를 사용하여 액세스 토큰을 가져와서 Azure Database for MySQL 서버를 쿼리하는 데 사용
+- C# 예제 애플리케이션에서 토큰 검색 구현
 
 > [!IMPORTANT]
 > 관리 Id로 연결 하는 것은 MySQL 5.7 이상 에서만 사용할 수 있습니다.

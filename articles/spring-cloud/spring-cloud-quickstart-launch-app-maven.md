@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 9ae6524dc1d53580d0dc7de1179ccf9db8cebc61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7496ffcc365a3e9178bcc3293b518ea790e56c78
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086135"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607065"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>빠른 시작: Maven 플러그 인을 사용하여 Azure Spring Cloud 앱 시작
 
@@ -79,7 +79,7 @@ Azure Spring Cloud Maven 플러그 인을 사용하면 Azure Spring Cloud 애플
 1. 다음 명령을 실행하여 Git 리포지토리를 복제합니다.
 
     ```console
-    git clone https://github.com/Azure-Samples/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
   
 1. 다음 명령을 실행하여 디렉터리를 변경하고 프로젝트를 빌드합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5058f37fcf96c7c556b55f0afb8753390f51f4d1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503568"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607357"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -148,7 +148,7 @@ Marketplace 서비스 요금 절감에 적격한 파트너는 2019년 5월부터
 
 **무료 크레딧과 현금 약정 금액** - 기업 계약에서 현금 약정 금액으로 Azure에 선불하는 것을 선택하거나 Azure에서 무료 크레딧을 제공받는 고객도 있습니다. 이러한 크레딧은 Azure 사용에 대한 요금을 지불하는 데는 사용할 수 있으나, 게시자 소프트웨어 라이선스 요금 지불에는 사용할 수 없습니다.
 
-**요금 청구 및 징수** – 게시자 소프트웨어 라이선스 요금 청구는 고객이 선택한 송장 처리 방법을 사용하여 표시되며 송장 처리 타임라인을 따릅니다. 기업 계약을 사용하지 않는 고객은 Marketplace 소프트웨어 라이선스에 대해 월별로 청구됩니다. 기업 계약을 사용하는 고객은 분기별로 표시된 청구서를 통해 월별로 청구됩니다.
+**청구 및 컬렉션** -게시자 소프트웨어 라이선스 요금은 고객이 선택한 청구서의 방법을 사용 하 여 표시 되며 송장 발부 타임 라인을 따릅니다. 기업 계약을 사용하지 않는 고객은 Marketplace 소프트웨어 라이선스에 대해 월별로 청구됩니다. 기업 계약을 사용하는 고객은 분기별로 표시된 청구서를 통해 월별로 청구됩니다.
 
 구독 또는 종량제 가격 책정 모델을 선택한 경우 Microsoft는 게시자의 에이전트 역할을 하며 대금 청구, 지불 및 수금의 모든 측면을 담당합니다.
 
@@ -191,4 +191,4 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 ## <a name="next-steps"></a>다음 단계
 
 - 제품의 선택 및 구성을 완료하려면 제품 유형 섹션별 게시 옵션에서 자격 요구 사항을 검토합니다.
-- 솔루션이 제품 유형 및 구성에 매핑되는 방법에 대한 예제는 상점별 게시 패턴을 검토합니다.
+- 솔루션이 제품 유형 및 구성에 매핑되는 방법에 대 한 예제는 온라인 스토어에서 게시 패턴을 검토 합니다.

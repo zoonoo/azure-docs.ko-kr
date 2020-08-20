@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496018"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606755"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -27,7 +27,7 @@ Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인
 
 거래 파트너의 경우 Marketplace 플랫폼을 통해 청구된 매출액을 늘리면 계층별로 더 큰 혜택을 누릴 수 있습니다.
 
-상점에 게시하기 위한 최소 요구 사항은 MPNID이므로, MPN 역량 상태 또는 파트너 유형에 관계없이 이러한 혜택은 모든 파트너에게 제공됩니다. 각 파트너는 플랫폼인 Marketplace를 통해 비즈니스를 성장시킬 수 있습니다.
+온라인 매장에서 게시 해야 하는 최소 요구 사항은 MPNID 이므로 MPN 역량 상태 또는 파트너 유형과 관계 없이 모든 파트너에 게 이러한 혜택을 제공 합니다. 각 파트너는 플랫폼인 Marketplace를 통해 비즈니스를 성장시킬 수 있습니다.
 
 사용자에게 제공되는 리소스를 이해하고 모범 사례를 구현하는 데 도움을 받음으로써 사용자가 [스스로 검토](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)해 볼 수도 있습니다.
 

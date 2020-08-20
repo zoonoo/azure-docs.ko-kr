@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168017"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607197"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 개인 제품
 
@@ -54,7 +54,7 @@ ms.locfileid: "88168017"
 
 ## <a name="deploying-private-offers"></a>개인 제품 배포
 
-개인 제공은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 통해서만 검색할 수 있으며 [Microsoft AppSource](https://appsource.microsoft.com/) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com)에는 표시 되지 않습니다. 다른 상업용 marketplace 상점에 게시 하는 방법에 대 한 자세한 내용은 [게시 옵션 결정](./determine-your-listing-type.md)을 참조 하세요.
+개인 제공은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 통해서만 검색할 수 있으며 [Microsoft AppSource](https://appsource.microsoft.com/) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com)에는 표시 되지 않습니다. 다른 상업용 marketplace online 스토어에 게시 하는 방법에 대 한 자세한 내용은 [게시 옵션 결정](./determine-your-listing-type.md)을 참조 하세요.
 
 Azure Portal에 로그인 하면 고객이 Marketplace 탐색 요소를 선택 하 여 개인 제안에 액세스할 수 있습니다. 개인 제안은 검색 결과에 표시 되 고 다른 모든 제품 처럼 명령줄 및 Azure Resource Manager 템플릿을 통해 배포할 수 있습니다.
 

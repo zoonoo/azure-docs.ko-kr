@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 3055d8c31307cfacad575d892db0ed812a03a9e4
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258614"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607124"
 ---
 # <a name="feature-coverage-for-machines"></a>컴퓨터의 기능 검사
 
@@ -91,13 +91,13 @@ ms.locfileid: "88258614"
 
 | Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016 이상| 아니오, OS에 기본 제공| 예 |
+| Microsoft Defender 바이러스 백신| Windows Server 2016 이상| 아니오, OS에 기본 제공| 예 |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| 추세 마이크로 – 심층 보안 | Windows Server 제품군  | 아니요 | 예 |
-| Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
-| McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
-| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예로 **\*** |
-| Sophos V9 +| Linux 서버 제품군  | 아니요 | 예로  **\***  |
+| 추세 마이크로 – 심층 보안 | Windows Server 제품군  | 예 | 예 |
+| Symantec v12.1.1100+| Windows Server 제품군  | 예 | 예 |
+| McAfee v10+ | Windows Server 제품군  | 예 | 예 |
+| McAfee v10+ | Linux 서버 제품군  | 예 | 예로 **\*** |
+| Sophos V9 +| Linux 서버 제품군  | 예 | 예로  **\***  |
 
  **\*** 현재는 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 검사 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영 되지 않습니다.
 
