@@ -3,16 +3,16 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 13e2aeb23402aa1ce9e8aa3756ca33b322243576
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 89b344a4fc97ccc65a123a2892eac998eaf18b28
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371331"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244111"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 

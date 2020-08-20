@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 337b75412751fb15e3fc1746666a8efb385a8939
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854019"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271266"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>자습서: 로그 분석 마법사 구성
 
@@ -152,7 +152,7 @@ ms.locfileid: "87854019"
 
 성공한 횟수 계산
 
-`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count'
+`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count`
 
 
 일별 사용자당 성공한 로그인 횟수 집계:

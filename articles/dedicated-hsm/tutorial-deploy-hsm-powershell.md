@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512506"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257427"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -40,7 +40,7 @@ Azure Dedicated HSM 서비스는 단일 고객이 사용할 수 있는 완전한
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Dedicated HSM은 현재 Azure Portal에서 사용할 수 없으므로 이 서비스와의 모든 상호 작용은 명령줄 또는 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell에서 PowerShell을 사용합니다. PowerShell을 처음 사용하는 경우 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)에 있는 시작 지침을 따릅니다.
+Azure Dedicated HSM은 현재 Azure Portal에서 사용할 수 없으므로 이 서비스와의 모든 상호 작용은 명령줄 또는 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell에서 PowerShell을 사용합니다. PowerShell을 처음 사용하는 경우 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)에 있는 시작 지침을 따릅니다.
 
 가정:
 
