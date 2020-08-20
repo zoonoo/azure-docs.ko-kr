@@ -3,16 +3,16 @@ title: Azure managed disks를 사용 하도록 클러스터 노드 업그레이�
 description: 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192296"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653701"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Azure managed disks를 사용 하도록 클러스터 노드 업그레이드
 
-[Azure managed disks](../virtual-machines/windows/managed-disks-overview.md) 는 데이터 영구 저장을 위해 azure virtual machines와 함께 사용 하기 위해 권장 되는 디스크 저장소 제품입니다. 관리 디스크를 사용 하도록 노드 형식의 기반이 되는 가상 머신 확장 집합을 업그레이드 하 여 Service Fabric 워크 로드의 복원 력을 향상 시킬 수 있습니다. 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
+[Azure managed disks](../virtual-machines/managed-disks-overview.md) 는 데이터 영구 저장을 위해 azure virtual machines와 함께 사용 하기 위해 권장 되는 디스크 저장소 제품입니다. 관리 디스크를 사용 하도록 노드 형식의 기반이 되는 가상 머신 확장 집합을 업그레이드 하 여 Service Fabric 워크 로드의 복원 력을 향상 시킬 수 있습니다. 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
 
 관리 디스크를 사용 하도록 Service Fabric 클러스터 노드를 업그레이드 하는 일반적인 전략은 다음과 같습니다.
 

@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432871"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654704"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -25,11 +25,11 @@ Azure Backup를 사용 하면 [개인 끝점](../private-link/private-endpoint-o
 - Recovery Services 자격 증명 모음은 (둘 다) Azure Backup 및 Azure Site Recovery에서 사용 되지만이 문서에서는 Azure Backup 전용 전용 끝점을 사용 하는 방법을 설명 합니다.
 - Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 지역에서 작업을 수행 하는 데 Azure Active Directory 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다.
 - 네트워크 정책을 사용 하는 가상 네트워크는 전용 끝점에 대해 지원 되지 않습니다. 계속 하기 전에 네트워크 정책을 사용 하지 않도록 설정 해야 합니다.
-- 1 2020 년 5 월 이전에 등록 한 경우 구독에 Recovery Services 리소스 공급자를 다시 등록 해야 합니다. 공급자를 다시 등록 하려면 Azure Portal의 구독으로 이동 하 여 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동 하 고, **Microsoft recoveryservices** 를 선택 하 고, **다시 등록**을 클릭 합니다.
+- 1 2020 년 5 월 이전에 등록 한 경우 구독에 Recovery Services 리소스 공급자를 다시 등록 해야 합니다. 공급자를 다시 등록 하려면 Azure Portal의 구독으로 이동 하 여 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동 하 고, **Microsoft recoveryservices** 를 선택 하 고, **다시 등록**을 선택 합니다.
 
 ## <a name="recommended-and-supported-scenarios"></a>권장 및 지원 되는 시나리오
 
-개인 끝점은 자격 증명 모음에 대해 사용 하도록 설정 되어 있지만 Azure VM 및 MARS 에이전트 백업 에서만 SQL 및 SAP HANA 워크 로드의 백업 및 복원에 사용 됩니다. 다른 워크 로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 단, 개인 끝점은 필요 하지 않습니다. MARS 에이전트를 사용 하 여 SQL 및 SAP HANA 작업과 백업 백업 외에도 개인 끝점은 Azure VM 백업 시 파일 복구를 수행 하는 데 사용 됩니다. 자세한 내용은 다음 표를 참조하세요.
+개인 끝점은 자격 증명 모음에 대해 사용 하도록 설정 되어 있지만 Azure VM 및 MARS 에이전트 백업 에서만 SQL 및 SAP HANA 워크 로드의 백업 및 복원에 사용 됩니다. 다른 워크 로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 단, 개인 끝점은 필요 하지 않습니다. MARS 에이전트를 사용 하 여 SQL 및 SAP HANA 작업과 백업 백업 외에도 개인 끝점은 Azure VM 백업에 대 한 파일 복구를 수행 하는 데 사용 됩니다. 자세한 내용은 다음 표를 참조하세요.
 
 | Azure VM에서 워크 로드 백업 (SQL, SAP HANA), MARS 에이전트를 사용 하 여 백업 | 가상 네트워크에서 Azure Backup 또는 Azure Storage에 대 한 Ip/Fqdn을 허용 하지 않고 백업 및 복원을 허용 하려면 개인 끝점을 사용 하는 것이 좋습니다. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
 
     ![Id 상태를 설정으로 변경](./media/private-endpoints/identity-status-on.png)
 
-1. **상태** 를 **설정** 으로 변경 하 고 **저장**을 클릭 합니다.
+1. **상태** 를 **켜기** 로 변경 하 고 **저장**을 선택 합니다.
 
 1. 자격 증명 모음의 관리 되는 id 인 **개체 ID** 가 생성 됩니다.
 
@@ -72,14 +72,14 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
 
 생성 해야 하는 필수 DNS 영역에는 다음 두 가지가 있습니다.
 
-- `privatelink.blob.core.windows.net`(데이터 백업/복원)
-- `privatelink.queue.core.windows.net`(서비스 통신용)
+- `privatelink.blob.core.windows.net` (데이터 백업/복원)
+- `privatelink.queue.core.windows.net` (서비스 통신용)
 
 1. **모든 서비스** 검색 표시줄에서 **사설 DNS 영역** 을 검색 하 고 드롭다운 목록에서 **사설 DNS 영역** 을 선택 합니다.
 
     ![사설 DNS 영역 선택](./media/private-endpoints/private-dns-zone.png)
 
-1. **사설 DNS 영역** 창에서 **+ 추가** 단추를 클릭 하 여 새 영역 만들기를 시작 합니다.
+1. **사설 DNS 영역** 창에서 **+ 추가** 단추를 선택 하 여 새 영역 만들기를 시작 합니다.
 
 1. **개인 DNS 영역 만들기** 창에서 필요한 세부 정보를 입력 합니다. 구독은 개인 끝점이 생성 될 위치와 동일 해야 합니다.
 
@@ -90,7 +90,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
 
     | **영역**                           | **서비스** | **구독 및 리소스 그룹 (RG) 세부 정보**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다. **rg**의 rg 또는 개인 끝점의 rg |
+    | `privatelink.blob.core.windows.net`  | Blob        | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다.  **rg**의 rg 또는 개인 끝점의 rg |
     | `privatelink.queue.core.windows.net` | 큐       | **RG**: VNET의 RG 또는 개인 끝점의 rg |
 
     ![사설 DNS 영역 만들기](./media/private-endpoints/create-private-dns-zone.png)
@@ -105,7 +105,7 @@ Azure에서 별도의 개인 DNS 영역을 만들려는 경우에는 필수 DNS 
 
 | **영역**                                                     | **서비스** | **구독 및 리소스 그룹 정보**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **참고**: *지역은 지역 코드* 를 참조 합니다. 예를 들어 미국 서 부 중부 및 유럽 서 부에 대 한 *wcus* 및 *ne* 가 각각 있습니다. | Backup      | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다. **rg**: 구독 내 모든 RG |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **참고**: *지역은 지역 코드* 를 참조 합니다. 예를 들어 미국 서 부 중부 및 유럽 서 부에 대 한 *wcus* 및 *ne* 가 각각 있습니다. | Backup      | **구독**: 개인 끝점을 만들어야 하는 위치와 동일 합니다.  **rg**: 구독 내 모든 RG |
 
 지역 코드는 [이 목록을](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) 참조 하십시오.
 
@@ -119,7 +119,7 @@ Azure에서 별도의 개인 DNS 영역을 만들려는 경우에는 필수 DNS 
 
 위에서 만든 DNS 영역은 이제 백업할 서버가 있는 가상 네트워크에 연결 되어야 합니다. 사용자가 만든 모든 DNS 영역에 대해이 작업을 수행 해야 합니다.
 
-1. 이전 단계에서 만든 DNS 영역으로 이동 하 여 왼쪽 막대의 **가상 네트워크 링크** 로 이동 합니다. **+ 추가** 단추를 클릭 합니다.
+1. 이전 단계에서 만든 DNS 영역으로 이동 하 여 왼쪽 막대의 **가상 네트워크 링크** 로 이동 합니다. 이 경우 **+ 추가** 단추를 선택 합니다.
 1. 필요한 세부 정보를 입력 합니다. **구독** 및 **가상 네트워크** 필드는 서버가 있는 가상 네트워크의 해당 세부 정보로 채워야 합니다. 다른 필드는 그대로 유지 해야 합니다.
 
     ![가상 네트워크 링크 추가](./media/private-endpoints/add-virtual-network-link.png)
@@ -139,7 +139,7 @@ Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모�
 
     ![역할 할당 추가](./media/private-endpoints/add-role-assignment.png)
 
-1. **역할 할당 추가** 창에서 **역할**로 **참가자** 를 선택 하 고 자격 증명 모음 **이름을** **주**서버로 사용 합니다. 자격 증명 모음을 선택 하 고 완료 되 면 **저장** 을 클릭 합니다.
+1. **역할 할당 추가** 창에서 **역할**로 **참가자** 를 선택 하 고 자격 증명 모음 **이름을** **주**서버로 사용 합니다. 자격 증명 모음을 선택 하 고 완료 되 면 **저장** 을 선택 합니다.
 
     ![역할 및 주체 선택](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -155,7 +155,7 @@ Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모�
 
     ![개인 링크 검색](./media/private-endpoints/search-for-private-link.png)
 
-1. 왼쪽 탐색 모음에서 **전용 끝점**을 클릭 합니다. **전용 끝점** 창에서 **+ 추가** 를 클릭 하 여 자격 증명 모음에 대 한 개인 끝점 만들기를 시작 합니다.
+1. 왼쪽 탐색 모음에서 **전용 끝점**을 선택 합니다. **전용 끝점** 창에서 **+ 추가** 를 선택 하 여 자격 증명 모음에 대 한 개인 끝점 만들기를 시작 합니다.
 
     ![개인 링크 센터에서 개인 끝점 추가](./media/private-endpoints/add-private-endpoint.png)
 
@@ -175,7 +175,7 @@ Azure Backup에 대 한 필수 개인 끝점을 만들려면 자격 증명 모�
 
     1. 필요에 따라 개인 끝점에 대 한 **태그** 를 추가할 수 있습니다.
 
-    1. 자세히 입력을 완료 한 후 **검토 + 만들기** 로 계속 진행 합니다. 유효성 검사가 완료 되 면 **만들기** 를 클릭 하 여 개인 끝점을 만듭니다.
+    1. 자세히 입력을 완료 한 후 계속 **검토 + 만들기** 를 계속 합니다. 유효성 검사가 완료 되 면 **만들기** 를 선택 하 여 개인 끝점을 만듭니다.
 
 ## <a name="approving-private-endpoints"></a>개인 끝점 승인
 
@@ -200,7 +200,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 개인 끝점을 승인
 
 이렇게 하려면 개인 끝점의 각 FQDN에 대 한 항목을 사설 DNS 영역으로 설정 해야 합니다.
 
-1. **개인 DNS 영역** 으로 이동 하 여 왼쪽 막대의 **개요** 옵션으로 이동 합니다. 이 경우 **+ 레코드 집합** 을 클릭 하 여 레코드 추가를 시작 합니다.
+1. **개인 DNS 영역** 으로 이동 하 여 왼쪽 막대의 **개요** 옵션으로 이동 합니다. 그런 후에는 **+ 레코드 집합** 을 선택 하 여 레코드 추가를 시작 합니다.
 
     ![레코드를 추가 하려면 + 레코드 집합을 선택 합니다.](./media/private-endpoints/select-record-set.png)
 
@@ -332,9 +332,9 @@ armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/
 
 자격 증명 모음에 대 한 관리 되는 Id에는 개인 끝점이 생성 될 가상 네트워크 및 리소스 그룹에 대 한 다음 권한이 있어야 합니다.
 
-- `Microsoft.Network/privateEndpoints/*`리소스 그룹의 전용 끝점에 대 한 CRUD를 수행 하는 데 필요 합니다. 리소스 그룹에 할당 되어야 합니다.
-- `Microsoft.Network/virtualNetworks/subnets/join/action`개인 IP가 개인 끝점과 연결 되는 가상 네트워크에 필요 합니다.
-- `Microsoft.Network/networkInterfaces/read`이는 전용 끝점에 대해 생성 된 네트워크 인터페이스를 가져오기 위해 리소스 그룹에 필요 합니다.
+- `Microsoft.Network/privateEndpoints/*` 리소스 그룹의 전용 끝점에 대 한 CRUD를 수행 하는 데 필요 합니다. 리소스 그룹에 할당 되어야 합니다.
+- `Microsoft.Network/virtualNetworks/subnets/join/action` 개인 IP가 개인 끝점과 연결 되는 가상 네트워크에 필요 합니다.
+- `Microsoft.Network/networkInterfaces/read` 이는 전용 끝점에 대해 생성 된 네트워크 인터페이스를 가져오기 위해 리소스 그룹에 필요 합니다.
 - 영역 참가자 역할 사설 DNS이 역할은 이미 존재 하며 `Microsoft.Network/privateDnsZones/A/*` 및 사용 권한을 제공 하는 데 사용할 수 있습니다 `Microsoft.Network/privateDnsZones/virtualNetworkLinks/read` .
 
 다음 방법 중 하나를 사용 하 여 필요한 권한이 있는 역할을 만들 수 있습니다.

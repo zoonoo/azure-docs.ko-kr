@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 2c8f2d95e7e06f2fff3d8344a3fffa5b19648ede
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545105"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655153"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -67,7 +67,7 @@ Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
 현재 관리되지 않는 디스크에서 VM을 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)하는 것이 좋습니다.
 
-[Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크가 서로 충분히 격리되도록 하여 가용성 집합에 더 나은 안정성을 제공합니다. 디스크를 다른 스토리지 장애 도메인(스토리지 클러스터)에 자동으로 배치하고 VM 장애 도메인에 맞게 조정하여 작업을 수행합니다. 하드웨어나 소프트웨어 오류로 인해 스토리지 장애 도메인에 장애가 발생하면 스토리지 장애 도메인의 디스크가 있는 VM 인스턴스만 실패합니다.
+[Managed Disks](../articles/virtual-machines/managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크가 서로 충분히 격리되도록 하여 가용성 집합에 더 나은 안정성을 제공합니다. 디스크를 다른 스토리지 장애 도메인(스토리지 클러스터)에 자동으로 배치하고 VM 장애 도메인에 맞게 조정하여 작업을 수행합니다. 하드웨어나 소프트웨어 오류로 인해 스토리지 장애 도메인에 장애가 발생하면 스토리지 장애 도메인의 디스크가 있는 VM 인스턴스만 실패합니다.
 ![Managed Disks FD](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]

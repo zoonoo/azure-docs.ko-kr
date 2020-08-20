@@ -3,12 +3,12 @@ title: REST API를 사용 하 여 Azure 파일 공유 백업
 description: REST API를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036745"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654143"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Rest API를 통해 Azure Backup를 사용 하 여 Azure 파일 공유 백업
 
@@ -54,13 +54,13 @@ POST URI에는 `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` �
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### <a name="responses"></a>응답
+#### <a name="responses-to-the-refresh-operation"></a>새로 고침 작업에 대 한 응답
 
 '새로 고침' 작업은 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이는 다른 작업을 만들 때 202 (수락 됨)와 해당 작업이 완료 될 때 200 (OK)의 두 응답을 반환 합니다.
 
-##### <a name="example-responses"></a>예제 응답
+##### <a name="example-responses-to-the-refresh-operation"></a>새로 고침 작업에 대 한 예제 응답
 
 *POST* 요청을 제출하면 202(수락됨) 응답이 반환됩니다.
 
@@ -421,7 +421,7 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105412Z:b55527fa-f473-4f09-b16
 Date : Mon, 27 Jan 2020 10:54:12 GMT
 ```
 
-그런 다음 *GET* 명령을 사용 하 여 location Header 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
+그런 다음  *GET* 명령을 사용 하 여 location Header 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/c3a52d1d-0853-4211-8141-477c65740264?api-version=2016-12-01
@@ -467,7 +467,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-| 속성       | Type                       | 설명                       |
+| 이름       | 유형                       | 설명                       |
 | ---------- | -------------------------- | --------------------------------- |
 | 속성 | AzurefilesharebackupReques | BackupRequestResource 속성 |
 
@@ -487,13 +487,13 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 }
 ```
 
-### <a name="responses"></a>응답
+### <a name="responses-to-the-on-demand-backup-operation"></a>주문형 백업 작업에 대 한 응답
 
 주문형 백업의 트리거는 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 메서드는 다른 작업이 생성 될 때 202 (수락 됨) 및 해당 작업이 완료 될 때 200 (OK)의 두 응답을 반환 합니다.
 
-### <a name="example-responses"></a>예제 응답
+### <a name="example-responses-to-the-on-demand-backup-operation"></a>주문형 백업 작업에 대 한 예제 응답
 
 주문형 백업에 대한 *POST* 요청을 제출하면 초기 응답은 위치 헤더 또는 Azure-async-header를 사용한 202(수락됨)입니다.
 
@@ -516,7 +516,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 'Content-Length': '0'
 ```
 
-그런 다음 *GET* 명령을 사용 하 여 location Header 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
+그런 다음  *GET* 명령을 사용 하 여 location Header 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01

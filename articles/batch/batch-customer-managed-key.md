@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053748"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654891"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Azure Key Vault 및 관리 Id를 사용 하 여 Azure Batch 계정에 대 한 고객 관리 키 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "88053748"
 사용자가 제공 하는 키는 [Azure Key Vault](../key-vault/general/basic-concepts.md)에서 생성 되어야 하며, 고객이 관리 하는 키로 구성할 Batch 계정은 [Azure 관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 사용 하도록 설정 해야 합니다.
 
 > [!IMPORTANT]
-> Azure Batch에서 고객 관리 키에 대 한 지원은 현재 미국 서 부, 미국 동부, 미국 동부, 미국 서 부 2, US Gov 버지니아 및 US Gov 애리조나 지역에 대 한 공개 미리 보기로 제공 됩니다.
+> Azure Batch에서 고객 관리 키에 대 한 지원은 현재 유럽 서부, 서유럽, 스위스 북부, 미국 중부, 미국 중 북부, 미국 서 부, 미국 동부, 미국 동부 2, 미국 서 부 2, US Gov 버지니아 및 US Gov 애리조나 지역에 대 한 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -82,7 +82,7 @@ Azure Portal에서 Key Vault를 만든 후 **설정**의 **액세스 정책** �
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Azure Key Vault에서 새 키 생성
 
-Azure Portal에서 **키** 섹션의 Key Vault 인스턴스로 이동 하 여 **생성/가져오기**를 선택 합니다. **키 유형과** `RSA` **RSA 키 크기** 를 비트 이상으로 선택 합니다 `2048` . `EC`키 유형은 현재 Batch 계정에서 고객 관리 키로 지원 되지 않습니다.
+Azure Portal에서 **키** 섹션의 Key Vault 인스턴스로 이동 하 여 **생성/가져오기**를 선택 합니다. **키 유형과** `RSA` **RSA 키 크기** 를 비트 이상으로 선택 합니다 `2048` . `EC` 키 유형은 현재 Batch 계정에서 고객 관리 키로 지원 되지 않습니다.
 
 ![키 만들기](./media/batch-customer-managed-key/create-key.png)
 
@@ -110,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>고객 관리 키 버전 업데이트
 
-새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Batch 계정을 업데이트 합니다. 다음 단계를 수행하세요.
+새 버전의 키를 만드는 경우 새 버전을 사용 하도록 Batch 계정을 업데이트 합니다. 다음 단계를 수행합니다.
 
 1. Azure Portal에서 배치 계정으로 이동 하 여 암호화 설정을 표시 합니다.
 2. 새 키 버전의 URI를 입력 합니다. 또는 키 자격 증명 모음을 다시 선택 하 고 키를 다시 선택 하 여 버전을 업데이트할 수 있습니다.

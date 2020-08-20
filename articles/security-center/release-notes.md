@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 7bec65867373293ff06a2295f08a05db6ffaa480
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586897"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653837"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -38,6 +38,7 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 - [Azure Active Directory 보안 기본값 (multi-factor authentication의 경우)에 대 한 지원이 추가 됨](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [추가 된 서비스 주체 권장 사항](#service-principals-recommendation-added)
 - [Vm에 대 한 취약성 평가-통합 권장 사항 및 정책 통합](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [ASC_default 이니셔티브에 추가 된 새 AKS 보안 정책-비공개 미리 보기 고객만 사용 하기 위한 것입니다.](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
 
 
 ### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>자산 인벤토리-자산의 보안 상태에 대 한 강력한 새 뷰입니다.
@@ -126,6 +127,17 @@ Security Center Vm을 검사 하 여 취약성 평가 솔루션을 실행 중인
 |[**가상 컴퓨터에서 취약성 평가를 사용 하도록 설정 해야 합니다.**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |기본 제공 + BYOL|
 ||||
 
+
+### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>ASC_default 이니셔티브에 추가 된 새 AKS 보안 정책-비공개 미리 보기 고객만 사용 하기 위한 것입니다.
+
+Kubernetes 작업은 Security Center 기본적으로 보안을 유지 하기 위해 Kubernetes 수준 정책을 추가 하 고 Kubernetes 허용 제어를 사용 하는 적용 옵션을 비롯 한 권장 사항을 강화 합니다.
+
+이 프로젝트의 초기 단계에는 비공개 미리 보기와 ASC_default 이니셔티브에 대 한 새로운 (기본적으로 사용 하지 않도록 설정 된) 정책이 포함 됩니다.
+
+이러한 정책을 무시 해도 되지만 사용자 환경에는 영향을 주지 않습니다. 사용 하도록 설정 하려면에서 미리 보기에 등록 https://aka.ms/SecurityPrP 하 고 다음 옵션 중에서 선택 합니다.
+
+1. **단일 미리 보기** –이 비공개 미리 보기만 조인 합니다. "ASC 연속 검사"를 조인 하려는 미리 보기로 명시적으로 언급 합니다.
+1. **진행 중인 프로그램** –이 및 향후 비공개 미리 보기에 추가 됩니다. 프로필 및 개인 정보 계약을 완료 해야 합니다.
 
 
 ## <a name="july-2020"></a>2020년 7월

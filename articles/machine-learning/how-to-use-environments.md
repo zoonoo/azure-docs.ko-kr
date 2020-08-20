@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e6e4b8d7cc3b22737e7e76c31fd1377912fe28cb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd5aaea5e7f176a0741671d4815188a5fb94830e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167150"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653565"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "88167150"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -422,10 +422,6 @@ service = Model.deploy(
 ## <a name="notebooks"></a>Notebooks
 
 이 [문서](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) 에서는 노트북에 커널로 Conda 환경을 설치 하는 방법에 대 한 정보를 제공 합니다.
-
-이 [예제 전자 필기장은](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) 이 문서에 설명 되어 있는 개념과 메서드를 확장 합니다.
-
-이 [예제 노트북은](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) 여러 유형의 환경에서 로컬로 모델을 학습 하는 방법을 보여 줍니다.
 
 [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](how-to-deploy-custom-docker-image.md) 사용자 지정 docker 기본 이미지를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611843"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654160"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -398,7 +398,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 부모/백업 된 VM에 있는 모든 ACL (파일 Access Control 목록)은 탑재 된 파일 시스템에도 유지 됩니다.
 
-스크립트는 복구 지점에 대한 읽기 전용 액세스 권한을 제공하며 12시간 동안만 유효합니다. 그 전에 액세스 권한을 제거하려면 Azure Portal/PowerShell/CLI에 로그인하여 해당 복구 지점에 대해 **디스크 분리**를 수행합니다. 그러면 스크립트가 즉시 무효화됩니다.
+스크립트는 복구 지점에 대한 읽기 전용 액세스 권한을 제공하며 12시간 동안만 유효합니다. 이전에 액세스를 제거 하려는 경우 Azure Portal/PowerShell/CLI에 로그인 하 고 해당 특정 복구 지점에 대해 **디스크 분리** 를 수행 합니다. 그러면 스크립트가 즉시 무효화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 072b0e3bcf4da8e2c71082a549d42d105c06ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e866b0b6182d7b46b3206a7d8e672d49ab5c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659808"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654432"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 
-비관리 디스크를 사용하는 기존 Linux VM(가상 머신)이 있는 경우 [Azure Managed Disks](../linux/managed-disks-overview.md)를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
+비관리 디스크를 사용하는 기존 Linux VM(가상 머신)이 있는 경우 [Azure Managed Disks](../managed-disks-overview.md)를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
 
 이 문서에서는 Azure CLI를 사용하여 VM을 변환하는 방법을 보여 줍니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
@@ -104,4 +104,4 @@ VM이 중지되고 마이그레이션이 완료된 후 다시 시작됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-저장소 옵션에 대 한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조 하세요.
+저장소 옵션에 대 한 자세한 내용은 [Azure Managed Disks 개요](../managed-disks-overview.md)를 참조 하세요.

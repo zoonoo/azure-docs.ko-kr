@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258532"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654041"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감
 
@@ -71,7 +71,7 @@ Advisor는 지난 30 일 동안 Azure Blob 저장소 및 Azure Data Lake 저장�
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>MariaDB, MySQL 및 PostgreSQL reserved capacity
 Advisor는 지난 30 일 동안 Azure Database for MariaDB, Azure Database for MySQL 및 Azure Database for PostgreSQL에 대 한 사용 패턴을 분석 합니다. 그런 다음 비용을 최적화 하는 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하 여 Aadb, MySQL 및 PostgreSQL 시간별 사용량을 사전 구매 하 고 현재 비용을 절감할 수 있습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안 관찰 된 3 년 예약 가격 및 사용 패턴을 사용 하 여 개별 구독에 대 한 비용 절감 액을 계산 합니다. 공유 범위 권장 사항은 예약 된 용량 구매에 사용할 수 있으며 절감 액을 높일 수 있습니다.
 
-### <a name="synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Synapse Analytics (이전의 SQL Data Warehouse) reserved capacity
+### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Azure Synapse Analytics (이전의 SQL Data Warehouse) reserved capacity
 Advisor는 지난 30 일 동안 Azure Synapse Analytics 사용 패턴을 분석 하 고 비용을 최적화 하는 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하 여 Synapse Analytics 시간별 사용량을 사전에 구매 하 고 주문형 비용을 절감할 수 있습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안 관찰 된 3 년 예약 가격 및 사용 패턴을 사용 하 여 개별 구독에 대 한 비용 절감 액을 계산 합니다. 공유 범위 권장 사항은 예약 된 용량 구매에 사용할 수 있으며 절감 액을 높일 수 있습니다.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>연결 되지 않은 공용 IP 주소를 삭제 하 여 비용 절감

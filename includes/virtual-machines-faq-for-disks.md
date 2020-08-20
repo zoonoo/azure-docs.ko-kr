@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5994e9741340c6fef662f7037efa142c5684b6cb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544431"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655164"
 ---
 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "86544431"
 
 **Azure Managed Disks란?**
 
-Managed Disks는 스토리지 계정 관리를 처리하여 Azure IaaS VM을 위한 디스크 관리를 간소화하는 기능입니다. 자세한 내용은 [Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
+Managed Disks는 스토리지 계정 관리를 처리하여 Azure IaaS VM을 위한 디스크 관리를 간소화하는 기능입니다. 자세한 내용은 [Managed Disks 개요](../articles/virtual-machines/managed-disks-overview.md)를 참조하세요.
 
 **80GB인 기존 VHD에서 표준 Managed Disk를 만들 경우 비용은 얼마나 드나요?**
 
@@ -212,7 +212,7 @@ API 버전 2019-07-01 이상으로 만든 모든 관리 디스크는 공유 디�
 아니요, 울트라 디스크는 다른 디스크 유형에서 지원되는 다른 캐싱 방법을 지원하지 않습니다. 디스크 캐싱을 **None**으로 설정 합니다.
 
 **기존 VM에 울트라 디스크를 연결할 수 있나요?**
-가능합니다. 단, VM은 울트라 디스크를 지원하는 지역 및 가용성 영역 쌍에 있어야 합니다. 자세한 내용은 [울트라 디스크 시작](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md)을 참조하세요.
+가능합니다. 단, VM은 울트라 디스크를 지원하는 지역 및 가용성 영역 쌍에 있어야 합니다. 자세한 내용은 [울트라 디스크 시작](../articles/virtual-machines/disks-enable-ultra-ssd.md)을 참조하세요.
 
 **울트라 디스크를 VM의 OS 디스크로 사용할 수 있나요?**
 아니요. 울트라 디스크는 데이터 디스크로만 지원되며 4K 기본 디스크로만 지원됩니다.

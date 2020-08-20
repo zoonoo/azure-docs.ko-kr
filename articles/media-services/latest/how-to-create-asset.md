@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4d1e5e48e70cee1cf75b1d6605837695d26dcbf0
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: b40c936006fa47964ef67ffda37c80eb5732bdf0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608908"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653893"
 ---
 # <a name="create-an-asset"></a>자산 만들기
 
 이 문서에서는 Media Services 자산을 만드는 방법을 보여 줍니다.  자산을 사용 하 여 인코딩 및 스트리밍을 위한 미디어 콘텐츠를 저장 합니다.  Media Services 자산에 대해 자세히 알아보려면 [Azure Media Services v3의 자산](assets-concept.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [Media Services 계정 만들기](./create-account-howto.md) 의 단계에 따라 자산을 만드는 데 필요한 Media Services 계정 및 리소스 그룹을 만듭니다.
 
@@ -53,6 +53,10 @@ ms.locfileid: "88608908"
 ### <a name="using-curl"></a>cURL 사용
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
+
+## <a name="using-postman"></a>Postman 사용
+
+[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
 
 ## <a name="net"></a>[.NET](#tab/net/)
 

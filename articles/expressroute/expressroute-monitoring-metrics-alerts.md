@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 49e5acb7fc0cfe947d846f2943fb5071d6554ea5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b3c42901b4ef503a6099b49db84012521a7eba9f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192466"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654568"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -33,8 +33,10 @@ ms.locfileid: "88192466"
 | --- | --- | --- | --- |
 |ARP 가용성|가용성|<ui><li>피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형 (비공개/공용/Microsoft)</ui></li>|ExpressRoute|
 |Bgp 가용성|가용성|<ui><li> 피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형</ui></li>|ExpressRoute|
-|BitsInPerSecond|트래픽|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>링크 (Express 경로 직접)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|트래픽| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) | <ui><li>ExpressRoute<ui><li>Express 경로 직접</ui></li> |
+|BitsInPerSecond|트래픽|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>링크 (Express 경로 직접)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|트래픽| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|CPU 사용률|성능| <ui><li>인스턴스</ui></li>|Express 경로 Virtual Network 게이트웨이|
+|초당 패킷 수|성능| <ui><li>인스턴스</ui></li>|Express 경로 Virtual Network 게이트웨이|
 |GlobalReachBitsInPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
 |AdminState|실제 연결|링크|ExpressRoute Direct|
@@ -102,6 +104,14 @@ Express 경로 직접 포트 쌍의 각 링크에서 줄 프로토콜을 볼 수
 각 포트에 대해 Tx light 수준 (Express 경로 직접 포트가 **전송**하는 광원 수준)을 볼 수 있습니다. 정상적인 Tx light 수준은 일반적으로-10에서 0 dBm 사이의 범위에 속합니다.
 
 ![er direct line Rx Light 수준](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
+## <a name="expressroute-virtual-network-gateway-metrics"></a>Express 경로 Virtual Network 게이트웨이 메트릭
+
+### <a name="cpu-utilization---split-instance"></a>CPU 사용률-분할 인스턴스
+게이트웨이 인스턴스의 CPU 사용률을 볼 수 있습니다.
+
+### <a name="packets-per-second---split-by-instance"></a>초당 패킷-인스턴스당 분할
+게이트웨이를 트래버스하는 초당 패킷 수를 볼 수 있습니다.
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute 게이트웨이 연결(비트/초)
 

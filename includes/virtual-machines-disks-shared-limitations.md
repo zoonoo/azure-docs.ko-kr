@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: roygara
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4a204be0730a0ce4edcd2e343364ed8fc724430e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425013"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655296"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 
 ### <a name="ultra-disks"></a>Ultra disks
 
-Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목록이 있습니다. Ultra disk 제한 사항은 [Azure ultra Disks 사용](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md)을 참조 하세요.
+Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목록이 있습니다. Ultra disk 제한 사항은 [Azure ultra Disks 사용](../articles/virtual-machines/disks-enable-ultra-ssd.md)을 참조 하세요.
 
 울트라 디스크를 공유 하는 경우 다음과 같은 추가 제한 사항이 있습니다.
 

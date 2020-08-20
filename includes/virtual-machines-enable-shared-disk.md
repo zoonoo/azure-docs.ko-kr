@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 37d9cf0b0ac7145e389f9fc768ff0b593b27ae1a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 93c97c70a65be40b5801b202ba277b8f86ad1566
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515259"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655108"
 ---
 ## <a name="limitations"></a>제한 사항
 
@@ -137,7 +137,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 를 사용 하 여 공유 디스크를 배포한 후에 `maxShares>1` 는 하나 이상의 vm에 디스크를 탑재할 수 있습니다.
 
 > [!NOTE]
-> 울트라 디스크를 배포 하는 경우 필요한 요구 사항과 일치 하는지 확인 합니다. 자세한 내용은 ultra disk 문서의 [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) 또는 [CLI](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) 섹션을 참조 하세요.
+> 울트라 디스크를 배포 하는 경우 필요한 요구 사항과 일치 하는지 확인 합니다. 자세한 내용은 ultra disk 문서의 [PowerShell](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) 또는 [CLI](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) 섹션을 참조 하세요.
 
 ```azurepowershell-interactive
 

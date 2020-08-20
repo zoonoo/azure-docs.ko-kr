@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6cb2f3d099c328f00fab335e1cbe9ea146c0fc55
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607049"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653650"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -206,8 +206,8 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
-OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
-임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
+OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/managed-disks-overview.md).
+임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/managed-disks-overview.md).
 데이터 디스크 최대 크기 | 관리 디스크의 경우 8,192GB<br></br>비관리 디스크의 경우 4,095GB|
 데이터 디스크 최소 크기 | 비관리 디스크는 제한이 없습니다. 관리 디스크의 경우 2GB |
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/sizes.md).

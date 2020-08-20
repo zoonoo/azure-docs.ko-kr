@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257458"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653310"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -51,32 +51,32 @@ Advisor는 저장소 계정에 많은 양의 트랜잭션이 있는 표준 디�
 
 Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 머신에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage 계정을 사용 하는 가상 머신 디스크는 Ssd (반도체 드라이브)에 데이터를 저장 합니다. 응용 프로그램에 대 한 최상의 성능을 위해 높은 IOPS가 필요한 모든 가상 머신 디스크를 Premium Storage 마이그레이션하는 것이 좋습니다.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블의 데이터 오차를 제거 하 여 쿼리 성능 향상
+## <a name="remove-data-skew-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Azure Synapse Analytics 테이블에서 데이터 오차를 제거 하 여 쿼리 성능 향상
 
 데이터 오차는 작업을 실행할 때 불필요 한 데이터 이동 또는 리소스 병목 현상을 유발할 수 있습니다. Advisor가 15% 이상의 배포 데이터 오차를 검색 합니다. 데이터를 재배포 하 고 테이블 배포 키 선택 항목을 다시 방문 하는 것이 좋습니다. 기울이기 식별 및 제거에 대한 자세한 정보는 [기울이기 문제 해결](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice)을 참조합니다.
 
-## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블에서 오래 된 테이블 통계를 만들거나 업데이트 하 여 쿼리 성능을 향상 시킵니다.
+## <a name="create-or-update-outdated-table-statistics-in-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Azure Synapse Analytics 테이블에서 오래 된 테이블 통계를 만들거나 업데이트 하 여 쿼리 성능을 향상 시킵니다.
 
-Advisor는 최신 [테이블 통계가](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) 없는 테이블을 식별 하 고 통계를 만들거나 업데이트 하는 것을 권장 합니다. Azure SQL Data Warehouse의 쿼리 최적화 프로그램은 최신 통계를 사용 하 여 쿼리 결과에서 카디널리티 또는 행 수를 추정 합니다. 이러한 예상치를 통해 쿼리 최적화 프로그램은 가장 빠른 성능을 제공 하는 쿼리 계획을 만들 수 있습니다.
+Advisor는 최신 [테이블 통계가](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) 없는 테이블을 식별 하 고 통계를 만들거나 업데이트 하는 것을 권장 합니다. Azure Synapse Analytics의 쿼리 최적화 프로그램은 최신 통계를 사용 하 여 쿼리 결과의 카디널리티 또는 행 수를 계산 합니다. 이러한 예상치를 통해 쿼리 최적화 프로그램은 가장 빠른 성능을 제공 하는 쿼리 계획을 만들 수 있습니다.
 
 ## <a name="improve-mysql-connection-management"></a>MySQL 연결 관리 개선
 
 Advisor 분석은 MySQL 서버에 연결 하는 응용 프로그램이 연결을 효율적으로 관리 하지 않을 수 있음을 나타낼 수 있습니다. 이로 인해 불필요 한 리소스 소비 및 전반적인 응용 프로그램 대기 시간이 발생할 수 있습니다. 연결 관리를 향상시키려면 수명이 짧은 연결 수를 줄이고 불필요한 유휴 연결을 제거하는 것이 좋습니다. ProxySQL과 같은 서버 쪽 연결 풀을 구성 하 여 이러한 개선을 수행할 수 있습니다.
 
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블에서 캐시 사용률을 최적화하도록 확장하여 쿼리 성능 향상
+## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Azure Synapse Analytics 테이블에서 캐시 사용률을 최적화 하 여 쿼리 성능 향상을 위해 확장
 
-Azure Advisor는 SQL Data Warehouse 테이블에 높은 수준의 캐시가 사용 되는 비율과 낮은 적중률이 있는지 검색 합니다. 이 상태는 SQL Data Warehouse 인스턴스의 성능에 영향을 줄 수 있는 높은 캐시 제거를 나타냅니다. Advisor는 워크 로드에 충분 한 캐시 용량을 할당할 수 있도록 SQL Data Warehouse 인스턴스를 확장 하는 것을 권장 합니다.
+Azure Advisor는 Azure Synapse Analytics 테이블에 높은 수준의 캐시가 사용 되는 비율과 낮은 적중률이 있는지 검색 합니다. 이 상태는 Azure Synapse Analytics 인스턴스의 성능에 영향을 줄 수 있는 높은 캐시 제거를 나타냅니다. Advisor는 워크 로드에 충분 한 캐시 용량을 할당할 수 있도록 Azure Synapse Analytics 인스턴스를 확장 하는 것을 권장 합니다.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블을 복제된 테이블로 변환하여 쿼리 성능 향상
+## <a name="convert-azure-synapse-analytics-tables-to-replicated-tables-to-increase-query-performance"></a>Azure Synapse Analytics 테이블을 복제 된 테이블로 변환 하 여 쿼리 성능 향상
 
 Advisor는 복제 된 테이블이 아닌 변환을 통해 이점을 누릴 수 있는 테이블을 식별 합니다. 이러한 테이블을 변환 하는 것을 제안 합니다. 권장 사항은 다음을 기준으로 합니다.
 - 복제 된 테이블의 크기입니다. 
 - 열의 수입니다. 
 - 테이블 배포 유형입니다. 
-- SQL Data Warehouse 테이블의 파티션 수입니다. 
+- Azure Synapse Analytics 테이블의 파티션 수입니다. 
 
-컨텍스트 권장 사항에 추가 추론을 제공할 수 있습니다. 이 권장 사항을 결정 하는 방법에 대 한 자세한 내용은 [SQL Data Warehouse 권장 사항](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables)을 참조 하세요. 
+컨텍스트 권장 사항에 추가 추론을 제공할 수 있습니다. 이 권장 사항을 결정 하는 방법에 대 한 자세한 내용은 [Azure Synapse Analytics 권장 사항](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables)을 참조 하세요. 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>저장소 계정을 Azure Resource Manager로 마이그레이션하여 최신 Azure 기능을 받으세요.
 
@@ -163,10 +163,10 @@ Azure Advisor는 지난 7 일간 시스템 로그를 분석 하 고 클러스터
 이 권장 사항은 구성된 캐시 기간(정책)을 초과하여 가장 많은 수의 쿼리를 포함하는 Azure Data Explorer 테이블을 표시합니다(캐시 외부 데이터에 액세스하는 쿼리 비율별로 상위 10개의 테이블이 표시됨). 클러스터의 성능을 향상시키기 위한 권장 조치: 이 테이블에 대한 쿼리를 필요한 최소 시간 범위(정의된 정책 내)로 제한합니다. 또는 전체 시간 범위의 데이터가 필요한 경우 캐시 기간을 권장 값으로 늘립니다.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>MySQL 임시 테이블 크기 조정을 최적화하여 성능 향상
-Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세히 알아보기](https://aka.ms/azure_mysql_tmp_table)
+Advisor 분석은 낮은 임시 테이블 매개 변수 설정으로 인해 MySQL 서버가 불필요 한 i/o 오버 헤드를 발생 시킬 수 있음을 나타냅니다. 이로 인해 불필요한 디스크 기반 트랜잭션이 발생하고 성능이 저하될 수 있습니다. 디스크 기반 트랜잭션 수를 줄이려면 'tmp_table_size' 및 'max_heap_table_size' 매개 변수 값을 늘리는 것이 좋습니다. [자세한 정보](https://aka.ms/azure_mysql_tmp_table)
 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>서버 그룹에 데이터를 배포 하 여 노드 간에 작업 분산
-Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2135201) 
+Advisor는 데이터가 배포 되지 않았지만 코디네이터에 유지 되는 서버 그룹을 식별 합니다. 이를 기반으로 하는 관리자는 Citus (전체 Hyperscale) 혜택을 통해 서버 그룹의 작업자 노드에 데이터를 배포할 것을 권장 합니다. 이렇게 하면 서버 그룹에서 각 노드의 리소스를 활용 하 여 쿼리 성능을 향상 시킬 수 있습니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor의 성능 권장 사항에 액세스 하는 방법
 

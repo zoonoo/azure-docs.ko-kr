@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: 가상 WAN 정보
+    - name: Virtual WAN이란?
       href: virtual-wan-about.md
     - name: Architecture
       items:

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505562"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654585"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -247,7 +247,7 @@ ms.locfileid: "88505562"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -381,7 +381,7 @@ SQL Server 2014 이상 릴리스에서는 VHD의 '래퍼' 없이 Azure Blob Stor
 * 앞 부분에서 설명한 여러 Azure Storage 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure Storage 계정의 제한에 대한 I/O 작업 수를 의미합니다.
 * SQL Server 데이터 및 로그 파일을 나타내는 스토리지 Blob에 대한 트래픽은 VM의 스토리지 I/O 할당량을 계산하는 대신 특정 VM 유형의 VM 네트워크 대역폭으로 계산됩니다. 특정 VM 유형의 네트워크 및 스토리지 대역폭은 [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md) 문서를 참조하세요.
 * 네트워크 할당량을 통해 파일 I/O 푸시의 결과로 스토리지 할당량을 주로 스트랜딩하고 이와 함께 VM의 전체 대역폭을 부분적으로만 사용합니다.
-* Azure Premium Storage에서 유지되는 다른 디스크 크기에 대한 IOPS 및 I/O 처리량 성능 목표는 더 이상 적용되지 않습니다. 만든 Blob이 Azure Premium Storage에 있는 경우에도 마찬가지입니다. 목표는 [VM의 고성능 Premium Storage 및 관리 디스크](../../windows/disks-types.md#premium-ssd) 문서에서 설명하고 있습니다. Azure Premium Storage에 저장된 Blob에 SQL Server 데이터 파일과 로그 파일을 직접 배치한 결과로 Azure Premium Storage의 VHD에 비해 성능 특성이 다를 수 있습니다.
+* Azure Premium Storage에서 유지되는 다른 디스크 크기에 대한 IOPS 및 I/O 처리량 성능 목표는 더 이상 적용되지 않습니다. 만든 Blob이 Azure Premium Storage에 있는 경우에도 마찬가지입니다. 목표는 [VM의 고성능 Premium Storage 및 관리 디스크](../../disks-types.md#premium-ssd) 문서에서 설명하고 있습니다. Azure Premium Storage에 저장된 Blob에 SQL Server 데이터 파일과 로그 파일을 직접 배치한 결과로 Azure Premium Storage의 VHD에 비해 성능 특성이 다를 수 있습니다.
 * Azure Premium Storage 디스크에 사용할 수 있는 호스트 기반 캐싱은 Azure Blob에서 SQL Server 데이터 파일을 직접 배치할 때 사용할 수 없습니다.
 * M 시리즈 VM에서는 Azure Write Accelerator를 사용하여 SQL Server 트랜잭션 로그 파일에 대한 밀리초 미만의 쓰기를 지원할 수 없습니다. 
 

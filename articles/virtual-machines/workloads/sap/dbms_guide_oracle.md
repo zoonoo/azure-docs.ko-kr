@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 75f8a1f42c5d5702fdb4a588b0829636c30f80a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88504945"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654619"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -247,7 +247,7 @@ ms.locfileid: "88504945"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -353,9 +353,9 @@ SAP 설치 설명서에 따라 모든 Oracle 관련 파일을 VM의 OS 디스크
 tempfiles를 위한 적절한 양의 공간 크기를 결정하려면 기존 시스템의 tempfiles 크기를 확인할 수 있습니다.
 
 ### <a name="storage-configuration"></a>스토리지 구성
-NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다. 
+NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 또는 [Azure Managed Disks](../../managed-disks-overview.md)를 기준으로 합니다. 
 
-[Azure Managed Disks](../../windows/managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
+[Azure Managed Disks](../../managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../disks-types.md)를 사용하는 것이 좋습니다.
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -442,11 +442,11 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 
 ### <a name="storage-configuration"></a>스토리지 구성
 
-ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다.
+ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../managed-disks-overview.md)를 기준으로 합니다.
 
 Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../windows/premium-storage-performance.md#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
 
-[Azure Managed Disks](../../windows/managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
+[Azure Managed Disks](../../managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../disks-types.md)를 사용하는 것이 좋습니다.
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 
 
