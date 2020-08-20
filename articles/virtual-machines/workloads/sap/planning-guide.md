@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2bf360d9b09be4db84d0ff00b1a777fe8b188ea
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652205"
+ms.locfileid: "88661336"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -1803,7 +1803,7 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 * 계획된 유지 관리 이벤트는 가상 머신이 실행 중인 플랫폼 인프라의 전체적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft가 기본 Azure 플랫폼에 적용하는 주기적인 업데이트입니다.
 * 계획되지 않은 유지 관리 이벤트는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 머신을 호스트 중인 비정상 물리적 서버에서 정상 물리적 서버로 가상 머신을 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 머신이 재부팅되도록 할 수도 있습니다.
 
-자세한 내용은 <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
+자세한 내용은 [azure에서 Windows 가상 머신의 가용성](../../windows/manage-availability.md) 및 [azure에서 Linux 가상 머신의 가용성](../../linux/manage-availability.md)을 참조 하세요.
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -1811,7 +1811,7 @@ Microsoft Azure Storage 계정의 데이터는 항상 내구성 및 고가용성
 
 Azure Storage는 기본적으로 데이터 이미지 3개를 유지하므로 여러 Azure 디스크에 있는 RAID5 또는 RAID1은 필요하지 않습니다.
 
-자세한 내용은 <https://azure.microsoft.com/documentation/articles/storage-redundancy/> 문서를 참조하세요.
+자세한 내용은 [Azure Storage 중복성](../../../storage/common/storage-redundancy.md)(영문)을 참조 하세요.
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 애플리케이션의 "고가용성" 확보
 

@@ -3,14 +3,14 @@ title: Azure Automation에 Windows Hybrid Runbook Worker 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경에서 Windows 기반 컴퓨터에서 runbook을 실행 하는 데 사용할 수 있는 Hybrid Runbook Worker을 배포 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90b16f10cfa94ce427a9f6249c72842f8ef6278a
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270583"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660515"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -18,7 +18,7 @@ Azure Automation의 Hybrid Runbook Worker 기능을 사용 하 여 역할을 호
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -29,6 +29,9 @@ Hybrid Runbook Worker 역할은 Azure Monitor Log Analytics 작업 영역에 따
 Azure Monitor Log Analytics 작업 영역이 없는 경우 작업 영역을 만들기 전에 [Azure Monitor 로그 디자인 지침](../azure-monitor/platform/design-logs-deployment.md) 을 검토 합니다.
 
 작업 영역이 있지만 Automation 계정에 연결 되어 있지 않은 경우 자동화 기능을 사용 하도록 설정 하면 Hybrid Runbook Worker에 대 한 지원을 포함 하 여 Azure Automation 기능을 추가할 수 있습니다. Log Analytics 작업 영역의 Azure Automation 기능 중 하나 (특히 [업데이트 관리](update-management/update-mgmt-overview.md) 또는 [변경 내용 추적 및 인벤토리](change-tracking.md))를 사용 하도록 설정 하면 작업자 구성 요소가 에이전트 컴퓨터에 자동으로 푸시됩니다.
+
+> [!NOTE]
+> 업데이트 관리 또는 변경 내용 추적 및 인벤토리 기능을 사용 하도록 설정 하는 경우 Azure Automation는 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데 필요한 특정 영역만 지원 합니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요. 두 기능을 사용 하도록 설정 하기 전에 Azure Automation에 대 한 [Azure 가격 책정](https://azure.microsoft.com/pricing/details/automation/) 정보를 검토 합니다.
 
    작업 영역에 업데이트 관리 기능을 추가 하려면 다음 PowerShell cmdlet을 실행 합니다.
 
@@ -123,9 +126,6 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 다음 방법 중 �
 | `SubscriptionID` | 필수 | Automation 계정과 연결된 Azure 구독의 식별자입니다. |
 | `TenantID` | 옵션 | Automation 계정과 연결된 테넌트 조직의 식별자입니다. |
 | `WorkspaceName` | 옵션 | Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다. |
-
-> [!NOTE]
-> 기능을 사용하도록 설정할 때 Azure Automation은 Log Analytics 작업 영역과 Automation 계정을 연결하기 위해 특정 지역만 지원합니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요.
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>2단계 - Windows PowerShell 명령줄 셸 열기
 

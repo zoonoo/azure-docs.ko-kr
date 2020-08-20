@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2de2680ccd0ecf385598080747e80eed5ead3bc8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652868"
+ms.locfileid: "88660098"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
 
@@ -35,10 +35,6 @@ HB-시리즈 Vm은 현재 게스트 Vm에 228 GB의 RAM만 노출할 수 있습�
 ## <a name="qp0-access-restriction"></a>qp0 액세스 제한
 
 보안 취약성을 유발할 수 있는 낮은 수준의 하드웨어 액세스를 방지 하기 위해 게스트 Vm에서는 큐 쌍 0을 액세스할 수 없습니다. 이는 일반적으로 Connectx-3 NIC의 관리와 관련 된 작업에만 영향을 주며 ibdiagnet와 같은 일부 InfiniBand 진단을 실행 하지만 최종 사용자 응용 프로그램 자체는 실행 하지 않습니다.
-
-## <a name="ud-transport"></a>UD 전송
-
-시작 시 HB-및 HC 시리즈는 DCT (동적 연결 전송)를 지원 하지 않습니다. DCT에 대 한 지원은 시간이 지남에 따라 구현 됩니다. 신뢰할 수 있는 연결 (RC) 및 신뢰할 수 없는 데이터 그램 (UD) 전송이 지원 됩니다.
 
 ## <a name="gss-proxy"></a>GSS 프록시
 

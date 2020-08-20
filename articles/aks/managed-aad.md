@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/27/2020
 ms.author: thomasge
-ms.openlocfilehash: afc20052680e7f3e5b7d3a6b7320b7ca3b10dbd5
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799860"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661064"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -20,7 +20,7 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 
 클러스터 관리자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
 
-[Azure Active Directory 통합 개념 설명서](concepts-identity.md#azure-active-directory-integration)의 AAD 통합 흐름에 대해 자세히 알아보세요.
+[Azure Active Directory 통합 개념 설명서](concepts-identity.md#azure-active-directory-integration)의 Azure AD 통합 흐름에 대해 자세히 알아보세요.
 
 ## <a name="region-availability"></a>지역 가용성
 
@@ -32,10 +32,10 @@ AKS 관리 Azure Active Directory 통합은 [AKS가 지원](https://azure.micros
 ## <a name="limitations"></a>제한 사항 
 
 * AKS에서 관리 되는 Azure AD 통합을 사용 하지 않도록 설정할 수 없음
-* 비 RBAC 사용 클러스터는 AKS 관리 AAD 통합에 대해 지원 되지 않습니다.
-* AKS에서 관리 하는 AAD 통합과 관련 된 Azure AD 테 넌 트 변경은 지원 되지 않음
+* 비 RBAC 사용 클러스터는 AKS 관리 Azure AD 통합에 대해 지원 되지 않습니다.
+* AKS로 관리 되는 Azure AD 통합에 연결 된 Azure AD 테 넌 트 변경은 지원 되지 않음
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure CLI 버전 2.9.0 이상
 * Kubectl [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180) 이상 버전
@@ -138,6 +138,31 @@ Azure [RBAC (역할 기반 액세스 제어)](./azure-ad-rbac.md) 를 구성 하
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
+
+## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>기존 클러스터에서 AKS로 관리 되는 Azure AD 통합 사용
+
+기존 RBAC 사용 클러스터에서 AKS로 관리 되는 Azure AD 통합을 사용 하도록 설정할 수 있습니다. 클러스터에 대 한 액세스를 유지 하려면 관리자 그룹을 설정 해야 합니다.
+
+```azurecli-interactive
+az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
+```
+
+AKS로 관리 되는 Azure AD 클러스터가 성공적으로 활성화 되 면 응답 본문에 다음 섹션이 포함 됩니다.
+
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+[여기에 나와][access-cluster]있는 단계를 수행 하 여 사용자 자격 증명을 다시 다운로드 하 여 클러스터에 액세스 합니다.
 
 ## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>AKS로 관리 되는 Azure AD 통합으로 업그레이드
 

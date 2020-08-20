@@ -3,12 +3,12 @@ title: V3 RTM이 백업할 수 있는 Azure Backup Server
 description: 이 문서에서는 V3 RTM에서 보호 하는 Azure Backup 모든 워크 로드, 데이터 형식 및 설치를 나열 하는 보호 매트릭스를 제공 합니다.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 86e192e13b49b89e8d66c5f912ef88f02a1b21b4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 30da2efd161d789cd73829c270b64f3610945413
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611979"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661285"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server V3 RTM 보호 매트릭스
 
@@ -32,9 +32,9 @@ ms.locfileid: "88611979"
 |서버(32비트 및 64비트)|Windows Server 2012/2012 SP1 - Datacenter 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3, V2|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구<br /><br />Windows Server 2012 중복 제거 된 볼륨을 보호 하려면 Azure Backup Server Windows Server 2012 R2 이상에서 실행 중 이어야 합니다.|
 |서버(32비트 및 64비트)|Windows Server 2012/2012 SP1 - Datacenter 및 Standard|Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우)<br /> <br /> Azure Stack|V3, V2|볼륨, 공유, 폴더, 파일<br /><br />Windows Server 2012 중복 제거 된 볼륨을 보호 하려면 Azure Backup Server Windows Server 2012 R2 이상에서 실행 중 이어야 합니다.|
 |서버(32비트 및 64비트)|Windows Server 2012/2012 SP1 - Datacenter 및 Standard|VMware의 windows 가상 머신 (VMware의 Windows 가상 머신에서 실행 되는 작업 보호)<br /> <br /> Azure Stack|V3, V2|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구<br /><br />Windows Server 2012 중복 제거 된 볼륨을 보호 하려면 Azure Backup Server Windows Server 2012 R2 이상에서 실행 중 이어야 합니다.|
-|서버(32비트 및 64비트)|Windows Server 2008 R2 SP1 - Standard 및 Enterprise|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3, V2<br />SP1을 실행하고 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 설치해야 합니다.|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
-|서버(32비트 및 64비트)|Windows Server 2008 R2 SP1 - Standard 및 Enterprise|Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우)<br /> <br /> Azure Stack|V3, V2<br />SP1을 실행하고 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 설치해야 합니다.|볼륨, 공유, 폴더, 파일|
-|서버(32비트 및 64비트)|Windows Server 2008 R2 SP1 - Standard 및 Enterprise|VMware의 windows 가상 머신 (VMWare의 Windows 가상 머신에서 실행 되는 작업 보호)<br /> <br /> Azure Stack|V3, V2<br />SP1을 실행하고 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 설치해야 합니다.|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
+|서버(32비트 및 64비트)|Windows Server 2008 R2 SP1 - Standard 및 Enterprise|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3, V2<br />S p 1을 실행 하 고 [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616) 를 설치 해야 합니다.|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
+|서버(32비트 및 64비트)|Windows Server 2008 R2 SP1 - Standard 및 Enterprise|Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우)<br /> <br /> Azure Stack|V3, V2<br />S p 1을 실행 하 고 [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616) 를 설치 해야 합니다.|볼륨, 공유, 폴더, 파일|
+|서버(32비트 및 64비트)|Windows Server 2008 R2 SP1 - Standard 및 Enterprise|VMware의 windows 가상 머신 (VMWare의 Windows 가상 머신에서 실행 되는 작업 보호)<br /> <br /> Azure Stack|V3, V2<br />S p 1을 실행 하 고 [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616) 를 설치 해야 합니다.|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
 |서버(32비트 및 64비트)|Windows Server 2008 SP2|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|지원되지 않음|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
 |서버(32비트 및 64비트)|Windows Server 2008 SP2|VMware의 windows 가상 머신 (VMware의 Windows 가상 머신에서 실행 되는 작업 보호)<br /> <br /> Azure Stack|V3, V2|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
 |서버(32비트 및 64비트)|Windows Storage Server 2008|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3, V2|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|

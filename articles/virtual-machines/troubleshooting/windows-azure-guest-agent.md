@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/07/2020
 ms.author: genli
-ms.openlocfilehash: c3295365859ad3291a95b616cccc6fa265237a01
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264048"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659469"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Microsoft Azure 게스트 에이전트 문제 해결
 
@@ -102,7 +102,7 @@ Windows Azure 게스트 에이전트에는 자동 업데이트 기능이 있습�
 
 1. 패키지 또는 GuestAgent로 이름이 지정 된 폴더를 이전 폴더로 이동 합니다.
 
-1. [여기](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409)에서 최신 버전의 에이전트 설치 패키지를 다운로드 하 여 설치 합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.
+1. [여기](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409)에서 최신 버전의 에이전트 설치 패키지를 다운로드 하 여 설치 합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.
 
 1. 다음 명령을 사용 하 여 게스트 에이전트를 설치 합니다.
 

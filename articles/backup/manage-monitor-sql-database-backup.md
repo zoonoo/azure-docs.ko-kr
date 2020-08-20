@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server Db 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이터베이스를 관리 하 고 모니터링 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537307"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659588"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -117,24 +117,6 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
 자세한 내용은 [SQL Server 백업 유형](backup-architecture.md#sql-server-backup-types)을 참조 하세요.
 
-## <a name="unregister-a-sql-server-instance"></a>SQL Server 인스턴스 등록 취소
-
-보호를 사용 하지 않도록 설정 하 고 자격 증명 모음을 삭제 하기 전에 SQL Server 인스턴스를 등록 취소 합니다.
-
-1. 자격 증명 모음 대시보드의 **관리** 아래에서 **백업 인프라**를 선택합니다.  
-
-   ![백업 인프라 선택](./media/backup-azure-sql-database/backup-infrastructure-button.png)
-
-2. **관리 서버**에서 **보호된 서버**를 선택합니다.
-
-   ![보호된 서버 선택](./media/backup-azure-sql-database/protected-servers.png)
-
-3. **보호된 서버**에서 등록을 취소할 서버를 선택합니다. 자격 증명 모음을 삭제하려면 모든 서버의 등록을 취소해야 합니다.
-
-4. 보호 된 서버를 마우스 오른쪽 단추로 클릭 하 고 **등록 취소**를 선택 합니다.
-
-   ![삭제 선택](./media/backup-azure-sql-database/delete-protected-server.jpg)
-
 ## <a name="modify-policy"></a>정책 수정
 
 정책을 수정 하 여 백업 빈도 또는 보존 범위를 변경 합니다.
@@ -160,11 +142,31 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
   ![일관 되지 않은 정책 수정](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
+## <a name="unregister-a-sql-server-instance"></a>SQL Server 인스턴스 등록 취소
+
+보호를 사용 하지 않도록 설정 하 고 자격 증명 모음을 삭제 하기 전에 SQL Server 인스턴스를 등록 취소 합니다.
+
+1. 자격 증명 모음 대시보드의 **관리** 아래에서 **백업 인프라**를 선택합니다.  
+
+   ![백업 인프라 선택](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+
+2. **관리 서버**에서 **보호된 서버**를 선택합니다.
+
+   ![보호된 서버 선택](./media/backup-azure-sql-database/protected-servers.png)
+
+3. **보호된 서버**에서 등록을 취소할 서버를 선택합니다. 자격 증명 모음을 삭제하려면 모든 서버의 등록을 취소해야 합니다.
+
+4. 보호 된 서버를 마우스 오른쪽 단추로 클릭 하 고 **등록 취소**를 선택 합니다.
+
+   ![삭제 선택](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>SQL Server VM 확장을 다시 등록 합니다.
 
-경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 기타에 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업이 실패하기 시작합니다. 그런 다음, VM에서 확장을 다시 등록해야 할 수 있습니다. 작업을 **다시 등록** 하면 작업을 계속할 수 있도록 VM에서 워크 로드 백업 확장 프로그램이 다시 설치 됩니다.
+경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 다른 이유로 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업이 실패하기 시작합니다. 그런 다음, VM에서 확장을 다시 등록해야 할 수 있습니다. **다시 등록** 작업은 작업을 계속 진행 하기 위해 VM에서 워크 로드 백업 확장을 다시 설치 합니다. 복구 서비스 자격 증명 모음의 **Backup 인프라** 에서이 옵션을 찾을 수 있습니다.
 
-이 옵션은 주의 해 서 사용 해야 합니다. 이미 정상 상태의 VM에서 트리거되면이 작업을 수행 하면 확장이 다시 시작 됩니다. 이로 인해 모든 진행 중인 작업이 실패할 수 있습니다. 다시 등록 작업을 트리거하기 전에 하나 이상의 [증상](backup-sql-server-azure-troubleshoot.md#re-registration-failures) 을 확인 하세요.
+![백업 인프라의 보호 된 서버](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
+
+이 옵션은 주의해서 사용해야 합니다. 이미 정상 상태의 VM에서 트리거되면이 작업을 수행 하면 확장이 다시 시작 됩니다. 이로 인해 진행 중인 모든 작업이 실패할 수 있습니다. 다시 등록 작업을 트리거하기 전에 하나 이상의 [증상](backup-sql-server-azure-troubleshoot.md#re-registration-failures)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

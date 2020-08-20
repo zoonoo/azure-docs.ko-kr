@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/16/2020
+ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 877134fb1d4417c04da3bf6a96267b413389ecb2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258450"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661319"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -44,7 +44,7 @@ ms.locfileid: "88258450"
 |Microsoft.ClassicStorage/storageAccounts/queueServices | 예 | 예 | |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | 예 | 예 | |
 |Microsoft.CognitiveServices/accounts | 예 | 아니요 | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/virtualMachines | 예 | 예 | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
+|Microsoft.Compute/virtualMachines | 예 | 예<sup>1</sup> | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | 예 | 아니요 |[가상 머신 확장 집합](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | 예| 아니요 | [컨테이너 그룹](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | 아니요 | 아니요 | [컨테이너 레지스트리](./metrics-supported.md#microsoftcontainerregistryregistries) |
@@ -83,7 +83,7 @@ ms.locfileid: "88258450"
 |Microsoft.Network/applicationGateways | 예 | 아니요 | [응용 프로그램 게이트웨이](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | 예 | 아니요 | [시계](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | 아니요 | 아니요 | [DNS 영역](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | 해당 없음 | 예 |[ExpressRoute 회로](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRouteCircuits | 해당 없음 | 아니요 |[ExpressRoute 회로](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/loadBalancers (표준 SKU 전용)| 예| 아니요 | [부하 분산 장치](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/natGateways| 아니요 | 아니요 | |
 |Microsoft. Network/privateEndpoints| 아니요 | 아니요 | |
@@ -111,6 +111,8 @@ ms.locfileid: "88258450"
 |Microsoft.Web/serverfarms | 예 | 아니요 | [App Service 계획](./metrics-supported.md#microsoftwebserverfarms)|
 |Microsoft.Web/sites | 예 | 아니요 | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) 및 [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | 예 | 아니요 | [App Service 슬롯](./metrics-supported.md#microsoftwebsitesslots)|
+
+<sup>1</sup> 플랫폼 메트릭에만 지원 됩니다 (사용자 지정 메트릭은 아님).
 
 ## <a name="payload-schema"></a>페이로드 스키마
 

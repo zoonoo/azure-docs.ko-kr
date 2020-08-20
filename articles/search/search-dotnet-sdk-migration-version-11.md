@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/05/2020
-ms.openlocfilehash: 390376216700b760e96c2348b1ad61bb4561aad2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 08/20/2020
+ms.openlocfilehash: 83208ec792f40661861dd558ac2c1a1521c1d7fb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211506"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660972"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
@@ -147,9 +147,18 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
    using Azure.Search.Documents.Models;
    ```
 
-1. [Searchcredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials) 를 [azurekeycredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential)으로 바꿉니다.
+1. 클라이언트 인증 코드를 수정 합니다. 이전 버전에서는 클라이언트 개체의 속성을 사용 하 여 API 키 (예: [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) 속성)를 설정 합니다. 현재 버전에서는 [Azurekeycredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) 클래스를 사용 하 여 키를 자격 증명으로 전달 합니다. 따라서 필요한 경우 새 클라이언트 개체를 만들지 않고도 API 키를 업데이트할 수 있습니다.
 
-1. 인덱서 관련 개체에 대 한 클라이언트 참조를 업데이트 합니다. 인덱서, 데이터 원본 또는 기술력과를 사용 하는 경우 [Searchindexerclient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient)에 대 한 클라이언트 참조를 변경 합니다. 이 클라이언트는 버전 11에서 새로 되었으며 선행 작업이 없습니다.
+   클라이언트 속성은 `Endpoint` , `ServiceName` 및 (해당 하는 경우)로 간소화 되었습니다 `IndexName` . 다음 예제에서는 시스템 [Uri](https://docs.microsoft.com/dotnet/api/system.uri) 클래스를 사용 하 여 키 값에서 읽을 끝점 및 [환경](https://docs.microsoft.com//dotnet/api/system.environment) 클래스를 제공 합니다.
+
+   ```csharp
+   Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
+   AzureKeyCredential credential = new AzureKeyCredential(
+      Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
+   SearchIndexClient indexClient = new SearchIndexClient(endpoint, credential);
+   ```
+
+1. 인덱서 관련 개체에 대 한 새 클라이언트 참조를 추가 합니다. 인덱서, 데이터 원본 또는 기술력과를 사용 하는 경우 [Searchindexerclient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient)에 대 한 클라이언트 참조를 변경 합니다. 이 클라이언트는 버전 11에서 새로 되었으며 선행 작업이 없습니다.
 
 1. 쿼리 및 데이터 가져오기에 대 한 클라이언트 참조를 업데이트 합니다. [Searchindexclient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) 인스턴스는 [searchclient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient)로 변경 해야 합니다. 이름 혼동을 방지 하려면 다음 단계로 진행 하기 전에 모든 인스턴스를 catch 해야 합니다.
 

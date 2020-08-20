@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 9130a3248e881c9d4e2c9bfe9017f43198d50f51
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590169"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661489"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -69,9 +69,9 @@ Azure ** [id](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-do
 
 ### <a name="possible-causes"></a>가능한 원인
 
-Azure Digital Twins와 최신 버전의 Azure. Identity library 버전 **1.2.0**의 비호환입니다. 
+이는 최신 버전의 Azure. Identity library (버전 **1.2.0**)와 관련 된 오픈 문제와 관련 된 것입니다. [*InteractiveBrowserCredential를 사용할 때 인증에 실패*](https://github.com/Azure/azure-sdk-for-net/issues/13940)합니다.
 
-응용 프로그램에서 버전 **1.2.0** 를 사용 하거나 버전을 지정 하지 않고 프로젝트에 라이브러리를 추가 하는 경우이 문제가 표시 됩니다 (이 최신 버전으로도 기본값).
+Azure Digital Twins 응용 프로그램에서 버전 **1.2.0** 를 사용 하거나 버전을 지정 하지 않고 프로젝트에 라이브러리를 추가 하는 경우이 문제가 표시 됩니다 (이 최신 버전으로도 기본값).
 
 ## <a name="next-steps"></a>다음 단계
 

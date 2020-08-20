@@ -6,18 +6,21 @@ author: laurenhughes
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: lahugh
-ms.openlocfilehash: 109192efa19605af003dcfb30592c865ce7495b5
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136862"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661353"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
 
 Azure Portal에는 AKS (Azure Kubernetes Service) 클러스터의 Kubernetes 리소스에 쉽게 액세스할 수 있는 Kubernetes 리소스 뷰어 (미리 보기)가 포함 되어 있습니다. Azure Portal에서 Kubernetes 리소스를 보면 Azure Portal와 명령줄 도구 간의 컨텍스트 전환이 줄어들어 `kubectl` Kubernetes 리소스를 보고 편집 하는 환경이 간소화 됩니다. 리소스 뷰어에는 현재 여러 리소스 유형 (예: 배포, pod 및 복제본 집합)이 포함 되어 있습니다.
 
 Azure Portal의 Kubernetes 리소스 뷰가 사용 중단에 대해 설정 된 [AKS dashboard 추가 기능][kubernetes-dashboard]을 대체 합니다.
+
+>[!NOTE]
+>Capabilty는 현재 [개인 Azure Kubernetes Service 클러스터](https://docs.microsoft.com/azure/aks/private-clusters)에서 지원 되지 않습니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
