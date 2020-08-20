@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 0fa4fb1fa55d5d3fa61c923bc024e6536b43c87a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6e87d32de2d8139a768100ccecec7529ddcacf33
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829189"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648397"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4 및 Edsv4 시리즈
 
@@ -87,7 +87,7 @@ Premium Storage 캐싱:  지원됨
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](./linux/disks-types.md#ultra-disk)
+디스크 유형에 대 한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>다음 단계

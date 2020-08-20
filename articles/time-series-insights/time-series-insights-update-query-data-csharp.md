@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 19c21f1e95127d064d90d5c6915b4dd67871adaa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 075bf78599602b1b92f3cec01fe5dfb92b5321cc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263489"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654449"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen2 환경에서 데이터 쿼리
 
@@ -71,7 +71,7 @@ ms.locfileid: "88263489"
 
 ## <a name="c-sample-code"></a>C# 샘플 코드
 
-C # 샘플 코드는 [csharpquery](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) 에서 찾을 수 있습니다.
+C # 샘플 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs) 리포지토리를 참조 하세요. 
 
 > [!NOTE]
 >

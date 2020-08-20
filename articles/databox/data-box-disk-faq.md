@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745789"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649417"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -58,6 +58,23 @@ A. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유�
 
 ### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>17. 배송 중에 내 Data Box Disk가 국가/지역 경계를 넘을 수 있나요?
 A. 모든 Data Box Disk는 목적지와 동일한 국가/지역 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디스크가 모든 EU 국가/지역 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다.
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>17. 한 국가/지역에 있는 온-프레미스 원본 데이터를 다른 국가/지역에 있는 Azure 지역으로 가져오려면 어떻게 하나요?
+A. Data Box Disk는 동일한 지역 (상거래 경계) 내 에서만 데이터 수집을 지원 합니다. 다른 모든 경우에는 추가 작업을 수행 해야 할 수 있습니다. 
+
+예를 들어 Azure WestUS 저장소 계정으로 이동 하고자 하는 캐나다의 온-프레미스 데이터가 있는 경우 다음과 같은 방법으로이를 달성할 수 있습니다.
+
+### <a name="option-1"></a>옵션 1: 
+
+Microsoft azure [Import/Export 서비스](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) 를 캐나다의 원본 위치에서 azure WestUS datacenter로 배송 합니다.
+
+### <a name="option-2"></a>옵션 2:
+
+1. Cananda Central 이라고 하는 저장소 계정을 선택 하 여 캐나다의 Data Box Disk 주문 합니다. SSD 디스크는 주문 생성 중에 제공 된 판매 주소 (캐나다)로 캐나다 중부의 Azure 데이터 센터에서 제공 됩니다.
+
+2. 온-프레미스 서버의 데이터를 디스크에 복사한 후 Microsoft에서 제공 하는 반송 레이블을 사용 하 여 캐나다의 Azure 데이터 센터에 반환 합니다. 그러면 Data Box Disk에 있는 데이터가 주문 생성 중에 선택한 캐나다 Azure 지역의 대상 저장소 계정에 업로드 됩니다.
+
+3. 그런 다음 AzCopy와 같은 도구를 사용 하 여 WestUS의 저장소 계정에 데이터를 복사할 수 있습니다. 이 단계에서는 Data Box Disk 요금 청구에 포함 되지 않은 [표준 저장소](https://azure.microsoft.com/pricing/details/storage/) 및 [대역폭 요금이](https://azure.microsoft.com/pricing/details/bandwidth/) 발생 합니다.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>17. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
 A. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)하세요.

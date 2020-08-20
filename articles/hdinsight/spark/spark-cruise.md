@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: d5417bfcfbaa183c34808d9017d5863506429a81
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642285"
+ms.locfileid: "88649060"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>Azure HDInsight의 SparkCruise
 
@@ -58,7 +58,7 @@ SparkCruise는 Spark 2.3 또는 2.4를 사용 하는 모든 HDInsight 4.0 클러
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-`analyze`명령은 쿼리 계획을 구문 분석 하 고 작업의 테이블 형식 표현을 만듭니다. 그런 다음이 `views` 명령은 일반적인 하위 계획 식을 식별 하 고 향후 구체화 및 재사용을 위해 흥미로운 하위 계획 식을 선택 합니다. 출력은 향후 Spark SQL 쿼리에 대 한 주석을 포함 하는 피드백 파일입니다. 
+`analyze`명령은 쿼리 계획을 구문 분석 하 고 작업의 테이블 형식 표현을 만듭니다. 이 작업 테이블은 [HDInsight SparkCruise Samples](https://github.com/Azure-Samples/azure-sparkcruise-samples) 리포지토리에 포함 된 *WorkloadInsights* 노트북을 사용 하 여 쿼리할 수 있습니다. 그런 다음이 `views` 명령은 일반적인 하위 계획 식을 식별 하 고 향후 구체화 및 재사용을 위해 흥미로운 하위 계획 식을 선택 합니다. 출력은 향후 Spark SQL 쿼리에 대 한 주석을 포함 하는 피드백 파일입니다. 
 
 `show`명령은 다음 텍스트와 같은 출력을 표시 합니다.
 
