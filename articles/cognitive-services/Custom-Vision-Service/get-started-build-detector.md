@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 01a5714cb78959a982ad73deb401edbafeebe8f9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834459"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549550"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 개체 탐지기를 빌드하는 방법
 
 이 빠른 시작에서는 Custom Vision 웹 사이트를 통해 개체 탐지기를 빌드하는 방법에 대해 알아봅니다. 탐지기 모델이 작성되면 Custom Vision Service를 사용하여 개체를 감지할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
