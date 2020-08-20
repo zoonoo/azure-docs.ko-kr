@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557062"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566168"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>빠른 시작: 데스크톱에 Unity 샘플 배포
 
@@ -58,9 +58,6 @@ ms.locfileid: "85557062"
 1. 디버거 모드를 **로컬 머신**으로 전환합니다.
   ![솔루션 구성](./media/unity-deploy-config-pc.png)
 1. 솔루션을 빌드합니다(F7).
-
-> [!WARNING]
-> **x86**을 선택해야 합니다. **UWP/x64**는 현재 지원되지 않습니다. [플랫폼 제한 사항](../reference/limits.md#platform-limitations)을 참조하세요.
 
 ## <a name="launch-the-sample-project"></a>샘플 프로젝트 시작
 
