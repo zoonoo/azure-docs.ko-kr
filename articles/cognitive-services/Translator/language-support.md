@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a0ea0a7580bbb7a6106880d2733f36f5ab7a7690
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510796"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639786"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -296,6 +296,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 프랑스어      | `fr`          |
 | 독일어      | `de`          |
 | 그리스어      | `el`          |
+| 구자라트어| `gu`    |
 | 히브리어      | `he`          |
 | 힌디어      | `hi`          |
 | 헝가리어      | `hu`          |
@@ -309,11 +310,14 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |
 | 마다가스카르어| `mg`    |
+| 말레이어|    `ms`        |
 | 마오리어| `mi`  |
+| 마라티어| `mr`  |
 | 노르웨이어      | `nb`          |
 | 페르시아어      | `fa`          |
 | 폴란드어      | `pl`          |
 | 포르투갈어(브라질) | `pt-br` |
+| 펀잡어|`pa`|
 | 루마니아어      | `ro`          |
 | 러시아어      | `ru`          |
 | 사모아어|   `sm`    |
@@ -325,6 +329,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 태국어      | `th`          |
 | 터키어      | `tr`          |
 | 우크라이나어      | `uk`          |
+| 우르두어| `ur`    |
 | 베트남어      | `vi`          |
 | 웨일스어 | `cy` |
 
@@ -334,7 +339,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 선택한 텍스트 언어로 번역 하기 위해 음성을 텍스트로 변환 합니다. 음성 텍스트 변환은 음성 합성과 함께 사용 될 경우 음성 변환 또는 음성 변환에 사용 됩니다.
 
-| Language    |
+| 언어    |
 |:----------- |
 |아랍어|
 |광둥어(번체)|
@@ -368,7 +373,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 텍스트를 음성으로 변환 합니다. 텍스트 음성 변환은 번역 결과의 가청 출력을 추가 하거나 음성-텍스트와 함께 사용 하는 경우 음성-음성 변환에 사용 됩니다. 
 
-| Language    |
+| 언어    |
 |:----------- |
 |아랍어|
 |불가리아어|

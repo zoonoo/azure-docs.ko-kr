@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757606"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641078"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Azure Multi-Factor Authentication 배포 계획
 
@@ -108,6 +108,9 @@ Azure Active Directory Identity Protection에서 검색되는 일부 위험 검�
 ## <a name="plan-authentication-methods"></a>인증 방법 계획
 
 관리자는 사용자에게 제공할 [인증 방법](../authentication/concept-authentication-methods.md)을 선택할 수 있습니다. 사용자가 기본 방법을 사용할 수 없는 경우 백업 방법을 사용할 수 있도록 하나 이상의 인증 방법을 허용하는 것이 중요합니다. 관리자는 다음 방법을 사용하여 이를 설정할 수 있습니다.
+
+> [!TIP]
+> 최상의 보안 및 사용자 환경을 위해 Azure Multi-Factor Authentication의 기본 방법으로 모바일 앱을 사용 하는 것이 좋습니다.
 
 ### <a name="notification-through-mobile-app"></a>모바일 앱을 통한 알림
 

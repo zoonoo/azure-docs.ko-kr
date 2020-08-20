@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1c5a003eb113289bcb798423ff649b944dcf186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ff3ca98c0fa5929a5e1c0ad5678222253130b6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84761071"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641792"
 ---
 # <a name="how-to-use-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스를 사용하는 방법
 
-사용자가 액세스 패널에서 애플리케이션을 셀프 검색할 수 있도록 하려면 먼저 사용자가 셀프 검색을 수행하고 액세스 권한을 요청할 수 있게 하려는 모든 애플리케이션에 대해 **셀프 서비스 애플리케이션 액세스**를 사용하도록 설정해야 합니다.
+사용자가 내 앱에서 응용 프로그램을 자체 검색할 수 있으려면 먼저 사용자가 직접 검색 하 고 액세스를 요청할 수 있도록 하려는 모든 응용 프로그램에 대해 **셀프 서비스 응용 프로그램 액세스** 를 사용 하도록 설정 해야 합니다.
 
 이 기능은 IT 그룹이 시간과 비용을 절감하는 유용한 방법이며, Azure Active Directory를 사용하는 최신 애플리케이션 배포의 일부로 사용하는 것이 좋습니다.
 

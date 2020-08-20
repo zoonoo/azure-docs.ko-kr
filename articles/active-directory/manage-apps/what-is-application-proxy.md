@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164583"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640517"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -76,7 +76,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 이 기능의 구성 요소에는 클라우드에서 실행되는 애플리케이션 프록시 서비스, 온-프레미스 서버에서 실행되는 경량 에이전트인 애플리케이션 프록시 커넥터 및 ID 공급자인 Azure AD가 있습니다. 세 가지 구성 요소가 함께 작동하여 온-프레미스 웹 애플리케이션에 액세스할 수 있는 Single Sign-On 환경을 사용자에게 제공합니다.
 
-외부 사용자는 로그인한 후 익숙한 URL 또는 데스크톱이나 iOS/MAC 디바이스에서 [MyApps 액세스 패널](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)을 사용하여 온-프레미스 웹 애플리케이션에 액세스할 수 있습니다. 예를 들어 앱 프록시는 원격 데스크톱, SharePoint 사이트, Tableau, Qlik, 웹용 Outlook 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
+로그인 한 후에는 외부 사용자가 바탕 화면 또는 iOS/MAC 장치에서 친숙 한 URL 또는 [My Apps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) 를 사용 하 여 온-프레미스 웹 응용 프로그램에 액세스할 수 있습니다. 예를 들어 앱 프록시는 원격 데스크톱, SharePoint 사이트, Tableau, Qlik, 웹용 Outlook 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 
 ![Azure AD 애플리케이션 프록시 아키텍처](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 

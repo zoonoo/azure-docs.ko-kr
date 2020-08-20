@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: af5324373359cea643a3e31b6bb94e614ddb7e36
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083057"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640738"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Azure Monitor의 데이터 수집 규칙 (미리 보기)
 DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의 하 고 데이터를 보내거나 저장할 위치를 지정 합니다. 이 문서에서는 콘텐츠 및 구조를 포함 하는 데이터 수집 규칙의 개요와이를 만들고 사용 하는 방법을 설명 합니다.
@@ -68,7 +68,7 @@ DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 현재 DCR를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 
 - [Azure Portal를 사용](data-collection-rule-azure-monitor-agent.md) 하 여 데이터 수집 규칙을 만들고 하나 이상의 가상 컴퓨터와 연결 합니다.
-- JSON에서 데이터 수집 규칙을 직접 편집 하 고 REST API를 사용 하 여 제출 합니다.
+- JSON에서 데이터 수집 규칙을 직접 편집 하 고 [REST API를 사용 하 여 제출](https://docs.microsoft.com/rest/api/monitor/datacollectionrules)합니다.
 
 ## <a name="sample-data-collection-rule"></a>샘플 데이터 수집 규칙
 아래의 샘플 데이터 수집 규칙은 Azure 관리 에이전트를 사용 하는 가상 머신에 대 한 것 이며 다음과 같은 세부 정보를 포함 합니다.

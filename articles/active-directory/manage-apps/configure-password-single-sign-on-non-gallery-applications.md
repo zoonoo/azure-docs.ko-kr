@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459388"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640551"
 ---
 # <a name="configure-password-based-single-sign-on"></a>암호 기반 Single Sign-On 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "87459388"
 
 - 로그인하는 데 사용자 이름 및 암호 필드 이상을 필요로 하는 애플리케이션에 대해 여러 로그인 필드를 필요로 하는 애플리케이션 지원
 
-- 사용자가 자격 증명을 입력할 때 [응용 프로그램 액세스 패널](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) 에서 사용자에 게 표시 되는 사용자 이름 및 암호 필드의 레이블 사용자 지정
+- 사용자가 자격 증명을 입력할 때 [앱](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) 에서 사용자에 게 표시 되는 사용자 이름 및 암호 필드의 레이블 사용자 지정
 
 - 사용자가 수동으로 입력 하는 기존 응용 프로그램 계정에 고유한 사용자 이름 및 암호를 제공할 수 있습니다.
 
@@ -71,7 +71,7 @@ Azure AD의 구문 분석에 실패 하는 경우 로그인을 수동으로 구�
    ![암호 기반 Single Sign-On 수동 구성](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. **캡처 로그인 필드**를 선택 합니다. 새 탭에서 캡처 상태 페이지가 열리고 **현재 진행 중인 메시지 메타 데이터 캡처가**표시 됩니다.
 
-4. **액세스 패널 확장 필요** 상자가 새 탭에 표시 되 면 **지금 설치** 를 선택 하 여 **내 앱 보안 로그인 확장** 브라우저 확장을 설치 합니다. 브라우저 확장에는 Microsoft Edge, Chrome 또는 Firefox가 필요 합니다. 그런 다음, 확장을 설치, 시작 및 사용 하도록 설정 하 고 캡처 상태 페이지를 새로 고칩니다.
+4. **내 앱 확장 필요** 상자가 새 탭에 표시 되 면 **지금 설치** 를 선택 하 여 **내 앱 보안 로그인 확장** 브라우저 확장을 설치 합니다. 브라우저 확장에는 Microsoft Edge, Chrome 또는 Firefox가 필요 합니다. 그런 다음, 확장을 설치, 시작 및 사용 하도록 설정 하 고 캡처 상태 페이지를 새로 고칩니다.
 
    그러면 브라우저 확장에서 입력 한 URL을 표시 하는 다른 탭이 열립니다.
 5. 입력 한 URL이 있는 탭에서 로그인 프로세스를 진행 합니다. 사용자 이름 및 암호 필드를 입력 하 고 로그인을 시도 합니다. (올바른 암호를 제공할 필요가 없습니다.)

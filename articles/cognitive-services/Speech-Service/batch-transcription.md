@@ -1,5 +1,5 @@
 ---
-title: Batch 기록 이란?-Speech service
+title: 일괄 처리 기록을 사용 하는 방법-Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디오를 전사하려는 경우에 이상적입니다. 전용 REST API를 사용하면 SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기식으로 전사를 수신할 수 있습니다.
 services: cognitive-services
@@ -10,22 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214056"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640160"
 ---
-# <a name="what-is-batch-transcription"></a>일괄 처리 기록 이란?
+# <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
 일괄 처리는 저장소에서 많은 양의 오디오를 높여줄 수 있도록 하는 REST API 작업 집합입니다. SAS (공유 액세스 서명) URI를 사용 하 여 오디오 파일을 가리키고 기록 결과를 비동기적으로 받을 수 있습니다. 새 v 3.0 API를 사용 하 여 하나 이상의 오디오 파일을 찍으면 되므로 간편 하거나 전체 저장소 컨테이너를 처리 하도록 선택할 수 있습니다.
 
 비동기 음성 텍스트 기록을 기능 중 하나일 뿐입니다. 일괄 처리 기록 REST Api를 사용 하 여 다음 메서드를 호출할 수 있습니다.
 
-
-
-|    일괄 처리 기록 작업                                             |    메서드    |    REST API 호출                                   |
+|    일괄 처리 기록 작업                                             |    방법    |    REST API 호출                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    새 기록을 만듭니다.                                              |    POST      |    speechtotext/v 3.0/            |
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
@@ -44,24 +42,18 @@ ms.locfileid: "88214056"
 
 사용 하기 쉬운 API 옆에 사용자 지정 끝점을 배포할 필요가 없으며 관찰할 동시성 요구 사항이 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-
-### <a name="subscription-key"></a>구독 키
+## <a name="prerequisites"></a>사전 요구 사항
 
 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다.
 
 >[!NOTE]
 > 일괄 처리 기록을 사용 하려면 Speech (표준 구독) 서비스를 사용 해야 합니다. 무료 구독 키 (F0)가 작동 하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조 하세요.
 
-### <a name="custom-models"></a>사용자 지정 모델
-
 모델을 사용자 지정 하려는 경우 [음향 사용자 지정](how-to-customize-acoustic-models.md) 및 [언어 사용자 지정](how-to-customize-language-model.md)의 단계를 따릅니다. 일괄 처리에 생성 된 모델을 사용 하려면 모델 위치가 필요 합니다. 모델 (속성)의 세부 정보를 검사할 때 모델 위치를 검색할 수 있습니다 `self` . 배치 기록 서비스에는 배포 된 사용자 지정 끝점이 *필요 하지 않습니다* .
 
-## <a name="the-batch-transcription-api"></a>Batch Transcription API
+## <a name="batch-transcription-api"></a>Batch Transcription API
 
-### <a name="supported-formats"></a>지원되는 형식
-
-Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
+일괄 처리 기록 API는 다음과 같은 형식을 지원 합니다.
 
 | 서식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
 |--------|-------|---------|---------------------------------|
@@ -185,7 +177,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 일괄 처리 기록은 오디오를 읽고 저장소에 대 한 비디오를 작성 하기 위해 [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) 를 지원 합니다.
 
-## <a name="the-batch-transcription-result"></a>일괄 처리 기록 결과
+## <a name="batch-transcription-result"></a>일괄 처리 기록 결과
 
 각 입력 오디오에 대해 하나의 기록 결과 파일을 만듭니다. [Get a get-help files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles)를 호출 하 여 결과 파일 목록을 가져올 수 있습니다. 이 메서드는이 기록에 대 한 결과 파일 목록을 반환 합니다. 특정 입력 파일에 대 한 기록 파일을 찾으려면 및를 사용 하 여 반환 된 모든 파일을 필터링 합니다 `kind`  ==  `Transcription` `name`  ==  `{originalInputName.suffix}.json` .
 
@@ -289,7 +281,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
       인식 되는 텍스트의 표시 형식입니다. 추가 된 문장 부호와 대문자 표시가 포함 됩니다.
 :::row-end:::
 
-## <a name="speaker-separation-diarization"></a>스피커 분리 (Diarization)
+## <a name="speaker-separation-diarization"></a>스피커 분리 (diarization)
 
 Diarization는 스피커를 오디오 조각으로 분리 하는 프로세스입니다. Batch 파이프라인은 diarization를 지원 하 고 mono 채널 녹화에서 두 개의 스피커를 인식할 수 있습니다. 스테레오 녹화에서는이 기능을 사용할 수 없습니다.
 
@@ -317,7 +309,7 @@ Diarization를 요청 하려면 아래와 같이 HTTP 요청에 관련 매개 �
 
 ## <a name="best-practices"></a>모범 사례
 
-기록 서비스는 많은 수의 제출 된 많은 서비스를 처리할 수 있습니다. Get the Get을 통해의 상태를 쿼리할 수 있습니다 `GET` . [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) 결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 속성을 적절 한 값으로 설정 하 여 결과의 최종 삭제를 확인 합니다.
+일괄 처리 기록 서비스는 많은 수의 제출 된 작업을 처리할 수 있습니다. Get the Get을 통해의 상태를 쿼리할 수 있습니다 `GET` . [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) 결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 속성을 적절 한 값으로 설정 하 여 결과의 최종 삭제를 확인 합니다.
 
 ## <a name="sample-code"></a>예제 코드
 
