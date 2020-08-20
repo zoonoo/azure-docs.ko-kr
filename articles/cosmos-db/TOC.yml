@@ -563,7 +563,7 @@
       items:
         - name: 보안 개요
           href: database-security.md
-        - name: 데이터 암호화
+        - name: 데이터 암호화.
           href: database-encryption-at-rest.md
         - name: 데이터에 안전하게 액세스
           displayName: 'master key, resource token, users, roles'
@@ -1265,9 +1265,11 @@
           href: sql-api-sdk-async-java.md
         - name: 동기 Java SDK v2
           href: sql-api-sdk-java.md
-        - name: SQL API용 Spring Data 커넥터
-          href: sql-api-sdk-java-spring.md
-        - name: SQL API용 Spark 커넥터
+        - name: Spring Data 커넥터 v2
+          href: sql-api-sdk-java-spring-v2.md
+        - name: Spring Data 커넥터 v3
+          href: sql-api-sdk-java-spring-v3.md
+        - name: Spark 커넥터
           href: sql-api-sdk-java-spark.md
         - name: Java 대량 실행기 라이브러리 v2
           href: sql-api-sdk-bulk-executor-java.md

@@ -74,10 +74,10 @@
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: 데이터 과학자
       items:
-        - name: NYC 택시 팁 예측
+        - name: Azure AutoML을 사용하여 회귀 실험 실행
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+        - name: Apache Spark MLlib를 사용하여 분류 모델 만들기
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-        - name: 추가 라이브러리를 사용하여 Apache Spark 확대
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: 데이터 분석가
       items:
         - name: SQL 주문형을 사용하여 분석 및 Synapse Studio를 사용하여 시각화
@@ -202,8 +202,6 @@
               href: ./spark/apache-spark-overview.md
             - name: Apache Spark 개념
               href: ./spark/apache-spark-concepts.md
-            - name: 런타임 언어 및 라이브러리 지원
-              href: ./spark/apache-spark-version-support.md
             - name: Delta Lake란?
               href: ./spark/apache-spark-what-is-delta-lake.md
             - name: Apache Spark 성능
@@ -212,6 +210,12 @@
               href: ./spark/apache-spark-autoscale.md
         - name: 개발
           items:
+            - name: 라이브러리
+              items:
+                - name: 라이브러리 추가 및 관리
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: 런타임 언어 및 라이브러리 지원
+                  href: ./spark/apache-spark-version-support.md
             - name: Azure Synapse Studio Notebook
               href: ./spark/apache-spark-development-using-notebooks.md
             - name: Apache Spark용 .NET

@@ -121,6 +121,8 @@
           href: howto-create-custom-analytics.md
         - name: Power BI에서 데이터 시각화
           href: howto-connect-powerbi.md
+        - name: 파일 업로드 구성 및 사용
+          href: howto-configure-file-uploads.md
     - name: 관리
       items:
         - name: 애플리케이션 관리

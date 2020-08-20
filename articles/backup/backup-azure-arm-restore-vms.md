@@ -4,12 +4,12 @@ description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Mach
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263013"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651151"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -184,7 +184,7 @@ CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습�
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>관리 되지 않는 Vm 및 디스크를 관리 되는 것으로 복원
 
-복원 중에 관리 [되지 않는 디스크](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) 를 [관리 디스크로](../virtual-machines/windows/managed-disks-overview.md) 복원 하는 옵션이 제공 됩니다. 기본적으로 관리 되지 않는 v m/디스크는 관리 되지 않는 Vm/디스크로 복원 됩니다. 그러나를 관리 되는 v m/디스크로 복원 하도록 선택 하면 이제이 작업을 수행할 수 있습니다. 이러한 복원은 스냅숏 단계에서 트리거되지 않지만 자격 증명 모음 단계 에서만 트리거됩니다. 관리 되지 않는 암호화 된 Vm에는이 기능을 사용할 수 없습니다.
+복원 중에 관리 [되지 않는 디스크](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) 를 [관리 디스크로](../virtual-machines/managed-disks-overview.md) 복원 하는 옵션이 제공 됩니다. 기본적으로 관리 되지 않는 v m/디스크는 관리 되지 않는 Vm/디스크로 복원 됩니다. 그러나를 관리 되는 v m/디스크로 복원 하도록 선택 하면 이제이 작업을 수행할 수 있습니다. 이러한 복원은 스냅숏 단계에서 트리거되지 않지만 자격 증명 모음 단계 에서만 트리거됩니다. 관리 되지 않는 암호화 된 Vm에는이 기능을 사용할 수 없습니다.
 
 ![관리 디스크로 복원](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 
@@ -202,7 +202,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 **완전 복원** | Azure VM과 온-프레미스 하이퍼바이저의 주요 차이점은 Azure에서 사용할 수 있는 VM 콘솔이 없다는 것입니다. BMR(완전 복구) 유형 백업을 사용한 복구와 같은 특정 시나리오에서는 콘솔이 필요합니다. 하지만 자격 증명 모음의 VM 복원이 BMR로 완전히 대체됩니다.
 **특수 네트워크 구성이 있는 VM 복원** | 특수 네트워크 구성에는 내부 또는 외부 부하 분산을 사용하거나, 여러 NICS를 사용하거나, 예약된 여러 IP 주소를 사용하는 VM이 포함되어 있습니다. [디스크 복원 옵션](#restore-disks)을 사용하여 이러한 VM을 복원합니다. 이 옵션은 지정 된 저장소 계정에 Vhd의 복사본을 만들고, 구성에 따라 [내부](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) 또는 [외부](../load-balancer/quickstart-create-standard-load-balancer-powershell.md) 부하 분산 장치, [다중 NIC](../virtual-machines/windows/multiple-nics.md)또는 [여러 예약 된 IP 주소](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)를 사용 하 여 VM을 만들 수 있습니다.
 **NIC/서브넷의 NSG (네트워크 보안 그룹)** | Azure VM 백업은 vnet, 서브넷 및 NIC 수준에서 NSG 정보를 백업 하 고 복원 하는 것을 지원 합니다.
-**영역 고정 Vm** | Azure Backup를 사용 하 여 영역에 고정 된 Azure VM을 백업 하는 경우 해당 VM이 고정 된 영역에서 복원할 수 있습니다. [자세히 알아보기](../availability-zones/az-overview.md)
+**영역 고정 Vm** | Azure Backup를 사용 하 여 영역에 고정 된 Azure VM을 백업 하는 경우 해당 VM이 고정 된 영역에서 복원할 수 있습니다. [자세한 정보](../availability-zones/az-overview.md)
 **모든 가용성 집합에서 VM 복원** | 포털에서 VM을 복원 하는 경우 가용성 집합을 선택할 수 있는 옵션이 없습니다. 복원된 VM에는 가용성 집합이 없습니다. 복원 디스크 옵션을 사용 하는 경우 제공 된 템플릿 또는 PowerShell을 사용 하 여 디스크에서 VM을 만들 때 [가용성 집합을 지정할](../virtual-machines/windows/tutorial-availability-sets.md) 수 있습니다.
 **SQL Vm과 같은 특수 Vm 복원** | Azure VM 백업을 사용 하 여 SQL VM을 백업 하 고 restore VM 옵션을 사용 하거나 디스크를 복원한 후 VM을 만들려면 [여기](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash)에 설명 된 대로 새로 만든 VM을 SQL 공급자에 등록 해야 합니다. 이렇게 하면 복원 된 VM이 SQL VM으로 변환 됩니다.
 

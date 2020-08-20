@@ -53,7 +53,7 @@
               href: database/security-controls.md
             - name: Advanced Data Security
               href: database/advanced-data-security.md
-            - name: Advanced Threat Protection
+            - name: 고급 위협 보호
               href: database/threat-detection-overview.md
             - name: 데이터 검색 및 분류
               href: database/data-discovery-and-classification-overview.md
@@ -65,6 +65,8 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: 취약성 평가 규칙
                   href: database/sql-database-vulnerability-assessment-rules.md
+                - name: 스토리지에 취약성 검색 저장
+                  href: database/sql-database-vulnerability-assessment-storage.md
             - name: '로그인, 사용자 계정, 역할 및 사용 권한'
               href: database/logins-create-manage.md
             - name: Azure AD 인증
@@ -80,6 +82,8 @@
                   href: database/conditional-access-configure.md
                 - name: 서비스 주체(애플리케이션)
                   href: database/authentication-aad-service-principal.md
+                - name: 디렉터리 읽기 권한자 역할
+                  href: database/authentication-aad-directory-readers-role.md
             - name: TDE(투명한 데이터 암호화)
               items:
                 - name: 개요
@@ -143,12 +147,14 @@
               href: database/long-term-backup-retention-configure.md
         - name: 보안
           items:
-            - name: Azure AD 게스트 사용자 만들기 및 Azure AD 관리자로 설정
-              href: database/authentication-aad-guest-users.md
+            - name: Azure AD 인증
+              items:
+                - name: Azure AD 게스트 사용자 만들기 및 Azure AD 관리자로 설정
+                  href: database/authentication-aad-guest-users.md
+                - name: 그룹에 디렉터리 읽기 권한자 역할 할당
+                  href: database/authentication-aad-directory-readers-role-tutorial.md
             - name: BYOK를 사용하여 TDE 구성
               href: database/transparent-data-encryption-byok-configure.md
-            - name: 스토리지에 취약성 검색 저장
-              href: database/sql-database-vulnerability-assessment-storage.md
             - name: Always Encrypted
               items:
                 - name: Azure 키 자격 증명 모음 사용
@@ -207,12 +213,14 @@
               href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json'
             - name: Java
               items:
+                - name: Java 및 JDBC 사용
+                  href: database/connect-query-java.md
                 - name: Spring Data JDBC 사용
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Spring Data JPA 사용
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Spring Data R2DBC 사용
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 - name: SQL Database(SQL DB)
   items:
     - name: 설명서
@@ -402,11 +410,11 @@
                 - name: Java
                   href: database/connect-query-java.md
                 - name: Spring Data JDBC를 사용하는 Java
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Spring Data JPA를 사용하는 Java
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Spring Data R2DBC를 사용하는 Java
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Node.js
                   href: database/connect-query-nodejs.md
                 - name: PHP

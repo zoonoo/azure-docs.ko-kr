@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e0cb9492f6e0b52cb0816d16be5d67d3b92cfe56
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849661"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651406"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,7 +127,7 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
 
 컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](#submit)합니다.
 
- ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>계산 클러스터 비용 낮추기
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> 계산 클러스터 비용 낮추기
 
 [우선 순위가 낮은 vm](concept-plan-manage-cost.md#low-pri-vm) 을 사용 하 여 작업의 일부 또는 전체를 실행 하도록 선택할 수도 있습니다. 이러한 VM은 가용성이 보장되지 않고 사용 중에 선점될 수 있습니다. 선점된 작업은 계속되지 않고 다시 시작됩니다. 
 
@@ -180,8 +180,6 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
      
     run = experiment.submit(config=src)
     ```
-
-계산 인스턴스에 유용한 명령에 대 한 자세한 내용은 노트북 [교육-사전 계산 einstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)를 참조 하세요. 이 노트북은 *학습/사전 주문형 einstance*의 스튜디오 **Samples** 폴더 에서도 사용할 수 있습니다.
 
 계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](#submit) 하는 것입니다.
 

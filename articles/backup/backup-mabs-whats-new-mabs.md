@@ -3,12 +3,12 @@ title: Microsoft Azure Backup Server의 새로운 기능
 description: Microsoft Azure Backup Server에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: a88b2926141092a9a1aeca988646aa3b69330f90
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190836"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648754"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>MABS (Microsoft Azure Backup Server)의 새로운 기능
 
@@ -114,7 +114,7 @@ MABS 데이터베이스로 SQL 2017과 함께 MABS V3을 설치할 수 있습니
 
 ### <a name="windows-server-2019-support"></a>Windows Server 2019 지원
 
-Windows Server 2019에 MABS V3을 설치할 수 있습니다. WS2019와 함께 MABS V3을 사용하기 위해 MABS V3으로 설치/업그레이드하기 전에 OS를 WS2019로 업그레이드하거나 WS2016에서 V3 설치/업그레이드 후에 OS를 업그레이드할 수 있습니다.
+Windows Server 2019에 MABS V3을 설치할 수 있습니다. MABS V3을 WS2019와 함께 사용 하려면 MABS V3을 설치/업그레이드 하기 전에 OS를 WS2019로 업그레이드 하거나, WS2016에서 V3을 설치/업그레이드 한 후 OS를 업그레이드할 수 있습니다.
 
 MABS V3은 정식 릴리스이며, Windows Server 2016, Windows Server 2019에 직접 설치하거나 MABS V2에서 업그레이드할 수 있습니다. Backup Server V3으로 업그레이드하거나 이 버전을 설치하기 전에 설치 필수 구성 요소를 읽어 보세요.
 [여기](./backup-azure-microsoft-azure-backup.md#software-package)에서 MABS에 대한 설치/업그레이드 단계에 대한 자세한 내용을 참조하세요.

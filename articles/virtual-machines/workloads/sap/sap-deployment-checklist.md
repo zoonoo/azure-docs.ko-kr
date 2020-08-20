@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511145"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651729"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -110,9 +110,9 @@ ms.locfileid: "88511145"
            -  [Azure의 Linux 가상 머신에 대 한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
    2. 저장할.
         - [SAP 워크 로드의 문서 Azure Storage 유형을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 확인 하세요.
-        - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](../../windows/disks-types.md#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
-        - 일반적으로 [Azure 표준 HDD 디스크](../../windows/disks-types.md#standard-hdd)를 사용 하지 않는 것이 좋습니다.
-        - 원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](../../windows/disks-types.md#premium-ssd) 를 사용 합니다.
+        - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](../../disks-types.md#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
+        - 일반적으로 [Azure 표준 HDD 디스크](../../disks-types.md#standard-hdd)를 사용 하지 않는 것이 좋습니다.
+        - 원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](../../disks-types.md#premium-ssd) 를 사용 합니다.
         - [Azure managed disks](https://azure.microsoft.com/services/managed-disks/)를 사용 합니다.
         - M-Series가 있는 DBMS 로그 드라이브에 대해 Azure Write Accelerator를 사용합니다. [쓰기 가속기](../../how-to-enable-write-accelerator.md)에 설명 된 대로 쓰기 가속기 제한 및 사용에 대해 알고 있어야 합니다.
         - 다양 한 DBMS 형식에 대해 일반적인 [SAP 관련 dbms 설명서](./dbms_guide_general.md) 및 일반 문서가 가리키는 dbms 관련 설명서를 확인 합니다.

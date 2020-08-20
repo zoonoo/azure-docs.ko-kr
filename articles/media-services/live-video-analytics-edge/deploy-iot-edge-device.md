@@ -3,19 +3,19 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067915"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652460"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 라이브 비디오 분석의 HW/SW 제약 조건을 충족 하는 Linux 컴퓨터
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
@@ -51,7 +51,7 @@ az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name 
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-미디어 서비스 Api에 액세스 하기 위한 자격 증명을 가져오려면이 문서의 단계를 따르세요. [미디어 서비스 api에 액세스](../latest/access-api-howto.md#use-the-azure-portal)합니다.
+미디어 서비스 api에 액세스 하기 위한 자격 증명을 가져오려면이 문서의 단계를 따르세요. [미디어 서비스 api에 액세스](../latest/access-api-howto.md?tabs=portal) 하 고 포털 탭을 선택 합니다.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>배포를 위한 로컬 사용자 계정 만들기 및 사용
 IoT Edge 모듈에서 Live Video Analytics를 실행 하려면 가능한 적은 수의 권한으로 로컬 사용자 계정을 만듭니다. 예를 들어 Linux 컴퓨터에서 다음 명령을 실행 합니다.
@@ -102,7 +102,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가** 드롭다운을 클릭 하 고 **IoT Edge 모듈** 을 선택 하 여 **IoT Edge 모듈 추가** 페이지를 표시 합니다.
 1. **모듈 설정** 탭에서 모듈의 이름을 입력 한 다음 컨테이너 이미지 URI를 지정 합니다.   
-    예제:
+    예:
     
     * **IoT Edge 모듈 이름**: lvaEdge
     * **이미지 URI**: mcr.microsoft.com/media/live-video-analytics:1.0    
@@ -168,7 +168,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
     * {resourceGroupName}-미디어 서비스 계정이 속한 리소스 그룹
     * {AMS-account-name}-Media Services 계정의 이름입니다.
     
-    다른 값을 얻으려면 [액세스 AZURE MEDIA SERVICES API](../latest/access-api-howto.md#use-the-azure-portal)를 참조 하세요.  
+    다른 값을 얻으려면 [액세스 AZURE MEDIA SERVICES API](../latest/access-api-howto.md?tabs=portal) 를 참조 하 고 포털 탭을 선택 합니다.  
     * aadTenantId-테 넌 트의 ID 이며 위의 링크에서 "AadTenantId"와 동일 합니다.
     * aadServicePrincipalAppId-미디어 서비스 계정에 대 한 서비스 주체의 앱 ID 이며 위 링크의 "AadClientId"와 동일 합니다.
     * aadServicePrincipalSecret-서비스 사용자의 암호 이며 위의 링크에서 "AadSecret"와 동일 합니다.

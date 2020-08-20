@@ -6,6 +6,11 @@
       href: overview.md
     - name: 지원되는 데이터 저장소
       href: supported-data-stores.md
+- name: 빠른 시작
+  items:
+    - name: 데이터 공유 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: 자습서
   expanded: true
   items:

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f49a66fc6e233658b228b7ad9bacdaa23917afef
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547327"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648737"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Azure ML 학습 실행에서 로깅 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -70,8 +70,6 @@ run = exp.submit(src, show_output=True)
 run.wait_for_completion(show_output=True)
 ```
 
-ScriptRunConfigs 로그를 사용 하는 전체 샘플 노트북은 [모델을 로컬로 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb)을 참조 하세요.
-
 ## <a name="native-python-logging"></a>네이티브 Python 로깅
 
 SDK의 일부 로그에는 디버그할 로깅 수준을 설정 하도록 지시 하는 오류가 포함 되어 있을 수 있습니다. 로깅 수준을 설정하려면 스크립트에 다음 코드를 추가합니다.
@@ -88,9 +86,7 @@ logging.basicConfig(level=logging.DEBUG)
 Azure Machine Learning designer (미리 보기)의 로깅 메트릭에 대 한 자세한 내용은 [디자이너에서 메트릭을 기록 하는 방법 (미리 보기)](how-to-track-designer-experiments.md) 을 참조 하세요.
 
 ## <a name="example-notebooks"></a>노트북 예제
-이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+다음 노트북은이 문서의 개념을 보여 줍니다.
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

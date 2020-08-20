@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808630"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650879"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -189,7 +189,7 @@ Azure [개인 끝점](../private-link/private-endpoint-overview.md) 은 Azure �
 
 ## <a name="governance-considerations"></a>거버넌스 고려 사항
 
-Azure의 거 버 넌 스는 주로 [Azure Policy](../governance/policy/overview.md) 및 [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용 하 여 구현 됩니다. [Azure Policy](../governance/policy/overview.md)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다. 이 기능은 해당 리소스가 회사 표준을 준수하게 합니다. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용하면 Azure 리소스 및 기타 클라우드 공급 기업에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다. 또한 [Azure Price 계산기](https://azure.microsoft.com/pricing/calculator/) 및 [Azure Advisor](../advisor/advisor-overview.md) 같은 다음 도구는 cost management 프로세스에서 중요 한 역할을 합니다.
+Azure의 거 버 넌 스는 주로 [Azure Policy](../governance/policy/overview.md) 및 [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용 하 여 구현 됩니다. [Azure Policy](../governance/policy/overview.md)를 사용하면 정책 정의를 만들고 할당하고 관리하여 리소스에 대 한 규칙을 적용할 수 있습니다. 이 기능은 해당 리소스가 회사 표준을 준수하게 합니다. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md)를 사용하면 Azure 리소스 및 기타 클라우드 공급 기업에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다. 또한 [Azure Price 계산기](https://azure.microsoft.com/pricing/calculator/) 및 [Azure Advisor](../advisor/advisor-overview.md)  같은 다음 도구는 cost management 프로세스에서 중요 한 역할을 합니다.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup 기본 제공 Azure Policy를 통해 두 가지 주요 시나리오를 지원 합니다.
 

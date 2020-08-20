@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508790"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649162"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -87,6 +87,10 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. Datahub API 끝점 이름은 소문자 여야 합니다.
+> 2. Datahub API 끝점에 대 한 farmbeats 웹 사이트 이름 url을 복사 하는 경우 후행 슬래시 (/)가 없는지 확인 합니다.
 
 9. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다.
 

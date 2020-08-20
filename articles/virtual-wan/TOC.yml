@@ -136,6 +136,10 @@
       items:
         - name: 로그 및 메트릭
           href: logs-metrics.md
+    - name: Private Link
+      items:
+        - name: Private Link 연결 구성
+          href: howto-private-link.md
 - name: 참조
   items:
     - name: Azure PowerShell

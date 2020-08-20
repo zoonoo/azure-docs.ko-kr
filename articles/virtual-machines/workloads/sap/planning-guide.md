@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547412"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652205"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -242,7 +242,7 @@ ms.locfileid: "88547412"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -533,7 +533,7 @@ Azure에서 서비스 또는 Vm을 배포할 때 Vhd 및 VM 이미지의 배포�
 
 Azure에서 SAP 배포를 계획 하는 데 중요 한 역할을 합니다. 저장소 계정 내의 지속형 디스크 수를 관리 하는 것 이었습니다. 저장소 계정을 관리 하 고 결국 새 저장소 계정을 만들어 더 많은 지속형 디스크를 만들어야 합니다.
 
-최근 몇 년 동안 [Azure managed disks](../../windows/managed-disks-overview.md) 를 도입 하면 이러한 작업을 통해 안심 하 고 있습니다. SAP 배포에 대 한 권장 사항은 Azure storage 계정을 직접 관리 하는 대신 Azure managed disks를 활용 하는 것입니다. Azure managed disks는 여러 저장소 계정에서 디스크를 배포 하므로 개별 저장소 계정의 한도를 초과 하지 않습니다.
+최근 몇 년 동안 [Azure managed disks](../../managed-disks-overview.md) 를 도입 하면 이러한 작업을 통해 안심 하 고 있습니다. SAP 배포에 대 한 권장 사항은 Azure storage 계정을 직접 관리 하는 대신 Azure managed disks를 활용 하는 것입니다. Azure managed disks는 여러 저장소 계정에서 디스크를 배포 하므로 개별 저장소 계정의 한도를 초과 하지 않습니다.
 
 저장소 계정 내에서 특정 디스크를 특정 컨테이너로 그룹화 하는 데 사용할 수 있는 ' 컨테이너 ' 라는 폴더 개념 유형이 있습니다.
 
@@ -804,7 +804,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 
 * 원래 운영 체제가 포함 된 VHD의 최대 크기는 127 GB입니다. 이 제한은 2015년 3월 말에 없어졌습니다. 이제 운영 체제를 포함 하는 VHD는 다른 Azure Storage 호스트 된 VHD로 최대 1TB 크기를 지정할 수 있습니다.
 * 고정된 VHD 형식이어야 합니다. 동적 VHD 또는 VHDx 형식의 VHD는 Azure에서 아직 지원되지 않습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
-* VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. 데이터 디스크의 크기 제한에 대해 알아보려면 [이 문서(Linux)](../../linux/managed-disks-overview.md)와 [이 문서(Windows)](../../windows/managed-disks-overview.md)를 확인하세요. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
+* VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. 데이터 디스크의 크기 제한에 대해서는 [이 문서](../../managed-disks-overview.md) 를 참조 하세요. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * Microsoft 기술 지원 서비스에서 사용할 수 있거나 VM이 배포되고 적절한 추가 사용자가 사용할 수 있게 될 때까지 서비스 및 애플리케이션이 실행되기 위한 컨텍스트로 할당될 수 있는 관리자 권한의 다른 로컬 계정을 추가합니다.
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
 
@@ -831,7 +831,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 
 * 원래 운영 체제가 포함 된 VHD의 최대 크기는 127 GB입니다. 이 제한은 2015년 3월 말에 없어졌습니다. 이제 운영 체제를 포함 하는 VHD는 다른 Azure Storage 호스트 된 VHD로 최대 1TB 크기를 지정할 수 있습니다.
 * 고정된 VHD 형식이어야 합니다. 동적 VHD 또는 VHDx 형식의 VHD는 Azure에서 아직 지원되지 않습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
-* VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. 데이터 디스크의 크기 제한에 대해서는 [이 문서 (Linux)](../../windows/managed-disks-overview.md) 및 [이 문서 (Windows)](../../linux/managed-disks-overview.md) 를 참조 하세요. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
+* VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. 데이터 디스크의 크기 제한에 대해서는 [이 문서](../../managed-disks-overview.md) 를 참조 하세요. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
 * 이미지에 SAP NetWeaver의 설치가 포함되어 있고 Azure 배포 시에 호스트 이름을 원래 이름에서 다르게 변경할 가능성이 있는 경우 SAP Software Provisioning Manager DVD의 최신 버전을 템플릿으로 복사하는 것이 좋습니다. 이렇게 하면 새 복사가 시작되는 즉시, SAP 제공 이름 바꾸기 기능을 사용하여 배포된 VM 이미지 내에서 변경된 호스트 이름을 손쉽게 조정하고 SAP 시스템의 SID를 변경할 수 있습니다.
 
