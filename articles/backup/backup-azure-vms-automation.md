@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 Azure Vm 백업 및 복구
 description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백업 및 복구 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7957253565658ca387502acb413bc3e6f9a1a3a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e695fae087ca4e10a1d900a45cb02947bd5afa0b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538805"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652749"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -51,14 +51,14 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](/powershell
     Get-Command *azrecoveryservices*
     ```
 
-    Azure Backup, Azure Site Recovery 및 Recovery Services 자격 증명 모음의 별칭과 cmdlet이 나타납니다. 다음 이미지는 표시되는 예이며 cmdlet의 전체 목록이 아닙니다.
+    Azure Backup, Azure Site Recovery 및 Recovery Services 자격 증명 모음의 별칭과 cmdlet이 나타납니다. 다음 이미지는 표시되는 예이며 Cmdlet의 전체 목록이 아닙니다.
 
     ![Recovery Services 목록](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
 3. **Connect-AzAccount**를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다.
 
     * 또는 **Connect-AzAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예: **AzAccount-Tenant "fabrikam.com"**
+    * 테 넌 트를 대신 하 여 작업 중인 CSP 파트너인 경우 tenantID 또는 테 넌 트 주 도메인 이름을 사용 하 여 고객을 테 넌 트로 지정 합니다. 예: **AzAccount-Tenant "fabrikam.com"**
 
 4. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
@@ -189,7 +189,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-백업 보호 정책은 하나 이상의 보존 정책과 연관됩니다. 보존 정책은 복구 지점을 삭제 하기 전까지 유지 되는 기간을 정의 합니다.
+백업 보호 정책은 하나 이상의 보존 정책과 연관됩니다. 보존 정책은 복구 지점을 삭제하기 유지할 기간을 정의합니다.
 
 * 기본 보존 정책을 보려면 [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject)를 사용합니다.
 * 마찬가지로 [AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) 를 사용 하 여 기본 일정 정책을 가져올 수 있습니다.
@@ -315,7 +315,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 #### <a name="configuring-instant-restore-snapshot-retention"></a>즉시 복원 스냅숏 보존 구성
 
 > [!NOTE]
-> Az PS version 1.6.0 부터는 Powershell을 사용 하 여 정책에서 즉시 복원 스냅숏 보존 기간을 업데이트할 수 있습니다.
+> Az PS version 1.6.0 부터는 PowerShell을 사용 하 여 정책에서 즉시 복원 스냅숏 보존 기간을 업데이트할 수 있습니다.
 
 ````powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -402,7 +402,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 ## <a name="restore-an-azure-vm"></a>Azure VM 복원
 
-Azure Portal을 사용하여 VM을 복원하는 방식과 PowerShell을 사용하여 VM을 복원하는 방식 간에는 주요 차이점이 있습니다. PowerShell을 사용하면 복구 지점에서 디스크 및 구성 정보가 만들어질 때 복원 작업이 완료됩니다. 복원 작업 중에 가상 머신은 만들어지지 않습니다. 디스크에서 가상 머신을 만들려면 [저장된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 섹션을 참조하세요. 전체 VM을 복원하지 않고 Azure VM 백업에서 몇 개의 파일을 복원하거나 복구하려면 [파일 복구](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup) 섹션을 참조하세요.
+Azure Portal를 사용 하 여 VM을 복원 하는 것과 PowerShell을 사용 하 여 VM을 복원 하는 것 간에는 중요 한 차이점이 있습니다. PowerShell을 사용하면 복구 지점에서 디스크 및 구성 정보가 만들어질 때 복원 작업이 완료됩니다. 복원 작업 중에 가상 머신은 만들어지지 않습니다. 디스크에서 가상 머신을 만들려면 [저장된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 섹션을 참조하세요. 전체 VM을 복원하지 않고 Azure VM 백업에서 몇 개의 파일을 복원하거나 복구하려면 [파일 복구](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup) 섹션을 참조하세요.
 
 > [!Tip]
 > 복원 작업 중에 가상 머신은 만들어지지 않습니다.
@@ -422,7 +422,7 @@ Azure VM을 복원하는 기본 단계는 다음과 같습니다.
 * 디스크를 복원합니다.
 * 저장된 디스크에서 VM을 만듭니다.
 
-### <a name="select-the-vm"></a>VM 선택
+### <a name="select-the-vm-when-restoring-files"></a>VM (파일을 복원 하는 경우) 선택
 
 올바른 백업 항목을 식별하는 PowerShell 개체를 가져오려면, 자격 증명 모음에 있는 컨테이너에서 시작하여, 개체 계층 구조를 따라 내려가는 방식으로 작업해야 합니다. VM을 나타내는 컨테이너를 선택 하려면 [AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) cmdlet을 사용 하 고 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) cmdlet으로 파이프 합니다.
 
@@ -431,9 +431,9 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>복구 지점 선택
+### <a name="choose-a-recovery-point-when-restoring-files"></a>복구 지점 선택 (파일을 복원 하는 경우)
 
-[Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet을 사용하여 백업 항목에 대한 모든 복구 지점을 나열합니다. 그런 후 복원할 복구 지점을 선택합니다. 사용할 복구 지점을 잘 모를 경우 목록에서 가장 최근의 RecoveryPointType = AppConsistent 지점을 선택하는 것이 좋습니다.
+[Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet을 사용하여 백업 항목에 대한 모든 복구 지점을 나열합니다. 그런 후 복원할 복구 지점을 선택합니다. 사용할 복구 지점을 잘 모르겠으면 목록에서 가장 최근의 RecoveryPointType = AppConsistent 지점을 선택 하는 것이 좋습니다.
 
 다음 스크립트에서 변수 **$rp**는 지난 7 일간의 선택 된 백업 항목에 대 한 복구 지점의 배열입니다. 배열은 인덱스 0의 가장 최근 복구 지점부터 역 시간순으로 정렬됩니다. 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다. 예에서, $rp[0]은 최신 복구 지점을 선택합니다.
 
@@ -544,9 +544,9 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-템플릿은 고객의 스토리지 계정과 지정된 컨테이너에 있기 때문에 직접 액세스할 수 없습니다. 이 템플릿에 액세스하려면 (임시 SAS 토큰과 함께) 전체 URL이 필요합니다.
+템플릿은 고객의 저장소 계정 및 지정 된 컨테이너에 있으므로 직접 액세스할 수 없습니다. 이 템플릿에 액세스하려면 (임시 SAS 토큰과 함께) 전체 URL이 필요합니다.
 
-1. 먼저 템플릿 Bloburi에서 템플릿 이름을 추출 합니다. 형식은 아래에 설명 되어 있습니다. Powershell에서 split 작업을 사용 하 여이 URL에서 최종 템플릿 이름을 추출할 수 있습니다.
+1. 먼저 템플릿 Bloburi에서 템플릿 이름을 추출 합니다. 형식은 아래에 설명 되어 있습니다. PowerShell에서 split 작업을 사용 하 여이 URL에서 최종 템플릿 이름을 추출할 수 있습니다.
 
     ```http
     https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
@@ -636,9 +636,9 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
         }
     ```
 
-    * **Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 비관리 VM** - Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 비관리 VM의 경우 원본 **키 자격 증명 모음/비밀을 사용할 수 없으면**[Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS Blob에서 암호화 세부 정보를 설정합니다. 데이터 Blob의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
+    * **Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 비관리 VM** - Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 비관리 VM의 경우 원본 **키 자격 증명 모음/비밀을 사용할 수 없으면**[Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 비밀을 복원합니다. 그런 후 다음 스크립트를 실행 하 여 복원 된 OS blob에 대 한 암호화 세부 정보를 설정 합니다 (데이터 blob에는이 단계가 필요 하지 않음). 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
 
-    아래 스크립트는 원본 키 자격 증명 모음/비밀을 사용할 수 없을 때만 실행하면 됩니다.
+    아래 스크립트는 원본 키 자격 증명 모음/암호를 사용할 수 없는 경우에만 실행 해야 합니다.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -663,9 +663,9 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
         }
     ```
 
-    * **Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 비관리 VM** - Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 비관리 VM의 경우 원본 **키 자격 증명 모음/키/비밀을 사용할 수 없으면**[Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 키와 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS Blob에서 암호화 세부 정보를 설정합니다. 데이터 Blob의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
+    * **Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 비관리 VM** - Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 비관리 VM의 경우 원본 **키 자격 증명 모음/키/비밀을 사용할 수 없으면**[Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 키와 비밀을 복원합니다. 그런 후 다음 스크립트를 실행 하 여 복원 된 OS blob에 대 한 암호화 세부 정보를 설정 합니다 (데이터 blob에는이 단계가 필요 하지 않음). 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
 
-    아래 스크립트는 원본 키 자격 증명 모음/키/비밀을 사용할 수 없을 때만 실행하면 됩니다.
+    아래 스크립트는 원본 키 자격 증명 모음/키/암호를 사용할 수 없는 경우에만 실행 해야 합니다.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -697,9 +697,9 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
 
     * **Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM** - Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM의 경우에는 복원된 관리 디스크를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
 
-    * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek만 해당)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek만 사용 하 여 암호화 됨)의 경우, 원본 키 **자격 증명 모음/암호를 사용할 수 없는** 경우 [Azure Backup 복구 지점에서 암호화 되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 사용 하 여 key vault에 비밀을 복원 합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
+    * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek만 해당)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek만 사용 하 여 암호화 됨)의 경우, 원본 키 **자격 증명 모음/암호를 사용할 수 없는** 경우 [Azure Backup 복구 지점에서 암호화 되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 사용 하 여 key vault에 비밀을 복원 합니다. 그런 후 다음 스크립트를 실행 하 여 복원 된 OS 디스크에서 암호화 세부 정보를 설정 합니다 (데이터 디스크에는이 단계가 필요 하지 않음). 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
 
-    아래 스크립트는 원본 키 자격 증명 모음/비밀을 사용할 수 없을 때만 실행하면 됩니다.  
+    아래 스크립트는 원본 keyVault/암호를 사용할 수 없는 경우에만 실행 해야 합니다.  
 
     ```powershell
     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -811,7 +811,7 @@ Azure VM 백업에서 파일을 복원하는 기본 단계는 다음과 같습�
 * 필요한 파일 복사
 * 디스크 분리
 
-### <a name="select-the-vm"></a>VM 선택
+### <a name="select-the-vm-when-restoring-the-vm"></a>Vm을 선택 합니다 (VM을 복원 하는 경우).
 
 올바른 백업 항목을 식별하는 PowerShell 개체를 가져오려면, 자격 증명 모음에 있는 컨테이너에서 시작하여, 개체 계층 구조를 따라 내려가는 방식으로 작업해야 합니다. VM을 나타내는 컨테이너를 선택 하려면 [AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) cmdlet을 사용 하 고 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) cmdlet으로 파이프 합니다.
 
@@ -820,9 +820,9 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>복구 지점 선택
+### <a name="choose-a-recovery-point-when-restoring-the-vm"></a>복구 지점 선택 (VM을 복원 하는 경우)
 
-[Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet을 사용하여 백업 항목에 대한 모든 복구 지점을 나열합니다. 그런 후 복원할 복구 지점을 선택합니다. 사용할 복구 지점을 잘 모를 경우 목록에서 가장 최근의 RecoveryPointType = AppConsistent 지점을 선택하는 것이 좋습니다.
+[Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet을 사용하여 백업 항목에 대한 모든 복구 지점을 나열합니다. 그런 후 복원할 복구 지점을 선택합니다. 사용할 복구 지점을 잘 모르겠으면 목록에서 가장 최근의 RecoveryPointType = AppConsistent 지점을 선택 하는 것이 좋습니다.
 
 다음 스크립트에서 변수 **$rp**는 지난 7 일간의 선택 된 백업 항목에 대 한 복구 지점의 배열입니다. 배열은 인덱스 0의 가장 최근 복구 지점부터 역 시간순으로 정렬됩니다. 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다. 예에서, $rp[0]은 최신 복구 지점을 선택합니다.
 

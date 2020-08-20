@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835734"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652783"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -193,9 +193,8 @@ Azure VM은 디스크를 사용하여 운영 체제, 앱 및 데이터를 저장
 
 디스크 저장소 및 Vm의 사용 가능한 디스크 유형에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Windows Vm 용 Azure managed disks](../virtual-machines/windows/managed-disks-overview.md)
-- [Linux Vm에 대 한 Azure managed disks](../virtual-machines/linux/managed-disks-overview.md)
-- [Vm에 사용 가능한 디스크 유형](../virtual-machines/windows/disks-types.md)
+- [Linux Vm에 대 한 Azure managed disks](../virtual-machines/managed-disks-overview.md)
+- [Vm에 사용 가능한 디스크 유형](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Premium storage를 사용 하 여 Azure Vm 백업 및 복원
 
@@ -204,7 +203,7 @@ Azure Backup에서 premium storage를 사용 하 여 Azure Vm을 백업할 수 �
 - Premium storage를 사용 하 여 Vm을 백업 하는 과정에서 백업 서비스는 저장소 계정에 *azurebackup-* 이라는 임시 준비 위치를 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다.
 - Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. 자세한 내용은 [프리미엄 페이지 blob storage 계정에 대 한 확장성 목표](../storage/blobs/scalability-targets-premium-page-blobs.md)를 참조 하세요. 준비 위치를 수정하지 마세요.
 - 백업 작업이 완료되면 준비 위치가 삭제됩니다.
-- 준비 위치에 사용되는 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/disks-types.md#billing)과 일관성이 있습니다.
+- 준비 위치에 사용되는 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/disks-types.md#billing)과 일관성이 있습니다.
 
 Premium storage를 사용 하 여 Azure Vm을 복원 하는 경우 프리미엄 또는 표준 저장소로 복원할 수 있습니다. 일반적으로 premium storage로 복원 합니다. 그러나 VM에서 파일의 하위 집합만 필요한 경우 표준 저장소로 복원 하는 것이 비용 효율적일 수 있습니다.
 
