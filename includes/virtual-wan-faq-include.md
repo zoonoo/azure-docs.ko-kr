@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375668"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507583"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
@@ -187,7 +187,7 @@ NVA(네트워크 가상 어플라이언스)는 가상 허브 내에 배포할 �
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Azure Virtual WAN을 사용할 때 네트워크 처리량 또는 연결 제한이 있나요?
 
-네트워크 처리량은 가상 WAN 허브의 서비스 단위로 제한됩니다. 가상 WAN을 원하는 만큼 사용할 수 있지만, 각 Virtual WAN은 지역마다 1개의 허브를 허용합니다. 각 허브에서 VPN 집계 처리량은 최대 20Gbps, ExpressRoute 집계 처리량은 최대 20Gbps, 사용자 VPN/지점 및 사이트 간 VPN 집계 처리량은 최대 20Gbps입니다. 가상 허브의 라우터는 VNet 간 트래픽 흐름에 대해 최대 50Gbps를 지원하며, Virtual WAN 허브의 모든 VNet에 있는 전체 VM 워크로드가 2000개라고 가정합니다.
+네트워크 처리량은 가상 WAN 허브의 서비스 단위로 제한됩니다. 가상 WAN을 원하는 만큼 사용할 수 있지만, 각 Virtual WAN은 지역마다 1개의 허브를 허용합니다. 각 허브에서 VPN 집계 처리량은 최대 20Gbps, ExpressRoute 집계 처리량은 최대 20Gbps, 사용자 VPN/지점 및 사이트 간 VPN 집계 처리량은 최대 20Gbps입니다. 가상 허브의 라우터는 VNet 간 트래픽 흐름에 대해 최대 50Gbps를 지원하며, 단일 가상 허브에 연결된 모든 VNet에 있는 전체 VM 워크로드가 2000개라고 가정합니다.
 
 VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN은 가상 허브당 최대 1000개 연결 또는 2000개 IPsec 터널을 지원합니다. 원격 사용자는 가상 허브에 연결할 때 P2S VPN 게이트웨이에 연결하며, 이 게이트웨이는 가상 허브의 P2S VPN 게이트웨이에 대해 선택한 배율 단위(대역폭)에 따라 최대 10,000명의 사용자를 지원합니다.
 
