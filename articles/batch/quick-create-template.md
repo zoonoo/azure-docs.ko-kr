@@ -2,14 +2,14 @@
 title: Azure 빠른 시작 - 배치 계정 만들기 - Azure Resource Manager 템플릿
 description: Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리합니다.
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c59e8891678d9fc1af7c4fe78e4ee2d267ec99b4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086129"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511391"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Batch 계정 만들기
 
