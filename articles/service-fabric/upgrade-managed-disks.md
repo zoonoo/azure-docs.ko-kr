@@ -3,12 +3,12 @@ title: Azure managed disks를 사용 하도록 클러스터 노드 업그레이�
 description: 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653701"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717526"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Azure managed disks를 사용 하도록 클러스터 노드 업그레이드
 
@@ -205,7 +205,7 @@ Get-ServiceFabricClusterHealth
 }
 ```
 
-### <a name="variables"></a>변수
+### <a name="variables"></a>variables
 
 배포 템플릿 섹션에서 `variables` 새 확장 집합의 인바운드 NAT 주소 풀에 대 한 항목을 추가 합니다.
 
@@ -365,7 +365,7 @@ foreach($name in $nodeNames){
 
 방법 배우기:
 
-* [Service Fabric 클러스터 주 노드 형식 강화](service-fabric-scale-up-node-type.md)
+* [Service Fabric 클러스터 주 노드 형식 강화](service-fabric-scale-up-primary-node-type.md)
 
 * [관리 디스크를 사용 하도록 확장 집합 템플릿 변환](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

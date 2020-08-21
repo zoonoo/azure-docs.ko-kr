@@ -20,10 +20,8 @@
       href: index-speech-to-text.yml
     - name: 개요
       items:
-        - name: 실시간 음성 텍스트 변환이란?
+        - name: 음성 텍스트 변환이란?
           href: speech-to-text.md
-        - name: 일괄 처리 음성 텍스트 변환이란?
-          href: batch-transcription.md
         - name: 음성 인식 기본 사항
           href: speech-to-text-basics.md
     - name: 빠른 시작
@@ -53,6 +51,8 @@
           href: how-to-select-audio-input-devices.md
         - name: 자동 소스 언어 감지 사용
           href: how-to-automatic-language-detection.md
+        - name: 일괄 처리 기록 API 사용
+          href: batch-transcription.md
     - name: 자습서
       items:
         - name: 테넌트 모델을 사용하여 정확도 향상
@@ -638,10 +638,12 @@
     - name: 소버린 클라우드
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: 가격 책정 및 제한
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
+    - name: 할당량 및 한도
+      href: speech-services-quotas-and-limits.md
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화

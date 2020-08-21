@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 116fa2a4c71fc8ebc67387cf02090bbd664b862a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22037468c47de45513351e1d6126d3f3e5fccadc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035386"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717798"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Azure Active Directory 셀프 서비스 암호 재설정에 대 한 사용자 인증 연락처 정보 미리 채우기 (SSPR)
 
@@ -88,7 +88,7 @@ PowerShell을 사용하여 다음 필드를 설정할 수 있습니다.
 
 ### <a name="use-powershell-version-1"></a>PowerShell 버전 1 사용
 
-시작 하려면 [AZURE AD PowerShell 모듈을 다운로드](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule)하 여 설치 합니다. 설치한 후에는 다음 단계를 사용 하 여 각 필드를 구성 합니다.
+시작 하려면 [AZURE AD PowerShell 모듈을 다운로드](/previous-versions/azure/jj151815(v=azure.100)#bkmk_installmodule)하 여 설치 합니다. 설치한 후에는 다음 단계를 사용 하 여 각 필드를 구성 합니다.
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>PowerShell 버전 1을 사용하여 인증 데이터 설정
 
@@ -126,7 +126,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>PowerShell 버전 2 사용
 
-시작 하려면 [AZURE AD 버전 2 PowerShell 모듈을 다운로드](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0)하 여 설치 합니다.
+시작 하려면 [AZURE AD 버전 2 PowerShell 모듈을 다운로드](/powershell/module/azuread/?view=azureadps-2.0)하 여 설치 합니다.
 
 를 지 원하는 최신 버전의 PowerShell에서 빠르게 설치 하려면 `Install-Module` 다음 명령을 실행 합니다. 첫 번째 줄은 모듈이 이미 설치 되어 있는지 확인 합니다.
 

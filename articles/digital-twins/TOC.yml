@@ -22,6 +22,8 @@
       href: concepts-twins-graph.md
     - name: 쿼리 언어
       href: concepts-query-language.md
+    - name: 쿼리 단위
+      href: concepts-query-units.md
     - name: 다른 서비스와 통합
       href: concepts-integration.md
     - name: 이벤트 경로
